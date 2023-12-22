@@ -906,8 +906,7 @@ for.body.i:                                       ; preds = %libdef_uleb128.exit
   %cmp9.i = icmp eq i8 %15, 14
   %or.cond.i = select i1 %cmp6.i, i1 %cmp9.i, i1 false
   %spec.select.i = select i1 %or.cond.i, i8 17, i8 %14
-  %inc.i = zext i1 %or.cond.i to i8
-  %spec.select17.i = add i8 %15, %inc.i
+  %spec.select17.i = select i1 %or.cond.i, i8 15, i8 %15
   store i8 %spec.select.i, ptr %p.addr.056.i, align 1
   store i8 %spec.select17.i, ptr %arrayidx4.i, align 1
   %inc15.i = add nuw i32 %i.055.i, 1

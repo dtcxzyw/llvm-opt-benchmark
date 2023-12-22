@@ -22092,7 +22092,7 @@ vector.scevcheck:                                 ; preds = %for.body.i.preheade
   br i1 %21, label %for.body.i.preheader46, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %3, -8
+  %n.vec = and i64 %3, 8589934584
   %broadcast.splatinsert = insertelement <4 x i8> poison, i8 %16, i64 0
   %broadcast.splat = shufflevector <4 x i8> %broadcast.splatinsert, <4 x i8> poison, <4 x i32> zeroinitializer
   br label %vector.body
@@ -22160,7 +22160,7 @@ vector.scevcheck193:                              ; preds = %for.body.lr.ph.i100
   br i1 %37, label %for.body.i101.preheader, label %vector.ph197
 
 vector.ph197:                                     ; preds = %vector.scevcheck193
-  %n.vec199 = and i64 %.fr, -8
+  %n.vec199 = and i64 %.fr, 8589934584
   %broadcast.splatinsert210 = insertelement <4 x i8> poison, i8 %16, i64 0
   %broadcast.splat211 = shufflevector <4 x i8> %broadcast.splatinsert210, <4 x i8> poison, <4 x i32> zeroinitializer
   br label %vector.body204
@@ -22231,7 +22231,7 @@ vector.scevcheck215:                              ; preds = %for.body.i117.prehe
   br i1 %53, label %for.body.i117.preheader41, label %vector.ph219
 
 vector.ph219:                                     ; preds = %vector.scevcheck215
-  %n.vec221 = and i64 %3, -8
+  %n.vec221 = and i64 %3, 8589934584
   %broadcast.splatinsert232 = insertelement <4 x i8> poison, i8 %16, i64 0
   %broadcast.splat233 = shufflevector <4 x i8> %broadcast.splatinsert232, <4 x i8> poison, <4 x i32> zeroinitializer
   br label %vector.body226
@@ -22302,7 +22302,7 @@ vector.scevcheck237:                              ; preds = %for.body.lr.ph.i132
   br i1 %71, label %for.body.i133.preheader, label %vector.ph241
 
 vector.ph241:                                     ; preds = %vector.scevcheck237
-  %n.vec243 = and i64 %65, -8
+  %n.vec243 = and i64 %65, 8589934584
   %broadcast.splatinsert254 = insertelement <4 x i8> poison, i8 %16, i64 0
   %broadcast.splat255 = shufflevector <4 x i8> %broadcast.splatinsert254, <4 x i8> poison, <4 x i32> zeroinitializer
   br label %vector.body248

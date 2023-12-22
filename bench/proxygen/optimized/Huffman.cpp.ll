@@ -428,7 +428,7 @@ if.end.thread:                                    ; preds = %while.body
   %0 = load i8, ptr %arrayidx5, align 1
   %conv = zext i8 %0 to i32
   %or = or disjoint i32 %shl, %conv
-  %add = add nuw nsw i32 %wbits.031, 8
+  %add = or disjoint i32 %wbits.031, 8
   %inc = add nuw i32 %i.032, 1
   br label %if.then7
 

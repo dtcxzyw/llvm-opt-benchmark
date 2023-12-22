@@ -108,7 +108,7 @@ if.end50:                                         ; preds = %if.end45
   %sub53 = sub i64 0, %3
   %and = and i64 %sub53, 48
   %add.ptr = getelementptr inbounds i8, ptr %rotated_mac_buf, i64 %and
-  %add54 = add nuw nsw i64 %mac_size, 256
+  %add54 = or disjoint i64 %mac_size, 256
   %spec.select = call i64 @llvm.usub.sat.i64(i64 %origreclen, i64 %add54)
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %add.ptr, i8 0, i64 %mac_size, i1 false)
   %cmp6281 = icmp ult i64 %spec.select, %origreclen
@@ -151,11 +151,9 @@ for.body:                                         ; preds = %if.end50, %for.body
   %7 = and i8 %4, %6
   %conv75 = or i8 %7, %5
   store i8 %conv75, ptr %arrayidx72, align 1
-  %xor.i53 = xor i64 %inc, %mac_size
   %sub.i54 = sub i64 %inc, %mac_size
-  %xor1.i55 = xor i64 %sub.i54, %mac_size
-  %or.i56 = or i64 %xor1.i55, %xor.i53
-  %xor2.i57 = xor i64 %or.i56, %inc
+  %8 = sub i64 -2, %j.083
+  %xor2.i57 = and i64 %sub.i54, %8
   %isneg80 = icmp slt i64 %xor2.i57, 0
   %and77 = select i1 %isneg80, i64 %inc, i64 0
   %inc78 = add nuw i64 %i.082, 1
@@ -167,39 +165,37 @@ for.body82:                                       ; preds = %for.cond79.preheade
   %j.187 = phi i64 [ 0, %for.cond79.preheader ], [ %inc97, %for.body82 ]
   %and83 = and i64 %rotate_offset.188, -33
   %arrayidx84 = getelementptr inbounds i8, ptr %add.ptr, i64 %and83
-  %8 = load i8, ptr %arrayidx84, align 1
+  %9 = load i8, ptr %arrayidx84, align 1
   %or85 = or i64 %rotate_offset.188, 32
   %arrayidx86 = getelementptr inbounds i8, ptr %add.ptr, i64 %or85
-  %9 = load i8, ptr %arrayidx86, align 1
+  %10 = load i8, ptr %arrayidx86, align 1
   %xor.i.i77 = and i64 %rotate_offset.188, 32
   %isneg = icmp eq i64 %xor.i.i77, 0
   %conv.i59 = select i1 %isneg, i32 255, i32 0
-  %conv1.i = zext i8 %8 to i32
-  %conv2.i = zext i8 %9 to i32
-  %10 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i59) #5, !srcloc !7
-  %and.i.i60 = and i32 %10, %conv1.i
+  %conv1.i = zext i8 %9 to i32
+  %conv2.i = zext i8 %10 to i32
+  %11 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i59) #5, !srcloc !7
+  %and.i.i60 = and i32 %11, %conv1.i
   %not.i.i61 = xor i32 %conv.i59, -1
-  %11 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i61) #5, !srcloc !7
-  %and2.i.i = and i32 %11, %conv2.i
+  %12 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i61) #5, !srcloc !7
+  %and2.i.i = and i32 %12, %conv2.i
   %or.i.i = or i32 %and2.i.i, %and.i.i60
   %inc92 = add i64 %rotate_offset.188, 1
   %arrayidx95 = getelementptr inbounds [64 x i8], ptr %randmac, i64 0, i64 %j.187
-  %12 = load i8, ptr %arrayidx95, align 1
-  %conv2.i64 = zext i8 %12 to i32
-  %13 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i62) #5, !srcloc !7
-  %and.i.i65 = and i32 %13, %or.i.i
-  %14 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i66) #5, !srcloc !7
-  %and2.i.i67 = and i32 %14, %conv2.i64
+  %13 = load i8, ptr %arrayidx95, align 1
+  %conv2.i64 = zext i8 %13 to i32
+  %14 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i62) #5, !srcloc !7
+  %and.i.i65 = and i32 %14, %or.i.i
+  %15 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i66) #5, !srcloc !7
+  %and2.i.i67 = and i32 %15, %conv2.i64
   %or.i.i68 = or i32 %and2.i.i67, %and.i.i65
   %conv3.i69 = trunc i32 %or.i.i68 to i8
   %inc97 = add nuw i64 %j.187, 1
   %arrayidx98 = getelementptr inbounds i8, ptr %call46, i64 %j.187
   store i8 %conv3.i69, ptr %arrayidx98, align 1
-  %xor.i70 = xor i64 %inc92, %mac_size
   %sub.i71 = sub i64 %inc92, %mac_size
-  %xor1.i72 = xor i64 %sub.i71, %mac_size
-  %or.i73 = or i64 %xor1.i72, %xor.i70
-  %xor2.i74 = xor i64 %or.i73, %inc92
+  %16 = sub i64 -2, %rotate_offset.188
+  %xor2.i74 = and i64 %sub.i71, %16
   %isneg78 = icmp slt i64 %xor2.i74, 0
   %and100 = select i1 %isneg78, i64 %inc92, i64 0
   %exitcond89.not = icmp eq i64 %inc97, %umax

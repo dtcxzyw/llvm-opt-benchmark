@@ -3083,7 +3083,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %and2 = and i64 %child.val, -97
+  %and2 = and i64 %child.val, -353
   %or = or i64 %and2, %flag
   store i64 %or, ptr %0, align 8
   %call4 = tail call ptr @_PyType_GetSubclasses(ptr noundef nonnull %child) #4

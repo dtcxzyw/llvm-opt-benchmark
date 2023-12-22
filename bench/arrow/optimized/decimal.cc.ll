@@ -5222,8 +5222,8 @@ while.body:                                       ; preds = %while.body.preheade
   %right_shift_by.0252 = phi i32 [ %sub48, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Decimal128Ei.exit102 ], [ %sub9, %while.body.preheader ]
   %mul_by_ten_to.0251 = phi i32 [ %sub51, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Decimal128Ei.exit102 ], [ %sub21, %while.body.preheader ]
   %.sroa.speculated220 = call i32 @llvm.smin.i32(i32 %.sroa.speculated216, i32 %mul_by_ten_to.0251)
-  %add = add nsw i32 %total_exp.0254, %.sroa.speculated220
-  %idxprom = sext i32 %add to i64
+  %add = add nuw nsw i32 %total_exp.0254, %.sroa.speculated220
+  %idxprom = zext nneg i32 %add to i64
   %arrayidx = getelementptr inbounds [77 x i32], ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 0, i64 %idxprom
   %43 = load i32, ptr %arrayidx, align 4
   %sub39 = sub nsw i32 %43, %total_shift.0253
@@ -5312,7 +5312,7 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Deci
   store i64 %retval.sroa.0.0.i67, ptr %x, align 8
   store i64 %retval.sroa.3.0.i66, ptr %40, align 8
   %sub48 = sub nsw i32 %right_shift_by.0252, %.sroa.speculated
-  %idxprom.i103 = sext i32 %.sroa.speculated220 to i64
+  %idxprom.i103 = zext nneg i32 %.sroa.speculated220 to i64
   %arrayidx.i104 = getelementptr inbounds %"class.arrow::BasicDecimal128", ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %idxprom.i103
   %call50 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128mLERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i104)
   %sub51 = sub nsw i32 %mul_by_ten_to.0251, %.sroa.speculated220
@@ -6075,8 +6075,8 @@ while.body:                                       ; preds = %while.body.preheade
   %right_shift_by.0252 = phi i32 [ %sub48, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Decimal128Ei.exit102 ], [ %sub9, %while.body.preheader ]
   %mul_by_ten_to.0251 = phi i32 [ %sub51, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Decimal128Ei.exit102 ], [ %sub21, %while.body.preheader ]
   %.sroa.speculated220 = call i32 @llvm.smin.i32(i32 %.sroa.speculated216, i32 %mul_by_ten_to.0251)
-  %add = add nsw i32 %total_exp.0254, %.sroa.speculated220
-  %idxprom = sext i32 %add to i64
+  %add = add nuw nsw i32 %total_exp.0254, %.sroa.speculated220
+  %idxprom = zext nneg i32 %add to i64
   %arrayidx = getelementptr inbounds [77 x i32], ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 0, i64 %idxprom
   %41 = load i32, ptr %arrayidx, align 4
   %sub39 = sub nsw i32 %41, %total_shift.0253
@@ -6165,7 +6165,7 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Deci
   store i64 %retval.sroa.0.0.i67, ptr %x, align 8
   store i64 %retval.sroa.3.0.i66, ptr %38, align 8
   %sub48 = sub nsw i32 %right_shift_by.0252, %.sroa.speculated
-  %idxprom.i103 = sext i32 %.sroa.speculated220 to i64
+  %idxprom.i103 = zext nneg i32 %.sroa.speculated220 to i64
   %arrayidx.i104 = getelementptr inbounds %"class.arrow::BasicDecimal128", ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %idxprom.i103
   %call50 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128mLERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i104)
   %sub51 = sub nsw i32 %mul_by_ten_to.0251, %.sroa.speculated220
@@ -8104,8 +8104,8 @@ while.body:                                       ; preds = %while.body.preheade
   %right_shift_by.0103 = phi i32 [ %sub40, %while.body ], [ %sub9, %while.body.preheader ]
   %mul_by_ten_to.0102 = phi i32 [ %sub43, %while.body ], [ %sub17, %while.body.preheader ]
   %.sroa.speculated88 = call i32 @llvm.smin.i32(i32 %.sroa.speculated84, i32 %mul_by_ten_to.0102)
-  %add = add nsw i32 %total_exp.0105, %.sroa.speculated88
-  %idxprom = sext i32 %add to i64
+  %add = add nuw nsw i32 %total_exp.0105, %.sroa.speculated88
+  %idxprom = zext nneg i32 %add to i64
   %arrayidx = getelementptr inbounds [77 x i32], ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 0, i64 %idxprom
   %43 = load i32, ptr %arrayidx, align 4
   %sub35 = sub nsw i32 %43, %total_shift.0104
@@ -8114,7 +8114,7 @@ while.body:                                       ; preds = %while.body.preheade
   call fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr noalias nonnull align 8 %ref.tmp38, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %x, i32 noundef %.sroa.speculated)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38, i64 32, i1 false)
   %sub40 = sub nsw i32 %right_shift_by.0103, %.sroa.speculated
-  %idxprom.i33 = sext i32 %.sroa.speculated88 to i64
+  %idxprom.i33 = zext nneg i32 %.sroa.speculated88 to i64
   %arrayidx.i34 = getelementptr inbounds %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %idxprom.i33
   %call42 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i34)
   %sub43 = sub nsw i32 %mul_by_ten_to.0102, %.sroa.speculated88
@@ -8762,8 +8762,8 @@ while.body:                                       ; preds = %while.body.preheade
   %right_shift_by.0103 = phi i32 [ %sub40, %while.body ], [ %sub9, %while.body.preheader ]
   %mul_by_ten_to.0102 = phi i32 [ %sub43, %while.body ], [ %sub17, %while.body.preheader ]
   %.sroa.speculated88 = call i32 @llvm.smin.i32(i32 %.sroa.speculated84, i32 %mul_by_ten_to.0102)
-  %add = add nsw i32 %total_exp.0105, %.sroa.speculated88
-  %idxprom = sext i32 %add to i64
+  %add = add nuw nsw i32 %total_exp.0105, %.sroa.speculated88
+  %idxprom = zext nneg i32 %add to i64
   %arrayidx = getelementptr inbounds [77 x i32], ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 0, i64 %idxprom
   %41 = load i32, ptr %arrayidx, align 4
   %sub35 = sub nsw i32 %41, %total_shift.0104
@@ -8772,7 +8772,7 @@ while.body:                                       ; preds = %while.body.preheade
   call fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr noalias nonnull align 8 %ref.tmp38, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %x, i32 noundef %.sroa.speculated)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38, i64 32, i1 false)
   %sub40 = sub nsw i32 %right_shift_by.0103, %.sroa.speculated
-  %idxprom.i33 = sext i32 %.sroa.speculated88 to i64
+  %idxprom.i33 = zext nneg i32 %.sroa.speculated88 to i64
   %arrayidx.i34 = getelementptr inbounds %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %idxprom.i33
   %call42 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i34)
   %sub43 = sub nsw i32 %mul_by_ten_to.0102, %.sroa.speculated88

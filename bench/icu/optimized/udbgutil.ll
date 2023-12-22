@@ -756,7 +756,7 @@ _ZL15_udbg_enumCount14UDebugEnumTypea.exit:       ; preds = %lor.lhs.false, %swi
   br i1 %or.cond, label %switch.lookup14, label %return
 
 switch.lookup14:                                  ; preds = %_ZL15_udbg_enumCount14UDebugEnumTypea.exit
-  %3 = sext i32 %type to i64
+  %3 = zext nneg i32 %type to i64
   %switch.gep15 = getelementptr inbounds [6 x ptr], ptr @switch.table.udbg_enumByName, i64 0, i64 %3
   %switch.load16 = load ptr, ptr %switch.gep15, align 8
   %idxprom = zext nneg i32 %field to i64
@@ -797,7 +797,7 @@ _ZL15_udbg_enumCount14UDebugEnumTypea.exit:       ; preds = %lor.lhs.false, %swi
   br i1 %or.cond, label %switch.lookup12, label %return
 
 switch.lookup12:                                  ; preds = %_ZL15_udbg_enumCount14UDebugEnumTypea.exit
-  %3 = sext i32 %type to i64
+  %3 = zext nneg i32 %type to i64
   %switch.gep13 = getelementptr inbounds [6 x ptr], ptr @switch.table.udbg_enumByName, i64 0, i64 %3
   %switch.load14 = load ptr, ptr %switch.gep13, align 8
   %idxprom = zext nneg i32 %field to i64

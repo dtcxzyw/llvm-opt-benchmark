@@ -3418,10 +3418,10 @@ if.else:                                          ; preds = %entry
   %versionStr_10 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %this, i64 0, i32 5
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %versionStr_10, i64 noundef 3)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %versionStr_10) #23
-  %add = add nuw nsw i8 %maj, 48
+  %add = or disjoint i8 %maj, 48
   %call15 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %versionStr_10, i64 noundef 1, i8 noundef signext %add)
   %call17 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %versionStr_10, i64 noundef 1, i8 noundef signext 46)
-  %add20 = add nuw nsw i8 %min, 48
+  %add20 = or disjoint i8 %min, 48
   %call22 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %versionStr_10, i64 noundef 1, i8 noundef signext %add20)
   br label %if.end
 

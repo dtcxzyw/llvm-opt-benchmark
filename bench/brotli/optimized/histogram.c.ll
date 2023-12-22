@@ -286,19 +286,19 @@ BlockSplitIteratorNext.exit86:                    ; preds = %if.then37, %if.then
   %or.cond3 = and i1 %cmp12.i, %or.cond2
   %48 = zext nneg i32 %and.i64 to i64
   %conv42 = select i1 %or.cond3, i64 %48, i64 3
-  %49 = getelementptr %struct.HistogramDistance, ptr %copy_dist_histograms, i64 %shl40
-  %arrayidx44 = getelementptr %struct.HistogramDistance, ptr %49, i64 %conv42
+  %add43 = add nuw nsw i64 %shl40, %conv42
+  %arrayidx44 = getelementptr inbounds %struct.HistogramDistance, ptr %copy_dist_histograms, i64 %add43
   %dist_prefix_ = getelementptr inbounds %struct.Command, ptr %cmds, i64 %i.0116, i32 4
-  %50 = load i16, ptr %dist_prefix_, align 2
-  %51 = and i16 %50, 1023
-  %conv47 = zext nneg i16 %51 to i64
+  %49 = load i16, ptr %dist_prefix_, align 2
+  %50 = and i16 %49, 1023
+  %conv47 = zext nneg i16 %50 to i64
   %arrayidx.i67 = getelementptr inbounds [544 x i32], ptr %arrayidx44, i64 0, i64 %conv47
-  %52 = load i32, ptr %arrayidx.i67, align 4
-  %inc.i68 = add i32 %52, 1
+  %51 = load i32, ptr %arrayidx.i67, align 4
+  %inc.i68 = add i32 %51, 1
   store i32 %inc.i68, ptr %arrayidx.i67, align 4
-  %total_count_.i69 = getelementptr %struct.HistogramDistance, ptr %49, i64 %conv42, i32 1
-  %53 = load i64, ptr %total_count_.i69, align 8
-  %inc1.i70 = add i64 %53, 1
+  %total_count_.i69 = getelementptr inbounds %struct.HistogramDistance, ptr %copy_dist_histograms, i64 %add43, i32 1
+  %52 = load i64, ptr %total_count_.i69, align 8
+  %inc1.i70 = add i64 %52, 1
   store i64 %inc1.i70, ptr %total_count_.i69, align 8
   br label %for.inc50
 

@@ -1170,10 +1170,10 @@ if.end9.i:                                        ; preds = %if.end5.i
   br i1 %or.cond.i, label %if.then23, label %for.body22.lr.ph.i
 
 for.body22.lr.ph.i:                               ; preds = %if.end9.i
-  %sub.i = sub nuw nsw i32 7, %len.031.i
+  %sub.i = xor i32 %len.031.i, 7
   %notmask.i = shl nsw i32 -1, %sub.i
   %sub17.i = xor i32 %notmask.i, -1
-  %and18.i = and i32 %sub17.i, %conv2
+  %and18.i = and i32 %sub17.i, %conv37.i
   %5 = add nsw i32 %len.031.i, -2
   %scevgep65 = getelementptr i8, ptr %scevgep, i64 %conv54
   %6 = zext i32 %indvars.iv to i64

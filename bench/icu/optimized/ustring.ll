@@ -2248,7 +2248,7 @@ land.lhs.true21:                                  ; preds = %if.then19
   br i1 %cmp23, label %if.end34, label %lor.lhs.false24
 
 lor.lhs.false24:                                  ; preds = %land.lhs.true21, %if.then19
-  %and25 = and i32 %call7, -1024
+  %and25 = and i32 %call7, 2147482624
   %cmp26 = icmp eq i32 %and25, 56320
   br i1 %cmp26, label %land.lhs.true27, label %if.else
 
@@ -2280,7 +2280,7 @@ land.lhs.true36:                                  ; preds = %if.end34
   br i1 %cmp40, label %if.end55, label %lor.lhs.false41
 
 lor.lhs.false41:                                  ; preds = %land.lhs.true36, %if.end34
-  %and42 = and i32 %call9, -1024
+  %and42 = and i32 %call9, 2147482624
   %cmp43 = icmp eq i32 %and42, 56320
   br i1 %cmp43, label %land.lhs.true44, label %if.else52
 
@@ -2903,7 +2903,7 @@ if.end33.us:                                      ; preds = %while.body.us.prehe
   %n.1119.us219 = phi i8 [ %inc36.us, %while.body.us ], [ 1, %while.body.us.preheader ]
   %sub.i93.us = add nsw i32 %conv24.us221, -48
   %shl.us = shl i32 %result.1118.us220, 3
-  %or.us = or i32 %sub.i93.us, %shl.us
+  %or.us = or disjoint i32 %sub.i93.us, %shl.us
   %8 = load i32, ptr %offset, align 4
   %inc35.us = add nsw i32 %8, 1
   store i32 %inc35.us, ptr %offset, align 4

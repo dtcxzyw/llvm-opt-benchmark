@@ -6555,7 +6555,7 @@ if.then48:                                        ; preds = %while.end
   br label %if.end170
 
 if.end49:                                         ; preds = %while.end
-  %div = sdiv i32 %sub, 2
+  %div = ashr exact i32 %sub, 1
   %8 = and i32 %flags.addr.0.lcssa, 6
   %or.cond1 = icmp eq i32 %8, 6
   br i1 %or.cond1, label %if.then52, label %if.end53
@@ -6580,8 +6580,8 @@ if.then65:                                        ; preds = %if.end53
   br label %if.end170
 
 if.end66:                                         ; preds = %if.end53
-  %cmp69 = icmp sgt i32 %sub, 3
-  %or.cond5 = and i1 %cmp32, %cmp69
+  %cmp69 = icmp sgt i32 %div, 1
+  %or.cond5 = select i1 %cmp32, i1 %cmp69, i1 false
   br i1 %or.cond5, label %if.then71, label %if.end72
 
 if.then71:                                        ; preds = %if.end66
@@ -6592,7 +6592,7 @@ if.end72:                                         ; preds = %if.end66
   %conv73 = sext i32 %div to i64
   %mul = shl nsw i64 %conv73, 3
   %call74 = tail call noalias ptr @zmalloc(i64 noundef %mul) #19
-  %cmp75122 = icmp sgt i32 %sub, 1
+  %cmp75122 = icmp sgt i32 %div, 0
   br i1 %cmp75122, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end72

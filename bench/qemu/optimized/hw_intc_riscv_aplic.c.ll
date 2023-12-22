@@ -517,11 +517,7 @@ sw.bb:                                            ; preds = %if.end11
   %and22 = and i32 %7, 1
   %tobool23.not = icmp eq i32 %and22, 0
   %or.cond41 = select i1 %or.cond, i1 %tobool23.not, i1 false
-  br i1 %or.cond41, label %if.then24, label %sw.epilog
-
-if.then24:                                        ; preds = %sw.bb
-  %and.i = and i32 %7, -2
-  br label %if.else60.thread
+  br i1 %or.cond41, label %if.else60.thread, label %sw.epilog
 
 sw.bb26:                                          ; preds = %if.end11
   %cmp27 = icmp slt i32 %level, 1
@@ -531,11 +527,7 @@ sw.bb26:                                          ; preds = %if.end11
   %and33 = and i32 %7, 1
   %tobool34.not = icmp eq i32 %and33, 0
   %or.cond43 = select i1 %or.cond42.not81, i1 %tobool34.not, i1 false
-  br i1 %or.cond43, label %if.then35, label %sw.epilog
-
-if.then35:                                        ; preds = %sw.bb26
-  %and.i49 = and i32 %7, -2
-  br label %if.end64.thread
+  br i1 %or.cond43, label %if.end64.thread, label %sw.epilog
 
 sw.bb37:                                          ; preds = %if.end11
   %cmp38 = icmp sgt i32 %level, 0
@@ -551,9 +543,8 @@ sw.bb45:                                          ; preds = %if.end11
   %or.cond45 = select i1 %cmp46, i1 %tobool50.not, i1 false
   br i1 %or.cond45, label %if.end64.thread, label %sw.epilog
 
-if.end64.thread:                                  ; preds = %sw.bb45, %if.then35
-  %storemerge.in = phi i32 [ %and.i49, %if.then35 ], [ %7, %sw.bb45 ]
-  %storemerge = or i32 %storemerge.in, 1
+if.end64.thread:                                  ; preds = %sw.bb45, %sw.bb26
+  %storemerge = or disjoint i32 %7, 1
   store i32 %storemerge, ptr %arrayidx14, align 4
   %8 = load ptr, ptr %state12, align 8
   %arrayidx5875 = getelementptr i32, ptr %8, i64 %idxprom
@@ -566,9 +557,8 @@ sw.epilog:                                        ; preds = %if.end11, %sw.bb45,
   %cmp53 = icmp slt i32 %level, 1
   br i1 %cmp53, label %if.end64, label %if.else60
 
-if.else60.thread:                                 ; preds = %sw.bb37, %if.then24
-  %storemerge80.in = phi i32 [ %and.i, %if.then24 ], [ %7, %sw.bb37 ]
-  %storemerge80 = or i32 %storemerge80.in, 1
+if.else60.thread:                                 ; preds = %sw.bb37, %sw.bb
+  %storemerge80 = or disjoint i32 %7, 1
   store i32 %storemerge80, ptr %arrayidx14, align 4
   %10 = load ptr, ptr %state12, align 8
   %arrayidx6378 = getelementptr i32, ptr %10, i64 %idxprom

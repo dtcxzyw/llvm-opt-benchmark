@@ -4564,7 +4564,7 @@ yyjson_mut_is_arr.exit:                           ; preds = %cond.end252, %if.th
   br i1 %148, label %if.then.i805, label %if.end311
 
 if.then.i805:                                     ; preds = %yyjson_mut_is_arr.exit
-  %and.i.i808 = and i64 %147, 255
+  %and.i.i808 = and i64 %147, 254
   %add.i807 = and i64 %147, -256
   %shl.i.i809 = add i64 %add.i807, 256
   %or.i.i810 = or disjoint i64 %shl.i.i809, %and.i.i808
@@ -4719,7 +4719,7 @@ yyjson_mut_is_arr.exit907:                        ; preds = %if.then319
   br i1 %161, label %if.then.i778, label %return
 
 if.then.i778:                                     ; preds = %yyjson_mut_is_arr.exit907
-  %and.i.i = and i64 %154, 255
+  %and.i.i = and i64 %154, 254
   %add.i780 = and i64 %154, -256
   %shl.i.i = add i64 %add.i780, 256
   %or.i.i = or disjoint i64 %shl.i.i, %and.i.i

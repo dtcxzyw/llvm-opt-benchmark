@@ -636,8 +636,6 @@ if.then47:                                        ; preds = %if.end44
   br label %return
 
 do.body:                                          ; preds = %if.end44
-  %11 = getelementptr inbounds i8, ptr %call45, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %tempTrie.sroa.2.0.trie.0.2.sroa_idx = getelementptr inbounds i8, ptr %call45, i64 24
   store i32 %conv18, ptr %tempTrie.sroa.2.0.trie.0.2.sroa_idx, align 8
   %tempTrie.sroa.5.0.trie.0.2.sroa_idx = getelementptr inbounds i8, ptr %call45, i64 28
@@ -645,7 +643,6 @@ do.body:                                          ; preds = %if.end44
   %tempTrie.sroa.9.0.trie.0.2.sroa_idx = getelementptr inbounds i8, ptr %call45, i64 32
   store <2 x i16> %8, ptr %tempTrie.sroa.9.0.trie.0.2.sroa_idx, align 8
   %tempTrie.sroa.11.0.trie.0.2.sroa_idx = getelementptr inbounds i8, ptr %call45, i64 36
-  store i64 0, ptr %tempTrie.sroa.11.0.trie.0.2.sroa_idx, align 4
   %tempTrie.sroa.1126.0.trie.0.2.sroa_idx = getelementptr inbounds i8, ptr %call45, i64 44
   store i32 %shl24, ptr %tempTrie.sroa.1126.0.trie.0.2.sroa_idx, align 4
   %tempTrie.sroa.12.0.trie.0.2.sroa_idx = getelementptr inbounds i8, ptr %call45, i64 48
@@ -660,45 +657,38 @@ do.body:                                          ; preds = %if.end44
   store ptr %add.ptr, ptr %call45, align 8
   %idx.ext = zext i16 %6 to i64
   %add.ptr51 = getelementptr inbounds i16, ptr %add.ptr, i64 %idx.ext
-  switch i32 %valueBits, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb58
-  ]
+  %11 = extractelement <2 x i16> %8, i64 1
+  %idxprom = zext i16 %11 to i64
+  br i1 %cmp26, label %sw.bb, label %sw.bb58
 
 sw.bb:                                            ; preds = %do.body
-  %data16 = getelementptr inbounds %struct.UTrie2, ptr %call45, i64 0, i32 1
-  store ptr %add.ptr51, ptr %data16, align 8
-  %12 = extractelement <2 x i16> %8, i64 1
-  %idxprom = zext i16 %12 to i64
   %arrayidx = getelementptr inbounds i16, ptr %add.ptr, i64 %idxprom
-  %13 = load i16, ptr %arrayidx, align 2
-  %conv54 = zext i16 %13 to i32
-  store i32 %conv54, ptr %tempTrie.sroa.11.0.trie.0.2.sroa_idx, align 4
+  %12 = load i16, ptr %arrayidx, align 2
+  %conv54 = zext i16 %12 to i32
   %arrayidx56 = getelementptr inbounds i16, ptr %add.ptr51, i64 128
-  %14 = load i16, ptr %arrayidx56, align 2
-  %conv57 = zext i16 %14 to i32
+  %13 = load i16, ptr %arrayidx56, align 2
+  %conv57 = zext i16 %13 to i32
   br label %sw.epilog
 
 sw.bb58:                                          ; preds = %do.body
-  %data3260 = getelementptr inbounds %struct.UTrie2, ptr %call45, i64 0, i32 2
-  store ptr %add.ptr51, ptr %data3260, align 8
-  %15 = extractelement <2 x i16> %8, i64 1
-  %idxprom63 = zext i16 %15 to i64
-  %arrayidx64 = getelementptr inbounds i32, ptr %add.ptr51, i64 %idxprom63
-  %16 = load i32, ptr %arrayidx64, align 4
-  store i32 %16, ptr %tempTrie.sroa.11.0.trie.0.2.sroa_idx, align 4
+  %arrayidx64 = getelementptr inbounds i32, ptr %add.ptr51, i64 %idxprom
+  %14 = load i32, ptr %arrayidx64, align 4
   %arrayidx67 = getelementptr inbounds i32, ptr %add.ptr51, i64 128
-  %17 = load i32, ptr %arrayidx67, align 4
+  %15 = load i32, ptr %arrayidx67, align 4
   br label %sw.epilog
 
-sw.default:                                       ; preds = %do.body
-  store i32 3, ptr %pErrorCode, align 4
-  br label %return
-
 sw.epilog:                                        ; preds = %sw.bb58, %sw.bb
-  %.sink = phi i32 [ %17, %sw.bb58 ], [ %conv57, %sw.bb ]
-  %errorValue68 = getelementptr inbounds %struct.UTrie2, ptr %call45, i64 0, i32 8
-  store i32 %.sink, ptr %errorValue68, align 8
+  %.sink66 = phi ptr [ %add.ptr51, %sw.bb ], [ null, %sw.bb58 ]
+  %add.ptr51.sink = phi ptr [ null, %sw.bb ], [ %add.ptr51, %sw.bb58 ]
+  %.sink65 = phi i32 [ %conv54, %sw.bb ], [ %14, %sw.bb58 ]
+  %.sink = phi i32 [ %conv57, %sw.bb ], [ %15, %sw.bb58 ]
+  %16 = getelementptr inbounds %struct.UTrie2, ptr %call45, i64 0, i32 1
+  store ptr %.sink66, ptr %16, align 8
+  %17 = getelementptr inbounds %struct.UTrie2, ptr %call45, i64 0, i32 2
+  store ptr %add.ptr51.sink, ptr %17, align 8
+  store i32 %.sink65, ptr %tempTrie.sroa.11.0.trie.0.2.sroa_idx, align 4
+  %18 = getelementptr inbounds %struct.UTrie2, ptr %call45, i64 0, i32 8
+  store i32 %.sink, ptr %18, align 8
   %cmp69.not = icmp eq ptr %pActualLength, null
   br i1 %cmp69.not, label %return, label %if.then70
 
@@ -706,8 +696,8 @@ if.then70:                                        ; preds = %sw.epilog
   store i32 %actualLength.0, ptr %pActualLength, align 4
   br label %return
 
-return:                                           ; preds = %sw.epilog, %if.then70, %entry, %sw.default, %if.then47, %if.then43, %if.then16, %if.then12, %if.then9, %if.then6
-  %retval.0 = phi ptr [ null, %if.then6 ], [ null, %if.then9 ], [ null, %if.then12 ], [ null, %if.then16 ], [ null, %if.then43 ], [ null, %if.then47 ], [ null, %sw.default ], [ null, %entry ], [ %call45, %if.then70 ], [ %call45, %sw.epilog ]
+return:                                           ; preds = %sw.epilog, %if.then70, %entry, %if.then47, %if.then43, %if.then16, %if.then12, %if.then9, %if.then6
+  %retval.0 = phi ptr [ null, %if.then6 ], [ null, %if.then9 ], [ null, %if.then12 ], [ null, %if.then16 ], [ null, %if.then43 ], [ null, %if.then47 ], [ null, %entry ], [ %call45, %if.then70 ], [ %call45, %sw.epilog ]
   ret ptr %retval.0
 }
 

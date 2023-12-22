@@ -119,7 +119,7 @@ if.else:                                          ; preds = %entry
   %spec.select.i = and i1 %cmp9.i, %or.cond3.i
   %cmp5 = icmp ult i32 %tval, 2
   %or.cond = and i1 %cmp5, %spec.select.i
-  %add7 = add nuw nsw i32 %tval, 2
+  %add7 = or disjoint i32 %tval, 2
   %spec.select5 = select i1 %or.cond, i32 %add7, i32 %tval
   br label %return
 

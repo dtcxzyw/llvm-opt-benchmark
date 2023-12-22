@@ -6494,8 +6494,8 @@ if.then20.i.i:                                    ; preds = %if.end18.i.i, %for.
   %cmp21.i.i = icmp eq i8 %DInfo.sroa.1.0.copyload.i.i.i, 0
   %cmp23.i.i = icmp ult i64 %offset.0117.i.i, 2
   %and47.i.i = and i1 %cmp21.i.i, %cmp23.i.i
-  %sub.i216.i = sub i64 1, %offset.0117.i.i
-  %spec.select.i.i = select i1 %and47.i.i, i64 %sub.i216.i, i64 %offset.0117.i.i
+  %sub.i216.i = zext i1 %and47.i.i to i64
+  %spec.select.i.i = xor i64 %offset.0117.i.i, %sub.i216.i
   %tobool28.not.i.i = icmp eq i64 %spec.select.i.i, 0
   br i1 %tobool28.not.i.i, label %if.else45.i.i, label %if.then29.i.i
 

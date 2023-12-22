@@ -1485,9 +1485,7 @@ do.body.backedge.i:                               ; preds = %lor.rhs.i, %if.end4
   br i1 %cmp2.i, label %err.i, label %if.end4.i, !llvm.loop !10
 
 do.end.i:                                         ; preds = %lor.rhs.i
-  %1 = getelementptr i8, ptr %cond.i.i, i64 %idx.ext.i
-  %arrayidx.i = getelementptr i8, ptr %1, i64 -6
-  store i8 0, ptr %arrayidx.i, align 1
+  store i8 0, ptr %gep.i, align 1
   %add.i = add nsw i32 %call5.i, -16
   %conv1.i.i = sext i32 %add.i to i64
   br i1 %tobool4.not, label %pem_malloc.exit27.i, label %pem_malloc.exit27.i.thread
@@ -1495,20 +1493,20 @@ do.end.i:                                         ; preds = %lor.rhs.i
 pem_malloc.exit27.i:                              ; preds = %do.end.i
   %call2.i26.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef %conv1.i.i, ptr noundef nonnull @.str.1, i32 noundef 787) #10
   %cmp15.i = icmp eq ptr %call2.i26.i, null
-  br i1 %cmp15.i, label %end.thread, label %cond.false.i.i57
+  br i1 %cmp15.i, label %end.thread, label %cond.false.i.i56
 
 pem_malloc.exit27.i.thread:                       ; preds = %do.end.i
   %call.i23.i = tail call noalias ptr @CRYPTO_secure_malloc(i64 noundef %conv1.i.i, ptr noundef nonnull @.str.1, i32 noundef 787) #10
-  %cmp15.i104 = icmp eq ptr %call.i23.i, null
-  br i1 %cmp15.i104, label %end.thread176, label %cond.true.i.i38
+  %cmp15.i103 = icmp eq ptr %call.i23.i, null
+  br i1 %cmp15.i103, label %end.thread175, label %cond.true.i.i38
 
 err.i:                                            ; preds = %do.body.backedge.i, %do.body.preheader.i
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 773, ptr noundef nonnull @__func__.get_name) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef 108, ptr noundef null) #10
-  br i1 %tobool4.not, label %end.thread, label %end.thread176
+  br i1 %tobool4.not, label %end.thread, label %end.thread175
 
-end.thread176:                                    ; preds = %err.i, %pem_malloc.exit27.i.thread
+end.thread175:                                    ; preds = %err.i, %pem_malloc.exit27.i.thread
   tail call void @CRYPTO_secure_clear_free(ptr noundef nonnull %cond.i.i, i64 noundef 256, ptr noundef nonnull @.str.1, i32 noundef 794) #10
   tail call void @EVP_ENCODE_CTX_free(ptr noundef null) #10
   br label %if.then.i
@@ -1516,90 +1514,90 @@ end.thread176:                                    ; preds = %err.i, %pem_malloc.
 end.thread:                                       ; preds = %err.i, %pem_malloc.exit27.i
   tail call void @CRYPTO_free(ptr noundef nonnull %cond.i.i, ptr noundef nonnull @.str.1, i32 noundef 794) #10
   tail call void @EVP_ENCODE_CTX_free(ptr noundef null) #10
-  br label %if.else.i60
+  br label %if.else.i59
 
 cond.true.i.i38:                                  ; preds = %pem_malloc.exit27.i.thread
-  %add.ptr18.i107 = getelementptr inbounds i8, ptr %cond.i.i, i64 11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i23.i, ptr nonnull align 1 %add.ptr18.i107, i64 %conv1.i.i, i1 false)
+  %add.ptr18.i106 = getelementptr inbounds i8, ptr %cond.i.i, i64 11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i23.i, ptr nonnull align 1 %add.ptr18.i106, i64 %conv1.i.i, i1 false)
   tail call void @CRYPTO_secure_clear_free(ptr noundef nonnull %cond.i.i, i64 noundef 256, ptr noundef nonnull @.str.1, i32 noundef 794) #10
   %call.i.i39 = tail call noalias ptr @CRYPTO_secure_malloc(i64 noundef 256, ptr noundef nonnull @.str.1, i32 noundef 829) #10
   br label %pem_malloc.exit.i40
 
-cond.false.i.i57:                                 ; preds = %pem_malloc.exit27.i
+cond.false.i.i56:                                 ; preds = %pem_malloc.exit27.i
   %add.ptr18.i = getelementptr inbounds i8, ptr %cond.i.i, i64 11
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call2.i26.i, ptr nonnull align 1 %add.ptr18.i, i64 %conv1.i.i, i1 false)
   tail call void @CRYPTO_free(ptr noundef nonnull %cond.i.i, ptr noundef nonnull @.str.1, i32 noundef 794) #10
-  %call2.i.i58 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 256, ptr noundef nonnull @.str.1, i32 noundef 829) #10
+  %call2.i.i57 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 256, ptr noundef nonnull @.str.1, i32 noundef 829) #10
   br label %pem_malloc.exit.i40
 
-pem_malloc.exit.i40:                              ; preds = %cond.false.i.i57, %cond.true.i.i38
-  %name.089 = phi ptr [ %call.i23.i, %cond.true.i.i38 ], [ %call2.i26.i, %cond.false.i.i57 ]
-  %cond.i.i41 = phi ptr [ %call.i.i39, %cond.true.i.i38 ], [ %call2.i.i58, %cond.false.i.i57 ]
+pem_malloc.exit.i40:                              ; preds = %cond.false.i.i56, %cond.true.i.i38
+  %name.088 = phi ptr [ %call.i23.i, %cond.true.i.i38 ], [ %call2.i26.i, %cond.false.i.i56 ]
+  %cond.i.i41 = phi ptr [ %call.i.i39, %cond.true.i.i38 ], [ %call2.i.i57, %cond.false.i.i56 ]
   %cmp.i42 = icmp eq ptr %cond.i.i41, null
   br i1 %cmp.i42, label %end, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %pem_malloc.exit.i40
   %call15359.i = tail call i32 @BIO_gets(ptr noundef %bp, ptr noundef nonnull %cond.i.i41, i32 noundef 255) #10
   %cmp25460.i = icmp slt i32 %call15359.i, 1
-  br i1 %cmp25460.i, label %if.then3.i56, label %if.end4.lr.ph.lr.ph.i
+  br i1 %cmp25460.i, label %if.then3.i55, label %if.end4.lr.ph.lr.ph.i
 
 if.end4.lr.ph.lr.ph.i:                            ; preds = %while.body.preheader.i
-  %arrayidx.i43 = getelementptr inbounds i8, ptr %cond.i.i41, i64 253
-  br label %if.end4.lr.ph.i44
+  %arrayidx.i = getelementptr inbounds i8, ptr %cond.i.i41, i64 253
+  br label %if.end4.lr.ph.i43
 
-if.end4.lr.ph.i44:                                ; preds = %if.end37.i, %if.end4.lr.ph.lr.ph.i
+if.end4.lr.ph.i43:                                ; preds = %if.end37.i, %if.end4.lr.ph.lr.ph.i
   %call15365.i = phi i32 [ %call15359.i, %if.end4.lr.ph.lr.ph.i ], [ %call153.i, %if.end37.i ]
   %got_header.0.ph64.i = phi i32 [ 0, %if.end4.lr.ph.lr.ph.i ], [ %got_header.2.i, %if.end37.i ]
-  %partial_line_read.0.shrunk.ph63.i = phi i1 [ false, %if.end4.lr.ph.lr.ph.i ], [ %3, %if.end37.i ]
+  %partial_line_read.0.shrunk.ph63.i = phi i1 [ false, %if.end4.lr.ph.lr.ph.i ], [ %2, %if.end37.i ]
   %end.0.ph62.i = phi i32 [ 0, %if.end4.lr.ph.lr.ph.i ], [ %end.055.i, %if.end37.i ]
   %tmp.0.ph61.i = phi ptr [ %call6, %if.end4.lr.ph.lr.ph.i ], [ %tmp.1.i, %if.end37.i ]
-  br label %if.end4.i45
+  br label %if.end4.i44
 
-if.then3.i56:                                     ; preds = %if.end37.i, %if.end78.i, %while.body.preheader.i
+if.then3.i55:                                     ; preds = %if.end37.i, %if.end78.i, %while.body.preheader.i
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 837, ptr noundef nonnull @__func__.get_header_and_data) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef 102, ptr noundef null) #10
-  br label %err.i49
+  br label %err.i48
 
-if.end4.i45:                                      ; preds = %if.end78.i, %if.end4.lr.ph.i44
-  %call158.i = phi i32 [ %call15365.i, %if.end4.lr.ph.i44 ], [ %call1.i54, %if.end78.i ]
-  %got_header.057.i = phi i32 [ %got_header.0.ph64.i, %if.end4.lr.ph.i44 ], [ %got_header.1.i, %if.end78.i ]
-  %partial_line_read.0.shrunk56.i = phi i1 [ %partial_line_read.0.shrunk.ph63.i, %if.end4.lr.ph.i44 ], [ %3, %if.end78.i ]
-  %end.055.i = phi i32 [ %end.0.ph62.i, %if.end4.lr.ph.i44 ], [ %end.1.i, %if.end78.i ]
+if.end4.i44:                                      ; preds = %if.end78.i, %if.end4.lr.ph.i43
+  %call158.i = phi i32 [ %call15365.i, %if.end4.lr.ph.i43 ], [ %call1.i53, %if.end78.i ]
+  %got_header.057.i = phi i32 [ %got_header.0.ph64.i, %if.end4.lr.ph.i43 ], [ %got_header.1.i, %if.end78.i ]
+  %partial_line_read.0.shrunk56.i = phi i1 [ %partial_line_read.0.shrunk.ph63.i, %if.end4.lr.ph.i43 ], [ %2, %if.end78.i ]
+  %end.055.i = phi i32 [ %end.0.ph62.i, %if.end4.lr.ph.i43 ], [ %end.1.i, %if.end78.i ]
   %cmp5.i = icmp eq i32 %call158.i, 254
   br i1 %cmp5.i, label %land.rhs.i, label %land.end.i
 
-land.rhs.i:                                       ; preds = %if.end4.i45
-  %2 = load i8, ptr %arrayidx.i43, align 1
-  %cmp6.i = icmp ne i8 %2, 10
+land.rhs.i:                                       ; preds = %if.end4.i44
+  %1 = load i8, ptr %arrayidx.i, align 1
+  %cmp6.i = icmp ne i8 %1, 10
   br label %land.end.i
 
-land.end.i:                                       ; preds = %land.rhs.i, %if.end4.i45
-  %3 = phi i1 [ false, %if.end4.i45 ], [ %cmp6.i, %land.rhs.i ]
-  %cmp8.i46 = icmp eq i32 %got_header.057.i, 0
-  br i1 %cmp8.i46, label %if.then10.i, label %if.end17.i47
+land.end.i:                                       ; preds = %land.rhs.i, %if.end4.i44
+  %2 = phi i1 [ false, %if.end4.i44 ], [ %cmp6.i, %land.rhs.i ]
+  %cmp8.i45 = icmp eq i32 %got_header.057.i, 0
+  br i1 %cmp8.i45, label %if.then10.i, label %if.end17.i46
 
 if.then10.i:                                      ; preds = %land.end.i
   %conv11.i = zext nneg i32 %call158.i to i64
   %call12.i = tail call ptr @memchr(ptr noundef nonnull %cond.i.i41, i32 noundef 58, i64 noundef %conv11.i) #9
   %cmp13.not.i = icmp ne ptr %call12.i, null
   %spec.select.i = zext i1 %cmp13.not.i to i32
-  br label %if.end17.i47
+  br label %if.end17.i46
 
-if.end17.i47:                                     ; preds = %if.then10.i, %land.end.i
+if.end17.i46:                                     ; preds = %if.then10.i, %land.end.i
   %got_header.1.i = phi i32 [ %got_header.057.i, %land.end.i ], [ %spec.select.i, %if.then10.i ]
   %call18.i = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %cond.i.i41, ptr noundef nonnull dereferenceable(10) @.str.18, i64 noundef 9) #9
   %cmp19.i = icmp eq i32 %call18.i, 0
   %cmp21.i = icmp eq i32 %got_header.1.i, 1
-  %or.cond.i48 = select i1 %cmp19.i, i1 true, i1 %cmp21.i
-  %spec.select31.i = select i1 %or.cond.i48, i32 -5, i32 -1
+  %or.cond.i47 = select i1 %cmp19.i, i1 true, i1 %cmp21.i
+  %spec.select31.i = select i1 %or.cond.i47, i32 -5, i32 -1
   %and25.i = and i32 %spec.select31.i, %flags
   %call26.i = tail call fastcc i32 @sanitize_line(ptr noundef nonnull %cond.i.i41, i32 noundef %call158.i, i32 noundef %and25.i, i32 noundef 0)
-  %4 = load i8, ptr %cond.i.i41, align 1
-  %cmp29.i = icmp eq i8 %4, 10
+  %3 = load i8, ptr %cond.i.i41, align 1
+  %cmp29.i = icmp eq i8 %3, 10
   br i1 %cmp29.i, label %if.then31.i, label %if.end38.i
 
-if.then31.i:                                      ; preds = %if.end17.i47
+if.then31.i:                                      ; preds = %if.end17.i46
   br i1 %partial_line_read.0.shrunk56.i, label %if.end37.i, label %if.then32.i
 
 if.then32.i:                                      ; preds = %if.then31.i
@@ -1610,24 +1608,24 @@ if.then35.i:                                      ; preds = %if.then32.i
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 866, ptr noundef nonnull @__func__.get_header_and_data) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef 102, ptr noundef null) #10
-  br label %err.i49
+  br label %err.i48
 
 if.end37.i:                                       ; preds = %if.then32.i, %if.then31.i
   %tmp.1.i = phi ptr [ %tmp.0.ph61.i, %if.then31.i ], [ %call7, %if.then32.i ]
   %got_header.2.i = phi i32 [ %got_header.1.i, %if.then31.i ], [ 2, %if.then32.i ]
   %call153.i = tail call i32 @BIO_gets(ptr noundef %bp, ptr noundef nonnull %cond.i.i41, i32 noundef 255) #10
   %cmp254.i = icmp slt i32 %call153.i, 1
-  br i1 %cmp254.i, label %if.then3.i56, label %if.end4.lr.ph.i44
+  br i1 %cmp254.i, label %if.then3.i55, label %if.end4.lr.ph.i43
 
-if.end38.i:                                       ; preds = %if.end17.i47
+if.end38.i:                                       ; preds = %if.end17.i46
   %call39.i = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %cond.i.i41, ptr noundef nonnull dereferenceable(10) @.str.18, i64 noundef 9) #9
   %cmp40.i = icmp eq i32 %call39.i, 0
   br i1 %cmp40.i, label %cond.true.i, label %if.else.i
 
 cond.true.i:                                      ; preds = %if.end38.i
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i41, i64 9
-  %call43.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name.089) #9
-  %call44.i = tail call i32 @strncmp(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %name.089, i64 noundef %call43.i) #9
+  %call43.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name.088) #9
+  %call44.i = tail call i32 @strncmp(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %name.088, i64 noundef %call43.i) #9
   %cmp45.not.i = icmp eq i32 %call44.i, 0
   br i1 %cmp45.not.i, label %lor.lhs.false47.i, label %if.then52.i
 
@@ -1641,13 +1639,13 @@ if.then52.i:                                      ; preds = %lor.lhs.false47.i, 
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 881, ptr noundef nonnull @__func__.get_header_and_data) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef 102, ptr noundef null) #10
-  br label %err.i49
+  br label %err.i48
 
 if.end53.i:                                       ; preds = %lor.lhs.false47.i
   %cmp54.i = icmp eq i32 %got_header.1.i, 0
   %spec.select = select i1 %cmp54.i, ptr %call7, ptr %call6
-  %spec.select113 = select i1 %cmp54.i, ptr %tmp.0.ph61.i, ptr %call7
-  br label %err.i49
+  %spec.select112 = select i1 %cmp54.i, ptr %tmp.0.ph61.i, ptr %call7
+  br label %err.i48
 
 if.else.i:                                        ; preds = %if.end38.i
   %tobool58.not.i = icmp eq i32 %end.055.i, 0
@@ -1657,12 +1655,12 @@ if.then59.i:                                      ; preds = %if.else.i
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 891, ptr noundef nonnull @__func__.get_header_and_data) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef 102, ptr noundef null) #10
-  br label %err.i49
+  br label %err.i48
 
 if.end61.i:                                       ; preds = %if.else.i
   %call62.i = tail call i32 @BIO_puts(ptr noundef %tmp.0.ph61.i, ptr noundef nonnull %cond.i.i41) #10
   %cmp63.i = icmp slt i32 %call62.i, 0
-  br i1 %cmp63.i, label %err.i49, label %if.end66.i
+  br i1 %cmp63.i, label %err.i48, label %if.end66.i
 
 if.end66.i:                                       ; preds = %if.end61.i
   %cmp67.i = icmp eq i32 %got_header.1.i, 2
@@ -1670,7 +1668,7 @@ if.end66.i:                                       ; preds = %if.end61.i
 
 if.then69.i:                                      ; preds = %if.end66.i
   %cmp70.i = icmp sgt i32 %call26.i, 65
-  br i1 %cmp70.i, label %err.i49, label %if.end73.i
+  br i1 %cmp70.i, label %err.i48, label %if.end73.i
 
 if.end73.i:                                       ; preds = %if.then69.i
   %cmp74.not.i = icmp ne i32 %call26.i, 65
@@ -1679,32 +1677,32 @@ if.end73.i:                                       ; preds = %if.then69.i
 
 if.end78.i:                                       ; preds = %if.end73.i, %if.end66.i
   %end.1.i = phi i32 [ 0, %if.end66.i ], [ %spec.select32.i, %if.end73.i ]
-  %call1.i54 = tail call i32 @BIO_gets(ptr noundef %bp, ptr noundef nonnull %cond.i.i41, i32 noundef 255) #10
-  %cmp2.i55 = icmp slt i32 %call1.i54, 1
-  br i1 %cmp2.i55, label %if.then3.i56, label %if.end4.i45
+  %call1.i53 = tail call i32 @BIO_gets(ptr noundef %bp, ptr noundef nonnull %cond.i.i41, i32 noundef 255) #10
+  %cmp2.i54 = icmp slt i32 %call1.i53, 1
+  br i1 %cmp2.i54, label %if.then3.i55, label %if.end4.i44
 
-err.i49:                                          ; preds = %if.then69.i, %if.end61.i, %if.end53.i, %if.then59.i, %if.then52.i, %if.then35.i, %if.then3.i56
-  %headerB.0 = phi ptr [ %call6, %if.then3.i56 ], [ %call6, %if.then35.i ], [ %call6, %if.then52.i ], [ %call6, %if.then59.i ], [ %spec.select, %if.end53.i ], [ %call6, %if.end61.i ], [ %call6, %if.then69.i ]
-  %dataB.0 = phi ptr [ %call7, %if.then3.i56 ], [ %call7, %if.then35.i ], [ %call7, %if.then52.i ], [ %call7, %if.then59.i ], [ %spec.select113, %if.end53.i ], [ %call7, %if.end61.i ], [ %call7, %if.then69.i ]
-  %tobool16.not = phi i1 [ true, %if.then3.i56 ], [ true, %if.then35.i ], [ true, %if.then52.i ], [ true, %if.then59.i ], [ false, %if.end53.i ], [ true, %if.end61.i ], [ true, %if.then69.i ]
-  br i1 %tobool4.not, label %if.else.i.i53, label %if.then.i.i51
+err.i48:                                          ; preds = %if.then69.i, %if.end61.i, %if.end53.i, %if.then59.i, %if.then52.i, %if.then35.i, %if.then3.i55
+  %headerB.0 = phi ptr [ %call6, %if.then3.i55 ], [ %call6, %if.then35.i ], [ %call6, %if.then52.i ], [ %call6, %if.then59.i ], [ %spec.select, %if.end53.i ], [ %call6, %if.end61.i ], [ %call6, %if.then69.i ]
+  %dataB.0 = phi ptr [ %call7, %if.then3.i55 ], [ %call7, %if.then35.i ], [ %call7, %if.then52.i ], [ %call7, %if.then59.i ], [ %spec.select112, %if.end53.i ], [ %call7, %if.end61.i ], [ %call7, %if.then69.i ]
+  %tobool16.not = phi i1 [ true, %if.then3.i55 ], [ true, %if.then35.i ], [ true, %if.then52.i ], [ true, %if.then59.i ], [ false, %if.end53.i ], [ true, %if.end61.i ], [ true, %if.then69.i ]
+  br i1 %tobool4.not, label %if.else.i.i52, label %if.then.i.i50
 
-if.then.i.i51:                                    ; preds = %err.i49
+if.then.i.i50:                                    ; preds = %err.i48
   tail call void @CRYPTO_secure_clear_free(ptr noundef nonnull %cond.i.i41, i64 noundef 256, ptr noundef nonnull @.str.1, i32 noundef 914) #10
   br label %get_header_and_data.exit
 
-if.else.i.i53:                                    ; preds = %err.i49
+if.else.i.i52:                                    ; preds = %err.i48
   tail call void @CRYPTO_free(ptr noundef nonnull %cond.i.i41, ptr noundef nonnull @.str.1, i32 noundef 914) #10
   br label %get_header_and_data.exit
 
-get_header_and_data.exit:                         ; preds = %if.then.i.i51, %if.else.i.i53
+get_header_and_data.exit:                         ; preds = %if.then.i.i50, %if.else.i.i52
   br i1 %tobool16.not, label %end, label %if.end18
 
 if.end18:                                         ; preds = %get_header_and_data.exit
   %call19 = call i64 @BIO_ctrl(ptr noundef %dataB.0, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %buf_mem) #10
-  %5 = load ptr, ptr %buf_mem, align 8
-  %6 = load i64, ptr %5, align 8
-  %conv = trunc i64 %6 to i32
+  %4 = load ptr, ptr %buf_mem, align 8
+  %5 = load i64, ptr %4, align 8
+  %conv = trunc i64 %5 to i32
   store i32 %conv, ptr %len, align 4
   %cmp20 = icmp eq i32 %conv, 0
   br i1 %cmp20, label %end, label %if.end23
@@ -1722,20 +1720,20 @@ if.then27:                                        ; preds = %if.end23
 
 if.end28:                                         ; preds = %if.end23
   call void @EVP_DecodeInit(ptr noundef nonnull %call24) #10
-  %7 = load ptr, ptr %buf_mem, align 8
-  %data29 = getelementptr inbounds %struct.buf_mem_st, ptr %7, i64 0, i32 1
-  %8 = load ptr, ptr %data29, align 8
-  %call31 = call i32 @EVP_DecodeUpdate(ptr noundef nonnull %call24, ptr noundef %8, ptr noundef nonnull %len, ptr noundef %8, i32 noundef %conv) #10
+  %6 = load ptr, ptr %buf_mem, align 8
+  %data29 = getelementptr inbounds %struct.buf_mem_st, ptr %6, i64 0, i32 1
+  %7 = load ptr, ptr %data29, align 8
+  %call31 = call i32 @EVP_DecodeUpdate(ptr noundef nonnull %call24, ptr noundef %7, ptr noundef nonnull %len, ptr noundef %7, i32 noundef %conv) #10
   %cmp32 = icmp slt i32 %call31, 0
   br i1 %cmp32, label %if.then39, label %lor.lhs.false34
 
 lor.lhs.false34:                                  ; preds = %if.end28
-  %9 = load ptr, ptr %buf_mem, align 8
-  %data35 = getelementptr inbounds %struct.buf_mem_st, ptr %9, i64 0, i32 1
-  %10 = load ptr, ptr %data35, align 8
-  %11 = load i32, ptr %len, align 4
-  %idxprom = sext i32 %11 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %10, i64 %idxprom
+  %8 = load ptr, ptr %buf_mem, align 8
+  %data35 = getelementptr inbounds %struct.buf_mem_st, ptr %8, i64 0, i32 1
+  %9 = load ptr, ptr %data35, align 8
+  %10 = load i32, ptr %len, align 4
+  %idxprom = sext i32 %10 to i64
+  %arrayidx = getelementptr inbounds i8, ptr %9, i64 %idxprom
   %call36 = call i32 @EVP_DecodeFinal(ptr noundef nonnull %call24, ptr noundef %arrayidx, ptr noundef nonnull %taillen) #10
   %cmp37 = icmp slt i32 %call36, 0
   br i1 %cmp37, label %if.then39, label %if.end40
@@ -1747,23 +1745,23 @@ if.then39:                                        ; preds = %lor.lhs.false34, %i
   br label %end
 
 if.end40:                                         ; preds = %lor.lhs.false34
-  %12 = load i32, ptr %taillen, align 4
-  %13 = load i32, ptr %len, align 4
-  %add = add nsw i32 %13, %12
+  %11 = load i32, ptr %taillen, align 4
+  %12 = load i32, ptr %len, align 4
+  %add = add nsw i32 %12, %11
   store i32 %add, ptr %len, align 4
   %conv41 = sext i32 %add to i64
-  %14 = load ptr, ptr %buf_mem, align 8
-  store i64 %conv41, ptr %14, align 8
+  %13 = load ptr, ptr %buf_mem, align 8
+  store i64 %conv41, ptr %13, align 8
   %call43 = call i64 @BIO_ctrl(ptr noundef %headerB.0, i32 noundef 3, i64 noundef 0, ptr noundef null) #10
   %conv44 = trunc i64 %call43 to i32
   %add45 = add nsw i32 %conv44, 1
   %call46 = call fastcc ptr @pem_malloc(i32 noundef %add45, i32 noundef %flags, i32 noundef 981)
   store ptr %call46, ptr %header, align 8
-  %15 = load i32, ptr %len, align 4
-  %call47 = call fastcc ptr @pem_malloc(i32 noundef %15, i32 noundef %flags, i32 noundef 982)
+  %14 = load i32, ptr %len, align 4
+  %call47 = call fastcc ptr @pem_malloc(i32 noundef %14, i32 noundef %flags, i32 noundef 982)
   store ptr %call47, ptr %data, align 8
-  %16 = load ptr, ptr %header, align 8
-  %cmp48 = icmp eq ptr %16, null
+  %15 = load ptr, ptr %header, align 8
+  %cmp48 = icmp eq ptr %15, null
   %cmp51 = icmp eq ptr %call47, null
   %or.cond35 = select i1 %cmp48, i1 true, i1 %cmp51
   br i1 %or.cond35, label %out_free, label %if.end54
@@ -1773,77 +1771,77 @@ if.end54:                                         ; preds = %if.end40
   br i1 %cmp55.not, label %if.end62, label %land.lhs.true57
 
 land.lhs.true57:                                  ; preds = %if.end54
-  %call58 = call i32 @BIO_read(ptr noundef %headerB.0, ptr noundef nonnull %16, i32 noundef %conv44) #10
+  %call58 = call i32 @BIO_read(ptr noundef %headerB.0, ptr noundef nonnull %15, i32 noundef %conv44) #10
   %cmp59.not = icmp eq i32 %call58, %conv44
-  %.pre161 = load ptr, ptr %header, align 8
+  %.pre160 = load ptr, ptr %header, align 8
   br i1 %cmp59.not, label %if.end62, label %out_free
 
 if.end62:                                         ; preds = %land.lhs.true57, %if.end54
-  %17 = phi ptr [ %16, %if.end54 ], [ %.pre161, %land.lhs.true57 ]
+  %16 = phi ptr [ %15, %if.end54 ], [ %.pre160, %land.lhs.true57 ]
   %sext = shl i64 %call43, 32
   %idxprom63 = ashr exact i64 %sext, 32
-  %arrayidx64 = getelementptr inbounds i8, ptr %17, i64 %idxprom63
+  %arrayidx64 = getelementptr inbounds i8, ptr %16, i64 %idxprom63
   store i8 0, ptr %arrayidx64, align 1
-  %18 = load ptr, ptr %data, align 8
+  %17 = load ptr, ptr %data, align 8
+  %18 = load i32, ptr %len, align 4
+  %call65 = call i32 @BIO_read(ptr noundef %dataB.0, ptr noundef %17, i32 noundef %18) #10
   %19 = load i32, ptr %len, align 4
-  %call65 = call i32 @BIO_read(ptr noundef %dataB.0, ptr noundef %18, i32 noundef %19) #10
-  %20 = load i32, ptr %len, align 4
-  %cmp66.not = icmp eq i32 %call65, %20
+  %cmp66.not = icmp eq i32 %call65, %19
   br i1 %cmp66.not, label %if.end69, label %if.end62.out_free_crit_edge
 
 if.end62.out_free_crit_edge:                      ; preds = %if.end62
-  %.pre160 = load ptr, ptr %header, align 8
+  %.pre159 = load ptr, ptr %header, align 8
   br label %out_free
 
 if.end69:                                         ; preds = %if.end62
   %conv70 = sext i32 %call65 to i64
   store i64 %conv70, ptr %len_out, align 8
-  store ptr %name.089, ptr %name_out, align 8
+  store ptr %name.088, ptr %name_out, align 8
   br label %end
 
 out_free:                                         ; preds = %if.end62.out_free_crit_edge, %land.lhs.true57, %if.end40
-  %21 = phi ptr [ %.pre160, %if.end62.out_free_crit_edge ], [ %.pre161, %land.lhs.true57 ], [ %16, %if.end40 ]
-  call fastcc void @pem_free(ptr noundef %21, i32 noundef %flags, i64 noundef 0, i32 noundef 997)
+  %20 = phi ptr [ %.pre159, %if.end62.out_free_crit_edge ], [ %.pre160, %land.lhs.true57 ], [ %15, %if.end40 ]
+  call fastcc void @pem_free(ptr noundef %20, i32 noundef %flags, i64 noundef 0, i32 noundef 997)
   store ptr null, ptr %header, align 8
-  %22 = load ptr, ptr %data, align 8
-  call fastcc void @pem_free(ptr noundef %22, i32 noundef %flags, i64 noundef 0, i32 noundef 999)
+  %21 = load ptr, ptr %data, align 8
+  call fastcc void @pem_free(ptr noundef %21, i32 noundef %flags, i64 noundef 0, i32 noundef 999)
   store ptr null, ptr %data, align 8
   br label %end
 
 end:                                              ; preds = %pem_malloc.exit.i40, %pem_malloc.exit.i, %if.end18, %get_header_and_data.exit, %out_free, %if.end69, %if.then39, %if.then27, %if.then9, %if.then
-  %and.i59.pre-phi = phi i32 [ %and3, %pem_malloc.exit.i40 ], [ %and3, %pem_malloc.exit.i ], [ %and3, %if.end18 ], [ %and3, %get_header_and_data.exit ], [ %and3, %out_free ], [ %and3, %if.end69 ], [ %and3, %if.then39 ], [ %and3, %if.then27 ], [ %and3, %if.then9 ], [ %.pre, %if.then ]
+  %and.i58.pre-phi = phi i32 [ %and3, %pem_malloc.exit.i40 ], [ %and3, %pem_malloc.exit.i ], [ %and3, %if.end18 ], [ %and3, %get_header_and_data.exit ], [ %and3, %out_free ], [ %and3, %if.end69 ], [ %and3, %if.then39 ], [ %and3, %if.then27 ], [ %and3, %if.then9 ], [ %.pre, %if.then ]
   %headerB.2 = phi ptr [ %call6, %pem_malloc.exit.i40 ], [ %call6, %pem_malloc.exit.i ], [ %headerB.0, %if.end18 ], [ %headerB.0, %get_header_and_data.exit ], [ %headerB.0, %out_free ], [ %headerB.0, %if.end69 ], [ %headerB.0, %if.then39 ], [ %headerB.0, %if.then27 ], [ %call6, %if.then9 ], [ null, %if.then ]
   %dataB.2 = phi ptr [ %call7, %pem_malloc.exit.i40 ], [ %call7, %pem_malloc.exit.i ], [ %dataB.0, %if.end18 ], [ %dataB.0, %get_header_and_data.exit ], [ %dataB.0, %out_free ], [ %dataB.0, %if.end69 ], [ %dataB.0, %if.then39 ], [ %dataB.0, %if.then27 ], [ %call7, %if.then9 ], [ null, %if.then ]
-  %name.2 = phi ptr [ %name.089, %pem_malloc.exit.i40 ], [ null, %pem_malloc.exit.i ], [ %name.089, %if.end18 ], [ %name.089, %get_header_and_data.exit ], [ %name.089, %out_free ], [ null, %if.end69 ], [ %name.089, %if.then39 ], [ %name.089, %if.then27 ], [ null, %if.then9 ], [ null, %if.then ]
+  %name.2 = phi ptr [ %name.088, %pem_malloc.exit.i40 ], [ null, %pem_malloc.exit.i ], [ %name.088, %if.end18 ], [ %name.088, %get_header_and_data.exit ], [ %name.088, %out_free ], [ null, %if.end69 ], [ %name.088, %if.then39 ], [ %name.088, %if.then27 ], [ null, %if.then9 ], [ null, %if.then ]
   %ctx.0 = phi ptr [ null, %pem_malloc.exit.i40 ], [ null, %pem_malloc.exit.i ], [ null, %if.end18 ], [ null, %get_header_and_data.exit ], [ %call24, %out_free ], [ %call24, %if.end69 ], [ %call24, %if.then39 ], [ null, %if.then27 ], [ null, %if.then9 ], [ null, %if.then ]
   %ret.0 = phi i32 [ 0, %pem_malloc.exit.i40 ], [ 0, %pem_malloc.exit.i ], [ 0, %if.end18 ], [ 0, %get_header_and_data.exit ], [ 0, %out_free ], [ 1, %if.end69 ], [ 0, %if.then39 ], [ 0, %if.then27 ], [ 0, %if.then9 ], [ 0, %if.then ]
   call void @EVP_ENCODE_CTX_free(ptr noundef %ctx.0) #10
-  %tobool.not.i = icmp eq i32 %and.i59.pre-phi, 0
-  br i1 %tobool.not.i, label %if.else.i60, label %if.then.i
+  %tobool.not.i = icmp eq i32 %and.i58.pre-phi, 0
+  br i1 %tobool.not.i, label %if.else.i59, label %if.then.i
 
-if.then.i:                                        ; preds = %end.thread176, %end
-  %ret.0187 = phi i32 [ 0, %end.thread176 ], [ %ret.0, %end ]
-  %name.2186 = phi ptr [ null, %end.thread176 ], [ %name.2, %end ]
-  %dataB.2185 = phi ptr [ %call7, %end.thread176 ], [ %dataB.2, %end ]
-  %headerB.2184 = phi ptr [ %call6, %end.thread176 ], [ %headerB.2, %end ]
-  call void @CRYPTO_secure_clear_free(ptr noundef %name.2186, i64 noundef 0, ptr noundef nonnull @.str.1, i32 noundef 1003) #10
+if.then.i:                                        ; preds = %end.thread175, %end
+  %ret.0186 = phi i32 [ 0, %end.thread175 ], [ %ret.0, %end ]
+  %name.2185 = phi ptr [ null, %end.thread175 ], [ %name.2, %end ]
+  %dataB.2184 = phi ptr [ %call7, %end.thread175 ], [ %dataB.2, %end ]
+  %headerB.2183 = phi ptr [ %call6, %end.thread175 ], [ %headerB.2, %end ]
+  call void @CRYPTO_secure_clear_free(ptr noundef %name.2185, i64 noundef 0, ptr noundef nonnull @.str.1, i32 noundef 1003) #10
   br label %pem_free.exit
 
-if.else.i60:                                      ; preds = %end.thread, %end
-  %ret.0175 = phi i32 [ 0, %end.thread ], [ %ret.0, %end ]
-  %name.2173 = phi ptr [ null, %end.thread ], [ %name.2, %end ]
-  %dataB.2172 = phi ptr [ %call7, %end.thread ], [ %dataB.2, %end ]
-  %headerB.2170 = phi ptr [ %call6, %end.thread ], [ %headerB.2, %end ]
-  call void @CRYPTO_free(ptr noundef %name.2173, ptr noundef nonnull @.str.1, i32 noundef 1003) #10
+if.else.i59:                                      ; preds = %end.thread, %end
+  %ret.0174 = phi i32 [ 0, %end.thread ], [ %ret.0, %end ]
+  %name.2172 = phi ptr [ null, %end.thread ], [ %name.2, %end ]
+  %dataB.2171 = phi ptr [ %call7, %end.thread ], [ %dataB.2, %end ]
+  %headerB.2169 = phi ptr [ %call6, %end.thread ], [ %headerB.2, %end ]
+  call void @CRYPTO_free(ptr noundef %name.2172, ptr noundef nonnull @.str.1, i32 noundef 1003) #10
   br label %pem_free.exit
 
-pem_free.exit:                                    ; preds = %if.then.i, %if.else.i60
-  %ret.0174 = phi i32 [ %ret.0187, %if.then.i ], [ %ret.0175, %if.else.i60 ]
-  %dataB.2171 = phi ptr [ %dataB.2185, %if.then.i ], [ %dataB.2172, %if.else.i60 ]
-  %headerB.2169 = phi ptr [ %headerB.2184, %if.then.i ], [ %headerB.2170, %if.else.i60 ]
-  %call71 = call i32 @BIO_free(ptr noundef %headerB.2169) #10
-  %call72 = call i32 @BIO_free(ptr noundef %dataB.2171) #10
-  ret i32 %ret.0174
+pem_free.exit:                                    ; preds = %if.then.i, %if.else.i59
+  %ret.0173 = phi i32 [ %ret.0186, %if.then.i ], [ %ret.0174, %if.else.i59 ]
+  %dataB.2170 = phi ptr [ %dataB.2184, %if.then.i ], [ %dataB.2171, %if.else.i59 ]
+  %headerB.2168 = phi ptr [ %headerB.2183, %if.then.i ], [ %headerB.2169, %if.else.i59 ]
+  %call71 = call i32 @BIO_free(ptr noundef %headerB.2168) #10
+  %call72 = call i32 @BIO_free(ptr noundef %dataB.2170) #10
+  ret i32 %ret.0173
 }
 
 declare ptr @BIO_s_secmem() local_unnamed_addr #3

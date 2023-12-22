@@ -1273,7 +1273,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp.not.i, label %if.end9, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end6
-  %2 = and i32 %end, -512
+  %2 = and i32 %end, 2096640
   %and.i = add nuw nsw i32 %2, 512
   %shr.i = ashr i32 %1, 4
   %shr3.i = lshr exact i32 %and.i, 4
@@ -1333,7 +1333,7 @@ if.then11:                                        ; preds = %if.end9
 
 if.end15:                                         ; preds = %if.then11
   %add16 = add nuw nsw i32 %start, 15
-  %and17 = and i32 %add16, -16
+  %and17 = and i32 %add16, 4194288
   %cmp18.not = icmp sgt i32 %and17, %add
   %data21 = getelementptr inbounds %"class.icu_75::(anonymous namespace)::MutableCodePointTrie", ptr %this, i64 0, i32 3
   %9 = load ptr, ptr %data21, align 8
@@ -1376,7 +1376,7 @@ while.body.i40:                                   ; preds = %while.body.i40, %wh
 if.end27:                                         ; preds = %while.body.i, %if.end9
   %start.addr.0 = phi i32 [ %start, %if.end9 ], [ %and17, %while.body.i ]
   %and28 = and i32 %add, 15
-  %and29 = and i32 %add, -16
+  %and29 = and i32 %add, 4194288
   %cmp3063 = icmp slt i32 %start.addr.0, %and29
   br i1 %cmp3063, label %while.body.lr.ph, label %while.end
 

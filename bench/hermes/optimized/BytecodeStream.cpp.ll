@@ -2248,8 +2248,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 if.then.i:                                        ; preds = %for.body
   %bf.value8.i = shl nuw nsw i32 %13, 1
   %bf.value13.i = shl i32 %12, 24
-  %bf.value8.i.masked = and i32 %bf.value8.i, 16777214
-  %14 = or disjoint i32 %bf.value8.i.masked, %bf.value13.i
+  %14 = or disjoint i32 %bf.value8.i, %bf.value13.i
   %bf.set16.i = or disjoint i32 %14, %.lobit.i
   br label %_ZN6hermes3hbc21SmallStringTableEntryC2ERKNS_16StringTableEntryEj.exit
 
@@ -2356,25 +2355,29 @@ _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18Byt
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %add.ptr.i = getelementptr inbounds %"class.hermes::StringTableEntry", ptr %8, i64 %sub.ptr.div.i.i.i
-  %cmp.not27 = icmp eq ptr %9, %8
-  br i1 %cmp.not27, label %for.end, label %for.body
+  %cmp.not26 = icmp eq ptr %9, %8
+  br i1 %cmp.not26, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, %for.inc
   %10 = phi i32 [ %17, %for.inc ], [ 0, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit ]
-  %__begin1.028 = phi ptr [ %incdec.ptr, %for.inc ], [ %8, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit ]
-  %length_.i.i = getelementptr inbounds %"class.hermes::StringTableEntry", ptr %__begin1.028, i64 0, i32 1
+  %__begin1.027 = phi ptr [ %incdec.ptr, %for.inc ], [ %8, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit ]
+  %length_.i.i = getelementptr inbounds %"class.hermes::StringTableEntry", ptr %__begin1.027, i64 0, i32 1
   %11 = load i32, ptr %length_.i.i, align 4
-  %12 = load i32, ptr %__begin1.028, align 4
-  %cmp.i6 = icmp ugt i32 %12, 8388607
+  %12 = load i32, ptr %__begin1.027, align 4
+  %cmp.i6 = icmp ult i32 %12, 8388608
   %and.i.i = and i32 %11, 2147483647
-  %cmp5.i = icmp ugt i32 %and.i.i, 254
-  %or.cond.not29 = select i1 %cmp.i6, i1 true, i1 %cmp5.i
-  %bf.value13.i.mask = and i32 %11, 255
-  %cmp.i9 = icmp eq i32 %bf.value13.i.mask, 255
-  %or.cond26 = select i1 %or.cond.not29, i1 true, i1 %cmp.i9
-  br i1 %or.cond26, label %if.then, label %for.inc
+  %cmp5.i = icmp ult i32 %and.i.i, 255
+  %or.cond = select i1 %cmp.i6, i1 %cmp5.i, i1 false
+  br i1 %or.cond, label %_ZN6hermes3hbc21SmallStringTableEntryC2ERKNS_16StringTableEntryEj.exit, label %if.then
 
-if.then:                                          ; preds = %for.body
+_ZN6hermes3hbc21SmallStringTableEntryC2ERKNS_16StringTableEntryEj.exit: ; preds = %for.body
+  %bf.set10.i = shl nuw nsw i32 %12, 1
+  %bf.value13.i = shl i32 %11, 24
+  %bf.set16.i = or disjoint i32 %bf.set10.i, %bf.value13.i
+  %cmp.i9 = icmp ugt i32 %bf.set16.i, -16777217
+  br i1 %cmp.i9, label %if.then, label %for.inc
+
+if.then:                                          ; preds = %for.body, %_ZN6hermes3hbc21SmallStringTableEntryC2ERKNS_16StringTableEntryEj.exit
   %13 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
   %cmp.not.i = icmp ult i32 %10, %13
   br i1 %cmp.not.i, label %_ZN4llvh15SmallVectorImplIN6hermes3hbc24OverflowStringTableEntryEE12emplace_backIJjjEEEvDpOT_.exit, label %if.then.i10
@@ -2397,20 +2400,20 @@ _ZN4llvh15SmallVectorImplIN6hermes3hbc24OverflowStringTableEntryEE12emplace_back
   store i32 %add.i, ptr %Size.i.i.i.i.i, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %for.body, %_ZN4llvh15SmallVectorImplIN6hermes3hbc24OverflowStringTableEntryEE12emplace_backIJjjEEEvDpOT_.exit
-  %17 = phi i32 [ %10, %for.body ], [ %add.i, %_ZN4llvh15SmallVectorImplIN6hermes3hbc24OverflowStringTableEntryEE12emplace_backIJjjEEEvDpOT_.exit ]
-  %incdec.ptr = getelementptr inbounds %"class.hermes::StringTableEntry", ptr %__begin1.028, i64 1
+for.inc:                                          ; preds = %_ZN6hermes3hbc21SmallStringTableEntryC2ERKNS_16StringTableEntryEj.exit, %_ZN4llvh15SmallVectorImplIN6hermes3hbc24OverflowStringTableEntryEE12emplace_backIJjjEEEvDpOT_.exit
+  %17 = phi i32 [ %10, %_ZN6hermes3hbc21SmallStringTableEntryC2ERKNS_16StringTableEntryEj.exit ], [ %add.i, %_ZN4llvh15SmallVectorImplIN6hermes3hbc24OverflowStringTableEntryEE12emplace_backIJjjEEEvDpOT_.exit ]
+  %incdec.ptr = getelementptr inbounds %"class.hermes::StringTableEntry", ptr %__begin1.027, i64 1
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end.loopexit, label %for.body
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %.pre30.pre = load ptr, ptr %overflow, align 8
+  %.pre28.pre = load ptr, ptr %overflow, align 8
   %18 = zext i32 %17 to i64
   %19 = shl nuw nsw i64 %18, 3
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %.pre30 = phi ptr [ %.pre30.pre, %for.end.loopexit ], [ %add.ptr.i.i.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit ]
+  %.pre28 = phi ptr [ %.pre28.pre, %for.end.loopexit ], [ %add.ptr.i.i.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit ]
   %conv.i.i.i = phi i64 [ %19, %for.end.loopexit ], [ 0, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit ]
   %isLayout_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
   %20 = load i8, ptr %isLayout_.i, align 8
@@ -2420,14 +2423,14 @@ for.end:                                          ; preds = %for.end.loopexit, %
 
 if.then.i18:                                      ; preds = %for.end
   %outputHasher_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
-  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %.pre30, i64 %conv.i.i.i) #12
+  call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %.pre28, i64 %conv.i.i.i) #12
   %22 = load ptr, ptr %this, align 8
-  %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %22, ptr noundef %.pre30, i64 noundef %conv.i.i.i) #12
+  %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %22, ptr noundef %.pre28, i64 noundef %conv.i.i.i) #12
   %.pre = load ptr, ptr %overflow, align 8
   br label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS0_24OverflowStringTableEntryEEEvN4llvh8ArrayRefIT_EE.exit
 
 _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS0_24OverflowStringTableEntryEEEvN4llvh8ArrayRefIT_EE.exit: ; preds = %for.end, %if.then.i18
-  %23 = phi ptr [ %.pre30, %for.end ], [ %.pre, %if.then.i18 ]
+  %23 = phi ptr [ %.pre28, %for.end ], [ %.pre, %if.then.i18 ]
   %24 = load i64, ptr %loc_.i, align 8
   %add.i17 = add i64 %24, %conv.i.i.i
   store i64 %add.i17, ptr %loc_.i, align 8

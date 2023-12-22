@@ -616,11 +616,11 @@ if.then10:                                        ; preds = %lor.lhs.false6, %if
   br label %return
 
 if.end11:                                         ; preds = %lor.lhs.false6
-  %cmp1213.not = icmp ult i32 %length, 2
+  %cmp1213.not = icmp eq i32 %length, 0
   br i1 %cmp1213.not, label %return, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %if.end11
-  %div12 = lshr i32 %length, 1
+  %div12 = lshr exact i32 %length, 1
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -637,7 +637,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp12, label %while.body, label %return, !llvm.loop !7
 
 return:                                           ; preds = %while.body, %if.end11, %entry, %lor.lhs.false, %if.then10
-  %retval.0 = phi i32 [ 0, %if.then10 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ %length, %if.end11 ], [ %length, %while.body ]
+  %retval.0 = phi i32 [ 0, %if.then10 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %if.end11 ], [ %length, %while.body ]
   ret i32 %retval.0
 }
 
@@ -672,11 +672,11 @@ if.then10:                                        ; preds = %lor.lhs.false6, %if
   br label %return
 
 if.end11:                                         ; preds = %lor.lhs.false6
-  %cmp1215.not = icmp ult i32 %length, 4
+  %cmp1215.not = icmp eq i32 %length, 0
   br i1 %cmp1215.not, label %return, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %if.end11
-  %div14 = lshr i32 %length, 2
+  %div14 = lshr exact i32 %length, 2
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -693,7 +693,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp12, label %while.body, label %return, !llvm.loop !8
 
 return:                                           ; preds = %while.body, %if.end11, %entry, %lor.lhs.false, %if.then10
-  %retval.0 = phi i32 [ 0, %if.then10 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ %length, %if.end11 ], [ %length, %while.body ]
+  %retval.0 = phi i32 [ 0, %if.then10 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %if.end11 ], [ %length, %while.body ]
   ret i32 %retval.0
 }
 
@@ -728,11 +728,11 @@ if.then10:                                        ; preds = %lor.lhs.false6, %if
   br label %return
 
 if.end11:                                         ; preds = %lor.lhs.false6
-  %cmp1220.not = icmp ult i32 %length, 8
+  %cmp1220.not = icmp eq i32 %length, 0
   br i1 %cmp1220.not, label %return, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %if.end11
-  %div19 = lshr i32 %length, 3
+  %div19 = lshr exact i32 %length, 3
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -749,7 +749,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp12, label %while.body, label %return, !llvm.loop !9
 
 return:                                           ; preds = %while.body, %if.end11, %entry, %lor.lhs.false, %if.then10
-  %retval.0 = phi i32 [ 0, %if.then10 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ %length, %if.end11 ], [ %length, %while.body ]
+  %retval.0 = phi i32 [ 0, %if.then10 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %if.end11 ], [ %length, %while.body ]
   ret i32 %retval.0
 }
 

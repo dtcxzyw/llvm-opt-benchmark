@@ -639,7 +639,7 @@ for.inc.i:                                        ; preds = %entry, %for.inc.i
   %r.07.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %entry ]
   %x.addr.06.i = phi i64 [ %shr.i, %for.inc.i ], [ %x, %entry ]
   %inc.i = add nuw nsw i64 %r.07.i, 1
-  %shr.i = lshr i64 %x.addr.06.i, 1
+  %shr.i = lshr exact i64 %x.addr.06.i, 1
   %0 = and i64 %x.addr.06.i, 2
   %cmp.i = icmp eq i64 %0, 0
   %cmp1.i = icmp ult i64 %r.07.i, 63
@@ -735,7 +735,7 @@ for.inc.i:                                        ; preds = %if.end7, %for.inc.i
   %r.07.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %if.end7 ]
   %x.addr.06.i = phi i64 [ %shr.i, %for.inc.i ], [ %or, %if.end7 ]
   %inc.i = add nuw nsw i64 %r.07.i, 1
-  %shr.i = lshr i64 %x.addr.06.i, 1
+  %shr.i = lshr exact i64 %x.addr.06.i, 1
   %0 = and i64 %x.addr.06.i, 2
   %cmp.i = icmp eq i64 %0, 0
   %cmp1.i = icmp ult i64 %r.07.i, 63
@@ -752,7 +752,7 @@ for.inc.i4:                                       ; preds = %_ZL17_trailing_zero
   %r.07.i5 = phi i64 [ %inc.i7, %for.inc.i4 ], [ 0, %_ZL17_trailing_zeros64m.exit ]
   %x.addr.06.i6 = phi i64 [ %shr.i8, %for.inc.i4 ], [ %u, %_ZL17_trailing_zeros64m.exit ]
   %inc.i7 = add nuw nsw i64 %r.07.i5, 1
-  %shr.i8 = lshr i64 %x.addr.06.i6, 1
+  %shr.i8 = lshr exact i64 %x.addr.06.i6, 1
   %2 = and i64 %x.addr.06.i6, 2
   %cmp.i9 = icmp eq i64 %2, 0
   %cmp1.i10 = icmp ult i64 %r.07.i5, 63
@@ -775,7 +775,7 @@ for.inc.i15:                                      ; preds = %do.body, %for.inc.i
   %r.07.i16 = phi i64 [ %inc.i18, %for.inc.i15 ], [ 0, %do.body ]
   %x.addr.06.i17 = phi i64 [ %shr.i19, %for.inc.i15 ], [ %v.addr.0, %do.body ]
   %inc.i18 = add nuw nsw i64 %r.07.i16, 1
-  %shr.i19 = lshr i64 %x.addr.06.i17, 1
+  %shr.i19 = lshr exact i64 %x.addr.06.i17, 1
   %4 = and i64 %x.addr.06.i17, 2
   %cmp.i20 = icmp eq i64 %4, 0
   %cmp1.i21 = icmp ult i64 %r.07.i16, 63
@@ -12896,8 +12896,6 @@ if.then4:                                         ; preds = %if.end
 if.then.i:                                        ; preds = %if.then4
   %conv.i47 = trunc i64 %mul45 to i32
   store i32 %conv.i47, ptr %a, align 8
-  %bf.clear.i50 = and i8 %bf.load.i, -2
-  store i8 %bf.clear.i50, ptr %m_kind.i, align 4
   br label %return
 
 if.else.i:                                        ; preds = %if.then4
@@ -27137,8 +27135,6 @@ if.then4:                                         ; preds = %if.end
 if.then.i:                                        ; preds = %if.then4
   %conv.i47 = trunc i64 %mul45 to i32
   store i32 %conv.i47, ptr %a, align 8
-  %bf.clear.i50 = and i8 %bf.load.i, -2
-  store i8 %bf.clear.i50, ptr %m_kind.i, align 4
   br label %return
 
 if.else.i:                                        ; preds = %if.then4

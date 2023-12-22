@@ -366,7 +366,7 @@ if.end130:                                        ; preds = %if.else77
   %25 = trunc i32 %24 to i8
   %conv94 = xor i8 %25, -128
   store i8 %conv94, ptr %tempBuf, align 1
-  %add96 = xor i8 %6, -128
+  %add96 = or disjoint i8 %6, -128
   store i8 %add96, ptr %arrayidx1, align 1
   %26 = load ptr, ptr %4, align 8
   %sharedData = getelementptr inbounds %struct.UConverter, ptr %26, i64 0, i32 6

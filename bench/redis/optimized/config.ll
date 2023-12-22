@@ -1804,7 +1804,7 @@ if.end:                                           ; preds = %entry
 for.body.lr.ph:                                   ; preds = %if.end
   %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
   %conn.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 2
-  %wide.trip.count173 = zext nneg i32 %div to i64
+  %wide.trip.count172 = zext nneg i32 %div to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc103
@@ -1971,8 +1971,8 @@ for.inc103:                                       ; preds = %land.lhs.true67, %i
   %deny_loading_error.1 = phi i32 [ %deny_loading_error.0143, %if.end40 ], [ %deny_loading_error.0143, %if.then54 ], [ %deny_loading_error.0143, %for.end ], [ %deny_loading_error.0143, %if.then22 ], [ %deny_loading_error.0143, %if.then24 ], [ 1, %land.lhs.true67 ]
   %invalid_arg_name.1 = phi ptr [ %invalid_arg_name.0146, %if.end40 ], [ %invalid_arg_name.0146, %if.then54 ], [ %invalid_arg_name.0146, %for.end ], [ %invalid_arg_name.0146, %if.then22 ], [ %10, %if.then24 ], [ %invalid_arg_name.0146, %land.lhs.true67 ]
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
-  %exitcond174.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count173
-  br i1 %exitcond174.not, label %for.end105, label %for.body, !llvm.loop !18
+  %exitcond173.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count172
+  br i1 %exitcond173.not, label %for.end105, label %for.body, !llvm.loop !18
 
 for.end105:                                       ; preds = %for.inc103
   %tobool106.not = icmp eq i32 %invalid_args.2, 0
@@ -1989,34 +1989,34 @@ for.cond123.preheader:                            ; preds = %for.body112
   br i1 %cmp141, label %for.body126.preheader, label %for.end227
 
 for.body126.preheader:                            ; preds = %for.cond123.preheader
-  %wide.trip.count185 = zext nneg i32 %div to i64
+  %wide.trip.count184 = zext nneg i32 %div to i64
   br label %for.body126
 
 for.body112:                                      ; preds = %for.body112.preheader, %for.body112
-  %indvars.iv175 = phi i64 [ 0, %for.body112.preheader ], [ %indvars.iv.next176, %for.body112 ]
-  %arrayidx114 = getelementptr inbounds ptr, ptr %call2, i64 %indvars.iv175
+  %indvars.iv174 = phi i64 [ 0, %for.body112.preheader ], [ %indvars.iv.next175, %for.body112 ]
+  %arrayidx114 = getelementptr inbounds ptr, ptr %call2, i64 %indvars.iv174
   %37 = load ptr, ptr %arrayidx114, align 8
   %get = getelementptr inbounds %struct.standardConfig, ptr %37, i64 0, i32 3, i32 3
   %38 = load ptr, ptr %get, align 8
   %call117 = tail call ptr %38(ptr noundef %37) #24
-  %arrayidx119 = getelementptr inbounds ptr, ptr %call11, i64 %indvars.iv175
+  %arrayidx119 = getelementptr inbounds ptr, ptr %call11, i64 %indvars.iv174
   store ptr %call117, ptr %arrayidx119, align 8
-  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
-  %exitcond178.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count
-  br i1 %exitcond178.not, label %for.cond123.preheader, label %for.body112, !llvm.loop !19
+  %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
+  %exitcond177.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count
+  br i1 %exitcond177.not, label %for.cond123.preheader, label %for.body112, !llvm.loop !19
 
 for.cond195.preheader:                            ; preds = %for.inc192
   br i1 %cmp141, label %land.rhs198.preheader, label %for.end227
 
 land.rhs198.preheader:                            ; preds = %for.cond195.preheader
-  %wide.trip.count190 = zext nneg i32 %div to i64
+  %wide.trip.count189 = zext nneg i32 %div to i64
   br label %land.rhs198
 
 for.body126:                                      ; preds = %for.body126.preheader, %for.inc192
-  %indvars.iv182 = phi i64 [ 0, %for.body126.preheader ], [ %indvars.iv.next183, %for.inc192 ]
-  %arrayidx128 = getelementptr inbounds ptr, ptr %call2, i64 %indvars.iv182
+  %indvars.iv181 = phi i64 [ 0, %for.body126.preheader ], [ %indvars.iv.next182, %for.inc192 ]
+  %arrayidx128 = getelementptr inbounds ptr, ptr %call2, i64 %indvars.iv181
   %39 = load ptr, ptr %arrayidx128, align 8
-  %arrayidx130 = getelementptr inbounds ptr, ptr %call8, i64 %indvars.iv182
+  %arrayidx130 = getelementptr inbounds ptr, ptr %call8, i64 %indvars.iv181
   %40 = load ptr, ptr %arrayidx130, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.addr.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %argc.i)
@@ -2103,7 +2103,7 @@ performInterfaceSet.exit:                         ; preds = %if.end.i, %if.then7
   ]
 
 if.then133:                                       ; preds = %performInterfaceSet.exit
-  %53 = trunc i64 %indvars.iv182 to i32
+  %53 = trunc i64 %indvars.iv181 to i32
   %add134 = add nuw nsw i32 %53, 1
   call fastcc void @restoreBackupConfig(ptr noundef nonnull %call2, ptr noundef %call11, i32 noundef %add134, ptr noundef null, ptr noundef null)
   %54 = load ptr, ptr %39, align 8
@@ -2134,42 +2134,42 @@ for.cond156.preheader:                            ; preds = %if.else150
   br i1 %cmp159152, label %if.then178, label %for.body163
 
 for.cond156:                                      ; preds = %for.body163
-  %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
-  %arrayidx158 = getelementptr inbounds ptr, ptr %call14, i64 %indvars.iv.next180
+  %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
+  %arrayidx158 = getelementptr inbounds ptr, ptr %call14, i64 %indvars.iv.next179
   %60 = load ptr, ptr %arrayidx158, align 8
   %cmp159 = icmp eq ptr %60, null
-  %cmp161 = icmp uge i64 %indvars.iv179, %indvars.iv182
+  %cmp161 = icmp uge i64 %indvars.iv178, %indvars.iv181
   %.not = or i1 %cmp161, %cmp159
   br i1 %.not, label %if.then178, label %for.body163, !llvm.loop !20
 
 for.body163:                                      ; preds = %for.cond156.preheader, %for.cond156
-  %indvars.iv179 = phi i64 [ %indvars.iv.next180, %for.cond156 ], [ 0, %for.cond156.preheader ]
+  %indvars.iv178 = phi i64 [ %indvars.iv.next179, %for.cond156 ], [ 0, %for.cond156.preheader ]
   %61 = phi ptr [ %60, %for.cond156 ], [ %59, %for.cond156.preheader ]
   %cmp170 = icmp eq ptr %61, %58
   br i1 %cmp170, label %for.inc192, label %for.cond156
 
 if.then178:                                       ; preds = %for.cond156, %for.cond156.preheader
-  %idxprom157.lcssa151 = phi i64 [ 0, %for.cond156.preheader ], [ %indvars.iv.next180, %for.cond156 ]
+  %idxprom157.lcssa151 = phi i64 [ 0, %for.cond156.preheader ], [ %indvars.iv.next179, %for.cond156 ]
   %arrayidx158.le = getelementptr inbounds ptr, ptr %call14, i64 %idxprom157.lcssa151
   store ptr %58, ptr %arrayidx158.le, align 8
   %arrayidx186 = getelementptr inbounds i32, ptr %call17, i64 %idxprom157.lcssa151
-  %62 = trunc i64 %indvars.iv182 to i32
+  %62 = trunc i64 %indvars.iv181 to i32
   store i32 %62, ptr %arrayidx186, align 4
   br label %for.inc192
 
 for.inc192:                                       ; preds = %for.body163, %performInterfaceSet.exit, %if.then147, %if.then178, %if.else150
-  %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
-  %exitcond186.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count185
-  br i1 %exitcond186.not, label %for.cond195.preheader, label %for.body126, !llvm.loop !21
+  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
+  %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count184
+  br i1 %exitcond185.not, label %for.cond195.preheader, label %for.body126, !llvm.loop !21
 
 for.cond195:                                      ; preds = %for.body204
-  %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
-  %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count190
-  br i1 %exitcond191.not, label %for.end227, label %land.rhs198, !llvm.loop !22
+  %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
+  %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count189
+  br i1 %exitcond190.not, label %for.end227, label %land.rhs198, !llvm.loop !22
 
 land.rhs198:                                      ; preds = %land.rhs198.preheader, %for.cond195
-  %indvars.iv187 = phi i64 [ 0, %land.rhs198.preheader ], [ %indvars.iv.next188, %for.cond195 ]
-  %arrayidx200 = getelementptr inbounds ptr, ptr %call14, i64 %indvars.iv187
+  %indvars.iv186 = phi i64 [ 0, %land.rhs198.preheader ], [ %indvars.iv.next187, %for.cond195 ]
+  %arrayidx200 = getelementptr inbounds ptr, ptr %call14, i64 %indvars.iv186
   %63 = load ptr, ptr %arrayidx200, align 8
   %cmp201.not = icmp eq ptr %63, null
   br i1 %cmp201.not, label %for.end227, label %for.body204
@@ -2185,7 +2185,7 @@ do.body:                                          ; preds = %for.body204
   br i1 %cmp210, label %do.end, label %if.end213
 
 if.end213:                                        ; preds = %do.body
-  %arrayidx215 = getelementptr inbounds i32, ptr %call17, i64 %indvars.iv187
+  %arrayidx215 = getelementptr inbounds i32, ptr %call17, i64 %indvars.iv186
   %65 = load i32, ptr %arrayidx215, align 4
   %idxprom216 = sext i32 %65 to i64
   %arrayidx217 = getelementptr inbounds ptr, ptr %call2, i64 %idxprom216
@@ -2196,7 +2196,7 @@ if.end213:                                        ; preds = %do.body
 
 do.end:                                           ; preds = %do.body, %if.end213
   call fastcc void @restoreBackupConfig(ptr noundef %call2, ptr noundef %call11, i32 noundef %div, ptr noundef nonnull %call14, ptr noundef null)
-  %arrayidx220 = getelementptr inbounds i32, ptr %call17, i64 %indvars.iv187
+  %arrayidx220 = getelementptr inbounds i32, ptr %call17, i64 %indvars.iv186
   %68 = load i32, ptr %arrayidx220, align 4
   %idxprom221 = sext i32 %68 to i64
   %arrayidx222 = getelementptr inbounds ptr, ptr %call2, i64 %idxprom221
@@ -2206,8 +2206,8 @@ do.end:                                           ; preds = %do.body, %if.end213
   br label %err
 
 for.end227:                                       ; preds = %land.rhs198, %for.cond195, %if.end, %for.cond109.preheader, %for.cond123.preheader, %for.cond195.preheader
-  %deny_loading_error.0.lcssa202208211216 = phi i32 [ %deny_loading_error.1, %for.cond195.preheader ], [ %deny_loading_error.1, %for.cond123.preheader ], [ %deny_loading_error.1, %for.cond109.preheader ], [ 0, %if.end ], [ %deny_loading_error.1, %for.cond195 ], [ %deny_loading_error.1, %land.rhs198 ]
-  %invalid_arg_name.0.lcssa204207212215 = phi ptr [ %invalid_arg_name.1, %for.cond195.preheader ], [ %invalid_arg_name.1, %for.cond123.preheader ], [ %invalid_arg_name.1, %for.cond109.preheader ], [ null, %if.end ], [ %invalid_arg_name.1, %for.cond195 ], [ %invalid_arg_name.1, %land.rhs198 ]
+  %deny_loading_error.0.lcssa201207210215 = phi i32 [ %deny_loading_error.1, %for.cond195.preheader ], [ %deny_loading_error.1, %for.cond123.preheader ], [ %deny_loading_error.1, %for.cond109.preheader ], [ 0, %if.end ], [ %deny_loading_error.1, %for.cond195 ], [ %deny_loading_error.1, %land.rhs198 ]
+  %invalid_arg_name.0.lcssa203206211214 = phi ptr [ %invalid_arg_name.1, %for.cond195.preheader ], [ %invalid_arg_name.1, %for.cond123.preheader ], [ %invalid_arg_name.1, %for.cond109.preheader ], [ null, %if.end ], [ %invalid_arg_name.1, %for.cond195 ], [ %invalid_arg_name.1, %land.rhs198 ]
   %call228 = call i32 @moduleConfigApplyConfig(ptr noundef %call, ptr noundef nonnull %errstr, ptr noundef nonnull %err_arg_name) #24
   %tobool229.not = icmp eq i32 %call228, 0
   br i1 %tobool229.not, label %if.then230, label %if.end231
@@ -2229,9 +2229,9 @@ if.end231:                                        ; preds = %for.end227
   br label %end
 
 err:                                              ; preds = %for.end105, %if.then230, %do.end, %if.then133
-  %invalid_arg_name.0.lcssa203 = phi ptr [ %invalid_arg_name.1, %for.end105 ], [ %invalid_arg_name.0.lcssa204207212215, %if.then230 ], [ %invalid_arg_name.1, %do.end ], [ %invalid_arg_name.1, %if.then133 ]
-  %deny_loading_error.0.lcssa201 = phi i32 [ %deny_loading_error.1, %for.end105 ], [ %deny_loading_error.0.lcssa202208211216, %if.then230 ], [ %deny_loading_error.1, %do.end ], [ %deny_loading_error.1, %if.then133 ]
-  %tobool233.not = icmp eq i32 %deny_loading_error.0.lcssa201, 0
+  %invalid_arg_name.0.lcssa202 = phi ptr [ %invalid_arg_name.1, %for.end105 ], [ %invalid_arg_name.0.lcssa203206211214, %if.then230 ], [ %invalid_arg_name.1, %do.end ], [ %invalid_arg_name.1, %if.then133 ]
+  %deny_loading_error.0.lcssa200 = phi i32 [ %deny_loading_error.1, %for.end105 ], [ %deny_loading_error.0.lcssa201207210215, %if.then230 ], [ %deny_loading_error.1, %do.end ], [ %deny_loading_error.1, %if.then133 ]
+  %tobool233.not = icmp eq i32 %deny_loading_error.0.lcssa200, 0
   br i1 %tobool233.not, label %if.else235, label %if.then234
 
 if.then234:                                       ; preds = %err
@@ -2240,11 +2240,11 @@ if.then234:                                       ; preds = %err
   br label %end
 
 if.else235:                                       ; preds = %err
-  %tobool236.not = icmp eq ptr %invalid_arg_name.0.lcssa203, null
+  %tobool236.not = icmp eq ptr %invalid_arg_name.0.lcssa202, null
   br i1 %tobool236.not, label %if.else238, label %if.then237
 
 if.then237:                                       ; preds = %if.else235
-  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %c, ptr noundef nonnull @.str.91, ptr noundef nonnull %invalid_arg_name.0.lcssa203) #24
+  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %c, ptr noundef nonnull @.str.91, ptr noundef nonnull %invalid_arg_name.0.lcssa202) #24
   br label %end
 
 if.else238:                                       ; preds = %if.else235
@@ -2268,17 +2268,17 @@ end:                                              ; preds = %if.then234, %if.the
   br i1 %cmp141, label %for.body248.preheader, label %for.end253
 
 for.body248.preheader:                            ; preds = %end
-  %wide.trip.count195 = zext nneg i32 %div to i64
+  %wide.trip.count194 = zext nneg i32 %div to i64
   br label %for.body248
 
 for.body248:                                      ; preds = %for.body248.preheader, %for.body248
-  %indvars.iv192 = phi i64 [ 0, %for.body248.preheader ], [ %indvars.iv.next193, %for.body248 ]
-  %arrayidx250 = getelementptr inbounds ptr, ptr %call11, i64 %indvars.iv192
+  %indvars.iv191 = phi i64 [ 0, %for.body248.preheader ], [ %indvars.iv.next192, %for.body248 ]
+  %arrayidx250 = getelementptr inbounds ptr, ptr %call11, i64 %indvars.iv191
   %75 = load ptr, ptr %arrayidx250, align 8
   call void @sdsfree(ptr noundef %75) #24
-  %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
-  %exitcond196.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count195
-  br i1 %exitcond196.not, label %for.end253, label %for.body248, !llvm.loop !23
+  %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
+  %exitcond195.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count194
+  br i1 %exitcond195.not, label %for.end253, label %for.body248, !llvm.loop !23
 
 for.end253:                                       ; preds = %for.body248, %end
   call void @zfree(ptr noundef %call11) #24
@@ -7786,7 +7786,7 @@ if.end36.i:                                       ; preds = %lor.lhs.false28.i
   store i64 %call13.i, ptr %arrayidx38.i, align 8
   %soft_limit_bytes.i = getelementptr inbounds [3 x %struct.clientBufferLimitsConfig], ptr %values.i, i64 0, i64 %idxprom37.i, i32 1
   store i64 %call17.i, ptr %soft_limit_bytes.i, align 8
-  %conv41.i = and i64 %call21.i, 4294967295
+  %conv41.i = and i64 %call21.i, 2147483647
   %soft_limit_seconds.i = getelementptr inbounds [3 x %struct.clientBufferLimitsConfig], ptr %values.i, i64 0, i64 %idxprom37.i, i32 2
   store i64 %conv41.i, ptr %soft_limit_seconds.i, align 8
   %arrayidx45.i = getelementptr inbounds [3 x i32], ptr %classes.i, i64 0, i64 %idxprom37.i

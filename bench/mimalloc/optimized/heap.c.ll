@@ -1211,7 +1211,7 @@ for.body27.i.i:                                   ; preds = %for.inc51.i.i, %for
   br i1 %or.cond.i.i, label %if.then38.i.i, label %if.else.i.i
 
 if.then38.i.i:                                    ; preds = %for.body27.i.i
-  %add.i.i = add nuw nsw i64 %i.045.i.i, 7
+  %add.i.i = or disjoint i64 %i.045.i.i, 7
   br label %for.inc51.i.i
 
 if.else.i.i:                                      ; preds = %for.body27.i.i

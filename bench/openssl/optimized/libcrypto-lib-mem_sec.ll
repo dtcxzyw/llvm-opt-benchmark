@@ -946,7 +946,9 @@ cond.false8:                                      ; preds = %sh_testbit.exit
   unreachable
 
 return:                                           ; preds = %sh_testbit.exit
-  ret i64 %shr.i14
+  %sh_prom = and i64 %list.0.lcssa.i, 2147483647
+  %div7 = lshr i64 %1, %sh_prom
+  ret i64 %div7
 }
 
 declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #1

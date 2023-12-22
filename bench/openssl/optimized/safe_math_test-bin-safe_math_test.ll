@@ -231,7 +231,7 @@ if.end58:                                         ; preds = %land.lhs.true54, %l
   br i1 %or.cond.i88, label %if.then.i91, label %if.end9.i
 
 if.then.i91:                                      ; preds = %if.end58
-  %sub.i = sub nuw nsw i32 2147483647, %1
+  %sub.i = xor i32 %1, 2147483647
   %cmp3.i92 = icmp ugt i32 %sub.i, %0
   br i1 %cmp3.i92, label %if.then4.i95, label %if.end.i93
 

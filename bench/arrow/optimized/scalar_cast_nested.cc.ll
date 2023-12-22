@@ -42393,8 +42393,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.
   br i1 %9, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %invoke.cont
-  %sext414 = shl i64 %sub.ptr.sub.i.i, 28
-  %10 = ashr i64 %sext414, 32
+  %10 = and i64 %sub.ptr.div.i.i, 4294967295
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
@@ -42518,7 +42517,7 @@ if.end:                                           ; preds = %land.lhs.true, %if.
 for.inc:                                          ; preds = %for.body, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %if.end
   %out_field_index.1 = phi i32 [ %inc, %if.end ], [ %out_field_index.0380, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %out_field_index.0380, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp slt i64 %indvars.iv.next, %10
+  %cmp = icmp ult i64 %indvars.iv.next, %10
   %cmp9 = icmp slt i32 %out_field_index.1, %conv.i53
   %28 = select i1 %cmp, i1 %cmp9, i1 false
   br i1 %28, label %for.body, label %for.end, !llvm.loop !692

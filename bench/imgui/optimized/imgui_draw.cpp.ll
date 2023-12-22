@@ -3318,8 +3318,8 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then2.i, %if.end.i
-  %conv.i = sext i32 %mul51 to i64
-  %mul.i = shl nsw i64 %conv.i, 3
+  %conv.i = zext nneg i32 %mul51 to i64
+  %mul.i = shl nuw nsw i64 %conv.i, 3
   %call.i = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i)
   store ptr %call.i, ptr %Data.i, align 8
   store i32 %mul51, ptr %Capacity.i, align 4
@@ -4198,8 +4198,8 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then2.i, %if.end.i
-  %conv.i = sext i32 %points_count to i64
-  %mul.i = shl nsw i64 %conv.i, 3
+  %conv.i = zext nneg i32 %points_count to i64
+  %mul.i = shl nuw nsw i64 %conv.i, 3
   %call.i = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i)
   store ptr %call.i, ptr %Data.i, align 8
   store i32 %points_count, ptr %Capacity.i, align 4

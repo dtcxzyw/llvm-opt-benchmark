@@ -99,7 +99,7 @@ if.then24:                                        ; preds = %land.lhs.true
 
 lor.lhs.false30:                                  ; preds = %land.lhs.true
   %shl.i = shl nuw nsw i32 %call15, 8
-  %or.i = add nuw nsw i32 %shl.i, %operation_id
+  %or.i = or disjoint i32 %shl.i, %operation_id
   %call31 = call i32 @ossl_method_store_cache_get(ptr noundef nonnull %call.i, ptr noundef %prov, i32 noundef %or.i, ptr noundef nonnull %cond, ptr noundef nonnull %method) #4
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %if.then33, label %if.end59

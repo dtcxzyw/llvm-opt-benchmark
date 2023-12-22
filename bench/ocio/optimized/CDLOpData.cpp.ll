@@ -877,7 +877,7 @@ entry:
   br i1 %or.cond, label %switch.lookup, label %if.end
 
 switch.lookup:                                    ; preds = %entry
-  %4 = sext i32 %0 to i64
+  %4 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZNK19OpenColorIO_v2_4dev9CDLOpData7inverseEv, i64 0, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %m_style.i, align 8

@@ -5750,7 +5750,7 @@ invoke.cont439:                                   ; preds = %if.then437
   br label %if.end450.sink.split
 
 if.else444:                                       ; preds = %if.then429
-  %bf.clear447 = and i32 %bf.set416, -2049
+  %bf.clear447 = and i32 %bf.load406, -2305
   br label %if.end450.sink.split
 
 if.end450.sink.split:                             ; preds = %if.else444, %invoke.cont439
@@ -7449,7 +7449,7 @@ if.then:                                          ; preds = %entry, %lor.lhs.fal
   br label %if.end
 
 if.else:                                          ; preds = %lor.lhs.false
-  %bf.set11 = or i32 %bf.load6.pre, 4096
+  %bf.set11 = or disjoint i32 %bf.load6.pre, 4096
   store i32 %bf.set11, ptr %keepalive_.phi.trans.insert, align 8
   br label %if.end
 

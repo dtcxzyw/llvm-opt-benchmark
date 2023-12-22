@@ -1139,7 +1139,7 @@ entry:
 
 if.end3:                                          ; preds = %entry
   %retval.0.i10 = and i64 %e, 8388607
-  %or = and i64 %e, 4294967295
+  %or = and i64 %e, 2147483647
   store i64 %or, ptr %d, align 8
   %1 = load ptr, ptr @err_string_lock, align 8
   %call.i = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef %1) #8

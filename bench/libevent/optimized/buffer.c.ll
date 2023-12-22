@@ -6330,7 +6330,7 @@ if.end8:                                          ; preds = %if.end7, %if.end
   %cmp10 = icmp slt i64 %offset, 0
   %cmp11 = icmp slt i64 %length.addr.0, 0
   %or.cond1 = select i1 %cmp10, i1 true, i1 %cmp11
-  %sub = sub nuw nsw i64 9223372036854775807, %length.addr.0
+  %sub = xor i64 %length.addr.0, 9223372036854775807
   %cmp15 = icmp ult i64 %sub, %offset
   %or.cond23 = select i1 %or.cond1, i1 true, i1 %cmp15
   br i1 %or.cond23, label %err, label %if.end17
@@ -6970,7 +6970,7 @@ if.end8.i:                                        ; preds = %if.end7.i, %if.end.
   %cmp10.i = icmp slt i64 %offset, 0
   %cmp11.i = icmp slt i64 %length.addr.0.i, 0
   %or.cond1.i = select i1 %cmp10.i, i1 true, i1 %cmp11.i
-  %sub.i = sub nuw nsw i64 9223372036854775807, %length.addr.0.i
+  %sub.i = xor i64 %length.addr.0.i, 9223372036854775807
   %cmp15.i = icmp ult i64 %sub.i, %offset
   %or.cond23.i = select i1 %or.cond1.i, i1 true, i1 %cmp15.i
   br i1 %or.cond23.i, label %err.i, label %if.end17.i

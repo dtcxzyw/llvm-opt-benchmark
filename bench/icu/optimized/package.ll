@@ -1112,7 +1112,7 @@ if.then7:                                         ; preds = %if.end
 
 if.end11:                                         ; preds = %if.end
   %add = add nuw nsw i32 %conv.i, 15
-  %and = and i32 %add, -16
+  %and = and i32 %add, 2147483632
   store i32 %and, ptr %length, align 4
   %conv = zext nneg i32 %and to i64
   %call12 = call noalias ptr @uprv_malloc_75(i64 noundef %conv) #25
@@ -2066,7 +2066,6 @@ if.then10:                                        ; preds = %while.body, %while.
 
 land.rhs.preheader:                               ; preds = %if.then10
   %invariant.gep = getelementptr %"struct.icu_75::Item", ptr %1, i64 -1
-  %conv19 = zext nneg i32 %length to i64
   %4 = sext i32 %.us-phi22 to i64
   br label %land.rhs
 
@@ -2074,7 +2073,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   %indvars.iv = phi i64 [ %4, %land.rhs.preheader ], [ %indvars.iv.next, %while.body22 ]
   %gep = getelementptr %"struct.icu_75::Item", ptr %invariant.gep, i64 %indvars.iv
   %5 = load ptr, ptr %gep, align 8
-  %call20 = tail call i32 @strncmp(ptr noundef %name, ptr noundef %5, i64 noundef %conv19) #23
+  %call20 = tail call i32 @strncmp(ptr noundef %name, ptr noundef %5, i64 noundef %conv) #23
   %cmp21 = icmp eq i32 %call20, 0
   br i1 %cmp21, label %while.body22, label %return.loopexit.split.loop.exit
 

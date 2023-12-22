@@ -762,9 +762,7 @@ land.lhs.true24.i:                                ; preds = %land.lhs.true16.i
 audio_pcm_info_eq.exit:                           ; preds = %land.lhs.true24.i
   %swap_endianness.i = getelementptr inbounds %struct.SWVoiceOut, ptr %sw, i64 0, i32 2, i32 7
   %26 = load i32, ptr %swap_endianness.i, align 4
-  %cmp28.i = icmp ne i32 %11, 0
-  %conv29.i = zext i1 %cmp28.i to i32
-  %cmp30.i.not = icmp eq i32 %26, %conv29.i
+  %cmp30.i.not = icmp eq i32 %26, %11
   br i1 %cmp30.i.not, label %return, label %if.end22
 
 if.end22:                                         ; preds = %switch.lookup, %land.lhs.true.i, %land.lhs.true10.i, %land.lhs.true16.i, %land.lhs.true24.i, %audio_pcm_info_eq.exit
@@ -1768,9 +1766,7 @@ land.lhs.true24.i:                                ; preds = %land.lhs.true16.i
 audio_pcm_info_eq.exit:                           ; preds = %land.lhs.true24.i
   %swap_endianness.i = getelementptr inbounds %struct.SWVoiceIn, ptr %sw, i64 0, i32 3, i32 7
   %26 = load i32, ptr %swap_endianness.i, align 4
-  %cmp28.i = icmp ne i32 %11, 0
-  %conv29.i = zext i1 %cmp28.i to i32
-  %cmp30.i.not = icmp eq i32 %26, %conv29.i
+  %cmp30.i.not = icmp eq i32 %26, %11
   br i1 %cmp30.i.not, label %return, label %if.end22
 
 if.end22:                                         ; preds = %switch.lookup, %land.lhs.true.i, %land.lhs.true10.i, %land.lhs.true16.i, %land.lhs.true24.i, %audio_pcm_info_eq.exit

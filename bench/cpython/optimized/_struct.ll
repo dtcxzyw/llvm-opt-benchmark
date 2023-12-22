@@ -2106,7 +2106,7 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
   %rem.i.i.i = srem i64 %sub7.i.i.i, %37
   %38 = xor i64 %rem.i.i.i, -1
   %sub9.i.i.i = add i64 %37, %38
-  %sub10.i.i.i = sub nuw nsw i64 9223372036854775807, %size.0.ph.i.i
+  %sub10.i.i.i = xor i64 %size.0.ph.i.i, 9223372036854775807
   %cmp11.i.i.i = icmp sgt i64 %sub9.i.i.i, %sub10.i.i.i
   %add.i.i.i = add i64 %sub9.i.i.i, %size.0.ph.i.i
   br i1 %cmp11.i.i.i, label %overflow.i.i, label %align.exit.i.i
@@ -2256,7 +2256,7 @@ if.then5.i116.i.i:                                ; preds = %if.then.i111.i.i
   %rem.i118.i.i = srem i64 %sub7.i117.i.i, %55
   %56 = xor i64 %rem.i118.i.i, -1
   %sub9.i119.i.i = add i64 %55, %56
-  %sub10.i120.i.i = sub nuw nsw i64 9223372036854775807, %size.1.ph.i.i
+  %sub10.i120.i.i = xor i64 %size.1.ph.i.i, 9223372036854775807
   %cmp11.i121.i.i = icmp sgt i64 %sub9.i119.i.i, %sub10.i120.i.i
   %add.i122.i.i = add i64 %sub9.i119.i.i, %size.1.ph.i.i
   %spec.select.i123.i.i = select i1 %cmp11.i121.i.i, i64 -1, i64 %add.i122.i.i

@@ -8576,9 +8576,9 @@ land.rhs.i:                                       ; preds = %if.end
   unreachable
 
 _ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit21:        ; preds = %if.end
-  %div = sdiv i32 %1, 2
-  %rem.i3 = srem i32 %div, 5
-  %idxprom.i = sext i32 %rem.i3 to i64
+  %div54 = lshr i32 %1, 1
+  %rem.i3 = urem i32 %div54, 5
+  %idxprom.i = zext nneg i32 %rem.i3 to i64
   %rem1.i = srem i32 %index.0, 65536
   %idxprom2.i = sext i32 %rem1.i to i64
   %arrayidx3.i = getelementptr inbounds [5 x [65536 x [2 x i32]]], ptr @_ZN4pbrt14pmj02bnSamplesE, i64 0, i64 %idxprom.i, i64 %idxprom2.i

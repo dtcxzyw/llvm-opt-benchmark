@@ -14418,7 +14418,7 @@ if.end8:                                          ; preds = %for.body
 for.end:                                          ; preds = %if.end8
   %shl9 = shl i64 %or, 10
   %conv10 = zext nneg i32 %encver to i64
-  %or11 = add nuw nsw i64 %shl9, %conv10
+  %or11 = or disjoint i64 %shl9, %conv10
   br label %return
 
 return:                                           ; preds = %for.body, %entry, %for.end
@@ -14813,7 +14813,7 @@ if.end8.i:                                        ; preds = %for.body.i
 moduleTypeEncodeId.exit:                          ; preds = %if.end8.i
   %shl9.i = shl i64 %or.i, 10
   %conv10.i = zext nneg i32 %encver to i64
-  %or11.i = add nuw nsw i64 %shl9.i, %conv10.i
+  %or11.i = or disjoint i64 %shl9.i, %conv10.i
   %cmp = icmp eq i64 %or11.i, 0
   br i1 %cmp, label %return, label %if.end2
 

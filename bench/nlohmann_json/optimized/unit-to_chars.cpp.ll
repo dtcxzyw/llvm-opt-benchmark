@@ -9174,7 +9174,8 @@ invoke.cont5:                                     ; preds = %invoke.cont
 
 cond.end.thread.i.i:                              ; preds = %invoke.cont5
   %mul36.i.i = shl nuw nsw i64 %and.i.i, 1
-  br label %cond.end20.i.i
+  %add537.i.i = or disjoint i64 %mul36.i.i, 1
+  br label %cond.false14.i.i
 
 cond.end.i.i:                                     ; preds = %invoke.cont5
   %shr.i.i = lshr i32 %3, 23
@@ -9184,22 +9185,30 @@ cond.end.i.i:                                     ; preds = %invoke.cont5
   %cmp3.i.i = icmp ugt i32 %3, 16777215
   %5 = and i1 %cmp3.i.i, %cmp2.i.i
   %mul.i.i = shl nuw nsw i64 %add.i.i, 1
+  %add5.i.i = or disjoint i64 %mul.i.i, 1
   %sub6.i.i = add nsw i32 %shr.i.i, -151
-  br i1 %5, label %cond.true8.i.i, label %cond.end20.i.i
+  br i1 %5, label %cond.true8.i.i, label %cond.false14.i.i
 
 cond.true8.i.i:                                   ; preds = %cond.end.i.i
-  %mul10.i.i = shl nuw nsw i64 %add.i.i, 2
   %sub13.i.i = add nsw i32 %shr.i.i, -152
   br label %cond.end20.i.i
 
-cond.end20.i.i:                                   ; preds = %cond.true8.i.i, %cond.end.i.i, %cond.end.thread.i.i
-  %sub646.i.i = phi i32 [ %sub6.i.i, %cond.true8.i.i ], [ -150, %cond.end.thread.i.i ], [ %sub6.i.i, %cond.end.i.i ]
-  %add544.in.i.i = phi i64 [ %mul.i.i, %cond.true8.i.i ], [ %mul36.i.i, %cond.end.thread.i.i ], [ %mul.i.i, %cond.end.i.i ]
-  %v.sroa.6.041.i.i = phi i32 [ %sub.i.i, %cond.true8.i.i ], [ -149, %cond.end.thread.i.i ], [ %sub.i.i, %cond.end.i.i ]
-  %v.sroa.0.039.i.i = phi i64 [ %add.i.i, %cond.true8.i.i ], [ %and.i.i, %cond.end.thread.i.i ], [ %add.i.i, %cond.end.i.i ]
-  %m_minus.sroa.3.0.i.i = phi i32 [ %sub13.i.i, %cond.true8.i.i ], [ -150, %cond.end.thread.i.i ], [ %sub6.i.i, %cond.end.i.i ]
-  %m_minus.sroa.0.0.in.i.i = phi i64 [ %mul10.i.i, %cond.true8.i.i ], [ %mul36.i.i, %cond.end.thread.i.i ], [ %mul.i.i, %cond.end.i.i ]
-  %add544.i.i = or disjoint i64 %add544.in.i.i, 1
+cond.false14.i.i:                                 ; preds = %cond.end.i.i, %cond.end.thread.i.i
+  %sub647.i.i = phi i32 [ -150, %cond.end.thread.i.i ], [ %sub6.i.i, %cond.end.i.i ]
+  %add545.i.i = phi i64 [ %add537.i.i, %cond.end.thread.i.i ], [ %add5.i.i, %cond.end.i.i ]
+  %mul43.i.i = phi i64 [ %mul36.i.i, %cond.end.thread.i.i ], [ %mul.i.i, %cond.end.i.i ]
+  %v.sroa.6.042.i.i = phi i32 [ -149, %cond.end.thread.i.i ], [ %sub.i.i, %cond.end.i.i ]
+  %v.sroa.0.040.i.i = phi i64 [ %and.i.i, %cond.end.thread.i.i ], [ %add.i.i, %cond.end.i.i ]
+  %sub17.i.i = add nsw i64 %mul43.i.i, -1
+  br label %cond.end20.i.i
+
+cond.end20.i.i:                                   ; preds = %cond.false14.i.i, %cond.true8.i.i
+  %sub646.i.i = phi i32 [ %sub6.i.i, %cond.true8.i.i ], [ %sub647.i.i, %cond.false14.i.i ]
+  %add544.i.i = phi i64 [ %add5.i.i, %cond.true8.i.i ], [ %add545.i.i, %cond.false14.i.i ]
+  %v.sroa.6.041.i.i = phi i32 [ %sub.i.i, %cond.true8.i.i ], [ %v.sroa.6.042.i.i, %cond.false14.i.i ]
+  %v.sroa.0.039.i.i = phi i64 [ %add.i.i, %cond.true8.i.i ], [ %v.sroa.0.040.i.i, %cond.false14.i.i ]
+  %m_minus.sroa.3.0.i.i = phi i32 [ %sub13.i.i, %cond.true8.i.i ], [ %sub647.i.i, %cond.false14.i.i ]
+  %m_minus.sroa.0.0.i.i = phi i64 [ 33554431, %cond.true8.i.i ], [ %sub17.i.i, %cond.false14.i.i ]
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %cond.end20.i.i
@@ -9219,7 +9228,6 @@ while.body.i19.i.i:                               ; preds = %while.body.i.i.i, %
   br i1 %cmp.i24.i.i, label %while.body.i19.i.i, label %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl18compute_boundariesIfEENS2_10boundariesET_.exit.i, !llvm.loop !14
 
 _ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl18compute_boundariesIfEENS2_10boundariesET_.exit.i: ; preds = %while.body.i19.i.i
-  %m_minus.sroa.0.0.i.i = add nsw i64 %m_minus.sroa.0.0.in.i.i, -1
   %sub.i.i.i = sub nsw i32 %m_minus.sroa.3.0.i.i, %dec.i.i.i
   %sh_prom.i.i.i = zext nneg i32 %sub.i.i.i to i64
   %shl.i11.i.i = shl i64 %m_minus.sroa.0.0.i.i, %sh_prom.i.i.i
@@ -11514,7 +11522,8 @@ if.end5:                                          ; preds = %if.end
 
 cond.end.thread.i.i:                              ; preds = %if.end5
   %mul36.i.i = shl nuw nsw i64 %and.i.i, 1
-  br label %cond.end20.i.i
+  %add537.i.i = or disjoint i64 %mul36.i.i, 1
+  br label %cond.false14.i.i
 
 cond.end.i.i:                                     ; preds = %if.end5
   %shr.i.i = lshr i32 %2, 23
@@ -11524,22 +11533,30 @@ cond.end.i.i:                                     ; preds = %if.end5
   %cmp3.i.i = icmp ugt i32 %2, 16777215
   %4 = and i1 %cmp3.i.i, %cmp2.i.i
   %mul.i.i = shl nuw nsw i64 %add.i.i, 1
+  %add5.i.i = or disjoint i64 %mul.i.i, 1
   %sub6.i.i = add nsw i32 %shr.i.i, -151
-  br i1 %4, label %cond.true8.i.i, label %cond.end20.i.i
+  br i1 %4, label %cond.true8.i.i, label %cond.false14.i.i
 
 cond.true8.i.i:                                   ; preds = %cond.end.i.i
-  %mul10.i.i = shl nuw nsw i64 %add.i.i, 2
   %sub13.i.i = add nsw i32 %shr.i.i, -152
   br label %cond.end20.i.i
 
-cond.end20.i.i:                                   ; preds = %cond.true8.i.i, %cond.end.i.i, %cond.end.thread.i.i
-  %sub646.i.i = phi i32 [ %sub6.i.i, %cond.true8.i.i ], [ -150, %cond.end.thread.i.i ], [ %sub6.i.i, %cond.end.i.i ]
-  %add544.in.i.i = phi i64 [ %mul.i.i, %cond.true8.i.i ], [ %mul36.i.i, %cond.end.thread.i.i ], [ %mul.i.i, %cond.end.i.i ]
-  %v.sroa.6.041.i.i = phi i32 [ %sub.i.i, %cond.true8.i.i ], [ -149, %cond.end.thread.i.i ], [ %sub.i.i, %cond.end.i.i ]
-  %v.sroa.0.039.i.i = phi i64 [ %add.i.i, %cond.true8.i.i ], [ %and.i.i, %cond.end.thread.i.i ], [ %add.i.i, %cond.end.i.i ]
-  %m_minus.sroa.3.0.i.i = phi i32 [ %sub13.i.i, %cond.true8.i.i ], [ -150, %cond.end.thread.i.i ], [ %sub6.i.i, %cond.end.i.i ]
-  %m_minus.sroa.0.0.in.i.i = phi i64 [ %mul10.i.i, %cond.true8.i.i ], [ %mul36.i.i, %cond.end.thread.i.i ], [ %mul.i.i, %cond.end.i.i ]
-  %add544.i.i = or disjoint i64 %add544.in.i.i, 1
+cond.false14.i.i:                                 ; preds = %cond.end.i.i, %cond.end.thread.i.i
+  %sub647.i.i = phi i32 [ -150, %cond.end.thread.i.i ], [ %sub6.i.i, %cond.end.i.i ]
+  %add545.i.i = phi i64 [ %add537.i.i, %cond.end.thread.i.i ], [ %add5.i.i, %cond.end.i.i ]
+  %mul43.i.i = phi i64 [ %mul36.i.i, %cond.end.thread.i.i ], [ %mul.i.i, %cond.end.i.i ]
+  %v.sroa.6.042.i.i = phi i32 [ -149, %cond.end.thread.i.i ], [ %sub.i.i, %cond.end.i.i ]
+  %v.sroa.0.040.i.i = phi i64 [ %and.i.i, %cond.end.thread.i.i ], [ %add.i.i, %cond.end.i.i ]
+  %sub17.i.i = add nsw i64 %mul43.i.i, -1
+  br label %cond.end20.i.i
+
+cond.end20.i.i:                                   ; preds = %cond.false14.i.i, %cond.true8.i.i
+  %sub646.i.i = phi i32 [ %sub6.i.i, %cond.true8.i.i ], [ %sub647.i.i, %cond.false14.i.i ]
+  %add544.i.i = phi i64 [ %add5.i.i, %cond.true8.i.i ], [ %add545.i.i, %cond.false14.i.i ]
+  %v.sroa.6.041.i.i = phi i32 [ %sub.i.i, %cond.true8.i.i ], [ %v.sroa.6.042.i.i, %cond.false14.i.i ]
+  %v.sroa.0.039.i.i = phi i64 [ %add.i.i, %cond.true8.i.i ], [ %v.sroa.0.040.i.i, %cond.false14.i.i ]
+  %m_minus.sroa.3.0.i.i = phi i32 [ %sub13.i.i, %cond.true8.i.i ], [ %sub647.i.i, %cond.false14.i.i ]
+  %m_minus.sroa.0.0.i.i = phi i64 [ 33554431, %cond.true8.i.i ], [ %sub17.i.i, %cond.false14.i.i ]
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %cond.end20.i.i
@@ -11559,7 +11576,6 @@ while.body.i19.i.i:                               ; preds = %while.body.i.i.i, %
   br i1 %cmp.i24.i.i, label %while.body.i19.i.i, label %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl6grisu2IfEEvPcRiS5_T_.exit, !llvm.loop !14
 
 _ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl6grisu2IfEEvPcRiS5_T_.exit: ; preds = %while.body.i19.i.i
-  %m_minus.sroa.0.0.i.i = add nsw i64 %m_minus.sroa.0.0.in.i.i, -1
   %sub.i.i.i = sub nsw i32 %m_minus.sroa.3.0.i.i, %dec.i.i.i
   %sh_prom.i.i.i = zext nneg i32 %sub.i.i.i to i64
   %shl.i11.i.i = shl i64 %m_minus.sroa.0.0.i.i, %sh_prom.i.i.i

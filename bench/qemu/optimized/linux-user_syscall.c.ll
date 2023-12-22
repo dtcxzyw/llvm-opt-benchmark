@@ -10004,7 +10004,7 @@ sw.bb3436:                                        ; preds = %entry
   br i1 %or.cond10, label %return, label %if.else3446
 
 if.else3446:                                      ; preds = %sw.bb3436
-  %and2.i = and i64 %arg1, 65535
+  %and2.i = and i64 %arg1, 31
   %arrayidx3448 = getelementptr [32 x ptr], ptr @g_posix_timers, i64 0, i64 %and2.i
   %473 = load ptr, ptr %arrayidx3448, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %hspec_new, i8 0, i64 32, i1 false)

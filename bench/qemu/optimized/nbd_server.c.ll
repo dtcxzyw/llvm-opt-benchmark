@@ -1972,8 +1972,8 @@ trace_nbd_co_receive_request_payload_received.exit.i: ; preds = %if.else.i.i.i, 
   %bitmaps.i = getelementptr inbounds %struct.NBDMetaContexts, ptr %42, i64 0, i32 4
   store ptr %call23.i, ptr %bitmaps.i, align 8
   %sub.i = add nsw i64 %27, -8
-  %div47.i = lshr i64 %sub.i, 2
-  %cmp2563.not.i = icmp ult i64 %sub.i, 4
+  %div47.i = lshr exact i64 %sub.i, 2
+  %cmp2563.not.i = icmp eq i64 %sub.i, 0
   br i1 %cmp2563.not.i, label %nbd_co_block_status_payload_read.exit.thread127, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %trace_nbd_co_receive_request_payload_received.exit.i

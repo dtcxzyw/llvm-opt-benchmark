@@ -2574,12 +2574,12 @@ for.body:                                         ; preds = %if.end7, %if.end31
   br i1 %or.cond, label %if.then24, label %if.end31
 
 if.then24:                                        ; preds = %for.body
-  %call.i19 = tail call ptr @PyModule_GetState(ptr noundef %module) #5
-  %cmp26 = icmp eq ptr %call.i19, null
+  %call.i20 = tail call ptr @PyModule_GetState(ptr noundef %module) #5
+  %cmp26 = icmp eq ptr %call.i20, null
   br i1 %cmp26, label %return, label %if.end29
 
 if.end29:                                         ; preds = %if.then24
-  %6 = load ptr, ptr %call.i19, align 8
+  %6 = load ptr, ptr %call.i20, align 8
   tail call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.30) #5
   %7 = load i64, ptr %call4, align 8
   %8 = and i64 %7, 2147483648
@@ -2587,11 +2587,11 @@ if.end29:                                         ; preds = %if.then24
   br i1 %cmp.i37.not, label %if.end.i, label %return
 
 if.end31:                                         ; preds = %for.body
-  %shl = shl nuw i8 %3, 4
-  %add32 = add nuw i8 %5, %shl
+  %9 = shl nuw i8 %3, 4
+  %add3219 = or disjoint i8 %5, %9
   %inc = add i64 %j.02, 1
   %arrayidx34 = getelementptr i8, ptr %ob_sval.i, i64 %j.02
-  store i8 %add32, ptr %arrayidx34, align 1
+  store i8 %add3219, ptr %arrayidx34, align 1
   %add35 = add i64 %i.03, 2
   %cmp9 = icmp slt i64 %add35, %hexstr.16.val
   br i1 %cmp9, label %for.body, label %return, !llvm.loop !18

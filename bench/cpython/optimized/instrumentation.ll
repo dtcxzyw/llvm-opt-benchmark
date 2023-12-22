@@ -2534,8 +2534,7 @@ if.end38.i:                                       ; preds = %if.then27.i
   br i1 %44, label %for.body.preheader.i.i, label %for.cond9.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.end38.i
-  %sext.i.i = shl i64 %code.val.i59.i, 32
-  %45 = ashr exact i64 %sext.i.i, 32
+  %45 = and i64 %code.val.i59.i, 4294967295
   br label %for.body.i66.i
 
 for.cond9.preheader.i.i:                          ; preds = %for.body.i66.i, %if.end38.i
@@ -2558,7 +2557,7 @@ for.body.i66.i:                                   ; preds = %for.body.i66.i, %fo
   %46 = load i32, ptr %_co_firsttraceable, align 8
   %47 = sext i32 %46 to i64
   %cmp.i70.i = icmp slt i64 %indvars.iv.next.i69.i, %47
-  %cmp3.i71.i = icmp slt i64 %indvars.iv.next.i69.i, %45
+  %cmp3.i71.i = icmp ult i64 %indvars.iv.next.i69.i, %45
   %48 = select i1 %cmp.i70.i, i1 %cmp3.i71.i, i1 false
   br i1 %48, label %for.body.i66.i, label %for.cond9.preheader.i.i, !llvm.loop !15
 

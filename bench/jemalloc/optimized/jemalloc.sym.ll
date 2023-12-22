@@ -1952,7 +1952,7 @@ if.else.i144.i:                                   ; preds = %lor.rhs.i
   br i1 %or.cond1, label %if.then.i1503, label %if.end5.i1425
 
 if.then.i1503:                                    ; preds = %if.else.i144.i
-  %add.i1505 = add i64 %sub.i, %spec.store.select
+  %add.i1505 = add nsw i64 %sub.i, %spec.store.select
   %add2.i1507 = sub nsw i64 0, %alignment
   %and.i1508 = and i64 %add.i1505, %add2.i1507
   %cmp.i30.i1509 = icmp ult i64 %and.i1508, 4097
@@ -1974,7 +1974,7 @@ if.end.i34.i1513:                                 ; preds = %if.then.i1503
 
 if.end14.i.i1522:                                 ; preds = %if.end.i34.i1513
   %shl15.i.i1523 = shl nuw i64 %and.i1508, 1
-  %sub.i.i1524 = add i64 %shl15.i.i1523, -1
+  %sub.i.i1524 = add nsw i64 %shl15.i.i1523, -1
   %5 = tail call i64 @llvm.ctlz.i64(i64 %sub.i.i1524, i1 true), !range !4
   %6 = trunc i64 %5 to i32
   %conv1.i.i.i = xor i32 %6, 63
@@ -2115,7 +2115,7 @@ land.lhs.true.i.i343:                             ; preds = %lor.rhs.i150
   br i1 %or.cond6, label %if.then.i1341, label %if.end5.i
 
 if.then.i1341:                                    ; preds = %land.lhs.true.i.i343
-  %add.i = add i64 %sub.i153, %spec.store.select10
+  %add.i = add nsw i64 %sub.i153, %spec.store.select10
   %add2.i = sub nsw i64 0, %alignment
   %and.i1343 = and i64 %add.i, %add2.i
   %cmp.i30.i = icmp ult i64 %and.i1343, 4097
@@ -2137,7 +2137,7 @@ if.end.i34.i:                                     ; preds = %if.then.i1341
 
 if.end14.i.i1347:                                 ; preds = %if.end.i34.i
   %shl15.i.i1348 = shl nuw i64 %and.i1343, 1
-  %sub.i.i1349 = add i64 %shl15.i.i1348, -1
+  %sub.i.i1349 = add nsw i64 %shl15.i.i1348, -1
   %21 = tail call i64 @llvm.ctlz.i64(i64 %sub.i.i1349, i1 true), !range !4
   %22 = trunc i64 %21 to i32
   %conv1.i.i.i762 = xor i32 %22, 63
@@ -2392,7 +2392,7 @@ if.else.i144.i:                                   ; preds = %lor.rhs.i
   br i1 %or.cond1, label %if.then.i1503, label %if.end5.i1425
 
 if.then.i1503:                                    ; preds = %if.else.i144.i
-  %add.i1505 = add i64 %sub.i, %spec.store.select
+  %add.i1505 = add nsw i64 %sub.i, %spec.store.select
   %add2.i1507 = sub nsw i64 0, %alignment
   %and.i1508 = and i64 %add.i1505, %add2.i1507
   %cmp.i30.i1509 = icmp ult i64 %and.i1508, 4097
@@ -2414,7 +2414,7 @@ if.end.i34.i1513:                                 ; preds = %if.then.i1503
 
 if.end14.i.i1522:                                 ; preds = %if.end.i34.i1513
   %shl15.i.i1523 = shl nuw i64 %and.i1508, 1
-  %sub.i.i1524 = add i64 %shl15.i.i1523, -1
+  %sub.i.i1524 = add nsw i64 %shl15.i.i1523, -1
   %5 = tail call i64 @llvm.ctlz.i64(i64 %sub.i.i1524, i1 true), !range !4
   %6 = trunc i64 %5 to i32
   %conv1.i.i.i = xor i32 %6, 63
@@ -2560,7 +2560,7 @@ land.lhs.true.i.i343:                             ; preds = %lor.rhs.i150
   br i1 %or.cond6, label %if.then.i1341, label %if.end5.i
 
 if.then.i1341:                                    ; preds = %land.lhs.true.i.i343
-  %add.i = add i64 %sub.i153, %spec.store.select10
+  %add.i = add nsw i64 %sub.i153, %spec.store.select10
   %add2.i = sub nsw i64 0, %alignment
   %and.i1343 = and i64 %add.i, %add2.i
   %cmp.i30.i = icmp ult i64 %and.i1343, 4097
@@ -2582,7 +2582,7 @@ if.end.i34.i:                                     ; preds = %if.then.i1341
 
 if.end14.i.i1347:                                 ; preds = %if.end.i34.i
   %shl15.i.i1348 = shl nuw i64 %and.i1343, 1
-  %sub.i.i1349 = add i64 %shl15.i.i1348, -1
+  %sub.i.i1349 = add nsw i64 %shl15.i.i1348, -1
   %21 = tail call i64 @llvm.ctlz.i64(i64 %sub.i.i1349, i1 true), !range !4
   %22 = trunc i64 %21 to i32
   %conv1.i.i.i763 = xor i32 %22, 63
@@ -12940,12 +12940,12 @@ land.lhs.true1769.thread:                         ; preds = %lor.lhs.false1752, 
   br label %while.cond.backedge
 
 land.lhs.true1769:                                ; preds = %lor.lhs.false1752
-  %conv.i676 = zext nneg i32 %189 to i64
-  %mul.i = shl nuw nsw i64 %conv.i676, 5
+  %190 = shl nuw nsw i32 %189, 5
+  %mul.i = zext nneg i32 %190 to i64
   store i64 %mul.i, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i64 0, i32 1), align 8
-  %190 = load i8, ptr @opt_confirm_conf, align 1
-  %191 = and i8 %190, 1
-  %tobool1770.not = icmp eq i8 %191, 0
+  %191 = load i8, ptr @opt_confirm_conf, align 1
+  %192 = and i8 %191, 1
+  %tobool1770.not = icmp eq i8 %192, 0
   br i1 %tobool1770.not, label %while.cond.backedge, label %if.then1775
 
 if.then1775:                                      ; preds = %land.lhs.true1769
@@ -12965,14 +12965,14 @@ if.then1786:                                      ; preds = %land.lhs.true1782
   %call.i677 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i677, align 4
   %call1789 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1788, i32 noundef 0) #19
-  %192 = load i32, ptr %call.i677, align 4
-  %cmp1791.not = icmp eq i32 %192, 0
+  %193 = load i32, ptr %call.i677, align 4
+  %cmp1791.not = icmp eq i32 %193, 0
   br i1 %cmp1791.not, label %lor.lhs.false1793, label %land.lhs.true1804.thread
 
 lor.lhs.false1793:                                ; preds = %if.then1786
-  %193 = load ptr, ptr %end1788, align 8
-  %194 = ptrtoint ptr %193 to i64
-  %sub1794 = sub i64 %194, %14
+  %194 = load ptr, ptr %end1788, align 8
+  %195 = ptrtoint ptr %194 to i64
+  %sub1794 = sub i64 %195, %14
   %cmp1795.not = icmp eq i64 %sub1794, %vlen.2
   br i1 %cmp1795.not, label %land.lhs.true1804, label %land.lhs.true1804.thread
 
@@ -12982,9 +12982,9 @@ land.lhs.true1804.thread:                         ; preds = %lor.lhs.false1793, 
 
 land.lhs.true1804:                                ; preds = %lor.lhs.false1793
   store i64 %call1789, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i64 0, i32 4), align 8
-  %195 = load i8, ptr @opt_confirm_conf, align 1
-  %196 = and i8 %195, 1
-  %tobool1805.not = icmp eq i8 %196, 0
+  %196 = load i8, ptr @opt_confirm_conf, align 1
+  %197 = and i8 %196, 1
+  %tobool1805.not = icmp eq i8 %197, 0
   br i1 %tobool1805.not, label %while.cond.backedge, label %if.then1810
 
 if.then1810:                                      ; preds = %land.lhs.true1804
@@ -13005,14 +13005,14 @@ if.then1821:                                      ; preds = %land.lhs.true1817
   %call.i679 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i679, align 4
   %call1824 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1823, i32 noundef 0) #19
-  %197 = load i32, ptr %call.i679, align 4
-  %cmp1826.not = icmp eq i32 %197, 0
+  %198 = load i32, ptr %call.i679, align 4
+  %cmp1826.not = icmp eq i32 %198, 0
   br i1 %cmp1826.not, label %lor.lhs.false1828, label %land.lhs.true1839.thread
 
 lor.lhs.false1828:                                ; preds = %if.then1821
-  %198 = load ptr, ptr %end1823, align 8
-  %199 = ptrtoint ptr %198 to i64
-  %sub1829 = sub i64 %199, %14
+  %199 = load ptr, ptr %end1823, align 8
+  %200 = ptrtoint ptr %199 to i64
+  %sub1829 = sub i64 %200, %14
   %cmp1830.not = icmp eq i64 %sub1829, %vlen.2
   br i1 %cmp1830.not, label %land.lhs.true1839, label %land.lhs.true1839.thread
 
@@ -13022,9 +13022,9 @@ land.lhs.true1839.thread:                         ; preds = %lor.lhs.false1828, 
 
 land.lhs.true1839:                                ; preds = %lor.lhs.false1828
   store i64 %call1824, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i64 0, i32 5), align 8
-  %200 = load i8, ptr @opt_confirm_conf, align 1
-  %201 = and i8 %200, 1
-  %tobool1840.not = icmp eq i8 %201, 0
+  %201 = load i8, ptr @opt_confirm_conf, align 1
+  %202 = and i8 %201, 1
+  %tobool1840.not = icmp eq i8 %202, 0
   br i1 %tobool1840.not, label %while.cond.backedge, label %if.then1845
 
 if.then1845:                                      ; preds = %land.lhs.true1839
@@ -13052,9 +13052,9 @@ land.lhs.true1859:                                ; preds = %if.then1856
 
 if.then1863:                                      ; preds = %land.lhs.true1859
   store i32 -1, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i64 0, i32 2), align 8
-  %202 = load i8, ptr @opt_confirm_conf, align 1
-  %203 = and i8 %202, 1
-  %tobool1866.not = icmp eq i8 %203, 0
+  %203 = load i8, ptr @opt_confirm_conf, align 1
+  %204 = and i8 %203, 1
+  %tobool1866.not = icmp eq i8 %204, 0
   br i1 %tobool1866.not, label %while.cond.backedge, label %if.then1871
 
 if.then1871:                                      ; preds = %if.then1863
@@ -13067,8 +13067,8 @@ if.end1875:                                       ; preds = %land.lhs.true1859, 
   br i1 %call1879, label %land.lhs.true1896.thread, label %lor.lhs.false1883
 
 lor.lhs.false1883:                                ; preds = %if.end1875
-  %204 = load ptr, ptr %end1877, align 8
-  %sub.ptr.lhs.cast1884 = ptrtoint ptr %204 to i64
+  %205 = load ptr, ptr %end1877, align 8
+  %sub.ptr.lhs.cast1884 = ptrtoint ptr %205 to i64
   %sub.ptr.sub1886 = sub i64 %sub.ptr.lhs.cast1884, %14
   %cmp1887.not = icmp eq i64 %sub.ptr.sub1886, %vlen.2
   br i1 %cmp1887.not, label %land.lhs.true1896, label %land.lhs.true1896.thread
@@ -13078,11 +13078,11 @@ land.lhs.true1896.thread:                         ; preds = %lor.lhs.false1883, 
   br label %while.cond.backedge
 
 land.lhs.true1896:                                ; preds = %lor.lhs.false1883
-  %205 = load i32, ptr %ratio1876, align 4
-  store i32 %205, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i64 0, i32 2), align 8
-  %206 = load i8, ptr @opt_confirm_conf, align 1
-  %207 = and i8 %206, 1
-  %tobool1897.not = icmp eq i8 %207, 0
+  %206 = load i32, ptr %ratio1876, align 4
+  store i32 %206, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i64 0, i32 2), align 8
+  %207 = load i8, ptr @opt_confirm_conf, align 1
+  %208 = and i8 %207, 1
+  %tobool1897.not = icmp eq i8 %208, 0
   br i1 %tobool1897.not, label %while.cond.backedge, label %if.then1902
 
 if.then1902:                                      ; preds = %land.lhs.true1896
@@ -13103,14 +13103,14 @@ if.then1913:                                      ; preds = %land.lhs.true1909
   %call.i681 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i681, align 4
   %call1916 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1915, i32 noundef 0) #19
-  %208 = load i32, ptr %call.i681, align 4
-  %cmp1918.not = icmp eq i32 %208, 0
+  %209 = load i32, ptr %call.i681, align 4
+  %cmp1918.not = icmp eq i32 %209, 0
   br i1 %cmp1918.not, label %lor.lhs.false1920, label %land.lhs.true1936.thread
 
 lor.lhs.false1920:                                ; preds = %if.then1913
-  %209 = load ptr, ptr %end1915, align 8
-  %210 = ptrtoint ptr %209 to i64
-  %sub1921 = sub i64 %210, %14
+  %210 = load ptr, ptr %end1915, align 8
+  %211 = ptrtoint ptr %210 to i64
+  %sub1921 = sub i64 %211, %14
   %cmp1922.not = icmp eq i64 %sub1921, %vlen.2
   br i1 %cmp1922.not, label %land.lhs.true1936, label %land.lhs.true1936.thread
 
@@ -13120,9 +13120,9 @@ land.lhs.true1936.thread:                         ; preds = %lor.lhs.false1920, 
 
 land.lhs.true1936:                                ; preds = %lor.lhs.false1920
   store i64 %call1916, ptr @opt_hpa_sec_opts, align 8
-  %211 = load i8, ptr @opt_confirm_conf, align 1
-  %212 = and i8 %211, 1
-  %tobool1937.not = icmp eq i8 %212, 0
+  %212 = load i8, ptr @opt_confirm_conf, align 1
+  %213 = and i8 %212, 1
+  %tobool1937.not = icmp eq i8 %213, 0
   br i1 %tobool1937.not, label %while.cond.backedge, label %if.then1942
 
 if.then1942:                                      ; preds = %land.lhs.true1936
@@ -13143,14 +13143,14 @@ if.then1953:                                      ; preds = %land.lhs.true1949
   %call.i683 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i683, align 4
   %call1956 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1955, i32 noundef 0) #19
-  %213 = load i32, ptr %call.i683, align 4
-  %cmp1958.not = icmp eq i32 %213, 0
+  %214 = load i32, ptr %call.i683, align 4
+  %cmp1958.not = icmp eq i32 %214, 0
   br i1 %cmp1958.not, label %lor.lhs.false1960, label %land.lhs.true1976.thread
 
 lor.lhs.false1960:                                ; preds = %if.then1953
-  %214 = load ptr, ptr %end1955, align 8
-  %215 = ptrtoint ptr %214 to i64
-  %sub1961 = sub i64 %215, %14
+  %215 = load ptr, ptr %end1955, align 8
+  %216 = ptrtoint ptr %215 to i64
+  %sub1961 = sub i64 %216, %14
   %cmp1962.not = icmp eq i64 %sub1961, %vlen.2
   br i1 %cmp1962.not, label %if.else1968, label %land.lhs.true1976.thread
 
@@ -13161,9 +13161,9 @@ land.lhs.true1976.thread:                         ; preds = %lor.lhs.false1960, 
 if.else1968:                                      ; preds = %lor.lhs.false1960
   %.call1956 = call i64 @llvm.umax.i64(i64 %call1956, i64 4096)
   store i64 %.call1956, ptr getelementptr inbounds (%struct.sec_opts_s, ptr @opt_hpa_sec_opts, i64 0, i32 1), align 8
-  %216 = load i8, ptr @opt_confirm_conf, align 1
-  %217 = and i8 %216, 1
-  %tobool1977.not = icmp eq i8 %217, 0
+  %217 = load i8, ptr @opt_confirm_conf, align 1
+  %218 = and i8 %217, 1
+  %tobool1977.not = icmp eq i8 %218, 0
   br i1 %tobool1977.not, label %while.cond.backedge, label %if.then1982
 
 if.then1982:                                      ; preds = %if.else1968
@@ -13180,14 +13180,14 @@ if.then1993:                                      ; preds = %land.lhs.true1989
   %call.i685 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i685, align 4
   %call1996 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1995, i32 noundef 0) #19
-  %218 = load i32, ptr %call.i685, align 4
-  %cmp1998.not = icmp eq i32 %218, 0
+  %219 = load i32, ptr %call.i685, align 4
+  %cmp1998.not = icmp eq i32 %219, 0
   br i1 %cmp1998.not, label %lor.lhs.false2000, label %land.lhs.true2016.thread
 
 lor.lhs.false2000:                                ; preds = %if.then1993
-  %219 = load ptr, ptr %end1995, align 8
-  %220 = ptrtoint ptr %219 to i64
-  %sub2001 = sub i64 %220, %14
+  %220 = load ptr, ptr %end1995, align 8
+  %221 = ptrtoint ptr %220 to i64
+  %sub2001 = sub i64 %221, %14
   %cmp2002.not = icmp eq i64 %sub2001, %vlen.2
   br i1 %cmp2002.not, label %if.else2008, label %land.lhs.true2016.thread
 
@@ -13198,9 +13198,9 @@ land.lhs.true2016.thread:                         ; preds = %lor.lhs.false2000, 
 if.else2008:                                      ; preds = %lor.lhs.false2000
   %.call1996 = call i64 @llvm.umax.i64(i64 %call1996, i64 4096)
   store i64 %.call1996, ptr getelementptr inbounds (%struct.sec_opts_s, ptr @opt_hpa_sec_opts, i64 0, i32 2), align 8
-  %221 = load i8, ptr @opt_confirm_conf, align 1
-  %222 = and i8 %221, 1
-  %tobool2017.not = icmp eq i8 %222, 0
+  %222 = load i8, ptr @opt_confirm_conf, align 1
+  %223 = and i8 %222, 1
+  %tobool2017.not = icmp eq i8 %223, 0
   br i1 %tobool2017.not, label %while.cond.backedge, label %if.then2022
 
 if.then2022:                                      ; preds = %if.else2008
@@ -13220,14 +13220,14 @@ if.then2033:                                      ; preds = %land.lhs.true2029
   %call.i687 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i687, align 4
   %call2036 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end2035, i32 noundef 0) #19
-  %223 = load i32, ptr %call.i687, align 4
-  %cmp2038.not = icmp eq i32 %223, 0
+  %224 = load i32, ptr %call.i687, align 4
+  %cmp2038.not = icmp eq i32 %224, 0
   br i1 %cmp2038.not, label %lor.lhs.false2040, label %land.lhs.true2056.thread
 
 lor.lhs.false2040:                                ; preds = %if.then2033
-  %224 = load ptr, ptr %end2035, align 8
-  %225 = ptrtoint ptr %224 to i64
-  %sub2041 = sub i64 %225, %14
+  %225 = load ptr, ptr %end2035, align 8
+  %226 = ptrtoint ptr %225 to i64
+  %sub2041 = sub i64 %226, %14
   %cmp2042.not = icmp eq i64 %sub2041, %vlen.2
   br i1 %cmp2042.not, label %if.else2048, label %land.lhs.true2056.thread
 
@@ -13238,9 +13238,9 @@ land.lhs.true2056.thread:                         ; preds = %lor.lhs.false2040, 
 if.else2048:                                      ; preds = %lor.lhs.false2040
   %.call2036 = call i64 @llvm.umax.i64(i64 %call2036, i64 4096)
   store i64 %.call2036, ptr getelementptr inbounds (%struct.sec_opts_s, ptr @opt_hpa_sec_opts, i64 0, i32 3), align 8
-  %226 = load i8, ptr @opt_confirm_conf, align 1
-  %227 = and i8 %226, 1
-  %tobool2057.not = icmp eq i8 %227, 0
+  %227 = load i8, ptr @opt_confirm_conf, align 1
+  %228 = and i8 %227, 1
+  %tobool2057.not = icmp eq i8 %228, 0
   br i1 %tobool2057.not, label %while.cond.backedge, label %if.then2062
 
 if.then2062:                                      ; preds = %if.else2048
@@ -13261,14 +13261,14 @@ if.then2073:                                      ; preds = %land.lhs.true2069
   %call.i689 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i689, align 4
   %call2076 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end2075, i32 noundef 0) #19
-  %228 = load i32, ptr %call.i689, align 4
-  %cmp2078.not = icmp eq i32 %228, 0
+  %229 = load i32, ptr %call.i689, align 4
+  %cmp2078.not = icmp eq i32 %229, 0
   br i1 %cmp2078.not, label %lor.lhs.false2080, label %land.lhs.true2101.thread
 
 lor.lhs.false2080:                                ; preds = %if.then2073
-  %229 = load ptr, ptr %end2075, align 8
-  %230 = ptrtoint ptr %229 to i64
-  %sub2081 = sub i64 %230, %14
+  %230 = load ptr, ptr %end2075, align 8
+  %231 = ptrtoint ptr %230 to i64
+  %sub2081 = sub i64 %231, %14
   %cmp2082.not = icmp eq i64 %sub2081, %vlen.2
   br i1 %cmp2082.not, label %if.else2092, label %land.lhs.true2101.thread
 
@@ -13279,9 +13279,9 @@ land.lhs.true2101.thread:                         ; preds = %lor.lhs.false2080, 
 if.else2092:                                      ; preds = %lor.lhs.false2080
   %.call2076 = call i64 @llvm.umin.i64(i64 %call2076, i64 512)
   store i64 %.call2076, ptr getelementptr inbounds (%struct.sec_opts_s, ptr @opt_hpa_sec_opts, i64 0, i32 4), align 8
-  %231 = load i8, ptr @opt_confirm_conf, align 1
-  %232 = and i8 %231, 1
-  %tobool2102.not = icmp eq i8 %232, 0
+  %232 = load i8, ptr @opt_confirm_conf, align 1
+  %233 = and i8 %232, 1
+  %tobool2102.not = icmp eq i8 %233, 0
   br i1 %tobool2102.not, label %while.cond.backedge, label %if.then2107
 
 if.then2107:                                      ; preds = %if.else2092
@@ -13309,9 +13309,9 @@ land.lhs.true2121:                                ; preds = %if.then2118
 
 if.then2125:                                      ; preds = %land.lhs.true2121
   call void @sc_data_init(ptr noundef %sc_data) #19
-  %233 = load i8, ptr @opt_confirm_conf, align 1
-  %234 = and i8 %233, 1
-  %tobool2128.not = icmp eq i8 %234, 0
+  %234 = load i8, ptr @opt_confirm_conf, align 1
+  %235 = and i8 %234, 1
+  %tobool2128.not = icmp eq i8 %235, 0
   br i1 %tobool2128.not, label %while.cond.backedge, label %if.then2133
 
 if.then2133:                                      ; preds = %if.then2125
@@ -13333,19 +13333,19 @@ land.lhs.true2159.thread:                         ; preds = %do.body2140
   br label %while.cond.backedge
 
 do.cond2151:                                      ; preds = %do.body2140
-  %235 = load i64, ptr %slab_start, align 8
-  %236 = load i64, ptr %slab_end, align 8
-  %237 = load i64, ptr %pgs, align 8
-  %conv2145 = trunc i64 %237 to i32
-  call void @sc_data_update_slab_size(ptr noundef %sc_data, i64 noundef %235, i64 noundef %236, i32 noundef %conv2145) #19
-  %238 = load i64, ptr %vlen_left2139, align 8
-  %cmp2154 = icmp eq i64 %238, 0
+  %236 = load i64, ptr %slab_start, align 8
+  %237 = load i64, ptr %slab_end, align 8
+  %238 = load i64, ptr %pgs, align 8
+  %conv2145 = trunc i64 %238 to i32
+  call void @sc_data_update_slab_size(ptr noundef %sc_data, i64 noundef %236, i64 noundef %237, i32 noundef %conv2145) #19
+  %239 = load i64, ptr %vlen_left2139, align 8
+  %cmp2154 = icmp eq i64 %239, 0
   br i1 %cmp2154, label %land.lhs.true2159, label %do.body2140, !llvm.loop !30
 
 land.lhs.true2159:                                ; preds = %do.cond2151
-  %239 = load i8, ptr @opt_confirm_conf, align 1
-  %240 = and i8 %239, 1
-  %tobool2160.not = icmp eq i8 %240, 0
+  %240 = load i8, ptr @opt_confirm_conf, align 1
+  %241 = and i8 %240, 1
+  %tobool2160.not = icmp eq i8 %241, 0
   br i1 %tobool2160.not, label %while.cond.backedge, label %if.then2165
 
 if.then2165:                                      ; preds = %land.lhs.true2159
@@ -13365,8 +13365,8 @@ land.lhs.true2172:                                ; preds = %if.end2169
 for.body2182:                                     ; preds = %land.lhs.true2172, %for.inc2190
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc2190 ], [ 0, %land.lhs.true2172 ]
   %arrayidx2184 = getelementptr inbounds [0 x ptr], ptr @thp_mode_names, i64 0, i64 %indvars.iv
-  %241 = load ptr, ptr %arrayidx2184, align 8
-  %call2185 = call i32 @strncmp(ptr noundef %241, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2) #23
+  %242 = load ptr, ptr %arrayidx2184, align 8
+  %call2185 = call i32 @strncmp(ptr noundef %242, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2) #23
   %cmp2186 = icmp eq i32 %call2185, 0
   br i1 %cmp2186, label %land.lhs.true2200, label %for.inc2190
 
@@ -13380,11 +13380,11 @@ land.lhs.true2200.thread:                         ; preds = %for.inc2190
   br label %while.cond.backedge
 
 land.lhs.true2200:                                ; preds = %for.body2182
-  %242 = trunc i64 %indvars.iv to i32
-  store i32 %242, ptr @opt_thp, align 4
-  %243 = load i8, ptr @opt_confirm_conf, align 1
-  %244 = and i8 %243, 1
-  %tobool2201.not = icmp eq i8 %244, 0
+  %243 = trunc i64 %indvars.iv to i32
+  store i32 %243, ptr @opt_thp, align 4
+  %244 = load i8, ptr @opt_confirm_conf, align 1
+  %245 = and i8 %244, 1
+  %tobool2201.not = icmp eq i8 %245, 0
   br i1 %tobool2201.not, label %while.cond.backedge, label %if.then2206
 
 if.then2206:                                      ; preds = %land.lhs.true2200
@@ -13429,9 +13429,9 @@ land.lhs.true2249.thread:                         ; preds = %if.then2217, %land.
 land.lhs.true2249:                                ; preds = %land.lhs.true2236, %land.lhs.true2228, %land.lhs.true2220
   %.sink2216 = phi i32 [ 0, %land.lhs.true2220 ], [ 1, %land.lhs.true2228 ], [ 2, %land.lhs.true2236 ]
   store i32 %.sink2216, ptr @opt_zero_realloc_action, align 4
-  %245 = load i8, ptr @opt_confirm_conf, align 1
-  %246 = and i8 %245, 1
-  %tobool2250.not = icmp eq i8 %246, 0
+  %246 = load i8, ptr @opt_confirm_conf, align 1
+  %247 = and i8 %246, 1
+  %tobool2250.not = icmp eq i8 %247, 0
   br i1 %tobool2250.not, label %while.cond.backedge, label %if.then2255
 
 if.then2255:                                      ; preds = %land.lhs.true2249
@@ -13451,14 +13451,14 @@ if.then2266:                                      ; preds = %land.lhs.true2262
   %call.i691 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i691, align 4
   %call2269 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end2268, i32 noundef 0) #19
-  %247 = load i32, ptr %call.i691, align 4
-  %cmp2271.not = icmp eq i32 %247, 0
+  %248 = load i32, ptr %call.i691, align 4
+  %cmp2271.not = icmp eq i32 %248, 0
   br i1 %cmp2271.not, label %lor.lhs.false2273, label %land.lhs.true2284.thread
 
 lor.lhs.false2273:                                ; preds = %if.then2266
-  %248 = load ptr, ptr %end2268, align 8
-  %249 = ptrtoint ptr %248 to i64
-  %sub2274 = sub i64 %249, %14
+  %249 = load ptr, ptr %end2268, align 8
+  %250 = ptrtoint ptr %249 to i64
+  %sub2274 = sub i64 %250, %14
   %cmp2275.not = icmp eq i64 %sub2274, %vlen.2
   br i1 %cmp2275.not, label %land.lhs.true2284, label %land.lhs.true2284.thread
 
@@ -13468,9 +13468,9 @@ land.lhs.true2284.thread:                         ; preds = %lor.lhs.false2273, 
 
 land.lhs.true2284:                                ; preds = %lor.lhs.false2273
   store i64 %call2269, ptr @opt_san_guard_small, align 8
-  %250 = load i8, ptr @opt_confirm_conf, align 1
-  %251 = and i8 %250, 1
-  %tobool2285.not = icmp eq i8 %251, 0
+  %251 = load i8, ptr @opt_confirm_conf, align 1
+  %252 = and i8 %251, 1
+  %tobool2285.not = icmp eq i8 %252, 0
   br i1 %tobool2285.not, label %while.cond.backedge, label %if.then2290
 
 if.then2290:                                      ; preds = %land.lhs.true2284
@@ -13488,14 +13488,14 @@ if.then2301:                                      ; preds = %land.lhs.true2297
   %call.i693 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i693, align 4
   %call2304 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end2303, i32 noundef 0) #19
-  %252 = load i32, ptr %call.i693, align 4
-  %cmp2306.not = icmp eq i32 %252, 0
+  %253 = load i32, ptr %call.i693, align 4
+  %cmp2306.not = icmp eq i32 %253, 0
   br i1 %cmp2306.not, label %lor.lhs.false2308, label %land.lhs.true2319.thread
 
 lor.lhs.false2308:                                ; preds = %if.then2301
-  %253 = load ptr, ptr %end2303, align 8
-  %254 = ptrtoint ptr %253 to i64
-  %sub2309 = sub i64 %254, %14
+  %254 = load ptr, ptr %end2303, align 8
+  %255 = ptrtoint ptr %254 to i64
+  %sub2309 = sub i64 %255, %14
   %cmp2310.not = icmp eq i64 %sub2309, %vlen.2
   br i1 %cmp2310.not, label %land.lhs.true2319, label %land.lhs.true2319.thread
 
@@ -13505,9 +13505,9 @@ land.lhs.true2319.thread:                         ; preds = %lor.lhs.false2308, 
 
 land.lhs.true2319:                                ; preds = %lor.lhs.false2308
   store i64 %call2304, ptr @opt_san_guard_large, align 8
-  %255 = load i8, ptr @opt_confirm_conf, align 1
-  %256 = and i8 %255, 1
-  %tobool2320.not = icmp eq i8 %256, 0
+  %256 = load i8, ptr @opt_confirm_conf, align 1
+  %257 = and i8 %256, 1
+  %tobool2320.not = icmp eq i8 %257, 0
   br i1 %tobool2320.not, label %while.cond.backedge, label %if.then2325
 
 if.then2325:                                      ; preds = %land.lhs.true2319
@@ -13542,45 +13542,45 @@ while.end:                                        ; preds = %while.cond.backedge
   br i1 %call.i695, label %lor.lhs.false.i, label %validate_hpa_settings.exit
 
 lor.lhs.false.i:                                  ; preds = %while.end
-  %257 = load i8, ptr @opt_hpa, align 1
-  %258 = and i8 %257, 1
-  %tobool.not2.i = icmp eq i8 %258, 0
-  %259 = load i32, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i64 0, i32 2), align 8
-  %cmp.i696 = icmp eq i32 %259, -1
+  %258 = load i8, ptr @opt_hpa, align 1
+  %259 = and i8 %258, 1
+  %tobool.not2.i = icmp eq i8 %259, 0
+  %260 = load i32, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i64 0, i32 2), align 8
+  %cmp.i696 = icmp eq i32 %260, -1
   %or.cond.i = select i1 %tobool.not2.i, i1 true, i1 %cmp.i696
   br i1 %or.cond.i, label %validate_hpa_settings.exit, label %if.end.i697
 
 if.end.i697:                                      ; preds = %lor.lhs.false.i
-  %conv.i.i698 = zext i32 %259 to i64
+  %conv.i.i698 = zext i32 %260 to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i698, 5
-  %260 = load i64, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i64 0, i32 1), align 8
-  %add.i = add i64 %260, %mul.i.i
+  %261 = load i64, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i64 0, i32 1), align 8
+  %add.i = add i64 %261, %mul.i.i
   %cmp3.i = icmp ugt i64 %add.i, 2097152
   br i1 %cmp3.i, label %validate_hpa_settings.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i697
   store i1 true, ptr @had_conf_error, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %normalization_message.i, i8 0, i64 256, i1 false)
-  call void @fxp_print(i32 noundef %259, ptr noundef nonnull %hpa_dirty_mult.i) #19
-  %261 = load i64, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i64 0, i32 1), align 8
-  %262 = trunc i64 %261 to i32
-  %263 = lshr i32 %262, 5
-  %264 = and i32 %263, 8388480
-  call void @fxp_print(i32 noundef %264, ptr noundef nonnull %hugification_threshold.i) #19
-  %265 = load i8, ptr @opt_abort_conf, align 1
-  %266 = and i8 %265, 1
-  %tobool8.not.i = icmp eq i8 %266, 0
+  call void @fxp_print(i32 noundef %260, ptr noundef nonnull %hpa_dirty_mult.i) #19
+  %262 = load i64, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i64 0, i32 1), align 8
+  %263 = trunc i64 %262 to i32
+  %264 = lshr i32 %263, 5
+  %265 = and i32 %264, 8388480
+  call void @fxp_print(i32 noundef %265, ptr noundef nonnull %hugification_threshold.i) #19
+  %266 = load i8, ptr @opt_abort_conf, align 1
+  %267 = and i8 %266, 1
+  %tobool8.not.i = icmp eq i8 %267, 0
   br i1 %tobool8.not.i, label %if.then9.i, label %if.end19.i
 
 if.then9.i:                                       ; preds = %if.end5.i
-  %267 = load i64, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i64 0, i32 1), align 8
-  %reass.sub.i = sub i64 %267, %add.i
+  %268 = load i64, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i64 0, i32 1), align 8
+  %reass.sub.i = sub i64 %268, %add.i
   %add10.i = add i64 %reass.sub.i, 2097152
   store i64 %add10.i, ptr getelementptr inbounds (%struct.hpa_shard_opts_s, ptr @opt_hpa_opts, i64 0, i32 1), align 8
-  %268 = trunc i64 %add10.i to i32
-  %269 = lshr i32 %268, 5
-  %270 = and i32 %269, 8388480
-  call void @fxp_print(i32 noundef %270, ptr noundef nonnull %normalized_hugification_threshold.i) #19
+  %269 = trunc i64 %add10.i to i32
+  %270 = lshr i32 %269, 5
+  %271 = and i32 %270, 8388480
+  call void @fxp_print(i32 noundef %271, ptr noundef nonnull %normalized_hugification_threshold.i) #19
   %call18.i = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %normalization_message.i, i64 noundef 256, ptr noundef nonnull @.str.165, ptr noundef nonnull %normalized_hugification_threshold.i) #19
   br label %if.end19.i
 
@@ -13593,9 +13593,9 @@ validate_hpa_settings.exit:                       ; preds = %while.end, %lor.lhs
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %hugification_threshold.i)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %normalization_message.i)
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %normalized_hugification_threshold.i)
-  %271 = load i8, ptr @opt_abort_conf, align 1
-  %272 = and i8 %271, 1
-  %tobool2333.not = icmp eq i8 %272, 0
+  %272 = load i8, ptr @opt_abort_conf, align 1
+  %273 = and i8 %272, 1
+  %tobool2333.not = icmp eq i8 %273, 0
   br i1 %tobool2333.not, label %for.inc2340, label %land.lhs.true2335
 
 land.lhs.true2335:                                ; preds = %validate_hpa_settings.exit

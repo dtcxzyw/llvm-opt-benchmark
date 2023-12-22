@@ -23946,7 +23946,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
 if.end.i:                                         ; preds = %land.rhs
   %2 = load ptr, ptr %Data.i.i, align 8
   %idxprom.i.i = zext nneg i32 %idx.addr.012 to i64
-  %arrayidx.i.i = getelementptr inbounds i16, ptr %2, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr i16, ptr %2, i64 %idxprom.i.i
   %3 = load i16, ptr %arrayidx.i.i, align 2
   %conv.i = zext i16 %3 to i32
   switch i16 %3, label %lor.rhs.i.i [
@@ -37338,7 +37338,7 @@ land.rhs.i:                                       ; preds = %land.rhs.lr.ph.i, %
 if.end.i.i:                                       ; preds = %land.rhs.i
   %5 = load ptr, ptr %Data.i.i.i, align 8
   %idxprom.i.i.i = zext nneg i32 %idx.addr.012.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %5, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr i16, ptr %5, i64 %idxprom.i.i.i
   %6 = load i16, ptr %arrayidx.i.i.i, align 2
   %conv.i.i = zext i16 %6 to i32
   switch i16 %6, label %lor.rhs.i.i.i [
@@ -37545,7 +37545,7 @@ _ZN5ImStbL22STB_TEXTEDIT_LAYOUTROWEPNS_14StbTexteditRowEP19ImGuiInputTextStatei.
 if.end:                                           ; preds = %entry
   %y1 = getelementptr inbounds %"struct.ImStb::StbFindState", ptr %find, i64 0, i32 1
   store float 0.000000e+00, ptr %y1, align 4
-  %9 = sext i32 %str.val to i64
+  %9 = zext nneg i32 %str.val to i64
   %Data.i36 = getelementptr inbounds %struct.ImGuiInputTextState, ptr %str, i64 0, i32 5, i32 2
   %cmp9 = icmp sgt i32 %str.val, 0
   br label %for.cond

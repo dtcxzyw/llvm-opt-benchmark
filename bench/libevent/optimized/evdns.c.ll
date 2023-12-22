@@ -698,20 +698,20 @@ do.end:                                           ; preds = %entry, %if.then
   br i1 %or.cond, label %switch.lookup, label %do.body53
 
 switch.lookup:                                    ; preds = %do.end
-  %switch.idx.cast = zext i32 %section to i64
-  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 3
-  %switch.idx.cast40 = zext i32 %section to i64
-  %switch.idx.mult41 = shl nuw nsw i64 %switch.idx.cast40, 2
-  %5 = getelementptr i8, ptr %req_, i64 %switch.idx.mult
-  %additional = getelementptr i8, ptr %5, i64 -40
-  %6 = getelementptr i8, ptr %req_, i64 %switch.idx.mult41
-  %n_additional = getelementptr i8, ptr %6, i64 -56
+  %5 = shl nuw nsw i32 %section, 3
+  %switch.idx.mult = zext nneg i32 %5 to i64
+  %6 = shl nuw nsw i32 %section, 2
+  %switch.idx.mult41 = zext nneg i32 %6 to i64
+  %7 = getelementptr i8, ptr %req_, i64 %switch.idx.mult
+  %additional = getelementptr i8, ptr %7, i64 -40
+  %8 = getelementptr i8, ptr %req_, i64 %switch.idx.mult41
+  %n_additional = getelementptr i8, ptr %8, i64 -56
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond, %switch.lookup
-  %itemp.1 = phi ptr [ %additional, %switch.lookup ], [ %7, %while.cond ]
-  %7 = load ptr, ptr %itemp.1, align 8
-  %tobool8.not = icmp eq ptr %7, null
+  %itemp.1 = phi ptr [ %additional, %switch.lookup ], [ %9, %while.cond ]
+  %9 = load ptr, ptr %itemp.1, align 8
+  %tobool8.not = icmp eq ptr %9, null
   br i1 %tobool8.not, label %while.end, label %while.cond, !llvm.loop !6
 
 while.end:                                        ; preds = %while.cond
@@ -761,8 +761,8 @@ if.then32:                                        ; preds = %if.then29
   br i1 %tobool35.not, label %if.then36, label %if.end38
 
 if.then36:                                        ; preds = %if.then32
-  %8 = load ptr, ptr %name15, align 8
-  tail call void @event_mm_free_(ptr noundef %8) #19
+  %10 = load ptr, ptr %name15, align 8
+  tail call void @event_mm_free_(ptr noundef %10) #19
   tail call void @event_mm_free_(ptr noundef nonnull %call9) #19
   br label %do.body53
 
@@ -778,8 +778,8 @@ if.else:                                          ; preds = %if.then29
   br i1 %tobool43.not, label %if.then44, label %if.end46
 
 if.then44:                                        ; preds = %if.else
-  %9 = load ptr, ptr %name15, align 8
-  tail call void @event_mm_free_(ptr noundef %9) #19
+  %11 = load ptr, ptr %name15, align 8
+  tail call void @event_mm_free_(ptr noundef %11) #19
   tail call void @event_mm_free_(ptr noundef nonnull %call9) #19
   br label %do.body53
 
@@ -791,22 +791,22 @@ if.end46:                                         ; preds = %if.else
 
 if.end52:                                         ; preds = %if.end38, %if.end46, %if.end18
   store ptr %call9, ptr %itemp.1, align 8
-  %10 = load i32, ptr %n_additional, align 4
-  %inc = add nsw i32 %10, 1
+  %12 = load i32, ptr %n_additional, align 4
+  %inc = add nsw i32 %12, 1
   store i32 %inc, ptr %n_additional, align 4
   br label %do.body53
 
 do.body53:                                        ; preds = %if.then17, %if.then36, %if.then44, %if.end52, %do.end, %while.end
   %result.0 = phi i32 [ -1, %do.end ], [ 0, %if.end52 ], [ -1, %if.then36 ], [ -1, %if.then44 ], [ -1, %if.then17 ], [ -1, %while.end ]
-  %11 = load ptr, ptr %port, align 8
-  %lock55 = getelementptr inbounds %struct.evdns_server_port, ptr %11, i64 0, i32 14
-  %12 = load ptr, ptr %lock55, align 8
-  %tobool56.not = icmp eq ptr %12, null
+  %13 = load ptr, ptr %port, align 8
+  %lock55 = getelementptr inbounds %struct.evdns_server_port, ptr %13, i64 0, i32 14
+  %14 = load ptr, ptr %lock55, align 8
+  %tobool56.not = icmp eq ptr %14, null
   br i1 %tobool56.not, label %do.end62, label %if.then57
 
 if.then57:                                        ; preds = %do.body53
-  %13 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
-  %call60 = tail call i32 %13(i32 noundef 0, ptr noundef nonnull %12) #19
+  %15 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 5), align 8
+  %call60 = tail call i32 %15(i32 noundef 0, ptr noundef nonnull %14) #19
   br label %do.end62
 
 do.end62:                                         ; preds = %do.body53, %if.then57

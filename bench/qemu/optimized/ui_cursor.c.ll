@@ -237,9 +237,8 @@ for.end:                                          ; preds = %for.end.loopexit, %
 cursor_alloc.exit:                                ; preds = %for.end
   %conv37.mask = and i32 %14, 65535
   %conv1.i = zext nneg i32 %conv37.mask to i64
-  %conv.mask = shl i32 %13, 2
-  %15 = and i32 %conv.mask, 262140
-  %mul.i = zext nneg i32 %15 to i64
+  %15 = shl nuw nsw i16 %conv, 2
+  %mul.i = zext nneg i16 %15 to i64
   %mul3.i = mul nuw nsw i64 %mul.i, %conv1.i
   %add.i = add nuw nsw i64 %mul3.i, 16
   %call.i = call noalias ptr @g_malloc0(i64 noundef %add.i) #15
@@ -313,8 +312,8 @@ entry:
 
 if.end:                                           ; preds = %entry
   %conv1 = zext nneg i16 %height to i64
-  %conv = zext nneg i16 %width to i64
-  %mul = shl nuw nsw i64 %conv, 2
+  %0 = shl nuw nsw i16 %width, 2
+  %mul = zext nneg i16 %0 to i64
   %mul3 = mul nuw nsw i64 %mul, %conv1
   %add = add nuw nsw i64 %mul3, 16
   %call = tail call noalias ptr @g_malloc0(i64 noundef %add) #15

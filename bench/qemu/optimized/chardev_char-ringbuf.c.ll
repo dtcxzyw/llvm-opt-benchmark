@@ -87,13 +87,11 @@ if.end12:                                         ; preds = %if.then6.if.end12_c
   %tobool.i = icmp eq ptr %write_data.0, null
   %cmp.i = icmp slt i32 %conv, 0
   %or.cond.i = or i1 %tobool.i, %cmp.i
-  br i1 %or.cond.i, label %ringbuf_chr_write.exit, label %for.cond.preheader.i
-
-for.cond.preheader.i:                             ; preds = %if.end12
   %cmp114.not.i = icmp eq i32 %conv, 0
-  br i1 %cmp114.not.i, label %ringbuf_chr_write.exit, label %for.body.lr.ph.i
+  %or.cond15 = or i1 %cmp114.not.i, %or.cond.i
+  br i1 %or.cond15, label %ringbuf_chr_write.exit, label %for.body.lr.ph.i
 
-for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+for.body.lr.ph.i:                                 ; preds = %if.end12
   %cbuf.i = getelementptr inbounds %struct.RingBufChardev, ptr %call.i.i, i64 0, i32 4
   %prod.i = getelementptr inbounds %struct.RingBufChardev, ptr %call.i.i, i64 0, i32 2
   %size.i = getelementptr inbounds %struct.RingBufChardev, ptr %call.i.i, i64 0, i32 1
@@ -131,14 +129,9 @@ if.then7.i:                                       ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.then7.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %ringbuf_chr_write.exit.loopexit, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %ringbuf_chr_write.exit, label %for.body.i, !llvm.loop !5
 
-ringbuf_chr_write.exit.loopexit:                  ; preds = %for.inc.i
-  %8 = icmp slt i32 %conv, 0
-  br label %ringbuf_chr_write.exit
-
-ringbuf_chr_write.exit:                           ; preds = %ringbuf_chr_write.exit.loopexit, %if.end12, %for.cond.preheader.i
-  %retval.0.i = phi i1 [ true, %if.end12 ], [ false, %for.cond.preheader.i ], [ %8, %ringbuf_chr_write.exit.loopexit ]
+ringbuf_chr_write.exit:                           ; preds = %for.inc.i, %if.end12
   %cmp14.not = icmp eq ptr %write_data.0, %data
   br i1 %cmp14.not, label %if.end17, label %if.then16
 
@@ -147,7 +140,7 @@ if.then16:                                        ; preds = %ringbuf_chr_write.e
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then16, %ringbuf_chr_write.exit
-  br i1 %retval.0.i, label %if.then20, label %if.end21
+  br i1 %or.cond.i, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %if.end17
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @__func__.qmp_ringbuf_write, ptr noundef nonnull @.str.4, ptr noundef %device) #7

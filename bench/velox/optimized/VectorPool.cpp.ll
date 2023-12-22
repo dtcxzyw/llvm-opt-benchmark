@@ -474,8 +474,7 @@ _ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exi
 
 if.then:                                          ; preds = %_ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exit
   %vectors_ = getelementptr inbounds %"class.facebook::velox::VectorPool", ptr %this, i64 0, i32 1
-  %conv = and i64 %conv.i, 4294967295
-  %arrayidx.i.i19 = getelementptr inbounds [11 x %"struct.facebook::velox::VectorPool::TypePool"], ptr %vectors_, i64 0, i64 %conv
+  %arrayidx.i.i19 = getelementptr inbounds [11 x %"struct.facebook::velox::VectorPool::TypePool"], ptr %vectors_, i64 0, i64 %conv.i
   %27 = load ptr, ptr %this, align 8
   call void @_ZN8facebook5velox10VectorPool8TypePool3popERKSt10shared_ptrIKNS0_4TypeEEiRNS0_6memory10MemoryPoolE(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %arrayidx.i.i19, ptr noundef nonnull align 8 dereferenceable(16) %type, i32 noundef %size, ptr noundef nonnull align 8 dereferenceable(168) %27)
   br label %return
@@ -1092,8 +1091,7 @@ ehcleanup49.i:                                    ; preds = %ehcleanup48.i, %lpa
 
 if.end12:                                         ; preds = %land.lhs.true.i
   %vectors_ = getelementptr inbounds %"class.facebook::velox::VectorPool", ptr %this, i64 0, i32 1
-  %conv = and i64 %conv.i, 4294967295
-  %arrayidx.i.i19 = getelementptr inbounds [11 x %"struct.facebook::velox::VectorPool::TypePool"], ptr %vectors_, i64 0, i64 %conv
+  %arrayidx.i.i19 = getelementptr inbounds [11 x %"struct.facebook::velox::VectorPool::TypePool"], ptr %vectors_, i64 0, i64 %conv.i
   %call14 = call noundef zeroext i1 @_ZN8facebook5velox10VectorPool8TypePool13maybePushBackERSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(168) %arrayidx.i.i19, ptr noundef nonnull align 8 dereferenceable(16) %vector)
   br label %return
 

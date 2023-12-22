@@ -604,7 +604,7 @@ while.end.i:                                      ; preds = %if.end59.i, %if.end
 
 _ZL8_findRowP13UPropsVectorsi.exit:               ; preds = %if.then.i, %if.then10.i, %if.then17.i, %do.end.i, %if.then37.i, %if.then55.i, %while.end.i
   %retval.0.i = phi ptr [ %add.ptr7.i, %if.then10.i ], [ %add.ptr14.i, %if.then17.i ], [ %add.ptr26.i, %do.end.i ], [ %add.ptr48.i, %if.then55.i ], [ %add.ptr64.i, %while.end.i ], [ %5, %if.then37.i ], [ %add.ptr.i, %if.then.i ]
-  %14 = sext i32 %column to i64
+  %14 = zext nneg i32 %column to i64
   %15 = getelementptr i32, ptr %retval.0.i, i64 %14
   %arrayidx = getelementptr i32, ptr %15, i64 2
   %16 = load i32, ptr %arrayidx, align 4

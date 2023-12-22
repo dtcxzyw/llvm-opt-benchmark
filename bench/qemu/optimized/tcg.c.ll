@@ -13218,12 +13218,12 @@ do.body465.i.i:                                   ; preds = %sw.bb452.i.i, %entr
   br i1 %or.cond.i489.i, label %if.then480.i.i, label %if.else484.i.i
 
 if.then480.i.i:                                   ; preds = %do.body465.i.i
-  %conv483.i.i = add nuw nsw i32 %830, 4
+  %conv483.i.i = or disjoint i32 %830, 4
   tail call fastcc void @tcg_out_opc(ptr noundef %s, i32 noundef 438, i32 noundef %conv481.i.i, i32 noundef %conv483.i.i, i32 noundef 0)
   %and.i523.i.i = shl nuw nsw i32 %conv481.i.i, 3
-  %or.i525.i.i = add nuw nsw i32 %conv483.i.i, %and.i523.i.i
+  %or.i525.i.i = or disjoint i32 %conv483.i.i, %and.i523.i.i
   %831 = trunc i32 %or.i525.i.i to i8
-  %conv.i526.i.i = or i8 %831, -64
+  %conv.i526.i.i = or disjoint i8 %831, -64
   %832 = load ptr, ptr %code_ptr, align 8
   %incdec.ptr.i.i528.i.i = getelementptr i8, ptr %832, i64 1
   store ptr %incdec.ptr.i.i528.i.i, ptr %code_ptr, align 8
@@ -13249,12 +13249,12 @@ do.body490.i.i:                                   ; preds = %if.else709.i
   br i1 %or.cond1.i.i, label %if.then505.i.i, label %if.else509.i.i
 
 if.then505.i.i:                                   ; preds = %do.body490.i.i
-  %conv508.i.i = add nuw nsw i32 %834, 4
+  %conv508.i.i = or disjoint i32 %834, 4
   tail call fastcc void @tcg_out_opc(ptr noundef %s, i32 noundef 446, i32 noundef %conv506.i.i, i32 noundef %conv508.i.i, i32 noundef 0)
   %and.i529.i.i = shl nuw nsw i32 %conv506.i.i, 3
-  %or.i531.i.i = add nuw nsw i32 %conv508.i.i, %and.i529.i.i
+  %or.i531.i.i = or disjoint i32 %conv508.i.i, %and.i529.i.i
   %835 = trunc i32 %or.i531.i.i to i8
-  %conv.i532.i.i = or i8 %835, -64
+  %conv.i532.i.i = or disjoint i8 %835, -64
   %836 = load ptr, ptr %code_ptr, align 8
   %incdec.ptr.i.i534.i.i = getelementptr i8, ptr %836, i64 1
   store ptr %incdec.ptr.i.i534.i.i, ptr %code_ptr, align 8
@@ -14972,8 +14972,7 @@ sw.bb252:                                         ; preds = %for.end209, %for.en
   br i1 %or.cond2, label %if.then278, label %if.else289
 
 if.then278:                                       ; preds = %sw.bb252
-  %shr267 = and i32 %and266, 7
-  %idxprom268 = zext nneg i32 %shr267 to i64
+  %idxprom268 = zext nneg i32 %and266 to i64
   %arrayidx269 = getelementptr [8 x ptr], ptr @atom_name, i64 0, i64 %idxprom268
   %80 = load ptr, ptr %arrayidx269, align 8
   %arrayidx265 = getelementptr [32 x ptr], ptr @ldst_name, i64 0, i64 %idxprom264

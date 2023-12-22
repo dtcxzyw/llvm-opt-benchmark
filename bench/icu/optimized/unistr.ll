@@ -3664,10 +3664,12 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond, label %land.lhs.true5, label %return
 
 land.lhs.true5:                                   ; preds = %if.then
-  %arrayidx7 = getelementptr i16, ptr %arrayidx, i64 -1
-  %7 = load i16, ptr %arrayidx7, align 2
-  %8 = and i16 %7, -1024
-  %cmp10 = icmp eq i16 %8, -10240
+  %7 = zext nneg i32 %offset to i64
+  %8 = getelementptr i16, ptr %cond.i7, i64 %7
+  %arrayidx7 = getelementptr i16, ptr %8, i64 -1
+  %9 = load i16, ptr %arrayidx7, align 2
+  %10 = and i16 %9, -1024
+  %cmp10 = icmp eq i16 %10, -10240
   %dec = sext i1 %cmp10 to i32
   %spec.select = add nsw i32 %dec, %offset
   br label %return
@@ -4899,7 +4901,7 @@ while.cond.preheader:                             ; preds = %if.end
   br i1 %9, label %while.body.lr.ph, label %return
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %cmp5.i.i = icmp slt i32 %spec.select83, 0
+  %cmp5.i.i = icmp slt i32 %sub.i24.fr, 0
   %fBuffer.i.i = getelementptr inbounds i8, ptr %oldText, i64 10
   %fArray.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %oldText, i64 0, i32 1, i32 0, i32 3
   %fBuffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 10

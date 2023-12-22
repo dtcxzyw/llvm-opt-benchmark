@@ -747,18 +747,13 @@ lor.lhs.false51:                                  ; preds = %if.end46
   %length52 = getelementptr inbounds %struct.asn1_object_st, ptr %ret.0, i64 0, i32 3
   %18 = load i32, ptr %length52, align 4
   %cmp53 = icmp slt i32 %18, %conv7
-  br i1 %cmp53, label %if.then55, label %lor.lhs.false51.if.end64_crit_edge
-
-lor.lhs.false51.if.end64_crit_edge:               ; preds = %lor.lhs.false51
-  %.pre = and i64 %len, 4294967295
-  br label %if.end64
+  br i1 %cmp53, label %if.then55, label %if.end64
 
 if.then55:                                        ; preds = %lor.lhs.false51, %if.end46
   %length56 = getelementptr inbounds %struct.asn1_object_st, ptr %ret.0, i64 0, i32 3
   store i32 0, ptr %length56, align 4
   call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str, i32 noundef 303) #5
-  %conv57 = and i64 %len, 4294967295
-  %call58 = call noalias ptr @CRYPTO_malloc(i64 noundef %conv57, ptr noundef nonnull @.str, i32 noundef 304) #5
+  %call58 = call noalias ptr @CRYPTO_malloc(i64 noundef %len, ptr noundef nonnull @.str, i32 noundef 304) #5
   %cmp59 = icmp eq ptr %call58, null
   br i1 %cmp59, label %err, label %if.end62
 
@@ -769,10 +764,9 @@ if.end62:                                         ; preds = %if.then55
   store i32 %or, ptr %flags63, align 8
   br label %if.end64
 
-if.end64:                                         ; preds = %lor.lhs.false51.if.end64_crit_edge, %if.end62
-  %conv65.pre-phi = phi i64 [ %.pre, %lor.lhs.false51.if.end64_crit_edge ], [ %conv57, %if.end62 ]
-  %data.0 = phi ptr [ %17, %lor.lhs.false51.if.end64_crit_edge ], [ %call58, %if.end62 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data.0, ptr align 1 %16, i64 %conv65.pre-phi, i1 false)
+if.end64:                                         ; preds = %if.end62, %lor.lhs.false51
+  %data.0 = phi ptr [ %call58, %if.end62 ], [ %17, %lor.lhs.false51 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data.0, ptr align 1 %16, i64 %len, i1 false)
   %flags66 = getelementptr inbounds %struct.asn1_object_st, ptr %ret.0, i64 0, i32 5
   %20 = load i32, ptr %flags66, align 8
   %and67 = and i32 %20, 4
@@ -794,7 +788,7 @@ if.end73:                                         ; preds = %if.then70, %if.end6
   store ptr %data.0, ptr %data47, align 8
   %length75 = getelementptr inbounds %struct.asn1_object_st, ptr %ret.0, i64 0, i32 3
   store i32 %conv7, ptr %length75, align 4
-  %add.ptr78 = getelementptr inbounds i8, ptr %16, i64 %conv65.pre-phi
+  %add.ptr78 = getelementptr inbounds i8, ptr %16, i64 %len
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ret.0, i8 0, i64 16, i1 false)
   br i1 %cmp31, label %if.end82, label %if.then81
 
