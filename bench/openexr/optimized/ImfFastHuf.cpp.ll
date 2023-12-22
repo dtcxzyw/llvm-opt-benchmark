@@ -391,8 +391,7 @@ for.body111:                                      ; preds = %for.body111.prehead
   %24 = load i64, ptr %arrayidx113, align 8
   %conv114 = uitofp i64 %24 to double
   %25 = sub nsw i64 %19, %indvars.iv158
-  %sh_prom = and i64 %25, 4294967295
-  %shl118 = shl i64 2, %sh_prom
+  %shl118 = shl i64 2, %25
   %conv119 = sitofp i64 %shl118 to double
   %mul = fmul double %conv119, %conv114
   %arrayidx121 = getelementptr inbounds double, ptr %call104, i64 %indvars.iv158
@@ -422,8 +421,7 @@ for.body138:                                      ; preds = %for.body132, %for.b
 for.end144:                                       ; preds = %for.body138, %for.body132
   %tmp.0.lcssa = phi double [ 0.000000e+00, %for.body132 ], [ %add141, %for.body138 ]
   %27 = sub nsw i64 %22, %indvars.iv168
-  %sh_prom148 = and i64 %27, 4294967295
-  %shl149 = shl i64 2, %sh_prom148
+  %shl149 = shl i64 2, %27
   %conv150 = sitofp i64 %shl149 to double
   %div = fdiv double %tmp.0.lcssa, %conv150
   %28 = tail call double @llvm.ceil.f64(double %div)
@@ -450,15 +448,13 @@ for.body168.preheader:                            ; preds = %delete.notnull
   br label %for.body168
 
 for.body168:                                      ; preds = %for.body168.preheader, %for.body168
+  %32 = phi i64 [ 0, %for.body168.preheader ], [ %add175, %for.body168 ]
   %indvars.iv174 = phi i64 [ %idxprom158, %for.body168.preheader ], [ %indvars.iv.next175, %for.body168 ]
   %indvars.iv.next175 = add nsw i64 %indvars.iv174, -1
-  %arrayidx171 = getelementptr inbounds [59 x i64], ptr %offset, i64 0, i64 %indvars.iv174
-  %32 = load i64, ptr %arrayidx171, align 8
   %arrayidx174 = getelementptr inbounds [59 x i64], ptr %codeCount, i64 0, i64 %indvars.iv174
   %33 = load i64, ptr %arrayidx174, align 8
   %add175 = add i64 %33, %32
-  %idxprom176 = and i64 %indvars.iv.next175, 4294967295
-  %arrayidx177 = getelementptr inbounds [59 x i64], ptr %offset, i64 0, i64 %idxprom176
+  %arrayidx177 = getelementptr inbounds [59 x i64], ptr %offset, i64 0, i64 %indvars.iv.next175
   store i64 %add175, ptr %arrayidx177, align 8
   %cmp167.not.not = icmp sgt i64 %indvars.iv.next175, %31
   br i1 %cmp167.not.not, label %for.body168, label %for.end179, !llvm.loop !11

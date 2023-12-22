@@ -614,9 +614,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %9 = getelementptr i64, ptr %8, i64 %indvars.iv
   %arrayidx = getelementptr i64, ptr %9, i64 -1
   %10 = load i64, ptr %arrayidx, align 8
-  %idxprom8 = and i64 %indvars.iv, 4294967295
-  %arrayidx9 = getelementptr inbounds i64, ptr %8, i64 %idxprom8
-  store i64 %10, ptr %arrayidx9, align 8
+  store i64 %10, ptr %9, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp6 = icmp sgt i64 %indvars.iv.next, %7
   br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !8

@@ -2533,8 +2533,8 @@ call5.i.i.i.i2.i.i15.i89.noexc:                   ; preds = %for.body.lr.ph.i87
   br label %for.body.i94
 
 for.body.i94:                                     ; preds = %for.inc.i106, %call5.i.i.i.i2.i.i15.i89.noexc
-  %i.024.i = phi i64 [ 0, %call5.i.i.i.i2.i.i15.i89.noexc ], [ %inc.i108, %for.inc.i106 ]
-  %mul.i95 = mul i64 %i.024.i, %conv.i
+  %i.025.i = phi i64 [ 0, %call5.i.i.i.i2.i.i15.i89.noexc ], [ %inc.i108, %for.inc.i106 ]
+  %mul.i95 = mul i64 %i.025.i, %conv.i
   %41 = load ptr, ptr %ptr.i.i93, align 8, !noalias !33
   %arrayidx.i.i96 = getelementptr inbounds float, ptr %41, i64 %mul.i95
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp9.i.i), !noalias !33
@@ -2605,19 +2605,18 @@ land.lhs.true.i.i:                                ; preds = %for.body.i.i
   %45 = shl nuw nsw i64 %indvars.iv.i.i, 1
   %arrayidx.i16.i = getelementptr inbounds float, ptr %arrayidx.i.i96, i64 %45
   %46 = load float, ptr %arrayidx.i16.i, align 4, !noalias !36
-  %47 = trunc i64 %indvars.iv.i.i to i32
-  %48 = add i32 %47, -1
-  %conv7.i.i = zext nneg i32 %48 to i64
-  %add.ptr.i.i.i = getelementptr inbounds float, ptr %call5.i.i.i.i2.i.i17.i18.i, i64 %conv7.i.i
-  %49 = load float, ptr %add.ptr.i.i.i, align 4, !noalias !36
-  %cmp8.i.i101 = fcmp ugt float %46, %49
+  %47 = add nsw i64 %indvars.iv.i.i, -1
+  %add.ptr.i.i.i = getelementptr inbounds float, ptr %call5.i.i.i.i2.i.i17.i18.i, i64 %47
+  %48 = load float, ptr %add.ptr.i.i.i, align 4, !noalias !36
+  %cmp8.i.i101 = fcmp ugt float %46, %48
   br i1 %cmp8.i.i101, label %if.end.i.i102, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %arrayidx.i16.i.le = getelementptr inbounds float, ptr %arrayidx.i.i96, i64 %45
-  %add.ptr.i.i.i.le = getelementptr inbounds float, ptr %call5.i.i.i.i2.i.i17.i18.i, i64 %conv7.i.i
+  %add.ptr.i.i.i.le = getelementptr inbounds float, ptr %call5.i.i.i.i2.i.i17.i18.i, i64 %47
+  %49 = trunc i64 %47 to i32
   %loc.i.i = getelementptr inbounds %class.anon.67, ptr %agg.tmp29, i64 0, i32 3, i32 2
-  store i32 %48, ptr %ref.tmp9.i.i, align 4, !noalias !36
+  store i32 %49, ptr %ref.tmp9.i.i, align 4, !noalias !36
   invoke void @_ZN4pbrt9ErrorExitIJiRfRKfEEEvPKNS_7FileLocEPKcDpOT_(ptr noundef nonnull %loc.i.i, ptr noundef nonnull @.str.70, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp9.i.i, ptr noundef nonnull align 4 dereferenceable(4) %add.ptr.i.i.i.le, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i16.i.le) #21
           to label %invoke.cont18.i.i unwind label %lpad17.thread.i.i, !noalias !36
 
@@ -2719,9 +2718,9 @@ if.then.i.i.i48.i.i:                              ; preds = %ehcleanup.i.i, %ehc
 
 for.inc.i106:                                     ; preds = %if.then.i.i.i45.i.i, %_ZNSt6vectorIfSaIfEED2Ev.exit43.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp9.i.i), !noalias !33
-  %add.ptr.i.i107 = getelementptr inbounds %"class.pbrt::Spectrum", ptr %call5.i.i.i.i2.i.i15.i89119, i64 %i.024.i
+  %add.ptr.i.i107 = getelementptr inbounds %"class.pbrt::Spectrum", ptr %call5.i.i.i.i2.i.i15.i89119, i64 %i.025.i
   store i64 %or.i.i.i.i105, ptr %add.ptr.i.i107, align 8, !noalias !33
-  %inc.i108 = add nuw i64 %i.024.i, 1
+  %inc.i108 = add nuw i64 %i.025.i, 1
   %cmp.i109 = icmp ult i64 %inc.i108, %div.i83
   br i1 %cmp.i109, label %for.body.i94, label %invoke.cont, !llvm.loop !40
 

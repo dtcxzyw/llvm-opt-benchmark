@@ -765,8 +765,8 @@ for.body85:                                       ; preds = %_ZN7Imf_3_214RgbaOu
   %mul.i = shl nsw i64 %conv.i, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %57, ptr align 2 %58, i64 %mul.i, i1 false)
   %inc87 = add nuw nsw i32 %j82.0105, 1
-  %exitcond121.not = icmp eq i32 %inc87, 13
-  br i1 %exitcond121.not, label %if.end89thread-pre-split, label %for.body85, !llvm.loop !11
+  %exitcond120.not = icmp eq i32 %inc87, 13
+  br i1 %exitcond120.not, label %if.end89thread-pre-split, label %for.body85, !llvm.loop !11
 
 if.end89thread-pre-split:                         ; preds = %for.body85
   %.pr = load i32, ptr %_linesConverted79, align 8
@@ -974,12 +974,12 @@ if.end120:                                        ; preds = %_ZN7Imf_3_214RgbaOu
   %123 = load i32, ptr %_lineOrder121, align 4
   %cmp122 = icmp eq i32 %123, 0
   %124 = load i32, ptr %_currentScanLine50, align 8
-  %.128 = select i1 %cmp122, i32 1, i32 -1
-  %inc125 = add nsw i32 %124, %.128
+  %.127 = select i1 %cmp122, i32 1, i32 -1
+  %inc125 = add nsw i32 %124, %.127
   store i32 %inc125, ptr %_currentScanLine50, align 8
   %inc131 = add nuw nsw i32 %i38.0112, 1
-  %exitcond122.not = icmp eq i32 %inc131, %numScanLines
-  br i1 %exitcond122.not, label %if.end133, label %for.body41, !llvm.loop !14
+  %exitcond121.not = icmp eq i32 %inc131, %numScanLines
+  br i1 %exitcond121.not, label %if.end133, label %for.body41, !llvm.loop !14
 
 if.end133:                                        ; preds = %for.end, %if.end120, %for.cond.preheader, %if.else37
   ret void
@@ -2840,8 +2840,7 @@ if.then17:                                        ; preds = %if.end15
 for.body:                                         ; preds = %if.then17, %for.body
   %indvars.iv96 = phi i64 [ %umin95, %if.then17 ], [ %indvars.iv.next97, %for.body ]
   %indvars.iv.next97 = add nsw i64 %indvars.iv96, -1
-  %idxprom = and i64 %indvars.iv.next97, 4294967295
-  %arrayidx = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 12, i64 %idxprom
+  %arrayidx = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile::FromYca", ptr %this, i64 0, i32 12, i64 %indvars.iv.next97
   %13 = load ptr, ptr %arrayidx, align 8
   %14 = trunc i64 %indvars.iv.next97 to i32
   %15 = add i32 %sub22, %14

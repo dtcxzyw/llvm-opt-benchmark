@@ -23411,9 +23411,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %7 = getelementptr ptr, ptr %6, i64 %indvars.iv
   %arrayidx = getelementptr ptr, ptr %7, i64 -1
   %8 = load ptr, ptr %arrayidx, align 8
-  %idxprom16 = and i64 %indvars.iv, 4294967295
-  %arrayidx17 = getelementptr inbounds ptr, ptr %6, i64 %idxprom16
-  store ptr %8, ptr %arrayidx17, align 8
+  store ptr %8, ptr %7, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp12 = icmp sgt i64 %indvars.iv.next, %5
   br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !63

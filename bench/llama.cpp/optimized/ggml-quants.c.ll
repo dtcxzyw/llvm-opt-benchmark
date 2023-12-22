@@ -2025,9 +2025,8 @@ if.then47:                                        ; preds = %for.body21
   br label %if.end64
 
 if.else:                                          ; preds = %for.body21
-  %25 = add nuw i64 %indvars.iv113, 4294967288
-  %idxprom60 = and i64 %25, 4294967295
-  %arrayidx61 = getelementptr inbounds %struct.block_q3_K, ptr %y, i64 %indvars.iv145, i32 2, i64 %idxprom60
+  %25 = add nsw i64 %indvars.iv113, -8
+  %arrayidx61 = getelementptr inbounds %struct.block_q3_K, ptr %y, i64 %indvars.iv145, i32 2, i64 %25
   %26 = load i8, ptr %arrayidx61, align 1
   %cond43.tr = trunc i32 %cond43 to i8
   %27 = shl i8 %cond43.tr, 4
@@ -2084,9 +2083,8 @@ cond.true104:                                     ; preds = %for.body101
   br label %cond.end121
 
 cond.false112:                                    ; preds = %for.body101
-  %37 = add nuw i64 %indvars.iv123, 4294967288
-  %idxprom117 = and i64 %37, 4294967295
-  %arrayidx118 = getelementptr inbounds %struct.block_q3_K, ptr %y, i64 %indvars.iv145, i32 2, i64 %idxprom117
+  %37 = add nsw i64 %indvars.iv123, -8
+  %arrayidx118 = getelementptr inbounds %struct.block_q3_K, ptr %y, i64 %indvars.iv145, i32 2, i64 %37
   %38 = load i8, ptr %arrayidx118, align 1
   %39 = lshr i8 %38, 4
   br label %cond.end121
@@ -2694,9 +2692,8 @@ if.else:                                          ; preds = %for.body60
   %43 = add nuw nsw i64 %indvars.iv142, 4
   %arrayidx111 = getelementptr inbounds %struct.block_q4_K, ptr %y, i64 %indvars.iv168, i32 2, i64 %43
   store i8 %conv105, ptr %arrayidx111, align 1
-  %44 = add nuw i64 %indvars.iv142, 4294967292
-  %idxprom117 = and i64 %44, 4294967295
-  %arrayidx118 = getelementptr inbounds %struct.block_q4_K, ptr %y, i64 %indvars.iv168, i32 2, i64 %idxprom117
+  %44 = add nsw i64 %indvars.iv142, -4
+  %arrayidx118 = getelementptr inbounds %struct.block_q4_K, ptr %y, i64 %indvars.iv168, i32 2, i64 %44
   %45 = load i8, ptr %arrayidx118, align 1
   %cond77.tr = trunc i32 %cond77 to i8
   %46 = shl nuw i8 %cond77.tr, 2
@@ -3336,9 +3333,8 @@ if.else:                                          ; preds = %for.body60
   %43 = add nuw nsw i64 %indvars.iv158, 4
   %arrayidx111 = getelementptr inbounds %struct.block_q5_K, ptr %y, i64 %indvars.iv183, i32 2, i64 %43
   store i8 %conv105, ptr %arrayidx111, align 1
-  %44 = add nuw i64 %indvars.iv158, 4294967292
-  %idxprom117 = and i64 %44, 4294967295
-  %arrayidx118 = getelementptr inbounds %struct.block_q5_K, ptr %y, i64 %indvars.iv183, i32 2, i64 %idxprom117
+  %44 = add nsw i64 %indvars.iv158, -4
+  %arrayidx118 = getelementptr inbounds %struct.block_q5_K, ptr %y, i64 %indvars.iv183, i32 2, i64 %44
   %45 = load i8, ptr %arrayidx118, align 1
   %cond77.tr = trunc i32 %cond77 to i8
   %46 = shl nuw i8 %cond77.tr, 2

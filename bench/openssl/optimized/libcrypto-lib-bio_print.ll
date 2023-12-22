@@ -2637,8 +2637,7 @@ while.cond263:                                    ; preds = %while.cond263.prehe
 
 while.body266:                                    ; preds = %while.cond263
   %indvars.iv.next307 = add nsw i64 %indvars.iv306, -1
-  %idxprom268 = and i64 %indvars.iv.next307, 4294967295
-  %arrayidx269 = getelementptr inbounds [20 x i8], ptr %fconvert, i64 0, i64 %idxprom268
+  %arrayidx269 = getelementptr inbounds [20 x i8], ptr %fconvert, i64 0, i64 %indvars.iv.next307
   %19 = load i8, ptr %arrayidx269, align 1
   %conv270 = sext i8 %19 to i32
   %call271 = tail call fastcc i32 @doapr_outch(ptr noundef %sbuffer, ptr noundef %buffer, ptr noundef %currlen, ptr noundef %maxlen, i32 noundef %conv270), !range !4
@@ -2695,8 +2694,7 @@ while.cond314:                                    ; preds = %while.body317, %if.
 
 while.body317:                                    ; preds = %while.cond314
   %indvars.iv.next310 = add nsw i64 %indvars.iv309, -1
-  %idxprom319 = and i64 %indvars.iv.next310, 4294967295
-  %arrayidx320 = getelementptr inbounds [20 x i8], ptr %econvert, i64 0, i64 %idxprom319
+  %arrayidx320 = getelementptr inbounds [20 x i8], ptr %econvert, i64 0, i64 %indvars.iv.next310
   %21 = load i8, ptr %arrayidx320, align 1
   %conv321 = sext i8 %21 to i32
   %call322 = tail call fastcc i32 @doapr_outch(ptr noundef %sbuffer, ptr noundef %buffer, ptr noundef %currlen, ptr noundef %maxlen, i32 noundef %conv321), !range !4

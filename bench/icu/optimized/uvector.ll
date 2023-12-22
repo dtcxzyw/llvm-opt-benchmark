@@ -1099,10 +1099,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %8 = load ptr, ptr %elements, align 8
   %9 = getelementptr %union.UElement, ptr %8, i64 %indvars.iv
   %arrayidx = getelementptr %union.UElement, ptr %9, i64 -1
-  %idxprom8 = and i64 %indvars.iv, 4294967295
-  %arrayidx9 = getelementptr inbounds %union.UElement, ptr %8, i64 %idxprom8
   %10 = load i64, ptr %arrayidx, align 8
-  store i64 %10, ptr %arrayidx9, align 8
+  store i64 %10, ptr %9, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp6 = icmp sgt i64 %indvars.iv.next, %7
   br i1 %cmp6, label %for.body, label %if.end14, !llvm.loop !11
@@ -1222,10 +1220,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %8 = load ptr, ptr %elements, align 8
   %9 = getelementptr %union.UElement, ptr %8, i64 %indvars.iv
   %arrayidx = getelementptr %union.UElement, ptr %9, i64 -1
-  %idxprom8 = and i64 %indvars.iv, 4294967295
-  %arrayidx9 = getelementptr inbounds %union.UElement, ptr %8, i64 %idxprom8
   %10 = load i64, ptr %arrayidx, align 8
-  store i64 %10, ptr %arrayidx9, align 8
+  store i64 %10, ptr %9, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp6 = icmp sgt i64 %indvars.iv.next, %7
   br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !12

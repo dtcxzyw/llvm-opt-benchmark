@@ -10198,15 +10198,14 @@ for.cond9.preheader.lr.ph.split:                  ; preds = %for.cond9.preheader
   br i1 %cmp28, label %for.cond9.preheader.us39.preheader, label %for.end52
 
 for.cond9.preheader.us39.preheader:               ; preds = %for.cond9.preheader.lr.ph.split
+  %12 = zext nneg i32 %comp to i64
   %wide.trip.count = zext nneg i32 %mul.i.i to i64
   br label %for.cond9.preheader.us39
 
 for.cond9.preheader.us39:                         ; preds = %for.cond9.preheader.us39.preheader, %for.cond9.preheader.us39
   %indvars.iv = phi i64 [ 0, %for.cond9.preheader.us39.preheader ], [ %indvars.iv.next, %for.cond9.preheader.us39 ]
-  %12 = trunc i64 %indvars.iv to i32
-  %13 = mul i32 %12, %comp
-  %idxprom33.us43 = zext nneg i32 %13 to i64
-  %arrayidx34.us44 = getelementptr inbounds float, ptr %data, i64 %idxprom33.us43
+  %13 = mul nsw i64 %indvars.iv, %12
+  %arrayidx34.us44 = getelementptr inbounds float, ptr %data, i64 %13
   %14 = load float, ptr %arrayidx34.us44, align 4
   %mul35.us45 = fmul float %14, 2.550000e+02
   %add36.us46 = fadd float %mul35.us45, 5.000000e-01
@@ -10216,7 +10215,7 @@ for.cond9.preheader.us39:                         ; preds = %for.cond9.preheader
   %z30.1.us50 = select i1 %cmp40.us49, float 2.550000e+02, float %z30.0.us48
   %conv43.us51 = fptosi float %z30.1.us50 to i32
   %conv44.us52 = trunc i32 %conv43.us51 to i8
-  %arrayidx48.us53 = getelementptr inbounds i8, ptr %call.i.i, i64 %idxprom33.us43
+  %arrayidx48.us53 = getelementptr inbounds i8, ptr %call.i.i, i64 %13
   store i8 %conv44.us52, ptr %arrayidx48.us53, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

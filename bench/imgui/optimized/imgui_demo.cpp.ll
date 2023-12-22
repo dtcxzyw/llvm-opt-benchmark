@@ -11045,8 +11045,7 @@ for.cond847.preheader:                            ; preds = %if.end841, %for.inc
   %indvars.iv841 = phi i64 [ 0, %if.end841 ], [ %indvars.iv.next842, %for.inc919 ]
   %180 = shl nuw nsw i64 %indvars.iv841, 2
   %cond326 = icmp eq i64 %indvars.iv841, 0
-  %181 = add nuw i64 %indvars.iv841, 4294967295
-  %idxprom896 = and i64 %181, 4294967295
+  %181 = add nsw i64 %indvars.iv841, -1
   %cmp904.not = icmp eq i64 %indvars.iv841, 3
   %indvars.iv.next842 = add nuw nsw i64 %indvars.iv841, 1
   br label %for.body849
@@ -11078,9 +11077,8 @@ if.then863:                                       ; preds = %if.end852
   br i1 %cmp850.not, label %if.then883, label %if.end881
 
 if.end881:                                        ; preds = %if.then863
-  %187 = add nuw i64 %indvars.iv834, 4294967295
-  %idxprom876 = and i64 %187, 4294967295
-  %arrayidx877 = getelementptr inbounds [4 x [4 x i8]], ptr @_ZZL21ShowDemoWindowWidgetsvE8selected_2, i64 0, i64 %indvars.iv841, i64 %idxprom876
+  %187 = add nsw i64 %indvars.iv834, -1
+  %arrayidx877 = getelementptr inbounds [4 x [4 x i8]], ptr @_ZZL21ShowDemoWindowWidgetsvE8selected_2, i64 0, i64 %indvars.iv841, i64 %187
   %188 = load i8, ptr %arrayidx877, align 1
   %189 = xor i8 %188, 1
   store i8 %189, ptr %arrayidx877, align 1
@@ -11099,7 +11097,7 @@ if.end892:                                        ; preds = %if.then883, %if.end
   br i1 %cond326, label %if.then905, label %if.then894
 
 if.then894:                                       ; preds = %if.end892
-  %arrayidx899 = getelementptr inbounds [4 x [4 x i8]], ptr @_ZZL21ShowDemoWindowWidgetsvE8selected_2, i64 0, i64 %idxprom896, i64 %indvars.iv834
+  %arrayidx899 = getelementptr inbounds [4 x [4 x i8]], ptr @_ZZL21ShowDemoWindowWidgetsvE8selected_2, i64 0, i64 %181, i64 %indvars.iv834
   %193 = load i8, ptr %arrayidx899, align 1
   %194 = xor i8 %193, 1
   store i8 %194, ptr %arrayidx899, align 1

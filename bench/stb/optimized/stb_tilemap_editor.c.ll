@@ -7009,7 +7009,6 @@ for.cond5.preheader.us:                           ; preds = %for.cond5.preheader
   %20 = mul nuw nsw i64 %19, 3200
   %21 = add nsw i64 %indvars.iv143, %16
   %cmp8.us = icmp sgt i64 %21, -1
-  %idxprom41.us = and i64 %21, 4294967295
   %conv2.i.us = trunc i64 %21 to i16
   %scevgep = getelementptr i8, ptr %tm, i64 %20
   %sext = shl i64 %p.0128.us, 32
@@ -7171,7 +7170,7 @@ for.body36.us:                                    ; preds = %for.body36.lr.ph.us
   %indvars.iv = phi i64 [ 0, %for.body36.lr.ph.us ], [ %indvars.iv.next, %for.inc76.us ]
   %arrayidx38.us = getelementptr inbounds [8 x i16], ptr %tilestack, i64 0, i64 %indvars.iv
   %55 = load i16, ptr %arrayidx38.us, align 2
-  %arrayidx47.us = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %tm, i64 0, i64 %idxprom41.us, i64 %idxprom44.us, i64 %indvars.iv
+  %arrayidx47.us = getelementptr inbounds [200 x [200 x [8 x i16]]], ptr %tm, i64 0, i64 %21, i64 %29, i64 %indvars.iv
   %56 = load i16, ptr %arrayidx47.us, align 2
   %cmp49.not.us = icmp eq i16 %55, %56
   br i1 %cmp49.not.us, label %for.inc76.us, label %if.then51.us
@@ -7275,7 +7274,6 @@ for.body36.lr.ph.us:                              ; preds = %for.cond18.preheade
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %tilestack, ptr align 2 %scevgep131, i64 %75, i1 false)
   %arrayidx31.us151 = getelementptr inbounds %struct.stbte__ui_t, ptr @stbte__ui, i64 0, i32 61, i64 %indvars.iv138
   call void @stbte__paste_stack(ptr noundef nonnull %tm, ptr noundef nonnull %tilestack, ptr noundef nonnull %tilestack, ptr noundef nonnull %arrayidx31.us151, i32 noundef 0)
-  %idxprom44.us = and i64 %29, 4294967295
   %conv1.i.us = trunc i64 %29 to i16
   br label %for.body36.us
 

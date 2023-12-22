@@ -3236,8 +3236,7 @@ land.lhs.true108:                                 ; preds = %if.end102
   br i1 %or.cond119, label %land.lhs.true112, label %if.end122
 
 land.lhs.true112:                                 ; preds = %land.lhs.true108
-  %idx.ext115 = and i64 %indvars.iv, 4294967295
-  %idx.neg116 = sub nsw i64 0, %idx.ext115
+  %idx.neg116 = sub nsw i64 0, %indvars.iv
   %add.ptr117 = getelementptr inbounds i8, ptr %add.ptr114, i64 %idx.neg116
   br label %do.body.i134
 

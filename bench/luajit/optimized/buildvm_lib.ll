@@ -712,8 +712,7 @@ if.then58:                                        ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then58
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %idxprom = and i64 %indvars.iv.next, 4294967295
-  %arrayidx = getelementptr inbounds i8, ptr %p, i64 %idxprom
+  %arrayidx = getelementptr inbounds i8, ptr %p, i64 %indvars.iv.next
   %19 = load i8, ptr %arrayidx, align 1
   %tobool48.not = icmp eq i8 %19, 0
   br i1 %tobool48.not, label %for.end, label %land.rhs, !llvm.loop !13

@@ -6995,9 +6995,8 @@ invoke.cont27:                                    ; preds = %invoke.cont27.lr.ph
           to label %invoke.cont29 unwind label %lpad.loopexit
 
 invoke.cont29:                                    ; preds = %invoke.cont27
-  %17 = mul i64 %indvars.iv, 11
-  %conv22 = and i64 %17, 4294967295
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %14, i64 %conv22
+  %17 = mul nuw nsw i64 %indvars.iv, 11
+  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %14, i64 %17
   invoke fastcc void @_ZN12_GLOBAL__N_114getMeasureDataERKN6icu_756LocaleERKNS0_11MeasureUnitERK16UNumberUnitWidthPKcPNS0_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %loc, ptr noundef nonnull align 8 dereferenceable(19) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %width, ptr noundef %unitDisplayCase, ptr noundef nonnull %arrayidx.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont31 unwind label %lpad30
 
@@ -7335,10 +7334,9 @@ if.end38:                                         ; preds = %if.then36, %invoke.
           to label %invoke.cont40 unwind label %lpad21
 
 invoke.cont40:                                    ; preds = %if.end38
-  %17 = mul i64 %indvars.iv, 11
-  %conv42 = and i64 %17, 4294967295
+  %17 = mul nuw nsw i64 %indvars.iv, 11
   %18 = load ptr, ptr %fMixedUnitData62, align 8
-  %arrayidx.i50 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %18, i64 %conv42
+  %arrayidx.i50 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %18, i64 %17
   call void @llvm.experimental.noalias.scope.decl(metadata !65)
   %idxprom.i = zext i32 %call41 to i64
   %arrayidx.i51 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayidx.i50, i64 %idxprom.i
@@ -7447,10 +7445,9 @@ lpad.i57:                                         ; preds = %.noexc58
 invoke.cont60:                                    ; preds = %invoke.cont.i, %invoke.cont57
   %retval.0.i = phi i32 [ %cond.i.i.i, %invoke.cont.i ], [ 5, %invoke.cont57 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ruleString.i)
-  %27 = mul i64 %indvars.iv, 11
-  %conv64 = and i64 %27, 4294967295
+  %27 = mul nuw nsw i64 %indvars.iv, 11
   %28 = load ptr, ptr %fMixedUnitData62, align 8
-  %arrayidx.i61 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %28, i64 %conv64
+  %arrayidx.i61 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %28, i64 %27
   call void @llvm.experimental.noalias.scope.decl(metadata !68)
   %idxprom.i62 = zext nneg i32 %retval.0.i to i64
   %arrayidx.i63 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayidx.i61, i64 %idxprom.i62

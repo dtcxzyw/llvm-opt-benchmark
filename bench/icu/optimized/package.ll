@@ -776,20 +776,19 @@ if.then257:                                       ; preds = %if.end240
   %72 = load ptr, ptr %items, align 8
   %data261 = getelementptr inbounds %"struct.icu_75::Item", ptr %72, i64 %indvars.iv208, i32 1
   %73 = load ptr, ptr %data261, align 8
-  %74 = add nuw i64 %indvars.iv208, 4294967295
-  %idxprom264 = and i64 %74, 4294967295
-  %data266 = getelementptr inbounds %"struct.icu_75::Item", ptr %72, i64 %idxprom264, i32 1
+  %74 = add nsw i64 %indvars.iv208, -1
+  %data266 = getelementptr inbounds %"struct.icu_75::Item", ptr %72, i64 %74, i32 1
   %75 = load ptr, ptr %data266, align 8
   %sub.ptr.lhs.cast267 = ptrtoint ptr %73 to i64
   %sub.ptr.rhs.cast268 = ptrtoint ptr %75 to i64
   %sub.ptr.sub269 = sub i64 %sub.ptr.lhs.cast267, %sub.ptr.rhs.cast268
   %conv270 = trunc i64 %sub.ptr.sub269 to i32
-  %length275 = getelementptr inbounds %"struct.icu_75::Item", ptr %72, i64 %idxprom264, i32 2
+  %length275 = getelementptr inbounds %"struct.icu_75::Item", ptr %72, i64 %74, i32 2
   store i32 %conv270, ptr %length275, align 8
   %76 = load ptr, ptr %items, align 8
-  %data280 = getelementptr inbounds %"struct.icu_75::Item", ptr %76, i64 %idxprom264, i32 1
+  %data280 = getelementptr inbounds %"struct.icu_75::Item", ptr %76, i64 %74, i32 1
   %77 = load ptr, ptr %data280, align 8
-  %length285 = getelementptr inbounds %"struct.icu_75::Item", ptr %76, i64 %idxprom264, i32 2
+  %length285 = getelementptr inbounds %"struct.icu_75::Item", ptr %76, i64 %74, i32 2
   %78 = load i32, ptr %length285, align 8
   %79 = load i32, ptr %errorCode, align 4
   %cmp.i.i.i = icmp slt i32 %79, 1
@@ -871,7 +870,7 @@ _ZL23getTypeEnumForInputDataPKhiP10UErrorCode.exit: ; preds = %lor.lhs.false36.i
 
 if.then291:                                       ; preds = %if.then257, %_ZL23getTypeEnumForInputDataPKhiP10UErrorCode.exit, %return.sink.split.i.i
   %88 = load ptr, ptr @stderr, align 8
-  %arrayidx295 = getelementptr inbounds %"struct.icu_75::Item", ptr %76, i64 %idxprom264
+  %arrayidx295 = getelementptr inbounds %"struct.icu_75::Item", ptr %76, i64 %74
   %89 = load ptr, ptr %arrayidx295, align 8
   %call297 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.12, ptr noundef %89, ptr noundef %filename) #24
   call void @exit(i32 noundef 3) #21
@@ -881,7 +880,7 @@ if.end298:                                        ; preds = %_ZL23getTypeEnumFor
   %idxprom.i = zext nneg i32 %add.i.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr @.str.47, i64 %idxprom.i
   %90 = load i8, ptr %arrayidx.i, align 1
-  %type304 = getelementptr inbounds %"struct.icu_75::Item", ptr %76, i64 %idxprom264, i32 4
+  %type304 = getelementptr inbounds %"struct.icu_75::Item", ptr %76, i64 %74, i32 4
   store i8 %90, ptr %type304, align 1
   br label %if.end305
 

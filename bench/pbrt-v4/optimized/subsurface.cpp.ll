@@ -6235,16 +6235,15 @@ land.end.i.us:                                    ; preds = %if.then19.us
   br i1 %cmp3.i.us, label %land.lhs.true4.i.us, label %land.rhs8.i
 
 land.lhs.true4.i.us:                              ; preds = %land.end.i.us
-  %conv5.i.us = and i64 %16, 4294967295
   %18 = load i64, ptr %nStored.i5.i, align 8
-  %cmp7.i.us = icmp ugt i64 %18, %conv5.i.us
+  %cmp7.i.us = icmp ugt i64 %18, %16
   br i1 %cmp7.i.us, label %_ZNK4pbrt11BSSRDFTable11EvalProfileEii.exit.us, label %land.rhs8.i
 
 _ZNK4pbrt11BSSRDFTable11EvalProfileEii.exit.us:   ; preds = %land.lhs.true4.i.us
   %mul.i.us = mul i64 %18, %conv.i24
   %19 = load ptr, ptr %ptr.i.i26, align 8
   %20 = getelementptr float, ptr %19, i64 %mul.i.us
-  %arrayidx.i.i27.us = getelementptr float, ptr %20, i64 %conv5.i.us
+  %arrayidx.i.i27.us = getelementptr float, ptr %20, i64 %16
   %21 = load float, ptr %arrayidx.i.i27.us, align 4
   %mul23.us = fmul float %mul17.us, %21
   %add24.us = fadd float %sr.141.us, %mul23.us
@@ -6849,16 +6848,15 @@ land.end.i.us:                                    ; preds = %if.then27.us
   br i1 %cmp3.i.us, label %land.lhs.true4.i.us, label %land.rhs8.i
 
 land.lhs.true4.i.us:                              ; preds = %land.end.i.us
-  %conv5.i.us = and i64 %18, 4294967295
   %20 = load i64, ptr %nStored.i5.i, align 8
-  %cmp7.i.us = icmp ugt i64 %20, %conv5.i.us
+  %cmp7.i.us = icmp ugt i64 %20, %18
   br i1 %cmp7.i.us, label %_ZNK4pbrt11BSSRDFTable11EvalProfileEii.exit.us, label %land.rhs8.i
 
 _ZNK4pbrt11BSSRDFTable11EvalProfileEii.exit.us:   ; preds = %land.lhs.true4.i.us
   %mul.i.us = mul i64 %20, %conv.i29
   %21 = load ptr, ptr %ptr.i.i31, align 8
   %22 = getelementptr float, ptr %21, i64 %mul.i.us
-  %arrayidx.i.i32.us = getelementptr float, ptr %22, i64 %conv5.i.us
+  %arrayidx.i.i32.us = getelementptr float, ptr %22, i64 %18
   %23 = load float, ptr %arrayidx.i.i32.us, align 4
   %mul34.us = fmul float %12, %23
   %mul37.us = fmul float %17, %mul34.us

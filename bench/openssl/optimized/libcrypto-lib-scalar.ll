@@ -79,9 +79,8 @@ for.body23:                                       ; preds = %for.end, %if.end
 
 if.then:                                          ; preds = %for.body23
   %conv34 = trunc i128 %add33 to i64
-  %6 = add nuw i64 %indvars.iv36, 4294967295
-  %idxprom35 = and i64 %6, 4294967295
-  %arrayidx36 = getelementptr inbounds [8 x i64], ptr %accum, i64 0, i64 %idxprom35
+  %6 = add nsw i64 %indvars.iv36, -1
+  %arrayidx36 = getelementptr inbounds [8 x i64], ptr %accum, i64 0, i64 %6
   store i64 %conv34, ptr %arrayidx36, align 8
   br label %if.end
 

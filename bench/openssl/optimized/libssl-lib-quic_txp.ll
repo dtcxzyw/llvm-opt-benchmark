@@ -765,9 +765,8 @@ cond.end.thread:                                  ; preds = %for.body6
   br label %ossl_quic_enc_level_to_pn_space.exit.i
 
 cond.end:                                         ; preds = %for.body6
-  %8 = add nuw i64 %indvars.iv669, 4294967295
-  %idxprom8 = and i64 %8, 4294967295
-  %hwm = getelementptr inbounds [4 x %struct.txp_pkt], ptr %pkt, i64 0, i64 %idxprom8, i32 5, i32 2
+  %8 = add nsw i64 %indvars.iv669, -1
+  %hwm = getelementptr inbounds [4 x %struct.txp_pkt], ptr %pkt, i64 0, i64 %8, i32 5, i32 2
   %9 = load i64, ptr %hwm, align 16
   %hwm13 = getelementptr inbounds [4 x %struct.txp_pkt], ptr %pkt, i64 0, i64 %indvars.iv669, i32 5, i32 2
   store i64 %9, ptr %hwm13, align 16

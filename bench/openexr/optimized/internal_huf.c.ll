@@ -1299,8 +1299,7 @@ for.body104.i:                                    ; preds = %for.body104.i, %for
   %22 = load i64, ptr %arrayidx106.i, align 8
   %conv107.i = uitofp i64 %22 to double
   %23 = sub nsw i64 %20, %indvars.iv204.i
-  %sh_prom.i = and i64 %23, 4294967295
-  %shl.i = shl i64 2, %sh_prom.i
+  %shl.i = shl i64 2, %23
   %conv111.i = sitofp i64 %shl.i to double
   %mul.i = fmul double %conv107.i, %conv111.i
   %arrayidx113.i = getelementptr inbounds double, ptr %offset.i, i64 %indvars.iv204.i
@@ -1328,8 +1327,7 @@ for.body132.i:                                    ; preds = %for.body125.i, %for
 for.end138.i:                                     ; preds = %for.body132.i, %for.body125.i
   %tmp.0.lcssa.i = phi double [ 0.000000e+00, %for.body125.i ], [ %add135.i, %for.body132.i ]
   %25 = sub nsw i64 %20, %indvars.iv214.i
-  %sh_prom142.i = and i64 %25, 4294967295
-  %shl143.i = shl i64 2, %sh_prom142.i
+  %shl143.i = shl i64 2, %25
   %conv144.i = sitofp i64 %shl143.i to double
   %div.i = fdiv double %tmp.0.lcssa.i, %conv144.i
   %26 = tail call double @llvm.ceil.f64(double %div.i)
@@ -1355,15 +1353,13 @@ for.cond176.preheader.i:                          ; preds = %for.body163.i, %for
   br i1 %cmp102.not179.i, label %for.end200.i, label %for.body193.preheader.i
 
 for.body163.i:                                    ; preds = %for.body163.i, %for.body163.preheader.i
+  %28 = phi i64 [ 0, %for.body163.preheader.i ], [ %add170.i, %for.body163.i ]
   %indvars.iv220.i = phi i64 [ %idxprom152.i.pre-phi, %for.body163.preheader.i ], [ %indvars.iv.next221.i, %for.body163.i ]
   %indvars.iv.next221.i = add nsw i64 %indvars.iv220.i, -1
-  %arrayidx166.i = getelementptr inbounds [59 x i64], ptr %offset.i, i64 0, i64 %indvars.iv220.i
-  %28 = load i64, ptr %arrayidx166.i, align 8
   %arrayidx169.i = getelementptr inbounds [59 x i64], ptr %codeCount.i, i64 0, i64 %indvars.iv220.i
   %29 = load i64, ptr %arrayidx169.i, align 8
   %add170.i = add i64 %29, %28
-  %idxprom171.i = and i64 %indvars.iv.next221.i, 4294967295
-  %arrayidx172.i = getelementptr inbounds [59 x i64], ptr %offset.i, i64 0, i64 %idxprom171.i
+  %arrayidx172.i = getelementptr inbounds [59 x i64], ptr %offset.i, i64 0, i64 %indvars.iv.next221.i
   store i64 %add170.i, ptr %arrayidx172.i, align 8
   %cmp161.not.not.i = icmp sgt i64 %indvars.iv.next221.i, %27
   br i1 %cmp161.not.not.i, label %for.body163.i, label %for.cond176.preheader.i, !llvm.loop !24

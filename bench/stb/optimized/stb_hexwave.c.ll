@@ -1060,15 +1060,14 @@ for.cond107.preheader.us:                         ; preds = %for.cond107.prehead
 
 for.body110.us:                                   ; preds = %for.cond107.preheader.us, %for.body110.us
   %indvars.iv157 = phi i64 [ 0, %for.cond107.preheader.us ], [ %indvars.iv.next158, %for.body110.us ]
-  %14 = mul i64 %indvars.iv157, %10
-  %15 = add i64 %14, %indvars.iv165
-  %idxprom113.us = and i64 %15, 4294967295
-  %arrayidx114.us = getelementptr inbounds float, ptr %cond102, i64 %idxprom113.us
+  %14 = mul nsw i64 %indvars.iv157, %10
+  %15 = add nuw nsw i64 %14, %indvars.iv165
+  %arrayidx114.us = getelementptr inbounds float, ptr %cond102, i64 %15
   %16 = load float, ptr %arrayidx114.us, align 4
   %17 = add nuw nsw i64 %indvars.iv157, %13
   %arrayidx118.us = getelementptr inbounds float, ptr %blep_buffer.0, i64 %17
   store float %16, ptr %arrayidx118.us, align 4
-  %arrayidx122.us = getelementptr inbounds float, ptr %add.ptr9104, i64 %idxprom113.us
+  %arrayidx122.us = getelementptr inbounds float, ptr %add.ptr9104, i64 %15
   %18 = load float, ptr %arrayidx122.us, align 4
   %arrayidx126.us = getelementptr inbounds float, ptr %blamp_buffer.0, i64 %17
   store float %18, ptr %arrayidx126.us, align 4

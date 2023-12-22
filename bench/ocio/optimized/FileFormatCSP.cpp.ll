@@ -2137,23 +2137,22 @@ ehcleanup476:                                     ; preds = %ehcleanup472, %clea
 
 if.end477:                                        ; preds = %lor.lhs.false444
   %114 = load float, ptr %109, align 4
-  %115 = mul i64 %indvars.iv1000, 3
-  %conv479 = and i64 %115, 4294967295
+  %115 = mul nuw nsw i64 %indvars.iv1000, 3
   %116 = load ptr, ptr %m_data.i, align 8
-  %add.ptr.i.i = getelementptr inbounds float, ptr %116, i64 %conv479
+  %add.ptr.i.i = getelementptr inbounds float, ptr %116, i64 %115
   store float %114, ptr %add.ptr.i.i, align 4
   %117 = load ptr, ptr %floatArray, align 8
   %add.ptr.i = getelementptr inbounds float, ptr %117, i64 1
   %118 = load float, ptr %add.ptr.i, align 4
   %119 = load ptr, ptr %m_data.i, align 8
-  %120 = getelementptr float, ptr %119, i64 %conv479
+  %120 = getelementptr float, ptr %119, i64 %115
   %add.ptr.i.i366 = getelementptr float, ptr %120, i64 1
   store float %118, ptr %add.ptr.i.i366, align 4
   %121 = load ptr, ptr %floatArray, align 8
   %add.ptr.i367 = getelementptr inbounds float, ptr %121, i64 2
   %122 = load float, ptr %add.ptr.i367, align 4
   %123 = load ptr, ptr %m_data.i, align 8
-  %124 = getelementptr float, ptr %123, i64 %conv479
+  %124 = getelementptr float, ptr %123, i64 %115
   %add.ptr.i.i369 = getelementptr float, ptr %124, i64 2
   store float %122, ptr %add.ptr.i.i369, align 4
   %125 = load ptr, ptr %floatArray, align 8

@@ -32549,8 +32549,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %2 = load ptr, ptr %fs, align 8
   %locvars.i = getelementptr inbounds %struct.Proto, ptr %2, i64 0, i32 7
   %3 = load ptr, ptr %locvars.i, align 8
-  %idxprom.i = and i64 %indvars.iv.next.i, 4294967295
-  %arrayidx.i = getelementptr inbounds %struct.FuncState, ptr %fs, i64 0, i32 15, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %struct.FuncState, ptr %fs, i64 0, i32 15, i64 %indvars.iv.next.i
   %4 = load i16, ptr %arrayidx.i, align 2
   %idxprom2.i = zext i16 %4 to i64
   %arrayidx3.i = getelementptr inbounds %struct.LocVar, ptr %3, i64 %idxprom2.i
@@ -35367,9 +35366,8 @@ sw.default.i.i:                                   ; preds = %if.else9.i.i
   %71 = trunc i64 %indvars.iv to i32
   %72 = add i32 %71, -10001
   %cmp21.not.i.i = icmp ugt i32 %72, %conv.i.i138
-  %73 = add nuw i64 %indvars.iv, 4294957294
-  %idxprom.i.i = and i64 %73, 4294967295
-  %arrayidx.i.i = getelementptr inbounds %struct.CClosure, ptr %69, i64 0, i32 8, i64 %idxprom.i.i
+  %73 = add nsw i64 %indvars.iv, -10002
+  %arrayidx.i.i = getelementptr inbounds %struct.CClosure, ptr %69, i64 0, i32 8, i64 %73
   %cond.i.i140 = select i1 %cmp21.not.i.i, ptr @luaO_nilobject_, ptr %arrayidx.i.i
   br label %index2adr.exit.i129
 
@@ -39758,11 +39756,10 @@ for.body:                                         ; preds = %luaL_checkstack.exi
 
 if.then.i.i:                                      ; preds = %for.body
   %10 = load ptr, ptr %1, align 8
-  %11 = and i64 %indvars.iv, 4294967295
-  %12 = getelementptr %struct.lua_TValue, ptr %10, i64 %11
-  %add.ptr.i.i43 = getelementptr %struct.lua_TValue, ptr %12, i64 -1
-  %13 = load ptr, ptr %0, align 8
-  %cmp1.not.i.i = icmp ult ptr %add.ptr.i.i43, %13
+  %11 = getelementptr %struct.lua_TValue, ptr %10, i64 %indvars.iv
+  %add.ptr.i.i43 = getelementptr %struct.lua_TValue, ptr %11, i64 -1
+  %12 = load ptr, ptr %0, align 8
+  %cmp1.not.i.i = icmp ult ptr %add.ptr.i.i43, %12
   br i1 %cmp1.not.i.i, label %index2adr.exit.i, label %if.else11
 
 if.else3.i.i:                                     ; preds = %for.body
@@ -39770,48 +39767,47 @@ if.else3.i.i:                                     ; preds = %for.body
   br i1 %cmp4.i.i, label %if.then5.i.i41, label %if.else9.i.i
 
 if.then5.i.i41:                                   ; preds = %if.else3.i.i
-  %14 = load ptr, ptr %0, align 8
-  %add.ptr8.i.i = getelementptr inbounds %struct.lua_TValue, ptr %14, i64 %indvars.iv
+  %13 = load ptr, ptr %0, align 8
+  %add.ptr8.i.i = getelementptr inbounds %struct.lua_TValue, ptr %13, i64 %indvars.iv
   br label %index2adr.exit.i
 
 if.else9.i.i:                                     ; preds = %if.else3.i.i
-  %15 = trunc i64 %indvars.iv to i32
-  switch i32 %15, label %sw.default.i.i [
+  %14 = trunc i64 %indvars.iv to i32
+  switch i32 %14, label %sw.default.i.i [
     i32 -10000, label %sw.bb.i.i
     i32 -10001, label %sw.bb10.i.i
     i32 -10002, label %index2adr.exit.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.else9.i.i
-  %16 = load ptr, ptr %l_G.i.i, align 8
-  %l_registry.i.i = getelementptr inbounds %struct.global_State, ptr %16, i64 0, i32 20
+  %15 = load ptr, ptr %l_G.i.i, align 8
+  %l_registry.i.i = getelementptr inbounds %struct.global_State, ptr %15, i64 0, i32 20
   br label %index2adr.exit.i
 
 sw.bb10.i.i:                                      ; preds = %if.else9.i.i
-  %17 = load ptr, ptr %ci.i.i39, align 8
-  %func11.i.i = getelementptr inbounds %struct.CallInfo, ptr %17, i64 0, i32 1
-  %18 = load ptr, ptr %func11.i.i, align 8
-  %19 = load ptr, ptr %18, align 8
-  %env12.i.i = getelementptr inbounds %struct.CClosure, ptr %19, i64 0, i32 6
-  %20 = load ptr, ptr %env12.i.i, align 8
-  store ptr %20, ptr %env.i.i, align 8
+  %16 = load ptr, ptr %ci.i.i39, align 8
+  %func11.i.i = getelementptr inbounds %struct.CallInfo, ptr %16, i64 0, i32 1
+  %17 = load ptr, ptr %func11.i.i, align 8
+  %18 = load ptr, ptr %17, align 8
+  %env12.i.i = getelementptr inbounds %struct.CClosure, ptr %18, i64 0, i32 6
+  %19 = load ptr, ptr %env12.i.i, align 8
+  store ptr %19, ptr %env.i.i, align 8
   store i32 5, ptr %tt.i.i, align 8
   br label %index2adr.exit.i
 
 sw.default.i.i:                                   ; preds = %if.else9.i.i
-  %21 = load ptr, ptr %ci.i.i39, align 8
-  %func18.i.i = getelementptr inbounds %struct.CallInfo, ptr %21, i64 0, i32 1
-  %22 = load ptr, ptr %func18.i.i, align 8
-  %23 = load ptr, ptr %22, align 8
-  %nupvalues.i.i = getelementptr inbounds %struct.CClosure, ptr %23, i64 0, i32 4
-  %24 = load i8, ptr %nupvalues.i.i, align 1
-  %conv.i.i40 = zext i8 %24 to i32
-  %25 = trunc i64 %indvars.iv to i32
-  %26 = sub i32 -10002, %25
-  %cmp21.not.i.i = icmp ugt i32 %26, %conv.i.i40
-  %27 = sub i64 4294957293, %indvars.iv
-  %idxprom.i.i = and i64 %27, 4294967295
-  %arrayidx.i.i = getelementptr inbounds %struct.CClosure, ptr %23, i64 0, i32 8, i64 %idxprom.i.i
+  %20 = load ptr, ptr %ci.i.i39, align 8
+  %func18.i.i = getelementptr inbounds %struct.CallInfo, ptr %20, i64 0, i32 1
+  %21 = load ptr, ptr %func18.i.i, align 8
+  %22 = load ptr, ptr %21, align 8
+  %nupvalues.i.i = getelementptr inbounds %struct.CClosure, ptr %22, i64 0, i32 4
+  %23 = load i8, ptr %nupvalues.i.i, align 1
+  %conv.i.i40 = zext i8 %23 to i32
+  %24 = trunc i64 %indvars.iv to i32
+  %25 = sub i32 -10002, %24
+  %cmp21.not.i.i = icmp ugt i32 %25, %conv.i.i40
+  %26 = sub nuw nsw i64 -10003, %indvars.iv
+  %arrayidx.i.i = getelementptr inbounds %struct.CClosure, ptr %22, i64 0, i32 8, i64 %26
   br i1 %cmp21.not.i.i, label %if.else11, label %index2adr.exit.i
 
 index2adr.exit.i:                                 ; preds = %if.else9.i.i, %sw.default.i.i, %sw.bb10.i.i, %sw.bb.i.i, %if.then5.i.i41, %if.then.i.i
@@ -39821,48 +39817,48 @@ index2adr.exit.i:                                 ; preds = %if.else9.i.i, %sw.d
 
 lua_type.exit:                                    ; preds = %index2adr.exit.i
   %tt.i = getelementptr inbounds %struct.lua_TValue, ptr %retval.0.i.i, i64 0, i32 1
-  %28 = load i32, ptr %tt.i, align 8
-  %cmp5 = icmp eq i32 %28, 3
+  %27 = load i32, ptr %tt.i, align 8
+  %cmp5 = icmp eq i32 %27, 3
   br i1 %cmp5, label %if.then6, label %if.else11
 
 if.then6:                                         ; preds = %lua_type.exit
-  %29 = trunc i64 %indvars.iv to i32
-  %call7 = call fastcc i64 @lua_tointeger(ptr noundef %L, i32 noundef %29)
+  %28 = trunc i64 %indvars.iv to i32
+  %call7 = call fastcc i64 @lua_tointeger(ptr noundef %L, i32 noundef %28)
   %cmp8 = icmp eq i64 %call7, 0
   br i1 %cmp8, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then6
   %call.i = call i32 @getc(ptr noundef %f)
   %call1.i45 = call i32 @ungetc(i32 noundef %call.i, ptr noundef %f)
-  %30 = load ptr, ptr %l_G.i.i, align 8
-  %totalbytes.i.i = getelementptr inbounds %struct.global_State, ptr %30, i64 0, i32 14
-  %31 = load i64, ptr %totalbytes.i.i, align 8
-  %GCthreshold.i.i = getelementptr inbounds %struct.global_State, ptr %30, i64 0, i32 13
-  %32 = load i64, ptr %GCthreshold.i.i, align 8
-  %cmp.not.i.i = icmp ult i64 %31, %32
+  %29 = load ptr, ptr %l_G.i.i, align 8
+  %totalbytes.i.i = getelementptr inbounds %struct.global_State, ptr %29, i64 0, i32 14
+  %30 = load i64, ptr %totalbytes.i.i, align 8
+  %GCthreshold.i.i = getelementptr inbounds %struct.global_State, ptr %29, i64 0, i32 13
+  %31 = load i64, ptr %GCthreshold.i.i, align 8
+  %cmp.not.i.i = icmp ult i64 %30, %31
   br i1 %cmp.not.i.i, label %test_eof.exit, label %if.then.i.i47
 
 if.then.i.i47:                                    ; preds = %cond.true
-  %gcstepmul.i.i.i = getelementptr inbounds %struct.global_State, ptr %30, i64 0, i32 18
-  %33 = load i32, ptr %gcstepmul.i.i.i, align 4
-  %mul.i.i.i48 = mul i32 %33, 10
+  %gcstepmul.i.i.i = getelementptr inbounds %struct.global_State, ptr %29, i64 0, i32 18
+  %32 = load i32, ptr %gcstepmul.i.i.i, align 4
+  %mul.i.i.i48 = mul i32 %32, 10
   %conv.i.i.i = zext i32 %mul.i.i.i48 to i64
   %cmp.i.i.i = icmp eq i32 %mul.i.i.i48, 0
   %spec.store.select.i.i.i = select i1 %cmp.i.i.i, i64 9223372036854775806, i64 %conv.i.i.i
-  %sub.i.i.i = sub i64 %31, %32
-  %gcdept.i.i.i = getelementptr inbounds %struct.global_State, ptr %30, i64 0, i32 16
-  %34 = load i64, ptr %gcdept.i.i.i, align 8
-  %add.i.i.i49 = add i64 %sub.i.i.i, %34
+  %sub.i.i.i = sub i64 %30, %31
+  %gcdept.i.i.i = getelementptr inbounds %struct.global_State, ptr %29, i64 0, i32 16
+  %33 = load i64, ptr %gcdept.i.i.i, align 8
+  %add.i.i.i49 = add i64 %sub.i.i.i, %33
   store i64 %add.i.i.i49, ptr %gcdept.i.i.i, align 8
-  %gcstate.i.i.i = getelementptr inbounds %struct.global_State, ptr %30, i64 0, i32 4
+  %gcstate.i.i.i = getelementptr inbounds %struct.global_State, ptr %29, i64 0, i32 4
   br label %do.body.i.i.i
 
 do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.then.i.i47
   %lim.0.i.i.i = phi i64 [ %spec.store.select.i.i.i, %if.then.i.i47 ], [ %sub2.i.i.i, %do.body.i.i.i ]
   %call.i.i.i = call fastcc i64 @singlestep(ptr noundef %L)
   %sub2.i.i.i = sub nsw i64 %lim.0.i.i.i, %call.i.i.i
-  %35 = load i8, ptr %gcstate.i.i.i, align 1
-  %cmp4.i.i.i = icmp ne i8 %35, 0
+  %34 = load i8, ptr %gcstate.i.i.i, align 1
+  %cmp4.i.i.i = icmp ne i8 %34, 0
   %cmp8.i.i.i = icmp sgt i64 %sub2.i.i.i, 0
   %or.cond.i.i.i = select i1 %cmp4.i.i.i, i1 %cmp8.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %do.body.i.i.i, label %do.end.i.i.i, !llvm.loop !6
@@ -39871,44 +39867,44 @@ do.end.i.i.i:                                     ; preds = %do.body.i.i.i
   br i1 %cmp4.i.i.i, label %if.then14.i.i.i, label %if.else27.i.i.i
 
 if.then14.i.i.i:                                  ; preds = %do.end.i.i.i
-  %36 = load i64, ptr %gcdept.i.i.i, align 8
-  %cmp16.i.i.i = icmp ult i64 %36, 1024
+  %35 = load i64, ptr %gcdept.i.i.i, align 8
+  %cmp16.i.i.i = icmp ult i64 %35, 1024
   br i1 %cmp16.i.i.i, label %if.then18.i.i.i, label %if.else.i.i.i
 
 if.then18.i.i.i:                                  ; preds = %if.then14.i.i.i
-  %37 = load i64, ptr %totalbytes.i.i, align 8
-  %add20.i.i.i = add i64 %37, 1024
+  %36 = load i64, ptr %totalbytes.i.i, align 8
+  %add20.i.i.i = add i64 %36, 1024
   br label %luaC_step.exit.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then14.i.i.i
-  %sub23.i.i.i = add i64 %36, -1024
+  %sub23.i.i.i = add i64 %35, -1024
   store i64 %sub23.i.i.i, ptr %gcdept.i.i.i, align 8
-  %38 = load i64, ptr %totalbytes.i.i, align 8
+  %37 = load i64, ptr %totalbytes.i.i, align 8
   br label %luaC_step.exit.i.i
 
 if.else27.i.i.i:                                  ; preds = %do.end.i.i.i
-  %estimate.i.i.i = getelementptr inbounds %struct.global_State, ptr %30, i64 0, i32 15
-  %39 = load i64, ptr %estimate.i.i.i, align 8
-  %div.i.i.i = udiv i64 %39, 100
-  %gcpause.i.i.i = getelementptr inbounds %struct.global_State, ptr %30, i64 0, i32 17
-  %40 = load i32, ptr %gcpause.i.i.i, align 8
-  %conv28.i.i.i = sext i32 %40 to i64
+  %estimate.i.i.i = getelementptr inbounds %struct.global_State, ptr %29, i64 0, i32 15
+  %38 = load i64, ptr %estimate.i.i.i, align 8
+  %div.i.i.i = udiv i64 %38, 100
+  %gcpause.i.i.i = getelementptr inbounds %struct.global_State, ptr %29, i64 0, i32 17
+  %39 = load i32, ptr %gcpause.i.i.i, align 8
+  %conv28.i.i.i = sext i32 %39 to i64
   %mul29.i.i.i = mul i64 %div.i.i.i, %conv28.i.i.i
   br label %luaC_step.exit.i.i
 
 luaC_step.exit.i.i:                               ; preds = %if.else27.i.i.i, %if.else.i.i.i, %if.then18.i.i.i
-  %add20.sink.i.i.i = phi i64 [ %add20.i.i.i, %if.then18.i.i.i ], [ %38, %if.else.i.i.i ], [ %mul29.i.i.i, %if.else27.i.i.i ]
+  %add20.sink.i.i.i = phi i64 [ %add20.i.i.i, %if.then18.i.i.i ], [ %37, %if.else.i.i.i ], [ %mul29.i.i.i, %if.else27.i.i.i ]
   store i64 %add20.sink.i.i.i, ptr %GCthreshold.i.i, align 8
   br label %test_eof.exit
 
 test_eof.exit:                                    ; preds = %cond.true, %luaC_step.exit.i.i
-  %41 = load ptr, ptr %0, align 8
+  %40 = load ptr, ptr %0, align 8
   %call.i.i = call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef null, i64 noundef 0)
-  store ptr %call.i.i, ptr %41, align 8
-  %tt.i.i51 = getelementptr inbounds %struct.lua_TValue, ptr %41, i64 0, i32 1
+  store ptr %call.i.i, ptr %40, align 8
+  %tt.i.i51 = getelementptr inbounds %struct.lua_TValue, ptr %40, i64 0, i32 1
   store i32 4, ptr %tt.i.i51, align 8
-  %42 = load ptr, ptr %0, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %struct.lua_TValue, ptr %42, i64 1
+  %41 = load ptr, ptr %0, align 8
+  %incdec.ptr.i.i = getelementptr inbounds %struct.lua_TValue, ptr %41, i64 1
   store ptr %incdec.ptr.i.i, ptr %0, align 8
   %cmp.i52 = icmp ne i32 %call.i, -1
   %conv.i53 = zext i1 %cmp.i52 to i32
@@ -39919,24 +39915,24 @@ cond.false:                                       ; preds = %if.then6
   br label %for.inc
 
 if.else11:                                        ; preds = %sw.default.i.i, %if.then.i.i, %index2adr.exit.i, %lua_type.exit
-  %43 = trunc i64 %indvars.iv to i32
-  %call12 = call fastcc ptr @lua_tolstring(ptr noundef %L, i32 noundef %43, ptr noundef null)
+  %42 = trunc i64 %indvars.iv to i32
+  %call12 = call fastcc ptr @lua_tolstring(ptr noundef %L, i32 noundef %42, ptr noundef null)
   %tobool13.not = icmp eq ptr %call12, null
   br i1 %tobool13.not, label %lor.rhs, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else11
-  %44 = load i8, ptr %call12, align 1
-  %cmp14 = icmp eq i8 %44, 42
+  %43 = load i8, ptr %call12, align 1
+  %cmp14 = icmp eq i8 %43, 42
   br i1 %cmp14, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %land.lhs.true, %if.else11
-  call fastcc void @luaL_argerror(ptr noundef %L, i32 noundef %43, ptr noundef nonnull @.str.210)
+  call fastcc void @luaL_argerror(ptr noundef %L, i32 noundef %42, ptr noundef nonnull @.str.210)
   unreachable
 
 lor.end:                                          ; preds = %land.lhs.true
   %arrayidx18 = getelementptr inbounds i8, ptr %call12, i64 1
-  %45 = load i8, ptr %arrayidx18, align 1
-  %conv19 = sext i8 %45 to i32
+  %44 = load i8, ptr %arrayidx18, align 1
+  %conv19 = sext i8 %44 to i32
   switch i32 %conv19, label %sw.default [
     i32 110, label %sw.bb
     i32 108, label %sw.bb21
@@ -39950,23 +39946,23 @@ sw.bb:                                            ; preds = %lor.end
   br i1 %cmp.i55, label %if.then.i56, label %if.else.i
 
 if.then.i56:                                      ; preds = %sw.bb
-  %46 = load double, ptr %d.i, align 8
-  %47 = load ptr, ptr %0, align 8
-  store double %46, ptr %47, align 8
+  %45 = load double, ptr %d.i, align 8
+  %46 = load ptr, ptr %0, align 8
+  store double %45, ptr %46, align 8
   br label %read_number.exit
 
 if.else.i:                                        ; preds = %sw.bb
-  %48 = load ptr, ptr %0, align 8
+  %47 = load ptr, ptr %0, align 8
   br label %read_number.exit
 
 read_number.exit:                                 ; preds = %if.then.i56, %if.else.i
-  %.sink6.i = phi ptr [ %48, %if.else.i ], [ %47, %if.then.i56 ]
+  %.sink6.i = phi ptr [ %47, %if.else.i ], [ %46, %if.then.i56 ]
   %.sink.i = phi i32 [ 0, %if.else.i ], [ 3, %if.then.i56 ]
   %retval.0.i = phi i32 [ 0, %if.else.i ], [ 1, %if.then.i56 ]
   %tt.i3.i = getelementptr inbounds %struct.lua_TValue, ptr %.sink6.i, i64 0, i32 1
   store i32 %.sink.i, ptr %tt.i3.i, align 8
-  %49 = load ptr, ptr %0, align 8
-  %incdec.ptr.i4.i = getelementptr inbounds %struct.lua_TValue, ptr %49, i64 1
+  %48 = load ptr, ptr %0, align 8
+  %incdec.ptr.i4.i = getelementptr inbounds %struct.lua_TValue, ptr %48, i64 1
   store ptr %incdec.ptr.i4.i, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i)
   br label %for.inc
@@ -39980,7 +39976,7 @@ sw.bb23:                                          ; preds = %lor.end
   br label %for.inc
 
 sw.default:                                       ; preds = %lor.end
-  call fastcc void @luaL_argerror(ptr noundef %L, i32 noundef %43, ptr noundef nonnull @.str.211)
+  call fastcc void @luaL_argerror(ptr noundef %L, i32 noundef %42, ptr noundef nonnull @.str.211)
   unreachable
 
 for.inc:                                          ; preds = %test_eof.exit, %cond.false, %sw.bb23, %sw.bb21, %read_number.exit
@@ -39989,38 +39985,38 @@ for.inc:                                          ; preds = %test_eof.exit, %con
   %dec = add nsw i32 %dec73, -1
   %tobool = icmp ne i32 %dec73, 0
   %tobool3 = icmp ne i32 %success.1, 0
-  %50 = select i1 %tobool, i1 %tobool3, i1 false
-  br i1 %50, label %for.body, label %if.end26.loopexit, !llvm.loop !137
+  %49 = select i1 %tobool, i1 %tobool3, i1 false
+  br i1 %49, label %for.body, label %if.end26.loopexit, !llvm.loop !137
 
 if.end26.loopexit:                                ; preds = %for.inc
-  %51 = trunc i64 %indvars.iv.next to i32
+  %50 = trunc i64 %indvars.iv.next to i32
   br label %if.end26
 
 if.end26:                                         ; preds = %if.end26.loopexit, %if.then
   %success.2 = phi i32 [ %call1, %if.then ], [ %success.1, %if.end26.loopexit ]
-  %n.1 = phi i32 [ %add, %if.then ], [ %51, %if.end26.loopexit ]
+  %n.1 = phi i32 [ %add, %if.then ], [ %50, %if.end26.loopexit ]
   %call27 = call i32 @ferror(ptr noundef %f) #35
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %if.end31, label %if.then29
 
 if.then29:                                        ; preds = %if.end26
   %call.i58 = tail call ptr @__errno_location() #39
-  %52 = load i32, ptr %call.i58, align 4
-  %53 = load ptr, ptr %0, align 8
-  %tt.i9.i = getelementptr inbounds %struct.lua_TValue, ptr %53, i64 0, i32 1
+  %51 = load i32, ptr %call.i58, align 4
+  %52 = load ptr, ptr %0, align 8
+  %tt.i9.i = getelementptr inbounds %struct.lua_TValue, ptr %52, i64 0, i32 1
   store i32 0, ptr %tt.i9.i, align 8
-  %54 = load ptr, ptr %0, align 8
-  %incdec.ptr.i10.i = getelementptr inbounds %struct.lua_TValue, ptr %54, i64 1
+  %53 = load ptr, ptr %0, align 8
+  %incdec.ptr.i10.i = getelementptr inbounds %struct.lua_TValue, ptr %53, i64 1
   store ptr %incdec.ptr.i10.i, ptr %0, align 8
-  %call6.i = call ptr @strerror(i32 noundef %52) #35
+  %call6.i = call ptr @strerror(i32 noundef %51) #35
   %call7.i = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %L, ptr noundef nonnull @.str.113, ptr noundef %call6.i)
-  %55 = load ptr, ptr %0, align 8
-  %conv.i.i60 = sitofp i32 %52 to double
-  store double %conv.i.i60, ptr %55, align 8
-  %tt.i12.i = getelementptr inbounds %struct.lua_TValue, ptr %55, i64 0, i32 1
+  %54 = load ptr, ptr %0, align 8
+  %conv.i.i60 = sitofp i32 %51 to double
+  store double %conv.i.i60, ptr %54, align 8
+  %tt.i12.i = getelementptr inbounds %struct.lua_TValue, ptr %54, i64 0, i32 1
   store i32 3, ptr %tt.i12.i, align 8
-  %56 = load ptr, ptr %0, align 8
-  %incdec.ptr.i13.i = getelementptr inbounds %struct.lua_TValue, ptr %56, i64 1
+  %55 = load ptr, ptr %0, align 8
+  %incdec.ptr.i13.i = getelementptr inbounds %struct.lua_TValue, ptr %55, i64 1
   store ptr %incdec.ptr.i13.i, ptr %0, align 8
   br label %return
 
@@ -40029,13 +40025,13 @@ if.end31:                                         ; preds = %if.end26
   br i1 %tobool32.not, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %if.end31
-  %57 = load ptr, ptr %0, align 8
-  %add.ptr9.i = getelementptr %struct.lua_TValue, ptr %57, i64 -1
+  %56 = load ptr, ptr %0, align 8
+  %add.ptr9.i = getelementptr %struct.lua_TValue, ptr %56, i64 -1
   store ptr %add.ptr9.i, ptr %0, align 8
-  %tt.i64 = getelementptr %struct.lua_TValue, ptr %57, i64 -1, i32 1
+  %tt.i64 = getelementptr %struct.lua_TValue, ptr %56, i64 -1, i32 1
   store i32 0, ptr %tt.i64, align 8
-  %58 = load ptr, ptr %0, align 8
-  %incdec.ptr.i = getelementptr inbounds %struct.lua_TValue, ptr %58, i64 1
+  %57 = load ptr, ptr %0, align 8
+  %incdec.ptr.i = getelementptr inbounds %struct.lua_TValue, ptr %57, i64 1
   store ptr %incdec.ptr.i, ptr %0, align 8
   br label %if.end34
 
@@ -40197,11 +40193,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then.i.i:                                      ; preds = %for.body
   %3 = load ptr, ptr %1, align 8
-  %4 = and i64 %indvars.iv, 4294967295
-  %5 = getelementptr %struct.lua_TValue, ptr %3, i64 %4
-  %add.ptr.i.i = getelementptr %struct.lua_TValue, ptr %5, i64 -1
-  %6 = load ptr, ptr %0, align 8
-  %cmp1.not.i.i = icmp ult ptr %add.ptr.i.i, %6
+  %4 = getelementptr %struct.lua_TValue, ptr %3, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr %struct.lua_TValue, ptr %4, i64 -1
+  %5 = load ptr, ptr %0, align 8
+  %cmp1.not.i.i = icmp ult ptr %add.ptr.i.i, %5
   br i1 %cmp1.not.i.i, label %index2adr.exit.i, label %if.else
 
 if.else3.i.i:                                     ; preds = %for.body
@@ -40209,48 +40204,47 @@ if.else3.i.i:                                     ; preds = %for.body
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else9.i.i
 
 if.then5.i.i:                                     ; preds = %if.else3.i.i
-  %7 = load ptr, ptr %0, align 8
-  %add.ptr8.i.i = getelementptr inbounds %struct.lua_TValue, ptr %7, i64 %indvars.iv
+  %6 = load ptr, ptr %0, align 8
+  %add.ptr8.i.i = getelementptr inbounds %struct.lua_TValue, ptr %6, i64 %indvars.iv
   br label %index2adr.exit.i
 
 if.else9.i.i:                                     ; preds = %if.else3.i.i
-  %8 = trunc i64 %indvars.iv to i32
-  switch i32 %8, label %sw.default.i.i [
+  %7 = trunc i64 %indvars.iv to i32
+  switch i32 %7, label %sw.default.i.i [
     i32 -10000, label %sw.bb.i.i
     i32 -10001, label %sw.bb10.i.i
     i32 -10002, label %index2adr.exit.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.else9.i.i
-  %9 = load ptr, ptr %l_G.i.i, align 8
-  %l_registry.i.i = getelementptr inbounds %struct.global_State, ptr %9, i64 0, i32 20
+  %8 = load ptr, ptr %l_G.i.i, align 8
+  %l_registry.i.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 20
   br label %index2adr.exit.i
 
 sw.bb10.i.i:                                      ; preds = %if.else9.i.i
-  %10 = load ptr, ptr %ci.i.i, align 8
-  %func11.i.i = getelementptr inbounds %struct.CallInfo, ptr %10, i64 0, i32 1
-  %11 = load ptr, ptr %func11.i.i, align 8
-  %12 = load ptr, ptr %11, align 8
-  %env12.i.i = getelementptr inbounds %struct.CClosure, ptr %12, i64 0, i32 6
-  %13 = load ptr, ptr %env12.i.i, align 8
-  store ptr %13, ptr %env.i.i, align 8
+  %9 = load ptr, ptr %ci.i.i, align 8
+  %func11.i.i = getelementptr inbounds %struct.CallInfo, ptr %9, i64 0, i32 1
+  %10 = load ptr, ptr %func11.i.i, align 8
+  %11 = load ptr, ptr %10, align 8
+  %env12.i.i = getelementptr inbounds %struct.CClosure, ptr %11, i64 0, i32 6
+  %12 = load ptr, ptr %env12.i.i, align 8
+  store ptr %12, ptr %env.i.i, align 8
   store i32 5, ptr %tt.i.i, align 8
   br label %index2adr.exit.i
 
 sw.default.i.i:                                   ; preds = %if.else9.i.i
-  %14 = load ptr, ptr %ci.i.i, align 8
-  %func18.i.i = getelementptr inbounds %struct.CallInfo, ptr %14, i64 0, i32 1
-  %15 = load ptr, ptr %func18.i.i, align 8
-  %16 = load ptr, ptr %15, align 8
-  %nupvalues.i.i = getelementptr inbounds %struct.CClosure, ptr %16, i64 0, i32 4
-  %17 = load i8, ptr %nupvalues.i.i, align 1
-  %conv.i.i = zext i8 %17 to i32
-  %18 = trunc i64 %indvars.iv to i32
-  %19 = sub i32 -10002, %18
-  %cmp21.not.i.i = icmp ugt i32 %19, %conv.i.i
-  %20 = sub i64 4294957293, %indvars.iv
-  %idxprom.i.i = and i64 %20, 4294967295
-  %arrayidx.i.i = getelementptr inbounds %struct.CClosure, ptr %16, i64 0, i32 8, i64 %idxprom.i.i
+  %13 = load ptr, ptr %ci.i.i, align 8
+  %func18.i.i = getelementptr inbounds %struct.CallInfo, ptr %13, i64 0, i32 1
+  %14 = load ptr, ptr %func18.i.i, align 8
+  %15 = load ptr, ptr %14, align 8
+  %nupvalues.i.i = getelementptr inbounds %struct.CClosure, ptr %15, i64 0, i32 4
+  %16 = load i8, ptr %nupvalues.i.i, align 1
+  %conv.i.i = zext i8 %16 to i32
+  %17 = trunc i64 %indvars.iv to i32
+  %18 = sub i32 -10002, %17
+  %cmp21.not.i.i = icmp ugt i32 %18, %conv.i.i
+  %19 = sub nuw nsw i64 -10003, %indvars.iv
+  %arrayidx.i.i = getelementptr inbounds %struct.CClosure, ptr %15, i64 0, i32 8, i64 %19
   br i1 %cmp21.not.i.i, label %if.else, label %index2adr.exit.i
 
 index2adr.exit.i:                                 ; preds = %if.else9.i.i, %sw.default.i.i, %sw.bb10.i.i, %sw.bb.i.i, %if.then5.i.i, %if.then.i.i
@@ -40260,8 +40254,8 @@ index2adr.exit.i:                                 ; preds = %if.else9.i.i, %sw.d
 
 lua_type.exit:                                    ; preds = %index2adr.exit.i
   %tt.i = getelementptr inbounds %struct.lua_TValue, ptr %retval.0.i.i, i64 0, i32 1
-  %21 = load i32, ptr %tt.i, align 8
-  %cmp = icmp eq i32 %21, 3
+  %20 = load i32, ptr %tt.i, align 8
+  %cmp = icmp eq i32 %20, 3
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %lua_type.exit
@@ -40269,20 +40263,20 @@ if.then:                                          ; preds = %lua_type.exit
   br i1 %tobool2.not, label %for.inc, label %land.rhs
 
 land.rhs:                                         ; preds = %if.then
-  %22 = trunc i64 %indvars.iv to i32
-  %call3 = call fastcc double @lua_tonumber(ptr noundef %L, i32 noundef %22)
+  %21 = trunc i64 %indvars.iv to i32
+  %call3 = call fastcc double @lua_tonumber(ptr noundef %L, i32 noundef %21)
   %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %f, ptr noundef nonnull @.str.16, double noundef %call3)
   %cmp5 = icmp sgt i32 %call4, 0
   br label %for.inc
 
 if.else:                                          ; preds = %sw.default.i.i, %if.then.i.i, %index2adr.exit.i, %lua_type.exit
-  %23 = trunc i64 %indvars.iv to i32
-  %call.i = call fastcc ptr @lua_tolstring(ptr noundef %L, i32 noundef %23, ptr noundef nonnull %l)
+  %22 = trunc i64 %indvars.iv to i32
+  %call.i = call fastcc ptr @lua_tolstring(ptr noundef %L, i32 noundef %22, ptr noundef nonnull %l)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then.i, label %luaL_checklstring.exit
 
 if.then.i:                                        ; preds = %if.else
-  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef %23, ptr noundef nonnull @.str.25)
+  call fastcc void @luaL_typerror(ptr noundef %L, i32 noundef %22, ptr noundef nonnull @.str.25)
   unreachable
 
 luaL_checklstring.exit:                           ; preds = %if.else
@@ -40290,10 +40284,10 @@ luaL_checklstring.exit:                           ; preds = %if.else
   br i1 %tobool7.not, label %for.inc, label %land.rhs8
 
 land.rhs8:                                        ; preds = %luaL_checklstring.exit
+  %23 = load i64, ptr %l, align 8
+  %call9 = call i64 @fwrite(ptr noundef nonnull %call.i, i64 noundef 1, i64 noundef %23, ptr noundef %f)
   %24 = load i64, ptr %l, align 8
-  %call9 = call i64 @fwrite(ptr noundef nonnull %call.i, i64 noundef 1, i64 noundef %24, ptr noundef %f)
-  %25 = load i64, ptr %l, align 8
-  %cmp10 = icmp eq i64 %call9, %25
+  %cmp10 = icmp eq i64 %call9, %24
   br label %for.inc
 
 for.inc:                                          ; preds = %luaL_checklstring.exit, %land.rhs8, %if.then, %land.rhs
@@ -40309,32 +40303,32 @@ for.end:                                          ; preds = %for.inc
   br i1 %status.1.in, label %if.then.i14, label %if.else.i
 
 if.then.i14:                                      ; preds = %entry, %for.end
-  %26 = phi ptr [ %.pre, %for.end ], [ %L.val, %entry ]
-  store i32 1, ptr %26, align 8
+  %25 = phi ptr [ %.pre, %for.end ], [ %L.val, %entry ]
+  store i32 1, ptr %25, align 8
   br label %pushresult.exit
 
 if.else.i:                                        ; preds = %for.end
   %call.i12 = tail call ptr @__errno_location() #39
-  %27 = load i32, ptr %call.i12, align 4
+  %26 = load i32, ptr %call.i12, align 4
   %tt.i9.i = getelementptr inbounds %struct.lua_TValue, ptr %.pre, i64 0, i32 1
   store i32 0, ptr %tt.i9.i, align 8
-  %28 = load ptr, ptr %0, align 8
-  %incdec.ptr.i10.i = getelementptr inbounds %struct.lua_TValue, ptr %28, i64 1
+  %27 = load ptr, ptr %0, align 8
+  %incdec.ptr.i10.i = getelementptr inbounds %struct.lua_TValue, ptr %27, i64 1
   store ptr %incdec.ptr.i10.i, ptr %0, align 8
-  %call6.i = call ptr @strerror(i32 noundef %27) #35
+  %call6.i = call ptr @strerror(i32 noundef %26) #35
   %call7.i = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %L, ptr noundef nonnull @.str.113, ptr noundef %call6.i)
-  %29 = load ptr, ptr %0, align 8
-  %conv.i.i15 = sitofp i32 %27 to double
-  store double %conv.i.i15, ptr %29, align 8
+  %28 = load ptr, ptr %0, align 8
+  %conv.i.i15 = sitofp i32 %26 to double
+  store double %conv.i.i15, ptr %28, align 8
   br label %pushresult.exit
 
 pushresult.exit:                                  ; preds = %if.then.i14, %if.else.i
-  %.sink14.i = phi ptr [ %29, %if.else.i ], [ %26, %if.then.i14 ]
+  %.sink14.i = phi ptr [ %28, %if.else.i ], [ %25, %if.then.i14 ]
   %.sink.i = phi i32 [ 3, %if.else.i ], [ 1, %if.then.i14 ]
   %tt.i12.i = getelementptr inbounds %struct.lua_TValue, ptr %.sink14.i, i64 0, i32 1
   store i32 %.sink.i, ptr %tt.i12.i, align 8
-  %30 = load ptr, ptr %0, align 8
-  %incdec.ptr.i13.i = getelementptr inbounds %struct.lua_TValue, ptr %30, i64 1
+  %29 = load ptr, ptr %0, align 8
+  %incdec.ptr.i13.i = getelementptr inbounds %struct.lua_TValue, ptr %29, i64 1
   store ptr %incdec.ptr.i13.i, ptr %0, align 8
   ret i32 %.sink.i
 }
@@ -44003,9 +43997,8 @@ sw.default.i.i:                                   ; preds = %if.else9.i.i
   %52 = trunc i64 %indvars.iv to i32
   %53 = add i32 %52, -10001
   %cmp21.not.i.i = icmp ugt i32 %53, %conv.i.i47
-  %54 = add nuw i64 %indvars.iv, 4294957294
-  %idxprom.i.i = and i64 %54, 4294967295
-  %arrayidx.i.i = getelementptr inbounds %struct.CClosure, ptr %50, i64 0, i32 8, i64 %idxprom.i.i
+  %54 = add nsw i64 %indvars.iv, -10002
+  %arrayidx.i.i = getelementptr inbounds %struct.CClosure, ptr %50, i64 0, i32 8, i64 %54
   %cond.i.i = select i1 %cmp21.not.i.i, ptr @luaO_nilobject_, ptr %arrayidx.i.i
   br label %index2adr.exit.i
 

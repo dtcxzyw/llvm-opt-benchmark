@@ -874,9 +874,8 @@ cond.true108.i:                                   ; preds = %for.body106.i
 cond.false111.i:                                  ; preds = %for.body106.i
   %visualLimit114.i = getelementptr inbounds %struct.Run, ptr %runs.0.i, i64 %indvars.iv.next591, i32 1
   %31 = load i32, ptr %visualLimit114.i, align 4
-  %32 = add nuw i64 %indvars.iv590, 4294967294
-  %idxprom116.i = and i64 %32, 4294967295
-  %visualLimit118.i = getelementptr inbounds %struct.Run, ptr %runs.0.i, i64 %idxprom116.i, i32 1
+  %32 = add nsw i64 %indvars.iv590, -2
+  %visualLimit118.i = getelementptr inbounds %struct.Run, ptr %runs.0.i, i64 %32, i32 1
   %33 = load i32, ptr %visualLimit118.i, align 4
   %sub119.i = sub nsw i32 %31, %33
   br label %cond.end120.i

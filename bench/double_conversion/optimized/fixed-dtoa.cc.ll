@@ -371,8 +371,7 @@ for.body.preheader.i:                             ; preds = %for.cond.preheader.
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv41.i = phi i64 [ %33, %for.body.preheader.i ], [ %indvars.iv.next42.i, %for.body.i ]
-  %idxprom.i19.i = and i64 %indvars.iv41.i, 4294967295
-  %arrayidx.i20.i = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idxprom.i19.i
+  %arrayidx.i20.i = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %indvars.iv41.i
   %34 = load i8, ptr %arrayidx.i20.i, align 1
   %35 = sub nuw nsw i64 %indvars.iv41.i, %33
   %arrayidx.i22.i = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %35

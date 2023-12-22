@@ -2753,13 +2753,12 @@ for.body:                                         ; preds = %do.end, %cond.end42
   br i1 %cmp15.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %for.body
-  %4 = add nuw i64 %indvars.iv, 4294967295
-  %conv17 = and i64 %4, 4294967295
-  %arrayidx.i30 = getelementptr inbounds float, ptr %f.coerce0, i64 %conv17
+  %4 = add nsw i64 %indvars.iv, -1
+  %arrayidx.i30 = getelementptr inbounds float, ptr %f.coerce0, i64 %4
   %5 = load float, ptr %arrayidx.i30, align 4
   %sub19 = fsub float %3, %5
   %mul = fmul float %sub14, %sub19
-  %arrayidx.i31 = getelementptr inbounds float, ptr %nodes.coerce0, i64 %conv17
+  %arrayidx.i31 = getelementptr inbounds float, ptr %nodes.coerce0, i64 %4
   %6 = load float, ptr %arrayidx.i31, align 4
   %sub23 = fsub float %1, %6
   %div = fdiv float %mul, %sub23

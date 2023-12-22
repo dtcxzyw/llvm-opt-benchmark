@@ -994,8 +994,7 @@ for.cond:                                         ; preds = %find_se.exit, %for.
 
 for.body:                                         ; preds = %for.cond
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %idxprom = and i64 %indvars.iv.next, 4294967295
-  %arrayidx = getelementptr %struct.SaveState, ptr @savevm_state, i64 0, i32 1, i64 %idxprom
+  %arrayidx = getelementptr %struct.SaveState, ptr @savevm_state, i64 0, i32 1, i64 %indvars.iv.next
   %9 = load ptr, ptr %arrayidx, align 8
   %cmp8.not = icmp eq ptr %9, null
   br i1 %cmp8.not, label %for.cond, label %if.then9, !llvm.loop !11

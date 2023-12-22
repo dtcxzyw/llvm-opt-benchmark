@@ -1673,10 +1673,9 @@ invoke.cont76:                                    ; preds = %invoke.cont73
           to label %invoke.cont78 unwind label %lpad35.loopexit
 
 invoke.cont78:                                    ; preds = %invoke.cont76
-  %10 = mul i64 %indvars.iv, 3
-  %conv81 = and i64 %10, 4294967295
+  %10 = mul nuw nsw i64 %indvars.iv, 3
   %11 = load ptr, ptr %cubeData, align 8
-  %add.ptr.i24 = getelementptr inbounds float, ptr %11, i64 %conv81
+  %add.ptr.i24 = getelementptr inbounds float, ptr %11, i64 %10
   %12 = load float, ptr %add.ptr.i24, align 4
   %call84 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call79, float noundef %12)
           to label %invoke.cont83 unwind label %lpad35.loopexit
@@ -1687,7 +1686,7 @@ invoke.cont83:                                    ; preds = %invoke.cont78
 
 invoke.cont85:                                    ; preds = %invoke.cont83
   %13 = load ptr, ptr %cubeData, align 8
-  %14 = getelementptr float, ptr %13, i64 %conv81
+  %14 = getelementptr float, ptr %13, i64 %10
   %add.ptr.i25 = getelementptr float, ptr %14, i64 1
   %15 = load float, ptr %add.ptr.i25, align 4
   %call92 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call86, float noundef %15)
@@ -1699,7 +1698,7 @@ invoke.cont91:                                    ; preds = %invoke.cont85
 
 invoke.cont93:                                    ; preds = %invoke.cont91
   %16 = load ptr, ptr %cubeData, align 8
-  %17 = getelementptr float, ptr %16, i64 %conv81
+  %17 = getelementptr float, ptr %16, i64 %10
   %add.ptr.i26 = getelementptr float, ptr %17, i64 2
   %18 = load float, ptr %add.ptr.i26, align 4
   %call100 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call94, float noundef %18)

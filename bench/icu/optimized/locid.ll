@@ -2068,8 +2068,7 @@ while.cond38:                                     ; preds = %while.cond38.prehea
 
 land.rhs:                                         ; preds = %while.cond38
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %idxprom = and i64 %indvars.iv.next, 4294967295
-  %arrayidx40 = getelementptr inbounds i8, ptr %newVariant.addr.0, i64 %idxprom
+  %arrayidx40 = getelementptr inbounds i8, ptr %newVariant.addr.0, i64 %indvars.iv.next
   %12 = load i8, ptr %arrayidx40, align 1
   %cmp42 = icmp eq i8 %12, 95
   br i1 %cmp42, label %while.cond38, label %if.end45.loopexit.split.loop.exit122, !llvm.loop !8

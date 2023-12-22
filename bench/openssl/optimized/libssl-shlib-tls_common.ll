@@ -3590,8 +3590,7 @@ for.cond:                                         ; preds = %for.body, %entry
 
 for.body:                                         ; preds = %for.cond
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %idxprom = and i64 %indvars.iv.next, 4294967295
-  %arrayidx = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 25, i64 %idxprom
+  %arrayidx = getelementptr inbounds %struct.ossl_record_layer_st, ptr %rl, i64 0, i32 25, i64 %indvars.iv.next
   %0 = load i8, ptr %arrayidx, align 1
   %inc = add i8 %0, 1
   store i8 %inc, ptr %arrayidx, align 1

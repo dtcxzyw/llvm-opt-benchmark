@@ -15247,25 +15247,24 @@ for.body832:                                      ; preds = %for.cond830.prehead
   %idxprom835 = zext nneg i32 %add834 to i64
   %arrayidx836 = getelementptr inbounds i8, ptr %add.ptr808, i64 %idxprom835
   store i8 -1, ptr %arrayidx836, align 1
-  %140 = mul i64 %indvars.iv775, 3
-  %141 = and i64 %140, 4294967295
-  %142 = getelementptr i8, ptr %add.ptr808, i64 %141
-  %arrayidx840 = getelementptr i8, ptr %142, i64 2
-  %143 = load i8, ptr %arrayidx840, align 1
+  %140 = mul nsw i64 %indvars.iv775, 3
+  %141 = getelementptr i8, ptr %add.ptr808, i64 %140
+  %arrayidx840 = getelementptr i8, ptr %141, i64 2
+  %142 = load i8, ptr %arrayidx840, align 1
   %add842 = or disjoint i32 %mul833, 2
   %idxprom843 = zext nneg i32 %add842 to i64
   %arrayidx844 = getelementptr inbounds i8, ptr %add.ptr808, i64 %idxprom843
-  store i8 %143, ptr %arrayidx844, align 1
-  %arrayidx848 = getelementptr i8, ptr %142, i64 1
-  %144 = load i8, ptr %arrayidx848, align 1
+  store i8 %142, ptr %arrayidx844, align 1
+  %arrayidx848 = getelementptr i8, ptr %141, i64 1
+  %143 = load i8, ptr %arrayidx848, align 1
   %add850 = or disjoint i32 %mul833, 1
   %idxprom851 = zext nneg i32 %add850 to i64
   %arrayidx852 = getelementptr inbounds i8, ptr %add.ptr808, i64 %idxprom851
-  store i8 %144, ptr %arrayidx852, align 1
-  %145 = load i8, ptr %142, align 1
+  store i8 %143, ptr %arrayidx852, align 1
+  %144 = load i8, ptr %141, align 1
   %idxprom859 = zext nneg i32 %mul833 to i64
   %arrayidx860 = getelementptr inbounds i8, ptr %add.ptr808, i64 %idxprom859
-  store i8 %145, ptr %arrayidx860, align 1
+  store i8 %144, ptr %arrayidx860, align 1
   %indvars.iv.next776 = add nsw i64 %indvars.iv775, -1
   %cmp831 = icmp sgt i64 %indvars.iv775, 0
   br i1 %cmp831, label %for.body832, label %for.inc866, !llvm.loop !134
@@ -15284,18 +15283,18 @@ if.then871:                                       ; preds = %for.inc540.thread, 
   br i1 %cmp877646.not, label %return, label %for.body878.preheader
 
 for.body878.preheader:                            ; preds = %if.then871
-  %146 = load ptr, ptr %out, align 8
+  %145 = load ptr, ptr %out, align 8
   br label %for.body878
 
 for.body878:                                      ; preds = %for.body878.preheader, %for.body878
-  %cur16.0649 = phi ptr [ %incdec.ptr886, %for.body878 ], [ %146, %for.body878.preheader ]
+  %cur16.0649 = phi ptr [ %incdec.ptr886, %for.body878 ], [ %145, %for.body878.preheader ]
   %i.8647 = phi i32 [ %inc885, %for.body878 ], [ 0, %for.body878.preheader ]
-  %147 = load i8, ptr %cur16.0649, align 1
-  %conv880 = zext i8 %147 to i16
+  %146 = load i8, ptr %cur16.0649, align 1
+  %conv880 = zext i8 %146 to i16
   %shl = shl nuw i16 %conv880, 8
   %arrayidx881 = getelementptr inbounds i8, ptr %cur16.0649, i64 1
-  %148 = load i8, ptr %arrayidx881, align 1
-  %conv882 = zext i8 %148 to i16
+  %147 = load i8, ptr %arrayidx881, align 1
+  %conv882 = zext i8 %147 to i16
   %or = or disjoint i16 %shl, %conv882
   store i16 %or, ptr %cur16.0649, align 2
   %inc885 = add nuw i32 %i.8647, 1
@@ -15305,8 +15304,8 @@ for.body878:                                      ; preds = %for.body878.prehead
 
 return.sink.split:                                ; preds = %for.body.backedge, %if.then29, %for.body.lr.ph, %if.end12, %_ZL21stbi__mul2sizes_validii.exit14.i, %_ZL21stbi__mul2sizes_validii.exit.i, %if.end, %land.lhs.true.i, %_ZL17stbi__malloc_mad3iiii.exit, %_ZL17stbi__malloc_mad3iiii.exit.thread
   %.str.31.sink = phi ptr [ @.str.26, %_ZL17stbi__malloc_mad3iiii.exit.thread ], [ @.str.26, %_ZL17stbi__malloc_mad3iiii.exit ], [ @.str.11, %land.lhs.true.i ], [ @.str.11, %if.end ], [ @.str.11, %_ZL21stbi__mul2sizes_validii.exit.i ], [ @.str.11, %_ZL21stbi__mul2sizes_validii.exit14.i ], [ @.str.29, %if.end12 ], [ @.str.30, %for.body.lr.ph ], [ @.str.31, %if.then29 ], [ @.str.30, %for.body.backedge ]
-  %149 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
-  store ptr %.str.31.sink, ptr %149, align 8
+  %148 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
+  store ptr %.str.31.sink, ptr %148, align 8
   br label %return
 
 return:                                           ; preds = %for.inc866, %for.body878, %return.sink.split, %for.end542.thread, %if.then871, %for.cond545.preheader, %if.else869

@@ -687,8 +687,7 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %tobool66.not, label %if.end124, label %if.then67
 
 if.then67:                                        ; preds = %land.lhs.true
-  %idxprom72 = and i64 %8, 4294967295
-  %arrayidx73 = getelementptr inbounds %struct.st_stbcc_grid, ptr %g, i64 0, i32 6, i64 %7, i64 %idxprom72
+  %arrayidx73 = getelementptr inbounds %struct.st_stbcc_grid, ptr %g, i64 0, i32 6, i64 %7, i64 %8
   %15 = load i16, ptr %arrayidx73, align 2
   %arrayidx82 = getelementptr inbounds %struct.st_stbcc_grid, ptr %g, i64 0, i32 6, i64 %11, i64 %12
   %16 = load i16, ptr %arrayidx82, align 2
@@ -1078,8 +1077,7 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %tobool59.not, label %if.end108, label %if.then60
 
 if.then60:                                        ; preds = %land.lhs.true
-  %idxprom65 = and i64 %7, 4294967295
-  %arrayidx66 = getelementptr inbounds %struct.st_stbcc_grid, ptr %g, i64 0, i32 6, i64 %6, i64 %idxprom65
+  %arrayidx66 = getelementptr inbounds %struct.st_stbcc_grid, ptr %g, i64 0, i32 6, i64 %6, i64 %7
   %14 = load i16, ptr %arrayidx66, align 2
   %arrayidx75 = getelementptr inbounds %struct.st_stbcc_grid, ptr %g, i64 0, i32 6, i64 %10, i64 %11
   %15 = load i16, ptr %arrayidx75, align 2

@@ -8667,22 +8667,21 @@ for.body24:                                       ; preds = %for.body24.lr.ph, %
   %indvars.iv43 = phi i64 [ %27, %for.body24.lr.ph ], [ %indvars.iv.next44, %_ZN4cvc58internal7Minisat4HeapINS1_6Solver10VarOrderLtEE13percolateDownEi.exit ]
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, -1
   %28 = load ptr, ptr %heap, align 8
-  %29 = trunc i64 %indvars.iv.next44 to i32
-  %idxprom.i.i = and i64 %indvars.iv.next44, 4294967295
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %28, i64 %idxprom.i.i
-  %30 = load i32, ptr %arrayidx.i.i, align 4
-  %mul.i50.i = shl nuw nsw i32 %29, 1
+  %arrayidx.i.i = getelementptr inbounds i32, ptr %28, i64 %indvars.iv.next44
+  %29 = load i32, ptr %arrayidx.i.i, align 4
+  %30 = trunc i64 %indvars.iv.next44 to i32
+  %mul.i50.i = shl nuw nsw i32 %30, 1
   %add.i51.i = or disjoint i32 %mul.i50.i, 1
   %31 = load i32, ptr %sz.i, align 8
   %cmp52.i = icmp slt i32 %add.i51.i, %31
-  %idxprom.i1.i35.i = sext i32 %30 to i64
+  %idxprom.i1.i35.i = sext i32 %29 to i64
   br i1 %cmp52.i, label %while.body.i, label %_ZN4cvc58internal7Minisat4HeapINS1_6Solver10VarOrderLtEE13percolateDownEi.exit
 
 while.body.i:                                     ; preds = %for.body24, %if.end.i
   %32 = phi i32 [ %46, %if.end.i ], [ %31, %for.body24 ]
   %add.i55.i = phi i32 [ %add.i.i, %if.end.i ], [ %add.i51.i, %for.body24 ]
   %mul.i54.i = phi i32 [ %mul.i.i25, %if.end.i ], [ %mul.i50.i, %for.body24 ]
-  %i.addr.053.i = phi i32 [ %cond.i, %if.end.i ], [ %29, %for.body24 ]
+  %i.addr.053.i = phi i32 [ %cond.i, %if.end.i ], [ %30, %for.body24 ]
   %mul.i17.i = add i32 %mul.i54.i, 2
   %cmp8.i = icmp slt i32 %mul.i17.i, %32
   %.pre.pre.i = load ptr, ptr %heap, align 8
@@ -8758,11 +8757,11 @@ while.end.loopexit.i:                             ; preds = %cond.end.i, %if.end
   br label %_ZN4cvc58internal7Minisat4HeapINS1_6Solver10VarOrderLtEE13percolateDownEi.exit
 
 _ZN4cvc58internal7Minisat4HeapINS1_6Solver10VarOrderLtEE13percolateDownEi.exit: ; preds = %for.body24, %while.end.loopexit.i
-  %idxprom.i46.pre-phi.i = phi i64 [ %.pre.i24, %while.end.loopexit.i ], [ %idxprom.i.i, %for.body24 ]
+  %idxprom.i46.pre-phi.i = phi i64 [ %.pre.i24, %while.end.loopexit.i ], [ %indvars.iv.next44, %for.body24 ]
   %47 = phi ptr [ %.pre62.i, %while.end.loopexit.i ], [ %28, %for.body24 ]
-  %i.addr.0.lcssa.i = phi i32 [ %i.addr.0.lcssa.ph.i, %while.end.loopexit.i ], [ %29, %for.body24 ]
+  %i.addr.0.lcssa.i = phi i32 [ %i.addr.0.lcssa.ph.i, %while.end.loopexit.i ], [ %30, %for.body24 ]
   %arrayidx.i47.i = getelementptr inbounds i32, ptr %47, i64 %idxprom.i46.pre-phi.i
-  store i32 %30, ptr %arrayidx.i47.i, align 4
+  store i32 %29, ptr %arrayidx.i47.i, align 4
   %48 = load ptr, ptr %indices.i, align 8
   %arrayidx.i49.i = getelementptr inbounds i32, ptr %48, i64 %idxprom.i1.i35.i
   store i32 %i.addr.0.lcssa.i, ptr %arrayidx.i49.i, align 4

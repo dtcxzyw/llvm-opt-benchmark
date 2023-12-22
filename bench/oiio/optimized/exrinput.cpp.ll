@@ -11323,15 +11323,12 @@ land.lhs.true.i:                                  ; preds = %for.body
   %sext = shl i64 %sub.ptr.sub.i.i, 29
   %15 = ashr i64 %sext, 32
   %cmp2.i = icmp slt i64 %indvars.iv, %15
-  br i1 %cmp2.i, label %cond.true.i, label %_ZNK18OpenImageIO_v2_6_09ImageSpec13channelformatEi.exit
-
-cond.true.i:                                      ; preds = %land.lhs.true.i
-  %conv4.i = and i64 %indvars.iv, 4294967295
-  %add.ptr.i.i = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TypeDesc", ptr %14, i64 %conv4.i
+  %add.ptr.i.i = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TypeDesc", ptr %14, i64 %indvars.iv
+  %spec.select34 = select i1 %cmp2.i, ptr %add.ptr.i.i, ptr %format.i
   br label %_ZNK18OpenImageIO_v2_6_09ImageSpec13channelformatEi.exit
 
-_ZNK18OpenImageIO_v2_6_09ImageSpec13channelformatEi.exit: ; preds = %for.body, %land.lhs.true.i, %cond.true.i
-  %cond-lvalue.i = phi ptr [ %add.ptr.i.i, %cond.true.i ], [ %format.i, %land.lhs.true.i ], [ %format.i, %for.body ]
+_ZNK18OpenImageIO_v2_6_09ImageSpec13channelformatEi.exit: ; preds = %land.lhs.true.i, %for.body
+  %cond-lvalue.i = phi ptr [ %format.i, %for.body ], [ %spec.select34, %land.lhs.true.i ]
   %16 = load i8, ptr %cond-lvalue.i, align 4, !noalias !83
   store i8 %16, ptr %ref.tmp19, align 4, !alias.scope !83
   %aggregate3.i.i = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TypeDesc", ptr %cond-lvalue.i, i64 0, i32 1
@@ -11804,15 +11801,12 @@ land.lhs.true.i86:                                ; preds = %for.body
   %sext = shl i64 %sub.ptr.sub.i.i, 29
   %33 = ashr i64 %sext, 32
   %cmp2.i = icmp slt i64 %indvars.iv, %33
-  br i1 %cmp2.i, label %cond.true.i, label %_ZNK18OpenImageIO_v2_6_09ImageSpec13channelformatEi.exit
-
-cond.true.i:                                      ; preds = %land.lhs.true.i86
-  %conv4.i = and i64 %indvars.iv, 4294967295
-  %add.ptr.i.i = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TypeDesc", ptr %32, i64 %conv4.i
+  %add.ptr.i.i = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TypeDesc", ptr %32, i64 %indvars.iv
+  %spec.select136 = select i1 %cmp2.i, ptr %add.ptr.i.i, ptr %format.i
   br label %_ZNK18OpenImageIO_v2_6_09ImageSpec13channelformatEi.exit
 
-_ZNK18OpenImageIO_v2_6_09ImageSpec13channelformatEi.exit: ; preds = %for.body, %land.lhs.true.i86, %cond.true.i
-  %cond-lvalue.i = phi ptr [ %add.ptr.i.i, %cond.true.i ], [ %format.i, %land.lhs.true.i86 ], [ %format.i, %for.body ]
+_ZNK18OpenImageIO_v2_6_09ImageSpec13channelformatEi.exit: ; preds = %land.lhs.true.i86, %for.body
+  %cond-lvalue.i = phi ptr [ %format.i, %for.body ], [ %spec.select136, %land.lhs.true.i86 ]
   %34 = load i8, ptr %cond-lvalue.i, align 4, !noalias !87
   store i8 %34, ptr %ref.tmp88, align 4, !alias.scope !87
   %aggregate3.i.i = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TypeDesc", ptr %cond-lvalue.i, i64 0, i32 1
@@ -12310,15 +12304,12 @@ land.lhs.true.i.us.us.us:                         ; preds = %for.body18.us.us.us
   %sext = shl i64 %sub.ptr.sub.i.i29.us.us.us, 29
   %18 = ashr i64 %sext, 32
   %cmp2.i.us.us.us = icmp slt i64 %indvars.iv, %18
-  br i1 %cmp2.i.us.us.us, label %cond.true.i.us.us.us, label %_ZNK18OpenImageIO_v2_6_09ImageSpec13channelformatEi.exit.us.us.us
-
-cond.true.i.us.us.us:                             ; preds = %land.lhs.true.i.us.us.us
-  %conv4.i.us.us.us = and i64 %indvars.iv, 4294967295
-  %add.ptr.i.i31.us.us.us = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TypeDesc", ptr %17, i64 %conv4.i.us.us.us
+  %add.ptr.i.i31.us.us.us = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TypeDesc", ptr %17, i64 %indvars.iv
+  %spec.select = select i1 %cmp2.i.us.us.us, ptr %add.ptr.i.i31.us.us.us, ptr %format.i
   br label %_ZNK18OpenImageIO_v2_6_09ImageSpec13channelformatEi.exit.us.us.us
 
-_ZNK18OpenImageIO_v2_6_09ImageSpec13channelformatEi.exit.us.us.us: ; preds = %for.body18.us.us.us, %land.lhs.true.i.us.us.us, %cond.true.i.us.us.us
-  %cond-lvalue.i.us.us.us = phi ptr [ %add.ptr.i.i31.us.us.us, %cond.true.i.us.us.us ], [ %format.i, %land.lhs.true.i.us.us.us ], [ %format.i, %for.body18.us.us.us ]
+_ZNK18OpenImageIO_v2_6_09ImageSpec13channelformatEi.exit.us.us.us: ; preds = %land.lhs.true.i.us.us.us, %for.body18.us.us.us
+  %cond-lvalue.i.us.us.us = phi ptr [ %format.i, %for.body18.us.us.us ], [ %spec.select, %land.lhs.true.i.us.us.us ]
   %19 = load i8, ptr %cond-lvalue.i.us.us.us, align 4, !noalias !92
   store i8 %19, ptr %cf, align 4, !alias.scope !92
   %aggregate3.i.i.us.us.us = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::TypeDesc", ptr %cond-lvalue.i.us.us.us, i64 0, i32 1

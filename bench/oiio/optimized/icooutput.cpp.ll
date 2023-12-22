@@ -3149,18 +3149,15 @@ sw.bb23:                                          ; preds = %for.body
 
 sw.bb36:                                          ; preds = %for.body
   %32 = mul nuw nsw i64 %indvars.iv, 3
-  %33 = add nuw i64 %32, 2
-  %idxprom39 = and i64 %33, 4294967295
-  %arrayidx40 = getelementptr inbounds i8, ptr %data.addr.0, i64 %idxprom39
+  %33 = add nuw nsw i64 %32, 2
+  %arrayidx40 = getelementptr inbounds i8, ptr %data.addr.0, i64 %33
   %34 = load i8, ptr %arrayidx40, align 1
   store i8 %34, ptr %buf, align 4
-  %35 = add nuw i64 %32, 1
-  %idxprom44 = and i64 %35, 4294967295
-  %arrayidx45 = getelementptr inbounds i8, ptr %data.addr.0, i64 %idxprom44
+  %35 = add nuw nsw i64 %32, 1
+  %arrayidx45 = getelementptr inbounds i8, ptr %data.addr.0, i64 %35
   %36 = load i8, ptr %arrayidx45, align 1
   store i8 %36, ptr %arrayidx62, align 1
-  %idxprom49 = and i64 %32, 4294967295
-  %arrayidx50 = getelementptr inbounds i8, ptr %data.addr.0, i64 %idxprom49
+  %arrayidx50 = getelementptr inbounds i8, ptr %data.addr.0, i64 %32
   %37 = load i8, ptr %arrayidx50, align 1
   store i8 %37, ptr %arrayidx67, align 2
   br label %sw.epilog

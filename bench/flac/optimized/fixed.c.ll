@@ -370,7 +370,7 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %cond.end261
   %indvars.iv = phi i64 [ -4, %for.body.preheader ], [ %indvars.iv.next, %cond.end261 ]
   %order_4_is_valid.0181 = phi i32 [ 1, %for.body.preheader ], [ %order_4_is_valid.1, %cond.end261 ]
-  %order_3_is_valid.0180 = phi i32 [ 1, %for.body.preheader ], [ %14, %cond.end261 ]
+  %order_3_is_valid.0180 = phi i32 [ 1, %for.body.preheader ], [ %9, %cond.end261 ]
   %order_2_is_valid.0179 = phi i32 [ 1, %for.body.preheader ], [ %spec.select296, %cond.end261 ]
   %order_1_is_valid.0178 = phi i32 [ 1, %for.body.preheader ], [ %spec.select170, %cond.end261 ]
   %order_0_is_valid.0177 = phi i32 [ 1, %for.body.preheader ], [ %spec.select, %cond.end261 ]
@@ -379,7 +379,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %total_error_2.0174 = phi i64 [ 0, %for.body.preheader ], [ %add265, %cond.end261 ]
   %total_error_3.0173 = phi i64 [ 0, %for.body.preheader ], [ %add266, %cond.end261 ]
   %total_error_4.0172 = phi i64 [ 0, %for.body.preheader ], [ %add267, %cond.end261 ]
-  %arrayidx = getelementptr inbounds i32, ptr %data, i64 %indvars.iv
+  %arrayidx = getelementptr i32, ptr %data, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 4
   %conv = sext i32 %0 to i64
   %cond = tail call i64 @llvm.abs.i64(i64 %conv, i1 true)
@@ -419,26 +419,15 @@ cond.end170:                                      ; preds = %cond.end97
   br i1 %cmp172, label %cond.true174, label %cond.end261
 
 cond.true174:                                     ; preds = %cond.end170
-  %6 = and i64 %indvars.iv, 4294967295
-  %7 = getelementptr i32, ptr %data, i64 %6
-  %arrayidx180 = getelementptr i32, ptr %7, i64 -1
-  %8 = load i32, ptr %arrayidx180, align 4
-  %conv181 = sext i32 %8 to i64
-  %arrayidx186 = getelementptr i32, ptr %7, i64 -2
-  %9 = load i32, ptr %arrayidx186, align 4
-  %conv187 = sext i32 %9 to i64
-  %mul188 = mul nsw i64 %conv187, 6
-  %arrayidx192 = getelementptr i32, ptr %7, i64 -3
-  %10 = load i32, ptr %arrayidx192, align 4
-  %conv193 = sext i32 %10 to i64
-  %11 = add nsw i64 %mul188, %conv
-  %mul182138 = add nsw i64 %conv193, %conv181
-  %arrayidx198 = getelementptr i32, ptr %7, i64 -4
-  %12 = load i32, ptr %arrayidx198, align 4
-  %conv199 = sext i32 %12 to i64
-  %sub195 = add nsw i64 %11, %conv199
-  %13 = shl nsw i64 %mul182138, 2
-  %add200 = sub nsw i64 %sub195, %13
+  %mul188 = mul nsw i64 %conv60, 6
+  %6 = add nsw i64 %mul188, %conv
+  %mul182138 = add nsw i64 %conv120, %conv18
+  %arrayidx198 = getelementptr i32, ptr %arrayidx, i64 -4
+  %7 = load i32, ptr %arrayidx198, align 4
+  %conv199 = sext i32 %7 to i64
+  %sub195 = add nsw i64 %6, %conv199
+  %8 = shl nsw i64 %mul182138, 2
+  %add200 = sub nsw i64 %sub195, %8
   %spec.select146 = tail call i64 @llvm.abs.i64(i64 %add200, i1 true)
   br label %cond.end261
 
@@ -462,7 +451,7 @@ cond.end261:                                      ; preds = %for.body, %cond.end
   %cmp274 = icmp ugt i64 %cond98154159.fr, 2147483647
   %spec.select296 = select i1 %cmp274, i32 0, i32 %order_2_is_valid.0179
   %cmp278 = icmp ugt i64 %cond171161.fr, 2147483647
-  %14 = select i1 %cmp278, i32 0, i32 %order_3_is_valid.0180
+  %9 = select i1 %cmp278, i32 0, i32 %order_3_is_valid.0180
   %cmp282 = icmp ugt i64 %cond262, 2147483647
   %order_4_is_valid.1 = select i1 %cmp282, i32 0, i32 %order_4_is_valid.0181
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -470,13 +459,13 @@ cond.end261:                                      ; preds = %for.body, %cond.end
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %cond.end261
-  %15 = icmp eq i32 %spec.select, 0
-  %16 = icmp ne i32 %spec.select170, 0
-  %17 = icmp ne i32 %spec.select296, 0
-  %18 = icmp ne i32 %14, 0
-  %19 = icmp ne i32 %order_4_is_valid.1, 0
+  %10 = icmp eq i32 %spec.select, 0
+  %11 = icmp ne i32 %spec.select170, 0
+  %12 = icmp ne i32 %spec.select296, 0
+  %13 = icmp ne i32 %9, 0
+  %14 = icmp ne i32 %order_4_is_valid.1, 0
   %cmp286.not = icmp eq i64 %add263, -1
-  %or.cond = select i1 %15, i1 true, i1 %cmp286.not
+  %or.cond = select i1 %10, i1 true, i1 %cmp286.not
   br i1 %or.cond, label %if.end302, label %if.then288
 
 if.then288:                                       ; preds = %for.end
@@ -490,24 +479,24 @@ cond.true291:                                     ; preds = %if.then288
   %div = fdiv reassoc nsz arcp double %mul293, %conv294
   %call = tail call reassoc nsz arcp double @log(double noundef %div) #6
   %div295 = fmul reassoc nsz arcp double %call, 0x3FF71547652B82FE
-  %20 = fptrunc double %div295 to float
+  %15 = fptrunc double %div295 to float
   br label %if.end302
 
 if.end302:                                        ; preds = %for.end, %cond.true291
-  %storemerge = phi float [ %20, %cond.true291 ], [ 3.400000e+01, %for.end ]
+  %storemerge = phi float [ %15, %cond.true291 ], [ 3.400000e+01, %for.end ]
   %smallest_error.0 = phi i64 [ %add263, %cond.true291 ], [ -1, %for.end ]
   store float %storemerge, ptr %residual_bits_per_sample, align 4
   %cmp305 = icmp ult i64 %add264, %smallest_error.0
-  %or.cond139 = select i1 %16, i1 %cmp305, i1 false
+  %or.cond139 = select i1 %11, i1 %cmp305, i1 false
   br i1 %or.cond139, label %if.then307, label %if.end324
 
 if.end302.thread:                                 ; preds = %entry, %if.then288
   %total_error_4.0.lcssa209255 = phi i64 [ %add267, %if.then288 ], [ 0, %entry ]
   %total_error_3.0.lcssa213254 = phi i64 [ %add266, %if.then288 ], [ 0, %entry ]
   %total_error_2.0.lcssa217253 = phi i64 [ %add265, %if.then288 ], [ 0, %entry ]
-  %order_2_is_valid.0.lcssa229251 = phi i1 [ %17, %if.then288 ], [ true, %entry ]
-  %order_3_is_valid.0.lcssa233250 = phi i1 [ %18, %if.then288 ], [ true, %entry ]
-  %order_4_is_valid.0.lcssa237249 = phi i1 [ %19, %if.then288 ], [ true, %entry ]
+  %order_2_is_valid.0.lcssa229251 = phi i1 [ %12, %if.then288 ], [ true, %entry ]
+  %order_3_is_valid.0.lcssa233250 = phi i1 [ %13, %if.then288 ], [ true, %entry ]
+  %order_4_is_valid.0.lcssa237249 = phi i1 [ %14, %if.then288 ], [ true, %entry ]
   store float 0.000000e+00, ptr %residual_bits_per_sample, align 4
   br label %if.end324
 
@@ -522,14 +511,14 @@ cond.true310:                                     ; preds = %if.then307
   %div314 = fdiv reassoc nsz arcp double %mul312, %conv313
   %call315 = tail call reassoc nsz arcp double @log(double noundef %div314) #6
   %div316 = fmul reassoc nsz arcp double %call315, 0x3FF71547652B82FE
-  %21 = fptrunc double %div316 to float
+  %16 = fptrunc double %div316 to float
   br label %if.end324
 
 if.end324:                                        ; preds = %if.end302, %if.end302.thread, %cond.true310, %if.then307
-  %.sink = phi float [ %21, %cond.true310 ], [ 0.000000e+00, %if.then307 ], [ 3.400000e+01, %if.end302.thread ], [ 3.400000e+01, %if.end302 ]
-  %order_4_is_valid.0.lcssa235 = phi i1 [ %19, %cond.true310 ], [ %19, %if.then307 ], [ %order_4_is_valid.0.lcssa237249, %if.end302.thread ], [ %19, %if.end302 ]
-  %order_3_is_valid.0.lcssa231 = phi i1 [ %18, %cond.true310 ], [ %18, %if.then307 ], [ %order_3_is_valid.0.lcssa233250, %if.end302.thread ], [ %18, %if.end302 ]
-  %order_2_is_valid.0.lcssa227 = phi i1 [ %17, %cond.true310 ], [ %17, %if.then307 ], [ %order_2_is_valid.0.lcssa229251, %if.end302.thread ], [ %17, %if.end302 ]
+  %.sink = phi float [ %16, %cond.true310 ], [ 0.000000e+00, %if.then307 ], [ 3.400000e+01, %if.end302.thread ], [ 3.400000e+01, %if.end302 ]
+  %order_4_is_valid.0.lcssa235 = phi i1 [ %14, %cond.true310 ], [ %14, %if.then307 ], [ %order_4_is_valid.0.lcssa237249, %if.end302.thread ], [ %14, %if.end302 ]
+  %order_3_is_valid.0.lcssa231 = phi i1 [ %13, %cond.true310 ], [ %13, %if.then307 ], [ %order_3_is_valid.0.lcssa233250, %if.end302.thread ], [ %13, %if.end302 ]
+  %order_2_is_valid.0.lcssa227 = phi i1 [ %12, %cond.true310 ], [ %12, %if.then307 ], [ %order_2_is_valid.0.lcssa229251, %if.end302.thread ], [ %12, %if.end302 ]
   %total_error_0.0.lcssa222 = phi i64 [ %add263, %cond.true310 ], [ %add263, %if.then307 ], [ 0, %if.end302.thread ], [ %add263, %if.end302 ]
   %total_error_2.0.lcssa215 = phi i64 [ %add265, %cond.true310 ], [ %add265, %if.then307 ], [ %total_error_2.0.lcssa217253, %if.end302.thread ], [ %add265, %if.end302 ]
   %total_error_3.0.lcssa211 = phi i64 [ %add266, %cond.true310 ], [ %add266, %if.then307 ], [ %total_error_3.0.lcssa213254, %if.end302.thread ], [ %add266, %if.end302 ]
@@ -553,11 +542,11 @@ cond.true332:                                     ; preds = %if.then329
   %div336 = fdiv reassoc nsz arcp double %mul334, %conv335
   %call337 = tail call reassoc nsz arcp double @log(double noundef %div336) #6
   %div338 = fmul reassoc nsz arcp double %call337, 0x3FF71547652B82FE
-  %22 = fptrunc double %div338 to float
+  %17 = fptrunc double %div338 to float
   br label %if.end346
 
 if.end346:                                        ; preds = %if.end324, %cond.true332, %if.then329
-  %.sink297 = phi float [ %22, %cond.true332 ], [ 0.000000e+00, %if.then329 ], [ 3.400000e+01, %if.end324 ]
+  %.sink297 = phi float [ %17, %cond.true332 ], [ 0.000000e+00, %if.then329 ], [ 3.400000e+01, %if.end324 ]
   %smallest_error.2 = phi i64 [ %total_error_2.0.lcssa215, %cond.true332 ], [ %total_error_2.0.lcssa215, %if.then329 ], [ %smallest_error.1, %if.end324 ]
   %order.2 = phi i32 [ 2, %cond.true332 ], [ 2, %if.then329 ], [ %order.1, %if.end324 ]
   %arrayidx345 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 2
@@ -577,11 +566,11 @@ cond.true354:                                     ; preds = %if.then351
   %div358 = fdiv reassoc nsz arcp double %mul356, %conv357
   %call359 = tail call reassoc nsz arcp double @log(double noundef %div358) #6
   %div360 = fmul reassoc nsz arcp double %call359, 0x3FF71547652B82FE
-  %23 = fptrunc double %div360 to float
+  %18 = fptrunc double %div360 to float
   br label %if.end368
 
 if.end368:                                        ; preds = %if.end346, %cond.true354, %if.then351
-  %.sink298 = phi float [ %23, %cond.true354 ], [ 0.000000e+00, %if.then351 ], [ 3.400000e+01, %if.end346 ]
+  %.sink298 = phi float [ %18, %cond.true354 ], [ 0.000000e+00, %if.then351 ], [ 3.400000e+01, %if.end346 ]
   %smallest_error.3 = phi i64 [ %total_error_3.0.lcssa211, %cond.true354 ], [ %total_error_3.0.lcssa211, %if.then351 ], [ %smallest_error.2, %if.end346 ]
   %order.3 = phi i32 [ 3, %cond.true354 ], [ 3, %if.then351 ], [ %order.2, %if.end346 ]
   %arrayidx367 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 3
@@ -601,11 +590,11 @@ cond.true376:                                     ; preds = %if.then373
   %div380 = fdiv reassoc nsz arcp double %mul378, %conv379
   %call381 = tail call reassoc nsz arcp double @log(double noundef %div380) #6
   %div382 = fmul reassoc nsz arcp double %call381, 0x3FF71547652B82FE
-  %24 = fptrunc double %div382 to float
+  %19 = fptrunc double %div382 to float
   br label %if.end390
 
 if.end390:                                        ; preds = %if.end368, %cond.true376, %if.then373
-  %.sink299 = phi float [ %24, %cond.true376 ], [ 0.000000e+00, %if.then373 ], [ 3.400000e+01, %if.end368 ]
+  %.sink299 = phi float [ %19, %cond.true376 ], [ 0.000000e+00, %if.then373 ], [ 3.400000e+01, %if.end368 ]
   %order.4 = phi i32 [ 4, %cond.true376 ], [ 4, %if.then373 ], [ %order.3, %if.end368 ]
   %arrayidx389 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 4
   store float %.sink299, ptr %arrayidx389, align 4
@@ -625,7 +614,7 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %cond.end208
   %indvars.iv = phi i64 [ -4, %for.body.preheader ], [ %indvars.iv.next, %cond.end208 ]
   %order_4_is_valid.0182 = phi i32 [ 1, %for.body.preheader ], [ %order_4_is_valid.1, %cond.end208 ]
-  %order_3_is_valid.0181 = phi i32 [ 1, %for.body.preheader ], [ %14, %cond.end208 ]
+  %order_3_is_valid.0181 = phi i32 [ 1, %for.body.preheader ], [ %9, %cond.end208 ]
   %order_2_is_valid.0180 = phi i32 [ 1, %for.body.preheader ], [ %spec.select296, %cond.end208 ]
   %order_1_is_valid.0179 = phi i32 [ 1, %for.body.preheader ], [ %spec.select170, %cond.end208 ]
   %order_0_is_valid.0178 = phi i32 [ 1, %for.body.preheader ], [ %spec.select, %cond.end208 ]
@@ -634,7 +623,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %total_error_2.0175 = phi i64 [ 0, %for.body.preheader ], [ %add212, %cond.end208 ]
   %total_error_3.0174 = phi i64 [ 0, %for.body.preheader ], [ %add213, %cond.end208 ]
   %total_error_4.0173 = phi i64 [ 0, %for.body.preheader ], [ %add214, %cond.end208 ]
-  %arrayidx = getelementptr inbounds i64, ptr %data, i64 %indvars.iv
+  %arrayidx = getelementptr i64, ptr %data, i64 %indvars.iv
   %0 = load i64, ptr %arrayidx, align 8
   %cond = tail call i64 @llvm.abs.i64(i64 %0, i1 true)
   %cmp6 = icmp sgt i64 %indvars.iv, -4
@@ -670,22 +659,14 @@ cond.end134:                                      ; preds = %cond.end75
   br i1 %cmp136, label %cond.true137, label %cond.end208
 
 cond.true137:                                     ; preds = %cond.end134
-  %6 = and i64 %indvars.iv, 4294967295
-  %7 = getelementptr i64, ptr %data, i64 %6
-  %arrayidx142 = getelementptr i64, ptr %7, i64 -1
-  %8 = load i64, ptr %arrayidx142, align 8
-  %arrayidx147 = getelementptr i64, ptr %7, i64 -2
-  %9 = load i64, ptr %arrayidx147, align 8
-  %mul148 = mul nsw i64 %9, 6
-  %arrayidx152 = getelementptr i64, ptr %7, i64 -3
-  %10 = load i64, ptr %arrayidx152, align 8
-  %11 = add i64 %mul148, %0
-  %mul143138 = add i64 %10, %8
-  %arrayidx157 = getelementptr i64, ptr %7, i64 -4
-  %12 = load i64, ptr %arrayidx157, align 8
-  %sub154 = add i64 %11, %12
-  %13 = shl i64 %mul143138, 2
-  %add158 = sub i64 %sub154, %13
+  %mul148 = mul nsw i64 %4, 6
+  %6 = add i64 %mul148, %0
+  %mul143138 = add i64 %5, %1
+  %arrayidx157 = getelementptr i64, ptr %arrayidx, i64 -4
+  %7 = load i64, ptr %arrayidx157, align 8
+  %sub154 = add i64 %6, %7
+  %8 = shl i64 %mul143138, 2
+  %add158 = sub i64 %sub154, %8
   %spec.select146 = tail call i64 @llvm.abs.i64(i64 %add158, i1 true)
   br label %cond.end208
 
@@ -709,7 +690,7 @@ cond.end208:                                      ; preds = %for.body, %cond.end
   %cmp219 = icmp ugt i64 %cond76154159.fr, 2147483647
   %spec.select296 = select i1 %cmp219, i32 0, i32 %order_2_is_valid.0180
   %cmp222 = icmp ugt i64 %cond135161.fr, 2147483647
-  %14 = select i1 %cmp222, i32 0, i32 %order_3_is_valid.0181
+  %9 = select i1 %cmp222, i32 0, i32 %order_3_is_valid.0181
   %cmp225 = icmp ugt i64 %cond209, 2147483647
   %order_4_is_valid.1 = select i1 %cmp225, i32 0, i32 %order_4_is_valid.0182
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -717,13 +698,13 @@ cond.end208:                                      ; preds = %for.body, %cond.end
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %cond.end208
-  %15 = icmp eq i32 %spec.select, 0
-  %16 = icmp ne i32 %spec.select170, 0
-  %17 = icmp ne i32 %spec.select296, 0
-  %18 = icmp ne i32 %14, 0
-  %19 = icmp ne i32 %order_4_is_valid.1, 0
+  %10 = icmp eq i32 %spec.select, 0
+  %11 = icmp ne i32 %spec.select170, 0
+  %12 = icmp ne i32 %spec.select296, 0
+  %13 = icmp ne i32 %9, 0
+  %14 = icmp ne i32 %order_4_is_valid.1, 0
   %cmp228.not = icmp eq i64 %add210, -1
-  %or.cond = select i1 %15, i1 true, i1 %cmp228.not
+  %or.cond = select i1 %10, i1 true, i1 %cmp228.not
   br i1 %or.cond, label %if.end241, label %if.then229
 
 if.then229:                                       ; preds = %for.end
@@ -737,24 +718,24 @@ cond.true231:                                     ; preds = %if.then229
   %div = fdiv reassoc nsz arcp double %mul232, %conv233
   %call = tail call reassoc nsz arcp double @log(double noundef %div) #6
   %div234 = fmul reassoc nsz arcp double %call, 0x3FF71547652B82FE
-  %20 = fptrunc double %div234 to float
+  %15 = fptrunc double %div234 to float
   br label %if.end241
 
 if.end241:                                        ; preds = %for.end, %cond.true231
-  %storemerge = phi float [ %20, %cond.true231 ], [ 3.400000e+01, %for.end ]
+  %storemerge = phi float [ %15, %cond.true231 ], [ 3.400000e+01, %for.end ]
   %smallest_error.0 = phi i64 [ %add210, %cond.true231 ], [ -1, %for.end ]
   store float %storemerge, ptr %residual_bits_per_sample, align 4
   %cmp244 = icmp ult i64 %add211, %smallest_error.0
-  %or.cond139 = select i1 %16, i1 %cmp244, i1 false
+  %or.cond139 = select i1 %11, i1 %cmp244, i1 false
   br i1 %or.cond139, label %if.then246, label %if.end263
 
 if.end241.thread:                                 ; preds = %entry, %if.then229
   %total_error_4.0.lcssa209255 = phi i64 [ %add214, %if.then229 ], [ 0, %entry ]
   %total_error_3.0.lcssa213254 = phi i64 [ %add213, %if.then229 ], [ 0, %entry ]
   %total_error_2.0.lcssa217253 = phi i64 [ %add212, %if.then229 ], [ 0, %entry ]
-  %order_2_is_valid.0.lcssa229251 = phi i1 [ %17, %if.then229 ], [ true, %entry ]
-  %order_3_is_valid.0.lcssa233250 = phi i1 [ %18, %if.then229 ], [ true, %entry ]
-  %order_4_is_valid.0.lcssa237249 = phi i1 [ %19, %if.then229 ], [ true, %entry ]
+  %order_2_is_valid.0.lcssa229251 = phi i1 [ %12, %if.then229 ], [ true, %entry ]
+  %order_3_is_valid.0.lcssa233250 = phi i1 [ %13, %if.then229 ], [ true, %entry ]
+  %order_4_is_valid.0.lcssa237249 = phi i1 [ %14, %if.then229 ], [ true, %entry ]
   store float 0.000000e+00, ptr %residual_bits_per_sample, align 4
   br label %if.end263
 
@@ -769,14 +750,14 @@ cond.true249:                                     ; preds = %if.then246
   %div253 = fdiv reassoc nsz arcp double %mul251, %conv252
   %call254 = tail call reassoc nsz arcp double @log(double noundef %div253) #6
   %div255 = fmul reassoc nsz arcp double %call254, 0x3FF71547652B82FE
-  %21 = fptrunc double %div255 to float
+  %16 = fptrunc double %div255 to float
   br label %if.end263
 
 if.end263:                                        ; preds = %if.end241, %if.end241.thread, %cond.true249, %if.then246
-  %.sink = phi float [ %21, %cond.true249 ], [ 0.000000e+00, %if.then246 ], [ 3.400000e+01, %if.end241.thread ], [ 3.400000e+01, %if.end241 ]
-  %order_4_is_valid.0.lcssa235 = phi i1 [ %19, %cond.true249 ], [ %19, %if.then246 ], [ %order_4_is_valid.0.lcssa237249, %if.end241.thread ], [ %19, %if.end241 ]
-  %order_3_is_valid.0.lcssa231 = phi i1 [ %18, %cond.true249 ], [ %18, %if.then246 ], [ %order_3_is_valid.0.lcssa233250, %if.end241.thread ], [ %18, %if.end241 ]
-  %order_2_is_valid.0.lcssa227 = phi i1 [ %17, %cond.true249 ], [ %17, %if.then246 ], [ %order_2_is_valid.0.lcssa229251, %if.end241.thread ], [ %17, %if.end241 ]
+  %.sink = phi float [ %16, %cond.true249 ], [ 0.000000e+00, %if.then246 ], [ 3.400000e+01, %if.end241.thread ], [ 3.400000e+01, %if.end241 ]
+  %order_4_is_valid.0.lcssa235 = phi i1 [ %14, %cond.true249 ], [ %14, %if.then246 ], [ %order_4_is_valid.0.lcssa237249, %if.end241.thread ], [ %14, %if.end241 ]
+  %order_3_is_valid.0.lcssa231 = phi i1 [ %13, %cond.true249 ], [ %13, %if.then246 ], [ %order_3_is_valid.0.lcssa233250, %if.end241.thread ], [ %13, %if.end241 ]
+  %order_2_is_valid.0.lcssa227 = phi i1 [ %12, %cond.true249 ], [ %12, %if.then246 ], [ %order_2_is_valid.0.lcssa229251, %if.end241.thread ], [ %12, %if.end241 ]
   %total_error_0.0.lcssa222 = phi i64 [ %add210, %cond.true249 ], [ %add210, %if.then246 ], [ 0, %if.end241.thread ], [ %add210, %if.end241 ]
   %total_error_2.0.lcssa215 = phi i64 [ %add212, %cond.true249 ], [ %add212, %if.then246 ], [ %total_error_2.0.lcssa217253, %if.end241.thread ], [ %add212, %if.end241 ]
   %total_error_3.0.lcssa211 = phi i64 [ %add213, %cond.true249 ], [ %add213, %if.then246 ], [ %total_error_3.0.lcssa213254, %if.end241.thread ], [ %add213, %if.end241 ]
@@ -800,11 +781,11 @@ cond.true271:                                     ; preds = %if.then268
   %div275 = fdiv reassoc nsz arcp double %mul273, %conv274
   %call276 = tail call reassoc nsz arcp double @log(double noundef %div275) #6
   %div277 = fmul reassoc nsz arcp double %call276, 0x3FF71547652B82FE
-  %22 = fptrunc double %div277 to float
+  %17 = fptrunc double %div277 to float
   br label %if.end285
 
 if.end285:                                        ; preds = %if.end263, %cond.true271, %if.then268
-  %.sink297 = phi float [ %22, %cond.true271 ], [ 0.000000e+00, %if.then268 ], [ 3.400000e+01, %if.end263 ]
+  %.sink297 = phi float [ %17, %cond.true271 ], [ 0.000000e+00, %if.then268 ], [ 3.400000e+01, %if.end263 ]
   %smallest_error.2 = phi i64 [ %total_error_2.0.lcssa215, %cond.true271 ], [ %total_error_2.0.lcssa215, %if.then268 ], [ %smallest_error.1, %if.end263 ]
   %order.2 = phi i32 [ 2, %cond.true271 ], [ 2, %if.then268 ], [ %order.1, %if.end263 ]
   %arrayidx284 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 2
@@ -824,11 +805,11 @@ cond.true293:                                     ; preds = %if.then290
   %div297 = fdiv reassoc nsz arcp double %mul295, %conv296
   %call298 = tail call reassoc nsz arcp double @log(double noundef %div297) #6
   %div299 = fmul reassoc nsz arcp double %call298, 0x3FF71547652B82FE
-  %23 = fptrunc double %div299 to float
+  %18 = fptrunc double %div299 to float
   br label %if.end307
 
 if.end307:                                        ; preds = %if.end285, %cond.true293, %if.then290
-  %.sink298 = phi float [ %23, %cond.true293 ], [ 0.000000e+00, %if.then290 ], [ 3.400000e+01, %if.end285 ]
+  %.sink298 = phi float [ %18, %cond.true293 ], [ 0.000000e+00, %if.then290 ], [ 3.400000e+01, %if.end285 ]
   %smallest_error.3 = phi i64 [ %total_error_3.0.lcssa211, %cond.true293 ], [ %total_error_3.0.lcssa211, %if.then290 ], [ %smallest_error.2, %if.end285 ]
   %order.3 = phi i32 [ 3, %cond.true293 ], [ 3, %if.then290 ], [ %order.2, %if.end285 ]
   %arrayidx306 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 3
@@ -848,11 +829,11 @@ cond.true315:                                     ; preds = %if.then312
   %div319 = fdiv reassoc nsz arcp double %mul317, %conv318
   %call320 = tail call reassoc nsz arcp double @log(double noundef %div319) #6
   %div321 = fmul reassoc nsz arcp double %call320, 0x3FF71547652B82FE
-  %24 = fptrunc double %div321 to float
+  %19 = fptrunc double %div321 to float
   br label %if.end329
 
 if.end329:                                        ; preds = %if.end307, %cond.true315, %if.then312
-  %.sink299 = phi float [ %24, %cond.true315 ], [ 0.000000e+00, %if.then312 ], [ 3.400000e+01, %if.end307 ]
+  %.sink299 = phi float [ %19, %cond.true315 ], [ 0.000000e+00, %if.then312 ], [ 3.400000e+01, %if.end307 ]
   %order.4 = phi i32 [ 4, %cond.true315 ], [ 4, %if.then312 ], [ %order.3, %if.end307 ]
   %arrayidx328 = getelementptr inbounds float, ptr %residual_bits_per_sample, i64 4
   store float %.sink299, ptr %arrayidx328, align 4

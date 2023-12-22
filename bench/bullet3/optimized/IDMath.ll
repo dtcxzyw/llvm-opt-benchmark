@@ -188,19 +188,18 @@ for.cond1.preheader.lr.ph:                        ; preds = %entry
 for.cond1.preheader:                              ; preds = %for.cond1.preheader.lr.ph, %for.inc7
   %indvars.iv16 = phi i64 [ 0, %for.cond1.preheader.lr.ph ], [ %indvars.iv.next17, %for.inc7 ]
   %result.011 = phi float [ 0.000000e+00, %for.cond1.preheader.lr.ph ], [ %.sroa.speculated, %for.inc7 ]
+  %invariant.gep = getelementptr float, ptr %1, i64 %indvars.iv16
   br label %for.body3
 
 for.body3:                                        ; preds = %for.cond1.preheader, %for.body3
   %indvars.iv = phi i64 [ 0, %for.cond1.preheader ], [ %indvars.iv.next, %for.body3 ]
   %result.18 = phi float [ %result.011, %for.cond1.preheader ], [ %.sroa.speculated, %for.body3 ]
-  %3 = mul i64 %indvars.iv, %2
-  %4 = add i64 %3, %indvars.iv16
-  %idxprom.i.i = and i64 %4, 4294967295
-  %arrayidx.i.i = getelementptr inbounds float, ptr %1, i64 %idxprom.i.i
-  %5 = load float, ptr %arrayidx.i.i, align 4
-  %6 = tail call noundef float @llvm.fabs.f32(float %5)
-  %cmp.i = fcmp ogt float %result.18, %6
-  %.sroa.speculated = select i1 %cmp.i, float %result.18, float %6
+  %3 = mul nsw i64 %indvars.iv, %2
+  %gep = getelementptr float, ptr %invariant.gep, i64 %3
+  %4 = load float, ptr %gep, align 4
+  %5 = tail call noundef float @llvm.fabs.f32(float %4)
+  %cmp.i = fcmp ogt float %result.18, %5
+  %.sroa.speculated = select i1 %cmp.i, float %result.18, float %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.inc7, label %for.body3, !llvm.loop !9

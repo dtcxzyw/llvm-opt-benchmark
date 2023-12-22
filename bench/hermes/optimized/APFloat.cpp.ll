@@ -7309,8 +7309,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp21, label %if.end23, label %if.else
 
 if.else:                                          ; preds = %while.body
-  %idxprom = and i64 %indvars.iv.next, 4294967295
-  %arrayidx = getelementptr inbounds i64, ptr %retval.0.i.i, i64 %idxprom
+  %arrayidx = getelementptr inbounds i64, ptr %retval.0.i.i, i64 %indvars.iv.next
   %15 = load i64, ptr %arrayidx, align 8
   %shl = shl i64 %15, %sh_prom
   br label %if.end23

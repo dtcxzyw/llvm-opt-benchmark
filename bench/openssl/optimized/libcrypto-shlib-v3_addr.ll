@@ -1365,8 +1365,7 @@ for.cond87:                                       ; preds = %lor.lhs.false77, %l
 
 land.rhs:                                         ; preds = %for.cond87
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %idxprom = and i64 %indvars.iv.next, 4294967295
-  %arrayidx = getelementptr inbounds [16 x i8], ptr %b_min, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds [16 x i8], ptr %b_min, i64 0, i64 %indvars.iv.next
   %14 = load i8, ptr %arrayidx, align 1
   %dec = add i8 %14, -1
   store i8 %dec, ptr %arrayidx, align 1
@@ -1822,8 +1821,7 @@ for.cond37.i:                                     ; preds = %if.end27.i, %land.r
 
 land.rhs.i:                                       ; preds = %for.cond37.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %idxprom.i = and i64 %indvars.iv.next.i, 4294967295
-  %arrayidx.i = getelementptr inbounds [16 x i8], ptr %b_min.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [16 x i8], ptr %b_min.i, i64 0, i64 %indvars.iv.next.i
   %9 = load i8, ptr %arrayidx.i, align 1
   %dec.i = add i8 %9, -1
   store i8 %dec.i, ptr %arrayidx.i, align 1
@@ -3669,17 +3667,15 @@ for.cond:                                         ; preds = %addr_expand.exit55,
   br i1 %cmp16.not, label %if.end49.thread, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.cond
-  %21 = add i64 %indvars.iv, 4294967295
-  %idxprom = and i64 %21, 4294967295
-  %arrayidx18 = getelementptr inbounds [16 x i8], ptr %addr, i64 0, i64 %idxprom
+  %21 = add nsw i64 %indvars.iv, -1
+  %arrayidx18 = getelementptr inbounds [16 x i8], ptr %addr, i64 0, i64 %21
   %22 = load i8, ptr %arrayidx18, align 1
   %cmp20 = icmp eq i8 %22, 0
   br i1 %cmp20, label %land.rhs, label %for.end
 
 land.rhs:                                         ; preds = %land.lhs.true
   %indvars.iv.next = add nsw i64 %indvars.iv, -2
-  %idxprom23 = and i64 %indvars.iv.next, 4294967294
-  %arrayidx24 = getelementptr inbounds [16 x i8], ptr %addr, i64 0, i64 %idxprom23
+  %arrayidx24 = getelementptr inbounds [16 x i8], ptr %addr, i64 0, i64 %indvars.iv.next
   %23 = load i8, ptr %arrayidx24, align 2
   %cmp26 = icmp eq i8 %23, 0
   br i1 %cmp26, label %for.cond, label %for.end, !llvm.loop !30

@@ -7004,7 +7004,7 @@ entry:
           to label %_ZN9btMatrixXIfEC2Eii.exit unwind label %lpad2.i
 
 common.resume:                                    ; preds = %_ZN9btMatrixXIfED2Ev.exit, %lpad2.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %lpad2.i ], [ %24, %_ZN9btMatrixXIfED2Ev.exit ]
+  %common.resume.op = phi { ptr, i32 } [ %2, %lpad2.i ], [ %23, %_ZN9btMatrixXIfED2Ev.exit ]
   resume { ptr, i32 } %common.resume.op
 
 lpad2.i:                                          ; preds = %entry
@@ -7049,17 +7049,17 @@ for.cond4.preheader.lr.ph:                        ; preds = %_ZN9btMatrixXIfE7se
   br i1 %8, label %for.cond4.preheader, label %nrvo.skipdtor
 
 for.cond4.preheader:                              ; preds = %for.cond4.preheader.lr.ph, %for.inc27
-  %9 = phi i32 [ %37, %for.inc27 ], [ %6, %for.cond4.preheader.lr.ph ]
-  %10 = phi i32 [ %38, %for.inc27 ], [ %7, %for.cond4.preheader.lr.ph ]
-  %11 = phi i32 [ %39, %for.inc27 ], [ %7, %for.cond4.preheader.lr.ph ]
+  %9 = phi i32 [ %36, %for.inc27 ], [ %6, %for.cond4.preheader.lr.ph ]
+  %10 = phi i32 [ %37, %for.inc27 ], [ %7, %for.cond4.preheader.lr.ph ]
+  %11 = phi i32 [ %38, %for.inc27 ], [ %7, %for.cond4.preheader.lr.ph ]
   %i.048 = phi i32 [ %inc28, %for.inc27 ], [ 0, %for.cond4.preheader.lr.ph ]
   %cmp745 = icmp sgt i32 %11, 0
   br i1 %cmp745, label %for.body8, label %for.inc27
 
 for.body8:                                        ; preds = %for.cond4.preheader, %for.inc24
-  %12 = phi i32 [ %35, %for.inc24 ], [ %10, %for.cond4.preheader ]
+  %12 = phi i32 [ %34, %for.inc24 ], [ %10, %for.cond4.preheader ]
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %for.inc24 ], [ 0, %for.cond4.preheader ]
-  %13 = phi i32 [ %35, %for.inc24 ], [ %11, %for.cond4.preheader ]
+  %13 = phi i32 [ %34, %for.inc24 ], [ %11, %for.cond4.preheader ]
   %14 = load i32, ptr %m_cols.i19, align 4
   %cmp1242 = icmp sgt i32 %14, 0
   br i1 %cmp1242, label %invoke.cont16.lr.ph, label %for.inc24
@@ -7069,52 +7069,51 @@ invoke.cont16.lr.ph:                              ; preds = %for.body8
   %15 = load ptr, ptr %m_data.i.i21, align 8
   %16 = load ptr, ptr %m_data.i.i25, align 8
   %17 = sext i32 %13 to i64
+  %18 = zext nneg i32 %mul.i to i64
   %wide.trip.count = zext nneg i32 %14 to i64
-  %invariant.gep = getelementptr float, ptr %16, i64 %indvars.iv54
+  %invariant.gep = getelementptr float, ptr %15, i64 %18
+  %invariant.gep61 = getelementptr float, ptr %16, i64 %indvars.iv54
   br label %invoke.cont16
 
 invoke.cont16:                                    ; preds = %invoke.cont16.lr.ph, %invoke.cont16
   %indvars.iv = phi i64 [ 0, %invoke.cont16.lr.ph ], [ %indvars.iv.next, %invoke.cont16 ]
   %dotProd.043 = phi float [ 0.000000e+00, %invoke.cont16.lr.ph ], [ %dotProd.1, %invoke.cont16 ]
-  %18 = trunc i64 %indvars.iv to i32
-  %19 = add i32 %mul.i, %18
-  %idxprom.i.i = zext nneg i32 %19 to i64
-  %arrayidx.i.i = getelementptr inbounds float, ptr %15, i64 %idxprom.i.i
-  %20 = load float, ptr %arrayidx.i.i, align 4
-  %21 = mul nsw i64 %indvars.iv, %17
-  %gep = getelementptr float, ptr %invariant.gep, i64 %21
-  %22 = load float, ptr %gep, align 4
-  %cmp18 = fcmp une float %22, 0.000000e+00
-  %23 = call float @llvm.fmuladd.f32(float %20, float %22, float %dotProd.043)
-  %dotProd.1 = select i1 %cmp18, float %23, float %dotProd.043
+  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
+  %19 = load float, ptr %gep, align 4
+  %20 = mul nsw i64 %indvars.iv, %17
+  %gep62 = getelementptr float, ptr %invariant.gep61, i64 %20
+  %21 = load float, ptr %gep62, align 4
+  %cmp18 = fcmp une float %21, 0.000000e+00
+  %22 = call float @llvm.fmuladd.f32(float %19, float %21, float %dotProd.043)
+  %dotProd.1 = select i1 %cmp18, float %22, float %dotProd.043
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %invoke.cont16, !llvm.loop !47
 
 lpad:                                             ; preds = %_ZN9btMatrixXIfEC2Eii.exit
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   %m_rowNonZeroElements1.i34 = getelementptr inbounds %struct.btMatrixX, ptr %agg.result, i64 0, i32 7
   call void @_ZN20btAlignedObjectArrayIS_IiEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_rowNonZeroElements1.i34) #11
-  %25 = load ptr, ptr %m_data.i.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %25, null
+  %24 = load ptr, ptr %m_data.i.i.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %24, null
   br i1 %tobool.not.i.i.i.i, label %_ZN9btMatrixXIfED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %lpad
-  %26 = load i8, ptr %m_ownsMemory.i.i.i, align 8
-  %27 = and i8 %26, 1
-  %tobool2.not.i.i.i.i = icmp eq i8 %27, 0
+  %25 = load i8, ptr %m_ownsMemory.i.i.i, align 8
+  %26 = and i8 %25, 1
+  %tobool2.not.i.i.i.i = icmp eq i8 %26, 0
   br i1 %tobool2.not.i.i.i.i, label %_ZN9btMatrixXIfED2Ev.exit, label %if.then3.i.i.i.i
 
 if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %25)
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %24)
           to label %_ZN9btMatrixXIfED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then3.i.i.i.i
-  %28 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #12
+  %28 = extractvalue { ptr, i32 } %27, 0
+  call void @__clang_call_terminate(ptr %28) #12
   unreachable
 
 _ZN9btMatrixXIfED2Ev.exit:                        ; preds = %lpad, %if.then.i.i.i.i, %if.then3.i.i.i.i
@@ -7129,24 +7128,24 @@ for.end:                                          ; preds = %invoke.cont16
   br i1 %tobool, label %if.then21, label %for.inc24
 
 if.then21:                                        ; preds = %for.end
-  %30 = load i32, ptr %m_setElemOperations.i, align 8
-  %inc.i = add nsw i32 %30, 1
+  %29 = load i32, ptr %m_setElemOperations.i, align 8
+  %inc.i = add nsw i32 %29, 1
   store i32 %inc.i, ptr %m_setElemOperations.i, align 8
-  %31 = load i32, ptr %m_cols.i17, align 4
-  %mul.i37 = mul nsw i32 %31, %i.048
-  %32 = sext i32 %mul.i37 to i64
-  %33 = load ptr, ptr %m_data.i.i.i, align 8
-  %34 = getelementptr float, ptr %33, i64 %indvars.iv54
-  %arrayidx.i.i41 = getelementptr float, ptr %34, i64 %32
+  %30 = load i32, ptr %m_cols.i17, align 4
+  %mul.i37 = mul nsw i32 %30, %i.048
+  %31 = sext i32 %mul.i37 to i64
+  %32 = load ptr, ptr %m_data.i.i.i, align 8
+  %33 = getelementptr float, ptr %32, i64 %indvars.iv54
+  %arrayidx.i.i41 = getelementptr float, ptr %33, i64 %31
   store float %dotProd.1, ptr %arrayidx.i.i41, align 4
   %.pre = load i32, ptr %m_cols.i, align 4
   br label %for.inc24
 
 for.inc24:                                        ; preds = %for.body8, %if.then21, %for.end
-  %35 = phi i32 [ %.pre, %if.then21 ], [ %12, %for.end ], [ %12, %for.body8 ]
+  %34 = phi i32 [ %.pre, %if.then21 ], [ %12, %for.end ], [ %12, %for.body8 ]
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %36 = sext i32 %35 to i64
-  %cmp7 = icmp slt i64 %indvars.iv.next55, %36
+  %35 = sext i32 %34 to i64
+  %cmp7 = icmp slt i64 %indvars.iv.next55, %35
   br i1 %cmp7, label %for.body8, label %for.inc27.loopexit, !llvm.loop !48
 
 for.inc27.loopexit:                               ; preds = %for.inc24
@@ -7154,11 +7153,11 @@ for.inc27.loopexit:                               ; preds = %for.inc24
   br label %for.inc27
 
 for.inc27:                                        ; preds = %for.inc27.loopexit, %for.cond4.preheader
-  %37 = phi i32 [ %.pre58, %for.inc27.loopexit ], [ %9, %for.cond4.preheader ]
-  %38 = phi i32 [ %35, %for.inc27.loopexit ], [ %10, %for.cond4.preheader ]
-  %39 = phi i32 [ %35, %for.inc27.loopexit ], [ %11, %for.cond4.preheader ]
+  %36 = phi i32 [ %.pre58, %for.inc27.loopexit ], [ %9, %for.cond4.preheader ]
+  %37 = phi i32 [ %34, %for.inc27.loopexit ], [ %10, %for.cond4.preheader ]
+  %38 = phi i32 [ %34, %for.inc27.loopexit ], [ %11, %for.cond4.preheader ]
   %inc28 = add nuw nsw i32 %i.048, 1
-  %cmp = icmp slt i32 %inc28, %37
+  %cmp = icmp slt i32 %inc28, %36
   br i1 %cmp, label %for.cond4.preheader, label %nrvo.skipdtor, !llvm.loop !49
 
 nrvo.skipdtor:                                    ; preds = %for.inc27, %for.cond4.preheader.lr.ph, %_ZN9btMatrixXIfE7setZeroEv.exit
