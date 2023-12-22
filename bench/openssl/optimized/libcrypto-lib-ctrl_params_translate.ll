@@ -2212,24 +2212,18 @@ sw.bb21:                                          ; preds = %if.then16
   br label %return
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %i.060 = phi i64 [ 0, %for.cond.preheader ], [ %inc, %for.inc ]
-  %arrayidx27 = getelementptr inbounds [7 x %struct.ossl_item_st], ptr @fix_rsa_padding_mode.str_value_map, i64 0, i64 %i.060
+  %i.063 = phi i64 [ 0, %for.cond.preheader ], [ %inc, %for.inc ]
+  %arrayidx27 = getelementptr inbounds [7 x %struct.ossl_item_st], ptr @fix_rsa_padding_mode.str_value_map, i64 0, i64 %i.063
   %8 = load i32, ptr %arrayidx27, align 16
   %cmp28 = icmp eq i32 %7, %8
-  br i1 %cmp28, label %for.end, label %for.inc
+  br i1 %cmp28, label %if.end39, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %inc = add nuw nsw i64 %i.060, 1
+  %inc = add nuw nsw i64 %i.063, 1
   %exitcond.not = icmp eq i64 %inc, 7
   br i1 %exitcond.not, label %if.then32, label %for.body, !llvm.loop !7
 
-for.end:                                          ; preds = %for.body
-  switch i64 %i.060, label %if.end39 [
-    i64 7, label %if.then32
-    i64 6, label %if.then38
-  ]
-
-if.then32:                                        ; preds = %for.inc, %for.end
+if.then32:                                        ; preds = %for.inc
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1320, ptr noundef nonnull @__func__.fix_rsa_padding_mode) #8
   %9 = load i32, ptr %action_type14, align 8
@@ -2237,14 +2231,8 @@ if.then32:                                        ; preds = %for.inc, %for.end
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 118, ptr noundef nonnull @.str.92, i32 noundef %9, i32 noundef 8, i32 noundef %10) #8
   br label %return
 
-if.then38:                                        ; preds = %for.end
-  tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1330, ptr noundef nonnull @__func__.fix_rsa_padding_mode) #8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 147, ptr noundef null) #8
-  br label %return
-
-if.end39:                                         ; preds = %for.end
-  %ptr = getelementptr inbounds [7 x %struct.ossl_item_st], ptr @fix_rsa_padding_mode.str_value_map, i64 0, i64 %i.060, i32 1
+if.end39:                                         ; preds = %for.body
+  %ptr = getelementptr inbounds [7 x %struct.ossl_item_st], ptr @fix_rsa_padding_mode.str_value_map, i64 0, i64 %i.063, i32 1
   %11 = load ptr, ptr %ptr, align 8
   %p242 = getelementptr inbounds %struct.translation_ctx_st, ptr %ctx, i64 0, i32 6
   store ptr %11, ptr %p242, align 8
@@ -2278,17 +2266,17 @@ if.then66:                                        ; preds = %lor.lhs.false, %if.
   br label %for.body71
 
 for.body71:                                       ; preds = %if.then66, %for.inc80
-  %i67.061 = phi i64 [ 0, %if.then66 ], [ %inc81, %for.inc80 ]
-  %ptr74 = getelementptr inbounds [7 x %struct.ossl_item_st], ptr @fix_rsa_padding_mode.str_value_map, i64 0, i64 %i67.061, i32 1
+  %i67.064 = phi i64 [ 0, %if.then66 ], [ %inc81, %for.inc80 ]
+  %ptr74 = getelementptr inbounds [7 x %struct.ossl_item_st], ptr @fix_rsa_padding_mode.str_value_map, i64 0, i64 %i67.064, i32 1
   %14 = load ptr, ptr %ptr74, align 8
   %call75 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %14) #9
   %cmp76 = icmp eq i32 %call75, 0
   br i1 %cmp76, label %if.else89, label %for.inc80
 
 for.inc80:                                        ; preds = %for.body71
-  %inc81 = add nuw nsw i64 %i67.061, 1
-  %exitcond63.not = icmp eq i64 %inc81, 7
-  br i1 %exitcond63.not, label %if.then85, label %for.body71, !llvm.loop !8
+  %inc81 = add nuw nsw i64 %i67.064, 1
+  %exitcond67.not = icmp eq i64 %inc81, 7
+  br i1 %exitcond67.not, label %if.then85, label %for.body71, !llvm.loop !8
 
 if.then85:                                        ; preds = %for.inc80
   tail call void @ERR_new() #8
@@ -2302,7 +2290,7 @@ if.then85:                                        ; preds = %for.inc80
 
 if.else89:                                        ; preds = %for.body71
   %cmp90 = icmp eq i32 %state, 2
-  %arrayidx93 = getelementptr inbounds [7 x %struct.ossl_item_st], ptr @fix_rsa_padding_mode.str_value_map, i64 0, i64 %i67.061
+  %arrayidx93 = getelementptr inbounds [7 x %struct.ossl_item_st], ptr @fix_rsa_padding_mode.str_value_map, i64 0, i64 %i67.064
   %17 = load i32, ptr %arrayidx93, align 16
   br i1 %cmp90, label %if.then92, label %if.else96
 
@@ -2322,8 +2310,8 @@ if.end101:                                        ; preds = %if.then92, %if.else
   store ptr null, ptr %p272, align 8
   br label %return
 
-return:                                           ; preds = %lor.lhs.false, %if.end101, %if.end48, %entry, %if.then38, %if.then32, %sw.bb21, %sw.bb, %if.then9
-  %retval.0 = phi i32 [ 1, %if.then9 ], [ -2, %if.then32 ], [ -2, %if.then38 ], [ %call24, %sw.bb21 ], [ %call20, %sw.bb ], [ %call, %entry ], [ %call49, %if.end48 ], [ %ret.0, %if.end101 ], [ %call49, %lor.lhs.false ]
+return:                                           ; preds = %lor.lhs.false, %if.end101, %if.end48, %entry, %if.then32, %sw.bb21, %sw.bb, %if.then9
+  %retval.0 = phi i32 [ 1, %if.then9 ], [ -2, %if.then32 ], [ %call24, %sw.bb21 ], [ %call20, %sw.bb ], [ %call, %entry ], [ %call49, %if.end48 ], [ %ret.0, %if.end101 ], [ %call49, %lor.lhs.false ]
   ret i32 %retval.0
 }
 

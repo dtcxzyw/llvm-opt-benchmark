@@ -7050,14 +7050,15 @@ _Z32ImParseFormatSanitizeForScanningPKcPcm.exit:  ; preds = %if.end36.i, %while.
 if.end5:                                          ; preds = %_Z32ImParseFormatSanitizeForScanningPKcPcm.exit, %if.then3
   %format.addr.0 = phi ptr [ %3, %if.then3 ], [ %format_sanitized, %_Z32ImParseFormatSanitizeForScanningPKcPcm.exit ]
   store i32 0, ptr %v32, align 4
-  %cmp7 = icmp ugt i64 %1, 3
+  %15 = add nsw i64 %idxprom.i, -4
+  %cmp7 = icmp ult i64 %15, 6
   %cond = select i1 %cmp7, ptr %p_data, ptr %v32
   %call8 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %buf.addr.0, ptr noundef %format.addr.0, ptr noundef %cond) #43
   %cmp9 = icmp slt i32 %call8, 1
   br i1 %cmp9, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end5
-  %cmp13 = icmp ult i64 %1, 4
+  %cmp13 = icmp ult i32 %data_type, 4
   br i1 %cmp13, label %if.then14, label %if.end38
 
 if.then14:                                        ; preds = %if.end11
@@ -7069,32 +7070,32 @@ if.then14:                                        ; preds = %if.end11
   ]
 
 if.then16:                                        ; preds = %if.then14
-  %15 = load i32, ptr %v32, align 4
-  %cond.i = call i32 @llvm.smin.i32(i32 %15, i32 127)
+  %16 = load i32, ptr %v32, align 4
+  %cond.i = call i32 @llvm.smin.i32(i32 %16, i32 127)
   %cond5.i = call i32 @llvm.smax.i32(i32 %cond.i, i32 -128)
   %conv = trunc i32 %cond5.i to i8
   store i8 %conv, ptr %p_data, align 1
   br label %if.end38
 
 if.then20:                                        ; preds = %if.then14
-  %16 = load i32, ptr %v32, align 4
-  %cond.i24 = call i32 @llvm.smin.i32(i32 %16, i32 255)
+  %17 = load i32, ptr %v32, align 4
+  %cond.i24 = call i32 @llvm.smin.i32(i32 %17, i32 255)
   %cond5.i25 = call i32 @llvm.smax.i32(i32 %cond.i24, i32 0)
   %conv22 = trunc i32 %cond5.i25 to i8
   store i8 %conv22, ptr %p_data, align 1
   br label %if.end38
 
 if.then25:                                        ; preds = %if.then14
-  %17 = load i32, ptr %v32, align 4
-  %cond.i27 = call i32 @llvm.smin.i32(i32 %17, i32 32767)
+  %18 = load i32, ptr %v32, align 4
+  %cond.i27 = call i32 @llvm.smin.i32(i32 %18, i32 32767)
   %cond5.i28 = call i32 @llvm.smax.i32(i32 %cond.i27, i32 -32768)
   %conv27 = trunc i32 %cond5.i28 to i16
   store i16 %conv27, ptr %p_data, align 2
   br label %if.end38
 
 if.then30:                                        ; preds = %if.then14
-  %18 = load i32, ptr %v32, align 4
-  %cond.i30 = call i32 @llvm.smin.i32(i32 %18, i32 65535)
+  %19 = load i32, ptr %v32, align 4
+  %cond.i30 = call i32 @llvm.smin.i32(i32 %19, i32 65535)
   %cond5.i31 = call i32 @llvm.smax.i32(i32 %cond.i30, i32 0)
   %conv32 = trunc i32 %cond5.i31 to i16
   store i16 %conv32, ptr %p_data, align 2

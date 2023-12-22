@@ -28607,9 +28607,7 @@ for.body106:                                      ; preds = %for.body96, %for.in
   %d108.sroa.40.11144 = phi i8 [ %d108.sroa.40.01152, %for.body96 ], [ %d108.sroa.40.2, %for.inc137 ]
   %__begin099.0.ptr = getelementptr inbounds i8, ptr @__const._ZN12_GLOBAL__N_150BetaDistributionInterfaceTest_DegenerateCases_TestIfE8TestBodyEv.kLargeValues, i64 %__begin099.0.idx1151
   %80 = load float, ptr %__begin099.0.ptr, align 4
-  %cmp2.i406 = fcmp oeq float %80, 0.000000e+00
-  %or.cond.i407 = or i1 %cmp.i405, %cmp2.i406
-  br i1 %or.cond.i407, label %if.then.i470, label %if.end.i408
+  br i1 %cmp.i405, label %if.then.i470, label %if.end.i408
 
 if.then.i470:                                     ; preds = %for.body106
   %cmp3.i472 = fcmp oge float %77, %80
@@ -29070,7 +29068,6 @@ for.body151:                                      ; preds = %for.cond149.prehead
   %d163.sroa.40.01169 = phi i8 [ undef, %for.cond149.preheader ], [ %d163.sroa.40.2, %for.inc195 ]
   %__begin0144.0.ptr = getelementptr inbounds i8, ptr @__const._ZN12_GLOBAL__N_150BetaDistributionInterfaceTest_DegenerateCases_TestIfE8TestBodyEv.kLargeValues, i64 %__begin0144.0.idx1176
   %124 = load float, ptr %__begin0144.0.ptr, align 4
-  %cmp.i627 = fcmp oeq float %124, 0.000000e+00
   %div.i646 = fdiv float 1.000000e+00, %124
   %125 = call float @llvm.fabs.f32(float %div.i646)
   %126 = fcmp oeq float %125, 0x7FF0000000000000
@@ -29088,8 +29085,7 @@ for.body161:                                      ; preds = %for.body151, %for.i
   %__begin0154.0.ptr = getelementptr inbounds i8, ptr %kSmallValues, i64 %__begin0154.0.idx1168
   %127 = load float, ptr %__begin0154.0.ptr, align 4
   %cmp2.i628 = fcmp oeq float %127, 0.000000e+00
-  %or.cond.i629 = or i1 %cmp.i627, %cmp2.i628
-  br i1 %or.cond.i629, label %if.then.i693, label %if.end.i630
+  br i1 %cmp2.i628, label %if.then.i693, label %if.end.i630
 
 if.then.i693:                                     ; preds = %for.body161
   %cmp3.i695 = fcmp oge float %124, %127
@@ -31439,9 +31435,7 @@ for.body105:                                      ; preds = %for.body95, %for.in
   %d107.sroa.42.11146 = phi i8 [ %d107.sroa.42.01154, %for.body95 ], [ %d107.sroa.42.2, %for.inc136 ]
   %__begin098.0.ptr = getelementptr inbounds i8, ptr @__const._ZN12_GLOBAL__N_150BetaDistributionInterfaceTest_DegenerateCases_TestIdE8TestBodyEv.kLargeValues, i64 %__begin098.0.idx1153
   %80 = load double, ptr %__begin098.0.ptr, align 8
-  %cmp2.i402 = fcmp oeq double %80, 0.000000e+00
-  %or.cond.i403 = or i1 %cmp.i401, %cmp2.i402
-  br i1 %or.cond.i403, label %if.then.i463, label %if.end.i404
+  br i1 %cmp.i401, label %if.then.i463, label %if.end.i404
 
 if.then.i463:                                     ; preds = %for.body105
   %cmp3.i465 = fcmp oge double %77, %80
@@ -31901,7 +31895,6 @@ for.body150:                                      ; preds = %for.cond148.prehead
   %d162.sroa.42.01171 = phi i8 [ undef, %for.cond148.preheader ], [ %d162.sroa.42.2, %for.inc194 ]
   %__begin0143.0.ptr = getelementptr inbounds i8, ptr @__const._ZN12_GLOBAL__N_150BetaDistributionInterfaceTest_DegenerateCases_TestIdE8TestBodyEv.kLargeValues, i64 %__begin0143.0.idx1178
   %124 = load double, ptr %__begin0143.0.ptr, align 8
-  %cmp.i623 = fcmp oeq double %124, 0.000000e+00
   %div.i645 = fdiv double 1.000000e+00, %124
   %125 = call double @llvm.fabs.f64(double %div.i645)
   %126 = fcmp oeq double %125, 0x7FF0000000000000
@@ -31919,8 +31912,7 @@ for.body160:                                      ; preds = %for.body150, %for.i
   %__begin0153.0.ptr = getelementptr inbounds i8, ptr %kSmallValues, i64 %__begin0153.0.idx1170
   %127 = load double, ptr %__begin0153.0.ptr, align 8
   %cmp2.i624 = fcmp oeq double %127, 0.000000e+00
-  %or.cond.i625 = or i1 %cmp.i623, %cmp2.i624
-  br i1 %or.cond.i625, label %if.then.i685, label %if.end.i626
+  br i1 %cmp2.i624, label %if.then.i685, label %if.end.i626
 
 if.then.i685:                                     ; preds = %for.body160
   %cmp3.i687 = fcmp oge double %124, %127

@@ -689,7 +689,7 @@ if.end10:                                         ; preds = %if.end
 if.else:                                          ; preds = %if.end10
   call void @X509V3_set_ctx(ptr noundef nonnull %ctx, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 1) #5
   call void @X509V3_set_nconf(ptr noundef nonnull %ctx, ptr noundef %call5) #5
-  %1 = lshr i64 66586608, %i.016
+  %1 = lshr i64 33032176, %i.016
   %2 = and i64 %1, 1
   %tobool17.not.not = icmp eq i64 %2, 0
   br i1 %tobool17.not.not, label %if.then18, label %if.else28

@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.20 = private unnamed_addr constant [17 x i8] c"FDT_ERR_BADFLAGS\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @fdt_strerror(i32 noundef %errval) local_unnamed_addr #0 {
+define dso_local ptr @fdt_strerror(i32 noundef %errval) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %errval, 0
   br i1 %cmp, label %return, label %if.else
@@ -41,20 +41,21 @@ if.else:                                          ; preds = %entry
 if.else3:                                         ; preds = %if.else
   %sub = sub i32 0, %errval
   %cmp4 = icmp slt i32 %sub, 19
-  br i1 %cmp4, label %if.then5, label %if.end10
+  br i1 %cmp4, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.else3
   %idxprom = sext i32 %sub to i64
-  %arrayidx = getelementptr [19 x %struct.fdt_errtabent], ptr @fdt_errtable, i64 0, i64 %idxprom
-  %0 = load ptr, ptr %arrayidx, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.end10, label %return
+  %0 = and i64 %idxprom, 2305843009213693951
+  %tobool.not = icmp eq i64 %0, 0
+  br i1 %tobool.not, label %return, label %if.then7
 
-if.end10:                                         ; preds = %if.then5, %if.else3
+if.then7:                                         ; preds = %if.then5
+  %arrayidx = getelementptr [19 x %struct.fdt_errtabent], ptr @fdt_errtable, i64 0, i64 %idxprom
+  %1 = load ptr, ptr %arrayidx, align 8
   br label %return
 
-return:                                           ; preds = %if.then5, %if.else, %entry, %if.end10
-  %retval.0 = phi ptr [ @.str.2, %if.end10 ], [ @.str, %entry ], [ @.str.1, %if.else ], [ %0, %if.then5 ]
+return:                                           ; preds = %if.else3, %if.then5, %if.else, %entry, %if.then7
+  %retval.0 = phi ptr [ %1, %if.then7 ], [ @.str, %entry ], [ @.str.1, %if.else ], [ @.str.2, %if.then5 ], [ @.str.2, %if.else3 ]
   ret ptr %retval.0
 }
 

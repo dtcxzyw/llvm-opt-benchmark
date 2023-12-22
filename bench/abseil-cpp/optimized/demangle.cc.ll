@@ -4844,12 +4844,12 @@ if.end.i16:                                       ; preds = %land.lhs.true
 
 for.body.i.preheader.i:                           ; preds = %if.end.i16
   %11 = load i8, ptr %arrayidx.i.i18, align 1
-  %cmp1.i32.i = icmp eq i8 %11, 0
-  br i1 %cmp1.i32.i, label %if.end5, label %for.cond.i.i
+  %cmp1.i31.i = icmp eq i8 %11, 0
+  br i1 %cmp1.i31.i, label %if.end5, label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.preheader.i, %for.body.i.i
-  %i.04.i33.i = phi i64 [ %inc.i19.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
-  %inc.i19.i = add nuw i64 %i.04.i33.i, 1
+  %i.04.i32.i = phi i64 [ %inc.i19.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
+  %inc.i19.i = add nuw i64 %i.04.i32.i, 1
   %exitcond.i.i = icmp eq i64 %inc.i19.i, %conv
   br i1 %exitcond.i.i, label %if.end5.i, label %for.body.i.i, !llvm.loop !19
 
@@ -4865,53 +4865,48 @@ _ZN4absl18debugging_internalL24AtLeastNumCharsRemainingEPKcm.exit.i: ; preds = %
 
 if.end5.i:                                        ; preds = %for.cond.i.i, %_ZN4absl18debugging_internalL24AtLeastNumCharsRemainingEPKcm.exit.i
   %cmp.i22.i = icmp ugt i32 %spec.select.i, 11
-  br i1 %cmp.i22.i, label %land.lhs.true.i.i.i, label %if.else.i
+  br i1 %cmp.i22.i, label %land.rhs.i.i.i, label %if.else.i
 
-land.lhs.true.i.i.i:                              ; preds = %if.end5.i, %while.body.i.i.i
-  %13 = phi i8 [ %15, %while.body.i.i.i ], [ %11, %if.end5.i ]
-  %i.02.i.i.i = phi i64 [ %inc.i.i.i22, %while.body.i.i.i ], [ 0, %if.end5.i ]
+while.cond.i.i.i:                                 ; preds = %land.rhs.i.i.i
+  %inc.i.i.i21 = add nuw nsw i64 %i.02.i.i.i, 1
+  %arrayidx.i2.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i18, i64 %inc.i.i.i21
+  %13 = load i8, ptr %arrayidx.i2.i.i, align 1
+  %cmp.not.i.i.i = icmp eq i8 %13, 0
+  %cmp3.not.i.i.i = icmp eq i64 %inc.i.i.i21, 11
+  %or.cond.i.i.i = or i1 %cmp3.not.i.i.i, %cmp.not.i.i.i
+  br i1 %or.cond.i.i.i, label %invoke.cont6.i, label %land.rhs.i.i.i, !llvm.loop !20
+
+land.rhs.i.i.i:                                   ; preds = %if.end5.i, %while.cond.i.i.i
+  %14 = phi i8 [ %13, %while.cond.i.i.i ], [ %11, %if.end5.i ]
+  %i.02.i.i.i = phi i64 [ %inc.i.i.i21, %while.cond.i.i.i ], [ 0, %if.end5.i ]
   %arrayidx1.i.i.i = getelementptr inbounds i8, ptr @_ZZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEmE11anon_prefix, i64 %i.02.i.i.i
-  %14 = load i8, ptr %arrayidx1.i.i.i, align 1
-  %cmp8.i.i.i = icmp eq i8 %13, %14
-  br i1 %cmp8.i.i.i, label %while.body.i.i.i, label %invoke.cont6.i
+  %15 = load i8, ptr %arrayidx1.i.i.i, align 1
+  %cmp8.i.i.i = icmp eq i8 %14, %15
+  br i1 %cmp8.i.i.i, label %while.cond.i.i.i, label %if.else.i
 
-while.body.i.i.i:                                 ; preds = %land.lhs.true.i.i.i
-  %inc.i.i.i22 = add i64 %i.02.i.i.i, 1
-  %arrayidx.i2.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i18, i64 %inc.i.i.i22
-  %15 = load i8, ptr %arrayidx.i2.i.i, align 1
-  %cmp.not.i.i.i = icmp eq i8 %15, 0
-  br i1 %cmp.not.i.i.i, label %while.body.i.i.i.invoke.cont6.i_crit_edge, label %land.lhs.true.i.i.i, !llvm.loop !20
+invoke.cont6.i:                                   ; preds = %while.cond.i.i.i
+  br i1 %cmp3.not.i.i.i, label %if.then8.i22, label %if.else.i
 
-while.body.i.i.i.invoke.cont6.i_crit_edge:        ; preds = %while.body.i.i.i
-  %arrayidx9.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr @_ZZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEmE11anon_prefix, i64 %inc.i.i.i22
-  %.pre = load i8, ptr %arrayidx9.i.i.i.phi.trans.insert, align 1
-  br label %invoke.cont6.i
-
-invoke.cont6.i:                                   ; preds = %land.lhs.true.i.i.i, %while.body.i.i.i.invoke.cont6.i_crit_edge
-  %16 = phi i8 [ %.pre, %while.body.i.i.i.invoke.cont6.i_crit_edge ], [ %14, %land.lhs.true.i.i.i ]
-  %cmp11.i.i.i = icmp eq i8 %16, 0
-  br i1 %cmp11.i.i.i, label %if.then8.i21, label %if.else.i
-
-if.then8.i21:                                     ; preds = %invoke.cont6.i
+if.then8.i22:                                     ; preds = %invoke.cont6.i
   %append.i.i = getelementptr inbounds %"struct.absl::debugging_internal::State", ptr %state, i64 0, i32 5, i32 3
   %bf.load.i.i = load i32, ptr %append.i.i, align 4
   %tobool.not.i.i = icmp sgt i32 %bf.load.i.i, -1
-  br i1 %tobool.not.i.i, label %invoke.cont2, label %while.body.i.i23.preheader.i
+  br i1 %tobool.not.i.i, label %invoke.cont2, label %while.body.i.i.preheader.i
 
-while.body.i.i23.preheader.i:                     ; preds = %if.then8.i21
+while.body.i.i.preheader.i:                       ; preds = %if.then8.i22
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef nonnull @.str.13, i64 noundef 21)
   br label %invoke.cont2
 
-if.else.i:                                        ; preds = %invoke.cont6.i, %if.end5.i, %if.end.i16
+if.else.i:                                        ; preds = %land.rhs.i.i.i, %invoke.cont6.i, %if.end5.i, %if.end.i16
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %state, ptr noundef %arrayidx.i.i18, i64 noundef %conv)
   br label %invoke.cont2
 
-invoke.cont2:                                     ; preds = %if.then8.i21, %while.body.i.i23.preheader.i, %if.else.i
-  %17 = load i32, ptr %parse_state, align 4
-  %conv15.i = add i32 %17, %spec.select.i
+invoke.cont2:                                     ; preds = %if.then8.i22, %while.body.i.i.preheader.i, %if.else.i
+  %16 = load i32, ptr %parse_state, align 4
+  %conv15.i = add i32 %16, %spec.select.i
   store i32 %conv15.i, ptr %parse_state, align 4
   %.pre.i19 = load i32, ptr %recursion_depth.i, align 4
-  %18 = add nsw i32 %.pre.i19, -2
+  %17 = add nsw i32 %.pre.i19, -2
   br label %cleanup
 
 if.end5:                                          ; preds = %for.body.i.preheader.i, %land.lhs.true, %_ZN4absl18debugging_internalL24AtLeastNumCharsRemainingEPKcm.exit.i, %invoke.cont.i, %if.end
@@ -4919,7 +4914,7 @@ if.end5:                                          ; preds = %for.body.i.preheade
   br label %cleanup
 
 cleanup:                                          ; preds = %entry, %invoke.cont2, %if.end5
-  %dec.i25 = phi i32 [ %0, %if.end5 ], [ %18, %invoke.cont2 ], [ %0, %entry ]
+  %dec.i25 = phi i32 [ %0, %if.end5 ], [ %17, %invoke.cont2 ], [ %0, %entry ]
   %retval.0 = phi i1 [ false, %if.end5 ], [ true, %invoke.cont2 ], [ false, %entry ]
   store i32 %dec.i25, ptr %recursion_depth.i, align 4
   ret i1 %retval.0

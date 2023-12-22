@@ -274,7 +274,7 @@ if.then15:                                        ; preds = %_ZL18u_scanf_parse_
   %idxprom = zext nneg i16 %sub to i64
   %arrayidx = getelementptr inbounds [108 x %struct.u_scanf_info], ptr @_ZL15g_u_scanf_infos, i64 0, i64 %idxprom
   %20 = load i32, ptr %arrayidx, align 16
-  %cmp17.not = icmp eq i32 %20, 2
+  %cmp17.not = icmp eq i16 %sub, 78
   br i1 %cmp17.not, label %if.else, label %land.lhs.true18
 
 land.lhs.true18:                                  ; preds = %if.then15

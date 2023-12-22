@@ -77,10 +77,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @callback_table = internal unnamed_addr constant [10 x %struct.anon] [%struct.anon { i32 0, ptr @.str.12 }, %struct.anon { i32 1, ptr @.str.12 }, %struct.anon { i32 13, ptr @.str.12 }, %struct.anon { i32 2, ptr @.str.13 }, %struct.anon { i32 3, ptr @.str.13 }, %struct.anon { i32 12, ptr @.str.13 }, %struct.anon { i32 4, ptr @.str.14 }, %struct.anon { i32 15, ptr @.str.15 }, %struct.anon { i32 16, ptr @.str.15 }, %struct.anon zeroinitializer], align 16
 @.str.28 = private unnamed_addr constant [18 x i8] c"register_callback\00", align 1
 @.str.29 = private unnamed_addr constant [4 x i8] c"iiO\00", align 1
-@.str.30 = private unnamed_addr constant [11 x i8] c"set_events\00", align 1
-@.str.31 = private unnamed_addr constant [3 x i8] c"ii\00", align 1
-@.str.32 = private unnamed_addr constant [13 x i8] c"free_tool_id\00", align 1
-@.str.33 = private unnamed_addr constant [2 x i8] c"i\00", align 1
 @.str.34 = private unnamed_addr constant [51 x i8] c"Exception ignored when destroying _lsprof profiler\00", align 1
 @profiler_init.kwlist = internal global [5 x ptr] [ptr @.str.35, ptr @.str.36, ptr @.str.20, ptr @.str, ptr null], align 16
 @.str.35 = private unnamed_addr constant [6 x i8] c"timer\00", align 1
@@ -1575,7 +1571,7 @@ return:                                           ; preds = %_lsprof_Profiler_ge
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @profiler_enable(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
+define internal noalias ptr @profiler_enable(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %subcalls = alloca i32, align 4
   %builtins = alloca i32, align 4
@@ -1587,8 +1583,8 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr %subcalls, align 4
-  %cmp.i31 = icmp eq i32 %0, 0
-  br i1 %cmp.i31, label %if.then.i, label %if.else.i
+  %cmp.i = icmp eq i32 %0, 0
+  br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
   %flags.i = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 4
@@ -1610,28 +1606,28 @@ if.then2.i:                                       ; preds = %if.else.i
 
 setSubcalls.exit:                                 ; preds = %if.then.i, %if.else.i, %if.then2.i
   %3 = load i32, ptr %builtins, align 4
-  %cmp.i32 = icmp eq i32 %3, 0
-  br i1 %cmp.i32, label %if.then.i38, label %if.else.i33
+  %cmp.i31 = icmp eq i32 %3, 0
+  br i1 %cmp.i31, label %if.then.i37, label %if.else.i32
 
-if.then.i38:                                      ; preds = %setSubcalls.exit
-  %flags.i39 = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 4
-  %4 = load i32, ptr %flags.i39, align 8
-  %and.i40 = and i32 %4, -5
-  store i32 %and.i40, ptr %flags.i39, align 8
+if.then.i37:                                      ; preds = %setSubcalls.exit
+  %flags.i38 = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 4
+  %4 = load i32, ptr %flags.i38, align 8
+  %and.i39 = and i32 %4, -5
+  store i32 %and.i39, ptr %flags.i38, align 8
   br label %setBuiltins.exit
 
-if.else.i33:                                      ; preds = %setSubcalls.exit
-  %cmp1.i34 = icmp sgt i32 %3, 0
-  br i1 %cmp1.i34, label %if.then2.i35, label %setBuiltins.exit
+if.else.i32:                                      ; preds = %setSubcalls.exit
+  %cmp1.i33 = icmp sgt i32 %3, 0
+  br i1 %cmp1.i33, label %if.then2.i34, label %setBuiltins.exit
 
-if.then2.i35:                                     ; preds = %if.else.i33
-  %flags3.i36 = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 4
-  %5 = load i32, ptr %flags3.i36, align 8
-  %or.i37 = or i32 %5, 4
-  store i32 %or.i37, ptr %flags3.i36, align 8
+if.then2.i34:                                     ; preds = %if.else.i32
+  %flags3.i35 = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 4
+  %5 = load i32, ptr %flags3.i35, align 8
+  %or.i36 = or i32 %5, 4
+  store i32 %or.i36, ptr %flags3.i35, align 8
   br label %setBuiltins.exit
 
-setBuiltins.exit:                                 ; preds = %if.then.i38, %if.else.i33, %if.then2.i35
+setBuiltins.exit:                                 ; preds = %if.then.i37, %if.else.i32, %if.then2.i34
   %call6 = call ptr @_PyImport_GetModuleAttrString(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #4
   %tobool7.not = icmp eq ptr %call6, null
   br i1 %tobool7.not, label %return, label %if.end9
@@ -1641,7 +1637,12 @@ if.end9:                                          ; preds = %setBuiltins.exit
   %6 = load i32, ptr %tool_id, align 8
   %call10 = call ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef nonnull %call6, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef %6, ptr noundef nonnull @.str.26) #4
   %cmp11 = icmp eq ptr %call10, null
-  br i1 %cmp11, label %if.then12, label %for.body
+  br i1 %cmp11, label %if.then12, label %for.cond.preheader
+
+for.cond.preheader:                               ; preds = %if.end9
+  %call1941 = call ptr @PyObject_GetAttrString(ptr noundef nonnull %self, ptr noundef nonnull @.str.12) #4
+  %tobool20.not42 = icmp eq ptr %call1941, null
+  br i1 %tobool20.not42, label %if.then21, label %if.end22
 
 if.then12:                                        ; preds = %if.end9
   %7 = load ptr, ptr @PyExc_ValueError, align 8
@@ -1655,54 +1656,40 @@ if.end.i67:                                       ; preds = %if.then12
   %dec.i68 = add i64 %8, -1
   store i64 %dec.i68, ptr %call6, align 8
   %cmp.i69 = icmp eq i64 %dec.i68, 0
-  br i1 %cmp.i69, label %if.then1.i70, label %return
+  br i1 %cmp.i69, label %return.sink.split, label %return
 
-if.then1.i70:                                     ; preds = %if.end.i67
-  call void @_Py_Dealloc(ptr noundef nonnull %call6) #4
-  br label %return
-
-for.body:                                         ; preds = %if.end9, %Py_DECREF.exit54
-  %indvars.iv = phi i64 [ %indvars.iv.next, %Py_DECREF.exit54 ], [ 0, %if.end9 ]
-  %arrayidx47 = phi ptr [ %arrayidx, %Py_DECREF.exit54 ], [ @callback_table, %if.end9 ]
-  %all_events.044 = phi i32 [ %or, %Py_DECREF.exit54 ], [ 0, %if.end9 ]
-  %callback_method = getelementptr [10 x %struct.anon], ptr @callback_table, i64 0, i64 %indvars.iv, i32 1
-  %10 = load ptr, ptr %callback_method, align 8
-  %call19 = call ptr @PyObject_GetAttrString(ptr noundef nonnull %self, ptr noundef %10) #4
-  %tobool20.not = icmp eq ptr %call19, null
-  br i1 %tobool20.not, label %if.then21, label %if.end22
-
-if.then21:                                        ; preds = %for.body
-  %11 = load i64, ptr %call6, align 8
-  %12 = and i64 %11, 2147483648
-  %cmp.i77.not = icmp eq i64 %12, 0
+if.then21:                                        ; preds = %Py_DECREF.exit54, %for.cond.preheader
+  %10 = load i64, ptr %call6, align 8
+  %11 = and i64 %10, 2147483648
+  %cmp.i77.not = icmp eq i64 %11, 0
   br i1 %cmp.i77.not, label %if.end.i58, label %return
 
 if.end.i58:                                       ; preds = %if.then21
-  %dec.i59 = add i64 %11, -1
+  %dec.i59 = add i64 %10, -1
   store i64 %dec.i59, ptr %call6, align 8
   %cmp.i60 = icmp eq i64 %dec.i59, 0
-  br i1 %cmp.i60, label %if.then1.i61, label %return
+  br i1 %cmp.i60, label %return.sink.split, label %return
 
-if.then1.i61:                                     ; preds = %if.end.i58
-  call void @_Py_Dealloc(ptr noundef nonnull %call6) #4
-  br label %return
-
-if.end22:                                         ; preds = %for.body
-  %13 = load i32, ptr %tool_id, align 8
-  %14 = load i32, ptr %arrayidx47, align 16
-  %shl = shl nuw i32 1, %14
-  %call26 = call ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef nonnull %call6, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, i32 noundef %13, i32 noundef %shl, ptr noundef nonnull %call19) #4
+if.end22:                                         ; preds = %for.cond.preheader, %Py_DECREF.exit54
+  %call1945 = phi ptr [ %call19, %Py_DECREF.exit54 ], [ %call1941, %for.cond.preheader ]
+  %idxprom44 = phi i64 [ %idxprom, %Py_DECREF.exit54 ], [ 0, %for.cond.preheader ]
+  %i.043 = phi i32 [ %inc, %Py_DECREF.exit54 ], [ 0, %for.cond.preheader ]
+  %arrayidx = getelementptr [10 x %struct.anon], ptr @callback_table, i64 0, i64 %idxprom44
+  %12 = load i32, ptr %tool_id, align 8
+  %13 = load i32, ptr %arrayidx, align 16
+  %shl = shl nuw i32 1, %13
+  %call26 = call ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef nonnull %call6, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, i32 noundef %12, i32 noundef %shl, ptr noundef nonnull %call1945) #4
   %cmp.not.i = icmp eq ptr %call26, null
-  br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i41
+  br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i40
 
-if.then.i41:                                      ; preds = %if.end22
-  %15 = load i64, ptr %call26, align 8
-  %16 = and i64 %15, 2147483648
-  %cmp.i2.not.i = icmp eq i64 %16, 0
+if.then.i40:                                      ; preds = %if.end22
+  %14 = load i64, ptr %call26, align 8
+  %15 = and i64 %14, 2147483648
+  %cmp.i2.not.i = icmp eq i64 %15, 0
   br i1 %cmp.i2.not.i, label %if.end.i.i, label %Py_XDECREF.exit
 
-if.end.i.i:                                       ; preds = %if.then.i41
-  %dec.i.i = add i64 %15, -1
+if.end.i.i:                                       ; preds = %if.then.i40
+  %dec.i.i = add i64 %14, -1
   store i64 %dec.i.i, ptr %call26, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %Py_XDECREF.exit
@@ -1711,74 +1698,37 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %call26) #4
   br label %Py_XDECREF.exit
 
-Py_XDECREF.exit:                                  ; preds = %if.end22, %if.then.i41, %if.end.i.i, %if.then1.i.i
-  %17 = load i64, ptr %call19, align 8
-  %18 = and i64 %17, 2147483648
-  %cmp.i81.not = icmp eq i64 %18, 0
+Py_XDECREF.exit:                                  ; preds = %if.end22, %if.then.i40, %if.end.i.i, %if.then1.i.i
+  %16 = load i64, ptr %call1945, align 8
+  %17 = and i64 %16, 2147483648
+  %cmp.i81.not = icmp eq i64 %17, 0
   br i1 %cmp.i81.not, label %if.end.i49, label %Py_DECREF.exit54
 
 if.end.i49:                                       ; preds = %Py_XDECREF.exit
-  %dec.i50 = add i64 %17, -1
-  store i64 %dec.i50, ptr %call19, align 8
+  %dec.i50 = add i64 %16, -1
+  store i64 %dec.i50, ptr %call1945, align 8
   %cmp.i51 = icmp eq i64 %dec.i50, 0
   br i1 %cmp.i51, label %if.then1.i52, label %Py_DECREF.exit54
 
 if.then1.i52:                                     ; preds = %if.end.i49
-  call void @_Py_Dealloc(ptr noundef nonnull %call19) #4
+  call void @_Py_Dealloc(ptr noundef nonnull %call1945) #4
   br label %Py_DECREF.exit54
 
 Py_DECREF.exit54:                                 ; preds = %Py_XDECREF.exit, %if.then1.i52, %if.end.i49
-  %or = or i32 %shl, %all_events.044
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr [10 x %struct.anon], ptr @callback_table, i64 0, i64 %indvars.iv.next
-  %tobool15.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %tobool15.not, label %for.end, label %for.body, !llvm.loop !7
+  %inc = add i32 %i.043, 1
+  %idxprom = sext i32 %inc to i64
+  %callback_method = getelementptr [10 x %struct.anon], ptr @callback_table, i64 0, i64 %idxprom, i32 1
+  %18 = load ptr, ptr %callback_method, align 8
+  %call19 = call ptr @PyObject_GetAttrString(ptr noundef nonnull %self, ptr noundef %18) #4
+  %tobool20.not = icmp eq ptr %call19, null
+  br i1 %tobool20.not, label %if.then21, label %if.end22, !llvm.loop !7
 
-for.end:                                          ; preds = %Py_DECREF.exit54
-  %19 = load i32, ptr %tool_id, align 8
-  %call32 = call ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef nonnull %call6, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef %19, i32 noundef %or) #4
-  %tobool33.not = icmp eq ptr %call32, null
-  %20 = load i64, ptr %call6, align 8
-  %21 = and i64 %20, 2147483648
-  %cmp.i85.not = icmp eq i64 %21, 0
-  br i1 %tobool33.not, label %if.then34, label %if.end35
-
-if.then34:                                        ; preds = %for.end
-  br i1 %cmp.i85.not, label %if.end.i40, label %return
-
-if.end.i40:                                       ; preds = %if.then34
-  %dec.i41 = add i64 %20, -1
-  store i64 %dec.i41, ptr %call6, align 8
-  %cmp.i42 = icmp eq i64 %dec.i41, 0
-  br i1 %cmp.i42, label %if.then1.i43, label %return
-
-if.then1.i43:                                     ; preds = %if.end.i40
+return.sink.split:                                ; preds = %if.end.i58, %if.end.i67
   call void @_Py_Dealloc(ptr noundef nonnull %call6) #4
   br label %return
 
-if.end35:                                         ; preds = %for.end
-  br i1 %cmp.i85.not, label %if.end.i, label %Py_DECREF.exit
-
-if.end.i:                                         ; preds = %if.end35
-  %dec.i = add i64 %20, -1
-  store i64 %dec.i, ptr %call6, align 8
-  %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
-
-if.then1.i:                                       ; preds = %if.end.i
-  call void @_Py_Dealloc(ptr noundef nonnull %call6) #4
-  br label %Py_DECREF.exit
-
-Py_DECREF.exit:                                   ; preds = %if.end35, %if.then1.i, %if.end.i
-  %flags = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 4
-  %22 = load i32, ptr %flags, align 8
-  %or36 = or i32 %22, 1
-  store i32 %or36, ptr %flags, align 8
-  br label %return
-
-return:                                           ; preds = %if.end.i40, %if.then1.i43, %if.then34, %if.end.i58, %if.then1.i61, %if.then21, %if.end.i67, %if.then1.i70, %if.then12, %setBuiltins.exit, %entry, %Py_DECREF.exit
-  %retval.0 = phi ptr [ @_Py_NoneStruct, %Py_DECREF.exit ], [ null, %entry ], [ null, %setBuiltins.exit ], [ null, %if.then12 ], [ null, %if.then1.i70 ], [ null, %if.end.i67 ], [ null, %if.then21 ], [ null, %if.then1.i61 ], [ null, %if.end.i58 ], [ null, %if.then34 ], [ null, %if.then1.i43 ], [ null, %if.end.i40 ]
-  ret ptr %retval.0
+return:                                           ; preds = %return.sink.split, %if.end.i58, %if.then21, %if.end.i67, %if.then12, %setBuiltins.exit, %entry
+  ret ptr null
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1797,26 +1747,19 @@ if.then:                                          ; preds = %entry
 
 for.cond.preheader:                               ; preds = %if.then
   %tool_id = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 7
-  br label %for.body
-
-for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr [10 x %struct.anon], ptr @callback_table, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %tool_id, align 8
-  %2 = load i32, ptr %arrayidx, align 16
-  %shl = shl nuw i32 1, %2
-  %call6 = tail call ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef nonnull %call, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, i32 noundef %1, i32 noundef %shl, ptr noundef nonnull @_Py_NoneStruct) #4
-  %tobool7.not = icmp eq ptr %call6, null
-  br i1 %tobool7.not, label %if.then8, label %if.end9
+  %call637 = tail call ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef nonnull %call, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, i32 noundef %1, i32 noundef 1, ptr noundef nonnull @_Py_NoneStruct) #4
+  %tobool7.not38 = icmp eq ptr %call637, null
+  br i1 %tobool7.not38, label %if.then8, label %if.end9
 
-if.then8:                                         ; preds = %for.body
-  %3 = load i64, ptr %call, align 8
-  %4 = and i64 %3, 2147483648
-  %cmp.i82.not = icmp eq i64 %4, 0
+if.then8:                                         ; preds = %for.inc, %for.cond.preheader
+  %2 = load i64, ptr %call, align 8
+  %3 = and i64 %2, 2147483648
+  %cmp.i82.not = icmp eq i64 %3, 0
   br i1 %cmp.i82.not, label %if.end.i75, label %return
 
 if.end.i75:                                       ; preds = %if.then8
-  %dec.i76 = add i64 %3, -1
+  %dec.i76 = add i64 %2, -1
   store i64 %dec.i76, ptr %call, align 8
   %cmp.i77 = icmp eq i64 %dec.i76, 0
   br i1 %cmp.i77, label %if.then1.i78, label %return
@@ -1825,170 +1768,49 @@ if.then1.i78:                                     ; preds = %if.end.i75
   tail call void @_Py_Dealloc(ptr noundef nonnull %call) #4
   br label %return
 
-if.end9:                                          ; preds = %for.body
-  %5 = load i64, ptr %call6, align 8
-  %6 = and i64 %5, 2147483648
-  %cmp.i85.not = icmp eq i64 %6, 0
+if.end9:                                          ; preds = %for.cond.preheader, %for.inc
+  %call640 = phi ptr [ %call6, %for.inc ], [ %call637, %for.cond.preheader ]
+  %i.039 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
+  %4 = load i64, ptr %call640, align 8
+  %5 = and i64 %4, 2147483648
+  %cmp.i85.not = icmp eq i64 %5, 0
   br i1 %cmp.i85.not, label %if.end.i66, label %for.inc
 
 if.end.i66:                                       ; preds = %if.end9
-  %dec.i67 = add i64 %5, -1
-  store i64 %dec.i67, ptr %call6, align 8
+  %dec.i67 = add i64 %4, -1
+  store i64 %dec.i67, ptr %call640, align 8
   %cmp.i68 = icmp eq i64 %dec.i67, 0
   br i1 %cmp.i68, label %if.then1.i69, label %for.inc
 
 if.then1.i69:                                     ; preds = %if.end.i66
-  tail call void @_Py_Dealloc(ptr noundef nonnull %call6) #4
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call640) #4
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end.i66, %if.then1.i69, %if.end9
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %tobool3.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %tobool3.not, label %for.end, label %for.body, !llvm.loop !8
+  %inc = add i32 %i.039, 1
+  %idxprom = sext i32 %inc to i64
+  %arrayidx = getelementptr [10 x %struct.anon], ptr @callback_table, i64 0, i64 %idxprom
+  %6 = load i32, ptr %tool_id, align 8
+  %7 = load i32, ptr %arrayidx, align 16
+  %shl = shl nuw i32 1, %7
+  %call6 = tail call ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef nonnull %call, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, i32 noundef %6, i32 noundef %shl, ptr noundef nonnull @_Py_NoneStruct) #4
+  %tobool7.not = icmp eq ptr %call6, null
+  br i1 %tobool7.not, label %if.then8, label %if.end9, !llvm.loop !8
 
-for.end:                                          ; preds = %for.inc
-  %7 = load i32, ptr %tool_id, align 8
-  %call11 = tail call ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef nonnull %call, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef %7, i32 noundef 0) #4
-  %tobool12.not = icmp eq ptr %call11, null
-  br i1 %tobool12.not, label %if.then13, label %if.end14
-
-if.then13:                                        ; preds = %for.end
-  %8 = load i64, ptr %call, align 8
-  %9 = and i64 %8, 2147483648
-  %cmp.i89.not = icmp eq i64 %9, 0
-  br i1 %cmp.i89.not, label %if.end.i57, label %return
-
-if.end.i57:                                       ; preds = %if.then13
-  %dec.i58 = add i64 %8, -1
-  store i64 %dec.i58, ptr %call, align 8
-  %cmp.i59 = icmp eq i64 %dec.i58, 0
-  br i1 %cmp.i59, label %if.then1.i60, label %return
-
-if.then1.i60:                                     ; preds = %if.end.i57
-  tail call void @_Py_Dealloc(ptr noundef nonnull %call) #4
-  br label %return
-
-if.end14:                                         ; preds = %for.end
-  %10 = load i64, ptr %call11, align 8
-  %11 = and i64 %10, 2147483648
-  %cmp.i93.not = icmp eq i64 %11, 0
-  br i1 %cmp.i93.not, label %if.end.i48, label %Py_DECREF.exit53
-
-if.end.i48:                                       ; preds = %if.end14
-  %dec.i49 = add i64 %10, -1
-  store i64 %dec.i49, ptr %call11, align 8
-  %cmp.i50 = icmp eq i64 %dec.i49, 0
-  br i1 %cmp.i50, label %if.then1.i51, label %Py_DECREF.exit53
-
-if.then1.i51:                                     ; preds = %if.end.i48
-  tail call void @_Py_Dealloc(ptr noundef nonnull %call11) #4
-  br label %Py_DECREF.exit53
-
-Py_DECREF.exit53:                                 ; preds = %if.end14, %if.then1.i51, %if.end.i48
-  %12 = load i32, ptr %tool_id, align 8
-  %call16 = tail call ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef nonnull %call, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef %12) #4
-  %tobool17.not = icmp eq ptr %call16, null
-  br i1 %tobool17.not, label %if.then18, label %if.end19
-
-if.then18:                                        ; preds = %Py_DECREF.exit53
-  %13 = load i64, ptr %call, align 8
-  %14 = and i64 %13, 2147483648
-  %cmp.i97.not = icmp eq i64 %14, 0
-  br i1 %cmp.i97.not, label %if.end.i39, label %return
-
-if.end.i39:                                       ; preds = %if.then18
-  %dec.i40 = add i64 %13, -1
-  store i64 %dec.i40, ptr %call, align 8
-  %cmp.i41 = icmp eq i64 %dec.i40, 0
-  br i1 %cmp.i41, label %if.then1.i42, label %return
-
-if.then1.i42:                                     ; preds = %if.end.i39
-  tail call void @_Py_Dealloc(ptr noundef nonnull %call) #4
-  br label %return
-
-if.end19:                                         ; preds = %Py_DECREF.exit53
-  %15 = load i64, ptr %call16, align 8
-  %16 = and i64 %15, 2147483648
-  %cmp.i101.not = icmp eq i64 %16, 0
-  br i1 %cmp.i101.not, label %if.end.i30, label %Py_DECREF.exit35
-
-if.end.i30:                                       ; preds = %if.end19
-  %dec.i31 = add i64 %15, -1
-  store i64 %dec.i31, ptr %call16, align 8
-  %cmp.i32 = icmp eq i64 %dec.i31, 0
-  br i1 %cmp.i32, label %if.then1.i33, label %Py_DECREF.exit35
-
-if.then1.i33:                                     ; preds = %if.end.i30
-  tail call void @_Py_Dealloc(ptr noundef nonnull %call16) #4
-  br label %Py_DECREF.exit35
-
-Py_DECREF.exit35:                                 ; preds = %if.end19, %if.then1.i33, %if.end.i30
-  %17 = load i64, ptr %call, align 8
-  %18 = and i64 %17, 2147483648
-  %cmp.i105.not = icmp eq i64 %18, 0
-  br i1 %cmp.i105.not, label %if.end.i, label %Py_DECREF.exit
-
-if.end.i:                                         ; preds = %Py_DECREF.exit35
-  %dec.i = add i64 %17, -1
-  store i64 %dec.i, ptr %call, align 8
-  %cmp.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
-
-if.then1.i:                                       ; preds = %if.end.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %call) #4
-  br label %Py_DECREF.exit
-
-Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit35, %if.then1.i, %if.end.i
-  %19 = load i32, ptr %flags, align 8
-  %and21 = and i32 %19, -2
-  store i32 %and21, ptr %flags, align 8
-  %currentProfilerContext.i = getelementptr inbounds %struct.ProfilerObject, ptr %self, i64 0, i32 2
-  %20 = load ptr, ptr %currentProfilerContext.i, align 8
-  %tobool.not10.i = icmp eq ptr %20, null
-  br i1 %tobool.not10.i, label %if.end22, label %while.body.i
-
-while.body.i:                                     ; preds = %Py_DECREF.exit, %if.then5.i
-  %21 = phi ptr [ %24, %if.then5.i ], [ %20, %Py_DECREF.exit ]
-  %ctxEntry.i = getelementptr inbounds %struct._ProfilerContext, ptr %21, i64 0, i32 3
-  %22 = load ptr, ptr %ctxEntry.i, align 8
-  %tobool2.not.i = icmp eq ptr %22, null
-  br i1 %tobool2.not.i, label %if.else.i, label %if.then.i
-
-if.then.i:                                        ; preds = %while.body.i
-  tail call fastcc void @Stop(ptr noundef nonnull %self, ptr noundef nonnull %21, ptr noundef nonnull %22)
-  br label %if.then5.i
-
-if.else.i:                                        ; preds = %while.body.i
-  %previous.i = getelementptr inbounds %struct._ProfilerContext, ptr %21, i64 0, i32 2
-  %23 = load ptr, ptr %previous.i, align 8
-  store ptr %23, ptr %currentProfilerContext.i, align 8
-  br label %if.then5.i
-
-if.then5.i:                                       ; preds = %if.else.i, %if.then.i
-  tail call void @PyMem_Free(ptr noundef nonnull %21) #4
-  %24 = load ptr, ptr %currentProfilerContext.i, align 8
-  %tobool.not.i = icmp eq ptr %24, null
-  br i1 %tobool.not.i, label %if.end22.loopexit, label %while.body.i, !llvm.loop !4
-
-if.end22.loopexit:                                ; preds = %if.then5.i
-  %.pre = load i32, ptr %flags, align 8
-  br label %if.end22
-
-if.end22:                                         ; preds = %if.end22.loopexit, %Py_DECREF.exit, %entry
-  %25 = phi i32 [ %.pre, %if.end22.loopexit ], [ %and21, %Py_DECREF.exit ], [ %0, %entry ]
-  %and.i = and i32 %25, 256
-  %tobool.not.i35 = icmp eq i32 %and.i, 0
-  br i1 %tobool.not.i35, label %return, label %pending_exception.exit
+if.end22:                                         ; preds = %entry
+  %and.i = and i32 %0, 256
+  %tobool.not.i = icmp eq i32 %and.i, 0
+  br i1 %tobool.not.i, label %return, label %pending_exception.exit
 
 pending_exception.exit:                           ; preds = %if.end22
-  %sub.i = add nsw i32 %25, -256
+  %sub.i = add nsw i32 %0, -256
   store i32 %sub.i, ptr %flags, align 8
-  %26 = load ptr, ptr @PyExc_MemoryError, align 8
-  tail call void @PyErr_SetString(ptr noundef %26, ptr noundef nonnull @.str.17) #4
+  %8 = load ptr, ptr @PyExc_MemoryError, align 8
+  tail call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.17) #4
   br label %return
 
-return:                                           ; preds = %pending_exception.exit, %if.end22, %if.end.i39, %if.then1.i42, %if.then18, %if.end.i57, %if.then1.i60, %if.then13, %if.end.i75, %if.then1.i78, %if.then8, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then8 ], [ null, %if.then1.i78 ], [ null, %if.end.i75 ], [ null, %if.then13 ], [ null, %if.then1.i60 ], [ null, %if.end.i57 ], [ null, %if.then18 ], [ null, %if.then1.i42 ], [ null, %if.end.i39 ], [ null, %pending_exception.exit ], [ @_Py_NoneStruct, %if.end22 ]
+return:                                           ; preds = %pending_exception.exit, %if.end22, %if.end.i75, %if.then1.i78, %if.then8, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then8 ], [ null, %if.then1.i78 ], [ null, %if.end.i75 ], [ null, %pending_exception.exit ], [ @_Py_NoneStruct, %if.end22 ]
   ret ptr %retval.0
 }
 

@@ -318,7 +318,7 @@ if.else9:                                         ; preds = %if.else6
 if.then11:                                        ; preds = %if.else9
   %sub = add nsw i32 %which, -4096
   %idxprom13 = zext nneg i32 %sub to i64
-  %2 = lshr i64 31719141, %idxprom13
+  %2 = lshr i64 14941925, %idxprom13
   %3 = and i64 %2, 1
   %cmp16.not.not = icmp eq i64 %3, 0
   br i1 %cmp16.not.not, label %return, label %if.else18

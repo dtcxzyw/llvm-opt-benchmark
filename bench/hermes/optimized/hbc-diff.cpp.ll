@@ -2510,10 +2510,6 @@ for.body178.i:                                    ; preds = %_ZN4llvh11raw_ostre
   %call179.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4outsEv() #20
   %arrayidx.i.i779.i = getelementptr inbounds [15 x ptr], ptr @_ZL12sectionNames, i64 0, i64 %indvars.iv1100.i
   %217 = load ptr, ptr %arrayidx.i.i779.i, align 8
-  %tobool.i.not.i780.i = icmp eq ptr %217, null
-  br i1 %tobool.i.not.i780.i, label %_ZN4llvh11raw_ostreamlsEPKc.exit795.i, label %cond.true.i.split.i.i
-
-cond.true.i.split.i.i:                            ; preds = %for.body178.i
   %call.i.i781.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %217) #21
   %OutBufEnd.i5.i782.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call179.i, i64 0, i32 2
   %218 = load ptr, ptr %OutBufEnd.i5.i782.i, align 8
@@ -2525,11 +2521,11 @@ cond.true.i.split.i.i:                            ; preds = %for.body178.i
   %cmp.i.i787.i = icmp ult i64 %sub.ptr.sub.i9.i786.i, %call.i.i781.i
   br i1 %cmp.i.i787.i, label %if.then.i.i793.i, label %if.end.i.i788.i
 
-if.then.i.i793.i:                                 ; preds = %cond.true.i.split.i.i
+if.then.i.i793.i:                                 ; preds = %for.body178.i
   %call3.i.i794.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %call179.i, ptr noundef nonnull %217, i64 noundef %call.i.i781.i) #20
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit795.i
 
-if.end.i.i788.i:                                  ; preds = %cond.true.i.split.i.i
+if.end.i.i788.i:                                  ; preds = %for.body178.i
   %tobool.not.i.i789.i = icmp eq i64 %call.i.i781.i, 0
   br i1 %tobool.not.i.i789.i, label %_ZN4llvh11raw_ostreamlsEPKc.exit795.i, label %if.then4.i.i790.i
 
@@ -2540,8 +2536,8 @@ if.then4.i.i790.i:                                ; preds = %if.end.i.i788.i
   store ptr %add.ptr.i.i791.i, ptr %OutBufCur.i6.i783.i, align 8
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit795.i
 
-_ZN4llvh11raw_ostreamlsEPKc.exit795.i:            ; preds = %if.then4.i.i790.i, %if.end.i.i788.i, %if.then.i.i793.i, %for.body178.i
-  %phi.call.i792.i = phi ptr [ %call3.i.i794.i, %if.then.i.i793.i ], [ %call179.i, %if.then4.i.i790.i ], [ %call179.i, %if.end.i.i788.i ], [ %call179.i, %for.body178.i ]
+_ZN4llvh11raw_ostreamlsEPKc.exit795.i:            ; preds = %if.then4.i.i790.i, %if.end.i.i788.i, %if.then.i.i793.i
+  %phi.call.i792.i = phi ptr [ %call3.i.i794.i, %if.then.i.i793.i ], [ %call179.i, %if.then4.i.i790.i ], [ %call179.i, %if.end.i.i788.i ]
   %OutBufEnd.i5.i798.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i792.i, i64 0, i32 2
   %221 = load ptr, ptr %OutBufEnd.i5.i798.i, align 8
   %OutBufCur.i6.i799.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i792.i, i64 0, i32 3

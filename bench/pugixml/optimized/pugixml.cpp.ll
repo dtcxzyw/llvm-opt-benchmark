@@ -36395,58 +36395,56 @@ for.body.i.i.i160.i:                              ; preds = %sw.bb.i.i, %for.con
   br i1 %cmp3.not.i.i.i.i, label %for.cond.i.i.i.i, label %sw.epilog.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit.i.i: ; preds = %for.cond.i.i.i.i, %sw.bb.i.i
-  %arrayidx4.i.i.i.i = getelementptr inbounds i8, ptr @.str.45, i64 %sub.ptr.sub.i.i159.i
-  %106 = load i8, ptr %arrayidx4.i.i.i.i, align 1
-  %cmp6.i.i.i.i = icmp eq i8 %106, 0
+  %cmp6.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i159.i, 7
   %cmp.i162.i = icmp eq i64 %argc.0.i.lcssa, 1
-  %or.cond.i.i = and i1 %cmp.i162.i, %cmp6.i.i.i.i
+  %or.cond.i.i = and i1 %cmp6.i.i.i.i, %cmp.i162.i
   br i1 %or.cond.i.i, label %if.then.i163.i, label %sw.epilog.i.i
 
 if.then.i163.i:                                   ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit.i.i
   %this.val153.i.i = load ptr, ptr %this, align 8
   %_root_size.i.i.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val153.i.i, i64 0, i32 1
-  %107 = load i64, ptr %_root_size.i.i.i.i.i, align 8
-  %add2.i.i.i.i.i = add i64 %107, 40
-  %108 = load ptr, ptr %this.val153.i.i, align 8
-  %capacity.i.i.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %108, i64 0, i32 1
-  %109 = load i64, ptr %capacity.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ugt i64 %add2.i.i.i.i.i, %109
+  %106 = load i64, ptr %_root_size.i.i.i.i.i, align 8
+  %add2.i.i.i.i.i = add i64 %106, 40
+  %107 = load ptr, ptr %this.val153.i.i, align 8
+  %capacity.i.i.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %107, i64 0, i32 1
+  %108 = load i64, ptr %capacity.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp ugt i64 %add2.i.i.i.i.i, %108
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i163.i
-  %110 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %108, i64 0, i32 2
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %110, i64 %107
+  %109 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %107, i64 0, i32 2
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %109, i64 %106
   store i64 %add2.i.i.i.i.i, ptr %_root_size.i.i.i.i.i, align 8
   br label %cond.true.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i163.i
-  %111 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
-  %call.i.i.i.i165.i = tail call noundef ptr %111(i64 noundef 4112)
+  %110 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
+  %call.i.i.i.i165.i = tail call noundef ptr %110(i64 noundef 4112)
   %tobool.not.i.i.i.i166.i = icmp eq ptr %call.i.i.i.i165.i, null
   br i1 %tobool.not.i.i.i.i166.i, label %if.then10.i.i.i.i.i, label %if.end14.i.i.i.i.i
 
 if.then10.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i
   %_error.i.i.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val153.i.i, i64 0, i32 2
-  %112 = load ptr, ptr %_error.i.i.i.i.i, align 8
-  %tobool11.not.i.i.i.i.i = icmp eq ptr %112, null
+  %111 = load ptr, ptr %_error.i.i.i.i.i, align 8
+  %tobool11.not.i.i.i.i.i = icmp eq ptr %111, null
   br i1 %tobool11.not.i.i.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread, label %if.then12.i.i.i.i.i
 
 if.then12.i.i.i.i.i:                              ; preds = %if.then10.i.i.i.i.i
-  store i8 1, ptr %112, align 1
+  store i8 1, ptr %111, align 1
   br label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread
 
 if.end14.i.i.i.i.i:                               ; preds = %if.else.i.i.i.i.i
-  %113 = load ptr, ptr %this.val153.i.i, align 8
-  store ptr %113, ptr %call.i.i.i.i165.i, align 8
+  %112 = load ptr, ptr %this.val153.i.i, align 8
+  store ptr %112, ptr %call.i.i.i.i165.i, align 8
   %capacity16.i.i.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i.i165.i, i64 0, i32 1
   store i64 4096, ptr %capacity16.i.i.i.i.i, align 8
   store ptr %call.i.i.i.i165.i, ptr %this.val153.i.i, align 8
   store i64 40, ptr %_root_size.i.i.i.i.i, align 8
-  %114 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i.i165.i, i64 0, i32 2
+  %113 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i.i165.i, i64 0, i32 2
   br label %cond.true.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %if.end14.i.i.i.i.i, %if.then.i.i.i.i.i
-  %retval.0.i.i.i.i164.i = phi ptr [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %114, %if.end14.i.i.i.i.i ]
+  %retval.0.i.i.i.i164.i = phi ptr [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %113, %if.end14.i.i.i.i.i ]
   store <4 x i8> <i8 45, i8 4, i8 0, i8 0>, ptr %retval.0.i.i.i.i164.i, align 8
   %_left.i.i.i.i = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i.i164.i, i64 0, i32 4
   store ptr %args.val.i, ptr %_left.i.i.i.i, align 8
@@ -36469,10 +36467,10 @@ for.cond.i.i221.i.i:                              ; preds = %for.body.i.i215.i.i
 for.body.i.i215.i.i:                              ; preds = %sw.bb4.i.i, %for.cond.i.i221.i.i
   %i.08.i.i216.i.i = phi i64 [ %inc.i.i222.i.i, %for.cond.i.i221.i.i ], [ 0, %sw.bb4.i.i ]
   %arrayidx.i.i217.i.i = getelementptr inbounds i8, ptr @.str.46, i64 %i.08.i.i216.i.i
-  %115 = load i8, ptr %arrayidx.i.i217.i.i, align 1
+  %114 = load i8, ptr %arrayidx.i.i217.i.i, align 1
   %arrayidx1.i.i218.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i216.i.i
-  %116 = load i8, ptr %arrayidx1.i.i218.i.i, align 1
-  %cmp3.not.i.i219.i.i = icmp eq i8 %115, %116
+  %115 = load i8, ptr %arrayidx1.i.i218.i.i, align 1
+  %cmp3.not.i.i219.i.i = icmp eq i8 %114, %115
   br i1 %cmp3.not.i.i219.i.i, label %for.cond.i.i221.i.i, label %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit227.thread.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit227.thread.i.i: ; preds = %for.body.i.i215.i.i
@@ -36480,80 +36478,78 @@ _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit227.thread.i.i: ; pre
   br label %if.else.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit227.i.i: ; preds = %for.cond.i.i221.i.i, %sw.bb4.i.i
-  %arrayidx4.i.i225.i.i = getelementptr inbounds i8, ptr @.str.46, i64 %sub.ptr.sub.i213.i.i
-  %117 = load i8, ptr %arrayidx4.i.i225.i.i, align 1
-  %cmp6.i.i226.i.i = icmp eq i8 %117, 0
+  %cmp6.i.i226.i.i = icmp eq i64 %sub.ptr.sub.i213.i.i, 5
   %cmp7.i.i = icmp eq i64 %argc.0.i.lcssa, 1
-  %or.cond1.i.i = and i1 %cmp7.i.i, %cmp6.i.i226.i.i
+  %or.cond1.i.i = and i1 %cmp6.i.i226.i.i, %cmp7.i.i
   br i1 %or.cond1.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit227.i.i
-  %118 = getelementptr i8, ptr %args.val.i, i64 1
-  %.val157.i.i = load i8, ptr %118, align 1
+  %116 = getelementptr i8, ptr %args.val.i, i64 1
+  %.val157.i.i = load i8, ptr %116, align 1
   %cmp11.not.i.i = icmp eq i8 %.val157.i.i, 1
   br i1 %cmp11.not.i.i, label %if.end14.i.i, label %if.then12.i.i
 
 if.then12.i.i:                                    ; preds = %if.then8.i.i
   %_result.i.i153.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %119 = load ptr, ptr %_result.i.i153.i, align 8
-  store ptr @.str.47, ptr %119, align 8
-  %120 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i.i154.i = load ptr, ptr %120, align 8
+  %117 = load ptr, ptr %_result.i.i153.i, align 8
+  store ptr @.str.47, ptr %117, align 8
+  %118 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
+  %_lexer.val.i.i154.i = load ptr, ptr %118, align 8
   %_query.i.i155.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %121 = load ptr, ptr %_query.i.i155.i, align 8
+  %119 = load ptr, ptr %_query.i.i155.i, align 8
   %sub.ptr.lhs.cast.i228.i.i = ptrtoint ptr %_lexer.val.i.i154.i to i64
-  %sub.ptr.rhs.cast.i229.i.i = ptrtoint ptr %121 to i64
+  %sub.ptr.rhs.cast.i229.i.i = ptrtoint ptr %119 to i64
   %sub.ptr.sub.i230.i.i = sub i64 %sub.ptr.lhs.cast.i228.i.i, %sub.ptr.rhs.cast.i229.i.i
-  %122 = load ptr, ptr %_result.i.i153.i, align 8
-  %offset.i.i156.i = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %122, i64 0, i32 1
+  %120 = load ptr, ptr %_result.i.i153.i, align 8
+  %offset.i.i156.i = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %120, i64 0, i32 1
   store i64 %sub.ptr.sub.i230.i.i, ptr %offset.i.i156.i, align 8
   br label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread
 
 if.end14.i.i:                                     ; preds = %if.then8.i.i
   %this.val152.i.i = load ptr, ptr %this, align 8
   %_root_size.i.i.i231.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val152.i.i, i64 0, i32 1
-  %123 = load i64, ptr %_root_size.i.i.i231.i.i, align 8
-  %add2.i.i.i232.i.i = add i64 %123, 40
-  %124 = load ptr, ptr %this.val152.i.i, align 8
-  %capacity.i.i.i233.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %124, i64 0, i32 1
-  %125 = load i64, ptr %capacity.i.i.i233.i.i, align 8
-  %cmp.not.i.i.i234.i.i = icmp ugt i64 %add2.i.i.i232.i.i, %125
+  %121 = load i64, ptr %_root_size.i.i.i231.i.i, align 8
+  %add2.i.i.i232.i.i = add i64 %121, 40
+  %122 = load ptr, ptr %this.val152.i.i, align 8
+  %capacity.i.i.i233.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %122, i64 0, i32 1
+  %123 = load i64, ptr %capacity.i.i.i233.i.i, align 8
+  %cmp.not.i.i.i234.i.i = icmp ugt i64 %add2.i.i.i232.i.i, %123
   br i1 %cmp.not.i.i.i234.i.i, label %if.else.i.i.i246.i.i, label %if.then.i.i.i235.i.i
 
 if.then.i.i.i235.i.i:                             ; preds = %if.end14.i.i
-  %126 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %124, i64 0, i32 2
-  %add.ptr.i.i.i236.i.i = getelementptr inbounds i8, ptr %126, i64 %123
+  %124 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %122, i64 0, i32 2
+  %add.ptr.i.i.i236.i.i = getelementptr inbounds i8, ptr %124, i64 %121
   store i64 %add2.i.i.i232.i.i, ptr %_root_size.i.i.i231.i.i, align 8
   br label %cond.true.i237.i.i
 
 if.else.i.i.i246.i.i:                             ; preds = %if.end14.i.i
-  %127 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
-  %call.i.i.i247.i.i = tail call noundef ptr %127(i64 noundef 4112)
+  %125 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
+  %call.i.i.i247.i.i = tail call noundef ptr %125(i64 noundef 4112)
   %tobool.not.i.i.i248.i.i = icmp eq ptr %call.i.i.i247.i.i, null
   br i1 %tobool.not.i.i.i248.i.i, label %if.then10.i.i.i251.i.i, label %if.end14.i.i.i249.i.i
 
 if.then10.i.i.i251.i.i:                           ; preds = %if.else.i.i.i246.i.i
   %_error.i.i.i252.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val152.i.i, i64 0, i32 2
-  %128 = load ptr, ptr %_error.i.i.i252.i.i, align 8
-  %tobool11.not.i.i.i253.i.i = icmp eq ptr %128, null
+  %126 = load ptr, ptr %_error.i.i.i252.i.i, align 8
+  %tobool11.not.i.i.i253.i.i = icmp eq ptr %126, null
   br i1 %tobool11.not.i.i.i253.i.i, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread, label %if.then12.i.i.i254.i.i
 
 if.then12.i.i.i254.i.i:                           ; preds = %if.then10.i.i.i251.i.i
-  store i8 1, ptr %128, align 1
+  store i8 1, ptr %126, align 1
   br label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread
 
 if.end14.i.i.i249.i.i:                            ; preds = %if.else.i.i.i246.i.i
-  %129 = load ptr, ptr %this.val152.i.i, align 8
-  store ptr %129, ptr %call.i.i.i247.i.i, align 8
+  %127 = load ptr, ptr %this.val152.i.i, align 8
+  store ptr %127, ptr %call.i.i.i247.i.i, align 8
   %capacity16.i.i.i250.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i247.i.i, i64 0, i32 1
   store i64 4096, ptr %capacity16.i.i.i250.i.i, align 8
   store ptr %call.i.i.i247.i.i, ptr %this.val152.i.i, align 8
   store i64 40, ptr %_root_size.i.i.i231.i.i, align 8
-  %130 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i247.i.i, i64 0, i32 2
+  %128 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i247.i.i, i64 0, i32 2
   br label %cond.true.i237.i.i
 
 cond.true.i237.i.i:                               ; preds = %if.end14.i.i.i249.i.i, %if.then.i.i.i235.i.i
-  %retval.0.i.i.i238.i.i = phi ptr [ %add.ptr.i.i.i236.i.i, %if.then.i.i.i235.i.i ], [ %130, %if.end14.i.i.i249.i.i ]
+  %retval.0.i.i.i238.i.i = phi ptr [ %add.ptr.i.i.i236.i.i, %if.then.i.i.i235.i.i ], [ %128, %if.end14.i.i.i249.i.i ]
   store <4 x i8> <i8 23, i8 2, i8 0, i8 0>, ptr %retval.0.i.i.i238.i.i, align 8
   %_left.i.i242.i.i = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i238.i.i, i64 0, i32 4
   store ptr %args.val.i, ptr %_left.i.i242.i.i, align 8
@@ -36573,65 +36569,63 @@ for.cond.i.i266.i.i:                              ; preds = %for.body.i.i260.i.i
 for.body.i.i260.i.i:                              ; preds = %if.else.i.i, %for.cond.i.i266.i.i
   %i.08.i.i261.i.i = phi i64 [ %inc.i.i267.i.i, %for.cond.i.i266.i.i ], [ 0, %if.else.i.i ]
   %arrayidx.i.i262.i.i = getelementptr inbounds i8, ptr @.str.48, i64 %i.08.i.i261.i.i
-  %131 = load i8, ptr %arrayidx.i.i262.i.i, align 1
+  %129 = load i8, ptr %arrayidx.i.i262.i.i, align 1
   %arrayidx1.i.i263.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i261.i.i
-  %132 = load i8, ptr %arrayidx1.i.i263.i.i, align 1
-  %cmp3.not.i.i264.i.i = icmp eq i8 %131, %132
+  %130 = load i8, ptr %arrayidx1.i.i263.i.i, align 1
+  %cmp3.not.i.i264.i.i = icmp eq i8 %129, %130
   br i1 %cmp3.not.i.i264.i.i, label %for.cond.i.i266.i.i, label %if.else24.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit272.i.i: ; preds = %for.cond.i.i266.i.i, %if.else.i.i
-  %arrayidx4.i.i270.i.i = getelementptr inbounds i8, ptr @.str.48, i64 %sub.ptr.sub.i213.i.i
-  %133 = load i8, ptr %arrayidx4.i.i270.i.i, align 1
-  %cmp6.i.i271.i.i = icmp eq i8 %133, 0
+  %cmp6.i.i271.i.i = icmp eq i64 %sub.ptr.sub.i213.i.i, 8
   %cmp19.i.i = icmp eq i64 %argc.0.i.lcssa, 2
-  %or.cond2.i.i = and i1 %cmp19.i.i, %cmp6.i.i271.i.i
+  %or.cond2.i.i = and i1 %cmp6.i.i271.i.i, %cmp19.i.i
   br i1 %or.cond2.i.i, label %if.then20.i.i, label %if.else24.i.i
 
 if.then20.i.i:                                    ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit272.i.i
   %this.val151.i.i = load ptr, ptr %this, align 8
   %_root_size.i.i.i273.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val151.i.i, i64 0, i32 1
-  %134 = load i64, ptr %_root_size.i.i.i273.i.i, align 8
-  %add2.i.i.i274.i.i = add i64 %134, 40
-  %135 = load ptr, ptr %this.val151.i.i, align 8
-  %capacity.i.i.i275.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %135, i64 0, i32 1
-  %136 = load i64, ptr %capacity.i.i.i275.i.i, align 8
-  %cmp.not.i.i.i276.i.i = icmp ugt i64 %add2.i.i.i274.i.i, %136
+  %131 = load i64, ptr %_root_size.i.i.i273.i.i, align 8
+  %add2.i.i.i274.i.i = add i64 %131, 40
+  %132 = load ptr, ptr %this.val151.i.i, align 8
+  %capacity.i.i.i275.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %132, i64 0, i32 1
+  %133 = load i64, ptr %capacity.i.i.i275.i.i, align 8
+  %cmp.not.i.i.i276.i.i = icmp ugt i64 %add2.i.i.i274.i.i, %133
   br i1 %cmp.not.i.i.i276.i.i, label %if.else.i.i.i288.i.i, label %if.then.i.i.i277.i.i
 
 if.then.i.i.i277.i.i:                             ; preds = %if.then20.i.i
-  %137 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %135, i64 0, i32 2
-  %add.ptr.i.i.i278.i.i = getelementptr inbounds i8, ptr %137, i64 %134
+  %134 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %132, i64 0, i32 2
+  %add.ptr.i.i.i278.i.i = getelementptr inbounds i8, ptr %134, i64 %131
   store i64 %add2.i.i.i274.i.i, ptr %_root_size.i.i.i273.i.i, align 8
   br label %cond.true.i279.i.i
 
 if.else.i.i.i288.i.i:                             ; preds = %if.then20.i.i
-  %138 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
-  %call.i.i.i289.i.i = tail call noundef ptr %138(i64 noundef 4112)
+  %135 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
+  %call.i.i.i289.i.i = tail call noundef ptr %135(i64 noundef 4112)
   %tobool.not.i.i.i290.i.i = icmp eq ptr %call.i.i.i289.i.i, null
   br i1 %tobool.not.i.i.i290.i.i, label %if.then10.i.i.i293.i.i, label %if.end14.i.i.i291.i.i
 
 if.then10.i.i.i293.i.i:                           ; preds = %if.else.i.i.i288.i.i
   %_error.i.i.i294.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val151.i.i, i64 0, i32 2
-  %139 = load ptr, ptr %_error.i.i.i294.i.i, align 8
-  %tobool11.not.i.i.i295.i.i = icmp eq ptr %139, null
+  %136 = load ptr, ptr %_error.i.i.i294.i.i, align 8
+  %tobool11.not.i.i.i295.i.i = icmp eq ptr %136, null
   br i1 %tobool11.not.i.i.i295.i.i, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread, label %if.then12.i.i.i296.i.i
 
 if.then12.i.i.i296.i.i:                           ; preds = %if.then10.i.i.i293.i.i
-  store i8 1, ptr %139, align 1
+  store i8 1, ptr %136, align 1
   br label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread
 
 if.end14.i.i.i291.i.i:                            ; preds = %if.else.i.i.i288.i.i
-  %140 = load ptr, ptr %this.val151.i.i, align 8
-  store ptr %140, ptr %call.i.i.i289.i.i, align 8
+  %137 = load ptr, ptr %this.val151.i.i, align 8
+  store ptr %137, ptr %call.i.i.i289.i.i, align 8
   %capacity16.i.i.i292.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i289.i.i, i64 0, i32 1
   store i64 4096, ptr %capacity16.i.i.i292.i.i, align 8
   store ptr %call.i.i.i289.i.i, ptr %this.val151.i.i, align 8
   store i64 40, ptr %_root_size.i.i.i273.i.i, align 8
-  %141 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i289.i.i, i64 0, i32 2
+  %138 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i289.i.i, i64 0, i32 2
   br label %cond.true.i279.i.i
 
 cond.true.i279.i.i:                               ; preds = %if.end14.i.i.i291.i.i, %if.then.i.i.i277.i.i
-  %retval.0.i.i.i280.i.i = phi ptr [ %add.ptr.i.i.i278.i.i, %if.then.i.i.i277.i.i ], [ %141, %if.end14.i.i.i291.i.i ]
+  %retval.0.i.i.i280.i.i = phi ptr [ %add.ptr.i.i.i278.i.i, %if.then.i.i.i277.i.i ], [ %138, %if.end14.i.i.i291.i.i ]
   store <4 x i8> <i8 35, i8 4, i8 0, i8 0>, ptr %retval.0.i.i.i280.i.i, align 8
   %_left.i.i284.i.i = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i280.i.i, i64 0, i32 4
   store ptr %args.val.i, ptr %_left.i.i284.i.i, align 8
@@ -36652,18 +36646,16 @@ for.cond.i.i308.i.i:                              ; preds = %for.body.i.i302.i.i
 for.body.i.i302.i.i:                              ; preds = %if.else24.i.i, %for.cond.i.i308.i.i
   %i.08.i.i303.i.i = phi i64 [ %inc.i.i309.i.i, %for.cond.i.i308.i.i ], [ 0, %if.else24.i.i ]
   %arrayidx.i.i304.i.i = getelementptr inbounds i8, ptr @.str.49, i64 %i.08.i.i303.i.i
-  %142 = load i8, ptr %arrayidx.i.i304.i.i, align 1
+  %139 = load i8, ptr %arrayidx.i.i304.i.i, align 1
   %arrayidx1.i.i305.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i303.i.i
-  %143 = load i8, ptr %arrayidx1.i.i305.i.i, align 1
-  %cmp3.not.i.i306.i.i = icmp eq i8 %142, %143
+  %140 = load i8, ptr %arrayidx1.i.i305.i.i, align 1
+  %cmp3.not.i.i306.i.i = icmp eq i8 %139, %140
   br i1 %cmp3.not.i.i306.i.i, label %for.cond.i.i308.i.i, label %if.else32.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit314.i.i: ; preds = %for.cond.i.i308.i.i, %if.else24.i.i
-  %arrayidx4.i.i312.i.i = getelementptr inbounds i8, ptr @.str.49, i64 %sub.ptr.sub.i213.i.i
-  %144 = load i8, ptr %arrayidx4.i.i312.i.i, align 1
-  %cmp6.i.i313.i.i = icmp eq i8 %144, 0
+  %cmp6.i.i313.i.i = icmp eq i64 %sub.ptr.sub.i213.i.i, 6
   %cmp27.i.i = icmp ugt i64 %argc.0.i.lcssa, 1
-  %or.cond3.i.i = and i1 %cmp27.i.i, %cmp6.i.i313.i.i
+  %or.cond3.i.i = and i1 %cmp6.i.i313.i.i, %cmp27.i.i
   br i1 %or.cond3.i.i, label %if.then28.i.i, label %if.else32.i.i
 
 if.then28.i.i:                                    ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit314.i.i
@@ -36682,17 +36674,15 @@ for.cond.i.i325.i.i:                              ; preds = %for.body.i.i319.i.i
 for.body.i.i319.i.i:                              ; preds = %if.else32.i.i, %for.cond.i.i325.i.i
   %i.08.i.i320.i.i = phi i64 [ %inc.i.i326.i.i, %for.cond.i.i325.i.i ], [ 0, %if.else32.i.i ]
   %arrayidx.i.i321.i.i = getelementptr inbounds i8, ptr @.str.50, i64 %i.08.i.i320.i.i
-  %145 = load i8, ptr %arrayidx.i.i321.i.i, align 1
+  %141 = load i8, ptr %arrayidx.i.i321.i.i, align 1
   %arrayidx1.i.i322.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i320.i.i
-  %146 = load i8, ptr %arrayidx1.i.i322.i.i, align 1
-  %cmp3.not.i.i323.i.i = icmp eq i8 %145, %146
+  %142 = load i8, ptr %arrayidx1.i.i322.i.i, align 1
+  %cmp3.not.i.i323.i.i = icmp eq i8 %141, %142
   br i1 %cmp3.not.i.i323.i.i, label %for.cond.i.i325.i.i, label %sw.epilog.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit331.i.i: ; preds = %for.cond.i.i325.i.i, %if.else32.i.i
-  %arrayidx4.i.i329.i.i = getelementptr inbounds i8, ptr @.str.50, i64 %sub.ptr.sub.i213.i.i
-  %147 = load i8, ptr %arrayidx4.i.i329.i.i, align 1
-  %cmp6.i.i330.i.i = icmp eq i8 %147, 0
-  %or.cond4.i.i = and i1 %cmp731.i.i, %cmp6.i.i330.i.i
+  %cmp6.i.i330.i.i = icmp eq i64 %sub.ptr.sub.i213.i.i, 7
+  %or.cond4.i.i = and i1 %cmp6.i.i330.i.i, %cmp731.i.i
   br i1 %or.cond4.i.i, label %if.then36.i.i, label %sw.epilog.i.i
 
 if.then36.i.i:                                    ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit331.i.i
@@ -36715,65 +36705,63 @@ for.cond.i.i342.i.i:                              ; preds = %for.body.i.i336.i.i
 for.body.i.i336.i.i:                              ; preds = %sw.bb43.i.i, %for.cond.i.i342.i.i
   %i.08.i.i337.i.i = phi i64 [ %inc.i.i343.i.i, %for.cond.i.i342.i.i ], [ 0, %sw.bb43.i.i ]
   %arrayidx.i.i338.i.i = getelementptr inbounds i8, ptr @.str.51, i64 %i.08.i.i337.i.i
-  %148 = load i8, ptr %arrayidx.i.i338.i.i, align 1
+  %143 = load i8, ptr %arrayidx.i.i338.i.i, align 1
   %arrayidx1.i.i339.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i337.i.i
-  %149 = load i8, ptr %arrayidx1.i.i339.i.i, align 1
-  %cmp3.not.i.i340.i.i = icmp eq i8 %148, %149
+  %144 = load i8, ptr %arrayidx1.i.i339.i.i, align 1
+  %cmp3.not.i.i340.i.i = icmp eq i8 %143, %144
   br i1 %cmp3.not.i.i340.i.i, label %for.cond.i.i342.i.i, label %if.else49.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit348.i.i: ; preds = %for.cond.i.i342.i.i, %sw.bb43.i.i
-  %arrayidx4.i.i346.i.i = getelementptr inbounds i8, ptr @.str.51, i64 %sub.ptr.sub.i334.i.i
-  %150 = load i8, ptr %arrayidx4.i.i346.i.i, align 1
-  %cmp6.i.i347.i.i = icmp eq i8 %150, 0
+  %cmp6.i.i347.i.i = icmp eq i64 %sub.ptr.sub.i334.i.i, 5
   %cmp46.i.i = icmp eq i64 %argc.0.i.lcssa, 0
-  %or.cond5.i.i = and i1 %cmp46.i.i, %cmp6.i.i347.i.i
+  %or.cond5.i.i = and i1 %cmp6.i.i347.i.i, %cmp46.i.i
   br i1 %or.cond5.i.i, label %if.then47.i.i, label %if.else49.i.i
 
 if.then47.i.i:                                    ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit348.i.i
   %this.val148.i.i = load ptr, ptr %this, align 8
   %_root_size.i.i.i349.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val148.i.i, i64 0, i32 1
-  %151 = load i64, ptr %_root_size.i.i.i349.i.i, align 8
-  %add2.i.i.i350.i.i = add i64 %151, 40
-  %152 = load ptr, ptr %this.val148.i.i, align 8
-  %capacity.i.i.i351.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %152, i64 0, i32 1
-  %153 = load i64, ptr %capacity.i.i.i351.i.i, align 8
-  %cmp.not.i.i.i352.i.i = icmp ugt i64 %add2.i.i.i350.i.i, %153
+  %145 = load i64, ptr %_root_size.i.i.i349.i.i, align 8
+  %add2.i.i.i350.i.i = add i64 %145, 40
+  %146 = load ptr, ptr %this.val148.i.i, align 8
+  %capacity.i.i.i351.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %146, i64 0, i32 1
+  %147 = load i64, ptr %capacity.i.i.i351.i.i, align 8
+  %cmp.not.i.i.i352.i.i = icmp ugt i64 %add2.i.i.i350.i.i, %147
   br i1 %cmp.not.i.i.i352.i.i, label %if.else.i.i.i364.i.i, label %if.then.i.i.i353.i.i
 
 if.then.i.i.i353.i.i:                             ; preds = %if.then47.i.i
-  %154 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %152, i64 0, i32 2
-  %add.ptr.i.i.i354.i.i = getelementptr inbounds i8, ptr %154, i64 %151
+  %148 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %146, i64 0, i32 2
+  %add.ptr.i.i.i354.i.i = getelementptr inbounds i8, ptr %148, i64 %145
   store i64 %add2.i.i.i350.i.i, ptr %_root_size.i.i.i349.i.i, align 8
   br label %cond.true.i355.i.i
 
 if.else.i.i.i364.i.i:                             ; preds = %if.then47.i.i
-  %155 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
-  %call.i.i.i365.i.i = tail call noundef ptr %155(i64 noundef 4112)
+  %149 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
+  %call.i.i.i365.i.i = tail call noundef ptr %149(i64 noundef 4112)
   %tobool.not.i.i.i366.i.i = icmp eq ptr %call.i.i.i365.i.i, null
   br i1 %tobool.not.i.i.i366.i.i, label %if.then10.i.i.i369.i.i, label %if.end14.i.i.i367.i.i
 
 if.then10.i.i.i369.i.i:                           ; preds = %if.else.i.i.i364.i.i
   %_error.i.i.i370.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val148.i.i, i64 0, i32 2
-  %156 = load ptr, ptr %_error.i.i.i370.i.i, align 8
-  %tobool11.not.i.i.i371.i.i = icmp eq ptr %156, null
+  %150 = load ptr, ptr %_error.i.i.i370.i.i, align 8
+  %tobool11.not.i.i.i371.i.i = icmp eq ptr %150, null
   br i1 %tobool11.not.i.i.i371.i.i, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread, label %if.then12.i.i.i372.i.i
 
 if.then12.i.i.i372.i.i:                           ; preds = %if.then10.i.i.i369.i.i
-  store i8 1, ptr %156, align 1
+  store i8 1, ptr %150, align 1
   br label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread
 
 if.end14.i.i.i367.i.i:                            ; preds = %if.else.i.i.i364.i.i
-  %157 = load ptr, ptr %this.val148.i.i, align 8
-  store ptr %157, ptr %call.i.i.i365.i.i, align 8
+  %151 = load ptr, ptr %this.val148.i.i, align 8
+  store ptr %151, ptr %call.i.i.i365.i.i, align 8
   %capacity16.i.i.i368.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i365.i.i, i64 0, i32 1
   store i64 4096, ptr %capacity16.i.i.i368.i.i, align 8
   store ptr %call.i.i.i365.i.i, ptr %this.val148.i.i, align 8
   store i64 40, ptr %_root_size.i.i.i349.i.i, align 8
-  %158 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i365.i.i, i64 0, i32 2
+  %152 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i365.i.i, i64 0, i32 2
   br label %cond.true.i355.i.i
 
 cond.true.i355.i.i:                               ; preds = %if.end14.i.i.i367.i.i, %if.then.i.i.i353.i.i
-  %retval.0.i.i.i356.i.i = phi ptr [ %add.ptr.i.i.i354.i.i, %if.then.i.i.i353.i.i ], [ %158, %if.end14.i.i.i367.i.i ]
+  %retval.0.i.i.i356.i.i = phi ptr [ %add.ptr.i.i.i354.i.i, %if.then.i.i.i353.i.i ], [ %152, %if.end14.i.i.i367.i.i ]
   store <4 x i8> <i8 48, i8 4, i8 0, i8 0>, ptr %retval.0.i.i.i356.i.i, align 8
   %_left.i.i360.i.i = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i356.i.i, i64 0, i32 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_left.i.i360.i.i, i8 0, i64 24, i1 false)
@@ -36790,65 +36778,63 @@ for.cond.i.i384.i.i:                              ; preds = %for.body.i.i378.i.i
 for.body.i.i378.i.i:                              ; preds = %if.else49.i.i, %for.cond.i.i384.i.i
   %i.08.i.i379.i.i = phi i64 [ %inc.i.i385.i.i, %for.cond.i.i384.i.i ], [ 0, %if.else49.i.i ]
   %arrayidx.i.i380.i.i = getelementptr inbounds i8, ptr @.str.52, i64 %i.08.i.i379.i.i
-  %159 = load i8, ptr %arrayidx.i.i380.i.i, align 1
+  %153 = load i8, ptr %arrayidx.i.i380.i.i, align 1
   %arrayidx1.i.i381.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i379.i.i
-  %160 = load i8, ptr %arrayidx1.i.i381.i.i, align 1
-  %cmp3.not.i.i382.i.i = icmp eq i8 %159, %160
+  %154 = load i8, ptr %arrayidx1.i.i381.i.i, align 1
+  %cmp3.not.i.i382.i.i = icmp eq i8 %153, %154
   br i1 %cmp3.not.i.i382.i.i, label %for.cond.i.i384.i.i, label %sw.epilog.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit390.i.i: ; preds = %for.cond.i.i384.i.i, %if.else49.i.i
-  %arrayidx4.i.i388.i.i = getelementptr inbounds i8, ptr @.str.52, i64 %sub.ptr.sub.i334.i.i
-  %161 = load i8, ptr %arrayidx4.i.i388.i.i, align 1
-  %cmp6.i.i389.i.i = icmp eq i8 %161, 0
+  %cmp6.i.i389.i.i = icmp eq i64 %sub.ptr.sub.i334.i.i, 5
   %cmp52.i.i = icmp eq i64 %argc.0.i.lcssa, 1
-  %or.cond6.i.i = and i1 %cmp52.i.i, %cmp6.i.i389.i.i
+  %or.cond6.i.i = and i1 %cmp6.i.i389.i.i, %cmp52.i.i
   br i1 %or.cond6.i.i, label %if.then53.i.i, label %sw.epilog.i.i
 
 if.then53.i.i:                                    ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit390.i.i
   %this.val147.i.i = load ptr, ptr %this, align 8
   %_root_size.i.i.i391.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val147.i.i, i64 0, i32 1
-  %162 = load i64, ptr %_root_size.i.i.i391.i.i, align 8
-  %add2.i.i.i392.i.i = add i64 %162, 40
-  %163 = load ptr, ptr %this.val147.i.i, align 8
-  %capacity.i.i.i393.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %163, i64 0, i32 1
-  %164 = load i64, ptr %capacity.i.i.i393.i.i, align 8
-  %cmp.not.i.i.i394.i.i = icmp ugt i64 %add2.i.i.i392.i.i, %164
+  %155 = load i64, ptr %_root_size.i.i.i391.i.i, align 8
+  %add2.i.i.i392.i.i = add i64 %155, 40
+  %156 = load ptr, ptr %this.val147.i.i, align 8
+  %capacity.i.i.i393.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %156, i64 0, i32 1
+  %157 = load i64, ptr %capacity.i.i.i393.i.i, align 8
+  %cmp.not.i.i.i394.i.i = icmp ugt i64 %add2.i.i.i392.i.i, %157
   br i1 %cmp.not.i.i.i394.i.i, label %if.else.i.i.i406.i.i, label %if.then.i.i.i395.i.i
 
 if.then.i.i.i395.i.i:                             ; preds = %if.then53.i.i
-  %165 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %163, i64 0, i32 2
-  %add.ptr.i.i.i396.i.i = getelementptr inbounds i8, ptr %165, i64 %162
+  %158 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %156, i64 0, i32 2
+  %add.ptr.i.i.i396.i.i = getelementptr inbounds i8, ptr %158, i64 %155
   store i64 %add2.i.i.i392.i.i, ptr %_root_size.i.i.i391.i.i, align 8
   br label %cond.true.i397.i.i
 
 if.else.i.i.i406.i.i:                             ; preds = %if.then53.i.i
-  %166 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
-  %call.i.i.i407.i.i = tail call noundef ptr %166(i64 noundef 4112)
+  %159 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
+  %call.i.i.i407.i.i = tail call noundef ptr %159(i64 noundef 4112)
   %tobool.not.i.i.i408.i.i = icmp eq ptr %call.i.i.i407.i.i, null
   br i1 %tobool.not.i.i.i408.i.i, label %if.then10.i.i.i411.i.i, label %if.end14.i.i.i409.i.i
 
 if.then10.i.i.i411.i.i:                           ; preds = %if.else.i.i.i406.i.i
   %_error.i.i.i412.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val147.i.i, i64 0, i32 2
-  %167 = load ptr, ptr %_error.i.i.i412.i.i, align 8
-  %tobool11.not.i.i.i413.i.i = icmp eq ptr %167, null
+  %160 = load ptr, ptr %_error.i.i.i412.i.i, align 8
+  %tobool11.not.i.i.i413.i.i = icmp eq ptr %160, null
   br i1 %tobool11.not.i.i.i413.i.i, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread, label %if.then12.i.i.i414.i.i
 
 if.then12.i.i.i414.i.i:                           ; preds = %if.then10.i.i.i411.i.i
-  store i8 1, ptr %167, align 1
+  store i8 1, ptr %160, align 1
   br label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread
 
 if.end14.i.i.i409.i.i:                            ; preds = %if.else.i.i.i406.i.i
-  %168 = load ptr, ptr %this.val147.i.i, align 8
-  store ptr %168, ptr %call.i.i.i407.i.i, align 8
+  %161 = load ptr, ptr %this.val147.i.i, align 8
+  store ptr %161, ptr %call.i.i.i407.i.i, align 8
   %capacity16.i.i.i410.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i407.i.i, i64 0, i32 1
   store i64 4096, ptr %capacity16.i.i.i410.i.i, align 8
   store ptr %call.i.i.i407.i.i, ptr %this.val147.i.i, align 8
   store i64 40, ptr %_root_size.i.i.i391.i.i, align 8
-  %169 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i407.i.i, i64 0, i32 2
+  %162 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i407.i.i, i64 0, i32 2
   br label %cond.true.i397.i.i
 
 cond.true.i397.i.i:                               ; preds = %if.end14.i.i.i409.i.i, %if.then.i.i.i395.i.i
-  %retval.0.i.i.i398.i.i = phi ptr [ %add.ptr.i.i.i396.i.i, %if.then.i.i.i395.i.i ], [ %169, %if.end14.i.i.i409.i.i ]
+  %retval.0.i.i.i398.i.i = phi ptr [ %add.ptr.i.i.i396.i.i, %if.then.i.i.i395.i.i ], [ %162, %if.end14.i.i.i409.i.i ]
   store <4 x i8> <i8 53, i8 2, i8 0, i8 0>, ptr %retval.0.i.i.i398.i.i, align 8
   %_left.i.i402.i.i = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i398.i.i, i64 0, i32 4
   store ptr %args.val.i, ptr %_left.i.i402.i.i, align 8
@@ -36871,65 +36857,63 @@ for.cond.i.i426.i.i:                              ; preds = %for.body.i.i420.i.i
 for.body.i.i420.i.i:                              ; preds = %sw.bb58.i.i, %for.cond.i.i426.i.i
   %i.08.i.i421.i.i = phi i64 [ %inc.i.i427.i.i, %for.cond.i.i426.i.i ], [ 0, %sw.bb58.i.i ]
   %arrayidx.i.i422.i.i = getelementptr inbounds i8, ptr @.str.53, i64 %i.08.i.i421.i.i
-  %170 = load i8, ptr %arrayidx.i.i422.i.i, align 1
+  %163 = load i8, ptr %arrayidx.i.i422.i.i, align 1
   %arrayidx1.i.i423.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i421.i.i
-  %171 = load i8, ptr %arrayidx1.i.i423.i.i, align 1
-  %cmp3.not.i.i424.i.i = icmp eq i8 %170, %171
+  %164 = load i8, ptr %arrayidx1.i.i423.i.i, align 1
+  %cmp3.not.i.i424.i.i = icmp eq i8 %163, %164
   br i1 %cmp3.not.i.i424.i.i, label %for.cond.i.i426.i.i, label %sw.epilog.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit432.i.i: ; preds = %for.cond.i.i426.i.i, %sw.bb58.i.i
-  %arrayidx4.i.i430.i.i = getelementptr inbounds i8, ptr @.str.53, i64 %sub.ptr.sub.i418.i.i
-  %172 = load i8, ptr %arrayidx4.i.i430.i.i, align 1
-  %cmp6.i.i431.i.i = icmp eq i8 %172, 0
+  %cmp6.i.i431.i.i = icmp eq i64 %sub.ptr.sub.i418.i.i, 2
   %cmp61.i.i = icmp eq i64 %argc.0.i.lcssa, 1
-  %or.cond7.i.i = and i1 %cmp61.i.i, %cmp6.i.i431.i.i
+  %or.cond7.i.i = and i1 %cmp6.i.i431.i.i, %cmp61.i.i
   br i1 %or.cond7.i.i, label %if.then62.i.i, label %sw.epilog.i.i
 
 if.then62.i.i:                                    ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit432.i.i
   %this.val146.i.i = load ptr, ptr %this, align 8
   %_root_size.i.i.i433.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val146.i.i, i64 0, i32 1
-  %173 = load i64, ptr %_root_size.i.i.i433.i.i, align 8
-  %add2.i.i.i434.i.i = add i64 %173, 40
-  %174 = load ptr, ptr %this.val146.i.i, align 8
-  %capacity.i.i.i435.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %174, i64 0, i32 1
-  %175 = load i64, ptr %capacity.i.i.i435.i.i, align 8
-  %cmp.not.i.i.i436.i.i = icmp ugt i64 %add2.i.i.i434.i.i, %175
+  %165 = load i64, ptr %_root_size.i.i.i433.i.i, align 8
+  %add2.i.i.i434.i.i = add i64 %165, 40
+  %166 = load ptr, ptr %this.val146.i.i, align 8
+  %capacity.i.i.i435.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %166, i64 0, i32 1
+  %167 = load i64, ptr %capacity.i.i.i435.i.i, align 8
+  %cmp.not.i.i.i436.i.i = icmp ugt i64 %add2.i.i.i434.i.i, %167
   br i1 %cmp.not.i.i.i436.i.i, label %if.else.i.i.i448.i.i, label %if.then.i.i.i437.i.i
 
 if.then.i.i.i437.i.i:                             ; preds = %if.then62.i.i
-  %176 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %174, i64 0, i32 2
-  %add.ptr.i.i.i438.i.i = getelementptr inbounds i8, ptr %176, i64 %173
+  %168 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %166, i64 0, i32 2
+  %add.ptr.i.i.i438.i.i = getelementptr inbounds i8, ptr %168, i64 %165
   store i64 %add2.i.i.i434.i.i, ptr %_root_size.i.i.i433.i.i, align 8
   br label %cond.true.i439.i.i
 
 if.else.i.i.i448.i.i:                             ; preds = %if.then62.i.i
-  %177 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
-  %call.i.i.i449.i.i = tail call noundef ptr %177(i64 noundef 4112)
+  %169 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
+  %call.i.i.i449.i.i = tail call noundef ptr %169(i64 noundef 4112)
   %tobool.not.i.i.i450.i.i = icmp eq ptr %call.i.i.i449.i.i, null
   br i1 %tobool.not.i.i.i450.i.i, label %if.then10.i.i.i453.i.i, label %if.end14.i.i.i451.i.i
 
 if.then10.i.i.i453.i.i:                           ; preds = %if.else.i.i.i448.i.i
   %_error.i.i.i454.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val146.i.i, i64 0, i32 2
-  %178 = load ptr, ptr %_error.i.i.i454.i.i, align 8
-  %tobool11.not.i.i.i455.i.i = icmp eq ptr %178, null
+  %170 = load ptr, ptr %_error.i.i.i454.i.i, align 8
+  %tobool11.not.i.i.i455.i.i = icmp eq ptr %170, null
   br i1 %tobool11.not.i.i.i455.i.i, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread, label %if.then12.i.i.i456.i.i
 
 if.then12.i.i.i456.i.i:                           ; preds = %if.then10.i.i.i453.i.i
-  store i8 1, ptr %178, align 1
+  store i8 1, ptr %170, align 1
   br label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread
 
 if.end14.i.i.i451.i.i:                            ; preds = %if.else.i.i.i448.i.i
-  %179 = load ptr, ptr %this.val146.i.i, align 8
-  store ptr %179, ptr %call.i.i.i449.i.i, align 8
+  %171 = load ptr, ptr %this.val146.i.i, align 8
+  store ptr %171, ptr %call.i.i.i449.i.i, align 8
   %capacity16.i.i.i452.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i449.i.i, i64 0, i32 1
   store i64 4096, ptr %capacity16.i.i.i452.i.i, align 8
   store ptr %call.i.i.i449.i.i, ptr %this.val146.i.i, align 8
   store i64 40, ptr %_root_size.i.i.i433.i.i, align 8
-  %180 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i449.i.i, i64 0, i32 2
+  %172 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i449.i.i, i64 0, i32 2
   br label %cond.true.i439.i.i
 
 cond.true.i439.i.i:                               ; preds = %if.end14.i.i.i451.i.i, %if.then.i.i.i437.i.i
-  %retval.0.i.i.i440.i.i = phi ptr [ %add.ptr.i.i.i438.i.i, %if.then.i.i.i437.i.i ], [ %180, %if.end14.i.i.i451.i.i ]
+  %retval.0.i.i.i440.i.i = phi ptr [ %add.ptr.i.i.i438.i.i, %if.then.i.i.i437.i.i ], [ %172, %if.end14.i.i.i451.i.i ]
   store <4 x i8> <i8 24, i8 1, i8 0, i8 0>, ptr %retval.0.i.i.i440.i.i, align 8
   %_left.i.i444.i.i = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i440.i.i, i64 0, i32 4
   store ptr %args.val.i, ptr %_left.i.i444.i.i, align 8
@@ -36952,10 +36936,10 @@ for.cond.i.i468.i.i:                              ; preds = %for.body.i.i462.i.i
 for.body.i.i462.i.i:                              ; preds = %sw.bb66.i.i, %for.cond.i.i468.i.i
   %i.08.i.i463.i.i = phi i64 [ %inc.i.i469.i.i, %for.cond.i.i468.i.i ], [ 0, %sw.bb66.i.i ]
   %arrayidx.i.i464.i.i = getelementptr inbounds i8, ptr @.str.54, i64 %i.08.i.i463.i.i
-  %181 = load i8, ptr %arrayidx.i.i464.i.i, align 1
+  %173 = load i8, ptr %arrayidx.i.i464.i.i, align 1
   %arrayidx1.i.i465.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i463.i.i
-  %182 = load i8, ptr %arrayidx1.i.i465.i.i, align 1
-  %cmp3.not.i.i466.i.i = icmp eq i8 %181, %182
+  %174 = load i8, ptr %arrayidx1.i.i465.i.i, align 1
+  %cmp3.not.i.i466.i.i = icmp eq i8 %173, %174
   br i1 %cmp3.not.i.i466.i.i, label %for.cond.i.i468.i.i, label %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit474.thread.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit474.thread.i.i: ; preds = %for.body.i.i462.i.i
@@ -36963,58 +36947,56 @@ _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit474.thread.i.i: ; pre
   br label %if.else72.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit474.i.i: ; preds = %for.cond.i.i468.i.i, %sw.bb66.i.i
-  %arrayidx4.i.i472.i.i = getelementptr inbounds i8, ptr @.str.54, i64 %sub.ptr.sub.i460.i.i
-  %183 = load i8, ptr %arrayidx4.i.i472.i.i, align 1
-  %cmp6.i.i473.i.i = icmp eq i8 %183, 0
+  %cmp6.i.i473.i.i = icmp eq i64 %sub.ptr.sub.i460.i.i, 4
   %cmp69.i.i = icmp eq i64 %argc.0.i.lcssa, 0
-  %or.cond8.i.i = and i1 %cmp69.i.i, %cmp6.i.i473.i.i
+  %or.cond8.i.i = and i1 %cmp6.i.i473.i.i, %cmp69.i.i
   br i1 %or.cond8.i.i, label %if.then70.i.i, label %if.else72.i.i
 
 if.then70.i.i:                                    ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit474.i.i
   %this.val145.i.i = load ptr, ptr %this, align 8
   %_root_size.i.i.i475.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val145.i.i, i64 0, i32 1
-  %184 = load i64, ptr %_root_size.i.i.i475.i.i, align 8
-  %add2.i.i.i476.i.i = add i64 %184, 40
-  %185 = load ptr, ptr %this.val145.i.i, align 8
-  %capacity.i.i.i477.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %185, i64 0, i32 1
-  %186 = load i64, ptr %capacity.i.i.i477.i.i, align 8
-  %cmp.not.i.i.i478.i.i = icmp ugt i64 %add2.i.i.i476.i.i, %186
+  %175 = load i64, ptr %_root_size.i.i.i475.i.i, align 8
+  %add2.i.i.i476.i.i = add i64 %175, 40
+  %176 = load ptr, ptr %this.val145.i.i, align 8
+  %capacity.i.i.i477.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %176, i64 0, i32 1
+  %177 = load i64, ptr %capacity.i.i.i477.i.i, align 8
+  %cmp.not.i.i.i478.i.i = icmp ugt i64 %add2.i.i.i476.i.i, %177
   br i1 %cmp.not.i.i.i478.i.i, label %if.else.i.i.i490.i.i, label %if.then.i.i.i479.i.i
 
 if.then.i.i.i479.i.i:                             ; preds = %if.then70.i.i
-  %187 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %185, i64 0, i32 2
-  %add.ptr.i.i.i480.i.i = getelementptr inbounds i8, ptr %187, i64 %184
+  %178 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %176, i64 0, i32 2
+  %add.ptr.i.i.i480.i.i = getelementptr inbounds i8, ptr %178, i64 %175
   store i64 %add2.i.i.i476.i.i, ptr %_root_size.i.i.i475.i.i, align 8
   br label %cond.true.i481.i.i
 
 if.else.i.i.i490.i.i:                             ; preds = %if.then70.i.i
-  %188 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
-  %call.i.i.i491.i.i = tail call noundef ptr %188(i64 noundef 4112)
+  %179 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
+  %call.i.i.i491.i.i = tail call noundef ptr %179(i64 noundef 4112)
   %tobool.not.i.i.i492.i.i = icmp eq ptr %call.i.i.i491.i.i, null
   br i1 %tobool.not.i.i.i492.i.i, label %if.then10.i.i.i495.i.i, label %if.end14.i.i.i493.i.i
 
 if.then10.i.i.i495.i.i:                           ; preds = %if.else.i.i.i490.i.i
   %_error.i.i.i496.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val145.i.i, i64 0, i32 2
-  %189 = load ptr, ptr %_error.i.i.i496.i.i, align 8
-  %tobool11.not.i.i.i497.i.i = icmp eq ptr %189, null
+  %180 = load ptr, ptr %_error.i.i.i496.i.i, align 8
+  %tobool11.not.i.i.i497.i.i = icmp eq ptr %180, null
   br i1 %tobool11.not.i.i.i497.i.i, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread, label %if.then12.i.i.i498.i.i
 
 if.then12.i.i.i498.i.i:                           ; preds = %if.then10.i.i.i495.i.i
-  store i8 1, ptr %189, align 1
+  store i8 1, ptr %180, align 1
   br label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread
 
 if.end14.i.i.i493.i.i:                            ; preds = %if.else.i.i.i490.i.i
-  %190 = load ptr, ptr %this.val145.i.i, align 8
-  store ptr %190, ptr %call.i.i.i491.i.i, align 8
+  %181 = load ptr, ptr %this.val145.i.i, align 8
+  store ptr %181, ptr %call.i.i.i491.i.i, align 8
   %capacity16.i.i.i494.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i491.i.i, i64 0, i32 1
   store i64 4096, ptr %capacity16.i.i.i494.i.i, align 8
   store ptr %call.i.i.i491.i.i, ptr %this.val145.i.i, align 8
   store i64 40, ptr %_root_size.i.i.i475.i.i, align 8
-  %191 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i491.i.i, i64 0, i32 2
+  %182 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i491.i.i, i64 0, i32 2
   br label %cond.true.i481.i.i
 
 cond.true.i481.i.i:                               ; preds = %if.end14.i.i.i493.i.i, %if.then.i.i.i479.i.i
-  %retval.0.i.i.i482.i.i = phi ptr [ %add.ptr.i.i.i480.i.i, %if.then.i.i.i479.i.i ], [ %191, %if.end14.i.i.i493.i.i ]
+  %retval.0.i.i.i482.i.i = phi ptr [ %add.ptr.i.i.i480.i.i, %if.then.i.i.i479.i.i ], [ %182, %if.end14.i.i.i493.i.i ]
   store <4 x i8> <i8 21, i8 2, i8 0, i8 0>, ptr %retval.0.i.i.i482.i.i, align 8
   %_left.i.i486.i.i = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i482.i.i, i64 0, i32 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_left.i.i486.i.i, i8 0, i64 24, i1 false)
@@ -37032,10 +37014,10 @@ for.cond.i.i510.i.i:                              ; preds = %for.body.i.i504.i.i
 for.body.i.i504.i.i:                              ; preds = %if.else72.i.i, %for.cond.i.i510.i.i
   %i.08.i.i505.i.i = phi i64 [ %inc.i.i511.i.i, %for.cond.i.i510.i.i ], [ 0, %if.else72.i.i ]
   %arrayidx.i.i506.i.i = getelementptr inbounds i8, ptr @.str.55, i64 %i.08.i.i505.i.i
-  %192 = load i8, ptr %arrayidx.i.i506.i.i, align 1
+  %183 = load i8, ptr %arrayidx.i.i506.i.i, align 1
   %arrayidx1.i.i507.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i505.i.i
-  %193 = load i8, ptr %arrayidx1.i.i507.i.i, align 1
-  %cmp3.not.i.i508.i.i = icmp eq i8 %192, %193
+  %184 = load i8, ptr %arrayidx1.i.i507.i.i, align 1
+  %cmp3.not.i.i508.i.i = icmp eq i8 %183, %184
   br i1 %cmp3.not.i.i508.i.i, label %for.cond.i.i510.i.i, label %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit516.thread.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit516.thread.i.i: ; preds = %for.body.i.i504.i.i
@@ -37043,58 +37025,56 @@ _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit516.thread.i.i: ; pre
   br label %if.else79.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit516.i.i: ; preds = %for.cond.i.i510.i.i, %if.else72.i.i
-  %arrayidx4.i.i514.i.i = getelementptr inbounds i8, ptr @.str.55, i64 %sub.ptr.sub.i460.i.i
-  %194 = load i8, ptr %arrayidx4.i.i514.i.i, align 1
-  %cmp6.i.i515.i.i = icmp eq i8 %194, 0
+  %cmp6.i.i515.i.i = icmp eq i64 %sub.ptr.sub.i460.i.i, 4
   %cmp75.i.i = icmp eq i64 %argc.0.i.lcssa, 1
-  %or.cond9.i.i = and i1 %cmp75.i.i, %cmp6.i.i515.i.i
+  %or.cond9.i.i = and i1 %cmp6.i.i515.i.i, %cmp75.i.i
   br i1 %or.cond9.i.i, label %if.then76.i.i, label %if.else79.i.i
 
 if.then76.i.i:                                    ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit516.i.i
   %this.val144.i.i = load ptr, ptr %this, align 8
   %_root_size.i.i.i517.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val144.i.i, i64 0, i32 1
-  %195 = load i64, ptr %_root_size.i.i.i517.i.i, align 8
-  %add2.i.i.i518.i.i = add i64 %195, 40
-  %196 = load ptr, ptr %this.val144.i.i, align 8
-  %capacity.i.i.i519.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %196, i64 0, i32 1
-  %197 = load i64, ptr %capacity.i.i.i519.i.i, align 8
-  %cmp.not.i.i.i520.i.i = icmp ugt i64 %add2.i.i.i518.i.i, %197
+  %185 = load i64, ptr %_root_size.i.i.i517.i.i, align 8
+  %add2.i.i.i518.i.i = add i64 %185, 40
+  %186 = load ptr, ptr %this.val144.i.i, align 8
+  %capacity.i.i.i519.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %186, i64 0, i32 1
+  %187 = load i64, ptr %capacity.i.i.i519.i.i, align 8
+  %cmp.not.i.i.i520.i.i = icmp ugt i64 %add2.i.i.i518.i.i, %187
   br i1 %cmp.not.i.i.i520.i.i, label %if.else.i.i.i532.i.i, label %if.then.i.i.i521.i.i
 
 if.then.i.i.i521.i.i:                             ; preds = %if.then76.i.i
-  %198 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %196, i64 0, i32 2
-  %add.ptr.i.i.i522.i.i = getelementptr inbounds i8, ptr %198, i64 %195
+  %188 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %186, i64 0, i32 2
+  %add.ptr.i.i.i522.i.i = getelementptr inbounds i8, ptr %188, i64 %185
   store i64 %add2.i.i.i518.i.i, ptr %_root_size.i.i.i517.i.i, align 8
   br label %cond.true.i523.i.i
 
 if.else.i.i.i532.i.i:                             ; preds = %if.then76.i.i
-  %199 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
-  %call.i.i.i533.i.i = tail call noundef ptr %199(i64 noundef 4112)
+  %189 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
+  %call.i.i.i533.i.i = tail call noundef ptr %189(i64 noundef 4112)
   %tobool.not.i.i.i534.i.i = icmp eq ptr %call.i.i.i533.i.i, null
   br i1 %tobool.not.i.i.i534.i.i, label %if.then10.i.i.i537.i.i, label %if.end14.i.i.i535.i.i
 
 if.then10.i.i.i537.i.i:                           ; preds = %if.else.i.i.i532.i.i
   %_error.i.i.i538.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val144.i.i, i64 0, i32 2
-  %200 = load ptr, ptr %_error.i.i.i538.i.i, align 8
-  %tobool11.not.i.i.i539.i.i = icmp eq ptr %200, null
+  %190 = load ptr, ptr %_error.i.i.i538.i.i, align 8
+  %tobool11.not.i.i.i539.i.i = icmp eq ptr %190, null
   br i1 %tobool11.not.i.i.i539.i.i, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread, label %if.then12.i.i.i540.i.i
 
 if.then12.i.i.i540.i.i:                           ; preds = %if.then10.i.i.i537.i.i
-  store i8 1, ptr %200, align 1
+  store i8 1, ptr %190, align 1
   br label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread
 
 if.end14.i.i.i535.i.i:                            ; preds = %if.else.i.i.i532.i.i
-  %201 = load ptr, ptr %this.val144.i.i, align 8
-  store ptr %201, ptr %call.i.i.i533.i.i, align 8
+  %191 = load ptr, ptr %this.val144.i.i, align 8
+  store ptr %191, ptr %call.i.i.i533.i.i, align 8
   %capacity16.i.i.i536.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i533.i.i, i64 0, i32 1
   store i64 4096, ptr %capacity16.i.i.i536.i.i, align 8
   store ptr %call.i.i.i533.i.i, ptr %this.val144.i.i, align 8
   store i64 40, ptr %_root_size.i.i.i517.i.i, align 8
-  %202 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i533.i.i, i64 0, i32 2
+  %192 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i533.i.i, i64 0, i32 2
   br label %cond.true.i523.i.i
 
 cond.true.i523.i.i:                               ; preds = %if.end14.i.i.i535.i.i, %if.then.i.i.i521.i.i
-  %retval.0.i.i.i524.i.i = phi ptr [ %add.ptr.i.i.i522.i.i, %if.then.i.i.i521.i.i ], [ %202, %if.end14.i.i.i535.i.i ]
+  %retval.0.i.i.i524.i.i = phi ptr [ %add.ptr.i.i.i522.i.i, %if.then.i.i.i521.i.i ], [ %192, %if.end14.i.i.i535.i.i ]
   store <4 x i8> <i8 49, i8 4, i8 0, i8 0>, ptr %retval.0.i.i.i524.i.i, align 8
   %_left.i.i528.i.i = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i524.i.i, i64 0, i32 4
   store ptr %args.val.i, ptr %_left.i.i528.i.i, align 8
@@ -37114,42 +37094,40 @@ for.cond.i.i552.i.i:                              ; preds = %for.body.i.i546.i.i
 for.body.i.i546.i.i:                              ; preds = %if.else79.i.i, %for.cond.i.i552.i.i
   %i.08.i.i547.i.i = phi i64 [ %inc.i.i553.i.i, %for.cond.i.i552.i.i ], [ 0, %if.else79.i.i ]
   %arrayidx.i.i548.i.i = getelementptr inbounds i8, ptr @.str.56, i64 %i.08.i.i547.i.i
-  %203 = load i8, ptr %arrayidx.i.i548.i.i, align 1
+  %193 = load i8, ptr %arrayidx.i.i548.i.i, align 1
   %arrayidx1.i.i549.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i547.i.i
-  %204 = load i8, ptr %arrayidx1.i.i549.i.i, align 1
-  %cmp3.not.i.i550.i.i = icmp eq i8 %203, %204
+  %194 = load i8, ptr %arrayidx1.i.i549.i.i, align 1
+  %cmp3.not.i.i550.i.i = icmp eq i8 %193, %194
   br i1 %cmp3.not.i.i550.i.i, label %for.cond.i.i552.i.i, label %sw.epilog.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit558.i.i: ; preds = %for.cond.i.i552.i.i, %if.else79.i.i
-  %arrayidx4.i.i556.i.i = getelementptr inbounds i8, ptr @.str.56, i64 %sub.ptr.sub.i460.i.i
-  %205 = load i8, ptr %arrayidx4.i.i556.i.i, align 1
-  %cmp6.i.i557.i.i = icmp eq i8 %205, 0
+  %cmp6.i.i557.i.i = icmp eq i64 %sub.ptr.sub.i460.i.i, 10
   %cmp82.i.i = icmp ult i64 %argc.0.i.lcssa, 2
-  %or.cond10.i.i = and i1 %cmp82.i.i, %cmp6.i.i557.i.i
+  %or.cond10.i.i = and i1 %cmp6.i.i557.i.i, %cmp82.i.i
   br i1 %or.cond10.i.i, label %if.then83.i.i, label %sw.epilog.i.i
 
 if.then83.i.i:                                    ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit558.i.i
   br i1 %cmp7556.i.i, label %land.lhs.true85.i.i, label %if.end91.i.i
 
 land.lhs.true85.i.i:                              ; preds = %if.then83.i.i
-  %206 = getelementptr i8, ptr %args.val.i, i64 1
-  %.val156.i.i = load i8, ptr %206, align 1
+  %195 = getelementptr i8, ptr %args.val.i, i64 1
+  %.val156.i.i = load i8, ptr %195, align 1
   %cmp88.not.i.i = icmp eq i8 %.val156.i.i, 1
   br i1 %cmp88.not.i.i, label %if.end91.i.i, label %if.then89.i.i
 
 if.then89.i.i:                                    ; preds = %land.lhs.true85.i.i
   %_result.i560.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %207 = load ptr, ptr %_result.i560.i.i, align 8
-  store ptr @.str.47, ptr %207, align 8
-  %208 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i561.i.i = load ptr, ptr %208, align 8
+  %196 = load ptr, ptr %_result.i560.i.i, align 8
+  store ptr @.str.47, ptr %196, align 8
+  %197 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
+  %_lexer.val.i561.i.i = load ptr, ptr %197, align 8
   %_query.i562.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %209 = load ptr, ptr %_query.i562.i.i, align 8
+  %198 = load ptr, ptr %_query.i562.i.i, align 8
   %sub.ptr.lhs.cast.i563.i.i = ptrtoint ptr %_lexer.val.i561.i.i to i64
-  %sub.ptr.rhs.cast.i564.i.i = ptrtoint ptr %209 to i64
+  %sub.ptr.rhs.cast.i564.i.i = ptrtoint ptr %198 to i64
   %sub.ptr.sub.i565.i.i = sub i64 %sub.ptr.lhs.cast.i563.i.i, %sub.ptr.rhs.cast.i564.i.i
-  %210 = load ptr, ptr %_result.i560.i.i, align 8
-  %offset.i566.i.i = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %210, i64 0, i32 1
+  %199 = load ptr, ptr %_result.i560.i.i, align 8
+  %offset.i566.i.i = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %199, i64 0, i32 1
   store i64 %sub.ptr.sub.i565.i.i, ptr %offset.i566.i.i, align 8
   br label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread
 
@@ -37174,10 +37152,10 @@ for.cond.i.i577.i.i:                              ; preds = %for.body.i.i571.i.i
 for.body.i.i571.i.i:                              ; preds = %sw.bb98.i.i, %for.cond.i.i577.i.i
   %i.08.i.i572.i.i = phi i64 [ %inc.i.i578.i.i, %for.cond.i.i577.i.i ], [ 0, %sw.bb98.i.i ]
   %arrayidx.i.i573.i.i = getelementptr inbounds i8, ptr @.str.57, i64 %i.08.i.i572.i.i
-  %211 = load i8, ptr %arrayidx.i.i573.i.i, align 1
+  %200 = load i8, ptr %arrayidx.i.i573.i.i, align 1
   %arrayidx1.i.i574.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i572.i.i
-  %212 = load i8, ptr %arrayidx1.i.i574.i.i, align 1
-  %cmp3.not.i.i575.i.i = icmp eq i8 %211, %212
+  %201 = load i8, ptr %arrayidx1.i.i574.i.i, align 1
+  %cmp3.not.i.i575.i.i = icmp eq i8 %200, %201
   br i1 %cmp3.not.i.i575.i.i, label %for.cond.i.i577.i.i, label %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit583.thread.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit583.thread.i.i: ; preds = %for.body.i.i571.i.i
@@ -37185,11 +37163,9 @@ _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit583.thread.i.i: ; pre
   br label %if.else115.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit583.i.i: ; preds = %for.cond.i.i577.i.i, %sw.bb98.i.i
-  %arrayidx4.i.i581.i.i = getelementptr inbounds i8, ptr @.str.57, i64 %sub.ptr.sub.i569.i.i
-  %213 = load i8, ptr %arrayidx4.i.i581.i.i, align 1
-  %cmp6.i.i582.i.i = icmp eq i8 %213, 0
+  %cmp6.i.i582.i.i = icmp eq i64 %sub.ptr.sub.i569.i.i, 4
   %cmp101.i.i = icmp ult i64 %argc.0.i.lcssa, 2
-  %or.cond11.i.i = and i1 %cmp101.i.i, %cmp6.i.i582.i.i
+  %or.cond11.i.i = and i1 %cmp6.i.i582.i.i, %cmp101.i.i
   br i1 %or.cond11.i.i, label %if.then102.i.i, label %if.else115.i.i
 
 if.then102.i.i:                                   ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit583.i.i
@@ -37197,24 +37173,24 @@ if.then102.i.i:                                   ; preds = %_ZNK4pugi4impl12_GL
   br i1 %cmp103.i.i, label %land.lhs.true104.i.i, label %if.end110.i.i
 
 land.lhs.true104.i.i:                             ; preds = %if.then102.i.i
-  %214 = getelementptr i8, ptr %args.val.i, i64 1
-  %.val155.i.i = load i8, ptr %214, align 1
+  %202 = getelementptr i8, ptr %args.val.i, i64 1
+  %.val155.i.i = load i8, ptr %202, align 1
   %cmp107.not.i.i = icmp eq i8 %.val155.i.i, 1
   br i1 %cmp107.not.i.i, label %if.end110.i.i, label %if.then108.i.i
 
 if.then108.i.i:                                   ; preds = %land.lhs.true104.i.i
   %_result.i585.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %215 = load ptr, ptr %_result.i585.i.i, align 8
-  store ptr @.str.47, ptr %215, align 8
-  %216 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i586.i.i = load ptr, ptr %216, align 8
+  %203 = load ptr, ptr %_result.i585.i.i, align 8
+  store ptr @.str.47, ptr %203, align 8
+  %204 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
+  %_lexer.val.i586.i.i = load ptr, ptr %204, align 8
   %_query.i587.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %217 = load ptr, ptr %_query.i587.i.i, align 8
+  %205 = load ptr, ptr %_query.i587.i.i, align 8
   %sub.ptr.lhs.cast.i588.i.i = ptrtoint ptr %_lexer.val.i586.i.i to i64
-  %sub.ptr.rhs.cast.i589.i.i = ptrtoint ptr %217 to i64
+  %sub.ptr.rhs.cast.i589.i.i = ptrtoint ptr %205 to i64
   %sub.ptr.sub.i590.i.i = sub i64 %sub.ptr.lhs.cast.i588.i.i, %sub.ptr.rhs.cast.i589.i.i
-  %218 = load ptr, ptr %_result.i585.i.i, align 8
-  %offset.i591.i.i = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %218, i64 0, i32 1
+  %206 = load ptr, ptr %_result.i585.i.i, align 8
+  %offset.i591.i.i = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %206, i64 0, i32 1
   store i64 %sub.ptr.sub.i590.i.i, ptr %offset.i591.i.i, align 8
   br label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread
 
@@ -37222,48 +37198,48 @@ if.end110.i.i:                                    ; preds = %land.lhs.true104.i.
   %cmp111.i.i = icmp eq i64 %argc.0.i.lcssa, 0
   %this.val142.i.i = load ptr, ptr %this, align 8
   %_root_size.i.i.i592.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val142.i.i, i64 0, i32 1
-  %219 = load i64, ptr %_root_size.i.i.i592.i.i, align 8
-  %add2.i.i.i593.i.i = add i64 %219, 40
-  %220 = load ptr, ptr %this.val142.i.i, align 8
-  %capacity.i.i.i594.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %220, i64 0, i32 1
-  %221 = load i64, ptr %capacity.i.i.i594.i.i, align 8
-  %cmp.not.i.i.i595.i.i = icmp ugt i64 %add2.i.i.i593.i.i, %221
+  %207 = load i64, ptr %_root_size.i.i.i592.i.i, align 8
+  %add2.i.i.i593.i.i = add i64 %207, 40
+  %208 = load ptr, ptr %this.val142.i.i, align 8
+  %capacity.i.i.i594.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %208, i64 0, i32 1
+  %209 = load i64, ptr %capacity.i.i.i594.i.i, align 8
+  %cmp.not.i.i.i595.i.i = icmp ugt i64 %add2.i.i.i593.i.i, %209
   br i1 %cmp.not.i.i.i595.i.i, label %if.else.i.i.i607.i.i, label %if.then.i.i.i596.i.i
 
 if.then.i.i.i596.i.i:                             ; preds = %if.end110.i.i
-  %222 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %220, i64 0, i32 2
-  %add.ptr.i.i.i597.i.i = getelementptr inbounds i8, ptr %222, i64 %219
+  %210 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %208, i64 0, i32 2
+  %add.ptr.i.i.i597.i.i = getelementptr inbounds i8, ptr %210, i64 %207
   store i64 %add2.i.i.i593.i.i, ptr %_root_size.i.i.i592.i.i, align 8
   br label %cond.true.i598.i.i
 
 if.else.i.i.i607.i.i:                             ; preds = %if.end110.i.i
-  %223 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
-  %call.i.i.i608.i.i = tail call noundef ptr %223(i64 noundef 4112)
+  %211 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
+  %call.i.i.i608.i.i = tail call noundef ptr %211(i64 noundef 4112)
   %tobool.not.i.i.i609.i.i = icmp eq ptr %call.i.i.i608.i.i, null
   br i1 %tobool.not.i.i.i609.i.i, label %if.then10.i.i.i612.i.i, label %if.end14.i.i.i610.i.i
 
 if.then10.i.i.i612.i.i:                           ; preds = %if.else.i.i.i607.i.i
   %_error.i.i.i613.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val142.i.i, i64 0, i32 2
-  %224 = load ptr, ptr %_error.i.i.i613.i.i, align 8
-  %tobool11.not.i.i.i614.i.i = icmp eq ptr %224, null
+  %212 = load ptr, ptr %_error.i.i.i613.i.i, align 8
+  %tobool11.not.i.i.i614.i.i = icmp eq ptr %212, null
   br i1 %tobool11.not.i.i.i614.i.i, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread, label %if.then12.i.i.i615.i.i
 
 if.then12.i.i.i615.i.i:                           ; preds = %if.then10.i.i.i612.i.i
-  store i8 1, ptr %224, align 1
+  store i8 1, ptr %212, align 1
   br label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread
 
 if.end14.i.i.i610.i.i:                            ; preds = %if.else.i.i.i607.i.i
-  %225 = load ptr, ptr %this.val142.i.i, align 8
-  store ptr %225, ptr %call.i.i.i608.i.i, align 8
+  %213 = load ptr, ptr %this.val142.i.i, align 8
+  store ptr %213, ptr %call.i.i.i608.i.i, align 8
   %capacity16.i.i.i611.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i608.i.i, i64 0, i32 1
   store i64 4096, ptr %capacity16.i.i.i611.i.i, align 8
   store ptr %call.i.i.i608.i.i, ptr %this.val142.i.i, align 8
   store i64 40, ptr %_root_size.i.i.i592.i.i, align 8
-  %226 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i608.i.i, i64 0, i32 2
+  %214 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i608.i.i, i64 0, i32 2
   br label %cond.true.i598.i.i
 
 cond.true.i598.i.i:                               ; preds = %if.end14.i.i.i610.i.i, %if.then.i.i.i596.i.i
-  %retval.0.i.i.i599.i.i = phi ptr [ %add.ptr.i.i.i597.i.i, %if.then.i.i.i596.i.i ], [ %226, %if.end14.i.i.i610.i.i ]
+  %retval.0.i.i.i599.i.i = phi ptr [ %add.ptr.i.i.i597.i.i, %if.then.i.i.i596.i.i ], [ %214, %if.end14.i.i.i610.i.i ]
   %conv.i.i.i.i = select i1 %cmp111.i.i, i8 29, i8 30
   store i8 %conv.i.i.i.i, ptr %retval.0.i.i.i599.i.i, align 8
   %_rettype.i.i600.i.i = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i599.i.i, i64 0, i32 1
@@ -37290,17 +37266,15 @@ for.cond.i.i627.i.i:                              ; preds = %for.body.i.i621.i.i
 for.body.i.i621.i.i:                              ; preds = %if.else115.i.i, %for.cond.i.i627.i.i
   %i.08.i.i622.i.i = phi i64 [ %inc.i.i628.i.i, %for.cond.i.i627.i.i ], [ 0, %if.else115.i.i ]
   %arrayidx.i.i623.i.i = getelementptr inbounds i8, ptr @.str.58, i64 %i.08.i.i622.i.i
-  %227 = load i8, ptr %arrayidx.i.i623.i.i, align 1
+  %215 = load i8, ptr %arrayidx.i.i623.i.i, align 1
   %arrayidx1.i.i624.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i622.i.i
-  %228 = load i8, ptr %arrayidx1.i.i624.i.i, align 1
-  %cmp3.not.i.i625.i.i = icmp eq i8 %227, %228
+  %216 = load i8, ptr %arrayidx1.i.i624.i.i, align 1
+  %cmp3.not.i.i625.i.i = icmp eq i8 %215, %216
   br i1 %cmp3.not.i.i625.i.i, label %for.cond.i.i627.i.i, label %if.else132.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit633.i.i: ; preds = %for.cond.i.i627.i.i, %if.else115.i.i
-  %arrayidx4.i.i631.i.i = getelementptr inbounds i8, ptr @.str.58, i64 %sub.ptr.sub.i569.i.i
-  %229 = load i8, ptr %arrayidx4.i.i631.i.i, align 1
-  %cmp6.i.i632.i.i = icmp eq i8 %229, 0
-  %or.cond12.i.i = and i1 %cmp10163.i.i, %cmp6.i.i632.i.i
+  %cmp6.i.i632.i.i = icmp eq i64 %sub.ptr.sub.i569.i.i, 13
+  %or.cond12.i.i = and i1 %cmp6.i.i632.i.i, %cmp10163.i.i
   br i1 %or.cond12.i.i, label %if.then119.i.i, label %if.else132.i.i
 
 if.then119.i.i:                                   ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit633.i.i
@@ -37308,24 +37282,24 @@ if.then119.i.i:                                   ; preds = %_ZNK4pugi4impl12_GL
   br i1 %cmp120.i.i, label %land.lhs.true121.i.i, label %if.end127.i.i
 
 land.lhs.true121.i.i:                             ; preds = %if.then119.i.i
-  %230 = getelementptr i8, ptr %args.val.i, i64 1
-  %.val154.i.i = load i8, ptr %230, align 1
+  %217 = getelementptr i8, ptr %args.val.i, i64 1
+  %.val154.i.i = load i8, ptr %217, align 1
   %cmp124.not.i.i = icmp eq i8 %.val154.i.i, 1
   br i1 %cmp124.not.i.i, label %if.end127.i.i, label %if.then125.i.i
 
 if.then125.i.i:                                   ; preds = %land.lhs.true121.i.i
   %_result.i635.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %231 = load ptr, ptr %_result.i635.i.i, align 8
-  store ptr @.str.47, ptr %231, align 8
-  %232 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i636.i.i = load ptr, ptr %232, align 8
+  %218 = load ptr, ptr %_result.i635.i.i, align 8
+  store ptr @.str.47, ptr %218, align 8
+  %219 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
+  %_lexer.val.i636.i.i = load ptr, ptr %219, align 8
   %_query.i637.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %233 = load ptr, ptr %_query.i637.i.i, align 8
+  %220 = load ptr, ptr %_query.i637.i.i, align 8
   %sub.ptr.lhs.cast.i638.i.i = ptrtoint ptr %_lexer.val.i636.i.i to i64
-  %sub.ptr.rhs.cast.i639.i.i = ptrtoint ptr %233 to i64
+  %sub.ptr.rhs.cast.i639.i.i = ptrtoint ptr %220 to i64
   %sub.ptr.sub.i640.i.i = sub i64 %sub.ptr.lhs.cast.i638.i.i, %sub.ptr.rhs.cast.i639.i.i
-  %234 = load ptr, ptr %_result.i635.i.i, align 8
-  %offset.i641.i.i = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %234, i64 0, i32 1
+  %221 = load ptr, ptr %_result.i635.i.i, align 8
+  %offset.i641.i.i = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %221, i64 0, i32 1
   store i64 %sub.ptr.sub.i640.i.i, ptr %offset.i641.i.i, align 8
   br label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread
 
@@ -37347,17 +37321,15 @@ for.cond.i.i652.i.i:                              ; preds = %for.body.i.i646.i.i
 for.body.i.i646.i.i:                              ; preds = %if.else132.i.i, %for.cond.i.i652.i.i
   %i.08.i.i647.i.i = phi i64 [ %inc.i.i653.i.i, %for.cond.i.i652.i.i ], [ 0, %if.else132.i.i ]
   %arrayidx.i.i648.i.i = getelementptr inbounds i8, ptr @.str.59, i64 %i.08.i.i647.i.i
-  %235 = load i8, ptr %arrayidx.i.i648.i.i, align 1
+  %222 = load i8, ptr %arrayidx.i.i648.i.i, align 1
   %arrayidx1.i.i649.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i647.i.i
-  %236 = load i8, ptr %arrayidx1.i.i649.i.i, align 1
-  %cmp3.not.i.i650.i.i = icmp eq i8 %235, %236
+  %223 = load i8, ptr %arrayidx1.i.i649.i.i, align 1
+  %cmp3.not.i.i650.i.i = icmp eq i8 %222, %223
   br i1 %cmp3.not.i.i650.i.i, label %for.cond.i.i652.i.i, label %if.else142.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit658.i.i: ; preds = %for.cond.i.i652.i.i, %if.else132.i.i
-  %arrayidx4.i.i656.i.i = getelementptr inbounds i8, ptr @.str.59, i64 %sub.ptr.sub.i569.i.i
-  %237 = load i8, ptr %arrayidx4.i.i656.i.i, align 1
-  %cmp6.i.i657.i.i = icmp eq i8 %237, 0
-  %or.cond13.i.i = and i1 %cmp10163.i.i, %cmp6.i.i657.i.i
+  %cmp6.i.i657.i.i = icmp eq i64 %sub.ptr.sub.i569.i.i, 15
+  %or.cond13.i.i = and i1 %cmp6.i.i657.i.i, %cmp10163.i.i
   br i1 %or.cond13.i.i, label %if.then136.i.i, label %if.else142.i.i
 
 if.then136.i.i:                                   ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit658.i.i
@@ -37378,18 +37350,16 @@ for.cond.i.i669.i.i:                              ; preds = %for.body.i.i663.i.i
 for.body.i.i663.i.i:                              ; preds = %if.else142.i.i, %for.cond.i.i669.i.i
   %i.08.i.i664.i.i = phi i64 [ %inc.i.i670.i.i, %for.cond.i.i669.i.i ], [ 0, %if.else142.i.i ]
   %arrayidx.i.i665.i.i = getelementptr inbounds i8, ptr @.str.60, i64 %i.08.i.i664.i.i
-  %238 = load i8, ptr %arrayidx.i.i665.i.i, align 1
+  %224 = load i8, ptr %arrayidx.i.i665.i.i, align 1
   %arrayidx1.i.i666.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i664.i.i
-  %239 = load i8, ptr %arrayidx1.i.i666.i.i, align 1
-  %cmp3.not.i.i667.i.i = icmp eq i8 %238, %239
+  %225 = load i8, ptr %arrayidx1.i.i666.i.i, align 1
+  %cmp3.not.i.i667.i.i = icmp eq i8 %224, %225
   br i1 %cmp3.not.i.i667.i.i, label %for.cond.i.i669.i.i, label %if.else149.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit675.i.i: ; preds = %for.cond.i.i669.i.i, %if.else142.i.i
-  %arrayidx4.i.i673.i.i = getelementptr inbounds i8, ptr @.str.60, i64 %sub.ptr.sub.i569.i.i
-  %240 = load i8, ptr %arrayidx4.i.i673.i.i, align 1
-  %cmp6.i.i674.i.i = icmp eq i8 %240, 0
+  %cmp6.i.i674.i.i = icmp eq i64 %sub.ptr.sub.i569.i.i, 3
   %cmp145.i.i = icmp eq i64 %argc.0.i.lcssa, 1
-  %or.cond14.i.i = and i1 %cmp145.i.i, %cmp6.i.i674.i.i
+  %or.cond14.i.i = and i1 %cmp6.i.i674.i.i, %cmp145.i.i
   br i1 %or.cond14.i.i, label %if.then146.i.i, label %if.else149.i.i
 
 if.then146.i.i:                                   ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit675.i.i
@@ -37408,17 +37378,15 @@ for.cond.i.i686.i.i:                              ; preds = %for.body.i.i680.i.i
 for.body.i.i680.i.i:                              ; preds = %if.else149.i.i, %for.cond.i.i686.i.i
   %i.08.i.i681.i.i = phi i64 [ %inc.i.i687.i.i, %for.cond.i.i686.i.i ], [ 0, %if.else149.i.i ]
   %arrayidx.i.i682.i.i = getelementptr inbounds i8, ptr @.str.61, i64 %i.08.i.i681.i.i
-  %241 = load i8, ptr %arrayidx.i.i682.i.i, align 1
+  %226 = load i8, ptr %arrayidx.i.i682.i.i, align 1
   %arrayidx1.i.i683.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i681.i.i
-  %242 = load i8, ptr %arrayidx1.i.i683.i.i, align 1
-  %cmp3.not.i.i684.i.i = icmp eq i8 %241, %242
+  %227 = load i8, ptr %arrayidx1.i.i683.i.i, align 1
+  %cmp3.not.i.i684.i.i = icmp eq i8 %226, %227
   br i1 %cmp3.not.i.i684.i.i, label %for.cond.i.i686.i.i, label %sw.epilog.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit692.i.i: ; preds = %for.cond.i.i686.i.i, %if.else149.i.i
-  %arrayidx4.i.i690.i.i = getelementptr inbounds i8, ptr @.str.61, i64 %sub.ptr.sub.i569.i.i
-  %243 = load i8, ptr %arrayidx4.i.i690.i.i, align 1
-  %cmp6.i.i691.i.i = icmp eq i8 %243, 0
-  %or.cond15.i.i = and i1 %cmp10163.i.i, %cmp6.i.i691.i.i
+  %cmp6.i.i691.i.i = icmp eq i64 %sub.ptr.sub.i569.i.i, 6
+  %or.cond15.i.i = and i1 %cmp6.i.i691.i.i, %cmp10163.i.i
   br i1 %or.cond15.i.i, label %if.then153.i.i, label %sw.epilog.i.i
 
 if.then153.i.i:                                   ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit692.i.i
@@ -37443,65 +37411,63 @@ for.cond.i.i703.i.i:                              ; preds = %for.body.i.i697.i.i
 for.body.i.i697.i.i:                              ; preds = %sw.bb163.i.i, %for.cond.i.i703.i.i
   %i.08.i.i698.i.i = phi i64 [ %inc.i.i704.i.i, %for.cond.i.i703.i.i ], [ 0, %sw.bb163.i.i ]
   %arrayidx.i.i699.i.i = getelementptr inbounds i8, ptr @.str.62, i64 %i.08.i.i698.i.i
-  %244 = load i8, ptr %arrayidx.i.i699.i.i, align 1
+  %228 = load i8, ptr %arrayidx.i.i699.i.i, align 1
   %arrayidx1.i.i700.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i698.i.i
-  %245 = load i8, ptr %arrayidx1.i.i700.i.i, align 1
-  %cmp3.not.i.i701.i.i = icmp eq i8 %244, %245
+  %229 = load i8, ptr %arrayidx1.i.i700.i.i, align 1
+  %cmp3.not.i.i701.i.i = icmp eq i8 %228, %229
   br i1 %cmp3.not.i.i701.i.i, label %for.cond.i.i703.i.i, label %sw.epilog.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit709.i.i: ; preds = %for.cond.i.i703.i.i, %sw.bb163.i.i
-  %arrayidx4.i.i707.i.i = getelementptr inbounds i8, ptr @.str.62, i64 %sub.ptr.sub.i695.i.i
-  %246 = load i8, ptr %arrayidx4.i.i707.i.i, align 1
-  %cmp6.i.i708.i.i = icmp eq i8 %246, 0
+  %cmp6.i.i708.i.i = icmp eq i64 %sub.ptr.sub.i695.i.i, 8
   %cmp166.i.i = icmp eq i64 %argc.0.i.lcssa, 0
-  %or.cond16.i.i = and i1 %cmp166.i.i, %cmp6.i.i708.i.i
+  %or.cond16.i.i = and i1 %cmp6.i.i708.i.i, %cmp166.i.i
   br i1 %or.cond16.i.i, label %if.then167.i.i, label %sw.epilog.i.i
 
 if.then167.i.i:                                   ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit709.i.i
   %this.val137.i.i = load ptr, ptr %this, align 8
   %_root_size.i.i.i710.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val137.i.i, i64 0, i32 1
-  %247 = load i64, ptr %_root_size.i.i.i710.i.i, align 8
-  %add2.i.i.i711.i.i = add i64 %247, 40
-  %248 = load ptr, ptr %this.val137.i.i, align 8
-  %capacity.i.i.i712.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %248, i64 0, i32 1
-  %249 = load i64, ptr %capacity.i.i.i712.i.i, align 8
-  %cmp.not.i.i.i713.i.i = icmp ugt i64 %add2.i.i.i711.i.i, %249
+  %230 = load i64, ptr %_root_size.i.i.i710.i.i, align 8
+  %add2.i.i.i711.i.i = add i64 %230, 40
+  %231 = load ptr, ptr %this.val137.i.i, align 8
+  %capacity.i.i.i712.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %231, i64 0, i32 1
+  %232 = load i64, ptr %capacity.i.i.i712.i.i, align 8
+  %cmp.not.i.i.i713.i.i = icmp ugt i64 %add2.i.i.i711.i.i, %232
   br i1 %cmp.not.i.i.i713.i.i, label %if.else.i.i.i725.i.i, label %if.then.i.i.i714.i.i
 
 if.then.i.i.i714.i.i:                             ; preds = %if.then167.i.i
-  %250 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %248, i64 0, i32 2
-  %add.ptr.i.i.i715.i.i = getelementptr inbounds i8, ptr %250, i64 %247
+  %233 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %231, i64 0, i32 2
+  %add.ptr.i.i.i715.i.i = getelementptr inbounds i8, ptr %233, i64 %230
   store i64 %add2.i.i.i711.i.i, ptr %_root_size.i.i.i710.i.i, align 8
   br label %cond.true.i716.i.i
 
 if.else.i.i.i725.i.i:                             ; preds = %if.then167.i.i
-  %251 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
-  %call.i.i.i726.i.i = tail call noundef ptr %251(i64 noundef 4112)
+  %234 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
+  %call.i.i.i726.i.i = tail call noundef ptr %234(i64 noundef 4112)
   %tobool.not.i.i.i727.i.i = icmp eq ptr %call.i.i.i726.i.i, null
   br i1 %tobool.not.i.i.i727.i.i, label %if.then10.i.i.i730.i.i, label %if.end14.i.i.i728.i.i
 
 if.then10.i.i.i730.i.i:                           ; preds = %if.else.i.i.i725.i.i
   %_error.i.i.i731.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val137.i.i, i64 0, i32 2
-  %252 = load ptr, ptr %_error.i.i.i731.i.i, align 8
-  %tobool11.not.i.i.i732.i.i = icmp eq ptr %252, null
+  %235 = load ptr, ptr %_error.i.i.i731.i.i, align 8
+  %tobool11.not.i.i.i732.i.i = icmp eq ptr %235, null
   br i1 %tobool11.not.i.i.i732.i.i, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread, label %if.then12.i.i.i733.i.i
 
 if.then12.i.i.i733.i.i:                           ; preds = %if.then10.i.i.i730.i.i
-  store i8 1, ptr %252, align 1
+  store i8 1, ptr %235, align 1
   br label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread
 
 if.end14.i.i.i728.i.i:                            ; preds = %if.else.i.i.i725.i.i
-  %253 = load ptr, ptr %this.val137.i.i, align 8
-  store ptr %253, ptr %call.i.i.i726.i.i, align 8
+  %236 = load ptr, ptr %this.val137.i.i, align 8
+  store ptr %236, ptr %call.i.i.i726.i.i, align 8
   %capacity16.i.i.i729.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i726.i.i, i64 0, i32 1
   store i64 4096, ptr %capacity16.i.i.i729.i.i, align 8
   store ptr %call.i.i.i726.i.i, ptr %this.val137.i.i, align 8
   store i64 40, ptr %_root_size.i.i.i710.i.i, align 8
-  %254 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i726.i.i, i64 0, i32 2
+  %237 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i726.i.i, i64 0, i32 2
   br label %cond.true.i716.i.i
 
 cond.true.i716.i.i:                               ; preds = %if.end14.i.i.i728.i.i, %if.then.i.i.i714.i.i
-  %retval.0.i.i.i717.i.i = phi ptr [ %add.ptr.i.i.i715.i.i, %if.then.i.i.i714.i.i ], [ %254, %if.end14.i.i.i728.i.i ]
+  %retval.0.i.i.i717.i.i = phi ptr [ %add.ptr.i.i.i715.i.i, %if.then.i.i.i714.i.i ], [ %237, %if.end14.i.i.i728.i.i ]
   store <4 x i8> <i8 22, i8 2, i8 0, i8 0>, ptr %retval.0.i.i.i717.i.i, align 8
   %_left.i.i721.i.i = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i717.i.i, i64 0, i32 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_left.i.i721.i.i, i8 0, i64 24, i1 false)
@@ -37522,65 +37488,63 @@ for.cond.i.i745.i.i:                              ; preds = %for.body.i.i739.i.i
 for.body.i.i739.i.i:                              ; preds = %sw.bb170.i.i, %for.cond.i.i745.i.i
   %i.08.i.i740.i.i = phi i64 [ %inc.i.i746.i.i, %for.cond.i.i745.i.i ], [ 0, %sw.bb170.i.i ]
   %arrayidx.i.i741.i.i = getelementptr inbounds i8, ptr @.str.63, i64 %i.08.i.i740.i.i
-  %255 = load i8, ptr %arrayidx.i.i741.i.i, align 1
+  %238 = load i8, ptr %arrayidx.i.i741.i.i, align 1
   %arrayidx1.i.i742.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i740.i.i
-  %256 = load i8, ptr %arrayidx1.i.i742.i.i, align 1
-  %cmp3.not.i.i743.i.i = icmp eq i8 %255, %256
+  %239 = load i8, ptr %arrayidx1.i.i742.i.i, align 1
+  %cmp3.not.i.i743.i.i = icmp eq i8 %238, %239
   br i1 %cmp3.not.i.i743.i.i, label %for.cond.i.i745.i.i, label %sw.epilog.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit751.i.i: ; preds = %for.cond.i.i745.i.i, %sw.bb170.i.i
-  %arrayidx4.i.i749.i.i = getelementptr inbounds i8, ptr @.str.63, i64 %sub.ptr.sub.i737.i.i
-  %257 = load i8, ptr %arrayidx4.i.i749.i.i, align 1
-  %cmp6.i.i750.i.i = icmp eq i8 %257, 0
+  %cmp6.i.i750.i.i = icmp eq i64 %sub.ptr.sub.i737.i.i, 5
   %cmp173.i.i = icmp eq i64 %argc.0.i.lcssa, 1
-  %or.cond17.i.i = and i1 %cmp173.i.i, %cmp6.i.i750.i.i
+  %or.cond17.i.i = and i1 %cmp6.i.i750.i.i, %cmp173.i.i
   br i1 %or.cond17.i.i, label %if.then174.i.i, label %sw.epilog.i.i
 
 if.then174.i.i:                                   ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit751.i.i
   %this.val136.i.i = load ptr, ptr %this, align 8
   %_root_size.i.i.i752.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val136.i.i, i64 0, i32 1
-  %258 = load i64, ptr %_root_size.i.i.i752.i.i, align 8
-  %add2.i.i.i753.i.i = add i64 %258, 40
-  %259 = load ptr, ptr %this.val136.i.i, align 8
-  %capacity.i.i.i754.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %259, i64 0, i32 1
-  %260 = load i64, ptr %capacity.i.i.i754.i.i, align 8
-  %cmp.not.i.i.i755.i.i = icmp ugt i64 %add2.i.i.i753.i.i, %260
+  %240 = load i64, ptr %_root_size.i.i.i752.i.i, align 8
+  %add2.i.i.i753.i.i = add i64 %240, 40
+  %241 = load ptr, ptr %this.val136.i.i, align 8
+  %capacity.i.i.i754.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %241, i64 0, i32 1
+  %242 = load i64, ptr %capacity.i.i.i754.i.i, align 8
+  %cmp.not.i.i.i755.i.i = icmp ugt i64 %add2.i.i.i753.i.i, %242
   br i1 %cmp.not.i.i.i755.i.i, label %if.else.i.i.i767.i.i, label %if.then.i.i.i756.i.i
 
 if.then.i.i.i756.i.i:                             ; preds = %if.then174.i.i
-  %261 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %259, i64 0, i32 2
-  %add.ptr.i.i.i757.i.i = getelementptr inbounds i8, ptr %261, i64 %258
+  %243 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %241, i64 0, i32 2
+  %add.ptr.i.i.i757.i.i = getelementptr inbounds i8, ptr %243, i64 %240
   store i64 %add2.i.i.i753.i.i, ptr %_root_size.i.i.i752.i.i, align 8
   br label %cond.true.i758.i.i
 
 if.else.i.i.i767.i.i:                             ; preds = %if.then174.i.i
-  %262 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
-  %call.i.i.i768.i.i = tail call noundef ptr %262(i64 noundef 4112)
+  %244 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
+  %call.i.i.i768.i.i = tail call noundef ptr %244(i64 noundef 4112)
   %tobool.not.i.i.i769.i.i = icmp eq ptr %call.i.i.i768.i.i, null
   br i1 %tobool.not.i.i.i769.i.i, label %if.then10.i.i.i772.i.i, label %if.end14.i.i.i770.i.i
 
 if.then10.i.i.i772.i.i:                           ; preds = %if.else.i.i.i767.i.i
   %_error.i.i.i773.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val136.i.i, i64 0, i32 2
-  %263 = load ptr, ptr %_error.i.i.i773.i.i, align 8
-  %tobool11.not.i.i.i774.i.i = icmp eq ptr %263, null
+  %245 = load ptr, ptr %_error.i.i.i773.i.i, align 8
+  %tobool11.not.i.i.i774.i.i = icmp eq ptr %245, null
   br i1 %tobool11.not.i.i.i774.i.i, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread, label %if.then12.i.i.i775.i.i
 
 if.then12.i.i.i775.i.i:                           ; preds = %if.then10.i.i.i772.i.i
-  store i8 1, ptr %263, align 1
+  store i8 1, ptr %245, align 1
   br label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread
 
 if.end14.i.i.i770.i.i:                            ; preds = %if.else.i.i.i767.i.i
-  %264 = load ptr, ptr %this.val136.i.i, align 8
-  store ptr %264, ptr %call.i.i.i768.i.i, align 8
+  %246 = load ptr, ptr %this.val136.i.i, align 8
+  store ptr %246, ptr %call.i.i.i768.i.i, align 8
   %capacity16.i.i.i771.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i768.i.i, i64 0, i32 1
   store i64 4096, ptr %capacity16.i.i.i771.i.i, align 8
   store ptr %call.i.i.i768.i.i, ptr %this.val136.i.i, align 8
   store i64 40, ptr %_root_size.i.i.i752.i.i, align 8
-  %265 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i768.i.i, i64 0, i32 2
+  %247 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i768.i.i, i64 0, i32 2
   br label %cond.true.i758.i.i
 
 cond.true.i758.i.i:                               ; preds = %if.end14.i.i.i770.i.i, %if.then.i.i.i756.i.i
-  %retval.0.i.i.i759.i.i = phi ptr [ %add.ptr.i.i.i757.i.i, %if.then.i.i.i756.i.i ], [ %265, %if.end14.i.i.i770.i.i ]
+  %retval.0.i.i.i759.i.i = phi ptr [ %add.ptr.i.i.i757.i.i, %if.then.i.i.i756.i.i ], [ %247, %if.end14.i.i.i770.i.i ]
   store <4 x i8> <i8 55, i8 2, i8 0, i8 0>, ptr %retval.0.i.i.i759.i.i, align 8
   %_left.i.i763.i.i = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i759.i.i, i64 0, i32 4
   store ptr %args.val.i, ptr %_left.i.i763.i.i, align 8
@@ -37603,10 +37567,10 @@ for.cond.i.i787.i.i:                              ; preds = %for.body.i.i781.i.i
 for.body.i.i781.i.i:                              ; preds = %sw.bb178.i.i, %for.cond.i.i787.i.i
   %i.08.i.i782.i.i = phi i64 [ %inc.i.i788.i.i, %for.cond.i.i787.i.i ], [ 0, %sw.bb178.i.i ]
   %arrayidx.i.i783.i.i = getelementptr inbounds i8, ptr @.str.64, i64 %i.08.i.i782.i.i
-  %266 = load i8, ptr %arrayidx.i.i783.i.i, align 1
+  %248 = load i8, ptr %arrayidx.i.i783.i.i, align 1
   %arrayidx1.i.i784.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i782.i.i
-  %267 = load i8, ptr %arrayidx1.i.i784.i.i, align 1
-  %cmp3.not.i.i785.i.i = icmp eq i8 %266, %267
+  %249 = load i8, ptr %arrayidx1.i.i784.i.i, align 1
+  %cmp3.not.i.i785.i.i = icmp eq i8 %248, %249
   br i1 %cmp3.not.i.i785.i.i, label %for.cond.i.i787.i.i, label %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit793.thread.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit793.thread.i.i: ; preds = %for.body.i.i781.i.i
@@ -37614,59 +37578,57 @@ _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit793.thread.i.i: ; pre
   br label %if.else187.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit793.i.i: ; preds = %for.cond.i.i787.i.i, %sw.bb178.i.i
-  %arrayidx4.i.i791.i.i = getelementptr inbounds i8, ptr @.str.64, i64 %sub.ptr.sub.i779.i.i
-  %268 = load i8, ptr %arrayidx4.i.i791.i.i, align 1
-  %cmp6.i.i792.i.i = icmp eq i8 %268, 0
+  %cmp6.i.i792.i.i = icmp eq i64 %sub.ptr.sub.i779.i.i, 6
   %cmp181.i.i = icmp ult i64 %argc.0.i.lcssa, 2
-  %or.cond18.i.i = and i1 %cmp181.i.i, %cmp6.i.i792.i.i
+  %or.cond18.i.i = and i1 %cmp6.i.i792.i.i, %cmp181.i.i
   br i1 %or.cond18.i.i, label %if.then182.i.i, label %if.else187.i.i
 
 if.then182.i.i:                                   ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit793.i.i
   %cmp183.i.i = icmp eq i64 %argc.0.i.lcssa, 0
   %this.val135.i.i = load ptr, ptr %this, align 8
   %_root_size.i.i.i794.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val135.i.i, i64 0, i32 1
-  %269 = load i64, ptr %_root_size.i.i.i794.i.i, align 8
-  %add2.i.i.i795.i.i = add i64 %269, 40
-  %270 = load ptr, ptr %this.val135.i.i, align 8
-  %capacity.i.i.i796.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %270, i64 0, i32 1
-  %271 = load i64, ptr %capacity.i.i.i796.i.i, align 8
-  %cmp.not.i.i.i797.i.i = icmp ugt i64 %add2.i.i.i795.i.i, %271
+  %250 = load i64, ptr %_root_size.i.i.i794.i.i, align 8
+  %add2.i.i.i795.i.i = add i64 %250, 40
+  %251 = load ptr, ptr %this.val135.i.i, align 8
+  %capacity.i.i.i796.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %251, i64 0, i32 1
+  %252 = load i64, ptr %capacity.i.i.i796.i.i, align 8
+  %cmp.not.i.i.i797.i.i = icmp ugt i64 %add2.i.i.i795.i.i, %252
   br i1 %cmp.not.i.i.i797.i.i, label %if.else.i.i.i810.i.i, label %if.then.i.i.i798.i.i
 
 if.then.i.i.i798.i.i:                             ; preds = %if.then182.i.i
-  %272 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %270, i64 0, i32 2
-  %add.ptr.i.i.i799.i.i = getelementptr inbounds i8, ptr %272, i64 %269
+  %253 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %251, i64 0, i32 2
+  %add.ptr.i.i.i799.i.i = getelementptr inbounds i8, ptr %253, i64 %250
   store i64 %add2.i.i.i795.i.i, ptr %_root_size.i.i.i794.i.i, align 8
   br label %cond.true.i800.i.i
 
 if.else.i.i.i810.i.i:                             ; preds = %if.then182.i.i
-  %273 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
-  %call.i.i.i811.i.i = tail call noundef ptr %273(i64 noundef 4112)
+  %254 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
+  %call.i.i.i811.i.i = tail call noundef ptr %254(i64 noundef 4112)
   %tobool.not.i.i.i812.i.i = icmp eq ptr %call.i.i.i811.i.i, null
   br i1 %tobool.not.i.i.i812.i.i, label %if.then10.i.i.i815.i.i, label %if.end14.i.i.i813.i.i
 
 if.then10.i.i.i815.i.i:                           ; preds = %if.else.i.i.i810.i.i
   %_error.i.i.i816.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val135.i.i, i64 0, i32 2
-  %274 = load ptr, ptr %_error.i.i.i816.i.i, align 8
-  %tobool11.not.i.i.i817.i.i = icmp eq ptr %274, null
+  %255 = load ptr, ptr %_error.i.i.i816.i.i, align 8
+  %tobool11.not.i.i.i817.i.i = icmp eq ptr %255, null
   br i1 %tobool11.not.i.i.i817.i.i, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread, label %if.then12.i.i.i818.i.i
 
 if.then12.i.i.i818.i.i:                           ; preds = %if.then10.i.i.i815.i.i
-  store i8 1, ptr %274, align 1
+  store i8 1, ptr %255, align 1
   br label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread
 
 if.end14.i.i.i813.i.i:                            ; preds = %if.else.i.i.i810.i.i
-  %275 = load ptr, ptr %this.val135.i.i, align 8
-  store ptr %275, ptr %call.i.i.i811.i.i, align 8
+  %256 = load ptr, ptr %this.val135.i.i, align 8
+  store ptr %256, ptr %call.i.i.i811.i.i, align 8
   %capacity16.i.i.i814.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i811.i.i, i64 0, i32 1
   store i64 4096, ptr %capacity16.i.i.i814.i.i, align 8
   store ptr %call.i.i.i811.i.i, ptr %this.val135.i.i, align 8
   store i64 40, ptr %_root_size.i.i.i794.i.i, align 8
-  %276 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i811.i.i, i64 0, i32 2
+  %257 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i811.i.i, i64 0, i32 2
   br label %cond.true.i800.i.i
 
 cond.true.i800.i.i:                               ; preds = %if.end14.i.i.i813.i.i, %if.then.i.i.i798.i.i
-  %retval.0.i.i.i801.i.i = phi ptr [ %add.ptr.i.i.i799.i.i, %if.then.i.i.i798.i.i ], [ %276, %if.end14.i.i.i813.i.i ]
+  %retval.0.i.i.i801.i.i = phi ptr [ %add.ptr.i.i.i799.i.i, %if.then.i.i.i798.i.i ], [ %257, %if.end14.i.i.i813.i.i ]
   %conv.i.i802.i.i = select i1 %cmp183.i.i, i8 31, i8 32
   store i8 %conv.i.i802.i.i, ptr %retval.0.i.i.i801.i.i, align 8
   %_rettype.i.i803.i.i = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i801.i.i, i64 0, i32 1
@@ -37693,65 +37655,63 @@ for.cond.i.i830.i.i:                              ; preds = %for.body.i.i824.i.i
 for.body.i.i824.i.i:                              ; preds = %if.else187.i.i, %for.cond.i.i830.i.i
   %i.08.i.i825.i.i = phi i64 [ %inc.i.i831.i.i, %for.cond.i.i830.i.i ], [ 0, %if.else187.i.i ]
   %arrayidx.i.i826.i.i = getelementptr inbounds i8, ptr @.str.65, i64 %i.08.i.i825.i.i
-  %277 = load i8, ptr %arrayidx.i.i826.i.i, align 1
+  %258 = load i8, ptr %arrayidx.i.i826.i.i, align 1
   %arrayidx1.i.i827.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i825.i.i
-  %278 = load i8, ptr %arrayidx1.i.i827.i.i, align 1
-  %cmp3.not.i.i828.i.i = icmp eq i8 %277, %278
+  %259 = load i8, ptr %arrayidx1.i.i827.i.i, align 1
+  %cmp3.not.i.i828.i.i = icmp eq i8 %258, %259
   br i1 %cmp3.not.i.i828.i.i, label %for.cond.i.i830.i.i, label %if.else196.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit836.i.i: ; preds = %for.cond.i.i830.i.i, %if.else187.i.i
-  %arrayidx4.i.i834.i.i = getelementptr inbounds i8, ptr @.str.65, i64 %sub.ptr.sub.i779.i.i
-  %279 = load i8, ptr %arrayidx4.i.i834.i.i, align 1
-  %cmp6.i.i835.i.i = icmp eq i8 %279, 0
-  %or.cond19.i.i = and i1 %cmp18182.i.i, %cmp6.i.i835.i.i
+  %cmp6.i.i835.i.i = icmp eq i64 %sub.ptr.sub.i779.i.i, 13
+  %or.cond19.i.i = and i1 %cmp6.i.i835.i.i, %cmp18182.i.i
   br i1 %or.cond19.i.i, label %if.then191.i.i, label %if.else196.i.i
 
 if.then191.i.i:                                   ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit836.i.i
   %cmp192.i.i = icmp eq i64 %argc.0.i.lcssa, 0
   %this.val134.i.i = load ptr, ptr %this, align 8
   %_root_size.i.i.i837.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val134.i.i, i64 0, i32 1
-  %280 = load i64, ptr %_root_size.i.i.i837.i.i, align 8
-  %add2.i.i.i838.i.i = add i64 %280, 40
-  %281 = load ptr, ptr %this.val134.i.i, align 8
-  %capacity.i.i.i839.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %281, i64 0, i32 1
-  %282 = load i64, ptr %capacity.i.i.i839.i.i, align 8
-  %cmp.not.i.i.i840.i.i = icmp ugt i64 %add2.i.i.i838.i.i, %282
+  %260 = load i64, ptr %_root_size.i.i.i837.i.i, align 8
+  %add2.i.i.i838.i.i = add i64 %260, 40
+  %261 = load ptr, ptr %this.val134.i.i, align 8
+  %capacity.i.i.i839.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %261, i64 0, i32 1
+  %262 = load i64, ptr %capacity.i.i.i839.i.i, align 8
+  %cmp.not.i.i.i840.i.i = icmp ugt i64 %add2.i.i.i838.i.i, %262
   br i1 %cmp.not.i.i.i840.i.i, label %if.else.i.i.i853.i.i, label %if.then.i.i.i841.i.i
 
 if.then.i.i.i841.i.i:                             ; preds = %if.then191.i.i
-  %283 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %281, i64 0, i32 2
-  %add.ptr.i.i.i842.i.i = getelementptr inbounds i8, ptr %283, i64 %280
+  %263 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %261, i64 0, i32 2
+  %add.ptr.i.i.i842.i.i = getelementptr inbounds i8, ptr %263, i64 %260
   store i64 %add2.i.i.i838.i.i, ptr %_root_size.i.i.i837.i.i, align 8
   br label %cond.true.i843.i.i
 
 if.else.i.i.i853.i.i:                             ; preds = %if.then191.i.i
-  %284 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
-  %call.i.i.i854.i.i = tail call noundef ptr %284(i64 noundef 4112)
+  %264 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
+  %call.i.i.i854.i.i = tail call noundef ptr %264(i64 noundef 4112)
   %tobool.not.i.i.i855.i.i = icmp eq ptr %call.i.i.i854.i.i, null
   br i1 %tobool.not.i.i.i855.i.i, label %if.then10.i.i.i858.i.i, label %if.end14.i.i.i856.i.i
 
 if.then10.i.i.i858.i.i:                           ; preds = %if.else.i.i.i853.i.i
   %_error.i.i.i859.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val134.i.i, i64 0, i32 2
-  %285 = load ptr, ptr %_error.i.i.i859.i.i, align 8
-  %tobool11.not.i.i.i860.i.i = icmp eq ptr %285, null
+  %265 = load ptr, ptr %_error.i.i.i859.i.i, align 8
+  %tobool11.not.i.i.i860.i.i = icmp eq ptr %265, null
   br i1 %tobool11.not.i.i.i860.i.i, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread, label %if.then12.i.i.i861.i.i
 
 if.then12.i.i.i861.i.i:                           ; preds = %if.then10.i.i.i858.i.i
-  store i8 1, ptr %285, align 1
+  store i8 1, ptr %265, align 1
   br label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread
 
 if.end14.i.i.i856.i.i:                            ; preds = %if.else.i.i.i853.i.i
-  %286 = load ptr, ptr %this.val134.i.i, align 8
-  store ptr %286, ptr %call.i.i.i854.i.i, align 8
+  %266 = load ptr, ptr %this.val134.i.i, align 8
+  store ptr %266, ptr %call.i.i.i854.i.i, align 8
   %capacity16.i.i.i857.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i854.i.i, i64 0, i32 1
   store i64 4096, ptr %capacity16.i.i.i857.i.i, align 8
   store ptr %call.i.i.i854.i.i, ptr %this.val134.i.i, align 8
   store i64 40, ptr %_root_size.i.i.i837.i.i, align 8
-  %287 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i854.i.i, i64 0, i32 2
+  %267 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i854.i.i, i64 0, i32 2
   br label %cond.true.i843.i.i
 
 cond.true.i843.i.i:                               ; preds = %if.end14.i.i.i856.i.i, %if.then.i.i.i841.i.i
-  %retval.0.i.i.i844.i.i = phi ptr [ %add.ptr.i.i.i842.i.i, %if.then.i.i.i841.i.i ], [ %287, %if.end14.i.i.i856.i.i ]
+  %retval.0.i.i.i844.i.i = phi ptr [ %add.ptr.i.i.i842.i.i, %if.then.i.i.i841.i.i ], [ %267, %if.end14.i.i.i856.i.i ]
   %conv.i.i845.i.i = select i1 %cmp192.i.i, i8 40, i8 41
   store i8 %conv.i.i845.i.i, ptr %retval.0.i.i.i844.i.i, align 8
   %_rettype.i.i846.i.i = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i844.i.i, i64 0, i32 1
@@ -37777,10 +37737,10 @@ for.cond.i.i873.i.i:                              ; preds = %for.body.i.i867.i.i
 for.body.i.i867.i.i:                              ; preds = %if.else196.i.i, %for.cond.i.i873.i.i
   %i.08.i.i868.i.i = phi i64 [ %inc.i.i874.i.i, %for.cond.i.i873.i.i ], [ 0, %if.else196.i.i ]
   %arrayidx.i.i869.i.i = getelementptr inbounds i8, ptr @.str.66, i64 %i.08.i.i868.i.i
-  %288 = load i8, ptr %arrayidx.i.i869.i.i, align 1
+  %268 = load i8, ptr %arrayidx.i.i869.i.i, align 1
   %arrayidx1.i.i870.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i868.i.i
-  %289 = load i8, ptr %arrayidx1.i.i870.i.i, align 1
-  %cmp3.not.i.i871.i.i = icmp eq i8 %288, %289
+  %269 = load i8, ptr %arrayidx1.i.i870.i.i, align 1
+  %cmp3.not.i.i871.i.i = icmp eq i8 %268, %269
   br i1 %cmp3.not.i.i871.i.i, label %for.cond.i.i873.i.i, label %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit879.thread.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit879.thread.i.i: ; preds = %for.body.i.i867.i.i
@@ -37788,11 +37748,9 @@ _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit879.thread.i.i: ; pre
   br label %if.else204.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit879.i.i: ; preds = %for.cond.i.i873.i.i, %if.else196.i.i
-  %arrayidx4.i.i877.i.i = getelementptr inbounds i8, ptr @.str.66, i64 %sub.ptr.sub.i779.i.i
-  %290 = load i8, ptr %arrayidx4.i.i877.i.i, align 1
-  %cmp6.i.i878.i.i = icmp eq i8 %290, 0
+  %cmp6.i.i878.i.i = icmp eq i64 %sub.ptr.sub.i779.i.i, 11
   %cmp199.i.i = icmp eq i64 %argc.0.i.lcssa, 2
-  %or.cond20.i.i = and i1 %cmp199.i.i, %cmp6.i.i878.i.i
+  %or.cond20.i.i = and i1 %cmp6.i.i878.i.i, %cmp199.i.i
   br i1 %or.cond20.i.i, label %if.then200.i.i, label %if.else204.i.i
 
 if.then200.i.i:                                   ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit879.i.i
@@ -37812,17 +37770,15 @@ for.cond.i.i890.i.i:                              ; preds = %for.body.i.i884.i.i
 for.body.i.i884.i.i:                              ; preds = %if.else204.i.i, %for.cond.i.i890.i.i
   %i.08.i.i885.i.i = phi i64 [ %inc.i.i891.i.i, %for.cond.i.i890.i.i ], [ 0, %if.else204.i.i ]
   %arrayidx.i.i886.i.i = getelementptr inbounds i8, ptr @.str.67, i64 %i.08.i.i885.i.i
-  %291 = load i8, ptr %arrayidx.i.i886.i.i, align 1
+  %270 = load i8, ptr %arrayidx.i.i886.i.i, align 1
   %arrayidx1.i.i887.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i885.i.i
-  %292 = load i8, ptr %arrayidx1.i.i887.i.i, align 1
-  %cmp3.not.i.i888.i.i = icmp eq i8 %291, %292
+  %271 = load i8, ptr %arrayidx1.i.i887.i.i, align 1
+  %cmp3.not.i.i888.i.i = icmp eq i8 %270, %271
   br i1 %cmp3.not.i.i888.i.i, label %for.cond.i.i890.i.i, label %if.else212.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit896.i.i: ; preds = %for.cond.i.i890.i.i, %if.else204.i.i
-  %arrayidx4.i.i894.i.i = getelementptr inbounds i8, ptr @.str.67, i64 %sub.ptr.sub.i779.i.i
-  %293 = load i8, ptr %arrayidx4.i.i894.i.i, align 1
-  %cmp6.i.i895.i.i = icmp eq i8 %293, 0
-  %or.cond21.i.i = and i1 %cmp19988.i.i, %cmp6.i.i895.i.i
+  %cmp6.i.i895.i.i = icmp eq i64 %sub.ptr.sub.i779.i.i, 16
+  %or.cond21.i.i = and i1 %cmp6.i.i895.i.i, %cmp19988.i.i
   br i1 %or.cond21.i.i, label %if.then208.i.i, label %if.else212.i.i
 
 if.then208.i.i:                                   ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit896.i.i
@@ -37841,17 +37797,15 @@ for.cond.i.i907.i.i:                              ; preds = %for.body.i.i901.i.i
 for.body.i.i901.i.i:                              ; preds = %if.else212.i.i, %for.cond.i.i907.i.i
   %i.08.i.i902.i.i = phi i64 [ %inc.i.i908.i.i, %for.cond.i.i907.i.i ], [ 0, %if.else212.i.i ]
   %arrayidx.i.i903.i.i = getelementptr inbounds i8, ptr @.str.68, i64 %i.08.i.i902.i.i
-  %294 = load i8, ptr %arrayidx.i.i903.i.i, align 1
+  %272 = load i8, ptr %arrayidx.i.i903.i.i, align 1
   %arrayidx1.i.i904.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i902.i.i
-  %295 = load i8, ptr %arrayidx1.i.i904.i.i, align 1
-  %cmp3.not.i.i905.i.i = icmp eq i8 %294, %295
+  %273 = load i8, ptr %arrayidx1.i.i904.i.i, align 1
+  %cmp3.not.i.i905.i.i = icmp eq i8 %272, %273
   br i1 %cmp3.not.i.i905.i.i, label %for.cond.i.i907.i.i, label %if.else220.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit913.i.i: ; preds = %for.cond.i.i907.i.i, %if.else212.i.i
-  %arrayidx4.i.i911.i.i = getelementptr inbounds i8, ptr @.str.68, i64 %sub.ptr.sub.i779.i.i
-  %296 = load i8, ptr %arrayidx4.i.i911.i.i, align 1
-  %cmp6.i.i912.i.i = icmp eq i8 %296, 0
-  %or.cond22.i.i = and i1 %cmp19988.i.i, %cmp6.i.i912.i.i
+  %cmp6.i.i912.i.i = icmp eq i64 %sub.ptr.sub.i779.i.i, 15
+  %or.cond22.i.i = and i1 %cmp6.i.i912.i.i, %cmp19988.i.i
   br i1 %or.cond22.i.i, label %if.then216.i.i, label %if.else220.i.i
 
 if.then216.i.i:                                   ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit913.i.i
@@ -37870,19 +37824,17 @@ for.cond.i.i924.i.i:                              ; preds = %for.body.i.i918.i.i
 for.body.i.i918.i.i:                              ; preds = %if.else220.i.i, %for.cond.i.i924.i.i
   %i.08.i.i919.i.i = phi i64 [ %inc.i.i925.i.i, %for.cond.i.i924.i.i ], [ 0, %if.else220.i.i ]
   %arrayidx.i.i920.i.i = getelementptr inbounds i8, ptr @.str.69, i64 %i.08.i.i919.i.i
-  %297 = load i8, ptr %arrayidx.i.i920.i.i, align 1
+  %274 = load i8, ptr %arrayidx.i.i920.i.i, align 1
   %arrayidx1.i.i921.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i919.i.i
-  %298 = load i8, ptr %arrayidx1.i.i921.i.i, align 1
-  %cmp3.not.i.i922.i.i = icmp eq i8 %297, %298
+  %275 = load i8, ptr %arrayidx1.i.i921.i.i, align 1
+  %cmp3.not.i.i922.i.i = icmp eq i8 %274, %275
   br i1 %cmp3.not.i.i922.i.i, label %for.cond.i.i924.i.i, label %if.else231.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit930.i.i: ; preds = %for.cond.i.i924.i.i, %if.else220.i.i
-  %arrayidx4.i.i928.i.i = getelementptr inbounds i8, ptr @.str.69, i64 %sub.ptr.sub.i779.i.i
-  %299 = load i8, ptr %arrayidx4.i.i928.i.i, align 1
-  %cmp6.i.i929.i.i = icmp eq i8 %299, 0
-  %300 = and i64 %argc.0.i.lcssa, -2
-  %or.cond23.i.i = icmp eq i64 %300, 2
-  %or.cond127.i.i = and i1 %or.cond23.i.i, %cmp6.i.i929.i.i
+  %cmp6.i.i929.i.i = icmp eq i64 %sub.ptr.sub.i779.i.i, 9
+  %276 = and i64 %argc.0.i.lcssa, -2
+  %or.cond23.i.i = icmp eq i64 %276, 2
+  %or.cond127.i.i = and i1 %cmp6.i.i929.i.i, %or.cond23.i.i
   br i1 %or.cond127.i.i, label %if.then225.i.i, label %if.else231.i.i
 
 if.then225.i.i:                                   ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit930.i.i
@@ -37902,39 +37854,37 @@ for.cond.i.i941.i.i:                              ; preds = %for.body.i.i935.i.i
 for.body.i.i935.i.i:                              ; preds = %if.else231.i.i, %for.cond.i.i941.i.i
   %i.08.i.i936.i.i = phi i64 [ %inc.i.i942.i.i, %for.cond.i.i941.i.i ], [ 0, %if.else231.i.i ]
   %arrayidx.i.i937.i.i = getelementptr inbounds i8, ptr @.str.70, i64 %i.08.i.i936.i.i
-  %301 = load i8, ptr %arrayidx.i.i937.i.i, align 1
+  %277 = load i8, ptr %arrayidx.i.i937.i.i, align 1
   %arrayidx1.i.i938.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i936.i.i
-  %302 = load i8, ptr %arrayidx1.i.i938.i.i, align 1
-  %cmp3.not.i.i939.i.i = icmp eq i8 %301, %302
+  %278 = load i8, ptr %arrayidx1.i.i938.i.i, align 1
+  %cmp3.not.i.i939.i.i = icmp eq i8 %277, %278
   br i1 %cmp3.not.i.i939.i.i, label %for.cond.i.i941.i.i, label %sw.epilog.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit947.i.i: ; preds = %for.cond.i.i941.i.i, %if.else231.i.i
-  %arrayidx4.i.i945.i.i = getelementptr inbounds i8, ptr @.str.70, i64 %sub.ptr.sub.i779.i.i
-  %303 = load i8, ptr %arrayidx4.i.i945.i.i, align 1
-  %cmp6.i.i946.i.i = icmp eq i8 %303, 0
+  %cmp6.i.i946.i.i = icmp eq i64 %sub.ptr.sub.i779.i.i, 3
   %cmp234.i.i = icmp eq i64 %argc.0.i.lcssa, 1
-  %or.cond24.i.i = and i1 %cmp234.i.i, %cmp6.i.i946.i.i
+  %or.cond24.i.i = and i1 %cmp6.i.i946.i.i, %cmp234.i.i
   br i1 %or.cond24.i.i, label %if.then235.i.i, label %sw.epilog.i.i
 
 if.then235.i.i:                                   ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit947.i.i
-  %304 = getelementptr i8, ptr %args.val.i, i64 1
-  %.val.i.i = load i8, ptr %304, align 1
+  %279 = getelementptr i8, ptr %args.val.i, i64 1
+  %.val.i.i = load i8, ptr %279, align 1
   %cmp238.not.i.i = icmp eq i8 %.val.i.i, 1
   br i1 %cmp238.not.i.i, label %if.end241.i.i, label %if.then239.i.i
 
 if.then239.i.i:                                   ; preds = %if.then235.i.i
   %_result.i949.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %305 = load ptr, ptr %_result.i949.i.i, align 8
-  store ptr @.str.47, ptr %305, align 8
-  %306 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i950.i.i = load ptr, ptr %306, align 8
+  %280 = load ptr, ptr %_result.i949.i.i, align 8
+  store ptr @.str.47, ptr %280, align 8
+  %281 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
+  %_lexer.val.i950.i.i = load ptr, ptr %281, align 8
   %_query.i951.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %307 = load ptr, ptr %_query.i951.i.i, align 8
+  %282 = load ptr, ptr %_query.i951.i.i, align 8
   %sub.ptr.lhs.cast.i952.i.i = ptrtoint ptr %_lexer.val.i950.i.i to i64
-  %sub.ptr.rhs.cast.i953.i.i = ptrtoint ptr %307 to i64
+  %sub.ptr.rhs.cast.i953.i.i = ptrtoint ptr %282 to i64
   %sub.ptr.sub.i954.i.i = sub i64 %sub.ptr.lhs.cast.i952.i.i, %sub.ptr.rhs.cast.i953.i.i
-  %308 = load ptr, ptr %_result.i949.i.i, align 8
-  %offset.i955.i.i = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %308, i64 0, i32 1
+  %283 = load ptr, ptr %_result.i949.i.i, align 8
+  %offset.i955.i.i = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %283, i64 0, i32 1
   store i64 %sub.ptr.sub.i954.i.i, ptr %offset.i955.i.i, align 8
   br label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread
 
@@ -37958,65 +37908,63 @@ for.cond.i.i966.i.i:                              ; preds = %for.body.i.i960.i.i
 for.body.i.i960.i.i:                              ; preds = %sw.bb251.i.i, %for.cond.i.i966.i.i
   %i.08.i.i961.i.i = phi i64 [ %inc.i.i967.i.i, %for.cond.i.i966.i.i ], [ 0, %sw.bb251.i.i ]
   %arrayidx.i.i962.i.i = getelementptr inbounds i8, ptr @.str.71, i64 %i.08.i.i961.i.i
-  %309 = load i8, ptr %arrayidx.i.i962.i.i, align 1
+  %284 = load i8, ptr %arrayidx.i.i962.i.i, align 1
   %arrayidx1.i.i963.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i961.i.i
-  %310 = load i8, ptr %arrayidx1.i.i963.i.i, align 1
-  %cmp3.not.i.i964.i.i = icmp eq i8 %309, %310
+  %285 = load i8, ptr %arrayidx1.i.i963.i.i, align 1
+  %cmp3.not.i.i964.i.i = icmp eq i8 %284, %285
   br i1 %cmp3.not.i.i964.i.i, label %for.cond.i.i966.i.i, label %if.else259.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit972.i.i: ; preds = %for.cond.i.i966.i.i, %sw.bb251.i.i
-  %arrayidx4.i.i970.i.i = getelementptr inbounds i8, ptr @.str.71, i64 %sub.ptr.sub.i958.i.i
-  %311 = load i8, ptr %arrayidx4.i.i970.i.i, align 1
-  %cmp6.i.i971.i.i = icmp eq i8 %311, 0
+  %cmp6.i.i971.i.i = icmp eq i64 %sub.ptr.sub.i958.i.i, 9
   %cmp254.i.i = icmp eq i64 %argc.0.i.lcssa, 3
-  %or.cond25.i.i = and i1 %cmp254.i.i, %cmp6.i.i971.i.i
+  %or.cond25.i.i = and i1 %cmp6.i.i971.i.i, %cmp254.i.i
   br i1 %or.cond25.i.i, label %if.then255.i.i, label %if.else259.i.i
 
 if.then255.i.i:                                   ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit972.i.i
   %this.val128.i.i = load ptr, ptr %this, align 8
   %_root_size.i.i.i973.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val128.i.i, i64 0, i32 1
-  %312 = load i64, ptr %_root_size.i.i.i973.i.i, align 8
-  %add2.i.i.i974.i.i = add i64 %312, 40
-  %313 = load ptr, ptr %this.val128.i.i, align 8
-  %capacity.i.i.i975.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %313, i64 0, i32 1
-  %314 = load i64, ptr %capacity.i.i.i975.i.i, align 8
-  %cmp.not.i.i.i976.i.i = icmp ugt i64 %add2.i.i.i974.i.i, %314
+  %286 = load i64, ptr %_root_size.i.i.i973.i.i, align 8
+  %add2.i.i.i974.i.i = add i64 %286, 40
+  %287 = load ptr, ptr %this.val128.i.i, align 8
+  %capacity.i.i.i975.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %287, i64 0, i32 1
+  %288 = load i64, ptr %capacity.i.i.i975.i.i, align 8
+  %cmp.not.i.i.i976.i.i = icmp ugt i64 %add2.i.i.i974.i.i, %288
   br i1 %cmp.not.i.i.i976.i.i, label %if.else.i.i.i988.i.i, label %if.then.i.i.i977.i.i
 
 if.then.i.i.i977.i.i:                             ; preds = %if.then255.i.i
-  %315 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %313, i64 0, i32 2
-  %add.ptr.i.i.i978.i.i = getelementptr inbounds i8, ptr %315, i64 %312
+  %289 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %287, i64 0, i32 2
+  %add.ptr.i.i.i978.i.i = getelementptr inbounds i8, ptr %289, i64 %286
   store i64 %add2.i.i.i974.i.i, ptr %_root_size.i.i.i973.i.i, align 8
   br label %cond.true.i979.i.i
 
 if.else.i.i.i988.i.i:                             ; preds = %if.then255.i.i
-  %316 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
-  %call.i.i.i989.i.i = tail call noundef ptr %316(i64 noundef 4112)
+  %290 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
+  %call.i.i.i989.i.i = tail call noundef ptr %290(i64 noundef 4112)
   %tobool.not.i.i.i990.i.i = icmp eq ptr %call.i.i.i989.i.i, null
   br i1 %tobool.not.i.i.i990.i.i, label %if.then10.i.i.i993.i.i, label %if.end14.i.i.i991.i.i
 
 if.then10.i.i.i993.i.i:                           ; preds = %if.else.i.i.i988.i.i
   %_error.i.i.i994.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val128.i.i, i64 0, i32 2
-  %317 = load ptr, ptr %_error.i.i.i994.i.i, align 8
-  %tobool11.not.i.i.i995.i.i = icmp eq ptr %317, null
+  %291 = load ptr, ptr %_error.i.i.i994.i.i, align 8
+  %tobool11.not.i.i.i995.i.i = icmp eq ptr %291, null
   br i1 %tobool11.not.i.i.i995.i.i, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread, label %if.then12.i.i.i996.i.i
 
 if.then12.i.i.i996.i.i:                           ; preds = %if.then10.i.i.i993.i.i
-  store i8 1, ptr %317, align 1
+  store i8 1, ptr %291, align 1
   br label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread
 
 if.end14.i.i.i991.i.i:                            ; preds = %if.else.i.i.i988.i.i
-  %318 = load ptr, ptr %this.val128.i.i, align 8
-  store ptr %318, ptr %call.i.i.i989.i.i, align 8
+  %292 = load ptr, ptr %this.val128.i.i, align 8
+  store ptr %292, ptr %call.i.i.i989.i.i, align 8
   %capacity16.i.i.i992.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i989.i.i, i64 0, i32 1
   store i64 4096, ptr %capacity16.i.i.i992.i.i, align 8
   store ptr %call.i.i.i989.i.i, ptr %this.val128.i.i, align 8
   store i64 40, ptr %_root_size.i.i.i973.i.i, align 8
-  %319 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i989.i.i, i64 0, i32 2
+  %293 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i989.i.i, i64 0, i32 2
   br label %cond.true.i979.i.i
 
 cond.true.i979.i.i:                               ; preds = %if.end14.i.i.i991.i.i, %if.then.i.i.i977.i.i
-  %retval.0.i.i.i980.i.i = phi ptr [ %add.ptr.i.i.i978.i.i, %if.then.i.i.i977.i.i ], [ %319, %if.end14.i.i.i991.i.i ]
+  %retval.0.i.i.i980.i.i = phi ptr [ %add.ptr.i.i.i978.i.i, %if.then.i.i.i977.i.i ], [ %293, %if.end14.i.i.i991.i.i ]
   store <4 x i8> <i8 44, i8 3, i8 0, i8 0>, ptr %retval.0.i.i.i980.i.i, align 8
   %_left.i.i984.i.i = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i980.i.i, i64 0, i32 4
   store ptr %args.val.i, ptr %_left.i.i984.i.i, align 8
@@ -38037,65 +37985,63 @@ for.cond.i.i1008.i.i:                             ; preds = %for.body.i.i1002.i.
 for.body.i.i1002.i.i:                             ; preds = %if.else259.i.i, %for.cond.i.i1008.i.i
   %i.08.i.i1003.i.i = phi i64 [ %inc.i.i1009.i.i, %for.cond.i.i1008.i.i ], [ 0, %if.else259.i.i ]
   %arrayidx.i.i1004.i.i = getelementptr inbounds i8, ptr @.str.72, i64 %i.08.i.i1003.i.i
-  %320 = load i8, ptr %arrayidx.i.i1004.i.i, align 1
+  %294 = load i8, ptr %arrayidx.i.i1004.i.i, align 1
   %arrayidx1.i.i1005.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i1003.i.i
-  %321 = load i8, ptr %arrayidx1.i.i1005.i.i, align 1
-  %cmp3.not.i.i1006.i.i = icmp eq i8 %320, %321
+  %295 = load i8, ptr %arrayidx1.i.i1005.i.i, align 1
+  %cmp3.not.i.i1006.i.i = icmp eq i8 %294, %295
   br i1 %cmp3.not.i.i1006.i.i, label %for.cond.i.i1008.i.i, label %sw.epilog.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit1014.i.i: ; preds = %for.cond.i.i1008.i.i, %if.else259.i.i
-  %arrayidx4.i.i1012.i.i = getelementptr inbounds i8, ptr @.str.72, i64 %sub.ptr.sub.i958.i.i
-  %322 = load i8, ptr %arrayidx4.i.i1012.i.i, align 1
-  %cmp6.i.i1013.i.i = icmp eq i8 %322, 0
+  %cmp6.i.i1013.i.i = icmp eq i64 %sub.ptr.sub.i958.i.i, 4
   %cmp262.i.i = icmp eq i64 %argc.0.i.lcssa, 0
-  %or.cond26.i.i = and i1 %cmp262.i.i, %cmp6.i.i1013.i.i
+  %or.cond26.i.i = and i1 %cmp6.i.i1013.i.i, %cmp262.i.i
   br i1 %or.cond26.i.i, label %if.then263.i.i, label %sw.epilog.i.i
 
 if.then263.i.i:                                   ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit1014.i.i
   %this.val.i.i = load ptr, ptr %this, align 8
   %_root_size.i.i.i1015.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val.i.i, i64 0, i32 1
-  %323 = load i64, ptr %_root_size.i.i.i1015.i.i, align 8
-  %add2.i.i.i1016.i.i = add i64 %323, 40
-  %324 = load ptr, ptr %this.val.i.i, align 8
-  %capacity.i.i.i1017.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %324, i64 0, i32 1
-  %325 = load i64, ptr %capacity.i.i.i1017.i.i, align 8
-  %cmp.not.i.i.i1018.i.i = icmp ugt i64 %add2.i.i.i1016.i.i, %325
+  %296 = load i64, ptr %_root_size.i.i.i1015.i.i, align 8
+  %add2.i.i.i1016.i.i = add i64 %296, 40
+  %297 = load ptr, ptr %this.val.i.i, align 8
+  %capacity.i.i.i1017.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %297, i64 0, i32 1
+  %298 = load i64, ptr %capacity.i.i.i1017.i.i, align 8
+  %cmp.not.i.i.i1018.i.i = icmp ugt i64 %add2.i.i.i1016.i.i, %298
   br i1 %cmp.not.i.i.i1018.i.i, label %if.else.i.i.i1030.i.i, label %if.then.i.i.i1019.i.i
 
 if.then.i.i.i1019.i.i:                            ; preds = %if.then263.i.i
-  %326 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %324, i64 0, i32 2
-  %add.ptr.i.i.i1020.i.i = getelementptr inbounds i8, ptr %326, i64 %323
+  %299 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %297, i64 0, i32 2
+  %add.ptr.i.i.i1020.i.i = getelementptr inbounds i8, ptr %299, i64 %296
   store i64 %add2.i.i.i1016.i.i, ptr %_root_size.i.i.i1015.i.i, align 8
   br label %cond.true.i1021.i.i
 
 if.else.i.i.i1030.i.i:                            ; preds = %if.then263.i.i
-  %327 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
-  %call.i.i.i1031.i.i = tail call noundef ptr %327(i64 noundef 4112)
+  %300 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
+  %call.i.i.i1031.i.i = tail call noundef ptr %300(i64 noundef 4112)
   %tobool.not.i.i.i1032.i.i = icmp eq ptr %call.i.i.i1031.i.i, null
   br i1 %tobool.not.i.i.i1032.i.i, label %if.then10.i.i.i1035.i.i, label %if.end14.i.i.i1033.i.i
 
 if.then10.i.i.i1035.i.i:                          ; preds = %if.else.i.i.i1030.i.i
   %_error.i.i.i1036.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val.i.i, i64 0, i32 2
-  %328 = load ptr, ptr %_error.i.i.i1036.i.i, align 8
-  %tobool11.not.i.i.i1037.i.i = icmp eq ptr %328, null
+  %301 = load ptr, ptr %_error.i.i.i1036.i.i, align 8
+  %tobool11.not.i.i.i1037.i.i = icmp eq ptr %301, null
   br i1 %tobool11.not.i.i.i1037.i.i, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread, label %if.then12.i.i.i1038.i.i
 
 if.then12.i.i.i1038.i.i:                          ; preds = %if.then10.i.i.i1035.i.i
-  store i8 1, ptr %328, align 1
+  store i8 1, ptr %301, align 1
   br label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread
 
 if.end14.i.i.i1033.i.i:                           ; preds = %if.else.i.i.i1030.i.i
-  %329 = load ptr, ptr %this.val.i.i, align 8
-  store ptr %329, ptr %call.i.i.i1031.i.i, align 8
+  %302 = load ptr, ptr %this.val.i.i, align 8
+  store ptr %302, ptr %call.i.i.i1031.i.i, align 8
   %capacity16.i.i.i1034.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i1031.i.i, i64 0, i32 1
   store i64 4096, ptr %capacity16.i.i.i1034.i.i, align 8
   store ptr %call.i.i.i1031.i.i, ptr %this.val.i.i, align 8
   store i64 40, ptr %_root_size.i.i.i1015.i.i, align 8
-  %330 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i1031.i.i, i64 0, i32 2
+  %303 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i1031.i.i, i64 0, i32 2
   br label %cond.true.i1021.i.i
 
 cond.true.i1021.i.i:                              ; preds = %if.end14.i.i.i1033.i.i, %if.then.i.i.i1019.i.i
-  %retval.0.i.i.i1022.i.i = phi ptr [ %add.ptr.i.i.i1020.i.i, %if.then.i.i.i1019.i.i ], [ %330, %if.end14.i.i.i1033.i.i ]
+  %retval.0.i.i.i1022.i.i = phi ptr [ %add.ptr.i.i.i1020.i.i, %if.then.i.i.i1019.i.i ], [ %303, %if.end14.i.i.i1033.i.i ]
   store <4 x i8> <i8 47, i8 4, i8 0, i8 0>, ptr %retval.0.i.i.i1022.i.i, align 8
   %_left.i.i1026.i.i = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i1022.i.i, i64 0, i32 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_left.i.i1026.i.i, i8 0, i64 24, i1 false)
@@ -38103,17 +38049,17 @@ cond.true.i1021.i.i:                              ; preds = %if.end14.i.i.i1033.
 
 sw.epilog.i.i:                                    ; preds = %for.body.i.i1002.i.i, %for.body.i.i935.i.i, %for.body.i.i739.i.i, %for.body.i.i697.i.i, %for.body.i.i680.i.i, %for.body.i.i546.i.i, %for.body.i.i420.i.i, %for.body.i.i378.i.i, %for.body.i.i319.i.i, %for.body.i.i.i160.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit1014.i.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit947.i.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit751.i.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit709.i.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit692.i.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit558.i.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit432.i.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit390.i.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit331.i.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit.i.i, %while.end.i81
   %_result.i1040.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %331 = load ptr, ptr %_result.i1040.i.i, align 8
-  store ptr @.str.73, ptr %331, align 8
-  %332 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i1041.i.i = load ptr, ptr %332, align 8
+  %304 = load ptr, ptr %_result.i1040.i.i, align 8
+  store ptr @.str.73, ptr %304, align 8
+  %305 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
+  %_lexer.val.i1041.i.i = load ptr, ptr %305, align 8
   %_query.i1042.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %333 = load ptr, ptr %_query.i1042.i.i, align 8
+  %306 = load ptr, ptr %_query.i1042.i.i, align 8
   %sub.ptr.lhs.cast.i1043.i.i = ptrtoint ptr %_lexer.val.i1041.i.i to i64
-  %sub.ptr.rhs.cast.i1044.i.i = ptrtoint ptr %333 to i64
+  %sub.ptr.rhs.cast.i1044.i.i = ptrtoint ptr %306 to i64
   %sub.ptr.sub.i1045.i.i = sub i64 %sub.ptr.lhs.cast.i1043.i.i, %sub.ptr.rhs.cast.i1044.i.i
-  %334 = load ptr, ptr %_result.i1040.i.i, align 8
-  %offset.i1046.i.i = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %334, i64 0, i32 1
+  %307 = load ptr, ptr %_result.i1040.i.i, align 8
+  %offset.i1046.i.i = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %307, i64 0, i32 1
   store i64 %sub.ptr.sub.i1045.i.i, ptr %offset.i1046.i.i, align 8
   br label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread
 
@@ -38135,7 +38081,7 @@ _ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit: ; pr
 if.end.i:                                         ; preds = %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread131, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit
   %retval.0.i67134 = phi ptr [ %retval.0.i67.ph, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread131 ], [ %retval.0.i67, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit ]
   %_depth.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 6
-  %335 = load i64, ptr %_depth.i, align 8
+  %308 = load i64, ptr %_depth.i, align 8
   %_lexer.val6.i175 = load i32, ptr %0, align 8
   %cmp.i176 = icmp eq i32 %_lexer.val6.i175, 18
   br i1 %cmp.i176, label %while.body.i, label %if.end38
@@ -38143,69 +38089,69 @@ if.end.i:                                         ; preds = %_ZN4pugi4impl12_GLO
 while.body.i:                                     ; preds = %if.end.i, %if.end27.i
   %n.0.i177 = phi ptr [ %retval.0.i.i.i36, %if.end27.i ], [ %retval.0.i67134, %if.end.i ]
   tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_111xpath_lexer4nextEv(ptr noundef nonnull align 8 dereferenceable(36) %_lexer)
-  %336 = load i64, ptr %_depth.i, align 8
-  %inc.i = add i64 %336, 1
+  %309 = load i64, ptr %_depth.i, align 8
+  %inc.i = add i64 %309, 1
   store i64 %inc.i, ptr %_depth.i, align 8
   %cmp5.i = icmp ugt i64 %inc.i, 1024
   br i1 %cmp5.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %while.body.i
   %_result.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %337 = load ptr, ptr %_result.i.i, align 8
-  store ptr @.str.31, ptr %337, align 8
-  %338 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i.i = load ptr, ptr %338, align 8
+  %310 = load ptr, ptr %_result.i.i, align 8
+  store ptr @.str.31, ptr %310, align 8
+  %311 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
+  %_lexer.val.i.i = load ptr, ptr %311, align 8
   %_query.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %339 = load ptr, ptr %_query.i.i, align 8
+  %312 = load ptr, ptr %_query.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %_lexer.val.i.i to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %339 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %312 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %340 = load ptr, ptr %_result.i.i, align 8
-  %offset.i.i = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %340, i64 0, i32 1
+  %313 = load ptr, ptr %_result.i.i, align 8
+  %offset.i.i = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %313, i64 0, i32 1
   store i64 %sub.ptr.sub.i.i, ptr %offset.i.i, align 8
   br label %return
 
 if.end8.i:                                        ; preds = %while.body.i
-  %341 = getelementptr i8, ptr %n.0.i177, i64 1
-  %n.0.val.i = load i8, ptr %341, align 1
+  %314 = getelementptr i8, ptr %n.0.i177, i64 1
+  %n.0.val.i = load i8, ptr %314, align 1
   %cmp10.not.i = icmp eq i8 %n.0.val.i, 1
   br i1 %cmp10.not.i, label %if.end13.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end8.i
   %_result.i58 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %342 = load ptr, ptr %_result.i58, align 8
-  store ptr @.str.37, ptr %342, align 8
-  %343 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i59 = load ptr, ptr %343, align 8
+  %315 = load ptr, ptr %_result.i58, align 8
+  store ptr @.str.37, ptr %315, align 8
+  %316 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
+  %_lexer.val.i59 = load ptr, ptr %316, align 8
   %_query.i60 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %344 = load ptr, ptr %_query.i60, align 8
+  %317 = load ptr, ptr %_query.i60, align 8
   %sub.ptr.lhs.cast.i61 = ptrtoint ptr %_lexer.val.i59 to i64
-  %sub.ptr.rhs.cast.i62 = ptrtoint ptr %344 to i64
+  %sub.ptr.rhs.cast.i62 = ptrtoint ptr %317 to i64
   %sub.ptr.sub.i63 = sub i64 %sub.ptr.lhs.cast.i61, %sub.ptr.rhs.cast.i62
-  %345 = load ptr, ptr %_result.i58, align 8
-  %offset.i64 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %345, i64 0, i32 1
+  %318 = load ptr, ptr %_result.i58, align 8
+  %offset.i64 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %318, i64 0, i32 1
   store i64 %sub.ptr.sub.i63, ptr %offset.i64, align 8
   br label %return
 
 if.end13.i:                                       ; preds = %if.end8.i
-  %inc.i53 = add nsw i64 %336, 2
+  %inc.i53 = add nsw i64 %309, 2
   store i64 %inc.i53, ptr %_depth.i, align 8
   %cmp.i54 = icmp ugt i64 %inc.i53, 1024
   br i1 %cmp.i54, label %if.then.i, label %if.end.i55
 
 if.then.i:                                        ; preds = %if.end13.i
   %_result.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %346 = load ptr, ptr %_result.i.i.i, align 8
-  store ptr @.str.31, ptr %346, align 8
-  %347 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i.i.i = load ptr, ptr %347, align 8
+  %319 = load ptr, ptr %_result.i.i.i, align 8
+  store ptr @.str.31, ptr %319, align 8
+  %320 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
+  %_lexer.val.i.i.i = load ptr, ptr %320, align 8
   %_query.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %348 = load ptr, ptr %_query.i.i.i, align 8
+  %321 = load ptr, ptr %_query.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %_lexer.val.i.i.i to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %348 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %321 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %349 = load ptr, ptr %_result.i.i.i, align 8
-  %offset.i.i.i = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %349, i64 0, i32 1
+  %322 = load ptr, ptr %_result.i.i.i, align 8
+  %offset.i.i.i = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %322, i64 0, i32 1
   store i64 %sub.ptr.sub.i.i.i, ptr %offset.i.i.i, align 8
   br label %return
 
@@ -38223,48 +38169,48 @@ _ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit: ; preds = %i
 if.end17.i:                                       ; preds = %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit
   %this.val.i = load ptr, ptr %this, align 8
   %_root_size.i.i.i29 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val.i, i64 0, i32 1
-  %350 = load i64, ptr %_root_size.i.i.i29, align 8
-  %add2.i.i.i30 = add i64 %350, 40
-  %351 = load ptr, ptr %this.val.i, align 8
-  %capacity.i.i.i31 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %351, i64 0, i32 1
-  %352 = load i64, ptr %capacity.i.i.i31, align 8
-  %cmp.not.i.i.i32 = icmp ugt i64 %add2.i.i.i30, %352
+  %323 = load i64, ptr %_root_size.i.i.i29, align 8
+  %add2.i.i.i30 = add i64 %323, 40
+  %324 = load ptr, ptr %this.val.i, align 8
+  %capacity.i.i.i31 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %324, i64 0, i32 1
+  %325 = load i64, ptr %capacity.i.i.i31, align 8
+  %cmp.not.i.i.i32 = icmp ugt i64 %add2.i.i.i30, %325
   br i1 %cmp.not.i.i.i32, label %if.else.i.i.i43, label %if.then.i.i.i33
 
 if.then.i.i.i33:                                  ; preds = %if.end17.i
-  %353 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %351, i64 0, i32 2
-  %add.ptr.i.i.i34 = getelementptr inbounds i8, ptr %353, i64 %350
+  %326 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %324, i64 0, i32 2
+  %add.ptr.i.i.i34 = getelementptr inbounds i8, ptr %326, i64 %323
   store i64 %add2.i.i.i30, ptr %_root_size.i.i.i29, align 8
   br label %if.end21.i
 
 if.else.i.i.i43:                                  ; preds = %if.end17.i
-  %354 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
-  %call.i.i.i44 = tail call noundef ptr %354(i64 noundef 4112)
+  %327 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
+  %call.i.i.i44 = tail call noundef ptr %327(i64 noundef 4112)
   %tobool.not.i.i.i45 = icmp eq ptr %call.i.i.i44, null
   br i1 %tobool.not.i.i.i45, label %if.then10.i.i.i48, label %if.end14.i.i.i46
 
 if.then10.i.i.i48:                                ; preds = %if.else.i.i.i43
   %_error.i.i.i49 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val.i, i64 0, i32 2
-  %355 = load ptr, ptr %_error.i.i.i49, align 8
-  %tobool11.not.i.i.i50 = icmp eq ptr %355, null
+  %328 = load ptr, ptr %_error.i.i.i49, align 8
+  %tobool11.not.i.i.i50 = icmp eq ptr %328, null
   br i1 %tobool11.not.i.i.i50, label %return, label %if.then12.i.i.i51
 
 if.then12.i.i.i51:                                ; preds = %if.then10.i.i.i48
-  store i8 1, ptr %355, align 1
+  store i8 1, ptr %328, align 1
   br label %return
 
 if.end14.i.i.i46:                                 ; preds = %if.else.i.i.i43
-  %356 = load ptr, ptr %this.val.i, align 8
-  store ptr %356, ptr %call.i.i.i44, align 8
+  %329 = load ptr, ptr %this.val.i, align 8
+  store ptr %329, ptr %call.i.i.i44, align 8
   %capacity16.i.i.i47 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i44, i64 0, i32 1
   store i64 4096, ptr %capacity16.i.i.i47, align 8
   store ptr %call.i.i.i44, ptr %this.val.i, align 8
   store i64 40, ptr %_root_size.i.i.i29, align 8
-  %357 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i44, i64 0, i32 2
+  %330 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i44, i64 0, i32 2
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.end14.i.i.i46, %if.then.i.i.i33
-  %retval.0.i.i.i36 = phi ptr [ %add.ptr.i.i.i34, %if.then.i.i.i33 ], [ %357, %if.end14.i.i.i46 ]
+  %retval.0.i.i.i36 = phi ptr [ %add.ptr.i.i.i34, %if.then.i.i.i33 ], [ %330, %if.end14.i.i.i46 ]
   store <4 x i8> <i8 17, i8 1, i8 0, i8 0>, ptr %retval.0.i.i.i36, align 8
   %_left.i.i40 = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i36, i64 0, i32 4
   store ptr %n.0.i177, ptr %_left.i.i40, align 8
@@ -38278,17 +38224,17 @@ if.end21.i:                                       ; preds = %if.end14.i.i.i46, %
 
 if.then25.i:                                      ; preds = %if.end21.i
   %_result.i22 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %358 = load ptr, ptr %_result.i22, align 8
-  store ptr @.str.38, ptr %358, align 8
-  %359 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i23 = load ptr, ptr %359, align 8
+  %331 = load ptr, ptr %_result.i22, align 8
+  store ptr @.str.38, ptr %331, align 8
+  %332 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
+  %_lexer.val.i23 = load ptr, ptr %332, align 8
   %_query.i24 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %360 = load ptr, ptr %_query.i24, align 8
+  %333 = load ptr, ptr %_query.i24, align 8
   %sub.ptr.lhs.cast.i25 = ptrtoint ptr %_lexer.val.i23 to i64
-  %sub.ptr.rhs.cast.i26 = ptrtoint ptr %360 to i64
+  %sub.ptr.rhs.cast.i26 = ptrtoint ptr %333 to i64
   %sub.ptr.sub.i27 = sub i64 %sub.ptr.lhs.cast.i25, %sub.ptr.rhs.cast.i26
-  %361 = load ptr, ptr %_result.i22, align 8
-  %offset.i28 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %361, i64 0, i32 1
+  %334 = load ptr, ptr %_result.i22, align 8
+  %offset.i28 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %334, i64 0, i32 1
   store i64 %sub.ptr.sub.i27, ptr %offset.i28, align 8
   br label %return
 
@@ -38301,7 +38247,7 @@ if.end27.i:                                       ; preds = %if.end21.i
 if.end38:                                         ; preds = %if.end27.i, %if.end.i
   %_lexer.val11 = phi i32 [ %_lexer.val6.i175, %if.end.i ], [ %_lexer.val6.i, %if.end27.i ]
   %n.0.i.lcssa = phi ptr [ %retval.0.i67134, %if.end.i ], [ %retval.0.i.i.i36, %if.end27.i ]
-  store i64 %335, ptr %_depth.i, align 8
+  store i64 %308, ptr %_depth.i, align 8
   switch i32 %_lexer.val11, label %return [
     i32 16, label %if.then46
     i32 17, label %if.then51
@@ -38313,72 +38259,72 @@ if.then46:                                        ; preds = %if.end38
 
 if.then51:                                        ; preds = %if.end38
   tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_111xpath_lexer4nextEv(ptr noundef nonnull align 8 dereferenceable(36) %_lexer)
-  %362 = getelementptr i8, ptr %n.0.i.lcssa, i64 1
-  %call35.val = load i8, ptr %362, align 1
+  %335 = getelementptr i8, ptr %n.0.i.lcssa, i64 1
+  %call35.val = load i8, ptr %335, align 1
   %cmp53.not = icmp eq i8 %call35.val, 1
   br i1 %cmp53.not, label %if.end56, label %if.then54
 
 if.then54:                                        ; preds = %if.then51
   %_result.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %363 = load ptr, ptr %_result.i, align 8
-  store ptr @.str.32, ptr %363, align 8
-  %364 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i21 = load ptr, ptr %364, align 8
+  %336 = load ptr, ptr %_result.i, align 8
+  store ptr @.str.32, ptr %336, align 8
+  %337 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
+  %_lexer.val.i21 = load ptr, ptr %337, align 8
   %_query.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %365 = load ptr, ptr %_query.i, align 8
+  %338 = load ptr, ptr %_query.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %_lexer.val.i21 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %365 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %338 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %366 = load ptr, ptr %_result.i, align 8
-  %offset.i = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %366, i64 0, i32 1
+  %339 = load ptr, ptr %_result.i, align 8
+  %offset.i = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %339, i64 0, i32 1
   store i64 %sub.ptr.sub.i, ptr %offset.i, align 8
   br label %return
 
 if.end56:                                         ; preds = %if.then51
   %this.val19 = load ptr, ptr %this, align 8
   %_root_size.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val19, i64 0, i32 1
-  %367 = load i64, ptr %_root_size.i.i.i, align 8
-  %add2.i.i.i = add i64 %367, 40
-  %368 = load ptr, ptr %this.val19, align 8
-  %capacity.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %368, i64 0, i32 1
-  %369 = load i64, ptr %capacity.i.i.i, align 8
-  %cmp.not.i.i.i = icmp ugt i64 %add2.i.i.i, %369
+  %340 = load i64, ptr %_root_size.i.i.i, align 8
+  %add2.i.i.i = add i64 %340, 40
+  %341 = load ptr, ptr %this.val19, align 8
+  %capacity.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %341, i64 0, i32 1
+  %342 = load i64, ptr %capacity.i.i.i, align 8
+  %cmp.not.i.i.i = icmp ugt i64 %add2.i.i.i, %342
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end56
-  %370 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %368, i64 0, i32 2
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %370, i64 %367
+  %343 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %341, i64 0, i32 2
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %343, i64 %340
   store i64 %add2.i.i.i, ptr %_root_size.i.i.i, align 8
   br label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeENS1_10ast_type_tEPNS1_14xpath_ast_nodeENS1_6axis_tENS1_10nodetest_tEPKc.exit
 
 if.else.i.i.i:                                    ; preds = %if.end56
-  %371 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
-  %call.i.i.i = tail call noundef ptr %371(i64 noundef 4112)
+  %344 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
+  %call.i.i.i = tail call noundef ptr %344(i64 noundef 4112)
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool.not.i.i.i, label %if.then10.i.i.i, label %if.end14.i.i.i
 
 if.then10.i.i.i:                                  ; preds = %if.else.i.i.i
   %_error.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val19, i64 0, i32 2
-  %372 = load ptr, ptr %_error.i.i.i, align 8
-  %tobool11.not.i.i.i = icmp eq ptr %372, null
+  %345 = load ptr, ptr %_error.i.i.i, align 8
+  %tobool11.not.i.i.i = icmp eq ptr %345, null
   br i1 %tobool11.not.i.i.i, label %return, label %if.then12.i.i.i
 
 if.then12.i.i.i:                                  ; preds = %if.then10.i.i.i
-  store i8 1, ptr %372, align 1
+  store i8 1, ptr %345, align 1
   br label %return
 
 if.end14.i.i.i:                                   ; preds = %if.else.i.i.i
-  %373 = load ptr, ptr %this.val19, align 8
-  store ptr %373, ptr %call.i.i.i, align 8
+  %346 = load ptr, ptr %this.val19, align 8
+  store ptr %346, ptr %call.i.i.i, align 8
   %capacity16.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i, i64 0, i32 1
   store i64 4096, ptr %capacity16.i.i.i, align 8
   store ptr %call.i.i.i, ptr %this.val19, align 8
   store i64 40, ptr %_root_size.i.i.i, align 8
-  %374 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i, i64 0, i32 2
+  %347 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i, i64 0, i32 2
   br label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeENS1_10ast_type_tEPNS1_14xpath_ast_nodeENS1_6axis_tENS1_10nodetest_tEPKc.exit
 
 _ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeENS1_10ast_type_tEPNS1_14xpath_ast_nodeENS1_6axis_tENS1_10nodetest_tEPKc.exit: ; preds = %if.then.i.i.i, %if.end14.i.i.i
-  %retval.0.i.i.i = phi ptr [ %add.ptr.i.i.i, %if.then.i.i.i ], [ %374, %if.end14.i.i.i ]
+  %retval.0.i.i.i = phi ptr [ %add.ptr.i.i.i, %if.then.i.i.i ], [ %347, %if.end14.i.i.i ]
   store <4 x i8> <i8 56, i8 1, i8 5, i8 2>, ptr %retval.0.i.i.i, align 8
   %_left.i.i = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i, i64 0, i32 4
   store ptr %n.0.i.lcssa, ptr %_left.i.i, align 8
@@ -38394,25 +38340,25 @@ if.end61:                                         ; preds = %_ZN4pugi4impl12_GLO
 if.then67:                                        ; preds = %entry
   tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_111xpath_lexer4nextEv(ptr noundef nonnull align 8 dereferenceable(36) %_lexer)
   %_depth.i214 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 6
-  %375 = load i64, ptr %_depth.i214, align 8
-  %inc.i215 = add i64 %375, 1
+  %348 = load i64, ptr %_depth.i214, align 8
+  %inc.i215 = add i64 %348, 1
   store i64 %inc.i215, ptr %_depth.i214, align 8
   %cmp.i216 = icmp ugt i64 %inc.i215, 1024
   br i1 %cmp.i216, label %if.then.i221, label %if.end.i217
 
 if.then.i221:                                     ; preds = %if.then67
   %_result.i.i.i222 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %376 = load ptr, ptr %_result.i.i.i222, align 8
-  store ptr @.str.31, ptr %376, align 8
-  %377 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i.i.i223 = load ptr, ptr %377, align 8
+  %349 = load ptr, ptr %_result.i.i.i222, align 8
+  store ptr @.str.31, ptr %349, align 8
+  %350 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
+  %_lexer.val.i.i.i223 = load ptr, ptr %350, align 8
   %_query.i.i.i224 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %378 = load ptr, ptr %_query.i.i.i224, align 8
+  %351 = load ptr, ptr %_query.i.i.i224, align 8
   %sub.ptr.lhs.cast.i.i.i225 = ptrtoint ptr %_lexer.val.i.i.i223 to i64
-  %sub.ptr.rhs.cast.i.i.i226 = ptrtoint ptr %378 to i64
+  %sub.ptr.rhs.cast.i.i.i226 = ptrtoint ptr %351 to i64
   %sub.ptr.sub.i.i.i227 = sub i64 %sub.ptr.lhs.cast.i.i.i225, %sub.ptr.rhs.cast.i.i.i226
-  %379 = load ptr, ptr %_result.i.i.i222, align 8
-  %offset.i.i.i228 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %379, i64 0, i32 1
+  %352 = load ptr, ptr %_result.i.i.i222, align 8
+  %offset.i.i.i228 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %352, i64 0, i32 1
   store i64 %sub.ptr.sub.i.i.i227, ptr %offset.i.i.i228, align 8
   br label %return
 
@@ -38423,55 +38369,55 @@ if.end.i217:                                      ; preds = %if.then67
 
 _ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit229: ; preds = %if.end.i217
   %call6.i220 = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser20parse_expression_recEPNS1_14xpath_ast_nodeEi(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %call3.i218, i32 noundef 7)
-  store i64 %375, ptr %_depth.i214, align 8
+  store i64 %348, ptr %_depth.i214, align 8
   %tobool71.not = icmp eq ptr %call6.i220, null
   br i1 %tobool71.not, label %return, label %if.end73
 
 if.end73:                                         ; preds = %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit229
   %this.val = load ptr, ptr %this, align 8
   %_root_size.i.i.i230 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val, i64 0, i32 1
-  %380 = load i64, ptr %_root_size.i.i.i230, align 8
-  %add2.i.i.i231 = add i64 %380, 40
-  %381 = load ptr, ptr %this.val, align 8
-  %capacity.i.i.i232 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %381, i64 0, i32 1
-  %382 = load i64, ptr %capacity.i.i.i232, align 8
-  %cmp.not.i.i.i233 = icmp ugt i64 %add2.i.i.i231, %382
+  %353 = load i64, ptr %_root_size.i.i.i230, align 8
+  %add2.i.i.i231 = add i64 %353, 40
+  %354 = load ptr, ptr %this.val, align 8
+  %capacity.i.i.i232 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %354, i64 0, i32 1
+  %355 = load i64, ptr %capacity.i.i.i232, align 8
+  %cmp.not.i.i.i233 = icmp ugt i64 %add2.i.i.i231, %355
   br i1 %cmp.not.i.i.i233, label %if.else.i.i.i243, label %if.then.i.i.i234
 
 if.then.i.i.i234:                                 ; preds = %if.end73
-  %383 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %381, i64 0, i32 2
-  %add.ptr.i.i.i235 = getelementptr inbounds i8, ptr %383, i64 %380
+  %356 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %354, i64 0, i32 2
+  %add.ptr.i.i.i235 = getelementptr inbounds i8, ptr %356, i64 %353
   store i64 %add2.i.i.i231, ptr %_root_size.i.i.i230, align 8
   br label %cond.true.i
 
 if.else.i.i.i243:                                 ; preds = %if.end73
-  %384 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
-  %call.i.i.i244 = tail call noundef ptr %384(i64 noundef 4112)
+  %357 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
+  %call.i.i.i244 = tail call noundef ptr %357(i64 noundef 4112)
   %tobool.not.i.i.i245 = icmp eq ptr %call.i.i.i244, null
   br i1 %tobool.not.i.i.i245, label %if.then10.i.i.i248, label %if.end14.i.i.i246
 
 if.then10.i.i.i248:                               ; preds = %if.else.i.i.i243
   %_error.i.i.i249 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val, i64 0, i32 2
-  %385 = load ptr, ptr %_error.i.i.i249, align 8
-  %tobool11.not.i.i.i250 = icmp eq ptr %385, null
+  %358 = load ptr, ptr %_error.i.i.i249, align 8
+  %tobool11.not.i.i.i250 = icmp eq ptr %358, null
   br i1 %tobool11.not.i.i.i250, label %return, label %if.then12.i.i.i251
 
 if.then12.i.i.i251:                               ; preds = %if.then10.i.i.i248
-  store i8 1, ptr %385, align 1
+  store i8 1, ptr %358, align 1
   br label %return
 
 if.end14.i.i.i246:                                ; preds = %if.else.i.i.i243
-  %386 = load ptr, ptr %this.val, align 8
-  store ptr %386, ptr %call.i.i.i244, align 8
+  %359 = load ptr, ptr %this.val, align 8
+  store ptr %359, ptr %call.i.i.i244, align 8
   %capacity16.i.i.i247 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i244, i64 0, i32 1
   store i64 4096, ptr %capacity16.i.i.i247, align 8
   store ptr %call.i.i.i244, ptr %this.val, align 8
   store i64 40, ptr %_root_size.i.i.i230, align 8
-  %387 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i244, i64 0, i32 2
+  %360 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i244, i64 0, i32 2
   br label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end14.i.i.i246, %if.then.i.i.i234
-  %retval.0.i.i.i236 = phi ptr [ %add.ptr.i.i.i235, %if.then.i.i.i234 ], [ %387, %if.end14.i.i.i246 ]
+  %retval.0.i.i.i236 = phi ptr [ %add.ptr.i.i.i235, %if.then.i.i.i234 ], [ %360, %if.end14.i.i.i246 ]
   store <4 x i8> <i8 14, i8 2, i8 0, i8 0>, ptr %retval.0.i.i.i236, align 8
   %_left.i.i240 = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i236, i64 0, i32 4
   store ptr %call6.i220, ptr %_left.i.i240, align 8
@@ -38942,9 +38888,7 @@ for.body.i.i:                                     ; preds = %sw.bb, %for.cond.i.
   br i1 %cmp3.not.i.i, label %for.cond.i.i, label %sw.epilog
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit: ; preds = %for.cond.i.i, %sw.bb
-  %arrayidx4.i.i = getelementptr inbounds i8, ptr @.str.33, i64 %sub.ptr.sub.i
-  %3 = load i8, ptr %arrayidx4.i.i, align 1
-  %cmp6.i.i = icmp eq i8 %3, 0
+  %cmp6.i.i = icmp eq i64 %sub.ptr.sub.i, 7
   br i1 %cmp6.i.i, label %return, label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
@@ -38962,16 +38906,14 @@ for.cond.i.i22:                                   ; preds = %for.body.i.i16
 for.body.i.i16:                                   ; preds = %sw.bb2, %for.cond.i.i22
   %i.08.i.i17 = phi i64 [ %inc.i.i23, %for.cond.i.i22 ], [ 0, %sw.bb2 ]
   %arrayidx.i.i18 = getelementptr inbounds i8, ptr @.str.34, i64 %i.08.i.i17
-  %4 = load i8, ptr %arrayidx.i.i18, align 1
+  %3 = load i8, ptr %arrayidx.i.i18, align 1
   %arrayidx1.i.i19 = getelementptr inbounds i8, ptr %name.0.val, i64 %i.08.i.i17
-  %5 = load i8, ptr %arrayidx1.i.i19, align 1
-  %cmp3.not.i.i20 = icmp eq i8 %4, %5
+  %4 = load i8, ptr %arrayidx1.i.i19, align 1
+  %cmp3.not.i.i20 = icmp eq i8 %3, %4
   br i1 %cmp3.not.i.i20, label %for.cond.i.i22, label %sw.epilog
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit28: ; preds = %for.cond.i.i22, %sw.bb2
-  %arrayidx4.i.i26 = getelementptr inbounds i8, ptr @.str.34, i64 %sub.ptr.sub.i14
-  %6 = load i8, ptr %arrayidx4.i.i26, align 1
-  %cmp6.i.i27 = icmp eq i8 %6, 0
+  %cmp6.i.i27 = icmp eq i64 %sub.ptr.sub.i14, 4
   br i1 %cmp6.i.i27, label %return, label %sw.epilog
 
 sw.bb6:                                           ; preds = %entry
@@ -38989,16 +38931,14 @@ for.cond.i.i39:                                   ; preds = %for.body.i.i33
 for.body.i.i33:                                   ; preds = %sw.bb6, %for.cond.i.i39
   %i.08.i.i34 = phi i64 [ %inc.i.i40, %for.cond.i.i39 ], [ 0, %sw.bb6 ]
   %arrayidx.i.i35 = getelementptr inbounds i8, ptr @.str.35, i64 %i.08.i.i34
-  %7 = load i8, ptr %arrayidx.i.i35, align 1
+  %5 = load i8, ptr %arrayidx.i.i35, align 1
   %arrayidx1.i.i36 = getelementptr inbounds i8, ptr %name.0.val, i64 %i.08.i.i34
-  %8 = load i8, ptr %arrayidx1.i.i36, align 1
-  %cmp3.not.i.i37 = icmp eq i8 %7, %8
+  %6 = load i8, ptr %arrayidx1.i.i36, align 1
+  %cmp3.not.i.i37 = icmp eq i8 %5, %6
   br i1 %cmp3.not.i.i37, label %for.cond.i.i39, label %sw.epilog
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit45: ; preds = %for.cond.i.i39, %sw.bb6
-  %arrayidx4.i.i43 = getelementptr inbounds i8, ptr @.str.35, i64 %sub.ptr.sub.i31
-  %9 = load i8, ptr %arrayidx4.i.i43, align 1
-  %cmp6.i.i44 = icmp eq i8 %9, 0
+  %cmp6.i.i44 = icmp eq i64 %sub.ptr.sub.i31, 22
   br i1 %cmp6.i.i44, label %return, label %sw.epilog
 
 sw.bb10:                                          ; preds = %entry
@@ -39016,16 +38956,14 @@ for.cond.i.i56:                                   ; preds = %for.body.i.i50
 for.body.i.i50:                                   ; preds = %sw.bb10, %for.cond.i.i56
   %i.08.i.i51 = phi i64 [ %inc.i.i57, %for.cond.i.i56 ], [ 0, %sw.bb10 ]
   %arrayidx.i.i52 = getelementptr inbounds i8, ptr @.str.36, i64 %i.08.i.i51
-  %10 = load i8, ptr %arrayidx.i.i52, align 1
+  %7 = load i8, ptr %arrayidx.i.i52, align 1
   %arrayidx1.i.i53 = getelementptr inbounds i8, ptr %name.0.val, i64 %i.08.i.i51
-  %11 = load i8, ptr %arrayidx1.i.i53, align 1
-  %cmp3.not.i.i54 = icmp eq i8 %10, %11
+  %8 = load i8, ptr %arrayidx1.i.i53, align 1
+  %cmp3.not.i.i54 = icmp eq i8 %7, %8
   br i1 %cmp3.not.i.i54, label %for.cond.i.i56, label %sw.epilog
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit62: ; preds = %for.cond.i.i56, %sw.bb10
-  %arrayidx4.i.i60 = getelementptr inbounds i8, ptr @.str.36, i64 %sub.ptr.sub.i48
-  %12 = load i8, ptr %arrayidx4.i.i60, align 1
-  %cmp6.i.i61 = icmp eq i8 %12, 0
+  %cmp6.i.i61 = icmp eq i64 %sub.ptr.sub.i48, 4
   br i1 %cmp6.i.i61, label %return, label %sw.epilog
 
 sw.epilog:                                        ; preds = %for.body.i.i50, %for.body.i.i33, %for.body.i.i16, %for.body.i.i, %entry, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit62, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit45, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit28, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit
@@ -39583,9 +39521,7 @@ for.body.i.i.i:                                   ; preds = %sw.bb.i, %for.cond.
   br i1 %cmp3.not.i.i.i, label %for.cond.i.i.i, label %if.else.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit.i: ; preds = %for.cond.i.i.i, %sw.bb.i
-  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr @.str.82, i64 %sub.ptr.sub.i.i
-  %37 = load i8, ptr %arrayidx4.i.i.i, align 1
-  %cmp6.i.i.i = icmp eq i8 %37, 0
+  %cmp6.i.i.i = icmp eq i64 %sub.ptr.sub.i.i, 8
   br i1 %cmp6.i.i.i, label %if.end54, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body.i.i.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit.i
@@ -39599,16 +39535,14 @@ for.cond.i.i50.i:                                 ; preds = %for.body.i.i44.i
 for.body.i.i44.i:                                 ; preds = %if.else.i, %for.cond.i.i50.i
   %i.08.i.i45.i = phi i64 [ %inc.i.i51.i, %for.cond.i.i50.i ], [ 0, %if.else.i ]
   %arrayidx.i.i46.i = getelementptr inbounds i8, ptr @.str.83, i64 %i.08.i.i45.i
-  %38 = load i8, ptr %arrayidx.i.i46.i, align 1
+  %37 = load i8, ptr %arrayidx.i.i46.i, align 1
   %arrayidx1.i.i47.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.copyload, i64 %i.08.i.i45.i
-  %39 = load i8, ptr %arrayidx1.i.i47.i, align 1
-  %cmp3.not.i.i48.i = icmp eq i8 %38, %39
+  %38 = load i8, ptr %arrayidx1.i.i47.i, align 1
+  %cmp3.not.i.i48.i = icmp eq i8 %37, %38
   br i1 %cmp3.not.i.i48.i, label %for.cond.i.i50.i, label %if.else4.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit56.i: ; preds = %for.cond.i.i50.i, %if.else.i
-  %arrayidx4.i.i54.i = getelementptr inbounds i8, ptr @.str.83, i64 %sub.ptr.sub.i.i
-  %40 = load i8, ptr %arrayidx4.i.i54.i, align 1
-  %cmp6.i.i55.i = icmp eq i8 %40, 0
+  %cmp6.i.i55.i = icmp eq i64 %sub.ptr.sub.i.i, 16
   br i1 %cmp6.i.i55.i, label %if.end54, label %if.else4.i
 
 if.else4.i:                                       ; preds = %for.body.i.i44.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit56.i
@@ -39622,16 +39556,14 @@ for.cond.i.i67.i:                                 ; preds = %for.body.i.i61.i
 for.body.i.i61.i:                                 ; preds = %if.else4.i, %for.cond.i.i67.i
   %i.08.i.i62.i = phi i64 [ %inc.i.i68.i, %for.cond.i.i67.i ], [ 0, %if.else4.i ]
   %arrayidx.i.i63.i = getelementptr inbounds i8, ptr @.str.84, i64 %i.08.i.i62.i
-  %41 = load i8, ptr %arrayidx.i.i63.i, align 1
+  %39 = load i8, ptr %arrayidx.i.i63.i, align 1
   %arrayidx1.i.i64.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.copyload, i64 %i.08.i.i62.i
-  %42 = load i8, ptr %arrayidx1.i.i64.i, align 1
-  %cmp3.not.i.i65.i = icmp eq i8 %41, %42
+  %40 = load i8, ptr %arrayidx1.i.i64.i, align 1
+  %cmp3.not.i.i65.i = icmp eq i8 %39, %40
   br i1 %cmp3.not.i.i65.i, label %for.cond.i.i67.i, label %if.then52
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit73.i: ; preds = %for.cond.i.i67.i, %if.else4.i
-  %arrayidx4.i.i71.i = getelementptr inbounds i8, ptr @.str.84, i64 %sub.ptr.sub.i.i
-  %43 = load i8, ptr %arrayidx4.i.i71.i, align 1
-  %cmp6.i.i72.i = icmp eq i8 %43, 0
+  %cmp6.i.i72.i = icmp eq i64 %sub.ptr.sub.i.i, 9
   br i1 %cmp6.i.i72.i, label %if.end54, label %if.then52
 
 sw.bb9.i:                                         ; preds = %if.end49
@@ -39649,16 +39581,14 @@ for.cond.i.i84.i:                                 ; preds = %for.body.i.i78.i
 for.body.i.i78.i:                                 ; preds = %sw.bb9.i, %for.cond.i.i84.i
   %i.08.i.i79.i = phi i64 [ %inc.i.i85.i, %for.cond.i.i84.i ], [ 0, %sw.bb9.i ]
   %arrayidx.i.i80.i = getelementptr inbounds i8, ptr @.str.85, i64 %i.08.i.i79.i
-  %44 = load i8, ptr %arrayidx.i.i80.i, align 1
+  %41 = load i8, ptr %arrayidx.i.i80.i, align 1
   %arrayidx1.i.i81.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.copyload, i64 %i.08.i.i79.i
-  %45 = load i8, ptr %arrayidx1.i.i81.i, align 1
-  %cmp3.not.i.i82.i = icmp eq i8 %44, %45
+  %42 = load i8, ptr %arrayidx1.i.i81.i, align 1
+  %cmp3.not.i.i82.i = icmp eq i8 %41, %42
   br i1 %cmp3.not.i.i82.i, label %for.cond.i.i84.i, label %if.then52
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit90.i: ; preds = %for.cond.i.i84.i, %sw.bb9.i
-  %arrayidx4.i.i88.i = getelementptr inbounds i8, ptr @.str.85, i64 %sub.ptr.sub.i76.i
-  %46 = load i8, ptr %arrayidx4.i.i88.i, align 1
-  %cmp6.i.i89.i = icmp eq i8 %46, 0
+  %cmp6.i.i89.i = icmp eq i64 %sub.ptr.sub.i76.i, 5
   br i1 %cmp6.i.i89.i, label %if.end54, label %if.then52
 
 sw.bb13.i:                                        ; preds = %if.end49
@@ -39676,16 +39606,14 @@ for.cond.i.i101.i:                                ; preds = %for.body.i.i95.i
 for.body.i.i95.i:                                 ; preds = %sw.bb13.i, %for.cond.i.i101.i
   %i.08.i.i96.i = phi i64 [ %inc.i.i102.i, %for.cond.i.i101.i ], [ 0, %sw.bb13.i ]
   %arrayidx.i.i97.i = getelementptr inbounds i8, ptr @.str.86, i64 %i.08.i.i96.i
-  %47 = load i8, ptr %arrayidx.i.i97.i, align 1
+  %43 = load i8, ptr %arrayidx.i.i97.i, align 1
   %arrayidx1.i.i98.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.copyload, i64 %i.08.i.i96.i
-  %48 = load i8, ptr %arrayidx1.i.i98.i, align 1
-  %cmp3.not.i.i99.i = icmp eq i8 %47, %48
+  %44 = load i8, ptr %arrayidx1.i.i98.i, align 1
+  %cmp3.not.i.i99.i = icmp eq i8 %43, %44
   br i1 %cmp3.not.i.i99.i, label %for.cond.i.i101.i, label %if.else16.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit107.i: ; preds = %for.cond.i.i101.i, %sw.bb13.i
-  %arrayidx4.i.i105.i = getelementptr inbounds i8, ptr @.str.86, i64 %sub.ptr.sub.i93.i
-  %49 = load i8, ptr %arrayidx4.i.i105.i, align 1
-  %cmp6.i.i106.i = icmp eq i8 %49, 0
+  %cmp6.i.i106.i = icmp eq i64 %sub.ptr.sub.i93.i, 10
   br i1 %cmp6.i.i106.i, label %if.end54, label %if.else16.i
 
 if.else16.i:                                      ; preds = %for.body.i.i95.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit107.i
@@ -39699,16 +39627,14 @@ for.cond.i.i118.i:                                ; preds = %for.body.i.i112.i
 for.body.i.i112.i:                                ; preds = %if.else16.i, %for.cond.i.i118.i
   %i.08.i.i113.i = phi i64 [ %inc.i.i119.i, %for.cond.i.i118.i ], [ 0, %if.else16.i ]
   %arrayidx.i.i114.i = getelementptr inbounds i8, ptr @.str.87, i64 %i.08.i.i113.i
-  %50 = load i8, ptr %arrayidx.i.i114.i, align 1
+  %45 = load i8, ptr %arrayidx.i.i114.i, align 1
   %arrayidx1.i.i115.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.copyload, i64 %i.08.i.i113.i
-  %51 = load i8, ptr %arrayidx1.i.i115.i, align 1
-  %cmp3.not.i.i116.i = icmp eq i8 %50, %51
+  %46 = load i8, ptr %arrayidx1.i.i115.i, align 1
+  %cmp3.not.i.i116.i = icmp eq i8 %45, %46
   br i1 %cmp3.not.i.i116.i, label %for.cond.i.i118.i, label %if.then52
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit124.i: ; preds = %for.cond.i.i118.i, %if.else16.i
-  %arrayidx4.i.i122.i = getelementptr inbounds i8, ptr @.str.87, i64 %sub.ptr.sub.i93.i
-  %52 = load i8, ptr %arrayidx4.i.i122.i, align 1
-  %cmp6.i.i123.i = icmp eq i8 %52, 0
+  %cmp6.i.i123.i = icmp eq i64 %sub.ptr.sub.i93.i, 18
   br i1 %cmp6.i.i123.i, label %if.end54, label %if.then52
 
 sw.bb21.i:                                        ; preds = %if.end49
@@ -39726,16 +39652,14 @@ for.cond.i.i135.i:                                ; preds = %for.body.i.i129.i
 for.body.i.i129.i:                                ; preds = %sw.bb21.i, %for.cond.i.i135.i
   %i.08.i.i130.i = phi i64 [ %inc.i.i136.i, %for.cond.i.i135.i ], [ 0, %sw.bb21.i ]
   %arrayidx.i.i131.i = getelementptr inbounds i8, ptr @.str.88, i64 %i.08.i.i130.i
-  %53 = load i8, ptr %arrayidx.i.i131.i, align 1
+  %47 = load i8, ptr %arrayidx.i.i131.i, align 1
   %arrayidx1.i.i132.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.copyload, i64 %i.08.i.i130.i
-  %54 = load i8, ptr %arrayidx1.i.i132.i, align 1
-  %cmp3.not.i.i133.i = icmp eq i8 %53, %54
+  %48 = load i8, ptr %arrayidx1.i.i132.i, align 1
+  %cmp3.not.i.i133.i = icmp eq i8 %47, %48
   br i1 %cmp3.not.i.i133.i, label %for.cond.i.i135.i, label %if.else24.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit141.i: ; preds = %for.cond.i.i135.i, %sw.bb21.i
-  %arrayidx4.i.i139.i = getelementptr inbounds i8, ptr @.str.88, i64 %sub.ptr.sub.i127.i
-  %55 = load i8, ptr %arrayidx4.i.i139.i, align 1
-  %cmp6.i.i140.i = icmp eq i8 %55, 0
+  %cmp6.i.i140.i = icmp eq i64 %sub.ptr.sub.i127.i, 9
   br i1 %cmp6.i.i140.i, label %if.end54, label %if.else24.i
 
 if.else24.i:                                      ; preds = %for.body.i.i129.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit141.i
@@ -39749,16 +39673,14 @@ for.cond.i.i152.i:                                ; preds = %for.body.i.i146.i
 for.body.i.i146.i:                                ; preds = %if.else24.i, %for.cond.i.i152.i
   %i.08.i.i147.i = phi i64 [ %inc.i.i153.i, %for.cond.i.i152.i ], [ 0, %if.else24.i ]
   %arrayidx.i.i148.i = getelementptr inbounds i8, ptr @.str.89, i64 %i.08.i.i147.i
-  %56 = load i8, ptr %arrayidx.i.i148.i, align 1
+  %49 = load i8, ptr %arrayidx.i.i148.i, align 1
   %arrayidx1.i.i149.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.copyload, i64 %i.08.i.i147.i
-  %57 = load i8, ptr %arrayidx1.i.i149.i, align 1
-  %cmp3.not.i.i150.i = icmp eq i8 %56, %57
+  %50 = load i8, ptr %arrayidx1.i.i149.i, align 1
+  %cmp3.not.i.i150.i = icmp eq i8 %49, %50
   br i1 %cmp3.not.i.i150.i, label %for.cond.i.i152.i, label %if.then52
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit158.i: ; preds = %for.cond.i.i152.i, %if.else24.i
-  %arrayidx4.i.i156.i = getelementptr inbounds i8, ptr @.str.89, i64 %sub.ptr.sub.i127.i
-  %58 = load i8, ptr %arrayidx4.i.i156.i, align 1
-  %cmp6.i.i157.i = icmp eq i8 %58, 0
+  %cmp6.i.i157.i = icmp eq i64 %sub.ptr.sub.i127.i, 17
   br i1 %cmp6.i.i157.i, label %if.end54, label %if.then52
 
 sw.bb29.i:                                        ; preds = %if.end49
@@ -39776,16 +39698,14 @@ for.cond.i.i169.i:                                ; preds = %for.body.i.i163.i
 for.body.i.i163.i:                                ; preds = %sw.bb29.i, %for.cond.i.i169.i
   %i.08.i.i164.i = phi i64 [ %inc.i.i170.i, %for.cond.i.i169.i ], [ 0, %sw.bb29.i ]
   %arrayidx.i.i165.i = getelementptr inbounds i8, ptr @.str.90, i64 %i.08.i.i164.i
-  %59 = load i8, ptr %arrayidx.i.i165.i, align 1
+  %51 = load i8, ptr %arrayidx.i.i165.i, align 1
   %arrayidx1.i.i166.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.copyload, i64 %i.08.i.i164.i
-  %60 = load i8, ptr %arrayidx1.i.i166.i, align 1
-  %cmp3.not.i.i167.i = icmp eq i8 %59, %60
+  %52 = load i8, ptr %arrayidx1.i.i166.i, align 1
+  %cmp3.not.i.i167.i = icmp eq i8 %51, %52
   br i1 %cmp3.not.i.i167.i, label %for.cond.i.i169.i, label %if.then52
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit175.i: ; preds = %for.cond.i.i169.i, %sw.bb29.i
-  %arrayidx4.i.i173.i = getelementptr inbounds i8, ptr @.str.90, i64 %sub.ptr.sub.i161.i
-  %61 = load i8, ptr %arrayidx4.i.i173.i, align 1
-  %cmp6.i.i174.i = icmp eq i8 %61, 0
+  %cmp6.i.i174.i = icmp eq i64 %sub.ptr.sub.i161.i, 9
   br i1 %cmp6.i.i174.i, label %if.end54, label %if.then52
 
 sw.bb33.i:                                        ; preds = %if.end49
@@ -39803,16 +39723,14 @@ for.cond.i.i186.i:                                ; preds = %for.body.i.i180.i
 for.body.i.i180.i:                                ; preds = %sw.bb33.i, %for.cond.i.i186.i
   %i.08.i.i181.i = phi i64 [ %inc.i.i187.i, %for.cond.i.i186.i ], [ 0, %sw.bb33.i ]
   %arrayidx.i.i182.i = getelementptr inbounds i8, ptr @.str.91, i64 %i.08.i.i181.i
-  %62 = load i8, ptr %arrayidx.i.i182.i, align 1
+  %53 = load i8, ptr %arrayidx.i.i182.i, align 1
   %arrayidx1.i.i183.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.copyload, i64 %i.08.i.i181.i
-  %63 = load i8, ptr %arrayidx1.i.i183.i, align 1
-  %cmp3.not.i.i184.i = icmp eq i8 %62, %63
+  %54 = load i8, ptr %arrayidx1.i.i183.i, align 1
+  %cmp3.not.i.i184.i = icmp eq i8 %53, %54
   br i1 %cmp3.not.i.i184.i, label %for.cond.i.i186.i, label %if.else36.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit192.i: ; preds = %for.cond.i.i186.i, %sw.bb33.i
-  %arrayidx4.i.i190.i = getelementptr inbounds i8, ptr @.str.91, i64 %sub.ptr.sub.i178.i
-  %64 = load i8, ptr %arrayidx4.i.i190.i, align 1
-  %cmp6.i.i191.i = icmp eq i8 %64, 0
+  %cmp6.i.i191.i = icmp eq i64 %sub.ptr.sub.i178.i, 6
   br i1 %cmp6.i.i191.i, label %if.end54, label %if.else36.i
 
 if.else36.i:                                      ; preds = %for.body.i.i180.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit192.i
@@ -39826,16 +39744,14 @@ for.cond.i.i203.i:                                ; preds = %for.body.i.i197.i
 for.body.i.i197.i:                                ; preds = %if.else36.i, %for.cond.i.i203.i
   %i.08.i.i198.i = phi i64 [ %inc.i.i204.i, %for.cond.i.i203.i ], [ 0, %if.else36.i ]
   %arrayidx.i.i199.i = getelementptr inbounds i8, ptr @.str.92, i64 %i.08.i.i198.i
-  %65 = load i8, ptr %arrayidx.i.i199.i, align 1
+  %55 = load i8, ptr %arrayidx.i.i199.i, align 1
   %arrayidx1.i.i200.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.copyload, i64 %i.08.i.i198.i
-  %66 = load i8, ptr %arrayidx1.i.i200.i, align 1
-  %cmp3.not.i.i201.i = icmp eq i8 %65, %66
+  %56 = load i8, ptr %arrayidx1.i.i200.i, align 1
+  %cmp3.not.i.i201.i = icmp eq i8 %55, %56
   br i1 %cmp3.not.i.i201.i, label %for.cond.i.i203.i, label %if.else39.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit209.i: ; preds = %for.cond.i.i203.i, %if.else36.i
-  %arrayidx4.i.i207.i = getelementptr inbounds i8, ptr @.str.92, i64 %sub.ptr.sub.i178.i
-  %67 = load i8, ptr %arrayidx4.i.i207.i, align 1
-  %cmp6.i.i208.i = icmp eq i8 %67, 0
+  %cmp6.i.i208.i = icmp eq i64 %sub.ptr.sub.i178.i, 9
   br i1 %cmp6.i.i208.i, label %if.end54, label %if.else39.i
 
 if.else39.i:                                      ; preds = %for.body.i.i197.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit209.i
@@ -39849,16 +39765,14 @@ for.cond.i.i220.i:                                ; preds = %for.body.i.i214.i
 for.body.i.i214.i:                                ; preds = %if.else39.i, %for.cond.i.i220.i
   %i.08.i.i215.i = phi i64 [ %inc.i.i221.i, %for.cond.i.i220.i ], [ 0, %if.else39.i ]
   %arrayidx.i.i216.i = getelementptr inbounds i8, ptr @.str.93, i64 %i.08.i.i215.i
-  %68 = load i8, ptr %arrayidx.i.i216.i, align 1
+  %57 = load i8, ptr %arrayidx.i.i216.i, align 1
   %arrayidx1.i.i217.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.copyload, i64 %i.08.i.i215.i
-  %69 = load i8, ptr %arrayidx1.i.i217.i, align 1
-  %cmp3.not.i.i218.i = icmp eq i8 %68, %69
+  %58 = load i8, ptr %arrayidx1.i.i217.i, align 1
+  %cmp3.not.i.i218.i = icmp eq i8 %57, %58
   br i1 %cmp3.not.i.i218.i, label %for.cond.i.i220.i, label %if.then52
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit226.i: ; preds = %for.cond.i.i220.i, %if.else39.i
-  %arrayidx4.i.i224.i = getelementptr inbounds i8, ptr @.str.93, i64 %sub.ptr.sub.i178.i
-  %70 = load i8, ptr %arrayidx4.i.i224.i, align 1
-  %cmp6.i.i225.i = icmp eq i8 %70, 0
+  %cmp6.i.i225.i = icmp eq i64 %sub.ptr.sub.i178.i, 17
   br i1 %cmp6.i.i225.i, label %if.end54, label %if.then52
 
 sw.bb45.i:                                        ; preds = %if.end49
@@ -39876,31 +39790,29 @@ for.cond.i.i237.i:                                ; preds = %for.body.i.i231.i
 for.body.i.i231.i:                                ; preds = %sw.bb45.i, %for.cond.i.i237.i
   %i.08.i.i232.i = phi i64 [ %inc.i.i238.i, %for.cond.i.i237.i ], [ 0, %sw.bb45.i ]
   %arrayidx.i.i233.i = getelementptr inbounds i8, ptr @.str.94, i64 %i.08.i.i232.i
-  %71 = load i8, ptr %arrayidx.i.i233.i, align 1
+  %59 = load i8, ptr %arrayidx.i.i233.i, align 1
   %arrayidx1.i.i234.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.copyload, i64 %i.08.i.i232.i
-  %72 = load i8, ptr %arrayidx1.i.i234.i, align 1
-  %cmp3.not.i.i235.i = icmp eq i8 %71, %72
+  %60 = load i8, ptr %arrayidx1.i.i234.i, align 1
+  %cmp3.not.i.i235.i = icmp eq i8 %59, %60
   br i1 %cmp3.not.i.i235.i, label %for.cond.i.i237.i, label %if.then52
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit243.i: ; preds = %for.cond.i.i237.i, %sw.bb45.i
-  %arrayidx4.i.i241.i = getelementptr inbounds i8, ptr @.str.94, i64 %sub.ptr.sub.i229.i
-  %73 = load i8, ptr %arrayidx4.i.i241.i, align 1
-  %cmp6.i.i242.i = icmp eq i8 %73, 0
+  %cmp6.i.i242.i = icmp eq i64 %sub.ptr.sub.i229.i, 4
   br i1 %cmp6.i.i242.i, label %if.end54, label %if.then52
 
 if.then52:                                        ; preds = %for.body.i.i231.i, %for.body.i.i214.i, %for.body.i.i163.i, %for.body.i.i146.i, %for.body.i.i112.i, %for.body.i.i78.i, %for.body.i.i61.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit243.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit226.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit175.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit158.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit124.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit90.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit73.i, %if.end49
   %_result.i84 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %74 = load ptr, ptr %_result.i84, align 8
-  store ptr @.str.76, ptr %74, align 8
-  %75 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i85 = load ptr, ptr %75, align 8
+  %61 = load ptr, ptr %_result.i84, align 8
+  store ptr @.str.76, ptr %61, align 8
+  %62 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
+  %_lexer.val.i85 = load ptr, ptr %62, align 8
   %_query.i86 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %76 = load ptr, ptr %_query.i86, align 8
+  %63 = load ptr, ptr %_query.i86, align 8
   %sub.ptr.lhs.cast.i87 = ptrtoint ptr %_lexer.val.i85 to i64
-  %sub.ptr.rhs.cast.i88 = ptrtoint ptr %76 to i64
+  %sub.ptr.rhs.cast.i88 = ptrtoint ptr %63 to i64
   %sub.ptr.sub.i89 = sub i64 %sub.ptr.lhs.cast.i87, %sub.ptr.rhs.cast.i88
-  %77 = load ptr, ptr %_result.i84, align 8
-  %offset.i90 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %77, i64 0, i32 1
+  %64 = load ptr, ptr %_result.i84, align 8
+  %offset.i90 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %64, i64 0, i32 1
   store i64 %sub.ptr.sub.i89, ptr %offset.i90, align 8
   br label %return
 
@@ -39922,17 +39834,17 @@ if.then65:                                        ; preds = %if.end54
 
 if.else69:                                        ; preds = %if.end54
   %_result.i92 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %78 = load ptr, ptr %_result.i92, align 8
-  store ptr @.str.77, ptr %78, align 8
-  %79 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i93 = load ptr, ptr %79, align 8
+  %65 = load ptr, ptr %_result.i92, align 8
+  store ptr @.str.77, ptr %65, align 8
+  %66 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
+  %_lexer.val.i93 = load ptr, ptr %66, align 8
   %_query.i94 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %80 = load ptr, ptr %_query.i94, align 8
+  %67 = load ptr, ptr %_query.i94, align 8
   %sub.ptr.lhs.cast.i95 = ptrtoint ptr %_lexer.val.i93 to i64
-  %sub.ptr.rhs.cast.i96 = ptrtoint ptr %80 to i64
+  %sub.ptr.rhs.cast.i96 = ptrtoint ptr %67 to i64
   %sub.ptr.sub.i97 = sub i64 %sub.ptr.lhs.cast.i95, %sub.ptr.rhs.cast.i96
-  %81 = load ptr, ptr %_result.i92, align 8
-  %offset.i98 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %81, i64 0, i32 1
+  %68 = load ptr, ptr %_result.i92, align 8
+  %offset.i98 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %68, i64 0, i32 1
   store i64 %sub.ptr.sub.i97, ptr %offset.i98, align 8
   br label %return
 
@@ -39962,17 +39874,17 @@ if.then84:                                        ; preds = %if.then79
 
 if.then88:                                        ; preds = %if.then84
   %_result.i99 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %82 = load ptr, ptr %_result.i99, align 8
-  store ptr @.str.78, ptr %82, align 8
-  %83 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i100 = load ptr, ptr %83, align 8
+  %69 = load ptr, ptr %_result.i99, align 8
+  store ptr @.str.78, ptr %69, align 8
+  %70 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
+  %_lexer.val.i100 = load ptr, ptr %70, align 8
   %_query.i101 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %84 = load ptr, ptr %_query.i101, align 8
+  %71 = load ptr, ptr %_query.i101, align 8
   %sub.ptr.lhs.cast.i102 = ptrtoint ptr %_lexer.val.i100 to i64
-  %sub.ptr.rhs.cast.i103 = ptrtoint ptr %84 to i64
+  %sub.ptr.rhs.cast.i103 = ptrtoint ptr %71 to i64
   %sub.ptr.sub.i104 = sub i64 %sub.ptr.lhs.cast.i102, %sub.ptr.rhs.cast.i103
-  %85 = load ptr, ptr %_result.i99, align 8
-  %offset.i105 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %85, i64 0, i32 1
+  %72 = load ptr, ptr %_result.i99, align 8
+  %offset.i105 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %72, i64 0, i32 1
   store i64 %sub.ptr.sub.i104, ptr %offset.i105, align 8
   br label %return
 
@@ -39991,16 +39903,14 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 for.body.i.i:                                     ; preds = %if.else92, %for.cond.i.i
   %i.08.i.i = phi i64 [ %inc.i.i, %for.cond.i.i ], [ 0, %if.else92 ]
   %arrayidx.i.i = getelementptr inbounds i8, ptr @.str.35, i64 %i.08.i.i
-  %86 = load i8, ptr %arrayidx.i.i, align 1
+  %73 = load i8, ptr %arrayidx.i.i, align 1
   %arrayidx1.i.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.ph, i64 %i.08.i.i
-  %87 = load i8, ptr %arrayidx1.i.i, align 1
-  %cmp3.not.i.i = icmp eq i8 %86, %87
+  %74 = load i8, ptr %arrayidx1.i.i, align 1
+  %cmp3.not.i.i = icmp eq i8 %73, %74
   br i1 %cmp3.not.i.i, label %for.cond.i.i, label %if.else111
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit: ; preds = %for.cond.i.i, %if.else92
-  %arrayidx4.i.i = getelementptr inbounds i8, ptr @.str.35, i64 %sub.ptr.sub.i108
-  %88 = load i8, ptr %arrayidx4.i.i, align 1
-  %cmp6.i.i = icmp eq i8 %88, 0
+  %cmp6.i.i = icmp eq i64 %sub.ptr.sub.i108, 22
   br i1 %cmp6.i.i, label %if.then94, label %if.else111
 
 if.then94:                                        ; preds = %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit
@@ -40009,17 +39919,17 @@ if.then94:                                        ; preds = %_ZNK4pugi4impl12_GL
 
 if.then98:                                        ; preds = %if.then94
   %_result.i109 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %89 = load ptr, ptr %_result.i109, align 8
-  store ptr @.str.79, ptr %89, align 8
-  %90 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i110 = load ptr, ptr %90, align 8
+  %75 = load ptr, ptr %_result.i109, align 8
+  store ptr @.str.79, ptr %75, align 8
+  %76 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
+  %_lexer.val.i110 = load ptr, ptr %76, align 8
   %_query.i111 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %91 = load ptr, ptr %_query.i111, align 8
+  %77 = load ptr, ptr %_query.i111, align 8
   %sub.ptr.lhs.cast.i112 = ptrtoint ptr %_lexer.val.i110 to i64
-  %sub.ptr.rhs.cast.i113 = ptrtoint ptr %91 to i64
+  %sub.ptr.rhs.cast.i113 = ptrtoint ptr %77 to i64
   %sub.ptr.sub.i114 = sub i64 %sub.ptr.lhs.cast.i112, %sub.ptr.rhs.cast.i113
-  %92 = load ptr, ptr %_result.i109, align 8
-  %offset.i115 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %92, i64 0, i32 1
+  %78 = load ptr, ptr %_result.i109, align 8
+  %offset.i115 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %78, i64 0, i32 1
   store i64 %sub.ptr.sub.i114, ptr %offset.i115, align 8
   br label %return
 
@@ -40033,17 +39943,17 @@ if.end100:                                        ; preds = %if.then94
 
 if.then107:                                       ; preds = %if.end100
   %_result.i117 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %93 = load ptr, ptr %_result.i117, align 8
-  store ptr @.str.80, ptr %93, align 8
-  %94 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i118 = load ptr, ptr %94, align 8
+  %79 = load ptr, ptr %_result.i117, align 8
+  store ptr @.str.80, ptr %79, align 8
+  %80 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
+  %_lexer.val.i118 = load ptr, ptr %80, align 8
   %_query.i119 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %95 = load ptr, ptr %_query.i119, align 8
+  %81 = load ptr, ptr %_query.i119, align 8
   %sub.ptr.lhs.cast.i120 = ptrtoint ptr %_lexer.val.i118 to i64
-  %sub.ptr.rhs.cast.i121 = ptrtoint ptr %95 to i64
+  %sub.ptr.rhs.cast.i121 = ptrtoint ptr %81 to i64
   %sub.ptr.sub.i122 = sub i64 %sub.ptr.lhs.cast.i120, %sub.ptr.rhs.cast.i121
-  %96 = load ptr, ptr %_result.i117, align 8
-  %offset.i123 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %96, i64 0, i32 1
+  %82 = load ptr, ptr %_result.i117, align 8
+  %offset.i123 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %82, i64 0, i32 1
   store i64 %sub.ptr.sub.i122, ptr %offset.i123, align 8
   br label %return
 
@@ -40053,17 +39963,17 @@ if.end109:                                        ; preds = %if.end100
 
 if.else111:                                       ; preds = %for.body.i.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit
   %_result.i124 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %97 = load ptr, ptr %_result.i124, align 8
-  store ptr @.str.81, ptr %97, align 8
-  %98 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i125 = load ptr, ptr %98, align 8
+  %83 = load ptr, ptr %_result.i124, align 8
+  store ptr @.str.81, ptr %83, align 8
+  %84 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
+  %_lexer.val.i125 = load ptr, ptr %84, align 8
   %_query.i126 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %99 = load ptr, ptr %_query.i126, align 8
+  %85 = load ptr, ptr %_query.i126, align 8
   %sub.ptr.lhs.cast.i127 = ptrtoint ptr %_lexer.val.i125 to i64
-  %sub.ptr.rhs.cast.i128 = ptrtoint ptr %99 to i64
+  %sub.ptr.rhs.cast.i128 = ptrtoint ptr %85 to i64
   %sub.ptr.sub.i129 = sub i64 %sub.ptr.lhs.cast.i127, %sub.ptr.rhs.cast.i128
-  %100 = load ptr, ptr %_result.i124, align 8
-  %offset.i130 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %100, i64 0, i32 1
+  %86 = load ptr, ptr %_result.i124, align 8
+  %offset.i130 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %86, i64 0, i32 1
   store i64 %sub.ptr.sub.i129, ptr %offset.i130, align 8
   br label %return
 
@@ -40076,14 +39986,14 @@ if.else115:                                       ; preds = %if.then75
 
 land.lhs.true117:                                 ; preds = %if.else115
   %arrayidx = getelementptr inbounds i8, ptr %nt_name.sroa.12.0.ph, i64 -2
-  %101 = load i8, ptr %arrayidx, align 1
-  %cmp119 = icmp eq i8 %101, 58
+  %87 = load i8, ptr %arrayidx, align 1
+  %cmp119 = icmp eq i8 %87, 58
   br i1 %cmp119, label %land.lhs.true120, label %if.end140
 
 land.lhs.true120:                                 ; preds = %land.lhs.true117
   %arrayidx122 = getelementptr inbounds i8, ptr %nt_name.sroa.12.0.ph, i64 -1
-  %102 = load i8, ptr %arrayidx122, align 1
-  %cmp124 = icmp eq i8 %102, 42
+  %88 = load i8, ptr %arrayidx122, align 1
+  %cmp124 = icmp eq i8 %88, 42
   %spec.select = select i1 %cmp124, ptr %arrayidx122, ptr %nt_name.sroa.12.0.ph
   %spec.select252 = select i1 %cmp124, i32 8, i32 1
   br label %if.end140
@@ -40094,17 +40004,17 @@ if.then135:                                       ; preds = %if.end34
 
 if.else137:                                       ; preds = %if.end34
   %_result.i131 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %103 = load ptr, ptr %_result.i131, align 8
-  store ptr @.str.77, ptr %103, align 8
-  %104 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i132 = load ptr, ptr %104, align 8
+  %89 = load ptr, ptr %_result.i131, align 8
+  store ptr @.str.77, ptr %89, align 8
+  %90 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
+  %_lexer.val.i132 = load ptr, ptr %90, align 8
   %_query.i133 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %105 = load ptr, ptr %_query.i133, align 8
+  %91 = load ptr, ptr %_query.i133, align 8
   %sub.ptr.lhs.cast.i134 = ptrtoint ptr %_lexer.val.i132 to i64
-  %sub.ptr.rhs.cast.i135 = ptrtoint ptr %105 to i64
+  %sub.ptr.rhs.cast.i135 = ptrtoint ptr %91 to i64
   %sub.ptr.sub.i136 = sub i64 %sub.ptr.lhs.cast.i134, %sub.ptr.rhs.cast.i135
-  %106 = load ptr, ptr %_result.i131, align 8
-  %offset.i137 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %106, i64 0, i32 1
+  %92 = load ptr, ptr %_result.i131, align 8
+  %offset.i137 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %92, i64 0, i32 1
   store i64 %sub.ptr.sub.i136, ptr %offset.i137, align 8
   br label %return
 
@@ -40120,54 +40030,54 @@ if.end.i:                                         ; preds = %if.end140
   %sub.ptr.lhs.cast.i138 = ptrtoint ptr %nt_name.sroa.12.1 to i64
   %sub.ptr.rhs.cast.i139 = ptrtoint ptr %nt_name.sroa.0.1 to i64
   %sub.ptr.sub.i140 = sub i64 %sub.ptr.lhs.cast.i138, %sub.ptr.rhs.cast.i139
-  %107 = and i64 %sub.ptr.sub.i140, -8
-  %and.i.i = add i64 %107, 8
+  %93 = and i64 %sub.ptr.sub.i140, -8
+  %and.i.i = add i64 %93, 8
   %_root_size.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val35, i64 0, i32 1
-  %108 = load i64, ptr %_root_size.i.i, align 8
-  %add2.i.i = add i64 %108, %and.i.i
-  %109 = load ptr, ptr %this.val35, align 8
-  %capacity.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %109, i64 0, i32 1
-  %110 = load i64, ptr %capacity.i.i, align 8
-  %cmp.not.i.i = icmp ugt i64 %add2.i.i, %110
+  %94 = load i64, ptr %_root_size.i.i, align 8
+  %add2.i.i = add i64 %94, %and.i.i
+  %95 = load ptr, ptr %this.val35, align 8
+  %capacity.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %95, i64 0, i32 1
+  %96 = load i64, ptr %capacity.i.i, align 8
+  %cmp.not.i.i = icmp ugt i64 %add2.i.i, %96
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %111 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %109, i64 0, i32 2
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %111, i64 %108
+  %97 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %95, i64 0, i32 2
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %97, i64 %94
   store i64 %add2.i.i, ptr %_root_size.i.i, align 8
   br label %if.end5.i
 
 if.else.i.i:                                      ; preds = %if.end.i
-  %add7.i.i = add i64 %107, 1032
+  %add7.i.i = add i64 %93, 1032
   %cond.i.i = tail call i64 @llvm.umax.i64(i64 %add7.i.i, i64 4096)
   %add9.i.i = add i64 %cond.i.i, 16
-  %112 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
-  %call.i.i = tail call noundef ptr %112(i64 noundef %add9.i.i)
+  %98 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
+  %call.i.i = tail call noundef ptr %98(i64 noundef %add9.i.i)
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %if.then10.i.i, label %if.end14.i.i
 
 if.then10.i.i:                                    ; preds = %if.else.i.i
   %_error.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val35, i64 0, i32 2
-  %113 = load ptr, ptr %_error.i.i, align 8
-  %tobool11.not.i.i = icmp eq ptr %113, null
+  %99 = load ptr, ptr %_error.i.i, align 8
+  %tobool11.not.i.i = icmp eq ptr %99, null
   br i1 %tobool11.not.i.i, label %return, label %if.then12.i.i
 
 if.then12.i.i:                                    ; preds = %if.then10.i.i
-  store i8 1, ptr %113, align 1
+  store i8 1, ptr %99, align 1
   br label %return
 
 if.end14.i.i:                                     ; preds = %if.else.i.i
-  %114 = load ptr, ptr %this.val35, align 8
-  store ptr %114, ptr %call.i.i, align 8
+  %100 = load ptr, ptr %this.val35, align 8
+  store ptr %100, ptr %call.i.i, align 8
   %capacity16.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i, i64 0, i32 1
   store i64 %cond.i.i, ptr %capacity16.i.i, align 8
   store ptr %call.i.i, ptr %this.val35, align 8
   store i64 %and.i.i, ptr %_root_size.i.i, align 8
-  %115 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i, i64 0, i32 2
+  %101 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i, i64 0, i32 2
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end14.i.i, %if.then.i.i
-  %retval.0.i.i141 = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %115, %if.end14.i.i ]
+  %retval.0.i.i141 = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %101, %if.end14.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i141, ptr nonnull align 1 %nt_name.sroa.0.1, i64 %sub.ptr.sub.i140, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %retval.0.i.i141, i64 %sub.ptr.sub.i140
   store i8 0, ptr %arrayidx.i, align 1
@@ -40179,48 +40089,48 @@ if.end144:                                        ; preds = %if.then84, %if.then
   %retval.0.i142.ph = phi ptr [ @.str, %if.end140 ], [ %retval.0.i.i141, %if.end5.i ], [ @.str, %if.then84 ], [ @.str, %if.then135 ], [ @.str, %if.end73 ]
   %this.val = load ptr, ptr %this, align 8
   %_root_size.i.i.i143 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val, i64 0, i32 1
-  %116 = load i64, ptr %_root_size.i.i.i143, align 8
-  %add2.i.i.i144 = add i64 %116, 40
-  %117 = load ptr, ptr %this.val, align 8
-  %capacity.i.i.i145 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %117, i64 0, i32 1
-  %118 = load i64, ptr %capacity.i.i.i145, align 8
-  %cmp.not.i.i.i146 = icmp ugt i64 %add2.i.i.i144, %118
+  %102 = load i64, ptr %_root_size.i.i.i143, align 8
+  %add2.i.i.i144 = add i64 %102, 40
+  %103 = load ptr, ptr %this.val, align 8
+  %capacity.i.i.i145 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %103, i64 0, i32 1
+  %104 = load i64, ptr %capacity.i.i.i145, align 8
+  %cmp.not.i.i.i146 = icmp ugt i64 %add2.i.i.i144, %104
   br i1 %cmp.not.i.i.i146, label %if.else.i.i.i158, label %if.then.i.i.i147
 
 if.then.i.i.i147:                                 ; preds = %if.end144
-  %119 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %117, i64 0, i32 2
-  %add.ptr.i.i.i148 = getelementptr inbounds i8, ptr %119, i64 %116
+  %105 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %103, i64 0, i32 2
+  %add.ptr.i.i.i148 = getelementptr inbounds i8, ptr %105, i64 %102
   store i64 %add2.i.i.i144, ptr %_root_size.i.i.i143, align 8
   br label %if.end148
 
 if.else.i.i.i158:                                 ; preds = %if.end144
-  %120 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
-  %call.i.i.i159 = tail call noundef ptr %120(i64 noundef 4112)
+  %106 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
+  %call.i.i.i159 = tail call noundef ptr %106(i64 noundef 4112)
   %tobool.not.i.i.i160 = icmp eq ptr %call.i.i.i159, null
   br i1 %tobool.not.i.i.i160, label %if.then10.i.i.i163, label %if.end14.i.i.i161
 
 if.then10.i.i.i163:                               ; preds = %if.else.i.i.i158
   %_error.i.i.i164 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val, i64 0, i32 2
-  %121 = load ptr, ptr %_error.i.i.i164, align 8
-  %tobool11.not.i.i.i165 = icmp eq ptr %121, null
+  %107 = load ptr, ptr %_error.i.i.i164, align 8
+  %tobool11.not.i.i.i165 = icmp eq ptr %107, null
   br i1 %tobool11.not.i.i.i165, label %return, label %if.then12.i.i.i166
 
 if.then12.i.i.i166:                               ; preds = %if.then10.i.i.i163
-  store i8 1, ptr %121, align 1
+  store i8 1, ptr %107, align 1
   br label %return
 
 if.end14.i.i.i161:                                ; preds = %if.else.i.i.i158
-  %122 = load ptr, ptr %this.val, align 8
-  store ptr %122, ptr %call.i.i.i159, align 8
+  %108 = load ptr, ptr %this.val, align 8
+  store ptr %108, ptr %call.i.i.i159, align 8
   %capacity16.i.i.i162 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i159, i64 0, i32 1
   store i64 4096, ptr %capacity16.i.i.i162, align 8
   store ptr %call.i.i.i159, ptr %this.val, align 8
   store i64 40, ptr %_root_size.i.i.i143, align 8
-  %123 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i159, i64 0, i32 2
+  %109 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i159, i64 0, i32 2
   br label %if.end148
 
 if.end148:                                        ; preds = %if.end14.i.i.i161, %if.then.i.i.i147
-  %retval.0.i.i.i150 = phi ptr [ %add.ptr.i.i.i148, %if.then.i.i.i147 ], [ %123, %if.end14.i.i.i161 ]
+  %retval.0.i.i.i150 = phi ptr [ %add.ptr.i.i.i148, %if.then.i.i.i147 ], [ %109, %if.end14.i.i.i161 ]
   store i8 56, ptr %retval.0.i.i.i150, align 8
   %_rettype.i.i151 = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i150, i64 0, i32 1
   store i8 1, ptr %_rettype.i.i151, align 1
@@ -40236,7 +40146,7 @@ if.end148:                                        ; preds = %if.end14.i.i.i161, 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_right.i.i155, i8 0, i64 16, i1 false)
   store ptr %retval.0.i142.ph, ptr %_data4.i.i156, align 8
   %_depth = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 6
-  %124 = load i64, ptr %_depth, align 8
+  %110 = load i64, ptr %_depth, align 8
   %_lexer.val15260 = load i32, ptr %5, align 8
   %cmp151261 = icmp eq i32 %_lexer.val15260, 18
   br i1 %cmp151261, label %while.body, label %while.end
@@ -40244,47 +40154,47 @@ if.end148:                                        ; preds = %if.end14.i.i.i161, 
 while.body:                                       ; preds = %if.end148, %if.end171
   %last.0262 = phi ptr [ %retval.0.i.i.i182, %if.end171 ], [ null, %if.end148 ]
   tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_111xpath_lexer4nextEv(ptr noundef nonnull align 8 dereferenceable(36) %_lexer)
-  %125 = load i64, ptr %_depth, align 8
-  %inc = add i64 %125, 1
+  %111 = load i64, ptr %_depth, align 8
+  %inc = add i64 %111, 1
   store i64 %inc, ptr %_depth, align 8
   %cmp154 = icmp ugt i64 %inc, 1024
   br i1 %cmp154, label %if.then155, label %if.end157
 
 if.then155:                                       ; preds = %while.body
   %_result.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %126 = load ptr, ptr %_result.i.i, align 8
-  store ptr @.str.31, ptr %126, align 8
-  %127 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i.i = load ptr, ptr %127, align 8
+  %112 = load ptr, ptr %_result.i.i, align 8
+  store ptr @.str.31, ptr %112, align 8
+  %113 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
+  %_lexer.val.i.i = load ptr, ptr %113, align 8
   %_query.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %128 = load ptr, ptr %_query.i.i, align 8
+  %114 = load ptr, ptr %_query.i.i, align 8
   %sub.ptr.lhs.cast.i.i168 = ptrtoint ptr %_lexer.val.i.i to i64
-  %sub.ptr.rhs.cast.i.i169 = ptrtoint ptr %128 to i64
+  %sub.ptr.rhs.cast.i.i169 = ptrtoint ptr %114 to i64
   %sub.ptr.sub.i.i170 = sub i64 %sub.ptr.lhs.cast.i.i168, %sub.ptr.rhs.cast.i.i169
-  %129 = load ptr, ptr %_result.i.i, align 8
-  %offset.i.i = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %129, i64 0, i32 1
+  %115 = load ptr, ptr %_result.i.i, align 8
+  %offset.i.i = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %115, i64 0, i32 1
   store i64 %sub.ptr.sub.i.i170, ptr %offset.i.i, align 8
   br label %return
 
 if.end157:                                        ; preds = %while.body
-  %inc.i = add nsw i64 %125, 2
+  %inc.i = add nsw i64 %111, 2
   store i64 %inc.i, ptr %_depth, align 8
   %cmp.i = icmp ugt i64 %inc.i, 1024
   br i1 %cmp.i, label %if.then.i, label %if.end.i171
 
 if.then.i:                                        ; preds = %if.end157
   %_result.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %130 = load ptr, ptr %_result.i.i.i, align 8
-  store ptr @.str.31, ptr %130, align 8
-  %131 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i.i.i = load ptr, ptr %131, align 8
+  %116 = load ptr, ptr %_result.i.i.i, align 8
+  store ptr @.str.31, ptr %116, align 8
+  %117 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
+  %_lexer.val.i.i.i = load ptr, ptr %117, align 8
   %_query.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %132 = load ptr, ptr %_query.i.i.i, align 8
+  %118 = load ptr, ptr %_query.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %_lexer.val.i.i.i to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %132 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %118 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %133 = load ptr, ptr %_result.i.i.i, align 8
-  %offset.i.i.i = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %133, i64 0, i32 1
+  %119 = load ptr, ptr %_result.i.i.i, align 8
+  %offset.i.i.i = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %119, i64 0, i32 1
   store i64 %sub.ptr.sub.i.i.i, ptr %offset.i.i.i, align 8
   br label %return
 
@@ -40302,48 +40212,48 @@ _ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit: ; preds = %i
 if.end161:                                        ; preds = %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit
   %this.val36 = load ptr, ptr %this, align 8
   %_root_size.i.i.i175 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val36, i64 0, i32 1
-  %134 = load i64, ptr %_root_size.i.i.i175, align 8
-  %add2.i.i.i176 = add i64 %134, 40
-  %135 = load ptr, ptr %this.val36, align 8
-  %capacity.i.i.i177 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %135, i64 0, i32 1
-  %136 = load i64, ptr %capacity.i.i.i177, align 8
-  %cmp.not.i.i.i178 = icmp ugt i64 %add2.i.i.i176, %136
+  %120 = load i64, ptr %_root_size.i.i.i175, align 8
+  %add2.i.i.i176 = add i64 %120, 40
+  %121 = load ptr, ptr %this.val36, align 8
+  %capacity.i.i.i177 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %121, i64 0, i32 1
+  %122 = load i64, ptr %capacity.i.i.i177, align 8
+  %cmp.not.i.i.i178 = icmp ugt i64 %add2.i.i.i176, %122
   br i1 %cmp.not.i.i.i178, label %if.else.i.i.i189, label %if.then.i.i.i179
 
 if.then.i.i.i179:                                 ; preds = %if.end161
-  %137 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %135, i64 0, i32 2
-  %add.ptr.i.i.i180 = getelementptr inbounds i8, ptr %137, i64 %134
+  %123 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %121, i64 0, i32 2
+  %add.ptr.i.i.i180 = getelementptr inbounds i8, ptr %123, i64 %120
   store i64 %add2.i.i.i176, ptr %_root_size.i.i.i175, align 8
   br label %if.end165
 
 if.else.i.i.i189:                                 ; preds = %if.end161
-  %138 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
-  %call.i.i.i190 = tail call noundef ptr %138(i64 noundef 4112)
+  %124 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
+  %call.i.i.i190 = tail call noundef ptr %124(i64 noundef 4112)
   %tobool.not.i.i.i191 = icmp eq ptr %call.i.i.i190, null
   br i1 %tobool.not.i.i.i191, label %if.then10.i.i.i194, label %if.end14.i.i.i192
 
 if.then10.i.i.i194:                               ; preds = %if.else.i.i.i189
   %_error.i.i.i195 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %this.val36, i64 0, i32 2
-  %139 = load ptr, ptr %_error.i.i.i195, align 8
-  %tobool11.not.i.i.i196 = icmp eq ptr %139, null
+  %125 = load ptr, ptr %_error.i.i.i195, align 8
+  %tobool11.not.i.i.i196 = icmp eq ptr %125, null
   br i1 %tobool11.not.i.i.i196, label %return, label %if.then12.i.i.i197
 
 if.then12.i.i.i197:                               ; preds = %if.then10.i.i.i194
-  store i8 1, ptr %139, align 1
+  store i8 1, ptr %125, align 1
   br label %return
 
 if.end14.i.i.i192:                                ; preds = %if.else.i.i.i189
-  %140 = load ptr, ptr %this.val36, align 8
-  store ptr %140, ptr %call.i.i.i190, align 8
+  %126 = load ptr, ptr %this.val36, align 8
+  store ptr %126, ptr %call.i.i.i190, align 8
   %capacity16.i.i.i193 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i190, i64 0, i32 1
   store i64 4096, ptr %capacity16.i.i.i193, align 8
   store ptr %call.i.i.i190, ptr %this.val36, align 8
   store i64 40, ptr %_root_size.i.i.i175, align 8
-  %141 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i190, i64 0, i32 2
+  %127 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_memory_block", ptr %call.i.i.i190, i64 0, i32 2
   br label %if.end165
 
 if.end165:                                        ; preds = %if.end14.i.i.i192, %if.then.i.i.i179
-  %retval.0.i.i.i182 = phi ptr [ %add.ptr.i.i.i180, %if.then.i.i.i179 ], [ %141, %if.end14.i.i.i192 ]
+  %retval.0.i.i.i182 = phi ptr [ %add.ptr.i.i.i180, %if.then.i.i.i179 ], [ %127, %if.end14.i.i.i192 ]
   store <4 x i8> <i8 16, i8 1, i8 0, i8 0>, ptr %retval.0.i.i.i182, align 8
   %_left.i.i186 = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %retval.0.i.i.i182, i64 0, i32 4
   store ptr null, ptr %_left.i.i186, align 8
@@ -40357,17 +40267,17 @@ if.end165:                                        ; preds = %if.end14.i.i.i192, 
 
 if.then169:                                       ; preds = %if.end165
   %_result.i198 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 4
-  %142 = load ptr, ptr %_result.i198, align 8
-  store ptr @.str.38, ptr %142, align 8
-  %143 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
-  %_lexer.val.i199 = load ptr, ptr %143, align 8
+  %128 = load ptr, ptr %_result.i198, align 8
+  store ptr @.str.38, ptr %128, align 8
+  %129 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 1, i32 1
+  %_lexer.val.i199 = load ptr, ptr %129, align 8
   %_query.i200 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_parser", ptr %this, i64 0, i32 2
-  %144 = load ptr, ptr %_query.i200, align 8
+  %130 = load ptr, ptr %_query.i200, align 8
   %sub.ptr.lhs.cast.i201 = ptrtoint ptr %_lexer.val.i199 to i64
-  %sub.ptr.rhs.cast.i202 = ptrtoint ptr %144 to i64
+  %sub.ptr.rhs.cast.i202 = ptrtoint ptr %130 to i64
   %sub.ptr.sub.i203 = sub i64 %sub.ptr.lhs.cast.i201, %sub.ptr.rhs.cast.i202
-  %145 = load ptr, ptr %_result.i198, align 8
-  %offset.i204 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %145, i64 0, i32 1
+  %131 = load ptr, ptr %_result.i198, align 8
+  %offset.i204 = getelementptr inbounds %"struct.pugi::xpath_parse_result", ptr %131, i64 0, i32 1
   store i64 %sub.ptr.sub.i203, ptr %offset.i204, align 8
   br label %return
 
@@ -40382,7 +40292,7 @@ if.end171:                                        ; preds = %if.end165
   br i1 %cmp151, label %while.body, label %while.end, !llvm.loop !357
 
 while.end:                                        ; preds = %if.end171, %if.end148
-  store i64 %124, ptr %_depth, align 8
+  store i64 %110, ptr %_depth, align 8
   br label %return
 
 return:                                           ; preds = %if.end.i171, %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser16parse_expressionEi.exit, %if.then10.i.i.i194, %if.then12.i.i.i197, %if.then.i, %if.then10.i.i.i163, %if.then12.i.i.i166, %if.then12.i.i, %if.then10.i.i, %cond.true.i57, %if.then12.i.i.i74, %if.then10.i.i.i71, %cond.true.i, %if.then12.i.i.i, %if.then10.i.i.i, %while.end, %if.then169, %if.then155, %if.else137, %if.else111, %if.then107, %if.then98, %if.then88, %if.else69, %if.then52, %if.then47, %if.then28, %if.then15, %if.then
@@ -40435,9 +40345,7 @@ for.body.i.i:                                     ; preds = %sw.bb, %for.cond.i.
   br i1 %cmp3.not.i.i, label %for.cond.i.i, label %if.else
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit: ; preds = %for.cond.i.i, %sw.bb
-  %arrayidx4.i.i = getelementptr inbounds i8, ptr @.str.96, i64 %sub.ptr.sub.i
-  %4 = load i8, ptr %arrayidx4.i.i, align 1
-  %cmp6.i.i = icmp eq i8 %4, 0
+  %cmp6.i.i = icmp eq i64 %sub.ptr.sub.i, 2
   br i1 %cmp6.i.i, label %return, label %if.else
 
 if.else:                                          ; preds = %for.body.i.i, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit
@@ -40451,16 +40359,14 @@ for.cond.i.i20:                                   ; preds = %for.body.i.i14
 for.body.i.i14:                                   ; preds = %if.else, %for.cond.i.i20
   %i.08.i.i15 = phi i64 [ %inc.i.i21, %for.cond.i.i20 ], [ 0, %if.else ]
   %arrayidx.i.i16 = getelementptr inbounds i8, ptr @.str.97, i64 %i.08.i.i15
-  %5 = load i8, ptr %arrayidx.i.i16, align 1
+  %4 = load i8, ptr %arrayidx.i.i16, align 1
   %arrayidx1.i.i17 = getelementptr inbounds i8, ptr %call1.val, i64 %i.08.i.i15
-  %6 = load i8, ptr %arrayidx1.i.i17, align 1
-  %cmp3.not.i.i18 = icmp eq i8 %5, %6
+  %5 = load i8, ptr %arrayidx1.i.i17, align 1
+  %cmp3.not.i.i18 = icmp eq i8 %4, %5
   br i1 %cmp3.not.i.i18, label %for.cond.i.i20, label %if.else6
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit26: ; preds = %for.cond.i.i20, %if.else
-  %arrayidx4.i.i24 = getelementptr inbounds i8, ptr @.str.97, i64 %sub.ptr.sub.i
-  %7 = load i8, ptr %arrayidx4.i.i24, align 1
-  %cmp6.i.i25 = icmp eq i8 %7, 0
+  %cmp6.i.i25 = icmp eq i64 %sub.ptr.sub.i, 3
   br i1 %cmp6.i.i25, label %return, label %if.else6
 
 if.else6:                                         ; preds = %for.body.i.i14, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit26
@@ -40474,16 +40380,14 @@ for.cond.i.i40:                                   ; preds = %for.body.i.i34
 for.body.i.i34:                                   ; preds = %if.else6, %for.cond.i.i40
   %i.08.i.i35 = phi i64 [ %inc.i.i41, %for.cond.i.i40 ], [ 0, %if.else6 ]
   %arrayidx.i.i36 = getelementptr inbounds i8, ptr @.str.98, i64 %i.08.i.i35
-  %8 = load i8, ptr %arrayidx.i.i36, align 1
+  %6 = load i8, ptr %arrayidx.i.i36, align 1
   %arrayidx1.i.i37 = getelementptr inbounds i8, ptr %call1.val, i64 %i.08.i.i35
-  %9 = load i8, ptr %arrayidx1.i.i37, align 1
-  %cmp3.not.i.i38 = icmp eq i8 %8, %9
+  %7 = load i8, ptr %arrayidx1.i.i37, align 1
+  %cmp3.not.i.i38 = icmp eq i8 %6, %7
   br i1 %cmp3.not.i.i38, label %for.cond.i.i40, label %if.else10
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit46: ; preds = %for.cond.i.i40, %if.else6
-  %arrayidx4.i.i44 = getelementptr inbounds i8, ptr @.str.98, i64 %sub.ptr.sub.i
-  %10 = load i8, ptr %arrayidx4.i.i44, align 1
-  %cmp6.i.i45 = icmp eq i8 %10, 0
+  %cmp6.i.i45 = icmp eq i64 %sub.ptr.sub.i, 3
   br i1 %cmp6.i.i45, label %return, label %if.else10
 
 if.else10:                                        ; preds = %for.body.i.i34, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit46
@@ -40497,16 +40401,14 @@ for.cond.i.i60:                                   ; preds = %for.body.i.i54
 for.body.i.i54:                                   ; preds = %if.else10, %for.cond.i.i60
   %i.08.i.i55 = phi i64 [ %inc.i.i61, %for.cond.i.i60 ], [ 0, %if.else10 ]
   %arrayidx.i.i56 = getelementptr inbounds i8, ptr @.str.99, i64 %i.08.i.i55
-  %11 = load i8, ptr %arrayidx.i.i56, align 1
+  %8 = load i8, ptr %arrayidx.i.i56, align 1
   %arrayidx1.i.i57 = getelementptr inbounds i8, ptr %call1.val, i64 %i.08.i.i55
-  %12 = load i8, ptr %arrayidx1.i.i57, align 1
-  %cmp3.not.i.i58 = icmp eq i8 %11, %12
+  %9 = load i8, ptr %arrayidx1.i.i57, align 1
+  %cmp3.not.i.i58 = icmp eq i8 %8, %9
   br i1 %cmp3.not.i.i58, label %for.cond.i.i60, label %if.else14
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit66: ; preds = %for.cond.i.i60, %if.else10
-  %arrayidx4.i.i64 = getelementptr inbounds i8, ptr @.str.99, i64 %sub.ptr.sub.i
-  %13 = load i8, ptr %arrayidx4.i.i64, align 1
-  %cmp6.i.i65 = icmp eq i8 %13, 0
+  %cmp6.i.i65 = icmp eq i64 %sub.ptr.sub.i, 3
   br i1 %cmp6.i.i65, label %return, label %if.else14
 
 if.else14:                                        ; preds = %for.body.i.i54, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit66

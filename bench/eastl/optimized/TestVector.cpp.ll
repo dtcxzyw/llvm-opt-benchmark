@@ -24058,7 +24058,7 @@ for.body1734:                                     ; preds = %invoke.cont1720, %f
   %__begin11727.0.idx10121 = phi i64 [ %__begin11727.0.add, %for.inc1746 ], [ 0, %invoke.cont1720 ]
   %__begin11727.0.ptr = getelementptr inbounds i8, ptr @__const._Z10TestVectorv.testValues, i64 %__begin11727.0.idx10121
   %782 = load i32, ptr %__begin11727.0.ptr, align 4
-  %cmp1736 = icmp eq i32 %782, 44
+  %cmp1736 = icmp eq i64 %__begin11727.0.idx10121, 8
   br i1 %cmp1736, label %for.inc1746, label %if.end
 
 if.end:                                           ; preds = %for.body1734

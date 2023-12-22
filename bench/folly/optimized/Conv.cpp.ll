@@ -154,7 +154,6 @@ $_ZTIN5folly15ConversionErrorE = comdat any
 @_ZTISt11range_error = external constant ptr
 @_ZTIN5folly19ConversionErrorBaseE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5folly19ConversionErrorBaseE, ptr @_ZTISt11range_error }, comdat, align 8
 @_ZTIN5folly15ConversionErrorE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5folly15ConversionErrorE, ptr @_ZTIN5folly19ConversionErrorBaseE }, comdat, align 8
-@.str.27 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @.str.28 = private unnamed_addr constant [21 x i8] c"basic_string::append\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5362,29 +5361,21 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %arrayidx.i.i, align 8, !tbaa !80
   %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %tmp, i64 0, i32 2
   store ptr %2, ptr %tmp, align 8, !tbaa !91
-  %cmp.i33 = icmp eq ptr %1, null
-  br i1 %cmp.i33, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.end
-  call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.27) #21
-  unreachable
-
-if.end.i:                                         ; preds = %if.end
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #17
   store i64 %call.i.i, ptr %__dnew.i.i, align 8, !tbaa !93
   %cmp.i.i = icmp ugt i64 %call.i.i, 15
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
-if.then.i.i:                                      ; preds = %if.end.i
+if.then.i.i:                                      ; preds = %if.end
   %call2.i11.i34 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %tmp, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i, i64 noundef 0)
   store ptr %call2.i11.i34, ptr %tmp, align 8, !tbaa !95
   %3 = load i64, ptr %__dnew.i.i, align 8, !tbaa !93
   store i64 %3, ptr %2, align 8, !tbaa !21
   br label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %if.then.i.i, %if.end.i
-  %4 = phi ptr [ %call2.i11.i34, %if.then.i.i ], [ %2, %if.end.i ]
+if.end.i.i:                                       ; preds = %if.then.i.i, %if.end
+  %4 = phi ptr [ %call2.i11.i34, %if.then.i.i ], [ %2, %if.end ]
   switch i64 %call.i.i, label %if.end.i.i.i.i.i [
     i64 1, label %if.then.i.i.i.i
     i64 0, label %invoke.cont
@@ -5417,9 +5408,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
-  %quote = getelementptr inbounds [14 x %"struct.folly::detail::(anonymous namespace)::ErrorString"], ptr @_ZN5folly6detail12_GLOBAL__N_113kErrorStringsE, i64 0, i64 %conv, i32 1
-  %10 = load i8, ptr %quote, align 8, !tbaa !98, !range !99, !noundef !100
-  %tobool.not = icmp eq i8 %10, 0
+  %10 = add i8 %code, -11
+  %tobool.not = icmp ult i8 %10, 2
   br i1 %tobool.not, label %if.end9, label %if.then6
 
 if.then6:                                         ; preds = %invoke.cont4
@@ -5524,9 +5514,6 @@ entry:
 declare noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #7
 
 declare void @_ZNSt11range_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #4
-
-; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
@@ -5669,6 +5656,3 @@ attributes #22 = { builtin nounwind }
 !95 = !{!96, !14, i64 0}
 !96 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !92, i64 0, !94, i64 8, !11, i64 16}
 !97 = !{!96, !94, i64 8}
-!98 = !{!81, !82, i64 8}
-!99 = !{i8 0, i8 2}
-!100 = !{}

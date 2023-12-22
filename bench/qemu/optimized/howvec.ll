@@ -151,37 +151,37 @@ entry:
   %0 = load ptr, ptr %info, align 8
   br label %lor.lhs.false
 
-for.cond:                                         ; preds = %lor.lhs.false
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv71, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond, label %for.end, label %lor.lhs.false
+for.body:                                         ; preds = %lor.lhs.false
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %tobool.not = icmp eq i64 %indvars.iv.next, 3
+  br i1 %tobool.not, label %for.end, label %lor.lhs.false, !llvm.loop !4
 
-lor.lhs.false:                                    ; preds = %entry, %for.cond
-  %indvars.iv71 = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr inbounds [4 x %struct.ClassSelector], ptr @class_tables, i64 0, i64 %indvars.iv71
+lor.lhs.false:                                    ; preds = %entry, %for.body
+  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
+  %arrayidx = getelementptr inbounds [4 x %struct.ClassSelector], ptr @class_tables, i64 0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %0) #9
   %cmp4 = icmp eq i32 %call, 0
-  br i1 %cmp4, label %for.end, label %for.cond
+  br i1 %cmp4, label %for.end, label %for.body
 
-for.end:                                          ; preds = %for.cond, %lor.lhs.false
-  %indvars.iv.lcssa = phi i64 [ %indvars.iv.next, %for.cond ], [ %indvars.iv71, %lor.lhs.false ]
-  %table = getelementptr inbounds [4 x %struct.ClassSelector], ptr @class_tables, i64 0, i64 %indvars.iv.lcssa, i32 1
+for.end:                                          ; preds = %for.body, %lor.lhs.false
+  %conv.lcssa = phi i64 [ 3, %for.body ], [ %indvars.iv, %lor.lhs.false ]
+  %table = getelementptr inbounds [4 x %struct.ClassSelector], ptr @class_tables, i64 0, i64 %conv.lcssa, i32 1
   %2 = load ptr, ptr %table, align 8
   store ptr %2, ptr @class_table, align 8
-  %table_sz = getelementptr inbounds [4 x %struct.ClassSelector], ptr @class_tables, i64 0, i64 %indvars.iv.lcssa, i32 2
+  %table_sz = getelementptr inbounds [4 x %struct.ClassSelector], ptr @class_tables, i64 0, i64 %conv.lcssa, i32 2
   %3 = load i32, ptr %table_sz, align 8
   store i32 %3, ptr @class_table_sz, align 4
-  %cmp734 = icmp sgt i32 %argc, 0
-  br i1 %cmp734, label %for.body9.preheader, label %for.end70
+  %cmp735 = icmp sgt i32 %argc, 0
+  br i1 %cmp735, label %for.body9.preheader, label %for.end70
 
 for.body9.preheader:                              ; preds = %for.end
-  %wide.trip.count53 = zext nneg i32 %argc to i64
+  %wide.trip.count52 = zext nneg i32 %argc to i64
   br label %for.body9
 
 for.body9:                                        ; preds = %for.body9.preheader, %for.inc68
-  %indvars.iv50 = phi i64 [ 0, %for.body9.preheader ], [ %indvars.iv.next51, %for.inc68 ]
-  %arrayidx11 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv50
+  %indvars.iv49 = phi i64 [ 0, %for.body9.preheader ], [ %indvars.iv.next50, %for.inc68 ]
+  %arrayidx11 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv49
   %4 = load ptr, ptr %arrayidx11, align 8
   %call12 = tail call ptr @g_strsplit(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef -1) #10
   %5 = load ptr, ptr %call12, align 8
@@ -222,8 +222,8 @@ if.then40:                                        ; preds = %if.else35
   %spec.select = getelementptr inbounds i8, ptr %10, i64 %spec.select.idx
   %spec.select18 = select i1 %cmp43, i32 2, i32 1
   %12 = load i32, ptr @class_table_sz, align 4
-  %cmp4832 = icmp sgt i32 %12, 0
-  br i1 %cmp4832, label %for.body50.lr.ph, label %for.inc68
+  %cmp4833 = icmp sgt i32 %12, 0
+  br i1 %cmp4833, label %for.body50.lr.ph, label %for.inc68
 
 for.body50.lr.ph:                                 ; preds = %if.then40
   %13 = load ptr, ptr @class_table, align 8
@@ -232,8 +232,8 @@ for.body50.lr.ph:                                 ; preds = %if.then40
 
 for.cond47:                                       ; preds = %for.body50
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %exitcond49.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count
-  br i1 %exitcond49.not, label %for.inc68, label %for.body50, !llvm.loop !4
+  %exitcond.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count
+  br i1 %exitcond.not, label %for.inc68, label %for.body50, !llvm.loop !6
 
 for.body50:                                       ; preds = %for.body50.lr.ph, %for.cond47
   %indvars.iv46 = phi i64 [ 0, %for.body50.lr.ph ], [ %indvars.iv.next47, %for.cond47 ]
@@ -257,9 +257,9 @@ glib_auto_cleanup_GStrv.exit:                     ; preds = %if.else35, %if.then
 
 for.inc68:                                        ; preds = %for.cond47, %if.then40, %if.then28, %if.then56, %if.then17
   tail call void @g_strfreev(ptr noundef nonnull %call12) #10
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
-  br i1 %exitcond54.not, label %for.end70, label %for.body9, !llvm.loop !6
+  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
+  %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
+  br i1 %exitcond53.not, label %for.end70, label %for.body9, !llvm.loop !7
 
 for.end70:                                        ; preds = %for.inc68, %for.end
   %call.i = tail call ptr @g_hash_table_new_full(ptr noundef null, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef nonnull @free_record) #10
@@ -315,7 +315,7 @@ for.body.lr.ph.i:                                 ; preds = %for.body
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %do.body.i, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %do.body.i, label %for.body.i, !llvm.loop !8
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
@@ -402,7 +402,7 @@ if.else:                                          ; preds = %if.then
 for.inc:                                          ; preds = %do.end.i, %if.else, %if.then4
   %inc = add nuw i64 %i.013, 1
   %exitcond.not = icmp eq i64 %inc, %call
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -462,7 +462,7 @@ for.inc:                                          ; preds = %sw.bb4, %sw.bb6, %i
   %9 = load i32, ptr @class_table_sz, align 4
   %10 = sext i32 %9 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %10
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %entry
   %11 = load ptr, ptr @insns, align 8
@@ -514,7 +514,7 @@ cond.end29:                                       ; preds = %for.body21, %cond.t
   %cmp15 = icmp ugt i32 %i.134, 48
   %tobool16.not = icmp eq ptr %20, null
   %or.cond = select i1 %cmp15, i1 true, i1 %tobool16.not
-  br i1 %or.cond, label %for.end39, label %cond.end, !llvm.loop !10
+  br i1 %or.cond, label %for.end39, label %cond.end, !llvm.loop !11
 
 for.end39:                                        ; preds = %cond.end, %cond.end29, %if.then12
   %counts.0.lcssa = phi ptr [ null, %if.then12 ], [ %20, %cond.end29 ], [ %counts.033, %cond.end ]
@@ -639,3 +639,4 @@ attributes #13 = { nounwind allocsize(0,1) }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}

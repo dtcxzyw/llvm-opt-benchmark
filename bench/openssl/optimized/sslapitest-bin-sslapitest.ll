@@ -932,9 +932,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.816 = private unnamed_addr constant [147 x i8] c"create_ssl_ctx_pair(libctx, TLS_server_method(), TLS_client_method(), TLS1_VERSION, shared_ciphers_data[tst].maxprot, &sctx, &cctx, cert, privkey)\00", align 1
 @shared_ciphers_data = internal unnamed_addr constant [6 x %struct.anon.5] [%struct.anon.5 { i32 771, ptr @.str.824, ptr null, ptr @.str.825, ptr null, ptr @.str.826, ptr @.str.826 }, %struct.anon.5 { i32 771, ptr @.str.827, ptr null, ptr @.str.827, ptr null, ptr @.str.827, ptr @.str.828 }, %struct.anon.5 { i32 771, ptr @.str.829, ptr null, ptr @.str.830, ptr null, ptr @.str.824, ptr @.str.824 }, %struct.anon.5 { i32 771, ptr @.str.824, ptr null, ptr @.str.831, ptr null, ptr @.str.828, ptr @.str.828 }, %struct.anon.5 { i32 772, ptr @.str.824, ptr null, ptr @.str.832, ptr null, ptr @.str.833, ptr @.str.834 }, %struct.anon.5 { i32 772, ptr @.str.828, ptr @.str.495, ptr @.str.826, ptr @.str.495, ptr @.str.495, ptr @.str.495 }], align 16
 @.str.817 = private unnamed_addr constant [68 x i8] c"SSL_CTX_set_cipher_list(cctx, shared_ciphers_data[tst].clntciphers)\00", align 1
-@.str.818 = private unnamed_addr constant [74 x i8] c"SSL_CTX_set_ciphersuites(cctx, shared_ciphers_data[tst].clnttls13ciphers)\00", align 1
 @.str.819 = private unnamed_addr constant [68 x i8] c"SSL_CTX_set_cipher_list(sctx, shared_ciphers_data[tst].srvrciphers)\00", align 1
-@.str.820 = private unnamed_addr constant [74 x i8] c"SSL_CTX_set_ciphersuites(sctx, shared_ciphers_data[tst].srvrtls13ciphers)\00", align 1
 @.str.821 = private unnamed_addr constant [52 x i8] c"SSL_get_shared_ciphers(serverssl, buf, sizeof(buf))\00", align 1
 @.str.822 = private unnamed_addr constant [93 x i8] c"strcmp(buf, is_fips ? shared_ciphers_data[tst].fipsshared : shared_ciphers_data[tst].shared)\00", align 1
 @.str.823 = private unnamed_addr constant [24 x i8] c"Shared ciphers are: %s\0A\00", align 1
@@ -3478,29 +3476,32 @@ if.end14:                                         ; preds = %if.end
   br i1 %cmp, label %if.then17, label %if.end38
 
 if.then17:                                        ; preds = %if.end14
-  %4 = load ptr, ptr %cond, align 16
-  %cmp18.not = icmp eq ptr %4, null
-  %5 = load ptr, ptr %cctx, align 8
-  br i1 %cmp18.not, label %if.else, label %if.then20
+  %4 = lshr i64 15416, %conv
+  %5 = and i64 %4, 1
+  %cmp18.not.not = icmp eq i64 %5, 0
+  br i1 %cmp18.not.not, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %if.then17
+  %6 = load ptr, ptr %cond, align 16
+  %7 = load ptr, ptr %cctx, align 8
   %listlen = getelementptr inbounds [14 x %struct.sigalgs_list], ptr @testsigalgs, i64 0, i64 %conv, i32 1
-  %6 = load i64, ptr %listlen, align 8
-  %call22 = call i64 @SSL_CTX_ctrl(ptr noundef %5, i32 noundef 97, i64 noundef %6, ptr noundef nonnull %4) #23
+  %8 = load i64, ptr %listlen, align 8
+  %call22 = call i64 @SSL_CTX_ctrl(ptr noundef %7, i32 noundef 97, i64 noundef %8, ptr noundef %6) #23
   br label %if.end26
 
 if.else:                                          ; preds = %if.then17
+  %9 = load ptr, ptr %cctx, align 8
   %liststr = getelementptr inbounds [14 x %struct.sigalgs_list], ptr @testsigalgs, i64 0, i64 %conv, i32 2
-  %7 = load ptr, ptr %liststr, align 16
-  %call24 = call i64 @SSL_CTX_ctrl(ptr noundef %5, i32 noundef 98, i64 noundef 0, ptr noundef %7) #23
+  %10 = load ptr, ptr %liststr, align 16
+  %call24 = call i64 @SSL_CTX_ctrl(ptr noundef %9, i32 noundef 98, i64 noundef 0, ptr noundef %10) #23
   br label %if.end26
 
 if.end26:                                         ; preds = %if.else, %if.then20
   %ret.0.in = phi i64 [ %call22, %if.then20 ], [ %call24, %if.else ]
-  %8 = and i64 %ret.0.in, 4294967295
-  %tobool27.not = icmp eq i64 %8, 0
-  %9 = add nsw i64 %conv, -6
-  %tobool29.not = icmp ult i64 %9, 8
+  %11 = and i64 %ret.0.in, 4294967295
+  %tobool27.not = icmp eq i64 %11, 0
+  %12 = add nsw i64 %conv, -6
+  %tobool29.not = icmp ult i64 %12, 7
   br i1 %tobool27.not, label %if.then28, label %if.end33
 
 if.then28:                                        ; preds = %if.end26
@@ -3518,9 +3519,9 @@ if.then36:                                        ; preds = %if.end33
   br label %end
 
 if.end38:                                         ; preds = %if.end33, %if.end14
-  %10 = load ptr, ptr %sctx, align 8
-  %11 = load ptr, ptr %cctx, align 8
-  %call39 = call i32 @create_ssl_objects(ptr noundef %10, ptr noundef %11, ptr noundef nonnull %serverssl, ptr noundef nonnull %clientssl, ptr noundef null, ptr noundef null) #23
+  %13 = load ptr, ptr %sctx, align 8
+  %14 = load ptr, ptr %cctx, align 8
+  %call39 = call i32 @create_ssl_objects(ptr noundef %13, ptr noundef %14, ptr noundef nonnull %serverssl, ptr noundef nonnull %clientssl, ptr noundef null, ptr noundef null) #23
   %cmp40 = icmp ne i32 %call39, 0
   %conv41 = zext i1 %cmp40 to i32
   %call42 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 3174, ptr noundef nonnull @.str.148, i32 noundef %conv41) #23
@@ -3531,29 +3532,32 @@ if.end45:                                         ; preds = %if.end38
   br i1 %cmp, label %if.end74, label %if.then47
 
 if.then47:                                        ; preds = %if.end45
-  %12 = load ptr, ptr %cond, align 16
-  %cmp50.not = icmp eq ptr %12, null
-  %13 = load ptr, ptr %clientssl, align 8
-  br i1 %cmp50.not, label %if.else57, label %if.then52
+  %15 = lshr i64 15416, %sub
+  %16 = and i64 %15, 1
+  %cmp50.not.not = icmp eq i64 %16, 0
+  br i1 %cmp50.not.not, label %if.then52, label %if.else57
 
 if.then52:                                        ; preds = %if.then47
+  %17 = load ptr, ptr %cond, align 16
+  %18 = load ptr, ptr %clientssl, align 8
   %listlen53 = getelementptr inbounds [14 x %struct.sigalgs_list], ptr @testsigalgs, i64 0, i64 %sub, i32 1
-  %14 = load i64, ptr %listlen53, align 8
-  %call55 = call i64 @SSL_ctrl(ptr noundef %13, i32 noundef 97, i64 noundef %14, ptr noundef nonnull %12) #23
+  %19 = load i64, ptr %listlen53, align 8
+  %call55 = call i64 @SSL_ctrl(ptr noundef %18, i32 noundef 97, i64 noundef %19, ptr noundef %17) #23
   br label %if.end61
 
 if.else57:                                        ; preds = %if.then47
+  %20 = load ptr, ptr %clientssl, align 8
   %liststr58 = getelementptr inbounds [14 x %struct.sigalgs_list], ptr @testsigalgs, i64 0, i64 %sub, i32 2
-  %15 = load ptr, ptr %liststr58, align 16
-  %call59 = call i64 @SSL_ctrl(ptr noundef %13, i32 noundef 98, i64 noundef 0, ptr noundef %15) #23
+  %21 = load ptr, ptr %liststr58, align 16
+  %call59 = call i64 @SSL_ctrl(ptr noundef %20, i32 noundef 98, i64 noundef 0, ptr noundef %21) #23
   br label %if.end61
 
 if.end61:                                         ; preds = %if.else57, %if.then52
   %ret48.0.in = phi i64 [ %call55, %if.then52 ], [ %call59, %if.else57 ]
-  %16 = and i64 %ret48.0.in, 4294967295
-  %tobool62.not = icmp eq i64 %16, 0
-  %17 = add nsw i64 %conv, -20
-  %tobool65.not = icmp ult i64 %17, 8
+  %22 = and i64 %ret48.0.in, 4294967295
+  %tobool62.not = icmp eq i64 %22, 0
+  %23 = add nsw i64 %conv, -20
+  %tobool65.not = icmp ult i64 %23, 7
   br i1 %tobool62.not, label %if.then63, label %if.end69
 
 if.then63:                                        ; preds = %if.end61
@@ -3567,26 +3571,26 @@ if.end69:                                         ; preds = %if.end61
   br i1 %tobool65.not, label %end, label %if.end74
 
 if.end74:                                         ; preds = %if.end69, %if.end45
-  %18 = load ptr, ptr %serverssl, align 8
-  %19 = load ptr, ptr %clientssl, align 8
-  %call75 = call i32 @create_ssl_connection(ptr noundef %18, ptr noundef %19, i32 noundef 0) #23
+  %24 = load ptr, ptr %serverssl, align 8
+  %25 = load ptr, ptr %clientssl, align 8
+  %call75 = call i32 @create_ssl_connection(ptr noundef %24, ptr noundef %25, i32 noundef 0) #23
   %connsuccess = getelementptr inbounds [14 x %struct.sigalgs_list], ptr @testsigalgs, i64 0, i64 %conv.pn, i32 4
-  %20 = load i32, ptr %connsuccess, align 4
-  %call76 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 3197, ptr noundef nonnull @.str.149, ptr noundef nonnull @.str.286, i32 noundef %call75, i32 noundef %20) #23
+  %26 = load i32, ptr %connsuccess, align 4
+  %call76 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 3197, ptr noundef nonnull @.str.149, ptr noundef nonnull @.str.286, i32 noundef %call75, i32 noundef %26) #23
   %tobool77.not = icmp ne i32 %call76, 0
   %spec.select = zext i1 %tobool77.not to i32
   br label %end
 
 end:                                              ; preds = %if.end74, %if.then63, %if.then28, %if.end69, %if.then66, %if.end38, %if.then30, %if.then36
   %testresult.0 = phi i32 [ 0, %if.end69 ], [ 0, %if.then66 ], [ 0, %if.end38 ], [ 0, %if.then36 ], [ 0, %if.then30 ], [ 1, %if.then28 ], [ 1, %if.then63 ], [ %spec.select, %if.end74 ]
-  %21 = load ptr, ptr %serverssl, align 8
-  call void @SSL_free(ptr noundef %21) #23
-  %22 = load ptr, ptr %clientssl, align 8
-  call void @SSL_free(ptr noundef %22) #23
-  %23 = load ptr, ptr %sctx, align 8
-  call void @SSL_CTX_free(ptr noundef %23) #23
-  %24 = load ptr, ptr %cctx, align 8
-  call void @SSL_CTX_free(ptr noundef %24) #23
+  %27 = load ptr, ptr %serverssl, align 8
+  call void @SSL_free(ptr noundef %27) #23
+  %28 = load ptr, ptr %clientssl, align 8
+  call void @SSL_free(ptr noundef %28) #23
+  %29 = load ptr, ptr %sctx, align 8
+  call void @SSL_CTX_free(ptr noundef %29) #23
+  %30 = load ptr, ptr %cctx, align 8
+  call void @SSL_CTX_free(ptr noundef %30) #23
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %end
@@ -7000,25 +7004,14 @@ if.end:                                           ; preds = %for.body6
   %conv = zext i1 %cmp11 to i32
   %call12 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 5276, ptr noundef nonnull @.str.557, i32 noundef %conv) #23
   %tobool13.not = icmp eq i32 %call12, 0
-  br i1 %tobool13.not, label %end, label %if.end15
+  br i1 %tobool13.not, label %end, label %if.end19
 
-if.end15:                                         ; preds = %if.end
-  %tobool17.not.not = icmp eq i64 %i.028, 5
-  br i1 %tobool17.not.not, label %if.then18, label %if.end19
-
-if.then18:                                        ; preds = %if.end15
-  %5 = load ptr, ptr %sctx, align 8
-  call void @SSL_CTX_set_security_level(ptr noundef %5, i32 noundef 0) #23
-  %6 = load ptr, ptr %cctx, align 8
-  call void @SSL_CTX_set_security_level(ptr noundef %6, i32 noundef 0) #23
-  br label %if.end19
-
-if.end19:                                         ; preds = %if.then18, %if.end15
+if.end19:                                         ; preds = %if.end
   br i1 %tobool20.not, label %if.end51, label %if.then21
 
 if.then21:                                        ; preds = %if.end19
-  %7 = load ptr, ptr %sctx, align 8
-  %call22 = call i32 @SSL_CTX_set_ciphersuites(ptr noundef %7, ptr noundef %1) #23
+  %5 = load ptr, ptr %sctx, align 8
+  %call22 = call i32 @SSL_CTX_set_ciphersuites(ptr noundef %5, ptr noundef %1) #23
   %cmp23 = icmp ne i32 %call22, 0
   %conv24 = zext i1 %cmp23 to i32
   %call25 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 5285, ptr noundef nonnull @.str.558, i32 noundef %conv24) #23
@@ -7026,8 +7019,8 @@ if.then21:                                        ; preds = %if.end19
   br i1 %tobool26.not, label %end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then21
-  %8 = load ptr, ptr %cctx, align 8
-  %call27 = call i32 @SSL_CTX_set_ciphersuites(ptr noundef %8, ptr noundef %1) #23
+  %6 = load ptr, ptr %cctx, align 8
+  %call27 = call i32 @SSL_CTX_set_ciphersuites(ptr noundef %6, ptr noundef %1) #23
   %cmp28 = icmp ne i32 %call27, 0
   %conv29 = zext i1 %cmp28 to i32
   %call30 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 5286, ptr noundef nonnull @.str.559, i32 noundef %conv29) #23
@@ -7038,8 +7031,8 @@ if.end33:                                         ; preds = %lor.lhs.false
   br i1 %cmp34.not, label %if.end51, label %if.then36
 
 if.then36:                                        ; preds = %if.end33
-  %9 = load ptr, ptr %sctx, align 8
-  %call37 = call i32 @SSL_CTX_set_cipher_list(ptr noundef %9, ptr noundef %t12_cipher.0) #23
+  %7 = load ptr, ptr %sctx, align 8
+  %call37 = call i32 @SSL_CTX_set_cipher_list(ptr noundef %7, ptr noundef %t12_cipher.0) #23
   %cmp38 = icmp ne i32 %call37, 0
   %conv39 = zext i1 %cmp38 to i32
   %call40 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 5289, ptr noundef nonnull @.str.560, i32 noundef %conv39) #23
@@ -7047,8 +7040,8 @@ if.then36:                                        ; preds = %if.end33
   br i1 %tobool41.not, label %end, label %lor.lhs.false42
 
 lor.lhs.false42:                                  ; preds = %if.then36
-  %10 = load ptr, ptr %cctx, align 8
-  %call43 = call i32 @SSL_CTX_set_cipher_list(ptr noundef %10, ptr noundef %t12_cipher.0) #23
+  %8 = load ptr, ptr %cctx, align 8
+  %call43 = call i32 @SSL_CTX_set_cipher_list(ptr noundef %8, ptr noundef %t12_cipher.0) #23
   %cmp44 = icmp ne i32 %call43, 0
   %conv45 = zext i1 %cmp44 to i32
   %call46 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 5291, ptr noundef nonnull @.str.561, i32 noundef %conv45) #23
@@ -7056,9 +7049,9 @@ lor.lhs.false42:                                  ; preds = %if.then36
   br i1 %tobool47.not, label %end, label %if.end51
 
 if.end51:                                         ; preds = %if.end33, %lor.lhs.false42, %if.end19
-  %11 = load ptr, ptr %sctx, align 8
-  %12 = load ptr, ptr %cctx, align 8
-  %call52 = call i32 @create_ssl_objects(ptr noundef %11, ptr noundef %12, ptr noundef nonnull %serverssl, ptr noundef nonnull %clientssl, ptr noundef null, ptr noundef null) #23
+  %9 = load ptr, ptr %sctx, align 8
+  %10 = load ptr, ptr %cctx, align 8
+  %call52 = call i32 @create_ssl_objects(ptr noundef %9, ptr noundef %10, ptr noundef nonnull %serverssl, ptr noundef nonnull %clientssl, ptr noundef null, ptr noundef null) #23
   %cmp53 = icmp ne i32 %call52, 0
   %conv54 = zext i1 %cmp53 to i32
   %call55 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 5297, ptr noundef nonnull @.str.148, i32 noundef %conv54) #23
@@ -7069,8 +7062,8 @@ if.end58:                                         ; preds = %if.end51
   br i1 %tobool59.not, label %if.end91, label %if.then60
 
 if.then60:                                        ; preds = %if.end58
-  %13 = load ptr, ptr %serverssl, align 8
-  %call61 = call i32 @SSL_set_ciphersuites(ptr noundef %13, ptr noundef %1) #23
+  %11 = load ptr, ptr %serverssl, align 8
+  %call61 = call i32 @SSL_set_ciphersuites(ptr noundef %11, ptr noundef %1) #23
   %cmp62 = icmp ne i32 %call61, 0
   %conv63 = zext i1 %cmp62 to i32
   %call64 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 5301, ptr noundef nonnull @.str.562, i32 noundef %conv63) #23
@@ -7078,8 +7071,8 @@ if.then60:                                        ; preds = %if.end58
   br i1 %tobool65.not, label %end, label %lor.lhs.false66
 
 lor.lhs.false66:                                  ; preds = %if.then60
-  %14 = load ptr, ptr %clientssl, align 8
-  %call67 = call i32 @SSL_set_ciphersuites(ptr noundef %14, ptr noundef %1) #23
+  %12 = load ptr, ptr %clientssl, align 8
+  %call67 = call i32 @SSL_set_ciphersuites(ptr noundef %12, ptr noundef %1) #23
   %cmp68 = icmp ne i32 %call67, 0
   %conv69 = zext i1 %cmp68 to i32
   %call70 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 5302, ptr noundef nonnull @.str.563, i32 noundef %conv69) #23
@@ -7090,8 +7083,8 @@ if.end73:                                         ; preds = %lor.lhs.false66
   br i1 %cmp34.not, label %if.end91, label %if.then76
 
 if.then76:                                        ; preds = %if.end73
-  %15 = load ptr, ptr %serverssl, align 8
-  %call77 = call i32 @SSL_set_cipher_list(ptr noundef %15, ptr noundef %t12_cipher.0) #23
+  %13 = load ptr, ptr %serverssl, align 8
+  %call77 = call i32 @SSL_set_cipher_list(ptr noundef %13, ptr noundef %t12_cipher.0) #23
   %cmp78 = icmp ne i32 %call77, 0
   %conv79 = zext i1 %cmp78 to i32
   %call80 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 5305, ptr noundef nonnull @.str.564, i32 noundef %conv79) #23
@@ -7099,8 +7092,8 @@ if.then76:                                        ; preds = %if.end73
   br i1 %tobool81.not, label %end, label %lor.lhs.false82
 
 lor.lhs.false82:                                  ; preds = %if.then76
-  %16 = load ptr, ptr %clientssl, align 8
-  %call83 = call i32 @SSL_set_cipher_list(ptr noundef %16, ptr noundef %t12_cipher.0) #23
+  %14 = load ptr, ptr %clientssl, align 8
+  %call83 = call i32 @SSL_set_cipher_list(ptr noundef %14, ptr noundef %t12_cipher.0) #23
   %cmp84 = icmp ne i32 %call83, 0
   %conv85 = zext i1 %cmp84 to i32
   %call86 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 5307, ptr noundef nonnull @.str.565, i32 noundef %conv85) #23
@@ -7108,9 +7101,9 @@ lor.lhs.false82:                                  ; preds = %if.then76
   br i1 %tobool87.not, label %end, label %if.end91
 
 if.end91:                                         ; preds = %if.end73, %lor.lhs.false82, %if.end58
-  %17 = load ptr, ptr %serverssl, align 8
-  %18 = load ptr, ptr %clientssl, align 8
-  %call92 = call i32 @create_ssl_connection(ptr noundef %17, ptr noundef %18, i32 noundef 0) #23
+  %15 = load ptr, ptr %serverssl, align 8
+  %16 = load ptr, ptr %clientssl, align 8
+  %call92 = call i32 @create_ssl_connection(ptr noundef %15, ptr noundef %16, i32 noundef 0) #23
   %cmp93 = icmp ne i32 %call92, 0
   %conv94 = zext i1 %cmp93 to i32
   %call95 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 5313, ptr noundef nonnull @.str.149, i32 noundef %conv94) #23
@@ -7118,11 +7111,11 @@ if.end91:                                         ; preds = %if.end73, %lor.lhs.
   br i1 %tobool96.not, label %end, label %if.end98
 
 if.end98:                                         ; preds = %if.end91
-  %19 = load ptr, ptr %serverssl, align 8
-  %call99 = call ptr @SSL_get_current_cipher(ptr noundef %19) #23
+  %17 = load ptr, ptr %serverssl, align 8
+  %call99 = call ptr @SSL_get_current_cipher(ptr noundef %17) #23
   %call100 = call ptr @SSL_CIPHER_get_name(ptr noundef %call99) #23
-  %20 = load ptr, ptr %clientssl, align 8
-  %call101 = call ptr @SSL_get_current_cipher(ptr noundef %20) #23
+  %18 = load ptr, ptr %clientssl, align 8
+  %call101 = call ptr @SSL_get_current_cipher(ptr noundef %18) #23
   %call102 = call ptr @SSL_CIPHER_get_name(ptr noundef %call101) #23
   %call103 = call i32 @test_str_eq(ptr noundef nonnull @.str.14, i32 noundef 5320, ptr noundef nonnull @.str.566, ptr noundef nonnull @.str.567, ptr noundef %call100, ptr noundef %call102) #23
   %tobool104.not = icmp eq i32 %call103, 0
@@ -7146,17 +7139,17 @@ land.lhs.true121:                                 ; preds = %if.end115
   br i1 %tobool123.not, label %end, label %if.end125
 
 if.end125:                                        ; preds = %land.lhs.true109, %land.lhs.true121, %if.end115
-  %21 = load ptr, ptr %serverssl, align 8
-  call void @SSL_free(ptr noundef %21) #23
+  %19 = load ptr, ptr %serverssl, align 8
+  call void @SSL_free(ptr noundef %19) #23
   store ptr null, ptr %serverssl, align 8
-  %22 = load ptr, ptr %clientssl, align 8
-  call void @SSL_free(ptr noundef %22) #23
+  %20 = load ptr, ptr %clientssl, align 8
+  call void @SSL_free(ptr noundef %20) #23
   store ptr null, ptr %clientssl, align 8
-  %23 = load ptr, ptr %sctx, align 8
-  call void @SSL_CTX_free(ptr noundef %23) #23
+  %21 = load ptr, ptr %sctx, align 8
+  call void @SSL_CTX_free(ptr noundef %21) #23
   store ptr null, ptr %sctx, align 8
-  %24 = load ptr, ptr %cctx, align 8
-  call void @SSL_CTX_free(ptr noundef %24) #23
+  %22 = load ptr, ptr %cctx, align 8
+  call void @SSL_CTX_free(ptr noundef %22) #23
   store ptr null, ptr %cctx, align 8
   %.b.pre = load i1, ptr @is_fips, align 4
   br label %for.inc
@@ -7175,14 +7168,14 @@ for.inc126:                                       ; preds = %for.inc
 
 end:                                              ; preds = %for.inc126, %land.lhs.true121, %land.lhs.true109, %if.end98, %if.end91, %if.then76, %lor.lhs.false82, %if.then60, %lor.lhs.false66, %if.end51, %if.then36, %lor.lhs.false42, %if.then21, %lor.lhs.false, %if.end
   %testresult.0 = phi i32 [ 0, %if.end ], [ 0, %lor.lhs.false ], [ 0, %if.then21 ], [ 0, %lor.lhs.false42 ], [ 0, %if.then36 ], [ 0, %if.end51 ], [ 0, %lor.lhs.false66 ], [ 0, %if.then60 ], [ 0, %lor.lhs.false82 ], [ 0, %if.then76 ], [ 0, %if.end91 ], [ 0, %if.end98 ], [ 0, %land.lhs.true109 ], [ 0, %land.lhs.true121 ], [ 1, %for.inc126 ]
-  %25 = load ptr, ptr %serverssl, align 8
-  call void @SSL_free(ptr noundef %25) #23
-  %26 = load ptr, ptr %clientssl, align 8
-  call void @SSL_free(ptr noundef %26) #23
-  %27 = load ptr, ptr %sctx, align 8
-  call void @SSL_CTX_free(ptr noundef %27) #23
-  %28 = load ptr, ptr %cctx, align 8
-  call void @SSL_CTX_free(ptr noundef %28) #23
+  %23 = load ptr, ptr %serverssl, align 8
+  call void @SSL_free(ptr noundef %23) #23
+  %24 = load ptr, ptr %clientssl, align 8
+  call void @SSL_free(ptr noundef %24) #23
+  %25 = load ptr, ptr %sctx, align 8
+  call void @SSL_CTX_free(ptr noundef %25) #23
+  %26 = load ptr, ptr %cctx, align 8
+  call void @SSL_CTX_free(ptr noundef %26) #23
   ret i32 %testresult.0
 }
 
@@ -20641,52 +20634,23 @@ if.end23:                                         ; preds = %if.end16
   %conv28 = zext i1 %cmp27 to i32
   %call29 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7940, ptr noundef nonnull @.str.817, i32 noundef %conv28) #23
   %tobool30.not = icmp eq i32 %call29, 0
-  br i1 %tobool30.not, label %end, label %lor.lhs.false
+  br i1 %tobool30.not, label %end, label %lor.lhs.false43
 
-lor.lhs.false:                                    ; preds = %if.end23
-  %cmp33.not.not = icmp eq i32 %tst, 5
-  br i1 %cmp33.not.not, label %land.lhs.true, label %lor.lhs.false43
-
-land.lhs.true:                                    ; preds = %lor.lhs.false
-  %clnttls13ciphers = getelementptr inbounds [6 x %struct.anon.5], ptr @shared_ciphers_data, i64 0, i64 %idxprom, i32 2
-  %6 = load ptr, ptr %clnttls13ciphers, align 8
-  %7 = load ptr, ptr %cctx, align 8
-  %call38 = call i32 @SSL_CTX_set_ciphersuites(ptr noundef %7, ptr noundef %6) #23
-  %cmp39 = icmp ne i32 %call38, 0
-  %conv40 = zext i1 %cmp39 to i32
-  %call41 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7943, ptr noundef nonnull @.str.818, i32 noundef %conv40) #23
-  %tobool42.not = icmp eq i32 %call41, 0
-  br i1 %tobool42.not, label %end, label %lor.lhs.false43
-
-lor.lhs.false43:                                  ; preds = %land.lhs.true, %lor.lhs.false
-  %8 = load ptr, ptr %sctx, align 8
+lor.lhs.false43:                                  ; preds = %if.end23
+  %6 = load ptr, ptr %sctx, align 8
   %srvrciphers = getelementptr inbounds [6 x %struct.anon.5], ptr @shared_ciphers_data, i64 0, i64 %idxprom, i32 3
-  %9 = load ptr, ptr %srvrciphers, align 8
-  %call46 = call i32 @SSL_CTX_set_cipher_list(ptr noundef %8, ptr noundef %9) #23
+  %7 = load ptr, ptr %srvrciphers, align 8
+  %call46 = call i32 @SSL_CTX_set_cipher_list(ptr noundef %6, ptr noundef %7) #23
   %cmp47 = icmp ne i32 %call46, 0
   %conv48 = zext i1 %cmp47 to i32
   %call49 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7945, ptr noundef nonnull @.str.819, i32 noundef %conv48) #23
   %tobool50.not = icmp eq i32 %call49, 0
-  br i1 %tobool50.not, label %end, label %lor.lhs.false51
+  br i1 %tobool50.not, label %end, label %if.end66
 
-lor.lhs.false51:                                  ; preds = %lor.lhs.false43
-  br i1 %cmp33.not.not, label %land.lhs.true56, label %if.end66
-
-land.lhs.true56:                                  ; preds = %lor.lhs.false51
-  %srvrtls13ciphers = getelementptr inbounds [6 x %struct.anon.5], ptr @shared_ciphers_data, i64 0, i64 %idxprom, i32 4
-  %10 = load ptr, ptr %srvrtls13ciphers, align 8
-  %11 = load ptr, ptr %sctx, align 8
-  %call60 = call i32 @SSL_CTX_set_ciphersuites(ptr noundef %11, ptr noundef %10) #23
-  %cmp61 = icmp ne i32 %call60, 0
-  %conv62 = zext i1 %cmp61 to i32
-  %call63 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7948, ptr noundef nonnull @.str.820, i32 noundef %conv62) #23
-  %tobool64.not = icmp eq i32 %call63, 0
-  br i1 %tobool64.not, label %end, label %if.end66
-
-if.end66:                                         ; preds = %land.lhs.true56, %lor.lhs.false51
-  %12 = load ptr, ptr %sctx, align 8
-  %13 = load ptr, ptr %cctx, align 8
-  %call67 = call i32 @create_ssl_objects(ptr noundef %12, ptr noundef %13, ptr noundef nonnull %serverssl, ptr noundef nonnull %clientssl, ptr noundef null, ptr noundef null) #23
+if.end66:                                         ; preds = %lor.lhs.false43
+  %8 = load ptr, ptr %sctx, align 8
+  %9 = load ptr, ptr %cctx, align 8
+  %call67 = call i32 @create_ssl_objects(ptr noundef %8, ptr noundef %9, ptr noundef nonnull %serverssl, ptr noundef nonnull %clientssl, ptr noundef null, ptr noundef null) #23
   %cmp68 = icmp ne i32 %call67, 0
   %conv69 = zext i1 %cmp68 to i32
   %call70 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7953, ptr noundef nonnull @.str.148, i32 noundef %conv69) #23
@@ -20694,9 +20658,9 @@ if.end66:                                         ; preds = %land.lhs.true56, %l
   br i1 %tobool71.not, label %end, label %lor.lhs.false72
 
 lor.lhs.false72:                                  ; preds = %if.end66
-  %14 = load ptr, ptr %serverssl, align 8
-  %15 = load ptr, ptr %clientssl, align 8
-  %call73 = call i32 @create_ssl_connection(ptr noundef %14, ptr noundef %15, i32 noundef 0) #23
+  %10 = load ptr, ptr %serverssl, align 8
+  %11 = load ptr, ptr %clientssl, align 8
+  %call73 = call i32 @create_ssl_connection(ptr noundef %10, ptr noundef %11, i32 noundef 0) #23
   %cmp74 = icmp ne i32 %call73, 0
   %conv75 = zext i1 %cmp74 to i32
   %call76 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7955, ptr noundef nonnull @.str.149, i32 noundef %conv75) #23
@@ -20704,8 +20668,8 @@ lor.lhs.false72:                                  ; preds = %if.end66
   br i1 %tobool77.not, label %end, label %if.end79
 
 if.end79:                                         ; preds = %lor.lhs.false72
-  %16 = load ptr, ptr %serverssl, align 8
-  %call80 = call ptr @SSL_get_shared_ciphers(ptr noundef %16, ptr noundef nonnull %buf, i32 noundef 1024) #23
+  %12 = load ptr, ptr %serverssl, align 8
+  %call80 = call ptr @SSL_get_shared_ciphers(ptr noundef %12, ptr noundef nonnull %buf, i32 noundef 1024) #23
   %call81 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 7958, ptr noundef nonnull @.str.821, ptr noundef %call80) #23
   %tobool82.not = icmp eq i32 %call81, 0
   br i1 %tobool82.not, label %if.then93, label %lor.lhs.false83
@@ -20725,16 +20689,16 @@ if.then93:                                        ; preds = %lor.lhs.false83, %i
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 7964, ptr noundef nonnull @.str.823, ptr noundef nonnull %buf) #23
   br label %end
 
-end:                                              ; preds = %lor.lhs.false83, %if.end66, %lor.lhs.false72, %if.end23, %land.lhs.true, %lor.lhs.false43, %land.lhs.true56, %if.end16, %if.else, %if.then3, %entry, %if.then93
-  %testresult.0 = phi i32 [ 0, %if.then93 ], [ 0, %lor.lhs.false72 ], [ 0, %if.end66 ], [ 0, %land.lhs.true56 ], [ 0, %lor.lhs.false43 ], [ 0, %land.lhs.true ], [ 0, %if.end23 ], [ 0, %if.end16 ], [ 0, %if.then3 ], [ 0, %if.else ], [ 0, %entry ], [ 1, %lor.lhs.false83 ]
-  %17 = load ptr, ptr %serverssl, align 8
-  call void @SSL_free(ptr noundef %17) #23
-  %18 = load ptr, ptr %clientssl, align 8
-  call void @SSL_free(ptr noundef %18) #23
-  %19 = load ptr, ptr %sctx, align 8
-  call void @SSL_CTX_free(ptr noundef %19) #23
-  %20 = load ptr, ptr %cctx, align 8
-  call void @SSL_CTX_free(ptr noundef %20) #23
+end:                                              ; preds = %lor.lhs.false83, %if.end66, %lor.lhs.false72, %if.end23, %lor.lhs.false43, %if.end16, %if.else, %if.then3, %entry, %if.then93
+  %testresult.0 = phi i32 [ 0, %if.then93 ], [ 0, %lor.lhs.false72 ], [ 0, %if.end66 ], [ 0, %lor.lhs.false43 ], [ 0, %if.end23 ], [ 0, %if.end16 ], [ 0, %if.then3 ], [ 0, %if.else ], [ 0, %entry ], [ 1, %lor.lhs.false83 ]
+  %13 = load ptr, ptr %serverssl, align 8
+  call void @SSL_free(ptr noundef %13) #23
+  %14 = load ptr, ptr %clientssl, align 8
+  call void @SSL_free(ptr noundef %14) #23
+  %15 = load ptr, ptr %sctx, align 8
+  call void @SSL_CTX_free(ptr noundef %15) #23
+  %16 = load ptr, ptr %cctx, align 8
+  call void @SSL_CTX_free(ptr noundef %16) #23
   call void @OSSL_LIB_CTX_free(ptr noundef %call) #23
   ret i32 %testresult.0
 }

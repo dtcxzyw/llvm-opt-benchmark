@@ -8721,8 +8721,8 @@ if.end.i57:                                       ; preds = %if.else19
   %rem23 = urem i32 %conv20, %5
   %14 = inttoptr i64 %13 to ptr
   %15 = shl nuw nsw i32 %rem23, 1
-  %narrow144 = add nuw nsw i32 %15, 4
-  %16 = zext nneg i32 %narrow144 to i64
+  %narrow145 = add nuw nsw i32 %15, 4
+  %16 = zext nneg i32 %narrow145 to i64
   %avail.i59 = getelementptr inbounds %struct.VRingMemoryRegionCaches, ptr %14, i64 0, i32 2
   %len.i.i.i.i60 = getelementptr inbounds %struct.VRingMemoryRegionCaches, ptr %14, i64 0, i32 2, i32 2
   %17 = load i64, ptr %len.i.i.i.i60, align 16
@@ -8993,8 +8993,8 @@ vring_used_idx.exit:                              ; preds = %vring_used_flags.ex
   %retval.0.i129 = phi i16 [ 0, %vring_used_flags.exit ], [ %add.ptr.val.i.i.i.i128, %if.then5.i.i.i.i126 ], [ %call10.i.i.i.i131, %if.else8.i.i.i.i130 ]
   %idx73 = getelementptr inbounds %struct.VirtioRingUsed, ptr %call57, i64 0, i32 1
   store i16 %retval.0.i129, ptr %idx73, align 2
-  %cmp74.not147.not = icmp eq i32 %max.0, 0
-  br i1 %cmp74.not147.not, label %do.end, label %if.end77.lr.ph
+  %cmp74.not148.not = icmp eq i32 %max.0, 0
+  br i1 %cmp74.not148.not, label %do.end, label %if.end77.lr.ph
 
 if.end77.lr.ph:                                   ; preds = %vring_used_idx.exit
   %len83 = getelementptr inbounds %struct.VRingDesc, ptr %desc, i64 0, i32 1
@@ -9003,8 +9003,8 @@ if.end77.lr.ph:                                   ; preds = %vring_used_idx.exit
   br label %if.end77
 
 if.end77:                                         ; preds = %if.end77.lr.ph, %virtqueue_split_read_next_desc.exit
-  %ndescs.0149 = phi i32 [ 0, %if.end77.lr.ph ], [ %inc, %virtqueue_split_read_next_desc.exit ]
-  %list.0148 = phi ptr [ null, %if.end77.lr.ph ], [ %call78, %virtqueue_split_read_next_desc.exit ]
+  %ndescs.0150 = phi i32 [ 0, %if.end77.lr.ph ], [ %inc, %virtqueue_split_read_next_desc.exit ]
+  %list.0149 = phi ptr [ null, %if.end77.lr.ph ], [ %call78, %virtqueue_split_read_next_desc.exit ]
   %call78 = call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #21
   %call79 = call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #21
   %value = getelementptr inbounds %struct.VirtioRingDescList, ptr %call78, i64 0, i32 1
@@ -9019,13 +9019,14 @@ if.end77:                                         ; preds = %if.end77.lr.ph, %vi
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end77
   %indvars.iv.i = phi i64 [ 0, %if.end77 ], [ %indvars.iv.next.i, %for.inc.i ]
-  %49 = phi i16 [ 1, %if.end77 ], [ %51, %for.inc.i ]
   %list.08.i = phi ptr [ null, %if.end77 ], [ %list.1.i, %for.inc.i ]
+  %arrayidx.i133 = getelementptr [6 x %struct.anon.8], ptr @__const.qmp_decode_vring_desc_flags.map, i64 0, i64 %indvars.iv.i
+  %49 = load i16, ptr %arrayidx.i133, align 16
   %and7.i = and i16 %49, %48
   %cmp.i = icmp eq i16 %and7.i, 0
-  br i1 %cmp.i, label %for.inc.i, label %if.end.i133
+  br i1 %cmp.i, label %for.inc.i, label %if.end.i134
 
-if.end.i133:                                      ; preds = %for.body.i
+if.end.i134:                                      ; preds = %for.body.i
   %call.i = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
   %value.i = getelementptr [6 x %struct.anon.8], ptr @__const.qmp_decode_vring_desc_flags.map, i64 0, i64 %indvars.iv.i, i32 1
   %50 = load ptr, ptr %value.i, align 8
@@ -9035,41 +9036,39 @@ if.end.i133:                                      ; preds = %for.body.i
   store ptr %list.08.i, ptr %call.i, align 8
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.end.i133, %for.body.i
-  %list.1.i = phi ptr [ %list.08.i, %for.body.i ], [ %call.i, %if.end.i133 ]
+for.inc.i:                                        ; preds = %if.end.i134, %for.body.i
+  %list.1.i = phi ptr [ %list.08.i, %for.body.i ], [ %call.i, %if.end.i134 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i134 = getelementptr [6 x %struct.anon.8], ptr @__const.qmp_decode_vring_desc_flags.map, i64 0, i64 %indvars.iv.next.i
-  %51 = load i16, ptr %arrayidx.i134, align 16
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.i, label %qmp_decode_vring_desc_flags.exit, label %for.body.i, !llvm.loop !53
+  %tobool.not.i135 = icmp eq i64 %indvars.iv.next.i, 5
+  br i1 %tobool.not.i135, label %qmp_decode_vring_desc_flags.exit, label %for.body.i, !llvm.loop !53
 
 qmp_decode_vring_desc_flags.exit:                 ; preds = %for.inc.i
-  %52 = load ptr, ptr %value, align 8
-  %flags89 = getelementptr inbounds %struct.VirtioRingDesc, ptr %52, i64 0, i32 2
+  %51 = load ptr, ptr %value, align 8
+  %flags89 = getelementptr inbounds %struct.VirtioRingDesc, ptr %51, i64 0, i32 2
   store ptr %list.1.i, ptr %flags89, align 8
-  store ptr %list.0148, ptr %call78, align 8
-  %inc = add nuw i32 %ndescs.0149, 1
-  %53 = load i16, ptr %flags, align 4
-  %54 = and i16 %53, 1
-  %tobool.not.i135 = icmp eq i16 %54, 0
-  br i1 %tobool.not.i135, label %do.end, label %if.end.i136
+  store ptr %list.0149, ptr %call78, align 8
+  %inc = add nuw i32 %ndescs.0150, 1
+  %52 = load i16, ptr %flags, align 4
+  %53 = and i16 %52, 1
+  %tobool.not.i136 = icmp eq i16 %53, 0
+  br i1 %tobool.not.i136, label %do.end, label %if.end.i137
 
-if.end.i136:                                      ; preds = %qmp_decode_vring_desc_flags.exit
-  %55 = load i16, ptr %next.i, align 2
-  %conv1.i = zext i16 %55 to i32
+if.end.i137:                                      ; preds = %qmp_decode_vring_desc_flags.exit
+  %54 = load i16, ptr %next.i, align 2
+  %conv1.i = zext i16 %54 to i32
   %cmp.not.i = icmp ugt i32 %max.0, %conv1.i
   br i1 %cmp.not.i, label %if.end6.i, label %if.then3.i
 
-if.then3.i:                                       ; preds = %if.end.i136
+if.then3.i:                                       ; preds = %if.end.i137
   call void (ptr, ptr, ...) @virtio_error(ptr noundef nonnull %call, ptr noundef nonnull @.str.160, i32 noundef %conv1.i)
   br label %do.end
 
-if.end6.i:                                        ; preds = %if.end.i136
-  %conv.i.i = zext i16 %55 to i64
+if.end6.i:                                        ; preds = %if.end.i137
+  %conv.i.i = zext i16 %54 to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 4
-  %56 = load i64, ptr %len1.i.i.i, align 16
-  %cmp.i.i.i = icmp ule i64 %56, %mul.i.i
-  %sub.i.i.i = sub i64 %56, %mul.i.i
+  %55 = load i64, ptr %len1.i.i.i, align 16
+  %cmp.i.i.i = icmp ule i64 %55, %mul.i.i
+  %sub.i.i.i = sub i64 %55, %mul.i.i
   %cmp3.not.i.i.i = icmp ult i64 %sub.i.i.i, 16
   %or.cond.i.i.i = or i1 %cmp.i.i.i, %cmp3.not.i.i.i
   br i1 %or.cond.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
@@ -9079,12 +9078,12 @@ if.else.i.i.i:                                    ; preds = %if.end6.i
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.end6.i
-  %57 = load ptr, ptr %desc_cache.0, align 16
-  %tobool.not.i.i.i = icmp eq ptr %57, null
+  %56 = load ptr, ptr %desc_cache.0, align 16
+  %tobool.not.i.i.i = icmp eq ptr %56, null
   br i1 %tobool.not.i.i.i, label %if.else8.i.i.i, label %if.then6.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
-  %add.ptr.i.i.i = getelementptr i8, ptr %57, i64 %mul.i.i
+  %add.ptr.i.i.i = getelementptr i8, ptr %56, i64 %mul.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %desc, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i.i.i, i64 16, i1 false)
   br label %virtqueue_split_read_next_desc.exit
 
@@ -9111,37 +9110,37 @@ if.then.i.i:                                      ; preds = %if.then29, %if.then
   %cleanup.dest.slot.0 = phi ptr [ null, %if.then35 ], [ %element.0, %done ], [ null, %if.then29 ]
   %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #22
   %depth.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 2
-  %58 = load i32, ptr %depth.i.i.i.i, align 4
-  %cmp.not.i.i.i.i = icmp eq i32 %58, 0
-  br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i141, label %if.end.i.i.i.i139
+  %57 = load i32, ptr %depth.i.i.i.i, align 4
+  %cmp.not.i.i.i.i = icmp eq i32 %57, 0
+  br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i142, label %if.end.i.i.i.i140
 
-if.else.i.i.i.i141:                               ; preds = %if.then.i.i
+if.else.i.i.i.i142:                               ; preds = %if.then.i.i
   call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #23
   unreachable
 
-if.end.i.i.i.i139:                                ; preds = %if.then.i.i
-  %dec.i.i.i.i = add i32 %58, -1
+if.end.i.i.i.i140:                                ; preds = %if.then.i.i
+  %dec.i.i.i.i = add i32 %57, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
   br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %return
 
-while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i139
+while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i140
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 1
-  %59 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
-  %60 = and i8 %59, 1
-  %tobool.not.i.i.i.i140 = icmp eq i8 %60, 0
-  br i1 %tobool.not.i.i.i.i140, label %return, label %while.end21.i.i.i.i
+  %58 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
+  %59 = and i8 %58, 1
+  %tobool.not.i.i.i.i141 = icmp eq i8 %59, 0
+  br i1 %tobool.not.i.i.i.i141, label %return, label %while.end21.i.i.i.i
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #22
   br label %return
 
-return:                                           ; preds = %while.end21.i.i.i.i, %while.end.i.i.i.i, %if.end.i.i.i.i139, %if.then10, %if.then5, %if.then
-  %retval.1 = phi ptr [ null, %if.then ], [ null, %if.then5 ], [ null, %if.then10 ], [ %cleanup.dest.slot.0, %if.end.i.i.i.i139 ], [ %cleanup.dest.slot.0, %while.end.i.i.i.i ], [ %cleanup.dest.slot.0, %while.end21.i.i.i.i ]
+return:                                           ; preds = %while.end21.i.i.i.i, %while.end.i.i.i.i, %if.end.i.i.i.i140, %if.then10, %if.then5, %if.then
+  %retval.1 = phi ptr [ null, %if.then ], [ null, %if.then5 ], [ null, %if.then10 ], [ %cleanup.dest.slot.0, %if.end.i.i.i.i140 ], [ %cleanup.dest.slot.0, %while.end.i.i.i.i ], [ %cleanup.dest.slot.0, %while.end21.i.i.i.i ]
   ret ptr %retval.1
 }
 

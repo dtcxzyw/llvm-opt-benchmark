@@ -2293,9 +2293,8 @@ if.end16:                                         ; preds = %if.end
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %str, i64 0, i32 2
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %magicptr.off = add i64 %0, -3
-  %switch = icmp ult i64 %magicptr.off, 2
-  br i1 %switch, label %if.else, label %if.then18
+  %tobool17.not.not = icmp eq ptr %ctx, inttoptr (i64 3 to ptr)
+  br i1 %tobool17.not.not, label %if.else, label %if.then18
 
 if.then18:                                        ; preds = %if.end16
   %call19 = call noundef double @_ZN6hermes2vm9localTimeEd(double noundef %4) #14
@@ -2513,8 +2512,7 @@ if.end:                                           ; preds = %cond.true.i
   br i1 %5, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end
-  %6 = add i64 %0, -17
-  %tobool11.not = icmp ult i64 %6, -8
+  %tobool11.not = icmp ult ptr %ctx, inttoptr (i64 9 to ptr)
   br i1 %tobool11.not, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %if.end10
@@ -2523,8 +2521,8 @@ if.then12:                                        ; preds = %if.end10
 
 if.end14:                                         ; preds = %if.then12, %if.end10
   %t.0 = phi double [ %4, %if.end10 ], [ %call13, %if.then12 ]
-  %7 = load i32, ptr %arrayidx, align 8
-  switch i32 %7, label %sw.epilog [
+  %6 = load i32, ptr %arrayidx, align 8
+  switch i32 %6, label %sw.epilog [
     i32 0, label %sw.bb
     i32 1, label %sw.bb17
     i32 2, label %sw.bb19
@@ -2583,9 +2581,9 @@ sw.bb34:                                          ; preds = %if.end14
 
 sw.epilog:                                        ; preds = %sw.bb34, %sw.bb32, %sw.bb30, %sw.bb28, %sw.bb26, %sw.bb23, %sw.bb21, %sw.bb19, %sw.bb17, %sw.bb, %if.end14
   %result.0 = phi double [ 0x7FF8000000000000, %if.end14 ], [ %div, %sw.bb34 ], [ %call33, %sw.bb32 ], [ %call31, %sw.bb30 ], [ %call29, %sw.bb28 ], [ %call27, %sw.bb26 ], [ %conv25, %sw.bb23 ], [ %call22, %sw.bb21 ], [ %conv, %sw.bb19 ], [ %sub, %sw.bb17 ], [ %call16, %sw.bb ]
-  %8 = fcmp uno double %result.0, 0.000000e+00
-  %9 = bitcast double %result.0 to i64
-  %retval.sroa.0.0.i = select i1 %8, i64 9221120237041090560, i64 %9
+  %7 = fcmp uno double %result.0, 0.000000e+00
+  %8 = bitcast double %result.0 to i64
+  %retval.sroa.0.0.i = select i1 %7, i64 9221120237041090560, i64 %8
   br label %return
 
 return:                                           ; preds = %if.end, %sw.epilog, %if.then

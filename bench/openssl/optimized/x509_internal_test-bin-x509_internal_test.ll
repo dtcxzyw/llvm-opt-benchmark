@@ -152,7 +152,7 @@ entry:
   %0 = load i32, ptr %length, align 8
   %1 = load ptr, ptr %arrayidx, align 8
   %call = tail call ptr @a2i_IPADDRESS(ptr noundef %1) #2
-  %2 = lshr i64 73496, %idxprom
+  %2 = lshr i64 7960, %idxprom
   %3 = and i64 %2, 1
   %cmp.not = icmp eq i64 %3, 0
   br i1 %cmp.not, label %if.else, label %if.then

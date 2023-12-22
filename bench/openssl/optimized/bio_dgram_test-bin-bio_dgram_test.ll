@@ -434,8 +434,7 @@ if.end185.i:                                      ; preds = %lor.end.i
   %call186.i = call i64 @BIO_ctrl(ptr noundef %call82.i, i32 noundef 82, i64 noundef 0, ptr noundef null) #6
   %conv187.i = trunc i64 %call186.i to i32
   %cmp188.i = icmp sgt i32 %conv187.i, 0
-  %5 = and i32 %idx, -2
-  %tobool190.i = icmp eq i32 %5, 2
+  %tobool190.i = icmp eq i32 %idx, 2
   %or.cond.i = and i1 %tobool190.i, %cmp188.i
   br i1 %or.cond.i, label %if.then191.i, label %if.else198.i
 
@@ -458,8 +457,8 @@ if.end203.i:                                      ; preds = %if.else198.i, %if.t
   br i1 %tobool209.not.i, label %err.i, label %lor.lhs.false210.i
 
 lor.lhs.false210.i:                               ; preds = %if.end203.i
-  %6 = load i64, ptr %num_processed.i, align 8
-  %call211.i = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 278, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.43, i64 noundef %6, i64 noundef 2) #6
+  %5 = load i64, ptr %num_processed.i, align 8
+  %call211.i = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 278, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.43, i64 noundef %5, i64 noundef 2) #6
   %tobool212.not.i = icmp eq i32 %call211.i, 0
   br i1 %tobool212.not.i, label %err.i, label %if.end214.i
 
@@ -491,34 +490,34 @@ if.end214.i:                                      ; preds = %lor.lhs.false210.i
   br i1 %tobool244.not.i, label %err.i, label %lor.lhs.false245.i
 
 lor.lhs.false245.i:                               ; preds = %if.end214.i
-  %7 = load i64, ptr %num_processed.i, align 8
-  %call246.i = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 301, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.16, i64 noundef %7, i64 noundef 0) #6
+  %6 = load i64, ptr %num_processed.i, align 8
+  %call246.i = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 301, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.16, i64 noundef %6, i64 noundef 0) #6
   %tobool247.not.i = icmp eq i32 %call246.i, 0
   br i1 %tobool247.not.i, label %err.i, label %if.end249.i
 
 if.end249.i:                                      ; preds = %lor.lhs.false245.i
-  %8 = load i64, ptr %data_len219.i, align 8
-  %conv252.i = trunc i64 %8 to i32
+  %7 = load i64, ptr %data_len219.i, align 8
+  %conv252.i = trunc i64 %7 to i32
   %call253.i = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 305, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, i32 noundef %conv252.i, i32 noundef 128) #6
   %tobool254.not.i = icmp eq i32 %call253.i, 0
   br i1 %tobool254.not.i, label %err.i, label %if.end256.i
 
 if.end256.i:                                      ; preds = %if.end249.i
-  %9 = load i64, ptr %data_len231.i, align 16
-  %conv259.i = trunc i64 %9 to i32
+  %8 = load i64, ptr %data_len231.i, align 16
+  %conv259.i = trunc i64 %8 to i32
   %call260.i = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 308, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.48, i32 noundef %conv259.i, i32 noundef 128) #6
   %tobool261.not.i = icmp eq i32 %call260.i, 0
   br i1 %tobool261.not.i, label %err.i, label %if.end263.i
 
 if.end263.i:                                      ; preds = %if.end256.i
-  %10 = load i64, ptr %flags225.i, align 16
-  %call266.i = call i32 @test_ulong_eq(ptr noundef nonnull @.str, i32 noundef 311, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i64 noundef %10, i64 noundef 2147483648) #6
+  %9 = load i64, ptr %flags225.i, align 16
+  %call266.i = call i32 @test_ulong_eq(ptr noundef nonnull @.str, i32 noundef 311, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i64 noundef %9, i64 noundef 2147483648) #6
   %tobool267.not.i = icmp eq i32 %call266.i, 0
   br i1 %tobool267.not.i, label %err.i, label %if.end269.i
 
 if.end269.i:                                      ; preds = %if.end263.i
-  %11 = load i64, ptr %flags237.i, align 8
-  %call272.i = call i32 @test_ulong_eq(ptr noundef nonnull @.str, i32 noundef 314, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.50, i64 noundef %11, i64 noundef 2147483648) #6
+  %10 = load i64, ptr %flags237.i, align 8
+  %call272.i = call i32 @test_ulong_eq(ptr noundef nonnull @.str, i32 noundef 314, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.50, i64 noundef %10, i64 noundef 2147483648) #6
   %tobool273.not.i = icmp eq i32 %call272.i, 0
   br i1 %tobool273.not.i, label %err.i, label %if.end275.i
 
@@ -548,35 +547,35 @@ if.end294.i:                                      ; preds = %if.else289.i, %if.t
   br i1 %tobool300.not.i, label %err.i, label %lor.lhs.false301.i
 
 lor.lhs.false301.i:                               ; preds = %if.end294.i
-  %12 = load i64, ptr %num_processed.i, align 8
-  %call302.i = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 329, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.43, i64 noundef %12, i64 noundef 2) #6
+  %11 = load i64, ptr %num_processed.i, align 8
+  %call302.i = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 329, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.43, i64 noundef %11, i64 noundef 2) #6
   %tobool303.not.i = icmp eq i32 %call302.i, 0
   br i1 %tobool303.not.i, label %err.i, label %if.end305.i
 
 if.end305.i:                                      ; preds = %lor.lhs.false301.i
-  %13 = load i64, ptr %data_len219.i, align 8
-  %conv308.i = trunc i64 %13 to i32
+  %12 = load i64, ptr %data_len219.i, align 8
+  %conv308.i = trunc i64 %12 to i32
   %call309.i = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 333, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.29, i32 noundef %conv308.i, i32 noundef 5) #6
   %tobool310.not.i = icmp eq i32 %call309.i, 0
   br i1 %tobool310.not.i, label %err.i, label %if.end312.i
 
 if.end312.i:                                      ; preds = %if.end305.i
-  %14 = load i64, ptr %data_len231.i, align 16
-  %conv315.i = trunc i64 %14 to i32
+  %13 = load i64, ptr %data_len231.i, align 16
+  %conv315.i = trunc i64 %13 to i32
   %call316.i = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 336, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.53, i32 noundef %conv315.i, i32 noundef 6) #6
   %tobool317.not.i = icmp eq i32 %call316.i, 0
   br i1 %tobool317.not.i, label %err.i, label %if.end319.i
 
 if.end319.i:                                      ; preds = %if.end312.i
-  %15 = load i64, ptr %flags225.i, align 16
-  %conv322.i = trunc i64 %15 to i32
+  %14 = load i64, ptr %flags225.i, align 16
+  %conv322.i = trunc i64 %14 to i32
   %call323.i = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 340, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.16, i32 noundef %conv322.i, i32 noundef 0) #6
   %tobool324.not.i = icmp eq i32 %call323.i, 0
   br i1 %tobool324.not.i, label %err.i, label %if.end326.i
 
 if.end326.i:                                      ; preds = %if.end319.i
-  %16 = load i64, ptr %flags237.i, align 8
-  %conv329.i = trunc i64 %16 to i32
+  %15 = load i64, ptr %flags237.i, align 8
+  %conv329.i = trunc i64 %15 to i32
   %call330.i = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 343, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.16, i32 noundef %conv329.i, i32 noundef 0) #6
   %tobool331.not.i = icmp eq i32 %call330.i, 0
   br i1 %tobool331.not.i, label %err.i, label %if.end333.i
@@ -600,8 +599,8 @@ if.end343.i:                                      ; preds = %if.end338.i
   br i1 %tobool349.not.i, label %err.i, label %lor.lhs.false350.i
 
 lor.lhs.false350.i:                               ; preds = %if.end343.i
-  %17 = load i64, ptr %num_processed.i, align 8
-  %call351.i = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 360, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.43, i64 noundef %17, i64 noundef 2) #6
+  %16 = load i64, ptr %num_processed.i, align 8
+  %call351.i = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 360, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.43, i64 noundef %16, i64 noundef 2) #6
   %tobool352.not.i = icmp eq i32 %call351.i, 0
   br i1 %tobool352.not.i, label %err.i, label %if.end354.i
 
@@ -614,14 +613,14 @@ if.end354.i:                                      ; preds = %lor.lhs.false350.i
   br i1 %tobool364.not.i, label %err.i, label %lor.lhs.false365.i
 
 lor.lhs.false365.i:                               ; preds = %if.end354.i
-  %18 = load i64, ptr %num_processed.i, align 8
-  %call366.i = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 368, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.43, i64 noundef %18, i64 noundef 2) #6
+  %17 = load i64, ptr %num_processed.i, align 8
+  %call366.i = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 368, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.43, i64 noundef %17, i64 noundef 2) #6
   %tobool367.not.i = icmp eq i32 %call366.i, 0
   br i1 %tobool367.not.i, label %err.i, label %if.end369.i
 
 if.end369.i:                                      ; preds = %lor.lhs.false365.i
-  %19 = load ptr, ptr %local223.i, align 8
-  %cmp372.not.i = icmp eq ptr %19, null
+  %18 = load ptr, ptr %local223.i, align 8
+  %cmp372.not.i = icmp eq ptr %18, null
   br i1 %cmp372.not.i, label %if.end385.i, label %if.then374.i
 
 if.then374.i:                                     ; preds = %if.end369.i
@@ -666,8 +665,8 @@ for.end.i:                                        ; preds = %for.body.i
   br i1 %tobool407.not.i, label %err.i, label %lor.lhs.false408.i
 
 lor.lhs.false408.i:                               ; preds = %for.end.i
-  %20 = load i64, ptr %num_processed.i, align 8
-  %call409.i = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 393, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.60, i64 noundef %20, i64 noundef 128) #6
+  %19 = load i64, ptr %num_processed.i, align 8
+  %call409.i = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 393, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.60, i64 noundef %19, i64 noundef 128) #6
   %tobool410.not.i = icmp eq i32 %call409.i, 0
   br i1 %tobool410.not.i, label %err.i, label %for.body416.preheader.i
 
@@ -695,8 +694,8 @@ for.end432.i:                                     ; preds = %for.body416.i
   br i1 %tobool438.not.i, label %err.i, label %lor.lhs.false439.i
 
 lor.lhs.false439.i:                               ; preds = %for.end432.i
-  %21 = load i64, ptr %num_processed.i, align 8
-  %call440.i = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 409, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.62, i64 noundef %21, i64 noundef 128) #6
+  %20 = load i64, ptr %num_processed.i, align 8
+  %call440.i = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 409, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.62, i64 noundef %20, i64 noundef 128) #6
   %tobool441.not.i = icmp eq i32 %call440.i, 0
   br i1 %tobool441.not.i, label %err.i, label %if.end443.i
 

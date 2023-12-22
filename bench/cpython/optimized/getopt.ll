@@ -129,83 +129,84 @@ if.end43:                                         ; preds = %if.then37
   br i1 %tobool48.not35, label %if.end62, label %for.inc
 
 for.body:                                         ; preds = %for.inc
-  %call47 = tail call i32 @wcscmp(ptr noundef nonnull %14, ptr noundef nonnull %incdec.ptr) #5
+  %arrayidx53 = getelementptr [5 x %struct._PyOS_LongOption], ptr @longopts, i64 0, i64 %idxprom52
+  %13 = load ptr, ptr %arrayidx53, align 16
+  %call47 = tail call i32 @wcscmp(ptr noundef nonnull %13, ptr noundef nonnull %incdec.ptr) #5
   %tobool48.not = icmp eq i32 %call47, 0
   br i1 %tobool48.not, label %if.end62, label %for.inc, !llvm.loop !5
 
 for.inc:                                          ; preds = %if.end43, %for.body
-  %13 = phi i32 [ %inc51, %for.body ], [ 0, %if.end43 ]
-  %inc51 = add i32 %13, 1
+  %14 = phi i32 [ %inc51, %for.body ], [ 0, %if.end43 ]
+  %inc51 = add i32 %14, 1
   store i32 %inc51, ptr %longindex, align 4
   %idxprom52 = sext i32 %inc51 to i64
-  %arrayidx53 = getelementptr [5 x %struct._PyOS_LongOption], ptr @longopts, i64 0, i64 %idxprom52
-  %14 = load ptr, ptr %arrayidx53, align 16
-  %tobool45.not = icmp eq ptr %14, null
+  %15 = and i64 %idxprom52, 1152921504606846975
+  %tobool45.not = icmp eq i64 %15, 4
   br i1 %tobool45.not, label %if.then56, label %for.body, !llvm.loop !5
 
 if.then56:                                        ; preds = %for.inc
-  %15 = load i32, ptr @_PyOS_opterr, align 4
-  %tobool57.not = icmp eq i32 %15, 0
+  %16 = load i32, ptr @_PyOS_opterr, align 4
+  %tobool57.not = icmp eq i32 %16, 0
   br i1 %tobool57.not, label %return, label %if.then58
 
 if.then58:                                        ; preds = %if.then56
-  %16 = load ptr, ptr @stderr, align 8
-  %17 = load i64, ptr @_PyOS_optind, align 8
-  %18 = getelementptr ptr, ptr %argv, i64 %17
-  %arrayidx59 = getelementptr ptr, ptr %18, i64 -1
-  %19 = load ptr, ptr %arrayidx59, align 8
-  %call60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.5, ptr noundef %19) #6
+  %17 = load ptr, ptr @stderr, align 8
+  %18 = load i64, ptr @_PyOS_optind, align 8
+  %19 = getelementptr ptr, ptr %argv, i64 %18
+  %arrayidx59 = getelementptr ptr, ptr %19, i64 -1
+  %20 = load ptr, ptr %arrayidx59, align 8
+  %call60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.5, ptr noundef %20) #6
   br label %return
 
 if.end62:                                         ; preds = %for.body, %if.end43
   %opt.030.lcssa = phi ptr [ @longopts, %if.end43 ], [ %arrayidx53, %for.body ]
   store ptr @.str, ptr @opt_ptr, align 8
   %has_arg = getelementptr inbounds %struct._PyOS_LongOption, ptr %opt.030.lcssa, i64 0, i32 1
-  %20 = load i32, ptr %has_arg, align 8
-  %tobool63.not = icmp eq i32 %20, 0
+  %21 = load i32, ptr %has_arg, align 8
+  %tobool63.not = icmp eq i32 %21, 0
   br i1 %tobool63.not, label %if.then64, label %if.end65
 
 if.then64:                                        ; preds = %if.end62
   %val = getelementptr inbounds %struct._PyOS_LongOption, ptr %opt.030.lcssa, i64 0, i32 2
-  %21 = load i32, ptr %val, align 4
+  %22 = load i32, ptr %val, align 4
   br label %return
 
 if.end65:                                         ; preds = %if.end62
-  %22 = load i64, ptr @_PyOS_optind, align 8
-  %cmp66.not = icmp slt i64 %22, %argc
+  %23 = load i64, ptr @_PyOS_optind, align 8
+  %cmp66.not = icmp slt i64 %23, %argc
   br i1 %cmp66.not, label %if.end74, label %if.then67
 
 if.then67:                                        ; preds = %if.end65
-  %23 = load i32, ptr @_PyOS_opterr, align 4
-  %tobool68.not = icmp eq i32 %23, 0
+  %24 = load i32, ptr @_PyOS_opterr, align 4
+  %tobool68.not = icmp eq i32 %24, 0
   br i1 %tobool68.not, label %return, label %if.then69
 
 if.then69:                                        ; preds = %if.then67
-  %24 = load ptr, ptr @stderr, align 8
-  %25 = getelementptr ptr, ptr %argv, i64 %22
-  %arrayidx71 = getelementptr ptr, ptr %25, i64 -1
-  %26 = load ptr, ptr %arrayidx71, align 8
-  %call72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.6, ptr noundef %26) #6
+  %25 = load ptr, ptr @stderr, align 8
+  %26 = getelementptr ptr, ptr %argv, i64 %23
+  %arrayidx71 = getelementptr ptr, ptr %26, i64 -1
+  %27 = load ptr, ptr %arrayidx71, align 8
+  %call72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.6, ptr noundef %27) #6
   br label %return
 
 if.end74:                                         ; preds = %if.end65
-  %inc75 = add nsw i64 %22, 1
+  %inc75 = add nsw i64 %23, 1
   store i64 %inc75, ptr @_PyOS_optind, align 8
-  %arrayidx76 = getelementptr ptr, ptr %argv, i64 %22
-  %27 = load ptr, ptr %arrayidx76, align 8
-  store ptr %27, ptr @_PyOS_optarg, align 8
+  %arrayidx76 = getelementptr ptr, ptr %argv, i64 %23
+  %28 = load ptr, ptr %arrayidx76, align 8
+  store ptr %28, ptr @_PyOS_optarg, align 8
   %val77 = getelementptr inbounds %struct._PyOS_LongOption, ptr %opt.030.lcssa, i64 0, i32 2
-  %28 = load i32, ptr %val77, align 4
+  %29 = load i32, ptr %val77, align 4
   br label %return
 
 if.then80:                                        ; preds = %if.end32
-  %29 = load i32, ptr @_PyOS_opterr, align 4
-  %tobool81.not = icmp eq i32 %29, 0
+  %30 = load i32, ptr @_PyOS_opterr, align 4
+  %tobool81.not = icmp eq i32 %30, 0
   br i1 %tobool81.not, label %return, label %if.then82
 
 if.then82:                                        ; preds = %if.then80
-  %30 = load ptr, ptr @stderr, align 8
-  %31 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 26, i64 1, ptr %30) #6
+  %31 = load ptr, ptr @stderr, align 8
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 26, i64 1, ptr %31) #6
   br label %return
 
 if.end85:                                         ; preds = %if.end32
@@ -214,26 +215,26 @@ if.end85:                                         ; preds = %if.end32
   br i1 %cmp87, label %if.then88, label %if.end94
 
 if.then88:                                        ; preds = %if.end85
-  %32 = load i32, ptr @_PyOS_opterr, align 4
-  %tobool89.not = icmp eq i32 %32, 0
+  %33 = load i32, ptr @_PyOS_opterr, align 4
+  %tobool89.not = icmp eq i32 %33, 0
   br i1 %tobool89.not, label %return, label %if.then90
 
 if.then90:                                        ; preds = %if.then88
-  %33 = load ptr, ptr @stderr, align 8
+  %34 = load ptr, ptr @stderr, align 8
   %sext28 = shl i32 %7, 24
   %conv91 = ashr exact i32 %sext28, 24
-  %call92 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.9, i32 noundef %conv91) #6
+  %call92 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.9, i32 noundef %conv91) #6
   br label %return
 
 if.end94:                                         ; preds = %if.end85
   %add.ptr = getelementptr i32, ptr %call86, i64 1
-  %34 = load i32, ptr %add.ptr, align 4
-  %cmp95 = icmp eq i32 %34, 58
+  %35 = load i32, ptr %add.ptr, align 4
+  %cmp95 = icmp eq i32 %35, 58
   br i1 %cmp95, label %if.then97, label %return
 
 if.then97:                                        ; preds = %if.end94
-  %35 = load i32, ptr %incdec.ptr, align 4
-  %cmp98.not = icmp eq i32 %35, 0
+  %36 = load i32, ptr %incdec.ptr, align 4
+  %cmp98.not = icmp eq i32 %36, 0
   br i1 %cmp98.not, label %if.else101, label %if.then100
 
 if.then100:                                       ; preds = %if.then97
@@ -242,32 +243,32 @@ if.then100:                                       ; preds = %if.then97
   br label %return
 
 if.else101:                                       ; preds = %if.then97
-  %36 = load i64, ptr @_PyOS_optind, align 8
-  %cmp102.not = icmp slt i64 %36, %argc
+  %37 = load i64, ptr @_PyOS_optind, align 8
+  %cmp102.not = icmp slt i64 %37, %argc
   br i1 %cmp102.not, label %if.end111, label %if.then104
 
 if.then104:                                       ; preds = %if.else101
-  %37 = load i32, ptr @_PyOS_opterr, align 4
-  %tobool105.not = icmp eq i32 %37, 0
+  %38 = load i32, ptr @_PyOS_opterr, align 4
+  %tobool105.not = icmp eq i32 %38, 0
   br i1 %tobool105.not, label %return, label %if.then106
 
 if.then106:                                       ; preds = %if.then104
-  %38 = load ptr, ptr @stderr, align 8
+  %39 = load ptr, ptr @stderr, align 8
   %sext = shl i32 %7, 24
   %conv108 = ashr exact i32 %sext, 24
-  %call109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.10, i32 noundef %conv108) #6
+  %call109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.10, i32 noundef %conv108) #6
   br label %return
 
 if.end111:                                        ; preds = %if.else101
-  %inc112 = add nsw i64 %36, 1
+  %inc112 = add nsw i64 %37, 1
   store i64 %inc112, ptr @_PyOS_optind, align 8
-  %arrayidx113 = getelementptr ptr, ptr %argv, i64 %36
-  %39 = load ptr, ptr %arrayidx113, align 8
-  store ptr %39, ptr @_PyOS_optarg, align 8
+  %arrayidx113 = getelementptr ptr, ptr %argv, i64 %37
+  %40 = load ptr, ptr %arrayidx113, align 8
+  store ptr %40, ptr @_PyOS_optarg, align 8
   br label %return
 
 return:                                           ; preds = %if.else19, %if.end94, %if.end111, %if.then100, %if.then104, %if.then106, %if.then88, %if.then90, %if.then80, %if.then82, %if.end32, %if.then67, %if.then69, %if.then56, %if.then58, %if.then39, %if.then40, %if.else, %lor.lhs.false, %if.then, %if.end74, %if.then64, %if.then17, %if.then12
-  %retval.0 = phi i32 [ -1, %if.then12 ], [ 104, %if.then17 ], [ %28, %if.end74 ], [ %21, %if.then64 ], [ -1, %if.then ], [ -1, %lor.lhs.false ], [ -1, %if.else ], [ -1, %if.end32 ], [ -1, %if.then40 ], [ -1, %if.then39 ], [ 95, %if.then58 ], [ 95, %if.then56 ], [ 95, %if.then69 ], [ 95, %if.then67 ], [ 95, %if.then82 ], [ 95, %if.then80 ], [ 95, %if.then90 ], [ 95, %if.then88 ], [ 95, %if.then106 ], [ 95, %if.then104 ], [ %7, %if.then100 ], [ %7, %if.end111 ], [ %7, %if.end94 ], [ 86, %if.else19 ]
+  %retval.0 = phi i32 [ -1, %if.then12 ], [ 104, %if.then17 ], [ %29, %if.end74 ], [ %22, %if.then64 ], [ -1, %if.then ], [ -1, %lor.lhs.false ], [ -1, %if.else ], [ -1, %if.end32 ], [ -1, %if.then40 ], [ -1, %if.then39 ], [ 95, %if.then58 ], [ 95, %if.then56 ], [ 95, %if.then69 ], [ 95, %if.then67 ], [ 95, %if.then82 ], [ 95, %if.then80 ], [ 95, %if.then90 ], [ 95, %if.then88 ], [ 95, %if.then106 ], [ 95, %if.then104 ], [ %7, %if.then100 ], [ %7, %if.end111 ], [ %7, %if.end94 ], [ 86, %if.else19 ]
   ret i32 %retval.0
 }
 

@@ -9405,8 +9405,8 @@ getKeysPrepareResult.exit:                        ; preds = %if.end.i, %if.end32
   store i32 1, ptr %6, align 4
   %flags = getelementptr inbounds %struct.keyReference, ptr %6, i64 0, i32 1
   store i32 17, ptr %flags, align 4
-  %cmp46 = icmp sgt i32 %argc, 2
-  br i1 %cmp46, label %for.cond3.preheader.lr.ph, label %for.end35
+  %cmp26 = icmp sgt i32 %argc, 2
+  br i1 %cmp26, label %for.cond3.preheader.lr.ph, label %for.end35
 
 for.cond3.preheader.lr.ph:                        ; preds = %getKeysPrepareResult.exit
   %arrayidx26 = getelementptr inbounds %struct.keyReference, ptr %6, i64 1
@@ -9414,100 +9414,74 @@ for.cond3.preheader.lr.ph:                        ; preds = %getKeysPrepareResul
   br label %for.cond3.preheader
 
 for.cond3.preheader:                              ; preds = %for.cond3.preheader.lr.ph, %for.inc33
-  %i.050 = phi i32 [ 2, %for.cond3.preheader.lr.ph ], [ %inc34.pre-phi, %for.inc33 ]
-  %found_store.047 = phi i32 [ 0, %for.cond3.preheader.lr.ph ], [ %found_store.1, %for.inc33 ]
-  %i.050.fr = freeze i32 %i.050
-  %idxprom8 = sext i32 %i.050.fr to i64
+  %i.028 = phi i32 [ 2, %for.cond3.preheader.lr.ph ], [ %inc34.pre-phi, %for.inc33 ]
+  %found_store.027 = phi i32 [ 0, %for.cond3.preheader.lr.ph ], [ %found_store.1, %for.inc33 ]
+  %i.028.fr = freeze i32 %i.028
+  %idxprom8 = sext i32 %i.028.fr to i64
   %arrayidx9 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom8
   %7 = load ptr, ptr %arrayidx9, align 8
   %ptr = getelementptr inbounds %struct.redisObject, ptr %7, i64 0, i32 2
   %8 = load ptr, ptr %ptr, align 8
-  %add21 = add i32 %i.050.fr, 1
+  %add21 = add i32 %i.028.fr, 1
   %cmp22 = icmp slt i32 %add21, %argc
-  %call13.us42 = tail call i32 @strcasecmp(ptr noundef %8, ptr noundef nonnull @.str.67) #20
-  %tobool.not.us43 = icmp eq i32 %call13.us42, 0
-  br i1 %cmp22, label %for.cond3.preheader.split.us, label %for.cond3.preheader.split
+  br i1 %cmp22, label %for.body7.us, label %for.body7
 
-for.cond3.preheader.split.us:                     ; preds = %for.cond3.preheader
-  br i1 %tobool.not.us43, label %if.then, label %if.else.us.lr.ph
+for.body7.us:                                     ; preds = %for.cond3.preheader, %for.inc.us
+  %indvars.iv35 = phi i64 [ %indvars.iv.next36, %for.inc.us ], [ 0, %for.cond3.preheader ]
+  %arrayidx5.us = getelementptr inbounds [4 x %struct.anon.5], ptr @__const.sortGetKeys.skiplist, i64 0, i64 %indvars.iv35
+  %9 = load ptr, ptr %arrayidx5.us, align 16
+  %call13.us = tail call i32 @strcasecmp(ptr noundef %8, ptr noundef %9) #20
+  %tobool.not.us = icmp eq i32 %call13.us, 0
+  br i1 %tobool.not.us, label %if.then, label %if.else.us
 
-if.else.us.lr.ph:                                 ; preds = %for.cond3.preheader.split.us
+if.else.us:                                       ; preds = %for.body7.us
   %call19.us = tail call i32 @strcasecmp(ptr noundef %8, ptr noundef nonnull @.str.70) #20
   %tobool20.not.us = icmp eq i32 %call19.us, 0
-  br i1 %tobool20.not.us, label %land.lhs.true.us, label %if.else.us
+  br i1 %tobool20.not.us, label %land.lhs.true.us, label %for.inc.us
 
-for.body7.us:                                     ; preds = %if.else.us
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %arrayidx5.us = getelementptr inbounds [4 x %struct.anon.5], ptr @__const.sortGetKeys.skiplist, i64 0, i64 %indvars.iv.next67
-  %9 = load ptr, ptr %arrayidx5.us, align 16
-  %call13.us = tail call i32 @strcasecmp(ptr noundef %8, ptr noundef nonnull %9) #20
-  %tobool.not.us = icmp eq i32 %call13.us, 0
-  br i1 %tobool.not.us, label %if.then, label %if.else.us, !llvm.loop !51
-
-if.else.us:                                       ; preds = %if.else.us.lr.ph, %for.body7.us
-  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %for.body7.us ], [ 0, %if.else.us.lr.ph ]
-  %exitcond69 = icmp eq i64 %indvars.iv66, 2
-  br i1 %exitcond69, label %for.inc33, label %for.body7.us, !llvm.loop !51
-
-land.lhs.true.us:                                 ; preds = %if.else.us.lr.ph
+land.lhs.true.us:                                 ; preds = %if.else.us
   store i32 %add21, ptr %arrayidx26, align 4
   store i32 36, ptr %flags30, align 4
   br label %for.inc33
 
-for.cond3.preheader.split:                        ; preds = %for.cond3.preheader
-  br i1 %tobool.not.us43, label %if.then, label %if.else.lr.ph
+for.inc.us:                                       ; preds = %if.else.us
+  %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
+  %cmp6.not.us = icmp eq i64 %indvars.iv.next36, 3
+  br i1 %cmp6.not.us, label %for.inc33, label %for.body7.us, !llvm.loop !51
 
-if.else.lr.ph:                                    ; preds = %for.cond3.preheader.split
-  %call19 = tail call i32 @strcasecmp(ptr noundef %8, ptr noundef nonnull @.str.70) #20
-  %tobool20.not = icmp eq i32 %call19, 0
-  br i1 %tobool20.not, label %if.else.us29, label %if.else
-
-if.else.us29:                                     ; preds = %if.else.lr.ph, %for.body7.us30
-  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %for.body7.us30 ], [ 0, %if.else.lr.ph ]
-  %exitcond65 = icmp eq i64 %indvars.iv62, 2
-  br i1 %exitcond65, label %for.inc33, label %for.body7.us30, !llvm.loop !51
-
-for.body7.us30:                                   ; preds = %if.else.us29
-  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %arrayidx5.us39 = getelementptr inbounds [4 x %struct.anon.5], ptr @__const.sortGetKeys.skiplist, i64 0, i64 %indvars.iv.next63
-  %10 = load ptr, ptr %arrayidx5.us39, align 16
-  %call13.us33 = tail call i32 @strcasecmp(ptr noundef %8, ptr noundef nonnull %10) #20
-  %tobool.not.us34 = icmp eq i32 %call13.us33, 0
-  br i1 %tobool.not.us34, label %if.then, label %if.else.us29, !llvm.loop !51
-
-for.body7:                                        ; preds = %if.else
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx5 = getelementptr inbounds [4 x %struct.anon.5], ptr @__const.sortGetKeys.skiplist, i64 0, i64 %indvars.iv.next
-  %11 = load ptr, ptr %arrayidx5, align 16
-  %call13 = tail call i32 @strcasecmp(ptr noundef %8, ptr noundef nonnull %11) #20
+for.body7:                                        ; preds = %for.cond3.preheader, %if.else
+  %indvars.iv = phi i64 [ %indvars.iv.next, %if.else ], [ 0, %for.cond3.preheader ]
+  %arrayidx5 = getelementptr inbounds [4 x %struct.anon.5], ptr @__const.sortGetKeys.skiplist, i64 0, i64 %indvars.iv
+  %10 = load ptr, ptr %arrayidx5, align 16
+  %call13 = tail call i32 @strcasecmp(ptr noundef %8, ptr noundef %10) #20
   %tobool.not = icmp eq i32 %call13, 0
-  br i1 %tobool.not, label %if.then, label %if.else, !llvm.loop !51
+  br i1 %tobool.not, label %if.then, label %if.else
 
-if.then:                                          ; preds = %for.body7, %for.body7.us30, %for.body7.us, %for.cond3.preheader.split, %for.cond3.preheader.split.us
-  %.us-phi = phi i64 [ 0, %for.cond3.preheader.split.us ], [ 0, %for.cond3.preheader.split ], [ %indvars.iv.next67, %for.body7.us ], [ %indvars.iv.next63, %for.body7.us30 ], [ %indvars.iv.next, %for.body7 ]
+if.then:                                          ; preds = %for.body7, %for.body7.us
+  %.us-phi = phi i64 [ %indvars.iv35, %for.body7.us ], [ %indvars.iv, %for.body7 ]
   %skip = getelementptr inbounds [4 x %struct.anon.5], ptr @__const.sortGetKeys.skiplist, i64 0, i64 %.us-phi, i32 1
-  %12 = load i32, ptr %skip, align 8
-  %add = add nsw i32 %12, %i.050.fr
+  %11 = load i32, ptr %skip, align 8
+  %add = add nsw i32 %11, %i.028.fr
   %.pre = add nsw i32 %add, 1
   br label %for.inc33
 
-if.else:                                          ; preds = %if.else.lr.ph, %for.body7
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body7 ], [ 0, %if.else.lr.ph ]
-  %exitcond = icmp eq i64 %indvars.iv, 2
-  br i1 %exitcond, label %for.inc33, label %for.body7, !llvm.loop !51
+if.else:                                          ; preds = %for.body7
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %cmp6.not = icmp eq i64 %indvars.iv.next, 3
+  br i1 %cmp6.not, label %for.inc33, label %for.body7, !llvm.loop !51
 
-for.inc33:                                        ; preds = %if.else, %if.else.us29, %if.else.us, %if.then, %land.lhs.true.us
-  %inc34.pre-phi = phi i32 [ %.pre, %if.then ], [ %add21, %land.lhs.true.us ], [ %add21, %if.else.us ], [ %add21, %if.else.us29 ], [ %add21, %if.else ]
-  %found_store.1 = phi i32 [ %found_store.047, %if.then ], [ 1, %land.lhs.true.us ], [ %found_store.047, %if.else.us ], [ %found_store.047, %if.else.us29 ], [ %found_store.047, %if.else ]
+for.inc33:                                        ; preds = %if.else, %for.inc.us, %if.then, %land.lhs.true.us
+  %inc34.pre-phi = phi i32 [ %.pre, %if.then ], [ %add21, %land.lhs.true.us ], [ %add21, %for.inc.us ], [ %add21, %if.else ]
+  %found_store.1 = phi i32 [ %found_store.027, %if.then ], [ 1, %land.lhs.true.us ], [ %found_store.027, %for.inc.us ], [ %found_store.027, %if.else ]
   %cmp = icmp slt i32 %inc34.pre-phi, %argc
   br i1 %cmp, label %for.cond3.preheader, label %for.end35.loopexit, !llvm.loop !52
 
 for.end35.loopexit:                               ; preds = %for.inc33
-  %13 = add nuw nsw i32 %found_store.1, 1
+  %12 = add nuw nsw i32 %found_store.1, 1
   br label %for.end35
 
 for.end35:                                        ; preds = %for.end35.loopexit, %getKeysPrepareResult.exit
-  %found_store.0.lcssa = phi i32 [ 1, %getKeysPrepareResult.exit ], [ %13, %for.end35.loopexit ]
+  %found_store.0.lcssa = phi i32 [ 1, %getKeysPrepareResult.exit ], [ %12, %for.end35.loopexit ]
   %numkeys = getelementptr inbounds %struct.getKeysResult, ptr %result, i64 0, i32 2
   store i32 %found_store.0.lcssa, ptr %numkeys, align 8
   ret i32 %found_store.0.lcssa
@@ -9588,22 +9562,21 @@ if.else:                                          ; preds = %if.then2, %sdslen.e
 
 for.cond9:                                        ; preds = %for.body13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx11 = getelementptr inbounds [5 x %struct.anon.6], ptr @__const.migrateGetKeys.skip_keywords, i64 0, i64 %indvars.iv.next
-  %10 = load ptr, ptr %arrayidx11, align 16
-  %exitcond = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond, label %for.inc27, label %for.body13, !llvm.loop !53
+  %cmp12.not = icmp eq i64 %indvars.iv.next, 4
+  br i1 %cmp12.not, label %for.inc27, label %for.body13, !llvm.loop !53
 
 for.body13:                                       ; preds = %for.body, %for.cond9
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond9 ], [ 0, %for.body ]
-  %11 = phi ptr [ %10, %for.cond9 ], [ @.str.71, %for.body ]
-  %call20 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull %11) #20
+  %arrayidx11 = getelementptr inbounds [5 x %struct.anon.6], ptr @__const.migrateGetKeys.skip_keywords, i64 0, i64 %indvars.iv
+  %10 = load ptr, ptr %arrayidx11, align 16
+  %call20 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef %10) #20
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %if.then22, label %for.cond9
 
 if.then22:                                        ; preds = %for.body13
   %skip = getelementptr inbounds [5 x %struct.anon.6], ptr @__const.migrateGetKeys.skip_keywords, i64 0, i64 %indvars.iv, i32 1
-  %12 = load i32, ptr %skip, align 8
-  %add25 = add nsw i32 %12, %i.030
+  %11 = load i32, ptr %skip, align 8
+  %add25 = add nsw i32 %11, %i.030
   br label %for.inc27
 
 for.inc27:                                        ; preds = %for.cond9, %if.then22
@@ -9616,14 +9589,14 @@ if.end30:                                         ; preds = %for.inc27, %sdslen.
   %num.0 = phi i32 [ %sub, %if.else ], [ 1, %entry ], [ 0, %sdslen.exit ], [ 1, %for.inc27 ]
   %first.0 = phi i64 [ %9, %if.else ], [ 3, %entry ], [ 3, %sdslen.exit ], [ 3, %for.inc27 ]
   %keys.i = getelementptr inbounds %struct.getKeysResult, ptr %result, i64 0, i32 1
-  %13 = load ptr, ptr %keys.i, align 8
-  %tobool.not.i = icmp eq ptr %13, null
+  %12 = load ptr, ptr %keys.i, align 8
+  %tobool.not.i = icmp eq ptr %12, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end30
   %numkeys1.i = getelementptr inbounds %struct.getKeysResult, ptr %result, i64 0, i32 2
-  %14 = load i32, ptr %numkeys1.i, align 8
-  %tobool2.not.i = icmp eq i32 %14, 0
+  %13 = load i32, ptr %numkeys1.i, align 8
+  %tobool2.not.i = icmp eq i32 %13, 0
   br i1 %tobool2.not.i, label %cond.end.i, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
@@ -9636,20 +9609,20 @@ cond.end.i:                                       ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end.i, %if.end30
-  %15 = phi ptr [ %result, %cond.end.i ], [ %13, %if.end30 ]
+  %14 = phi ptr [ %result, %cond.end.i ], [ %12, %if.end30 ]
   %size.i = getelementptr inbounds %struct.getKeysResult, ptr %result, i64 0, i32 3
-  %16 = load i32, ptr %size.i, align 4
-  %cmp.i = icmp slt i32 %16, %num.0
+  %15 = load i32, ptr %size.i, align 4
+  %cmp.i = icmp slt i32 %15, %num.0
   br i1 %cmp.i, label %if.then8.i, label %getKeysPrepareResult.exit
 
 if.then8.i:                                       ; preds = %if.end.i
-  %cmp12.not.i = icmp eq ptr %15, %result
+  %cmp12.not.i = icmp eq ptr %14, %result
   %conv18.i = sext i32 %num.0 to i64
   %mul19.i = shl nsw i64 %conv18.i, 3
   br i1 %cmp12.not.i, label %if.else.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.then8.i
-  %call.i = tail call ptr @zrealloc(ptr noundef nonnull %15, i64 noundef %mul19.i) #21
+  %call.i = tail call ptr @zrealloc(ptr noundef nonnull %14, i64 noundef %mul19.i) #21
   store ptr %call.i, ptr %keys.i, align 8
   br label %if.end32.i
 
@@ -9657,23 +9630,23 @@ if.else.i:                                        ; preds = %if.then8.i
   %call20.i = tail call noalias ptr @zmalloc(i64 noundef %mul19.i) #18
   store ptr %call20.i, ptr %keys.i, align 8
   %numkeys22.i = getelementptr inbounds %struct.getKeysResult, ptr %result, i64 0, i32 2
-  %17 = load i32, ptr %numkeys22.i, align 8
-  %tobool23.not.i = icmp eq i32 %17, 0
+  %16 = load i32, ptr %numkeys22.i, align 8
+  %tobool23.not.i = icmp eq i32 %16, 0
   br i1 %tobool23.not.i, label %if.end32.i, label %if.then24.i
 
 if.then24.i:                                      ; preds = %if.else.i
-  %conv29.i = sext i32 %17 to i64
+  %conv29.i = sext i32 %16 to i64
   %mul30.i = shl nsw i64 %conv29.i, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call20.i, ptr nonnull align 8 %result, i64 %mul30.i, i1 false)
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.then24.i, %if.else.i, %if.then14.i
-  %18 = phi ptr [ %call20.i, %if.else.i ], [ %call20.i, %if.then24.i ], [ %call.i, %if.then14.i ]
+  %17 = phi ptr [ %call20.i, %if.else.i ], [ %call20.i, %if.then24.i ], [ %call.i, %if.then14.i ]
   store i32 %num.0, ptr %size.i, align 4
   br label %getKeysPrepareResult.exit
 
 getKeysPrepareResult.exit:                        ; preds = %if.end.i, %if.end32.i
-  %19 = phi ptr [ %18, %if.end32.i ], [ %15, %if.end.i ]
+  %18 = phi ptr [ %17, %if.end32.i ], [ %14, %if.end.i ]
   %cmp3331 = icmp sgt i32 %num.0, 0
   br i1 %cmp3331, label %for.body34.preheader, label %for.end42
 
@@ -9683,15 +9656,15 @@ for.body34.preheader:                             ; preds = %getKeysPrepareResul
 
 for.body34:                                       ; preds = %for.body34.preheader, %for.body34
   %indvars.iv36 = phi i64 [ 0, %for.body34.preheader ], [ %indvars.iv.next37, %for.body34 ]
-  %20 = add nuw i64 %indvars.iv36, %first.0
-  %arrayidx37 = getelementptr inbounds %struct.keyReference, ptr %19, i64 %indvars.iv36
-  %21 = trunc i64 %20 to i32
-  store i32 %21, ptr %arrayidx37, align 4
-  %flags = getelementptr inbounds %struct.keyReference, ptr %19, i64 %indvars.iv36, i32 1
+  %19 = add nuw i64 %indvars.iv36, %first.0
+  %arrayidx37 = getelementptr inbounds %struct.keyReference, ptr %18, i64 %indvars.iv36
+  %20 = trunc i64 %19 to i32
+  store i32 %20, ptr %arrayidx37, align 4
+  %flags = getelementptr inbounds %struct.keyReference, ptr %18, i64 %indvars.iv36, i32 1
   store i32 146, ptr %flags, align 4
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count
-  br i1 %exitcond40.not, label %for.end42, label %for.body34, !llvm.loop !55
+  %exitcond.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count
+  br i1 %exitcond.not, label %for.end42, label %for.body34, !llvm.loop !55
 
 for.end42:                                        ; preds = %for.body34, %getKeysPrepareResult.exit
   %numkeys = getelementptr inbounds %struct.getKeysResult, ptr %result, i64 0, i32 2

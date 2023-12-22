@@ -131,17 +131,16 @@ for.inc.i:                                        ; preds = %for.body.i
 ec_check_group_type_name2id.exit:                 ; preds = %for.body.i
   %arrayidx.i = getelementptr inbounds [3 x %struct.ossl_item_st], ptr @check_group_type_nameid_map, i64 0, i64 %i.06.i
   %1 = load i32, ptr %arrayidx.i, align 16
-  %cmp = icmp eq i32 %1, -1
-  br i1 %cmp, label %return, label %if.end
+  br label %if.end
 
-if.end:                                           ; preds = %entry, %ec_check_group_type_name2id.exit
+if.end:                                           ; preds = %ec_check_group_type_name2id.exit, %entry
   %retval.0.i8 = phi i32 [ %1, %ec_check_group_type_name2id.exit ], [ 0, %entry ]
   tail call void @EC_KEY_clear_flags(ptr noundef %ec, i32 noundef 24576) #4
   tail call void @EC_KEY_set_flags(ptr noundef %ec, i32 noundef %retval.0.i8) #4
   br label %return
 
-return:                                           ; preds = %for.inc.i, %ec_check_group_type_name2id.exit, %if.end
-  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %ec_check_group_type_name2id.exit ], [ 0, %for.inc.i ]
+return:                                           ; preds = %for.inc.i, %if.end
+  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %for.inc.i ]
   ret i32 %retval.0
 }
 
@@ -826,16 +825,15 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
 ossl_ec_pt_format_name2id.exit.i.i:               ; preds = %for.body.i.i.i
   %arrayidx.i.i.i = getelementptr inbounds [3 x %struct.ossl_item_st], ptr @format_nameid_map, i64 0, i64 %i.06.i.i.i
   %6 = load i32, ptr %arrayidx.i.i.i, align 16
-  %cmp3.i.i = icmp sgt i32 %6, -1
-  br i1 %cmp3.i.i, label %if.end.i15, label %ec_key_point_format_fromdata.exit
+  br label %if.end.i15
 
 if.end.i15:                                       ; preds = %ossl_ec_pt_format_name2id.exit.i.i, %if.then.i.i
-  %format.0.i = phi i32 [ 4, %if.then.i.i ], [ %6, %ossl_ec_pt_format_name2id.exit.i.i ]
+  %format.0.i = phi i32 [ %6, %ossl_ec_pt_format_name2id.exit.i.i ], [ 4, %if.then.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %name.i.i)
   call void @EC_KEY_set_conv_form(ptr noundef nonnull %ec, i32 noundef %format.0.i) #4
   br label %if.end23
 
-ec_key_point_format_fromdata.exit:                ; preds = %for.inc.i.i.i, %if.then.i, %sw.epilog.i.i, %ossl_ec_pt_format_name2id.exit.i.i
+ec_key_point_format_fromdata.exit:                ; preds = %for.inc.i.i.i, %if.then.i, %sw.epilog.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %name.i.i)
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 527, ptr noundef nonnull @__func__.ec_key_point_format_fromdata) #4
@@ -853,24 +851,24 @@ if.then.i19:                                      ; preds = %if.end23
   %data_type.i.i20 = getelementptr inbounds %struct.ossl_param_st, ptr %call.i17, i64 0, i32 1
   %7 = load i32, ptr %data_type.i.i20, align 8
   switch i32 %7, label %.loopexit [
-    i32 4, label %sw.bb.i.i29
+    i32 4, label %sw.bb.i.i28
     i32 6, label %sw.bb1.i.i21
   ]
 
-sw.bb.i.i29:                                      ; preds = %if.then.i19
-  %data.i.i30 = getelementptr inbounds %struct.ossl_param_st, ptr %call.i17, i64 0, i32 2
-  %8 = load ptr, ptr %data.i.i30, align 8
+sw.bb.i.i28:                                      ; preds = %if.then.i19
+  %data.i.i29 = getelementptr inbounds %struct.ossl_param_st, ptr %call.i17, i64 0, i32 2
+  %8 = load ptr, ptr %data.i.i29, align 8
   store ptr %8, ptr %name.i.i16, align 8
-  %cmp.i.i31 = icmp ne ptr %8, null
-  %conv.i.i32 = zext i1 %cmp.i.i31 to i32
+  %cmp.i.i30 = icmp ne ptr %8, null
+  %conv.i.i31 = zext i1 %cmp.i.i30 to i32
   br label %sw.epilog.i.i23
 
 sw.bb1.i.i21:                                     ; preds = %if.then.i19
   %call.i.i22 = call i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef nonnull %call.i17, ptr noundef nonnull %name.i.i16) #4
   br label %sw.epilog.i.i23
 
-sw.epilog.i.i23:                                  ; preds = %sw.bb1.i.i21, %sw.bb.i.i29
-  %status.0.i.i24 = phi i32 [ %call.i.i22, %sw.bb1.i.i21 ], [ %conv.i.i32, %sw.bb.i.i29 ]
+sw.epilog.i.i23:                                  ; preds = %sw.bb1.i.i21, %sw.bb.i.i28
+  %status.0.i.i24 = phi i32 [ %call.i.i22, %sw.bb1.i.i21 ], [ %conv.i.i31, %sw.bb.i.i28 ]
   %tobool.not.i.i25 = icmp eq i32 %status.0.i.i24, 0
   br i1 %tobool.not.i.i25, label %.loopexit, label %if.then.i.i26
 
@@ -895,8 +893,7 @@ for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
 ec_check_group_type_name2id.exit.i.i.i:           ; preds = %for.body.i.i.i.i
   %arrayidx.i.i.i.i = getelementptr inbounds [3 x %struct.ossl_item_st], ptr @check_group_type_nameid_map, i64 0, i64 %i.06.i.i.i.i
   %11 = load i32, ptr %arrayidx.i.i.i.i, align 16
-  %cmp.i.i.i28 = icmp eq i32 %11, -1
-  br i1 %cmp.i.i.i28, label %.loopexit, label %ec_key_group_check_fromdata.exit
+  br label %ec_key_group_check_fromdata.exit
 
 ec_key_group_check_fromdata.exit:                 ; preds = %if.then.i.i26, %ec_check_group_type_name2id.exit.i.i.i
   %retval.0.i8.i.i.i = phi i32 [ %11, %ec_check_group_type_name2id.exit.i.i.i ], [ 0, %if.then.i.i26 ]
@@ -905,7 +902,7 @@ ec_key_group_check_fromdata.exit:                 ; preds = %if.then.i.i26, %ec_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %name.i.i16)
   br label %return
 
-.loopexit:                                        ; preds = %for.inc.i.i.i.i, %sw.epilog.i.i23, %ec_check_group_type_name2id.exit.i.i.i, %if.then.i19
+.loopexit:                                        ; preds = %for.inc.i.i.i.i, %sw.epilog.i.i23, %if.then.i19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %name.i.i16)
   br label %return
 
@@ -1195,33 +1192,31 @@ sw.epilog:                                        ; preds = %sw.bb1, %sw.bb
 if.then:                                          ; preds = %sw.epilog
   %2 = load ptr, ptr %name, align 8
   %cmp.i = icmp eq ptr %2, null
-  br i1 %cmp.i, label %if.then5, label %for.body.i
+  br i1 %cmp.i, label %if.then5, label %for.body.i.preheader
 
-for.body.i:                                       ; preds = %if.then, %for.inc.i
-  %cmp1.i = phi i1 [ false, %for.inc.i ], [ true, %if.then ]
-  %i.06.i = phi i64 [ 1, %for.inc.i ], [ 0, %if.then ]
-  %ptr.i = getelementptr inbounds [2 x %struct.ossl_item_st], ptr @encoding_nameid_map, i64 0, i64 %i.06.i, i32 1
-  %3 = load ptr, ptr %ptr.i, align 8
-  %call.i = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %2, ptr noundef %3) #4
+for.body.i.preheader:                             ; preds = %if.then
+  %call.i15 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.9) #4
+  %cmp2.i16 = icmp eq i32 %call.i15, 0
+  br i1 %cmp2.i16, label %ossl_ec_encoding_name2id.exit, label %for.body.i.preheader20
+
+for.body.i.preheader20:                           ; preds = %for.body.i.preheader
+  %call.i = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.10) #4
   %cmp2.i = icmp eq i32 %call.i, 0
-  br i1 %cmp2.i, label %ossl_ec_encoding_name2id.exit, label %for.inc.i
+  br i1 %cmp2.i, label %ossl_ec_encoding_name2id.exit, label %return, !llvm.loop !4
 
-for.inc.i:                                        ; preds = %for.body.i
-  br i1 %cmp1.i, label %for.body.i, label %return, !llvm.loop !4
+ossl_ec_encoding_name2id.exit:                    ; preds = %for.body.i.preheader20, %for.body.i.preheader
+  %i.06.i.lcssa = phi i64 [ 0, %for.body.i.preheader ], [ 1, %for.body.i.preheader20 ]
+  %arrayidx.i = getelementptr inbounds [2 x %struct.ossl_item_st], ptr @encoding_nameid_map, i64 0, i64 %i.06.i.lcssa
+  %3 = load i32, ptr %arrayidx.i, align 16
+  br label %if.then5
 
-ossl_ec_encoding_name2id.exit:                    ; preds = %for.body.i
-  %arrayidx.i = getelementptr inbounds [2 x %struct.ossl_item_st], ptr @encoding_nameid_map, i64 0, i64 %i.06.i
-  %4 = load i32, ptr %arrayidx.i, align 16
-  %cmp3 = icmp sgt i32 %4, -1
-  br i1 %cmp3, label %if.then5, label %return
-
-if.then5:                                         ; preds = %if.then, %ossl_ec_encoding_name2id.exit
-  %retval.0.i8 = phi i32 [ %4, %ossl_ec_encoding_name2id.exit ], [ 1, %if.then ]
+if.then5:                                         ; preds = %ossl_ec_encoding_name2id.exit, %if.then
+  %retval.0.i8 = phi i32 [ %3, %ossl_ec_encoding_name2id.exit ], [ 1, %if.then ]
   store i32 %retval.0.i8, ptr %id, align 4
   br label %return
 
-return:                                           ; preds = %for.inc.i, %entry, %sw.epilog, %ossl_ec_encoding_name2id.exit, %if.then5
-  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %ossl_ec_encoding_name2id.exit ], [ 0, %sw.epilog ], [ 0, %entry ], [ 0, %for.inc.i ]
+return:                                           ; preds = %for.body.i.preheader20, %entry, %sw.epilog, %if.then5
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %sw.epilog ], [ 0, %entry ], [ 0, %for.body.i.preheader20 ]
   ret i32 %retval.0
 }
 
@@ -1277,16 +1272,15 @@ for.inc.i:                                        ; preds = %for.body.i
 ossl_ec_pt_format_name2id.exit:                   ; preds = %for.body.i
   %arrayidx.i = getelementptr inbounds [3 x %struct.ossl_item_st], ptr @format_nameid_map, i64 0, i64 %i.06.i
   %4 = load i32, ptr %arrayidx.i, align 16
-  %cmp3 = icmp sgt i32 %4, -1
-  br i1 %cmp3, label %if.then5, label %return
+  br label %if.then5
 
-if.then5:                                         ; preds = %if.then, %ossl_ec_pt_format_name2id.exit
+if.then5:                                         ; preds = %ossl_ec_pt_format_name2id.exit, %if.then
   %retval.0.i8 = phi i32 [ %4, %ossl_ec_pt_format_name2id.exit ], [ 4, %if.then ]
   store i32 %retval.0.i8, ptr %id, align 4
   br label %return
 
-return:                                           ; preds = %for.inc.i, %entry, %sw.epilog, %ossl_ec_pt_format_name2id.exit, %if.then5
-  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %ossl_ec_pt_format_name2id.exit ], [ 0, %sw.epilog ], [ 0, %entry ], [ 0, %for.inc.i ]
+return:                                           ; preds = %for.inc.i, %entry, %sw.epilog, %if.then5
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %sw.epilog ], [ 0, %entry ], [ 0, %for.inc.i ]
   ret i32 %retval.0
 }
 

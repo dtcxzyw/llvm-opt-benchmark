@@ -50,8 +50,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.38 = private unnamed_addr constant [94 x i8] c"EVP_PKEY_get_octet_string_param(pkey, OSSL_PKEY_PARAM_PRIV_KEY, buffer, sizeof(buffer), &len)\00", align 1
 @.str.39 = private unnamed_addr constant [5 x i8] c"priv\00", align 1
 @.str.40 = private unnamed_addr constant [64 x i8] c"EVP_PKEY_get_bn_param(pkey, OSSL_PKEY_PARAM_PRIV_KEY, &priv_bn)\00", align 1
-@.str.41 = private unnamed_addr constant [58 x i8] c"EVP_PKEY_get_bn_param(pkey, OSSL_PKEY_PARAM_FFC_P, &p_bn)\00", align 1
-@.str.42 = private unnamed_addr constant [58 x i8] c"EVP_PKEY_get_bn_param(pkey, OSSL_PKEY_PARAM_FFC_G, &g_bn)\00", align 1
 @.str.43 = private unnamed_addr constant [2 x i8] c"g\00", align 1
 @kExampleRSAKeyDER = internal constant [608 x i8] c"0\82\02\\\02\01\00\02\81\81\00\F8\B8l\83\B4\BC\D9\A8W\C0\A5\B4Yv\8CT\1Dy\EB\22R\04~\D37\EBA\FD\83\F9\F0\A6\85\154uqZ\84\A8<\D2\EFZN\D3\DE\97\8A\DD\FF\BB\CF\0A\AA\86\92\BE\B8P\E4\CDo\8030v\13\8F\CA{\DC\ECZ\CAc\C7\03%\EF\A8\8A\83Xv \FA\16w\D7y\92c\01H\1A\D8{g\F1RUIN\D6nJ\\\D7z76\0C\DE\DD\8FD\E8\C2\A7,+\B5\AFdKa\07\02\03\01\00\01\02\81\80t\88d?iE:m\C7\7F\B9\A3\C0n\EC\DC\D4Z\B52\85_\19\D4\F8\D4?<\FA\C2\F6_\EE\E6\BA\87t.\C7\0C\D4B\B8f\85\9C{$a\AA\16\11\F6\B5\B6\A4\0A\C9U.\81\A5Ga\CB%\8F\C2\15{\0E|6\9F:\DAX\86\1C[\83y\E6+\CC\E6\FA,a\F2x\80\1B\E2\F3\9D9+eW\91=q\99s\A5\C2y \8C\07O\E5\B4`\1F\99\A2\B1O\0C\EF\BCYS\00}\B1\02A\00\FC~#ep\F8\CE\D3@A\80j\1D\01\D6\01\FF\B6\1B==Y\093y\C0O\DE\96'K\18\C6\D9x\F1\F45F\E9|Bz]\9F\EFT\B8\F7\9F\C43l\F3\8C2F\87g0{\A7\AC\E3\02A\00\FC,\DF\0C\0D\88\F5\B1\92\A8\93GcU\F5\CAXC\BA\1C\E5\9E\B6\95\05\CD\B5\82\DF\EB\04S\9D\BD\C28\16\B3b\DD\A1F\DBm\97\93\9F\8A\C3\9Bd~B\E32W\19\1B\D5n\85\FA\B8\8D\02A\00\BC=\DEm\D6\97\E8\BA\9E\817\17\E5\A0d\C9\00\B7\E7\FE\F4)\D9.Ck\19 \BD\99u\E7v\F8\D3\AE\AF~\B8\EB\81\F4\9D\FE\07+\0Bc\0BZU\90q}\F1\DB\D9\B1AAh/N9\02@Z4f\D8\F5\E2\7F\18\B5\00n&\84'\14\93\FB\FC\C6\0F^'\E6\E1\E9\C0\8A\E44\DA\E9\A2Ks\BC\8C\B9\BA\13lz+Q\84\A3J\E00\10\06~\ED\17Z\14\00\C9\EF\85\EAR,\BCe\02@Q\E3\F2\83\19\9B\C4\1E/P=\DFZ\A2\18\CA_.I\AFo\CC\FAew\94\B5\A1\0A\A9\D1\8A97\F4\0B\A0\D7\82'^\AE\17\17\A1\1ET4\BFn\C4\8E\99]\08\F1-\86\9D\A5 \1B\E5\DF", align 16
 @kExampleRSAKeyPKCS8 = internal constant [634 x i8] c"0\82\02v\02\01\000\0D\06\09*\86H\86\F7\0D\01\01\01\05\00\04\82\02`0\82\02\\\02\01\00\02\81\81\00\F8\B8l\83\B4\BC\D9\A8W\C0\A5\B4Yv\8CT\1Dy\EB\22R\04~\D37\EBA\FD\83\F9\F0\A6\85\154uqZ\84\A8<\D2\EFZN\D3\DE\97\8A\DD\FF\BB\CF\0A\AA\86\92\BE\B8P\E4\CDo\8030v\13\8F\CA{\DC\ECZ\CAc\C7\03%\EF\A8\8A\83Xv \FA\16w\D7y\92c\01H\1A\D8{g\F1RUIN\D6nJ\\\D7z76\0C\DE\DD\8FD\E8\C2\A7,+\B5\AFdKa\07\02\03\01\00\01\02\81\80t\88d?iE:m\C7\7F\B9\A3\C0n\EC\DC\D4Z\B52\85_\19\D4\F8\D4?<\FA\C2\F6_\EE\E6\BA\87t.\C7\0C\D4B\B8f\85\9C{$a\AA\16\11\F6\B5\B6\A4\0A\C9U.\81\A5Ga\CB%\8F\C2\15{\0E|6\9F:\DAX\86\1C[\83y\E6+\CC\E6\FA,a\F2x\80\1B\E2\F3\9D9+eW\91=q\99s\A5\C2y \8C\07O\E5\B4`\1F\99\A2\B1O\0C\EF\BCYS\00}\B1\02A\00\FC~#ep\F8\CE\D3@A\80j\1D\01\D6\01\FF\B6\1B==Y\093y\C0O\DE\96'K\18\C6\D9x\F1\F45F\E9|Bz]\9F\EFT\B8\F7\9F\C43l\F3\8C2F\87g0{\A7\AC\E3\02A\00\FC,\DF\0C\0D\88\F5\B1\92\A8\93GcU\F5\CAXC\BA\1C\E5\9E\B6\95\05\CD\B5\82\DF\EB\04S\9D\BD\C28\16\B3b\DD\A1F\DBm\97\93\9F\8A\C3\9Bd~B\E32W\19\1B\D5n\85\FA\B8\8D\02A\00\BC=\DEm\D6\97\E8\BA\9E\817\17\E5\A0d\C9\00\B7\E7\FE\F4)\D9.Ck\19 \BD\99u\E7v\F8\D3\AE\AF~\B8\EB\81\F4\9D\FE\07+\0Bc\0BZU\90q}\F1\DB\D9\B1AAh/N9\02@Z4f\D8\F5\E2\7F\18\B5\00n&\84'\14\93\FB\FC\C6\0F^'\E6\E1\E9\C0\8A\E44\DA\E9\A2Ks\BC\8C\B9\BA\13lz+Q\84\A3J\E00\10\06~\ED\17Z\14\00\C9\EF\85\EAR,\BCe\02@Q\E3\F2\83\19\9B\C4\1E/P=\DFZ\A2\18\CA_.I\AFo\CC\FAew\94\B5\A1\0A\A9\D1\8A97\F4\0B\A0\D7\82'^\AE\17\17\A1\1ET4\BFn\C4\8E\99]\08\F1-\86\9D\A5 \1B\E5\DF", align 16
@@ -330,8 +328,6 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal i32 @test_d2i_AutoPrivateKey_ex(i32 noundef %i) #0 {
 entry:
   %p = alloca ptr, align 8
-  %p_bn = alloca ptr, align 8
-  %g_bn = alloca ptr, align 8
   %priv_bn = alloca ptr, align 8
   %buffer = alloca [32 x i8], align 16
   %len = alloca i64, align 8
@@ -342,8 +338,6 @@ entry:
   %1 = load i64, ptr %size, align 8
   %evptype = getelementptr inbounds [6 x %struct.APK_DATA_st], ptr @keydata, i64 0, i64 %idxprom, i32 2
   %2 = load i32, ptr %evptype, align 8
-  store ptr null, ptr %p_bn, align 8
-  store ptr null, ptr %g_bn, align 8
   store ptr null, ptr %priv_bn, align 8
   store ptr %0, ptr %p, align 8
   %3 = load ptr, ptr @mainctx, align 8
@@ -395,39 +389,17 @@ if.else27:                                        ; preds = %if.else
   %conv30 = zext i1 %cmp29 to i32
   %call31 = call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 571, ptr noundef nonnull @.str.40, i32 noundef %conv30) #7
   %tobool32.not = icmp eq i32 %call31, 0
-  br i1 %tobool32.not, label %done, label %if.end36
+  br i1 %tobool32.not, label %done, label %if.end54
 
-if.end36:                                         ; preds = %if.else27
-  %cmp38 = icmp eq i32 %i, 5
-  br i1 %cmp38, label %if.then40, label %if.end54
-
-if.then40:                                        ; preds = %if.end36
-  %call41 = call i32 @EVP_PKEY_get_bn_param(ptr noundef %call, ptr noundef nonnull @.str.32, ptr noundef nonnull %p_bn) #7
-  %cmp42 = icmp ne i32 %call41, 0
-  %conv43 = zext i1 %cmp42 to i32
-  %call44 = call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 576, ptr noundef nonnull @.str.41, i32 noundef %conv43) #7
-  %tobool45.not = icmp eq i32 %call44, 0
-  br i1 %tobool45.not, label %done, label %lor.lhs.false46
-
-lor.lhs.false46:                                  ; preds = %if.then40
-  %call47 = call i32 @EVP_PKEY_get_bn_param(ptr noundef %call, ptr noundef nonnull @.str.43, ptr noundef nonnull %g_bn) #7
-  %cmp48 = icmp ne i32 %call47, 0
-  %conv49 = zext i1 %cmp48 to i32
-  %call50 = call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 578, ptr noundef nonnull @.str.42, i32 noundef %conv49) #7
-  %tobool51.not = icmp eq i32 %call50, 0
-  br i1 %tobool51.not, label %done, label %if.end54
-
-if.end54:                                         ; preds = %if.then9, %if.then19, %lor.lhs.false46, %if.end36
+if.end54:                                         ; preds = %if.then9, %if.else27, %if.then19
   br label %done
 
-done:                                             ; preds = %if.then40, %lor.lhs.false46, %if.else27, %if.then19, %if.then9, %entry, %lor.lhs.false, %lor.lhs.false4, %if.end54
-  %ret.0 = phi i32 [ 1, %if.end54 ], [ 0, %lor.lhs.false46 ], [ 0, %if.then40 ], [ 0, %if.then9 ], [ 0, %if.then19 ], [ 0, %if.else27 ], [ 0, %lor.lhs.false4 ], [ 0, %lor.lhs.false ], [ 0, %entry ]
-  %5 = load ptr, ptr %p_bn, align 8
+done:                                             ; preds = %if.else27, %if.then19, %if.then9, %entry, %lor.lhs.false, %lor.lhs.false4, %if.end54
+  %ret.0 = phi i32 [ 1, %if.end54 ], [ 0, %if.then9 ], [ 0, %if.then19 ], [ 0, %if.else27 ], [ 0, %lor.lhs.false4 ], [ 0, %lor.lhs.false ], [ 0, %entry ]
+  call void @BN_free(ptr noundef null) #7
+  call void @BN_free(ptr noundef null) #7
+  %5 = load ptr, ptr %priv_bn, align 8
   call void @BN_free(ptr noundef %5) #7
-  %6 = load ptr, ptr %g_bn, align 8
-  call void @BN_free(ptr noundef %6) #7
-  %7 = load ptr, ptr %priv_bn, align 8
-  call void @BN_free(ptr noundef %7) #7
   call void @EVP_PKEY_free(ptr noundef %call) #7
   ret i32 %ret.0
 }

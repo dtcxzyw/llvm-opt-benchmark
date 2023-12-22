@@ -1351,32 +1351,26 @@ sw.bb:                                            ; preds = %if.then11
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %return, label %if.end34
 
-for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %19 = phi i32 [ 1, %for.cond.preheader ], [ %20, %for.inc ]
-  %cmp22 = icmp eq i32 %17, %19
-  br i1 %cmp22, label %for.end, label %for.inc
-
-for.inc:                                          ; preds = %for.body
+for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds [5 x %struct.ossl_item_st], ptr @padding_item, i64 0, i64 %indvars.iv.next
-  %20 = load i32, ptr %arrayidx, align 16
-  %exitcond = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond, label %if.else, label %for.body, !llvm.loop !5
+  %cmp17.not = icmp eq i64 %indvars.iv.next, 4
+  br i1 %cmp17.not, label %if.else, label %for.body, !llvm.loop !5
 
-for.end:                                          ; preds = %for.body
-  %21 = and i64 %indvars.iv, 4294967295
-  %cmp27.not = icmp eq i64 %21, 4
-  br i1 %cmp27.not, label %if.else, label %if.then28
+for.body:                                         ; preds = %for.cond.preheader, %for.cond
+  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.cond ]
+  %arrayidx = getelementptr inbounds [5 x %struct.ossl_item_st], ptr @padding_item, i64 0, i64 %indvars.iv
+  %19 = load i32, ptr %arrayidx, align 16
+  %cmp22 = icmp eq i32 %17, %19
+  br i1 %cmp22, label %if.then28, label %for.cond
 
-if.then28:                                        ; preds = %for.end
+if.then28:                                        ; preds = %for.body
   %ptr = getelementptr inbounds [5 x %struct.ossl_item_st], ptr @padding_item, i64 0, i64 %indvars.iv, i32 1
-  %22 = load ptr, ptr %ptr, align 8
-  %call29 = call i32 @OSSL_PARAM_set_utf8_string(ptr noundef nonnull %call9, ptr noundef nonnull %22) #10
+  %20 = load ptr, ptr %ptr, align 8
+  %call29 = call i32 @OSSL_PARAM_set_utf8_string(ptr noundef nonnull %call9, ptr noundef nonnull %20) #10
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %return, label %if.end34
 
-if.else:                                          ; preds = %for.inc, %for.end
+if.else:                                          ; preds = %for.cond
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1089, ptr noundef nonnull @__func__.rsa_get_ctx_params) #10
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 786691, ptr noundef null) #10
@@ -1411,31 +1405,31 @@ if.end49:                                         ; preds = %land.lhs.true44, %i
 
 if.then52:                                        ; preds = %if.end49
   %data_type53 = getelementptr inbounds %struct.ossl_param_st, ptr %call50, i64 0, i32 1
-  %23 = load i32, ptr %data_type53, align 8
-  switch i32 %23, label %if.end85 [
+  %21 = load i32, ptr %data_type53, align 8
+  switch i32 %21, label %if.end85 [
     i32 1, label %if.then55
     i32 4, label %if.then63
   ]
 
 if.then55:                                        ; preds = %if.then52
   %saltlen = getelementptr inbounds %struct.PROV_RSA_CTX, ptr %vprsactx, i64 0, i32 13
-  %24 = load i32, ptr %saltlen, align 8
-  %call56 = call i32 @OSSL_PARAM_set_int(ptr noundef nonnull %call50, i32 noundef %24) #10
+  %22 = load i32, ptr %saltlen, align 8
+  %call56 = call i32 @OSSL_PARAM_set_int(ptr noundef nonnull %call50, i32 noundef %22) #10
   %tobool57.not = icmp eq i32 %call56, 0
   br i1 %tobool57.not, label %return, label %if.end85
 
 if.then63:                                        ; preds = %if.then52
   %saltlen64 = getelementptr inbounds %struct.PROV_RSA_CTX, ptr %vprsactx, i64 0, i32 13
-  %25 = load i32, ptr %saltlen64, align 8
-  %26 = icmp ugt i32 %25, -5
-  br i1 %26, label %switch.lookup, label %sw.default69
+  %23 = load i32, ptr %saltlen64, align 8
+  %24 = icmp ugt i32 %23, -5
+  br i1 %24, label %switch.lookup, label %sw.default69
 
 sw.default69:                                     ; preds = %if.then63
   %data = getelementptr inbounds %struct.ossl_param_st, ptr %call50, i64 0, i32 2
-  %27 = load ptr, ptr %data, align 8
+  %25 = load ptr, ptr %data, align 8
   %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %call50, i64 0, i32 3
-  %28 = load i64, ptr %data_size, align 8
-  %call71 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %27, i64 noundef %28, ptr noundef nonnull @.str.27, i32 noundef %25) #10
+  %26 = load i64, ptr %data_size, align 8
+  %call71 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %25, i64 noundef %26, ptr noundef nonnull @.str.27, i32 noundef %23) #10
   %cmp72 = icmp slt i32 %call71, 1
   br i1 %cmp72, label %return, label %sw.epilog75
 
@@ -1446,9 +1440,9 @@ sw.epilog75:                                      ; preds = %sw.default69
   br label %if.end85
 
 switch.lookup:                                    ; preds = %if.then63
-  %switch.tableidx = add nsw i32 %25, 4
-  %29 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.rsa_get_ctx_params, i64 0, i64 %29
+  %switch.tableidx = add nsw i32 %23, 4
+  %27 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.rsa_get_ctx_params, i64 0, i64 %27
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call79 = call i32 @OSSL_PARAM_set_utf8_string(ptr noundef nonnull %call50, ptr noundef nonnull %switch.load) #10
   %tobool80.not = icmp eq i32 %call79, 0
@@ -1546,34 +1540,25 @@ sw.bb28:                                          ; preds = %if.then23
   %data = getelementptr inbounds %struct.ossl_param_st, ptr %call21, i64 0, i32 2
   %3 = load ptr, ptr %data, align 8
   %cmp29 = icmp eq ptr %3, null
-  br i1 %cmp29, label %return, label %for.body.preheader
+  br i1 %cmp29, label %return, label %for.body
 
-for.body.preheader:                               ; preds = %sw.bb28
-  %call3667 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(6) @.str.31) #11
-  %cmp3768 = icmp eq i32 %call3667, 0
-  br i1 %cmp3768, label %if.then38, label %for.cond
+for.cond:                                         ; preds = %for.body
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %cmp32.not = icmp eq i64 %indvars.iv.next, 4
+  br i1 %cmp32.not, label %sw.epilogthread-pre-split, label %for.body, !llvm.loop !7
 
-for.cond:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv69 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv69, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond, label %sw.epilogthread-pre-split, label %for.body, !llvm.loop !7
-
-for.body:                                         ; preds = %for.cond
-  %ptr = getelementptr inbounds [5 x %struct.ossl_item_st], ptr @padding_item, i64 0, i64 %indvars.iv.next, i32 1
+for.body:                                         ; preds = %sw.bb28, %for.cond
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %sw.bb28 ]
+  %ptr = getelementptr inbounds [5 x %struct.ossl_item_st], ptr @padding_item, i64 0, i64 %indvars.iv, i32 1
   %4 = load ptr, ptr %ptr, align 8
   %call36 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #11
   %cmp37 = icmp eq i32 %call36, 0
-  br i1 %cmp37, label %for.body.if.then38_crit_edge, label %for.cond, !llvm.loop !7
+  br i1 %cmp37, label %if.then38, label %for.cond
 
-for.body.if.then38_crit_edge:                     ; preds = %for.body
-  %arrayidx = getelementptr inbounds [5 x %struct.ossl_item_st], ptr @padding_item, i64 0, i64 %indvars.iv.next
-  %5 = load i32, ptr %arrayidx, align 16
-  br label %if.then38
-
-if.then38:                                        ; preds = %for.body.if.then38_crit_edge, %for.body.preheader
-  %.lcssa = phi i32 [ %5, %for.body.if.then38_crit_edge ], [ 1, %for.body.preheader ]
-  store i32 %.lcssa, ptr %pad_mode, align 4
+if.then38:                                        ; preds = %for.body
+  %arrayidx.le = getelementptr inbounds [5 x %struct.ossl_item_st], ptr @padding_item, i64 0, i64 %indvars.iv
+  %5 = load i32, ptr %arrayidx.le, align 16
+  store i32 %5, ptr %pad_mode, align 4
   br label %sw.epilog
 
 sw.epilogthread-pre-split:                        ; preds = %for.cond, %sw.bb
@@ -1581,7 +1566,7 @@ sw.epilogthread-pre-split:                        ; preds = %for.cond, %sw.bb
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilogthread-pre-split, %if.then38
-  %6 = phi i32 [ %.pr, %sw.epilogthread-pre-split ], [ %.lcssa, %if.then38 ]
+  %6 = phi i32 [ %.pr, %sw.epilogthread-pre-split ], [ %5, %if.then38 ]
   switch i32 %6, label %if.then57 [
     i32 4, label %if.else
     i32 6, label %sw.bb44

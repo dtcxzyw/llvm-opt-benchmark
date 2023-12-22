@@ -2213,18 +2213,17 @@ do.end42:                                         ; preds = %do.body37
 
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr [57 x %struct.langinfo_constant], ptr @langinfo_constants, i64 0, i64 %indvars.iv.next
-  %0 = load ptr, ptr %arrayidx, align 16
-  %exitcond = icmp eq i64 %indvars.iv.next, 56
-  br i1 %exitcond, label %for.end, label %for.body, !llvm.loop !8
+  %tobool.not = icmp eq i64 %indvars.iv.next, 56
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.body:                                         ; preds = %do.end42, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %do.end42 ]
-  %1 = phi ptr [ %0, %for.cond ], [ @.str.42, %do.end42 ]
+  %arrayidx = getelementptr [57 x %struct.langinfo_constant], ptr @langinfo_constants, i64 0, i64 %indvars.iv
+  %0 = load ptr, ptr %arrayidx, align 16
   %value = getelementptr [57 x %struct.langinfo_constant], ptr @langinfo_constants, i64 0, i64 %indvars.iv, i32 1
-  %2 = load i32, ptr %value, align 8
-  %conv = sext i32 %2 to i64
-  %call55 = tail call i32 @PyModule_AddIntConstant(ptr noundef %module, ptr noundef nonnull %1, i64 noundef %conv) #6
+  %1 = load i32, ptr %value, align 8
+  %conv = sext i32 %1 to i64
+  %call55 = tail call i32 @PyModule_AddIntConstant(ptr noundef %module, ptr noundef %0, i64 noundef %conv) #6
   %cmp56 = icmp slt i32 %call55, 0
   br i1 %cmp56, label %return, label %for.cond
 

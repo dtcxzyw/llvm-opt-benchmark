@@ -1375,99 +1375,93 @@ define internal fastcc void @of_dpa_flow_ig_tbl(ptr noundef %fc, i32 noundef %tb
 entry:
   %match = alloca %struct.of_dpa_flow_match, align 8
   %idxprom = zext i32 %tbl_id to i64
-  %arrayidx = getelementptr [61 x %struct.of_dpa_flow_tbl_ops], ptr @of_dpa_tbl_ops, i64 0, i64 %idxprom
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %match, i8 0, i64 120, i1 false)
-  %0 = load ptr, ptr %arrayidx, align 16
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.end30, label %if.then
+  %0 = lshr i64 1151794504113585150, %idxprom
+  %1 = and i64 %0, 1
+  %tobool.not.not = icmp eq i64 %1, 0
+  br i1 %tobool.not.not, label %if.then, label %if.end30
 
 if.then:                                          ; preds = %entry
-  call void %0(ptr noundef %fc, ptr noundef nonnull %match) #17
+  %arrayidx = getelementptr [61 x %struct.of_dpa_flow_tbl_ops], ptr @of_dpa_tbl_ops, i64 0, i64 %idxprom
+  %2 = load ptr, ptr %arrayidx, align 16
+  call void %2(ptr noundef %fc, ptr noundef nonnull %match) #17
   %of_dpa = getelementptr inbounds %struct.of_dpa_flow_context, ptr %fc, i64 0, i32 7
-  %1 = load ptr, ptr %of_dpa, align 8
-  %2 = getelementptr i8, ptr %1, i64 8
-  %.val = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %of_dpa, align 8
+  %4 = getelementptr i8, ptr %3, i64 8
+  %.val = load ptr, ptr %4, align 8
   call void @g_hash_table_foreach(ptr noundef %.val, ptr noundef nonnull @_of_dpa_flow_match, ptr noundef nonnull %match) #17
   %best.i = getelementptr inbounds %struct.of_dpa_flow_match, ptr %match, i64 0, i32 1
-  %3 = load ptr, ptr %best.i, align 8
-  %tobool2.not = icmp eq ptr %3, null
+  %5 = load ptr, ptr %best.i, align 8
+  %tobool2.not = icmp eq ptr %5, null
   br i1 %tobool2.not, label %if.then3, label %if.end8
 
 if.then3:                                         ; preds = %if.then
-  %4 = lshr i64 1151794504113586174, %idxprom
-  %5 = and i64 %4, 1
-  %tobool4.not.not = icmp eq i64 %5, 0
+  %6 = lshr i64 1151794504113586174, %idxprom
+  %7 = and i64 %6, 1
+  %tobool4.not.not = icmp eq i64 %7, 0
   br i1 %tobool4.not.not, label %if.then5, label %if.end30
 
 if.then5:                                         ; preds = %if.then3
   %miss = getelementptr [61 x %struct.of_dpa_flow_tbl_ops], ptr @of_dpa_tbl_ops, i64 0, i64 %idxprom, i32 2
-  %6 = load ptr, ptr %miss, align 16
-  call void %6(ptr noundef nonnull %fc) #17
+  %8 = load ptr, ptr %miss, align 16
+  call void %8(ptr noundef nonnull %fc) #17
   br label %if.end30
 
 if.end8:                                          ; preds = %if.then
-  %stats = getelementptr inbounds %struct.of_dpa_flow, ptr %3, i64 0, i32 8
-  %7 = load i64, ptr %stats, align 8
-  %inc = add i64 %7, 1
+  %stats = getelementptr inbounds %struct.of_dpa_flow, ptr %5, i64 0, i32 8
+  %9 = load i64, ptr %stats, align 8
+  %inc = add i64 %9, 1
   store i64 %inc, ptr %stats, align 8
-  %8 = lshr i64 1151795604698954751, %idxprom
-  %9 = and i64 %8, 1
-  %tobool9.not.not = icmp eq i64 %9, 0
+  %10 = lshr i64 1151795604698954751, %idxprom
+  %11 = and i64 %10, 1
+  %tobool9.not.not = icmp eq i64 %11, 0
   br i1 %tobool9.not.not, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %if.end8
   %action_apply = getelementptr [61 x %struct.of_dpa_flow_tbl_ops], ptr @of_dpa_tbl_ops, i64 0, i64 %idxprom, i32 4
-  %10 = load ptr, ptr %action_apply, align 16
-  call void %10(ptr noundef nonnull %fc, ptr noundef nonnull %3) #17
+  %12 = load ptr, ptr %action_apply, align 16
+  call void %12(ptr noundef nonnull %fc, ptr noundef nonnull %5) #17
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %if.end8
-  %11 = lshr i64 1151794504114634751, %idxprom
-  %12 = and i64 %11, 1
-  %tobool13.not.not = icmp eq i64 %12, 0
+  %13 = lshr i64 1151794504114634751, %idxprom
+  %14 = and i64 %13, 1
+  %tobool13.not.not = icmp eq i64 %14, 0
   br i1 %tobool13.not.not, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %if.end12
   %action_write = getelementptr [61 x %struct.of_dpa_flow_tbl_ops], ptr @of_dpa_tbl_ops, i64 0, i64 %idxprom, i32 5
-  %13 = load ptr, ptr %action_write, align 8
-  call void %13(ptr noundef nonnull %fc, ptr noundef nonnull %3) #17
+  %15 = load ptr, ptr %action_write, align 8
+  call void %15(ptr noundef nonnull %fc, ptr noundef nonnull %5) #17
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then14, %if.end12
-  switch i32 %tbl_id, label %if.end20 [
-    i32 60, label %if.then18
-    i32 50, label %if.then18
-  ]
+  %tobool17.not.not = icmp eq i32 %tbl_id, 50
+  br i1 %tobool17.not.not, label %if.then18, label %if.end20
 
-if.then18:                                        ; preds = %if.end16, %if.end16
+if.then18:                                        ; preds = %if.end16
   %hit = getelementptr [61 x %struct.of_dpa_flow_tbl_ops], ptr @of_dpa_tbl_ops, i64 0, i64 %idxprom, i32 1
-  %14 = load ptr, ptr %hit, align 8
-  call void %14(ptr noundef nonnull %fc, ptr noundef nonnull %3) #17
+  %16 = load ptr, ptr %hit, align 8
+  call void %16(ptr noundef nonnull %fc, ptr noundef nonnull %5) #17
   br label %if.end20
 
-if.end20:                                         ; preds = %if.end16, %if.then18
-  %action = getelementptr inbounds %struct.of_dpa_flow, ptr %3, i64 0, i32 7
-  %15 = load i32, ptr %action, align 8
-  %tobool21.not = icmp eq i32 %15, 0
-  br i1 %tobool21.not, label %if.else25, label %if.then22
+if.end20:                                         ; preds = %if.then18, %if.end16
+  %action = getelementptr inbounds %struct.of_dpa_flow, ptr %5, i64 0, i32 7
+  %17 = load i32, ptr %action, align 8
+  %tobool21.not = icmp eq i32 %17, 0
+  br i1 %tobool21.not, label %if.then27, label %if.then22
 
 if.then22:                                        ; preds = %if.end20
-  call fastcc void @of_dpa_flow_ig_tbl(ptr noundef nonnull %fc, i32 noundef %15)
+  call fastcc void @of_dpa_flow_ig_tbl(ptr noundef nonnull %fc, i32 noundef %17)
   br label %if.end30
 
-if.else25:                                        ; preds = %if.end20
-  %16 = lshr i64 2304716008720432126, %idxprom
-  %17 = and i64 %16, 1
-  %tobool26.not.not = icmp eq i64 %17, 0
-  br i1 %tobool26.not.not, label %if.then27, label %if.end30
-
-if.then27:                                        ; preds = %if.else25
+if.then27:                                        ; preds = %if.end20
   %hit_no_goto = getelementptr [61 x %struct.of_dpa_flow_tbl_ops], ptr @of_dpa_tbl_ops, i64 0, i64 %idxprom, i32 3
   %18 = load ptr, ptr %hit_no_goto, align 8
   call void %18(ptr noundef nonnull %fc) #17
   br label %if.end30
 
-if.end30:                                         ; preds = %if.else25, %if.then27, %if.then3, %if.then5, %entry, %if.then22
+if.end30:                                         ; preds = %if.then27, %if.then3, %if.then5, %entry, %if.then22
   ret void
 }
 

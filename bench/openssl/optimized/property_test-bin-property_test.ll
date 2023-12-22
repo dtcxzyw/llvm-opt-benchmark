@@ -655,12 +655,12 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds [17 x %struct.anon.0], ptr @parse_error_tests, i64 0, i64 %idxprom
   %ps4 = getelementptr inbounds [17 x %struct.anon.0], ptr @parse_error_tests, i64 0, i64 %idxprom, i32 1
   %0 = load ptr, ptr %ps4, align 8
-  %1 = load i32, ptr %arrayidx, align 16
-  %tobool7.not = icmp eq i32 %1, 0
-  br i1 %tobool7.not, label %if.else, label %if.then8
+  %1 = lshr i64 40811, %idxprom
+  %2 = and i64 %1, 1
+  %tobool7.not.not = icmp eq i64 %2, 0
+  br i1 %tobool7.not.not, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.end
   %call9 = tail call ptr @ossl_parse_query(ptr noundef null, ptr noundef %0, i32 noundef 1) #5
@@ -1102,34 +1102,34 @@ if.end32:                                         ; preds = %lor.lhs.false26
 for.body39:                                       ; preds = %if.end32, %if.end84
   %i.252 = phi i64 [ %inc86, %if.end84 ], [ 0, %if.end32 ]
   store ptr null, ptr %result, align 8
-  %arrayidx41 = getelementptr inbounds [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %i.252
-  %9 = load ptr, ptr %arrayidx41, align 16
-  %cmp43 = icmp eq ptr %9, @test_property.fake_prov1
-  %nid47 = getelementptr inbounds [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %i.252, i32 1
-  %10 = load i32, ptr %nid47, align 8
-  %prop49 = getelementptr inbounds [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %i.252, i32 2
-  %11 = load ptr, ptr %prop49, align 16
-  %call50 = call i32 @ossl_method_store_fetch(ptr noundef %call, i32 noundef %10, ptr noundef %11, ptr noundef nonnull @test_property.fake_prov1, ptr noundef nonnull %result) #5
-  %cmp51 = icmp ne i32 %call50, 0
-  %conv52 = zext i1 %cmp51 to i32
-  br i1 %cmp43, label %if.then45, label %if.else
+  %9 = lshr i64 543, %i.252
+  %10 = and i64 %9, 1
+  %cmp43.not = icmp eq i64 %10, 0
+  %nid67 = getelementptr inbounds [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %i.252, i32 1
+  %11 = load i32, ptr %nid67, align 8
+  %prop69 = getelementptr inbounds [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %i.252, i32 2
+  %12 = load ptr, ptr %prop69, align 16
+  %call70 = call i32 @ossl_method_store_fetch(ptr noundef %call, i32 noundef %11, ptr noundef %12, ptr noundef nonnull @test_property.fake_prov1, ptr noundef nonnull %result) #5
+  %cmp71 = icmp ne i32 %call70, 0
+  %conv72 = zext i1 %cmp71 to i32
+  br i1 %cmp43.not, label %if.else, label %if.then45
 
 if.then45:                                        ; preds = %for.body39
-  %call53 = call i32 @test_true(ptr noundef nonnull @.str.12, i32 noundef 503, ptr noundef nonnull @.str.230, i32 noundef %conv52) #5
+  %call53 = call i32 @test_true(ptr noundef nonnull @.str.12, i32 noundef 503, ptr noundef nonnull @.str.230, i32 noundef %conv72) #5
   %tobool54.not = icmp eq i32 %call53, 0
   br i1 %tobool54.not, label %if.then63, label %lor.lhs.false55
 
 lor.lhs.false55:                                  ; preds = %if.then45
-  %12 = load ptr, ptr @test_property.fake_prov1, align 8
-  %call56 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.12, i32 noundef 504, ptr noundef nonnull @.str.231, ptr noundef nonnull @.str.232, ptr noundef %12, ptr noundef nonnull @test_property.fake_provider1) #5
+  %13 = load ptr, ptr @test_property.fake_prov1, align 8
+  %call56 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.12, i32 noundef 504, ptr noundef nonnull @.str.231, ptr noundef nonnull @.str.232, ptr noundef %13, ptr noundef nonnull @test_property.fake_provider1) #5
   %tobool57.not = icmp eq i32 %call56, 0
   br i1 %tobool57.not, label %if.then63, label %lor.lhs.false58
 
 lor.lhs.false58:                                  ; preds = %lor.lhs.false55
-  %13 = load ptr, ptr %result, align 8
+  %14 = load ptr, ptr %result, align 8
   %expected60 = getelementptr inbounds [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %i.252, i32 3
-  %14 = load ptr, ptr %expected60, align 8
-  %call61 = call i32 @test_str_eq(ptr noundef nonnull @.str.12, i32 noundef 505, ptr noundef nonnull @.str.228, ptr noundef nonnull @.str.229, ptr noundef %13, ptr noundef %14) #5
+  %15 = load ptr, ptr %expected60, align 8
+  %call61 = call i32 @test_str_eq(ptr noundef nonnull @.str.12, i32 noundef 505, ptr noundef nonnull @.str.228, ptr noundef nonnull @.str.229, ptr noundef %14, ptr noundef %15) #5
   %tobool62.not = icmp eq i32 %call61, 0
   br i1 %tobool62.not, label %if.then63, label %if.end84
 
@@ -1140,19 +1140,19 @@ if.then63:                                        ; preds = %lor.lhs.false58, %l
   br label %err
 
 if.else:                                          ; preds = %for.body39
-  %call73 = call i32 @test_false(ptr noundef nonnull @.str.12, i32 noundef 514, ptr noundef nonnull @.str.230, i32 noundef %conv52) #5
+  %call73 = call i32 @test_false(ptr noundef nonnull @.str.12, i32 noundef 514, ptr noundef nonnull @.str.230, i32 noundef %conv72) #5
   %tobool74.not = icmp eq i32 %call73, 0
   br i1 %tobool74.not, label %if.then81, label %lor.lhs.false75
 
 lor.lhs.false75:                                  ; preds = %if.else
-  %15 = load ptr, ptr @test_property.fake_prov1, align 8
-  %call76 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.12, i32 noundef 515, ptr noundef nonnull @.str.231, ptr noundef nonnull @.str.232, ptr noundef %15, ptr noundef nonnull @test_property.fake_provider1) #5
+  %16 = load ptr, ptr @test_property.fake_prov1, align 8
+  %call76 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.12, i32 noundef 515, ptr noundef nonnull @.str.231, ptr noundef nonnull @.str.232, ptr noundef %16, ptr noundef nonnull @test_property.fake_provider1) #5
   %tobool77.not = icmp eq i32 %call76, 0
   br i1 %tobool77.not, label %if.then81, label %lor.lhs.false78
 
 lor.lhs.false78:                                  ; preds = %lor.lhs.false75
-  %16 = load ptr, ptr %result, align 8
-  %call79 = call i32 @test_ptr_null(ptr noundef nonnull @.str.12, i32 noundef 516, ptr noundef nonnull @.str.233, ptr noundef %16) #5
+  %17 = load ptr, ptr %result, align 8
+  %call79 = call i32 @test_ptr_null(ptr noundef nonnull @.str.12, i32 noundef 516, ptr noundef nonnull @.str.233, ptr noundef %17) #5
   %tobool80.not = icmp eq i32 %call79, 0
   br i1 %tobool80.not, label %if.then81, label %if.end84
 
@@ -1171,34 +1171,34 @@ if.end84:                                         ; preds = %lor.lhs.false78, %l
 for.body91:                                       ; preds = %if.end84, %if.end137
   %i.353 = phi i64 [ %inc139, %if.end137 ], [ 0, %if.end84 ]
   store ptr null, ptr %result, align 8
-  %arrayidx93 = getelementptr inbounds [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %i.353
-  %17 = load ptr, ptr %arrayidx93, align 16
-  %cmp95 = icmp eq ptr %17, @test_property.fake_prov2
-  %nid99 = getelementptr inbounds [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %i.353, i32 1
-  %18 = load i32, ptr %nid99, align 8
-  %prop101 = getelementptr inbounds [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %i.353, i32 2
-  %19 = load ptr, ptr %prop101, align 16
-  %call102 = call i32 @ossl_method_store_fetch(ptr noundef %call, i32 noundef %18, ptr noundef %19, ptr noundef nonnull @test_property.fake_prov2, ptr noundef nonnull %result) #5
-  %cmp103 = icmp ne i32 %call102, 0
-  %conv104 = zext i1 %cmp103 to i32
-  br i1 %cmp95, label %if.then97, label %if.else118
+  %18 = lshr i64 1504, %i.353
+  %19 = and i64 %18, 1
+  %cmp95.not = icmp eq i64 %19, 0
+  %nid120 = getelementptr inbounds [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %i.353, i32 1
+  %20 = load i32, ptr %nid120, align 8
+  %prop122 = getelementptr inbounds [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %i.353, i32 2
+  %21 = load ptr, ptr %prop122, align 16
+  %call123 = call i32 @ossl_method_store_fetch(ptr noundef %call, i32 noundef %20, ptr noundef %21, ptr noundef nonnull @test_property.fake_prov2, ptr noundef nonnull %result) #5
+  %cmp124 = icmp ne i32 %call123, 0
+  %conv125 = zext i1 %cmp124 to i32
+  br i1 %cmp95.not, label %if.else118, label %if.then97
 
 if.then97:                                        ; preds = %for.body91
-  %call105 = call i32 @test_true(ptr noundef nonnull @.str.12, i32 noundef 535, ptr noundef nonnull @.str.234, i32 noundef %conv104) #5
+  %call105 = call i32 @test_true(ptr noundef nonnull @.str.12, i32 noundef 535, ptr noundef nonnull @.str.234, i32 noundef %conv125) #5
   %tobool106.not = icmp eq i32 %call105, 0
   br i1 %tobool106.not, label %if.then115, label %lor.lhs.false107
 
 lor.lhs.false107:                                 ; preds = %if.then97
-  %20 = load ptr, ptr @test_property.fake_prov2, align 8
-  %call108 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.12, i32 noundef 536, ptr noundef nonnull @.str.235, ptr noundef nonnull @.str.236, ptr noundef %20, ptr noundef nonnull @test_property.fake_provider2) #5
+  %22 = load ptr, ptr @test_property.fake_prov2, align 8
+  %call108 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.12, i32 noundef 536, ptr noundef nonnull @.str.235, ptr noundef nonnull @.str.236, ptr noundef %22, ptr noundef nonnull @test_property.fake_provider2) #5
   %tobool109.not = icmp eq i32 %call108, 0
   br i1 %tobool109.not, label %if.then115, label %lor.lhs.false110
 
 lor.lhs.false110:                                 ; preds = %lor.lhs.false107
-  %21 = load ptr, ptr %result, align 8
+  %23 = load ptr, ptr %result, align 8
   %expected112 = getelementptr inbounds [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %i.353, i32 3
-  %22 = load ptr, ptr %expected112, align 8
-  %call113 = call i32 @test_str_eq(ptr noundef nonnull @.str.12, i32 noundef 537, ptr noundef nonnull @.str.228, ptr noundef nonnull @.str.229, ptr noundef %21, ptr noundef %22) #5
+  %24 = load ptr, ptr %expected112, align 8
+  %call113 = call i32 @test_str_eq(ptr noundef nonnull @.str.12, i32 noundef 537, ptr noundef nonnull @.str.228, ptr noundef nonnull @.str.229, ptr noundef %23, ptr noundef %24) #5
   %tobool114.not = icmp eq i32 %call113, 0
   br i1 %tobool114.not, label %if.then115, label %if.end137
 
@@ -1209,19 +1209,19 @@ if.then115:                                       ; preds = %lor.lhs.false110, %
   br label %err
 
 if.else118:                                       ; preds = %for.body91
-  %call126 = call i32 @test_false(ptr noundef nonnull @.str.12, i32 noundef 546, ptr noundef nonnull @.str.234, i32 noundef %conv104) #5
+  %call126 = call i32 @test_false(ptr noundef nonnull @.str.12, i32 noundef 546, ptr noundef nonnull @.str.234, i32 noundef %conv125) #5
   %tobool127.not = icmp eq i32 %call126, 0
   br i1 %tobool127.not, label %if.then134, label %lor.lhs.false128
 
 lor.lhs.false128:                                 ; preds = %if.else118
-  %23 = load ptr, ptr @test_property.fake_prov2, align 8
-  %call129 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.12, i32 noundef 547, ptr noundef nonnull @.str.235, ptr noundef nonnull @.str.236, ptr noundef %23, ptr noundef nonnull @test_property.fake_provider2) #5
+  %25 = load ptr, ptr @test_property.fake_prov2, align 8
+  %call129 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.12, i32 noundef 547, ptr noundef nonnull @.str.235, ptr noundef nonnull @.str.236, ptr noundef %25, ptr noundef nonnull @test_property.fake_provider2) #5
   %tobool130.not = icmp eq i32 %call129, 0
   br i1 %tobool130.not, label %if.then134, label %lor.lhs.false131
 
 lor.lhs.false131:                                 ; preds = %lor.lhs.false128
-  %24 = load ptr, ptr %result, align 8
-  %call132 = call i32 @test_ptr_null(ptr noundef nonnull @.str.12, i32 noundef 548, ptr noundef nonnull @.str.233, ptr noundef %24) #5
+  %26 = load ptr, ptr %result, align 8
+  %call132 = call i32 @test_ptr_null(ptr noundef nonnull @.str.12, i32 noundef 548, ptr noundef nonnull @.str.233, ptr noundef %26) #5
   %tobool133.not = icmp eq i32 %call132, 0
   br i1 %tobool133.not, label %if.then134, label %if.end137
 
@@ -1474,13 +1474,13 @@ err:                                              ; preds = %if.end, %land.lhs.t
 define internal i32 @test_property_list_to_string(i32 noundef %i) #0 {
 entry:
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds [20 x %struct.anon.6], ptr @to_string_tests, i64 0, i64 %idxprom
-  %0 = load ptr, ptr %arrayidx, align 16
-  %cmp.not = icmp eq ptr %0, null
+  %cmp.not = icmp eq i32 %i, 19
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call = tail call ptr @ossl_parse_query(ptr noundef null, ptr noundef nonnull %0, i32 noundef 1) #5
+  %arrayidx = getelementptr inbounds [20 x %struct.anon.6], ptr @to_string_tests, i64 0, i64 %idxprom
+  %0 = load ptr, ptr %arrayidx, align 16
+  %call = tail call ptr @ossl_parse_query(ptr noundef null, ptr noundef %0, i32 noundef 1) #5
   %call4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.12, i32 noundef 669, ptr noundef nonnull @.str.259, ptr noundef %call) #5
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %err, label %if.end

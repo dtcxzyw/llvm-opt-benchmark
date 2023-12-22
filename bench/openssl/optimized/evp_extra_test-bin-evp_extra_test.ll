@@ -3305,10 +3305,9 @@ entry:
   br i1 %tobool.not, label %done, label %if.end
 
 if.end:                                           ; preds = %entry
-  %8 = lshr i64 79, %idxprom
-  %9 = and i64 %8, 1
-  %cmp.not = icmp eq i64 %9, 0
-  br i1 %cmp.not, label %if.end7, label %land.lhs.true
+  %8 = add i32 %i, -6
+  %cmp = icmp ult i32 %8, -2
+  br i1 %cmp, label %land.lhs.true, label %if.end7
 
 land.lhs.true:                                    ; preds = %if.end
   %call3 = call i32 @EVP_PKEY_get_id(ptr noundef %7) #8
@@ -3317,8 +3316,8 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool5.not, label %done, label %if.end7
 
 if.end7:                                          ; preds = %land.lhs.true, %if.end
-  %10 = load ptr, ptr @testctx, align 8
-  %call8 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %10, ptr noundef %7, ptr noundef null) #8
+  %9 = load ptr, ptr @testctx, align 8
+  %call8 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %9, ptr noundef %7, ptr noundef null) #8
   %call9 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 2502, ptr noundef nonnull @.str.293, ptr noundef %call8) #8
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %done, label %if.end12
@@ -3775,8 +3774,7 @@ entry:
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data_len.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pkey.i)
-  %3 = add i32 %id, -1
-  %tobool.not = icmp ult i32 %3, 2
+  %tobool.not = icmp eq i32 %id, 1
   br i1 %tobool.not, label %lor.rhs, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
@@ -3787,11 +3785,11 @@ land.lhs.true:                                    ; preds = %entry
 lor.rhs:                                          ; preds = %land.lhs.true, %entry
   %call7 = call i32 @test_ptr_null(ptr noundef nonnull @.str.16, i32 noundef 1882, ptr noundef nonnull @.str.131, ptr noundef %2) #8
   %tobool8 = icmp ne i32 %call7, 0
-  %4 = zext i1 %tobool8 to i32
+  %3 = zext i1 %tobool8 to i32
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %land.lhs.true
-  %lor.ext = phi i32 [ 1, %land.lhs.true ], [ %4, %lor.rhs ]
+  %lor.ext = phi i32 [ 1, %land.lhs.true ], [ %3, %lor.rhs ]
   call void @EVP_PKEY_free(ptr noundef %2) #8
   ret i32 %lor.ext
 }
@@ -6180,7 +6178,7 @@ if.end10:                                         ; preds = %if.end4
   br i1 %tobool15.not, label %if.then113, label %if.end17
 
 if.end17:                                         ; preds = %if.end10
-  %3 = lshr i64 204, %idxprom
+  %3 = lshr i64 76, %idxprom
   %4 = and i64 %3, 1
   %tobool18.not.not = icmp eq i64 %4, 0
   br i1 %tobool18.not.not, label %land.lhs.true, label %if.end25
@@ -6254,8 +6252,8 @@ if.end48:                                         ; preds = %if.end41
   br i1 %tobool54.not, label %if.then113, label %if.end56
 
 if.end56:                                         ; preds = %if.end48
-  %13 = and i64 %idxprom, -4
-  %cmp58 = icmp ne i64 %13, 4
+  %13 = add nsw i64 %idxprom, -7
+  %cmp58 = icmp ult i64 %13, -3
   %brmerge = or i1 %cmp58, %cmp.not.i.not
   br i1 %brmerge, label %if.end73, label %if.then64
 
@@ -7871,8 +7869,8 @@ entry:
   %idxprom = sext i32 %tst to i64
   %arrayidx = getelementptr inbounds [8 x %struct.keys_st], ptr @keys, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 8
-  %1 = and i32 %0, -2
-  %switch = icmp eq i32 %1, 1034
+  %1 = and i32 %tst, -3
+  %switch = icmp eq i32 %1, 4
   br i1 %switch, label %sw.bb, label %sw.epilog
 
 sw.bb:                                            ; preds = %entry

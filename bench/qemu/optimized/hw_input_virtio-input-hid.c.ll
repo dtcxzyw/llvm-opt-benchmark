@@ -595,22 +595,23 @@ entry:
 for.body.i:                                       ; preds = %for.inc.i, %entry
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc.i ], [ 0, %entry ]
   %bmax.012.i = phi i32 [ %bmax.1.i, %for.inc.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr i16, ptr @keymap_button, i64 %indvars.iv
-  %2 = load i16, ptr %arrayidx.i, align 2
-  %tobool.not.i = icmp eq i16 %2, 0
+  %2 = add nsw i64 %indvars.iv, -7
+  %tobool.not.i = icmp ult i64 %2, 2
   br i1 %tobool.not.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %3 = lshr i16 %2, 3
-  %rem.i = and i16 %2, 7
+  %arrayidx.i = getelementptr i16, ptr @keymap_button, i64 %indvars.iv
+  %3 = load i16, ptr %arrayidx.i, align 2
+  %4 = lshr i16 %3, 3
+  %rem.i = and i16 %3, 7
   %shl.i = shl nuw nsw i16 1, %rem.i
-  %idxprom3.i = zext nneg i16 %3 to i64
+  %idxprom3.i = zext nneg i16 %4 to i64
   %arrayidx4.i = getelementptr [128 x i8], ptr %u.i, i64 0, i64 %idxprom3.i
-  %4 = load i8, ptr %arrayidx4.i, align 1
-  %5 = trunc i16 %shl.i to i8
-  %conv6.i = or i8 %4, %5
+  %5 = load i8, ptr %arrayidx4.i, align 1
+  %6 = trunc i16 %shl.i to i8
+  %conv6.i = or i8 %5, %6
   store i8 %conv6.i, ptr %arrayidx4.i, align 1
-  %narrow.i = add nuw nsw i16 %3, 1
+  %narrow.i = add nuw nsw i16 %4, 1
   %add.i = zext nneg i16 %narrow.i to i32
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %bmax.012.i, i32 %add.i)
   br label %for.inc.i
@@ -622,12 +623,12 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
   br i1 %exitcond.not, label %virtio_input_extend_config.exit, label %for.body.i, !llvm.loop !5
 
 virtio_input_extend_config.exit:                  ; preds = %for.inc.i
-  %6 = trunc i32 %bmax.1.i to i8
+  %7 = trunc i32 %bmax.1.i to i8
   store i8 17, ptr %ext.i, align 4
   %subsel13.i = getelementptr inbounds %struct.virtio_input_config, ptr %ext.i, i64 0, i32 1
   store i8 1, ptr %subsel13.i, align 1
   %size.i = getelementptr inbounds %struct.virtio_input_config, ptr %ext.i, i64 0, i32 2
-  store i8 %6, ptr %size.i, align 2
+  store i8 %7, ptr %size.i, align 2
   call void @virtio_input_add_config(ptr noundef %call.i4, ptr noundef nonnull %ext.i) #6
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %ext.i)
   ret void
@@ -663,22 +664,23 @@ entry:
 for.body.i:                                       ; preds = %for.inc.i, %entry
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc.i ], [ 0, %entry ]
   %bmax.012.i = phi i32 [ %bmax.1.i, %for.inc.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr i16, ptr @keymap_button, i64 %indvars.iv
-  %2 = load i16, ptr %arrayidx.i, align 2
-  %tobool.not.i = icmp eq i16 %2, 0
+  %2 = add nsw i64 %indvars.iv, -7
+  %tobool.not.i = icmp ult i64 %2, 2
   br i1 %tobool.not.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %3 = lshr i16 %2, 3
-  %rem.i = and i16 %2, 7
+  %arrayidx.i = getelementptr i16, ptr @keymap_button, i64 %indvars.iv
+  %3 = load i16, ptr %arrayidx.i, align 2
+  %4 = lshr i16 %3, 3
+  %rem.i = and i16 %3, 7
   %shl.i = shl nuw nsw i16 1, %rem.i
-  %idxprom3.i = zext nneg i16 %3 to i64
+  %idxprom3.i = zext nneg i16 %4 to i64
   %arrayidx4.i = getelementptr [128 x i8], ptr %u.i, i64 0, i64 %idxprom3.i
-  %4 = load i8, ptr %arrayidx4.i, align 1
-  %5 = trunc i16 %shl.i to i8
-  %conv6.i = or i8 %4, %5
+  %5 = load i8, ptr %arrayidx4.i, align 1
+  %6 = trunc i16 %shl.i to i8
+  %conv6.i = or i8 %5, %6
   store i8 %conv6.i, ptr %arrayidx4.i, align 1
-  %narrow.i = add nuw nsw i16 %3, 1
+  %narrow.i = add nuw nsw i16 %4, 1
   %add.i = zext nneg i16 %narrow.i to i32
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %bmax.012.i, i32 %add.i)
   br label %for.inc.i
@@ -690,12 +692,12 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
   br i1 %exitcond.not, label %virtio_input_extend_config.exit, label %for.body.i, !llvm.loop !5
 
 virtio_input_extend_config.exit:                  ; preds = %for.inc.i
-  %6 = trunc i32 %bmax.1.i to i8
+  %7 = trunc i32 %bmax.1.i to i8
   store i8 17, ptr %ext.i, align 4
   %subsel13.i = getelementptr inbounds %struct.virtio_input_config, ptr %ext.i, i64 0, i32 1
   store i8 1, ptr %subsel13.i, align 1
   %size.i = getelementptr inbounds %struct.virtio_input_config, ptr %ext.i, i64 0, i32 2
-  store i8 %6, ptr %size.i, align 2
+  store i8 %7, ptr %size.i, align 2
   call void @virtio_input_add_config(ptr noundef %call.i4, ptr noundef nonnull %ext.i) #6
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %ext.i)
   ret void
@@ -730,22 +732,23 @@ entry:
 for.body.i:                                       ; preds = %for.inc.i, %entry
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc.i ], [ 0, %entry ]
   %bmax.012.i = phi i32 [ %bmax.1.i, %for.inc.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr i16, ptr @keymap_button, i64 %indvars.iv
-  %0 = load i16, ptr %arrayidx.i, align 2
-  %tobool.not.i = icmp eq i16 %0, 0
+  %0 = add nsw i64 %indvars.iv, -7
+  %tobool.not.i = icmp ult i64 %0, 2
   br i1 %tobool.not.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %1 = lshr i16 %0, 3
-  %rem.i = and i16 %0, 7
+  %arrayidx.i = getelementptr i16, ptr @keymap_button, i64 %indvars.iv
+  %1 = load i16, ptr %arrayidx.i, align 2
+  %2 = lshr i16 %1, 3
+  %rem.i = and i16 %1, 7
   %shl.i = shl nuw nsw i16 1, %rem.i
-  %idxprom3.i = zext nneg i16 %1 to i64
+  %idxprom3.i = zext nneg i16 %2 to i64
   %arrayidx4.i = getelementptr [128 x i8], ptr %u.i, i64 0, i64 %idxprom3.i
-  %2 = load i8, ptr %arrayidx4.i, align 1
-  %3 = trunc i16 %shl.i to i8
-  %conv6.i = or i8 %2, %3
+  %3 = load i8, ptr %arrayidx4.i, align 1
+  %4 = trunc i16 %shl.i to i8
+  %conv6.i = or i8 %3, %4
   store i8 %conv6.i, ptr %arrayidx4.i, align 1
-  %narrow.i = add nuw nsw i16 %1, 1
+  %narrow.i = add nuw nsw i16 %2, 1
   %add.i = zext nneg i16 %narrow.i to i32
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %bmax.012.i, i32 %add.i)
   br label %for.inc.i
@@ -757,12 +760,12 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
   br i1 %exitcond.not, label %virtio_input_extend_config.exit30, label %for.body.i, !llvm.loop !5
 
 virtio_input_extend_config.exit30:                ; preds = %for.inc.i
-  %4 = trunc i32 %bmax.1.i to i8
+  %5 = trunc i32 %bmax.1.i to i8
   store i8 17, ptr %ext.i, align 4
   %subsel13.i = getelementptr inbounds %struct.virtio_input_config, ptr %ext.i, i64 0, i32 1
   store i8 1, ptr %subsel13.i, align 1
   %size.i = getelementptr inbounds %struct.virtio_input_config, ptr %ext.i, i64 0, i32 2
-  store i8 %4, ptr %size.i, align 2
+  store i8 %5, ptr %size.i, align 2
   call void @virtio_input_add_config(ptr noundef %call.i5, ptr noundef nonnull %ext.i) #6
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %ext.i)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %ext.i6)
@@ -783,21 +786,21 @@ for.body.i33:                                     ; preds = %for.inc.i48, %virti
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %for.inc.i48 ], [ 0, %virtio_input_extend_config.exit30 ]
   %bmax.012.i35 = phi i32 [ %bmax.1.i49, %for.inc.i48 ], [ 0, %virtio_input_extend_config.exit30 ]
   %arrayidx.i37 = getelementptr i16, ptr %abs_bits, i64 %indvars.iv58
-  %5 = load i16, ptr %arrayidx.i37, align 2
-  %tobool.not.i38 = icmp eq i16 %5, 0
+  %6 = load i16, ptr %arrayidx.i37, align 2
+  %tobool.not.i38 = icmp eq i16 %6, 0
   br i1 %tobool.not.i38, label %for.inc.i48, label %if.end.i39
 
 if.end.i39:                                       ; preds = %for.body.i33
-  %6 = lshr i16 %5, 3
-  %rem.i40 = and i16 %5, 7
+  %7 = lshr i16 %6, 3
+  %rem.i40 = and i16 %6, 7
   %shl.i41 = shl nuw nsw i16 1, %rem.i40
-  %idxprom3.i42 = zext nneg i16 %6 to i64
+  %idxprom3.i42 = zext nneg i16 %7 to i64
   %arrayidx4.i43 = getelementptr [128 x i8], ptr %u.i32, i64 0, i64 %idxprom3.i42
-  %7 = load i8, ptr %arrayidx4.i43, align 1
-  %8 = trunc i16 %shl.i41 to i8
-  %conv6.i44 = or i8 %7, %8
+  %8 = load i8, ptr %arrayidx4.i43, align 1
+  %9 = trunc i16 %shl.i41 to i8
+  %conv6.i44 = or i8 %8, %9
   store i8 %conv6.i44, ptr %arrayidx4.i43, align 1
-  %narrow.i45 = add nuw nsw i16 %6, 1
+  %narrow.i45 = add nuw nsw i16 %7, 1
   %add.i46 = zext nneg i16 %narrow.i45 to i32
   %spec.select.i47 = call i32 @llvm.smax.i32(i32 %bmax.012.i35, i32 %add.i46)
   br label %for.inc.i48
@@ -809,12 +812,12 @@ for.inc.i48:                                      ; preds = %if.end.i39, %for.bo
   br i1 %exitcond61.not, label %virtio_input_extend_config.exit55, label %for.body.i33, !llvm.loop !5
 
 virtio_input_extend_config.exit55:                ; preds = %for.inc.i48
-  %9 = trunc i32 %bmax.1.i49 to i8
+  %10 = trunc i32 %bmax.1.i49 to i8
   store i8 17, ptr %ext.i31, align 4
   %subsel13.i53 = getelementptr inbounds %struct.virtio_input_config, ptr %ext.i31, i64 0, i32 1
   store i8 3, ptr %subsel13.i53, align 1
   %size.i54 = getelementptr inbounds %struct.virtio_input_config, ptr %ext.i31, i64 0, i32 2
-  store i8 %9, ptr %size.i54, align 2
+  store i8 %10, ptr %size.i54, align 2
   call void @virtio_input_add_config(ptr noundef %call.i5, ptr noundef nonnull %ext.i31) #6
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %ext.i31)
   ret void

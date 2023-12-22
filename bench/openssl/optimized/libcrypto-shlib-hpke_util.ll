@@ -86,11 +86,8 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
   %groupname = getelementptr inbounds [5 x %struct.OSSL_HPKE_KEM_INFO], ptr @hpke_kem_tab, i64 0, i64 %indvars.iv, i32 2
-  %0 = trunc i64 %indvars.iv to i32
-  %1 = add i32 %0, -3
-  %cmp1 = icmp ult i32 %1, 2
-  %keytype = getelementptr inbounds [5 x %struct.OSSL_HPKE_KEM_INFO], ptr @hpke_kem_tab, i64 0, i64 %indvars.iv, i32 1
-  %spec.select = select i1 %cmp1, ptr %keytype, ptr %groupname
+  %cmp1 = icmp eq i64 %indvars.iv, 3
+  %spec.select = select i1 %cmp1, ptr getelementptr inbounds ([5 x %struct.OSSL_HPKE_KEM_INFO], ptr @hpke_kem_tab, i64 0, i64 3, i32 1), ptr %groupname
   %group.0 = load ptr, ptr %spec.select, align 8
   %call = tail call i32 @OPENSSL_strcasecmp(ptr noundef %curve, ptr noundef %group.0) #4
   %cmp4 = icmp eq i32 %call, 0
@@ -651,12 +648,12 @@ if.end27:                                         ; preds = %for.end
   br i1 %cmp29, label %fail, label %while.body
 
 while.body:                                       ; preds = %if.end27, %if.end68
-  %labels.0101 = phi i32 [ %inc74, %if.end68 ], [ 0, %if.end27 ]
-  %kem.0100 = phi i16 [ %kem.1, %if.end68 ], [ 0, %if.end27 ]
-  %st.199 = phi ptr [ %st.2, %if.end68 ], [ %call28, %if.end27 ]
-  %aead.098 = phi i16 [ %aead.1, %if.end68 ], [ 0, %if.end27 ]
-  %kdf.097 = phi i16 [ %kdf.1, %if.end68 ], [ 0, %if.end27 ]
-  %call37 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %st.199, i32 noundef 44) #5
+  %labels.095 = phi i32 [ %inc74, %if.end68 ], [ 0, %if.end27 ]
+  %kem.094 = phi i16 [ %kem.1, %if.end68 ], [ 0, %if.end27 ]
+  %st.193 = phi ptr [ %st.2, %if.end68 ], [ %call28, %if.end27 ]
+  %aead.092 = phi i16 [ %aead.1, %if.end68 ], [ 0, %if.end27 ]
+  %kdf.091 = phi i16 [ %kdf.1, %if.end68 ], [ 0, %if.end27 ]
+  %call37 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %st.193, i32 noundef 44) #5
   %cmp38.not = icmp ne ptr %call37, null
   br i1 %cmp38.not, label %if.then40, label %if.end41
 
@@ -665,7 +662,7 @@ if.then40:                                        ; preds = %while.body
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then40, %while.body
-  %cmp42 = icmp eq i32 %labels.0101, 0
+  %cmp42 = icmp eq i32 %labels.095, 0
   br i1 %cmp42, label %for.cond1.preheader.i, label %if.else
 
 for.cond1.preheader.i:                            ; preds = %if.end41, %for.inc7.i
@@ -681,7 +678,7 @@ for.body3.i:                                      ; preds = %for.cond1.i, %for.c
   %j.08.i = phi i64 [ 0, %for.cond1.preheader.i ], [ %inc.i, %for.cond1.i ]
   %arrayidx4.i = getelementptr inbounds %struct.synonymttab_t, ptr @kemstrtab, i64 %i.010.i, i32 1, i64 %j.08.i
   %4 = load ptr, ptr %arrayidx4.i, align 8
-  %call.i = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %st.199, ptr noundef %4) #4
+  %call.i = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %st.193, ptr noundef %4) #4
   %cmp5.i = icmp eq i32 %call.i, 0
   br i1 %cmp5.i, label %synonyms_name2id.exit, label %for.cond1.i
 
@@ -693,12 +690,11 @@ for.inc7.i:                                       ; preds = %for.cond1.i
 synonyms_name2id.exit:                            ; preds = %for.body3.i
   %arrayidx.i = getelementptr inbounds %struct.synonymttab_t, ptr @kemstrtab, i64 %i.010.i
   %5 = load i16, ptr %arrayidx.i, align 8
-  %cmp46 = icmp eq i16 %5, 0
-  br i1 %cmp46, label %fail, label %if.else
+  br label %if.else
 
 if.else:                                          ; preds = %synonyms_name2id.exit, %if.end41
-  %kem.1 = phi i16 [ %5, %synonyms_name2id.exit ], [ %kem.0100, %if.end41 ]
-  %cmp49 = icmp eq i32 %labels.0101, 1
+  %kem.1 = phi i16 [ %5, %synonyms_name2id.exit ], [ %kem.094, %if.end41 ]
+  %cmp49 = icmp eq i32 %labels.095, 1
   br i1 %cmp49, label %for.cond1.preheader.i31, label %if.else57
 
 for.cond1.preheader.i31:                          ; preds = %if.else, %for.inc7.i41
@@ -714,7 +710,7 @@ for.body3.i33:                                    ; preds = %for.cond1.i38, %for
   %j.08.i34 = phi i64 [ 0, %for.cond1.preheader.i31 ], [ %inc.i39, %for.cond1.i38 ]
   %arrayidx4.i35 = getelementptr inbounds %struct.synonymttab_t, ptr @kdfstrtab, i64 %i.010.i32, i32 1, i64 %j.08.i34
   %6 = load ptr, ptr %arrayidx4.i35, align 8
-  %call.i36 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %st.199, ptr noundef %6) #4
+  %call.i36 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %st.193, ptr noundef %6) #4
   %cmp5.i37 = icmp eq i32 %call.i36, 0
   br i1 %cmp5.i37, label %synonyms_name2id.exit47, label %for.cond1.i38
 
@@ -726,12 +722,11 @@ for.inc7.i41:                                     ; preds = %for.cond1.i38
 synonyms_name2id.exit47:                          ; preds = %for.body3.i33
   %arrayidx.i46 = getelementptr inbounds %struct.synonymttab_t, ptr @kdfstrtab, i64 %i.010.i32
   %7 = load i16, ptr %arrayidx.i46, align 8
-  %cmp54 = icmp eq i16 %7, 0
-  br i1 %cmp54, label %fail, label %if.else57
+  br label %if.else57
 
 if.else57:                                        ; preds = %synonyms_name2id.exit47, %if.else
-  %kdf.1 = phi i16 [ %7, %synonyms_name2id.exit47 ], [ %kdf.097, %if.else ]
-  %cmp58 = icmp eq i32 %labels.0101, 2
+  %kdf.1 = phi i16 [ %7, %synonyms_name2id.exit47 ], [ %kdf.091, %if.else ]
+  %cmp58 = icmp eq i32 %labels.095, 2
   br i1 %cmp58, label %for.cond1.preheader.i48, label %if.end68
 
 for.cond1.preheader.i48:                          ; preds = %if.else57, %for.inc7.i58
@@ -747,7 +742,7 @@ for.body3.i50:                                    ; preds = %for.cond1.i55, %for
   %j.08.i51 = phi i64 [ 0, %for.cond1.preheader.i48 ], [ %inc.i56, %for.cond1.i55 ]
   %arrayidx4.i52 = getelementptr inbounds %struct.synonymttab_t, ptr @aeadstrtab, i64 %i.010.i49, i32 1, i64 %j.08.i51
   %8 = load ptr, ptr %arrayidx4.i52, align 8
-  %call.i53 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %st.199, ptr noundef %8) #4
+  %call.i53 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %st.193, ptr noundef %8) #4
   %cmp5.i54 = icmp eq i32 %call.i53, 0
   br i1 %cmp5.i54, label %synonyms_name2id.exit64, label %for.cond1.i55
 
@@ -759,15 +754,14 @@ for.inc7.i58:                                     ; preds = %for.cond1.i55
 synonyms_name2id.exit64:                          ; preds = %for.body3.i50
   %arrayidx.i63 = getelementptr inbounds %struct.synonymttab_t, ptr @aeadstrtab, i64 %i.010.i49
   %9 = load i16, ptr %arrayidx.i63, align 8
-  %cmp63 = icmp eq i16 %9, 0
-  br i1 %cmp63, label %fail, label %if.end68
+  br label %if.end68
 
 if.end68:                                         ; preds = %synonyms_name2id.exit64, %if.else57
-  %aead.1 = phi i16 [ %9, %synonyms_name2id.exit64 ], [ %aead.098, %if.else57 ]
+  %aead.1 = phi i16 [ %9, %synonyms_name2id.exit64 ], [ %aead.092, %if.else57 ]
   %add.ptr = getelementptr inbounds i8, ptr %call37, i64 1
   %st.2 = select i1 %cmp38.not, ptr %add.ptr, ptr null
-  %inc74 = add nuw nsw i32 %labels.0101, 1
-  %cmp35 = icmp ult i32 %labels.0101, 2
+  %inc74 = add nuw nsw i32 %labels.095, 1
+  %cmp35 = icmp ult i32 %labels.095, 2
   %10 = select i1 %cmp38.not, i1 %cmp35, i1 false
   br i1 %10, label %while.body, label %while.end, !llvm.loop !13
 
@@ -784,8 +778,8 @@ if.end81:                                         ; preds = %while.end
   store i16 %aead.1, ptr %aead_id, align 2
   br label %fail
 
-fail:                                             ; preds = %synonyms_name2id.exit64, %synonyms_name2id.exit47, %synonyms_name2id.exit, %for.inc7.i, %for.inc7.i41, %for.inc7.i58, %while.end, %if.end27, %if.end81
-  %result.0 = phi i32 [ 0, %if.end27 ], [ 0, %while.end ], [ 1, %if.end81 ], [ 0, %for.inc7.i58 ], [ 0, %for.inc7.i41 ], [ 0, %for.inc7.i ], [ 0, %synonyms_name2id.exit ], [ 0, %synonyms_name2id.exit47 ], [ 0, %synonyms_name2id.exit64 ]
+fail:                                             ; preds = %for.inc7.i, %for.inc7.i41, %for.inc7.i58, %while.end, %if.end27, %if.end81
+  %result.0 = phi i32 [ 0, %if.end27 ], [ 0, %while.end ], [ 1, %if.end81 ], [ 0, %for.inc7.i58 ], [ 0, %for.inc7.i41 ], [ 0, %for.inc7.i ]
   tail call void @CRYPTO_free(ptr noundef %call28, ptr noundef nonnull @.str, i32 noundef 526) #4
   br label %return
 

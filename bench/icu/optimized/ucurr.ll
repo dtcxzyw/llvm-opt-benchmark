@@ -5895,37 +5895,23 @@ entry:
   %1 = load ptr, ptr %context, align 8
   %2 = load i32, ptr %1, align 4
   %cmp2 = icmp eq i32 %2, 2147483647
-  br i1 %cmp2, label %for.body.us, label %for.body
-
-for.body.us:                                      ; preds = %entry, %for.body.us
-  %indvars.iv11 = phi i64 [ %indvars.iv.next12, %for.body.us ], [ 0, %entry ]
-  %indvars.iv.next12 = add nuw nsw i64 %indvars.iv11, 1
-  %arrayidx.us = getelementptr inbounds [307 x %struct.CurrencyList], ptr @_ZL13gCurrencyList, i64 0, i64 %indvars.iv.next12
-  %3 = load ptr, ptr %arrayidx.us, align 16
-  %cmp.not.us = icmp eq ptr %3, null
-  br i1 %cmp.not.us, label %for.end.loopexit, label %for.body.us, !llvm.loop !42
+  br i1 %cmp2, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
   %count.06 = phi i32 [ %spec.select, %for.body ], [ 0, %entry ]
   %currType5 = getelementptr inbounds [307 x %struct.CurrencyList], ptr @_ZL13gCurrencyList, i64 0, i64 %indvars.iv, i32 1
-  %4 = load i32, ptr %currType5, align 8
-  %and = and i32 %4, %2
+  %3 = load i32, ptr %currType5, align 8
+  %and = and i32 %3, %2
   %cmp6 = icmp eq i32 %and, %2
   %inc = zext i1 %cmp6 to i32
   %spec.select = add nuw nsw i32 %count.06, %inc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds [307 x %struct.CurrencyList], ptr @_ZL13gCurrencyList, i64 0, i64 %indvars.iv.next
-  %5 = load ptr, ptr %arrayidx, align 16
-  %cmp.not = icmp eq ptr %5, null
+  %cmp.not = icmp eq i64 %indvars.iv.next, 306
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !42
 
-for.end.loopexit:                                 ; preds = %for.body.us
-  %indvars14 = trunc i64 %indvars.iv.next12 to i32
-  br label %for.end
-
-for.end:                                          ; preds = %for.body, %for.end.loopexit
-  %.us-phi = phi i32 [ %indvars14, %for.end.loopexit ], [ %spec.select, %for.body ]
+for.end:                                          ; preds = %for.body, %entry
+  %.us-phi = phi i32 [ 306, %entry ], [ %spec.select, %for.body ]
   ret i32 %.us-phi
 }
 

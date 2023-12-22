@@ -5938,15 +5938,14 @@ if.then20:                                        ; preds = %_ZNK6icu_7513Unicod
 
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds [4 x [4 x i16]], ptr @_ZN6icu_75L15ALT_GMT_STRINGSE, i64 0, i64 %indvars.iv.next
-  %exitcond = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond, label %for.end, label %for.body, !llvm.loop !21
+  %cmp27.not = icmp eq i64 %indvars.iv.next, 3
+  br i1 %cmp27.not, label %for.end, label %for.body, !llvm.loop !21
 
 for.body:                                         ; preds = %_ZNK6icu_7513UnicodeString11caseCompareEiiRKS0_j.exit, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %_ZNK6icu_7513UnicodeString11caseCompareEiiRKS0_j.exit ]
-  %arrayidx49 = phi ptr [ %arrayidx, %for.cond ], [ @_ZN6icu_75L15ALT_GMT_STRINGSE, %_ZNK6icu_7513UnicodeString11caseCompareEiiRKS0_j.exit ]
-  %call30 = tail call i32 @u_strlen_75(ptr noundef nonnull %arrayidx49)
-  %call.i = tail call noundef signext i8 @_ZNK6icu_7513UnicodeString13doCaseCompareEiiPKDsiij(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %0, i32 noundef %call30, ptr noundef nonnull %arrayidx49, i32 noundef 0, i32 noundef %call30, i32 noundef 0)
+  %arrayidx = getelementptr inbounds [4 x [4 x i16]], ptr @_ZN6icu_75L15ALT_GMT_STRINGSE, i64 0, i64 %indvars.iv
+  %call30 = tail call i32 @u_strlen_75(ptr noundef nonnull %arrayidx)
+  %call.i = tail call noundef signext i8 @_ZNK6icu_7513UnicodeString13doCaseCompareEiiPKDsiij(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %0, i32 noundef %call30, ptr noundef nonnull %arrayidx, i32 noundef 0, i32 noundef %call30, i32 noundef 0)
   %cmp33 = icmp eq i8 %call.i, 0
   br i1 %cmp33, label %if.then34, label %for.cond
 
@@ -7868,15 +7867,14 @@ entry:
 
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds [4 x [4 x i16]], ptr @_ZN6icu_75L15ALT_GMT_STRINGSE, i64 0, i64 %indvars.iv.next
-  %exitcond = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond, label %do.end, label %for.body, !llvm.loop !33
+  %cmp.not = icmp eq i64 %indvars.iv.next, 3
+  br i1 %cmp.not, label %do.end, label %for.body, !llvm.loop !33
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx38 = phi ptr [ @_ZN6icu_75L15ALT_GMT_STRINGSE, %entry ], [ %arrayidx, %for.cond ]
-  %call = tail call i32 @u_strlen_75(ptr noundef nonnull %arrayidx38)
-  %call.i = tail call noundef signext i8 @_ZNK6icu_7513UnicodeString13doCaseCompareEiiPKDsiij(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, i32 noundef %call, ptr noundef nonnull %arrayidx38, i32 noundef 0, i32 noundef %call, i32 noundef 0)
+  %arrayidx = getelementptr inbounds [4 x [4 x i16]], ptr @_ZN6icu_75L15ALT_GMT_STRINGSE, i64 0, i64 %indvars.iv
+  %call = tail call i32 @u_strlen_75(ptr noundef nonnull %arrayidx)
+  %call.i = tail call noundef signext i8 @_ZNK6icu_7513UnicodeString13doCaseCompareEiiPKDsiij(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, i32 noundef %call, ptr noundef nonnull %arrayidx, i32 noundef 0, i32 noundef %call, i32 noundef 0)
   %cmp7 = icmp eq i8 %call.i, 0
   br i1 %cmp7, label %for.end, label %for.cond
 

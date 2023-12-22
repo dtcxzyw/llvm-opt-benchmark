@@ -1842,11 +1842,8 @@ entry:
   %0 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %1 = load i64, ptr %arrayidx, align 16
   %sub.i.i = add i64 %1, -1
-  %cmp.i.i = icmp eq i64 %1, 0
-  %conv.neg.i.i = sext i1 %cmp.i.i to i64
-  %sub.i5.i.i = add i64 %0, %conv.neg.i.i
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %sub.i.i, 0
-  %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %sub.i5.i.i, 1
+  %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %0, 1
   ret { i64, i64 } %.fca.1.insert.i
 }
 
@@ -1878,19 +1875,10 @@ _ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i:    ; preds = %cond.true.i.i.i.i, 
   %result.sroa.0.0.i.i.i = phi i64 [ %add.i.i.i.i.i, %cond.true.i.i.i.i ], [ %1, %entry ]
   %result.sroa.0.0.copyload.i8.i.i = load i64, ptr %arrayidx, align 16
   %cmp.i.i.i11.i.i = icmp slt i64 %2, 0
-  br i1 %cmp.i.i.i11.i.i, label %cond.true.i.i16.i.i, label %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit22.i.i
-
-cond.true.i.i16.i.i:                              ; preds = %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i
-  %not3.i.i.i17.i.i = xor i64 %2, -1
-  %cmp.i2.i.i18.i.i = icmp eq i64 %result.sroa.0.0.copyload.i8.i.i, 0
-  %add.i.i.i.i19.i.i = sub i64 0, %2
   %add.i.i.i20.i.i = sub i64 0, %result.sroa.0.0.copyload.i8.i.i
-  %ref.tmp.sroa.3.0.i.i.i21.i.i = select i1 %cmp.i2.i.i18.i.i, i64 %add.i.i.i.i19.i.i, i64 %not3.i.i.i17.i.i
-  br label %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit22.i.i
-
-_ZN5arrow15BasicDecimal1283AbsERKS0_.exit22.i.i:  ; preds = %cond.true.i.i16.i.i, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i
-  %result.sroa.4.0.i12.i.i = phi i64 [ %ref.tmp.sroa.3.0.i.i.i21.i.i, %cond.true.i.i16.i.i ], [ %2, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i ]
-  %result.sroa.0.0.i13.i.i = phi i64 [ %add.i.i.i20.i.i, %cond.true.i.i16.i.i ], [ %result.sroa.0.0.copyload.i8.i.i, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i ]
+  %.lobit = ashr i64 %2, 63
+  %result.sroa.4.0.i12.i.i = xor i64 %2, %.lobit
+  %result.sroa.0.0.i13.i.i = select i1 %cmp.i.i.i11.i.i, i64 %add.i.i.i20.i.i, i64 %result.sroa.0.0.copyload.i8.i.i
   %conv.i.i.i = sext i64 %result.sroa.4.0.i.i.i to i128
   %shl.i.i.i = shl nsw i128 %conv.i.i.i, 64
   %conv3.i.i.i = zext i64 %result.sroa.0.0.i.i.i to i128
@@ -1905,7 +1893,7 @@ _ZN5arrow15BasicDecimal1283AbsERKS0_.exit22.i.i:  ; preds = %cond.true.i.i16.i.i
   %conv.i30.i.i = trunc i128 %mul.i.i.i to i64
   br i1 %isneg.i.i, label %_ZN5arrowmlERKNS_15BasicDecimal128ES2_.exit, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit22.i.i
+if.then.i.i:                                      ; preds = %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i
   %not3.i.i.i = xor i64 %conv.i29.i.i, -1
   %cmp.i.i.i = icmp eq i64 %conv.i30.i.i, 0
   %add.i.i.i.i = sub i64 0, %conv.i29.i.i
@@ -1913,9 +1901,9 @@ if.then.i.i:                                      ; preds = %_ZN5arrow15BasicDec
   %ref.tmp.sroa.3.0.i.i.i = select i1 %cmp.i.i.i, i64 %add.i.i.i.i, i64 %not3.i.i.i
   br label %_ZN5arrowmlERKNS_15BasicDecimal128ES2_.exit
 
-_ZN5arrowmlERKNS_15BasicDecimal128ES2_.exit:      ; preds = %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit22.i.i, %if.then.i.i
-  %retval.sroa.5.0.i = phi i64 [ %conv.i29.i.i, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit22.i.i ], [ %ref.tmp.sroa.3.0.i.i.i, %if.then.i.i ]
-  %retval.sroa.0.0.i = phi i64 [ %conv.i30.i.i, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit22.i.i ], [ %add.i.i.i, %if.then.i.i ]
+_ZN5arrowmlERKNS_15BasicDecimal128ES2_.exit:      ; preds = %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i, %if.then.i.i
+  %retval.sroa.5.0.i = phi i64 [ %conv.i29.i.i, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i ], [ %ref.tmp.sroa.3.0.i.i.i, %if.then.i.i ]
+  %retval.sroa.0.0.i = phi i64 [ %conv.i30.i.i, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i ], [ %add.i.i.i, %if.then.i.i ]
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0.i, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %retval.sroa.5.0.i, 1
   ret { i64, i64 } %.fca.1.insert.i

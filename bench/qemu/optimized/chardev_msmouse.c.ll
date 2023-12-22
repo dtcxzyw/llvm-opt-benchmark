@@ -189,15 +189,14 @@ for.cond16.preheader:                             ; preds = %for.body
 
 for.body:                                         ; preds = %if.then5, %for.body
   %indvars.iv = phi i64 [ 0, %if.then5 ], [ %indvars.iv.next, %for.body ]
-  %2 = phi i8 [ 81, %if.then5 ], [ %3, %for.body ]
+  %arrayidx = getelementptr i8, ptr @.str.4, i64 %indvars.iv
+  %2 = load i8, ptr %arrayidx, align 1
   %sub = add i8 %2, -32
   %arrayidx12 = getelementptr [32 x i8], ptr %bytes, i64 0, i64 %indvars.iv
   store i8 %sub, ptr %arrayidx12, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr i8, ptr @.str.4, i64 %indvars.iv.next
-  %3 = load i8, ptr %arrayidx, align 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 20
-  br i1 %exitcond, label %for.cond16.preheader, label %for.body, !llvm.loop !7
+  %tobool7.not = icmp eq i64 %indvars.iv.next, 20
+  br i1 %tobool7.not, label %for.cond16.preheader, label %for.body, !llvm.loop !7
 
 if.end43:                                         ; preds = %sw.bb
   %outbuf44 = getelementptr inbounds %struct.MouseChardev, ptr %call.i, i64 0, i32 6
@@ -208,8 +207,8 @@ if.end43:                                         ; preds = %sw.bb
 
 sw.bb48:                                          ; preds = %entry
   %tiocm49 = getelementptr inbounds %struct.MouseChardev, ptr %call.i, i64 0, i32 2
-  %4 = load i32, ptr %tiocm49, align 8
-  store i32 %4, ptr %arg, align 4
+  %3 = load i32, ptr %tiocm49, align 8
+  store i32 %3, ptr %arg, align 4
   br label %return
 
 return:                                           ; preds = %if.end43, %sw.bb48, %for.cond16.preheader, %if.then, %entry

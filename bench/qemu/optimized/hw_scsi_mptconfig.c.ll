@@ -52,7 +52,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [11 x i8] c"pci-device\00", align 1
 @.str.3 = private unnamed_addr constant [106 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/hw/pci/pci_device.h\00", align 1
 @__func__.PCI_DEVICE = private unnamed_addr constant [11 x i8] c"PCI_DEVICE\00", align 1
-@mptsas_config_pages = internal unnamed_addr constant [32 x %struct.MPTSASConfigPage] [%struct.MPTSASConfigPage { i8 0, i8 9, ptr @mptsas_config_manufacturing_0 }, %struct.MPTSASConfigPage { i8 1, i8 9, ptr @mptsas_config_manufacturing_1 }, %struct.MPTSASConfigPage { i8 2, i8 9, ptr @mptsas_config_manufacturing_2 }, %struct.MPTSASConfigPage { i8 3, i8 9, ptr @mptsas_config_manufacturing_3 }, %struct.MPTSASConfigPage { i8 4, i8 9, ptr @mptsas_config_manufacturing_4 }, %struct.MPTSASConfigPage { i8 5, i8 9, ptr @mptsas_config_manufacturing_5 }, %struct.MPTSASConfigPage { i8 6, i8 9, ptr @mptsas_config_manufacturing_6 }, %struct.MPTSASConfigPage { i8 7, i8 9, ptr @mptsas_config_manufacturing_7 }, %struct.MPTSASConfigPage { i8 8, i8 9, ptr @mptsas_config_manufacturing_8 }, %struct.MPTSASConfigPage { i8 9, i8 9, ptr @mptsas_config_manufacturing_9 }, %struct.MPTSASConfigPage { i8 10, i8 9, ptr @mptsas_config_manufacturing_10 }, %struct.MPTSASConfigPage { i8 0, i8 0, ptr @mptsas_config_io_unit_0 }, %struct.MPTSASConfigPage { i8 1, i8 0, ptr @mptsas_config_io_unit_1 }, %struct.MPTSASConfigPage { i8 2, i8 0, ptr @mptsas_config_io_unit_2 }, %struct.MPTSASConfigPage { i8 3, i8 0, ptr @mptsas_config_io_unit_3 }, %struct.MPTSASConfigPage { i8 4, i8 0, ptr @mptsas_config_io_unit_4 }, %struct.MPTSASConfigPage { i8 0, i8 1, ptr @mptsas_config_ioc_0 }, %struct.MPTSASConfigPage { i8 1, i8 1, ptr @mptsas_config_ioc_1 }, %struct.MPTSASConfigPage { i8 2, i8 1, ptr @mptsas_config_ioc_2 }, %struct.MPTSASConfigPage { i8 3, i8 1, ptr @mptsas_config_ioc_3 }, %struct.MPTSASConfigPage { i8 4, i8 1, ptr @mptsas_config_ioc_4 }, %struct.MPTSASConfigPage { i8 5, i8 1, ptr @mptsas_config_ioc_5 }, %struct.MPTSASConfigPage { i8 6, i8 1, ptr @mptsas_config_ioc_6 }, %struct.MPTSASConfigPage { i8 0, i8 16, ptr @mptsas_config_sas_io_unit_0 }, %struct.MPTSASConfigPage { i8 1, i8 16, ptr @mptsas_config_sas_io_unit_1 }, %struct.MPTSASConfigPage { i8 2, i8 16, ptr @mptsas_config_sas_io_unit_2 }, %struct.MPTSASConfigPage { i8 3, i8 16, ptr @mptsas_config_sas_io_unit_3 }, %struct.MPTSASConfigPage { i8 0, i8 19, ptr @mptsas_config_phy_0 }, %struct.MPTSASConfigPage { i8 1, i8 19, ptr @mptsas_config_phy_1 }, %struct.MPTSASConfigPage { i8 0, i8 18, ptr @mptsas_config_sas_device_0 }, %struct.MPTSASConfigPage { i8 1, i8 18, ptr @mptsas_config_sas_device_1 }, %struct.MPTSASConfigPage { i8 2, i8 18, ptr @mptsas_config_sas_device_2 }], align 16
+@mptsas_config_pages = internal constant [32 x %struct.MPTSASConfigPage] [%struct.MPTSASConfigPage { i8 0, i8 9, ptr @mptsas_config_manufacturing_0 }, %struct.MPTSASConfigPage { i8 1, i8 9, ptr @mptsas_config_manufacturing_1 }, %struct.MPTSASConfigPage { i8 2, i8 9, ptr @mptsas_config_manufacturing_2 }, %struct.MPTSASConfigPage { i8 3, i8 9, ptr @mptsas_config_manufacturing_3 }, %struct.MPTSASConfigPage { i8 4, i8 9, ptr @mptsas_config_manufacturing_4 }, %struct.MPTSASConfigPage { i8 5, i8 9, ptr @mptsas_config_manufacturing_5 }, %struct.MPTSASConfigPage { i8 6, i8 9, ptr @mptsas_config_manufacturing_6 }, %struct.MPTSASConfigPage { i8 7, i8 9, ptr @mptsas_config_manufacturing_7 }, %struct.MPTSASConfigPage { i8 8, i8 9, ptr @mptsas_config_manufacturing_8 }, %struct.MPTSASConfigPage { i8 9, i8 9, ptr @mptsas_config_manufacturing_9 }, %struct.MPTSASConfigPage { i8 10, i8 9, ptr @mptsas_config_manufacturing_10 }, %struct.MPTSASConfigPage { i8 0, i8 0, ptr @mptsas_config_io_unit_0 }, %struct.MPTSASConfigPage { i8 1, i8 0, ptr @mptsas_config_io_unit_1 }, %struct.MPTSASConfigPage { i8 2, i8 0, ptr @mptsas_config_io_unit_2 }, %struct.MPTSASConfigPage { i8 3, i8 0, ptr @mptsas_config_io_unit_3 }, %struct.MPTSASConfigPage { i8 4, i8 0, ptr @mptsas_config_io_unit_4 }, %struct.MPTSASConfigPage { i8 0, i8 1, ptr @mptsas_config_ioc_0 }, %struct.MPTSASConfigPage { i8 1, i8 1, ptr @mptsas_config_ioc_1 }, %struct.MPTSASConfigPage { i8 2, i8 1, ptr @mptsas_config_ioc_2 }, %struct.MPTSASConfigPage { i8 3, i8 1, ptr @mptsas_config_ioc_3 }, %struct.MPTSASConfigPage { i8 4, i8 1, ptr @mptsas_config_ioc_4 }, %struct.MPTSASConfigPage { i8 5, i8 1, ptr @mptsas_config_ioc_5 }, %struct.MPTSASConfigPage { i8 6, i8 1, ptr @mptsas_config_ioc_6 }, %struct.MPTSASConfigPage { i8 0, i8 16, ptr @mptsas_config_sas_io_unit_0 }, %struct.MPTSASConfigPage { i8 1, i8 16, ptr @mptsas_config_sas_io_unit_1 }, %struct.MPTSASConfigPage { i8 2, i8 16, ptr @mptsas_config_sas_io_unit_2 }, %struct.MPTSASConfigPage { i8 3, i8 16, ptr @mptsas_config_sas_io_unit_3 }, %struct.MPTSASConfigPage { i8 0, i8 19, ptr @mptsas_config_phy_0 }, %struct.MPTSASConfigPage { i8 1, i8 19, ptr @mptsas_config_phy_1 }, %struct.MPTSASConfigPage { i8 0, i8 18, ptr @mptsas_config_sas_device_0 }, %struct.MPTSASConfigPage { i8 1, i8 18, ptr @mptsas_config_sas_device_1 }, %struct.MPTSASConfigPage { i8 2, i8 18, ptr @mptsas_config_sas_device_2 }], align 16
 @.str.4 = private unnamed_addr constant [20 x i8] c"b*bbbs16s8s16s16s16\00", align 1
 @.str.5 = private unnamed_addr constant [16 x i8] c"QEMU MPT Fusion\00", align 1
 @.str.6 = private unnamed_addr constant [4 x i8] c"2.5\00", align 1
@@ -193,22 +193,27 @@ for.body.i52:                                     ; preds = %mptsas_find_config_
   br i1 %cmp4.i56, label %land.lhs.true.i61, label %for.inc.i57
 
 land.lhs.true.i61:                                ; preds = %for.body.i52
-  %arrayidx.i62 = getelementptr [32 x %struct.MPTSASConfigPage], ptr @mptsas_config_pages, i64 0, i64 %indvars.iv.i53
-  %12 = load i8, ptr %arrayidx.i62, align 16
-  %cmp8.i64 = icmp eq i8 %12, 1
-  br i1 %cmp8.i64, label %if.then30, label %for.inc.i57
+  %12 = lshr i64 1359089666, %indvars.iv.i53
+  %13 = and i64 %12, 1
+  %cmp8.i64.not = icmp eq i64 %13, 0
+  br i1 %cmp8.i64.not, label %for.inc.i57, label %mptsas_find_config_page.exit65
 
 for.inc.i57:                                      ; preds = %land.lhs.true.i61, %for.body.i52
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i53, 1
   %exitcond.not.i59 = icmp eq i64 %indvars.iv.next.i58, 32
   br i1 %exitcond.not.i59, label %if.else, label %for.body.i52, !llvm.loop !5
 
-if.then30:                                        ; preds = %land.lhs.true.i61
+mptsas_find_config_page.exit65:                   ; preds = %land.lhs.true.i61
+  %arrayidx.i62 = getelementptr [32 x %struct.MPTSASConfigPage], ptr @mptsas_config_pages, i64 0, i64 %indvars.iv.i53
+  %tobool29.not = icmp eq ptr %arrayidx.i62, null
+  br i1 %tobool29.not, label %if.else, label %if.then30
+
+if.then30:                                        ; preds = %mptsas_find_config_page.exit65
   %IOCStatus31 = getelementptr inbounds %struct.MPIMsgConfigReply, ptr %reply, i64 0, i32 9
   store i16 34, ptr %IOCStatus31, align 1
   br label %out
 
-if.else:                                          ; preds = %for.inc.i57
+if.else:                                          ; preds = %for.inc.i57, %mptsas_find_config_page.exit65
   %IOCStatus32 = getelementptr inbounds %struct.MPIMsgConfigReply, ptr %reply, i64 0, i32 9
   store i16 33, ptr %IOCStatus32, align 1
   br label %out
@@ -223,10 +228,10 @@ if.end34:                                         ; preds = %mptsas_find_config_
 
 if.then43:                                        ; preds = %if.end34, %if.end34
   %mpt_config_build = getelementptr [32 x %struct.MPTSASConfigPage], ptr @mptsas_config_pages, i64 0, i64 %indvars.iv.i, i32 2
-  %13 = load ptr, ptr %mpt_config_build, align 8
+  %14 = load ptr, ptr %mpt_config_build, align 8
   %PageAddress = getelementptr inbounds %struct.MPIMsgConfig, ptr %req, i64 0, i32 13
-  %14 = load i32, ptr %PageAddress, align 1
-  %call44 = tail call i64 %13(ptr noundef %s, ptr noundef null, i32 noundef %14) #13
+  %15 = load i32, ptr %PageAddress, align 1
+  %call44 = tail call i64 %14(ptr noundef %s, ptr noundef null, i32 noundef %15) #13
   %cmp45 = icmp slt i64 %call44, 0
   br i1 %cmp45, label %if.then47, label %done
 
@@ -237,10 +242,10 @@ if.then47:                                        ; preds = %if.then43
 
 if.then60:                                        ; preds = %if.end34, %if.end34
   %mpt_config_build61 = getelementptr [32 x %struct.MPTSASConfigPage], ptr @mptsas_config_pages, i64 0, i64 %indvars.iv.i, i32 2
-  %15 = load ptr, ptr %mpt_config_build61, align 8
+  %16 = load ptr, ptr %mpt_config_build61, align 8
   %PageAddress62 = getelementptr inbounds %struct.MPIMsgConfig, ptr %req, i64 0, i32 13
-  %16 = load i32, ptr %PageAddress62, align 1
-  %call63 = tail call i64 %15(ptr noundef %s, ptr noundef null, i32 noundef %16) #13
+  %17 = load i32, ptr %PageAddress62, align 1
+  %call63 = tail call i64 %16(ptr noundef %s, ptr noundef null, i32 noundef %17) #13
   %cmp64 = icmp slt i64 %call63, 0
   %IOCStatus67 = getelementptr inbounds %struct.MPIMsgConfigReply, ptr %reply, i64 0, i32 9
   br i1 %cmp64, label %if.then66, label %if.else68
@@ -255,17 +260,17 @@ if.else68:                                        ; preds = %if.then60
 
 if.end71:                                         ; preds = %if.end34
   %PageBufferSGE = getelementptr inbounds %struct.MPIMsgConfig, ptr %req, i64 0, i32 14
-  %17 = load i32, ptr %PageBufferSGE, align 1
-  %and72 = and i32 %17, 16777215
+  %18 = load i32, ptr %PageBufferSGE, align 1
+  %and72 = and i32 %18, 16777215
   %cmp73 = icmp eq i32 %and72, 0
   br i1 %cmp73, label %if.then75, label %if.end84
 
 if.then75:                                        ; preds = %if.end71
   %mpt_config_build76 = getelementptr [32 x %struct.MPTSASConfigPage], ptr @mptsas_config_pages, i64 0, i64 %indvars.iv.i, i32 2
-  %18 = load ptr, ptr %mpt_config_build76, align 8
+  %19 = load ptr, ptr %mpt_config_build76, align 8
   %PageAddress77 = getelementptr inbounds %struct.MPIMsgConfig, ptr %req, i64 0, i32 13
-  %19 = load i32, ptr %PageAddress77, align 1
-  %call78 = tail call i64 %18(ptr noundef %s, ptr noundef null, i32 noundef %19) #13
+  %20 = load i32, ptr %PageAddress77, align 1
+  %call78 = tail call i64 %19(ptr noundef %s, ptr noundef null, i32 noundef %20) #13
   %cmp79 = icmp slt i64 %call78, 0
   br i1 %cmp79, label %if.then81, label %done
 
@@ -275,27 +280,27 @@ if.then81:                                        ; preds = %if.then75
   br label %out
 
 if.end84:                                         ; preds = %if.end71
-  %and85 = and i32 %17, 33554432
+  %and85 = and i32 %18, 33554432
   %tobool86.not = icmp eq i32 %and85, 0
   %u91 = getelementptr inbounds %struct.MPIMsgConfig, ptr %req, i64 0, i32 14, i32 1
   br i1 %tobool86.not, label %if.else89, label %if.then87
 
 if.then87:                                        ; preds = %if.end84
-  %20 = load i64, ptr %u91, align 1
+  %21 = load i64, ptr %u91, align 1
   br label %if.end93
 
 if.else89:                                        ; preds = %if.end84
-  %21 = load i32, ptr %u91, align 1
-  %conv92 = zext i32 %21 to i64
+  %22 = load i32, ptr %u91, align 1
+  %conv92 = zext i32 %22 to i64
   br label %if.end93
 
 if.end93:                                         ; preds = %if.else89, %if.then87
-  %pa.0 = phi i64 [ %20, %if.then87 ], [ %conv92, %if.else89 ]
+  %pa.0 = phi i64 [ %21, %if.then87 ], [ %conv92, %if.else89 ]
   %mpt_config_build94 = getelementptr [32 x %struct.MPTSASConfigPage], ptr @mptsas_config_pages, i64 0, i64 %indvars.iv.i, i32 2
-  %22 = load ptr, ptr %mpt_config_build94, align 8
+  %23 = load ptr, ptr %mpt_config_build94, align 8
   %PageAddress95 = getelementptr inbounds %struct.MPIMsgConfig, ptr %req, i64 0, i32 13
-  %23 = load i32, ptr %PageAddress95, align 1
-  %call96 = call i64 %22(ptr noundef %s, ptr noundef nonnull %data, i32 noundef %23) #13
+  %24 = load i32, ptr %PageAddress95, align 1
+  %call96 = call i64 %23(ptr noundef %s, ptr noundef nonnull %data, i32 noundef %24) #13
   %cmp97 = icmp slt i64 %call96, 0
   br i1 %cmp97, label %if.then99, label %if.else101
 
@@ -305,10 +310,10 @@ if.then99:                                        ; preds = %if.end93
   br label %out
 
 if.else101:                                       ; preds = %if.end93
-  %24 = load ptr, ptr %data, align 8
-  %arrayidx = getelementptr i8, ptr %24, i64 2
-  %25 = load i8, ptr %arrayidx, align 1
-  %cmp104 = icmp eq i8 %25, %8
+  %25 = load ptr, ptr %data, align 8
+  %arrayidx = getelementptr i8, ptr %25, i64 2
+  %26 = load i8, ptr %arrayidx, align 1
+  %cmp104 = icmp eq i8 %26, %8
   br i1 %cmp104, label %if.end108, label %if.else107
 
 if.else107:                                       ; preds = %if.else101
@@ -321,7 +326,7 @@ if.end108:                                        ; preds = %if.else101
   %bus_master_as.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 12
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   fence seq_cst
-  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %pa.0, i32 1, ptr noundef nonnull %24, i64 noundef %cond, i1 noundef zeroext true) #13
+  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %pa.0, i32 1, ptr noundef nonnull %25, i64 noundef %cond, i1 noundef zeroext true) #13
   br label %done
 
 done:                                             ; preds = %if.then75, %if.then43, %if.end108
@@ -335,9 +340,9 @@ if.then116:                                       ; preds = %done
   %ExtPageLength = getelementptr inbounds %struct.MPIMsgConfigReply, ptr %reply, i64 0, i32 4
   store i16 %conv117, ptr %ExtPageLength, align 1
   %ExtPageType118 = getelementptr inbounds %struct.MPIMsgConfig, ptr %req, i64 0, i32 5
-  %26 = load i8, ptr %ExtPageType118, align 1
+  %27 = load i8, ptr %ExtPageType118, align 1
   %ExtPageType119 = getelementptr inbounds %struct.MPIMsgConfigReply, ptr %reply, i64 0, i32 5
-  store i8 %26, ptr %ExtPageType119, align 1
+  store i8 %27, ptr %ExtPageType119, align 1
   br label %out
 
 if.else120:                                       ; preds = %done
@@ -348,8 +353,8 @@ if.else120:                                       ; preds = %done
 out:                                              ; preds = %if.then116, %if.else120, %if.then66, %if.else68, %if.then30, %if.else, %if.then99, %if.then81, %if.then47, %sw.default, %if.then15
   call void @mptsas_fix_config_reply_endianness(ptr noundef nonnull %reply) #13
   call void @mptsas_reply(ptr noundef %s, ptr noundef nonnull %reply) #13
-  %27 = load ptr, ptr %data, align 8
-  call void @g_free(ptr noundef %27) #13
+  %28 = load ptr, ptr %data, align 8
+  call void @g_free(ptr noundef %28) #13
   ret void
 }
 

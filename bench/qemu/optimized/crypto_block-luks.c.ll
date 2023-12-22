@@ -910,22 +910,18 @@ qcrypto_block_luks_cipher_alg_lookup.exit.thread: ; preds = %for.inc12.i
 qcrypto_block_luks_cipher_alg_lookup.exit:        ; preds = %for.body5.i
   %arrayidx.le.i = getelementptr %struct.QCryptoBlockLUKSCipherNameMap, ptr @qcrypto_block_luks_cipher_name_map, i64 %i.015.i
   %11 = load ptr, ptr %arrayidx.le.i, align 16
-  %tobool54.not = icmp eq ptr %11, null
-  br i1 %tobool54.not, label %if.end245, label %if.end56
-
-if.end56:                                         ; preds = %qcrypto_block_luks_cipher_alg_lookup.exit
   %call58 = call ptr @qapi_enum_lookup(ptr noundef nonnull @QCryptoCipherMode_lookup, i32 noundef %luks_opts.sroa.1232.0) #16
   %call60 = call ptr @qapi_enum_lookup(ptr noundef nonnull @QCryptoIVGenAlgorithm_lookup, i32 noundef %luks_opts.sroa.1937.0) #16
   %tobool62.not149 = icmp eq i8 %5, 0
   %tobool62.not = select i1 %cmp, i1 %tobool62.not149, i1 false
   br i1 %tobool62.not, label %if.else, label %if.then63
 
-if.then63:                                        ; preds = %if.end56
+if.then63:                                        ; preds = %qcrypto_block_luks_cipher_alg_lookup.exit
   %call65 = call ptr @qapi_enum_lookup(ptr noundef nonnull @QCryptoHashAlgorithm_lookup, i32 noundef %luks_opts.sroa.2843.0) #16
   %call66 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.33, ptr noundef %call58, ptr noundef %call60, ptr noundef %call65) #16
   br label %if.end68
 
-if.else:                                          ; preds = %if.end56
+if.else:                                          ; preds = %qcrypto_block_luks_cipher_alg_lookup.exit
   %call67 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.34, ptr noundef %call58, ptr noundef %call60) #16
   br label %if.end68
 
@@ -1141,10 +1137,10 @@ if.then241:                                       ; preds = %error
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %call126, i8 0, i64 %conv244, i1 false)
   br label %if.end245
 
-if.end245:                                        ; preds = %qcrypto_block_luks_cipher_alg_lookup.exit.thread, %if.then90, %if.end95, %if.then81, %if.then77, %if.then73, %qcrypto_block_luks_cipher_alg_lookup.exit, %if.end40, %if.then38, %if.then241, %error
-  %cipher_mode_spec.0148 = phi ptr [ %storemerge, %if.then241 ], [ %storemerge, %error ], [ null, %qcrypto_block_luks_cipher_alg_lookup.exit.thread ], [ %storemerge, %if.then90 ], [ %storemerge, %if.end95 ], [ %storemerge, %if.then81 ], [ %storemerge, %if.then77 ], [ %storemerge, %if.then73 ], [ null, %qcrypto_block_luks_cipher_alg_lookup.exit ], [ null, %if.end40 ], [ null, %if.then38 ]
-  %password.0147 = phi ptr [ %call45, %if.then241 ], [ %call45, %error ], [ %call45, %qcrypto_block_luks_cipher_alg_lookup.exit.thread ], [ %call45, %if.then90 ], [ %call45, %if.end95 ], [ %call45, %if.then81 ], [ %call45, %if.then77 ], [ %call45, %if.then73 ], [ %call45, %qcrypto_block_luks_cipher_alg_lookup.exit ], [ null, %if.end40 ], [ null, %if.then38 ]
-  %masterkey.0146 = phi ptr [ %call126, %if.then241 ], [ null, %error ], [ null, %qcrypto_block_luks_cipher_alg_lookup.exit.thread ], [ null, %if.then90 ], [ null, %if.end95 ], [ null, %if.then81 ], [ null, %if.then77 ], [ null, %if.then73 ], [ null, %qcrypto_block_luks_cipher_alg_lookup.exit ], [ null, %if.end40 ], [ null, %if.then38 ]
+if.end245:                                        ; preds = %qcrypto_block_luks_cipher_alg_lookup.exit.thread, %if.then90, %if.end95, %if.then81, %if.then77, %if.then73, %if.end40, %if.then38, %if.then241, %error
+  %cipher_mode_spec.0148 = phi ptr [ %storemerge, %if.then241 ], [ %storemerge, %error ], [ null, %qcrypto_block_luks_cipher_alg_lookup.exit.thread ], [ %storemerge, %if.then90 ], [ %storemerge, %if.end95 ], [ %storemerge, %if.then81 ], [ %storemerge, %if.then77 ], [ %storemerge, %if.then73 ], [ null, %if.end40 ], [ null, %if.then38 ]
+  %password.0147 = phi ptr [ %call45, %if.then241 ], [ %call45, %error ], [ %call45, %qcrypto_block_luks_cipher_alg_lookup.exit.thread ], [ %call45, %if.then90 ], [ %call45, %if.end95 ], [ %call45, %if.then81 ], [ %call45, %if.then77 ], [ %call45, %if.then73 ], [ null, %if.end40 ], [ null, %if.then38 ]
+  %masterkey.0146 = phi ptr [ %call126, %if.then241 ], [ null, %error ], [ null, %qcrypto_block_luks_cipher_alg_lookup.exit.thread ], [ null, %if.then90 ], [ null, %if.end95 ], [ null, %if.then81 ], [ null, %if.then77 ], [ null, %if.then73 ], [ null, %if.end40 ], [ null, %if.then38 ]
   call void @qcrypto_block_free_cipher(ptr noundef %block) #16
   %ivgen246 = getelementptr inbounds %struct.QCryptoBlock, ptr %block, i64 0, i32 6
   %28 = load ptr, ptr %ivgen246, align 8

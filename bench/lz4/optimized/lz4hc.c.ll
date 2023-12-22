@@ -293,10 +293,9 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   %cond.i.i = select i1 %cmp5.i.i, i32 9, i32 %17
   %idxprom.i.i = sext i32 %cond.i.i to i64
   %arrayidx.i.i = getelementptr inbounds [13 x %struct.cParams_t], ptr @LZ4HC_compress_generic_internal.clTable, i64 0, i64 %idxprom.i.i
-  %cParam.i.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i.i, align 4
   %cParam.i.sroa.2.0.arrayidx.i.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
   %cParam.i.sroa.2.0.copyload.i = load i32, ptr %cParam.i.sroa.2.0.arrayidx.i.sroa_idx.i, align 4
-  %cmp10.i.i = icmp eq i32 %cParam.i.sroa.0.0.copyload.i, 0
+  %cmp10.i.i = icmp ult i32 %cond.i.i, 10
   br i1 %cmp10.i.i, label %if.then12.i.i, label %if.else.i.i
 
 if.then12.i.i:                                    ; preds = %if.end4.i.i
@@ -6601,10 +6600,9 @@ if.end4.i:                                        ; preds = %if.end.i
   %cond.i = select i1 %cmp5.i, i32 9, i32 %2
   %idxprom.i = sext i32 %cond.i to i64
   %arrayidx.i = getelementptr inbounds [13 x %struct.cParams_t], ptr @LZ4HC_compress_generic_internal.clTable, i64 0, i64 %idxprom.i
-  %cParam.i.sroa.0.0.copyload = load i32, ptr %arrayidx.i, align 4
   %cParam.i.sroa.2.0.arrayidx.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %cParam.i.sroa.2.0.copyload = load i32, ptr %cParam.i.sroa.2.0.arrayidx.i.sroa_idx, align 4
-  %cmp10.i = icmp eq i32 %cParam.i.sroa.0.0.copyload, 0
+  %cmp10.i = icmp ult i32 %cond.i, 10
   br i1 %cmp10.i, label %if.then12.i, label %if.else.i
 
 if.then12.i:                                      ; preds = %if.end4.i

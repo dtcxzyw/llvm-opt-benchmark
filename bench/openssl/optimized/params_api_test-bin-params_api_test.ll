@@ -206,8 +206,17 @@ entry:
   %cmp = alloca [4 x i8], align 4
   %param = alloca %struct.ossl_param_st, align 8
   %idxprom = sext i32 %n to i64
+  %0 = add nsw i64 %idxprom, -6
+  %cmp2 = icmp ult i64 %0, 8
+  br i1 %cmp2, label %cond.end, label %cond.false
+
+cond.false:                                       ; preds = %entry
   %arrayidx = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
-  %0 = load i64, ptr %arrayidx, align 16
+  %1 = load i64, ptr %arrayidx, align 16
+  br label %cond.end
+
+cond.end:                                         ; preds = %entry, %cond.false
+  %cond = phi i64 [ %1, %cond.false ], [ 4, %entry ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %param, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_int32.param, i64 40, i1 false)
   %value = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom, i32 1
   %buf.sroa.0.0.copyload = load i32, ptr %value, align 8
@@ -220,11 +229,10 @@ entry:
   %tobool.not = icmp eq i32 %call12, 0
   br i1 %tobool.not, label %return, label %if.end
 
-if.end:                                           ; preds = %entry
-  %spec.select = call i64 @llvm.umin.i64(i64 %0, i64 4)
-  %1 = load i32, ptr %out, align 4
-  store i32 %1, ptr %cmp, align 4
-  %call19 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 167, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef %spec.select, ptr noundef nonnull %value, i64 noundef %spec.select) #4
+if.end:                                           ; preds = %cond.end
+  %2 = load i32, ptr %out, align 4
+  store i32 %2, ptr %cmp, align 4
+  %call19 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 167, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef %cond, ptr noundef nonnull %value, i64 noundef %cond) #4
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %return, label %if.end22
 
@@ -238,8 +246,8 @@ if.end22:                                         ; preds = %if.end
   br i1 %tobool27.not, label %return, label %if.end29
 
 if.end29:                                         ; preds = %if.end22
-  %2 = load i32, ptr %in, align 4
-  store i32 %2, ptr %cmp, align 4
+  %3 = load i32, ptr %in, align 4
+  store i32 %3, ptr %cmp, align 4
   %call36 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 173, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef 4, ptr noundef nonnull %value, i64 noundef 4) #4
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %return, label %if.end39
@@ -249,8 +257,8 @@ if.end39:                                         ; preds = %if.end29
   %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 4), !range !5
   br label %return
 
-return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
-  %retval.0 = phi i32 [ %call45, %if.end39 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end22 ], [ 0, %if.end29 ]
+return:                                           ; preds = %if.end29, %if.end22, %if.end, %cond.end, %if.end39
+  %retval.0 = phi i32 [ %call45, %if.end39 ], [ 0, %cond.end ], [ 0, %if.end ], [ 0, %if.end22 ], [ 0, %if.end29 ]
   ret i32 %retval.0
 }
 
@@ -262,8 +270,17 @@ entry:
   %cmp = alloca [8 x i8], align 8
   %param = alloca %struct.ossl_param_st, align 8
   %idxprom = sext i32 %n to i64
+  %0 = add nsw i64 %idxprom, -10
+  %cmp2 = icmp ult i64 %0, 4
+  br i1 %cmp2, label %cond.end, label %cond.false
+
+cond.false:                                       ; preds = %entry
   %arrayidx = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
-  %0 = load i64, ptr %arrayidx, align 16
+  %1 = load i64, ptr %arrayidx, align 16
+  br label %cond.end
+
+cond.end:                                         ; preds = %entry, %cond.false
+  %cond = phi i64 [ %1, %cond.false ], [ 8, %entry ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %param, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_int64.param, i64 40, i1 false)
   %value = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom, i32 1
   %buf.sroa.0.0.copyload = load i64, ptr %value, align 8
@@ -276,11 +293,10 @@ entry:
   %tobool.not = icmp eq i32 %call12, 0
   br i1 %tobool.not, label %return, label %if.end
 
-if.end:                                           ; preds = %entry
-  %spec.select = call i64 @llvm.umin.i64(i64 %0, i64 8)
-  %1 = load i64, ptr %out, align 8
-  store i64 %1, ptr %cmp, align 8
-  %call19 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 194, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef %spec.select, ptr noundef nonnull %value, i64 noundef %spec.select) #4
+if.end:                                           ; preds = %cond.end
+  %2 = load i64, ptr %out, align 8
+  store i64 %2, ptr %cmp, align 8
+  %call19 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 194, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef %cond, ptr noundef nonnull %value, i64 noundef %cond) #4
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %return, label %if.end22
 
@@ -294,8 +310,8 @@ if.end22:                                         ; preds = %if.end
   br i1 %tobool27.not, label %return, label %if.end29
 
 if.end29:                                         ; preds = %if.end22
-  %2 = load i64, ptr %in, align 8
-  store i64 %2, ptr %cmp, align 8
+  %3 = load i64, ptr %in, align 8
+  store i64 %3, ptr %cmp, align 8
   %call36 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 200, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef 8, ptr noundef nonnull %value, i64 noundef 8) #4
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %return, label %if.end39
@@ -305,8 +321,8 @@ if.end39:                                         ; preds = %if.end29
   %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 8), !range !5
   br label %return
 
-return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
-  %retval.0 = phi i32 [ %call45, %if.end39 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end22 ], [ 0, %if.end29 ]
+return:                                           ; preds = %if.end29, %if.end22, %if.end, %cond.end, %if.end39
+  %retval.0 = phi i32 [ %call45, %if.end39 ], [ 0, %cond.end ], [ 0, %if.end ], [ 0, %if.end22 ], [ 0, %if.end29 ]
   ret i32 %retval.0
 }
 
@@ -318,8 +334,17 @@ entry:
   %cmp = alloca [4 x i8], align 4
   %param = alloca %struct.ossl_param_st, align 8
   %idxprom = sext i32 %n to i64
+  %0 = add nsw i64 %idxprom, -6
+  %cmp2 = icmp ult i64 %0, 8
+  br i1 %cmp2, label %cond.end, label %cond.false
+
+cond.false:                                       ; preds = %entry
   %arrayidx = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
-  %0 = load i64, ptr %arrayidx, align 16
+  %1 = load i64, ptr %arrayidx, align 16
+  br label %cond.end
+
+cond.end:                                         ; preds = %entry, %cond.false
+  %cond = phi i64 [ %1, %cond.false ], [ 4, %entry ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %param, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_uint32.param, i64 40, i1 false)
   %value = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom, i32 1
   %buf.sroa.0.0.copyload = load i32, ptr %value, align 8
@@ -332,11 +357,10 @@ entry:
   %tobool.not = icmp eq i32 %call12, 0
   br i1 %tobool.not, label %return, label %if.end
 
-if.end:                                           ; preds = %entry
-  %spec.select = call i64 @llvm.umin.i64(i64 %0, i64 4)
-  %1 = load i32, ptr %out, align 4
-  store i32 %1, ptr %cmp, align 4
-  %call19 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 220, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef %spec.select, ptr noundef nonnull %value, i64 noundef %spec.select) #4
+if.end:                                           ; preds = %cond.end
+  %2 = load i32, ptr %out, align 4
+  store i32 %2, ptr %cmp, align 4
+  %call19 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 220, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef %cond, ptr noundef nonnull %value, i64 noundef %cond) #4
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %return, label %if.end22
 
@@ -350,8 +374,8 @@ if.end22:                                         ; preds = %if.end
   br i1 %tobool27.not, label %return, label %if.end29
 
 if.end29:                                         ; preds = %if.end22
-  %2 = load i32, ptr %in, align 4
-  store i32 %2, ptr %cmp, align 4
+  %3 = load i32, ptr %in, align 4
+  store i32 %3, ptr %cmp, align 4
   %call36 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 226, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef 4, ptr noundef nonnull %value, i64 noundef 4) #4
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %return, label %if.end39
@@ -361,8 +385,8 @@ if.end39:                                         ; preds = %if.end29
   %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 4), !range !5
   br label %return
 
-return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
-  %retval.0 = phi i32 [ %call45, %if.end39 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end22 ], [ 0, %if.end29 ]
+return:                                           ; preds = %if.end29, %if.end22, %if.end, %cond.end, %if.end39
+  %retval.0 = phi i32 [ %call45, %if.end39 ], [ 0, %cond.end ], [ 0, %if.end ], [ 0, %if.end22 ], [ 0, %if.end29 ]
   ret i32 %retval.0
 }
 
@@ -374,8 +398,17 @@ entry:
   %cmp = alloca [8 x i8], align 8
   %param = alloca %struct.ossl_param_st, align 8
   %idxprom = sext i32 %n to i64
+  %0 = add nsw i64 %idxprom, -10
+  %cmp2 = icmp ult i64 %0, 4
+  br i1 %cmp2, label %cond.end, label %cond.false
+
+cond.false:                                       ; preds = %entry
   %arrayidx = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
-  %0 = load i64, ptr %arrayidx, align 16
+  %1 = load i64, ptr %arrayidx, align 16
+  br label %cond.end
+
+cond.end:                                         ; preds = %entry, %cond.false
+  %cond = phi i64 [ %1, %cond.false ], [ 8, %entry ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %param, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_uint64.param, i64 40, i1 false)
   %value = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom, i32 1
   %buf.sroa.0.0.copyload = load i64, ptr %value, align 8
@@ -388,11 +421,10 @@ entry:
   %tobool.not = icmp eq i32 %call12, 0
   br i1 %tobool.not, label %return, label %if.end
 
-if.end:                                           ; preds = %entry
-  %spec.select = call i64 @llvm.umin.i64(i64 %0, i64 8)
-  %1 = load i64, ptr %out, align 8
-  store i64 %1, ptr %cmp, align 8
-  %call19 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 247, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef %spec.select, ptr noundef nonnull %value, i64 noundef %spec.select) #4
+if.end:                                           ; preds = %cond.end
+  %2 = load i64, ptr %out, align 8
+  store i64 %2, ptr %cmp, align 8
+  %call19 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 247, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef %cond, ptr noundef nonnull %value, i64 noundef %cond) #4
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %return, label %if.end22
 
@@ -406,8 +438,8 @@ if.end22:                                         ; preds = %if.end
   br i1 %tobool27.not, label %return, label %if.end29
 
 if.end29:                                         ; preds = %if.end22
-  %2 = load i64, ptr %in, align 8
-  store i64 %2, ptr %cmp, align 8
+  %3 = load i64, ptr %in, align 8
+  store i64 %3, ptr %cmp, align 8
   %call36 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 253, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef 8, ptr noundef nonnull %value, i64 noundef 8) #4
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %return, label %if.end39
@@ -417,8 +449,8 @@ if.end39:                                         ; preds = %if.end29
   %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 8), !range !5
   br label %return
 
-return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
-  %retval.0 = phi i32 [ %call45, %if.end39 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end22 ], [ 0, %if.end29 ]
+return:                                           ; preds = %if.end29, %if.end22, %if.end, %cond.end, %if.end39
+  %retval.0 = phi i32 [ %call45, %if.end39 ], [ 0, %cond.end ], [ 0, %if.end ], [ 0, %if.end22 ], [ 0, %if.end29 ]
   ret i32 %retval.0
 }
 
@@ -430,8 +462,17 @@ entry:
   %cmp = alloca [4 x i8], align 4
   %param = alloca %struct.ossl_param_st, align 8
   %idxprom = sext i32 %n to i64
+  %0 = add nsw i64 %idxprom, -6
+  %cmp2 = icmp ult i64 %0, 8
+  br i1 %cmp2, label %cond.end, label %cond.false
+
+cond.false:                                       ; preds = %entry
   %arrayidx = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
-  %0 = load i64, ptr %arrayidx, align 16
+  %1 = load i64, ptr %arrayidx, align 16
+  br label %cond.end
+
+cond.end:                                         ; preds = %entry, %cond.false
+  %cond = phi i64 [ %1, %cond.false ], [ 4, %entry ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %param, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_int32.param, i64 40, i1 false)
   %value = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom, i32 1
   %buf.sroa.0.0.copyload = load i32, ptr %value, align 8
@@ -444,11 +485,10 @@ entry:
   %tobool.not = icmp eq i32 %call12, 0
   br i1 %tobool.not, label %return, label %if.end
 
-if.end:                                           ; preds = %entry
-  %spec.select = call i64 @llvm.umin.i64(i64 %0, i64 4)
-  %1 = load i32, ptr %out, align 4
-  store i32 %1, ptr %cmp, align 4
-  %call19 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 274, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef %spec.select, ptr noundef nonnull %value, i64 noundef %spec.select) #4
+if.end:                                           ; preds = %cond.end
+  %2 = load i32, ptr %out, align 4
+  store i32 %2, ptr %cmp, align 4
+  %call19 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 274, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef %cond, ptr noundef nonnull %value, i64 noundef %cond) #4
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %return, label %if.end22
 
@@ -462,8 +502,8 @@ if.end22:                                         ; preds = %if.end
   br i1 %tobool27.not, label %return, label %if.end29
 
 if.end29:                                         ; preds = %if.end22
-  %2 = load i32, ptr %in, align 4
-  store i32 %2, ptr %cmp, align 4
+  %3 = load i32, ptr %in, align 4
+  store i32 %3, ptr %cmp, align 4
   %call36 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 280, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef 4, ptr noundef nonnull %value, i64 noundef 4) #4
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %return, label %if.end39
@@ -473,8 +513,8 @@ if.end39:                                         ; preds = %if.end29
   %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 4), !range !5
   br label %return
 
-return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
-  %retval.0 = phi i32 [ %call45, %if.end39 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end22 ], [ 0, %if.end29 ]
+return:                                           ; preds = %if.end29, %if.end22, %if.end, %cond.end, %if.end39
+  %retval.0 = phi i32 [ %call45, %if.end39 ], [ 0, %cond.end ], [ 0, %if.end ], [ 0, %if.end22 ], [ 0, %if.end29 ]
   ret i32 %retval.0
 }
 
@@ -486,8 +526,17 @@ entry:
   %cmp = alloca [4 x i8], align 4
   %param = alloca %struct.ossl_param_st, align 8
   %idxprom = sext i32 %n to i64
+  %0 = add nsw i64 %idxprom, -6
+  %cmp2 = icmp ult i64 %0, 8
+  br i1 %cmp2, label %cond.end, label %cond.false
+
+cond.false:                                       ; preds = %entry
   %arrayidx = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
-  %0 = load i64, ptr %arrayidx, align 16
+  %1 = load i64, ptr %arrayidx, align 16
+  br label %cond.end
+
+cond.end:                                         ; preds = %entry, %cond.false
+  %cond = phi i64 [ %1, %cond.false ], [ 4, %entry ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %param, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_uint32.param, i64 40, i1 false)
   %value = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom, i32 1
   %buf.sroa.0.0.copyload = load i32, ptr %value, align 8
@@ -500,11 +549,10 @@ entry:
   %tobool.not = icmp eq i32 %call12, 0
   br i1 %tobool.not, label %return, label %if.end
 
-if.end:                                           ; preds = %entry
-  %spec.select = call i64 @llvm.umin.i64(i64 %0, i64 4)
-  %1 = load i32, ptr %out, align 4
-  store i32 %1, ptr %cmp, align 4
-  %call19 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 301, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef %spec.select, ptr noundef nonnull %value, i64 noundef %spec.select) #4
+if.end:                                           ; preds = %cond.end
+  %2 = load i32, ptr %out, align 4
+  store i32 %2, ptr %cmp, align 4
+  %call19 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 301, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef %cond, ptr noundef nonnull %value, i64 noundef %cond) #4
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %return, label %if.end22
 
@@ -518,8 +566,8 @@ if.end22:                                         ; preds = %if.end
   br i1 %tobool27.not, label %return, label %if.end29
 
 if.end29:                                         ; preds = %if.end22
-  %2 = load i32, ptr %in, align 4
-  store i32 %2, ptr %cmp, align 4
+  %3 = load i32, ptr %in, align 4
+  store i32 %3, ptr %cmp, align 4
   %call36 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 307, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef 4, ptr noundef nonnull %value, i64 noundef 4) #4
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %return, label %if.end39
@@ -529,8 +577,8 @@ if.end39:                                         ; preds = %if.end29
   %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 4), !range !5
   br label %return
 
-return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
-  %retval.0 = phi i32 [ %call45, %if.end39 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end22 ], [ 0, %if.end29 ]
+return:                                           ; preds = %if.end29, %if.end22, %if.end, %cond.end, %if.end39
+  %retval.0 = phi i32 [ %call45, %if.end39 ], [ 0, %cond.end ], [ 0, %if.end ], [ 0, %if.end22 ], [ 0, %if.end29 ]
   ret i32 %retval.0
 }
 
@@ -542,8 +590,17 @@ entry:
   %cmp = alloca [8 x i8], align 8
   %param = alloca %struct.ossl_param_st, align 8
   %idxprom = sext i32 %n to i64
+  %0 = add nsw i64 %idxprom, -10
+  %cmp2 = icmp ult i64 %0, 4
+  br i1 %cmp2, label %cond.end, label %cond.false
+
+cond.false:                                       ; preds = %entry
   %arrayidx = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
-  %0 = load i64, ptr %arrayidx, align 16
+  %1 = load i64, ptr %arrayidx, align 16
+  br label %cond.end
+
+cond.end:                                         ; preds = %entry, %cond.false
+  %cond = phi i64 [ %1, %cond.false ], [ 8, %entry ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %param, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_uint64.param, i64 40, i1 false)
   %value = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom, i32 1
   %buf.sroa.0.0.copyload = load i64, ptr %value, align 8
@@ -556,11 +613,10 @@ entry:
   %tobool.not = icmp eq i32 %call12, 0
   br i1 %tobool.not, label %return, label %if.end
 
-if.end:                                           ; preds = %entry
-  %spec.select = call i64 @llvm.umin.i64(i64 %0, i64 8)
-  %1 = load i64, ptr %out, align 8
-  store i64 %1, ptr %cmp, align 8
-  %call19 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 382, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef %spec.select, ptr noundef nonnull %value, i64 noundef %spec.select) #4
+if.end:                                           ; preds = %cond.end
+  %2 = load i64, ptr %out, align 8
+  store i64 %2, ptr %cmp, align 8
+  %call19 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 382, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef %cond, ptr noundef nonnull %value, i64 noundef %cond) #4
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %return, label %if.end22
 
@@ -574,8 +630,8 @@ if.end22:                                         ; preds = %if.end
   br i1 %tobool27.not, label %return, label %if.end29
 
 if.end29:                                         ; preds = %if.end22
-  %2 = load i64, ptr %in, align 8
-  store i64 %2, ptr %cmp, align 8
+  %3 = load i64, ptr %in, align 8
+  store i64 %3, ptr %cmp, align 8
   %call36 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 388, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef 8, ptr noundef nonnull %value, i64 noundef 8) #4
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %return, label %if.end39
@@ -585,8 +641,8 @@ if.end39:                                         ; preds = %if.end29
   %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 8), !range !5
   br label %return
 
-return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
-  %retval.0 = phi i32 [ %call45, %if.end39 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end22 ], [ 0, %if.end29 ]
+return:                                           ; preds = %if.end29, %if.end22, %if.end, %cond.end, %if.end39
+  %retval.0 = phi i32 [ %call45, %if.end39 ], [ 0, %cond.end ], [ 0, %if.end ], [ 0, %if.end22 ], [ 0, %if.end29 ]
   ret i32 %retval.0
 }
 
@@ -598,8 +654,17 @@ entry:
   %cmp = alloca [8 x i8], align 8
   %param = alloca %struct.ossl_param_st, align 8
   %idxprom = sext i32 %n to i64
+  %0 = add nsw i64 %idxprom, -10
+  %cmp2 = icmp ult i64 %0, 4
+  br i1 %cmp2, label %cond.end, label %cond.false
+
+cond.false:                                       ; preds = %entry
   %arrayidx = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
-  %0 = load i64, ptr %arrayidx, align 16
+  %1 = load i64, ptr %arrayidx, align 16
+  br label %cond.end
+
+cond.end:                                         ; preds = %entry, %cond.false
+  %cond = phi i64 [ %1, %cond.false ], [ 8, %entry ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %param, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_int64.param, i64 40, i1 false)
   %value = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom, i32 1
   %buf.sroa.0.0.copyload = load i64, ptr %value, align 8
@@ -612,11 +677,10 @@ entry:
   %tobool.not = icmp eq i32 %call12, 0
   br i1 %tobool.not, label %return, label %if.end
 
-if.end:                                           ; preds = %entry
-  %spec.select = call i64 @llvm.umin.i64(i64 %0, i64 8)
-  %1 = load i64, ptr %out, align 8
-  store i64 %1, ptr %cmp, align 8
-  %call19 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 409, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef %spec.select, ptr noundef nonnull %value, i64 noundef %spec.select) #4
+if.end:                                           ; preds = %cond.end
+  %2 = load i64, ptr %out, align 8
+  store i64 %2, ptr %cmp, align 8
+  %call19 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 409, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef %cond, ptr noundef nonnull %value, i64 noundef %cond) #4
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %return, label %if.end22
 
@@ -630,8 +694,8 @@ if.end22:                                         ; preds = %if.end
   br i1 %tobool27.not, label %return, label %if.end29
 
 if.end29:                                         ; preds = %if.end22
-  %2 = load i64, ptr %in, align 8
-  store i64 %2, ptr %cmp, align 8
+  %3 = load i64, ptr %in, align 8
+  store i64 %3, ptr %cmp, align 8
   %call36 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 415, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef 8, ptr noundef nonnull %value, i64 noundef 8) #4
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %return, label %if.end39
@@ -641,8 +705,8 @@ if.end39:                                         ; preds = %if.end29
   %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 8), !range !5
   br label %return
 
-return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
-  %retval.0 = phi i32 [ %call45, %if.end39 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end22 ], [ 0, %if.end29 ]
+return:                                           ; preds = %if.end29, %if.end22, %if.end, %cond.end, %if.end39
+  %retval.0 = phi i32 [ %call45, %if.end39 ], [ 0, %cond.end ], [ 0, %if.end ], [ 0, %if.end22 ], [ 0, %if.end29 ]
   ret i32 %retval.0
 }
 
@@ -654,8 +718,17 @@ entry:
   %cmp = alloca [8 x i8], align 8
   %param = alloca %struct.ossl_param_st, align 8
   %idxprom = sext i32 %n to i64
+  %0 = add nsw i64 %idxprom, -10
+  %cmp2 = icmp ult i64 %0, 4
+  br i1 %cmp2, label %cond.end, label %cond.false
+
+cond.false:                                       ; preds = %entry
   %arrayidx = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
-  %0 = load i64, ptr %arrayidx, align 16
+  %1 = load i64, ptr %arrayidx, align 16
+  br label %cond.end
+
+cond.end:                                         ; preds = %entry, %cond.false
+  %cond = phi i64 [ %1, %cond.false ], [ 8, %entry ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %param, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_int64.param, i64 40, i1 false)
   %value = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom, i32 1
   %buf.sroa.0.0.copyload = load i64, ptr %value, align 8
@@ -668,11 +741,10 @@ entry:
   %tobool.not = icmp eq i32 %call12, 0
   br i1 %tobool.not, label %return, label %if.end
 
-if.end:                                           ; preds = %entry
-  %spec.select = call i64 @llvm.umin.i64(i64 %0, i64 8)
-  %1 = load i64, ptr %out, align 8
-  store i64 %1, ptr %cmp, align 8
-  %call19 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 328, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef %spec.select, ptr noundef nonnull %value, i64 noundef %spec.select) #4
+if.end:                                           ; preds = %cond.end
+  %2 = load i64, ptr %out, align 8
+  store i64 %2, ptr %cmp, align 8
+  %call19 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 328, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef %cond, ptr noundef nonnull %value, i64 noundef %cond) #4
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %return, label %if.end22
 
@@ -686,8 +758,8 @@ if.end22:                                         ; preds = %if.end
   br i1 %tobool27.not, label %return, label %if.end29
 
 if.end29:                                         ; preds = %if.end22
-  %2 = load i64, ptr %in, align 8
-  store i64 %2, ptr %cmp, align 8
+  %3 = load i64, ptr %in, align 8
+  store i64 %3, ptr %cmp, align 8
   %call36 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 334, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef 8, ptr noundef nonnull %value, i64 noundef 8) #4
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %return, label %if.end39
@@ -697,8 +769,8 @@ if.end39:                                         ; preds = %if.end29
   %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 8), !range !5
   br label %return
 
-return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
-  %retval.0 = phi i32 [ %call45, %if.end39 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end22 ], [ 0, %if.end29 ]
+return:                                           ; preds = %if.end29, %if.end22, %if.end, %cond.end, %if.end39
+  %retval.0 = phi i32 [ %call45, %if.end39 ], [ 0, %cond.end ], [ 0, %if.end ], [ 0, %if.end22 ], [ 0, %if.end29 ]
   ret i32 %retval.0
 }
 
@@ -710,8 +782,17 @@ entry:
   %cmp = alloca [8 x i8], align 8
   %param = alloca %struct.ossl_param_st, align 8
   %idxprom = sext i32 %n to i64
+  %0 = add nsw i64 %idxprom, -10
+  %cmp2 = icmp ult i64 %0, 4
+  br i1 %cmp2, label %cond.end, label %cond.false
+
+cond.false:                                       ; preds = %entry
   %arrayidx = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
-  %0 = load i64, ptr %arrayidx, align 16
+  %1 = load i64, ptr %arrayidx, align 16
+  br label %cond.end
+
+cond.end:                                         ; preds = %entry, %cond.false
+  %cond = phi i64 [ %1, %cond.false ], [ 8, %entry ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %param, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_uint64.param, i64 40, i1 false)
   %value = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom, i32 1
   %buf.sroa.0.0.copyload = load i64, ptr %value, align 8
@@ -724,11 +805,10 @@ entry:
   %tobool.not = icmp eq i32 %call12, 0
   br i1 %tobool.not, label %return, label %if.end
 
-if.end:                                           ; preds = %entry
-  %spec.select = call i64 @llvm.umin.i64(i64 %0, i64 8)
-  %1 = load i64, ptr %out, align 8
-  store i64 %1, ptr %cmp, align 8
-  %call19 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 355, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef %spec.select, ptr noundef nonnull %value, i64 noundef %spec.select) #4
+if.end:                                           ; preds = %cond.end
+  %2 = load i64, ptr %out, align 8
+  store i64 %2, ptr %cmp, align 8
+  %call19 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 355, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef %cond, ptr noundef nonnull %value, i64 noundef %cond) #4
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %return, label %if.end22
 
@@ -742,8 +822,8 @@ if.end22:                                         ; preds = %if.end
   br i1 %tobool27.not, label %return, label %if.end29
 
 if.end29:                                         ; preds = %if.end22
-  %2 = load i64, ptr %in, align 8
-  store i64 %2, ptr %cmp, align 8
+  %3 = load i64, ptr %in, align 8
+  store i64 %3, ptr %cmp, align 8
   %call36 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 361, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %cmp, i64 noundef 8, ptr noundef nonnull %value, i64 noundef 8) #4
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %return, label %if.end39
@@ -753,8 +833,8 @@ if.end39:                                         ; preds = %if.end29
   %call45 = call fastcc i32 @test_param_type_extra(ptr noundef nonnull %param, ptr noundef nonnull %value, i64 noundef 8), !range !5
   br label %return
 
-return:                                           ; preds = %if.end29, %if.end22, %if.end, %entry, %if.end39
-  %retval.0 = phi i32 [ %call45, %if.end39 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end22 ], [ 0, %if.end29 ]
+return:                                           ; preds = %if.end29, %if.end22, %if.end, %cond.end, %if.end39
+  %retval.0 = phi i32 [ %call45, %if.end39 ], [ 0, %cond.end ], [ 0, %if.end ], [ 0, %if.end22 ], [ 0, %if.end29 ]
   ret i32 %retval.0
 }
 

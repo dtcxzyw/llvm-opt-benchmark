@@ -6967,9 +6967,10 @@ for.body.preheader.i:                             ; preds = %lor.lhs.false16.i
   %umax.i = tail call i32 @llvm.umax.i32(i32 %1, i32 1)
   br label %for.body.i
 
-for.cond38.preheader.i:                           ; preds = %if.end35.i
-  %cmp3931.not.i = icmp eq i32 %0, 0
-  br i1 %cmp3931.not.i, label %for.end48.i, label %for.body41.i
+for.body41.preheader.i:                           ; preds = %if.end35.i
+  %umax35.i = tail call i32 @llvm.umax.i32(i32 %0, i32 1)
+  %wide.trip.count.i = zext i32 %umax35.i to i64
+  br label %for.body41.i
 
 for.body.i:                                       ; preds = %if.end35.i, %for.body.preheader.i
   %i.030.i = phi i32 [ %inc37.i, %if.end35.i ], [ 0, %for.body.preheader.i ]
@@ -6995,23 +6996,22 @@ if.end35.i:                                       ; preds = %lor.lhs.false29.i
   store i64 %inc.i, ptr %arrayidx36.i, align 8
   %inc37.i = add nuw i32 %i.030.i, 1
   %exitcond.not.i = icmp eq i32 %inc37.i, %umax.i
-  br i1 %exitcond.not.i, label %for.cond38.preheader.i, label %for.body.i, !llvm.loop !37
+  br i1 %exitcond.not.i, label %for.body41.preheader.i, label %for.body.i, !llvm.loop !37
 
-for.body41.i:                                     ; preds = %for.cond38.preheader.i, %for.body41.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body41.i ], [ 0, %for.cond38.preheader.i ]
-  %sum.033.i = phi double [ %5, %for.body41.i ], [ 0.000000e+00, %for.cond38.preheader.i ]
+for.body41.i:                                     ; preds = %for.body41.i, %for.body41.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %for.body41.preheader.i ], [ %indvars.iv.next.i, %for.body41.i ]
+  %sum.033.i = phi double [ 0.000000e+00, %for.body41.preheader.i ], [ %5, %for.body41.i ]
   %arrayidx43.i = getelementptr inbounds i64, ptr %call.i, i64 %indvars.iv.i
   %4 = load i64, ptr %arrayidx43.i, align 8
   %conv44.i = uitofp i64 %4 to double
   %sub.i = fsub double %conv44.i, %div.i
   %5 = tail call double @llvm.fmuladd.f64(double %sub.i, double %sub.i, double %sum.033.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond35.not.i = icmp eq i64 %indvars.iv.next.i, %conv7.i
-  br i1 %exitcond35.not.i, label %for.end48.i, label %for.body41.i, !llvm.loop !38
+  %exitcond36.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond36.not.i, label %for.end48.i, label %for.body41.i, !llvm.loop !38
 
-for.end48.i:                                      ; preds = %for.body41.i, %for.cond38.preheader.i
-  %sum.0.lcssa.i = phi double [ 0.000000e+00, %for.cond38.preheader.i ], [ %5, %for.body41.i ]
-  %div49.i = fdiv double %sum.0.lcssa.i, %div.i
+for.end48.i:                                      ; preds = %for.body41.i
+  %div49.i = fdiv double %5, %div.i
   %cmp50.i = fcmp ogt double %div49.i, %2
   br i1 %cmp50.i, label %if.then52.i, label %test_rand_range_single.exit
 

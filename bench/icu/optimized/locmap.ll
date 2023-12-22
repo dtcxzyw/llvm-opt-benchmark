@@ -1128,10 +1128,6 @@ for.body:                                         ; preds = %entry, %for.cond
 if.then3:                                         ; preds = %for.body
   %arrayidx = getelementptr inbounds [141 x %struct.ILcidPosixMap], ptr @_ZL11gPosixIDmap, i64 0, i64 %indvars.iv
   %2 = load i32, ptr %arrayidx, align 16
-  %cmp7.not.i = icmp eq i32 %2, 0
-  br i1 %cmp7.not.i, label %for.end, label %for.body.lr.ph.i
-
-for.body.lr.ph.i:                                 ; preds = %if.then3
   %wide.trip.count.i = zext i32 %2 to i64
   br label %for.body.i
 
@@ -1140,15 +1136,15 @@ for.cond.i:                                       ; preds = %for.body.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end, label %for.body.i, !llvm.loop !6
 
-for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
+for.body.i:                                       ; preds = %for.cond.i, %if.then3
+  %indvars.iv.i = phi i64 [ 0, %if.then3 ], [ %indvars.iv.next.i, %for.cond.i ]
   %arrayidx.i = getelementptr inbounds %struct.ILcidPosixElement, ptr %0, i64 %indvars.iv.i
   %3 = load i32, ptr %arrayidx.i, align 8
   %cmp2.i = icmp eq i32 %3, %hostid
   br i1 %cmp2.i, label %for.end, label %for.cond.i
 
-for.end:                                          ; preds = %for.cond.i, %for.body.i, %if.then3
-  %.sink = phi i64 [ 0, %if.then3 ], [ %indvars.iv.i, %for.body.i ], [ 0, %for.cond.i ]
+for.end:                                          ; preds = %for.cond.i, %for.body.i
+  %.sink = phi i64 [ %indvars.iv.i, %for.body.i ], [ 0, %for.cond.i ]
   %posixID8.i = getelementptr inbounds %struct.ILcidPosixElement, ptr %0, i64 %.sink, i32 1
   %retval.0.i = load ptr, ptr %posixID8.i, align 8
   %tobool6.not = icmp eq ptr %retval.0.i, null
@@ -1252,33 +1248,26 @@ if.end21:                                         ; preds = %if.else, %if.end9
 
 while.end:                                        ; preds = %while.body, %if.end21
   %conv.i = trunc i64 %call.fr.i to i32
-  br label %for.body
+  %2 = load i8, ptr %posixID, align 1
+  %.fr.i = freeze i8 %2
+  %cmp3.not6.i.i = icmp eq i8 %.fr.i, 0
+  br i1 %cmp3.not6.i.i, label %if.end35, label %for.body
 
 for.body:                                         ; preds = %while.end, %for.inc
-  %indvars.iv = phi i64 [ 0, %while.end ], [ %indvars.iv.next, %for.inc ]
-  %fallbackValue.032 = phi i32 [ -1, %while.end ], [ %fallbackValue.1, %for.inc ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %while.end ]
+  %fallbackValue.032 = phi i32 [ %fallbackValue.1, %for.inc ], [ -1, %while.end ]
   %arrayidx24 = getelementptr inbounds [141 x %struct.ILcidPosixMap], ptr @_ZL11gPosixIDmap, i64 0, i64 %indvars.iv
-  %2 = load i32, ptr %arrayidx24, align 16
-  %cmp25.not.i = icmp eq i32 %2, 0
-  br i1 %cmp25.not.i, label %for.end.i, label %for.body.lr.ph.i
-
-for.body.lr.ph.i:                                 ; preds = %for.body
+  %3 = load i32, ptr %arrayidx24, align 16
   %regionMaps.i = getelementptr inbounds [141 x %struct.ILcidPosixMap], ptr @_ZL11gPosixIDmap, i64 0, i64 %indvars.iv, i32 1
-  %3 = load ptr, ptr %regionMaps.i, align 8
-  %4 = load i8, ptr %posixID, align 1
-  %.fr.i = freeze i8 %4
-  %cmp3.not6.i.i = icmp eq i8 %.fr.i, 0
-  br i1 %cmp3.not6.i.i, label %for.end.i, label %for.body.preheader.i
-
-for.body.preheader.i:                             ; preds = %for.body.lr.ph.i
-  %wide.trip.count.i = zext i32 %2 to i64
+  %4 = load ptr, ptr %regionMaps.i, align 8
+  %wide.trip.count.i = zext i32 %3 to i64
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %bestIdx.027.i = phi i32 [ 0, %for.body.preheader.i ], [ %bestIdx.1.i, %for.inc.i ]
-  %bestIdxDiff.026.i = phi i32 [ 0, %for.body.preheader.i ], [ %bestIdxDiff.1.i, %for.inc.i ]
-  %posixID1.i = getelementptr inbounds %struct.ILcidPosixElement, ptr %3, i64 %indvars.iv.i, i32 1
+for.body.i:                                       ; preds = %for.inc.i, %for.body
+  %indvars.iv.i = phi i64 [ 0, %for.body ], [ %indvars.iv.next.i, %for.inc.i ]
+  %bestIdx.027.i = phi i32 [ 0, %for.body ], [ %bestIdx.1.i, %for.inc.i ]
+  %bestIdxDiff.026.i = phi i32 [ 0, %for.body ], [ %bestIdxDiff.1.i, %for.inc.i ]
+  %posixID1.i = getelementptr inbounds %struct.ILcidPosixElement, ptr %4, i64 %indvars.iv.i, i32 1
   %5 = load ptr, ptr %posixID1.i, align 8
   %6 = load i8, ptr %5, align 1
   %cmp5.i.not.i = icmp eq i8 %.fr.i, %6
@@ -1325,40 +1314,33 @@ for.inc.i:                                        ; preds = %if.then.i, %land.lh
 for.end.loopexit40.i:                             ; preds = %for.inc.i
   %11 = zext nneg i32 %bestIdxDiff.1.i to i64
   %12 = sext i32 %bestIdx.1.i to i64
-  br label %for.end.i
-
-for.end.i:                                        ; preds = %for.body.lr.ph.i, %for.end.loopexit40.i, %for.body
-  %bestIdxDiff.0.lcssa.i = phi i64 [ 0, %for.body ], [ %11, %for.end.loopexit40.i ], [ 0, %for.body.lr.ph.i ]
-  %bestIdx.0.lcssa.i = phi i64 [ 0, %for.body ], [ %12, %for.end.loopexit40.i ], [ 0, %for.body.lr.ph.i ]
-  %arrayidx19.i = getelementptr inbounds i8, ptr %posixID, i64 %bestIdxDiff.0.lcssa.i
+  %arrayidx19.i = getelementptr inbounds i8, ptr %posixID, i64 %11
   %13 = load i8, ptr %arrayidx19.i, align 1
   switch i8 %13, label %for.inc [
     i8 95, label %land.lhs.true26.i
     i8 64, label %land.lhs.true26.i
   ]
 
-land.lhs.true26.i:                                ; preds = %for.end.i, %for.end.i
-  %regionMaps27.i = getelementptr inbounds [141 x %struct.ILcidPosixMap], ptr @_ZL11gPosixIDmap, i64 0, i64 %indvars.iv, i32 1
-  %14 = load ptr, ptr %regionMaps27.i, align 8
-  %posixID30.i = getelementptr inbounds %struct.ILcidPosixElement, ptr %14, i64 %bestIdx.0.lcssa.i, i32 1
-  %15 = load ptr, ptr %posixID30.i, align 8
-  %arrayidx32.i = getelementptr inbounds i8, ptr %15, i64 %bestIdxDiff.0.lcssa.i
-  %16 = load i8, ptr %arrayidx32.i, align 1
-  %cmp34.i = icmp eq i8 %16, 0
+land.lhs.true26.i:                                ; preds = %for.end.loopexit40.i, %for.end.loopexit40.i
+  %posixID30.i = getelementptr inbounds %struct.ILcidPosixElement, ptr %4, i64 %12, i32 1
+  %14 = load ptr, ptr %posixID30.i, align 8
+  %arrayidx32.i = getelementptr inbounds i8, ptr %14, i64 %11
+  %15 = load i8, ptr %arrayidx32.i, align 1
+  %cmp34.i = icmp eq i8 %15, 0
   br i1 %cmp34.i, label %if.then30, label %for.inc
 
 _ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit.thread23: ; preds = %if.then.i
-  %arrayidx6.le.i = getelementptr inbounds %struct.ILcidPosixElement, ptr %3, i64 %indvars.iv.i
+  %arrayidx6.le.i = getelementptr inbounds %struct.ILcidPosixElement, ptr %4, i64 %indvars.iv.i
   %retval.0.i26 = load i32, ptr %arrayidx6.le.i, align 8
   br label %return
 
 if.then30:                                        ; preds = %land.lhs.true26.i
-  %arrayidx38.i = getelementptr inbounds %struct.ILcidPosixElement, ptr %14, i64 %bestIdx.0.lcssa.i
+  %arrayidx38.i = getelementptr inbounds %struct.ILcidPosixElement, ptr %4, i64 %12
   %retval.0.i = load i32, ptr %arrayidx38.i, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %land.lhs.true26.i, %for.end.i, %if.then30
-  %fallbackValue.1 = phi i32 [ %retval.0.i, %if.then30 ], [ %fallbackValue.032, %for.end.i ], [ %fallbackValue.032, %land.lhs.true26.i ]
+for.inc:                                          ; preds = %land.lhs.true26.i, %for.end.loopexit40.i, %if.then30
+  %fallbackValue.1 = phi i32 [ %retval.0.i, %if.then30 ], [ %fallbackValue.032, %for.end.loopexit40.i ], [ %fallbackValue.032, %land.lhs.true26.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 141
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
@@ -1371,7 +1353,7 @@ if.then34:                                        ; preds = %for.end
   store i32 -128, ptr %status, align 4
   br label %return
 
-if.end35:                                         ; preds = %for.end
+if.end35:                                         ; preds = %while.end, %for.end
   store i32 1, ptr %status, align 4
   br label %return
 
