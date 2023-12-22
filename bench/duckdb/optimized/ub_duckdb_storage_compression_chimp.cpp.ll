@@ -1152,8 +1152,8 @@ while.body.i:                                     ; preds = %_ZN6duckdb14ChimpSc
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end6.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i
-  %cmp2.i.i = icmp eq i64 %cond.i.i, 1024
-  br i1 %cmp2.i.i, label %if.then3.i.i, label %if.else.i.i
+  %cmp2.i.i.not = icmp ugt i64 %sub.i.i, %sub.i
+  br i1 %cmp2.i.i.not, label %if.else.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
   tail call void @_ZN6duckdb14ChimpScanStateIfE9LoadGroupEPj(ptr noundef nonnull align 8 dereferenceable(75928) %call.i, ptr noundef %add.ptr5.i)
@@ -1220,8 +1220,8 @@ while.body:                                       ; preds = %_ZN6duckdb14ChimpSc
   br i1 %or.cond.i, label %if.then.i, label %if.end6.i
 
 if.then.i:                                        ; preds = %while.body
-  %cmp2.i = icmp eq i64 %cond.i, 1024
-  br i1 %cmp2.i, label %if.then3.i, label %if.else.i
+  %cmp2.i.not = icmp ugt i64 %sub.i, %sub
+  br i1 %cmp2.i.not, label %if.else.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
   tail call void @_ZN6duckdb14ChimpScanStateIfE9LoadGroupEPj(ptr noundef nonnull align 8 dereferenceable(75928) %call, ptr noundef %add.ptr5)
@@ -1289,8 +1289,8 @@ while.body.i:                                     ; preds = %_ZN6duckdb14ChimpSc
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end6.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i
-  %cmp2.i.i = icmp eq i64 %cond.i.i, 1024
-  br i1 %cmp2.i.i, label %if.then3.i.i, label %if.else.i.i
+  %cmp2.i.i.not = icmp ugt i64 %sub.i.i, %skip_count.addr.07.i
+  br i1 %cmp2.i.i.not, label %if.else.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
   invoke void @_ZN6duckdb14ChimpScanStateIfE9LoadGroupEPj(ptr noundef nonnull align 8 dereferenceable(75928) %scan_state, ptr noundef nonnull %buffer.i)
@@ -1405,8 +1405,8 @@ while.body.i:                                     ; preds = %_ZN6duckdb14ChimpSc
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end6.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i
-  %cmp2.i.i = icmp eq i64 %cond.i.i, 1024
-  br i1 %cmp2.i.i, label %if.then3.i.i, label %if.else.i.i
+  %cmp2.i.i.not = icmp ugt i64 %sub.i.i, %skip_count.addr.07.i
+  br i1 %cmp2.i.i.not, label %if.else.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
   call void @_ZN6duckdb14ChimpScanStateIfE9LoadGroupEPj(ptr noundef nonnull align 8 dereferenceable(75928) %call, ptr noundef nonnull %buffer.i)
@@ -5579,8 +5579,8 @@ while.body.i:                                     ; preds = %_ZN6duckdb14ChimpSc
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end6.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i
-  %cmp2.i.i = icmp eq i64 %cond.i.i, 1024
-  br i1 %cmp2.i.i, label %if.then3.i.i, label %if.else.i.i
+  %cmp2.i.i.not = icmp ugt i64 %sub.i.i, %sub.i
+  br i1 %cmp2.i.i.not, label %if.else.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
   tail call void @_ZN6duckdb14ChimpScanStateIdE9LoadGroupEPm(ptr noundef nonnull align 8 dereferenceable(145568) %call.i, ptr noundef %add.ptr5.i)
@@ -5647,8 +5647,8 @@ while.body:                                       ; preds = %_ZN6duckdb14ChimpSc
   br i1 %or.cond.i, label %if.then.i, label %if.end6.i
 
 if.then.i:                                        ; preds = %while.body
-  %cmp2.i = icmp eq i64 %cond.i, 1024
-  br i1 %cmp2.i, label %if.then3.i, label %if.else.i
+  %cmp2.i.not = icmp ugt i64 %sub.i, %sub
+  br i1 %cmp2.i.not, label %if.else.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
   tail call void @_ZN6duckdb14ChimpScanStateIdE9LoadGroupEPm(ptr noundef nonnull align 8 dereferenceable(145568) %call, ptr noundef %add.ptr5)
@@ -5716,8 +5716,8 @@ while.body.i:                                     ; preds = %_ZN6duckdb14ChimpSc
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end6.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i
-  %cmp2.i.i = icmp eq i64 %cond.i.i, 1024
-  br i1 %cmp2.i.i, label %if.then3.i.i, label %if.else.i.i
+  %cmp2.i.i.not = icmp ugt i64 %sub.i.i, %skip_count.addr.07.i
+  br i1 %cmp2.i.i.not, label %if.else.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
   invoke void @_ZN6duckdb14ChimpScanStateIdE9LoadGroupEPm(ptr noundef nonnull align 8 dereferenceable(145568) %scan_state, ptr noundef nonnull %buffer.i)
@@ -5832,8 +5832,8 @@ while.body.i:                                     ; preds = %_ZN6duckdb14ChimpSc
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end6.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i
-  %cmp2.i.i = icmp eq i64 %cond.i.i, 1024
-  br i1 %cmp2.i.i, label %if.then3.i.i, label %if.else.i.i
+  %cmp2.i.i.not = icmp ugt i64 %sub.i.i, %skip_count.addr.07.i
+  br i1 %cmp2.i.i.not, label %if.else.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
   call void @_ZN6duckdb14ChimpScanStateIdE9LoadGroupEPm(ptr noundef nonnull align 8 dereferenceable(145568) %call, ptr noundef nonnull %buffer.i)

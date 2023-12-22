@@ -88,12 +88,12 @@ for.body44:                                       ; preds = %for.end, %for.body4
   %arrayidx48 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %i.1107
   store i32 %9, ptr %arrayidx48, align 4
   %inc50 = add nuw nsw i64 %i.1107, 1
-  %exitcond132.not = icmp eq i64 %inc50, 4
-  br i1 %exitcond132.not, label %for.body55, label %for.body44, !llvm.loop !6
+  %exitcond129.not = icmp eq i64 %inc50, 4
+  br i1 %exitcond129.not, label %for.body55, label %for.body44, !llvm.loop !6
 
 for.cond52.loopexit:                              ; preds = %for.inc71, %for.body55
-  %exitcond133.not = icmp eq i64 %add56, 4
-  br i1 %exitcond133.not, label %for.end76, label %for.body55, !llvm.loop !7
+  %exitcond130.not = icmp eq i64 %add56, 4
+  br i1 %exitcond130.not, label %for.end76, label %for.body55, !llvm.loop !7
 
 for.body55:                                       ; preds = %for.body44, %for.cond52.loopexit
   %i.2110 = phi i64 [ %add56, %for.cond52.loopexit ], [ 0, %for.body44 ]
@@ -167,17 +167,17 @@ FastLog2.exit190:                                 ; preds = %if.end.i185, %if.th
   br label %for.body99
 
 for.body99:                                       ; preds = %FastLog2.exit190, %if.end159
-  %inc156.lcssa127 = phi i32 [ 0, %FastLog2.exit190 ], [ %inc156.lcssa125, %if.end159 ]
-  %max_depth.0123 = phi i64 [ 1, %FastLog2.exit190 ], [ %max_depth.2, %if.end159 ]
-  %i.3122 = phi i64 [ 0, %FastLog2.exit190 ], [ %i.4, %if.end159 ]
-  %bits.0121 = phi double [ 0.000000e+00, %FastLog2.exit190 ], [ %bits.2, %if.end159 ]
-  %arrayidx101 = getelementptr inbounds [256 x i32], ptr %histogram, i64 0, i64 %i.3122
+  %inc156.lcssa124 = phi i32 [ 0, %FastLog2.exit190 ], [ %inc156.lcssa123, %if.end159 ]
+  %max_depth.0121 = phi i64 [ 1, %FastLog2.exit190 ], [ %max_depth.2, %if.end159 ]
+  %i.3120 = phi i64 [ 0, %FastLog2.exit190 ], [ %i.4, %if.end159 ]
+  %bits.0119 = phi double [ 0.000000e+00, %FastLog2.exit190 ], [ %bits.2, %if.end159 ]
+  %arrayidx101 = getelementptr inbounds [256 x i32], ptr %histogram, i64 0, i64 %i.3120
   %18 = load i32, ptr %arrayidx101, align 4
   %cmp102.not = icmp eq i32 %18, 0
   br i1 %cmp102.not, label %for.cond128.preheader, label %if.then104
 
 for.cond128.preheader:                            ; preds = %for.body99
-  %cmp129112.not = icmp eq i64 %i.3122, 255
+  %cmp129112.not = icmp eq i64 %i.3120, 255
   br i1 %cmp129112.not, label %for.end160, label %land.rhs
 
 if.then104:                                       ; preds = %for.body99
@@ -193,28 +193,28 @@ if.then.i:                                        ; preds = %if.then104
 if.end.i:                                         ; preds = %if.then104
   %conv.i = uitofp i32 %18 to double
   %call.i = tail call double @log2(double noundef %conv.i) #5
-  %.pre134 = load i32, ptr %arrayidx101, align 4
+  %.pre131 = load i32, ptr %arrayidx101, align 4
   br label %FastLog2.exit
 
 FastLog2.exit:                                    ; preds = %if.end.i, %if.then.i
-  %20 = phi i32 [ %18, %if.then.i ], [ %.pre134, %if.end.i ]
+  %20 = phi i32 [ %18, %if.then.i ], [ %.pre131, %if.end.i ]
   %retval.i.0 = phi double [ %19, %if.then.i ], [ %call.i, %if.end.i ]
   %sub109 = fsub double %retval.i182.0, %retval.i.0
   %add110 = fadd double %sub109, 5.000000e-01
   %conv111 = fptoui double %add110 to i64
   %conv114 = uitofp i32 %20 to double
-  %21 = tail call double @llvm.fmuladd.f64(double %conv114, double %sub109, double %bits.0121)
+  %21 = tail call double @llvm.fmuladd.f64(double %conv114, double %sub109, double %bits.0119)
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %conv111, i64 15)
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %spec.store.select, i64 %max_depth.0123)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %spec.store.select, i64 %max_depth.0121)
   %arrayidx124 = getelementptr inbounds [18 x i32], ptr %depth_histo, i64 0, i64 %spec.store.select
   %22 = load i32, ptr %arrayidx124, align 4
   %inc125 = add i32 %22, 1
   store i32 %inc125, ptr %arrayidx124, align 4
-  %inc126 = add nuw nsw i64 %i.3122, 1
+  %inc126 = add nuw nsw i64 %i.3120, 1
   br label %if.end159
 
 land.rhs:                                         ; preds = %for.cond128.preheader, %for.body135
-  %k.0114.in = phi i64 [ %k.0114, %for.body135 ], [ %i.3122, %for.cond128.preheader ]
+  %k.0114.in = phi i64 [ %k.0114, %for.body135 ], [ %i.3120, %for.cond128.preheader ]
   %reps.0113 = phi i32 [ %inc136, %for.body135 ], [ 1, %for.cond128.preheader ]
   %k.0114 = add nuw nsw i64 %k.0114.in, 1
   %arrayidx132 = getelementptr inbounds [256 x i32], ptr %histogram, i64 0, i64 %k.0114
@@ -230,13 +230,13 @@ for.body135:                                      ; preds = %land.rhs
 for.end139:                                       ; preds = %land.rhs, %for.body135
   %reps.0.lcssa = phi i32 [ %reps.0113, %land.rhs ], [ %inc136, %for.body135 ]
   %conv140 = zext i32 %reps.0.lcssa to i64
-  %add141 = add nuw nsw i64 %i.3122, %conv140
+  %add141 = add nuw nsw i64 %i.3120, %conv140
   %cmp142 = icmp eq i64 %add141, 256
   br i1 %cmp142, label %for.end160, label %if.end145
 
 if.end145:                                        ; preds = %for.end139
   %cmp146 = icmp ult i32 %reps.0.lcssa, 3
-  br i1 %cmp146, label %if.then148, label %while.body.preheader
+  br i1 %cmp146, label %if.then148, label %if.else151
 
 if.then148:                                       ; preds = %if.end145
   %24 = load i32, ptr %depth_histo, align 16
@@ -244,48 +244,48 @@ if.then148:                                       ; preds = %if.end145
   store i32 %add150, ptr %depth_histo, align 16
   br label %if.end159
 
-while.body.preheader:                             ; preds = %if.end145
+if.else151:                                       ; preds = %if.end145
   %sub152 = add i32 %reps.0.lcssa, -2
   br label %while.body
 
-while.body:                                       ; preds = %while.body.preheader, %while.body
-  %inc156120 = phi i32 [ %inc156, %while.body ], [ %inc156.lcssa127, %while.body.preheader ]
-  %reps.1118 = phi i32 [ %shr, %while.body ], [ %sub152, %while.body.preheader ]
-  %bits.1117 = phi double [ %add157, %while.body ], [ %bits.0121, %while.body.preheader ]
-  %inc156 = add i32 %inc156120, 1
-  %add157 = fadd double %bits.1117, 3.000000e+00
-  %shr = lshr i32 %reps.1118, 3
-  %cmp153.not = icmp ult i32 %reps.1118, 8
+while.body:                                       ; preds = %if.else151, %while.body
+  %inc156118 = phi i32 [ %inc156.lcssa124, %if.else151 ], [ %inc156, %while.body ]
+  %reps.1117 = phi i32 [ %sub152, %if.else151 ], [ %shr, %while.body ]
+  %bits.1116 = phi double [ %bits.0119, %if.else151 ], [ %add157, %while.body ]
+  %inc156 = add i32 %inc156118, 1
+  %add157 = fadd double %bits.1116, 3.000000e+00
+  %shr = lshr i32 %reps.1117, 3
+  %cmp153.not = icmp ult i32 %reps.1117, 8
   br i1 %cmp153.not, label %if.end159, label %while.body, !llvm.loop !10
 
 if.end159:                                        ; preds = %while.body, %if.then148, %FastLog2.exit
-  %inc156.lcssa125 = phi i32 [ %inc156.lcssa127, %FastLog2.exit ], [ %inc156.lcssa127, %if.then148 ], [ %inc156, %while.body ]
-  %bits.2 = phi double [ %21, %FastLog2.exit ], [ %bits.0121, %if.then148 ], [ %add157, %while.body ]
+  %inc156.lcssa123 = phi i32 [ %inc156.lcssa124, %FastLog2.exit ], [ %inc156.lcssa124, %if.then148 ], [ %inc156, %while.body ]
+  %bits.2 = phi double [ %21, %FastLog2.exit ], [ %bits.0119, %if.then148 ], [ %add157, %while.body ]
   %i.4 = phi i64 [ %inc126, %FastLog2.exit ], [ %add141, %if.then148 ], [ %add141, %while.body ]
-  %max_depth.2 = phi i64 [ %spec.select, %FastLog2.exit ], [ %max_depth.0123, %if.then148 ], [ %max_depth.0123, %while.body ]
+  %max_depth.2 = phi i64 [ %spec.select, %FastLog2.exit ], [ %max_depth.0121, %if.then148 ], [ %max_depth.0121, %while.body ]
   %cmp97 = icmp ult i64 %i.4, 256
   br i1 %cmp97, label %for.body99, label %for.end160, !llvm.loop !11
 
 for.end160:                                       ; preds = %for.end139, %if.end159, %for.cond128.preheader
-  %inc156.lcssa128 = phi i32 [ %inc156.lcssa127, %for.cond128.preheader ], [ %inc156.lcssa125, %if.end159 ], [ %inc156.lcssa127, %for.end139 ]
-  %bits.0.lcssa = phi double [ %bits.0121, %for.cond128.preheader ], [ %bits.2, %if.end159 ], [ %bits.0121, %for.end139 ]
-  %max_depth.0.lcssa = phi i64 [ %max_depth.0123, %for.cond128.preheader ], [ %max_depth.2, %if.end159 ], [ %max_depth.0123, %for.end139 ]
-  store i32 %inc156.lcssa128, ptr %arrayidx155, align 4
+  %inc156.lcssa125 = phi i32 [ %inc156.lcssa124, %for.cond128.preheader ], [ %inc156.lcssa123, %if.end159 ], [ %inc156.lcssa124, %for.end139 ]
+  %bits.0.lcssa = phi double [ %bits.0119, %for.cond128.preheader ], [ %bits.2, %if.end159 ], [ %bits.0119, %for.end139 ]
+  %max_depth.0.lcssa = phi i64 [ %max_depth.0121, %for.cond128.preheader ], [ %max_depth.2, %if.end159 ], [ %max_depth.0121, %for.end139 ]
+  store i32 %inc156.lcssa125, ptr %arrayidx155, align 4
   %mul161 = shl nuw nsw i64 %max_depth.0.lcssa, 1
   %add162 = add nuw nsw i64 %mul161, 18
   %conv163 = uitofp i64 %add162 to double
   br label %while.body.i
 
 while.body.i:                                     ; preds = %for.end160, %FastLog2.exit22.i
-  %population.addr.i196.0.idx131 = phi i64 [ 0, %for.end160 ], [ %incdec.ptr.i.add, %FastLog2.exit22.i ]
-  %sum.i198.0130 = phi i64 [ 0, %for.end160 ], [ %add5.i, %FastLog2.exit22.i ]
-  %retval1.i199.0129 = phi double [ 0.000000e+00, %for.end160 ], [ %30, %FastLog2.exit22.i ]
-  %population.addr.i196.0.ptr = getelementptr inbounds i8, ptr %depth_histo, i64 %population.addr.i196.0.idx131
-  %population.addr.i196.0.add = or disjoint i64 %population.addr.i196.0.idx131, 4
+  %population.addr.i196.0.idx128 = phi i64 [ 0, %for.end160 ], [ %incdec.ptr.i.add, %FastLog2.exit22.i ]
+  %sum.i198.0127 = phi i64 [ 0, %for.end160 ], [ %add5.i, %FastLog2.exit22.i ]
+  %retval1.i199.0126 = phi double [ 0.000000e+00, %for.end160 ], [ %30, %FastLog2.exit22.i ]
+  %population.addr.i196.0.ptr = getelementptr inbounds i8, ptr %depth_histo, i64 %population.addr.i196.0.idx128
+  %population.addr.i196.0.add = or disjoint i64 %population.addr.i196.0.idx128, 4
   %incdec.ptr.i.ptr = getelementptr inbounds i8, ptr %depth_histo, i64 %population.addr.i196.0.add
   %25 = load i32, ptr %population.addr.i196.0.ptr, align 8
   %conv.i202 = zext i32 %25 to i64
-  %add.i = add i64 %sum.i198.0130, %conv.i202
+  %add.i = add i64 %sum.i198.0127, %conv.i202
   %conv2.i = uitofp i32 %25 to double
   %cmp.i25.i = icmp ult i32 %25, 256
   br i1 %cmp.i25.i, label %if.then.i29.i, label %if.end.i26.i
@@ -302,8 +302,8 @@ if.end.i26.i:                                     ; preds = %while.body.i
 FastLog2.exit31.i:                                ; preds = %if.end.i26.i, %if.then.i29.i
   %retval.i23.i.0 = phi double [ %26, %if.then.i29.i ], [ %call.i28.i, %if.end.i26.i ]
   %neg.i = fneg double %conv2.i
-  %27 = tail call double @llvm.fmuladd.f64(double %neg.i, double %retval.i23.i.0, double %retval1.i199.0129)
-  %incdec.ptr.i.add = add nuw nsw i64 %population.addr.i196.0.idx131, 8
+  %27 = tail call double @llvm.fmuladd.f64(double %neg.i, double %retval.i23.i.0, double %retval1.i199.0126)
+  %incdec.ptr.i.add = add nuw nsw i64 %population.addr.i196.0.idx128, 8
   %28 = load i32, ptr %incdec.ptr.i.ptr, align 4
   %conv4.i = zext i32 %28 to i64
   %add5.i = add i64 %add.i, %conv4.i
@@ -324,13 +324,13 @@ FastLog2.exit22.i:                                ; preds = %if.end.i17.i, %if.t
   %retval.i14.i.0 = phi double [ %29, %if.then.i20.i ], [ %call.i19.i, %if.end.i17.i ]
   %neg8.i = fneg double %conv6.i
   %30 = tail call double @llvm.fmuladd.f64(double %neg8.i, double %retval.i14.i.0, double %27)
-  %cmp.i201 = icmp ult i64 %population.addr.i196.0.idx131, 64
+  %cmp.i201 = icmp ult i64 %population.addr.i196.0.idx128, 64
   br i1 %cmp.i201, label %while.body.i, label %while.end.i, !llvm.loop !12
 
 while.end.i:                                      ; preds = %FastLog2.exit22.i
   %add164 = fadd double %bits.0.lcssa, %conv163
   %tobool9.i.not = icmp eq i64 %add5.i, 0
-  %.pre135 = uitofp i64 %add5.i to double
+  %.pre132 = uitofp i64 %add5.i to double
   br i1 %tobool9.i.not, label %ShannonEntropy.exit, label %if.then10.i
 
 if.then10.i:                                      ; preds = %while.end.i
@@ -343,18 +343,18 @@ if.then.i.i:                                      ; preds = %if.then10.i
   br label %FastLog2.exit.i
 
 if.end.i.i:                                       ; preds = %if.then10.i
-  %call.i.i = tail call double @log2(double noundef %.pre135) #5
+  %call.i.i = tail call double @log2(double noundef %.pre132) #5
   br label %FastLog2.exit.i
 
 FastLog2.exit.i:                                  ; preds = %if.end.i.i, %if.then.i.i
   %retval.i.i.0 = phi double [ %31, %if.then.i.i ], [ %call.i.i, %if.end.i.i ]
-  %32 = tail call double @llvm.fmuladd.f64(double %.pre135, double %retval.i.i.0, double %30)
+  %32 = tail call double @llvm.fmuladd.f64(double %.pre132, double %retval.i.i.0, double %30)
   br label %ShannonEntropy.exit
 
 ShannonEntropy.exit:                              ; preds = %while.end.i, %FastLog2.exit.i
   %retval1.i199.2 = phi double [ %32, %FastLog2.exit.i ], [ %30, %while.end.i ]
-  %cmp.i193 = fcmp olt double %retval1.i199.2, %.pre135
-  %retval1.i.0 = select i1 %cmp.i193, double %.pre135, double %retval1.i199.2
+  %cmp.i193 = fcmp olt double %retval1.i199.2, %.pre132
+  %retval1.i.0 = select i1 %cmp.i193, double %.pre132, double %retval1.i199.2
   %add166 = fadd double %add164, %retval1.i.0
   br label %return
 
@@ -448,12 +448,12 @@ for.body44:                                       ; preds = %for.end, %for.body4
   %arrayidx48 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %i.1107
   store i32 %9, ptr %arrayidx48, align 4
   %inc50 = add nuw nsw i64 %i.1107, 1
-  %exitcond132.not = icmp eq i64 %inc50, 4
-  br i1 %exitcond132.not, label %for.body55, label %for.body44, !llvm.loop !14
+  %exitcond129.not = icmp eq i64 %inc50, 4
+  br i1 %exitcond129.not, label %for.body55, label %for.body44, !llvm.loop !14
 
 for.cond52.loopexit:                              ; preds = %for.inc71, %for.body55
-  %exitcond133.not = icmp eq i64 %add56, 4
-  br i1 %exitcond133.not, label %for.end76, label %for.body55, !llvm.loop !15
+  %exitcond130.not = icmp eq i64 %add56, 4
+  br i1 %exitcond130.not, label %for.end76, label %for.body55, !llvm.loop !15
 
 for.body55:                                       ; preds = %for.body44, %for.cond52.loopexit
   %i.2110 = phi i64 [ %add56, %for.cond52.loopexit ], [ 0, %for.body44 ]
@@ -527,21 +527,21 @@ FastLog2.exit190:                                 ; preds = %if.end.i185, %if.th
   br label %for.body99
 
 for.body99:                                       ; preds = %FastLog2.exit190, %if.end159
-  %inc156.lcssa127 = phi i32 [ 0, %FastLog2.exit190 ], [ %inc156.lcssa125, %if.end159 ]
-  %max_depth.0123 = phi i64 [ 1, %FastLog2.exit190 ], [ %max_depth.2, %if.end159 ]
-  %i.3122 = phi i64 [ 0, %FastLog2.exit190 ], [ %i.4, %if.end159 ]
-  %bits.0121 = phi double [ 0.000000e+00, %FastLog2.exit190 ], [ %bits.2, %if.end159 ]
-  %arrayidx101 = getelementptr inbounds [704 x i32], ptr %histogram, i64 0, i64 %i.3122
+  %inc156.lcssa124 = phi i32 [ 0, %FastLog2.exit190 ], [ %inc156.lcssa123, %if.end159 ]
+  %max_depth.0121 = phi i64 [ 1, %FastLog2.exit190 ], [ %max_depth.2, %if.end159 ]
+  %i.3120 = phi i64 [ 0, %FastLog2.exit190 ], [ %i.4, %if.end159 ]
+  %bits.0119 = phi double [ 0.000000e+00, %FastLog2.exit190 ], [ %bits.2, %if.end159 ]
+  %arrayidx101 = getelementptr inbounds [704 x i32], ptr %histogram, i64 0, i64 %i.3120
   %18 = load i32, ptr %arrayidx101, align 4
   %cmp102.not = icmp eq i32 %18, 0
   br i1 %cmp102.not, label %for.cond128.preheader, label %if.then104
 
 for.cond128.preheader:                            ; preds = %for.body99
-  %cmp129112 = icmp ult i64 %i.3122, 703
+  %cmp129112 = icmp ult i64 %i.3120, 703
   br i1 %cmp129112, label %land.rhs.preheader, label %for.end139.thread
 
 land.rhs.preheader:                               ; preds = %for.cond128.preheader
-  %19 = trunc i64 %i.3122 to i32
+  %19 = trunc i64 %i.3120 to i32
   %20 = sub nuw nsw i32 704, %19
   br label %land.rhs
 
@@ -558,28 +558,28 @@ if.then.i:                                        ; preds = %if.then104
 if.end.i:                                         ; preds = %if.then104
   %conv.i = uitofp i32 %18 to double
   %call.i = tail call double @log2(double noundef %conv.i) #5
-  %.pre135 = load i32, ptr %arrayidx101, align 4
+  %.pre132 = load i32, ptr %arrayidx101, align 4
   br label %FastLog2.exit
 
 FastLog2.exit:                                    ; preds = %if.end.i, %if.then.i
-  %22 = phi i32 [ %18, %if.then.i ], [ %.pre135, %if.end.i ]
+  %22 = phi i32 [ %18, %if.then.i ], [ %.pre132, %if.end.i ]
   %retval.i.0 = phi double [ %21, %if.then.i ], [ %call.i, %if.end.i ]
   %sub109 = fsub double %retval.i182.0, %retval.i.0
   %add110 = fadd double %sub109, 5.000000e-01
   %conv111 = fptoui double %add110 to i64
   %conv114 = uitofp i32 %22 to double
-  %23 = tail call double @llvm.fmuladd.f64(double %conv114, double %sub109, double %bits.0121)
+  %23 = tail call double @llvm.fmuladd.f64(double %conv114, double %sub109, double %bits.0119)
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %conv111, i64 15)
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %spec.store.select, i64 %max_depth.0123)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %spec.store.select, i64 %max_depth.0121)
   %arrayidx124 = getelementptr inbounds [18 x i32], ptr %depth_histo, i64 0, i64 %spec.store.select
   %24 = load i32, ptr %arrayidx124, align 4
   %inc125 = add i32 %24, 1
   store i32 %inc125, ptr %arrayidx124, align 4
-  %inc126 = add nuw nsw i64 %i.3122, 1
+  %inc126 = add nuw nsw i64 %i.3120, 1
   br label %if.end159
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %for.body135
-  %k.0114.in = phi i64 [ %k.0114, %for.body135 ], [ %i.3122, %land.rhs.preheader ]
+  %k.0114.in = phi i64 [ %k.0114, %for.body135 ], [ %i.3120, %land.rhs.preheader ]
   %reps.0113 = phi i32 [ %inc136, %for.body135 ], [ 1, %land.rhs.preheader ]
   %k.0114 = add nuw nsw i64 %k.0114.in, 1
   %arrayidx132 = getelementptr inbounds [704 x i32], ptr %histogram, i64 0, i64 %k.0114
@@ -589,75 +589,75 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 
 for.body135:                                      ; preds = %land.rhs
   %inc136 = add nuw nsw i32 %reps.0113, 1
-  %exitcond134.not = icmp eq i64 %k.0114, 703
-  br i1 %exitcond134.not, label %for.end139, label %land.rhs, !llvm.loop !17
+  %exitcond131.not = icmp eq i64 %k.0114, 703
+  br i1 %exitcond131.not, label %for.end139, label %land.rhs, !llvm.loop !17
 
 for.end139:                                       ; preds = %land.rhs, %for.body135
   %reps.0.lcssa = phi i32 [ %reps.0113, %land.rhs ], [ %20, %for.body135 ]
   %conv140 = zext i32 %reps.0.lcssa to i64
-  %add141 = add nuw nsw i64 %i.3122, %conv140
+  %add141 = add nuw nsw i64 %i.3120, %conv140
   %cmp142 = icmp eq i64 %add141, 704
   br i1 %cmp142, label %for.end160, label %if.end145
 
 for.end139.thread:                                ; preds = %for.cond128.preheader
-  %add141139 = add nuw nsw i64 %i.3122, 1
-  %cmp142140 = icmp eq i64 %add141139, 704
-  br i1 %cmp142140, label %for.end160, label %if.then148
+  %add141136 = add nuw nsw i64 %i.3120, 1
+  %cmp142137 = icmp eq i64 %add141136, 704
+  br i1 %cmp142137, label %for.end160, label %if.then148
 
 if.end145:                                        ; preds = %for.end139
   %cmp146 = icmp ult i32 %reps.0.lcssa, 3
-  br i1 %cmp146, label %if.then148, label %while.body.preheader
+  br i1 %cmp146, label %if.then148, label %if.else151
 
 if.then148:                                       ; preds = %for.end139.thread, %if.end145
-  %reps.0.lcssa141147 = phi i32 [ %reps.0.lcssa, %if.end145 ], [ 1, %for.end139.thread ]
-  %add141142146 = phi i64 [ %add141, %if.end145 ], [ %add141139, %for.end139.thread ]
+  %reps.0.lcssa138144 = phi i32 [ %reps.0.lcssa, %if.end145 ], [ 1, %for.end139.thread ]
+  %add141139143 = phi i64 [ %add141, %if.end145 ], [ %add141136, %for.end139.thread ]
   %26 = load i32, ptr %depth_histo, align 16
-  %add150 = add i32 %26, %reps.0.lcssa141147
+  %add150 = add i32 %26, %reps.0.lcssa138144
   store i32 %add150, ptr %depth_histo, align 16
   br label %if.end159
 
-while.body.preheader:                             ; preds = %if.end145
+if.else151:                                       ; preds = %if.end145
   %sub152 = add i32 %reps.0.lcssa, -2
   br label %while.body
 
-while.body:                                       ; preds = %while.body.preheader, %while.body
-  %inc156120 = phi i32 [ %inc156, %while.body ], [ %inc156.lcssa127, %while.body.preheader ]
-  %reps.1118 = phi i32 [ %shr, %while.body ], [ %sub152, %while.body.preheader ]
-  %bits.1117 = phi double [ %add157, %while.body ], [ %bits.0121, %while.body.preheader ]
-  %inc156 = add i32 %inc156120, 1
-  %add157 = fadd double %bits.1117, 3.000000e+00
-  %shr = lshr i32 %reps.1118, 3
-  %cmp153.not = icmp ult i32 %reps.1118, 8
+while.body:                                       ; preds = %if.else151, %while.body
+  %inc156118 = phi i32 [ %inc156.lcssa124, %if.else151 ], [ %inc156, %while.body ]
+  %reps.1117 = phi i32 [ %sub152, %if.else151 ], [ %shr, %while.body ]
+  %bits.1116 = phi double [ %bits.0119, %if.else151 ], [ %add157, %while.body ]
+  %inc156 = add i32 %inc156118, 1
+  %add157 = fadd double %bits.1116, 3.000000e+00
+  %shr = lshr i32 %reps.1117, 3
+  %cmp153.not = icmp ult i32 %reps.1117, 8
   br i1 %cmp153.not, label %if.end159, label %while.body, !llvm.loop !18
 
 if.end159:                                        ; preds = %while.body, %if.then148, %FastLog2.exit
-  %inc156.lcssa125 = phi i32 [ %inc156.lcssa127, %FastLog2.exit ], [ %inc156.lcssa127, %if.then148 ], [ %inc156, %while.body ]
-  %bits.2 = phi double [ %23, %FastLog2.exit ], [ %bits.0121, %if.then148 ], [ %add157, %while.body ]
-  %i.4 = phi i64 [ %inc126, %FastLog2.exit ], [ %add141142146, %if.then148 ], [ %add141, %while.body ]
-  %max_depth.2 = phi i64 [ %spec.select, %FastLog2.exit ], [ %max_depth.0123, %if.then148 ], [ %max_depth.0123, %while.body ]
+  %inc156.lcssa123 = phi i32 [ %inc156.lcssa124, %FastLog2.exit ], [ %inc156.lcssa124, %if.then148 ], [ %inc156, %while.body ]
+  %bits.2 = phi double [ %23, %FastLog2.exit ], [ %bits.0119, %if.then148 ], [ %add157, %while.body ]
+  %i.4 = phi i64 [ %inc126, %FastLog2.exit ], [ %add141139143, %if.then148 ], [ %add141, %while.body ]
+  %max_depth.2 = phi i64 [ %spec.select, %FastLog2.exit ], [ %max_depth.0121, %if.then148 ], [ %max_depth.0121, %while.body ]
   %cmp97 = icmp ult i64 %i.4, 704
   br i1 %cmp97, label %for.body99, label %for.end160, !llvm.loop !19
 
 for.end160:                                       ; preds = %for.end139.thread, %for.end139, %if.end159
-  %inc156.lcssa128 = phi i32 [ %inc156.lcssa127, %for.end139 ], [ %inc156.lcssa125, %if.end159 ], [ %inc156.lcssa127, %for.end139.thread ]
-  %bits.0.lcssa = phi double [ %bits.0121, %for.end139 ], [ %bits.2, %if.end159 ], [ %bits.0121, %for.end139.thread ]
-  %max_depth.0.lcssa = phi i64 [ %max_depth.0123, %for.end139 ], [ %max_depth.2, %if.end159 ], [ %max_depth.0123, %for.end139.thread ]
-  store i32 %inc156.lcssa128, ptr %arrayidx155, align 4
+  %inc156.lcssa125 = phi i32 [ %inc156.lcssa124, %for.end139 ], [ %inc156.lcssa123, %if.end159 ], [ %inc156.lcssa124, %for.end139.thread ]
+  %bits.0.lcssa = phi double [ %bits.0119, %for.end139 ], [ %bits.2, %if.end159 ], [ %bits.0119, %for.end139.thread ]
+  %max_depth.0.lcssa = phi i64 [ %max_depth.0121, %for.end139 ], [ %max_depth.2, %if.end159 ], [ %max_depth.0121, %for.end139.thread ]
+  store i32 %inc156.lcssa125, ptr %arrayidx155, align 4
   %mul161 = shl nuw nsw i64 %max_depth.0.lcssa, 1
   %add162 = add nuw nsw i64 %mul161, 18
   %conv163 = uitofp i64 %add162 to double
   br label %while.body.i
 
 while.body.i:                                     ; preds = %for.end160, %FastLog2.exit22.i
-  %population.addr.i196.0.idx131 = phi i64 [ 0, %for.end160 ], [ %incdec.ptr.i.add, %FastLog2.exit22.i ]
-  %sum.i198.0130 = phi i64 [ 0, %for.end160 ], [ %add5.i, %FastLog2.exit22.i ]
-  %retval1.i199.0129 = phi double [ 0.000000e+00, %for.end160 ], [ %32, %FastLog2.exit22.i ]
-  %population.addr.i196.0.ptr = getelementptr inbounds i8, ptr %depth_histo, i64 %population.addr.i196.0.idx131
-  %population.addr.i196.0.add = or disjoint i64 %population.addr.i196.0.idx131, 4
+  %population.addr.i196.0.idx128 = phi i64 [ 0, %for.end160 ], [ %incdec.ptr.i.add, %FastLog2.exit22.i ]
+  %sum.i198.0127 = phi i64 [ 0, %for.end160 ], [ %add5.i, %FastLog2.exit22.i ]
+  %retval1.i199.0126 = phi double [ 0.000000e+00, %for.end160 ], [ %32, %FastLog2.exit22.i ]
+  %population.addr.i196.0.ptr = getelementptr inbounds i8, ptr %depth_histo, i64 %population.addr.i196.0.idx128
+  %population.addr.i196.0.add = or disjoint i64 %population.addr.i196.0.idx128, 4
   %incdec.ptr.i.ptr = getelementptr inbounds i8, ptr %depth_histo, i64 %population.addr.i196.0.add
   %27 = load i32, ptr %population.addr.i196.0.ptr, align 8
   %conv.i202 = zext i32 %27 to i64
-  %add.i = add i64 %sum.i198.0130, %conv.i202
+  %add.i = add i64 %sum.i198.0127, %conv.i202
   %conv2.i = uitofp i32 %27 to double
   %cmp.i25.i = icmp ult i32 %27, 256
   br i1 %cmp.i25.i, label %if.then.i29.i, label %if.end.i26.i
@@ -674,8 +674,8 @@ if.end.i26.i:                                     ; preds = %while.body.i
 FastLog2.exit31.i:                                ; preds = %if.end.i26.i, %if.then.i29.i
   %retval.i23.i.0 = phi double [ %28, %if.then.i29.i ], [ %call.i28.i, %if.end.i26.i ]
   %neg.i = fneg double %conv2.i
-  %29 = tail call double @llvm.fmuladd.f64(double %neg.i, double %retval.i23.i.0, double %retval1.i199.0129)
-  %incdec.ptr.i.add = add nuw nsw i64 %population.addr.i196.0.idx131, 8
+  %29 = tail call double @llvm.fmuladd.f64(double %neg.i, double %retval.i23.i.0, double %retval1.i199.0126)
+  %incdec.ptr.i.add = add nuw nsw i64 %population.addr.i196.0.idx128, 8
   %30 = load i32, ptr %incdec.ptr.i.ptr, align 4
   %conv4.i = zext i32 %30 to i64
   %add5.i = add i64 %add.i, %conv4.i
@@ -696,13 +696,13 @@ FastLog2.exit22.i:                                ; preds = %if.end.i17.i, %if.t
   %retval.i14.i.0 = phi double [ %31, %if.then.i20.i ], [ %call.i19.i, %if.end.i17.i ]
   %neg8.i = fneg double %conv6.i
   %32 = tail call double @llvm.fmuladd.f64(double %neg8.i, double %retval.i14.i.0, double %29)
-  %cmp.i201 = icmp ult i64 %population.addr.i196.0.idx131, 64
+  %cmp.i201 = icmp ult i64 %population.addr.i196.0.idx128, 64
   br i1 %cmp.i201, label %while.body.i, label %while.end.i, !llvm.loop !12
 
 while.end.i:                                      ; preds = %FastLog2.exit22.i
   %add164 = fadd double %bits.0.lcssa, %conv163
   %tobool9.i.not = icmp eq i64 %add5.i, 0
-  %.pre136 = uitofp i64 %add5.i to double
+  %.pre133 = uitofp i64 %add5.i to double
   br i1 %tobool9.i.not, label %ShannonEntropy.exit, label %if.then10.i
 
 if.then10.i:                                      ; preds = %while.end.i
@@ -715,18 +715,18 @@ if.then.i.i:                                      ; preds = %if.then10.i
   br label %FastLog2.exit.i
 
 if.end.i.i:                                       ; preds = %if.then10.i
-  %call.i.i = tail call double @log2(double noundef %.pre136) #5
+  %call.i.i = tail call double @log2(double noundef %.pre133) #5
   br label %FastLog2.exit.i
 
 FastLog2.exit.i:                                  ; preds = %if.end.i.i, %if.then.i.i
   %retval.i.i.0 = phi double [ %33, %if.then.i.i ], [ %call.i.i, %if.end.i.i ]
-  %34 = tail call double @llvm.fmuladd.f64(double %.pre136, double %retval.i.i.0, double %32)
+  %34 = tail call double @llvm.fmuladd.f64(double %.pre133, double %retval.i.i.0, double %32)
   br label %ShannonEntropy.exit
 
 ShannonEntropy.exit:                              ; preds = %while.end.i, %FastLog2.exit.i
   %retval1.i199.2 = phi double [ %34, %FastLog2.exit.i ], [ %32, %while.end.i ]
-  %cmp.i193 = fcmp olt double %retval1.i199.2, %.pre136
-  %retval1.i.0 = select i1 %cmp.i193, double %.pre136, double %retval1.i199.2
+  %cmp.i193 = fcmp olt double %retval1.i199.2, %.pre133
+  %retval1.i.0 = select i1 %cmp.i193, double %.pre133, double %retval1.i199.2
   %add166 = fadd double %add164, %retval1.i.0
   br label %return
 
@@ -814,12 +814,12 @@ for.body44:                                       ; preds = %for.end, %for.body4
   %arrayidx48 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %i.1107
   store i32 %9, ptr %arrayidx48, align 4
   %inc50 = add nuw nsw i64 %i.1107, 1
-  %exitcond132.not = icmp eq i64 %inc50, 4
-  br i1 %exitcond132.not, label %for.body55, label %for.body44, !llvm.loop !21
+  %exitcond129.not = icmp eq i64 %inc50, 4
+  br i1 %exitcond129.not, label %for.body55, label %for.body44, !llvm.loop !21
 
 for.cond52.loopexit:                              ; preds = %for.inc71, %for.body55
-  %exitcond133.not = icmp eq i64 %add56, 4
-  br i1 %exitcond133.not, label %for.end76, label %for.body55, !llvm.loop !22
+  %exitcond130.not = icmp eq i64 %add56, 4
+  br i1 %exitcond130.not, label %for.end76, label %for.body55, !llvm.loop !22
 
 for.body55:                                       ; preds = %for.body44, %for.cond52.loopexit
   %i.2110 = phi i64 [ %add56, %for.cond52.loopexit ], [ 0, %for.body44 ]
@@ -893,21 +893,21 @@ FastLog2.exit190:                                 ; preds = %if.end.i185, %if.th
   br label %for.body99
 
 for.body99:                                       ; preds = %FastLog2.exit190, %if.end159
-  %inc156.lcssa127 = phi i32 [ 0, %FastLog2.exit190 ], [ %inc156.lcssa125, %if.end159 ]
-  %max_depth.0123 = phi i64 [ 1, %FastLog2.exit190 ], [ %max_depth.2, %if.end159 ]
-  %i.3122 = phi i64 [ 0, %FastLog2.exit190 ], [ %i.4, %if.end159 ]
-  %bits.0121 = phi double [ 0.000000e+00, %FastLog2.exit190 ], [ %bits.2, %if.end159 ]
-  %arrayidx101 = getelementptr inbounds [544 x i32], ptr %histogram, i64 0, i64 %i.3122
+  %inc156.lcssa124 = phi i32 [ 0, %FastLog2.exit190 ], [ %inc156.lcssa123, %if.end159 ]
+  %max_depth.0121 = phi i64 [ 1, %FastLog2.exit190 ], [ %max_depth.2, %if.end159 ]
+  %i.3120 = phi i64 [ 0, %FastLog2.exit190 ], [ %i.4, %if.end159 ]
+  %bits.0119 = phi double [ 0.000000e+00, %FastLog2.exit190 ], [ %bits.2, %if.end159 ]
+  %arrayidx101 = getelementptr inbounds [544 x i32], ptr %histogram, i64 0, i64 %i.3120
   %18 = load i32, ptr %arrayidx101, align 4
   %cmp102.not = icmp eq i32 %18, 0
   br i1 %cmp102.not, label %for.cond128.preheader, label %if.then104
 
 for.cond128.preheader:                            ; preds = %for.body99
-  %cmp129112 = icmp ult i64 %i.3122, 543
+  %cmp129112 = icmp ult i64 %i.3120, 543
   br i1 %cmp129112, label %land.rhs.preheader, label %for.end139.thread
 
 land.rhs.preheader:                               ; preds = %for.cond128.preheader
-  %19 = trunc i64 %i.3122 to i32
+  %19 = trunc i64 %i.3120 to i32
   %20 = sub nuw nsw i32 544, %19
   br label %land.rhs
 
@@ -924,28 +924,28 @@ if.then.i:                                        ; preds = %if.then104
 if.end.i:                                         ; preds = %if.then104
   %conv.i = uitofp i32 %18 to double
   %call.i = tail call double @log2(double noundef %conv.i) #5
-  %.pre135 = load i32, ptr %arrayidx101, align 4
+  %.pre132 = load i32, ptr %arrayidx101, align 4
   br label %FastLog2.exit
 
 FastLog2.exit:                                    ; preds = %if.end.i, %if.then.i
-  %22 = phi i32 [ %18, %if.then.i ], [ %.pre135, %if.end.i ]
+  %22 = phi i32 [ %18, %if.then.i ], [ %.pre132, %if.end.i ]
   %retval.i.0 = phi double [ %21, %if.then.i ], [ %call.i, %if.end.i ]
   %sub109 = fsub double %retval.i182.0, %retval.i.0
   %add110 = fadd double %sub109, 5.000000e-01
   %conv111 = fptoui double %add110 to i64
   %conv114 = uitofp i32 %22 to double
-  %23 = tail call double @llvm.fmuladd.f64(double %conv114, double %sub109, double %bits.0121)
+  %23 = tail call double @llvm.fmuladd.f64(double %conv114, double %sub109, double %bits.0119)
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %conv111, i64 15)
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %spec.store.select, i64 %max_depth.0123)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %spec.store.select, i64 %max_depth.0121)
   %arrayidx124 = getelementptr inbounds [18 x i32], ptr %depth_histo, i64 0, i64 %spec.store.select
   %24 = load i32, ptr %arrayidx124, align 4
   %inc125 = add i32 %24, 1
   store i32 %inc125, ptr %arrayidx124, align 4
-  %inc126 = add nuw nsw i64 %i.3122, 1
+  %inc126 = add nuw nsw i64 %i.3120, 1
   br label %if.end159
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %for.body135
-  %k.0114.in = phi i64 [ %k.0114, %for.body135 ], [ %i.3122, %land.rhs.preheader ]
+  %k.0114.in = phi i64 [ %k.0114, %for.body135 ], [ %i.3120, %land.rhs.preheader ]
   %reps.0113 = phi i32 [ %inc136, %for.body135 ], [ 1, %land.rhs.preheader ]
   %k.0114 = add nuw nsw i64 %k.0114.in, 1
   %arrayidx132 = getelementptr inbounds [544 x i32], ptr %histogram, i64 0, i64 %k.0114
@@ -955,75 +955,75 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 
 for.body135:                                      ; preds = %land.rhs
   %inc136 = add nuw nsw i32 %reps.0113, 1
-  %exitcond134.not = icmp eq i64 %k.0114, 543
-  br i1 %exitcond134.not, label %for.end139, label %land.rhs, !llvm.loop !24
+  %exitcond131.not = icmp eq i64 %k.0114, 543
+  br i1 %exitcond131.not, label %for.end139, label %land.rhs, !llvm.loop !24
 
 for.end139:                                       ; preds = %land.rhs, %for.body135
   %reps.0.lcssa = phi i32 [ %reps.0113, %land.rhs ], [ %20, %for.body135 ]
   %conv140 = zext i32 %reps.0.lcssa to i64
-  %add141 = add nuw nsw i64 %i.3122, %conv140
+  %add141 = add nuw nsw i64 %i.3120, %conv140
   %cmp142 = icmp eq i64 %add141, 544
   br i1 %cmp142, label %for.end160, label %if.end145
 
 for.end139.thread:                                ; preds = %for.cond128.preheader
-  %add141139 = add nuw nsw i64 %i.3122, 1
-  %cmp142140 = icmp eq i64 %add141139, 544
-  br i1 %cmp142140, label %for.end160, label %if.then148
+  %add141136 = add nuw nsw i64 %i.3120, 1
+  %cmp142137 = icmp eq i64 %add141136, 544
+  br i1 %cmp142137, label %for.end160, label %if.then148
 
 if.end145:                                        ; preds = %for.end139
   %cmp146 = icmp ult i32 %reps.0.lcssa, 3
-  br i1 %cmp146, label %if.then148, label %while.body.preheader
+  br i1 %cmp146, label %if.then148, label %if.else151
 
 if.then148:                                       ; preds = %for.end139.thread, %if.end145
-  %reps.0.lcssa141147 = phi i32 [ %reps.0.lcssa, %if.end145 ], [ 1, %for.end139.thread ]
-  %add141142146 = phi i64 [ %add141, %if.end145 ], [ %add141139, %for.end139.thread ]
+  %reps.0.lcssa138144 = phi i32 [ %reps.0.lcssa, %if.end145 ], [ 1, %for.end139.thread ]
+  %add141139143 = phi i64 [ %add141, %if.end145 ], [ %add141136, %for.end139.thread ]
   %26 = load i32, ptr %depth_histo, align 16
-  %add150 = add i32 %26, %reps.0.lcssa141147
+  %add150 = add i32 %26, %reps.0.lcssa138144
   store i32 %add150, ptr %depth_histo, align 16
   br label %if.end159
 
-while.body.preheader:                             ; preds = %if.end145
+if.else151:                                       ; preds = %if.end145
   %sub152 = add i32 %reps.0.lcssa, -2
   br label %while.body
 
-while.body:                                       ; preds = %while.body.preheader, %while.body
-  %inc156120 = phi i32 [ %inc156, %while.body ], [ %inc156.lcssa127, %while.body.preheader ]
-  %reps.1118 = phi i32 [ %shr, %while.body ], [ %sub152, %while.body.preheader ]
-  %bits.1117 = phi double [ %add157, %while.body ], [ %bits.0121, %while.body.preheader ]
-  %inc156 = add i32 %inc156120, 1
-  %add157 = fadd double %bits.1117, 3.000000e+00
-  %shr = lshr i32 %reps.1118, 3
-  %cmp153.not = icmp ult i32 %reps.1118, 8
+while.body:                                       ; preds = %if.else151, %while.body
+  %inc156118 = phi i32 [ %inc156.lcssa124, %if.else151 ], [ %inc156, %while.body ]
+  %reps.1117 = phi i32 [ %sub152, %if.else151 ], [ %shr, %while.body ]
+  %bits.1116 = phi double [ %bits.0119, %if.else151 ], [ %add157, %while.body ]
+  %inc156 = add i32 %inc156118, 1
+  %add157 = fadd double %bits.1116, 3.000000e+00
+  %shr = lshr i32 %reps.1117, 3
+  %cmp153.not = icmp ult i32 %reps.1117, 8
   br i1 %cmp153.not, label %if.end159, label %while.body, !llvm.loop !25
 
 if.end159:                                        ; preds = %while.body, %if.then148, %FastLog2.exit
-  %inc156.lcssa125 = phi i32 [ %inc156.lcssa127, %FastLog2.exit ], [ %inc156.lcssa127, %if.then148 ], [ %inc156, %while.body ]
-  %bits.2 = phi double [ %23, %FastLog2.exit ], [ %bits.0121, %if.then148 ], [ %add157, %while.body ]
-  %i.4 = phi i64 [ %inc126, %FastLog2.exit ], [ %add141142146, %if.then148 ], [ %add141, %while.body ]
-  %max_depth.2 = phi i64 [ %spec.select, %FastLog2.exit ], [ %max_depth.0123, %if.then148 ], [ %max_depth.0123, %while.body ]
+  %inc156.lcssa123 = phi i32 [ %inc156.lcssa124, %FastLog2.exit ], [ %inc156.lcssa124, %if.then148 ], [ %inc156, %while.body ]
+  %bits.2 = phi double [ %23, %FastLog2.exit ], [ %bits.0119, %if.then148 ], [ %add157, %while.body ]
+  %i.4 = phi i64 [ %inc126, %FastLog2.exit ], [ %add141139143, %if.then148 ], [ %add141, %while.body ]
+  %max_depth.2 = phi i64 [ %spec.select, %FastLog2.exit ], [ %max_depth.0121, %if.then148 ], [ %max_depth.0121, %while.body ]
   %cmp97 = icmp ult i64 %i.4, 544
   br i1 %cmp97, label %for.body99, label %for.end160, !llvm.loop !26
 
 for.end160:                                       ; preds = %for.end139.thread, %for.end139, %if.end159
-  %inc156.lcssa128 = phi i32 [ %inc156.lcssa127, %for.end139 ], [ %inc156.lcssa125, %if.end159 ], [ %inc156.lcssa127, %for.end139.thread ]
-  %bits.0.lcssa = phi double [ %bits.0121, %for.end139 ], [ %bits.2, %if.end159 ], [ %bits.0121, %for.end139.thread ]
-  %max_depth.0.lcssa = phi i64 [ %max_depth.0123, %for.end139 ], [ %max_depth.2, %if.end159 ], [ %max_depth.0123, %for.end139.thread ]
-  store i32 %inc156.lcssa128, ptr %arrayidx155, align 4
+  %inc156.lcssa125 = phi i32 [ %inc156.lcssa124, %for.end139 ], [ %inc156.lcssa123, %if.end159 ], [ %inc156.lcssa124, %for.end139.thread ]
+  %bits.0.lcssa = phi double [ %bits.0119, %for.end139 ], [ %bits.2, %if.end159 ], [ %bits.0119, %for.end139.thread ]
+  %max_depth.0.lcssa = phi i64 [ %max_depth.0121, %for.end139 ], [ %max_depth.2, %if.end159 ], [ %max_depth.0121, %for.end139.thread ]
+  store i32 %inc156.lcssa125, ptr %arrayidx155, align 4
   %mul161 = shl nuw nsw i64 %max_depth.0.lcssa, 1
   %add162 = add nuw nsw i64 %mul161, 18
   %conv163 = uitofp i64 %add162 to double
   br label %while.body.i
 
 while.body.i:                                     ; preds = %for.end160, %FastLog2.exit22.i
-  %population.addr.i196.0.idx131 = phi i64 [ 0, %for.end160 ], [ %incdec.ptr.i.add, %FastLog2.exit22.i ]
-  %sum.i198.0130 = phi i64 [ 0, %for.end160 ], [ %add5.i, %FastLog2.exit22.i ]
-  %retval1.i199.0129 = phi double [ 0.000000e+00, %for.end160 ], [ %32, %FastLog2.exit22.i ]
-  %population.addr.i196.0.ptr = getelementptr inbounds i8, ptr %depth_histo, i64 %population.addr.i196.0.idx131
-  %population.addr.i196.0.add = or disjoint i64 %population.addr.i196.0.idx131, 4
+  %population.addr.i196.0.idx128 = phi i64 [ 0, %for.end160 ], [ %incdec.ptr.i.add, %FastLog2.exit22.i ]
+  %sum.i198.0127 = phi i64 [ 0, %for.end160 ], [ %add5.i, %FastLog2.exit22.i ]
+  %retval1.i199.0126 = phi double [ 0.000000e+00, %for.end160 ], [ %32, %FastLog2.exit22.i ]
+  %population.addr.i196.0.ptr = getelementptr inbounds i8, ptr %depth_histo, i64 %population.addr.i196.0.idx128
+  %population.addr.i196.0.add = or disjoint i64 %population.addr.i196.0.idx128, 4
   %incdec.ptr.i.ptr = getelementptr inbounds i8, ptr %depth_histo, i64 %population.addr.i196.0.add
   %27 = load i32, ptr %population.addr.i196.0.ptr, align 8
   %conv.i202 = zext i32 %27 to i64
-  %add.i = add i64 %sum.i198.0130, %conv.i202
+  %add.i = add i64 %sum.i198.0127, %conv.i202
   %conv2.i = uitofp i32 %27 to double
   %cmp.i25.i = icmp ult i32 %27, 256
   br i1 %cmp.i25.i, label %if.then.i29.i, label %if.end.i26.i
@@ -1040,8 +1040,8 @@ if.end.i26.i:                                     ; preds = %while.body.i
 FastLog2.exit31.i:                                ; preds = %if.end.i26.i, %if.then.i29.i
   %retval.i23.i.0 = phi double [ %28, %if.then.i29.i ], [ %call.i28.i, %if.end.i26.i ]
   %neg.i = fneg double %conv2.i
-  %29 = tail call double @llvm.fmuladd.f64(double %neg.i, double %retval.i23.i.0, double %retval1.i199.0129)
-  %incdec.ptr.i.add = add nuw nsw i64 %population.addr.i196.0.idx131, 8
+  %29 = tail call double @llvm.fmuladd.f64(double %neg.i, double %retval.i23.i.0, double %retval1.i199.0126)
+  %incdec.ptr.i.add = add nuw nsw i64 %population.addr.i196.0.idx128, 8
   %30 = load i32, ptr %incdec.ptr.i.ptr, align 4
   %conv4.i = zext i32 %30 to i64
   %add5.i = add i64 %add.i, %conv4.i
@@ -1062,13 +1062,13 @@ FastLog2.exit22.i:                                ; preds = %if.end.i17.i, %if.t
   %retval.i14.i.0 = phi double [ %31, %if.then.i20.i ], [ %call.i19.i, %if.end.i17.i ]
   %neg8.i = fneg double %conv6.i
   %32 = tail call double @llvm.fmuladd.f64(double %neg8.i, double %retval.i14.i.0, double %29)
-  %cmp.i201 = icmp ult i64 %population.addr.i196.0.idx131, 64
+  %cmp.i201 = icmp ult i64 %population.addr.i196.0.idx128, 64
   br i1 %cmp.i201, label %while.body.i, label %while.end.i, !llvm.loop !12
 
 while.end.i:                                      ; preds = %FastLog2.exit22.i
   %add164 = fadd double %bits.0.lcssa, %conv163
   %tobool9.i.not = icmp eq i64 %add5.i, 0
-  %.pre136 = uitofp i64 %add5.i to double
+  %.pre133 = uitofp i64 %add5.i to double
   br i1 %tobool9.i.not, label %ShannonEntropy.exit, label %if.then10.i
 
 if.then10.i:                                      ; preds = %while.end.i
@@ -1081,18 +1081,18 @@ if.then.i.i:                                      ; preds = %if.then10.i
   br label %FastLog2.exit.i
 
 if.end.i.i:                                       ; preds = %if.then10.i
-  %call.i.i = tail call double @log2(double noundef %.pre136) #5
+  %call.i.i = tail call double @log2(double noundef %.pre133) #5
   br label %FastLog2.exit.i
 
 FastLog2.exit.i:                                  ; preds = %if.end.i.i, %if.then.i.i
   %retval.i.i.0 = phi double [ %33, %if.then.i.i ], [ %call.i.i, %if.end.i.i ]
-  %34 = tail call double @llvm.fmuladd.f64(double %.pre136, double %retval.i.i.0, double %32)
+  %34 = tail call double @llvm.fmuladd.f64(double %.pre133, double %retval.i.i.0, double %32)
   br label %ShannonEntropy.exit
 
 ShannonEntropy.exit:                              ; preds = %while.end.i, %FastLog2.exit.i
   %retval1.i199.2 = phi double [ %34, %FastLog2.exit.i ], [ %32, %while.end.i ]
-  %cmp.i193 = fcmp olt double %retval1.i199.2, %.pre136
-  %retval1.i.0 = select i1 %cmp.i193, double %.pre136, double %retval1.i199.2
+  %cmp.i193 = fcmp olt double %retval1.i199.2, %.pre133
+  %retval1.i.0 = select i1 %cmp.i193, double %.pre133, double %retval1.i199.2
   %add166 = fadd double %add164, %retval1.i.0
   br label %return
 

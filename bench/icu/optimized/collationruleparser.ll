@@ -1533,8 +1533,8 @@ ehcleanup71:                                      ; preds = %lpad62, %lpad60
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %81) #14, !srcloc !8
   br label %ehcleanup496
 
-if.then88:                                        ; preds = %invoke.cont73, %77
-  %82 = phi i32 [ %sub, %77 ], [ 15, %invoke.cont73 ]
+if.then88:                                        ; preds = %77, %invoke.cont73
+  %82 = phi i32 [ 15, %invoke.cont73 ], [ %sub, %77 ]
   %settings89 = getelementptr inbounds %"class.icu_75::CollationRuleParser", ptr %this, i64 0, i32 4
   %83 = load ptr, ptr %settings89, align 8
   invoke void @_ZN6icu_7517CollationSettings11setStrengthEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %83, i32 noundef %82, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)

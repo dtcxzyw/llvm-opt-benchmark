@@ -1981,7 +1981,6 @@ for.body.lr.ph.i:                                 ; preds = %trace_nbd_co_receiv
   %allocation_depth.i = getelementptr inbounds %struct.NBDClient, ptr %0, i64 0, i32 17, i32 3
   %base_allocation.i = getelementptr inbounds %struct.NBDClient, ptr %0, i64 0, i32 17, i32 2
   %bitmaps60.i = getelementptr inbounds %struct.NBDClient, ptr %0, i64 0, i32 17, i32 4
-  %umax.i = call i64 @llvm.umax.i64(i64 %div47.i, i64 1)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -2061,7 +2060,7 @@ if.end70.i:                                       ; preds = %lor.lhs.false62.i
 
 for.inc.i:                                        ; preds = %if.end70.i, %if.end51.i, %if.end38.i
   %inc.i = add nuw nsw i64 %i.064.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %inc.i, %div47.i
   br i1 %exitcond.not.i, label %nbd_co_block_status_payload_read.exit.thread127, label %for.body.i, !llvm.loop !19
 
 nbd_co_block_status_payload_read.exit.thread127:  ; preds = %for.inc.i, %trace_nbd_co_receive_request_payload_received.exit.i
@@ -8334,9 +8333,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

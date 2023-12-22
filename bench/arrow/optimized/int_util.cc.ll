@@ -8004,18 +8004,19 @@ while.body.i:                                     ; preds = %if.end140.i, %while
   br i1 %cmp14.i, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %while.body.i
+  %div.lhs.trunc.i = trunc i32 %conv11.i to i16
+  %div163.i = sdiv i16 %div.lhs.trunc.i, 8
+  %conv18.i = sext i16 %div163.i to i64
   %cmp19120.i = icmp sgt i32 %conv11.i, 7
   br i1 %cmp19120.i, label %for.cond20.preheader.lr.ph.i, label %for.cond32.preheader.i
 
 for.cond20.preheader.lr.ph.i:                     ; preds = %for.cond.preheader.i
-  %div164.i = lshr i32 %conv11.i, 3
   %IsOutOfBounds.val.val.i = load i8, ptr %bound_lower.addr.i, align 1, !noalias !388
   %7 = load i8, ptr %bound_upper.addr.i, align 1, !noalias !388
-  %smax158.i = zext nneg i32 %div164.i to i64
   br label %for.cond20.preheader.i
 
 for.cond32.preheader.loopexit.i:                  ; preds = %for.inc29.i
-  %8 = shl nuw nsw i64 %smax158.i, 3
+  %8 = shl nuw nsw i64 %conv18.i, 3
   br label %for.cond32.preheader.i
 
 for.cond32.preheader.i:                           ; preds = %for.cond32.preheader.loopexit.i, %for.cond.preheader.i
@@ -8055,7 +8056,7 @@ for.inc29.i:                                      ; preds = %for.body22.i
   %14 = add nuw nsw i64 %i.0122.i, 8
   %inc30.i = add nuw nsw i64 %chunk.0123.i, 1
   %indvars.iv.next157.i = add nuw nsw i64 %indvars.iv156.i, 8
-  %exitcond159.not.i = icmp eq i64 %inc30.i, %smax158.i
+  %exitcond159.not.i = icmp eq i64 %inc30.i, %conv18.i
   br i1 %exitcond159.not.i, label %for.cond32.preheader.loopexit.i, label %for.cond20.preheader.i, !llvm.loop !395
 
 for.body36.i:                                     ; preds = %for.body36.i, %for.body36.lr.ph.i
@@ -8078,18 +8079,18 @@ if.else.i:                                        ; preds = %while.body.i
   br i1 %cmp50.i, label %for.cond54.preheader.i, label %if.end140.i
 
 for.cond54.preheader.i:                           ; preds = %if.else.i
+  %div57164.i = sdiv i16 %block.sroa.0.0.extract.trunc.i, 8
+  %conv58.i = sext i16 %div57164.i to i64
   %cmp59108.i = icmp sgt i32 %conv13.i, 7
   br i1 %cmp59108.i, label %for.cond62.preheader.lr.ph.i, label %for.cond81.preheader.i
 
 for.cond62.preheader.lr.ph.i:                     ; preds = %for.cond54.preheader.i
-  %div57163.i = lshr i32 %conv13.i, 3
   %20 = load i8, ptr %bound_lower.addr.i, align 1, !noalias !388
   %21 = load i8, ptr %bound_upper.addr.i, align 1, !noalias !388
-  %smax.i = zext nneg i32 %div57163.i to i64
   br label %for.cond62.preheader.i
 
 for.cond81.preheader.loopexit.i:                  ; preds = %for.inc78.i
-  %22 = shl nuw nsw i64 %smax.i, 3
+  %22 = shl nuw nsw i64 %conv58.i, 3
   br label %for.cond81.preheader.i
 
 for.cond81.preheader.i:                           ; preds = %for.cond81.preheader.loopexit.i, %for.cond54.preheader.i
@@ -8146,7 +8147,7 @@ for.inc78.i:                                      ; preds = %_ZZN5arrow8internal
   %33 = add nuw nsw i64 %i52.0110.i, 8
   %inc79.i = add nuw nsw i64 %chunk53.0111.i, 1
   %indvars.iv.next152.i = add nuw nsw i64 %indvars.iv151.i, 8
-  %exitcond153.not.i = icmp eq i64 %inc79.i, %smax.i
+  %exitcond153.not.i = icmp eq i64 %inc79.i, %conv58.i
   br i1 %exitcond153.not.i, label %for.cond81.preheader.loopexit.i, label %for.cond62.preheader.i, !llvm.loop !398
 
 for.body85.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_8Int8TypeEaEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlabE_clEab.exit82.i, %for.body85.lr.ph.i
@@ -8339,18 +8340,19 @@ while.body.i:                                     ; preds = %if.end140.i, %while
   br i1 %cmp14.i, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %while.body.i
+  %div.lhs.trunc.i = trunc i32 %conv11.i to i16
+  %div163.i = sdiv i16 %div.lhs.trunc.i, 8
+  %conv18.i = sext i16 %div163.i to i64
   %cmp19120.i = icmp sgt i32 %conv11.i, 7
   br i1 %cmp19120.i, label %for.cond20.preheader.lr.ph.i, label %for.cond32.preheader.i
 
 for.cond20.preheader.lr.ph.i:                     ; preds = %for.cond.preheader.i
-  %div164.i = lshr i32 %conv11.i, 3
   %IsOutOfBounds.val.val.i = load i16, ptr %bound_lower.addr.i, align 2, !noalias !406
   %7 = load i16, ptr %bound_upper.addr.i, align 2, !noalias !406
-  %smax158.i = zext nneg i32 %div164.i to i64
   br label %for.cond20.preheader.i
 
 for.cond32.preheader.loopexit.i:                  ; preds = %for.inc29.i
-  %8 = shl nuw nsw i64 %smax158.i, 3
+  %8 = shl nuw nsw i64 %conv18.i, 3
   br label %for.cond32.preheader.i
 
 for.cond32.preheader.i:                           ; preds = %for.cond32.preheader.loopexit.i, %for.cond.preheader.i
@@ -8390,7 +8392,7 @@ for.inc29.i:                                      ; preds = %for.body22.i
   %14 = add nuw nsw i64 %i.0122.i, 8
   %inc30.i = add nuw nsw i64 %chunk.0123.i, 1
   %indvars.iv.next157.i = add nuw nsw i64 %indvars.iv156.i, 8
-  %exitcond159.not.i = icmp eq i64 %inc30.i, %smax158.i
+  %exitcond159.not.i = icmp eq i64 %inc30.i, %conv18.i
   br i1 %exitcond159.not.i, label %for.cond32.preheader.loopexit.i, label %for.cond20.preheader.i, !llvm.loop !413
 
 for.body36.i:                                     ; preds = %for.body36.i, %for.body36.lr.ph.i
@@ -8413,18 +8415,18 @@ if.else.i:                                        ; preds = %while.body.i
   br i1 %cmp50.i, label %for.cond54.preheader.i, label %if.end140.i
 
 for.cond54.preheader.i:                           ; preds = %if.else.i
+  %div57164.i = sdiv i16 %block.sroa.0.0.extract.trunc.i, 8
+  %conv58.i = sext i16 %div57164.i to i64
   %cmp59108.i = icmp sgt i32 %conv13.i, 7
   br i1 %cmp59108.i, label %for.cond62.preheader.lr.ph.i, label %for.cond81.preheader.i
 
 for.cond62.preheader.lr.ph.i:                     ; preds = %for.cond54.preheader.i
-  %div57163.i = lshr i32 %conv13.i, 3
   %20 = load i16, ptr %bound_lower.addr.i, align 2, !noalias !406
   %21 = load i16, ptr %bound_upper.addr.i, align 2, !noalias !406
-  %smax.i = zext nneg i32 %div57163.i to i64
   br label %for.cond62.preheader.i
 
 for.cond81.preheader.loopexit.i:                  ; preds = %for.inc78.i
-  %22 = shl nuw nsw i64 %smax.i, 3
+  %22 = shl nuw nsw i64 %conv58.i, 3
   br label %for.cond81.preheader.i
 
 for.cond81.preheader.i:                           ; preds = %for.cond81.preheader.loopexit.i, %for.cond54.preheader.i
@@ -8481,7 +8483,7 @@ for.inc78.i:                                      ; preds = %_ZZN5arrow8internal
   %33 = add nuw nsw i64 %i52.0110.i, 8
   %inc79.i = add nuw nsw i64 %chunk53.0111.i, 1
   %indvars.iv.next152.i = add nuw nsw i64 %indvars.iv151.i, 8
-  %exitcond153.not.i = icmp eq i64 %inc79.i, %smax.i
+  %exitcond153.not.i = icmp eq i64 %inc79.i, %conv58.i
   br i1 %exitcond153.not.i, label %for.cond81.preheader.loopexit.i, label %for.cond62.preheader.i, !llvm.loop !416
 
 for.body85.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int16TypeEsEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlsbE_clEsb.exit82.i, %for.body85.lr.ph.i
@@ -8674,18 +8676,19 @@ while.body.i:                                     ; preds = %if.end136.i, %while
   br i1 %cmp10.i, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %while.body.i
+  %div.lhs.trunc.i = trunc i32 %conv.i to i16
+  %div163.i = sdiv i16 %div.lhs.trunc.i, 8
+  %conv14.i = sext i16 %div163.i to i64
   %cmp15120.i = icmp sgt i32 %conv.i, 7
   br i1 %cmp15120.i, label %for.cond16.preheader.lr.ph.i, label %for.cond28.preheader.i
 
 for.cond16.preheader.lr.ph.i:                     ; preds = %for.cond.preheader.i
-  %div164.i = lshr i32 %conv.i, 3
   %IsOutOfBounds.val.val.i = load i32, ptr %bound_lower.addr.i, align 4, !noalias !424
   %7 = load i32, ptr %bound_upper.addr.i, align 4, !noalias !424
-  %smax158.i = zext nneg i32 %div164.i to i64
   br label %for.cond16.preheader.i
 
 for.cond28.preheader.loopexit.i:                  ; preds = %for.inc25.i
-  %8 = shl nuw nsw i64 %smax158.i, 3
+  %8 = shl nuw nsw i64 %conv14.i, 3
   br label %for.cond28.preheader.i
 
 for.cond28.preheader.i:                           ; preds = %for.cond28.preheader.loopexit.i, %for.cond.preheader.i
@@ -8725,7 +8728,7 @@ for.inc25.i:                                      ; preds = %for.body18.i
   %14 = add nuw nsw i64 %i.0122.i, 8
   %inc26.i = add nuw nsw i64 %chunk.0123.i, 1
   %indvars.iv.next157.i = add nuw nsw i64 %indvars.iv156.i, 8
-  %exitcond159.not.i = icmp eq i64 %inc26.i, %smax158.i
+  %exitcond159.not.i = icmp eq i64 %inc26.i, %conv14.i
   br i1 %exitcond159.not.i, label %for.cond28.preheader.loopexit.i, label %for.cond16.preheader.i, !llvm.loop !431
 
 for.body32.i:                                     ; preds = %for.body32.i, %for.body32.lr.ph.i
@@ -8748,18 +8751,18 @@ if.else.i:                                        ; preds = %while.body.i
   br i1 %cmp46.i, label %for.cond50.preheader.i, label %if.end136.i
 
 for.cond50.preheader.i:                           ; preds = %if.else.i
+  %div53164.i = sdiv i16 %block.sroa.0.0.extract.trunc.i, 8
+  %conv54.i = sext i16 %div53164.i to i64
   %cmp55108.i = icmp sgt i32 %conv9.i, 7
   br i1 %cmp55108.i, label %for.cond58.preheader.lr.ph.i, label %for.cond77.preheader.i
 
 for.cond58.preheader.lr.ph.i:                     ; preds = %for.cond50.preheader.i
-  %div53163.i = lshr i32 %conv9.i, 3
   %20 = load i32, ptr %bound_lower.addr.i, align 4, !noalias !424
   %21 = load i32, ptr %bound_upper.addr.i, align 4, !noalias !424
-  %smax.i = zext nneg i32 %div53163.i to i64
   br label %for.cond58.preheader.i
 
 for.cond77.preheader.loopexit.i:                  ; preds = %for.inc74.i
-  %22 = shl nuw nsw i64 %smax.i, 3
+  %22 = shl nuw nsw i64 %conv54.i, 3
   br label %for.cond77.preheader.i
 
 for.cond77.preheader.i:                           ; preds = %for.cond77.preheader.loopexit.i, %for.cond50.preheader.i
@@ -8816,7 +8819,7 @@ for.inc74.i:                                      ; preds = %_ZZN5arrow8internal
   %33 = add nuw nsw i64 %i48.0110.i, 8
   %inc75.i = add nuw nsw i64 %chunk49.0111.i, 1
   %indvars.iv.next152.i = add nuw nsw i64 %indvars.iv151.i, 8
-  %exitcond153.not.i = icmp eq i64 %inc75.i, %smax.i
+  %exitcond153.not.i = icmp eq i64 %inc75.i, %conv54.i
   br i1 %exitcond153.not.i, label %for.cond77.preheader.loopexit.i, label %for.cond58.preheader.i, !llvm.loop !434
 
 for.body81.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int32TypeEiEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlibE_clEib.exit82.i, %for.body81.lr.ph.i
@@ -9009,18 +9012,19 @@ while.body.i:                                     ; preds = %if.end136.i, %while
   br i1 %cmp10.i, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %while.body.i
+  %div.lhs.trunc.i = trunc i32 %conv.i to i16
+  %div163.i = sdiv i16 %div.lhs.trunc.i, 8
+  %conv14.i = sext i16 %div163.i to i64
   %cmp15120.i = icmp sgt i32 %conv.i, 7
   br i1 %cmp15120.i, label %for.cond16.preheader.lr.ph.i, label %for.cond28.preheader.i
 
 for.cond16.preheader.lr.ph.i:                     ; preds = %for.cond.preheader.i
-  %div164.i = lshr i32 %conv.i, 3
   %IsOutOfBounds.val.val.i = load i64, ptr %bound_lower.addr.i, align 8, !noalias !442
   %7 = load i64, ptr %bound_upper.addr.i, align 8, !noalias !442
-  %smax158.i = zext nneg i32 %div164.i to i64
   br label %for.cond16.preheader.i
 
 for.cond28.preheader.loopexit.i:                  ; preds = %for.inc25.i
-  %8 = shl nuw nsw i64 %smax158.i, 3
+  %8 = shl nuw nsw i64 %conv14.i, 3
   br label %for.cond28.preheader.i
 
 for.cond28.preheader.i:                           ; preds = %for.cond28.preheader.loopexit.i, %for.cond.preheader.i
@@ -9060,7 +9064,7 @@ for.inc25.i:                                      ; preds = %for.body18.i
   %14 = add nuw nsw i64 %i.0122.i, 8
   %inc26.i = add nuw nsw i64 %chunk.0123.i, 1
   %indvars.iv.next157.i = add nuw nsw i64 %indvars.iv156.i, 8
-  %exitcond159.not.i = icmp eq i64 %inc26.i, %smax158.i
+  %exitcond159.not.i = icmp eq i64 %inc26.i, %conv14.i
   br i1 %exitcond159.not.i, label %for.cond28.preheader.loopexit.i, label %for.cond16.preheader.i, !llvm.loop !449
 
 for.body32.i:                                     ; preds = %for.body32.i, %for.body32.lr.ph.i
@@ -9083,18 +9087,18 @@ if.else.i:                                        ; preds = %while.body.i
   br i1 %cmp46.i, label %for.cond50.preheader.i, label %if.end136.i
 
 for.cond50.preheader.i:                           ; preds = %if.else.i
+  %div53164.i = sdiv i16 %block.sroa.0.0.extract.trunc.i, 8
+  %conv54.i = sext i16 %div53164.i to i64
   %cmp55108.i = icmp sgt i32 %conv9.i, 7
   br i1 %cmp55108.i, label %for.cond58.preheader.lr.ph.i, label %for.cond77.preheader.i
 
 for.cond58.preheader.lr.ph.i:                     ; preds = %for.cond50.preheader.i
-  %div53163.i = lshr i32 %conv9.i, 3
   %20 = load i64, ptr %bound_lower.addr.i, align 8, !noalias !442
   %21 = load i64, ptr %bound_upper.addr.i, align 8, !noalias !442
-  %smax.i = zext nneg i32 %div53163.i to i64
   br label %for.cond58.preheader.i
 
 for.cond77.preheader.loopexit.i:                  ; preds = %for.inc74.i
-  %22 = shl nuw nsw i64 %smax.i, 3
+  %22 = shl nuw nsw i64 %conv54.i, 3
   br label %for.cond77.preheader.i
 
 for.cond77.preheader.i:                           ; preds = %for.cond77.preheader.loopexit.i, %for.cond50.preheader.i
@@ -9151,7 +9155,7 @@ for.inc74.i:                                      ; preds = %_ZZN5arrow8internal
   %33 = add nuw nsw i64 %i48.0110.i, 8
   %inc75.i = add nuw nsw i64 %chunk49.0111.i, 1
   %indvars.iv.next152.i = add nuw nsw i64 %indvars.iv151.i, 8
-  %exitcond153.not.i = icmp eq i64 %inc75.i, %smax.i
+  %exitcond153.not.i = icmp eq i64 %inc75.i, %conv54.i
   br i1 %exitcond153.not.i, label %for.cond77.preheader.loopexit.i, label %for.cond58.preheader.i, !llvm.loop !452
 
 for.body81.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9Int64TypeElEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUllbE_clElb.exit82.i, %for.body81.lr.ph.i
@@ -9344,18 +9348,19 @@ while.body.i:                                     ; preds = %if.end140.i, %while
   br i1 %cmp14.i, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %while.body.i
+  %div.lhs.trunc.i = trunc i32 %conv11.i to i16
+  %div163.i = sdiv i16 %div.lhs.trunc.i, 8
+  %conv18.i = sext i16 %div163.i to i64
   %cmp19120.i = icmp sgt i32 %conv11.i, 7
   br i1 %cmp19120.i, label %for.cond20.preheader.lr.ph.i, label %for.cond32.preheader.i
 
 for.cond20.preheader.lr.ph.i:                     ; preds = %for.cond.preheader.i
-  %div164.i = lshr i32 %conv11.i, 3
   %IsOutOfBounds.val.val.i = load i8, ptr %bound_lower.addr.i, align 1, !noalias !460
   %7 = load i8, ptr %bound_upper.addr.i, align 1, !noalias !460
-  %smax158.i = zext nneg i32 %div164.i to i64
   br label %for.cond20.preheader.i
 
 for.cond32.preheader.loopexit.i:                  ; preds = %for.inc29.i
-  %8 = shl nuw nsw i64 %smax158.i, 3
+  %8 = shl nuw nsw i64 %conv18.i, 3
   br label %for.cond32.preheader.i
 
 for.cond32.preheader.i:                           ; preds = %for.cond32.preheader.loopexit.i, %for.cond.preheader.i
@@ -9395,7 +9400,7 @@ for.inc29.i:                                      ; preds = %for.body22.i
   %14 = add nuw nsw i64 %i.0122.i, 8
   %inc30.i = add nuw nsw i64 %chunk.0123.i, 1
   %indvars.iv.next157.i = add nuw nsw i64 %indvars.iv156.i, 8
-  %exitcond159.not.i = icmp eq i64 %inc30.i, %smax158.i
+  %exitcond159.not.i = icmp eq i64 %inc30.i, %conv18.i
   br i1 %exitcond159.not.i, label %for.cond32.preheader.loopexit.i, label %for.cond20.preheader.i, !llvm.loop !467
 
 for.body36.i:                                     ; preds = %for.body36.i, %for.body36.lr.ph.i
@@ -9418,18 +9423,18 @@ if.else.i:                                        ; preds = %while.body.i
   br i1 %cmp50.i, label %for.cond54.preheader.i, label %if.end140.i
 
 for.cond54.preheader.i:                           ; preds = %if.else.i
+  %div57164.i = sdiv i16 %block.sroa.0.0.extract.trunc.i, 8
+  %conv58.i = sext i16 %div57164.i to i64
   %cmp59108.i = icmp sgt i32 %conv13.i, 7
   br i1 %cmp59108.i, label %for.cond62.preheader.lr.ph.i, label %for.cond81.preheader.i
 
 for.cond62.preheader.lr.ph.i:                     ; preds = %for.cond54.preheader.i
-  %div57163.i = lshr i32 %conv13.i, 3
   %20 = load i8, ptr %bound_lower.addr.i, align 1, !noalias !460
   %21 = load i8, ptr %bound_upper.addr.i, align 1, !noalias !460
-  %smax.i = zext nneg i32 %div57163.i to i64
   br label %for.cond62.preheader.i
 
 for.cond81.preheader.loopexit.i:                  ; preds = %for.inc78.i
-  %22 = shl nuw nsw i64 %smax.i, 3
+  %22 = shl nuw nsw i64 %conv58.i, 3
   br label %for.cond81.preheader.i
 
 for.cond81.preheader.i:                           ; preds = %for.cond81.preheader.loopexit.i, %for.cond54.preheader.i
@@ -9486,7 +9491,7 @@ for.inc78.i:                                      ; preds = %_ZZN5arrow8internal
   %33 = add nuw nsw i64 %i52.0110.i, 8
   %inc79.i = add nuw nsw i64 %chunk53.0111.i, 1
   %indvars.iv.next152.i = add nuw nsw i64 %indvars.iv151.i, 8
-  %exitcond153.not.i = icmp eq i64 %inc79.i, %smax.i
+  %exitcond153.not.i = icmp eq i64 %inc79.i, %conv58.i
   br i1 %exitcond153.not.i, label %for.cond81.preheader.loopexit.i, label %for.cond62.preheader.i, !llvm.loop !470
 
 for.body85.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_9UInt8TypeEhEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlhbE_clEhb.exit82.i, %for.body85.lr.ph.i
@@ -9679,18 +9684,19 @@ while.body.i:                                     ; preds = %if.end140.i, %while
   br i1 %cmp14.i, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %while.body.i
+  %div.lhs.trunc.i = trunc i32 %conv11.i to i16
+  %div163.i = sdiv i16 %div.lhs.trunc.i, 8
+  %conv18.i = sext i16 %div163.i to i64
   %cmp19120.i = icmp sgt i32 %conv11.i, 7
   br i1 %cmp19120.i, label %for.cond20.preheader.lr.ph.i, label %for.cond32.preheader.i
 
 for.cond20.preheader.lr.ph.i:                     ; preds = %for.cond.preheader.i
-  %div164.i = lshr i32 %conv11.i, 3
   %IsOutOfBounds.val.val.i = load i16, ptr %bound_lower.addr.i, align 2, !noalias !478
   %7 = load i16, ptr %bound_upper.addr.i, align 2, !noalias !478
-  %smax158.i = zext nneg i32 %div164.i to i64
   br label %for.cond20.preheader.i
 
 for.cond32.preheader.loopexit.i:                  ; preds = %for.inc29.i
-  %8 = shl nuw nsw i64 %smax158.i, 3
+  %8 = shl nuw nsw i64 %conv18.i, 3
   br label %for.cond32.preheader.i
 
 for.cond32.preheader.i:                           ; preds = %for.cond32.preheader.loopexit.i, %for.cond.preheader.i
@@ -9730,7 +9736,7 @@ for.inc29.i:                                      ; preds = %for.body22.i
   %14 = add nuw nsw i64 %i.0122.i, 8
   %inc30.i = add nuw nsw i64 %chunk.0123.i, 1
   %indvars.iv.next157.i = add nuw nsw i64 %indvars.iv156.i, 8
-  %exitcond159.not.i = icmp eq i64 %inc30.i, %smax158.i
+  %exitcond159.not.i = icmp eq i64 %inc30.i, %conv18.i
   br i1 %exitcond159.not.i, label %for.cond32.preheader.loopexit.i, label %for.cond20.preheader.i, !llvm.loop !485
 
 for.body36.i:                                     ; preds = %for.body36.i, %for.body36.lr.ph.i
@@ -9753,18 +9759,18 @@ if.else.i:                                        ; preds = %while.body.i
   br i1 %cmp50.i, label %for.cond54.preheader.i, label %if.end140.i
 
 for.cond54.preheader.i:                           ; preds = %if.else.i
+  %div57164.i = sdiv i16 %block.sroa.0.0.extract.trunc.i, 8
+  %conv58.i = sext i16 %div57164.i to i64
   %cmp59108.i = icmp sgt i32 %conv13.i, 7
   br i1 %cmp59108.i, label %for.cond62.preheader.lr.ph.i, label %for.cond81.preheader.i
 
 for.cond62.preheader.lr.ph.i:                     ; preds = %for.cond54.preheader.i
-  %div57163.i = lshr i32 %conv13.i, 3
   %20 = load i16, ptr %bound_lower.addr.i, align 2, !noalias !478
   %21 = load i16, ptr %bound_upper.addr.i, align 2, !noalias !478
-  %smax.i = zext nneg i32 %div57163.i to i64
   br label %for.cond62.preheader.i
 
 for.cond81.preheader.loopexit.i:                  ; preds = %for.inc78.i
-  %22 = shl nuw nsw i64 %smax.i, 3
+  %22 = shl nuw nsw i64 %conv58.i, 3
   br label %for.cond81.preheader.i
 
 for.cond81.preheader.i:                           ; preds = %for.cond81.preheader.loopexit.i, %for.cond54.preheader.i
@@ -9821,7 +9827,7 @@ for.inc78.i:                                      ; preds = %_ZZN5arrow8internal
   %33 = add nuw nsw i64 %i52.0110.i, 8
   %inc79.i = add nuw nsw i64 %chunk53.0111.i, 1
   %indvars.iv.next152.i = add nuw nsw i64 %indvars.iv151.i, 8
-  %exitcond153.not.i = icmp eq i64 %inc79.i, %smax.i
+  %exitcond153.not.i = icmp eq i64 %inc79.i, %conv58.i
   br i1 %exitcond153.not.i, label %for.cond81.preheader.loopexit.i, label %for.cond62.preheader.i, !llvm.loop !488
 
 for.body85.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt16TypeEtEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUltbE_clEtb.exit82.i, %for.body85.lr.ph.i
@@ -10014,18 +10020,19 @@ while.body.i:                                     ; preds = %if.end136.i, %while
   br i1 %cmp10.i, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %while.body.i
+  %div.lhs.trunc.i = trunc i32 %conv.i to i16
+  %div163.i = sdiv i16 %div.lhs.trunc.i, 8
+  %conv14.i = sext i16 %div163.i to i64
   %cmp15120.i = icmp sgt i32 %conv.i, 7
   br i1 %cmp15120.i, label %for.cond16.preheader.lr.ph.i, label %for.cond28.preheader.i
 
 for.cond16.preheader.lr.ph.i:                     ; preds = %for.cond.preheader.i
-  %div164.i = lshr i32 %conv.i, 3
   %IsOutOfBounds.val.val.i = load i32, ptr %bound_lower.addr.i, align 4, !noalias !496
   %7 = load i32, ptr %bound_upper.addr.i, align 4, !noalias !496
-  %smax158.i = zext nneg i32 %div164.i to i64
   br label %for.cond16.preheader.i
 
 for.cond28.preheader.loopexit.i:                  ; preds = %for.inc25.i
-  %8 = shl nuw nsw i64 %smax158.i, 3
+  %8 = shl nuw nsw i64 %conv14.i, 3
   br label %for.cond28.preheader.i
 
 for.cond28.preheader.i:                           ; preds = %for.cond28.preheader.loopexit.i, %for.cond.preheader.i
@@ -10065,7 +10072,7 @@ for.inc25.i:                                      ; preds = %for.body18.i
   %14 = add nuw nsw i64 %i.0122.i, 8
   %inc26.i = add nuw nsw i64 %chunk.0123.i, 1
   %indvars.iv.next157.i = add nuw nsw i64 %indvars.iv156.i, 8
-  %exitcond159.not.i = icmp eq i64 %inc26.i, %smax158.i
+  %exitcond159.not.i = icmp eq i64 %inc26.i, %conv14.i
   br i1 %exitcond159.not.i, label %for.cond28.preheader.loopexit.i, label %for.cond16.preheader.i, !llvm.loop !503
 
 for.body32.i:                                     ; preds = %for.body32.i, %for.body32.lr.ph.i
@@ -10088,18 +10095,18 @@ if.else.i:                                        ; preds = %while.body.i
   br i1 %cmp46.i, label %for.cond50.preheader.i, label %if.end136.i
 
 for.cond50.preheader.i:                           ; preds = %if.else.i
+  %div53164.i = sdiv i16 %block.sroa.0.0.extract.trunc.i, 8
+  %conv54.i = sext i16 %div53164.i to i64
   %cmp55108.i = icmp sgt i32 %conv9.i, 7
   br i1 %cmp55108.i, label %for.cond58.preheader.lr.ph.i, label %for.cond77.preheader.i
 
 for.cond58.preheader.lr.ph.i:                     ; preds = %for.cond50.preheader.i
-  %div53163.i = lshr i32 %conv9.i, 3
   %20 = load i32, ptr %bound_lower.addr.i, align 4, !noalias !496
   %21 = load i32, ptr %bound_upper.addr.i, align 4, !noalias !496
-  %smax.i = zext nneg i32 %div53163.i to i64
   br label %for.cond58.preheader.i
 
 for.cond77.preheader.loopexit.i:                  ; preds = %for.inc74.i
-  %22 = shl nuw nsw i64 %smax.i, 3
+  %22 = shl nuw nsw i64 %conv54.i, 3
   br label %for.cond77.preheader.i
 
 for.cond77.preheader.i:                           ; preds = %for.cond77.preheader.loopexit.i, %for.cond50.preheader.i
@@ -10156,7 +10163,7 @@ for.inc74.i:                                      ; preds = %_ZZN5arrow8internal
   %33 = add nuw nsw i64 %i48.0110.i, 8
   %inc75.i = add nuw nsw i64 %chunk49.0111.i, 1
   %indvars.iv.next152.i = add nuw nsw i64 %indvars.iv151.i, 8
-  %exitcond153.not.i = icmp eq i64 %inc75.i, %smax.i
+  %exitcond153.not.i = icmp eq i64 %inc75.i, %conv54.i
   br i1 %exitcond153.not.i, label %for.cond77.preheader.loopexit.i, label %for.cond58.preheader.i, !llvm.loop !506
 
 for.body81.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt32TypeEjEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUljbE_clEjb.exit82.i, %for.body81.lr.ph.i
@@ -10349,18 +10356,19 @@ while.body.i:                                     ; preds = %if.end136.i, %while
   br i1 %cmp10.i, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %while.body.i
+  %div.lhs.trunc.i = trunc i32 %conv.i to i16
+  %div163.i = sdiv i16 %div.lhs.trunc.i, 8
+  %conv14.i = sext i16 %div163.i to i64
   %cmp15120.i = icmp sgt i32 %conv.i, 7
   br i1 %cmp15120.i, label %for.cond16.preheader.lr.ph.i, label %for.cond28.preheader.i
 
 for.cond16.preheader.lr.ph.i:                     ; preds = %for.cond.preheader.i
-  %div164.i = lshr i32 %conv.i, 3
   %IsOutOfBounds.val.val.i = load i64, ptr %bound_lower.addr.i, align 8, !noalias !514
   %7 = load i64, ptr %bound_upper.addr.i, align 8, !noalias !514
-  %smax158.i = zext nneg i32 %div164.i to i64
   br label %for.cond16.preheader.i
 
 for.cond28.preheader.loopexit.i:                  ; preds = %for.inc25.i
-  %8 = shl nuw nsw i64 %smax158.i, 3
+  %8 = shl nuw nsw i64 %conv14.i, 3
   br label %for.cond28.preheader.i
 
 for.cond28.preheader.i:                           ; preds = %for.cond28.preheader.loopexit.i, %for.cond.preheader.i
@@ -10400,7 +10408,7 @@ for.inc25.i:                                      ; preds = %for.body18.i
   %14 = add nuw nsw i64 %i.0122.i, 8
   %inc26.i = add nuw nsw i64 %chunk.0123.i, 1
   %indvars.iv.next157.i = add nuw nsw i64 %indvars.iv156.i, 8
-  %exitcond159.not.i = icmp eq i64 %inc26.i, %smax158.i
+  %exitcond159.not.i = icmp eq i64 %inc26.i, %conv14.i
   br i1 %exitcond159.not.i, label %for.cond28.preheader.loopexit.i, label %for.cond16.preheader.i, !llvm.loop !521
 
 for.body32.i:                                     ; preds = %for.body32.i, %for.body32.lr.ph.i
@@ -10423,18 +10431,18 @@ if.else.i:                                        ; preds = %while.body.i
   br i1 %cmp46.i, label %for.cond50.preheader.i, label %if.end136.i
 
 for.cond50.preheader.i:                           ; preds = %if.else.i
+  %div53164.i = sdiv i16 %block.sroa.0.0.extract.trunc.i, 8
+  %conv54.i = sext i16 %div53164.i to i64
   %cmp55108.i = icmp sgt i32 %conv9.i, 7
   br i1 %cmp55108.i, label %for.cond58.preheader.lr.ph.i, label %for.cond77.preheader.i
 
 for.cond58.preheader.lr.ph.i:                     ; preds = %for.cond50.preheader.i
-  %div53163.i = lshr i32 %conv9.i, 3
   %20 = load i64, ptr %bound_lower.addr.i, align 8, !noalias !514
   %21 = load i64, ptr %bound_upper.addr.i, align 8, !noalias !514
-  %smax.i = zext nneg i32 %div53163.i to i64
   br label %for.cond58.preheader.i
 
 for.cond77.preheader.loopexit.i:                  ; preds = %for.inc74.i
-  %22 = shl nuw nsw i64 %smax.i, 3
+  %22 = shl nuw nsw i64 %conv54.i, 3
   br label %for.cond77.preheader.i
 
 for.cond77.preheader.i:                           ; preds = %for.cond77.preheader.loopexit.i, %for.cond50.preheader.i
@@ -10491,7 +10499,7 @@ for.inc74.i:                                      ; preds = %_ZZN5arrow8internal
   %33 = add nuw nsw i64 %i48.0110.i, 8
   %inc75.i = add nuw nsw i64 %chunk49.0111.i, 1
   %indvars.iv.next152.i = add nuw nsw i64 %indvars.iv151.i, 8
-  %exitcond153.not.i = icmp eq i64 %inc75.i, %smax.i
+  %exitcond153.not.i = icmp eq i64 %inc75.i, %conv54.i
   br i1 %exitcond153.not.i, label %for.cond77.preheader.loopexit.i, label %for.cond58.preheader.i, !llvm.loop !524
 
 for.body81.i:                                     ; preds = %_ZZN5arrow8internal12_GLOBAL__N_115IntegersInRangeINS_10UInt64TypeEmEENS_6StatusERKNS_9ArraySpanET0_S8_ENKUlmbE_clEmb.exit82.i, %for.body81.lr.ph.i

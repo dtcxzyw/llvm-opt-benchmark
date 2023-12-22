@@ -38,12 +38,12 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @setup_tests() local_unnamed_addr #0 {
 entry:
-  tail call void @add_all_tests(ptr noundef nonnull @.str, ptr noundef nonnull @test_bio_enc_aes_128_cbc, i32 noundef 2, i32 noundef 1) #4
-  tail call void @add_all_tests(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_bio_enc_aes_128_ctr, i32 noundef 2, i32 noundef 1) #4
-  tail call void @add_all_tests(ptr noundef nonnull @.str.2, ptr noundef nonnull @test_bio_enc_aes_256_cfb, i32 noundef 2, i32 noundef 1) #4
-  tail call void @add_all_tests(ptr noundef nonnull @.str.3, ptr noundef nonnull @test_bio_enc_aes_256_ofb, i32 noundef 2, i32 noundef 1) #4
-  tail call void @add_all_tests(ptr noundef nonnull @.str.4, ptr noundef nonnull @test_bio_enc_chacha20, i32 noundef 2, i32 noundef 1) #4
-  tail call void @add_all_tests(ptr noundef nonnull @.str.5, ptr noundef nonnull @test_bio_enc_chacha20_poly1305, i32 noundef 2, i32 noundef 1) #4
+  tail call void @add_all_tests(ptr noundef nonnull @.str, ptr noundef nonnull @test_bio_enc_aes_128_cbc, i32 noundef 2, i32 noundef 1) #3
+  tail call void @add_all_tests(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_bio_enc_aes_128_ctr, i32 noundef 2, i32 noundef 1) #3
+  tail call void @add_all_tests(ptr noundef nonnull @.str.2, ptr noundef nonnull @test_bio_enc_aes_256_cfb, i32 noundef 2, i32 noundef 1) #3
+  tail call void @add_all_tests(ptr noundef nonnull @.str.3, ptr noundef nonnull @test_bio_enc_aes_256_ofb, i32 noundef 2, i32 noundef 1) #3
+  tail call void @add_all_tests(ptr noundef nonnull @.str.4, ptr noundef nonnull @test_bio_enc_chacha20, i32 noundef 2, i32 noundef 1) #3
+  tail call void @add_all_tests(ptr noundef nonnull @.str.5, ptr noundef nonnull @test_bio_enc_chacha20_poly1305, i32 noundef 2, i32 noundef 1) #3
   ret i32 1
 }
 
@@ -52,7 +52,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 ; Function Attrs: nounwind uwtable
 define internal i32 @test_bio_enc_aes_128_cbc(i32 noundef %idx) #0 {
 entry:
-  %call = tail call ptr @EVP_aes_128_cbc() #4
+  %call = tail call ptr @EVP_aes_128_cbc() #3
   switch i32 %idx, label %do_test_bio_cipher.exit [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb1.i
@@ -74,7 +74,7 @@ do_test_bio_cipher.exit:                          ; preds = %entry, %sw.bb.i, %s
 ; Function Attrs: nounwind uwtable
 define internal i32 @test_bio_enc_aes_128_ctr(i32 noundef %idx) #0 {
 entry:
-  %call = tail call ptr @EVP_aes_128_ctr() #4
+  %call = tail call ptr @EVP_aes_128_ctr() #3
   switch i32 %idx, label %do_test_bio_cipher.exit [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb1.i
@@ -96,7 +96,7 @@ do_test_bio_cipher.exit:                          ; preds = %entry, %sw.bb.i, %s
 ; Function Attrs: nounwind uwtable
 define internal i32 @test_bio_enc_aes_256_cfb(i32 noundef %idx) #0 {
 entry:
-  %call = tail call ptr @EVP_aes_256_cfb128() #4
+  %call = tail call ptr @EVP_aes_256_cfb128() #3
   switch i32 %idx, label %do_test_bio_cipher.exit [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb1.i
@@ -118,7 +118,7 @@ do_test_bio_cipher.exit:                          ; preds = %entry, %sw.bb.i, %s
 ; Function Attrs: nounwind uwtable
 define internal i32 @test_bio_enc_aes_256_ofb(i32 noundef %idx) #0 {
 entry:
-  %call = tail call ptr @EVP_aes_256_ofb() #4
+  %call = tail call ptr @EVP_aes_256_ofb() #3
   switch i32 %idx, label %do_test_bio_cipher.exit [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb1.i
@@ -140,7 +140,7 @@ do_test_bio_cipher.exit:                          ; preds = %entry, %sw.bb.i, %s
 ; Function Attrs: nounwind uwtable
 define internal i32 @test_bio_enc_chacha20(i32 noundef %idx) #0 {
 entry:
-  %call = tail call ptr @EVP_chacha20() #4
+  %call = tail call ptr @EVP_chacha20() #3
   switch i32 %idx, label %do_test_bio_cipher.exit [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb1.i
@@ -162,7 +162,7 @@ do_test_bio_cipher.exit:                          ; preds = %entry, %sw.bb.i, %s
 ; Function Attrs: nounwind uwtable
 define internal i32 @test_bio_enc_chacha20_poly1305(i32 noundef %idx) #0 {
 entry:
-  %call = tail call ptr @EVP_chacha20_poly1305() #4
+  %call = tail call ptr @EVP_chacha20_poly1305() #3
   switch i32 %idx, label %do_test_bio_cipher.exit [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb1.i
@@ -188,36 +188,36 @@ define internal fastcc i32 @do_bio_cipher(ptr noundef %cipher, ptr noundef %iv) 
 entry:
   %out = alloca [1056 x i8], align 16
   %ref = alloca [1056 x i8], align 16
-  %call = tail call i32 @RAND_bytes(ptr noundef nonnull @do_bio_cipher.inp, i32 noundef 1024) #4
-  %call1 = tail call i32 @test_int_gt(ptr noundef nonnull @.str.6, i32 noundef 47, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef %call, i32 noundef 0) #4
+  %call = tail call i32 @RAND_bytes(ptr noundef nonnull @do_bio_cipher.inp, i32 noundef 1024) #3
+  %call1 = tail call i32 @test_int_gt(ptr noundef nonnull @.str.6, i32 noundef 47, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef %call, i32 noundef 0) #3
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call ptr @BIO_f_cipher() #4
-  %call3 = tail call ptr @BIO_new(ptr noundef %call2) #4
-  %call4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 54, ptr noundef nonnull @.str.9, ptr noundef %call3) #4
+  %call2 = tail call ptr @BIO_f_cipher() #3
+  %call3 = tail call ptr @BIO_new(ptr noundef %call2) #3
+  %call4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 54, ptr noundef nonnull @.str.9, ptr noundef %call3) #3
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %call8 = tail call i32 @BIO_set_cipher(ptr noundef %call3, ptr noundef %cipher, ptr noundef nonnull @KEY, ptr noundef %iv, i32 noundef 1) #4
+  %call8 = tail call i32 @BIO_set_cipher(ptr noundef %call3, ptr noundef %cipher, ptr noundef nonnull @KEY, ptr noundef %iv, i32 noundef 1) #3
   %cmp = icmp ne i32 %call8, 0
   %conv = zext i1 %cmp to i32
-  %call9 = tail call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 56, ptr noundef nonnull @.str.10, i32 noundef %conv) #4
+  %call9 = tail call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 56, ptr noundef nonnull @.str.10, i32 noundef %conv) #3
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %err, label %if.end12
 
 if.end12:                                         ; preds = %if.end7
-  %call13 = tail call ptr @BIO_new_mem_buf(ptr noundef nonnull @do_bio_cipher.inp, i32 noundef 1024) #4
-  %call14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 59, ptr noundef nonnull @.str.11, ptr noundef %call13) #4
+  %call13 = tail call ptr @BIO_new_mem_buf(ptr noundef nonnull @do_bio_cipher.inp, i32 noundef 1024) #3
+  %call14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 59, ptr noundef nonnull @.str.11, ptr noundef %call13) #3
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %err, label %if.end17
 
 if.end17:                                         ; preds = %if.end12
-  %call18 = tail call ptr @BIO_push(ptr noundef %call3, ptr noundef %call13) #4
-  %call19 = call i32 @BIO_read(ptr noundef %call3, ptr noundef nonnull %ref, i32 noundef 1056) #4
-  call void @BIO_free_all(ptr noundef %call3) #4
+  %call18 = tail call ptr @BIO_push(ptr noundef %call3, ptr noundef %call13) #3
+  %call19 = call i32 @BIO_read(ptr noundef %call3, ptr noundef nonnull %ref, i32 noundef 1056) #3
+  call void @BIO_free_all(ptr noundef %call3) #3
   %cmp2041 = icmp sgt i32 %call19, 1
   br i1 %cmp2041, label %for.body.lr.ph, label %for.cond71.preheader.thread
 
@@ -236,38 +236,37 @@ for.cond71.preheader:                             ; preds = %for.inc
 
 for.body74.lr.ph:                                 ; preds = %for.cond71.preheader
   %conv107 = zext nneg i32 %call19 to i64
-  %smax = call i32 @llvm.smax.i32(i32 %div149, i32 2)
   br label %for.body74
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %call22 = call ptr @BIO_f_cipher() #4
-  %call23 = call ptr @BIO_new(ptr noundef %call22) #4
-  %call24 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 68, ptr noundef nonnull @.str.9, ptr noundef %call23) #4
+  %call22 = call ptr @BIO_f_cipher() #3
+  %call23 = call ptr @BIO_new(ptr noundef %call22) #3
+  %call24 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 68, ptr noundef nonnull @.str.9, ptr noundef %call23) #3
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %return, label %if.end27
 
 if.end27:                                         ; preds = %for.body
-  %call28 = call i32 @BIO_set_cipher(ptr noundef %call23, ptr noundef %cipher, ptr noundef nonnull @KEY, ptr noundef %iv, i32 noundef 1) #4
+  %call28 = call i32 @BIO_set_cipher(ptr noundef %call23, ptr noundef %cipher, ptr noundef nonnull @KEY, ptr noundef %iv, i32 noundef 1) #3
   %cmp29 = icmp ne i32 %call28, 0
   %conv30 = zext i1 %cmp29 to i32
-  %call31 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 70, ptr noundef nonnull @.str.10, i32 noundef %conv30) #4
+  %call31 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 70, ptr noundef nonnull @.str.10, i32 noundef %conv30) #3
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %if.end27
   %0 = trunc i64 %indvars.iv to i32
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.6, i32 noundef 71, ptr noundef nonnull @.str.12, i32 noundef %0) #4
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.6, i32 noundef 71, ptr noundef nonnull @.str.12, i32 noundef %0) #3
   br label %err
 
 if.end34:                                         ; preds = %if.end27
-  %call35 = call ptr @BIO_new_mem_buf(ptr noundef nonnull @do_bio_cipher.inp, i32 noundef 1024) #4
-  %call36 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 75, ptr noundef nonnull @.str.11, ptr noundef %call35) #4
+  %call35 = call ptr @BIO_new_mem_buf(ptr noundef nonnull @do_bio_cipher.inp, i32 noundef 1024) #3
+  %call36 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 75, ptr noundef nonnull @.str.11, ptr noundef %call35) #3
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %err, label %if.end39
 
 if.end39:                                         ; preds = %if.end34
-  %call40 = call ptr @BIO_push(ptr noundef %call23, ptr noundef %call35) #4
+  %call40 = call ptr @BIO_push(ptr noundef %call23, ptr noundef %call35) #3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1056) %out, i8 0, i64 1056, i1 false)
   %arrayidx = getelementptr inbounds [1056 x i8], ptr %ref, i64 0, i64 %indvars.iv
   %1 = load i8, ptr %arrayidx, align 1
@@ -275,32 +274,32 @@ if.end39:                                         ; preds = %if.end34
   %arrayidx45 = getelementptr inbounds [1056 x i8], ptr %out, i64 0, i64 %indvars.iv
   store i8 %not, ptr %arrayidx45, align 1
   %2 = trunc i64 %indvars.iv to i32
-  %call47 = call i32 @BIO_read(ptr noundef %call23, ptr noundef nonnull %out, i32 noundef %2) #4
+  %call47 = call i32 @BIO_read(ptr noundef %call23, ptr noundef nonnull %out, i32 noundef %2) #3
   %3 = load i8, ptr %arrayidx45, align 1
   %4 = load i8, ptr %arrayidx, align 1
   %not53 = xor i8 %4, -1
-  %call55 = call i32 @test_uchar_eq(ptr noundef nonnull @.str.6, i32 noundef 82, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i8 noundef zeroext %3, i8 noundef zeroext %not53) #4
+  %call55 = call i32 @test_uchar_eq(ptr noundef nonnull @.str.6, i32 noundef 82, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i8 noundef zeroext %3, i8 noundef zeroext %not53) #3
   %tobool56.not = icmp eq i32 %call55, 0
   br i1 %tobool56.not, label %if.then57, label %if.end58
 
 if.then57:                                        ; preds = %if.end39
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.6, i32 noundef 83, ptr noundef nonnull @.str.15, i32 noundef %2) #4
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.6, i32 noundef 83, ptr noundef nonnull @.str.15, i32 noundef %2) #3
   br label %err
 
 if.end58:                                         ; preds = %if.end39
   %idx.ext = sext i32 %call47 to i64
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 %idx.ext
   %sub = sub i32 1056, %call47
-  %call62 = call i32 @BIO_read(ptr noundef %call23, ptr noundef nonnull %add.ptr, i32 noundef %sub) #4
+  %call62 = call i32 @BIO_read(ptr noundef %call23, ptr noundef nonnull %add.ptr, i32 noundef %sub) #3
   %add = add nsw i32 %call62, %call47
-  call void @BIO_free_all(ptr noundef %call23) #4
+  call void @BIO_free_all(ptr noundef %call23) #3
   %conv64 = sext i32 %add to i64
-  %call67 = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 89, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull %out, i64 noundef %conv64, ptr noundef nonnull %ref, i64 noundef %conv66) #4
+  %call67 = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 89, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull %out, i64 noundef %conv64, ptr noundef nonnull %ref, i64 noundef %conv66) #3
   %tobool68.not = icmp eq i32 %call67, 0
   br i1 %tobool68.not, label %if.then69, label %for.inc
 
 if.then69:                                        ; preds = %if.end58
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.6, i32 noundef 90, ptr noundef nonnull @.str.18, i32 noundef %2) #4
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.6, i32 noundef 90, ptr noundef nonnull @.str.18, i32 noundef %2) #3
   br label %return
 
 for.inc:                                          ; preds = %if.end58
@@ -310,32 +309,32 @@ for.inc:                                          ; preds = %if.end58
 
 for.body74:                                       ; preds = %for.body74.lr.ph, %for.inc112
   %i.144 = phi i32 [ 1, %for.body74.lr.ph ], [ %inc113, %for.inc112 ]
-  %call75 = call ptr @BIO_f_cipher() #4
-  %call76 = call ptr @BIO_new(ptr noundef %call75) #4
-  %call77 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 100, ptr noundef nonnull @.str.9, ptr noundef %call76) #4
+  %call75 = call ptr @BIO_f_cipher() #3
+  %call76 = call ptr @BIO_new(ptr noundef %call75) #3
+  %call77 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 100, ptr noundef nonnull @.str.9, ptr noundef %call76) #3
   %tobool78.not = icmp eq i32 %call77, 0
   br i1 %tobool78.not, label %return, label %if.end80
 
 if.end80:                                         ; preds = %for.body74
-  %call81 = call i32 @BIO_set_cipher(ptr noundef %call76, ptr noundef %cipher, ptr noundef nonnull @KEY, ptr noundef %iv, i32 noundef 1) #4
+  %call81 = call i32 @BIO_set_cipher(ptr noundef %call76, ptr noundef %cipher, ptr noundef nonnull @KEY, ptr noundef %iv, i32 noundef 1) #3
   %cmp82 = icmp ne i32 %call81, 0
   %conv83 = zext i1 %cmp82 to i32
-  %call84 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 102, ptr noundef nonnull @.str.10, i32 noundef %conv83) #4
+  %call84 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 102, ptr noundef nonnull @.str.10, i32 noundef %conv83) #3
   %tobool85.not = icmp eq i32 %call84, 0
   br i1 %tobool85.not, label %if.then86, label %if.end87
 
 if.then86:                                        ; preds = %if.end80
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.6, i32 noundef 103, ptr noundef nonnull @.str.19, i32 noundef %i.144) #4
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.6, i32 noundef 103, ptr noundef nonnull @.str.19, i32 noundef %i.144) #3
   br label %err
 
 if.end87:                                         ; preds = %if.end80
-  %call88 = call ptr @BIO_new_mem_buf(ptr noundef nonnull @do_bio_cipher.inp, i32 noundef 1024) #4
-  %call89 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 107, ptr noundef nonnull @.str.11, ptr noundef %call88) #4
+  %call88 = call ptr @BIO_new_mem_buf(ptr noundef nonnull @do_bio_cipher.inp, i32 noundef 1024) #3
+  %call89 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 107, ptr noundef nonnull @.str.11, ptr noundef %call88) #3
   %tobool90.not = icmp eq i32 %call89, 0
   br i1 %tobool90.not, label %err, label %if.end92
 
 if.end92:                                         ; preds = %if.end87
-  %call93 = call ptr @BIO_push(ptr noundef %call76, ptr noundef %call88) #4
+  %call93 = call ptr @BIO_push(ptr noundef %call76, ptr noundef %call88) #3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1056) %out, i8 0, i64 1056, i1 false)
   br label %for.cond95
 
@@ -343,57 +342,57 @@ for.cond95:                                       ; preds = %for.cond95, %if.end
   %len.0 = phi i32 [ 0, %if.end92 ], [ %add102, %for.cond95 ]
   %idx.ext97 = sext i32 %len.0 to i64
   %add.ptr98 = getelementptr inbounds i8, ptr %out, i64 %idx.ext97
-  %call99 = call i32 @BIO_read(ptr noundef %call76, ptr noundef nonnull %add.ptr98, i32 noundef %i.144) #4
+  %call99 = call i32 @BIO_read(ptr noundef %call76, ptr noundef nonnull %add.ptr98, i32 noundef %i.144) #3
   %tobool100.not = icmp eq i32 %call99, 0
   %add102 = add nsw i32 %call99, %len.0
   br i1 %tobool100.not, label %for.end103, label %for.cond95, !llvm.loop !7
 
 for.end103:                                       ; preds = %for.cond95
-  call void @BIO_free_all(ptr noundef %call76) #4
-  %call108 = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 116, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull %out, i64 noundef %idx.ext97, ptr noundef nonnull %ref, i64 noundef %conv107) #4
+  call void @BIO_free_all(ptr noundef %call76) #3
+  %call108 = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 116, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull %out, i64 noundef %idx.ext97, ptr noundef nonnull %ref, i64 noundef %conv107) #3
   %tobool109.not = icmp eq i32 %call108, 0
   br i1 %tobool109.not, label %if.then110, label %for.inc112
 
 if.then110:                                       ; preds = %for.end103
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.6, i32 noundef 117, ptr noundef nonnull @.str.20, i32 noundef %i.144) #4
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.6, i32 noundef 117, ptr noundef nonnull @.str.20, i32 noundef %i.144) #3
   br label %return
 
 for.inc112:                                       ; preds = %for.end103
   %inc113 = add nuw nsw i32 %i.144, 1
-  %exitcond92.not = icmp eq i32 %inc113, %smax
+  %exitcond92.not = icmp eq i32 %inc113, %div149
   br i1 %exitcond92.not, label %for.end114, label %for.body74, !llvm.loop !8
 
 for.end114:                                       ; preds = %for.inc112, %for.cond71.preheader.thread, %for.cond71.preheader
   %cmp7243103 = phi i1 [ false, %for.cond71.preheader.thread ], [ false, %for.cond71.preheader ], [ %cmp7243, %for.inc112 ]
   %div102 = phi i32 [ %div100, %for.cond71.preheader.thread ], [ %div149, %for.cond71.preheader ], [ %div149, %for.inc112 ]
-  %call115 = call ptr @BIO_f_cipher() #4
-  %call116 = call ptr @BIO_new(ptr noundef %call115) #4
-  %call117 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 126, ptr noundef nonnull @.str.9, ptr noundef %call116) #4
+  %call115 = call ptr @BIO_f_cipher() #3
+  %call116 = call ptr @BIO_new(ptr noundef %call115) #3
+  %call117 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 126, ptr noundef nonnull @.str.9, ptr noundef %call116) #3
   %tobool118.not = icmp eq i32 %call117, 0
   br i1 %tobool118.not, label %return, label %if.end120
 
 if.end120:                                        ; preds = %for.end114
-  %call121 = call i32 @BIO_set_cipher(ptr noundef %call116, ptr noundef %cipher, ptr noundef nonnull @KEY, ptr noundef %iv, i32 noundef 0) #4
+  %call121 = call i32 @BIO_set_cipher(ptr noundef %call116, ptr noundef %cipher, ptr noundef nonnull @KEY, ptr noundef %iv, i32 noundef 0) #3
   %cmp122 = icmp ne i32 %call121, 0
   %conv123 = zext i1 %cmp122 to i32
-  %call124 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 128, ptr noundef nonnull @.str.21, i32 noundef %conv123) #4
+  %call124 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 128, ptr noundef nonnull @.str.21, i32 noundef %conv123) #3
   %tobool125.not = icmp eq i32 %call124, 0
   br i1 %tobool125.not, label %err, label %if.end127
 
 if.end127:                                        ; preds = %if.end120
-  %call129 = call ptr @BIO_new_mem_buf(ptr noundef nonnull %ref, i32 noundef %call19) #4
-  %call130 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 132, ptr noundef nonnull @.str.11, ptr noundef %call129) #4
+  %call129 = call ptr @BIO_new_mem_buf(ptr noundef nonnull %ref, i32 noundef %call19) #3
+  %call130 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 132, ptr noundef nonnull @.str.11, ptr noundef %call129) #3
   %tobool131.not = icmp eq i32 %call130, 0
   br i1 %tobool131.not, label %err, label %if.end133
 
 if.end133:                                        ; preds = %if.end127
-  %call134 = call ptr @BIO_push(ptr noundef %call116, ptr noundef %call129) #4
-  %call135 = call i64 @BIO_ctrl(ptr noundef %call116, i32 noundef 11, i64 noundef 0, ptr noundef null) #4
+  %call134 = call ptr @BIO_push(ptr noundef %call116, ptr noundef %call129) #3
+  %call135 = call i64 @BIO_ctrl(ptr noundef %call116, i32 noundef 11, i64 noundef 0, ptr noundef null) #3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1056) %out, i8 0, i64 1056, i1 false)
-  %call139 = call i32 @BIO_read(ptr noundef %call116, ptr noundef nonnull %out, i32 noundef 1056) #4
-  call void @BIO_free_all(ptr noundef %call116) #4
+  %call139 = call i32 @BIO_read(ptr noundef %call116, ptr noundef nonnull %out, i32 noundef 1056) #3
+  call void @BIO_free_all(ptr noundef %call116) #3
   %conv141 = sext i32 %call139 to i64
-  %call142 = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 140, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.16, ptr noundef nonnull @do_bio_cipher.inp, i64 noundef 1024, ptr noundef nonnull %out, i64 noundef %conv141) #4
+  %call142 = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 140, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.16, ptr noundef nonnull @do_bio_cipher.inp, i64 noundef 1024, ptr noundef nonnull %out, i64 noundef %conv141) #3
   %tobool143.not = icmp eq i32 %call142, 0
   br i1 %tobool143.not, label %return, label %for.cond146.preheader
 
@@ -405,41 +404,37 @@ for.body149.preheader:                            ; preds = %for.cond146.prehead
   br label %for.body149
 
 for.cond208.preheader:                            ; preds = %for.inc205, %for.cond146.preheader
-  br i1 %cmp7243103, label %for.body212.preheader, label %return
-
-for.body212.preheader:                            ; preds = %for.cond208.preheader
-  %smax98 = call i32 @llvm.smax.i32(i32 %div102, i32 2)
-  br label %for.body212
+  br i1 %cmp7243103, label %for.body212, label %return
 
 for.body149:                                      ; preds = %for.body149.preheader, %for.inc205
   %indvars.iv93 = phi i64 [ 1, %for.body149.preheader ], [ %indvars.iv.next94, %for.inc205 ]
-  %call150 = call ptr @BIO_f_cipher() #4
-  %call151 = call ptr @BIO_new(ptr noundef %call150) #4
-  %call152 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 146, ptr noundef nonnull @.str.9, ptr noundef %call151) #4
+  %call150 = call ptr @BIO_f_cipher() #3
+  %call151 = call ptr @BIO_new(ptr noundef %call150) #3
+  %call152 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 146, ptr noundef nonnull @.str.9, ptr noundef %call151) #3
   %tobool153.not = icmp eq i32 %call152, 0
   br i1 %tobool153.not, label %return, label %if.end155
 
 if.end155:                                        ; preds = %for.body149
-  %call156 = call i32 @BIO_set_cipher(ptr noundef %call151, ptr noundef %cipher, ptr noundef nonnull @KEY, ptr noundef %iv, i32 noundef 0) #4
+  %call156 = call i32 @BIO_set_cipher(ptr noundef %call151, ptr noundef %cipher, ptr noundef nonnull @KEY, ptr noundef %iv, i32 noundef 0) #3
   %cmp157 = icmp ne i32 %call156, 0
   %conv158 = zext i1 %cmp157 to i32
-  %call159 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 148, ptr noundef nonnull @.str.21, i32 noundef %conv158) #4
+  %call159 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 148, ptr noundef nonnull @.str.21, i32 noundef %conv158) #3
   %tobool160.not = icmp eq i32 %call159, 0
   br i1 %tobool160.not, label %if.then161, label %if.end162
 
 if.then161:                                       ; preds = %if.end155
   %5 = trunc i64 %indvars.iv93 to i32
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.6, i32 noundef 149, ptr noundef nonnull @.str.23, i32 noundef %5) #4
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.6, i32 noundef 149, ptr noundef nonnull @.str.23, i32 noundef %5) #3
   br label %err
 
 if.end162:                                        ; preds = %if.end155
-  %call164 = call ptr @BIO_new_mem_buf(ptr noundef nonnull %ref, i32 noundef %call19) #4
-  %call165 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 153, ptr noundef nonnull @.str.11, ptr noundef %call164) #4
+  %call164 = call ptr @BIO_new_mem_buf(ptr noundef nonnull %ref, i32 noundef %call19) #3
+  %call165 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 153, ptr noundef nonnull @.str.11, ptr noundef %call164) #3
   %tobool166.not = icmp eq i32 %call165, 0
   br i1 %tobool166.not, label %err, label %if.end168
 
 if.end168:                                        ; preds = %if.end162
-  %call169 = call ptr @BIO_push(ptr noundef %call151, ptr noundef %call164) #4
+  %call169 = call ptr @BIO_push(ptr noundef %call151, ptr noundef %call164) #3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1056) %out, i8 0, i64 1056, i1 false)
   %arrayidx172 = getelementptr inbounds [1056 x i8], ptr %ref, i64 0, i64 %indvars.iv93
   %6 = load i8, ptr %arrayidx172, align 1
@@ -447,32 +442,32 @@ if.end168:                                        ; preds = %if.end162
   %arrayidx177 = getelementptr inbounds [1056 x i8], ptr %out, i64 0, i64 %indvars.iv93
   store i8 %not174, ptr %arrayidx177, align 1
   %7 = trunc i64 %indvars.iv93 to i32
-  %call179 = call i32 @BIO_read(ptr noundef %call151, ptr noundef nonnull %out, i32 noundef %7) #4
+  %call179 = call i32 @BIO_read(ptr noundef %call151, ptr noundef nonnull %out, i32 noundef %7) #3
   %8 = load i8, ptr %arrayidx177, align 1
   %9 = load i8, ptr %arrayidx172, align 1
   %not185 = xor i8 %9, -1
-  %call187 = call i32 @test_uchar_eq(ptr noundef nonnull @.str.6, i32 noundef 160, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i8 noundef zeroext %8, i8 noundef zeroext %not185) #4
+  %call187 = call i32 @test_uchar_eq(ptr noundef nonnull @.str.6, i32 noundef 160, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i8 noundef zeroext %8, i8 noundef zeroext %not185) #3
   %tobool188.not = icmp eq i32 %call187, 0
   br i1 %tobool188.not, label %if.then189, label %if.end190
 
 if.then189:                                       ; preds = %if.end168
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.6, i32 noundef 161, ptr noundef nonnull @.str.24, i32 noundef %7) #4
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.6, i32 noundef 161, ptr noundef nonnull @.str.24, i32 noundef %7) #3
   br label %err
 
 if.end190:                                        ; preds = %if.end168
   %idx.ext192 = sext i32 %call179 to i64
   %add.ptr193 = getelementptr inbounds i8, ptr %out, i64 %idx.ext192
   %sub195 = sub i32 1056, %call179
-  %call197 = call i32 @BIO_read(ptr noundef %call151, ptr noundef nonnull %add.ptr193, i32 noundef %sub195) #4
+  %call197 = call i32 @BIO_read(ptr noundef %call151, ptr noundef nonnull %add.ptr193, i32 noundef %sub195) #3
   %add198 = add nsw i32 %call197, %call179
-  call void @BIO_free_all(ptr noundef %call151) #4
+  call void @BIO_free_all(ptr noundef %call151) #3
   %conv200 = sext i32 %add198 to i64
-  %call201 = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 167, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.16, ptr noundef nonnull @do_bio_cipher.inp, i64 noundef 1024, ptr noundef nonnull %out, i64 noundef %conv200) #4
+  %call201 = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 167, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.16, ptr noundef nonnull @do_bio_cipher.inp, i64 noundef 1024, ptr noundef nonnull %out, i64 noundef %conv200) #3
   %tobool202.not = icmp eq i32 %call201, 0
   br i1 %tobool202.not, label %if.then203, label %for.inc205
 
 if.then203:                                       ; preds = %if.end190
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.6, i32 noundef 168, ptr noundef nonnull @.str.25, i32 noundef %7) #4
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.6, i32 noundef 168, ptr noundef nonnull @.str.25, i32 noundef %7) #3
   br label %return
 
 for.inc205:                                       ; preds = %if.end190
@@ -480,34 +475,34 @@ for.inc205:                                       ; preds = %if.end190
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
   br i1 %exitcond97.not, label %for.cond208.preheader, label %for.body149, !llvm.loop !9
 
-for.body212:                                      ; preds = %for.body212.preheader, %for.inc250
-  %i.348 = phi i32 [ %inc251, %for.inc250 ], [ 1, %for.body212.preheader ]
-  %call214 = call ptr @BIO_f_cipher() #4
-  %call215 = call ptr @BIO_new(ptr noundef %call214) #4
-  %call216 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 178, ptr noundef nonnull @.str.9, ptr noundef %call215) #4
+for.body212:                                      ; preds = %for.cond208.preheader, %for.inc250
+  %i.348 = phi i32 [ %inc251, %for.inc250 ], [ 1, %for.cond208.preheader ]
+  %call214 = call ptr @BIO_f_cipher() #3
+  %call215 = call ptr @BIO_new(ptr noundef %call214) #3
+  %call216 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 178, ptr noundef nonnull @.str.9, ptr noundef %call215) #3
   %tobool217.not = icmp eq i32 %call216, 0
   br i1 %tobool217.not, label %return, label %if.end219
 
 if.end219:                                        ; preds = %for.body212
-  %call220 = call i32 @BIO_set_cipher(ptr noundef %call215, ptr noundef %cipher, ptr noundef nonnull @KEY, ptr noundef %iv, i32 noundef 0) #4
+  %call220 = call i32 @BIO_set_cipher(ptr noundef %call215, ptr noundef %cipher, ptr noundef nonnull @KEY, ptr noundef %iv, i32 noundef 0) #3
   %cmp221 = icmp ne i32 %call220, 0
   %conv222 = zext i1 %cmp221 to i32
-  %call223 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 180, ptr noundef nonnull @.str.21, i32 noundef %conv222) #4
+  %call223 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 180, ptr noundef nonnull @.str.21, i32 noundef %conv222) #3
   %tobool224.not = icmp eq i32 %call223, 0
   br i1 %tobool224.not, label %if.then225, label %if.end226
 
 if.then225:                                       ; preds = %if.end219
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.6, i32 noundef 181, ptr noundef nonnull @.str.26, i32 noundef %i.348) #4
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.6, i32 noundef 181, ptr noundef nonnull @.str.26, i32 noundef %i.348) #3
   br label %err
 
 if.end226:                                        ; preds = %if.end219
-  %call228 = call ptr @BIO_new_mem_buf(ptr noundef nonnull %ref, i32 noundef %call19) #4
-  %call229 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 185, ptr noundef nonnull @.str.11, ptr noundef %call228) #4
+  %call228 = call ptr @BIO_new_mem_buf(ptr noundef nonnull %ref, i32 noundef %call19) #3
+  %call229 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 185, ptr noundef nonnull @.str.11, ptr noundef %call228) #3
   %tobool230.not = icmp eq i32 %call229, 0
   br i1 %tobool230.not, label %err, label %if.end232
 
 if.end232:                                        ; preds = %if.end226
-  %call233 = call ptr @BIO_push(ptr noundef %call215, ptr noundef %call228) #4
+  %call233 = call ptr @BIO_push(ptr noundef %call215, ptr noundef %call228) #3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1056) %out, i8 0, i64 1056, i1 false)
   br label %for.cond235
 
@@ -515,29 +510,29 @@ for.cond235:                                      ; preds = %for.cond235, %if.en
   %len.1 = phi i32 [ 0, %if.end232 ], [ %add242, %for.cond235 ]
   %idx.ext237 = sext i32 %len.1 to i64
   %add.ptr238 = getelementptr inbounds i8, ptr %out, i64 %idx.ext237
-  %call239 = call i32 @BIO_read(ptr noundef %call215, ptr noundef nonnull %add.ptr238, i32 noundef %i.348) #4
+  %call239 = call i32 @BIO_read(ptr noundef %call215, ptr noundef nonnull %add.ptr238, i32 noundef %i.348) #3
   %tobool240.not = icmp eq i32 %call239, 0
   %add242 = add nsw i32 %call239, %len.1
   br i1 %tobool240.not, label %for.end243, label %for.cond235, !llvm.loop !10
 
 for.end243:                                       ; preds = %for.cond235
-  call void @BIO_free_all(ptr noundef %call215) #4
-  %call246 = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 194, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.16, ptr noundef nonnull @do_bio_cipher.inp, i64 noundef 1024, ptr noundef nonnull %out, i64 noundef %idx.ext237) #4
+  call void @BIO_free_all(ptr noundef %call215) #3
+  %call246 = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 194, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.16, ptr noundef nonnull @do_bio_cipher.inp, i64 noundef 1024, ptr noundef nonnull %out, i64 noundef %idx.ext237) #3
   %tobool247.not = icmp eq i32 %call246, 0
   br i1 %tobool247.not, label %if.then248, label %for.inc250
 
 if.then248:                                       ; preds = %for.end243
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.6, i32 noundef 195, ptr noundef nonnull @.str.27, i32 noundef %i.348) #4
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.6, i32 noundef 195, ptr noundef nonnull @.str.27, i32 noundef %i.348) #3
   br label %return
 
 for.inc250:                                       ; preds = %for.end243
   %inc251 = add nuw nsw i32 %i.348, 1
-  %exitcond99.not = icmp eq i32 %inc251, %smax98
+  %exitcond99.not = icmp eq i32 %inc251, %div102
   br i1 %exitcond99.not, label %return, label %for.body212, !llvm.loop !11
 
 err:                                              ; preds = %if.end34, %if.end87, %if.end162, %if.end226, %if.end127, %if.end120, %if.end12, %if.end7, %if.then225, %if.then189, %if.then161, %if.then86, %if.then57, %if.then33
   %b.0 = phi ptr [ %call23, %if.then57 ], [ %call23, %if.then33 ], [ %call76, %if.then86 ], [ %call151, %if.then189 ], [ %call151, %if.then161 ], [ %call215, %if.then225 ], [ %call116, %if.end127 ], [ %call116, %if.end120 ], [ %call3, %if.end12 ], [ %call3, %if.end7 ], [ %call215, %if.end226 ], [ %call151, %if.end162 ], [ %call76, %if.end87 ], [ %call23, %if.end34 ]
-  call void @BIO_free_all(ptr noundef %b.0) #4
+  call void @BIO_free_all(ptr noundef %b.0) #3
   br label %return
 
 return:                                           ; preds = %for.body, %for.body74, %for.body149, %for.body212, %for.inc250, %for.cond208.preheader, %if.end133, %for.end114, %if.end, %entry, %err, %if.then248, %if.then203, %if.then110, %if.then69
@@ -588,14 +583,10 @@ declare ptr @EVP_chacha20() local_unnamed_addr #1
 
 declare ptr @EVP_chacha20_poly1305() local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #3
-
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

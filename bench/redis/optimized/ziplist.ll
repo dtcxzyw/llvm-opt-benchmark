@@ -741,12 +741,11 @@ do.body26:                                        ; preds = %if.else10, %if.then
   %6 = and i8 %5, -64
   %spec.select = select i1 %cmp31, i8 %6, i8 %5
   store i8 %spec.select, ptr %encoding, align 4
-  %cmp42 = icmp ult i8 %spec.select, -64
   %lensize112 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 2
-  br i1 %cmp42, label %if.then44, label %if.else117
+  br i1 %cmp31, label %if.then44, label %if.else117
 
 if.then44:                                        ; preds = %do.body26
-  switch i8 %spec.select, label %if.else111 [
+  switch i8 %6, label %if.else111 [
     i8 0, label %if.then49
     i8 64, label %if.then61
     i8 -128, label %if.then82
@@ -801,7 +800,7 @@ if.else111:                                       ; preds = %if.then44
 
 if.else117:                                       ; preds = %do.body26
   store i32 1, ptr %lensize112, align 8
-  switch i8 %spec.select, label %if.else153 [
+  switch i8 %5, label %if.else153 [
     i8 -2, label %cond.end.sink.split
     i8 -64, label %if.then130
     i8 -16, label %if.then137
@@ -822,7 +821,7 @@ if.then151:                                       ; preds = %if.else117
   br label %cond.end.sink.split
 
 if.else153:                                       ; preds = %if.else117
-  %16 = add nsw i8 %spec.select, 1
+  %16 = add nsw i8 %5, 1
   %or.cond = icmp ult i8 %16, -14
   %len165 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 3
   store i32 0, ptr %len165, align 4
@@ -895,12 +894,11 @@ do.body32:                                        ; preds = %if.else16, %if.then
   %7 = and i8 %6, -64
   %spec.select = select i1 %cmp38, i8 %7, i8 %6
   store i8 %spec.select, ptr %encoding, align 4
-  %cmp49 = icmp ult i8 %spec.select, -64
   %lensize119 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 2
-  br i1 %cmp49, label %if.then51, label %if.else124
+  br i1 %cmp38, label %if.then51, label %if.else124
 
 if.then51:                                        ; preds = %do.body32
-  switch i8 %spec.select, label %if.else118 [
+  switch i8 %7, label %if.else118 [
     i8 0, label %if.then56
     i8 64, label %if.then68
     i8 -128, label %if.then89
@@ -955,7 +953,7 @@ if.else118:                                       ; preds = %if.then51
 
 if.else124:                                       ; preds = %do.body32
   store i32 1, ptr %lensize119, align 8
-  switch i8 %spec.select, label %if.else160 [
+  switch i8 %6, label %if.else160 [
     i8 -2, label %if.end192.sink.split
     i8 -64, label %if.then137
     i8 -16, label %if.then144
@@ -976,7 +974,7 @@ if.then158:                                       ; preds = %if.else124
   br label %if.end192.sink.split
 
 if.else160:                                       ; preds = %if.else124
-  %17 = add nsw i8 %spec.select, 1
+  %17 = add nsw i8 %6, 1
   %or.cond186 = icmp ult i8 %17, -14
   %len173 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 3
   store i32 0, ptr %len173, align 4
@@ -1121,11 +1119,10 @@ do.body379:                                       ; preds = %if.else361, %if.the
   %29 = phi i32 [ %conv359, %if.then357 ], [ %28, %if.else361 ]
   %30 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 1
   store i32 %29, ptr %30, align 4
-  %cmp382 = icmp ult i8 %spec.select190, -64
-  br i1 %cmp382, label %if.then384, label %if.else459
+  br i1 %cmp294, label %if.then384, label %if.else459
 
 if.then384:                                       ; preds = %do.body379
-  switch i8 %spec.select190, label %if.else453 [
+  switch i8 %23, label %if.else453 [
     i8 0, label %if.then389
     i8 64, label %if.then403
     i8 -128, label %if.then424
@@ -1192,7 +1189,7 @@ if.else453:                                       ; preds = %if.then384
 
 if.else459:                                       ; preds = %do.body379
   store i32 1, ptr %lensize304197, align 8
-  switch i8 %spec.select190, label %if.else495 [
+  switch i8 %22, label %if.else495 [
     i8 -2, label %if.then465
     i8 -64, label %if.then472
     i8 -16, label %if.then479
@@ -1226,7 +1223,7 @@ if.then493:                                       ; preds = %if.else459
   br label %do.end517
 
 if.else495:                                       ; preds = %if.else459
-  %40 = add nsw i8 %spec.select190, 1
+  %40 = add nsw i8 %22, 1
   %or.cond193 = icmp ult i8 %40, -14
   %len508 = getelementptr inbounds %struct.zlentry, ptr %e, i64 0, i32 3
   store i32 0, ptr %len508, align 4

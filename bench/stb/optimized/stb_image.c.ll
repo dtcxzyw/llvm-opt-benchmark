@@ -23001,8 +23001,7 @@ for.cond146.preheader:                            ; preds = %if.end137
   br i1 %cmp147921.not, label %sw.epilog, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.cond146.preheader
-  %umax = tail call i32 @llvm.umax.i32(i32 %div139.zext, i32 1)
-  %wide.trip.count1298 = zext nneg i32 %umax to i64
+  %wide.trip.count1298 = zext nneg i16 %div139547 to i64
   %.pre1302 = load ptr, ptr %img_buffer.i.i, align 8
   %.pre1303 = load ptr, ptr %img_buffer_end.i.i, align 8
   br label %for.body

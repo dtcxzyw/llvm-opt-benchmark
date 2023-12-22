@@ -4766,12 +4766,12 @@ for.cond32.preheader:                             ; preds = %for.body, %entry
   %10 = sext i32 %mul56 to i64
   %11 = sext i32 %mul60 to i64
   %invariant.gep = getelementptr float, ptr %CDU, i64 %5
-  %invariant.gep390 = getelementptr float, ptr %CDU, i64 %6
-  %invariant.gep392 = getelementptr float, ptr %CDU, i64 %7
-  %invariant.gep394 = getelementptr float, ptr %CDU, i64 %8
-  %invariant.gep396 = getelementptr float, ptr %CDU, i64 %9
-  %invariant.gep398 = getelementptr float, ptr %CDU, i64 %10
-  %invariant.gep400 = getelementptr float, ptr %CDU, i64 %11
+  %invariant.gep389 = getelementptr float, ptr %CDU, i64 %6
+  %invariant.gep391 = getelementptr float, ptr %CDU, i64 %7
+  %invariant.gep393 = getelementptr float, ptr %CDU, i64 %8
+  %invariant.gep395 = getelementptr float, ptr %CDU, i64 %9
+  %invariant.gep397 = getelementptr float, ptr %CDU, i64 %10
+  %invariant.gep399 = getelementptr float, ptr %CDU, i64 %11
   br label %for.body34
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -4842,23 +4842,23 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp, label %for.body, label %for.cond32.preheader, !llvm.loop !51
 
 for.body34:                                       ; preds = %for.cond32.preheader, %for.body34
-  %indvars.iv355 = phi i64 [ 0, %for.cond32.preheader ], [ %indvars.iv.next356, %for.body34 ]
-  %arrayidx36 = getelementptr inbounds float, ptr %CDU, i64 %indvars.iv355
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv355
-  %gep391 = getelementptr float, ptr %invariant.gep390, i64 %indvars.iv355
-  %gep393 = getelementptr float, ptr %invariant.gep392, i64 %indvars.iv355
-  %gep395 = getelementptr float, ptr %invariant.gep394, i64 %indvars.iv355
-  %gep397 = getelementptr float, ptr %invariant.gep396, i64 %indvars.iv355
-  %gep399 = getelementptr float, ptr %invariant.gep398, i64 %indvars.iv355
-  %gep401 = getelementptr float, ptr %invariant.gep400, i64 %indvars.iv355
+  %indvars.iv354 = phi i64 [ 0, %for.cond32.preheader ], [ %indvars.iv.next355, %for.body34 ]
+  %arrayidx36 = getelementptr inbounds float, ptr %CDU, i64 %indvars.iv354
+  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv354
+  %gep390 = getelementptr float, ptr %invariant.gep389, i64 %indvars.iv354
+  %gep392 = getelementptr float, ptr %invariant.gep391, i64 %indvars.iv354
+  %gep394 = getelementptr float, ptr %invariant.gep393, i64 %indvars.iv354
+  %gep396 = getelementptr float, ptr %invariant.gep395, i64 %indvars.iv354
+  %gep398 = getelementptr float, ptr %invariant.gep397, i64 %indvars.iv354
+  %gep400 = getelementptr float, ptr %invariant.gep399, i64 %indvars.iv354
   %44 = load float, ptr %arrayidx36, align 4
   %45 = load float, ptr %gep, align 4
-  %46 = load float, ptr %gep391, align 4
-  %47 = load float, ptr %gep393, align 4
-  %48 = load float, ptr %gep395, align 4
-  %49 = load float, ptr %gep397, align 4
-  %50 = load float, ptr %gep399, align 4
-  %51 = load float, ptr %gep401, align 4
+  %46 = load float, ptr %gep390, align 4
+  %47 = load float, ptr %gep392, align 4
+  %48 = load float, ptr %gep394, align 4
+  %49 = load float, ptr %gep396, align 4
+  %50 = load float, ptr %gep398, align 4
+  %51 = load float, ptr %gep400, align 4
   %add.i98 = fadd float %44, %51
   %sub.i99 = fsub float %44, %51
   %add1.i100 = fadd float %45, %50
@@ -4888,56 +4888,56 @@ for.body34:                                       ; preds = %for.cond32.preheade
   %add24.i122 = fadd float %sub.i99, %mul23.i121
   %sub25.i123 = fsub float %sub.i99, %mul23.i121
   %add26.i124 = fadd float %sub25.i123, %52
-  store float %add26.i124, ptr %gep397, align 4
+  store float %add26.i124, ptr %gep396, align 4
   %sub27.i125 = fsub float %sub25.i123, %52
-  store float %sub27.i125, ptr %gep393, align 4
+  store float %sub27.i125, ptr %gep392, align 4
   %add28.i126 = fadd float %add24.i122, %53
   store float %add28.i126, ptr %gep, align 4
   %sub29.i127 = fsub float %add24.i122, %53
-  store float %sub29.i127, ptr %gep401, align 4
+  store float %sub29.i127, ptr %gep400, align 4
   store float %add11.i110, ptr %arrayidx36, align 4
-  store float %add14.i114, ptr %gep391, align 4
-  store float %sub12.i111, ptr %gep395, align 4
-  store float %sub15.i115, ptr %gep399, align 4
-  %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next356, 8
+  store float %add14.i114, ptr %gep390, align 4
+  store float %sub12.i111, ptr %gep394, align 4
+  store float %sub15.i115, ptr %gep398, align 4
+  %indvars.iv.next355 = add nuw nsw i64 %indvars.iv354, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next355, 8
   br i1 %exitcond.not, label %for.cond69.preheader, label %for.body34, !llvm.loop !52
 
 for.cond69.preheader:                             ; preds = %for.body34, %for.inc89
-  %indvars.iv374 = phi i64 [ %indvars.iv.next375, %for.inc89 ], [ 0, %for.body34 ]
-  %j.0346 = phi i64 [ %indvars.iv.next369, %for.inc89 ], [ 0, %for.body34 ]
-  %54 = mul nsw i64 %indvars.iv374, %5
+  %indvars.iv373 = phi i64 [ %indvars.iv.next374, %for.inc89 ], [ 0, %for.body34 ]
+  %j.0346 = phi i64 [ %indvars.iv.next368, %for.inc89 ], [ 0, %for.body34 ]
+  %54 = mul nsw i64 %indvars.iv373, %5
   %sext = shl i64 %j.0346, 32
   %55 = ashr exact i64 %sext, 32
-  %invariant.gep402 = getelementptr float, ptr %CDU, i64 %54
+  %invariant.gep401 = getelementptr float, ptr %CDU, i64 %54
   br label %for.body71
 
 for.body71:                                       ; preds = %for.cond69.preheader, %for.body71
-  %indvars.iv368 = phi i64 [ %55, %for.cond69.preheader ], [ %indvars.iv.next369, %for.body71 ]
-  %indvars.iv365 = phi i64 [ 0, %for.cond69.preheader ], [ %indvars.iv.next366, %for.body71 ]
-  %gep403 = getelementptr float, ptr %invariant.gep402, i64 %indvars.iv365
-  %56 = load float, ptr %gep403, align 4
-  %arrayidx77 = getelementptr inbounds float, ptr %fdtbl, i64 %indvars.iv368
+  %indvars.iv367 = phi i64 [ %55, %for.cond69.preheader ], [ %indvars.iv.next368, %for.body71 ]
+  %indvars.iv364 = phi i64 [ 0, %for.cond69.preheader ], [ %indvars.iv.next365, %for.body71 ]
+  %gep402 = getelementptr float, ptr %invariant.gep401, i64 %indvars.iv364
+  %56 = load float, ptr %gep402, align 4
+  %arrayidx77 = getelementptr inbounds float, ptr %fdtbl, i64 %indvars.iv367
   %57 = load float, ptr %arrayidx77, align 4
   %mul78 = fmul float %56, %57
   %cmp79 = fcmp olt float %mul78, 0.000000e+00
   %cond.v = select i1 %cmp79, float -5.000000e-01, float 5.000000e-01
   %cond = fadd float %mul78, %cond.v
   %conv = fptosi float %cond to i32
-  %arrayidx82 = getelementptr inbounds [64 x i8], ptr @stbiw__jpg_ZigZag, i64 0, i64 %indvars.iv368
+  %arrayidx82 = getelementptr inbounds [64 x i8], ptr @stbiw__jpg_ZigZag, i64 0, i64 %indvars.iv367
   %58 = load i8, ptr %arrayidx82, align 1
   %idxprom83 = zext i8 %58 to i64
   %arrayidx84 = getelementptr inbounds [64 x i32], ptr %DU, i64 0, i64 %idxprom83
   store i32 %conv, ptr %arrayidx84, align 4
-  %indvars.iv.next366 = add nuw nsw i64 %indvars.iv365, 1
-  %indvars.iv.next369 = add nsw i64 %indvars.iv368, 1
-  %exitcond373.not = icmp eq i64 %indvars.iv.next366, 8
-  br i1 %exitcond373.not, label %for.inc89, label %for.body71, !llvm.loop !53
+  %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
+  %indvars.iv.next368 = add nsw i64 %indvars.iv367, 1
+  %exitcond372.not = icmp eq i64 %indvars.iv.next365, 8
+  br i1 %exitcond372.not, label %for.inc89, label %for.body71, !llvm.loop !53
 
 for.inc89:                                        ; preds = %for.body71
-  %indvars.iv.next375 = add nuw nsw i64 %indvars.iv374, 1
-  %exitcond378.not = icmp eq i64 %indvars.iv.next375, 8
-  br i1 %exitcond378.not, label %for.end91, label %for.cond69.preheader, !llvm.loop !54
+  %indvars.iv.next374 = add nuw nsw i64 %indvars.iv373, 1
+  %exitcond377.not = icmp eq i64 %indvars.iv.next374, 8
+  br i1 %exitcond377.not, label %for.end91, label %for.cond69.preheader, !llvm.loop !54
 
 for.end91:                                        ; preds = %for.inc89
   %59 = load i32, ptr %DU, align 16
@@ -5134,8 +5134,8 @@ for.inc111:                                       ; preds = %land.rhs
   br i1 %cmp104, label %land.rhs, label %if.then115, !llvm.loop !55
 
 for.cond119.preheader:                            ; preds = %land.rhs
-  %cmp120.not351 = icmp slt i32 %end0pos.0348, 1
-  br i1 %cmp120.not351, label %if.then165, label %for.cond124.preheader.lr.ph
+  %cmp120.not350 = icmp slt i32 %end0pos.0348, 1
+  br i1 %cmp120.not350, label %if.then165, label %for.cond124.preheader.lr.ph
 
 for.cond124.preheader.lr.ph:                      ; preds = %for.cond119.preheader
   %conv.i216 = zext i16 %3 to i32
@@ -5191,36 +5191,36 @@ if.end.i207:                                      ; preds = %if.then.i211, %whil
 
 for.cond124.preheader:                            ; preds = %for.cond124.preheader.lr.ph, %stbiw__jpg_writeBits.exit308
   %93 = phi i32 [ %84, %for.cond124.preheader.lr.ph ], [ %bitCnt.0.lcssa.i293, %stbiw__jpg_writeBits.exit308 ]
-  %i.0352 = phi i32 [ 1, %for.cond124.preheader.lr.ph ], [ %inc161, %stbiw__jpg_writeBits.exit308 ]
-  %94 = sext i32 %i.0352 to i64
+  %i.0351 = phi i32 [ 1, %for.cond124.preheader.lr.ph ], [ %inc161, %stbiw__jpg_writeBits.exit308 ]
+  %94 = sext i32 %i.0351 to i64
   br label %for.cond124
 
 for.cond124:                                      ; preds = %for.cond124, %for.cond124.preheader
-  %indvars.iv382 = phi i32 [ %indvars.iv.next383, %for.cond124 ], [ 0, %for.cond124.preheader ]
-  %indvars.iv379 = phi i64 [ %indvars.iv.next380, %for.cond124 ], [ %94, %for.cond124.preheader ]
-  %arrayidx126 = getelementptr inbounds [64 x i32], ptr %DU, i64 0, i64 %indvars.iv379
+  %indvars.iv381 = phi i32 [ %indvars.iv.next382, %for.cond124 ], [ 0, %for.cond124.preheader ]
+  %indvars.iv378 = phi i64 [ %indvars.iv.next379, %for.cond124 ], [ %94, %for.cond124.preheader ]
+  %arrayidx126 = getelementptr inbounds [64 x i32], ptr %DU, i64 0, i64 %indvars.iv378
   %95 = load i32, ptr %arrayidx126, align 4
   %cmp127 = icmp eq i32 %95, 0
-  %cmp130 = icmp sle i64 %indvars.iv379, %86
+  %cmp130 = icmp sle i64 %indvars.iv378, %86
   %96 = and i1 %cmp130, %cmp127
-  %indvars.iv.next380 = add nsw i64 %indvars.iv379, 1
-  %indvars.iv.next383 = add nuw i32 %indvars.iv382, 1
+  %indvars.iv.next379 = add nsw i64 %indvars.iv378, 1
+  %indvars.iv.next382 = add nuw i32 %indvars.iv381, 1
   br i1 %96, label %for.cond124, label %for.end136, !llvm.loop !56
 
 for.end136:                                       ; preds = %for.cond124
-  %97 = trunc i64 %indvars.iv379 to i32
-  %sub137 = sub nsw i32 %97, %i.0352
+  %97 = trunc i64 %indvars.iv378 to i32
+  %sub137 = sub nsw i32 %97, %i.0351
   %cmp138 = icmp sgt i32 %sub137, 15
-  br i1 %cmp138, label %for.body144.preheader, label %if.end149
+  br i1 %cmp138, label %if.then140, label %if.end149
 
-for.body144.preheader:                            ; preds = %for.end136
-  %98 = lshr i32 %indvars.iv382, 4
+if.then140:                                       ; preds = %for.end136
+  %98 = lshr i32 %indvars.iv381, 4
   %umax = call i32 @llvm.umax.i32(i32 %98, i32 1)
   br label %for.body144
 
-for.body144:                                      ; preds = %for.body144.preheader, %stbiw__jpg_writeBits.exit238
-  %99 = phi i32 [ %bitCnt.0.lcssa.i223, %stbiw__jpg_writeBits.exit238 ], [ %93, %for.body144.preheader ]
-  %nrmarker.0350 = phi i32 [ %inc147, %stbiw__jpg_writeBits.exit238 ], [ 1, %for.body144.preheader ]
+for.body144:                                      ; preds = %if.then140, %stbiw__jpg_writeBits.exit238
+  %99 = phi i32 [ %93, %if.then140 ], [ %bitCnt.0.lcssa.i223, %stbiw__jpg_writeBits.exit238 ]
+  %nrmarker.0349 = phi i32 [ 1, %if.then140 ], [ %inc147, %stbiw__jpg_writeBits.exit238 ]
   %100 = load i32, ptr %bitBuf, align 4
   %add.i217 = add nsw i32 %99, %conv.i216
   %sub.i219 = sub nsw i32 24, %add.i217
@@ -5264,9 +5264,9 @@ stbiw__jpg_writeBits.exit238:                     ; preds = %if.end.i233, %for.b
   %bitBuf.0.lcssa.i224 = phi i32 [ %or.i221, %for.body144 ], [ %shl8.i234, %if.end.i233 ]
   store i32 %bitBuf.0.lcssa.i224, ptr %bitBuf, align 4
   store i32 %bitCnt.0.lcssa.i223, ptr %bitCnt, align 4
-  %inc147 = add nuw nsw i32 %nrmarker.0350, 1
-  %exitcond384.not = icmp eq i32 %nrmarker.0350, %umax
-  br i1 %exitcond384.not, label %for.end148, label %for.body144, !llvm.loop !57
+  %inc147 = add nuw nsw i32 %nrmarker.0349, 1
+  %exitcond383.not = icmp eq i32 %nrmarker.0349, %umax
+  br i1 %exitcond383.not, label %for.end148, label %for.body144, !llvm.loop !57
 
 for.end148:                                       ; preds = %stbiw__jpg_writeBits.exit238
   %and = and i32 %sub137, 15

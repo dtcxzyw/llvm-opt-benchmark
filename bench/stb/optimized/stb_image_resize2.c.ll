@@ -586,7 +586,7 @@ entry:
   %filter_pixel_margin6 = getelementptr inbounds %struct.stbir__sampler, ptr %samp, i64 0, i32 12
   %4 = load i32, ptr %filter_pixel_margin6, align 4
   %cmp150 = icmp sgt i32 %2, 0
-  br i1 %cmp150, label %for.body, label %for.end30.thread
+  br i1 %cmp150, label %for.body, label %for.end30
 
 for.cond14.preheader:                             ; preds = %for.body
   br i1 %cmp150, label %for.body16.preheader, label %for.end30
@@ -601,12 +601,11 @@ for.body:                                         ; preds = %entry, %for.body
   %min_n.0151 = phi i32 [ %min_n.1, %for.body ], [ 2147483647, %entry ]
   %arrayidx = getelementptr inbounds %struct.stbir__contributors, ptr %1, i64 %indvars.iv
   %6 = load i32, ptr %arrayidx, align 4
-  %.fr = freeze i32 %6
-  %cmp7 = icmp slt i32 %.fr, %min_n.0151
+  %cmp7 = icmp slt i32 %6, %min_n.0151
   %7 = trunc i64 %indvars.iv to i32
   %8 = add i32 %4, %7
   %spec.select = tail call i32 @llvm.smin.i32(i32 %8, i32 %2)
-  %min_n.1 = tail call i32 @llvm.smin.i32(i32 %.fr, i32 %min_n.0151)
+  %min_n.1 = tail call i32 @llvm.smin.i32(i32 %6, i32 %min_n.0151)
   %stop.1 = select i1 %cmp7, i32 %spec.select, i32 %stop.0152
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = sext i32 %stop.1 to i64
@@ -630,34 +629,29 @@ for.body16:                                       ; preds = %for.body16.preheade
   %cmp15.not.not = icmp sgt i64 %indvars.iv.next174, %13
   br i1 %cmp15.not.not, label %for.body16, label %for.end30, !llvm.loop !14
 
-for.end30:                                        ; preds = %for.body16, %for.cond14.preheader
-  %max_n.0.lcssa = phi i32 [ -2147483647, %for.cond14.preheader ], [ %max_n.1, %for.body16 ]
-  %cmp31 = icmp slt i32 %min_n.1, 0
-  %sub33 = sub nsw i32 0, %min_n.1
-  %spec.select141 = tail call i32 @llvm.smax.i32(i32 %min_n.1, i32 0)
-  %spec.select187 = select i1 %cmp31, i32 %sub33, i32 0
-  br label %for.end30.thread
-
-for.end30.thread:                                 ; preds = %for.end30, %entry
-  %spec.select141186 = phi i32 [ 2147483647, %entry ], [ %spec.select141, %for.end30 ]
-  %max_n.0.lcssa185 = phi i32 [ -2147483647, %entry ], [ %max_n.0.lcssa, %for.end30 ]
-  %14 = phi i32 [ 0, %entry ], [ %spec.select187, %for.end30 ]
-  %cmp35.not = icmp slt i32 %max_n.0.lcssa185, %3
-  %reass.sub = sub i32 %max_n.0.lcssa185, %3
+for.end30:                                        ; preds = %for.body16, %entry, %for.cond14.preheader
+  %min_n.0.lcssa178 = phi i32 [ %min_n.1, %for.cond14.preheader ], [ 2147483647, %entry ], [ %min_n.1, %for.body16 ]
+  %max_n.0.lcssa = phi i32 [ -2147483647, %for.cond14.preheader ], [ -2147483647, %entry ], [ %max_n.1, %for.body16 ]
+  %cmp31 = icmp slt i32 %min_n.0.lcssa178, 0
+  %sub33 = sub nsw i32 0, %min_n.0.lcssa178
+  %spec.select141 = tail call i32 @llvm.smax.i32(i32 %min_n.0.lcssa178, i32 0)
+  %spec.select142 = select i1 %cmp31, i32 %sub33, i32 0
+  %cmp35.not = icmp slt i32 %max_n.0.lcssa, %3
+  %reass.sub = sub i32 %max_n.0.lcssa, %3
   %add38 = add i32 %reass.sub, 1
   %sub39 = add nsw i32 %3, -1
-  %max_n.2 = select i1 %cmp35.not, i32 %max_n.0.lcssa185, i32 %sub39
+  %max_n.2 = select i1 %cmp35.not, i32 %max_n.0.lcssa, i32 %sub39
   %right_margin.0 = select i1 %cmp35.not, i32 0, i32 %add38
   %edge_sizes = getelementptr inbounds %struct.stbir__extents, ptr %scanline_extents, i64 0, i32 1
-  store i32 %14, ptr %edge_sizes, align 4
+  store i32 %spec.select142, ptr %edge_sizes, align 4
   %arrayidx43 = getelementptr inbounds %struct.stbir__extents, ptr %scanline_extents, i64 0, i32 1, i64 1
   store i32 %right_margin.0, ptr %arrayidx43, align 4
   %spans = getelementptr inbounds %struct.stbir__extents, ptr %scanline_extents, i64 0, i32 2
-  store i32 %spec.select141186, ptr %spans, align 4
+  store i32 %spec.select141, ptr %spans, align 4
   %n148 = getelementptr inbounds %struct.stbir__extents, ptr %scanline_extents, i64 0, i32 2, i64 0, i32 1
   store i32 %max_n.2, ptr %n148, align 4
   %pixel_offset_for_input = getelementptr inbounds %struct.stbir__extents, ptr %scanline_extents, i64 0, i32 2, i64 0, i32 2
-  store i32 %spec.select141186, ptr %pixel_offset_for_input, align 4
+  store i32 %spec.select141, ptr %pixel_offset_for_input, align 4
   %arrayidx52 = getelementptr inbounds %struct.stbir__extents, ptr %scanline_extents, i64 0, i32 2, i64 1
   store i32 0, ptr %arrayidx52, align 4
   %n156 = getelementptr inbounds %struct.stbir__extents, ptr %scanline_extents, i64 0, i32 2, i64 1, i32 1
@@ -667,13 +661,8 @@ for.end30.thread:                                 ; preds = %for.end30, %entry
   %cmp60 = icmp eq i32 %0, 3
   br i1 %cmp60, label %if.end224, label %if.end62
 
-if.end62:                                         ; preds = %for.end30.thread
-  %cmp65159 = icmp sgt i32 %14, 0
-  br i1 %cmp65159, label %for.body66.preheader, label %for.cond76.preheader
-
-for.body66.preheader:                             ; preds = %if.end62
-  %sub63 = sub nsw i32 0, %14
-  br label %for.body66
+if.end62:                                         ; preds = %for.end30
+  br i1 %cmp31, label %for.body66, label %for.cond76.preheader
 
 for.cond76.preheader:                             ; preds = %for.body66, %if.end62
   %max_left.0.lcssa = phi i32 [ -2147483647, %if.end62 ], [ %max_left.1, %for.body66 ]
@@ -682,10 +671,10 @@ for.cond76.preheader:                             ; preds = %for.body66, %if.end
   %cmp78165 = icmp sgt i32 %right_margin.0, 0
   br i1 %cmp78165, label %for.body79, label %for.end90
 
-for.body66:                                       ; preds = %for.body66.preheader, %for.body66
-  %j.2162 = phi i32 [ %inc74, %for.body66 ], [ %sub63, %for.body66.preheader ]
-  %min_left.0161 = phi i32 [ %spec.select143, %for.body66 ], [ 2147483647, %for.body66.preheader ]
-  %max_left.0160 = phi i32 [ %max_left.1, %for.body66 ], [ -2147483647, %for.body66.preheader ]
+for.body66:                                       ; preds = %if.end62, %for.body66
+  %j.2162 = phi i32 [ %inc74, %for.body66 ], [ %min_n.0.lcssa178, %if.end62 ]
+  %min_left.0161 = phi i32 [ %spec.select143, %for.body66 ], [ 2147483647, %if.end62 ]
+  %max_left.0160 = phi i32 [ %max_left.1, %for.body66 ], [ -2147483647, %if.end62 ]
   %call = tail call i32 @stbir__edge_wrap(i32 noundef %0, i32 noundef %j.2162, i32 noundef %3) #27
   %spec.select143 = tail call i32 @llvm.smin.i32(i32 %call, i32 %min_left.0161)
   %max_left.1 = tail call i32 @llvm.smax.i32(i32 %call, i32 %max_left.0160)
@@ -711,21 +700,21 @@ for.end90:                                        ; preds = %for.body79, %for.co
   br i1 %cmp91, label %if.then92, label %if.end113
 
 if.then92:                                        ; preds = %for.end90
-  %cmp93.not = icmp sgt i32 %min_left.0.lcssa, %spec.select141186
+  %cmp93.not = icmp sgt i32 %min_left.0.lcssa, %spec.select141
   %add94 = add nsw i32 %max_left.0.lcssa, 16
-  %cmp95.not = icmp slt i32 %add94, %spec.select141186
+  %cmp95.not = icmp slt i32 %add94, %spec.select141
   %or.cond145 = select i1 %cmp93.not, i1 true, i1 %cmp95.not
   br i1 %or.cond145, label %lor.lhs.false, label %if.then100
 
 lor.lhs.false:                                    ; preds = %if.then92
-  %cmp96.not = icmp sgt i32 %spec.select141186, %min_left.0.lcssa
+  %cmp96.not = icmp sgt i32 %spec.select141, %min_left.0.lcssa
   %add98 = add nsw i32 %max_n.2, 16
   %cmp99.not = icmp slt i32 %add98, %max_left.0.lcssa
   %or.cond146 = select i1 %cmp96.not, i1 true, i1 %cmp99.not
   br i1 %or.cond146, label %if.end113, label %if.then100
 
 if.then100:                                       ; preds = %lor.lhs.false, %if.then92
-  %call101 = tail call i32 @stbir__min(i32 noundef %spec.select141186, i32 noundef %min_left.0.lcssa) #27
+  %call101 = tail call i32 @stbir__min(i32 noundef %spec.select141, i32 noundef %min_left.0.lcssa) #27
   store i32 %call101, ptr %spans, align 4
   %call105 = tail call i32 @stbir__max(i32 noundef %max_n.2, i32 noundef %max_left.0.lcssa) #27
   store i32 %call105, ptr %n148, align 4
@@ -734,8 +723,8 @@ if.then100:                                       ; preds = %lor.lhs.false, %if.
 
 if.end113:                                        ; preds = %lor.lhs.false, %if.then100, %for.end90
   %max_n.3 = phi i32 [ %call105, %if.then100 ], [ %max_n.2, %lor.lhs.false ], [ %max_n.2, %for.end90 ]
-  %min_n.3 = phi i32 [ %call101, %if.then100 ], [ %spec.select141186, %lor.lhs.false ], [ %spec.select141186, %for.end90 ]
-  %left_margin.1 = phi i32 [ 0, %if.then100 ], [ %14, %lor.lhs.false ], [ %14, %for.end90 ]
+  %min_n.3 = phi i32 [ %call101, %if.then100 ], [ %spec.select141, %lor.lhs.false ], [ %spec.select141, %for.end90 ]
+  %left_margin.1 = phi i32 [ 0, %if.then100 ], [ %spec.select142, %lor.lhs.false ], [ %spec.select142, %for.end90 ]
   %sub168 = sub i32 0, %left_margin.1
   %cmp114 = icmp ne i32 %min_right.0.lcssa, 2147483647
   br i1 %cmp114, label %if.then115, label %if.end138
@@ -769,15 +758,15 @@ if.end138:                                        ; preds = %lor.lhs.false120, %
   br i1 %or.cond, label %if.then141, label %if.end175
 
 if.then141:                                       ; preds = %if.end138
-  %15 = load i32, ptr %spans, align 4
-  %cmp146 = icmp slt i32 %min_left.0.lcssa, %15
+  %14 = load i32, ptr %spans, align 4
+  %cmp146 = icmp slt i32 %min_left.0.lcssa, %14
   br i1 %cmp146, label %if.then147, label %if.end166
 
 if.then147:                                       ; preds = %if.then141
-  store i32 %15, ptr %pixel_offset_for_input59, align 4
-  store i32 %15, ptr %arrayidx52, align 4
-  %16 = load i32, ptr %n148, align 4
-  store i32 %16, ptr %n156, align 4
+  store i32 %14, ptr %pixel_offset_for_input59, align 4
+  store i32 %14, ptr %arrayidx52, align 4
+  %15 = load i32, ptr %n148, align 4
+  store i32 %15, ptr %n156, align 4
   br label %if.end166
 
 if.end166:                                        ; preds = %if.then147, %if.then141
@@ -785,8 +774,8 @@ if.end166:                                        ; preds = %if.then147, %if.the
   %pixel_offset_for_input167 = getelementptr inbounds %struct.stbir__span, ptr %newspan.0, i64 0, i32 2
   store i32 %min_left.0.lcssa, ptr %pixel_offset_for_input167, align 4
   store i32 %sub168, ptr %newspan.0, align 4
-  %17 = add i32 %min_left.0.lcssa, %left_margin.1
-  %sub171 = sub i32 %max_left.0.lcssa, %17
+  %16 = add i32 %min_left.0.lcssa, %left_margin.1
+  %sub171 = sub i32 %max_left.0.lcssa, %16
   br label %if.end224.sink.split
 
 if.end175:                                        ; preds = %if.end138
@@ -795,23 +784,23 @@ if.end175:                                        ; preds = %if.end138
   br i1 %or.cond1, label %if.then179, label %if.end224
 
 if.then179:                                       ; preds = %if.end175
-  %18 = load i32, ptr %spans, align 4
-  %cmp187 = icmp slt i32 %min_right.0.lcssa, %18
+  %17 = load i32, ptr %spans, align 4
+  %cmp187 = icmp slt i32 %min_right.0.lcssa, %17
   br i1 %cmp187, label %if.then188, label %if.end208
 
 if.then188:                                       ; preds = %if.then179
-  store i32 %18, ptr %pixel_offset_for_input59, align 4
-  store i32 %18, ptr %arrayidx52, align 4
-  %19 = load i32, ptr %n148, align 4
-  store i32 %19, ptr %n156, align 4
+  store i32 %17, ptr %pixel_offset_for_input59, align 4
+  store i32 %17, ptr %arrayidx52, align 4
+  %18 = load i32, ptr %n148, align 4
+  store i32 %18, ptr %n156, align 4
   br label %if.end208
 
 if.end208:                                        ; preds = %if.then188, %if.then179
   %newspan180.0 = phi ptr [ %spans, %if.then188 ], [ %arrayidx52, %if.then179 ]
   %pixel_offset_for_input209 = getelementptr inbounds %struct.stbir__span, ptr %newspan180.0, i64 0, i32 2
   store i32 %min_right.0.lcssa, ptr %pixel_offset_for_input209, align 4
-  %20 = load i32, ptr %n156, align 4
-  %add213 = add nsw i32 %20, 1
+  %19 = load i32, ptr %n156, align 4
+  %add213 = add nsw i32 %19, 1
   store i32 %add213, ptr %newspan180.0, align 4
   %sub219 = sub i32 %max_right.0.lcssa, %min_right.0.lcssa
   %add220 = add nsw i32 %sub219, %add213
@@ -826,7 +815,7 @@ if.end224.sink.split:                             ; preds = %if.end166, %if.end2
   store i32 0, ptr %arrayidx43.sink, align 4
   br label %if.end224
 
-if.end224:                                        ; preds = %if.end224.sink.split, %for.end30.thread, %if.end175
+if.end224:                                        ; preds = %if.end224.sink.split, %for.end30, %if.end175
   ret void
 }
 

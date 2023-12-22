@@ -3395,8 +3395,7 @@ for.cond249.preheader:                            ; preds = %for.inc245, %invoke
 
 invoke.cont252.lr.ph:                             ; preds = %for.cond249.preheader
   %m_data.i.i433 = getelementptr inbounds %class.btMultiBody, ptr %56, i64 0, i32 17, i32 5
-  %smax = call i32 @llvm.smax.i32(i32 %add159, i32 1)
-  %wide.trip.count915 = zext nneg i32 %smax to i64
+  %wide.trip.count915 = zext i32 %add159 to i64
   br label %invoke.cont252
 
 invoke.cont229.preheader:                         ; preds = %invoke.cont229.preheader.lr.ph, %for.inc245
@@ -3831,8 +3830,7 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit685: ; preds = %for.body8.i650
 
 for.body368.lr.ph:                                ; preds = %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit685
   %div = fdiv float %118, 6.000000e+00
-  %smax920 = call i32 @llvm.smax.i32(i32 %add159, i32 1)
-  %wide.trip.count921 = zext nneg i32 %smax920 to i64
+  %wide.trip.count921 = zext i32 %add159 to i64
   br label %for.body368
 
 for.body368:                                      ; preds = %for.body368.lr.ph, %for.body368
@@ -3963,8 +3961,7 @@ invoke.cont407:                                   ; preds = %_Z7btClampIfEvRT_RK
   br i1 %cmp250882, label %for.body423.preheader, label %for.end430
 
 for.body423.preheader:                            ; preds = %invoke.cont407
-  %smax926 = call i32 @llvm.smax.i32(i32 %add159, i32 1)
-  %wide.trip.count927 = zext nneg i32 %smax926 to i64
+  %wide.trip.count927 = zext i32 %add159 to i64
   br label %for.body423
 
 for.body423:                                      ; preds = %for.body423.preheader, %for.body423
@@ -9706,9 +9703,6 @@ declare float @llvm.sqrt.f32(float) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14

@@ -2265,13 +2265,13 @@ entry:
 if.end:                                           ; preds = %entry
   %div19 = lshr i32 %bits, 6
   %cmp2 = icmp ugt i32 %bits, 255
-  br i1 %cmp2, label %if.then3, label %for.body.lr.ph
+  br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
   br label %return
 
-for.body.lr.ph:                                   ; preds = %if.end
+if.end4:                                          ; preds = %if.end
   %rem = and i32 %bits, 63
   %sh_prom = zext nneg i32 %rem to i64
   %cmp12.not.not = icmp eq i32 %rem, 0
@@ -2280,43 +2280,42 @@ for.body.lr.ph:                                   ; preds = %if.end
   %0 = zext nneg i32 %div19 to i64
   br i1 %cmp12.not.not, label %for.body.us.preheader, label %for.body.preheader
 
-for.body.preheader:                               ; preds = %for.body.lr.ph
+for.body.preheader:                               ; preds = %if.end4
   %add.neg = xor i32 %div19, -1
   %1 = sext i32 %add.neg to i64
   %2 = zext nneg i32 %div19 to i64
   %3 = xor i64 %2, 3
-  %arrayidx.i.i.i48 = getelementptr inbounds [4 x i64], ptr %this, i64 0, i64 %3
-  %4 = load i64, ptr %arrayidx.i.i.i48, align 8
-  %arrayidx.i.i.i2049 = getelementptr inbounds [4 x i64], ptr %this, i64 0, i64 3
-  %shl50 = shl i64 %4, %sh_prom
-  store i64 %shl50, ptr %arrayidx.i.i.i2049, align 8
-  %cmp13.not.not51 = icmp ult i32 %bits, 192
-  br i1 %cmp13.not.not51, label %for.inc, label %for.cond26.preheader
+  %arrayidx.i.i.i47 = getelementptr inbounds [4 x i64], ptr %this, i64 0, i64 %3
+  %4 = load i64, ptr %arrayidx.i.i.i47, align 8
+  %arrayidx.i.i.i2048 = getelementptr inbounds [4 x i64], ptr %this, i64 0, i64 3
+  %shl49 = shl i64 %4, %sh_prom
+  store i64 %shl49, ptr %arrayidx.i.i.i2048, align 8
+  %cmp13.not.not50 = icmp ult i32 %bits, 192
+  br i1 %cmp13.not.not50, label %for.inc, label %for.cond26.preheader
 
-for.body.us.preheader:                            ; preds = %for.body.lr.ph
+for.body.us.preheader:                            ; preds = %if.end4
   %5 = zext nneg i32 %div19 to i64
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.body.us
-  %indvars.iv39 = phi i64 [ 3, %for.body.us.preheader ], [ %indvars.iv.next40, %for.body.us ]
-  %6 = sub nsw i64 %indvars.iv39, %5
+  %indvars.iv38 = phi i64 [ 3, %for.body.us.preheader ], [ %indvars.iv.next39, %for.body.us ]
+  %6 = sub nsw i64 %indvars.iv38, %5
   %arrayidx.i.i.i.us = getelementptr inbounds [4 x i64], ptr %this, i64 0, i64 %6
   %7 = load i64, ptr %arrayidx.i.i.i.us, align 8
-  %arrayidx.i.i.i20.us = getelementptr inbounds [4 x i64], ptr %this, i64 0, i64 %indvars.iv39
+  %arrayidx.i.i.i20.us = getelementptr inbounds [4 x i64], ptr %this, i64 0, i64 %indvars.iv38
   store i64 %7, ptr %arrayidx.i.i.i20.us, align 8
-  %indvars.iv.next40 = add nsw i64 %indvars.iv39, -1
-  %cmp6.not.us.not = icmp ugt i64 %indvars.iv39, %0
+  %indvars.iv.next39 = add nsw i64 %indvars.iv38, -1
+  %cmp6.not.us.not = icmp ugt i64 %indvars.iv38, %0
   br i1 %cmp6.not.us.not, label %for.body.us, label %for.cond26.preheader, !llvm.loop !19
 
 for.cond26.preheader:                             ; preds = %for.inc, %for.body.us, %for.body.preheader
-  %cmp2732.not = icmp ult i32 %bits, 64
-  br i1 %cmp2732.not, label %return, label %for.body28.preheader
+  %cmp2731.not = icmp ult i32 %bits, 64
+  br i1 %cmp2731.not, label %return, label %for.body28.preheader
 
 for.body28.preheader:                             ; preds = %for.cond26.preheader
   %8 = add nsw i32 %div19, -1
   %9 = zext i32 %8 to i64
-  %smin = tail call i32 @llvm.smin.i32(i32 %div19, i32 1)
-  %10 = sub nsw i32 %div19, %smin
+  %10 = add nsw i32 %div19, -1
   %11 = zext i32 %10 to i64
   %12 = shl nuw nsw i64 %11, 3
   %13 = sub nsw i64 %9, %11
@@ -2327,16 +2326,16 @@ for.body28.preheader:                             ; preds = %for.cond26.preheade
   br label %return
 
 for.inc:                                          ; preds = %for.body.preheader, %for.inc
-  %shl54 = phi i64 [ %shl, %for.inc ], [ %shl50, %for.body.preheader ]
-  %arrayidx.i.i.i2053 = phi ptr [ %arrayidx.i.i.i20, %for.inc ], [ %arrayidx.i.i.i2049, %for.body.preheader ]
-  %indvars.iv52 = phi i64 [ %indvars.iv.next, %for.inc ], [ 3, %for.body.preheader ]
-  %16 = add nsw i64 %indvars.iv52, %1
+  %shl53 = phi i64 [ %shl, %for.inc ], [ %shl49, %for.body.preheader ]
+  %arrayidx.i.i.i2052 = phi ptr [ %arrayidx.i.i.i20, %for.inc ], [ %arrayidx.i.i.i2048, %for.body.preheader ]
+  %indvars.iv51 = phi i64 [ %indvars.iv.next, %for.inc ], [ 3, %for.body.preheader ]
+  %16 = add nsw i64 %indvars.iv51, %1
   %arrayidx.i.i.i22 = getelementptr inbounds [4 x i64], ptr %this, i64 0, i64 %16
   %17 = load i64, ptr %arrayidx.i.i.i22, align 8
   %shr = lshr i64 %17, %sh_prom20
-  %or = or i64 %shr, %shl54
-  store i64 %or, ptr %arrayidx.i.i.i2053, align 8
-  %indvars.iv.next = add nsw i64 %indvars.iv52, -1
+  %or = or i64 %shr, %shl53
+  store i64 %or, ptr %arrayidx.i.i.i2052, align 8
+  %indvars.iv.next = add nsw i64 %indvars.iv51, -1
   %18 = sub nsw i64 %indvars.iv.next, %2
   %arrayidx.i.i.i = getelementptr inbounds [4 x i64], ptr %this, i64 0, i64 %18
   %19 = load i64, ptr %arrayidx.i.i.i, align 8
@@ -2504,28 +2503,28 @@ for.body.i.i.i8:                                  ; preds = %_ZN5arrow15BasicDec
 
 _ZN5arrow15BasicDecimal2563AbsERKS0_.exit18:      ; preds = %for.body.i.i.i8, %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %res, i8 0, i64 32, i1 false)
-  br label %for.body7.lr.ph.i
+  br label %for.cond5.preheader.i
 
-for.body7.lr.ph.i:                                ; preds = %for.inc23.i, %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit18
-  %indvars.iv35.i = phi i64 [ 0, %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit18 ], [ %indvars.iv.next36.i, %for.inc23.i ]
-  %indvars.iv33.i = phi i64 [ 4, %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit18 ], [ %indvars.iv.next34.i, %for.inc23.i ]
-  %arrayidx.i.i.i11.i = getelementptr inbounds [4 x i64], ptr %result.i5, i64 0, i64 %indvars.iv35.i
+for.cond5.preheader.i:                            ; preds = %for.inc23.i, %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit18
+  %indvars.iv34.i = phi i64 [ 0, %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit18 ], [ %indvars.iv.next35.i, %for.inc23.i ]
+  %indvars.iv32.i = phi i64 [ 4, %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit18 ], [ %indvars.iv.next33.i, %for.inc23.i ]
+  %arrayidx.i.i.i11.i = getelementptr inbounds [4 x i64], ptr %result.i5, i64 0, i64 %indvars.iv34.i
   %8 = load i64, ptr %arrayidx.i.i.i11.i, align 8
   %conv.i12.i = zext i64 %8 to i128
   br label %for.body7.i
 
-for.body7.i:                                      ; preds = %for.body7.i, %for.body7.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %for.body7.lr.ph.i ], [ %indvars.iv.next.i, %for.body7.i ]
-  %carry.026.i = phi i64 [ 0, %for.body7.lr.ph.i ], [ %conv.i19.i, %for.body7.i ]
+for.body7.i:                                      ; preds = %for.body7.i, %for.cond5.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %for.cond5.preheader.i ], [ %indvars.iv.next.i, %for.body7.i ]
+  %carry.025.i = phi i64 [ 0, %for.cond5.preheader.i ], [ %conv.i19.i, %for.body7.i ]
   %arrayidx.i.i.i.i = getelementptr inbounds [4 x i64], ptr %result.i, i64 0, i64 %indvars.iv.i
   %9 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %conv.i.i = zext i64 %9 to i128
   %mul.i.i = mul nuw i128 %conv.i12.i, %conv.i.i
-  %10 = add nuw nsw i64 %indvars.iv.i, %indvars.iv35.i
+  %10 = add nuw nsw i64 %indvars.iv.i, %indvars.iv34.i
   %arrayidx.i.i.i13.i = getelementptr inbounds [4 x i64], ptr %res, i64 0, i64 %10
   %11 = load i64, ptr %arrayidx.i.i.i13.i, align 8
   %conv.i14.i = zext i64 %11 to i128
-  %conv.i15.i = zext i64 %carry.026.i to i128
+  %conv.i15.i = zext i64 %carry.025.i to i128
   %add.i.i = add nuw nsw i128 %conv.i14.i, %conv.i15.i
   %add.i16.i = add nuw i128 %add.i.i, %mul.i.i
   %conv.i17.i = trunc i128 %add.i16.i to i64
@@ -2533,14 +2532,14 @@ for.body7.i:                                      ; preds = %for.body7.i, %for.b
   %shr.i.i = lshr i128 %add.i16.i, 64
   %conv.i19.i = trunc i128 %shr.i.i to i64
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %indvars.iv33.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %indvars.iv32.i
   br i1 %exitcond.not.i, label %for.inc23.i, label %for.body7.i, !llvm.loop !22
 
 for.inc23.i:                                      ; preds = %for.body7.i
-  %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
-  %indvars.iv.next34.i = add nsw i64 %indvars.iv33.i, -1
-  %exitcond40.not.i = icmp eq i64 %indvars.iv.next36.i, 4
-  br i1 %exitcond40.not.i, label %_ZN5arrow12_GLOBAL__N_121MultiplyUnsignedArrayILi4EEEvRKSt5arrayImXT_EES5_PS3_.exit, label %for.body7.lr.ph.i, !llvm.loop !23
+  %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
+  %indvars.iv.next33.i = add nsw i64 %indvars.iv32.i, -1
+  %exitcond39.not.i = icmp eq i64 %indvars.iv.next35.i, 4
+  br i1 %exitcond39.not.i, label %_ZN5arrow12_GLOBAL__N_121MultiplyUnsignedArrayILi4EEEvRKSt5arrayImXT_EES5_PS3_.exit, label %for.cond5.preheader.i, !llvm.loop !23
 
 _ZN5arrow12_GLOBAL__N_121MultiplyUnsignedArrayILi4EEEvRKSt5arrayImXT_EES5_PS3_.exit: ; preds = %for.inc23.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %res, i64 32, i1 false)
@@ -3813,9 +3812,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #16
-
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
@@ -3832,7 +3828,6 @@ attributes #12 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

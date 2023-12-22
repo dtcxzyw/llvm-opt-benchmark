@@ -152,7 +152,7 @@ entry:
 for.cond:                                         ; preds = %lor.lhs.false6
   %add = add nuw nsw i32 %i.016, 13
   %cmp = icmp ult i32 %i.016, 87
-  br i1 %cmp, label %for.body, label %for.body17.preheader, !llvm.loop !5
+  br i1 %cmp, label %for.body, label %for.body13, !llvm.loop !5
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.016 = phi i32 [ %add, %for.cond ], [ 1, %entry ]
@@ -173,39 +173,39 @@ lor.lhs.false6:                                   ; preds = %lor.lhs.false
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %return, label %for.cond
 
-for.body17.preheader:                             ; preds = %for.cond, %for.inc32
-  %i.119 = phi i32 [ %add33, %for.inc32 ], [ 1, %for.cond ]
-  %add14 = add nuw nsw i32 %i.119, 1
+for.body13:                                       ; preds = %for.cond, %for.inc32
+  %i.118 = phi i32 [ %add33, %for.inc32 ], [ 1, %for.cond ]
+  %add14 = add nuw nsw i32 %i.118, 1
   br label %for.body17
 
 for.cond15:                                       ; preds = %lor.lhs.false24
-  %add30 = add nuw nsw i32 %j.018, 11
-  %cmp16 = icmp ult i32 %j.018, 139
+  %add30 = add nuw nsw i32 %j.017, 11
+  %cmp16 = icmp ult i32 %j.017, 139
   br i1 %cmp16, label %for.body17, label %for.inc32, !llvm.loop !7
 
-for.body17:                                       ; preds = %for.body17.preheader, %for.cond15
-  %j.018 = phi i32 [ %add30, %for.cond15 ], [ %add14, %for.body17.preheader ]
+for.body17:                                       ; preds = %for.body13, %for.cond15
+  %j.017 = phi i32 [ %add14, %for.body13 ], [ %add30, %for.cond15 ]
   %2 = load ptr, ptr %ctx, align 8
-  %call18 = call i32 @ossl_rand_range_uint32(ptr noundef %2, i32 noundef %i.119, i32 noundef %j.018, ptr noundef nonnull %err) #3
+  %call18 = call i32 @ossl_rand_range_uint32(ptr noundef %2, i32 noundef %i.118, i32 noundef %j.017, ptr noundef nonnull %err) #3
   %3 = load i32, ptr %err, align 4
   %call19 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 67, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.9, i32 noundef %3, i32 noundef 0) #3
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %return, label %lor.lhs.false21
 
 lor.lhs.false21:                                  ; preds = %for.body17
-  %call22 = call i32 @test_uint_ge(ptr noundef nonnull @.str, i32 noundef 68, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef %call18, i32 noundef %i.119) #3
+  %call22 = call i32 @test_uint_ge(ptr noundef nonnull @.str, i32 noundef 68, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef %call18, i32 noundef %i.118) #3
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %return, label %lor.lhs.false24
 
 lor.lhs.false24:                                  ; preds = %lor.lhs.false21
-  %call25 = call i32 @test_uint_lt(ptr noundef nonnull @.str, i32 noundef 69, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.18, i32 noundef %call18, i32 noundef %j.018) #3
+  %call25 = call i32 @test_uint_lt(ptr noundef nonnull @.str, i32 noundef 69, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.18, i32 noundef %call18, i32 noundef %j.017) #3
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %return, label %for.cond15
 
 for.inc32:                                        ; preds = %for.cond15
-  %add33 = add nuw nsw i32 %i.119, 17
-  %cmp12 = icmp ult i32 %i.119, 83
-  br i1 %cmp12, label %for.body17.preheader, label %err35, !llvm.loop !8
+  %add33 = add nuw nsw i32 %i.118, 17
+  %cmp12 = icmp ult i32 %i.118, 83
+  br i1 %cmp12, label %for.body13, label %err35, !llvm.loop !8
 
 err35:                                            ; preds = %for.inc32, %entry
   %res.0 = phi i32 [ 0, %entry ], [ 1, %for.inc32 ]

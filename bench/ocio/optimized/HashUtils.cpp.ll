@@ -508,15 +508,12 @@ if.end8.i.i:                                      ; preds = %if.end4.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %acc.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %acc.i.i.i, ptr noundef nonnull align 16 dereferenceable(64) @__const._ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPvS0_S0_EPFvS3_S0_E.acc, i64 64, i1 false)
   %sub1.i.i.i.i = add i64 %size, -1
-  %cmp1.not.i.i.i.i = icmp ult i64 %sub1.i.i.i.i, 1024
-  br i1 %cmp1.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.preheader.i.i.i.i
-
-for.body.preheader.i.i.i.i:                       ; preds = %if.end8.i.i
   %div223.i.i.i.i = lshr i64 %sub1.i.i.i.i, 10
-  br label %for.body.i.i.i.i
+  %cmp1.not.i.i.i.i = icmp ult i64 %sub1.i.i.i.i, 1024
+  br i1 %cmp1.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i.i.i.i, %for.body.preheader.i.i.i.i
-  %n.02.i.i.i.i = phi i64 [ %inc.i.i.i.i, %_ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i.i.i.i ], [ 0, %for.body.preheader.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %if.end8.i.i, %_ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i.i.i.i
+  %n.02.i.i.i.i = phi i64 [ %inc.i.i.i.i, %_ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i.i.i.i ], [ 0, %if.end8.i.i ]
   %mul3.i.i.i.i = shl nuw i64 %n.02.i.i.i.i, 10
   %add.ptr.i.i.i1.i = getelementptr inbounds i8, ptr %array, i64 %mul3.i.i.i.i
   br label %for.body.i.i.i.i.i

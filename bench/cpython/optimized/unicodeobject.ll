@@ -42861,14 +42861,9 @@ if.then9:                                         ; preds = %if.end6
 if.end.i172:                                      ; preds = %if.then9
   %dec.i173 = add i64 %.val69, -1
   store i64 %dec.i173, ptr %1, align 8
-  %cmp.i174 = icmp eq i64 %dec.i173, 0
-  br i1 %cmp.i174, label %if.then1.i175, label %Py_DECREF.exit177
-
-if.then1.i175:                                    ; preds = %if.end.i172
-  tail call void @_Py_Dealloc(ptr noundef nonnull %1) #34
   br label %Py_DECREF.exit177
 
-Py_DECREF.exit177:                                ; preds = %if.then9, %if.then1.i175, %if.end.i172
+Py_DECREF.exit177:                                ; preds = %if.end.i172, %if.then9
   tail call void @_PyErr_BadInternalCall(ptr noundef nonnull @.str.8, i32 noundef 13796) #34
   br label %return
 

@@ -8712,9 +8712,9 @@ invoke.cont21:                                    ; preds = %if.else.i.invoke.co
   %sub = sub nsw i64 %8, %conv
   %add = add nsw i64 %sub, 1
   %cmp26 = icmp slt i64 %sub, -1
-  br i1 %cmp26, label %for.body.preheader, label %if.else
+  br i1 %cmp26, label %if.then27, label %if.else
 
-for.body.preheader:                               ; preds = %invoke.cont21
+if.then27:                                        ; preds = %invoke.cont21
   %bf.load.i.i.i41 = load i8, ptr %m_kind.i.i, align 4
   %bf.clear.i.i.i42 = and i8 %bf.load.i.i.i41, 1
   %cmp.i.i.i43 = icmp eq i8 %bf.clear.i.i.i42, 0
@@ -8726,11 +8726,11 @@ for.body.preheader:                               ; preds = %invoke.cont21
   %last.0.in86 = icmp ne i32 %last.0.in.in85, 0
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %invoke.cont48
-  %last.0.in91 = phi i1 [ %last.0.in, %invoke.cont48 ], [ %last.0.in86, %for.body.preheader ]
-  %sticky.090 = phi i1 [ %or16, %invoke.cont48 ], [ false, %for.body.preheader ]
-  %round.089 = phi i1 [ %last.0.in91, %invoke.cont48 ], [ false, %for.body.preheader ]
-  %e.088 = phi i64 [ %inc, %invoke.cont48 ], [ %add, %for.body.preheader ]
+for.body:                                         ; preds = %if.then27, %invoke.cont48
+  %last.0.in90 = phi i1 [ %last.0.in86, %if.then27 ], [ %last.0.in, %invoke.cont48 ]
+  %sticky.089 = phi i1 [ false, %if.then27 ], [ %or16, %invoke.cont48 ]
+  %round.088 = phi i1 [ false, %if.then27 ], [ %last.0.in90, %invoke.cont48 ]
+  %e.087 = phi i64 [ %add, %if.then27 ], [ %inc, %invoke.cont48 ]
   %10 = load ptr, ptr %m_mpz_manager, align 8
   invoke void @_ZN11mpz_managerILb0EE13machine_div2kER3mpzj(ptr noundef nonnull align 8 dereferenceable(600) %10, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i, i32 noundef 1)
           to label %invoke.cont48 unwind label %lpad2.loopexit
@@ -8742,8 +8742,8 @@ invoke.cont48:                                    ; preds = %for.body
   %11 = load ptr, ptr %m_ptr.i.i, align 8
   %m_digits.i.i.i51 = getelementptr inbounds %class.mpz_cell, ptr %11, i64 0, i32 2
   %retval.0.in.in.in.i.i52 = select i1 %cmp.i.i.i49, ptr %m_num.i, ptr %m_digits.i.i.i51
-  %or16 = or i1 %round.089, %sticky.090
-  %inc = add nsw i64 %e.088, 1
+  %or16 = or i1 %round.088, %sticky.089
+  %inc = add nsw i64 %e.087, 1
   %last.0.in.in.in = load i32, ptr %retval.0.in.in.in.i.i52, align 4
   %last.0.in.in = and i32 %last.0.in.in.in, 1
   %last.0.in = icmp ne i32 %last.0.in.in, 0
@@ -8761,20 +8761,20 @@ for.end:                                          ; preds = %invoke.cont48
 
 sw.bb:                                            ; preds = %for.end
   %12 = select i1 %last.0.in, i1 true, i1 %or16
-  %spec.select = select i1 %last.0.in91, i1 %12, i1 false
+  %spec.select = select i1 %last.0.in90, i1 %12, i1 false
   br i1 %spec.select, label %if.then82, label %if.end93
 
 sw.bb59:                                          ; preds = %for.end
   %bf.load = load i32, ptr %x, align 8
   %tobool60.not = icmp sgt i32 %bf.load, -1
-  %13 = select i1 %last.0.in91, i1 true, i1 %or16
+  %13 = select i1 %last.0.in90, i1 true, i1 %or16
   %spec.select20 = select i1 %tobool60.not, i1 %13, i1 false
   br i1 %spec.select20, label %if.then82, label %if.end93
 
 sw.bb68:                                          ; preds = %for.end
   %bf.load69 = load i32, ptr %x, align 8
   %tobool71.not = icmp slt i32 %bf.load69, 0
-  %14 = select i1 %last.0.in91, i1 true, i1 %or16
+  %14 = select i1 %last.0.in90, i1 true, i1 %or16
   %spec.select21 = select i1 %tobool71.not, i1 %14, i1 false
   br i1 %spec.select21, label %if.then82, label %if.end93
 
@@ -8787,7 +8787,7 @@ invoke.cont80:                                    ; preds = %sw.default
   unreachable
 
 sw.epilog:                                        ; preds = %for.end
-  br i1 %last.0.in91, label %if.then82, label %if.end93
+  br i1 %last.0.in90, label %if.then82, label %if.end93
 
 if.then82:                                        ; preds = %sw.bb, %sw.bb59, %sw.bb68, %sw.epilog
   %15 = load ptr, ptr %m_mpz_manager, align 8

@@ -11918,15 +11918,12 @@ if.else:                                          ; preds = %invoke.cont2
 
 for.cond.preheader:                               ; preds = %if.else
   %sub = sub i32 %num_bits, %mul22
-  %cmp2629.not = icmp ult i32 %sub, 4
-  br i1 %cmp2629.not, label %if.end, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %for.cond.preheader
   %div2521 = lshr i32 %sub, 2
-  br label %for.body
+  %cmp2629.not = icmp ult i32 %sub, 4
+  br i1 %cmp2629.not, label %if.end, label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %i.030 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
+for.body:                                         ; preds = %for.cond.preheader, %for.inc
+  %i.030 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
   %call28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.6)
           to label %for.inc unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -26186,15 +26183,12 @@ if.else:                                          ; preds = %invoke.cont2
 
 for.cond.preheader:                               ; preds = %if.else
   %sub = sub i32 %num_bits, %mul22
-  %cmp2629.not = icmp ult i32 %sub, 4
-  br i1 %cmp2629.not, label %if.end, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %for.cond.preheader
   %div2521 = lshr i32 %sub, 2
-  br label %for.body
+  %cmp2629.not = icmp ult i32 %sub, 4
+  br i1 %cmp2629.not, label %if.end, label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %i.030 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
+for.body:                                         ; preds = %for.cond.preheader, %for.inc
+  %i.030 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
   %call28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.6)
           to label %for.inc unwind label %lpad.loopexit.split-lp.loopexit
 

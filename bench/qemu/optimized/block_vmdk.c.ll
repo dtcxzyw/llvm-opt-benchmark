@@ -3790,8 +3790,7 @@ if.end115:                                        ; preds = %if.end108
 for.body.preheader:                               ; preds = %if.end115
   %5 = trunc i64 %4 to i32
   %conv125 = add i32 %2, %5
-  %umax = call i32 @llvm.umax.i32(i32 %div3448, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = zext nneg i32 %div3448 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -3821,8 +3820,7 @@ if.end139:                                        ; preds = %for.end
 for.body148.preheader:                            ; preds = %if.end139
   %7 = trunc i64 %6 to i32
   %conv144 = add i32 %2, %7
-  %umax59 = call i32 @llvm.umax.i32(i32 %div3448, i32 1)
-  %wide.trip.count60 = zext nneg i32 %umax59 to i64
+  %wide.trip.count60 = zext nneg i32 %div3448 to i64
   br label %for.body148
 
 for.body148:                                      ; preds = %for.body148.preheader, %for.body148
@@ -5345,9 +5343,6 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14

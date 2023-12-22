@@ -4600,10 +4600,14 @@ do.end.i:                                         ; preds = %do.cond.i
   %10 = bitcast <4 x i1> %9 to i4
   %.not = icmp eq i4 %10, 0
   %spec.store.select.i.i = select i1 %.not, i32 %sub.i, i32 -95
-  %cmp8.i = icmp eq i32 %spec.store.select.i.i, -95
-  br i1 %cmp8.i, label %if.then9.i, label %handle_aiocb_write_zeroes_block.exit
+  switch i32 %6, label %handle_aiocb_write_zeroes_block.exit [
+    i32 95, label %if.then9.i
+    i32 38, label %if.then9.i
+    i32 25, label %if.then9.i
+    i32 19, label %if.then9.i
+  ]
 
-if.then9.i:                                       ; preds = %do.end.i
+if.then9.i:                                       ; preds = %do.end.i, %do.end.i, %do.end.i, %do.end.i
   %bf.load11.i = load i8, ptr %has_write_zeroes.i, align 8
   %bf.clear12.i = and i8 %bf.load11.i, -3
   store i8 %bf.clear12.i, ptr %has_write_zeroes.i, align 8
