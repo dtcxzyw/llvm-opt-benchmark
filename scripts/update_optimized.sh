@@ -39,6 +39,6 @@ else
   echo "patch: $COMMIT_URL" >> scripts/pr-comment.md
   echo "sha256: $PATCH_SHA256" >> scripts/pr-comment.md
   echo "commit: $(git rev-parse HEAD)" >> scripts/pr-comment.md
-  cat test.log >> scripts/pr-comment.md
-  git show --name-only --oneline >> scripts/pr-comment.md
+  head -100 test.log >> scripts/pr-comment.md
+  git show --name-only --oneline | head -100 >> scripts/pr-comment.md
 fi

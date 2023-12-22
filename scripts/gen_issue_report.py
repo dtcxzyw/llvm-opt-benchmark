@@ -29,6 +29,11 @@ with open(report_file, 'w') as issue_report:
     issue_report.write('commit: {}\n'.format(commit_hash))
     issue_report.write('\n')
     with open('test.log', 'r') as log:
+        cnt = 0
         for line in log.readlines():
             issue_report.write(line)
+            cnt += 1
+            if cnt >= 100:
+                issue_report.write('...\n')
+                break
     dump_pretty_change_logs(issue_report, 'CHANGELOGS')
