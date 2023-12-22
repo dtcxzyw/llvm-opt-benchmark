@@ -10,11 +10,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define dso_local void @qemu_hexdump_line(ptr nocapture noundef writeonly %line, i32 noundef %b, ptr nocapture noundef readonly %bufptr, i32 noundef %len, i1 noundef zeroext %ascii) local_unnamed_addr #0 {
 entry:
-  %spec.store.select = tail call i32 @llvm.umin.i32(i32 %len, i32 16)
   %call = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %line, i64 noundef 6, ptr noundef nonnull @.str, i32 noundef %b) #3
   %idx.ext = sext i32 %call to i64
   %add.ptr = getelementptr i8, ptr %line, i64 %idx.ext
-  %0 = zext nneg i32 %spec.store.select to i64
+  %0 = zext i32 %len to i64
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -57,17 +56,22 @@ for.inc:                                          ; preds = %if.then6, %if.else
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc
+  %spec.store.select = tail call i32 @llvm.umin.i32(i32 %len, i32 16)
   br i1 %ascii, label %if.then14, label %if.end35
 
 if.then14:                                        ; preds = %for.end
   store i8 32, ptr %add.ptr9, align 1
   %line.addr.327 = getelementptr i8, ptr %add.ptr9, i64 1
   %cmp1728.not = icmp eq i32 %len, 0
-  br i1 %cmp1728.not, label %if.end35, label %for.body19
+  br i1 %cmp1728.not, label %if.end35, label %for.body19.preheader
 
-for.body19:                                       ; preds = %if.then14, %for.body19
-  %indvars.iv32 = phi i64 [ %indvars.iv.next33, %for.body19 ], [ 0, %if.then14 ]
-  %line.addr.330 = phi ptr [ %line.addr.3, %for.body19 ], [ %line.addr.327, %if.then14 ]
+for.body19.preheader:                             ; preds = %if.then14
+  %wide.trip.count = zext nneg i32 %spec.store.select to i64
+  br label %for.body19
+
+for.body19:                                       ; preds = %for.body19.preheader, %for.body19
+  %indvars.iv32 = phi i64 [ 0, %for.body19.preheader ], [ %indvars.iv.next33, %for.body19 ]
+  %line.addr.330 = phi ptr [ %line.addr.327, %for.body19.preheader ], [ %line.addr.3, %for.body19 ]
   %3 = trunc i64 %indvars.iv32 to i32
   %add20 = add i32 %3, %b
   %idxprom21 = zext i32 %add20 to i64
@@ -79,7 +83,7 @@ for.body19:                                       ; preds = %if.then14, %for.bod
   store i8 %narrow, ptr %line.addr.330, align 1
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %line.addr.3 = getelementptr i8, ptr %line.addr.330, i64 1
-  %exitcond35.not = icmp eq i64 %indvars.iv.next33, %0
+  %exitcond35.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count
   br i1 %exitcond35.not, label %if.end35, label %for.body19, !llvm.loop !7
 
 if.end35:                                         ; preds = %for.body19, %if.then14, %for.end
@@ -108,11 +112,10 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %qemu_hexdump_line.exit
   %b.06 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %qemu_hexdump_line.exit ]
   %conv3 = sub i32 %0, %b.06
-  %spec.store.select.i = call i32 @llvm.umin.i32(i32 %conv3, i32 16)
   %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %line, i64 noundef 6, ptr noundef nonnull @.str, i32 noundef %b.06) #3
   %idx.ext.i = sext i32 %call.i to i64
   %add.ptr.i = getelementptr i8, ptr %line, i64 %idx.ext.i
-  %1 = zext nneg i32 %spec.store.select.i to i64
+  %1 = zext i32 %conv3 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body
@@ -158,11 +161,16 @@ for.end.i:                                        ; preds = %for.inc.i
   store i8 32, ptr %add.ptr9.i, align 1
   %line.addr.327.i = getelementptr i8, ptr %add.ptr9.i, i64 1
   %cmp1728.not.i = icmp eq i32 %b.06, %0
-  br i1 %cmp1728.not.i, label %qemu_hexdump_line.exit, label %for.body19.i
+  br i1 %cmp1728.not.i, label %qemu_hexdump_line.exit, label %for.body19.preheader.i
 
-for.body19.i:                                     ; preds = %for.end.i, %for.body19.i
-  %indvars.iv32.i = phi i64 [ %indvars.iv.next33.i, %for.body19.i ], [ 0, %for.end.i ]
-  %line.addr.330.i = phi ptr [ %line.addr.3.i, %for.body19.i ], [ %line.addr.327.i, %for.end.i ]
+for.body19.preheader.i:                           ; preds = %for.end.i
+  %spec.store.select.i = call i32 @llvm.umin.i32(i32 %conv3, i32 16)
+  %wide.trip.count.i = zext nneg i32 %spec.store.select.i to i64
+  br label %for.body19.i
+
+for.body19.i:                                     ; preds = %for.body19.i, %for.body19.preheader.i
+  %indvars.iv32.i = phi i64 [ 0, %for.body19.preheader.i ], [ %indvars.iv.next33.i, %for.body19.i ]
+  %line.addr.330.i = phi ptr [ %line.addr.327.i, %for.body19.preheader.i ], [ %line.addr.3.i, %for.body19.i ]
   %4 = trunc i64 %indvars.iv32.i to i32
   %add20.i = add i32 %b.06, %4
   %idxprom21.i = zext i32 %add20.i to i64
@@ -174,7 +182,7 @@ for.body19.i:                                     ; preds = %for.end.i, %for.bod
   store i8 %narrow.i, ptr %line.addr.330.i, align 1
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %line.addr.3.i = getelementptr i8, ptr %line.addr.330.i, i64 1
-  %exitcond35.not.i = icmp eq i64 %indvars.iv.next33.i, %1
+  %exitcond35.not.i = icmp eq i64 %indvars.iv.next33.i, %wide.trip.count.i
   br i1 %exitcond35.not.i, label %qemu_hexdump_line.exit, label %for.body19.i, !llvm.loop !7
 
 qemu_hexdump_line.exit:                           ; preds = %for.body19.i, %for.end.i

@@ -1256,14 +1256,10 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %cmp.i87 = icmp ult i8 %5, 8
   %cmp12.i = icmp ugt i8 %5, 31
   %dk_indices16.i = getelementptr inbounds %struct._dictkeysobject, ptr %3, i64 0, i32 7
-  br i1 %cmp.i87, label %for.body.us.preheader, label %for.body.lr.ph.split
+  br i1 %cmp.i87, label %for.body.us, label %for.body.lr.ph.split
 
-for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %smax141 = tail call i64 @llvm.smax.i64(i64 %shl79, i64 1)
-  br label %for.body.us
-
-for.body.us:                                      ; preds = %for.body.us.preheader, %for.cond.us
-  %i.0102.us = phi i64 [ %inc.us, %for.cond.us ], [ 0, %for.body.us.preheader ]
+for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond.us
+  %i.0102.us = phi i64 [ %inc.us, %for.cond.us ], [ 0, %for.body.lr.ph ]
   %arrayidx.i.us = getelementptr i8, ptr %dk_indices16.i, i64 %i.0102.us
   %12 = load i8, ptr %arrayidx.i.us, align 1
   %conv2.i.us = sext i8 %12 to i64
@@ -1274,12 +1270,11 @@ for.body.us:                                      ; preds = %for.body.us.prehead
 
 for.cond.us:                                      ; preds = %for.body.us
   %inc.us = add nuw nsw i64 %i.0102.us, 1
-  %exitcond142.not = icmp eq i64 %inc.us, %smax141
+  %exitcond142.not = icmp eq i64 %inc.us, %shl79
   br i1 %exitcond142.not, label %for.end, label %for.body.us, !llvm.loop !8
 
 for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
   %cmp3.i = icmp ult i8 %5, 16
-  %smax139 = tail call i64 @llvm.smax.i64(i64 %shl79, i64 1)
   br i1 %cmp3.i, label %for.body.us103, label %for.body.lr.ph.split.split
 
 for.body.us103:                                   ; preds = %for.body.lr.ph.split, %for.cond.us105
@@ -1294,14 +1289,18 @@ for.body.us103:                                   ; preds = %for.body.lr.ph.spli
 
 for.cond.us105:                                   ; preds = %for.body.us103
   %inc.us112 = add nuw nsw i64 %i.0102.us104, 1
-  %exitcond140.not = icmp eq i64 %inc.us112, %smax139
+  %exitcond140.not = icmp eq i64 %inc.us112, %shl79
   br i1 %exitcond140.not, label %for.end, label %for.body.us103, !llvm.loop !8
 
 for.body.lr.ph.split.split:                       ; preds = %for.body.lr.ph.split
-  br i1 %cmp12.i, label %for.body.us113, label %for.body
+  br i1 %cmp12.i, label %for.body.us113.preheader, label %for.body
 
-for.body.us113:                                   ; preds = %for.body.lr.ph.split.split, %for.cond.us115
-  %i.0102.us114 = phi i64 [ %inc.us122, %for.cond.us115 ], [ 0, %for.body.lr.ph.split.split ]
+for.body.us113.preheader:                         ; preds = %for.body.lr.ph.split.split
+  %smax137 = tail call i64 @llvm.smax.i64(i64 %shl79, i64 1)
+  br label %for.body.us113
+
+for.body.us113:                                   ; preds = %for.body.us113.preheader, %for.cond.us115
+  %i.0102.us114 = phi i64 [ %inc.us122, %for.cond.us115 ], [ 0, %for.body.us113.preheader ]
   %arrayidx18.i.us = getelementptr i64, ptr %dk_indices16.i, i64 %i.0102.us114
   %14 = load i64, ptr %arrayidx18.i.us, align 8
   %cmp84.us119 = icmp slt i64 %14, -2
@@ -1311,12 +1310,12 @@ for.body.us113:                                   ; preds = %for.body.lr.ph.spli
 
 for.cond.us115:                                   ; preds = %for.body.us113
   %inc.us122 = add nuw nsw i64 %i.0102.us114, 1
-  %exitcond138.not = icmp eq i64 %inc.us122, %smax139
+  %exitcond138.not = icmp eq i64 %inc.us122, %smax137
   br i1 %exitcond138.not, label %for.end, label %for.body.us113, !llvm.loop !8
 
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i64 %i.0102, 1
-  %exitcond.not = icmp eq i64 %inc, %smax139
+  %exitcond.not = icmp eq i64 %inc, %shl79
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.body:                                         ; preds = %for.body.lr.ph.split.split, %for.cond

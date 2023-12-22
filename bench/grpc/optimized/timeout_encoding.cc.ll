@@ -238,7 +238,7 @@ sw.bb15.i:                                        ; preds = %entry
   br label %_ZNK9grpc_core7Timeout10AsDurationEv.exit
 
 sw.bb19.i:                                        ; preds = %entry
-  %mul8.i.i13.i = mul nuw nsw i64 %conv.i, 100000
+  %mul8.i.i11.i = mul nuw nsw i64 %conv.i, 100000
   br label %_ZNK9grpc_core7Timeout10AsDurationEv.exit
 
 sw.bb23.i:                                        ; preds = %entry
@@ -246,11 +246,11 @@ sw.bb23.i:                                        ; preds = %entry
   br label %_ZNK9grpc_core7Timeout10AsDurationEv.exit
 
 sw.bb26.i:                                        ; preds = %entry
-  %mul8.i.i.i17.i = mul nuw nsw i64 %conv.i, 600000
+  %mul8.i.i.i12.i = mul nuw nsw i64 %conv.i, 600000
   br label %_ZNK9grpc_core7Timeout10AsDurationEv.exit
 
 sw.bb30.i:                                        ; preds = %entry
-  %mul8.i.i.i22.i = mul nuw nsw i64 %conv.i, 6000000
+  %mul8.i.i.i13.i = mul nuw nsw i64 %conv.i, 6000000
   br label %_ZNK9grpc_core7Timeout10AsDurationEv.exit
 
 sw.bb34.i:                                        ; preds = %entry
@@ -262,7 +262,7 @@ do.body.i:                                        ; preds = %entry
   unreachable
 
 _ZNK9grpc_core7Timeout10AsDurationEv.exit:        ; preds = %entry, %sw.bb2.i, %sw.bb5.i, %sw.bb8.i, %sw.bb12.i, %sw.bb15.i, %sw.bb19.i, %sw.bb23.i, %sw.bb26.i, %sw.bb30.i, %sw.bb34.i
-  %retval.sroa.0.0.i = phi i64 [ %mul8.i.i.i.i.i, %sw.bb34.i ], [ %mul8.i.i.i.i, %sw.bb23.i ], [ %mul8.i.i13.i, %sw.bb19.i ], [ %mul8.i.i10.i, %sw.bb15.i ], [ %mul8.i.i.i, %sw.bb12.i ], [ %mul9.i, %sw.bb8.i ], [ %mul.i, %sw.bb5.i ], [ %conv.i, %sw.bb2.i ], [ 0, %entry ], [ %mul8.i.i.i17.i, %sw.bb26.i ], [ %mul8.i.i.i22.i, %sw.bb30.i ]
+  %retval.sroa.0.0.i = phi i64 [ %mul8.i.i.i.i.i, %sw.bb34.i ], [ %mul8.i.i.i13.i, %sw.bb30.i ], [ %mul8.i.i.i12.i, %sw.bb26.i ], [ %mul8.i.i.i.i, %sw.bb23.i ], [ %mul8.i.i11.i, %sw.bb19.i ], [ %mul8.i.i10.i, %sw.bb15.i ], [ %mul8.i.i.i, %sw.bb12.i ], [ %mul9.i, %sw.bb8.i ], [ %mul.i, %sw.bb5.i ], [ %conv.i, %sw.bb2.i ], [ 0, %entry ]
   %2 = and i32 %other.coerce, 65535
   %conv.i4 = zext nneg i32 %2 to i64
   switch i8 %other.sroa.2.0.extract.trunc, label %do.body.i26 [
@@ -296,7 +296,7 @@ sw.bb15.i17:                                      ; preds = %_ZNK9grpc_core7Time
   br label %_ZNK9grpc_core7Timeout10AsDurationEv.exit27
 
 sw.bb19.i15:                                      ; preds = %_ZNK9grpc_core7Timeout10AsDurationEv.exit
-  %mul8.i.i13.i16 = mul nuw nsw i64 %conv.i4, 100000
+  %mul8.i.i11.i16 = mul nuw nsw i64 %conv.i4, 100000
   br label %_ZNK9grpc_core7Timeout10AsDurationEv.exit27
 
 sw.bb23.i13:                                      ; preds = %_ZNK9grpc_core7Timeout10AsDurationEv.exit
@@ -304,11 +304,11 @@ sw.bb23.i13:                                      ; preds = %_ZNK9grpc_core7Time
   br label %_ZNK9grpc_core7Timeout10AsDurationEv.exit27
 
 sw.bb26.i11:                                      ; preds = %_ZNK9grpc_core7Timeout10AsDurationEv.exit
-  %mul8.i.i.i17.i12 = mul nuw nsw i64 %conv.i4, 600000
+  %mul8.i.i.i12.i12 = mul nuw nsw i64 %conv.i4, 600000
   br label %_ZNK9grpc_core7Timeout10AsDurationEv.exit27
 
 sw.bb30.i9:                                       ; preds = %_ZNK9grpc_core7Timeout10AsDurationEv.exit
-  %mul8.i.i.i22.i10 = mul nuw nsw i64 %conv.i4, 6000000
+  %mul8.i.i.i13.i10 = mul nuw nsw i64 %conv.i4, 6000000
   br label %_ZNK9grpc_core7Timeout10AsDurationEv.exit27
 
 sw.bb34.i6:                                       ; preds = %_ZNK9grpc_core7Timeout10AsDurationEv.exit
@@ -320,7 +320,7 @@ do.body.i26:                                      ; preds = %_ZNK9grpc_core7Time
   unreachable
 
 _ZNK9grpc_core7Timeout10AsDurationEv.exit27:      ; preds = %_ZNK9grpc_core7Timeout10AsDurationEv.exit, %sw.bb5.i23, %sw.bb8.i21, %sw.bb12.i19, %sw.bb15.i17, %sw.bb19.i15, %sw.bb23.i13, %sw.bb26.i11, %sw.bb30.i9, %sw.bb34.i6
-  %retval.sroa.0.0.i8 = phi i64 [ %mul8.i.i.i.i.i7, %sw.bb34.i6 ], [ %mul8.i.i.i.i14, %sw.bb23.i13 ], [ %mul8.i.i13.i16, %sw.bb19.i15 ], [ %mul8.i.i10.i18, %sw.bb15.i17 ], [ %mul8.i.i.i20, %sw.bb12.i19 ], [ %mul9.i22, %sw.bb8.i21 ], [ %mul.i24, %sw.bb5.i23 ], [ %mul8.i.i.i17.i12, %sw.bb26.i11 ], [ %mul8.i.i.i22.i10, %sw.bb30.i9 ], [ %conv.i4, %_ZNK9grpc_core7Timeout10AsDurationEv.exit ]
+  %retval.sroa.0.0.i8 = phi i64 [ %mul8.i.i.i.i.i7, %sw.bb34.i6 ], [ %mul8.i.i.i13.i10, %sw.bb30.i9 ], [ %mul8.i.i.i12.i12, %sw.bb26.i11 ], [ %mul8.i.i.i.i14, %sw.bb23.i13 ], [ %mul8.i.i11.i16, %sw.bb19.i15 ], [ %mul8.i.i10.i18, %sw.bb15.i17 ], [ %mul8.i.i.i20, %sw.bb12.i19 ], [ %mul9.i22, %sw.bb8.i21 ], [ %mul.i24, %sw.bb5.i23 ], [ %conv.i4, %_ZNK9grpc_core7Timeout10AsDurationEv.exit ]
   %cmp = icmp eq i64 %retval.sroa.0.0.i8, 0
   br i1 %cmp, label %if.then, label %if.end13
 
@@ -385,7 +385,7 @@ sw.bb15:                                          ; preds = %entry
   br label %return
 
 sw.bb19:                                          ; preds = %entry
-  %mul8.i.i13 = mul nuw nsw i64 %conv, 100000
+  %mul8.i.i11 = mul nuw nsw i64 %conv, 100000
   br label %return
 
 sw.bb23:                                          ; preds = %entry
@@ -393,11 +393,11 @@ sw.bb23:                                          ; preds = %entry
   br label %return
 
 sw.bb26:                                          ; preds = %entry
-  %mul8.i.i.i17 = mul nuw nsw i64 %conv, 600000
+  %mul8.i.i.i12 = mul nuw nsw i64 %conv, 600000
   br label %return
 
 sw.bb30:                                          ; preds = %entry
-  %mul8.i.i.i22 = mul nuw nsw i64 %conv, 6000000
+  %mul8.i.i.i13 = mul nuw nsw i64 %conv, 6000000
   br label %return
 
 sw.bb34:                                          ; preds = %entry
@@ -408,8 +408,8 @@ do.body:                                          ; preds = %entry
   tail call void @gpr_unreachable_code(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 90) #11
   unreachable
 
-return:                                           ; preds = %sw.bb30, %sw.bb26, %entry, %sw.bb34, %sw.bb23, %sw.bb19, %sw.bb15, %sw.bb12, %sw.bb8, %sw.bb5, %sw.bb2
-  %retval.sroa.0.0 = phi i64 [ %mul8.i.i.i.i, %sw.bb34 ], [ %mul8.i.i.i, %sw.bb23 ], [ %mul8.i.i13, %sw.bb19 ], [ %mul8.i.i10, %sw.bb15 ], [ %mul8.i.i, %sw.bb12 ], [ %mul9, %sw.bb8 ], [ %mul, %sw.bb5 ], [ %conv, %sw.bb2 ], [ 0, %entry ], [ %mul8.i.i.i17, %sw.bb26 ], [ %mul8.i.i.i22, %sw.bb30 ]
+return:                                           ; preds = %entry, %sw.bb34, %sw.bb30, %sw.bb26, %sw.bb23, %sw.bb19, %sw.bb15, %sw.bb12, %sw.bb8, %sw.bb5, %sw.bb2
+  %retval.sroa.0.0 = phi i64 [ %mul8.i.i.i.i, %sw.bb34 ], [ %mul8.i.i.i13, %sw.bb30 ], [ %mul8.i.i.i12, %sw.bb26 ], [ %mul8.i.i.i, %sw.bb23 ], [ %mul8.i.i11, %sw.bb19 ], [ %mul8.i.i10, %sw.bb15 ], [ %mul8.i.i, %sw.bb12 ], [ %mul9, %sw.bb8 ], [ %mul, %sw.bb5 ], [ %conv, %sw.bb2 ], [ 0, %entry ]
   ret i64 %retval.sroa.0.0
 }
 

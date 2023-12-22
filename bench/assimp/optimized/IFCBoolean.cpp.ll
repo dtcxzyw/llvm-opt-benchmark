@@ -4101,15 +4101,14 @@ if.end222:                                        ; preds = %for.end216
   br i1 %cmp224, label %if.then225, label %if.end317
 
 if.then225:                                       ; preds = %if.end222
-  br i1 %call138, label %if.end244, label %for.cond229.preheader
+  br i1 %call138, label %if.end244, label %for.body233.lr.ph
 
-for.cond229.preheader:                            ; preds = %if.then225
+for.body233.lr.ph:                                ; preds = %if.then225
   %sub231 = add nsw i64 %sub.ptr.div.i485, -1
-  %cmp2321594.not = icmp eq i64 %sub231, 0
-  br i1 %cmp2321594.not, label %if.end244, label %for.body233
+  br label %for.body233
 
-for.body233:                                      ; preds = %for.cond229.preheader, %for.body233
-  %b228.01595 = phi i64 [ %inc242, %for.body233 ], [ 0, %for.cond229.preheader ]
+for.body233:                                      ; preds = %for.body233.lr.ph, %for.body233
+  %b228.01595 = phi i64 [ 0, %for.body233.lr.ph ], [ %inc242, %for.body233 ]
   %add.ptr.i506 = getelementptr inbounds %"class.std::tuple", ptr %intersections.sroa.0.1.lcssa, i64 %b228.01595
   %sub237 = add i64 %sub231, %b228.01595
   %rem239 = urem i64 %sub237, %sub.ptr.div.i485
@@ -4135,7 +4134,7 @@ for.body233:                                      ; preds = %for.cond229.prehead
   %exitcond1685.not = icmp eq i64 %inc242, %sub231
   br i1 %exitcond1685.not, label %if.end244, label %for.body233, !llvm.loop !154
 
-if.end244:                                        ; preds = %for.body233, %for.cond229.preheader, %if.then225
+if.end244:                                        ; preds = %for.body233, %if.then225
   %cmp248.not1599 = icmp eq ptr %intersections.sroa.36.1.lcssa, %intersections.sroa.0.1.lcssa
   br i1 %cmp248.not1599, label %if.end317, label %land.rhs
 

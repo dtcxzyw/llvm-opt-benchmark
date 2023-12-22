@@ -4787,14 +4787,10 @@ if.end27.i:                                       ; preds = %_ZNK6icu_7513Unicod
   %add28.i = add i32 %sub.i, %conv22.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond72.not.i = icmp eq i64 %indvars.iv.next.i, %length.addr.077.i
-  br i1 %exitcond72.not.i, label %if.end.i17, label %for.body.i, !llvm.loop !17
+  br i1 %exitcond72.not.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i56, label %for.body.i, !llvm.loop !17
 
-if.end.i17:                                       ; preds = %if.end27.i
+_ZNK6icu_7513UnicodeString6charAtEi.exit.i56:     ; preds = %if.end27.i
   %mul30.i = mul nsw i32 %add28.i, %sign.080.i
-  %cmp5.i24 = icmp slt i32 %cond.i, 5
-  br i1 %cmp5.i24, label %if.then25, label %_ZNK6icu_7513UnicodeString6charAtEi.exit.i56
-
-_ZNK6icu_7513UnicodeString6charAtEi.exit.i56:     ; preds = %if.end.i17
   %arrayidx.i.i.i61 = getelementptr inbounds i16, ptr %cond.i2.i.i, i64 3
   %13 = load i16, ptr %arrayidx.i.i.i61, align 2
   switch i16 %13, label %for.body.lr.ph.i28 [
@@ -4909,7 +4905,7 @@ for.end.i105:                                     ; preds = %if.end27.i98
   %mul30.i106 = mul nsw i32 %add28.i102, %sign.080.i81
   br label %if.end26
 
-if.then25:                                        ; preds = %for.body.i, %_ZNK6icu_7513UnicodeString6charAtEi.exit57.i, %for.body.i39, %_ZNK6icu_7513UnicodeString6charAtEi.exit57.i43, %for.body.i91, %_ZNK6icu_7513UnicodeString6charAtEi.exit57.i95, %if.end.i69, %if.end.i17, %_ZNK6icu_7513UnicodeString6charAtEi.exit, %if.end
+if.then25:                                        ; preds = %for.body.i, %_ZNK6icu_7513UnicodeString6charAtEi.exit57.i, %for.body.i39, %_ZNK6icu_7513UnicodeString6charAtEi.exit57.i43, %for.body.i91, %_ZNK6icu_7513UnicodeString6charAtEi.exit57.i95, %if.end.i69, %_ZNK6icu_7513UnicodeString6charAtEi.exit, %if.end
   store i32 3, ptr %status, align 4
   br label %return
 
@@ -6481,13 +6477,13 @@ if.then10:                                        ; preds = %do.end
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i)
   br label %while.body.preheader
 
-while.body.preheader:                             ; preds = %do.end, %if.then10
+while.body.preheader:                             ; preds = %if.then10, %do.end
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
-  %indvars.iv17 = phi i64 [ %indvars.iv.next18, %while.body ], [ %indvars.iv, %while.body.preheader ]
-  %indvars.iv.next18 = add nsw i64 %indvars.iv17, -1
-  %arrayidx15 = getelementptr inbounds [20 x i32], ptr %digits, i64 0, i64 %indvars.iv17
+  %indvars.iv16 = phi i64 [ %indvars.iv.next17, %while.body ], [ %indvars.iv, %while.body.preheader ]
+  %indvars.iv.next17 = add nsw i64 %indvars.iv16, -1
+  %arrayidx15 = getelementptr inbounds [20 x i32], ptr %digits, i64 0, i64 %indvars.iv16
   %0 = load i32, ptr %arrayidx15, align 4
   %1 = trunc i32 %0 to i16
   %conv16 = add i16 %1, 48
@@ -6495,7 +6491,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i16 %conv16, ptr %srcChar.addr.i12, align 2
   %call.i13 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef nonnull %srcChar.addr.i12, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i12)
-  %2 = icmp sgt i64 %indvars.iv17, 0
+  %2 = icmp sgt i64 %indvars.iv16, 0
   br i1 %2, label %while.body, label %while.end, !llvm.loop !29
 
 while.end:                                        ; preds = %while.body

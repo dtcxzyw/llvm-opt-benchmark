@@ -6714,9 +6714,7 @@ get_crl_score.exit:                               ; preds = %if.end47.i, %if.the
   %reasons.0 = phi i32 [ %2, %crl_crldp_check.exit.i ], [ %or56.i, %if.end55.i ], [ %2, %if.end47.i ], [ %2, %if.then3.i.i ], [ %2, %if.else.i.i ], [ %2, %lor.lhs.false33.i.i ]
   %retval.0.i = phi i32 [ %crl_score.3.i, %crl_crldp_check.exit.i ], [ %or57.i, %if.end55.i ], [ %crl_score.3.i, %if.end47.i ], [ %crl_score.3.i, %if.then3.i.i ], [ %crl_score.3.i, %if.else.i.i ], [ %crl_score.3.i, %lor.lhs.false33.i.i ]
   %cmp5 = icmp slt i32 %retval.0.i, %best_score.061
-  %cmp6 = icmp eq i32 %retval.0.i, 0
-  %or.cond = or i1 %cmp5, %cmp6
-  br i1 %or.cond, label %for.inc, label %if.end
+  br i1 %cmp5, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %get_crl_score.exit
   %cmp7 = icmp eq i32 %retval.0.i, %best_score.061

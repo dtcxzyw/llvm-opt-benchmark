@@ -2594,7 +2594,7 @@ invoke.cont62.i:                                  ; preds = %if.then59.i
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %invoke.cont80.i, %invoke.cont62.i
-  %indvars.iv137 = phi i64 [ %indvars.iv.next138, %invoke.cont80.i ], [ %34, %invoke.cont62.i ]
+  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %invoke.cont80.i ], [ %34, %invoke.cont62.i ]
   %iter.sroa.4.0.i = phi ptr [ %call.i.i118.i, %invoke.cont80.i ], [ %str.i, %invoke.cont62.i ]
   %35 = load ptr, ptr %call.i, align 8
   %call.i.i118.i = invoke noundef ptr @uhash_get_75(ptr noundef %35, ptr noundef nonnull %iter.sroa.4.0.i)
@@ -2645,7 +2645,7 @@ call8.i.i.noexc.i:                                ; preds = %_ZNK6icu_7513Unicod
   br i1 %tobool9.i.not.i.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %call8.i.i.noexc.i, %if.else.i.i.i, %if.then.i.i.i
-  %arrayidx70.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call11.i, i64 %indvars.iv137
+  %arrayidx70.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call11.i, i64 %indvars.iv141
   store ptr %call37.i, ptr %arrayidx70.i, align 8
   %43 = load i16, ptr %fUnion.i.i.i.i, align 8
   %conv1.i.i = zext i16 %43 to i32
@@ -2669,9 +2669,9 @@ if.else9.i.i:                                     ; preds = %if.else.i.i
 
 invoke.cont80.i:                                  ; preds = %if.else9.i.i, %if.then7.i.i, %while.body.i
   %retval.0.i120.i = phi ptr [ %fBuffer.i.i, %if.then7.i.i ], [ %44, %if.else9.i.i ], [ null, %while.body.i ]
-  %currencyName76.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call11.i, i64 %indvars.iv137, i32 1
+  %currencyName76.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call11.i, i64 %indvars.iv141, i32 1
   store ptr %retval.0.i120.i, ptr %currencyName76.i, align 8
-  %flag79.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call11.i, i64 %indvars.iv137, i32 3
+  %flag79.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call11.i, i64 %indvars.iv141, i32 3
   store i32 0, ptr %flag79.i, align 4
   %45 = load i16, ptr %fUnion.i.i.i.i, align 8
   %cmp.i.i121.i = icmp slt i16 %45, 0
@@ -2680,8 +2680,8 @@ invoke.cont80.i:                                  ; preds = %if.else9.i.i, %if.t
   %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call.i.i118.i, i64 0, i32 1, i32 0, i32 1
   %47 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i121.i, i32 %47, i32 %shr.i.i.i
-  %indvars.iv.next138 = add i64 %indvars.iv137, 1
-  %currencyNameLen85.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call11.i, i64 %indvars.iv137, i32 2
+  %indvars.iv.next142 = add i64 %indvars.iv141, 1
+  %currencyNameLen85.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call11.i, i64 %indvars.iv141, i32 2
   store i32 %cond.i.i, ptr %currencyNameLen85.i, align 8
   br label %while.cond.i, !llvm.loop !16
 
@@ -2699,7 +2699,7 @@ lpad65.i:                                         ; preds = %_ZNK6icu_7513Unicod
   br label %ehcleanup209.i
 
 while.end.i:                                      ; preds = %call8.i.i.noexc.i, %if.then.i.i.i, %call.i.i.noexc.i
-  %51 = trunc i64 %indvars.iv137 to i32
+  %51 = trunc i64 %indvars.iv141 to i32
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %str.i) #18
   br label %if.end86.i
 
@@ -2831,13 +2831,13 @@ for.body158.i.preheader:                          ; preds = %for.cond156.prehead
   br label %for.body158.i
 
 for.body158.i:                                    ; preds = %for.body158.i.preheader, %invoke.cont165.i
-  %indvars.iv140 = phi i64 [ %56, %for.body158.i.preheader ], [ %indvars.iv.next141, %invoke.cont165.i ]
+  %indvars.iv144 = phi i64 [ %56, %for.body158.i.preheader ], [ %indvars.iv.next145, %invoke.cont165.i ]
   %j.0168.i = phi i32 [ 0, %for.body158.i.preheader ], [ %inc178.i, %invoke.cont165.i ]
   %call160.i = invoke ptr @ures_getStringByIndex_75(ptr noundef %call135.i, i32 noundef %j.0168.i, ptr noundef nonnull %len155.i, ptr noundef nonnull %ec5.i)
           to label %invoke.cont159.i unwind label %lpad.loopexit.i
 
 invoke.cont159.i:                                 ; preds = %for.body158.i
-  %arrayidx162.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call7.i, i64 %indvars.iv140
+  %arrayidx162.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call7.i, i64 %indvars.iv144
   store ptr %call137.i, ptr %arrayidx162.i, align 8
   %57 = load i32, ptr %len155.i, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ec.i131.i)
@@ -2868,20 +2868,20 @@ if.then.i136.i:                                   ; preds = %call2.i.noexc143.i
 
 invoke.cont165.i:                                 ; preds = %if.then.i136.i, %call2.i.noexc143.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec.i131.i)
-  %currencyName169.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call7.i, i64 %indvars.iv140, i32 1
+  %currencyName169.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call7.i, i64 %indvars.iv144, i32 1
   store ptr %call1.i142.i, ptr %currencyName169.i, align 8
-  %flag172.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call7.i, i64 %indvars.iv140, i32 3
+  %flag172.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call7.i, i64 %indvars.iv144, i32 3
   store i32 1, ptr %flag172.i, align 4
   %59 = load i32, ptr %len155.i, align 4
-  %indvars.iv.next141 = add nsw i64 %indvars.iv140, 1
-  %currencyNameLen176.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call7.i, i64 %indvars.iv140, i32 2
+  %indvars.iv.next145 = add nsw i64 %indvars.iv144, 1
+  %currencyNameLen176.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call7.i, i64 %indvars.iv144, i32 2
   store i32 %59, ptr %currencyNameLen176.i, align 8
   %inc178.i = add nuw nsw i32 %j.0168.i, 1
   %exitcond173.not.i = icmp eq i32 %inc178.i, %call154.i
   br i1 %exitcond173.not.i, label %for.end179.invoke.i.loopexit, label %for.body158.i, !llvm.loop !18
 
 for.end179.invoke.i.loopexit:                     ; preds = %invoke.cont165.i
-  %60 = trunc i64 %indvars.iv.next141 to i32
+  %60 = trunc i64 %indvars.iv.next145 to i32
   br label %for.end179.invoke.i
 
 for.end179.invoke.i:                              ; preds = %for.end179.invoke.i.loopexit, %for.cond156.preheader.i, %invoke.cont143.i
@@ -2977,8 +2977,8 @@ if.end18:                                         ; preds = %_ZL20collectCurrenc
   br label %for.body23
 
 for.body23:                                       ; preds = %if.end18, %for.inc36
-  %indvars.iv143 = phi i64 [ 0, %if.end18 ], [ %indvars.iv.next144, %for.inc36 ]
-  %arrayidx25 = getelementptr inbounds [10 x ptr], ptr @_ZL9currCache, i64 0, i64 %indvars.iv143
+  %indvars.iv147 = phi i64 [ 0, %if.end18 ], [ %indvars.iv.next148, %for.inc36 ]
+  %arrayidx25 = getelementptr inbounds [10 x ptr], ptr @_ZL9currCache, i64 0, i64 %indvars.iv147
   %64 = load ptr, ptr %arrayidx25, align 8
   %cmp26.not = icmp eq ptr %64, null
   br i1 %cmp26.not, label %for.inc36, label %land.lhs.true27
@@ -2986,42 +2986,37 @@ for.body23:                                       ; preds = %if.end18, %for.inc3
 land.lhs.true27:                                  ; preds = %for.body23
   %call32 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %locale, ptr noundef nonnull dereferenceable(1) %64) #21
   %cmp33 = icmp eq i32 %call32, 0
-  br i1 %cmp33, label %for.end38, label %for.inc36
+  br i1 %cmp33, label %if.else, label %for.inc36
 
 for.inc36:                                        ; preds = %for.body23, %land.lhs.true27
-  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
-  %exitcond146.not = icmp eq i64 %indvars.iv.next144, 10
-  br i1 %exitcond146.not, label %if.then41, label %for.body23, !llvm.loop !21
+  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
+  %exitcond150.not = icmp eq i64 %indvars.iv.next148, 10
+  br i1 %exitcond150.not, label %if.then41, label %for.body23, !llvm.loop !21
 
-for.end38:                                        ; preds = %land.lhs.true27
-  %65 = and i64 %indvars.iv143, 255
-  %cmp40 = icmp eq i64 %65, 255
-  br i1 %cmp40, label %if.then41, label %if.else
-
-if.then41:                                        ; preds = %for.inc36, %for.end38
-  %66 = load i8, ptr @_ZL22currentCacheEntryIndex, align 1
-  %idxprom42 = zext nneg i8 %66 to i64
+if.then41:                                        ; preds = %for.inc36
+  %65 = load i8, ptr @_ZL22currentCacheEntryIndex, align 1
+  %idxprom42 = zext nneg i8 %65 to i64
   %arrayidx43 = getelementptr inbounds [10 x ptr], ptr @_ZL9currCache, i64 0, i64 %idxprom42
-  %67 = load ptr, ptr %arrayidx43, align 8
-  %tobool44.not = icmp eq ptr %67, null
+  %66 = load ptr, ptr %arrayidx43, align 8
+  %tobool44.not = icmp eq ptr %66, null
   br i1 %tobool44.not, label %if.end51, label %if.then45
 
 if.then45:                                        ; preds = %if.then41
-  %refCount46 = getelementptr inbounds %struct.CurrencyNameCacheEntry, ptr %67, i64 0, i32 5
-  %68 = load i32, ptr %refCount46, align 4
-  %dec = add nsw i32 %68, -1
+  %refCount46 = getelementptr inbounds %struct.CurrencyNameCacheEntry, ptr %66, i64 0, i32 5
+  %67 = load i32, ptr %refCount46, align 4
+  %dec = add nsw i32 %67, -1
   store i32 %dec, ptr %refCount46, align 4
   %cmp48 = icmp eq i32 %dec, 0
   br i1 %cmp48, label %if.then49, label %if.end51
 
 if.then49:                                        ; preds = %if.then45
-  call fastcc void @_ZL16deleteCacheEntryP22CurrencyNameCacheEntry(ptr noundef nonnull %67)
+  call fastcc void @_ZL16deleteCacheEntryP22CurrencyNameCacheEntry(ptr noundef nonnull %66)
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then45, %if.then49, %if.then41
   %call52 = call noalias dereferenceable_or_null(192) ptr @uprv_malloc_75(i64 noundef 192) #19
-  %69 = load i8, ptr @_ZL22currentCacheEntryIndex, align 1
-  %idxprom53 = zext nneg i8 %69 to i64
+  %68 = load i8, ptr @_ZL22currentCacheEntryIndex, align 1
+  %idxprom53 = zext nneg i8 %68 to i64
   %arrayidx54 = getelementptr inbounds [10 x ptr], ptr @_ZL9currCache, i64 0, i64 %idxprom53
   store ptr %call52, ptr %arrayidx54, align 8
   %call57 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call52, ptr noundef nonnull dereferenceable(1) %locale) #18
@@ -3035,13 +3030,13 @@ if.end51:                                         ; preds = %if.then45, %if.then
   store i32 %total_currency_symbol_count.11, ptr %totalCurrencySymbolCount, align 8
   %refCount60 = getelementptr inbounds %struct.CurrencyNameCacheEntry, ptr %call52, i64 0, i32 5
   store i32 2, ptr %refCount60, align 4
-  %add = add i8 %69, 1
+  %add = add i8 %68, 1
   %rem = urem i8 %add, 10
   store i8 %rem, ptr @_ZL22currentCacheEntryIndex, align 1
   call void @ucln_common_registerCleanup_75(i32 noundef 13, ptr noundef nonnull @_ZL16currency_cleanupv)
   br label %if.end67
 
-if.else:                                          ; preds = %for.end38
+if.else:                                          ; preds = %land.lhs.true27
   %cmp6.i = icmp sgt i32 %total_currency_name_count.15, 0
   br i1 %cmp6.i, label %for.body.preheader.i, label %_ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit
 
@@ -3052,15 +3047,15 @@ for.body.preheader.i:                             ; preds = %if.else
 for.body.i34:                                     ; preds = %for.inc.i38, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i38 ]
   %flag.i35 = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call7.i, i64 %indvars.iv.i, i32 3
-  %70 = load i32, ptr %flag.i35, align 4
-  %and.i = and i32 %70, 1
+  %69 = load i32, ptr %flag.i35, align 4
+  %and.i = and i32 %69, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %for.inc.i38, label %if.then.i36
 
 if.then.i36:                                      ; preds = %for.body.i34
   %currencyName.i37 = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call7.i, i64 %indvars.iv.i, i32 1
-  %71 = load ptr, ptr %currencyName.i37, align 8
-  call void @uprv_free_75(ptr noundef %71)
+  %70 = load ptr, ptr %currencyName.i37, align 8
+  call void @uprv_free_75(ptr noundef %70)
   br label %for.inc.i38
 
 for.inc.i38:                                      ; preds = %if.then.i36, %for.body.i34
@@ -3080,15 +3075,15 @@ for.body.preheader.i42:                           ; preds = %_ZL19deleteCurrency
 for.body.i44:                                     ; preds = %for.inc.i51, %for.body.preheader.i42
   %indvars.iv.i45 = phi i64 [ 0, %for.body.preheader.i42 ], [ %indvars.iv.next.i52, %for.inc.i51 ]
   %flag.i46 = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call11.i, i64 %indvars.iv.i45, i32 3
-  %72 = load i32, ptr %flag.i46, align 4
-  %and.i47 = and i32 %72, 1
+  %71 = load i32, ptr %flag.i46, align 4
+  %and.i47 = and i32 %71, 1
   %tobool.not.i48 = icmp eq i32 %and.i47, 0
   br i1 %tobool.not.i48, label %for.inc.i51, label %if.then.i49
 
 if.then.i49:                                      ; preds = %for.body.i44
   %currencyName.i50 = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call11.i, i64 %indvars.iv.i45, i32 1
-  %73 = load ptr, ptr %currencyName.i50, align 8
-  call void @uprv_free_75(ptr noundef %73)
+  %72 = load ptr, ptr %currencyName.i50, align 8
+  call void @uprv_free_75(ptr noundef %72)
   br label %for.inc.i51
 
 for.inc.i51:                                      ; preds = %if.then.i49, %for.body.i44
@@ -3098,18 +3093,17 @@ for.inc.i51:                                      ; preds = %if.then.i49, %for.b
 
 _ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit54: ; preds = %for.inc.i51, %_ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit
   call void @uprv_free_75(ptr noundef %call11.i)
-  %sext = shl i64 %indvars.iv143, 56
-  %idxprom63 = ashr exact i64 %sext, 56
+  %idxprom63 = and i64 %indvars.iv147, 255
   %arrayidx64 = getelementptr inbounds [10 x ptr], ptr @_ZL9currCache, i64 0, i64 %idxprom63
-  %74 = load ptr, ptr %arrayidx64, align 8
-  %refCount65 = getelementptr inbounds %struct.CurrencyNameCacheEntry, ptr %74, i64 0, i32 5
-  %75 = load i32, ptr %refCount65, align 4
-  %inc66 = add nsw i32 %75, 1
+  %73 = load ptr, ptr %arrayidx64, align 8
+  %refCount65 = getelementptr inbounds %struct.CurrencyNameCacheEntry, ptr %73, i64 0, i32 5
+  %74 = load i32, ptr %refCount65, align 4
+  %inc66 = add nsw i32 %74, 1
   store i32 %inc66, ptr %refCount65, align 4
   br label %if.end67
 
 if.end67:                                         ; preds = %_ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit54, %if.end51
-  %cacheEntry.1 = phi ptr [ %call52, %if.end51 ], [ %74, %_ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit54 ]
+  %cacheEntry.1 = phi ptr [ %call52, %if.end51 ], [ %73, %_ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit54 ]
   call void @umtx_unlock_75(ptr noundef nonnull @_ZL19gCurrencyCacheMutex)
   br label %return
 

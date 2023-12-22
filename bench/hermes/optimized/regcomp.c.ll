@@ -721,7 +721,7 @@ if.then8.i:                                       ; preds = %do.end.i
 
 pluscount.exit:                                   ; preds = %stripsnug.exit.pluscount.exit_crit_edge, %do.end.i, %if.then8.i
   %cmp.not.i120169 = phi i1 [ %cmp.i13.i, %if.then8.i ], [ %cmp.i13.i, %do.end.i ], [ false, %stripsnug.exit.pluscount.exit_crit_edge ]
-  %pa.val75167 = phi i32 [ %pa.val75.pre, %if.then8.i ], [ %pa.val75.pre, %do.end.i ], [ 1, %stripsnug.exit.pluscount.exit_crit_edge ]
+  %pa.val75167 = phi i1 [ true, %if.then8.i ], [ true, %do.end.i ], [ false, %stripsnug.exit.pluscount.exit_crit_edge ]
   %43 = phi i32 [ %or.i138, %if.then8.i ], [ %.pre163, %do.end.i ], [ %.pre, %stripsnug.exit.pluscount.exit_crit_edge ]
   %retval.0.i = phi i64 [ %maxnest.2.i, %if.then8.i ], [ %maxnest.2.i, %do.end.i ], [ 0, %stripsnug.exit.pluscount.exit_crit_edge ]
   %nplus = getelementptr inbounds %struct.re_guts, ptr %call11, i64 0, i32 19
@@ -750,8 +750,7 @@ if.end49.thread:                                  ; preds = %if.then.i145, %if.t
   br label %if.then52
 
 if.end49:                                         ; preds = %pluscount.exit
-  %cmp51.not = icmp eq i32 %pa.val75167, 0
-  br i1 %cmp51.not, label %return, label %if.then52
+  br i1 %pa.val75167, label %return, label %if.then52
 
 if.then52:                                        ; preds = %if.end49.thread, %if.end49
   call void @llvh_regfree(ptr noundef nonnull %preg) #18

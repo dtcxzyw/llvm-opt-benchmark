@@ -1295,10 +1295,8 @@ if.end134:                                        ; preds = %if.end130
   %31 = load i32, ptr %30, align 8
   %cmp142 = icmp eq i32 %31, 256
   %spec.select81 = select i1 %cmp142, i32 65280, i32 %31
-  %cmp150 = icmp ule i32 %cond140, %spec.select81
-  %cmp154.not = icmp eq i32 %31, 131071
-  %or.cond333 = or i1 %cmp154.not, %cmp150
-  br i1 %or.cond333, label %if.end157, label %if.then156
+  %cmp150.not = icmp ugt i32 %cond140, %spec.select81
+  br i1 %cmp150.not, label %if.then156, label %if.end157
 
 if.then156:                                       ; preds = %if.end134
   call void @ERR_new() #9

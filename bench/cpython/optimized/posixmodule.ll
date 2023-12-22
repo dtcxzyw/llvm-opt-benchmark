@@ -13815,8 +13815,8 @@ do.body.i:                                        ; preds = %land.rhs.i, %do.bod
   %call8.i = tail call ptr @PyEval_SaveThread() #22
   %call9.i = tail call i64 @pwritev64v2(i32 noundef %call2, ptr noundef %6, i32 noundef %conv.i, i64 noundef %call.i, i32 noundef %flags.0) #22
   tail call void @PyEval_RestoreThread(ptr noundef %call8.i) #22
-  %cmp10.i = icmp slt i64 %call9.i, 0
-  br i1 %cmp10.i, label %land.lhs.true.i, label %if.end24.i
+  %cmp10.i = icmp sgt i64 %call9.i, -1
+  br i1 %cmp10.i, label %do.end.thread.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %do.body.i
   %call12.i = tail call ptr @__errno_location() #24
@@ -13827,15 +13827,19 @@ land.lhs.true.i:                                  ; preds = %do.body.i
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %call15.i = tail call i32 @PyErr_CheckSignals() #22
   %tobool16.not.i = icmp eq i32 %call15.i, 0
-  br i1 %tobool16.not.i, label %do.body.i, label %if.end24.i, !llvm.loop !30
+  br i1 %tobool16.not.i, label %do.body.i, label %do.end.thread.i, !llvm.loop !30
+
+do.end.thread.i:                                  ; preds = %land.rhs.i, %do.body.i
+  %call9.mux5.i = tail call i64 @llvm.smax.i64(i64 %call9.i, i64 -1)
+  br label %if.end24.i
 
 if.then21.i:                                      ; preds = %land.lhs.true.i
   %8 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %8) #22
   br label %if.end24.i
 
-if.end24.i:                                       ; preds = %land.rhs.i, %do.body.i, %if.then21.i
-  %result.0.i = phi i64 [ -1, %if.then21.i ], [ %call9.i, %do.body.i ], [ -1, %land.rhs.i ]
+if.end24.i:                                       ; preds = %if.then21.i, %do.end.thread.i
+  %result.0.i = phi i64 [ -1, %if.then21.i ], [ %call9.mux5.i, %do.end.thread.i ]
   %9 = load ptr, ptr %buf.i, align 8
   tail call void @PyMem_Free(ptr noundef %6) #22
   %cmp4.i.i = icmp sgt i32 %conv.i, 0
@@ -14990,8 +14994,8 @@ if.end6.i:                                        ; preds = %do.body.i
   %call.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %3) #22
   br label %exit
 
-exit:                                             ; preds = %land.rhs.i, %do.body.i, %if.end6.i, %if.end13, %if.end8, %land.lhs.true4, %lor.lhs.false
-  %return_value.0 = phi ptr [ null, %land.lhs.true4 ], [ null, %if.end13 ], [ null, %if.end8 ], [ null, %lor.lhs.false ], [ %call.i.i, %if.end6.i ], [ null, %land.rhs.i ], [ @_Py_NoneStruct, %do.body.i ]
+exit:                                             ; preds = %do.body.i, %land.rhs.i, %if.end6.i, %if.end13, %if.end8, %land.lhs.true4, %lor.lhs.false
+  %return_value.0 = phi ptr [ null, %land.lhs.true4 ], [ null, %if.end13 ], [ null, %if.end8 ], [ null, %lor.lhs.false ], [ %call.i.i, %if.end6.i ], [ @_Py_NoneStruct, %do.body.i ], [ null, %land.rhs.i ]
   ret ptr %return_value.0
 }
 
@@ -15059,30 +15063,30 @@ land.lhs.true22:                                  ; preds = %if.end18
   %tobool24.not = icmp eq ptr %call23, null
   br i1 %tobool24.not, label %do.body.i17, label %exit
 
-do.body.i17:                                      ; preds = %land.lhs.true22, %land.rhs.i21
+do.body.i17:                                      ; preds = %land.lhs.true22, %land.rhs.i27
   %call.i18 = tail call ptr @PyEval_SaveThread() #22
   %call1.i19 = tail call i32 @posix_fadvise64(i32 noundef %call2, i64 noundef %call.i, i64 noundef %call.i10, i32 noundef -1) #22
   tail call void @PyEval_RestoreThread(ptr noundef %call.i18) #22
   switch i32 %call1.i19, label %exit.sink.split [
-    i32 4, label %land.rhs.i21
+    i32 4, label %land.rhs.i27
     i32 0, label %exit
   ]
 
-land.rhs.i21:                                     ; preds = %do.body.i17
-  %call2.i22 = tail call i32 @PyErr_CheckSignals() #22
-  %tobool.not.i23 = icmp eq i32 %call2.i22, 0
-  br i1 %tobool.not.i23, label %do.body.i17, label %exit, !llvm.loop !35
+land.rhs.i27:                                     ; preds = %do.body.i17
+  %call2.i28 = tail call i32 @PyErr_CheckSignals() #22
+  %tobool.not.i29 = icmp eq i32 %call2.i28, 0
+  br i1 %tobool.not.i29, label %do.body.i17, label %exit, !llvm.loop !35
 
 exit.sink.split:                                  ; preds = %do.body.i, %do.body.i17
   %call1.i19.lcssa.sink = phi i32 [ %call1.i19, %do.body.i17 ], [ %call1.i15, %do.body.i ]
-  %call7.i25 = tail call ptr @__errno_location() #24
-  store i32 %call1.i19.lcssa.sink, ptr %call7.i25, align 4
+  %call7.i24 = tail call ptr @__errno_location() #24
+  store i32 %call1.i19.lcssa.sink, ptr %call7.i24, align 4
   %4 = load ptr, ptr @PyExc_OSError, align 8
-  %call.i.i26 = tail call ptr @PyErr_SetFromErrno(ptr noundef %4) #22
+  %call.i.i25 = tail call ptr @PyErr_SetFromErrno(ptr noundef %4) #22
   br label %exit
 
-exit:                                             ; preds = %land.rhs.i, %do.body.i, %land.rhs.i21, %do.body.i17, %exit.sink.split, %land.lhs.true22, %if.end13, %if.end8, %land.lhs.true4, %lor.lhs.false
-  %return_value.0 = phi ptr [ null, %land.lhs.true4 ], [ null, %land.lhs.true22 ], [ null, %if.end13 ], [ null, %if.end8 ], [ null, %lor.lhs.false ], [ %call.i.i26, %exit.sink.split ], [ null, %land.rhs.i21 ], [ @_Py_NoneStruct, %do.body.i17 ], [ null, %land.rhs.i ], [ @_Py_NoneStruct, %do.body.i ]
+exit:                                             ; preds = %do.body.i, %land.rhs.i, %do.body.i17, %land.rhs.i27, %exit.sink.split, %land.lhs.true22, %if.end13, %if.end8, %land.lhs.true4, %lor.lhs.false
+  %return_value.0 = phi ptr [ null, %land.lhs.true4 ], [ null, %land.lhs.true22 ], [ null, %if.end13 ], [ null, %if.end8 ], [ null, %lor.lhs.false ], [ %call.i.i25, %exit.sink.split ], [ @_Py_NoneStruct, %do.body.i17 ], [ null, %land.rhs.i27 ], [ @_Py_NoneStruct, %do.body.i ], [ null, %land.rhs.i ]
   ret ptr %return_value.0
 }
 

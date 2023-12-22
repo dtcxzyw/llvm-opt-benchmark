@@ -10492,10 +10492,10 @@ if.then124.i:                                     ; preds = %if.then103.i
 if.end131.i:                                      ; preds = %for.end.i108, %if.then103.i, %if.end98.i
   %obuf_len.3.i = phi i64 [ 0, %if.end98.i ], [ 43, %for.end.i108 ], [ %call105.i101, %if.then103.i ]
   %obuf_pos.3.i = phi i64 [ %obuf_pos.2.i, %if.end98.i ], [ 0, %for.end.i108 ], [ 0, %if.then103.i ]
-  %eof.2.i = phi i32 [ %eof.1.i, %if.end98.i ], [ 1, %for.end.i108 ], [ 0, %if.then103.i ]
+  %tobool135.i98 = phi i1 [ true, %if.end98.i ], [ true, %for.end.i108 ], [ false, %if.then103.i ]
+  %eof.2.i = phi i32 [ 1, %if.end98.i ], [ 1, %for.end.i108 ], [ 0, %if.then103.i ]
   %cmp132.i = icmp eq i64 %obuf_len.3.i, 0
-  %tobool135.i98 = icmp ne i32 %eof.2.i, 0
-  %or.cond2.i99 = select i1 %cmp132.i, i1 %tobool135.i98, i1 false
+  %or.cond2.i99 = and i1 %cmp132.i, %tobool135.i98
   %cmp137.i = icmp sgt i64 %loop_nwritten.1.i, 131072
   %or.cond3.i100 = select i1 %or.cond2.i99, i1 true, i1 %cmp137.i
   br i1 %or.cond3.i100, label %if.end141.i, label %while.body65.i

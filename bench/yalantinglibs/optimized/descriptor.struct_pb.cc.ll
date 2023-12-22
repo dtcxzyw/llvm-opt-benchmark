@@ -8179,9 +8179,9 @@ if.end232:                                        ; preds = %_ZNKRSt8optionalINS
 while.cond.i255.preheader:                        ; preds = %if.end232, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit
   %pos.46854 = phi i64 [ %add247, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ], [ %pos.45, %if.end232 ]
   %__begin3.sroa.0.0853 = phi ptr [ %incdec.ptr.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ], [ %205, %if.end232 ]
+  %inc.i263 = add i64 %pos.46854, 1
   %arrayidx.i264 = getelementptr inbounds i8, ptr %data, i64 %pos.46854
   store i8 -70, ptr %arrayidx.i264, align 1
-  %inc.i263 = add i64 %pos.46854, 1
   %arrayidx3.i259 = getelementptr inbounds i8, ptr %data, i64 %inc.i263
   store i8 62, ptr %arrayidx3.i259, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
@@ -13652,9 +13652,9 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit: ; preds = %while.body.i, %
 while.cond.i18.preheader.i:                       ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit.i
   %pos.052.i = phi i64 [ %add.i65, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit.i ], [ 0, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ]
   %__begin3.sroa.0.051.i = phi ptr [ %incdec.ptr.i.i66, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit.i ], [ %18, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ]
+  %inc.i26.i = add i64 %pos.052.i, 1
   %arrayidx.i27.i = getelementptr inbounds i8, ptr %add.ptr, i64 %pos.052.i
   store i8 -70, ptr %arrayidx.i27.i, align 1
-  %inc.i26.i = add i64 %pos.052.i, 1
   %arrayidx3.i22.i = getelementptr inbounds i8, ptr %add.ptr, i64 %inc.i26.i
   store i8 62, ptr %arrayidx3.i22.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i62, i8 0, i64 24, i1 false)
@@ -13737,9 +13737,9 @@ entry:
 while.cond.i18.preheader:                         ; preds = %entry, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit
   %pos.052 = phi i64 [ %add, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ], [ 0, %entry ]
   %__begin3.sroa.0.051 = phi ptr [ %incdec.ptr.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ], [ %0, %entry ]
+  %inc.i26 = add i64 %pos.052, 1
   %arrayidx.i27 = getelementptr inbounds i8, ptr %data, i64 %pos.052
   store i8 -70, ptr %arrayidx.i27, align 1
-  %inc.i26 = add i64 %pos.052, 1
   %arrayidx3.i22 = getelementptr inbounds i8, ptr %data, i64 %inc.i26
   store i8 62, ptr %arrayidx3.i22, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
@@ -15684,9 +15684,9 @@ if.end23:                                         ; preds = %_ZNKRSt8optionalIbE
 while.cond.i44.preheader:                         ; preds = %if.end23, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit
   %pos.4143 = phi i64 [ %add, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ], [ %pos.3, %if.end23 ]
   %__begin3.sroa.0.0142 = phi ptr [ %incdec.ptr.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ], [ %24, %if.end23 ]
+  %inc.i52 = add i64 %pos.4143, 1
   %arrayidx.i53 = getelementptr inbounds i8, ptr %data, i64 %pos.4143
   store i8 -70, ptr %arrayidx.i53, align 1
-  %inc.i52 = add i64 %pos.4143, 1
   %arrayidx3.i48 = getelementptr inbounds i8, ptr %data, i64 %inc.i52
   store i8 62, ptr %arrayidx3.i48, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
@@ -15911,9 +15911,9 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit: ; preds = %while.body.i, %
 while.cond.i18.preheader.i:                       ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit.i
   %pos.052.i = phi i64 [ %add.i61, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit.i ], [ 0, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ]
   %__begin3.sroa.0.051.i = phi ptr [ %incdec.ptr.i.i62, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit.i ], [ %19, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ]
+  %inc.i26.i = add i64 %pos.052.i, 1
   %arrayidx.i27.i = getelementptr inbounds i8, ptr %add.ptr18, i64 %pos.052.i
   store i8 -70, ptr %arrayidx.i27.i, align 1
-  %inc.i26.i = add i64 %pos.052.i, 1
   %arrayidx3.i22.i = getelementptr inbounds i8, ptr %add.ptr18, i64 %inc.i26.i
   store i8 62, ptr %arrayidx3.i22.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i58, i8 0, i64 24, i1 false)
@@ -20617,9 +20617,9 @@ if.end42:                                         ; preds = %_ZNKRSt8optionalIbE
 while.cond.i63.preheader:                         ; preds = %if.end42, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit
   %pos.9227 = phi i64 [ %add, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ], [ %pos.8, %if.end42 ]
   %__begin3.sroa.0.0226 = phi ptr [ %incdec.ptr.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ], [ %42, %if.end42 ]
+  %inc.i71 = add i64 %pos.9227, 1
   %arrayidx.i72 = getelementptr inbounds i8, ptr %data, i64 %pos.9227
   store i8 -70, ptr %arrayidx.i72, align 1
-  %inc.i71 = add i64 %pos.9227, 1
   %arrayidx3.i67 = getelementptr inbounds i8, ptr %data, i64 %inc.i71
   store i8 62, ptr %arrayidx3.i67, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
@@ -23689,9 +23689,9 @@ entry:
 while.cond.i18.preheader:                         ; preds = %entry, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit
   %pos.052 = phi i64 [ %add, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ], [ 0, %entry ]
   %__begin3.sroa.0.051 = phi ptr [ %incdec.ptr.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ], [ %0, %entry ]
+  %inc.i26 = add i64 %pos.052, 1
   %arrayidx.i27 = getelementptr inbounds i8, ptr %data, i64 %pos.052
   store i8 -70, ptr %arrayidx.i27, align 1
-  %inc.i26 = add i64 %pos.052, 1
   %arrayidx3.i22 = getelementptr inbounds i8, ptr %data, i64 %inc.i26
   store i8 62, ptr %arrayidx3.i22, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
@@ -25761,9 +25761,9 @@ if.end9:                                          ; preds = %_ZNKRSt8optionalIbE
 while.cond.i30.preheader:                         ; preds = %if.end9, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit
   %pos.295 = phi i64 [ %add, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ], [ %pos.1, %if.end9 ]
   %__begin3.sroa.0.094 = phi ptr [ %incdec.ptr.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ], [ %12, %if.end9 ]
+  %inc.i38 = add i64 %pos.295, 1
   %arrayidx.i39 = getelementptr inbounds i8, ptr %data, i64 %pos.295
   store i8 -70, ptr %arrayidx.i39, align 1
-  %inc.i38 = add i64 %pos.295, 1
   %arrayidx3.i34 = getelementptr inbounds i8, ptr %data, i64 %inc.i38
   store i8 62, ptr %arrayidx3.i34, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
@@ -27737,9 +27737,9 @@ if.end:                                           ; preds = %_ZNKRSt8optionalIbE
 while.cond.i23.preheader:                         ; preds = %if.end, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit
   %pos.171 = phi i64 [ %add, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ], [ %pos.0, %if.end ]
   %__begin3.sroa.0.070 = phi ptr [ %incdec.ptr.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ], [ %6, %if.end ]
+  %inc.i31 = add i64 %pos.171, 1
   %arrayidx.i32 = getelementptr inbounds i8, ptr %data, i64 %pos.171
   store i8 -70, ptr %arrayidx.i32, align 1
-  %inc.i31 = add i64 %pos.171, 1
   %arrayidx3.i27 = getelementptr inbounds i8, ptr %data, i64 %inc.i31
   store i8 62, ptr %arrayidx3.i27, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
@@ -29451,9 +29451,9 @@ if.end:                                           ; preds = %_ZNKRSt8optionalIbE
 while.cond.i23.preheader:                         ; preds = %if.end, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit
   %pos.274 = phi i64 [ %add, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ], [ %pos.1, %if.end ]
   %__begin3.sroa.0.073 = phi ptr [ %incdec.ptr.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ], [ %6, %if.end ]
+  %inc.i31 = add i64 %pos.274, 1
   %arrayidx.i32 = getelementptr inbounds i8, ptr %data, i64 %pos.274
   store i8 -70, ptr %arrayidx.i32, align 1
-  %inc.i31 = add i64 %pos.274, 1
   %arrayidx3.i27 = getelementptr inbounds i8, ptr %data, i64 %inc.i31
   store i8 62, ptr %arrayidx3.i27, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
@@ -30722,9 +30722,9 @@ if.end8:                                          ; preds = %_ZN9struct_pb8inter
 while.cond.i29.preheader:                         ; preds = %if.end8, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit
   %pos.5108 = phi i64 [ %add, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ], [ %pos.4, %if.end8 ]
   %__begin3.sroa.0.0107 = phi ptr [ %incdec.ptr.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit ], [ %13, %if.end8 ]
+  %inc.i37 = add i64 %pos.5108, 1
   %arrayidx.i38 = getelementptr inbounds i8, ptr %data, i64 %pos.5108
   store i8 -70, ptr %arrayidx.i38, align 1
-  %inc.i37 = add i64 %pos.5108, 1
   %arrayidx3.i33 = getelementptr inbounds i8, ptr %data, i64 %inc.i37
   store i8 62, ptr %arrayidx3.i33, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)

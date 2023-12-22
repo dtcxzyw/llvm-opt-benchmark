@@ -19036,10 +19036,8 @@ invoke.cont288:                                   ; preds = %if.else280
   %d_kind.i943 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %94, i64 0, i32 1
   %bf.load.i944 = load i16, ptr %d_kind.i943, align 8
   %bf.clear.i945 = and i16 %bf.load.i944, 1023
-  %cmp290 = icmp ne i16 %bf.clear.i945, 36
-  %cmp293.not3068 = icmp eq i16 %bf.clear.i280, 39
-  %cmp293.not = or i1 %cmp293.not3068, %cmp290
-  br i1 %cmp293.not, label %if.end313, label %if.then294
+  %cmp290.not = icmp eq i16 %bf.clear.i945, 36
+  br i1 %cmp290.not, label %if.then294, label %if.end313
 
 if.then294:                                       ; preds = %invoke.cont288
   %call297 = invoke noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv()

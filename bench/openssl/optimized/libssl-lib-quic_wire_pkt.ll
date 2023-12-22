@@ -1338,7 +1338,7 @@ if.end49:                                         ; preds = %lor.lhs.false43
   %conv59 = zext nneg i8 %narrow32 to i64
   %6 = and i32 %bf.load, 253
   %switch.selectcmp.i.i.not = icmp eq i32 %6, 4
-  br i1 %switch.selectcmp.i.i.not, label %if.end83, label %if.then64
+  br i1 %switch.selectcmp.i.i.not, label %if.end113, label %if.then64
 
 if.then64:                                        ; preds = %if.end49
   %bf.lshr66 = lshr i32 %bf.load, 10
@@ -1347,18 +1347,13 @@ if.then64:                                        ; preds = %if.end49
   %or.cond34 = icmp ult i32 %7, -4
   br i1 %or.cond34, label %return, label %if.end83.thread
 
-if.end83:                                         ; preds = %if.end49
-  %cmp86 = icmp eq i32 %bf.clear2, 1
-  br i1 %cmp86, label %if.then88, label %if.end113
-
 if.end83.thread:                                  ; preds = %if.then64
   %conv81 = zext nneg i32 %bf.clear67 to i64
   %add82 = add nuw nsw i64 %conv59, %conv81
   %cmp8659 = icmp eq i32 %bf.clear2, 1
   br i1 %cmp8659, label %if.then88, label %if.then101
 
-if.then88:                                        ; preds = %if.end83.thread, %if.end83
-  %len.061 = phi i64 [ %add82, %if.end83.thread ], [ %conv59, %if.end83 ]
+if.then88:                                        ; preds = %if.end83.thread
   %token_len = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %hdr, i64 0, i32 6
   %8 = load i64, ptr %token_len, align 8
   %cmp.i = icmp ult i64 %8, 64
@@ -1378,7 +1373,7 @@ if.end6.i:                                        ; preds = %if.end3.i
 
 if.end96.thread:                                  ; preds = %if.end3.i, %if.end.i, %if.then88, %if.end6.i
   %retval.0.i.ph = phi i64 [ 4, %if.end3.i ], [ 2, %if.end.i ], [ 1, %if.then88 ], [ 8, %if.end6.i ]
-  %add94 = add nuw nsw i64 %8, %len.061
+  %add94 = add nuw nsw i64 %8, %add82
   %add95 = add nuw nsw i64 %add94, %retval.0.i.ph
   br label %if.then101
 
@@ -1410,8 +1405,8 @@ if.end111:                                        ; preds = %if.end6.i41, %if.th
   %add112 = add nuw nsw i64 %retval.0.i44.ph, %len.153
   br label %if.end113
 
-if.end113:                                        ; preds = %if.end83, %if.end111
-  %len.2 = phi i64 [ %add112, %if.end111 ], [ %conv59, %if.end83 ]
+if.end113:                                        ; preds = %if.end49, %if.end111
+  %len.2 = phi i64 [ %add112, %if.end111 ], [ %conv59, %if.end49 ]
   %conv114 = trunc i64 %len.2 to i32
   br label %return
 

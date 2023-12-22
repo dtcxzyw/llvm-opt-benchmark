@@ -1452,8 +1452,8 @@ if.then.i:                                        ; preds = %sw.bb13
 prom9346_get_wire.exit.i:                         ; preds = %if.then.i
   %eedo.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 39, i32 9
   %11 = load i8, ptr %eedo.i.i, align 1
-  %tobool.not.i30 = icmp eq i8 %11, 0
-  br i1 %tobool.not.i30, label %if.else.i, label %if.then2.i
+  %tobool.not.i = icmp eq i8 %11, 0
+  br i1 %tobool.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %prom9346_get_wire.exit.i
   %or.i = or i32 %conv.i28, 1
@@ -1466,31 +1466,31 @@ if.else.i:                                        ; preds = %prom9346_get_wire.e
 sw.bb15:                                          ; preds = %entry
   %12 = getelementptr i8, ptr %opaque, i64 2691
   %opaque.val = load i8, ptr %12, align 1
-  %conv.i31 = zext i8 %opaque.val to i32
+  %conv.i30 = zext i8 %opaque.val to i32
   br label %sw.epilog
 
 sw.bb17:                                          ; preds = %entry
   %13 = getelementptr i8, ptr %opaque, i64 2692
   %opaque.val24 = load i8, ptr %13, align 4
-  %conv.i32 = zext i8 %opaque.val24 to i32
+  %conv.i31 = zext i8 %opaque.val24 to i32
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %entry
   %14 = getelementptr i8, ptr %opaque, i64 2693
   %opaque.val25 = load i8, ptr %14, align 1
-  %conv.i33 = zext i8 %opaque.val25 to i32
+  %conv.i32 = zext i8 %opaque.val25 to i32
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %entry
   %15 = getelementptr i8, ptr %opaque, i64 2694
   %opaque.val26 = load i8, ptr %15, align 2
-  %conv.i34 = zext i8 %opaque.val26 to i32
+  %conv.i33 = zext i8 %opaque.val26 to i32
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %entry
   %16 = getelementptr i8, ptr %opaque, i64 2695
   %opaque.val27 = load i8, ptr %16, align 1
-  %conv.i35 = zext i8 %opaque.val27 to i32
+  %conv.i34 = zext i8 %opaque.val27 to i32
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %entry
@@ -1522,8 +1522,8 @@ sw.bb36:                                          ; preds = %entry
   %shr = lshr i32 %22, 24
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %entry, %if.else.i, %if.then2.i, %sw.bb13, %sw.bb10, %sw.bb36, %sw.bb33, %sw.bb31, %sw.bb28, %sw.bb25, %sw.bb23, %sw.bb21, %sw.bb19, %sw.bb17, %sw.bb15, %sw.bb11, %sw.bb4, %sw.bb
-  %ret.0 = phi i32 [ %shr, %sw.bb36 ], [ %conv34, %sw.bb33 ], [ 32, %sw.bb31 ], [ %conv29, %sw.bb28 ], [ %or, %sw.bb25 ], [ %conv.i35, %sw.bb23 ], [ %conv.i34, %sw.bb21 ], [ %conv.i33, %sw.bb19 ], [ %conv.i32, %sw.bb17 ], [ %conv.i31, %sw.bb15 ], [ %spec.select.i, %sw.bb11 ], [ %conv9, %sw.bb4 ], [ %conv2, %sw.bb ], [ %conv10.i, %sw.bb10 ], [ %or.i, %if.then2.i ], [ %and3.i, %if.else.i ], [ %conv.i28, %sw.bb13 ], [ 0, %entry ]
+sw.epilog:                                        ; preds = %entry, %if.else.i, %if.then2.i, %sw.bb13, %sw.bb36, %sw.bb33, %sw.bb31, %sw.bb28, %sw.bb25, %sw.bb23, %sw.bb21, %sw.bb19, %sw.bb17, %sw.bb15, %sw.bb11, %sw.bb10, %sw.bb4, %sw.bb
+  %ret.0 = phi i32 [ %shr, %sw.bb36 ], [ %conv34, %sw.bb33 ], [ 32, %sw.bb31 ], [ %conv29, %sw.bb28 ], [ %or, %sw.bb25 ], [ %conv.i34, %sw.bb23 ], [ %conv.i33, %sw.bb21 ], [ %conv.i32, %sw.bb19 ], [ %conv.i31, %sw.bb17 ], [ %conv.i30, %sw.bb15 ], [ %spec.select.i, %sw.bb11 ], [ %conv10.i, %sw.bb10 ], [ %conv9, %sw.bb4 ], [ %conv2, %sw.bb ], [ %or.i, %if.then2.i ], [ %and3.i, %if.else.i ], [ %conv.i28, %sw.bb13 ], [ 0, %entry ]
   ret i32 %ret.0
 }
 

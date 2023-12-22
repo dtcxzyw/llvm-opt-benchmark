@@ -56,7 +56,7 @@ if.end22:                                         ; preds = %for.end
   %sub = add nuw nsw i32 %shr, 255
   %and23 = and i32 %sub, %conv3
   %cmp2544 = icmp ugt i32 %inc, 1
-  br i1 %cmp2544, label %for.body27.preheader, label %for.end41
+  br i1 %cmp2544, label %for.body27.preheader, label %if.end.i
 
 for.body27.preheader:                             ; preds = %if.end22
   %umax = tail call i64 @llvm.umax.i64(i64 %n, i64 1)
@@ -90,19 +90,19 @@ if.end36:                                         ; preds = %cond.end
   %exitcond53.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond53.not, label %for.end41, label %for.body27, !llvm.loop !7
 
-for.end41:                                        ; preds = %if.end36, %if.end22
-  %p.0.lcssa = phi ptr [ %incdec.ptr, %if.end22 ], [ %scevgep51, %if.end36 ]
-  %cp.0.lcssa = phi i32 [ %and23, %if.end22 ], [ %or, %if.end36 ]
-  %cmp.i = icmp ugt i32 %cp.0.lcssa, 1114111
+for.end41:                                        ; preds = %if.end36
+  %cmp.i = icmp ugt i32 %or, 1114111
   br i1 %cmp.i, label %return, label %if.end.i
 
-if.end.i:                                         ; preds = %for.end41
-  %5 = add nsw i32 %cp.0.lcssa, -65008
+if.end.i:                                         ; preds = %if.end22, %for.end41
+  %cp.0.lcssa58 = phi i32 [ %or, %for.end41 ], [ %and23, %if.end22 ]
+  %p.0.lcssa57 = phi ptr [ %scevgep51, %for.end41 ], [ %incdec.ptr, %if.end22 ]
+  %5 = add nsw i32 %cp.0.lcssa58, -65008
   %or.cond.i = icmp ult i32 %5, -32
-  %and.i = and i32 %cp.0.lcssa, 65534
+  %and.i = and i32 %cp.0.lcssa58, 65534
   %cmp3.i = icmp ne i32 %and.i, 65534
   %or.cond7.i.not36 = and i1 %or.cond.i, %cmp3.i
-  %6 = and i32 %cp.0.lcssa, 2095104
+  %6 = and i32 %cp.0.lcssa58, 2095104
   %or.cond1.i = icmp ne i32 %6, 55296
   %or.cond35 = and i1 %or.cond7.i.not36, %or.cond1.i
   br i1 %or.cond35, label %if.else43, label %return
@@ -111,19 +111,19 @@ if.else43:                                        ; preds = %if.end.i
   %idxprom = zext nneg i32 %1 to i64
   %arrayidx = getelementptr [5 x i32], ptr @mod_utf8_codepoint.min_cp, i64 0, i64 %idxprom
   %7 = load i32, ptr %arrayidx, align 4
-  %cmp45 = icmp slt i32 %cp.0.lcssa, %7
+  %cmp45 = icmp slt i32 %cp.0.lcssa58, %7
   br i1 %cmp45, label %land.lhs.true47, label %return
 
 land.lhs.true47:                                  ; preds = %if.else43
-  %cmp48 = icmp eq i32 %cp.0.lcssa, 0
+  %cmp48 = icmp eq i32 %cp.0.lcssa58, 0
   %cmp51 = icmp eq i32 %inc, 2
   %or.cond1 = and i1 %cmp48, %cmp51
-  %spec.store.select = select i1 %or.cond1, i32 %cp.0.lcssa, i32 -1
+  %spec.store.select = select i1 %or.cond1, i32 %cp.0.lcssa58, i32 -1
   br label %return
 
 return:                                           ; preds = %for.body27, %cond.end, %if.end.i, %for.end41, %if.else43, %land.lhs.true47, %if.end, %if.else, %entry, %lor.lhs.false
-  %storemerge = phi ptr [ %s, %lor.lhs.false ], [ %s, %entry ], [ %p.0.lcssa, %land.lhs.true47 ], [ %p.0.lcssa, %if.else43 ], [ %incdec.ptr, %if.end ], [ %incdec.ptr, %if.else ], [ %p.0.lcssa, %for.end41 ], [ %p.0.lcssa, %if.end.i ], [ %scevgep, %for.body27 ], [ %p.045, %cond.end ]
-  %retval.0 = phi i32 [ -1, %lor.lhs.false ], [ -1, %entry ], [ %spec.store.select, %land.lhs.true47 ], [ %cp.0.lcssa, %if.else43 ], [ %conv3, %if.end ], [ -1, %if.else ], [ -1, %for.end41 ], [ -1, %if.end.i ], [ -1, %cond.end ], [ -1, %for.body27 ]
+  %storemerge = phi ptr [ %s, %lor.lhs.false ], [ %s, %entry ], [ %p.0.lcssa57, %land.lhs.true47 ], [ %p.0.lcssa57, %if.else43 ], [ %incdec.ptr, %if.end ], [ %incdec.ptr, %if.else ], [ %scevgep51, %for.end41 ], [ %p.0.lcssa57, %if.end.i ], [ %scevgep, %for.body27 ], [ %p.045, %cond.end ]
+  %retval.0 = phi i32 [ -1, %lor.lhs.false ], [ -1, %entry ], [ %spec.store.select, %land.lhs.true47 ], [ %cp.0.lcssa58, %if.else43 ], [ %conv3, %if.end ], [ -1, %if.else ], [ -1, %for.end41 ], [ -1, %if.end.i ], [ -1, %cond.end ], [ -1, %for.body27 ]
   store ptr %storemerge, ptr %end, align 8
   ret i32 %retval.0
 }

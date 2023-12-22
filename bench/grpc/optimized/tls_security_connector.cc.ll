@@ -4039,27 +4039,27 @@ ehcleanup29:                                      ; preds = %ehcleanup, %lpad15
   br label %ehcleanup48
 
 if.end:                                           ; preds = %_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit, %invoke.cont7
-  %20 = phi i64 [ %9, %_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit ], [ 0, %invoke.cont7 ]
-  %21 = load ptr, ptr %on_peer_checked_, align 8
-  %and.i.i.i14 = and i64 %20, 1
+  %20 = load ptr, ptr %on_peer_checked_, align 8
+  %21 = load i64, ptr %error, align 8
+  %and.i.i.i14 = and i64 %21, 1
   %cmp.i.i.i15 = icmp eq i64 %and.i.i.i14, 0
   br i1 %run_callback_inline, label %if.then30, label %if.else
 
 if.then30:                                        ; preds = %if.end
-  store i64 %20, ptr %agg.tmp34, align 8
+  store i64 %21, ptr %agg.tmp34, align 8
   br i1 %cmp.i.i.i15, label %invoke.cont35, label %invoke.cont35.thread
 
 invoke.cont35:                                    ; preds = %if.then30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  %cmp.i17 = icmp eq ptr %21, null
+  %cmp.i17 = icmp eq ptr %20, null
   br i1 %cmp.i17, label %invoke.cont37, label %if.end.i
 
 invoke.cont35.thread:                             ; preds = %if.then30
-  %sub.i.i.i = add nsw i64 %20, -1
+  %sub.i.i.i = add nsw i64 %21, -1
   %22 = inttoptr i64 %sub.i.i.i to ptr
   %23 = atomicrmw add ptr %22, i32 1 monotonic, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  %cmp.i1745 = icmp eq ptr %21, null
+  %cmp.i1745 = icmp eq ptr %20, null
   br i1 %cmp.i1745, label %invoke.cont37.thread, label %if.then.i.i.i18
 
 invoke.cont37.thread:                             ; preds = %invoke.cont35.thread
@@ -4067,20 +4067,20 @@ invoke.cont37.thread:                             ; preds = %invoke.cont35.threa
   br label %if.then.i.i22
 
 if.end.i:                                         ; preds = %invoke.cont35
-  %cb.i = getelementptr inbounds %struct.grpc_closure, ptr %21, i64 0, i32 1
+  %cb.i = getelementptr inbounds %struct.grpc_closure, ptr %20, i64 0, i32 1
   %24 = load ptr, ptr %cb.i, align 8
-  %cb_arg.i = getelementptr inbounds %struct.grpc_closure, ptr %21, i64 0, i32 2
+  %cb_arg.i = getelementptr inbounds %struct.grpc_closure, ptr %20, i64 0, i32 2
   %25 = load ptr, ptr %cb_arg.i, align 8
-  store i64 %20, ptr %agg.tmp.i, align 8
+  store i64 %21, ptr %agg.tmp.i, align 8
   br label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i
 
 if.then.i.i.i18:                                  ; preds = %invoke.cont35.thread
-  %cb.i46 = getelementptr inbounds %struct.grpc_closure, ptr %21, i64 0, i32 1
+  %cb.i46 = getelementptr inbounds %struct.grpc_closure, ptr %20, i64 0, i32 1
   %26 = load ptr, ptr %cb.i46, align 8
-  %cb_arg.i47 = getelementptr inbounds %struct.grpc_closure, ptr %21, i64 0, i32 2
+  %cb_arg.i47 = getelementptr inbounds %struct.grpc_closure, ptr %20, i64 0, i32 2
   %27 = load ptr, ptr %cb_arg.i47, align 8
-  store i64 %20, ptr %agg.tmp.i, align 8
-  %sub.i.i.i.i = add nsw i64 %20, -1
+  store i64 %21, ptr %agg.tmp.i, align 8
+  %sub.i.i.i.i = add nsw i64 %21, -1
   %28 = inttoptr i64 %sub.i.i.i.i to ptr
   %29 = atomicrmw add ptr %28, i32 1 monotonic, align 4
   br label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i
@@ -4120,7 +4120,7 @@ invoke.cont37:                                    ; preds = %if.then.i.i5.i, %in
   br i1 %cmp.i.i.i15, label %delete.notnull, label %if.then.i.i22
 
 if.then.i.i22:                                    ; preds = %invoke.cont37.thread, %invoke.cont37
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %20)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %21)
           to label %delete.notnull unwind label %terminate.lpad.i23
 
 terminate.lpad.i23:                               ; preds = %if.then.i.i22
@@ -4131,17 +4131,17 @@ terminate.lpad.i23:                               ; preds = %if.then.i.i22
   unreachable
 
 if.else:                                          ; preds = %if.end
-  store i64 %20, ptr %agg.tmp42, align 8
+  store i64 %21, ptr %agg.tmp42, align 8
   br i1 %cmp.i.i.i15, label %invoke.cont43, label %if.then.i.i28
 
 if.then.i.i28:                                    ; preds = %if.else
-  %sub.i.i.i29 = add nsw i64 %20, -1
+  %sub.i.i.i29 = add nsw i64 %21, -1
   %38 = inttoptr i64 %sub.i.i.i29 to ptr
   %39 = atomicrmw add ptr %38, i32 1 monotonic, align 4
   br label %invoke.cont43
 
 invoke.cont43:                                    ; preds = %if.then.i.i28, %if.else
-  invoke void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp39, ptr noundef %21, ptr noundef nonnull %agg.tmp42)
+  invoke void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp39, ptr noundef %20, ptr noundef nonnull %agg.tmp42)
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %invoke.cont43
@@ -4175,7 +4175,7 @@ delete.notnull:                                   ; preds = %if.then.i.i33, %inv
   br i1 %cmp.i.i.i38, label %_ZN4absl12lts_202308026StatusD2Ev.exit42, label %if.then.i.i39
 
 if.then.i.i39:                                    ; preds = %delete.notnull
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %20)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %21)
           to label %_ZN4absl12lts_202308026StatusD2Ev.exit42 unwind label %terminate.lpad.i40
 
 terminate.lpad.i40:                               ; preds = %if.then.i.i39
@@ -6693,27 +6693,27 @@ ehcleanup29:                                      ; preds = %ehcleanup, %lpad15
   br label %ehcleanup48
 
 if.end:                                           ; preds = %_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit, %invoke.cont7
-  %20 = phi i64 [ %9, %_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit ], [ 0, %invoke.cont7 ]
-  %21 = load ptr, ptr %on_peer_checked_, align 8
-  %and.i.i.i14 = and i64 %20, 1
+  %20 = load ptr, ptr %on_peer_checked_, align 8
+  %21 = load i64, ptr %error, align 8
+  %and.i.i.i14 = and i64 %21, 1
   %cmp.i.i.i15 = icmp eq i64 %and.i.i.i14, 0
   br i1 %run_callback_inline, label %if.then30, label %if.else
 
 if.then30:                                        ; preds = %if.end
-  store i64 %20, ptr %agg.tmp34, align 8
+  store i64 %21, ptr %agg.tmp34, align 8
   br i1 %cmp.i.i.i15, label %invoke.cont35, label %invoke.cont35.thread
 
 invoke.cont35:                                    ; preds = %if.then30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  %cmp.i17 = icmp eq ptr %21, null
+  %cmp.i17 = icmp eq ptr %20, null
   br i1 %cmp.i17, label %invoke.cont37, label %if.end.i
 
 invoke.cont35.thread:                             ; preds = %if.then30
-  %sub.i.i.i = add nsw i64 %20, -1
+  %sub.i.i.i = add nsw i64 %21, -1
   %22 = inttoptr i64 %sub.i.i.i to ptr
   %23 = atomicrmw add ptr %22, i32 1 monotonic, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  %cmp.i1745 = icmp eq ptr %21, null
+  %cmp.i1745 = icmp eq ptr %20, null
   br i1 %cmp.i1745, label %invoke.cont37.thread, label %if.then.i.i.i18
 
 invoke.cont37.thread:                             ; preds = %invoke.cont35.thread
@@ -6721,20 +6721,20 @@ invoke.cont37.thread:                             ; preds = %invoke.cont35.threa
   br label %if.then.i.i22
 
 if.end.i:                                         ; preds = %invoke.cont35
-  %cb.i = getelementptr inbounds %struct.grpc_closure, ptr %21, i64 0, i32 1
+  %cb.i = getelementptr inbounds %struct.grpc_closure, ptr %20, i64 0, i32 1
   %24 = load ptr, ptr %cb.i, align 8
-  %cb_arg.i = getelementptr inbounds %struct.grpc_closure, ptr %21, i64 0, i32 2
+  %cb_arg.i = getelementptr inbounds %struct.grpc_closure, ptr %20, i64 0, i32 2
   %25 = load ptr, ptr %cb_arg.i, align 8
-  store i64 %20, ptr %agg.tmp.i, align 8
+  store i64 %21, ptr %agg.tmp.i, align 8
   br label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i
 
 if.then.i.i.i18:                                  ; preds = %invoke.cont35.thread
-  %cb.i46 = getelementptr inbounds %struct.grpc_closure, ptr %21, i64 0, i32 1
+  %cb.i46 = getelementptr inbounds %struct.grpc_closure, ptr %20, i64 0, i32 1
   %26 = load ptr, ptr %cb.i46, align 8
-  %cb_arg.i47 = getelementptr inbounds %struct.grpc_closure, ptr %21, i64 0, i32 2
+  %cb_arg.i47 = getelementptr inbounds %struct.grpc_closure, ptr %20, i64 0, i32 2
   %27 = load ptr, ptr %cb_arg.i47, align 8
-  store i64 %20, ptr %agg.tmp.i, align 8
-  %sub.i.i.i.i = add nsw i64 %20, -1
+  store i64 %21, ptr %agg.tmp.i, align 8
+  %sub.i.i.i.i = add nsw i64 %21, -1
   %28 = inttoptr i64 %sub.i.i.i.i to ptr
   %29 = atomicrmw add ptr %28, i32 1 monotonic, align 4
   br label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i
@@ -6774,7 +6774,7 @@ invoke.cont37:                                    ; preds = %if.then.i.i5.i, %in
   br i1 %cmp.i.i.i15, label %delete.notnull, label %if.then.i.i22
 
 if.then.i.i22:                                    ; preds = %invoke.cont37.thread, %invoke.cont37
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %20)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %21)
           to label %delete.notnull unwind label %terminate.lpad.i23
 
 terminate.lpad.i23:                               ; preds = %if.then.i.i22
@@ -6785,17 +6785,17 @@ terminate.lpad.i23:                               ; preds = %if.then.i.i22
   unreachable
 
 if.else:                                          ; preds = %if.end
-  store i64 %20, ptr %agg.tmp42, align 8
+  store i64 %21, ptr %agg.tmp42, align 8
   br i1 %cmp.i.i.i15, label %invoke.cont43, label %if.then.i.i28
 
 if.then.i.i28:                                    ; preds = %if.else
-  %sub.i.i.i29 = add nsw i64 %20, -1
+  %sub.i.i.i29 = add nsw i64 %21, -1
   %38 = inttoptr i64 %sub.i.i.i29 to ptr
   %39 = atomicrmw add ptr %38, i32 1 monotonic, align 4
   br label %invoke.cont43
 
 invoke.cont43:                                    ; preds = %if.then.i.i28, %if.else
-  invoke void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp39, ptr noundef %21, ptr noundef nonnull %agg.tmp42)
+  invoke void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp39, ptr noundef %20, ptr noundef nonnull %agg.tmp42)
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %invoke.cont43
@@ -6829,7 +6829,7 @@ delete.notnull:                                   ; preds = %if.then.i.i33, %inv
   br i1 %cmp.i.i.i38, label %_ZN4absl12lts_202308026StatusD2Ev.exit42, label %if.then.i.i39
 
 if.then.i.i39:                                    ; preds = %delete.notnull
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %20)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %21)
           to label %_ZN4absl12lts_202308026StatusD2Ev.exit42 unwind label %terminate.lpad.i40
 
 terminate.lpad.i40:                               ; preds = %if.then.i.i39

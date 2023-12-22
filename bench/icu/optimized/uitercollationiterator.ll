@@ -1630,11 +1630,11 @@ _ZN6icu_7512CollationFCD7hasLcccEi.exit:          ; preds = %land.lhs.true.i
 
 if.then7:                                         ; preds = %_ZN6icu_7512CollationFCD7hasLcccEi.exit
   %and.i15 = and i32 %call, 2096897
-  %cmp.i16.not = icmp eq i32 %and.i15, 3841
-  br i1 %cmp.i16.not, label %if.then16, label %lor.lhs.false
+  %cmp.i16.not.not = icmp eq i32 %and.i15, 3841
+  %5 = load ptr, ptr %iter, align 8
+  br i1 %cmp.i16.not.not, label %if.end26, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then7
-  %5 = load ptr, ptr %iter, align 8
   %previous11 = getelementptr inbounds %struct.UCharIterator, ptr %5, i64 0, i32 12
   %6 = load ptr, ptr %previous11, align 8
   %call13 = tail call noundef i32 %6(ptr noundef %5)
@@ -1657,25 +1657,21 @@ _ZN6icu_7512CollationFCD7hasTcccEi.exit:          ; preds = %land.lhs.true.i19
   %shl.i28 = shl nuw i32 1, %and.i27
   %and4.i29 = and i32 %8, %shl.i28
   %cmp5.i30.not = icmp eq i32 %and4.i29, 0
-  br i1 %cmp5.i30.not, label %if.end31, label %if.then16
+  br i1 %cmp5.i30.not, label %if.end31, label %if.then21
 
-if.then16:                                        ; preds = %_ZN6icu_7512CollationFCD7hasTcccEi.exit, %if.then7
-  %prev.0 = phi i32 [ -1, %if.then7 ], [ %call13, %_ZN6icu_7512CollationFCD7hasTcccEi.exit ]
+if.then21:                                        ; preds = %_ZN6icu_7512CollationFCD7hasTcccEi.exit
   %9 = load ptr, ptr %iter, align 8
   %next = getelementptr inbounds %struct.UCharIterator, ptr %9, i64 0, i32 11
   %10 = load ptr, ptr %next, align 8
   %call19 = tail call noundef i32 %10(ptr noundef %9)
-  %cmp20 = icmp sgt i32 %prev.0, -1
-  br i1 %cmp20, label %if.then21, label %if.end26
-
-if.then21:                                        ; preds = %if.then16
   %11 = load ptr, ptr %iter, align 8
-  %next23 = getelementptr inbounds %struct.UCharIterator, ptr %11, i64 0, i32 11
-  %12 = load ptr, ptr %next23, align 8
-  %call25 = tail call noundef i32 %12(ptr noundef %11)
   br label %if.end26
 
-if.end26:                                         ; preds = %if.then21, %if.then16
+if.end26:                                         ; preds = %if.then7, %if.then21
+  %.sink49 = phi ptr [ %11, %if.then21 ], [ %5, %if.then7 ]
+  %next.c = getelementptr inbounds %struct.UCharIterator, ptr %.sink49, i64 0, i32 11
+  %12 = load ptr, ptr %next.c, align 8
+  %call19.c = tail call noundef i32 %12(ptr noundef %.sink49)
   %call27 = tail call noundef signext i8 @_ZN6icu_7525FCDUIterCollationIterator15previousSegmentER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(488) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !7
   %tobool28.not = icmp eq i8 %call27, 0
   br i1 %tobool28.not, label %return, label %for.cond.backedge

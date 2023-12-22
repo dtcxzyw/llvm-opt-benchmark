@@ -428,16 +428,11 @@ if.end26:                                         ; preds = %do.body
   %and21 = shl i32 %flags, 3
   %2 = and i32 %and21, 16
   %spec.select = or i32 %2, %and20
-  %tobool27.not = icmp eq i32 %spec.select, 0
-  %tobool27.not.not = xor i1 %tobool27.not, true
   %3 = and i32 %flags, 64
   %tobool29.not = icmp eq i32 %3, 0
-  %or.cond25 = and i1 %tobool29.not, %tobool27.not.not
-  br i1 %or.cond25, label %if.then39.thread, label %if.then30
+  br i1 %tobool29.not, label %if.then39, label %if.then30
 
 if.then30:                                        ; preds = %do.body, %if.end26
-  %tobool29.not36 = phi i1 [ %tobool29.not, %if.end26 ], [ true, %do.body ]
-  %tobool27.not34 = phi i1 [ %tobool27.not, %if.end26 ], [ true, %do.body ]
   %flags.addr.032 = phi i32 [ %spec.select, %if.end26 ], [ 0, %do.body ]
   %call.i30.i = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @pageflags_root, i64 noundef %and13, i64 noundef %or) #16
   %tobool.not.i31.i = icmp eq ptr %call.i30.i, null
@@ -517,23 +512,19 @@ while.end.sink.split.i:                           ; preds = %if.else18.i, %if.th
 pageflags_unset.exit:                             ; preds = %if.end24.i, %if.then30, %while.end.sink.split.i
   %inval_tb.2.i = phi i8 [ 0, %if.then30 ], [ %spec.select.i, %while.end.sink.split.i ], [ %spec.select.i, %if.end24.i ]
   %8 = and i8 %inval_tb.2.i, 1
-  br i1 %tobool27.not34, label %if.end50, label %if.then39
+  br i1 %tobool15.not, label %if.end50, label %if.then39
 
-if.then39:                                        ; preds = %pageflags_unset.exit
-  %spec.select83 = select i1 %tobool29.not36, i32 -2177, i32 -1
-  br label %if.then39.thread
-
-if.then39.thread:                                 ; preds = %if.then39, %if.end26
-  %flags.addr.0333968 = phi i32 [ %spec.select, %if.end26 ], [ %flags.addr.032, %if.then39 ]
-  %inval_tb.04066 = phi i8 [ 0, %if.end26 ], [ %8, %if.then39 ]
-  %9 = phi i32 [ -2177, %if.end26 ], [ %spec.select83, %if.then39 ]
+if.then39:                                        ; preds = %if.end26, %pageflags_unset.exit
+  %flags.addr.0333968 = phi i32 [ %flags.addr.032, %pageflags_unset.exit ], [ %spec.select, %if.end26 ]
+  %inval_tb.04066 = phi i8 [ %8, %pageflags_unset.exit ], [ 0, %if.end26 ]
+  %9 = phi i32 [ -1, %pageflags_unset.exit ], [ -2177, %if.end26 ]
   %call43 = tail call fastcc zeroext i1 @pageflags_set_clear(i64 noundef %and13, i64 noundef %or, i32 noundef %flags.addr.0333968, i32 noundef %9)
   %10 = zext i1 %call43 to i8
   %11 = or i8 %inval_tb.04066, %10
   br label %if.end50
 
-if.end50:                                         ; preds = %pageflags_unset.exit, %if.then39.thread
-  %inval_tb.1 = phi i8 [ %11, %if.then39.thread ], [ %8, %pageflags_unset.exit ]
+if.end50:                                         ; preds = %pageflags_unset.exit, %if.then39
+  %inval_tb.1 = phi i8 [ %11, %if.then39 ], [ %8, %pageflags_unset.exit ]
   %tobool51.not = icmp eq i8 %inval_tb.1, 0
   br i1 %tobool51.not, label %if.end53, label %if.then52
 

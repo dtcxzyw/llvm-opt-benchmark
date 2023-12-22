@@ -4361,13 +4361,9 @@ while.end.i.i:                                    ; preds = %while.body.i.i, %if
   %significand.0.lcssa.i.i = phi i64 [ %number.2, %if.end180 ], [ %shr.i.i, %while.body.i.i ]
   %exponent.0.lcssa.i.i = phi i32 [ %exponent.4, %if.end180 ], [ %inc.i.i, %while.body.i.i ]
   %cmp2.i.i166 = icmp sgt i32 %exponent.0.lcssa.i.i, 971
-  br i1 %cmp2.i.i166, label %_ZN6icu_7517double_conversion6DoubleC2ENS0_5DiyFpE.exit, label %if.end.i.i
+  br i1 %cmp2.i.i166, label %_ZN6icu_7517double_conversion6DoubleC2ENS0_5DiyFpE.exit, label %while.cond6.preheader.i.i
 
-if.end.i.i:                                       ; preds = %while.end.i.i
-  %cmp3.i.i167 = icmp slt i32 %exponent.0.lcssa.i.i, -1074
-  br i1 %cmp3.i.i167, label %_ZN6icu_7517double_conversion6DoubleC2ENS0_5DiyFpE.exit, label %while.cond6.preheader.i.i
-
-while.cond6.preheader.i.i:                        ; preds = %if.end.i.i
+while.cond6.preheader.i.i:                        ; preds = %while.end.i.i
   %and17.i.i = and i64 %significand.0.lcssa.i.i, 4503599627370496
   %cmp818.i.i = icmp eq i64 %and17.i.i, 0
   br i1 %cmp818.i.i, label %while.body9.i.i, label %while.end10.i.i
@@ -4398,8 +4394,8 @@ while.end10.i.i:                                  ; preds = %while.body9.i.i, %w
   %37 = bitcast i64 %or.i.i to double
   br label %_ZN6icu_7517double_conversion6DoubleC2ENS0_5DiyFpE.exit
 
-_ZN6icu_7517double_conversion6DoubleC2ENS0_5DiyFpE.exit: ; preds = %while.end.i.i, %if.end.i.i, %while.end10.i.i
-  %retval.0.i.i = phi double [ %37, %while.end10.i.i ], [ 0x7FF0000000000000, %while.end.i.i ], [ 0.000000e+00, %if.end.i.i ]
+_ZN6icu_7517double_conversion6DoubleC2ENS0_5DiyFpE.exit: ; preds = %while.end.i.i, %while.end10.i.i
+  %retval.0.i.i = phi double [ %37, %while.end10.i.i ], [ 0x7FF0000000000000, %while.end.i.i ]
   %fneg = fneg double %retval.0.i.i
   %cond183 = select i1 %sign, double %fneg, double %retval.0.i.i
   br label %return

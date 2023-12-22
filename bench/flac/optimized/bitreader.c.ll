@@ -1972,57 +1972,42 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.then2, %if.end
   %and = and i32 %.pre, 128
   %tobool4.not = icmp eq i32 %and, 0
-  br i1 %tobool4.not, label %return.sink.split, label %if.else
+  br i1 %tobool4.not, label %return.sink.split, label %land.lhs.true
 
-if.else:                                          ; preds = %if.end3
-  %and6 = and i32 %.pre, 192
-  %tobool7.not = icmp ne i32 %and6, 0
+land.lhs.true:                                    ; preds = %if.end3
   %and8 = and i32 %.pre, 32
   %tobool9.not = icmp eq i32 %and8, 0
-  %or.cond = and i1 %tobool7.not, %tobool9.not
-  br i1 %or.cond, label %for.body.lr.ph, label %if.else12
+  br i1 %tobool9.not, label %for.body.lr.ph, label %if.else12
 
-if.else12:                                        ; preds = %if.else
-  %and13 = and i32 %.pre, 224
-  %tobool14.not = icmp ne i32 %and13, 0
+if.else12:                                        ; preds = %land.lhs.true
   %and16 = and i32 %.pre, 16
   %tobool17.not = icmp eq i32 %and16, 0
-  %or.cond11 = and i1 %tobool14.not, %tobool17.not
-  br i1 %or.cond11, label %for.body.lr.ph, label %if.else20
+  br i1 %tobool17.not, label %for.body.lr.ph, label %if.else20
 
 if.else20:                                        ; preds = %if.else12
-  %and21 = and i32 %.pre, 240
-  %tobool22.not = icmp ne i32 %and21, 0
   %and24 = and i32 %.pre, 8
   %tobool25.not = icmp eq i32 %and24, 0
-  %or.cond12 = and i1 %tobool22.not, %tobool25.not
-  br i1 %or.cond12, label %for.body.lr.ph, label %if.else28
+  br i1 %tobool25.not, label %for.body.lr.ph, label %if.else28
 
 if.else28:                                        ; preds = %if.else20
-  %and29 = and i32 %.pre, 248
-  %tobool30.not = icmp ne i32 %and29, 0
   %and32 = and i32 %.pre, 4
   %tobool33.not = icmp eq i32 %and32, 0
-  %or.cond13 = and i1 %tobool30.not, %tobool33.not
-  br i1 %or.cond13, label %for.body.lr.ph, label %if.else36
+  br i1 %tobool33.not, label %for.body.lr.ph, label %if.else36
 
 if.else36:                                        ; preds = %if.else28
-  %and37 = and i32 %.pre, 252
-  %tobool38.not = icmp ne i32 %and37, 0
   %and40 = and i32 %.pre, 2
   %tobool41.not = icmp eq i32 %and40, 0
-  %or.cond14 = and i1 %tobool38.not, %tobool41.not
-  br i1 %or.cond14, label %for.body.lr.ph, label %return.sink.split
+  br i1 %tobool41.not, label %for.body.lr.ph, label %return.sink.split
 
-for.body.lr.ph:                                   ; preds = %if.else36, %if.else28, %if.else20, %if.else12, %if.else
-  %.sink = phi i32 [ 31, %if.else ], [ 15, %if.else12 ], [ 7, %if.else20 ], [ 3, %if.else28 ], [ 1, %if.else36 ]
-  %i.0.ph = phi i32 [ 1, %if.else ], [ 2, %if.else12 ], [ 3, %if.else20 ], [ 4, %if.else28 ], [ 5, %if.else36 ]
+for.body.lr.ph:                                   ; preds = %if.else36, %if.else28, %if.else20, %if.else12, %land.lhs.true
+  %.sink = phi i32 [ 31, %land.lhs.true ], [ 15, %if.else12 ], [ 7, %if.else20 ], [ 3, %if.else28 ], [ 1, %if.else36 ]
+  %i.0.ph = phi i32 [ 1, %land.lhs.true ], [ 2, %if.else12 ], [ 3, %if.else20 ], [ 4, %if.else28 ], [ 5, %if.else36 ]
   %and11 = and i32 %.pre, %.sink
   br i1 %tobool1.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %if.end68.us
-  %i.120.us = phi i32 [ %dec.us, %if.end68.us ], [ %i.0.ph, %for.body.lr.ph ]
-  %v.119.us = phi i32 [ %or.us, %if.end68.us ], [ %and11, %for.body.lr.ph ]
+  %i.119.us = phi i32 [ %dec.us, %if.end68.us ], [ %i.0.ph, %for.body.lr.ph ]
+  %v.118.us = phi i32 [ %or.us, %if.end68.us ], [ %and11, %for.body.lr.ph ]
   %call52.us = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8), !range !7
   %tobool53.not.us = icmp eq i32 %call52.us, 0
   br i1 %tobool53.not.us, label %return, label %if.end55.us
@@ -2030,20 +2015,20 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %if
 if.end55.us:                                      ; preds = %for.body.us
   %1 = load i32, ptr %x, align 4
   %2 = and i32 %1, 192
-  %or.cond15.us = icmp eq i32 %2, 128
-  br i1 %or.cond15.us, label %if.end68.us, label %return.sink.split
+  %or.cond14.us = icmp eq i32 %2, 128
+  br i1 %or.cond14.us, label %if.end68.us, label %return.sink.split
 
 if.end68.us:                                      ; preds = %if.end55.us
-  %shl.us = shl i32 %v.119.us, 6
+  %shl.us = shl i32 %v.118.us, 6
   %and69.us = and i32 %1, 63
   %or.us = or disjoint i32 %and69.us, %shl.us
-  %dec.us = add nsw i32 %i.120.us, -1
+  %dec.us = add nsw i32 %i.119.us, -1
   %tobool51.not.us = icmp eq i32 %dec.us, 0
   br i1 %tobool51.not.us, label %return.sink.split, label %for.body.us, !llvm.loop !26
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end68
-  %i.120 = phi i32 [ %dec, %if.end68 ], [ %i.0.ph, %for.body.lr.ph ]
-  %v.119 = phi i32 [ %or, %if.end68 ], [ %and11, %for.body.lr.ph ]
+  %i.119 = phi i32 [ %dec, %if.end68 ], [ %i.0.ph, %for.body.lr.ph ]
+  %v.118 = phi i32 [ %or, %if.end68 ], [ %and11, %for.body.lr.ph ]
   %call52 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8), !range !7
   %tobool53.not = icmp eq i32 %call52, 0
   br i1 %tobool53.not, label %return, label %if.end55
@@ -2058,14 +2043,14 @@ if.end55:                                         ; preds = %for.body
   %arrayidx61 = getelementptr inbounds i8, ptr %raw, i64 %idxprom60
   store i8 %conv58, ptr %arrayidx61, align 1
   %5 = and i32 %3, 192
-  %or.cond15 = icmp eq i32 %5, 128
-  br i1 %or.cond15, label %if.end68, label %return.sink.split
+  %or.cond14 = icmp eq i32 %5, 128
+  br i1 %or.cond14, label %if.end68, label %return.sink.split
 
 if.end68:                                         ; preds = %if.end55
-  %shl = shl i32 %v.119, 6
+  %shl = shl i32 %v.118, 6
   %and69 = and i32 %3, 63
   %or = or disjoint i32 %and69, %shl
-  %dec = add nsw i32 %i.120, -1
+  %dec = add nsw i32 %i.119, -1
   %tobool51.not = icmp eq i32 %dec, 0
   br i1 %tobool51.not, label %return.sink.split, label %for.body, !llvm.loop !26
 
@@ -2105,89 +2090,67 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.then2, %if.end
   %and = and i32 %.pre, 128
   %tobool4.not = icmp eq i32 %and, 0
-  br i1 %tobool4.not, label %if.end64, label %if.else
+  br i1 %tobool4.not, label %if.end64, label %land.lhs.true
 
-if.else:                                          ; preds = %if.end3
-  %and7 = and i32 %.pre, 192
-  %tobool8.not = icmp ne i32 %and7, 0
+land.lhs.true:                                    ; preds = %if.end3
   %and9 = and i32 %.pre, 32
   %tobool10.not = icmp eq i32 %and9, 0
-  %or.cond = and i1 %tobool8.not, %tobool10.not
-  br i1 %or.cond, label %if.then11, label %if.else14
+  br i1 %tobool10.not, label %if.then11, label %if.else14
 
-if.then11:                                        ; preds = %if.else
+if.then11:                                        ; preds = %land.lhs.true
   %and12 = and i32 %.pre, 31
   br label %for.body.lr.ph
 
-if.else14:                                        ; preds = %if.else
-  %and15 = and i32 %.pre, 224
-  %tobool16.not = icmp ne i32 %and15, 0
+if.else14:                                        ; preds = %land.lhs.true
   %and18 = and i32 %.pre, 16
   %tobool19.not = icmp eq i32 %and18, 0
-  %or.cond11 = and i1 %tobool16.not, %tobool19.not
-  br i1 %or.cond11, label %if.then20, label %if.else23
+  br i1 %tobool19.not, label %if.then20, label %if.else23
 
 if.then20:                                        ; preds = %if.else14
   %and21 = and i32 %.pre, 15
   br label %for.body.lr.ph
 
 if.else23:                                        ; preds = %if.else14
-  %and24 = and i32 %.pre, 240
-  %tobool25.not = icmp ne i32 %and24, 0
   %and27 = and i32 %.pre, 8
   %tobool28.not = icmp eq i32 %and27, 0
-  %or.cond12 = and i1 %tobool25.not, %tobool28.not
-  br i1 %or.cond12, label %if.then29, label %if.else32
+  br i1 %tobool28.not, label %if.then29, label %if.else32
 
 if.then29:                                        ; preds = %if.else23
   %and30 = and i32 %.pre, 7
   br label %for.body.lr.ph
 
 if.else32:                                        ; preds = %if.else23
-  %and33 = and i32 %.pre, 248
-  %tobool34.not = icmp ne i32 %and33, 0
   %and36 = and i32 %.pre, 4
   %tobool37.not = icmp eq i32 %and36, 0
-  %or.cond13 = and i1 %tobool34.not, %tobool37.not
-  br i1 %or.cond13, label %if.then38, label %if.else41
+  br i1 %tobool37.not, label %if.then38, label %if.else41
 
 if.then38:                                        ; preds = %if.else32
   %and39 = and i32 %.pre, 3
   br label %for.body.lr.ph
 
 if.else41:                                        ; preds = %if.else32
-  %and42 = and i32 %.pre, 252
-  %tobool43.not = icmp ne i32 %and42, 0
   %and45 = and i32 %.pre, 2
   %tobool46.not = icmp eq i32 %and45, 0
-  %or.cond14 = and i1 %tobool43.not, %tobool46.not
-  br i1 %or.cond14, label %if.then47, label %if.else50
-
-if.then47:                                        ; preds = %if.else41
   %and48 = and i32 %.pre, 1
-  br label %for.body.lr.ph
+  br i1 %tobool46.not, label %for.body.lr.ph, label %if.else50
 
 if.else50:                                        ; preds = %if.else41
-  %and51 = and i32 %.pre, 254
-  %tobool52.not = icmp ne i32 %and51, 0
-  %and54 = and i32 %.pre, 1
-  %tobool55.not = icmp eq i32 %and54, 0
-  %or.cond15 = and i1 %tobool52.not, %tobool55.not
-  br i1 %or.cond15, label %for.body.lr.ph, label %return.sink.split
+  %tobool55.not = icmp eq i32 %and48, 0
+  br i1 %tobool55.not, label %for.body.lr.ph, label %return.sink.split
 
 if.end64:                                         ; preds = %if.end3
   %v.0 = zext i32 %.pre to i64
   br label %return.sink.split
 
-for.body.lr.ph:                                   ; preds = %if.else50, %if.then11, %if.then29, %if.then47, %if.then38, %if.then20
-  %v.0.shrunk.ph = phi i32 [ 0, %if.else50 ], [ %and12, %if.then11 ], [ %and21, %if.then20 ], [ %and30, %if.then29 ], [ %and39, %if.then38 ], [ %and48, %if.then47 ]
-  %i.0.ph = phi i32 [ 6, %if.else50 ], [ 1, %if.then11 ], [ 2, %if.then20 ], [ 3, %if.then29 ], [ 4, %if.then38 ], [ 5, %if.then47 ]
-  %v.027 = zext nneg i32 %v.0.shrunk.ph to i64
+for.body.lr.ph:                                   ; preds = %if.else41, %if.else50, %if.then11, %if.then29, %if.then38, %if.then20
+  %v.0.shrunk.ph = phi i32 [ 0, %if.else50 ], [ %and12, %if.then11 ], [ %and21, %if.then20 ], [ %and30, %if.then29 ], [ %and39, %if.then38 ], [ %and48, %if.else41 ]
+  %i.0.ph = phi i32 [ 6, %if.else50 ], [ 1, %if.then11 ], [ 2, %if.then20 ], [ 3, %if.then29 ], [ 4, %if.then38 ], [ 5, %if.else41 ]
+  %v.026 = zext nneg i32 %v.0.shrunk.ph to i64
   br i1 %tobool1.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %if.end82.us
-  %i.121.us = phi i32 [ %dec.us, %if.end82.us ], [ %i.0.ph, %for.body.lr.ph ]
-  %v.120.us = phi i64 [ %or.us, %if.end82.us ], [ %v.027, %for.body.lr.ph ]
+  %i.120.us = phi i32 [ %dec.us, %if.end82.us ], [ %i.0.ph, %for.body.lr.ph ]
+  %v.119.us = phi i64 [ %or.us, %if.end82.us ], [ %v.026, %for.body.lr.ph ]
   %call66.us = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8), !range !7
   %tobool67.not.us = icmp eq i32 %call66.us, 0
   br i1 %tobool67.not.us, label %return, label %if.end69.us
@@ -2195,21 +2158,21 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %if
 if.end69.us:                                      ; preds = %for.body.us
   %1 = load i32, ptr %x, align 4
   %2 = and i32 %1, 192
-  %or.cond16.us = icmp eq i32 %2, 128
-  br i1 %or.cond16.us, label %if.end82.us, label %return.sink.split
+  %or.cond15.us = icmp eq i32 %2, 128
+  br i1 %or.cond15.us, label %if.end82.us, label %return.sink.split
 
 if.end82.us:                                      ; preds = %if.end69.us
-  %shl.us = shl i64 %v.120.us, 6
+  %shl.us = shl i64 %v.119.us, 6
   %and83.us = and i32 %1, 63
   %conv84.us = zext nneg i32 %and83.us to i64
   %or.us = or disjoint i64 %shl.us, %conv84.us
-  %dec.us = add nsw i32 %i.121.us, -1
+  %dec.us = add nsw i32 %i.120.us, -1
   %tobool65.not.us = icmp eq i32 %dec.us, 0
   br i1 %tobool65.not.us, label %return.sink.split, label %for.body.us, !llvm.loop !27
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end82
-  %i.121 = phi i32 [ %dec, %if.end82 ], [ %i.0.ph, %for.body.lr.ph ]
-  %v.120 = phi i64 [ %or, %if.end82 ], [ %v.027, %for.body.lr.ph ]
+  %i.120 = phi i32 [ %dec, %if.end82 ], [ %i.0.ph, %for.body.lr.ph ]
+  %v.119 = phi i64 [ %or, %if.end82 ], [ %v.026, %for.body.lr.ph ]
   %call66 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %br, ptr noundef nonnull %x, i32 noundef 8), !range !7
   %tobool67.not = icmp eq i32 %call66, 0
   br i1 %tobool67.not, label %return, label %if.end69
@@ -2224,15 +2187,15 @@ if.end69:                                         ; preds = %for.body
   %arrayidx75 = getelementptr inbounds i8, ptr %raw, i64 %idxprom74
   store i8 %conv72, ptr %arrayidx75, align 1
   %5 = and i32 %3, 192
-  %or.cond16 = icmp eq i32 %5, 128
-  br i1 %or.cond16, label %if.end82, label %return.sink.split
+  %or.cond15 = icmp eq i32 %5, 128
+  br i1 %or.cond15, label %if.end82, label %return.sink.split
 
 if.end82:                                         ; preds = %if.end69
-  %shl = shl i64 %v.120, 6
+  %shl = shl i64 %v.119, 6
   %and83 = and i32 %3, 63
   %conv84 = zext nneg i32 %and83 to i64
   %or = or disjoint i64 %shl, %conv84
-  %dec = add nsw i32 %i.121, -1
+  %dec = add nsw i32 %i.120, -1
   %tobool65.not = icmp eq i32 %dec, 0
   br i1 %tobool65.not, label %return.sink.split, label %for.body, !llvm.loop !27
 

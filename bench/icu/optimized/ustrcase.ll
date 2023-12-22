@@ -1022,7 +1022,7 @@ if.end50:                                         ; preds = %if.end50.split.loop
   %7 = xor i32 %prev.1.ph.ph, -1
   %sub56 = add i32 %srcIndex.2, %7
   %cmp.i = icmp slt i32 %sub56, 1
-  br i1 %cmp.i, label %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit, label %if.end.i
+  br i1 %cmp.i, label %if.then59, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end50
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -1032,7 +1032,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.end.i
-  br i1 %tobool.not.i.i, label %if.end2.i.i, label %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit
+  br i1 %tobool.not.i.i, label %if.end2.i.i, label %if.then59
 
 if.end2.i.i:                                      ; preds = %if.end.i.i
   %sub.i.i = xor i32 %destIndex.1.ph.ph, 2147483647
@@ -1042,20 +1042,16 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
 if.end5.i.i:                                      ; preds = %if.end2.i.i
   %add.i.i = add nuw nsw i32 %sub56, %destIndex.1.ph.ph
   %cmp6.not.i.i = icmp sgt i32 %add.i.i, %destCapacity
-  br i1 %cmp6.not.i.i, label %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit, label %if.then7.i.i
+  br i1 %cmp6.not.i.i, label %if.then59, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %if.end5.i.i
   %idx.ext.i.i = zext nneg i32 %destIndex.1.ph.ph to i64
   %add.ptr.i.i = getelementptr inbounds i16, ptr %dest, i64 %idx.ext.i.i
   %call.i.i = call ptr @u_memcpy_75(ptr noundef %add.ptr.i.i, ptr noundef %add.ptr, i32 noundef %sub56)
-  br label %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit
+  br label %if.then59
 
-_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit: ; preds = %if.end50, %if.end.i.i, %if.end5.i.i, %if.then7.i.i
+if.then59:                                        ; preds = %if.then7.i.i, %if.end5.i.i, %if.end.i.i, %if.end50
   %retval.0.i = phi i32 [ %destIndex.1.ph.ph, %if.end50 ], [ %destIndex.1.ph.ph, %if.end.i.i ], [ %add.i.i, %if.then7.i.i ], [ %add.i.i, %if.end5.i.i ]
-  %cmp58 = icmp sgt i32 %retval.0.i, -1
-  br i1 %cmp58, label %if.then59, label %return.sink.split
-
-if.then59:                                        ; preds = %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit
   %cmp.i85 = icmp slt i32 %retval.0.i, %destCapacity
   br i1 %cmp.i85, label %if.then.i, label %if.else.i
 
@@ -1139,7 +1135,7 @@ if.then100:                                       ; preds = %if.end98
   %add.ptr102 = getelementptr inbounds i16, ptr %src, i64 %idx.ext101
   %sub103 = sub nsw i32 %srcIndex.1151, %prev.1.ph.ph
   %cmp.i87 = icmp slt i32 %sub103, 1
-  br i1 %cmp.i87, label %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit105, label %if.end.i88
+  br i1 %cmp.i87, label %if.end109, label %if.end.i88
 
 if.end.i88:                                       ; preds = %if.then100
   br i1 %cmp.not.i.i, label %if.end.i.i91, label %if.then.i.i90
@@ -1149,7 +1145,7 @@ if.then.i.i90:                                    ; preds = %if.end.i88
   br label %if.end.i.i91
 
 if.end.i.i91:                                     ; preds = %if.then.i.i90, %if.end.i88
-  br i1 %tobool.not.i.i, label %if.end2.i.i95, label %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit105
+  br i1 %tobool.not.i.i, label %if.end2.i.i95, label %if.end109
 
 if.end2.i.i95:                                    ; preds = %if.end.i.i91
   %sub.i.i96 = xor i32 %destIndex.1.ph.ph, 2147483647
@@ -1159,20 +1155,16 @@ if.end2.i.i95:                                    ; preds = %if.end.i.i91
 if.end5.i.i98:                                    ; preds = %if.end2.i.i95
   %add.i.i99 = add nuw nsw i32 %sub103, %destIndex.1.ph.ph
   %cmp6.not.i.i100 = icmp sgt i32 %add.i.i99, %destCapacity
-  br i1 %cmp6.not.i.i100, label %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit105, label %if.then7.i.i101
+  br i1 %cmp6.not.i.i100, label %if.end109, label %if.then7.i.i101
 
 if.then7.i.i101:                                  ; preds = %if.end5.i.i98
   %idx.ext.i.i102 = zext nneg i32 %destIndex.1.ph.ph to i64
   %add.ptr.i.i103 = getelementptr inbounds i16, ptr %dest, i64 %idx.ext.i.i102
   %call.i.i104 = call ptr @u_memcpy_75(ptr noundef %add.ptr.i.i103, ptr noundef %add.ptr102, i32 noundef %sub103)
-  br label %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit105
+  br label %if.end109
 
-_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit105: ; preds = %if.then100, %if.end.i.i91, %if.end5.i.i98, %if.then7.i.i101
+if.end109:                                        ; preds = %if.then7.i.i101, %if.end5.i.i98, %if.end.i.i91, %if.then100
   %retval.0.i94 = phi i32 [ %destIndex.1.ph.ph, %if.then100 ], [ %destIndex.1.ph.ph, %if.end.i.i91 ], [ %add.i.i99, %if.then7.i.i101 ], [ %add.i.i99, %if.end5.i.i98 ]
-  %cmp105 = icmp sgt i32 %retval.0.i94, -1
-  br i1 %cmp105, label %if.end109, label %return.sink.split
-
-if.end109:                                        ; preds = %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit105
   %9 = load ptr, ptr %s, align 8
   %sub107 = sub nsw i32 %srcIndex.3, %srcIndex.1151
   %call108 = call fastcc noundef i32 @_ZN6icu_7512_GLOBAL__N_112appendResultEPDsiiiPKDsijPNS_5EditsE(ptr noundef %dest, i32 noundef %retval.0.i94, i32 noundef %destCapacity, i32 noundef %c.1, ptr noundef %9, i32 noundef %sub107, i32 noundef %options, ptr noundef %edits)
@@ -1213,7 +1205,7 @@ if.then7.i.i120:                                  ; preds = %if.end5.i.i117
   %call.i.i123 = call ptr @u_memcpy_75(ptr noundef %add.ptr.i.i122, ptr noundef %add.ptr115, i32 noundef %sub116)
   br label %return
 
-return.sink.split:                                ; preds = %if.end109, %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit105, %if.end2.i.i95, %if.end64, %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit, %if.end2.i.i, %if.end2.i.i114
+return.sink.split:                                ; preds = %if.end109, %if.end2.i.i95, %if.end64, %if.end2.i.i, %if.end2.i.i114
   store i32 8, ptr %errorCode, align 4
   br label %return
 
@@ -1987,7 +1979,7 @@ if.end43.i:                                       ; preds = %if.end43.split.loop
   %8 = xor i32 %prev.1.ph.i.ph, -1
   %sub49.i = add i32 %srcIndex.2.i, %8
   %cmp.i.i = icmp slt i32 %sub49.i, 1
-  br i1 %cmp.i.i, label %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i, label %if.end.i.i
+  br i1 %cmp.i.i, label %if.then52.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end43.i
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
@@ -1997,7 +1989,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.end.i.i
-  br i1 %tobool.not.i.i.i, label %if.end2.i.i.i, label %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i
+  br i1 %tobool.not.i.i.i, label %if.end2.i.i.i, label %if.then52.i
 
 if.end2.i.i.i:                                    ; preds = %if.end.i.i.i
   %sub.i.i.i = xor i32 %destIndex.1.ph.i.ph, 2147483647
@@ -2007,20 +1999,16 @@ if.end2.i.i.i:                                    ; preds = %if.end.i.i.i
 if.end5.i.i.i:                                    ; preds = %if.end2.i.i.i
   %add.i.i.i = add nuw nsw i32 %sub49.i, %destIndex.1.ph.i.ph
   %cmp6.not.i.i.i = icmp sgt i32 %add.i.i.i, %destCapacity
-  br i1 %cmp6.not.i.i.i, label %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i, label %if.then7.i.i.i
+  br i1 %cmp6.not.i.i.i, label %if.then52.i, label %if.then7.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.end5.i.i.i
   %idx.ext.i.i.i = zext nneg i32 %destIndex.1.ph.i.ph to i64
   %add.ptr.i.i.i = getelementptr inbounds i16, ptr %dest, i64 %idx.ext.i.i.i
   %call.i.i.i = call ptr @u_memcpy_75(ptr noundef %add.ptr.i.i.i, ptr noundef %add.ptr.i, i32 noundef %sub49.i)
-  br label %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i
+  br label %if.then52.i
 
-_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i: ; preds = %if.then7.i.i.i, %if.end5.i.i.i, %if.end.i.i.i, %if.end43.i
+if.then52.i:                                      ; preds = %if.end43.i, %if.end.i.i.i, %if.end5.i.i.i, %if.then7.i.i.i
   %retval.0.i.i = phi i32 [ %destIndex.1.ph.i.ph, %if.end43.i ], [ %destIndex.1.ph.i.ph, %if.end.i.i.i ], [ %add.i.i.i, %if.then7.i.i.i ], [ %add.i.i.i, %if.end5.i.i.i ]
-  %cmp51.i = icmp sgt i32 %retval.0.i.i, -1
-  br i1 %cmp51.i, label %if.then52.i, label %return.sink.split.i
-
-if.then52.i:                                      ; preds = %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i
   %cmp.i75.i = icmp slt i32 %retval.0.i.i, %destCapacity
   br i1 %cmp.i75.i, label %if.then.i.i, label %if.else.i.i
 
@@ -2093,7 +2081,7 @@ if.then88.i:                                      ; preds = %if.end85.i
   %add.ptr90.i = getelementptr inbounds i16, ptr %src, i64 %idx.ext89.i
   %sub91.i = sub nsw i32 %srcIndex.1141.i, %prev.1.ph.i.ph
   %cmp.i77.i = icmp slt i32 %sub91.i, 1
-  br i1 %cmp.i77.i, label %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit95.i, label %if.end.i78.i
+  br i1 %cmp.i77.i, label %if.end97.i, label %if.end.i78.i
 
 if.end.i78.i:                                     ; preds = %if.then88.i
   br i1 %cmp.not.i.i.i, label %if.end.i.i81.i, label %if.then.i.i80.i
@@ -2103,7 +2091,7 @@ if.then.i.i80.i:                                  ; preds = %if.end.i78.i
   br label %if.end.i.i81.i
 
 if.end.i.i81.i:                                   ; preds = %if.then.i.i80.i, %if.end.i78.i
-  br i1 %tobool.not.i.i.i, label %if.end2.i.i85.i, label %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit95.i
+  br i1 %tobool.not.i.i.i, label %if.end2.i.i85.i, label %if.end97.i
 
 if.end2.i.i85.i:                                  ; preds = %if.end.i.i81.i
   %sub.i.i86.i = xor i32 %destIndex.1.ph.i.ph, 2147483647
@@ -2113,20 +2101,16 @@ if.end2.i.i85.i:                                  ; preds = %if.end.i.i81.i
 if.end5.i.i88.i:                                  ; preds = %if.end2.i.i85.i
   %add.i.i89.i = add nuw nsw i32 %sub91.i, %destIndex.1.ph.i.ph
   %cmp6.not.i.i90.i = icmp sgt i32 %add.i.i89.i, %destCapacity
-  br i1 %cmp6.not.i.i90.i, label %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit95.i, label %if.then7.i.i91.i
+  br i1 %cmp6.not.i.i90.i, label %if.end97.i, label %if.then7.i.i91.i
 
 if.then7.i.i91.i:                                 ; preds = %if.end5.i.i88.i
   %idx.ext.i.i92.i = zext nneg i32 %destIndex.1.ph.i.ph to i64
   %add.ptr.i.i93.i = getelementptr inbounds i16, ptr %dest, i64 %idx.ext.i.i92.i
   %call.i.i94.i = call ptr @u_memcpy_75(ptr noundef %add.ptr.i.i93.i, ptr noundef %add.ptr90.i, i32 noundef %sub91.i)
-  br label %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit95.i
+  br label %if.end97.i
 
-_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit95.i: ; preds = %if.then7.i.i91.i, %if.end5.i.i88.i, %if.end.i.i81.i, %if.then88.i
+if.end97.i:                                       ; preds = %if.then88.i, %if.end.i.i81.i, %if.end5.i.i88.i, %if.then7.i.i91.i
   %retval.0.i84.i = phi i32 [ %destIndex.1.ph.i.ph, %if.then88.i ], [ %destIndex.1.ph.i.ph, %if.end.i.i81.i ], [ %add.i.i89.i, %if.then7.i.i91.i ], [ %add.i.i89.i, %if.end5.i.i88.i ]
-  %cmp93.i = icmp sgt i32 %retval.0.i84.i, -1
-  br i1 %cmp93.i, label %if.end97.i, label %return.sink.split.i
-
-if.end97.i:                                       ; preds = %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit95.i
   %10 = load ptr, ptr %s.i, align 8
   %sub95.i = sub nsw i32 %srcIndex.3.i, %srcIndex.1141.i
   %call96.i = call fastcc noundef i32 @_ZN6icu_7512_GLOBAL__N_112appendResultEPDsiiiPKDsijPNS_5EditsE(ptr noundef %dest, i32 noundef %retval.0.i84.i, i32 noundef %destCapacity, i32 noundef %call86.i, ptr noundef %10, i32 noundef %sub95.i, i32 noundef %options, ptr noundef %edits)
@@ -2167,7 +2151,7 @@ if.then7.i.i110.i:                                ; preds = %if.end5.i.i107.i
   %call.i.i113.i = call ptr @u_memcpy_75(ptr noundef %add.ptr.i.i112.i, ptr noundef %add.ptr103.i, i32 noundef %sub104.i)
   br label %_ZN6icu_7512_GLOBAL__N_17toUpperEijPDsiPKDsP12UCaseContextiPNS_5EditsER10UErrorCode.exit
 
-return.sink.split.i:                              ; preds = %if.end97.i, %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit95.i, %if.end2.i.i85.i, %if.end57.i, %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i, %if.end2.i.i.i, %if.end2.i.i104.i
+return.sink.split.i:                              ; preds = %if.end97.i, %if.end2.i.i85.i, %if.end57.i, %if.end2.i.i.i, %if.end2.i.i104.i
   store i32 8, ptr %errorCode, align 4
   br label %_ZN6icu_7512_GLOBAL__N_17toUpperEijPDsiPKDsP12UCaseContextiPNS_5EditsER10UErrorCode.exit
 

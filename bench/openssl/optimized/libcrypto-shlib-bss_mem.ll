@@ -331,11 +331,7 @@ for.end:                                          ; preds = %for.inc, %if.then15
   %spec.select.i = select i1 %tobool.not.i, ptr %readp.i, ptr %6
   %bm.0.i = load ptr, ptr %spec.select.i, align 8
   tail call void @BIO_clear_flags(ptr noundef %bp, i32 noundef 15) #6
-  %cmp.i = icmp sgt i32 %i.1, -1
   %.pre.i = load i64, ptr %bm.0.i, align 8
-  br i1 %cmp.i, label %cond.end.i, label %if.else.i
-
-cond.end.i:                                       ; preds = %for.end
   %conv.i = zext nneg i32 %i.1 to i64
   %cmp1.i = icmp ult i64 %.pre.i, %conv.i
   %conv4.i = trunc i64 %.pre.i to i32
@@ -345,7 +341,7 @@ cond.end.i:                                       ; preds = %for.end
   %or.cond.i = and i1 %cmp5.i, %cmp8.i
   br i1 %or.cond.i, label %mem_read.exit.thread, label %if.else.i
 
-mem_read.exit.thread:                             ; preds = %cond.end.i
+mem_read.exit.thread:                             ; preds = %for.end
   %data.i = getelementptr inbounds %struct.buf_mem_st, ptr %bm.0.i, i64 0, i32 1
   %8 = load ptr, ptr %data.i, align 8
   %conv11.i = zext nneg i32 %spec.select22.i to i64
@@ -362,8 +358,7 @@ mem_read.exit.thread:                             ; preds = %cond.end.i
   store ptr %add.ptr.i, ptr %data.i, align 8
   br label %if.then20
 
-if.else.i:                                        ; preds = %cond.end.i, %for.end
-  %cond27.i = phi i32 [ %spec.select22.i, %cond.end.i ], [ %i.1, %for.end ]
+if.else.i:                                        ; preds = %for.end
   %cmp18.i = icmp eq i64 %.pre.i, 0
   br i1 %cmp18.i, label %if.then20.i, label %mem_read.exit
 
@@ -378,7 +373,7 @@ if.then23.i:                                      ; preds = %if.then20.i
   br label %mem_read.exit
 
 mem_read.exit:                                    ; preds = %if.else.i, %if.then23.i
-  %ret.0.i = phi i32 [ %12, %if.then23.i ], [ %cond27.i, %if.else.i ]
+  %ret.0.i = phi i32 [ %12, %if.then23.i ], [ %spec.select22.i, %if.else.i ]
   %cmp18 = icmp sgt i32 %ret.0.i, 0
   br i1 %cmp18, label %mem_read.exit.if.then20_crit_edge, label %return
 

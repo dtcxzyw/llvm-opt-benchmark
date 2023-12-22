@@ -419,15 +419,15 @@ lpad40:                                           ; preds = %lpad40.loopexit.spl
 
 if.end48:                                         ; preds = %invoke.cont44
   %6 = load i32, ptr %count, align 4
-  %7 = add i32 %6, -1
-  %or.cond = icmp ult i32 %7, 95
-  br i1 %or.cond, label %if.then51, label %if.then58
+  %7 = add i32 %6, -96
+  %or.cond = icmp ult i32 %7, -95
+  br i1 %or.cond, label %if.then58, label %if.then51
 
 if.then51:                                        ; preds = %if.end48
   invoke void @u_UCharsToChars_75(ptr noundef %call45, ptr noundef nonnull %buffer, i32 noundef %6)
-          to label %if.end56 unwind label %lpad40.loopexit.split-lp
+          to label %invoke.cont53 unwind label %lpad40.loopexit.split-lp
 
-if.end56:                                         ; preds = %if.then51
+invoke.cont53:                                    ; preds = %if.then51
   %8 = load i32, ptr %count, align 4
   %idxprom54 = sext i32 %8 to i64
   %arrayidx55 = getelementptr inbounds [96 x i8], ptr %buffer, i64 0, i64 %idxprom54
@@ -458,9 +458,9 @@ if.then73:                                        ; preds = %if.else69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(7) %buffer, ptr noundef nonnull align 1 dereferenceable(7) @_ZN6icu_75L7gNativeE, i64 7, i1 false) #16
   br label %while.body.backedge
 
-cleanup:                                          ; preds = %if.else69, %if.then47, %if.end56, %if.then37
-  %cleanup.dest.slot.0 = phi i1 [ false, %if.then37 ], [ %cmp46, %if.end56 ], [ %cmp46, %if.then47 ], [ %cmp46, %if.else69 ]
-  %usingFallback.2 = phi i1 [ true, %if.then37 ], [ true, %if.end56 ], [ true, %if.then47 ], [ false, %if.else69 ]
+cleanup:                                          ; preds = %if.else69, %if.then47, %invoke.cont53, %if.then37
+  %cleanup.dest.slot.0 = phi i1 [ false, %if.then37 ], [ %cmp46, %invoke.cont53 ], [ %cmp46, %if.then47 ], [ %cmp46, %if.else69 ]
+  %usingFallback.2 = phi i1 [ true, %if.then37 ], [ true, %invoke.cont53 ], [ true, %if.then47 ], [ false, %if.else69 ]
   %cmp.not.i = icmp eq ptr %call34, null
   br i1 %cmp.not.i, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit, label %if.then.i
 

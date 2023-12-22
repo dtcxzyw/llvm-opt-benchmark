@@ -3199,33 +3199,32 @@ for.inc:                                          ; preds = %if.end26, %land.lhs
 for.end:                                          ; preds = %for.body, %land.lhs.true, %if.end18
   %i.0.lcssa = phi i32 [ 0, %if.end18 ], [ %i.043, %land.lhs.true ], [ %i.043, %for.body ]
   %cmp34 = icmp eq i32 %i.0.lcssa, %call.i38
-  br i1 %cmp34, label %if.end37, label %for.cond41.preheader
+  br i1 %cmp34, label %if.end37, label %for.body43.preheader
 
 if.end37:                                         ; preds = %for.inc, %for.end
-  %i.0.lcssa51 = phi i32 [ %i.0.lcssa, %for.end ], [ %call.i38, %for.inc ]
+  %i.0.lcssa50 = phi i32 [ %i.0.lcssa, %for.end ], [ %call.i38, %for.inc ]
   %child_cbs = getelementptr inbounds %struct.provider_store_st, ptr %call.i, i64 0, i32 2
   %7 = load ptr, ptr %child_cbs, align 8
   %call.i40 = tail call i32 @OPENSSL_sk_push(ptr noundef %7, ptr noundef nonnull %call2) #11
-  %cmp38 = icmp ne i32 %i.0.lcssa51, %call.i38
+  %cmp38 = icmp ne i32 %i.0.lcssa50, %call.i38
   %cmp39 = icmp slt i32 %call.i40, 1
   %or.cond = select i1 %cmp38, i1 true, i1 %cmp39
-  br i1 %or.cond, label %for.cond41.preheader, label %if.end49
+  br i1 %or.cond, label %for.body43.preheader, label %if.end49
 
-for.cond41.preheader:                             ; preds = %for.end, %if.end37
-  %i.0.lcssa5057 = phi i32 [ %i.0.lcssa51, %if.end37 ], [ %i.0.lcssa, %for.end ]
-  %cmp4246 = icmp sgt i32 %i.0.lcssa5057, -1
-  br i1 %cmp4246, label %for.body43, label %for.end48
+for.body43.preheader:                             ; preds = %for.end, %if.end37
+  %i.146.ph = phi i32 [ %i.0.lcssa, %for.end ], [ %i.0.lcssa50, %if.end37 ]
+  br label %for.body43
 
-for.body43:                                       ; preds = %for.cond41.preheader, %for.body43
-  %i.147 = phi i32 [ %dec, %for.body43 ], [ %i.0.lcssa5057, %for.cond41.preheader ]
+for.body43:                                       ; preds = %for.body43.preheader, %for.body43
+  %i.146 = phi i32 [ %dec, %for.body43 ], [ %i.146.ph, %for.body43.preheader ]
   %8 = load ptr, ptr %providers, align 8
-  %call.i41 = tail call ptr @OPENSSL_sk_value(ptr noundef %8, i32 noundef %i.147) #11
+  %call.i41 = tail call ptr @OPENSSL_sk_value(ptr noundef %8, i32 noundef %i.146) #11
   %call46 = tail call i32 %remove_cb(ptr noundef %call.i41, ptr noundef %cbdata) #11
-  %dec = add nsw i32 %i.147, -1
-  %cmp42.not = icmp eq i32 %i.147, 0
-  br i1 %cmp42.not, label %for.end48, label %for.body43, !llvm.loop !22
+  %dec = add nsw i32 %i.146, -1
+  %cmp42 = icmp sgt i32 %i.146, 0
+  br i1 %cmp42, label %for.body43, label %for.end48, !llvm.loop !22
 
-for.end48:                                        ; preds = %for.body43, %for.cond41.preheader
+for.end48:                                        ; preds = %for.body43
   tail call void @CRYPTO_free(ptr noundef nonnull %call2, ptr noundef nonnull @.str, i32 noundef 1846) #11
   br label %if.end49
 

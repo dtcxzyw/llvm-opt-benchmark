@@ -10162,17 +10162,17 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !46
 
 for.end:                                          ; preds = %if.end
+  %9 = add i64 %sort_order_mask.1, 1
   %sh_prom11 = zext nneg i32 %sort_order_count.1 to i64
   %shl12 = shl nuw i64 1, %sh_prom11
-  %add = add i64 %sort_order_mask.1, 1
-  %cmp13.not = icmp ne i64 %shl12, %add
+  %cmp13.not = icmp ne i64 %shl12, %9
   %cmp14 = icmp ugt i32 %sort_order_count.1, 1
   br i1 %cmp14, label %land.end, label %land.end.thread115
 
 land.end:                                         ; preds = %for.end
   %Flags = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 1
-  %9 = load i32, ptr %Flags, align 4
-  %and = and i32 %9, 67108864
+  %10 = load i32, ptr %Flags, align 4
+  %and = and i32 %10, 67108864
   %tobool15.not = icmp eq i32 %and, 0
   %brmerge = select i1 %cmp13.not, i1 true, i1 %tobool15.not
   br i1 %brmerge, label %for.cond24.preheader.lr.ph, label %if.end112
@@ -10196,65 +10196,64 @@ for.cond24.preheader.preheader:                   ; preds = %for.cond24.preheade
 
 for.cond24.preheader.us:                          ; preds = %for.cond24.preheader.lr.ph
   %cmp2668.us = icmp sgt i32 %6, 0
-  br i1 %cmp2668.us, label %for.body27.us.preheader, label %for.end55.us
-
-for.body27.us.preheader:                          ; preds = %for.cond24.preheader.us
-  %wide.trip.count94 = zext nneg i32 %6 to i64
-  %10 = load ptr, ptr %Columns33, align 8
-  br label %land.lhs.true32.us
+  %.pre99 = load ptr, ptr %Columns33, align 8
+  br i1 %cmp2668.us, label %for.body27.lr.ph.us, label %for.end55.us
 
 for.end55.us:                                     ; preds = %for.inc53.us, %for.cond24.preheader.us
   %column_with_smallest_sort_order.0.lcssa.us = phi i32 [ -1, %for.cond24.preheader.us ], [ %column_with_smallest_sort_order.1.us, %for.inc53.us ]
-  %11 = load ptr, ptr %Columns33, align 8
   %idx.ext.i54.us = sext i32 %column_with_smallest_sort_order.0.lcssa.us to i64
-  %SortOrder62.us = getelementptr inbounds %struct.ImGuiTableColumn, ptr %11, i64 %idx.ext.i54.us, i32 22
+  %SortOrder62.us = getelementptr inbounds %struct.ImGuiTableColumn, ptr %.pre99, i64 %idx.ext.i54.us, i32 22
   store i16 0, ptr %SortOrder62.us, align 2
-  %12 = load i32, ptr %ColumnsCount, align 4
-  %cmp6877 = icmp sgt i32 %12, 0
+  %11 = load i32, ptr %ColumnsCount, align 4
+  %cmp6877 = icmp sgt i32 %11, 0
   br i1 %cmp6877, label %for.body69.preheader, label %if.end112
 
 for.body69.preheader:                             ; preds = %for.end55.us
-  %13 = zext i32 %column_with_smallest_sort_order.0.lcssa.us to i64
+  %12 = zext i32 %column_with_smallest_sort_order.0.lcssa.us to i64
   br label %for.body69
 
-land.lhs.true32.us:                               ; preds = %for.inc53.us, %for.body27.us.preheader
-  %indvars.iv91 = phi i64 [ 0, %for.body27.us.preheader ], [ %indvars.iv.next92, %for.inc53.us ]
-  %column_with_smallest_sort_order.069.us = phi i32 [ -1, %for.body27.us.preheader ], [ %column_with_smallest_sort_order.1.us, %for.inc53.us ]
-  %SortOrder35.us = getelementptr inbounds %struct.ImGuiTableColumn, ptr %10, i64 %indvars.iv91, i32 22
-  %14 = load i16, ptr %SortOrder35.us, align 2
-  %cmp37.not.us = icmp eq i16 %14, -1
+for.body27.us:                                    ; preds = %for.body27.lr.ph.us, %for.inc53.us
+  %indvars.iv91 = phi i64 [ 0, %for.body27.lr.ph.us ], [ %indvars.iv.next92, %for.inc53.us ]
+  %column_with_smallest_sort_order.069.us = phi i32 [ -1, %for.body27.lr.ph.us ], [ %column_with_smallest_sort_order.1.us, %for.inc53.us ]
+  %SortOrder35.us = getelementptr inbounds %struct.ImGuiTableColumn, ptr %.pre99, i64 %indvars.iv91, i32 22
+  %13 = load i16, ptr %SortOrder35.us, align 2
+  %cmp37.not.us = icmp eq i16 %13, -1
   br i1 %cmp37.not.us, label %for.inc53.us, label %if.then38.us
 
-if.then38.us:                                     ; preds = %land.lhs.true32.us
+if.then38.us:                                     ; preds = %for.body27.us
   %cmp39.us = icmp eq i32 %column_with_smallest_sort_order.069.us, -1
   br i1 %cmp39.us, label %if.then50.us, label %lor.lhs.false40.us
 
 lor.lhs.false40.us:                               ; preds = %if.then38.us
   %idx.ext.i52.us = sext i32 %column_with_smallest_sort_order.069.us to i64
-  %SortOrder47.us = getelementptr inbounds %struct.ImGuiTableColumn, ptr %10, i64 %idx.ext.i52.us, i32 22
-  %15 = load i16, ptr %SortOrder47.us, align 2
-  %cmp49.us = icmp slt i16 %14, %15
+  %SortOrder47.us = getelementptr inbounds %struct.ImGuiTableColumn, ptr %.pre99, i64 %idx.ext.i52.us, i32 22
+  %14 = load i16, ptr %SortOrder47.us, align 2
+  %cmp49.us = icmp slt i16 %13, %14
   br i1 %cmp49.us, label %if.then50.us, label %for.inc53.us
 
 if.then50.us:                                     ; preds = %lor.lhs.false40.us, %if.then38.us
-  %16 = trunc i64 %indvars.iv91 to i32
+  %15 = trunc i64 %indvars.iv91 to i32
   br label %for.inc53.us
 
-for.inc53.us:                                     ; preds = %if.then50.us, %lor.lhs.false40.us, %land.lhs.true32.us
-  %column_with_smallest_sort_order.1.us = phi i32 [ %16, %if.then50.us ], [ %column_with_smallest_sort_order.069.us, %lor.lhs.false40.us ], [ %column_with_smallest_sort_order.069.us, %land.lhs.true32.us ]
+for.inc53.us:                                     ; preds = %if.then50.us, %lor.lhs.false40.us, %for.body27.us
+  %column_with_smallest_sort_order.1.us = phi i32 [ %15, %if.then50.us ], [ %column_with_smallest_sort_order.069.us, %lor.lhs.false40.us ], [ %column_with_smallest_sort_order.069.us, %for.body27.us ]
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count94
-  br i1 %exitcond95.not, label %for.end55.us, label %land.lhs.true32.us, !llvm.loop !47
+  br i1 %exitcond95.not, label %for.end55.us, label %for.body27.us, !llvm.loop !47
+
+for.body27.lr.ph.us:                              ; preds = %for.cond24.preheader.us
+  %wide.trip.count94 = zext nneg i32 %6 to i64
+  br label %for.body27.us
 
 for.cond24.preheader:                             ; preds = %for.cond24.preheader.preheader, %for.end55
   %sort_n.074 = phi i32 [ %inc81, %for.end55 ], [ 0, %for.cond24.preheader.preheader ]
   %fixed_mask.073 = phi i64 [ %or58, %for.end55 ], [ 0, %for.cond24.preheader.preheader ]
-  %17 = load i32, ptr %ColumnsCount, align 4
-  %cmp2668 = icmp sgt i32 %17, 0
+  %16 = load i32, ptr %ColumnsCount, align 4
+  %cmp2668 = icmp sgt i32 %16, 0
   br i1 %cmp2668, label %for.body27.preheader, label %for.end55
 
 for.body27.preheader:                             ; preds = %for.cond24.preheader
-  %wide.trip.count = zext nneg i32 %17 to i64
+  %wide.trip.count = zext nneg i32 %16 to i64
   br label %for.body27
 
 for.body27:                                       ; preds = %for.body27.preheader, %for.inc53
@@ -10266,10 +10265,10 @@ for.body27:                                       ; preds = %for.body27.preheade
   br i1 %cmp31, label %land.lhs.true32, label %for.inc53
 
 land.lhs.true32:                                  ; preds = %for.body27
-  %18 = load ptr, ptr %Columns33123, align 8
-  %SortOrder35 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %18, i64 %indvars.iv82, i32 22
-  %19 = load i16, ptr %SortOrder35, align 2
-  %cmp37.not = icmp eq i16 %19, -1
+  %17 = load ptr, ptr %Columns33123, align 8
+  %SortOrder35 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %17, i64 %indvars.iv82, i32 22
+  %18 = load i16, ptr %SortOrder35, align 2
+  %cmp37.not = icmp eq i16 %18, -1
   br i1 %cmp37.not, label %for.inc53, label %if.then38
 
 if.then38:                                        ; preds = %land.lhs.true32
@@ -10278,17 +10277,17 @@ if.then38:                                        ; preds = %land.lhs.true32
 
 lor.lhs.false40:                                  ; preds = %if.then38
   %idx.ext.i52 = sext i32 %column_with_smallest_sort_order.069 to i64
-  %SortOrder47 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %18, i64 %idx.ext.i52, i32 22
-  %20 = load i16, ptr %SortOrder47, align 2
-  %cmp49 = icmp slt i16 %19, %20
+  %SortOrder47 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %17, i64 %idx.ext.i52, i32 22
+  %19 = load i16, ptr %SortOrder47, align 2
+  %cmp49 = icmp slt i16 %18, %19
   br i1 %cmp49, label %if.then50, label %for.inc53
 
 if.then50:                                        ; preds = %lor.lhs.false40, %if.then38
-  %21 = trunc i64 %indvars.iv82 to i32
+  %20 = trunc i64 %indvars.iv82 to i32
   br label %for.inc53
 
 for.inc53:                                        ; preds = %for.body27, %land.lhs.true32, %if.then50, %lor.lhs.false40
-  %column_with_smallest_sort_order.1 = phi i32 [ %21, %if.then50 ], [ %column_with_smallest_sort_order.069, %lor.lhs.false40 ], [ %column_with_smallest_sort_order.069, %land.lhs.true32 ], [ %column_with_smallest_sort_order.069, %for.body27 ]
+  %column_with_smallest_sort_order.1 = phi i32 [ %20, %if.then50 ], [ %column_with_smallest_sort_order.069, %lor.lhs.false40 ], [ %column_with_smallest_sort_order.069, %land.lhs.true32 ], [ %column_with_smallest_sort_order.069, %for.body27 ]
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count
   br i1 %exitcond.not, label %for.end55, label %for.body27, !llvm.loop !47
@@ -10296,9 +10295,9 @@ for.inc53:                                        ; preds = %for.body27, %land.l
 for.end55:                                        ; preds = %for.inc53, %for.cond24.preheader
   %column_with_smallest_sort_order.0.lcssa = phi i32 [ -1, %for.cond24.preheader ], [ %column_with_smallest_sort_order.1, %for.inc53 ]
   %conv59 = trunc i32 %sort_n.074 to i16
-  %22 = load ptr, ptr %Columns33123, align 8
+  %21 = load ptr, ptr %Columns33123, align 8
   %idx.ext.i54 = sext i32 %column_with_smallest_sort_order.0.lcssa to i64
-  %SortOrder62 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %22, i64 %idx.ext.i54, i32 22
+  %SortOrder62 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %21, i64 %idx.ext.i54, i32 22
   store i16 %conv59, ptr %SortOrder62, align 2
   %sh_prom56 = zext nneg i32 %column_with_smallest_sort_order.0.lcssa to i64
   %shl57 = shl nuw i64 1, %sh_prom56
@@ -10308,23 +10307,23 @@ for.end55:                                        ; preds = %for.inc53, %for.con
   br i1 %exitcond85.not, label %if.end83, label %for.cond24.preheader, !llvm.loop !48
 
 for.body69:                                       ; preds = %for.body69.preheader, %for.inc76
-  %23 = phi i32 [ %12, %for.body69.preheader ], [ %25, %for.inc76 ]
+  %22 = phi i32 [ %11, %for.body69.preheader ], [ %24, %for.inc76 ]
   %indvars.iv96 = phi i64 [ 0, %for.body69.preheader ], [ %indvars.iv.next97, %for.inc76 ]
-  %cmp70.not = icmp eq i64 %indvars.iv96, %13
+  %cmp70.not = icmp eq i64 %indvars.iv96, %12
   br i1 %cmp70.not, label %for.inc76, label %if.then71
 
 if.then71:                                        ; preds = %for.body69
-  %24 = load ptr, ptr %Columns33, align 8
-  %SortOrder74 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %24, i64 %indvars.iv96, i32 22
+  %23 = load ptr, ptr %Columns33, align 8
+  %SortOrder74 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %23, i64 %indvars.iv96, i32 22
   store i16 -1, ptr %SortOrder74, align 2
-  %.pre99 = load i32, ptr %ColumnsCount, align 4
+  %.pre100 = load i32, ptr %ColumnsCount, align 4
   br label %for.inc76
 
 for.inc76:                                        ; preds = %for.body69, %if.then71
-  %25 = phi i32 [ %23, %for.body69 ], [ %.pre99, %if.then71 ]
+  %24 = phi i32 [ %22, %for.body69 ], [ %.pre100, %if.then71 ]
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %26 = sext i32 %25 to i64
-  %cmp68 = icmp slt i64 %indvars.iv.next97, %26
+  %25 = sext i32 %24 to i64
+  %cmp68 = icmp slt i64 %indvars.iv.next97, %25
   br i1 %cmp68, label %for.body69, label %if.end112, !llvm.loop !49
 
 if.end83:                                         ; preds = %for.end55, %land.end.thread115
@@ -10333,47 +10332,47 @@ if.end83:                                         ; preds = %for.end55, %land.en
 
 land.lhs.true85:                                  ; preds = %entry, %if.end83
   %Flags86 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 1
-  %27 = load i32, ptr %Flags86, align 4
-  %and87 = and i32 %27, 134217728
+  %26 = load i32, ptr %Flags86, align 4
+  %and87 = and i32 %26, 134217728
   %tobool88.not = icmp eq i32 %and87, 0
   br i1 %tobool88.not, label %for.cond91.preheader, label %if.end112
 
 for.cond91.preheader:                             ; preds = %land.lhs.true85
-  %28 = load i32, ptr %ColumnsCount, align 4
-  %cmp9375 = icmp sgt i32 %28, 0
+  %27 = load i32, ptr %ColumnsCount, align 4
+  %cmp9375 = icmp sgt i32 %27, 0
   br i1 %cmp9375, label %for.body94.lr.ph, label %if.end112
 
 for.body94.lr.ph:                                 ; preds = %for.cond91.preheader
   %Columns96 = getelementptr inbounds %struct.ImGuiTable, ptr %table, i64 0, i32 4
-  %29 = load ptr, ptr %Columns96, align 8
-  %wide.trip.count89 = zext nneg i32 %28 to i64
+  %28 = load ptr, ptr %Columns96, align 8
+  %wide.trip.count89 = zext nneg i32 %27 to i64
   br label %for.body94
 
 for.body94:                                       ; preds = %for.body94.lr.ph, %for.inc109
   %indvars.iv86 = phi i64 [ 0, %for.body94.lr.ph ], [ %indvars.iv.next87, %for.inc109 ]
-  %IsEnabled98 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %29, i64 %indvars.iv86, i32 26
-  %30 = load i8, ptr %IsEnabled98, align 2
-  %31 = and i8 %30, 1
-  %tobool99.not = icmp eq i8 %31, 0
+  %IsEnabled98 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %28, i64 %indvars.iv86, i32 26
+  %29 = load i8, ptr %IsEnabled98, align 2
+  %30 = and i8 %29, 1
+  %tobool99.not = icmp eq i8 %30, 0
   br i1 %tobool99.not, label %for.inc109, label %land.lhs.true100
 
 land.lhs.true100:                                 ; preds = %for.body94
-  %add.ptr.i59 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %29, i64 %indvars.iv86
-  %32 = load i32, ptr %add.ptr.i59, align 4
-  %and102 = and i32 %32, 512
+  %add.ptr.i59 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %28, i64 %indvars.iv86
+  %31 = load i32, ptr %add.ptr.i59, align 4
+  %and102 = and i32 %31, 512
   %tobool103.not = icmp eq i32 %and102, 0
   br i1 %tobool103.not, label %if.then104, label %for.inc109
 
 if.then104:                                       ; preds = %land.lhs.true100
-  %SortOrder105 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %29, i64 %indvars.iv86, i32 22
+  %SortOrder105 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %28, i64 %indvars.iv86, i32 22
   store i16 0, ptr %SortOrder105, align 2
-  %33 = getelementptr i8, ptr %add.ptr.i59, i64 110
-  %call97.val = load i8, ptr %33, align 2
-  %34 = and i8 %call97.val, 3
-  %SortDirection = getelementptr inbounds %struct.ImGuiTableColumn, ptr %29, i64 %indvars.iv86, i32 37
+  %32 = getelementptr i8, ptr %add.ptr.i59, i64 110
+  %call97.val = load i8, ptr %32, align 2
+  %33 = and i8 %call97.val, 3
+  %SortDirection = getelementptr inbounds %struct.ImGuiTableColumn, ptr %28, i64 %indvars.iv86, i32 37
   %bf.load = load i8, ptr %SortDirection, align 1
   %bf.clear = and i8 %bf.load, -4
-  %bf.set = or disjoint i8 %bf.clear, %34
+  %bf.set = or disjoint i8 %bf.clear, %33
   store i8 %bf.set, ptr %SortDirection, align 1
   br label %if.end112
 

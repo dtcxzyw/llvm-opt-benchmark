@@ -2293,7 +2293,6 @@ entry:
   %and = and i32 %conv, 8
   %tobool.not = icmp eq i32 %and, 0
   %and5 = and i32 %conv, 4
-  %and9 = and i32 %conv, 2
   %and13 = and i32 %conv, 1
   %blk_len = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 18
   %1 = load i32, ptr %blk_len, align 8
@@ -2308,8 +2307,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry, %if.then
   %pwd_len.0 = phi i32 [ %conv17, %if.then ], [ 0, %entry ]
-  %tobool18 = icmp ne i32 %and5, 0
-  br i1 %tobool18, label %if.then19, label %if.else20
+  %tobool18.not = icmp eq i32 %and5, 0
+  br i1 %tobool18.not, label %if.else20, label %if.then19
 
 if.then19:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -2501,61 +2500,38 @@ if.then80:                                        ; preds = %land.lhs.true
   br label %if.end144
 
 if.end83:                                         ; preds = %land.lhs.true, %if.end71
-  %sub = sub i32 %pwd_len.0, %34
-  %tobool87.not = icmp eq i32 %and13, 0
-  br i1 %tobool87.not, label %if.then117, label %lor.lhs.false88
+  %37 = and i32 %conv, 3
+  %or.cond83 = icmp eq i32 %37, 1
+  br i1 %or.cond83, label %if.end136, label %if.then117
 
-lor.lhs.false88:                                  ; preds = %if.end83
-  %tobool89.not = icmp eq i32 %and9, 0
-  %37 = and i32 %conv, 5
-  %or.cond4.not = icmp eq i32 %37, 0
-  %or.cond66 = or i1 %tobool89.not, %or.cond4.not
-  br i1 %or.cond66, label %lor.lhs.false101, label %if.then117
-
-lor.lhs.false101:                                 ; preds = %lor.lhs.false88
-  %38 = and i32 %conv, 3
-  %or.cond6.not = icmp eq i32 %38, 0
-  br i1 %or.cond6.not, label %land.lhs.true105, label %if.end132
-
-land.lhs.true105:                                 ; preds = %lor.lhs.false101
-  %card_status106 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 7
-  %39 = load i32, ptr %card_status106, align 4
-  %and107 = and i32 %39, 33554432
-  %tobool108 = icmp ne i32 %and107, 0
-  %or.cond7 = and i1 %tobool18, %tobool108
-  %40 = or disjoint i32 %and107, %and5
-  %or.cond8.not = icmp eq i32 %40, 0
-  %or.cond67 = select i1 %or.cond7, i1 true, i1 %or.cond8.not
-  br i1 %or.cond67, label %if.then117, label %if.end132
-
-if.then117:                                       ; preds = %lor.lhs.false88, %land.lhs.true105, %if.end83
+if.then117:                                       ; preds = %if.end83
   %card_status118 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 7
-  %41 = load i32, ptr %card_status118, align 4
-  %or119 = or i32 %41, 16777216
+  %38 = load i32, ptr %card_status118, align 4
+  %or119 = or i32 %38, 16777216
   store i32 %or119, ptr %card_status118, align 4
   br label %if.end144
 
-if.end132:                                        ; preds = %land.lhs.true105, %lor.lhs.false101
+if.end136:                                        ; preds = %if.end83
+  %sub = sub i32 %pwd_len.0, %34
   %pwd123 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 22
   %add.ptr127 = getelementptr %struct.SDState, ptr %sd, i64 0, i32 30, i64 2
   %idx.ext = zext i32 %34 to i64
   %add.ptr129 = getelementptr i8, ptr %add.ptr127, i64 %idx.ext
   %conv130 = sext i32 %sub to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %pwd123, ptr align 1 %add.ptr129, i64 %conv130, i1 false)
-  %spec.store.select = select i1 %tobool89.not, i32 %sub, i32 0
-  store i32 %spec.store.select, ptr %pwd_len60, align 8
-  %card_status139 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 7
-  %42 = load i32, ptr %card_status139, align 4
-  br i1 %tobool18, label %if.then138, label %if.else141
+  store i32 %sub, ptr %pwd_len60, align 8
+  %card_status142 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 7
+  %39 = load i32, ptr %card_status142, align 4
+  br i1 %tobool18.not, label %if.else141, label %if.then138
 
-if.then138:                                       ; preds = %if.end132
-  %or140 = or i32 %42, 33554432
-  store i32 %or140, ptr %card_status139, align 4
+if.then138:                                       ; preds = %if.end136
+  %or140 = or i32 %39, 33554432
+  store i32 %or140, ptr %card_status142, align 4
   br label %if.end144
 
-if.else141:                                       ; preds = %if.end132
-  %and143 = and i32 %42, -33554433
-  store i32 %and143, ptr %card_status139, align 4
+if.else141:                                       ; preds = %if.end136
+  %and143 = and i32 %39, -33554433
+  store i32 %and143, ptr %card_status142, align 4
   br label %if.end144
 
 if.end144:                                        ; preds = %if.else141, %if.then138, %if.then117, %if.then80, %if.then68, %bitmap_zero.exit, %if.then43

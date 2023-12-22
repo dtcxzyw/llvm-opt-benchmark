@@ -2244,7 +2244,7 @@ entry:
   %0 = tail call i32 @llvm.smin.i32(i32 %depth, i32 -1)
   %level.0 = xor i32 %0, -1
   %depth.addr.0 = tail call i32 @llvm.smax.i32(i32 %depth, i32 -1)
-  %cmp1.not321 = icmp eq i32 %depth.addr.0, %level.0
+  %cmp1.not321 = icmp eq i32 %level.0, %depth
   br i1 %cmp1.not321, label %if.end88, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry

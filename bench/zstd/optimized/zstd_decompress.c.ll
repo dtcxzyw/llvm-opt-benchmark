@@ -961,14 +961,12 @@ do.end8.i:                                        ; preds = %if.then
 readSkippableFrameSize.exit:                      ; preds = %do.end8.i
   %conv.i = zext i32 %add.ptr.val.i to i64
   %add22.i = add nuw nsw i64 %conv.i, 8
-  %cmp24.i = icmp ugt i64 %add22.i, %srcSize.addr.038
-  %.add22.i = select i1 %cmp24.i, i64 -72, i64 %add22.i
-  %cmp.i22 = icmp ult i64 %.add22.i, -119
-  br i1 %cmp.i22, label %if.end, label %return
+  %cmp24.i.not = icmp ugt i64 %add22.i, %srcSize.addr.038
+  br i1 %cmp24.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %readSkippableFrameSize.exit
-  %add.ptr = getelementptr inbounds i8, ptr %src.addr.039, i64 %.add22.i
-  %sub = sub i64 %srcSize.addr.038, %.add22.i
+  %add.ptr = getelementptr inbounds i8, ptr %src.addr.039, i64 %add22.i
+  %sub = sub i64 %srcSize.addr.038, %add22.i
   %cmp.not = icmp ult i64 %sub, 5
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !7
 
@@ -1570,14 +1568,12 @@ do.end8.i:                                        ; preds = %if.then38
 readSkippableFrameSize.exit:                      ; preds = %do.end8.i
   %conv.i47 = zext i32 %add.ptr.val.i to i64
   %add22.i = add nuw nsw i64 %conv.i47, 8
-  %cmp24.i = icmp ugt i64 %add22.i, %srcSize.addr.0123
-  %.add22.i = select i1 %cmp24.i, i64 -72, i64 %add22.i
-  %cmp.i49 = icmp ult i64 %.add22.i, -119
-  br i1 %cmp.i49, label %do.end53, label %return
+  %cmp24.i.not = icmp ugt i64 %add22.i, %srcSize.addr.0123
+  br i1 %cmp24.i.not, label %return, label %do.end53
 
 do.end53:                                         ; preds = %readSkippableFrameSize.exit
-  %add.ptr54 = getelementptr inbounds i8, ptr %src.addr.0122, i64 %.add22.i
-  %sub55 = sub i64 %srcSize.addr.0123, %.add22.i
+  %add.ptr54 = getelementptr inbounds i8, ptr %src.addr.0122, i64 %add22.i
+  %sub55 = sub i64 %srcSize.addr.0123, %add22.i
   %cmp.not = icmp ult i64 %sub55, %cond.i134
   br i1 %cmp.not, label %do.body118, label %while.body, !llvm.loop !32
 
@@ -1914,7 +1910,7 @@ do.end130:                                        ; preds = %do.body118
   br label %return
 
 return:                                           ; preds = %do.end108, %ZSTD_decompressFrame.exit, %do.body76, %ZSTD_decompressLegacy.exit, %do.body11, %ZSTD_findFrameCompressedSizeLegacy.exit, %do.end8.i, %if.then38, %readSkippableFrameSize.exit, %ZSTD_decompressLegacy.exit.thread, %do.body118, %do.end130
-  %retval.0 = phi i64 [ %sub.ptr.sub, %do.end130 ], [ -72, %do.body118 ], [ %retval.0.i43.ph, %ZSTD_decompressLegacy.exit.thread ], [ -72, %if.then38 ], [ -14, %do.end8.i ], [ %.add22.i, %readSkippableFrameSize.exit ], [ %retval.0.i43, %ZSTD_decompressLegacy.exit ], [ -64, %do.body11 ], [ %2, %ZSTD_findFrameCompressedSizeLegacy.exit ], [ %call78, %do.body76 ], [ -72, %ZSTD_decompressFrame.exit ], [ %retval.0.i59, %do.end108 ]
+  %retval.0 = phi i64 [ %sub.ptr.sub, %do.end130 ], [ -72, %do.body118 ], [ %retval.0.i43.ph, %ZSTD_decompressLegacy.exit.thread ], [ -72, %if.then38 ], [ -14, %do.end8.i ], [ -72, %readSkippableFrameSize.exit ], [ %retval.0.i43, %ZSTD_decompressLegacy.exit ], [ -64, %do.body11 ], [ %2, %ZSTD_findFrameCompressedSizeLegacy.exit ], [ %call78, %do.body76 ], [ -72, %ZSTD_decompressFrame.exit ], [ %retval.0.i59, %do.end108 ]
   ret i64 %retval.0
 }
 

@@ -2935,7 +2935,7 @@ for.body154.preheader:                            ; preds = %_ZSt4sortIN9__gnu_c
 for.cond160.preheader:                            ; preds = %for.body154, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit
   %i147.0.lcssa = phi i64 [ 0, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit ], [ %umax, %for.body154 ]
   %invariant.umin1171 = call i64 @llvm.umin.i64(i64 %.pre1320, i64 16384)
-  %46 = icmp ult i64 %i147.0.lcssa, %invariant.umin1171
+  %46 = icmp ugt i64 %.pre1320, %i147.0.lcssa
   br i1 %46, label %for.body166, label %for.cond172.preheader
 
 for.body154:                                      ; preds = %for.body154.preheader, %for.body154
@@ -2949,7 +2949,7 @@ for.body154:                                      ; preds = %for.body154.prehead
 for.cond172.preheader:                            ; preds = %for.body166, %for.cond160.preheader
   %i147.1.lcssa = phi i64 [ %i147.0.lcssa, %for.cond160.preheader ], [ %invariant.umin1171, %for.body166 ]
   %invariant.umin1174 = call i64 @llvm.umin.i64(i64 %.pre1320, i64 2097152)
-  %47 = icmp ult i64 %i147.1.lcssa, %invariant.umin1174
+  %47 = icmp ugt i64 %.pre1320, %i147.1.lcssa
   br i1 %47, label %for.body178, label %for.cond184.preheader
 
 for.body166:                                      ; preds = %for.cond160.preheader, %for.body166
@@ -2963,7 +2963,7 @@ for.body166:                                      ; preds = %for.cond160.prehead
 for.cond184.preheader:                            ; preds = %for.body178, %for.cond172.preheader
   %i147.2.lcssa = phi i64 [ %i147.1.lcssa, %for.cond172.preheader ], [ %invariant.umin1174, %for.body178 ]
   %invariant.umin1177 = call i64 @llvm.umin.i64(i64 %.pre1320, i64 268435456)
-  %48 = icmp ult i64 %i147.2.lcssa, %invariant.umin1177
+  %48 = icmp ugt i64 %.pre1320, %i147.2.lcssa
   br i1 %48, label %for.body190, label %for.cond196.preheader
 
 for.body178:                                      ; preds = %for.cond172.preheader, %for.body178

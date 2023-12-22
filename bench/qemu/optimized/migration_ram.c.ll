@@ -8816,8 +8816,8 @@ if.end5:                                          ; preds = %if.end.if.end5_crit
 while.body9:                                      ; preds = %while.body9.backedge, %if.end5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %offset.i)
   %8 = load atomic i64, ptr %src_page_requests.i.i.i monotonic, align 8
-  %cmp.i.not.i.i70 = icmp eq i64 %8, 0
-  br i1 %cmp.i.not.i.i70, label %if.then11.i, label %if.end.i.i
+  %cmp.i.not.i.i69 = icmp eq i64 %8, 0
+  br i1 %cmp.i.not.i.i69, label %if.then11.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body9, %do.cond.i
   %9 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
@@ -8927,13 +8927,13 @@ if.else.i:                                        ; preds = %if.then.i
   %31 = load i16, ptr @_TRACE_GET_QUEUED_PAGE_DSTATE, align 2
   %tobool4.i.i17.i = icmp ne i16 %31, 0
   %or.cond.i.i18.i = select i1 %tobool.i.i16.i, i1 %tobool4.i.i17.i, i1 false
-  br i1 %or.cond.i.i18.i, label %land.lhs.true5.i.i19.i, label %do.cond.i.thread
+  br i1 %or.cond.i.i18.i, label %land.lhs.true5.i.i19.i, label %if.then15.loopexit.i
 
 land.lhs.true5.i.i19.i:                           ; preds = %if.else.i
   %32 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i20.i = and i32 %32, 32768
   %cmp.i.not.i.i21.i = icmp eq i32 %and.i.i.i20.i, 0
-  br i1 %cmp.i.not.i.i21.i, label %do.cond.i.thread, label %if.then.i.i22.i
+  br i1 %cmp.i.not.i.i21.i, label %if.then15.loopexit.i, label %if.then.i.i22.i
 
 if.then.i.i22.i:                                  ; preds = %land.lhs.true5.i.i19.i
   %33 = load i8, ptr @message_with_timestamp, align 1
@@ -8947,17 +8947,13 @@ if.then8.i.i24.i:                                 ; preds = %if.then.i.i22.i
   %35 = load i64, ptr %_now.i.i15.i, align 8
   %36 = load i64, ptr %tv_usec.i.i27.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.92, i32 noundef %call10.i.i26.i, i64 noundef %35, i64 noundef %36, ptr noundef nonnull %idstr.i, i64 noundef %14, i64 noundef %shr.i) #16
-  br label %do.cond.i.thread
+  br label %if.then15.loopexit.i
 
 if.else.i.i28.i:                                  ; preds = %if.then.i.i22.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.93, ptr noundef nonnull %idstr.i, i64 noundef %14, i64 noundef %shr.i) #16
-  br label %do.cond.i.thread
+  br label %if.then15.loopexit.i
 
-do.cond.i.thread:                                 ; preds = %if.else.i, %land.lhs.true5.i.i19.i, %if.then8.i.i24.i, %if.else.i.i28.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i15.i)
-  br label %get_queued_page.exit.thread
-
-do.cond.i:                                        ; preds = %if.then4.i, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
+do.cond.i:                                        ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.then4.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %37 = load atomic i64, ptr %src_page_requests.i.i.i monotonic, align 8
   %cmp.i.not.i.i = icmp eq i64 %37, 0
@@ -8995,12 +8991,16 @@ if.else.i33.i:                                    ; preds = %land.lhs.true.i.i, 
 if.end13.i:                                       ; preds = %land.lhs.true.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %uffd_msg.i.i)
   %.pre.i = load i64, ptr %offset.i, align 8
-  %.pre57.i = lshr i64 %.pre.i, 12
+  %.pre58.i = lshr i64 %.pre.i, 12
   br label %get_queued_page.exit.thread
 
-get_queued_page.exit.thread:                      ; preds = %if.end13.i, %do.cond.i.thread
-  %shr17.pre-phi.i = phi i64 [ %.pre57.i, %if.end13.i ], [ %shr.i, %do.cond.i.thread ]
-  %block.051.i = phi ptr [ %call4.i.i, %if.end13.i ], [ %13, %do.cond.i.thread ]
+if.then15.loopexit.i:                             ; preds = %if.else.i.i28.i, %if.then8.i.i24.i, %land.lhs.true5.i.i19.i, %if.else.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i15.i)
+  br label %get_queued_page.exit.thread
+
+get_queued_page.exit.thread:                      ; preds = %if.end13.i, %if.then15.loopexit.i
+  %shr17.pre-phi.i = phi i64 [ %shr.i, %if.then15.loopexit.i ], [ %.pre58.i, %if.end13.i ]
+  %block.051.i = phi ptr [ %13, %if.then15.loopexit.i ], [ %call4.i.i, %if.end13.i ]
   store ptr %block.051.i, ptr %block.i, align 8
   store i64 %shr17.pre-phi.i, ptr %page1.i, align 8
   store i8 0, ptr %complete_round.i, align 8
@@ -9018,22 +9018,22 @@ if.then10:                                        ; preds = %if.end.i30.i, %if.t
   br i1 %tobool.not.i25, label %if.then10.if.end.i_crit_edge, label %land.lhs.true.i
 
 if.then10.if.end.i_crit_edge:                     ; preds = %if.then10
-  %.pre75 = load i64, ptr %page1.i, align 8
+  %.pre74 = load i64, ptr %page1.i, align 8
   br label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %if.then10
   %44 = load ptr, ptr %last_seen_block, align 8
   %cmp.i = icmp eq ptr %.pre.i26, %44
-  %.pre76 = load i64, ptr %page1.i, align 8
+  %.pre75 = load i64, ptr %page1.i, align 8
   br i1 %cmp.i, label %land.lhs.true1.i, label %if.end.i
 
 land.lhs.true1.i:                                 ; preds = %land.lhs.true.i
   %45 = load i64, ptr %last_page7, align 8
-  %cmp2.not.i = icmp ult i64 %.pre76, %45
+  %cmp2.not.i = icmp ult i64 %.pre75, %45
   br i1 %cmp2.not.i, label %if.end.i, label %while.end29
 
 if.end.i:                                         ; preds = %if.then10.if.end.i_crit_edge, %land.lhs.true1.i, %land.lhs.true.i
-  %46 = phi i64 [ %.pre75, %if.then10.if.end.i_crit_edge ], [ %.pre76, %land.lhs.true1.i ], [ %.pre76, %land.lhs.true.i ]
+  %46 = phi i64 [ %.pre74, %if.then10.if.end.i_crit_edge ], [ %.pre75, %land.lhs.true1.i ], [ %.pre75, %land.lhs.true.i ]
   %shl.i = shl i64 %46, 12
   %tobool.not.i.i27 = icmp eq ptr %.pre.i26, null
   br i1 %tobool.not.i.i27, label %if.then5.i, label %land.lhs.true.i.i28
@@ -9060,7 +9060,7 @@ if.then5.i:                                       ; preds = %offset_in_ramblock.
   %tobool10.not.i = icmp eq i64 %49, 0
   br i1 %tobool10.not.i, label %if.then11.i30, label %while.body9.backedge
 
-while.body9.backedge:                             ; preds = %if.then5.i, %if.then32.i, %if.end22.i, %ram_save_host_page.exit.thread79, %ram_save_host_page.exit
+while.body9.backedge:                             ; preds = %if.then5.i, %if.then32.i, %if.end22.i, %ram_save_host_page.exit.thread78, %ram_save_host_page.exit
   br label %while.body9
 
 if.then11.i30:                                    ; preds = %if.then5.i
@@ -9111,7 +9111,7 @@ postcopy_preempt_active.exit.i:                   ; preds = %land.rhs.i.i, %if.e
   %56 = load i64, ptr %page1.i, align 8
   %57 = load ptr, ptr %block.i, align 8
   %call.i24.i = call zeroext i1 @qemu_ram_is_migratable(ptr noundef %57) #16
-  br i1 %call.i24.i, label %lor.rhs.i.i, label %ram_save_host_page.exit.thread79
+  br i1 %call.i24.i, label %lor.rhs.i.i, label %ram_save_host_page.exit.thread78
 
 lor.rhs.i.i:                                      ; preds = %postcopy_preempt_active.exit.i
   %call1.i25.i = call zeroext i1 @migrate_ignore_shared() #16
@@ -9123,9 +9123,9 @@ land.lhs.true.i.i55:                              ; preds = %lor.rhs.i.i
 
 migrate_ram_is_ignored.exit.i:                    ; preds = %land.lhs.true.i.i55
   %call3.i.i = call zeroext i1 @qemu_ram_is_named_file(ptr noundef %57) #16
-  br i1 %call3.i.i, label %ram_save_host_page.exit.thread79, label %if.end.i38
+  br i1 %call3.i.i, label %ram_save_host_page.exit.thread78, label %if.end.i38
 
-ram_save_host_page.exit.thread79:                 ; preds = %postcopy_preempt_active.exit.i, %migrate_ram_is_ignored.exit.i
+ram_save_host_page.exit.thread78:                 ; preds = %postcopy_preempt_active.exit.i, %migrate_ram_is_ignored.exit.i
   %58 = load ptr, ptr %block.i, align 8
   %idstr.i36 = getelementptr inbounds %struct.RAMBlock, ptr %58, i64 0, i32 9
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.67, ptr noundef nonnull %idstr.i36) #16
@@ -9144,27 +9144,27 @@ if.then.i.i:                                      ; preds = %if.end.i38
   br label %pss_host_page_prepare.exit.i
 
 if.else.i.i40:                                    ; preds = %if.end.i38
-  %shr.i.i41 = lshr i64 %call.i27.i, 12
+  %shr.i.i = lshr i64 %call.i27.i, 12
   %61 = load i64, ptr %page1.i, align 8
-  %sub.i.i42 = sub nsw i64 0, %shr.i.i41
-  %and.i.i43 = and i64 %61, %sub.i.i42
-  %sub7.i.i = add i64 %61, %shr.i.i41
-  %and9.i.i = and i64 %sub7.i.i, %sub.i.i42
+  %sub.i.i41 = sub nsw i64 0, %shr.i.i
+  %and.i.i42 = and i64 %61, %sub.i.i41
+  %sub7.i.i = add i64 %61, %shr.i.i
+  %and9.i.i = and i64 %sub7.i.i, %sub.i.i41
   br label %pss_host_page_prepare.exit.i
 
 pss_host_page_prepare.exit.i:                     ; preds = %if.else.i.i40, %if.then.i.i
   %62 = phi i64 [ %60, %if.then.i.i ], [ %61, %if.else.i.i40 ]
-  %and.sink.i.i = phi i64 [ %60, %if.then.i.i ], [ %and.i.i43, %if.else.i.i40 ]
+  %and.sink.i.i = phi i64 [ %60, %if.then.i.i ], [ %and.i.i42, %if.else.i.i40 ]
   %and9.sink.i.i = phi i64 [ %add.i.i54, %if.then.i.i ], [ %and9.i.i, %if.else.i.i40 ]
   store i64 %and.sink.i.i, ptr %6, align 8
   store i64 %and9.sink.i.i, ptr %7, align 8
   %cmp15.i = icmp ugt i64 %call1.i, 8191
-  %.pre.i44 = load ptr, ptr %block.i, align 8
-  br label %do.body.i45
+  %.pre.i43 = load ptr, ptr %block.i, align 8
+  br label %do.body.i44
 
-do.body.i45:                                      ; preds = %pss_within_range.exit.i, %pss_host_page_prepare.exit.i
+do.body.i44:                                      ; preds = %pss_within_range.exit.i, %pss_host_page_prepare.exit.i
   %63 = phi i64 [ %62, %pss_host_page_prepare.exit.i ], [ %74, %pss_within_range.exit.i ]
-  %64 = phi ptr [ %.pre.i44, %pss_host_page_prepare.exit.i ], [ %.pre58.i, %pss_within_range.exit.i ]
+  %64 = phi ptr [ %.pre.i43, %pss_host_page_prepare.exit.i ], [ %.pre58.i49, %pss_within_range.exit.i ]
   %pages.0.i = phi i32 [ 0, %pss_host_page_prepare.exit.i ], [ %pages.251.i, %pss_within_range.exit.i ]
   call fastcc void @migration_clear_memory_region_dirty_bitmap(ptr noundef %64, i64 noundef %63)
   %bmap.i.i = getelementptr inbounds %struct.RAMBlock, ptr %64, i64 0, i32 15
@@ -9181,7 +9181,7 @@ do.body.i45:                                      ; preds = %pss_within_range.ex
   %cmp.i.i.not.i = icmp eq i64 %and1.i.i.i, 0
   br i1 %cmp.i.i.not.i, label %if.end29.i, label %if.then9.i
 
-if.then9.i:                                       ; preds = %do.body.i45
+if.then9.i:                                       ; preds = %do.body.i44
   %67 = load i64, ptr %migration_dirty_pages.i.i, align 8
   %dec.i.i = add i64 %67, -1
   store i64 %dec.i.i, ptr %migration_dirty_pages.i.i, align 8
@@ -9195,30 +9195,30 @@ if.end12.i:                                       ; preds = %if.then11.i53, %if.
   %68 = load ptr, ptr @migration_ops, align 8
   %69 = load ptr, ptr %68, align 8
   %call13.i = call i32 %69(ptr noundef nonnull %rs, ptr noundef nonnull %rs) #16
-  %cmp.i46 = icmp sgt i32 %call13.i, -1
-  br i1 %cmp.i46, label %if.then14.i, label %if.end20.i47
+  %cmp.i45 = icmp sgt i32 %call13.i, -1
+  br i1 %cmp.i45, label %if.then14.i, label %if.end20.i46
 
 if.then14.i:                                      ; preds = %if.end12.i
   %add.i = add i32 %call13.i, %pages.0.i
   %cmp16.i = icmp ne i32 %call13.i, 0
   %or.cond.i = and i1 %cmp15.i, %cmp16.i
-  br i1 %or.cond.i, label %if.then17.i, label %if.end20.i47
+  br i1 %or.cond.i, label %if.then17.i, label %if.end20.i46
 
 if.then17.i:                                      ; preds = %if.then14.i
   %call18.i = call zeroext i1 @migration_rate_limit() #16
-  br label %if.end20.i47
+  br label %if.end20.i46
 
-if.end20.i47:                                     ; preds = %if.then17.i, %if.then14.i, %if.end12.i
+if.end20.i46:                                     ; preds = %if.then17.i, %if.then14.i, %if.end12.i
   %pages.1.i = phi i32 [ %add.i, %if.then17.i ], [ %add.i, %if.then14.i ], [ %pages.0.i, %if.end12.i ]
   br i1 %54, label %while.end.i, label %if.end26.i
 
-while.end.i:                                      ; preds = %if.end20.i47
+while.end.i:                                      ; preds = %if.end20.i46
   %70 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %71 = inttoptr i64 %70 to ptr
   call void %71(ptr noundef nonnull %bitmap_mutex.i, ptr noundef nonnull @.str, i32 noundef 2243) #16
   br label %if.end26.i
 
-if.end26.i:                                       ; preds = %while.end.i, %if.end20.i47
+if.end26.i:                                       ; preds = %while.end.i, %if.end20.i46
   %cmp27.i = icmp slt i32 %call13.i, 0
   br i1 %cmp27.i, label %ram_save_host_page.exit.thread, label %if.end29.i
 
@@ -9227,51 +9227,51 @@ ram_save_host_page.exit.thread:                   ; preds = %if.end26.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   br label %while.end29
 
-if.end29.i:                                       ; preds = %if.end26.i, %do.body.i45
-  %pages.251.i = phi i32 [ %pages.1.i, %if.end26.i ], [ %pages.0.i, %do.body.i45 ]
+if.end29.i:                                       ; preds = %if.end26.i, %do.body.i44
+  %pages.251.i = phi i32 [ %pages.1.i, %if.end26.i ], [ %pages.0.i, %do.body.i44 ]
   call fastcc void @pss_find_next_dirty(ptr noundef nonnull %rs)
   %72 = load i8, ptr %host_page_sending.i.i, align 1
   %73 = and i8 %72, 1
-  %tobool.not.i.i48 = icmp eq i8 %73, 0
-  br i1 %tobool.not.i.i48, label %if.else.i34.i, label %if.end.i.i49
+  %tobool.not.i.i47 = icmp eq i8 %73, 0
+  br i1 %tobool.not.i.i47, label %if.else.i34.i, label %if.end.i.i48
 
 if.else.i34.i:                                    ; preds = %if.end29.i
   call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str, i32 noundef 2112, ptr noundef nonnull @__PRETTY_FUNCTION__.pss_within_range) #17
   unreachable
 
-if.end.i.i49:                                     ; preds = %if.end29.i
+if.end.i.i48:                                     ; preds = %if.end29.i
   %74 = load i64, ptr %page1.i, align 8
   %75 = load i64, ptr %7, align 8
   %cmp.not.i.i = icmp ult i64 %74, %75
-  %.pre58.i = load ptr, ptr %block.i, align 8
+  %.pre58.i49 = load ptr, ptr %block.i, align 8
   br i1 %cmp.not.i.i, label %if.end2.i.i, label %do.end31.i
 
-if.end2.i.i:                                      ; preds = %if.end.i.i49
-  %tobool.not.i.i.i = icmp ne ptr %.pre58.i, null
+if.end2.i.i:                                      ; preds = %if.end.i.i48
+  %tobool.not.i.i.i = icmp ne ptr %.pre58.i49, null
   call void @llvm.assume(i1 %tobool.not.i.i.i)
-  %host.i.i.i = getelementptr inbounds %struct.RAMBlock, ptr %.pre58.i, i64 0, i32 2
+  %host.i.i.i = getelementptr inbounds %struct.RAMBlock, ptr %.pre58.i49, i64 0, i32 2
   %76 = load ptr, ptr %host.i.i.i, align 8
   %tobool1.not.i.i.i = icmp eq ptr %76, null
   br i1 %tobool1.not.i.i.i, label %do.end31.i, label %pss_within_range.exit.i
 
 pss_within_range.exit.i:                          ; preds = %if.end2.i.i
   %shl.i.i = shl i64 %74, 12
-  %used_length.i.i.i = getelementptr inbounds %struct.RAMBlock, ptr %.pre58.i, i64 0, i32 5
+  %used_length.i.i.i = getelementptr inbounds %struct.RAMBlock, ptr %.pre58.i49, i64 0, i32 5
   %77 = load i64, ptr %used_length.i.i.i, align 8
   %cmp.i.i33.i = icmp ugt i64 %77, %shl.i.i
-  br i1 %cmp.i.i33.i, label %do.body.i45, label %do.end31.i, !llvm.loop !127
+  br i1 %cmp.i.i33.i, label %do.body.i44, label %do.end31.i, !llvm.loop !127
 
-do.end31.i:                                       ; preds = %pss_within_range.exit.i, %if.end2.i.i, %if.end.i.i49
+do.end31.i:                                       ; preds = %pss_within_range.exit.i, %if.end2.i.i, %if.end.i.i48
   store i8 0, ptr %host_page_sending.i.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %flags.i.i50 = getelementptr inbounds %struct.RAMBlock, ptr %.pre58.i, i64 0, i32 8
+  %flags.i.i50 = getelementptr inbounds %struct.RAMBlock, ptr %.pre58.i49, i64 0, i32 8
   %78 = load i32, ptr %flags.i.i50, align 8
   %and.i38.i = and i32 %78, 64
   %tobool.not.i39.i = icmp eq i32 %and.i38.i, 0
   br i1 %tobool.not.i39.i, label %ram_save_host_page.exit, label %ram_save_release_protection.exit.i
 
 ram_save_release_protection.exit.i:               ; preds = %do.end31.i
-  %host.i.i51 = getelementptr inbounds %struct.RAMBlock, ptr %.pre58.i, i64 0, i32 2
+  %host.i.i51 = getelementptr inbounds %struct.RAMBlock, ptr %.pre58.i49, i64 0, i32 2
   %79 = load ptr, ptr %host.i.i51, align 8
   %shl.i41.i = shl i64 %56, 12
   %add.ptr.i.i = getelementptr i8, ptr %79, i64 %shl.i41.i

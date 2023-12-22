@@ -7147,7 +7147,7 @@ entry:
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt11_Deque_baseISt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS3_EESaIS6_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__num_elements) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
+_ZNSt11_Deque_baseISt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS3_EESaIS6_EE15_M_allocate_mapEm.exit:
   %div16 = lshr i64 %__num_elements, 6
   %add = add nuw nsw i64 %div16, 1
   %0 = tail call i64 @llvm.umax.i64(i64 %div16, i64 5)
@@ -7163,8 +7163,8 @@ entry:
   %add.ptr14 = getelementptr inbounds ptr, ptr %add.ptr, i64 %add
   br label %for.body.i
 
-for.body.i:                                       ; preds = %entry, %invoke.cont.i
-  %__cur.08.i = phi ptr [ %incdec.ptr.i, %invoke.cont.i ], [ %add.ptr, %entry ]
+for.body.i:                                       ; preds = %_ZNSt11_Deque_baseISt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS3_EESaIS6_EE15_M_allocate_mapEm.exit, %invoke.cont.i
+  %__cur.08.i = phi ptr [ %incdec.ptr.i, %invoke.cont.i ], [ %add.ptr, %_ZNSt11_Deque_baseISt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS3_EESaIS6_EE15_M_allocate_mapEm.exit ]
   %call5.i.i.i5.i = invoke noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #36
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -7314,7 +7314,7 @@ _ZNSt11_Deque_baseImSaImEED2Ev.exit:              ; preds = %entry, %_ZNSt11_Deq
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt11_Deque_baseImSaImEE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__num_elements) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
+_ZNSt11_Deque_baseImSaImEE15_M_allocate_mapEm.exit:
   %div16 = lshr i64 %__num_elements, 6
   %add = add nuw nsw i64 %div16, 1
   %0 = tail call i64 @llvm.umax.i64(i64 %div16, i64 5)
@@ -7330,8 +7330,8 @@ entry:
   %add.ptr14 = getelementptr inbounds ptr, ptr %add.ptr, i64 %add
   br label %for.body.i
 
-for.body.i:                                       ; preds = %entry, %invoke.cont.i
-  %__cur.08.i = phi ptr [ %incdec.ptr.i, %invoke.cont.i ], [ %add.ptr, %entry ]
+for.body.i:                                       ; preds = %_ZNSt11_Deque_baseImSaImEE15_M_allocate_mapEm.exit, %invoke.cont.i
+  %__cur.08.i = phi ptr [ %incdec.ptr.i, %invoke.cont.i ], [ %add.ptr, %_ZNSt11_Deque_baseImSaImEE15_M_allocate_mapEm.exit ]
   %call5.i.i.i5.i = invoke noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #36
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -9422,23 +9422,18 @@ if.end5.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i
   %add.i.i.i.i.i.i = or disjoint i32 %cast.i5.i.i.i.i.i.i, 64
   %retval.0.i.i.i.i.i.i = select i1 %cmp.i16.i.i.i.i.i, i32 %add.i.i.i.i.i.i, i32 %cast.i.i.i.i.i.i.i
   %add.i.i.i.i.i = add i32 %retval.0.i.i.i.i.i.i, %i.029.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i = icmp ugt i32 %retval.0.i.i.i.i.i.i, 63
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
+  br i1 %cmp.i16.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end5.i.i.i.i.i
-  %and2.i.i.i.i.i.i.i = and i32 %retval.0.i.i.i.i.i.i, 63
-  %sh_prom.i.i.i.i.i.i.i = zext nneg i32 %and2.i.i.i.i.i.i.i to i64
-  %shr.i.i.i50.i.i.i.i = lshr i64 %xor3.i.i.i.i.i.i.i, %sh_prom.i.i.i.i.i.i.i
+  %shr.i.i.i50.i.i.i.i = lshr i64 %xor3.i.i.i.i.i.i.i, %62
   br label %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.end5.i.i.i.i.i
-  %sh_prom4.i.i.i.i.i.i.i = zext nneg i32 %retval.0.i.i.i.i.i.i to i64
-  %shr5.i.i.i.i.i.i.i = lshr i64 %xor3.i.i.i.i.i.i.i, %sh_prom4.i.i.i.i.i.i.i
+  %shr5.i.i.i.i.i.i.i = lshr i64 %xor3.i.i.i.i.i.i.i, %61
   %shl.i.i.i.i.i.i.i = shl i64 %xor3.i.i.i.i.i.i.i, 1
-  %sub.i.i.i.i.i.i.i = xor i32 %retval.0.i.i.i.i.i.i, 63
-  %sh_prom7.i.i.i.i.i.i.i = zext nneg i32 %sub.i.i.i.i.i.i.i to i64
-  %shl8.i.i.i.i.i.i.i = shl i64 %shl.i.i.i.i.i.i.i, %sh_prom7.i.i.i.i.i.i.i
-  %shr11.i.i.i47.i.i.i.i = lshr i64 %xor.i.i.i.i.i.i.i, %sh_prom4.i.i.i.i.i.i.i
+  %sub.i.i.i.i.i.i.i = xor i64 %61, 63
+  %shl8.i.i.i.i.i.i.i = shl i64 %shl.i.i.i.i.i.i.i, %sub.i.i.i.i.i.i.i
+  %shr11.i.i.i47.i.i.i.i = lshr i64 %xor.i.i.i.i.i.i.i, %61
   %or.i.i.i48.i.i.i.i = or i64 %shl8.i.i.i.i.i.i.i, %shr11.i.i.i47.i.i.i.i
   br label %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i
 
@@ -9501,8 +9496,8 @@ for.cond26.i.i.i.i:                               ; preds = %for.cond26.i.i.i.i.
   %cur.sroa.23.2.i.i.i.i = phi ptr [ %48, %if.else.i.i.i.i ], [ %cur.sroa.23.3.i.i.i.i, %for.cond26.i.i.i.i.backedge ]
   %cur.sroa.18.2.i.i.i.i = phi ptr [ %47, %if.else.i.i.i.i ], [ %cur.sroa.18.3.i.i.i.i, %for.cond26.i.i.i.i.backedge ]
   %cur.sroa.0.2.i.i.i.i = phi ptr [ %46, %if.else.i.i.i.i ], [ %cur.sroa.0.3.i.i.i.i, %for.cond26.i.i.i.i.backedge ]
-  %start21.0.i.i.i.i.in = phi i64 [ %shr11.i.i.i68.i.i.i.i, %if.else.i.i.i.i ], [ %shr11.i.i.i165.i.i.i.i, %for.cond26.i.i.i.i.backedge ]
-  %h18.0.i.i.i.i = phi i64 [ %mul.i.i60.i.i.i.i, %if.else.i.i.i.i ], [ %mul.i.i157.i.i.i.i, %for.cond26.i.i.i.i.backedge ]
+  %start21.0.i.i.i.i.in = phi i64 [ %shr11.i.i.i68.i.i.i.i, %if.else.i.i.i.i ], [ %shr11.i.i.i160.i.i.i.i, %for.cond26.i.i.i.i.backedge ]
+  %h18.0.i.i.i.i = phi i64 [ %mul.i.i60.i.i.i.i, %if.else.i.i.i.i ], [ %mul.i.i152.i.i.i.i, %for.cond26.i.i.i.i.backedge ]
   %start21.0.i.i.i.i = trunc i64 %start21.0.i.i.i.i.in to i32
   %mul.i71.i.i.i.i = mul i64 %h18.0.i.i.i.i, -4427176413096506387
   %65 = call noundef i64 @llvm.bswap.i64(i64 %mul.i71.i.i.i.i)
@@ -9534,29 +9529,29 @@ if.then33.i.i.i.i:                                ; preds = %_ZNSt15_Deque_itera
   %cmp.i25.i95.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload22.i92.i.i.i.i, 0
   %cmp3.i26.i96.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload24.i94.i.i.i.i, 0
   %68 = select i1 %cmp.i25.i95.i.i.i.i, i1 %cmp3.i26.i96.i.i.i.i, i1 false
-  br i1 %68, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit154.thread.i.i.i.i, label %if.end.i98.i.i.i.i
+  br i1 %68, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit149.thread.i.i.i.i, label %if.end.i98.i.i.i.i
 
-_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit154.thread.i.i.i.i: ; preds = %if.then33.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i
-  %arrayidx.i.i.lcssa19.i139.i.i.i.i = phi ptr [ %arrayidx.i.i.i132.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i ], [ %arrayidx.i.i21.i91.i.i.i.i, %if.then33.i.i.i.i ]
-  %cr.sroa.0.0.lcssa.i140.i.i.i.i = phi i64 [ %storemerge.i.i.i130.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i ], [ %or.i.i.i74.i.i.i.i, %if.then33.i.i.i.i ]
-  %cr.sroa.8.0.lcssa.i141.i.i.i.i = phi i64 [ %retval.sroa.2.0.i.i.i129.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i ], [ %mul.i71.i.i.i.i, %if.then33.i.i.i.i ]
-  %rr.addr.0.lcssa.i142.i.i.i.i = phi i32 [ %xor.i109.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i ], [ %conv.i72.i.i.i.i, %if.then33.i.i.i.i ]
-  %conv.i.lcssa.i143.i.i.i.i = phi i64 [ %conv.i.i131.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i ], [ %start21.0.i.i.i.i.in, %if.then33.i.i.i.i ]
-  %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.le.i144.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.lcssa19.i139.i.i.i.i, i64 8
-  store i64 %cr.sroa.0.0.lcssa.i140.i.i.i.i, ptr %arrayidx.i.i.lcssa19.i139.i.i.i.i, align 8
-  store i64 %cr.sroa.8.0.lcssa.i141.i.i.i.i, ptr %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.le.i144.i.i.i.i, align 8
-  %arrayidx.i2.i14.i145.i.i.i.i = getelementptr inbounds i32, ptr %bs.val42.i.i.i.i, i64 %conv.i.lcssa.i143.i.i.i.i
-  store i32 %rr.addr.0.lcssa.i142.i.i.i.i, ptr %arrayidx.i2.i14.i145.i.i.i.i, align 4
+_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit149.thread.i.i.i.i: ; preds = %if.then33.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i125.i.i.i.i
+  %arrayidx.i.i.lcssa19.i136.i.i.i.i = phi ptr [ %arrayidx.i.i.i129.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i125.i.i.i.i ], [ %arrayidx.i.i21.i91.i.i.i.i, %if.then33.i.i.i.i ]
+  %cr.sroa.0.0.lcssa.i137.i.i.i.i = phi i64 [ %storemerge.i.i.i127.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i125.i.i.i.i ], [ %or.i.i.i74.i.i.i.i, %if.then33.i.i.i.i ]
+  %cr.sroa.8.0.lcssa.i138.i.i.i.i = phi i64 [ %retval.sroa.2.0.i.i.i126.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i125.i.i.i.i ], [ %mul.i71.i.i.i.i, %if.then33.i.i.i.i ]
+  %rr.addr.0.lcssa.i139.i.i.i.i = phi i32 [ %xor.i109.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i125.i.i.i.i ], [ %conv.i72.i.i.i.i, %if.then33.i.i.i.i ]
+  %conv.i.lcssa.i140.i.i.i.i = phi i64 [ %conv.i.i128.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i125.i.i.i.i ], [ %start21.0.i.i.i.i.in, %if.then33.i.i.i.i ]
+  %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.le.i141.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.lcssa19.i136.i.i.i.i, i64 8
+  store i64 %cr.sroa.0.0.lcssa.i137.i.i.i.i, ptr %arrayidx.i.i.lcssa19.i136.i.i.i.i, align 8
+  store i64 %cr.sroa.8.0.lcssa.i138.i.i.i.i, ptr %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.le.i141.i.i.i.i, align 8
+  %arrayidx.i2.i14.i142.i.i.i.i = getelementptr inbounds i32, ptr %bs.val42.i.i.i.i, i64 %conv.i.lcssa.i140.i.i.i.i
+  store i32 %rr.addr.0.lcssa.i139.i.i.i.i, ptr %arrayidx.i2.i14.i142.i.i.i.i, align 4
   br label %if.end81
 
-if.end.i98.i.i.i.i:                               ; preds = %if.then33.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i
-  %cr_at_i.sroa.4.0.copyload33.i99.i.i.i.i = phi i64 [ %cr_at_i.sroa.4.0.copyload.i135.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i ], [ %cr_at_i.sroa.4.0.copyload24.i94.i.i.i.i, %if.then33.i.i.i.i ]
-  %cr_at_i.sroa.0.0.copyload32.i100.i.i.i.i = phi i64 [ %cr_at_i.sroa.0.0.copyload.i133.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i ], [ %cr_at_i.sroa.0.0.copyload22.i92.i.i.i.i, %if.then33.i.i.i.i ]
-  %conv.i31.i101.i.i.i.i = phi i64 [ %conv.i.i131.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i ], [ %start21.0.i.i.i.i.in, %if.then33.i.i.i.i ]
-  %rr.addr.030.i102.i.i.i.i = phi i32 [ %xor.i109.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i ], [ %conv.i72.i.i.i.i, %if.then33.i.i.i.i ]
-  %i.029.i103.i.i.i.i = phi i32 [ %add.i117.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i ], [ %start21.0.i.i.i.i, %if.then33.i.i.i.i ]
-  %cr.sroa.8.028.i104.i.i.i.i = phi i64 [ %retval.sroa.2.0.i.i.i129.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i ], [ %mul.i71.i.i.i.i, %if.then33.i.i.i.i ]
-  %cr.sroa.0.027.i105.i.i.i.i = phi i64 [ %storemerge.i.i.i130.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i ], [ %or.i.i.i74.i.i.i.i, %if.then33.i.i.i.i ]
+if.end.i98.i.i.i.i:                               ; preds = %if.then33.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i125.i.i.i.i
+  %cr_at_i.sroa.4.0.copyload33.i99.i.i.i.i = phi i64 [ %cr_at_i.sroa.4.0.copyload.i132.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i125.i.i.i.i ], [ %cr_at_i.sroa.4.0.copyload24.i94.i.i.i.i, %if.then33.i.i.i.i ]
+  %cr_at_i.sroa.0.0.copyload32.i100.i.i.i.i = phi i64 [ %cr_at_i.sroa.0.0.copyload.i130.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i125.i.i.i.i ], [ %cr_at_i.sroa.0.0.copyload22.i92.i.i.i.i, %if.then33.i.i.i.i ]
+  %conv.i31.i101.i.i.i.i = phi i64 [ %conv.i.i128.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i125.i.i.i.i ], [ %start21.0.i.i.i.i.in, %if.then33.i.i.i.i ]
+  %rr.addr.030.i102.i.i.i.i = phi i32 [ %xor.i109.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i125.i.i.i.i ], [ %conv.i72.i.i.i.i, %if.then33.i.i.i.i ]
+  %i.029.i103.i.i.i.i = phi i32 [ %add.i117.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i125.i.i.i.i ], [ %start21.0.i.i.i.i, %if.then33.i.i.i.i ]
+  %cr.sroa.8.028.i104.i.i.i.i = phi i64 [ %retval.sroa.2.0.i.i.i126.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i125.i.i.i.i ], [ %mul.i71.i.i.i.i, %if.then33.i.i.i.i ]
+  %cr.sroa.0.027.i105.i.i.i.i = phi i64 [ %storemerge.i.i.i127.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i125.i.i.i.i ], [ %or.i.i.i74.i.i.i.i, %if.then33.i.i.i.i ]
   %arrayidx.i2.i.i106.i.i.i.i = getelementptr inbounds i32, ptr %bs.val42.i.i.i.i, i64 %conv.i31.i101.i.i.i.i
   %69 = load i32, ptr %arrayidx.i2.i.i106.i.i.i.i, align 4
   %xor.i.i.i107.i.i.i.i = xor i64 %cr.sroa.0.027.i105.i.i.i.i, %cr_at_i.sroa.0.0.copyload32.i100.i.i.i.i
@@ -9565,7 +9560,7 @@ if.end.i98.i.i.i.i:                               ; preds = %if.then33.i.i.i.i, 
   %cmp.i16.i110.i.i.i.i = icmp eq i64 %xor.i.i.i107.i.i.i.i, 0
   %cmp3.i19.i111.i.i.i.i = icmp eq i64 %xor3.i.i.i108.i.i.i.i, 0
   %70 = select i1 %cmp.i16.i110.i.i.i.i, i1 %cmp3.i19.i111.i.i.i.i, i1 false
-  br i1 %70, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit154.i.i.i.i, label %if.end5.i112.i.i.i.i
+  br i1 %70, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit149.i.i.i.i, label %if.end5.i112.i.i.i.i
 
 if.end5.i112.i.i.i.i:                             ; preds = %if.end.i98.i.i.i.i
   %71 = call i64 @llvm.cttz.i64(i64 %xor.i.i.i107.i.i.i.i, i1 true), !range !132
@@ -9575,148 +9570,138 @@ if.end5.i112.i.i.i.i:                             ; preds = %if.end.i98.i.i.i.i
   %add.i.i115.i.i.i.i = or disjoint i32 %cast.i5.i.i114.i.i.i.i, 64
   %retval.0.i.i116.i.i.i.i = select i1 %cmp.i16.i110.i.i.i.i, i32 %add.i.i115.i.i.i.i, i32 %cast.i.i.i113.i.i.i.i
   %add.i117.i.i.i.i = add i32 %retval.0.i.i116.i.i.i.i, %i.029.i103.i.i.i.i
-  %cmp.i.i.i118.i.i.i.i = icmp ugt i32 %retval.0.i.i116.i.i.i.i, 63
-  br i1 %cmp.i.i.i118.i.i.i.i, label %if.then.i.i.i148.i.i.i.i, label %if.else.i.i.i119.i.i.i.i
+  br i1 %cmp.i16.i110.i.i.i.i, label %if.then.i.i.i145.i.i.i.i, label %if.else.i.i.i118.i.i.i.i
 
-if.then.i.i.i148.i.i.i.i:                         ; preds = %if.end5.i112.i.i.i.i
-  %and2.i.i.i149.i.i.i.i = and i32 %retval.0.i.i116.i.i.i.i, 63
-  %sh_prom.i.i.i150.i.i.i.i = zext nneg i32 %and2.i.i.i149.i.i.i.i to i64
-  %shr.i.i.i151.i.i.i.i = lshr i64 %xor3.i.i.i108.i.i.i.i, %sh_prom.i.i.i150.i.i.i.i
-  br label %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i
+if.then.i.i.i145.i.i.i.i:                         ; preds = %if.end5.i112.i.i.i.i
+  %shr.i.i.i146.i.i.i.i = lshr i64 %xor3.i.i.i108.i.i.i.i, %72
+  br label %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i125.i.i.i.i
 
-if.else.i.i.i119.i.i.i.i:                         ; preds = %if.end5.i112.i.i.i.i
-  %sh_prom4.i.i.i120.i.i.i.i = zext nneg i32 %retval.0.i.i116.i.i.i.i to i64
-  %shr5.i.i.i121.i.i.i.i = lshr i64 %xor3.i.i.i108.i.i.i.i, %sh_prom4.i.i.i120.i.i.i.i
-  %shl.i.i.i122.i.i.i.i = shl i64 %xor3.i.i.i108.i.i.i.i, 1
-  %sub.i.i.i123.i.i.i.i = xor i32 %retval.0.i.i116.i.i.i.i, 63
-  %sh_prom7.i.i.i124.i.i.i.i = zext nneg i32 %sub.i.i.i123.i.i.i.i to i64
-  %shl8.i.i.i125.i.i.i.i = shl i64 %shl.i.i.i122.i.i.i.i, %sh_prom7.i.i.i124.i.i.i.i
-  %shr11.i.i.i126.i.i.i.i = lshr i64 %xor.i.i.i107.i.i.i.i, %sh_prom4.i.i.i120.i.i.i.i
-  %or.i.i.i127.i.i.i.i = or i64 %shl8.i.i.i125.i.i.i.i, %shr11.i.i.i126.i.i.i.i
-  br label %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i
+if.else.i.i.i118.i.i.i.i:                         ; preds = %if.end5.i112.i.i.i.i
+  %shr5.i.i.i119.i.i.i.i = lshr i64 %xor3.i.i.i108.i.i.i.i, %71
+  %shl.i.i.i120.i.i.i.i = shl i64 %xor3.i.i.i108.i.i.i.i, 1
+  %sub.i.i.i121.i.i.i.i = xor i64 %71, 63
+  %shl8.i.i.i122.i.i.i.i = shl i64 %shl.i.i.i120.i.i.i.i, %sub.i.i.i121.i.i.i.i
+  %shr11.i.i.i123.i.i.i.i = lshr i64 %xor.i.i.i107.i.i.i.i, %71
+  %or.i.i.i124.i.i.i.i = or i64 %shl8.i.i.i122.i.i.i.i, %shr11.i.i.i123.i.i.i.i
+  br label %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i125.i.i.i.i
 
-_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i128.i.i.i.i: ; preds = %if.else.i.i.i119.i.i.i.i, %if.then.i.i.i148.i.i.i.i
-  %retval.sroa.2.0.i.i.i129.i.i.i.i = phi i64 [ 0, %if.then.i.i.i148.i.i.i.i ], [ %shr5.i.i.i121.i.i.i.i, %if.else.i.i.i119.i.i.i.i ]
-  %storemerge.i.i.i130.i.i.i.i = phi i64 [ %shr.i.i.i151.i.i.i.i, %if.then.i.i.i148.i.i.i.i ], [ %or.i.i.i127.i.i.i.i, %if.else.i.i.i119.i.i.i.i ]
-  %conv.i.i131.i.i.i.i = zext i32 %add.i117.i.i.i.i to i64
-  %arrayidx.i.i.i132.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %bs.val41.i.i.i.i, i64 %conv.i.i131.i.i.i.i
-  %cr_at_i.sroa.0.0.copyload.i133.i.i.i.i = load i64, ptr %arrayidx.i.i.i132.i.i.i.i, align 8
-  %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.i134.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i132.i.i.i.i, i64 8
-  %cr_at_i.sroa.4.0.copyload.i135.i.i.i.i = load i64, ptr %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.i134.i.i.i.i, align 8
-  %cmp.i.i136.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload.i133.i.i.i.i, 0
-  %cmp3.i.i137.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload.i135.i.i.i.i, 0
-  %73 = select i1 %cmp.i.i136.i.i.i.i, i1 %cmp3.i.i137.i.i.i.i, i1 false
-  br i1 %73, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit154.thread.i.i.i.i, label %if.end.i98.i.i.i.i, !llvm.loop !133
+_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i125.i.i.i.i: ; preds = %if.else.i.i.i118.i.i.i.i, %if.then.i.i.i145.i.i.i.i
+  %retval.sroa.2.0.i.i.i126.i.i.i.i = phi i64 [ 0, %if.then.i.i.i145.i.i.i.i ], [ %shr5.i.i.i119.i.i.i.i, %if.else.i.i.i118.i.i.i.i ]
+  %storemerge.i.i.i127.i.i.i.i = phi i64 [ %shr.i.i.i146.i.i.i.i, %if.then.i.i.i145.i.i.i.i ], [ %or.i.i.i124.i.i.i.i, %if.else.i.i.i118.i.i.i.i ]
+  %conv.i.i128.i.i.i.i = zext i32 %add.i117.i.i.i.i to i64
+  %arrayidx.i.i.i129.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %bs.val41.i.i.i.i, i64 %conv.i.i128.i.i.i.i
+  %cr_at_i.sroa.0.0.copyload.i130.i.i.i.i = load i64, ptr %arrayidx.i.i.i129.i.i.i.i, align 8
+  %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.i131.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i129.i.i.i.i, i64 8
+  %cr_at_i.sroa.4.0.copyload.i132.i.i.i.i = load i64, ptr %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.i131.i.i.i.i, align 8
+  %cmp.i.i133.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload.i130.i.i.i.i, 0
+  %cmp3.i.i134.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload.i132.i.i.i.i, 0
+  %73 = select i1 %cmp.i.i133.i.i.i.i, i1 %cmp3.i.i134.i.i.i.i, i1 false
+  br i1 %73, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit149.thread.i.i.i.i, label %if.end.i98.i.i.i.i, !llvm.loop !133
 
-_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit154.i.i.i.i: ; preds = %if.end.i98.i.i.i.i
-  %cmp.i153.i.i.i.i = icmp eq i32 %xor.i109.i.i.i.i, 0
-  br i1 %cmp.i153.i.i.i.i, label %if.end81, label %if.end.i
+_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit149.i.i.i.i: ; preds = %if.end.i98.i.i.i.i
+  %cmp.i148.i.i.i.i = icmp eq i32 %xor.i109.i.i.i.i, 0
+  br i1 %cmp.i148.i.i.i.i, label %if.end81, label %if.end.i
 
 if.end38.i.i.i.i:                                 ; preds = %_ZNSt15_Deque_iteratorImRmPmEppEv.exit86.i.i.i.i
   %call39.val.i.i.i.i = load i64, ptr %cur.sroa.0.3.i.i.i.i, align 8
-  %xor.i.i156.i.i.i.i = xor i64 %call39.val.i.i.i.i, %conv.i.i58.i.i.i.i
-  %mul.i.i157.i.i.i.i = mul i64 %xor.i.i156.i.i.i.i, 7031196922566818317
-  %and1.i.i.i159.i.i.i.i = and i64 %mul.i.i157.i.i.i.i, 4294967295
-  %mul.i.i.i160.i.i.i.i = mul nuw i64 %and1.i.i.i159.i.i.i.i, %conv.i.i.i.i.i.i.i
-  %shr.i.i.i161.i.i.i.i = lshr i64 %mul.i.i.i160.i.i.i.i, 32
-  %shr3.i.i.i162.i.i.i.i = lshr i64 %mul.i.i157.i.i.i.i, 32
-  %mul4.i.i.i163.i.i.i.i = mul nuw i64 %shr3.i.i.i162.i.i.i.i, %conv.i.i.i.i.i.i.i
-  %add.i.i.i164.i.i.i.i = add nuw i64 %shr.i.i.i161.i.i.i.i, %mul4.i.i.i163.i.i.i.i
-  %shr11.i.i.i165.i.i.i.i = lshr i64 %add.i.i.i164.i.i.i.i, 32
-  %arrayidx.i.i168.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %bs.val41.i.i.i.i, i64 %shr11.i.i.i165.i.i.i.i
-  call void @llvm.prefetch.p0(ptr nonnull %arrayidx.i.i168.i.i.i.i, i32 1, i32 1, i32 1)
-  %arrayidx.i2.i169.i.i.i.i = getelementptr inbounds i32, ptr %bs.val42.i.i.i.i, i64 %shr11.i.i.i165.i.i.i.i
-  call void @llvm.prefetch.p0(ptr nonnull %arrayidx.i2.i169.i.i.i.i, i32 1, i32 1, i32 1)
-  %arrayidx.i.i21.i173.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %bs.val41.i.i.i.i, i64 %start21.0.i.i.i.i.in
-  %cr_at_i.sroa.0.0.copyload22.i174.i.i.i.i = load i64, ptr %arrayidx.i.i21.i173.i.i.i.i, align 8
-  %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx23.i175.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i21.i173.i.i.i.i, i64 8
-  %cr_at_i.sroa.4.0.copyload24.i176.i.i.i.i = load i64, ptr %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx23.i175.i.i.i.i, align 8
-  %cmp.i25.i177.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload22.i174.i.i.i.i, 0
-  %cmp3.i26.i178.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload24.i176.i.i.i.i, 0
-  %74 = select i1 %cmp.i25.i177.i.i.i.i, i1 %cmp3.i26.i178.i.i.i.i, i1 false
-  br i1 %74, label %if.then.i220.i.i.i.i, label %if.end.i180.i.i.i.i
+  %xor.i.i151.i.i.i.i = xor i64 %call39.val.i.i.i.i, %conv.i.i58.i.i.i.i
+  %mul.i.i152.i.i.i.i = mul i64 %xor.i.i151.i.i.i.i, 7031196922566818317
+  %and1.i.i.i154.i.i.i.i = and i64 %mul.i.i152.i.i.i.i, 4294967295
+  %mul.i.i.i155.i.i.i.i = mul nuw i64 %and1.i.i.i154.i.i.i.i, %conv.i.i.i.i.i.i.i
+  %shr.i.i.i156.i.i.i.i = lshr i64 %mul.i.i.i155.i.i.i.i, 32
+  %shr3.i.i.i157.i.i.i.i = lshr i64 %mul.i.i152.i.i.i.i, 32
+  %mul4.i.i.i158.i.i.i.i = mul nuw i64 %shr3.i.i.i157.i.i.i.i, %conv.i.i.i.i.i.i.i
+  %add.i.i.i159.i.i.i.i = add nuw i64 %shr.i.i.i156.i.i.i.i, %mul4.i.i.i158.i.i.i.i
+  %shr11.i.i.i160.i.i.i.i = lshr i64 %add.i.i.i159.i.i.i.i, 32
+  %arrayidx.i.i163.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %bs.val41.i.i.i.i, i64 %shr11.i.i.i160.i.i.i.i
+  call void @llvm.prefetch.p0(ptr nonnull %arrayidx.i.i163.i.i.i.i, i32 1, i32 1, i32 1)
+  %arrayidx.i2.i164.i.i.i.i = getelementptr inbounds i32, ptr %bs.val42.i.i.i.i, i64 %shr11.i.i.i160.i.i.i.i
+  call void @llvm.prefetch.p0(ptr nonnull %arrayidx.i2.i164.i.i.i.i, i32 1, i32 1, i32 1)
+  %arrayidx.i.i21.i168.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %bs.val41.i.i.i.i, i64 %start21.0.i.i.i.i.in
+  %cr_at_i.sroa.0.0.copyload22.i169.i.i.i.i = load i64, ptr %arrayidx.i.i21.i168.i.i.i.i, align 8
+  %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx23.i170.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i21.i168.i.i.i.i, i64 8
+  %cr_at_i.sroa.4.0.copyload24.i171.i.i.i.i = load i64, ptr %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx23.i170.i.i.i.i, align 8
+  %cmp.i25.i172.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload22.i169.i.i.i.i, 0
+  %cmp3.i26.i173.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload24.i171.i.i.i.i, 0
+  %74 = select i1 %cmp.i25.i172.i.i.i.i, i1 %cmp3.i26.i173.i.i.i.i, i1 false
+  br i1 %74, label %if.then.i212.i.i.i.i, label %if.end.i175.i.i.i.i
 
-if.then.i220.i.i.i.i:                             ; preds = %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i, %if.end38.i.i.i.i
-  %arrayidx.i.i.lcssa19.i221.i.i.i.i = phi ptr [ %arrayidx.i.i21.i173.i.i.i.i, %if.end38.i.i.i.i ], [ %arrayidx.i.i.i214.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i ]
-  %cr.sroa.0.0.lcssa.i222.i.i.i.i = phi i64 [ %or.i.i.i74.i.i.i.i, %if.end38.i.i.i.i ], [ %storemerge.i.i.i212.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i ]
-  %cr.sroa.8.0.lcssa.i223.i.i.i.i = phi i64 [ %mul.i71.i.i.i.i, %if.end38.i.i.i.i ], [ %retval.sroa.2.0.i.i.i211.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i ]
-  %rr.addr.0.lcssa.i224.i.i.i.i = phi i32 [ %conv.i72.i.i.i.i, %if.end38.i.i.i.i ], [ %xor.i191.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i ]
-  %conv.i.lcssa.i225.i.i.i.i = phi i64 [ %start21.0.i.i.i.i.in, %if.end38.i.i.i.i ], [ %conv.i.i213.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i ]
-  %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.le.i226.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.lcssa19.i221.i.i.i.i, i64 8
-  store i64 %cr.sroa.0.0.lcssa.i222.i.i.i.i, ptr %arrayidx.i.i.lcssa19.i221.i.i.i.i, align 8
-  store i64 %cr.sroa.8.0.lcssa.i223.i.i.i.i, ptr %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.le.i226.i.i.i.i, align 8
-  %arrayidx.i2.i14.i227.i.i.i.i = getelementptr inbounds i32, ptr %bs.val42.i.i.i.i, i64 %conv.i.lcssa.i225.i.i.i.i
-  store i32 %rr.addr.0.lcssa.i224.i.i.i.i, ptr %arrayidx.i2.i14.i227.i.i.i.i, align 4
+if.then.i212.i.i.i.i:                             ; preds = %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i202.i.i.i.i, %if.end38.i.i.i.i
+  %arrayidx.i.i.lcssa19.i213.i.i.i.i = phi ptr [ %arrayidx.i.i21.i168.i.i.i.i, %if.end38.i.i.i.i ], [ %arrayidx.i.i.i206.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i202.i.i.i.i ]
+  %cr.sroa.0.0.lcssa.i214.i.i.i.i = phi i64 [ %or.i.i.i74.i.i.i.i, %if.end38.i.i.i.i ], [ %storemerge.i.i.i204.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i202.i.i.i.i ]
+  %cr.sroa.8.0.lcssa.i215.i.i.i.i = phi i64 [ %mul.i71.i.i.i.i, %if.end38.i.i.i.i ], [ %retval.sroa.2.0.i.i.i203.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i202.i.i.i.i ]
+  %rr.addr.0.lcssa.i216.i.i.i.i = phi i32 [ %conv.i72.i.i.i.i, %if.end38.i.i.i.i ], [ %xor.i186.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i202.i.i.i.i ]
+  %conv.i.lcssa.i217.i.i.i.i = phi i64 [ %start21.0.i.i.i.i.in, %if.end38.i.i.i.i ], [ %conv.i.i205.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i202.i.i.i.i ]
+  %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.le.i218.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.lcssa19.i213.i.i.i.i, i64 8
+  store i64 %cr.sroa.0.0.lcssa.i214.i.i.i.i, ptr %arrayidx.i.i.lcssa19.i213.i.i.i.i, align 8
+  store i64 %cr.sroa.8.0.lcssa.i215.i.i.i.i, ptr %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.le.i218.i.i.i.i, align 8
+  %arrayidx.i2.i14.i219.i.i.i.i = getelementptr inbounds i32, ptr %bs.val42.i.i.i.i, i64 %conv.i.lcssa.i217.i.i.i.i
+  store i32 %rr.addr.0.lcssa.i216.i.i.i.i, ptr %arrayidx.i2.i14.i219.i.i.i.i, align 4
   br label %for.cond26.i.i.i.i.backedge
 
-if.end.i180.i.i.i.i:                              ; preds = %if.end38.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i
-  %cr_at_i.sroa.4.0.copyload33.i181.i.i.i.i = phi i64 [ %cr_at_i.sroa.4.0.copyload.i217.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i ], [ %cr_at_i.sroa.4.0.copyload24.i176.i.i.i.i, %if.end38.i.i.i.i ]
-  %cr_at_i.sroa.0.0.copyload32.i182.i.i.i.i = phi i64 [ %cr_at_i.sroa.0.0.copyload.i215.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i ], [ %cr_at_i.sroa.0.0.copyload22.i174.i.i.i.i, %if.end38.i.i.i.i ]
-  %conv.i31.i183.i.i.i.i = phi i64 [ %conv.i.i213.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i ], [ %start21.0.i.i.i.i.in, %if.end38.i.i.i.i ]
-  %rr.addr.030.i184.i.i.i.i = phi i32 [ %xor.i191.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i ], [ %conv.i72.i.i.i.i, %if.end38.i.i.i.i ]
-  %i.029.i185.i.i.i.i = phi i32 [ %add.i199.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i ], [ %start21.0.i.i.i.i, %if.end38.i.i.i.i ]
-  %cr.sroa.8.028.i186.i.i.i.i = phi i64 [ %retval.sroa.2.0.i.i.i211.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i ], [ %mul.i71.i.i.i.i, %if.end38.i.i.i.i ]
-  %cr.sroa.0.027.i187.i.i.i.i = phi i64 [ %storemerge.i.i.i212.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i ], [ %or.i.i.i74.i.i.i.i, %if.end38.i.i.i.i ]
-  %arrayidx.i2.i.i188.i.i.i.i = getelementptr inbounds i32, ptr %bs.val42.i.i.i.i, i64 %conv.i31.i183.i.i.i.i
-  %75 = load i32, ptr %arrayidx.i2.i.i188.i.i.i.i, align 4
-  %xor.i.i.i189.i.i.i.i = xor i64 %cr.sroa.0.027.i187.i.i.i.i, %cr_at_i.sroa.0.0.copyload32.i182.i.i.i.i
-  %xor3.i.i.i190.i.i.i.i = xor i64 %cr.sroa.8.028.i186.i.i.i.i, %cr_at_i.sroa.4.0.copyload33.i181.i.i.i.i
-  %xor.i191.i.i.i.i = xor i32 %75, %rr.addr.030.i184.i.i.i.i
-  %cmp.i16.i192.i.i.i.i = icmp eq i64 %xor.i.i.i189.i.i.i.i, 0
-  %cmp3.i19.i193.i.i.i.i = icmp eq i64 %xor3.i.i.i190.i.i.i.i, 0
-  %76 = select i1 %cmp.i16.i192.i.i.i.i, i1 %cmp3.i19.i193.i.i.i.i, i1 false
-  br i1 %76, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit236.i.i.i.i, label %if.end5.i194.i.i.i.i
+if.end.i175.i.i.i.i:                              ; preds = %if.end38.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i202.i.i.i.i
+  %cr_at_i.sroa.4.0.copyload33.i176.i.i.i.i = phi i64 [ %cr_at_i.sroa.4.0.copyload.i209.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i202.i.i.i.i ], [ %cr_at_i.sroa.4.0.copyload24.i171.i.i.i.i, %if.end38.i.i.i.i ]
+  %cr_at_i.sroa.0.0.copyload32.i177.i.i.i.i = phi i64 [ %cr_at_i.sroa.0.0.copyload.i207.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i202.i.i.i.i ], [ %cr_at_i.sroa.0.0.copyload22.i169.i.i.i.i, %if.end38.i.i.i.i ]
+  %conv.i31.i178.i.i.i.i = phi i64 [ %conv.i.i205.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i202.i.i.i.i ], [ %start21.0.i.i.i.i.in, %if.end38.i.i.i.i ]
+  %rr.addr.030.i179.i.i.i.i = phi i32 [ %xor.i186.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i202.i.i.i.i ], [ %conv.i72.i.i.i.i, %if.end38.i.i.i.i ]
+  %i.029.i180.i.i.i.i = phi i32 [ %add.i194.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i202.i.i.i.i ], [ %start21.0.i.i.i.i, %if.end38.i.i.i.i ]
+  %cr.sroa.8.028.i181.i.i.i.i = phi i64 [ %retval.sroa.2.0.i.i.i203.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i202.i.i.i.i ], [ %mul.i71.i.i.i.i, %if.end38.i.i.i.i ]
+  %cr.sroa.0.027.i182.i.i.i.i = phi i64 [ %storemerge.i.i.i204.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i202.i.i.i.i ], [ %or.i.i.i74.i.i.i.i, %if.end38.i.i.i.i ]
+  %arrayidx.i2.i.i183.i.i.i.i = getelementptr inbounds i32, ptr %bs.val42.i.i.i.i, i64 %conv.i31.i178.i.i.i.i
+  %75 = load i32, ptr %arrayidx.i2.i.i183.i.i.i.i, align 4
+  %xor.i.i.i184.i.i.i.i = xor i64 %cr.sroa.0.027.i182.i.i.i.i, %cr_at_i.sroa.0.0.copyload32.i177.i.i.i.i
+  %xor3.i.i.i185.i.i.i.i = xor i64 %cr.sroa.8.028.i181.i.i.i.i, %cr_at_i.sroa.4.0.copyload33.i176.i.i.i.i
+  %xor.i186.i.i.i.i = xor i32 %75, %rr.addr.030.i179.i.i.i.i
+  %cmp.i16.i187.i.i.i.i = icmp eq i64 %xor.i.i.i184.i.i.i.i, 0
+  %cmp3.i19.i188.i.i.i.i = icmp eq i64 %xor3.i.i.i185.i.i.i.i, 0
+  %76 = select i1 %cmp.i16.i187.i.i.i.i, i1 %cmp3.i19.i188.i.i.i.i, i1 false
+  br i1 %76, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit226.i.i.i.i, label %if.end5.i189.i.i.i.i
 
-if.end5.i194.i.i.i.i:                             ; preds = %if.end.i180.i.i.i.i
-  %77 = call i64 @llvm.cttz.i64(i64 %xor.i.i.i189.i.i.i.i, i1 true), !range !132
-  %cast.i.i.i195.i.i.i.i = trunc i64 %77 to i32
-  %78 = call i64 @llvm.cttz.i64(i64 %xor3.i.i.i190.i.i.i.i, i1 true), !range !132
-  %cast.i5.i.i196.i.i.i.i = trunc i64 %78 to i32
-  %add.i.i197.i.i.i.i = or disjoint i32 %cast.i5.i.i196.i.i.i.i, 64
-  %retval.0.i.i198.i.i.i.i = select i1 %cmp.i16.i192.i.i.i.i, i32 %add.i.i197.i.i.i.i, i32 %cast.i.i.i195.i.i.i.i
-  %add.i199.i.i.i.i = add i32 %retval.0.i.i198.i.i.i.i, %i.029.i185.i.i.i.i
-  %cmp.i.i.i200.i.i.i.i = icmp ugt i32 %retval.0.i.i198.i.i.i.i, 63
-  br i1 %cmp.i.i.i200.i.i.i.i, label %if.then.i.i.i230.i.i.i.i, label %if.else.i.i.i201.i.i.i.i
+if.end5.i189.i.i.i.i:                             ; preds = %if.end.i175.i.i.i.i
+  %77 = call i64 @llvm.cttz.i64(i64 %xor.i.i.i184.i.i.i.i, i1 true), !range !132
+  %cast.i.i.i190.i.i.i.i = trunc i64 %77 to i32
+  %78 = call i64 @llvm.cttz.i64(i64 %xor3.i.i.i185.i.i.i.i, i1 true), !range !132
+  %cast.i5.i.i191.i.i.i.i = trunc i64 %78 to i32
+  %add.i.i192.i.i.i.i = or disjoint i32 %cast.i5.i.i191.i.i.i.i, 64
+  %retval.0.i.i193.i.i.i.i = select i1 %cmp.i16.i187.i.i.i.i, i32 %add.i.i192.i.i.i.i, i32 %cast.i.i.i190.i.i.i.i
+  %add.i194.i.i.i.i = add i32 %retval.0.i.i193.i.i.i.i, %i.029.i180.i.i.i.i
+  br i1 %cmp.i16.i187.i.i.i.i, label %if.then.i.i.i222.i.i.i.i, label %if.else.i.i.i195.i.i.i.i
 
-if.then.i.i.i230.i.i.i.i:                         ; preds = %if.end5.i194.i.i.i.i
-  %and2.i.i.i231.i.i.i.i = and i32 %retval.0.i.i198.i.i.i.i, 63
-  %sh_prom.i.i.i232.i.i.i.i = zext nneg i32 %and2.i.i.i231.i.i.i.i to i64
-  %shr.i.i.i233.i.i.i.i = lshr i64 %xor3.i.i.i190.i.i.i.i, %sh_prom.i.i.i232.i.i.i.i
-  br label %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i
+if.then.i.i.i222.i.i.i.i:                         ; preds = %if.end5.i189.i.i.i.i
+  %shr.i.i.i223.i.i.i.i = lshr i64 %xor3.i.i.i185.i.i.i.i, %78
+  br label %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i202.i.i.i.i
 
-if.else.i.i.i201.i.i.i.i:                         ; preds = %if.end5.i194.i.i.i.i
-  %sh_prom4.i.i.i202.i.i.i.i = zext nneg i32 %retval.0.i.i198.i.i.i.i to i64
-  %shr5.i.i.i203.i.i.i.i = lshr i64 %xor3.i.i.i190.i.i.i.i, %sh_prom4.i.i.i202.i.i.i.i
-  %shl.i.i.i204.i.i.i.i = shl i64 %xor3.i.i.i190.i.i.i.i, 1
-  %sub.i.i.i205.i.i.i.i = xor i32 %retval.0.i.i198.i.i.i.i, 63
-  %sh_prom7.i.i.i206.i.i.i.i = zext nneg i32 %sub.i.i.i205.i.i.i.i to i64
-  %shl8.i.i.i207.i.i.i.i = shl i64 %shl.i.i.i204.i.i.i.i, %sh_prom7.i.i.i206.i.i.i.i
-  %shr11.i.i.i208.i.i.i.i = lshr i64 %xor.i.i.i189.i.i.i.i, %sh_prom4.i.i.i202.i.i.i.i
-  %or.i.i.i209.i.i.i.i = or i64 %shl8.i.i.i207.i.i.i.i, %shr11.i.i.i208.i.i.i.i
-  br label %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i
+if.else.i.i.i195.i.i.i.i:                         ; preds = %if.end5.i189.i.i.i.i
+  %shr5.i.i.i196.i.i.i.i = lshr i64 %xor3.i.i.i185.i.i.i.i, %77
+  %shl.i.i.i197.i.i.i.i = shl i64 %xor3.i.i.i185.i.i.i.i, 1
+  %sub.i.i.i198.i.i.i.i = xor i64 %77, 63
+  %shl8.i.i.i199.i.i.i.i = shl i64 %shl.i.i.i197.i.i.i.i, %sub.i.i.i198.i.i.i.i
+  %shr11.i.i.i200.i.i.i.i = lshr i64 %xor.i.i.i184.i.i.i.i, %77
+  %or.i.i.i201.i.i.i.i = or i64 %shl8.i.i.i199.i.i.i.i, %shr11.i.i.i200.i.i.i.i
+  br label %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i202.i.i.i.i
 
-_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i210.i.i.i.i: ; preds = %if.else.i.i.i201.i.i.i.i, %if.then.i.i.i230.i.i.i.i
-  %retval.sroa.2.0.i.i.i211.i.i.i.i = phi i64 [ 0, %if.then.i.i.i230.i.i.i.i ], [ %shr5.i.i.i203.i.i.i.i, %if.else.i.i.i201.i.i.i.i ]
-  %storemerge.i.i.i212.i.i.i.i = phi i64 [ %shr.i.i.i233.i.i.i.i, %if.then.i.i.i230.i.i.i.i ], [ %or.i.i.i209.i.i.i.i, %if.else.i.i.i201.i.i.i.i ]
-  %conv.i.i213.i.i.i.i = zext i32 %add.i199.i.i.i.i to i64
-  %arrayidx.i.i.i214.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %bs.val41.i.i.i.i, i64 %conv.i.i213.i.i.i.i
-  %cr_at_i.sroa.0.0.copyload.i215.i.i.i.i = load i64, ptr %arrayidx.i.i.i214.i.i.i.i, align 8
-  %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.i216.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i214.i.i.i.i, i64 8
-  %cr_at_i.sroa.4.0.copyload.i217.i.i.i.i = load i64, ptr %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.i216.i.i.i.i, align 8
-  %cmp.i.i218.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload.i215.i.i.i.i, 0
-  %cmp3.i.i219.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload.i217.i.i.i.i, 0
-  %79 = select i1 %cmp.i.i218.i.i.i.i, i1 %cmp3.i.i219.i.i.i.i, i1 false
-  br i1 %79, label %if.then.i220.i.i.i.i, label %if.end.i180.i.i.i.i, !llvm.loop !133
+_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i202.i.i.i.i: ; preds = %if.else.i.i.i195.i.i.i.i, %if.then.i.i.i222.i.i.i.i
+  %retval.sroa.2.0.i.i.i203.i.i.i.i = phi i64 [ 0, %if.then.i.i.i222.i.i.i.i ], [ %shr5.i.i.i196.i.i.i.i, %if.else.i.i.i195.i.i.i.i ]
+  %storemerge.i.i.i204.i.i.i.i = phi i64 [ %shr.i.i.i223.i.i.i.i, %if.then.i.i.i222.i.i.i.i ], [ %or.i.i.i201.i.i.i.i, %if.else.i.i.i195.i.i.i.i ]
+  %conv.i.i205.i.i.i.i = zext i32 %add.i194.i.i.i.i to i64
+  %arrayidx.i.i.i206.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Unsigned128", ptr %bs.val41.i.i.i.i, i64 %conv.i.i205.i.i.i.i
+  %cr_at_i.sroa.0.0.copyload.i207.i.i.i.i = load i64, ptr %arrayidx.i.i.i206.i.i.i.i, align 8
+  %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.i208.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i206.i.i.i.i, i64 8
+  %cr_at_i.sroa.4.0.copyload.i209.i.i.i.i = load i64, ptr %cr_at_i.sroa.4.0.arrayidx.i.i.sroa_idx.i208.i.i.i.i, align 8
+  %cmp.i.i210.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload.i207.i.i.i.i, 0
+  %cmp3.i.i211.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload.i209.i.i.i.i, 0
+  %79 = select i1 %cmp.i.i210.i.i.i.i, i1 %cmp3.i.i211.i.i.i.i, i1 false
+  br i1 %79, label %if.then.i212.i.i.i.i, label %if.end.i175.i.i.i.i, !llvm.loop !133
 
-_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit236.i.i.i.i: ; preds = %if.end.i180.i.i.i.i
-  %cmp.i235.i.i.i.i = icmp eq i32 %xor.i191.i.i.i.i, 0
-  br i1 %cmp.i235.i.i.i.i, label %for.cond26.i.i.i.i.backedge, label %if.end.i
+_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit226.i.i.i.i: ; preds = %if.end.i175.i.i.i.i
+  %cmp.i225.i.i.i.i = icmp eq i32 %xor.i186.i.i.i.i, 0
+  br i1 %cmp.i225.i.i.i.i, label %for.cond26.i.i.i.i.backedge, label %if.end.i
 
-for.cond26.i.i.i.i.backedge:                      ; preds = %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit236.i.i.i.i, %if.then.i220.i.i.i.i
+for.cond26.i.i.i.i.backedge:                      ; preds = %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit226.i.i.i.i, %if.then.i212.i.i.i.i
   br label %for.cond26.i.i.i.i, !llvm.loop !135
 
-if.end.i:                                         ; preds = %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit236.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit154.i.i.i.i
-  %80 = phi ptr [ %bs.val42.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit154.i.i.i.i ], [ %bs.val42.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit236.i.i.i.i ], [ %.pre492.pre, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.i.i.i.i ]
+if.end.i:                                         ; preds = %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit226.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit149.i.i.i.i
+  %80 = phi ptr [ %bs.val42.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit149.i.i.i.i ], [ %bs.val42.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit226.i.i.i.i ], [ %.pre492.pre, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.i.i.i.i ]
   %add.i218 = add nuw nsw i32 %cur_ordinal_seed.0.i, 1
   %and3.i = and i32 %add.i218, 255
   %cmp.not.i219 = icmp eq i32 %and3.i, %and
@@ -9795,9 +9780,9 @@ invoke.cont79:                                    ; preds = %invoke.cont77
   %95 = extractvalue { ptr, i64 } %call80, 1
   br label %cleanup160
 
-if.end81:                                         ; preds = %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit154.i.i.i.i, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit.i.i.i.i, %_ZN7rocksdb6ribbon15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE5ResetEjj.exit.i.us, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit154.thread.i.i.i.i
-  %96 = phi ptr [ %bs.val42.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit154.thread.i.i.i.i ], [ %call5.i.i221.us, %_ZN7rocksdb6ribbon15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE5ResetEjj.exit.i.us ], [ %.pre492.pre, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit.i.i.i.i ], [ %bs.val42.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit154.i.i.i.i ]
-  %conv2.i.i430 = phi i32 [ %conv2.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit154.thread.i.i.i.i ], [ %conv2.i.i.us, %_ZN7rocksdb6ribbon15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE5ResetEjj.exit.i.us ], [ %conv2.i.i, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit.i.i.i.i ], [ %conv2.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit154.i.i.i.i ]
+if.end81:                                         ; preds = %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit149.i.i.i.i, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit.i.i.i.i, %_ZN7rocksdb6ribbon15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE5ResetEjj.exit.i.us, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit149.thread.i.i.i.i
+  %96 = phi ptr [ %bs.val42.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit149.thread.i.i.i.i ], [ %call5.i.i221.us, %_ZN7rocksdb6ribbon15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE5ResetEjj.exit.i.us ], [ %.pre492.pre, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit.i.i.i.i ], [ %bs.val42.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit149.i.i.i.i ]
+  %conv2.i.i430 = phi i32 [ %conv2.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit149.thread.i.i.i.i ], [ %conv2.i.i.us, %_ZN7rocksdb6ribbon15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE5ResetEjj.exit.i.us ], [ %conv2.i.i, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit.i.i.i.i ], [ %conv2.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit149.i.i.i.i ]
   invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_122XXPH3FilterBitsBuilder30MaybeVerifyHashEntriesChecksumEv(ptr noalias nonnull align 8 %verify_hash_entries_checksum_status, ptr noundef nonnull align 8 dereferenceable(288) %this)
           to label %invoke.cont82 unwind label %lpad44.loopexit.split-lp
 

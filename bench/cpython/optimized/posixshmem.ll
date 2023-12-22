@@ -61,8 +61,8 @@ do.body.i:                                        ; preds = %if.end, %land.rhs.i
   %call1.i = call ptr @PyEval_SaveThread() #3
   %call2.i = call i32 @shm_open(ptr noundef nonnull %call.i, i32 noundef %1, i32 noundef %2) #3
   call void @PyEval_RestoreThread(ptr noundef %call1.i) #3
-  %cmp3.i = icmp slt i32 %call2.i, 0
-  br i1 %cmp3.i, label %land.lhs.true.i, label %if.end5.loopexit
+  %cmp3.i = icmp sgt i32 %call2.i, -1
+  br i1 %cmp3.i, label %if.end5.loopexit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %do.body.i
   %call4.i = tail call ptr @__errno_location() #4
@@ -80,7 +80,7 @@ if.then10.i:                                      ; preds = %land.lhs.true.i
   %call11.i = call ptr @PyErr_SetFromErrnoWithFilenameObject(ptr noundef %4, ptr noundef %0) #3
   br label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %land.rhs.i, %if.end, %if.then10.i
+land.lhs.true:                                    ; preds = %land.rhs.i, %if.then10.i, %if.end
   %call2 = call ptr @PyErr_Occurred() #3
   %tobool3.not = icmp eq ptr %call2, null
   br i1 %tobool3.not, label %if.end5, label %exit
@@ -117,8 +117,8 @@ do.body.i:                                        ; preds = %if.end, %land.rhs.i
   %call1.i = call ptr @PyEval_SaveThread() #3
   %call2.i = call i32 @shm_unlink(ptr noundef nonnull %call.i) #3
   call void @PyEval_RestoreThread(ptr noundef %call1.i) #3
-  %cmp3.i = icmp slt i32 %call2.i, 0
-  br i1 %cmp3.i, label %land.lhs.true.i, label %exit
+  %cmp3.i = icmp sgt i32 %call2.i, -1
+  br i1 %cmp3.i, label %exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %do.body.i
   %call4.i = tail call ptr @__errno_location() #4

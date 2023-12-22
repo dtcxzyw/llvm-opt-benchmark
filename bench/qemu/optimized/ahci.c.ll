@@ -924,8 +924,8 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %i.011 = phi i32 [ 0, %entry ], [ %inc, %for.inc ]
   %ports.010 = phi i32 [ %call.i.i, %entry ], [ %shr, %for.inc ]
-  %cmp1 = icmp eq i32 %ports.010, 0
-  %spec.select = select i1 %cmp1, i32 32, i32 %i.011
+  %cmp1.not = icmp eq i32 %ports.010, 0
+  %spec.select = select i1 %cmp1.not, i32 32, i32 %i.011
   %and = and i32 %ports.010, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %for.inc, label %if.end3
@@ -940,7 +940,7 @@ if.end3:                                          ; preds = %for.body
   %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %5, i64 %6, i8 %7, i64 noundef %conv.i2.i) #16
   %and5 = and i32 %call.i.i.i, 1
   %cmp6.not = icmp eq i32 %and5, 0
-  br i1 %cmp6.not, label %for.inc, label %do.body
+  br i1 %cmp6.not, label %for.inc, label %do.end
 
 for.inc:                                          ; preds = %if.end3, %for.body
   %shr = lshr i32 %ports.010, 1
@@ -948,15 +948,11 @@ for.inc:                                          ; preds = %if.end3, %for.body
   %cmp = icmp ult i32 %spec.select, 31
   br i1 %cmp, label %for.body, label %if.else, !llvm.loop !9
 
-do.body:                                          ; preds = %if.end3
-  %cmp10 = icmp ult i32 %spec.select, 32
-  br i1 %cmp10, label %do.end, label %if.else
-
-if.else:                                          ; preds = %for.inc, %do.body
+if.else:                                          ; preds = %for.inc
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 384, ptr noundef nonnull @__func__.ahci_port_select, ptr noundef nonnull @.str.25) #15
   unreachable
 
-do.end:                                           ; preds = %do.body
+do.end:                                           ; preds = %if.end3
   ret i32 %spec.select
 }
 

@@ -437,27 +437,23 @@ if.end49:                                         ; preds = %if.end17
   store ptr %15, ptr %_M_right.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %alreadyProc, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
-  %cmp62.not536 = icmp ult i32 %cond58, %cond53
-  br i1 %cmp62.not536, label %if.end282, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %if.end49
   %d_rd = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstStrategyEnum", ptr %this, i64 0, i32 1
   %cmp133532.not = icmp eq i32 %conv61, 0
   %d_qreg = getelementptr inbounds %"class.cvc5::internal::theory::QuantifiersModule", ptr %this, i64 0, i32 3
   %d_qstate186 = getelementptr inbounds %"class.cvc5::internal::theory::QuantifiersModule", ptr %this, i64 0, i32 1
   br i1 %cmp133532.not, label %for.body, label %for.body.us
 
-for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc210.us
-  %r.0538.us = phi i32 [ %inc211.us, %for.inc210.us ], [ %cond53, %for.body.lr.ph ]
-  %addedLemmas.0537.us = phi i32 [ %addedLemmas.6.us, %for.inc210.us ], [ 0, %for.body.lr.ph ]
+for.body.us:                                      ; preds = %if.end49, %for.inc210.us
+  %r.0537.us = phi i32 [ %inc211.us, %for.inc210.us ], [ %cond53, %if.end49 ]
+  %addedLemmas.0536.us = phi i32 [ %addedLemmas.6.us, %for.inc210.us ], [ 0, %if.end49 ]
   %16 = load ptr, ptr %d_rd, align 8
   %tobool63.us = icmp ne ptr %16, null
-  %cmp64.us = icmp ne i32 %r.0538.us, 0
+  %cmp64.us = icmp ne i32 %r.0537.us, 0
   %or.cond.us = or i1 %cmp64.us, %tobool63.us
   br i1 %or.cond.us, label %if.then65.us, label %for.inc210.us
 
 if.then65.us:                                     ; preds = %for.body.us
-  %cmp66.us = icmp eq i32 %r.0538.us, 0
+  %cmp66.us = icmp eq i32 %r.0537.us, 0
   br i1 %cmp66.us, label %cond.true72.us, label %for.body134.us.preheader
 
 cond.true72.us:                                   ; preds = %if.then65.us
@@ -469,7 +465,7 @@ for.body134.us.preheader:                         ; preds = %cond.true72.us, %if
 
 for.body134.us:                                   ; preds = %for.body134.us.preheader, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit333.us
   %i.0534.us = phi i32 [ %inc193.us, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit333.us ], [ 0, %for.body134.us.preheader ]
-  %addedLemmas.1533.us = phi i32 [ %addedLemmas.4.us, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit333.us ], [ %addedLemmas.0537.us, %for.body134.us.preheader ]
+  %addedLemmas.1533.us = phi i32 [ %addedLemmas.4.us, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit333.us ], [ %addedLemmas.0536.us, %for.body134.us.preheader ]
   invoke void @_ZN4cvc58internal6theory11quantifiers15FirstOrderModel21getAssertedQuantifierEjb(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %q, ptr noundef nonnull align 8 dereferenceable(656) %call59, i32 noundef %i.0534.us, i1 noundef zeroext true)
           to label %invoke.cont135.us unwind label %lpad69.loopexit.split.us
 
@@ -757,8 +753,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit333.us: ; preds = %if.then13.i.i33
   %switch.us = icmp eq i32 %cleanup.dest.slot.0.us, 0
   %inc193.us = add nuw i32 %i.0534.us, 1
   %cmp133.us = icmp ult i32 %inc193.us, %conv61
-  %or.cond547 = and i1 %switch.us, %cmp133.us
-  br i1 %or.cond547, label %for.body134.us, label %for.end.us, !llvm.loop !6
+  %or.cond546 = and i1 %switch.us, %cmp133.us
+  br i1 %or.cond546, label %for.body134.us, label %for.end.us, !llvm.loop !6
 
 for.end.us:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit333.us
   %41 = load ptr, ptr %d_qstate186, align 8
@@ -789,9 +785,9 @@ invoke.cont202.us:                                ; preds = %land.lhs.true201.us
   br i1 %tobool206.not.us, label %for.inc210.us, label %if.end282
 
 for.inc210.us:                                    ; preds = %invoke.cont202.us, %lor.lhs.false199.us, %for.body.us
-  %addedLemmas.6.us = phi i32 [ 0, %lor.lhs.false199.us ], [ %addedLemmas.4.us, %invoke.cont202.us ], [ %addedLemmas.0537.us, %for.body.us ]
-  %inc211.us = add nuw nsw i32 %r.0538.us, 1
-  %exitcond.not = icmp eq i32 %r.0538.us, %cond58
+  %addedLemmas.6.us = phi i32 [ 0, %lor.lhs.false199.us ], [ %addedLemmas.4.us, %invoke.cont202.us ], [ %addedLemmas.0536.us, %for.body.us ]
+  %inc211.us = add nuw nsw i32 %r.0537.us, 1
+  %exitcond.not = icmp eq i32 %r.0537.us, %cond58
   br i1 %exitcond.not, label %if.end282, label %for.body.us, !llvm.loop !7
 
 lpad69.loopexit.split-lp.split.us:                ; preds = %land.lhs.true201.us, %for.end.us, %cond.true72.us
@@ -846,16 +842,16 @@ terminate.lpad.i332.split.us:                     ; preds = %if.then13.i.i331.us
   call void @__clang_call_terminate(ptr %55) #14
   unreachable
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.body.backedge
-  %r.0538 = phi i32 [ %r.0538.be, %for.body.backedge ], [ %cond53, %for.body.lr.ph ]
+for.body:                                         ; preds = %if.end49, %for.body.backedge
+  %r.0537 = phi i32 [ %r.0537.be, %for.body.backedge ], [ %cond53, %if.end49 ]
   %56 = load ptr, ptr %d_rd, align 8
   %tobool63 = icmp ne ptr %56, null
-  %cmp64 = icmp ne i32 %r.0538, 0
+  %cmp64 = icmp ne i32 %r.0537, 0
   %or.cond = or i1 %cmp64, %tobool63
   br i1 %or.cond, label %if.then65, label %for.inc210
 
 if.then65:                                        ; preds = %for.body
-  %cmp66 = icmp eq i32 %r.0538, 0
+  %cmp66 = icmp eq i32 %r.0537, 0
   br i1 %cmp66, label %cond.true72, label %if.end131
 
 cond.true72:                                      ; preds = %if.then65
@@ -886,19 +882,19 @@ ehcleanup192:                                     ; preds = %lpad172.split.us, %
   br label %eh.resume
 
 invoke.cont197:                                   ; preds = %if.end131
-  %exitcond550.not = icmp eq i32 %r.0538, %cond58
+  %exitcond550.not = icmp eq i32 %r.0537, %cond58
   %or.cond554 = select i1 %call198, i1 true, i1 %exitcond550.not
   br i1 %or.cond554, label %if.end282, label %for.body.backedge
 
 for.inc210:                                       ; preds = %for.body
-  %exitcond550.not.old = icmp eq i32 %r.0538, %cond58
+  %exitcond550.not.old = icmp eq i32 %r.0537, %cond58
   br i1 %exitcond550.not.old, label %if.end282, label %for.body.backedge
 
 for.body.backedge:                                ; preds = %for.inc210, %invoke.cont197
-  %r.0538.be = add nuw nsw i32 %r.0538, 1
+  %r.0537.be = add nuw nsw i32 %r.0537, 1
   br label %for.body, !llvm.loop !7
 
-if.end282:                                        ; preds = %invoke.cont197.us, %invoke.cont202.us, %for.inc210.us, %invoke.cont197, %for.inc210, %if.end49
+if.end282:                                        ; preds = %invoke.cont197.us, %invoke.cont202.us, %for.inc210.us, %invoke.cont197, %for.inc210
   %59 = load i32, ptr %d_enumInstLimit, align 8
   %cmp284 = icmp sgt i32 %59, 0
   br i1 %cmp284, label %if.then285, label %if.end287

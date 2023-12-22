@@ -1909,29 +1909,21 @@ if.end282.thread.i:                               ; preds = %if.end262.i
   %147 = call i64 @fwrite(ptr nonnull @.str.337, i64 77, i64 1, ptr %146)
   %148 = load ptr, ptr @stdout, align 8
   %149 = call i64 @fwrite(ptr nonnull @.str.338, i64 65, i64 1, ptr %148)
-  %and28354.i = and i32 %9, 10
-  %tobool284.not55.i = icmp eq i32 %and28354.i, 0
-  br i1 %tobool284.not55.i, label %if.then295.i, label %if.then285.thread.i
-
-if.then285.thread.i:                              ; preds = %if.end282.thread.i
   %150 = load ptr, ptr @stdout, align 8
   %151 = call i64 @fwrite(ptr nonnull @.str.339, i64 29, i64 1, ptr %150)
-  br label %if.then295.i
+  %152 = load ptr, ptr @stdout, align 8
+  %153 = call i64 @fwrite(ptr nonnull @.str.340, i64 29, i64 1, ptr %152)
+  %154 = load ptr, ptr @stdout, align 8
+  %155 = call i64 @fwrite(ptr nonnull @.str.341, i64 186, i64 1, ptr %154)
+  br label %if.end297.i
 
 if.then285.i:                                     ; preds = %if.end282.i
-  %152 = load ptr, ptr @stdout, align 8
-  %153 = call i64 @fwrite(ptr nonnull @.str.339, i64 29, i64 1, ptr %152)
-  br label %if.end297.i
-
-if.then295.i:                                     ; preds = %if.then285.thread.i, %if.end282.thread.i
-  %154 = load ptr, ptr @stdout, align 8
-  %155 = call i64 @fwrite(ptr nonnull @.str.340, i64 29, i64 1, ptr %154)
   %156 = load ptr, ptr @stdout, align 8
-  %157 = call i64 @fwrite(ptr nonnull @.str.341, i64 186, i64 1, ptr %156)
+  %157 = call i64 @fwrite(ptr nonnull @.str.339, i64 29, i64 1, ptr %156)
   br label %if.end297.i
 
-if.end297.i:                                      ; preds = %if.then295.i, %if.then285.i, %if.end282.i
-  %tobool284.not4144.i = phi i1 [ %tobool284.not55.i, %if.then295.i ], [ false, %if.then285.i ], [ true, %if.end282.i ]
+if.end297.i:                                      ; preds = %if.end282.thread.i, %if.then285.i, %if.end282.i
+  %tobool284.not4144.i = phi i1 [ false, %if.end282.thread.i ], [ false, %if.then285.i ], [ true, %if.end282.i ]
   %and298.i = and i32 %9, 8388618
   %tobool299.not.i = icmp eq i32 %and298.i, 0
   br i1 %tobool299.not.i, label %if.end512.i, label %if.end302.thread.i

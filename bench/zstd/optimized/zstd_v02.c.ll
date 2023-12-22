@@ -6688,8 +6688,7 @@ FSE_decompress.exit:                              ; preds = %while.end.i70.i.i, 
   call void @llvm.lifetime.end.p0(i64 16388, ptr nonnull %dt.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tableLog.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %maxSymbolValue.i)
-  %cmp.i.i54 = icmp ult i64 %retval.0.i, -119
-  br i1 %cmp.i.i54, label %if.end49, label %return
+  br label %if.end49
 
 if.end49:                                         ; preds = %for.body, %FSE_decompress.exit, %if.then5
   %oSize.0 = phi i64 [ %conv7, %if.then5 ], [ %retval.0.i, %FSE_decompress.exit ], [ %sub8, %for.body ]
@@ -6769,8 +6768,8 @@ if.end106:                                        ; preds = %if.end93
   %add109 = add nuw nsw i64 %iSize.0, 1
   br label %return
 
-return:                                           ; preds = %for.body54, %if.end49.thread, %if.end49, %FSE_decompress.exit.thread, %if.end93, %if.end83, %if.end77, %for.end73, %FSE_decompress.exit, %if.else37, %if.else, %entry, %if.end106
-  %retval.0 = phi i64 [ %add109, %if.end106 ], [ -72, %entry ], [ -72, %if.else ], [ -72, %if.else37 ], [ %retval.0.i, %FSE_decompress.exit ], [ -20, %for.end73 ], [ -20, %if.end77 ], [ -20, %if.end83 ], [ -20, %if.end93 ], [ %retval.0.i.ph, %FSE_decompress.exit.thread ], [ -20, %if.end49 ], [ -20, %if.end49.thread ], [ -20, %for.body54 ]
+return:                                           ; preds = %for.body54, %if.end49.thread, %if.end49, %FSE_decompress.exit.thread, %if.end93, %if.end83, %if.end77, %for.end73, %if.else37, %if.else, %entry, %if.end106
+  %retval.0 = phi i64 [ %add109, %if.end106 ], [ -72, %entry ], [ -72, %if.else ], [ -72, %if.else37 ], [ -20, %for.end73 ], [ -20, %if.end77 ], [ -20, %if.end83 ], [ -20, %if.end93 ], [ %retval.0.i.ph, %FSE_decompress.exit.thread ], [ -20, %if.end49 ], [ -20, %if.end49.thread ], [ -20, %for.body54 ]
   ret i64 %retval.0
 }
 

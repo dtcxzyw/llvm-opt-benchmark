@@ -2062,15 +2062,15 @@ land.lhs.true:                                    ; preds = %do.body
 land.rhs:                                         ; preds = %land.lhs.true
   %call11 = tail call i32 @PyErr_CheckSignals() #16
   %tobool12.not = icmp eq i32 %call11, 0
-  br i1 %tobool12.not, label %do.body, label %if.then14, !llvm.loop !16
+  br i1 %tobool12.not, label %do.body, label %if.then14.critedge, !llvm.loop !16
 
-if.then14:                                        ; preds = %land.rhs
+if.then14.critedge:                               ; preds = %land.rhs
   %3 = load i64, ptr %call, align 8
   %4 = and i64 %3, 2147483648
   %cmp.i61.not = icmp eq i64 %4, 0
   br i1 %cmp.i61.not, label %if.end.i42, label %return
 
-if.end.i42:                                       ; preds = %if.then14
+if.end.i42:                                       ; preds = %if.then14.critedge
   %dec.i43 = add i64 %3, -1
   store i64 %dec.i43, ptr %call, align 8
   %cmp.i44 = icmp eq i64 %dec.i43, 0
@@ -2129,8 +2129,8 @@ if.then27:                                        ; preds = %if.end24
   %call28 = tail call i32 @close(i32 noundef %fd.0) #16
   br label %return
 
-return:                                           ; preds = %if.end24, %if.else, %if.end.i33, %if.then1.i36, %if.then17, %if.end.i42, %if.then1.i45, %if.then14, %if.end.i51, %if.then1.i54, %if.then4, %if.then, %if.then27
-  %retval.0 = phi i32 [ -1, %if.then27 ], [ -1, %if.then ], [ -1, %if.then4 ], [ -1, %if.then1.i54 ], [ -1, %if.end.i51 ], [ -1, %if.then14 ], [ -1, %if.then1.i45 ], [ -1, %if.end.i42 ], [ -1, %if.then17 ], [ -1, %if.then1.i36 ], [ -1, %if.end.i33 ], [ -1, %if.else ], [ %fd.0, %if.end24 ]
+return:                                           ; preds = %if.end24, %if.else, %if.end.i33, %if.then1.i36, %if.then17, %if.end.i42, %if.then1.i45, %if.then14.critedge, %if.end.i51, %if.then1.i54, %if.then4, %if.then, %if.then27
+  %retval.0 = phi i32 [ -1, %if.then27 ], [ -1, %if.then ], [ -1, %if.then4 ], [ -1, %if.then1.i54 ], [ -1, %if.end.i51 ], [ -1, %if.then14.critedge ], [ -1, %if.then1.i45 ], [ -1, %if.end.i42 ], [ -1, %if.then17 ], [ -1, %if.then1.i36 ], [ -1, %if.end.i33 ], [ -1, %if.else ], [ %fd.0, %if.end24 ]
   ret i32 %retval.0
 }
 
@@ -2375,10 +2375,10 @@ do.body:                                          ; preds = %land.rhs, %entry
   %call2 = tail call i64 @read(i32 noundef %fd, ptr noundef %buf, i64 noundef %spec.store.select) #16
   %0 = load i32, ptr %call1, align 4
   tail call void @PyEval_RestoreThread(ptr noundef %call) #16
-  %cmp4 = icmp slt i64 %call2, 0
-  %cmp5 = icmp eq i32 %0, 4
-  %or.cond = select i1 %cmp4, i1 %cmp5, i1 false
-  br i1 %or.cond, label %land.rhs, label %if.end10
+  %cmp4 = icmp sgt i64 %call2, -1
+  %cmp5 = icmp ne i32 %0, 4
+  %or.cond.not = select i1 %cmp4, i1 true, i1 %cmp5
+  br i1 %or.cond.not, label %if.end10, label %land.rhs
 
 land.rhs:                                         ; preds = %do.body
   %call6 = tail call i32 @PyErr_CheckSignals() #16
@@ -2386,7 +2386,7 @@ land.rhs:                                         ; preds = %do.body
   br i1 %tobool.not, label %do.body, label %return.sink.split, !llvm.loop !18
 
 if.end10:                                         ; preds = %do.body
-  br i1 %cmp4, label %if.then12, label %return
+  br i1 %cmp4, label %return, label %if.then12
 
 if.then12:                                        ; preds = %if.end10
   %1 = load ptr, ptr @PyExc_OSError, align 8

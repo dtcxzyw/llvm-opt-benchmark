@@ -19306,10 +19306,10 @@ for.body.lr.ph:                                   ; preds = %_ZN6vectorI5lboolLb
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6vectorI5lboolLb0EjE9push_backERKS0_.exit
   %i.011 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZN6vectorI5lboolLb0EjE9push_backERKS0_.exit ]
+  %shl.i = and i32 %i.011, 2147483647
   %2 = load i32, ptr %m_level.i.i, align 8
-  %shr.i.i.i.i = and i32 %i.011, 2147483647
   %3 = load ptr, ptr %m_stamp.i.i.i, align 8
-  %idxprom.i.i.i.i = zext nneg i32 %shr.i.i.i.i to i64
+  %idxprom.i.i.i.i = zext nneg i32 %shl.i to i64
   %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 %idxprom.i.i.i.i
   %4 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp ult i32 %4, %2
@@ -23669,10 +23669,10 @@ for.body.lr.ph.i:                                 ; preds = %_ZN6vectorI5lboolLb
 
 for.body.i:                                       ; preds = %_ZN6vectorI5lboolLb0EjE9push_backERKS0_.exit.i, %for.body.lr.ph.i
   %i.011.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %_ZN6vectorI5lboolLb0EjE9push_backERKS0_.exit.i ]
+  %shl.i.i = and i32 %i.011.i, 2147483647
   %3 = load i32, ptr %m_level.i.i.i, align 8
-  %shr.i.i.i.i.i = and i32 %i.011.i, 2147483647
   %4 = load ptr, ptr %m_stamp.i.i.i.i, align 8
-  %idxprom.i.i.i.i.i = zext nneg i32 %shr.i.i.i.i.i to i64
+  %idxprom.i.i.i.i.i = zext nneg i32 %shl.i.i to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds i32, ptr %4, i64 %idxprom.i.i.i.i.i
   %5 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
   %cmp.i.i.not.i.i = icmp ult i32 %5, %3

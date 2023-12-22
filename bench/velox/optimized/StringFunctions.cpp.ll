@@ -10363,13 +10363,9 @@ for.inc59.i.i.i.i.i:                              ; preds = %if.else.i.i66.i.i.i
   %inc60.i.i.i.i.i = add nsw i32 %i.1.i.i.i.i.i, 1
   %conv.i.i.i.i.i = sext i32 %inc60.i.i.i.i.i to i64
   %cmp.i.i.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i.i.i, %conv.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %for.end61.i.i.i.i.i, !llvm.loop !117
+  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %if.end.i70.i.i.i.i.i, !llvm.loop !117
 
-for.end61.i.i.i.i.i:                              ; preds = %for.inc59.i.i.i.i.i
-  %cmp.i69.i.i.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i.i.i, 576460752303423487
-  br i1 %cmp.i69.i.i.i.i.i, label %if.then.i.i.i.i120.invoke.i.i.i.i.i, label %if.end.i70.i.i.i.i.i
-
-if.end.i70.i.i.i.i.i:                             ; preds = %for.end61.i.i.i.i.i, %for.cond.preheader.i.i.i.i.i
+if.end.i70.i.i.i.i.i:                             ; preds = %for.inc59.i.i.i.i.i, %for.cond.preheader.i.i.i.i.i
   %_M_end_of_storage.i.i71.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::functions::(anonymous namespace)::ConcatFunction", ptr %call.i.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %33 = load ptr, ptr %_M_end_of_storage.i.i71.i.i.i.i.i, align 8, !noalias !97
   %34 = load ptr, ptr %constantStringViews_.i.i.i.i.i, align 8, !noalias !97
@@ -10488,8 +10484,8 @@ if.else.i.i101.i.i.i.i.i:                         ; preds = %invoke.cont77.i.i.i
   %cmp.i.i.i.i105.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i104.i.i.i.i.i, 9223372036854775792
   br i1 %cmp.i.i.i.i105.i.i.i.i.i, label %if.then.i.i.i.i120.invoke.i.i.i.i.i, label %_ZNKSt6vectorIN8facebook5velox10StringViewESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i120.invoke.i.i.i.i.i:              ; preds = %if.else.i.i.i.i.i.i.i, %if.else.i.i101.i.i.i.i.i, %for.end61.i.i.i.i.i, %entry
-  %43 = phi ptr [ @.str.12, %for.end61.i.i.i.i.i ], [ @.str.12, %entry ], [ @.str.2, %if.else.i.i101.i.i.i.i.i ], [ @.str.2, %if.else.i.i.i.i.i.i.i ]
+if.then.i.i.i.i120.invoke.i.i.i.i.i:              ; preds = %if.else.i.i.i.i.i.i.i, %if.else.i.i101.i.i.i.i.i, %entry
+  %43 = phi ptr [ @.str.12, %entry ], [ @.str.2, %if.else.i.i101.i.i.i.i.i ], [ @.str.2, %if.else.i.i.i.i.i.i.i ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %43) #27
           to label %if.then.i.i.i.i120.cont.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i, !noalias !97
 

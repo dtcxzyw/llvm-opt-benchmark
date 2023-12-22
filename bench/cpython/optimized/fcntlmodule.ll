@@ -706,8 +706,8 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   br i1 %tobool49.not.i, label %do.body.i, label %fcntl_lockf_impl.exit, !llvm.loop !7
 
 do.end.i:                                         ; preds = %do.body.i
-  %cmp50.i = icmp slt i32 %call42.i, 0
-  br i1 %cmp50.i, label %cond.true54.i, label %fcntl_lockf_impl.exit
+  %cmp50.i = icmp sgt i32 %call42.i, -1
+  br i1 %cmp50.i, label %fcntl_lockf_impl.exit, label %cond.true54.i
 
 cond.true54.i:                                    ; preds = %land.lhs.true.i, %do.end.i
   %9 = load ptr, ptr @PyExc_OSError, align 8
@@ -795,8 +795,8 @@ land.rhs:                                         ; preds = %land.lhs.true
   br i1 %tobool.not, label %do.body, label %return, !llvm.loop !8
 
 do.end:                                           ; preds = %do.body
-  %cmp7 = icmp slt i32 %call2, 0
-  br i1 %cmp7, label %cond.true, label %return
+  %cmp7 = icmp sgt i32 %call2, -1
+  br i1 %cmp7, label %return, label %cond.true
 
 cond.true:                                        ; preds = %land.lhs.true, %do.end
   %1 = load ptr, ptr @PyExc_OSError, align 8

@@ -1106,7 +1106,7 @@ if.end15:                                         ; preds = %if.end8
 if.end15.thread:                                  ; preds = %if.end8
   %and1617 = and i32 %selection, 1
   %cmp17.not18 = icmp eq i32 %and1617, 0
-  br i1 %cmp17.not18, label %if.end26.thread, label %land.rhs21
+  br i1 %cmp17.not18, label %return, label %land.rhs21
 
 if.then19:                                        ; preds = %if.end15
   %tobool20.not = icmp eq i8 %bf.clear, 0
@@ -1124,15 +1124,11 @@ if.end26:                                         ; preds = %land.rhs21, %if.end
   %cmp28 = icmp eq i32 %and, 3
   br i1 %cmp28, label %if.then30, label %return
 
-if.end26.thread:                                  ; preds = %if.end15.thread
-  %cmp2823 = icmp eq i32 %and, 3
-  br i1 %cmp2823, label %land.rhs32, label %return
-
 if.then30:                                        ; preds = %if.end26
   %tobool31.not = icmp eq i32 %ok.1, 0
   br i1 %tobool31.not, label %return, label %land.rhs32
 
-land.rhs32:                                       ; preds = %if.end26.thread, %if.then30
+land.rhs32:                                       ; preds = %if.then30
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %pub.i)
   switch i32 %type, label %ecx_key_pairwise_check.exit [
     i32 0, label %sw.bb.i
@@ -1186,8 +1182,8 @@ ecx_key_pairwise_check.exit:                      ; preds = %land.rhs32, %sw.bb4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %pub.i)
   br label %return
 
-return:                                           ; preds = %if.end26.thread, %if.then19, %if.end26, %ecx_key_pairwise_check.exit, %if.then30, %if.end, %entry, %if.then7
-  %retval.0 = phi i32 [ 0, %if.then7 ], [ 0, %entry ], [ 1, %if.end ], [ %ok.1, %if.end26 ], [ 0, %if.then30 ], [ %retval.0.i, %ecx_key_pairwise_check.exit ], [ 0, %if.then19 ], [ 1, %if.end26.thread ]
+return:                                           ; preds = %if.end15.thread, %if.then19, %if.end26, %ecx_key_pairwise_check.exit, %if.then30, %if.end, %entry, %if.then7
+  %retval.0 = phi i32 [ 0, %if.then7 ], [ 0, %entry ], [ 1, %if.end ], [ %ok.1, %if.end26 ], [ 0, %if.then30 ], [ %retval.0.i, %ecx_key_pairwise_check.exit ], [ 0, %if.then19 ], [ 1, %if.end15.thread ]
   ret i32 %retval.0
 }
 

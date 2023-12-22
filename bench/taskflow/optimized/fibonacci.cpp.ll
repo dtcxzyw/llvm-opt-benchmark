@@ -897,13 +897,9 @@ init:                                             ; preds = %init.check
   %call = tail call noundef i32 @_ZNSt6thread20hardware_concurrencyEv() #29
   %add.i = shl i32 %call, 1
   %cmp.i.i = icmp eq i32 %add.i, -2
-  br i1 %cmp.i.i, label %_ZNK2tf10ObjectPoolINS_4NodeELm65536EE10_next_pow2Ej.exit.thread.i, label %_ZNK2tf10ObjectPoolINS_4NodeELm65536EE10_next_pow2Ej.exit.i
+  br i1 %cmp.i.i, label %for.cond13.preheader.preheader.i, label %if.end.i.i
 
-_ZNK2tf10ObjectPoolINS_4NodeELm65536EE10_next_pow2Ej.exit.thread.i: ; preds = %init
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%"class.tf::ObjectPool", ptr @_ZN2tf9node_poolE, i64 0, i32 1), i8 0, i64 40, i1 false)
-  br label %for.cond13.preheader.preheader.i
-
-_ZNK2tf10ObjectPoolINS_4NodeELm65536EE10_next_pow2Ej.exit.i: ; preds = %init
+if.end.i.i:                                       ; preds = %init
   %shr.i.i = and i32 %call, 2147483646
   %dec.i.i = or i32 %add.i, %shr.i.i
   %shr2.i.i = lshr i32 %dec.i.i, 2
@@ -915,23 +911,22 @@ _ZNK2tf10ObjectPoolINS_4NodeELm65536EE10_next_pow2Ej.exit.i: ; preds = %init
   %or7.i.i = or i32 %shr6.i.i, %or5.i.i
   %shr8.i.i = lshr i32 %or7.i.i, 16
   %or9.i.i = or i32 %shr8.i.i, %or7.i.i
-  %conv.i = zext i32 %or9.i.i to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%"class.tf::ObjectPool", ptr @_ZN2tf9node_poolE, i64 0, i32 1), i8 0, i64 40, i1 false)
-  %add3.i = add nuw nsw i64 %conv.i, 1
+  %2 = zext i32 %or9.i.i to i64
   br label %for.cond13.preheader.preheader.i
 
-for.cond13.preheader.preheader.i:                 ; preds = %_ZNK2tf10ObjectPoolINS_4NodeELm65536EE10_next_pow2Ej.exit.i, %_ZNK2tf10ObjectPoolINS_4NodeELm65536EE10_next_pow2Ej.exit.thread.i
-  %conv.sink.i = phi i64 [ 0, %_ZNK2tf10ObjectPoolINS_4NodeELm65536EE10_next_pow2Ej.exit.thread.i ], [ %conv.i, %_ZNK2tf10ObjectPoolINS_4NodeELm65536EE10_next_pow2Ej.exit.i ]
-  %add317.i = phi i64 [ 1, %_ZNK2tf10ObjectPoolINS_4NodeELm65536EE10_next_pow2Ej.exit.thread.i ], [ %add3.i, %_ZNK2tf10ObjectPoolINS_4NodeELm65536EE10_next_pow2Ej.exit.i ]
-  store i64 %conv.sink.i, ptr @_ZN2tf9node_poolE, align 8
+for.cond13.preheader.preheader.i:                 ; preds = %if.end.i.i, %init
+  %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %init ]
+  store i64 %retval.0.i.i, ptr @_ZN2tf9node_poolE, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (%"class.tf::ObjectPool", ptr @_ZN2tf9node_poolE, i64 0, i32 1), i8 0, i64 40, i1 false)
+  %add3.i = add nuw nsw i64 %retval.0.i.i, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.tf::ObjectPool", ptr @_ZN2tf9node_poolE, i64 0, i32 2), i8 0, i64 24, i1 false)
-  %mul.i.i.i.i.i.i.i = mul nuw nsw i64 %add317.i, 136
+  %mul.i.i.i.i.i.i.i = mul nuw nsw i64 %add3.i, 136
   %call5.i.i.i.i2.i.i4.i1 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #30
           to label %call5.i.i.i.i2.i.i4.i.noexc unwind label %lpad
 
 call5.i.i.i.i2.i.i4.i.noexc:                      ; preds = %for.cond13.preheader.preheader.i
   store ptr %call5.i.i.i.i2.i.i4.i1, ptr getelementptr inbounds (%"class.tf::ObjectPool", ptr @_ZN2tf9node_poolE, i64 0, i32 2), align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.tf::ObjectPool<tf::Node>::LocalHeap", ptr %call5.i.i.i.i2.i.i4.i1, i64 %add317.i
+  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.tf::ObjectPool<tf::Node>::LocalHeap", ptr %call5.i.i.i.i2.i.i4.i1, i64 %add3.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call5.i.i.i.i2.i.i4.i1, i8 0, i64 %mul.i.i.i.i.i.i.i, i1 false)
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i4.i1, i64 %mul.i.i.i.i.i.i.i
   store ptr %add.ptr.i.i.i.i, ptr getelementptr inbounds (%"class.tf::ObjectPool", ptr @_ZN2tf9node_poolE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2), align 8
@@ -941,26 +936,26 @@ call5.i.i.i.i2.i.i4.i.noexc:                      ; preds = %for.cond13.preheade
   br label %for.cond13.preheader.i
 
 for.cond13.preheader.i:                           ; preds = %for.inc16.i, %call5.i.i.i.i2.i.i4.i.noexc
-  %__begin0.sroa.0.020.i = phi ptr [ %incdec.ptr.i.i, %for.inc16.i ], [ %call5.i.i.i.i2.i.i4.i1, %call5.i.i.i.i2.i.i4.i.noexc ]
+  %__begin0.sroa.0.011.i = phi ptr [ %incdec.ptr.i.i, %for.inc16.i ], [ %call5.i.i.i.i2.i.i4.i1, %call5.i.i.i.i2.i.i4.i.noexc ]
   br label %for.body14.i
 
 for.body14.i:                                     ; preds = %for.body14.i, %for.cond13.preheader.i
-  %i.018.i = phi i64 [ 0, %for.cond13.preheader.i ], [ %inc.i, %for.body14.i ]
-  %arrayidx.i = getelementptr inbounds %"struct.tf::ObjectPool<tf::Node>::LocalHeap", ptr %__begin0.sroa.0.020.i, i64 0, i32 1, i64 %i.018.i
-  %next.i6.i = getelementptr inbounds %"struct.tf::ObjectPool<tf::Node>::LocalHeap", ptr %__begin0.sroa.0.020.i, i64 0, i32 1, i64 %i.018.i, i32 1
+  %i.09.i = phi i64 [ 0, %for.cond13.preheader.i ], [ %inc.i, %for.body14.i ]
+  %arrayidx.i = getelementptr inbounds %"struct.tf::ObjectPool<tf::Node>::LocalHeap", ptr %__begin0.sroa.0.011.i, i64 0, i32 1, i64 %i.09.i
+  %next.i6.i = getelementptr inbounds %"struct.tf::ObjectPool<tf::Node>::LocalHeap", ptr %__begin0.sroa.0.011.i, i64 0, i32 1, i64 %i.09.i, i32 1
   store ptr %arrayidx.i, ptr %next.i6.i, align 8
   store ptr %arrayidx.i, ptr %arrayidx.i, align 8
-  %inc.i = add nuw nsw i64 %i.018.i, 1
+  %inc.i = add nuw nsw i64 %i.09.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 5
   br i1 %exitcond.not.i, label %for.inc16.i, label %for.body14.i, !llvm.loop !5
 
 for.inc16.i:                                      ; preds = %for.body14.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.tf::ObjectPool<tf::Node>::LocalHeap", ptr %__begin0.sroa.0.020.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds %"struct.tf::ObjectPool<tf::Node>::LocalHeap", ptr %__begin0.sroa.0.011.i, i64 1
   %cmp.i5.not.i = icmp eq ptr %incdec.ptr.i.i, %scevgep.i.i.i.i.i.i
   br i1 %cmp.i5.not.i, label %invoke.cont, label %for.cond13.preheader.i
 
 invoke.cont:                                      ; preds = %for.inc16.i
-  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN2tf10ObjectPoolINS_4NodeELm65536EED2Ev, ptr nonnull @_ZN2tf9node_poolE, ptr nonnull @__dso_handle) #29
+  %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN2tf10ObjectPoolINS_4NodeELm65536EED2Ev, ptr nonnull @_ZN2tf9node_poolE, ptr nonnull @__dso_handle) #29
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVN2tf9node_poolE) #29
   br label %init.end
 
@@ -968,10 +963,10 @@ init.end:                                         ; preds = %invoke.cont, %init.
   ret void
 
 lpad:                                             ; preds = %for.cond13.preheader.preheader.i
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVN2tf9node_poolE) #29
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %4
 }
 
 ; Function Attrs: nofree nounwind
@@ -18143,7 +18138,7 @@ unreachable:                                      ; preds = %invoke.cont33
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt11_Deque_baseINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEESaIS8_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__num_elements) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
+_ZNSt11_Deque_baseINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEESaIS8_EE15_M_allocate_mapEm.exit:
   %div16 = lshr i64 %__num_elements, 6
   %add = add nuw nsw i64 %div16, 1
   %0 = tail call i64 @llvm.umax.i64(i64 %div16, i64 5)
@@ -18159,8 +18154,8 @@ entry:
   %add.ptr14 = getelementptr inbounds ptr, ptr %add.ptr, i64 %add
   br label %for.body.i
 
-for.body.i:                                       ; preds = %entry, %invoke.cont.i
-  %__cur.08.i = phi ptr [ %incdec.ptr.i, %invoke.cont.i ], [ %add.ptr, %entry ]
+for.body.i:                                       ; preds = %_ZNSt11_Deque_baseINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEESaIS8_EE15_M_allocate_mapEm.exit, %invoke.cont.i
+  %__cur.08.i = phi ptr [ %incdec.ptr.i, %invoke.cont.i ], [ %add.ptr, %_ZNSt11_Deque_baseINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEESaIS8_EE15_M_allocate_mapEm.exit ]
   %call5.i.i.i5.i = invoke noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #30
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -19172,7 +19167,7 @@ while.end:                                        ; preds = %_ZNSt16allocator_tr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt11_Deque_baseISt10shared_ptrIN2tf8TopologyEESaIS3_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__num_elements) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
+_ZNSt11_Deque_baseISt10shared_ptrIN2tf8TopologyEESaIS3_EE15_M_allocate_mapEm.exit:
   %div16 = lshr i64 %__num_elements, 5
   %add = add nuw nsw i64 %div16, 1
   %0 = tail call i64 @llvm.umax.i64(i64 %div16, i64 5)
@@ -19188,8 +19183,8 @@ entry:
   %add.ptr14 = getelementptr inbounds ptr, ptr %add.ptr, i64 %add
   br label %for.body.i
 
-for.body.i:                                       ; preds = %entry, %invoke.cont.i
-  %__cur.08.i = phi ptr [ %incdec.ptr.i, %invoke.cont.i ], [ %add.ptr, %entry ]
+for.body.i:                                       ; preds = %_ZNSt11_Deque_baseISt10shared_ptrIN2tf8TopologyEESaIS3_EE15_M_allocate_mapEm.exit, %invoke.cont.i
+  %__cur.08.i = phi ptr [ %incdec.ptr.i, %invoke.cont.i ], [ %add.ptr, %_ZNSt11_Deque_baseISt10shared_ptrIN2tf8TopologyEESaIS3_EE15_M_allocate_mapEm.exit ]
   %call5.i.i.i5.i = invoke noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #30
           to label %invoke.cont.i unwind label %lpad.i
 

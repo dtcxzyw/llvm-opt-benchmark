@@ -12625,7 +12625,7 @@ for.end.i.i.i:                                    ; preds = %if.then1.i90.i.i.i,
   %inc.i.i.i = add nuw i64 %count.069.i.i.i, 1
   %sub27.i.i.i = add nsw i64 %i.164.i.i.i, -1
   %cmp3.i.i.i = icmp sgt i64 %i.164.i.i.i, 0
-  br i1 %cmp3.i.i.i, label %land.rhs.i.i.i, label %if.then39.i.i.i, !llvm.loop !67
+  br i1 %cmp3.i.i.i, label %land.rhs.i.i.i, label %if.else36.i.i.i, !llvm.loop !67
 
 while.end.i.i.i:                                  ; preds = %land.rhs.i.i.i, %for.inc.i.i.i
   %count.069.i.i85.i = phi i64 [ %count.069.i.i.i, %for.inc.i.i.i ], [ %spec.store.select.i, %land.rhs.i.i.i ]
@@ -12655,28 +12655,26 @@ Py_INCREF.exit.i.i.i:                             ; preds = %if.end.i104.i.i.i, 
   store ptr %self, ptr %call.val53.i.i.i, align 8
   br label %if.end60.i.i.i
 
-if.else36.i.i.i:                                  ; preds = %land.lhs.true.i.i.i, %while.end.i.i.i
-  %count.0.lcssa84.i.i.i = phi i64 [ 0, %land.lhs.true.i.i.i ], [ %count.069.i.i85.i, %while.end.i.i.i ]
-  %j.0.lcssa82.i.i.i = phi i64 [ %j.0.lcssa83.i.i.i, %land.lhs.true.i.i.i ], [ %j.068.i.i.i, %while.end.i.i.i ]
+if.else36.i.i.i:                                  ; preds = %for.end.i.i.i, %land.lhs.true.i.i.i, %while.end.i.i.i
+  %count.0.lcssa84.i.i.i = phi i64 [ 0, %land.lhs.true.i.i.i ], [ %count.069.i.i85.i, %while.end.i.i.i ], [ %inc.i.i.i, %for.end.i.i.i ]
+  %j.0.lcssa82.i.i.i = phi i64 [ %j.0.lcssa83.i.i.i, %land.lhs.true.i.i.i ], [ %j.068.i.i.i, %while.end.i.i.i ], [ %sub27.i.i.i, %for.end.i.i.i ]
   %cmp37.i.i.i = icmp sgt i64 %j.0.lcssa82.i.i.i, -2
   br i1 %cmp37.i.i.i, label %if.then39.i.i.i, label %if.end60.i.i.i
 
-if.then39.i.i.i:                                  ; preds = %for.end.i.i.i, %if.else36.i.i.i
-  %j.0.lcssa82.i112.i.i = phi i64 [ %j.0.lcssa82.i.i.i, %if.else36.i.i.i ], [ -1, %for.end.i.i.i ]
-  %count.0.lcssa84.i111.i.i = phi i64 [ %count.0.lcssa84.i.i.i, %if.else36.i.i.i ], [ %inc.i.i.i, %for.end.i.i.i ]
-  %add41.i.i.i = add i64 %j.0.lcssa82.i112.i.i, 1
+if.then39.i.i.i:                                  ; preds = %if.else36.i.i.i
+  %add41.i.i.i = add i64 %j.0.lcssa82.i.i.i, 1
   %call43.i.i.i = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %ob_sval.i.i, i64 noundef %add41.i.i.i)
   %cmp44.i.i.i = icmp eq ptr %call43.i.i.i, null
   br i1 %cmp44.i.i.i, label %onError.i.i.i, label %if.end47.i.i.i
 
 if.end47.i.i.i:                                   ; preds = %if.then39.i.i.i
-  %cmp48.i.i.i = icmp slt i64 %count.0.lcssa84.i111.i.i, 12
+  %cmp48.i.i.i = icmp slt i64 %count.0.lcssa84.i.i.i, 12
   br i1 %cmp48.i.i.i, label %if.then50.i.i.i, label %if.else51.i.i.i
 
 if.then50.i.i.i:                                  ; preds = %if.end47.i.i.i
   %38 = getelementptr i8, ptr %call.i.i.i, i64 24
   %call.val.i.i.i = load ptr, ptr %38, align 8
-  %arrayidx.i56.i.i.i = getelementptr ptr, ptr %call.val.i.i.i, i64 %count.0.lcssa84.i111.i.i
+  %arrayidx.i56.i.i.i = getelementptr ptr, ptr %call.val.i.i.i, i64 %count.0.lcssa84.i.i.i
   store ptr %call43.i.i.i, ptr %arrayidx.i56.i.i.i, align 8
   br label %if.end57.i.i.i
 
@@ -12711,7 +12709,7 @@ if.then1.i72.i.i.i:                               ; preds = %if.end.i69.i.i.i
   br label %if.end57.i.i.i
 
 if.end57.i.i.i:                                   ; preds = %if.then1.i72.i.i.i, %if.end.i69.i.i.i, %if.else55.i.i.i, %if.then50.i.i.i
-  %inc58.i.i.i = add i64 %count.0.lcssa84.i111.i.i, 1
+  %inc58.i.i.i = add i64 %count.0.lcssa84.i.i.i, 1
   br label %if.end60.i.i.i
 
 if.end60.i.i.i:                                   ; preds = %if.end57.i.i.i, %if.else36.i.i.i, %Py_INCREF.exit.i.i.i
@@ -12826,7 +12824,7 @@ while.end.i.i:                                    ; preds = %if.end28.i.i, %whil
   br i1 %cmp29.i.i, label %land.lhs.true.i.i, label %if.else34.i.i
 
 land.lhs.true.i.i:                                ; preds = %while.end.i.i, %while.cond.preheader.i.i
-  %j.0.lcssa116.i.i = phi i64 [ %j.0.lcssa.i.i, %while.end.i.i ], [ %self.val.i, %while.cond.preheader.i.i ]
+  %j.0.lcssa111.i.i = phi i64 [ %j.0.lcssa.i.i, %while.end.i.i ], [ %self.val.i, %while.cond.preheader.i.i ]
   %46 = getelementptr i8, ptr %self, i64 8
   %str_obj.val.i13.i = load ptr, ptr %46, align 8
   %cmp.i65.not.i.i = icmp eq ptr %str_obj.val.i13.i, @PyBytes_Type
@@ -12854,7 +12852,7 @@ if.else34.i.i:                                    ; preds = %while.end.i.i
   br i1 %cmp38.i.i, label %onError.i15.i, label %if.end40.i.i
 
 if.else34.thread.i.i:                             ; preds = %land.lhs.true.i.i
-  %call3767.i.i = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %ob_sval.i.i, i64 noundef %j.0.lcssa116.i.i)
+  %call3767.i.i = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %ob_sval.i.i, i64 noundef %j.0.lcssa111.i.i)
   %cmp3868.i.i = icmp eq ptr %call3767.i.i, null
   br i1 %cmp3868.i.i, label %onError.i15.i, label %if.then42.i.i
 
@@ -12863,11 +12861,11 @@ if.end40.i.i:                                     ; preds = %if.else34.i.i
   br i1 %cmp41.i.i, label %if.then42.i.i, label %if.else43.i.i
 
 if.then42.i.i:                                    ; preds = %if.end40.i.i, %if.else34.thread.i.i
-  %count.0.lcssa117.i.i = phi i64 [ %count.0.lcssa.i27.i, %if.end40.i.i ], [ 0, %if.else34.thread.i.i ]
+  %count.0.lcssa112.i.i = phi i64 [ %count.0.lcssa.i27.i, %if.end40.i.i ], [ 0, %if.else34.thread.i.i ]
   %call376972.i.i = phi ptr [ %call37.i.i, %if.end40.i.i ], [ %call3767.i.i, %if.else34.thread.i.i ]
   %49 = getelementptr i8, ptr %call5.i.i, i64 24
   %call5.val60.i.i = load ptr, ptr %49, align 8
-  %arrayidx.i66.i.i = getelementptr ptr, ptr %call5.val60.i.i, i64 %count.0.lcssa117.i.i
+  %arrayidx.i66.i.i = getelementptr ptr, ptr %call5.val60.i.i, i64 %count.0.lcssa112.i.i
   store ptr %call376972.i.i, ptr %arrayidx.i66.i.i, align 8
   br label %if.end49.i.i
 
@@ -12902,8 +12900,8 @@ if.then1.i62.i.i:                                 ; preds = %if.end.i59.i.i
   br label %if.end49.i.i
 
 if.end49.i.i:                                     ; preds = %if.then1.i62.i.i, %if.end.i59.i.i, %if.else47.i.i, %if.then42.i.i
-  %count.0.lcssa119.i.i = phi i64 [ %count.0.lcssa.i27.i, %if.else47.i.i ], [ %count.0.lcssa.i27.i, %if.then1.i62.i.i ], [ %count.0.lcssa.i27.i, %if.end.i59.i.i ], [ %count.0.lcssa117.i.i, %if.then42.i.i ]
-  %inc50.i.i = add i64 %count.0.lcssa119.i.i, 1
+  %count.0.lcssa114.i.i = phi i64 [ %count.0.lcssa.i27.i, %if.else47.i.i ], [ %count.0.lcssa.i27.i, %if.then1.i62.i.i ], [ %count.0.lcssa.i27.i, %if.end.i59.i.i ], [ %count.0.lcssa112.i.i, %if.then42.i.i ]
+  %inc50.i.i = add i64 %count.0.lcssa114.i.i, 1
   br label %if.end51.i.i
 
 if.end51.i.i:                                     ; preds = %if.end49.i.i, %Py_INCREF.exit.i21.i

@@ -698,22 +698,21 @@ if.else:                                          ; preds = %for.end
   %sub14 = add i32 %5, %precision
   store i32 %sub14, ptr %shift, align 4
   %cmp15 = icmp sgt i32 %sub14, %sub9
-  br i1 %cmp15, label %if.then17, label %if.else18
+  br i1 %cmp15, label %if.end24.thread, label %if.else18
 
-if.then17:                                        ; preds = %if.else
+if.end24.thread:                                  ; preds = %if.else
   store i32 %sub9, ptr %shift, align 4
-  br label %if.end24
+  br label %for.cond28.preheader
 
 if.else18:                                        ; preds = %if.else
   %cmp19 = icmp slt i32 %sub14, %notmask
   br i1 %cmp19, label %return, label %if.end24
 
-if.end24:                                         ; preds = %if.then17, %if.else18
-  %6 = phi i32 [ %sub9, %if.then17 ], [ %sub14, %if.else18 ]
-  %cmp25 = icmp sgt i32 %6, -1
+if.end24:                                         ; preds = %if.else18
+  %cmp25 = icmp sgt i32 %sub14, -1
   br i1 %cmp25, label %for.cond28.preheader, label %if.else55
 
-for.cond28.preheader:                             ; preds = %if.end24
+for.cond28.preheader:                             ; preds = %if.end24.thread, %if.end24
   br i1 %cmp50.not, label %return, label %for.body31.preheader
 
 for.body31.preheader:                             ; preds = %for.cond28.preheader
@@ -724,11 +723,11 @@ for.body31:                                       ; preds = %for.body31.preheade
   %indvars.iv65 = phi i64 [ 0, %for.body31.preheader ], [ %indvars.iv.next66, %for.body31 ]
   %error.058 = phi double [ 0.000000e+00, %for.body31.preheader ], [ %sub49, %for.body31 ]
   %arrayidx33 = getelementptr inbounds float, ptr %lp_coeff, i64 %indvars.iv65
-  %7 = load float, ptr %arrayidx33, align 4
-  %8 = load i32, ptr %shift, align 4
-  %shl34 = shl nuw i32 1, %8
+  %6 = load float, ptr %arrayidx33, align 4
+  %7 = load i32, ptr %shift, align 4
+  %shl34 = shl nuw i32 1, %7
   %conv35 = sitofp i32 %shl34 to float
-  %mul = fmul reassoc nsz arcp float %7, %conv35
+  %mul = fmul reassoc nsz arcp float %6, %conv35
   %conv36 = fpext float %mul to double
   %add = fadd reassoc nsz arcp double %error.058, %conv36
   %call37 = tail call i64 @lround(double noundef %add) #13
@@ -748,20 +747,20 @@ if.else55:                                        ; preds = %if.end24
   br i1 %cmp50.not, label %for.end86, label %for.body62.lr.ph
 
 for.body62.lr.ph:                                 ; preds = %if.else55
-  %sub56 = sub nsw i32 0, %6
+  %sub56 = sub nsw i32 0, %sub14
   %shl65 = shl nuw i32 1, %sub56
   %conv66 = sitofp i32 %shl65 to float
   %wide.trip.count63 = zext i32 %order to i64
-  %9 = fdiv reassoc nsz arcp float 1.000000e+00, %conv66
+  %8 = fdiv reassoc nsz arcp float 1.000000e+00, %conv66
   br label %for.body62
 
 for.body62:                                       ; preds = %for.body62.lr.ph, %for.body62
   %indvars.iv60 = phi i64 [ 0, %for.body62.lr.ph ], [ %indvars.iv.next61, %for.body62 ]
   %error57.055 = phi double [ 0.000000e+00, %for.body62.lr.ph ], [ %sub81, %for.body62 ]
   %arrayidx64 = getelementptr inbounds float, ptr %lp_coeff, i64 %indvars.iv60
-  %10 = load float, ptr %arrayidx64, align 4
-  %11 = fmul reassoc nsz arcp float %10, %9
-  %conv67 = fpext float %11 to double
+  %9 = load float, ptr %arrayidx64, align 4
+  %10 = fmul reassoc nsz arcp float %9, %8
+  %conv67 = fpext float %10 to double
   %add68 = fadd reassoc nsz arcp double %error57.055, %conv67
   %call69 = tail call i64 @lround(double noundef %add68) #13
   %conv70 = trunc i64 %call69 to i32

@@ -6207,19 +6207,12 @@ while.body252.lr.ph:                              ; preds = %for.cond230.prehead
   %85 = load ptr, ptr %m_pOutput_buf, align 8
   %86 = load ptr, ptr %m_pOutput_buf_end, align 8
   %87 = icmp ult ptr %85, %86
-  br i1 %87, label %while.body252, label %while.body252.us
+  br i1 %87, label %while.body252, label %while.cond248.for.inc269_crit_edge.split.us
 
-while.body252.us:                                 ; preds = %while.body252.lr.ph, %while.body252.us
-  %sub266.us279 = phi i32 [ %sub266.us, %while.body252.us ], [ %add247, %while.body252.lr.ph ]
-  %shr264.us277 = phi i32 [ %shr264.us, %while.body252.us ], [ %or245, %while.body252.lr.ph ]
-  %shr264.us = lshr i32 %shr264.us277, 8
-  %sub266.us = add i32 %sub266.us279, -8
-  %cmp250.us = icmp ugt i32 %sub266.us, 7
-  br i1 %cmp250.us, label %while.body252.us, label %while.cond248.for.inc269_crit_edge.split.us
-
-while.cond248.for.inc269_crit_edge.split.us:      ; preds = %while.body252.us
+while.cond248.for.inc269_crit_edge.split.us:      ; preds = %while.body252.lr.ph
+  %shr264.us = lshr i32 %or245, 8
   store i32 %shr264.us, ptr %m_bit_buffer73, align 8
-  store i32 %sub266.us, ptr %m_bits_in71, align 4
+  store i32 %82, ptr %m_bits_in71, align 4
   br label %for.inc269
 
 while.body252:                                    ; preds = %while.body252.lr.ph, %if.end262
@@ -6256,7 +6249,7 @@ for.inc269.loopexit:                              ; preds = %if.end262
 for.inc269:                                       ; preds = %for.inc269.loopexit, %while.cond248.for.inc269_crit_edge.split.us
   %94 = phi i32 [ %.pre314, %for.inc269.loopexit ], [ %80, %while.cond248.for.inc269_crit_edge.split.us ]
   %95 = phi i32 [ %shr264, %for.inc269.loopexit ], [ %shr264.us, %while.cond248.for.inc269_crit_edge.split.us ]
-  %96 = phi i32 [ %sub266, %for.inc269.loopexit ], [ %sub266.us, %while.cond248.for.inc269_crit_edge.split.us ]
+  %96 = phi i32 [ %sub266, %for.inc269.loopexit ], [ %82, %while.cond248.for.inc269_crit_edge.split.us ]
   %inc = add nuw i32 %i.1281, 1
   %cmp232 = icmp ult i32 %inc, %94
   br i1 %cmp232, label %while.body252.lr.ph, label %if.end278
@@ -6344,19 +6337,12 @@ while.body344.lr.ph:                              ; preds = %do.end360, %if.then
   %108 = load ptr, ptr %m_pOutput_buf, align 8
   %109 = load ptr, ptr %m_pOutput_buf_end, align 8
   %110 = icmp ult ptr %108, %109
-  br i1 %110, label %while.body344, label %while.body344.us
+  br i1 %110, label %while.body344, label %while.cond340.do.end360_crit_edge.split.us
 
-while.body344.us:                                 ; preds = %while.body344.lr.ph, %while.body344.us
-  %sub358.us295 = phi i32 [ %sub358.us, %while.body344.us ], [ %add339, %while.body344.lr.ph ]
-  %shr356.us293 = phi i32 [ %shr356.us, %while.body344.us ], [ %or337, %while.body344.lr.ph ]
-  %shr356.us = lshr i32 %shr356.us293, 8
-  %sub358.us = add i32 %sub358.us295, -8
-  %cmp342.us = icmp ugt i32 %sub358.us, 7
-  br i1 %cmp342.us, label %while.body344.us, label %while.cond340.do.end360_crit_edge.split.us
-
-while.cond340.do.end360_crit_edge.split.us:       ; preds = %while.body344.us
+while.cond340.do.end360_crit_edge.split.us:       ; preds = %while.body344.lr.ph
+  %shr356.us = lshr i32 %or337, 8
   store i32 %shr356.us, ptr %m_bit_buffer73, align 8
-  store i32 %sub358.us, ptr %m_bits_in71, align 4
+  store i32 %107, ptr %m_bits_in71, align 4
   br label %do.end360
 
 while.body344:                                    ; preds = %while.body344.lr.ph, %if.end354
@@ -6388,7 +6374,7 @@ if.end354:                                        ; preds = %if.then349, %while.
 
 do.end360:                                        ; preds = %if.end354, %while.cond340.do.end360_crit_edge.split.us
   %117 = phi i32 [ %shr356.us, %while.cond340.do.end360_crit_edge.split.us ], [ %shr356, %if.end354 ]
-  %118 = phi i32 [ %sub358.us, %while.cond340.do.end360_crit_edge.split.us ], [ %sub358, %if.end354 ]
+  %118 = phi i32 [ %107, %while.cond340.do.end360_crit_edge.split.us ], [ %sub358, %if.end354 ]
   %shl361 = shl i32 %a.0296, 8
   %inc363 = add nuw nsw i32 %i324.0297, 1
   %exitcond.not = icmp eq i32 %inc363, 4
@@ -17777,9 +17763,9 @@ if.else:                                          ; preds = %entry
   %idxprom6 = zext nneg i32 %table_num to i64
   %arrayidx7 = getelementptr inbounds %struct.tdefl_compressor, ptr %d, i64 0, i32 36, i64 %idxprom6
   %cmp1082 = icmp sgt i32 %table_len, 0
-  br i1 %cmp1082, label %for.body11.preheader, label %while.cond.preheader.i.thread.thread
+  br i1 %cmp1082, label %for.body11.preheader, label %for.end25.thread
 
-while.cond.preheader.i.thread.thread:             ; preds = %if.else
+for.end25.thread:                                 ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %hist.i)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %offsets.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %hist.i, i8 0, i64 2048, i1 false)
@@ -17832,8 +17818,8 @@ while.cond.preheader.i:                           ; preds = %for.body.i
   %spec.select.i = select i1 %cmp12.i, i64 1, i64 2
   br i1 %cmp26.not.i, label %for.body17.i.preheader, label %for.body17.us.preheader.i
 
-for.body17.i.preheader:                           ; preds = %for.end25, %while.cond.preheader.i.thread.thread, %while.cond.preheader.i
-  %spec.select.i150 = phi i64 [ %spec.select.i, %while.cond.preheader.i ], [ 1, %while.cond.preheader.i.thread.thread ], [ 1, %for.end25 ]
+for.body17.i.preheader:                           ; preds = %for.end25.thread, %for.end25, %while.cond.preheader.i
+  %spec.select.i150 = phi i64 [ %spec.select.i, %while.cond.preheader.i ], [ 1, %for.end25 ], [ 1, %for.end25.thread ]
   br label %for.body17.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
