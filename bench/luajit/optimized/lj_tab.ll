@@ -1253,9 +1253,7 @@ for.inc.i:                                        ; preds = %countint.exit.i, %f
   br i1 %exitcond.i, label %counthash.exit, label %for.body.i11, !llvm.loop !17
 
 counthash.exit:                                   ; preds = %for.inc.i
-  %add = add i32 %retval.0.i, 1
   %add5.i = add i32 %na.1.i, %retval.0.i
-  %add3 = add i32 %add, %total.1.i
   %17 = load i64, ptr %ek, align 8
   %shr.i = ashr i64 %17, 47
   %conv.i = trunc i64 %shr.i to i32
@@ -1328,22 +1326,13 @@ for.inc.i31:                                      ; preds = %if.then.i37, %land.
 bestasize.exit:                                   ; preds = %for.inc.i31, %countint.exit
   %na.0.lcssa.i = phi i32 [ 0, %countint.exit ], [ %na.1.i32, %for.inc.i31 ]
   %sz.0.lcssa.i = phi i32 [ 0, %countint.exit ], [ %sz.1.i, %for.inc.i31 ]
-  %sub = sub i32 %add3, %na.0.lcssa.i
+  %add3 = add i32 %total.1.i, %retval.0.i
   %tobool.not = icmp eq i32 %add3, %na.0.lcssa.i
-  br i1 %tobool.not, label %cond.end14, label %cond.true
-
-cond.true:                                        ; preds = %bestasize.exit
-  %cmp9 = icmp eq i32 %sub, 1
-  br i1 %cmp9, label %cond.end14, label %cond.false
-
-cond.false:                                       ; preds = %cond.true
-  %sub11 = add i32 %sub, -1
-  %23 = tail call i32 @llvm.ctlz.i32(i32 %sub11, i1 true), !range !6
-  %add12 = sub nuw nsw i32 32, %23
-  br label %cond.end14
-
-cond.end14:                                       ; preds = %bestasize.exit, %cond.false, %cond.true
-  %cond15 = phi i32 [ %add12, %cond.false ], [ 1, %cond.true ], [ 0, %bestasize.exit ]
+  %23 = xor i32 %na.0.lcssa.i, -1
+  %sub11 = add i32 %add3, %23
+  %24 = tail call i32 @llvm.ctlz.i32(i32 %sub11, i1 true), !range !6
+  %add12 = sub nuw nsw i32 32, %24
+  %cond15 = select i1 %tobool.not, i32 0, i32 %add12
   tail call void @lj_tab_resize(ptr noundef %L, ptr noundef %t, i32 noundef %sz.0.lcssa.i, i32 noundef %cond15)
   ret void
 }
