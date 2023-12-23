@@ -3062,30 +3062,22 @@ while.cond:                                       ; preds = %while.cond, %if.the
   br i1 %cmp78, label %while.cond, label %while.end, !llvm.loop !41
 
 while.end:                                        ; preds = %while.cond
-  %cmp81.not = icmp eq i64 %_new_size.0, 0
-  br i1 %cmp81.not, label %cond.end87, label %cond.true83
-
-cond.true83:                                      ; preds = %while.end
   %mul84 = shl i64 %_new_size.0, 3
   %call85 = call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul84) #12
-  br label %cond.end87
-
-cond.end87:                                       ; preds = %while.end, %cond.true83
-  %cond88 = phi ptr [ %call85, %cond.true83 ], [ null, %while.end ]
   br i1 %cmp68, label %if.end93, label %if.then91
 
-if.then91:                                        ; preds = %cond.end87
+if.then91:                                        ; preds = %while.end
   %mul92 = shl i64 %matches_size.0866, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %cond88, ptr align 4 %matches.0869, i64 %mul92, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call85, ptr align 4 %matches.0869, i64 %mul92, i1 false)
   br label %if.end93
 
-if.end93:                                         ; preds = %if.then91, %cond.end87
+if.end93:                                         ; preds = %if.then91, %while.end
   call void @BrotliFree(ptr noundef %m, ptr noundef %matches.0869) #12
   br label %if.end94
 
 if.end94:                                         ; preds = %if.end93, %if.end
   %matches_size.1 = phi i64 [ %_new_size.0, %if.end93 ], [ %matches_size.0866, %if.end ]
-  %matches.1 = phi ptr [ %cond88, %if.end93 ], [ %matches.0869, %if.end ]
+  %matches.1 = phi ptr [ %call85, %if.end93 ], [ %matches.0869, %if.end ]
   %arrayidx98 = getelementptr inbounds %struct.BrotliEncoderParams, ptr %params, i64 0, i32 10, i32 2, i32 3, i64 %dict_id.0
   %10 = load ptr, ptr %arrayidx98, align 8
   %add100 = add i64 %cur_match_pos.0867, %conv

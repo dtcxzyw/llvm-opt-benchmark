@@ -1763,7 +1763,6 @@ _ZN4llvh11raw_ostreamlsEPKc.exit104.i.i:          ; preds = %if.then4.i.i99.i.i,
   %optional.i.i = getelementptr inbounds %struct.Field, ptr %__begin2.sroa.0.06.i.i, i64 0, i32 3
   %120 = load i8, ptr %optional.i.i, align 8
   %121 = and i8 %120, 1
-  %tobool.not.i.i202 = icmp eq i8 %121, 0
   %122 = shl nuw nsw i8 %121, 2
   %call.i.i105.i.i = zext nneg i8 %122 to i64
   %OutBufEnd.i5.i106.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i101.i.i, i64 0, i32 2
@@ -1776,13 +1775,13 @@ _ZN4llvh11raw_ostreamlsEPKc.exit104.i.i:          ; preds = %if.then4.i.i99.i.i,
   br i1 %cmp.i.i111.i.i, label %if.then.i.i117.i.i, label %if.end.i.i112.i.i
 
 if.then.i.i117.i.i:                               ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit104.i.i
-  %cond.i.i = select i1 %tobool.not.i.i202, ptr @.str.34, ptr @.str.425
-  %call3.i.i118.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i101.i.i, ptr noundef nonnull %cond.i.i, i64 noundef %call.i.i105.i.i) #17
+  %call3.i.i118.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i101.i.i, ptr noundef nonnull @.str.425, i64 noundef %call.i.i105.i.i) #17
   %OutBufCur.i6.i122.phi.trans.insert.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i.i118.i.i, i64 0, i32 3
   %.pre15.i.i = load ptr, ptr %OutBufCur.i6.i122.phi.trans.insert.i.i, align 8
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit119.i.i
 
 if.end.i.i112.i.i:                                ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit104.i.i
+  %tobool.not.i.i202 = icmp eq i8 %121, 0
   br i1 %tobool.not.i.i202, label %_ZN4llvh11raw_ostreamlsEPKc.exit119.i.i, label %if.then4.i.i114.i.i
 
 if.then4.i.i114.i.i:                              ; preds = %if.end.i.i112.i.i
@@ -2012,7 +2011,6 @@ _ZN4llvh11raw_ostreamlsEPKc.exit216.i.i:          ; preds = %if.then4.i.i211.i.i
   %optional105.i.i = getelementptr inbounds %struct.Field, ptr %__begin2.sroa.0.06.i.i, i64 0, i32 3
   %135 = load i8, ptr %optional105.i.i, align 8
   %136 = and i8 %135, 1
-  %tobool106.not.i.i = icmp eq i8 %136, 0
   %137 = shl nuw nsw i8 %136, 2
   %call.i.i217.i.i = zext nneg i8 %137 to i64
   %OutBufEnd.i5.i218.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i213.i.i, i64 0, i32 2
@@ -2025,13 +2023,13 @@ _ZN4llvh11raw_ostreamlsEPKc.exit216.i.i:          ; preds = %if.then4.i.i211.i.i
   br i1 %cmp.i.i223.i.i, label %if.then.i.i229.i.i, label %if.end.i.i224.i.i
 
 if.then.i.i229.i.i:                               ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit216.i.i
-  %cond107.i.i = select i1 %tobool106.not.i.i, ptr @.str.34, ptr @.str.425
-  %call3.i.i230.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i213.i.i, ptr noundef nonnull %cond107.i.i, i64 noundef %call.i.i217.i.i) #17
+  %call3.i.i230.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i213.i.i, ptr noundef nonnull @.str.425, i64 noundef %call.i.i217.i.i) #17
   %OutBufCur.i6.i234.phi.trans.insert.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i.i230.i.i, i64 0, i32 3
   %.pre13.i.i = load ptr, ptr %OutBufCur.i6.i234.phi.trans.insert.i.i, align 8
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit231.i.i
 
 if.end.i.i224.i.i:                                ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit216.i.i
+  %tobool106.not.i.i = icmp eq i8 %136, 0
   br i1 %tobool106.not.i.i, label %_ZN4llvh11raw_ostreamlsEPKc.exit231.i.i, label %if.then4.i.i226.i.i
 
 if.then4.i.i226.i.i:                              ; preds = %if.end.i.i224.i.i
@@ -2095,7 +2093,6 @@ _ZN4llvh11raw_ostreamlsEPKc.exit261.i.i:          ; preds = %if.then4.i.i256.i.i
   %optional115.i.i = getelementptr inbounds %struct.Field, ptr %__begin2.sroa.0.06.i.i, i64 0, i32 3
   %147 = load i8, ptr %optional115.i.i, align 8
   %148 = and i8 %147, 1
-  %tobool116.not.i.i = icmp eq i8 %148, 0
   %149 = shl nuw nsw i8 %148, 2
   %call.i.i262.i.i = zext nneg i8 %149 to i64
   %OutBufEnd.i5.i263.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i258.i.i, i64 0, i32 2
@@ -2108,13 +2105,13 @@ _ZN4llvh11raw_ostreamlsEPKc.exit261.i.i:          ; preds = %if.then4.i.i256.i.i
   br i1 %cmp.i.i268.i.i, label %if.then.i.i274.i.i, label %if.end.i.i269.i.i
 
 if.then.i.i274.i.i:                               ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit261.i.i
-  %cond117.i.i = select i1 %tobool116.not.i.i, ptr @.str.34, ptr @.str.425
-  %call3.i.i275.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i258.i.i, ptr noundef nonnull %cond117.i.i, i64 noundef %call.i.i262.i.i) #17
+  %call3.i.i275.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i258.i.i, ptr noundef nonnull @.str.425, i64 noundef %call.i.i262.i.i) #17
   %OutBufCur.i6.i279.phi.trans.insert.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i.i275.i.i, i64 0, i32 3
   %.pre9.i.i = load ptr, ptr %OutBufCur.i6.i279.phi.trans.insert.i.i, align 8
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit276.i.i
 
 if.end.i.i269.i.i:                                ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit261.i.i
+  %tobool116.not.i.i = icmp eq i8 %148, 0
   br i1 %tobool116.not.i.i, label %_ZN4llvh11raw_ostreamlsEPKc.exit276.i.i, label %if.then4.i.i271.i.i
 
 if.then4.i.i271.i.i:                              ; preds = %if.end.i.i269.i.i
@@ -2178,7 +2175,6 @@ _ZN4llvh11raw_ostreamlsEPKc.exit306.i.i:          ; preds = %if.then4.i.i301.i.i
   %optional123.i.i = getelementptr inbounds %struct.Field, ptr %__begin2.sroa.0.06.i.i, i64 0, i32 3
   %159 = load i8, ptr %optional123.i.i, align 8
   %160 = and i8 %159, 1
-  %tobool124.not.i.i = icmp eq i8 %160, 0
   %161 = shl nuw nsw i8 %160, 2
   %call.i.i307.i.i = zext nneg i8 %161 to i64
   %OutBufEnd.i5.i308.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i303.i.i, i64 0, i32 2
@@ -2191,13 +2187,13 @@ _ZN4llvh11raw_ostreamlsEPKc.exit306.i.i:          ; preds = %if.then4.i.i301.i.i
   br i1 %cmp.i.i313.i.i, label %if.then.i.i319.i.i, label %if.end.i.i314.i.i
 
 if.then.i.i319.i.i:                               ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit306.i.i
-  %cond125.i.i = select i1 %tobool124.not.i.i, ptr @.str.34, ptr @.str.425
-  %call3.i.i320.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i303.i.i, ptr noundef nonnull %cond125.i.i, i64 noundef %call.i.i307.i.i) #17
+  %call3.i.i320.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i303.i.i, ptr noundef nonnull @.str.425, i64 noundef %call.i.i307.i.i) #17
   %OutBufCur.i6.i324.phi.trans.insert.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i.i320.i.i, i64 0, i32 3
   %.pre11.i.i = load ptr, ptr %OutBufCur.i6.i324.phi.trans.insert.i.i, align 8
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit321.i.i
 
 if.end.i.i314.i.i:                                ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit306.i.i
+  %tobool124.not.i.i = icmp eq i8 %160, 0
   br i1 %tobool124.not.i.i, label %_ZN4llvh11raw_ostreamlsEPKc.exit321.i.i, label %if.then4.i.i316.i.i
 
 if.then4.i.i316.i.i:                              ; preds = %if.end.i.i314.i.i

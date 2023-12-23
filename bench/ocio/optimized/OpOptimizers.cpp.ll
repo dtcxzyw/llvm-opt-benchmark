@@ -6864,16 +6864,12 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119FindSeparablePrefixERKNS_10OpRcPtrVecE.e
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %constOp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp55.i.i)
-  %cmp5.i = icmp eq i32 %prefixLen.0.lcssa.i.i, 0
-  br i1 %cmp5.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123OptimizeSeparablePrefixERNS_10OpRcPtrVecENS_8BitDepthE.exit, label %if.end7.i
-
-if.end7.i:                                        ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119FindSeparablePrefixERKNS_10OpRcPtrVecE.exit.i
   call void @_ZN19OpenColorIO_v2_4dev10OpRcPtrVecC1Ev(ptr noundef nonnull align 8 dereferenceable(144) %prefixOps.i)
   %_M_refcount.i.i.i70 = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp.i, i64 0, i32 1
   br label %for.body.i
 
-for.body.i:                                       ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev2OpEED2Ev.exit.i, %if.end7.i
-  %indvars.iv.i = phi i64 [ 0, %if.end7.i ], [ %indvars.iv.next.i, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev2OpEED2Ev.exit.i ]
+for.body.i:                                       ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev2OpEED2Ev.exit.i, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119FindSeparablePrefixERKNS_10OpRcPtrVecE.exit.i
+  %indvars.iv.i = phi i64 [ 0, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119FindSeparablePrefixERKNS_10OpRcPtrVecE.exit.i ], [ %indvars.iv.next.i, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev2OpEED2Ev.exit.i ]
   %226 = load ptr, ptr %this, align 8
   %add.ptr.i.i.i71 = getelementptr inbounds %"class.std::shared_ptr", ptr %226, i64 %indvars.iv.i
   %227 = load ptr, ptr %add.ptr.i.i.i71, align 8
@@ -7117,7 +7113,7 @@ ehcleanup51.i:                                    ; preds = %ehcleanup.i, %lpad1
   call void @_ZN19OpenColorIO_v2_4dev10OpRcPtrVecD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %prefixOps.i) #13
   br label %common.resume
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123OptimizeSeparablePrefixERNS_10OpRcPtrVecENS_8BitDepthE.exit: ; preds = %if.then10, %if.end.i, %if.end.i, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119FindSeparablePrefixERKNS_10OpRcPtrVecE.exit.thread.i, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119FindSeparablePrefixERKNS_10OpRcPtrVecE.exit.i, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev11Lut1DOpDataEED2Ev.exit.i
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123OptimizeSeparablePrefixERNS_10OpRcPtrVecENS_8BitDepthE.exit: ; preds = %if.then10, %if.end.i, %if.end.i, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119FindSeparablePrefixERKNS_10OpRcPtrVecE.exit.thread.i, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev11Lut1DOpDataEED2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %prefixOps.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %newDomain.i)
