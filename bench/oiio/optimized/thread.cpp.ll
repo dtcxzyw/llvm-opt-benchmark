@@ -8294,7 +8294,6 @@ _ZNKSt14default_deleteISt8functionIFviEEEclEPS2_.exit.i: ; preds = %if.then.i.i.
   br label %_ZNSt10unique_ptrISt8functionIFviEESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrISt8functionIFviEESt14default_deleteIS2_EED2Ev.exit: ; preds = %cleanup, %_ZNKSt14default_deleteISt8functionIFviEEEclEPS2_.exit.i
-  store ptr null, ptr %func, align 8
   br i1 %tobool.i.i.not, label %while.cond5.backedge, label %return
 
 while.cond5.backedge:                             ; preds = %_ZNSt10unique_ptrISt8functionIFviEESt14default_deleteIS2_EED2Ev.exit, %_ZNSt11unique_lockISt5mutexED2Ev.exit

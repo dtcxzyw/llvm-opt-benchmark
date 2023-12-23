@@ -3894,11 +3894,7 @@ if.end37:                                         ; preds = %if.else, %if.then34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #26
   %14 = load ptr, ptr %currentNode, align 8
   %tobool.not.i24 = icmp eq ptr %14, null
-  br i1 %tobool.not.i24, label %_ZNK4pugi8xml_node12next_siblingEv.exit.thread, label %_ZNK4pugi8xml_node12next_siblingEv.exit
-
-_ZNK4pugi8xml_node12next_siblingEv.exit.thread:   ; preds = %if.end37
-  store ptr null, ptr %currentNode, align 8
-  br label %for.end
+  br i1 %tobool.not.i24, label %for.end, label %_ZNK4pugi8xml_node12next_siblingEv.exit
 
 _ZNK4pugi8xml_node12next_siblingEv.exit:          ; preds = %if.end37
   %next_sibling.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %14, i64 0, i32 6
@@ -3907,7 +3903,7 @@ _ZNK4pugi8xml_node12next_siblingEv.exit:          ; preds = %if.end37
   %tobool.not.i12 = icmp eq ptr %15, null
   br i1 %tobool.not.i12, label %for.end, label %_ZNK4pugi8xml_node4nameEv.exit
 
-for.end:                                          ; preds = %_ZNK4pugi8xml_node12next_siblingEv.exit, %_ZNK4pugi8xml_node12next_siblingEv.exit.thread
+for.end:                                          ; preds = %_ZNK4pugi8xml_node12next_siblingEv.exit, %if.end37
   %.pre = load ptr, ptr %mNodeElement_Cur, align 8
   %cmp.not.i = icmp eq ptr %.pre, null
   br i1 %cmp.not.i, label %if.end45, label %if.then.i

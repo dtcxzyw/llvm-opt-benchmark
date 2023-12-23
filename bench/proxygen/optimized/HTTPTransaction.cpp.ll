@@ -3530,15 +3530,11 @@ if.else:                                          ; preds = %lor.rhs.i33, %invok
 invoke.cont171:                                   ; preds = %if.else
   %74 = load ptr, ptr %agg.tmp, align 8
   %cmp.not.i = icmp eq ptr %74, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i
+  br i1 %cmp.not.i, label %cleanup, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i: ; preds = %invoke.cont171
   call void @_ZN8proxygen11HTTPMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(616) %74) #27
   call void @_ZdlPv(ptr noundef nonnull %74) #28
-  br label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit
-
-_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont171, %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i
-  store ptr null, ptr %agg.tmp, align 8
   br label %cleanup
 
 lpad170:                                          ; preds = %if.else
@@ -3547,7 +3543,7 @@ lpad170:                                          ; preds = %if.else
   call void @_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #27
   br label %ehcleanup174
 
-cleanup:                                          ; preds = %cond.false, %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit, %cleanup.action, %cond.end, %invoke.cont23
+cleanup:                                          ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i, %invoke.cont171, %cond.false, %cleanup.action, %cond.end, %invoke.cont23
   %76 = load ptr, ptr %g, align 8
   %cmp.not.i51 = icmp eq ptr %76, null
   br i1 %cmp.not.i51, label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit, label %if.then.i52
@@ -12213,7 +12209,6 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i56: ; preds = %invoke.cont94
   br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit57
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit57: ; preds = %invoke.cont94, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i56
-  store ptr null, ptr %agg.tmp92, align 8
   %sub = sub i64 %canSend.0106, %.sroa.speculated89
   %54 = load i64, ptr %_M_storage.i.i.i, align 8
   %sub98 = sub i64 %54, %.sroa.speculated89
@@ -15257,15 +15252,11 @@ sw.bb206:                                         ; preds = %cleanup.done190
 invoke.cont209:                                   ; preds = %sw.bb206
   %51 = load ptr, ptr %agg.tmp, align 8
   %cmp.not.i = icmp eq ptr %51, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i
+  br i1 %cmp.not.i, label %if.then.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i: ; preds = %invoke.cont209
   call void @_ZN8proxygen11HTTPMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(616) %51) #27
   call void @_ZdlPv(ptr noundef nonnull %51) #28
-  br label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit
-
-_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont209, %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i
-  store ptr null, ptr %agg.tmp, align 8
   br label %if.then.i
 
 lpad208:                                          ; preds = %sw.bb206
@@ -15366,7 +15357,6 @@ cleanup:                                          ; preds = %_ZNKSt14default_del
   br label %if.then.i107, !llvm.loop !104
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit97: ; preds = %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i, %invoke.cont227
-  store ptr null, ptr %agg.tmp225, align 8
   store ptr null, ptr %data, align 8
   br label %if.then.i
 
@@ -15403,15 +15393,11 @@ sw.bb234:                                         ; preds = %cleanup.done190
 invoke.cont238:                                   ; preds = %sw.bb234
   %61 = load ptr, ptr %agg.tmp235, align 8
   %cmp.not.i100 = icmp eq ptr %61, null
-  br i1 %cmp.not.i100, label %_ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i
+  br i1 %cmp.not.i100, label %if.then.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i: ; preds = %invoke.cont238
   call void @_ZN8proxygen11HTTPHeadersD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #27
   call void @_ZdlPv(ptr noundef nonnull %61) #28
-  br label %_ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit
-
-_ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont238, %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i
-  store ptr null, ptr %agg.tmp235, align 8
   br label %if.then.i
 
 lpad237:                                          ; preds = %sw.bb234
@@ -15472,7 +15458,7 @@ terminate.lpad.i.i:                               ; preds = %if.then6.i.i
   call void @__clang_call_terminate(ptr %72) #29
   unreachable
 
-if.then.i:                                        ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit97, %cleanup.done190, %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit, %invoke.cont229, %sw.bb232, %sw.bb240, %if.then.i.i, %if.then6.i.i
+if.then.i:                                        ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i, %invoke.cont238, %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i, %invoke.cont209, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit97, %cleanup.done190, %invoke.cont229, %sw.bb232, %sw.bb240, %if.then.i.i, %if.then6.i.i
   %this.val.val.i = load ptr, ptr %deferredIngress_, align 8
   %cmp.i.not.i.i.i = icmp eq ptr %this.val.val.i, null
   br i1 %cmp.i.not.i.i.i, label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev.exit", label %if.then.i.i.i

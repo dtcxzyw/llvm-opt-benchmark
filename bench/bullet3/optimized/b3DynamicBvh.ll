@@ -179,7 +179,6 @@ _ZN20b3AlignedObjectArrayIPK10b3DbvtNodeED2Ev.exit.thread: ; preds = %invoke.con
   %m_size.i.i.i922 = getelementptr inbounds %struct.b3DynamicBvh, ptr %this, i64 0, i32 7, i32 2
   %m_ownsMemory.i1.i.i1023 = getelementptr inbounds %struct.b3DynamicBvh, ptr %this, i64 0, i32 7, i32 6
   store i8 1, ptr %m_ownsMemory.i1.i.i1023, align 8
-  store ptr null, ptr %m_data.i.i.i3, align 8
   store i32 0, ptr %m_size.i.i.i922, align 4
   %m_capacity.i.i.i1124 = getelementptr inbounds %struct.b3DynamicBvh, ptr %this, i64 0, i32 7, i32 3
   store i32 0, ptr %m_capacity.i.i.i1124, align 8

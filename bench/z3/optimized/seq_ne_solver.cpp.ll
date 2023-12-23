@@ -5585,7 +5585,6 @@ if.end.i:                                         ; preds = %_ZN7obj_refI4expr11
   br i1 %tobool.not.i.i, label %_ZN6vectorISt4pairI10ref_vectorI4expr11ast_managerES4_ELb1EjEaSEOS6_.exit.thread18, label %_ZNK6vectorISt4pairI10ref_vectorI4expr11ast_managerES4_ELb1EjE4sizeEv.exit.i.i.i
 
 _ZN6vectorISt4pairI10ref_vectorI4expr11ast_managerES4_ELb1EjEaSEOS6_.exit.thread18: ; preds = %if.end.i
-  store ptr null, ptr %m_eqs, align 8
   %14 = load ptr, ptr %m_eqs5, align 8
   store ptr %14, ptr %m_eqs, align 8
   store ptr null, ptr %m_eqs5, align 8

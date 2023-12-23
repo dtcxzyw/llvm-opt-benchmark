@@ -3166,7 +3166,6 @@ if.end.i.i.i.i.i630:                              ; preds = %cleanup639.critedge
   br label %_ZNKSt14default_deleteIN7rocksdb16CompactionFilterEEclEPS1_.exit.i633
 
 cleanup639:                                       ; preds = %_ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i, %cleanup637
-  store ptr null, ptr %file_writer, align 8
   %cmp.not.i632 = icmp eq ptr %compaction_filter.sroa.0.1, null
   br i1 %cmp.not.i632, label %_ZNSt10unique_ptrIN7rocksdb16CompactionFilterESt14default_deleteIS1_EED2Ev.exit636, label %_ZNKSt14default_deleteIN7rocksdb16CompactionFilterEEclEPS1_.exit.i633
 

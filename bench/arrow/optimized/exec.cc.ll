@@ -19860,22 +19860,17 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 define internal fastcc void @_ZN5arrow7compute12_GLOBAL__N_118AllocateDataBufferEPNS0_13KernelContextEli(ptr noalias align 8 %agg.result, ptr noundef %ctx, i64 noundef %length, i32 noundef %bit_width) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result.257", align 8
-  %ref.tmp.sroa.gep = getelementptr inbounds %"class.arrow::Result.257", ptr %ref.tmp, i64 0, i32 1
   %ref.tmp1 = alloca %"class.arrow::Result.257", align 8
-  %ref.tmp1.sroa.gep = getelementptr inbounds %"class.arrow::Result.257", ptr %ref.tmp1, i64 0, i32 1
   %cmp = icmp eq i32 %bit_width, 1
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
+  %ref.tmp.sroa.gep = getelementptr inbounds %"class.arrow::Result.257", ptr %ref.tmp, i64 0, i32 1
   call void @_ZN5arrow7compute13KernelContext14AllocateBitmapEl(ptr nonnull sret(%"class.arrow::Result.257") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ctx, i64 noundef %length)
   store ptr null, ptr %agg.result, align 8
   %0 = load ptr, ptr %ref.tmp, align 8
   %cmp.i.i = icmp eq ptr %0, null
-  br i1 %cmp.i.i, label %_ZNSt10shared_ptrIN5arrow15ResizableBufferEED2Ev.exit.i, label %if.then.i.i
-
-_ZNSt10shared_ptrIN5arrow15ResizableBufferEED2Ev.exit.i: ; preds = %if.then
-  store ptr null, ptr %ref.tmp, align 8
-  br label %return.sink.split
+  br i1 %cmp.i.i, label %return.sink.split, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
@@ -19889,6 +19884,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   unreachable
 
 if.else:                                          ; preds = %entry
+  %ref.tmp1.sroa.gep = getelementptr inbounds %"class.arrow::Result.257", ptr %ref.tmp1, i64 0, i32 1
   %conv = zext nneg i32 %bit_width to i64
   %mul = mul nsw i64 %conv, %length
   %shr.i = ashr i64 %mul, 3
@@ -19900,11 +19896,7 @@ if.else:                                          ; preds = %entry
   store ptr null, ptr %agg.result, align 8
   %3 = load ptr, ptr %ref.tmp1, align 8
   %cmp.i.i4 = icmp eq ptr %3, null
-  br i1 %cmp.i.i4, label %_ZNSt10shared_ptrIN5arrow15ResizableBufferEED2Ev.exit.i7, label %if.then.i.i5
-
-_ZNSt10shared_ptrIN5arrow15ResizableBufferEED2Ev.exit.i7: ; preds = %if.else
-  store ptr null, ptr %ref.tmp1, align 8
-  br label %return.sink.split
+  br i1 %cmp.i.i4, label %return.sink.split, label %if.then.i.i5
 
 if.then.i.i5:                                     ; preds = %if.else
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1)
@@ -19917,9 +19909,9 @@ terminate.lpad.i6:                                ; preds = %if.then.i.i5
   call void @__clang_call_terminate(ptr %5) #25
   unreachable
 
-return.sink.split:                                ; preds = %_ZNSt10shared_ptrIN5arrow15ResizableBufferEED2Ev.exit.i, %_ZNSt10shared_ptrIN5arrow15ResizableBufferEED2Ev.exit.i7
-  %ref.tmp.sink = phi ptr [ %ref.tmp, %_ZNSt10shared_ptrIN5arrow15ResizableBufferEED2Ev.exit.i ], [ %ref.tmp1, %_ZNSt10shared_ptrIN5arrow15ResizableBufferEED2Ev.exit.i7 ]
-  %ref.tmp.sink.sroa.phi = phi ptr [ %ref.tmp.sroa.gep, %_ZNSt10shared_ptrIN5arrow15ResizableBufferEED2Ev.exit.i ], [ %ref.tmp1.sroa.gep, %_ZNSt10shared_ptrIN5arrow15ResizableBufferEED2Ev.exit.i7 ]
+return.sink.split:                                ; preds = %if.else, %if.then
+  %ref.tmp.sink = phi ptr [ %ref.tmp, %if.then ], [ %ref.tmp1, %if.else ]
+  %ref.tmp.sink.sroa.phi = phi ptr [ %ref.tmp.sroa.gep, %if.then ], [ %ref.tmp1.sroa.gep, %if.else ]
   %storage_.i4.i10 = getelementptr inbounds %"class.arrow::Result.342", ptr %agg.result, i64 0, i32 1
   %6 = load <2 x ptr>, ptr %ref.tmp.sink.sroa.phi, align 8, !noalias !369
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sink.sroa.phi, i8 0, i64 16, i1 false)
@@ -26458,7 +26450,7 @@ if.then.i:                                        ; preds = %entry
   %storage_.i = getelementptr inbounds %"class.arrow::Result.376", ptr %this, i64 0, i32 1
   %1 = load ptr, ptr %storage_.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i.i.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %_ZN5arrow6ResultISt10unique_ptrINS_7compute11KernelStateESt14default_deleteIS3_EEE7DestroyEv.exit
+  br i1 %cmp.not.i.i.i, label %_ZN5arrow6StatusD2Ev.exit, label %_ZN5arrow6ResultISt10unique_ptrINS_7compute11KernelStateESt14default_deleteIS3_EEE7DestroyEv.exit
 
 _ZN5arrow6ResultISt10unique_ptrINS_7compute11KernelStateESt14default_deleteIS3_EEE7DestroyEv.exit: ; preds = %if.then.i
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
@@ -26549,14 +26541,10 @@ _ZN5arrow6Status11DeleteStateEv.exit.i:           ; preds = %if.end8.sink.split.
   %msg.i.i.i = getelementptr inbounds %"struct.arrow::Status::State", ptr %3, i64 0, i32 1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i) #22
   tail call void @_ZdlPv(ptr noundef nonnull %3) #26
-  br label %_ZN5arrow6StatusD2Ev.exit.sink.split
-
-_ZN5arrow6StatusD2Ev.exit.sink.split:             ; preds = %if.then.i, %_ZN5arrow6Status11DeleteStateEv.exit.i
-  %storage_.i.sink = phi ptr [ %this, %_ZN5arrow6Status11DeleteStateEv.exit.i ], [ %storage_.i, %if.then.i ]
-  store ptr null, ptr %storage_.i.sink, align 8
+  store ptr null, ptr %this, align 8
   br label %_ZN5arrow6StatusD2Ev.exit
 
-_ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6StatusD2Ev.exit.sink.split, %_ZN5arrow6ResultISt10unique_ptrINS_7compute11KernelStateESt14default_deleteIS3_EEE7DestroyEv.exit
+_ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.then.i, %_ZN5arrow6ResultISt10unique_ptrINS_7compute11KernelStateESt14default_deleteIS3_EEE7DestroyEv.exit, %_ZN5arrow6Status11DeleteStateEv.exit.i
   ret void
 }
 

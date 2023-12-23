@@ -2484,7 +2484,6 @@ if.then.i:                                        ; preds = %if.then
   unreachable
 
 _ZNSt6threadD2Ev.exit:                            ; preds = %if.then
-  store i64 0, ptr @_ZN4pbrtL12updateThreadE, align 8
   store atomic i8 0, ptr @_ZN4pbrtL10exitThreadE.0 seq_cst, align 1
   br label %if.end
 

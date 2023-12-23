@@ -11853,7 +11853,11 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 _ZN7rocksdb6StatusaSEOS0_.exit238:                ; preds = %if.then.i223, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i237
   %83 = load ptr, ptr %state_.i234, align 8
   %cmp.not.i.i240 = icmp eq ptr %83, null
-  br i1 %cmp.not.i.i240, label %invoke.cont294.sink.split, label %invoke.cont294.sink.split.sink.split
+  br i1 %cmp.not.i.i240, label %invoke.cont294, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i241
+
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i241: ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit238
+  call void @_ZdaPv(ptr noundef nonnull %83) #27
+  br label %invoke.cont294
 
 if.else104:                                       ; preds = %land.lhs.true88, %if.end80
   %call107 = invoke noundef ptr @_ZN7rocksdb16ColumnFamilyData25GetReferencedSuperVersionEPNS_6DBImplE(ptr noundef nonnull align 8 dereferenceable(2656) %call2, ptr noundef nonnull %this)
@@ -12122,7 +12126,11 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 _ZN7rocksdb6StatusaSEOS0_.exit281:                ; preds = %if.then.i266, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i280
   %115 = load ptr, ptr %state_.i277, align 8
   %cmp.not.i.i283 = icmp eq ptr %115, null
-  br i1 %cmp.not.i.i283, label %invoke.cont294.sink.split, label %invoke.cont294.sink.split.sink.split
+  br i1 %cmp.not.i.i283, label %invoke.cont294, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i284
+
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i284: ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit281
+  call void @_ZdaPv(ptr noundef nonnull %115) #27
+  br label %invoke.cont294
 
 if.then.i.i.i288:                                 ; preds = %lpad129
   %table_filter.i289 = getelementptr inbounds %"struct.rocksdb::ReadOptions", ptr %ro, i64 0, i32 27
@@ -12273,7 +12281,6 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %invoke.cont254
 
 invoke.cont254:                                   ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i322, %_ZN7rocksdb6StatusaSEOS0_.exit319
-  store ptr null, ptr %state_.i315, align 8
   %141 = load i8, ptr %agg.result, align 8
   %cmp.i324 = icmp eq i8 %141, 0
   br i1 %cmp.i324, label %if.end257, label %invoke.cont294
@@ -12320,23 +12327,18 @@ invoke.cont287:                                   ; preds = %if.then284
   %state_.i328 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp285, i64 0, i32 6
   %147 = load ptr, ptr %state_.i328, align 8
   %cmp.not.i.i329 = icmp eq ptr %147, null
-  br i1 %cmp.not.i.i329, label %invoke.cont294.sink.split, label %invoke.cont294.sink.split.sink.split
+  br i1 %cmp.not.i.i329, label %_ZN7rocksdb6StatusD2Ev.exit331, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i330
 
-invoke.cont294.sink.split.sink.split:             ; preds = %invoke.cont287, %_ZN7rocksdb6StatusaSEOS0_.exit281, %_ZN7rocksdb6StatusaSEOS0_.exit238
-  %.sink = phi ptr [ %83, %_ZN7rocksdb6StatusaSEOS0_.exit238 ], [ %115, %_ZN7rocksdb6StatusaSEOS0_.exit281 ], [ %147, %invoke.cont287 ]
-  %state_.i234.sink.ph = phi ptr [ %state_.i234, %_ZN7rocksdb6StatusaSEOS0_.exit238 ], [ %state_.i277, %_ZN7rocksdb6StatusaSEOS0_.exit281 ], [ %state_.i328, %invoke.cont287 ]
-  %final_output_level.2.ph.ph = phi i32 [ %spec.select, %_ZN7rocksdb6StatusaSEOS0_.exit238 ], [ %first_overlapped_level.0, %_ZN7rocksdb6StatusaSEOS0_.exit281 ], [ %level202.0, %invoke.cont287 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink) #27
-  br label %invoke.cont294.sink.split
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i330: ; preds = %invoke.cont287
+  call void @_ZdaPv(ptr noundef nonnull %147) #27
+  br label %_ZN7rocksdb6StatusD2Ev.exit331
 
-invoke.cont294.sink.split:                        ; preds = %invoke.cont294.sink.split.sink.split, %invoke.cont287, %_ZN7rocksdb6StatusaSEOS0_.exit281, %_ZN7rocksdb6StatusaSEOS0_.exit238
-  %state_.i234.sink = phi ptr [ %state_.i234, %_ZN7rocksdb6StatusaSEOS0_.exit238 ], [ %state_.i277, %_ZN7rocksdb6StatusaSEOS0_.exit281 ], [ %state_.i328, %invoke.cont287 ], [ %state_.i234.sink.ph, %invoke.cont294.sink.split.sink.split ]
-  %final_output_level.2.ph = phi i32 [ %spec.select, %_ZN7rocksdb6StatusaSEOS0_.exit238 ], [ %first_overlapped_level.0, %_ZN7rocksdb6StatusaSEOS0_.exit281 ], [ %level202.0, %invoke.cont287 ], [ %final_output_level.2.ph.ph, %invoke.cont294.sink.split.sink.split ]
-  store ptr null, ptr %state_.i234.sink, align 8
+_ZN7rocksdb6StatusD2Ev.exit331:                   ; preds = %invoke.cont287, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i330
+  store ptr null, ptr %state_.i328, align 8
   br label %invoke.cont294
 
-invoke.cont294:                                   ; preds = %invoke.cont254, %invoke.cont294.sink.split, %lor.lhs.false273, %invoke.cont264, %lor.lhs.false278
-  %final_output_level.2 = phi i32 [ %level202.0, %invoke.cont264 ], [ %level202.0, %lor.lhs.false278 ], [ %level202.0, %lor.lhs.false273 ], [ %final_output_level.2.ph, %invoke.cont294.sink.split ], [ %level202.0, %invoke.cont254 ]
+invoke.cont294:                                   ; preds = %invoke.cont254, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i284, %_ZN7rocksdb6StatusaSEOS0_.exit281, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i241, %_ZN7rocksdb6StatusaSEOS0_.exit238, %lor.lhs.false273, %_ZN7rocksdb6StatusD2Ev.exit331, %invoke.cont264, %lor.lhs.false278
+  %final_output_level.2 = phi i32 [ %level202.0, %_ZN7rocksdb6StatusD2Ev.exit331 ], [ %level202.0, %invoke.cont264 ], [ %level202.0, %lor.lhs.false278 ], [ %level202.0, %lor.lhs.false273 ], [ %spec.select, %_ZN7rocksdb6StatusaSEOS0_.exit238 ], [ %spec.select, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i241 ], [ %first_overlapped_level.0, %_ZN7rocksdb6StatusaSEOS0_.exit281 ], [ %first_overlapped_level.0, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i284 ], [ %level202.0, %invoke.cont254 ]
   %148 = load i8, ptr %agg.result, align 8
   %cmp.i332 = icmp eq i8 %148, 0
   %cmp297 = icmp ne i32 %final_output_level.2, -1
@@ -26922,7 +26924,6 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit170
 
 _ZN7rocksdb6StatusD2Ev.exit170:                   ; preds = %ehcleanup, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i169
-  store ptr null, ptr %state_.i, align 8
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %mutex_)
           to label %_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit172 unwind label %terminate.lpad.i171
 

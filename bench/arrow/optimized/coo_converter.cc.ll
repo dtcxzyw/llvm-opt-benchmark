@@ -3465,7 +3465,7 @@ if.then.i:                                        ; preds = %entry
   %storage_.i = getelementptr inbounds %"class.arrow::Result.26", ptr %this, i64 0, i32 1
   %1 = load ptr, ptr %storage_.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i.i.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %_ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEE7DestroyEv.exit
+  br i1 %cmp.not.i.i.i, label %_ZN5arrow6StatusD2Ev.exit, label %_ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEE7DestroyEv.exit
 
 _ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEE7DestroyEv.exit: ; preds = %if.then.i
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
@@ -3556,14 +3556,10 @@ _ZN5arrow6Status11DeleteStateEv.exit.i:           ; preds = %if.end8.sink.split.
   %msg.i.i.i = getelementptr inbounds %"struct.arrow::Status::State", ptr %3, i64 0, i32 1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i) #19
   tail call void @_ZdlPv(ptr noundef nonnull %3) #21
-  br label %_ZN5arrow6StatusD2Ev.exit.sink.split
-
-_ZN5arrow6StatusD2Ev.exit.sink.split:             ; preds = %if.then.i, %_ZN5arrow6Status11DeleteStateEv.exit.i
-  %storage_.i.sink = phi ptr [ %this, %_ZN5arrow6Status11DeleteStateEv.exit.i ], [ %storage_.i, %if.then.i ]
-  store ptr null, ptr %storage_.i.sink, align 8
+  store ptr null, ptr %this, align 8
   br label %_ZN5arrow6StatusD2Ev.exit
 
-_ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6StatusD2Ev.exit.sink.split, %_ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEE7DestroyEv.exit
+_ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.then.i, %_ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEE7DestroyEv.exit, %_ZN5arrow6Status11DeleteStateEv.exit.i
   ret void
 }
 
@@ -7292,7 +7288,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, 3
   %.pre.i.i.i.i.i.i81.i.i.i.us = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us
   %add.ptr.i.i.i.i.i.i82.i.i.i.us = getelementptr inbounds i64, ptr %add.ptr.i3.i77.i.i.i.us, i64 %.pre.i.i.i.i.i.i81.i.i.i.us
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr nonnull align 8 %call5.i.i.i.i2.i.i53, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(1) %call5.i.i.i.i2.i.i53, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
   br label %for.inc.i39.i.i.i.us
 
 for.inc.i39.i.i.i.us:                             ; preds = %if.end.i.i.i.i68.i.i.i.us, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T_S8_S7_.exit.i76.i.i.i.us
@@ -7768,7 +7764,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, 3
   %.pre.i.i.i.i.i.i81.i.i.i.us = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us
   %add.ptr.i.i.i.i.i.i82.i.i.i.us = getelementptr inbounds i64, ptr %add.ptr.i3.i77.i.i.i.us, i64 %.pre.i.i.i.i.i.i81.i.i.i.us
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr nonnull align 8 %call5.i.i.i.i2.i.i50, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(1) %call5.i.i.i.i2.i.i50, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
   br label %for.inc.i39.i.i.i.us
 
 for.inc.i39.i.i.i.us:                             ; preds = %if.end.i.i.i.i68.i.i.i.us, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T_S8_S7_.exit.i76.i.i.i.us
@@ -8245,7 +8241,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, 3
   %.pre.i.i.i.i.i.i81.i.i.i.us = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us
   %add.ptr.i.i.i.i.i.i82.i.i.i.us = getelementptr inbounds i64, ptr %add.ptr.i3.i77.i.i.i.us, i64 %.pre.i.i.i.i.i.i81.i.i.i.us
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr nonnull align 8 %call5.i.i.i.i2.i.i50, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(1) %call5.i.i.i.i2.i.i50, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
   br label %for.inc.i39.i.i.i.us
 
 for.inc.i39.i.i.i.us:                             ; preds = %if.end.i.i.i.i68.i.i.i.us, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T_S8_S7_.exit.i76.i.i.i.us
@@ -8707,7 +8703,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, 3
   %.pre.i.i.i.i.i.i81.i.i.i.us = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us
   %add.ptr.i.i.i.i.i.i82.i.i.i.us = getelementptr inbounds i64, ptr %add.ptr.i3.i77.i.i.i.us, i64 %.pre.i.i.i.i.i.i81.i.i.i.us
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr nonnull align 8 %call5.i.i.i.i2.i.i50, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(1) %call5.i.i.i.i2.i.i50, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
   br label %for.inc.i39.i.i.i.us
 
 for.inc.i39.i.i.i.us:                             ; preds = %if.end.i.i.i.i68.i.i.i.us, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T_S8_S7_.exit.i76.i.i.i.us
@@ -9184,7 +9180,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, 3
   %.pre.i.i.i.i.i.i81.i.i.i.us = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us
   %add.ptr.i.i.i.i.i.i82.i.i.i.us = getelementptr inbounds i64, ptr %add.ptr.i3.i77.i.i.i.us, i64 %.pre.i.i.i.i.i.i81.i.i.i.us
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr nonnull align 8 %call5.i.i.i.i2.i.i50, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(1) %call5.i.i.i.i2.i.i50, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
   br label %for.inc.i39.i.i.i.us
 
 for.inc.i39.i.i.i.us:                             ; preds = %if.end.i.i.i.i68.i.i.i.us, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T_S8_S7_.exit.i76.i.i.i.us
@@ -9662,7 +9658,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, 3
   %.pre.i.i.i.i.i.i81.i.i.i.us = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us
   %add.ptr.i.i.i.i.i.i82.i.i.i.us = getelementptr inbounds i64, ptr %add.ptr.i3.i77.i.i.i.us, i64 %.pre.i.i.i.i.i.i81.i.i.i.us
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr nonnull align 8 %call5.i.i.i.i2.i.i56, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(1) %call5.i.i.i.i2.i.i56, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
   br label %for.inc.i39.i.i.i.us
 
 for.inc.i39.i.i.i.us:                             ; preds = %if.end.i.i.i.i68.i.i.i.us, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T_S8_S7_.exit.i76.i.i.i.us
@@ -10141,7 +10137,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, 3
   %.pre.i.i.i.i.i.i81.i.i.i.us = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us
   %add.ptr.i.i.i.i.i.i82.i.i.i.us = getelementptr inbounds i64, ptr %add.ptr.i3.i77.i.i.i.us, i64 %.pre.i.i.i.i.i.i81.i.i.i.us
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr nonnull align 8 %call5.i.i.i.i2.i.i53, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(1) %call5.i.i.i.i2.i.i53, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
   br label %for.inc.i39.i.i.i.us
 
 for.inc.i39.i.i.i.us:                             ; preds = %if.end.i.i.i.i68.i.i.i.us, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T_S8_S7_.exit.i76.i.i.i.us
@@ -10605,7 +10601,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, 3
   %.pre.i.i.i.i.i.i81.i.i.i.us = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us
   %add.ptr.i.i.i.i.i.i82.i.i.i.us = getelementptr inbounds i64, ptr %add.ptr.i3.i77.i.i.i.us, i64 %.pre.i.i.i.i.i.i81.i.i.i.us
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr nonnull align 8 %call5.i.i.i.i2.i.i53, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(1) %call5.i.i.i.i2.i.i53, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
   br label %for.inc.i39.i.i.i.us
 
 for.inc.i39.i.i.i.us:                             ; preds = %if.end.i.i.i.i68.i.i.i.us, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T_S8_S7_.exit.i76.i.i.i.us
@@ -11083,7 +11079,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, 3
   %.pre.i.i.i.i.i.i81.i.i.i.us = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us
   %add.ptr.i.i.i.i.i.i82.i.i.i.us = getelementptr inbounds i64, ptr %add.ptr.i3.i77.i.i.i.us, i64 %.pre.i.i.i.i.i.i81.i.i.i.us
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr nonnull align 8 %call5.i.i.i.i2.i.i50, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(1) %call5.i.i.i.i2.i.i50, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
   br label %for.inc.i39.i.i.i.us
 
 for.inc.i39.i.i.i.us:                             ; preds = %if.end.i.i.i.i68.i.i.i.us, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T_S8_S7_.exit.i76.i.i.i.us
@@ -11561,7 +11557,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, 3
   %.pre.i.i.i.i.i.i81.i.i.i.us = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us
   %add.ptr.i.i.i.i.i.i82.i.i.i.us = getelementptr inbounds i64, ptr %add.ptr.i3.i77.i.i.i.us, i64 %.pre.i.i.i.i.i.i81.i.i.i.us
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr nonnull align 8 %call5.i.i.i.i2.i.i53, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(1) %call5.i.i.i.i2.i.i53, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
   br label %for.inc.i39.i.i.i.us
 
 for.inc.i39.i.i.i.us:                             ; preds = %if.end.i.i.i.i68.i.i.i.us, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T_S8_S7_.exit.i76.i.i.i.us
@@ -12040,7 +12036,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, 3
   %.pre.i.i.i.i.i.i81.i.i.i.us = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us
   %add.ptr.i.i.i.i.i.i82.i.i.i.us = getelementptr inbounds i64, ptr %add.ptr.i3.i77.i.i.i.us, i64 %.pre.i.i.i.i.i.i81.i.i.i.us
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr nonnull align 8 %call5.i.i.i.i2.i.i56, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(1) %call5.i.i.i.i2.i.i56, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
   br label %for.inc.i39.i.i.i.us
 
 for.inc.i39.i.i.i.us:                             ; preds = %if.end.i.i.i.i68.i.i.i.us, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T_S8_S7_.exit.i76.i.i.i.us
@@ -12504,7 +12500,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, 3
   %.pre.i.i.i.i.i.i81.i.i.i.us = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us
   %add.ptr.i.i.i.i.i.i82.i.i.i.us = getelementptr inbounds i64, ptr %add.ptr.i3.i77.i.i.i.us, i64 %.pre.i.i.i.i.i.i81.i.i.i.us
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr nonnull align 8 %call5.i.i.i.i2.i.i53, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(1) %call5.i.i.i.i2.i.i53, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
   br label %for.inc.i39.i.i.i.us
 
 for.inc.i39.i.i.i.us:                             ; preds = %if.end.i.i.i.i68.i.i.i.us, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T_S8_S7_.exit.i76.i.i.i.us
@@ -12982,7 +12978,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, 3
   %.pre.i.i.i.i.i.i81.i.i.i.us = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us
   %add.ptr.i.i.i.i.i.i82.i.i.i.us = getelementptr inbounds i64, ptr %add.ptr.i3.i77.i.i.i.us, i64 %.pre.i.i.i.i.i.i81.i.i.i.us
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr nonnull align 8 %call5.i.i.i.i2.i.i52, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(1) %call5.i.i.i.i2.i.i52, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
   br label %for.inc.i39.i.i.i.us
 
 for.inc.i39.i.i.i.us:                             ; preds = %if.end.i.i.i.i68.i.i.i.us, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T_S8_S7_.exit.i76.i.i.i.us
@@ -13459,7 +13455,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, 3
   %.pre.i.i.i.i.i.i81.i.i.i.us = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us
   %add.ptr.i.i.i.i.i.i82.i.i.i.us = getelementptr inbounds i64, ptr %add.ptr.i3.i77.i.i.i.us, i64 %.pre.i.i.i.i.i.i81.i.i.i.us
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr nonnull align 8 %call5.i.i.i.i2.i.i55, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(1) %call5.i.i.i.i2.i.i55, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
   br label %for.inc.i39.i.i.i.us
 
 for.inc.i39.i.i.i.us:                             ; preds = %if.end.i.i.i.i68.i.i.i.us, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T_S8_S7_.exit.i76.i.i.i.us
@@ -13937,7 +13933,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, 3
   %.pre.i.i.i.i.i.i81.i.i.i.us = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us
   %add.ptr.i.i.i.i.i.i82.i.i.i.us = getelementptr inbounds i64, ptr %add.ptr.i3.i77.i.i.i.us, i64 %.pre.i.i.i.i.i.i81.i.i.i.us
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr nonnull align 8 %call5.i.i.i.i2.i.i55, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(1) %call5.i.i.i.i2.i.i55, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
   br label %for.inc.i39.i.i.i.us
 
 for.inc.i39.i.i.i.us:                             ; preds = %if.end.i.i.i.i68.i.i.i.us, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T_S8_S7_.exit.i76.i.i.i.us
@@ -14400,7 +14396,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, 3
   %.pre.i.i.i.i.i.i81.i.i.i.us = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i80.i.i.i.us
   %add.ptr.i.i.i.i.i.i82.i.i.i.us = getelementptr inbounds i64, ptr %add.ptr.i3.i77.i.i.i.us, i64 %.pre.i.i.i.i.i.i81.i.i.i.us
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr nonnull align 8 %call5.i.i.i.i2.i.i55, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i82.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(1) %call5.i.i.i.i2.i.i55, i64 %sub.ptr.sub.i.i.i.i.i.i79.i.i.i.us, i1 false)
   br label %for.inc.i39.i.i.i.us
 
 for.inc.i39.i.i.i.us:                             ; preds = %if.end.i.i.i.i68.i.i.i.us, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T_S8_S7_.exit.i76.i.i.i.us

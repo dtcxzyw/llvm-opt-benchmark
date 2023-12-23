@@ -15778,7 +15778,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb4port7RWMutexESt6v
   %sub.ptr.div.i.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i, 3
   %.pre.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
   %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds ptr, ptr %add.ptr.i3.i31.i, i64 %.pre.i.i.i.i.i.i35.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i36.i, ptr nonnull align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
   br label %for.inc.i21.i
 
 if.else.i19.i:                                    ; preds = %for.body.i15.i
@@ -41001,18 +41001,13 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZNSt4pairIjS_IN7rocksdb8IOStatusESt10unique_ptrINS0_12_GLOBAL__N_116BackupEngineImpl10BackupMetaESt14default_deleteIS5_EEEED2Ev.exit
 
 _ZNSt4pairIjS_IN7rocksdb8IOStatusESt10unique_ptrINS0_12_GLOBAL__N_116BackupEngineImpl10BackupMetaESt14default_deleteIS5_EEEED2Ev.exit: ; preds = %invoke.cont386, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i382
-  store ptr null, ptr %state_.i.i.i.i.i.i.i, align 8
   call fastcc void @_ZNSt10unique_ptrIN7rocksdb12_GLOBAL__N_116BackupEngineImpl10BackupMetaESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %second.i.i368) #35
   %200 = load ptr, ptr %state_.i.i489, align 8
   %cmp.not.i.i.i.i384 = icmp eq ptr %200, null
-  br i1 %cmp.not.i.i.i.i384, label %_ZNSt4pairIN7rocksdb8IOStatusESt10unique_ptrINS0_12_GLOBAL__N_116BackupEngineImpl10BackupMetaESt14default_deleteIS5_EEED2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i
+  br i1 %cmp.not.i.i.i.i384, label %nrvo.unused424, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i: ; preds = %_ZNSt4pairIjS_IN7rocksdb8IOStatusESt10unique_ptrINS0_12_GLOBAL__N_116BackupEngineImpl10BackupMetaESt14default_deleteIS5_EEEED2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %200) #33
-  br label %_ZNSt4pairIN7rocksdb8IOStatusESt10unique_ptrINS0_12_GLOBAL__N_116BackupEngineImpl10BackupMetaESt14default_deleteIS5_EEED2Ev.exit
-
-_ZNSt4pairIN7rocksdb8IOStatusESt10unique_ptrINS0_12_GLOBAL__N_116BackupEngineImpl10BackupMetaESt14default_deleteIS5_EEED2Ev.exit: ; preds = %_ZNSt4pairIjS_IN7rocksdb8IOStatusESt10unique_ptrINS0_12_GLOBAL__N_116BackupEngineImpl10BackupMetaESt14default_deleteIS5_EEEED2Ev.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i
-  store ptr null, ptr %state_.i.i489, align 8
   br label %nrvo.unused424
 
 lpad371:                                          ; preds = %invoke.cont369
@@ -41178,8 +41173,8 @@ if.end419:                                        ; preds = %invoke.cont415, %in
   %dec = add nsw i32 %valid_backups_to_open.0596, -1
   br label %nrvo.unused424
 
-nrvo.unused424:                                   ; preds = %if.end419, %_ZNSt4pairIN7rocksdb8IOStatusESt10unique_ptrINS0_12_GLOBAL__N_116BackupEngineImpl10BackupMetaESt14default_deleteIS5_EEED2Ev.exit
-  %valid_backups_to_open.2.ph = phi i32 [ %dec, %if.end419 ], [ %valid_backups_to_open.0596, %_ZNSt4pairIN7rocksdb8IOStatusESt10unique_ptrINS0_12_GLOBAL__N_116BackupEngineImpl10BackupMetaESt14default_deleteIS5_EEED2Ev.exit ]
+nrvo.unused424:                                   ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i, %_ZNSt4pairIjS_IN7rocksdb8IOStatusESt10unique_ptrINS0_12_GLOBAL__N_116BackupEngineImpl10BackupMetaESt14default_deleteIS5_EEEED2Ev.exit, %if.end419
+  %valid_backups_to_open.2.ph = phi i32 [ %dec, %if.end419 ], [ %valid_backups_to_open.0596, %_ZNSt4pairIjS_IN7rocksdb8IOStatusESt10unique_ptrINS0_12_GLOBAL__N_116BackupEngineImpl10BackupMetaESt14default_deleteIS5_EEEED2Ev.exit ], [ %valid_backups_to_open.0596, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i ]
   %213 = load ptr, ptr %state_.i.i308, align 8
   %cmp.not.i.i.i399 = icmp eq ptr %213, null
   br i1 %cmp.not.i.i.i399, label %for.inc429, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i400
@@ -47236,18 +47231,13 @@ _ZNKSt14default_deleteIN7rocksdb20SequentialFileReaderEEclEPS1_.exit.i.i: ; pred
   br label %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN7rocksdb20SequentialFileReaderEEclEPS1_.exit.i.i, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i
-  store ptr null, ptr %src_reader.i, align 8, !noalias !696
   %275 = load ptr, ptr %dest_writer.i, align 8, !noalias !696
   %cmp.not.i372.i = icmp eq ptr %275, null
-  br i1 %cmp.not.i372.i, label %_ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i.i
+  br i1 %cmp.not.i372.i, label %cleanup226.i, label %_ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit.i
   call void @_ZN7rocksdb18WritableFileWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(218) %275) #35
   call void @_ZdlPv(ptr noundef nonnull %275) #33
-  br label %_ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EED2Ev.exit.i
-
-_ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i.i, %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit.i
-  store ptr null, ptr %dest_writer.i, align 8, !noalias !696
   br label %cleanup226.i
 
 ehcleanup221.i:                                   ; preds = %lpad63.loopexit.split-lp.loopexit.split-lp.i.loopexit, %lpad63.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp, %ehcleanup186.i, %lpad63.loopexit.split-lp.loopexit.i, %lpad63.loopexit.i
@@ -47266,15 +47256,15 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit377.i: ; preds = %_ZNKSt14
   call void @_ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %dest_writer.i) #35, !noalias !696
   br label %ehcleanup229.i
 
-cleanup226.i:                                     ; preds = %_ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EED2Ev.exit.i, %if.then46.i
-  %ref.tmp.sroa.10.1 = phi i8 [ %ref.tmp.sroa.10.0, %_ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EED2Ev.exit.i ], [ %125, %if.then46.i ]
-  %ref.tmp.sroa.0.1 = phi i8 [ %ref.tmp.sroa.0.0, %_ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EED2Ev.exit.i ], [ %124, %if.then46.i ]
-  %ref.tmp.sroa.25.1.in = phi i8 [ %ref.tmp.sroa.25.0.in, %_ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EED2Ev.exit.i ], [ %126, %if.then46.i ]
-  %ref.tmp.sroa.30.1.in = phi i8 [ %ref.tmp.sroa.30.0.in, %_ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EED2Ev.exit.i ], [ %127, %if.then46.i ]
-  %ref.tmp.sroa.35.1 = phi i8 [ %272, %_ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EED2Ev.exit.i ], [ %128, %if.then46.i ]
-  %ref.tmp.sroa.41.1 = phi ptr [ %273, %_ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EED2Ev.exit.i ], [ %129, %if.then46.i ]
-  %temp.1 = phi i8 [ %temp.0, %_ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EED2Ev.exit.i ], [ %60, %if.then46.i ]
-  %bytes_toward_next_callback.5 = phi i64 [ %bytes_toward_next_callback.4, %_ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EED2Ev.exit.i ], [ %bytes_toward_next_callback.0241, %if.then46.i ]
+cleanup226.i:                                     ; preds = %_ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i.i, %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit.i, %if.then46.i
+  %ref.tmp.sroa.10.1 = phi i8 [ %ref.tmp.sroa.10.0, %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit.i ], [ %ref.tmp.sroa.10.0, %_ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i.i ], [ %125, %if.then46.i ]
+  %ref.tmp.sroa.0.1 = phi i8 [ %ref.tmp.sroa.0.0, %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit.i ], [ %ref.tmp.sroa.0.0, %_ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i.i ], [ %124, %if.then46.i ]
+  %ref.tmp.sroa.25.1.in = phi i8 [ %ref.tmp.sroa.25.0.in, %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit.i ], [ %ref.tmp.sroa.25.0.in, %_ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i.i ], [ %126, %if.then46.i ]
+  %ref.tmp.sroa.30.1.in = phi i8 [ %ref.tmp.sroa.30.0.in, %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit.i ], [ %ref.tmp.sroa.30.0.in, %_ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i.i ], [ %127, %if.then46.i ]
+  %ref.tmp.sroa.35.1 = phi i8 [ %272, %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit.i ], [ %272, %_ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i.i ], [ %128, %if.then46.i ]
+  %ref.tmp.sroa.41.1 = phi ptr [ %273, %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit.i ], [ %273, %_ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i.i ], [ %129, %if.then46.i ]
+  %temp.1 = phi i8 [ %temp.0, %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit.i ], [ %temp.0, %_ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i.i ], [ %60, %if.then46.i ]
+  %bytes_toward_next_callback.5 = phi i64 [ %bytes_toward_next_callback.4, %_ZNSt10unique_ptrIN7rocksdb20SequentialFileReaderESt14default_deleteIS1_EED2Ev.exit.i ], [ %bytes_toward_next_callback.4, %_ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i.i ], [ %bytes_toward_next_callback.0241, %if.then46.i ]
   %ref.tmp.sroa.30.1 = and i8 %ref.tmp.sroa.30.1.in, 1
   %ref.tmp.sroa.25.1 = and i8 %ref.tmp.sroa.25.1.in, 1
   %276 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i, align 8, !noalias !696

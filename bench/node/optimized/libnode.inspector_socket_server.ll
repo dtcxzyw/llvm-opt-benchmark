@@ -2897,10 +2897,10 @@ _ZNSt10unique_ptrIN4node9inspector15InspectorSocket8DelegateESt14default_deleteI
   store ptr null, ptr %agg.tmp, align 8
   %4 = load ptr, ptr %inspector, align 8
   %cmp.i.not = icmp eq ptr %4, null
-  store ptr null, ptr %inspector, align 8
   br i1 %cmp.i.not, label %_ZNSt10unique_ptrIN4node9inspector13SocketSessionESt14default_deleteIS2_EED2Ev.exit.sink.split, label %_ZNSt10unique_ptrIN4node9inspector15InspectorSocketESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node9inspector15InspectorSocketESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4node9inspector15InspectorSocket8DelegateESt14default_deleteIS3_EED2Ev.exit
+  store ptr null, ptr %inspector, align 8
   store ptr %4, ptr %ws_socket_.i, align 8
   %_M_parent.i.i.i.i.i.phi.trans.insert = getelementptr inbounds %"class.node::inspector::InspectorSocketServer", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 1
   %.pre = load ptr, ptr %_M_parent.i.i.i.i.i.phi.trans.insert, align 8

@@ -13219,7 +13219,6 @@ if.then.i.i.i.i117:                               ; preds = %if.then.i.i.i114
 
 if.else62:                                        ; preds = %invoke.cont53, %invoke.cont55
   %71 = load ptr, ptr %this, align 8
-  store ptr null, ptr %result, align 8
   %error_.i.i155 = getelementptr inbounds %"class.grpc_core::HPackParser::Input", ptr %71, i64 0, i32 4
   %72 = load ptr, ptr %error_.i.i155, align 8
   %73 = load ptr, ptr %72, align 8

@@ -8898,7 +8898,6 @@ terminate.lpad.i101:                              ; preds = %for.body.i.i100
   unreachable
 
 _ZN13scoped_limitsD2Ev.exit:                      ; preds = %.noexc.i, %_ZN15ref_vector_coreI4goal21ref_unmanaged_wrapperIS0_EED2Ev.exit
-  store i32 0, ptr %m_sz.i, align 8
   %95 = load ptr, ptr %managers, align 8
   %cmp.i.i.i.i = icmp eq ptr %95, null
   br i1 %cmp.i.i.i.i, label %_ZN17scoped_ptr_vectorI11ast_managerED2Ev.exit, label %_ZN6vectorIP11ast_managerLb0EjE3endEv.exit.i.i
@@ -11638,11 +11637,7 @@ invoke.cont180:                                   ; preds = %invoke.cont174
   store ptr %call175, ptr %curr_core, align 8
   %155 = load ptr, ptr %core, align 8
   %tobool.not.i235 = icmp eq ptr %155, null
-  br i1 %tobool.not.i235, label %invoke.cont182.thread, label %if.end.i242
-
-invoke.cont182.thread:                            ; preds = %invoke.cont180
-  store ptr null, ptr %core, align 8
-  br label %if.end185
+  br i1 %tobool.not.i235, label %if.end185, label %if.end.i242
 
 if.end.i242:                                      ; preds = %invoke.cont180, %call.i.i.noexc233, %if.else.i.i
   %retval.0.i.i564 = phi ptr [ %155, %invoke.cont180 ], [ %call175, %if.else.i.i ], [ %call.i.i234, %call.i.i.noexc233 ]
@@ -11704,7 +11699,7 @@ lpad170:                                          ; preds = %if.then6.i.i.i.i252
   call void @_ZN27expr_dependency_translationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %td) #16
   br label %ehcleanup187
 
-if.end185:                                        ; preds = %invoke.cont182.thread, %if.then6.i.i.i.i265, %if.then.i.i.i.i257, %invoke.cont182
+if.end185:                                        ; preds = %invoke.cont180, %if.then6.i.i.i.i265, %if.then.i.i.i.i257, %invoke.cont182
   %.pr566 = load ptr, ptr %m_buffer.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %.pr566, null
   br i1 %tobool.not.i.i.i.i, label %_ZN27expr_dependency_translationD2Ev.exit, label %if.then.i.i.i.i269

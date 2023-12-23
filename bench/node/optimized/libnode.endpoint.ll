@@ -8383,7 +8383,6 @@ if.then.i.i78:                                    ; preds = %if.end.i
 
 _ZN4node17BaseObjectPtrImplINS_4quic7SessionELb0EED2Ev.exit.i: ; preds = %if.then.i.i78, %if.end.i
   %32 = phi ptr [ %30, %if.end.i ], [ %.pr.i, %if.then.i.i78 ]
-  store ptr null, ptr %agg.result, align 8
   %cmp.i.i.i = icmp eq ptr %32, null
   br i1 %cmp.i.i.i, label %nrvo.skipdtor, label %_ZNK4node17BaseObjectPtrImplINS_4quic7SessionELb0EE12pointer_dataEv.exit.i.i.i
 
@@ -8422,7 +8421,6 @@ if.then.i.i83:                                    ; preds = %if.end.i81
 
 _ZN4node17BaseObjectPtrImplINS_4quic7SessionELb0EED2Ev.exit.i85: ; preds = %if.then.i.i83, %if.end.i81
   %35 = phi ptr [ %33, %if.end.i81 ], [ %.pr.i84, %if.then.i.i83 ]
-  store ptr null, ptr %agg.result, align 8
   %cmp.i.i.i86 = icmp eq ptr %35, null
   br i1 %cmp.i.i.i86, label %nrvo.skipdtor, label %_ZNK4node17BaseObjectPtrImplINS_4quic7SessionELb0EE12pointer_dataEv.exit.i.i.i87
 

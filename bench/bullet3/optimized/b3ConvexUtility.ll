@@ -2225,7 +2225,6 @@ terminate.lpad.i574:                              ; preds = %if.then3.i.i.i573
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit578:         ; preds = %invoke.cont428, %if.then.i.i.i570, %if.then3.i.i.i573
   store i8 1, ptr %m_ownsMemory.i.i214, align 8
-  store ptr null, ptr %m_data.i.i215, align 8
   store i32 0, ptr %m_size.i.i216, align 4
   store i32 0, ptr %m_capacity.i.i217, align 8
   %298 = load i32, ptr %m_size.i.i98, align 4

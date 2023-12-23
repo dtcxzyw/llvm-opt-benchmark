@@ -23762,7 +23762,6 @@ for.end366:                                       ; preds = %for.inc364, %for.co
   br label %if.end369
 
 if.end369:                                        ; preds = %for.end366, %invoke.cont315
-  store i64 0, ptr %nStored.i.i.i317, align 8
   %ptr.i.i340 = getelementptr inbounds %"class.pbrt::InlinedVector.1", ptr %rgbDesc, i64 0, i32 1
   %148 = load ptr, ptr %ptr.i.i340, align 8
   %tobool.not.i.i.i.i.i341 = icmp eq ptr %148, null
@@ -26406,7 +26405,6 @@ lpad71:                                           ; preds = %call9.i.noexc, %cal
   br label %ehcleanup76
 
 if.end75:                                         ; preds = %invoke.cont72, %invoke.cont65
-  store i64 0, ptr %nStored.i.i.i, align 8
   %ptr.i.i = getelementptr inbounds %"class.pbrt::InlinedVector.1", ptr %desc28, i64 0, i32 1
   %21 = load ptr, ptr %ptr.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %21, null
@@ -26622,7 +26620,6 @@ lpad139:                                          ; preds = %call9.i.noexc114, %
   br label %ehcleanup144
 
 if.end143:                                        ; preds = %invoke.cont140, %invoke.cont132
-  store i64 0, ptr %nStored.i.i.i97, align 8
   %ptr.i.i119 = getelementptr inbounds %"class.pbrt::InlinedVector.1", ptr %desc81, i64 0, i32 1
   %40 = load ptr, ptr %ptr.i.i119, align 8
   %tobool.not.i.i.i.i.i120 = icmp eq ptr %40, null

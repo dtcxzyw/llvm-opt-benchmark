@@ -11164,7 +11164,6 @@ if.then.i.lr.ph.i.i:                              ; preds = %invoke.cont9
 if.then.i.i.i:                                    ; preds = %_ZN4asio6detail15op_queue_access7destroyINS0_19scheduler_operationEEEvPT_.exit.i.i, %if.then.i.lr.ph.i.i
   %20 = phi ptr [ %19, %if.then.i.lr.ph.i.i ], [ %21, %_ZN4asio6detail15op_queue_access7destroyINS0_19scheduler_operationEEEvPT_.exit.i.i ]
   %21 = load ptr, ptr %20, align 8
-  store ptr null, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i)
   %func_.i.i.i.i = getelementptr inbounds %"class.asio::detail::scheduler_operation", ptr %20, i64 0, i32 1
   %22 = load ptr, ptr %func_.i.i.i.i, align 8

@@ -317,7 +317,7 @@ if.end.i20:                                       ; preds = %if.then.i, %Py_INCR
   %previous.i = getelementptr inbounds %struct._frame, ptr %0, i64 1
   %5 = load ptr, ptr %previous.i, align 8
   %tobool.not7.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not7.i.i, label %_PyFrame_GetFirstComplete.exit.thread.i, label %land.rhs.i22.i
+  br i1 %tobool.not7.i.i, label %if.end14.i, label %land.rhs.i22.i
 
 land.rhs.i22.i:                                   ; preds = %if.end.i20, %while.body.i.i
   %frame.addr.08.i.i = phi ptr [ %9, %while.body.i.i ], [ %5, %if.end.i20 ]
@@ -344,11 +344,7 @@ while.body.i.i:                                   ; preds = %_PyFrame_IsIncomple
   %previous.i.i = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame.addr.08.i.i, i64 0, i32 1
   %9 = load ptr, ptr %previous.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %9, null
-  br i1 %tobool.not.i.i, label %_PyFrame_GetFirstComplete.exit.thread.i, label %land.rhs.i22.i, !llvm.loop !7
-
-_PyFrame_GetFirstComplete.exit.thread.i:          ; preds = %while.body.i.i, %if.end.i20
-  store ptr null, ptr %previous.i, align 8
-  br label %if.end14.i
+  br i1 %tobool.not.i.i, label %if.end14.i, label %land.rhs.i22.i, !llvm.loop !7
 
 if.then9.i:                                       ; preds = %_PyFrame_IsIncomplete.exit.i.i, %land.rhs.i22.i
   store ptr null, ptr %previous.i, align 8
@@ -382,7 +378,7 @@ _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.e
   store ptr %retval.0.i2334.i, ptr %f_back.i, align 8
   br label %if.end14.i
 
-if.end14.i:                                       ; preds = %_Py_NewRef.exit.i, %if.then11.i, %_PyFrame_GetFirstComplete.exit.thread.i
+if.end14.i:                                       ; preds = %while.body.i.i, %_Py_NewRef.exit.i, %if.then11.i, %if.end.i20
   %12 = getelementptr i8, ptr %0, i64 -16
   %f.val.i = load i64, ptr %12, align 8
   %cmp.i25.not.i = icmp eq i64 %f.val.i, 0

@@ -374,7 +374,6 @@ if.then9:                                         ; preds = %_ZNK18OpenImageIO_v
 
 _ZNK18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.thread: ; preds = %if.then9
   store ptr null, ptr %strref, align 8
-  store i64 0, ptr %m_len.i.i228, align 8
   br label %_ZN18OpenImageIO_v2_6_07Strutil9strhash64ENS_17basic_string_viewIcSt11char_traitsIcEEE.exit29
 
 if.end.i:                                         ; preds = %if.then9

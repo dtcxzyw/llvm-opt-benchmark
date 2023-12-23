@@ -4968,7 +4968,6 @@ entry:
   br i1 %cmp, label %invoke.cont4, label %if.end
 
 invoke.cont4:                                     ; preds = %entry
-  store i32 0, ptr %m_size.i, align 4
   %2 = load ptr, ptr %m_gpuData, align 8
   %m_gpuBatchConstraints = getelementptr inbounds %struct.b3GpuPgsJacobiSolverInternalData, ptr %2, i64 0, i32 13
   %3 = load ptr, ptr %m_gpuBatchConstraints, align 8

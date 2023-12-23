@@ -36920,11 +36920,7 @@ _ZN6vectorIN3sat7literalELb0EjE3endEv.exit.i:     ; preds = %_ZN7svectorIN3sat7l
   %14 = zext i32 %13 to i64
   %add.ptr.i.i43 = getelementptr inbounds %"class.sat::literal", ptr %incdec.ptr4.i.i.i.i, i64 %14
   %cmp.not27.i = icmp eq i32 %13, 0
-  br i1 %cmp.not27.i, label %if.then.i.i.thread, label %for.body.preheader.i
-
-if.then.i.i.thread:                               ; preds = %_ZN6vectorIN3sat7literalELb0EjE3endEv.exit.i
-  store i32 0, ptr %incdec.ptr.i.i.i.i, align 4
-  br label %sw.bb.i
+  br i1 %cmp.not27.i, label %sw.bb.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %_ZN6vectorIN3sat7literalELb0EjE3endEv.exit.i
   %retval.sroa.0.0.copyload.i.i.pre31.i = load i32, ptr @_ZN3smtL13false_literalE, align 4
@@ -36963,7 +36959,7 @@ if.then.i.i:                                      ; preds = %for.inc.i
     i32 2, label %sw.bb14.i
   ]
 
-sw.bb.i:                                          ; preds = %if.then.i.i.thread, %if.then.i.i, %_ZN7svectorIN3sat7literalEjEC2ERKS2_.exit.i
+sw.bb.i:                                          ; preds = %_ZN6vectorIN3sat7literalELb0EjE3endEv.exit.i, %if.then.i.i, %_ZN7svectorIN3sat7literalEjEC2ERKS2_.exit.i
   %retval.sroa.0.0.copyload.i.i50 = load i32, ptr @_ZN3smtL12true_literalE, align 4
   br label %cleanup.i
 

@@ -1300,7 +1300,6 @@ sweeplist.exit.i94:                               ; preds = %sweeplist.exit.loop
 
 if.else.i103:                                     ; preds = %sw.bb13
   store i8 6, ptr %gcstate, align 1
-  store ptr null, ptr %sweepgc.i72, align 8
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %entry

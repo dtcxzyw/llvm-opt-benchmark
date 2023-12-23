@@ -23024,7 +23024,6 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i594
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit.thread:     ; preds = %for.end788, %if.then.i.i.i591, %if.then3.i.i.i594
   store i8 1, ptr %m_ownsMemory.i.i495, align 8
-  store ptr null, ptr %m_data.i.i496, align 8
   store i32 0, ptr %m_size.i.i497, align 4
   store i32 0, ptr %m_capacity.i.i498, align 8
   br label %if.then.i.i.i599
@@ -23083,7 +23082,6 @@ terminate.lpad.i614:                              ; preds = %if.then3.i.i.i613
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit618:         ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit607, %if.then.i.i.i610, %if.then3.i.i.i613
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  store ptr null, ptr %m_data.i.i409, align 8
   store i32 0, ptr %m_size.i.i410, align 4
   store i32 0, ptr %m_capacity.i.i411, align 8
   br label %if.end790

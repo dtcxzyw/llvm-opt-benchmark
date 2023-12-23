@@ -1196,7 +1196,6 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i11: ; preds = %_ZNSt10unique
   br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit13
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit13: ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit9, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i11
-  store ptr null, ptr %agg.result, align 8, !tbaa !37
   resume { ptr, i32 } %.pn.pn
 }
 

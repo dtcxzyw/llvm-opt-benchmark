@@ -3235,7 +3235,6 @@ if.then26:                                        ; preds = %if.else22
 
 if.end30:                                         ; preds = %if.else22
   store ptr @.str.18, ptr %buffer_23, align 8
-  store i64 0, ptr %size_.i12, align 8
   store i32 12, ptr %error, align 4
   br label %return
 

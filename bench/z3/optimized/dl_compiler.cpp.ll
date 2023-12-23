@@ -14093,7 +14093,6 @@ terminate.lpad.i.i150:                            ; preds = %for.cond.preheader.
   unreachable
 
 _ZN13obj_hashtableI9func_declED2Ev.exit151:       ; preds = %_ZN7obj_mapI9func_decljED2Ev.exit147, %for.cond.preheader.i.i.i.i149
-  store ptr null, ptr %global_deltas, align 8
   %93 = load ptr, ptr %local_deltas, align 8
   %cmp.i.i.i.i152 = icmp eq ptr %93, null
   br i1 %cmp.i.i.i.i152, label %_ZN13obj_hashtableI9func_declED2Ev.exit155, label %for.cond.preheader.i.i.i.i153
@@ -14110,7 +14109,6 @@ terminate.lpad.i.i154:                            ; preds = %for.cond.preheader.
   unreachable
 
 _ZN13obj_hashtableI9func_declED2Ev.exit155:       ; preds = %_ZN13obj_hashtableI9func_declED2Ev.exit151, %for.cond.preheader.i.i.i.i153
-  store ptr null, ptr %local_deltas, align 8
   %96 = load ptr, ptr %global_deltas_dummy, align 8
   %cmp.i.i.i.i156 = icmp eq ptr %96, null
   br i1 %cmp.i.i.i.i156, label %_ZN13obj_hashtableI9func_declED2Ev.exit159, label %for.cond.preheader.i.i.i.i157
@@ -18986,7 +18984,7 @@ if.then2.i31.i:                                   ; preds = %for.body.i16.i
   %sub.ptr.div.i.i.i.i.i.i35.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i34.i, 2
   %.pre.i.i.i.i.i.i36.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i35.i
   %add.ptr.i.i.i.i.i.i37.i = getelementptr inbounds i32, ptr %add.ptr3.i32.i, i64 %.pre.i.i.i.i.i.i36.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i37.i, ptr nonnull align 4 %__first, i64 %sub.ptr.sub.i.i.i.i.i.i34.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i37.i, ptr noundef nonnull align 4 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i34.i, i1 false)
   br label %for.inc.i22.i
 
 if.else.i20.i:                                    ; preds = %for.body.i16.i

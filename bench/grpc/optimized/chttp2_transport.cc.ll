@@ -30731,7 +30731,6 @@ if.end27:                                         ; preds = %if.then.i.i13, %_ZN
   store ptr %34, ptr %agg.tmp29, align 8
   store ptr null, ptr %t, align 8
   store i64 %30, ptr %agg.tmp30, align 8
-  store i64 54, ptr %err, align 8
   invoke fastcc void @_ZL29read_action_parse_loop_lockedN9grpc_core13RefCountedPtrI21grpc_chttp2_transportEEN4absl12lts_202308026StatusE(ptr noundef nonnull %agg.tmp29, ptr noundef nonnull %agg.tmp30)
           to label %invoke.cont32 unwind label %lpad31
 

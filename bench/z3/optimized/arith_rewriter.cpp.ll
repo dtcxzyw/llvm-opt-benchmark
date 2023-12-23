@@ -45577,7 +45577,6 @@ terminate.lpad.i.i:                               ; preds = %for.cond.preheader.
   unreachable
 
 _ZN7obj_mapI4exprjED2Ev.exit:                     ; preds = %cleanup, %for.cond.preheader.i.i.i.i
-  store ptr null, ptr %mul_map, align 8
   %134 = load ptr, ptr %valid, align 8
   %cmp.not.i.i.i211 = icmp eq ptr %134, %m_initial_buffer.i
   %cmp.i.i.i.i212 = icmp eq ptr %134, null
@@ -52137,7 +52136,7 @@ if.then3:                                         ; preds = %if.then.i.i, %_ZN9_
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr4, i64 %.pre.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i, ptr nonnull align 8 %__first, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   store ptr %5, ptr %__first, align 8
   br label %for.inc
 

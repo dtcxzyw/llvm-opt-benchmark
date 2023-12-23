@@ -1025,7 +1025,6 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  store ptr null, ptr %m_fd, align 8
   %m_filename.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FitsOutput", ptr %this, i64 0, i32 2
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %m_filename.i) #21
   %m_bitpix.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FitsOutput", ptr %this, i64 0, i32 3

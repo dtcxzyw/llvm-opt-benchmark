@@ -4716,7 +4716,6 @@ terminate.lpad.i589:                              ; preds = %if.then3.i.i.i588
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit, %if.then.i.i.i585, %if.then3.i.i.i588
   store i8 1, ptr %m_ownsMemory.i.i387, align 8
-  store ptr null, ptr %m_data.i.i388, align 8
   store i32 0, ptr %m_size.i.i389, align 4
   store i32 0, ptr %m_capacity.i.i390, align 8
   %288 = load ptr, ptr %m_data.i.i, align 8

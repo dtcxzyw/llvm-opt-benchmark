@@ -5655,7 +5655,6 @@ _ZN9grpc_core7MessageD2Ev.exit.i.i.i.i.i:         ; preds = %delete.notnull.i.i.
   br label %_ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit.i.i.i
 
 _ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit.i.i.i: ; preds = %_ZN9grpc_core7MessageD2Ev.exit.i.i.i.i.i, %if.then.i.i.i.i, %invoke.cont.i.i.i
-  store ptr null, ptr %5, align 8, !noalias !94
   %13 = load i64, ptr %r.i.i.i, align 8, !noalias !94
   %cmp.i.i.i.i.not.i.not = icmp eq i64 %13, 0
   br i1 %cmp.i.i.i.i.not.i.not, label %_ZNSt22_Optional_payload_baseISt10unique_ptrIN9grpc_core7MessageENS1_5Arena13PooledDeleterEEE10_M_destroyEv.exit.i.i.i.i.i.i, label %if.then.i.i.i
@@ -6300,7 +6299,6 @@ _ZN9grpc_core7MessageD2Ev.exit.i.i.i.i.i:         ; preds = %delete.notnull.i.i.
   br label %_ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit.i.i.i
 
 _ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit.i.i.i: ; preds = %_ZN9grpc_core7MessageD2Ev.exit.i.i.i.i.i, %if.then.i.i.i.i, %invoke.cont.i.i.i
-  store ptr null, ptr %5, align 8, !noalias !133
   %12 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_call_trace, i64 0, i32 2) monotonic, align 8, !noalias !133
   %13 = and i8 %12, 1
   %tobool.i.i.i.not.i.i.i = icmp eq i8 %13, 0

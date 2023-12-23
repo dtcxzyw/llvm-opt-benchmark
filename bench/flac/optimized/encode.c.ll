@@ -4086,11 +4086,7 @@ for.cond60.preheader:                             ; preds = %if.end56, %for.cond
   %num_metadata_blocks61 = getelementptr inbounds %struct.FLACDecoderData, ptr %spec.select302, i64 0, i32 3
   %73 = load i64, ptr %num_metadata_blocks61, align 8
   %cmp62563.not = icmp eq i64 %73, 0
-  br i1 %cmp62563.not, label %land.lhs.true105.thread, label %for.body63.lr.ph
-
-land.lhs.true105.thread:                          ; preds = %for.cond60.preheader
-  store i64 0, ptr %num_metadata_blocks61, align 8
-  br label %land.lhs.true105.if.then108_crit_edge
+  br i1 %cmp62563.not, label %land.lhs.true105.if.then108_crit_edge, label %for.body63.lr.ph
 
 for.body63.lr.ph:                                 ; preds = %for.cond60.preheader
   %vorbis_comment = getelementptr inbounds %struct.encode_options_t, ptr %options, i64 0, i32 24
@@ -4248,7 +4244,7 @@ land.lhs.true105:                                 ; preds = %for.end97
   %cmp107.old = icmp ult i64 %j.1, 1024
   br i1 %cmp107.old, label %land.lhs.true105.if.then108_crit_edge, label %for.body145.preheader
 
-land.lhs.true105.if.then108_crit_edge:            ; preds = %land.lhs.true105.thread, %land.lhs.true105
+land.lhs.true105.if.then108_crit_edge:            ; preds = %for.cond60.preheader, %land.lhs.true105
   %vorbis_comment109.phi.trans.insert = getelementptr inbounds %struct.encode_options_t, ptr %options, i64 0, i32 24
   %.pre611 = load ptr, ptr %vorbis_comment109.phi.trans.insert, align 8
   br label %if.then108

@@ -5217,7 +5217,6 @@ cond.false6:                                      ; preds = %Py_SIZE.exit
 
 Py_SET_SIZE.exit:                                 ; preds = %Py_SIZE.exit
   store ptr @PyList_Type, ptr %0, align 8
-  store i64 0, ptr %ob_size.i, align 8
   %2 = load i64, ptr %call, align 8
   %3 = and i64 %2, 2147483648
   %cmp.i9.not = icmp eq i64 %3, 0

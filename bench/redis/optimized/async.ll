@@ -1216,11 +1216,7 @@ __redisAsyncCopyError.exit.i:                     ; preds = %land.lhs.true
   %cleanup.i = getelementptr inbounds %struct.redisAsyncContext, ptr %ac, i64 0, i32 5, i32 5
   %3 = load ptr, ptr %cleanup.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i, label %if.end7.i.thread, label %if.end7.i
-
-if.end7.i.thread:                                 ; preds = %__redisAsyncCopyError.exit.i
-  store ptr null, ptr %cleanup.i, align 8
-  br label %if.then12.i
+  br i1 %tobool.not.i, label %if.then12.i, label %if.end7.i
 
 if.end7.i:                                        ; preds = %__redisAsyncCopyError.exit.i
   %ev.i = getelementptr inbounds %struct.redisAsyncContext, ptr %ac, i64 0, i32 5
@@ -1232,7 +1228,7 @@ if.end7.i:                                        ; preds = %__redisAsyncCopyErr
   store ptr null, ptr %cleanup.i, align 8
   br i1 %6, label %if.then12.i, label %if.end
 
-if.then12.i:                                      ; preds = %if.end7.i.thread, %if.end7.i
+if.then12.i:                                      ; preds = %__redisAsyncCopyError.exit.i, %if.end7.i
   tail call fastcc void @__redisAsyncFree(ptr noundef nonnull %ac)
   br label %if.end
 
@@ -2499,11 +2495,7 @@ __redisAsyncCopyError.exit.i.i:                   ; preds = %land.lhs.true.i20
   %cleanup.i.i = getelementptr inbounds %struct.redisAsyncContext, ptr %ac, i64 0, i32 5, i32 5
   %10 = load ptr, ptr %cleanup.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %10, null
-  br i1 %tobool.not.i.i, label %if.end7.i.thread.i, label %if.end7.i.i
-
-if.end7.i.thread.i:                               ; preds = %__redisAsyncCopyError.exit.i.i
-  store ptr null, ptr %cleanup.i.i, align 8
-  br label %if.then12.i.i
+  br i1 %tobool.not.i.i, label %if.then12.i.i, label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %__redisAsyncCopyError.exit.i.i
   %ev.i.i = getelementptr inbounds %struct.redisAsyncContext, ptr %ac, i64 0, i32 5
@@ -2515,7 +2507,7 @@ if.end7.i.i:                                      ; preds = %__redisAsyncCopyErr
   store ptr null, ptr %cleanup.i.i, align 8
   br i1 %13, label %if.then12.i.i, label %return
 
-if.then12.i.i:                                    ; preds = %if.end7.i.i, %if.end7.i.thread.i
+if.then12.i.i:                                    ; preds = %if.end7.i.i, %__redisAsyncCopyError.exit.i.i
   call fastcc void @__redisAsyncFree(ptr noundef nonnull %ac)
   br label %return
 

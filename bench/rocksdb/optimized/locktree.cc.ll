@@ -2706,14 +2706,12 @@ _ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE5fetchEjPS2_.exit135: ; preds = %
 
 if.then.i137:                                     ; preds = %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit94.thread154
   store i32 0, ptr %d.i.i.i, align 8
-  store i32 0, ptr %num_values.i85, align 4
   store i32 0, ptr %capacity.i.i.i, align 4
   %97 = load ptr, ptr %values.i.i, align 8
   %cmp.not.i138 = icmp eq ptr %97, null
   br i1 %cmp.not.i138, label %_ZN4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE7destroyEv.exit, label %if.end15.sink.split.i
 
 if.else.i139:                                     ; preds = %if.else.i87
-  store i32 -1, ptr %d.i.i.i, align 8
   store i32 0, ptr %num_values.i85, align 4
   store i32 0, ptr %capacity.i.i.i, align 4
   %cmp8.not.i = icmp eq ptr %.pre181, null

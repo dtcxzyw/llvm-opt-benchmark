@@ -6345,7 +6345,6 @@ _ZNKSt14default_deleteIN4absl12lts_202308025MutexEEclEPS2_.exit.i.i: ; preds = %
   br label %_ZNSt10unique_ptrIN4absl12lts_202308025MutexESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN4absl12lts_202308025MutexESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN4absl12lts_202308025MutexEEclEPS2_.exit.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i
-  store ptr null, ptr %mu_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 0, inrange i32 0, i64 2), ptr %2, align 16
   %37 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 16
   %cmp.not.i.i.i.i.i15 = icmp eq ptr %37, null

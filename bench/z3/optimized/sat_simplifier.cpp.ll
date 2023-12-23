@@ -12735,11 +12735,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i:   ; preds = %if.end188
   %arrayidx.i.i176 = getelementptr inbounds i32, ptr %93, i64 -1
   %94 = load i32, ptr %arrayidx.i.i176, align 4
   %cmp22.not.i = icmp eq i32 %94, 0
-  br i1 %cmp22.not.i, label %if.then.i.i.thread, label %for.body.preheader.i
-
-if.then.i.i.thread:                               ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i
-  store i32 0, ptr %arrayidx.i.i176, align 4
-  br label %if.end192
+  br i1 %cmp22.not.i, label %if.end192, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i
   %95 = zext i32 %94 to i64
@@ -12799,7 +12795,7 @@ if.then.i.i:                                      ; preds = %for.end.i
 _ZN3sat10simplifier14cleanup_clauseER7svectorINS_7literalEjE.exit: ; preds = %for.body.i177
   br i1 %cmp25.i, label %for.inc256, label %if.end192
 
-if.end192:                                        ; preds = %if.then.i.i, %if.then.i.i.thread, %_ZN3sat10simplifier14cleanup_clauseER7svectorINS_7literalEjE.exit
+if.end192:                                        ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i, %if.then.i.i, %_ZN3sat10simplifier14cleanup_clauseER7svectorINS_7literalEjE.exit
   %.pr.pr = load ptr, ptr %m_new_cls182, align 8
   %cmp.i184 = icmp eq ptr %.pr.pr, null
   br i1 %cmp.i184, label %sw.bb, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit

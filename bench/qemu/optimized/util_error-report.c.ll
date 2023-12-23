@@ -187,7 +187,6 @@ if.else:                                          ; preds = %lor.lhs.false
   unreachable
 
 if.end:                                           ; preds = %lor.lhs.false
-  store i32 2, ptr %0, align 8
   %num = getelementptr inbounds %struct.Location, ptr %0, i64 0, i32 1
   store i32 %lno, ptr %num, align 4
   br label %if.end4

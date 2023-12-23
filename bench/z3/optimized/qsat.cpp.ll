@@ -16281,8 +16281,7 @@ if.then74:                                        ; preds = %if.end69
 invoke.cont75:                                    ; preds = %if.then74
   br i1 %call76, label %sw.epilog95, label %cleanup
 
-_ZN3refI5modelE5resetEv.exit.i.invoke:            ; preds = %if.end69, %sw.default
-  store ptr null, ptr %m_model, align 8
+_ZN3refI5modelE5resetEv.exit.i.invoke:            ; preds = %sw.default, %if.end69
   invoke void @_ZN2qe8pred_abs3popEj(ptr noundef nonnull align 8 dereferenceable(216) %m_pred_abs, i32 noundef 1)
           to label %sw.epilog95.sink.split unwind label %lpad.loopexit.split-lp
 

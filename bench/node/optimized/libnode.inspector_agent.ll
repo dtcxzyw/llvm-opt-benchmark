@@ -7791,7 +7791,6 @@ lor.lhs.false.i.i.i:                              ; preds = %_ZN4node5DebugIJRNS
 
 _ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EED2Ev.exit.i: ; preds = %lor.lhs.false.i.i.i, %_ZN4node5DebugIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPKcDpOT_.exit.i
   %retval.0.i.i.i = phi ptr [ null, %_ZN4node5DebugIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPKcDpOT_.exit.i ], [ %spec.select.i.i.i, %lor.lhs.false.i.i.i ]
-  store ptr null, ptr %agg.tmp2.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %method.i) #23
   %node_dispatcher_.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::ChannelImpl", ptr %call.val, i64 0, i32 7
   %5 = load ptr, ptr %node_dispatcher_.i, align 8

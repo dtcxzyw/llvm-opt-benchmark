@@ -983,7 +983,6 @@ _ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.
   br label %_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEED2Ev.exit.i
 
 _ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.exit.i.i.i, %invoke.cont10
-  store ptr null, ptr %stop_callback8, align 8
   %16 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5arrow9StopTokenD2Ev.exit.i, label %if.then.i.i.i.i.i5
@@ -1073,7 +1072,6 @@ cleanup:                                          ; preds = %if.then
   br label %cleanup13
 
 cleanup.cont:                                     ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i.i, %_ZN5arrow9StopTokenD2Ev.exit.i
-  store ptr null, ptr %ref.tmp, align 8
   %call1.i.i.i628 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex) #28
   %29 = load ptr, ptr %state, align 8
   %wait_for_tasks = getelementptr inbounds %"struct.arrow::internal::SerialExecutor::State", ptr %29, i64 0, i32 2
@@ -4466,7 +4464,6 @@ _ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.
   br label %_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEED2Ev.exit.i
 
 _ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.exit.i.i.i, %invoke.cont21
-  store ptr null, ptr %stop_callback19, align 8
   %18 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5arrow9StopTokenD2Ev.exit.i, label %if.then.i.i.i.i.i

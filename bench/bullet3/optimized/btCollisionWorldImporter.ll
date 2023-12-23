@@ -3359,7 +3359,6 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i224
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %invoke.cont114, %if.then.i.i.i221, %if.then3.i.i.i224
   store i8 1, ptr %m_ownsMemory.i.i152, align 8
-  store ptr null, ptr %m_data.i.i153, align 8
   store i32 0, ptr %m_size.i.i154, align 4
   store i32 0, ptr %m_capacity.i.i155, align 8
   %53 = load ptr, ptr %m_data.i.i, align 8
@@ -3385,7 +3384,6 @@ terminate.lpad.i232:                              ; preds = %if.then3.i.i.i231
 
 _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit, %if.then.i.i.i228, %if.then3.i.i.i231
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
   store i32 0, ptr %m_capacity.i.i, align 8
   br label %sw.epilog167

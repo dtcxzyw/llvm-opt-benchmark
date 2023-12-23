@@ -1501,11 +1501,7 @@ _ZN7rocksdb9IOOptionsD2Ev.exit:                   ; preds = %_ZNSt10_HashtableIN
 land.lhs.true:                                    ; preds = %_ZN7rocksdb9IOOptionsD2Ev.exit
   %113 = load ptr, ptr %checkpoint_directory, align 8
   %cmp.i.i.not = icmp eq ptr %113, null
-  br i1 %cmp.i.i.not, label %if.end148.thread218, label %invoke.cont135
-
-if.end148.thread218:                              ; preds = %land.lhs.true
-  store ptr null, ptr %checkpoint_directory, align 8
-  br label %if.then151
+  br i1 %cmp.i.i.not, label %if.then151, label %invoke.cont135
 
 invoke.cont135:                                   ; preds = %land.lhs.true
   store i64 0, ptr %ref.tmp134, align 8
@@ -1619,7 +1615,7 @@ if.end148:                                        ; preds = %_ZNKSt14default_del
   %cmp.i172 = icmp eq i8 %.pr213.pr, 0
   br i1 %cmp.i172, label %if.then151, label %if.else163
 
-if.then151:                                       ; preds = %if.end148.thread218, %if.end148
+if.then151:                                       ; preds = %land.lhs.true, %if.end148
   %cmp152.not = icmp eq ptr %sequence_number_ptr, null
   br i1 %cmp152.not, label %if.end154, label %if.then153
 

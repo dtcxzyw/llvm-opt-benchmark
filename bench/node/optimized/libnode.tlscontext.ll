@@ -1159,7 +1159,6 @@ if.then.i.i38.i:                                  ; preds = %cleanup.i.i
   br label %for.inc.i
 
 if.then64.i:                                      ; preds = %for.body.i
-  store ptr null, ptr %bio.i.i, align 8, !noalias !8
   call void @ERR_clear_error() #18, !noalias !8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i.i), !noalias !8
   br label %_ZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsE.exit.thread.sink.split

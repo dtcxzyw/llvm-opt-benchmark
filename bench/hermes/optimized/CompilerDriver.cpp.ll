@@ -5238,25 +5238,20 @@ _ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i.i: ; preds = %if.e
   br label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i
 
 _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i.i, %if.end85.i
-  store ptr null, ptr %sourceMap.i, align 8
   %279 = load ptr, ptr %file.i, align 8
   %cmp.not.i1.i.i = icmp eq ptr %279, null
-  br i1 %cmp.not.i1.i.i, label %_ZN12_GLOBAL__N_115ModuleInSegmentD2Ev.exit.i, label %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i2.i.i
+  br i1 %cmp.not.i1.i.i, label %cleanup.i, label %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i2.i.i
 
 _ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i2.i.i: ; preds = %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i
   %vtable.i.i3.i.i = load ptr, ptr %279, align 8
   %vfn.i.i4.i.i = getelementptr inbounds ptr, ptr %vtable.i.i3.i.i, i64 1
   %280 = load ptr, ptr %vfn.i.i4.i.i, align 8
   call void %280(ptr noundef nonnull align 8 dereferenceable(24) %279) #25
-  br label %_ZN12_GLOBAL__N_115ModuleInSegmentD2Ev.exit.i
-
-_ZN12_GLOBAL__N_115ModuleInSegmentD2Ev.exit.i:    ; preds = %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i2.i.i, %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i
-  store ptr null, ptr %file.i, align 8
   br label %cleanup.i
 
-cleanup.i:                                        ; preds = %_ZN12_GLOBAL__N_115ModuleInSegmentD2Ev.exit.i, %if.then4.i.i162.i, %if.then.i.i165.i
-  %nextAutomaticModuleID.4.i = phi i32 [ %nextAutomaticModuleID.3.i, %_ZN12_GLOBAL__N_115ModuleInSegmentD2Ev.exit.i ], [ %nextAutomaticModuleID.1308.i, %if.then.i.i165.i ], [ %nextAutomaticModuleID.1308.i, %if.then4.i.i162.i ]
-  %cond1.i = phi i1 [ true, %_ZN12_GLOBAL__N_115ModuleInSegmentD2Ev.exit.i ], [ false, %if.then.i.i165.i ], [ false, %if.then4.i.i162.i ]
+cleanup.i:                                        ; preds = %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i2.i.i, %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i, %if.then4.i.i162.i, %if.then.i.i165.i
+  %nextAutomaticModuleID.4.i = phi i32 [ %nextAutomaticModuleID.1308.i, %if.then.i.i165.i ], [ %nextAutomaticModuleID.1308.i, %if.then4.i.i162.i ], [ %nextAutomaticModuleID.3.i, %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i ], [ %nextAutomaticModuleID.3.i, %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i2.i.i ]
+  %cond1.i = phi i1 [ false, %if.then.i.i165.i ], [ false, %if.then4.i.i162.i ], [ true, %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i ], [ true, %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i2.i.i ]
   %281 = load ptr, ptr %mapBuf.i, align 8
   %cmp.not.i172.i = icmp eq ptr %281, null
   br i1 %cmp.not.i172.i, label %cleanup87.i, label %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i
@@ -5269,7 +5264,6 @@ _ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i: ; preds = %cleanu
   br label %cleanup87.i
 
 cleanup87.i:                                      ; preds = %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i, %cleanup.i
-  store ptr null, ptr %mapBuf.i, align 8
   %.pr.i = load ptr, ptr %fileBuf.i, align 8
   %cmp.not.i174.i = icmp eq ptr %.pr.i, null
   br i1 %cmp.not.i174.i, label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit179.i, label %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i175.i
@@ -5282,7 +5276,6 @@ _ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i175.i: ; preds = %cle
   br label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit179.i
 
 _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit179.i: ; preds = %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i175.i, %cleanup87.i
-  store ptr null, ptr %fileBuf.i, align 8
   br i1 %cond1.i, label %for.cond44.i, label %cleanup104.critedge.i
 
 for.end.i:                                        ; preds = %for.cond44.i, %if.end41.i
@@ -6279,12 +6272,9 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIjSaIjE
   %Length.i84 = getelementptr inbounds %"class.llvh::StringRef", ptr %ref.tmp28, i64 0, i32 1
   %file = getelementptr inbounds %"struct.(anonymous namespace)::ModuleInSegment", ptr %ref.tmp34, i64 0, i32 1
   %sourceMap = getelementptr inbounds %"struct.(anonymous namespace)::ModuleInSegment", ptr %ref.tmp34, i64 0, i32 2
-  %bytecodeProvider.i205 = getelementptr inbounds %"struct.hermes::driver::CompileResult", ptr %agg.result, i64 0, i32 1
-  %filename.i.i206 = getelementptr inbounds %"struct.hermes::driver::CompileResult", ptr %agg.result, i64 0, i32 2, i32 3
   br label %for.body
 
 for.cond:                                         ; preds = %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i2.i
-  store ptr null, ptr %file, align 8
   store ptr null, ptr %fileBuf, align 8
   %incdec.ptr.i218 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__begin3.sroa.0.0576, i64 1
   %cmp.i203.not = icmp eq ptr %incdec.ptr.i218, %395
@@ -6299,7 +6289,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %396 = load ptr, ptr %fileBuf, align 8
   %cmp.i204.not = icmp eq ptr %396, null
   %397 = ptrtoint ptr %396 to i64
-  br i1 %cmp.i204.not, label %cleanup70.critedge.loopexit, label %if.end27
+  br i1 %cmp.i204.not, label %cleanup70.critedge, label %if.end27
 
 if.end27:                                         ; preds = %for.body
   %call.i83 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin3.sroa.0.0576) #25
@@ -6344,7 +6334,6 @@ _ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i212: ; preds = %if.
   br label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i212, %if.end33
-  store ptr null, ptr %sourceMap, align 8
   %403 = load ptr, ptr %file, align 8
   %cmp.not.i1.i = icmp eq ptr %403, null
   br i1 %cmp.not.i1.i, label %for.cond, label %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i2.i
@@ -6404,21 +6393,13 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i229, %if
 
 if.then.i232:                                     ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   %call.i233 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i, i8 noundef zeroext 10) #25
-  br label %_ZN4llvh11raw_ostreamlsEc.exit
+  br label %cleanup70.critedge
 
 if.end.i234:                                      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i, i64 0, i32 3
   %incdec.ptr.i235 = getelementptr inbounds i8, ptr %410, i64 1
   store ptr %incdec.ptr.i235, ptr %OutBufCur.i, align 8
   store i8 10, ptr %410, align 1
-  br label %_ZN4llvh11raw_ostreamlsEc.exit
-
-_ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i232, %if.end.i234
-  store i32 1, ptr %agg.result, align 8
-  %bytecodeProvider.i236 = getelementptr inbounds %"struct.hermes::driver::CompileResult", ptr %agg.result, i64 0, i32 1
-  %filename.i.i237 = getelementptr inbounds %"struct.hermes::driver::CompileResult", ptr %agg.result, i64 0, i32 2, i32 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %bytecodeProvider.i236, i8 0, i64 64, i1 false)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename.i.i237) #25
   br label %cleanup70.critedge
 
 if.end43:                                         ; preds = %if.then37
@@ -8181,14 +8162,13 @@ if.end8.sink.split.i.i.i.i426:                    ; preds = %_ZN9__gnu_cxx27__ex
   call void %678(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i.i318) #25
   br label %_ZNSt10unique_ptrIN4llvh8DenseMapINS0_9StringRefENS1_IS2_S2_NS0_12DenseMapInfoIS2_EENS0_6detail12DenseMapPairIS2_S2_EEEES4_NS6_IS2_S8_EEEESt14default_deleteISA_EED2Ev.exit485
 
-cleanup70.critedge.loopexit:                      ; preds = %for.body
-  store i32 5, ptr %agg.result, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %bytecodeProvider.i205, i8 0, i64 64, i1 false)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename.i.i206) #25
-  store ptr null, ptr %fileBuf, align 8
-  br label %cleanup70.critedge
-
-cleanup70.critedge:                               ; preds = %cleanup70.critedge.loopexit, %_ZN4llvh11raw_ostreamlsEc.exit
+cleanup70.critedge:                               ; preds = %for.body, %if.end.i234, %if.then.i232
+  %storemerge = phi i32 [ 1, %if.then.i232 ], [ 1, %if.end.i234 ], [ 5, %for.body ]
+  store i32 %storemerge, ptr %agg.result, align 8
+  %filename.i.i206.sink = getelementptr inbounds %"struct.hermes::driver::CompileResult", ptr %agg.result, i64 0, i32 2, i32 3
+  %bytecodeProvider.i205.sink = getelementptr inbounds %"struct.hermes::driver::CompileResult", ptr %agg.result, i64 0, i32 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %bytecodeProvider.i205.sink, i8 0, i64 64, i1 false)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename.i.i206.sink) #25
   %679 = load ptr, ptr %entry18, align 8
   %_M_finish.i436 = getelementptr inbounds %"struct.std::_Vector_base<(anonymous namespace)::ModuleInSegment, std::allocator<(anonymous namespace)::ModuleInSegment>>::_Vector_impl_data", ptr %entry18, i64 0, i32 1
   %680 = load ptr, ptr %_M_finish.i436, align 8
@@ -8867,7 +8847,6 @@ _ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i54: ; preds = %sw.epi
   br label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit57
 
 _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit57: ; preds = %sw.epilog, %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i54
-  store ptr null, ptr %agg.tmp33, align 8
   br i1 %call34, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit57
@@ -8910,7 +8889,6 @@ _ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i63: ; preds = %do.end
   br label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit66
 
 _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit66: ; preds = %do.end, %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i63
-  store ptr null, ptr %agg.tmp51, align 8
   br i1 %call52, label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit73, label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit471
 
 _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit73: ; preds = %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit66
@@ -9383,7 +9361,6 @@ _ZNKSt14default_deleteIN6hermes9SourceMapEEclEPS1_.exit.i.i: ; preds = %_ZNSt10s
   br label %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN6hermes9SourceMapEEclEPS1_.exit.i.i, %_ZNSt10shared_ptrIN6hermes19SourceMapTranslatorEED2Ev.exit.i
-  store ptr null, ptr %agg.tmp20.i, align 8
   %79 = load ptr, ptr %agg.tmp19.i, align 8
   %cmp.not.i52.i = icmp eq ptr %79, null
   br i1 %cmp.not.i52.i, label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i
@@ -9396,7 +9373,6 @@ _ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i: ; preds = %_ZNSt1
   br label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i, %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit.i
-  store ptr null, ptr %agg.tmp19.i, align 8
   br i1 %cmp.i93, label %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit57.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i
@@ -9885,7 +9861,6 @@ _ZNKSt14default_deleteIN6hermes9SourceMapEEclEPS1_.exit.i150.i: ; preds = %_ZNSt
   br label %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit151.i
 
 _ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit151.i: ; preds = %_ZNKSt14default_deleteIN6hermes9SourceMapEEclEPS1_.exit.i150.i, %_ZNSt10shared_ptrIN6hermes19SourceMapTranslatorEED2Ev.exit148.i
-  store ptr null, ptr %agg.tmp80.i, align 8
   %136 = load ptr, ptr %agg.tmp79.i, align 8
   %cmp.not.i152.i = icmp eq ptr %136, null
   br i1 %cmp.not.i152.i, label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit156.i, label %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i153.i
@@ -9898,7 +9873,6 @@ _ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i153.i: ; preds = %_ZN
   br label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit156.i
 
 _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit156.i: ; preds = %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i153.i, %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit151.i
-  store ptr null, ptr %agg.tmp79.i, align 8
   %tobool83.not.i = icmp eq ptr %call82.i, null
   %brmerge.i = or i1 %cmp.i93, %tobool83.not.i
   %.mux.i = select i1 %tobool83.not.i, i32 1, i32 5
@@ -9916,7 +9890,6 @@ if.end88.i:                                       ; preds = %_ZNSt10unique_ptrIN
   br label %cleanup95.i
 
 _ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit163.i: ; preds = %if.then64.i
-  store ptr null, ptr %inputMap.i, align 8
   call void @_ZN6hermes18SourceErrorManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %sm.i) #25
   br label %cleanup95.i
 
@@ -10808,7 +10781,6 @@ _ZNKSt14default_deleteIN6hermes9SourceMapEEclEPS1_.exit.i228: ; preds = %_ZNSt10
   br label %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit229
 
 _ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit229: ; preds = %_ZNSt10shared_ptrIN6hermes19SourceMapTranslatorEED2Ev.exit, %_ZNKSt14default_deleteIN6hermes9SourceMapEEclEPS1_.exit.i228
-  store ptr null, ptr %agg.tmp126, align 8
   %257 = load ptr, ptr %agg.tmp124, align 8
   %cmp.not.i230 = icmp eq ptr %257, null
   br i1 %cmp.not.i230, label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit234, label %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i231
@@ -10821,7 +10793,6 @@ _ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i231: ; preds = %_ZNSt
   br label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit234
 
 _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit234: ; preds = %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit229, %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i231
-  store ptr null, ptr %agg.tmp124, align 8
   %tobool.not = icmp eq ptr %call128547, null
   br i1 %tobool.not, label %if.then129, label %if.end130
 
@@ -22853,10 +22824,9 @@ _ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i: ; preds = %if.end
   br label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i, %if.end74.i
-  store ptr null, ptr %agg.tmp75.i, align 8
   %84 = load ptr, ptr %bcProvider.i, align 8
   %cmp.i284.not.i = icmp eq ptr %84, null
-  br i1 %cmp.i284.not.i, label %_ZNSt10unique_ptrIN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS2_EED2Ev.exit.i, label %if.end78.i
+  br i1 %cmp.i284.not.i, label %cleanup81.i, label %if.end78.i
 
 if.end78.i:                                       ; preds = %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i
   %85 = load ptr, ptr %map, align 8
@@ -22918,20 +22888,15 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIjSt10unique_ptrIN6hermes3hbc20BCProviderFrom
   %92 = load ptr, ptr %second.i.i, align 8
   store ptr %84, ptr %second.i.i, align 8
   %tobool.not.i.i.i.i287.i = icmp eq ptr %92, null
-  br i1 %tobool.not.i.i.i.i287.i, label %_ZNSt10unique_ptrIN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS2_EED2Ev.exit.i, label %cleanup.i
+  br i1 %tobool.not.i.i.i.i287.i, label %cleanup81.i, label %cleanup.i
 
 cleanup.i:                                        ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIjSt10unique_ptrIN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS5_EENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS8_EEEEjS8_SA_SD_EixERKj.exit.i
   call void @_ZN6hermes3hbc20BCProviderFromBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %92) #25
   call void @_ZdlPv(ptr noundef nonnull %92) #24
-  br label %_ZNSt10unique_ptrIN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS2_EED2Ev.exit.i
-
-_ZNSt10unique_ptrIN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %cleanup.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjSt10unique_ptrIN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS5_EENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS8_EEEEjS8_SA_SD_EixERKj.exit.i, %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i
-  %cleanup.dest.slot.0321.i = phi i32 [ 0, %cleanup.i ], [ 0, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjSt10unique_ptrIN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS5_EENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS8_EEEEjS8_SA_SD_EixERKj.exit.i ], [ 1, %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i ]
-  store ptr null, ptr %bcProvider.i, align 8
   br label %cleanup81.i
 
-cleanup81.i:                                      ; preds = %_ZNSt10unique_ptrIN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS2_EED2Ev.exit.i, %if.then4.i.i276.i, %if.then.i.i279.i
-  %cleanup.dest.slot.1.i = phi i32 [ %cleanup.dest.slot.0321.i, %_ZNSt10unique_ptrIN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS2_EED2Ev.exit.i ], [ 1, %if.then.i.i279.i ], [ 1, %if.then4.i.i276.i ]
+cleanup81.i:                                      ; preds = %cleanup.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjSt10unique_ptrIN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS5_EENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS8_EEEEjS8_SA_SD_EixERKj.exit.i, %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i, %if.then4.i.i276.i, %if.then.i.i279.i
+  %cond.i = phi i1 [ false, %if.then.i.i279.i ], [ false, %if.then4.i.i276.i ], [ true, %cleanup.i ], [ true, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjSt10unique_ptrIN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS5_EENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS8_EEEEjS8_SA_SD_EixERKj.exit.i ], [ false, %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i ]
   %93 = load ptr, ptr %fileBuf.i, align 8
   %cmp.not.i290.i = icmp eq ptr %93, null
   br i1 %cmp.not.i290.i, label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit295.i, label %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i291.i
@@ -22944,8 +22909,6 @@ _ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i291.i: ; preds = %cle
   br label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit295.i
 
 _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit295.i: ; preds = %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i291.i, %cleanup81.i
-  store ptr null, ptr %fileBuf.i, align 8
-  %cond.i = icmp eq i32 %cleanup.dest.slot.1.i, 0
   %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin1.0332.i, i64 1
   %cmp.not.i = icmp ne ptr %incdec.ptr.i, %add.ptr.i47.ptr.i
   %or.cond.not = select i1 %cond.i, i1 %cmp.not.i, i1 false

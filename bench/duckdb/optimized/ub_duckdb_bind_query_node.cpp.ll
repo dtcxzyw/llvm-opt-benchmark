@@ -32020,7 +32020,6 @@ _ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i: ; preds = %inv
   br label %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i, %invoke.cont7
-  store ptr null, ptr %agg.tmp5, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %flatten) #22
   invoke void @_ZN6duckdb21FlattenDependentJoinsC1ERNS_6BinderERKNS_6vectorINS_20CorrelatedColumnInfoELb1EEEbb(ptr noundef nonnull align 8 dereferenceable(242) %flatten, ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(24) %correlated_columns, i1 noundef zeroext %call4, i1 noundef zeroext false)
           to label %invoke.cont10 unwind label %lpad9
@@ -35477,7 +35476,6 @@ _ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i.i84: ; preds = 
   br label %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit.i87
 
 _ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit.i87: ; preds = %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i.i84, %invoke.cont.i82
-  store ptr null, ptr %agg.tmp.i57, align 8, !tbaa !3, !noalias !876
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %flatten.i) #22, !noalias !876
   invoke void @_ZN6duckdb21FlattenDependentJoinsC1ERNS_6BinderERKNS_6vectorINS_20CorrelatedColumnInfoELb1EEEbb(ptr noundef nonnull align 8 dereferenceable(242) %flatten.i, ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(24) %correlated_columns.i, i1 noundef zeroext %call3.i171, i1 noundef zeroext false)
           to label %invoke.cont7.i unwind label %lpad6.i, !noalias !876
@@ -35905,7 +35903,6 @@ _ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i363.i: ; preds =
   br label %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit366.i
 
 _ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit366.i: ; preds = %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i363.i, %invoke.cont58.i
-  store ptr null, ptr %agg.tmp55.i, align 8, !tbaa !3, !noalias !876
   %call62.i66 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_21LogicalComparisonJoinESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %delim_join54.i)
           to label %invoke.cont61.i69 unwind label %lpad60.i67, !noalias !876
 
@@ -36350,7 +36347,6 @@ _ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i479.i: ; preds =
   br label %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit482.i
 
 _ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit482.i: ; preds = %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i479.i, %invoke.cont132.i
-  store ptr null, ptr %agg.tmp129.i, align 8, !tbaa !3, !noalias !876
   %call136.i = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_21LogicalComparisonJoinESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %delim_join128.i)
           to label %invoke.cont135.i unwind label %lpad134.i, !noalias !876
 
@@ -37161,7 +37157,6 @@ _ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i225: ; preds = %ehcle
   br label %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit233
 
 _ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit233: ; preds = %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i225, %ehcleanup27
-  store ptr null, ptr %agg.result, align 8, !tbaa !3
   %524 = load ptr, ptr %subquery_root, align 8, !tbaa !3
   %cmp.not.i234 = icmp eq ptr %524, null
   br i1 %cmp.not.i234, label %ehcleanup31, label %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i235

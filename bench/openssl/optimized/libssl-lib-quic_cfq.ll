@@ -468,7 +468,6 @@ list_remove.exit:                                 ; preds = %if.end12.i, %if.the
   %tail.i5 = getelementptr inbounds %struct.quic_cfq_st, ptr %cfq, i64 0, i32 1, i32 1
   %6 = load ptr, ptr %tail.i5, align 8
   store ptr %6, ptr %prev.i, align 8
-  store ptr null, ptr %next13.phi.trans.insert.i, align 8
   store ptr %item, ptr %tail.i5, align 8
   %7 = load ptr, ptr %prev.i, align 8
   %cmp.not.i = icmp eq ptr %7, null
@@ -926,7 +925,6 @@ list_remove.exit:                                 ; preds = %if.end12.i, %if.the
   %tail.i10 = getelementptr inbounds %struct.quic_cfq_st, ptr %cfq, i64 0, i32 2, i32 1
   %6 = load ptr, ptr %tail.i10, align 8
   store ptr %6, ptr %prev.i, align 8
-  store ptr null, ptr %next13.phi.trans.insert.i, align 8
   store ptr %item, ptr %tail.i10, align 8
   %7 = load ptr, ptr %prev.i, align 8
   %cmp.not.i = icmp eq ptr %7, null
@@ -1013,7 +1011,6 @@ list_remove.exit37:                               ; preds = %if.end12.i30, %if.t
   %tail.i38 = getelementptr inbounds %struct.quic_cfq_st, ptr %cfq, i64 0, i32 2, i32 1
   %18 = load ptr, ptr %tail.i38, align 8
   store ptr %18, ptr %prev.i22, align 8
-  store ptr null, ptr %next13.phi.trans.insert.i26, align 8
   store ptr %item, ptr %tail.i38, align 8
   %19 = load ptr, ptr %prev.i22, align 8
   %cmp.not.i41 = icmp eq ptr %19, null

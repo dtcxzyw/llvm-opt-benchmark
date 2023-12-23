@@ -3852,11 +3852,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %ctx_.i = getelementptr inbounds %"class.node::crypto::SecureContext", ptr %retval.i11.0.i, i64 0, i32 1
   %10 = load ptr, ptr %ctx_.i, align 8
   %cmp.i.i.not.i = icmp eq ptr %10, null
-  br i1 %cmp.i.i.not.i, label %if.end.thread.i, label %if.end.i
-
-if.end.thread.i:                                  ; preds = %do.end
-  store ptr null, ptr %ctx_.i, align 8
-  br label %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit.i
+  br i1 %cmp.i.i.not.i, label %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit.i, label %if.end.i
 
 if.end.i:                                         ; preds = %do.end
   %realm_.i.i = getelementptr inbounds %"class.node::BaseObject", ptr %retval.i11.0.i, i64 0, i32 2
@@ -3875,7 +3871,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
   tail call void @SSL_CTX_free(ptr noundef nonnull %.pr.i) #20
   br label %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit.i
 
-_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit.i: ; preds = %if.then.i.i.i, %if.end.i, %if.end.thread.i
+_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit.i: ; preds = %if.then.i.i.i, %if.end.i, %do.end
   %cert_.i = getelementptr inbounds %"class.node::crypto::SecureContext", ptr %retval.i11.0.i, i64 0, i32 2
   %14 = load ptr, ptr %cert_.i, align 8
   store ptr null, ptr %cert_.i, align 8
@@ -4340,7 +4336,6 @@ if.then.i76:                                      ; preds = %_ZNSt10unique_ptrI1
   br label %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit
 
 _ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrI13stack_st_X509N4node6crypto18StackOfX509DeleterEED2Ev.exit, %if.then.i76
-  store ptr null, ptr %cert, align 8
   %cmp.not.i78 = icmp eq ptr %pkey.sroa.0.1, null
   br i1 %cmp.not.i78, label %_ZNSt10unique_ptrI11evp_pkey_stN4node15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEED2Ev.exit, label %if.then.i79
 
@@ -7680,11 +7675,7 @@ entry:
   %ctx_.i = getelementptr inbounds %"class.node::crypto::SecureContext", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %ctx_.i, align 8
   %cmp.i.i.not.i = icmp eq ptr %0, null
-  br i1 %cmp.i.i.not.i, label %if.end.thread.i, label %if.end.i
-
-if.end.thread.i:                                  ; preds = %entry
-  store ptr null, ptr %ctx_.i, align 8
-  br label %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit.i
+  br i1 %cmp.i.i.not.i, label %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit.i, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %realm_.i.i = getelementptr inbounds %"class.node::BaseObject", ptr %this, i64 0, i32 2
@@ -7703,7 +7694,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
   tail call void @SSL_CTX_free(ptr noundef nonnull %.pr.i) #20
   br label %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit.i
 
-_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit.i: ; preds = %if.then.i.i.i, %if.end.i, %if.end.thread.i
+_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit.i: ; preds = %if.then.i.i.i, %if.end.i, %entry
   %cert_.i = getelementptr inbounds %"class.node::crypto::SecureContext", ptr %this, i64 0, i32 2
   %4 = load ptr, ptr %cert_.i, align 8
   store ptr null, ptr %cert_.i, align 8

@@ -21006,7 +21006,6 @@ _ZNKSt14default_deleteIN5folly20QueueObserverFactoryEEclEPS1_.exit.i.i: ; preds 
   br label %_ZN5folly21CPUThreadPoolExecutor7OptionsD2Ev.exit
 
 _ZN5folly21CPUThreadPoolExecutor7OptionsD2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5folly20QueueObserverFactoryEEclEPS1_.exit.i.i, %invoke.cont
-  store ptr null, ptr %queueObserverFactory.i, align 8, !tbaa !49
   %7 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !46
   %cmp.not.i.i8 = icmp eq ptr %7, null
   br i1 %cmp.not.i.i8, label %_ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
@@ -21410,7 +21409,6 @@ _ZNKSt14default_deleteIN5folly20QueueObserverFactoryEEclEPS1_.exit.i.i: ; preds 
   br label %_ZN5folly21CPUThreadPoolExecutor7OptionsD2Ev.exit
 
 _ZN5folly21CPUThreadPoolExecutor7OptionsD2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5folly20QueueObserverFactoryEEclEPS1_.exit.i.i, %invoke.cont
-  store ptr null, ptr %queueObserverFactory.i, align 8, !tbaa !49
   %7 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !46
   %cmp.not.i.i7 = icmp eq ptr %7, null
   br i1 %cmp.not.i.i7, label %_ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
@@ -21855,7 +21853,6 @@ _ZNKSt14default_deleteIN5folly20QueueObserverFactoryEEclEPS1_.exit.i.i: ; preds 
   br label %_ZN5folly21CPUThreadPoolExecutor7OptionsD2Ev.exit
 
 _ZN5folly21CPUThreadPoolExecutor7OptionsD2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5folly20QueueObserverFactoryEEclEPS1_.exit.i.i, %invoke.cont
-  store ptr null, ptr %queueObserverFactory.i, align 8, !tbaa !49
   %6 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !46
   %cmp.not.i.i7 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i7, label %_ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
@@ -22208,7 +22205,6 @@ _ZNKSt14default_deleteIN5folly20QueueObserverFactoryEEclEPS1_.exit.i.i: ; preds 
   br label %_ZN5folly21CPUThreadPoolExecutor7OptionsD2Ev.exit
 
 _ZN5folly21CPUThreadPoolExecutor7OptionsD2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5folly20QueueObserverFactoryEEclEPS1_.exit.i.i, %invoke.cont
-  store ptr null, ptr %queueObserverFactory.i, align 8, !tbaa !49
   %6 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !46
   %cmp.not.i.i6 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i6, label %_ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
@@ -22571,7 +22567,6 @@ _ZNKSt14default_deleteIN5folly20QueueObserverFactoryEEclEPS1_.exit.i.i: ; preds 
   br label %_ZN5folly21CPUThreadPoolExecutor7OptionsD2Ev.exit
 
 _ZN5folly21CPUThreadPoolExecutor7OptionsD2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5folly20QueueObserverFactoryEEclEPS1_.exit.i.i, %invoke.cont
-  store ptr null, ptr %queueObserverFactory.i, align 8, !tbaa !49
   %5 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !46
   %cmp.not.i.i6 = icmp eq ptr %5, null
   br i1 %cmp.not.i.i6, label %_ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
@@ -23630,7 +23625,6 @@ _ZNKSt14default_deleteIN5folly20QueueObserverFactoryEEclEPS1_.exit.i.i: ; preds 
   br label %_ZN5folly21CPUThreadPoolExecutor7OptionsD2Ev.exit
 
 _ZN5folly21CPUThreadPoolExecutor7OptionsD2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5folly20QueueObserverFactoryEEclEPS1_.exit.i.i, %invoke.cont
-  store ptr null, ptr %queueObserverFactory.i, align 8, !tbaa !49
   %5 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !46
   %cmp.not.i.i5 = icmp eq ptr %5, null
   br i1 %cmp.not.i.i5, label %_ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
@@ -23789,7 +23783,6 @@ _ZNKSt14default_deleteIN5folly20QueueObserverFactoryEEclEPS1_.exit.i.i: ; preds 
   br label %_ZN5folly21CPUThreadPoolExecutor7OptionsD2Ev.exit
 
 _ZN5folly21CPUThreadPoolExecutor7OptionsD2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5folly20QueueObserverFactoryEEclEPS1_.exit.i.i, %invoke.cont
-  store ptr null, ptr %queueObserverFactory.i, align 8, !tbaa !49
   %5 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !46
   %cmp.not.i.i7 = icmp eq ptr %5, null
   br i1 %cmp.not.i.i7, label %_ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
@@ -23920,7 +23913,6 @@ _ZNKSt14default_deleteIN5folly20QueueObserverFactoryEEclEPS1_.exit.i.i: ; preds 
   br label %_ZN5folly21CPUThreadPoolExecutor7OptionsD2Ev.exit
 
 _ZN5folly21CPUThreadPoolExecutor7OptionsD2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5folly20QueueObserverFactoryEEclEPS1_.exit.i.i, %invoke.cont
-  store ptr null, ptr %queueObserverFactory.i, align 8, !tbaa !49
   %5 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !46
   %cmp.not.i.i6 = icmp eq ptr %5, null
   br i1 %cmp.not.i.i6, label %_ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
@@ -24070,7 +24062,6 @@ _ZNKSt14default_deleteIN5folly20QueueObserverFactoryEEclEPS1_.exit.i.i: ; preds 
   br label %_ZN5folly21CPUThreadPoolExecutor7OptionsD2Ev.exit
 
 _ZN5folly21CPUThreadPoolExecutor7OptionsD2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5folly20QueueObserverFactoryEEclEPS1_.exit.i.i, %invoke.cont
-  store ptr null, ptr %queueObserverFactory.i, align 8, !tbaa !49
   %6 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !46
   %cmp.not.i.i7 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i7, label %_ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
@@ -26702,7 +26693,6 @@ _ZNKSt14default_deleteIN5folly20QueueObserverFactoryEEclEPS1_.exit.i.i: ; preds 
   br label %_ZN5folly21CPUThreadPoolExecutor7OptionsD2Ev.exit
 
 _ZN5folly21CPUThreadPoolExecutor7OptionsD2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5folly20QueueObserverFactoryEEclEPS1_.exit.i.i, %invoke.cont
-  store ptr null, ptr %queueObserverFactory.i, align 8, !tbaa !49
   %6 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !46
   %cmp.not.i.i6 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i6, label %_ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i

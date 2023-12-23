@@ -30544,7 +30544,6 @@ invoke.cont46.i:                                  ; preds = %invoke.cont44.i
   br i1 %cmp.i.i44.i, label %_ZNSt10shared_ptrIN5arrow12StructScalarEED2Ev.exit.i.i, label %if.then.i.i.i38
 
 _ZNSt10shared_ptrIN5arrow12StructScalarEED2Ev.exit.i.i: ; preds = %invoke.cont46.i
-  store ptr null, ptr %ref.tmp21.i, align 8, !noalias !396
   %93 = load <2 x ptr>, ptr %storage_.i.i45.i, align 8, !noalias !433
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i45.i, i8 0, i64 16, i1 false), !noalias !396
   store <2 x ptr> %93, ptr %storage_.i4.i.i, align 8, !alias.scope !396

@@ -745,7 +745,6 @@ if.then3.i.i:                                     ; preds = %if.then.i22.i
 
 _ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i: ; preds = %if.then3.i.i, %if.then.i22.i, %.noexc211
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_capacity.i.i, align 8
   br label %.noexc
 

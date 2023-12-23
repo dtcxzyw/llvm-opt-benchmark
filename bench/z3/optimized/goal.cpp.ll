@@ -4431,7 +4431,6 @@ terminate.lpad.i.i:                               ; preds = %for.cond.preheader.
   unreachable
 
 _ZN13obj_hashtableI4exprED2Ev.exit:               ; preds = %invoke.cont98, %for.cond.preheader.i.i.i.i
-  store ptr null, ptr %to_pp, align 8
   %76 = load ptr, ptr %deps, align 8
   %tobool.not.i.i.i = icmp eq ptr %76, null
   br i1 %tobool.not.i.i.i, label %_ZN10ptr_vectorI4exprED2Ev.exit, label %if.then.i.i.i70

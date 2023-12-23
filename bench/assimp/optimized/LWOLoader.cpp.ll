@@ -1943,7 +1943,7 @@ invoke.cont301:                                   ; preds = %for.end298
 new.ctorloop:                                     ; preds = %invoke.cont301
   %101 = add nsw i64 %100, -12
   %102 = urem i64 %101, 12
-  %103 = sub nsw i64 %101, %102
+  %103 = sub nuw nsw i64 %101, %102
   %104 = add nsw i64 %103, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call302, i8 0, i64 %104, i1 false)
   br label %arrayctor.cont
@@ -2016,7 +2016,7 @@ invoke.cont332:                                   ; preds = %if.end329
 new.ctorloop335:                                  ; preds = %invoke.cont332
   %113 = add nsw i64 %112, -12
   %114 = urem i64 %113, 12
-  %115 = sub nsw i64 %113, %114
+  %115 = sub nuw nsw i64 %113, %114
   %116 = add nsw i64 %115, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call333, i8 0, i64 %116, i1 false)
   br label %arrayctor.cont341
@@ -2050,7 +2050,7 @@ invoke.cont355:                                   ; preds = %if.then352
 new.ctorloop358:                                  ; preds = %invoke.cont355
   %119 = add nsw i64 %118, -12
   %120 = urem i64 %119, 12
-  %121 = sub nsw i64 %119, %120
+  %121 = sub nuw nsw i64 %119, %120
   %122 = add nsw i64 %121, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call356, i8 0, i64 %122, i1 false)
   br label %arrayctor.cont364
@@ -2507,22 +2507,18 @@ invoke.cont588:                                   ; preds = %invoke.cont585
   store ptr %179, ptr %call589, align 8
   %180 = load ptr, ptr %pcNode, align 8
   %cmp.not.i305 = icmp eq ptr %180, null
-  br i1 %cmp.not.i305, label %_ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i
+  br i1 %cmp.not.i305, label %for.inc592, label %_ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i
 
 _ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i:    ; preds = %invoke.cont588
   call void @_ZN6aiNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(1144) %180) #23
   call void @_ZdlPv(ptr noundef nonnull %180) #24
-  br label %_ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev.exit
-
-_ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev.exit: ; preds = %invoke.cont588, %_ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i
-  store ptr null, ptr %pcNode, align 8
   br label %for.inc592
 
-for.inc592:                                       ; preds = %_ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev.exit, %invoke.cont540, %for.body165
-  %apcMeshes.sroa.22.6 = phi ptr [ %apcMeshes.sroa.22.5, %_ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev.exit ], [ %apcMeshes.sroa.22.5, %invoke.cont540 ], [ %apcMeshes.sroa.22.1628, %for.body165 ]
-  %apcMeshes.sroa.12.6 = phi ptr [ %apcMeshes.sroa.12.5, %_ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev.exit ], [ %apcMeshes.sroa.12.5, %invoke.cont540 ], [ %apcMeshes.sroa.12.1629, %for.body165 ]
-  %apcMeshes.sroa.0.9 = phi ptr [ %apcMeshes.sroa.0.8, %_ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev.exit ], [ %apcMeshes.sroa.0.8, %invoke.cont540 ], [ %apcMeshes.sroa.0.1630, %for.body165 ]
-  %iDefaultSurface.6 = phi i32 [ %iDefaultSurface.5, %_ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev.exit ], [ %iDefaultSurface.5, %invoke.cont540 ], [ %iDefaultSurface.0631, %for.body165 ]
+for.inc592:                                       ; preds = %_ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i, %invoke.cont588, %invoke.cont540, %for.body165
+  %apcMeshes.sroa.22.6 = phi ptr [ %apcMeshes.sroa.22.5, %invoke.cont540 ], [ %apcMeshes.sroa.22.1628, %for.body165 ], [ %apcMeshes.sroa.22.5, %invoke.cont588 ], [ %apcMeshes.sroa.22.5, %_ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i ]
+  %apcMeshes.sroa.12.6 = phi ptr [ %apcMeshes.sroa.12.5, %invoke.cont540 ], [ %apcMeshes.sroa.12.1629, %for.body165 ], [ %apcMeshes.sroa.12.5, %invoke.cont588 ], [ %apcMeshes.sroa.12.5, %_ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i ]
+  %apcMeshes.sroa.0.9 = phi ptr [ %apcMeshes.sroa.0.8, %invoke.cont540 ], [ %apcMeshes.sroa.0.1630, %for.body165 ], [ %apcMeshes.sroa.0.8, %invoke.cont588 ], [ %apcMeshes.sroa.0.8, %_ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i ]
+  %iDefaultSurface.6 = phi i32 [ %iDefaultSurface.5, %invoke.cont540 ], [ %iDefaultSurface.0631, %for.body165 ], [ %iDefaultSurface.5, %invoke.cont588 ], [ %iDefaultSurface.5, %_ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i ]
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.0632, align 8
   %cmp.i136.not = icmp eq ptr %__begin1.sroa.0.0, %38
   br i1 %cmp.i136.not, label %for.end594, label %for.body165
@@ -4018,7 +4014,7 @@ entry:
 new.ctorloop:                                     ; preds = %entry
   %2 = add nsw i64 %1, -12
   %3 = urem i64 %2, 12
-  %4 = sub nsw i64 %2, %3
+  %4 = sub nuw nsw i64 %2, %3
   %5 = add nsw i64 %4, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call, i8 0, i64 %5, i1 false)
   %mNormals = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 4

@@ -5948,15 +5948,11 @@ if.then516:                                       ; preds = %_ZNSt8functionIFvPK
 invoke.cont519:                                   ; preds = %if.then516
   %201 = load ptr, ptr %agg.tmp517, align 8
   %cmp.not.i973 = icmp eq ptr %201, null
-  br i1 %cmp.not.i973, label %_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit976, label %_ZNKSt14default_deleteIN4pbrt9TokenizerEEclEPS1_.exit.i974
+  br i1 %cmp.not.i973, label %if.end521, label %_ZNKSt14default_deleteIN4pbrt9TokenizerEEclEPS1_.exit.i974
 
 _ZNKSt14default_deleteIN4pbrt9TokenizerEEclEPS1_.exit.i974: ; preds = %invoke.cont519
   call void @_ZN4pbrt9TokenizerD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %201) #32
   call void @_ZdlPv(ptr noundef nonnull %201) #35
-  br label %_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit976
-
-_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit976: ; preds = %invoke.cont519, %_ZNKSt14default_deleteIN4pbrt9TokenizerEEclEPS1_.exit.i974
-  store ptr null, ptr %agg.tmp517, align 8
   br label %if.end521
 
 lpad501:                                          ; preds = %invoke.cont500
@@ -5989,7 +5985,7 @@ lpad518:                                          ; preds = %if.then516
   call void @_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp517) #32
   br label %ehcleanup524
 
-if.end521:                                        ; preds = %_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit976, %_ZNSt8functionIFvPKcPKN4pbrt7FileLocEEED2Ev.exit971
+if.end521:                                        ; preds = %_ZNKSt14default_deleteIN4pbrt9TokenizerEEclEPS1_.exit.i974, %invoke.cont519, %_ZNSt8functionIFvPKcPKN4pbrt7FileLocEEED2Ev.exit971
   invoke void @_ZN4pbrt17BasicSceneBuilder13MergeImportedEPS0_(ptr noundef nonnull align 64 dereferenceable(3544) %192, ptr noundef %call506)
           to label %invoke.cont523 unwind label %lpad522
 
@@ -11228,7 +11224,6 @@ lpad28:                                           ; preds = %if.then26
   br label %eh.resume
 
 if.end31:                                         ; preds = %_ZNKSt14default_deleteIN4pbrt9TokenizerEEclEPS1_.exit.i36, %invoke.cont29
-  store ptr null, ptr %agg.tmp27, align 8
   %.pr50 = load ptr, ptr %t20, align 8
   %cmp.not.i44 = icmp eq ptr %.pr50, null
   br i1 %cmp.not.i44, label %_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit46, label %_ZNKSt14default_deleteIN4pbrt9TokenizerEEclEPS1_.exit.i45
@@ -11336,7 +11331,6 @@ _ZNKSt14default_deleteIN4pbrt9TokenizerEEclEPS1_.exit.i: ; preds = %invoke.cont4
   br label %_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont4, %_ZNKSt14default_deleteIN4pbrt9TokenizerEEclEPS1_.exit.i
-  store ptr null, ptr %agg.tmp2, align 8
   %vtable = load ptr, ptr %target, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 40
   %10 = load ptr, ptr %vfn, align 8
@@ -26260,15 +26254,11 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt8functionIFvPK
 invoke.cont4.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i.i
   %7 = load ptr, ptr %agg.tmp2.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4pbrt9TokenizerEEclEPS1_.exit.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4pbrt9TokenizerEEclEPS1_.exit.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4pbrt9TokenizerEEclEPS1_.exit.i.i.i.i.i.i.i.i: ; preds = %invoke.cont4.i.i.i.i.i.i.i
   call void @_ZN4pbrt9TokenizerD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %7) #32
   call void @_ZdlPv(ptr noundef nonnull %7) #35
-  br label %_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i.i
-
-_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4pbrt9TokenizerEEclEPS1_.exit.i.i.i.i.i.i.i.i, %invoke.cont4.i.i.i.i.i.i.i
-  store ptr null, ptr %agg.tmp2.i.i.i.i.i.i.i, align 8
   br label %if.end.i.i.i.i.i.i.i
 
 lpad.i.i.i.i.i.i.i:                               ; preds = %entry
@@ -26295,7 +26285,7 @@ lpad3.i.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i.i
   call void @_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp2.i.i.i.i.i.i.i) #32
   br label %ehcleanup.i.i.i.i.i.i.i
 
-if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i.i, %_ZNSt8functionIFvPKcPKN4pbrt7FileLocEEED2Ev.exit.i.i.i.i.i.i.i
+if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNKSt14default_deleteIN4pbrt9TokenizerEEclEPS1_.exit.i.i.i.i.i.i.i.i, %invoke.cont4.i.i.i.i.i.i.i, %_ZNSt8functionIFvPKcPKN4pbrt7FileLocEEED2Ev.exit.i.i.i.i.i.i.i
   %13 = load i32, ptr @_ZN4pbrt7logging8logLevelE, align 4
   %cmp.i.i.i.i.i.i.i = icmp slt i32 %13, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont6.i.i.i.i.i.i.i, label %land.end.i.i.i.i.i.i.i

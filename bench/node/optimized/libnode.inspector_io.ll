@@ -654,7 +654,6 @@ _ZNKSt14default_deleteIN12v8_inspector12StringBufferEEclEPS1_.exit.i: ; preds = 
   br label %_ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN12v8_inspector12StringBufferEEclEPS1_.exit.i
-  store ptr null, ptr %agg.tmp, align 8
   %thread_ = getelementptr inbounds %"class.node::inspector::InspectorIo", ptr %this, i64 0, i32 4
   %call2 = tail call i32 @uv_thread_join(ptr noundef nonnull %thread_) #18
   %cmp.not = icmp eq i32 %call2, 0

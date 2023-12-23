@@ -660,7 +660,6 @@ pvscsi_reset_adapter.exit:                        ; preds = %trace_pvscsi_state.
   store i8 0, ptr %rings_info_valid.i.i, align 4
   %msg_ring_info_valid.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %call.i1, i64 0, i32 13
   store i8 0, ptr %msg_ring_info_valid.i.i, align 1
-  store ptr null, ptr %pending_queue.i, align 8
   %tql_prev.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %call.i1, i64 0, i32 4, i32 0, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %reg_command_status.i.i, i8 0, i64 20, i1 false)
   store ptr %pending_queue.i, ptr %tql_prev.i.i, align 8
@@ -2240,7 +2239,6 @@ pvscsi_reset_adapter.exit:                        ; preds = %trace_pvscsi_on_cmd
   store i8 0, ptr %rings_info_valid.i.i, align 4
   %msg_ring_info_valid.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 13
   store i8 0, ptr %msg_ring_info_valid.i.i, align 1
-  store ptr null, ptr %pending_queue.i, align 8
   %tql_prev.i.i = getelementptr inbounds %struct.PVSCSIState, ptr %s, i64 0, i32 4, i32 0, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %reg_command_status.i.i, i8 0, i64 20, i1 false)
   store ptr %pending_queue.i, ptr %tql_prev.i.i, align 8

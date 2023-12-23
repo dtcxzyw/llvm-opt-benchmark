@@ -1075,7 +1075,6 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end
-  store i64 4, ptr %len, align 8
   %call7 = call fastcc ptr @iova_to_va(ptr noundef %0, ptr noundef nonnull %len, i64 noundef %used_addr)
   %used = getelementptr inbounds %struct.VduseRing, ptr %vq, i64 0, i32 6
   store ptr %call7, ptr %used, align 8

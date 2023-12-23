@@ -25438,13 +25438,6 @@ if.then434:                                       ; preds = %if.end426
   br label %if.end438
 
 if.end438:                                        ; preds = %if.end426, %if.then434, %if.end372
-  br i1 %cmp, label %if.then440, label %if.end442
-
-if.then440:                                       ; preds = %if.end438
-  store i32 0, ptr %ColorEditCurrentID, align 8
-  br label %if.end442
-
-if.end442:                                        ; preds = %if.then440, %if.end438
   call void @_ZN5ImGui5PopIDEv()
   call void @_ZN5ImGui8EndGroupEv()
   %LastItemData443 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 75
@@ -25454,7 +25447,7 @@ if.end442:                                        ; preds = %if.then440, %if.end
   %tobool445.not = icmp eq i32 %and444, 0
   br i1 %tobool445.not, label %if.end480, label %land.lhs.true446
 
-land.lhs.true446:                                 ; preds = %if.end442
+land.lhs.true446:                                 ; preds = %if.end438
   %InFlags = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 75, i32 1
   %101 = load i32, ptr %InFlags, align 4
   %and448 = and i32 %101, 128
@@ -25507,8 +25500,8 @@ if.end479:                                        ; preds = %if.end467, %if.then
   call void @_ZN5ImGui17EndDragDropTargetEv()
   br label %if.end480
 
-if.end480:                                        ; preds = %if.end479, %land.lhs.true453, %land.lhs.true446, %if.end442
-  %value_changed.8 = phi i8 [ %value_changed.5, %land.lhs.true446 ], [ %value_changed.7, %if.end479 ], [ %value_changed.5, %land.lhs.true453 ], [ %value_changed.5, %if.end442 ]
+if.end480:                                        ; preds = %if.end479, %land.lhs.true453, %land.lhs.true446, %if.end438
+  %value_changed.8 = phi i8 [ %value_changed.5, %land.lhs.true446 ], [ %value_changed.7, %if.end479 ], [ %value_changed.5, %land.lhs.true453 ], [ %value_changed.5, %if.end438 ]
   br i1 %cmp375, label %if.end489, label %land.lhs.true482
 
 land.lhs.true482:                                 ; preds = %if.end480
@@ -27635,18 +27628,11 @@ if.then717:                                       ; preds = %land.lhs.true715
 
 if.end720:                                        ; preds = %if.end704, %if.then717, %land.lhs.true715, %if.end713
   %value_changed.11726 = phi i1 [ true, %if.then717 ], [ true, %land.lhs.true715 ], [ false, %if.end713 ], [ false, %if.end704 ]
-  br i1 %cmp3, label %if.then722, label %if.end724
-
-if.then722:                                       ; preds = %if.end720
-  store i32 0, ptr %ColorEditCurrentID, align 8
-  br label %if.end724
-
-if.end724:                                        ; preds = %if.then722, %if.end720
   call void @_ZN5ImGui5PopIDEv()
   br label %return
 
-return:                                           ; preds = %entry, %if.end724
-  %retval.0 = phi i1 [ %value_changed.11726, %if.end724 ], [ false, %entry ]
+return:                                           ; preds = %entry, %if.end720
+  %retval.0 = phi i1 [ %value_changed.11726, %if.end720 ], [ false, %entry ]
   ret i1 %retval.0
 }
 
