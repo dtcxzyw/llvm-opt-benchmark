@@ -8869,9 +8869,9 @@ do.body:                                          ; preds = %do.bodythread-pre-s
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
   %cmp.i489 = icmp ult i64 %sub.ptr.div.i.i, 2048
-  br i1 %cmp.i489, label %if.then.i, label %if.else.i
+  br i1 %cmp.i489, label %if.then.i82, label %if.else.i
 
-if.then.i:                                        ; preds = %do.body
+if.then.i82:                                      ; preds = %do.body
   %sub.i = sub nuw nsw i64 2048, %sub.ptr.div.i.i
   %30 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !390
   %sub.ptr.lhs.cast.i88 = ptrtoint ptr %30 to i64
@@ -8883,14 +8883,14 @@ if.then.i:                                        ; preds = %do.body
   %cmp8.not.i = icmp ult i64 %sub.ptr.div.i90, %sub.i
   br i1 %cmp8.not.i, label %_ZNKSt6vectorIN6duckdb13TupleSniffingESaIS1_EE12_M_check_lenEmPKc.exit.i, label %_ZSt27__uninitialized_default_n_aIPN6duckdb13TupleSniffingEmS1_ET_S3_T0_RSaIT1_E.exit.i
 
-_ZSt27__uninitialized_default_n_aIPN6duckdb13TupleSniffingEmS1_ET_S3_T0_RSaIT1_E.exit.i: ; preds = %if.then.i
+_ZSt27__uninitialized_default_n_aIPN6duckdb13TupleSniffingEmS1_ET_S3_T0_RSaIT1_E.exit.i: ; preds = %if.then.i82
   %31 = sub i64 98304, %sub.ptr.sub.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %28, i8 0, i64 %31, i1 false)
   %scevgep.i.i.i.i = getelementptr i8, ptr %28, i64 %31
   store ptr %scevgep.i.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !389
   br label %invoke.cont29
 
-_ZNKSt6vectorIN6duckdb13TupleSniffingESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.then.i
+_ZNKSt6vectorIN6duckdb13TupleSniffingESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.then.i82
   %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 %sub.i)
   %add.i.i94 = add nuw nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i
   %mul.i.i.i.i = mul nuw nsw i64 %add.i.i94, 48
@@ -35758,20 +35758,18 @@ entry:
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !804, !noalias !799
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %count, 63
-  %div1.i.i.i.i.i.i.i.i.i.i = lshr i64 %add.i.i.i.i.i.i.i.i.i.i, 6
-  %0 = shl nuw nsw i64 %div1.i.i.i.i.i.i.i.i.i.i, 3
-  %call.i15.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %0) #25
+  %0 = lshr i64 %add.i.i.i.i.i.i.i.i.i.i, 3
+  %1 = and i64 %0, 2305843009213693944
+  %call.i15.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %1) #25
           to label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit18.i.i.i.i.i.i.i.i.i, !noalias !799
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i, i8 0, i64 %0, i1 false), !noalias !806
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i, i8 0, i64 %1, i1 false), !noalias !806
   store ptr %call.i15.i.i.i.i.i.i.i.i.i, ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !3, !noalias !799
   %cmp20.not.i.i.i.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i.i.i.i.i, 64
   br i1 %cmp20.not.i.i.i.i.i.i.i.i.i, label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i
 
 for.body.lr.ph.i.i.i.i.i.i.i.i.i:                 ; preds = %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i
-  %umax.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %div1.i.i.i.i.i.i.i.i.i.i, i64 1)
-  %1 = shl nuw nsw i64 %umax.i.i.i.i.i.i.i.i.i, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call.i15.i.i.i.i.i.i.i.i.i, i8 -1, i64 %1, i1 false), !tbaa !132, !noalias !799
   br label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit
 

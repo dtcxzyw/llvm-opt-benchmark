@@ -1637,69 +1637,64 @@ entry:
   %0 = load i16, ptr %fUnion.i, align 8
   %1 = and i16 %0, 1
   %tobool.not.i = icmp eq i16 %1, 0
-  br i1 %tobool.not.i, label %_ZN6icu_7513UnicodeString7unBogusEv.exit, label %if.then.i
+  br i1 %tobool.not.i, label %land.lhs.true.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   store i16 2, ptr %fUnion.i, align 8
-  br label %_ZN6icu_7513UnicodeString7unBogusEv.exit
+  br label %land.lhs.true.i
 
-_ZN6icu_7513UnicodeString7unBogusEv.exit:         ; preds = %entry, %if.then.i
-  %2 = phi i16 [ %0, %entry ], [ 2, %if.then.i ]
-  %add = add nuw nsw i32 %utf8.coerce1, 1
+land.lhs.true.i:                                  ; preds = %if.then.i, %entry
   %cmp.inv = icmp sgt i32 %utf8.coerce1, 27
+  %add = add nuw nsw i32 %utf8.coerce1, 1
   %capacity.0 = select i1 %cmp.inv, i32 %add, i32 27
-  %cmp.i = icmp sgt i32 %capacity.0, -2
-  br i1 %cmp.i, label %land.lhs.true.i, label %_ZN6icu_7513UnicodeString9getBufferEi.exit
-
-land.lhs.true.i:                                  ; preds = %_ZN6icu_7513UnicodeString7unBogusEv.exit
   %call.i = tail call noundef signext i8 @_ZN6icu_7513UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %capacity.0, i32 noundef -1, i8 noundef signext 1, ptr noundef null, i8 noundef signext 0), !range !7
   %tobool.not.i3 = icmp eq i8 %call.i, 0
   %.pre = load i16, ptr %fUnion.i, align 8
   br i1 %tobool.not.i3, label %_ZN6icu_7513UnicodeString9getBufferEi.exit, label %if.then.i4
 
 if.then.i4:                                       ; preds = %land.lhs.true.i
-  %3 = and i16 %.pre, 15
-  %4 = or disjoint i16 %3, 16
-  store i16 %4, ptr %fUnion.i, align 8
-  %5 = and i16 %.pre, 2
-  %tobool.not.i.i = icmp eq i16 %5, 0
+  %2 = and i16 %.pre, 15
+  %3 = or disjoint i16 %2, 16
+  store i16 %3, ptr %fUnion.i, align 8
+  %4 = and i16 %.pre, 2
+  %tobool.not.i.i = icmp eq i16 %4, 0
   %fBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 10
   %fArray.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this, i64 0, i32 1, i32 0, i32 3
-  %6 = load ptr, ptr %fArray.i.i, align 8
-  %cond.i.i = select i1 %tobool.not.i.i, ptr %6, ptr %fBuffer.i.i
+  %5 = load ptr, ptr %fArray.i.i, align 8
+  %cond.i.i = select i1 %tobool.not.i.i, ptr %5, ptr %fBuffer.i.i
   br label %_ZN6icu_7513UnicodeString9getBufferEi.exit
 
-_ZN6icu_7513UnicodeString9getBufferEi.exit:       ; preds = %_ZN6icu_7513UnicodeString7unBogusEv.exit, %land.lhs.true.i, %if.then.i4
-  %7 = phi i16 [ %4, %if.then.i4 ], [ %.pre, %land.lhs.true.i ], [ %2, %_ZN6icu_7513UnicodeString7unBogusEv.exit ]
-  %retval.0.i = phi ptr [ %cond.i.i, %if.then.i4 ], [ null, %land.lhs.true.i ], [ null, %_ZN6icu_7513UnicodeString7unBogusEv.exit ]
+_ZN6icu_7513UnicodeString9getBufferEi.exit:       ; preds = %land.lhs.true.i, %if.then.i4
+  %6 = phi i16 [ %3, %if.then.i4 ], [ %.pre, %land.lhs.true.i ]
+  %retval.0.i = phi ptr [ %cond.i.i, %if.then.i4 ], [ null, %land.lhs.true.i ]
   store i32 0, ptr %errorCode, align 4
-  %8 = and i16 %7, 2
-  %tobool.not.i7 = icmp eq i16 %8, 0
+  %7 = and i16 %6, 2
+  %tobool.not.i7 = icmp eq i16 %7, 0
   %fCapacity.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this, i64 0, i32 1, i32 0, i32 2
-  %9 = load i32, ptr %fCapacity.i, align 8
-  %cond.i = select i1 %tobool.not.i7, i32 %9, i32 27
+  %8 = load i32, ptr %fCapacity.i, align 8
+  %cond.i = select i1 %tobool.not.i7, i32 %8, i32 27
   %call5 = call ptr @u_strFromUTF8WithSub_75(ptr noundef %retval.0.i, i32 noundef %cond.i, ptr noundef nonnull %length16, ptr noundef %utf8.coerce0, i32 noundef %utf8.coerce1, i32 noundef 65533, ptr noundef null, ptr noundef nonnull %errorCode)
-  %10 = load i32, ptr %length16, align 4
-  %11 = load i16, ptr %fUnion.i, align 8
-  %12 = and i16 %11, 16
-  %tobool.i = icmp ne i16 %12, 0
-  %cmp.i9 = icmp sgt i32 %10, -2
+  %9 = load i32, ptr %length16, align 4
+  %10 = load i16, ptr %fUnion.i, align 8
+  %11 = and i16 %10, 16
+  %tobool.i = icmp ne i16 %11, 0
+  %cmp.i9 = icmp sgt i32 %9, -2
   %or.cond.i = and i1 %cmp.i9, %tobool.i
   br i1 %or.cond.i, label %if.then.i10, label %_ZN6icu_7513UnicodeString13releaseBufferEi.exit
 
 if.then.i10:                                      ; preds = %_ZN6icu_7513UnicodeString9getBufferEi.exit
-  %13 = and i16 %11, 2
-  %tobool.not.i.i11 = icmp eq i16 %13, 0
-  %14 = load i32, ptr %fCapacity.i, align 8
-  %cond.i.i12 = select i1 %tobool.not.i.i11, i32 %14, i32 27
-  %cmp2.i = icmp eq i32 %10, -1
+  %12 = and i16 %10, 2
+  %tobool.not.i.i11 = icmp eq i16 %12, 0
+  %13 = load i32, ptr %fCapacity.i, align 8
+  %cond.i.i12 = select i1 %tobool.not.i.i11, i32 %13, i32 27
+  %cmp2.i = icmp eq i32 %9, -1
   br i1 %cmp2.i, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.then.i10
   %fBuffer.i.i13 = getelementptr inbounds i8, ptr %this, i64 10
   %fArray.i.i14 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this, i64 0, i32 1, i32 0, i32 3
-  %15 = load ptr, ptr %fArray.i.i14, align 8
-  %cond.i13.i = select i1 %tobool.not.i.i11, ptr %15, ptr %fBuffer.i.i13
+  %14 = load ptr, ptr %fArray.i.i14, align 8
+  %cond.i13.i = select i1 %tobool.not.i.i11, ptr %14, ptr %fBuffer.i.i13
   %idx.ext.i = sext i32 %cond.i.i12 to i64
   %add.ptr.i = getelementptr inbounds i16, ptr %cond.i13.i, i64 %idx.ext.i
   %cmp514.i = icmp sgt i32 %cond.i.i12, 0
@@ -1707,8 +1702,8 @@ if.then3.i:                                       ; preds = %if.then.i10
 
 land.rhs.i:                                       ; preds = %if.then3.i, %while.body.i
   %p.015.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %cond.i13.i, %if.then3.i ]
-  %16 = load i16, ptr %p.015.i, align 2
-  %cmp7.not.i = icmp eq i16 %16, 0
+  %15 = load i16, ptr %p.015.i, align 2
+  %cmp7.not.i = icmp eq i16 %15, 0
   br i1 %cmp7.not.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -1726,7 +1721,7 @@ while.end.i:                                      ; preds = %while.body.i, %land
   br label %if.end11.i
 
 if.else.i:                                        ; preds = %if.then.i10
-  %spec.select.i = call i32 @llvm.smin.i32(i32 %cond.i.i12, i32 %10)
+  %spec.select.i = call i32 @llvm.smin.i32(i32 %cond.i.i12, i32 %9)
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.else.i, %while.end.i
@@ -1735,46 +1730,46 @@ if.end11.i:                                       ; preds = %if.else.i, %while.e
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end11.i
-  %17 = and i16 %11, 31
+  %16 = and i16 %10, 31
   %len.tr.i.i.i = trunc i32 %newLength.addr.0.i to i16
-  %18 = shl i16 %len.tr.i.i.i, 5
-  %conv2.i.i.i = or disjoint i16 %18, %17
+  %17 = shl i16 %len.tr.i.i.i, 5
+  %conv2.i.i.i = or disjoint i16 %17, %16
   br label %_ZN6icu_7513UnicodeString9setLengthEi.exit.i
 
 if.else.i.i:                                      ; preds = %if.end11.i
-  %or.i.i = or i16 %11, -32
+  %or.i.i = or i16 %10, -32
   %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this, i64 0, i32 1, i32 0, i32 1
   store i32 %newLength.addr.0.i, ptr %fLength.i.i, align 4
   br label %_ZN6icu_7513UnicodeString9setLengthEi.exit.i
 
 _ZN6icu_7513UnicodeString9setLengthEi.exit.i:     ; preds = %if.else.i.i, %if.then.i.i
   %or.i.sink.i = phi i16 [ %conv2.i.i.i, %if.then.i.i ], [ %or.i.i, %if.else.i.i ]
-  %19 = and i16 %or.i.sink.i, -17
-  store i16 %19, ptr %fUnion.i, align 8
+  %18 = and i16 %or.i.sink.i, -17
+  store i16 %18, ptr %fUnion.i, align 8
   br label %_ZN6icu_7513UnicodeString13releaseBufferEi.exit
 
 _ZN6icu_7513UnicodeString13releaseBufferEi.exit:  ; preds = %_ZN6icu_7513UnicodeString9getBufferEi.exit, %_ZN6icu_7513UnicodeString9setLengthEi.exit.i
-  %20 = phi i16 [ %11, %_ZN6icu_7513UnicodeString9getBufferEi.exit ], [ %19, %_ZN6icu_7513UnicodeString9setLengthEi.exit.i ]
-  %21 = load i32, ptr %errorCode, align 4
-  %cmp.i15 = icmp slt i32 %21, 1
+  %19 = phi i16 [ %10, %_ZN6icu_7513UnicodeString9getBufferEi.exit ], [ %18, %_ZN6icu_7513UnicodeString9setLengthEi.exit.i ]
+  %20 = load i32, ptr %errorCode, align 4
+  %cmp.i15 = icmp slt i32 %20, 1
   br i1 %cmp.i15, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %_ZN6icu_7513UnicodeString13releaseBufferEi.exit
-  %22 = and i16 %20, 4
-  %tobool.not.i.i16 = icmp eq i16 %22, 0
+  %21 = and i16 %19, 4
+  %tobool.not.i.i16 = icmp eq i16 %21, 0
   br i1 %tobool.not.i.i16, label %_ZN6icu_7513UnicodeString10setToBogusEv.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then7
   %fArray.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this, i64 0, i32 1, i32 0, i32 3
-  %23 = load ptr, ptr %fArray.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.std::atomic", ptr %23, i64 -1
-  %24 = atomicrmw sub ptr %add.ptr.i.i.i, i32 1 seq_cst, align 4
-  %cmp.i.i17 = icmp eq i32 %24, 1
+  %22 = load ptr, ptr %fArray.i.i.i, align 8
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.std::atomic", ptr %22, i64 -1
+  %23 = atomicrmw sub ptr %add.ptr.i.i.i, i32 1 seq_cst, align 4
+  %cmp.i.i17 = icmp eq i32 %23, 1
   br i1 %cmp.i.i17, label %if.then.i.i19, label %_ZN6icu_7513UnicodeString10setToBogusEv.exit
 
 if.then.i.i19:                                    ; preds = %land.lhs.true.i.i
-  %25 = load ptr, ptr %fArray.i.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %25, i64 -1
+  %24 = load ptr, ptr %fArray.i.i.i, align 8
+  %add.ptr.i.i = getelementptr inbounds i32, ptr %24, i64 -1
   call void @uprv_free_75(ptr noundef nonnull %add.ptr.i.i)
   br label %_ZN6icu_7513UnicodeString10setToBogusEv.exit
 

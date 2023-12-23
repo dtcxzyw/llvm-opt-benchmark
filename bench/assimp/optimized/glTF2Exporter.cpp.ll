@@ -40293,8 +40293,7 @@ if.then52:                                        ; preds = %if.else48
 
 for.body63.preheader:                             ; preds = %if.then52
   %scevgep = getelementptr i8, ptr %buffer, i64 2
-  %smax = tail call i32 @llvm.smax.i32(i32 %sub53, i32 3)
-  %13 = add nsw i32 %smax, -2
+  %13 = sub i32 0, %add
   %14 = zext nneg i32 %13 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 48, i64 %14, i1 false)
   br label %for.end68

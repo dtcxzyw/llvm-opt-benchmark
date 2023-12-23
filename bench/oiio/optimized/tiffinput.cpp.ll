@@ -1931,11 +1931,11 @@ if.end62:                                         ; preds = %land.lhs.true57, %i
   br i1 %cmp65.not, label %if.end74, label %if.then66
 
 if.then66:                                        ; preds = %if.end62
-  %value.addr.0.i = add nuw nsw i32 %subimage.addr.0, 4
-  %sub1.i = and i32 %value.addr.0.i, 2147483644
+  %14 = and i32 %subimage.addr.0, -4
+  %sub1.i = add nuw nsw i32 %14, 4
   %cmp68.inv = icmp slt i32 %subimage.addr.0, 1
   %narrow = select i1 %cmp68.inv, i32 1, i32 %sub1.i
-  %cond = zext nneg i32 %narrow to i64
+  %cond = zext i32 %narrow to i64
   %cmp.i = icmp ult i64 %sub.ptr.div.i, %cond
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -1954,7 +1954,7 @@ if.then5.i:                                       ; preds = %if.else.i
   br i1 %tobool.not.i.i, label %if.end74, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then5.i
-  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN18OpenImageIO_v2_6_09ImageSpecEEEvT_S5_(ptr noundef %add.ptr.i, ptr noundef %12)
+  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN18OpenImageIO_v2_6_09ImageSpecEEEvT_S5_(ptr noundef nonnull %add.ptr.i, ptr noundef %12)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
@@ -1962,70 +1962,70 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
   br label %if.end74
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #34
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #34
   unreachable
 
 if.end74:                                         ; preds = %invoke.cont.i.i, %if.then5.i, %if.else.i, %if.then.i, %if.end62
-  %16 = load ptr, ptr %m_subimage_specs, align 8
-  %add.ptr.i14 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %16, i64 %conv63
-  %nchannels.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %16, i64 %conv63, i32 15
-  %17 = load i32, ptr %nchannels.i, align 4
-  %cmp.i15 = icmp eq i32 %17, 0
+  %17 = load ptr, ptr %m_subimage_specs, align 8
+  %add.ptr.i14 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %17, i64 %conv63
+  %nchannels.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %17, i64 %conv63, i32 15
+  %18 = load i32, ptr %nchannels.i, align 4
+  %cmp.i15 = icmp eq i32 %18, 0
   br i1 %cmp.i15, label %land.rhs.i, label %if.end84
 
 land.rhs.i:                                       ; preds = %if.end74
-  %format.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %16, i64 %conv63, i32 16
-  %18 = load i8, ptr %format.i, align 4
-  %cmp.i.i = icmp eq i8 %18, 0
-  %aggregate.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %16, i64 %conv63, i32 16, i32 1
-  %19 = load i8, ptr %aggregate.i.i, align 1
-  %cmp7.i.i = icmp eq i8 %19, 1
+  %format.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %17, i64 %conv63, i32 16
+  %19 = load i8, ptr %format.i, align 4
+  %cmp.i.i = icmp eq i8 %19, 0
+  %aggregate.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %17, i64 %conv63, i32 16, i32 1
+  %20 = load i8, ptr %aggregate.i.i, align 1
+  %cmp7.i.i = icmp eq i8 %20, 1
   %or.cond.i = select i1 %cmp.i.i, i1 %cmp7.i.i, i1 false
-  %vecsemantics.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %16, i64 %conv63, i32 16, i32 2
-  %20 = load i8, ptr %vecsemantics.i.i, align 2
-  %cmp12.i.i = icmp eq i8 %20, 0
+  %vecsemantics.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %17, i64 %conv63, i32 16, i32 2
+  %21 = load i8, ptr %vecsemantics.i.i, align 2
+  %cmp12.i.i = icmp eq i8 %21, 0
   %or.cond1.i = select i1 %or.cond.i, i1 %cmp12.i.i, i1 false
   br i1 %or.cond1.i, label %_ZNK18OpenImageIO_v2_6_09ImageSpec9undefinedEv.exit, label %if.end84
 
 _ZNK18OpenImageIO_v2_6_09ImageSpec9undefinedEv.exit: ; preds = %land.rhs.i
-  %arraylen.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %16, i64 %conv63, i32 16, i32 4
-  %21 = load i32, ptr %arraylen.i.i, align 4
-  %cmp14.i.i = icmp eq i32 %21, 0
+  %arraylen.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %17, i64 %conv63, i32 16, i32 4
+  %22 = load i32, ptr %arraylen.i.i, align 4
+  %cmp14.i.i = icmp eq i32 %22, 0
   br i1 %cmp14.i.i, label %if.then79, label %if.end84
 
 if.then79:                                        ; preds = %_ZNK18OpenImageIO_v2_6_09ImageSpec9undefinedEv.exit
   %m_spec = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageInput", ptr %this, i64 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %add.ptr.i14, ptr noundef nonnull align 8 dereferenceable(72) %m_spec, i64 72, i1 false)
-  %channelformats.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %16, i64 %conv63, i32 17
+  %channelformats.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %17, i64 %conv63, i32 17
   %channelformats3.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageInput", ptr %this, i64 0, i32 1, i32 17
   %call.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %channelformats.i, ptr noundef nonnull align 8 dereferenceable(24) %channelformats3.i)
-  %channelnames.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %16, i64 %conv63, i32 18
+  %channelnames.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %17, i64 %conv63, i32 18
   %channelnames4.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageInput", ptr %this, i64 0, i32 1, i32 18
   %call5.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %channelnames.i, ptr noundef nonnull align 8 dereferenceable(24) %channelnames4.i)
-  %alpha_channel.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %16, i64 %conv63, i32 19
+  %alpha_channel.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %17, i64 %conv63, i32 19
   %alpha_channel6.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageInput", ptr %this, i64 0, i32 1, i32 19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %alpha_channel.i, ptr noundef nonnull align 8 dereferenceable(9) %alpha_channel6.i, i64 9, i1 false)
-  %extra_attribs.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %16, i64 %conv63, i32 22
+  %extra_attribs.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %17, i64 %conv63, i32 22
   %extra_attribs7.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageInput", ptr %this, i64 0, i32 1, i32 22
   %call.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN18OpenImageIO_v2_6_010ParamValueESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %extra_attribs.i, ptr noundef nonnull align 8 dereferenceable(24) %extra_attribs7.i)
   br label %if.end84
 
 if.end84:                                         ; preds = %land.rhs.i, %if.end74, %if.then79, %_ZNK18OpenImageIO_v2_6_09ImageSpec9undefinedEv.exit
   %format = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageInput", ptr %this, i64 0, i32 1, i32 16
-  %22 = load i8, ptr %format, align 8
-  %cmp.i17 = icmp eq i8 %22, 0
+  %23 = load i8, ptr %format, align 8
+  %cmp.i17 = icmp eq i8 %23, 0
   %aggregate.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageInput", ptr %this, i64 0, i32 1, i32 16, i32 1
-  %23 = load i8, ptr %aggregate.i, align 1
-  %cmp2.i = icmp eq i8 %23, 1
+  %24 = load i8, ptr %aggregate.i, align 1
+  %cmp2.i = icmp eq i8 %24, 1
   %or.cond.i18 = select i1 %cmp.i17, i1 %cmp2.i, i1 false
   %arraylen.i.i19 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageInput", ptr %this, i64 0, i32 1, i32 16, i32 4
-  %24 = load i32, ptr %arraylen.i.i19, align 4
-  %cmp.i.not.i = icmp eq i32 %24, 0
-  %25 = select i1 %or.cond.i18, i1 %cmp.i.not.i, i1 false
-  br i1 %25, label %if.then87, label %if.end89
+  %25 = load i32, ptr %arraylen.i.i19, align 4
+  %cmp.i.not.i = icmp eq i32 %25, 0
+  %26 = select i1 %or.cond.i18, i1 %cmp.i.not.i, i1 false
+  br i1 %26, label %if.then87, label %if.end89
 
 if.then87:                                        ; preds = %if.end84
   %m_filename88 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TIFFInput", ptr %this, i64 0, i32 2
@@ -2050,8 +2050,8 @@ init.i.i.i21:                                     ; preds = %if.else94
   br label %_ZN18OpenImageIO_v2_6_020oiio_tiff_last_errorB5cxx11Ev.exit22
 
 _ZN18OpenImageIO_v2_6_020oiio_tiff_last_errorB5cxx11Ev.exit22: ; preds = %if.else94, %init.i.i.i21
-  %26 = tail call noundef nonnull align 8 dereferenceable(32) ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN18OpenImageIO_v2_6_0L16thread_error_msgB5cxx11E)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %e95, ptr noundef nonnull align 8 dereferenceable(32) %26)
+  %27 = tail call noundef nonnull align 8 dereferenceable(32) ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN18OpenImageIO_v2_6_0L16thread_error_msgB5cxx11E)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %e95, ptr noundef nonnull align 8 dereferenceable(32) %27)
   %call97 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %e95) #7
   %tobool98.not = icmp eq i64 %call97, 0
   %m_filename101 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::TIFFInput", ptr %this, i64 0, i32 2
@@ -2065,7 +2065,7 @@ invoke.cont105:                                   ; preds = %_ZN18OpenImageIO_v2
   br label %return
 
 lpad104:                                          ; preds = %_ZN18OpenImageIO_v2_6_020oiio_tiff_last_errorB5cxx11Ev.exit22
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -2075,7 +2075,7 @@ return:                                           ; preds = %if.end89, %if.end9,
 
 eh.resume:                                        ; preds = %lpad104, %lpad
   %e95.sink = phi ptr [ %e95, %lpad104 ], [ %e, %lpad ]
-  %.pn = phi { ptr, i32 } [ %27, %lpad104 ], [ %6, %lpad ]
+  %.pn = phi { ptr, i32 } [ %28, %lpad104 ], [ %6, %lpad ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %e95.sink) #7
   resume { ptr, i32 } %.pn
 }

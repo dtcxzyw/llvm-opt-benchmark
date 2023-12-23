@@ -2125,11 +2125,10 @@ if.then14.i.i:                                    ; preds = %land.lhs.true.i.i
 
 _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm1024EE25AllocateSufficientStorageEm.exit.i: ; preds = %if.then14.i.i, %land.lhs.true.i.i, %do.end6.i.i
   store i64 %sub.i, ptr %call_args, align 8
-  %umax.i = call i64 @llvm.umax.i64(i64 %sub.i, i64 1)
   br label %for.body.i
 
-for.body.i:                                       ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm1024EEixEm.exit.i, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm1024EE25AllocateSufficientStorageEm.exit.i
-  %i.016.i = phi i64 [ 0, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm1024EE25AllocateSufficientStorageEm.exit.i ], [ %inc.i, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm1024EEixEm.exit.i ]
+for.body.i:                                       ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm1024EE25AllocateSufficientStorageEm.exit.i, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm1024EEixEm.exit.i
+  %i.016.i = phi i64 [ %inc.i, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm1024EEixEm.exit.i ], [ 0, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm1024EE25AllocateSufficientStorageEm.exit.i ]
   %add.i = add i64 %i.016.i, 2
   %conv3.i = trunc i64 %add.i to i32
   %cmp.i.i = icmp sgt i32 %conv3.i, -1
@@ -2169,7 +2168,7 @@ _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm1024EEixEm.exit.i: ; preds 
   %arrayidx.i14.i = getelementptr inbounds %"class.v8::Local.256", ptr %23, i64 %i.016.i
   store ptr %retval.i.sroa.0.0.i, ptr %arrayidx.i14.i, align 8
   %inc.i = add nuw i64 %i.016.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %inc.i, %sub.i
   br i1 %exitcond.not.i, label %_ZN4node15SlicedArgumentsC2ERKN2v820FunctionCallbackInfoINS1_5ValueEEEm.exit, label %for.body.i, !llvm.loop !5
 
 _ZN4node15SlicedArgumentsC2ERKN2v820FunctionCallbackInfoINS1_5ValueEEEm.exit: ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm1024EEixEm.exit.i, %do.end19

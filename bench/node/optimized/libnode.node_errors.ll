@@ -584,9 +584,6 @@ $_ZZN4node11SPrintFImplIRPKcJS3_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcE
 @_ZZN4nodeL14GetErrorSourceB5cxx11EPN2v87IsolateENS0_5LocalINS0_7ContextEEENS3_INS0_7MessageEEEPbE4args_0 = internal constant %"struct.node::AssertionInfo" { ptr @.str.160, ptr @.str.161, ptr @.str.158 }, align 8
 @.str.160 = private unnamed_addr constant [29 x i8] c"../../src/node_errors.cc:157\00", align 1
 @.str.161 = private unnamed_addr constant [19 x i8] c"(buf.size()) > (0)\00", align 1
-@_ZZN4nodeL14GetErrorSourceB5cxx11EPN2v87IsolateENS0_5LocalINS0_7ContextEEENS3_INS0_7MessageEEEPbE4args_3 = internal constant %"struct.node::AssertionInfo" { ptr @.str.165, ptr @.str.166, ptr @.str.158 }, align 8
-@.str.165 = private unnamed_addr constant [29 x i8] c"../../src/node_errors.cc:184\00", align 1
-@.str.166 = private unnamed_addr constant [29 x i8] c"(off) <= (kUnderlineBufsize)\00", align 1
 @_ZZN4node11SPrintFImplIRPKcJRiS2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_OT_DpOT0_E4args = linkonce_odr dso_local constant %"struct.node::AssertionInfo" { ptr @.str.132, ptr @.str.133, ptr @.str.167 }, comdat, align 8
 @.str.167 = private unnamed_addr constant [116 x i8] c"std::string node::SPrintFImpl(const char *, Arg &&, Args &&...) [Arg = const char *&, Args = <int &, const char *>]\00", align 1
 @_ZZN4node11SPrintFImplIRPKcJRiS2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_OT_DpOT0_E4args_1 = linkonce_odr dso_local constant %"struct.node::AssertionInfo" { ptr @.str.139, ptr @.str.140, ptr @.str.167 }, comdat, align 8
@@ -1709,7 +1706,7 @@ for.end.loopexit.split.loop.exit:                 ; preds = %for.body
 for.end:                                          ; preds = %do.end160, %for.end.loopexit.split.loop.exit, %for.cond.preheader
   %off.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %55, %for.end.loopexit.split.loop.exit ], [ %start.0, %do.end160 ]
   %cmp16986 = icmp slt i32 %start.0, %end.0
-  br i1 %cmp16986, label %for.body170.preheader, label %do.body198
+  br i1 %cmp16986, label %for.body170.preheader, label %do.end210
 
 for.body170.preheader:                            ; preds = %for.end
   %56 = sext i32 %start.0 to i64
@@ -1726,7 +1723,7 @@ for.body170:                                      ; preds = %for.body170.prehead
   %cmp174 = icmp eq i8 %60, 0
   %cmp176 = icmp ugt i64 %indvars.iv96, 1019
   %or.cond4 = select i1 %cmp174, i1 true, i1 %cmp176
-  br i1 %or.cond4, label %do.body198.loopexit.split.loop.exit104, label %do.end191
+  br i1 %or.cond4, label %do.end210.loopexit.split.loop.exit, label %do.end191
 
 do.end191:                                        ; preds = %for.body170
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
@@ -1735,22 +1732,14 @@ do.end191:                                        ; preds = %for.body170
   %indvars.iv.next95 = add nsw i64 %indvars.iv94, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next95 to i32
   %exitcond101.not = icmp eq i32 %end.0, %lftr.wideiv
-  br i1 %exitcond101.not, label %do.body198, label %for.body170, !llvm.loop !20
+  br i1 %exitcond101.not, label %do.end210, label %for.body170, !llvm.loop !20
 
-do.body198.loopexit.split.loop.exit104:           ; preds = %for.body170
+do.end210.loopexit.split.loop.exit:               ; preds = %for.body170
   %61 = trunc i64 %indvars.iv96 to i32
-  br label %do.body198
+  br label %do.end210
 
-do.body198:                                       ; preds = %do.end191, %do.body198.loopexit.split.loop.exit104, %for.end
-  %off.1.lcssa = phi i32 [ %off.0.lcssa, %for.end ], [ %61, %do.body198.loopexit.split.loop.exit104 ], [ %59, %do.end191 ]
-  %cmp199 = icmp ugt i32 %off.1.lcssa, 1020
-  br i1 %cmp199, label %do.body205, label %do.end210
-
-do.body205:                                       ; preds = %do.body198
-  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4nodeL14GetErrorSourceB5cxx11EPN2v87IsolateENS0_5LocalINS0_7ContextEEENS3_INS0_7MessageEEEPbE4args_3)
-  unreachable
-
-do.end210:                                        ; preds = %do.body198
+do.end210:                                        ; preds = %do.end191, %do.end210.loopexit.split.loop.exit, %for.end
+  %off.1.lcssa = phi i32 [ %off.0.lcssa, %for.end ], [ %61, %do.end210.loopexit.split.loop.exit ], [ %59, %do.end191 ]
   %inc211 = add nuw nsw i32 %off.1.lcssa, 1
   %idxprom212 = zext nneg i32 %off.1.lcssa to i64
   %arrayidx213 = getelementptr inbounds [1024 x i8], ptr %underline_buf, i64 0, i64 %idxprom212

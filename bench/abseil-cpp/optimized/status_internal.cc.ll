@@ -1000,25 +1000,25 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
 _ZNSt16allocator_traitsISaIN4absl15status_internal7PayloadEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #18
   %cmp.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.i, label %for.body.i.i.i.i, !llvm.loop !14
+  br i1 %cmp.not.i.i.i.i, label %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.i.i, label %for.body.i.i.i.i, !llvm.loop !14
 
-_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIN4absl15status_internal7PayloadEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i.i
+_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIN4absl15status_internal7PayloadEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i.i
   %.pre.i.i.i = load i64, ptr %no_payloads, align 8
   %.pre2.i.i.i = and i64 %.pre.i.i.i, 1
-  %tobool.i.not.i.i.i.i = icmp eq i64 %.pre2.i.i.i, 0
-  br i1 %tobool.i.not.i.i.i.i, label %return, label %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.if.then.i.i.i_crit_edge.i
+  %27 = icmp eq i64 %.pre2.i.i.i, 0
+  br i1 %27, label %return, label %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.if.then.i.i_crit_edge.i.i
 
-_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.if.then.i.i.i_crit_edge.i: ; preds = %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.i
-  %.pre.i = load ptr, ptr %data_.i.i.i.i, align 8
+_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.if.then.i.i_crit_edge.i.i: ; preds = %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.i.i
+  %.pre.i.i = load ptr, ptr %data_.i.i.i.i, align 8
   br label %if.then.i.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.if.then.i.i.i_crit_edge.i, %if.end.i.i34
-  %27 = phi ptr [ %.pre.i, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.if.then.i.i.i_crit_edge.i ], [ %22, %if.end.i.i34 ]
-  call void @_ZdlPv(ptr noundef %27) #19
+if.then.i.i.i.i:                                  ; preds = %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.if.then.i.i_crit_edge.i.i, %if.end.i.i34
+  %28 = phi ptr [ %.pre.i.i, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.if.then.i.i_crit_edge.i.i ], [ %22, %if.end.i.i34 ]
+  call void @_ZdlPv(ptr noundef %28) #19
   br label %return
 
-return:                                           ; preds = %if.end, %if.then.i.i.i.i, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.i, %cleanup, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ %retval.0, %cleanup ], [ %retval.0, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.i ], [ %retval.0, %if.then.i.i.i.i ], [ false, %if.end ]
+return:                                           ; preds = %if.end, %if.then.i.i.i.i, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.i.i, %cleanup, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %entry
+  %retval.1 = phi i1 [ false, %entry ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ %retval.0, %cleanup ], [ %retval.0, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.i.i ], [ %retval.0, %if.then.i.i.i.i ], [ false, %if.end ]
   ret i1 %retval.1
 }
 
@@ -1066,24 +1066,24 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i
 _ZNSt16allocator_traitsISaIN4absl15status_internal7PayloadEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #18
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i, label %for.body.i.i.i, !llvm.loop !14
+  br i1 %cmp.not.i.i.i, label %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.i, label %for.body.i.i.i, !llvm.loop !14
 
-_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIN4absl15status_internal7PayloadEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i
+_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.i: ; preds = %_ZNSt16allocator_traitsISaIN4absl15status_internal7PayloadEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i
   %.pre.i.i = load i64, ptr %this, align 8
   %.pre2.i.i = and i64 %.pre.i.i, 1
-  %tobool.i.not.i.i.i = icmp eq i64 %.pre2.i.i, 0
-  br i1 %tobool.i.not.i.i.i, label %_ZN4absl23inlined_vector_internal7StorageINS_15status_internal7PayloadELm1ESaIS3_EED2Ev.exit, label %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.if.then.i.i.i_crit_edge
+  %6 = icmp eq i64 %.pre2.i.i, 0
+  br i1 %6, label %_ZN4absl23inlined_vector_internal7StorageINS_15status_internal7PayloadELm1ESaIS3_EED2Ev.exit, label %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.if.then.i.i_crit_edge.i
 
-_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.if.then.i.i.i_crit_edge: ; preds = %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i
-  %.pre = load ptr, ptr %data_.i.i.i, align 8
+_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.if.then.i.i_crit_edge.i: ; preds = %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.i
+  %.pre.i = load ptr, ptr %data_.i.i.i, align 8
   br label %if.then.i.i.i
 
-if.then.i.i.i:                                    ; preds = %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.if.then.i.i.i_crit_edge, %if.end.i
-  %6 = phi ptr [ %.pre, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.if.then.i.i.i_crit_edge ], [ %1, %if.end.i ]
-  tail call void @_ZdlPv(ptr noundef %6) #19
+if.then.i.i.i:                                    ; preds = %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.if.then.i.i_crit_edge.i, %if.end.i
+  %7 = phi ptr [ %.pre.i, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.if.then.i.i_crit_edge.i ], [ %1, %if.end.i ]
+  tail call void @_ZdlPv(ptr noundef %7) #19
   br label %_ZN4absl23inlined_vector_internal7StorageINS_15status_internal7PayloadELm1ESaIS3_EED2Ev.exit
 
-_ZN4absl23inlined_vector_internal7StorageINS_15status_internal7PayloadELm1ESaIS3_EED2Ev.exit: ; preds = %entry, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i, %if.then.i.i.i
+_ZN4absl23inlined_vector_internal7StorageINS_15status_internal7PayloadELm1ESaIS3_EED2Ev.exit: ; preds = %entry, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.i, %if.then.i.i.i
   ret void
 }
 
@@ -1428,24 +1428,24 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
 _ZNSt16allocator_traitsISaIN4absl15status_internal7PayloadEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #18
   %cmp.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.i, label %for.body.i.i.i.i, !llvm.loop !14
+  br i1 %cmp.not.i.i.i.i, label %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.i.i, label %for.body.i.i.i.i, !llvm.loop !14
 
-_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIN4absl15status_internal7PayloadEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i.i
+_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIN4absl15status_internal7PayloadEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i.i
   %.pre.i.i.i = load i64, ptr %__ptr, align 8
   %.pre2.i.i.i = and i64 %.pre.i.i.i, 1
-  %tobool.i.not.i.i.i.i = icmp eq i64 %.pre2.i.i.i, 0
-  br i1 %tobool.i.not.i.i.i.i, label %_ZN4absl13InlinedVectorINS_15status_internal7PayloadELm1ESaIS2_EED2Ev.exit, label %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.if.then.i.i.i_crit_edge.i
+  %6 = icmp eq i64 %.pre2.i.i.i, 0
+  br i1 %6, label %_ZN4absl13InlinedVectorINS_15status_internal7PayloadELm1ESaIS2_EED2Ev.exit, label %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.if.then.i.i_crit_edge.i.i
 
-_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.if.then.i.i.i_crit_edge.i: ; preds = %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.i
-  %.pre.i = load ptr, ptr %data_.i.i.i.i, align 8
+_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.if.then.i.i_crit_edge.i.i: ; preds = %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.i.i
+  %.pre.i.i = load ptr, ptr %data_.i.i.i.i, align 8
   br label %if.then.i.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.if.then.i.i.i_crit_edge.i, %if.end.i.i
-  %6 = phi ptr [ %.pre.i, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.if.then.i.i.i_crit_edge.i ], [ %1, %if.end.i.i ]
-  tail call void @_ZdlPv(ptr noundef %6) #19
+if.then.i.i.i.i:                                  ; preds = %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.if.then.i.i_crit_edge.i.i, %if.end.i.i
+  %7 = phi ptr [ %.pre.i.i, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.if.then.i.i_crit_edge.i.i ], [ %1, %if.end.i.i ]
+  tail call void @_ZdlPv(ptr noundef %7) #19
   br label %_ZN4absl13InlinedVectorINS_15status_internal7PayloadELm1ESaIS2_EED2Ev.exit
 
-_ZN4absl13InlinedVectorINS_15status_internal7PayloadELm1ESaIS2_EED2Ev.exit: ; preds = %delete.notnull, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.i, %if.then.i.i.i.i
+_ZN4absl13InlinedVectorINS_15status_internal7PayloadELm1ESaIS2_EED2Ev.exit: ; preds = %delete.notnull, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.i.i, %if.then.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %__ptr) #19
   br label %delete.end
 
@@ -2051,20 +2051,24 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
 _ZNSt16allocator_traitsISaIN4absl15status_internal7PayloadEEE7destroyIS2_EEvRS3_PT_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i, %for.body.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #18
   %cmp.not.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.not.i.i, label %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i, label %for.body.i.i, !llvm.loop !14
+  br i1 %cmp.not.i.i, label %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i, label %for.body.i.i, !llvm.loop !14
 
-_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i: ; preds = %_ZNSt16allocator_traitsISaIN4absl15status_internal7PayloadEEE7destroyIS2_EEvRS3_PT_.exit.i.i
+_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i: ; preds = %_ZNSt16allocator_traitsISaIN4absl15status_internal7PayloadEEE7destroyIS2_EEvRS3_PT_.exit.i.i
   %.pre.i = load i64, ptr %this, align 8
   %.pre2.i = and i64 %.pre.i, 1
-  %tobool.i.not.i.i = icmp eq i64 %.pre2.i, 0
-  br i1 %tobool.i.not.i.i, label %cleanup, label %if.then.i.i
+  %6 = icmp eq i64 %.pre2.i, 0
+  br i1 %6, label %cleanup, label %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.if.then.i.i_crit_edge
 
-if.then.i.i:                                      ; preds = %if.end, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i
-  %6 = load ptr, ptr %data_.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %6) #19
+_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.if.then.i.i_crit_edge: ; preds = %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i
+  %.pre = load ptr, ptr %data_.i.i, align 8
+  br label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.if.then.i.i_crit_edge, %if.end
+  %7 = phi ptr [ %.pre, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i.if.then.i.i_crit_edge ], [ %1, %if.end ]
+  tail call void @_ZdlPv(ptr noundef %7) #19
   br label %cleanup
 
-cleanup:                                          ; preds = %if.then.i.i, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i, %invoke.cont
+cleanup:                                          ; preds = %if.then.i.i, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.loopexit.i, %invoke.cont
   ret void
 }
 

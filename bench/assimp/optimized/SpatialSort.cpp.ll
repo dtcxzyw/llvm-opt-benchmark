@@ -737,8 +737,8 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %entry, %invoke.cont
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 20
   %conv = trunc i64 %sub.ptr.div.i to i32
   %div18 = lshr i32 %conv, 1
-  %cmp59 = icmp ugt i32 %conv, 7
-  br i1 %cmp59, label %while.body.preheader, label %while.cond16.preheader
+  %cmp60 = icmp ugt i32 %conv, 7
+  br i1 %cmp60, label %while.body.preheader, label %while.cond16.preheader
 
 while.body.preheader:                             ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
   %div719 = lshr i32 %conv, 2
@@ -746,29 +746,29 @@ while.body.preheader:                             ; preds = %_ZNSt6vectorIjSaIjE
 
 while.cond16.preheader:                           ; preds = %while.body, %_ZNSt6vectorIjSaIjEE6resizeEm.exit
   %index.0.lcssa = phi i32 [ %div18, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ %index.1, %while.body ]
-  %cmp17.not62 = icmp eq i32 %index.0.lcssa, 0
-  br i1 %cmp17.not62, label %while.end25, label %land.rhs
+  %cmp17.not63 = icmp eq i32 %index.0.lcssa, 0
+  br i1 %cmp17.not63, label %while.end25, label %land.rhs
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
-  %index.061 = phi i32 [ %index.1, %while.body ], [ %div18, %while.body.preheader ]
-  %binaryStepSize.060 = phi i32 [ %div1520, %while.body ], [ %div719, %while.body.preheader ]
-  %conv9 = zext i32 %index.061 to i64
+  %index.062 = phi i32 [ %index.1, %while.body ], [ %div18, %while.body.preheader ]
+  %binaryStepSize.061 = phi i32 [ %div1520, %while.body ], [ %div719, %while.body.preheader ]
+  %conv9 = zext i32 %index.062 to i64
   %mDistance = getelementptr inbounds %"struct.Assimp::SpatialSort::Entry", ptr %16, i64 %conv9, i32 2
   %mDistance.val = load i32, ptr %mDistance, align 4
   %sub.i26 = sub nsw i32 -2147483648, %mDistance.val
   %tobool.not1.i27 = icmp slt i32 %mDistance.val, 0
   %retval.0.i28 = select i1 %tobool.not1.i27, i32 %sub.i26, i32 %mDistance.val
   %cmp12 = icmp sgt i32 %sub, %retval.0.i28
-  %17 = sub nsw i32 0, %binaryStepSize.060
-  %index.1.p = select i1 %cmp12, i32 %binaryStepSize.060, i32 %17
-  %index.1 = add i32 %index.1.p, %index.061
-  %div1520 = lshr i32 %binaryStepSize.060, 1
-  %cmp = icmp ugt i32 %binaryStepSize.060, 3
+  %17 = sub nsw i32 0, %binaryStepSize.061
+  %index.1.p = select i1 %cmp12, i32 %binaryStepSize.061, i32 %17
+  %index.1 = add i32 %index.1.p, %index.062
+  %div1520 = lshr i32 %binaryStepSize.061, 1
+  %cmp = icmp ugt i32 %binaryStepSize.061, 3
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !22
 
 land.rhs:                                         ; preds = %while.cond16.preheader, %while.body24
-  %index.263 = phi i32 [ %dec, %while.body24 ], [ %index.0.lcssa, %while.cond16.preheader ]
-  %conv19 = zext i32 %index.263 to i64
+  %index.264 = phi i32 [ %dec, %while.body24 ], [ %index.0.lcssa, %while.cond16.preheader ]
+  %conv19 = zext i32 %index.264 to i64
   %mDistance21 = getelementptr inbounds %"struct.Assimp::SpatialSort::Entry", ptr %16, i64 %conv19, i32 2
   %mDistance21.val = load i32, ptr %mDistance21, align 4
   %sub.i30 = sub nsw i32 -2147483648, %mDistance21.val
@@ -778,27 +778,27 @@ land.rhs:                                         ; preds = %while.cond16.prehea
   br i1 %cmp23, label %while.body24, label %while.end25
 
 while.body24:                                     ; preds = %land.rhs
-  %dec = add i32 %index.263, -1
+  %dec = add i32 %index.264, -1
   %cmp17.not = icmp eq i32 %dec, 0
   br i1 %cmp17.not, label %while.end25, label %land.rhs, !llvm.loop !23
 
 while.end25:                                      ; preds = %land.rhs, %while.body24, %while.cond16.preheader
-  %index.2.lcssa = phi i32 [ 0, %while.cond16.preheader ], [ 0, %while.body24 ], [ %index.263, %land.rhs ]
+  %index.2.lcssa = phi i32 [ 0, %while.cond16.preheader ], [ 0, %while.body24 ], [ %index.264, %land.rhs ]
   %sub30 = add nsw i64 %sub.ptr.div.i, -1
-  %conv2766 = zext i32 %index.2.lcssa to i64
-  %cmp3167 = icmp ugt i64 %sub30, %conv2766
-  br i1 %cmp3167, label %land.rhs32, label %while.end41
+  %conv2767 = zext i32 %index.2.lcssa to i64
+  %cmp3168 = icmp ugt i64 %sub30, %conv2767
+  br i1 %cmp3168, label %land.rhs32, label %while.end41
 
 while.cond26:                                     ; preds = %land.rhs32
-  %inc = add i32 %index.368, 1
+  %inc = add i32 %index.369, 1
   %conv27 = zext i32 %inc to i64
   %cmp31 = icmp ugt i64 %sub30, %conv27
   br i1 %cmp31, label %land.rhs32, label %while.end41, !llvm.loop !24
 
 land.rhs32:                                       ; preds = %while.end25, %while.cond26
-  %conv2769 = phi i64 [ %conv27, %while.cond26 ], [ %conv2766, %while.end25 ]
-  %index.368 = phi i32 [ %inc, %while.cond26 ], [ %index.2.lcssa, %while.end25 ]
-  %mDistance36 = getelementptr inbounds %"struct.Assimp::SpatialSort::Entry", ptr %16, i64 %conv2769, i32 2
+  %conv2770 = phi i64 [ %conv27, %while.cond26 ], [ %conv2767, %while.end25 ]
+  %index.369 = phi i32 [ %inc, %while.cond26 ], [ %index.2.lcssa, %while.end25 ]
+  %mDistance36 = getelementptr inbounds %"struct.Assimp::SpatialSort::Entry", ptr %16, i64 %conv2770, i32 2
   %mDistance36.val = load i32, ptr %mDistance36, align 4
   %sub.i39 = sub nsw i32 -2147483648, %mDistance36.val
   %tobool.not1.i40 = icmp slt i32 %mDistance36.val, 0
@@ -807,7 +807,7 @@ land.rhs32:                                       ; preds = %while.end25, %while
   br i1 %cmp38, label %while.cond26, label %while.end41
 
 while.end41:                                      ; preds = %land.rhs32, %while.cond26, %while.end25
-  %conv27.lcssa = phi i64 [ %conv2766, %while.end25 ], [ %conv27, %while.cond26 ], [ %conv2769, %land.rhs32 ]
+  %conv27.lcssa = phi i64 [ %conv2767, %while.end25 ], [ %conv27, %while.cond26 ], [ %conv2770, %land.rhs32 ]
   %add.ptr.i42 = getelementptr inbounds %"struct.Assimp::SpatialSort::Entry", ptr %16, i64 %conv27.lcssa
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %poResults, i64 0, i32 2
   br label %while.cond48
@@ -840,11 +840,8 @@ while.body53:                                     ; preds = %while.cond48
   %25 = tail call float @llvm.fmuladd.f32(float %sub.i46, float %sub.i46, float %mul4.i)
   %26 = tail call noundef float @llvm.fmuladd.f32(float %sub5.i, float %sub5.i, float %25)
   %27 = bitcast float %26 to i32
-  %sub.i49 = sub nsw i32 -2147483648, %27
-  %tobool.not1.i50 = icmp slt i32 %27, 0
-  %retval.0.i51 = select i1 %tobool.not1.i50, i32 %sub.i49, i32 %27
-  %cmp60 = icmp slt i32 %retval.0.i51, 7
-  br i1 %cmp60, label %if.then61, label %if.end63
+  %cmp6059 = icmp slt i32 %27, 7
+  br i1 %cmp6059, label %if.then61, label %if.end63
 
 if.then61:                                        ; preds = %while.body53
   %28 = load ptr, ptr %_M_end_of_storage.i, align 8
@@ -1393,7 +1390,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6Assimp11SpatialSort5EntryE
   %sub.ptr.sub.i.i.i.i.i.i45 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i44, %sub.ptr.rhs.cast.i
   %sub.ptr.div.neg.i.i.i.i.i.i46 = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i45, -20
   %add.ptr.i.i.i.i.i.i47 = getelementptr inbounds %"struct.Assimp::SpatialSort::Entry", ptr %add.ptr.i2.i43, i64 %sub.ptr.div.neg.i.i.i.i.i.i46
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i47, ptr nonnull align 4 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i45, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i47, ptr noundef nonnull align 4 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i45, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %__first.coerce, ptr noundef nonnull align 4 dereferenceable(20) %__val.i15, i64 20, i1 false)
   br label %for.inc.i34
 

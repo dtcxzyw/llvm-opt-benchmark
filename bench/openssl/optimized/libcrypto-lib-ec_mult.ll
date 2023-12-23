@@ -1370,7 +1370,6 @@ for.cond104.preheader:                            ; preds = %if.end99
 
 for.body107.lr.ph:                                ; preds = %for.cond104.preheader
   %sub128 = add nsw i64 %div89, -1
-  %umax = tail call i64 @llvm.umax.i64(i64 %div89, i64 1)
   br label %for.body107
 
 for.body107:                                      ; preds = %for.body107.lr.ph, %for.inc152
@@ -1429,7 +1428,7 @@ for.body143:                                      ; preds = %if.end135, %for.con
 
 for.inc152:                                       ; preds = %for.cond140, %for.end127
   %inc153 = add nuw nsw i64 %i.1151, 1
-  %exitcond159.not = icmp eq i64 %inc153, %umax
+  %exitcond159.not = icmp eq i64 %inc153, %div89
   br i1 %exitcond159.not, label %for.end154, label %for.body107, !llvm.loop !20
 
 for.end154:                                       ; preds = %for.inc152, %for.cond104.preheader

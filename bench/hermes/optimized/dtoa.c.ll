@@ -1165,15 +1165,14 @@ s2b.exit.i:                                       ; preds = %for.body14.i.i, %if
   %sign493.i = getelementptr inbounds %struct.Bigint, ptr %b.2.lcssa.i.i, i64 0, i32 3
   %wds.i = getelementptr inbounds %struct.Bigint, ptr %b.2.lcssa.i.i, i64 0, i32 4
   %arrayidx.i.i399.i = getelementptr inbounds %struct.dtoa_alloc, ptr %dalloc, i64 0, i32 3, i64 1
-  %cmp499.i = icmp sgt i32 %e.2.i, -1
+  %cmp499.i = icmp slt i32 %e.2.i, 0
   %sub503.i = sub nsw i32 0, %e.2.i
-  %bd5.0.i = select i1 %cmp499.i, i32 %e.2.i, i32 0
-  %bb2.0.i = select i1 %cmp499.i, i32 0, i32 %sub503.i
-  %bd2.1.i = add i32 %bd5.0.i, %bc.sroa.42.1.i
-  %cmp557.i = icmp sgt i32 %bb2.0.i, 0
+  %bd5.0.i = call i32 @llvm.smax.i32(i32 %e.2.i, i32 0)
+  %bb2.0.i = select i1 %cmp499.i, i32 %sub503.i, i32 0
+  %bd2.1.i = add nuw i32 %bd5.0.i, %bc.sroa.42.1.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %private_mem.i to i64
   %used_heap.i.i = getelementptr inbounds %struct.dtoa_alloc, ptr %dalloc, i64 0, i32 1
-  %cmp568.i = icmp sgt i32 %bd5.0.i, 0
+  %cmp568.not.i = icmp slt i32 %e.2.i, 1
   %cmp588.i = icmp sgt i32 %sub415.i, %nd.6.i
   %arrayidx774.i = getelementptr inbounds [2 x i32], ptr %rv.i, i64 0, i64 1
   %tobool840.i = icmp ne i32 %bc.sroa.42.1.i, 0
@@ -1349,10 +1348,10 @@ if.end535.i:                                      ; preds = %if.then529.i, %if.e
   %bd2.2.i = sub nsw i32 %add539.i, %sub554.i
   %bs2.0.i = sub nsw i32 %bb2.1.i, %sub554.i
   %bb2.2.i = sub nsw i32 %add536.i, %sub554.i
-  br i1 %cmp557.i, label %if.then559.i, label %if.end562.i
+  br i1 %cmp499.i, label %if.then559.i, label %if.end562.i
 
 if.then559.i:                                     ; preds = %if.end535.i
-  %call560.i = call fastcc ptr @pow5mult(ptr noundef nonnull %dalloc, ptr noundef nonnull %rv.1.i.i403.i, i32 noundef %bb2.0.i)
+  %call560.i = call fastcc ptr @pow5mult(ptr noundef nonnull %dalloc, ptr noundef nonnull %rv.1.i.i403.i, i32 noundef %sub503.i)
   %call561.i = call fastcc ptr @mult(ptr noundef nonnull %dalloc, ptr noundef %call560.i, ptr noundef %call497.i)
   %tobool.not.i425.i = icmp eq ptr %call497.i, null
   br i1 %tobool.not.i425.i, label %if.end562.i, label %if.then.i426.i
@@ -1387,7 +1386,7 @@ if.then565.i:                                     ; preds = %if.end562.i
 
 if.end567.i:                                      ; preds = %if.then565.i, %if.end562.i
   %bb.4.i = phi ptr [ %call566.i, %if.then565.i ], [ %bb.3.i, %if.end562.i ]
-  br i1 %cmp568.i, label %if.then570.i, label %if.end572.i
+  br i1 %cmp568.not.i, label %if.end572.i, label %if.then570.i
 
 if.then570.i:                                     ; preds = %if.end567.i
   %call571.i = call fastcc ptr @pow5mult(ptr noundef nonnull %dalloc, ptr noundef nonnull %rv.1.i.i, i32 noundef %bd5.0.i)
@@ -3403,13 +3402,13 @@ if.then201:                                       ; preds = %if.end199
   br i1 %or.cond7, label %for.body223.preheader, label %if.end239
 
 for.body223.preheader:                            ; preds = %if.then201
+  %sub219 = add nsw i32 %j1.0, -256
+  %shr220 = lshr i32 %sub219, 4
   %and215 = and i32 %j1.0, 15
   %idxprom216 = zext nneg i32 %and215 to i64
   %arrayidx217 = getelementptr inbounds [23 x double], ptr @tens, i64 0, i64 %idxprom216
   %53 = load double, ptr %arrayidx217, align 8
   %mul218 = fmul double %53, 0x31E5866C8349626D
-  %sub219 = add nsw i32 %j1.0, -256
-  %shr220 = lshr i32 %sub219, 4
   br label %for.body223
 
 for.body223:                                      ; preds = %for.body223.preheader, %for.inc231
@@ -6708,13 +6707,13 @@ if.then201:                                       ; preds = %if.end199
   br i1 %or.cond7, label %for.body223.preheader, label %if.end239
 
 for.body223.preheader:                            ; preds = %if.then201
+  %sub219 = add nsw i32 %j1.0, -256
+  %shr220 = lshr i32 %sub219, 4
   %and215 = and i32 %j1.0, 15
   %idxprom216 = zext nneg i32 %and215 to i64
   %arrayidx217 = getelementptr inbounds [23 x double], ptr @tens, i64 0, i64 %idxprom216
   %53 = load double, ptr %arrayidx217, align 8
   %mul218 = fmul double %53, 0x31E5866C8349626D
-  %sub219 = add nsw i32 %j1.0, -256
-  %shr220 = lshr i32 %sub219, 4
   br label %for.body223
 
 for.body223:                                      ; preds = %for.body223.preheader, %for.inc231

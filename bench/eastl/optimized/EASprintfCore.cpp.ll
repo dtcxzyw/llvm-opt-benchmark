@@ -5405,14 +5405,13 @@ while.body8:                                      ; preds = %while.body8.lr.ph, 
   %pInBufferData.addr.090 = phi ptr [ %pInBufferData, %while.body8.lr.ph ], [ %add.ptr60, %if.end57 ]
   %bFirstTime.089 = phi i8 [ 1, %while.body8.lr.ph ], [ %bFirstTime.1, %if.end57 ]
   %nWriteCountSum.088 = phi i32 [ 0, %while.body8.lr.ph ], [ %add59, %if.end57 ]
-  %nPrecision.087 = phi i32 [ %1, %while.body8.lr.ph ], [ %sub, %if.end57 ]
-  %cmp10 = icmp ult i32 %nPrecision.087, 4104
+  %nPrecision.087 = phi i32 [ %1, %while.body8.lr.ph ], [ %nPrecision.1102, %if.end57 ]
+  %cmp10 = icmp ugt i32 %nPrecision.087, 4103
   %3 = load i32, ptr %mnPrecision, align 4
   %conv13 = zext i32 %3 to i64
   %add = add nuw nsw i64 %conv13, 1
-  %sub = add nsw i32 %nPrecision.087, -4103
-  %nPrecision.1 = select i1 %cmp10, i32 0, i32 %sub
-  %outSize.0 = select i1 %cmp10, i64 %add, i64 4104
+  %nPrecision.1102 = add i32 %nPrecision.087, -4103
+  %outSize.0 = select i1 %cmp10, i64 4104, i64 %add
   %sub.ptr.rhs.cast16 = ptrtoint ptr %pInBufferData.addr.090 to i64
   %sub.ptr.sub17 = sub i64 %sub.ptr.lhs.cast15, %sub.ptr.rhs.cast16
   %sub.ptr.div18 = ashr exact i64 %sub.ptr.sub17, 1
@@ -5427,8 +5426,7 @@ if.end21:                                         ; preds = %while.body8
 
 if.then23:                                        ; preds = %if.end21
   %conv24 = trunc i64 %.pre98 to i32
-  %cmp25.not = icmp eq i32 %nPrecision.1, 0
-  br i1 %cmp25.not, label %if.end45, label %land.lhs.true
+  br i1 %cmp10, label %land.lhs.true, label %if.end45
 
 land.lhs.true:                                    ; preds = %if.then23
   %5 = load i64, ptr %nInUsed, align 8
@@ -5552,9 +5550,8 @@ if.end57:                                         ; preds = %land.lhs.true53.if.
   %add59 = add nsw i32 %nWriteCountSum.1, %conv58
   %13 = load i64, ptr %nInUsed, align 8
   %add.ptr60 = getelementptr inbounds i16, ptr %pInBufferData.addr.090, i64 %13
-  %cmp6 = icmp ne i32 %nPrecision.1, 0
   %cmp7 = icmp ne ptr %add.ptr60, %add.ptr
-  %14 = select i1 %cmp6, i1 %cmp7, i1 false
+  %14 = select i1 %cmp10, i1 %cmp7, i1 false
   br i1 %14, label %while.body8, label %while.end61, !llvm.loop !96
 
 while.end61:                                      ; preds = %if.end57, %while.body8, %if.then28
@@ -5666,14 +5663,13 @@ while.body8:                                      ; preds = %while.body8.lr.ph, 
   %pInBufferData.addr.090 = phi ptr [ %pInBufferData, %while.body8.lr.ph ], [ %add.ptr60, %if.end57 ]
   %bFirstTime.089 = phi i8 [ 1, %while.body8.lr.ph ], [ %bFirstTime.1, %if.end57 ]
   %nWriteCountSum.088 = phi i32 [ 0, %while.body8.lr.ph ], [ %add59, %if.end57 ]
-  %nPrecision.087 = phi i32 [ %1, %while.body8.lr.ph ], [ %sub, %if.end57 ]
-  %cmp10 = icmp ult i32 %nPrecision.087, 4104
+  %nPrecision.087 = phi i32 [ %1, %while.body8.lr.ph ], [ %nPrecision.1102, %if.end57 ]
+  %cmp10 = icmp ugt i32 %nPrecision.087, 4103
   %3 = load i32, ptr %mnPrecision, align 4
   %conv13 = zext i32 %3 to i64
   %add = add nuw nsw i64 %conv13, 1
-  %sub = add nsw i32 %nPrecision.087, -4103
-  %nPrecision.1 = select i1 %cmp10, i32 0, i32 %sub
-  %outSize.0 = select i1 %cmp10, i64 %add, i64 4104
+  %nPrecision.1102 = add i32 %nPrecision.087, -4103
+  %outSize.0 = select i1 %cmp10, i64 4104, i64 %add
   %sub.ptr.rhs.cast16 = ptrtoint ptr %pInBufferData.addr.090 to i64
   %sub.ptr.sub17 = sub i64 %sub.ptr.lhs.cast15, %sub.ptr.rhs.cast16
   %sub.ptr.div18 = ashr exact i64 %sub.ptr.sub17, 2
@@ -5688,8 +5684,7 @@ if.end21:                                         ; preds = %while.body8
 
 if.then23:                                        ; preds = %if.end21
   %conv24 = trunc i64 %.pre98 to i32
-  %cmp25.not = icmp eq i32 %nPrecision.1, 0
-  br i1 %cmp25.not, label %if.end45, label %land.lhs.true
+  br i1 %cmp10, label %land.lhs.true, label %if.end45
 
 land.lhs.true:                                    ; preds = %if.then23
   %5 = load i64, ptr %nInUsed, align 8
@@ -5813,9 +5808,8 @@ if.end57:                                         ; preds = %land.lhs.true53.if.
   %add59 = add nsw i32 %nWriteCountSum.1, %conv58
   %13 = load i64, ptr %nInUsed, align 8
   %add.ptr60 = getelementptr inbounds i32, ptr %pInBufferData.addr.090, i64 %13
-  %cmp6 = icmp ne i32 %nPrecision.1, 0
   %cmp7 = icmp ne ptr %add.ptr60, %add.ptr
-  %14 = select i1 %cmp6, i1 %cmp7, i1 false
+  %14 = select i1 %cmp10, i1 %cmp7, i1 false
   br i1 %14, label %while.body8, label %while.end61, !llvm.loop !104
 
 while.end61:                                      ; preds = %if.end57, %while.body8, %if.then28
@@ -7509,14 +7503,13 @@ while.body8:                                      ; preds = %while.body8.lr.ph, 
   %pInBufferData.addr.090 = phi ptr [ %pInBufferData, %while.body8.lr.ph ], [ %add.ptr59, %if.end56 ]
   %bFirstTime.089 = phi i8 [ 1, %while.body8.lr.ph ], [ %bFirstTime.1, %if.end56 ]
   %nWriteCountSum.088 = phi i32 [ 0, %while.body8.lr.ph ], [ %add58, %if.end56 ]
-  %nPrecision.087 = phi i32 [ %1, %while.body8.lr.ph ], [ %sub, %if.end56 ]
-  %cmp10 = icmp ult i32 %nPrecision.087, 4104
+  %nPrecision.087 = phi i32 [ %1, %while.body8.lr.ph ], [ %nPrecision.1102, %if.end56 ]
+  %cmp10 = icmp ugt i32 %nPrecision.087, 4103
   %3 = load i32, ptr %mnPrecision, align 4
   %conv13 = zext i32 %3 to i64
   %add = add nuw nsw i64 %conv13, 1
-  %sub = add nsw i32 %nPrecision.087, -4103
-  %nPrecision.1 = select i1 %cmp10, i32 0, i32 %sub
-  %outSize.0 = select i1 %cmp10, i64 %add, i64 4104
+  %nPrecision.1102 = add i32 %nPrecision.087, -4103
+  %outSize.0 = select i1 %cmp10, i64 4104, i64 %add
   %sub.ptr.rhs.cast16 = ptrtoint ptr %pInBufferData.addr.090 to i64
   %sub.ptr.sub17 = sub i64 %sub.ptr.lhs.cast15, %sub.ptr.rhs.cast16
   %call18 = call noundef zeroext i1 @_ZN2EA4StdC7StrlcpyEPDsPKcmmRmS4_(ptr noundef %pScratchBuffer, ptr noundef %pInBufferData.addr.090, i64 noundef %outSize.0, i64 noundef %sub.ptr.sub17, ptr noundef nonnull align 8 dereferenceable(8) %nOutUsed, ptr noundef nonnull align 8 dereferenceable(8) %nInUsed)
@@ -7530,8 +7523,7 @@ if.end20:                                         ; preds = %while.body8
 
 if.then22:                                        ; preds = %if.end20
   %conv23 = trunc i64 %.pre98 to i32
-  %cmp24.not = icmp eq i32 %nPrecision.1, 0
-  br i1 %cmp24.not, label %if.end44, label %land.lhs.true
+  br i1 %cmp10, label %land.lhs.true, label %if.end44
 
 land.lhs.true:                                    ; preds = %if.then22
   %5 = load i64, ptr %nInUsed, align 8
@@ -7655,9 +7647,8 @@ if.end56:                                         ; preds = %land.lhs.true52.if.
   %add58 = add nsw i32 %nWriteCountSum.1, %conv57
   %13 = load i64, ptr %nInUsed, align 8
   %add.ptr59 = getelementptr inbounds i8, ptr %pInBufferData.addr.090, i64 %13
-  %cmp6 = icmp ne i32 %nPrecision.1, 0
   %cmp7 = icmp ne ptr %add.ptr59, %add.ptr
-  %14 = select i1 %cmp6, i1 %cmp7, i1 false
+  %14 = select i1 %cmp10, i1 %cmp7, i1 false
   br i1 %14, label %while.body8, label %while.end60, !llvm.loop !132
 
 while.end60:                                      ; preds = %if.end56, %while.body8, %if.then27
@@ -7769,14 +7760,13 @@ while.body8:                                      ; preds = %while.body8.lr.ph, 
   %pInBufferData.addr.090 = phi ptr [ %pInBufferData, %while.body8.lr.ph ], [ %add.ptr60, %if.end57 ]
   %bFirstTime.089 = phi i8 [ 1, %while.body8.lr.ph ], [ %bFirstTime.1, %if.end57 ]
   %nWriteCountSum.088 = phi i32 [ 0, %while.body8.lr.ph ], [ %add59, %if.end57 ]
-  %nPrecision.087 = phi i32 [ %1, %while.body8.lr.ph ], [ %sub, %if.end57 ]
-  %cmp10 = icmp ult i32 %nPrecision.087, 4104
+  %nPrecision.087 = phi i32 [ %1, %while.body8.lr.ph ], [ %nPrecision.1102, %if.end57 ]
+  %cmp10 = icmp ugt i32 %nPrecision.087, 4103
   %3 = load i32, ptr %mnPrecision, align 4
   %conv13 = zext i32 %3 to i64
   %add = add nuw nsw i64 %conv13, 1
-  %sub = add nsw i32 %nPrecision.087, -4103
-  %nPrecision.1 = select i1 %cmp10, i32 0, i32 %sub
-  %outSize.0 = select i1 %cmp10, i64 %add, i64 4104
+  %nPrecision.1102 = add i32 %nPrecision.087, -4103
+  %outSize.0 = select i1 %cmp10, i64 4104, i64 %add
   %sub.ptr.rhs.cast16 = ptrtoint ptr %pInBufferData.addr.090 to i64
   %sub.ptr.sub17 = sub i64 %sub.ptr.lhs.cast15, %sub.ptr.rhs.cast16
   %sub.ptr.div18 = ashr exact i64 %sub.ptr.sub17, 2
@@ -7791,8 +7781,7 @@ if.end21:                                         ; preds = %while.body8
 
 if.then23:                                        ; preds = %if.end21
   %conv24 = trunc i64 %.pre98 to i32
-  %cmp25.not = icmp eq i32 %nPrecision.1, 0
-  br i1 %cmp25.not, label %if.end45, label %land.lhs.true
+  br i1 %cmp10, label %land.lhs.true, label %if.end45
 
 land.lhs.true:                                    ; preds = %if.then23
   %5 = load i64, ptr %nInUsed, align 8
@@ -7916,9 +7905,8 @@ if.end57:                                         ; preds = %land.lhs.true53.if.
   %add59 = add nsw i32 %nWriteCountSum.1, %conv58
   %13 = load i64, ptr %nInUsed, align 8
   %add.ptr60 = getelementptr inbounds i32, ptr %pInBufferData.addr.090, i64 %13
-  %cmp6 = icmp ne i32 %nPrecision.1, 0
   %cmp7 = icmp ne ptr %add.ptr60, %add.ptr
-  %14 = select i1 %cmp6, i1 %cmp7, i1 false
+  %14 = select i1 %cmp10, i1 %cmp7, i1 false
   br i1 %14, label %while.body8, label %while.end61, !llvm.loop !140
 
 while.end61:                                      ; preds = %if.end57, %while.body8, %if.then28
@@ -9594,14 +9582,13 @@ while.body8:                                      ; preds = %while.body8.lr.ph, 
   %pInBufferData.addr.090 = phi ptr [ %pInBufferData, %while.body8.lr.ph ], [ %add.ptr59, %if.end56 ]
   %bFirstTime.089 = phi i8 [ 1, %while.body8.lr.ph ], [ %bFirstTime.1, %if.end56 ]
   %nWriteCountSum.088 = phi i32 [ 0, %while.body8.lr.ph ], [ %add58, %if.end56 ]
-  %nPrecision.087 = phi i32 [ %1, %while.body8.lr.ph ], [ %sub, %if.end56 ]
-  %cmp10 = icmp ult i32 %nPrecision.087, 4104
+  %nPrecision.087 = phi i32 [ %1, %while.body8.lr.ph ], [ %nPrecision.1102, %if.end56 ]
+  %cmp10 = icmp ugt i32 %nPrecision.087, 4103
   %3 = load i32, ptr %mnPrecision, align 4
   %conv13 = zext i32 %3 to i64
   %add = add nuw nsw i64 %conv13, 1
-  %sub = add nsw i32 %nPrecision.087, -4103
-  %nPrecision.1 = select i1 %cmp10, i32 0, i32 %sub
-  %outSize.0 = select i1 %cmp10, i64 %add, i64 4104
+  %nPrecision.1102 = add i32 %nPrecision.087, -4103
+  %outSize.0 = select i1 %cmp10, i64 4104, i64 %add
   %sub.ptr.rhs.cast16 = ptrtoint ptr %pInBufferData.addr.090 to i64
   %sub.ptr.sub17 = sub i64 %sub.ptr.lhs.cast15, %sub.ptr.rhs.cast16
   %call18 = call noundef zeroext i1 @_ZN2EA4StdC7StrlcpyEPDiPKcmmRmS4_(ptr noundef %pScratchBuffer, ptr noundef %pInBufferData.addr.090, i64 noundef %outSize.0, i64 noundef %sub.ptr.sub17, ptr noundef nonnull align 8 dereferenceable(8) %nOutUsed, ptr noundef nonnull align 8 dereferenceable(8) %nInUsed)
@@ -9615,8 +9602,7 @@ if.end20:                                         ; preds = %while.body8
 
 if.then22:                                        ; preds = %if.end20
   %conv23 = trunc i64 %.pre98 to i32
-  %cmp24.not = icmp eq i32 %nPrecision.1, 0
-  br i1 %cmp24.not, label %if.end44, label %land.lhs.true
+  br i1 %cmp10, label %land.lhs.true, label %if.end44
 
 land.lhs.true:                                    ; preds = %if.then22
   %5 = load i64, ptr %nInUsed, align 8
@@ -9740,9 +9726,8 @@ if.end56:                                         ; preds = %land.lhs.true52.if.
   %add58 = add nsw i32 %nWriteCountSum.1, %conv57
   %13 = load i64, ptr %nInUsed, align 8
   %add.ptr59 = getelementptr inbounds i8, ptr %pInBufferData.addr.090, i64 %13
-  %cmp6 = icmp ne i32 %nPrecision.1, 0
   %cmp7 = icmp ne ptr %add.ptr59, %add.ptr
-  %14 = select i1 %cmp6, i1 %cmp7, i1 false
+  %14 = select i1 %cmp10, i1 %cmp7, i1 false
   br i1 %14, label %while.body8, label %while.end60, !llvm.loop !168
 
 while.end60:                                      ; preds = %if.end56, %while.body8, %if.then27
@@ -9854,14 +9839,13 @@ while.body8:                                      ; preds = %while.body8.lr.ph, 
   %pInBufferData.addr.090 = phi ptr [ %pInBufferData, %while.body8.lr.ph ], [ %add.ptr60, %if.end57 ]
   %bFirstTime.089 = phi i8 [ 1, %while.body8.lr.ph ], [ %bFirstTime.1, %if.end57 ]
   %nWriteCountSum.088 = phi i32 [ 0, %while.body8.lr.ph ], [ %add59, %if.end57 ]
-  %nPrecision.087 = phi i32 [ %1, %while.body8.lr.ph ], [ %sub, %if.end57 ]
-  %cmp10 = icmp ult i32 %nPrecision.087, 4104
+  %nPrecision.087 = phi i32 [ %1, %while.body8.lr.ph ], [ %nPrecision.1102, %if.end57 ]
+  %cmp10 = icmp ugt i32 %nPrecision.087, 4103
   %3 = load i32, ptr %mnPrecision, align 4
   %conv13 = zext i32 %3 to i64
   %add = add nuw nsw i64 %conv13, 1
-  %sub = add nsw i32 %nPrecision.087, -4103
-  %nPrecision.1 = select i1 %cmp10, i32 0, i32 %sub
-  %outSize.0 = select i1 %cmp10, i64 %add, i64 4104
+  %nPrecision.1102 = add i32 %nPrecision.087, -4103
+  %outSize.0 = select i1 %cmp10, i64 4104, i64 %add
   %sub.ptr.rhs.cast16 = ptrtoint ptr %pInBufferData.addr.090 to i64
   %sub.ptr.sub17 = sub i64 %sub.ptr.lhs.cast15, %sub.ptr.rhs.cast16
   %sub.ptr.div18 = ashr exact i64 %sub.ptr.sub17, 1
@@ -9876,8 +9860,7 @@ if.end21:                                         ; preds = %while.body8
 
 if.then23:                                        ; preds = %if.end21
   %conv24 = trunc i64 %.pre98 to i32
-  %cmp25.not = icmp eq i32 %nPrecision.1, 0
-  br i1 %cmp25.not, label %if.end45, label %land.lhs.true
+  br i1 %cmp10, label %land.lhs.true, label %if.end45
 
 land.lhs.true:                                    ; preds = %if.then23
   %5 = load i64, ptr %nInUsed, align 8
@@ -10001,9 +9984,8 @@ if.end57:                                         ; preds = %land.lhs.true53.if.
   %add59 = add nsw i32 %nWriteCountSum.1, %conv58
   %13 = load i64, ptr %nInUsed, align 8
   %add.ptr60 = getelementptr inbounds i16, ptr %pInBufferData.addr.090, i64 %13
-  %cmp6 = icmp ne i32 %nPrecision.1, 0
   %cmp7 = icmp ne ptr %add.ptr60, %add.ptr
-  %14 = select i1 %cmp6, i1 %cmp7, i1 false
+  %14 = select i1 %cmp10, i1 %cmp7, i1 false
   br i1 %14, label %while.body8, label %while.end61, !llvm.loop !176
 
 while.end61:                                      ; preds = %if.end57, %while.body8, %if.then28

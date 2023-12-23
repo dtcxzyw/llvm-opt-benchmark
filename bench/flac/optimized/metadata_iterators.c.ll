@@ -881,12 +881,12 @@ sw.bb8.i.i:                                       ; preds = %if.then
 if.end.i.i.i:                                     ; preds = %sw.bb8.i.i
   store i32 %div.i.i.i, ptr %data9.i.i, align 8
   %cmp2.i.i.i = icmp ult i32 %2, 18
-  br i1 %cmp2.i.i.i, label %if.then3.i.i.i, label %if.else.i37.i.i
+  br i1 %cmp2.i.i.i, label %if.end10.thread.i.i.i, label %if.else.i37.i.i
 
-if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
+if.end10.thread.i.i.i:                            ; preds = %if.end.i.i.i
   %points.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call, i64 0, i32 3, i32 0, i32 0, i64 8
   store ptr null, ptr %points.i.i.i, align 8
-  br label %if.end10.i.i.i
+  br label %read_metadata_block_data_seektable_cb_.exit.i.i
 
 if.else.i37.i.i:                                  ; preds = %if.end.i.i.i
   %conv.i38.i.i = zext nneg i32 %div.i.i.i to i64
@@ -894,19 +894,14 @@ if.else.i37.i.i:                                  ; preds = %if.end.i.i.i
   %points5.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call, i64 0, i32 3, i32 0, i32 0, i64 8
   store ptr %call.i39.i.i, ptr %points5.i.i.i, align 8
   %cmp6.i.i.i = icmp eq ptr %call.i39.i.i, null
-  br i1 %cmp6.i.i.i, label %read_metadata_block_data_seektable_cb_.exit.i.i, label %if.else.if.end10_crit_edge.i.i.i
+  br i1 %cmp6.i.i.i, label %read_metadata_block_data_seektable_cb_.exit.i.i, label %if.end10.i.i.i
 
-if.else.if.end10_crit_edge.i.i.i:                 ; preds = %if.else.i37.i.i
+if.end10.i.i.i:                                   ; preds = %if.else.i37.i.i
   %.pre.i.i.i = load i32, ptr %data9.i.i, align 8
-  br label %if.end10.i.i.i
-
-if.end10.i.i.i:                                   ; preds = %if.else.if.end10_crit_edge.i.i.i, %if.then3.i.i.i
-  %21 = phi i32 [ %.pre.i.i.i, %if.else.if.end10_crit_edge.i.i.i ], [ %div.i.i.i, %if.then3.i.i.i ]
-  %cmp1235.not.i.i.i = icmp eq i32 %21, 0
-  br i1 %cmp1235.not.i.i.i, label %read_metadata_block_data_seektable_cb_.exit.i.i, label %for.body.lr.ph.i.i.i
+  %21 = icmp eq i32 %.pre.i.i.i, 0
+  br i1 %21, label %read_metadata_block_data_seektable_cb_.exit.i.i, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.end10.i.i.i
-  %points21.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call, i64 0, i32 3, i32 0, i32 0, i64 8
   %add.ptr.i40.i.i = getelementptr inbounds i8, ptr %buffer.i34.i.i, i64 8
   %add.ptr28.i.i.i = getelementptr inbounds i8, ptr %buffer.i34.i.i, i64 16
   br label %for.body.i.i.i
@@ -931,7 +926,7 @@ for.body.i.i41.i.i:                               ; preds = %for.body.i.i.i, %fo
   br i1 %exitcond.not.i.i50.i.i, label %unpack_uint64_.exit.i51.i.i, label %for.body.i.i41.i.i, !llvm.loop !8
 
 unpack_uint64_.exit.i51.i.i:                      ; preds = %for.body.i.i41.i.i
-  %23 = load ptr, ptr %points21.i.i.i, align 8
+  %23 = load ptr, ptr %points5.i.i.i, align 8
   %arrayidx.i52.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %23, i64 %indvars.iv.i.i.i
   store i64 %or.i.i48.i.i, ptr %arrayidx.i52.i.i, align 8
   br label %for.body.i14.i.i.i
@@ -950,7 +945,7 @@ for.body.i14.i.i.i:                               ; preds = %for.body.i14.i.i.i,
   br i1 %exitcond.not.i23.i.i.i, label %unpack_uint64_.exit24.i.i.i, label %for.body.i14.i.i.i, !llvm.loop !8
 
 unpack_uint64_.exit24.i.i.i:                      ; preds = %for.body.i14.i.i.i
-  %25 = load ptr, ptr %points21.i.i.i, align 8
+  %25 = load ptr, ptr %points5.i.i.i, align 8
   %stream_offset.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %25, i64 %indvars.iv.i.i.i, i32 1
   store i64 %or.i21.i.i.i, ptr %stream_offset.i.i.i, align 8
   br label %for.body.i25.i.i.i
@@ -969,7 +964,7 @@ for.body.i25.i.i.i:                               ; preds = %for.body.i25.i.i.i,
   br i1 %exitcond.not.i34.i.i.i, label %unpack_uint32_.exit.i53.i.i, label %for.body.i25.i.i.i, !llvm.loop !5
 
 unpack_uint32_.exit.i53.i.i:                      ; preds = %for.body.i25.i.i.i
-  %27 = load ptr, ptr %points21.i.i.i, align 8
+  %27 = load ptr, ptr %points5.i.i.i, align 8
   %frame_samples.i.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %27, i64 %indvars.iv.i.i.i, i32 2
   store i32 %or.i32.i.i.i, ptr %frame_samples.i.i.i, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -978,8 +973,8 @@ unpack_uint32_.exit.i53.i.i:                      ; preds = %for.body.i25.i.i.i
   %cmp12.i.i.i = icmp ult i64 %indvars.iv.next.i.i.i, %29
   br i1 %cmp12.i.i.i, label %for.body.i.i.i, label %read_metadata_block_data_seektable_cb_.exit.i.i, !llvm.loop !9
 
-read_metadata_block_data_seektable_cb_.exit.i.i:  ; preds = %unpack_uint32_.exit.i53.i.i, %for.body.i.i.i, %if.end10.i.i.i, %if.else.i37.i.i, %sw.bb8.i.i
-  %retval.0.i36.i.i = phi i32 [ 5, %sw.bb8.i.i ], [ 11, %if.else.i37.i.i ], [ 0, %if.end10.i.i.i ], [ 0, %unpack_uint32_.exit.i53.i.i ], [ 6, %for.body.i.i.i ]
+read_metadata_block_data_seektable_cb_.exit.i.i:  ; preds = %unpack_uint32_.exit.i53.i.i, %for.body.i.i.i, %if.end10.i.i.i, %if.else.i37.i.i, %if.end10.thread.i.i.i, %sw.bb8.i.i
+  %retval.0.i36.i.i = phi i32 [ 5, %sw.bb8.i.i ], [ 11, %if.else.i37.i.i ], [ 0, %if.end10.i.i.i ], [ 0, %if.end10.thread.i.i.i ], [ 0, %unpack_uint32_.exit.i53.i.i ], [ 6, %for.body.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %buffer.i34.i.i)
   br label %read_metadata_block_data_.exit
 
@@ -8540,12 +8535,12 @@ sw.bb8.i:                                         ; preds = %if.end22
 if.end.i.i:                                       ; preds = %sw.bb8.i
   store i32 %div.i.i, ptr %data9.i, align 8
   %cmp2.i.i = icmp ult i32 %59, 18
-  br i1 %cmp2.i.i, label %if.then3.i.i, label %if.else.i37.i
+  br i1 %cmp2.i.i, label %if.end10.thread.i.i, label %if.else.i37.i
 
-if.then3.i.i:                                     ; preds = %if.end.i.i
+if.end10.thread.i.i:                              ; preds = %if.end.i.i
   %points.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %40, i64 0, i32 3, i32 0, i32 0, i64 8
   store ptr null, ptr %points.i.i, align 8
-  br label %if.end10.i.i
+  br label %read_metadata_block_data_seektable_cb_.exit.i
 
 if.else.i37.i:                                    ; preds = %if.end.i.i
   %conv.i38.i = zext nneg i32 %div.i.i to i64
@@ -8553,23 +8548,15 @@ if.else.i37.i:                                    ; preds = %if.end.i.i
   %points5.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %40, i64 0, i32 3, i32 0, i32 0, i64 8
   store ptr %call.i39.i, ptr %points5.i.i, align 8
   %cmp6.i.i = icmp eq ptr %call.i39.i, null
-  br i1 %cmp6.i.i, label %read_metadata_block_data_seektable_cb_.exit.i, label %if.else.if.end10_crit_edge.i.i
+  br i1 %cmp6.i.i, label %read_metadata_block_data_seektable_cb_.exit.i, label %if.end10.i.i
 
-if.else.if.end10_crit_edge.i.i:                   ; preds = %if.else.i37.i
+if.end10.i.i:                                     ; preds = %if.else.i37.i
   %.pre.i.i = load i32, ptr %data9.i, align 8
-  br label %if.end10.i.i
+  %60 = icmp eq i32 %.pre.i.i, 0
+  br i1 %60, label %read_metadata_block_data_seektable_cb_.exit.i, label %for.body.i.i47
 
-if.end10.i.i:                                     ; preds = %if.else.if.end10_crit_edge.i.i, %if.then3.i.i
-  %60 = phi i32 [ %.pre.i.i, %if.else.if.end10_crit_edge.i.i ], [ %div.i.i, %if.then3.i.i ]
-  %cmp1235.not.i.i = icmp eq i32 %60, 0
-  br i1 %cmp1235.not.i.i, label %read_metadata_block_data_seektable_cb_.exit.i, label %for.body.lr.ph.i.i
-
-for.body.lr.ph.i.i:                               ; preds = %if.end10.i.i
-  %points21.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %40, i64 0, i32 3, i32 0, i32 0, i64 8
-  br label %for.body.i.i47
-
-for.body.i.i47:                                   ; preds = %unpack_uint32_.exit.i53.i, %for.body.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %unpack_uint32_.exit.i53.i ]
+for.body.i.i47:                                   ; preds = %if.end10.i.i, %unpack_uint32_.exit.i53.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %unpack_uint32_.exit.i53.i ], [ 0, %if.end10.i.i ]
   %call14.i.i = call i64 %read_cb(ptr noundef nonnull %buffer.i34.i, i64 noundef 1, i64 noundef 18, ptr noundef %handle) #28
   %cmp15.not.i.i = icmp eq i64 %call14.i.i, 18
   br i1 %cmp15.not.i.i, label %for.body.i.i41.i, label %read_metadata_block_data_seektable_cb_.exit.i
@@ -8588,7 +8575,7 @@ for.body.i.i41.i:                                 ; preds = %for.body.i.i47, %fo
   br i1 %exitcond.not.i.i50.i, label %unpack_uint64_.exit.i51.i, label %for.body.i.i41.i, !llvm.loop !8
 
 unpack_uint64_.exit.i51.i:                        ; preds = %for.body.i.i41.i
-  %62 = load ptr, ptr %points21.i.i, align 8
+  %62 = load ptr, ptr %points5.i.i, align 8
   %arrayidx.i52.i = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %62, i64 %indvars.iv.i.i
   store i64 %or.i.i48.i, ptr %arrayidx.i52.i, align 8
   br label %for.body.i14.i.i
@@ -8607,7 +8594,7 @@ for.body.i14.i.i:                                 ; preds = %for.body.i14.i.i, %
   br i1 %exitcond.not.i23.i.i, label %unpack_uint64_.exit24.i.i, label %for.body.i14.i.i, !llvm.loop !8
 
 unpack_uint64_.exit24.i.i:                        ; preds = %for.body.i14.i.i
-  %64 = load ptr, ptr %points21.i.i, align 8
+  %64 = load ptr, ptr %points5.i.i, align 8
   %stream_offset.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %64, i64 %indvars.iv.i.i, i32 1
   store i64 %or.i21.i.i, ptr %stream_offset.i.i, align 8
   br label %for.body.i25.i.i
@@ -8626,7 +8613,7 @@ for.body.i25.i.i:                                 ; preds = %for.body.i25.i.i, %
   br i1 %exitcond.not.i34.i.i, label %unpack_uint32_.exit.i53.i, label %for.body.i25.i.i, !llvm.loop !5
 
 unpack_uint32_.exit.i53.i:                        ; preds = %for.body.i25.i.i
-  %66 = load ptr, ptr %points21.i.i, align 8
+  %66 = load ptr, ptr %points5.i.i, align 8
   %frame_samples.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %66, i64 %indvars.iv.i.i, i32 2
   store i32 %or.i32.i.i, ptr %frame_samples.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -8635,8 +8622,8 @@ unpack_uint32_.exit.i53.i:                        ; preds = %for.body.i25.i.i
   %cmp12.i.i = icmp ult i64 %indvars.iv.next.i.i, %68
   br i1 %cmp12.i.i, label %for.body.i.i47, label %read_metadata_block_data_seektable_cb_.exit.i, !llvm.loop !9
 
-read_metadata_block_data_seektable_cb_.exit.i:    ; preds = %unpack_uint32_.exit.i53.i, %for.body.i.i47, %if.end10.i.i, %if.else.i37.i, %sw.bb8.i
-  %retval.0.i36.i = phi i32 [ 5, %sw.bb8.i ], [ 11, %if.else.i37.i ], [ 0, %if.end10.i.i ], [ 6, %for.body.i.i47 ], [ 0, %unpack_uint32_.exit.i53.i ]
+read_metadata_block_data_seektable_cb_.exit.i:    ; preds = %unpack_uint32_.exit.i53.i, %for.body.i.i47, %if.end10.i.i, %if.else.i37.i, %if.end10.thread.i.i, %sw.bb8.i
+  %retval.0.i36.i = phi i32 [ 5, %sw.bb8.i ], [ 11, %if.else.i37.i ], [ 0, %if.end10.i.i ], [ 0, %if.end10.thread.i.i ], [ 6, %for.body.i.i47 ], [ 0, %unpack_uint32_.exit.i53.i ]
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %buffer.i34.i)
   br label %read_metadata_block_data_cb_.exit
 

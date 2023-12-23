@@ -532,7 +532,7 @@ entry:
     i32 0, label %sw.bb
     i32 1, label %sw.bb2
     i32 2, label %sw.bb23
-    i32 3, label %for.body63.lr.ph
+    i32 3, label %for.body
     i32 4, label %sw.bb100
   ]
 
@@ -621,22 +621,22 @@ if.else47:                                        ; preds = %sw.bb23
   br label %sw.epilog
 
 for.cond.loopexit:                                ; preds = %for.inc
+  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond110.not = icmp eq i64 %indvars.iv.next108, 3
-  br i1 %exitcond110.not, label %for.end83, label %for.body63.lr.ph, !llvm.loop !17
+  %exitcond109.not = icmp eq i64 %indvars.iv.next107, 3
+  br i1 %exitcond109.not, label %for.end83, label %for.body, !llvm.loop !17
 
-for.body63.lr.ph:                                 ; preds = %entry, %for.cond.loopexit
-  %indvars.iv107 = phi i64 [ %indvars.iv.next108, %for.cond.loopexit ], [ 0, %entry ]
+for.body:                                         ; preds = %entry, %for.cond.loopexit
+  %indvars.iv106 = phi i64 [ %indvars.iv.next107, %for.cond.loopexit ], [ 0, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond.loopexit ], [ 1, %entry ]
-  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
-  %arrayidx67 = getelementptr inbounds i16, ptr %val, i64 %indvars.iv107
+  %arrayidx67 = getelementptr inbounds i16, ptr %val, i64 %indvars.iv106
   %.pre = load i16, ptr %arrayidx67, align 2
   br label %for.body63
 
-for.body63:                                       ; preds = %for.body63.lr.ph, %for.inc
-  %11 = phi i16 [ %.pre, %for.body63.lr.ph ], [ %13, %for.inc ]
-  %indvars.iv104 = phi i64 [ %indvars.iv, %for.body63.lr.ph ], [ %indvars.iv.next105, %for.inc ]
-  %arrayidx64 = getelementptr inbounds i16, ptr %val, i64 %indvars.iv104
+for.body63:                                       ; preds = %for.body, %for.inc
+  %11 = phi i16 [ %.pre, %for.body ], [ %13, %for.inc ]
+  %indvars.iv103 = phi i64 [ %indvars.iv, %for.body ], [ %indvars.iv.next104, %for.inc ]
+  %arrayidx64 = getelementptr inbounds i16, ptr %val, i64 %indvars.iv103
   %12 = load i16, ptr %arrayidx64, align 2
   %cmp69 = icmp ult i16 %12, %11
   br i1 %cmp69, label %if.then71, label %for.inc
@@ -648,8 +648,8 @@ if.then71:                                        ; preds = %for.body63
 
 for.inc:                                          ; preds = %for.body63, %if.then71
   %13 = phi i16 [ %11, %for.body63 ], [ %12, %if.then71 ]
-  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next105, 4
+  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next104, 4
   br i1 %exitcond.not, label %for.cond.loopexit, label %for.body63, !llvm.loop !18
 
 for.end83:                                        ; preds = %for.cond.loopexit
@@ -747,16 +747,16 @@ if.end113:                                        ; preds = %if.then107, %sw.bb1
 
 sw.epilog:                                        ; preds = %if.then38, %if.else47, %if.then, %if.else, %if.end113, %for.end83, %sw.bb, %entry
   %table_size.0 = phi i32 [ 1, %entry ], [ 8, %if.end113 ], [ 4, %for.end83 ], [ 1, %sw.bb ], [ 2, %if.else ], [ 2, %if.then ], [ 4, %if.else47 ], [ 4, %if.then38 ]
-  %cmp146.not102 = icmp eq i32 %table_size.0, %shl
-  br i1 %cmp146.not102, label %while.end, label %while.body
+  %cmp146.not101 = icmp eq i32 %table_size.0, %shl
+  br i1 %cmp146.not101, label %while.end, label %while.body
 
 while.body:                                       ; preds = %sw.epilog, %while.body
-  %table_size.1103 = phi i32 [ %shl152, %while.body ], [ %table_size.0, %sw.epilog ]
-  %idxprom148 = zext i32 %table_size.1103 to i64
+  %table_size.1102 = phi i32 [ %shl152, %while.body ], [ %table_size.0, %sw.epilog ]
+  %idxprom148 = zext i32 %table_size.1102 to i64
   %arrayidx149 = getelementptr inbounds %struct.HuffmanCode, ptr %table, i64 %idxprom148
   %mul = shl nuw nsw i64 %idxprom148, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %arrayidx149, ptr align 2 %table, i64 %mul, i1 false)
-  %shl152 = shl i32 %table_size.1103, 1
+  %shl152 = shl i32 %table_size.1102, 1
   %cmp146.not = icmp eq i32 %shl152, %shl
   br i1 %cmp146.not, label %while.end, label %while.body, !llvm.loop !19
 

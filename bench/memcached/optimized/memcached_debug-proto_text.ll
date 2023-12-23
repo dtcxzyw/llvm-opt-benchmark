@@ -5835,15 +5835,15 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %cmp = icmp ugt i64 %ntokens, 2
-  br i1 %cmp, label %for.body.preheader, label %if.end126
+  br i1 %cmp, label %for.cond.preheader, label %if.end126
 
-for.body.preheader:                               ; preds = %if.end3
+for.cond.preheader:                               ; preds = %if.end3
   %3 = add i64 %ntokens, -2
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 1, %for.body.preheader ]
-  %f.047 = phi i16 [ %5, %for.inc ], [ 0, %for.body.preheader ]
+for.body:                                         ; preds = %for.cond.preheader, %for.inc
+  %indvars.iv = phi i64 [ 1, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
+  %f.046 = phi i16 [ 0, %for.cond.preheader ], [ %5, %for.inc ]
   %arrayidx = getelementptr inbounds %struct.token_s, ptr %tokens, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
   %call7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @.str.146) #13
@@ -5901,7 +5901,7 @@ if.else111:                                       ; preds = %if.else100
 
 for.inc:                                          ; preds = %if.else100, %if.else89, %if.else78, %if.else67, %if.else56, %if.else45, %if.else34, %if.else23, %if.else, %for.body
   %.sink = phi i16 [ 512, %for.body ], [ 64, %if.else ], [ 4, %if.else23 ], [ 8, %if.else34 ], [ 2, %if.else45 ], [ 32, %if.else56 ], [ 1024, %if.else67 ], [ 2048, %if.else78 ], [ 4096, %if.else89 ], [ 8192, %if.else100 ]
-  %5 = or i16 %f.047, %.sink
+  %5 = or i16 %f.046, %.sink
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv, %3
   br i1 %exitcond.not, label %if.end126, label %for.body, !llvm.loop !20

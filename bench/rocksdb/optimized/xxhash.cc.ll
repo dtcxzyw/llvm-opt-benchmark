@@ -1436,12 +1436,12 @@ entry:
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %acc.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %acc.i, ptr noundef nonnull align 64 dereferenceable(64) @__const._ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.acc, i64 64, i1 false)
   %sub1.i.i = add i64 %len, -1
+  %div2.i.i1 = lshr i64 %sub1.i.i, 10
   %cmp31.not.i.i = icmp ult i64 %sub1.i.i, 1024
   %.pre.pre.i.i = load <8 x i64>, ptr %acc.i, align 64
   br i1 %cmp31.not.i.i, label %for.end.i.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %entry
-  %div2.i.i1 = lshr i64 %sub1.i.i, 10
   %0 = load <16 x i32>, ptr getelementptr inbounds ([192 x i8], ptr @_ZL12XXH3_kSecret, i64 0, i64 128), align 64
   br label %for.body.i.i
 
@@ -1754,12 +1754,12 @@ if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %acc.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %acc.i.i, ptr noundef nonnull align 64 dereferenceable(64) @__const._ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.acc, i64 64, i1 false)
   %sub1.i.i.i = add i64 %len, -1
+  %div2.i.i2.i = lshr i64 %sub1.i.i.i, 10
   %cmp31.not.i.i.i = icmp ult i64 %sub1.i.i.i, 1024
   %.pre.pre.i.i.i = load <8 x i64>, ptr %acc.i.i, align 64
   br i1 %cmp31.not.i.i.i, label %for.end.i.i.i, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.then.i
-  %div2.i.i2.i = lshr i64 %sub1.i.i.i, 10
   %0 = load <16 x i32>, ptr getelementptr inbounds ([192 x i8], ptr @_ZL12XXH3_kSecret, i64 0, i64 128), align 64
   br label %for.body.i.i.i
 
@@ -1910,12 +1910,12 @@ _ZL28XXH3_initCustomSecret_avx512Pvm.exit.i:      ; preds = %for.body.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %acc.i7.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %acc.i7.i, ptr noundef nonnull align 64 dereferenceable(64) @__const._ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.acc, i64 64, i1 false)
   %sub1.i.i8.i = add i64 %len, -1
+  %div2.i.i91.i = lshr i64 %sub1.i.i8.i, 10
   %cmp31.not.i.i10.i = icmp ult i64 %sub1.i.i8.i, 1024
   %.pre.pre.i.i11.i = load <8 x i64>, ptr %acc.i7.i, align 64
   br i1 %cmp31.not.i.i10.i, label %for.end.i.i36.i, label %for.body.lr.ph.i.i12.i
 
 for.body.lr.ph.i.i12.i:                           ; preds = %_ZL28XXH3_initCustomSecret_avx512Pvm.exit.i
-  %div2.i.i91.i = lshr i64 %sub1.i.i8.i, 10
   %add.ptr6.i.i.i = getelementptr inbounds i8, ptr %secret.i, i64 128
   %37 = load <16 x i32>, ptr %add.ptr6.i.i.i, align 64
   br label %for.body.i.i13.i

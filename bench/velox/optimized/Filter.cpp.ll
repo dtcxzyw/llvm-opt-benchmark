@@ -12223,25 +12223,25 @@ _ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit: ; preds = %for.body.i.i
   %or3637 = or <4 x i1> %cmp.i.i.i.i12, %cmp.i.i.i.i14
   %or36 = bitcast <4 x i1> %or3637 to i4
   %tobool147.not = icmp eq i4 %or36, -1
-  br i1 %tobool147.not, label %return, label %while.body.preheader
+  br i1 %tobool147.not, label %return, label %if.end149
 
-while.body.preheader:                             ; preds = %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit
+if.end149:                                        ; preds = %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit
+  %14 = xor i4 %or36, -1
+  %conv146 = zext i4 %14 to i16
+  %15 = bitcast <4 x i1> %cmp.i.i.i.i12 to i4
+  %16 = zext i4 %15 to i32
   %add.i.i.i.i = add <4 x i64> %and.i.i.i.i, <i64 1, i64 1, i64 1, i64 1>
   store <4 x i64> %add.i.i.i.i, ptr %indicesArray, align 32
   store <4 x i64> %x.coerce, ptr %valuesArray, align 32
-  %14 = bitcast <4 x i1> %cmp.i.i.i.i12 to i4
-  %15 = zext i4 %14 to i32
-  %16 = xor i4 %or36, -1
-  %conv146 = zext i4 %16 to i16
   br label %while.body
 
-while.body:                                       ; preds = %while.body.preheader, %for.end
-  %resultBits.044 = phi i32 [ %resultBits.1, %for.end ], [ %15, %while.body.preheader ]
-  %unresolved.043 = phi i16 [ %and.i, %for.end ], [ %conv146, %while.body.preheader ]
-  %17 = tail call i16 @llvm.cttz.i16(i16 %unresolved.043, i1 true), !range !135
+while.body:                                       ; preds = %if.end149, %for.end
+  %resultBits.043 = phi i32 [ %16, %if.end149 ], [ %resultBits.1, %for.end ]
+  %unresolved.042 = phi i16 [ %conv146, %if.end149 ], [ %and.i, %for.end ]
+  %17 = tail call i16 @llvm.cttz.i16(i16 %unresolved.042, i1 true), !range !135
   %18 = zext nneg i16 %17 to i32
-  %sub.i = add nsw i16 %unresolved.043, -1
-  %and.i = and i16 %sub.i, %unresolved.043
+  %sub.i = add nsw i16 %unresolved.042, -1
+  %and.i = and i16 %sub.i, %unresolved.042
   %idxprom = zext nneg i16 %17 to i64
   %arrayidx = getelementptr inbounds [4 x i64], ptr %indicesArray, i64 0, i64 %idxprom
   %19 = load i64, ptr %arrayidx, align 8
@@ -12258,7 +12258,7 @@ while.body:                                       ; preds = %while.body.preheade
 
 if.then187:                                       ; preds = %if.end205, %while.body
   %shl = shl nuw nsw i32 1, %18
-  %or188 = or i32 %shl, %resultBits.044
+  %or188 = or i32 %shl, %resultBits.043
   br label %for.end
 
 if.end189:                                        ; preds = %while.body, %if.end205
@@ -12272,7 +12272,7 @@ if.end189:                                        ; preds = %while.body, %if.end
 if.then203:                                       ; preds = %if.end189
   %shl204 = shl nuw nsw i32 1, %18
   %not = xor i32 %shl204, -1
-  %and = and i32 %resultBits.044, %not
+  %and = and i32 %resultBits.043, %not
   br label %for.end
 
 if.end205:                                        ; preds = %if.end189
@@ -12452,25 +12452,25 @@ _ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i: ; preds = %for.body.i
   %or3637.i = or <4 x i1> %cmp.i.i.i.i12.i, %cmp.i.i.i.i14.i
   %or36.i = bitcast <4 x i1> %or3637.i to i4
   %tobool147.not.i = icmp eq i4 %or36.i, -1
-  br i1 %tobool147.not.i, label %_ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit, label %while.body.preheader.i
+  br i1 %tobool147.not.i, label %_ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit, label %if.end149.i
 
-while.body.preheader.i:                           ; preds = %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i
+if.end149.i:                                      ; preds = %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i
+  %16 = xor i4 %or36.i, -1
+  %conv146.i = zext i4 %16 to i16
+  %17 = bitcast <4 x i1> %cmp.i.i.i.i12.i to i4
+  %18 = zext i4 %17 to i32
   %add.i.i.i.i.i = add <4 x i64> %and.i.i.i.i.i, <i64 1, i64 1, i64 1, i64 1>
   store <4 x i64> %add.i.i.i.i.i, ptr %indicesArray.i, align 32
   store <4 x i64> %conv.i.i.i, ptr %valuesArray.i, align 32
-  %16 = bitcast <4 x i1> %cmp.i.i.i.i12.i to i4
-  %17 = zext i4 %16 to i32
-  %18 = xor i4 %or36.i, -1
-  %conv146.i = zext i4 %18 to i16
   br label %while.body.i
 
-while.body.i:                                     ; preds = %for.end.i, %while.body.preheader.i
-  %resultBits.044.i = phi i32 [ %resultBits.1.i, %for.end.i ], [ %17, %while.body.preheader.i ]
-  %unresolved.043.i = phi i16 [ %and.i.i, %for.end.i ], [ %conv146.i, %while.body.preheader.i ]
-  %19 = tail call i16 @llvm.cttz.i16(i16 %unresolved.043.i, i1 true), !range !135
+while.body.i:                                     ; preds = %for.end.i, %if.end149.i
+  %resultBits.043.i = phi i32 [ %18, %if.end149.i ], [ %resultBits.1.i, %for.end.i ]
+  %unresolved.042.i = phi i16 [ %conv146.i, %if.end149.i ], [ %and.i.i, %for.end.i ]
+  %19 = tail call i16 @llvm.cttz.i16(i16 %unresolved.042.i, i1 true), !range !135
   %20 = zext nneg i16 %19 to i32
-  %sub.i.i = add nsw i16 %unresolved.043.i, -1
-  %and.i.i = and i16 %sub.i.i, %unresolved.043.i
+  %sub.i.i = add nsw i16 %unresolved.042.i, -1
+  %and.i.i = and i16 %sub.i.i, %unresolved.042.i
   %idxprom.i = zext nneg i16 %19 to i64
   %arrayidx.i = getelementptr inbounds [4 x i64], ptr %indicesArray.i, i64 0, i64 %idxprom.i
   %21 = load i64, ptr %arrayidx.i, align 8
@@ -12487,7 +12487,7 @@ while.body.i:                                     ; preds = %for.end.i, %while.b
 
 if.then187.i:                                     ; preds = %if.end205.i, %while.body.i
   %shl.i = shl nuw nsw i32 1, %20
-  %or188.i = or i32 %shl.i, %resultBits.044.i
+  %or188.i = or i32 %shl.i, %resultBits.043.i
   br label %for.end.i
 
 if.end189.i:                                      ; preds = %while.body.i, %if.end205.i
@@ -12501,7 +12501,7 @@ if.end189.i:                                      ; preds = %while.body.i, %if.e
 if.then203.i:                                     ; preds = %if.end189.i
   %shl204.i = shl nuw nsw i32 1, %20
   %not.i = xor i32 %shl204.i, -1
-  %and.i = and i32 %resultBits.044.i, %not.i
+  %and.i = and i32 %resultBits.043.i, %not.i
   br label %for.end.i
 
 if.end205.i:                                      ; preds = %if.end189.i
@@ -12618,25 +12618,25 @@ _ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i47: ; preds = %for.body
   %or3637.i57 = or <4 x i1> %cmp.i.i.i.i12.i54, %cmp.i.i.i.i14.i56
   %or36.i58 = bitcast <4 x i1> %or3637.i57 to i4
   %tobool147.not.i59 = icmp eq i4 %or36.i58, -1
-  br i1 %tobool147.not.i59, label %_ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit101, label %while.body.preheader.i60
+  br i1 %tobool147.not.i59, label %_ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit101, label %if.end149.i60
 
-while.body.preheader.i60:                         ; preds = %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i47
-  %add.i.i.i.i.i61 = add <4 x i64> %and.i.i.i.i.i52, <i64 1, i64 1, i64 1, i64 1>
-  store <4 x i64> %add.i.i.i.i.i61, ptr %indicesArray.i9, align 32
+if.end149.i60:                                    ; preds = %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i47
+  %44 = xor i4 %or36.i58, -1
+  %conv146.i61 = zext i4 %44 to i16
+  %45 = bitcast <4 x i1> %cmp.i.i.i.i12.i54 to i4
+  %46 = zext i4 %45 to i32
+  %add.i.i.i.i.i62 = add <4 x i64> %and.i.i.i.i.i52, <i64 1, i64 1, i64 1, i64 1>
+  store <4 x i64> %add.i.i.i.i.i62, ptr %indicesArray.i9, align 32
   store <4 x i64> %conv.i.i.i4, ptr %valuesArray.i10, align 32
-  %44 = bitcast <4 x i1> %cmp.i.i.i.i12.i54 to i4
-  %45 = zext i4 %44 to i32
-  %46 = xor i4 %or36.i58, -1
-  %conv146.i62 = zext i4 %46 to i16
   br label %while.body.i63
 
-while.body.i63:                                   ; preds = %for.end.i79, %while.body.preheader.i60
-  %resultBits.044.i64 = phi i32 [ %resultBits.1.i80, %for.end.i79 ], [ %45, %while.body.preheader.i60 ]
-  %unresolved.043.i65 = phi i16 [ %and.i.i67, %for.end.i79 ], [ %conv146.i62, %while.body.preheader.i60 ]
-  %47 = tail call i16 @llvm.cttz.i16(i16 %unresolved.043.i65, i1 true), !range !135
+while.body.i63:                                   ; preds = %for.end.i79, %if.end149.i60
+  %resultBits.043.i64 = phi i32 [ %46, %if.end149.i60 ], [ %resultBits.1.i80, %for.end.i79 ]
+  %unresolved.042.i65 = phi i16 [ %conv146.i61, %if.end149.i60 ], [ %and.i.i67, %for.end.i79 ]
+  %47 = tail call i16 @llvm.cttz.i16(i16 %unresolved.042.i65, i1 true), !range !135
   %48 = zext nneg i16 %47 to i32
-  %sub.i.i66 = add nsw i16 %unresolved.043.i65, -1
-  %and.i.i67 = and i16 %sub.i.i66, %unresolved.043.i65
+  %sub.i.i66 = add nsw i16 %unresolved.042.i65, -1
+  %and.i.i67 = and i16 %sub.i.i66, %unresolved.042.i65
   %idxprom.i68 = zext nneg i16 %47 to i64
   %arrayidx.i69 = getelementptr inbounds [4 x i64], ptr %indicesArray.i9, i64 0, i64 %idxprom.i68
   %49 = load i64, ptr %arrayidx.i69, align 8
@@ -12653,7 +12653,7 @@ while.body.i63:                                   ; preds = %for.end.i79, %while
 
 if.then187.i76:                                   ; preds = %if.end205.i94, %while.body.i63
   %shl.i77 = shl nuw nsw i32 1, %48
-  %or188.i78 = or i32 %shl.i77, %resultBits.044.i64
+  %or188.i78 = or i32 %shl.i77, %resultBits.043.i64
   br label %for.end.i79
 
 if.end189.i86:                                    ; preds = %while.body.i63, %if.end205.i94
@@ -12667,7 +12667,7 @@ if.end189.i86:                                    ; preds = %while.body.i63, %if
 if.then203.i90:                                   ; preds = %if.end189.i86
   %shl204.i91 = shl nuw nsw i32 1, %48
   %not.i92 = xor i32 %shl204.i91, -1
-  %and.i93 = and i32 %resultBits.044.i64, %not.i92
+  %and.i93 = and i32 %resultBits.043.i64, %not.i92
   br label %for.end.i79
 
 if.end205.i94:                                    ; preds = %if.end189.i86
@@ -29070,25 +29070,25 @@ _ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i: ; preds = %for.body.i
   %or3637.i = or <4 x i1> %cmp.i.i.i.i12.i, %cmp.i.i.i.i14.i
   %or36.i = bitcast <4 x i1> %or3637.i to i4
   %tobool147.not.i = icmp eq i4 %or36.i, -1
-  br i1 %tobool147.not.i, label %_ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit, label %while.body.preheader.i
+  br i1 %tobool147.not.i, label %_ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit, label %if.end149.i
 
-while.body.preheader.i:                           ; preds = %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i
+if.end149.i:                                      ; preds = %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i
+  %15 = xor i4 %or36.i, -1
+  %conv146.i = zext i4 %15 to i16
+  %16 = bitcast <4 x i1> %cmp.i.i.i.i12.i to i4
+  %17 = zext i4 %16 to i32
   %add.i.i.i.i.i = add <4 x i64> %and.i.i.i.i.i, <i64 1, i64 1, i64 1, i64 1>
   store <4 x i64> %add.i.i.i.i.i, ptr %indicesArray.i, align 32
   store <4 x i64> %x.coerce, ptr %valuesArray.i, align 32
-  %15 = bitcast <4 x i1> %cmp.i.i.i.i12.i to i4
-  %16 = zext i4 %15 to i32
-  %17 = xor i4 %or36.i, -1
-  %conv146.i = zext i4 %17 to i16
   br label %while.body.i
 
-while.body.i:                                     ; preds = %for.end.i, %while.body.preheader.i
-  %resultBits.044.i = phi i32 [ %resultBits.1.i, %for.end.i ], [ %16, %while.body.preheader.i ]
-  %unresolved.043.i = phi i16 [ %and.i.i, %for.end.i ], [ %conv146.i, %while.body.preheader.i ]
-  %18 = tail call i16 @llvm.cttz.i16(i16 %unresolved.043.i, i1 true), !range !135
+while.body.i:                                     ; preds = %for.end.i, %if.end149.i
+  %resultBits.043.i = phi i32 [ %17, %if.end149.i ], [ %resultBits.1.i, %for.end.i ]
+  %unresolved.042.i = phi i16 [ %conv146.i, %if.end149.i ], [ %and.i.i, %for.end.i ]
+  %18 = tail call i16 @llvm.cttz.i16(i16 %unresolved.042.i, i1 true), !range !135
   %19 = zext nneg i16 %18 to i32
-  %sub.i.i = add nsw i16 %unresolved.043.i, -1
-  %and.i.i = and i16 %sub.i.i, %unresolved.043.i
+  %sub.i.i = add nsw i16 %unresolved.042.i, -1
+  %and.i.i = and i16 %sub.i.i, %unresolved.042.i
   %idxprom.i = zext nneg i16 %18 to i64
   %arrayidx.i = getelementptr inbounds [4 x i64], ptr %indicesArray.i, i64 0, i64 %idxprom.i
   %20 = load i64, ptr %arrayidx.i, align 8
@@ -29105,7 +29105,7 @@ while.body.i:                                     ; preds = %for.end.i, %while.b
 
 if.then187.i:                                     ; preds = %if.end205.i, %while.body.i
   %shl.i = shl nuw nsw i32 1, %19
-  %or188.i = or i32 %shl.i, %resultBits.044.i
+  %or188.i = or i32 %shl.i, %resultBits.043.i
   br label %for.end.i
 
 if.end189.i:                                      ; preds = %while.body.i, %if.end205.i
@@ -29119,7 +29119,7 @@ if.end189.i:                                      ; preds = %while.body.i, %if.e
 if.then203.i:                                     ; preds = %if.end189.i
   %shl204.i = shl nuw nsw i32 1, %19
   %not.i = xor i32 %shl204.i, -1
-  %and.i = and i32 %resultBits.044.i, %not.i
+  %and.i = and i32 %resultBits.043.i, %not.i
   br label %for.end.i
 
 if.end205.i:                                      ; preds = %if.end189.i
@@ -48041,7 +48041,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i, 3
   %.pre.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
   %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds i64, ptr %add.ptr.i3.i31.i, i64 %.pre.i.i.i.i.i.i35.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i36.i, ptr nonnull align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
   br label %for.inc.i21.i
 
 if.else.i19.i:                                    ; preds = %for.body.i15.i

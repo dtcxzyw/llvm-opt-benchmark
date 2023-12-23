@@ -362,15 +362,11 @@ if.end11.i:                                       ; preds = %land.lhs.true.i, %i
   %arrayidx13.i = getelementptr inbounds i64, ptr %2, i64 %idxprom.i
   %3 = load i64, ptr %arrayidx13.i, align 8
   %cmp1630.i = icmp sgt i32 %sub5.i, 1
-  br i1 %cmp1630.i, label %for.body.lr.ph.i, label %if.end11.for.end_crit_edge.i
-
-if.end11.for.end_crit_edge.i:                     ; preds = %if.end11.i
-  %.pre.i = zext nneg i32 %rem.i to i64
-  br label %for.end.i
+  %sh_prom.i = zext nneg i32 %rem.i to i64
+  br i1 %cmp1630.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end11.i
   %sub15.i = add nsw i32 %sub5.i, -1
-  %sh_prom.i = zext nneg i32 %rem.i to i64
   %wide.trip.count.i = zext nneg i32 %sub15.i to i64
   br label %for.body.i
 
@@ -389,11 +385,10 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !9
 
-for.end.i:                                        ; preds = %for.body.i, %if.end11.for.end_crit_edge.i
-  %sh_prom25.pre-phi.i = phi i64 [ %.pre.i, %if.end11.for.end_crit_edge.i ], [ %sh_prom.i, %for.body.i ]
-  %i.0.lcssa.i = phi i64 [ 0, %if.end11.for.end_crit_edge.i ], [ %wide.trip.count.i, %for.body.i ]
-  %l.0.lcssa.i = phi i64 [ %3, %if.end11.for.end_crit_edge.i ], [ %4, %for.body.i ]
-  %shr26.i = lshr i64 %l.0.lcssa.i, %sh_prom25.pre-phi.i
+for.end.i:                                        ; preds = %for.body.i, %if.end11.i
+  %i.0.lcssa.i = phi i64 [ 0, %if.end11.i ], [ %wide.trip.count.i, %for.body.i ]
+  %l.0.lcssa.i = phi i64 [ %3, %if.end11.i ], [ %4, %for.body.i ]
+  %shr26.i = lshr i64 %l.0.lcssa.i, %sh_prom.i
   %arrayidx28.i = getelementptr inbounds i64, ptr %1, i64 %i.0.lcssa.i
   store i64 %shr26.i, ptr %arrayidx28.i, align 8
   %neg.i = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 3
@@ -450,16 +445,12 @@ if.end11:                                         ; preds = %land.lhs.true, %if.
   %idxprom = sext i32 %div to i64
   %arrayidx13 = getelementptr inbounds i64, ptr %2, i64 %idxprom
   %3 = load i64, ptr %arrayidx13, align 8
+  %sub15 = add i32 %sub5, -1
   %cmp1630 = icmp sgt i32 %sub5, 1
-  br i1 %cmp1630, label %for.body.lr.ph, label %if.end11.for.end_crit_edge
-
-if.end11.for.end_crit_edge:                       ; preds = %if.end11
-  %.pre = zext nneg i32 %rem to i64
-  br label %for.end
+  %sh_prom = zext nneg i32 %rem to i64
+  br i1 %cmp1630, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end11
-  %sub15 = add nsw i32 %sub5, -1
-  %sh_prom = zext nneg i32 %rem to i64
   %wide.trip.count = zext nneg i32 %sub15 to i64
   br label %for.body
 
@@ -482,11 +473,10 @@ for.end.loopexit:                                 ; preds = %for.body
   %5 = zext nneg i32 %sub15 to i64
   br label %for.end
 
-for.end:                                          ; preds = %if.end11.for.end_crit_edge, %for.end.loopexit
-  %sh_prom25.pre-phi = phi i64 [ %.pre, %if.end11.for.end_crit_edge ], [ %sh_prom, %for.end.loopexit ]
-  %i.0.lcssa = phi i64 [ 0, %if.end11.for.end_crit_edge ], [ %5, %for.end.loopexit ]
-  %l.0.lcssa = phi i64 [ %3, %if.end11.for.end_crit_edge ], [ %4, %for.end.loopexit ]
-  %shr26 = lshr i64 %l.0.lcssa, %sh_prom25.pre-phi
+for.end:                                          ; preds = %if.end11, %for.end.loopexit
+  %i.0.lcssa = phi i64 [ %5, %for.end.loopexit ], [ 0, %if.end11 ]
+  %l.0.lcssa = phi i64 [ %4, %for.end.loopexit ], [ %3, %if.end11 ]
+  %shr26 = lshr i64 %l.0.lcssa, %sh_prom
   %arrayidx28 = getelementptr inbounds i64, ptr %1, i64 %i.0.lcssa
   store i64 %shr26, ptr %arrayidx28, align 8
   %neg = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 3

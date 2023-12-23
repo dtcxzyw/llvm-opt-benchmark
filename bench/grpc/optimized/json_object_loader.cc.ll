@@ -400,20 +400,17 @@ if.end15:                                         ; preds = %_ZNKSt17basic_strin
   br i1 %cmp17, label %if.then18, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end15
-  %cmp2242.not = icmp eq i64 %sub.i, 9
-  br i1 %cmp2242.not, label %if.end23, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %for.cond.preheader
   %sub = sub nuw nsw i64 9, %sub.i
-  br label %for.body
+  %cmp2242.not = icmp eq i64 %sub.i, 9
+  br i1 %cmp2242.not, label %if.end23, label %for.body
 
 if.then18:                                        ; preds = %if.end15
   call void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 46, ptr nonnull @.str.6)
   br label %return
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %i.044 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  %nanos.043 = phi i32 [ %mul, %for.body ], [ %6, %for.body.preheader ]
+for.body:                                         ; preds = %for.cond.preheader, %for.body
+  %i.044 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
+  %nanos.043 = phi i32 [ %mul, %for.body ], [ %6, %for.cond.preheader ]
   %mul = mul nsw i32 %nanos.043, 10
   %inc = add nuw i64 %i.044, 1
   %exitcond.not = icmp eq i64 %inc, %sub

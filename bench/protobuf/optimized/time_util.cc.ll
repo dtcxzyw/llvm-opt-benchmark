@@ -948,13 +948,7 @@ entry:
   %2 = load i32, ptr %nanos_.i.i, align 8
   %div.i2 = sdiv i32 %2, 1000
   %div.i.sext = sext i32 %div.i2 to i64
-  %rem.i3 = srem i32 %2, 1000
-  %cmp.i = icmp slt i32 %2, -999
-  %cmp1.i = icmp sgt i32 %rem.i3, 0
-  %or.cond.i = and i1 %cmp.i, %cmp1.i
-  %add.i = zext i1 %or.cond.i to i64
-  %retval.0.i = add i64 %mul, %div.i.sext
-  %add = add i64 %retval.0.i, %add.i
+  %add = add nsw i64 %mul, %div.i.sext
   ret i64 %add
 }
 
@@ -976,13 +970,7 @@ entry:
   %2 = load i32, ptr %nanos_.i.i, align 8
   %div.i2 = sdiv i32 %2, 1000000
   %div.i.sext = sext i32 %div.i2 to i64
-  %rem.i3 = srem i32 %2, 1000000
-  %cmp.i = icmp slt i32 %2, -999999
-  %cmp1.i = icmp sgt i32 %rem.i3, 0
-  %or.cond.i = and i1 %cmp.i, %cmp1.i
-  %add.i = zext i1 %or.cond.i to i64
-  %retval.0.i = add i64 %mul, %div.i.sext
-  %add = add i64 %retval.0.i, %add.i
+  %add = add nsw i64 %mul, %div.i.sext
   ret i64 %add
 }
 
@@ -992,13 +980,7 @@ entry:
   %0 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %duration, i64 0, i32 1
   %1 = load i64, ptr %0, align 8
   %div.i = sdiv i64 %1, 60
-  %rem.i = srem i64 %1, 60
-  %cmp.i = icmp slt i64 %1, -59
-  %cmp1.i = icmp sgt i64 %rem.i, 0
-  %or.cond.i = and i1 %cmp.i, %cmp1.i
-  %add.i = zext i1 %or.cond.i to i64
-  %retval.0.i = add nsw i64 %div.i, %add.i
-  ret i64 %retval.0.i
+  ret i64 %div.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -1007,13 +989,7 @@ entry:
   %0 = getelementptr inbounds %"class.google::protobuf::Duration", ptr %duration, i64 0, i32 1
   %1 = load i64, ptr %0, align 8
   %div.i = sdiv i64 %1, 3600
-  %rem.i = srem i64 %1, 3600
-  %cmp.i = icmp slt i64 %1, -3599
-  %cmp1.i = icmp sgt i64 %rem.i, 0
-  %or.cond.i = and i1 %cmp.i, %cmp1.i
-  %add.i = zext i1 %or.cond.i to i64
-  %retval.0.i = add nsw i64 %div.i, %add.i
-  ret i64 %retval.0.i
+  ret i64 %div.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1111,13 +1087,7 @@ entry:
   %2 = load i32, ptr %nanos_.i.i, align 8
   %div.i2 = sdiv i32 %2, 1000
   %div.i.sext = sext i32 %div.i2 to i64
-  %rem.i3 = srem i32 %2, 1000
-  %cmp.i = icmp slt i32 %2, -999
-  %cmp1.i = icmp sgt i32 %rem.i3, 0
-  %or.cond.i = and i1 %cmp.i, %cmp1.i
-  %add.i = zext i1 %or.cond.i to i64
-  %retval.0.i = add i64 %mul, %div.i.sext
-  %add = add i64 %retval.0.i, %add.i
+  %add = add nsw i64 %mul, %div.i.sext
   ret i64 %add
 }
 
@@ -1131,13 +1101,7 @@ entry:
   %2 = load i32, ptr %nanos_.i.i, align 8
   %div.i2 = sdiv i32 %2, 1000000
   %div.i.sext = sext i32 %div.i2 to i64
-  %rem.i3 = srem i32 %2, 1000000
-  %cmp.i = icmp slt i32 %2, -999999
-  %cmp1.i = icmp sgt i32 %rem.i3, 0
-  %or.cond.i = and i1 %cmp.i, %cmp1.i
-  %add.i = zext i1 %or.cond.i to i64
-  %retval.0.i = add i64 %mul, %div.i.sext
-  %add = add i64 %retval.0.i, %add.i
+  %add = add nsw i64 %mul, %div.i.sext
   ret i64 %add
 }
 
@@ -1213,14 +1177,8 @@ entry:
   %2 = load i32, ptr %nanos_.i.i, align 8
   %div.i2 = sdiv i32 %2, 1000
   %div.i.sext = sext i32 %div.i2 to i64
-  %rem.i3 = srem i32 %2, 1000
-  %cmp.i = icmp slt i32 %2, -999
-  %cmp1.i = icmp sgt i32 %rem.i3, 0
-  %or.cond.i = and i1 %cmp.i, %cmp1.i
-  %add.i = zext i1 %or.cond.i to i64
-  %retval.0.i = add nsw i64 %add.i, %div.i.sext
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %1, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.0.i, 1
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %div.i.sext, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
@@ -1287,17 +1245,11 @@ entry:
   %2 = load i32, ptr %nanos_.i.i, align 8
   %div.i5 = sdiv i32 %2, 1000
   %div.i.sext = sext i32 %div.i5 to i64
-  %rem.i6 = srem i32 %2, 1000
-  %cmp.i = icmp slt i32 %2, -999
-  %cmp1.i = icmp sgt i32 %rem.i6, 0
-  %or.cond.i = and i1 %cmp.i, %cmp1.i
-  %add.i = zext i1 %or.cond.i to i64
-  %retval.0.i = add nsw i64 %add.i, %div.i.sext
-  %cmp = icmp slt i64 %retval.0.i, 0
-  %add = add nsw i64 %retval.0.i, 1000000
-  %retval.0.i.lobit = ashr i64 %retval.0.i, 63
-  %retval.sroa.0.0 = add nsw i64 %retval.0.i.lobit, %1
-  %retval.sroa.4.0 = select i1 %cmp, i64 %add, i64 %retval.0.i
+  %cmp = icmp slt i32 %2, -999
+  %add = add nsw i64 %div.i.sext, 1000000
+  %sub = sext i1 %cmp to i64
+  %retval.sroa.0.0 = add nsw i64 %1, %sub
+  %retval.sroa.4.0 = select i1 %cmp, i64 %add, i64 %div.i.sext
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { i64, i64 } %.fca.1.insert

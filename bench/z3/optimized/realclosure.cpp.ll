@@ -14676,7 +14676,7 @@ entry:
   %cmp = icmp eq i32 %n, 1
   %cmp2 = icmp eq ptr %b, null
   %or.cond = or i1 %cmp, %cmp2
-  br i1 %or.cond, label %if.then, label %while.body.preheader
+  br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %p, align 8
@@ -14704,7 +14704,7 @@ _ZN7obj_refIN11realclosure5valueENS0_7manager3impEEaSEPS1_.exit: ; preds = %if.e
   store ptr %0, ptr %r, align 8
   br label %if.end17
 
-while.body.preheader:                             ; preds = %entry
+if.else:                                          ; preds = %entry
   %sub = add i32 %n, -1
   %idxprom = zext i32 %sub to i64
   %arrayidx3 = getelementptr inbounds ptr, ptr %p, i64 %idxprom
@@ -14712,8 +14712,8 @@ while.body.preheader:                             ; preds = %entry
   tail call void @_ZN11realclosure7manager3imp3mulEPNS_5valueES3_R7obj_refIS2_S1_E(ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef %4, ptr noundef nonnull %b, ptr noundef nonnull align 8 dereferenceable(16) %r)
   br label %while.body
 
-while.body:                                       ; preds = %while.body.preheader, %if.then14
-  %indvars.iv = phi i64 [ %idxprom, %while.body.preheader ], [ %5, %if.then14 ]
+while.body:                                       ; preds = %if.then14, %if.else
+  %indvars.iv = phi i64 [ %5, %if.then14 ], [ %idxprom, %if.else ]
   %5 = add nsw i64 %indvars.iv, -1
   %arrayidx7 = getelementptr inbounds ptr, ptr %p, i64 %5
   %6 = load ptr, ptr %arrayidx7, align 8
@@ -50293,7 +50293,7 @@ if.then2.i66:                                     ; preds = %_ZN9__gnu_cxx5__ops
   %sub.ptr.div.i.i.i.i.i.i70 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i69, 3
   %.pre.i.i.i.i.i.i71 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i70
   %add.ptr.i.i.i.i.i.i72 = getelementptr inbounds ptr, ptr %add.ptr3.i67, i64 %.pre.i.i.i.i.i.i71
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i72, ptr nonnull align 8 %__first, i64 %sub.ptr.sub.i.i.i.i.i.i69, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i72, ptr noundef nonnull align 8 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i69, i1 false)
   br label %for.inc.i52
 
 while.cond.i.i41:                                 ; preds = %while.cond.i.i41.preheader, %while.body.i.i60

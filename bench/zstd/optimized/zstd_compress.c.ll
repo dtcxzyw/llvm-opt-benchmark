@@ -6051,19 +6051,19 @@ do.end17.i.i:                                     ; preds = %if.else.i
   store ptr %26, ptr %tableValidEnd.i.i.i, align 8
   %27 = load i32, ptr %strategy.i.i, align 4
   %cmp.not.i.i.i = icmp eq i32 %27, 1
-  br i1 %cmp.not.i.i.i, label %cond.end.thread85.i.i, label %ZSTD_allocateChainTable.exit.i.i
+  br i1 %cmp.not.i.i.i, label %cond.end.thread84.i.i, label %ZSTD_allocateChainTable.exit.i.i
 
-cond.end.thread85.i.i:                            ; preds = %do.end17.i.i
-  %hashLog88.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 16, i32 2
-  %28 = load i32, ptr %hashLog88.i.i, align 4
-  %sh_prom2189.i.i = zext nneg i32 %28 to i64
-  %shl2290.i.i = shl nuw i64 1, %sh_prom2189.i.i
-  %blockState91.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25
-  %matchState2392.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2
-  %hashTable93.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 9
-  %29 = load ptr, ptr %hashTable93.i.i, align 8
-  %hashTable2594.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 9
-  %30 = load ptr, ptr %hashTable2594.i.i, align 8
+cond.end.thread84.i.i:                            ; preds = %do.end17.i.i
+  %hashLog87.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 16, i32 2
+  %28 = load i32, ptr %hashLog87.i.i, align 4
+  %sh_prom2188.i.i = zext nneg i32 %28 to i64
+  %shl2289.i.i = shl nuw i64 1, %sh_prom2188.i.i
+  %blockState90.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25
+  %matchState2391.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2
+  %hashTable92.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 9
+  %29 = load ptr, ptr %hashTable92.i.i, align 8
+  %hashTable2593.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 9
+  %30 = load ptr, ptr %hashTable2593.i.i, align 8
   br label %for.body.i.preheader.i.i
 
 ZSTD_allocateChainTable.exit.i.i:                 ; preds = %do.end17.i.i
@@ -6092,161 +6092,161 @@ cond.end.i.i:                                     ; preds = %ZSTD_allocateChainT
   %37 = load i32, ptr %chainLog.i.i, align 4
   %sh_prom.i.i = zext nneg i32 %37 to i64
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
+  %38 = icmp ult i32 %32, -2
   %hashLog.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 16, i32 2
-  %38 = load i32, ptr %hashLog.i.i, align 4
-  %sh_prom21.i.i = zext nneg i32 %38 to i64
+  %39 = load i32, ptr %hashLog.i.i, align 4
+  %sh_prom21.i.i = zext nneg i32 %39 to i64
   %shl22.i.i = shl nuw i64 1, %sh_prom21.i.i
   %blockState.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25
   %matchState23.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2
   %hashTable.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 9
-  %39 = load ptr, ptr %hashTable.i.i, align 8
+  %40 = load ptr, ptr %hashTable.i.i, align 8
   %hashTable25.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 9
-  %40 = load ptr, ptr %hashTable25.i.i, align 8
-  %narrow.i.i.i.i = icmp ult i32 %32, -2
-  br i1 %narrow.i.i.i.i, label %if.else.i.i.i, label %for.body.i.preheader.i.i
+  %41 = load ptr, ptr %hashTable25.i.i, align 8
+  br i1 %38, label %if.else.i.i.i, label %for.body.i.preheader.i.i
 
-for.body.i.preheader.i.i:                         ; preds = %cond.end.i.i, %cond.end.thread85.i.i
-  %41 = phi ptr [ %30, %cond.end.thread85.i.i ], [ %40, %cond.end.i.i ]
-  %42 = phi ptr [ %29, %cond.end.thread85.i.i ], [ %39, %cond.end.i.i ]
-  %matchState2399.i.i = phi ptr [ %matchState2392.i.i, %cond.end.thread85.i.i ], [ %matchState23.i.i, %cond.end.i.i ]
-  %blockState98.i.i = phi ptr [ %blockState91.i.i, %cond.end.thread85.i.i ], [ %blockState.i.i, %cond.end.i.i ]
-  %shl2297.i.i = phi i64 [ %shl2290.i.i, %cond.end.thread85.i.i ], [ %shl22.i.i, %cond.end.i.i ]
-  %cond96.i.i = phi i64 [ 0, %cond.end.thread85.i.i ], [ %shl.i.i, %cond.end.i.i ]
+for.body.i.preheader.i.i:                         ; preds = %cond.end.i.i, %cond.end.thread84.i.i
+  %42 = phi ptr [ %30, %cond.end.thread84.i.i ], [ %41, %cond.end.i.i ]
+  %43 = phi ptr [ %29, %cond.end.thread84.i.i ], [ %40, %cond.end.i.i ]
+  %matchState2397.i.i = phi ptr [ %matchState2391.i.i, %cond.end.thread84.i.i ], [ %matchState23.i.i, %cond.end.i.i ]
+  %blockState96.i.i = phi ptr [ %blockState90.i.i, %cond.end.thread84.i.i ], [ %blockState.i.i, %cond.end.i.i ]
+  %shl2295.i.i = phi i64 [ %shl2289.i.i, %cond.end.thread84.i.i ], [ %shl22.i.i, %cond.end.i.i ]
+  %cond94.i.i = phi i64 [ 0, %cond.end.thread84.i.i ], [ %shl.i.i, %cond.end.i.i ]
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.preheader.i.i
   %i.02.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %for.body.i.preheader.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %41, i64 %i.02.i.i.i
-  %43 = load i32, ptr %arrayidx.i.i.i, align 4
-  %shr.i.i.i = lshr i32 %43, 8
-  %arrayidx1.i.i.i = getelementptr inbounds i32, ptr %42, i64 %i.02.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %42, i64 %i.02.i.i.i
+  %44 = load i32, ptr %arrayidx.i.i.i, align 4
+  %shr.i.i.i = lshr i32 %44, 8
+  %arrayidx1.i.i.i = getelementptr inbounds i32, ptr %43, i64 %i.02.i.i.i
   store i32 %shr.i.i.i, ptr %arrayidx1.i.i.i, align 4
   %inc.i.i.i = add nuw i64 %i.02.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %shl2297.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %shl2295.i.i
   br i1 %exitcond.not.i.i.i, label %ZSTD_copyCDictTableIntoCCtx.exit.i.i, label %for.body.i.i.i, !llvm.loop !38
 
 if.else.i.i.i:                                    ; preds = %cond.end.i.i, %cond.end.thread.i.i
-  %44 = phi ptr [ %36, %cond.end.thread.i.i ], [ %40, %cond.end.i.i ]
-  %45 = phi ptr [ %35, %cond.end.thread.i.i ], [ %39, %cond.end.i.i ]
-  %matchState2384.i.i = phi ptr [ %matchState2372.i.i, %cond.end.thread.i.i ], [ %matchState23.i.i, %cond.end.i.i ]
-  %blockState82.i.i = phi ptr [ %blockState71.i.i, %cond.end.thread.i.i ], [ %blockState.i.i, %cond.end.i.i ]
-  %shl2280.i.i = phi i64 [ %shl2270.i.i, %cond.end.thread.i.i ], [ %shl22.i.i, %cond.end.i.i ]
-  %sh_prom2178.i.i = phi i64 [ %sh_prom2169.i.i, %cond.end.thread.i.i ], [ %sh_prom21.i.i, %cond.end.i.i ]
-  %cond77.i.i = phi i64 [ 0, %cond.end.thread.i.i ], [ %shl.i.i, %cond.end.i.i ]
-  %mul.i.i.i = shl i64 4, %sh_prom2178.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %45, ptr align 4 %44, i64 %mul.i.i.i, i1 false)
+  %45 = phi ptr [ %36, %cond.end.thread.i.i ], [ %41, %cond.end.i.i ]
+  %46 = phi ptr [ %35, %cond.end.thread.i.i ], [ %40, %cond.end.i.i ]
+  %matchState2383.i.i = phi ptr [ %matchState2372.i.i, %cond.end.thread.i.i ], [ %matchState23.i.i, %cond.end.i.i ]
+  %blockState81.i.i = phi ptr [ %blockState71.i.i, %cond.end.thread.i.i ], [ %blockState.i.i, %cond.end.i.i ]
+  %shl2279.i.i = phi i64 [ %shl2270.i.i, %cond.end.thread.i.i ], [ %shl22.i.i, %cond.end.i.i ]
+  %sh_prom2177.i.i = phi i64 [ %sh_prom2169.i.i, %cond.end.thread.i.i ], [ %sh_prom21.i.i, %cond.end.i.i ]
+  %cond76.i.i = phi i64 [ 0, %cond.end.thread.i.i ], [ %shl.i.i, %cond.end.i.i ]
+  %mul.i.i.i = shl i64 4, %sh_prom2177.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %46, ptr align 4 %45, i64 %mul.i.i.i, i1 false)
   br label %ZSTD_copyCDictTableIntoCCtx.exit.i.i
 
 ZSTD_copyCDictTableIntoCCtx.exit.i.i:             ; preds = %for.body.i.i.i, %if.else.i.i.i
-  %matchState2383.i.i = phi ptr [ %matchState2384.i.i, %if.else.i.i.i ], [ %matchState2399.i.i, %for.body.i.i.i ]
-  %blockState81.i.i = phi ptr [ %blockState82.i.i, %if.else.i.i.i ], [ %blockState98.i.i, %for.body.i.i.i ]
-  %shl2279.i.i = phi i64 [ %shl2280.i.i, %if.else.i.i.i ], [ %shl2297.i.i, %for.body.i.i.i ]
-  %cond76.i.i = phi i64 [ %cond77.i.i, %if.else.i.i.i ], [ %cond96.i.i, %for.body.i.i.i ]
+  %matchState2382.i.i = phi ptr [ %matchState2383.i.i, %if.else.i.i.i ], [ %matchState2397.i.i, %for.body.i.i.i ]
+  %blockState80.i.i = phi ptr [ %blockState81.i.i, %if.else.i.i.i ], [ %blockState96.i.i, %for.body.i.i.i ]
+  %shl2278.i.i = phi i64 [ %shl2279.i.i, %if.else.i.i.i ], [ %shl2295.i.i, %for.body.i.i.i ]
+  %cond75.i.i = phi i64 [ %cond76.i.i, %if.else.i.i.i ], [ %cond94.i.i, %for.body.i.i.i ]
   %strategy27.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 1, i32 6
-  %46 = load i32, ptr %strategy27.i.i, align 4
-  %cmp.not.i40.i.i = icmp eq i32 %46, 1
+  %47 = load i32, ptr %strategy27.i.i, align 4
+  %cmp.not.i40.i.i = icmp eq i32 %47, 1
   br i1 %cmp.not.i40.i.i, label %if.end37.i.i, label %ZSTD_allocateChainTable.exit45.i.i
 
 ZSTD_allocateChainTable.exit45.i.i:               ; preds = %ZSTD_copyCDictTableIntoCCtx.exit.i.i
   %useRowMatchFinder29.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4, i32 20
-  %47 = load i32, ptr %useRowMatchFinder29.i.i, align 8
-  %48 = add i32 %46, -3
-  %49 = icmp ult i32 %48, 3
-  %cmp.i.i42.i.i = icmp eq i32 %47, 1
-  %.not2.i43.not.i.i = and i1 %49, %cmp.i.i42.i.i
+  %48 = load i32, ptr %useRowMatchFinder29.i.i, align 8
+  %49 = add i32 %47, -3
+  %50 = icmp ult i32 %49, 3
+  %cmp.i.i42.i.i = icmp eq i32 %48, 1
+  %.not2.i43.not.i.i = and i1 %50, %cmp.i.i42.i.i
   br i1 %.not2.i43.not.i.i, label %if.end37.i.i, label %if.then32.i.i
 
 if.then32.i.i:                                    ; preds = %ZSTD_allocateChainTable.exit45.i.i
   %chainTable.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 11
-  %50 = load ptr, ptr %chainTable.i.i, align 8
+  %51 = load ptr, ptr %chainTable.i.i, align 8
   %chainTable36.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 11
-  %51 = load ptr, ptr %chainTable36.i.i, align 8
+  %52 = load ptr, ptr %chainTable36.i.i, align 8
   %cParams.val39.i.i = load i32, ptr %strategy.i.i, align 4
-  %52 = add i32 %cParams.val39.i.i, -3
-  %narrow.i.i46.i.i = icmp ult i32 %52, -2
+  %53 = add i32 %cParams.val39.i.i, -3
+  %narrow.i.i46.i.i = icmp ult i32 %53, -2
   br i1 %narrow.i.i46.i.i, label %if.else.i55.i.i, label %for.cond.preheader.i47.i.i
 
 for.cond.preheader.i47.i.i:                       ; preds = %if.then32.i.i
-  %cmp1.not.i.i.i = icmp eq i64 %cond76.i.i, 0
+  %cmp1.not.i.i.i = icmp eq i64 %cond75.i.i, 0
   br i1 %cmp1.not.i.i.i, label %if.end37.i.i, label %for.body.i48.i.i
 
 for.body.i48.i.i:                                 ; preds = %for.cond.preheader.i47.i.i, %for.body.i48.i.i
   %i.02.i49.i.i = phi i64 [ %inc.i53.i.i, %for.body.i48.i.i ], [ 0, %for.cond.preheader.i47.i.i ]
-  %arrayidx.i50.i.i = getelementptr inbounds i32, ptr %51, i64 %i.02.i49.i.i
-  %53 = load i32, ptr %arrayidx.i50.i.i, align 4
-  %shr.i51.i.i = lshr i32 %53, 8
-  %arrayidx1.i52.i.i = getelementptr inbounds i32, ptr %50, i64 %i.02.i49.i.i
+  %arrayidx.i50.i.i = getelementptr inbounds i32, ptr %52, i64 %i.02.i49.i.i
+  %54 = load i32, ptr %arrayidx.i50.i.i, align 4
+  %shr.i51.i.i = lshr i32 %54, 8
+  %arrayidx1.i52.i.i = getelementptr inbounds i32, ptr %51, i64 %i.02.i49.i.i
   store i32 %shr.i51.i.i, ptr %arrayidx1.i52.i.i, align 4
   %inc.i53.i.i = add nuw i64 %i.02.i49.i.i, 1
-  %exitcond.not.i54.i.i = icmp eq i64 %inc.i53.i.i, %cond76.i.i
+  %exitcond.not.i54.i.i = icmp eq i64 %inc.i53.i.i, %cond75.i.i
   br i1 %exitcond.not.i54.i.i, label %if.end37.i.i, label %for.body.i48.i.i, !llvm.loop !38
 
 if.else.i55.i.i:                                  ; preds = %if.then32.i.i
-  %mul.i56.i.i = shl i64 %cond76.i.i, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %50, ptr align 4 %51, i64 %mul.i56.i.i, i1 false)
+  %mul.i56.i.i = shl i64 %cond75.i.i, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %51, ptr align 4 %52, i64 %mul.i56.i.i, i1 false)
   br label %if.end37.i.i
 
 if.end37.i.i:                                     ; preds = %for.body.i48.i.i, %if.else.i55.i.i, %for.cond.preheader.i47.i.i, %ZSTD_allocateChainTable.exit45.i.i, %ZSTD_copyCDictTableIntoCCtx.exit.i.i
-  %54 = load i32, ptr %strategy.i.i, align 4
-  %55 = load i32, ptr %useRowMatchFinder.i16.i, align 8
-  %56 = add i32 %54, -6
-  %57 = icmp ult i32 %56, -3
-  %cmp.i58.i.i = icmp ne i32 %55, 1
-  %.not65.i.i = or i1 %57, %cmp.i58.i.i
+  %55 = load i32, ptr %strategy.i.i, align 4
+  %56 = load i32, ptr %useRowMatchFinder.i16.i, align 8
+  %57 = add i32 %55, -6
+  %58 = icmp ult i32 %57, -3
+  %cmp.i58.i.i = icmp ne i32 %56, 1
+  %.not65.i.i = or i1 %58, %cmp.i58.i.i
   br i1 %.not65.i.i, label %if.end51.i.i, label %if.then42.i21.i
 
 if.then42.i21.i:                                  ; preds = %if.end37.i.i
   %tagTable.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 5
-  %58 = load ptr, ptr %tagTable.i.i, align 8
+  %59 = load ptr, ptr %tagTable.i.i, align 8
   %tagTable46.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 5
-  %59 = load ptr, ptr %tagTable46.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %58, ptr noundef nonnull align 1 dereferenceable(1) %59, i64 %shl2279.i.i, i1 false)
+  %60 = load ptr, ptr %tagTable46.i.i, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %59, ptr noundef nonnull align 1 dereferenceable(1) %60, i64 %shl2278.i.i, i1 false)
   %hashSalt.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 7
-  %60 = load i64, ptr %hashSalt.i.i, align 8
+  %61 = load i64, ptr %hashSalt.i.i, align 8
   %hashSalt50.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 7
-  store i64 %60, ptr %hashSalt50.i.i, align 8
+  store i64 %61, ptr %hashSalt50.i.i, align 8
   br label %if.end51.i.i
 
 if.end51.i.i:                                     ; preds = %if.then42.i21.i, %if.end37.i.i
   %hashLog3.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 3
-  %61 = load i32, ptr %hashLog3.i.i, align 8
-  %tobool54.not.i.i = icmp eq i32 %61, 0
-  %sh_prom56.i.i = zext nneg i32 %61 to i64
-  %62 = shl i64 4, %sh_prom56.i.i
+  %62 = load i32, ptr %hashLog3.i.i, align 8
+  %tobool54.not.i.i = icmp eq i32 %62, 0
+  %sh_prom56.i.i = zext nneg i32 %62 to i64
+  %63 = shl i64 4, %sh_prom56.i.i
   %hashTable3.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 10
-  %63 = load ptr, ptr %hashTable3.i.i, align 8
-  %mul.i.i = select i1 %tobool54.not.i.i, i64 0, i64 %62
-  tail call void @llvm.memset.p0.i64(ptr align 4 %63, i8 0, i64 %mul.i.i, i1 false)
-  %64 = load ptr, ptr %tableValidEnd.i.i.i, align 8
+  %64 = load ptr, ptr %hashTable3.i.i, align 8
+  %mul.i.i = select i1 %tobool54.not.i.i, i64 0, i64 %63
+  tail call void @llvm.memset.p0.i64(ptr align 4 %64, i8 0, i64 %mul.i.i, i1 false)
+  %65 = load ptr, ptr %tableValidEnd.i.i.i, align 8
   %tableEnd.i.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 8, i32 3
-  %65 = load ptr, ptr %tableEnd.i.i.i, align 8
-  %cmp.i60.i.i = icmp ult ptr %64, %65
+  %66 = load ptr, ptr %tableEnd.i.i.i, align 8
+  %cmp.i60.i.i = icmp ult ptr %65, %66
   br i1 %cmp.i60.i.i, label %if.then.i.i.i, label %ZSTD_cwksp_mark_tables_clean.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end51.i.i
-  store ptr %65, ptr %tableValidEnd.i.i.i, align 8
+  store ptr %66, ptr %tableValidEnd.i.i.i, align 8
   br label %ZSTD_cwksp_mark_tables_clean.exit.i.i
 
 ZSTD_cwksp_mark_tables_clean.exit.i.i:            ; preds = %if.then.i.i.i, %if.end51.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %matchState2383.i.i, ptr noundef nonnull align 8 dereferenceable(40) %matchState.i14.i, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %matchState2382.i.i, ptr noundef nonnull align 8 dereferenceable(40) %matchState.i14.i, i64 40, i1 false)
   %nextToUpdate.i.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 2
-  %66 = load i32, ptr %nextToUpdate.i.i, align 4
+  %67 = load i32, ptr %nextToUpdate.i.i, align 4
   %nextToUpdate68.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 2
-  store i32 %66, ptr %nextToUpdate68.i.i, align 4
+  store i32 %67, ptr %nextToUpdate68.i.i, align 4
   %loadedDictEnd.i22.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 5, i32 1
-  %67 = load i32, ptr %loadedDictEnd.i22.i, align 8
+  %68 = load i32, ptr %loadedDictEnd.i22.i, align 8
   %loadedDictEnd69.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2, i32 1
-  store i32 %67, ptr %loadedDictEnd69.i.i, align 8
+  store i32 %68, ptr %loadedDictEnd69.i.i, align 8
   %dictID.i23.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 8
-  %68 = load i32, ptr %dictID.i23.i, align 8
+  %69 = load i32, ptr %dictID.i23.i, align 8
   %dictID70.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 6
-  store i32 %68, ptr %dictID70.i.i, align 8
-  %69 = load i64, ptr %dictContentSize7, align 8
+  store i32 %69, ptr %dictID70.i.i, align 8
+  %70 = load i64, ptr %dictContentSize7, align 8
   %dictContentSize71.i.i = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 7
-  store i64 %69, ptr %dictContentSize71.i.i, align 8
-  %70 = load ptr, ptr %blockState81.i.i, align 8
+  store i64 %70, ptr %dictContentSize71.i.i, align 8
+  %71 = load ptr, ptr %blockState80.i.i, align 8
   %cBlockState.i25.i = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5632) %70, ptr noundef nonnull align 8 dereferenceable(5632) %cBlockState.i25.i, i64 5632, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5632) %71, ptr noundef nonnull align 8 dereferenceable(5632) %cBlockState.i25.i, i64 5632, i1 false)
   br label %ZSTD_resetCCtx_byCopyingCDict.exit.i
 
 ZSTD_resetCCtx_byCopyingCDict.exit.i:             ; preds = %ZSTD_cwksp_mark_tables_clean.exit.i.i, %if.else.i
@@ -6269,31 +6269,31 @@ do.end33:                                         ; preds = %do.body19
 
 cond.true35:                                      ; preds = %do.end33
   %blockState = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25
-  %71 = load ptr, ptr %blockState, align 8
+  %72 = load ptr, ptr %blockState, align 8
   %matchState = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2
   %ldmState = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 21
   %workspace = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 8
   %appliedParams = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4
-  %72 = load ptr, ptr %cdict, align 8
+  %73 = load ptr, ptr %cdict, align 8
   %dictContentSize37 = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 1
-  %73 = load i64, ptr %dictContentSize37, align 8
+  %74 = load i64, ptr %dictContentSize37, align 8
   %dictContentType38 = getelementptr inbounds %struct.ZSTD_CDict_s, ptr %cdict, i64 0, i32 2
-  %74 = load i32, ptr %dictContentType38, align 8
+  %75 = load i32, ptr %dictContentType38, align 8
   %entropyWorkspace = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 26
-  %75 = load ptr, ptr %entropyWorkspace, align 8
-  %call39 = tail call fastcc i64 @ZSTD_compress_insertDictionary(ptr noundef %71, ptr noundef nonnull %matchState, ptr noundef nonnull %ldmState, ptr noundef nonnull %workspace, ptr noundef nonnull %appliedParams, ptr noundef %72, i64 noundef %73, i32 noundef %74, i32 noundef %dtlm, i32 noundef 0, ptr noundef %75)
+  %76 = load ptr, ptr %entropyWorkspace, align 8
+  %call39 = tail call fastcc i64 @ZSTD_compress_insertDictionary(ptr noundef %72, ptr noundef nonnull %matchState, ptr noundef nonnull %ldmState, ptr noundef nonnull %workspace, ptr noundef nonnull %appliedParams, ptr noundef %73, i64 noundef %74, i32 noundef %75, i32 noundef %dtlm, i32 noundef 0, ptr noundef %76)
   br label %cond.end50
 
 cond.false40:                                     ; preds = %do.body19.thread, %do.end33
   %blockState41 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25
-  %76 = load ptr, ptr %blockState41, align 8
+  %77 = load ptr, ptr %blockState41, align 8
   %matchState44 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 25, i32 2
   %ldmState45 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 21
   %workspace46 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 8
   %appliedParams47 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 4
   %entropyWorkspace48 = getelementptr inbounds %struct.ZSTD_CCtx_s, ptr %cctx, i64 0, i32 26
-  %77 = load ptr, ptr %entropyWorkspace48, align 8
-  %call49 = tail call fastcc i64 @ZSTD_compress_insertDictionary(ptr noundef %76, ptr noundef nonnull %matchState44, ptr noundef nonnull %ldmState45, ptr noundef nonnull %workspace46, ptr noundef nonnull %appliedParams47, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %dictContentType, i32 noundef %dtlm, i32 noundef 0, ptr noundef %77)
+  %78 = load ptr, ptr %entropyWorkspace48, align 8
+  %call49 = tail call fastcc i64 @ZSTD_compress_insertDictionary(ptr noundef %77, ptr noundef nonnull %matchState44, ptr noundef nonnull %ldmState45, ptr noundef nonnull %workspace46, ptr noundef nonnull %appliedParams47, ptr noundef %dict, i64 noundef %dictSize, i32 noundef %dictContentType, i32 noundef %dtlm, i32 noundef 0, ptr noundef %78)
   br label %cond.end50
 
 cond.end50:                                       ; preds = %cond.false40, %cond.true35

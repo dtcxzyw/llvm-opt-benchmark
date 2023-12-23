@@ -13846,8 +13846,8 @@ land.lhs.true.i.i.i:                              ; preds = %if.else34
   br i1 %cmp2.i.i.i, label %if.then.i19.i.i, label %cond.true.i.i.i
 
 if.then.i19.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %add.ptr.i20.i.i = getelementptr inbounds i64, ptr %0, i64 %sub.ptr.div.i30
-  br label %if.end.i.i.i.i113
+  %tobool.not.i.i.i22.i.i.i.i117 = icmp eq ptr %9, %7
+  br i1 %tobool.not.i.i.i22.i.i.i.i117, label %_ZSt4copyISt15_Deque_iteratorImRmPmES2_ET0_T_S5_S4_.exit119, label %if.then.i.i.i23.i.i.i.i118
 
 cond.true.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
   %div911.i.i.i = lshr i64 %add.i.i.i66, 6
@@ -13866,20 +13866,15 @@ cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i, %
   %mul.i.i.i67 = shl nsw i64 %cond.i.i.i, 6
   %sub14.i.i.i = sub nsw i64 %add.i.i.i66, %mul.i.i.i67
   %add.ptr15.i.i.i = getelementptr inbounds i64, ptr %13, i64 %sub14.i.i.i
-  %__mid.sroa.21.2.ptr = getelementptr inbounds i8, ptr %2, i64 %add.ptr11.i.i.i.idx
-  %cmp.not.i.i.i.i83 = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i83, label %if.end.i.i.i.i113, label %if.then.i.i.i.i84
-
-if.then.i.i.i.i84:                                ; preds = %cond.end.i.i.i
   %__mid.sroa.21.2173.ptr = getelementptr inbounds i8, ptr %2, i64 %add.ptr11.i.i.i.idx
   %tobool.not.i.i.i.i.i.i.i89 = icmp eq ptr %1, %0
   br i1 %tobool.not.i.i.i.i.i.i.i89, label %_ZSt14__copy_move_a1ILb0EPmS0_ET1_T0_S2_S1_.exit.i.i.i.i91, label %if.then.i.i.i.i.i.i.i90
 
-if.then.i.i.i.i.i.i.i90:                          ; preds = %if.then.i.i.i.i84
+if.then.i.i.i.i.i.i.i90:                          ; preds = %cond.end.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %7, ptr align 8 %0, i64 %sub.ptr.sub10.i.i.i, i1 false)
   br label %_ZSt14__copy_move_a1ILb0EPmS0_ET1_T0_S2_S1_.exit.i.i.i.i91
 
-_ZSt14__copy_move_a1ILb0EPmS0_ET1_T0_S2_S1_.exit.i.i.i.i91: ; preds = %if.then.i.i.i.i.i.i.i90, %if.then.i.i.i.i84
+_ZSt14__copy_move_a1ILb0EPmS0_ET1_T0_S2_S1_.exit.i.i.i.i91: ; preds = %if.then.i.i.i.i.i.i.i90, %cond.end.i.i.i
   %add.ptr.i.i.i.i.i.i.i93 = getelementptr inbounds i64, ptr %7, i64 %sub.ptr.div11.i.i.i
   %cmp4.not28.i.i.i.i95 = icmp eq i64 %cond.i.i.i, 1
   br i1 %cmp4.not28.i.i.i.i95, label %for.end.i.i.i.i102, label %for.body.i.i.i.i96.preheader
@@ -13908,23 +13903,15 @@ if.then.i.i.i15.i.i.i.i108:                       ; preds = %for.end.i.i.i.i102
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__result.addr.0.lcssa.i.i.i.i103, ptr align 8 %13, i64 %add.ptr15.i.i.i.idx, i1 false)
   br label %_ZSt4copyISt15_Deque_iteratorImRmPmES2_ET0_T_S5_S4_.exit119
 
-if.end.i.i.i.i113:                                ; preds = %if.then.i19.i.i, %cond.end.i.i.i
-  %__mid.sroa.21.2163 = phi ptr [ %__mid.sroa.21.2.ptr, %cond.end.i.i.i ], [ %2, %if.then.i19.i.i ]
-  %__mid.sroa.14.2161 = phi ptr [ %add.ptr.i.i17.i.i, %cond.end.i.i.i ], [ %1, %if.then.i19.i.i ]
-  %__mid.sroa.0.0158 = phi ptr [ %add.ptr15.i.i.i, %cond.end.i.i.i ], [ %add.ptr.i20.i.i, %if.then.i19.i.i ]
-  %tobool.not.i.i.i22.i.i.i.i117 = icmp eq ptr %__mid.sroa.0.0158, %0
-  br i1 %tobool.not.i.i.i22.i.i.i.i117, label %_ZSt4copyISt15_Deque_iteratorImRmPmES2_ET0_T_S5_S4_.exit119, label %if.then.i.i.i23.i.i.i.i118
-
-if.then.i.i.i23.i.i.i.i118:                       ; preds = %if.end.i.i.i.i113
-  %sub.ptr.lhs.cast.i.i.i19.i.i.i.i114 = ptrtoint ptr %__mid.sroa.0.0158 to i64
-  %sub.ptr.sub.i.i.i21.i.i.i.i116 = sub i64 %sub.ptr.lhs.cast.i.i.i19.i.i.i.i114, %sub.ptr.rhs.cast9.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %7, ptr align 8 %0, i64 %sub.ptr.sub.i.i.i21.i.i.i.i116, i1 false)
+if.then.i.i.i23.i.i.i.i118:                       ; preds = %if.then.i19.i.i
+  %add.ptr.i20.i.i = getelementptr inbounds i64, ptr %0, i64 %sub.ptr.div.i30
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %7, ptr align 8 %0, i64 %sub.ptr.sub.i29, i1 false)
   br label %_ZSt4copyISt15_Deque_iteratorImRmPmES2_ET0_T_S5_S4_.exit119
 
-_ZSt4copyISt15_Deque_iteratorImRmPmES2_ET0_T_S5_S4_.exit119: ; preds = %for.end.i.i.i.i102, %if.then.i.i.i15.i.i.i.i108, %if.end.i.i.i.i113, %if.then.i.i.i23.i.i.i.i118
-  %__mid.sroa.21.2162 = phi ptr [ %__mid.sroa.21.2173.ptr, %for.end.i.i.i.i102 ], [ %__mid.sroa.21.2173.ptr, %if.then.i.i.i15.i.i.i.i108 ], [ %__mid.sroa.21.2163, %if.end.i.i.i.i113 ], [ %__mid.sroa.21.2163, %if.then.i.i.i23.i.i.i.i118 ]
-  %__mid.sroa.14.2160 = phi ptr [ %add.ptr.i.i17.i.i, %for.end.i.i.i.i102 ], [ %add.ptr.i.i17.i.i, %if.then.i.i.i15.i.i.i.i108 ], [ %__mid.sroa.14.2161, %if.end.i.i.i.i113 ], [ %__mid.sroa.14.2161, %if.then.i.i.i23.i.i.i.i118 ]
-  %__mid.sroa.0.0159 = phi ptr [ %13, %for.end.i.i.i.i102 ], [ %add.ptr15.i.i.i, %if.then.i.i.i15.i.i.i.i108 ], [ %0, %if.end.i.i.i.i113 ], [ %__mid.sroa.0.0158, %if.then.i.i.i23.i.i.i.i118 ]
+_ZSt4copyISt15_Deque_iteratorImRmPmES2_ET0_T_S5_S4_.exit119: ; preds = %for.end.i.i.i.i102, %if.then.i.i.i15.i.i.i.i108, %if.then.i19.i.i, %if.then.i.i.i23.i.i.i.i118
+  %__mid.sroa.21.2162 = phi ptr [ %__mid.sroa.21.2173.ptr, %for.end.i.i.i.i102 ], [ %__mid.sroa.21.2173.ptr, %if.then.i.i.i15.i.i.i.i108 ], [ %2, %if.then.i19.i.i ], [ %2, %if.then.i.i.i23.i.i.i.i118 ]
+  %__mid.sroa.14.2160 = phi ptr [ %add.ptr.i.i17.i.i, %for.end.i.i.i.i102 ], [ %add.ptr.i.i17.i.i, %if.then.i.i.i15.i.i.i.i108 ], [ %1, %if.then.i19.i.i ], [ %1, %if.then.i.i.i23.i.i.i.i118 ]
+  %__mid.sroa.0.0159 = phi ptr [ %13, %for.end.i.i.i.i102 ], [ %add.ptr15.i.i.i, %if.then.i.i.i15.i.i.i.i108 ], [ %0, %if.then.i19.i.i ], [ %add.ptr.i20.i.i, %if.then.i.i.i23.i.i.i.i118 ]
   %15 = load ptr, ptr %_M_finish.i, align 8
   %16 = load ptr, ptr %__last, align 8
   %17 = load ptr, ptr %_M_first3.i7, align 8

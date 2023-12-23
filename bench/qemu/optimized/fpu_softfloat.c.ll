@@ -35921,33 +35921,33 @@ if.end38:                                         ; preds = %if.end33
   %cmp40 = icmp ult i32 %0, 64
   %frac_lo.i62 = getelementptr inbounds %struct.FloatParts128, ptr %a, i64 0, i32 4
   %12 = load i64, ptr %frac_lo.i62, align 8
-  br i1 %cmp40, label %if.then42, label %if.else45
+  br i1 %cmp40, label %if.else.i, label %if.else45
 
-if.then42:                                        ; preds = %if.end38
+if.else.i:                                        ; preds = %if.end38
   %sub = sub nuw nsw i32 125, %0
   %frac_hi.i61 = getelementptr inbounds %struct.FloatParts128, ptr %a, i64 0, i32 3
   %13 = load i64, ptr %frac_hi.i61, align 8
   %cmp2.i = icmp ugt i32 %0, 61
   br i1 %cmp2.i, label %if.end27.i, label %if.then20.i
 
-if.then20.i:                                      ; preds = %if.then42
+if.then20.i:                                      ; preds = %if.else.i
   %and.i = and i32 %sub, 63
   %cmp21.i = icmp eq i32 %and.i, 0
-  br i1 %cmp21.i, label %done.i, label %if.end27.i
+  br i1 %cmp21.i, label %frac128_shrjam.exit, label %if.end27.i
 
-if.end27.i:                                       ; preds = %if.then20.i, %if.then42
-  %c.addr.0.i = phi i32 [ %sub, %if.then42 ], [ %and.i, %if.then20.i ]
-  %a0.0.i = phi i64 [ %13, %if.then42 ], [ 0, %if.then20.i ]
-  %a1.0.i = phi i64 [ %12, %if.then42 ], [ %13, %if.then20.i ]
-  %sticky.0.i = phi i64 [ 0, %if.then42 ], [ %12, %if.then20.i ]
+if.end27.i:                                       ; preds = %if.then20.i, %if.else.i
+  %c.addr.0.i = phi i32 [ %sub, %if.else.i ], [ %and.i, %if.then20.i ]
+  %a0.0.i = phi i64 [ %13, %if.else.i ], [ 0, %if.then20.i ]
+  %a1.0.i = phi i64 [ %12, %if.else.i ], [ %13, %if.then20.i ]
+  %sticky.0.i = phi i64 [ 0, %if.else.i ], [ %12, %if.then20.i ]
   %14 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a1.0.i, i32 %c.addr.0.i, i64 0) #15, !srcloc !6
   %or28.i = or i64 %14, %sticky.0.i
   %15 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a0.0.i, i32 %c.addr.0.i, i64 %a1.0.i) #15, !srcloc !6
   %sh_prom.i = zext nneg i32 %c.addr.0.i to i64
   %shr.i = lshr i64 %a0.0.i, %sh_prom.i
-  br label %done.i
+  br label %frac128_shrjam.exit
 
-done.i:                                           ; preds = %if.end27.i, %if.then20.i
+frac128_shrjam.exit:                              ; preds = %if.then20.i, %if.end27.i
   %a0.1.i = phi i64 [ %shr.i, %if.end27.i ], [ 0, %if.then20.i ]
   %a1.1.i = phi i64 [ %15, %if.end27.i ], [ %13, %if.then20.i ]
   %sticky.1.i = phi i64 [ %or28.i, %if.end27.i ], [ %12, %if.then20.i ]
@@ -35964,10 +35964,10 @@ if.else45:                                        ; preds = %if.end38
   %shr = lshr exact i64 -9223372036854775808, %sh_prom
   br label %if.end47
 
-if.end47:                                         ; preds = %done.i, %if.else45
-  %16 = phi i64 [ %12, %if.else45 ], [ %or33.i, %done.i ]
-  %shift_adj.0 = phi i32 [ 0, %if.else45 ], [ %sub, %done.i ]
-  %frac_lsb.0 = phi i64 [ %shr, %if.else45 ], [ 4, %done.i ]
+if.end47:                                         ; preds = %if.else45, %frac128_shrjam.exit
+  %16 = phi i64 [ %or33.i, %frac128_shrjam.exit ], [ %12, %if.else45 ]
+  %shift_adj.0 = phi i32 [ %sub, %frac128_shrjam.exit ], [ 0, %if.else45 ]
+  %frac_lsb.0 = phi i64 [ 4, %frac128_shrjam.exit ], [ %shr, %if.else45 ]
   %shr48 = lshr i64 %frac_lsb.0, 1
   %sub49 = add i64 %frac_lsb.0, -1
   %or = or i64 %sub49, %frac_lsb.0

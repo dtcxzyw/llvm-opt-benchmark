@@ -1169,15 +1169,11 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit227: ; preds = %_ZN6Assimp12Strea
   %add9.i.i222 = add i64 %74, 4
   store i64 %add9.i.i222, ptr %cursor.i.i, align 8
   %cmp25462.not = icmp ult i64 %sub.ptr.sub.i178, 4
-  br i1 %cmp25462.not, label %return, label %for.body26.preheader
+  br i1 %cmp25462.not, label %return, label %for.body26
 
-for.body26.preheader:                             ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit227
-  %umax477 = tail call i64 @llvm.umax.i64(i64 %div54, i64 1)
-  br label %for.body26
-
-for.body26:                                       ; preds = %for.body26.preheader, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI4Ei.exit242
-  %75 = phi i64 [ %add9.i.i237, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI4Ei.exit242 ], [ %add9.i.i222, %for.body26.preheader ]
-  %i23.0463 = phi i64 [ %inc28, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI4Ei.exit242 ], [ 0, %for.body26.preheader ]
+for.body26:                                       ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit227, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI4Ei.exit242
+  %75 = phi i64 [ %add9.i.i237, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI4Ei.exit242 ], [ %add9.i.i222, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit227 ]
+  %i23.0463 = phi i64 [ %inc28, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI4Ei.exit242 ], [ 0, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit227 ]
   %arrayidx = getelementptr inbounds i32, ptr %7, i64 %i23.0463
   %76 = load i32, ptr %arrayidx, align 4
   %add.i.i229 = add i64 %75, 4
@@ -1205,7 +1201,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutI4Ei.exit242: ; preds = %for.body26, %if.t
   %add9.i.i237 = add i64 %81, 4
   store i64 %add9.i.i237, ptr %cursor.i.i, align 8
   %inc28 = add nuw nsw i64 %i23.0463, 1
-  %exitcond478.not = icmp eq i64 %inc28, %umax477
+  %exitcond478.not = icmp eq i64 %inc28, %div54
   br i1 %exitcond478.not, label %return, label %for.body26, !llvm.loop !13
 
 sw.bb30:                                          ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU1Eh.exit
@@ -1295,15 +1291,11 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit295: ; preds = %_ZN6Assimp12Strea
   %add9.i.i290 = add i64 %99, 4
   store i64 %add9.i.i290, ptr %cursor.i.i, align 8
   %cmp40460.not = icmp ult i64 %sub.ptr.sub.i246, 8
-  br i1 %cmp40460.not, label %return, label %for.body41.preheader
+  br i1 %cmp40460.not, label %return, label %for.body41
 
-for.body41.preheader:                             ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit295
-  %umax475 = tail call i64 @llvm.umax.i64(i64 %div3353, i64 1)
-  br label %for.body41
-
-for.body41:                                       ; preds = %for.body41.preheader, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI8El.exit310
-  %100 = phi i64 [ %add9.i.i305, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI8El.exit310 ], [ %add9.i.i290, %for.body41.preheader ]
-  %i38.0461 = phi i64 [ %inc44, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI8El.exit310 ], [ 0, %for.body41.preheader ]
+for.body41:                                       ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit295, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI8El.exit310
+  %100 = phi i64 [ %add9.i.i305, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI8El.exit310 ], [ %add9.i.i290, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit295 ]
+  %i38.0461 = phi i64 [ %inc44, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI8El.exit310 ], [ 0, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit295 ]
   %arrayidx42 = getelementptr inbounds i64, ptr %7, i64 %i38.0461
   %101 = load i64, ptr %arrayidx42, align 8
   %add.i.i297 = add i64 %100, 8
@@ -1331,7 +1323,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutI8El.exit310: ; preds = %for.body41, %if.t
   %add9.i.i305 = add i64 %106, 8
   store i64 %add9.i.i305, ptr %cursor.i.i, align 8
   %inc44 = add nuw nsw i64 %i38.0461, 1
-  %exitcond476.not = icmp eq i64 %inc44, %umax475
+  %exitcond476.not = icmp eq i64 %inc44, %div3353
   br i1 %exitcond476.not, label %return, label %for.body41, !llvm.loop !14
 
 sw.bb46:                                          ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU1Eh.exit
@@ -1421,15 +1413,11 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit363: ; preds = %_ZN6Assimp12Strea
   %add9.i.i358 = add i64 %124, 4
   store i64 %add9.i.i358, ptr %cursor.i.i, align 8
   %cmp56458.not = icmp ult i64 %sub.ptr.sub.i314, 4
-  br i1 %cmp56458.not, label %return, label %for.body57.preheader
+  br i1 %cmp56458.not, label %return, label %for.body57
 
-for.body57.preheader:                             ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit363
-  %umax473 = tail call i64 @llvm.umax.i64(i64 %div4952, i64 1)
-  br label %for.body57
-
-for.body57:                                       ; preds = %for.body57.preheader, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF4Ef.exit378
-  %125 = phi i64 [ %add9.i.i373, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF4Ef.exit378 ], [ %add9.i.i358, %for.body57.preheader ]
-  %i54.0459 = phi i64 [ %inc60, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF4Ef.exit378 ], [ 0, %for.body57.preheader ]
+for.body57:                                       ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit363, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF4Ef.exit378
+  %125 = phi i64 [ %add9.i.i373, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF4Ef.exit378 ], [ %add9.i.i358, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit363 ]
+  %i54.0459 = phi i64 [ %inc60, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF4Ef.exit378 ], [ 0, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit363 ]
   %arrayidx58 = getelementptr inbounds float, ptr %7, i64 %i54.0459
   %126 = load float, ptr %arrayidx58, align 4
   %add.i.i365 = add i64 %125, 4
@@ -1457,7 +1445,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutF4Ef.exit378: ; preds = %for.body57, %if.t
   %add9.i.i373 = add i64 %131, 4
   store i64 %add9.i.i373, ptr %cursor.i.i, align 8
   %inc60 = add nuw nsw i64 %i54.0459, 1
-  %exitcond474.not = icmp eq i64 %inc60, %umax473
+  %exitcond474.not = icmp eq i64 %inc60, %div4952
   br i1 %exitcond474.not, label %return, label %for.body57, !llvm.loop !15
 
 sw.bb62:                                          ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU1Eh.exit
@@ -1547,15 +1535,11 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit431: ; preds = %_ZN6Assimp12Strea
   %add9.i.i426 = add i64 %149, 4
   store i64 %add9.i.i426, ptr %cursor.i.i, align 8
   %cmp72456.not = icmp ult i64 %sub.ptr.sub.i382, 8
-  br i1 %cmp72456.not, label %return, label %for.body73.preheader
+  br i1 %cmp72456.not, label %return, label %for.body73
 
-for.body73.preheader:                             ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit431
-  %umax = tail call i64 @llvm.umax.i64(i64 %div6551, i64 1)
-  br label %for.body73
-
-for.body73:                                       ; preds = %for.body73.preheader, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF8Ed.exit446
-  %150 = phi i64 [ %add9.i.i441, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF8Ed.exit446 ], [ %add9.i.i426, %for.body73.preheader ]
-  %i70.0457 = phi i64 [ %inc76, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF8Ed.exit446 ], [ 0, %for.body73.preheader ]
+for.body73:                                       ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit431, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF8Ed.exit446
+  %150 = phi i64 [ %add9.i.i441, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF8Ed.exit446 ], [ %add9.i.i426, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit431 ]
+  %i70.0457 = phi i64 [ %inc76, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF8Ed.exit446 ], [ 0, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit431 ]
   %arrayidx74 = getelementptr inbounds double, ptr %7, i64 %i70.0457
   %151 = load double, ptr %arrayidx74, align 8
   %add.i.i433 = add i64 %150, 8
@@ -1583,7 +1567,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutF8Ed.exit446: ; preds = %for.body73, %if.t
   %add9.i.i441 = add i64 %156, 8
   store i64 %add9.i.i441, ptr %cursor.i.i, align 8
   %inc76 = add nuw nsw i64 %i70.0457, 1
-  %exitcond.not = icmp eq i64 %inc76, %umax
+  %exitcond.not = icmp eq i64 %inc76, %div6551
   br i1 %exitcond.not, label %return, label %for.body73, !llvm.loop !16
 
 sw.default:                                       ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU1Eh.exit
@@ -1946,15 +1930,11 @@ for.body83:                                       ; preds = %sw.bb73, %for.body8
 for.end87:                                        ; preds = %for.body83, %sw.bb73
   %call88 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %s, ptr noundef nonnull @.str.6)
   %cmp91176.not = icmp ult i64 %sub.ptr.sub.i, 4
-  br i1 %cmp91176.not, label %for.end105, label %for.body92.preheader
+  br i1 %cmp91176.not, label %for.end105, label %for.body92
 
-for.body92.preheader:                             ; preds = %for.end87
-  %umax206 = tail call i64 @llvm.umax.i64(i64 %div109, i64 1)
-  br label %for.body92
-
-for.body92:                                       ; preds = %for.body92.preheader, %if.end101
-  %i89.0178 = phi i64 [ %inc104, %if.end101 ], [ 0, %for.body92.preheader ]
-  %count.0177 = phi i64 [ %count.1, %if.end101 ], [ 0, %for.body92.preheader ]
+for.body92:                                       ; preds = %for.end87, %if.end101
+  %i89.0178 = phi i64 [ %inc104, %if.end101 ], [ 0, %for.end87 ]
+  %count.0177 = phi i64 [ %count.1, %if.end101 ], [ 0, %for.end87 ]
   %cmp93.not = icmp eq i64 %i89.0178, 0
   br i1 %cmp93.not, label %if.end96, label %if.then94
 
@@ -1977,7 +1957,7 @@ if.end101:                                        ; preds = %if.then99, %if.end9
   %20 = load i32, ptr %arrayidx, align 4
   %call102 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %s, i32 noundef %20)
   %inc104 = add nuw nsw i64 %i89.0178, 1
-  %exitcond207.not = icmp eq i64 %inc104, %umax206
+  %exitcond207.not = icmp eq i64 %inc104, %div109
   br i1 %exitcond207.not, label %for.end105, label %for.body92, !llvm.loop !22
 
 for.end105:                                       ; preds = %if.end101, %for.end87
@@ -2014,15 +1994,11 @@ for.body127:                                      ; preds = %sw.bb116, %for.body
 for.end131:                                       ; preds = %for.body127, %sw.bb116
   %call132 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %s, ptr noundef nonnull @.str.6)
   %cmp135169.not = icmp ult i64 %sub.ptr.sub.i, 8
-  br i1 %cmp135169.not, label %for.end150, label %for.body136.preheader
+  br i1 %cmp135169.not, label %for.end150, label %for.body136
 
-for.body136.preheader:                            ; preds = %for.end131
-  %umax202 = tail call i64 @llvm.umax.i64(i64 %div119108, i64 1)
-  br label %for.body136
-
-for.body136:                                      ; preds = %for.body136.preheader, %if.end145
-  %i133.0171 = phi i64 [ %inc149, %if.end145 ], [ 0, %for.body136.preheader ]
-  %count.2170 = phi i64 [ %count.3, %if.end145 ], [ 0, %for.body136.preheader ]
+for.body136:                                      ; preds = %for.end131, %if.end145
+  %i133.0171 = phi i64 [ %inc149, %if.end145 ], [ 0, %for.end131 ]
+  %count.2170 = phi i64 [ %count.3, %if.end145 ], [ 0, %for.end131 ]
   %cmp137.not = icmp eq i64 %i133.0171, 0
   br i1 %cmp137.not, label %if.end140, label %if.then138
 
@@ -2045,7 +2021,7 @@ if.end145:                                        ; preds = %if.then143, %if.end
   %21 = load i64, ptr %arrayidx146, align 8
   %call147 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %s, i64 noundef %21)
   %inc149 = add nuw nsw i64 %i133.0171, 1
-  %exitcond203.not = icmp eq i64 %inc149, %umax202
+  %exitcond203.not = icmp eq i64 %inc149, %div119108
   br i1 %exitcond203.not, label %for.end150, label %for.body136, !llvm.loop !25
 
 for.end150:                                       ; preds = %if.end145, %for.end131
@@ -2082,15 +2058,11 @@ for.body172:                                      ; preds = %sw.bb161, %for.body
 for.end176:                                       ; preds = %for.body172, %sw.bb161
   %call177 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %s, ptr noundef nonnull @.str.6)
   %cmp180162.not = icmp ult i64 %sub.ptr.sub.i, 4
-  br i1 %cmp180162.not, label %for.end195, label %for.body181.preheader
+  br i1 %cmp180162.not, label %for.end195, label %for.body181
 
-for.body181.preheader:                            ; preds = %for.end176
-  %umax198 = tail call i64 @llvm.umax.i64(i64 %div164107, i64 1)
-  br label %for.body181
-
-for.body181:                                      ; preds = %for.body181.preheader, %if.end190
-  %i178.0164 = phi i64 [ %inc194, %if.end190 ], [ 0, %for.body181.preheader ]
-  %count.4163 = phi i64 [ %count.5, %if.end190 ], [ 0, %for.body181.preheader ]
+for.body181:                                      ; preds = %for.end176, %if.end190
+  %i178.0164 = phi i64 [ %inc194, %if.end190 ], [ 0, %for.end176 ]
+  %count.4163 = phi i64 [ %count.5, %if.end190 ], [ 0, %for.end176 ]
   %cmp182.not = icmp eq i64 %i178.0164, 0
   br i1 %cmp182.not, label %if.end185, label %if.then183
 
@@ -2113,7 +2085,7 @@ if.end190:                                        ; preds = %if.then188, %if.end
   %22 = load float, ptr %arrayidx191, align 4
   %call192 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %s, float noundef %22)
   %inc194 = add nuw nsw i64 %i178.0164, 1
-  %exitcond199.not = icmp eq i64 %inc194, %umax198
+  %exitcond199.not = icmp eq i64 %inc194, %div164107
   br i1 %exitcond199.not, label %for.end195, label %for.body181, !llvm.loop !28
 
 for.end195:                                       ; preds = %if.end190, %for.end176
@@ -2156,15 +2128,11 @@ for.end221:                                       ; preds = %for.body217, %sw.bb
   %_M_precision.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr, i64 0, i32 1
   store i64 15, ptr %_M_precision.i, align 8
   %cmp226155.not = icmp ult i64 %sub.ptr.sub.i, 8
-  br i1 %cmp226155.not, label %for.end241, label %for.body227.preheader
+  br i1 %cmp226155.not, label %for.end241, label %for.body227
 
-for.body227.preheader:                            ; preds = %for.end221
-  %umax = tail call i64 @llvm.umax.i64(i64 %div209106, i64 1)
-  br label %for.body227
-
-for.body227:                                      ; preds = %for.body227.preheader, %if.end236
-  %i224.0157 = phi i64 [ %inc240, %if.end236 ], [ 0, %for.body227.preheader ]
-  %count.6156 = phi i64 [ %count.7, %if.end236 ], [ 0, %for.body227.preheader ]
+for.body227:                                      ; preds = %for.end221, %if.end236
+  %i224.0157 = phi i64 [ %inc240, %if.end236 ], [ 0, %for.end221 ]
+  %count.6156 = phi i64 [ %count.7, %if.end236 ], [ 0, %for.end221 ]
   %cmp228.not = icmp eq i64 %i224.0157, 0
   br i1 %cmp228.not, label %if.end231, label %if.then229
 
@@ -2187,7 +2155,7 @@ if.end236:                                        ; preds = %if.then234, %if.end
   %23 = load double, ptr %arrayidx237, align 8
   %call238 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %s, double noundef %23)
   %inc240 = add nuw nsw i64 %i224.0157, 1
-  %exitcond195.not = icmp eq i64 %inc240, %umax
+  %exitcond195.not = icmp eq i64 %inc240, %div209106
   br i1 %exitcond195.not, label %for.end241, label %for.body227, !llvm.loop !31
 
 for.end241:                                       ; preds = %if.end236, %for.end221

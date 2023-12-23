@@ -487,7 +487,6 @@ if.end.i44.i:                                     ; preds = %for.body.i.i
 
 for.body6.lr.ph.i.i:                              ; preds = %if.end.i44.i
   %__cmsg_data.i.i = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.029.i.i, i64 0, i32 3
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %div19.i.i, i64 1)
   br label %for.body6.i.i
 
 for.body6.i.i:                                    ; preds = %for.inc19.i.i, %for.body6.lr.ph.i.i
@@ -568,7 +567,7 @@ for.inc19.i.i:                                    ; preds = %uv__stream_queue_fd
   %arrayidx.i.sink.i.i = phi ptr [ %arrayidx.i.i.i, %uv__stream_queue_fd.exit.thread.i.i ], [ %accepted_fd.i.i, %for.body6.i.i ]
   store i32 %fd.0.copyload.i.i, ptr %arrayidx.i.sink.i.i, align 4
   %inc20.i.i = add nuw nsw i64 %i.025.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %inc20.i.i, %umax.i.i
+  %exitcond.not.i.i = icmp eq i64 %inc20.i.i, %div19.i.i
   br i1 %exitcond.not.i.i, label %for.inc22.i.i, label %for.body6.i.i
 
 for.inc22.i.i:                                    ; preds = %for.inc19.i.i, %if.end.i44.i, %if.then.i.i
@@ -2193,9 +2192,6 @@ declare i64 @sendmsg(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
 
 declare i64 @writev(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10

@@ -8203,20 +8203,18 @@ call5.i.i.i17.i.i.i.i.i.i.noexc72:                ; preds = %if.then.i
   %_M_impl.i.i.i.i.i.i.i.i41 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i73, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i41, align 8, !tbaa !320, !noalias !328
   %add.i.i.i.i.i.i.i.i.i.i.i42 = add i64 %12, 63
-  %div1.i.i.i.i.i.i.i.i.i.i.i43 = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i42, 6
-  %13 = shl nuw nsw i64 %div1.i.i.i.i.i.i.i.i.i.i.i43, 3
-  %call.i15.i.i.i.i.i.i.i.i.i.i44 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %13) #28
+  %13 = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i42, 3
+  %14 = and i64 %13, 2305843009213693944
+  %call.i15.i.i.i.i.i.i.i.i.i.i44 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %14) #28
           to label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i46 unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit18.i.i.i.i.i.i.i.i.i.i45, !noalias !328
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i46: ; preds = %call5.i.i.i17.i.i.i.i.i.i.noexc72
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i44, i8 0, i64 %13, i1 false), !noalias !333
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i44, i8 0, i64 %14, i1 false), !noalias !333
   store ptr %call.i15.i.i.i.i.i.i.i.i.i.i44, ptr %_M_impl.i.i.i.i.i.i.i.i41, align 8, !tbaa !54, !noalias !328
   %cmp20.not.i.i.i.i.i.i.i.i.i.i47 = icmp ult i64 %add.i.i.i.i.i.i.i.i.i.i.i42, 64
   br i1 %cmp20.not.i.i.i.i.i.i.i.i.i.i47, label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i50, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i48
 
 for.body.lr.ph.i.i.i.i.i.i.i.i.i.i48:             ; preds = %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i46
-  %umax.i.i.i.i.i.i.i.i.i.i49 = tail call i64 @llvm.umax.i64(i64 %div1.i.i.i.i.i.i.i.i.i.i.i43, i64 1)
-  %14 = shl nuw nsw i64 %umax.i.i.i.i.i.i.i.i.i.i49, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call.i15.i.i.i.i.i.i.i.i.i.i44, i8 -1, i64 %14, i1 false), !tbaa !57, !noalias !328
   br label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i50
 
@@ -8825,20 +8823,18 @@ call5.i.i.i17.i.i.i.i.i.i.noexc153:               ; preds = %if.then.i107
   %_M_impl.i.i.i.i.i.i.i.i122 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i154, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i122, align 8, !tbaa !320, !noalias !365
   %add.i.i.i.i.i.i.i.i.i.i.i123 = add i64 %24, 63
-  %div1.i.i.i.i.i.i.i.i.i.i.i124 = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i123, 6
-  %25 = shl nuw nsw i64 %div1.i.i.i.i.i.i.i.i.i.i.i124, 3
-  %call.i15.i.i.i.i.i.i.i.i.i.i125 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %25) #28
+  %25 = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i123, 3
+  %26 = and i64 %25, 2305843009213693944
+  %call.i15.i.i.i.i.i.i.i.i.i.i125 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %26) #28
           to label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i127 unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit18.i.i.i.i.i.i.i.i.i.i126, !noalias !365
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i127: ; preds = %call5.i.i.i17.i.i.i.i.i.i.noexc153
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i125, i8 0, i64 %25, i1 false), !noalias !370
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i125, i8 0, i64 %26, i1 false), !noalias !370
   store ptr %call.i15.i.i.i.i.i.i.i.i.i.i125, ptr %_M_impl.i.i.i.i.i.i.i.i122, align 8, !tbaa !54, !noalias !365
   %cmp20.not.i.i.i.i.i.i.i.i.i.i128 = icmp ult i64 %add.i.i.i.i.i.i.i.i.i.i.i123, 64
   br i1 %cmp20.not.i.i.i.i.i.i.i.i.i.i128, label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i131, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i129
 
 for.body.lr.ph.i.i.i.i.i.i.i.i.i.i129:            ; preds = %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i127
-  %umax.i.i.i.i.i.i.i.i.i.i130 = call i64 @llvm.umax.i64(i64 %div1.i.i.i.i.i.i.i.i.i.i.i124, i64 1)
-  %26 = shl nuw nsw i64 %umax.i.i.i.i.i.i.i.i.i.i130, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call.i15.i.i.i.i.i.i.i.i.i.i125, i8 -1, i64 %26, i1 false), !tbaa !57, !noalias !365
   br label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i131
 
@@ -9717,20 +9713,18 @@ call5.i.i.i17.i.i.i.i.i.i.noexc.us:               ; preds = %if.then.i.us
   %_M_impl.i.i.i.i.i.i.i.i.us = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i135.us, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i.us, align 8, !tbaa !320, !noalias !388
   %add.i.i.i.i.i.i.i.i.i.i.i.us = add i64 %35, 63
-  %div1.i.i.i.i.i.i.i.i.i.i.i.us = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i.us, 6
-  %36 = shl nuw nsw i64 %div1.i.i.i.i.i.i.i.i.i.i.i.us, 3
-  %call.i15.i.i.i.i.i.i.i.i.i.i.us = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %36) #28
+  %36 = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i.us, 3
+  %37 = and i64 %36, 2305843009213693944
+  %call.i15.i.i.i.i.i.i.i.i.i.i.us = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %37) #28
           to label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i.us unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit18.i.i.i.i.i.i.i.i.i.i.split.us, !noalias !388
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i.us: ; preds = %call5.i.i.i17.i.i.i.i.i.i.noexc.us
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i.us, i8 0, i64 %36, i1 false), !noalias !393
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i.us, i8 0, i64 %37, i1 false), !noalias !393
   store ptr %call.i15.i.i.i.i.i.i.i.i.i.i.us, ptr %_M_impl.i.i.i.i.i.i.i.i.us, align 8, !tbaa !54, !noalias !388
   %cmp20.not.i.i.i.i.i.i.i.i.i.i.us = icmp ult i64 %add.i.i.i.i.i.i.i.i.i.i.i.us, 64
   br i1 %cmp20.not.i.i.i.i.i.i.i.i.i.i.us, label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i.us, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i.us
 
 for.body.lr.ph.i.i.i.i.i.i.i.i.i.i.us:            ; preds = %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i.us
-  %umax.i.i.i.i.i.i.i.i.i.i.us = call i64 @llvm.umax.i64(i64 %div1.i.i.i.i.i.i.i.i.i.i.i.us, i64 1)
-  %37 = shl nuw nsw i64 %umax.i.i.i.i.i.i.i.i.i.i.us, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call.i15.i.i.i.i.i.i.i.i.i.i.us, i8 -1, i64 %37, i1 false), !tbaa !57, !noalias !388
   br label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i.us
 
@@ -10317,20 +10311,18 @@ call5.i.i.i17.i.i.i.i.i.i.noexc155.i:             ; preds = %if.then.i109.i
   %_M_impl.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !320, !noalias !409
   %add.i.i.i.i.i.i.i.i.i.i.i125.i = add i64 %24, 63
-  %div1.i.i.i.i.i.i.i.i.i.i.i126.i = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 6
-  %25 = shl nuw nsw i64 %div1.i.i.i.i.i.i.i.i.i.i.i126.i, 3
-  %call.i15.i.i.i.i.i.i.i.i.i.i127.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %25) #28
+  %25 = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 3
+  %26 = and i64 %25, 2305843009213693944
+  %call.i15.i.i.i.i.i.i.i.i.i.i127.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %26) #28
           to label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit18.i.i.i.i.i.i.i.i.i.i128.i, !noalias !409
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i: ; preds = %call5.i.i.i17.i.i.i.i.i.i.noexc155.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 0, i64 %25, i1 false), !noalias !414
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 0, i64 %26, i1 false), !noalias !414
   store ptr %call.i15.i.i.i.i.i.i.i.i.i.i127.i, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !54, !noalias !409
   %cmp20.not.i.i.i.i.i.i.i.i.i.i130.i = icmp ult i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 64
   br i1 %cmp20.not.i.i.i.i.i.i.i.i.i.i130.i, label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i133.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i131.i
 
 for.body.lr.ph.i.i.i.i.i.i.i.i.i.i131.i:          ; preds = %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i
-  %umax.i.i.i.i.i.i.i.i.i.i132.i = call i64 @llvm.umax.i64(i64 %div1.i.i.i.i.i.i.i.i.i.i.i126.i, i64 1)
-  %26 = shl nuw nsw i64 %umax.i.i.i.i.i.i.i.i.i.i132.i, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 -1, i64 %26, i1 false), !tbaa !57, !noalias !409
   br label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i133.i
 
@@ -10679,20 +10671,18 @@ call5.i.i.i17.i.i.i.i.i.i.noexc155.i:             ; preds = %if.then.i109.i
   %_M_impl.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !320, !noalias !419
   %add.i.i.i.i.i.i.i.i.i.i.i125.i = add i64 %24, 63
-  %div1.i.i.i.i.i.i.i.i.i.i.i126.i = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 6
-  %25 = shl nuw nsw i64 %div1.i.i.i.i.i.i.i.i.i.i.i126.i, 3
-  %call.i15.i.i.i.i.i.i.i.i.i.i127.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %25) #28
+  %25 = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 3
+  %26 = and i64 %25, 2305843009213693944
+  %call.i15.i.i.i.i.i.i.i.i.i.i127.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %26) #28
           to label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit18.i.i.i.i.i.i.i.i.i.i128.i, !noalias !419
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i: ; preds = %call5.i.i.i17.i.i.i.i.i.i.noexc155.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 0, i64 %25, i1 false), !noalias !424
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 0, i64 %26, i1 false), !noalias !424
   store ptr %call.i15.i.i.i.i.i.i.i.i.i.i127.i, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !54, !noalias !419
   %cmp20.not.i.i.i.i.i.i.i.i.i.i130.i = icmp ult i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 64
   br i1 %cmp20.not.i.i.i.i.i.i.i.i.i.i130.i, label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i133.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i131.i
 
 for.body.lr.ph.i.i.i.i.i.i.i.i.i.i131.i:          ; preds = %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i
-  %umax.i.i.i.i.i.i.i.i.i.i132.i = call i64 @llvm.umax.i64(i64 %div1.i.i.i.i.i.i.i.i.i.i.i126.i, i64 1)
-  %26 = shl nuw nsw i64 %umax.i.i.i.i.i.i.i.i.i.i132.i, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 -1, i64 %26, i1 false), !tbaa !57, !noalias !419
   br label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i133.i
 
@@ -11041,20 +11031,18 @@ call5.i.i.i17.i.i.i.i.i.i.noexc155.i:             ; preds = %if.then.i109.i
   %_M_impl.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !320, !noalias !430
   %add.i.i.i.i.i.i.i.i.i.i.i125.i = add i64 %24, 63
-  %div1.i.i.i.i.i.i.i.i.i.i.i126.i = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 6
-  %25 = shl nuw nsw i64 %div1.i.i.i.i.i.i.i.i.i.i.i126.i, 3
-  %call.i15.i.i.i.i.i.i.i.i.i.i127.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %25) #28
+  %25 = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 3
+  %26 = and i64 %25, 2305843009213693944
+  %call.i15.i.i.i.i.i.i.i.i.i.i127.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %26) #28
           to label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit18.i.i.i.i.i.i.i.i.i.i128.i, !noalias !430
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i: ; preds = %call5.i.i.i17.i.i.i.i.i.i.noexc155.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 0, i64 %25, i1 false), !noalias !435
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 0, i64 %26, i1 false), !noalias !435
   store ptr %call.i15.i.i.i.i.i.i.i.i.i.i127.i, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !54, !noalias !430
   %cmp20.not.i.i.i.i.i.i.i.i.i.i130.i = icmp ult i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 64
   br i1 %cmp20.not.i.i.i.i.i.i.i.i.i.i130.i, label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i133.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i131.i
 
 for.body.lr.ph.i.i.i.i.i.i.i.i.i.i131.i:          ; preds = %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i
-  %umax.i.i.i.i.i.i.i.i.i.i132.i = call i64 @llvm.umax.i64(i64 %div1.i.i.i.i.i.i.i.i.i.i.i126.i, i64 1)
-  %26 = shl nuw nsw i64 %umax.i.i.i.i.i.i.i.i.i.i132.i, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 -1, i64 %26, i1 false), !tbaa !57, !noalias !430
   br label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i133.i
 
@@ -11403,20 +11391,18 @@ call5.i.i.i17.i.i.i.i.i.i.noexc155.i:             ; preds = %if.then.i109.i
   %_M_impl.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !320, !noalias !440
   %add.i.i.i.i.i.i.i.i.i.i.i125.i = add i64 %24, 63
-  %div1.i.i.i.i.i.i.i.i.i.i.i126.i = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 6
-  %25 = shl nuw nsw i64 %div1.i.i.i.i.i.i.i.i.i.i.i126.i, 3
-  %call.i15.i.i.i.i.i.i.i.i.i.i127.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %25) #28
+  %25 = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 3
+  %26 = and i64 %25, 2305843009213693944
+  %call.i15.i.i.i.i.i.i.i.i.i.i127.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %26) #28
           to label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit18.i.i.i.i.i.i.i.i.i.i128.i, !noalias !440
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i: ; preds = %call5.i.i.i17.i.i.i.i.i.i.noexc155.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 0, i64 %25, i1 false), !noalias !445
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 0, i64 %26, i1 false), !noalias !445
   store ptr %call.i15.i.i.i.i.i.i.i.i.i.i127.i, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !54, !noalias !440
   %cmp20.not.i.i.i.i.i.i.i.i.i.i130.i = icmp ult i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 64
   br i1 %cmp20.not.i.i.i.i.i.i.i.i.i.i130.i, label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i133.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i131.i
 
 for.body.lr.ph.i.i.i.i.i.i.i.i.i.i131.i:          ; preds = %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i
-  %umax.i.i.i.i.i.i.i.i.i.i132.i = call i64 @llvm.umax.i64(i64 %div1.i.i.i.i.i.i.i.i.i.i.i126.i, i64 1)
-  %26 = shl nuw nsw i64 %umax.i.i.i.i.i.i.i.i.i.i132.i, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 -1, i64 %26, i1 false), !tbaa !57, !noalias !440
   br label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i133.i
 
@@ -11765,20 +11751,18 @@ call5.i.i.i17.i.i.i.i.i.i.noexc155.i:             ; preds = %if.then.i109.i
   %_M_impl.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !320, !noalias !450
   %add.i.i.i.i.i.i.i.i.i.i.i125.i = add i64 %24, 63
-  %div1.i.i.i.i.i.i.i.i.i.i.i126.i = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 6
-  %25 = shl nuw nsw i64 %div1.i.i.i.i.i.i.i.i.i.i.i126.i, 3
-  %call.i15.i.i.i.i.i.i.i.i.i.i127.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %25) #28
+  %25 = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 3
+  %26 = and i64 %25, 2305843009213693944
+  %call.i15.i.i.i.i.i.i.i.i.i.i127.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %26) #28
           to label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit18.i.i.i.i.i.i.i.i.i.i128.i, !noalias !450
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i: ; preds = %call5.i.i.i17.i.i.i.i.i.i.noexc155.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 0, i64 %25, i1 false), !noalias !455
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 0, i64 %26, i1 false), !noalias !455
   store ptr %call.i15.i.i.i.i.i.i.i.i.i.i127.i, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !54, !noalias !450
   %cmp20.not.i.i.i.i.i.i.i.i.i.i130.i = icmp ult i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 64
   br i1 %cmp20.not.i.i.i.i.i.i.i.i.i.i130.i, label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i133.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i131.i
 
 for.body.lr.ph.i.i.i.i.i.i.i.i.i.i131.i:          ; preds = %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i
-  %umax.i.i.i.i.i.i.i.i.i.i132.i = call i64 @llvm.umax.i64(i64 %div1.i.i.i.i.i.i.i.i.i.i.i126.i, i64 1)
-  %26 = shl nuw nsw i64 %umax.i.i.i.i.i.i.i.i.i.i132.i, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 -1, i64 %26, i1 false), !tbaa !57, !noalias !450
   br label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i133.i
 
@@ -12127,20 +12111,18 @@ call5.i.i.i17.i.i.i.i.i.i.noexc155.i:             ; preds = %if.then.i109.i
   %_M_impl.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !320, !noalias !460
   %add.i.i.i.i.i.i.i.i.i.i.i125.i = add i64 %24, 63
-  %div1.i.i.i.i.i.i.i.i.i.i.i126.i = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 6
-  %25 = shl nuw nsw i64 %div1.i.i.i.i.i.i.i.i.i.i.i126.i, 3
-  %call.i15.i.i.i.i.i.i.i.i.i.i127.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %25) #28
+  %25 = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 3
+  %26 = and i64 %25, 2305843009213693944
+  %call.i15.i.i.i.i.i.i.i.i.i.i127.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %26) #28
           to label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit18.i.i.i.i.i.i.i.i.i.i128.i, !noalias !460
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i: ; preds = %call5.i.i.i17.i.i.i.i.i.i.noexc155.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 0, i64 %25, i1 false), !noalias !465
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 0, i64 %26, i1 false), !noalias !465
   store ptr %call.i15.i.i.i.i.i.i.i.i.i.i127.i, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !54, !noalias !460
   %cmp20.not.i.i.i.i.i.i.i.i.i.i130.i = icmp ult i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 64
   br i1 %cmp20.not.i.i.i.i.i.i.i.i.i.i130.i, label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i133.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i131.i
 
 for.body.lr.ph.i.i.i.i.i.i.i.i.i.i131.i:          ; preds = %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i
-  %umax.i.i.i.i.i.i.i.i.i.i132.i = call i64 @llvm.umax.i64(i64 %div1.i.i.i.i.i.i.i.i.i.i.i126.i, i64 1)
-  %26 = shl nuw nsw i64 %umax.i.i.i.i.i.i.i.i.i.i132.i, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 -1, i64 %26, i1 false), !tbaa !57, !noalias !460
   br label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i133.i
 
@@ -12489,20 +12471,18 @@ call5.i.i.i17.i.i.i.i.i.i.noexc155.i:             ; preds = %if.then.i109.i
   %_M_impl.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !320, !noalias !470
   %add.i.i.i.i.i.i.i.i.i.i.i125.i = add i64 %24, 63
-  %div1.i.i.i.i.i.i.i.i.i.i.i126.i = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 6
-  %25 = shl nuw nsw i64 %div1.i.i.i.i.i.i.i.i.i.i.i126.i, 3
-  %call.i15.i.i.i.i.i.i.i.i.i.i127.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %25) #28
+  %25 = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 3
+  %26 = and i64 %25, 2305843009213693944
+  %call.i15.i.i.i.i.i.i.i.i.i.i127.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %26) #28
           to label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit18.i.i.i.i.i.i.i.i.i.i128.i, !noalias !470
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i: ; preds = %call5.i.i.i17.i.i.i.i.i.i.noexc155.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 0, i64 %25, i1 false), !noalias !475
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 0, i64 %26, i1 false), !noalias !475
   store ptr %call.i15.i.i.i.i.i.i.i.i.i.i127.i, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !54, !noalias !470
   %cmp20.not.i.i.i.i.i.i.i.i.i.i130.i = icmp ult i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 64
   br i1 %cmp20.not.i.i.i.i.i.i.i.i.i.i130.i, label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i133.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i131.i
 
 for.body.lr.ph.i.i.i.i.i.i.i.i.i.i131.i:          ; preds = %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i
-  %umax.i.i.i.i.i.i.i.i.i.i132.i = call i64 @llvm.umax.i64(i64 %div1.i.i.i.i.i.i.i.i.i.i.i126.i, i64 1)
-  %26 = shl nuw nsw i64 %umax.i.i.i.i.i.i.i.i.i.i132.i, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 -1, i64 %26, i1 false), !tbaa !57, !noalias !470
   br label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i133.i
 
@@ -12851,20 +12831,18 @@ call5.i.i.i17.i.i.i.i.i.i.noexc155.i:             ; preds = %if.then.i109.i
   %_M_impl.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !320, !noalias !480
   %add.i.i.i.i.i.i.i.i.i.i.i125.i = add i64 %24, 63
-  %div1.i.i.i.i.i.i.i.i.i.i.i126.i = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 6
-  %25 = shl nuw nsw i64 %div1.i.i.i.i.i.i.i.i.i.i.i126.i, 3
-  %call.i15.i.i.i.i.i.i.i.i.i.i127.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %25) #28
+  %25 = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 3
+  %26 = and i64 %25, 2305843009213693944
+  %call.i15.i.i.i.i.i.i.i.i.i.i127.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %26) #28
           to label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit18.i.i.i.i.i.i.i.i.i.i128.i, !noalias !480
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i: ; preds = %call5.i.i.i17.i.i.i.i.i.i.noexc155.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 0, i64 %25, i1 false), !noalias !485
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 0, i64 %26, i1 false), !noalias !485
   store ptr %call.i15.i.i.i.i.i.i.i.i.i.i127.i, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !54, !noalias !480
   %cmp20.not.i.i.i.i.i.i.i.i.i.i130.i = icmp ult i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 64
   br i1 %cmp20.not.i.i.i.i.i.i.i.i.i.i130.i, label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i133.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i131.i
 
 for.body.lr.ph.i.i.i.i.i.i.i.i.i.i131.i:          ; preds = %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i
-  %umax.i.i.i.i.i.i.i.i.i.i132.i = call i64 @llvm.umax.i64(i64 %div1.i.i.i.i.i.i.i.i.i.i.i126.i, i64 1)
-  %26 = shl nuw nsw i64 %umax.i.i.i.i.i.i.i.i.i.i132.i, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 -1, i64 %26, i1 false), !tbaa !57, !noalias !480
   br label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i133.i
 
@@ -13213,20 +13191,18 @@ call5.i.i.i17.i.i.i.i.i.i.noexc155.i:             ; preds = %if.then.i109.i
   %_M_impl.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !320, !noalias !490
   %add.i.i.i.i.i.i.i.i.i.i.i125.i = add i64 %24, 63
-  %div1.i.i.i.i.i.i.i.i.i.i.i126.i = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 6
-  %25 = shl nuw nsw i64 %div1.i.i.i.i.i.i.i.i.i.i.i126.i, 3
-  %call.i15.i.i.i.i.i.i.i.i.i.i127.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %25) #28
+  %25 = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 3
+  %26 = and i64 %25, 2305843009213693944
+  %call.i15.i.i.i.i.i.i.i.i.i.i127.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %26) #28
           to label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit18.i.i.i.i.i.i.i.i.i.i128.i, !noalias !490
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i: ; preds = %call5.i.i.i17.i.i.i.i.i.i.noexc155.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 0, i64 %25, i1 false), !noalias !495
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 0, i64 %26, i1 false), !noalias !495
   store ptr %call.i15.i.i.i.i.i.i.i.i.i.i127.i, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !54, !noalias !490
   %cmp20.not.i.i.i.i.i.i.i.i.i.i130.i = icmp ult i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 64
   br i1 %cmp20.not.i.i.i.i.i.i.i.i.i.i130.i, label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i133.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i131.i
 
 for.body.lr.ph.i.i.i.i.i.i.i.i.i.i131.i:          ; preds = %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i
-  %umax.i.i.i.i.i.i.i.i.i.i132.i = call i64 @llvm.umax.i64(i64 %div1.i.i.i.i.i.i.i.i.i.i.i126.i, i64 1)
-  %26 = shl nuw nsw i64 %umax.i.i.i.i.i.i.i.i.i.i132.i, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 -1, i64 %26, i1 false), !tbaa !57, !noalias !490
   br label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i133.i
 
@@ -13575,20 +13551,18 @@ call5.i.i.i17.i.i.i.i.i.i.noexc155.i:             ; preds = %if.then.i109.i
   %_M_impl.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !320, !noalias !500
   %add.i.i.i.i.i.i.i.i.i.i.i125.i = add i64 %24, 63
-  %div1.i.i.i.i.i.i.i.i.i.i.i126.i = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 6
-  %25 = shl nuw nsw i64 %div1.i.i.i.i.i.i.i.i.i.i.i126.i, 3
-  %call.i15.i.i.i.i.i.i.i.i.i.i127.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %25) #28
+  %25 = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 3
+  %26 = and i64 %25, 2305843009213693944
+  %call.i15.i.i.i.i.i.i.i.i.i.i127.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %26) #28
           to label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit18.i.i.i.i.i.i.i.i.i.i128.i, !noalias !500
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i: ; preds = %call5.i.i.i17.i.i.i.i.i.i.noexc155.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 0, i64 %25, i1 false), !noalias !505
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 0, i64 %26, i1 false), !noalias !505
   store ptr %call.i15.i.i.i.i.i.i.i.i.i.i127.i, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !54, !noalias !500
   %cmp20.not.i.i.i.i.i.i.i.i.i.i130.i = icmp ult i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 64
   br i1 %cmp20.not.i.i.i.i.i.i.i.i.i.i130.i, label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i133.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i131.i
 
 for.body.lr.ph.i.i.i.i.i.i.i.i.i.i131.i:          ; preds = %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i
-  %umax.i.i.i.i.i.i.i.i.i.i132.i = call i64 @llvm.umax.i64(i64 %div1.i.i.i.i.i.i.i.i.i.i.i126.i, i64 1)
-  %26 = shl nuw nsw i64 %umax.i.i.i.i.i.i.i.i.i.i132.i, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 -1, i64 %26, i1 false), !tbaa !57, !noalias !500
   br label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i133.i
 
@@ -13937,20 +13911,18 @@ call5.i.i.i17.i.i.i.i.i.i.noexc155.i:             ; preds = %if.then.i109.i
   %_M_impl.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !320, !noalias !510
   %add.i.i.i.i.i.i.i.i.i.i.i125.i = add i64 %24, 63
-  %div1.i.i.i.i.i.i.i.i.i.i.i126.i = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 6
-  %25 = shl nuw nsw i64 %div1.i.i.i.i.i.i.i.i.i.i.i126.i, 3
-  %call.i15.i.i.i.i.i.i.i.i.i.i127.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %25) #28
+  %25 = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 3
+  %26 = and i64 %25, 2305843009213693944
+  %call.i15.i.i.i.i.i.i.i.i.i.i127.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %26) #28
           to label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit18.i.i.i.i.i.i.i.i.i.i128.i, !noalias !510
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i: ; preds = %call5.i.i.i17.i.i.i.i.i.i.noexc155.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 0, i64 %25, i1 false), !noalias !515
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 0, i64 %26, i1 false), !noalias !515
   store ptr %call.i15.i.i.i.i.i.i.i.i.i.i127.i, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !54, !noalias !510
   %cmp20.not.i.i.i.i.i.i.i.i.i.i130.i = icmp ult i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 64
   br i1 %cmp20.not.i.i.i.i.i.i.i.i.i.i130.i, label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i133.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i131.i
 
 for.body.lr.ph.i.i.i.i.i.i.i.i.i.i131.i:          ; preds = %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i
-  %umax.i.i.i.i.i.i.i.i.i.i132.i = call i64 @llvm.umax.i64(i64 %div1.i.i.i.i.i.i.i.i.i.i.i126.i, i64 1)
-  %26 = shl nuw nsw i64 %umax.i.i.i.i.i.i.i.i.i.i132.i, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 -1, i64 %26, i1 false), !tbaa !57, !noalias !510
   br label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i133.i
 
@@ -14299,20 +14271,18 @@ call5.i.i.i17.i.i.i.i.i.i.noexc155.i:             ; preds = %if.then.i109.i
   %_M_impl.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !320, !noalias !522
   %add.i.i.i.i.i.i.i.i.i.i.i125.i = add i64 %24, 63
-  %div1.i.i.i.i.i.i.i.i.i.i.i126.i = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 6
-  %25 = shl nuw nsw i64 %div1.i.i.i.i.i.i.i.i.i.i.i126.i, 3
-  %call.i15.i.i.i.i.i.i.i.i.i.i127.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %25) #28
+  %25 = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 3
+  %26 = and i64 %25, 2305843009213693944
+  %call.i15.i.i.i.i.i.i.i.i.i.i127.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %26) #28
           to label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit18.i.i.i.i.i.i.i.i.i.i128.i, !noalias !522
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i: ; preds = %call5.i.i.i17.i.i.i.i.i.i.noexc155.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 0, i64 %25, i1 false), !noalias !527
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 0, i64 %26, i1 false), !noalias !527
   store ptr %call.i15.i.i.i.i.i.i.i.i.i.i127.i, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !54, !noalias !522
   %cmp20.not.i.i.i.i.i.i.i.i.i.i130.i = icmp ult i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 64
   br i1 %cmp20.not.i.i.i.i.i.i.i.i.i.i130.i, label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i133.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i131.i
 
 for.body.lr.ph.i.i.i.i.i.i.i.i.i.i131.i:          ; preds = %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i
-  %umax.i.i.i.i.i.i.i.i.i.i132.i = call i64 @llvm.umax.i64(i64 %div1.i.i.i.i.i.i.i.i.i.i.i126.i, i64 1)
-  %26 = shl nuw nsw i64 %umax.i.i.i.i.i.i.i.i.i.i132.i, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 -1, i64 %26, i1 false), !tbaa !57, !noalias !522
   br label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i133.i
 
@@ -14661,20 +14631,18 @@ call5.i.i.i17.i.i.i.i.i.i.noexc155.i:             ; preds = %if.then.i109.i
   %_M_impl.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !320, !noalias !532
   %add.i.i.i.i.i.i.i.i.i.i.i125.i = add i64 %24, 63
-  %div1.i.i.i.i.i.i.i.i.i.i.i126.i = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 6
-  %25 = shl nuw nsw i64 %div1.i.i.i.i.i.i.i.i.i.i.i126.i, 3
-  %call.i15.i.i.i.i.i.i.i.i.i.i127.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %25) #28
+  %25 = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 3
+  %26 = and i64 %25, 2305843009213693944
+  %call.i15.i.i.i.i.i.i.i.i.i.i127.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %26) #28
           to label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit18.i.i.i.i.i.i.i.i.i.i128.i, !noalias !532
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i: ; preds = %call5.i.i.i17.i.i.i.i.i.i.noexc155.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 0, i64 %25, i1 false), !noalias !537
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 0, i64 %26, i1 false), !noalias !537
   store ptr %call.i15.i.i.i.i.i.i.i.i.i.i127.i, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !54, !noalias !532
   %cmp20.not.i.i.i.i.i.i.i.i.i.i130.i = icmp ult i64 %add.i.i.i.i.i.i.i.i.i.i.i125.i, 64
   br i1 %cmp20.not.i.i.i.i.i.i.i.i.i.i130.i, label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i133.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i131.i
 
 for.body.lr.ph.i.i.i.i.i.i.i.i.i.i131.i:          ; preds = %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i129.i
-  %umax.i.i.i.i.i.i.i.i.i.i132.i = call i64 @llvm.umax.i64(i64 %div1.i.i.i.i.i.i.i.i.i.i.i126.i, i64 1)
-  %26 = shl nuw nsw i64 %umax.i.i.i.i.i.i.i.i.i.i132.i, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call.i15.i.i.i.i.i.i.i.i.i.i127.i, i8 -1, i64 %26, i1 false), !tbaa !57, !noalias !532
   br label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i133.i
 
@@ -15063,20 +15031,18 @@ call5.i.i.i17.i.i.i.i.i.i.noexc156.i:             ; preds = %if.then.i110.i
   %_M_impl.i.i.i.i.i.i.i.i125.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i157.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i125.i, align 8, !tbaa !320, !noalias !544
   %add.i.i.i.i.i.i.i.i.i.i.i126.i = add i64 %31, 63
-  %div1.i.i.i.i.i.i.i.i.i.i.i127.i = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i126.i, 6
-  %32 = shl nuw nsw i64 %div1.i.i.i.i.i.i.i.i.i.i.i127.i, 3
-  %call.i15.i.i.i.i.i.i.i.i.i.i128.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %32) #28
+  %32 = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i126.i, 3
+  %33 = and i64 %32, 2305843009213693944
+  %call.i15.i.i.i.i.i.i.i.i.i.i128.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %33) #28
           to label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i130.i unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit18.i.i.i.i.i.i.i.i.i.i129.i, !noalias !544
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i130.i: ; preds = %call5.i.i.i17.i.i.i.i.i.i.noexc156.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i128.i, i8 0, i64 %32, i1 false), !noalias !549
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i128.i, i8 0, i64 %33, i1 false), !noalias !549
   store ptr %call.i15.i.i.i.i.i.i.i.i.i.i128.i, ptr %_M_impl.i.i.i.i.i.i.i.i125.i, align 8, !tbaa !54, !noalias !544
   %cmp20.not.i.i.i.i.i.i.i.i.i.i131.i = icmp ult i64 %add.i.i.i.i.i.i.i.i.i.i.i126.i, 64
   br i1 %cmp20.not.i.i.i.i.i.i.i.i.i.i131.i, label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i134.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i132.i
 
 for.body.lr.ph.i.i.i.i.i.i.i.i.i.i132.i:          ; preds = %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i130.i
-  %umax.i.i.i.i.i.i.i.i.i.i133.i = call i64 @llvm.umax.i64(i64 %div1.i.i.i.i.i.i.i.i.i.i.i127.i, i64 1)
-  %33 = shl nuw nsw i64 %umax.i.i.i.i.i.i.i.i.i.i133.i, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call.i15.i.i.i.i.i.i.i.i.i.i128.i, i8 -1, i64 %33, i1 false), !tbaa !57, !noalias !544
   br label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i134.i
 
@@ -15689,20 +15655,18 @@ call5.i.i.i17.i.i.i.i.i.i.noexc460:               ; preds = %if.then.i392
   %_M_impl.i.i.i.i.i.i.i.i429 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i461, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i429, align 8, !tbaa !320, !noalias !563
   %add.i.i.i.i.i.i.i.i.i.i.i430 = add i64 %110, 63
-  %div1.i.i.i.i.i.i.i.i.i.i.i431 = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i430, 6
-  %111 = shl nuw nsw i64 %div1.i.i.i.i.i.i.i.i.i.i.i431, 3
-  %call.i15.i.i.i.i.i.i.i.i.i.i432 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %111) #28
+  %111 = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i430, 3
+  %112 = and i64 %111, 2305843009213693944
+  %call.i15.i.i.i.i.i.i.i.i.i.i432 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %112) #28
           to label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i434 unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit18.i.i.i.i.i.i.i.i.i.i433, !noalias !563
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i434: ; preds = %call5.i.i.i17.i.i.i.i.i.i.noexc460
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i432, i8 0, i64 %111, i1 false), !noalias !568
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i432, i8 0, i64 %112, i1 false), !noalias !568
   store ptr %call.i15.i.i.i.i.i.i.i.i.i.i432, ptr %_M_impl.i.i.i.i.i.i.i.i429, align 8, !tbaa !54, !noalias !563
   %cmp20.not.i.i.i.i.i.i.i.i.i.i435 = icmp ult i64 %add.i.i.i.i.i.i.i.i.i.i.i430, 64
   br i1 %cmp20.not.i.i.i.i.i.i.i.i.i.i435, label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i438, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i436
 
 for.body.lr.ph.i.i.i.i.i.i.i.i.i.i436:            ; preds = %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i434
-  %umax.i.i.i.i.i.i.i.i.i.i437 = call i64 @llvm.umax.i64(i64 %div1.i.i.i.i.i.i.i.i.i.i.i431, i64 1)
-  %112 = shl nuw nsw i64 %umax.i.i.i.i.i.i.i.i.i.i437, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call.i15.i.i.i.i.i.i.i.i.i.i432, i8 -1, i64 %112, i1 false), !tbaa !57, !noalias !563
   br label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i438
 
@@ -16616,20 +16580,18 @@ call5.i.i.i17.i.i.i.i.i.i.noexc154.i:             ; preds = %if.then.i108.i
   %_M_impl.i.i.i.i.i.i.i.i123.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i155.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i123.i, align 8, !tbaa !320, !noalias !601
   %add.i.i.i.i.i.i.i.i.i.i.i124.i = add i64 %76, 63
-  %div1.i.i.i.i.i.i.i.i.i.i.i125.i = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i124.i, 6
-  %77 = shl nuw nsw i64 %div1.i.i.i.i.i.i.i.i.i.i.i125.i, 3
-  %call.i15.i.i.i.i.i.i.i.i.i.i126.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %77) #28
+  %77 = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i124.i, 3
+  %78 = and i64 %77, 2305843009213693944
+  %call.i15.i.i.i.i.i.i.i.i.i.i126.i = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %78) #28
           to label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i128.i unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit18.i.i.i.i.i.i.i.i.i.i127.i, !noalias !601
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i128.i: ; preds = %call5.i.i.i17.i.i.i.i.i.i.noexc154.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i126.i, i8 0, i64 %77, i1 false), !noalias !606
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i126.i, i8 0, i64 %78, i1 false), !noalias !606
   store ptr %call.i15.i.i.i.i.i.i.i.i.i.i126.i, ptr %_M_impl.i.i.i.i.i.i.i.i123.i, align 8, !tbaa !54, !noalias !601
   %cmp20.not.i.i.i.i.i.i.i.i.i.i129.i = icmp ult i64 %add.i.i.i.i.i.i.i.i.i.i.i124.i, 64
   br i1 %cmp20.not.i.i.i.i.i.i.i.i.i.i129.i, label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i132.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i130.i
 
 for.body.lr.ph.i.i.i.i.i.i.i.i.i.i130.i:          ; preds = %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i128.i
-  %umax.i.i.i.i.i.i.i.i.i.i131.i = call i64 @llvm.umax.i64(i64 %div1.i.i.i.i.i.i.i.i.i.i.i125.i, i64 1)
-  %78 = shl nuw nsw i64 %umax.i.i.i.i.i.i.i.i.i.i131.i, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call.i15.i.i.i.i.i.i.i.i.i.i126.i, i8 -1, i64 %78, i1 false), !tbaa !57, !noalias !601
   br label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i132.i
 
@@ -16974,20 +16936,18 @@ call5.i.i.i17.i.i.i.i.i.i.noexc154.i279:          ; preds = %if.then.i108.i276
   %_M_impl.i.i.i.i.i.i.i.i123.i282 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i155.i277, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i123.i282, align 8, !tbaa !320, !noalias !611
   %add.i.i.i.i.i.i.i.i.i.i.i124.i283 = add i64 %123, 63
-  %div1.i.i.i.i.i.i.i.i.i.i.i125.i284 = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i124.i283, 6
-  %124 = shl nuw nsw i64 %div1.i.i.i.i.i.i.i.i.i.i.i125.i284, 3
-  %call.i15.i.i.i.i.i.i.i.i.i.i126.i285 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %124) #28
+  %124 = lshr i64 %add.i.i.i.i.i.i.i.i.i.i.i124.i283, 3
+  %125 = and i64 %124, 2305843009213693944
+  %call.i15.i.i.i.i.i.i.i.i.i.i126.i285 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %125) #28
           to label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i128.i287 unwind label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit18.i.i.i.i.i.i.i.i.i.i127.i286, !noalias !611
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i128.i287: ; preds = %call5.i.i.i17.i.i.i.i.i.i.noexc154.i279
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i126.i285, i8 0, i64 %124, i1 false), !noalias !616
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i15.i.i.i.i.i.i.i.i.i.i126.i285, i8 0, i64 %125, i1 false), !noalias !616
   store ptr %call.i15.i.i.i.i.i.i.i.i.i.i126.i285, ptr %_M_impl.i.i.i.i.i.i.i.i123.i282, align 8, !tbaa !54, !noalias !611
   %cmp20.not.i.i.i.i.i.i.i.i.i.i129.i288 = icmp ult i64 %add.i.i.i.i.i.i.i.i.i.i.i124.i283, 64
   br i1 %cmp20.not.i.i.i.i.i.i.i.i.i.i129.i288, label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i132.i291, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i130.i289
 
 for.body.lr.ph.i.i.i.i.i.i.i.i.i.i130.i289:       ; preds = %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i128.i287
-  %umax.i.i.i.i.i.i.i.i.i.i131.i290 = call i64 @llvm.umax.i64(i64 %div1.i.i.i.i.i.i.i.i.i.i.i125.i284, i64 1)
-  %125 = shl nuw nsw i64 %umax.i.i.i.i.i.i.i.i.i.i131.i290, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call.i15.i.i.i.i.i.i.i.i.i.i126.i285, i8 -1, i64 %125, i1 false), !tbaa !57, !noalias !611
   br label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i132.i291
 

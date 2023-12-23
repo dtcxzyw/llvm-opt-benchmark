@@ -662,8 +662,8 @@ entry:
   %ref.tmp = alloca %"class.icu_75::Locale", align 8
   %fUnion.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %id, i64 0, i32 1
   %0 = load i16, ptr %fUnion.i, align 8
-  %conv2.i18 = and i16 %0, 1
-  %tobool.not = icmp eq i16 %conv2.i18, 0
+  %conv2.i17 = and i16 %0, 1
+  %tobool.not = icmp eq i16 %conv2.i17, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
@@ -674,25 +674,21 @@ lor.lhs.false:                                    ; preds = %entry
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   %cmp = icmp sgt i32 %cond.i, 127
-  br i1 %cmp, label %if.then, label %_ZNK6icu_7513UnicodeString7indexOfEDsi.exit.preheader
+  br i1 %cmp, label %if.then, label %for.cond.preheader
 
-_ZNK6icu_7513UnicodeString7indexOfEDsi.exit.preheader: ; preds = %lor.lhs.false
-  %cmp.i.i.i.i20 = icmp slt i16 %0, 0
-  %3 = ashr i16 %0, 5
-  %shr.i.i.i.i21 = sext i16 %3 to i32
-  %cond.i.i.i22 = select i1 %cmp.i.i.i.i20, i32 %2, i32 %shr.i.i.i.i21
-  %spec.select.i23 = tail call i32 @llvm.smin.i32(i32 %cond.i.i.i22, i32 0)
-  %sub.i24 = sub nsw i32 %cond.i.i.i22, %spec.select.i23
-  %call2.i25 = tail call noundef i32 @_ZNK6icu_7513UnicodeString9doIndexOfEDsii(ptr noundef nonnull align 8 dereferenceable(64) %id, i16 noundef zeroext 64, i32 noundef %spec.select.i23, i32 noundef %sub.i24)
-  %cmp326 = icmp slt i32 %call2.i25, 0
-  br i1 %cmp326, label %if.then4, label %if.else6
+for.cond.preheader:                               ; preds = %lor.lhs.false
+  %spec.select.i22 = tail call i32 @llvm.smin.i32(i32 %cond.i, i32 0)
+  %sub.i23 = sub nsw i32 %cond.i, %spec.select.i22
+  %call2.i24 = tail call noundef i32 @_ZNK6icu_7513UnicodeString9doIndexOfEDsii(ptr noundef nonnull align 8 dereferenceable(64) %id, i16 noundef zeroext 64, i32 noundef %spec.select.i22, i32 noundef %sub.i23)
+  %cmp325 = icmp slt i32 %call2.i24, 0
+  br i1 %cmp325, label %if.then4, label %if.else6
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   tail call void @_ZN6icu_756Locale10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(217) %result)
   br label %if.end15
 
-if.then4:                                         ; preds = %if.else6, %_ZNK6icu_7513UnicodeString7indexOfEDsi.exit.preheader
-  %prev.0.lcssa = phi i32 [ 0, %_ZNK6icu_7513UnicodeString7indexOfEDsi.exit.preheader ], [ %add, %if.else6 ]
+if.then4:                                         ; preds = %if.else6, %for.cond.preheader
+  %prev.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %add, %if.else6 ]
   %idx.ext = zext nneg i32 %prev.0.lcssa to i64
   %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 %idx.ext
   %sub = sub nsw i32 128, %prev.0.lcssa
@@ -702,24 +698,24 @@ if.then4:                                         ; preds = %if.else6, %_ZNK6icu
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp) #8
   br label %if.end15
 
-if.else6:                                         ; preds = %_ZNK6icu_7513UnicodeString7indexOfEDsi.exit.preheader, %if.else6
-  %call2.i28 = phi i32 [ %call2.i, %if.else6 ], [ %call2.i25, %_ZNK6icu_7513UnicodeString7indexOfEDsi.exit.preheader ]
-  %prev.027 = phi i32 [ %add, %if.else6 ], [ 0, %_ZNK6icu_7513UnicodeString7indexOfEDsi.exit.preheader ]
-  %sub7 = sub nsw i32 %call2.i28, %prev.027
-  %idx.ext9 = zext nneg i32 %prev.027 to i64
+if.else6:                                         ; preds = %for.cond.preheader, %if.else6
+  %call2.i27 = phi i32 [ %call2.i, %if.else6 ], [ %call2.i24, %for.cond.preheader ]
+  %prev.026 = phi i32 [ %add, %if.else6 ], [ 0, %for.cond.preheader ]
+  %sub7 = sub nsw i32 %call2.i27, %prev.026
+  %idx.ext9 = zext nneg i32 %prev.026 to i64
   %add.ptr10 = getelementptr inbounds i8, ptr %buffer, i64 %idx.ext9
-  %sub11 = sub nsw i32 128, %prev.027
-  %call12 = call noundef i32 @_ZNK6icu_7513UnicodeString7extractEiiPciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %id, i32 noundef %prev.027, i32 noundef %sub7, ptr noundef nonnull %add.ptr10, i32 noundef %sub11, i32 noundef 0)
-  %idxprom = zext nneg i32 %call2.i28 to i64
+  %sub11 = sub nsw i32 128, %prev.026
+  %call12 = call noundef i32 @_ZNK6icu_7513UnicodeString7extractEiiPciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %id, i32 noundef %prev.026, i32 noundef %sub7, ptr noundef nonnull %add.ptr10, i32 noundef %sub11, i32 noundef 0)
+  %idxprom = zext nneg i32 %call2.i27 to i64
   %arrayidx = getelementptr inbounds [128 x i8], ptr %buffer, i64 0, i64 %idxprom
   store i8 64, ptr %arrayidx, align 1
-  %add = add nuw nsw i32 %call2.i28, 1
-  %.pre.i.pre = load i16, ptr %fUnion.i, align 8
-  %.pre = load i32, ptr %fLength.i, align 4
-  %cmp.i.i.i.i = icmp slt i16 %.pre.i.pre, 0
-  %4 = ashr i16 %.pre.i.pre, 5
-  %shr.i.i.i.i = sext i16 %4 to i32
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %.pre, i32 %shr.i.i.i.i
+  %add = add nuw nsw i32 %call2.i27, 1
+  %.pre.i = load i16, ptr %fUnion.i, align 8
+  %cmp.i.i.i.i = icmp slt i16 %.pre.i, 0
+  %3 = ashr i16 %.pre.i, 5
+  %shr.i.i.i.i = sext i16 %3 to i32
+  %4 = load i32, ptr %fLength.i, align 4
+  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
   %spec.select.i = call i32 @llvm.smin.i32(i32 %cond.i.i.i, i32 %add)
   %sub.i = sub nsw i32 %cond.i.i.i, %spec.select.i
   %call2.i = call noundef i32 @_ZNK6icu_7513UnicodeString9doIndexOfEDsii(ptr noundef nonnull align 8 dereferenceable(64) %id, i16 noundef zeroext 64, i32 noundef %spec.select.i, i32 noundef %sub.i)

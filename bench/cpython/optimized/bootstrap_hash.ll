@@ -920,12 +920,10 @@ while.body.lr.ph.lr.ph.i:                         ; preds = %if.end5
   %cond.i = zext i1 %tobool1.not.i to i32
   %call.i = tail call ptr @__errno_location() #7
   %tobool4.not.i = icmp eq i32 %raise, 0
-  %1 = or i32 %raise, %blocking
-  %.not.i = icmp eq i32 %1, 0
-  br i1 %tobool4.not.i, label %while.body.lr.ph.lr.ph.split.us.i, label %while.body.lr.ph.lr.ph.split.i
+  br i1 %tobool4.not.i, label %while.body.lr.ph.lr.ph.split.us.i, label %while.body.lr.ph.split.split.us.split.us.us.i
 
 while.body.lr.ph.lr.ph.split.us.i:                ; preds = %while.body.lr.ph.lr.ph.i
-  br i1 %.not.i, label %while.body.lr.ph.split.us.split.split.split.us.us.i, label %while.body.lr.ph.split.us.split.split.us.split.us.us.us.i
+  br i1 %tobool1.not.i, label %while.body.lr.ph.split.us.split.split.split.us.us.i, label %while.body.lr.ph.split.us.split.split.us.split.us.us.us.i
 
 if.end40.split.us.split.us.us.us.i:               ; preds = %while.body.us.us.us.us.us.i, %while.body.lr.ph.split.us.split.split.us.split.us.us.us.i
   %.us-phi142.us.us.i = phi i64 [ %call8.us.us.us161.us.us.i, %while.body.lr.ph.split.us.split.split.us.split.us.us.us.i ], [ %call8.us.us.us.us.us.i, %while.body.us.us.us.us.us.i ]
@@ -949,8 +947,8 @@ while.body.us.us.us.us.us.i:                      ; preds = %if.then11.us.us.us.
   br i1 %cmp10.us.us.us.us.us.i, label %if.then11.us.us.us.us.us.i, label %if.end40.split.us.split.us.us.us.i
 
 if.then11.us.us.us.us.us.i:                       ; preds = %while.body.lr.ph.split.us.split.split.us.split.us.us.us.i, %while.body.us.us.us.us.us.i
-  %2 = load i32, ptr %call.i, align 4
-  switch i32 %2, label %return [
+  %1 = load i32, ptr %call.i, align 4
+  switch i32 %1, label %return [
     i32 38, label %if.then16.i
     i32 1, label %if.then16.i
     i32 4, label %while.body.us.us.us.us.us.i
@@ -978,16 +976,13 @@ while.body.us.us109.us.i:                         ; preds = %if.then11.us.us112.
   br i1 %cmp10.us.us111.us.i, label %if.then11.us.us112.us.i, label %if.end40.split.us.split.us189.i
 
 if.then11.us.us112.us.i:                          ; preds = %while.body.lr.ph.split.us.split.split.split.us.us.i, %while.body.us.us109.us.i
-  %3 = load i32, ptr %call.i, align 4
-  switch i32 %3, label %return [
+  %2 = load i32, ptr %call.i, align 4
+  switch i32 %2, label %return [
     i32 38, label %if.then16.i
     i32 1, label %if.then16.i
     i32 11, label %if.end12
     i32 4, label %while.body.us.us109.us.i
   ]
-
-while.body.lr.ph.lr.ph.split.i:                   ; preds = %while.body.lr.ph.lr.ph.i
-  br i1 %.not.i, label %while.body.lr.ph.split.split.split.us.i, label %while.body.lr.ph.split.split.us.split.us.us.i
 
 if.end40.split.split.us.us.i:                     ; preds = %while.body.us27.us.us.i, %while.body.lr.ph.split.split.us.split.us.us.i
   %.us-phi85.us.i = phi i64 [ %call7.us.us103.us.i, %while.body.lr.ph.split.split.us.split.us.us.i ], [ %call7.us.us.us.i, %while.body.us27.us.us.i ]
@@ -996,9 +991,9 @@ if.end40.split.split.us.us.i:                     ; preds = %while.body.us27.us.
   %cmp.us205.i = icmp sgt i64 %sub.us204.i, 0
   br i1 %cmp.us205.i, label %while.body.lr.ph.split.split.us.split.us.us.i, label %return, !llvm.loop !6
 
-while.body.lr.ph.split.split.us.split.us.us.i:    ; preds = %while.body.lr.ph.lr.ph.split.i, %if.end40.split.split.us.us.i
-  %dest.0.ph173.us201.i = phi ptr [ %add.ptr.us203.i, %if.end40.split.split.us.us.i ], [ %buffer, %while.body.lr.ph.lr.ph.split.i ]
-  %size.addr.0.ph165.us202.i = phi i64 [ %sub.us204.i, %if.end40.split.split.us.us.i ], [ %size, %while.body.lr.ph.lr.ph.split.i ]
+while.body.lr.ph.split.split.us.split.us.us.i:    ; preds = %while.body.lr.ph.lr.ph.i, %if.end40.split.split.us.us.i
+  %dest.0.ph173.us201.i = phi ptr [ %add.ptr.us203.i, %if.end40.split.split.us.us.i ], [ %buffer, %while.body.lr.ph.lr.ph.i ]
+  %size.addr.0.ph165.us202.i = phi i64 [ %sub.us204.i, %if.end40.split.split.us.us.i ], [ %size, %while.body.lr.ph.lr.ph.i ]
   store i32 0, ptr %call.i, align 4
   %call6.us.us102.us.i = tail call ptr @PyEval_SaveThread() #6
   %call7.us.us103.us.i = tail call i64 @getrandom(ptr noundef %dest.0.ph173.us201.i, i64 noundef %size.addr.0.ph165.us202.i, i32 noundef %cond.i) #6
@@ -1015,8 +1010,8 @@ while.body.us27.us.us.i:                          ; preds = %if.then27.us35.us.u
   br i1 %cmp10.us28.us.us.i, label %if.then11.us29.us.us.i, label %if.end40.split.split.us.us.i
 
 if.then11.us29.us.us.i:                           ; preds = %while.body.lr.ph.split.split.us.split.us.us.i, %while.body.us27.us.us.i
-  %4 = load i32, ptr %call.i, align 4
-  switch i32 %4, label %if.then37.i [
+  %3 = load i32, ptr %call.i, align 4
+  switch i32 %3, label %if.then37.i [
     i32 38, label %if.then16.i
     i32 1, label %if.then16.i
     i32 4, label %if.then27.us35.us.us.i
@@ -1027,83 +1022,44 @@ if.then27.us35.us.us.i:                           ; preds = %if.then11.us29.us.u
   %tobool31.not.us37.us.us.i = icmp eq i32 %call30.us36.us.us.i, 0
   br i1 %tobool31.not.us37.us.us.i, label %while.body.us27.us.us.i, label %return
 
-while.body.lr.ph.split.split.split.us.i:          ; preds = %while.body.lr.ph.lr.ph.split.i, %if.end40.split.split.i
-  %dest.0.ph173.i = phi ptr [ %add.ptr.i, %if.end40.split.split.i ], [ %buffer, %while.body.lr.ph.lr.ph.split.i ]
-  %size.addr.0.ph165.i = phi i64 [ %sub.i, %if.end40.split.split.i ], [ %size, %while.body.lr.ph.lr.ph.split.i ]
-  store i32 0, ptr %call.i, align 4
-  %call6.us4881.i = tail call ptr @PyEval_SaveThread() #6
-  %call7.us4982.i = tail call i64 @getrandom(ptr noundef %dest.0.ph173.i, i64 noundef %size.addr.0.ph165.i, i32 noundef %cond.i) #6
-  tail call void @PyEval_RestoreThread(ptr noundef %call6.us4881.i) #6
-  %cmp10.us5083.i = icmp slt i64 %call7.us4982.i, 0
-  br i1 %cmp10.us5083.i, label %if.then11.us51.i, label %if.end40.split.split.i
-
-while.body.us47.i:                                ; preds = %if.then27.us56.i
-  store i32 0, ptr %call.i, align 4
-  %call6.us48.i = tail call ptr @PyEval_SaveThread() #6
-  %call7.us49.i = tail call i64 @getrandom(ptr noundef %dest.0.ph173.i, i64 noundef %size.addr.0.ph165.i, i32 noundef %cond.i) #6
-  tail call void @PyEval_RestoreThread(ptr noundef %call6.us48.i) #6
-  %cmp10.us50.i = icmp slt i64 %call7.us49.i, 0
-  br i1 %cmp10.us50.i, label %if.then11.us51.i, label %if.end40.split.split.i
-
-if.then11.us51.i:                                 ; preds = %while.body.lr.ph.split.split.split.us.i, %while.body.us47.i
-  %5 = load i32, ptr %call.i, align 4
-  switch i32 %5, label %if.then37.i [
-    i32 38, label %if.then16.i
-    i32 1, label %if.then16.i
-    i32 11, label %if.end12
-    i32 4, label %if.then27.us56.i
-  ]
-
-if.then27.us56.i:                                 ; preds = %if.then11.us51.i
-  %call30.us57.i = tail call i32 @PyErr_CheckSignals() #6
-  %tobool31.not.us58.i = icmp eq i32 %call30.us57.i, 0
-  br i1 %tobool31.not.us58.i, label %while.body.us47.i, label %return
-
-if.then16.i:                                      ; preds = %if.then11.us29.us.us.i, %if.then11.us29.us.us.i, %if.then11.us51.i, %if.then11.us51.i, %if.then11.us.us.us.us.us.i, %if.then11.us.us.us.us.us.i, %if.then11.us.us112.us.i, %if.then11.us.us112.us.i
+if.then16.i:                                      ; preds = %if.then11.us29.us.us.i, %if.then11.us29.us.us.i, %if.then11.us.us.us.us.us.i, %if.then11.us.us.us.us.us.i, %if.then11.us.us112.us.i, %if.then11.us.us112.us.i
   store i1 true, ptr @py_getrandom.getrandom_works, align 4
   br label %if.end12
 
-if.then37.i:                                      ; preds = %if.then11.us29.us.us.i, %if.then11.us51.i
-  %6 = load ptr, ptr @PyExc_OSError, align 8
-  %call38.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %6) #6
+if.then37.i:                                      ; preds = %if.then11.us29.us.us.i
+  %.pre.i = load ptr, ptr @PyExc_OSError, align 8
+  %call38.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %.pre.i) #6
   br label %return
 
-if.end40.split.split.i:                           ; preds = %while.body.us47.i, %while.body.lr.ph.split.split.split.us.i
-  %.us-phi61.i = phi i64 [ %call7.us4982.i, %while.body.lr.ph.split.split.split.us.i ], [ %call7.us49.i, %while.body.us47.i ]
-  %add.ptr.i = getelementptr i8, ptr %dest.0.ph173.i, i64 %.us-phi61.i
-  %sub.i = sub nsw i64 %size.addr.0.ph165.i, %.us-phi61.i
-  %cmp.i = icmp sgt i64 %sub.i, 0
-  br i1 %cmp.i, label %while.body.lr.ph.split.split.split.us.i, label %return, !llvm.loop !6
-
-if.end12:                                         ; preds = %if.then11.us51.i, %if.then11.us.us112.us.i, %if.end5, %if.then16.i
+if.end12:                                         ; preds = %if.then11.us.us112.us.i, %if.end5, %if.then16.i
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i)
   %tobool.not.i = icmp eq i32 %raise, 0
   br i1 %tobool.not.i, label %if.else51.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end12
-  %7 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13), align 8
-  %cmp.i8 = icmp sgt i32 %7, -1
-  br i1 %cmp.i8, label %if.then1.i, label %if.else.i
+  %4 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13), align 8
+  %cmp.i = icmp sgt i32 %4, -1
+  br i1 %cmp.i, label %if.then1.i, label %if.else.i
 
 if.then1.i:                                       ; preds = %if.then.i
-  %call.i12 = tail call ptr @PyEval_SaveThread() #6
-  %8 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13), align 8
-  %call2.i = call i32 @_Py_fstat_noraise(i32 noundef %8, ptr noundef nonnull %st.i) #6
-  call void @PyEval_RestoreThread(ptr noundef %call.i12) #6
+  %call.i9 = tail call ptr @PyEval_SaveThread() #6
+  %5 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13), align 8
+  %call2.i = call i32 @_Py_fstat_noraise(i32 noundef %5, ptr noundef nonnull %st.i) #6
+  call void @PyEval_RestoreThread(ptr noundef %call.i9) #6
   %tobool3.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool3.not.i, label %lor.lhs.false.i, label %if.then7.i
 
 lor.lhs.false.i:                                  ; preds = %if.then1.i
-  %9 = load i64, ptr %st.i, align 16
-  %10 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13, i32 0, i32 1), align 8
-  %cmp4.not.i = icmp eq i64 %9, %10
+  %6 = load i64, ptr %st.i, align 16
+  %7 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13, i32 0, i32 1), align 8
+  %cmp4.not.i = icmp eq i64 %6, %7
   br i1 %cmp4.not.i, label %lor.lhs.false5.i, label %if.then7.i
 
 lor.lhs.false5.i:                                 ; preds = %lor.lhs.false.i
   %st_ino.i = getelementptr inbounds %struct.stat, ptr %st.i, i64 0, i32 1
-  %11 = load i64, ptr %st_ino.i, align 8
-  %12 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13, i32 0, i32 2), align 8
-  %cmp6.not.i = icmp eq i64 %11, %12
+  %8 = load i64, ptr %st_ino.i, align 8
+  %9 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13, i32 0, i32 2), align 8
+  %cmp6.not.i = icmp eq i64 %8, %9
   br i1 %cmp6.not.i, label %if.end8.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %lor.lhs.false5.i, %lor.lhs.false.i, %if.then1.i
@@ -1122,8 +1078,8 @@ if.else.i:                                        ; preds = %if.end8.i, %if.then
 
 if.then13.i:                                      ; preds = %if.else.i
   %call14.i = tail call ptr @__errno_location() #7
-  %13 = load i32, ptr %call14.i, align 4
-  switch i32 %13, label %dev_urandom.exit [
+  %10 = load i32, ptr %call14.i, align 4
+  switch i32 %10, label %dev_urandom.exit [
     i32 2, label %if.then25.i
     i32 6, label %if.then25.i
     i32 19, label %if.then25.i
@@ -1131,18 +1087,18 @@ if.then13.i:                                      ; preds = %if.else.i
   ]
 
 if.then25.i:                                      ; preds = %if.then13.i, %if.then13.i, %if.then13.i, %if.then13.i
-  %14 = load ptr, ptr @PyExc_NotImplementedError, align 8
-  call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.3) #6
+  %11 = load ptr, ptr @PyExc_NotImplementedError, align 8
+  call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.3) #6
   br label %dev_urandom.exit
 
 if.end27.i:                                       ; preds = %if.else.i
-  %15 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13), align 8
-  %cmp28.i = icmp sgt i32 %15, -1
+  %12 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13), align 8
+  %cmp28.i = icmp sgt i32 %12, -1
   br i1 %cmp28.i, label %if.then29.i, label %if.else31.i
 
 if.then29.i:                                      ; preds = %if.end27.i
   %call30.i = call i32 @close(i32 noundef %call11.i) #6
-  %16 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13), align 8
+  %13 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13), align 8
   br label %if.end41.i
 
 if.else31.i:                                      ; preds = %if.end27.i
@@ -1156,17 +1112,17 @@ if.then34.i:                                      ; preds = %if.else31.i
 
 if.else36.i:                                      ; preds = %if.else31.i
   store i32 %call11.i, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13), align 8
-  %17 = load <2 x i64>, ptr %st.i, align 16
-  store <2 x i64> %17, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13, i32 0, i32 1), align 8
+  %14 = load <2 x i64>, ptr %st.i, align 16
+  store <2 x i64> %14, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13, i32 0, i32 1), align 8
   br label %if.end41.i
 
 if.end41.i:                                       ; preds = %if.else36.i, %if.then29.i, %if.end8.i
-  %fd.0.i = phi i32 [ %16, %if.then29.i ], [ %call11.i, %if.else36.i ], [ %.pr.i, %if.end8.i ]
+  %fd.0.i = phi i32 [ %13, %if.then29.i ], [ %call11.i, %if.else36.i ], [ %.pr.i, %if.end8.i ]
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end49.i, %if.end41.i
-  %size.addr.0.i = phi i64 [ %size, %if.end41.i ], [ %sub.i11, %if.end49.i ]
-  %buffer.addr.0.i = phi ptr [ %buffer, %if.end41.i ], [ %add.ptr.i10, %if.end49.i ]
+  %size.addr.0.i = phi i64 [ %size, %if.end41.i ], [ %sub.i, %if.end49.i ]
+  %buffer.addr.0.i = phi ptr [ %buffer, %if.end41.i ], [ %add.ptr.i, %if.end49.i ]
   %call42.i = call i64 @_Py_read(i32 noundef %fd.0.i, ptr noundef %buffer.addr.0.i, i64 noundef %size.addr.0.i) #6
   switch i64 %call42.i, label %if.end49.i [
     i64 -1, label %dev_urandom.exit
@@ -1174,14 +1130,14 @@ do.body.i:                                        ; preds = %if.end49.i, %if.end
   ]
 
 if.then47.i:                                      ; preds = %do.body.i
-  %18 = load ptr, ptr @PyExc_RuntimeError, align 8
-  %call48.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.4, i64 noundef %size.addr.0.i) #6
+  %15 = load ptr, ptr @PyExc_RuntimeError, align 8
+  %call48.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.4, i64 noundef %size.addr.0.i) #6
   br label %dev_urandom.exit
 
 if.end49.i:                                       ; preds = %do.body.i
-  %add.ptr.i10 = getelementptr i8, ptr %buffer.addr.0.i, i64 %call42.i
-  %sub.i11 = sub i64 %size.addr.0.i, %call42.i
-  %cmp50.i = icmp sgt i64 %sub.i11, 0
+  %add.ptr.i = getelementptr i8, ptr %buffer.addr.0.i, i64 %call42.i
+  %sub.i = sub i64 %size.addr.0.i, %call42.i
+  %cmp50.i = icmp sgt i64 %sub.i, 0
   br i1 %cmp50.i, label %do.body.i, label %dev_urandom.exit, !llvm.loop !8
 
 if.else51.i:                                      ; preds = %if.end12
@@ -1201,8 +1157,8 @@ do.body57.i:                                      ; preds = %land.rhs.i, %do.bod
 
 land.rhs.i:                                       ; preds = %do.body57.i
   %call61.i = tail call ptr @__errno_location() #7
-  %19 = load i32, ptr %call61.i, align 4
-  %cmp62.i = icmp eq i32 %19, 4
+  %16 = load i32, ptr %call61.i, align 4
+  %cmp62.i = icmp eq i32 %16, 4
   br i1 %cmp62.i, label %do.body57.i, label %if.then65.i, !llvm.loop !9
 
 do.end63.i:                                       ; preds = %do.body57.i
@@ -1224,12 +1180,12 @@ while.end.i:                                      ; preds = %if.end67.i
   br label %dev_urandom.exit
 
 dev_urandom.exit:                                 ; preds = %do.body.i, %if.end49.i, %if.then13.i, %if.then25.i, %if.then34.i, %if.then47.i, %if.else51.i, %if.then65.i, %while.end.i
-  %retval.0.i9 = phi i32 [ -1, %if.then47.i ], [ -1, %if.then34.i ], [ -1, %if.then65.i ], [ -1, %if.then13.i ], [ -1, %if.then25.i ], [ -1, %if.else51.i ], [ 0, %while.end.i ], [ -1, %do.body.i ], [ 0, %if.end49.i ]
+  %retval.0.i8 = phi i32 [ -1, %if.then47.i ], [ -1, %if.then34.i ], [ -1, %if.then65.i ], [ -1, %if.then13.i ], [ -1, %if.then25.i ], [ -1, %if.else51.i ], [ 0, %while.end.i ], [ -1, %do.body.i ], [ 0, %if.end49.i ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i)
   br label %return
 
-return:                                           ; preds = %if.end40.split.split.us.us.i, %if.then27.us35.us.us.i, %if.end40.split.split.i, %if.then27.us56.i, %if.end40.split.us.split.us.us.us.i, %if.then11.us.us.us.us.us.i, %if.end40.split.us.split.us189.i, %if.then11.us.us112.us.i, %if.then37.i, %if.end2, %if.then, %if.then1, %dev_urandom.exit
-  %retval.0 = phi i32 [ %retval.0.i9, %dev_urandom.exit ], [ -1, %if.then1 ], [ -1, %if.then ], [ 0, %if.end2 ], [ -1, %if.then37.i ], [ -1, %if.then11.us.us112.us.i ], [ 0, %if.end40.split.us.split.us189.i ], [ -1, %if.then11.us.us.us.us.us.i ], [ 0, %if.end40.split.us.split.us.us.us.i ], [ -1, %if.then27.us56.i ], [ 0, %if.end40.split.split.i ], [ -1, %if.then27.us35.us.us.i ], [ 0, %if.end40.split.split.us.us.i ]
+return:                                           ; preds = %if.end40.split.split.us.us.i, %if.then27.us35.us.us.i, %if.end40.split.us.split.us.us.us.i, %if.then11.us.us.us.us.us.i, %if.end40.split.us.split.us189.i, %if.then11.us.us112.us.i, %if.then37.i, %if.end2, %if.then, %if.then1, %dev_urandom.exit
+  %retval.0 = phi i32 [ %retval.0.i8, %dev_urandom.exit ], [ -1, %if.then1 ], [ -1, %if.then ], [ 0, %if.end2 ], [ -1, %if.then37.i ], [ -1, %if.then11.us.us112.us.i ], [ 0, %if.end40.split.us.split.us189.i ], [ -1, %if.then11.us.us.us.us.us.i ], [ 0, %if.end40.split.us.split.us.us.us.i ], [ -1, %if.then27.us35.us.us.i ], [ 0, %if.end40.split.split.us.us.i ]
   ret i32 %retval.0
 }
 

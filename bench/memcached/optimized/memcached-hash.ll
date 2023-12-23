@@ -356,15 +356,12 @@ if.end8.i.i:                                      ; preds = %if.end4.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %sub1.i.i.i.i = add i64 %length, -1
-  %cmp1.not.i.i.i.i = icmp ult i64 %sub1.i.i.i.i, 1024
-  br i1 %cmp1.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.preheader.i.i.i.i
-
-for.body.preheader.i.i.i.i:                       ; preds = %if.end8.i.i
   %div223.i.i.i.i = lshr i64 %sub1.i.i.i.i, 10
-  br label %for.body.i.i.i.i
+  %cmp1.not.i.i.i.i = icmp ult i64 %sub1.i.i.i.i, 1024
+  br i1 %cmp1.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %XXH3_scrambleAcc_sse2.exit.i.i.i.i, %for.body.preheader.i.i.i.i
-  %n.02.i.i.i.i = phi i64 [ %inc.i.i.i.i, %XXH3_scrambleAcc_sse2.exit.i.i.i.i ], [ 0, %for.body.preheader.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %if.end8.i.i, %XXH3_scrambleAcc_sse2.exit.i.i.i.i
+  %n.02.i.i.i.i = phi i64 [ %inc.i.i.i.i, %XXH3_scrambleAcc_sse2.exit.i.i.i.i ], [ 0, %if.end8.i.i ]
   %mul3.i.i.i.i = shl nuw i64 %n.02.i.i.i.i, 10
   %add.ptr.i.i.i1.i = getelementptr inbounds i8, ptr %key, i64 %mul3.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)

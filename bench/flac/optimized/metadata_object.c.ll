@@ -3828,18 +3828,18 @@ entry:
   %num_tracks = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %object, i64 0, i32 3, i32 0, i32 3
   %0 = load i32, ptr %num_tracks, align 4
   %cmp = icmp ult i32 %0, 2
-  br i1 %cmp, label %return, label %for.body.lr.ph
+  br i1 %cmp, label %return, label %for.cond.preheader
 
-for.body.lr.ph:                                   ; preds = %entry
+for.cond.preheader:                               ; preds = %entry
   %sub = add i32 %0, -1
   %tracks.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %object, i64 0, i32 3, i32 0, i32 4
   %lead_in52.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %object, i64 0, i32 3, i32 0, i32 1
   %1 = zext i32 %sub to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %cddb_add_digits_.exit
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %cddb_add_digits_.exit ]
-  %sum.042 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %cddb_add_digits_.exit ]
+for.body:                                         ; preds = %for.cond.preheader, %cddb_add_digits_.exit
+  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %cddb_add_digits_.exit ]
+  %sum.041 = phi i32 [ 0, %for.cond.preheader ], [ %add, %cddb_add_digits_.exit ]
   %cmp.not.i = icmp ult i64 %indvars.iv, %1
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %cddb_add_digits_.exit
 
@@ -3896,66 +3896,64 @@ while.body.i:                                     ; preds = %get_index_01_offset
 
 cddb_add_digits_.exit:                            ; preds = %while.body.i, %if.else30.i, %if.else21.i, %for.body, %lor.lhs.false.i, %get_index_01_offset_.exit
   %n.0.lcssa.i = phi i32 [ 0, %get_index_01_offset_.exit ], [ 0, %lor.lhs.false.i ], [ 0, %for.body ], [ 0, %if.else21.i ], [ 0, %if.else30.i ], [ %add.i, %while.body.i ]
-  %add = add i32 %n.0.lcssa.i, %sum.042
+  %add = add i32 %n.0.lcssa.i, %sum.041
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %1
   br i1 %exitcond.not, label %lor.lhs.false.i15, label %for.body, !llvm.loop !32
 
 lor.lhs.false.i15:                                ; preds = %cddb_add_digits_.exit
-  %10 = urem i32 %add, 255
-  %11 = shl nuw i32 %10, 24
-  %tracks = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %object, i64 0, i32 3, i32 0, i32 4
-  %12 = load ptr, ptr %tracks, align 8
-  %arrayidx = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %12, i64 %1
-  %13 = load i64, ptr %arrayidx, align 8
-  %lead_in = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %object, i64 0, i32 3, i32 0, i32 1
-  %14 = load i64, ptr %lead_in, align 8
-  %add6 = add i64 %14, %13
+  %10 = load ptr, ptr %tracks.i, align 8
+  %arrayidx = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %10, i64 %1
+  %11 = load i64, ptr %arrayidx, align 8
+  %12 = load i64, ptr %lead_in52.i, align 8
+  %add6 = add i64 %12, %11
   %div7 = udiv i64 %add6, 44100
   %conv8 = trunc i64 %div7 to i32
-  %num_indices.i17 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %12, i64 0, i32 4
-  %15 = load i8, ptr %num_indices.i17, align 1
-  %cmp1.i18 = icmp eq i8 %15, 0
+  %num_indices.i17 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %10, i64 0, i32 4
+  %13 = load i8, ptr %num_indices.i17, align 1
+  %cmp1.i18 = icmp eq i8 %13, 0
   br i1 %cmp1.i18, label %get_index_01_offset_.exit35, label %if.else.i19
 
 if.else.i19:                                      ; preds = %lor.lhs.false.i15
-  %indices.i20 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %12, i64 0, i32 5
-  %16 = load ptr, ptr %indices.i20, align 8
-  %number.i21 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %16, i64 0, i32 1
-  %17 = load i8, ptr %number.i21, align 8
-  %cmp8.i22 = icmp eq i8 %17, 1
+  %indices.i20 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %10, i64 0, i32 5
+  %14 = load ptr, ptr %indices.i20, align 8
+  %number.i21 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %14, i64 0, i32 1
+  %15 = load i8, ptr %number.i21, align 8
+  %cmp8.i22 = icmp eq i8 %15, 1
   br i1 %cmp8.i22, label %return.sink.split.i30, label %if.else21.i23
 
 if.else21.i23:                                    ; preds = %if.else.i19
-  %cmp27.i24 = icmp eq i8 %15, 1
+  %cmp27.i24 = icmp eq i8 %13, 1
   br i1 %cmp27.i24, label %get_index_01_offset_.exit35, label %if.else30.i25
 
 if.else30.i25:                                    ; preds = %if.else21.i23
-  %number36.i26 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %16, i64 1, i32 1
-  %18 = load i8, ptr %number36.i26, align 8
-  %cmp38.i27 = icmp eq i8 %18, 1
+  %number36.i26 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %14, i64 1, i32 1
+  %16 = load i8, ptr %number36.i26, align 8
+  %cmp38.i27 = icmp eq i8 %16, 1
   br i1 %cmp38.i27, label %if.then40.i28, label %get_index_01_offset_.exit35
 
 if.then40.i28:                                    ; preds = %if.else30.i25
-  %arrayidx35.i29 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %16, i64 1
+  %arrayidx35.i29 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %14, i64 1
   br label %return.sink.split.i30
 
 return.sink.split.i30:                            ; preds = %if.then40.i28, %if.else.i19
-  %arrayidx35.sink.i31 = phi ptr [ %arrayidx35.i29, %if.then40.i28 ], [ %16, %if.else.i19 ]
-  %19 = load i64, ptr %arrayidx35.sink.i31, align 8
-  %20 = load i64, ptr %12, align 8
-  %add51.i32 = add i64 %20, %19
-  %add53.i34 = add i64 %add51.i32, %14
-  %21 = udiv i64 %add53.i34, 44100
-  %22 = trunc i64 %21 to i32
+  %arrayidx35.sink.i31 = phi ptr [ %arrayidx35.i29, %if.then40.i28 ], [ %14, %if.else.i19 ]
+  %17 = load i64, ptr %arrayidx35.sink.i31, align 8
+  %18 = load i64, ptr %10, align 8
+  %add51.i32 = add i64 %18, %17
+  %add53.i34 = add i64 %add51.i32, %12
+  %19 = udiv i64 %add53.i34, 44100
+  %20 = trunc i64 %19 to i32
   br label %get_index_01_offset_.exit35
 
 get_index_01_offset_.exit35:                      ; preds = %lor.lhs.false.i15, %if.else21.i23, %if.else30.i25, %return.sink.split.i30
-  %retval.0.i14 = phi i32 [ 0, %lor.lhs.false.i15 ], [ 0, %if.else21.i23 ], [ 0, %if.else30.i25 ], [ %22, %return.sink.split.i30 ]
+  %retval.0.i14 = phi i32 [ 0, %lor.lhs.false.i15 ], [ 0, %if.else21.i23 ], [ 0, %if.else30.i25 ], [ %20, %return.sink.split.i30 ]
   %sub12 = sub i32 %conv8, %retval.0.i14
+  %rem = urem i32 %add, 255
+  %shl = shl nuw i32 %rem, 24
   %shl13 = shl i32 %sub12, 8
-  %23 = or i32 %11, %shl13
-  %or16 = or i32 %23, %sub
+  %21 = or i32 %shl, %shl13
+  %or16 = or i32 %21, %sub
   br label %return
 
 return:                                           ; preds = %entry, %get_index_01_offset_.exit35
