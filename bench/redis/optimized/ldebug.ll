@@ -46,7 +46,7 @@ entry:
   %cmp1 = icmp eq i32 %mask, 0
   %or.cond = or i1 %cmp, %cmp1
   %0 = trunc i32 %mask to i8
-  %spec.select9 = select i1 %or.cond, ptr null, ptr %func
+  %spec.select9 = select i1 %cmp1, ptr null, ptr %func
   %hook = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 21
   store ptr %spec.select9, ptr %hook, align 8, !tbaa !4
   %basehookcount = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 19

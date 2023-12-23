@@ -1629,10 +1629,8 @@ do.end:                                           ; preds = %do.body, %if.then17
 
 if.then23:                                        ; preds = %do.end
   %13 = load ptr, ptr %req, align 8
-  %tobool24.not = icmp eq ptr %13, null
   %cmp26.not = icmp eq ptr %13, %req
-  %or.cond = or i1 %tobool24.not, %cmp26.not
-  %. = select i1 %or.cond, ptr null, ptr %13
+  %. = select i1 %cmp26.not, ptr null, ptr %13
   store ptr %., ptr %pending_replies, align 8
   br label %if.end34
 

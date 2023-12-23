@@ -148,32 +148,32 @@ define dso_local void @lua_sethook(ptr noundef %L, ptr noundef %func, i32 nounde
 entry:
   %cmp = icmp eq ptr %func, null
   %cmp1 = icmp eq i32 %mask, 0
-  %or.cond = or i1 %cmp, %cmp1
-  %0 = and i32 %mask, 255
-  %spec.select9 = select i1 %or.cond, ptr null, ptr %func
+  %spec.select = select i1 %cmp, i32 0, i32 %mask
+  %spec.select9 = select i1 %cmp1, ptr null, ptr %func
   %hook = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 17
   store volatile ptr %spec.select9, ptr %hook, align 8
   %basehookcount = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 21
   store i32 %count, ptr %basehookcount, align 8
   %hookcount = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 22
   store i32 %count, ptr %hookcount, align 4
-  %conv3 = select i1 %or.cond, i32 0, i32 %0
+  %conv3 = and i32 %spec.select, 255
   %hookmask = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 23
   store volatile i32 %conv3, ptr %hookmask, align 8
-  br i1 %or.cond, label %if.end5, label %if.then4
+  %tobool.not = icmp eq i32 %spec.select, 0
+  br i1 %tobool.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %entry
   %ci = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %ci, align 8
-  %cmp.not4.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %ci, align 8
+  %cmp.not4.i = icmp eq ptr %0, null
   br i1 %cmp.not4.i, label %if.end5, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then4, %for.inc.i
-  %ci.addr.05.i = phi ptr [ %4, %for.inc.i ], [ %1, %if.then4 ]
+  %ci.addr.05.i = phi ptr [ %3, %for.inc.i ], [ %0, %if.then4 ]
   %callstatus.i = getelementptr inbounds %struct.CallInfo, ptr %ci.addr.05.i, i64 0, i32 7
-  %2 = load i16, ptr %callstatus.i, align 2
-  %3 = and i16 %2, 2
-  %tobool.not.i = icmp eq i16 %3, 0
+  %1 = load i16, ptr %callstatus.i, align 2
+  %2 = and i16 %1, 2
+  %tobool.not.i = icmp eq i16 %2, 0
   br i1 %tobool.not.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
@@ -183,8 +183,8 @@ if.then.i:                                        ; preds = %for.body.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
   %previous.i = getelementptr inbounds %struct.CallInfo, ptr %ci.addr.05.i, i64 0, i32 2
-  %4 = load ptr, ptr %previous.i, align 8
-  %cmp.not.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %previous.i, align 8
+  %cmp.not.i = icmp eq ptr %3, null
   br i1 %cmp.not.i, label %if.end5, label %for.body.i, !llvm.loop !8
 
 if.end5:                                          ; preds = %for.inc.i, %if.then4, %entry

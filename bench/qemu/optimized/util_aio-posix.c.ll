@@ -134,10 +134,8 @@ if.end31:                                         ; preds = %if.then25, %do.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @aio_set_fd_handler(ptr noundef %ctx, i32 noundef %fd, ptr noundef %io_read, ptr noundef %io_write, ptr noundef %io_poll, ptr noundef %io_poll_ready, ptr noundef %opaque) local_unnamed_addr #2 {
 entry:
-  %tobool = icmp eq ptr %io_poll, null
-  %tobool1 = icmp ne ptr %io_poll_ready, null
-  %or.cond = or i1 %tobool, %tobool1
-  %spec.store.select = select i1 %or.cond, ptr %io_poll, ptr null
+  %tobool1.not = icmp eq ptr %io_poll_ready, null
+  %spec.store.select = select i1 %tobool1.not, ptr null, ptr %io_poll
   %list_lock = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 6
   tail call void @qemu_lockcnt_lock(ptr noundef nonnull %list_lock) #10
   %aio_handlers.i = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 3

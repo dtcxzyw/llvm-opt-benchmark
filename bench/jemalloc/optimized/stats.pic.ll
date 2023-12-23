@@ -7953,9 +7953,8 @@ do.end21.i.i:                                     ; preds = %tsd_fetch_impl.exit
   store i32 5, ptr %type23.i.i, align 16
   %305 = load i64, ptr %290, align 16
   %cmp1.i.i.i = icmp eq i64 %305, 0
-  %or.cond.i.i.i = or i1 %cmp.i.i.i, %cmp1.i.i.i
   %brmerge.i = or i1 %cmp2.i.i.i, %cmp1.i.i.i
-  %.mux.i = select i1 %or.cond.i.i.i, i64 0, i64 %305
+  %.mux.i = select i1 %cmp.i.i.i, i64 0, i64 %305
   br i1 %brmerge.i, label %rate_per_second.exit.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %do.end21.i.i
@@ -7991,9 +7990,8 @@ do.end42.i.i:                                     ; preds = %tsd_fetch_impl.exit
   store i32 5, ptr %type44.i.i, align 16
   %307 = load i64, ptr %292, align 16
   %cmp1.i91.i.i = icmp eq i64 %307, 0
-  %or.cond.i92.i.i = or i1 %cmp.i.i.i, %cmp1.i91.i.i
   %brmerge44.i = or i1 %cmp2.i.i.i, %cmp1.i91.i.i
-  %.mux45.i = select i1 %or.cond.i92.i.i, i64 0, i64 %307
+  %.mux45.i = select i1 %cmp.i.i.i, i64 0, i64 %307
   br i1 %brmerge44.i, label %rate_per_second.exit99.i.i, label %if.else.i95.i.i
 
 if.else.i95.i.i:                                  ; preds = %do.end42.i.i
@@ -8029,9 +8027,8 @@ do.end64.i.i:                                     ; preds = %tsd_fetch_impl.exit
   store i32 5, ptr %type66.i.i, align 16
   %309 = load i64, ptr %294, align 16
   %cmp1.i101.i.i = icmp eq i64 %309, 0
-  %or.cond.i102.i.i = or i1 %cmp.i.i.i, %cmp1.i101.i.i
   %brmerge46.i = or i1 %cmp2.i.i.i, %cmp1.i101.i.i
-  %.mux47.i = select i1 %or.cond.i102.i.i, i64 0, i64 %309
+  %.mux47.i = select i1 %cmp.i.i.i, i64 0, i64 %309
   br i1 %brmerge46.i, label %rate_per_second.exit109.i.i, label %if.else.i105.i.i
 
 if.else.i105.i.i:                                 ; preds = %do.end64.i.i
@@ -8067,9 +8064,8 @@ do.end86.i.i:                                     ; preds = %tsd_fetch_impl.exit
   store i32 5, ptr %type88.i.i, align 16
   %311 = load i64, ptr %296, align 16
   %cmp1.i111.i.i = icmp eq i64 %311, 0
-  %or.cond.i112.i.i = or i1 %cmp.i.i.i, %cmp1.i111.i.i
   %brmerge48.i = or i1 %cmp2.i.i.i, %cmp1.i111.i.i
-  %.mux49.i = select i1 %or.cond.i112.i.i, i64 0, i64 %311
+  %.mux49.i = select i1 %cmp.i.i.i, i64 0, i64 %311
   br i1 %brmerge48.i, label %rate_per_second.exit119.i.i, label %if.else.i115.i.i
 
 if.else.i115.i.i:                                 ; preds = %do.end86.i.i
@@ -8105,9 +8101,8 @@ do.end108.i.i:                                    ; preds = %tsd_fetch_impl.exit
   store i32 5, ptr %type110.i.i, align 16
   %313 = load i64, ptr %298, align 16
   %cmp1.i121.i.i = icmp eq i64 %313, 0
-  %or.cond.i122.i.i = or i1 %cmp.i.i.i, %cmp1.i121.i.i
   %brmerge50.i = or i1 %cmp2.i.i.i, %cmp1.i121.i.i
-  %.mux51.i = select i1 %or.cond.i122.i.i, i64 0, i64 %313
+  %.mux51.i = select i1 %cmp.i.i.i, i64 0, i64 %313
   br i1 %brmerge50.i, label %rate_per_second.exit129.i.i, label %if.else.i125.i.i
 
 if.else.i125.i.i:                                 ; preds = %do.end108.i.i
@@ -11851,9 +11846,8 @@ do.end21.i:                                       ; preds = %tsd_fetch_impl.exit
   store i32 5, ptr %type23.i, align 16
   %314 = load i64, ptr %262, align 16
   %cmp1.i.i = icmp eq i64 %314, 0
-  %or.cond.i.i = or i1 %cmp.i.i, %cmp1.i.i
   %brmerge838 = or i1 %cmp2.i.i, %cmp1.i.i
-  %.mux = select i1 %or.cond.i.i, i64 0, i64 %314
+  %.mux = select i1 %cmp.i.i, i64 0, i64 %314
   br i1 %brmerge838, label %rate_per_second.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %do.end21.i
@@ -11889,9 +11883,8 @@ do.end42.i:                                       ; preds = %tsd_fetch_impl.exit
   store i32 5, ptr %type44.i, align 16
   %316 = load i64, ptr %264, align 16
   %cmp1.i90.i = icmp eq i64 %316, 0
-  %or.cond.i91.i = or i1 %cmp.i.i, %cmp1.i90.i
   %brmerge839 = or i1 %cmp2.i.i, %cmp1.i90.i
-  %.mux840 = select i1 %or.cond.i91.i, i64 0, i64 %316
+  %.mux840 = select i1 %cmp.i.i, i64 0, i64 %316
   br i1 %brmerge839, label %rate_per_second.exit98.i, label %if.else.i94.i
 
 if.else.i94.i:                                    ; preds = %do.end42.i
@@ -11927,9 +11920,8 @@ do.end64.i:                                       ; preds = %tsd_fetch_impl.exit
   store i32 5, ptr %type66.i, align 16
   %318 = load i64, ptr %266, align 16
   %cmp1.i100.i = icmp eq i64 %318, 0
-  %or.cond.i101.i = or i1 %cmp.i.i, %cmp1.i100.i
   %brmerge841 = or i1 %cmp2.i.i, %cmp1.i100.i
-  %.mux842 = select i1 %or.cond.i101.i, i64 0, i64 %318
+  %.mux842 = select i1 %cmp.i.i, i64 0, i64 %318
   br i1 %brmerge841, label %rate_per_second.exit108.i, label %if.else.i104.i
 
 if.else.i104.i:                                   ; preds = %do.end64.i
@@ -11965,9 +11957,8 @@ do.end86.i:                                       ; preds = %tsd_fetch_impl.exit
   store i32 5, ptr %type88.i, align 16
   %320 = load i64, ptr %268, align 16
   %cmp1.i110.i = icmp eq i64 %320, 0
-  %or.cond.i111.i = or i1 %cmp.i.i, %cmp1.i110.i
   %brmerge843 = or i1 %cmp2.i.i, %cmp1.i110.i
-  %.mux844 = select i1 %or.cond.i111.i, i64 0, i64 %320
+  %.mux844 = select i1 %cmp.i.i, i64 0, i64 %320
   br i1 %brmerge843, label %rate_per_second.exit118.i, label %if.else.i114.i
 
 if.else.i114.i:                                   ; preds = %do.end86.i
@@ -12003,9 +11994,8 @@ do.end108.i:                                      ; preds = %tsd_fetch_impl.exit
   store i32 5, ptr %type110.i, align 16
   %322 = load i64, ptr %270, align 16
   %cmp1.i120.i = icmp eq i64 %322, 0
-  %or.cond.i121.i = or i1 %cmp.i.i, %cmp1.i120.i
   %brmerge845 = or i1 %cmp2.i.i, %cmp1.i120.i
-  %.mux846 = select i1 %or.cond.i121.i, i64 0, i64 %322
+  %.mux846 = select i1 %cmp.i.i, i64 0, i64 %322
   br i1 %brmerge845, label %rate_per_second.exit128.i, label %if.else.i124.i
 
 if.else.i124.i:                                   ; preds = %do.end108.i
@@ -12262,9 +12252,8 @@ if.end595:                                        ; preds = %if.else17.i, %if.th
   %337 = load i64, ptr %nmalloc, align 8
   store i64 %337, ptr %277, align 8
   %cmp1.i723 = icmp eq i64 %337, 0
-  %or.cond.i724 = or i1 %cmp.i.i, %cmp1.i723
   %brmerge847 = or i1 %cmp2.i.i, %cmp1.i723
-  %.mux848 = select i1 %or.cond.i724, i64 0, i64 %337
+  %.mux848 = select i1 %cmp.i.i, i64 0, i64 %337
   br i1 %brmerge847, label %rate_per_second.exit, label %if.else.i726
 
 if.else.i726:                                     ; preds = %if.end595
@@ -12277,9 +12266,8 @@ rate_per_second.exit:                             ; preds = %if.end595, %if.else
   %338 = load i64, ptr %ndalloc, align 8
   store i64 %338, ptr %279, align 8
   %cmp1.i729 = icmp eq i64 %338, 0
-  %or.cond.i730 = or i1 %cmp.i.i, %cmp1.i729
   %brmerge849 = or i1 %cmp2.i.i, %cmp1.i729
-  %.mux850 = select i1 %or.cond.i730, i64 0, i64 %338
+  %.mux850 = select i1 %cmp.i.i, i64 0, i64 %338
   br i1 %brmerge849, label %rate_per_second.exit737, label %if.else.i733
 
 if.else.i733:                                     ; preds = %rate_per_second.exit
@@ -12292,9 +12280,8 @@ rate_per_second.exit737:                          ; preds = %rate_per_second.exi
   %339 = load i64, ptr %nrequests, align 8
   store i64 %339, ptr %281, align 8
   %cmp1.i739 = icmp eq i64 %339, 0
-  %or.cond.i740 = or i1 %cmp.i.i, %cmp1.i739
   %brmerge851 = or i1 %cmp2.i.i, %cmp1.i739
-  %.mux852 = select i1 %or.cond.i740, i64 0, i64 %339
+  %.mux852 = select i1 %cmp.i.i, i64 0, i64 %339
   br i1 %brmerge851, label %rate_per_second.exit747, label %if.else.i743
 
 if.else.i743:                                     ; preds = %rate_per_second.exit737
@@ -12321,9 +12308,8 @@ rate_per_second.exit747:                          ; preds = %rate_per_second.exi
   %346 = load i64, ptr %nfills, align 8
   store i64 %346, ptr %290, align 8
   %cmp1.i749 = icmp eq i64 %346, 0
-  %or.cond.i750 = or i1 %cmp.i.i, %cmp1.i749
   %brmerge853 = or i1 %cmp2.i.i, %cmp1.i749
-  %.mux854 = select i1 %or.cond.i750, i64 0, i64 %346
+  %.mux854 = select i1 %cmp.i.i, i64 0, i64 %346
   br i1 %brmerge853, label %rate_per_second.exit757, label %if.else.i753
 
 if.else.i753:                                     ; preds = %rate_per_second.exit747
@@ -12336,9 +12322,8 @@ rate_per_second.exit757:                          ; preds = %rate_per_second.exi
   %347 = load i64, ptr %nflushes, align 8
   store i64 %347, ptr %292, align 8
   %cmp1.i759 = icmp eq i64 %347, 0
-  %or.cond.i760 = or i1 %cmp.i.i, %cmp1.i759
   %brmerge855 = or i1 %cmp2.i.i, %cmp1.i759
-  %.mux856 = select i1 %or.cond.i760, i64 0, i64 %347
+  %.mux856 = select i1 %cmp.i.i, i64 0, i64 %347
   br i1 %brmerge855, label %rate_per_second.exit767, label %if.else.i763
 
 if.else.i763:                                     ; preds = %rate_per_second.exit757
@@ -12353,9 +12338,8 @@ rate_per_second.exit767:                          ; preds = %rate_per_second.exi
   %349 = load i64, ptr %nreslabs, align 8
   store i64 %349, ptr %295, align 8
   %cmp1.i769 = icmp eq i64 %349, 0
-  %or.cond.i770 = or i1 %cmp.i.i, %cmp1.i769
   %brmerge857 = or i1 %cmp2.i.i, %cmp1.i769
-  %.mux858 = select i1 %or.cond.i770, i64 0, i64 %349
+  %.mux858 = select i1 %cmp.i.i, i64 0, i64 %349
   br i1 %brmerge857, label %rate_per_second.exit777, label %if.else.i773
 
 if.else.i773:                                     ; preds = %rate_per_second.exit767
@@ -13249,9 +13233,8 @@ emitter_json_object_end.exit:                     ; preds = %if.end298, %if.end.
   %100 = load i64, ptr %nmalloc, align 8
   store i64 %100, ptr %80, align 8
   %cmp1.i = icmp eq i64 %100, 0
-  %or.cond.i = or i1 %cmp.i303, %cmp1.i
   %brmerge428 = or i1 %cmp2.i, %cmp1.i
-  %.mux = select i1 %or.cond.i, i64 0, i64 %100
+  %.mux = select i1 %cmp.i303, i64 0, i64 %100
   br i1 %brmerge428, label %rate_per_second.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %emitter_json_object_end.exit
@@ -13264,9 +13247,8 @@ rate_per_second.exit:                             ; preds = %emitter_json_object
   %101 = load i64, ptr %ndalloc, align 8
   store i64 %101, ptr %82, align 8
   %cmp1.i306 = icmp eq i64 %101, 0
-  %or.cond.i307 = or i1 %cmp.i303, %cmp1.i306
   %brmerge429 = or i1 %cmp2.i, %cmp1.i306
-  %.mux430 = select i1 %or.cond.i307, i64 0, i64 %101
+  %.mux430 = select i1 %cmp.i303, i64 0, i64 %101
   br i1 %brmerge429, label %rate_per_second.exit314, label %if.else.i310
 
 if.else.i310:                                     ; preds = %rate_per_second.exit
@@ -13279,9 +13261,8 @@ rate_per_second.exit314:                          ; preds = %rate_per_second.exi
   %102 = load i64, ptr %nrequests, align 8
   store i64 %102, ptr %84, align 8
   %cmp1.i316 = icmp eq i64 %102, 0
-  %or.cond.i317 = or i1 %cmp.i303, %cmp1.i316
   %brmerge431 = or i1 %cmp2.i, %cmp1.i316
-  %.mux432 = select i1 %or.cond.i317, i64 0, i64 %102
+  %.mux432 = select i1 %cmp.i303, i64 0, i64 %102
   br i1 %brmerge431, label %rate_per_second.exit324, label %if.else.i320
 
 if.else.i320:                                     ; preds = %rate_per_second.exit314

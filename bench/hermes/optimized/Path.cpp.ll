@@ -8504,7 +8504,7 @@ if.end:                                           ; preds = %_ZN4llvh3sys2fsL23r
   %cmp.i6.not = icmp eq i32 %41, 0
   %brmerge5 = or i1 %cmp.i6.not, %IgnoreErrors
   %spec.select = select i1 %brmerge5, ptr %call.i.i, ptr %42
-  %spec.select14 = select i1 %brmerge5, i32 0, i32 %41
+  %spec.select14 = select i1 %IgnoreErrors, i32 0, i32 %41
   br label %return
 
 return:                                           ; preds = %if.end, %_ZN4llvh3sys2fsL23remove_directories_implINS_5TwineEEESt10error_codeRKT_b.exit

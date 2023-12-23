@@ -292,7 +292,7 @@ if.end67:                                         ; preds = %land.lhs.true62, %i
   %or.cond2 = select i1 %tobool68, i1 %tobool70, i1 false
   %or.cond3 = and i1 %or.cond2, %tobool56
   %spec.select = select i1 %or.cond3, i32 1, i32 %text_pub.0
-  %spec.select65 = select i1 %or.cond3, i32 0, i32 %text.0
+  %spec.select65 = select i1 %or.cond2, i32 0, i32 %text.0
   %tobool75 = icmp ne i32 %noout.0, 0
   %or.cond4 = select i1 %tobool75, i1 true, i1 %tobool70
   br i1 %or.cond4, label %lor.rhs, label %lor.end

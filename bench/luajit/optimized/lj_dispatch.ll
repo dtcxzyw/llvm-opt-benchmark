@@ -781,9 +781,8 @@ entry:
   %and = and i32 %mask, 15
   %cmp = icmp eq ptr %func, null
   %cmp1 = icmp eq i32 %and, 0
-  %or.cond = or i1 %cmp, %cmp1
   %1 = trunc i32 %and to i8
-  %spec.select10 = select i1 %or.cond, ptr null, ptr %func
+  %spec.select10 = select i1 %cmp1, ptr null, ptr %func
   %2 = inttoptr i64 %0 to ptr
   %hookf = getelementptr inbounds %struct.global_State, ptr %2, i64 0, i32 19
   store ptr %spec.select10, ptr %hookf, align 8
@@ -794,7 +793,7 @@ entry:
   %hookmask = getelementptr inbounds %struct.global_State, ptr %2, i64 0, i32 5
   %3 = load i8, ptr %hookmask, align 1
   %4 = and i8 %3, -16
-  %5 = select i1 %or.cond, i8 0, i8 %1
+  %5 = select i1 %cmp, i8 0, i8 %1
   %conv3 = or disjoint i8 %4, %5
   store i8 %conv3, ptr %hookmask, align 1
   %state = getelementptr inbounds i8, ptr %2, i64 964

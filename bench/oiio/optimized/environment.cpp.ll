@@ -1077,11 +1077,12 @@ for.end:                                          ; preds = %if.end58
   %22 = zext nneg i32 %nchannels to i64
   %23 = shl nuw nsw i64 %22, 2
   call void @llvm.memset.p0.i64(ptr align 4 %result, i8 0, i64 %23, i1 false)
-  %tobool70 = icmp eq ptr %dresultds, null
-  br i1 %tobool70, label %if.end90, label %for.body84.preheader
+  %tobool70.not = icmp eq ptr %dresultds, null
+  br i1 %tobool70.not, label %if.end90, label %for.body84.preheader
 
 for.end.thread:                                   ; preds = %if.end58
-  %tobool70433 = icmp eq ptr %dresultds, null
+  %tobool70.not433 = icmp eq ptr %dresultds, null
+  %spec.select439 = select i1 %tobool70.not433, ptr null, ptr %dresultdt
   br label %if.end90
 
 for.body84.preheader:                             ; preds = %for.end
@@ -1094,11 +1095,9 @@ for.body84.preheader:                             ; preds = %for.end
   br label %if.end90
 
 if.end90:                                         ; preds = %for.end.thread, %for.body84.preheader, %for.end
-  %tobool70435 = phi i1 [ false, %for.body84.preheader ], [ true, %for.end ], [ %tobool70433, %for.end.thread ]
-  %tobool92 = icmp eq ptr %dresultdt, null
-  %or.cond.not = or i1 %tobool70435, %tobool92
-  %spec.select187 = select i1 %or.cond.not, ptr null, ptr %dresultdt
-  %spec.select188 = select i1 %or.cond.not, ptr null, ptr %dresultds
+  %spec.select187 = phi ptr [ null, %for.end ], [ %dresultdt, %for.body84.preheader ], [ %spec.select439, %for.end.thread ]
+  %tobool92.not = icmp eq ptr %dresultdt, null
+  %spec.select188 = select i1 %tobool92.not, ptr null, ptr %dresultds
   %28 = fmul <2 x float> %_R.coerce0, %_R.coerce0
   %mul4.i.i.i = extractelement <2 x float> %28, i64 1
   %29 = call float @llvm.fmuladd.f32(float %0, float %0, float %mul4.i.i.i)
@@ -1442,12 +1441,13 @@ if.end147:                                        ; preds = %if.else144, %if.end
   %arrayinit.element247 = getelementptr inbounds float, ptr %tval, i64 3
   %arrayinit.element252 = getelementptr inbounds float, ptr %weight, i64 1
   %arrayinit.element254 = getelementptr inbounds float, ptr %weight, i64 3
-  %drds. = select i1 %or.cond.not, ptr null, ptr %drds
-  %cond268 = select i1 %or.cond.not, ptr null, ptr %drdt
+  %tobool259.not = icmp eq ptr %spec.select188, null
+  %drds. = select i1 %tobool259.not, ptr null, ptr %drds
+  %cond268 = select i1 %tobool259.not, ptr null, ptr %drdt
   %cmp290402 = icmp slt i32 %nchannels, 1
   %117 = sext i32 %115 to i64
   %wide.trip.count = zext nneg i32 %nchannels to i64
-  %brmerge = or i1 %or.cond.not, %cmp290402
+  %brmerge = or i1 %tobool259.not, %cmp290402
   %wide.trip.count428 = zext nneg i32 %nchannels to i64
   br label %for.body154
 
@@ -1539,8 +1539,8 @@ if.then204:                                       ; preds = %if.else202
   br label %if.end208.sink.split
 
 if.end208.sink.split:                             ; preds = %if.end196, %if.then204
-  %.sink444 = phi i32 [ %115, %if.then204 ], [ %129, %if.end196 ]
-  store i32 %.sink444, ptr %arrayidx172, align 4
+  %.sink440 = phi i32 [ %115, %if.then204 ], [ %129, %if.end196 ]
+  store i32 %.sink440, ptr %arrayidx172, align 4
   br label %if.end208
 
 if.end208:                                        ; preds = %if.end208.sink.split, %if.else202
@@ -1581,16 +1581,16 @@ lor.lhs.false224:                                 ; preds = %if.then222
   %full_height227 = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::pvt::ImageCacheFile::LevelInfo", ptr %136, i64 %conv2.i.i, i32 0, i32 10
   %137 = load i32, ptr %full_height227, align 8
   %cmp229 = icmp slt i32 %137, %div228
-  %spec.select447 = select i1 %cmp229, ptr %cubic_interps231, ptr %bilinear_interps234
-  %spec.select448 = select i1 %cmp229, i64 ptrtoint (ptr @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl14sample_bicubicEiPKfS3_iRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS_10TextureOptEiiS3_PNS_4simd7vfloat4ESC_SC_ to i64), i64 ptrtoint (ptr @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl15sample_bilinearEiPKfS3_iRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS_10TextureOptEiiS3_PNS_4simd7vfloat4ESC_SC_ to i64)
+  %spec.select443 = select i1 %cmp229, ptr %cubic_interps231, ptr %bilinear_interps234
+  %spec.select444 = select i1 %cmp229, i64 ptrtoint (ptr @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl14sample_bicubicEiPKfS3_iRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS_10TextureOptEiiS3_PNS_4simd7vfloat4ESC_SC_ to i64), i64 ptrtoint (ptr @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl15sample_bilinearEiPKfS3_iRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS_10TextureOptEiiS3_PNS_4simd7vfloat4ESC_SC_ to i64)
   br label %if.end239
 
 if.end239:                                        ; preds = %lor.lhs.false224, %if.end217, %if.then222
-  %cubic_interps231.sink446 = phi ptr [ %cubic_interps231, %if.then222 ], [ %probecount.0, %if.end217 ], [ %spec.select447, %lor.lhs.false224 ]
-  %sampler.sroa.0.3 = phi i64 [ ptrtoint (ptr @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl14sample_bicubicEiPKfS3_iRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS_10TextureOptEiiS3_PNS_4simd7vfloat4ESC_SC_ to i64), %if.then222 ], [ %sampler.sroa.0.2404, %if.end217 ], [ %spec.select448, %lor.lhs.false224 ]
-  %138 = load i64, ptr %cubic_interps231.sink446, align 8
+  %cubic_interps231.sink442 = phi ptr [ %cubic_interps231, %if.then222 ], [ %probecount.0, %if.end217 ], [ %spec.select443, %lor.lhs.false224 ]
+  %sampler.sroa.0.3 = phi i64 [ ptrtoint (ptr @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl14sample_bicubicEiPKfS3_iRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS_10TextureOptEiiS3_PNS_4simd7vfloat4ESC_SC_ to i64), %if.then222 ], [ %sampler.sroa.0.2404, %if.end217 ], [ %spec.select444, %lor.lhs.false224 ]
+  %138 = load i64, ptr %cubic_interps231.sink442, align 8
   %inc232 = add nsw i64 %138, 1
-  store i64 %inc232, ptr %cubic_interps231.sink446, align 8
+  store i64 %inc232, ptr %cubic_interps231.sink442, align 8
   %139 = load float, ptr %s156, align 4
   store float %139, ptr %sval, align 16
   store <2 x float> zeroinitializer, ptr %arrayinit.element241, align 4
