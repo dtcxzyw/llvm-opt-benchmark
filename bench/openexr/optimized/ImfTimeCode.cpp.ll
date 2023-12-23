@@ -41,10 +41,10 @@ invoke.cont.i:                                    ; preds = %if.then.i
   tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #7
   unreachable
 
-common.resume:                                    ; preds = %lpad.i36, %lpad.i24, %lpad.i11, %lpad.i
-  %exception.i35.sink = phi ptr [ %exception.i35, %lpad.i36 ], [ %exception.i23, %lpad.i24 ], [ %exception.i10, %lpad.i11 ], [ %exception.i, %lpad.i ]
-  %common.resume.op = phi { ptr, i32 } [ %7, %lpad.i36 ], [ %5, %lpad.i24 ], [ %3, %lpad.i11 ], [ %0, %lpad.i ]
-  tail call void @__cxa_free_exception(ptr %exception.i35.sink) #6
+common.resume:                                    ; preds = %lpad.i33, %lpad.i22, %lpad.i10, %lpad.i
+  %exception.i32.sink = phi ptr [ %exception.i32, %lpad.i33 ], [ %exception.i21, %lpad.i22 ], [ %exception.i9, %lpad.i10 ], [ %exception.i, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %7, %lpad.i33 ], [ %5, %lpad.i22 ], [ %3, %lpad.i10 ], [ %0, %lpad.i ]
+  tail call void @__cxa_free_exception(ptr %exception.i32.sink) #6
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then.i
@@ -54,10 +54,9 @@ lpad.i:                                           ; preds = %if.then.i
 
 _ZN7Imf_3_28TimeCode8setHoursEi.exit:             ; preds = %entry
   %rem.i.lhs.trunc.i = trunc i32 %hours to i8
-  %rem.i4.i = urem i8 %rem.i.lhs.trunc.i, 10
   %div.i5.i = udiv i8 %rem.i.lhs.trunc.i, 10
-  %1 = shl nuw nsw i8 %div.i5.i, 4
-  %or.i6.i = or disjoint i8 %1, %rem.i4.i
+  %1 = mul nuw nsw i8 %div.i5.i, 6
+  %or.i6.i = add nuw nsw i8 %1, %rem.i.lhs.trunc.i
   %2 = load i32, ptr %this, align 4
   %and.i.i = and i32 %2, -1056964609
   %shl35.i.i = zext nneg i8 %or.i6.i to i32
@@ -65,123 +64,120 @@ _ZN7Imf_3_28TimeCode8setHoursEi.exit:             ; preds = %entry
   %or.i3.i = or i32 %and.i.i, %and4.i.i
   store i32 %or.i3.i, ptr %this, align 4
   %or.cond.i1 = icmp ugt i32 %minutes, 59
-  br i1 %or.cond.i1, label %if.then.i9, label %_ZN7Imf_3_28TimeCode10setMinutesEi.exit
+  br i1 %or.cond.i1, label %if.then.i8, label %_ZN7Imf_3_28TimeCode10setMinutesEi.exit
 
-if.then.i9:                                       ; preds = %_ZN7Imf_3_28TimeCode8setHoursEi.exit
-  %exception.i10 = tail call ptr @__cxa_allocate_exception(i64 72) #6
-  invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception.i10, ptr noundef nonnull @.str.1)
-          to label %invoke.cont.i12 unwind label %lpad.i11
+if.then.i8:                                       ; preds = %_ZN7Imf_3_28TimeCode8setHoursEi.exit
+  %exception.i9 = tail call ptr @__cxa_allocate_exception(i64 72) #6
+  invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception.i9, ptr noundef nonnull @.str.1)
+          to label %invoke.cont.i11 unwind label %lpad.i10
 
-invoke.cont.i12:                                  ; preds = %if.then.i9
-  tail call void @__cxa_throw(ptr nonnull %exception.i10, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #7
+invoke.cont.i11:                                  ; preds = %if.then.i8
+  tail call void @__cxa_throw(ptr nonnull %exception.i9, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #7
   unreachable
 
-lpad.i11:                                         ; preds = %if.then.i9
+lpad.i10:                                         ; preds = %if.then.i8
   %3 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN7Imf_3_28TimeCode10setMinutesEi.exit:          ; preds = %_ZN7Imf_3_28TimeCode8setHoursEi.exit
   %rem.i.lhs.trunc.i2 = trunc i32 %minutes to i8
-  %rem.i4.i3 = urem i8 %rem.i.lhs.trunc.i2, 10
-  %div.i5.i4 = udiv i8 %rem.i.lhs.trunc.i2, 10
-  %4 = shl nuw nsw i8 %div.i5.i4, 4
-  %or.i6.i5 = or disjoint i8 %4, %rem.i4.i3
-  %or.i.i = zext nneg i8 %or.i6.i5 to i32
-  %and.i.i6 = and i32 %or.i3.i, -8323073
-  %and4.i.i7 = shl nuw nsw i32 %or.i.i, 16
-  %or.i3.i8 = or disjoint i32 %and.i.i6, %and4.i.i7
-  store i32 %or.i3.i8, ptr %this, align 4
-  %or.cond.i13 = icmp ugt i32 %seconds, 59
-  br i1 %or.cond.i13, label %if.then.i22, label %_ZN7Imf_3_28TimeCode10setSecondsEi.exit
+  %div.i5.i3 = udiv i8 %rem.i.lhs.trunc.i2, 10
+  %4 = mul nuw nsw i8 %div.i5.i3, 6
+  %or.i6.i4 = add nuw nsw i8 %4, %rem.i.lhs.trunc.i2
+  %or.i.i = zext nneg i8 %or.i6.i4 to i32
+  %and.i.i5 = and i32 %or.i3.i, -8323073
+  %and4.i.i6 = shl nuw nsw i32 %or.i.i, 16
+  %or.i3.i7 = or disjoint i32 %and.i.i5, %and4.i.i6
+  store i32 %or.i3.i7, ptr %this, align 4
+  %or.cond.i12 = icmp ugt i32 %seconds, 59
+  br i1 %or.cond.i12, label %if.then.i20, label %_ZN7Imf_3_28TimeCode10setSecondsEi.exit
 
-if.then.i22:                                      ; preds = %_ZN7Imf_3_28TimeCode10setMinutesEi.exit
-  %exception.i23 = tail call ptr @__cxa_allocate_exception(i64 72) #6
-  invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception.i23, ptr noundef nonnull @.str.2)
-          to label %invoke.cont.i25 unwind label %lpad.i24
+if.then.i20:                                      ; preds = %_ZN7Imf_3_28TimeCode10setMinutesEi.exit
+  %exception.i21 = tail call ptr @__cxa_allocate_exception(i64 72) #6
+  invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception.i21, ptr noundef nonnull @.str.2)
+          to label %invoke.cont.i23 unwind label %lpad.i22
 
-invoke.cont.i25:                                  ; preds = %if.then.i22
-  tail call void @__cxa_throw(ptr nonnull %exception.i23, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #7
+invoke.cont.i23:                                  ; preds = %if.then.i20
+  tail call void @__cxa_throw(ptr nonnull %exception.i21, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #7
   unreachable
 
-lpad.i24:                                         ; preds = %if.then.i22
+lpad.i22:                                         ; preds = %if.then.i20
   %5 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN7Imf_3_28TimeCode10setSecondsEi.exit:          ; preds = %_ZN7Imf_3_28TimeCode10setMinutesEi.exit
-  %rem.i.lhs.trunc.i14 = trunc i32 %seconds to i8
-  %rem.i4.i15 = urem i8 %rem.i.lhs.trunc.i14, 10
-  %div.i5.i16 = udiv i8 %rem.i.lhs.trunc.i14, 10
-  %6 = shl nuw nsw i8 %div.i5.i16, 4
-  %or.i6.i17 = or disjoint i8 %6, %rem.i4.i15
-  %or.i.i18 = zext nneg i8 %or.i6.i17 to i32
-  %and.i.i19 = and i32 %or.i3.i8, -32513
-  %and4.i.i20 = shl nuw nsw i32 %or.i.i18, 8
-  %or.i3.i21 = or disjoint i32 %and.i.i19, %and4.i.i20
-  store i32 %or.i3.i21, ptr %this, align 4
-  %or.cond.i26 = icmp ugt i32 %frame, 29
-  br i1 %or.cond.i26, label %if.then.i34, label %_ZN7Imf_3_28TimeCode8setFrameEi.exit
+  %rem.i.lhs.trunc.i13 = trunc i32 %seconds to i8
+  %div.i5.i14 = udiv i8 %rem.i.lhs.trunc.i13, 10
+  %6 = mul nuw nsw i8 %div.i5.i14, 6
+  %or.i6.i15 = add nuw nsw i8 %6, %rem.i.lhs.trunc.i13
+  %or.i.i16 = zext nneg i8 %or.i6.i15 to i32
+  %and.i.i17 = and i32 %or.i3.i7, -32513
+  %and4.i.i18 = shl nuw nsw i32 %or.i.i16, 8
+  %or.i3.i19 = or disjoint i32 %and.i.i17, %and4.i.i18
+  store i32 %or.i3.i19, ptr %this, align 4
+  %or.cond.i24 = icmp ugt i32 %frame, 29
+  br i1 %or.cond.i24, label %if.then.i31, label %_ZN7Imf_3_28TimeCode8setFrameEi.exit
 
-if.then.i34:                                      ; preds = %_ZN7Imf_3_28TimeCode10setSecondsEi.exit
-  %exception.i35 = tail call ptr @__cxa_allocate_exception(i64 72) #6
-  invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception.i35, ptr noundef nonnull @.str.3)
-          to label %invoke.cont.i37 unwind label %lpad.i36
+if.then.i31:                                      ; preds = %_ZN7Imf_3_28TimeCode10setSecondsEi.exit
+  %exception.i32 = tail call ptr @__cxa_allocate_exception(i64 72) #6
+  invoke void @_ZN7Iex_3_26ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %exception.i32, ptr noundef nonnull @.str.3)
+          to label %invoke.cont.i34 unwind label %lpad.i33
 
-invoke.cont.i37:                                  ; preds = %if.then.i34
-  tail call void @__cxa_throw(ptr nonnull %exception.i35, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #7
+invoke.cont.i34:                                  ; preds = %if.then.i31
+  tail call void @__cxa_throw(ptr nonnull %exception.i32, ptr nonnull @_ZTIN7Iex_3_26ArgExcE, ptr nonnull @_ZN7Iex_3_26ArgExcD1Ev) #7
   unreachable
 
-lpad.i36:                                         ; preds = %if.then.i34
+lpad.i33:                                         ; preds = %if.then.i31
   %7 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN7Imf_3_28TimeCode8setFrameEi.exit:             ; preds = %_ZN7Imf_3_28TimeCode10setSecondsEi.exit
-  %rem.i.lhs.trunc.i27 = trunc i32 %frame to i8
-  %rem.i4.i28 = urem i8 %rem.i.lhs.trunc.i27, 10
-  %div.i5.i29 = udiv i8 %rem.i.lhs.trunc.i27, 10
-  %8 = shl nuw nsw i8 %div.i5.i29, 4
-  %or.i6.i30 = or disjoint i8 %8, %rem.i4.i28
-  %and.i.i31 = and i32 %or.i3.i21, 1065320192
-  %shl35.i.i32.masked = zext nneg i8 %or.i6.i30 to i32
-  %and4.i.i39 = select i1 %dropFrame, i32 64, i32 0
-  %and4.i.i42 = select i1 %colorFrame, i32 128, i32 0
-  %and4.i.i45 = select i1 %fieldPhase, i32 32768, i32 0
-  %and4.i.i48 = select i1 %bgf0, i32 8388608, i32 0
-  %and4.i.i51 = select i1 %bgf1, i32 1073741824, i32 0
-  %and4.i.i54 = select i1 %bgf2, i32 -2147483648, i32 0
-  %and.i.i38 = or disjoint i32 %and4.i.i42, %and4.i.i39
-  %or.i.i40 = or disjoint i32 %and.i.i38, %and4.i.i45
-  %or.i.i43 = or i32 %or.i.i40, %shl35.i.i32.masked
-  %or.i.i46 = or disjoint i32 %or.i.i43, %and4.i.i48
-  %and.i.i50.masked = or disjoint i32 %or.i.i46, %and4.i.i51
-  %and.i.i53 = or i32 %and.i.i50.masked, %and4.i.i54
-  %or.i.i55 = or i32 %and.i.i53, %and.i.i31
-  store i32 %or.i.i55, ptr %this, align 4
+  %rem.i.lhs.trunc.i25 = trunc i32 %frame to i8
+  %div.i5.i26 = udiv i8 %rem.i.lhs.trunc.i25, 10
+  %8 = mul nuw nsw i8 %div.i5.i26, 6
+  %or.i6.i27 = add nuw nsw i8 %8, %rem.i.lhs.trunc.i25
+  %and.i.i28 = and i32 %or.i3.i19, 1065320192
+  %shl35.i.i29.masked = zext nneg i8 %or.i6.i27 to i32
+  %and4.i.i36 = select i1 %dropFrame, i32 64, i32 0
+  %and4.i.i39 = select i1 %colorFrame, i32 128, i32 0
+  %and4.i.i42 = select i1 %fieldPhase, i32 32768, i32 0
+  %and4.i.i45 = select i1 %bgf0, i32 8388608, i32 0
+  %and4.i.i48 = select i1 %bgf1, i32 1073741824, i32 0
+  %and4.i.i51 = select i1 %bgf2, i32 -2147483648, i32 0
+  %and.i.i35 = or disjoint i32 %and4.i.i39, %and4.i.i36
+  %or.i.i37 = or disjoint i32 %and.i.i35, %and4.i.i42
+  %or.i.i40 = or i32 %or.i.i37, %shl35.i.i29.masked
+  %or.i.i43 = or disjoint i32 %or.i.i40, %and4.i.i45
+  %and.i.i47.masked = or disjoint i32 %or.i.i43, %and4.i.i48
+  %and.i.i50 = or i32 %and.i.i47.masked, %and4.i.i51
+  %or.i.i52 = or i32 %and.i.i50, %and.i.i28
+  store i32 %or.i.i52, ptr %this, align 4
   %_user.i = getelementptr inbounds %"class.Imf_3_2::TimeCode", ptr %this, i64 0, i32 1
-  %shl35.i.i57 = and i32 %binaryGroup1, 15
-  %shl35.i.i61 = shl i32 %binaryGroup2, 4
-  %and4.i.i62 = and i32 %shl35.i.i61, 240
-  %shl35.i.i66 = shl i32 %binaryGroup3, 8
-  %and4.i.i67 = and i32 %shl35.i.i66, 3840
-  %shl35.i.i71 = shl i32 %binaryGroup4, 12
-  %and4.i.i72 = and i32 %shl35.i.i71, 61440
-  %shl35.i.i76 = shl i32 %binaryGroup5, 16
-  %and4.i.i77 = and i32 %shl35.i.i76, 983040
-  %shl35.i.i81 = shl i32 %binaryGroup6, 20
-  %and4.i.i82 = and i32 %shl35.i.i81, 15728640
-  %shl35.i.i86 = shl i32 %binaryGroup7, 24
-  %and.i.i80.masked = or disjoint i32 %and4.i.i62, %shl35.i.i57
-  %or.i.i73 = or disjoint i32 %and.i.i80.masked, %and4.i.i67
-  %or.i.i68 = or disjoint i32 %or.i.i73, %and4.i.i72
-  %or.i.i63 = or disjoint i32 %or.i.i68, %and4.i.i77
-  %or.i.i58 = or disjoint i32 %or.i.i63, %and4.i.i82
-  %shl35.i.i86.masked = and i32 %shl35.i.i86, 251658240
-  %and.i.i90 = or i32 %or.i.i58, %shl35.i.i86.masked
-  %shl35.i.i91 = shl i32 %binaryGroup8, 28
-  %or.i.i93 = add nuw nsw i32 %and.i.i90, %shl35.i.i91
-  store i32 %or.i.i93, ptr %_user.i, align 4
+  %shl35.i.i54 = and i32 %binaryGroup1, 15
+  %shl35.i.i58 = shl i32 %binaryGroup2, 4
+  %and4.i.i59 = and i32 %shl35.i.i58, 240
+  %shl35.i.i63 = shl i32 %binaryGroup3, 8
+  %and4.i.i64 = and i32 %shl35.i.i63, 3840
+  %shl35.i.i68 = shl i32 %binaryGroup4, 12
+  %and4.i.i69 = and i32 %shl35.i.i68, 61440
+  %shl35.i.i73 = shl i32 %binaryGroup5, 16
+  %and4.i.i74 = and i32 %shl35.i.i73, 983040
+  %shl35.i.i78 = shl i32 %binaryGroup6, 20
+  %and4.i.i79 = and i32 %shl35.i.i78, 15728640
+  %shl35.i.i83 = shl i32 %binaryGroup7, 24
+  %and.i.i77.masked = or disjoint i32 %and4.i.i59, %shl35.i.i54
+  %or.i.i70 = or disjoint i32 %and.i.i77.masked, %and4.i.i64
+  %or.i.i65 = or disjoint i32 %or.i.i70, %and4.i.i69
+  %or.i.i60 = or disjoint i32 %or.i.i65, %and4.i.i74
+  %or.i.i55 = or disjoint i32 %or.i.i60, %and4.i.i79
+  %shl35.i.i83.masked = and i32 %shl35.i.i83, 251658240
+  %and.i.i87 = or i32 %or.i.i55, %shl35.i.i83.masked
+  %shl35.i.i88 = shl i32 %binaryGroup8, 28
+  %or.i.i90 = add nuw nsw i32 %and.i.i87, %shl35.i.i88
+  store i32 %or.i.i90, ptr %_user.i, align 4
   ret void
 }
 
@@ -208,10 +204,9 @@ lpad:                                             ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   %rem.i.lhs.trunc = trunc i32 %value to i8
-  %rem.i4 = urem i8 %rem.i.lhs.trunc, 10
   %div.i5 = udiv i8 %rem.i.lhs.trunc, 10
-  %1 = shl nuw nsw i8 %div.i5, 4
-  %or.i6 = or disjoint i8 %1, %rem.i4
+  %1 = mul nuw nsw i8 %div.i5, 6
+  %or.i6 = add nuw nsw i8 %1, %rem.i.lhs.trunc
   %2 = load i32, ptr %this, align 4
   %and.i = and i32 %2, -1056964609
   %shl35.i = zext nneg i8 %or.i6 to i32
@@ -244,10 +239,9 @@ lpad:                                             ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   %rem.i.lhs.trunc = trunc i32 %value to i8
-  %rem.i4 = urem i8 %rem.i.lhs.trunc, 10
   %div.i5 = udiv i8 %rem.i.lhs.trunc, 10
-  %1 = shl nuw nsw i8 %div.i5, 4
-  %or.i6 = or disjoint i8 %1, %rem.i4
+  %1 = mul nuw nsw i8 %div.i5, 6
+  %or.i6 = add nuw nsw i8 %1, %rem.i.lhs.trunc
   %or.i = zext nneg i8 %or.i6 to i32
   %2 = load i32, ptr %this, align 4
   %and.i = and i32 %2, -8323073
@@ -280,10 +274,9 @@ lpad:                                             ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   %rem.i.lhs.trunc = trunc i32 %value to i8
-  %rem.i4 = urem i8 %rem.i.lhs.trunc, 10
   %div.i5 = udiv i8 %rem.i.lhs.trunc, 10
-  %1 = shl nuw nsw i8 %div.i5, 4
-  %or.i6 = or disjoint i8 %1, %rem.i4
+  %1 = mul nuw nsw i8 %div.i5, 6
+  %or.i6 = add nuw nsw i8 %1, %rem.i.lhs.trunc
   %or.i = zext nneg i8 %or.i6 to i32
   %2 = load i32, ptr %this, align 4
   %and.i = and i32 %2, -32513
@@ -316,10 +309,9 @@ lpad:                                             ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   %rem.i.lhs.trunc = trunc i32 %value to i8
-  %rem.i4 = urem i8 %rem.i.lhs.trunc, 10
   %div.i5 = udiv i8 %rem.i.lhs.trunc, 10
-  %1 = shl nuw nsw i8 %div.i5, 4
-  %or.i6 = or disjoint i8 %1, %rem.i4
+  %1 = mul nuw nsw i8 %div.i5, 6
+  %or.i6 = add nuw nsw i8 %1, %rem.i.lhs.trunc
   %2 = load i32, ptr %this, align 4
   %and.i = and i32 %2, -64
   %shl35.i = zext nneg i8 %or.i6 to i32
