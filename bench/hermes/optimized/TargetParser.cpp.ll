@@ -8105,16 +8105,13 @@ land.rhs.i250:                                    ; preds = %if.end.i349, %_ZN4l
   %add.ptr.i252 = getelementptr inbounds i8, ptr %add.ptr.i83, i64 -2
   %bcmp75 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %add.ptr.i252, ptr noundef nonnull dereferenceable(2) @.str.140, i64 2)
   %8 = icmp eq i32 %bcmp75, 0
-  br i1 %8, label %if.then35, label %if.end39
-
-if.then35:                                        ; preds = %land.rhs.i250
   %sub = add i64 %6, -2
-  %.sroa.speculated97 = call i64 @llvm.umin.i64(i64 %6, i64 %sub)
+  %spec.select149 = select i1 %8, i64 %sub, i64 %6
   br label %if.end39
 
-if.end39:                                         ; preds = %land.rhs.i250, %if.then35, %_ZN4llvh9StringRefC2EPKc.exit150
-  %offset.0125143 = phi i64 [ %offset.0125144, %land.rhs.i250 ], [ %offset.0125144, %if.then35 ], [ %offset.0125, %_ZN4llvh9StringRefC2EPKc.exit150 ]
-  %.pr = phi i64 [ %6, %land.rhs.i250 ], [ %.sroa.speculated97, %if.then35 ], [ %5, %_ZN4llvh9StringRefC2EPKc.exit150 ]
+if.end39:                                         ; preds = %land.rhs.i250, %_ZN4llvh9StringRefC2EPKc.exit150
+  %offset.0125143 = phi i64 [ %offset.0125, %_ZN4llvh9StringRefC2EPKc.exit150 ], [ %offset.0125144, %land.rhs.i250 ]
+  %.pr = phi i64 [ %5, %_ZN4llvh9StringRefC2EPKc.exit150 ], [ %spec.select149, %land.rhs.i250 ]
   %cmp40.not = icmp eq i64 %offset.0125143, -1
   br i1 %cmp40.not, label %if.end44, label %if.end39.if.then41_crit_edge
 

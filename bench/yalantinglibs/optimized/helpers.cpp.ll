@@ -878,8 +878,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZNSt11char_trait
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %.pre.i
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.3, i64 11)
   %cmp.i.i.i.i = icmp eq i32 %bcmp.i.i, 0
-  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %.pre.i)
-  %retval.sroa.0.0.i = select i1 %cmp.i.i.i.i, i64 %.sroa.speculated.i.i, i64 %1
+  %retval.sroa.0.0.i = select i1 %cmp.i.i.i.i, i64 %.pre.i, i64 %1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %0, i64 noundef %retval.sroa.0.0.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7)
           to label %return unwind label %lpad
@@ -898,14 +897,11 @@ land.rhs.i.i17:                                   ; preds = %_ZNSt11char_traitsI
   %add.ptr.i.i.i.i21 = getelementptr inbounds i8, ptr %0, i64 %.pre.i19
   %bcmp.i.i22 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %add.ptr.i.i.i.i21, ptr noundef nonnull dereferenceable(6) @.str.4, i64 6)
   %cmp.i.i.i.i23 = icmp eq i32 %bcmp.i.i22, 0
-  br i1 %cmp.i.i.i.i23, label %if.then.i27, label %_ZN9struct_pb8compiler19string_strip_suffixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit29
-
-if.then.i27:                                      ; preds = %land.rhs.i.i17
-  %.sroa.speculated.i.i28 = tail call i64 @llvm.umin.i64(i64 %1, i64 %.pre.i19)
+  %spec.select = select i1 %cmp.i.i.i.i23, i64 %.pre.i19, i64 %1
   br label %_ZN9struct_pb8compiler19string_strip_suffixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit29
 
-_ZN9struct_pb8compiler19string_strip_suffixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit29: ; preds = %if.else, %land.rhs.i.i17, %if.then.i27
-  %retval.sroa.0.0.i24 = phi i64 [ %.sroa.speculated.i.i28, %if.then.i27 ], [ %1, %if.else ], [ %1, %land.rhs.i.i17 ]
+_ZN9struct_pb8compiler19string_strip_suffixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit29: ; preds = %land.rhs.i.i17, %if.else
+  %retval.sroa.0.0.i24 = phi i64 [ %1, %if.else ], [ %spec.select, %land.rhs.i.i17 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %0, i64 noundef %retval.sroa.0.0.i24, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13)
           to label %return unwind label %lpad14

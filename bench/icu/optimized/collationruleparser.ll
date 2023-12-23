@@ -5533,8 +5533,7 @@ invoke.cont11:                                    ; preds = %invoke.cont40, %_ZN
 while.body:                                       ; preds = %invoke.cont11
   %inc = add nsw i32 %i.0, 1
   %cmp.i.i29 = icmp slt i32 %i.0, -1
-  %spec.select.i = call i32 @llvm.smin.i32(i32 %cond.i28, i32 %inc)
-  %start.addr.0.i = select i1 %cmp.i.i29, i32 0, i32 %spec.select.i
+  %start.addr.0.i = select i1 %cmp.i.i29, i32 0, i32 %inc
   %sub.i = sub nsw i32 %cond.i28, %start.addr.0.i
   %call2.i30 = invoke noundef i32 @_ZNK6icu_7513UnicodeString9doIndexOfEDsii(ptr noundef nonnull align 8 dereferenceable(64) %raw, i16 noundef zeroext 32, i32 noundef %start.addr.0.i, i32 noundef %sub.i)
           to label %invoke.cont14 unwind label %lpad10.loopexit.split-lp.loopexit

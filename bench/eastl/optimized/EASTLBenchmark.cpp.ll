@@ -1887,8 +1887,7 @@ if.then9:                                         ; preds = %if.else
 if.then5.i:                                       ; preds = %if.then9
   %mul.i.i = shl nuw i64 %retval.0.i.i, 1
   %cond.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %n, i64 %mul.i.i)
-  %cond.i3.i.i = tail call noundef i64 @llvm.umax.i64(i64 %cond.i.i.i, i64 %cond.i)
-  tail call void @_ZN5eastl12basic_stringIcNS_9allocatorEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %cond.i3.i.i)
+  tail call void @_ZN5eastl12basic_stringIcNS_9allocatorEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %cond.i.i.i)
   %.pre.i = load i8, ptr %mRemainingSizeField.i.i, align 1
   %.pre23.i = load i64, ptr %mnSize.i.i, align 8
   br label %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.i

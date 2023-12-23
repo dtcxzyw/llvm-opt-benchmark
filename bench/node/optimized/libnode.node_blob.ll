@@ -9380,7 +9380,6 @@ _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit.i.i.i: ; 
   store ptr null, ptr %ref.tmp.i.i.i, align 8
   %14 = load ptr, ptr %store.i.i.i, align 8
   %call13.i.i.i = call noundef ptr @_ZNK2v812BackingStore4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %14) #22
-  %umax.i.i.i = call i64 @llvm.umax.i64(i64 %__args3.val, i64 1)
   br label %for.body17.i.i.i
 
 for.body17.i.i.i:                                 ; preds = %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit.i.i.i, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit.i.i.i
@@ -9402,7 +9401,7 @@ _ZSt4copyIPhS0_ET0_T_S2_S1_.exit.i.i.i:           ; preds = %if.then.i.i.i.i.i.i
   %17 = phi i64 [ 0, %for.body17.i.i.i ], [ %.pre.i.i.i, %if.then.i.i.i.i.i.i.i.i ]
   %add.ptr26.i.i.i = getelementptr inbounds i8, ptr %ptr.082.i.i.i, i64 %17
   %inc28.i.i.i = add nuw i64 %n14.081.i.i.i, 1
-  %exitcond83.not.i.i.i = icmp eq i64 %inc28.i.i.i, %umax.i.i.i
+  %exitcond83.not.i.i.i = icmp eq i64 %inc28.i.i.i, %__args3.val
   br i1 %exitcond83.not.i.i.i, label %for.end29.i.i.i, label %for.body17.i.i.i, !llvm.loop !63
 
 for.end29.i.i.i:                                  ; preds = %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit.i.i.i

@@ -1920,7 +1920,7 @@ if.end185.i:                                      ; preds = %do.body178.i, %if.e
   %or.cond.i = and i1 %cmp190.i, %cmp188.i
   %cmp193.i = icmp ugt i32 %cond22.i, 1
   %or.cond1.i = select i1 %or.cond.i, i1 %cmp193.i, i1 false
-  br i1 %or.cond1.i, label %while.cond.i, label %for.body236.preheader.i
+  br i1 %or.cond1.i, label %while.cond.i, label %for.body236.i.preheader
 
 while.cond.i:                                     ; preds = %if.end185.i, %while.cond.i
   %proposedSelectivity.0.in.i = phi i32 [ %proposedSelectivity.0.i, %while.cond.i ], [ %cond22.i, %if.end185.i ]
@@ -1930,7 +1930,7 @@ while.cond.i:                                     ; preds = %if.end185.i, %while
   br i1 %cmp198.i, label %while.cond.i, label %do.body200.i, !llvm.loop !46
 
 do.body200.i:                                     ; preds = %while.cond.i
-  br i1 %cmp.i.i, label %do.body204.i, label %for.body236.preheader.i
+  br i1 %cmp.i.i, label %do.body204.i, label %for.body236.i.preheader
 
 do.body204.i:                                     ; preds = %do.body200.i
   %110 = load ptr, ptr @stderr, align 8
@@ -1946,16 +1946,14 @@ do.body204.i:                                     ; preds = %do.body200.i
   %115 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 54, i64 1, ptr %114) #19
   %116 = load ptr, ptr @stderr, align 8
   %call227.i = tail call i32 @fflush(ptr noundef %116)
-  br label %for.body236.preheader.i
+  br label %for.body236.i.preheader
 
-for.body236.preheader.i:                          ; preds = %do.body204.i, %do.body200.i, %if.end185.i
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %.pre.i, i32 2)
-  %wide.trip.count187.i = zext i32 %umax.i to i64
+for.body236.i.preheader:                          ; preds = %do.body204.i, %do.body200.i, %if.end185.i
   br label %for.body236.i
 
-for.body236.i:                                    ; preds = %for.inc250.i, %for.body236.preheader.i
-  %indvars.iv184.i = phi i64 [ 1, %for.body236.preheader.i ], [ %indvars.iv.next185.i, %for.inc250.i ]
-  %currentSize.0171.i = phi i32 [ 0, %for.body236.preheader.i ], [ %add240.i, %for.inc250.i ]
+for.body236.i:                                    ; preds = %for.body236.i.preheader, %for.inc250.i
+  %indvars.iv184.i = phi i64 [ %indvars.iv.next185.i, %for.inc250.i ], [ 1, %for.body236.i.preheader ]
+  %currentSize.0171.i = phi i32 [ %add240.i, %for.inc250.i ], [ 0, %for.body236.i.preheader ]
   %length239.i = getelementptr inbounds %struct.dictItem, ptr %call.i, i64 %indvars.iv184.i, i32 1
   %117 = load i32, ptr %length239.i, align 4
   %add240.i = add i32 %117, %currentSize.0171.i
@@ -1965,7 +1963,7 @@ for.body236.i:                                    ; preds = %for.inc250.i, %for.
 
 for.inc250.i:                                     ; preds = %for.body236.i
   %indvars.iv.next185.i = add nuw nsw i64 %indvars.iv184.i, 1
-  %exitcond188.not.i = icmp eq i64 %indvars.iv.next185.i, %wide.trip.count187.i
+  %exitcond188.not.i = icmp eq i64 %indvars.iv.next185.i, %wide.trip.count.i146.i
   br i1 %exitcond188.not.i, label %for.body260.preheader.i, label %for.body236.i, !llvm.loop !47
 
 for.end252.i:                                     ; preds = %for.body236.i
@@ -1978,7 +1976,7 @@ for.end252.i.for.body260.preheader.i_crit_edge:   ; preds = %for.end252.i
   br label %for.body260.preheader.i
 
 for.body260.preheader.i:                          ; preds = %for.inc250.i, %for.end252.i.for.body260.preheader.i_crit_edge
-  %wide.trip.count192.i.pre-phi = phi i64 [ %.pre, %for.end252.i.for.body260.preheader.i_crit_edge ], [ %wide.trip.count187.i, %for.inc250.i ]
+  %wide.trip.count192.i.pre-phi = phi i64 [ %.pre, %for.end252.i.for.body260.preheader.i_crit_edge ], [ %wide.trip.count.i146.i, %for.inc250.i ]
   %currentSize.0.lcssa.ph199.i = phi i32 [ %currentSize.0171.i, %for.end252.i.for.body260.preheader.i_crit_edge ], [ %add240.i, %for.inc250.i ]
   %add.ptr255.i = getelementptr inbounds i8, ptr %dictBuffer, i64 %dictBufferCapacity
   br label %for.body260.i

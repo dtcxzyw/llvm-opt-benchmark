@@ -180,8 +180,8 @@ define void @_ZN9grpc_core17MakeJwtServiceUrlB5cxx11ERKSt10unique_ptrI19grpc_met
 entry:
   %ref.tmp = alloca %"struct.grpc_core::(anonymous namespace)::ServiceUrlAndMethod", align 8
   call fastcc void @_ZN9grpc_core12_GLOBAL__N_123MakeServiceUrlAndMethodERKSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %initial_metadata, ptr noundef %args)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
   ret void
 }
 
@@ -298,14 +298,11 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i64: ; preds = %_ZNKSt17basic_strin
   %add.ptr.i54 = getelementptr inbounds i8, ptr %cond.i.i26, i64 %__size.1.i.i43
   %bcmp.i65 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %add.ptr.i54, ptr noundef nonnull dereferenceable(3) @.str.5, i64 3)
   %cmp.i.i66 = icmp eq i32 %bcmp.i65, 0
-  br i1 %cmp.i.i66, label %if.then31, label %if.end35
-
-if.then31:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i64
-  %.sroa.speculated.i69 = tail call i64 @llvm.umin.i64(i64 %cond.i2.i29, i64 %dec4.i.i46)
+  %spec.select = select i1 %cmp.i.i66, i64 %dec4.i.i46, i64 %cond.i2.i29
   br label %if.end35
 
-if.end35:                                         ; preds = %for.cond.i.i42, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i64, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit58, %if.then23, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %if.end13, %if.then31
-  %host_and_port.sroa.0.0 = phi i64 [ %.sroa.speculated.i69, %if.then31 ], [ %cond.i2.i29, %if.end13 ], [ %cond.i2.i29, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %if.then23 ], [ %cond.i2.i29, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit58 ], [ %cond.i2.i29, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i64 ], [ %cond.i2.i29, %for.cond.i.i42 ]
+if.end35:                                         ; preds = %for.cond.i.i42, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i64, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit58, %if.then23, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %if.end13
+  %host_and_port.sroa.0.0 = phi i64 [ %cond.i2.i29, %if.end13 ], [ %cond.i2.i29, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %if.then23 ], [ %cond.i2.i29, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit58 ], [ %spec.select, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i64 ], [ %cond.i2.i29, %for.cond.i.i42 ]
   store i64 %retval.sroa.0.0.copyload.i, ptr %ref.tmp36, align 8
   %pc.sroa.2.0.piece_.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp36, i64 8
   store ptr %retval.sroa.2.0.copyload.i, ptr %pc.sroa.2.0.piece_.sroa_idx.i, align 8
@@ -350,22 +347,22 @@ _ZN9grpc_core13RefCountedPtrI17grpc_auth_contextED2Ev.exit: ; preds = %entry
 cleanup.done:                                     ; preds = %entry, %_ZN9grpc_core13RefCountedPtrI17grpc_auth_contextED2Ev.exit
   %2 = getelementptr inbounds %struct.grpc_auth_metadata_context, ptr %agg.result, i64 0, i32 2
   store ptr %0, ptr %2, align 8
-  %call11 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %fields) #10
+  %call11 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %fields) #9
   %call13 = invoke ptr @gpr_strdup(ptr noundef %call11)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %cleanup.done
   store ptr %call13, ptr %agg.result, align 8
   %method_name = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ServiceUrlAndMethod", ptr %fields, i64 0, i32 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #10
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   %agg.tmp3.sroa.0.0.copyload.i = load i64, ptr %method_name, align 8
   %agg.tmp3.sroa.2.0..sroa_idx.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ServiceUrlAndMethod", ptr %fields, i64 0, i32 1, i32 1
   %agg.tmp3.sroa.2.0.copyload.i = load ptr, ptr %agg.tmp3.sroa.2.0..sroa_idx.i, align 8
-  %call.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %agg.tmp3.sroa.0.0.copyload.i, ptr %agg.tmp3.sroa.2.0.copyload.i) #10
+  %call.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %agg.tmp3.sroa.0.0.copyload.i, ptr %agg.tmp3.sroa.2.0.copyload.i) #9
   %3 = extractvalue { i64, ptr } %call.i, 0
   %4 = extractvalue { i64, ptr } %call.i, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %3, ptr %4) #10
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %3, ptr %4) #9
   %5 = load i64, ptr %agg.tmp.i, align 8
   %6 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
   %7 = load ptr, ptr %6, align 8
@@ -374,16 +371,16 @@ invoke.cont12:                                    ; preds = %cleanup.done
 
 invoke.cont18:                                    ; preds = %invoke.cont12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
-  %call19 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #10
+  %call19 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #9
   %call22 = invoke ptr @gpr_strdup(ptr noundef %call19)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont18
   %method_name23 = getelementptr inbounds %struct.grpc_auth_metadata_context, ptr %agg.result, i64 0, i32 1
   store ptr %call22, ptr %method_name23, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #10
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #10
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fields) #10
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #9
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #9
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fields) #9
   ret void
 
 lpad:                                             ; preds = %cleanup.done
@@ -399,17 +396,17 @@ lpad17:                                           ; preds = %invoke.cont12
 lpad20:                                           ; preds = %invoke.cont18
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #10
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #9
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad20, %lpad17
   %.pn = phi { ptr, i32 } [ %10, %lpad20 ], [ %9, %lpad17 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #10
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #9
   br label %ehcleanup24
 
 ehcleanup24:                                      ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %8, %lpad ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fields) #10
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fields) #9
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -464,21 +461,18 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv
 define internal void @_GLOBAL__sub_I_call_creds_util.cc() #6 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #10
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #9
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #7
-
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -487,10 +481,9 @@ attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind }
+attributes #7 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

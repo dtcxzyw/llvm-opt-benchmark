@@ -5135,8 +5135,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %while.body
 
 if.then6:                                         ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
   %cmp.i.i23 = icmp slt i32 %index.addr.045, -1
-  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %cond.i48, i32 %inc)
-  %start.addr.0.i = select i1 %cmp.i.i23, i32 0, i32 %spec.select.i
+  %start.addr.0.i = select i1 %cmp.i.i23, i32 0, i32 %inc
   %cond.i.i = select i1 %cmp.i.i46, i32 %4, i32 %shr.i.i47
   %sub.i = sub nsw i32 %cond.i.i, %start.addr.0.i
   %call2.i = tail call noundef i32 @_ZNK6icu_7513UnicodeString9doIndexOfEDsii(ptr noundef nonnull align 8 dereferenceable(64) %msg, i16 noundef zeroext 39, i32 noundef %start.addr.0.i, i32 noundef %sub.i)

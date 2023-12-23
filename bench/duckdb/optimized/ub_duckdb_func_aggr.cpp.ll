@@ -2038,8 +2038,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   %7 = load ptr, ptr %svdata, align 8, !tbaa !169
   %8 = load ptr, ptr %7, align 8, !tbaa !170
   %tobool.not.i120 = icmp eq ptr %8, null
-  %umax166 = call i64 @llvm.umax.i64(i64 %count, i64 1)
-  %xtraiter174 = and i64 %umax166, 3
+  %xtraiter174 = and i64 %count, 3
   %9 = icmp ult i64 %count, 4
   br i1 %tobool.not.i120, label %for.body.us.preheader, label %for.body.preheader
 
@@ -2047,14 +2046,14 @@ for.body.preheader:                               ; preds = %invoke.cont7
   br i1 %9, label %for.cond.cleanup.loopexit173.unr-lcssa, label %for.body.preheader.new
 
 for.body.preheader.new:                           ; preds = %for.body.preheader
-  %unroll_iter = and i64 %umax166, -4
+  %unroll_iter = and i64 %count, -4
   br label %for.body
 
 for.body.us.preheader:                            ; preds = %invoke.cont7
   br i1 %9, label %for.cond.cleanup.loopexit.unr-lcssa, label %for.body.us.preheader.new
 
 for.body.us.preheader.new:                        ; preds = %for.body.us.preheader
-  %unroll_iter177 = and i64 %umax166, -4
+  %unroll_iter177 = and i64 %count, -4
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us, %for.body.us.preheader.new
@@ -2349,7 +2348,7 @@ invoke.cont41:                                    ; preds = %if.end38
   %conv = trunc i64 %cond.i126 to i32
   store i32 %conv, ptr %call42, align 4, !tbaa !136
   %inc44 = add nuw i64 %i17.0162, 1
-  %exitcond169.not = icmp eq i64 %inc44, %umax166
+  %exitcond169.not = icmp eq i64 %inc44, %count
   br i1 %exitcond169.not, label %for.body51, label %for.body21, !llvm.loop !189
 
 for.cond.cleanup50:                               ; preds = %cleanup
@@ -2498,7 +2497,7 @@ if.end62:                                         ; preds = %_ZNK6duckdb15Select
 
 cleanup:                                          ; preds = %if.end62, %_ZNK6duckdb15SelectionVector9get_indexEm.exit154
   %inc69 = add nuw i64 %i47.0164, 1
-  %exitcond170.not = icmp eq i64 %inc69, %umax166
+  %exitcond170.not = icmp eq i64 %inc69, %count
   br i1 %exitcond170.not, label %for.cond.cleanup50, label %for.body51, !llvm.loop !190
 
 lpad63:                                           ; preds = %if.end62

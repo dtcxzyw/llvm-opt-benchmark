@@ -25161,10 +25161,9 @@ lpad.i:                                           ; preds = %entry
   br label %common.resume
 
 if.end.i:                                         ; preds = %for.body.i.i
-  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.0.0.copyload, i64 %__size.1.i.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14.i) #31, !noalias !201
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i39.i), !noalias !201
-  %call.i43.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %.sroa.speculated.i.i, ptr nonnull %agg.tmp.sroa.2.0.copyload) #31, !noalias !201
+  %call.i43.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %__size.1.i.i, ptr nonnull %agg.tmp.sroa.2.0.copyload) #31, !noalias !201
   %13 = extractvalue { i64, ptr } %call.i43.i, 0
   %14 = extractvalue { i64, ptr } %call.i43.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i39.i, i64 %13, ptr %14) #31

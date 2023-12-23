@@ -27356,11 +27356,10 @@ _ZNK10StringView10startsWithES_.exit:             ; preds = %if.end
   br i1 %tobool1.not.i.i.i.i.i, label %if.then6, label %if.end18
 
 if.then6:                                         ; preds = %_ZNK10StringView10startsWithES_.exit
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 9)
-  %add.ptr.i14 = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i.ptr.lcssa, i64 %spec.select.i
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %this.val12.i, i64 10
   store ptr %add.ptr.i14, ptr %this, align 16
   store ptr %add.ptr.i.ptr, ptr %Last.i, align 8
-  %cmp.not.i.not.i.i22 = icmp eq ptr %add.ptr.i.ptr, %add.ptr.i14
+  %cmp.not.i.not.i.i22 = icmp eq i64 %incdec.ptr.i.i.i.add, 10
   br i1 %cmp.not.i.not.i.i22, label %_ZN14SwapAndRestoreIPKcED2Ev.exit58.thread, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit.i.i23
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit.i.i23: ; preds = %if.then6
@@ -31440,9 +31439,6 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #17

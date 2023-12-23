@@ -128,10 +128,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %5 = load ptr, ptr %fArray.i.i, align 8
   %spec.select = select i1 %tobool6.not.i.i, ptr %5, ptr %fBuffer.i.i
   %retval.0.i.i = select i1 %tobool.not.i.i, ptr %spec.select, ptr null
-  %cmp.i = icmp slt i32 %prevSpanLimit.031, 0
-  %spec.select.i = call i32 @llvm.smin.i32(i32 %cond.i33, i32 %prevSpanLimit.031)
-  %start.addr.0.i = select i1 %cmp.i, i32 0, i32 %spec.select.i
-  %idx.ext.i = sext i32 %start.addr.0.i to i64
+  %start.addr.0.i = call i32 @llvm.smax.i32(i32 %prevSpanLimit.031, i32 0)
+  %idx.ext.i = zext nneg i32 %start.addr.0.i to i64
   %add.ptr.i = getelementptr inbounds i16, ptr %retval.0.i.i, i64 %idx.ext.i
   %sub.i = sub nsw i32 %cond.i33, %start.addr.0.i
   %call6.i17 = invoke noundef i32 @_ZNK6icu_7510UnicodeSet4spanEPKDsi17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %4, ptr noundef %add.ptr.i, i32 noundef %sub.i, i32 noundef %spanCondition.addr.032)
@@ -855,10 +853,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %7 = load ptr, ptr %fArray.i.i, align 8
   %spec.select = select i1 %tobool6.not.i.i, ptr %7, ptr %fBuffer.i.i
   %retval.0.i.i = select i1 %tobool.not.i.i, ptr %spec.select, ptr null
-  %cmp.i13 = icmp slt i32 %prevSpanLimit.021, 0
-  %spec.select.i = call i32 @llvm.smin.i32(i32 %cond.i23, i32 %prevSpanLimit.021)
-  %start.addr.0.i = select i1 %cmp.i13, i32 0, i32 %spec.select.i
-  %idx.ext.i = sext i32 %start.addr.0.i to i64
+  %start.addr.0.i = call i32 @llvm.smax.i32(i32 %prevSpanLimit.021, i32 0)
+  %idx.ext.i = zext nneg i32 %start.addr.0.i to i64
   %add.ptr.i = getelementptr inbounds i16, ptr %retval.0.i.i, i64 %idx.ext.i
   %sub.i = sub nsw i32 %cond.i23, %start.addr.0.i
   %call6.i = call noundef i32 @_ZNK6icu_7510UnicodeSet4spanEPKDsi17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %6, ptr noundef %add.ptr.i, i32 noundef %sub.i, i32 noundef %spanCondition.022)
@@ -1015,10 +1011,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %7 = load ptr, ptr %fArray.i.i, align 8
   %spec.select29 = select i1 %tobool6.not.i.i, ptr %7, ptr %fBuffer.i.i
   %retval.0.i.i = select i1 %tobool.not.i.i, ptr %spec.select29, ptr null
-  %cmp.i16 = icmp slt i32 %prevSpanLimit.024, 0
-  %spec.select.i = call i32 @llvm.smin.i32(i32 %cond.i27, i32 %prevSpanLimit.024)
-  %start.addr.0.i = select i1 %cmp.i16, i32 0, i32 %spec.select.i
-  %idx.ext.i = sext i32 %start.addr.0.i to i64
+  %start.addr.0.i = call i32 @llvm.smax.i32(i32 %prevSpanLimit.024, i32 0)
+  %idx.ext.i = zext nneg i32 %start.addr.0.i to i64
   %add.ptr.i = getelementptr inbounds i16, ptr %retval.0.i.i, i64 %idx.ext.i
   %sub.i = sub nsw i32 %cond.i27, %start.addr.0.i
   %call6.i = call noundef i32 @_ZNK6icu_7510UnicodeSet4spanEPKDsi17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %6, ptr noundef %add.ptr.i, i32 noundef %sub.i, i32 noundef %spanCondition.025)
@@ -1124,10 +1118,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %7 = load ptr, ptr %fArray.i.i, align 8
   %spec.select = select i1 %tobool6.not.i.i, ptr %7, ptr %fBuffer.i.i
   %retval.0.i.i = select i1 %tobool.not.i.i, ptr %spec.select, ptr null
-  %cmp.i17 = icmp slt i32 %prevSpanLimit.030, 0
-  %spec.select.i = call i32 @llvm.smin.i32(i32 %cond.i32, i32 %prevSpanLimit.030)
-  %start.addr.0.i = select i1 %cmp.i17, i32 0, i32 %spec.select.i
-  %idx.ext.i = sext i32 %start.addr.0.i to i64
+  %start.addr.0.i = call i32 @llvm.smax.i32(i32 %prevSpanLimit.030, i32 0)
+  %idx.ext.i = zext nneg i32 %start.addr.0.i to i64
   %add.ptr.i = getelementptr inbounds i16, ptr %retval.0.i.i, i64 %idx.ext.i
   %sub.i = sub nsw i32 %cond.i32, %start.addr.0.i
   %call6.i = call noundef i32 @_ZNK6icu_7510UnicodeSet4spanEPKDsi17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %6, ptr noundef %add.ptr.i, i32 noundef %sub.i, i32 noundef %spanCondition.031)
@@ -1303,6 +1295,9 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #4
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -2245,9 +2245,7 @@ invoke.cont7:                                     ; preds = %if.end
 invoke.cont15:                                    ; preds = %invoke.cont7
   %sub = add i64 %sub.ptr.sub.i, -2
   %add.ptr.i = getelementptr inbounds i8, ptr %str.coerce0, i64 1
-  %sub.i = add i64 %sub.ptr.sub.i, -1
-  %.sroa.speculated83 = tail call i64 @llvm.umin.i64(i64 %sub, i64 %sub.i)
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %.sroa.speculated83, i64 45)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub, i64 45)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %.sroa.speculated.i
   %.pre = ptrtoint ptr %add.ptr.i to i64
   br label %cond.end

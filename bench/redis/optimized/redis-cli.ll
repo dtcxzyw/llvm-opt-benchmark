@@ -17479,8 +17479,7 @@ cleanup.i:                                        ; preds = %if.then5.i.i, %lor.
   %tobool20.not = phi i1 [ true, %for.end.i ], [ true, %if.end26.i ], [ true, %if.then5.i.i ], [ false, %lor.lhs.false.i.i ], [ true, %if.end33.i ]
   %reply.0.i = phi ptr [ null, %for.end.i ], [ null, %if.end26.i ], [ %17, %if.then5.i.i ], [ %17, %lor.lhs.false.i.i ], [ null, %if.end33.i ]
   call void @zfree(ptr noundef nonnull %call3.i) #33
-  %smax.i = call i32 @llvm.smax.i32(i32 %add.i, i32 3)
-  %wide.trip.count.i = zext nneg i32 %smax.i to i64
+  %wide.trip.count.i = zext nneg i32 %add.i to i64
   br label %for.body41.i
 
 for.body41.i:                                     ; preds = %for.body41.i, %cleanup.i

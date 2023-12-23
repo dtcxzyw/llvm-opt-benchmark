@@ -1911,7 +1911,7 @@ if.then2.i33.i.i:                                 ; preds = %for.body.i18.i.i
   %sub.ptr.div.i.i.i.i.i.i37.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i36.i.i, 2
   %.pre.i.i.i.i.i.i38.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i37.i.i
   %add.ptr.i.i.i.i.i.i39.i.i = getelementptr inbounds i32, ptr %add.ptr3.i34.i.i, i64 %.pre.i.i.i.i.i.i38.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i39.i.i, ptr nonnull align 4 %call.i.i.i.i.i189, i64 %sub.ptr.sub.i.i.i.i.i.i36.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i39.i.i, ptr noundef nonnull align 4 dereferenceable(1) %call.i.i.i.i.i189, i64 %sub.ptr.sub.i.i.i.i.i.i36.i.i, i1 false)
   br label %for.inc.i24.i.i
 
 if.else.i22.i.i:                                  ; preds = %for.body.i18.i.i
@@ -4281,7 +4281,7 @@ if.then2.i:                                       ; preds = %for.body.i2051
   %sub.ptr.div.i.i.i.i.i.i2060 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 2
   %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i2060
   %add.ptr.i.i.i.i.i.i2061 = getelementptr inbounds i32, ptr %add.ptr3.i, i64 %.pre.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i2061, ptr nonnull align 4 %call.i.i.i.i.i647, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i2061, ptr noundef nonnull align 4 dereferenceable(1) %call.i.i.i.i.i647, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   br label %for.inc.i2054
 
 if.else.i2053:                                    ; preds = %for.body.i2051
@@ -11065,7 +11065,7 @@ if.then2.i33.i.i.i:                               ; preds = %for.body.i18.i.i.i
   %sub.ptr.div.i.i.i.i.i.i37.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i36.i.i.i, 2
   %.pre.i.i.i.i.i.i38.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i37.i.i.i
   %add.ptr.i.i.i.i.i.i39.i.i.i = getelementptr inbounds i32, ptr %add.ptr3.i34.i.i.i, i64 %.pre.i.i.i.i.i.i38.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i39.i.i.i, ptr nonnull align 4 %begin199.0493.i, i64 %sub.ptr.sub.i.i.i.i.i.i36.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i39.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %begin199.0493.i, i64 %sub.ptr.sub.i.i.i.i.i.i36.i.i.i, i1 false)
   br label %for.inc.i24.i.i.i
 
 if.else.i22.i.i.i:                                ; preds = %for.body.i18.i.i.i
@@ -13527,7 +13527,7 @@ if.then2.i.i:                                     ; preds = %for.body.i554.i
   %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 2
   %.pre.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i160 = getelementptr inbounds i32, ptr %add.ptr3.i.i, i64 %.pre.i.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i.i160, ptr nonnull align 4 %begin196.0687.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i.i160, ptr noundef nonnull align 4 dereferenceable(1) %begin196.0687.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
   br label %for.inc.i556.i
 
 if.else.i.i159:                                   ; preds = %for.body.i554.i
@@ -16364,7 +16364,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_19ValuePairESt
   %sub.ptr.div.i.i.i.i.i.i69.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i68.i.i.i, 3
   %.pre.i.i.i.i.i.i70.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i69.i.i.i
   %add.ptr.i.i.i.i.i.i71.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %add.ptr.i7.i66.i.i.i, i64 %.pre.i.i.i.i.i.i70.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i71.i.i.i, ptr nonnull align 4 %stdVectorVP.val4, i64 %sub.ptr.sub.i.i.i.i.i.i68.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i71.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %stdVectorVP.val4, i64 %sub.ptr.sub.i.i.i.i.i.i68.i.i.i, i1 false)
   br label %for.inc.i51.i.i.i
 
 if.else.i41.i.i.i:                                ; preds = %for.body.i30.i.i.i
@@ -17428,7 +17428,7 @@ if.then2.i:                                       ; preds = %for.body.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 2
   %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i32, ptr %add.ptr3.i, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i, ptr nonnull align 4 %__first, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %for.body.i
@@ -17833,7 +17833,7 @@ if.then2.i.i:                                     ; preds = %for.body.i.i
   %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 2
   %.pre.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %add.ptr3.i.i, i64 %.pre.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i.i, ptr nonnull align 4 %__first.addr.043.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %__first.addr.043.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
@@ -17889,7 +17889,7 @@ if.then2.i30.i:                                   ; preds = %for.body.i15.i
   %sub.ptr.div.i.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i, 2
   %.pre.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
   %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds i32, ptr %add.ptr3.i31.i, i64 %.pre.i.i.i.i.i.i35.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i36.i, ptr nonnull align 4 %__first.addr.0.lcssa.i, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i, ptr noundef nonnull align 4 dereferenceable(1) %__first.addr.0.lcssa.i, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
   br label %for.inc.i21.i
 
 if.else.i19.i:                                    ; preds = %for.body.i15.i
@@ -21233,7 +21233,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i, 2
   %.pre.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
   %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds i32, ptr %add.ptr.i3.i31.i, i64 %.pre.i.i.i.i.i.i35.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i36.i, ptr nonnull align 4 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i, ptr noundef nonnull align 4 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
   br label %for.inc.i21.i
 
 if.else.i19.i:                                    ; preds = %for.body.i15.i
@@ -25809,7 +25809,7 @@ if.then2.i:                                       ; preds = %for.body.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 2
   %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i32, ptr %add.ptr3.i, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i, ptr nonnull align 4 %__first, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %for.body.i
@@ -26044,7 +26044,7 @@ if.then2.i.i:                                     ; preds = %for.body.i.i
   %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 2
   %.pre.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %add.ptr3.i.i, i64 %.pre.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i.i, ptr nonnull align 4 %__first.addr.043.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %__first.addr.043.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
@@ -26100,7 +26100,7 @@ if.then2.i30.i:                                   ; preds = %for.body.i15.i
   %sub.ptr.div.i.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i, 2
   %.pre.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
   %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds i32, ptr %add.ptr3.i31.i, i64 %.pre.i.i.i.i.i.i35.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i36.i, ptr nonnull align 4 %__first.addr.0.lcssa.i, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i, ptr noundef nonnull align 4 dereferenceable(1) %__first.addr.0.lcssa.i, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
   br label %for.inc.i21.i
 
 if.else.i19.i:                                    ; preds = %for.body.i15.i
@@ -26831,8 +26831,7 @@ if.then9:                                         ; preds = %if.else
 if.then5.i:                                       ; preds = %if.then9
   %mul.i.i = shl nuw i64 %retval.0.i.i, 1
   %cond.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %n, i64 %mul.i.i)
-  %cond.i3.i.i = tail call noundef i64 @llvm.umax.i64(i64 %cond.i.i.i, i64 %cond.i)
-  tail call void @_ZN5eastl12basic_stringIcNS_9allocatorEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %cond.i3.i.i)
+  tail call void @_ZN5eastl12basic_stringIcNS_9allocatorEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %cond.i.i.i)
   %.pre.i = load i8, ptr %mRemainingSizeField.i.i, align 1
   %.pre23.i = load i64, ptr %mnSize.i.i, align 8
   br label %_ZN5eastl28CharStringUninitializedFillNEPcmc.exit.i
@@ -29294,7 +29293,7 @@ if.then2.us:                                      ; preds = %for.body.us
   %sub.ptr.div.i.i.i.i.i.us = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.us, 2
   %.pre.i.i.i.i.i.us = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.us
   %add.ptr.i.i.i.i.i.us = getelementptr inbounds i32, ptr %add.ptr3.us, i64 %.pre.i.i.i.i.i.us
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.us, ptr nonnull align 4 %__first, i64 %sub.ptr.sub.i.i.i.i.i.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.us, ptr noundef nonnull align 4 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.us, i1 false)
   store i32 %__i.0.val.us, ptr %__first, align 4
   br label %for.inc.us
 
@@ -29354,7 +29353,7 @@ if.then2:                                         ; preds = %for.body
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 2
   %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %add.ptr3, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i, ptr nonnull align 4 %__first, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
