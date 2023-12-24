@@ -6107,16 +6107,14 @@ for.body15:                                       ; preds = %for.body15.lr.ph, %
   %sub.ptr.lhs.cast = ptrtoint ptr %11 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %cond
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 8
-  %12 = inttoptr i64 %sub.ptr.div to ptr
-  store ptr %12, ptr %m_n, align 8
-  %13 = load ptr, ptr %m_data.i50, align 8
-  %arrayidx25 = getelementptr inbounds %"struct.btSoftBody::Link", ptr %13, i64 %indvars.iv126, i32 2, i64 1
-  %14 = load ptr, ptr %arrayidx25, align 8
-  %sub.ptr.lhs.cast26 = ptrtoint ptr %14 to i64
+  store i64 %sub.ptr.div, ptr %m_n, align 8
+  %12 = load ptr, ptr %m_data.i50, align 8
+  %arrayidx25 = getelementptr inbounds %"struct.btSoftBody::Link", ptr %12, i64 %indvars.iv126, i32 2, i64 1
+  %13 = load ptr, ptr %arrayidx25, align 8
+  %sub.ptr.lhs.cast26 = ptrtoint ptr %13 to i64
   %sub.ptr.sub28 = sub i64 %sub.ptr.lhs.cast26, %cond
   %sub.ptr.div29 = ashr exact i64 %sub.ptr.sub28, 8
-  %15 = inttoptr i64 %sub.ptr.div29 to ptr
-  store ptr %15, ptr %arrayidx25, align 8
+  store i64 %sub.ptr.div29, ptr %arrayidx25, align 8
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count129
   br i1 %exitcond130.not, label %for.end36, label %for.body15, !llvm.loop !42
@@ -6124,86 +6122,82 @@ for.body15:                                       ; preds = %for.body15.lr.ph, %
 for.end36:                                        ; preds = %for.body15, %for.end
   store i32 0, ptr %i, align 8
   %m_size.i62 = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 14, i32 2
-  %16 = load i32, ptr %m_size.i62, align 4
-  %cmp39110 = icmp sgt i32 %16, 0
+  %14 = load i32, ptr %m_size.i62, align 4
+  %cmp39110 = icmp sgt i32 %14, 0
   br i1 %cmp39110, label %for.body40.lr.ph, label %for.end88
 
 for.body40.lr.ph:                                 ; preds = %for.end36
   %m_data.i63 = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 14, i32 5
-  %wide.trip.count134 = zext nneg i32 %16 to i64
+  %wide.trip.count134 = zext nneg i32 %14 to i64
   br label %for.body40
 
 for.body40:                                       ; preds = %for.body40.lr.ph, %for.inc86
   %indvars.iv131 = phi i64 [ 0, %for.body40.lr.ph ], [ %indvars.iv.next132, %for.inc86 ]
-  %17 = load ptr, ptr %m_data.i63, align 8
-  %m_n43 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %17, i64 %indvars.iv131, i32 1
-  %18 = load ptr, ptr %m_n43, align 8
-  %sub.ptr.lhs.cast45 = ptrtoint ptr %18 to i64
+  %15 = load ptr, ptr %m_data.i63, align 8
+  %m_n43 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %15, i64 %indvars.iv131, i32 1
+  %16 = load ptr, ptr %m_n43, align 8
+  %sub.ptr.lhs.cast45 = ptrtoint ptr %16 to i64
   %sub.ptr.sub47 = sub i64 %sub.ptr.lhs.cast45, %cond
   %sub.ptr.div48 = ashr exact i64 %sub.ptr.sub47, 8
-  %19 = inttoptr i64 %sub.ptr.div48 to ptr
-  store ptr %19, ptr %m_n43, align 8
-  %20 = load ptr, ptr %m_data.i63, align 8
-  %arrayidx56 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %20, i64 %indvars.iv131, i32 1, i64 1
-  %21 = load ptr, ptr %arrayidx56, align 8
-  %sub.ptr.lhs.cast57 = ptrtoint ptr %21 to i64
+  store i64 %sub.ptr.div48, ptr %m_n43, align 8
+  %17 = load ptr, ptr %m_data.i63, align 8
+  %arrayidx56 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %17, i64 %indvars.iv131, i32 1, i64 1
+  %18 = load ptr, ptr %arrayidx56, align 8
+  %sub.ptr.lhs.cast57 = ptrtoint ptr %18 to i64
   %sub.ptr.sub59 = sub i64 %sub.ptr.lhs.cast57, %cond
   %sub.ptr.div60 = ashr exact i64 %sub.ptr.sub59, 8
-  %22 = inttoptr i64 %sub.ptr.div60 to ptr
-  store ptr %22, ptr %arrayidx56, align 8
-  %23 = load ptr, ptr %m_data.i63, align 8
-  %arrayidx68 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %23, i64 %indvars.iv131, i32 1, i64 2
-  %24 = load ptr, ptr %arrayidx68, align 8
-  %sub.ptr.lhs.cast69 = ptrtoint ptr %24 to i64
+  store i64 %sub.ptr.div60, ptr %arrayidx56, align 8
+  %19 = load ptr, ptr %m_data.i63, align 8
+  %arrayidx68 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %19, i64 %indvars.iv131, i32 1, i64 2
+  %20 = load ptr, ptr %arrayidx68, align 8
+  %sub.ptr.lhs.cast69 = ptrtoint ptr %20 to i64
   %sub.ptr.sub71 = sub i64 %sub.ptr.lhs.cast69, %cond
   %sub.ptr.div72 = ashr exact i64 %sub.ptr.sub71, 8
-  %25 = inttoptr i64 %sub.ptr.div72 to ptr
-  store ptr %25, ptr %arrayidx68, align 8
-  %26 = load ptr, ptr %m_data.i63, align 8
-  %m_leaf79 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %26, i64 %indvars.iv131, i32 5
-  %27 = load ptr, ptr %m_leaf79, align 8
-  %tobool80.not = icmp eq ptr %27, null
+  store i64 %sub.ptr.div72, ptr %arrayidx68, align 8
+  %21 = load ptr, ptr %m_data.i63, align 8
+  %m_leaf79 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %21, i64 %indvars.iv131, i32 5
+  %22 = load ptr, ptr %m_leaf79, align 8
+  %tobool80.not = icmp eq ptr %22, null
   br i1 %tobool80.not, label %for.inc86, label %if.then81
 
 if.then81:                                        ; preds = %for.body40
   %i.0.i.0.i.0.i.0.8 = load ptr, ptr %i, align 8
-  %28 = ptrtoint ptr %i.0.i.0.i.0.i.0.8 to i64
-  %sext149 = shl i64 %28, 32
+  %23 = ptrtoint ptr %i.0.i.0.i.0.i.0.8 to i64
+  %sext149 = shl i64 %23, 32
   %idxprom.i85 = ashr exact i64 %sext149, 32
-  %m_leaf84 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %26, i64 %idxprom.i85, i32 5
-  %29 = load ptr, ptr %m_leaf84, align 8
-  %30 = getelementptr inbounds %struct.btDbvtNode, ptr %29, i64 0, i32 2
-  store ptr %i.0.i.0.i.0.i.0.8, ptr %30, align 8
+  %m_leaf84 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %21, i64 %idxprom.i85, i32 5
+  %24 = load ptr, ptr %m_leaf84, align 8
+  %25 = getelementptr inbounds %struct.btDbvtNode, ptr %24, i64 0, i32 2
+  store ptr %i.0.i.0.i.0.i.0.8, ptr %25, align 8
   br label %for.inc86
 
 for.inc86:                                        ; preds = %for.body40, %if.then81
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
-  %31 = trunc i64 %indvars.iv.next132 to i32
-  store i32 %31, ptr %i, align 8
+  %26 = trunc i64 %indvars.iv.next132 to i32
+  store i32 %26, ptr %i, align 8
   %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count134
   br i1 %exitcond135.not, label %for.end88, label %for.body40, !llvm.loop !43
 
 for.end88:                                        ; preds = %for.inc86, %for.end36
   %m_size.i87 = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 19, i32 2
-  %32 = load i32, ptr %m_size.i87, align 4
-  %cmp91114 = icmp sgt i32 %32, 0
+  %27 = load i32, ptr %m_size.i87, align 4
+  %cmp91114 = icmp sgt i32 %27, 0
   br i1 %cmp91114, label %for.body92.lr.ph, label %for.end104
 
 for.body92.lr.ph:                                 ; preds = %for.end88
   %m_data.i88 = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 19, i32 5
-  %wide.trip.count139 = zext nneg i32 %32 to i64
+  %wide.trip.count139 = zext nneg i32 %27 to i64
   br label %for.body92
 
 for.body92:                                       ; preds = %for.body92.lr.ph, %for.body92
   %indvars.iv136 = phi i64 [ 0, %for.body92.lr.ph ], [ %indvars.iv.next137, %for.body92 ]
-  %33 = load ptr, ptr %m_data.i88, align 8
-  %arrayidx.i90 = getelementptr inbounds %"struct.btSoftBody::Anchor", ptr %33, i64 %indvars.iv136
-  %34 = load ptr, ptr %arrayidx.i90, align 8
-  %sub.ptr.lhs.cast95 = ptrtoint ptr %34 to i64
+  %28 = load ptr, ptr %m_data.i88, align 8
+  %arrayidx.i90 = getelementptr inbounds %"struct.btSoftBody::Anchor", ptr %28, i64 %indvars.iv136
+  %29 = load ptr, ptr %arrayidx.i90, align 8
+  %sub.ptr.lhs.cast95 = ptrtoint ptr %29 to i64
   %sub.ptr.sub97 = sub i64 %sub.ptr.lhs.cast95, %cond
   %sub.ptr.div98 = ashr exact i64 %sub.ptr.sub97, 8
-  %35 = inttoptr i64 %sub.ptr.div98 to ptr
-  store ptr %35, ptr %arrayidx.i90, align 8
+  store i64 %sub.ptr.div98, ptr %arrayidx.i90, align 8
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
   br i1 %exitcond140.not, label %for.end104, label %for.body92, !llvm.loop !44
@@ -6211,44 +6205,43 @@ for.body92:                                       ; preds = %for.body92.lr.ph, %
 for.end104:                                       ; preds = %for.body92, %for.end88
   store i32 0, ptr %i, align 8
   %m_size.i94 = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 10, i32 2
-  %36 = load i32, ptr %m_size.i94, align 4
-  %cmp107122 = icmp sgt i32 %36, 0
+  %30 = load i32, ptr %m_size.i94, align 4
+  %cmp107122 = icmp sgt i32 %30, 0
   br i1 %cmp107122, label %for.cond109.preheader.lr.ph, label %for.end132
 
 for.cond109.preheader.lr.ph:                      ; preds = %for.end104
   %m_data.i95 = getelementptr inbounds %class.btSoftBody, ptr %this, i64 0, i32 10, i32 5
-  %wide.trip.count147 = zext nneg i32 %36 to i64
+  %wide.trip.count147 = zext nneg i32 %30 to i64
   %.pre = load ptr, ptr %m_data.i95, align 8
   br label %for.cond109.preheader
 
 for.cond109.preheader:                            ; preds = %for.cond109.preheader.lr.ph, %for.inc130
-  %37 = phi ptr [ %.pre, %for.cond109.preheader.lr.ph ], [ %45, %for.inc130 ]
+  %31 = phi ptr [ %.pre, %for.cond109.preheader.lr.ph ], [ %38, %for.inc130 ]
   %indvars.iv144 = phi i64 [ 0, %for.cond109.preheader.lr.ph ], [ %indvars.iv.next145, %for.inc130 ]
-  %m_rank117 = getelementptr inbounds %"struct.btSoftBody::Note", ptr %37, i64 %indvars.iv144, i32 3
-  %38 = load i32, ptr %m_rank117, align 8
-  %cmp112118 = icmp sgt i32 %38, 0
+  %m_rank117 = getelementptr inbounds %"struct.btSoftBody::Note", ptr %31, i64 %indvars.iv144, i32 3
+  %32 = load i32, ptr %m_rank117, align 8
+  %cmp112118 = icmp sgt i32 %32, 0
   br i1 %cmp112118, label %for.body113, label %for.inc130
 
 for.body113:                                      ; preds = %for.cond109.preheader, %for.body113
   %indvars.iv141 = phi i64 [ %indvars.iv.next142, %for.body113 ], [ 0, %for.cond109.preheader ]
-  %39 = phi ptr [ %42, %for.body113 ], [ %37, %for.cond109.preheader ]
-  %arrayidx117 = getelementptr inbounds %"struct.btSoftBody::Note", ptr %39, i64 %indvars.iv144, i32 4, i64 %indvars.iv141
-  %40 = load ptr, ptr %arrayidx117, align 8
-  %sub.ptr.lhs.cast118 = ptrtoint ptr %40 to i64
+  %33 = phi ptr [ %35, %for.body113 ], [ %31, %for.cond109.preheader ]
+  %arrayidx117 = getelementptr inbounds %"struct.btSoftBody::Note", ptr %33, i64 %indvars.iv144, i32 4, i64 %indvars.iv141
+  %34 = load ptr, ptr %arrayidx117, align 8
+  %sub.ptr.lhs.cast118 = ptrtoint ptr %34 to i64
   %sub.ptr.sub120 = sub i64 %sub.ptr.lhs.cast118, %cond
   %sub.ptr.div121 = ashr exact i64 %sub.ptr.sub120, 8
-  %41 = inttoptr i64 %sub.ptr.div121 to ptr
-  store ptr %41, ptr %arrayidx117, align 8
+  store i64 %sub.ptr.div121, ptr %arrayidx117, align 8
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
-  %42 = load ptr, ptr %m_data.i95, align 8
-  %m_rank = getelementptr inbounds %"struct.btSoftBody::Note", ptr %42, i64 %indvars.iv144, i32 3
-  %43 = load i32, ptr %m_rank, align 8
-  %44 = sext i32 %43 to i64
-  %cmp112 = icmp slt i64 %indvars.iv.next142, %44
+  %35 = load ptr, ptr %m_data.i95, align 8
+  %m_rank = getelementptr inbounds %"struct.btSoftBody::Note", ptr %35, i64 %indvars.iv144, i32 3
+  %36 = load i32, ptr %m_rank, align 8
+  %37 = sext i32 %36 to i64
+  %cmp112 = icmp slt i64 %indvars.iv.next142, %37
   br i1 %cmp112, label %for.body113, label %for.inc130, !llvm.loop !45
 
 for.inc130:                                       ; preds = %for.body113, %for.cond109.preheader
-  %45 = phi ptr [ %37, %for.cond109.preheader ], [ %42, %for.body113 ]
+  %38 = phi ptr [ %31, %for.cond109.preheader ], [ %35, %for.body113 ]
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count147
   br i1 %exitcond148.not, label %for.end132, label %for.cond109.preheader, !llvm.loop !46

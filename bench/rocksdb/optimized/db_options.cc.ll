@@ -4006,14 +4006,14 @@ invoke.cont487:                                   ; preds = %.noexc964
   store i32 0, ptr %verification_.i.i969, align 4, !alias.scope !13
   %flags_.i.i970 = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp486, i64 0, i32 9
   store i32 0, ptr %flags_.i.i970, align 8, !alias.scope !13
-  store i64 ptrtoint (ptr @_ZN7rocksdbL28wal_recovery_mode_string_mapB5cxx11E to i64), ptr %parse_func_.i.i967, align 8, !alias.scope !13
+  store ptr @_ZN7rocksdbL28wal_recovery_mode_string_mapB5cxx11E, ptr %parse_func_.i.i967, align 8, !alias.scope !13
   %__tmp.sroa.0.i.i.i.i.sroa.4.0.parse_func_.i.sroa_idx.i = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp486, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
   store i64 0, ptr %__tmp.sroa.0.i.i.i.i.sroa.4.0.parse_func_.i.sroa_idx.i, align 8, !alias.scope !13
   %_M_manager3.i.i.i.i971 = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp486, i64 0, i32 2, i32 0, i32 1
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo4EnumINS0_15WALRecoveryModeEEESF_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SJ_EEENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation, ptr %_M_manager3.i.i.i.i971, align 8, !alias.scope !13
   %_M_invoker4.i2.i.i.i972 = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp486, i64 0, i32 2, i32 1
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo4EnumINS0_15WALRecoveryModeEEESF_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SJ_EEENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_, ptr %_M_invoker4.i2.i.i.i972, align 8, !alias.scope !13
-  store i64 ptrtoint (ptr @_ZN7rocksdbL28wal_recovery_mode_string_mapB5cxx11E to i64), ptr %117, align 8, !alias.scope !13
+  store ptr @_ZN7rocksdbL28wal_recovery_mode_string_mapB5cxx11E, ptr %117, align 8, !alias.scope !13
   %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp486, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
   store i64 0, ptr %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i, align 8, !alias.scope !13
   %_M_manager3.i.i.i23.i = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp486, i64 0, i32 3, i32 0, i32 1
@@ -4212,14 +4212,14 @@ invoke.cont532:                                   ; preds = %.noexc1038
   store i32 0, ptr %verification_.i.i1043, align 4, !alias.scope !16
   %flags_.i.i1044 = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp531, i64 0, i32 9
   store i32 0, ptr %flags_.i.i1044, align 8, !alias.scope !16
-  store i64 ptrtoint (ptr @_ZN7rocksdbL22access_hint_string_mapB5cxx11E to i64), ptr %parse_func_.i.i1041, align 8, !alias.scope !16
+  store ptr @_ZN7rocksdbL22access_hint_string_mapB5cxx11E, ptr %parse_func_.i.i1041, align 8, !alias.scope !16
   %__tmp.sroa.0.i.i.i.i.sroa.4.0.parse_func_.i.sroa_idx.i1045 = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp531, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
   store i64 0, ptr %__tmp.sroa.0.i.i.i.i.sroa.4.0.parse_func_.i.sroa_idx.i1045, align 8, !alias.scope !16
   %_M_manager3.i.i.i.i1046 = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp531, i64 0, i32 2, i32 0, i32 1
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo4EnumINS0_9DBOptions10AccessHintEEESF_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SK_EEENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E10_M_managerERSt9_Any_dataRKSY_St18_Manager_operation, ptr %_M_manager3.i.i.i.i1046, align 8, !alias.scope !16
   %_M_invoker4.i2.i.i.i1047 = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp531, i64 0, i32 2, i32 1
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo4EnumINS0_9DBOptions10AccessHintEEESF_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SK_EEENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_, ptr %_M_invoker4.i2.i.i.i1047, align 8, !alias.scope !16
-  store i64 ptrtoint (ptr @_ZN7rocksdbL22access_hint_string_mapB5cxx11E to i64), ptr %127, align 8, !alias.scope !16
+  store ptr @_ZN7rocksdbL22access_hint_string_mapB5cxx11E, ptr %127, align 8, !alias.scope !16
   %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i1048 = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp531, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
   store i64 0, ptr %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i1048, align 8, !alias.scope !16
   %_M_manager3.i.i.i23.i1049 = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp531, i64 0, i32 3, i32 0, i32 1
@@ -4248,14 +4248,14 @@ invoke.cont537:                                   ; preds = %invoke.cont532
   store i32 0, ptr %verification_.i.i1056, align 4, !alias.scope !19
   %flags_.i.i1057 = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp536, i64 0, i32 9
   store i32 0, ptr %flags_.i.i1057, align 8, !alias.scope !19
-  store i64 ptrtoint (ptr @_ZN7rocksdbL25info_log_level_string_mapB5cxx11E to i64), ptr %parse_func_.i.i1054, align 8, !alias.scope !19
+  store ptr @_ZN7rocksdbL25info_log_level_string_mapB5cxx11E, ptr %parse_func_.i.i1054, align 8, !alias.scope !19
   %__tmp.sroa.0.i.i.i.i.sroa.4.0.parse_func_.i.sroa_idx.i1058 = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp536, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
   store i64 0, ptr %__tmp.sroa.0.i.i.i.i.sroa.4.0.parse_func_.i.sroa_idx.i1058, align 8, !alias.scope !19
   %_M_manager3.i.i.i.i1059 = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp536, i64 0, i32 2, i32 0, i32 1
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo4EnumINS0_12InfoLogLevelEEESF_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SJ_EEENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation, ptr %_M_manager3.i.i.i.i1059, align 8, !alias.scope !19
   %_M_invoker4.i2.i.i.i1060 = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp536, i64 0, i32 2, i32 1
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo4EnumINS0_12InfoLogLevelEEESF_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SJ_EEENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_, ptr %_M_invoker4.i2.i.i.i1060, align 8, !alias.scope !19
-  store i64 ptrtoint (ptr @_ZN7rocksdbL25info_log_level_string_mapB5cxx11E to i64), ptr %129, align 8, !alias.scope !19
+  store ptr @_ZN7rocksdbL25info_log_level_string_mapB5cxx11E, ptr %129, align 8, !alias.scope !19
   %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i1061 = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp536, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
   store i64 0, ptr %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i1061, align 8, !alias.scope !19
   %_M_manager3.i.i.i23.i1062 = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp536, i64 0, i32 3, i32 0, i32 1
@@ -5394,14 +5394,14 @@ invoke.cont809:                                   ; preds = %.noexc1508
   store i32 0, ptr %verification_.i.i1513, align 4, !alias.scope !28
   %flags_.i.i1514 = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp808, i64 0, i32 9
   store i32 0, ptr %flags_.i.i1514, align 8, !alias.scope !28
-  store i64 ptrtoint (ptr @_ZN7rocksdbL21cache_tier_string_mapB5cxx11E to i64), ptr %parse_func_.i.i1511, align 8, !alias.scope !28
+  store ptr @_ZN7rocksdbL21cache_tier_string_mapB5cxx11E, ptr %parse_func_.i.i1511, align 8, !alias.scope !28
   %__tmp.sroa.0.i.i.i.i.sroa.4.0.parse_func_.i.sroa_idx.i1515 = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp808, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
   store i64 0, ptr %__tmp.sroa.0.i.i.i.i.sroa.4.0.parse_func_.i.sroa_idx.i1515, align 8, !alias.scope !28
   %_M_manager3.i.i.i.i1516 = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp808, i64 0, i32 2, i32 0, i32 1
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo4EnumINS0_9CacheTierEEESF_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SJ_EEENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation, ptr %_M_manager3.i.i.i.i1516, align 8, !alias.scope !28
   %_M_invoker4.i2.i.i.i1517 = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp808, i64 0, i32 2, i32 1
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo4EnumINS0_9CacheTierEEESF_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SJ_EEENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_, ptr %_M_invoker4.i2.i.i.i1517, align 8, !alias.scope !28
-  store i64 ptrtoint (ptr @_ZN7rocksdbL21cache_tier_string_mapB5cxx11E to i64), ptr %188, align 8, !alias.scope !28
+  store ptr @_ZN7rocksdbL21cache_tier_string_mapB5cxx11E, ptr %188, align 8, !alias.scope !28
   %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i1518 = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp808, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
   store i64 0, ptr %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i1518, align 8, !alias.scope !28
   %_M_manager3.i.i.i23.i1519 = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp808, i64 0, i32 3, i32 0, i32 1

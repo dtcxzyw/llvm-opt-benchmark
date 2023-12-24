@@ -4407,30 +4407,28 @@ if.end51.thread68:                                ; preds = %if.end28, %call.i.i
   %_M_invoker.i = getelementptr inbounds %"class.std::function.99", ptr %gomory_fn, i64 0, i32 1
   %28 = getelementptr inbounds i8, ptr %gomory_fn, i64 8
   store i64 0, ptr %28, align 8
-  %29 = ptrtoint ptr %this to i64
-  store i64 %29, ptr %gomory_fn, align 8
+  store ptr %this, ptr %gomory_fn, align 8
   store ptr @"_ZNSt17_Function_handlerIFN2lp8lia_moveEjEZNS0_10int_solver5checkEPNS0_11explanationEE3$_0E9_M_invokeERKSt9_Any_dataOj", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFN2lp8lia_moveEjEZNS0_10int_solver5checkEPNS0_11explanationEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   br label %if.end58
 
 land.lhs.true44:                                  ; preds = %call.i.i.noexc, %invoke.cont36, %if.then.i21
-  %30 = phi i32 [ %.pre72, %call.i.i.noexc ], [ %.pre72, %invoke.cont36 ], [ %.pre, %if.then.i21 ]
+  %29 = phi i32 [ %.pre72, %call.i.i.noexc ], [ %.pre72, %invoke.cont36 ], [ %.pre, %if.then.i21 ]
   %_M_manager.i.i57 = getelementptr inbounds %"class.std::_Function_base", ptr %gomory_fn, i64 0, i32 1
   %_M_invoker.i58 = getelementptr inbounds %"class.std::function.99", ptr %gomory_fn, i64 0, i32 1
-  %31 = getelementptr inbounds i8, ptr %gomory_fn, i64 8
-  store i64 0, ptr %31, align 8
-  %32 = ptrtoint ptr %this to i64
-  store i64 %32, ptr %gomory_fn, align 8
+  %30 = getelementptr inbounds i8, ptr %gomory_fn, i64 8
+  store i64 0, ptr %30, align 8
+  store ptr %this, ptr %gomory_fn, align 8
   store ptr @"_ZNSt17_Function_handlerIFN2lp8lia_moveEjEZNS0_10int_solver5checkEPNS0_11explanationEE3$_0E9_M_invokeERKSt9_Any_dataOj", ptr %_M_invoker.i58, align 8
   store ptr @"_ZNSt17_Function_handlerIFN2lp8lia_moveEjEZNS0_10int_solver5checkEPNS0_11explanationEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %_M_manager.i.i57, align 8
-  %33 = load ptr, ptr %this, align 8
-  %call.i.i30 = invoke noundef nonnull align 8 dereferenceable(299) ptr @_ZN2lp10lar_solver8settingsEv(ptr noundef nonnull align 8 dereferenceable(1888) %33)
+  %31 = load ptr, ptr %this, align 8
+  %call.i.i30 = invoke noundef nonnull align 8 dereferenceable(299) ptr @_ZN2lp10lar_solver8settingsEv(ptr noundef nonnull align 8 dereferenceable(1888) %31)
           to label %invoke.cont46 unwind label %lpad45
 
 invoke.cont46:                                    ; preds = %land.lhs.true44
   %m_int_gomory_cut_period.i = getelementptr inbounds %"struct.lp::lp_settings", ptr %call.i.i30, i64 0, i32 31
-  %34 = load i32, ptr %m_int_gomory_cut_period.i, align 4
-  %rem.i27 = urem i32 %30, %34
+  %32 = load i32, ptr %m_int_gomory_cut_period.i, align 4
+  %rem.i27 = urem i32 %29, %32
   %cmp.i28 = icmp eq i32 %rem.i27, 0
   br i1 %cmp.i28, label %if.then48, label %if.then53
 
@@ -4440,21 +4438,21 @@ if.then48:                                        ; preds = %invoke.cont46
 
 lpad45:                                           ; preds = %invoke.cont59, %if.end58, %land.lhs.true44, %invoke.cont55, %if.then53, %if.then48
   %_M_manager.i.i62 = phi ptr [ %_M_manager.i.i6066, %invoke.cont59 ], [ %_M_manager.i.i6066, %if.end58 ], [ %_M_manager.i.i57, %land.lhs.true44 ], [ %_M_manager.i.i57, %invoke.cont55 ], [ %_M_manager.i.i57, %if.then53 ], [ %_M_manager.i.i57, %if.then48 ]
-  %35 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %36 = load ptr, ptr %_M_manager.i.i62, align 8
-  %tobool.not.i.i = icmp eq ptr %36, null
+  %34 = load ptr, ptr %_M_manager.i.i62, align 8
+  %tobool.not.i.i = icmp eq ptr %34, null
   br i1 %tobool.not.i.i, label %ehcleanup, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad45
-  %call.i.i = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %gomory_fn, ptr noundef nonnull align 8 dereferenceable(16) %gomory_fn, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %gomory_fn, ptr noundef nonnull align 8 dereferenceable(16) %gomory_fn, i32 noundef 3)
           to label %ehcleanup unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
-  %37 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #23
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #23
   unreachable
 
 if.end51:                                         ; preds = %if.then48
@@ -4472,34 +4470,34 @@ invoke.cont55:                                    ; preds = %if.then53
 if.end58:                                         ; preds = %if.end51.thread68, %invoke.cont55, %if.end51
   %_M_manager.i.i6066 = phi ptr [ %_M_manager.i.i57, %if.end51 ], [ %_M_manager.i.i57, %invoke.cont55 ], [ %_M_manager.i.i, %if.end51.thread68 ]
   %r.5 = phi i32 [ %call50, %if.end51 ], [ %call57, %invoke.cont55 ], [ %r.3, %if.end51.thread68 ]
-  %39 = load ptr, ptr %this, align 8
-  %call.i3233 = invoke noundef nonnull align 8 dereferenceable(299) ptr @_ZN2lp10lar_solver8settingsEv(ptr noundef nonnull align 8 dereferenceable(1888) %39)
+  %37 = load ptr, ptr %this, align 8
+  %call.i3233 = invoke noundef nonnull align 8 dereferenceable(299) ptr @_ZN2lp10lar_solver8settingsEv(ptr noundef nonnull align 8 dereferenceable(1888) %37)
           to label %invoke.cont59 unwind label %lpad45
 
 invoke.cont59:                                    ; preds = %if.end58
   %m_resource_limit.i35 = getelementptr inbounds %"struct.lp::lp_settings", ptr %call.i3233, i64 0, i32 1
-  %40 = load ptr, ptr %m_resource_limit.i35, align 8
-  %vtable.i36 = load ptr, ptr %40, align 8
+  %38 = load ptr, ptr %m_resource_limit.i35, align 8
+  %vtable.i36 = load ptr, ptr %38, align 8
   %vfn.i37 = getelementptr inbounds ptr, ptr %vtable.i36, i64 2
-  %41 = load ptr, ptr %vfn.i37, align 8
-  %call.i3839 = invoke noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(8) %40)
+  %39 = load ptr, ptr %vfn.i37, align 8
+  %call.i3839 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(8) %38)
           to label %invoke.cont61 unwind label %lpad45
 
 invoke.cont61:                                    ; preds = %invoke.cont59
   %spec.select = select i1 %call.i3839, i32 5, i32 %r.5
-  %42 = load ptr, ptr %_M_manager.i.i6066, align 8
-  %tobool.not.i.i42 = icmp eq ptr %42, null
+  %40 = load ptr, ptr %_M_manager.i.i6066, align 8
+  %tobool.not.i.i42 = icmp eq ptr %40, null
   br i1 %tobool.not.i.i42, label %cleanup, label %if.then.i.i43
 
 if.then.i.i43:                                    ; preds = %invoke.cont61
-  %call.i.i44 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(16) %gomory_fn, ptr noundef nonnull align 8 dereferenceable(16) %gomory_fn, i32 noundef 3)
+  %call.i.i44 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %gomory_fn, ptr noundef nonnull align 8 dereferenceable(16) %gomory_fn, i32 noundef 3)
           to label %cleanup unwind label %terminate.lpad.i.i45
 
 terminate.lpad.i.i45:                             ; preds = %if.then.i.i43
-  %43 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #23
+  %42 = extractvalue { ptr, i32 } %41, 0
+  call void @__clang_call_terminate(ptr %42) #23
   unreachable
 
 cleanup:                                          ; preds = %if.then.i.i43, %invoke.cont61, %invoke.cont9
@@ -4508,14 +4506,14 @@ cleanup:                                          ; preds = %if.then.i.i43, %inv
           to label %return unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %cleanup
-  %45 = landingpad { ptr, i32 }
+  %43 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #23
+  %44 = extractvalue { ptr, i32 } %43, 0
+  call void @__clang_call_terminate(ptr %44) #23
   unreachable
 
 ehcleanup:                                        ; preds = %if.then.i.i, %lpad45, %lpad
-  %.pn = phi { ptr, i32 } [ %15, %lpad ], [ %35, %lpad45 ], [ %35, %if.then.i.i ]
+  %.pn = phi { ptr, i32 } [ %15, %lpad ], [ %33, %lpad45 ], [ %33, %if.then.i.i ]
   call void @_ZN2lp19check_return_helperD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %pc) #24
   resume { ptr, i32 } %.pn
 

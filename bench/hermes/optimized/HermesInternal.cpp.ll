@@ -1492,21 +1492,20 @@ if.then:                                          ; preds = %_ZNK6hermes2vm10Nat
   br label %return
 
 if.end:                                           ; preds = %_ZNK6hermes2vm10NativeArgs10dyncastArgINS0_8CallableEEENS0_6HandleIT_EEj.exit
-  %9 = inttoptr i64 %and.i.i to ptr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %job.addr.i)
-  store ptr %9, ptr %job.addr.i, align 8
+  store i64 %and.i.i, ptr %job.addr.i, align 8
   %_M_finish.i.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 139, i32 0, i32 0, i32 0, i32 3
-  %10 = load ptr, ptr %_M_finish.i.i, align 8
+  %9 = load ptr, ptr %_M_finish.i.i, align 8
   %_M_last.i.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 139, i32 0, i32 0, i32 0, i32 3, i32 2
-  %11 = load ptr, ptr %_M_last.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %11, i64 -1
-  %cmp.not.i.i = icmp eq ptr %10, %add.ptr.i.i
+  %10 = load ptr, ptr %_M_last.i.i, align 8
+  %add.ptr.i.i = getelementptr inbounds ptr, ptr %10, i64 -1
+  %cmp.not.i.i = icmp eq ptr %9, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %if.else.i.i3, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  store ptr %9, ptr %10, align 8
-  %12 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %12, i64 1
+  store i64 %and.i.i, ptr %9, align 8
+  %11 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %11, i64 1
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZN6hermes2vm7Runtime10enqueueJobEPNS0_8CallableE.exit
 

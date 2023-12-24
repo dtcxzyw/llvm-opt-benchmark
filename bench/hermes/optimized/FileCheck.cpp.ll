@@ -2445,7 +2445,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %10 = load ptr, ptr %BufferEnd.i.i68, align 8
   store ptr %10, ptr %End.i, align 8
   store i64 0, ptr %3, align 8
-  store ptr %9, ptr %NB.i, align 8
+  store i64 %8, ptr %NB.i, align 8
   store ptr null, ptr %IncludeLoc4.i, align 8
   %11 = load ptr, ptr %_M_finish.i.i.i, align 8
   %12 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8

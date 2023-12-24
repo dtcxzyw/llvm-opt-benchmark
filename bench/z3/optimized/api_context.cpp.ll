@@ -1071,8 +1071,7 @@ invoke.cont32:                                    ; preds = %call.i.i.i.noexc
   %m_infos.i.i = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 12, i32 6, i32 3
   store ptr null, ptr %m_infos.i.i, align 8
   %m_info_pinned.i.i = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 12, i32 6, i32 4
-  %14 = ptrtoint ptr %13 to i64
-  store i64 %14, ptr %m_info_pinned.i.i, align 8
+  store ptr %13, ptr %m_info_pinned.i.i, align 8
   %m_nodes.i.i.i.i = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 12, i32 6, i32 4, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i.i.i, align 8
   %invalid_info.i.i = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 12, i32 6, i32 5
@@ -1092,8 +1091,8 @@ invoke.cont32:                                    ; preds = %call.i.i.i.noexc
   %min_length.i6.i.i = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 12, i32 6, i32 6, i32 3
   store i32 0, ptr %min_length.i6.i.i, align 4
   %m_recfun = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 13
-  %15 = load ptr, ptr %m_manager, align 8
-  invoke void @_ZN6recfun4utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(24) %m_recfun, ptr noundef nonnull align 8 dereferenceable(976) %15)
+  %14 = load ptr, ptr %m_manager, align 8
+  invoke void @_ZN6recfun4utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(24) %m_recfun, ptr noundef nonnull align 8 dereferenceable(976) %14)
           to label %invoke.cont34 unwind label %lpad31
 
 invoke.cont34:                                    ; preds = %invoke.cont32
@@ -1110,9 +1109,8 @@ invoke.cont50:                                    ; preds = %invoke.cont34
   %m_objects_to_flush2 = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 18
   %m_ast_trail = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_asts_to_flush, i8 0, i64 32, i1 false)
-  %16 = load ptr, ptr %m_manager, align 8
-  %17 = ptrtoint ptr %16 to i64
-  store i64 %17, ptr %m_ast_trail, align 8
+  %15 = load ptr, ptr %m_manager, align 8
+  store ptr %15, ptr %m_ast_trail, align 8
   %m_nodes.i.i = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 19, i32 0, i32 1
   %m_last_obj = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 20
   %m_allocated_objects = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 21
@@ -1138,9 +1136,9 @@ invoke.cont54:                                    ; preds = %invoke.cont50
   %m_interruptable = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 38
   store ptr null, ptr %m_interruptable, align 8
   %m_char_buffer = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 39
-  %18 = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 39, i32 0, i32 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 16, i1 false)
-  store ptr %18, ptr %m_char_buffer, align 8
+  %16 = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 39, i32 0, i32 3
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 16, i1 false)
+  store ptr %16, ptr %m_char_buffer, align 8
   %m_pos.i.i = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 39, i32 0, i32 1
   store i32 0, ptr %m_pos.i.i, align 8
   %m_capacity.i.i = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 39, i32 0, i32 2
@@ -1162,7 +1160,7 @@ invoke.cont62:                                    ; preds = %invoke.cont54
           to label %invoke.cont65 unwind label %lpad.i33
 
 lpad.i33:                                         ; preds = %.noexc35
-  %19 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN11mpz_managerILb0EED1Ev(ptr noundef nonnull align 8 dereferenceable(600) %m_pmanager) #19
   br label %ehcleanup114
@@ -1244,13 +1242,13 @@ invoke.cont71:                                    ; preds = %invoke.cont65
   %m_error_handler = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_ptr.i4.i21.i, i8 0, i64 16, i1 false)
   store ptr @_ZN3apiL21default_error_handlerEP11_Z3_context13Z3_error_code, ptr %m_error_handler, align 8
-  %20 = load ptr, ptr %m_manager, align 8
+  %18 = load ptr, ptr %m_manager, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i, ptr noundef nonnull @.str)
           to label %.noexc39 unwind label %lpad70
 
 .noexc39:                                         ; preds = %invoke.cont71
-  %m_family_manager.i.i = getelementptr inbounds %class.ast_manager, ptr %20, i64 0, i32 2
+  %m_family_manager.i.i = getelementptr inbounds %class.ast_manager, ptr %18, i64 0, i32 2
   %call.i.i40 = invoke noundef i32 @_ZN14family_manager12mk_family_idERK6symbol(ptr noundef nonnull align 8 dereferenceable(56) %m_family_manager.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
           to label %invoke.cont75 unwind label %lpad70
 
@@ -1258,13 +1256,13 @@ invoke.cont75:                                    ; preds = %.noexc39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %m_bv_fid = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 24
   store i32 %call.i.i40, ptr %m_bv_fid, align 4
-  %21 = load ptr, ptr %m_manager, align 8
+  %19 = load ptr, ptr %m_manager, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i42)
   invoke void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i42, ptr noundef nonnull @.str.1)
           to label %.noexc44 unwind label %lpad70
 
 .noexc44:                                         ; preds = %invoke.cont75
-  %m_family_manager.i.i43 = getelementptr inbounds %class.ast_manager, ptr %21, i64 0, i32 2
+  %m_family_manager.i.i43 = getelementptr inbounds %class.ast_manager, ptr %19, i64 0, i32 2
   %call.i.i45 = invoke noundef i32 @_ZN14family_manager12mk_family_idERK6symbol(ptr noundef nonnull align 8 dereferenceable(56) %m_family_manager.i.i43, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i42)
           to label %invoke.cont79 unwind label %lpad70
 
@@ -1272,13 +1270,13 @@ invoke.cont79:                                    ; preds = %.noexc44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i42)
   %m_pb_fid = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 27
   store i32 %call.i.i45, ptr %m_pb_fid, align 8
-  %22 = load ptr, ptr %m_manager, align 8
+  %20 = load ptr, ptr %m_manager, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i48)
   invoke void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i48, ptr noundef nonnull @.str.2)
           to label %.noexc50 unwind label %lpad70
 
 .noexc50:                                         ; preds = %invoke.cont79
-  %m_family_manager.i.i49 = getelementptr inbounds %class.ast_manager, ptr %22, i64 0, i32 2
+  %m_family_manager.i.i49 = getelementptr inbounds %class.ast_manager, ptr %20, i64 0, i32 2
   %call.i.i51 = invoke noundef i32 @_ZN14family_manager12mk_family_idERK6symbol(ptr noundef nonnull align 8 dereferenceable(56) %m_family_manager.i.i49, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i48)
           to label %invoke.cont83 unwind label %lpad70
 
@@ -1286,13 +1284,13 @@ invoke.cont83:                                    ; preds = %.noexc50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i48)
   %m_array_fid = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 23
   store i32 %call.i.i51, ptr %m_array_fid, align 8
-  %23 = load ptr, ptr %m_manager, align 8
+  %21 = load ptr, ptr %m_manager, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i54)
   invoke void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i54, ptr noundef nonnull @.str.3)
           to label %.noexc56 unwind label %lpad70
 
 .noexc56:                                         ; preds = %invoke.cont83
-  %m_family_manager.i.i55 = getelementptr inbounds %class.ast_manager, ptr %23, i64 0, i32 2
+  %m_family_manager.i.i55 = getelementptr inbounds %class.ast_manager, ptr %21, i64 0, i32 2
   %call.i.i57 = invoke noundef i32 @_ZN14family_manager12mk_family_idERK6symbol(ptr noundef nonnull align 8 dereferenceable(56) %m_family_manager.i.i55, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i54)
           to label %invoke.cont87 unwind label %lpad70
 
@@ -1300,13 +1298,13 @@ invoke.cont87:                                    ; preds = %.noexc56
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i54)
   %m_dt_fid = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 25
   store i32 %call.i.i57, ptr %m_dt_fid, align 8
-  %24 = load ptr, ptr %m_manager, align 8
+  %22 = load ptr, ptr %m_manager, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i60)
   invoke void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i60, ptr noundef nonnull @.str.4)
           to label %.noexc62 unwind label %lpad70
 
 .noexc62:                                         ; preds = %invoke.cont87
-  %m_family_manager.i.i61 = getelementptr inbounds %class.ast_manager, ptr %24, i64 0, i32 2
+  %m_family_manager.i.i61 = getelementptr inbounds %class.ast_manager, ptr %22, i64 0, i32 2
   %call.i.i63 = invoke noundef i32 @_ZN14family_manager12mk_family_idERK6symbol(ptr noundef nonnull align 8 dereferenceable(56) %m_family_manager.i.i61, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i60)
           to label %invoke.cont91 unwind label %lpad70
 
@@ -1314,13 +1312,13 @@ invoke.cont91:                                    ; preds = %.noexc62
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i60)
   %m_datalog_fid = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 26
   store i32 %call.i.i63, ptr %m_datalog_fid, align 4
-  %25 = load ptr, ptr %m_manager, align 8
+  %23 = load ptr, ptr %m_manager, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i66)
   invoke void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i66, ptr noundef nonnull @.str.5)
           to label %.noexc68 unwind label %lpad70
 
 .noexc68:                                         ; preds = %invoke.cont91
-  %m_family_manager.i.i67 = getelementptr inbounds %class.ast_manager, ptr %25, i64 0, i32 2
+  %m_family_manager.i.i67 = getelementptr inbounds %class.ast_manager, ptr %23, i64 0, i32 2
   %call.i.i69 = invoke noundef i32 @_ZN14family_manager12mk_family_idERK6symbol(ptr noundef nonnull align 8 dereferenceable(56) %m_family_manager.i.i67, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i66)
           to label %invoke.cont95 unwind label %lpad70
 
@@ -1328,13 +1326,13 @@ invoke.cont95:                                    ; preds = %.noexc68
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i66)
   %m_fpa_fid = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 28
   store i32 %call.i.i69, ptr %m_fpa_fid, align 4
-  %26 = load ptr, ptr %m_manager, align 8
+  %24 = load ptr, ptr %m_manager, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i72)
   invoke void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i72, ptr noundef nonnull @.str.6)
           to label %.noexc74 unwind label %lpad70
 
 .noexc74:                                         ; preds = %invoke.cont95
-  %m_family_manager.i.i73 = getelementptr inbounds %class.ast_manager, ptr %26, i64 0, i32 2
+  %m_family_manager.i.i73 = getelementptr inbounds %class.ast_manager, ptr %24, i64 0, i32 2
   %call.i.i75 = invoke noundef i32 @_ZN14family_manager12mk_family_idERK6symbol(ptr noundef nonnull align 8 dereferenceable(56) %m_family_manager.i.i73, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i72)
           to label %invoke.cont99 unwind label %lpad70
 
@@ -1342,13 +1340,13 @@ invoke.cont99:                                    ; preds = %.noexc74
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i72)
   %m_seq_fid = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 29
   store i32 %call.i.i75, ptr %m_seq_fid, align 8
-  %27 = load ptr, ptr %m_manager, align 8
+  %25 = load ptr, ptr %m_manager, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i78)
   invoke void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i78, ptr noundef nonnull @.str.7)
           to label %.noexc80 unwind label %lpad70
 
 .noexc80:                                         ; preds = %invoke.cont99
-  %m_family_manager.i.i79 = getelementptr inbounds %class.ast_manager, ptr %27, i64 0, i32 2
+  %m_family_manager.i.i79 = getelementptr inbounds %class.ast_manager, ptr %25, i64 0, i32 2
   %call.i.i81 = invoke noundef i32 @_ZN14family_manager12mk_family_idERK6symbol(ptr noundef nonnull align 8 dereferenceable(56) %m_family_manager.i.i79, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i78)
           to label %invoke.cont103 unwind label %lpad70
 
@@ -1356,13 +1354,13 @@ invoke.cont103:                                   ; preds = %.noexc80
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i78)
   %m_char_fid = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 30
   store i32 %call.i.i81, ptr %m_char_fid, align 4
-  %28 = load ptr, ptr %m_manager, align 8
+  %26 = load ptr, ptr %m_manager, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i84)
   invoke void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i84, ptr noundef nonnull @.str.8)
           to label %.noexc86 unwind label %lpad70
 
 .noexc86:                                         ; preds = %invoke.cont103
-  %m_family_manager.i.i85 = getelementptr inbounds %class.ast_manager, ptr %28, i64 0, i32 2
+  %m_family_manager.i.i85 = getelementptr inbounds %class.ast_manager, ptr %26, i64 0, i32 2
   %call.i.i87 = invoke noundef i32 @_ZN14family_manager12mk_family_idERK6symbol(ptr noundef nonnull align 8 dereferenceable(56) %m_family_manager.i.i85, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i84)
           to label %invoke.cont107 unwind label %lpad70
 
@@ -1370,9 +1368,9 @@ invoke.cont107:                                   ; preds = %.noexc86
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i84)
   %m_special_relations_fid = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 31
   store i32 %call.i.i87, ptr %m_special_relations_fid, align 8
-  %29 = load ptr, ptr %m_manager, align 8
-  %30 = load i32, ptr %m_dt_fid, align 8
-  %call111 = invoke noundef ptr @_ZNK11ast_manager10get_pluginEi(ptr noundef nonnull align 8 dereferenceable(976) %29, i32 noundef %30)
+  %27 = load ptr, ptr %m_manager, align 8
+  %28 = load i32, ptr %m_dt_fid, align 8
+  %call111 = invoke noundef ptr @_ZNK11ast_manager10get_pluginEi(ptr noundef nonnull align 8 dereferenceable(976) %27, i32 noundef %28)
           to label %invoke.cont110 unwind label %lpad70
 
 invoke.cont110:                                   ; preds = %invoke.cont107
@@ -1385,81 +1383,81 @@ invoke.cont112:                                   ; preds = %invoke.cont110
   ret void
 
 lpad:                                             ; preds = %cond.false, %cond.true
-  %31 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup135
 
 lpad5:                                            ; preds = %cond.end
-  %32 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup134
 
 lpad10:                                           ; preds = %invoke.cont11, %invoke.cont20, %invoke.cont17, %invoke.cont14
-  %33 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup132
 
 lpad23:                                           ; preds = %invoke.cont24
-  %34 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup131
 
 lpad27:                                           ; preds = %call.i.i.i.noexc, %.noexc23, %invoke.cont28
-  %35 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup130
 
 lpad31:                                           ; preds = %invoke.cont32
-  %36 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup129
 
 lpad37:                                           ; preds = %invoke.cont34
-  %37 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #19
   br label %ehcleanup128
 
 lpad53:                                           ; preds = %invoke.cont50
-  %38 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup121
 
 lpad61:                                           ; preds = %invoke.cont54
-  %39 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup115
 
 lpad64:                                           ; preds = %invoke.cont62
-  %40 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup114
 
 lpad66:                                           ; preds = %invoke.cont65
-  %41 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup113
 
 lpad70:                                           ; preds = %.noexc86, %invoke.cont103, %.noexc80, %invoke.cont99, %.noexc74, %invoke.cont95, %.noexc68, %invoke.cont91, %.noexc62, %invoke.cont87, %.noexc56, %invoke.cont83, %.noexc50, %invoke.cont79, %.noexc44, %invoke.cont75, %.noexc39, %invoke.cont71, %invoke.cont110, %invoke.cont107
-  %42 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10scoped_ptrIN11realclosure7managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_rcf_manager) #19
   call void @_ZN11mpq_managerILb0EED1Ev(ptr noundef nonnull align 8 dereferenceable(728) %m_rcf_qm) #19
   br label %ehcleanup113
 
 ehcleanup113:                                     ; preds = %lpad70, %lpad66
-  %.pn = phi { ptr, i32 } [ %42, %lpad70 ], [ %41, %lpad66 ]
+  %.pn = phi { ptr, i32 } [ %40, %lpad70 ], [ %39, %lpad66 ]
   call void @_ZN10polynomial7managerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_pm.i) #19
   call void @_ZN11mpz_managerILb0EED1Ev(ptr noundef nonnull align 8 dereferenceable(600) %m_pmanager) #19
   br label %ehcleanup114
 
 ehcleanup114:                                     ; preds = %lpad64, %lpad.i33, %ehcleanup113
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup113 ], [ %40, %lpad64 ], [ %19, %lpad.i33 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup113 ], [ %38, %lpad64 ], [ %17, %lpad.i33 ]
   call void @_ZN8reslimitD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_limit) #19
   br label %ehcleanup115
 
 ehcleanup115:                                     ; preds = %ehcleanup114, %lpad61
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup114 ], [ %39, %lpad61 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup114 ], [ %37, %lpad61 ]
   call void @_ZN7sbufferIcLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_char_buffer) #19
   call void @_ZN10ptr_vectorI13event_handlerED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_interruptable) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_exception_msg) #19
@@ -1469,52 +1467,52 @@ ehcleanup115:                                     ; preds = %ehcleanup114, %lpad
   br label %ehcleanup121
 
 ehcleanup121:                                     ; preds = %ehcleanup115, %lpad53
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup115 ], [ %38, %lpad53 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup115 ], [ %36, %lpad53 ]
   call void @_ZN3refIN3api6objectEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_last_obj) #19
   call void @_ZN10ref_vectorI3ast11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_ast_trail) #19
   call void @_ZN10ptr_vectorIN3api6objectEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_objects_to_flush2) #19
   call void @_ZN10ptr_vectorIN3api6objectEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_objects_to_flush) #19
   call void @_ZN10ptr_vectorI3astED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_asts_to_flush2) #19
   call void @_ZN10ptr_vectorI3astED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_asts_to_flush) #19
-  %43 = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 14, i32 2
+  %41 = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 14, i32 2
   %m_qi_new_gen.i.i = getelementptr inbounds %"class.api::context", ptr %this, i64 0, i32 14, i32 2, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_qi_new_gen.i.i) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #19
   br label %ehcleanup128
 
 ehcleanup128:                                     ; preds = %ehcleanup121, %lpad37
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup121 ], [ %37, %lpad37 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup121 ], [ %35, %lpad37 ]
   call void @_ZN6recfun4utilD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_recfun) #19
   br label %ehcleanup129
 
 ehcleanup129:                                     ; preds = %ehcleanup128, %lpad31
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %ehcleanup128 ], [ %36, %lpad31 ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %ehcleanup128 ], [ %34, %lpad31 ]
   call void @_ZN8seq_util3rexD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %re.i) #19
   br label %ehcleanup130
 
 ehcleanup130:                                     ; preds = %ehcleanup129, %lpad27
-  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %ehcleanup129 ], [ %35, %lpad27 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %ehcleanup129 ], [ %33, %lpad27 ]
   call void @_ZN8fpa_utilD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_fpa_util) #19
   br label %ehcleanup131
 
 ehcleanup131:                                     ; preds = %ehcleanup130, %lpad23
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup130 ], [ %34, %lpad23 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup130 ], [ %32, %lpad23 ]
   call void @_ZN7datalog12dl_decl_utilD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %m_datalog_util) #19
   br label %ehcleanup132
 
 ehcleanup132:                                     ; preds = %ehcleanup131, %lpad10
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup131 ], [ %33, %lpad10 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup131 ], [ %31, %lpad10 ]
   call void @_ZN10scoped_ptrI11cmd_contextED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_cmd) #19
   call void @_ZN10scoped_ptrI11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_manager) #19
   br label %ehcleanup134
 
 ehcleanup134:                                     ; preds = %ehcleanup132, %lpad5
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup132 ], [ %32, %lpad5 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup132 ], [ %30, %lpad5 ]
   call void @_ZN18ast_context_paramsD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %m_params) #19
   br label %ehcleanup135
 
 ehcleanup135:                                     ; preds = %lpad, %ehcleanup.i.i, %ehcleanup134
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup134 ], [ %31, %lpad ], [ %.pn.i.i, %ehcleanup.i.i ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup134 ], [ %29, %lpad ], [ %.pn.i.i, %ehcleanup.i.i ]
   call void @_ZN14tactic_managerD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #19
   br label %common.resume
 }

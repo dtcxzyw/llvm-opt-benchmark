@@ -480,7 +480,7 @@ entry:
   %sub1.i.i = add i64 %0, 4194303
   %add2.i.i = and i64 %sub1.i.i, -4194304
   %1 = inttoptr i64 %add2.i.i to ptr
-  store ptr %1, ptr %lowLim, align 8
+  store i64 %add2.i.i, ptr %lowLim, align 8
   %lowLimToAllocHandle_ = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::MallocStorageProvider", ptr %this, i64 0, i32 1
   %2 = load ptr, ptr %lowLimToAllocHandle_, align 8
   %NumBuckets.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::MallocStorageProvider", ptr %this, i64 0, i32 1, i32 3
@@ -662,7 +662,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
 
 if.end.i:                                         ; preds = %if.end13.i.i.i, %if.end.i.i.i
   %cond.sink.i.i.ph.i = phi ptr [ %add.ptr21.i.i.i, %if.end.i.i.i ], [ %add.ptr.i.i.i, %if.end13.i.i.i ]
-  store ptr inttoptr (i64 -8 to ptr), ptr %cond.sink.i.i.ph.i, align 8
+  store i64 -8, ptr %cond.sink.i.i.ph.i, align 8
   %NumEntries.i.i.i.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::MallocStorageProvider", ptr %this, i64 0, i32 1, i32 1
   %15 = load <2 x i32>, ptr %NumEntries.i.i.i.i, align 8
   %16 = add <2 x i32> %15, <i32 -1, i32 1>
@@ -861,7 +861,7 @@ if.then:                                          ; preds = %_ZN4llvh8DenseMapIP
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %B.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %call.i, %if.then ]
-  store ptr inttoptr (i64 -4 to ptr), ptr %B.04.i, align 8
+  store i64 -4, ptr %B.04.i, align 8
   %incdec.ptr.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !9
@@ -881,7 +881,7 @@ if.end:                                           ; preds = %_ZN4llvh8DenseMapIP
 
 for.body.i.i:                                     ; preds = %if.end, %for.body.i.i
   %B.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i, %if.end ]
-  store ptr inttoptr (i64 -4 to ptr), ptr %B.04.i.i, align 8
+  store i64 -4, ptr %B.04.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i, i64 1
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPvS2_NS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !9
@@ -1141,10 +1141,9 @@ _ZN4llvh23SmallVectorTemplateBaseIPvLb1EE9push_backERKS1_.exit: ; preds = %entry
   %3 = load ptr, ptr %freelist_, align 8
   %conv.i3.i = zext i32 %2 to i64
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %3, i64 %conv.i3.i
-  %4 = ptrtoint ptr %storage to i64
-  store i64 %4, ptr %add.ptr.i.i, align 1
-  %5 = load i32, ptr %Size.i.i, align 8
-  %add.i = add i32 %5, 1
+  store ptr %storage, ptr %add.ptr.i.i, align 1
+  %4 = load i32, ptr %Size.i.i, align 8
+  %add.i = add i32 %4, 1
   store i32 %add.i, ptr %Size.i.i, align 8
   ret void
 }

@@ -5439,7 +5439,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store i64 ptrtoint (ptr @.str.9 to i64), ptr @_ZZNK8facebook5velox4core14InputTypedExpr9localHashEvE9kBaseHash, align 8
+  store ptr @.str.9, ptr @_ZZNK8facebook5velox4core14InputTypedExpr9localHashEvE9kBaseHash, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK8facebook5velox4core14InputTypedExpr9localHashEvE9kBaseHash) #26
   br label %init.end
 
@@ -5686,7 +5686,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store i64 ptrtoint (ptr @.str.6 to i64), ptr @_ZZNK8facebook5velox4core17ConstantTypedExpr9localHashEvE9kBaseHash, align 8
+  store ptr @.str.6, ptr @_ZZNK8facebook5velox4core17ConstantTypedExpr9localHashEvE9kBaseHash, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK8facebook5velox4core17ConstantTypedExpr9localHashEvE9kBaseHash) #26
   br label %init.end
 
@@ -6068,7 +6068,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store i64 ptrtoint (ptr @.str.3 to i64), ptr @_ZZNK8facebook5velox4core13CallTypedExpr9localHashEvE9kBaseHash, align 8
+  store ptr @.str.3, ptr @_ZZNK8facebook5velox4core13CallTypedExpr9localHashEvE9kBaseHash, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK8facebook5velox4core13CallTypedExpr9localHashEvE9kBaseHash) #26
   br label %init.end
 
@@ -6656,35 +6656,32 @@ if.then:                                          ; preds = %entry
   store ptr %name_.i, ptr %ref.tmp, align 8
   %2 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i64 0, i32 1
   store i64 8738, ptr %2, align 8
-  %3 = ptrtoint ptr %ref.tmp to i64
-  store i64 %3, ptr %ref.tmp.i, align 16, !noalias !112
-  %4 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp.i, i64 0, i32 1
-  store i64 ptrtoint (ptr @_ZN3fmt2v86detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argINSt8__detail14_Quoted_stringIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEENS1_18fallback_formatterISI_cvEEEEvPvRNS0_26basic_format_parse_contextIcNS1_13error_handlerEEERS5_ to i64), ptr %4, align 8, !noalias !112
+  store ptr %ref.tmp, ptr %ref.tmp.i, align 16, !noalias !112
+  %3 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp.i, i64 0, i32 1
+  store ptr @_ZN3fmt2v86detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argINSt8__detail14_Quoted_stringIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEENS1_18fallback_formatterISI_cvEEEEvPvRNS0_26basic_format_parse_contextIcNS1_13error_handlerEEERS5_, ptr %3, align 8, !noalias !112
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.32, i64 2, i64 15, ptr nonnull %ref.tmp.i)
   br label %return
 
 .noexc:                                           ; preds = %entry
-  %5 = load ptr, ptr %0, align 8
-  %vtable = load ptr, ptr %5, align 8
+  %4 = load ptr, ptr %0, align 8
+  %vtable = load ptr, ptr %4, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
-  %6 = load ptr, ptr %vfn, align 8
-  call void %6(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(48) %5)
+  %5 = load ptr, ptr %vfn, align 8
+  call void %5(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(48) %4)
   %name_.i9 = getelementptr inbounds %"class.facebook::velox::core::FieldAccessTypedExpr", ptr %this, i64 0, i32 1
   store ptr %name_.i9, ptr %ref.tmp10, align 8
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp10, i64 0, i32 1
-  store i64 8738, ptr %7, align 8
+  %6 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp10, i64 0, i32 1
+  store i64 8738, ptr %6, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !115)
   %call.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #26, !noalias !115
   %call2.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #26, !noalias !115
-  %8 = ptrtoint ptr %call.i.i.i to i64
-  %9 = ptrtoint ptr %ref.tmp10 to i64
-  store i64 %8, ptr %ref.tmp.i19, align 16, !alias.scope !115
+  store ptr %call.i.i.i, ptr %ref.tmp.i19, align 16, !alias.scope !115
   %ref.tmp.i.sroa.2.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i19, i64 8
   store i64 %call2.i.i.i, ptr %ref.tmp.i.sroa.2.0.agg.result.sroa_idx.i, align 8, !alias.scope !115
   %arrayinit.element.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i19, i64 1
-  store i64 %9, ptr %arrayinit.element.i.i, align 16, !alias.scope !115
+  store ptr %ref.tmp10, ptr %arrayinit.element.i.i, align 16, !alias.scope !115
   %ref.tmp5.i.sroa.2.0.arrayinit.element.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i19, i64 24
-  store i64 ptrtoint (ptr @_ZN3fmt2v86detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argINSt8__detail14_Quoted_stringIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEENS1_18fallback_formatterISI_cvEEEEvPvRNS0_26basic_format_parse_contextIcNS1_13error_handlerEEERS5_ to i64), ptr %ref.tmp5.i.sroa.2.0.arrayinit.element.i.sroa_idx.i, align 8, !alias.scope !115
+  store ptr @_ZN3fmt2v86detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argINSt8__detail14_Quoted_stringIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEENS1_18fallback_formatterISI_cvEEEEvPvRNS0_26basic_format_parse_contextIcNS1_13error_handlerEEERS5_, ptr %ref.tmp5.i.sroa.2.0.arrayinit.element.i.sroa_idx.i, align 8, !alias.scope !115
   invoke void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.33, i64 6, i64 253, ptr nonnull %ref.tmp.i19)
           to label %invoke.cont13 unwind label %lpad
 
@@ -6693,10 +6690,10 @@ invoke.cont13:                                    ; preds = %.noexc
   br label %return
 
 lpad:                                             ; preds = %.noexc
-  %10 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #26
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %7
 
 return:                                           ; preds = %invoke.cont13, %if.then
   ret void
@@ -6715,7 +6712,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store i64 ptrtoint (ptr @.str.8 to i64), ptr @_ZZNK8facebook5velox4core20FieldAccessTypedExpr9localHashEvE9kBaseHash, align 8
+  store ptr @.str.8, ptr @_ZZNK8facebook5velox4core20FieldAccessTypedExpr9localHashEvE9kBaseHash, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK8facebook5velox4core20FieldAccessTypedExpr9localHashEvE9kBaseHash) #26
   br label %init.end
 
@@ -6992,15 +6989,13 @@ if.then.i.i.i.i:                                  ; preds = %_ZNK8facebook5velox
   call void @llvm.experimental.noalias.scope.decl(metadata !121)
   %call.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26, !noalias !121
   %call2.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26, !noalias !121
-  %12 = ptrtoint ptr %call.i.i.i to i64
-  %13 = ptrtoint ptr %ref.tmp4 to i64
-  store i64 %12, ptr %ref.tmp.i, align 16, !alias.scope !121
+  store ptr %call.i.i.i, ptr %ref.tmp.i, align 16, !alias.scope !121
   %ref.tmp.i.sroa.2.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 %call2.i.i.i, ptr %ref.tmp.i.sroa.2.0.agg.result.sroa_idx.i, align 8, !alias.scope !121
   %arrayinit.element.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 1
-  store i64 %13, ptr %arrayinit.element.i.i, align 16, !alias.scope !121
+  store ptr %ref.tmp4, ptr %arrayinit.element.i.i, align 16, !alias.scope !121
   %ref.tmp5.i.sroa.2.0.arrayinit.element.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  store i64 ptrtoint (ptr @_ZN3fmt2v86detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argINSt8__detail14_Quoted_stringIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEENS1_18fallback_formatterISI_cvEEEEvPvRNS0_26basic_format_parse_contextIcNS1_13error_handlerEEERS5_ to i64), ptr %ref.tmp5.i.sroa.2.0.arrayinit.element.i.sroa_idx.i, align 8, !alias.scope !121
+  store ptr @_ZN3fmt2v86detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argINSt8__detail14_Quoted_stringIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEENS1_18fallback_formatterISI_cvEEEEvPvRNS0_26basic_format_parse_contextIcNS1_13error_handlerEEERS5_, ptr %ref.tmp5.i.sroa.2.0.arrayinit.element.i.sroa_idx.i, align 8, !alias.scope !121
   invoke void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.33, i64 6, i64 253, ptr nonnull %ref.tmp.i)
           to label %invoke.cont8 unwind label %lpad
 
@@ -7009,10 +7004,10 @@ invoke.cont8:                                     ; preds = %.noexc
   ret void
 
 lpad:                                             ; preds = %if.then.i.i.i.i, %dynamic_cast.bad_cast.i.i.i, %.noexc
-  %14 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
-  resume { ptr, i32 } %14
+  resume { ptr, i32 } %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7028,7 +7023,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store i64 ptrtoint (ptr @.str.7 to i64), ptr @_ZZNK8facebook5velox4core20DereferenceTypedExpr9localHashEvE9kBaseHash, align 8
+  store ptr @.str.7, ptr @_ZZNK8facebook5velox4core20DereferenceTypedExpr9localHashEvE9kBaseHash, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK8facebook5velox4core20DereferenceTypedExpr9localHashEvE9kBaseHash) #26
   br label %init.end
 
@@ -7367,7 +7362,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store i64 ptrtoint (ptr @.str.5 to i64), ptr @_ZZNK8facebook5velox4core15ConcatTypedExpr9localHashEvE9kBaseHash, align 8
+  store ptr @.str.5, ptr @_ZZNK8facebook5velox4core15ConcatTypedExpr9localHashEvE9kBaseHash, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK8facebook5velox4core15ConcatTypedExpr9localHashEvE9kBaseHash) #26
   br label %init.end
 
@@ -7769,15 +7764,13 @@ entry:
   call void @llvm.experimental.noalias.scope.decl(metadata !133)
   %call.i.i21.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26, !noalias !133
   %call2.i.i22.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26, !noalias !133
-  %4 = ptrtoint ptr %call.i.i21.i to i64
   %call.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #26, !noalias !133
   %call2.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #26, !noalias !133
-  %5 = ptrtoint ptr %call.i.i.i to i64
-  store i64 %4, ptr %ref.tmp.i, align 16, !alias.scope !133
+  store ptr %call.i.i21.i, ptr %ref.tmp.i, align 16, !alias.scope !133
   %ref.tmp.i.sroa.2.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 %call2.i.i22.i, ptr %ref.tmp.i.sroa.2.0.agg.result.sroa_idx.i, align 8, !alias.scope !133
   %arrayinit.element.i.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 1
-  store i64 %5, ptr %arrayinit.element.i.i.i, align 16, !alias.scope !133
+  store ptr %call.i.i.i, ptr %arrayinit.element.i.i.i, align 16, !alias.scope !133
   %ref.tmp5.i.sroa.2.0.arrayinit.element.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store i64 %call2.i.i.i, ptr %ref.tmp5.i.sroa.2.0.arrayinit.element.i.i.sroa_idx.i, align 8, !alias.scope !133
   invoke void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.56, i64 15, i64 221, ptr nonnull %ref.tmp.i)
@@ -7789,18 +7782,18 @@ invoke.cont7:                                     ; preds = %.noexc
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad6:                                            ; preds = %.noexc
-  %7 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #26
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad6, %lpad
-  %.pn = phi { ptr, i32 } [ %7, %lpad6 ], [ %6, %lpad ]
+  %.pn = phi { ptr, i32 } [ %5, %lpad6 ], [ %4, %lpad ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
   resume { ptr, i32 } %.pn
 }
@@ -7818,7 +7811,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store i64 ptrtoint (ptr @.str.10 to i64), ptr @_ZZNK8facebook5velox4core15LambdaTypedExpr9localHashEvE9kBaseHash, align 8
+  store ptr @.str.10, ptr @_ZZNK8facebook5velox4core15LambdaTypedExpr9localHashEvE9kBaseHash, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK8facebook5velox4core15LambdaTypedExpr9localHashEvE9kBaseHash) #26
   br label %init.end
 
@@ -8077,65 +8070,61 @@ if.then:                                          ; preds = %entry
   call void @llvm.experimental.noalias.scope.decl(metadata !139)
   %call.i.i21.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26, !noalias !139
   %call2.i.i22.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26, !noalias !139
-  %7 = ptrtoint ptr %call.i.i21.i to i64
   %call.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #26, !noalias !139
   %call2.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #26, !noalias !139
-  %8 = ptrtoint ptr %call.i.i.i to i64
-  store i64 %7, ptr %ref.tmp.i37, align 16, !alias.scope !139
+  store ptr %call.i.i21.i, ptr %ref.tmp.i37, align 16, !alias.scope !139
   %ref.tmp.i.sroa.2.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i37, i64 8
   store i64 %call2.i.i22.i, ptr %ref.tmp.i.sroa.2.0.agg.result.sroa_idx.i, align 8, !alias.scope !139
   %arrayinit.element.i.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i37, i64 1
-  store i64 %8, ptr %arrayinit.element.i.i.i, align 16, !alias.scope !139
+  store ptr %call.i.i.i, ptr %arrayinit.element.i.i.i, align 16, !alias.scope !139
   %ref.tmp5.i.sroa.2.0.arrayinit.element.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i37, i64 24
   store i64 %call2.i.i.i, ptr %ref.tmp5.i.sroa.2.0.arrayinit.element.i.i.sroa_idx.i, align 8, !alias.scope !139
   invoke void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.57, i64 17, i64 221, ptr nonnull %ref.tmp.i37)
           to label %return unwind label %lpad9
 
 lpad:                                             ; preds = %if.then
-  %9 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad9:                                            ; preds = %.noexc39
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #26
   br label %eh.resume
 
 if.else:                                          ; preds = %entry
   call void %4(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  %11 = load ptr, ptr %type_.i13, align 8
-  %vtable21 = load ptr, ptr %11, align 8
+  %9 = load ptr, ptr %type_.i13, align 8
+  %vtable21 = load ptr, ptr %9, align 8
   %vfn22 = getelementptr inbounds ptr, ptr %vtable21, i64 10
-  %12 = load ptr, ptr %vfn22, align 8
-  invoke void %12(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(17) %11)
+  %10 = load ptr, ptr %vfn22, align 8
+  invoke void %10(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(17) %9)
           to label %.noexc unwind label %lpad23
 
 .noexc:                                           ; preds = %if.else
   call void @llvm.experimental.noalias.scope.decl(metadata !142)
   %call.i.i21.i14 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #26, !noalias !142
   %call2.i.i22.i15 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #26, !noalias !142
-  %13 = ptrtoint ptr %call.i.i21.i14 to i64
   %call.i.i.i16 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18) #26, !noalias !142
   %call2.i.i.i17 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18) #26, !noalias !142
-  %14 = ptrtoint ptr %call.i.i.i16 to i64
-  store i64 %13, ptr %ref.tmp.i, align 16, !alias.scope !142
+  store ptr %call.i.i21.i14, ptr %ref.tmp.i, align 16, !alias.scope !142
   %ref.tmp.i.sroa.2.0.agg.result.sroa_idx.i18 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 %call2.i.i22.i15, ptr %ref.tmp.i.sroa.2.0.agg.result.sroa_idx.i18, align 8, !alias.scope !142
   %arrayinit.element.i.i.i19 = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 1
-  store i64 %14, ptr %arrayinit.element.i.i.i19, align 16, !alias.scope !142
+  store ptr %call.i.i.i16, ptr %arrayinit.element.i.i.i19, align 16, !alias.scope !142
   %ref.tmp5.i.sroa.2.0.arrayinit.element.i.i.sroa_idx.i20 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store i64 %call2.i.i.i17, ptr %ref.tmp5.i.sroa.2.0.arrayinit.element.i.i.sroa_idx.i20, align 8, !alias.scope !142
   invoke void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.58, i64 13, i64 221, ptr nonnull %ref.tmp.i)
           to label %return unwind label %lpad25
 
 lpad23:                                           ; preds = %if.else
-  %15 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad25:                                           ; preds = %.noexc
-  %16 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18) #26
   br label %eh.resume
@@ -8149,7 +8138,7 @@ return:                                           ; preds = %.noexc, %.noexc39
 
 eh.resume:                                        ; preds = %lpad23, %lpad25, %lpad, %lpad9
   %ref.tmp12.sink21 = phi ptr [ %ref.tmp, %lpad9 ], [ %ref.tmp, %lpad ], [ %ref.tmp12, %lpad25 ], [ %ref.tmp12, %lpad23 ]
-  %.pn8.pn = phi { ptr, i32 } [ %10, %lpad9 ], [ %9, %lpad ], [ %16, %lpad25 ], [ %15, %lpad23 ]
+  %.pn8.pn = phi { ptr, i32 } [ %8, %lpad9 ], [ %7, %lpad ], [ %12, %lpad25 ], [ %11, %lpad23 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.sink21) #26
   resume { ptr, i32 } %.pn8.pn
 }
@@ -8167,7 +8156,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  store i64 ptrtoint (ptr @.str.4 to i64), ptr @_ZZNK8facebook5velox4core13CastTypedExpr9localHashEvE9kBaseHash, align 8
+  store ptr @.str.4, ptr @_ZZNK8facebook5velox4core13CastTypedExpr9localHashEvE9kBaseHash, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK8facebook5velox4core13CastTypedExpr9localHashEvE9kBaseHash) #26
   br label %init.end
 

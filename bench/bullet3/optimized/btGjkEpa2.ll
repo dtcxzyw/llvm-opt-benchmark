@@ -576,9 +576,9 @@ entry:
   store <2 x float> %83, ptr %m_origin3.i, align 8
   %ref.tmp12.sroa.17.48.m_origin3.i.sroa_idx = getelementptr inbounds %"struct.gjkepa2_impl::MinkowskiDiff", ptr %shape, i64 0, i32 2, i32 1, i32 0, i64 2
   store <2 x float> %retval.sroa.3.12.vec.insert.i6.i, ptr %ref.tmp12.sroa.17.48.m_origin3.i.sroa_idx, align 8
-  %spec.select.i = select i1 %withmargins, i64 ptrtoint (ptr @_ZNK13btConvexShape31localGetSupportVertexNonVirtualERK9btVector3 to i64), i64 ptrtoint (ptr @_ZNK13btConvexShape44localGetSupportVertexWithoutMarginNonVirtualERK9btVector3 to i64)
+  %spec.select.i = select i1 %withmargins, ptr @_ZNK13btConvexShape31localGetSupportVertexNonVirtualERK9btVector3, ptr @_ZNK13btConvexShape44localGetSupportVertexWithoutMarginNonVirtualERK9btVector3
   %110 = getelementptr inbounds %"struct.gjkepa2_impl::MinkowskiDiff", ptr %shape, i64 0, i32 3
-  store i64 %spec.select.i, ptr %110, align 8
+  store ptr %spec.select.i, ptr %110, align 8
   %111 = getelementptr inbounds %"struct.gjkepa2_impl::MinkowskiDiff", ptr %shape, i64 0, i32 3, i32 1
   store i64 0, ptr %111, align 8
   ret void

@@ -4456,9 +4456,8 @@ while.body.lr.ph.i:                               ; preds = %entry
   %_M_manager.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp2.i.i, i64 0, i32 1
   %_M_invoker.i.i.i = getelementptr inbounds %"class.std::function.52", ptr %agg.tmp2.i.i, i64 0, i32 1
   %2 = getelementptr inbounds i8, ptr %agg.tmp2.i.i, i64 8
-  %3 = ptrtoint ptr %this to i64
-  %4 = load i64, ptr %length_.i, align 8
-  %call3.i8 = tail call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i, i32 noundef 32, i64 noundef %4) #31
+  %3 = load i64, ptr %length_.i, align 8
+  %call3.i8 = tail call noundef ptr @memchr(ptr noundef nonnull %add.ptr.i.i.i, i32 noundef 32, i64 noundef %3) #31
   %cmp.i9 = icmp eq ptr %call3.i8, null
   br i1 %cmp.i9, label %"_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS_11HTTPMessage12parseCookiesEvE3$_0EEbNS_14HTTPHeaderCodeET_.exit", label %if.end.i.preheader
 
@@ -4469,69 +4468,69 @@ if.end.i.preheader:                               ; preds = %while.body.lr.ph.i
 if.end.i:                                         ; preds = %if.end.i.preheader, %"_ZZNK8proxygen11HTTPMessage12parseCookiesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i"
   %call3.i11 = phi ptr [ %call3.i, %"_ZZNK8proxygen11HTTPMessage12parseCookiesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i" ], [ %call3.i8, %if.end.i.preheader ]
   %sub.ptr.rhs.cast.i10 = phi i64 [ %sub.ptr.rhs.cast.i, %"_ZZNK8proxygen11HTTPMessage12parseCookiesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i" ], [ %sub.ptr.lhs.cast.i3, %if.end.i.preheader ]
-  %5 = phi ptr [ %14, %"_ZZNK8proxygen11HTTPMessage12parseCookiesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i" ], [ %0, %if.end.i.preheader ]
+  %4 = phi ptr [ %13, %"_ZZNK8proxygen11HTTPMessage12parseCookiesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i" ], [ %0, %if.end.i.preheader ]
   %sub.ptr.lhs.cast5.i = ptrtoint ptr %call3.i11 to i64
   %sub.ptr.sub7.i = sub i64 %sub.ptr.lhs.cast5.i, %sub.ptr.rhs.cast.i10
-  %arrayidx.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %5, i64 %sub.ptr.sub7.i
+  %arrayidx.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %4, i64 %sub.ptr.sub7.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i)
   %call.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i) #23
   %call3.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i) #23
   %add.ptr.i.i12.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 %call3.i.i.i
   store i64 0, ptr %2, align 8
-  store i64 %3, ptr %agg.tmp2.i.i, align 8
+  store ptr %this, ptr %agg.tmp2.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvN5folly5RangeIPKcEES4_EZZNK8proxygen11HTTPMessage12parseCookiesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlS4_S4_E_E9_M_invokeERKSt9_Any_dataOS4_SM_", ptr %_M_invoker.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvN5folly5RangeIPKcEES4_EZZNK8proxygen11HTTPMessage12parseCookiesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlS4_S4_E_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", ptr %_M_manager.i.i.i.i, align 8
   invoke void @_ZN8proxygen11HTTPMessage20splitNameValuePiecesEN5folly5RangeIPKcEEccSt8functionIFvS5_S5_EE(ptr %call.i.i.i, ptr %add.ptr.i.i12.i, i8 noundef signext 59, i8 noundef signext 61, ptr noundef nonnull %agg.tmp2.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.end.i
-  %6 = load ptr, ptr %_M_manager.i.i.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %_M_manager.i.i.i.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i, label %"_ZZNK8proxygen11HTTPMessage12parseCookiesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i", label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
-  %call.i.i.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i.i, i32 noundef 3)
+  %call.i.i.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i.i, i32 noundef 3)
           to label %"_ZZNK8proxygen11HTTPMessage12parseCookiesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i" unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #35
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #35
   unreachable
 
 lpad.i.i:                                         ; preds = %if.end.i
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %10 = load ptr, ptr %_M_manager.i.i.i.i, align 8
-  %tobool.not.i.i3.i.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %_M_manager.i.i.i.i, align 8
+  %tobool.not.i.i3.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i3.i.i, label %_ZNSt8functionIFvN5folly5RangeIPKcEES4_EED2Ev.exit7.i.i, label %if.then.i.i4.i.i
 
 if.then.i.i4.i.i:                                 ; preds = %lpad.i.i
-  %call.i.i5.i.i = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i.i, i32 noundef 3)
+  %call.i.i5.i.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i.i, i32 noundef 3)
           to label %_ZNSt8functionIFvN5folly5RangeIPKcEES4_EED2Ev.exit7.i.i unwind label %terminate.lpad.i.i6.i.i
 
 terminate.lpad.i.i6.i.i:                          ; preds = %if.then.i.i4.i.i
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #35
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #35
   unreachable
 
 _ZNSt8functionIFvN5folly5RangeIPKcEES4_EED2Ev.exit7.i.i: ; preds = %if.then.i.i4.i.i, %lpad.i.i
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %8
 
 "_ZZNK8proxygen11HTTPMessage12parseCookiesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i": ; preds = %if.then.i.i.i.i, %invoke.cont.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %call3.i11, i64 1
-  %13 = load i64, ptr %length_.i, align 8
-  %14 = load ptr, ptr %headers_, align 8
-  %15 = load i64, ptr %capacity_.i.i, align 8
-  %mul.i.i7.i = mul i64 %15, 40
-  %add.ptr.i.i8.i = getelementptr inbounds i8, ptr %14, i64 %mul.i.i7.i
+  %12 = load i64, ptr %length_.i, align 8
+  %13 = load ptr, ptr %headers_, align 8
+  %14 = load i64, ptr %capacity_.i.i, align 8
+  %mul.i.i7.i = mul i64 %14, 40
+  %add.ptr.i.i8.i = getelementptr inbounds i8, ptr %13, i64 %mul.i.i7.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %incdec.ptr.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i.i8.i to i64
-  %sub.ptr.sub.neg.i = sub i64 %13, %sub.ptr.lhs.cast.i
+  %sub.ptr.sub.neg.i = sub i64 %12, %sub.ptr.lhs.cast.i
   %sub.i = add i64 %sub.ptr.sub.neg.i, %sub.ptr.rhs.cast.i
   %call3.i = call noundef ptr @memchr(ptr noundef nonnull %incdec.ptr.i, i32 noundef 32, i64 noundef %sub.i) #31
   %cmp.i = icmp eq ptr %call3.i, null
@@ -4650,52 +4649,51 @@ if.end:                                           ; preds = %entry
   %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp16, i64 0, i32 1
   %2 = getelementptr inbounds i8, ptr %agg.tmp16, i64 8
   store i64 0, ptr %2, align 8
-  %3 = ptrtoint ptr %this to i64
-  store i64 %3, ptr %agg.tmp16, align 8
+  store ptr %this, ptr %agg.tmp16, align 8
   store ptr @"_ZNSt17_Function_handlerIFvONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EZNK8proxygen11HTTPMessage16parseQueryParamsEvE3$_0E9_M_invokeERKSt9_Any_dataS6_S6_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EZNK8proxygen11HTTPMessage16parseQueryParamsEvE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   invoke void @_ZN8proxygen11HTTPMessage14splitNameValueEN5folly5RangeIPKcEEccSt8functionIFvONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_EE(ptr %0, ptr %1, i8 noundef signext 38, i8 noundef signext 61, ptr noundef nonnull %agg.tmp16)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %if.end
-  %4 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont19
-  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp16, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp16, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp16, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp16, i32 noundef 3)
           to label %return unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #35
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #35
   unreachable
 
 return:                                           ; preds = %if.then.i.i, %invoke.cont19, %entry
   ret void
 
 lpad18:                                           ; preds = %if.end
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %8 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i4 = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i4 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i4, label %_ZNSt8functionIFvONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EED2Ev.exit8, label %if.then.i.i5
 
 if.then.i.i5:                                     ; preds = %lpad18
-  %call.i.i6 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp16, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp16, i32 noundef 3)
+  %call.i.i6 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp16, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp16, i32 noundef 3)
           to label %_ZNSt8functionIFvONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EED2Ev.exit8 unwind label %terminate.lpad.i.i7
 
 terminate.lpad.i.i7:                              ; preds = %if.then.i.i5
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #35
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #35
   unreachable
 
 _ZNSt8functionIFvONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EED2Ev.exit8: ; preds = %lpad18, %if.then.i.i5
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %6
 }
 
 ; Function Attrs: mustprogress uwtable

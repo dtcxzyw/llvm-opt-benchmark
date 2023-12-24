@@ -744,7 +744,7 @@ for.body.preheader.i.i.i.i:                       ; preds = %if.end.i.i.i.i51.i,
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %for.body.preheader.i.i.i.i
-  %40 = phi i32 [ %34, %for.body.preheader.i.i.i.i ], [ %66, %for.inc.i.i.i.i ]
+  %40 = phi i32 [ %34, %for.body.preheader.i.i.i.i ], [ %64, %for.inc.i.i.i.i ]
   %cb_idx.i.0.i.i.i = phi i32 [ -1, %for.body.preheader.i.i.i.i ], [ %cb_idx.i.1.i.i.i, %for.inc.i.i.i.i ]
   %op.017.i.i.i.i = phi ptr [ %op.addr.0.lcssa.i.i.i.i54.i, %for.body.preheader.i.i.i.i ], [ %op.1.i.i.i.i, %for.inc.i.i.i.i ]
   %i.016.i.i.i.i = phi i32 [ 0, %for.body.preheader.i.i.i.i ], [ %inc.i.i.i.i, %for.inc.i.i.i.i ]
@@ -805,27 +805,26 @@ if.end9.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %54 = load ptr, ptr %0, align 8
   %55 = ptrtoint ptr %call1.i.i.i.i.i to i64
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr i8, ptr %54, i64 %55
-  %56 = ptrtoint ptr %add.ptr.i.i.i.i.i.i.i.i to i64
   %arrayidx.i.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i.i.i.i, i64 1, i32 2
-  store i64 %56, ptr %arrayidx.i.i.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 8
   %cmp3.i.i.i.i = icmp eq i32 %cb_idx.i.0.i.i.i, -1
   %link.i.i10.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %50, i64 0, i32 2
-  %57 = load ptr, ptr %link.i.i10.i.i.i.i, align 8
-  %bf.load.i.i11.i.i.i.i = load i32, ptr %57, align 8
+  %56 = load ptr, ptr %link.i.i10.i.i.i.i, align 8
+  %bf.load.i.i11.i.i.i.i = load i32, ptr %56, align 8
   br i1 %cmp3.i.i.i.i, label %if.then5.i.i.i.i, label %if.then16.i.i.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %if.end9.i.i.i.i
   %bf.lshr.i.i12.i.i.i.i = lshr i32 %bf.load.i.i11.i.i.i.i, 8
   %bf.clear.i.i13.i.i.i.i = and i32 %bf.lshr.i.i12.i.i.i.i, 255
-  %58 = load ptr, ptr %0, align 8
+  %57 = load ptr, ptr %0, align 8
   %bf.clear2.i.i15.i.i.i.i = and i32 %bf.load.i.i11.i.i.i.i, 255
-  %call.i.i16.i.i.i.i = tail call ptr @tcg_op_insert_after(ptr noundef %58, ptr noundef nonnull %call.i.i.i.i.i.i.i, i32 noundef %bf.clear2.i.i15.i.i.i.i, i32 noundef %bf.clear.i.i13.i.i.i.i) #10
+  %call.i.i16.i.i.i.i = tail call ptr @tcg_op_insert_after(ptr noundef %57, ptr noundef nonnull %call.i.i.i.i.i.i.i, i32 noundef %bf.clear2.i.i15.i.i.i.i, i32 noundef %bf.clear.i.i13.i.i.i.i) #10
   %args.i.i17.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i16.i.i.i.i, i64 0, i32 4
-  %args3.i.i18.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %57, i64 0, i32 4
-  %59 = shl nuw nsw i32 %bf.clear.i.i13.i.i.i.i, 3
-  %mul.i.i19.i.i.i.i = zext nneg i32 %59 to i64
+  %args3.i.i18.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %56, i64 0, i32 4
+  %58 = shl nuw nsw i32 %bf.clear.i.i13.i.i.i.i, 3
+  %mul.i.i19.i.i.i.i = zext nneg i32 %58 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %args.i.i17.i.i.i.i, ptr nonnull align 8 %args3.i.i18.i.i.i.i, i64 %mul.i.i19.i.i.i.i, i1 false)
-  %bf.load.i20.i.i.i.i = load i32, ptr %57, align 8
+  %bf.load.i20.i.i.i.i = load i32, ptr %56, align 8
   br label %if.then16.i.i.i.i
 
 if.then16.i.i.i.i:                                ; preds = %if.then5.i.i.i.i, %if.end9.i.i.i.i
@@ -834,24 +833,24 @@ if.then16.i.i.i.i:                                ; preds = %if.then5.i.i.i.i, %
   %bf.clear.i21.i.i.i.i = and i32 %bf.load.i20.sink.i.i.i.i, 255
   %cmp.i22.i.i.i.i = icmp eq i32 %bf.clear.i21.i.i.i.i, 13
   tail call void @llvm.assume(i1 %cmp.i22.i.i.i.i)
-  %60 = load ptr, ptr %arrayidx.i.i.i.i, align 8
+  %59 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   br label %do.body.i.i.i.i.i
 
 do.body.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i, %if.then16.i.i.i.i
-  %begin_op.addr.1.i.i.i.i = phi ptr [ %57, %if.then16.i.i.i.i ], [ %61, %do.body.i.i.i.i.i ]
+  %begin_op.addr.1.i.i.i.i = phi ptr [ %56, %if.then16.i.i.i.i ], [ %60, %do.body.i.i.i.i.i ]
   %op.addr.0.i.i.i.i.i = phi ptr [ %op.addr.0.i.i.i.i, %if.then16.i.i.i.i ], [ %call.i.i29.i.i.i.i, %do.body.i.i.i.i.i ]
   %link.i.i23.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %begin_op.addr.1.i.i.i.i, i64 0, i32 2
-  %61 = load ptr, ptr %link.i.i23.i.i.i.i, align 8
-  %bf.load.i.i24.i.i.i.i = load i32, ptr %61, align 8
+  %60 = load ptr, ptr %link.i.i23.i.i.i.i, align 8
+  %bf.load.i.i24.i.i.i.i = load i32, ptr %60, align 8
   %bf.lshr.i.i25.i.i.i.i = lshr i32 %bf.load.i.i24.i.i.i.i, 8
   %bf.clear.i.i26.i.i.i.i = and i32 %bf.lshr.i.i25.i.i.i.i, 255
-  %62 = load ptr, ptr %0, align 8
+  %61 = load ptr, ptr %0, align 8
   %bf.clear2.i.i28.i.i.i.i = and i32 %bf.load.i.i24.i.i.i.i, 255
-  %call.i.i29.i.i.i.i = tail call ptr @tcg_op_insert_after(ptr noundef %62, ptr noundef %op.addr.0.i.i.i.i.i, i32 noundef %bf.clear2.i.i28.i.i.i.i, i32 noundef %bf.clear.i.i26.i.i.i.i) #10
+  %call.i.i29.i.i.i.i = tail call ptr @tcg_op_insert_after(ptr noundef %61, ptr noundef %op.addr.0.i.i.i.i.i, i32 noundef %bf.clear2.i.i28.i.i.i.i, i32 noundef %bf.clear.i.i26.i.i.i.i) #10
   %args.i.i30.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i29.i.i.i.i, i64 0, i32 4
-  %args3.i.i31.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %61, i64 0, i32 4
-  %63 = shl nuw nsw i32 %bf.clear.i.i26.i.i.i.i, 3
-  %mul.i.i32.i.i.i.i = zext nneg i32 %63 to i64
+  %args3.i.i31.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %60, i64 0, i32 4
+  %62 = shl nuw nsw i32 %bf.clear.i.i26.i.i.i.i, 3
+  %mul.i.i32.i.i.i.i = zext nneg i32 %62 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %args.i.i30.i.i.i.i, ptr nonnull align 8 %args3.i.i31.i.i.i.i, i64 %mul.i.i32.i.i.i.i, i1 false)
   %bf.load.i33.i.i.i.i = load i32, ptr %call.i.i29.i.i.i.i, align 8
   %bf.clear.i34.i.i.i.i = and i32 %bf.load.i33.i.i.i.i, 255
@@ -859,66 +858,65 @@ do.body.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i, 
   br i1 %cmp.not.i.i10.i.i.i, label %append_mem_cb.exit.i.i.i, label %do.body.i.i.i.i.i, !llvm.loop !9
 
 append_mem_cb.exit.i.i.i:                         ; preds = %do.body.i.i.i.i.i
-  %bf.load1.i.i.i.i.i = load i32, ptr %61, align 8
+  %bf.load1.i.i.i.i.i = load i32, ptr %60, align 8
   %bf.clear2.i.i.i.i.i = and i32 %bf.load1.i.i.i.i.i, 16711680
   %bf.clear4.i.i.i.i.i = and i32 %bf.load.i33.i.i.i.i, -16711934
   %bf.set.i.i.i.i.i = or disjoint i32 %bf.clear2.i.i.i.i.i, %bf.clear4.i.i.i.i.i
   store i32 %bf.set.i.i.i.i.i, ptr %call.i.i29.i.i.i.i, align 8
-  %bf.load5.i.i.i.i.i = load i32, ptr %61, align 8
+  %bf.load5.i.i.i.i.i = load i32, ptr %60, align 8
   %bf.lshr6.i.i.i.i.i = and i32 %bf.load5.i.i.i.i.i, -16777216
   %bf.clear10.i.i.i.i.i = and i32 %bf.set.i.i.i.i.i, 16776962
   %bf.set11.i.i.i.i.i = or disjoint i32 %bf.clear10.i.i.i.i.i, %bf.lshr6.i.i.i.i.i
   store i32 %bf.set11.i.i.i.i.i, ptr %call.i.i29.i.i.i.i, align 8
   %life.i.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i29.i.i.i.i, i64 0, i32 1
-  %64 = load i32, ptr %life.i.i.i.i.i, align 4
-  %cmp13.i.i.i.i.i = icmp eq i32 %64, 0
+  %63 = load i32, ptr %life.i.i.i.i.i, align 4
+  %cmp13.i.i.i.i.i = icmp eq i32 %63, 0
   tail call void @llvm.assume(i1 %cmp13.i.i.i.i.i)
   %bf.lshr17.i.i.i.i.i = lshr i32 %bf.load5.i.i.i.i.i, 24
   %bf.lshr19.i.i.i.i.i = lshr i32 %bf.load1.i.i.i.i.i, 16
   %bf.clear20.i.i.i.i.i = and i32 %bf.lshr19.i.i.i.i.i, 255
   %add.i.i.i.i.i = add nuw nsw i32 %bf.lshr17.i.i.i.i.i, %bf.clear20.i.i.i.i.i
-  %65 = ptrtoint ptr %60 to i64
   %idxprom.i.i.i.i.i = zext nneg i32 %add.i.i.i.i.i to i64
   %arrayidx.i35.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i29.i.i.i.i, i64 0, i32 4, i64 %idxprom.i.i.i.i.i
-  store i64 %65, ptr %arrayidx.i35.i.i.i.i, align 8
+  store ptr %59, ptr %arrayidx.i35.i.i.i.i, align 8
   %.pre.i.i.i = load i32, ptr %len.i.i.i.i, align 8
   br label %for.inc.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %append_mem_cb.exit.i.i.i, %for.body.i.i.i.i
-  %66 = phi i32 [ %.pre.i.i.i, %append_mem_cb.exit.i.i.i ], [ %40, %for.body.i.i.i.i ]
+  %64 = phi i32 [ %.pre.i.i.i, %append_mem_cb.exit.i.i.i ], [ %40, %for.body.i.i.i.i ]
   %cb_idx.i.1.i.i.i = phi i32 [ %add.i.i.i.i.i, %append_mem_cb.exit.i.i.i ], [ %cb_idx.i.0.i.i.i, %for.body.i.i.i.i ]
   %op.1.i.i.i.i = phi ptr [ %call.i.i29.i.i.i.i, %append_mem_cb.exit.i.i.i ], [ %op.017.i.i.i.i, %for.body.i.i.i.i ]
   %inc.i.i.i.i = add nuw i32 %i.016.i.i.i.i, 1
-  %cmp6.i.i.i.i = icmp ult i32 %inc.i.i.i.i, %66
+  %cmp6.i.i.i.i = icmp ult i32 %inc.i.i.i.i, %64
   br i1 %cmp6.i.i.i.i, label %for.body.i.i.i.i, label %for.end.i.i.i.i, !llvm.loop !10
 
 for.end.i.i.i.i:                                  ; preds = %for.inc.i.i.i.i
   %link.i13.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %op.addr.0.lcssa.i.i.i.i54.i, i64 0, i32 2
-  %67 = load ptr, ptr %link.i13.i.i.i.i, align 8
-  %cmp.not.i.i.i.i55.i = icmp eq ptr %67, null
+  %65 = load ptr, ptr %link.i13.i.i.i.i, align 8
+  %cmp.not.i.i.i.i55.i = icmp eq ptr %65, null
   %tql_prev7.i.i.i.i56.i = getelementptr inbounds %struct.TCGOp, ptr %op.092.i, i64 0, i32 2, i32 0, i32 1
-  %68 = load ptr, ptr %tql_prev7.i.i.i.i56.i, align 8
+  %66 = load ptr, ptr %tql_prev7.i.i.i.i56.i, align 8
   br i1 %cmp.not.i.i.i.i55.i, label %if.else.i.i.i.i60.i, label %if.then.i.i.i.i57.i
 
 if.then.i.i.i.i57.i:                              ; preds = %for.end.i.i.i.i
-  %tql_prev5.i.i.i.i58.i = getelementptr inbounds %struct.TCGOp, ptr %67, i64 0, i32 2, i32 0, i32 1
+  %tql_prev5.i.i.i.i58.i = getelementptr inbounds %struct.TCGOp, ptr %65, i64 0, i32 2, i32 0, i32 1
   br label %rm_ops_range.exit.i.i.i.i
 
 if.else.i.i.i.i60.i:                              ; preds = %for.end.i.i.i.i
-  %69 = load ptr, ptr %0, align 8
-  %tql_prev8.i.i.i.i61.i = getelementptr inbounds %struct.TCGContext, ptr %69, i64 0, i32 38, i32 0, i32 1
+  %67 = load ptr, ptr %0, align 8
+  %tql_prev8.i.i.i.i61.i = getelementptr inbounds %struct.TCGContext, ptr %67, i64 0, i32 38, i32 0, i32 1
   br label %rm_ops_range.exit.i.i.i.i
 
 rm_ops_range.exit.i.i.i.i:                        ; preds = %if.else.i.i.i.i60.i, %if.then.i.i.i.i57.i
   %tql_prev8.sink.i.i.i.i59.i = phi ptr [ %tql_prev8.i.i.i.i61.i, %if.else.i.i.i.i60.i ], [ %tql_prev5.i.i.i.i58.i, %if.then.i.i.i.i57.i ]
-  store ptr %68, ptr %tql_prev8.sink.i.i.i.i59.i, align 8
+  store ptr %66, ptr %tql_prev8.sink.i.i.i.i59.i, align 8
   br label %plugin_gen_mem_regular.exit.i
 
 plugin_gen_mem_regular.exit.i:                    ; preds = %rm_ops_range.exit.i.i.i.i, %rm_ops.exit.i.i.i.i
   %link.i13.sink.i.i.i.i = phi ptr [ %link.i13.i.i.i.i, %rm_ops_range.exit.i.i.i.i ], [ %link.i3.i.i.i.i.i, %rm_ops.exit.i.i.i.i ]
-  %.sink18.i.i.i.i = phi ptr [ %68, %rm_ops_range.exit.i.i.i.i ], [ %37, %rm_ops.exit.i.i.i.i ]
-  %70 = load ptr, ptr %link.i13.sink.i.i.i.i, align 8
-  store ptr %70, ptr %.sink18.i.i.i.i, align 8
+  %.sink18.i.i.i.i = phi ptr [ %66, %rm_ops_range.exit.i.i.i.i ], [ %37, %rm_ops.exit.i.i.i.i ]
+  %68 = load ptr, ptr %link.i13.sink.i.i.i.i, align 8
+  store ptr %68, ptr %.sink18.i.i.i.i, align 8
   br label %for.inc.i
 
 sw.bb35.i:                                        ; preds = %do.end33.i
@@ -926,10 +924,10 @@ sw.bb35.i:                                        ; preds = %do.end33.i
   %plugin_tb.val37.val.i = load ptr, ptr %plugin_tb.val37.i, align 8
   %idxprom.i62.i = zext nneg i32 %insn_idx.091.i to i64
   %arrayidx.i63.i = getelementptr ptr, ptr %plugin_tb.val37.val.i, i64 %idxprom.i62.i
-  %71 = load ptr, ptr %arrayidx.i63.i, align 8
-  %arrayidx3.i.i = getelementptr %struct.qemu_plugin_insn, ptr %71, i64 0, i32 3, i64 1, i64 1
-  %72 = load ptr, ptr %arrayidx3.i.i, align 8
-  tail call fastcc void @inject_inline_cb(ptr noundef %72, ptr noundef nonnull %op.092.i, ptr noundef nonnull @op_rw)
+  %69 = load ptr, ptr %arrayidx.i63.i, align 8
+  %arrayidx3.i.i = getelementptr %struct.qemu_plugin_insn, ptr %69, i64 0, i32 3, i64 1, i64 1
+  %70 = load ptr, ptr %arrayidx3.i.i, align 8
+  tail call fastcc void @inject_inline_cb(ptr noundef %70, ptr noundef nonnull %op.092.i, ptr noundef nonnull @op_rw)
   br label %for.inc.i
 
 do.body37.i:                                      ; preds = %do.end33.i
@@ -953,15 +951,15 @@ sw.bb48.i:                                        ; preds = %do.end47.i
   %plugin_tb.val38.val.i = load ptr, ptr %plugin_tb.val38.i, align 8
   %idxprom.i64.i = zext nneg i32 %insn_idx.091.i to i64
   %arrayidx.i65.i = getelementptr ptr, ptr %plugin_tb.val38.val.i, i64 %idxprom.i64.i
-  %73 = load ptr, ptr %arrayidx.i65.i, align 8
-  %74 = getelementptr i8, ptr %73, i64 57
-  %.val.i.i = load i8, ptr %74, align 1
-  %75 = and i8 %.val.i.i, 1
-  %tobool.not.i.i.i = icmp eq i8 %75, 0
+  %71 = load ptr, ptr %arrayidx.i65.i, align 8
+  %72 = getelementptr i8, ptr %71, i64 57
+  %.val.i.i = load i8, ptr %72, align 1
+  %73 = and i8 %.val.i.i, 1
+  %tobool.not.i.i.i = icmp eq i8 %73, 0
   br i1 %tobool.not.i.i.i, label %while.body.i.i.i.i69.i, label %if.end.i.i66.i
 
 while.body.i.i.i.i69.i:                           ; preds = %sw.bb48.i, %if.end.i.i.i.i74.i
-  %op.addr.05.i.i.i.i70.i = phi ptr [ %76, %if.end.i.i.i.i74.i ], [ %op.092.i, %sw.bb48.i ]
+  %op.addr.05.i.i.i.i70.i = phi ptr [ %74, %if.end.i.i.i.i74.i ], [ %op.092.i, %sw.bb48.i ]
   %bf.load.i.i.i.i71.i = load i32, ptr %op.addr.05.i.i.i.i70.i, align 8
   %bf.clear.i.i.i.i72.i = and i32 %bf.load.i.i.i.i71.i, 255
   %cmp.i.i.i.i73.i = icmp eq i32 %bf.clear.i.i.i.i72.i, 134
@@ -969,8 +967,8 @@ while.body.i.i.i.i69.i:                           ; preds = %sw.bb48.i, %if.end.
 
 if.end.i.i.i.i74.i:                               ; preds = %while.body.i.i.i.i69.i
   %link.i.i.i.i75.i = getelementptr inbounds %struct.TCGOp, ptr %op.addr.05.i.i.i.i70.i, i64 0, i32 2
-  %76 = load ptr, ptr %link.i.i.i.i75.i, align 8
-  %tobool.not.i.i.i.i76.i = icmp eq ptr %76, null
+  %74 = load ptr, ptr %link.i.i.i.i75.i, align 8
+  %tobool.not.i.i.i.i76.i = icmp eq ptr %74, null
   br i1 %tobool.not.i.i.i.i76.i, label %find_op.exit.i.i.i77.i, label %while.body.i.i.i.i69.i, !llvm.loop !8
 
 find_op.exit.i.i.i77.i:                           ; preds = %if.end.i.i.i.i74.i, %while.body.i.i.i.i69.i
@@ -978,26 +976,26 @@ find_op.exit.i.i.i77.i:                           ; preds = %if.end.i.i.i.i74.i,
   %tobool.i.i.i79.i = icmp ne ptr %op.addr.0.lcssa.i.i.i.i78.i, null
   tail call void @llvm.assume(i1 %tobool.i.i.i79.i)
   %link.i3.i.i.i80.i = getelementptr inbounds %struct.TCGOp, ptr %op.addr.0.lcssa.i.i.i.i78.i, i64 0, i32 2
-  %77 = load ptr, ptr %link.i3.i.i.i80.i, align 8
-  %cmp.not.i.i.i.i81.i = icmp eq ptr %77, null
+  %75 = load ptr, ptr %link.i3.i.i.i80.i, align 8
+  %cmp.not.i.i.i.i81.i = icmp eq ptr %75, null
   %tql_prev7.i.i.i.i82.i = getelementptr inbounds %struct.TCGOp, ptr %op.092.i, i64 0, i32 2, i32 0, i32 1
-  %78 = load ptr, ptr %tql_prev7.i.i.i.i82.i, align 8
+  %76 = load ptr, ptr %tql_prev7.i.i.i.i82.i, align 8
   br i1 %cmp.not.i.i.i.i81.i, label %if.else.i.i.i.i87.i, label %if.then.i.i.i.i83.i
 
 if.then.i.i.i.i83.i:                              ; preds = %find_op.exit.i.i.i77.i
-  %tql_prev5.i.i.i.i84.i = getelementptr inbounds %struct.TCGOp, ptr %77, i64 0, i32 2, i32 0, i32 1
+  %tql_prev5.i.i.i.i84.i = getelementptr inbounds %struct.TCGOp, ptr %75, i64 0, i32 2, i32 0, i32 1
   br label %rm_ops.exit.i.i85.i
 
 if.else.i.i.i.i87.i:                              ; preds = %find_op.exit.i.i.i77.i
-  %79 = load ptr, ptr %0, align 8
-  %tql_prev8.i.i.i.i88.i = getelementptr inbounds %struct.TCGContext, ptr %79, i64 0, i32 38, i32 0, i32 1
+  %77 = load ptr, ptr %0, align 8
+  %tql_prev8.i.i.i.i88.i = getelementptr inbounds %struct.TCGContext, ptr %77, i64 0, i32 38, i32 0, i32 1
   br label %rm_ops.exit.i.i85.i
 
 rm_ops.exit.i.i85.i:                              ; preds = %if.else.i.i.i.i87.i, %if.then.i.i.i.i83.i
   %tql_prev8.sink.i.i.i.i86.i = phi ptr [ %tql_prev8.i.i.i.i88.i, %if.else.i.i.i.i87.i ], [ %tql_prev5.i.i.i.i84.i, %if.then.i.i.i.i83.i ]
-  store ptr %78, ptr %tql_prev8.sink.i.i.i.i86.i, align 8
-  %80 = load ptr, ptr %link.i3.i.i.i80.i, align 8
-  store ptr %80, ptr %78, align 8
+  store ptr %76, ptr %tql_prev8.sink.i.i.i.i86.i, align 8
+  %78 = load ptr, ptr %link.i3.i.i.i80.i, align 8
+  store ptr %78, ptr %76, align 8
   br label %for.inc.i
 
 if.end.i.i66.i:                                   ; preds = %sw.bb48.i
@@ -1179,26 +1177,25 @@ if.end9.i:                                        ; preds = %for.body.preheader.
   %14 = load ptr, ptr %7, align 8
   %15 = ptrtoint ptr %call1.i.i to i64
   %add.ptr.i.i.i.i.i = getelementptr i8, ptr %14, i64 %15
-  %16 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
   %arrayidx.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2
-  store i64 %16, ptr %arrayidx.i.i, align 8
+  store ptr %add.ptr.i.i.i.i.i, ptr %arrayidx.i.i, align 8
   %link.i.i.i5 = getelementptr inbounds %struct.TCGOp, ptr %10, i64 0, i32 2
-  %17 = load ptr, ptr %link.i.i.i5, align 8
-  %bf.load.i.i6.i = load i32, ptr %17, align 8
+  %16 = load ptr, ptr %link.i.i.i5, align 8
+  %bf.load.i.i6.i = load i32, ptr %16, align 8
   br i1 %cb_idx.i.0, label %if.then.i7, label %if.end4.i
 
 if.then.i7:                                       ; preds = %if.end9.i
   %bf.lshr.i.i.i = lshr i32 %bf.load.i.i6.i, 8
   %bf.clear.i.i7.i = and i32 %bf.lshr.i.i.i, 255
-  %18 = load ptr, ptr %7, align 8
+  %17 = load ptr, ptr %7, align 8
   %bf.clear2.i.i.i = and i32 %bf.load.i.i6.i, 255
-  %call.i.i.i = tail call ptr @tcg_op_insert_after(ptr noundef %18, ptr noundef nonnull %call.i.i.i.i, i32 noundef %bf.clear2.i.i.i, i32 noundef %bf.clear.i.i7.i) #10
+  %call.i.i.i = tail call ptr @tcg_op_insert_after(ptr noundef %17, ptr noundef nonnull %call.i.i.i.i, i32 noundef %bf.clear2.i.i.i, i32 noundef %bf.clear.i.i7.i) #10
   %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
-  %args3.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %17, i64 0, i32 4
-  %19 = shl nuw nsw i32 %bf.clear.i.i7.i, 3
-  %mul.i.i.i = zext nneg i32 %19 to i64
+  %args3.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %16, i64 0, i32 4
+  %18 = shl nuw nsw i32 %bf.clear.i.i7.i, 3
+  %mul.i.i.i = zext nneg i32 %18 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %args.i.i.i, ptr nonnull align 8 %args3.i.i.i, i64 %mul.i.i.i, i1 false)
-  %bf.load.i.i8 = load i32, ptr %17, align 8
+  %bf.load.i.i8 = load i32, ptr %16, align 8
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then.i7, %if.end9.i
@@ -1207,24 +1204,24 @@ if.end4.i:                                        ; preds = %if.then.i7, %if.end
   %bf.clear.i = and i32 %bf.load.i.i6.sink.i, 255
   %cmp2.i = icmp eq i32 %bf.clear.i, 13
   tail call void @llvm.assume(i1 %cmp2.i)
-  %20 = load ptr, ptr %arrayidx.i, align 8
+  %19 = load ptr, ptr %arrayidx.i, align 8
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i, %if.end4.i
-  %begin_op.addr.1.i = phi ptr [ %17, %if.end4.i ], [ %21, %do.body.i.i ]
+  %begin_op.addr.1.i = phi ptr [ %16, %if.end4.i ], [ %20, %do.body.i.i ]
   %op.addr.0.i.i = phi ptr [ %op.addr.0.i, %if.end4.i ], [ %call.i.i14.i, %do.body.i.i ]
   %link.i.i8.i = getelementptr inbounds %struct.TCGOp, ptr %begin_op.addr.1.i, i64 0, i32 2
-  %21 = load ptr, ptr %link.i.i8.i, align 8
-  %bf.load.i.i9.i = load i32, ptr %21, align 8
+  %20 = load ptr, ptr %link.i.i8.i, align 8
+  %bf.load.i.i9.i = load i32, ptr %20, align 8
   %bf.lshr.i.i10.i = lshr i32 %bf.load.i.i9.i, 8
   %bf.clear.i.i11.i = and i32 %bf.lshr.i.i10.i, 255
-  %22 = load ptr, ptr %7, align 8
+  %21 = load ptr, ptr %7, align 8
   %bf.clear2.i.i13.i = and i32 %bf.load.i.i9.i, 255
-  %call.i.i14.i = tail call ptr @tcg_op_insert_after(ptr noundef %22, ptr noundef %op.addr.0.i.i, i32 noundef %bf.clear2.i.i13.i, i32 noundef %bf.clear.i.i11.i) #10
+  %call.i.i14.i = tail call ptr @tcg_op_insert_after(ptr noundef %21, ptr noundef %op.addr.0.i.i, i32 noundef %bf.clear2.i.i13.i, i32 noundef %bf.clear.i.i11.i) #10
   %args.i.i15.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i14.i, i64 0, i32 4
-  %args3.i.i16.i = getelementptr inbounds %struct.TCGOp, ptr %21, i64 0, i32 4
-  %23 = shl nuw nsw i32 %bf.clear.i.i11.i, 3
-  %mul.i.i17.i = zext nneg i32 %23 to i64
+  %args3.i.i16.i = getelementptr inbounds %struct.TCGOp, ptr %20, i64 0, i32 4
+  %22 = shl nuw nsw i32 %bf.clear.i.i11.i, 3
+  %mul.i.i17.i = zext nneg i32 %22 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %args.i.i15.i, ptr nonnull align 8 %args3.i.i16.i, i64 %mul.i.i17.i, i1 false)
   %bf.load.i18.i = load i32, ptr %call.i.i14.i, align 8
   %bf.clear.i19.i = and i32 %bf.load.i18.i, 255
@@ -1232,60 +1229,59 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   br i1 %cmp.not.i.i6, label %for.inc.i, label %do.body.i.i, !llvm.loop !9
 
 for.inc.i:                                        ; preds = %do.body.i.i
-  %bf.load1.i.i = load i32, ptr %21, align 8
+  %bf.load1.i.i = load i32, ptr %20, align 8
   %bf.clear2.i.i = and i32 %bf.load1.i.i, 16711680
   %bf.clear4.i.i = and i32 %bf.load.i18.i, -16711934
   %bf.set.i.i = or disjoint i32 %bf.clear2.i.i, %bf.clear4.i.i
   store i32 %bf.set.i.i, ptr %call.i.i14.i, align 8
-  %bf.load5.i.i = load i32, ptr %21, align 8
+  %bf.load5.i.i = load i32, ptr %20, align 8
   %bf.lshr6.i.i = and i32 %bf.load5.i.i, -16777216
   %bf.clear10.i.i = and i32 %bf.set.i.i, 16776962
   %bf.set11.i.i = or disjoint i32 %bf.clear10.i.i, %bf.lshr6.i.i
   store i32 %bf.set11.i.i, ptr %call.i.i14.i, align 8
   %life.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i14.i, i64 0, i32 1
-  %24 = load i32, ptr %life.i.i, align 4
-  %cmp13.i.i = icmp eq i32 %24, 0
+  %23 = load i32, ptr %life.i.i, align 4
+  %cmp13.i.i = icmp eq i32 %23, 0
   tail call void @llvm.assume(i1 %cmp13.i.i)
   %bf.lshr17.i.i = lshr i32 %bf.load5.i.i, 24
   %bf.lshr19.i.i = lshr i32 %bf.load1.i.i, 16
   %bf.clear20.i.i = and i32 %bf.lshr19.i.i, 255
   %add.i.i = add nuw nsw i32 %bf.lshr17.i.i, %bf.clear20.i.i
-  %25 = ptrtoint ptr %20 to i64
   %idxprom.i.i = zext nneg i32 %add.i.i to i64
   %arrayidx.i20.i = getelementptr %struct.TCGOp, ptr %call.i.i14.i, i64 0, i32 4, i64 %idxprom.i.i
-  store i64 %25, ptr %arrayidx.i20.i, align 8
+  store ptr %19, ptr %arrayidx.i20.i, align 8
   %inc.i = add nuw i32 %i.016.i, 1
-  %26 = load i32, ptr %len.i, align 8
-  %cmp6.i = icmp ult i32 %inc.i, %26
+  %24 = load i32, ptr %len.i, align 8
+  %cmp6.i = icmp ult i32 %inc.i, %24
   br i1 %cmp6.i, label %if.end9.i, label %for.end.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %for.inc.i
   %link.i13.i = getelementptr inbounds %struct.TCGOp, ptr %op.addr.0.lcssa.i.i, i64 0, i32 2
-  %27 = load ptr, ptr %link.i13.i, align 8
-  %cmp.not.i.i = icmp eq ptr %27, null
+  %25 = load ptr, ptr %link.i13.i, align 8
+  %cmp.not.i.i = icmp eq ptr %25, null
   %tql_prev7.i.i = getelementptr inbounds %struct.TCGOp, ptr %begin_op, i64 0, i32 2, i32 0, i32 1
-  %28 = load ptr, ptr %tql_prev7.i.i, align 8
+  %26 = load ptr, ptr %tql_prev7.i.i, align 8
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.end.i
-  %tql_prev5.i.i = getelementptr inbounds %struct.TCGOp, ptr %27, i64 0, i32 2, i32 0, i32 1
+  %tql_prev5.i.i = getelementptr inbounds %struct.TCGOp, ptr %25, i64 0, i32 2, i32 0, i32 1
   br label %rm_ops_range.exit.i
 
 if.else.i.i:                                      ; preds = %for.end.i
-  %29 = load ptr, ptr %7, align 8
-  %tql_prev8.i.i = getelementptr inbounds %struct.TCGContext, ptr %29, i64 0, i32 38, i32 0, i32 1
+  %27 = load ptr, ptr %7, align 8
+  %tql_prev8.i.i = getelementptr inbounds %struct.TCGContext, ptr %27, i64 0, i32 38, i32 0, i32 1
   br label %rm_ops_range.exit.i
 
 rm_ops_range.exit.i:                              ; preds = %if.else.i.i, %if.then.i.i
   %tql_prev8.sink.i.i = phi ptr [ %tql_prev8.i.i, %if.else.i.i ], [ %tql_prev5.i.i, %if.then.i.i ]
-  store ptr %28, ptr %tql_prev8.sink.i.i, align 8
+  store ptr %26, ptr %tql_prev8.sink.i.i, align 8
   br label %inject_cb_type.exit
 
 inject_cb_type.exit:                              ; preds = %rm_ops.exit.i, %rm_ops_range.exit.i
   %link.i13.sink.i = phi ptr [ %link.i13.i, %rm_ops_range.exit.i ], [ %link.i3.i.i, %rm_ops.exit.i ]
-  %.sink18.i = phi ptr [ %28, %rm_ops_range.exit.i ], [ %3, %rm_ops.exit.i ]
-  %30 = load ptr, ptr %link.i13.sink.i, align 8
-  store ptr %30, ptr %.sink18.i, align 8
+  %.sink18.i = phi ptr [ %26, %rm_ops_range.exit.i ], [ %3, %rm_ops.exit.i ]
+  %28 = load ptr, ptr %link.i13.sink.i, align 8
+  store ptr %28, ptr %.sink18.i, align 8
   ret void
 }
 
@@ -1415,66 +1411,64 @@ if.end9.i:                                        ; preds = %for.body.i
   %14 = load ptr, ptr %7, align 8
   %15 = ptrtoint ptr %call1.i.i to i64
   %add.ptr.i.i.i.i.i = getelementptr i8, ptr %14, i64 %15
-  %16 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
   %arrayidx.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2
-  store i64 %16, ptr %arrayidx.i.i, align 8
+  store ptr %add.ptr.i.i.i.i.i, ptr %arrayidx.i.i, align 8
   %link.i.i.i6.i = getelementptr inbounds %struct.TCGOp, ptr %10, i64 0, i32 2
-  %17 = load ptr, ptr %link.i.i.i6.i, align 8
-  %bf.load.i.i.i7.i = load i32, ptr %17, align 8
+  %16 = load ptr, ptr %link.i.i.i6.i, align 8
+  %bf.load.i.i.i7.i = load i32, ptr %16, align 8
   %bf.lshr.i.i.i8.i = lshr i32 %bf.load.i.i.i7.i, 8
   %bf.clear.i.i.i9.i = and i32 %bf.lshr.i.i.i8.i, 255
-  %18 = load ptr, ptr %7, align 8
+  %17 = load ptr, ptr %7, align 8
   %bf.clear2.i.i.i11.i = and i32 %bf.load.i.i.i7.i, 255
-  %call.i.i.i12.i = tail call ptr @tcg_op_insert_after(ptr noundef %18, ptr noundef %call.i.i.i.i, i32 noundef %bf.clear2.i.i.i11.i, i32 noundef %bf.clear.i.i.i9.i) #10
+  %call.i.i.i12.i = tail call ptr @tcg_op_insert_after(ptr noundef %17, ptr noundef %call.i.i.i.i, i32 noundef %bf.clear2.i.i.i11.i, i32 noundef %bf.clear.i.i.i9.i) #10
   %args.i.i.i13.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i12.i, i64 0, i32 4
-  %args3.i.i.i14.i = getelementptr inbounds %struct.TCGOp, ptr %17, i64 0, i32 4
-  %19 = shl nuw nsw i32 %bf.clear.i.i.i9.i, 3
-  %mul.i.i.i15.i = zext nneg i32 %19 to i64
+  %args3.i.i.i14.i = getelementptr inbounds %struct.TCGOp, ptr %16, i64 0, i32 4
+  %18 = shl nuw nsw i32 %bf.clear.i.i.i9.i, 3
+  %mul.i.i.i15.i = zext nneg i32 %18 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %args.i.i.i13.i, ptr nonnull align 8 %args3.i.i.i14.i, i64 %mul.i.i.i15.i, i1 false)
-  %bf.load.i.i16.i = load i32, ptr %17, align 8
+  %bf.load.i.i16.i = load i32, ptr %16, align 8
   %bf.clear.i.i17.i = and i32 %bf.load.i.i16.i, 255
   %cmp.i.i18.i = icmp eq i32 %bf.clear.i.i17.i, 73
   tail call void @llvm.assume(i1 %cmp.i.i18.i)
   %imm.i = getelementptr %struct.qemu_plugin_dyn_cb, ptr %8, i64 %idxprom.i, i32 4, i32 0, i32 1
-  %20 = load i64, ptr %imm.i, align 8
-  %link.i.i.i19.i = getelementptr inbounds %struct.TCGOp, ptr %17, i64 0, i32 2
-  %21 = load ptr, ptr %link.i.i.i19.i, align 8
-  %bf.load.i.i.i20.i = load i32, ptr %21, align 8
+  %19 = load i64, ptr %imm.i, align 8
+  %link.i.i.i19.i = getelementptr inbounds %struct.TCGOp, ptr %16, i64 0, i32 2
+  %20 = load ptr, ptr %link.i.i.i19.i, align 8
+  %bf.load.i.i.i20.i = load i32, ptr %20, align 8
   %bf.lshr.i.i.i21.i = lshr i32 %bf.load.i.i.i20.i, 8
   %bf.clear.i.i.i22.i = and i32 %bf.lshr.i.i.i21.i, 255
-  %22 = load ptr, ptr %7, align 8
+  %21 = load ptr, ptr %7, align 8
   %bf.clear2.i.i.i24.i = and i32 %bf.load.i.i.i20.i, 255
-  %call.i.i.i25.i = tail call ptr @tcg_op_insert_after(ptr noundef %22, ptr noundef %call.i.i.i12.i, i32 noundef %bf.clear2.i.i.i24.i, i32 noundef %bf.clear.i.i.i22.i) #10
+  %call.i.i.i25.i = tail call ptr @tcg_op_insert_after(ptr noundef %21, ptr noundef %call.i.i.i12.i, i32 noundef %bf.clear2.i.i.i24.i, i32 noundef %bf.clear.i.i.i22.i) #10
   %args.i.i.i26.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i25.i, i64 0, i32 4
-  %args3.i.i.i27.i = getelementptr inbounds %struct.TCGOp, ptr %21, i64 0, i32 4
-  %23 = shl nuw nsw i32 %bf.clear.i.i.i22.i, 3
-  %mul.i.i.i28.i = zext nneg i32 %23 to i64
+  %args3.i.i.i27.i = getelementptr inbounds %struct.TCGOp, ptr %20, i64 0, i32 4
+  %22 = shl nuw nsw i32 %bf.clear.i.i.i22.i, 3
+  %mul.i.i.i28.i = zext nneg i32 %22 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %args.i.i.i26.i, ptr nonnull align 8 %args3.i.i.i27.i, i64 %mul.i.i.i28.i, i1 false)
-  %bf.load.i.i29.i = load i32, ptr %21, align 8
+  %bf.load.i.i29.i = load i32, ptr %20, align 8
   %bf.clear.i.i30.i = and i32 %bf.load.i.i29.i, 255
   %cmp.i.i31.i = icmp eq i32 %bf.clear.i.i30.i, 78
   tail call void @llvm.assume(i1 %cmp.i.i31.i)
-  %call1.i32.i = tail call ptr @tcg_constant_i64(i64 noundef %20) #10
-  %24 = load ptr, ptr %7, align 8
-  %25 = ptrtoint ptr %call1.i32.i to i64
-  %add.ptr.i.i.i.i33.i = getelementptr i8, ptr %24, i64 %25
-  %26 = ptrtoint ptr %add.ptr.i.i.i.i33.i to i64
+  %call1.i32.i = tail call ptr @tcg_constant_i64(i64 noundef %19) #10
+  %23 = load ptr, ptr %7, align 8
+  %24 = ptrtoint ptr %call1.i32.i to i64
+  %add.ptr.i.i.i.i33.i = getelementptr i8, ptr %23, i64 %24
   %arrayidx.i34.i = getelementptr %struct.TCGOp, ptr %call.i.i.i25.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %26, ptr %arrayidx.i34.i, align 8
-  %link.i.i.i35.i = getelementptr inbounds %struct.TCGOp, ptr %21, i64 0, i32 2
-  %27 = load ptr, ptr %link.i.i.i35.i, align 8
-  %bf.load.i.i.i36.i = load i32, ptr %27, align 8
+  store ptr %add.ptr.i.i.i.i33.i, ptr %arrayidx.i34.i, align 8
+  %link.i.i.i35.i = getelementptr inbounds %struct.TCGOp, ptr %20, i64 0, i32 2
+  %25 = load ptr, ptr %link.i.i.i35.i, align 8
+  %bf.load.i.i.i36.i = load i32, ptr %25, align 8
   %bf.lshr.i.i.i37.i = lshr i32 %bf.load.i.i.i36.i, 8
   %bf.clear.i.i.i38.i = and i32 %bf.lshr.i.i.i37.i, 255
-  %28 = load ptr, ptr %7, align 8
+  %26 = load ptr, ptr %7, align 8
   %bf.clear2.i.i.i40.i = and i32 %bf.load.i.i.i36.i, 255
-  %call.i.i.i41.i = tail call ptr @tcg_op_insert_after(ptr noundef %28, ptr noundef %call.i.i.i25.i, i32 noundef %bf.clear2.i.i.i40.i, i32 noundef %bf.clear.i.i.i38.i) #10
+  %call.i.i.i41.i = tail call ptr @tcg_op_insert_after(ptr noundef %26, ptr noundef %call.i.i.i25.i, i32 noundef %bf.clear2.i.i.i40.i, i32 noundef %bf.clear.i.i.i38.i) #10
   %args.i.i.i42.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i41.i, i64 0, i32 4
-  %args3.i.i.i43.i = getelementptr inbounds %struct.TCGOp, ptr %27, i64 0, i32 4
-  %29 = shl nuw nsw i32 %bf.clear.i.i.i38.i, 3
-  %mul.i.i.i44.i = zext nneg i32 %29 to i64
+  %args3.i.i.i43.i = getelementptr inbounds %struct.TCGOp, ptr %25, i64 0, i32 4
+  %27 = shl nuw nsw i32 %bf.clear.i.i.i38.i, 3
+  %mul.i.i.i44.i = zext nneg i32 %27 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %args.i.i.i42.i, ptr nonnull align 8 %args3.i.i.i43.i, i64 %mul.i.i.i44.i, i1 false)
-  %bf.load.i.i45.i = load i32, ptr %27, align 8
+  %bf.load.i.i45.i = load i32, ptr %25, align 8
   %bf.clear.i.i46.i = and i32 %bf.load.i.i45.i, 255
   %cmp.i.i47.i = icmp eq i32 %bf.clear.i.i46.i, 77
   tail call void @llvm.assume(i1 %cmp.i.i47.i)
@@ -1483,37 +1477,37 @@ if.end9.i:                                        ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.end9.i, %for.body.i
   %op.1.i = phi ptr [ %call.i.i.i41.i, %if.end9.i ], [ %op.017.i, %for.body.i ]
   %inc.i = add nuw i32 %i.016.i, 1
-  %30 = load i32, ptr %len.i, align 8
-  %cmp6.i = icmp ult i32 %inc.i, %30
+  %28 = load i32, ptr %len.i, align 8
+  %cmp6.i = icmp ult i32 %inc.i, %28
   br i1 %cmp6.i, label %for.body.i, label %for.end.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %for.inc.i
   %link.i13.i = getelementptr inbounds %struct.TCGOp, ptr %op.addr.0.lcssa.i.i, i64 0, i32 2
-  %31 = load ptr, ptr %link.i13.i, align 8
-  %cmp.not.i.i = icmp eq ptr %31, null
+  %29 = load ptr, ptr %link.i13.i, align 8
+  %cmp.not.i.i = icmp eq ptr %29, null
   %tql_prev7.i.i = getelementptr inbounds %struct.TCGOp, ptr %begin_op, i64 0, i32 2, i32 0, i32 1
-  %32 = load ptr, ptr %tql_prev7.i.i, align 8
+  %30 = load ptr, ptr %tql_prev7.i.i, align 8
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.end.i
-  %tql_prev5.i.i = getelementptr inbounds %struct.TCGOp, ptr %31, i64 0, i32 2, i32 0, i32 1
+  %tql_prev5.i.i = getelementptr inbounds %struct.TCGOp, ptr %29, i64 0, i32 2, i32 0, i32 1
   br label %rm_ops_range.exit.i
 
 if.else.i.i:                                      ; preds = %for.end.i
-  %33 = load ptr, ptr %7, align 8
-  %tql_prev8.i.i = getelementptr inbounds %struct.TCGContext, ptr %33, i64 0, i32 38, i32 0, i32 1
+  %31 = load ptr, ptr %7, align 8
+  %tql_prev8.i.i = getelementptr inbounds %struct.TCGContext, ptr %31, i64 0, i32 38, i32 0, i32 1
   br label %rm_ops_range.exit.i
 
 rm_ops_range.exit.i:                              ; preds = %if.else.i.i, %if.then.i.i
   %tql_prev8.sink.i.i = phi ptr [ %tql_prev8.i.i, %if.else.i.i ], [ %tql_prev5.i.i, %if.then.i.i ]
-  store ptr %32, ptr %tql_prev8.sink.i.i, align 8
+  store ptr %30, ptr %tql_prev8.sink.i.i, align 8
   br label %inject_cb_type.exit
 
 inject_cb_type.exit:                              ; preds = %rm_ops.exit.i, %rm_ops_range.exit.i
   %link.i13.sink.i = phi ptr [ %link.i13.i, %rm_ops_range.exit.i ], [ %link.i3.i.i, %rm_ops.exit.i ]
-  %.sink18.i = phi ptr [ %32, %rm_ops_range.exit.i ], [ %3, %rm_ops.exit.i ]
-  %34 = load ptr, ptr %link.i13.sink.i, align 8
-  store ptr %34, ptr %.sink18.i, align 8
+  %.sink18.i = phi ptr [ %30, %rm_ops_range.exit.i ], [ %3, %rm_ops.exit.i ]
+  %32 = load ptr, ptr %link.i13.sink.i, align 8
+  store ptr %32, ptr %.sink18.i, align 8
   ret void
 }
 
@@ -1569,47 +1563,46 @@ find_op.exit:                                     ; preds = %while.body.i, %if.e
   %6 = load ptr, ptr %2, align 8
   %7 = ptrtoint ptr %call1.i to i64
   %add.ptr.i.i.i.i = getelementptr i8, ptr %6, i64 %7
-  %8 = ptrtoint ptr %add.ptr.i.i.i.i to i64
   %arrayidx.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
-  store i64 %8, ptr %arrayidx.i, align 8
+  store ptr %add.ptr.i.i.i.i, ptr %arrayidx.i, align 8
   %link.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %1, i64 0, i32 2
-  %9 = load ptr, ptr %link.i.i.i.i, align 8
-  %bf.load.i.i.i.i = load i32, ptr %9, align 8
+  %8 = load ptr, ptr %link.i.i.i.i, align 8
+  %bf.load.i.i.i.i = load i32, ptr %8, align 8
   %bf.lshr.i.i.i.i = lshr i32 %bf.load.i.i.i.i, 8
   %bf.clear.i.i.i.i = and i32 %bf.lshr.i.i.i.i, 255
-  %10 = load ptr, ptr %2, align 8
+  %9 = load ptr, ptr %2, align 8
   %bf.clear2.i.i.i.i = and i32 %bf.load.i.i.i.i, 255
-  %call.i.i.i.i = tail call ptr @tcg_op_insert_after(ptr noundef %10, ptr noundef %call.i.i.i, i32 noundef %bf.clear2.i.i.i.i, i32 noundef %bf.clear.i.i.i.i) #10
+  %call.i.i.i.i = tail call ptr @tcg_op_insert_after(ptr noundef %9, ptr noundef %call.i.i.i, i32 noundef %bf.clear2.i.i.i.i, i32 noundef %bf.clear.i.i.i.i) #10
   %args.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i.i, i64 0, i32 4
-  %args3.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %9, i64 0, i32 4
-  %11 = shl nuw nsw i32 %bf.clear.i.i.i.i, 3
-  %mul.i.i.i.i = zext nneg i32 %11 to i64
+  %args3.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %8, i64 0, i32 4
+  %10 = shl nuw nsw i32 %bf.clear.i.i.i.i, 3
+  %mul.i.i.i.i = zext nneg i32 %10 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %args.i.i.i.i, ptr nonnull align 8 %args3.i.i.i.i, i64 %mul.i.i.i.i, i1 false)
-  %bf.load.i.i.i3 = load i32, ptr %9, align 8
+  %bf.load.i.i.i3 = load i32, ptr %8, align 8
   %bf.clear.i.i.i4 = and i32 %bf.load.i.i.i3, 255
   %cmp.i.i.i = icmp eq i32 %bf.clear.i.i.i4, 77
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %link.i5 = getelementptr inbounds %struct.TCGOp, ptr %op.addr.0.lcssa.i, i64 0, i32 2
-  %12 = load ptr, ptr %link.i5, align 8
-  %cmp.not.i = icmp eq ptr %12, null
+  %11 = load ptr, ptr %link.i5, align 8
+  %cmp.not.i = icmp eq ptr %11, null
   %tql_prev7.i = getelementptr inbounds %struct.TCGOp, ptr %begin_op, i64 0, i32 2, i32 0, i32 1
-  %13 = load ptr, ptr %tql_prev7.i, align 8
+  %12 = load ptr, ptr %tql_prev7.i, align 8
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %find_op.exit
-  %tql_prev5.i = getelementptr inbounds %struct.TCGOp, ptr %12, i64 0, i32 2, i32 0, i32 1
+  %tql_prev5.i = getelementptr inbounds %struct.TCGOp, ptr %11, i64 0, i32 2, i32 0, i32 1
   br label %rm_ops_range.exit
 
 if.else.i:                                        ; preds = %find_op.exit
-  %14 = load ptr, ptr %2, align 8
-  %tql_prev8.i = getelementptr inbounds %struct.TCGContext, ptr %14, i64 0, i32 38, i32 0, i32 1
+  %13 = load ptr, ptr %2, align 8
+  %tql_prev8.i = getelementptr inbounds %struct.TCGContext, ptr %13, i64 0, i32 38, i32 0, i32 1
   br label %rm_ops_range.exit
 
 rm_ops_range.exit:                                ; preds = %if.then.i, %if.else.i
   %tql_prev8.sink.i = phi ptr [ %tql_prev8.i, %if.else.i ], [ %tql_prev5.i, %if.then.i ]
-  store ptr %13, ptr %tql_prev8.sink.i, align 8
-  %15 = load ptr, ptr %link.i5, align 8
-  store ptr %15, ptr %13, align 8
+  store ptr %12, ptr %tql_prev8.sink.i, align 8
+  %14 = load ptr, ptr %link.i5, align 8
+  store ptr %14, ptr %12, align 8
   ret void
 }
 

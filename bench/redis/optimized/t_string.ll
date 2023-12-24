@@ -2273,47 +2273,46 @@ land.lhs.true20:                                  ; preds = %land.lhs.true18
   br i1 %or.cond36, label %if.then30, label %if.then33
 
 if.then30:                                        ; preds = %land.lhs.true20
-  %6 = inttoptr i64 %add to ptr
   %ptr = getelementptr inbounds %struct.redisObject, ptr %call, i64 0, i32 2
-  store ptr %6, ptr %ptr, align 8
+  store i64 %add, ptr %ptr, align 8
   br label %if.end42
 
 if.then33:                                        ; preds = %land.lhs.true20, %land.lhs.true18
   %call3137 = call ptr @createStringObjectFromLongLongForValue(i64 noundef %add) #10
-  %7 = load ptr, ptr %db, align 8
-  %8 = load ptr, ptr %argv, align 8
-  %arrayidx36 = getelementptr inbounds ptr, ptr %8, i64 1
-  %9 = load ptr, ptr %arrayidx36, align 8
-  call void @dbReplaceValue(ptr noundef %7, ptr noundef %9, ptr noundef %call3137) #10
+  %6 = load ptr, ptr %db, align 8
+  %7 = load ptr, ptr %argv, align 8
+  %arrayidx36 = getelementptr inbounds ptr, ptr %7, i64 1
+  %8 = load ptr, ptr %arrayidx36, align 8
+  call void @dbReplaceValue(ptr noundef %6, ptr noundef %8, ptr noundef %call3137) #10
   br label %if.end42
 
 if.else37:                                        ; preds = %if.end16
   %call31 = call ptr @createStringObjectFromLongLongForValue(i64 noundef %add) #10
-  %10 = load ptr, ptr %db, align 8
-  %11 = load ptr, ptr %argv, align 8
-  %arrayidx40 = getelementptr inbounds ptr, ptr %11, i64 1
-  %12 = load ptr, ptr %arrayidx40, align 8
-  call void @dbAdd(ptr noundef %10, ptr noundef %12, ptr noundef %call31) #10
+  %9 = load ptr, ptr %db, align 8
+  %10 = load ptr, ptr %argv, align 8
+  %arrayidx40 = getelementptr inbounds ptr, ptr %10, i64 1
+  %11 = load ptr, ptr %arrayidx40, align 8
+  call void @dbAdd(ptr noundef %9, ptr noundef %11, ptr noundef %call31) #10
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then33, %if.else37, %if.then30
-  %13 = load ptr, ptr %db, align 8
-  %14 = load ptr, ptr %argv, align 8
-  %arrayidx45 = getelementptr inbounds ptr, ptr %14, i64 1
-  %15 = load ptr, ptr %arrayidx45, align 8
-  call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %13, ptr noundef %15) #10
-  %16 = load ptr, ptr %argv, align 8
-  %arrayidx47 = getelementptr inbounds ptr, ptr %16, i64 1
-  %17 = load ptr, ptr %arrayidx47, align 8
-  %18 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds %struct.redisDb, ptr %18, i64 0, i32 6
-  %19 = load i32, ptr %id, align 8
-  call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str.11, ptr noundef %17, i32 noundef %19) #10
-  %20 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
-  %inc = add nsw i64 %20, 1
+  %12 = load ptr, ptr %db, align 8
+  %13 = load ptr, ptr %argv, align 8
+  %arrayidx45 = getelementptr inbounds ptr, ptr %13, i64 1
+  %14 = load ptr, ptr %arrayidx45, align 8
+  call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %12, ptr noundef %14) #10
+  %15 = load ptr, ptr %argv, align 8
+  %arrayidx47 = getelementptr inbounds ptr, ptr %15, i64 1
+  %16 = load ptr, ptr %arrayidx47, align 8
+  %17 = load ptr, ptr %db, align 8
+  %id = getelementptr inbounds %struct.redisDb, ptr %17, i64 0, i32 6
+  %18 = load i32, ptr %id, align 8
+  call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str.11, ptr noundef %16, i32 noundef %18) #10
+  %19 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  %inc = add nsw i64 %19, 1
   store i64 %inc, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
-  %21 = load i64, ptr %value, align 8
-  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %21) #10
+  %20 = load i64, ptr %value, align 8
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %20) #10
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end42, %if.then15

@@ -78,15 +78,15 @@ for.body.lr.ph:                                   ; preds = %while.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %while.end9
-  %node.017.in = phi i64 [ %2, %for.body.lr.ph ], [ %19, %while.end9 ]
-  %node.017 = inttoptr i64 %node.017.in to ptr
-  %le_prev = getelementptr inbounds %struct.AioHandler, ptr %node.017, i64 0, i32 10, i32 1
+  %node.0.in17 = phi i64 [ %2, %for.body.lr.ph ], [ %19, %while.end9 ]
+  %node.018 = inttoptr i64 %node.0.in17 to ptr
+  %le_prev = getelementptr inbounds %struct.AioHandler, ptr %node.018, i64 0, i32 10, i32 1
   %5 = load ptr, ptr %le_prev, align 8
   %cmp1.not = icmp eq ptr %5, null
   br i1 %cmp1.not, label %land.lhs.true, label %while.end9
 
 land.lhs.true:                                    ; preds = %for.body
-  %events = getelementptr inbounds %struct._GPollFD, ptr %node.017, i64 0, i32 1
+  %events = getelementptr inbounds %struct._GPollFD, ptr %node.018, i64 0, i32 1
   %6 = load i16, ptr %events, align 4
   %tobool2.not = icmp eq i16 %6, 0
   br i1 %tobool2.not, label %while.end9, label %if.then3
@@ -142,12 +142,12 @@ add_pollfd.exit:                                  ; preds = %if.then3.add_pollfd
   %13 = phi i32 [ %.pre.i, %if.end6.i ], [ %7, %if.then3.add_pollfd.exit_crit_edge ]
   %idxprom.i = zext i32 %13 to i64
   %arrayidx.i = getelementptr ptr, ptr %12, i64 %idxprom.i
-  store ptr %node.017, ptr %arrayidx.i, align 8
+  store i64 %node.0.in17, ptr %arrayidx.i, align 8
   %14 = load ptr, ptr %.pre4.i, align 8
   %15 = load i32, ptr %0, align 4
   %idxprom10.i = zext i32 %15 to i64
   %arrayidx11.i = getelementptr %struct._GPollFD, ptr %14, i64 %idxprom10.i
-  %16 = load i32, ptr %node.017, align 8
+  %16 = load i32, ptr %node.018, align 8
   %17 = load i16, ptr %events, align 4
   store i32 %16, ptr %arrayidx11.i, align 4
   %.compoundliteral.sroa.2.0.arrayidx11.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx11.i, i64 4
@@ -160,7 +160,7 @@ add_pollfd.exit:                                  ; preds = %if.then3.add_pollfd
   br label %while.end9
 
 while.end9:                                       ; preds = %for.body, %land.lhs.true, %add_pollfd.exit
-  %node10 = getelementptr inbounds %struct.AioHandler, ptr %node.017, i64 0, i32 8
+  %node10 = getelementptr inbounds %struct.AioHandler, ptr %node.018, i64 0, i32 8
   %19 = load atomic i64, ptr %node10 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
   %tobool.not = icmp eq i64 %19, 0
@@ -190,8 +190,8 @@ if.end14:                                         ; preds = %for.end
 
 for.cond19.preheader:                             ; preds = %if.end14
   %26 = load i32, ptr %0, align 4
-  %cmp2018.not = icmp eq i32 %26, 0
-  br i1 %cmp2018.not, label %if.end32, label %for.body22.lr.ph
+  %cmp2019.not = icmp eq i32 %26, 0
+  br i1 %cmp2019.not, label %if.end32, label %for.body22.lr.ph
 
 for.body22.lr.ph:                                 ; preds = %for.cond19.preheader
   %27 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @nodes)
@@ -199,9 +199,9 @@ for.body22.lr.ph:                                 ; preds = %for.cond19.preheade
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %for.inc30
   %28 = phi i32 [ %26, %for.body22.lr.ph ], [ %33, %for.inc30 ]
-  %i.019 = phi i32 [ 0, %for.body22.lr.ph ], [ %inc, %for.inc30 ]
+  %i.020 = phi i32 [ 0, %for.body22.lr.ph ], [ %inc, %for.inc30 ]
   %29 = load ptr, ptr %23, align 8
-  %idxprom = sext i32 %i.019 to i64
+  %idxprom = sext i32 %i.020 to i64
   %revents23 = getelementptr %struct._GPollFD, ptr %29, i64 %idxprom, i32 2
   %30 = load i16, ptr %revents23, align 2
   %tobool25.not = icmp eq i16 %30, 0
@@ -213,12 +213,12 @@ if.then26:                                        ; preds = %for.body22
   %arrayidx28 = getelementptr ptr, ptr %31, i64 %idxprom
   %32 = load ptr, ptr %arrayidx28, align 8
   tail call void @aio_add_ready_handler(ptr noundef %ready_list, ptr noundef %32, i32 noundef %conv24) #7
-  %.pre20 = load i32, ptr %0, align 4
+  %.pre21 = load i32, ptr %0, align 4
   br label %for.inc30
 
 for.inc30:                                        ; preds = %for.body22, %if.then26
-  %33 = phi i32 [ %28, %for.body22 ], [ %.pre20, %if.then26 ]
-  %inc = add nuw i32 %i.019, 1
+  %33 = phi i32 [ %28, %for.body22 ], [ %.pre21, %if.then26 ]
+  %inc = add nuw i32 %i.020, 1
   %cmp20 = icmp ult i32 %inc, %33
   br i1 %cmp20, label %for.body22, label %if.end32, !llvm.loop !9
 

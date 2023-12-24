@@ -2680,19 +2680,18 @@ entry:
   store ptr %m_subst.i, ptr %m_scoped_substitution.i, align 8
   %m_trail.i.i = getelementptr inbounds %"class.(anonymous namespace)::expr_substitution_simplifier", ptr %call, i64 0, i32 3, i32 1
   %0 = load ptr, ptr %m_subst.i, align 8
-  %1 = ptrtoint ptr %0 to i64
-  store i64 %1, ptr %m_trail.i.i, align 8
+  store ptr %0, ptr %m_trail.i.i, align 8
   %m_nodes.i.i.i.i = getelementptr inbounds %"class.(anonymous namespace)::expr_substitution_simplifier", ptr %call, i64 0, i32 3, i32 1, i32 0, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_nodes.i.i.i.i, i8 0, i64 16, i1 false)
   %call.i.i.i.i6.i = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 128)
           to label %_ZN12_GLOBAL__N_128expr_substitution_simplifierC2ER11ast_manager.exit unwind label %lpad6.i
 
 lpad6.i:                                          ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN24scoped_expr_substitutionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_scoped_substitution.i) #19
   tail call void @_ZN17expr_substitutionD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %m_subst.i) #19
-  resume { ptr, i32 } %2
+  resume { ptr, i32 } %1
 
 _ZN12_GLOBAL__N_128expr_substitution_simplifierC2ER11ast_manager.exit: ; preds = %entry
   %m_expr2depth.i = getelementptr inbounds %"class.(anonymous namespace)::expr_substitution_simplifier", ptr %call, i64 0, i32 4
@@ -2705,8 +2704,7 @@ _ZN12_GLOBAL__N_128expr_substitution_simplifierC2ER11ast_manager.exit: ; preds =
   %m_num_deleted.i.i.i = getelementptr inbounds %"class.(anonymous namespace)::expr_substitution_simplifier", ptr %call, i64 0, i32 4, i32 0, i32 3
   store i32 0, ptr %m_num_deleted.i.i.i, align 8
   %m_trail.i = getelementptr inbounds %"class.(anonymous namespace)::expr_substitution_simplifier", ptr %call, i64 0, i32 5
-  %3 = ptrtoint ptr %m to i64
-  store i64 %3, ptr %m_trail.i, align 8
+  store ptr %m, ptr %m_trail.i, align 8
   %m_nodes.i.i.i = getelementptr inbounds %"class.(anonymous namespace)::expr_substitution_simplifier", ptr %call, i64 0, i32 5, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i.i, align 8
   ret ptr %call
@@ -3718,19 +3716,18 @@ entry:
   store ptr %m_subst.i, ptr %m_scoped_substitution.i, align 8
   %m_trail.i.i = getelementptr inbounds %"class.(anonymous namespace)::expr_substitution_simplifier", ptr %call, i64 0, i32 3, i32 1
   %0 = load ptr, ptr %m_subst.i, align 8
-  %1 = ptrtoint ptr %0 to i64
-  store i64 %1, ptr %m_trail.i.i, align 8
+  store ptr %0, ptr %m_trail.i.i, align 8
   %m_nodes.i.i.i.i = getelementptr inbounds %"class.(anonymous namespace)::expr_substitution_simplifier", ptr %call, i64 0, i32 3, i32 1, i32 0, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_nodes.i.i.i.i, i8 0, i64 16, i1 false)
   %call.i.i.i.i6.i = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 128)
           to label %_ZN12_GLOBAL__N_128expr_substitution_simplifierC2ER11ast_manager.exit unwind label %lpad6.i
 
 lpad6.i:                                          ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN24scoped_expr_substitutionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_scoped_substitution.i) #19
   tail call void @_ZN17expr_substitutionD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %m_subst.i) #19
-  resume { ptr, i32 } %2
+  resume { ptr, i32 } %1
 
 _ZN12_GLOBAL__N_128expr_substitution_simplifierC2ER11ast_manager.exit: ; preds = %entry
   %m_expr2depth.i = getelementptr inbounds %"class.(anonymous namespace)::expr_substitution_simplifier", ptr %call, i64 0, i32 4
@@ -3743,8 +3740,7 @@ _ZN12_GLOBAL__N_128expr_substitution_simplifierC2ER11ast_manager.exit: ; preds =
   %m_num_deleted.i.i.i = getelementptr inbounds %"class.(anonymous namespace)::expr_substitution_simplifier", ptr %call, i64 0, i32 4, i32 0, i32 3
   store i32 0, ptr %m_num_deleted.i.i.i, align 8
   %m_trail.i = getelementptr inbounds %"class.(anonymous namespace)::expr_substitution_simplifier", ptr %call, i64 0, i32 5
-  %3 = ptrtoint ptr %m to i64
-  store i64 %3, ptr %m_trail.i, align 8
+  store ptr %m, ptr %m_trail.i, align 8
   %m_nodes.i.i.i = getelementptr inbounds %"class.(anonymous namespace)::expr_substitution_simplifier", ptr %call, i64 0, i32 5, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i.i, align 8
   ret ptr %call

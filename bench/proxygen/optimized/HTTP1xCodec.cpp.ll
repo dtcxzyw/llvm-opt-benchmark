@@ -8499,27 +8499,26 @@ if.end45:                                         ; preds = %if.end, %entry
   br i1 %cmp.i3.not, label %if.end53, label %if.then49
 
 if.then49:                                        ; preds = %if.end45
-  %6 = ptrtoint ptr %5 to i64
   %callback_ = getelementptr inbounds %"class.proxygen::HTTP1xCodec", ptr %this, i64 0, i32 2
-  %7 = load ptr, ptr %callback_, align 8
+  %6 = load ptr, ptr %callback_, align 8
   %ingressTxnID_ = getelementptr inbounds %"class.proxygen::HTTP1xCodec", ptr %this, i64 0, i32 3
-  %8 = load i64, ptr %ingressTxnID_, align 8
-  store i64 %6, ptr %agg.tmp, align 8
+  %7 = load i64, ptr %ingressTxnID_, align 8
+  store ptr %5, ptr %agg.tmp, align 8
   store ptr null, ptr %trailers_47, align 8
-  %vtable = load ptr, ptr %7, align 8
+  %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
-  %9 = load ptr, ptr %vfn, align 8
-  invoke void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %8, ptr noundef nonnull %agg.tmp)
+  %8 = load ptr, ptr %vfn, align 8
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %7, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont52 unwind label %lpad51
 
 invoke.cont52:                                    ; preds = %if.then49
-  %10 = load ptr, ptr %agg.tmp, align 8
-  %cmp.not.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %agg.tmp, align 8
+  %cmp.not.i = icmp eq ptr %9, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i: ; preds = %invoke.cont52
-  call void @_ZN8proxygen11HTTPHeadersD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #25
-  call void @_ZdlPv(ptr noundef nonnull %10) #27
+  call void @_ZN8proxygen11HTTPHeadersD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #25
+  call void @_ZdlPv(ptr noundef nonnull %9) #27
   br label %_ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont52, %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i
@@ -8527,15 +8526,15 @@ _ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit: ; p
   br label %if.end53
 
 lpad51:                                           ; preds = %if.then49
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #25
   br label %eh.resume
 
 if.end53:                                         ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit, %if.end45
   %transportDirection_ = getelementptr inbounds %"class.proxygen::HTTP1xCodec", ptr %this, i64 0, i32 20
-  %12 = load i8, ptr %transportDirection_, align 1
-  switch i8 %12, label %sw.epilog [
+  %11 = load i8, ptr %transportDirection_, align 1
+  switch i8 %11, label %sw.epilog [
     i8 0, label %sw.bb
     i8 1, label %sw.bb71
   ]
@@ -8546,89 +8545,89 @@ sw.bb:                                            ; preds = %if.end53
   %bf.clear55 = and i32 %bf.load54, -65
   store i32 %bf.clear55, ptr %requestPending_, align 8
   %upgradeRequest_ = getelementptr inbounds %"class.proxygen::HTTP1xCodec", ptr %this, i64 0, i32 8
-  %13 = load ptr, ptr %upgradeRequest_, align 8
-  %cmp.i4.not = icmp eq ptr %13, null
+  %12 = load ptr, ptr %upgradeRequest_, align 8
+  %cmp.i4.not = icmp eq ptr %12, null
   br i1 %cmp.i4.not, label %sw.epilog, label %if.then57
 
 if.then57:                                        ; preds = %sw.bb
   %callback_58 = getelementptr inbounds %"class.proxygen::HTTP1xCodec", ptr %this, i64 0, i32 2
-  %14 = load ptr, ptr %callback_58, align 8
+  %13 = load ptr, ptr %callback_58, align 8
   %ingressTxnID_59 = getelementptr inbounds %"class.proxygen::HTTP1xCodec", ptr %this, i64 0, i32 3
-  %15 = load i64, ptr %ingressTxnID_59, align 8
+  %14 = load i64, ptr %ingressTxnID_59, align 8
   %upgradeResult_ = getelementptr inbounds %"class.proxygen::HTTP1xCodec", ptr %this, i64 0, i32 23
-  %16 = load i8, ptr %upgradeResult_, align 8
+  %15 = load i8, ptr %upgradeResult_, align 8
   %second = getelementptr inbounds %"class.proxygen::HTTP1xCodec", ptr %this, i64 0, i32 23, i32 1
-  %vtable63 = load ptr, ptr %14, align 8
+  %vtable63 = load ptr, ptr %13, align 8
   %vfn64 = getelementptr inbounds ptr, ptr %vtable63, i64 22
-  %17 = load ptr, ptr %vfn64, align 8
-  %call65 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef %15, i8 noundef zeroext %16, ptr noundef nonnull align 8 dereferenceable(32) %second, ptr noundef nonnull align 8 dereferenceable(616) %13)
+  %16 = load ptr, ptr %vfn64, align 8
+  %call65 = call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef %14, i8 noundef zeroext %15, ptr noundef nonnull align 8 dereferenceable(32) %second, ptr noundef nonnull align 8 dereferenceable(616) %12)
   %bf.load66 = load i32, ptr %requestPending_, align 8
   %bf.shl = select i1 %call65, i32 524288, i32 0
   %bf.clear67 = and i32 %bf.load66, -524289
   %bf.set68 = or disjoint i32 %bf.clear67, %bf.shl
   store i32 %bf.set68, ptr %requestPending_, align 8
-  %18 = load ptr, ptr %upgradeRequest_, align 8
+  %17 = load ptr, ptr %upgradeRequest_, align 8
   store ptr null, ptr %upgradeRequest_, align 8
-  %tobool.not.i.i5 = icmp eq ptr %18, null
+  %tobool.not.i.i5 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i5, label %sw.epilog, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %if.then57
-  call void @_ZN8proxygen11HTTPMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(616) %18) #25
-  call void @_ZdlPv(ptr noundef nonnull %18) #27
+  call void @_ZN8proxygen11HTTPMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(616) %17) #25
+  call void @_ZdlPv(ptr noundef nonnull %17) #27
   br label %sw.epilog
 
 sw.bb71:                                          ; preds = %if.end53
   %is1xxResponse_ = getelementptr inbounds %"class.proxygen::HTTP1xCodec", ptr %this, i64 0, i32 24
   %bf.load72 = load i32, ptr %is1xxResponse_, align 8
-  %19 = lshr i32 %bf.load72, 10
-  %bf.shl77 = and i32 %19, 128
+  %18 = lshr i32 %bf.load72, 10
+  %bf.shl77 = and i32 %18, 128
   %bf.clear78 = and i32 %bf.load72, -129
   %bf.set79 = or disjoint i32 %bf.shl77, %bf.clear78
   store i32 %bf.set79, ptr %is1xxResponse_, align 8
-  %20 = and i32 %bf.load72, 4849664
-  %or.cond2 = icmp eq i32 %20, 131072
+  %19 = and i32 %bf.load72, 4849664
+  %or.cond2 = icmp eq i32 %19, 131072
   br i1 %or.cond2, label %return, label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %if.then57, %sw.bb71, %sw.bb, %if.end53
   %nativeUpgrade_97 = getelementptr inbounds %"class.proxygen::HTTP1xCodec", ptr %this, i64 0, i32 24
   %bf.load98 = load i32, ptr %nativeUpgrade_97, align 8
-  %21 = and i32 %bf.load98, 4194304
-  %bf.cast101.not = icmp eq i32 %21, 0
+  %20 = and i32 %bf.load98, 4194304
+  %bf.cast101.not = icmp eq i32 %20, 0
   br i1 %bf.cast101.not, label %if.then102, label %if.else
 
 if.then102:                                       ; preds = %sw.epilog
   %callback_103 = getelementptr inbounds %"class.proxygen::HTTP1xCodec", ptr %this, i64 0, i32 2
-  %22 = load ptr, ptr %callback_103, align 8
+  %21 = load ptr, ptr %callback_103, align 8
   %ingressTxnID_104 = getelementptr inbounds %"class.proxygen::HTTP1xCodec", ptr %this, i64 0, i32 3
-  %23 = load i64, ptr %ingressTxnID_104, align 8
-  %24 = and i32 %bf.load98, 524288
-  %bf.cast109 = icmp ne i32 %24, 0
-  %vtable110 = load ptr, ptr %22, align 8
+  %22 = load i64, ptr %ingressTxnID_104, align 8
+  %23 = and i32 %bf.load98, 524288
+  %bf.cast109 = icmp ne i32 %23, 0
+  %vtable110 = load ptr, ptr %21, align 8
   %vfn111 = getelementptr inbounds ptr, ptr %vtable110, i64 8
-  %25 = load ptr, ptr %vfn111, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %22, i64 noundef %23, i1 noundef zeroext %bf.cast109)
+  %24 = load ptr, ptr %vfn111, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(8) %21, i64 noundef %22, i1 noundef zeroext %bf.cast109)
   br label %if.end120
 
 if.else:                                          ; preds = %sw.epilog
-  %26 = load i8, ptr %transportDirection_, align 1
-  %cmp113 = icmp eq i8 %26, 0
+  %25 = load i8, ptr %transportDirection_, align 1
+  %cmp113 = icmp eq i8 %25, 0
   br i1 %cmp113, label %if.then114, label %if.end120
 
 if.then114:                                       ; preds = %if.else
   %callback_115 = getelementptr inbounds %"class.proxygen::HTTP1xCodec", ptr %this, i64 0, i32 2
-  %27 = load ptr, ptr %callback_115, align 8
+  %26 = load ptr, ptr %callback_115, align 8
   %ingressTxnID_116 = getelementptr inbounds %"class.proxygen::HTTP1xCodec", ptr %this, i64 0, i32 3
-  %28 = load i64, ptr %ingressTxnID_116, align 8
-  %vtable117 = load ptr, ptr %27, align 8
+  %27 = load i64, ptr %ingressTxnID_116, align 8
+  %vtable117 = load ptr, ptr %26, align 8
   %vfn118 = getelementptr inbounds ptr, ptr %vtable117, i64 8
-  %29 = load ptr, ptr %vfn118, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(8) %27, i64 noundef %28, i1 noundef zeroext false)
+  %28 = load ptr, ptr %vfn118, align 8
+  call void %28(ptr noundef nonnull align 8 dereferenceable(8) %26, i64 noundef %27, i1 noundef zeroext false)
   br label %if.end120
 
 if.end120:                                        ; preds = %if.else, %if.then114, %if.then102
   %bf.load122 = load i32, ptr %nativeUpgrade_97, align 8
-  %30 = and i32 %bf.load122, 524288
-  %bf.cast125.not = icmp eq i32 %30, 0
+  %29 = and i32 %bf.load122, 524288
+  %bf.cast125.not = icmp eq i32 %29, 0
   br i1 %bf.cast125.not, label %return, label %if.then126
 
 if.then126:                                       ; preds = %if.end120
@@ -8636,8 +8635,8 @@ if.then126:                                       ; preds = %if.end120
   store i32 %bf.set129, ptr %nativeUpgrade_97, align 8
   %vtable130 = load ptr, ptr %this, align 8
   %vfn131 = getelementptr inbounds ptr, ptr %vtable130, i64 11
-  %31 = load ptr, ptr %vfn131, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(428) %this, i1 noundef zeroext true)
+  %30 = load ptr, ptr %vfn131, align 8
+  call void %30(ptr noundef nonnull align 8 dereferenceable(428) %this, i1 noundef zeroext true)
   br label %return
 
 return:                                           ; preds = %if.end120, %if.then126, %sw.bb71, %if.end
@@ -8645,7 +8644,7 @@ return:                                           ; preds = %if.end120, %if.then
   ret i32 %retval.0
 
 eh.resume:                                        ; preds = %lpad51, %lpad38
-  %.pn = phi { ptr, i32 } [ %11, %lpad51 ], [ %3, %lpad38 ]
+  %.pn = phi { ptr, i32 } [ %10, %lpad51 ], [ %3, %lpad38 ]
   resume { ptr, i32 } %.pn
 }
 

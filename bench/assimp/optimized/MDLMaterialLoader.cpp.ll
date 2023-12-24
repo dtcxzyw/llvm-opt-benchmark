@@ -537,7 +537,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %_ZN9aiTextureD2Ev.exit, label %if.then8.critedge
 
 _ZN9aiTextureD2Ev.exit:                           ; preds = %if.end
-  store ptr inttoptr (i64 -1 to ptr), ptr %pcData.i, align 8
+  store i64 -1, ptr %pcData.i, align 8
   tail call void @_ZN6Assimp11MDLImporter21ParseTextureColorDataEPKhjPjP9aiTexture(ptr noundef nonnull align 8 dereferenceable(158) %this, ptr noundef %szData, i32 noundef %iType, ptr noundef nonnull %piSkip, ptr noundef nonnull %call4)
   tail call void @_ZdlPv(ptr noundef nonnull %call4) #18
   br label %return
@@ -1096,7 +1096,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.end.thread
 
 if.end:                                           ; preds = %entry
-  store ptr inttoptr (i64 -1 to ptr), ptr %pcData.i, align 8
+  store i64 -1, ptr %pcData.i, align 8
   %cmp4 = icmp eq i32 %iType, 6
   br i1 %cmp4, label %if.else66.critedge, label %if.end24
 
@@ -1949,7 +1949,7 @@ if.then15:                                        ; preds = %if.else
   store i8 0, ptr %data.i.i, align 4
   %1 = getelementptr inbounds i8, ptr %tex, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %1, i8 0, i64 9, i1 false)
-  store ptr inttoptr (i64 -1 to ptr), ptr %pcData.i, align 8
+  store i64 -1, ptr %pcData.i, align 8
   %mHeight = getelementptr inbounds %struct.aiTexture, ptr %tex, i64 0, i32 1
   store i32 %iHeight, ptr %mHeight, align 4
   store i32 %iWidth, ptr %tex, align 8

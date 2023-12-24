@@ -2762,10 +2762,9 @@ _ZN8ImVectorIPvE9push_backERKS0_.exit:            ; preds = %entry._ZN8ImVectorI
   %6 = phi i32 [ %.pre.i, %if.end7.i.i ], [ %0, %entry._ZN8ImVectorIPvE9push_backERKS0_.exit_crit_edge ]
   %idxprom.i = sext i32 %6 to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %5, i64 %idxprom.i
-  %7 = ptrtoint ptr %texture_id to i64
-  store i64 %7, ptr %arrayidx.i, align 8
-  %8 = load i32, ptr %_TextureIdStack, align 8
-  %inc.i = add nsw i32 %8, 1
+  store ptr %texture_id, ptr %arrayidx.i, align 8
+  %7 = load i32, ptr %_TextureIdStack, align 8
+  %inc.i = add nsw i32 %7, 1
   store i32 %inc.i, ptr %_TextureIdStack, align 8
   %TextureId = getelementptr inbounds %struct.ImDrawList, ptr %this, i64 0, i32 12, i32 1
   store ptr %texture_id, ptr %TextureId, align 8
@@ -9285,222 +9284,221 @@ _ZN10ImDrawList13PushTextureIDEPv.exit:           ; preds = %entry._ZN8ImVectorI
   %7 = phi i32 [ %.pre.i.i, %if.end7.i.i.i ], [ %1, %entry._ZN8ImVectorIPvE9push_backERKS0_.exit_crit_edge.i ]
   %idxprom.i.i = sext i32 %7 to i64
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %6, i64 %idxprom.i.i
-  %8 = ptrtoint ptr %user_texture_id to i64
-  store i64 %8, ptr %arrayidx.i.i, align 8
-  %9 = load i32, ptr %_TextureIdStack.i, align 8
-  %inc.i.i = add nsw i32 %9, 1
+  store ptr %user_texture_id, ptr %arrayidx.i.i, align 8
+  %8 = load i32, ptr %_TextureIdStack.i, align 8
+  %inc.i.i = add nsw i32 %8, 1
   store i32 %inc.i.i, ptr %_TextureIdStack.i, align 8
   store ptr %user_texture_id, ptr %TextureId, align 8
   tail call void @_ZN10ImDrawList19_OnChangedTextureIDEv(ptr noundef nonnull align 8 dereferenceable(196) %this)
   tail call void @_ZN10ImDrawList11PrimReserveEii(ptr noundef nonnull align 8 dereferenceable(196) %this, i32 noundef 6, i32 noundef 4)
-  %10 = load i32, ptr %p_max, align 4
+  %9 = load i32, ptr %p_max, align 4
   %y.i = getelementptr inbounds %struct.ImVec2, ptr %p_min, i64 0, i32 1
-  %11 = load i32, ptr %y.i, align 4
-  %12 = load i32, ptr %p_min, align 4
+  %10 = load i32, ptr %y.i, align 4
+  %11 = load i32, ptr %p_min, align 4
   %y3.i = getelementptr inbounds %struct.ImVec2, ptr %p_max, i64 0, i32 1
-  %13 = load i32, ptr %y3.i, align 4
-  %14 = load i32, ptr %uv_max, align 4
+  %12 = load i32, ptr %y3.i, align 4
+  %13 = load i32, ptr %uv_max, align 4
   %y5.i = getelementptr inbounds %struct.ImVec2, ptr %uv_min, i64 0, i32 1
-  %15 = load i32, ptr %y5.i, align 4
-  %16 = load i32, ptr %uv_min, align 4
+  %14 = load i32, ptr %y5.i, align 4
+  %15 = load i32, ptr %uv_min, align 4
   %y7.i = getelementptr inbounds %struct.ImVec2, ptr %uv_max, i64 0, i32 1
-  %17 = load i32, ptr %y7.i, align 4
+  %16 = load i32, ptr %y7.i, align 4
   %_VtxCurrentIdx.i = getelementptr inbounds %struct.ImDrawList, ptr %this, i64 0, i32 4
-  %18 = load i32, ptr %_VtxCurrentIdx.i, align 4
-  %conv.i = trunc i32 %18 to i16
+  %17 = load i32, ptr %_VtxCurrentIdx.i, align 4
+  %conv.i = trunc i32 %17 to i16
   %_IdxWritePtr.i = getelementptr inbounds %struct.ImDrawList, ptr %this, i64 0, i32 8
-  %19 = load ptr, ptr %_IdxWritePtr.i, align 8
-  store i16 %conv.i, ptr %19, align 2
+  %18 = load ptr, ptr %_IdxWritePtr.i, align 8
+  store i16 %conv.i, ptr %18, align 2
   %conv9.i = add i16 %conv.i, 1
-  %20 = load ptr, ptr %_IdxWritePtr.i, align 8
-  %arrayidx11.i = getelementptr inbounds i16, ptr %20, i64 1
+  %19 = load ptr, ptr %_IdxWritePtr.i, align 8
+  %arrayidx11.i = getelementptr inbounds i16, ptr %19, i64 1
   store i16 %conv9.i, ptr %arrayidx11.i, align 2
   %conv14.i = add i16 %conv.i, 2
-  %21 = load ptr, ptr %_IdxWritePtr.i, align 8
-  %arrayidx16.i = getelementptr inbounds i16, ptr %21, i64 2
+  %20 = load ptr, ptr %_IdxWritePtr.i, align 8
+  %arrayidx16.i = getelementptr inbounds i16, ptr %20, i64 2
   store i16 %conv14.i, ptr %arrayidx16.i, align 2
-  %22 = load ptr, ptr %_IdxWritePtr.i, align 8
-  %arrayidx18.i = getelementptr inbounds i16, ptr %22, i64 3
+  %21 = load ptr, ptr %_IdxWritePtr.i, align 8
+  %arrayidx18.i = getelementptr inbounds i16, ptr %21, i64 3
   store i16 %conv.i, ptr %arrayidx18.i, align 2
-  %23 = load ptr, ptr %_IdxWritePtr.i, align 8
-  %arrayidx23.i = getelementptr inbounds i16, ptr %23, i64 4
+  %22 = load ptr, ptr %_IdxWritePtr.i, align 8
+  %arrayidx23.i = getelementptr inbounds i16, ptr %22, i64 4
   store i16 %conv14.i, ptr %arrayidx23.i, align 2
   %conv26.i = add i16 %conv.i, 3
-  %24 = load ptr, ptr %_IdxWritePtr.i, align 8
-  %arrayidx28.i = getelementptr inbounds i16, ptr %24, i64 5
+  %23 = load ptr, ptr %_IdxWritePtr.i, align 8
+  %arrayidx28.i = getelementptr inbounds i16, ptr %23, i64 5
   store i16 %conv26.i, ptr %arrayidx28.i, align 2
   %_VtxWritePtr.i = getelementptr inbounds %struct.ImDrawList, ptr %this, i64 0, i32 7
-  %25 = load ptr, ptr %_VtxWritePtr.i, align 8
-  %26 = load i64, ptr %p_min, align 4
-  store i64 %26, ptr %25, align 4
-  %27 = load ptr, ptr %_VtxWritePtr.i, align 8
-  %uv.i = getelementptr inbounds %struct.ImDrawVert, ptr %27, i64 0, i32 1
-  %28 = load i64, ptr %uv_min, align 4
-  store i64 %28, ptr %uv.i, align 4
-  %29 = load ptr, ptr %_VtxWritePtr.i, align 8
-  %col34.i = getelementptr inbounds %struct.ImDrawVert, ptr %29, i64 0, i32 2
+  %24 = load ptr, ptr %_VtxWritePtr.i, align 8
+  %25 = load i64, ptr %p_min, align 4
+  store i64 %25, ptr %24, align 4
+  %26 = load ptr, ptr %_VtxWritePtr.i, align 8
+  %uv.i = getelementptr inbounds %struct.ImDrawVert, ptr %26, i64 0, i32 1
+  %27 = load i64, ptr %uv_min, align 4
+  store i64 %27, ptr %uv.i, align 4
+  %28 = load ptr, ptr %_VtxWritePtr.i, align 8
+  %col34.i = getelementptr inbounds %struct.ImDrawVert, ptr %28, i64 0, i32 2
   store i32 %col, ptr %col34.i, align 4
+  %29 = load ptr, ptr %_VtxWritePtr.i, align 8
+  %arrayidx36.i = getelementptr inbounds %struct.ImDrawVert, ptr %29, i64 1
+  store i32 %9, ptr %arrayidx36.i, align 4
+  %arrayidx36.sroa_idx.i = getelementptr inbounds %struct.ImDrawVert, ptr %29, i64 1, i32 0, i32 1
+  store i32 %10, ptr %arrayidx36.sroa_idx.i, align 4
   %30 = load ptr, ptr %_VtxWritePtr.i, align 8
-  %arrayidx36.i = getelementptr inbounds %struct.ImDrawVert, ptr %30, i64 1
-  store i32 %10, ptr %arrayidx36.i, align 4
-  %arrayidx36.sroa_idx.i = getelementptr inbounds %struct.ImDrawVert, ptr %30, i64 1, i32 0, i32 1
-  store i32 %11, ptr %arrayidx36.sroa_idx.i, align 4
+  %uv40.i = getelementptr inbounds %struct.ImDrawVert, ptr %30, i64 1, i32 1
+  store i32 %13, ptr %uv40.i, align 4
+  %uv40.sroa_idx.i = getelementptr inbounds %struct.ImDrawVert, ptr %30, i64 1, i32 1, i32 1
+  store i32 %14, ptr %uv40.sroa_idx.i, align 4
   %31 = load ptr, ptr %_VtxWritePtr.i, align 8
-  %uv40.i = getelementptr inbounds %struct.ImDrawVert, ptr %31, i64 1, i32 1
-  store i32 %14, ptr %uv40.i, align 4
-  %uv40.sroa_idx.i = getelementptr inbounds %struct.ImDrawVert, ptr %31, i64 1, i32 1, i32 1
-  store i32 %15, ptr %uv40.sroa_idx.i, align 4
-  %32 = load ptr, ptr %_VtxWritePtr.i, align 8
-  %col43.i = getelementptr inbounds %struct.ImDrawVert, ptr %32, i64 1, i32 2
+  %col43.i = getelementptr inbounds %struct.ImDrawVert, ptr %31, i64 1, i32 2
   store i32 %col, ptr %col43.i, align 4
-  %33 = load ptr, ptr %_VtxWritePtr.i, align 8
-  %arrayidx45.i = getelementptr inbounds %struct.ImDrawVert, ptr %33, i64 2
-  %34 = load i64, ptr %p_max, align 4
-  store i64 %34, ptr %arrayidx45.i, align 4
-  %35 = load ptr, ptr %_VtxWritePtr.i, align 8
-  %uv49.i = getelementptr inbounds %struct.ImDrawVert, ptr %35, i64 2, i32 1
-  %36 = load i64, ptr %uv_max, align 4
-  store i64 %36, ptr %uv49.i, align 4
-  %37 = load ptr, ptr %_VtxWritePtr.i, align 8
-  %col52.i = getelementptr inbounds %struct.ImDrawVert, ptr %37, i64 2, i32 2
+  %32 = load ptr, ptr %_VtxWritePtr.i, align 8
+  %arrayidx45.i = getelementptr inbounds %struct.ImDrawVert, ptr %32, i64 2
+  %33 = load i64, ptr %p_max, align 4
+  store i64 %33, ptr %arrayidx45.i, align 4
+  %34 = load ptr, ptr %_VtxWritePtr.i, align 8
+  %uv49.i = getelementptr inbounds %struct.ImDrawVert, ptr %34, i64 2, i32 1
+  %35 = load i64, ptr %uv_max, align 4
+  store i64 %35, ptr %uv49.i, align 4
+  %36 = load ptr, ptr %_VtxWritePtr.i, align 8
+  %col52.i = getelementptr inbounds %struct.ImDrawVert, ptr %36, i64 2, i32 2
   store i32 %col, ptr %col52.i, align 4
+  %37 = load ptr, ptr %_VtxWritePtr.i, align 8
+  %arrayidx54.i = getelementptr inbounds %struct.ImDrawVert, ptr %37, i64 3
+  store i32 %11, ptr %arrayidx54.i, align 4
+  %arrayidx54.sroa_idx.i = getelementptr inbounds %struct.ImDrawVert, ptr %37, i64 3, i32 0, i32 1
+  store i32 %12, ptr %arrayidx54.sroa_idx.i, align 4
   %38 = load ptr, ptr %_VtxWritePtr.i, align 8
-  %arrayidx54.i = getelementptr inbounds %struct.ImDrawVert, ptr %38, i64 3
-  store i32 %12, ptr %arrayidx54.i, align 4
-  %arrayidx54.sroa_idx.i = getelementptr inbounds %struct.ImDrawVert, ptr %38, i64 3, i32 0, i32 1
-  store i32 %13, ptr %arrayidx54.sroa_idx.i, align 4
+  %uv58.i = getelementptr inbounds %struct.ImDrawVert, ptr %38, i64 3, i32 1
+  store i32 %15, ptr %uv58.i, align 4
+  %uv58.sroa_idx.i = getelementptr inbounds %struct.ImDrawVert, ptr %38, i64 3, i32 1, i32 1
+  store i32 %16, ptr %uv58.sroa_idx.i, align 4
   %39 = load ptr, ptr %_VtxWritePtr.i, align 8
-  %uv58.i = getelementptr inbounds %struct.ImDrawVert, ptr %39, i64 3, i32 1
-  store i32 %16, ptr %uv58.i, align 4
-  %uv58.sroa_idx.i = getelementptr inbounds %struct.ImDrawVert, ptr %39, i64 3, i32 1, i32 1
-  store i32 %17, ptr %uv58.sroa_idx.i, align 4
-  %40 = load ptr, ptr %_VtxWritePtr.i, align 8
-  %col61.i = getelementptr inbounds %struct.ImDrawVert, ptr %40, i64 3, i32 2
+  %col61.i = getelementptr inbounds %struct.ImDrawVert, ptr %39, i64 3, i32 2
   store i32 %col, ptr %col61.i, align 4
-  %41 = load ptr, ptr %_VtxWritePtr.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.ImDrawVert, ptr %41, i64 4
+  %40 = load ptr, ptr %_VtxWritePtr.i, align 8
+  %add.ptr.i = getelementptr inbounds %struct.ImDrawVert, ptr %40, i64 4
   store ptr %add.ptr.i, ptr %_VtxWritePtr.i, align 8
-  %42 = load i32, ptr %_VtxCurrentIdx.i, align 4
-  %add64.i = add i32 %42, 4
+  %41 = load i32, ptr %_VtxCurrentIdx.i, align 4
+  %add64.i = add i32 %41, 4
   store i32 %add64.i, ptr %_VtxCurrentIdx.i, align 4
-  %43 = load ptr, ptr %_IdxWritePtr.i, align 8
-  %add.ptr66.i = getelementptr inbounds i16, ptr %43, i64 6
+  %42 = load ptr, ptr %_IdxWritePtr.i, align 8
+  %add.ptr66.i = getelementptr inbounds i16, ptr %42, i64 6
   store ptr %add.ptr66.i, ptr %_IdxWritePtr.i, align 8
-  %44 = load i32, ptr %_TextureIdStack.i, align 8
-  %dec.i.i = add nsw i32 %44, -1
+  %43 = load i32, ptr %_TextureIdStack.i, align 8
+  %dec.i.i = add nsw i32 %43, -1
   store i32 %dec.i.i, ptr %_TextureIdStack.i, align 8
   %cmp.i = icmp eq i32 %dec.i.i, 0
   br i1 %cmp.i, label %_ZN10ImDrawList12PopTextureIDEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %_ZN10ImDrawList13PushTextureIDEPv.exit
   %Data.i = getelementptr inbounds %struct.ImDrawList, ptr %this, i64 0, i32 10, i32 2
-  %45 = load ptr, ptr %Data.i, align 8
-  %46 = sext i32 %dec.i.i to i64
-  %47 = getelementptr ptr, ptr %45, i64 %46
-  %arrayidx.i = getelementptr ptr, ptr %47, i64 -1
-  %48 = load ptr, ptr %arrayidx.i, align 8
+  %44 = load ptr, ptr %Data.i, align 8
+  %45 = sext i32 %dec.i.i to i64
+  %46 = getelementptr ptr, ptr %44, i64 %45
+  %arrayidx.i = getelementptr ptr, ptr %46, i64 -1
+  %47 = load ptr, ptr %arrayidx.i, align 8
   br label %_ZN10ImDrawList12PopTextureIDEv.exit
 
 _ZN10ImDrawList12PopTextureIDEv.exit:             ; preds = %_ZN10ImDrawList13PushTextureIDEPv.exit, %cond.false.i
-  %cond.i = phi ptr [ %48, %cond.false.i ], [ null, %_ZN10ImDrawList13PushTextureIDEPv.exit ]
+  %cond.i = phi ptr [ %47, %cond.false.i ], [ null, %_ZN10ImDrawList13PushTextureIDEPv.exit ]
   store ptr %cond.i, ptr %TextureId, align 8
   tail call void @_ZN10ImDrawList19_OnChangedTextureIDEv(ptr noundef nonnull align 8 dereferenceable(196) %this)
   br label %if.end7
 
 if.end7.critedge:                                 ; preds = %if.end
   tail call void @_ZN10ImDrawList11PrimReserveEii(ptr noundef nonnull align 8 dereferenceable(196) %this, i32 noundef 6, i32 noundef 4)
-  %49 = load i32, ptr %p_max, align 4
+  %48 = load i32, ptr %p_max, align 4
   %y.i6 = getelementptr inbounds %struct.ImVec2, ptr %p_min, i64 0, i32 1
-  %50 = load i32, ptr %y.i6, align 4
-  %51 = load i32, ptr %p_min, align 4
+  %49 = load i32, ptr %y.i6, align 4
+  %50 = load i32, ptr %p_min, align 4
   %y3.i7 = getelementptr inbounds %struct.ImVec2, ptr %p_max, i64 0, i32 1
-  %52 = load i32, ptr %y3.i7, align 4
-  %53 = load i32, ptr %uv_max, align 4
+  %51 = load i32, ptr %y3.i7, align 4
+  %52 = load i32, ptr %uv_max, align 4
   %y5.i8 = getelementptr inbounds %struct.ImVec2, ptr %uv_min, i64 0, i32 1
-  %54 = load i32, ptr %y5.i8, align 4
-  %55 = load i32, ptr %uv_min, align 4
+  %53 = load i32, ptr %y5.i8, align 4
+  %54 = load i32, ptr %uv_min, align 4
   %y7.i9 = getelementptr inbounds %struct.ImVec2, ptr %uv_max, i64 0, i32 1
-  %56 = load i32, ptr %y7.i9, align 4
+  %55 = load i32, ptr %y7.i9, align 4
   %_VtxCurrentIdx.i10 = getelementptr inbounds %struct.ImDrawList, ptr %this, i64 0, i32 4
-  %57 = load i32, ptr %_VtxCurrentIdx.i10, align 4
-  %conv.i11 = trunc i32 %57 to i16
+  %56 = load i32, ptr %_VtxCurrentIdx.i10, align 4
+  %conv.i11 = trunc i32 %56 to i16
   %_IdxWritePtr.i12 = getelementptr inbounds %struct.ImDrawList, ptr %this, i64 0, i32 8
-  %58 = load ptr, ptr %_IdxWritePtr.i12, align 8
-  store i16 %conv.i11, ptr %58, align 2
+  %57 = load ptr, ptr %_IdxWritePtr.i12, align 8
+  store i16 %conv.i11, ptr %57, align 2
   %conv9.i13 = add i16 %conv.i11, 1
-  %59 = load ptr, ptr %_IdxWritePtr.i12, align 8
-  %arrayidx11.i14 = getelementptr inbounds i16, ptr %59, i64 1
+  %58 = load ptr, ptr %_IdxWritePtr.i12, align 8
+  %arrayidx11.i14 = getelementptr inbounds i16, ptr %58, i64 1
   store i16 %conv9.i13, ptr %arrayidx11.i14, align 2
   %conv14.i15 = add i16 %conv.i11, 2
-  %60 = load ptr, ptr %_IdxWritePtr.i12, align 8
-  %arrayidx16.i16 = getelementptr inbounds i16, ptr %60, i64 2
+  %59 = load ptr, ptr %_IdxWritePtr.i12, align 8
+  %arrayidx16.i16 = getelementptr inbounds i16, ptr %59, i64 2
   store i16 %conv14.i15, ptr %arrayidx16.i16, align 2
-  %61 = load ptr, ptr %_IdxWritePtr.i12, align 8
-  %arrayidx18.i17 = getelementptr inbounds i16, ptr %61, i64 3
+  %60 = load ptr, ptr %_IdxWritePtr.i12, align 8
+  %arrayidx18.i17 = getelementptr inbounds i16, ptr %60, i64 3
   store i16 %conv.i11, ptr %arrayidx18.i17, align 2
-  %62 = load ptr, ptr %_IdxWritePtr.i12, align 8
-  %arrayidx23.i18 = getelementptr inbounds i16, ptr %62, i64 4
+  %61 = load ptr, ptr %_IdxWritePtr.i12, align 8
+  %arrayidx23.i18 = getelementptr inbounds i16, ptr %61, i64 4
   store i16 %conv14.i15, ptr %arrayidx23.i18, align 2
   %conv26.i19 = add i16 %conv.i11, 3
-  %63 = load ptr, ptr %_IdxWritePtr.i12, align 8
-  %arrayidx28.i20 = getelementptr inbounds i16, ptr %63, i64 5
+  %62 = load ptr, ptr %_IdxWritePtr.i12, align 8
+  %arrayidx28.i20 = getelementptr inbounds i16, ptr %62, i64 5
   store i16 %conv26.i19, ptr %arrayidx28.i20, align 2
   %_VtxWritePtr.i21 = getelementptr inbounds %struct.ImDrawList, ptr %this, i64 0, i32 7
-  %64 = load ptr, ptr %_VtxWritePtr.i21, align 8
-  %65 = load i64, ptr %p_min, align 4
-  store i64 %65, ptr %64, align 4
-  %66 = load ptr, ptr %_VtxWritePtr.i21, align 8
-  %uv.i22 = getelementptr inbounds %struct.ImDrawVert, ptr %66, i64 0, i32 1
-  %67 = load i64, ptr %uv_min, align 4
-  store i64 %67, ptr %uv.i22, align 4
-  %68 = load ptr, ptr %_VtxWritePtr.i21, align 8
-  %col34.i23 = getelementptr inbounds %struct.ImDrawVert, ptr %68, i64 0, i32 2
+  %63 = load ptr, ptr %_VtxWritePtr.i21, align 8
+  %64 = load i64, ptr %p_min, align 4
+  store i64 %64, ptr %63, align 4
+  %65 = load ptr, ptr %_VtxWritePtr.i21, align 8
+  %uv.i22 = getelementptr inbounds %struct.ImDrawVert, ptr %65, i64 0, i32 1
+  %66 = load i64, ptr %uv_min, align 4
+  store i64 %66, ptr %uv.i22, align 4
+  %67 = load ptr, ptr %_VtxWritePtr.i21, align 8
+  %col34.i23 = getelementptr inbounds %struct.ImDrawVert, ptr %67, i64 0, i32 2
   store i32 %col, ptr %col34.i23, align 4
+  %68 = load ptr, ptr %_VtxWritePtr.i21, align 8
+  %arrayidx36.i24 = getelementptr inbounds %struct.ImDrawVert, ptr %68, i64 1
+  store i32 %48, ptr %arrayidx36.i24, align 4
+  %arrayidx36.sroa_idx.i25 = getelementptr inbounds %struct.ImDrawVert, ptr %68, i64 1, i32 0, i32 1
+  store i32 %49, ptr %arrayidx36.sroa_idx.i25, align 4
   %69 = load ptr, ptr %_VtxWritePtr.i21, align 8
-  %arrayidx36.i24 = getelementptr inbounds %struct.ImDrawVert, ptr %69, i64 1
-  store i32 %49, ptr %arrayidx36.i24, align 4
-  %arrayidx36.sroa_idx.i25 = getelementptr inbounds %struct.ImDrawVert, ptr %69, i64 1, i32 0, i32 1
-  store i32 %50, ptr %arrayidx36.sroa_idx.i25, align 4
+  %uv40.i26 = getelementptr inbounds %struct.ImDrawVert, ptr %69, i64 1, i32 1
+  store i32 %52, ptr %uv40.i26, align 4
+  %uv40.sroa_idx.i27 = getelementptr inbounds %struct.ImDrawVert, ptr %69, i64 1, i32 1, i32 1
+  store i32 %53, ptr %uv40.sroa_idx.i27, align 4
   %70 = load ptr, ptr %_VtxWritePtr.i21, align 8
-  %uv40.i26 = getelementptr inbounds %struct.ImDrawVert, ptr %70, i64 1, i32 1
-  store i32 %53, ptr %uv40.i26, align 4
-  %uv40.sroa_idx.i27 = getelementptr inbounds %struct.ImDrawVert, ptr %70, i64 1, i32 1, i32 1
-  store i32 %54, ptr %uv40.sroa_idx.i27, align 4
-  %71 = load ptr, ptr %_VtxWritePtr.i21, align 8
-  %col43.i28 = getelementptr inbounds %struct.ImDrawVert, ptr %71, i64 1, i32 2
+  %col43.i28 = getelementptr inbounds %struct.ImDrawVert, ptr %70, i64 1, i32 2
   store i32 %col, ptr %col43.i28, align 4
-  %72 = load ptr, ptr %_VtxWritePtr.i21, align 8
-  %arrayidx45.i29 = getelementptr inbounds %struct.ImDrawVert, ptr %72, i64 2
-  %73 = load i64, ptr %p_max, align 4
-  store i64 %73, ptr %arrayidx45.i29, align 4
-  %74 = load ptr, ptr %_VtxWritePtr.i21, align 8
-  %uv49.i30 = getelementptr inbounds %struct.ImDrawVert, ptr %74, i64 2, i32 1
-  %75 = load i64, ptr %uv_max, align 4
-  store i64 %75, ptr %uv49.i30, align 4
-  %76 = load ptr, ptr %_VtxWritePtr.i21, align 8
-  %col52.i31 = getelementptr inbounds %struct.ImDrawVert, ptr %76, i64 2, i32 2
+  %71 = load ptr, ptr %_VtxWritePtr.i21, align 8
+  %arrayidx45.i29 = getelementptr inbounds %struct.ImDrawVert, ptr %71, i64 2
+  %72 = load i64, ptr %p_max, align 4
+  store i64 %72, ptr %arrayidx45.i29, align 4
+  %73 = load ptr, ptr %_VtxWritePtr.i21, align 8
+  %uv49.i30 = getelementptr inbounds %struct.ImDrawVert, ptr %73, i64 2, i32 1
+  %74 = load i64, ptr %uv_max, align 4
+  store i64 %74, ptr %uv49.i30, align 4
+  %75 = load ptr, ptr %_VtxWritePtr.i21, align 8
+  %col52.i31 = getelementptr inbounds %struct.ImDrawVert, ptr %75, i64 2, i32 2
   store i32 %col, ptr %col52.i31, align 4
+  %76 = load ptr, ptr %_VtxWritePtr.i21, align 8
+  %arrayidx54.i32 = getelementptr inbounds %struct.ImDrawVert, ptr %76, i64 3
+  store i32 %50, ptr %arrayidx54.i32, align 4
+  %arrayidx54.sroa_idx.i33 = getelementptr inbounds %struct.ImDrawVert, ptr %76, i64 3, i32 0, i32 1
+  store i32 %51, ptr %arrayidx54.sroa_idx.i33, align 4
   %77 = load ptr, ptr %_VtxWritePtr.i21, align 8
-  %arrayidx54.i32 = getelementptr inbounds %struct.ImDrawVert, ptr %77, i64 3
-  store i32 %51, ptr %arrayidx54.i32, align 4
-  %arrayidx54.sroa_idx.i33 = getelementptr inbounds %struct.ImDrawVert, ptr %77, i64 3, i32 0, i32 1
-  store i32 %52, ptr %arrayidx54.sroa_idx.i33, align 4
+  %uv58.i34 = getelementptr inbounds %struct.ImDrawVert, ptr %77, i64 3, i32 1
+  store i32 %54, ptr %uv58.i34, align 4
+  %uv58.sroa_idx.i35 = getelementptr inbounds %struct.ImDrawVert, ptr %77, i64 3, i32 1, i32 1
+  store i32 %55, ptr %uv58.sroa_idx.i35, align 4
   %78 = load ptr, ptr %_VtxWritePtr.i21, align 8
-  %uv58.i34 = getelementptr inbounds %struct.ImDrawVert, ptr %78, i64 3, i32 1
-  store i32 %55, ptr %uv58.i34, align 4
-  %uv58.sroa_idx.i35 = getelementptr inbounds %struct.ImDrawVert, ptr %78, i64 3, i32 1, i32 1
-  store i32 %56, ptr %uv58.sroa_idx.i35, align 4
-  %79 = load ptr, ptr %_VtxWritePtr.i21, align 8
-  %col61.i36 = getelementptr inbounds %struct.ImDrawVert, ptr %79, i64 3, i32 2
+  %col61.i36 = getelementptr inbounds %struct.ImDrawVert, ptr %78, i64 3, i32 2
   store i32 %col, ptr %col61.i36, align 4
-  %80 = load ptr, ptr %_VtxWritePtr.i21, align 8
-  %add.ptr.i37 = getelementptr inbounds %struct.ImDrawVert, ptr %80, i64 4
+  %79 = load ptr, ptr %_VtxWritePtr.i21, align 8
+  %add.ptr.i37 = getelementptr inbounds %struct.ImDrawVert, ptr %79, i64 4
   store ptr %add.ptr.i37, ptr %_VtxWritePtr.i21, align 8
-  %81 = load i32, ptr %_VtxCurrentIdx.i10, align 4
-  %add64.i38 = add i32 %81, 4
+  %80 = load i32, ptr %_VtxCurrentIdx.i10, align 4
+  %add64.i38 = add i32 %80, 4
   store i32 %add64.i38, ptr %_VtxCurrentIdx.i10, align 4
-  %82 = load ptr, ptr %_IdxWritePtr.i12, align 8
-  %add.ptr66.i39 = getelementptr inbounds i16, ptr %82, i64 6
+  %81 = load ptr, ptr %_IdxWritePtr.i12, align 8
+  %add.ptr66.i39 = getelementptr inbounds i16, ptr %81, i64 6
   store ptr %add.ptr66.i39, ptr %_IdxWritePtr.i12, align 8
   br label %if.end7
 
@@ -9574,108 +9572,107 @@ _ZN10ImDrawList13PushTextureIDEPv.exit:           ; preds = %entry._ZN8ImVectorI
   %7 = phi i32 [ %.pre.i.i, %if.end7.i.i.i ], [ %1, %entry._ZN8ImVectorIPvE9push_backERKS0_.exit_crit_edge.i ]
   %idxprom.i.i = sext i32 %7 to i64
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %6, i64 %idxprom.i.i
-  %8 = ptrtoint ptr %user_texture_id to i64
-  store i64 %8, ptr %arrayidx.i.i, align 8
-  %9 = load i32, ptr %_TextureIdStack.i, align 8
-  %inc.i.i = add nsw i32 %9, 1
+  store ptr %user_texture_id, ptr %arrayidx.i.i, align 8
+  %8 = load i32, ptr %_TextureIdStack.i, align 8
+  %inc.i.i = add nsw i32 %8, 1
   store i32 %inc.i.i, ptr %_TextureIdStack.i, align 8
   store ptr %user_texture_id, ptr %TextureId, align 8
   tail call void @_ZN10ImDrawList19_OnChangedTextureIDEv(ptr noundef nonnull align 8 dereferenceable(196) %this)
   tail call void @_ZN10ImDrawList11PrimReserveEii(ptr noundef nonnull align 8 dereferenceable(196) %this, i32 noundef 6, i32 noundef 4)
   %_VtxCurrentIdx.i = getelementptr inbounds %struct.ImDrawList, ptr %this, i64 0, i32 4
-  %10 = load i32, ptr %_VtxCurrentIdx.i, align 4
-  %conv.i = trunc i32 %10 to i16
+  %9 = load i32, ptr %_VtxCurrentIdx.i, align 4
+  %conv.i = trunc i32 %9 to i16
   %_IdxWritePtr.i = getelementptr inbounds %struct.ImDrawList, ptr %this, i64 0, i32 8
-  %11 = load ptr, ptr %_IdxWritePtr.i, align 8
-  store i16 %conv.i, ptr %11, align 2
+  %10 = load ptr, ptr %_IdxWritePtr.i, align 8
+  store i16 %conv.i, ptr %10, align 2
   %conv3.i = add i16 %conv.i, 1
-  %12 = load ptr, ptr %_IdxWritePtr.i, align 8
-  %arrayidx5.i = getelementptr inbounds i16, ptr %12, i64 1
+  %11 = load ptr, ptr %_IdxWritePtr.i, align 8
+  %arrayidx5.i = getelementptr inbounds i16, ptr %11, i64 1
   store i16 %conv3.i, ptr %arrayidx5.i, align 2
   %conv8.i = add i16 %conv.i, 2
-  %13 = load ptr, ptr %_IdxWritePtr.i, align 8
-  %arrayidx10.i = getelementptr inbounds i16, ptr %13, i64 2
+  %12 = load ptr, ptr %_IdxWritePtr.i, align 8
+  %arrayidx10.i = getelementptr inbounds i16, ptr %12, i64 2
   store i16 %conv8.i, ptr %arrayidx10.i, align 2
-  %14 = load ptr, ptr %_IdxWritePtr.i, align 8
-  %arrayidx12.i = getelementptr inbounds i16, ptr %14, i64 3
+  %13 = load ptr, ptr %_IdxWritePtr.i, align 8
+  %arrayidx12.i = getelementptr inbounds i16, ptr %13, i64 3
   store i16 %conv.i, ptr %arrayidx12.i, align 2
-  %15 = load ptr, ptr %_IdxWritePtr.i, align 8
-  %arrayidx17.i = getelementptr inbounds i16, ptr %15, i64 4
+  %14 = load ptr, ptr %_IdxWritePtr.i, align 8
+  %arrayidx17.i = getelementptr inbounds i16, ptr %14, i64 4
   store i16 %conv8.i, ptr %arrayidx17.i, align 2
   %conv20.i = add i16 %conv.i, 3
-  %16 = load ptr, ptr %_IdxWritePtr.i, align 8
-  %arrayidx22.i = getelementptr inbounds i16, ptr %16, i64 5
+  %15 = load ptr, ptr %_IdxWritePtr.i, align 8
+  %arrayidx22.i = getelementptr inbounds i16, ptr %15, i64 5
   store i16 %conv20.i, ptr %arrayidx22.i, align 2
   %_VtxWritePtr.i = getelementptr inbounds %struct.ImDrawList, ptr %this, i64 0, i32 7
-  %17 = load ptr, ptr %_VtxWritePtr.i, align 8
-  %18 = load i64, ptr %p1, align 4
-  store i64 %18, ptr %17, align 4
-  %19 = load ptr, ptr %_VtxWritePtr.i, align 8
-  %uv.i = getelementptr inbounds %struct.ImDrawVert, ptr %19, i64 0, i32 1
-  %20 = load i64, ptr %uv1, align 4
-  store i64 %20, ptr %uv.i, align 4
-  %21 = load ptr, ptr %_VtxWritePtr.i, align 8
-  %col28.i = getelementptr inbounds %struct.ImDrawVert, ptr %21, i64 0, i32 2
+  %16 = load ptr, ptr %_VtxWritePtr.i, align 8
+  %17 = load i64, ptr %p1, align 4
+  store i64 %17, ptr %16, align 4
+  %18 = load ptr, ptr %_VtxWritePtr.i, align 8
+  %uv.i = getelementptr inbounds %struct.ImDrawVert, ptr %18, i64 0, i32 1
+  %19 = load i64, ptr %uv1, align 4
+  store i64 %19, ptr %uv.i, align 4
+  %20 = load ptr, ptr %_VtxWritePtr.i, align 8
+  %col28.i = getelementptr inbounds %struct.ImDrawVert, ptr %20, i64 0, i32 2
   store i32 %col, ptr %col28.i, align 4
-  %22 = load ptr, ptr %_VtxWritePtr.i, align 8
-  %arrayidx30.i = getelementptr inbounds %struct.ImDrawVert, ptr %22, i64 1
-  %23 = load i64, ptr %p2, align 4
-  store i64 %23, ptr %arrayidx30.i, align 4
-  %24 = load ptr, ptr %_VtxWritePtr.i, align 8
-  %uv34.i = getelementptr inbounds %struct.ImDrawVert, ptr %24, i64 1, i32 1
-  %25 = load i64, ptr %uv2, align 4
-  store i64 %25, ptr %uv34.i, align 4
-  %26 = load ptr, ptr %_VtxWritePtr.i, align 8
-  %col37.i = getelementptr inbounds %struct.ImDrawVert, ptr %26, i64 1, i32 2
+  %21 = load ptr, ptr %_VtxWritePtr.i, align 8
+  %arrayidx30.i = getelementptr inbounds %struct.ImDrawVert, ptr %21, i64 1
+  %22 = load i64, ptr %p2, align 4
+  store i64 %22, ptr %arrayidx30.i, align 4
+  %23 = load ptr, ptr %_VtxWritePtr.i, align 8
+  %uv34.i = getelementptr inbounds %struct.ImDrawVert, ptr %23, i64 1, i32 1
+  %24 = load i64, ptr %uv2, align 4
+  store i64 %24, ptr %uv34.i, align 4
+  %25 = load ptr, ptr %_VtxWritePtr.i, align 8
+  %col37.i = getelementptr inbounds %struct.ImDrawVert, ptr %25, i64 1, i32 2
   store i32 %col, ptr %col37.i, align 4
-  %27 = load ptr, ptr %_VtxWritePtr.i, align 8
-  %arrayidx39.i = getelementptr inbounds %struct.ImDrawVert, ptr %27, i64 2
-  %28 = load i64, ptr %p3, align 4
-  store i64 %28, ptr %arrayidx39.i, align 4
-  %29 = load ptr, ptr %_VtxWritePtr.i, align 8
-  %uv43.i = getelementptr inbounds %struct.ImDrawVert, ptr %29, i64 2, i32 1
-  %30 = load i64, ptr %uv3, align 4
-  store i64 %30, ptr %uv43.i, align 4
-  %31 = load ptr, ptr %_VtxWritePtr.i, align 8
-  %col46.i = getelementptr inbounds %struct.ImDrawVert, ptr %31, i64 2, i32 2
+  %26 = load ptr, ptr %_VtxWritePtr.i, align 8
+  %arrayidx39.i = getelementptr inbounds %struct.ImDrawVert, ptr %26, i64 2
+  %27 = load i64, ptr %p3, align 4
+  store i64 %27, ptr %arrayidx39.i, align 4
+  %28 = load ptr, ptr %_VtxWritePtr.i, align 8
+  %uv43.i = getelementptr inbounds %struct.ImDrawVert, ptr %28, i64 2, i32 1
+  %29 = load i64, ptr %uv3, align 4
+  store i64 %29, ptr %uv43.i, align 4
+  %30 = load ptr, ptr %_VtxWritePtr.i, align 8
+  %col46.i = getelementptr inbounds %struct.ImDrawVert, ptr %30, i64 2, i32 2
   store i32 %col, ptr %col46.i, align 4
-  %32 = load ptr, ptr %_VtxWritePtr.i, align 8
-  %arrayidx48.i = getelementptr inbounds %struct.ImDrawVert, ptr %32, i64 3
-  %33 = load i64, ptr %p4, align 4
-  store i64 %33, ptr %arrayidx48.i, align 4
-  %34 = load ptr, ptr %_VtxWritePtr.i, align 8
-  %uv52.i = getelementptr inbounds %struct.ImDrawVert, ptr %34, i64 3, i32 1
-  %35 = load i64, ptr %uv4, align 4
-  store i64 %35, ptr %uv52.i, align 4
-  %36 = load ptr, ptr %_VtxWritePtr.i, align 8
-  %col55.i = getelementptr inbounds %struct.ImDrawVert, ptr %36, i64 3, i32 2
+  %31 = load ptr, ptr %_VtxWritePtr.i, align 8
+  %arrayidx48.i = getelementptr inbounds %struct.ImDrawVert, ptr %31, i64 3
+  %32 = load i64, ptr %p4, align 4
+  store i64 %32, ptr %arrayidx48.i, align 4
+  %33 = load ptr, ptr %_VtxWritePtr.i, align 8
+  %uv52.i = getelementptr inbounds %struct.ImDrawVert, ptr %33, i64 3, i32 1
+  %34 = load i64, ptr %uv4, align 4
+  store i64 %34, ptr %uv52.i, align 4
+  %35 = load ptr, ptr %_VtxWritePtr.i, align 8
+  %col55.i = getelementptr inbounds %struct.ImDrawVert, ptr %35, i64 3, i32 2
   store i32 %col, ptr %col55.i, align 4
-  %37 = load ptr, ptr %_VtxWritePtr.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.ImDrawVert, ptr %37, i64 4
+  %36 = load ptr, ptr %_VtxWritePtr.i, align 8
+  %add.ptr.i = getelementptr inbounds %struct.ImDrawVert, ptr %36, i64 4
   store ptr %add.ptr.i, ptr %_VtxWritePtr.i, align 8
-  %38 = load i32, ptr %_VtxCurrentIdx.i, align 4
-  %add58.i = add i32 %38, 4
+  %37 = load i32, ptr %_VtxCurrentIdx.i, align 4
+  %add58.i = add i32 %37, 4
   store i32 %add58.i, ptr %_VtxCurrentIdx.i, align 4
-  %39 = load ptr, ptr %_IdxWritePtr.i, align 8
-  %add.ptr60.i = getelementptr inbounds i16, ptr %39, i64 6
+  %38 = load ptr, ptr %_IdxWritePtr.i, align 8
+  %add.ptr60.i = getelementptr inbounds i16, ptr %38, i64 6
   store ptr %add.ptr60.i, ptr %_IdxWritePtr.i, align 8
-  %40 = load i32, ptr %_TextureIdStack.i, align 8
-  %dec.i.i = add nsw i32 %40, -1
+  %39 = load i32, ptr %_TextureIdStack.i, align 8
+  %dec.i.i = add nsw i32 %39, -1
   store i32 %dec.i.i, ptr %_TextureIdStack.i, align 8
   %cmp.i = icmp eq i32 %dec.i.i, 0
   br i1 %cmp.i, label %_ZN10ImDrawList12PopTextureIDEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %_ZN10ImDrawList13PushTextureIDEPv.exit
   %Data.i = getelementptr inbounds %struct.ImDrawList, ptr %this, i64 0, i32 10, i32 2
-  %41 = load ptr, ptr %Data.i, align 8
-  %42 = sext i32 %dec.i.i to i64
-  %43 = getelementptr ptr, ptr %41, i64 %42
-  %arrayidx.i = getelementptr ptr, ptr %43, i64 -1
-  %44 = load ptr, ptr %arrayidx.i, align 8
+  %40 = load ptr, ptr %Data.i, align 8
+  %41 = sext i32 %dec.i.i to i64
+  %42 = getelementptr ptr, ptr %40, i64 %41
+  %arrayidx.i = getelementptr ptr, ptr %42, i64 -1
+  %43 = load ptr, ptr %arrayidx.i, align 8
   br label %_ZN10ImDrawList12PopTextureIDEv.exit
 
 _ZN10ImDrawList12PopTextureIDEv.exit:             ; preds = %_ZN10ImDrawList13PushTextureIDEPv.exit, %cond.false.i
-  %cond.i = phi ptr [ %44, %cond.false.i ], [ null, %_ZN10ImDrawList13PushTextureIDEPv.exit ]
+  %cond.i = phi ptr [ %43, %cond.false.i ], [ null, %_ZN10ImDrawList13PushTextureIDEPv.exit ]
   store ptr %cond.i, ptr %TextureId, align 8
   tail call void @_ZN10ImDrawList19_OnChangedTextureIDEv(ptr noundef nonnull align 8 dereferenceable(196) %this)
   br label %if.end7
@@ -9683,81 +9680,81 @@ _ZN10ImDrawList12PopTextureIDEv.exit:             ; preds = %_ZN10ImDrawList13Pu
 if.end7.critedge:                                 ; preds = %if.end
   tail call void @_ZN10ImDrawList11PrimReserveEii(ptr noundef nonnull align 8 dereferenceable(196) %this, i32 noundef 6, i32 noundef 4)
   %_VtxCurrentIdx.i6 = getelementptr inbounds %struct.ImDrawList, ptr %this, i64 0, i32 4
-  %45 = load i32, ptr %_VtxCurrentIdx.i6, align 4
-  %conv.i7 = trunc i32 %45 to i16
+  %44 = load i32, ptr %_VtxCurrentIdx.i6, align 4
+  %conv.i7 = trunc i32 %44 to i16
   %_IdxWritePtr.i8 = getelementptr inbounds %struct.ImDrawList, ptr %this, i64 0, i32 8
-  %46 = load ptr, ptr %_IdxWritePtr.i8, align 8
-  store i16 %conv.i7, ptr %46, align 2
+  %45 = load ptr, ptr %_IdxWritePtr.i8, align 8
+  store i16 %conv.i7, ptr %45, align 2
   %conv3.i9 = add i16 %conv.i7, 1
-  %47 = load ptr, ptr %_IdxWritePtr.i8, align 8
-  %arrayidx5.i10 = getelementptr inbounds i16, ptr %47, i64 1
+  %46 = load ptr, ptr %_IdxWritePtr.i8, align 8
+  %arrayidx5.i10 = getelementptr inbounds i16, ptr %46, i64 1
   store i16 %conv3.i9, ptr %arrayidx5.i10, align 2
   %conv8.i11 = add i16 %conv.i7, 2
-  %48 = load ptr, ptr %_IdxWritePtr.i8, align 8
-  %arrayidx10.i12 = getelementptr inbounds i16, ptr %48, i64 2
+  %47 = load ptr, ptr %_IdxWritePtr.i8, align 8
+  %arrayidx10.i12 = getelementptr inbounds i16, ptr %47, i64 2
   store i16 %conv8.i11, ptr %arrayidx10.i12, align 2
-  %49 = load ptr, ptr %_IdxWritePtr.i8, align 8
-  %arrayidx12.i13 = getelementptr inbounds i16, ptr %49, i64 3
+  %48 = load ptr, ptr %_IdxWritePtr.i8, align 8
+  %arrayidx12.i13 = getelementptr inbounds i16, ptr %48, i64 3
   store i16 %conv.i7, ptr %arrayidx12.i13, align 2
-  %50 = load ptr, ptr %_IdxWritePtr.i8, align 8
-  %arrayidx17.i14 = getelementptr inbounds i16, ptr %50, i64 4
+  %49 = load ptr, ptr %_IdxWritePtr.i8, align 8
+  %arrayidx17.i14 = getelementptr inbounds i16, ptr %49, i64 4
   store i16 %conv8.i11, ptr %arrayidx17.i14, align 2
   %conv20.i15 = add i16 %conv.i7, 3
-  %51 = load ptr, ptr %_IdxWritePtr.i8, align 8
-  %arrayidx22.i16 = getelementptr inbounds i16, ptr %51, i64 5
+  %50 = load ptr, ptr %_IdxWritePtr.i8, align 8
+  %arrayidx22.i16 = getelementptr inbounds i16, ptr %50, i64 5
   store i16 %conv20.i15, ptr %arrayidx22.i16, align 2
   %_VtxWritePtr.i17 = getelementptr inbounds %struct.ImDrawList, ptr %this, i64 0, i32 7
-  %52 = load ptr, ptr %_VtxWritePtr.i17, align 8
-  %53 = load i64, ptr %p1, align 4
-  store i64 %53, ptr %52, align 4
-  %54 = load ptr, ptr %_VtxWritePtr.i17, align 8
-  %uv.i18 = getelementptr inbounds %struct.ImDrawVert, ptr %54, i64 0, i32 1
-  %55 = load i64, ptr %uv1, align 4
-  store i64 %55, ptr %uv.i18, align 4
-  %56 = load ptr, ptr %_VtxWritePtr.i17, align 8
-  %col28.i19 = getelementptr inbounds %struct.ImDrawVert, ptr %56, i64 0, i32 2
+  %51 = load ptr, ptr %_VtxWritePtr.i17, align 8
+  %52 = load i64, ptr %p1, align 4
+  store i64 %52, ptr %51, align 4
+  %53 = load ptr, ptr %_VtxWritePtr.i17, align 8
+  %uv.i18 = getelementptr inbounds %struct.ImDrawVert, ptr %53, i64 0, i32 1
+  %54 = load i64, ptr %uv1, align 4
+  store i64 %54, ptr %uv.i18, align 4
+  %55 = load ptr, ptr %_VtxWritePtr.i17, align 8
+  %col28.i19 = getelementptr inbounds %struct.ImDrawVert, ptr %55, i64 0, i32 2
   store i32 %col, ptr %col28.i19, align 4
-  %57 = load ptr, ptr %_VtxWritePtr.i17, align 8
-  %arrayidx30.i20 = getelementptr inbounds %struct.ImDrawVert, ptr %57, i64 1
-  %58 = load i64, ptr %p2, align 4
-  store i64 %58, ptr %arrayidx30.i20, align 4
-  %59 = load ptr, ptr %_VtxWritePtr.i17, align 8
-  %uv34.i21 = getelementptr inbounds %struct.ImDrawVert, ptr %59, i64 1, i32 1
-  %60 = load i64, ptr %uv2, align 4
-  store i64 %60, ptr %uv34.i21, align 4
-  %61 = load ptr, ptr %_VtxWritePtr.i17, align 8
-  %col37.i22 = getelementptr inbounds %struct.ImDrawVert, ptr %61, i64 1, i32 2
+  %56 = load ptr, ptr %_VtxWritePtr.i17, align 8
+  %arrayidx30.i20 = getelementptr inbounds %struct.ImDrawVert, ptr %56, i64 1
+  %57 = load i64, ptr %p2, align 4
+  store i64 %57, ptr %arrayidx30.i20, align 4
+  %58 = load ptr, ptr %_VtxWritePtr.i17, align 8
+  %uv34.i21 = getelementptr inbounds %struct.ImDrawVert, ptr %58, i64 1, i32 1
+  %59 = load i64, ptr %uv2, align 4
+  store i64 %59, ptr %uv34.i21, align 4
+  %60 = load ptr, ptr %_VtxWritePtr.i17, align 8
+  %col37.i22 = getelementptr inbounds %struct.ImDrawVert, ptr %60, i64 1, i32 2
   store i32 %col, ptr %col37.i22, align 4
-  %62 = load ptr, ptr %_VtxWritePtr.i17, align 8
-  %arrayidx39.i23 = getelementptr inbounds %struct.ImDrawVert, ptr %62, i64 2
-  %63 = load i64, ptr %p3, align 4
-  store i64 %63, ptr %arrayidx39.i23, align 4
-  %64 = load ptr, ptr %_VtxWritePtr.i17, align 8
-  %uv43.i24 = getelementptr inbounds %struct.ImDrawVert, ptr %64, i64 2, i32 1
-  %65 = load i64, ptr %uv3, align 4
-  store i64 %65, ptr %uv43.i24, align 4
-  %66 = load ptr, ptr %_VtxWritePtr.i17, align 8
-  %col46.i25 = getelementptr inbounds %struct.ImDrawVert, ptr %66, i64 2, i32 2
+  %61 = load ptr, ptr %_VtxWritePtr.i17, align 8
+  %arrayidx39.i23 = getelementptr inbounds %struct.ImDrawVert, ptr %61, i64 2
+  %62 = load i64, ptr %p3, align 4
+  store i64 %62, ptr %arrayidx39.i23, align 4
+  %63 = load ptr, ptr %_VtxWritePtr.i17, align 8
+  %uv43.i24 = getelementptr inbounds %struct.ImDrawVert, ptr %63, i64 2, i32 1
+  %64 = load i64, ptr %uv3, align 4
+  store i64 %64, ptr %uv43.i24, align 4
+  %65 = load ptr, ptr %_VtxWritePtr.i17, align 8
+  %col46.i25 = getelementptr inbounds %struct.ImDrawVert, ptr %65, i64 2, i32 2
   store i32 %col, ptr %col46.i25, align 4
-  %67 = load ptr, ptr %_VtxWritePtr.i17, align 8
-  %arrayidx48.i26 = getelementptr inbounds %struct.ImDrawVert, ptr %67, i64 3
-  %68 = load i64, ptr %p4, align 4
-  store i64 %68, ptr %arrayidx48.i26, align 4
-  %69 = load ptr, ptr %_VtxWritePtr.i17, align 8
-  %uv52.i27 = getelementptr inbounds %struct.ImDrawVert, ptr %69, i64 3, i32 1
-  %70 = load i64, ptr %uv4, align 4
-  store i64 %70, ptr %uv52.i27, align 4
-  %71 = load ptr, ptr %_VtxWritePtr.i17, align 8
-  %col55.i28 = getelementptr inbounds %struct.ImDrawVert, ptr %71, i64 3, i32 2
+  %66 = load ptr, ptr %_VtxWritePtr.i17, align 8
+  %arrayidx48.i26 = getelementptr inbounds %struct.ImDrawVert, ptr %66, i64 3
+  %67 = load i64, ptr %p4, align 4
+  store i64 %67, ptr %arrayidx48.i26, align 4
+  %68 = load ptr, ptr %_VtxWritePtr.i17, align 8
+  %uv52.i27 = getelementptr inbounds %struct.ImDrawVert, ptr %68, i64 3, i32 1
+  %69 = load i64, ptr %uv4, align 4
+  store i64 %69, ptr %uv52.i27, align 4
+  %70 = load ptr, ptr %_VtxWritePtr.i17, align 8
+  %col55.i28 = getelementptr inbounds %struct.ImDrawVert, ptr %70, i64 3, i32 2
   store i32 %col, ptr %col55.i28, align 4
-  %72 = load ptr, ptr %_VtxWritePtr.i17, align 8
-  %add.ptr.i29 = getelementptr inbounds %struct.ImDrawVert, ptr %72, i64 4
+  %71 = load ptr, ptr %_VtxWritePtr.i17, align 8
+  %add.ptr.i29 = getelementptr inbounds %struct.ImDrawVert, ptr %71, i64 4
   store ptr %add.ptr.i29, ptr %_VtxWritePtr.i17, align 8
-  %73 = load i32, ptr %_VtxCurrentIdx.i6, align 4
-  %add58.i30 = add i32 %73, 4
+  %72 = load i32, ptr %_VtxCurrentIdx.i6, align 4
+  %add58.i30 = add i32 %72, 4
   store i32 %add58.i30, ptr %_VtxCurrentIdx.i6, align 4
-  %74 = load ptr, ptr %_IdxWritePtr.i8, align 8
-  %add.ptr60.i31 = getelementptr inbounds i16, ptr %74, i64 6
+  %73 = load ptr, ptr %_IdxWritePtr.i8, align 8
+  %add.ptr60.i31 = getelementptr inbounds i16, ptr %73, i64 6
   store ptr %add.ptr60.i31, ptr %_IdxWritePtr.i8, align 8
   br label %if.end7
 
@@ -9846,138 +9843,137 @@ _ZN10ImDrawList13PushTextureIDEPv.exit:           ; preds = %entry._ZN8ImVectorI
   %7 = phi i32 [ %.pre.i.i, %if.end7.i.i.i ], [ %1, %entry._ZN8ImVectorIPvE9push_backERKS0_.exit_crit_edge.i ]
   %idxprom.i.i = sext i32 %7 to i64
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %6, i64 %idxprom.i.i
-  %8 = ptrtoint ptr %user_texture_id to i64
-  store i64 %8, ptr %arrayidx.i.i, align 8
-  %9 = load i32, ptr %_TextureIdStack.i, align 8
-  %inc.i.i = add nsw i32 %9, 1
+  store ptr %user_texture_id, ptr %arrayidx.i.i, align 8
+  %8 = load i32, ptr %_TextureIdStack.i, align 8
+  %inc.i.i = add nsw i32 %8, 1
   store i32 %inc.i.i, ptr %_TextureIdStack.i, align 8
   store ptr %user_texture_id, ptr %TextureId, align 8
   tail call void @_ZN10ImDrawList19_OnChangedTextureIDEv(ptr noundef nonnull align 8 dereferenceable(196) %this)
   %VtxBuffer = getelementptr inbounds %struct.ImDrawList, ptr %this, i64 0, i32 2
-  %10 = load i32, ptr %VtxBuffer, align 8
+  %9 = load i32, ptr %VtxBuffer, align 8
   tail call void @_ZN10ImDrawList8PathRectERK6ImVec2S2_fi(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull align 4 dereferenceable(8) %p_min, ptr noundef nonnull align 4 dereferenceable(8) %p_max, float noundef %rounding, i32 noundef %spec.select.i)
   %_Path.i = getelementptr inbounds %struct.ImDrawList, ptr %this, i64 0, i32 11
   %Data.i = getelementptr inbounds %struct.ImDrawList, ptr %this, i64 0, i32 11, i32 2
-  %11 = load ptr, ptr %Data.i, align 8
-  %12 = load i32, ptr %_Path.i, align 8
-  tail call void @_ZN10ImDrawList19AddConvexPolyFilledEPK6ImVec2ij(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef %11, i32 noundef %12, i32 noundef %col)
+  %10 = load ptr, ptr %Data.i, align 8
+  %11 = load i32, ptr %_Path.i, align 8
+  tail call void @_ZN10ImDrawList19AddConvexPolyFilledEPK6ImVec2ij(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef %10, i32 noundef %11, i32 noundef %col)
   store i32 0, ptr %_Path.i, align 8
-  %13 = load i32, ptr %VtxBuffer, align 8
+  %12 = load i32, ptr %VtxBuffer, align 8
   %Data.i16 = getelementptr inbounds %struct.ImDrawList, ptr %this, i64 0, i32 2, i32 2
-  %14 = load ptr, ptr %Data.i16, align 8
-  %idx.ext14.i = sext i32 %13 to i64
-  %add.ptr15.i = getelementptr inbounds %struct.ImDrawVert, ptr %14, i64 %idx.ext14.i
-  %15 = load <2 x float>, ptr %p_max, align 4
-  %16 = load <2 x float>, ptr %p_min, align 4
-  %17 = fsub <2 x float> %15, %16
-  %18 = load <2 x float>, ptr %uv_max, align 4
-  %19 = load <2 x float>, ptr %uv_min, align 4
-  %20 = fsub <2 x float> %18, %19
-  %21 = fcmp une <2 x float> %17, zeroinitializer
-  %22 = fdiv <2 x float> %20, %17
-  %23 = select <2 x i1> %21, <2 x float> %22, <2 x float> zeroinitializer
-  %24 = fcmp olt <2 x float> %19, %18
-  %25 = select <2 x i1> %24, <2 x float> %19, <2 x float> %18
-  %26 = fcmp oge <2 x float> %19, %18
-  %27 = select <2 x i1> %26, <2 x float> %19, <2 x float> %18
-  %cmp1895.i = icmp slt i32 %10, %13
+  %13 = load ptr, ptr %Data.i16, align 8
+  %idx.ext14.i = sext i32 %12 to i64
+  %add.ptr15.i = getelementptr inbounds %struct.ImDrawVert, ptr %13, i64 %idx.ext14.i
+  %14 = load <2 x float>, ptr %p_max, align 4
+  %15 = load <2 x float>, ptr %p_min, align 4
+  %16 = fsub <2 x float> %14, %15
+  %17 = load <2 x float>, ptr %uv_max, align 4
+  %18 = load <2 x float>, ptr %uv_min, align 4
+  %19 = fsub <2 x float> %17, %18
+  %20 = fcmp une <2 x float> %16, zeroinitializer
+  %21 = fdiv <2 x float> %19, %16
+  %22 = select <2 x i1> %20, <2 x float> %21, <2 x float> zeroinitializer
+  %23 = fcmp olt <2 x float> %18, %17
+  %24 = select <2 x i1> %23, <2 x float> %18, <2 x float> %17
+  %25 = fcmp oge <2 x float> %18, %17
+  %26 = select <2 x i1> %25, <2 x float> %18, <2 x float> %17
+  %cmp1895.i = icmp slt i32 %9, %12
   br i1 %cmp1895.i, label %for.body.i.preheader, label %_ZN5ImGui18ShadeVertsLinearUVEP10ImDrawListiiRK6ImVec2S4_S4_S4_b.exit
 
 for.body.i.preheader:                             ; preds = %_ZN10ImDrawList13PushTextureIDEPv.exit
-  %idx.ext.i = sext i32 %10 to i64
-  %add.ptr.i = getelementptr inbounds %struct.ImDrawVert, ptr %14, i64 %idx.ext.i
+  %idx.ext.i = sext i32 %9 to i64
+  %add.ptr.i = getelementptr inbounds %struct.ImDrawVert, ptr %13, i64 %idx.ext.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %vertex.096.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %add.ptr.i, %for.body.i.preheader ]
-  %28 = load <2 x float>, ptr %vertex.096.i, align 4
-  %29 = load <2 x float>, ptr %p_min, align 4
-  %30 = fsub <2 x float> %28, %29
-  %31 = fmul <2 x float> %23, %30
-  %32 = load <2 x float>, ptr %uv_min, align 4
-  %33 = fadd <2 x float> %32, %31
-  %34 = fcmp olt <2 x float> %33, %25
-  %35 = fcmp olt <2 x float> %27, %33
-  %36 = select <2 x i1> %35, <2 x float> %27, <2 x float> %33
-  %37 = select <2 x i1> %34, <2 x float> %25, <2 x float> %36
+  %27 = load <2 x float>, ptr %vertex.096.i, align 4
+  %28 = load <2 x float>, ptr %p_min, align 4
+  %29 = fsub <2 x float> %27, %28
+  %30 = fmul <2 x float> %22, %29
+  %31 = load <2 x float>, ptr %uv_min, align 4
+  %32 = fadd <2 x float> %31, %30
+  %33 = fcmp olt <2 x float> %32, %24
+  %34 = fcmp olt <2 x float> %26, %32
+  %35 = select <2 x i1> %34, <2 x float> %26, <2 x float> %32
+  %36 = select <2 x i1> %33, <2 x float> %24, <2 x float> %35
   %uv.i = getelementptr inbounds %struct.ImDrawVert, ptr %vertex.096.i, i64 0, i32 1
-  store <2 x float> %37, ptr %uv.i, align 4
+  store <2 x float> %36, ptr %uv.i, align 4
   %incdec.ptr.i = getelementptr inbounds %struct.ImDrawVert, ptr %vertex.096.i, i64 1
   %cmp18.i = icmp ult ptr %incdec.ptr.i, %add.ptr15.i
   br i1 %cmp18.i, label %for.body.i, label %_ZN5ImGui18ShadeVertsLinearUVEP10ImDrawListiiRK6ImVec2S4_S4_S4_b.exit, !llvm.loop !34
 
 _ZN5ImGui18ShadeVertsLinearUVEP10ImDrawListiiRK6ImVec2S4_S4_S4_b.exit: ; preds = %for.body.i, %_ZN10ImDrawList13PushTextureIDEPv.exit
-  %38 = load i32, ptr %_TextureIdStack.i, align 8
-  %dec.i.i = add nsw i32 %38, -1
+  %37 = load i32, ptr %_TextureIdStack.i, align 8
+  %dec.i.i = add nsw i32 %37, -1
   store i32 %dec.i.i, ptr %_TextureIdStack.i, align 8
   %cmp.i20 = icmp eq i32 %dec.i.i, 0
   br i1 %cmp.i20, label %_ZN10ImDrawList12PopTextureIDEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %_ZN5ImGui18ShadeVertsLinearUVEP10ImDrawListiiRK6ImVec2S4_S4_S4_b.exit
   %Data.i21 = getelementptr inbounds %struct.ImDrawList, ptr %this, i64 0, i32 10, i32 2
-  %39 = load ptr, ptr %Data.i21, align 8
-  %40 = sext i32 %dec.i.i to i64
-  %41 = getelementptr ptr, ptr %39, i64 %40
-  %arrayidx.i = getelementptr ptr, ptr %41, i64 -1
-  %42 = load ptr, ptr %arrayidx.i, align 8
+  %38 = load ptr, ptr %Data.i21, align 8
+  %39 = sext i32 %dec.i.i to i64
+  %40 = getelementptr ptr, ptr %38, i64 %39
+  %arrayidx.i = getelementptr ptr, ptr %40, i64 -1
+  %41 = load ptr, ptr %arrayidx.i, align 8
   br label %_ZN10ImDrawList12PopTextureIDEv.exit
 
 _ZN10ImDrawList12PopTextureIDEv.exit:             ; preds = %_ZN5ImGui18ShadeVertsLinearUVEP10ImDrawListiiRK6ImVec2S4_S4_S4_b.exit, %cond.false.i
-  %cond.i22 = phi ptr [ %42, %cond.false.i ], [ null, %_ZN5ImGui18ShadeVertsLinearUVEP10ImDrawListiiRK6ImVec2S4_S4_S4_b.exit ]
+  %cond.i22 = phi ptr [ %41, %cond.false.i ], [ null, %_ZN5ImGui18ShadeVertsLinearUVEP10ImDrawListiiRK6ImVec2S4_S4_S4_b.exit ]
   store ptr %cond.i22, ptr %TextureId, align 8
   tail call void @_ZN10ImDrawList19_OnChangedTextureIDEv(ptr noundef nonnull align 8 dereferenceable(196) %this)
   br label %if.end14
 
 if.end14.critedge:                                ; preds = %if.end6
   %VtxBuffer.c = getelementptr inbounds %struct.ImDrawList, ptr %this, i64 0, i32 2
-  %43 = load i32, ptr %VtxBuffer.c, align 8
+  %42 = load i32, ptr %VtxBuffer.c, align 8
   tail call void @_ZN10ImDrawList8PathRectERK6ImVec2S2_fi(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef nonnull align 4 dereferenceable(8) %p_min, ptr noundef nonnull align 4 dereferenceable(8) %p_max, float noundef %rounding, i32 noundef %spec.select.i)
   %_Path.i24 = getelementptr inbounds %struct.ImDrawList, ptr %this, i64 0, i32 11
   %Data.i25 = getelementptr inbounds %struct.ImDrawList, ptr %this, i64 0, i32 11, i32 2
-  %44 = load ptr, ptr %Data.i25, align 8
-  %45 = load i32, ptr %_Path.i24, align 8
-  tail call void @_ZN10ImDrawList19AddConvexPolyFilledEPK6ImVec2ij(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef %44, i32 noundef %45, i32 noundef %col)
+  %43 = load ptr, ptr %Data.i25, align 8
+  %44 = load i32, ptr %_Path.i24, align 8
+  tail call void @_ZN10ImDrawList19AddConvexPolyFilledEPK6ImVec2ij(ptr noundef nonnull align 8 dereferenceable(196) %this, ptr noundef %43, i32 noundef %44, i32 noundef %col)
   store i32 0, ptr %_Path.i24, align 8
-  %46 = load i32, ptr %VtxBuffer.c, align 8
+  %45 = load i32, ptr %VtxBuffer.c, align 8
   %Data.i44 = getelementptr inbounds %struct.ImDrawList, ptr %this, i64 0, i32 2, i32 2
-  %47 = load ptr, ptr %Data.i44, align 8
-  %idx.ext14.i47 = sext i32 %46 to i64
-  %add.ptr15.i48 = getelementptr inbounds %struct.ImDrawVert, ptr %47, i64 %idx.ext14.i47
-  %48 = load <2 x float>, ptr %p_max, align 4
-  %49 = load <2 x float>, ptr %p_min, align 4
-  %50 = fsub <2 x float> %48, %49
-  %51 = load <2 x float>, ptr %uv_max, align 4
-  %52 = load <2 x float>, ptr %uv_min, align 4
-  %53 = fsub <2 x float> %51, %52
-  %54 = fcmp une <2 x float> %50, zeroinitializer
-  %55 = fdiv <2 x float> %53, %50
-  %56 = select <2 x i1> %54, <2 x float> %55, <2 x float> zeroinitializer
-  %57 = fcmp olt <2 x float> %52, %51
-  %58 = select <2 x i1> %57, <2 x float> %52, <2 x float> %51
-  %59 = fcmp oge <2 x float> %52, %51
-  %60 = select <2 x i1> %59, <2 x float> %52, <2 x float> %51
-  %cmp1895.i57 = icmp slt i32 %43, %46
+  %46 = load ptr, ptr %Data.i44, align 8
+  %idx.ext14.i47 = sext i32 %45 to i64
+  %add.ptr15.i48 = getelementptr inbounds %struct.ImDrawVert, ptr %46, i64 %idx.ext14.i47
+  %47 = load <2 x float>, ptr %p_max, align 4
+  %48 = load <2 x float>, ptr %p_min, align 4
+  %49 = fsub <2 x float> %47, %48
+  %50 = load <2 x float>, ptr %uv_max, align 4
+  %51 = load <2 x float>, ptr %uv_min, align 4
+  %52 = fsub <2 x float> %50, %51
+  %53 = fcmp une <2 x float> %49, zeroinitializer
+  %54 = fdiv <2 x float> %52, %49
+  %55 = select <2 x i1> %53, <2 x float> %54, <2 x float> zeroinitializer
+  %56 = fcmp olt <2 x float> %51, %50
+  %57 = select <2 x i1> %56, <2 x float> %51, <2 x float> %50
+  %58 = fcmp oge <2 x float> %51, %50
+  %59 = select <2 x i1> %58, <2 x float> %51, <2 x float> %50
+  %cmp1895.i57 = icmp slt i32 %42, %45
   br i1 %cmp1895.i57, label %for.body.i58.preheader, label %if.end14
 
 for.body.i58.preheader:                           ; preds = %if.end14.critedge
-  %idx.ext.i45 = sext i32 %43 to i64
-  %add.ptr.i46 = getelementptr inbounds %struct.ImDrawVert, ptr %47, i64 %idx.ext.i45
+  %idx.ext.i45 = sext i32 %42 to i64
+  %add.ptr.i46 = getelementptr inbounds %struct.ImDrawVert, ptr %46, i64 %idx.ext.i45
   br label %for.body.i58
 
 for.body.i58:                                     ; preds = %for.body.i58.preheader, %for.body.i58
   %vertex.096.i59 = phi ptr [ %incdec.ptr.i82, %for.body.i58 ], [ %add.ptr.i46, %for.body.i58.preheader ]
-  %61 = load <2 x float>, ptr %vertex.096.i59, align 4
-  %62 = load <2 x float>, ptr %p_min, align 4
-  %63 = fsub <2 x float> %61, %62
-  %64 = fmul <2 x float> %56, %63
-  %65 = load <2 x float>, ptr %uv_min, align 4
-  %66 = fadd <2 x float> %65, %64
-  %67 = fcmp olt <2 x float> %66, %58
-  %68 = fcmp olt <2 x float> %60, %66
-  %69 = select <2 x i1> %68, <2 x float> %60, <2 x float> %66
-  %70 = select <2 x i1> %67, <2 x float> %58, <2 x float> %69
+  %60 = load <2 x float>, ptr %vertex.096.i59, align 4
+  %61 = load <2 x float>, ptr %p_min, align 4
+  %62 = fsub <2 x float> %60, %61
+  %63 = fmul <2 x float> %55, %62
+  %64 = load <2 x float>, ptr %uv_min, align 4
+  %65 = fadd <2 x float> %64, %63
+  %66 = fcmp olt <2 x float> %65, %57
+  %67 = fcmp olt <2 x float> %59, %65
+  %68 = select <2 x i1> %67, <2 x float> %59, <2 x float> %65
+  %69 = select <2 x i1> %66, <2 x float> %57, <2 x float> %68
   %uv.i81 = getelementptr inbounds %struct.ImDrawVert, ptr %vertex.096.i59, i64 0, i32 1
-  store <2 x float> %70, ptr %uv.i81, align 4
+  store <2 x float> %69, ptr %uv.i81, align 4
   %incdec.ptr.i82 = getelementptr inbounds %struct.ImDrawVert, ptr %vertex.096.i59, i64 1
   %cmp18.i83 = icmp ult ptr %incdec.ptr.i82, %add.ptr15.i48
   br i1 %cmp18.i83, label %for.body.i58, label %if.end14, !llvm.loop !34
@@ -10511,26 +10507,25 @@ _ZN8ImVectorIP10ImDrawListE9push_backERKS1_.exit: ; preds = %if.end11._ZN8ImVect
   %10 = phi i32 [ %.pre.i, %if.end7.i.i ], [ %4, %if.end11._ZN8ImVectorIP10ImDrawListE9push_backERKS1_.exit_crit_edge ]
   %idxprom.i = sext i32 %10 to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %idxprom.i
-  %11 = ptrtoint ptr %draw_list to i64
-  store i64 %11, ptr %arrayidx.i, align 8
-  %12 = load i32, ptr %out_list, align 8
-  %inc.i = add nsw i32 %12, 1
+  store ptr %draw_list, ptr %arrayidx.i, align 8
+  %11 = load i32, ptr %out_list, align 8
+  %inc.i = add nsw i32 %11, 1
   store i32 %inc.i, ptr %out_list, align 8
   %CmdListsCount = getelementptr inbounds %struct.ImDrawData, ptr %draw_data, i64 0, i32 1
-  %13 = load i32, ptr %CmdListsCount, align 4
-  %inc = add nsw i32 %13, 1
+  %12 = load i32, ptr %CmdListsCount, align 4
+  %inc = add nsw i32 %12, 1
   store i32 %inc, ptr %CmdListsCount, align 4
   %VtxBuffer = getelementptr inbounds %struct.ImDrawList, ptr %draw_list, i64 0, i32 2
-  %14 = load i32, ptr %VtxBuffer, align 8
+  %13 = load i32, ptr %VtxBuffer, align 8
   %TotalVtxCount = getelementptr inbounds %struct.ImDrawData, ptr %draw_data, i64 0, i32 3
-  %15 = load i32, ptr %TotalVtxCount, align 4
-  %add = add nsw i32 %15, %14
+  %14 = load i32, ptr %TotalVtxCount, align 4
+  %add = add nsw i32 %14, %13
   store i32 %add, ptr %TotalVtxCount, align 4
   %IdxBuffer = getelementptr inbounds %struct.ImDrawList, ptr %draw_list, i64 0, i32 1
-  %16 = load i32, ptr %IdxBuffer, align 8
+  %15 = load i32, ptr %IdxBuffer, align 8
   %TotalIdxCount = getelementptr inbounds %struct.ImDrawData, ptr %draw_data, i64 0, i32 2
-  %17 = load i32, ptr %TotalIdxCount, align 8
-  %add16 = add nsw i32 %17, %16
+  %16 = load i32, ptr %TotalIdxCount, align 8
+  %add16 = add nsw i32 %16, %15
   store i32 %add16, ptr %TotalIdxCount, align 8
   br label %return
 
@@ -11752,19 +11747,18 @@ _ZN8ImVectorIP6ImFontE9push_backERKS1_.exit:      ; preds = %if.then._ZN8ImVecto
   %8 = phi i32 [ %.pre.i, %if.end7.i.i ], [ %2, %if.then._ZN8ImVectorIP6ImFontE9push_backERKS1_.exit_crit_edge ]
   %idxprom.i = sext i32 %8 to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %7, i64 %idxprom.i
-  %9 = ptrtoint ptr %call to i64
-  store i64 %9, ptr %arrayidx.i, align 8
-  %10 = load i32, ptr %Fonts, align 8
-  %inc.i = add nsw i32 %10, 1
+  store ptr %call, ptr %arrayidx.i, align 8
+  %9 = load i32, ptr %Fonts, align 8
+  %inc.i = add nsw i32 %9, 1
   store i32 %inc.i, ptr %Fonts, align 8
   br label %if.end
 
 if.end:                                           ; preds = %entry, %_ZN8ImVectorIP6ImFontE9push_backERKS1_.exit
   %ConfigData = getelementptr inbounds %struct.ImFontAtlas, ptr %this, i64 0, i32 19
-  %11 = load i32, ptr %ConfigData, align 8
+  %10 = load i32, ptr %ConfigData, align 8
   %Capacity.i14 = getelementptr inbounds %struct.ImFontAtlas, ptr %this, i64 0, i32 19, i32 1
-  %12 = load i32, ptr %Capacity.i14, align 4
-  %cmp.i15 = icmp eq i32 %11, %12
+  %11 = load i32, ptr %Capacity.i14, align 4
+  %cmp.i15 = icmp eq i32 %10, %11
   br i1 %cmp.i15, label %if.then.i20, label %if.end._ZN8ImVectorI12ImFontConfigE9push_backERKS0_.exit_crit_edge
 
 if.end._ZN8ImVectorI12ImFontConfigE9push_backERKS0_.exit_crit_edge: ; preds = %if.end
@@ -11773,13 +11767,13 @@ if.end._ZN8ImVectorI12ImFontConfigE9push_backERKS0_.exit_crit_edge: ; preds = %i
   br label %_ZN8ImVectorI12ImFontConfigE9push_backERKS0_.exit
 
 if.then.i20:                                      ; preds = %if.end
-  %add.i21 = add nsw i32 %11, 1
-  %tobool.not.i.i22 = icmp eq i32 %11, 0
+  %add.i21 = add nsw i32 %10, 1
+  %tobool.not.i.i22 = icmp eq i32 %10, 0
   br i1 %tobool.not.i.i22, label %if.end.i.i26, label %cond.true.i.i23
 
 cond.true.i.i23:                                  ; preds = %if.then.i20
-  %div.i.i24 = sdiv i32 %11, 2
-  %add.i.i25 = add nsw i32 %div.i.i24, %11
+  %div.i.i24 = sdiv i32 %10, 2
+  %add.i.i25 = add nsw i32 %div.i.i24, %10
   br label %if.end.i.i26
 
 if.end.i.i26:                                     ; preds = %cond.true.i.i23, %if.then.i20
@@ -11789,17 +11783,17 @@ if.end.i.i26:                                     ; preds = %cond.true.i.i23, %i
   %mul.i.i30 = mul nsw i64 %conv.i.i29, 144
   %call.i.i31 = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i.i30)
   %Data.i.i32 = getelementptr inbounds %struct.ImFontAtlas, ptr %this, i64 0, i32 19, i32 2
-  %13 = load ptr, ptr %Data.i.i32, align 8
-  %tobool.not.i2.i33 = icmp eq ptr %13, null
+  %12 = load ptr, ptr %Data.i.i32, align 8
+  %tobool.not.i2.i33 = icmp eq ptr %12, null
   br i1 %tobool.not.i2.i33, label %if.end7.i.i37, label %if.then2.i.i34
 
 if.then2.i.i34:                                   ; preds = %if.end.i.i26
-  %14 = load i32, ptr %ConfigData, align 8
-  %conv4.i.i35 = sext i32 %14 to i64
+  %13 = load i32, ptr %ConfigData, align 8
+  %conv4.i.i35 = sext i32 %13 to i64
   %mul5.i.i36 = mul nsw i64 %conv4.i.i35, 144
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i.i31, ptr nonnull align 8 %13, i64 %mul5.i.i36, i1 false)
-  %15 = load ptr, ptr %Data.i.i32, align 8
-  tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef %15)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i.i31, ptr nonnull align 8 %12, i64 %mul5.i.i36, i1 false)
+  %14 = load ptr, ptr %Data.i.i32, align 8
+  tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef %14)
   br label %if.end7.i.i37
 
 if.end7.i.i37:                                    ; preds = %if.then2.i.i34, %if.end.i.i26
@@ -11809,103 +11803,103 @@ if.end7.i.i37:                                    ; preds = %if.then2.i.i34, %if
   br label %_ZN8ImVectorI12ImFontConfigE9push_backERKS0_.exit
 
 _ZN8ImVectorI12ImFontConfigE9push_backERKS0_.exit: ; preds = %if.end._ZN8ImVectorI12ImFontConfigE9push_backERKS0_.exit_crit_edge, %if.end7.i.i37
-  %16 = phi ptr [ %call.i.i31, %if.end7.i.i37 ], [ %.pre50, %if.end._ZN8ImVectorI12ImFontConfigE9push_backERKS0_.exit_crit_edge ]
-  %17 = phi i32 [ %.pre.i38, %if.end7.i.i37 ], [ %11, %if.end._ZN8ImVectorI12ImFontConfigE9push_backERKS0_.exit_crit_edge ]
+  %15 = phi ptr [ %call.i.i31, %if.end7.i.i37 ], [ %.pre50, %if.end._ZN8ImVectorI12ImFontConfigE9push_backERKS0_.exit_crit_edge ]
+  %16 = phi i32 [ %.pre.i38, %if.end7.i.i37 ], [ %10, %if.end._ZN8ImVectorI12ImFontConfigE9push_backERKS0_.exit_crit_edge ]
   %Data.i16 = getelementptr inbounds %struct.ImFontAtlas, ptr %this, i64 0, i32 19, i32 2
-  %idxprom.i17 = sext i32 %17 to i64
-  %arrayidx.i18 = getelementptr inbounds %struct.ImFontConfig, ptr %16, i64 %idxprom.i17
+  %idxprom.i17 = sext i32 %16 to i64
+  %arrayidx.i18 = getelementptr inbounds %struct.ImFontConfig, ptr %15, i64 %idxprom.i17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %arrayidx.i18, ptr noundef nonnull align 8 dereferenceable(144) %font_cfg, i64 144, i1 false)
-  %18 = load i32, ptr %ConfigData, align 8
-  %inc.i19 = add nsw i32 %18, 1
+  %17 = load i32, ptr %ConfigData, align 8
+  %inc.i19 = add nsw i32 %17, 1
   store i32 %inc.i19, ptr %ConfigData, align 8
-  %19 = load ptr, ptr %Data.i16, align 8
-  %20 = sext i32 %inc.i19 to i64
-  %21 = getelementptr %struct.ImFontConfig, ptr %19, i64 %20
-  %arrayidx.i40 = getelementptr %struct.ImFontConfig, ptr %21, i64 -1
-  %DstFont = getelementptr %struct.ImFontConfig, ptr %21, i64 -1, i32 19
-  %22 = load ptr, ptr %DstFont, align 8
-  %cmp = icmp eq ptr %22, null
+  %18 = load ptr, ptr %Data.i16, align 8
+  %19 = sext i32 %inc.i19 to i64
+  %20 = getelementptr %struct.ImFontConfig, ptr %18, i64 %19
+  %arrayidx.i40 = getelementptr %struct.ImFontConfig, ptr %20, i64 -1
+  %DstFont = getelementptr %struct.ImFontConfig, ptr %20, i64 -1, i32 19
+  %21 = load ptr, ptr %DstFont, align 8
+  %cmp = icmp eq ptr %21, null
   br i1 %cmp, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %_ZN8ImVectorI12ImFontConfigE9push_backERKS0_.exit
   %Fonts6 = getelementptr inbounds %struct.ImFontAtlas, ptr %this, i64 0, i32 17
   %Data.i41 = getelementptr inbounds %struct.ImFontAtlas, ptr %this, i64 0, i32 17, i32 2
-  %23 = load ptr, ptr %Data.i41, align 8
-  %24 = load i32, ptr %Fonts6, align 8
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr ptr, ptr %23, i64 %25
-  %arrayidx.i42 = getelementptr ptr, ptr %26, i64 -1
-  %27 = load ptr, ptr %arrayidx.i42, align 8
-  store ptr %27, ptr %DstFont, align 8
+  %22 = load ptr, ptr %Data.i41, align 8
+  %23 = load i32, ptr %Fonts6, align 8
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr ptr, ptr %22, i64 %24
+  %arrayidx.i42 = getelementptr ptr, ptr %25, i64 -1
+  %26 = load ptr, ptr %arrayidx.i42, align 8
+  store ptr %26, ptr %DstFont, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then5, %_ZN8ImVectorI12ImFontConfigE9push_backERKS0_.exit
-  %28 = phi ptr [ %27, %if.then5 ], [ %22, %_ZN8ImVectorI12ImFontConfigE9push_backERKS0_.exit ]
-  %FontDataOwnedByAtlas = getelementptr %struct.ImFontConfig, ptr %21, i64 -1, i32 2
-  %29 = load i8, ptr %FontDataOwnedByAtlas, align 4
-  %30 = and i8 %29, 1
-  %tobool10.not = icmp eq i8 %30, 0
+  %27 = phi ptr [ %26, %if.then5 ], [ %21, %_ZN8ImVectorI12ImFontConfigE9push_backERKS0_.exit ]
+  %FontDataOwnedByAtlas = getelementptr %struct.ImFontConfig, ptr %20, i64 -1, i32 2
+  %28 = load i8, ptr %FontDataOwnedByAtlas, align 4
+  %29 = and i8 %28, 1
+  %tobool10.not = icmp eq i8 %29, 0
   br i1 %tobool10.not, label %if.then11, label %if.end18
 
 if.then11:                                        ; preds = %if.end9
-  %FontDataSize = getelementptr %struct.ImFontConfig, ptr %21, i64 -1, i32 1
-  %31 = load i32, ptr %FontDataSize, align 8
-  %conv = sext i32 %31 to i64
+  %FontDataSize = getelementptr %struct.ImFontConfig, ptr %20, i64 -1, i32 1
+  %30 = load i32, ptr %FontDataSize, align 8
+  %conv = sext i32 %30 to i64
   %call12 = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %conv)
   store ptr %call12, ptr %arrayidx.i40, align 8
   store i8 1, ptr %FontDataOwnedByAtlas, align 4
-  %32 = load ptr, ptr %font_cfg, align 8
-  %33 = load i32, ptr %FontDataSize, align 8
-  %conv17 = sext i32 %33 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call12, ptr align 1 %32, i64 %conv17, i1 false)
+  %31 = load ptr, ptr %font_cfg, align 8
+  %32 = load i32, ptr %FontDataSize, align 8
+  %conv17 = sext i32 %32 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call12, ptr align 1 %31, i64 %conv17, i1 false)
   %.pre51 = load ptr, ptr %DstFont, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then11, %if.end9
-  %34 = phi ptr [ %.pre51, %if.then11 ], [ %28, %if.end9 ]
-  %EllipsisChar = getelementptr inbounds %struct.ImFont, ptr %34, i64 0, i32 10
-  %35 = load i16, ptr %EllipsisChar, align 4
-  %cmp21 = icmp eq i16 %35, -1
+  %33 = phi ptr [ %.pre51, %if.then11 ], [ %27, %if.end9 ]
+  %EllipsisChar = getelementptr inbounds %struct.ImFont, ptr %33, i64 0, i32 10
+  %34 = load i16, ptr %EllipsisChar, align 4
+  %cmp21 = icmp eq i16 %34, -1
   br i1 %cmp21, label %if.then22, label %if.end26
 
 if.then22:                                        ; preds = %if.end18
   %EllipsisChar23 = getelementptr inbounds %struct.ImFontConfig, ptr %font_cfg, i64 0, i32 17
-  %36 = load i16, ptr %EllipsisChar23, align 8
-  store i16 %36, ptr %EllipsisChar, align 4
+  %35 = load i16, ptr %EllipsisChar23, align 8
+  store i16 %35, ptr %EllipsisChar, align 4
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then22, %if.end18
-  %37 = load ptr, ptr %Data.i16, align 8
-  %38 = load i32, ptr %ConfigData, align 8
-  %idx.ext.i.i = sext i32 %38 to i64
-  %add.ptr.i.i = getelementptr inbounds %struct.ImFontConfig, ptr %37, i64 %idx.ext.i.i
-  %cmp.not9.i = icmp eq i32 %38, 0
+  %36 = load ptr, ptr %Data.i16, align 8
+  %37 = load i32, ptr %ConfigData, align 8
+  %idx.ext.i.i = sext i32 %37 to i64
+  %add.ptr.i.i = getelementptr inbounds %struct.ImFontConfig, ptr %36, i64 %idx.ext.i.i
+  %cmp.not9.i = icmp eq i32 %37, 0
   br i1 %cmp.not9.i, label %_Z35ImFontAtlasUpdateConfigDataPointersP11ImFontAtlas.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end26, %if.end.i
-  %__begin1.010.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %37, %if.end26 ]
+  %__begin1.010.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %36, %if.end26 ]
   %DstFont.i = getelementptr inbounds %struct.ImFontConfig, ptr %__begin1.010.i, i64 0, i32 19
-  %39 = load ptr, ptr %DstFont.i, align 8
+  %38 = load ptr, ptr %DstFont.i, align 8
   %MergeMode.i = getelementptr inbounds %struct.ImFontConfig, ptr %__begin1.010.i, i64 0, i32 13
-  %40 = load i8, ptr %MergeMode.i, align 8
-  %41 = and i8 %40, 1
-  %tobool.not.i = icmp eq i8 %41, 0
+  %39 = load i8, ptr %MergeMode.i, align 8
+  %40 = and i8 %39, 1
+  %tobool.not.i = icmp eq i8 %40, 0
   br i1 %tobool.not.i, label %if.then.i46, label %for.body.if.end_crit_edge.i
 
 for.body.if.end_crit_edge.i:                      ; preds = %for.body.i
-  %ConfigDataCount3.phi.trans.insert.i = getelementptr inbounds %struct.ImFont, ptr %39, i64 0, i32 8
+  %ConfigDataCount3.phi.trans.insert.i = getelementptr inbounds %struct.ImFont, ptr %38, i64 0, i32 8
   %.pre.i44 = load i16, ptr %ConfigDataCount3.phi.trans.insert.i, align 8
   br label %if.end.i
 
 if.then.i46:                                      ; preds = %for.body.i
-  %ConfigData2.i = getelementptr inbounds %struct.ImFont, ptr %39, i64 0, i32 7
+  %ConfigData2.i = getelementptr inbounds %struct.ImFont, ptr %38, i64 0, i32 7
   store ptr %__begin1.010.i, ptr %ConfigData2.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i46, %for.body.if.end_crit_edge.i
-  %42 = phi i16 [ %.pre.i44, %for.body.if.end_crit_edge.i ], [ 0, %if.then.i46 ]
-  %ConfigDataCount3.i = getelementptr inbounds %struct.ImFont, ptr %39, i64 0, i32 8
-  %inc.i45 = add i16 %42, 1
+  %41 = phi i16 [ %.pre.i44, %for.body.if.end_crit_edge.i ], [ 0, %if.then.i46 ]
+  %ConfigDataCount3.i = getelementptr inbounds %struct.ImFont, ptr %38, i64 0, i32 8
+  %inc.i45 = add i16 %41, 1
   store i16 %inc.i45, ptr %ConfigDataCount3.i, align 8
   %incdec.ptr.i = getelementptr inbounds %struct.ImFontConfig, ptr %__begin1.010.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
@@ -11915,30 +11909,30 @@ _Z35ImFontAtlasUpdateConfigDataPointersP11ImFontAtlas.exit: ; preds = %if.end.i,
   %TexReady = getelementptr inbounds %struct.ImFontAtlas, ptr %this, i64 0, i32 8
   store i8 0, ptr %TexReady, align 8
   %TexPixelsAlpha8.i = getelementptr inbounds %struct.ImFontAtlas, ptr %this, i64 0, i32 11
-  %43 = load ptr, ptr %TexPixelsAlpha8.i, align 8
-  %tobool.not.i47 = icmp eq ptr %43, null
+  %42 = load ptr, ptr %TexPixelsAlpha8.i, align 8
+  %tobool.not.i47 = icmp eq ptr %42, null
   br i1 %tobool.not.i47, label %if.end.i49, label %if.then.i48
 
 if.then.i48:                                      ; preds = %_Z35ImFontAtlasUpdateConfigDataPointersP11ImFontAtlas.exit
-  tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %43)
+  tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %42)
   br label %if.end.i49
 
 if.end.i49:                                       ; preds = %if.then.i48, %_Z35ImFontAtlasUpdateConfigDataPointersP11ImFontAtlas.exit
   %TexPixelsRGBA32.i = getelementptr inbounds %struct.ImFontAtlas, ptr %this, i64 0, i32 12
-  %44 = load ptr, ptr %TexPixelsRGBA32.i, align 8
-  %tobool3.not.i = icmp eq ptr %44, null
+  %43 = load ptr, ptr %TexPixelsRGBA32.i, align 8
+  %tobool3.not.i = icmp eq ptr %43, null
   br i1 %tobool3.not.i, label %_ZN11ImFontAtlas12ClearTexDataEv.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i49
-  tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %44)
+  tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %43)
   br label %_ZN11ImFontAtlas12ClearTexDataEv.exit
 
 _ZN11ImFontAtlas12ClearTexDataEv.exit:            ; preds = %if.end.i49, %if.then4.i
   %TexPixelsUseColors.i = getelementptr inbounds %struct.ImFontAtlas, ptr %this, i64 0, i32 9
   store i8 0, ptr %TexPixelsUseColors.i, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %TexPixelsAlpha8.i, i8 0, i64 16, i1 false)
-  %45 = load ptr, ptr %DstFont, align 8
-  ret ptr %45
+  %44 = load ptr, ptr %DstFont, align 8
+  ret ptr %44
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

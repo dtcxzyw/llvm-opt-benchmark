@@ -4328,30 +4328,29 @@ if.then24:                                        ; preds = %if.end17
   %15 = ptrtoint ptr %add.ptr.i to i64
   %16 = urem i64 %15, %12
   %mul.i = sub nuw i64 %15, %16
-  %17 = inttoptr i64 %mul.i to ptr
-  store ptr %17, ptr %host_addr26, align 8
+  store i64 %mul.i, ptr %host_addr26, align 8
   %.pre = load i64, ptr %page_size, align 8
   br label %if.end35
 
 if.else:                                          ; preds = %if.end17
-  %18 = load ptr, ptr %host_addr26, align 8
+  %17 = load ptr, ptr %host_addr26, align 8
   %add.ptr.i78 = getelementptr i8, ptr %.fr.i77, i64 %and6
-  %19 = ptrtoint ptr %add.ptr.i78 to i64
-  %20 = urem i64 %19, %12
-  %mul.i79 = sub nuw i64 %19, %20
-  %21 = inttoptr i64 %mul.i79 to ptr
-  %cmp28.not = icmp eq ptr %18, %21
+  %18 = ptrtoint ptr %add.ptr.i78 to i64
+  %19 = urem i64 %18, %12
+  %mul.i79 = sub nuw i64 %18, %19
+  %20 = inttoptr i64 %mul.i79 to ptr
+  %cmp28.not = icmp eq ptr %17, %20
   br i1 %cmp28.not, label %if.end35, label %if.then30
 
 if.then30:                                        ; preds = %if.else
   %idstr = getelementptr inbounds %struct.RAMBlock, ptr %call10, i64 0, i32 9
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.19, i32 noundef %channel, ptr noundef %18, ptr noundef %21, ptr noundef nonnull %idstr, i64 noundef %and6, i32 noundef %inc) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.19, i32 noundef %channel, ptr noundef %17, ptr noundef %20, ptr noundef nonnull %idstr, i64 noundef %and6, i32 noundef %inc) #16
   br label %while.end
 
 if.end35:                                         ; preds = %if.else, %if.then24
-  %22 = phi i64 [ %12, %if.else ], [ %.pre, %if.then24 ]
+  %21 = phi i64 [ %12, %if.else ], [ %.pre, %if.then24 ]
   %conv37 = zext i32 %inc to i64
-  %div69 = lshr i64 %22, 12
+  %div69 = lshr i64 %21, 12
   %cmp39 = icmp eq i64 %div69, %conv37
   %spec.select = select i1 %cmp39, i8 1, i8 %place_needed.092
   store ptr %13, ptr %place_source, align 8
@@ -4383,8 +4382,8 @@ if.then51:                                        ; preds = %sw.bb
   br label %sw.epilog
 
 if.end53:                                         ; preds = %sw.bb
-  %23 = and i8 %matches_target_page_size.1, 1
-  %tobool54.not = icmp eq i8 %23, 0
+  %22 = and i8 %matches_target_page_size.1, 1
+  %tobool54.not = icmp eq i8 %22, 0
   br i1 %tobool54.not, label %if.then55, label %sw.epilog
 
 if.then55:                                        ; preds = %if.end53
@@ -4393,8 +4392,8 @@ if.then55:                                        ; preds = %if.end53
 
 sw.bb58:                                          ; preds = %if.end44
   store i8 0, ptr %all_zero66, align 4
-  %24 = and i8 %matches_target_page_size.1, 1
-  %tobool59.not = icmp eq i8 %24, 0
+  %23 = and i8 %matches_target_page_size.1, 1
+  %tobool59.not = icmp eq i8 %23, 0
   br i1 %tobool59.not, label %if.then60, label %if.else62
 
 if.then60:                                        ; preds = %sw.bb58
@@ -4447,8 +4446,8 @@ sw.default:                                       ; preds = %if.end44
 
 sw.epilog:                                        ; preds = %sw.bb78, %land.lhs.true, %if.then83, %if.then60, %if.else62, %if.end53, %if.then55, %sw.default, %sw.bb77, %if.end76, %if.then75, %if.then51
   %ret.1 = phi i32 [ -22, %sw.default ], [ 0, %if.then83 ], [ 0, %land.lhs.true ], [ 0, %sw.bb78 ], [ 0, %sw.bb77 ], [ -22, %if.then75 ], [ 0, %if.end76 ], [ 0, %if.else62 ], [ 0, %if.then60 ], [ -22, %if.then51 ], [ 0, %if.end53 ], [ 0, %if.then55 ]
-  %25 = and i8 %place_needed.2, 1
-  %tobool85.not = icmp eq i8 %25, 0
+  %24 = and i8 %place_needed.2, 1
+  %tobool85.not = icmp eq i8 %24, 0
   br i1 %tobool85.not, label %if.end88, label %if.then86
 
 if.then86:                                        ; preds = %sw.epilog
@@ -4477,19 +4476,19 @@ if.end95:                                         ; preds = %if.then93, %land.lh
   br i1 %brmerge, label %if.end110, label %if.then100
 
 if.then100:                                       ; preds = %if.end95
-  %26 = load i8, ptr %all_zero66, align 4
-  %27 = and i8 %26, 1
-  %tobool102.not = icmp eq i8 %27, 0
-  %28 = load ptr, ptr %host_addr26, align 8
+  %25 = load i8, ptr %all_zero66, align 4
+  %26 = and i8 %25, 1
+  %tobool102.not = icmp eq i8 %26, 0
+  %27 = load ptr, ptr %host_addr26, align 8
   br i1 %tobool102.not, label %if.else106, label %if.then103
 
 if.then103:                                       ; preds = %if.then100
-  %call105 = call i32 @postcopy_place_page_zero(ptr noundef %call, ptr noundef %28, ptr noundef %block.0) #16
+  %call105 = call i32 @postcopy_place_page_zero(ptr noundef %call, ptr noundef %27, ptr noundef %block.0) #16
   br label %if.end109
 
 if.else106:                                       ; preds = %if.then100
-  %29 = load ptr, ptr %place_source, align 8
-  %call108 = call i32 @postcopy_place_page(ptr noundef %call, ptr noundef %28, ptr noundef %29, ptr noundef %block.0) #16
+  %28 = load ptr, ptr %place_source, align 8
+  %call108 = call i32 @postcopy_place_page(ptr noundef %call, ptr noundef %27, ptr noundef %28, ptr noundef %block.0) #16
   br label %if.end109
 
 if.end109:                                        ; preds = %if.else106, %if.then103
@@ -4501,9 +4500,9 @@ if.end110:                                        ; preds = %if.end88, %if.end95
   %place_needed.3 = phi i8 [ %place_needed.2, %if.end95 ], [ 0, %if.end109 ], [ %place_needed.2, %if.end88 ]
   %ret.5 = phi i32 [ %ret.3, %if.end95 ], [ %ret.4, %if.end109 ], [ %ret.2, %if.end88 ]
   %and = and i32 %1, 16
-  %30 = or i32 %and, %ret.5
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %while.body, label %while.end, !llvm.loop !76
+  %29 = or i32 %and, %ret.5
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %while.body, label %while.end, !llvm.loop !76
 
 while.end:                                        ; preds = %if.then9, %while.body, %if.end110, %if.then30, %if.then16
   %ret.6 = phi i32 [ -22, %if.then16 ], [ -22, %if.then30 ], [ -22, %if.then9 ], [ %ret.5, %if.end110 ], [ %call3, %while.body ]
@@ -8781,11 +8780,11 @@ if.end.if.end5_crit_edge:                         ; preds = %if.end
 
 while.end:                                        ; preds = %if.end
   %2 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
-  %3 = inttoptr i64 %2 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !123
-  store ptr %3, ptr %last_seen_block, align 8
+  store i64 %2, ptr %last_seen_block, align 8
   %last_page = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 4
   store i64 0, ptr %last_page, align 8
+  %3 = inttoptr i64 %2 to ptr
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end.if.end5_crit_edge, %while.end
@@ -9054,9 +9053,8 @@ if.then5.i:                                       ; preds = %offset_in_ramblock.
   store i64 0, ptr %page1.i, align 8
   %next.i = getelementptr inbounds %struct.RAMBlock, ptr %.pre.i26, i64 0, i32 10
   %49 = load atomic i64, ptr %next.i monotonic, align 8
-  %50 = inttoptr i64 %49 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !125
-  store ptr %50, ptr %block.i, align 8
+  store i64 %49, ptr %block.i, align 8
   %tobool10.not.i = icmp eq i64 %49, 0
   br i1 %tobool10.not.i, label %if.then11.i30, label %while.body9.backedge
 
@@ -9072,22 +9070,21 @@ land.lhs.true13.i:                                ; preds = %if.then11.i30
   br i1 %call14.i, label %if.end22.i, label %if.then15.i31
 
 if.then15.i31:                                    ; preds = %land.lhs.true13.i
-  %51 = load ptr, ptr %rs, align 8
-  %call17.i = call i32 @multifd_send_sync_main(ptr noundef %51) #16
+  %50 = load ptr, ptr %rs, align 8
+  %call17.i = call i32 @multifd_send_sync_main(ptr noundef %50) #16
   %cmp18.i = icmp slt i32 %call17.i, 0
   br i1 %cmp18.i, label %while.end29, label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.then15.i31
-  call void @qemu_put_be64(ptr noundef %51, i64 noundef 512) #16
-  %call21.i = call i32 @qemu_fflush(ptr noundef %51) #16
+  call void @qemu_put_be64(ptr noundef %50, i64 noundef 512) #16
+  %call21.i = call i32 @qemu_fflush(ptr noundef %50) #16
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.end20.i, %land.lhs.true13.i, %if.then11.i30
   call void @compress_flush_data() #16
-  %52 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
-  %53 = inttoptr i64 %52 to ptr
+  %51 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !126
-  store ptr %53, ptr %block.i, align 8
+  store i64 %51, ptr %block.i, align 8
   store i8 1, ptr %complete_round.i, align 8
   %call31.i = call zeroext i1 @migrate_xbzrle() #16
   br i1 %call31.i, label %if.then32.i, label %while.body9.backedge
@@ -9105,12 +9102,12 @@ land.rhs.i.i:                                     ; preds = %if.end24
   br label %postcopy_preempt_active.exit.i
 
 postcopy_preempt_active.exit.i:                   ; preds = %land.rhs.i.i, %if.end24
-  %54 = phi i1 [ false, %if.end24 ], [ %call1.i.i56, %land.rhs.i.i ]
+  %52 = phi i1 [ false, %if.end24 ], [ %call1.i.i56, %land.rhs.i.i ]
+  %53 = load ptr, ptr %block.i, align 8
+  %call1.i = call i64 @qemu_ram_pagesize(ptr noundef %53) #16
+  %54 = load i64, ptr %page1.i, align 8
   %55 = load ptr, ptr %block.i, align 8
-  %call1.i = call i64 @qemu_ram_pagesize(ptr noundef %55) #16
-  %56 = load i64, ptr %page1.i, align 8
-  %57 = load ptr, ptr %block.i, align 8
-  %call.i24.i = call zeroext i1 @qemu_ram_is_migratable(ptr noundef %57) #16
+  %call.i24.i = call zeroext i1 @qemu_ram_is_migratable(ptr noundef %55) #16
   br i1 %call.i24.i, label %lor.rhs.i.i, label %ram_save_host_page.exit.thread79
 
 lor.rhs.i.i:                                      ; preds = %postcopy_preempt_active.exit.i
@@ -9118,43 +9115,43 @@ lor.rhs.i.i:                                      ; preds = %postcopy_preempt_ac
   br i1 %call1.i25.i, label %land.lhs.true.i.i55, label %if.end.i38
 
 land.lhs.true.i.i55:                              ; preds = %lor.rhs.i.i
-  %call2.i.i = call zeroext i1 @qemu_ram_is_shared(ptr noundef %57) #16
+  %call2.i.i = call zeroext i1 @qemu_ram_is_shared(ptr noundef %55) #16
   br i1 %call2.i.i, label %migrate_ram_is_ignored.exit.i, label %if.end.i38
 
 migrate_ram_is_ignored.exit.i:                    ; preds = %land.lhs.true.i.i55
-  %call3.i.i = call zeroext i1 @qemu_ram_is_named_file(ptr noundef %57) #16
+  %call3.i.i = call zeroext i1 @qemu_ram_is_named_file(ptr noundef %55) #16
   br i1 %call3.i.i, label %ram_save_host_page.exit.thread79, label %if.end.i38
 
 ram_save_host_page.exit.thread79:                 ; preds = %postcopy_preempt_active.exit.i, %migrate_ram_is_ignored.exit.i
-  %58 = load ptr, ptr %block.i, align 8
-  %idstr.i36 = getelementptr inbounds %struct.RAMBlock, ptr %58, i64 0, i32 9
+  %56 = load ptr, ptr %block.i, align 8
+  %idstr.i36 = getelementptr inbounds %struct.RAMBlock, ptr %56, i64 0, i32 9
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.67, ptr noundef nonnull %idstr.i36) #16
   br label %while.body9.backedge
 
 if.end.i38:                                       ; preds = %migrate_ram_is_ignored.exit.i, %land.lhs.true.i.i55, %lor.rhs.i.i
-  %59 = load ptr, ptr %block.i, align 8
-  %call.i27.i = call i64 @qemu_ram_pagesize(ptr noundef %59) #16
+  %57 = load ptr, ptr %block.i, align 8
+  %call.i27.i = call i64 @qemu_ram_pagesize(ptr noundef %57) #16
   store i8 1, ptr %host_page_sending.i.i, align 1
   %cmp.i.i39 = icmp ult i64 %call.i27.i, 8192
   br i1 %cmp.i.i39, label %if.then.i.i, label %if.else.i.i40
 
 if.then.i.i:                                      ; preds = %if.end.i38
-  %60 = load i64, ptr %page1.i, align 8
-  %add.i.i54 = add i64 %60, 1
+  %58 = load i64, ptr %page1.i, align 8
+  %add.i.i54 = add i64 %58, 1
   br label %pss_host_page_prepare.exit.i
 
 if.else.i.i40:                                    ; preds = %if.end.i38
   %shr.i.i41 = lshr i64 %call.i27.i, 12
-  %61 = load i64, ptr %page1.i, align 8
+  %59 = load i64, ptr %page1.i, align 8
   %sub.i.i42 = sub nsw i64 0, %shr.i.i41
-  %and.i.i43 = and i64 %61, %sub.i.i42
-  %sub7.i.i = add i64 %61, %shr.i.i41
+  %and.i.i43 = and i64 %59, %sub.i.i42
+  %sub7.i.i = add i64 %59, %shr.i.i41
   %and9.i.i = and i64 %sub7.i.i, %sub.i.i42
   br label %pss_host_page_prepare.exit.i
 
 pss_host_page_prepare.exit.i:                     ; preds = %if.else.i.i40, %if.then.i.i
-  %62 = phi i64 [ %60, %if.then.i.i ], [ %61, %if.else.i.i40 ]
-  %and.sink.i.i = phi i64 [ %60, %if.then.i.i ], [ %and.i.i43, %if.else.i.i40 ]
+  %60 = phi i64 [ %58, %if.then.i.i ], [ %59, %if.else.i.i40 ]
+  %and.sink.i.i = phi i64 [ %58, %if.then.i.i ], [ %and.i.i43, %if.else.i.i40 ]
   %and9.sink.i.i = phi i64 [ %add.i.i54, %if.then.i.i ], [ %and9.i.i, %if.else.i.i40 ]
   store i64 %and.sink.i.i, ptr %6, align 8
   store i64 %and9.sink.i.i, ptr %7, align 8
@@ -9163,38 +9160,38 @@ pss_host_page_prepare.exit.i:                     ; preds = %if.else.i.i40, %if.
   br label %do.body.i45
 
 do.body.i45:                                      ; preds = %pss_within_range.exit.i, %pss_host_page_prepare.exit.i
-  %63 = phi i64 [ %62, %pss_host_page_prepare.exit.i ], [ %74, %pss_within_range.exit.i ]
-  %64 = phi ptr [ %.pre.i44, %pss_host_page_prepare.exit.i ], [ %.pre58.i, %pss_within_range.exit.i ]
+  %61 = phi i64 [ %60, %pss_host_page_prepare.exit.i ], [ %72, %pss_within_range.exit.i ]
+  %62 = phi ptr [ %.pre.i44, %pss_host_page_prepare.exit.i ], [ %.pre58.i, %pss_within_range.exit.i ]
   %pages.0.i = phi i32 [ 0, %pss_host_page_prepare.exit.i ], [ %pages.251.i, %pss_within_range.exit.i ]
-  call fastcc void @migration_clear_memory_region_dirty_bitmap(ptr noundef %64, i64 noundef %63)
-  %bmap.i.i = getelementptr inbounds %struct.RAMBlock, ptr %64, i64 0, i32 15
-  %65 = load ptr, ptr %bmap.i.i, align 8
-  %rem.i.i.i = and i64 %63, 63
+  call fastcc void @migration_clear_memory_region_dirty_bitmap(ptr noundef %62, i64 noundef %61)
+  %bmap.i.i = getelementptr inbounds %struct.RAMBlock, ptr %62, i64 0, i32 15
+  %63 = load ptr, ptr %bmap.i.i, align 8
+  %rem.i.i.i = and i64 %61, 63
   %shl.i.i.i = shl nuw i64 1, %rem.i.i.i
-  %div5.i.i.i = lshr i64 %63, 6
-  %add.ptr.i.i.i = getelementptr i64, ptr %65, i64 %div5.i.i.i
-  %66 = load i64, ptr %add.ptr.i.i.i, align 8
+  %div5.i.i.i = lshr i64 %61, 6
+  %add.ptr.i.i.i = getelementptr i64, ptr %63, i64 %div5.i.i.i
+  %64 = load i64, ptr %add.ptr.i.i.i, align 8
   %not.i.i.i = xor i64 %shl.i.i.i, -1
-  %and.i.i.i = and i64 %66, %not.i.i.i
+  %and.i.i.i = and i64 %64, %not.i.i.i
   store i64 %and.i.i.i, ptr %add.ptr.i.i.i, align 8
-  %and1.i.i.i = and i64 %66, %shl.i.i.i
+  %and1.i.i.i = and i64 %64, %shl.i.i.i
   %cmp.i.i.not.i = icmp eq i64 %and1.i.i.i, 0
   br i1 %cmp.i.i.not.i, label %if.end29.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %do.body.i45
-  %67 = load i64, ptr %migration_dirty_pages.i.i, align 8
-  %dec.i.i = add i64 %67, -1
+  %65 = load i64, ptr %migration_dirty_pages.i.i, align 8
+  %dec.i.i = add i64 %65, -1
   store i64 %dec.i.i, ptr %migration_dirty_pages.i.i, align 8
-  br i1 %54, label %if.then11.i53, label %if.end12.i
+  br i1 %52, label %if.then11.i53, label %if.end12.i
 
 if.then11.i53:                                    ; preds = %if.then9.i
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex.i, ptr noundef nonnull @.str, i32 noundef 2229) #16
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then11.i53, %if.then9.i
-  %68 = load ptr, ptr @migration_ops, align 8
-  %69 = load ptr, ptr %68, align 8
-  %call13.i = call i32 %69(ptr noundef nonnull %rs, ptr noundef nonnull %rs) #16
+  %66 = load ptr, ptr @migration_ops, align 8
+  %67 = load ptr, ptr %66, align 8
+  %call13.i = call i32 %67(ptr noundef nonnull %rs, ptr noundef nonnull %rs) #16
   %cmp.i46 = icmp sgt i32 %call13.i, -1
   br i1 %cmp.i46, label %if.then14.i, label %if.end20.i47
 
@@ -9210,12 +9207,12 @@ if.then17.i:                                      ; preds = %if.then14.i
 
 if.end20.i47:                                     ; preds = %if.then17.i, %if.then14.i, %if.end12.i
   %pages.1.i = phi i32 [ %add.i, %if.then17.i ], [ %add.i, %if.then14.i ], [ %pages.0.i, %if.end12.i ]
-  br i1 %54, label %while.end.i, label %if.end26.i
+  br i1 %52, label %while.end.i, label %if.end26.i
 
 while.end.i:                                      ; preds = %if.end20.i47
-  %70 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %71 = inttoptr i64 %70 to ptr
-  call void %71(ptr noundef nonnull %bitmap_mutex.i, ptr noundef nonnull @.str, i32 noundef 2243) #16
+  %68 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %69 = inttoptr i64 %68 to ptr
+  call void %69(ptr noundef nonnull %bitmap_mutex.i, ptr noundef nonnull @.str, i32 noundef 2243) #16
   br label %if.end26.i
 
 if.end26.i:                                       ; preds = %while.end.i, %if.end20.i47
@@ -9230,9 +9227,9 @@ ram_save_host_page.exit.thread:                   ; preds = %if.end26.i
 if.end29.i:                                       ; preds = %if.end26.i, %do.body.i45
   %pages.251.i = phi i32 [ %pages.1.i, %if.end26.i ], [ %pages.0.i, %do.body.i45 ]
   call fastcc void @pss_find_next_dirty(ptr noundef nonnull %rs)
-  %72 = load i8, ptr %host_page_sending.i.i, align 1
-  %73 = and i8 %72, 1
-  %tobool.not.i.i48 = icmp eq i8 %73, 0
+  %70 = load i8, ptr %host_page_sending.i.i, align 1
+  %71 = and i8 %70, 1
+  %tobool.not.i.i48 = icmp eq i8 %71, 0
   br i1 %tobool.not.i.i48, label %if.else.i34.i, label %if.end.i.i49
 
 if.else.i34.i:                                    ; preds = %if.end29.i
@@ -9240,9 +9237,9 @@ if.else.i34.i:                                    ; preds = %if.end29.i
   unreachable
 
 if.end.i.i49:                                     ; preds = %if.end29.i
-  %74 = load i64, ptr %page1.i, align 8
-  %75 = load i64, ptr %7, align 8
-  %cmp.not.i.i = icmp ult i64 %74, %75
+  %72 = load i64, ptr %page1.i, align 8
+  %73 = load i64, ptr %7, align 8
+  %cmp.not.i.i = icmp ult i64 %72, %73
   %.pre58.i = load ptr, ptr %block.i, align 8
   br i1 %cmp.not.i.i, label %if.end2.i.i, label %do.end31.i
 
@@ -9250,37 +9247,37 @@ if.end2.i.i:                                      ; preds = %if.end.i.i49
   %tobool.not.i.i.i = icmp ne ptr %.pre58.i, null
   call void @llvm.assume(i1 %tobool.not.i.i.i)
   %host.i.i.i = getelementptr inbounds %struct.RAMBlock, ptr %.pre58.i, i64 0, i32 2
-  %76 = load ptr, ptr %host.i.i.i, align 8
-  %tobool1.not.i.i.i = icmp eq ptr %76, null
+  %74 = load ptr, ptr %host.i.i.i, align 8
+  %tobool1.not.i.i.i = icmp eq ptr %74, null
   br i1 %tobool1.not.i.i.i, label %do.end31.i, label %pss_within_range.exit.i
 
 pss_within_range.exit.i:                          ; preds = %if.end2.i.i
-  %shl.i.i = shl i64 %74, 12
+  %shl.i.i = shl i64 %72, 12
   %used_length.i.i.i = getelementptr inbounds %struct.RAMBlock, ptr %.pre58.i, i64 0, i32 5
-  %77 = load i64, ptr %used_length.i.i.i, align 8
-  %cmp.i.i33.i = icmp ugt i64 %77, %shl.i.i
+  %75 = load i64, ptr %used_length.i.i.i, align 8
+  %cmp.i.i33.i = icmp ugt i64 %75, %shl.i.i
   br i1 %cmp.i.i33.i, label %do.body.i45, label %do.end31.i, !llvm.loop !127
 
 do.end31.i:                                       ; preds = %pss_within_range.exit.i, %if.end2.i.i, %if.end.i.i49
   store i8 0, ptr %host_page_sending.i.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %flags.i.i50 = getelementptr inbounds %struct.RAMBlock, ptr %.pre58.i, i64 0, i32 8
-  %78 = load i32, ptr %flags.i.i50, align 8
-  %and.i38.i = and i32 %78, 64
+  %76 = load i32, ptr %flags.i.i50, align 8
+  %and.i38.i = and i32 %76, 64
   %tobool.not.i39.i = icmp eq i32 %and.i38.i, 0
   br i1 %tobool.not.i39.i, label %ram_save_host_page.exit, label %ram_save_release_protection.exit.i
 
 ram_save_release_protection.exit.i:               ; preds = %do.end31.i
   %host.i.i51 = getelementptr inbounds %struct.RAMBlock, ptr %.pre58.i, i64 0, i32 2
-  %79 = load ptr, ptr %host.i.i51, align 8
-  %shl.i41.i = shl i64 %56, 12
-  %add.ptr.i.i = getelementptr i8, ptr %79, i64 %shl.i41.i
-  %sub.i43.i = sub i64 %74, %56
+  %77 = load ptr, ptr %host.i.i51, align 8
+  %shl.i41.i = shl i64 %54, 12
+  %add.ptr.i.i = getelementptr i8, ptr %77, i64 %shl.i41.i
+  %sub.i43.i = sub i64 %72, %54
   %shl2.i.i = shl i64 %sub.i43.i, 12
-  %80 = load ptr, ptr %rs, align 8
-  %call.i44.i = call i32 @qemu_fflush(ptr noundef %80) #16
-  %81 = load i32, ptr %uffdio_fd.i.i, align 8
-  %call3.i45.i = call i32 @uffd_change_protection(i32 noundef %81, ptr noundef %add.ptr.i.i, i64 noundef %shl2.i.i, i1 noundef zeroext false, i1 noundef zeroext false) #16
+  %78 = load ptr, ptr %rs, align 8
+  %call.i44.i = call i32 @qemu_fflush(ptr noundef %78) #16
+  %79 = load i32, ptr %uffdio_fd.i.i, align 8
+  %call3.i45.i = call i32 @uffd_change_protection(i32 noundef %79, ptr noundef %add.ptr.i.i, i64 noundef %shl2.i.i, i1 noundef zeroext false, i1 noundef zeroext false) #16
   %call3.i45.fr.i = freeze i32 %call3.i45.i
   %cmp33.i = icmp slt i32 %call3.i45.fr.i, 0
   %spec.select.i = select i1 %cmp33.i, i32 %call3.i45.fr.i, i32 %pages.251.i
@@ -9293,10 +9290,10 @@ ram_save_host_page.exit:                          ; preds = %do.end31.i, %ram_sa
 
 while.end29:                                      ; preds = %land.lhs.true1.i, %ram_save_host_page.exit, %if.then15.i31, %ram_save_host_page.exit.thread
   %pages.1 = phi i32 [ %call13.i, %ram_save_host_page.exit.thread ], [ %call17.i, %if.then15.i31 ], [ 0, %land.lhs.true1.i ], [ %retval.0.i37, %ram_save_host_page.exit ]
-  %82 = load ptr, ptr %block.i, align 8
-  store ptr %82, ptr %last_seen_block, align 8
-  %83 = load i64, ptr %page1.i, align 8
-  store i64 %83, ptr %last_page7, align 8
+  %80 = load ptr, ptr %block.i, align 8
+  store ptr %80, ptr %last_seen_block, align 8
+  %81 = load i64, ptr %page1.i, align 8
+  store i64 %81, ptr %last_page7, align 8
   br label %return
 
 return:                                           ; preds = %entry, %while.end29

@@ -386,19 +386,19 @@ entry:
   %ref.tmp332 = alloca i32, align 4
   %ref.tmp341 = alloca %"class.testing::Message", align 8
   %ref.tmp343 = alloca %"class.testing::internal::AssertHelper", align 8
-  store ptr inttoptr (i64 10 to ptr), ptr %args, align 16
+  store i64 10, ptr %args, align 16
   %dispatcher_.i.i = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 0, i32 1
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i, align 8
   %arrayinit.element = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 1
-  store ptr inttoptr (i64 20 to ptr), ptr %arrayinit.element, align 16
+  store i64 20, ptr %arrayinit.element, align 16
   %dispatcher_.i.i27 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 1, i32 1
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i27, align 8
   %arrayinit.element3 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 2
-  store ptr inttoptr (i64 30 to ptr), ptr %arrayinit.element3, align 16
+  store i64 30, ptr %arrayinit.element3, align 16
   %dispatcher_.i.i30 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 2, i32 1
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i30, align 8
   %arrayinit.element5 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 3
-  store ptr inttoptr (i64 40 to ptr), ptr %arrayinit.element5, align 16
+  store i64 40, ptr %arrayinit.element5, align 16
   %dispatcher_.i.i33 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 3, i32 1
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i33, align 8
   store i32 52, ptr %kExpect, align 16
@@ -2547,11 +2547,11 @@ _ZNK4absl19str_format_internal12_GLOBAL__N_114FormatBindTest7ExtractEPKcPNS0_17U
   %length_mod_.i.i = getelementptr inbounds %"class.absl::str_format_internal::FormatConversionSpecImpl", ptr %bound, i64 0, i32 2
   store i8 9, ptr %length_mod_.i.i, align 2
   store i32 0, ptr %next, align 4
-  store ptr inttoptr (i64 2147483648 to ptr), ptr %args, align 16
+  store i64 2147483648, ptr %args, align 16
   %dispatcher_.i.i = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 0, i32 1
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i, align 8
   %arrayinit.element = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 1
-  store ptr inttoptr (i64 17 to ptr), ptr %arrayinit.element, align 16
+  store i64 17, ptr %arrayinit.element, align 16
   %dispatcher_.i.i19 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 1, i32 1
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i19, align 8
   %call1.i.i = call noundef ptr @_ZN4absl19str_format_internal17ConsumeConversionILb0EEEPKcS3_S3_PNS0_17UnboundConversionEPi(ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds ([3 x i8], ptr @.str.12, i64 0, i64 2), ptr noundef nonnull %props, ptr noundef nonnull %next)
@@ -3013,23 +3013,23 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp20 = alloca %"class.testing::Message", align 8
   %ref.tmp29 = alloca %"class.testing::internal::AssertHelper", align 8
-  store ptr inttoptr (i64 10 to ptr), ptr %args, align 16
+  store i64 10, ptr %args, align 16
   %dispatcher_.i.i = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 0, i32 1
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i, align 8
   %arrayinit.element = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 1
-  store ptr inttoptr (i64 20 to ptr), ptr %arrayinit.element, align 16
+  store i64 20, ptr %arrayinit.element, align 16
   %dispatcher_.i.i14 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 1, i32 1
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i14, align 8
   %arrayinit.element3 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 2
-  store ptr inttoptr (i64 30 to ptr), ptr %arrayinit.element3, align 16
+  store i64 30, ptr %arrayinit.element3, align 16
   %dispatcher_.i.i17 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 2, i32 1
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i17, align 8
   %arrayinit.element5 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 3
-  store ptr inttoptr (i64 40 to ptr), ptr %arrayinit.element5, align 16
+  store i64 40, ptr %arrayinit.element5, align 16
   %dispatcher_.i.i20 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 3, i32 1
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i20, align 8
   %arrayinit.element7 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 4
-  store ptr inttoptr (i64 4294967286 to ptr), ptr %arrayinit.element7, align 16
+  store i64 4294967286, ptr %arrayinit.element7, align 16
   %dispatcher_.i.i23 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args, i64 4, i32 1
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i23, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(288) %kExpect, ptr noundef nonnull align 16 dereferenceable(288) @__const._ZN4absl19str_format_internal12_GLOBAL__N_130FormatBindTest_FormatPack_Test8TestBodyEv.kExpect, i64 288, i1 false)

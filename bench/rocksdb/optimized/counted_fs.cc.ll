@@ -673,8 +673,7 @@ invoke.cont10:                                    ; preds = %if.then
   %target_.i.i.i = getelementptr inbounds %"class.rocksdb::FSSequentialFileWrapper", ptr %call8, i64 0, i32 1
   store ptr %4, ptr %target_.i.i.i, align 8
   %guard_.i.i = getelementptr inbounds %"class.rocksdb::FSSequentialFileOwnerWrapper", ptr %call8, i64 0, i32 1
-  %.cast = ptrtoint ptr %4 to i64
-  store i64 %.cast, ptr %guard_.i.i, align 8
+  store ptr %4, ptr %guard_.i.i, align 8
   store ptr null, ptr %base, align 8
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_121CountedSequentialFileE, i64 0, inrange i32 0, i64 2), ptr %call8, align 8
   %fs_.i = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::CountedSequentialFile", ptr %call8, i64 0, i32 1
@@ -781,54 +780,53 @@ invoke.cont10:                                    ; preds = %if.then
   %target_.i.i.i = getelementptr inbounds %"class.rocksdb::FSRandomAccessFileWrapper", ptr %call8, i64 0, i32 2
   store ptr %4, ptr %target_.i.i.i, align 8
   %guard_.i.i = getelementptr inbounds %"class.rocksdb::FSRandomAccessFileOwnerWrapper", ptr %call8, i64 0, i32 1
-  %5 = ptrtoint ptr %4 to i64
-  store i64 %5, ptr %guard_.i.i, align 8
+  store ptr %4, ptr %guard_.i.i, align 8
   store ptr null, ptr %base, align 8
   store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_123CountedRandomAccessFileE, i64 0, inrange i32 0, i64 2), ptr %call8, align 8
   %fs_.i = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::CountedRandomAccessFile", ptr %call8, i64 0, i32 1
   store ptr %this, ptr %fs_.i, align 8
-  %6 = load ptr, ptr %r, align 8
+  %5 = load ptr, ptr %r, align 8
   store ptr %call8, ptr %r, align 8
-  %tobool.not.i.i = icmp eq ptr %6, null
+  %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %nrvo.skipdtor, label %_ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i: ; preds = %invoke.cont10
-  %vtable.i.i.i = load ptr, ptr %6, align 8
+  %vtable.i.i.i = load ptr, ptr %5, align 8
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
-  %7 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #10
+  %6 = load ptr, ptr %vfn.i.i.i, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
   br label %nrvo.skipdtor
 
 lpad:                                             ; preds = %entry
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup11
 
 lpad3:                                            ; preds = %if.then
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   %state_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
-  %10 = load ptr, ptr %state_.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %state_.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb8IOStatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
 
 nrvo.skipdtor:                                    ; preds = %_ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i, %invoke.cont10, %invoke.cont4
-  %11 = load ptr, ptr %base, align 8
-  %cmp.not.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %base, align 8
+  %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i: ; preds = %nrvo.skipdtor
-  %vtable.i.i = load ptr, ptr %11, align 8
+  %vtable.i.i = load ptr, ptr %10, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
-  %12 = load ptr, ptr %vfn.i.i, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11) #10
+  %11 = load ptr, ptr %vfn.i.i, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #10
   br label %_ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit: ; preds = %nrvo.skipdtor, %_ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i
   ret void
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i: ; preds = %lpad3
-  call void @_ZdaPv(ptr noundef nonnull %10) #12
+  call void @_ZdaPv(ptr noundef nonnull %9) #12
   br label %_ZN7rocksdb8IOStatusD2Ev.exit
 
 _ZN7rocksdb8IOStatusD2Ev.exit:                    ; preds = %lpad3, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
@@ -836,16 +834,16 @@ _ZN7rocksdb8IOStatusD2Ev.exit:                    ; preds = %lpad3, %_ZNKSt14def
   br label %ehcleanup11
 
 ehcleanup11:                                      ; preds = %_ZN7rocksdb8IOStatusD2Ev.exit, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %9, %_ZN7rocksdb8IOStatusD2Ev.exit ], [ %8, %lpad ]
-  %13 = load ptr, ptr %base, align 8
-  %cmp.not.i3 = icmp eq ptr %13, null
+  %.pn.pn = phi { ptr, i32 } [ %8, %_ZN7rocksdb8IOStatusD2Ev.exit ], [ %7, %lpad ]
+  %12 = load ptr, ptr %base, align 8
+  %cmp.not.i3 = icmp eq ptr %12, null
   br i1 %cmp.not.i3, label %_ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit7, label %_ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i4
 
 _ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i4: ; preds = %ehcleanup11
-  %vtable.i.i5 = load ptr, ptr %13, align 8
+  %vtable.i.i5 = load ptr, ptr %12, align 8
   %vfn.i.i6 = getelementptr inbounds ptr, ptr %vtable.i.i5, i64 1
-  %14 = load ptr, ptr %vfn.i.i6, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13) #10
+  %13 = load ptr, ptr %vfn.i.i6, align 8
+  call void %13(ptr noundef nonnull align 8 dereferenceable(8) %12) #10
   br label %_ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit7
 
 _ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit7: ; preds = %ehcleanup11, %_ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i4
@@ -889,54 +887,53 @@ invoke.cont10:                                    ; preds = %if.then
   %target_.i.i.i = getelementptr inbounds %"class.rocksdb::FSWritableFileWrapper", ptr %call8, i64 0, i32 1
   store ptr %4, ptr %target_.i.i.i, align 8
   %guard_.i.i = getelementptr inbounds %"class.rocksdb::FSWritableFileOwnerWrapper", ptr %call8, i64 0, i32 1
-  %5 = ptrtoint ptr %4 to i64
-  store i64 %5, ptr %guard_.i.i, align 8
+  store ptr %4, ptr %guard_.i.i, align 8
   store ptr null, ptr %base, align 8
   store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_119CountedWritableFileE, i64 0, inrange i32 0, i64 2), ptr %call8, align 8
   %fs_.i = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::CountedWritableFile", ptr %call8, i64 0, i32 1
   store ptr %this, ptr %fs_.i, align 8
-  %6 = load ptr, ptr %r, align 8
+  %5 = load ptr, ptr %r, align 8
   store ptr %call8, ptr %r, align 8
-  %tobool.not.i.i = icmp eq ptr %6, null
+  %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %nrvo.skipdtor, label %_ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i.i: ; preds = %invoke.cont10
-  %vtable.i.i.i = load ptr, ptr %6, align 8
+  %vtable.i.i.i = load ptr, ptr %5, align 8
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
-  %7 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(33) %6) #10
+  %6 = load ptr, ptr %vfn.i.i.i, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(33) %5) #10
   br label %nrvo.skipdtor
 
 lpad:                                             ; preds = %entry
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup11
 
 lpad3:                                            ; preds = %if.then
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   %state_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
-  %10 = load ptr, ptr %state_.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %state_.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb8IOStatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
 
 nrvo.skipdtor:                                    ; preds = %_ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i.i, %invoke.cont10, %invoke.cont4
-  %11 = load ptr, ptr %base, align 8
-  %cmp.not.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %base, align 8
+  %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i: ; preds = %nrvo.skipdtor
-  %vtable.i.i = load ptr, ptr %11, align 8
+  %vtable.i.i = load ptr, ptr %10, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
-  %12 = load ptr, ptr %vfn.i.i, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(33) %11) #10
+  %11 = load ptr, ptr %vfn.i.i, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(33) %10) #10
   br label %_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit: ; preds = %nrvo.skipdtor, %_ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i
   ret void
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i: ; preds = %lpad3
-  call void @_ZdaPv(ptr noundef nonnull %10) #12
+  call void @_ZdaPv(ptr noundef nonnull %9) #12
   br label %_ZN7rocksdb8IOStatusD2Ev.exit
 
 _ZN7rocksdb8IOStatusD2Ev.exit:                    ; preds = %lpad3, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
@@ -944,16 +941,16 @@ _ZN7rocksdb8IOStatusD2Ev.exit:                    ; preds = %lpad3, %_ZNKSt14def
   br label %ehcleanup11
 
 ehcleanup11:                                      ; preds = %_ZN7rocksdb8IOStatusD2Ev.exit, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %9, %_ZN7rocksdb8IOStatusD2Ev.exit ], [ %8, %lpad ]
-  %13 = load ptr, ptr %base, align 8
-  %cmp.not.i3 = icmp eq ptr %13, null
+  %.pn.pn = phi { ptr, i32 } [ %8, %_ZN7rocksdb8IOStatusD2Ev.exit ], [ %7, %lpad ]
+  %12 = load ptr, ptr %base, align 8
+  %cmp.not.i3 = icmp eq ptr %12, null
   br i1 %cmp.not.i3, label %_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit7, label %_ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i4
 
 _ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i4: ; preds = %ehcleanup11
-  %vtable.i.i5 = load ptr, ptr %13, align 8
+  %vtable.i.i5 = load ptr, ptr %12, align 8
   %vfn.i.i6 = getelementptr inbounds ptr, ptr %vtable.i.i5, i64 1
-  %14 = load ptr, ptr %vfn.i.i6, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(33) %13) #10
+  %13 = load ptr, ptr %vfn.i.i6, align 8
+  call void %13(ptr noundef nonnull align 8 dereferenceable(33) %12) #10
   br label %_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit7
 
 _ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit7: ; preds = %ehcleanup11, %_ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i4
@@ -997,54 +994,53 @@ invoke.cont10:                                    ; preds = %if.then
   %target_.i.i.i = getelementptr inbounds %"class.rocksdb::FSWritableFileWrapper", ptr %call8, i64 0, i32 1
   store ptr %4, ptr %target_.i.i.i, align 8
   %guard_.i.i = getelementptr inbounds %"class.rocksdb::FSWritableFileOwnerWrapper", ptr %call8, i64 0, i32 1
-  %5 = ptrtoint ptr %4 to i64
-  store i64 %5, ptr %guard_.i.i, align 8
+  store ptr %4, ptr %guard_.i.i, align 8
   store ptr null, ptr %base, align 8
   store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_119CountedWritableFileE, i64 0, inrange i32 0, i64 2), ptr %call8, align 8
   %fs_.i = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::CountedWritableFile", ptr %call8, i64 0, i32 1
   store ptr %this, ptr %fs_.i, align 8
-  %6 = load ptr, ptr %result, align 8
+  %5 = load ptr, ptr %result, align 8
   store ptr %call8, ptr %result, align 8
-  %tobool.not.i.i = icmp eq ptr %6, null
+  %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %nrvo.skipdtor, label %_ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i.i: ; preds = %invoke.cont10
-  %vtable.i.i.i = load ptr, ptr %6, align 8
+  %vtable.i.i.i = load ptr, ptr %5, align 8
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
-  %7 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(33) %6) #10
+  %6 = load ptr, ptr %vfn.i.i.i, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(33) %5) #10
   br label %nrvo.skipdtor
 
 lpad:                                             ; preds = %entry
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup11
 
 lpad3:                                            ; preds = %if.then
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   %state_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
-  %10 = load ptr, ptr %state_.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %state_.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb8IOStatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
 
 nrvo.skipdtor:                                    ; preds = %_ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i.i, %invoke.cont10, %invoke.cont4
-  %11 = load ptr, ptr %base, align 8
-  %cmp.not.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %base, align 8
+  %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i: ; preds = %nrvo.skipdtor
-  %vtable.i.i = load ptr, ptr %11, align 8
+  %vtable.i.i = load ptr, ptr %10, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
-  %12 = load ptr, ptr %vfn.i.i, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(33) %11) #10
+  %11 = load ptr, ptr %vfn.i.i, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(33) %10) #10
   br label %_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit: ; preds = %nrvo.skipdtor, %_ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i
   ret void
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i: ; preds = %lpad3
-  call void @_ZdaPv(ptr noundef nonnull %10) #12
+  call void @_ZdaPv(ptr noundef nonnull %9) #12
   br label %_ZN7rocksdb8IOStatusD2Ev.exit
 
 _ZN7rocksdb8IOStatusD2Ev.exit:                    ; preds = %lpad3, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
@@ -1052,16 +1048,16 @@ _ZN7rocksdb8IOStatusD2Ev.exit:                    ; preds = %lpad3, %_ZNKSt14def
   br label %ehcleanup11
 
 ehcleanup11:                                      ; preds = %_ZN7rocksdb8IOStatusD2Ev.exit, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %9, %_ZN7rocksdb8IOStatusD2Ev.exit ], [ %8, %lpad ]
-  %13 = load ptr, ptr %base, align 8
-  %cmp.not.i3 = icmp eq ptr %13, null
+  %.pn.pn = phi { ptr, i32 } [ %8, %_ZN7rocksdb8IOStatusD2Ev.exit ], [ %7, %lpad ]
+  %12 = load ptr, ptr %base, align 8
+  %cmp.not.i3 = icmp eq ptr %12, null
   br i1 %cmp.not.i3, label %_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit7, label %_ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i4
 
 _ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i4: ; preds = %ehcleanup11
-  %vtable.i.i5 = load ptr, ptr %13, align 8
+  %vtable.i.i5 = load ptr, ptr %12, align 8
   %vfn.i.i6 = getelementptr inbounds ptr, ptr %vtable.i.i5, i64 1
-  %14 = load ptr, ptr %vfn.i.i6, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(33) %13) #10
+  %13 = load ptr, ptr %vfn.i.i6, align 8
+  call void %13(ptr noundef nonnull align 8 dereferenceable(33) %12) #10
   br label %_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit7
 
 _ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit7: ; preds = %ehcleanup11, %_ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i4
@@ -1105,54 +1101,53 @@ invoke.cont10:                                    ; preds = %if.then
   %target_.i.i.i = getelementptr inbounds %"class.rocksdb::FSWritableFileWrapper", ptr %call8, i64 0, i32 1
   store ptr %4, ptr %target_.i.i.i, align 8
   %guard_.i.i = getelementptr inbounds %"class.rocksdb::FSWritableFileOwnerWrapper", ptr %call8, i64 0, i32 1
-  %5 = ptrtoint ptr %4 to i64
-  store i64 %5, ptr %guard_.i.i, align 8
+  store ptr %4, ptr %guard_.i.i, align 8
   store ptr null, ptr %base, align 8
   store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_119CountedWritableFileE, i64 0, inrange i32 0, i64 2), ptr %call8, align 8
   %fs_.i = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::CountedWritableFile", ptr %call8, i64 0, i32 1
   store ptr %this, ptr %fs_.i, align 8
-  %6 = load ptr, ptr %result, align 8
+  %5 = load ptr, ptr %result, align 8
   store ptr %call8, ptr %result, align 8
-  %tobool.not.i.i = icmp eq ptr %6, null
+  %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %nrvo.skipdtor, label %_ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i.i: ; preds = %invoke.cont10
-  %vtable.i.i.i = load ptr, ptr %6, align 8
+  %vtable.i.i.i = load ptr, ptr %5, align 8
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
-  %7 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(33) %6) #10
+  %6 = load ptr, ptr %vfn.i.i.i, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(33) %5) #10
   br label %nrvo.skipdtor
 
 lpad:                                             ; preds = %entry
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup11
 
 lpad3:                                            ; preds = %if.then
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   %state_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
-  %10 = load ptr, ptr %state_.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %state_.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb8IOStatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
 
 nrvo.skipdtor:                                    ; preds = %_ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i.i, %invoke.cont10, %invoke.cont4
-  %11 = load ptr, ptr %base, align 8
-  %cmp.not.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %base, align 8
+  %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i: ; preds = %nrvo.skipdtor
-  %vtable.i.i = load ptr, ptr %11, align 8
+  %vtable.i.i = load ptr, ptr %10, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
-  %12 = load ptr, ptr %vfn.i.i, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(33) %11) #10
+  %11 = load ptr, ptr %vfn.i.i, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(33) %10) #10
   br label %_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit: ; preds = %nrvo.skipdtor, %_ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i
   ret void
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i: ; preds = %lpad3
-  call void @_ZdaPv(ptr noundef nonnull %10) #12
+  call void @_ZdaPv(ptr noundef nonnull %9) #12
   br label %_ZN7rocksdb8IOStatusD2Ev.exit
 
 _ZN7rocksdb8IOStatusD2Ev.exit:                    ; preds = %lpad3, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
@@ -1160,16 +1155,16 @@ _ZN7rocksdb8IOStatusD2Ev.exit:                    ; preds = %lpad3, %_ZNKSt14def
   br label %ehcleanup11
 
 ehcleanup11:                                      ; preds = %_ZN7rocksdb8IOStatusD2Ev.exit, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %9, %_ZN7rocksdb8IOStatusD2Ev.exit ], [ %8, %lpad ]
-  %13 = load ptr, ptr %base, align 8
-  %cmp.not.i3 = icmp eq ptr %13, null
+  %.pn.pn = phi { ptr, i32 } [ %8, %_ZN7rocksdb8IOStatusD2Ev.exit ], [ %7, %lpad ]
+  %12 = load ptr, ptr %base, align 8
+  %cmp.not.i3 = icmp eq ptr %12, null
   br i1 %cmp.not.i3, label %_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit7, label %_ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i4
 
 _ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i4: ; preds = %ehcleanup11
-  %vtable.i.i5 = load ptr, ptr %13, align 8
+  %vtable.i.i5 = load ptr, ptr %12, align 8
   %vfn.i.i6 = getelementptr inbounds ptr, ptr %vtable.i.i5, i64 1
-  %14 = load ptr, ptr %vfn.i.i6, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(33) %13) #10
+  %13 = load ptr, ptr %vfn.i.i6, align 8
+  call void %13(ptr noundef nonnull align 8 dereferenceable(33) %12) #10
   br label %_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit7
 
 _ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit7: ; preds = %ehcleanup11, %_ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i4
@@ -1205,8 +1200,7 @@ invoke.cont10:                                    ; preds = %if.then
   %target_.i.i.i = getelementptr inbounds %"class.rocksdb::FSRandomRWFileWrapper", ptr %call8, i64 0, i32 1
   store ptr %4, ptr %target_.i.i.i, align 8
   %guard_.i.i = getelementptr inbounds %"class.rocksdb::FSRandomRWFileOwnerWrapper", ptr %call8, i64 0, i32 1
-  %.cast = ptrtoint ptr %4 to i64
-  store i64 %.cast, ptr %guard_.i.i, align 8
+  store ptr %4, ptr %guard_.i.i, align 8
   store ptr null, ptr %base, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_119CountedRandomRWFileE, i64 0, inrange i32 0, i64 2), ptr %call8, align 8
   %fs_.i = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::CountedRandomRWFile", ptr %call8, i64 0, i32 1
@@ -1307,9 +1301,8 @@ invoke.cont12:                                    ; preds = %if.then
   %5 = load i64, ptr %base, align 8
   store i64 %5, ptr %guard_.i.i, align 8
   store ptr null, ptr %base, align 8
-  %.cast = inttoptr i64 %5 to ptr
   %target_.i.i = getelementptr inbounds %"class.rocksdb::FSDirectoryWrapper", ptr %call10, i64 0, i32 2
-  store ptr %.cast, ptr %target_.i.i, align 8
+  store i64 %5, ptr %target_.i.i, align 8
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_116CountedDirectoryE, i64 0, inrange i32 0, i64 2), ptr %call10, align 8
   %fs_.i = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::CountedDirectory", ptr %call10, i64 0, i32 1
   store ptr %this, ptr %fs_.i, align 8

@@ -1366,7 +1366,7 @@ cond.false.i:                                     ; preds = %google_rpc_Status_n
 _ZNK4absl12lts_202308026Status7messageEv.exit:    ; preds = %cond.true.i, %cond.false.i
   %retval.sroa.0.0.i = phi i64 [ %5, %cond.true.i ], [ %spec.select.i, %cond.false.i ]
   %retval.sroa.4.0.i = phi ptr [ %6, %cond.true.i ], [ %spec.select1.i, %cond.false.i ]
-  store ptr inttoptr (i64 1 to ptr), ptr %agg.tmp, align 8, !alias.scope !13
+  store i64 1, ptr %agg.tmp, align 8, !alias.scope !13
   %slice.sroa.2.0.agg.result.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 %retval.sroa.0.0.i, ptr %slice.sroa.2.0.agg.result.sroa_idx.i.i.i, align 8, !alias.scope !13
   %slice.sroa.3.0.agg.result.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
@@ -2675,7 +2675,7 @@ entry:
   %retval.sroa.0.0.copyload34.i = load ptr, ptr %add.ptr.i.i, align 1
   %retval.sroa.9.0.add.ptr.i.sroa_idx.i = getelementptr inbounds i8, ptr %msg, i64 16
   %retval.sroa.9.0.copyload35.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i, align 1
-  store ptr inttoptr (i64 1 to ptr), ptr %message_percent_slice, align 8, !alias.scope !39
+  store i64 1, ptr %message_percent_slice, align 8, !alias.scope !39
   %slice.sroa.2.0.agg.result.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %message_percent_slice, i64 8
   store i64 %retval.sroa.9.0.copyload35.i, ptr %slice.sroa.2.0.agg.result.sroa_idx.i.i.i, align 8, !alias.scope !39
   %slice.sroa.3.0.agg.result.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %message_percent_slice, i64 16
@@ -4273,8 +4273,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %array.i)
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %msg, i64 24
   %0 = load i64, ptr %add.ptr.i.i.i.i, align 1
-  %1 = inttoptr i64 %0 to ptr
   %tobool.not.i = icmp eq i64 %0, 0
+  %1 = inttoptr i64 %0 to ptr
   br i1 %tobool.not.i, label %if.then.i, label %upb_Message_GetOrCreateMutableArray.exit
 
 if.then.i:                                        ; preds = %entry

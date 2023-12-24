@@ -1315,8 +1315,7 @@ if.then:                                          ; preds = %entry
   %m_kind.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %call1, i64 0, i32 1
   store i32 -1, ptr %m_kind.i.i.i, align 8
   %m_name.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %call1, i64 0, i32 2
-  %1 = ptrtoint ptr %call.i to i64
-  store i64 %1, ptr %m_name.i.i.i, align 8
+  store ptr %call.i, ptr %m_name.i.i.i, align 8
   %m_manager.i.i.i = getelementptr inbounds %"class.datalog::tr_infrastructure<datalog::table_traits>::plugin_object", ptr %call1, i64 0, i32 3
   store ptr %0, ptr %m_manager.i.i.i, align 8
   store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7datalog17lazy_table_pluginE, i64 0, inrange i32 0, i64 2), ptr %call1, align 8

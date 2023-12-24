@@ -18,21 +18,19 @@ if.then:                                          ; preds = %entry
   %add = add i64 %sub, %spec.store.select
   %not = sub i64 0, %spec.store.select
   %and = and i64 %add, %not
-  %2 = inttoptr i64 %and to ptr
   %mpNext = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %this, i64 0, i32 1
-  store ptr %2, ptr %mpNext, align 8
+  store i64 %and, ptr %mpNext, align 8
   %sub5.neg = sub i64 %1, %and
   %sub6 = add i64 %sub5.neg, %memorySize
   %cmp8 = icmp ult i64 %nodeSize, 8
   %add11 = add i64 %spec.store.select, 7
   %and14 = and i64 %add11, %not
   %nodeSize.addr.0 = select i1 %cmp8, i64 %and14, i64 %nodeSize
-  %3 = urem i64 %sub6, %nodeSize.addr.0
+  %2 = urem i64 %sub6, %nodeSize.addr.0
   %mul = add i64 %1, %memorySize
-  %add16 = sub i64 %mul, %3
-  %4 = inttoptr i64 %add16 to ptr
+  %add16 = sub i64 %mul, %2
   %mpCapacity = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %this, i64 0, i32 2
-  store ptr %4, ptr %mpCapacity, align 8
+  store i64 %add16, ptr %mpCapacity, align 8
   store ptr null, ptr %this, align 8
   %mnNodeSize = getelementptr inbounds %"struct.eastl::fixed_pool_base", ptr %this, i64 0, i32 3
   store i64 %nodeSize.addr.0, ptr %mnNodeSize, align 8

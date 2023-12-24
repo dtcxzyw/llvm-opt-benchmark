@@ -52,7 +52,7 @@ _ZN4llvh13StringMapImpl4initEj.exit:              ; preds = %if.then, %if.then.i
   store i32 %conv1.i, ptr %NumBuckets, align 8
   %idxprom.i = zext i32 %conv1.i to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %call.i.i, i64 %idxprom.i
-  store ptr inttoptr (i64 2 to ptr), ptr %arrayidx.i, align 8
+  store i64 2, ptr %arrayidx.i, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -88,7 +88,7 @@ _ZN4llvh11safe_callocEmm.exit:                    ; preds = %entry, %if.then.i
   store i32 %cond, ptr %NumBuckets, align 8
   %idxprom = zext i32 %cond to i64
   %arrayidx = getelementptr inbounds ptr, ptr %call.i, i64 %idxprom
-  store ptr inttoptr (i64 2 to ptr), ptr %arrayidx, align 8
+  store i64 2, ptr %arrayidx, align 8
   ret void
 }
 
@@ -117,7 +117,7 @@ _ZN4llvh13StringMapImpl4initEj.exit:              ; preds = %if.then, %if.then.i
   store ptr %call.i.i, ptr %this, align 8
   store i32 16, ptr %NumBuckets, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %call.i.i, i64 16
-  store ptr inttoptr (i64 2 to ptr), ptr %arrayidx.i, align 8
+  store i64 2, ptr %arrayidx.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4llvh13StringMapImpl4initEj.exit, %entry
@@ -423,7 +423,7 @@ if.end:                                           ; preds = %_ZNK4llvh13StringMa
   %idxprom = sext i32 %.us-phi to i64
   %arrayidx = getelementptr inbounds ptr, ptr %14, i64 %idxprom
   %15 = load ptr, ptr %arrayidx, align 8
-  store ptr inttoptr (i64 -8 to ptr), ptr %arrayidx, align 8
+  store i64 -8, ptr %arrayidx, align 8
   %NumItems = getelementptr inbounds %"class.llvh::StringMapImpl", ptr %this, i64 0, i32 2
   %16 = load <2 x i32>, ptr %NumItems, align 4
   %17 = add <2 x i32> %16, <i32 -1, i32 1>
@@ -484,7 +484,7 @@ _ZN4llvh11safe_callocEmm.exit:                    ; preds = %if.end14, %if.then.
   %idx.ext16 = zext i32 %NewSize.0 to i64
   %add.ptr17 = getelementptr inbounds ptr, ptr %call.i, i64 %idx.ext16
   %add.ptr18 = getelementptr inbounds ptr, ptr %add.ptr17, i64 1
-  store ptr inttoptr (i64 2 to ptr), ptr %add.ptr17, align 8
+  store i64 2, ptr %add.ptr17, align 8
   %cmp20.not40 = icmp eq i32 %5, 0
   br i1 %cmp20.not40, label %for.end, label %for.body.lr.ph
 

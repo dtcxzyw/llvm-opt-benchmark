@@ -59,8 +59,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %1 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
-  %2 = ptrtoint ptr %1 to i64
-  store i64 %2, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
+  store ptr %1, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
   store i64 1, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
   tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 8, i32 0, i32 0)) #13
   %call1.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
@@ -162,8 +161,7 @@ if.then3.i:                                       ; preds = %_mi_is_main_thread.
 
 if.then.i.i:                                      ; preds = %if.then3.i
   %6 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
-  %7 = ptrtoint ptr %6 to i64
-  store i64 %7, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
+  store ptr %6, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
   store i64 1, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
   tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 8, i32 0, i32 0)) #13
   %call1.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
@@ -186,13 +184,13 @@ if.else.i:                                        ; preds = %_mi_is_main_thread.
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.else.i
   %indvars.iv.i.i = phi i64 [ 0, %if.else.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %arrayidx.i.i = getelementptr inbounds [16 x ptr], ptr @td_cache, i64 0, i64 %indvars.iv.i.i
-  %8 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
-  %cmp1.not.i.i = icmp eq i64 %8, 0
+  %7 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
+  %cmp1.not.i.i = icmp eq i64 %7, 0
   br i1 %cmp1.not.i.i, label %for.inc.i.i, label %if.then.i26.i
 
 if.then.i26.i:                                    ; preds = %for.body.i.i
-  %9 = atomicrmw xchg ptr %arrayidx.i.i, i64 0 acq_rel, align 8
-  %cmp5.not.i.i = icmp eq i64 %9, 0
+  %8 = atomicrmw xchg ptr %arrayidx.i.i, i64 0 acq_rel, align 8
+  %cmp5.not.i.i = icmp eq i64 %8, 0
   br i1 %cmp5.not.i.i, label %for.inc.i.i, label %if.end21.thread26.i.i
 
 for.inc.i.i:                                      ; preds = %if.then.i26.i, %for.body.i.i
@@ -201,7 +199,7 @@ for.inc.i.i:                                      ; preds = %if.then.i26.i, %for
   br i1 %exitcond.not.i.i, label %if.then9.i.i, label %for.body.i.i, !llvm.loop !7
 
 if.end21.thread26.i.i:                            ; preds = %if.then.i26.i
-  %10 = inttoptr i64 %9 to ptr
+  %9 = inttoptr i64 %8 to ptr
   br label %if.then24.i.i
 
 if.then9.i.i:                                     ; preds = %for.inc.i.i
@@ -219,13 +217,13 @@ if.end21.i.i:                                     ; preds = %if.then11.i.i, %if.
   %memid19.i.i = getelementptr inbounds %struct.mi_thread_data_s, ptr %td.3.ph.i.i, i64 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %memid19.i.i, ptr noundef nonnull align 8 dereferenceable(24) %memid.i.i, i64 24, i1 false)
   %initially_zero.i.i = getelementptr inbounds %struct.mi_memid_s, ptr %memid.i.i, i64 0, i32 3
-  %11 = load i8, ptr %initially_zero.i.i, align 2
-  %12 = and i8 %11, 1
-  %.not.i.i = icmp eq i8 %12, 0
+  %10 = load i8, ptr %initially_zero.i.i, align 2
+  %11 = and i8 %10, 1
+  %.not.i.i = icmp eq i8 %11, 0
   br i1 %.not.i.i, label %if.then24.i.i, label %if.end6.i
 
 if.then24.i.i:                                    ; preds = %if.end21.i.i, %if.end21.thread26.i.i
-  %td.429.i.i = phi ptr [ %10, %if.end21.thread26.i.i ], [ %td.3.ph.i.i, %if.end21.i.i ]
+  %td.429.i.i = phi ptr [ %9, %if.end21.thread26.i.i ], [ %td.3.ph.i.i, %if.end21.i.i ]
   call void @llvm.assume(i1 true) [ "align"(ptr %td.429.i.i, i64 8) ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4688) %td.429.i.i, i8 0, i64 4688, i1 false)
   br label %if.end6.i
@@ -245,10 +243,9 @@ if.end6.i:                                        ; preds = %if.then24.i.i, %if.
   call void @llvm.assume(i1 true) [ "align"(ptr %td.423.i.ph.i, i64 8) ]
   call void @llvm.assume(i1 true) [ "align"(ptr @_mi_heap_empty, i64 8) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3064) %td.423.i.ph.i, ptr noundef nonnull align 64 dereferenceable(3064) @_mi_heap_empty, i64 3064, i1 false)
-  %13 = call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
-  %14 = ptrtoint ptr %13 to i64
+  %12 = call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
   %thread_id.i = getelementptr inbounds %struct.mi_heap_s, ptr %td.423.i.ph.i, i64 0, i32 4
-  store i64 %14, ptr %thread_id.i, align 8
+  store ptr %12, ptr %thread_id.i, align 8
   %random.i = getelementptr inbounds %struct.mi_heap_s, ptr %td.423.i.ph.i, i64 0, i32 8
   call void @_mi_random_init(ptr noundef nonnull %random.i) #13
   %call10.i = call i64 @_mi_heap_random_next(ptr noundef nonnull %td.423.i.ph.i) #13
@@ -280,7 +277,7 @@ if.end6.i:                                        ; preds = %if.then24.i.i, %if.
 
 if.end:                                           ; preds = %if.end6.i, %mi_thread_data_zalloc.exit.i, %_mi_heap_init.exit.thread1
   call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (%struct.mi_stats_s, ptr @_mi_stats_main, i64 0, i32 9), i64 noundef 1) #13
-  %15 = atomicrmw add ptr @thread_count, i64 1 monotonic, align 8
+  %13 = atomicrmw add ptr @thread_count, i64 1 monotonic, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -296,8 +293,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %1 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
-  %2 = ptrtoint ptr %1 to i64
-  store i64 %2, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
+  store ptr %1, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
   store i64 1, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
   tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 8, i32 0, i32 0)) #13
   %call1.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
@@ -309,41 +305,40 @@ if.then.i:                                        ; preds = %entry
   br label %mi_heap_main_init.exit
 
 mi_heap_main_init.exit:                           ; preds = %entry, %if.then.i
-  %3 = load atomic i64, ptr @mi_process_init.process_init monotonic, align 8
-  %cmp.not.i = icmp eq i64 %3, 0
+  %2 = load atomic i64, ptr @mi_process_init.process_init monotonic, align 8
+  %cmp.not.i = icmp eq i64 %2, 0
   br i1 %cmp.not.i, label %mi_atomic_once.exit, label %if.end21
 
 mi_atomic_once.exit:                              ; preds = %mi_heap_main_init.exit
-  %4 = cmpxchg ptr @mi_process_init.process_init, i64 0, i64 1 acq_rel acquire, align 8
-  %5 = extractvalue { i64, i1 } %4, 1
-  br i1 %5, label %if.end, label %if.end21
+  %3 = cmpxchg ptr @mi_process_init.process_init, i64 0, i64 1 acq_rel acquire, align 8
+  %4 = extractvalue { i64, i1 } %3, 1
+  br i1 %4, label %if.end, label %if.end21
 
 if.end:                                           ; preds = %mi_atomic_once.exit
   store i8 1, ptr @_mi_process_is_initialized, align 1
-  %6 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
-  %7 = ptrtoint ptr %6 to i64
-  tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str, i64 noundef %7) #13
+  %5 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
+  %6 = ptrtoint ptr %5 to i64
+  tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str, i64 noundef %6) #13
   %.b1.i = load i1, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
   br i1 %.b1.i, label %mi_process_setup_auto_thread_done.exit, label %if.end.i6
 
 if.end.i6:                                        ; preds = %if.end
   store i1 true, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
   tail call void @_mi_prim_thread_init_auto_done() #13
-  %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
-  store ptr @_mi_heap_main, ptr %8, align 8
+  %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
+  store ptr @_mi_heap_main, ptr %7, align 8
   tail call void @_mi_prim_thread_associate_default_heap(ptr noundef nonnull @_mi_heap_main) #13
   br label %mi_process_setup_auto_thread_done.exit
 
 mi_process_setup_auto_thread_done.exit:           ; preds = %if.end, %if.end.i6
   tail call void @_mi_os_init() #13
-  %9 = load i64, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
-  %cmp.i7 = icmp eq i64 %9, 0
+  %8 = load i64, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
+  %cmp.i7 = icmp eq i64 %8, 0
   br i1 %cmp.i7, label %if.then.i9, label %mi_heap_main_init.exit13
 
 if.then.i9:                                       ; preds = %mi_process_setup_auto_thread_done.exit
-  %10 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
-  %11 = ptrtoint ptr %10 to i64
-  store i64 %11, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
+  %9 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
+  store ptr %9, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
   store i64 1, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
   tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 8, i32 0, i32 0)) #13
   %call1.i10 = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
@@ -580,8 +575,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %1 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
-  %2 = ptrtoint ptr %1 to i64
-  store i64 %2, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
+  store ptr %1, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
   store i64 1, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
   tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 8, i32 0, i32 0)) #13
   %call1.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
@@ -602,8 +596,8 @@ mi_heap_main_init.exit.i:                         ; preds = %if.then.i.i, %entry
 if.end.i.i:                                       ; preds = %mi_heap_main_init.exit.i
   store i1 true, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
   tail call void @_mi_prim_thread_init_auto_done() #13
-  %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
-  store ptr @_mi_heap_main, ptr %3, align 8
+  %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
+  store ptr @_mi_heap_main, ptr %2, align 8
   tail call void @_mi_prim_thread_associate_default_heap(ptr noundef nonnull @_mi_heap_main) #13
   br label %mi_process_load.exit
 
@@ -668,8 +662,7 @@ if.then4:                                         ; preds = %if.end3
 
 if.then.i.i:                                      ; preds = %if.then4
   %3 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
-  %4 = ptrtoint ptr %3 to i64
-  store i64 %4, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
+  store ptr %3, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
   store i64 1, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 6), align 8
   tail call void @_mi_random_init(ptr noundef nonnull getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 8, i32 0, i32 0)) #13
   %call1.i.i = tail call i64 @_mi_heap_random_next(ptr noundef nonnull @_mi_heap_main) #13
@@ -681,8 +674,8 @@ if.then.i.i:                                      ; preds = %if.then4
   br label %_mi_heap_main_get.exit
 
 _mi_heap_main_get.exit:                           ; preds = %if.then4, %if.then.i.i
-  %5 = load ptr, ptr @_mi_heap_main, align 8
-  %stats = getelementptr inbounds %struct.mi_tld_s, ptr %5, i64 0, i32 6
+  %4 = load ptr, ptr @_mi_heap_main, align 8
+  %stats = getelementptr inbounds %struct.mi_tld_s, ptr %4, i64 0, i32 6
   tail call void @_mi_arena_unsafe_destroy_all(ptr noundef nonnull %stats) #13
   br label %if.end6
 
@@ -699,8 +692,8 @@ if.then9:                                         ; preds = %lor.lhs.false, %if.
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then9, %lor.lhs.false
-  %6 = load i64, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
-  tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.6, i64 noundef %6) #13
+  %5 = load i64, ptr getelementptr inbounds ({ ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], { <{ i32, [15 x i32] }>, [16 x i32], i32, i8 }, i64, i64, i64, ptr, i8 }, ptr @_mi_heap_main, i64 0, i32 4), align 8
+  tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.6, i64 noundef %5) #13
   store i1 false, ptr @os_preloading, align 1
   br label %return
 

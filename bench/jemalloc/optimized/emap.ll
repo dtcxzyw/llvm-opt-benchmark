@@ -1644,8 +1644,7 @@ monotonic.i.i:                                    ; preds = %if.then.i, %if.then
   %shl.i67 = shl i64 %10, 16
   %shr10.i = ashr exact i64 %shl.i67, 16
   %and11.i = and i64 %shr10.i, -128
-  %15 = inttoptr i64 %and11.i to ptr
-  store ptr %15, ptr %agg.result, align 8, !alias.scope !14
+  store i64 %and11.i, ptr %agg.result, align 8, !alias.scope !14
   ret void
 }
 
@@ -1804,8 +1803,7 @@ acquire.i.i:                                      ; preds = %rtree_leaf_elm_look
   %shl.i67 = shl i64 %10, 16
   %shr10.i = ashr exact i64 %shl.i67, 16
   %and11.i = and i64 %shr10.i, -128
-  %15 = inttoptr i64 %and11.i to ptr
-  store ptr %15, ptr %r_contents, align 8
+  store i64 %and11.i, ptr %r_contents, align 8
   %tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %r_contents, i64 8
   store i32 %conv.i64, ptr %tmp.sroa.2.0..sroa_idx, align 8
   %tmp.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %r_contents, i64 12

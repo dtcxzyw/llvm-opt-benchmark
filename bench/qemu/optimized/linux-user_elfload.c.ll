@@ -452,7 +452,7 @@ for.inc.i.i:                                      ; preds = %if.end.i.i
 if.else12.i:                                      ; preds = %pgb_addr_set.exit34.i
   %call13.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #22
   %start.i = getelementptr inbounds %struct.IntervalTreeNode, ptr %call13.i, i64 0, i32 1
-  store i64 %29, ptr %start.i, align 8
+  store ptr %call9.i, ptr %start.i, align 8
   %sub.i = add i64 %29, 16777215
   %last.i = getelementptr inbounds %struct.IntervalTreeNode, ptr %call13.i, i64 0, i32 2
   store i64 %sub.i, ptr %last.i, align 8

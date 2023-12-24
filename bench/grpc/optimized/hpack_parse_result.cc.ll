@@ -3297,23 +3297,21 @@ sw.bb181:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i275)
   %retval.sroa.0.0.copyload.i.i.i.i = load i32, ptr %value, align 4, !noalias !130
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i32 %retval.sroa.0.0.copyload.i.i.i.i to i64
-  %378 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
-  store ptr %378, ptr %ref.tmp.i275, align 8, !noalias !130
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i, ptr %ref.tmp.i275, align 8, !noalias !130
   %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i275, i64 0, i32 1
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIjEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !130
   %arrayinit.element.i276 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i275, i64 1
   %retval.sroa.0.0.copyload.i.i.i1.i = load i8, ptr %377, align 1, !noalias !130
   %retval.sroa.0.0.insert.ext.i.i.i2.i = zext i8 %retval.sroa.0.0.copyload.i.i.i1.i to i64
-  %379 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i2.i to ptr
-  store ptr %379, ptr %arrayinit.element.i276, align 8, !noalias !130
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i2.i, ptr %arrayinit.element.i276, align 8, !noalias !130
   %dispatcher_.i.i3.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i275, i64 1, i32 1
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIhEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i3.i, align 8, !noalias !130
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp183, ptr nonnull @.str.20, i64 72, ptr nonnull %ref.tmp.i275, i64 2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i275)
   %call189 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp183) #11
-  %380 = extractvalue { i64, ptr } %call189, 0
-  %381 = extractvalue { i64, ptr } %call189, 1
-  invoke void @_ZN4absl12lts_2023080213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %380, ptr %381)
+  %378 = extractvalue { i64, ptr } %call189, 0
+  %379 = extractvalue { i64, ptr } %call189, 1
+  invoke void @_ZN4absl12lts_2023080213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %378, ptr %379)
           to label %invoke.cont191 unwind label %lpad190
 
 invoke.cont191:                                   ; preds = %sw.bb181
@@ -3321,27 +3319,27 @@ invoke.cont191:                                   ; preds = %sw.bb181
   br label %return
 
 lpad190:                                          ; preds = %sw.bb181
-  %382 = landingpad { ptr, i32 }
+  %380 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp183) #11
   br label %eh.resume
 
 sw.bb193:                                         ; preds = %if.end
-  %383 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %0, i64 0, i32 2
-  %384 = load i32, ptr %383, align 8
+  %381 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %0, i64 0, i32 2
+  %382 = load i32, ptr %381, align 8
   %digits_.i280 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp197, i64 0, i32 1
-  %call.i281 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEjPc(i32 noundef %384, ptr noundef nonnull %digits_.i280)
+  %call.i281 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEjPc(i32 noundef %382, ptr noundef nonnull %digits_.i280)
   %sub.ptr.lhs.cast.i282 = ptrtoint ptr %call.i281 to i64
   %sub.ptr.rhs.cast.i283 = ptrtoint ptr %digits_.i280 to i64
   %sub.ptr.sub.i284 = sub i64 %sub.ptr.lhs.cast.i282, %sub.ptr.rhs.cast.i283
   store i64 %sub.ptr.sub.i284, ptr %ref.tmp197, align 8
   %_M_str.i.i285 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp197, i64 0, i32 1
   store ptr %digits_.i280, ptr %_M_str.i.i285, align 8
-  %385 = load ptr, ptr %this, align 8
-  %max_size = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %385, i64 0, i32 2, i32 0, i32 1
-  %386 = load i32, ptr %max_size, align 4
+  %383 = load ptr, ptr %this, align 8
+  %max_size = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %383, i64 0, i32 2, i32 0, i32 1
+  %384 = load i32, ptr %max_size, align 4
   %digits_.i289 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp201, i64 0, i32 1
-  %call.i290 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEjPc(i32 noundef %386, ptr noundef nonnull %digits_.i289)
+  %call.i290 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEjPc(i32 noundef %384, ptr noundef nonnull %digits_.i289)
   %sub.ptr.lhs.cast.i291 = ptrtoint ptr %call.i290 to i64
   %sub.ptr.rhs.cast.i292 = ptrtoint ptr %digits_.i289 to i64
   %sub.ptr.sub.i293 = sub i64 %sub.ptr.lhs.cast.i291, %sub.ptr.rhs.cast.i292
@@ -3350,32 +3348,32 @@ sw.bb193:                                         ; preds = %if.end
   store ptr %digits_.i289, ptr %_M_str.i.i294, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i298)
   store i64 28, ptr %ref.tmp.i298, align 8, !noalias !133
-  %387 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i298, i64 0, i32 1
-  store ptr @.str.21, ptr %387, align 8, !noalias !133
+  %385 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i298, i64 0, i32 1
+  store ptr @.str.21, ptr %385, align 8, !noalias !133
   %arrayinit.element.i302 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i298, i64 1
   %retval.sroa.0.0.copyload.i1.i303 = load i64, ptr %ref.tmp197, align 8, !noalias !133
   %retval.sroa.2.0.copyload.i3.i305 = load ptr, ptr %_M_str.i.i285, align 8, !noalias !133
   store i64 %retval.sroa.0.0.copyload.i1.i303, ptr %arrayinit.element.i302, align 8, !noalias !133
-  %388 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i298, i64 1, i32 1
-  store ptr %retval.sroa.2.0.copyload.i3.i305, ptr %388, align 8, !noalias !133
+  %386 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i298, i64 1, i32 1
+  store ptr %retval.sroa.2.0.copyload.i3.i305, ptr %386, align 8, !noalias !133
   %arrayinit.element2.i306 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i298, i64 2
   store i64 19, ptr %arrayinit.element2.i306, align 8, !noalias !133
-  %389 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i298, i64 2, i32 1
-  store ptr @.str.22, ptr %389, align 8, !noalias !133
+  %387 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i298, i64 2, i32 1
+  store ptr @.str.22, ptr %387, align 8, !noalias !133
   %arrayinit.element4.i310 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i298, i64 3
   store i64 %sub.ptr.sub.i293, ptr %arrayinit.element4.i310, align 8, !noalias !133
-  %390 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i298, i64 3, i32 1
-  store ptr %digits_.i289, ptr %390, align 8, !noalias !133
+  %388 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i298, i64 3, i32 1
+  store ptr %digits_.i289, ptr %388, align 8, !noalias !133
   %arrayinit.element6.i314 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i298, i64 4
   store i64 6, ptr %arrayinit.element6.i314, align 8, !noalias !133
-  %391 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i298, i64 4, i32 1
-  store ptr @.str.23, ptr %391, align 8, !noalias !133
+  %389 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i298, i64 4, i32 1
+  store ptr @.str.23, ptr %389, align 8, !noalias !133
   call void @_ZN4absl12lts_2023080216strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp195, ptr nonnull %ref.tmp.i298, i64 5)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp.i298)
   %call205 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp195) #11
-  %392 = extractvalue { i64, ptr } %call205, 0
-  %393 = extractvalue { i64, ptr } %call205, 1
-  invoke void @_ZN4absl12lts_2023080213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %392, ptr %393)
+  %390 = extractvalue { i64, ptr } %call205, 0
+  %391 = extractvalue { i64, ptr } %call205, 1
+  invoke void @_ZN4absl12lts_2023080213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %390, ptr %391)
           to label %invoke.cont207 unwind label %lpad206
 
 invoke.cont207:                                   ; preds = %sw.bb193
@@ -3383,27 +3381,27 @@ invoke.cont207:                                   ; preds = %sw.bb193
   br label %return
 
 lpad206:                                          ; preds = %sw.bb193
-  %394 = landingpad { ptr, i32 }
+  %392 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp195) #11
   br label %eh.resume
 
 sw.bb209:                                         ; preds = %if.end
-  %395 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %0, i64 0, i32 2
-  %396 = load i32, ptr %395, align 8
+  %393 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %0, i64 0, i32 2
+  %394 = load i32, ptr %393, align 8
   %digits_.i321 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp213, i64 0, i32 1
-  %call.i322 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEjPc(i32 noundef %396, ptr noundef nonnull %digits_.i321)
+  %call.i322 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEjPc(i32 noundef %394, ptr noundef nonnull %digits_.i321)
   %sub.ptr.lhs.cast.i323 = ptrtoint ptr %call.i322 to i64
   %sub.ptr.rhs.cast.i324 = ptrtoint ptr %digits_.i321 to i64
   %sub.ptr.sub.i325 = sub i64 %sub.ptr.lhs.cast.i323, %sub.ptr.rhs.cast.i324
   store i64 %sub.ptr.sub.i325, ptr %ref.tmp213, align 8
   %_M_str.i.i326 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp213, i64 0, i32 1
   store ptr %digits_.i321, ptr %_M_str.i.i326, align 8
-  %397 = load ptr, ptr %this, align 8
-  %max_size221 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %397, i64 0, i32 2, i32 0, i32 1
-  %398 = load i32, ptr %max_size221, align 4
+  %395 = load ptr, ptr %this, align 8
+  %max_size221 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %395, i64 0, i32 2, i32 0, i32 1
+  %396 = load i32, ptr %max_size221, align 4
   %digits_.i330 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp218, i64 0, i32 1
-  %call.i331 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEjPc(i32 noundef %398, ptr noundef nonnull %digits_.i330)
+  %call.i331 = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEjPc(i32 noundef %396, ptr noundef nonnull %digits_.i330)
   %sub.ptr.lhs.cast.i332 = ptrtoint ptr %call.i331 to i64
   %sub.ptr.rhs.cast.i333 = ptrtoint ptr %digits_.i330 to i64
   %sub.ptr.sub.i334 = sub i64 %sub.ptr.lhs.cast.i332, %sub.ptr.rhs.cast.i333
@@ -3412,32 +3410,32 @@ sw.bb209:                                         ; preds = %if.end
   store ptr %digits_.i330, ptr %_M_str.i.i335, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i339)
   store i64 32, ptr %ref.tmp.i339, align 8, !noalias !136
-  %399 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i339, i64 0, i32 1
-  store ptr @.str.24, ptr %399, align 8, !noalias !136
+  %397 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i339, i64 0, i32 1
+  store ptr @.str.24, ptr %397, align 8, !noalias !136
   %arrayinit.element.i343 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i339, i64 1
   %retval.sroa.0.0.copyload.i1.i344 = load i64, ptr %ref.tmp213, align 8, !noalias !136
   %retval.sroa.2.0.copyload.i3.i346 = load ptr, ptr %_M_str.i.i326, align 8, !noalias !136
   store i64 %retval.sroa.0.0.copyload.i1.i344, ptr %arrayinit.element.i343, align 8, !noalias !136
-  %400 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i339, i64 1, i32 1
-  store ptr %retval.sroa.2.0.copyload.i3.i346, ptr %400, align 8, !noalias !136
+  %398 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i339, i64 1, i32 1
+  store ptr %retval.sroa.2.0.copyload.i3.i346, ptr %398, align 8, !noalias !136
   %arrayinit.element2.i347 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i339, i64 2
   store i64 45, ptr %arrayinit.element2.i347, align 8, !noalias !136
-  %401 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i339, i64 2, i32 1
-  store ptr @.str.25, ptr %401, align 8, !noalias !136
+  %399 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i339, i64 2, i32 1
+  store ptr @.str.25, ptr %399, align 8, !noalias !136
   %arrayinit.element4.i351 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i339, i64 3
   store i64 %sub.ptr.sub.i334, ptr %arrayinit.element4.i351, align 8, !noalias !136
-  %402 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i339, i64 3, i32 1
-  store ptr %digits_.i330, ptr %402, align 8, !noalias !136
+  %400 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i339, i64 3, i32 1
+  store ptr %digits_.i330, ptr %400, align 8, !noalias !136
   %arrayinit.element6.i355 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i339, i64 4
   store i64 1, ptr %arrayinit.element6.i355, align 8, !noalias !136
-  %403 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i339, i64 4, i32 1
-  store ptr @.str.9, ptr %403, align 8, !noalias !136
+  %401 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i339, i64 4, i32 1
+  store ptr @.str.9, ptr %401, align 8, !noalias !136
   call void @_ZN4absl12lts_2023080216strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp211, ptr nonnull %ref.tmp.i339, i64 5)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp.i339)
   %call223 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp211) #11
-  %404 = extractvalue { i64, ptr } %call223, 0
-  %405 = extractvalue { i64, ptr } %call223, 1
-  invoke void @_ZN4absl12lts_2023080213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %404, ptr %405)
+  %402 = extractvalue { i64, ptr } %call223, 0
+  %403 = extractvalue { i64, ptr } %call223, 1
+  invoke void @_ZN4absl12lts_2023080213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %402, ptr %403)
           to label %invoke.cont225 unwind label %lpad224
 
 invoke.cont225:                                   ; preds = %sw.bb209
@@ -3445,7 +3443,7 @@ invoke.cont225:                                   ; preds = %sw.bb209
   br label %return
 
 lpad224:                                          ; preds = %sw.bb209
-  %406 = landingpad { ptr, i32 }
+  %404 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp211) #11
   br label %eh.resume
@@ -3457,24 +3455,24 @@ sw.bb227:                                         ; preds = %if.end
 
 if.then232:                                       ; preds = %sw.bb227
   store i64 25, ptr %ref.tmp235, align 8
-  %407 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp235, i64 0, i32 1
-  store ptr @.str.26, ptr %407, align 8
-  %408 = load ptr, ptr %this, align 8
-  %key239 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %408, i64 0, i32 3
+  %405 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp235, i64 0, i32 1
+  store ptr @.str.26, ptr %405, align 8
+  %406 = load ptr, ptr %this, align 8
+  %key239 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %406, i64 0, i32 3
   %call.i362 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %key239) #11
-  %409 = extractvalue { i64, ptr } %call.i362, 0
-  store i64 %409, ptr %ref.tmp236, align 8
-  %410 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp236, i64 0, i32 1
-  %411 = extractvalue { i64, ptr } %call.i362, 1
-  store ptr %411, ptr %410, align 8
+  %407 = extractvalue { i64, ptr } %call.i362, 0
+  store i64 %407, ptr %ref.tmp236, align 8
+  %408 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp236, i64 0, i32 1
+  %409 = extractvalue { i64, ptr } %call.i362, 1
+  store ptr %409, ptr %408, align 8
   store i64 10, ptr %ref.tmp240, align 8
-  %412 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp240, i64 0, i32 1
-  store ptr @.str.15, ptr %412, align 8
+  %410 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp240, i64 0, i32 1
+  store ptr @.str.15, ptr %410, align 8
   call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp234, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp235, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp236, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp240)
   %call241 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp234) #11
-  %413 = extractvalue { i64, ptr } %call241, 0
-  %414 = extractvalue { i64, ptr } %call241, 1
-  invoke void @_ZN4absl12lts_2023080213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %413, ptr %414)
+  %411 = extractvalue { i64, ptr } %call241, 0
+  %412 = extractvalue { i64, ptr } %call241, 1
+  invoke void @_ZN4absl12lts_2023080213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %411, ptr %412)
           to label %invoke.cont243 unwind label %lpad242
 
 invoke.cont243:                                   ; preds = %if.then232
@@ -3482,20 +3480,20 @@ invoke.cont243:                                   ; preds = %if.then232
   br label %return
 
 lpad242:                                          ; preds = %if.then232
-  %415 = landingpad { ptr, i32 }
+  %413 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp234) #11
   br label %eh.resume
 
 if.else245:                                       ; preds = %sw.bb227
   store i64 32, ptr %ref.tmp248, align 8
-  %416 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp248, i64 0, i32 1
-  store ptr @.str.27, ptr %416, align 8
+  %414 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp248, i64 0, i32 1
+  store ptr @.str.27, ptr %414, align 8
   call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp247, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp248)
   %call249 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp247) #11
-  %417 = extractvalue { i64, ptr } %call249, 0
-  %418 = extractvalue { i64, ptr } %call249, 1
-  invoke void @_ZN4absl12lts_2023080213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %417, ptr %418)
+  %415 = extractvalue { i64, ptr } %call249, 0
+  %416 = extractvalue { i64, ptr } %call249, 1
+  invoke void @_ZN4absl12lts_2023080213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %415, ptr %416)
           to label %invoke.cont251 unwind label %lpad250
 
 invoke.cont251:                                   ; preds = %if.else245
@@ -3503,7 +3501,7 @@ invoke.cont251:                                   ; preds = %if.else245
   br label %return
 
 lpad250:                                          ; preds = %if.else245
-  %419 = landingpad { ptr, i32 }
+  %417 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp247) #11
   br label %eh.resume
@@ -3517,20 +3515,19 @@ sw.bb255:                                         ; preds = %if.end
   br label %return
 
 sw.bb257:                                         ; preds = %if.end
-  %420 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %0, i64 0, i32 2
+  %418 = getelementptr inbounds %"struct.grpc_core::HpackParseResult::HpackParseResultState", ptr %0, i64 0, i32 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i375)
-  %retval.sroa.0.0.copyload.i.i.i.i379 = load i32, ptr %420, align 4, !noalias !139
+  %retval.sroa.0.0.copyload.i.i.i.i379 = load i32, ptr %418, align 4, !noalias !139
   %retval.sroa.0.0.insert.ext.i.i.i.i380 = zext i32 %retval.sroa.0.0.copyload.i.i.i.i379 to i64
-  %421 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i380 to ptr
-  store ptr %421, ptr %ref.tmp.i375, align 8, !noalias !139
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i380, ptr %ref.tmp.i375, align 8, !noalias !139
   %dispatcher_.i.i.i381 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i375, i64 0, i32 1
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIjEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i381, align 8, !noalias !139
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp259, ptr nonnull @.str.30, i64 33, ptr nonnull %ref.tmp.i375, i64 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i375)
   %call263 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp259) #11
-  %422 = extractvalue { i64, ptr } %call263, 0
-  %423 = extractvalue { i64, ptr } %call263, 1
-  invoke void @_ZN4absl12lts_2023080213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %422, ptr %423)
+  %419 = extractvalue { i64, ptr } %call263, 0
+  %420 = extractvalue { i64, ptr } %call263, 1
+  invoke void @_ZN4absl12lts_2023080213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %419, ptr %420)
           to label %invoke.cont265 unwind label %lpad264
 
 invoke.cont265:                                   ; preds = %sw.bb257
@@ -3538,7 +3535,7 @@ invoke.cont265:                                   ; preds = %sw.bb257
   br label %return
 
 lpad264:                                          ; preds = %sw.bb257
-  %424 = landingpad { ptr, i32 }
+  %421 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp259) #11
   br label %eh.resume
@@ -3555,7 +3552,7 @@ return:                                           ; preds = %sw.bb267, %invoke.c
   ret void
 
 eh.resume:                                        ; preds = %lpad264, %lpad250, %lpad242, %lpad224, %lpad206, %lpad190, %ehcleanup178, %ehcleanup166, %lpad142, %ehcleanup138, %ehcleanup116, %ehcleanup95, %ehcleanup75, %ehcleanup, %lpad
-  %.pn20 = phi { ptr, i32 } [ %424, %lpad264 ], [ %419, %lpad250 ], [ %415, %lpad242 ], [ %406, %lpad224 ], [ %394, %lpad206 ], [ %382, %lpad190 ], [ %.pn7, %ehcleanup178 ], [ %.pn, %ehcleanup166 ], [ %361, %lpad142 ], [ %.pn9, %ehcleanup138 ], [ %.pn11, %ehcleanup116 ], [ %.pn13, %ehcleanup95 ], [ %.pn15.pn, %ehcleanup75 ], [ %5, %lpad ], [ %.pn18, %ehcleanup ]
+  %.pn20 = phi { ptr, i32 } [ %421, %lpad264 ], [ %417, %lpad250 ], [ %413, %lpad242 ], [ %404, %lpad224 ], [ %392, %lpad206 ], [ %380, %lpad190 ], [ %.pn7, %ehcleanup178 ], [ %.pn, %ehcleanup166 ], [ %361, %lpad142 ], [ %.pn9, %ehcleanup138 ], [ %.pn11, %ehcleanup116 ], [ %.pn13, %ehcleanup95 ], [ %.pn15.pn, %ehcleanup75 ], [ %5, %lpad ], [ %.pn18, %ehcleanup ]
   resume { ptr, i32 } %.pn20
 }
 

@@ -77,7 +77,7 @@ entry:
   %or.i.i = or i64 %3, -1688849860263936
   store i64 %or.i.i, ptr %2, align 8
   %metatable.i = getelementptr inbounds %struct.GCtab, ptr %call.i, i64 0, i32 7
-  store i64 %3, ptr %metatable.i, align 8
+  store ptr %call.i, ptr %metatable.i, align 8
   %call1.i = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull @.str.3, i64 noundef 6) #9
   %call2.i = tail call ptr @lj_tab_setstr(ptr noundef %L, ptr noundef %call.i, ptr noundef %call1.i) #9
   %call3.i = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull @.str.4, i64 noundef 1) #9
@@ -1053,7 +1053,7 @@ if.then3.i:                                       ; preds = %if.end.i
   %L4.i = getelementptr inbounds %struct.CPState, ptr %cp.i, i64 0, i32 7
   store ptr %L, ptr %L4.i, align 8
   %cts5.i = getelementptr inbounds %struct.CPState, ptr %cp.i, i64 0, i32 8
-  store ptr %3, ptr %cts5.i, align 8
+  store i64 %2, ptr %cts5.i, align 8
   %add.ptr.i = getelementptr inbounds %struct.GCstr, ptr %7, i64 1
   %srcname.i = getelementptr inbounds %struct.CPState, ptr %cp.i, i64 0, i32 10
   store ptr %add.ptr.i, ptr %srcname.i, align 8
@@ -1246,26 +1246,25 @@ if.then51:                                        ; preds = %if.then42
   %45 = load i64, ptr %grayagain.i, align 8
   %gclist.i = getelementptr inbounds %struct.GCtab, ptr %38, i64 0, i32 6
   store i64 %45, ptr %gclist.i, align 8
-  %46 = ptrtoint ptr %38 to i64
-  store i64 %46, ptr %grayagain.i, align 8
+  store ptr %38, ptr %grayagain.i, align 8
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then51, %if.then42
   %marked55 = getelementptr inbounds %struct.GCcdata, ptr %call8, i64 0, i32 1
-  %47 = load i8, ptr %marked55, align 8
-  %48 = or i8 %47, 16
-  store i8 %48, ptr %marked55, align 8
+  %46 = load i8, ptr %marked55, align 8
+  %47 = or i8 %46, 16
+  store i8 %47, ptr %marked55, align 8
   br label %if.end60
 
 if.end60:                                         ; preds = %cond.false, %land.lhs.true21, %if.then14, %land.lhs.true, %cond.end36, %if.end54, %if.then39, %if.end7
   store ptr %o.0, ptr %top.i, align 8
-  %49 = load i64, ptr %glref.i, align 8
-  %50 = inttoptr i64 %49 to ptr
-  %gc = getelementptr inbounds %struct.global_State, ptr %50, i64 0, i32 2
-  %51 = load i64, ptr %gc, align 8
-  %threshold = getelementptr inbounds %struct.global_State, ptr %50, i64 0, i32 2, i32 1
-  %52 = load i64, ptr %threshold, align 8
-  %cmp67.not = icmp ult i64 %51, %52
+  %48 = load i64, ptr %glref.i, align 8
+  %49 = inttoptr i64 %48 to ptr
+  %gc = getelementptr inbounds %struct.global_State, ptr %49, i64 0, i32 2
+  %50 = load i64, ptr %gc, align 8
+  %threshold = getelementptr inbounds %struct.global_State, ptr %49, i64 0, i32 2, i32 1
+  %51 = load i64, ptr %threshold, align 8
+  %cmp67.not = icmp ult i64 %50, %51
   br i1 %cmp67.not, label %if.end77, label %if.then75
 
 if.then75:                                        ; preds = %if.end60
@@ -1916,18 +1915,17 @@ if.then26:                                        ; preds = %if.then20
   %26 = load i64, ptr %grayagain.i, align 8
   %gclist.i = getelementptr inbounds %struct.GCtab, ptr %17, i64 0, i32 6
   store i64 %26, ptr %gclist.i, align 8
-  %27 = ptrtoint ptr %17 to i64
-  store i64 %27, ptr %grayagain.i, align 8
+  store ptr %17, ptr %grayagain.i, align 8
   br label %if.end43
 
 if.else:                                          ; preds = %cond.end
   store i64 -1, ptr %cond, align 8
-  %28 = load ptr, ptr %cbid, align 8
-  %arrayidx31 = getelementptr inbounds i16, ptr %28, i64 %idxprom
+  %27 = load ptr, ptr %cbid, align 8
+  %arrayidx31 = getelementptr inbounds i16, ptr %27, i64 %idxprom
   store i16 0, ptr %arrayidx31, align 2
   %topid = getelementptr inbounds %struct.CTState, ptr %8, i64 0, i32 7, i32 6
-  %29 = load i32, ptr %topid, align 4
-  %call6. = tail call i32 @llvm.umin.i32(i32 %call6, i32 %29)
+  %28 = load i32, ptr %topid, align 4
+  %call6. = tail call i32 @llvm.umin.i32(i32 %call6, i32 %28)
   store i32 %call6., ptr %topid, align 4
   br label %if.end43
 
@@ -1961,7 +1959,7 @@ entry:
   %L2.i = getelementptr inbounds %struct.CTState, ptr %3, i64 0, i32 3
   store ptr %L, ptr %L2.i, align 8
   %cts = getelementptr inbounds %struct.CPState, ptr %cp, i64 0, i32 8
-  store ptr %3, ptr %cts, align 8
+  store i64 %2, ptr %cts, align 8
   %add.ptr = getelementptr inbounds %struct.GCstr, ptr %call, i64 1
   %srcname = getelementptr inbounds %struct.CPState, ptr %cp, i64 0, i32 10
   store ptr %add.ptr, ptr %srcname, align 8
@@ -2039,7 +2037,7 @@ if.then3.i:                                       ; preds = %if.end.i
   %L4.i = getelementptr inbounds %struct.CPState, ptr %cp.i, i64 0, i32 7
   store ptr %L, ptr %L4.i, align 8
   %cts5.i = getelementptr inbounds %struct.CPState, ptr %cp.i, i64 0, i32 8
-  store ptr %3, ptr %cts5.i, align 8
+  store i64 %2, ptr %cts5.i, align 8
   %add.ptr.i = getelementptr inbounds %struct.GCstr, ptr %7, i64 1
   %srcname.i = getelementptr inbounds %struct.CPState, ptr %cp.i, i64 0, i32 10
   store ptr %add.ptr.i, ptr %srcname.i, align 8
@@ -2389,7 +2387,7 @@ if.then3.i:                                       ; preds = %if.end.i
   %L4.i = getelementptr inbounds %struct.CPState, ptr %cp.i, i64 0, i32 7
   store ptr %L, ptr %L4.i, align 8
   %cts5.i = getelementptr inbounds %struct.CPState, ptr %cp.i, i64 0, i32 8
-  store ptr %3, ptr %cts5.i, align 8
+  store i64 %2, ptr %cts5.i, align 8
   %add.ptr.i = getelementptr inbounds %struct.GCstr, ptr %7, i64 1
   %srcname.i = getelementptr inbounds %struct.CPState, ptr %cp.i, i64 0, i32 10
   store ptr %add.ptr.i, ptr %srcname.i, align 8
@@ -2584,7 +2582,7 @@ if.then3.i:                                       ; preds = %if.end.i
   %L4.i = getelementptr inbounds %struct.CPState, ptr %cp.i, i64 0, i32 7
   store ptr %L, ptr %L4.i, align 8
   %cts5.i = getelementptr inbounds %struct.CPState, ptr %cp.i, i64 0, i32 8
-  store ptr %3, ptr %cts5.i, align 8
+  store i64 %2, ptr %cts5.i, align 8
   %add.ptr.i = getelementptr inbounds %struct.GCstr, ptr %7, i64 1
   %srcname.i = getelementptr inbounds %struct.CPState, ptr %cp.i, i64 0, i32 10
   store ptr %add.ptr.i, ptr %srcname.i, align 8
@@ -2755,7 +2753,7 @@ if.then3.i:                                       ; preds = %if.end.i
   %L4.i = getelementptr inbounds %struct.CPState, ptr %cp.i, i64 0, i32 7
   store ptr %L, ptr %L4.i, align 8
   %cts5.i = getelementptr inbounds %struct.CPState, ptr %cp.i, i64 0, i32 8
-  store ptr %3, ptr %cts5.i, align 8
+  store i64 %2, ptr %cts5.i, align 8
   %add.ptr.i = getelementptr inbounds %struct.GCstr, ptr %7, i64 1
   %srcname.i = getelementptr inbounds %struct.CPState, ptr %cp.i, i64 0, i32 10
   store ptr %add.ptr.i, ptr %srcname.i, align 8
@@ -2850,7 +2848,7 @@ if.then3.i:                                       ; preds = %if.end.i
   %L4.i = getelementptr inbounds %struct.CPState, ptr %cp.i, i64 0, i32 7
   store ptr %L, ptr %L4.i, align 8
   %cts5.i = getelementptr inbounds %struct.CPState, ptr %cp.i, i64 0, i32 8
-  store ptr %3, ptr %cts5.i, align 8
+  store i64 %2, ptr %cts5.i, align 8
   %add.ptr.i = getelementptr inbounds %struct.GCstr, ptr %7, i64 1
   %srcname.i = getelementptr inbounds %struct.CPState, ptr %cp.i, i64 0, i32 10
   store ptr %add.ptr.i, ptr %srcname.i, align 8
@@ -3364,7 +3362,7 @@ if.then3.i:                                       ; preds = %if.end.i
   %L4.i = getelementptr inbounds %struct.CPState, ptr %cp.i, i64 0, i32 7
   store ptr %L, ptr %L4.i, align 8
   %cts5.i = getelementptr inbounds %struct.CPState, ptr %cp.i, i64 0, i32 8
-  store ptr %3, ptr %cts5.i, align 8
+  store i64 %2, ptr %cts5.i, align 8
   %add.ptr.i = getelementptr inbounds %struct.GCstr, ptr %7, i64 1
   %srcname.i = getelementptr inbounds %struct.CPState, ptr %cp.i, i64 0, i32 10
   store ptr %add.ptr.i, ptr %srcname.i, align 8
@@ -3470,31 +3468,30 @@ if.then20:                                        ; preds = %if.end14
   %21 = load i64, ptr %grayagain.i, align 8
   %gclist.i = getelementptr inbounds %struct.GCtab, ptr %12, i64 0, i32 6
   store i64 %21, ptr %gclist.i, align 8
-  %22 = ptrtoint ptr %12 to i64
-  store i64 %22, ptr %grayagain.i, align 8
+  store ptr %12, ptr %grayagain.i, align 8
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then20, %if.end14
-  %23 = load ptr, ptr %L2.i, align 8
-  %call.i = call ptr @lj_mem_newgco(ptr noundef %23, i64 noundef 20) #9
+  %22 = load ptr, ptr %L2.i, align 8
+  %call.i = call ptr @lj_mem_newgco(ptr noundef %22, i64 noundef 20) #9
   %gct.i = getelementptr inbounds %struct.GCcdata, ptr %call.i, i64 0, i32 2
   store i8 10, ptr %gct.i, align 1
   %ctypeid.i = getelementptr inbounds %struct.GCcdata, ptr %call.i, i64 0, i32 3
   store i16 22, ptr %ctypeid.i, align 2
   %add.ptr = getelementptr inbounds %struct.GCcdata, ptr %call.i, i64 1
   store i32 %retval.0.i, ptr %add.ptr, align 4
-  %24 = load ptr, ptr %top.i, align 8
-  %add.ptr23 = getelementptr inbounds %union.TValue, ptr %24, i64 -1
-  %25 = ptrtoint ptr %call.i to i64
-  %or.i.i = or i64 %25, -1548112371908608
+  %23 = load ptr, ptr %top.i, align 8
+  %add.ptr23 = getelementptr inbounds %union.TValue, ptr %23, i64 -1
+  %24 = ptrtoint ptr %call.i to i64
+  %or.i.i = or i64 %24, -1548112371908608
   store i64 %or.i.i, ptr %add.ptr23, align 8
-  %26 = load i64, ptr %glref.i, align 8
-  %27 = inttoptr i64 %26 to ptr
-  %gc = getelementptr inbounds %struct.global_State, ptr %27, i64 0, i32 2
-  %28 = load i64, ptr %gc, align 8
-  %threshold = getelementptr inbounds %struct.global_State, ptr %27, i64 0, i32 2, i32 1
-  %29 = load i64, ptr %threshold, align 8
-  %cmp29.not = icmp ult i64 %28, %29
+  %25 = load i64, ptr %glref.i, align 8
+  %26 = inttoptr i64 %25 to ptr
+  %gc = getelementptr inbounds %struct.global_State, ptr %26, i64 0, i32 2
+  %27 = load i64, ptr %gc, align 8
+  %threshold = getelementptr inbounds %struct.global_State, ptr %26, i64 0, i32 2, i32 1
+  %28 = load i64, ptr %threshold, align 8
+  %cmp29.not = icmp ult i64 %27, %28
   br i1 %cmp29.not, label %if.end39, label %if.then37
 
 if.then37:                                        ; preds = %if.end21

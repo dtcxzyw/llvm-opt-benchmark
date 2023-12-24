@@ -501,14 +501,12 @@ invoke.cont47:                                    ; preds = %invoke.cont20, %lan
   %occurs = getelementptr inbounds %"class.cvc5::internal::Minisat::SimpSolver", ptr %this, i64 0, i32 17
   %ca = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this, i64 0, i32 76
   %deleted.i = getelementptr inbounds %"class.cvc5::internal::Minisat::SimpSolver", ptr %this, i64 0, i32 17, i32 3
-  %18 = ptrtoint ptr %ca to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %elimclauses, i8 0, i64 80, i1 false)
-  store i64 %18, ptr %deleted.i, align 8
+  store ptr %ca, ptr %deleted.i, align 8
   %n_occ = getelementptr inbounds %"class.cvc5::internal::Minisat::SimpSolver", ptr %this, i64 0, i32 18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %n_occ, i8 0, i64 16, i1 false)
   %elim_heap = getelementptr inbounds %"class.cvc5::internal::Minisat::SimpSolver", ptr %this, i64 0, i32 19
-  %19 = ptrtoint ptr %n_occ to i64
-  store i64 %19, ptr %elim_heap, align 8
+  store ptr %n_occ, ptr %elim_heap, align 8
   %heap.i = getelementptr inbounds %"class.cvc5::internal::Minisat::SimpSolver", ptr %this, i64 0, i32 19, i32 1
   %subsumption_queue = getelementptr inbounds %"class.cvc5::internal::Minisat::SimpSolver", ptr %this, i64 0, i32 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %heap.i, i8 0, i64 48, i1 false)
@@ -520,8 +518,8 @@ if.end.i.i144:                                    ; preds = %invoke.cont47
   %frozen = getelementptr inbounds %"class.cvc5::internal::Minisat::SimpSolver", ptr %this, i64 0, i32 21
   %eliminated = getelementptr inbounds %"class.cvc5::internal::Minisat::SimpSolver", ptr %this, i64 0, i32 22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %first.i, i8 0, i64 48, i1 false)
-  %20 = getelementptr inbounds i8, ptr %dummy, i64 8
-  store i64 0, ptr %20, align 8
+  %18 = getelementptr inbounds i8, ptr %dummy, i64 8
+  store i64 0, ptr %18, align 8
   %sz.i140 = getelementptr inbounds %"class.cvc5::internal::Minisat::vec.4", ptr %dummy, i64 0, i32 1
   %cap.i.i141 = getelementptr inbounds %"class.cvc5::internal::Minisat::vec.4", ptr %dummy, i64 0, i32 2
   store i32 2, ptr %cap.i.i141, align 4
@@ -532,8 +530,8 @@ if.end.i.i144:                                    ; preds = %invoke.cont47
 
 land.lhs.true.i.i155:                             ; preds = %if.end.i.i144
   %call15.i.i156 = tail call ptr @__errno_location() #24
-  %21 = load i32, ptr %call15.i.i156, align 4
-  %cmp16.i.i157 = icmp eq i32 %21, 12
+  %19 = load i32, ptr %call15.i.i156, align 4
+  %cmp16.i.i157 = icmp eq i32 %19, 12
   br i1 %cmp16.i.i157, label %if.then17.i.i158, label %invoke.cont55
 
 if.then17.i.i158:                                 ; preds = %land.lhs.true.i.i155
@@ -545,8 +543,8 @@ if.then17.i.i158:                                 ; preds = %land.lhs.true.i.i15
   unreachable
 
 invoke.cont55:                                    ; preds = %if.end.i.i144, %land.lhs.true.i.i155
-  %22 = load ptr, ptr %dummy, align 8
-  store i32 -2, ptr %22, align 4
+  %20 = load ptr, ptr %dummy, align 8
+  store i32 -2, ptr %20, align 4
   store i32 1, ptr %sz.i140, align 8
   %extra_clause_field = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this, i64 0, i32 76, i32 1
   store i8 1, ptr %extra_clause_field, align 4
@@ -559,10 +557,10 @@ invoke.cont59:                                    ; preds = %invoke.cont55
   %remove_satisfied = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this, i64 0, i32 74
   store i8 0, ptr %remove_satisfied, align 8
   %sz.i = getelementptr inbounds %"class.cvc5::internal::Minisat::SimpSolver", ptr %this, i64 0, i32 21, i32 1
-  %23 = load i32, ptr %sz.i, align 8
+  %21 = load i32, ptr %sz.i, align 8
   %sz.i9 = getelementptr inbounds %"class.cvc5::internal::Minisat::Solver", ptr %this, i64 0, i32 67, i32 1
-  %24 = load i32, ptr %sz.i9, align 8
-  %cmp66164 = icmp slt i32 %23, %24
+  %22 = load i32, ptr %sz.i9, align 8
+  %cmp66164 = icmp slt i32 %21, %22
   br i1 %cmp66164, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %invoke.cont59
@@ -577,10 +575,10 @@ for.body.lr.ph:                                   ; preds = %invoke.cont59
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %storemerge165 = phi i32 [ %23, %for.body.lr.ph ], [ %inc.pre-phi, %for.inc ]
-  %25 = load i32, ptr %sz.i, align 8
-  %26 = load i32, ptr %cap.i, align 4
-  %cmp.i = icmp eq i32 %25, %26
+  %storemerge165 = phi i32 [ %21, %for.body.lr.ph ], [ %inc.pre-phi, %for.inc ]
+  %23 = load i32, ptr %sz.i, align 8
+  %24 = load i32, ptr %cap.i, align 4
+  %cmp.i = icmp eq i32 %23, %24
   br i1 %cmp.i, label %if.end.i.i, label %entry.if.end_crit_edge.i
 
 entry.if.end_crit_edge.i:                         ; preds = %for.body
@@ -588,20 +586,20 @@ entry.if.end_crit_edge.i:                         ; preds = %for.body
   br label %invoke.cont69
 
 if.end.i.i:                                       ; preds = %for.body
-  %shr.i.i = ashr i32 %25, 1
-  %27 = and i32 %shr.i.i, -2
-  %28 = call i32 @llvm.smax.i32(i32 %27, i32 0)
-  %add.i.i.i = add nuw nsw i32 %28, 2
-  %sub8.i.i = sub nsw i32 2147483647, %25
+  %shr.i.i = ashr i32 %23, 1
+  %25 = and i32 %shr.i.i, -2
+  %26 = call i32 @llvm.smax.i32(i32 %25, i32 0)
+  %add.i.i.i = add nuw nsw i32 %26, 2
+  %sub8.i.i = sub nsw i32 2147483647, %23
   %cmp9.i.i = icmp ugt i32 %add.i.i.i, %sub8.i.i
   br i1 %cmp9.i.i, label %if.then17.i.i.invoke, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i
-  %29 = load ptr, ptr %frozen, align 8
-  %add11.i.i = add nsw i32 %add.i.i.i, %25
+  %27 = load ptr, ptr %frozen, align 8
+  %add11.i.i = add nsw i32 %add.i.i.i, %23
   store i32 %add11.i.i, ptr %cap.i, align 4
   %conv.i.i = sext i32 %add11.i.i to i64
-  %call12.i.i = call ptr @realloc(ptr noundef %29, i64 noundef %conv.i.i) #27
+  %call12.i.i = call ptr @realloc(ptr noundef %27, i64 noundef %conv.i.i) #27
   store ptr %call12.i.i, ptr %frozen, align 8
   %cmp14.i.i = icmp eq ptr %call12.i.i, null
   br i1 %cmp14.i.i, label %if.then17.i.i.invoke.sink.split, label %lor.lhs.false.i.i.invoke.cont69_crit_edge
@@ -612,8 +610,8 @@ lor.lhs.false.i.i.invoke.cont69_crit_edge:        ; preds = %lor.lhs.false.i.i
 
 if.then17.i.i.invoke.sink.split:                  ; preds = %lor.lhs.false.i.i, %lor.lhs.false.i.i101, %lor.lhs.false.i.i73, %lor.lhs.false.i.i49, %lor.lhs.false.i.i24
   %call15.i.i = tail call ptr @__errno_location() #24
-  %30 = load i32, ptr %call15.i.i, align 4
-  %cmp16.i.i = icmp eq i32 %30, 12
+  %28 = load i32, ptr %call15.i.i, align 4
+  %cmp16.i.i = icmp eq i32 %28, 12
   call void @llvm.assume(i1 %cmp16.i.i)
   br label %if.then17.i.i.invoke
 
@@ -626,16 +624,16 @@ if.then17.i.i.cont:                               ; preds = %if.then17.i.i.invok
   unreachable
 
 invoke.cont69:                                    ; preds = %lor.lhs.false.i.i.invoke.cont69_crit_edge, %entry.if.end_crit_edge.i
-  %31 = phi i32 [ %25, %entry.if.end_crit_edge.i ], [ %.pre, %lor.lhs.false.i.i.invoke.cont69_crit_edge ]
-  %32 = phi ptr [ %.pre.i, %entry.if.end_crit_edge.i ], [ %call12.i.i, %lor.lhs.false.i.i.invoke.cont69_crit_edge ]
-  %inc.i = add nsw i32 %31, 1
+  %29 = phi i32 [ %23, %entry.if.end_crit_edge.i ], [ %.pre, %lor.lhs.false.i.i.invoke.cont69_crit_edge ]
+  %30 = phi ptr [ %.pre.i, %entry.if.end_crit_edge.i ], [ %call12.i.i, %lor.lhs.false.i.i.invoke.cont69_crit_edge ]
+  %inc.i = add nsw i32 %29, 1
   store i32 %inc.i, ptr %sz.i, align 8
-  %idxprom.i = sext i32 %31 to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %32, i64 %idxprom.i
+  %idxprom.i = sext i32 %29 to i64
+  %arrayidx.i = getelementptr inbounds i8, ptr %30, i64 %idxprom.i
   store i8 1, ptr %arrayidx.i, align 1
-  %33 = load i32, ptr %sz.i11, align 8
-  %34 = load i32, ptr %cap.i12, align 4
-  %cmp.i13 = icmp eq i32 %33, %34
+  %31 = load i32, ptr %sz.i11, align 8
+  %32 = load i32, ptr %cap.i12, align 4
+  %cmp.i13 = icmp eq i32 %31, %32
   br i1 %cmp.i13, label %if.end.i.i19, label %entry.if.end_crit_edge.i14
 
 entry.if.end_crit_edge.i14:                       ; preds = %invoke.cont69
@@ -643,20 +641,20 @@ entry.if.end_crit_edge.i14:                       ; preds = %invoke.cont69
   br label %invoke.cont72
 
 if.end.i.i19:                                     ; preds = %invoke.cont69
-  %shr.i.i20 = ashr i32 %33, 1
-  %35 = and i32 %shr.i.i20, -2
-  %36 = call i32 @llvm.smax.i32(i32 %35, i32 0)
-  %add.i.i.i21 = add nuw nsw i32 %36, 2
-  %sub8.i.i22 = sub nsw i32 2147483647, %33
+  %shr.i.i20 = ashr i32 %31, 1
+  %33 = and i32 %shr.i.i20, -2
+  %34 = call i32 @llvm.smax.i32(i32 %33, i32 0)
+  %add.i.i.i21 = add nuw nsw i32 %34, 2
+  %sub8.i.i22 = sub nsw i32 2147483647, %31
   %cmp9.i.i23 = icmp ugt i32 %add.i.i.i21, %sub8.i.i22
   br i1 %cmp9.i.i23, label %if.then17.i.i.invoke, label %lor.lhs.false.i.i24
 
 lor.lhs.false.i.i24:                              ; preds = %if.end.i.i19
-  %37 = load ptr, ptr %eliminated, align 8
-  %add11.i.i25 = add nsw i32 %add.i.i.i21, %33
+  %35 = load ptr, ptr %eliminated, align 8
+  %add11.i.i25 = add nsw i32 %add.i.i.i21, %31
   store i32 %add11.i.i25, ptr %cap.i12, align 4
   %conv.i.i26 = sext i32 %add11.i.i25 to i64
-  %call12.i.i27 = call ptr @realloc(ptr noundef %37, i64 noundef %conv.i.i26) #27
+  %call12.i.i27 = call ptr @realloc(ptr noundef %35, i64 noundef %conv.i.i26) #27
   store ptr %call12.i.i27, ptr %eliminated, align 8
   %cmp14.i.i28 = icmp eq ptr %call12.i.i27, null
   br i1 %cmp14.i.i28, label %if.then17.i.i.invoke.sink.split, label %lor.lhs.false.i.i24.invoke.cont72_crit_edge
@@ -666,16 +664,16 @@ lor.lhs.false.i.i24.invoke.cont72_crit_edge:      ; preds = %lor.lhs.false.i.i24
   br label %invoke.cont72
 
 invoke.cont72:                                    ; preds = %lor.lhs.false.i.i24.invoke.cont72_crit_edge, %entry.if.end_crit_edge.i14
-  %38 = phi i32 [ %33, %entry.if.end_crit_edge.i14 ], [ %.pre166, %lor.lhs.false.i.i24.invoke.cont72_crit_edge ]
-  %39 = phi ptr [ %.pre.i15, %entry.if.end_crit_edge.i14 ], [ %call12.i.i27, %lor.lhs.false.i.i24.invoke.cont72_crit_edge ]
-  %inc.i16 = add nsw i32 %38, 1
+  %36 = phi i32 [ %31, %entry.if.end_crit_edge.i14 ], [ %.pre166, %lor.lhs.false.i.i24.invoke.cont72_crit_edge ]
+  %37 = phi ptr [ %.pre.i15, %entry.if.end_crit_edge.i14 ], [ %call12.i.i27, %lor.lhs.false.i.i24.invoke.cont72_crit_edge ]
+  %inc.i16 = add nsw i32 %36, 1
   store i32 %inc.i16, ptr %sz.i11, align 8
-  %idxprom.i17 = sext i32 %38 to i64
-  %arrayidx.i18 = getelementptr inbounds i8, ptr %39, i64 %idxprom.i17
+  %idxprom.i17 = sext i32 %36 to i64
+  %arrayidx.i18 = getelementptr inbounds i8, ptr %37, i64 %idxprom.i17
   store i8 0, ptr %arrayidx.i18, align 1
-  %40 = load i8, ptr %use_simplification, align 4
-  %41 = and i8 %40, 1
-  %tobool74.not = icmp eq i8 %41, 0
+  %38 = load i8, ptr %use_simplification, align 4
+  %39 = and i8 %38, 1
+  %tobool74.not = icmp eq i8 %39, 0
   br i1 %tobool74.not, label %invoke.cont72.for.inc_crit_edge, label %if.then
 
 invoke.cont72.for.inc_crit_edge:                  ; preds = %invoke.cont72
@@ -683,9 +681,9 @@ invoke.cont72.for.inc_crit_edge:                  ; preds = %invoke.cont72
   br label %for.inc
 
 if.then:                                          ; preds = %invoke.cont72
-  %42 = load i32, ptr %sz.i36, align 8
-  %43 = load i32, ptr %cap.i37, align 4
-  %cmp.i38 = icmp eq i32 %42, %43
+  %40 = load i32, ptr %sz.i36, align 8
+  %41 = load i32, ptr %cap.i37, align 4
+  %cmp.i38 = icmp eq i32 %40, %41
   br i1 %cmp.i38, label %if.end.i.i44, label %entry.if.end_crit_edge.i39
 
 entry.if.end_crit_edge.i39:                       ; preds = %if.then
@@ -693,21 +691,21 @@ entry.if.end_crit_edge.i39:                       ; preds = %if.then
   br label %invoke.cont77
 
 if.end.i.i44:                                     ; preds = %if.then
-  %shr.i.i45 = ashr i32 %42, 1
-  %44 = and i32 %shr.i.i45, -2
-  %45 = call i32 @llvm.smax.i32(i32 %44, i32 0)
-  %add.i.i.i46 = add nuw nsw i32 %45, 2
-  %sub8.i.i47 = sub nsw i32 2147483647, %42
+  %shr.i.i45 = ashr i32 %40, 1
+  %42 = and i32 %shr.i.i45, -2
+  %43 = call i32 @llvm.smax.i32(i32 %42, i32 0)
+  %add.i.i.i46 = add nuw nsw i32 %43, 2
+  %sub8.i.i47 = sub nsw i32 2147483647, %40
   %cmp9.i.i48 = icmp ugt i32 %add.i.i.i46, %sub8.i.i47
   br i1 %cmp9.i.i48, label %if.then17.i.i.invoke, label %lor.lhs.false.i.i49
 
 lor.lhs.false.i.i49:                              ; preds = %if.end.i.i44
-  %46 = load ptr, ptr %n_occ, align 8
-  %add11.i.i50 = add nsw i32 %add.i.i.i46, %42
+  %44 = load ptr, ptr %n_occ, align 8
+  %add11.i.i50 = add nsw i32 %add.i.i.i46, %40
   store i32 %add11.i.i50, ptr %cap.i37, align 4
   %conv.i.i51 = sext i32 %add11.i.i50 to i64
   %mul.i.i = shl nsw i64 %conv.i.i51, 2
-  %call12.i.i52 = call ptr @realloc(ptr noundef %46, i64 noundef %mul.i.i) #27
+  %call12.i.i52 = call ptr @realloc(ptr noundef %44, i64 noundef %mul.i.i) #27
   store ptr %call12.i.i52, ptr %n_occ, align 8
   %cmp14.i.i53 = icmp eq ptr %call12.i.i52, null
   br i1 %cmp14.i.i53, label %if.then17.i.i.invoke.sink.split, label %lor.lhs.false.i.i49.invoke.cont77_crit_edge
@@ -717,16 +715,16 @@ lor.lhs.false.i.i49.invoke.cont77_crit_edge:      ; preds = %lor.lhs.false.i.i49
   br label %invoke.cont77
 
 invoke.cont77:                                    ; preds = %lor.lhs.false.i.i49.invoke.cont77_crit_edge, %entry.if.end_crit_edge.i39
-  %47 = phi i32 [ %42, %entry.if.end_crit_edge.i39 ], [ %.pre167, %lor.lhs.false.i.i49.invoke.cont77_crit_edge ]
-  %48 = phi ptr [ %.pre.i40, %entry.if.end_crit_edge.i39 ], [ %call12.i.i52, %lor.lhs.false.i.i49.invoke.cont77_crit_edge ]
-  %inc.i41 = add nsw i32 %47, 1
+  %45 = phi i32 [ %40, %entry.if.end_crit_edge.i39 ], [ %.pre167, %lor.lhs.false.i.i49.invoke.cont77_crit_edge ]
+  %46 = phi ptr [ %.pre.i40, %entry.if.end_crit_edge.i39 ], [ %call12.i.i52, %lor.lhs.false.i.i49.invoke.cont77_crit_edge ]
+  %inc.i41 = add nsw i32 %45, 1
   store i32 %inc.i41, ptr %sz.i36, align 8
-  %idxprom.i42 = sext i32 %47 to i64
-  %arrayidx.i43 = getelementptr inbounds i32, ptr %48, i64 %idxprom.i42
+  %idxprom.i42 = sext i32 %45 to i64
+  %arrayidx.i43 = getelementptr inbounds i32, ptr %46, i64 %idxprom.i42
   store i32 0, ptr %arrayidx.i43, align 4
-  %49 = load i32, ptr %sz.i36, align 8
-  %50 = load i32, ptr %cap.i37, align 4
-  %cmp.i62 = icmp eq i32 %49, %50
+  %47 = load i32, ptr %sz.i36, align 8
+  %48 = load i32, ptr %cap.i37, align 4
+  %cmp.i62 = icmp eq i32 %47, %48
   br i1 %cmp.i62, label %if.end.i.i68, label %entry.if.end_crit_edge.i63
 
 entry.if.end_crit_edge.i63:                       ; preds = %invoke.cont77
@@ -734,21 +732,21 @@ entry.if.end_crit_edge.i63:                       ; preds = %invoke.cont77
   br label %invoke.cont80
 
 if.end.i.i68:                                     ; preds = %invoke.cont77
-  %shr.i.i69 = ashr i32 %49, 1
-  %51 = and i32 %shr.i.i69, -2
-  %52 = call i32 @llvm.smax.i32(i32 %51, i32 0)
-  %add.i.i.i70 = add nuw nsw i32 %52, 2
-  %sub8.i.i71 = sub nsw i32 2147483647, %49
+  %shr.i.i69 = ashr i32 %47, 1
+  %49 = and i32 %shr.i.i69, -2
+  %50 = call i32 @llvm.smax.i32(i32 %49, i32 0)
+  %add.i.i.i70 = add nuw nsw i32 %50, 2
+  %sub8.i.i71 = sub nsw i32 2147483647, %47
   %cmp9.i.i72 = icmp ugt i32 %add.i.i.i70, %sub8.i.i71
   br i1 %cmp9.i.i72, label %if.then17.i.i.invoke, label %lor.lhs.false.i.i73
 
 lor.lhs.false.i.i73:                              ; preds = %if.end.i.i68
-  %53 = load ptr, ptr %n_occ, align 8
-  %add11.i.i74 = add nsw i32 %add.i.i.i70, %49
+  %51 = load ptr, ptr %n_occ, align 8
+  %add11.i.i74 = add nsw i32 %add.i.i.i70, %47
   store i32 %add11.i.i74, ptr %cap.i37, align 4
   %conv.i.i75 = sext i32 %add11.i.i74 to i64
   %mul.i.i76 = shl nsw i64 %conv.i.i75, 2
-  %call12.i.i77 = call ptr @realloc(ptr noundef %53, i64 noundef %mul.i.i76) #27
+  %call12.i.i77 = call ptr @realloc(ptr noundef %51, i64 noundef %mul.i.i76) #27
   store ptr %call12.i.i77, ptr %n_occ, align 8
   %cmp14.i.i78 = icmp eq ptr %call12.i.i77, null
   br i1 %cmp14.i.i78, label %if.then17.i.i.invoke.sink.split, label %lor.lhs.false.i.i73.invoke.cont80_crit_edge
@@ -758,12 +756,12 @@ lor.lhs.false.i.i73.invoke.cont80_crit_edge:      ; preds = %lor.lhs.false.i.i73
   br label %invoke.cont80
 
 invoke.cont80:                                    ; preds = %lor.lhs.false.i.i73.invoke.cont80_crit_edge, %entry.if.end_crit_edge.i63
-  %54 = phi i32 [ %49, %entry.if.end_crit_edge.i63 ], [ %.pre168, %lor.lhs.false.i.i73.invoke.cont80_crit_edge ]
-  %55 = phi ptr [ %.pre.i64, %entry.if.end_crit_edge.i63 ], [ %call12.i.i77, %lor.lhs.false.i.i73.invoke.cont80_crit_edge ]
-  %inc.i65 = add nsw i32 %54, 1
+  %52 = phi i32 [ %47, %entry.if.end_crit_edge.i63 ], [ %.pre168, %lor.lhs.false.i.i73.invoke.cont80_crit_edge ]
+  %53 = phi ptr [ %.pre.i64, %entry.if.end_crit_edge.i63 ], [ %call12.i.i77, %lor.lhs.false.i.i73.invoke.cont80_crit_edge ]
+  %inc.i65 = add nsw i32 %52, 1
   store i32 %inc.i65, ptr %sz.i36, align 8
-  %idxprom.i66 = sext i32 %54 to i64
-  %arrayidx.i67 = getelementptr inbounds i32, ptr %55, i64 %idxprom.i66
+  %idxprom.i66 = sext i32 %52 to i64
+  %arrayidx.i67 = getelementptr inbounds i32, ptr %53, i64 %idxprom.i66
   store i32 0, ptr %arrayidx.i67, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   %add.i = add nsw i32 %storemerge165, 1
@@ -777,9 +775,9 @@ invoke.cont80:                                    ; preds = %lor.lhs.false.i.i73
 
 invoke.cont82:                                    ; preds = %.noexc86
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %56 = load i32, ptr %sz.i88, align 8
-  %57 = load i32, ptr %cap.i89, align 4
-  %cmp.i90 = icmp eq i32 %56, %57
+  %54 = load i32, ptr %sz.i88, align 8
+  %55 = load i32, ptr %cap.i89, align 4
+  %cmp.i90 = icmp eq i32 %54, %55
   br i1 %cmp.i90, label %if.end.i.i96, label %entry.if.end_crit_edge.i91
 
 entry.if.end_crit_edge.i91:                       ; preds = %invoke.cont82
@@ -787,20 +785,20 @@ entry.if.end_crit_edge.i91:                       ; preds = %invoke.cont82
   br label %invoke.cont85
 
 if.end.i.i96:                                     ; preds = %invoke.cont82
-  %shr.i.i97 = ashr i32 %56, 1
-  %58 = and i32 %shr.i.i97, -2
-  %59 = call i32 @llvm.smax.i32(i32 %58, i32 0)
-  %add.i.i.i98 = add nuw nsw i32 %59, 2
-  %sub8.i.i99 = sub nsw i32 2147483647, %56
+  %shr.i.i97 = ashr i32 %54, 1
+  %56 = and i32 %shr.i.i97, -2
+  %57 = call i32 @llvm.smax.i32(i32 %56, i32 0)
+  %add.i.i.i98 = add nuw nsw i32 %57, 2
+  %sub8.i.i99 = sub nsw i32 2147483647, %54
   %cmp9.i.i100 = icmp ugt i32 %add.i.i.i98, %sub8.i.i99
   br i1 %cmp9.i.i100, label %if.then17.i.i.invoke, label %lor.lhs.false.i.i101
 
 lor.lhs.false.i.i101:                             ; preds = %if.end.i.i96
-  %60 = load ptr, ptr %touched, align 8
-  %add11.i.i102 = add nsw i32 %add.i.i.i98, %56
+  %58 = load ptr, ptr %touched, align 8
+  %add11.i.i102 = add nsw i32 %add.i.i.i98, %54
   store i32 %add11.i.i102, ptr %cap.i89, align 4
   %conv.i.i103 = sext i32 %add11.i.i102 to i64
-  %call12.i.i104 = call ptr @realloc(ptr noundef %60, i64 noundef %conv.i.i103) #27
+  %call12.i.i104 = call ptr @realloc(ptr noundef %58, i64 noundef %conv.i.i103) #27
   store ptr %call12.i.i104, ptr %touched, align 8
   %cmp14.i.i105 = icmp eq ptr %call12.i.i104, null
   br i1 %cmp14.i.i105, label %if.then17.i.i.invoke.sink.split, label %lor.lhs.false.i.i101.invoke.cont85_crit_edge
@@ -810,28 +808,28 @@ lor.lhs.false.i.i101.invoke.cont85_crit_edge:     ; preds = %lor.lhs.false.i.i10
   br label %invoke.cont85
 
 invoke.cont85:                                    ; preds = %lor.lhs.false.i.i101.invoke.cont85_crit_edge, %entry.if.end_crit_edge.i91
-  %61 = phi i32 [ %56, %entry.if.end_crit_edge.i91 ], [ %.pre169, %lor.lhs.false.i.i101.invoke.cont85_crit_edge ]
-  %62 = phi ptr [ %.pre.i92, %entry.if.end_crit_edge.i91 ], [ %call12.i.i104, %lor.lhs.false.i.i101.invoke.cont85_crit_edge ]
-  %inc.i93 = add nsw i32 %61, 1
+  %59 = phi i32 [ %54, %entry.if.end_crit_edge.i91 ], [ %.pre169, %lor.lhs.false.i.i101.invoke.cont85_crit_edge ]
+  %60 = phi ptr [ %.pre.i92, %entry.if.end_crit_edge.i91 ], [ %call12.i.i104, %lor.lhs.false.i.i101.invoke.cont85_crit_edge ]
+  %inc.i93 = add nsw i32 %59, 1
   store i32 %inc.i93, ptr %sz.i88, align 8
-  %idxprom.i94 = sext i32 %61 to i64
-  %arrayidx.i95 = getelementptr inbounds i8, ptr %62, i64 %idxprom.i94
+  %idxprom.i94 = sext i32 %59 to i64
+  %arrayidx.i95 = getelementptr inbounds i8, ptr %60, i64 %idxprom.i94
   store i8 0, ptr %arrayidx.i95, align 1
   invoke void @_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %elim_heap, i32 noundef %storemerge165)
           to label %for.inc unwind label %lpad58.loopexit
 
 lpad:                                             ; preds = %land.lhs.true24, %land.end, %land.lhs.true
-  %63 = landingpad { ptr, i32 }
+  %61 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup95
 
 lpad48:                                           ; preds = %invoke.cont47
-  %64 = landingpad { ptr, i32 }
+  %62 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup90
 
 lpad54:                                           ; preds = %if.then17.i.i158
-  %65 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -847,13 +845,13 @@ lpad58.loopexit.split-lp:                         ; preds = %if.then17.i.i.invok
 
 lpad58:                                           ; preds = %lpad58.loopexit.split-lp, %lpad58.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad58.loopexit ], [ %lpad.loopexit.split-lp, %lpad58.loopexit.split-lp ]
-  %66 = load ptr, ptr %dummy, align 8
-  %cmp.not.i.i = icmp eq ptr %66, null
+  %64 = load ptr, ptr %dummy, align 8
+  %cmp.not.i.i = icmp eq ptr %64, null
   br i1 %cmp.not.i.i, label %ehcleanup, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %lpad58
   store i32 0, ptr %sz.i140, align 8
-  call void @free(ptr noundef nonnull %66) #25
+  call void @free(ptr noundef nonnull %64) #25
   store ptr null, ptr %dummy, align 8
   %cap.i.i = getelementptr inbounds %"class.cvc5::internal::Minisat::vec.4", ptr %dummy, i64 0, i32 2
   store i32 0, ptr %cap.i.i, align 4
@@ -861,77 +859,77 @@ for.cond.preheader.i.i:                           ; preds = %lpad58
 
 for.inc:                                          ; preds = %invoke.cont72.for.inc_crit_edge, %invoke.cont85
   %inc.pre-phi = phi i32 [ %.pre170, %invoke.cont72.for.inc_crit_edge ], [ %add.i, %invoke.cont85 ]
-  %67 = load i32, ptr %sz.i9, align 8
-  %cmp66 = icmp slt i32 %inc.pre-phi, %67
+  %65 = load i32, ptr %sz.i9, align 8
+  %cmp66 = icmp slt i32 %inc.pre-phi, %65
   br i1 %cmp66, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %invoke.cont59
-  %68 = load ptr, ptr %dummy, align 8
-  %cmp.not.i.i113 = icmp eq ptr %68, null
+  %66 = load ptr, ptr %dummy, align 8
+  %cmp.not.i.i113 = icmp eq ptr %66, null
   br i1 %cmp.not.i.i113, label %_ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit117, label %for.cond.preheader.i.i114
 
 for.cond.preheader.i.i114:                        ; preds = %for.end
   store i32 0, ptr %sz.i140, align 8
-  call void @free(ptr noundef nonnull %68) #25
+  call void @free(ptr noundef nonnull %66) #25
   br label %_ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit117
 
 _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit117: ; preds = %for.end, %for.cond.preheader.i.i114
   ret void
 
 ehcleanup:                                        ; preds = %for.cond.preheader.i.i, %lpad58, %lpad54
-  %.pn = phi { ptr, i32 } [ %65, %lpad54 ], [ %lpad.phi, %lpad58 ], [ %lpad.phi, %for.cond.preheader.i.i ]
-  %69 = load ptr, ptr %eliminated, align 8
-  %cmp.not.i.i118 = icmp eq ptr %69, null
+  %.pn = phi { ptr, i32 } [ %63, %lpad54 ], [ %lpad.phi, %lpad58 ], [ %lpad.phi, %for.cond.preheader.i.i ]
+  %67 = load ptr, ptr %eliminated, align 8
+  %cmp.not.i.i118 = icmp eq ptr %67, null
   br i1 %cmp.not.i.i118, label %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit, label %for.cond.preheader.i.i119
 
 for.cond.preheader.i.i119:                        ; preds = %ehcleanup
   %sz.le.i.i120 = getelementptr inbounds %"class.cvc5::internal::Minisat::SimpSolver", ptr %this, i64 0, i32 22, i32 1
   store i32 0, ptr %sz.le.i.i120, align 8
-  call void @free(ptr noundef nonnull %69) #25
+  call void @free(ptr noundef nonnull %67) #25
   store ptr null, ptr %eliminated, align 8
   %cap.i.i121 = getelementptr inbounds %"class.cvc5::internal::Minisat::SimpSolver", ptr %this, i64 0, i32 22, i32 2
   store i32 0, ptr %cap.i.i121, align 4
   br label %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit
 
 _ZN4cvc58internal7Minisat3vecIcED2Ev.exit:        ; preds = %ehcleanup, %for.cond.preheader.i.i119
-  %70 = load ptr, ptr %frozen, align 8
-  %cmp.not.i.i122 = icmp eq ptr %70, null
+  %68 = load ptr, ptr %frozen, align 8
+  %cmp.not.i.i122 = icmp eq ptr %68, null
   br i1 %cmp.not.i.i122, label %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit126, label %for.cond.preheader.i.i123
 
 for.cond.preheader.i.i123:                        ; preds = %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit
   %sz.le.i.i124 = getelementptr inbounds %"class.cvc5::internal::Minisat::SimpSolver", ptr %this, i64 0, i32 21, i32 1
   store i32 0, ptr %sz.le.i.i124, align 8
-  call void @free(ptr noundef nonnull %70) #25
+  call void @free(ptr noundef nonnull %68) #25
   store ptr null, ptr %frozen, align 8
   %cap.i.i125 = getelementptr inbounds %"class.cvc5::internal::Minisat::SimpSolver", ptr %this, i64 0, i32 21, i32 2
   store i32 0, ptr %cap.i.i125, align 4
   br label %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit126
 
 _ZN4cvc58internal7Minisat3vecIcED2Ev.exit126:     ; preds = %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit, %for.cond.preheader.i.i123
-  %71 = load ptr, ptr %subsumption_queue, align 8
-  %cmp.not.i.i.i = icmp eq ptr %71, null
+  %69 = load ptr, ptr %subsumption_queue, align 8
+  %cmp.not.i.i.i = icmp eq ptr %69, null
   br i1 %cmp.not.i.i.i, label %ehcleanup90, label %for.cond.preheader.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit126
   %sz.le.i.i.i = getelementptr inbounds %"class.cvc5::internal::Minisat::SimpSolver", ptr %this, i64 0, i32 20, i32 0, i32 1
   store i32 0, ptr %sz.le.i.i.i, align 8
-  call void @free(ptr noundef nonnull %71) #25
+  call void @free(ptr noundef nonnull %69) #25
   store ptr null, ptr %subsumption_queue, align 8
   %cap.i.i.i = getelementptr inbounds %"class.cvc5::internal::Minisat::SimpSolver", ptr %this, i64 0, i32 20, i32 0, i32 2
   store i32 0, ptr %cap.i.i.i, align 4
   br label %ehcleanup90
 
 ehcleanup90:                                      ; preds = %for.cond.preheader.i.i.i, %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit126, %lpad48
-  %.pn.pn = phi { ptr, i32 } [ %64, %lpad48 ], [ %.pn, %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit126 ], [ %.pn, %for.cond.preheader.i.i.i ]
+  %.pn.pn = phi { ptr, i32 } [ %62, %lpad48 ], [ %.pn, %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit126 ], [ %.pn, %for.cond.preheader.i.i.i ]
   call void @_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %elim_heap) #25
-  %72 = load ptr, ptr %n_occ, align 8
-  %cmp.not.i.i127 = icmp eq ptr %72, null
+  %70 = load ptr, ptr %n_occ, align 8
+  %cmp.not.i.i127 = icmp eq ptr %70, null
   br i1 %cmp.not.i.i127, label %_ZN4cvc58internal7Minisat3vecIiED2Ev.exit, label %for.cond.preheader.i.i128
 
 for.cond.preheader.i.i128:                        ; preds = %ehcleanup90
   %sz.le.i.i129 = getelementptr inbounds %"class.cvc5::internal::Minisat::SimpSolver", ptr %this, i64 0, i32 18, i32 1
   store i32 0, ptr %sz.le.i.i129, align 8
-  call void @free(ptr noundef nonnull %72) #25
+  call void @free(ptr noundef nonnull %70) #25
   store ptr null, ptr %n_occ, align 8
   %cap.i.i130 = getelementptr inbounds %"class.cvc5::internal::Minisat::SimpSolver", ptr %this, i64 0, i32 18, i32 2
   store i32 0, ptr %cap.i.i130, align 4
@@ -939,35 +937,35 @@ for.cond.preheader.i.i128:                        ; preds = %ehcleanup90
 
 _ZN4cvc58internal7Minisat3vecIiED2Ev.exit:        ; preds = %ehcleanup90, %for.cond.preheader.i.i128
   call void @_ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %occurs) #25
-  %73 = load ptr, ptr %touched, align 8
-  %cmp.not.i.i131 = icmp eq ptr %73, null
+  %71 = load ptr, ptr %touched, align 8
+  %cmp.not.i.i131 = icmp eq ptr %71, null
   br i1 %cmp.not.i.i131, label %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit135, label %for.cond.preheader.i.i132
 
 for.cond.preheader.i.i132:                        ; preds = %_ZN4cvc58internal7Minisat3vecIiED2Ev.exit
   %sz.le.i.i133 = getelementptr inbounds %"class.cvc5::internal::Minisat::SimpSolver", ptr %this, i64 0, i32 16, i32 1
   store i32 0, ptr %sz.le.i.i133, align 8
-  call void @free(ptr noundef nonnull %73) #25
+  call void @free(ptr noundef nonnull %71) #25
   store ptr null, ptr %touched, align 8
   %cap.i.i134 = getelementptr inbounds %"class.cvc5::internal::Minisat::SimpSolver", ptr %this, i64 0, i32 16, i32 2
   store i32 0, ptr %cap.i.i134, align 4
   br label %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit135
 
 _ZN4cvc58internal7Minisat3vecIcED2Ev.exit135:     ; preds = %_ZN4cvc58internal7Minisat3vecIiED2Ev.exit, %for.cond.preheader.i.i132
-  %74 = load ptr, ptr %elimclauses, align 8
-  %cmp.not.i.i136 = icmp eq ptr %74, null
+  %72 = load ptr, ptr %elimclauses, align 8
+  %cmp.not.i.i136 = icmp eq ptr %72, null
   br i1 %cmp.not.i.i136, label %ehcleanup95, label %for.cond.preheader.i.i137
 
 for.cond.preheader.i.i137:                        ; preds = %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit135
   %sz.le.i.i138 = getelementptr inbounds %"class.cvc5::internal::Minisat::SimpSolver", ptr %this, i64 0, i32 15, i32 1
   store i32 0, ptr %sz.le.i.i138, align 8
-  call void @free(ptr noundef nonnull %74) #25
+  call void @free(ptr noundef nonnull %72) #25
   store ptr null, ptr %elimclauses, align 8
   %cap.i.i139 = getelementptr inbounds %"class.cvc5::internal::Minisat::SimpSolver", ptr %this, i64 0, i32 15, i32 2
   store i32 0, ptr %cap.i.i139, align 4
   br label %ehcleanup95
 
 ehcleanup95:                                      ; preds = %for.cond.preheader.i.i137, %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit135, %lpad
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %63, %lpad ], [ %.pn.pn, %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit135 ], [ %.pn.pn, %for.cond.preheader.i.i137 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %61, %lpad ], [ %.pn.pn, %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit135 ], [ %.pn.pn, %for.cond.preheader.i.i137 ]
   call void @_ZN4cvc58internal7Minisat6SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(850) %this) #25
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }

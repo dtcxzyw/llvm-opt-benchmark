@@ -285,8 +285,7 @@ declare void @_ZN6google8protobuf13SourceContext5ClearEv(ptr noundef nonnull ali
 define void @_ZN6google8protobuf4TypeC2EPNS0_5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %this, ptr noundef %arena) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %0 = ptrtoint ptr %arena to i64
-  store i64 %0, ptr %_internal_metadata_.i.i, align 8
+  store ptr %arena, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf4TypeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %arrayinit.cur.i.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
   %arena_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -315,35 +314,34 @@ declare i32 @__gxx_personality_v0(...)
 define void @_ZN6google8protobuf4TypeC2EPNS0_5ArenaERKS1_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %arena, ptr noundef nonnull align 8 dereferenceable(128) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %0 = ptrtoint ptr %arena to i64
-  store i64 %0, ptr %_internal_metadata_.i.i, align 8
+  store ptr %arena, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf4TypeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %from, i64 0, i32 1
-  %1 = load i64, ptr %_internal_metadata_2, align 8
-  %and.i32 = and i64 %1, 1
+  %0 = load i64, ptr %_internal_metadata_2, align 8
+  %and.i32 = and i64 %0, 1
   %tobool.i33.not = icmp eq i64 %and.i32, 0
   br i1 %tobool.i33.not, label %invoke.cont3, label %if.then.i26
 
 if.then.i26:                                      ; preds = %entry
-  %and.i = and i64 %1, -2
-  %2 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %and.i = and i64 %0, -2
+  %1 = inttoptr i64 %and.i to ptr
+  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %1, i64 0, i32 1
   tail call void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %if.then.i26, %entry
-  %3 = getelementptr inbounds %"class.google::protobuf::Type", ptr %this, i64 0, i32 1
-  %4 = getelementptr inbounds %"class.google::protobuf::Type", ptr %from, i64 0, i32 1
-  %5 = load i32, ptr %4, align 8
-  store i32 %5, ptr %3, align 8
+  %2 = getelementptr inbounds %"class.google::protobuf::Type", ptr %this, i64 0, i32 1
+  %3 = getelementptr inbounds %"class.google::protobuf::Type", ptr %from, i64 0, i32 1
+  %4 = load i32, ptr %3, align 8
+  store i32 %4, ptr %2, align 8
   %_cached_size_.i = getelementptr inbounds %"class.google::protobuf::Type", ptr %this, i64 0, i32 1, i32 0, i32 1
   %fields_.i = getelementptr inbounds %"class.google::protobuf::Type", ptr %this, i64 0, i32 1, i32 0, i32 2
   %arena_.i.i.i = getelementptr inbounds %"class.google::protobuf::Type", ptr %this, i64 0, i32 1, i32 0, i32 2, i32 0, i32 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %_cached_size_.i, i8 0, i64 20, i1 false)
   store ptr %arena, ptr %arena_.i.i.i, align 8
   %current_size_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::Type", ptr %from, i64 0, i32 1, i32 0, i32 2, i32 0, i32 1
-  %6 = load i32, ptr %current_size_.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp eq i32 %6, 0
+  %5 = load i32, ptr %current_size_.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i = icmp eq i32 %5, 0
   br i1 %cmp.i.i.i.i.i, label %.noexc17, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont3
@@ -357,8 +355,8 @@ if.end.i.i.i:                                     ; preds = %invoke.cont3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %oneofs_.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i18, align 8
   %current_size_.i.i.i.i.i19 = getelementptr inbounds %"class.google::protobuf::Type", ptr %from, i64 0, i32 1, i32 0, i32 3, i32 0, i32 1
-  %7 = load i32, ptr %current_size_.i.i.i.i.i19, align 8
-  %cmp.i.i.i.i.i20 = icmp eq i32 %7, 0
+  %6 = load i32, ptr %current_size_.i.i.i.i.i19, align 8
+  %cmp.i.i.i.i.i20 = icmp eq i32 %6, 0
   br i1 %cmp.i.i.i.i.i20, label %invoke.cont.i, label %if.end.i.i.i21
 
 if.end.i.i.i21:                                   ; preds = %.noexc17
@@ -372,8 +370,8 @@ invoke.cont.i:                                    ; preds = %.noexc17, %if.end.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %options_.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i23, align 8
   %current_size_.i.i.i.i.i24 = getelementptr inbounds %"class.google::protobuf::Type", ptr %from, i64 0, i32 1, i32 0, i32 4, i32 0, i32 1
-  %8 = load i32, ptr %current_size_.i.i.i.i.i24, align 8
-  %cmp.i.i.i.i.i25 = icmp eq i32 %8, 0
+  %7 = load i32, ptr %current_size_.i.i.i.i.i24, align 8
+  %cmp.i.i.i.i.i25 = icmp eq i32 %7, 0
   br i1 %cmp.i.i.i.i.i25, label %invoke.cont9.i, label %if.end.i.i.i26
 
 if.end.i.i.i26:                                   ; preds = %invoke.cont.i
@@ -384,9 +382,9 @@ if.end.i.i.i26:                                   ; preds = %invoke.cont.i
 invoke.cont9.i:                                   ; preds = %invoke.cont.i, %if.end.i.i.i26
   %name_.i = getelementptr inbounds %"class.google::protobuf::Type", ptr %this, i64 0, i32 1, i32 0, i32 5
   %name_10.i = getelementptr inbounds %"class.google::protobuf::Type", ptr %from, i64 0, i32 1, i32 0, i32 5
-  %9 = load ptr, ptr %name_10.i, align 8
-  %10 = ptrtoint ptr %9 to i64
-  %and.i.i.i = and i64 %10, 3
+  %8 = load ptr, ptr %name_10.i, align 8
+  %9 = ptrtoint ptr %8 to i64
+  %and.i.i.i = and i64 %9, 3
   %cmp.i.i.i = icmp eq i64 %and.i.i.i, 0
   br i1 %cmp.i.i.i, label %invoke.cont12.i, label %cond.false.i.i
 
@@ -395,13 +393,13 @@ cond.false.i.i:                                   ; preds = %invoke.cont9.i
           to label %invoke.cont12.i unwind label %lpad11.i
 
 invoke.cont12.i:                                  ; preds = %invoke.cont9.i, %cond.false.i.i
-  %retval.sroa.0.0.i.i = phi ptr [ %9, %invoke.cont9.i ], [ %call2.i.i28, %cond.false.i.i ]
+  %retval.sroa.0.0.i.i = phi ptr [ %8, %invoke.cont9.i ], [ %call2.i.i28, %cond.false.i.i ]
   store ptr %retval.sroa.0.0.i.i, ptr %name_.i, align 8
   %edition_.i = getelementptr inbounds %"class.google::protobuf::Type", ptr %this, i64 0, i32 1, i32 0, i32 6
   %edition_13.i = getelementptr inbounds %"class.google::protobuf::Type", ptr %from, i64 0, i32 1, i32 0, i32 6
-  %11 = load ptr, ptr %edition_13.i, align 8
-  %12 = ptrtoint ptr %11 to i64
-  %and.i.i.i29 = and i64 %12, 3
+  %10 = load ptr, ptr %edition_13.i, align 8
+  %11 = ptrtoint ptr %10 to i64
+  %and.i.i.i29 = and i64 %11, 3
   %cmp.i.i.i30 = icmp eq i64 %and.i.i.i29, 0
   br i1 %cmp.i.i.i30, label %invoke.cont4, label %cond.false.i.i31
 
@@ -410,42 +408,42 @@ cond.false.i.i31:                                 ; preds = %invoke.cont12.i
           to label %invoke.cont4 unwind label %lpad11.i
 
 lpad.i:                                           ; preds = %if.end.i.i.i21
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup15.i
 
 lpad8.i:                                          ; preds = %if.end.i.i.i26
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i
 
 lpad11.i:                                         ; preds = %cond.false.i.i31, %cond.false.i.i
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINS0_6OptionEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %options_.i) #17
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad11.i, %lpad8.i
-  %.pn = phi { ptr, i32 } [ %15, %lpad11.i ], [ %14, %lpad8.i ]
+  %.pn = phi { ptr, i32 } [ %14, %lpad11.i ], [ %13, %lpad8.i ]
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %oneofs_.i) #17
   br label %ehcleanup15.i
 
 ehcleanup15.i:                                    ; preds = %ehcleanup.i, %lpad.i
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup.i ], [ %13, %lpad.i ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup.i ], [ %12, %lpad.i ]
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINS0_5FieldEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %fields_.i) #17
   resume { ptr, i32 } %.pn.pn
 
 invoke.cont4:                                     ; preds = %invoke.cont12.i, %cond.false.i.i31
-  %retval.sroa.0.0.i.i32 = phi ptr [ %11, %invoke.cont12.i ], [ %call2.i.i34, %cond.false.i.i31 ]
+  %retval.sroa.0.0.i.i32 = phi ptr [ %10, %invoke.cont12.i ], [ %call2.i.i34, %cond.false.i.i31 ]
   store ptr %retval.sroa.0.0.i.i32, ptr %edition_.i, align 8
-  %16 = load i32, ptr %3, align 8
-  %and = and i32 %16, 1
+  %15 = load i32, ptr %2, align 8
+  %and = and i32 %15, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %invoke.cont4
   %source_context_ = getelementptr inbounds %"class.google::protobuf::Type", ptr %from, i64 0, i32 1, i32 0, i32 7
-  %17 = load ptr, ptr %source_context_, align 8
+  %16 = load ptr, ptr %source_context_, align 8
   %cmp.not.i = icmp eq ptr %arena, null
   br i1 %cmp.not.i, label %cond.false.i, label %cond.true.i
 
@@ -459,7 +457,7 @@ cond.false.i:                                     ; preds = %cond.true
 
 cond.end.i:                                       ; preds = %cond.true.i, %cond.false.i
   %cond.i = phi ptr [ %call2.i.i37, %cond.true.i ], [ %call1.i38, %cond.false.i ]
-  tail call void @_ZN6google8protobuf13SourceContextC1EPNS0_5ArenaERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %cond.i, ptr noundef %arena, ptr noundef nonnull align 8 dereferenceable(32) %17)
+  tail call void @_ZN6google8protobuf13SourceContextC1EPNS0_5ArenaERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %cond.i, ptr noundef %arena, ptr noundef nonnull align 8 dereferenceable(32) %16)
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.end.i, %invoke.cont4
@@ -467,9 +465,9 @@ cond.end:                                         ; preds = %cond.end.i, %invoke
   %source_context_8 = getelementptr inbounds %"class.google::protobuf::Type", ptr %this, i64 0, i32 1, i32 0, i32 7
   store ptr %cond, ptr %source_context_8, align 8
   %syntax_ = getelementptr inbounds %"class.google::protobuf::Type", ptr %from, i64 0, i32 1, i32 0, i32 8
-  %18 = load i32, ptr %syntax_, align 8
+  %17 = load i32, ptr %syntax_, align 8
   %syntax_9 = getelementptr inbounds %"class.google::protobuf::Type", ptr %this, i64 0, i32 1, i32 0, i32 8
-  store i32 %18, ptr %syntax_9, align 8
+  store i32 %17, ptr %syntax_9, align 8
   ret void
 }
 
@@ -1534,12 +1532,11 @@ declare { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15
 define void @_ZN6google8protobuf5FieldC2EPNS0_5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %this, ptr noundef %arena) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %0 = ptrtoint ptr %arena to i64
-  store i64 %0, ptr %_internal_metadata_.i.i, align 8
+  store ptr %arena, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf5FieldE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %1 = getelementptr inbounds %"class.google::protobuf::Field", ptr %this, i64 0, i32 1
+  %0 = getelementptr inbounds %"class.google::protobuf::Field", ptr %this, i64 0, i32 1
   %arena_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::Field", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i.i, align 8
   %name_.i.i = getelementptr inbounds %"class.google::protobuf::Field", ptr %this, i64 0, i32 1, i32 0, i32 1
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %name_.i.i, align 8
@@ -1560,43 +1557,42 @@ invoke.cont:
 define void @_ZN6google8protobuf5FieldC2EPNS0_5ArenaERKS1_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %arena, ptr noundef nonnull align 8 dereferenceable(96) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %0 = ptrtoint ptr %arena to i64
-  store i64 %0, ptr %_internal_metadata_.i.i, align 8
+  store ptr %arena, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf5FieldE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %from, i64 0, i32 1
-  %1 = load i64, ptr %_internal_metadata_2, align 8
-  %and.i22 = and i64 %1, 1
+  %0 = load i64, ptr %_internal_metadata_2, align 8
+  %and.i22 = and i64 %0, 1
   %tobool.i23.not = icmp eq i64 %and.i22, 0
   br i1 %tobool.i23.not, label %invoke.cont3, label %if.then.i13
 
 if.then.i13:                                      ; preds = %entry
-  %and.i = and i64 %1, -2
-  %2 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %and.i = and i64 %0, -2
+  %1 = inttoptr i64 %and.i to ptr
+  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %1, i64 0, i32 1
   tail call void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %if.then.i13, %entry
-  %3 = getelementptr inbounds %"class.google::protobuf::Field", ptr %this, i64 0, i32 1
+  %2 = getelementptr inbounds %"class.google::protobuf::Field", ptr %this, i64 0, i32 1
   %arena_.i.i.i = getelementptr inbounds %"class.google::protobuf::Field", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i, align 8
   %current_size_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::Field", ptr %from, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %4 = load i32, ptr %current_size_.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp eq i32 %4, 0
+  %3 = load i32, ptr %current_size_.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i = icmp eq i32 %3, 0
   br i1 %cmp.i.i.i.i.i, label %.noexc17, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont3
-  %5 = getelementptr inbounds %"class.google::protobuf::Field", ptr %from, i64 0, i32 1
-  tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase24MergeFromConcreteMessageERKS2_PFPvPNS0_5ArenaEPKvE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull @_ZN6google8protobuf5Arena13CopyConstructINS0_6OptionEEEPvPS1_PKv)
+  %4 = getelementptr inbounds %"class.google::protobuf::Field", ptr %from, i64 0, i32 1
+  tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase24MergeFromConcreteMessageERKS2_PFPvPNS0_5ArenaEPKvE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull @_ZN6google8protobuf5Arena13CopyConstructINS0_6OptionEEEPvPS1_PKv)
   br label %.noexc17
 
 .noexc17:                                         ; preds = %if.end.i.i.i, %invoke.cont3
   %name_.i = getelementptr inbounds %"class.google::protobuf::Field", ptr %this, i64 0, i32 1, i32 0, i32 1
   %name_3.i = getelementptr inbounds %"class.google::protobuf::Field", ptr %from, i64 0, i32 1, i32 0, i32 1
-  %6 = load ptr, ptr %name_3.i, align 8
-  %7 = ptrtoint ptr %6 to i64
-  %and.i.i.i = and i64 %7, 3
+  %5 = load ptr, ptr %name_3.i, align 8
+  %6 = ptrtoint ptr %5 to i64
+  %and.i.i.i = and i64 %6, 3
   %cmp.i.i.i = icmp eq i64 %and.i.i.i, 0
   br i1 %cmp.i.i.i, label %invoke.cont.i, label %cond.false.i.i
 
@@ -1605,13 +1601,13 @@ cond.false.i.i:                                   ; preds = %.noexc17
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc17, %cond.false.i.i
-  %retval.sroa.0.0.i.i = phi ptr [ %6, %.noexc17 ], [ %call2.i.i13, %cond.false.i.i ]
+  %retval.sroa.0.0.i.i = phi ptr [ %5, %.noexc17 ], [ %call2.i.i13, %cond.false.i.i ]
   store ptr %retval.sroa.0.0.i.i, ptr %name_.i, align 8
   %type_url_.i = getelementptr inbounds %"class.google::protobuf::Field", ptr %this, i64 0, i32 1, i32 0, i32 2
   %type_url_4.i = getelementptr inbounds %"class.google::protobuf::Field", ptr %from, i64 0, i32 1, i32 0, i32 2
-  %8 = load ptr, ptr %type_url_4.i, align 8
-  %9 = ptrtoint ptr %8 to i64
-  %and.i.i.i14 = and i64 %9, 3
+  %7 = load ptr, ptr %type_url_4.i, align 8
+  %8 = ptrtoint ptr %7 to i64
+  %and.i.i.i14 = and i64 %8, 3
   %cmp.i.i.i15 = icmp eq i64 %and.i.i.i14, 0
   br i1 %cmp.i.i.i15, label %invoke.cont5.i, label %cond.false.i.i16
 
@@ -1620,13 +1616,13 @@ cond.false.i.i16:                                 ; preds = %invoke.cont.i
           to label %invoke.cont5.i unwind label %lpad.i
 
 invoke.cont5.i:                                   ; preds = %invoke.cont.i, %cond.false.i.i16
-  %retval.sroa.0.0.i.i17 = phi ptr [ %8, %invoke.cont.i ], [ %call2.i.i19, %cond.false.i.i16 ]
+  %retval.sroa.0.0.i.i17 = phi ptr [ %7, %invoke.cont.i ], [ %call2.i.i19, %cond.false.i.i16 ]
   store ptr %retval.sroa.0.0.i.i17, ptr %type_url_.i, align 8
   %json_name_.i = getelementptr inbounds %"class.google::protobuf::Field", ptr %this, i64 0, i32 1, i32 0, i32 3
   %json_name_6.i = getelementptr inbounds %"class.google::protobuf::Field", ptr %from, i64 0, i32 1, i32 0, i32 3
-  %10 = load ptr, ptr %json_name_6.i, align 8
-  %11 = ptrtoint ptr %10 to i64
-  %and.i.i.i21 = and i64 %11, 3
+  %9 = load ptr, ptr %json_name_6.i, align 8
+  %10 = ptrtoint ptr %9 to i64
+  %and.i.i.i21 = and i64 %10, 3
   %cmp.i.i.i22 = icmp eq i64 %and.i.i.i21, 0
   br i1 %cmp.i.i.i22, label %invoke.cont7.i, label %cond.false.i.i23
 
@@ -1635,12 +1631,12 @@ cond.false.i.i23:                                 ; preds = %invoke.cont5.i
           to label %invoke.cont7.i unwind label %lpad.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont5.i, %cond.false.i.i23
-  %retval.sroa.0.0.i.i24 = phi ptr [ %10, %invoke.cont5.i ], [ %call2.i.i26, %cond.false.i.i23 ]
+  %retval.sroa.0.0.i.i24 = phi ptr [ %9, %invoke.cont5.i ], [ %call2.i.i26, %cond.false.i.i23 ]
   store ptr %retval.sroa.0.0.i.i24, ptr %json_name_.i, align 8
   %default_value_8.i = getelementptr inbounds %"class.google::protobuf::Field", ptr %from, i64 0, i32 1, i32 0, i32 4
-  %12 = load ptr, ptr %default_value_8.i, align 8
-  %13 = ptrtoint ptr %12 to i64
-  %and.i.i.i28 = and i64 %13, 3
+  %11 = load ptr, ptr %default_value_8.i, align 8
+  %12 = ptrtoint ptr %11 to i64
+  %and.i.i.i28 = and i64 %12, 3
   %cmp.i.i.i29 = icmp eq i64 %and.i.i.i28, 0
   br i1 %cmp.i.i.i29, label %_ZN6google8protobuf5Field5Impl_C2ENS0_8internal18InternalVisibilityEPNS0_5ArenaERKS2_.exit, label %cond.false.i.i30
 
@@ -1649,13 +1645,13 @@ cond.false.i.i30:                                 ; preds = %invoke.cont7.i
           to label %_ZN6google8protobuf5Field5Impl_C2ENS0_8internal18InternalVisibilityEPNS0_5ArenaERKS2_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %cond.false.i.i30, %cond.false.i.i23, %cond.false.i.i16, %cond.false.i.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINS0_6OptionEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  resume { ptr, i32 } %14
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINS0_6OptionEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #17
+  resume { ptr, i32 } %13
 
 _ZN6google8protobuf5Field5Impl_C2ENS0_8internal18InternalVisibilityEPNS0_5ArenaERKS2_.exit: ; preds = %invoke.cont7.i, %cond.false.i.i30
-  %retval.sroa.0.0.i.i31 = phi ptr [ %12, %invoke.cont7.i ], [ %call2.i.i33, %cond.false.i.i30 ]
+  %retval.sroa.0.0.i.i31 = phi ptr [ %11, %invoke.cont7.i ], [ %call2.i.i33, %cond.false.i.i30 ]
   %default_value_.i = getelementptr inbounds %"class.google::protobuf::Field", ptr %this, i64 0, i32 1, i32 0, i32 4
   store ptr %retval.sroa.0.0.i.i31, ptr %default_value_.i, align 8
   %_cached_size_.i = getelementptr inbounds %"class.google::protobuf::Field", ptr %this, i64 0, i32 1, i32 0, i32 10
@@ -2835,8 +2831,7 @@ if.end:                                           ; preds = %if.then, %entry
 define void @_ZN6google8protobuf4EnumC2EPNS0_5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %this, ptr noundef %arena) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %0 = ptrtoint ptr %arena to i64
-  store i64 %0, ptr %_internal_metadata_.i.i, align 8
+  store ptr %arena, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf4EnumE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %arrayinit.cur.i.i.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
   %arena_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -2859,35 +2854,34 @@ invoke.cont:
 define void @_ZN6google8protobuf4EnumC2EPNS0_5ArenaERKS1_(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %arena, ptr noundef nonnull align 8 dereferenceable(104) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %0 = ptrtoint ptr %arena to i64
-  store i64 %0, ptr %_internal_metadata_.i.i, align 8
+  store ptr %arena, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf4EnumE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %from, i64 0, i32 1
-  %1 = load i64, ptr %_internal_metadata_2, align 8
-  %and.i32 = and i64 %1, 1
+  %0 = load i64, ptr %_internal_metadata_2, align 8
+  %and.i32 = and i64 %0, 1
   %tobool.i33.not = icmp eq i64 %and.i32, 0
   br i1 %tobool.i33.not, label %invoke.cont3, label %if.then.i21
 
 if.then.i21:                                      ; preds = %entry
-  %and.i = and i64 %1, -2
-  %2 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %and.i = and i64 %0, -2
+  %1 = inttoptr i64 %and.i to ptr
+  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %1, i64 0, i32 1
   tail call void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %if.then.i21, %entry
-  %3 = getelementptr inbounds %"class.google::protobuf::Enum", ptr %this, i64 0, i32 1
-  %4 = getelementptr inbounds %"class.google::protobuf::Enum", ptr %from, i64 0, i32 1
-  %5 = load i32, ptr %4, align 8
-  store i32 %5, ptr %3, align 8
+  %2 = getelementptr inbounds %"class.google::protobuf::Enum", ptr %this, i64 0, i32 1
+  %3 = getelementptr inbounds %"class.google::protobuf::Enum", ptr %from, i64 0, i32 1
+  %4 = load i32, ptr %3, align 8
+  store i32 %4, ptr %2, align 8
   %_cached_size_.i = getelementptr inbounds %"class.google::protobuf::Enum", ptr %this, i64 0, i32 1, i32 0, i32 1
   %enumvalue_.i = getelementptr inbounds %"class.google::protobuf::Enum", ptr %this, i64 0, i32 1, i32 0, i32 2
   %arena_.i.i.i = getelementptr inbounds %"class.google::protobuf::Enum", ptr %this, i64 0, i32 1, i32 0, i32 2, i32 0, i32 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %_cached_size_.i, i8 0, i64 20, i1 false)
   store ptr %arena, ptr %arena_.i.i.i, align 8
   %current_size_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::Enum", ptr %from, i64 0, i32 1, i32 0, i32 2, i32 0, i32 1
-  %6 = load i32, ptr %current_size_.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp eq i32 %6, 0
+  %5 = load i32, ptr %current_size_.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i = icmp eq i32 %5, 0
   br i1 %cmp.i.i.i.i.i, label %.noexc27, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont3
@@ -2901,8 +2895,8 @@ if.end.i.i.i:                                     ; preds = %invoke.cont3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %options_.i, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i15, align 8
   %current_size_.i.i.i.i.i16 = getelementptr inbounds %"class.google::protobuf::Enum", ptr %from, i64 0, i32 1, i32 0, i32 3, i32 0, i32 1
-  %7 = load i32, ptr %current_size_.i.i.i.i.i16, align 8
-  %cmp.i.i.i.i.i17 = icmp eq i32 %7, 0
+  %6 = load i32, ptr %current_size_.i.i.i.i.i16, align 8
+  %cmp.i.i.i.i.i17 = icmp eq i32 %6, 0
   br i1 %cmp.i.i.i.i.i17, label %invoke.cont.i, label %if.end.i.i.i18
 
 if.end.i.i.i18:                                   ; preds = %.noexc27
@@ -2913,9 +2907,9 @@ if.end.i.i.i18:                                   ; preds = %.noexc27
 invoke.cont.i:                                    ; preds = %.noexc27, %if.end.i.i.i18
   %name_.i = getelementptr inbounds %"class.google::protobuf::Enum", ptr %this, i64 0, i32 1, i32 0, i32 4
   %name_6.i = getelementptr inbounds %"class.google::protobuf::Enum", ptr %from, i64 0, i32 1, i32 0, i32 4
-  %8 = load ptr, ptr %name_6.i, align 8
-  %9 = ptrtoint ptr %8 to i64
-  %and.i.i.i = and i64 %9, 3
+  %7 = load ptr, ptr %name_6.i, align 8
+  %8 = ptrtoint ptr %7 to i64
+  %and.i.i.i = and i64 %8, 3
   %cmp.i.i.i = icmp eq i64 %and.i.i.i, 0
   br i1 %cmp.i.i.i, label %invoke.cont8.i, label %cond.false.i.i
 
@@ -2924,13 +2918,13 @@ cond.false.i.i:                                   ; preds = %invoke.cont.i
           to label %invoke.cont8.i unwind label %lpad7.i
 
 invoke.cont8.i:                                   ; preds = %invoke.cont.i, %cond.false.i.i
-  %retval.sroa.0.0.i.i = phi ptr [ %8, %invoke.cont.i ], [ %call2.i.i20, %cond.false.i.i ]
+  %retval.sroa.0.0.i.i = phi ptr [ %7, %invoke.cont.i ], [ %call2.i.i20, %cond.false.i.i ]
   store ptr %retval.sroa.0.0.i.i, ptr %name_.i, align 8
   %edition_.i = getelementptr inbounds %"class.google::protobuf::Enum", ptr %this, i64 0, i32 1, i32 0, i32 5
   %edition_9.i = getelementptr inbounds %"class.google::protobuf::Enum", ptr %from, i64 0, i32 1, i32 0, i32 5
-  %10 = load ptr, ptr %edition_9.i, align 8
-  %11 = ptrtoint ptr %10 to i64
-  %and.i.i.i21 = and i64 %11, 3
+  %9 = load ptr, ptr %edition_9.i, align 8
+  %10 = ptrtoint ptr %9 to i64
+  %and.i.i.i21 = and i64 %10, 3
   %cmp.i.i.i22 = icmp eq i64 %and.i.i.i21, 0
   br i1 %cmp.i.i.i22, label %invoke.cont4, label %cond.false.i.i23
 
@@ -2939,32 +2933,32 @@ cond.false.i.i23:                                 ; preds = %invoke.cont8.i
           to label %invoke.cont4 unwind label %lpad7.i
 
 lpad.i:                                           ; preds = %if.end.i.i.i18
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i
 
 lpad7.i:                                          ; preds = %cond.false.i.i23, %cond.false.i.i
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINS0_6OptionEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %options_.i) #17
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad7.i, %lpad.i
-  %.pn = phi { ptr, i32 } [ %13, %lpad7.i ], [ %12, %lpad.i ]
+  %.pn = phi { ptr, i32 } [ %12, %lpad7.i ], [ %11, %lpad.i ]
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINS0_9EnumValueEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %enumvalue_.i) #17
   resume { ptr, i32 } %.pn
 
 invoke.cont4:                                     ; preds = %invoke.cont8.i, %cond.false.i.i23
-  %retval.sroa.0.0.i.i24 = phi ptr [ %10, %invoke.cont8.i ], [ %call2.i.i26, %cond.false.i.i23 ]
+  %retval.sroa.0.0.i.i24 = phi ptr [ %9, %invoke.cont8.i ], [ %call2.i.i26, %cond.false.i.i23 ]
   store ptr %retval.sroa.0.0.i.i24, ptr %edition_.i, align 8
-  %14 = load i32, ptr %3, align 8
-  %and = and i32 %14, 1
+  %13 = load i32, ptr %2, align 8
+  %and = and i32 %13, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %invoke.cont4
   %source_context_ = getelementptr inbounds %"class.google::protobuf::Enum", ptr %from, i64 0, i32 1, i32 0, i32 6
-  %15 = load ptr, ptr %source_context_, align 8
+  %14 = load ptr, ptr %source_context_, align 8
   %cmp.not.i = icmp eq ptr %arena, null
   br i1 %cmp.not.i, label %cond.false.i, label %cond.true.i
 
@@ -2978,7 +2972,7 @@ cond.false.i:                                     ; preds = %cond.true
 
 cond.end.i:                                       ; preds = %cond.true.i, %cond.false.i
   %cond.i = phi ptr [ %call2.i.i29, %cond.true.i ], [ %call1.i30, %cond.false.i ]
-  tail call void @_ZN6google8protobuf13SourceContextC1EPNS0_5ArenaERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %cond.i, ptr noundef %arena, ptr noundef nonnull align 8 dereferenceable(32) %15)
+  tail call void @_ZN6google8protobuf13SourceContextC1EPNS0_5ArenaERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %cond.i, ptr noundef %arena, ptr noundef nonnull align 8 dereferenceable(32) %14)
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.end.i, %invoke.cont4
@@ -2986,9 +2980,9 @@ cond.end:                                         ; preds = %cond.end.i, %invoke
   %source_context_8 = getelementptr inbounds %"class.google::protobuf::Enum", ptr %this, i64 0, i32 1, i32 0, i32 6
   store ptr %cond, ptr %source_context_8, align 8
   %syntax_ = getelementptr inbounds %"class.google::protobuf::Enum", ptr %from, i64 0, i32 1, i32 0, i32 7
-  %16 = load i32, ptr %syntax_, align 8
+  %15 = load i32, ptr %syntax_, align 8
   %syntax_9 = getelementptr inbounds %"class.google::protobuf::Enum", ptr %this, i64 0, i32 1, i32 0, i32 7
-  store i32 %16, ptr %syntax_9, align 8
+  store i32 %15, ptr %syntax_9, align 8
   ret void
 }
 
@@ -3892,12 +3886,11 @@ entry:
 define void @_ZN6google8protobuf9EnumValueC2EPNS0_5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, ptr noundef %arena) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %0 = ptrtoint ptr %arena to i64
-  store i64 %0, ptr %_internal_metadata_.i.i, align 8
+  store ptr %arena, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf9EnumValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %1 = getelementptr inbounds %"class.google::protobuf::EnumValue", ptr %this, i64 0, i32 1
+  %0 = getelementptr inbounds %"class.google::protobuf::EnumValue", ptr %this, i64 0, i32 1
   %arena_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::EnumValue", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i.i, align 8
   %name_.i.i = getelementptr inbounds %"class.google::protobuf::EnumValue", ptr %this, i64 0, i32 1, i32 0, i32 1
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %name_.i.i, align 8
@@ -3912,42 +3905,41 @@ invoke.cont:
 define void @_ZN6google8protobuf9EnumValueC2EPNS0_5ArenaERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %arena, ptr noundef nonnull align 8 dereferenceable(56) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %0 = ptrtoint ptr %arena to i64
-  store i64 %0, ptr %_internal_metadata_.i.i, align 8
+  store ptr %arena, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf9EnumValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %from, i64 0, i32 1
-  %1 = load i64, ptr %_internal_metadata_2, align 8
-  %and.i22 = and i64 %1, 1
+  %0 = load i64, ptr %_internal_metadata_2, align 8
+  %and.i22 = and i64 %0, 1
   %tobool.i23.not = icmp eq i64 %and.i22, 0
   br i1 %tobool.i23.not, label %invoke.cont3, label %if.then.i13
 
 if.then.i13:                                      ; preds = %entry
-  %and.i = and i64 %1, -2
-  %2 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %and.i = and i64 %0, -2
+  %1 = inttoptr i64 %and.i to ptr
+  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %1, i64 0, i32 1
   tail call void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %if.then.i13, %entry
-  %3 = getelementptr inbounds %"class.google::protobuf::EnumValue", ptr %this, i64 0, i32 1
+  %2 = getelementptr inbounds %"class.google::protobuf::EnumValue", ptr %this, i64 0, i32 1
   %arena_.i.i.i = getelementptr inbounds %"class.google::protobuf::EnumValue", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   store ptr %arena, ptr %arena_.i.i.i, align 8
   %current_size_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::EnumValue", ptr %from, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %4 = load i32, ptr %current_size_.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp eq i32 %4, 0
+  %3 = load i32, ptr %current_size_.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i = icmp eq i32 %3, 0
   br i1 %cmp.i.i.i.i.i, label %.noexc17, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont3
-  %5 = getelementptr inbounds %"class.google::protobuf::EnumValue", ptr %from, i64 0, i32 1
-  tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase24MergeFromConcreteMessageERKS2_PFPvPNS0_5ArenaEPKvE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull @_ZN6google8protobuf5Arena13CopyConstructINS0_6OptionEEEPvPS1_PKv)
+  %4 = getelementptr inbounds %"class.google::protobuf::EnumValue", ptr %from, i64 0, i32 1
+  tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase24MergeFromConcreteMessageERKS2_PFPvPNS0_5ArenaEPKvE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull @_ZN6google8protobuf5Arena13CopyConstructINS0_6OptionEEEPvPS1_PKv)
   br label %.noexc17
 
 .noexc17:                                         ; preds = %if.end.i.i.i, %invoke.cont3
   %name_3.i = getelementptr inbounds %"class.google::protobuf::EnumValue", ptr %from, i64 0, i32 1, i32 0, i32 1
-  %6 = load ptr, ptr %name_3.i, align 8
-  %7 = ptrtoint ptr %6 to i64
-  %and.i.i.i = and i64 %7, 3
+  %5 = load ptr, ptr %name_3.i, align 8
+  %6 = ptrtoint ptr %5 to i64
+  %and.i.i.i = and i64 %6, 3
   %cmp.i.i.i = icmp eq i64 %and.i.i.i, 0
   br i1 %cmp.i.i.i, label %_ZN6google8protobuf9EnumValue5Impl_C2ENS0_8internal18InternalVisibilityEPNS0_5ArenaERKS2_.exit, label %cond.false.i.i
 
@@ -3956,21 +3948,21 @@ cond.false.i.i:                                   ; preds = %.noexc17
           to label %_ZN6google8protobuf9EnumValue5Impl_C2ENS0_8internal18InternalVisibilityEPNS0_5ArenaERKS2_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %cond.false.i.i
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINS0_6OptionEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  resume { ptr, i32 } %8
+  tail call void @_ZN6google8protobuf16RepeatedPtrFieldINS0_6OptionEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #17
+  resume { ptr, i32 } %7
 
 _ZN6google8protobuf9EnumValue5Impl_C2ENS0_8internal18InternalVisibilityEPNS0_5ArenaERKS2_.exit: ; preds = %.noexc17, %cond.false.i.i
-  %retval.sroa.0.0.i.i = phi ptr [ %6, %.noexc17 ], [ %call2.i.i7, %cond.false.i.i ]
+  %retval.sroa.0.0.i.i = phi ptr [ %5, %.noexc17 ], [ %call2.i.i7, %cond.false.i.i ]
   %name_.i = getelementptr inbounds %"class.google::protobuf::EnumValue", ptr %this, i64 0, i32 1, i32 0, i32 1
   store ptr %retval.sroa.0.0.i.i, ptr %name_.i, align 8
   %_cached_size_.i = getelementptr inbounds %"class.google::protobuf::EnumValue", ptr %this, i64 0, i32 1, i32 0, i32 3
   store i32 0, ptr %_cached_size_.i, align 4
   %number_ = getelementptr inbounds %"class.google::protobuf::EnumValue", ptr %from, i64 0, i32 1, i32 0, i32 2
-  %9 = load i32, ptr %number_, align 8
+  %8 = load i32, ptr %number_, align 8
   %number_5 = getelementptr inbounds %"class.google::protobuf::EnumValue", ptr %this, i64 0, i32 1, i32 0, i32 2
-  store i32 %9, ptr %number_5, align 8
+  store i32 %8, ptr %number_5, align 8
   ret void
 }
 
@@ -4607,8 +4599,7 @@ declare void @_ZN6google8protobuf3Any5ClearEv(ptr noundef nonnull align 8 derefe
 define void @_ZN6google8protobuf6OptionC2EPNS0_5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef %arena) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %0 = ptrtoint ptr %arena to i64
-  store i64 %0, ptr %_internal_metadata_.i.i, align 8
+  store ptr %arena, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %arrayinit.cur.i.i.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %arrayinit.cur.i.i.ptr.i, align 8
@@ -4625,53 +4616,52 @@ invoke.cont:
 define void @_ZN6google8protobuf6OptionC2EPNS0_5ArenaERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %arena, ptr noundef nonnull align 8 dereferenceable(40) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %0 = ptrtoint ptr %arena to i64
-  store i64 %0, ptr %_internal_metadata_.i.i, align 8
+  store ptr %arena, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %from, i64 0, i32 1
-  %1 = load i64, ptr %_internal_metadata_2, align 8
-  %and.i31 = and i64 %1, 1
+  %0 = load i64, ptr %_internal_metadata_2, align 8
+  %and.i31 = and i64 %0, 1
   %tobool.i32.not = icmp eq i64 %and.i31, 0
   br i1 %tobool.i32.not, label %invoke.cont3, label %if.then.i18
 
 if.then.i18:                                      ; preds = %entry
-  %and.i = and i64 %1, -2
-  %2 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %and.i = and i64 %0, -2
+  %1 = inttoptr i64 %and.i to ptr
+  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %1, i64 0, i32 1
   tail call void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %if.then.i18, %entry
-  %3 = getelementptr inbounds %"class.google::protobuf::Option", ptr %this, i64 0, i32 1
-  %4 = getelementptr inbounds %"class.google::protobuf::Option", ptr %from, i64 0, i32 1
-  %5 = load i32, ptr %4, align 8
-  store i32 %5, ptr %3, align 8
+  %2 = getelementptr inbounds %"class.google::protobuf::Option", ptr %this, i64 0, i32 1
+  %3 = getelementptr inbounds %"class.google::protobuf::Option", ptr %from, i64 0, i32 1
+  %4 = load i32, ptr %3, align 8
+  store i32 %4, ptr %2, align 8
   %_cached_size_.i = getelementptr inbounds %"class.google::protobuf::Option", ptr %this, i64 0, i32 1, i32 0, i32 1
   store i32 0, ptr %_cached_size_.i, align 4
   %name_.i = getelementptr inbounds %"class.google::protobuf::Option", ptr %this, i64 0, i32 1, i32 0, i32 2
   %name_3.i = getelementptr inbounds %"class.google::protobuf::Option", ptr %from, i64 0, i32 1, i32 0, i32 2
-  %6 = load ptr, ptr %name_3.i, align 8
-  %7 = ptrtoint ptr %6 to i64
-  %and.i.i.i = and i64 %7, 3
+  %5 = load ptr, ptr %name_3.i, align 8
+  %6 = ptrtoint ptr %5 to i64
+  %and.i.i.i = and i64 %6, 3
   %cmp.i.i.i = icmp eq i64 %and.i.i.i, 0
   br i1 %cmp.i.i.i, label %invoke.cont4, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %invoke.cont3
   %call2.i.i7 = tail call ptr @_ZNK6google8protobuf8internal15TaggedStringPtr9ForceCopyEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %name_3.i, ptr noundef %arena)
-  %.pre = load i32, ptr %3, align 8
+  %.pre = load i32, ptr %2, align 8
   br label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %cond.false.i.i, %invoke.cont3
-  %8 = phi i32 [ %5, %invoke.cont3 ], [ %.pre, %cond.false.i.i ]
-  %retval.sroa.0.0.i.i = phi ptr [ %6, %invoke.cont3 ], [ %call2.i.i7, %cond.false.i.i ]
+  %7 = phi i32 [ %4, %invoke.cont3 ], [ %.pre, %cond.false.i.i ]
+  %retval.sroa.0.0.i.i = phi ptr [ %5, %invoke.cont3 ], [ %call2.i.i7, %cond.false.i.i ]
   store ptr %retval.sroa.0.0.i.i, ptr %name_.i, align 8
-  %and = and i32 %8, 1
+  %and = and i32 %7, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %invoke.cont4
   %value_ = getelementptr inbounds %"class.google::protobuf::Option", ptr %from, i64 0, i32 1, i32 0, i32 3
-  %9 = load ptr, ptr %value_, align 8
+  %8 = load ptr, ptr %value_, align 8
   %cmp.not.i = icmp eq ptr %arena, null
   br i1 %cmp.not.i, label %cond.false.i, label %cond.true.i
 
@@ -4685,7 +4675,7 @@ cond.false.i:                                     ; preds = %cond.true
 
 cond.end.i:                                       ; preds = %cond.true.i, %cond.false.i
   %cond.i = phi ptr [ %call2.i.i9, %cond.true.i ], [ %call1.i10, %cond.false.i ]
-  tail call void @_ZN6google8protobuf3AnyC1EPNS0_5ArenaERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %cond.i, ptr noundef %arena, ptr noundef nonnull align 8 dereferenceable(56) %9)
+  tail call void @_ZN6google8protobuf3AnyC1EPNS0_5ArenaERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %cond.i, ptr noundef %arena, ptr noundef nonnull align 8 dereferenceable(56) %8)
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.end.i, %invoke.cont4

@@ -654,14 +654,13 @@ _ZNSt10unique_ptrIN4node9inspector15InspectorSocket8DelegateESt14default_deleteI
   br i1 %cmp.i.not, label %_ZNSt10unique_ptrIN4node9inspector9TcpHolderENS0_15FunctionDeleterIS2_XadL_ZNS2_20DisconnectAndDisposeEPS2_EEEEED2Ev.exit6, label %_ZN4node9inspector12_GLOBAL__N_111HttpHandlerC2EPNS0_15InspectorSocketESt10unique_ptrINS0_9TcpHolderENS_15FunctionDeleterIS6_XadL_ZNS6_20DisconnectAndDisposeEPS6_EEEEE.exit
 
 _ZN4node9inspector12_GLOBAL__N_111HttpHandlerC2EPNS0_15InspectorSocketESt10unique_ptrINS0_9TcpHolderENS_15FunctionDeleterIS6_XadL_ZNS6_20DisconnectAndDisposeEPS6_EEEEE.exit: ; preds = %_ZNSt10unique_ptrIN4node9inspector15InspectorSocket8DelegateESt14default_deleteIS3_EED2Ev.exit
-  %4 = ptrtoint ptr %3 to i64
   %call1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   store ptr null, ptr %call1, align 8
   %call2 = tail call noalias noundef nonnull dereferenceable(448) ptr @_Znwm(i64 noundef 448) #21
   %inspector_.i.i = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %call2, i64 0, i32 1
   store ptr %call1, ptr %inspector_.i.i, align 8
   %tcp_.i.i = getelementptr inbounds %"class.node::inspector::ProtocolHandler", ptr %call2, i64 0, i32 2
-  store i64 %4, ptr %tcp_.i.i, align 8
+  store ptr %3, ptr %tcp_.i.i, align 8
   %handler_.i.i.i = getelementptr inbounds %"class.node::inspector::TcpHolder", ptr %3, i64 0, i32 2
   store ptr %call2, ptr %handler_.i.i.i, align 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_111HttpHandlerE, i64 0, inrange i32 0, i64 2), ptr %call2, align 8
@@ -671,14 +670,14 @@ _ZN4node9inspector12_GLOBAL__N_111HttpHandlerC2EPNS0_15InspectorSocketESt10uniqu
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events_.i, i8 0, i64 24, i1 false)
   %current_header_.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %call2, i64 0, i32 5
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %current_header_.i) #19
-  %5 = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %call2, i64 0, i32 6, i32 0, i32 0, i32 1
-  store i32 0, ptr %5, align 8
+  %4 = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %call2, i64 0, i32 6, i32 0, i32 0, i32 1
+  store i32 0, ptr %4, align 8
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %call2, i64 0, i32 6, i32 0, i32 0, i32 1, i32 0, i32 1
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
   %_M_left.i.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %call2, i64 0, i32 6, i32 0, i32 0, i32 1, i32 0, i32 2
-  store ptr %5, ptr %_M_left.i.i.i.i.i.i, align 8
+  store ptr %4, ptr %_M_left.i.i.i.i.i.i, align 8
   %_M_right.i.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %call2, i64 0, i32 6, i32 0, i32 0, i32 1, i32 0, i32 3
-  store ptr %5, ptr %_M_right.i.i.i.i.i.i, align 8
+  store ptr %4, ptr %_M_right.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %call2, i64 0, i32 6, i32 0, i32 0, i32 1, i32 1
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
   %path_.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %call2, i64 0, i32 7
@@ -695,16 +694,16 @@ _ZN4node9inspector12_GLOBAL__N_111HttpHandlerC2EPNS0_15InspectorSocketESt10uniqu
   store ptr @_ZN4node9inspector12_GLOBAL__N_111HttpHandler17OnMessageCompleteEP18llhttp__internal_s, ptr %on_message_complete.i, align 8
   %on_url.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpHandler", ptr %call2, i64 0, i32 3, i32 1
   store ptr @_ZN4node9inspector12_GLOBAL__N_111HttpHandler6OnPathEP18llhttp__internal_sPKcm, ptr %on_url.i, align 8
-  %6 = load ptr, ptr %call1, align 8
+  %5 = load ptr, ptr %call1, align 8
   store ptr %call2, ptr %call1, align 8
-  %tobool.not.i.i.i = icmp eq ptr %6, null
+  %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %_ZNSt10unique_ptrIN4node9inspector9TcpHolderENS0_15FunctionDeleterIS2_XadL_ZNS2_20DisconnectAndDisposeEPS2_EEEEED2Ev.exit6, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN4node9inspector12_GLOBAL__N_111HttpHandlerC2EPNS0_15InspectorSocketESt10unique_ptrINS0_9TcpHolderENS_15FunctionDeleterIS6_XadL_ZNS6_20DisconnectAndDisposeEPS6_EEEEE.exit
-  %vtable.i.i.i.i.i = load ptr, ptr %6, align 8
+  %vtable.i.i.i.i.i = load ptr, ptr %5, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 5
-  %7 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(24) %6) #19
+  %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(24) %5) #19
   br label %_ZNSt10unique_ptrIN4node9inspector9TcpHolderENS0_15FunctionDeleterIS2_XadL_ZNS2_20DisconnectAndDisposeEPS2_EEEEED2Ev.exit6
 
 _ZNSt10unique_ptrIN4node9inspector9TcpHolderENS0_15FunctionDeleterIS2_XadL_ZNS2_20DisconnectAndDisposeEPS2_EEEEED2Ev.exit6: ; preds = %if.then.i.i.i, %_ZN4node9inspector12_GLOBAL__N_111HttpHandlerC2EPNS0_15InspectorSocketESt10unique_ptrINS0_9TcpHolderENS_15FunctionDeleterIS6_XadL_ZNS6_20DisconnectAndDisposeEPS6_EEEEE.exit, %_ZNSt10unique_ptrIN4node9inspector15InspectorSocket8DelegateESt14default_deleteIS3_EED2Ev.exit
@@ -1220,11 +1219,11 @@ _ZN4node9inspector12_GLOBAL__N_19WsHandlerC2EPNS0_15InspectorSocketESt10unique_p
   store ptr %call24, ptr %handler_.i.i.i, align 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_19WsHandlerE, i64 0, inrange i32 0, i64 2), ptr %call24, align 8
   %OnCloseSent.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WsHandler", ptr %call24, i64 0, i32 1
-  store i64 ptrtoint (ptr @_ZN4node9inspector12_GLOBAL__N_19WsHandler17WaitForCloseReplyEv to i64), ptr %OnCloseSent.i, align 8
+  store ptr @_ZN4node9inspector12_GLOBAL__N_19WsHandler17WaitForCloseReplyEv, ptr %OnCloseSent.i, align 8
   %OnCloseSent.repack1.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WsHandler", ptr %call24, i64 0, i32 1, i32 1
   store i64 0, ptr %OnCloseSent.repack1.i, align 8
   %OnCloseReceived.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WsHandler", ptr %call24, i64 0, i32 2
-  store i64 ptrtoint (ptr @_ZN4node9inspector12_GLOBAL__N_19WsHandler18CloseFrameReceivedEv to i64), ptr %OnCloseReceived.i, align 8
+  store ptr @_ZN4node9inspector12_GLOBAL__N_19WsHandler18CloseFrameReceivedEv, ptr %OnCloseReceived.i, align 8
   %OnCloseReceived.repack2.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WsHandler", ptr %call24, i64 0, i32 2, i32 1
   store i64 0, ptr %OnCloseReceived.repack2.i, align 8
   %dispose_.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WsHandler", ptr %call24, i64 0, i32 3

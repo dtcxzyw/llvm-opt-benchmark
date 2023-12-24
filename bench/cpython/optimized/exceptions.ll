@@ -3101,16 +3101,14 @@ if.end12.i:                                       ; preds = %if.end5.i
   %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %11, i64 0, i32 1
   %12 = load i64, ptr %_gc_prev.i.i, align 8
   %13 = inttoptr i64 %12 to ptr
-  %14 = ptrtoint ptr %add.ptr.i.i.i to i64
-  store i64 %14, ptr %13, align 8
+  store ptr %add.ptr.i.i.i, ptr %13, align 8
   %_gc_prev.i.i.i = getelementptr i8, ptr %5, i64 -8
-  %15 = load i64, ptr %_gc_prev.i.i.i, align 8
-  %and.i.i.i = and i64 %15, 3
+  %14 = load i64, ptr %_gc_prev.i.i.i, align 8
+  %and.i.i.i = and i64 %14, 3
   %or.i.i.i = or i64 %and.i.i.i, %12
   store i64 %or.i.i.i, ptr %_gc_prev.i.i.i, align 8
-  %16 = ptrtoint ptr %11 to i64
-  store i64 %16, ptr %add.ptr.i.i.i, align 8
-  store i64 %14, ptr %_gc_prev.i.i, align 8
+  store ptr %11, ptr %add.ptr.i.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %_gc_prev.i.i, align 8
   br label %if.then2
 
 if.then2:                                         ; preds = %if.end12.i, %if.then.i, %if.end.i.i.i
@@ -3232,16 +3230,14 @@ if.end12:                                         ; preds = %if.end5
   %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %14, i64 0, i32 1
   %15 = load i64, ptr %_gc_prev.i, align 8
   %16 = inttoptr i64 %15 to ptr
-  %17 = ptrtoint ptr %add.ptr.i.i to i64
-  store i64 %17, ptr %16, align 8
+  store ptr %add.ptr.i.i, ptr %16, align 8
   %_gc_prev.i.i = getelementptr i8, ptr %3, i64 -8
-  %18 = load i64, ptr %_gc_prev.i.i, align 8
-  %and.i.i = and i64 %18, 3
+  %17 = load i64, ptr %_gc_prev.i.i, align 8
+  %and.i.i = and i64 %17, 3
   %or.i.i = or i64 %and.i.i, %15
   store i64 %or.i.i, ptr %_gc_prev.i.i, align 8
-  %19 = ptrtoint ptr %14 to i64
-  store i64 %19, ptr %add.ptr.i.i, align 8
-  store i64 %17, ptr %_gc_prev.i, align 8
+  store ptr %14, ptr %add.ptr.i.i, align 8
+  store ptr %add.ptr.i.i, ptr %_gc_prev.i, align 8
   br label %return
 
 return:                                           ; preds = %if.then1.i.i, %if.end.i.i10, %if.then10.i, %if.end5.i, %_Py_NewRef.exit.i, %if.end, %if.end.i.i, %if.then1, %if.end5, %if.end12

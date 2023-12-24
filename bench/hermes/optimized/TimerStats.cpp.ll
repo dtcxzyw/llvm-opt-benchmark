@@ -379,13 +379,12 @@ entry:
   %jsiTimerInternalObject.i.i.i = alloca %"class.facebook::jsi::Object", align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #18, !noalias !4
   %0 = load i64, ptr %hermesRuntime, align 8, !noalias !4
-  %1 = inttoptr i64 %0 to ptr
   store ptr null, ptr %hermesRuntime, align 8, !noalias !4
-  %2 = getelementptr inbounds i8, ptr %call.i, i64 8
+  %1 = getelementptr inbounds i8, ptr %call.i, i64 8
   %plain_.i.i.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %call.i, i64 0, i32 2
-  store ptr %1, ptr %plain_.i.i.i, align 8, !noalias !4
+  store i64 %0, ptr %plain_.i.i.i, align 8, !noalias !4
   store ptr getelementptr inbounds ({ [85 x ptr], [16 x ptr] }, ptr @_ZTVN8facebook6hermes12_GLOBAL__N_112TimedRuntimeE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !4
-  store ptr getelementptr inbounds ({ [85 x ptr], [16 x ptr] }, ptr @_ZTVN8facebook6hermes12_GLOBAL__N_112TimedRuntimeE, i64 0, inrange i32 1, i64 2), ptr %2, align 8, !noalias !4
+  store ptr getelementptr inbounds ({ [85 x ptr], [16 x ptr] }, ptr @_ZTVN8facebook6hermes12_GLOBAL__N_112TimedRuntimeE, i64 0, inrange i32 1, i64 2), ptr %1, align 8, !noalias !4
   %rts_.i.i = getelementptr inbounds %"class.facebook::hermes::(anonymous namespace)::TimedRuntime", ptr %call.i, i64 0, i32 1
   %runtime_.i.i = getelementptr inbounds %"class.facebook::hermes::(anonymous namespace)::TimedRuntime", ptr %call.i, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %rts_.i.i, i8 0, i64 80, i1 false), !noalias !4
@@ -395,10 +394,11 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %getTimes.i.i.i), !noalias !4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %jsiTimerInternalObject.i.i.i), !noalias !4
-  %vtable.i.i = load ptr, ptr %1, align 8, !noalias !7
+  %2 = inttoptr i64 %0 to ptr
+  %vtable.i.i = load ptr, ptr %2, align 8, !noalias !7
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 15
   %3 = load ptr, ptr %vfn.i.i, align 8, !noalias !7
-  invoke void %3(ptr nonnull sret(%"class.facebook::jsi::PropNameID") align 8 %getTimesID.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str, i64 noundef 8)
+  invoke void %3(ptr nonnull sret(%"class.facebook::jsi::PropNameID") align 8 %getTimesID.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str, i64 noundef 8)
           to label %.noexc.i.i unwind label %lpad.i.i, !noalias !4
 
 .noexc.i.i:                                       ; preds = %entry
@@ -406,14 +406,13 @@ entry:
   %_M_invoker.i.i.i.i.i = getelementptr inbounds %"class.std::function", ptr %getTimesHandler.i.i.i, i64 0, i32 1
   %4 = getelementptr inbounds i8, ptr %getTimesHandler.i.i.i, i64 8
   store i64 0, ptr %4, align 8, !alias.scope !10, !noalias !4
-  %5 = ptrtoint ptr %call.i to i64
-  store i64 %5, ptr %getTimesHandler.i.i.i, align 8, !alias.scope !10, !noalias !4
+  store ptr %call.i, ptr %getTimesHandler.i.i.i, align 8, !alias.scope !10, !noalias !4
   store ptr @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes12_GLOBAL__N_112TimedRuntime39getInternalTimerInternalGetTimesHandlerEvEUlS4_S6_S7_mE_E9_M_invokeERKSt9_Any_dataS4_S6_OS7_Om, ptr %_M_invoker.i.i.i.i.i, align 8, !alias.scope !10, !noalias !4
   store ptr @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes12_GLOBAL__N_112TimedRuntime39getInternalTimerInternalGetTimesHandlerEvEUlS4_S6_S7_mE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %_M_manager.i.i.i.i.i.i, align 8, !alias.scope !10, !noalias !4
   %_M_manager.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp.i.i.i, i64 0, i32 1
-  %6 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
-  store i64 0, ptr %6, align 8, !noalias !4
-  store i64 %5, ptr %agg.tmp.i.i.i, align 8, !noalias !4
+  %5 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
+  store i64 0, ptr %5, align 8, !noalias !4
+  store ptr %call.i, ptr %agg.tmp.i.i.i, align 8, !noalias !4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i), !noalias !4
   %_M_invoker.i.i4.i.i.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp.i.i.i.i, i64 0, i32 1
   store ptr @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes12_GLOBAL__N_112TimedRuntime39getInternalTimerInternalGetTimesHandlerEvEUlS4_S6_S7_mE_E9_M_invokeERKSt9_Any_dataS4_S6_OS7_Om, ptr %_M_invoker.i.i4.i.i.i, align 8, !noalias !13
@@ -423,72 +422,72 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !13
   %vtable.i.i.i.i = load ptr, ptr %call.i, align 8, !noalias !13
   %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 60
-  %7 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !13
-  invoke void %7(ptr nonnull sret(%"class.facebook::jsi::Function") align 8 %getTimes.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull align 8 dereferenceable(8) %getTimesID.i.i.i, i32 noundef 0, ptr noundef nonnull %agg.tmp.i.i.i.i)
+  %6 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !13
+  invoke void %6(ptr nonnull sret(%"class.facebook::jsi::Function") align 8 %getTimes.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull align 8 dereferenceable(8) %getTimesID.i.i.i, i32 noundef 0, ptr noundef nonnull %agg.tmp.i.i.i.i)
           to label %invoke.cont.i8.i.i.i unwind label %lpad.i7.i.i.i, !noalias !4
 
 invoke.cont.i8.i.i.i:                             ; preds = %.noexc.i.i
-  %8 = load ptr, ptr %_M_manager.i.i.i6.i.i.i, align 8, !noalias !13
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_manager.i.i.i6.i.i.i, align 8, !noalias !13
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i.i.i, label %invoke.cont5.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i8.i.i.i
-  %call.i.i.i.i.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i, i32 noundef 3)
+  %call.i.i.i.i.i.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i, i32 noundef 3)
           to label %invoke.cont5.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i, !noalias !4
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #19
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #19
   unreachable
 
 lpad.i7.i.i.i:                                    ; preds = %.noexc.i.i
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %12 = load ptr, ptr %_M_manager.i.i.i6.i.i.i, align 8, !noalias !13
-  %tobool.not.i.i3.i.i.i.i = icmp eq ptr %12, null
+  %11 = load ptr, ptr %_M_manager.i.i.i6.i.i.i, align 8, !noalias !13
+  %tobool.not.i.i3.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i3.i.i.i.i, label %lpad4.body.i.i.i, label %if.then.i.i4.i.i.i.i
 
 if.then.i.i4.i.i.i.i:                             ; preds = %lpad.i7.i.i.i
-  %call.i.i5.i.i.i.i = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i, i32 noundef 3)
+  %call.i.i5.i.i.i.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i, i32 noundef 3)
           to label %lpad4.body.i.i.i unwind label %terminate.lpad.i.i6.i.i.i.i, !noalias !4
 
 terminate.lpad.i.i6.i.i.i.i:                      ; preds = %if.then.i.i4.i.i.i.i
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #19
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #19
   unreachable
 
 invoke.cont5.i.i.i:                               ; preds = %if.then.i.i.i.i.i.i, %invoke.cont.i8.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i), !noalias !4
-  %15 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !noalias !4
-  %tobool.not.i.i11.i.i.i = icmp eq ptr %15, null
+  %14 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !noalias !4
+  %tobool.not.i.i11.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i11.i.i.i, label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit.i.i.i, label %if.then.i.i12.i.i.i
 
 if.then.i.i12.i.i.i:                              ; preds = %invoke.cont5.i.i.i
-  %call.i.i13.i.i.i = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i32 noundef 3)
+  %call.i.i13.i.i.i = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i32 noundef 3)
           to label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit.i.i.i unwind label %terminate.lpad.i.i14.i.i.i, !noalias !4
 
 terminate.lpad.i.i14.i.i.i:                       ; preds = %if.then.i.i12.i.i.i
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #19
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #19
   unreachable
 
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit.i.i.i: ; preds = %if.then.i.i12.i.i.i, %invoke.cont5.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i), !noalias !4
   %vtable.i16.i.i.i = load ptr, ptr %call.i, align 8, !noalias !4
   %vfn.i17.i.i.i = getelementptr inbounds ptr, ptr %vtable.i16.i.i.i, i64 32
-  %18 = load ptr, ptr %vfn.i17.i.i.i, align 8, !noalias !4
-  invoke void %18(ptr nonnull sret(%"class.facebook::jsi::Object") align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %call.i)
+  %17 = load ptr, ptr %vfn.i17.i.i.i, align 8, !noalias !4
+  invoke void %17(ptr nonnull sret(%"class.facebook::jsi::Object") align 8 %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %call.i)
           to label %invoke.cont7.i.i.i unwind label %lpad6.i.i.i, !noalias !4
 
 invoke.cont7.i.i.i:                               ; preds = %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit.i.i.i
-  %19 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !4
-  store ptr %19, ptr %jsiTimerInternalObject.i.i.i, align 8, !noalias !4
+  %18 = load ptr, ptr %ref.tmp.i.i.i.i, align 8, !noalias !4
+  store ptr %18, ptr %jsiTimerInternalObject.i.i.i, align 8, !noalias !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i), !noalias !4
   invoke void @_ZNK8facebook3jsi6Object11setPropertyIRNS0_8FunctionEEEvRNS0_7RuntimeEPKcOT_(ptr noundef nonnull align 8 dereferenceable(8) %jsiTimerInternalObject.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(8) %getTimes.i.i.i)
           to label %invoke.cont9.i.i.i unwind label %lpad8.i.i.i, !noalias !4
@@ -497,11 +496,11 @@ invoke.cont9.i.i.i:                               ; preds = %invoke.cont7.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %objectClass.i.i.i.i), !noalias !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i18.i.i.i), !noalias !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %invoke.i.i.i.i), !noalias !4
-  %20 = load ptr, ptr %plain_.i.i.i, align 8, !noalias !16
-  %vtable.i.i19.i.i.i = load ptr, ptr %20, align 8, !noalias !16
+  %19 = load ptr, ptr %plain_.i.i.i, align 8, !noalias !16
+  %vtable.i.i19.i.i.i = load ptr, ptr %19, align 8, !noalias !16
   %vfn.i.i20.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i19.i.i.i, i64 6
-  %21 = load ptr, ptr %vfn.i.i20.i.i.i, align 8, !noalias !16
-  invoke void %21(ptr nonnull sret(%"class.facebook::jsi::Object") align 8 %ref.tmp.i18.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %20)
+  %20 = load ptr, ptr %vfn.i.i20.i.i.i, align 8, !noalias !16
+  invoke void %20(ptr nonnull sret(%"class.facebook::jsi::Object") align 8 %ref.tmp.i18.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %.noexc.i.i.i unwind label %lpad8.i.i.i, !noalias !4
 
 .noexc.i.i.i:                                     ; preds = %invoke.cont9.i.i.i
@@ -509,29 +508,29 @@ invoke.cont9.i.i.i:                               ; preds = %invoke.cont7.i.i.i
           to label %invoke.cont.i22.i.i.i unwind label %lpad.i21.i.i.i, !noalias !4
 
 invoke.cont.i22.i.i.i:                            ; preds = %.noexc.i.i.i
-  %22 = load ptr, ptr %ref.tmp.i18.i.i.i, align 8, !noalias !4
-  %tobool.not.i.i.i23.i.i.i = icmp eq ptr %22, null
+  %21 = load ptr, ptr %ref.tmp.i18.i.i.i, align 8, !noalias !4
+  %tobool.not.i.i.i23.i.i.i = icmp eq ptr %21, null
   br i1 %tobool.not.i.i.i23.i.i.i, label %_ZN8facebook3jsi6ObjectD2Ev.exit.i.i.i.i, label %if.then.i.i.i24.i.i.i
 
 if.then.i.i.i24.i.i.i:                            ; preds = %invoke.cont.i22.i.i.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %22, align 8, !noalias !4
-  %23 = load ptr, ptr %vtable.i.i.i.i.i.i, align 8, !noalias !4
-  invoke void %23(ptr noundef nonnull align 8 dereferenceable(8) %22)
+  %vtable.i.i.i.i.i.i = load ptr, ptr %21, align 8, !noalias !4
+  %22 = load ptr, ptr %vtable.i.i.i.i.i.i, align 8, !noalias !4
+  invoke void %22(ptr noundef nonnull align 8 dereferenceable(8) %21)
           to label %_ZN8facebook3jsi6ObjectD2Ev.exit.i.i.i.i unwind label %terminate.lpad.i.i.i25.i.i.i, !noalias !4
 
 terminate.lpad.i.i.i25.i.i.i:                     ; preds = %if.then.i.i.i24.i.i.i
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #19
+  %24 = extractvalue { ptr, i32 } %23, 0
+  call void @__clang_call_terminate(ptr %24) #19
   unreachable
 
 _ZN8facebook3jsi6ObjectD2Ev.exit.i.i.i.i:         ; preds = %if.then.i.i.i24.i.i.i, %invoke.cont.i22.i.i.i
   store ptr %objectClass.i.i.i.i, ptr %invoke.i.i.i.i, align 8, !noalias !4
-  %26 = getelementptr inbounds %class.anon.41, ptr %invoke.i.i.i.i, i64 0, i32 1
-  store ptr %call.i, ptr %26, align 8, !noalias !4
-  %27 = getelementptr inbounds %class.anon.41, ptr %invoke.i.i.i.i, i64 0, i32 2
-  store ptr %jsiTimerInternalObject.i.i.i, ptr %27, align 8, !noalias !4
+  %25 = getelementptr inbounds %class.anon.41, ptr %invoke.i.i.i.i, i64 0, i32 1
+  store ptr %call.i, ptr %25, align 8, !noalias !4
+  %26 = getelementptr inbounds %class.anon.41, ptr %invoke.i.i.i.i, i64 0, i32 2
+  store ptr %jsiTimerInternalObject.i.i.i, ptr %26, align 8, !noalias !4
   invoke fastcc void @_ZZN8facebook6hermes12_GLOBAL__N_112TimedRuntime13sealAndFreezeERNS_3jsi6ObjectEENKUlPKcE_clES7_(ptr noundef nonnull align 8 dereferenceable(24) %invoke.i.i.i.i, ptr noundef nonnull @.str.7)
           to label %invoke.cont3.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !4
 
@@ -544,61 +543,61 @@ invoke.cont4.i.i.i.i:                             ; preds = %invoke.cont3.i.i.i.
           to label %invoke.cont5.i.i.i.i unwind label %lpad2.i.i.i.i, !noalias !4
 
 invoke.cont5.i.i.i.i:                             ; preds = %invoke.cont4.i.i.i.i
-  %28 = load ptr, ptr %objectClass.i.i.i.i, align 8, !noalias !4
-  %tobool.not.i.i2.i.i.i.i = icmp eq ptr %28, null
+  %27 = load ptr, ptr %objectClass.i.i.i.i, align 8, !noalias !4
+  %tobool.not.i.i2.i.i.i.i = icmp eq ptr %27, null
   br i1 %tobool.not.i.i2.i.i.i.i, label %invoke.cont10.i.i.i, label %if.then.i.i3.i.i.i.i
 
 if.then.i.i3.i.i.i.i:                             ; preds = %invoke.cont5.i.i.i.i
-  %vtable.i.i4.i.i.i.i = load ptr, ptr %28, align 8, !noalias !4
-  %29 = load ptr, ptr %vtable.i.i4.i.i.i.i, align 8, !noalias !4
-  invoke void %29(ptr noundef nonnull align 8 dereferenceable(8) %28)
+  %vtable.i.i4.i.i.i.i = load ptr, ptr %27, align 8, !noalias !4
+  %28 = load ptr, ptr %vtable.i.i4.i.i.i.i, align 8, !noalias !4
+  invoke void %28(ptr noundef nonnull align 8 dereferenceable(8) %27)
           to label %invoke.cont10.i.i.i unwind label %terminate.lpad.i.i5.i.i.i.i, !noalias !4
 
 terminate.lpad.i.i5.i.i.i.i:                      ; preds = %if.then.i.i3.i.i.i.i
-  %30 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #19
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #19
   unreachable
 
 lpad.i21.i.i.i:                                   ; preds = %.noexc.i.i.i
-  %32 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %33 = load ptr, ptr %ref.tmp.i18.i.i.i, align 8, !noalias !4
-  %tobool.not.i.i7.i.i.i.i = icmp eq ptr %33, null
+  %32 = load ptr, ptr %ref.tmp.i18.i.i.i, align 8, !noalias !4
+  %tobool.not.i.i7.i.i.i.i = icmp eq ptr %32, null
   br i1 %tobool.not.i.i7.i.i.i.i, label %lpad8.body.i.i.i, label %if.then.i.i8.i.i.i.i
 
 if.then.i.i8.i.i.i.i:                             ; preds = %lpad.i21.i.i.i
-  %vtable.i.i9.i.i.i.i = load ptr, ptr %33, align 8, !noalias !4
-  %34 = load ptr, ptr %vtable.i.i9.i.i.i.i, align 8, !noalias !4
-  invoke void %34(ptr noundef nonnull align 8 dereferenceable(8) %33)
+  %vtable.i.i9.i.i.i.i = load ptr, ptr %32, align 8, !noalias !4
+  %33 = load ptr, ptr %vtable.i.i9.i.i.i.i, align 8, !noalias !4
+  invoke void %33(ptr noundef nonnull align 8 dereferenceable(8) %32)
           to label %lpad8.body.i.i.i unwind label %terminate.lpad.i.i10.i.i.i.i, !noalias !4
 
 terminate.lpad.i.i10.i.i.i.i:                     ; preds = %if.then.i.i8.i.i.i.i
-  %35 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #19
+  %35 = extractvalue { ptr, i32 } %34, 0
+  call void @__clang_call_terminate(ptr %35) #19
   unreachable
 
 lpad2.i.i.i.i:                                    ; preds = %invoke.cont4.i.i.i.i, %invoke.cont3.i.i.i.i, %_ZN8facebook3jsi6ObjectD2Ev.exit.i.i.i.i
-  %37 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %38 = load ptr, ptr %objectClass.i.i.i.i, align 8, !noalias !4
-  %tobool.not.i.i12.i.i.i.i = icmp eq ptr %38, null
+  %37 = load ptr, ptr %objectClass.i.i.i.i, align 8, !noalias !4
+  %tobool.not.i.i12.i.i.i.i = icmp eq ptr %37, null
   br i1 %tobool.not.i.i12.i.i.i.i, label %lpad8.body.i.i.i, label %if.then.i.i13.i.i.i.i
 
 if.then.i.i13.i.i.i.i:                            ; preds = %lpad2.i.i.i.i
-  %vtable.i.i14.i.i.i.i = load ptr, ptr %38, align 8, !noalias !4
-  %39 = load ptr, ptr %vtable.i.i14.i.i.i.i, align 8, !noalias !4
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %38)
+  %vtable.i.i14.i.i.i.i = load ptr, ptr %37, align 8, !noalias !4
+  %38 = load ptr, ptr %vtable.i.i14.i.i.i.i, align 8, !noalias !4
+  invoke void %38(ptr noundef nonnull align 8 dereferenceable(8) %37)
           to label %lpad8.body.i.i.i unwind label %terminate.lpad.i.i15.i.i.i.i, !noalias !4
 
 terminate.lpad.i.i15.i.i.i.i:                     ; preds = %if.then.i.i13.i.i.i.i
-  %40 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #19
+  %40 = extractvalue { ptr, i32 } %39, 0
+  call void @__clang_call_terminate(ptr %40) #19
   unreachable
 
 invoke.cont10.i.i.i:                              ; preds = %if.then.i.i3.i.i.i.i, %invoke.cont5.i.i.i.i
@@ -618,8 +617,8 @@ invoke.cont10.i.i.i:                              ; preds = %if.then.i.i3.i.i.i.
   store ptr @.str.1, ptr %name.addr.i.i.i.i, align 8, !noalias !4
   %vtable.i.i28.i.i.i = load ptr, ptr %call.i, align 8, !noalias !4
   %vfn.i.i29.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i28.i.i.i, i64 32
-  %42 = load ptr, ptr %vfn.i.i29.i.i.i, align 8, !noalias !4
-  invoke void %42(ptr nonnull sret(%"class.facebook::jsi::Object") align 8 %desc.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %call.i)
+  %41 = load ptr, ptr %vfn.i.i29.i.i.i, align 8, !noalias !4
+  invoke void %41(ptr nonnull sret(%"class.facebook::jsi::Object") align 8 %desc.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %call.i)
           to label %.noexc40.i.i.i unwind label %lpad8.i.i.i, !noalias !4
 
 .noexc40.i.i.i:                                   ; preds = %invoke.cont10.i.i.i
@@ -642,11 +641,11 @@ invoke.cont4.i32.i.i.i:                           ; preds = %invoke.cont2.i.i.i.
           to label %invoke.cont6.i.i.i.i unwind label %lpad.i30.i.i.i, !noalias !4
 
 invoke.cont6.i.i.i.i:                             ; preds = %invoke.cont4.i32.i.i.i
-  %43 = load ptr, ptr %plain_.i.i.i, align 8, !noalias !19
-  %vtable.i5.i.i.i.i = load ptr, ptr %43, align 8, !noalias !19
+  %42 = load ptr, ptr %plain_.i.i.i, align 8, !noalias !19
+  %vtable.i5.i.i.i.i = load ptr, ptr %42, align 8, !noalias !19
   %vfn.i6.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i5.i.i.i.i, i64 6
-  %44 = load ptr, ptr %vfn.i6.i.i.i.i, align 8, !noalias !19
-  invoke void %44(ptr nonnull sret(%"class.facebook::jsi::Object") align 8 %ref.tmp9.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %43)
+  %43 = load ptr, ptr %vfn.i6.i.i.i.i, align 8, !noalias !19
+  invoke void %43(ptr nonnull sret(%"class.facebook::jsi::Object") align 8 %ref.tmp9.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %42)
           to label %invoke.cont10.i.i.i.i unwind label %lpad.i30.i.i.i, !noalias !4
 
 invoke.cont10.i.i.i.i:                            ; preds = %invoke.cont6.i.i.i.i
@@ -658,11 +657,11 @@ invoke.cont12.i.i.i.i:                            ; preds = %invoke.cont10.i.i.i
           to label %invoke.cont14.i.i.i.i unwind label %lpad13.i.i.i.i, !noalias !4
 
 invoke.cont14.i.i.i.i:                            ; preds = %invoke.cont12.i.i.i.i
-  %45 = load ptr, ptr %plain_.i.i.i, align 8, !noalias !22
-  %vtable.i8.i.i.i.i = load ptr, ptr %45, align 8, !noalias !22
+  %44 = load ptr, ptr %plain_.i.i.i, align 8, !noalias !22
+  %vtable.i8.i.i.i.i = load ptr, ptr %44, align 8, !noalias !22
   %vfn.i9.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i8.i.i.i.i, i64 6
-  %46 = load ptr, ptr %vfn.i9.i.i.i.i, align 8, !noalias !22
-  invoke void %46(ptr nonnull sret(%"class.facebook::jsi::Object") align 8 %ref.tmp15.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %45)
+  %45 = load ptr, ptr %vfn.i9.i.i.i.i, align 8, !noalias !22
+  invoke void %45(ptr nonnull sret(%"class.facebook::jsi::Object") align 8 %ref.tmp15.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %44)
           to label %invoke.cont17.i.i.i.i unwind label %lpad16.i.i.i.i, !noalias !4
 
 invoke.cont17.i.i.i.i:                            ; preds = %invoke.cont14.i.i.i.i
@@ -671,209 +670,209 @@ invoke.cont17.i.i.i.i:                            ; preds = %invoke.cont14.i.i.i
 
 invoke.cont19.i.i.i.i:                            ; preds = %invoke.cont17.i.i.i.i
   call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.ensured.i.i.i.i) #20, !noalias !4
-  %47 = load ptr, ptr %ref.tmp15.i.i.i.i, align 8, !noalias !4
-  %tobool.not.i.i.i35.i.i.i = icmp eq ptr %47, null
+  %46 = load ptr, ptr %ref.tmp15.i.i.i.i, align 8, !noalias !4
+  %tobool.not.i.i.i35.i.i.i = icmp eq ptr %46, null
   br i1 %tobool.not.i.i.i35.i.i.i, label %_ZN8facebook3jsi6ObjectD2Ev.exit.i39.i.i.i, label %if.then.i.i.i36.i.i.i
 
 if.then.i.i.i36.i.i.i:                            ; preds = %invoke.cont19.i.i.i.i
-  %vtable.i.i.i37.i.i.i = load ptr, ptr %47, align 8, !noalias !4
-  %48 = load ptr, ptr %vtable.i.i.i37.i.i.i, align 8, !noalias !4
-  invoke void %48(ptr noundef nonnull align 8 dereferenceable(8) %47)
+  %vtable.i.i.i37.i.i.i = load ptr, ptr %46, align 8, !noalias !4
+  %47 = load ptr, ptr %vtable.i.i.i37.i.i.i, align 8, !noalias !4
+  invoke void %47(ptr noundef nonnull align 8 dereferenceable(8) %46)
           to label %_ZN8facebook3jsi6ObjectD2Ev.exit.i39.i.i.i unwind label %terminate.lpad.i.i.i38.i.i.i, !noalias !4
 
 terminate.lpad.i.i.i38.i.i.i:                     ; preds = %if.then.i.i.i36.i.i.i
-  %49 = landingpad { ptr, i32 }
+  %48 = landingpad { ptr, i32 }
           catch ptr null
-  %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #19
+  %49 = extractvalue { ptr, i32 } %48, 0
+  call void @__clang_call_terminate(ptr %49) #19
   unreachable
 
 _ZN8facebook3jsi6ObjectD2Ev.exit.i39.i.i.i:       ; preds = %if.then.i.i.i36.i.i.i, %invoke.cont19.i.i.i.i
-  %51 = load ptr, ptr %ref.tmp7.i.i.i.i, align 8, !noalias !4
-  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %51, null
+  %50 = load ptr, ptr %ref.tmp7.i.i.i.i, align 8, !noalias !4
+  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %50, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN8facebook3jsi8FunctionD2Ev.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN8facebook3jsi6ObjectD2Ev.exit.i39.i.i.i
-  %vtable.i.i.i.i.i.i.i = load ptr, ptr %51, align 8, !noalias !4
-  %52 = load ptr, ptr %vtable.i.i.i.i.i.i.i, align 8, !noalias !4
-  invoke void %52(ptr noundef nonnull align 8 dereferenceable(8) %51)
+  %vtable.i.i.i.i.i.i.i = load ptr, ptr %50, align 8, !noalias !4
+  %51 = load ptr, ptr %vtable.i.i.i.i.i.i.i, align 8, !noalias !4
+  invoke void %51(ptr noundef nonnull align 8 dereferenceable(8) %50)
           to label %_ZN8facebook3jsi8FunctionD2Ev.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i, !noalias !4
 
 terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i.i
-  %53 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           catch ptr null
-  %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #19
+  %53 = extractvalue { ptr, i32 } %52, 0
+  call void @__clang_call_terminate(ptr %53) #19
   unreachable
 
 _ZN8facebook3jsi8FunctionD2Ev.exit.i.i.i.i:       ; preds = %if.then.i.i.i.i.i.i.i, %_ZN8facebook3jsi6ObjectD2Ev.exit.i39.i.i.i
-  %55 = load ptr, ptr %ref.tmp8.i.i.i.i, align 8, !noalias !4
-  %tobool.not.i.i11.i.i.i.i = icmp eq ptr %55, null
+  %54 = load ptr, ptr %ref.tmp8.i.i.i.i, align 8, !noalias !4
+  %tobool.not.i.i11.i.i.i.i = icmp eq ptr %54, null
   br i1 %tobool.not.i.i11.i.i.i.i, label %_ZN8facebook3jsi6ObjectD2Ev.exit15.i.i.i.i, label %if.then.i.i12.i.i.i.i
 
 if.then.i.i12.i.i.i.i:                            ; preds = %_ZN8facebook3jsi8FunctionD2Ev.exit.i.i.i.i
-  %vtable.i.i13.i.i.i.i = load ptr, ptr %55, align 8, !noalias !4
-  %56 = load ptr, ptr %vtable.i.i13.i.i.i.i, align 8, !noalias !4
-  invoke void %56(ptr noundef nonnull align 8 dereferenceable(8) %55)
+  %vtable.i.i13.i.i.i.i = load ptr, ptr %54, align 8, !noalias !4
+  %55 = load ptr, ptr %vtable.i.i13.i.i.i.i, align 8, !noalias !4
+  invoke void %55(ptr noundef nonnull align 8 dereferenceable(8) %54)
           to label %_ZN8facebook3jsi6ObjectD2Ev.exit15.i.i.i.i unwind label %terminate.lpad.i.i14.i.i.i.i, !noalias !4
 
 terminate.lpad.i.i14.i.i.i.i:                     ; preds = %if.then.i.i12.i.i.i.i
-  %57 = landingpad { ptr, i32 }
+  %56 = landingpad { ptr, i32 }
           catch ptr null
-  %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #19
+  %57 = extractvalue { ptr, i32 } %56, 0
+  call void @__clang_call_terminate(ptr %57) #19
   unreachable
 
 _ZN8facebook3jsi6ObjectD2Ev.exit15.i.i.i.i:       ; preds = %if.then.i.i12.i.i.i.i, %_ZN8facebook3jsi8FunctionD2Ev.exit.i.i.i.i
-  %59 = load ptr, ptr %ref.tmp9.i.i.i.i, align 8, !noalias !4
-  %tobool.not.i.i16.i.i.i.i = icmp eq ptr %59, null
+  %58 = load ptr, ptr %ref.tmp9.i.i.i.i, align 8, !noalias !4
+  %tobool.not.i.i16.i.i.i.i = icmp eq ptr %58, null
   br i1 %tobool.not.i.i16.i.i.i.i, label %_ZN8facebook3jsi6ObjectD2Ev.exit20.i.i.i.i, label %if.then.i.i17.i.i.i.i
 
 if.then.i.i17.i.i.i.i:                            ; preds = %_ZN8facebook3jsi6ObjectD2Ev.exit15.i.i.i.i
-  %vtable.i.i18.i.i.i.i = load ptr, ptr %59, align 8, !noalias !4
-  %60 = load ptr, ptr %vtable.i.i18.i.i.i.i, align 8, !noalias !4
-  invoke void %60(ptr noundef nonnull align 8 dereferenceable(8) %59)
+  %vtable.i.i18.i.i.i.i = load ptr, ptr %58, align 8, !noalias !4
+  %59 = load ptr, ptr %vtable.i.i18.i.i.i.i, align 8, !noalias !4
+  invoke void %59(ptr noundef nonnull align 8 dereferenceable(8) %58)
           to label %_ZN8facebook3jsi6ObjectD2Ev.exit20.i.i.i.i unwind label %terminate.lpad.i.i19.i.i.i.i, !noalias !4
 
 terminate.lpad.i.i19.i.i.i.i:                     ; preds = %if.then.i.i17.i.i.i.i
-  %61 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           catch ptr null
-  %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #19
+  %61 = extractvalue { ptr, i32 } %60, 0
+  call void @__clang_call_terminate(ptr %61) #19
   unreachable
 
 _ZN8facebook3jsi6ObjectD2Ev.exit20.i.i.i.i:       ; preds = %if.then.i.i17.i.i.i.i, %_ZN8facebook3jsi6ObjectD2Ev.exit15.i.i.i.i
-  %63 = load ptr, ptr %desc.i.i.i.i, align 8, !noalias !4
-  %tobool.not.i.i21.i.i.i.i = icmp eq ptr %63, null
+  %62 = load ptr, ptr %desc.i.i.i.i, align 8, !noalias !4
+  %tobool.not.i.i21.i.i.i.i = icmp eq ptr %62, null
   br i1 %tobool.not.i.i21.i.i.i.i, label %invoke.cont11.i.i.i, label %if.then.i.i22.i.i.i.i
 
 if.then.i.i22.i.i.i.i:                            ; preds = %_ZN8facebook3jsi6ObjectD2Ev.exit20.i.i.i.i
-  %vtable.i.i23.i.i.i.i = load ptr, ptr %63, align 8, !noalias !4
-  %64 = load ptr, ptr %vtable.i.i23.i.i.i.i, align 8, !noalias !4
-  invoke void %64(ptr noundef nonnull align 8 dereferenceable(8) %63)
+  %vtable.i.i23.i.i.i.i = load ptr, ptr %62, align 8, !noalias !4
+  %63 = load ptr, ptr %vtable.i.i23.i.i.i.i, align 8, !noalias !4
+  invoke void %63(ptr noundef nonnull align 8 dereferenceable(8) %62)
           to label %invoke.cont11.i.i.i unwind label %terminate.lpad.i.i24.i.i.i.i, !noalias !4
 
 terminate.lpad.i.i24.i.i.i.i:                     ; preds = %if.then.i.i22.i.i.i.i
-  %65 = landingpad { ptr, i32 }
+  %64 = landingpad { ptr, i32 }
           catch ptr null
-  %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #19
+  %65 = extractvalue { ptr, i32 } %64, 0
+  call void @__clang_call_terminate(ptr %65) #19
   unreachable
 
 lpad.i30.i.i.i:                                   ; preds = %invoke.cont6.i.i.i.i, %invoke.cont4.i32.i.i.i, %invoke.cont2.i.i.i.i, %invoke.cont.i31.i.i.i, %.noexc40.i.i.i
-  %67 = landingpad { ptr, i32 }
+  %66 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup22.i.i.i.i
 
 lpad11.i.i.i.i:                                   ; preds = %invoke.cont10.i.i.i.i
-  %68 = landingpad { ptr, i32 }
+  %67 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup21.i.i.i.i
 
 lpad13.i.i.i.i:                                   ; preds = %invoke.cont12.i.i.i.i
-  %69 = landingpad { ptr, i32 }
+  %68 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup20.i.i.i.i
 
 lpad16.i.i.i.i:                                   ; preds = %invoke.cont14.i.i.i.i
-  %70 = landingpad { ptr, i32 }
+  %69 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i.i.i
 
 lpad18.i.i.i.i:                                   ; preds = %invoke.cont17.i.i.i.i
-  %71 = landingpad { ptr, i32 }
+  %70 = landingpad { ptr, i32 }
           cleanup
-  %72 = load ptr, ptr %ref.tmp15.i.i.i.i, align 8, !noalias !4
-  %tobool.not.i.i26.i.i.i.i = icmp eq ptr %72, null
+  %71 = load ptr, ptr %ref.tmp15.i.i.i.i, align 8, !noalias !4
+  %tobool.not.i.i26.i.i.i.i = icmp eq ptr %71, null
   br i1 %tobool.not.i.i26.i.i.i.i, label %ehcleanup.i.i.i.i, label %if.then.i.i27.i.i.i.i
 
 if.then.i.i27.i.i.i.i:                            ; preds = %lpad18.i.i.i.i
-  %vtable.i.i28.i.i.i.i = load ptr, ptr %72, align 8, !noalias !4
-  %73 = load ptr, ptr %vtable.i.i28.i.i.i.i, align 8, !noalias !4
-  invoke void %73(ptr noundef nonnull align 8 dereferenceable(8) %72)
+  %vtable.i.i28.i.i.i.i = load ptr, ptr %71, align 8, !noalias !4
+  %72 = load ptr, ptr %vtable.i.i28.i.i.i.i, align 8, !noalias !4
+  invoke void %72(ptr noundef nonnull align 8 dereferenceable(8) %71)
           to label %ehcleanup.i.i.i.i unwind label %terminate.lpad.i.i29.i.i.i.i, !noalias !4
 
 terminate.lpad.i.i29.i.i.i.i:                     ; preds = %if.then.i.i27.i.i.i.i
-  %74 = landingpad { ptr, i32 }
+  %73 = landingpad { ptr, i32 }
           catch ptr null
-  %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #19
+  %74 = extractvalue { ptr, i32 } %73, 0
+  call void @__clang_call_terminate(ptr %74) #19
   unreachable
 
 ehcleanup.i.i.i.i:                                ; preds = %if.then.i.i27.i.i.i.i, %lpad18.i.i.i.i, %lpad16.i.i.i.i
-  %.pn.i34.i.i.i = phi { ptr, i32 } [ %70, %lpad16.i.i.i.i ], [ %71, %lpad18.i.i.i.i ], [ %71, %if.then.i.i27.i.i.i.i ]
-  %76 = load ptr, ptr %ref.tmp7.i.i.i.i, align 8, !noalias !4
-  %tobool.not.i.i.i31.i.i.i.i = icmp eq ptr %76, null
+  %.pn.i34.i.i.i = phi { ptr, i32 } [ %69, %lpad16.i.i.i.i ], [ %70, %lpad18.i.i.i.i ], [ %70, %if.then.i.i27.i.i.i.i ]
+  %75 = load ptr, ptr %ref.tmp7.i.i.i.i, align 8, !noalias !4
+  %tobool.not.i.i.i31.i.i.i.i = icmp eq ptr %75, null
   br i1 %tobool.not.i.i.i31.i.i.i.i, label %ehcleanup20.i.i.i.i, label %if.then.i.i.i32.i.i.i.i
 
 if.then.i.i.i32.i.i.i.i:                          ; preds = %ehcleanup.i.i.i.i
-  %vtable.i.i.i33.i.i.i.i = load ptr, ptr %76, align 8, !noalias !4
-  %77 = load ptr, ptr %vtable.i.i.i33.i.i.i.i, align 8, !noalias !4
-  invoke void %77(ptr noundef nonnull align 8 dereferenceable(8) %76)
+  %vtable.i.i.i33.i.i.i.i = load ptr, ptr %75, align 8, !noalias !4
+  %76 = load ptr, ptr %vtable.i.i.i33.i.i.i.i, align 8, !noalias !4
+  invoke void %76(ptr noundef nonnull align 8 dereferenceable(8) %75)
           to label %ehcleanup20.i.i.i.i unwind label %terminate.lpad.i.i.i34.i.i.i.i, !noalias !4
 
 terminate.lpad.i.i.i34.i.i.i.i:                   ; preds = %if.then.i.i.i32.i.i.i.i
-  %78 = landingpad { ptr, i32 }
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #19
+  %78 = extractvalue { ptr, i32 } %77, 0
+  call void @__clang_call_terminate(ptr %78) #19
   unreachable
 
 ehcleanup20.i.i.i.i:                              ; preds = %if.then.i.i.i32.i.i.i.i, %ehcleanup.i.i.i.i, %lpad13.i.i.i.i
-  %.pn.pn.i.i.i.i = phi { ptr, i32 } [ %69, %lpad13.i.i.i.i ], [ %.pn.i34.i.i.i, %ehcleanup.i.i.i.i ], [ %.pn.i34.i.i.i, %if.then.i.i.i32.i.i.i.i ]
-  %80 = load ptr, ptr %ref.tmp8.i.i.i.i, align 8, !noalias !4
-  %tobool.not.i.i36.i.i.i.i = icmp eq ptr %80, null
+  %.pn.pn.i.i.i.i = phi { ptr, i32 } [ %68, %lpad13.i.i.i.i ], [ %.pn.i34.i.i.i, %ehcleanup.i.i.i.i ], [ %.pn.i34.i.i.i, %if.then.i.i.i32.i.i.i.i ]
+  %79 = load ptr, ptr %ref.tmp8.i.i.i.i, align 8, !noalias !4
+  %tobool.not.i.i36.i.i.i.i = icmp eq ptr %79, null
   br i1 %tobool.not.i.i36.i.i.i.i, label %ehcleanup21.i.i.i.i, label %if.then.i.i37.i.i.i.i
 
 if.then.i.i37.i.i.i.i:                            ; preds = %ehcleanup20.i.i.i.i
-  %vtable.i.i38.i.i.i.i = load ptr, ptr %80, align 8, !noalias !4
-  %81 = load ptr, ptr %vtable.i.i38.i.i.i.i, align 8, !noalias !4
-  invoke void %81(ptr noundef nonnull align 8 dereferenceable(8) %80)
+  %vtable.i.i38.i.i.i.i = load ptr, ptr %79, align 8, !noalias !4
+  %80 = load ptr, ptr %vtable.i.i38.i.i.i.i, align 8, !noalias !4
+  invoke void %80(ptr noundef nonnull align 8 dereferenceable(8) %79)
           to label %ehcleanup21.i.i.i.i unwind label %terminate.lpad.i.i39.i.i.i.i, !noalias !4
 
 terminate.lpad.i.i39.i.i.i.i:                     ; preds = %if.then.i.i37.i.i.i.i
-  %82 = landingpad { ptr, i32 }
+  %81 = landingpad { ptr, i32 }
           catch ptr null
-  %83 = extractvalue { ptr, i32 } %82, 0
-  call void @__clang_call_terminate(ptr %83) #19
+  %82 = extractvalue { ptr, i32 } %81, 0
+  call void @__clang_call_terminate(ptr %82) #19
   unreachable
 
 ehcleanup21.i.i.i.i:                              ; preds = %if.then.i.i37.i.i.i.i, %ehcleanup20.i.i.i.i, %lpad11.i.i.i.i
-  %.pn.pn.pn.i.i.i.i = phi { ptr, i32 } [ %68, %lpad11.i.i.i.i ], [ %.pn.pn.i.i.i.i, %ehcleanup20.i.i.i.i ], [ %.pn.pn.i.i.i.i, %if.then.i.i37.i.i.i.i ]
-  %84 = load ptr, ptr %ref.tmp9.i.i.i.i, align 8, !noalias !4
-  %tobool.not.i.i41.i.i.i.i = icmp eq ptr %84, null
+  %.pn.pn.pn.i.i.i.i = phi { ptr, i32 } [ %67, %lpad11.i.i.i.i ], [ %.pn.pn.i.i.i.i, %ehcleanup20.i.i.i.i ], [ %.pn.pn.i.i.i.i, %if.then.i.i37.i.i.i.i ]
+  %83 = load ptr, ptr %ref.tmp9.i.i.i.i, align 8, !noalias !4
+  %tobool.not.i.i41.i.i.i.i = icmp eq ptr %83, null
   br i1 %tobool.not.i.i41.i.i.i.i, label %ehcleanup22.i.i.i.i, label %if.then.i.i42.i.i.i.i
 
 if.then.i.i42.i.i.i.i:                            ; preds = %ehcleanup21.i.i.i.i
-  %vtable.i.i43.i.i.i.i = load ptr, ptr %84, align 8, !noalias !4
-  %85 = load ptr, ptr %vtable.i.i43.i.i.i.i, align 8, !noalias !4
-  invoke void %85(ptr noundef nonnull align 8 dereferenceable(8) %84)
+  %vtable.i.i43.i.i.i.i = load ptr, ptr %83, align 8, !noalias !4
+  %84 = load ptr, ptr %vtable.i.i43.i.i.i.i, align 8, !noalias !4
+  invoke void %84(ptr noundef nonnull align 8 dereferenceable(8) %83)
           to label %ehcleanup22.i.i.i.i unwind label %terminate.lpad.i.i44.i.i.i.i, !noalias !4
 
 terminate.lpad.i.i44.i.i.i.i:                     ; preds = %if.then.i.i42.i.i.i.i
-  %86 = landingpad { ptr, i32 }
+  %85 = landingpad { ptr, i32 }
           catch ptr null
-  %87 = extractvalue { ptr, i32 } %86, 0
-  call void @__clang_call_terminate(ptr %87) #19
+  %86 = extractvalue { ptr, i32 } %85, 0
+  call void @__clang_call_terminate(ptr %86) #19
   unreachable
 
 ehcleanup22.i.i.i.i:                              ; preds = %if.then.i.i42.i.i.i.i, %ehcleanup21.i.i.i.i, %lpad.i30.i.i.i
-  %.pn.pn.pn.pn.i.i.i.i = phi { ptr, i32 } [ %67, %lpad.i30.i.i.i ], [ %.pn.pn.pn.i.i.i.i, %ehcleanup21.i.i.i.i ], [ %.pn.pn.pn.i.i.i.i, %if.then.i.i42.i.i.i.i ]
-  %88 = load ptr, ptr %desc.i.i.i.i, align 8, !noalias !4
-  %tobool.not.i.i46.i.i.i.i = icmp eq ptr %88, null
+  %.pn.pn.pn.pn.i.i.i.i = phi { ptr, i32 } [ %66, %lpad.i30.i.i.i ], [ %.pn.pn.pn.i.i.i.i, %ehcleanup21.i.i.i.i ], [ %.pn.pn.pn.i.i.i.i, %if.then.i.i42.i.i.i.i ]
+  %87 = load ptr, ptr %desc.i.i.i.i, align 8, !noalias !4
+  %tobool.not.i.i46.i.i.i.i = icmp eq ptr %87, null
   br i1 %tobool.not.i.i46.i.i.i.i, label %lpad8.body.i.i.i, label %if.then.i.i47.i.i.i.i
 
 if.then.i.i47.i.i.i.i:                            ; preds = %ehcleanup22.i.i.i.i
-  %vtable.i.i48.i.i.i.i = load ptr, ptr %88, align 8, !noalias !4
-  %89 = load ptr, ptr %vtable.i.i48.i.i.i.i, align 8, !noalias !4
-  invoke void %89(ptr noundef nonnull align 8 dereferenceable(8) %88)
+  %vtable.i.i48.i.i.i.i = load ptr, ptr %87, align 8, !noalias !4
+  %88 = load ptr, ptr %vtable.i.i48.i.i.i.i, align 8, !noalias !4
+  invoke void %88(ptr noundef nonnull align 8 dereferenceable(8) %87)
           to label %lpad8.body.i.i.i unwind label %terminate.lpad.i.i49.i.i.i.i, !noalias !4
 
 terminate.lpad.i.i49.i.i.i.i:                     ; preds = %if.then.i.i47.i.i.i.i
-  %90 = landingpad { ptr, i32 }
+  %89 = landingpad { ptr, i32 }
           catch ptr null
-  %91 = extractvalue { ptr, i32 } %90, 0
-  call void @__clang_call_terminate(ptr %91) #19
+  %90 = extractvalue { ptr, i32 } %89, 0
+  call void @__clang_call_terminate(ptr %90) #19
   unreachable
 
 invoke.cont11.i.i.i:                              ; preds = %if.then.i.i22.i.i.i.i, %_ZN8facebook3jsi6ObjectD2Ev.exit20.i.i.i.i
@@ -887,190 +886,190 @@ invoke.cont11.i.i.i:                              ; preds = %if.then.i.i22.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp8.i.i.i.i), !noalias !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i.i.i), !noalias !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp15.i.i.i.i), !noalias !4
-  %92 = load ptr, ptr %jsiTimerInternalObject.i.i.i, align 8, !noalias !4
-  %tobool.not.i.i43.i.i.i = icmp eq ptr %92, null
+  %91 = load ptr, ptr %jsiTimerInternalObject.i.i.i, align 8, !noalias !4
+  %tobool.not.i.i43.i.i.i = icmp eq ptr %91, null
   br i1 %tobool.not.i.i43.i.i.i, label %_ZN8facebook3jsi6ObjectD2Ev.exit.i.i.i, label %if.then.i.i44.i.i.i
 
 if.then.i.i44.i.i.i:                              ; preds = %invoke.cont11.i.i.i
-  %vtable.i.i45.i.i.i = load ptr, ptr %92, align 8, !noalias !4
-  %93 = load ptr, ptr %vtable.i.i45.i.i.i, align 8, !noalias !4
-  invoke void %93(ptr noundef nonnull align 8 dereferenceable(8) %92)
+  %vtable.i.i45.i.i.i = load ptr, ptr %91, align 8, !noalias !4
+  %92 = load ptr, ptr %vtable.i.i45.i.i.i, align 8, !noalias !4
+  invoke void %92(ptr noundef nonnull align 8 dereferenceable(8) %91)
           to label %_ZN8facebook3jsi6ObjectD2Ev.exit.i.i.i unwind label %terminate.lpad.i.i46.i.i.i, !noalias !4
 
 terminate.lpad.i.i46.i.i.i:                       ; preds = %if.then.i.i44.i.i.i
-  %94 = landingpad { ptr, i32 }
+  %93 = landingpad { ptr, i32 }
           catch ptr null
-  %95 = extractvalue { ptr, i32 } %94, 0
-  call void @__clang_call_terminate(ptr %95) #19
+  %94 = extractvalue { ptr, i32 } %93, 0
+  call void @__clang_call_terminate(ptr %94) #19
   unreachable
 
 _ZN8facebook3jsi6ObjectD2Ev.exit.i.i.i:           ; preds = %if.then.i.i44.i.i.i, %invoke.cont11.i.i.i
-  %96 = load ptr, ptr %getTimes.i.i.i, align 8, !noalias !4
-  %tobool.not.i.i.i47.i.i.i = icmp eq ptr %96, null
+  %95 = load ptr, ptr %getTimes.i.i.i, align 8, !noalias !4
+  %tobool.not.i.i.i47.i.i.i = icmp eq ptr %95, null
   br i1 %tobool.not.i.i.i47.i.i.i, label %_ZN8facebook3jsi8FunctionD2Ev.exit.i.i.i, label %if.then.i.i.i48.i.i.i
 
 if.then.i.i.i48.i.i.i:                            ; preds = %_ZN8facebook3jsi6ObjectD2Ev.exit.i.i.i
-  %vtable.i.i.i49.i.i.i = load ptr, ptr %96, align 8, !noalias !4
-  %97 = load ptr, ptr %vtable.i.i.i49.i.i.i, align 8, !noalias !4
-  invoke void %97(ptr noundef nonnull align 8 dereferenceable(8) %96)
+  %vtable.i.i.i49.i.i.i = load ptr, ptr %95, align 8, !noalias !4
+  %96 = load ptr, ptr %vtable.i.i.i49.i.i.i, align 8, !noalias !4
+  invoke void %96(ptr noundef nonnull align 8 dereferenceable(8) %95)
           to label %_ZN8facebook3jsi8FunctionD2Ev.exit.i.i.i unwind label %terminate.lpad.i.i.i50.i.i.i, !noalias !4
 
 terminate.lpad.i.i.i50.i.i.i:                     ; preds = %if.then.i.i.i48.i.i.i
-  %98 = landingpad { ptr, i32 }
+  %97 = landingpad { ptr, i32 }
           catch ptr null
-  %99 = extractvalue { ptr, i32 } %98, 0
-  call void @__clang_call_terminate(ptr %99) #19
+  %98 = extractvalue { ptr, i32 } %97, 0
+  call void @__clang_call_terminate(ptr %98) #19
   unreachable
 
 _ZN8facebook3jsi8FunctionD2Ev.exit.i.i.i:         ; preds = %if.then.i.i.i48.i.i.i, %_ZN8facebook3jsi6ObjectD2Ev.exit.i.i.i
-  %100 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8, !noalias !4
-  %tobool.not.i.i53.i.i.i = icmp eq ptr %100, null
+  %99 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8, !noalias !4
+  %tobool.not.i.i53.i.i.i = icmp eq ptr %99, null
   br i1 %tobool.not.i.i53.i.i.i, label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit58.i.i.i, label %if.then.i.i54.i.i.i
 
 if.then.i.i54.i.i.i:                              ; preds = %_ZN8facebook3jsi8FunctionD2Ev.exit.i.i.i
-  %call.i.i55.i.i.i = invoke noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(16) %getTimesHandler.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %getTimesHandler.i.i.i, i32 noundef 3)
+  %call.i.i55.i.i.i = invoke noundef zeroext i1 %99(ptr noundef nonnull align 8 dereferenceable(16) %getTimesHandler.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %getTimesHandler.i.i.i, i32 noundef 3)
           to label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit58.i.i.i unwind label %terminate.lpad.i.i56.i.i.i, !noalias !4
 
 terminate.lpad.i.i56.i.i.i:                       ; preds = %if.then.i.i54.i.i.i
-  %101 = landingpad { ptr, i32 }
+  %100 = landingpad { ptr, i32 }
           catch ptr null
-  %102 = extractvalue { ptr, i32 } %101, 0
-  call void @__clang_call_terminate(ptr %102) #19
+  %101 = extractvalue { ptr, i32 } %100, 0
+  call void @__clang_call_terminate(ptr %101) #19
   unreachable
 
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit58.i.i.i: ; preds = %if.then.i.i54.i.i.i, %_ZN8facebook3jsi8FunctionD2Ev.exit.i.i.i
-  %103 = load ptr, ptr %getTimesID.i.i.i, align 8, !noalias !4
-  %tobool.not.i.i59.i.i.i = icmp eq ptr %103, null
+  %102 = load ptr, ptr %getTimesID.i.i.i, align 8, !noalias !4
+  %tobool.not.i.i59.i.i.i = icmp eq ptr %102, null
   br i1 %tobool.not.i.i59.i.i.i, label %_ZNSt10unique_ptrIN8facebook6hermes12_GLOBAL__N_112TimedRuntimeESt14default_deleteIS3_EED2Ev.exit, label %if.then.i.i60.i.i.i
 
 if.then.i.i60.i.i.i:                              ; preds = %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit58.i.i.i
-  %vtable.i.i61.i.i.i = load ptr, ptr %103, align 8, !noalias !4
-  %104 = load ptr, ptr %vtable.i.i61.i.i.i, align 8, !noalias !4
-  invoke void %104(ptr noundef nonnull align 8 dereferenceable(8) %103)
+  %vtable.i.i61.i.i.i = load ptr, ptr %102, align 8, !noalias !4
+  %103 = load ptr, ptr %vtable.i.i61.i.i.i, align 8, !noalias !4
+  invoke void %103(ptr noundef nonnull align 8 dereferenceable(8) %102)
           to label %_ZNSt10unique_ptrIN8facebook6hermes12_GLOBAL__N_112TimedRuntimeESt14default_deleteIS3_EED2Ev.exit unwind label %terminate.lpad.i.i62.i.i.i, !noalias !4
 
 terminate.lpad.i.i62.i.i.i:                       ; preds = %if.then.i.i60.i.i.i
-  %105 = landingpad { ptr, i32 }
+  %104 = landingpad { ptr, i32 }
           catch ptr null
-  %106 = extractvalue { ptr, i32 } %105, 0
-  call void @__clang_call_terminate(ptr %106) #19
+  %105 = extractvalue { ptr, i32 } %104, 0
+  call void @__clang_call_terminate(ptr %105) #19
   unreachable
 
 lpad4.body.i.i.i:                                 ; preds = %if.then.i.i4.i.i.i.i, %lpad.i7.i.i.i
-  %107 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !noalias !4
-  %tobool.not.i.i64.i.i.i = icmp eq ptr %107, null
+  %106 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !noalias !4
+  %tobool.not.i.i64.i.i.i = icmp eq ptr %106, null
   br i1 %tobool.not.i.i64.i.i.i, label %ehcleanup12.i.i.i, label %if.then.i.i65.i.i.i
 
 if.then.i.i65.i.i.i:                              ; preds = %lpad4.body.i.i.i
-  %call.i.i66.i.i.i = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i32 noundef 3)
+  %call.i.i66.i.i.i = invoke noundef zeroext i1 %106(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i32 noundef 3)
           to label %ehcleanup12.i.i.i unwind label %terminate.lpad.i.i67.i.i.i, !noalias !4
 
 terminate.lpad.i.i67.i.i.i:                       ; preds = %if.then.i.i65.i.i.i
-  %108 = landingpad { ptr, i32 }
+  %107 = landingpad { ptr, i32 }
           catch ptr null
-  %109 = extractvalue { ptr, i32 } %108, 0
-  call void @__clang_call_terminate(ptr %109) #19
+  %108 = extractvalue { ptr, i32 } %107, 0
+  call void @__clang_call_terminate(ptr %108) #19
   unreachable
 
 lpad6.i.i.i:                                      ; preds = %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit.i.i.i
-  %110 = landingpad { ptr, i32 }
+  %109 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i.i
 
 lpad8.i.i.i:                                      ; preds = %invoke.cont10.i.i.i, %invoke.cont9.i.i.i, %invoke.cont7.i.i.i
-  %111 = landingpad { ptr, i32 }
+  %110 = landingpad { ptr, i32 }
           cleanup
   br label %lpad8.body.i.i.i
 
 lpad8.body.i.i.i:                                 ; preds = %lpad8.i.i.i, %if.then.i.i47.i.i.i.i, %ehcleanup22.i.i.i.i, %if.then.i.i13.i.i.i.i, %lpad2.i.i.i.i, %if.then.i.i8.i.i.i.i, %lpad.i21.i.i.i
-  %eh.lpad-body26.i.i.i = phi { ptr, i32 } [ %32, %lpad.i21.i.i.i ], [ %32, %if.then.i.i8.i.i.i.i ], [ %37, %lpad2.i.i.i.i ], [ %37, %if.then.i.i13.i.i.i.i ], [ %111, %lpad8.i.i.i ], [ %.pn.pn.pn.pn.i.i.i.i, %if.then.i.i47.i.i.i.i ], [ %.pn.pn.pn.pn.i.i.i.i, %ehcleanup22.i.i.i.i ]
-  %112 = load ptr, ptr %jsiTimerInternalObject.i.i.i, align 8, !noalias !4
-  %tobool.not.i.i70.i.i.i = icmp eq ptr %112, null
+  %eh.lpad-body26.i.i.i = phi { ptr, i32 } [ %31, %lpad.i21.i.i.i ], [ %31, %if.then.i.i8.i.i.i.i ], [ %36, %lpad2.i.i.i.i ], [ %36, %if.then.i.i13.i.i.i.i ], [ %110, %lpad8.i.i.i ], [ %.pn.pn.pn.pn.i.i.i.i, %if.then.i.i47.i.i.i.i ], [ %.pn.pn.pn.pn.i.i.i.i, %ehcleanup22.i.i.i.i ]
+  %111 = load ptr, ptr %jsiTimerInternalObject.i.i.i, align 8, !noalias !4
+  %tobool.not.i.i70.i.i.i = icmp eq ptr %111, null
   br i1 %tobool.not.i.i70.i.i.i, label %ehcleanup.i.i.i, label %if.then.i.i71.i.i.i
 
 if.then.i.i71.i.i.i:                              ; preds = %lpad8.body.i.i.i
-  %vtable.i.i72.i.i.i = load ptr, ptr %112, align 8, !noalias !4
-  %113 = load ptr, ptr %vtable.i.i72.i.i.i, align 8, !noalias !4
-  invoke void %113(ptr noundef nonnull align 8 dereferenceable(8) %112)
+  %vtable.i.i72.i.i.i = load ptr, ptr %111, align 8, !noalias !4
+  %112 = load ptr, ptr %vtable.i.i72.i.i.i, align 8, !noalias !4
+  invoke void %112(ptr noundef nonnull align 8 dereferenceable(8) %111)
           to label %ehcleanup.i.i.i unwind label %terminate.lpad.i.i73.i.i.i, !noalias !4
 
 terminate.lpad.i.i73.i.i.i:                       ; preds = %if.then.i.i71.i.i.i
-  %114 = landingpad { ptr, i32 }
+  %113 = landingpad { ptr, i32 }
           catch ptr null
-  %115 = extractvalue { ptr, i32 } %114, 0
-  call void @__clang_call_terminate(ptr %115) #19
+  %114 = extractvalue { ptr, i32 } %113, 0
+  call void @__clang_call_terminate(ptr %114) #19
   unreachable
 
 ehcleanup.i.i.i:                                  ; preds = %if.then.i.i71.i.i.i, %lpad8.body.i.i.i, %lpad6.i.i.i
-  %.pn.i.i.i = phi { ptr, i32 } [ %110, %lpad6.i.i.i ], [ %eh.lpad-body26.i.i.i, %lpad8.body.i.i.i ], [ %eh.lpad-body26.i.i.i, %if.then.i.i71.i.i.i ]
-  %116 = load ptr, ptr %getTimes.i.i.i, align 8, !noalias !4
-  %tobool.not.i.i.i75.i.i.i = icmp eq ptr %116, null
+  %.pn.i.i.i = phi { ptr, i32 } [ %109, %lpad6.i.i.i ], [ %eh.lpad-body26.i.i.i, %lpad8.body.i.i.i ], [ %eh.lpad-body26.i.i.i, %if.then.i.i71.i.i.i ]
+  %115 = load ptr, ptr %getTimes.i.i.i, align 8, !noalias !4
+  %tobool.not.i.i.i75.i.i.i = icmp eq ptr %115, null
   br i1 %tobool.not.i.i.i75.i.i.i, label %ehcleanup12.i.i.i, label %if.then.i.i.i76.i.i.i
 
 if.then.i.i.i76.i.i.i:                            ; preds = %ehcleanup.i.i.i
-  %vtable.i.i.i77.i.i.i = load ptr, ptr %116, align 8, !noalias !4
-  %117 = load ptr, ptr %vtable.i.i.i77.i.i.i, align 8, !noalias !4
-  invoke void %117(ptr noundef nonnull align 8 dereferenceable(8) %116)
+  %vtable.i.i.i77.i.i.i = load ptr, ptr %115, align 8, !noalias !4
+  %116 = load ptr, ptr %vtable.i.i.i77.i.i.i, align 8, !noalias !4
+  invoke void %116(ptr noundef nonnull align 8 dereferenceable(8) %115)
           to label %ehcleanup12.i.i.i unwind label %terminate.lpad.i.i.i78.i.i.i, !noalias !4
 
 terminate.lpad.i.i.i78.i.i.i:                     ; preds = %if.then.i.i.i76.i.i.i
-  %118 = landingpad { ptr, i32 }
+  %117 = landingpad { ptr, i32 }
           catch ptr null
-  %119 = extractvalue { ptr, i32 } %118, 0
-  call void @__clang_call_terminate(ptr %119) #19
+  %118 = extractvalue { ptr, i32 } %117, 0
+  call void @__clang_call_terminate(ptr %118) #19
   unreachable
 
 ehcleanup12.i.i.i:                                ; preds = %if.then.i.i.i76.i.i.i, %ehcleanup.i.i.i, %if.then.i.i65.i.i.i, %lpad4.body.i.i.i
-  %.pn.pn.i.i.i = phi { ptr, i32 } [ %11, %lpad4.body.i.i.i ], [ %11, %if.then.i.i65.i.i.i ], [ %.pn.i.i.i, %ehcleanup.i.i.i ], [ %.pn.i.i.i, %if.then.i.i.i76.i.i.i ]
-  %120 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8, !noalias !4
-  %tobool.not.i.i82.i.i.i = icmp eq ptr %120, null
+  %.pn.pn.i.i.i = phi { ptr, i32 } [ %10, %lpad4.body.i.i.i ], [ %10, %if.then.i.i65.i.i.i ], [ %.pn.i.i.i, %ehcleanup.i.i.i ], [ %.pn.i.i.i, %if.then.i.i.i76.i.i.i ]
+  %119 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8, !noalias !4
+  %tobool.not.i.i82.i.i.i = icmp eq ptr %119, null
   br i1 %tobool.not.i.i82.i.i.i, label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit87.i.i.i, label %if.then.i.i83.i.i.i
 
 if.then.i.i83.i.i.i:                              ; preds = %ehcleanup12.i.i.i
-  %call.i.i84.i.i.i = invoke noundef zeroext i1 %120(ptr noundef nonnull align 8 dereferenceable(16) %getTimesHandler.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %getTimesHandler.i.i.i, i32 noundef 3)
+  %call.i.i84.i.i.i = invoke noundef zeroext i1 %119(ptr noundef nonnull align 8 dereferenceable(16) %getTimesHandler.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %getTimesHandler.i.i.i, i32 noundef 3)
           to label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit87.i.i.i unwind label %terminate.lpad.i.i85.i.i.i, !noalias !4
 
 terminate.lpad.i.i85.i.i.i:                       ; preds = %if.then.i.i83.i.i.i
-  %121 = landingpad { ptr, i32 }
+  %120 = landingpad { ptr, i32 }
           catch ptr null
-  %122 = extractvalue { ptr, i32 } %121, 0
-  call void @__clang_call_terminate(ptr %122) #19
+  %121 = extractvalue { ptr, i32 } %120, 0
+  call void @__clang_call_terminate(ptr %121) #19
   unreachable
 
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit87.i.i.i: ; preds = %if.then.i.i83.i.i.i, %ehcleanup12.i.i.i
-  %123 = load ptr, ptr %getTimesID.i.i.i, align 8, !noalias !4
-  %tobool.not.i.i88.i.i.i = icmp eq ptr %123, null
+  %122 = load ptr, ptr %getTimesID.i.i.i, align 8, !noalias !4
+  %tobool.not.i.i88.i.i.i = icmp eq ptr %122, null
   br i1 %tobool.not.i.i88.i.i.i, label %lpad.body.i.i, label %if.then.i.i89.i.i.i
 
 if.then.i.i89.i.i.i:                              ; preds = %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit87.i.i.i
-  %vtable.i.i90.i.i.i = load ptr, ptr %123, align 8, !noalias !4
-  %124 = load ptr, ptr %vtable.i.i90.i.i.i, align 8, !noalias !4
-  invoke void %124(ptr noundef nonnull align 8 dereferenceable(8) %123)
+  %vtable.i.i90.i.i.i = load ptr, ptr %122, align 8, !noalias !4
+  %123 = load ptr, ptr %vtable.i.i90.i.i.i, align 8, !noalias !4
+  invoke void %123(ptr noundef nonnull align 8 dereferenceable(8) %122)
           to label %lpad.body.i.i unwind label %terminate.lpad.i.i91.i.i.i, !noalias !4
 
 terminate.lpad.i.i91.i.i.i:                       ; preds = %if.then.i.i89.i.i.i
-  %125 = landingpad { ptr, i32 }
+  %124 = landingpad { ptr, i32 }
           catch ptr null
-  %126 = extractvalue { ptr, i32 } %125, 0
-  call void @__clang_call_terminate(ptr %126) #19
+  %125 = extractvalue { ptr, i32 } %124, 0
+  call void @__clang_call_terminate(ptr %125) #19
   unreachable
 
 lpad.i.i:                                         ; preds = %entry
-  %127 = landingpad { ptr, i32 }
+  %126 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i.i
 
 lpad.body.i.i:                                    ; preds = %lpad.i.i, %if.then.i.i89.i.i.i, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit87.i.i.i
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %127, %lpad.i.i ], [ %.pn.pn.i.i.i, %if.then.i.i89.i.i.i ], [ %.pn.pn.i.i.i, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit87.i.i.i ]
-  %128 = load ptr, ptr %runtime_.i.i, align 8, !noalias !4
-  %cmp.not.i.i.i = icmp eq ptr %128, null
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %126, %lpad.i.i ], [ %.pn.pn.i.i.i, %if.then.i.i89.i.i.i ], [ %.pn.pn.i.i.i, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit87.i.i.i ]
+  %127 = load ptr, ptr %runtime_.i.i, align 8, !noalias !4
+  %cmp.not.i.i.i = icmp eq ptr %127, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10unique_ptrIN8facebook3jsi7RuntimeESt14default_deleteIS2_EED2Ev.exit.i.i, label %_ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i.i.i
 
 _ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i.i.i: ; preds = %lpad.body.i.i
-  %vtable.i.i1.i.i = load ptr, ptr %128, align 8, !noalias !4
+  %vtable.i.i1.i.i = load ptr, ptr %127, align 8, !noalias !4
   %vfn.i.i2.i.i = getelementptr inbounds ptr, ptr %vtable.i.i1.i.i, i64 1
-  %129 = load ptr, ptr %vfn.i.i2.i.i, align 8, !noalias !4
-  call void %129(ptr noundef nonnull align 8 dereferenceable(8) %128) #20, !noalias !4
+  %128 = load ptr, ptr %vfn.i.i2.i.i, align 8, !noalias !4
+  call void %128(ptr noundef nonnull align 8 dereferenceable(8) %127) #20, !noalias !4
   br label %_ZNSt10unique_ptrIN8facebook3jsi7RuntimeESt14default_deleteIS2_EED2Ev.exit.i.i
 
 _ZNSt10unique_ptrIN8facebook3jsi7RuntimeESt14default_deleteIS2_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i.i.i, %lpad.body.i.i

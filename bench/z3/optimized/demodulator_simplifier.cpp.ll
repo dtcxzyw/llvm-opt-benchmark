@@ -2545,33 +2545,31 @@ if.then.i.i.i:                                    ; preds = %invoke.cont6
   store i32 0, ptr %m_num_deleted.i.i.i.i, align 8
   %m_processed = getelementptr inbounds %class.demodulator_simplifier, ptr %this, i64 0, i32 6
   %m_pinned = getelementptr inbounds %class.demodulator_simplifier, ptr %this, i64 0, i32 9
-  %1 = ptrtoint ptr %m to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_processed, i8 0, i64 24, i1 false)
-  store i64 %1, ptr %m_pinned, align 8
+  store ptr %m, ptr %m_pinned, align 8
   %m_nodes.i.i = getelementptr inbounds %class.demodulator_simplifier, ptr %this, i64 0, i32 9, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i, align 8
-  %2 = ptrtoint ptr %this to i64
   %m_rewrite1.i = getelementptr inbounds %class.demodulator_simplifier, ptr %this, i64 0, i32 4, i32 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   %_M_manager.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp.i.i, i64 0, i32 1
   %_M_invoker.i.i.i = getelementptr inbounds %"class.std::function", ptr %ref.tmp.i.i, i64 0, i32 1
-  %3 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
-  store i64 %2, ptr %ref.tmp.i.i, align 8
+  %1 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  store ptr %this, ptr %ref.tmp.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_rewrite1.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_rewrite1.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager3.i.i.i = getelementptr inbounds %class.demodulator_simplifier, ptr %this, i64 0, i32 4, i32 1, i32 0, i32 1
-  %4 = load ptr, ptr %_M_manager3.i.i.i, align 8
-  store ptr %4, ptr %_M_manager.i.i.i.i, align 8
+  %2 = load ptr, ptr %_M_manager3.i.i.i, align 8
+  store ptr %2, ptr %_M_manager.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbP9func_declRK10ref_vectorI4expr11ast_managerER7obj_refIS3_S4_EEZN22demodulator_simplifierC1ERS4_RK10params_refR20dependent_expr_stateE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation", ptr %_M_manager3.i.i.i, align 8
   %_M_invoker4.i2.i.i = getelementptr inbounds %class.demodulator_simplifier, ptr %this, i64 0, i32 4, i32 1, i32 1
-  %5 = load ptr, ptr %_M_invoker4.i2.i.i, align 8
-  store ptr %5, ptr %_M_invoker.i.i.i, align 8
+  %3 = load ptr, ptr %_M_invoker4.i2.i.i, align 8
+  store ptr %3, ptr %_M_invoker.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbP9func_declRK10ref_vectorI4expr11ast_managerER7obj_refIS3_S4_EEZN22demodulator_simplifierC1ERS4_RK10params_refR20dependent_expr_stateE3$_0E9_M_invokeERKSt9_Any_dataOS1_S7_SA_", ptr %_M_invoker4.i2.i.i, align 8
-  %tobool.not.i.i4.i.i = icmp eq ptr %4, null
+  %tobool.not.i.i4.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i4.i.i, label %invoke.cont19.thread, label %if.then.i.i5.i.i
 
 invoke.cont19.thread:                             ; preds = %if.then.i.i.i
@@ -2579,14 +2577,14 @@ invoke.cont19.thread:                             ; preds = %if.then.i.i.i
   br label %if.then.i.i
 
 if.then.i.i5.i.i:                                 ; preds = %if.then.i.i.i
-  %call.i.i6.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
+  %call.i.i6.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
           to label %invoke.cont19 unwind label %terminate.lpad.i.i7.i.i
 
 terminate.lpad.i.i7.i.i:                          ; preds = %if.then.i.i5.i.i
-  %6 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #17
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #17
   unreachable
 
 invoke.cont19:                                    ; preds = %if.then.i.i5.i.i
@@ -2597,28 +2595,28 @@ if.then.i.i:                                      ; preds = %invoke.cont19, %inv
   ret void
 
 lpad2:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup25
 
 lpad5:                                            ; preds = %invoke.cont4
-  %9 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup24
 
 lpad7:                                            ; preds = %invoke.cont6
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN25demodulator_rewriter_utilD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %m_rewriter) #18
   br label %ehcleanup24
 
 ehcleanup24:                                      ; preds = %lpad7, %lpad5
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %10, %lpad7 ], [ %9, %lpad5 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %8, %lpad7 ], [ %7, %lpad5 ]
   tail call void @_ZN23demodulator_match_substD2Ev(ptr noundef nonnull align 8 dereferenceable(161) %m_match_subst) #18
   br label %ehcleanup25
 
 ehcleanup25:                                      ; preds = %ehcleanup24, %lpad2
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup24 ], [ %8, %lpad2 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup24 ], [ %6, %lpad2 ]
   tail call void @_ZN17demodulator_indexD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_index) #18
   br label %ehcleanup26
 

@@ -892,14 +892,12 @@ _ZNK9grpc_core8Duration11as_timespecEv.exit:      ; preds = %if.then.i.i, %if.th
   %1 = extractvalue { i64, i64 } %call1.pn.i.i, 0
   %2 = extractvalue { i64, i64 } %call1.pn.i.i, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %3 = inttoptr i64 %1 to ptr
-  store ptr %3, ptr %ref.tmp.i, align 8, !noalias !7
+  store i64 %1, ptr %ref.tmp.i, align 8, !noalias !7
   %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 0, i32 1
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIlEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !7
   %arrayinit.element.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 1
   %retval.sroa.0.0.insert.ext.i.i.i.i = and i64 %2, 4294967295
-  %4 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
-  store ptr %4, ptr %arrayinit.element.i, align 8, !noalias !7
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i, ptr %arrayinit.element.i, align 8, !noalias !7
   %dispatcher_.i.i2.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 1, i32 1
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i2.i, align 8, !noalias !7
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.7, i64 8, ptr nonnull %ref.tmp.i, i64 2)

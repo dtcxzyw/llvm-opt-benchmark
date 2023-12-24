@@ -297,43 +297,42 @@ if.end.i:
   %m2.i.i = getelementptr inbounds %class.check_sat_result, ptr %this, i64 0, i32 1
   store ptr %call, ptr %m2.i.i, align 8
   %m_log.i.i = getelementptr inbounds %class.check_sat_result, ptr %this, i64 0, i32 2
-  %1 = ptrtoint ptr %call to i64
-  store i64 %1, ptr %m_log.i.i, align 8
+  store ptr %call, ptr %m_log.i.i, align 8
   %m_nodes.i.i.i.i = getelementptr inbounds %class.check_sat_result, ptr %this, i64 0, i32 2, i32 0, i32 1
   %m_manager.i.i.i = getelementptr inbounds %class.check_sat_result, ptr %this, i64 0, i32 3, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_nodes.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr %call, ptr %m_manager.i.i.i, align 8
   %m_ref_count.i.i = getelementptr inbounds %class.check_sat_result, ptr %this, i64 0, i32 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_ref_count.i.i, i8 0, i64 24, i1 false)
-  %2 = getelementptr inbounds i8, ptr %this, i64 72
+  %1 = getelementptr inbounds i8, ptr %this, i64 72
   %m_params.i = getelementptr inbounds %class.solver, ptr %this, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_params.i, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [58 x ptr], [14 x ptr] }, ptr @_ZTV15combined_solver, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [58 x ptr], [14 x ptr] }, ptr @_ZTV15combined_solver, i64 0, inrange i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [58 x ptr], [14 x ptr] }, ptr @_ZTV15combined_solver, i64 0, inrange i32 1, i64 2), ptr %1, align 8
   %m_solver1 = getelementptr inbounds %class.combined_solver, ptr %this, i64 0, i32 5
   %m_solver2 = getelementptr inbounds %class.combined_solver, ptr %this, i64 0, i32 6
   %m_ref_count.i.i2 = getelementptr inbounds %class.check_sat_result, ptr %s1, i64 0, i32 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_solver1, i8 0, i64 16, i1 false)
-  %3 = load i32, ptr %m_ref_count.i.i2, align 8
-  %inc.i.i = add i32 %3, 1
+  %2 = load i32, ptr %m_ref_count.i.i2, align 8
+  %inc.i.i = add i32 %2, 1
   store i32 %inc.i.i, ptr %m_ref_count.i.i2, align 8
-  %4 = load ptr, ptr %m_solver1, align 8
-  %tobool.not.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %m_solver1, align 8
+  %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %invoke.cont6, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %m_ref_count.i.i.i = getelementptr inbounds %class.check_sat_result, ptr %4, i64 0, i32 4
-  %5 = load i32, ptr %m_ref_count.i.i.i, align 8
-  %dec.i.i.i = add i32 %5, -1
+  %m_ref_count.i.i.i = getelementptr inbounds %class.check_sat_result, ptr %3, i64 0, i32 4
+  %4 = load i32, ptr %m_ref_count.i.i.i, align 8
+  %dec.i.i.i = add i32 %4, -1
   store i32 %dec.i.i.i, ptr %m_ref_count.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %dec.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %invoke.cont6
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  %vtable.i.i.i.i = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %vtable.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(72) %4) #13
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %4)
+  %vtable.i.i.i.i = load ptr, ptr %3, align 8
+  %5 = load ptr, ptr %vtable.i.i.i.i, align 8
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(72) %3) #13
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %3)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %if.then.i.i, %if.end.i, %if.then.i.i.i
@@ -343,29 +342,29 @@ invoke.cont6:                                     ; preds = %if.then.i.i, %if.en
 
 if.then.i4:                                       ; preds = %invoke.cont6
   %m_ref_count.i.i5 = getelementptr inbounds %class.check_sat_result, ptr %s2, i64 0, i32 4
-  %7 = load i32, ptr %m_ref_count.i.i5, align 8
-  %inc.i.i6 = add i32 %7, 1
+  %6 = load i32, ptr %m_ref_count.i.i5, align 8
+  %inc.i.i6 = add i32 %6, 1
   store i32 %inc.i.i6, ptr %m_ref_count.i.i5, align 8
   br label %if.end.i7
 
 if.end.i7:                                        ; preds = %if.then.i4, %invoke.cont6
-  %8 = load ptr, ptr %m_solver2, align 8
-  %tobool.not.i.i8 = icmp eq ptr %8, null
+  %7 = load ptr, ptr %m_solver2, align 8
+  %tobool.not.i.i8 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i8, label %invoke.cont9, label %if.then.i.i9
 
 if.then.i.i9:                                     ; preds = %if.end.i7
-  %m_ref_count.i.i.i10 = getelementptr inbounds %class.check_sat_result, ptr %8, i64 0, i32 4
-  %9 = load i32, ptr %m_ref_count.i.i.i10, align 8
-  %dec.i.i.i11 = add i32 %9, -1
+  %m_ref_count.i.i.i10 = getelementptr inbounds %class.check_sat_result, ptr %7, i64 0, i32 4
+  %8 = load i32, ptr %m_ref_count.i.i.i10, align 8
+  %dec.i.i.i11 = add i32 %8, -1
   store i32 %dec.i.i.i11, ptr %m_ref_count.i.i.i10, align 8
   %cmp.i.i.i12 = icmp eq i32 %dec.i.i.i11, 0
   br i1 %cmp.i.i.i12, label %if.then.i.i.i13, label %invoke.cont9
 
 if.then.i.i.i13:                                  ; preds = %if.then.i.i9
-  %vtable.i.i.i.i14 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %vtable.i.i.i.i14, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(72) %8) #13
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %8)
+  %vtable.i.i.i.i14 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %vtable.i.i.i.i14, align 8
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(72) %7) #13
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %7)
           to label %invoke.cont9 unwind label %lpad5
 
 invoke.cont9:                                     ; preds = %if.then.i.i9, %if.end.i7, %if.then.i.i.i13
@@ -383,12 +382,12 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   ret void
 
 lpad5:                                            ; preds = %if.then.i.i.i13, %if.then.i.i.i, %invoke.cont9
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN3refI6solverED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_solver2) #13
   tail call void @_ZN3refI6solverED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_solver1) #13
   tail call void @_ZN6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #13
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress uwtable

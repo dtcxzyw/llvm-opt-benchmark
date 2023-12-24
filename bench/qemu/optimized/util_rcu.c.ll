@@ -627,20 +627,19 @@ while.end23:                                      ; preds = %lor.rhs
   %2 = atomicrmw sub ptr @rcu_call_count, i32 %0 seq_cst, align 4
   tail call void @synchronize_rcu()
   tail call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 286) #10
-  %cmp2647 = icmp sgt i32 %0, 0
-  br i1 %cmp2647, label %while.body27, label %while.end37
+  %cmp2645 = icmp sgt i32 %0, 0
+  br i1 %cmp2645, label %while.body27, label %while.end37
 
 while.body27:                                     ; preds = %while.end23, %while.end36
-  %n.148 = phi i32 [ %dec, %while.end36 ], [ %0, %while.end23 ]
+  %n.146 = phi i32 [ %dec, %while.end36 ], [ %0, %while.end23 ]
   %3 = load ptr, ptr @head, align 8
   %4 = load atomic i64, ptr %3 acquire, align 8
   %tobool.not6.i = icmp eq i64 %4, 0
   br i1 %tobool.not6.i, label %while.body30.preheader, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body27, %if.then12.i
-  %.in.i = phi i64 [ %13, %if.then12.i ], [ %4, %while.body27 ]
-  %5 = phi ptr [ %12, %if.then12.i ], [ %3, %while.body27 ]
-  %6 = inttoptr i64 %.in.i to ptr
+  %5 = phi i64 [ %13, %if.then12.i ], [ %4, %while.body27 ]
+  %6 = phi ptr [ %12, %if.then12.i ], [ %3, %while.body27 ]
   %7 = load ptr, ptr @head, align 8
   %cmp.i = icmp eq ptr %7, @dummy
   br i1 %cmp.i, label %while.end6.i, label %if.end10.i
@@ -656,8 +655,8 @@ if.then9.i:                                       ; preds = %while.end6.i
   unreachable
 
 if.end10.i:                                       ; preds = %while.end6.i, %if.end.i
-  store ptr %6, ptr @head, align 8
-  %cmp11.i = icmp eq ptr %5, @dummy
+  store i64 %5, ptr @head, align 8
+  %cmp11.i = icmp eq ptr %6, @dummy
   br i1 %cmp11.i, label %if.then12.i, label %while.end36
 
 if.then12.i:                                      ; preds = %if.end10.i
@@ -681,92 +680,90 @@ while.body30:                                     ; preds = %while.body30.prehea
   %tobool.not6.i10 = icmp eq i64 %15, 0
   br i1 %tobool.not6.i10, label %if.then33, label %if.end.i11
 
-if.end.i11:                                       ; preds = %while.body30, %if.then12.i17
-  %.in.i12 = phi i64 [ %24, %if.then12.i17 ], [ %15, %while.body30 ]
-  %16 = phi ptr [ %23, %if.then12.i17 ], [ %14, %while.body30 ]
-  %17 = inttoptr i64 %.in.i12 to ptr
+if.end.i11:                                       ; preds = %while.body30, %if.then12.i16
+  %16 = phi i64 [ %24, %if.then12.i16 ], [ %15, %while.body30 ]
+  %17 = phi ptr [ %23, %if.then12.i16 ], [ %14, %while.body30 ]
   %18 = load ptr, ptr @head, align 8
-  %cmp.i13 = icmp eq ptr %18, @dummy
-  br i1 %cmp.i13, label %while.end6.i19, label %if.end10.i14
+  %cmp.i12 = icmp eq ptr %18, @dummy
+  br i1 %cmp.i12, label %while.end6.i18, label %if.end10.i13
 
-while.end6.i19:                                   ; preds = %if.end.i11
+while.end6.i18:                                   ; preds = %if.end.i11
   %19 = load atomic i64, ptr @tail monotonic, align 8
   %20 = inttoptr i64 %19 to ptr
-  %cmp8.i20 = icmp eq ptr %20, @dummy
-  br i1 %cmp8.i20, label %if.then9.i21, label %if.end10.i14
+  %cmp8.i19 = icmp eq ptr %20, @dummy
+  br i1 %cmp8.i19, label %if.then9.i20, label %if.end10.i13
 
-if.then9.i21:                                     ; preds = %while.end6.i19
+if.then9.i20:                                     ; preds = %while.end6.i18
   tail call void @abort() #11
   unreachable
 
-if.end10.i14:                                     ; preds = %while.end6.i19, %if.end.i11
-  store ptr %17, ptr @head, align 8
-  %cmp11.i15 = icmp eq ptr %16, @dummy
-  br i1 %cmp11.i15, label %if.then12.i17, label %if.end35
+if.end10.i13:                                     ; preds = %while.end6.i18, %if.end.i11
+  store i64 %16, ptr @head, align 8
+  %cmp11.i14 = icmp eq ptr %17, @dummy
+  br i1 %cmp11.i14, label %if.then12.i16, label %if.end35
 
-if.then12.i17:                                    ; preds = %if.end10.i14
+if.then12.i16:                                    ; preds = %if.end10.i13
   store ptr null, ptr @dummy, align 8
   %21 = atomicrmw xchg ptr @tail, i64 ptrtoint (ptr @dummy to i64) seq_cst, align 8
   %22 = inttoptr i64 %21 to ptr
   store atomic i64 ptrtoint (ptr @dummy to i64), ptr %22 release, align 8
   %23 = load ptr, ptr @head, align 8
   %24 = load atomic i64, ptr %23 acquire, align 8
-  %tobool.not.i18 = icmp eq i64 %24, 0
-  br i1 %tobool.not.i18, label %if.then33, label %if.end.i11
+  %tobool.not.i17 = icmp eq i64 %24, 0
+  br i1 %tobool.not.i17, label %if.then33, label %if.end.i11
 
-if.then33:                                        ; preds = %if.then12.i17, %while.body30
+if.then33:                                        ; preds = %if.then12.i16, %while.body30
   tail call void @qemu_event_wait(ptr noundef nonnull @rcu_call_ready_event) #10
   %25 = load ptr, ptr @head, align 8
   %26 = load atomic i64, ptr %25 acquire, align 8
-  %tobool.not6.i23 = icmp eq i64 %26, 0
-  br i1 %tobool.not6.i23, label %if.end35, label %if.end.i24
+  %tobool.not6.i22 = icmp eq i64 %26, 0
+  br i1 %tobool.not6.i22, label %if.end35, label %if.end.i23
 
-if.end.i24:                                       ; preds = %if.then33, %if.then12.i30
-  %.in.i25 = phi i64 [ %35, %if.then12.i30 ], [ %26, %if.then33 ]
-  %27 = phi ptr [ %34, %if.then12.i30 ], [ %25, %if.then33 ]
-  %28 = inttoptr i64 %.in.i25 to ptr
+if.end.i23:                                       ; preds = %if.then33, %if.then12.i28
+  %27 = phi i64 [ %35, %if.then12.i28 ], [ %26, %if.then33 ]
+  %28 = phi ptr [ %34, %if.then12.i28 ], [ %25, %if.then33 ]
   %29 = load ptr, ptr @head, align 8
-  %cmp.i26 = icmp eq ptr %29, @dummy
-  br i1 %cmp.i26, label %while.end6.i32, label %if.end10.i27
+  %cmp.i24 = icmp eq ptr %29, @dummy
+  br i1 %cmp.i24, label %while.end6.i30, label %if.end10.i25
 
-while.end6.i32:                                   ; preds = %if.end.i24
+while.end6.i30:                                   ; preds = %if.end.i23
   %30 = load atomic i64, ptr @tail monotonic, align 8
   %31 = inttoptr i64 %30 to ptr
-  %cmp8.i33 = icmp eq ptr %31, @dummy
-  br i1 %cmp8.i33, label %if.then9.i34, label %if.end10.i27
+  %cmp8.i31 = icmp eq ptr %31, @dummy
+  br i1 %cmp8.i31, label %if.then9.i32, label %if.end10.i25
 
-if.then9.i34:                                     ; preds = %while.end6.i32
+if.then9.i32:                                     ; preds = %while.end6.i30
   tail call void @abort() #11
   unreachable
 
-if.end10.i27:                                     ; preds = %while.end6.i32, %if.end.i24
-  store ptr %28, ptr @head, align 8
-  %cmp11.i28 = icmp eq ptr %27, @dummy
-  br i1 %cmp11.i28, label %if.then12.i30, label %if.end35
+if.end10.i25:                                     ; preds = %while.end6.i30, %if.end.i23
+  store i64 %27, ptr @head, align 8
+  %cmp11.i26 = icmp eq ptr %28, @dummy
+  br i1 %cmp11.i26, label %if.then12.i28, label %if.end35
 
-if.then12.i30:                                    ; preds = %if.end10.i27
+if.then12.i28:                                    ; preds = %if.end10.i25
   store ptr null, ptr @dummy, align 8
   %32 = atomicrmw xchg ptr @tail, i64 ptrtoint (ptr @dummy to i64) seq_cst, align 8
   %33 = inttoptr i64 %32 to ptr
   store atomic i64 ptrtoint (ptr @dummy to i64), ptr %33 release, align 8
   %34 = load ptr, ptr @head, align 8
   %35 = load atomic i64, ptr %34 acquire, align 8
-  %tobool.not.i31 = icmp eq i64 %35, 0
-  br i1 %tobool.not.i31, label %if.end35, label %if.end.i24
+  %tobool.not.i29 = icmp eq i64 %35, 0
+  br i1 %tobool.not.i29, label %if.end35, label %if.end.i23
 
-if.end35:                                         ; preds = %if.end10.i14, %if.then12.i30, %if.end10.i27, %if.then33
-  %node.1 = phi ptr [ null, %if.then33 ], [ null, %if.then12.i30 ], [ %27, %if.end10.i27 ], [ %16, %if.end10.i14 ]
+if.end35:                                         ; preds = %if.end10.i13, %if.then12.i28, %if.end10.i25, %if.then33
+  %node.1 = phi ptr [ null, %if.then33 ], [ null, %if.then12.i28 ], [ %28, %if.end10.i25 ], [ %17, %if.end10.i13 ]
   tail call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 297) #10
   %tobool.not = icmp eq ptr %node.1, null
   br i1 %tobool.not, label %while.body30, label %while.end36, !llvm.loop !14
 
 while.end36:                                      ; preds = %if.end10.i, %if.end35
-  %node.0.lcssa = phi ptr [ %node.1, %if.end35 ], [ %5, %if.end10.i ]
-  %dec = add nsw i32 %n.148, -1
+  %node.0.lcssa = phi ptr [ %node.1, %if.end35 ], [ %6, %if.end10.i ]
+  %dec = add nsw i32 %n.146, -1
   %func = getelementptr inbounds %struct.rcu_head, ptr %node.0.lcssa, i64 0, i32 1
   %36 = load ptr, ptr %func, align 8
   tail call void %36(ptr noundef nonnull %node.0.lcssa) #10
-  %cmp26 = icmp sgt i32 %n.148, 1
+  %cmp26 = icmp sgt i32 %n.146, 1
   br i1 %cmp26, label %while.body27, label %while.end37, !llvm.loop !15
 
 while.end37:                                      ; preds = %while.end36, %while.end23

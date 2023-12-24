@@ -9962,7 +9962,6 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit69: ; preds 
   %42 = load ptr, ptr %buf, align 8
   store ptr null, ptr %buf, align 8
   store ptr %42, ptr %data70, align 8
-  %43 = ptrtoint ptr %42 to i64
   %vtable75.pre = load ptr, ptr %this, align 8
   %vfn76.phi.trans.insert = getelementptr inbounds ptr, ptr %vtable75.pre, i64 13
   %.pre101 = load ptr, ptr %vfn76.phi.trans.insert, align 8
@@ -9979,32 +9978,32 @@ invoke.cont78:                                    ; preds = %_ZNSt10unique_ptrIN
 
 land.lhs.true:                                    ; preds = %invoke.cont78
   %fizzContext_ = getelementptr inbounds %"class.fizz::client::AsyncFizzClientT", ptr %this, i64 0, i32 3
-  %44 = load ptr, ptr %fizzContext_, align 8
-  %sendEarlyData_.i = getelementptr inbounds %"class.fizz::client::FizzClientContext", ptr %44, i64 0, i32 9
-  %45 = load i8, ptr %sendEarlyData_.i, align 8
-  %46 = and i8 %45, 1
-  %tobool.i.not = icmp eq i8 %46, 0
+  %43 = load ptr, ptr %fizzContext_, align 8
+  %sendEarlyData_.i = getelementptr inbounds %"class.fizz::client::FizzClientContext", ptr %43, i64 0, i32 9
+  %44 = load i8, ptr %sendEarlyData_.i, align 8
+  %45 = and i8 %44, 1
+  %tobool.i.not = icmp eq i8 %45, 0
   br i1 %tobool.i.not, label %if.then83, label %if.else85
 
 if.then83:                                        ; preds = %land.lhs.true
   %_M_finish.i.i70 = getelementptr inbounds %"class.fizz::client::AsyncFizzClientT", ptr %this, i64 0, i32 14, i32 0, i32 0, i32 0, i32 3
-  %47 = load ptr, ptr %_M_finish.i.i70, align 8
+  %46 = load ptr, ptr %_M_finish.i.i70, align 8
   %_M_last.i.i71 = getelementptr inbounds %"class.fizz::client::AsyncFizzClientT", ptr %this, i64 0, i32 14, i32 0, i32 0, i32 0, i32 3, i32 2
-  %48 = load ptr, ptr %_M_last.i.i71, align 8
-  %add.ptr.i.i72 = getelementptr inbounds %"struct.fizz::AppWrite", ptr %48, i64 -1
-  %cmp.not.i.i73 = icmp eq ptr %47, %add.ptr.i.i72
+  %47 = load ptr, ptr %_M_last.i.i71, align 8
+  %add.ptr.i.i72 = getelementptr inbounds %"struct.fizz::AppWrite", ptr %47, i64 -1
+  %cmp.not.i.i73 = icmp eq ptr %46, %add.ptr.i.i72
   br i1 %cmp.not.i.i73, label %if.else.i.i80, label %if.then.i.i74
 
 if.then.i.i74:                                    ; preds = %if.then83
-  store ptr %callback, ptr %47, align 8
-  %data.i.i.i.i.i75 = getelementptr inbounds %"struct.fizz::AppWrite", ptr %47, i64 0, i32 1
-  %49 = load i64, ptr %data70, align 8
-  store i64 %49, ptr %data.i.i.i.i.i75, align 8
+  store ptr %callback, ptr %46, align 8
+  %data.i.i.i.i.i75 = getelementptr inbounds %"struct.fizz::AppWrite", ptr %46, i64 0, i32 1
+  %48 = load i64, ptr %data70, align 8
+  store i64 %48, ptr %data.i.i.i.i.i75, align 8
   store ptr null, ptr %data70, align 8
-  %flags.i.i.i.i.i77 = getelementptr inbounds %"struct.fizz::AppWrite", ptr %47, i64 0, i32 2
+  %flags.i.i.i.i.i77 = getelementptr inbounds %"struct.fizz::AppWrite", ptr %46, i64 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %flags.i.i.i.i.i77, ptr noundef nonnull align 8 dereferenceable(12) %flags72, i64 12, i1 false)
-  %50 = load ptr, ptr %_M_finish.i.i70, align 8
-  %incdec.ptr.i.i79 = getelementptr inbounds %"struct.fizz::AppWrite", ptr %50, i64 1
+  %49 = load ptr, ptr %_M_finish.i.i70, align 8
+  %incdec.ptr.i.i79 = getelementptr inbounds %"struct.fizz::AppWrite", ptr %49, i64 1
   store ptr %incdec.ptr.i.i79, ptr %_M_finish.i.i70, align 8
   br label %if.end91
 
@@ -10014,7 +10013,7 @@ if.else.i.i80:                                    ; preds = %if.then83
           to label %if.end91 unwind label %lpad77
 
 lpad77:                                           ; preds = %if.else.i.i80, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit69
-  %51 = landingpad { ptr, i32 }
+  %50 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup92
 
@@ -10022,7 +10021,7 @@ if.else85:                                        ; preds = %land.lhs.true, %inv
   %fizzClient_86 = getelementptr inbounds %"class.fizz::client::AsyncFizzClientT", ptr %this, i64 0, i32 9
   store ptr %callback, ptr %agg.tmp87, align 8
   %data.i83 = getelementptr inbounds %"struct.fizz::AppWrite", ptr %agg.tmp87, i64 0, i32 1
-  store i64 %43, ptr %data.i83, align 8
+  store ptr %42, ptr %data.i83, align 8
   store ptr null, ptr %data70, align 8
   %flags.i85 = getelementptr inbounds %"struct.fizz::AppWrite", ptr %agg.tmp87, i64 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %flags.i85, ptr noundef nonnull align 8 dereferenceable(12) %flags72, i64 12, i1 false)
@@ -10030,13 +10029,13 @@ if.else85:                                        ; preds = %land.lhs.true, %inv
           to label %invoke.cont89 unwind label %lpad88
 
 invoke.cont89:                                    ; preds = %if.else85
-  %52 = load ptr, ptr %data.i83, align 8
-  %cmp.not.i.i88 = icmp eq ptr %52, null
+  %51 = load ptr, ptr %data.i83, align 8
+  %cmp.not.i.i88 = icmp eq ptr %51, null
   br i1 %cmp.not.i.i88, label %_ZN4fizz8AppWriteD2Ev.exit90, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i89
 
 _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i89: ; preds = %invoke.cont89
-  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %52) #28
-  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %52) #28
+  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %51) #28
+  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %51) #28
   br label %_ZN4fizz8AppWriteD2Ev.exit90
 
 _ZN4fizz8AppWriteD2Ev.exit90:                     ; preds = %invoke.cont89, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i89
@@ -10044,23 +10043,23 @@ _ZN4fizz8AppWriteD2Ev.exit90:                     ; preds = %invoke.cont89, %_ZN
   br label %if.end91
 
 lpad88:                                           ; preds = %if.else85
-  %53 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4fizz8AppWriteD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %agg.tmp87) #28
   br label %ehcleanup92
 
 if.end91:                                         ; preds = %if.then.i.i74, %if.else.i.i80, %_ZN4fizz8AppWriteD2Ev.exit90
-  %54 = load ptr, ptr %data70, align 8
-  %cmp.not.i.i92 = icmp eq ptr %54, null
+  %53 = load ptr, ptr %data70, align 8
+  %cmp.not.i.i92 = icmp eq ptr %53, null
   br i1 %cmp.not.i.i92, label %if.end93, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i93
 
 _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i93: ; preds = %if.end91
-  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %54) #28
-  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %54) #28
+  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %53) #28
+  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %53) #28
   br label %if.end93
 
 ehcleanup92:                                      ; preds = %lpad88, %lpad77
-  %.pn12 = phi { ptr, i32 } [ %53, %lpad88 ], [ %51, %lpad77 ]
+  %.pn12 = phi { ptr, i32 } [ %52, %lpad88 ], [ %50, %lpad77 ]
   call void @_ZN4fizz8AppWriteD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %w68) #28
   br label %eh.resume
 
@@ -18619,7 +18618,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i22, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.end, %_ZN4fizz6detail12PendingEventD2Ev.exit
-  %4 = phi ptr [ %18, %_ZN4fizz6detail12PendingEventD2Ev.exit ], [ %3, %if.end ]
+  %4 = phi ptr [ %15, %_ZN4fizz6detail12PendingEventD2Ev.exit ], [ %3, %if.end ]
   %type_.i = getelementptr inbounds %"struct.fizz::detail::PendingEvent", ptr %4, i64 0, i32 1
   %5 = load i32, ptr %type_.i, align 8
   switch i32 %5, label %_ZN4fizz6detail12PendingEventC2EOS1_.exit [
@@ -18659,8 +18658,7 @@ sw.epilog.thread21:                               ; preds = %while.body
 
 _ZN4fizz6detail12PendingEventC2EOS1_.exit.thread25: ; preds = %while.body
   %11 = load i64, ptr %4, align 8
-  %12 = inttoptr i64 %11 to ptr
-  store ptr %12, ptr %event.sroa.0, align 8
+  store i64 %11, ptr %event.sroa.0, align 8
   store ptr null, ptr %4, align 8
   tail call void @_ZNSt5dequeIN4fizz6detail12PendingEventESaIS2_EE9pop_frontEv(ptr noundef nonnull align 8 dereferenceable(80) %pendingEvents_) #28
   %cmp.not.i.i4.i.i = icmp eq i64 %11, 0
@@ -18673,32 +18671,31 @@ _ZN4fizz6detail12PendingEventC2EOS1_.exit:        ; preds = %while.body
 if.then9:                                         ; preds = %_ZN4fizz6detail12PendingEventC2EOS1_.exit.thread
   %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
-  %13 = load ptr, ptr %vfn, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %ex) #28
+  %12 = load ptr, ptr %vfn, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %ex) #28
   br label %sw.bb.i.i
 
 if.then17:                                        ; preds = %_ZN4fizz6detail12PendingEventC2EOS1_.exit.thread24
   %vtable20 = load ptr, ptr %8, align 8
   %vfn21 = getelementptr inbounds ptr, ptr %vtable20, i64 4
-  %14 = load ptr, ptr %vfn21, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %ex) #28
+  %13 = load ptr, ptr %vfn21, align 8
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %ex) #28
   br label %sw.bb2.i.i
 
 sw.bb.i.i:                                        ; preds = %if.then9, %_ZN4fizz6detail12PendingEventC2EOS1_.exit.thread
   %event.sroa.11.0.event.sroa.11.0.event.sroa.11.0.event.sroa.11.8.13 = load i64, ptr %event.sroa.11, align 8
-  %15 = inttoptr i64 %event.sroa.11.0.event.sroa.11.0.event.sroa.11.0.event.sroa.11.8.13 to ptr
   %cmp.not.i.i.i.i = icmp eq i64 %event.sroa.11.0.event.sroa.11.0.event.sroa.11.0.event.sroa.11.8.13, 0
   br i1 %cmp.not.i.i.i.i, label %sw.epilog.sink.split.i.i, label %sw.epilog.sink.split.sink.split.i.i
 
 sw.bb2.i.i:                                       ; preds = %if.then17, %_ZN4fizz6detail12PendingEventC2EOS1_.exit.thread24
   %event.sroa.11.0.event.sroa.11.0.event.sroa.11.0.event.sroa.11.8. = load i64, ptr %event.sroa.11, align 8
-  %16 = inttoptr i64 %event.sroa.11.0.event.sroa.11.0.event.sroa.11.0.event.sroa.11.8. to ptr
   %cmp.not.i.i2.i.i = icmp eq i64 %event.sroa.11.0.event.sroa.11.0.event.sroa.11.0.event.sroa.11.8., 0
   br i1 %cmp.not.i.i2.i.i, label %sw.epilog.sink.split.i.i, label %sw.epilog.sink.split.sink.split.i.i
 
 sw.epilog.sink.split.sink.split.i.i:              ; preds = %_ZN4fizz6detail12PendingEventC2EOS1_.exit.thread25, %sw.bb2.i.i, %sw.bb.i.i
-  %.sink6.i.i = phi ptr [ %15, %sw.bb.i.i ], [ %16, %sw.bb2.i.i ], [ %12, %_ZN4fizz6detail12PendingEventC2EOS1_.exit.thread25 ]
+  %.sink6.i.i.in = phi i64 [ %event.sroa.11.0.event.sroa.11.0.event.sroa.11.0.event.sroa.11.8.13, %sw.bb.i.i ], [ %event.sroa.11.0.event.sroa.11.0.event.sroa.11.0.event.sroa.11.8., %sw.bb2.i.i ], [ %11, %_ZN4fizz6detail12PendingEventC2EOS1_.exit.thread25 ]
   %this.sink.ph.i.i = phi ptr [ %event.sroa.11, %sw.bb.i.i ], [ %event.sroa.11, %sw.bb2.i.i ], [ %event.sroa.0, %_ZN4fizz6detail12PendingEventC2EOS1_.exit.thread25 ]
+  %.sink6.i.i = inttoptr i64 %.sink6.i.i.in to ptr
   tail call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink6.i.i) #28
   tail call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %.sink6.i.i) #28
   br label %sw.epilog.sink.split.i.i
@@ -18709,9 +18706,9 @@ sw.epilog.sink.split.i.i:                         ; preds = %sw.epilog.sink.spli
   br label %_ZN4fizz6detail12PendingEventD2Ev.exit
 
 _ZN4fizz6detail12PendingEventD2Ev.exit:           ; preds = %_ZN4fizz6detail12PendingEventC2EOS1_.exit, %sw.epilog.thread21, %sw.epilog.sink.split.i.i
-  %17 = load ptr, ptr %_M_finish.i, align 8
-  %18 = load ptr, ptr %_M_start.i, align 8
-  %cmp.i.i = icmp eq ptr %17, %18
+  %14 = load ptr, ptr %_M_finish.i, align 8
+  %15 = load ptr, ptr %_M_start.i, align 8
+  %cmp.i.i = icmp eq ptr %14, %15
   br i1 %cmp.i.i, label %while.end, label %while.body, !llvm.loop !94
 
 while.end:                                        ; preds = %_ZN4fizz6detail12PendingEventD2Ev.exit, %if.end, %entry

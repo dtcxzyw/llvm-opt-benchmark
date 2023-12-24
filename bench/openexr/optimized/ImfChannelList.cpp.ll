@@ -1032,9 +1032,8 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 _ZNSt3mapIN7Imf_3_24NameENS0_7ChannelESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit: ; preds = %while.body.i.i.i, %entry
   %__y.addr.0.lcssa.i.i.i = phi ptr [ %add.ptr.i.i.i, %entry ], [ %__y.addr.1.i.i.i, %while.body.i.i.i ]
-  %1 = ptrtoint ptr %__y.addr.0.lcssa.i.i.i to i64
-  store i64 %1, ptr %last, align 8
-  store i64 %1, ptr %first, align 8
+  store ptr %__y.addr.0.lcssa.i.i.i, ptr %last, align 8
+  store ptr %__y.addr.0.lcssa.i.i.i, ptr %first, align 8
   %call4 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %prefix) #20
   %sext = shl i64 %call4, 32
   %conv5 = ashr exact i64 %sext, 32
@@ -1094,9 +1093,8 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 _ZNKSt3mapIN7Imf_3_24NameENS0_7ChannelESt4lessIS1_ESaISt4pairIKS1_S2_EEE11lower_boundERS6_.exit: ; preds = %while.body.i.i.i, %entry
   %__y.addr.0.lcssa.i.i.i = phi ptr [ %add.ptr.i.i.i, %entry ], [ %__y.addr.1.i.i.i, %while.body.i.i.i ]
-  %1 = ptrtoint ptr %__y.addr.0.lcssa.i.i.i to i64
-  store i64 %1, ptr %last, align 8
-  store i64 %1, ptr %first, align 8
+  store ptr %__y.addr.0.lcssa.i.i.i, ptr %last, align 8
+  store ptr %__y.addr.0.lcssa.i.i.i, ptr %first, align 8
   %call4 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %prefix) #20
   %last.promoted = load ptr, ptr %last, align 8
   %cmp.i.i.i.not8 = icmp eq ptr %last.promoted, %add.ptr.i.i.i

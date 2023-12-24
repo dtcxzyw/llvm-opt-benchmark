@@ -619,7 +619,7 @@ invoke.cont17:                                    ; preds = %_ZN7obj_refI4expr11
   %shl.i = shl i32 %12, 1
   %xor.i = or disjoint i32 %shl.i, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  store ptr inttoptr (i64 2 to ptr), ptr %ref.tmp.i, align 8
+  store i64 2, ptr %ref.tmp.i, align 8
   %m_assignment.i.i.i.i = getelementptr inbounds %"class.smt::context", ptr %1, i64 0, i32 50
   %13 = load ptr, ptr %m_assignment.i.i.i.i, align 8
   %idxprom.i.i.i.i.i = zext i32 %xor.i to i64
@@ -2353,7 +2353,7 @@ if.then43:                                        ; preds = %end_remove
   br label %if.end55
 
 if.else44:                                        ; preds = %end_remove
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.2, align 8
+  store i64 1, ptr %curr.2, align 8
   %m_num_deleted = getelementptr inbounds %class.core_hashtable, ptr %this, i64 0, i32 3
   %17 = load i32, ptr %m_num_deleted, align 8
   %inc = add i32 %17, 1

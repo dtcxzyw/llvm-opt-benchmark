@@ -543,19 +543,16 @@ define dso_local void @vhost_svq_get_vring_addr(ptr nocapture noundef readonly %
 entry:
   %desc = getelementptr inbounds %struct.vring, ptr %svq, i64 0, i32 1
   %0 = load ptr, ptr %desc, align 8
-  %1 = ptrtoint ptr %0 to i64
   %desc_user_addr = getelementptr inbounds %struct.vhost_vring_addr, ptr %addr, i64 0, i32 2
-  store i64 %1, ptr %desc_user_addr, align 8
+  store ptr %0, ptr %desc_user_addr, align 8
   %avail = getelementptr inbounds %struct.vring, ptr %svq, i64 0, i32 2
-  %2 = load ptr, ptr %avail, align 8
-  %3 = ptrtoint ptr %2 to i64
+  %1 = load ptr, ptr %avail, align 8
   %avail_user_addr = getelementptr inbounds %struct.vhost_vring_addr, ptr %addr, i64 0, i32 4
-  store i64 %3, ptr %avail_user_addr, align 8
+  store ptr %1, ptr %avail_user_addr, align 8
   %used = getelementptr inbounds %struct.vring, ptr %svq, i64 0, i32 3
-  %4 = load ptr, ptr %used, align 8
-  %5 = ptrtoint ptr %4 to i64
+  %2 = load ptr, ptr %used, align 8
   %used_user_addr = getelementptr inbounds %struct.vhost_vring_addr, ptr %addr, i64 0, i32 3
-  store i64 %5, ptr %used_user_addr, align 8
+  store ptr %2, ptr %used_user_addr, align 8
   ret void
 }
 
@@ -1026,49 +1023,48 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   store i64 0, ptr %needle.i, align 8
   %arrayidx.i = getelementptr %struct.iovec, ptr %iovec, i64 %i.027.i
   %2 = load ptr, ptr %arrayidx.i, align 8
-  %3 = ptrtoint ptr %2 to i64
-  store i64 %3, ptr %translated_addr.i, align 8
+  store ptr %2, ptr %translated_addr.i, align 8
   %iov_len.i = getelementptr %struct.iovec, ptr %iovec, i64 %i.027.i, i32 1
-  %4 = load i64, ptr %iov_len.i, align 8
-  store i64 %4, ptr %size.i, align 8
+  %3 = load i64, ptr %iov_len.i, align 8
+  store i64 %3, ptr %size.i, align 8
   store i32 0, ptr %perm.i, align 8
-  %5 = load ptr, ptr %iova_tree.i, align 8
-  %call.i = call ptr @vhost_iova_tree_find_iova(ptr noundef %5, ptr noundef nonnull %needle.i) #11
+  %4 = load ptr, ptr %iova_tree.i, align 8
+  %call.i = call ptr @vhost_iova_tree_find_iova(ptr noundef %4, ptr noundef nonnull %needle.i) #11
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %do.body.i, label %if.end17.i
 
 do.body.i:                                        ; preds = %for.body.i
-  %6 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i = and i32 %6, 2048
+  %5 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i = and i32 %5, 2048
   %cmp.i.not.i = icmp eq i32 %and.i.i, 0
   br i1 %cmp.i.not.i, label %vhost_svq_translate_addr.exit, label %if.then14.i
 
 if.then14.i:                                      ; preds = %do.body.i
-  %7 = load i64, ptr %translated_addr.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i64 noundef %7) #11
+  %6 = load i64, ptr %translated_addr.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i64 noundef %6) #11
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %needle.i)
   br i1 %cmp128.i, label %for.cond.preheader, label %return
 
 if.end17.i:                                       ; preds = %for.body.i
-  %8 = load i64, ptr %translated_addr.i, align 8
+  %7 = load i64, ptr %translated_addr.i, align 8
   %translated_addr19.i = getelementptr inbounds %struct.DMAMap, ptr %call.i, i64 0, i32 1
-  %9 = load i64, ptr %translated_addr19.i, align 1
-  %sub.i = sub i64 %8, %9
-  %10 = load i64, ptr %call.i, align 1
-  %add.i = add i64 %sub.i, %10
+  %8 = load i64, ptr %translated_addr19.i, align 1
+  %sub.i = sub i64 %7, %8
+  %9 = load i64, ptr %call.i, align 1
+  %add.i = add i64 %sub.i, %9
   %arrayidx21.i = getelementptr i64, ptr %sg, i64 %i.027.i
   store i64 %add.i, ptr %arrayidx21.i, align 8
-  %11 = load i64, ptr %iov_len.i, align 8
-  %sub26.i = add i64 %11, -1
-  %12 = ashr i64 %sub26.i, 63
-  %add.narrowed.i.i = add i64 %sub26.i, %8
+  %10 = load i64, ptr %iov_len.i, align 8
+  %sub26.i = add i64 %10, -1
+  %11 = ashr i64 %sub26.i, 63
+  %add.narrowed.i.i = add i64 %sub26.i, %7
   %add.narrowed.overflow.i.i = icmp ult i64 %add.narrowed.i.i, %sub26.i
   %.tr.i.i = zext i1 %add.narrowed.overflow.i.i to i64
-  %.narrow.i.i = add nsw i64 %12, %.tr.i.i
-  %13 = load i64, ptr %translated_addr19.i, align 1
+  %.narrow.i.i = add nsw i64 %11, %.tr.i.i
+  %12 = load i64, ptr %translated_addr19.i, align 1
   %size34.i = getelementptr inbounds %struct.DMAMap, ptr %call.i, i64 0, i32 2
-  %14 = load i64, ptr %size34.i, align 1
-  %add35.i = add i64 %14, %13
+  %13 = load i64, ptr %size34.i, align 1
+  %add35.i = add i64 %13, %12
   %a.sroa.2.0.insert.ext.i.i = zext i64 %.narrow.i.i to i128
   %a.sroa.2.0.insert.shift.i.i = shl nuw i128 %a.sroa.2.0.insert.ext.i.i, 64
   %a.sroa.0.0.insert.ext.i.i = zext i64 %add.narrowed.i.i to i128
@@ -1078,8 +1074,8 @@ if.end17.i:                                       ; preds = %for.body.i
   br i1 %cmp.i19.i, label %do.body48.i, label %for.cond.i
 
 do.body48.i:                                      ; preds = %if.end17.i
-  %15 = load i32, ptr @qemu_loglevel, align 4
-  %and.i20.i = and i32 %15, 2048
+  %14 = load i32, ptr @qemu_loglevel, align 4
+  %and.i20.i = and i32 %14, 2048
   %cmp.i21.not.i = icmp eq i32 %and.i20.i, 0
   br i1 %cmp.i21.not.i, label %vhost_svq_translate_addr.exit, label %if.then56.i
 
@@ -1100,36 +1096,36 @@ for.cond.preheader:                               ; preds = %vhost_svq_translate
 
 for.body.us:                                      ; preds = %for.cond.preheader, %for.body.us
   %conv1434.us = phi i64 [ %conv14.us, %for.body.us ], [ 0, %for.cond.preheader ]
-  %i.033.us = phi i16 [ %21, %for.body.us ], [ %0, %for.cond.preheader ]
+  %i.033.us = phi i16 [ %20, %for.body.us ], [ %0, %for.cond.preheader ]
   %n.032.us = phi i32 [ %add.us, %for.body.us ], [ 0, %for.cond.preheader ]
   %add.us = add i32 %n.032.us, 1
   %idxprom.us = zext i16 %i.033.us to i64
   %flags27.us = getelementptr %struct.vring_desc, ptr %1, i64 %idxprom.us, i32 2
   store i16 %or29, ptr %flags27.us, align 4
-  %16 = load ptr, ptr %desc_next, align 8
-  %arrayidx29.us = getelementptr i16, ptr %16, i64 %idxprom.us
-  %17 = load i16, ptr %arrayidx29.us, align 2
+  %15 = load ptr, ptr %desc_next, align 8
+  %arrayidx29.us = getelementptr i16, ptr %15, i64 %idxprom.us
+  %16 = load i16, ptr %arrayidx29.us, align 2
   %next.us = getelementptr %struct.vring_desc, ptr %1, i64 %idxprom.us, i32 3
-  store i16 %17, ptr %next.us, align 2
+  store i16 %16, ptr %next.us, align 2
   %arrayidx38.us = getelementptr i64, ptr %sg, i64 %conv1434.us
-  %18 = load i64, ptr %arrayidx38.us, align 8
+  %17 = load i64, ptr %arrayidx38.us, align 8
   %arrayidx41.us = getelementptr %struct.vring_desc, ptr %1, i64 %idxprom.us
-  store i64 %18, ptr %arrayidx41.us, align 16
+  store i64 %17, ptr %arrayidx41.us, align 16
   %iov_len.us = getelementptr %struct.iovec, ptr %iovec, i64 %conv1434.us, i32 1
-  %19 = load i64, ptr %iov_len.us, align 8
-  %conv44.us = trunc i64 %19 to i32
+  %18 = load i64, ptr %iov_len.us, align 8
+  %conv44.us = trunc i64 %18 to i32
   %len.us = getelementptr %struct.vring_desc, ptr %1, i64 %idxprom.us, i32 1
   store i32 %conv44.us, ptr %len.us, align 8
-  %20 = load ptr, ptr %desc_next, align 8
-  %arrayidx50.us = getelementptr i16, ptr %20, i64 %idxprom.us
-  %21 = load i16, ptr %arrayidx50.us, align 2
+  %19 = load ptr, ptr %desc_next, align 8
+  %arrayidx50.us = getelementptr i16, ptr %19, i64 %idxprom.us
+  %20 = load i16, ptr %arrayidx50.us, align 2
   %conv14.us = zext i32 %add.us to i64
   %cmp15.us = icmp ult i64 %conv14.us, %num
   br i1 %cmp15.us, label %for.body.us, label %for.end, !llvm.loop !19
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end36
   %conv1434 = phi i64 [ %conv19, %if.end36 ], [ 0, %for.cond.preheader ]
-  %i.033 = phi i16 [ %27, %if.end36 ], [ %0, %for.cond.preheader ]
+  %i.033 = phi i16 [ %26, %if.end36 ], [ %0, %for.cond.preheader ]
   %n.032 = phi i32 [ %add, %if.end36 ], [ 0, %for.cond.preheader ]
   %add = add i32 %n.032, 1
   %conv19 = zext i32 %add to i64
@@ -1140,11 +1136,11 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 if.then22:                                        ; preds = %for.body
   store i16 %or29, ptr %flags27, align 4
-  %22 = load ptr, ptr %desc_next, align 8
-  %arrayidx29 = getelementptr i16, ptr %22, i64 %idxprom
-  %23 = load i16, ptr %arrayidx29, align 2
+  %21 = load ptr, ptr %desc_next, align 8
+  %arrayidx29 = getelementptr i16, ptr %21, i64 %idxprom
+  %22 = load i16, ptr %arrayidx29, align 2
   %next = getelementptr %struct.vring_desc, ptr %1, i64 %idxprom, i32 3
-  store i16 %23, ptr %next, align 2
+  store i16 %22, ptr %next, align 2
   br label %if.end36
 
 if.else:                                          ; preds = %for.body
@@ -1153,22 +1149,22 @@ if.else:                                          ; preds = %for.body
 
 if.end36:                                         ; preds = %if.else, %if.then22
   %arrayidx38 = getelementptr i64, ptr %sg, i64 %conv1434
-  %24 = load i64, ptr %arrayidx38, align 8
+  %23 = load i64, ptr %arrayidx38, align 8
   %arrayidx41 = getelementptr %struct.vring_desc, ptr %1, i64 %idxprom
-  store i64 %24, ptr %arrayidx41, align 16
+  store i64 %23, ptr %arrayidx41, align 16
   %iov_len = getelementptr %struct.iovec, ptr %iovec, i64 %conv1434, i32 1
-  %25 = load i64, ptr %iov_len, align 8
-  %conv44 = trunc i64 %25 to i32
+  %24 = load i64, ptr %iov_len, align 8
+  %conv44 = trunc i64 %24 to i32
   %len = getelementptr %struct.vring_desc, ptr %1, i64 %idxprom, i32 1
   store i32 %conv44, ptr %len, align 8
-  %26 = load ptr, ptr %desc_next, align 8
-  %arrayidx50 = getelementptr i16, ptr %26, i64 %idxprom
-  %27 = load i16, ptr %arrayidx50, align 2
+  %25 = load ptr, ptr %desc_next, align 8
+  %arrayidx50 = getelementptr i16, ptr %25, i64 %idxprom
+  %26 = load i16, ptr %arrayidx50, align 2
   br i1 %cmp20, label %for.body, label %for.end, !llvm.loop !19
 
 for.end:                                          ; preds = %if.end36, %for.body.us
-  %28 = phi i16 [ %21, %for.body.us ], [ %27, %if.end36 ]
-  store i16 %28, ptr %free_head, align 2
+  %27 = phi i16 [ %20, %for.body.us ], [ %26, %if.end36 ]
+  store i16 %27, ptr %free_head, align 2
   br label %return
 
 return:                                           ; preds = %if.then14.i, %if.then56.i, %vhost_svq_translate_addr.exit, %entry, %for.end

@@ -7882,8 +7882,7 @@ _ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EE5resetEPS1
   %target_.i.i.i = getelementptr inbounds %"class.rocksdb::FSSequentialFileWrapper", ptr %call10, i64 0, i32 1
   store ptr %11, ptr %target_.i.i.i, align 8
   %guard_.i.i = getelementptr inbounds %"class.rocksdb::FSSequentialFileOwnerWrapper", ptr %call10, i64 0, i32 1
-  %.cast = ptrtoint ptr %11 to i64
-  store i64 %.cast, ptr %guard_.i.i, align 8
+  store ptr %11, ptr %guard_.i.i, align 8
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb20TestFSSequentialFileE, i64 0, inrange i32 0, i64 2), ptr %call10, align 8
   %fs_.i = getelementptr inbounds %"class.rocksdb::TestFSSequentialFile", ptr %call10, i64 0, i32 1
   store ptr %this, ptr %fs_.i, align 8

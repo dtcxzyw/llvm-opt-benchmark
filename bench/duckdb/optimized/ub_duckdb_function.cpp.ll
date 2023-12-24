@@ -4214,17 +4214,16 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %4 = ptrtoint ptr %0 to i64
-  store i64 %4, ptr %1, align 8
-  %5 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !99
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::reference_wrapper", ptr %5, i64 1
+  store ptr %0, ptr %1, align 8
+  %4 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !99
+  %incdec.ptr.i.i = getelementptr inbounds %"class.std::reference_wrapper", ptr %4, i64 1
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8, !tbaa !99
   br label %cleanup
 
 if.else.i.i:                                      ; preds = %if.end
-  %6 = load ptr, ptr %result, align 8, !tbaa !4
-  %7 = ptrtoint ptr %6 to i64
-  %sub.ptr.sub.i.i.i.i.i = sub i64 %2, %7
+  %5 = load ptr, ptr %result, align 8, !tbaa !4
+  %6 = ptrtoint ptr %5 to i64
+  %sub.ptr.sub.i.i.i.i.i = sub i64 %2, %6
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorISt17reference_wrapperIN6duckdb19CompressionFunctionEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
 
@@ -4251,50 +4250,49 @@ _ZNSt16allocator_traitsISaISt17reference_wrapperIN6duckdb19CompressionFunctionEE
 _ZNSt12_Vector_baseISt17reference_wrapperIN6duckdb19CompressionFunctionEESaIS3_EE11_M_allocateEm.exit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaISt17reference_wrapperIN6duckdb19CompressionFunctionEEEE8allocateERS4_m.exit.i.i.i.i, %_ZNKSt6vectorISt17reference_wrapperIN6duckdb19CompressionFunctionEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
   %cond.i31.i.i.i = phi ptr [ %call5.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaISt17reference_wrapperIN6duckdb19CompressionFunctionEEEE8allocateERS4_m.exit.i.i.i.i ], [ null, %_ZNKSt6vectorISt17reference_wrapperIN6duckdb19CompressionFunctionEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %"class.std::reference_wrapper", ptr %cond.i31.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
-  %8 = ptrtoint ptr %0 to i64
-  store i64 %8, ptr %add.ptr.i.i.i, align 8
-  %cmp.not6.i.i.i.i.i.i.i = icmp eq ptr %6, %1
+  store ptr %0, ptr %add.ptr.i.i.i, align 8
+  %cmp.not6.i.i.i.i.i.i.i = icmp eq ptr %5, %1
   br i1 %cmp.not6.i.i.i.i.i.i.i, label %_ZNSt6vectorISt17reference_wrapperIN6duckdb19CompressionFunctionEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i, label %for.body.i.i.i.i.i.i.i.preheader
 
 for.body.i.i.i.i.i.i.i.preheader:                 ; preds = %_ZNSt12_Vector_baseISt17reference_wrapperIN6duckdb19CompressionFunctionEESaIS3_EE11_M_allocateEm.exit.i.i.i
-  %9 = add i64 %2, -8
-  %10 = sub i64 %9, %7
-  %11 = lshr i64 %10, 3
-  %12 = add nuw nsw i64 %11, 1
-  %min.iters.check = icmp ult i64 %10, 24
+  %7 = add i64 %2, -8
+  %8 = sub i64 %7, %6
+  %9 = lshr i64 %8, 3
+  %10 = add nuw nsw i64 %9, 1
+  %min.iters.check = icmp ult i64 %8, 24
   br i1 %min.iters.check, label %for.body.i.i.i.i.i.i.i.preheader7, label %vector.ph
 
 for.body.i.i.i.i.i.i.i.preheader7:                ; preds = %middle.block, %for.body.i.i.i.i.i.i.i.preheader
   %__cur.08.i.i.i.i.i.i.i.ph = phi ptr [ %ind.end, %middle.block ], [ %cond.i31.i.i.i, %for.body.i.i.i.i.i.i.i.preheader ]
-  %__first.addr.07.i.i.i.i.i.i.i.ph = phi ptr [ %ind.end4, %middle.block ], [ %6, %for.body.i.i.i.i.i.i.i.preheader ]
+  %__first.addr.07.i.i.i.i.i.i.i.ph = phi ptr [ %ind.end4, %middle.block ], [ %5, %for.body.i.i.i.i.i.i.i.preheader ]
   br label %for.body.i.i.i.i.i.i.i
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i.i.i.i.preheader
-  %n.vec = and i64 %12, 4611686018427387900
-  %13 = shl i64 %n.vec, 3
-  %ind.end = getelementptr i8, ptr %cond.i31.i.i.i, i64 %13
+  %n.vec = and i64 %10, 4611686018427387900
+  %11 = shl i64 %n.vec, 3
+  %ind.end = getelementptr i8, ptr %cond.i31.i.i.i, i64 %11
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
-  %14 = shl i64 %index, 3
-  %next.gep = getelementptr i8, ptr %cond.i31.i.i.i, i64 %14
-  %next.gep7 = getelementptr i8, ptr %6, i64 %14
+  %12 = shl i64 %index, 3
+  %next.gep = getelementptr i8, ptr %cond.i31.i.i.i, i64 %12
+  %next.gep7 = getelementptr i8, ptr %5, i64 %12
   call void @llvm.experimental.noalias.scope.decl(metadata !100)
   call void @llvm.experimental.noalias.scope.decl(metadata !103)
   %wide.load = load <2 x i64>, ptr %next.gep7, align 8, !alias.scope !103, !noalias !100
-  %15 = getelementptr i64, ptr %next.gep7, i64 2
-  %wide.load9 = load <2 x i64>, ptr %15, align 8, !alias.scope !103, !noalias !100
+  %13 = getelementptr i64, ptr %next.gep7, i64 2
+  %wide.load9 = load <2 x i64>, ptr %13, align 8, !alias.scope !103, !noalias !100
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !alias.scope !100, !noalias !103
-  %16 = getelementptr i64, ptr %next.gep, i64 2
-  store <2 x i64> %wide.load9, ptr %16, align 8, !alias.scope !100, !noalias !103
+  %14 = getelementptr i64, ptr %next.gep, i64 2
+  store <2 x i64> %wide.load9, ptr %14, align 8, !alias.scope !100, !noalias !103
   %index.next = add nuw i64 %index, 4
-  %17 = icmp eq i64 %index.next, %n.vec
-  br i1 %17, label %middle.block, label %vector.body, !llvm.loop !105
+  %15 = icmp eq i64 %index.next, %n.vec
+  br i1 %15, label %middle.block, label %vector.body, !llvm.loop !105
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end4 = getelementptr i8, ptr %6, i64 %13
-  %cmp.n = icmp eq i64 %12, %n.vec
+  %ind.end4 = getelementptr i8, ptr %5, i64 %11
+  %cmp.n = icmp eq i64 %10, %n.vec
   br i1 %cmp.n, label %_ZNSt6vectorISt17reference_wrapperIN6duckdb19CompressionFunctionEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i.thread, label %for.body.i.i.i.i.i.i.i.preheader7
 
 _ZNSt6vectorISt17reference_wrapperIN6duckdb19CompressionFunctionEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i.thread: ; preds = %middle.block
@@ -4306,8 +4304,8 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   %__first.addr.07.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %__first.addr.07.i.i.i.i.i.i.i.ph, %for.body.i.i.i.i.i.i.i.preheader7 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !100)
   call void @llvm.experimental.noalias.scope.decl(metadata !103)
-  %18 = load i64, ptr %__first.addr.07.i.i.i.i.i.i.i, align 8, !alias.scope !103, !noalias !100
-  store i64 %18, ptr %__cur.08.i.i.i.i.i.i.i, align 8, !alias.scope !100, !noalias !103
+  %16 = load i64, ptr %__first.addr.07.i.i.i.i.i.i.i, align 8, !alias.scope !103, !noalias !100
+  store i64 %16, ptr %__cur.08.i.i.i.i.i.i.i, align 8, !alias.scope !100, !noalias !103
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::reference_wrapper", ptr %__first.addr.07.i.i.i.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::reference_wrapper", ptr %__cur.08.i.i.i.i.i.i.i, i64 1
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %1
@@ -4316,12 +4314,12 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
 _ZNSt6vectorISt17reference_wrapperIN6duckdb19CompressionFunctionEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt17reference_wrapperIN6duckdb19CompressionFunctionEESaIS3_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %cond.i31.i.i.i, %_ZNSt12_Vector_baseISt17reference_wrapperIN6duckdb19CompressionFunctionEESaIS3_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i = getelementptr %"class.std::reference_wrapper", ptr %__cur.0.lcssa.i.i.i.i.i.i.i, i64 1
-  %tobool.not.i.i.i.i = icmp eq ptr %6, null
+  %tobool.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorISt17reference_wrapperIN6duckdb19CompressionFunctionEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %if.then.i41.i.i.i
 
 if.then.i41.i.i.i:                                ; preds = %_ZNSt6vectorISt17reference_wrapperIN6duckdb19CompressionFunctionEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i.thread, %_ZNSt6vectorISt17reference_wrapperIN6duckdb19CompressionFunctionEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i
   %incdec.ptr.i.i.i5 = phi ptr [ %incdec.ptr.i.i.i3, %_ZNSt6vectorISt17reference_wrapperIN6duckdb19CompressionFunctionEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i.thread ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorISt17reference_wrapperIN6duckdb19CompressionFunctionEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i ]
-  call void @_ZdlPv(ptr noundef nonnull %6) #30
+  call void @_ZdlPv(ptr noundef nonnull %5) #30
   br label %_ZNSt6vectorISt17reference_wrapperIN6duckdb19CompressionFunctionEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
 _ZNSt6vectorISt17reference_wrapperIN6duckdb19CompressionFunctionEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i41.i.i.i, %_ZNSt6vectorISt17reference_wrapperIN6duckdb19CompressionFunctionEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i

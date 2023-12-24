@@ -2209,16 +2209,14 @@ if.then17:                                        ; preds = %for.end
   %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %16, i64 0, i32 1
   %17 = load i64, ptr %_gc_prev.i, align 8
   %18 = inttoptr i64 %17 to ptr
-  %19 = ptrtoint ptr %12 to i64
-  store i64 %19, ptr %18, align 8
+  store ptr %12, ptr %18, align 8
   %_gc_prev.i.i = getelementptr i8, ptr %1, i64 -8
-  %20 = load i64, ptr %_gc_prev.i.i, align 8
-  %and.i.i = and i64 %20, 3
+  %19 = load i64, ptr %_gc_prev.i.i, align 8
+  %and.i.i = and i64 %19, 3
   %or.i.i = or i64 %and.i.i, %17
   store i64 %or.i.i, ptr %_gc_prev.i.i, align 8
-  %21 = ptrtoint ptr %16 to i64
-  store i64 %21, ptr %12, align 8
-  store i64 %19, ptr %_gc_prev.i, align 8
+  store ptr %16, ptr %12, align 8
+  store ptr %12, ptr %_gc_prev.i, align 8
   br label %return
 
 if.else:                                          ; preds = %if.end
@@ -2236,25 +2234,25 @@ for.body25.lr.ph:                                 ; preds = %for.cond23.preheade
 
 for.body25:                                       ; preds = %for.body25.lr.ph, %if.end38
   %i.170 = phi i64 [ 0, %for.body25.lr.ph ], [ %inc40, %if.end38 ]
-  %22 = load ptr, ptr %ittuple26, align 8
-  %arrayidx28 = getelementptr %struct.PyTupleObject, ptr %22, i64 0, i32 1, i64 %i.170
-  %23 = load ptr, ptr %arrayidx28, align 8
-  %24 = getelementptr i8, ptr %23, i64 8
-  %.val59 = load ptr, ptr %24, align 8
+  %20 = load ptr, ptr %ittuple26, align 8
+  %arrayidx28 = getelementptr %struct.PyTupleObject, ptr %20, i64 0, i32 1, i64 %i.170
+  %21 = load ptr, ptr %arrayidx28, align 8
+  %22 = getelementptr i8, ptr %21, i64 8
+  %.val59 = load ptr, ptr %22, align 8
   %tp_iternext30 = getelementptr inbounds %struct._typeobject, ptr %.val59, i64 0, i32 26
-  %25 = load ptr, ptr %tp_iternext30, align 8
-  %call31 = tail call ptr %25(ptr noundef %23) #7
+  %23 = load ptr, ptr %tp_iternext30, align 8
+  %call31 = tail call ptr %23(ptr noundef %21) #7
   %cmp32 = icmp eq ptr %call31, null
   br i1 %cmp32, label %if.then33, label %if.end38
 
 if.then33:                                        ; preds = %for.body25
-  %26 = load i64, ptr %call19, align 8
-  %27 = and i64 %26, 2147483648
-  %cmp.i123.not = icmp eq i64 %27, 0
+  %24 = load i64, ptr %call19, align 8
+  %25 = and i64 %24, 2147483648
+  %cmp.i123.not = icmp eq i64 %25, 0
   br i1 %cmp.i123.not, label %if.end.i87, label %Py_DECREF.exit92
 
 if.end.i87:                                       ; preds = %if.then33
-  %dec.i88 = add i64 %26, -1
+  %dec.i88 = add i64 %24, -1
   store i64 %dec.i88, ptr %call19, align 8
   %cmp.i89 = icmp eq i64 %dec.i88, 0
   br i1 %cmp.i89, label %if.then1.i90, label %Py_DECREF.exit92
@@ -2265,8 +2263,8 @@ if.then1.i90:                                     ; preds = %if.end.i87
 
 Py_DECREF.exit92:                                 ; preds = %if.then33, %if.then1.i90, %if.end.i87
   %strict34 = getelementptr inbounds %struct.zipobject, ptr %lz, i64 0, i32 4
-  %28 = load i32, ptr %strict34, align 8
-  %tobool35.not = icmp eq i32 %28, 0
+  %26 = load i32, ptr %strict34, align 8
+  %tobool35.not = icmp eq i32 %26, 0
   br i1 %tobool35.not, label %return, label %check
 
 if.end38:                                         ; preds = %for.body25
@@ -2283,8 +2281,8 @@ check:                                            ; preds = %Py_DECREF.exit92, %
   br i1 %tobool44.not, label %if.end50, label %if.then45
 
 if.then45:                                        ; preds = %check
-  %29 = load ptr, ptr @PyExc_StopIteration, align 8
-  %call46 = tail call i32 @PyErr_ExceptionMatches(ptr noundef %29) #7
+  %27 = load ptr, ptr @PyExc_StopIteration, align 8
+  %call46 = tail call i32 @PyErr_ExceptionMatches(ptr noundef %27) #7
   %tobool47.not = icmp eq i32 %call46, 0
   br i1 %tobool47.not, label %return, label %if.end49
 
@@ -2307,32 +2305,32 @@ for.body58.lr.ph:                                 ; preds = %for.cond56.preheade
 if.then52:                                        ; preds = %if.end50
   %cmp53 = icmp eq i64 %i.2, 1
   %cond = select i1 %cmp53, ptr @.str.36, ptr @.str.37
-  %30 = load ptr, ptr @PyExc_ValueError, align 8
+  %28 = load ptr, ptr @PyExc_ValueError, align 8
   %add = add nuw nsw i64 %i.2, 1
-  %call54 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %30, ptr noundef nonnull @.str.38, i64 noundef %add, ptr noundef nonnull %cond, i64 noundef %i.2) #7
+  %call54 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %28, ptr noundef nonnull @.str.38, i64 noundef %add, ptr noundef nonnull %cond, i64 noundef %i.2) #7
   br label %return
 
 for.body58:                                       ; preds = %for.body58.lr.ph, %for.inc81
   %i.374 = phi i64 [ 1, %for.body58.lr.ph ], [ %inc82, %for.inc81 ]
-  %31 = load ptr, ptr %ittuple59, align 8
-  %arrayidx61 = getelementptr %struct.PyTupleObject, ptr %31, i64 0, i32 1, i64 %i.374
-  %32 = load ptr, ptr %arrayidx61, align 8
-  %33 = getelementptr i8, ptr %32, i64 8
-  %.val60 = load ptr, ptr %33, align 8
+  %29 = load ptr, ptr %ittuple59, align 8
+  %arrayidx61 = getelementptr %struct.PyTupleObject, ptr %29, i64 0, i32 1, i64 %i.374
+  %30 = load ptr, ptr %arrayidx61, align 8
+  %31 = getelementptr i8, ptr %30, i64 8
+  %.val60 = load ptr, ptr %31, align 8
   %tp_iternext63 = getelementptr inbounds %struct._typeobject, ptr %.val60, i64 0, i32 26
-  %34 = load ptr, ptr %tp_iternext63, align 8
-  %call64 = tail call ptr %34(ptr noundef %32) #7
+  %32 = load ptr, ptr %tp_iternext63, align 8
+  %call64 = tail call ptr %32(ptr noundef %30) #7
   %tobool65.not = icmp eq ptr %call64, null
   br i1 %tobool65.not, label %if.end72, label %if.then66
 
 if.then66:                                        ; preds = %for.body58
-  %35 = load i64, ptr %call64, align 8
-  %36 = and i64 %35, 2147483648
-  %cmp.i127.not = icmp eq i64 %36, 0
+  %33 = load i64, ptr %call64, align 8
+  %34 = and i64 %33, 2147483648
+  %cmp.i127.not = icmp eq i64 %34, 0
   br i1 %cmp.i127.not, label %if.end.i, label %Py_DECREF.exit
 
 if.end.i:                                         ; preds = %if.then66
-  %dec.i = add i64 %35, -1
+  %dec.i = add i64 %33, -1
   store i64 %dec.i, ptr %call64, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
@@ -2344,9 +2342,9 @@ if.then1.i:                                       ; preds = %if.end.i
 Py_DECREF.exit:                                   ; preds = %if.then66, %if.then1.i, %if.end.i
   %cmp68 = icmp eq i64 %i.374, 1
   %cond69 = select i1 %cmp68, ptr @.str.36, ptr @.str.37
-  %37 = load ptr, ptr @PyExc_ValueError, align 8
+  %35 = load ptr, ptr @PyExc_ValueError, align 8
   %add70 = add nuw nsw i64 %i.374, 1
-  %call71 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %37, ptr noundef nonnull @.str.39, i64 noundef %add70, ptr noundef nonnull %cond69, i64 noundef %i.374) #7
+  %call71 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %35, ptr noundef nonnull @.str.39, i64 noundef %add70, ptr noundef nonnull %cond69, i64 noundef %i.374) #7
   br label %return
 
 if.end72:                                         ; preds = %for.body58
@@ -2355,8 +2353,8 @@ if.end72:                                         ; preds = %for.body58
   br i1 %tobool74.not, label %for.inc81, label %if.then75
 
 if.then75:                                        ; preds = %if.end72
-  %38 = load ptr, ptr @PyExc_StopIteration, align 8
-  %call76 = tail call i32 @PyErr_ExceptionMatches(ptr noundef %38) #7
+  %36 = load ptr, ptr @PyExc_StopIteration, align 8
+  %call76 = tail call i32 @PyErr_ExceptionMatches(ptr noundef %36) #7
   %tobool77.not = icmp eq i32 %call76, 0
   br i1 %tobool77.not, label %return, label %if.end79
 

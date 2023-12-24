@@ -22,8 +22,7 @@ entry:
   %critical_section = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 25
   %2 = load i64, ptr %critical_section, align 8
   store i64 %2, ptr %c, align 8
-  %3 = ptrtoint ptr %c to i64
-  store i64 %3, ptr %critical_section, align 8
+  store ptr %c, ptr %critical_section, align 8
   tail call void @_PyMutex_LockSlow(ptr noundef %m) #4
   store ptr %m, ptr %mutex, align 8
   ret void

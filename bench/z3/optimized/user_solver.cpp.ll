@@ -3428,17 +3428,16 @@ if.then:                                          ; preds = %entry
   %7 = load ptr, ptr %m_solver.i, align 8, !noalias !19
   %m_scope_lvl.i.i = getelementptr inbounds %"class.sat::solver", ptr %7, i64 0, i32 74
   %8 = load i32, ptr %m_scope_lvl.i.i, align 4, !noalias !19
-  %9 = ptrtoint ptr %call3.i to i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp83)
   store i32 %8, ptr %agg.tmp83, align 8
   %agg.tmp8.sroa.24.0.agg.tmp83.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp83, i64 8
-  store i64 %9, ptr %agg.tmp8.sroa.24.0.agg.tmp83.sroa_idx, align 8
+  store ptr %call3.i, ptr %agg.tmp8.sroa.24.0.agg.tmp83.sroa_idx, align 8
   %agg.tmp8.sroa.3.0.agg.tmp83.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp83, i64 16
   store i32 3, ptr %agg.tmp8.sroa.3.0.agg.tmp83.sroa_idx, align 8
-  %10 = load ptr, ptr %m_assignment.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %10, i64 %idxprom.i.i
-  %11 = load i32, ptr %arrayidx.i.i.i, align 4
-  switch i32 %11, label %_ZN3sat6solver6assignENS_7literalENS_13justificationE.exit [
+  %9 = load ptr, ptr %m_assignment.i, align 8
+  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %9, i64 %idxprom.i.i
+  %10 = load i32, ptr %arrayidx.i.i.i, align 4
+  switch i32 %10, label %_ZN3sat6solver6assignENS_7literalENS_13justificationE.exit [
     i32 -1, label %sw.bb.i
     i32 0, label %sw.bb10.i
     i32 1, label %sw.bb14.i
@@ -3462,17 +3461,17 @@ sw.bb14.i:                                        ; preds = %if.then
 
 land.lhs.true.i.i:                                ; preds = %sw.bb14.i
   %m_trim.i.i = getelementptr inbounds %"class.sat::solver", ptr %3, i64 0, i32 84
-  %12 = load i8, ptr %m_trim.i.i, align 8
-  %13 = and i8 %12, 1
-  %tobool.not.i.i = icmp eq i8 %13, 0
+  %11 = load i8, ptr %m_trim.i.i, align 8
+  %12 = and i8 %11, 1
+  %tobool.not.i.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %m_justification.i.i = getelementptr inbounds %"class.sat::solver", ptr %3, i64 0, i32 38
   %shr.i.i.i = lshr i32 %call2, 1
-  %14 = load ptr, ptr %m_justification.i.i, align 8
+  %13 = load ptr, ptr %m_justification.i.i, align 8
   %idxprom.i.i5.i = zext nneg i32 %shr.i.i.i to i64
-  %arrayidx.i.i6.i = getelementptr inbounds %"class.sat::justification", ptr %14, i64 %idxprom.i.i5.i
+  %arrayidx.i.i6.i = getelementptr inbounds %"class.sat::justification", ptr %13, i64 %idxprom.i.i5.i
   store i32 0, ptr %arrayidx.i.i6.i, align 8
   %agg.tmp164.sroa.5.0.arrayidx.i.i6.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i.i6.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp164.sroa.5.0.arrayidx.i.i6.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp164.sroa.5.i, i64 16, i1 false)
@@ -3485,8 +3484,8 @@ _ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i: ; preds = 
 _ZN3sat6solver6assignENS_7literalENS_13justificationE.exit: ; preds = %if.then, %sw.bb.i, %sw.bb10.i, %_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp83)
   %m_stats = getelementptr inbounds %"class.user_solver::solver", ptr %this, i64 0, i32 22
-  %15 = load i32, ptr %m_stats, align 8
-  %inc = add i32 %15, 1
+  %14 = load i32, ptr %m_stats, align 8
+  %inc = add i32 %14, 1
   store i32 %inc, ptr %m_stats, align 8
   br label %if.end
 
@@ -3509,10 +3508,9 @@ entry:
   %0 = load ptr, ptr %m_solver.i, align 8
   %m_scope_lvl.i = getelementptr inbounds %"class.sat::solver", ptr %0, i64 0, i32 74
   %1 = load i32, ptr %m_scope_lvl.i, align 4
-  %2 = ptrtoint ptr %call3 to i64
   store i32 %1, ptr %agg.result, align 8, !alias.scope !22
   %m_val1.i.i = getelementptr inbounds %"class.sat::justification", ptr %agg.result, i64 0, i32 2
-  store i64 %2, ptr %m_val1.i.i, align 8, !alias.scope !22
+  store ptr %call3, ptr %m_val1.i.i, align 8, !alias.scope !22
   %m_val2.i.i = getelementptr inbounds %"class.sat::justification", ptr %agg.result, i64 0, i32 3
   store i32 3, ptr %m_val2.i.i, align 8, !alias.scope !22
   ret void
@@ -5701,11 +5699,10 @@ for.body.preheader.i.i:                           ; preds = %while.end.i.i
 _ZN6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE4setxEjRKS4_S7_.exit: ; preds = %for.body.preheader.i.i, %_ZNK6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE4sizeEv.exit.i, %_ZNK6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE4sizeEv.exit.i.i, %if.then.i.i.i, %while.end.i.i
   %29 = ptrtoint ptr %s to i64
   %or.i = or i64 %29, 1
-  %30 = inttoptr i64 %or.i to ptr
-  %31 = load ptr, ptr %m_deps.i, align 8
+  %30 = load ptr, ptr %m_deps.i, align 8
   %idxprom.i = zext i32 %18 to i64
-  %arrayidx.i15 = getelementptr inbounds ptr, ptr %31, i64 %idxprom.i
-  store ptr %30, ptr %arrayidx.i15, align 8
+  %arrayidx.i15 = getelementptr inbounds ptr, ptr %30, i64 %idxprom.i
+  store i64 %or.i, ptr %arrayidx.i15, align 8
   ret void
 }
 

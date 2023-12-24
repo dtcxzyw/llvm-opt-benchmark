@@ -4003,20 +4003,19 @@ if.then4:                                         ; preds = %entry, %if.end
   br i1 %cmp6.not, label %if.end10, label %if.then7
 
 if.then7:                                         ; preds = %if.then4
-  %4 = ptrtoint ptr %3 to i64
   %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %x, i64 0, i32 5
-  store i64 %4, ptr %pkey, align 8
+  store ptr %3, ptr %pkey, align 8
   store ptr null, ptr %legacy_cache_pkey5, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then7, %if.then4
   %pkey_free = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %ameth.022, i64 0, i32 22
-  %5 = load ptr, ptr %pkey_free, align 8
-  %cmp11.not = icmp eq ptr %5, null
+  %4 = load ptr, ptr %pkey_free, align 8
+  %cmp11.not = icmp eq ptr %4, null
   br i1 %cmp11.not, label %if.end14, label %if.then12
 
 if.then12:                                        ; preds = %if.end10
-  call void %5(ptr noundef nonnull %x) #12
+  call void %4(ptr noundef nonnull %x) #12
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then12, %if.end10
@@ -4025,15 +4024,15 @@ if.end14:                                         ; preds = %if.then12, %if.end1
   br label %if.end16
 
 if.end16:                                         ; preds = %land.lhs.true, %if.end14, %if.end
-  %6 = load ptr, ptr %tmpe, align 8
-  %call17 = call i32 @ENGINE_finish(ptr noundef %6) #12
+  %5 = load ptr, ptr %tmpe, align 8
+  %call17 = call i32 @ENGINE_finish(ptr noundef %5) #12
   %engine = getelementptr inbounds %struct.evp_pkey_st, ptr %x, i64 0, i32 3
-  %7 = load ptr, ptr %engine, align 8
-  %call18 = call i32 @ENGINE_finish(ptr noundef %7) #12
+  %6 = load ptr, ptr %engine, align 8
+  %call18 = call i32 @ENGINE_finish(ptr noundef %6) #12
   store ptr null, ptr %engine, align 8
   %pmeth_engine = getelementptr inbounds %struct.evp_pkey_st, ptr %x, i64 0, i32 4
-  %8 = load ptr, ptr %pmeth_engine, align 8
-  %call20 = call i32 @ENGINE_finish(ptr noundef %8) #12
+  %7 = load ptr, ptr %pmeth_engine, align 8
+  %call20 = call i32 @ENGINE_finish(ptr noundef %7) #12
   store ptr null, ptr %pmeth_engine, align 8
   ret void
 }
@@ -4073,20 +4072,19 @@ if.then4.i:                                       ; preds = %if.end.i, %entry
   br i1 %cmp6.not.i, label %if.end10.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.then4.i
-  %4 = ptrtoint ptr %3 to i64
   %pkey.i = getelementptr inbounds %struct.evp_pkey_st, ptr %x, i64 0, i32 5
-  store i64 %4, ptr %pkey.i, align 8
+  store ptr %3, ptr %pkey.i, align 8
   store ptr null, ptr %legacy_cache_pkey5.i, align 8
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.then7.i, %if.then4.i
   %pkey_free.i = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %ameth.022.i, i64 0, i32 22
-  %5 = load ptr, ptr %pkey_free.i, align 8
-  %cmp11.not.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %pkey_free.i, align 8
+  %cmp11.not.i = icmp eq ptr %4, null
   br i1 %cmp11.not.i, label %if.end14.i, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.end10.i
-  call void %5(ptr noundef nonnull %x) #12
+  call void %4(ptr noundef nonnull %x) #12
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then12.i, %if.end10.i
@@ -4095,28 +4093,28 @@ if.end14.i:                                       ; preds = %if.then12.i, %if.en
   br label %evp_pkey_free_legacy.exit
 
 evp_pkey_free_legacy.exit:                        ; preds = %land.lhs.true.i, %if.end.i, %if.end14.i
-  %6 = load ptr, ptr %tmpe.i, align 8
-  %call17.i = call i32 @ENGINE_finish(ptr noundef %6) #12
+  %5 = load ptr, ptr %tmpe.i, align 8
+  %call17.i = call i32 @ENGINE_finish(ptr noundef %5) #12
   %engine.i = getelementptr inbounds %struct.evp_pkey_st, ptr %x, i64 0, i32 3
-  %7 = load ptr, ptr %engine.i, align 8
-  %call18.i = call i32 @ENGINE_finish(ptr noundef %7) #12
+  %6 = load ptr, ptr %engine.i, align 8
+  %call18.i = call i32 @ENGINE_finish(ptr noundef %6) #12
   store ptr null, ptr %engine.i, align 8
   %pmeth_engine.i = getelementptr inbounds %struct.evp_pkey_st, ptr %x, i64 0, i32 4
-  %8 = load ptr, ptr %pmeth_engine.i, align 8
-  %call20.i = call i32 @ENGINE_finish(ptr noundef %8) #12
+  %7 = load ptr, ptr %pmeth_engine.i, align 8
+  %call20.i = call i32 @ENGINE_finish(ptr noundef %7) #12
   store ptr null, ptr %pmeth_engine.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmpe.i)
   %keymgmt = getelementptr inbounds %struct.evp_pkey_st, ptr %x, i64 0, i32 13
-  %9 = load ptr, ptr %keymgmt, align 8
-  %cmp.not = icmp eq ptr %9, null
+  %8 = load ptr, ptr %keymgmt, align 8
+  %cmp.not = icmp eq ptr %8, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %evp_pkey_free_legacy.exit
   %keydata = getelementptr inbounds %struct.evp_pkey_st, ptr %x, i64 0, i32 14
-  %10 = load ptr, ptr %keydata, align 8
-  call void @evp_keymgmt_freedata(ptr noundef nonnull %9, ptr noundef %10) #12
-  %11 = load ptr, ptr %keymgmt, align 8
-  call void @EVP_KEYMGMT_free(ptr noundef %11) #12
+  %9 = load ptr, ptr %keydata, align 8
+  call void @evp_keymgmt_freedata(ptr noundef nonnull %8, ptr noundef %9) #12
+  %10 = load ptr, ptr %keymgmt, align 8
+  call void @EVP_KEYMGMT_free(ptr noundef %10) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %keymgmt, i8 0, i64 16, i1 false)
   br label %if.end
 

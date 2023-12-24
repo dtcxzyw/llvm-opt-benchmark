@@ -497,8 +497,7 @@ if.then9:                                         ; preds = %if.else
   %refcount.i = getelementptr inbounds %struct.redisObject, ptr %call.i, i64 0, i32 1
   store i32 1, ptr %refcount.i, align 4
   store i32 16, ptr %call.i, align 8
-  %1 = inttoptr i64 %value to ptr
-  store ptr %1, ptr %ptr4.i, align 8
+  store i64 %value, ptr %ptr4.i, align 8
   br label %if.end14
 
 if.else10:                                        ; preds = %if.else
@@ -523,8 +522,8 @@ if.then.i:                                        ; preds = %if.else10
   store i8 %conv.i.i, ptr %alloc.i.i, align 1
   %flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 18
   store i8 1, ptr %flags.i.i, align 1
-  %2 = load ptr, ptr @SDS_NOINIT, align 8
-  %cmp.i.i = icmp eq ptr %2, %buf
+  %1 = load ptr, ptr @SDS_NOINIT, align 8
+  %cmp.i.i = icmp eq ptr %1, %buf
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
@@ -572,8 +571,7 @@ if.else.i:                                        ; preds = %entry
   %refcount.i.i = getelementptr inbounds %struct.redisObject, ptr %call.i.i, i64 0, i32 1
   store i32 1, ptr %refcount.i.i, align 4
   store i32 16, ptr %call.i.i, align 8
-  %1 = inttoptr i64 %value to ptr
-  store ptr %1, ptr %ptr4.i.i, align 8
+  store i64 %value, ptr %ptr4.i.i, align 8
   br label %createStringObjectFromLongLongWithOptions.exit
 
 createStringObjectFromLongLongWithOptions.exit:   ; preds = %if.then.i, %if.else.i
@@ -609,8 +607,7 @@ if.else.i:                                        ; preds = %if.then
   %refcount.i.i = getelementptr inbounds %struct.redisObject, ptr %call.i.i, i64 0, i32 1
   store i32 1, ptr %refcount.i.i, align 4
   store i32 16, ptr %call.i.i, align 8
-  %3 = inttoptr i64 %value to ptr
-  store ptr %3, ptr %ptr4.i.i, align 8
+  store i64 %value, ptr %ptr4.i.i, align 8
   br label %return
 
 if.else:                                          ; preds = %lor.lhs.false
@@ -619,8 +616,7 @@ if.else:                                          ; preds = %lor.lhs.false
   %refcount.i.i6 = getelementptr inbounds %struct.redisObject, ptr %call.i.i4, i64 0, i32 1
   store i32 1, ptr %refcount.i.i6, align 4
   store i32 16, ptr %call.i.i4, align 8
-  %4 = inttoptr i64 %value to ptr
-  store ptr %4, ptr %ptr4.i.i5, align 8
+  store i64 %value, ptr %ptr4.i.i5, align 8
   br label %return
 
 return:                                           ; preds = %if.else.i, %if.then.i, %if.else
@@ -2105,16 +2101,15 @@ if.then:                                          ; preds = %cond.end
 if.then7:                                         ; preds = %if.then
   %ptr = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
   %1 = load ptr, ptr %ptr, align 8
-  %2 = ptrtoint ptr %1 to i64
-  store i64 %2, ptr %llval, align 8
+  store ptr %1, ptr %llval, align 8
   br label %return
 
 if.else:                                          ; preds = %cond.end
   %ptr8 = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
-  %3 = load ptr, ptr %ptr8, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 -1
-  %4 = load i8, ptr %arrayidx.i.i, align 1
-  %conv.i.i = zext i8 %4 to i32
+  %2 = load ptr, ptr %ptr8, align 8
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %2, i64 -1
+  %3 = load i8, ptr %arrayidx.i.i, align 1
+  %conv.i.i = zext i8 %3 to i32
   %and.i.i = and i32 %conv.i.i, 7
   switch i32 %and.i.i, label %isSdsRepresentableAsLongLong.exit [
     i32 0, label %sw.bb.i.i
@@ -2130,31 +2125,31 @@ sw.bb.i.i:                                        ; preds = %if.else
   br label %isSdsRepresentableAsLongLong.exit
 
 sw.bb3.i.i:                                       ; preds = %if.else
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 -3
-  %5 = load i8, ptr %add.ptr.i.i, align 1
-  %conv4.i.i = zext i8 %5 to i64
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 -3
+  %4 = load i8, ptr %add.ptr.i.i, align 1
+  %conv4.i.i = zext i8 %4 to i64
   br label %isSdsRepresentableAsLongLong.exit
 
 sw.bb5.i.i:                                       ; preds = %if.else
-  %add.ptr6.i.i = getelementptr inbounds i8, ptr %3, i64 -5
-  %6 = load i16, ptr %add.ptr6.i.i, align 1
-  %conv8.i.i = zext i16 %6 to i64
+  %add.ptr6.i.i = getelementptr inbounds i8, ptr %2, i64 -5
+  %5 = load i16, ptr %add.ptr6.i.i, align 1
+  %conv8.i.i = zext i16 %5 to i64
   br label %isSdsRepresentableAsLongLong.exit
 
 sw.bb9.i.i:                                       ; preds = %if.else
-  %add.ptr10.i.i = getelementptr inbounds i8, ptr %3, i64 -9
-  %7 = load i32, ptr %add.ptr10.i.i, align 1
-  %conv12.i.i = zext i32 %7 to i64
+  %add.ptr10.i.i = getelementptr inbounds i8, ptr %2, i64 -9
+  %6 = load i32, ptr %add.ptr10.i.i, align 1
+  %conv12.i.i = zext i32 %6 to i64
   br label %isSdsRepresentableAsLongLong.exit
 
 sw.bb13.i.i:                                      ; preds = %if.else
-  %add.ptr14.i.i = getelementptr inbounds i8, ptr %3, i64 -17
-  %8 = load i64, ptr %add.ptr14.i.i, align 1
+  %add.ptr14.i.i = getelementptr inbounds i8, ptr %2, i64 -17
+  %7 = load i64, ptr %add.ptr14.i.i, align 1
   br label %isSdsRepresentableAsLongLong.exit
 
 isSdsRepresentableAsLongLong.exit:                ; preds = %if.else, %sw.bb.i.i, %sw.bb3.i.i, %sw.bb5.i.i, %sw.bb9.i.i, %sw.bb13.i.i
-  %retval.0.i.i = phi i64 [ %8, %sw.bb13.i.i ], [ %conv12.i.i, %sw.bb9.i.i ], [ %conv8.i.i, %sw.bb5.i.i ], [ %conv4.i.i, %sw.bb3.i.i ], [ %conv2.i.i, %sw.bb.i.i ], [ 0, %if.else ]
-  %call1.i = tail call i32 @string2ll(ptr noundef nonnull %3, i64 noundef %retval.0.i.i, ptr noundef %llval) #17
+  %retval.0.i.i = phi i64 [ %7, %sw.bb13.i.i ], [ %conv12.i.i, %sw.bb9.i.i ], [ %conv8.i.i, %sw.bb5.i.i ], [ %conv4.i.i, %sw.bb3.i.i ], [ %conv2.i.i, %sw.bb.i.i ], [ 0, %if.else ]
+  %call1.i = tail call i32 @string2ll(ptr noundef nonnull %2, i64 noundef %retval.0.i.i, ptr noundef %llval) #17
   %tobool.not.i = icmp eq i32 %call1.i, 0
   %cond.i = sext i1 %tobool.not.i to i32
   br label %return
@@ -2436,30 +2431,29 @@ if.then36:                                        ; preds = %if.else
   %bf.set = or disjoint i32 %bf.clear39, 16
   store i32 %bf.set, ptr %o, align 8
   %14 = load i64, ptr %value, align 8
-  %15 = inttoptr i64 %14 to ptr
-  store ptr %15, ptr %ptr, align 8
+  store i64 %14, ptr %ptr, align 8
   br label %return
 
 if.then47:                                        ; preds = %if.else
   call void @decrRefCount(ptr noundef nonnull %o)
-  %16 = load i64, ptr %value, align 8
-  %17 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 314), align 8
-  %cmp.i = icmp eq i64 %17, 0
+  %15 = load i64, ptr %value, align 8
+  %16 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 314), align 8
+  %cmp.i = icmp eq i64 %16, 0
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then47
-  %18 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 316), align 8
-  %and.i26 = and i32 %18, 3
+  %17 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 316), align 8
+  %and.i26 = and i32 %17, 3
   %tobool.not.i = icmp eq i32 %and.i26, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %if.then47
-  %or.cond.i.i = icmp ult i64 %16, 10000
+  %or.cond.i.i = icmp ult i64 %15, 10000
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %arrayidx.i.i = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i64 0, i32 86, i64 %16
-  %19 = load ptr, ptr %arrayidx.i.i, align 8
+  %arrayidx.i.i = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i64 0, i32 86, i64 %15
+  %18 = load ptr, ptr %arrayidx.i.i, align 8
   br label %return
 
 if.else.i.i:                                      ; preds = %if.then.i
@@ -2468,8 +2462,7 @@ if.else.i.i:                                      ; preds = %if.then.i
   %refcount.i.i.i = getelementptr inbounds %struct.redisObject, ptr %call.i.i.i, i64 0, i32 1
   store i32 1, ptr %refcount.i.i.i, align 4
   store i32 16, ptr %call.i.i.i, align 8
-  %20 = inttoptr i64 %16 to ptr
-  store ptr %20, ptr %ptr4.i.i.i, align 8
+  store i64 %15, ptr %ptr4.i.i.i, align 8
   br label %return
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
@@ -2478,8 +2471,7 @@ if.else.i:                                        ; preds = %lor.lhs.false.i
   %refcount.i.i6.i = getelementptr inbounds %struct.redisObject, ptr %call.i.i4.i, i64 0, i32 1
   store i32 1, ptr %refcount.i.i6.i, align 4
   store i32 16, ptr %call.i.i4.i, align 8
-  %21 = inttoptr i64 %16 to ptr
-  store ptr %21, ptr %ptr4.i.i5.i, align 8
+  store i64 %15, ptr %ptr4.i.i5.i, align 8
   br label %return
 
 if.end52:                                         ; preds = %sdslen.exit
@@ -2488,13 +2480,13 @@ if.end52:                                         ; preds = %sdslen.exit
 
 if.then55:                                        ; preds = %land.lhs.true.if.then55_crit_edge, %if.else, %if.end52
   %bf.load56 = phi i32 [ %bf.load56.pre, %land.lhs.true.if.then55_crit_edge ], [ %bf.load31, %if.else ], [ %bf.load, %if.end52 ]
-  %22 = and i32 %bf.load56, 240
-  %cmp59 = icmp eq i32 %22, 128
+  %19 = and i32 %bf.load56, 240
+  %cmp59 = icmp eq i32 %19, 128
   br i1 %cmp59, label %return, label %if.end62
 
 if.end62:                                         ; preds = %if.then55
-  %23 = load i8, ptr %arrayidx.i, align 1
-  %conv.i29 = zext i8 %23 to i32
+  %20 = load i8, ptr %arrayidx.i, align 1
+  %conv.i29 = zext i8 %20 to i32
   %and.i30 = and i32 %conv.i29, 7
   switch i32 %and.i30, label %sdslen.exit46 [
     i32 0, label %sw.bb.i43
@@ -2511,29 +2503,29 @@ sw.bb.i43:                                        ; preds = %if.end62
 
 sw.bb3.i40:                                       ; preds = %if.end62
   %add.ptr.i41 = getelementptr inbounds i8, ptr %0, i64 -3
-  %24 = load i8, ptr %add.ptr.i41, align 1
-  %conv4.i42 = zext i8 %24 to i64
+  %21 = load i8, ptr %add.ptr.i41, align 1
+  %conv4.i42 = zext i8 %21 to i64
   br label %sdslen.exit46
 
 sw.bb5.i37:                                       ; preds = %if.end62
   %add.ptr6.i38 = getelementptr inbounds i8, ptr %0, i64 -5
-  %25 = load i16, ptr %add.ptr6.i38, align 1
-  %conv8.i39 = zext i16 %25 to i64
+  %22 = load i16, ptr %add.ptr6.i38, align 1
+  %conv8.i39 = zext i16 %22 to i64
   br label %sdslen.exit46
 
 sw.bb9.i34:                                       ; preds = %if.end62
   %add.ptr10.i35 = getelementptr inbounds i8, ptr %0, i64 -9
-  %26 = load i32, ptr %add.ptr10.i35, align 1
-  %conv12.i36 = zext i32 %26 to i64
+  %23 = load i32, ptr %add.ptr10.i35, align 1
+  %conv12.i36 = zext i32 %23 to i64
   br label %sdslen.exit46
 
 sw.bb13.i31:                                      ; preds = %if.end62
   %add.ptr14.i32 = getelementptr inbounds i8, ptr %0, i64 -17
-  %27 = load i64, ptr %add.ptr14.i32, align 1
+  %24 = load i64, ptr %add.ptr14.i32, align 1
   br label %sdslen.exit46
 
 sdslen.exit46:                                    ; preds = %if.end62, %sw.bb.i43, %sw.bb3.i40, %sw.bb5.i37, %sw.bb9.i34, %sw.bb13.i31
-  %retval.0.i33 = phi i64 [ %27, %sw.bb13.i31 ], [ %conv12.i36, %sw.bb9.i34 ], [ %conv8.i39, %sw.bb5.i37 ], [ %conv4.i42, %sw.bb3.i40 ], [ %conv2.i45, %sw.bb.i43 ], [ 0, %if.end62 ]
+  %retval.0.i33 = phi i64 [ %24, %sw.bb13.i31 ], [ %conv12.i36, %sw.bb9.i34 ], [ %conv8.i39, %sw.bb5.i37 ], [ %conv4.i42, %sw.bb3.i40 ], [ %conv2.i45, %sw.bb.i43 ], [ 0, %if.end62 ]
   %add1.i = add i64 %retval.0.i33, 20
   %call.i = call noalias ptr @zmalloc(i64 noundef %add1.i) #16
   %add.ptr.i47 = getelementptr inbounds %struct.redisObject, ptr %call.i, i64 1
@@ -2549,8 +2541,8 @@ sdslen.exit46:                                    ; preds = %if.end62, %sw.bb.i4
   store i8 %conv.i48, ptr %alloc.i, align 1
   %flags.i = getelementptr inbounds i8, ptr %call.i, i64 18
   store i8 1, ptr %flags.i, align 1
-  %28 = load ptr, ptr @SDS_NOINIT, align 8
-  %cmp.i49 = icmp eq ptr %28, %0
+  %25 = load ptr, ptr @SDS_NOINIT, align 8
+  %cmp.i49 = icmp eq ptr %25, %0
   br i1 %cmp.i49, label %createEmbeddedStringObject.exit, label %if.then13.i
 
 if.then13.i:                                      ; preds = %sdslen.exit46
@@ -2558,8 +2550,8 @@ if.then13.i:                                      ; preds = %sdslen.exit46
   br label %createEmbeddedStringObject.exit
 
 createEmbeddedStringObject.exit:                  ; preds = %sdslen.exit46, %if.then13.i
-  %29 = getelementptr inbounds [0 x i8], ptr %add.ptr5.i, i64 0, i64 %retval.0.i33
-  store i8 0, ptr %29, align 1
+  %26 = getelementptr inbounds [0 x i8], ptr %add.ptr5.i, i64 0, i64 %retval.0.i33
+  store i8 0, ptr %26, align 1
   call void @decrRefCount(ptr noundef nonnull %o)
   br label %return
 
@@ -2572,7 +2564,7 @@ if.then67:                                        ; preds = %if.end65
   br label %return
 
 return:                                           ; preds = %if.else.i, %if.else.i.i, %if.then.i.i, %if.end65, %if.then67, %if.then55, %if.end, %cond.end, %createEmbeddedStringObject.exit, %if.then36, %if.then30
-  %retval.0 = phi ptr [ %12, %if.then30 ], [ %o, %if.then36 ], [ %call.i, %createEmbeddedStringObject.exit ], [ %o, %cond.end ], [ %o, %if.end ], [ %o, %if.then55 ], [ %o, %if.then67 ], [ %o, %if.end65 ], [ %call.i.i4.i, %if.else.i ], [ %19, %if.then.i.i ], [ %call.i.i.i, %if.else.i.i ]
+  %retval.0 = phi ptr [ %12, %if.then30 ], [ %o, %if.then36 ], [ %call.i, %createEmbeddedStringObject.exit ], [ %o, %cond.end ], [ %o, %if.end ], [ %o, %if.then55 ], [ %o, %if.then67 ], [ %o, %if.end65 ], [ %call.i.i4.i, %if.else.i ], [ %18, %if.then.i.i ], [ %call.i.i.i, %if.else.i.i ]
   ret ptr %retval.0
 }
 
@@ -3346,8 +3338,7 @@ sdslen.exit:                                      ; preds = %if.then12, %sw.bb.i
 if.then24:                                        ; preds = %cond.end
   %ptr25 = getelementptr inbounds %struct.redisObject, ptr %o, i64 0, i32 2
   %6 = load ptr, ptr %ptr25, align 8
-  %7 = ptrtoint ptr %6 to i64
-  store i64 %7, ptr %value, align 8
+  store ptr %6, ptr %value, align 8
   br label %if.end29
 
 if.else26:                                        ; preds = %cond.end
@@ -3360,8 +3351,8 @@ if.end29:                                         ; preds = %if.then24, %sdslen.
   br i1 %tobool30.not, label %return, label %if.then31
 
 if.then31:                                        ; preds = %if.end29
-  %8 = load i64, ptr %value, align 8
-  store i64 %8, ptr %target, align 8
+  %7 = load i64, ptr %value, align 8
+  store i64 %7, ptr %target, align 8
   br label %return
 
 return:                                           ; preds = %if.end29, %if.then31, %sdslen.exit

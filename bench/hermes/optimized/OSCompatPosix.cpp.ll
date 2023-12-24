@@ -242,7 +242,7 @@ if.end10:                                         ; preds = %if.then9, %if.end7
   %bf.load.i16 = load i8, ptr %HasError.i15, align 8
   %bf.clear.i = and i8 %bf.load.i16, -2
   store i8 %bf.clear.i, ptr %HasError.i15, align 8
-  store ptr %4, ptr %agg.result, align 8
+  store i64 %add2.i.i, ptr %agg.result, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end10, %_ZN4llvh7ErrorOrIPvEC2EOS2_.exit

@@ -359,8 +359,7 @@ monotonic.i.i:                                    ; preds = %if.then.i, %if.then
   %shl.i74 = shl i64 %10, 16
   %shr10.i = ashr exact i64 %shl.i74, 16
   %and11.i = and i64 %shr10.i, -128
-  %15 = inttoptr i64 %and11.i to ptr
-  store ptr %15, ptr %agg.result, align 8, !alias.scope !9
+  store i64 %and11.i, ptr %agg.result, align 8, !alias.scope !9
   ret void
 }
 

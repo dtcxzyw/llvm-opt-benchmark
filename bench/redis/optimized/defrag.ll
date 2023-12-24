@@ -268,9 +268,8 @@ if.then31:                                        ; preds = %activeDefragAlloc.e
   %sub = sub i64 %9, %10
   %11 = ptrtoint ptr %call2.i25 to i64
   %add = add nsw i64 %sub, %11
-  %12 = inttoptr i64 %add to ptr
   %ptr32 = getelementptr inbounds %struct.redisObject, ptr %call2.i25, i64 0, i32 2
-  store ptr %12, ptr %ptr32, align 8
+  store i64 %add, ptr %ptr32, align 8
   br label %return
 
 if.then39:                                        ; preds = %if.then12

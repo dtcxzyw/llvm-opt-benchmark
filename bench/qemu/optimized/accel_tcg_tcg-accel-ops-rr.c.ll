@@ -220,7 +220,7 @@ while.end8:                                       ; preds = %if.end, %while.cond
 for.body:                                         ; preds = %while.end8, %for.body
   %cpu.0.in61 = phi i64 [ %16, %for.body ], [ %15, %while.end8 ]
   %cpu.0 = inttoptr i64 %cpu.0.in61 to ptr
-  store ptr %cpu.0, ptr %.pre, align 8
+  store i64 %cpu.0.in61, ptr %.pre, align 8
   call void @qemu_wait_io_event_common(ptr noundef nonnull %cpu.0) #8
   %node = getelementptr inbounds %struct.CPUState, ptr %cpu.0, i64 0, i32 35
   %16 = load atomic i64, ptr %node monotonic, align 8

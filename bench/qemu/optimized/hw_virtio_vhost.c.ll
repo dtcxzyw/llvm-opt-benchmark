@@ -1047,30 +1047,28 @@ do.body:                                          ; preds = %if.then
 if.else:                                          ; preds = %entry
   %desc = getelementptr inbounds %struct.vhost_virtqueue, ptr %vq, i64 0, i32 2
   %2 = load ptr, ptr %desc, align 8
-  %3 = ptrtoint ptr %2 to i64
   %desc_user_addr = getelementptr inbounds %struct.vhost_vring_addr, ptr %addr, i64 0, i32 2
-  store i64 %3, ptr %desc_user_addr, align 8
+  store ptr %2, ptr %desc_user_addr, align 8
   %avail = getelementptr inbounds %struct.vhost_virtqueue, ptr %vq, i64 0, i32 3
   %used_user_addr = getelementptr inbounds %struct.vhost_vring_addr, ptr %addr, i64 0, i32 3
-  %4 = load <2 x ptr>, ptr %avail, align 8
-  %5 = ptrtoint <2 x ptr> %4 to <2 x i64>
-  %6 = shufflevector <2 x i64> %5, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %6, ptr %used_user_addr, align 8
+  %3 = load <2 x ptr>, ptr %avail, align 8
+  %4 = shufflevector <2 x ptr> %3, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x ptr> %4, ptr %used_user_addr, align 8
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then.if.end6_crit_edge, %if.else
-  %7 = phi ptr [ %.pre, %if.then.if.end6_crit_edge ], [ %0, %if.else ]
+  %5 = phi ptr [ %.pre, %if.then.if.end6_crit_edge ], [ %0, %if.else ]
   store i32 %idx, ptr %addr, align 8
   %used_phys = getelementptr inbounds %struct.vhost_virtqueue, ptr %vq, i64 0, i32 10
-  %8 = load i64, ptr %used_phys, align 8
+  %6 = load i64, ptr %used_phys, align 8
   %log_guest_addr = getelementptr inbounds %struct.vhost_vring_addr, ptr %addr, i64 0, i32 5
-  store i64 %8, ptr %log_guest_addr, align 8
+  store i64 %6, ptr %log_guest_addr, align 8
   %cond = zext i1 %enable_log to i32
   %flags = getelementptr inbounds %struct.vhost_vring_addr, ptr %addr, i64 0, i32 1
   store i32 %cond, ptr %flags, align 4
-  %vhost_set_vring_addr = getelementptr inbounds %struct.VhostOps, ptr %7, i64 0, i32 12
-  %9 = load ptr, ptr %vhost_set_vring_addr, align 8
-  %call9 = call i32 %9(ptr noundef nonnull %dev, ptr noundef nonnull %addr) #18
+  %vhost_set_vring_addr = getelementptr inbounds %struct.VhostOps, ptr %5, i64 0, i32 12
+  %7 = load ptr, ptr %vhost_set_vring_addr, align 8
+  %call9 = call i32 %7(ptr noundef nonnull %dev, ptr noundef nonnull %addr) #18
   %cmp10 = icmp slt i32 %call9, 0
   br i1 %cmp10, label %do.body12, label %return
 

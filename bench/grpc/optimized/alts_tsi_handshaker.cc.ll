@@ -462,16 +462,15 @@ sw.bb2.i.i.i.i:                                   ; preds = %invoke.cont80
           to label %call.i.i99.noexc unwind label %lpad52.loopexit
 
 call.i.i99.noexc:                                 ; preds = %sw.bb2.i.i.i.i
-  %25 = ptrtoint ptr %call.i.i99100 to i64
-  store i64 %25, ptr %add.ptr.i.i.i97, align 1
+  store ptr %call.i.i99100, ptr %add.ptr.i.i.i97, align 1
   br label %_upb_Message_GetOrCreateMutableMap.exit.i
 
 _upb_Message_GetOrCreateMutableMap.exit.i:        ; preds = %call.i.i99.noexc, %invoke.cont80
   %map.3.i.i = phi ptr [ %24, %invoke.cont80 ], [ %call.i.i99100, %call.i.i99.noexc ]
-  %26 = load ptr, ptr %end.i.i.i.i.i, align 8
-  %27 = load ptr, ptr %call.i.i7879, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %26 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %27 to i64
+  %25 = load ptr, ptr %end.i.i.i.i.i, align 8
+  %26 = load ptr, ptr %call.i.i7879, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %25 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %26 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp ult i64 %sub.ptr.sub.i.i.i.i.i, 16
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
@@ -481,12 +480,12 @@ if.then.i.i.i.i:                                  ; preds = %_upb_Message_GetOrC
           to label %upb_Arena_Malloc.exit.i.i.i unwind label %lpad52.thread
 
 if.end.i.i.i.i:                                   ; preds = %_upb_Message_GetOrCreateMutableMap.exit.i
-  %add.ptr.i.i.i2.i = getelementptr inbounds i8, ptr %27, i64 16
+  %add.ptr.i.i.i2.i = getelementptr inbounds i8, ptr %26, i64 16
   store ptr %add.ptr.i.i.i2.i, ptr %call.i.i7879, align 8
   br label %upb_Arena_Malloc.exit.i.i.i
 
 upb_Arena_Malloc.exit.i.i.i:                      ; preds = %if.then.i.i.i.i, %if.end.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %27, %if.end.i.i.i.i ], [ %call2.i.i.i.i101, %if.then.i.i.i.i ]
+  %retval.0.i.i.i.i = phi ptr [ %26, %if.end.i.i.i.i ], [ %call2.i.i.i.i101, %if.then.i.i.i.i ]
   %tobool.not.i.i.i = icmp eq ptr %retval.0.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %invoke.cont86, label %if.end.i.i.i
 
@@ -499,28 +498,28 @@ if.end.i.i.i:                                     ; preds = %upb_Arena_Malloc.ex
           to label %call2.i.i.noexc unwind label %lpad52.thread
 
 call2.i.i.noexc:                                  ; preds = %if.end.i.i.i
-  %28 = ptrtoint ptr %retval.0.i.i.i.i to i64
-  %call6.i.i103 = invoke zeroext i1 @upb_strtable_insert(ptr noundef nonnull %table.i.i98, ptr noundef nonnull %add.ptr.i.i.i91, i64 noundef %conv.i.i, i64 %28, ptr noundef nonnull %call.i.i7879)
+  %27 = ptrtoint ptr %retval.0.i.i.i.i to i64
+  %call6.i.i103 = invoke zeroext i1 @upb_strtable_insert(ptr noundef nonnull %table.i.i98, ptr noundef nonnull %add.ptr.i.i.i91, i64 noundef %conv.i.i, i64 %27, ptr noundef nonnull %call.i.i7879)
           to label %invoke.cont86 unwind label %lpad52.thread
 
 invoke.cont86:                                    ; preds = %upb_Arena_Malloc.exit.i.i.i, %call2.i.i.noexc
-  %29 = load i64, ptr %add.ptr.i.i.i90, align 1
-  %tobool.not.i105 = icmp eq i64 %29, 0
+  %28 = load i64, ptr %add.ptr.i.i.i90, align 1
+  %tobool.not.i105 = icmp eq i64 %28, 0
   br i1 %tobool.not.i105, label %if.end90, label %if.end.i
 
 if.end.i:                                         ; preds = %invoke.cont86
-  %30 = inttoptr i64 %29 to ptr
+  %29 = inttoptr i64 %28 to ptr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %it.i.i)
-  %table.i.i106 = getelementptr inbounds %struct.upb_Map, ptr %30, i64 0, i32 2
+  %table.i.i106 = getelementptr inbounds %struct.upb_Map, ptr %29, i64 0, i32 2
   store ptr %table.i.i106, ptr %it.i.i, align 8
-  %31 = load i64, ptr %iter, align 8
-  store i64 %31, ptr %index.i.i, align 8
+  %30 = load i64, ptr %iter, align 8
+  store i64 %30, ptr %index.i.i, align 8
   invoke void @upb_strtable_next(ptr noundef nonnull %it.i.i)
           to label %.noexc unwind label %lpad52.thread
 
 .noexc:                                           ; preds = %if.end.i
-  %32 = load i64, ptr %index.i.i, align 8
-  store i64 %32, ptr %iter, align 8
+  %31 = load i64, ptr %index.i.i, align 8
+  store i64 %31, ptr %iter, align 8
   %call.i.i107109 = invoke zeroext i1 @upb_strtable_done(ptr noundef nonnull %it.i.i)
           to label %call.i.i107.noexc unwind label %lpad52.thread
 
@@ -532,13 +531,13 @@ grpc_gcp_Identity_attributes_nextmutable.exit.thread151: ; preds = %call.i.i107.
   br label %if.end90
 
 grpc_gcp_Identity_attributes_nextmutable.exit:    ; preds = %call.i.i107.noexc
-  %33 = load ptr, ptr %it.i.i, align 8
-  %entries.i.i.i = getelementptr inbounds %struct.upb_table, ptr %33, i64 0, i32 4
-  %34 = load ptr, ptr %entries.i.i.i, align 8
-  %35 = load i64, ptr %index.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds %struct._upb_tabent, ptr %34, i64 %35
+  %32 = load ptr, ptr %it.i.i, align 8
+  %entries.i.i.i = getelementptr inbounds %struct.upb_table, ptr %32, i64 0, i32 4
+  %33 = load ptr, ptr %entries.i.i.i, align 8
+  %34 = load i64, ptr %index.i.i, align 8
+  %arrayidx.i.i.i = getelementptr inbounds %struct._upb_tabent, ptr %33, i64 %34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %it.i.i)
-  %cmp77.not = icmp eq ptr %34, null
+  %cmp77.not = icmp eq ptr %33, null
   br i1 %cmp77.not, label %if.end90, label %invoke.cont80
 
 if.end90:                                         ; preds = %invoke.cont86, %grpc_gcp_Identity_attributes_nextmutable.exit, %grpc_gcp_Identity_attributes_nextmutable.exit.thread151, %while.cond.preheader, %if.end70, %invoke.cont71
@@ -547,9 +546,9 @@ if.end90:                                         ; preds = %invoke.cont86, %grp
           to label %invoke.cont93 unwind label %lpad52.loopexit.split-lp
 
 invoke.cont93:                                    ; preds = %if.end90
-  %36 = load ptr, ptr %ptr.i, align 8
+  %35 = load ptr, ptr %ptr.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i)
-  %cmp95 = icmp eq ptr %36, null
+  %cmp95 = icmp eq ptr %35, null
   br i1 %cmp95, label %if.then96, label %if.end98
 
 if.then96:                                        ; preds = %invoke.cont93
@@ -557,8 +556,8 @@ if.then96:                                        ; preds = %invoke.cont93
           to label %cleanup unwind label %lpad52.loopexit.split-lp
 
 if.end98:                                         ; preds = %invoke.cont93
-  %37 = load i64, ptr %serialized_ctx_length, align 8
-  invoke void @grpc_slice_from_copied_buffer(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp, ptr noundef nonnull %36, i64 noundef %37)
+  %36 = load i64, ptr %serialized_ctx_length, align 8
+  invoke void @grpc_slice_from_copied_buffer(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp, ptr noundef nonnull %35, i64 noundef %36)
           to label %invoke.cont99 unwind label %lpad52.loopexit.split-lp
 
 invoke.cont99:                                    ; preds = %if.end98
@@ -580,10 +579,10 @@ if.then.i.i115:                                   ; preds = %cleanup
           to label %cleanup104 unwind label %terminate.lpad.i.i116
 
 terminate.lpad.i.i116:                            ; preds = %if.then.i.i115
-  %38 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           catch ptr null
-  %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #22
+  %38 = extractvalue { ptr, i32 } %37, 0
+  call void @__clang_call_terminate(ptr %38) #22
   unreachable
 
 cleanup104:                                       ; preds = %if.then.i.i115, %cleanup, %if.then48
@@ -596,10 +595,10 @@ if.then.i.i120:                                   ; preds = %cleanup104
           to label %return unwind label %terminate.lpad.i.i121
 
 terminate.lpad.i.i121:                            ; preds = %if.then.i.i120
-  %40 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #22
+  %40 = extractvalue { ptr, i32 } %39, 0
+  call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
 ehcleanup:                                        ; preds = %if.then.i.i, %lpad52, %lpad
@@ -612,10 +611,10 @@ if.then.i.i125:                                   ; preds = %ehcleanup
           to label %_ZN3upb5ArenaD2Ev.exit127 unwind label %terminate.lpad.i.i126
 
 terminate.lpad.i.i126:                            ; preds = %if.then.i.i125
-  %42 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #22
+  %42 = extractvalue { ptr, i32 } %41, 0
+  call void @__clang_call_terminate(ptr %42) #22
   unreachable
 
 _ZN3upb5ArenaD2Ev.exit127:                        ; preds = %ehcleanup, %if.then.i.i125

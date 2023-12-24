@@ -3481,13 +3481,12 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   %9 = load i64, ptr %current_time, align 8
   %statistics_.i = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterFactoryBase", ptr %this, i64 0, i32 3
   %10 = load ptr, ptr %statistics_.i, align 8
-  %11 = ptrtoint ptr %user_comp_filter_from_factory.sroa.0.0 to i64
   %options_.i.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::Configurable", ptr %call10, i64 0, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %user_comp_filter_.i.i.i = getelementptr inbounds %"class.rocksdb::LayeredCompactionFilterBase", ptr %call10, i64 0, i32 1
   store ptr %8, ptr %user_comp_filter_.i.i.i, align 8
   %user_comp_filter_from_factory_.i.i.i = getelementptr inbounds %"class.rocksdb::LayeredCompactionFilterBase", ptr %call10, i64 0, i32 2
-  store i64 %11, ptr %user_comp_filter_from_factory_.i.i.i, align 8
+  store ptr %user_comp_filter_from_factory.sroa.0.0, ptr %user_comp_filter_from_factory_.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit.i.i
 
@@ -3500,41 +3499,41 @@ _ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit
   %context_.i.i = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %call10, i64 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %context_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %context, i64 16, i1 false)
   %current_blob_files.i.i.i = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %call10, i64 0, i32 1, i32 2
-  %12 = load ptr, ptr %current_blob_files.i, align 8
-  store ptr %12, ptr %current_blob_files.i.i.i, align 8
+  %11 = load ptr, ptr %current_blob_files.i, align 8
+  store ptr %11, ptr %current_blob_files.i.i.i, align 8
   %_M_bucket_count.i.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %call10, i64 0, i32 1, i32 2, i32 0, i32 1
-  %13 = load i64, ptr %_M_bucket_count.i.i.i, align 8
-  store i64 %13, ptr %_M_bucket_count.i.i.i.i.i.i, align 8
+  %12 = load i64, ptr %_M_bucket_count.i.i.i, align 8
+  store i64 %12, ptr %_M_bucket_count.i.i.i.i.i.i, align 8
   %_M_before_begin.i.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %call10, i64 0, i32 1, i32 2, i32 0, i32 2
-  %14 = load ptr, ptr %_M_before_begin.i.i.i, align 8
-  store ptr %14, ptr %_M_before_begin.i.i.i.i.i.i, align 8
+  %13 = load ptr, ptr %_M_before_begin.i.i.i, align 8
+  store ptr %13, ptr %_M_before_begin.i.i.i.i.i.i, align 8
   %_M_element_count.i.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %call10, i64 0, i32 1, i32 2, i32 0, i32 3
   %_M_element_count5.i.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::blob_db::BlobCompactionContext", ptr %context, i64 0, i32 2, i32 0, i32 3
-  %15 = load i64, ptr %_M_element_count5.i.i.i.i.i.i, align 8
-  store i64 %15, ptr %_M_element_count.i.i.i.i.i.i, align 8
+  %14 = load i64, ptr %_M_element_count5.i.i.i.i.i.i, align 8
+  store i64 %14, ptr %_M_element_count.i.i.i.i.i.i, align 8
   %_M_rehash_policy.i.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %call10, i64 0, i32 1, i32 2, i32 0, i32 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i.i.i, i64 16, i1 false)
   %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %call10, i64 0, i32 1, i32 2, i32 0, i32 5
   store ptr null, ptr %_M_single_bucket.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %12
+  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %11
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit.i.i
   store ptr %_M_single_bucket.i.i.i.i.i.i, ptr %current_blob_files.i.i.i, align 8
-  %16 = load ptr, ptr %_M_single_bucket.i.i.i, align 8
-  store ptr %16, ptr %_M_single_bucket.i.i.i.i.i.i, align 8
+  %15 = load ptr, ptr %_M_single_bucket.i.i.i, align 8
+  store ptr %15, ptr %_M_single_bucket.i.i.i.i.i.i, align 8
   br label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i.i, %_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit.i.i
-  %17 = phi ptr [ %_M_single_bucket.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %12, %_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit.i.i ]
-  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %14, null
+  %16 = phi ptr [ %_M_single_bucket.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %11, %_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit.i.i ]
+  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
-  %18 = load i64, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %rem.i.i.i.i.i.i.i.i.i.i = urem i64 %18, %13
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %17, i64 %rem.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %17 = load i64, ptr %add.ptr.i.i.i.i.i.i.i, align 8
+  %rem.i.i.i.i.i.i.i.i.i.i = urem i64 %17, %12
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %16, i64 %rem.i.i.i.i.i.i.i.i.i.i
   store ptr %_M_before_begin.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 8
   br label %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i
 
@@ -3558,12 +3557,12 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   br label %cleanup
 
 lpad3:                                            ; preds = %if.end
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup19
 
 lpad8:                                            ; preds = %invoke.cont7
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   %cmp.not.i14 = icmp eq ptr %user_comp_filter_from_factory.sroa.0.0, null
   br i1 %cmp.not.i14, label %ehcleanup19, label %_ZNKSt14default_deleteIN7rocksdb16CompactionFilterEEclEPS1_.exit.i15
@@ -3571,33 +3570,33 @@ lpad8:                                            ; preds = %invoke.cont7
 _ZNKSt14default_deleteIN7rocksdb16CompactionFilterEEclEPS1_.exit.i15: ; preds = %lpad8
   %vtable.i.i16 = load ptr, ptr %user_comp_filter_from_factory.sroa.0.0, align 8
   %vfn.i.i17 = getelementptr inbounds ptr, ptr %vtable.i.i16, i64 1
-  %21 = load ptr, ptr %vfn.i.i17, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(32) %user_comp_filter_from_factory.sroa.0.0) #19
+  %20 = load ptr, ptr %vfn.i.i17, align 8
+  call void %20(ptr noundef nonnull align 8 dereferenceable(32) %user_comp_filter_from_factory.sroa.0.0) #19
   br label %ehcleanup19
 
 ehcleanup19:                                      ; preds = %_ZNKSt14default_deleteIN7rocksdb16CompactionFilterEEclEPS1_.exit.i15, %lpad8, %lpad3, %_ZNSt10unique_ptrIN7rocksdb16CompactionFilterESt14default_deleteIS1_EED2Ev.exit5.i
-  %.pn.pn = phi { ptr, i32 } [ %19, %lpad3 ], [ %7, %_ZNSt10unique_ptrIN7rocksdb16CompactionFilterESt14default_deleteIS1_EED2Ev.exit5.i ], [ %20, %lpad8 ], [ %20, %_ZNKSt14default_deleteIN7rocksdb16CompactionFilterEEclEPS1_.exit.i15 ]
+  %.pn.pn = phi { ptr, i32 } [ %18, %lpad3 ], [ %7, %_ZNSt10unique_ptrIN7rocksdb16CompactionFilterESt14default_deleteIS1_EED2Ev.exit5.i ], [ %19, %lpad8 ], [ %19, %_ZNKSt14default_deleteIN7rocksdb16CompactionFilterEEclEPS1_.exit.i15 ]
   call void @_ZN7rocksdb7blob_db21BlobCompactionContextD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %context) #19
   %state_.i19 = getelementptr inbounds %"class.rocksdb::Status", ptr %s, i64 0, i32 6
-  %22 = load ptr, ptr %state_.i19, align 8
-  %cmp.not.i.i20 = icmp eq ptr %22, null
+  %21 = load ptr, ptr %state_.i19, align 8
+  %cmp.not.i.i20 = icmp eq ptr %21, null
   br i1 %cmp.not.i.i20, label %_ZN7rocksdb6StatusD2Ev.exit22, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i21
 
 cleanup:                                          ; preds = %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i, %if.then
   %state_.i = getelementptr inbounds %"class.rocksdb::Status", ptr %s, i64 0, i32 6
-  %23 = load ptr, ptr %state_.i, align 8
-  %cmp.not.i.i = icmp eq ptr %23, null
+  %22 = load ptr, ptr %state_.i, align 8
+  %cmp.not.i.i = icmp eq ptr %22, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %cleanup
-  call void @_ZdaPv(ptr noundef nonnull %23) #18
+  call void @_ZdaPv(ptr noundef nonnull %22) #18
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %cleanup, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
   ret void
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i21: ; preds = %ehcleanup19
-  call void @_ZdaPv(ptr noundef nonnull %22) #18
+  call void @_ZdaPv(ptr noundef nonnull %21) #18
   br label %_ZN7rocksdb6StatusD2Ev.exit22
 
 _ZN7rocksdb6StatusD2Ev.exit22:                    ; preds = %ehcleanup19, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i21
@@ -3686,13 +3685,12 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   %9 = load i64, ptr %current_time, align 8
   %statistics_.i = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterFactoryBase", ptr %this, i64 0, i32 3
   %10 = load ptr, ptr %statistics_.i, align 8
-  %11 = ptrtoint ptr %user_comp_filter_from_factory.sroa.0.0 to i64
   %options_.i.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::Configurable", ptr %call10, i64 0, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %user_comp_filter_.i.i.i = getelementptr inbounds %"class.rocksdb::LayeredCompactionFilterBase", ptr %call10, i64 0, i32 1
   store ptr %8, ptr %user_comp_filter_.i.i.i, align 8
   %user_comp_filter_from_factory_.i.i.i = getelementptr inbounds %"class.rocksdb::LayeredCompactionFilterBase", ptr %call10, i64 0, i32 2
-  store i64 %11, ptr %user_comp_filter_from_factory_.i.i.i, align 8
+  store ptr %user_comp_filter_from_factory.sroa.0.0, ptr %user_comp_filter_from_factory_.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit.i.i
 
@@ -3705,41 +3703,41 @@ _ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit
   %context_.i.i = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %call10, i64 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %context_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %context, i64 16, i1 false)
   %current_blob_files.i.i.i = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %call10, i64 0, i32 1, i32 2
-  %12 = load ptr, ptr %current_blob_files.i, align 8
-  store ptr %12, ptr %current_blob_files.i.i.i, align 8
+  %11 = load ptr, ptr %current_blob_files.i, align 8
+  store ptr %11, ptr %current_blob_files.i.i.i, align 8
   %_M_bucket_count.i.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %call10, i64 0, i32 1, i32 2, i32 0, i32 1
-  %13 = load i64, ptr %_M_bucket_count.i.i.i, align 8
-  store i64 %13, ptr %_M_bucket_count.i.i.i.i.i.i, align 8
+  %12 = load i64, ptr %_M_bucket_count.i.i.i, align 8
+  store i64 %12, ptr %_M_bucket_count.i.i.i.i.i.i, align 8
   %_M_before_begin.i.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %call10, i64 0, i32 1, i32 2, i32 0, i32 2
-  %14 = load ptr, ptr %_M_before_begin.i.i.i, align 8
-  store ptr %14, ptr %_M_before_begin.i.i.i.i.i.i, align 8
+  %13 = load ptr, ptr %_M_before_begin.i.i.i, align 8
+  store ptr %13, ptr %_M_before_begin.i.i.i.i.i.i, align 8
   %_M_element_count.i.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %call10, i64 0, i32 1, i32 2, i32 0, i32 3
   %_M_element_count5.i.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::blob_db::BlobCompactionContext", ptr %context, i64 0, i32 2, i32 0, i32 3
-  %15 = load i64, ptr %_M_element_count5.i.i.i.i.i.i, align 8
-  store i64 %15, ptr %_M_element_count.i.i.i.i.i.i, align 8
+  %14 = load i64, ptr %_M_element_count5.i.i.i.i.i.i, align 8
+  store i64 %14, ptr %_M_element_count.i.i.i.i.i.i, align 8
   %_M_rehash_policy.i.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %call10, i64 0, i32 1, i32 2, i32 0, i32 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i.i.i, i64 16, i1 false)
   %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterBase", ptr %call10, i64 0, i32 1, i32 2, i32 0, i32 5
   store ptr null, ptr %_M_single_bucket.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %12
+  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %11
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit.i.i
   store ptr %_M_single_bucket.i.i.i.i.i.i, ptr %current_blob_files.i.i.i, align 8
-  %16 = load ptr, ptr %_M_single_bucket.i.i.i, align 8
-  store ptr %16, ptr %_M_single_bucket.i.i.i.i.i.i, align 8
+  %15 = load ptr, ptr %_M_single_bucket.i.i.i, align 8
+  store ptr %15, ptr %_M_single_bucket.i.i.i.i.i.i, align 8
   br label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i.i, %_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit.i.i
-  %17 = phi ptr [ %_M_single_bucket.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %12, %_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit.i.i ]
-  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %14, null
+  %16 = phi ptr [ %_M_single_bucket.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %11, %_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit.i.i ]
+  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
-  %18 = load i64, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %rem.i.i.i.i.i.i.i.i.i.i = urem i64 %18, %13
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %17, i64 %rem.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %17 = load i64, ptr %add.ptr.i.i.i.i.i.i.i, align 8
+  %rem.i.i.i.i.i.i.i.i.i.i = urem i64 %17, %12
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %16, i64 %rem.i.i.i.i.i.i.i.i.i.i
   store ptr %_M_before_begin.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 8
   br label %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i
 
@@ -3758,8 +3756,8 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %blob_file_.i.i, i8 0, i64 64, i1 false)
   store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTVN7rocksdb7blob_db27BlobIndexCompactionFilterGCE, i64 0, inrange i32 0, i64 2), ptr %call10, align 8
   %context_gc_.i = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterGC", ptr %call10, i64 0, i32 1
-  %19 = load i64, ptr %context_gc, align 8
-  store i64 %19, ptr %context_gc_.i, align 8
+  %18 = load i64, ptr %context_gc, align 8
+  store i64 %18, ptr %context_gc_.i, align 8
   %gc_stats_.i = getelementptr inbounds %"class.rocksdb::blob_db::BlobIndexCompactionFilterGC", ptr %call10, i64 0, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %gc_stats_.i, i8 0, i64 41, i1 false)
   store ptr %call10, ptr %agg.result, align 8
@@ -3768,12 +3766,12 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   br label %cleanup
 
 lpad3:                                            ; preds = %if.end
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup19
 
 lpad8:                                            ; preds = %invoke.cont7
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   %cmp.not.i14 = icmp eq ptr %user_comp_filter_from_factory.sroa.0.0, null
   br i1 %cmp.not.i14, label %ehcleanup19, label %_ZNKSt14default_deleteIN7rocksdb16CompactionFilterEEclEPS1_.exit.i15
@@ -3781,33 +3779,33 @@ lpad8:                                            ; preds = %invoke.cont7
 _ZNKSt14default_deleteIN7rocksdb16CompactionFilterEEclEPS1_.exit.i15: ; preds = %lpad8
   %vtable.i.i16 = load ptr, ptr %user_comp_filter_from_factory.sroa.0.0, align 8
   %vfn.i.i17 = getelementptr inbounds ptr, ptr %vtable.i.i16, i64 1
-  %22 = load ptr, ptr %vfn.i.i17, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(32) %user_comp_filter_from_factory.sroa.0.0) #19
+  %21 = load ptr, ptr %vfn.i.i17, align 8
+  call void %21(ptr noundef nonnull align 8 dereferenceable(32) %user_comp_filter_from_factory.sroa.0.0) #19
   br label %ehcleanup19
 
 ehcleanup19:                                      ; preds = %_ZNKSt14default_deleteIN7rocksdb16CompactionFilterEEclEPS1_.exit.i15, %lpad8, %lpad3, %_ZNSt10unique_ptrIN7rocksdb16CompactionFilterESt14default_deleteIS1_EED2Ev.exit5.i
-  %.pn.pn = phi { ptr, i32 } [ %20, %lpad3 ], [ %7, %_ZNSt10unique_ptrIN7rocksdb16CompactionFilterESt14default_deleteIS1_EED2Ev.exit5.i ], [ %21, %lpad8 ], [ %21, %_ZNKSt14default_deleteIN7rocksdb16CompactionFilterEEclEPS1_.exit.i15 ]
+  %.pn.pn = phi { ptr, i32 } [ %19, %lpad3 ], [ %7, %_ZNSt10unique_ptrIN7rocksdb16CompactionFilterESt14default_deleteIS1_EED2Ev.exit5.i ], [ %20, %lpad8 ], [ %20, %_ZNKSt14default_deleteIN7rocksdb16CompactionFilterEEclEPS1_.exit.i15 ]
   call void @_ZN7rocksdb7blob_db21BlobCompactionContextD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %context) #19
   %state_.i19 = getelementptr inbounds %"class.rocksdb::Status", ptr %s, i64 0, i32 6
-  %23 = load ptr, ptr %state_.i19, align 8
-  %cmp.not.i.i20 = icmp eq ptr %23, null
+  %22 = load ptr, ptr %state_.i19, align 8
+  %cmp.not.i.i20 = icmp eq ptr %22, null
   br i1 %cmp.not.i.i20, label %_ZN7rocksdb6StatusD2Ev.exit22, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i21
 
 cleanup:                                          ; preds = %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i, %if.then
   %state_.i = getelementptr inbounds %"class.rocksdb::Status", ptr %s, i64 0, i32 6
-  %24 = load ptr, ptr %state_.i, align 8
-  %cmp.not.i.i = icmp eq ptr %24, null
+  %23 = load ptr, ptr %state_.i, align 8
+  %cmp.not.i.i = icmp eq ptr %23, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %cleanup
-  call void @_ZdaPv(ptr noundef nonnull %24) #18
+  call void @_ZdaPv(ptr noundef nonnull %23) #18
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %cleanup, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
   ret void
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i21: ; preds = %ehcleanup19
-  call void @_ZdaPv(ptr noundef nonnull %23) #18
+  call void @_ZdaPv(ptr noundef nonnull %22) #18
   br label %_ZN7rocksdb6StatusD2Ev.exit22
 
 _ZN7rocksdb6StatusD2Ev.exit22:                    ; preds = %ehcleanup19, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i21

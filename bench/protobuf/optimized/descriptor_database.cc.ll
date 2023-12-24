@@ -5665,26 +5665,25 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call, i8 0, i64 24, i1 false)
   store ptr @_ZZN4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryENS7_11FileCompareESaIS8_ELi256ELb0EEEE9EmptyNodeEvE10empty_node, ptr %by_name_.i, align 8
   %rightmost_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex", ptr %call, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %0 = ptrtoint ptr %call to i64
-  store i64 %0, ptr %rightmost_.i.i.i.i.i, align 8
-  %1 = getelementptr inbounds %"class.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex", ptr %call, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
-  store ptr @_ZZN4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryENS7_11FileCompareESaIS8_ELi256ELb0EEEE9EmptyNodeEvE10empty_node, ptr %1, align 8
+  store ptr %call, ptr %rightmost_.i.i.i.i.i, align 8
+  %0 = getelementptr inbounds %"class.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex", ptr %call, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  store ptr @_ZZN4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryENS7_11FileCompareESaIS8_ELi256ELb0EEEE9EmptyNodeEvE10empty_node, ptr %0, align 8
   %size_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex", ptr %call, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
   %by_symbol_.i = getelementptr inbounds %"class.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex", ptr %call, i64 0, i32 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %size_.i.i.i.i.i, i8 0, i64 32, i1 false)
   store ptr @_ZZN4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryENS7_13SymbolCompareESaIS8_ELi256ELb0EEEE9EmptyNodeEvE10empty_node, ptr %by_symbol_.i, align 8
   %rightmost_.i.i.i.i4.i = getelementptr inbounds %"class.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex", ptr %call, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
-  store i64 %0, ptr %rightmost_.i.i.i.i4.i, align 8
-  %2 = getelementptr inbounds %"class.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex", ptr %call, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
-  store ptr @_ZZN4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryENS7_13SymbolCompareESaIS8_ELi256ELb0EEEE9EmptyNodeEvE10empty_node, ptr %2, align 8
+  store ptr %call, ptr %rightmost_.i.i.i.i4.i, align 8
+  %1 = getelementptr inbounds %"class.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex", ptr %call, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  store ptr @_ZZN4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryENS7_13SymbolCompareESaIS8_ELi256ELb0EEEE9EmptyNodeEvE10empty_node, ptr %1, align 8
   %size_.i.i.i.i5.i = getelementptr inbounds %"class.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex", ptr %call, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
   %by_extension_.i = getelementptr inbounds %"class.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex", ptr %call, i64 0, i32 5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %size_.i.i.i.i5.i, i8 0, i64 32, i1 false)
   store ptr @_ZZN4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex14ExtensionEntryENS7_16ExtensionCompareESaIS8_ELi256ELb0EEEE9EmptyNodeEvE10empty_node, ptr %by_extension_.i, align 8
   %rightmost_.i.i.i.i7.i = getelementptr inbounds %"class.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex", ptr %call, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
-  store i64 %0, ptr %rightmost_.i.i.i.i7.i, align 8
-  %3 = getelementptr inbounds %"class.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex", ptr %call, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
-  store ptr @_ZZN4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex14ExtensionEntryENS7_16ExtensionCompareESaIS8_ELi256ELb0EEEE9EmptyNodeEvE10empty_node, ptr %3, align 8
+  store ptr %call, ptr %rightmost_.i.i.i.i7.i, align 8
+  %2 = getelementptr inbounds %"class.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex", ptr %call, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  store ptr @_ZZN4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex14ExtensionEntryENS7_16ExtensionCompareESaIS8_ELi256ELb0EEEE9EmptyNodeEvE10empty_node, ptr %2, align 8
   %size_.i.i.i.i8.i = getelementptr inbounds %"class.google::protobuf::EncodedDescriptorDatabase::DescriptorIndex", ptr %call, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %size_.i.i.i.i8.i, i8 0, i64 32, i1 false)
   %index_ = getelementptr inbounds %"class.google::protobuf::EncodedDescriptorDatabase", ptr %this, i64 0, i32 1
@@ -19750,8 +19749,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf25EncodedDescriptorDa
 define linkonce_odr hidden noundef ptr @_ZSt7__mergeIN4absl12lts_2023080218container_internal14btree_iteratorINS2_10btree_nodeINS2_10set_paramsIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryENS9_13SymbolCompareESaISA_ELi256ELb0EEEEERSA_PSA_EEN9__gnu_cxx17__normal_iteratorISG_St6vectorISA_SC_EEESG_NSI_5__ops15_Iter_comp_iterISB_EEET1_T_SR_T0_SS_SQ_T2_(ptr %__first1.coerce0, i32 %__first1.coerce1, ptr %__last1.coerce0, i32 %__last1.coerce1, ptr %__first2.coerce, ptr %__last2.coerce, ptr noundef %__result, i64 %__comp.coerce) local_unnamed_addr #6 comdat {
 entry:
   %__comp = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.342", align 8
-  %coerce.val.ip = inttoptr i64 %__comp.coerce to ptr
-  store ptr %coerce.val.ip, ptr %__comp, align 8
+  store i64 %__comp.coerce, ptr %__comp, align 8
   %cmp.i.i39 = icmp ne ptr %__first1.coerce0, %__last1.coerce0
   %cmp6.i.i40 = icmp ne i32 %__first1.coerce1, %__last1.coerce1
   %.not.i41 = select i1 %cmp.i.i39, i1 true, i1 %cmp6.i.i40
@@ -19990,8 +19988,7 @@ _ZNSt12_Vector_baseIN6google8protobuf25EncodedDescriptorDatabase15DescriptorInde
 define linkonce_odr hidden noundef ptr @_ZSt7__mergeIN4absl12lts_2023080218container_internal14btree_iteratorINS2_10btree_nodeINS2_10set_paramsIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex14ExtensionEntryENS9_16ExtensionCompareESaISA_ELi256ELb0EEEEERSA_PSA_EEN9__gnu_cxx17__normal_iteratorISG_St6vectorISA_SC_EEESG_NSI_5__ops15_Iter_comp_iterISB_EEET1_T_SR_T0_SS_SQ_T2_(ptr %__first1.coerce0, i32 %__first1.coerce1, ptr %__last1.coerce0, i32 %__last1.coerce1, ptr %__first2.coerce, ptr %__last2.coerce, ptr noundef %__result, i64 %__comp.coerce) local_unnamed_addr #6 comdat {
 entry:
   %__comp = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.343", align 8
-  %coerce.val.ip = inttoptr i64 %__comp.coerce to ptr
-  store ptr %coerce.val.ip, ptr %__comp, align 8
+  store i64 %__comp.coerce, ptr %__comp, align 8
   %cmp.i.i43 = icmp ne ptr %__first1.coerce0, %__last1.coerce0
   %cmp6.i.i44 = icmp ne i32 %__first1.coerce1, %__last1.coerce1
   %.not.i45 = select i1 %cmp.i.i43, i1 true, i1 %cmp6.i.i44

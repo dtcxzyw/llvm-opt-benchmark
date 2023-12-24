@@ -390,13 +390,12 @@ _ZNK5folly7dynamic5itemsEv.exit102:               ; preds = %if.end33
   %packedBegin_.i.i.i.i.i = getelementptr inbounds %"struct.folly::dynamic", ptr %obj1, i64 0, i32 1, i32 0, i32 2
   %13 = load i64, ptr %packedBegin_.i.i.i.i.i, align 8, !tbaa !21, !noalias !18
   %and.i.i.i.i.i.i = and i64 %13, -8
-  %14 = inttoptr i64 %and.i.i.i.i.i.i to ptr
   %and.i4.i.i.i.i.i = shl i64 %13, 1
   %shl.i.i.i.i.i.i = and i64 %and.i4.i.i.i.i.i, 14
   %shr.i.i.i.i.i.i = lshr i64 %13, 3
   %and3.i.i.i.i.i.i = and i64 %shr.i.i.i.i.i.i, 1
   %or.i.i.i.i.i.i = or disjoint i64 %shl.i.i.i.i.i.i, %and3.i.i.i.i.i.i
-  store ptr %14, ptr %agg.tmp, align 8, !alias.scope !18
+  store i64 %and.i.i.i.i.i.i, ptr %agg.tmp, align 8, !alias.scope !18
   %base.sroa.2.0.base_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 %or.i.i.i.i.i.i, ptr %base.sroa.2.0.base_.sroa_idx.i.i.i, align 8, !alias.scope !18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp37, i8 0, i64 16, i1 false), !alias.scope !24
@@ -410,13 +409,13 @@ _ZNKR5folly7dynamic9getStringB5cxx11Ev.exit:      ; preds = %if.end7
   br i1 %cmp46.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit
-  %15 = load i32, ptr %obj2, align 8, !tbaa !11
-  %cmp.not.i.not.i.i.i106 = icmp eq i32 %15, 6
+  %14 = load i32, ptr %obj2, align 8, !tbaa !11
+  %cmp.not.i.not.i.i.i106 = icmp eq i32 %14, 6
   br i1 %cmp.not.i.not.i.i.i106, label %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit109, label %cleanup.cont.i.i.i107
 
 cleanup.cont.i.i.i107:                            ; preds = %land.lhs.true
-  %16 = load ptr, ptr @_ZN5folly7dynamic8TypeInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4nameE, align 8, !tbaa !14
-  tail call void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef %16, i32 noundef %15) #24
+  %15 = load ptr, ptr @_ZN5folly7dynamic8TypeInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4nameE, align 8, !tbaa !14
+  tail call void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef %15, i32 noundef %14) #24
   unreachable
 
 _ZNKR5folly7dynamic9getStringB5cxx11Ev.exit109:   ; preds = %land.lhs.true
@@ -427,46 +426,46 @@ _ZNKR5folly7dynamic9getStringB5cxx11Ev.exit109:   ; preds = %land.lhs.true
 
 if.then50:                                        ; preds = %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit109
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %nested1) #23
-  %17 = load i32, ptr %obj1, align 8, !tbaa !11
-  %cmp.not.i.not.i.i.i110 = icmp eq i32 %17, 6
+  %16 = load i32, ptr %obj1, align 8, !tbaa !11
+  %cmp.not.i.not.i.i.i110 = icmp eq i32 %16, 6
   br i1 %cmp.not.i.not.i.i.i110, label %invoke.cont, label %cleanup.cont.i.i.i111
 
 cleanup.cont.i.i.i111:                            ; preds = %if.then50
-  %18 = load ptr, ptr @_ZN5folly7dynamic8TypeInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4nameE, align 8, !tbaa !14
-  invoke void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef %18, i32 noundef %17) #24
+  %17 = load ptr, ptr @_ZN5folly7dynamic8TypeInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4nameE, align 8, !tbaa !14
+  invoke void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef %17, i32 noundef %16) #24
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %cleanup.cont.i.i.i111
   unreachable
 
 invoke.cont:                                      ; preds = %if.then50
-  %19 = load ptr, ptr %u_.i.i.i.i.i105, align 8, !tbaa !27
+  %18 = load ptr, ptr %u_.i.i.i.i.i105, align 8, !tbaa !27
   %_M_string_length.i.i = getelementptr inbounds %"struct.folly::dynamic", ptr %obj1, i64 0, i32 1, i32 0, i32 1
-  %20 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !30
-  %add.ptr.i = getelementptr inbounds i8, ptr %19, i64 %20
-  invoke void @_ZN5folly9parseJsonENS_5RangeIPKcEE(ptr nonnull sret(%"struct.folly::dynamic") align 8 %nested1, ptr %19, ptr %add.ptr.i)
+  %19 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !30
+  %add.ptr.i = getelementptr inbounds i8, ptr %18, i64 %19
+  invoke void @_ZN5folly9parseJsonENS_5RangeIPKcEE(ptr nonnull sret(%"struct.folly::dynamic") align 8 %nested1, ptr %18, ptr %add.ptr.i)
           to label %invoke.cont54 unwind label %lpad
 
 invoke.cont54:                                    ; preds = %invoke.cont
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %nested2) #23
-  %21 = load i32, ptr %obj2, align 8, !tbaa !11
-  %cmp.not.i.not.i.i.i114 = icmp eq i32 %21, 6
+  %20 = load i32, ptr %obj2, align 8, !tbaa !11
+  %cmp.not.i.not.i.i.i114 = icmp eq i32 %20, 6
   br i1 %cmp.not.i.not.i.i.i114, label %invoke.cont57, label %cleanup.cont.i.i.i115
 
 cleanup.cont.i.i.i115:                            ; preds = %invoke.cont54
-  %22 = load ptr, ptr @_ZN5folly7dynamic8TypeInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4nameE, align 8, !tbaa !14
-  invoke void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef %22, i32 noundef %21) #24
+  %21 = load ptr, ptr @_ZN5folly7dynamic8TypeInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4nameE, align 8, !tbaa !14
+  invoke void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef %21, i32 noundef %20) #24
           to label %.noexc117 unwind label %lpad56
 
 .noexc117:                                        ; preds = %cleanup.cont.i.i.i115
   unreachable
 
 invoke.cont57:                                    ; preds = %invoke.cont54
-  %23 = load ptr, ptr %u_.i.i.i.i.i108, align 8, !tbaa !27
+  %22 = load ptr, ptr %u_.i.i.i.i.i108, align 8, !tbaa !27
   %_M_string_length.i.i120 = getelementptr inbounds %"struct.folly::dynamic", ptr %obj2, i64 0, i32 1, i32 0, i32 1
-  %24 = load i64, ptr %_M_string_length.i.i120, align 8, !tbaa !30
-  %add.ptr.i121 = getelementptr inbounds i8, ptr %23, i64 %24
-  invoke void @_ZN5folly9parseJsonENS_5RangeIPKcEE(ptr nonnull sret(%"struct.folly::dynamic") align 8 %nested2, ptr %23, ptr %add.ptr.i121)
+  %23 = load i64, ptr %_M_string_length.i.i120, align 8, !tbaa !30
+  %add.ptr.i121 = getelementptr inbounds i8, ptr %22, i64 %23
+  invoke void @_ZN5folly9parseJsonENS_5RangeIPKcEE(ptr nonnull sret(%"struct.folly::dynamic") align 8 %nested2, ptr %22, ptr %add.ptr.i121)
           to label %invoke.cont60 unwind label %lpad56
 
 invoke.cont60:                                    ; preds = %invoke.cont57
@@ -482,32 +481,32 @@ invoke.cont62:                                    ; preds = %invoke.cont60
   br label %return
 
 lpad:                                             ; preds = %invoke.cont, %cleanup.cont.i.i.i111
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           catch ptr null
   br label %ehcleanup69
 
 lpad56:                                           ; preds = %invoke.cont57, %cleanup.cont.i.i.i115
-  %26 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           catch ptr null
   br label %ehcleanup
 
 lpad61:                                           ; preds = %invoke.cont60
-  %27 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5folly7dynamic7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %nested2) #23
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad61, %lpad56
-  %.pn = phi { ptr, i32 } [ %27, %lpad61 ], [ %26, %lpad56 ]
+  %.pn = phi { ptr, i32 } [ %26, %lpad61 ], [ %25, %lpad56 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %nested2) #23
   call void @_ZN5folly7dynamic7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %nested1) #23
   br label %ehcleanup69
 
 ehcleanup69:                                      ; preds = %ehcleanup, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %25, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %24, %lpad ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %nested1) #23
-  %28 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #23
+  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #23
   call void @__cxa_end_catch()
   br label %return
 

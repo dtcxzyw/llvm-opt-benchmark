@@ -2277,7 +2277,7 @@ _ZN9grpc_core12OrcaProducer22OrcaStreamEventHandlerD2Ev.exit: ; preds = %entry, 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core12OrcaProducer22OrcaStreamEventHandler13GetPathLockedEv(ptr noalias sret(%"class.grpc_core::Slice") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr inttoptr (i64 1 to ptr), ptr %agg.result, align 8, !alias.scope !57
+  store i64 1, ptr %agg.result, align 8, !alias.scope !57
   %slice.sroa.2.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 53, ptr %slice.sroa.2.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !57
   %slice.sroa.3.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -2383,64 +2383,63 @@ upb_Arena_Malloc.exit.i.i16:                      ; preds = %if.then.i.i.i20, %i
   %9 = load i8, ptr %retval.0.i.i, align 1
   %or2.i.i.i.i.i.i = or i8 %9, 2
   store i8 %or2.i.i.i.i.i.i, ptr %retval.0.i.i, align 1
-  %10 = ptrtoint ptr %add.ptr.i.i19 to i64
-  store i64 %10, ptr %add.ptr.i.i.i5, align 1
+  store ptr %add.ptr.i.i19, ptr %add.ptr.i.i.i5, align 1
   br label %invoke.cont11
 
 invoke.cont11:                                    ; preds = %upb_Arena_Malloc.exit.i.i16, %invoke.cont4
   %sub.0.i = phi ptr [ %add.ptr.i.i19, %upb_Arena_Malloc.exit.i.i16 ], [ %5, %invoke.cont4 ]
-  %11 = extractvalue { i64, i64 } %call5, 0
+  %10 = extractvalue { i64, i64 } %call5, 0
   %add.ptr.i.i.i23 = getelementptr inbounds i8, ptr %sub.0.i, i64 8
-  store i64 %11, ptr %add.ptr.i.i.i23, align 1
+  store i64 %10, ptr %add.ptr.i.i.i23, align 1
   store i32 %timespec.sroa.2.8.extract.trunc, ptr %sub.0.i, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.i)
   %call.i25 = invoke i32 @upb_Encode(ptr noundef nonnull %retval.0.i.i, ptr noundef nonnull @xds__service__orca__v3__OrcaLoadReportRequest_msg_init, i32 noundef 0, ptr noundef nonnull %call.i.i, ptr noundef nonnull %ptr.i, ptr noundef nonnull %buf_length)
           to label %invoke.cont14 unwind label %if.then.i.i29
 
 invoke.cont14:                                    ; preds = %invoke.cont11
-  %12 = load ptr, ptr %ptr.i, align 8
+  %11 = load ptr, ptr %ptr.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i)
-  %13 = load i64, ptr %buf_length, align 8
-  invoke void @grpc_slice_malloc(ptr sret(%struct.grpc_slice) align 8 %agg.result, i64 noundef %13)
+  %12 = load i64, ptr %buf_length, align 8
+  invoke void @grpc_slice_malloc(ptr sret(%struct.grpc_slice) align 8 %agg.result, i64 noundef %12)
           to label %if.then.i.i unwind label %if.then.i.i29
 
 if.then.i.i:                                      ; preds = %invoke.cont14
-  %14 = load ptr, ptr %agg.result, align 8
-  %tobool.not = icmp eq ptr %14, null
+  %13 = load ptr, ptr %agg.result, align 8
+  %tobool.not = icmp eq ptr %13, null
   %bytes = getelementptr inbounds %struct.grpc_slice, ptr %agg.result, i64 0, i32 1, i32 0, i32 1
-  %15 = load ptr, ptr %bytes, align 8
+  %14 = load ptr, ptr %bytes, align 8
   %bytes18 = getelementptr inbounds i8, ptr %agg.result, i64 9
-  %cond = select i1 %tobool.not, ptr %bytes18, ptr %15
-  %16 = load i64, ptr %buf_length, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %cond, ptr align 1 %12, i64 %16, i1 false)
+  %cond = select i1 %tobool.not, ptr %bytes18, ptr %14
+  %15 = load i64, ptr %buf_length, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %cond, ptr align 1 %11, i64 %15, i1 false)
   invoke void @upb_Arena_Free(ptr noundef nonnull %call.i.i)
           to label %_ZN3upb5ArenaD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #21
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #21
   unreachable
 
 _ZN3upb5ArenaD2Ev.exit:                           ; preds = %if.then.i.i
   ret void
 
 if.then.i.i29:                                    ; preds = %invoke.cont2, %invoke.cont14, %if.then.i.i.i, %if.then.i.i.i20, %invoke.cont11
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   invoke void @upb_Arena_Free(ptr noundef nonnull %call.i.i)
           to label %_ZN3upb5ArenaD2Ev.exit31 unwind label %terminate.lpad.i.i30
 
 terminate.lpad.i.i30:                             ; preds = %if.then.i.i29
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #21
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #21
   unreachable
 
 _ZN3upb5ArenaD2Ev.exit31:                         ; preds = %if.then.i.i29
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress uwtable

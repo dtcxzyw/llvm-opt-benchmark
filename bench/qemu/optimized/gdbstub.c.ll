@@ -4461,8 +4461,8 @@ while.end5.i:                                     ; preds = %for.body.i7
 if.end8:                                          ; preds = %for.body.i7
   %attached = getelementptr inbounds %struct.GDBProcess, ptr %retval.0.i, i64 0, i32 1
   store i8 1, ptr %attached, align 4
-  store ptr %cpu.06.i, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 2), align 8
-  store ptr %cpu.06.i, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 1), align 8
+  store i64 %cpu.06.in.i, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 2), align 8
+  store i64 %cpu.06.in.i, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 1), align 8
   %11 = load i8, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 18), align 8
   %12 = and i8 %11, 1
   %tobool9.not = icmp eq i8 %12, 0

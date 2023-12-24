@@ -253,95 +253,94 @@ if.then81:                                        ; preds = %if.then76
 
 while.end:                                        ; preds = %if.end72
   %16 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  %17 = inttoptr i64 %16 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !5
   %cpu85 = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 1
-  store ptr %17, ptr %cpu85, align 8
+  store i64 %16, ptr %cpu85, align 8
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then76, %while.end
   %call87 = tail call zeroext i1 @target_words_bigendian() #4
   %conv88 = zext i1 %call87 to i32
   %file89 = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 6
-  %18 = load ptr, ptr %file89, align 8
-  %tobool90.not = icmp eq ptr %18, null
+  %17 = load ptr, ptr %file89, align 8
+  %tobool90.not = icmp eq ptr %17, null
   br i1 %tobool90.not, label %if.end132, label %if.then91
 
 if.then91:                                        ; preds = %if.end86
   %cpu92 = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 1
-  %19 = load ptr, ptr %cpu92, align 8
-  %tobool93.not = icmp eq ptr %19, null
+  %18 = load ptr, ptr %cpu92, align 8
+  %tobool93.not = icmp eq ptr %18, null
   br i1 %tobool93.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.then91
-  %as95 = getelementptr inbounds %struct.CPUState, ptr %19, i64 0, i32 29
-  %20 = load ptr, ptr %as95, align 16
+  %as95 = getelementptr inbounds %struct.CPUState, ptr %18, i64 0, i32 29
+  %19 = load ptr, ptr %as95, align 16
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then91, %cond.true
-  %cond = phi ptr [ %20, %cond.true ], [ null, %if.then91 ]
+  %cond = phi ptr [ %19, %cond.true ], [ null, %if.then91 ]
   %force_raw96 = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 7
-  %21 = load i8, ptr %force_raw96, align 8
-  %22 = and i8 %21, 1
-  %tobool97.not = icmp eq i8 %22, 0
+  %20 = load i8, ptr %force_raw96, align 8
+  %21 = and i8 %20, 1
+  %tobool97.not = icmp eq i8 %21, 0
   br i1 %tobool97.not, label %if.then98, label %lor.lhs.false116
 
 if.then98:                                        ; preds = %cond.end
-  %call100 = call i64 @load_elf_as(ptr noundef nonnull %18, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %entry1, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %conv88, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %cond) #4
+  %call100 = call i64 @load_elf_as(ptr noundef nonnull %17, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %entry1, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %conv88, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %cond) #4
   %cmp101 = icmp slt i64 %call100, 0
   br i1 %cmp101, label %if.then103, label %lor.lhs.false116
 
 if.then103:                                       ; preds = %if.then98
-  %23 = load ptr, ptr %file89, align 8
-  %call105 = call i64 @load_uimage_as(ptr noundef %23, ptr noundef nonnull %entry1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %cond) #4
-  %24 = icmp slt i64 %call105, 0
-  br i1 %24, label %if.then109, label %lor.lhs.false116
+  %22 = load ptr, ptr %file89, align 8
+  %call105 = call i64 @load_uimage_as(ptr noundef %22, ptr noundef nonnull %entry1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %cond) #4
+  %23 = icmp slt i64 %call105, 0
+  br i1 %23, label %if.then109, label %lor.lhs.false116
 
 if.then109:                                       ; preds = %if.then103
-  %25 = load ptr, ptr %file89, align 8
-  %call111 = call i64 @load_targphys_hex_as(ptr noundef %25, ptr noundef nonnull %entry1, ptr noundef %cond) #4
-  %26 = icmp slt i64 %call111, 0
-  br i1 %26, label %if.then120, label %lor.lhs.false116
+  %24 = load ptr, ptr %file89, align 8
+  %call111 = call i64 @load_targphys_hex_as(ptr noundef %24, ptr noundef nonnull %entry1, ptr noundef %cond) #4
+  %25 = icmp slt i64 %call111, 0
+  br i1 %25, label %if.then120, label %lor.lhs.false116
 
 lor.lhs.false116:                                 ; preds = %cond.end, %if.then103, %if.then98, %if.then109
-  %27 = load i8, ptr %force_raw96, align 8
-  %28 = and i8 %27, 1
-  %tobool118.not = icmp eq i8 %28, 0
+  %26 = load i8, ptr %force_raw96, align 8
+  %27 = and i8 %26, 1
+  %tobool118.not = icmp eq i8 %27, 0
   br i1 %tobool118.not, label %if.else124, label %if.then120
 
 if.then120:                                       ; preds = %lor.lhs.false116, %if.then109
-  %29 = load ptr, ptr %file89, align 8
+  %28 = load ptr, ptr %file89, align 8
   %addr122 = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 2
-  %30 = load i64, ptr %addr122, align 8
-  %31 = load ptr, ptr @current_machine, align 8
-  %ram_size = getelementptr inbounds %struct.MachineState, ptr %31, i64 0, i32 19
-  %32 = load i64, ptr %ram_size, align 8
-  %call123 = call i64 @load_image_targphys_as(ptr noundef %29, i64 noundef %30, i64 noundef %32, ptr noundef %cond) #4
-  %33 = icmp slt i64 %call123, 0
-  br i1 %33, label %if.then129, label %if.end132
+  %29 = load i64, ptr %addr122, align 8
+  %30 = load ptr, ptr @current_machine, align 8
+  %ram_size = getelementptr inbounds %struct.MachineState, ptr %30, i64 0, i32 19
+  %31 = load i64, ptr %ram_size, align 8
+  %call123 = call i64 @load_image_targphys_as(ptr noundef %28, i64 noundef %29, i64 noundef %31, ptr noundef %cond) #4
+  %32 = icmp slt i64 %call123, 0
+  br i1 %32, label %if.then129, label %if.end132
 
 if.else124:                                       ; preds = %lor.lhs.false116
-  %34 = load i64, ptr %entry1, align 8
+  %33 = load i64, ptr %entry1, align 8
   %addr125 = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 2
-  store i64 %34, ptr %addr125, align 8
+  store i64 %33, ptr %addr125, align 8
   br label %if.end132
 
 if.then129:                                       ; preds = %if.then120
-  %35 = load ptr, ptr %file89, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.4, i32 noundef 164, ptr noundef nonnull @__func__.generic_loader_realize, ptr noundef nonnull @.str.14, ptr noundef %35) #4
+  %34 = load ptr, ptr %file89, align 8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.4, i32 noundef 164, ptr noundef nonnull @__func__.generic_loader_realize, ptr noundef nonnull @.str.14, ptr noundef %34) #4
   br label %if.end143
 
 if.end132:                                        ; preds = %if.else124, %if.then120, %if.end86
   %data_be133 = getelementptr inbounds %struct.GenericLoaderState, ptr %call.i, i64 0, i32 8
-  %36 = load i8, ptr %data_be133, align 1
-  %37 = and i8 %36, 1
-  %tobool134.not = icmp eq i8 %37, 0
+  %35 = load i8, ptr %data_be133, align 1
+  %36 = and i8 %35, 1
+  %tobool134.not = icmp eq i8 %36, 0
   br i1 %tobool134.not, label %if.end143, label %if.then135
 
 if.then135:                                       ; preds = %if.end132
-  %38 = load i64, ptr %data, align 8
-  %39 = call i64 @llvm.bswap.i64(i64 %38)
-  store i64 %39, ptr %data, align 8
+  %37 = load i64, ptr %data, align 8
+  %38 = call i64 @llvm.bswap.i64(i64 %37)
+  store i64 %38, ptr %data, align 8
   br label %if.end143
 
 if.end143:                                        ; preds = %if.end132, %if.then135, %if.then129, %if.then81, %if.else69, %if.then65, %if.then18, %if.then13, %if.then9, %if.then7

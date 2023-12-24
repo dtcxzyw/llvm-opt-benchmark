@@ -952,7 +952,7 @@ call.i.noexc:                                     ; preds = %if.then79
   %_M_func.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i145, i64 0, i32 1
   store ptr %this, ptr %_M_func.i.i, align 8
   %106 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i145, i64 0, i32 1, i32 0, i32 0, i32 1
-  store i64 ptrtoint (ptr @_ZN7rocksdb14BlockCacheTier10InsertMainEv to i64), ptr %106, align 8
+  store ptr @_ZN7rocksdb14BlockCacheTier10InsertMainEv, ptr %106, align 8
   %this.repack3.i.i.i.i.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i145, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
   store i64 0, ptr %this.repack3.i.i.i.i.i.i, align 8
   store ptr %call.i145, ptr %agg.tmp.i, align 8

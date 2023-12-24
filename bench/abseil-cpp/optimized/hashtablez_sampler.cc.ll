@@ -379,8 +379,7 @@ _ZN4absl9MutexLockD2Ev.exit:                      ; preds = %invoke.cont15
   %10 = load atomic i64, ptr %all_.i monotonic, align 8
   %next.i = getelementptr inbounds %"struct.absl::profiling_internal::Sample", ptr %call11, i64 0, i32 1
   %11 = ptrtoint ptr %call11 to i64
-  %storemerge4.i = inttoptr i64 %10 to ptr
-  store ptr %storemerge4.i, ptr %next.i, align 8
+  store i64 %10, ptr %next.i, align 8
   %12 = cmpxchg weak ptr %all_.i, i64 %10, i64 %11 release monotonic, align 8
   %13 = extractvalue { i64, i1 } %12, 1
   br i1 %13, label %return, label %_ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i
@@ -388,8 +387,7 @@ _ZN4absl9MutexLockD2Ev.exit:                      ; preds = %invoke.cont15
 _ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i: ; preds = %_ZN4absl9MutexLockD2Ev.exit, %_ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i
   %14 = phi { i64, i1 } [ %16, %_ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i ], [ %12, %_ZN4absl9MutexLockD2Ev.exit ]
   %15 = extractvalue { i64, i1 } %14, 0
-  %storemerge.i = inttoptr i64 %15 to ptr
-  store ptr %storemerge.i, ptr %next.i, align 8
+  store i64 %15, ptr %next.i, align 8
   %16 = cmpxchg weak ptr %all_.i, i64 %15, i64 %11 release monotonic, align 8
   %17 = extractvalue { i64, i1 } %16, 1
   br i1 %17, label %return, label %_ZNSt6atomicIPN4absl18container_internal14HashtablezInfoEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i, !llvm.loop !6

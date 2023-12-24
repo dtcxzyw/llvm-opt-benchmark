@@ -3316,7 +3316,7 @@ if.then.i7:                                       ; preds = %_ZNK4absl12lts_2023
   br label %_ZN4absl12lts_2023080210CordBufferD2Ev.exit
 
 _ZN4absl12lts_2023080210CordBufferD2Ev.exit:      ; preds = %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread, %if.then.i7
-  store ptr inttoptr (i64 1 to ptr), ptr %buffer_, align 8
+  store i64 1, ptr %buffer_, align 8
   %ref.tmp.sroa.7.0.buffer_.sroa_idx = getelementptr inbounds %"class.google::protobuf::io::CordOutputStream", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
   store ptr null, ptr %ref.tmp.sroa.7.0.buffer_.sroa_idx, align 8
   %cord_ = getelementptr inbounds %"class.google::protobuf::io::CordOutputStream", ptr %this, i64 0, i32 1

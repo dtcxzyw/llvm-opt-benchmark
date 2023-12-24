@@ -205,12 +205,11 @@ if.end8:                                          ; preds = %if.then5, %land.lhs
 
 _ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.end, %if.end8
   %.in = phi ptr [ %1, %if.end ], [ %.pr, %if.end8 ]
-  %2 = ptrtoint ptr %.in to i64
   %call11 = call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #8
   store ptr null, ptr %sourceMap, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call11) #9
   %sourceMap_.i5 = getelementptr inbounds %struct.HermesSourceMap, ptr %call11, i64 0, i32 1
-  store i64 %2, ptr %sourceMap_.i5, align 8
+  store ptr %.in, ptr %sourceMap_.i5, align 8
   %pathBuf_.i6 = getelementptr inbounds %struct.HermesSourceMap, ptr %call11, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pathBuf_.i6) #9
   br label %cleanup
@@ -228,13 +227,13 @@ if.else:                                          ; preds = %if.end8
 
 cleanup:                                          ; preds = %if.else, %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit
   %retval.0 = phi ptr [ %call11, %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit ], [ %call13, %if.else ]
-  %3 = load ptr, ptr %sourceMap, align 8
-  %cmp.not.i9 = icmp eq ptr %3, null
+  %2 = load ptr, ptr %sourceMap, align 8
+  %cmp.not.i9 = icmp eq ptr %2, null
   br i1 %cmp.not.i9, label %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit11, label %_ZNKSt14default_deleteIN6hermes9SourceMapEEclEPS1_.exit.i10
 
 _ZNKSt14default_deleteIN6hermes9SourceMapEEclEPS1_.exit.i10: ; preds = %cleanup
-  call void @_ZN6hermes9SourceMapD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #9
-  call void @_ZdlPv(ptr noundef nonnull %3) #10
+  call void @_ZN6hermes9SourceMapD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #9
+  call void @_ZdlPv(ptr noundef nonnull %2) #10
   br label %_ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit11
 
 _ZNSt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS1_EED2Ev.exit11: ; preds = %cleanup, %_ZNKSt14default_deleteIN6hermes9SourceMapEEclEPS1_.exit.i10

@@ -169,7 +169,11 @@ if.end35.i:                                       ; preds = %do.body.i.i, %if.th
   %idxprom.i.i203.i = zext nneg i32 %and.i201.i to i64
   %arrayidx.i.i204.i = getelementptr inbounds %struct.CType, ptr %20, i64 %idxprom.i.i203.i
   %ct.1.i = select i1 %cmp38.i, ptr %arrayidx.i.i204.i, ptr %ct.0.i
-  br label %for.inc.i.sink.split
+  %arrayidx44.i = getelementptr inbounds %struct.CDArith, ptr %ca, i64 0, i32 1, i64 %indvars.iv.i
+  store ptr %ct.1.i, ptr %arrayidx44.i, align 8
+  %arrayidx47.i = getelementptr inbounds [2 x ptr], ptr %ca, i64 0, i64 %indvars.iv.i
+  store ptr %p.0.i, ptr %arrayidx47.i, align 8
+  br label %for.inc.i
 
 if.else48.i:                                      ; preds = %for.body.i
   %cmp51.i = icmp ult i32 %conv.i, -14
@@ -178,7 +182,11 @@ if.else48.i:                                      ; preds = %for.body.i
 if.then53.i:                                      ; preds = %if.else48.i
   %22 = load ptr, ptr %3, align 8
   %arrayidx.i148.i = getelementptr inbounds %struct.CType, ptr %22, i64 14
-  br label %for.inc.i.sink.split
+  %arrayidx57.i = getelementptr inbounds %struct.CDArith, ptr %ca, i64 0, i32 1, i64 %indvars.iv.i
+  store ptr %arrayidx.i148.i, ptr %arrayidx57.i, align 8
+  %arrayidx60.i = getelementptr inbounds [2 x ptr], ptr %ca, i64 0, i64 %indvars.iv.i
+  store ptr %o.098.i, ptr %arrayidx60.i, align 8
+  br label %for.inc.i
 
 if.else61.i:                                      ; preds = %if.else48.i
   %cmp62.i = icmp eq i64 %6, -1
@@ -187,11 +195,15 @@ if.else61.i:                                      ; preds = %if.else48.i
 if.then64.i:                                      ; preds = %if.else61.i
   %23 = load ptr, ptr %3, align 8
   %arrayidx.i.i = getelementptr inbounds %struct.CType, ptr %23, i64 17
-  br label %for.inc.i.sink.split
+  %arrayidx68.i = getelementptr inbounds %struct.CDArith, ptr %ca, i64 0, i32 1, i64 %indvars.iv.i
+  store ptr %arrayidx.i.i, ptr %arrayidx68.i, align 8
+  %arrayidx71.i = getelementptr inbounds [2 x ptr], ptr %ca, i64 0, i64 %indvars.iv.i
+  store ptr null, ptr %arrayidx71.i, align 8
+  br label %for.inc.i
 
 if.else72.i:                                      ; preds = %if.else61.i
   %cmp75.i = icmp eq i32 %conv.i, -5
-  br i1 %cmp75.i, label %if.then77.i, label %for.inc.i.sink.split
+  br i1 %cmp75.i, label %if.then77.i, label %if.else133.i
 
 if.then77.i:                                      ; preds = %if.else72.i
   %cond85.i = getelementptr inbounds %union.TValue, ptr %o.098.i, i64 %cmp78.i
@@ -245,18 +257,15 @@ carith_checkarg.exit.thread:                      ; preds = %if.then105.i, %land
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ofs.i)
   br label %if.end9
 
-for.inc.i.sink.split:                             ; preds = %if.else72.i, %if.end35.i, %if.then53.i, %if.then64.i
-  %.sink119 = phi ptr [ %arrayidx.i.i, %if.then64.i ], [ %arrayidx.i148.i, %if.then53.i ], [ %ct.1.i, %if.end35.i ], [ null, %if.else72.i ]
-  %.sink = phi ptr [ null, %if.then64.i ], [ %o.098.i, %if.then53.i ], [ %p.0.i, %if.end35.i ], [ inttoptr (i64 1 to ptr), %if.else72.i ]
-  %ok.1.i.ph = phi i32 [ %ok.097.i, %if.then64.i ], [ %ok.097.i, %if.then53.i ], [ %ok.097.i, %if.end35.i ], [ 0, %if.else72.i ]
+if.else133.i:                                     ; preds = %if.else72.i
   %arrayidx136.i = getelementptr inbounds %struct.CDArith, ptr %ca, i64 0, i32 1, i64 %indvars.iv.i
-  store ptr %.sink119, ptr %arrayidx136.i, align 8
+  store ptr null, ptr %arrayidx136.i, align 8
   %arrayidx139.i = getelementptr inbounds [2 x ptr], ptr %ca, i64 0, i64 %indvars.iv.i
-  store ptr %.sink, ptr %arrayidx139.i, align 8
+  store i64 1, ptr %arrayidx139.i, align 8
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %for.inc.i.sink.split, %ctype_raw.exit.i
-  %ok.1.i = phi i32 [ 0, %ctype_raw.exit.i ], [ %ok.1.i.ph, %for.inc.i.sink.split ]
+for.inc.i:                                        ; preds = %if.else133.i, %ctype_raw.exit.i, %if.then64.i, %if.then53.i, %if.end35.i
+  %ok.1.i = phi i32 [ %ok.097.i, %if.end35.i ], [ %ok.097.i, %if.then53.i ], [ %ok.097.i, %if.then64.i ], [ 0, %ctype_raw.exit.i ], [ 0, %if.else133.i ]
   br i1 %tobool.not.i, label %for.body.i.backedge, label %carith_checkarg.exit
 
 for.body.i.backedge:                              ; preds = %for.inc.i, %for.inc.i.thread

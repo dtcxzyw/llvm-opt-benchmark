@@ -317,12 +317,11 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %3 = load i64, ptr %glref.i, align 8
   %4 = inttoptr i64 %3 to ptr
   %tmpbuf.i = getelementptr inbounds %struct.global_State, ptr %4, i64 0, i32 11
-  %5 = ptrtoint ptr %L to i64
   %L1.i = getelementptr inbounds %struct.global_State, ptr %4, i64 0, i32 11, i32 3
-  store i64 %5, ptr %L1.i, align 8
+  store ptr %L, ptr %L1.i, align 8
   %b.i36 = getelementptr inbounds %struct.global_State, ptr %4, i64 0, i32 11, i32 2
-  %6 = load ptr, ptr %b.i36, align 8
-  store ptr %6, ptr %tmpbuf.i, align 8
+  %5 = load ptr, ptr %b.i36, align 8
+  store ptr %5, ptr %tmpbuf.i, align 8
   %cmp4 = icmp slt i32 %cond2, 0
   %spec.select = call i32 @llvm.abs.i32(i32 %cond2, i1 false)
   %spec.select27 = select i1 %cmp4, i32 8212, i32 20
@@ -338,26 +337,26 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %and16 = select i1 %cmp12, i64 %sub, i64 -1
   %b.0 = and i64 %and16, %call
   %call18 = call ptr @lj_strfmt_putfxint(ptr noundef nonnull %tmpbuf.i, i32 noundef %or11, i64 noundef %b.0) #4
-  %7 = load ptr, ptr %top, align 8
-  %add.ptr20 = getelementptr inbounds %union.TValue, ptr %7, i64 -1
+  %6 = load ptr, ptr %top, align 8
+  %add.ptr20 = getelementptr inbounds %union.TValue, ptr %6, i64 -1
   %b.i = getelementptr inbounds %struct.SBuf, ptr %call18, i64 0, i32 2
-  %8 = load ptr, ptr %b.i, align 8
-  %9 = load ptr, ptr %call18, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
+  %7 = load ptr, ptr %b.i, align 8
+  %8 = load ptr, ptr %call18, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv2.i = and i64 %sub.ptr.sub.i, 4294967295
-  %call.i = call ptr @lj_str_new(ptr noundef nonnull %L, ptr noundef %8, i64 noundef %conv2.i) #4
-  %10 = ptrtoint ptr %call.i to i64
-  %or.i.i = or i64 %10, -703687441776640
+  %call.i = call ptr @lj_str_new(ptr noundef nonnull %L, ptr noundef %7, i64 noundef %conv2.i) #4
+  %9 = ptrtoint ptr %call.i to i64
+  %or.i.i = or i64 %9, -703687441776640
   store i64 %or.i.i, ptr %add.ptr20, align 8
-  %11 = load i64, ptr %glref.i, align 8
-  %12 = inttoptr i64 %11 to ptr
-  %gc = getelementptr inbounds %struct.global_State, ptr %12, i64 0, i32 2
-  %13 = load i64, ptr %gc, align 8
-  %threshold = getelementptr inbounds %struct.global_State, ptr %12, i64 0, i32 2, i32 1
-  %14 = load i64, ptr %threshold, align 8
-  %cmp25.not = icmp ult i64 %13, %14
+  %10 = load i64, ptr %glref.i, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %gc = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 2
+  %12 = load i64, ptr %gc, align 8
+  %threshold = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 2, i32 1
+  %13 = load i64, ptr %threshold, align 8
+  %cmp25.not = icmp ult i64 %12, %13
   br i1 %cmp25.not, label %if.end32, label %if.then30
 
 if.then30:                                        ; preds = %cond.end

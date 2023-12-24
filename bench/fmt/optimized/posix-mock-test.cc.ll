@@ -912,8 +912,7 @@ define linkonce_odr hidden void @_ZN3fmt3v1012system_errorIJPKcEEESt12system_err
 entry:
   %ref.tmp = alloca %"class.fmt::v10::format_arg_store", align 16
   %0 = load ptr, ptr %args, align 8
-  %1 = ptrtoint ptr %0 to i64
-  store i64 %1, ptr %ref.tmp, align 16
+  store ptr %0, ptr %ref.tmp, align 16
   call void @_ZN3fmt3v1013vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::system_error") align 8 %agg.result, i32 noundef %error_code, ptr %fmt.coerce0, i64 %fmt.coerce1, i64 12, ptr nonnull %ref.tmp)
   ret void
 }
@@ -2209,28 +2208,27 @@ entry:
   %f = alloca %"class.fmt::v10::buffered_file", align 8
   call void @_ZN3fmt3v1013buffered_fileC2ENS0_18basic_cstring_viewIcEES3_(ptr noundef nonnull align 8 dereferenceable(8) %f, ptr %filename.coerce, ptr nonnull @.str.1)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %0 = ptrtoint ptr %content.coerce0 to i64
-  store i64 %0, ptr %ref.tmp.i, align 16
-  %1 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp.i, i64 0, i32 1
-  store i64 %content.coerce1, ptr %1, align 8
-  %2 = load ptr, ptr %f, align 8
-  invoke void @_ZN3fmt3v106vprintEP8_IO_FILENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr noundef %2, ptr nonnull @.str.2, i64 2, i64 13, ptr nonnull %ref.tmp.i)
+  store ptr %content.coerce0, ptr %ref.tmp.i, align 16
+  %0 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp.i, i64 0, i32 1
+  store i64 %content.coerce1, ptr %0, align 8
+  %1 = load ptr, ptr %f, align 8
+  invoke void @_ZN3fmt3v106vprintEP8_IO_FILENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr noundef %1, ptr nonnull @.str.2, i64 2, i64 13, ptr nonnull %ref.tmp.i)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %tobool.not.i = icmp eq ptr %2, null
+  %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %_ZN3fmt3v1013buffered_fileD2Ev.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %invoke.cont5
-  %3 = load i32, ptr @_ZN12_GLOBAL__N_112fclose_countE, align 4
-  %cmp.not.i.i = icmp eq i32 %3, 0
+  %2 = load i32, ptr @_ZN12_GLOBAL__N_112fclose_countE, align 4
+  %cmp.not.i.i = icmp eq i32 %2, 0
   br i1 %cmp.not.i.i, label %invoke.cont.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i
-  %inc.i.i = add nsw i32 %3, 1
+  %inc.i.i = add nsw i32 %2, 1
   store i32 %inc.i.i, ptr @_ZN12_GLOBAL__N_112fclose_countE, align 4
-  %cmp1.not.i.i = icmp eq i32 %3, 3
+  %cmp1.not.i.i = icmp eq i32 %2, 3
   br i1 %cmp1.not.i.i, label %invoke.cont.i, label %invoke.cont.thread.i
 
 invoke.cont.thread.i:                             ; preds = %if.then.i.i
@@ -2239,7 +2237,7 @@ invoke.cont.thread.i:                             ; preds = %if.then.i.i
   br label %if.then.i
 
 invoke.cont.i:                                    ; preds = %if.then.i.i, %land.lhs.true.i
-  %call4.i.i = call i32 @fclose(ptr noundef nonnull %2)
+  %call4.i.i = call i32 @fclose(ptr noundef nonnull %1)
   %cmp.not.i = icmp eq i32 %call4.i.i, 0
   br i1 %cmp.not.i, label %_ZN3fmt3v1013buffered_fileD2Ev.exit, label %invoke.cont.if.then_crit_edge.i
 
@@ -2249,18 +2247,18 @@ invoke.cont.if.then_crit_edge.i:                  ; preds = %invoke.cont.i
   br label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont.if.then_crit_edge.i, %invoke.cont.thread.i
-  %4 = phi i32 [ %.pre, %invoke.cont.if.then_crit_edge.i ], [ 4, %invoke.cont.thread.i ]
-  call void @_ZN3fmt3v1019report_system_errorEiPKc(i32 noundef %4, ptr noundef nonnull @.str) #23
+  %3 = phi i32 [ %.pre, %invoke.cont.if.then_crit_edge.i ], [ 4, %invoke.cont.thread.i ]
+  call void @_ZN3fmt3v1019report_system_errorEiPKc(i32 noundef %3, ptr noundef nonnull @.str) #23
   br label %_ZN3fmt3v1013buffered_fileD2Ev.exit
 
 _ZN3fmt3v1013buffered_fileD2Ev.exit:              ; preds = %invoke.cont5, %invoke.cont.i, %if.then.i
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3fmt3v1013buffered_fileD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %f) #23
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %4
 }
 
 declare noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #11

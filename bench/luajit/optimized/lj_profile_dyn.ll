@@ -143,14 +143,12 @@ if.then15:                                        ; preds = %while.end13
 if.end20:                                         ; preds = %if.then15, %while.end13
   %glref21 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
   %12 = load i64, ptr %glref21, align 8
-  %13 = inttoptr i64 %12 to ptr
-  store ptr %13, ptr @profile_state, align 8
+  store i64 %12, ptr @profile_state, align 8
   store i32 %interval.0.lcssa, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 4), align 8
   store ptr %cb, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 1), align 8
   store ptr %data, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 2), align 8
   store i32 0, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 5), align 4
-  %14 = ptrtoint ptr %L to i64
-  store i64 %14, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3, i32 3), align 8
+  store ptr %L, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3, i32 3), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3), i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tm.i)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %sa.i)
@@ -233,20 +231,19 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define ptr @luaJIT_profile_dumpstack(ptr noundef %L, ptr noundef %fmt, i32 noundef %depth, ptr nocapture noundef writeonly %len) local_unnamed_addr #0 {
 entry:
-  %0 = ptrtoint ptr %L to i64
-  store i64 %0, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3, i32 3), align 8
-  %1 = load ptr, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3, i32 2), align 8
-  store ptr %1, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3), align 8
+  store ptr %L, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3, i32 3), align 8
+  %0 = load ptr, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3, i32 2), align 8
+  store ptr %0, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3), align 8
   tail call void @lj_debug_dumpstack(ptr noundef %L, ptr noundef nonnull getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3), ptr noundef %fmt, i32 noundef %depth) #7
-  %2 = load ptr, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3), align 8
-  %3 = load ptr, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3, i32 2), align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
+  %1 = load ptr, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3), align 8
+  %2 = load ptr, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3, i32 2), align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv3 = and i64 %sub.ptr.sub, 4294967295
   store i64 %conv3, ptr %len, align 8
-  %4 = load ptr, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3, i32 2), align 8
-  ret ptr %4
+  %3 = load ptr, ptr getelementptr inbounds (%struct.ProfileState, ptr @profile_state, i64 0, i32 3, i32 2), align 8
+  ret ptr %3
 }
 
 declare hidden void @lj_debug_dumpstack(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

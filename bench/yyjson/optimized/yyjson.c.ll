@@ -168,7 +168,7 @@ size_align_down.exit:                             ; preds = %if.end6
   %free = getelementptr inbounds %struct.yyjson_alc, ptr %alc, i64 0, i32 2
   store ptr @pool_free, ptr %free, align 8
   %ctx22 = getelementptr inbounds %struct.yyjson_alc, ptr %alc, i64 0, i32 3
-  store ptr %1, ptr %ctx22, align 8
+  store i64 %and.i35, ptr %ctx22, align 8
   br label %return
 
 return:                                           ; preds = %if.end6, %if.end, %entry, %size_align_down.exit

@@ -74,10 +74,9 @@ ehooks_guard.exit:                                ; preds = %if.end, %if.then.i1
   %and.i19 = and i64 %9, 4095
   %or.i = or disjoint i64 %and.i19, %cond
   store i64 %or.i, ptr %0, align 8
-  %10 = inttoptr i64 %addr.0 to ptr
-  store ptr %10, ptr %1, align 8
-  %11 = load i64, ptr %edata, align 8
-  %or.i21 = or i64 %11, 65536
+  store i64 %addr.0, ptr %1, align 8
+  %10 = load i64, ptr %edata, align 8
+  %or.i21 = or i64 %10, 65536
   store i64 %or.i21, ptr %edata, align 8
   br i1 %remap, label %if.then13, label %if.end15
 
@@ -129,10 +128,9 @@ san_unguard_pages_impl.exit:                      ; preds = %entry, %if.then.i.i
   %and.i18.i = and i64 %9, 4095
   %or.i.i = or disjoint i64 %and.i18.i, %cond.i
   store i64 %or.i.i, ptr %0, align 8
-  %10 = inttoptr i64 %addr.0.i to ptr
-  store ptr %10, ptr %1, align 8
-  %11 = load i64, ptr %edata, align 8
-  %and.i19.i = and i64 %11, -65537
+  store i64 %addr.0.i, ptr %1, align 8
+  %10 = load i64, ptr %edata, align 8
+  %and.i19.i = and i64 %10, -65537
   store i64 %and.i19.i, ptr %edata, align 8
   %call16.i = tail call zeroext i1 @emap_register_boundary(ptr noundef %tsdn, ptr noundef %emap, ptr noundef nonnull %edata, i32 noundef 235, i1 noundef zeroext false) #4
   ret void
@@ -166,10 +164,9 @@ san_unguard_pages_impl.exit:                      ; preds = %entry, %if.then.i.i
   %and.i18.i = and i64 %6, 4095
   %or.i.i = or disjoint i64 %and.i18.i, %cond.i
   store i64 %or.i.i, ptr %0, align 8
-  %7 = inttoptr i64 %and.i.i.i to ptr
-  store ptr %7, ptr %1, align 8
-  %8 = load i64, ptr %edata, align 8
-  %and.i19.i = and i64 %8, -65537
+  store i64 %and.i.i.i, ptr %1, align 8
+  %7 = load i64, ptr %edata, align 8
+  %and.i19.i = and i64 %7, -65537
   store i64 %and.i19.i, ptr %edata, align 8
   ret void
 }

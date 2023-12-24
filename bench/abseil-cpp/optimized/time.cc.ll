@@ -906,8 +906,7 @@ entry:
   %cs.i = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
   %cl.i = alloca %"struct.absl::time_internal::cctz::time_zone::civil_lookup", align 8
   %tz = alloca %"class.absl::TimeZone", align 8
-  %coerce.val.ip = inttoptr i64 %tz.coerce to ptr
-  store ptr %coerce.val.ip, ptr %tz, align 8
+  store i64 %tz.coerce, ptr %tz, align 8
   %cmp = icmp sgt i64 %year, 300000000000
   br i1 %cmp, label %if.then, label %if.end
 

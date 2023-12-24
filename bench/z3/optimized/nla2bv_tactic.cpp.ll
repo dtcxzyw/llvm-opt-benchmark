@@ -1638,8 +1638,7 @@ _ZN8rationalD2Ev.exit44:                          ; preds = %.noexc.i42
 invoke.cont10:                                    ; preds = %_ZN8rationalD2Ev.exit44
   store i32 %call11, ptr %m_bv2int_ctx, align 8
   %m_side_conditions.i = getelementptr inbounds %"class.nla2bv_tactic::imp", ptr %this, i64 0, i32 5, i32 1
-  %8 = ptrtoint ptr %m to i64
-  store i64 %8, ptr %m_side_conditions.i, align 8
+  store ptr %m, ptr %m_side_conditions.i, align 8
   %m_nodes.i.i.i = getelementptr inbounds %"class.nla2bv_tactic::imp", ptr %this, i64 0, i32 5, i32 1, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i.i, align 8
   %m_power2.i = getelementptr inbounds %"class.nla2bv_tactic::imp", ptr %this, i64 0, i32 5, i32 2
@@ -1656,26 +1655,26 @@ invoke.cont3.i:                                   ; preds = %invoke.cont10
   %m_num_deleted.i.i.i = getelementptr inbounds %"class.nla2bv_tactic::imp", ptr %this, i64 0, i32 5, i32 2, i32 0, i32 3
   store i32 0, ptr %m_num_deleted.i.i.i, align 8
   %m_trail.i = getelementptr inbounds %"class.nla2bv_tactic::imp", ptr %this, i64 0, i32 5, i32 3
-  store i64 %8, ptr %m_trail.i, align 8
+  store ptr %m, ptr %m_trail.i, align 8
   %m_nodes.i.i5.i = getelementptr inbounds %"class.nla2bv_tactic::imp", ptr %this, i64 0, i32 5, i32 3, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i5.i, align 8
   invoke void @_ZN19bv2int_rewriter_ctx13update_paramsERK10params_ref(ptr noundef nonnull align 8 dereferenceable(64) %m_bv2int_ctx, ptr noundef nonnull align 8 dereferenceable(8) %p)
           to label %invoke.cont12 unwind label %lpad4.i
 
 lpad.i:                                           ; preds = %invoke.cont10
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup6.i
 
 lpad4.i:                                          ; preds = %invoke.cont3.i
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_trail.i) #15
   call void @_ZN7obj_mapI4exprPS0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_power2.i) #15
   br label %ehcleanup6.i
 
 ehcleanup6.i:                                     ; preds = %lpad4.i, %lpad.i
-  %.pn.pn.i = phi { ptr, i32 } [ %10, %lpad4.i ], [ %9, %lpad.i ]
+  %.pn.pn.i = phi { ptr, i32 } [ %9, %lpad4.i ], [ %8, %lpad.i ]
   call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_side_conditions.i) #15
   br label %ehcleanup35
 
@@ -1691,15 +1690,15 @@ invoke.cont14:                                    ; preds = %invoke.cont12
 
 invoke.cont24:                                    ; preds = %invoke.cont14
   %m_vars = getelementptr inbounds %"class.nla2bv_tactic::imp", ptr %this, i64 0, i32 8
-  store i64 %8, ptr %m_vars, align 8
+  store ptr %m, ptr %m_vars, align 8
   %m_nodes.i.i = getelementptr inbounds %"class.nla2bv_tactic::imp", ptr %this, i64 0, i32 8, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i, align 8
   %m_defs = getelementptr inbounds %"class.nla2bv_tactic::imp", ptr %this, i64 0, i32 9
-  store i64 %8, ptr %m_defs, align 8
+  store ptr %m, ptr %m_defs, align 8
   %m_nodes.i.i45 = getelementptr inbounds %"class.nla2bv_tactic::imp", ptr %this, i64 0, i32 9, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i45, align 8
   %m_trail = getelementptr inbounds %"class.nla2bv_tactic::imp", ptr %this, i64 0, i32 10
-  store i64 %8, ptr %m_trail, align 8
+  store ptr %m, ptr %m_trail, align 8
   %m_nodes.i.i46 = getelementptr inbounds %"class.nla2bv_tactic::imp", ptr %this, i64 0, i32 10, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i46, align 8
   %m_fmc = getelementptr inbounds %"class.nla2bv_tactic::imp", ptr %this, i64 0, i32 13
@@ -1715,38 +1714,38 @@ invoke.cont26:                                    ; preds = %invoke.cont24
   ret void
 
 lpad:                                             ; preds = %_ZN11mpq_managerILb1EE3setER3mpqj.exit.i, %if.else.i.i.i.i35, %_ZN8rationalC2Ej.exit
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont6, %invoke.cont4
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad5, %lpad
-  %.pn = phi { ptr, i32 } [ %12, %lpad5 ], [ %11, %lpad ]
+  %.pn = phi { ptr, i32 } [ %11, %lpad5 ], [ %10, %lpad ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   br label %eh.resume
 
 lpad9:                                            ; preds = %_ZN8rationalD2Ev.exit44
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup35
 
 lpad13:                                           ; preds = %invoke.cont12
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup34
 
 lpad15:                                           ; preds = %invoke.cont14
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup33
 
 lpad25:                                           ; preds = %invoke.cont24
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3refI23generic_model_converterED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_fmc) #15
   call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_trail) #15
@@ -1756,17 +1755,17 @@ lpad25:                                           ; preds = %invoke.cont24
   br label %ehcleanup33
 
 ehcleanup33:                                      ; preds = %lpad25, %lpad15
-  %.pn16.pn.pn.pn.pn = phi { ptr, i32 } [ %16, %lpad25 ], [ %15, %lpad15 ]
+  %.pn16.pn.pn.pn.pn = phi { ptr, i32 } [ %15, %lpad25 ], [ %14, %lpad15 ]
   call void @_ZN13bound_managerD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %m_bounds) #15
   br label %ehcleanup34
 
 ehcleanup34:                                      ; preds = %ehcleanup33, %lpad13
-  %.pn16.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn16.pn.pn.pn.pn, %ehcleanup33 ], [ %14, %lpad13 ]
+  %.pn16.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn16.pn.pn.pn.pn, %ehcleanup33 ], [ %13, %lpad13 ]
   call void @_ZN19bv2int_rewriter_ctxD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_bv2int_ctx) #15
   br label %ehcleanup35
 
 ehcleanup35:                                      ; preds = %lpad9, %ehcleanup6.i, %ehcleanup34
-  %.pn16.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn16.pn.pn.pn.pn.pn, %ehcleanup34 ], [ %13, %lpad9 ], [ %.pn.pn.i, %ehcleanup6.i ]
+  %.pn16.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn16.pn.pn.pn.pn.pn, %ehcleanup34 ], [ %12, %lpad9 ], [ %.pn.pn.i, %ehcleanup6.i ]
   call void @_ZN12bv2real_utilD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %m_bv2real) #15
   br label %eh.resume
 

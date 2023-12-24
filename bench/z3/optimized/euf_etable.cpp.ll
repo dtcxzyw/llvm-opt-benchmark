@@ -757,7 +757,7 @@ sw.bb:                                            ; preds = %entry
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %sw.bb
   %i.07.i.i.i.i = phi i32 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %sw.bb ]
   %curr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %call.i.i.i.i, %sw.bb ]
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i.i.i, align 8
+  store i64 1, ptr %curr.06.i.i.i.i, align 8
   %inc.i.i.i.i = add nuw nsw i32 %i.07.i.i.i.i, 1
   %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.chashtable<euf::enode *, euf::etable::cg_unary_hash, euf::etable::cg_unary_eq>::cell", ptr %curr.06.i.i.i.i, i64 1
   %exitcond.not.i.i.i.i = icmp eq i32 %inc.i.i.i.i, 10
@@ -790,8 +790,7 @@ _ZNK9func_decl14is_commutativeEv.exit:            ; preds = %sw.bb3
 if.then:                                          ; preds = %_ZNK9func_decl14is_commutativeEv.exit
   %call5 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 72)
   %m_commutativity = getelementptr inbounds %"class.euf::etable", ptr %this, i64 0, i32 1
-  %2 = ptrtoint ptr %m_commutativity to i64
-  store i64 %2, ptr %call5, align 8
+  store ptr %m_commutativity, ptr %call5, align 8
   %m_init_slots.i3 = getelementptr inbounds %class.chashtable.36, ptr %call5, i64 0, i32 3
   store i32 8, ptr %m_init_slots.i3, align 4
   %m_init_cellar.i4 = getelementptr inbounds %class.chashtable.36, ptr %call5, i64 0, i32 4
@@ -804,7 +803,7 @@ if.then:                                          ; preds = %_ZNK9func_decl14is_
 for.body.i.i.i.i7:                                ; preds = %for.body.i.i.i.i7, %if.then
   %i.07.i.i.i.i8 = phi i32 [ %inc.i.i.i.i10, %for.body.i.i.i.i7 ], [ 0, %if.then ]
   %curr.06.i.i.i.i9 = phi ptr [ %incdec.ptr.i.i.i.i11, %for.body.i.i.i.i7 ], [ %call.i.i.i.i6, %if.then ]
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i.i.i9, align 8
+  store i64 1, ptr %curr.06.i.i.i.i9, align 8
   %inc.i.i.i.i10 = add nuw nsw i32 %i.07.i.i.i.i8, 1
   %incdec.ptr.i.i.i.i11 = getelementptr inbounds %"struct.chashtable<euf::enode *, euf::etable::cg_comm_hash, euf::etable::cg_comm_eq>::cell", ptr %curr.06.i.i.i.i9, i64 1
   %exitcond.not.i.i.i.i12 = icmp eq i32 %inc.i.i.i.i10, 10
@@ -841,7 +840,7 @@ if.else:                                          ; preds = %sw.bb3, %_ZNK9func_
 for.body.i.i.i.i24:                               ; preds = %for.body.i.i.i.i24, %if.else
   %i.07.i.i.i.i25 = phi i32 [ %inc.i.i.i.i27, %for.body.i.i.i.i24 ], [ 0, %if.else ]
   %curr.06.i.i.i.i26 = phi ptr [ %incdec.ptr.i.i.i.i28, %for.body.i.i.i.i24 ], [ %call.i.i.i.i23, %if.else ]
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i.i.i26, align 8
+  store i64 1, ptr %curr.06.i.i.i.i26, align 8
   %inc.i.i.i.i27 = add nuw nsw i32 %i.07.i.i.i.i25, 1
   %incdec.ptr.i.i.i.i28 = getelementptr inbounds %"struct.chashtable<euf::enode *, euf::etable::cg_binary_hash, euf::etable::cg_binary_eq>::cell", ptr %curr.06.i.i.i.i26, i64 1
   %exitcond.not.i.i.i.i29 = icmp eq i32 %inc.i.i.i.i27, 10
@@ -868,8 +867,8 @@ if.end:                                           ; preds = %_ZN10chashtableIPN3
   %call9.sink = phi ptr [ %call9, %_ZN10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEEC2ERKS4_RKS5_jj.exit ], [ %call5, %_ZN10chashtableIPN3euf5enodeENS0_6etable12cg_comm_hashENS3_10cg_comm_eqEEC2ERKS4_RKS5_jj.exit ]
   %.sink54 = phi i64 [ 1, %_ZN10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEEC2ERKS4_RKS5_jj.exit ], [ 2, %_ZN10chashtableIPN3euf5enodeENS0_6etable12cg_comm_hashENS3_10cg_comm_eqEEC2ERKS4_RKS5_jj.exit ]
   store i32 0, ptr %m_collisions.i36.sink, align 8
-  %3 = ptrtoint ptr %call9.sink to i64
-  %or12 = or i64 %.sink54, %3
+  %2 = ptrtoint ptr %call9.sink to i64
+  %or12 = or i64 %.sink54, %2
   %r.0 = inttoptr i64 %or12 to ptr
   br label %return
 
@@ -887,7 +886,7 @@ sw.default:                                       ; preds = %entry
 for.body.i.i.i.i41:                               ; preds = %for.body.i.i.i.i41, %sw.default
   %i.07.i.i.i.i42 = phi i32 [ %inc.i.i.i.i44, %for.body.i.i.i.i41 ], [ 0, %sw.default ]
   %curr.06.i.i.i.i43 = phi ptr [ %incdec.ptr.i.i.i.i45, %for.body.i.i.i.i41 ], [ %call.i.i.i.i40, %sw.default ]
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i.i.i43, align 8
+  store i64 1, ptr %curr.06.i.i.i.i43, align 8
   %inc.i.i.i.i44 = add nuw nsw i32 %i.07.i.i.i.i42, 1
   %incdec.ptr.i.i.i.i45 = getelementptr inbounds %"struct.chashtable<euf::enode *, euf::etable::cg_hash, euf::etable::cg_eq>::cell", ptr %curr.06.i.i.i.i43, i64 1
   %exitcond.not.i.i.i.i46 = icmp eq i32 %inc.i.i.i.i44, 10
@@ -902,13 +901,13 @@ _ZN10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEEC2ERKS4_RKS5_jj.exi
   %m_free_cell.i.i52 = getelementptr inbounds %class.chashtable.38, ptr %call13, i64 0, i32 9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_cell.i.i52, i8 0, i64 16, i1 false)
   store <4 x i32> <i32 8, i32 0, i32 0, i32 0>, ptr %m_slots.i.i47, align 4
-  %4 = ptrtoint ptr %call13 to i64
-  %or16 = or i64 %4, 3
-  %5 = inttoptr i64 %or16 to ptr
+  %3 = ptrtoint ptr %call13 to i64
+  %or16 = or i64 %3, 3
+  %4 = inttoptr i64 %or16 to ptr
   br label %return
 
 return:                                           ; preds = %_ZN10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEEC2ERKS4_RKS5_jj.exit, %if.end, %_ZN10chashtableIPN3euf5enodeENS0_6etable13cg_unary_hashENS3_11cg_unary_eqEEC2ERKS4_RKS5_jj.exit
-  %retval.0 = phi ptr [ %5, %_ZN10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEEC2ERKS4_RKS5_jj.exit ], [ %r.0, %if.end ], [ %call, %_ZN10chashtableIPN3euf5enodeENS0_6etable13cg_unary_hashENS3_11cg_unary_eqEEC2ERKS4_RKS5_jj.exit ]
+  %retval.0 = phi ptr [ %4, %_ZN10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEEC2ERKS4_RKS5_jj.exit ], [ %r.0, %if.end ], [ %call, %_ZN10chashtableIPN3euf5enodeENS0_6etable13cg_unary_hashENS3_11cg_unary_eqEEC2ERKS4_RKS5_jj.exit ]
   ret ptr %retval.0
 }
 
@@ -2461,7 +2460,7 @@ if.end14.lr.ph.i:                                 ; preds = %do.body.preheader.i
   br label %if.end14.i
 
 do.body.i:                                        ; preds = %if.end14.i
-  %m_data.i = getelementptr inbounds %"struct.chashtable<euf::enode *, euf::etable::cg_unary_hash, euf::etable::cg_unary_eq>::cell", ptr %33, i64 0, i32 1
+  %m_data.i = getelementptr inbounds %"struct.chashtable<euf::enode *, euf::etable::cg_unary_hash, euf::etable::cg_unary_eq>::cell", ptr %32, i64 0, i32 1
   %17 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i.i.i.i15.i = getelementptr inbounds %"class.euf::enode", ptr %17, i64 0, i32 28, i64 0
   %18 = load ptr, ptr %arrayidx.i.i.i.i15.i, align 8
@@ -2490,38 +2489,37 @@ if.then7.i:                                       ; preds = %if.then5.i
   %25 = load ptr, ptr %add.ptr.i, align 8
   %26 = ptrtoint ptr %25 to i64
   %or.i.i = or i64 %26, 1
-  %27 = inttoptr i64 %or.i.i to ptr
-  store ptr %27, ptr %add.ptr.i, align 8
+  store i64 %or.i.i, ptr %add.ptr.i, align 8
   br label %sw.epilog
 
 if.else.i:                                        ; preds = %if.then5.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
   %m_free_cell.i.i = getelementptr inbounds %class.chashtable.35, ptr %5, i64 0, i32 9
-  %28 = load ptr, ptr %m_free_cell.i.i, align 8
-  store ptr %28, ptr %23, align 8
+  %27 = load ptr, ptr %m_free_cell.i.i, align 8
+  store ptr %27, ptr %23, align 8
   store ptr %23, ptr %m_free_cell.i.i, align 8
   br label %sw.epilog
 
 if.else10.i:                                      ; preds = %do.body.i
   %m_size.i = getelementptr inbounds %class.chashtable.35, ptr %5, i64 0, i32 6
-  %29 = load i32, ptr %m_size.i, align 4
-  %dec.i = add i32 %29, -1
+  %28 = load i32, ptr %m_size.i, align 4
+  %dec.i = add i32 %28, -1
   store i32 %dec.i, ptr %m_size.i, align 4
-  %30 = load ptr, ptr %33, align 8
-  store ptr %30, ptr %c.026.i, align 8
+  %29 = load ptr, ptr %32, align 8
+  store ptr %29, ptr %c.026.i, align 8
   %m_free_cell.i17.i = getelementptr inbounds %class.chashtable.35, ptr %5, i64 0, i32 9
-  %31 = load ptr, ptr %m_free_cell.i17.i, align 8
-  store ptr %31, ptr %33, align 8
-  store ptr %33, ptr %m_free_cell.i17.i, align 8
+  %30 = load ptr, ptr %m_free_cell.i17.i, align 8
+  store ptr %30, ptr %32, align 8
+  store ptr %32, ptr %m_free_cell.i17.i, align 8
   br label %sw.epilog
 
 if.end14.i:                                       ; preds = %do.body.i, %if.end14.lr.ph.i
-  %32 = phi i32 [ %.pre.i, %if.end14.lr.ph.i ], [ %inc.i, %do.body.i ]
-  %c.026.i = phi ptr [ %add.ptr.i, %if.end14.lr.ph.i ], [ %33, %do.body.i ]
-  %inc.i = add i32 %32, 1
+  %31 = phi i32 [ %.pre.i, %if.end14.lr.ph.i ], [ %inc.i, %do.body.i ]
+  %c.026.i = phi ptr [ %add.ptr.i, %if.end14.lr.ph.i ], [ %32, %do.body.i ]
+  %inc.i = add i32 %31, 1
   store i32 %inc.i, ptr %m_collisions.i, align 8
-  %33 = load ptr, ptr %c.026.i, align 8
-  %cmp16.not.i = icmp eq ptr %33, null
+  %32 = load ptr, ptr %c.026.i, align 8
+  %cmp16.not.i = icmp eq ptr %32, null
   br i1 %cmp16.not.i, label %sw.epilog, label %do.body.i, !llvm.loop !47
 
 sw.bb3:                                           ; preds = %_ZN3euf6etable9get_tableEPNS_5enodeE.exit
@@ -2584,7 +2582,7 @@ do.body.preheader:                                ; preds = %entry
 
 do.body:                                          ; preds = %do.body.preheader, %if.end14
   %prev.0 = phi ptr [ %c.0, %if.end14 ], [ null, %do.body.preheader ]
-  %c.0 = phi ptr [ %32, %if.end14 ], [ %add.ptr, %do.body.preheader ]
+  %c.0 = phi ptr [ %31, %if.end14 ], [ %add.ptr, %do.body.preheader ]
   %m_data = getelementptr inbounds %"struct.chashtable<euf::enode *, euf::etable::cg_binary_hash, euf::etable::cg_binary_eq>::cell", ptr %c.0, i64 0, i32 1
   %13 = load ptr, ptr %m_data, align 8
   %14 = load ptr, ptr %d, align 8
@@ -2632,32 +2630,31 @@ if.then7:                                         ; preds = %if.then5
   %26 = load ptr, ptr %c.0, align 8
   %27 = ptrtoint ptr %26 to i64
   %or.i = or i64 %27, 1
-  %28 = inttoptr i64 %or.i to ptr
-  store ptr %28, ptr %c.0, align 8
+  store i64 %or.i, ptr %c.0, align 8
   br label %do.end
 
 if.else:                                          ; preds = %if.then5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c.0, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   %m_free_cell.i = getelementptr inbounds %class.chashtable.37, ptr %this, i64 0, i32 9
-  %29 = load ptr, ptr %m_free_cell.i, align 8
-  store ptr %29, ptr %24, align 8
+  %28 = load ptr, ptr %m_free_cell.i, align 8
+  store ptr %28, ptr %24, align 8
   store ptr %24, ptr %m_free_cell.i, align 8
   br label %do.end
 
 if.else10:                                        ; preds = %if.then4
   store ptr %24, ptr %prev.0, align 8
   %m_free_cell.i17 = getelementptr inbounds %class.chashtable.37, ptr %this, i64 0, i32 9
-  %30 = load ptr, ptr %m_free_cell.i17, align 8
-  store ptr %30, ptr %c.0, align 8
+  %29 = load ptr, ptr %m_free_cell.i17, align 8
+  store ptr %29, ptr %c.0, align 8
   store ptr %c.0, ptr %m_free_cell.i17, align 8
   br label %do.end
 
 if.end14:                                         ; preds = %do.body, %_ZNK10chashtableIPN3euf5enodeENS0_6etable14cg_binary_hashENS3_12cg_binary_eqEE6equalsERKS2_S8_.exit
-  %31 = load i32, ptr %m_collisions, align 8
-  %inc = add i32 %31, 1
+  %30 = load i32, ptr %m_collisions, align 8
+  %inc = add i32 %30, 1
   store i32 %inc, ptr %m_collisions, align 8
-  %32 = load ptr, ptr %c.0, align 8
-  %cmp16.not = icmp eq ptr %32, null
+  %31 = load ptr, ptr %c.0, align 8
+  %cmp16.not = icmp eq ptr %31, null
   br i1 %cmp16.not, label %do.end, label %do.body, !llvm.loop !48
 
 do.end:                                           ; preds = %if.end14, %if.else10, %if.else, %if.then7, %entry
@@ -2723,7 +2720,7 @@ do.body.preheader:                                ; preds = %entry
 
 do.body:                                          ; preds = %do.body.preheader, %if.end14
   %prev.0 = phi ptr [ %c.0, %if.end14 ], [ null, %do.body.preheader ]
-  %c.0 = phi ptr [ %39, %if.end14 ], [ %add.ptr, %do.body.preheader ]
+  %c.0 = phi ptr [ %38, %if.end14 ], [ %add.ptr, %do.body.preheader ]
   %m_data = getelementptr inbounds %"struct.chashtable<euf::enode *, euf::etable::cg_comm_hash, euf::etable::cg_comm_eq>::cell", ptr %c.0, i64 0, i32 1
   %15 = load ptr, ptr %m_data, align 8
   %16 = load ptr, ptr %d, align 8
@@ -2812,32 +2809,31 @@ if.then7:                                         ; preds = %if.then5
   %33 = load ptr, ptr %c.0, align 8
   %34 = ptrtoint ptr %33 to i64
   %or.i = or i64 %34, 1
-  %35 = inttoptr i64 %or.i to ptr
-  store ptr %35, ptr %c.0, align 8
+  store i64 %or.i, ptr %c.0, align 8
   br label %do.end
 
 if.else:                                          ; preds = %if.then5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c.0, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false)
   %m_free_cell.i = getelementptr inbounds %class.chashtable.36, ptr %this, i64 0, i32 10
-  %36 = load ptr, ptr %m_free_cell.i, align 8
-  store ptr %36, ptr %31, align 8
+  %35 = load ptr, ptr %m_free_cell.i, align 8
+  store ptr %35, ptr %31, align 8
   store ptr %31, ptr %m_free_cell.i, align 8
   br label %do.end
 
 if.else10:                                        ; preds = %if.then4
   store ptr %31, ptr %prev.0, align 8
   %m_free_cell.i17 = getelementptr inbounds %class.chashtable.36, ptr %this, i64 0, i32 10
-  %37 = load ptr, ptr %m_free_cell.i17, align 8
-  store ptr %37, ptr %c.0, align 8
+  %36 = load ptr, ptr %m_free_cell.i17, align 8
+  store ptr %36, ptr %c.0, align 8
   store ptr %c.0, ptr %m_free_cell.i17, align 8
   br label %do.end
 
 if.end14:                                         ; preds = %if.end10.i.i, %_ZNK3euf5enode8get_declEv.exit17.i.i
-  %38 = load i32, ptr %m_collisions, align 8
-  %inc = add i32 %38, 1
+  %37 = load i32, ptr %m_collisions, align 8
+  %inc = add i32 %37, 1
   store i32 %inc, ptr %m_collisions, align 8
-  %39 = load ptr, ptr %c.0, align 8
-  %cmp16.not = icmp eq ptr %39, null
+  %38 = load ptr, ptr %c.0, align 8
+  %cmp16.not = icmp eq ptr %38, null
   br i1 %cmp16.not, label %do.end, label %do.body, !llvm.loop !49
 
 do.end:                                           ; preds = %if.end14, %if.else10, %if.else, %if.then7, %entry
@@ -2868,7 +2864,7 @@ do.body.preheader:                                ; preds = %entry
 
 do.body:                                          ; preds = %do.body.preheader, %if.end14
   %prev.0 = phi ptr [ %c.0, %if.end14 ], [ null, %do.body.preheader ]
-  %c.0 = phi ptr [ %22, %if.end14 ], [ %add.ptr, %do.body.preheader ]
+  %c.0 = phi ptr [ %21, %if.end14 ], [ %add.ptr, %do.body.preheader ]
   %m_data = getelementptr inbounds %"struct.chashtable<euf::enode *, euf::etable::cg_hash, euf::etable::cg_eq>::cell", ptr %c.0, i64 0, i32 1
   %5 = load ptr, ptr %m_data, align 8
   %6 = load ptr, ptr %d, align 8
@@ -2926,32 +2922,31 @@ if.then7:                                         ; preds = %if.then5
   %16 = load ptr, ptr %c.0, align 8
   %17 = ptrtoint ptr %16 to i64
   %or.i = or i64 %17, 1
-  %18 = inttoptr i64 %or.i to ptr
-  store ptr %18, ptr %c.0, align 8
+  store i64 %or.i, ptr %c.0, align 8
   br label %do.end
 
 if.else:                                          ; preds = %if.then5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c.0, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false)
   %m_free_cell.i = getelementptr inbounds %class.chashtable.38, ptr %this, i64 0, i32 9
-  %19 = load ptr, ptr %m_free_cell.i, align 8
-  store ptr %19, ptr %14, align 8
+  %18 = load ptr, ptr %m_free_cell.i, align 8
+  store ptr %18, ptr %14, align 8
   store ptr %14, ptr %m_free_cell.i, align 8
   br label %do.end
 
 if.else10:                                        ; preds = %if.then4
   store ptr %14, ptr %prev.0, align 8
   %m_free_cell.i15 = getelementptr inbounds %class.chashtable.38, ptr %this, i64 0, i32 9
-  %20 = load ptr, ptr %m_free_cell.i15, align 8
-  store ptr %20, ptr %c.0, align 8
+  %19 = load ptr, ptr %m_free_cell.i15, align 8
+  store ptr %19, ptr %c.0, align 8
   store ptr %c.0, ptr %m_free_cell.i15, align 8
   br label %do.end
 
 if.end14:                                         ; preds = %for.body.i.i, %do.body
-  %21 = load i32, ptr %m_collisions, align 8
-  %inc = add i32 %21, 1
+  %20 = load i32, ptr %m_collisions, align 8
+  %inc = add i32 %20, 1
   store i32 %inc, ptr %m_collisions, align 8
-  %22 = load ptr, ptr %c.0, align 8
-  %cmp16.not = icmp eq ptr %22, null
+  %21 = load ptr, ptr %c.0, align 8
+  %cmp16.not = icmp eq ptr %21, null
   br i1 %cmp16.not, label %do.end, label %do.body, !llvm.loop !50
 
 do.end:                                           ; preds = %if.end14, %if.else10, %if.else, %if.then7, %entry
@@ -4320,7 +4315,7 @@ while.body:                                       ; preds = %while.body.backedge
 for.body.i.i:                                     ; preds = %while.body, %for.body.i.i
   %i.07.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %while.body ]
   %curr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i.i, %while.body ]
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i, align 8
+  store i64 1, ptr %curr.06.i.i, align 8
   %inc.i.i = add nuw i32 %i.07.i.i, 1
   %incdec.ptr.i.i = getelementptr inbounds %"struct.chashtable<euf::enode *, euf::etable::cg_unary_hash, euf::etable::cg_unary_eq>::cell", ptr %curr.06.i.i, i64 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %add
@@ -4463,7 +4458,7 @@ while.body:                                       ; preds = %while.body.backedge
 for.body.i.i:                                     ; preds = %while.body, %for.body.i.i
   %i.07.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %while.body ]
   %curr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i.i, %while.body ]
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i, align 8
+  store i64 1, ptr %curr.06.i.i, align 8
   %inc.i.i = add nuw i32 %i.07.i.i, 1
   %incdec.ptr.i.i = getelementptr inbounds %"struct.chashtable<euf::enode *, euf::etable::cg_binary_hash, euf::etable::cg_binary_eq>::cell", ptr %curr.06.i.i, i64 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %add
@@ -4620,7 +4615,7 @@ while.body:                                       ; preds = %while.body.backedge
 for.body.i.i:                                     ; preds = %while.body, %for.body.i.i
   %i.07.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %while.body ]
   %curr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i.i, %while.body ]
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i, align 8
+  store i64 1, ptr %curr.06.i.i, align 8
   %inc.i.i = add nuw i32 %i.07.i.i, 1
   %incdec.ptr.i.i = getelementptr inbounds %"struct.chashtable<euf::enode *, euf::etable::cg_comm_hash, euf::etable::cg_comm_eq>::cell", ptr %curr.06.i.i, i64 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %add
@@ -4803,7 +4798,7 @@ while.body:                                       ; preds = %while.body.backedge
 for.body.i.i:                                     ; preds = %while.body, %for.body.i.i
   %i.07.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %while.body ]
   %curr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i.i, %while.body ]
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i, align 8
+  store i64 1, ptr %curr.06.i.i, align 8
   %inc.i.i = add nuw i32 %i.07.i.i, 1
   %incdec.ptr.i.i = getelementptr inbounds %"struct.chashtable<euf::enode *, euf::etable::cg_hash, euf::etable::cg_eq>::cell", ptr %curr.06.i.i, i64 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %add

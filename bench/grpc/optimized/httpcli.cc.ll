@@ -2324,7 +2324,7 @@ invoke.cont14:                                    ; preds = %entry
 
 invoke.cont15:                                    ; preds = %invoke.cont14
   %_M_invoker.i11 = getelementptr inbounds %"class.std::function.90", ptr %agg.tmp, i64 0, i32 1
-  store i64 ptrtoint (ptr @_ZN9grpc_core11HttpRequest10OnResolvedEN4absl12lts_202308028StatusOrISt6vectorI21grpc_resolved_addressSaIS5_EEEE to i64), ptr %call.i.i2.i12, align 16
+  store ptr @_ZN9grpc_core11HttpRequest10OnResolvedEN4absl12lts_202308028StatusOrISt6vectorI21grpc_resolved_addressSaIS5_EEEE, ptr %call.i.i2.i12, align 16
   %ref.tmp11.sroa.2.0.call.i.i2.i12.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i12, i64 8
   store i64 0, ptr %ref.tmp11.sroa.2.0.call.i.i2.i12.sroa_idx, align 8
   %ref.tmp11.sroa.3.0.call.i.i2.i12.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i12, i64 16

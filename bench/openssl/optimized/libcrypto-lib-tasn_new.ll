@@ -534,7 +534,7 @@ sw.bb23:                                          ; preds = %if.end21
   br label %return
 
 sw.bb25:                                          ; preds = %if.end21
-  store ptr inttoptr (i64 1 to ptr), ptr %pval, align 8
+  store i64 1, ptr %pval, align 8
   br label %return
 
 sw.bb26:                                          ; preds = %if.end21

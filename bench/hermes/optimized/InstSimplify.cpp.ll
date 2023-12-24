@@ -1246,41 +1246,40 @@ _ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit: ; preds 
   %139 = load ptr, ptr %destroyer, align 8
   %conv.i3.i.i = zext i32 %138 to i64
   %add.ptr.i.i.i12 = getelementptr inbounds ptr, ptr %139, i64 %conv.i3.i.i
-  %140 = ptrtoint ptr %instIter.sroa.0.0 to i64
-  store i64 %140, ptr %add.ptr.i.i.i12, align 1
-  %141 = load i32, ptr %Size.i.i.i.i.i.i, align 8
-  %add.i.i = add i32 %141, 1
+  store ptr %instIter.sroa.0.0, ptr %add.ptr.i.i.i12, align 1
+  %140 = load i32, ptr %Size.i.i.i.i.i.i, align 8
+  %add.i.i = add i32 %140, 1
   store i32 %add.i.i, ptr %Size.i.i.i.i.i.i, align 8
   br label %for.cond6.outer.backedge
 
 for.end22.loopexit:                               ; preds = %for.cond.loopexit
   %.pre = load ptr, ptr %Order.i.i, align 8
-  %142 = and i8 %changed.1.ph, 1
-  %143 = icmp ne i8 %142, 0
+  %141 = and i8 %changed.1.ph, 1
+  %142 = icmp ne i8 %141, 0
   br label %for.end22
 
 for.end22:                                        ; preds = %for.end22.loopexit, %entry
-  %144 = phi ptr [ %0, %entry ], [ %.pre, %for.end22.loopexit ]
-  %changed.0.lcssa = phi i1 [ false, %entry ], [ %143, %for.end22.loopexit ]
-  %tobool.not.i.i.i.i = icmp eq ptr %144, null
+  %143 = phi ptr [ %0, %entry ], [ %.pre, %for.end22.loopexit ]
+  %changed.0.lcssa = phi i1 [ false, %entry ], [ %142, %for.end22.loopexit ]
+  %tobool.not.i.i.i.i = icmp eq ptr %143, null
   br i1 %tobool.not.i.i.i.i, label %_ZN6hermes17PostOrderAnalysisD2Ev.exit, label %if.then.i.i.i.i14
 
 if.then.i.i.i.i14:                                ; preds = %for.end22
-  call void @_ZdlPv(ptr noundef nonnull %144) #10
+  call void @_ZdlPv(ptr noundef nonnull %143) #10
   br label %_ZN6hermes17PostOrderAnalysisD2Ev.exit
 
 _ZN6hermes17PostOrderAnalysisD2Ev.exit:           ; preds = %for.end22, %if.then.i.i.i.i14
-  %145 = load ptr, ptr %destroyer, align 8
-  %146 = load i32, ptr %Size.i.i.i.i.i.i, align 8
-  %conv.i.i = zext i32 %146 to i64
-  %add.ptr.i.i15 = getelementptr inbounds ptr, ptr %145, i64 %conv.i.i
-  %cmp.not4.i = icmp eq i32 %146, 0
+  %144 = load ptr, ptr %destroyer, align 8
+  %145 = load i32, ptr %Size.i.i.i.i.i.i, align 8
+  %conv.i.i = zext i32 %145 to i64
+  %add.ptr.i.i15 = getelementptr inbounds ptr, ptr %144, i64 %conv.i.i
+  %cmp.not4.i = icmp eq i32 %145, 0
   br i1 %cmp.not4.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes17PostOrderAnalysisD2Ev.exit, %for.body.i
-  %__begin2.05.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %145, %_ZN6hermes17PostOrderAnalysisD2Ev.exit ]
-  %147 = load ptr, ptr %__begin2.05.i, align 8
-  call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %147) #9
+  %__begin2.05.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %144, %_ZN6hermes17PostOrderAnalysisD2Ev.exit ]
+  %146 = load ptr, ptr %__begin2.05.i, align 8
+  call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %146) #9
   %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin2.05.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i15
   br i1 %cmp.not.i, label %for.end.loopexit.i, label %for.body.i
@@ -1290,12 +1289,12 @@ for.end.loopexit.i:                               ; preds = %for.body.i
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %_ZN6hermes17PostOrderAnalysisD2Ev.exit
-  %148 = phi ptr [ %.pre.i, %for.end.loopexit.i ], [ %145, %_ZN6hermes17PostOrderAnalysisD2Ev.exit ]
-  %cmp.i.i.i.i17 = icmp eq ptr %148, %add.ptr.i.i.i.i.i.i
+  %147 = phi ptr [ %.pre.i, %for.end.loopexit.i ], [ %144, %_ZN6hermes17PostOrderAnalysisD2Ev.exit ]
+  %cmp.i.i.i.i17 = icmp eq ptr %147, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i17, label %_ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit, label %if.then.i.i.i18
 
 if.then.i.i.i18:                                  ; preds = %for.end.i
-  call void @free(ptr noundef %148) #9
+  call void @free(ptr noundef %147) #9
   br label %_ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit
 
 _ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit: ; preds = %for.end.i, %if.then.i.i.i18
@@ -1432,7 +1431,7 @@ if.then:                                          ; preds = %_ZN4llvh8DenseMapIP
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %B.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %call.i, %if.then ]
-  store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i, align 8
+  store i64 -8, ptr %B.04.i, align 8
   %incdec.ptr.i = getelementptr inbounds %"class.llvh::detail::DenseSetPair", ptr %B.04.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !25
@@ -1452,7 +1451,7 @@ if.end:                                           ; preds = %_ZN4llvh8DenseMapIP
 
 for.body.i.i:                                     ; preds = %if.end, %for.body.i.i
   %B.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i, %if.end ]
-  store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i, align 8
+  store i64 -8, ptr %B.04.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds %"class.llvh::detail::DenseSetPair", ptr %B.04.i.i, i64 1
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !25

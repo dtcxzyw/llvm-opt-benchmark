@@ -662,8 +662,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit:
   %2 = load ptr, ptr %owned_collection_p, align 8
   store ptr %2, ptr %collection, align 8, !tbaa !41
   %owned_collection = getelementptr inbounds %"class.duckdb::PhysicalColumnDataScan", ptr %this, i64 0, i32 2
-  %3 = ptrtoint ptr %2 to i64
-  store i64 %3, ptr %owned_collection, align 8, !tbaa !8
+  store ptr %2, ptr %owned_collection, align 8, !tbaa !8
   store ptr null, ptr %owned_collection_p, align 8, !tbaa !8
   ret void
 }
@@ -8801,20 +8800,19 @@ invoke.cont13:                                    ; preds = %call.i.noexc
   %4 = ptrtoint ptr %3 to i64
   %5 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !340
   %cmp.not.i = icmp eq ptr %3, %5
-  %6 = ptrtoint ptr %call.i29 to i64
   br i1 %cmp.not.i, label %if.else.i, label %invoke.cont15.thread
 
 invoke.cont15.thread:                             ; preds = %invoke.cont13
-  store i64 %6, ptr %3, align 8, !tbaa !8
-  %7 = load ptr, ptr %_M_finish.i30, align 8, !tbaa !342
-  %incdec.ptr.i = getelementptr inbounds %"class.duckdb::unique_ptr.469", ptr %7, i64 1
+  store ptr %call.i29, ptr %3, align 8, !tbaa !8
+  %6 = load ptr, ptr %_M_finish.i30, align 8, !tbaa !342
+  %incdec.ptr.i = getelementptr inbounds %"class.duckdb::unique_ptr.469", ptr %6, i64 1
   store ptr %incdec.ptr.i, ptr %_M_finish.i30, align 8, !tbaa !342
   br label %_ZNSt10unique_ptrIN6duckdb22PositionalTableScannerESt14default_deleteIS1_EED2Ev.exit
 
 if.else.i:                                        ; preds = %invoke.cont13
-  %8 = load ptr, ptr %scanners, align 8, !tbaa !8
-  %9 = ptrtoint ptr %8 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %4, %9
+  %7 = load ptr, ptr %scanners, align 8, !tbaa !8
+  %8 = ptrtoint ptr %7 to i64
+  %sub.ptr.sub.i.i.i = sub i64 %4, %8
   %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorIN6duckdb10unique_ptrINS0_22PositionalTableScannerESt14default_deleteIS2_ELb1EEESaIS5_EE12_M_check_lenEmPKc.exit.i
 
@@ -8844,50 +8842,50 @@ _ZNSt16allocator_traitsISaIN6duckdb10unique_ptrINS0_22PositionalTableScannerESt1
 _ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_22PositionalTableScannerESt14default_deleteIS2_ELb1EEESaIS5_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaIN6duckdb10unique_ptrINS0_22PositionalTableScannerESt14default_deleteIS2_ELb1EEEEE8allocateERS6_m.exit.i.i, %_ZNKSt6vectorIN6duckdb10unique_ptrINS0_22PositionalTableScannerESt14default_deleteIS2_ELb1EEESaIS5_EE12_M_check_lenEmPKc.exit.i
   %cond.i31.i = phi ptr [ null, %_ZNKSt6vectorIN6duckdb10unique_ptrINS0_22PositionalTableScannerESt14default_deleteIS2_ELb1EEESaIS5_EE12_M_check_lenEmPKc.exit.i ], [ %call5.i.i.i.i35, %_ZNSt16allocator_traitsISaIN6duckdb10unique_ptrINS0_22PositionalTableScannerESt14default_deleteIS2_ELb1EEEEE8allocateERS6_m.exit.i.i ]
   %add.ptr.i = getelementptr inbounds %"class.duckdb::unique_ptr.469", ptr %cond.i31.i, i64 %sub.ptr.div.i.i.i
-  store i64 %6, ptr %add.ptr.i, align 8, !tbaa !8
-  %cmp.not6.i.i.i.i.i = icmp eq ptr %8, %3
+  store ptr %call.i29, ptr %add.ptr.i, align 8, !tbaa !8
+  %cmp.not6.i.i.i.i.i = icmp eq ptr %7, %3
   br i1 %cmp.not6.i.i.i.i.i, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_22PositionalTableScannerESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i, label %for.body.i.i.i.i.i.preheader
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %_ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_22PositionalTableScannerESt14default_deleteIS2_ELb1EEESaIS5_EE11_M_allocateEm.exit.i
-  %10 = add i64 %4, -8
-  %11 = sub i64 %10, %9
-  %12 = lshr i64 %11, 3
-  %13 = add nuw nsw i64 %12, 1
-  %min.iters.check = icmp ult i64 %11, 24
+  %9 = add i64 %4, -8
+  %10 = sub i64 %9, %8
+  %11 = lshr i64 %10, 3
+  %12 = add nuw nsw i64 %11, 1
+  %min.iters.check = icmp ult i64 %10, 24
   br i1 %min.iters.check, label %for.body.i.i.i.i.i.preheader19, label %vector.ph
 
 for.body.i.i.i.i.i.preheader19:                   ; preds = %middle.block, %for.body.i.i.i.i.i.preheader
   %__cur.08.i.i.i.i.i.ph = phi ptr [ %ind.end, %middle.block ], [ %cond.i31.i, %for.body.i.i.i.i.i.preheader ]
-  %__first.addr.07.i.i.i.i.i.ph = phi ptr [ %ind.end54, %middle.block ], [ %8, %for.body.i.i.i.i.i.preheader ]
+  %__first.addr.07.i.i.i.i.i.ph = phi ptr [ %ind.end54, %middle.block ], [ %7, %for.body.i.i.i.i.i.preheader ]
   br label %for.body.i.i.i.i.i
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i.i.preheader
-  %n.vec = and i64 %13, 4611686018427387900
-  %14 = shl i64 %n.vec, 3
-  %ind.end = getelementptr i8, ptr %cond.i31.i, i64 %14
+  %n.vec = and i64 %12, 4611686018427387900
+  %13 = shl i64 %n.vec, 3
+  %ind.end = getelementptr i8, ptr %cond.i31.i, i64 %13
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
-  %15 = shl i64 %index, 3
-  %next.gep = getelementptr i8, ptr %cond.i31.i, i64 %15
-  %next.gep57 = getelementptr i8, ptr %8, i64 %15
+  %14 = shl i64 %index, 3
+  %next.gep = getelementptr i8, ptr %cond.i31.i, i64 %14
+  %next.gep57 = getelementptr i8, ptr %7, i64 %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !343)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !346)
   %wide.load = load <2 x i64>, ptr %next.gep57, align 8, !tbaa !8, !alias.scope !346, !noalias !343
-  %16 = getelementptr i64, ptr %next.gep57, i64 2
-  %wide.load59 = load <2 x i64>, ptr %16, align 8, !tbaa !8, !alias.scope !346, !noalias !343
+  %15 = getelementptr i64, ptr %next.gep57, i64 2
+  %wide.load59 = load <2 x i64>, ptr %15, align 8, !tbaa !8, !alias.scope !346, !noalias !343
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !tbaa !8, !alias.scope !343, !noalias !346
-  %17 = getelementptr i64, ptr %next.gep, i64 2
-  store <2 x i64> %wide.load59, ptr %17, align 8, !tbaa !8, !alias.scope !343, !noalias !346
+  %16 = getelementptr i64, ptr %next.gep, i64 2
+  store <2 x i64> %wide.load59, ptr %16, align 8, !tbaa !8, !alias.scope !343, !noalias !346
   %index.next = add nuw i64 %index, 4
-  %18 = icmp eq i64 %index.next, %n.vec
+  %17 = icmp eq i64 %index.next, %n.vec
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.gep57, i8 0, i64 32, i1 false)
-  br i1 %18, label %middle.block, label %vector.body, !llvm.loop !348
+  br i1 %17, label %middle.block, label %vector.body, !llvm.loop !348
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end54 = getelementptr i8, ptr %8, i64 %14
-  %cmp.n = icmp eq i64 %13, %n.vec
+  %ind.end54 = getelementptr i8, ptr %7, i64 %13
+  %cmp.n = icmp eq i64 %12, %n.vec
   br i1 %cmp.n, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_22PositionalTableScannerESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i.thread, label %for.body.i.i.i.i.i.preheader19
 
 _ZNSt6vectorIN6duckdb10unique_ptrINS0_22PositionalTableScannerESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i.thread: ; preds = %middle.block
@@ -8899,8 +8897,8 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__first.addr.07.i.i.i.i.i.ph, %for.body.i.i.i.i.i.preheader19 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !343)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !346)
-  %19 = load i64, ptr %__first.addr.07.i.i.i.i.i, align 8, !tbaa !8, !alias.scope !346, !noalias !343
-  store i64 %19, ptr %__cur.08.i.i.i.i.i, align 8, !tbaa !8, !alias.scope !343, !noalias !346
+  %18 = load i64, ptr %__first.addr.07.i.i.i.i.i, align 8, !tbaa !8, !alias.scope !346, !noalias !343
+  store i64 %18, ptr %__cur.08.i.i.i.i.i, align 8, !tbaa !8, !alias.scope !343, !noalias !346
   store ptr null, ptr %__first.addr.07.i.i.i.i.i, align 8, !tbaa !8, !alias.scope !346, !noalias !343
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.duckdb::unique_ptr.469", ptr %__first.addr.07.i.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.duckdb::unique_ptr.469", ptr %__cur.08.i.i.i.i.i, i64 1
@@ -8910,12 +8908,12 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
 _ZNSt6vectorIN6duckdb10unique_ptrINS0_22PositionalTableScannerESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_22PositionalTableScannerESt14default_deleteIS2_ELb1EEESaIS5_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i31.i, %_ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_22PositionalTableScannerESt14default_deleteIS2_ELb1EEESaIS5_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %incdec.ptr.i32 = getelementptr %"class.duckdb::unique_ptr.469", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %8, null
+  %tobool.not.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i, label %invoke.cont15, label %if.then.i41.i
 
 if.then.i41.i:                                    ; preds = %_ZNSt6vectorIN6duckdb10unique_ptrINS0_22PositionalTableScannerESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i.thread, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_22PositionalTableScannerESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i
   %incdec.ptr.i325 = phi ptr [ %incdec.ptr.i323, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_22PositionalTableScannerESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i.thread ], [ %incdec.ptr.i32, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_22PositionalTableScannerESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i ]
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #22
   br label %invoke.cont15
 
 invoke.cont15:                                    ; preds = %if.then.i41.i, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_22PositionalTableScannerESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i
@@ -8929,27 +8927,27 @@ invoke.cont15:                                    ; preds = %if.then.i41.i, %_ZN
 _ZNSt10unique_ptrIN6duckdb22PositionalTableScannerESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont15, %invoke.cont15.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #21
   %inc = add nuw i64 %i.044, 1
-  %20 = load ptr, ptr %_M_finish.i, align 8, !tbaa !168
-  %21 = load ptr, ptr %child_tables, align 8, !tbaa !169
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %20 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %21 to i64
+  %19 = load ptr, ptr %_M_finish.i, align 8, !tbaa !168
+  %20 = load ptr, ptr %child_tables, align 8, !tbaa !169
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %19 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp = icmp ult i64 %inc, %sub.ptr.div.i
   br i1 %cmp, label %for.body, label %for.cond.cleanup, !llvm.loop !351
 
 lpad:                                             ; preds = %invoke.cont, %for.body
-  %22 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup17
 
 lpad6:                                            ; preds = %invoke.cont7, %invoke.cont4
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup17
 
 lpad12:                                           ; preds = %invoke.cont9
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -8969,12 +8967,12 @@ lpad14:                                           ; preds = %lpad14.loopexit.spl
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad14, %lpad12, %lpad.i
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad14 ], [ %24, %lpad12 ], [ %2, %lpad.i ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad14 ], [ %23, %lpad12 ], [ %2, %lpad.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #21
   br label %ehcleanup17
 
 ehcleanup17:                                      ; preds = %ehcleanup, %lpad6, %lpad
-  %.pn.pn.pn = phi { ptr, i32 } [ %22, %lpad ], [ %.pn, %ehcleanup ], [ %23, %lpad6 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %21, %lpad ], [ %.pn, %ehcleanup ], [ %22, %lpad6 ]
   call void @_ZNSt6vectorIN6duckdb10unique_ptrINS0_22PositionalTableScannerESt14default_deleteIS2_ELb1EEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scanners) #21
   resume { ptr, i32 } %.pn.pn.pn
 }

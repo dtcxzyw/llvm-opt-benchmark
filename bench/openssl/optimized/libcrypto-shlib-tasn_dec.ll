@@ -1366,7 +1366,7 @@ if.then22.i:                                      ; preds = %sw.bb20.i
   br label %if.then87.i
 
 if.end23.i:                                       ; preds = %sw.bb20.i
-  store ptr inttoptr (i64 1 to ptr), ptr %pval.addr.0.i, align 8
+  store i64 1, ptr %pval.addr.0.i, align 8
   br label %sw.epilog.i
 
 sw.bb24.i:                                        ; preds = %if.end15.i

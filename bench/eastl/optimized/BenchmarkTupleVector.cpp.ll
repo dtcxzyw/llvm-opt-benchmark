@@ -2869,11 +2869,11 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJm13PaddingStructEE10DoAllocateINS_9a
   %cond.i.i.i.i.i.i.i.i = phi ptr [ null, %if.then.i.i.i6.i716 ], [ %call.i.i.i.i.i.i.i.i.i.i727, %cond.true.i.i.i.i.i.i.i.i ]
   %188 = ptrtoint ptr %cond.i.i.i.i.i.i.i.i to i64
   %add.i4.i.i.i.i.i.i = add i64 %mul.i.i.i.i.i.i.i718, %188
-  %189 = inttoptr i64 %add.i4.i.i.i.i.i.i to ptr
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i720 = icmp eq i64 %186, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i720, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E13PaddingStructE30DoUninitializedMoveAndDestructEmmPS2_.exit.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i4.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i4.i.i.i.i.i:                ; preds = %_ZN5eastl16TupleVecInternal13TupleRecurserIJm13PaddingStructEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1EEEEJmS2_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPS9_mm.exit.i.i.i.i.i
+  %189 = inttoptr i64 %add.i4.i.i.i.i.i.i to ptr
   %190 = load ptr, ptr %eaTupleVectorUint64Padded, align 8
   %add.ptr3.i.idx.i.i.i.i.i721 = shl nsw i64 %186, 3
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %cond.i.i.i.i.i.i.i.i, ptr align 8 %190, i64 %add.ptr3.i.idx.i.i.i.i.i721, i1 false)
@@ -2884,7 +2884,7 @@ if.end.i.i.i.i.i.i.i.i4.i.i.i.i.i:                ; preds = %_ZN5eastl16TupleVec
 
 _ZN5eastl16TupleVecInternal12TupleVecLeafILm1E13PaddingStructE30DoUninitializedMoveAndDestructEmmPS2_.exit.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i4.i.i.i.i.i, %_ZN5eastl16TupleVecInternal13TupleRecurserIJm13PaddingStructEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1EEEEJmS2_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPS9_mm.exit.i.i.i.i.i
   store ptr %cond.i.i.i.i.i.i.i.i, ptr %eaTupleVectorUint64Padded, align 8
-  store ptr %189, ptr %add.ptr.i.i.i.i7.i, align 8
+  store i64 %add.i4.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i7.i, align 8
   %192 = load ptr, ptr %mpData9.i.i.i.i.i, align 8
   %isnull.i.i.i.i.i.i722 = icmp eq ptr %192, null
   br i1 %isnull.i.i.i.i.i.i722, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1EEEEJm13PaddingStructEE12DoReallocateEmm.exit.i.i.i.i, label %delete.notnull.i.i.i.i.i.i723
@@ -6652,7 +6652,7 @@ for.body.i.i.i.i53:                               ; preds = %_ZN5eastl22uninitia
 
 _ZN5eastl22uninitialized_fill_ptrI13PaddingStructEEvPT_S3_RKS2_.exit: ; preds = %for.body.i.i.i.i53, %_ZN5eastl22uninitialized_fill_ptrImEEvPT_S2_RKS1_.exit
   store ptr %call.i.i.i.i.i, ptr %this, align 8
-  store ptr %4, ptr %add.ptr.i.i, align 8
+  store i64 %add.i4.i, ptr %add.ptr.i.i, align 8
   %mpData38 = getelementptr inbounds %"class.eastl::TupleVecInternal::TupleVecImpl.24", ptr %this, i64 0, i32 2
   %14 = load ptr, ptr %mpData38, align 8
   %mDataSizeAndAllocator.i57 = getelementptr inbounds %"class.eastl::TupleVecInternal::TupleVecImpl.24", ptr %this, i64 0, i32 5

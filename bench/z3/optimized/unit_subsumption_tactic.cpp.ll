@@ -609,8 +609,7 @@ invoke.cont6:                                     ; preds = %entry
 
 invoke.cont11:                                    ; preds = %invoke.cont6
   %m_clauses = getelementptr inbounds %struct.unit_subsumption_tactic, ptr %this, i64 0, i32 5
-  %0 = ptrtoint ptr %m to i64
-  store i64 %0, ptr %m_clauses, align 8
+  store ptr %m, ptr %m_clauses, align 8
   %m_nodes.i.i = getelementptr inbounds %struct.unit_subsumption_tactic, ptr %this, i64 0, i32 5, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i, align 8
   %m_is_deleted = getelementptr inbounds %struct.unit_subsumption_tactic, ptr %this, i64 0, i32 7
@@ -618,22 +617,22 @@ invoke.cont11:                                    ; preds = %invoke.cont6
   ret void
 
 lpad5:                                            ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
   br label %ehcleanup18
 
 lpad8:                                            ; preds = %invoke.cont6
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %3 = getelementptr inbounds %struct.unit_subsumption_tactic, ptr %this, i64 0, i32 3, i32 2
+  %2 = getelementptr inbounds %struct.unit_subsumption_tactic, ptr %this, i64 0, i32 3, i32 2
   %m_qi_new_gen.i.i = getelementptr inbounds %struct.unit_subsumption_tactic, ptr %this, i64 0, i32 3, i32 2, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_qi_new_gen.i.i) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
   br label %ehcleanup18
 
 ehcleanup18:                                      ; preds = %lpad8, %lpad5
-  %.pn.pn = phi { ptr, i32 } [ %2, %lpad8 ], [ %1, %lpad5 ]
+  %.pn.pn = phi { ptr, i32 } [ %1, %lpad8 ], [ %0, %lpad5 ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_params) #13
   resume { ptr, i32 } %.pn.pn
 }

@@ -2430,62 +2430,61 @@ _ZN6hermes2vm7Runtime23ignoreAllocationFailureIbEET_NS0_10CallResultIS3_Xsr6deta
   %objectPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 2
   store i64 %or.i.i.i.i, ptr %objectPrototype, align 8
   %and.i.i = and i64 %10, 281474976710655
-  %11 = inttoptr i64 %and.i.i to ptr
   %objectPrototypeRawPtr = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 90
-  store ptr %11, ptr %objectPrototypeRawPtr, align 8
+  store i64 %and.i.i, ptr %objectPrototypeRawPtr, align 8
   %call122 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
-  %12 = ptrtoint ptr %call122 to i64
-  %or.i.i.i.i328 = or i64 %12, -281474976710656
+  %11 = ptrtoint ptr %call122 to i64
+  %or.i.i.i.i328 = or i64 %11, -281474976710656
   %ErrorPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 4
   store i64 %or.i.i.i.i328, ptr %ErrorPrototype, align 8
   %call136 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %ErrorPrototype) #10
-  %13 = ptrtoint ptr %call136 to i64
-  %or.i.i.i.i330 = or i64 %13, -281474976710656
+  %12 = ptrtoint ptr %call136 to i64
+  %or.i.i.i.i330 = or i64 %12, -281474976710656
   %AggregateErrorPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 6
   store i64 %or.i.i.i.i330, ptr %AggregateErrorPrototype, align 8
   %call150 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %ErrorPrototype) #10
-  %14 = ptrtoint ptr %call150 to i64
-  %or.i.i.i.i332 = or i64 %14, -281474976710656
+  %13 = ptrtoint ptr %call150 to i64
+  %or.i.i.i.i332 = or i64 %13, -281474976710656
   %EvalErrorPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 8
   store i64 %or.i.i.i.i332, ptr %EvalErrorPrototype, align 8
   %call164 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %ErrorPrototype) #10
-  %15 = ptrtoint ptr %call164 to i64
-  %or.i.i.i.i334 = or i64 %15, -281474976710656
+  %14 = ptrtoint ptr %call164 to i64
+  %or.i.i.i.i334 = or i64 %14, -281474976710656
   %RangeErrorPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 10
   store i64 %or.i.i.i.i334, ptr %RangeErrorPrototype, align 8
   %call178 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %ErrorPrototype) #10
-  %16 = ptrtoint ptr %call178 to i64
-  %or.i.i.i.i336 = or i64 %16, -281474976710656
+  %15 = ptrtoint ptr %call178 to i64
+  %or.i.i.i.i336 = or i64 %15, -281474976710656
   %ReferenceErrorPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 12
   store i64 %or.i.i.i.i336, ptr %ReferenceErrorPrototype, align 8
   %call192 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %ErrorPrototype) #10
-  %17 = ptrtoint ptr %call192 to i64
-  %or.i.i.i.i338 = or i64 %17, -281474976710656
+  %16 = ptrtoint ptr %call192 to i64
+  %or.i.i.i.i338 = or i64 %16, -281474976710656
   %SyntaxErrorPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 14
   store i64 %or.i.i.i.i338, ptr %SyntaxErrorPrototype, align 8
   %call206 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %ErrorPrototype) #10
-  %18 = ptrtoint ptr %call206 to i64
-  %or.i.i.i.i340 = or i64 %18, -281474976710656
+  %17 = ptrtoint ptr %call206 to i64
+  %or.i.i.i.i340 = or i64 %17, -281474976710656
   %TypeErrorPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 16
   store i64 %or.i.i.i.i340, ptr %TypeErrorPrototype, align 8
   %call220 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %ErrorPrototype) #10
-  %19 = ptrtoint ptr %call220 to i64
-  %or.i.i.i.i342 = or i64 %19, -281474976710656
+  %18 = ptrtoint ptr %call220 to i64
+  %or.i.i.i.i342 = or i64 %18, -281474976710656
   %URIErrorPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 18
   store i64 %or.i.i.i.i342, ptr %URIErrorPrototype, align 8
   %call234 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %ErrorPrototype) #10
-  %20 = ptrtoint ptr %call234 to i64
-  %or.i.i.i.i344 = or i64 %20, -281474976710656
+  %19 = ptrtoint ptr %call234 to i64
+  %or.i.i.i.i344 = or i64 %19, -281474976710656
   %TimeoutErrorPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 20
   store i64 %or.i.i.i.i344, ptr %TimeoutErrorPrototype, align 8
   %call248 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %ErrorPrototype) #10
-  %21 = ptrtoint ptr %call248 to i64
-  %or.i.i.i.i346 = or i64 %21, -281474976710656
+  %20 = ptrtoint ptr %call248 to i64
+  %or.i.i.i.i346 = or i64 %20, -281474976710656
   %QuitErrorPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 22
   store i64 %or.i.i.i.i346, ptr %QuitErrorPrototype, align 8
   %call262 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %objectPrototype) #10
-  %22 = ptrtoint ptr %call262 to i64
-  %or.i.i.i.i348 = or i64 %22, -281474976710656
+  %21 = ptrtoint ptr %call262 to i64
+  %or.i.i.i.i348 = or i64 %21, -281474976710656
   %callSitePrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 84
   store i64 %or.i.i.i.i348, ptr %callSitePrototype, align 8
   %call284 = call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %objectPrototype, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm13emptyFunctionEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 13, i32 noundef 0, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #10
@@ -2493,9 +2492,8 @@ _ZN6hermes2vm7Runtime23ignoreAllocationFailureIbEET_NS0_10CallResultIS3_Xsr6deta
   %functionPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 24
   store i64 %retval.sroa.0.0.copyload.i, ptr %functionPrototype, align 8
   %and.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i, 281474976710655
-  %23 = inttoptr i64 %and.i.i.i.i to ptr
   %functionPrototypeRawPtr = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 91
-  store ptr %23, ptr %functionPrototypeRawPtr, align 8
+  store i64 %and.i.i.i.i, ptr %functionPrototypeRawPtr, align 8
   %call.i351 = call i32 @_ZN6hermes2vm8JSObject25defineOwnPropertyInternalENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_19DefinePropertyFlagsENS2_INS0_11HermesValueEEENS0_11PropOpFlagsE(ptr nonnull %functionPrototype, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 82, i32 316, ptr nonnull @_ZN6hermes2vm15HandleRootOwner10zeroValue_E, i32 0) #10
   %bf.cast.i.i1.mask.i352 = and i32 %call.i351, 255
   %cmp.i.i353 = icmp eq i32 %bf.cast.i.i1.mask.i352, 0
@@ -2558,28 +2556,28 @@ if.then.i.i378:                                   ; preds = %"_ZZN6hermes2vm16in
   store i64 %retval.sroa.0.0.copyload.i380, ptr %parseFloatFunction, align 8
   %identifierTable_.i.i.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 118
   %call.i.i.i = call noundef ptr @_ZN6hermes2vm15IdentifierTable13getStringPrimERNS0_7RuntimeENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(84) %identifierTable_.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 13) #10
-  %24 = ptrtoint ptr %call.i.i.i to i64
-  %or.i.i.i.i.i.i = or i64 %24, -844424930131968
-  %25 = load ptr, ptr %topGCScope_.i, align 8
-  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %25, i64 0, i32 4
-  %26 = load ptr, ptr %next_.i.i.i.i.i.i.i.i, align 8
-  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %25, i64 0, i32 5
-  %27 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i = icmp ult ptr %26, %27
+  %22 = ptrtoint ptr %call.i.i.i to i64
+  %or.i.i.i.i.i.i = or i64 %22, -844424930131968
+  %23 = load ptr, ptr %topGCScope_.i, align 8
+  %next_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %23, i64 0, i32 4
+  %24 = load ptr, ptr %next_.i.i.i.i.i.i.i.i, align 8
+  %curChunkEnd_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %23, i64 0, i32 5
+  %25 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i = icmp ult ptr %24, %25
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %"_ZZN6hermes2vm16initGlobalObjectERNS0_7RuntimeERKNS0_10JSLibFlagsEENK3$_0clENS0_8SymbolIDEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvS2_NS0_10NativeArgsEEj.exit379"
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %26, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %24, i64 1
   store ptr %incdec.ptr.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i.i, align 8
-  store i64 %or.i.i.i.i.i.i, ptr %26, align 8
+  store i64 %or.i.i.i.i.i.i, ptr %24, align 8
   br label %_ZN6hermes2vm7Runtime25getPredefinedStringHandleENS0_10Predefined3StrE.exit
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %"_ZZN6hermes2vm16initGlobalObjectERNS0_7RuntimeERKNS0_10JSLibFlagsEENK3$_0clENS0_8SymbolIDEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvS2_NS0_10NativeArgsEEj.exit379"
-  %call7.i.i.i.i.i.i.i = call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %25, i64 %or.i.i.i.i.i.i) #10
+  %call7.i.i.i.i.i.i.i = call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %23, i64 %or.i.i.i.i.i.i) #10
   br label %_ZN6hermes2vm7Runtime25getPredefinedStringHandleENS0_10Predefined3StrE.exit
 
 _ZN6hermes2vm7Runtime25getPredefinedStringHandleENS0_10Predefined3StrE.exit: ; preds = %if.then.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i.i = phi ptr [ %26, %if.then.i.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
+  %retval.0.i.i.i.i.i.i.i = phi ptr [ %24, %if.then.i.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %call407 = call ptr @_ZN6hermes2vm8JSString6createERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEENS4_INS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %retval.0.i.i.i.i.i.i.i, ptr nonnull %objectPrototype) #10
   %cmp.i.i.not.i = icmp eq ptr %call407, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i.i.not.i, label %if.then.i382, label %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_6HandleINS0_8JSStringEEEEET_NS0_10CallResultIS6_Xsr6detail23GetCallResultSpecializeIS6_EE5valueEEE.exit
@@ -2593,33 +2591,33 @@ _ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_6HandleINS0_8JSStringEEEEET_N
   %stringPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 26
   store i64 %retval.sroa.0.0.copyload.i383, ptr %stringPrototype, align 8
   %call422 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
-  %28 = ptrtoint ptr %call422 to i64
-  %or.i.i.i.i385 = or i64 %28, -281474976710656
+  %26 = ptrtoint ptr %call422 to i64
+  %or.i.i.i.i385 = or i64 %26, -281474976710656
   %bigintPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 27
   store i64 %or.i.i.i.i385, ptr %bigintPrototype, align 8
   %call436 = call ptr @_ZN6hermes2vm8JSNumber6createERNS0_7RuntimeEdNS0_6HandleINS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, double noundef 0.000000e+00, ptr nonnull %objectPrototype) #10
-  %29 = ptrtoint ptr %call436 to i64
-  %or.i.i.i.i387 = or i64 %29, -281474976710656
+  %27 = ptrtoint ptr %call436 to i64
+  %or.i.i.i.i387 = or i64 %27, -281474976710656
   %numberPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 28
   store i64 %or.i.i.i.i387, ptr %numberPrototype, align 8
   %call450 = call ptr @_ZN6hermes2vm9JSBoolean6createERNS0_7RuntimeEbNS0_6HandleINS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i1 noundef zeroext false, ptr nonnull %objectPrototype) #10
-  %30 = ptrtoint ptr %call450 to i64
-  %or.i.i.i.i389 = or i64 %30, -281474976710656
+  %28 = ptrtoint ptr %call450 to i64
+  %or.i.i.i.i389 = or i64 %28, -281474976710656
   %booleanPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 29
   store i64 %or.i.i.i.i389, ptr %booleanPrototype, align 8
   %call457 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
-  %31 = ptrtoint ptr %call457 to i64
-  %or.i.i.i.i391 = or i64 %31, -281474976710656
+  %29 = ptrtoint ptr %call457 to i64
+  %or.i.i.i.i391 = or i64 %29, -281474976710656
   %symbolPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 30
   store i64 %or.i.i.i.i391, ptr %symbolPrototype, align 8
   %call471 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %objectPrototype) #10
-  %32 = ptrtoint ptr %call471 to i64
-  %or.i.i.i.i393 = or i64 %32, -281474976710656
+  %30 = ptrtoint ptr %call471 to i64
+  %or.i.i.i.i393 = or i64 %30, -281474976710656
   %datePrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 31
   store i64 %or.i.i.i.i393, ptr %datePrototype, align 8
   %call478 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
-  %33 = ptrtoint ptr %call478 to i64
-  %or.i.i.i.i395 = or i64 %33, -281474976710656
+  %31 = ptrtoint ptr %call478 to i64
+  %or.i.i.i.i395 = or i64 %31, -281474976710656
   %iteratorPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 72
   store i64 %or.i.i.i.i395, ptr %iteratorPrototype, align 8
   %call499 = call ptr @_ZN6hermes2vm7JSArray11createClassERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %objectPrototype) #10
@@ -2644,78 +2642,78 @@ _ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_6HandleINS0_7JSArrayEEEEET_NS
   %regExpMatchClass = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 71
   store i64 %retval.sroa.0.0.copyload.i403, ptr %regExpMatchClass, align 8
   %call558 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %objectPrototype) #10
-  %34 = ptrtoint ptr %call558 to i64
-  %or.i.i.i.i405 = or i64 %34, -281474976710656
+  %32 = ptrtoint ptr %call558 to i64
+  %or.i.i.i.i405 = or i64 %32, -281474976710656
   %arrayBufferPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 33
   store i64 %or.i.i.i.i405, ptr %arrayBufferPrototype, align 8
   %call572 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %objectPrototype) #10
-  %35 = ptrtoint ptr %call572 to i64
-  %or.i.i.i.i407 = or i64 %35, -281474976710656
+  %33 = ptrtoint ptr %call572 to i64
+  %or.i.i.i.i407 = or i64 %33, -281474976710656
   %dataViewPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 34
   store i64 %or.i.i.i.i407, ptr %dataViewPrototype, align 8
   %call579 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
-  %36 = ptrtoint ptr %call579 to i64
-  %or.i.i.i.i409 = or i64 %36, -281474976710656
+  %34 = ptrtoint ptr %call579 to i64
+  %or.i.i.i.i409 = or i64 %34, -281474976710656
   %typedArrayBasePrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 35
   store i64 %or.i.i.i.i409, ptr %typedArrayBasePrototype, align 8
   %call593 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %typedArrayBasePrototype) #10
-  %37 = ptrtoint ptr %call593 to i64
-  %or.i.i.i.i411 = or i64 %37, -281474976710656
+  %35 = ptrtoint ptr %call593 to i64
+  %or.i.i.i.i411 = or i64 %35, -281474976710656
   %Int8ArrayPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 36
   store i64 %or.i.i.i.i411, ptr %Int8ArrayPrototype, align 8
   %call607 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %typedArrayBasePrototype) #10
-  %38 = ptrtoint ptr %call607 to i64
-  %or.i.i.i.i413 = or i64 %38, -281474976710656
+  %36 = ptrtoint ptr %call607 to i64
+  %or.i.i.i.i413 = or i64 %36, -281474976710656
   %Int16ArrayPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 38
   store i64 %or.i.i.i.i413, ptr %Int16ArrayPrototype, align 8
   %call621 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %typedArrayBasePrototype) #10
-  %39 = ptrtoint ptr %call621 to i64
-  %or.i.i.i.i415 = or i64 %39, -281474976710656
+  %37 = ptrtoint ptr %call621 to i64
+  %or.i.i.i.i415 = or i64 %37, -281474976710656
   %Int32ArrayPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 40
   store i64 %or.i.i.i.i415, ptr %Int32ArrayPrototype, align 8
   %call635 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %typedArrayBasePrototype) #10
-  %40 = ptrtoint ptr %call635 to i64
-  %or.i.i.i.i417 = or i64 %40, -281474976710656
+  %38 = ptrtoint ptr %call635 to i64
+  %or.i.i.i.i417 = or i64 %38, -281474976710656
   %Uint8ArrayPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 42
   store i64 %or.i.i.i.i417, ptr %Uint8ArrayPrototype, align 8
   %call649 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %typedArrayBasePrototype) #10
-  %41 = ptrtoint ptr %call649 to i64
-  %or.i.i.i.i419 = or i64 %41, -281474976710656
+  %39 = ptrtoint ptr %call649 to i64
+  %or.i.i.i.i419 = or i64 %39, -281474976710656
   %Uint8ClampedArrayPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 44
   store i64 %or.i.i.i.i419, ptr %Uint8ClampedArrayPrototype, align 8
   %call663 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %typedArrayBasePrototype) #10
-  %42 = ptrtoint ptr %call663 to i64
-  %or.i.i.i.i421 = or i64 %42, -281474976710656
+  %40 = ptrtoint ptr %call663 to i64
+  %or.i.i.i.i421 = or i64 %40, -281474976710656
   %Uint16ArrayPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 46
   store i64 %or.i.i.i.i421, ptr %Uint16ArrayPrototype, align 8
   %call677 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %typedArrayBasePrototype) #10
-  %43 = ptrtoint ptr %call677 to i64
-  %or.i.i.i.i423 = or i64 %43, -281474976710656
+  %41 = ptrtoint ptr %call677 to i64
+  %or.i.i.i.i423 = or i64 %41, -281474976710656
   %Uint32ArrayPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 48
   store i64 %or.i.i.i.i423, ptr %Uint32ArrayPrototype, align 8
   %call691 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %typedArrayBasePrototype) #10
-  %44 = ptrtoint ptr %call691 to i64
-  %or.i.i.i.i425 = or i64 %44, -281474976710656
+  %42 = ptrtoint ptr %call691 to i64
+  %or.i.i.i.i425 = or i64 %42, -281474976710656
   %Float32ArrayPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 50
   store i64 %or.i.i.i.i425, ptr %Float32ArrayPrototype, align 8
   %call705 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %typedArrayBasePrototype) #10
-  %45 = ptrtoint ptr %call705 to i64
-  %or.i.i.i.i427 = or i64 %45, -281474976710656
+  %43 = ptrtoint ptr %call705 to i64
+  %or.i.i.i.i427 = or i64 %43, -281474976710656
   %Float64ArrayPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 52
   store i64 %or.i.i.i.i427, ptr %Float64ArrayPrototype, align 8
   %call719 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %typedArrayBasePrototype) #10
-  %46 = ptrtoint ptr %call719 to i64
-  %or.i.i.i.i429 = or i64 %46, -281474976710656
+  %44 = ptrtoint ptr %call719 to i64
+  %or.i.i.i.i429 = or i64 %44, -281474976710656
   %BigInt64ArrayPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 54
   store i64 %or.i.i.i.i429, ptr %BigInt64ArrayPrototype, align 8
   %call733 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %typedArrayBasePrototype) #10
-  %47 = ptrtoint ptr %call733 to i64
-  %or.i.i.i.i431 = or i64 %47, -281474976710656
+  %45 = ptrtoint ptr %call733 to i64
+  %or.i.i.i.i431 = or i64 %45, -281474976710656
   %BigUint64ArrayPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 56
   store i64 %or.i.i.i.i431, ptr %BigUint64ArrayPrototype, align 8
   %call740 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
-  %48 = ptrtoint ptr %call740 to i64
-  %or.i.i.i.i433 = or i64 %48, -281474976710656
+  %46 = ptrtoint ptr %call740 to i64
+  %or.i.i.i.i433 = or i64 %46, -281474976710656
   %setPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 58
   store i64 %or.i.i.i.i433, ptr %setPrototype, align 8
   %call747 = call ptr @_ZN6hermes2vm26createSetIteratorPrototypeERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
@@ -2723,8 +2721,8 @@ _ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_6HandleINS0_7JSArrayEEEEET_NS
   %setIteratorPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 59
   store i64 %retval.sroa.0.0.copyload.i435, ptr %setIteratorPrototype, align 8
   %call755 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
-  %49 = ptrtoint ptr %call755 to i64
-  %or.i.i.i.i437 = or i64 %49, -281474976710656
+  %47 = ptrtoint ptr %call755 to i64
+  %or.i.i.i.i437 = or i64 %47, -281474976710656
   %mapPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 60
   store i64 %or.i.i.i.i437, ptr %mapPrototype, align 8
   %call762 = call ptr @_ZN6hermes2vm26createMapIteratorPrototypeERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
@@ -2732,63 +2730,63 @@ _ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_6HandleINS0_7JSArrayEEEEET_NS
   %mapIteratorPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 61
   store i64 %retval.sroa.0.0.copyload.i439, ptr %mapIteratorPrototype, align 8
   %call777 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %objectPrototype) #10
-  %50 = ptrtoint ptr %call777 to i64
-  %or.i.i.i.i441 = or i64 %50, -281474976710656
+  %48 = ptrtoint ptr %call777 to i64
+  %or.i.i.i.i441 = or i64 %48, -281474976710656
   %regExpPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 65
   store i64 %or.i.i.i.i441, ptr %regExpPrototype, align 8
   %call784 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
-  %51 = ptrtoint ptr %call784 to i64
-  %or.i.i.i.i443 = or i64 %51, -281474976710656
+  %49 = ptrtoint ptr %call784 to i64
+  %or.i.i.i.i443 = or i64 %49, -281474976710656
   %weakMapPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 62
   store i64 %or.i.i.i.i443, ptr %weakMapPrototype, align 8
   %call791 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
-  %52 = ptrtoint ptr %call791 to i64
-  %or.i.i.i.i445 = or i64 %52, -281474976710656
+  %50 = ptrtoint ptr %call791 to i64
+  %or.i.i.i.i445 = or i64 %50, -281474976710656
   %weakSetPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 63
   store i64 %or.i.i.i.i445, ptr %weakSetPrototype, align 8
   %hasMicrotaskQueue_.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 107
-  %53 = load i8, ptr %hasMicrotaskQueue_.i, align 1
-  %54 = and i8 %53, 1
-  %tobool.i.not = icmp eq i8 %54, 0
+  %51 = load i8, ptr %hasMicrotaskQueue_.i, align 1
+  %52 = and i8 %51, 1
+  %tobool.i.not = icmp eq i8 %52, 0
   br i1 %tobool.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_6HandleINS0_7JSArrayEEEEET_NS0_10CallResultIS6_Xsr6detail23GetCallResultSpecializeIS6_EE5valueEEE.exit
   %call799 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
-  %55 = ptrtoint ptr %call799 to i64
-  %or.i.i.i.i447 = or i64 %55, -281474976710656
+  %53 = ptrtoint ptr %call799 to i64
+  %or.i.i.i.i447 = or i64 %53, -281474976710656
   %weakRefPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 64
   store i64 %or.i.i.i.i447, ptr %weakRefPrototype, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_6HandleINS0_7JSArrayEEEEET_NS0_10CallResultIS6_Xsr6detail23GetCallResultSpecializeIS6_EE5valueEEE.exit
   %call813 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %iteratorPrototype) #10
-  %56 = ptrtoint ptr %call813 to i64
-  %or.i.i.i.i449 = or i64 %56, -281474976710656
+  %54 = ptrtoint ptr %call813 to i64
+  %or.i.i.i.i449 = or i64 %54, -281474976710656
   %arrayIteratorPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 73
   store i64 %or.i.i.i.i449, ptr %arrayIteratorPrototype, align 8
   %call827 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %iteratorPrototype) #10
-  %57 = ptrtoint ptr %call827 to i64
-  %or.i.i.i.i451 = or i64 %57, -281474976710656
+  %55 = ptrtoint ptr %call827 to i64
+  %or.i.i.i.i451 = or i64 %55, -281474976710656
   %stringIteratorPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 76
   store i64 %or.i.i.i.i451, ptr %stringIteratorPrototype, align 8
   %call841 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %iteratorPrototype) #10
-  %58 = ptrtoint ptr %call841 to i64
-  %or.i.i.i.i453 = or i64 %58, -281474976710656
+  %56 = ptrtoint ptr %call841 to i64
+  %or.i.i.i.i453 = or i64 %56, -281474976710656
   %regExpStringIteratorPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 77
   store i64 %or.i.i.i.i453, ptr %regExpStringIteratorPrototype, align 8
   %call855 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %iteratorPrototype) #10
-  %59 = ptrtoint ptr %call855 to i64
-  %or.i.i.i.i455 = or i64 %59, -281474976710656
+  %57 = ptrtoint ptr %call855 to i64
+  %or.i.i.i.i455 = or i64 %57, -281474976710656
   %generatorPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 78
   store i64 %or.i.i.i.i455, ptr %generatorPrototype, align 8
   %call869 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype) #10
-  %60 = ptrtoint ptr %call869 to i64
-  %or.i.i.i.i457 = or i64 %60, -281474976710656
+  %58 = ptrtoint ptr %call869 to i64
+  %or.i.i.i.i457 = or i64 %58, -281474976710656
   %generatorFunctionPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 79
   store i64 %or.i.i.i.i457, ptr %generatorFunctionPrototype, align 8
   %call883 = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype) #10
-  %61 = ptrtoint ptr %call883 to i64
-  %or.i.i.i.i459 = or i64 %61, -281474976710656
+  %59 = ptrtoint ptr %call883 to i64
+  %or.i.i.i.i459 = or i64 %59, -281474976710656
   %asyncFunctionPrototype = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 75
   store i64 %or.i.i.i.i459, ptr %asyncFunctionPrototype, align 8
   %call888 = call ptr @_ZN6hermes2vm23createObjectConstructorERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
@@ -2876,9 +2874,9 @@ if.end:                                           ; preds = %if.then, %_ZN6herme
   store i64 -1688849860263936, ptr %regExpLastRegExp, align 8
   %call1011 = call ptr @_ZN6hermes2vm22createArrayConstructorERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
   %hasArrayBuffer_.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 106
-  %62 = load i8, ptr %hasArrayBuffer_.i, align 4
-  %63 = and i8 %62, 1
-  %tobool.i525.not = icmp eq i8 %63, 0
+  %60 = load i8, ptr %hasArrayBuffer_.i, align 4
+  %61 = and i8 %60, 1
+  %tobool.i525.not = icmp eq i8 %61, 0
   br i1 %tobool.i525.not, label %if.end1121, label %if.then1016
 
 if.then1016:                                      ; preds = %if.end
@@ -2972,9 +2970,9 @@ if.end1121:                                       ; preds = %if.end, %if.then101
   %call1126 = call ptr @_ZN6hermes2vm20createMapConstructorERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
   %call1130 = call ptr @_ZN6hermes2vm24createWeakMapConstructorERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
   %call1134 = call ptr @_ZN6hermes2vm24createWeakSetConstructorERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
-  %64 = load i8, ptr %hasMicrotaskQueue_.i, align 1
-  %65 = and i8 %64, 1
-  %tobool.i611.not = icmp eq i8 %65, 0
+  %62 = load i8, ptr %hasMicrotaskQueue_.i, align 1
+  %63 = and i8 %62, 1
+  %tobool.i611.not = icmp eq i8 %63, 0
   br i1 %tobool.i611.not, label %if.end1144, label %if.then1139
 
 if.then1139:                                      ; preds = %if.end1121
@@ -2991,9 +2989,9 @@ if.end1144:                                       ; preds = %if.then1139, %if.en
   %call1153 = call ptr @_ZN6hermes2vm30createAsyncFunctionConstructorERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
   call void @_ZN6hermes2vm26populateGeneratorPrototypeERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #10
   %hasES6Proxy_.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 103
-  %66 = load i8, ptr %hasES6Proxy_.i, align 1
-  %67 = and i8 %66, 1
-  %tobool.i612.not = icmp eq i8 %67, 0
+  %64 = load i8, ptr %hasES6Proxy_.i, align 1
+  %65 = and i8 %64, 1
+  %tobool.i612.not = icmp eq i8 %65, 0
   br i1 %tobool.i612.not, label %if.end1163, label %if.then1158
 
 if.then1158:                                      ; preds = %if.end1144
@@ -3025,9 +3023,9 @@ if.then.i623:                                     ; preds = %_ZN6hermes2vm7Runti
   unreachable
 
 _ZN6hermes2vm7Runtime23ignoreAllocationFailureIbEET_NS0_10CallResultIS3_Xsr6detail23GetCallResultSpecializeIS3_EE5valueEEE.exit624: ; preds = %_ZN6hermes2vm7Runtime23ignoreAllocationFailureIbEET_NS0_10CallResultIS3_Xsr6detail23GetCallResultSpecializeIS3_EE5valueEEE.exit618
-  %68 = load i8, ptr %hasES6Proxy_.i, align 1
-  %69 = and i8 %68, 1
-  %tobool.i626.not = icmp eq i8 %69, 0
+  %66 = load i8, ptr %hasES6Proxy_.i, align 1
+  %67 = and i8 %66, 1
+  %tobool.i626.not = icmp eq i8 %67, 0
   br i1 %tobool.i626.not, label %if.end1238, label %if.then1213
 
 if.then1213:                                      ; preds = %_ZN6hermes2vm7Runtime23ignoreAllocationFailureIbEET_NS0_10CallResultIS3_Xsr6detail23GetCallResultSpecializeIS3_EE5valueEEE.exit624
@@ -3221,9 +3219,9 @@ _ZN6hermes2vm7Runtime23ignoreAllocationFailureIbEET_NS0_10CallResultIS3_Xsr6deta
   %retval.sroa.0.0.copyload.i785 = load i64, ptr %call1387, align 8
   %requireFunction = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 82
   store i64 %retval.sroa.0.0.copyload.i785, ptr %requireFunction, align 8
-  %70 = load i8, ptr %jsLibFlags, align 1
-  %71 = and i8 %70, 1
-  %tobool.not = icmp eq i8 %71, 0
+  %68 = load i8, ptr %jsLibFlags, align 1
+  %69 = and i8 %68, 1
+  %tobool.not = icmp eq i8 %69, 0
   br i1 %tobool.not, label %if.end1402, label %if.then1393
 
 if.then1393:                                      ; preds = %_ZN6hermes2vm7Runtime23ignoreAllocationFailureIbEET_NS0_10CallResultIS3_Xsr6detail23GetCallResultSpecializeIS3_EE5valueEEE.exit784

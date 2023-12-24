@@ -48,8 +48,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i = getelementptr inbounds i64, ptr %0, i64 -1
   %1 = load i64, ptr %arrayidx.i, align 8
   %and.i = and i64 %1, -2
-  %2 = inttoptr i64 %and.i to ptr
-  store ptr %2, ptr %free_pages, align 8
+  store i64 %and.i, ptr %free_pages, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -59,8 +58,8 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %r.0 = phi ptr [ %0, %if.then ], [ %add.ptr.i, %if.else ]
-  %3 = ptrtoint ptr %prev to i64
-  %or.i = or i64 %3, 1
+  %2 = ptrtoint ptr %prev to i64
+  %or.i = or i64 %2, 1
   %arrayidx.i5 = getelementptr inbounds i64, ptr %r.0, i64 -1
   store i64 %or.i, ptr %arrayidx.i5, align 8
   ret ptr %r.0
@@ -72,8 +71,7 @@ entry:
   %add.i = add i64 %sz, 8
   %call.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i)
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  %0 = ptrtoint ptr %prev to i64
-  store i64 %0, ptr %call.i, align 8
+  store ptr %prev, ptr %call.i, align 8
   ret ptr %add.ptr.i
 }
 

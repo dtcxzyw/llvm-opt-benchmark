@@ -947,19 +947,18 @@ invoke.cont12:                                    ; preds = %_ZNSt10unique_ptrIN
           to label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit17 unwind label %lpad11
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit17: ; preds = %invoke.cont12
-  %7 = ptrtoint ptr %.in to i64
   store i16 %0, ptr %agg.result, align 8, !alias.scope !20
   %second.i.i = getelementptr inbounds %"struct.std::pair", ptr %agg.result, i64 0, i32 1
-  store i64 %7, ptr %second.i.i, align 8, !alias.scope !20
+  store ptr %.in, ptr %second.i.i, align 8, !alias.scope !20
   ret void
 
 lpad11:                                           ; preds = %invoke.cont12
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad11, %lpad7, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad11 ], [ %4, %lpad ], [ %6, %lpad7 ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad11 ], [ %4, %lpad ], [ %6, %lpad7 ]
   call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %authenticator) #15
   resume { ptr, i32 } %.pn
 }

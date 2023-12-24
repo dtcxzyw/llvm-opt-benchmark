@@ -2186,7 +2186,7 @@ call.i.noexc.i.i.i.i.i.i.i.i.i:                   ; preds = %_ZNSt13__future_bas
   %_M_func.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i2.i.i.i.i.i.i.i.i.i, i64 0, i32 1
   store ptr %_M_impl.i.i.i.i.i.i.i, ptr %_M_func.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !23
   %5 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i2.i.i.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1
-  store i64 ptrtoint (ptr @"_ZNSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS7_mmEEEElE6_M_runEv" to i64), ptr %5, align 8, !noalias !23
+  store ptr @"_ZNSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iS7_mmEEEElE6_M_runEv", ptr %5, align 8, !noalias !23
   %this.repack3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i2.i.i.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
   store i64 0, ptr %this.repack3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !23
   store ptr %call.i2.i.i.i.i.i.i.i.i.i, ptr %agg.tmp.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !23
@@ -6045,7 +6045,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
   %_M_once.i = getelementptr inbounds %"class.std::__future_base::_Async_state_commonV2", ptr %this, i64 0, i32 3
-  store i64 ptrtoint (ptr @_ZNSt6thread4joinEv to i64), ptr %ref.tmp.i, align 8
+  store ptr @_ZNSt6thread4joinEv, ptr %ref.tmp.i, align 8
   %.fca.1.gep.i = getelementptr inbounds { i64, i64 }, ptr %ref.tmp.i, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep.i, align 8
   %_M_thread.i = getelementptr inbounds %"class.std::__future_base::_Async_state_commonV2", ptr %this, i64 0, i32 2
@@ -6273,7 +6273,7 @@ entry:
   %ref.tmp4 = alloca ptr, align 8
   store i8 0, ptr %__did_set, align 1
   %_M_once = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %this, i64 0, i32 5
-  store i64 ptrtoint (ptr @_ZNSt13__future_base13_State_baseV29_M_do_setEPSt8functionIFSt10unique_ptrINS_12_Result_baseENS3_8_DeleterEEvEEPb to i64), ptr %ref.tmp, align 8
+  store ptr @_ZNSt13__future_base13_State_baseV29_M_do_setEPSt8functionIFSt10unique_ptrINS_12_Result_baseENS3_8_DeleterEEvEEPb, ptr %ref.tmp, align 8
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8
   store ptr %this, ptr %ref.tmp2, align 8
@@ -6609,10 +6609,9 @@ unreachable.i.i.i:                                ; preds = %catch8.i.i.i
 "_ZSt10__invoke_rISt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEERNS1_12_Task_setterIS0_INS1_7_ResultIlEES3_ENSt6thread8_InvokerISt5tupleIJZN6google8protobuf14ForkPipeRunner7TryReadEiPvmE3$_0iSF_mmEEEElEEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit": ; preds = %invoke.cont.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i
   %15 = load ptr, ptr %__functor, align 8, !noalias !59
   %16 = load i64, ptr %15, align 8, !noalias !59
-  %17 = inttoptr i64 %16 to ptr
   store ptr null, ptr %15, align 8, !noalias !59
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp4.i.i.i), !noalias !56
-  store ptr %17, ptr %agg.result, align 8, !alias.scope !53
+  store i64 %16, ptr %agg.result, align 8, !alias.scope !53
   ret void
 }
 

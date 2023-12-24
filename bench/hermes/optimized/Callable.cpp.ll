@@ -1811,9 +1811,8 @@ if.end:                                           ; preds = %entry
   store ptr %add.ptr.i.i, ptr %stackPointer_.i.i, align 8
   %currentFrame_.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 131
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %currentFrame_.i, align 8
-  %4 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i to i64
   %arrayidx.i19.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %0, i64 6
-  store i64 %4, ptr %arrayidx.i19.i, align 8
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %arrayidx.i19.i, align 8
   %arrayidx14.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %0, i64 4
   %arrayidx19.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %0, i64 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx14.i.i, i8 0, i64 16, i1 false)
@@ -1825,24 +1824,24 @@ if.end:                                           ; preds = %entry
   store i64 %retval.sroa.0.0.copyload.i.i.i, ptr %0, align 8
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 281474976710655
-  %5 = inttoptr i64 %and.i.i.i.i.i.i to ptr
-  %bf.load.i.i.i.i = load i32, ptr %5, align 4
+  %4 = inttoptr i64 %and.i.i.i.i.i.i to ptr
+  %bf.load.i.i.i.i = load i32, ptr %4, align 4
   %bf.lshr.i.i.i.i = lshr i32 %bf.load.i.i.i.i, 24
   %conv.i.i.i.i = zext nneg i32 %bf.lshr.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [79 x ptr], ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 0, i64 %conv.i.i.i.i
-  %6 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %call3.i = getelementptr inbounds %"struct.hermes::vm::CallableVTable", ptr %6, i64 0, i32 2
-  %7 = load ptr, ptr %call3.i, align 8
-  %call6.i = tail call { i32, i64 } %7(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
-  %8 = extractvalue { i32, i64 } %call6.i, 0
-  %9 = extractvalue { i32, i64 } %call6.i, 1
+  %5 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %call3.i = getelementptr inbounds %"struct.hermes::vm::CallableVTable", ptr %5, i64 0, i32 2
+  %6 = load ptr, ptr %call3.i, align 8
+  %call6.i = tail call { i32, i64 } %6(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
+  %7 = extractvalue { i32, i64 } %call6.i, 0
+  %8 = extractvalue { i32, i64 } %call6.i, 1
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %if.then
-  %retval.sroa.0.0 = phi i32 [ %call17, %if.then ], [ %8, %if.end ]
-  %retval.sroa.3.0 = phi i64 [ -1688849860263936, %if.then ], [ %9, %if.end ]
-  %10 = load i32, ptr %nativeCallFrameDepth_.i, align 8
-  %dec.i = add i32 %10, -1
+  %retval.sroa.0.0 = phi i32 [ %call17, %if.then ], [ %7, %if.end ]
+  %retval.sroa.3.0 = phi i64 [ -1688849860263936, %if.then ], [ %8, %if.end ]
+  %9 = load i32, ptr %nativeCallFrameDepth_.i, align 8
+  %dec.i = add i32 %9, -1
   store i32 %dec.i, ptr %nativeCallFrameDepth_.i, align 8
   store ptr %0, ptr %stackPointer_.i.i, align 8
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
@@ -1884,9 +1883,8 @@ if.end:                                           ; preds = %entry
   store ptr %add.ptr.i.i, ptr %stackPointer_.i.i, align 8
   %currentFrame_.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 131
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %currentFrame_.i, align 8
-  %4 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i to i64
   %arrayidx.i19.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %0, i64 7
-  store i64 %4, ptr %arrayidx.i19.i, align 8
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %arrayidx.i19.i, align 8
   %arrayidx14.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %0, i64 5
   %arrayidx19.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx14.i.i, i8 0, i64 16, i1 false)
@@ -1900,24 +1898,24 @@ if.end:                                           ; preds = %entry
   store i64 %param1.coerce, ptr %0, align 8
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 281474976710655
-  %5 = inttoptr i64 %and.i.i.i.i.i.i to ptr
-  %bf.load.i.i.i.i = load i32, ptr %5, align 4
+  %4 = inttoptr i64 %and.i.i.i.i.i.i to ptr
+  %bf.load.i.i.i.i = load i32, ptr %4, align 4
   %bf.lshr.i.i.i.i = lshr i32 %bf.load.i.i.i.i, 24
   %conv.i.i.i.i = zext nneg i32 %bf.lshr.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [79 x ptr], ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 0, i64 %conv.i.i.i.i
-  %6 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %call3.i = getelementptr inbounds %"struct.hermes::vm::CallableVTable", ptr %6, i64 0, i32 2
-  %7 = load ptr, ptr %call3.i, align 8
-  %call6.i = tail call { i32, i64 } %7(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
-  %8 = extractvalue { i32, i64 } %call6.i, 0
-  %9 = extractvalue { i32, i64 } %call6.i, 1
+  %5 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %call3.i = getelementptr inbounds %"struct.hermes::vm::CallableVTable", ptr %5, i64 0, i32 2
+  %6 = load ptr, ptr %call3.i, align 8
+  %call6.i = tail call { i32, i64 } %6(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
+  %7 = extractvalue { i32, i64 } %call6.i, 0
+  %8 = extractvalue { i32, i64 } %call6.i, 1
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %if.then
-  %retval.sroa.0.0 = phi i32 [ %call18, %if.then ], [ %8, %if.end ]
-  %retval.sroa.3.0 = phi i64 [ -1688849860263936, %if.then ], [ %9, %if.end ]
-  %10 = load i32, ptr %nativeCallFrameDepth_.i, align 8
-  %dec.i = add i32 %10, -1
+  %retval.sroa.0.0 = phi i32 [ %call18, %if.then ], [ %7, %if.end ]
+  %retval.sroa.3.0 = phi i64 [ -1688849860263936, %if.then ], [ %8, %if.end ]
+  %9 = load i32, ptr %nativeCallFrameDepth_.i, align 8
+  %dec.i = add i32 %9, -1
   store i32 %dec.i, ptr %nativeCallFrameDepth_.i, align 8
   store ptr %0, ptr %stackPointer_.i.i, align 8
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
@@ -1957,9 +1955,8 @@ if.end:                                           ; preds = %entry
   store ptr %add.ptr.i.i, ptr %stackPointer_.i.i, align 8
   %currentFrame_.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 131
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %currentFrame_.i, align 8
-  %4 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i to i64
   %arrayidx.i19.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %0, i64 8
-  store i64 %4, ptr %arrayidx.i19.i, align 8
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %arrayidx.i19.i, align 8
   %arrayidx14.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %0, i64 6
   %arrayidx19.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %0, i64 5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx14.i.i, i8 0, i64 16, i1 false)
@@ -1975,24 +1972,24 @@ if.end:                                           ; preds = %entry
   store i64 %param2.coerce, ptr %0, align 8
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 281474976710655
-  %5 = inttoptr i64 %and.i.i.i.i.i.i to ptr
-  %bf.load.i.i.i.i = load i32, ptr %5, align 4
+  %4 = inttoptr i64 %and.i.i.i.i.i.i to ptr
+  %bf.load.i.i.i.i = load i32, ptr %4, align 4
   %bf.lshr.i.i.i.i = lshr i32 %bf.load.i.i.i.i, 24
   %conv.i.i.i.i = zext nneg i32 %bf.lshr.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [79 x ptr], ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 0, i64 %conv.i.i.i.i
-  %6 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %call3.i = getelementptr inbounds %"struct.hermes::vm::CallableVTable", ptr %6, i64 0, i32 2
-  %7 = load ptr, ptr %call3.i, align 8
-  %call6.i = tail call { i32, i64 } %7(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
-  %8 = extractvalue { i32, i64 } %call6.i, 0
-  %9 = extractvalue { i32, i64 } %call6.i, 1
+  %5 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %call3.i = getelementptr inbounds %"struct.hermes::vm::CallableVTable", ptr %5, i64 0, i32 2
+  %6 = load ptr, ptr %call3.i, align 8
+  %call6.i = tail call { i32, i64 } %6(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
+  %7 = extractvalue { i32, i64 } %call6.i, 0
+  %8 = extractvalue { i32, i64 } %call6.i, 1
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %if.then
-  %retval.sroa.0.0 = phi i32 [ %call19, %if.then ], [ %8, %if.end ]
-  %retval.sroa.3.0 = phi i64 [ -1688849860263936, %if.then ], [ %9, %if.end ]
-  %10 = load i32, ptr %nativeCallFrameDepth_.i, align 8
-  %dec.i = add i32 %10, -1
+  %retval.sroa.0.0 = phi i32 [ %call19, %if.then ], [ %7, %if.end ]
+  %retval.sroa.3.0 = phi i64 [ -1688849860263936, %if.then ], [ %8, %if.end ]
+  %9 = load i32, ptr %nativeCallFrameDepth_.i, align 8
+  %dec.i = add i32 %9, -1
   store i32 %dec.i, ptr %nativeCallFrameDepth_.i, align 8
   store ptr %0, ptr %stackPointer_.i.i, align 8
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
@@ -2032,9 +2029,8 @@ if.end:                                           ; preds = %entry
   store ptr %add.ptr.i.i, ptr %stackPointer_.i.i, align 8
   %currentFrame_.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 131
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %currentFrame_.i, align 8
-  %4 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i to i64
   %arrayidx.i19.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %0, i64 9
-  store i64 %4, ptr %arrayidx.i19.i, align 8
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %arrayidx.i19.i, align 8
   %arrayidx14.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %0, i64 7
   %arrayidx19.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %0, i64 6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx14.i.i, i8 0, i64 16, i1 false)
@@ -2052,24 +2048,24 @@ if.end:                                           ; preds = %entry
   store i64 %param3.coerce, ptr %0, align 8
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 281474976710655
-  %5 = inttoptr i64 %and.i.i.i.i.i.i to ptr
-  %bf.load.i.i.i.i = load i32, ptr %5, align 4
+  %4 = inttoptr i64 %and.i.i.i.i.i.i to ptr
+  %bf.load.i.i.i.i = load i32, ptr %4, align 4
   %bf.lshr.i.i.i.i = lshr i32 %bf.load.i.i.i.i, 24
   %conv.i.i.i.i = zext nneg i32 %bf.lshr.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [79 x ptr], ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 0, i64 %conv.i.i.i.i
-  %6 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %call3.i = getelementptr inbounds %"struct.hermes::vm::CallableVTable", ptr %6, i64 0, i32 2
-  %7 = load ptr, ptr %call3.i, align 8
-  %call6.i = tail call { i32, i64 } %7(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
-  %8 = extractvalue { i32, i64 } %call6.i, 0
-  %9 = extractvalue { i32, i64 } %call6.i, 1
+  %5 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %call3.i = getelementptr inbounds %"struct.hermes::vm::CallableVTable", ptr %5, i64 0, i32 2
+  %6 = load ptr, ptr %call3.i, align 8
+  %call6.i = tail call { i32, i64 } %6(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
+  %7 = extractvalue { i32, i64 } %call6.i, 0
+  %8 = extractvalue { i32, i64 } %call6.i, 1
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %if.then
-  %retval.sroa.0.0 = phi i32 [ %call20, %if.then ], [ %8, %if.end ]
-  %retval.sroa.3.0 = phi i64 [ -1688849860263936, %if.then ], [ %9, %if.end ]
-  %10 = load i32, ptr %nativeCallFrameDepth_.i, align 8
-  %dec.i = add i32 %10, -1
+  %retval.sroa.0.0 = phi i32 [ %call20, %if.then ], [ %7, %if.end ]
+  %retval.sroa.3.0 = phi i64 [ -1688849860263936, %if.then ], [ %8, %if.end ]
+  %9 = load i32, ptr %nativeCallFrameDepth_.i, align 8
+  %dec.i = add i32 %9, -1
   store i32 %dec.i, ptr %nativeCallFrameDepth_.i, align 8
   store ptr %0, ptr %stackPointer_.i.i, align 8
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
@@ -2109,9 +2105,8 @@ if.end:                                           ; preds = %entry
   store ptr %add.ptr.i.i, ptr %stackPointer_.i.i, align 8
   %currentFrame_.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 131
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %currentFrame_.i, align 8
-  %4 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i to i64
   %arrayidx.i19.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %0, i64 10
-  store i64 %4, ptr %arrayidx.i19.i, align 8
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %arrayidx.i19.i, align 8
   %arrayidx14.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %0, i64 8
   %arrayidx19.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %0, i64 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx14.i.i, i8 0, i64 16, i1 false)
@@ -2131,24 +2126,24 @@ if.end:                                           ; preds = %entry
   store i64 %param4.coerce, ptr %0, align 8
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 281474976710655
-  %5 = inttoptr i64 %and.i.i.i.i.i.i to ptr
-  %bf.load.i.i.i.i = load i32, ptr %5, align 4
+  %4 = inttoptr i64 %and.i.i.i.i.i.i to ptr
+  %bf.load.i.i.i.i = load i32, ptr %4, align 4
   %bf.lshr.i.i.i.i = lshr i32 %bf.load.i.i.i.i, 24
   %conv.i.i.i.i = zext nneg i32 %bf.lshr.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [79 x ptr], ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 0, i64 %conv.i.i.i.i
-  %6 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %call3.i = getelementptr inbounds %"struct.hermes::vm::CallableVTable", ptr %6, i64 0, i32 2
-  %7 = load ptr, ptr %call3.i, align 8
-  %call6.i = tail call { i32, i64 } %7(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
-  %8 = extractvalue { i32, i64 } %call6.i, 0
-  %9 = extractvalue { i32, i64 } %call6.i, 1
+  %5 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %call3.i = getelementptr inbounds %"struct.hermes::vm::CallableVTable", ptr %5, i64 0, i32 2
+  %6 = load ptr, ptr %call3.i, align 8
+  %call6.i = tail call { i32, i64 } %6(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
+  %7 = extractvalue { i32, i64 } %call6.i, 0
+  %8 = extractvalue { i32, i64 } %call6.i, 1
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %if.then
-  %retval.sroa.0.0 = phi i32 [ %call21, %if.then ], [ %8, %if.end ]
-  %retval.sroa.3.0 = phi i64 [ -1688849860263936, %if.then ], [ %9, %if.end ]
-  %10 = load i32, ptr %nativeCallFrameDepth_.i, align 8
-  %dec.i = add i32 %10, -1
+  %retval.sroa.0.0 = phi i32 [ %call21, %if.then ], [ %7, %if.end ]
+  %retval.sroa.3.0 = phi i64 [ -1688849860263936, %if.then ], [ %8, %if.end ]
+  %9 = load i32, ptr %nativeCallFrameDepth_.i, align 8
+  %dec.i = add i32 %9, -1
   store i32 %dec.i, ptr %nativeCallFrameDepth_.i, align 8
   store ptr %0, ptr %stackPointer_.i.i, align 8
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
@@ -2249,9 +2244,8 @@ if.end32:                                         ; preds = %if.end14
   store ptr %add.ptr.i.i, ptr %stackPointer_.i.i, align 8
   %currentFrame_.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 131
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %currentFrame_.i, align 8
-  %12 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i to i64
   %arrayidx.i19.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %add.ptr.i.i, i64 -1
-  store i64 %12, ptr %arrayidx.i19.i, align 8
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %arrayidx.i19.i, align 8
   %arrayidx14.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %add.ptr.i.i, i64 -3
   %or.i.i.i = or disjoint i64 %6, -1125899906842624
   %arrayidx19.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %add.ptr.i.i, i64 -4
@@ -2279,8 +2273,8 @@ _ZN6hermes2vm21ScopedNativeCallFrame13fillArgumentsEjNS0_11HermesValueE.exit: ; 
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %gcScope.i)
   store ptr %runtime, ptr %gcScope.i, align 8
   %prevScope_.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %gcScope.i, i64 0, i32 1
-  %13 = load ptr, ptr %topGCScope_.i.i.i.i.i, align 8
-  store ptr %13, ptr %prevScope_.i.i, align 8
+  %12 = load ptr, ptr %topGCScope_.i.i.i.i.i, align 8
+  store ptr %12, ptr %prevScope_.i.i, align 8
   %chunks_.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %gcScope.i, i64 0, i32 3
   %inlineStorage_.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %gcScope.i, i64 0, i32 2
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %gcScope.i, i64 0, i32 3, i32 1
@@ -2303,11 +2297,11 @@ _ZN6hermes2vm21ScopedNativeCallFrame13fillArgumentsEjNS0_11HermesValueE.exit: ; 
 
 _ZN6hermes2vm5vmisaINS0_9ArrayImplEEEbNS0_11HermesValueE.exit.i.i: ; preds = %_ZN6hermes2vm21ScopedNativeCallFrame13fillArgumentsEjNS0_11HermesValueE.exit
   %and.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i17, 281474976710655
-  %14 = inttoptr i64 %and.i.i.i.i to ptr
-  %bf.load.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %14, align 4
-  %15 = add i32 %bf.load.i.i.i.i.i.i.i.i.i.i.i, -520093696
-  %16 = icmp ult i32 %15, 33554432
-  %spec.select.i.i = select i1 %16, ptr %arrayLike.coerce, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E
+  %13 = inttoptr i64 %and.i.i.i.i to ptr
+  %bf.load.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %13, align 4
+  %14 = add i32 %bf.load.i.i.i.i.i.i.i.i.i.i.i, -520093696
+  %15 = icmp ult i32 %14, 33554432
+  %spec.select.i.i = select i1 %15, ptr %arrayLike.coerce, ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E
   br label %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit.i
 
 _ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit.i: ; preds = %_ZN6hermes2vm5vmisaINS0_9ArrayImplEEEbNS0_11HermesValueE.exit.i.i, %_ZN6hermes2vm21ScopedNativeCallFrame13fillArgumentsEjNS0_11HermesValueE.exit
@@ -2315,13 +2309,13 @@ _ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.ex
   %incdec.ptr.i.i.i.i.i.i.i18 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %gcScope.i, i64 0, i32 2, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i.i18, ptr %next_.i.i, align 8
   store i64 0, ptr %inlineStorage_.i.i, align 8
-  %17 = load i64, ptr %retval.sroa.0.0.i.i, align 8
-  %cmp.i.i.i19 = icmp ugt i64 %17, -844424930131969
-  %and.i.i.i = and i64 %17, 281474976710655
+  %16 = load i64, ptr %retval.sroa.0.0.i.i, align 8
+  %cmp.i.i.i19 = icmp ugt i64 %16, -844424930131969
+  %and.i.i.i = and i64 %16, 281474976710655
   %tobool.i.i = icmp ne i64 %and.i.i.i, 0
-  %18 = and i1 %cmp.i.i.i19, %tobool.i.i
+  %17 = and i1 %cmp.i.i.i19, %tobool.i.i
   %cmp81.not.i = icmp eq i64 %6, 0
-  br i1 %18, label %for.cond.preheader.i, label %for.cond58.preheader.i
+  br i1 %17, label %for.cond.preheader.i, label %for.cond58.preheader.i
 
 for.cond58.preheader.i:                           ; preds = %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit.i
   br i1 %cmp81.not.i, label %if.end46, label %for.body60.i.preheader
@@ -2334,40 +2328,40 @@ for.cond.preheader.i:                             ; preds = %_ZN6hermes2vm13Muta
   br i1 %cmp81.not.i, label %if.end46, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %19 = ptrtoint ptr %runtime to i64
+  %18 = ptrtoint ptr %runtime to i64
   %invariant.gep46 = getelementptr %"class.hermes::vm::PinnedHermesValue", ptr %add.ptr.i.i, i64 -8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %elemIdx.082.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i23, %for.inc.i ]
-  %20 = load ptr, ptr %chunks_.i.i, align 8
-  %21 = load ptr, ptr %20, align 8
-  %add.ptr.i.i20 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %21, i64 16
+  %19 = load ptr, ptr %chunks_.i.i, align 8
+  %20 = load ptr, ptr %19, align 8
+  %add.ptr.i.i20 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %20, i64 16
   store i32 0, ptr %curChunkIndex_.i.i, align 8
   store ptr %add.ptr.i.i20, ptr %curChunkEnd_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i.i.i18, ptr %next_.i.i, align 8
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %retval.sroa.0.0.i.i, align 8
   %and.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 281474976710655
-  %22 = inttoptr i64 %and.i.i.i.i.i.i to ptr
+  %21 = inttoptr i64 %and.i.i.i.i.i.i to ptr
   %conv.i = trunc i64 %elemIdx.082.i to i32
-  %beginIndex_.i.i = getelementptr inbounds %"class.hermes::vm::ArrayImpl", ptr %22, i64 0, i32 1
-  %23 = load i32, ptr %beginIndex_.i.i, align 4
-  %cmp.not.i.i21 = icmp ule i32 %23, %conv.i
-  %endIndex_.i.i = getelementptr inbounds %"class.hermes::vm::ArrayImpl", ptr %22, i64 0, i32 2
-  %24 = load i32, ptr %endIndex_.i.i, align 4
-  %cmp2.i.i = icmp ugt i32 %24, %conv.i
+  %beginIndex_.i.i = getelementptr inbounds %"class.hermes::vm::ArrayImpl", ptr %21, i64 0, i32 1
+  %22 = load i32, ptr %beginIndex_.i.i, align 4
+  %cmp.not.i.i21 = icmp ule i32 %22, %conv.i
+  %endIndex_.i.i = getelementptr inbounds %"class.hermes::vm::ArrayImpl", ptr %21, i64 0, i32 2
+  %23 = load i32, ptr %endIndex_.i.i, align 4
+  %cmp2.i.i = icmp ugt i32 %23, %conv.i
   %or.cond.i.i = select i1 %cmp.not.i.i21, i1 %cmp2.i.i, i1 false
   br i1 %or.cond.i.i, label %cond.true.i.i, label %if.end31.i
 
 cond.true.i.i:                                    ; preds = %for.body.i
-  %indexedStorage_.i.i.i = getelementptr inbounds %"class.hermes::vm::ArrayImpl", ptr %22, i64 0, i32 3
+  %indexedStorage_.i.i.i = getelementptr inbounds %"class.hermes::vm::ArrayImpl", ptr %21, i64 0, i32 3
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = load i32, ptr %indexedStorage_.i.i.i, align 4
   %cmp.i.not.i.i.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i, 0
   %conv.i.i.i.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i to i64
-  %add.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i, %19
-  %25 = inttoptr i64 %add.i.i.i.i.i.i.i.i to ptr
-  %cond.i.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i.i, ptr null, ptr %25
-  %sub.i.i = sub i32 %conv.i, %23
+  %add.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i, %18
+  %24 = inttoptr i64 %add.i.i.i.i.i.i.i.i to ptr
+  %cond.i.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i.i, ptr null, ptr %24
+  %sub.i.i = sub i32 %conv.i, %22
   %cmp.i.i31.i = icmp ult i32 %sub.i.i, 4096
   br i1 %cmp.i.i31.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -2383,12 +2377,12 @@ if.else.i.i.i:                                    ; preds = %cond.true.i.i
   %add.ptr.i.i.i5.i.i.i = getelementptr inbounds %"class.hermes::vm::SegmentedArrayBase", ptr %cond.i.i.i.i.i.i.i, i64 2049
   %idx.ext.i.i.i.i.i = zext nneg i32 %div1.i.i.i.i to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCHermesValueBase.255", ptr %add.ptr.i.i.i5.i.i.i, i64 %idx.ext.i.i.i.i.i
-  %26 = load i32, ptr %add.ptr.i.i.i.i.i, align 4
-  %cmp.i.not.i.i.i.i.i.i.i.i = icmp eq i32 %26, 0
-  %conv.i.i.i.i.i.i.i.i.i = zext i32 %26 to i64
-  %add.i.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i.i, %19
-  %27 = inttoptr i64 %add.i.i.i.i.i.i.i.i.i to ptr
-  %cond.i.i.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i.i.i, ptr null, ptr %27
+  %25 = load i32, ptr %add.ptr.i.i.i.i.i, align 4
+  %cmp.i.not.i.i.i.i.i.i.i.i = icmp eq i32 %25, 0
+  %conv.i.i.i.i.i.i.i.i.i = zext i32 %25 to i64
+  %add.i.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i.i, %18
+  %26 = inttoptr i64 %add.i.i.i.i.i.i.i.i.i to ptr
+  %cond.i.i.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i.i.i, ptr null, ptr %26
   %rem.i.i.i.i = and i32 %sub.i.i, 1023
   %idxprom.i.i.i.i = zext nneg i32 %rem.i.i.i.i to i64
   %arrayidx.i.i.i.i = getelementptr inbounds %"class.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue32>::Segment", ptr %cond.i.i.i.i.i.i.i.i, i64 0, i32 2, i64 %idxprom.i.i.i.i
@@ -2397,8 +2391,8 @@ if.else.i.i.i:                                    ; preds = %cond.true.i.i
 _ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
   %retval.sroa.0.0.in.i.i.i = phi ptr [ %arrayidx.i.i.i26, %if.then.i.i.i ], [ %arrayidx.i.i.i.i, %if.else.i.i.i ]
   %retval.sroa.0.0.i.i.i = load i32, ptr %retval.sroa.0.0.in.i.i.i, align 4
-  %28 = trunc i32 %retval.sroa.0.0.i.i.i to i8
-  %conv.i.i.i24 = and i8 %28, 15
+  %27 = trunc i32 %retval.sroa.0.0.i.i.i to i8
+  %conv.i.i.i24 = and i8 %27, 15
   switch i8 %conv.i.i.i24, label %sw.default.i.i [
     i8 0, label %sw.bb.i.i
     i8 8, label %sw.bb.i.i
@@ -2421,41 +2415,41 @@ _ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i: ; preds = %if.else.i.i.i, %i
 sw.bb.i.i:                                        ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i
   %cmp.i.not.i.i.i.i.i.i = icmp eq i32 %retval.sroa.0.0.i.i.i, 0
   %conv.i.i.i.i.i.i.i = zext i32 %retval.sroa.0.0.i.i.i to i64
-  %add.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i, %19
-  %29 = or i64 %add.i.i.i.i.i.i.i, -281474976710656
-  %or.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i, i64 -281474976710656, i64 %29
+  %add.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i, %18
+  %28 = or i64 %add.i.i.i.i.i.i.i, -281474976710656
+  %or.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i, i64 -281474976710656, i64 %28
   br label %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.i
 
 sw.bb4.i.i:                                       ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i
   %and.i.i.i.i.i = and i32 %retval.sroa.0.0.i.i.i, -8
   %conv.i.i.i.i.i.i = zext i32 %and.i.i.i.i.i to i64
-  %add.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i, %19
+  %add.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i, %18
   %or.i.i.i4.i.i = or i64 %add.i.i.i.i.i.i, -562949953421312
   br label %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.i
 
 sw.bb8.i.i:                                       ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i
   %and.i.i.i5.i.i = and i32 %retval.sroa.0.0.i.i.i, -8
   %conv.i.i.i.i6.i.i = zext i32 %and.i.i.i5.i.i to i64
-  %add.i.i.i.i7.i.i = add i64 %conv.i.i.i.i6.i.i, %19
+  %add.i.i.i.i7.i.i = add i64 %conv.i.i.i.i6.i.i, %18
   %or.i.i.i8.i.i = or i64 %add.i.i.i.i7.i.i, -844424930131968
   br label %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.i
 
 sw.bb12.i.i:                                      ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i
   %and.i.i.i34.i = and i32 %retval.sroa.0.0.i.i.i, -8
   %conv.i.i.i.i.i = zext i32 %and.i.i.i34.i to i64
-  %add.i.i.i.i.i = add i64 %conv.i.i.i.i.i, %19
-  %30 = inttoptr i64 %add.i.i.i.i.i to ptr
-  %value_.i.i.i = getelementptr inbounds %"class.hermes::vm::BoxedDouble", ptr %30, i64 0, i32 1
-  %31 = load double, ptr %value_.i.i.i, align 8
-  %32 = fcmp uno double %31, 0.000000e+00
-  %33 = bitcast double %31 to i64
-  %retval.sroa.0.0.i.i35.i = select i1 %32, i64 9221120237041090560, i64 %33
+  %add.i.i.i.i.i = add i64 %conv.i.i.i.i.i, %18
+  %29 = inttoptr i64 %add.i.i.i.i.i to ptr
+  %value_.i.i.i = getelementptr inbounds %"class.hermes::vm::BoxedDouble", ptr %29, i64 0, i32 1
+  %30 = load double, ptr %value_.i.i.i, align 8
+  %31 = fcmp uno double %30, 0.000000e+00
+  %32 = bitcast double %30 to i64
+  %retval.sroa.0.0.i.i35.i = select i1 %31, i64 9221120237041090560, i64 %32
   br label %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.i
 
 sw.bb18.i.i:                                      ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i
   %shr.i.i.i = ashr i32 %retval.sroa.0.0.i.i.i, 3
   %conv.i9.i.i = sitofp i32 %shr.i.i.i to double
-  %34 = bitcast double %conv.i9.i.i to i64
+  %33 = bitcast double %conv.i9.i.i to i64
   br label %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.i
 
 sw.bb22.i.i:                                      ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i
@@ -2477,7 +2471,7 @@ sw.default.i.i:                                   ; preds = %_ZNK6hermes2vm9Arra
   unreachable
 
 _ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.i: ; preds = %sw.bb29.i.i, %sw.bb22.i.i, %sw.bb18.i.i, %sw.bb12.i.i, %sw.bb8.i.i, %sw.bb4.i.i, %sw.bb.i.i
-  %retval.sroa.0.0.i32.i = phi i64 [ %or.i.i14.i.i, %sw.bb29.i.i ], [ %or.i.i.i.i, %sw.bb22.i.i ], [ %34, %sw.bb18.i.i ], [ %retval.sroa.0.0.i.i35.i, %sw.bb12.i.i ], [ %or.i.i.i8.i.i, %sw.bb8.i.i ], [ %or.i.i.i4.i.i, %sw.bb4.i.i ], [ %or.i.i.i.i.i, %sw.bb.i.i ]
+  %retval.sroa.0.0.i32.i = phi i64 [ %or.i.i14.i.i, %sw.bb29.i.i ], [ %or.i.i.i.i, %sw.bb22.i.i ], [ %33, %sw.bb18.i.i ], [ %retval.sroa.0.0.i.i35.i, %sw.bb12.i.i ], [ %or.i.i.i8.i.i, %sw.bb8.i.i ], [ %or.i.i.i4.i.i, %sw.bb4.i.i ], [ %or.i.i.i.i.i, %sw.bb.i.i ]
   %shr.i.mask.i.i = and i64 %retval.sroa.0.0.i32.i, -140737488355328
   %cmp.i.i25 = icmp eq i64 %shr.i.mask.i.i, -1970324836974592
   br i1 %cmp.i.i25, label %if.end31.i, label %for.inc.i
@@ -2486,16 +2480,16 @@ if.end31.i:                                       ; preds = %_ZNK6hermes2vm13Her
   %conv.i38.i = uitofp i64 %elemIdx.082.i to double
   store double %conv.i38.i, ptr %inlineStorage_.i.i, align 8
   %call.i.i22 = call { i32, i64 } @_ZN6hermes2vm8JSObject27getComputedWithReceiver_RJSENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES7_(ptr nonnull %arrayLike.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %inlineStorage_.i.i, ptr nonnull %arrayLike.coerce) #11
-  %35 = extractvalue { i32, i64 } %call.i.i22, 0
-  %cmp.i39.i = icmp eq i32 %35, 0
+  %34 = extractvalue { i32, i64 } %call.i.i22, 0
+  %cmp.i39.i = icmp eq i32 %34, 0
   br i1 %cmp.i39.i, label %if.then45, label %if.end47.i
 
 if.end47.i:                                       ; preds = %if.end31.i
-  %36 = extractvalue { i32, i64 } %call.i.i22, 1
+  %35 = extractvalue { i32, i64 } %call.i.i22, 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end47.i, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.i, %sw.bb39.i.i, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i
-  %.sink.i = phi i64 [ %36, %if.end47.i ], [ %retval.sroa.0.0.i32.i, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.i ], [ -1688849860263936, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i ], [ -1548112371908608, %sw.bb39.i.i ]
+  %.sink.i = phi i64 [ %35, %if.end47.i ], [ %retval.sroa.0.0.i32.i, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit.i ], [ -1688849860263936, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit.i ], [ -1548112371908608, %sw.bb39.i.i ]
   %sext.i41.i = shl i64 %elemIdx.082.i, 32
   %conv.i.i42.i = ashr exact i64 %sext.i41.i, 32
   %idx.neg.i.i.i.i43.i = sub nsw i64 0, %conv.i.i42.i
@@ -2507,26 +2501,26 @@ for.inc.i:                                        ; preds = %if.end47.i, %_ZNK6h
 
 for.body60.i:                                     ; preds = %for.body60.i.preheader, %if.end78.i
   %elemIdx57.079.i = phi i64 [ %inc89.i, %if.end78.i ], [ 0, %for.body60.i.preheader ]
-  %37 = load ptr, ptr %chunks_.i.i, align 8
-  %38 = load ptr, ptr %37, align 8
-  %add.ptr.i49.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %38, i64 16
+  %36 = load ptr, ptr %chunks_.i.i, align 8
+  %37 = load ptr, ptr %36, align 8
+  %add.ptr.i49.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %37, i64 16
   store i32 0, ptr %curChunkIndex_.i.i, align 8
   store ptr %add.ptr.i49.i, ptr %curChunkEnd_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i.i.i18, ptr %next_.i.i, align 8
   %conv.i53.i = uitofp i64 %elemIdx57.079.i to double
   store double %conv.i53.i, ptr %inlineStorage_.i.i, align 8
   %call.i54.i = call { i32, i64 } @_ZN6hermes2vm8JSObject27getComputedWithReceiver_RJSENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES7_(ptr nonnull %arrayLike.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %inlineStorage_.i.i, ptr nonnull %arrayLike.coerce) #11
-  %39 = extractvalue { i32, i64 } %call.i54.i, 0
-  %cmp.i55.i = icmp eq i32 %39, 0
+  %38 = extractvalue { i32, i64 } %call.i54.i, 0
+  %cmp.i55.i = icmp eq i32 %38, 0
   br i1 %cmp.i55.i, label %if.then45, label %if.end78.i
 
 if.end78.i:                                       ; preds = %for.body60.i
-  %40 = extractvalue { i32, i64 } %call.i54.i, 1
+  %39 = extractvalue { i32, i64 } %call.i54.i, 1
   %sext.i58.i = shl i64 %elemIdx57.079.i, 32
   %conv.i.i59.i = ashr exact i64 %sext.i58.i, 32
   %idx.neg.i.i.i.i60.i = sub nsw i64 0, %conv.i.i59.i
   %gep = getelementptr %"class.hermes::vm::PinnedHermesValue", ptr %invariant.gep, i64 %idx.neg.i.i.i.i60.i
-  store i64 %40, ptr %gep, align 8
+  store i64 %39, ptr %gep, align 8
   %inc89.i = add nuw i64 %elemIdx57.079.i, 1
   %exitcond.not.i = icmp eq i64 %inc89.i, %6
   br i1 %exitcond.not.i, label %if.end46, label %for.body60.i, !llvm.loop !17
@@ -2541,24 +2535,24 @@ if.end46:                                         ; preds = %if.end78.i, %for.in
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i)
   %agg.tmp.sroa.0.0.copyload.i.i.i28 = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i.i29 = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i28, 281474976710655
-  %41 = inttoptr i64 %and.i.i.i.i.i.i29 to ptr
-  %bf.load.i.i.i.i = load i32, ptr %41, align 4
+  %40 = inttoptr i64 %and.i.i.i.i.i.i29 to ptr
+  %bf.load.i.i.i.i = load i32, ptr %40, align 4
   %bf.lshr.i.i.i.i = lshr i32 %bf.load.i.i.i.i, 24
   %conv.i.i.i.i = zext nneg i32 %bf.lshr.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [79 x ptr], ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 0, i64 %conv.i.i.i.i
-  %42 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %call3.i = getelementptr inbounds %"struct.hermes::vm::CallableVTable", ptr %42, i64 0, i32 2
-  %43 = load ptr, ptr %call3.i, align 8
-  %call6.i = call { i32, i64 } %43(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
-  %44 = extractvalue { i32, i64 } %call6.i, 0
-  %45 = extractvalue { i32, i64 } %call6.i, 1
+  %41 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %call3.i = getelementptr inbounds %"struct.hermes::vm::CallableVTable", ptr %41, i64 0, i32 2
+  %42 = load ptr, ptr %call3.i, align 8
+  %call6.i = call { i32, i64 } %42(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
+  %43 = extractvalue { i32, i64 } %call6.i, 0
+  %44 = extractvalue { i32, i64 } %call6.i, 1
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end46, %if.then45, %if.then30
-  %retval.sroa.0.0 = phi i32 [ %call31, %if.then30 ], [ 0, %if.then45 ], [ %44, %if.end46 ]
-  %retval.sroa.6.0 = phi i64 [ -1688849860263936, %if.then30 ], [ -1688849860263936, %if.then45 ], [ %45, %if.end46 ]
-  %46 = load i32, ptr %nativeCallFrameDepth_.i, align 8
-  %dec.i = add i32 %46, -1
+  %retval.sroa.0.0 = phi i32 [ %call31, %if.then30 ], [ 0, %if.then45 ], [ %43, %if.end46 ]
+  %retval.sroa.6.0 = phi i64 [ -1688849860263936, %if.then30 ], [ -1688849860263936, %if.then45 ], [ %44, %if.end46 ]
+  %45 = load i32, ptr %nativeCallFrameDepth_.i, align 8
+  %dec.i = add i32 %45, -1
   store i32 %dec.i, ptr %nativeCallFrameDepth_.i, align 8
   store ptr %8, ptr %stackPointer_.i.i, align 8
   br label %return
@@ -2684,9 +2678,8 @@ _ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11H
   store ptr %add.ptr.i.i.i, ptr %stackPointer_.i.i.i, align 8
   %currentFrame_.i.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 131
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %currentFrame_.i.i, align 8
-  %19 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i.i to i64
   %arrayidx.i19.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %15, i64 6
-  store i64 %19, ptr %arrayidx.i19.i.i, align 8
+  store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %arrayidx.i19.i.i, align 8
   %arrayidx14.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %15, i64 4
   %arrayidx19.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %15, i64 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx14.i.i.i, i8 0, i64 16, i1 false)
@@ -2698,35 +2691,35 @@ _ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11H
   store i64 %retval.sroa.0.0.copyload.i.i.i.i, ptr %15, align 8
   %agg.tmp.sroa.0.0.copyload.i.i.i.i5 = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i.i.i6 = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i5, 281474976710655
-  %20 = inttoptr i64 %and.i.i.i.i.i.i.i6 to ptr
-  %bf.load.i.i.i.i.i7 = load i32, ptr %20, align 4
+  %19 = inttoptr i64 %and.i.i.i.i.i.i.i6 to ptr
+  %bf.load.i.i.i.i.i7 = load i32, ptr %19, align 4
   %bf.lshr.i.i.i.i.i8 = lshr i32 %bf.load.i.i.i.i.i7, 24
   %conv.i.i.i.i.i9 = zext nneg i32 %bf.lshr.i.i.i.i.i8 to i64
   %arrayidx.i.i.i.i.i.i.i10 = getelementptr inbounds [79 x ptr], ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 0, i64 %conv.i.i.i.i.i9
-  %21 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i10, align 8
-  %call3.i.i = getelementptr inbounds %"struct.hermes::vm::CallableVTable", ptr %21, i64 0, i32 2
-  %22 = load ptr, ptr %call3.i.i, align 8
-  %call6.i.i = tail call { i32, i64 } %22(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
-  %23 = extractvalue { i32, i64 } %call6.i.i, 0
-  %24 = load i32, ptr %nativeCallFrameDepth_.i.i, align 8
-  %dec.i.i = add i32 %24, -1
+  %20 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i10, align 8
+  %call3.i.i = getelementptr inbounds %"struct.hermes::vm::CallableVTable", ptr %20, i64 0, i32 2
+  %21 = load ptr, ptr %call3.i.i, align 8
+  %call6.i.i = tail call { i32, i64 } %21(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
+  %22 = extractvalue { i32, i64 } %call6.i.i, 0
+  %23 = load i32, ptr %nativeCallFrameDepth_.i.i, align 8
+  %dec.i.i = add i32 %23, -1
   store i32 %dec.i.i, ptr %nativeCallFrameDepth_.i.i, align 8
   store ptr %15, ptr %stackPointer_.i.i.i, align 8
-  %cmp.i12 = icmp eq i32 %23, 0
+  %cmp.i12 = icmp eq i32 %22, 0
   br i1 %cmp.i12, label %return, label %if.end21
 
 _ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit.thread: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEPS5_.exit
   %call17.i = tail call noundef i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef 1) #11
-  %25 = load i32, ptr %nativeCallFrameDepth_.i.i, align 8
-  %dec.i.i25 = add i32 %25, -1
+  %24 = load i32, ptr %nativeCallFrameDepth_.i.i, align 8
+  %dec.i.i25 = add i32 %24, -1
   store i32 %dec.i.i25, ptr %nativeCallFrameDepth_.i.i, align 8
   store ptr %15, ptr %stackPointer_.i.i.i, align 8
   %cmp.i1226 = icmp eq i32 %call17.i, 0
   br i1 %cmp.i1226, label %return, label %cond.false
 
 if.end21:                                         ; preds = %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit
-  %26 = extractvalue { i32, i64 } %call6.i.i, 1
-  %cmp.i14 = icmp ugt i64 %26, -281474976710657
+  %25 = extractvalue { i32, i64 } %call6.i.i, 1
+  %cmp.i14 = icmp ugt i64 %25, -281474976710657
   br i1 %cmp.i14, label %return, label %cond.false
 
 cond.false:                                       ; preds = %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit.thread, %if.end21
@@ -2734,8 +2727,8 @@ cond.false:                                       ; preds = %_ZN6hermes2vm8Calla
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit.thread, %entry, %if.end21, %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit, %_ZN6hermes2vm8Callable26createThisForConstruct_RJSENS0_6HandleIS1_EERNS0_7RuntimeE.exit, %cond.false
-  %retval.sroa.0.0 = phi i32 [ 1, %cond.false ], [ 0, %_ZN6hermes2vm8Callable26createThisForConstruct_RJSENS0_6HandleIS1_EERNS0_7RuntimeE.exit ], [ 0, %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit ], [ %23, %if.end21 ], [ 0, %entry ], [ 0, %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit.thread ]
-  %retval.sroa.6.0 = phi i64 [ %retval.sroa.0.0.copyload.i, %cond.false ], [ -1688849860263936, %_ZN6hermes2vm8Callable26createThisForConstruct_RJSENS0_6HandleIS1_EERNS0_7RuntimeE.exit ], [ -1688849860263936, %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit ], [ %26, %if.end21 ], [ -1688849860263936, %entry ], [ -1688849860263936, %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit.thread ]
+  %retval.sroa.0.0 = phi i32 [ 1, %cond.false ], [ 0, %_ZN6hermes2vm8Callable26createThisForConstruct_RJSENS0_6HandleIS1_EERNS0_7RuntimeE.exit ], [ 0, %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit ], [ %22, %if.end21 ], [ 0, %entry ], [ 0, %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit.thread ]
+  %retval.sroa.6.0 = phi i64 [ %retval.sroa.0.0.copyload.i, %cond.false ], [ -1688849860263936, %_ZN6hermes2vm8Callable26createThisForConstruct_RJSENS0_6HandleIS1_EERNS0_7RuntimeE.exit ], [ -1688849860263936, %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit ], [ %25, %if.end21 ], [ -1688849860263936, %entry ], [ -1688849860263936, %_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb.exit.thread ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -2919,9 +2912,8 @@ _ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11H
   store ptr %add.ptr.i.i.i, ptr %stackPointer_.i.i.i, align 8
   %currentFrame_.i.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 131
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %currentFrame_.i.i, align 8
-  %19 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i.i to i64
   %arrayidx.i19.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %15, i64 7
-  store i64 %19, ptr %arrayidx.i19.i.i, align 8
+  store ptr %agg.tmp.sroa.0.0.copyload.i.i, ptr %arrayidx.i19.i.i, align 8
   %arrayidx14.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %15, i64 5
   %arrayidx19.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %15, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx14.i.i.i, i8 0, i64 16, i1 false)
@@ -2935,35 +2927,35 @@ _ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11H
   store i64 %retval.sroa.0.0.copyload.i.i.i, ptr %15, align 8
   %agg.tmp.sroa.0.0.copyload.i.i.i.i5 = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i.i.i6 = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i5, 281474976710655
-  %20 = inttoptr i64 %and.i.i.i.i.i.i.i6 to ptr
-  %bf.load.i.i.i.i.i7 = load i32, ptr %20, align 4
+  %19 = inttoptr i64 %and.i.i.i.i.i.i.i6 to ptr
+  %bf.load.i.i.i.i.i7 = load i32, ptr %19, align 4
   %bf.lshr.i.i.i.i.i8 = lshr i32 %bf.load.i.i.i.i.i7, 24
   %conv.i.i.i.i.i9 = zext nneg i32 %bf.lshr.i.i.i.i.i8 to i64
   %arrayidx.i.i.i.i.i.i.i10 = getelementptr inbounds [79 x ptr], ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 0, i64 %conv.i.i.i.i.i9
-  %21 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i10, align 8
-  %call3.i.i = getelementptr inbounds %"struct.hermes::vm::CallableVTable", ptr %21, i64 0, i32 2
-  %22 = load ptr, ptr %call3.i.i, align 8
-  %call6.i.i = tail call { i32, i64 } %22(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
-  %23 = extractvalue { i32, i64 } %call6.i.i, 0
-  %24 = load i32, ptr %nativeCallFrameDepth_.i.i, align 8
-  %dec.i.i = add i32 %24, -1
+  %20 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i10, align 8
+  %call3.i.i = getelementptr inbounds %"struct.hermes::vm::CallableVTable", ptr %20, i64 0, i32 2
+  %21 = load ptr, ptr %call3.i.i, align 8
+  %call6.i.i = tail call { i32, i64 } %21(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
+  %22 = extractvalue { i32, i64 } %call6.i.i, 0
+  %23 = load i32, ptr %nativeCallFrameDepth_.i.i, align 8
+  %dec.i.i = add i32 %23, -1
   store i32 %dec.i.i, ptr %nativeCallFrameDepth_.i.i, align 8
   store ptr %15, ptr %stackPointer_.i.i.i, align 8
-  %cmp.i12 = icmp eq i32 %23, 0
+  %cmp.i12 = icmp eq i32 %22, 0
   br i1 %cmp.i12, label %return, label %if.end27
 
 _ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit.thread: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEPS5_.exit
   %call18.i = tail call noundef i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef 1) #11
-  %25 = load i32, ptr %nativeCallFrameDepth_.i.i, align 8
-  %dec.i.i25 = add i32 %25, -1
+  %24 = load i32, ptr %nativeCallFrameDepth_.i.i, align 8
+  %dec.i.i25 = add i32 %24, -1
   store i32 %dec.i.i25, ptr %nativeCallFrameDepth_.i.i, align 8
   store ptr %15, ptr %stackPointer_.i.i.i, align 8
   %cmp.i1226 = icmp eq i32 %call18.i, 0
   br i1 %cmp.i1226, label %return, label %cond.false
 
 if.end27:                                         ; preds = %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit
-  %26 = extractvalue { i32, i64 } %call6.i.i, 1
-  %cmp.i14 = icmp ugt i64 %26, -281474976710657
+  %25 = extractvalue { i32, i64 } %call6.i.i, 1
+  %cmp.i14 = icmp ugt i64 %25, -281474976710657
   br i1 %cmp.i14, label %return, label %cond.false
 
 cond.false:                                       ; preds = %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit.thread, %if.end27
@@ -2971,8 +2963,8 @@ cond.false:                                       ; preds = %_ZN6hermes2vm8Calla
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit.thread, %entry, %if.end27, %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit, %_ZN6hermes2vm8Callable26createThisForConstruct_RJSENS0_6HandleIS1_EERNS0_7RuntimeE.exit, %cond.false
-  %retval.sroa.0.0 = phi i32 [ 1, %cond.false ], [ 0, %_ZN6hermes2vm8Callable26createThisForConstruct_RJSENS0_6HandleIS1_EERNS0_7RuntimeE.exit ], [ 0, %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit ], [ %23, %if.end27 ], [ 0, %entry ], [ 0, %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit.thread ]
-  %retval.sroa.6.0 = phi i64 [ %retval.sroa.0.0.copyload.i, %cond.false ], [ -1688849860263936, %_ZN6hermes2vm8Callable26createThisForConstruct_RJSENS0_6HandleIS1_EERNS0_7RuntimeE.exit ], [ -1688849860263936, %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit ], [ %26, %if.end27 ], [ -1688849860263936, %entry ], [ -1688849860263936, %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit.thread ]
+  %retval.sroa.0.0 = phi i32 [ 1, %cond.false ], [ 0, %_ZN6hermes2vm8Callable26createThisForConstruct_RJSENS0_6HandleIS1_EERNS0_7RuntimeE.exit ], [ 0, %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit ], [ %22, %if.end27 ], [ 0, %entry ], [ 0, %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit.thread ]
+  %retval.sroa.6.0 = phi i64 [ %retval.sroa.0.0.copyload.i, %cond.false ], [ -1688849860263936, %_ZN6hermes2vm8Callable26createThisForConstruct_RJSENS0_6HandleIS1_EERNS0_7RuntimeE.exit ], [ -1688849860263936, %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit ], [ %25, %if.end27 ], [ -1688849860263936, %entry ], [ -1688849860263936, %_ZN6hermes2vm8Callable12executeCall1ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_b.exit.thread ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -3589,7 +3581,6 @@ for.cond:                                         ; preds = %_ZSt20uninitialized
 if.then13:                                        ; preds = %for.cond
   store ptr %1, ptr %stackPointer_.i, align 8
   %call16 = tail call noundef i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef 0) #11
-  %.pre = ptrtoint ptr %ip to i64
   br label %bail
 
 if.end17:                                         ; preds = %for.cond
@@ -3638,12 +3629,10 @@ for.end:                                          ; preds = %_ZSt20uninitialized
   %add.i.i.i.i.i.i66 = add i64 %conv.i.i.i.i.i.i65, %4
   %12 = or i64 %add.i.i.i.i.i.i66, -281474976710656
   %or.i.i.i = select i1 %cmp.i.not.i.i.i.i.i64, i64 -281474976710656, i64 %12
-  %13 = ptrtoint ptr %retval.sroa.0.0.copyload.i61 to i64
   %arrayidx.i117 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %11, i64 6
-  store i64 %13, ptr %arrayidx.i117, align 8
-  %14 = ptrtoint ptr %ip to i64
+  store ptr %retval.sroa.0.0.copyload.i61, ptr %arrayidx.i117, align 8
   %arrayidx9.i120 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %11, i64 5
-  store i64 %14, ptr %arrayidx9.i120, align 8
+  store ptr %ip, ptr %arrayidx9.i120, align 8
   %arrayidx14.i123 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %11, i64 4
   store i64 0, ptr %arrayidx14.i123, align 8
   %conv.i71 = zext i32 %add to i64
@@ -3662,8 +3651,8 @@ cond.false:                                       ; preds = %for.end
   %agg.tmp.sroa.0.0.copyload.i.i.i77 = load i32, ptr %argStorage_.i, align 4
   %conv.i.i.i.i78 = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i77 to i64
   %add.i.i.i.i79 = add i64 %conv.i.i.i.i78, %4
-  %15 = inttoptr i64 %add.i.i.i.i79 to ptr
-  %add.ptr.i.i.i.i.i80 = getelementptr inbounds %"class.hermes::vm::ArrayStorageBase", ptr %15, i64 1
+  %13 = inttoptr i64 %add.i.i.i.i79 to ptr
+  %add.ptr.i.i.i.i.i80 = getelementptr inbounds %"class.hermes::vm::ArrayStorageBase", ptr %13, i64 1
   br label %cond.end
 
 cond.end:                                         ; preds = %for.end, %cond.false
@@ -3671,28 +3660,27 @@ cond.end:                                         ; preds = %for.end, %cond.fals
   %storemerge = load i64, ptr %storemerge.in, align 8
   store i64 %storemerge, ptr %11, align 8
   %and.i.i.i.i.i.i = and i64 %or.i.i.i, 281474976710655
-  %16 = inttoptr i64 %and.i.i.i.i.i.i to ptr
-  %bf.load.i.i.i.i = load i32, ptr %16, align 4
+  %14 = inttoptr i64 %and.i.i.i.i.i.i to ptr
+  %bf.load.i.i.i.i = load i32, ptr %14, align 4
   %bf.lshr.i.i.i.i = lshr i32 %bf.load.i.i.i.i, 24
   %conv.i.i.i.i84 = zext nneg i32 %bf.lshr.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [79 x ptr], ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 0, i64 %conv.i.i.i.i84
-  %17 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %call3.i85 = getelementptr inbounds %"struct.hermes::vm::CallableVTable", ptr %17, i64 0, i32 2
-  %18 = load ptr, ptr %call3.i85, align 8
-  %call6.i = tail call { i32, i64 } %18(ptr nonnull %arrayidx23.i130, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
-  %19 = extractvalue { i32, i64 } %call6.i, 0
-  %20 = extractvalue { i32, i64 } %call6.i, 1
+  %15 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %call3.i85 = getelementptr inbounds %"struct.hermes::vm::CallableVTable", ptr %15, i64 0, i32 2
+  %16 = load ptr, ptr %call3.i85, align 8
+  %call6.i = tail call { i32, i64 } %16(ptr nonnull %arrayidx23.i130, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #11
+  %17 = extractvalue { i32, i64 } %call6.i, 0
+  %18 = extractvalue { i32, i64 } %call6.i, 1
   store ptr %1, ptr %stackPointer_.i, align 8
   br label %bail
 
 bail:                                             ; preds = %cond.end, %if.then13
-  %.pre-phi = phi i64 [ %14, %cond.end ], [ %.pre, %if.then13 ]
-  %retval.sroa.0.0 = phi i32 [ %19, %cond.end ], [ %call16, %if.then13 ]
-  %retval.sroa.6.0 = phi i64 [ %20, %cond.end ], [ -1688849860263936, %if.then13 ]
+  %retval.sroa.0.0 = phi i32 [ %17, %cond.end ], [ %call16, %if.then13 ]
+  %retval.sroa.6.0 = phi i64 [ %18, %cond.end ], [ -1688849860263936, %if.then13 ]
   %arrayidx.i100 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %1, i64 -1
   store i64 0, ptr %arrayidx.i100, align 8
   %arrayidx9.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %1, i64 -2
-  store i64 %.pre-phi, ptr %arrayidx9.i, align 8
+  store ptr %ip, ptr %arrayidx9.i, align 8
   %arrayidx14.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %1, i64 -3
   store i64 0, ptr %arrayidx14.i, align 8
   store i64 -1125899906842624, ptr %arrayidx.i.i, align 8
@@ -3707,8 +3695,8 @@ bail:                                             ; preds = %cond.end, %if.then1
 cleanup:                                          ; preds = %bail, %if.then
   %retval.sroa.0.1 = phi i32 [ %call1, %if.then ], [ %retval.sroa.0.0, %bail ]
   %retval.sroa.6.1 = phi i64 [ -1688849860263936, %if.then ], [ %retval.sroa.6.0, %bail ]
-  %21 = load i32, ptr %nativeCallFrameDepth_.i, align 8
-  %dec.i = add i32 %21, -1
+  %19 = load i32, ptr %nativeCallFrameDepth_.i, align 8
+  %dec.i = add i32 %19, -1
   store i32 %dec.i, ptr %nativeCallFrameDepth_.i, align 8
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.1, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.6.1, 1
@@ -4063,63 +4051,60 @@ if.end:                                           ; preds = %entry
   store ptr %1, ptr %currentFrame_.i, align 8
   %currentIP_.i.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 146
   %2 = load ptr, ptr %currentIP_.i.i, align 8
-  %3 = ptrtoint ptr %2 to i64
   %arrayidx.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %1, i64 -2
-  store i64 %3, ptr %arrayidx.i.i, align 8
+  store ptr %2, ptr %arrayidx.i.i, align 8
   %registerStackEnd_.i.i.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 128
-  %4 = load ptr, ptr %registerStackEnd_.i.i.i, align 8
-  %5 = load ptr, ptr %stackPointer_.i, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
+  %3 = load ptr, ptr %registerStackEnd_.i.i.i, align 8
+  %4 = load ptr, ptr %stackPointer_.i, align 8
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %3 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %6 = and i64 %sub.ptr.sub.i.i.i, 34359738360
-  %cmp.i.i12 = icmp ugt i64 %6, 256
+  %5 = and i64 %sub.ptr.sub.i.i.i, 34359738360
+  %cmp.i.i12 = icmp ugt i64 %5, 256
   br i1 %cmp.i.i12, label %if.end13, label %if.then7
 
 if.then7:                                         ; preds = %if.end
   store ptr %1, ptr %stackPointer_.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %1, i64 -1
-  %7 = load i64, ptr %arrayidx.i.i.i.i, align 8
-  %8 = inttoptr i64 %7 to ptr
-  store ptr %8, ptr %currentFrame_.i, align 8
+  %6 = load i64, ptr %arrayidx.i.i.i.i, align 8
+  store i64 %6, ptr %currentFrame_.i, align 8
   %call12 = tail call noundef i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef 0) #11
   br label %cleanup
 
 if.end13:                                         ; preds = %if.end
   tail call void @_ZN6hermes2vm7Runtime10allocStackEjNS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef 1, i64 -1688849860263936) #11
   %functionPtr_ = getelementptr inbounds %"class.hermes::vm::NativeFunction", ptr %self, i64 0, i32 2
-  %9 = load ptr, ptr %functionPtr_, align 8
+  %7 = load ptr, ptr %functionPtr_, align 8
   %context_ = getelementptr inbounds %"class.hermes::vm::NativeFunction", ptr %self, i64 0, i32 1
-  %10 = load ptr, ptr %context_, align 8
+  %8 = load ptr, ptr %context_, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   %arrayidx.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %1, i64 -7
   %arrayidx.i.i1.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %1, i64 -4
-  %11 = load i64, ptr %arrayidx.i.i1.i, align 8, !noalias !40
-  %conv.i.i.i = trunc i64 %11 to i32
+  %9 = load i64, ptr %arrayidx.i.i1.i, align 8, !noalias !40
+  %conv.i.i.i = trunc i64 %9 to i32
   %arrayidx.i.i16 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %1, i64 -5
   store ptr %arrayidx.i.i.i, ptr %agg.tmp14, align 8, !alias.scope !40
   %argCount_.i.i = getelementptr inbounds %"class.hermes::vm::NativeArgs", ptr %agg.tmp14, i64 0, i32 1
   store i32 %conv.i.i.i, ptr %argCount_.i.i, align 8, !alias.scope !40
   %newTarget_.i.i = getelementptr inbounds %"class.hermes::vm::NativeArgs", ptr %agg.tmp14, i64 0, i32 2
   store ptr %arrayidx.i.i16, ptr %newTarget_.i.i, align 8, !alias.scope !40
-  %call15 = call { i32, i64 } %9(ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp14) #11
-  %12 = extractvalue { i32, i64 } %call15, 0
-  %13 = extractvalue { i32, i64 } %call15, 1
+  %call15 = call { i32, i64 } %7(ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp14) #11
+  %10 = extractvalue { i32, i64 } %call15, 0
+  %11 = extractvalue { i32, i64 } %call15, 1
   store ptr %1, ptr %stackPointer_.i, align 8
   %arrayidx.i.i.i.i18 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %1, i64 -1
-  %14 = load i64, ptr %arrayidx.i.i.i.i18, align 8
-  %15 = inttoptr i64 %14 to ptr
-  store ptr %15, ptr %currentFrame_.i, align 8
-  %cmp.i = icmp ne i32 %12, 0
+  %12 = load i64, ptr %arrayidx.i.i.i.i18, align 8
+  store i64 %12, ptr %currentFrame_.i, align 8
+  %cmp.i = icmp ne i32 %10, 0
   %spec.select = zext i1 %cmp.i to i32
-  %spec.select23 = select i1 %cmp.i, i64 %13, i64 -1688849860263936
+  %spec.select23 = select i1 %cmp.i, i64 %11, i64 -1688849860263936
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end13, %if.then7, %if.then
   %retval.sroa.0.0 = phi i32 [ %call1, %if.then ], [ %call12, %if.then7 ], [ %spec.select, %if.end13 ]
   %retval.sroa.5.0 = phi i64 [ -1688849860263936, %if.then ], [ -1688849860263936, %if.then7 ], [ %spec.select23, %if.end13 ]
-  %16 = load i32, ptr %nativeCallFrameDepth_.i, align 8
-  %dec.i = add i32 %16, -1
+  %13 = load i32, ptr %nativeCallFrameDepth_.i, align 8
+  %dec.i = add i32 %13, -1
   store i32 %dec.i, ptr %nativeCallFrameDepth_.i, align 8
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.5.0, 1
@@ -4912,9 +4897,8 @@ _ZN6hermes2vm21ScopedNativeCallFrameC2ERNS0_7RuntimeEjNS0_11HermesValueES4_S4_.e
   store ptr %add.ptr.i.i, ptr %stackPointer_.i.i, align 8
   %currentFrame_.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 131
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %currentFrame_.i, align 8
-  %26 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i to i64
   %arrayidx.i19.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %add.ptr.i.i, i64 -1
-  store i64 %26, ptr %arrayidx.i19.i, align 8
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %arrayidx.i19.i, align 8
   %arrayidx14.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %add.ptr.i.i, i64 -3
   %conv.i.i30 = zext i32 %21 to i64
   %or.i.i.i31 = or disjoint i64 %conv.i.i30, -1125899906842624
@@ -4942,9 +4926,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.084 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %for.body ]
   %agg.tmp.sroa.0.0.copyload.i.i33 = load i64, ptr %retval.0.i.i.i.i.i.i.i, align 8
   %and.i.i.i.i.i34 = and i64 %agg.tmp.sroa.0.0.copyload.i.i33, 281474976710655
-  %27 = inttoptr i64 %and.i.i.i.i.i34 to ptr
+  %26 = inttoptr i64 %and.i.i.i.i.i34 to ptr
   %add = add nuw i32 %i.084, 1
-  %add.ptr.i.i.i.i35 = getelementptr inbounds %"class.hermes::vm::ArrayStorageBase", ptr %27, i64 1
+  %add.ptr.i.i.i.i35 = getelementptr inbounds %"class.hermes::vm::ArrayStorageBase", ptr %26, i64 1
   %idxprom.i = zext i32 %add to i64
   %arrayidx.i = getelementptr inbounds %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i35, i64 %idxprom.i
   %retval.sroa.0.0.copyload.i36 = load i64, ptr %arrayidx.i, align 8
@@ -4959,25 +4943,25 @@ if.end63:                                         ; preds = %for.body, %_ZN6herm
   %arrayidx.i.i.i42 = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 97, i32 0, i32 0, i32 28, i64 1
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i66 = and i64 %retval.sroa.0.0.copyload.i.i.i, 281474976710655
-  %28 = inttoptr i64 %and.i.i.i.i.i66 to ptr
-  %codeBlock_.i.i = getelementptr inbounds %"class.hermes::vm::JSFunction", ptr %28, i64 0, i32 1
-  %29 = load i64, ptr %codeBlock_.i.i, align 8
-  %30 = load i64, ptr %arrayidx.i.i.i42, align 8
-  %xor.i.i.i.i = xor i64 %30, %29
-  %31 = inttoptr i64 %xor.i.i.i.i to ptr
-  %call4.i = tail call { i32, i64 } @_ZN6hermes2vm7Runtime17interpretFunctionEPNS0_9CodeBlockE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %31) #11
-  %32 = extractvalue { i32, i64 } %call4.i, 0
-  %33 = extractvalue { i32, i64 } %call4.i, 1
-  %cmp.i.i67 = icmp ne i32 %32, 0
+  %27 = inttoptr i64 %and.i.i.i.i.i66 to ptr
+  %codeBlock_.i.i = getelementptr inbounds %"class.hermes::vm::JSFunction", ptr %27, i64 0, i32 1
+  %28 = load i64, ptr %codeBlock_.i.i, align 8
+  %29 = load i64, ptr %arrayidx.i.i.i42, align 8
+  %xor.i.i.i.i = xor i64 %29, %28
+  %30 = inttoptr i64 %xor.i.i.i.i to ptr
+  %call4.i = tail call { i32, i64 } @_ZN6hermes2vm7Runtime17interpretFunctionEPNS0_9CodeBlockE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %30) #11
+  %31 = extractvalue { i32, i64 } %call4.i, 0
+  %32 = extractvalue { i32, i64 } %call4.i, 1
+  %cmp.i.i67 = icmp ne i32 %31, 0
   %spec.select.i = zext i1 %cmp.i.i67 to i32
-  %spec.select4.i = select i1 %cmp.i.i67, i64 %33, i64 -1688849860263936
+  %spec.select4.i = select i1 %cmp.i.i67, i64 %32, i64 -1688849860263936
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end63, %if.then
   %retval.sroa.0.0 = phi i32 [ %call30, %if.then ], [ %spec.select.i, %if.end63 ]
   %retval.sroa.5.0 = phi i64 [ -1688849860263936, %if.then ], [ %spec.select4.i, %if.end63 ]
-  %34 = load i32, ptr %nativeCallFrameDepth_.i, align 8
-  %dec.i = add i32 %34, -1
+  %33 = load i32, ptr %nativeCallFrameDepth_.i, align 8
+  %dec.i = add i32 %33, -1
   store i32 %dec.i, ptr %nativeCallFrameDepth_.i, align 8
   store ptr %23, ptr %stackPointer_.i.i, align 8
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0

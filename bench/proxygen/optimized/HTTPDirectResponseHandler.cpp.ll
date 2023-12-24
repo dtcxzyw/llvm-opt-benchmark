@@ -485,22 +485,21 @@ invoke.cont91:                                    ; preds = %invoke.cont88
 
 if.then93:                                        ; preds = %invoke.cont91
   %15 = load ptr, ptr %txn_, align 8
-  %16 = ptrtoint ptr %responseBody.sroa.0.026 to i64
-  store i64 %16, ptr %agg.tmp95, align 8
+  store ptr %responseBody.sroa.0.026, ptr %agg.tmp95, align 8
   %vtable96 = load ptr, ptr %15, align 8
   %vfn97 = getelementptr inbounds ptr, ptr %vtable96, i64 14
-  %17 = load ptr, ptr %vfn97, align 8
-  invoke void %17(ptr noundef nonnull align 8 dereferenceable(912) %15, ptr noundef nonnull %agg.tmp95)
+  %16 = load ptr, ptr %vfn97, align 8
+  invoke void %16(ptr noundef nonnull align 8 dereferenceable(912) %15, ptr noundef nonnull %agg.tmp95)
           to label %invoke.cont98 unwind label %terminate.lpad
 
 invoke.cont98:                                    ; preds = %if.then93
-  %18 = load ptr, ptr %agg.tmp95, align 8
-  %cmp.not.i11 = icmp eq ptr %18, null
+  %17 = load ptr, ptr %agg.tmp95, align 8
+  %cmp.not.i11 = icmp eq ptr %17, null
   br i1 %cmp.not.i11, label %if.end99.thread, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i12
 
 _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i12: ; preds = %invoke.cont98
-  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %18) #16
-  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %18) #16
+  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %17) #16
+  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %17) #16
   br label %if.end99.thread
 
 if.end99.thread:                                  ; preds = %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i12, %invoke.cont98
@@ -521,10 +520,10 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit16: ; preds = %
   ret void
 
 terminate.lpad:                                   ; preds = %call.i.i.noexc, %invoke.cont87, %call.i.i.i.noexc, %if.then28, %if.then93, %invoke.cont88, %cond.end85, %cond.true80, %cleanup.done68, %invoke.cont60, %invoke.cont58, %invoke.cont56, %cond.false52, %cond.true42, %if.then34, %invoke.cont23, %if.else, %if.then, %invoke.cont15, %invoke.cont14, %cleanup.done, %invoke.cont8, %invoke.cont7, %cond.false4, %cond.true
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #18
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #18
   unreachable
 }
 

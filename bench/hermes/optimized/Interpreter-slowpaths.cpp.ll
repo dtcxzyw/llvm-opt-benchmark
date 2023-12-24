@@ -3219,15 +3219,12 @@ entry:
   %sub = add i32 %op3, -1
   %5 = ptrtoint ptr %3 to i64
   %or.i.i.i = or i64 %5, -281474976710656
-  %6 = ptrtoint ptr %add.ptr to i64
   %arrayidx.i27 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %4, i64 -1
-  store i64 %6, ptr %arrayidx.i27, align 8
-  %7 = ptrtoint ptr %0 to i64
+  store ptr %add.ptr, ptr %arrayidx.i27, align 8
   %arrayidx9.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %4, i64 -2
-  store i64 %7, ptr %arrayidx9.i, align 8
-  %8 = ptrtoint ptr %curCodeBlock to i64
+  store ptr %0, ptr %arrayidx9.i, align 8
   %arrayidx14.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %4, i64 -3
-  store i64 %8, ptr %arrayidx14.i, align 8
+  store ptr %curCodeBlock, ptr %arrayidx14.i, align 8
   %conv.i17 = zext i32 %sub to i64
   %or.i.i = or disjoint i64 %conv.i17, -1125899906842624
   %arrayidx19.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %4, i64 -4
@@ -3239,17 +3236,17 @@ entry:
   %arrayidx.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %4, i64 -7
   store i64 -1688849860263936, ptr %arrayidx.i, align 8
   %call9 = tail call { i32, i64 } @_ZN6hermes2vm14NativeFunction11_nativeCallEPS1_RNS0_7RuntimeE(ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(9832) %runtime)
-  %9 = extractvalue { i32, i64 } %call9, 0
-  %cmp.i = icmp eq i32 %9, 0
+  %6 = extractvalue { i32, i64 } %call9, 0
+  %cmp.i = icmp eq i32 %6, 0
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %10 = extractvalue { i32, i64 } %call9, 1
+  %7 = extractvalue { i32, i64 } %call9, 1
   %op1 = getelementptr inbounds %"struct.hermes::inst::CallBuiltinInst", ptr %0, i64 0, i32 1
-  %11 = load i8, ptr %op1, align 1
-  %idxprom = zext i8 %11 to i64
+  %8 = load i8, ptr %op1, align 1
+  %idxprom = zext i8 %8 to i64
   %arrayidx = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %frameRegs, i64 %idxprom
-  store i64 %10, ptr %arrayidx, align 8
+  store i64 %7, ptr %arrayidx, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -3279,63 +3276,60 @@ if.end:                                           ; preds = %entry
   store ptr %1, ptr %currentFrame_.i, align 8
   %currentIP_.i.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 146
   %2 = load ptr, ptr %currentIP_.i.i, align 8
-  %3 = ptrtoint ptr %2 to i64
   %arrayidx.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %1, i64 -2
-  store i64 %3, ptr %arrayidx.i.i, align 8
+  store ptr %2, ptr %arrayidx.i.i, align 8
   %registerStackEnd_.i.i.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 128
-  %4 = load ptr, ptr %registerStackEnd_.i.i.i, align 8
-  %5 = load ptr, ptr %stackPointer_.i, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
+  %3 = load ptr, ptr %registerStackEnd_.i.i.i, align 8
+  %4 = load ptr, ptr %stackPointer_.i, align 8
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %3 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %6 = and i64 %sub.ptr.sub.i.i.i, 34359738360
-  %cmp.i.i12 = icmp ugt i64 %6, 256
+  %5 = and i64 %sub.ptr.sub.i.i.i, 34359738360
+  %cmp.i.i12 = icmp ugt i64 %5, 256
   br i1 %cmp.i.i12, label %if.end13, label %if.then7
 
 if.then7:                                         ; preds = %if.end
   store ptr %1, ptr %stackPointer_.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %1, i64 -1
-  %7 = load i64, ptr %arrayidx.i.i.i.i, align 8
-  %8 = inttoptr i64 %7 to ptr
-  store ptr %8, ptr %currentFrame_.i, align 8
+  %6 = load i64, ptr %arrayidx.i.i.i.i, align 8
+  store i64 %6, ptr %currentFrame_.i, align 8
   %call12 = tail call noundef i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef 0) #10
   br label %cleanup
 
 if.end13:                                         ; preds = %if.end
   tail call void @_ZN6hermes2vm7Runtime10allocStackEjNS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef 1, i64 -1688849860263936) #10
   %functionPtr_ = getelementptr inbounds %"class.hermes::vm::NativeFunction", ptr %self, i64 0, i32 2
-  %9 = load ptr, ptr %functionPtr_, align 8
+  %7 = load ptr, ptr %functionPtr_, align 8
   %context_ = getelementptr inbounds %"class.hermes::vm::NativeFunction", ptr %self, i64 0, i32 1
-  %10 = load ptr, ptr %context_, align 8
+  %8 = load ptr, ptr %context_, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   %arrayidx.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %1, i64 -7
   %arrayidx.i.i1.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %1, i64 -4
-  %11 = load i64, ptr %arrayidx.i.i1.i, align 8, !noalias !9
-  %conv.i.i.i = trunc i64 %11 to i32
+  %9 = load i64, ptr %arrayidx.i.i1.i, align 8, !noalias !9
+  %conv.i.i.i = trunc i64 %9 to i32
   %arrayidx.i.i16 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %1, i64 -5
   store ptr %arrayidx.i.i.i, ptr %agg.tmp14, align 8, !alias.scope !9
   %argCount_.i.i = getelementptr inbounds %"class.hermes::vm::NativeArgs", ptr %agg.tmp14, i64 0, i32 1
   store i32 %conv.i.i.i, ptr %argCount_.i.i, align 8, !alias.scope !9
   %newTarget_.i.i = getelementptr inbounds %"class.hermes::vm::NativeArgs", ptr %agg.tmp14, i64 0, i32 2
   store ptr %arrayidx.i.i16, ptr %newTarget_.i.i, align 8, !alias.scope !9
-  %call15 = call { i32, i64 } %9(ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp14) #10
-  %12 = extractvalue { i32, i64 } %call15, 0
-  %13 = extractvalue { i32, i64 } %call15, 1
+  %call15 = call { i32, i64 } %7(ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp14) #10
+  %10 = extractvalue { i32, i64 } %call15, 0
+  %11 = extractvalue { i32, i64 } %call15, 1
   store ptr %1, ptr %stackPointer_.i, align 8
   %arrayidx.i.i.i.i18 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %1, i64 -1
-  %14 = load i64, ptr %arrayidx.i.i.i.i18, align 8
-  %15 = inttoptr i64 %14 to ptr
-  store ptr %15, ptr %currentFrame_.i, align 8
-  %cmp.i = icmp ne i32 %12, 0
+  %12 = load i64, ptr %arrayidx.i.i.i.i18, align 8
+  store i64 %12, ptr %currentFrame_.i, align 8
+  %cmp.i = icmp ne i32 %10, 0
   %spec.select = zext i1 %cmp.i to i32
-  %spec.select23 = select i1 %cmp.i, i64 %13, i64 -1688849860263936
+  %spec.select23 = select i1 %cmp.i, i64 %11, i64 -1688849860263936
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end13, %if.then7, %if.then
   %retval.sroa.0.0 = phi i32 [ %call1, %if.then ], [ %call12, %if.then7 ], [ %spec.select, %if.end13 ]
   %retval.sroa.5.0 = phi i64 [ -1688849860263936, %if.then ], [ -1688849860263936, %if.then7 ], [ %spec.select23, %if.end13 ]
-  %16 = load i32, ptr %nativeCallFrameDepth_.i, align 8
-  %dec.i = add i32 %16, -1
+  %13 = load i32, ptr %nativeCallFrameDepth_.i, align 8
+  %dec.i = add i32 %13, -1
   store i32 %dec.i, ptr %nativeCallFrameDepth_.i, align 8
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.5.0, 1

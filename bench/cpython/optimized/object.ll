@@ -5906,7 +5906,7 @@ if.then3:                                         ; preds = %if.then
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.then3, %while.body.i
-  %2 = phi ptr [ %7, %while.body.i ], [ %1, %if.then3 ]
+  %2 = phi ptr [ %6, %while.body.i ], [ %1, %if.then3 ]
   %3 = getelementptr i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %3, align 8
   %tp_dealloc.i = getelementptr inbounds %struct._typeobject, ptr %.val.i, i64 0, i32 4
@@ -5914,17 +5914,16 @@ while.body.i:                                     ; preds = %if.then3, %while.bo
   %5 = getelementptr i8, ptr %2, i64 -8
   %call2.val.i = load i64, ptr %5, align 8
   %and.i.i = and i64 %call2.val.i, -4
-  %6 = inttoptr i64 %and.i.i to ptr
-  store ptr %6, ptr %delete_later, align 8
+  store i64 %and.i.i, ptr %delete_later, align 8
   tail call void %4(ptr noundef nonnull %2) #19
-  %7 = load ptr, ptr %delete_later, align 8
-  %tobool.not.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %delete_later, align 8
+  %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %_PyTrash_thread_destroy_chain.exit, label %while.body.i, !llvm.loop !12
 
 _PyTrash_thread_destroy_chain.exit:               ; preds = %while.body.i
   %.pre.i = load i32, ptr %retval.0.i, align 8
-  %8 = add i32 %.pre.i, -1
-  store i32 %8, ptr %retval.0.i, align 8
+  %7 = add i32 %.pre.i, -1
+  store i32 %7, ptr %retval.0.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %_PyTrash_thread_destroy_chain.exit, %if.then

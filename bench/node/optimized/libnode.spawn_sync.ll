@@ -1015,7 +1015,7 @@ do.end:                                           ; preds = %entry, %if.end.i
   store i32 0, ptr %lifecycle_.i, align 4
   %env_.i = getelementptr inbounds %"class.node::SyncProcessRunner", ptr %p, i64 0, i32 23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(153) %uv_timer_.i, i8 0, i64 153, i1 false)
-  store ptr %11, ptr %env_.i, align 8
+  store i64 %10, ptr %env_.i, align 8
   %length_.i = getelementptr inbounds %"class.v8::FunctionCallbackInfo", ptr %args, i64 0, i32 2
   %14 = load i32, ptr %length_.i, align 8
   %cmp2.i = icmp slt i32 %14, 1
@@ -1068,7 +1068,7 @@ entry:
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  store i64 ptrtoint (ptr @_ZN4node17SyncProcessRunner5SpawnERKN2v820FunctionCallbackInfoINS1_5ValueEEE to i64), ptr %0, align 8
+  store ptr @_ZN4node17SyncProcessRunner5SpawnERKN2v820FunctionCallbackInfoINS1_5ValueEEE, ptr %0, align 8
   %2 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds i64, ptr %2, i64 1
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
@@ -1105,7 +1105,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %_ZNKS
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i
   %cond.i10.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i ]
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i
-  store i64 ptrtoint (ptr @_ZN4node17SyncProcessRunner5SpawnERKN2v820FunctionCallbackInfoINS1_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i, align 8
+  store ptr @_ZN4node17SyncProcessRunner5SpawnERKN2v820FunctionCallbackInfoINS1_5ValueEEE, ptr %add.ptr.i.i.i.i.i, align 8
   %cmp.i.i.i11.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i, label %if.then.i.i.i12.i.i.i.i.i, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i
 
@@ -3105,16 +3105,22 @@ for.body.i4.i:                                    ; preds = %_ZN2v810MaybeLocalI
 _ZNK4node20SyncProcessStdioPipe17GetOutputAsBufferEPNS_11EnvironmentE.exit: ; preds = %for.body.i4.i, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit.i
   %18 = load i64, ptr %js_output, align 8
   %cmp.not.i = icmp ugt i64 %18, %conv33
-  br i1 %cmp.not.i, label %for.inc, label %do.body4.i
+  br i1 %cmp.not.i, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit, label %do.body4.i
 
 do.body4.i:                                       ; preds = %_ZNK4node20SyncProcessStdioPipe17GetOutputAsBufferEPNS_11EnvironmentE.exit
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEmE4args) #25
   call void @abort() #26
   unreachable
 
+_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit: ; preds = %_ZNK4node20SyncProcessStdioPipe17GetOutputAsBufferEPNS_11EnvironmentE.exit
+  %19 = load ptr, ptr %buf_.i.i, align 8
+  %arrayidx.i = getelementptr inbounds %"class.v8::Local.2", ptr %19, i64 %conv33
+  store ptr %call2.i, ptr %arrayidx.i, align 8
+  br label %for.inc
+
 if.else:                                          ; preds = %land.lhs.true, %for.body
-  %19 = load i64, ptr %js_output, align 8
-  %cmp.not.i17 = icmp ugt i64 %19, %conv33
+  %20 = load i64, ptr %js_output, align 8
+  %cmp.not.i17 = icmp ugt i64 %20, %conv33
   br i1 %cmp.not.i17, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit21, label %do.body4.i18
 
 do.body4.i18:                                     ; preds = %if.else
@@ -3123,19 +3129,17 @@ do.body4.i18:                                     ; preds = %if.else
   unreachable
 
 _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit21: ; preds = %if.else
-  %20 = load ptr, ptr %env_.i, align 8
-  %isolate_.i16 = getelementptr inbounds %"class.node::Environment", ptr %20, i64 0, i32 3
-  %21 = load ptr, ptr %isolate_.i16, align 8
-  %22 = ptrtoint ptr %21 to i64
-  %add1.i = add i64 %22, 624
-  %23 = inttoptr i64 %add1.i to ptr
+  %21 = load ptr, ptr %env_.i, align 8
+  %isolate_.i16 = getelementptr inbounds %"class.node::Environment", ptr %21, i64 0, i32 3
+  %22 = load ptr, ptr %isolate_.i16, align 8
+  %23 = ptrtoint ptr %22 to i64
+  %add1.i = add i64 %23, 624
+  %24 = load ptr, ptr %buf_.i.i, align 8
+  %arrayidx.i20 = getelementptr inbounds %"class.v8::Local.2", ptr %24, i64 %conv33
+  store i64 %add1.i, ptr %arrayidx.i20, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %_ZNK4node20SyncProcessStdioPipe17GetOutputAsBufferEPNS_11EnvironmentE.exit, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit21
-  %call2.i.sink = phi ptr [ %23, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit21 ], [ %call2.i, %_ZNK4node20SyncProcessStdioPipe17GetOutputAsBufferEPNS_11EnvironmentE.exit ]
-  %24 = load ptr, ptr %buf_.i.i, align 8
-  %arrayidx.i = getelementptr inbounds %"class.v8::Local.2", ptr %24, i64 %conv33
-  store ptr %call2.i.sink, ptr %arrayidx.i, align 8
+for.inc:                                          ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEm.exit21
   %inc = add i32 %i.032, 1
   %conv = zext i32 %inc to i64
   %25 = load ptr, ptr %_M_finish.i.i, align 8
@@ -4120,7 +4124,7 @@ entry:
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  store i64 ptrtoint (ptr @_ZN4node17SyncProcessRunner5SpawnERKN2v820FunctionCallbackInfoINS1_5ValueEEE to i64), ptr %0, align 8
+  store ptr @_ZN4node17SyncProcessRunner5SpawnERKN2v820FunctionCallbackInfoINS1_5ValueEEE, ptr %0, align 8
   %2 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %2, i64 1
   store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8
@@ -4157,7 +4161,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %_ZN
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i.i, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
   %cond.i10.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i.i ]
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i.i
-  store i64 ptrtoint (ptr @_ZN4node17SyncProcessRunner5SpawnERKN2v820FunctionCallbackInfoINS1_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i.i, align 8
+  store ptr @_ZN4node17SyncProcessRunner5SpawnERKN2v820FunctionCallbackInfoINS1_5ValueEEE, ptr %add.ptr.i.i.i.i.i.i, align 8
   %cmp.i.i.i11.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i.i, label %if.then.i.i.i12.i.i.i.i.i.i, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i.i
 

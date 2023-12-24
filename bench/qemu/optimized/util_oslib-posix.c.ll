@@ -1006,26 +1006,25 @@ if.else:                                          ; preds = %lor.lhs.false4
 if.then19:                                        ; preds = %if.else, %if.else, %if.else, %if.else
   %ssi_addr = getelementptr inbounds %struct.qemu_signalfd_siginfo, ptr %info, i64 0, i32 15
   %5 = load i64, ptr %ssi_addr, align 8
-  %6 = inttoptr i64 %5 to ptr
   %_sifields20 = getelementptr inbounds %struct.siginfo_t, ptr %si, i64 0, i32 4
-  store ptr %6, ptr %_sifields20, align 8
+  store i64 %5, ptr %_sifields20, align 8
   br label %if.end33
 
 if.then24:                                        ; preds = %if.else
   %ssi_pid25 = getelementptr inbounds %struct.qemu_signalfd_siginfo, ptr %info, i64 0, i32 3
   %_sifields26 = getelementptr inbounds %struct.siginfo_t, ptr %si, i64 0, i32 4
   %ssi_status = getelementptr inbounds %struct.qemu_signalfd_siginfo, ptr %info, i64 0, i32 10
-  %7 = load i32, ptr %ssi_status, align 8
+  %6 = load i32, ptr %ssi_status, align 8
   %si_status = getelementptr inbounds %struct.siginfo_t, ptr %si, i64 0, i32 4, i32 0, i32 2
-  store i32 %7, ptr %si_status, align 8
-  %8 = load <2 x i32>, ptr %ssi_pid25, align 4
-  store <2 x i32> %8, ptr %_sifields26, align 8
+  store i32 %6, ptr %si_status, align 8
+  %7 = load <2 x i32>, ptr %ssi_pid25, align 4
+  store <2 x i32> %7, ptr %_sifields26, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.else, %if.then19, %if.then24, %if.then
-  %9 = load ptr, ptr %action, align 8
-  %10 = extractelement <2 x i32> %1, i64 0
-  call void %9(i32 noundef %10, ptr noundef nonnull %si, ptr noundef null) #13
+  %8 = load ptr, ptr %action, align 8
+  %9 = extractelement <2 x i32> %1, i64 0
+  call void %8(i32 noundef %9, ptr noundef nonnull %si, ptr noundef null) #13
   ret void
 }
 

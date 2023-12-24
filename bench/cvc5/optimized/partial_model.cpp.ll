@@ -361,8 +361,7 @@ invoke.cont6:                                     ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %d_list.i, i8 0, i64 32, i1 false)
   store i8 1, ptr %d_callCleanup.i, align 8
   %d_cleanUp.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ArithVariables", ptr %this, i64 0, i32 8, i32 4
-  %0 = ptrtoint ptr %this to i64
-  store i64 %0, ptr %d_cleanUp.i, align 8
+  store ptr %this, ptr %d_cleanUp.i, align 8
   %d_ubRevertHistory = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ArithVariables", ptr %this, i64 0, i32 9
   invoke void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %d_ubRevertHistory, ptr noundef %c)
           to label %invoke.cont10 unwind label %lpad8
@@ -374,7 +373,7 @@ invoke.cont10:                                    ; preds = %invoke.cont6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %d_list.i4, i8 0, i64 32, i1 false)
   store i8 1, ptr %d_callCleanup.i5, align 8
   %d_cleanUp.i6 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ArithVariables", ptr %this, i64 0, i32 9, i32 4
-  store i64 %0, ptr %d_cleanUp.i6, align 8
+  store ptr %this, ptr %d_cleanUp.i6, align 8
   %d_deltaIsSafe = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ArithVariables", ptr %this, i64 0, i32 10
   store i8 0, ptr %d_deltaIsSafe, align 8
   %d_delta = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ArithVariables", ptr %this, i64 0, i32 11
@@ -386,50 +385,50 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear20DeltaComputeCallbackE, i64 0, inrange i32 0, i64 2), ptr %d_deltaComputingFunc, align 8
   %d_ta.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ArithVariables", ptr %this, i64 0, i32 12, i32 1
   %d_ta2.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::DeltaComputeCallback", ptr %deltaComputingFunc, i64 0, i32 1
-  %1 = load ptr, ptr %d_ta2.i, align 8
-  store ptr %1, ptr %d_ta.i, align 8
+  %0 = load ptr, ptr %d_ta2.i, align 8
+  store ptr %0, ptr %d_ta.i, align 8
   ret void
 
 lpad4:                                            ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup13
 
 lpad8:                                            ; preds = %invoke.cont6
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad11:                                           ; preds = %invoke.cont10
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN4cvc57context6CDListISt4pairIjPNS_8internal6theory5arith6linear10ConstraintEENS6_14ArithVariables17UpperBoundCleanUpESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %d_ubRevertHistory) #26
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad11, %lpad8
-  %.pn = phi { ptr, i32 } [ %4, %lpad11 ], [ %3, %lpad8 ]
+  %.pn = phi { ptr, i32 } [ %3, %lpad11 ], [ %2, %lpad8 ]
   tail call void @_ZN4cvc57context6CDListISt4pairIjPNS_8internal6theory5arith6linear10ConstraintEENS6_14ArithVariables17LowerBoundCleanUpESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %d_lbRevertHistory) #26
   br label %ehcleanup13
 
 ehcleanup13:                                      ; preds = %ehcleanup, %lpad4
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %2, %lpad4 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %1, %lpad4 ]
   tail call void @_ZN4cvc58internal8DenseMapINS0_6theory5arith6linear10BoundsInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %d_boundsQueue) #26
   tail call void @_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEEjSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_nodeToArithVarMap) #26
-  %5 = load ptr, ptr %d_released, align 8
-  %tobool.not.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %d_released, align 8
+  %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %ehcleanup13
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #27
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %ehcleanup13, %if.then.i.i.i
-  %6 = load ptr, ptr %d_pool, align 8
-  %tobool.not.i.i.i7 = icmp eq ptr %6, null
+  %5 = load ptr, ptr %d_pool, align 8
+  %tobool.not.i.i.i7 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i7, label %_ZNSt6vectorIjSaIjEED2Ev.exit9, label %if.then.i.i.i8
 
 if.then.i.i.i8:                                   ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #27
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit9
 
 _ZNSt6vectorIjSaIjEED2Ev.exit9:                   ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit, %if.then.i.i.i8

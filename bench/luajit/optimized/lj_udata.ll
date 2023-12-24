@@ -42,18 +42,16 @@ entry:
   store i32 %sz, ptr %len, align 8
   %metatable = getelementptr inbounds %struct.GCudata, ptr %call, i64 0, i32 7
   store i64 0, ptr %metatable, align 8
-  %4 = ptrtoint ptr %env to i64
   %env3 = getelementptr inbounds %struct.GCudata, ptr %call, i64 0, i32 5
-  store i64 %4, ptr %env3, align 8
+  store ptr %env, ptr %env3, align 8
   %mainthref = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 10
-  %5 = load i64, ptr %mainthref, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %7 = load i64, ptr %6, align 8
-  store i64 %7, ptr %call, align 8
-  %8 = ptrtoint ptr %call to i64
-  %9 = load i64, ptr %mainthref, align 8
-  %10 = inttoptr i64 %9 to ptr
-  store i64 %8, ptr %10, align 8
+  %4 = load i64, ptr %mainthref, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %6 = load i64, ptr %5, align 8
+  store i64 %6, ptr %call, align 8
+  %7 = load i64, ptr %mainthref, align 8
+  %8 = inttoptr i64 %7 to ptr
+  store ptr %call, ptr %8, align 8
   ret ptr %call
 }
 
@@ -138,8 +136,7 @@ if.then20:                                        ; preds = %if.end15
   %conv24 = zext nneg i32 %cond to i64
   %mul25 = shl nuw nsw i64 %conv24, 2
   %call = tail call ptr @lj_mem_realloc(ptr noundef %L, ptr noundef %6, i64 noundef %mul, i64 noundef %mul25) #4
-  %11 = ptrtoint ptr %call to i64
-  store i64 %11, ptr %lightudseg, align 8
+  store ptr %call, ptr %lightudseg, align 8
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end15, %if.then20

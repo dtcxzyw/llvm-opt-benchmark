@@ -87,15 +87,15 @@ for.body.lr.ph.i:                                 ; preds = %if.end5
   br label %for.body.i
 
 for.body.i:                                       ; preds = %while.end14.i, %for.body.lr.ph.i
-  %node.013.in.i = phi i64 [ %1, %for.body.lr.ph.i ], [ %7, %while.end14.i ]
-  %node.013.i = inttoptr i64 %node.013.in.i to ptr
-  %le_prev.i = getelementptr inbounds %struct.AioHandler, ptr %node.013.i, i64 0, i32 10, i32 1
+  %node.0.in13.i = phi i64 [ %1, %for.body.lr.ph.i ], [ %7, %while.end14.i ]
+  %node.014.i = inttoptr i64 %node.0.in13.i to ptr
+  %le_prev.i = getelementptr inbounds %struct.AioHandler, ptr %node.014.i, i64 0, i32 10, i32 1
   %2 = load ptr, ptr %le_prev.i, align 8
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %while.end14.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
-  %events.i = getelementptr inbounds %struct._GPollFD, ptr %node.013.i, i64 0, i32 1
+  %events.i = getelementptr inbounds %struct._GPollFD, ptr %node.014.i, i64 0, i32 1
   %3 = load i16, ptr %events.i, align 4
   %tobool1.not.i = icmp eq i16 %3, 0
   br i1 %tobool1.not.i, label %while.end14.i, label %if.end.i
@@ -104,15 +104,15 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %4 = and i16 %3, 29
   %or11.i.i = zext nneg i16 %4 to i32
   store i32 %or11.i.i, ptr %event.i, align 4
-  store ptr %node.013.i, ptr %data.i, align 4
+  store i64 %node.0.in13.i, ptr %data.i, align 4
   %5 = load i32, ptr %epollfd, align 4
-  %6 = load i32, ptr %node.013.i, align 8
+  %6 = load i32, ptr %node.014.i, align 8
   %call6.i = call i32 @epoll_ctl(i32 noundef %5, i32 noundef 1, i32 noundef %6, ptr noundef nonnull %event.i) #6
   %tobool7.not.i = icmp eq i32 %call6.i, 0
   br i1 %tobool7.not.i, label %while.end14.i, label %if.then8
 
 while.end14.i:                                    ; preds = %if.end.i, %lor.lhs.false.i, %for.body.i
-  %node15.i = getelementptr inbounds %struct.AioHandler, ptr %node.013.i, i64 0, i32 8
+  %node15.i = getelementptr inbounds %struct.AioHandler, ptr %node.014.i, i64 0, i32 8
   %7 = load atomic i64, ptr %node15.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %tobool.not.i = icmp eq i64 %7, 0

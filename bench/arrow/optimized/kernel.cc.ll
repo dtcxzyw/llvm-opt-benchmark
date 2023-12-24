@@ -1252,18 +1252,17 @@ lpad.body:                                        ; preds = %lpad4.i, %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont
   %14 = load i64, ptr %storage_.i.i, align 8, !noalias !20
-  %15 = inttoptr i64 %14 to ptr
   store ptr null, ptr %storage_.i.i, align 8, !noalias !20
-  %16 = load ptr, ptr %__begin2.sroa.0.012, align 8
-  store ptr %15, ptr %__begin2.sroa.0.012, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %16, null
+  %15 = load ptr, ptr %__begin2.sroa.0.012, align 8
+  store i64 %14, ptr %__begin2.sroa.0.012, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i.i, label %for.inc, label %_ZNKSt14default_deleteIN5arrow7compute11KernelStateEEclEPS2_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN5arrow7compute11KernelStateEEclEPS2_.exit.i.i.i.i: ; preds = %invoke.cont12
-  %vtable.i.i.i.i.i = load ptr, ptr %16, align 8
+  %vtable.i.i.i.i.i = load ptr, ptr %15, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 1
-  %17 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16) #18
+  %16 = load ptr, ptr %vfn.i.i.i.i.i, align 8
+  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15) #18
   br label %for.inc
 
 cleanup:                                          ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %.noexc.i
@@ -1426,7 +1425,7 @@ _ZNKSt14default_deleteIN5arrow7compute11KernelStateEEclEPS2_.exit.i.i.i.i: ; pre
 _ZNSt6vectorISt10unique_ptrIN5arrow7compute11KernelStateESt14default_deleteIS3_EESaIS6_EE8pop_backEv.exit: ; preds = %entry, %_ZNKSt14default_deleteIN5arrow7compute11KernelStateEEclEPS2_.exit.i.i.i.i
   store ptr null, ptr %incdec.ptr.i, align 8
   %state_.i = getelementptr inbounds %"class.arrow::compute::KernelContext", ptr %ctx, i64 0, i32 1
-  store ptr %2, ptr %state_.i, align 8
+  store i64 %1, ptr %state_.i, align 8
   %6 = load ptr, ptr %states, align 8
   %7 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not91 = icmp eq ptr %6, %7

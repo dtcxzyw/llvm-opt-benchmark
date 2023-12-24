@@ -161,12 +161,12 @@ if.then:                                          ; preds = %if.end, %entry
   ret void
 
 if.end:                                           ; preds = %entry, %if.end
-  %2 = phi i64 [ %4, %if.end ], [ %1, %entry ]
-  %3 = inttoptr i64 %2 to ptr
-  store ptr %3, ptr %throttle_data, align 8
-  %replacement_ = getelementptr inbounds %"class.grpc_core::internal::ServerRetryThrottleData", ptr %3, i64 0, i32 4
-  %4 = load atomic i64, ptr %replacement_ acquire, align 8
-  %cmp = icmp eq i64 %4, 0
+  %2 = phi i64 [ %3, %if.end ], [ %1, %entry ]
+  store i64 %2, ptr %throttle_data, align 8
+  %.cast = inttoptr i64 %2 to ptr
+  %replacement_ = getelementptr inbounds %"class.grpc_core::internal::ServerRetryThrottleData", ptr %.cast, i64 0, i32 4
+  %3 = load atomic i64, ptr %replacement_ acquire, align 8
+  %cmp = icmp eq i64 %3, 0
   br i1 %cmp, label %if.then, label %if.end, !llvm.loop !7
 }
 

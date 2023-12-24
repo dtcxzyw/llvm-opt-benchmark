@@ -1541,9 +1541,8 @@ if.end37:                                         ; preds = %if.end24, %land.lhs
   %add.i = add i64 %19, 1
   %L1.i = getelementptr inbounds %struct.GCudata, ptr %call44, i64 1, i32 6
   store i64 %add.i, ptr %L1.i, align 8
-  %20 = ptrtoint ptr %dict_str.1 to i64
   %dict_str48 = getelementptr inbounds %struct.GCudata, ptr %call44, i64 2
-  store i64 %20, ptr %dict_str48, align 8
+  store ptr %dict_str.1, ptr %dict_str48, align 8
   %dict_mt50 = getelementptr inbounds %struct.GCudata, ptr %call44, i64 2, i32 1
   store i64 %dict_mt.0, ptr %dict_mt50, align 8
   %cmp52.not = icmp eq i32 %sz.0, 0
@@ -1555,13 +1554,13 @@ if.then54:                                        ; preds = %if.end37
 
 if.end56:                                         ; preds = %if.then54, %if.end37
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %21 = load i64, ptr %glref, align 8
-  %22 = inttoptr i64 %21 to ptr
-  %gc = getelementptr inbounds %struct.global_State, ptr %22, i64 0, i32 2
-  %23 = load i64, ptr %gc, align 8
-  %threshold = getelementptr inbounds %struct.global_State, ptr %22, i64 0, i32 2, i32 1
-  %24 = load i64, ptr %threshold, align 8
-  %cmp60.not = icmp ult i64 %23, %24
+  %20 = load i64, ptr %glref, align 8
+  %21 = inttoptr i64 %20 to ptr
+  %gc = getelementptr inbounds %struct.global_State, ptr %21, i64 0, i32 2
+  %22 = load i64, ptr %gc, align 8
+  %threshold = getelementptr inbounds %struct.global_State, ptr %21, i64 0, i32 2, i32 1
+  %23 = load i64, ptr %threshold, align 8
+  %cmp60.not = icmp ult i64 %22, %23
   br i1 %cmp60.not, label %if.end67, label %if.then65
 
 if.then65:                                        ; preds = %if.end56

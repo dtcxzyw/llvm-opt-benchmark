@@ -524,38 +524,37 @@ invoke.cont13:                                    ; preds = %_ZN5folly8FunctionI
           to label %call.i.noexc unwind label %lpad15
 
 call.i.noexc:                                     ; preds = %invoke.cont13
-  %4 = ptrtoint ptr %this to i64
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5folly14AsyncLogWriterC1EvE3$_3EEEEEE", i64 0, inrange i32 0, i64 2), ptr %call.i48, align 8, !tbaa !25
   %_M_func.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i48, i64 0, i32 1
-  store i64 %4, ptr %_M_func.i.i, align 8, !tbaa !39
+  store ptr %this, ptr %_M_func.i.i, align 8, !tbaa !39
   store ptr %call.i48, ptr %agg.tmp.i, align 8, !tbaa !39
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull %agg.tmp.i, ptr noundef null)
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %call.i.noexc
-  %5 = load ptr, ptr %agg.tmp.i, align 8, !tbaa !39
-  %cmp.not.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %agg.tmp.i, align 8, !tbaa !39
+  %cmp.not.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i, label %invoke.cont18, label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %invoke.cont3.i
-  %vtable.i.i.i = load ptr, ptr %5, align 8, !tbaa !25
+  %vtable.i.i.i = load ptr, ptr %4, align 8, !tbaa !25
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
-  %6 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
+  %5 = load ptr, ptr %vfn.i.i.i, align 8
+  call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
   br label %invoke.cont18
 
 lpad2.i:                                          ; preds = %call.i.noexc
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %8 = load ptr, ptr %agg.tmp.i, align 8, !tbaa !39
-  %cmp.not.i6.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %agg.tmp.i, align 8, !tbaa !39
+  %cmp.not.i6.i = icmp eq ptr %7, null
   br i1 %cmp.not.i6.i, label %ehcleanup, label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i7.i
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i7.i: ; preds = %lpad2.i
-  %vtable.i.i8.i = load ptr, ptr %8, align 8, !tbaa !25
+  %vtable.i.i8.i = load ptr, ptr %7, align 8, !tbaa !25
   %vfn.i.i9.i = getelementptr inbounds ptr, ptr %vtable.i.i8.i, i64 1
-  %9 = load ptr, ptr %vfn.i.i9.i, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #20
+  %8 = load ptr, ptr %vfn.i.i9.i, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #20
   br label %ehcleanup
 
 invoke.cont18:                                    ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i, %invoke.cont3.i
@@ -570,70 +569,70 @@ if.then.i:                                        ; preds = %invoke.cont18
   unreachable
 
 _ZN5folly9LockedPtrINS_12SynchronizedINS_14AsyncLogWriter4DataESt5mutexEENS_6detail22SynchronizedLockPolicyILNS6_22SynchronizedMutexLevelE1ELNS6_23SynchronizedMutexMethodE0EEEED2Ev.exit: ; preds = %invoke.cont18
-  %10 = load i64, ptr %ref.tmp, align 8, !tbaa !19
-  store i64 %10, ptr %ioThread, align 8, !tbaa !19
+  %9 = load i64, ptr %ref.tmp, align 8, !tbaa !19
+  store i64 %9, ptr %ioThread, align 8, !tbaa !19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #20
   %call1.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_.i.i) #20
   ret void
 
 lpad:                                             ; preds = %entry
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %12 = load ptr, ptr %exec_.i37, align 8, !tbaa !60
-  %tobool.not.i.i58 = icmp eq ptr %12, null
+  %11 = load ptr, ptr %exec_.i37, align 8, !tbaa !60
+  %tobool.not.i.i58 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i58, label %_ZN5folly8FunctionIFvvEED2Ev.exit61, label %if.end.i.i59
 
 if.end.i.i59:                                     ; preds = %lpad
-  %call.i.i60 = call noundef i64 %12(i32 noundef 1, ptr noundef nonnull %agg.tmp6, ptr noundef null) #20
+  %call.i.i60 = call noundef i64 %11(i32 noundef 1, ptr noundef nonnull %agg.tmp6, ptr noundef null) #20
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit61
 
 _ZN5folly8FunctionIFvvEED2Ev.exit61:              ; preds = %if.end.i.i59, %lpad
-  %13 = load ptr, ptr %exec_.i35, align 8, !tbaa !60
-  %tobool.not.i.i63 = icmp eq ptr %13, null
+  %12 = load ptr, ptr %exec_.i35, align 8, !tbaa !60
+  %tobool.not.i.i63 = icmp eq ptr %12, null
   br i1 %tobool.not.i.i63, label %_ZN5folly8FunctionIFvvEED2Ev.exit66, label %if.end.i.i64
 
 if.end.i.i64:                                     ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit61
-  %call.i.i65 = call noundef i64 %13(i32 noundef 1, ptr noundef nonnull %agg.tmp3, ptr noundef null) #20
+  %call.i.i65 = call noundef i64 %12(i32 noundef 1, ptr noundef nonnull %agg.tmp3, ptr noundef null) #20
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit66
 
 _ZN5folly8FunctionIFvvEED2Ev.exit66:              ; preds = %if.end.i.i64, %_ZN5folly8FunctionIFvvEED2Ev.exit61
-  %14 = load ptr, ptr %exec_.i, align 8, !tbaa !57
-  %tobool.not.i.i68 = icmp eq ptr %14, null
+  %13 = load ptr, ptr %exec_.i, align 8, !tbaa !57
+  %tobool.not.i.i68 = icmp eq ptr %13, null
   br i1 %tobool.not.i.i68, label %ehcleanup24, label %if.end.i.i69
 
 if.end.i.i69:                                     ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit66
-  %call.i.i70 = call noundef i64 %14(i32 noundef 1, ptr noundef nonnull %agg.tmp, ptr noundef null) #20
+  %call.i.i70 = call noundef i64 %13(i32 noundef 1, ptr noundef nonnull %agg.tmp, ptr noundef null) #20
   br label %ehcleanup24
 
 lpad10:                                           ; preds = %if.then.i.i.i.i.i
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup24
 
 lpad15:                                           ; preds = %invoke.cont13
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad15, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i7.i, %lpad2.i
-  %.pn = phi { ptr, i32 } [ %16, %lpad15 ], [ %7, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i7.i ], [ %7, %lpad2.i ]
+  %.pn = phi { ptr, i32 } [ %15, %lpad15 ], [ %6, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i7.i ], [ %6, %lpad2.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #20
   %call1.i.i.i.i.i81 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_.i.i) #20
   br label %ehcleanup24
 
 ehcleanup24:                                      ; preds = %ehcleanup, %lpad10, %if.end.i.i69, %_ZN5folly8FunctionIFvvEED2Ev.exit66
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %11, %_ZN5folly8FunctionIFvvEED2Ev.exit66 ], [ %11, %if.end.i.i69 ], [ %.pn, %ehcleanup ], [ %15, %lpad10 ]
-  %17 = load i8, ptr %_M_owns.i.i, align 8, !tbaa !49, !range !52, !noundef !53
-  %tobool.not.i.i84 = icmp eq i8 %17, 0
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %10, %_ZN5folly8FunctionIFvvEED2Ev.exit66 ], [ %10, %if.end.i.i69 ], [ %.pn, %ehcleanup ], [ %14, %lpad10 ]
+  %16 = load i8, ptr %_M_owns.i.i, align 8, !tbaa !49, !range !52, !noundef !53
+  %tobool.not.i.i84 = icmp eq i8 %16, 0
   br i1 %tobool.not.i.i84, label %_ZN5folly9LockedPtrINS_12SynchronizedINS_14AsyncLogWriter4DataESt5mutexEENS_6detail22SynchronizedLockPolicyILNS6_22SynchronizedMutexLevelE1ELNS6_23SynchronizedMutexMethodE0EEEED2Ev.exit89, label %if.else.i.i.i85
 
 if.else.i.i.i85:                                  ; preds = %ehcleanup24
-  %18 = load ptr, ptr %lockedData_, align 8, !tbaa !46
-  %tobool2.not.i.i.i86 = icmp eq ptr %18, null
+  %17 = load ptr, ptr %lockedData_, align 8, !tbaa !46
+  %tobool2.not.i.i.i86 = icmp eq ptr %17, null
   br i1 %tobool2.not.i.i.i86, label %_ZN5folly9LockedPtrINS_12SynchronizedINS_14AsyncLogWriter4DataESt5mutexEENS_6detail22SynchronizedLockPolicyILNS6_22SynchronizedMutexLevelE1ELNS6_23SynchronizedMutexMethodE0EEEED2Ev.exit89, label %if.then3.i.i.i87
 
 if.then3.i.i.i87:                                 ; preds = %if.else.i.i.i85
-  %call1.i.i.i.i.i88 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %18) #20
+  %call1.i.i.i.i.i88 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %17) #20
   store i8 0, ptr %_M_owns.i.i, align 8, !tbaa !49
   br label %_ZN5folly9LockedPtrINS_12SynchronizedINS_14AsyncLogWriter4DataESt5mutexEENS_6detail22SynchronizedLockPolicyILNS6_22SynchronizedMutexLevelE1ELNS6_23SynchronizedMutexMethodE0EEEED2Ev.exit89
 
@@ -2292,38 +2291,37 @@ invoke.cont9:                                     ; preds = %invoke.cont
           to label %call.i.noexc unwind label %lpad14
 
 call.i.noexc:                                     ; preds = %invoke.cont9
-  %4 = ptrtoint ptr %this to i64
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5folly14AsyncLogWriter13restartThreadEvE3$_0EEEEEE", i64 0, inrange i32 0, i64 2), ptr %call.i33, align 8, !tbaa !25
   %_M_func.i.i = getelementptr inbounds %"struct.std::thread::_State_impl.18", ptr %call.i33, i64 0, i32 1
-  store i64 %4, ptr %_M_func.i.i, align 8, !tbaa !39
+  store ptr %this, ptr %_M_func.i.i, align 8, !tbaa !39
   store ptr %call.i33, ptr %agg.tmp.i, align 8, !tbaa !39
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull %agg.tmp.i, ptr noundef null)
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %call.i.noexc
-  %5 = load ptr, ptr %agg.tmp.i, align 8, !tbaa !39
-  %cmp.not.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %agg.tmp.i, align 8, !tbaa !39
+  %cmp.not.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i, label %invoke.cont17, label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %invoke.cont3.i
-  %vtable.i.i.i = load ptr, ptr %5, align 8, !tbaa !25
+  %vtable.i.i.i = load ptr, ptr %4, align 8, !tbaa !25
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
-  %6 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
+  %5 = load ptr, ptr %vfn.i.i.i, align 8
+  call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
   br label %invoke.cont17
 
 lpad2.i:                                          ; preds = %call.i.noexc
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %8 = load ptr, ptr %agg.tmp.i, align 8, !tbaa !39
-  %cmp.not.i6.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %agg.tmp.i, align 8, !tbaa !39
+  %cmp.not.i6.i = icmp eq ptr %7, null
   br i1 %cmp.not.i6.i, label %ehcleanup, label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i7.i
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i7.i: ; preds = %lpad2.i
-  %vtable.i.i8.i = load ptr, ptr %8, align 8, !tbaa !25
+  %vtable.i.i8.i = load ptr, ptr %7, align 8, !tbaa !25
   %vfn.i.i9.i = getelementptr inbounds ptr, ptr %vtable.i.i8.i, i64 1
-  %9 = load ptr, ptr %vfn.i.i9.i, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #20
+  %8 = load ptr, ptr %vfn.i.i9.i, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #20
   br label %ehcleanup
 
 invoke.cont17:                                    ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i, %invoke.cont3.i
@@ -2338,8 +2336,8 @@ if.then.i:                                        ; preds = %invoke.cont17
   unreachable
 
 _ZNSt6threadD2Ev.exit:                            ; preds = %invoke.cont17
-  %10 = load i64, ptr %ref.tmp, align 8, !tbaa !19
-  store i64 %10, ptr %ioThread, align 8, !tbaa !19
+  %9 = load i64, ptr %ref.tmp, align 8, !tbaa !19
+  store i64 %9, ptr %ioThread, align 8, !tbaa !19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #20
   br label %cleanup
 
@@ -2355,12 +2353,12 @@ _ZN5folly9LockedPtrINS_12SynchronizedINS_14AsyncLogWriter4DataESt5mutexEENS_6det
   ret void
 
 lpad14:                                           ; preds = %invoke.cont9
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad14, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i7.i, %lpad2.i
-  %.pn = phi { ptr, i32 } [ %11, %lpad14 ], [ %7, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i7.i ], [ %7, %lpad2.i ]
+  %.pn = phi { ptr, i32 } [ %10, %lpad14 ], [ %6, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i7.i ], [ %6, %lpad2.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #20
   %tobool.not.i.i47 = icmp eq i8 %1, 0
   br i1 %tobool.not.i.i47, label %_ZN5folly9LockedPtrINS_12SynchronizedINS_14AsyncLogWriter4DataESt5mutexEENS_6detail22SynchronizedLockPolicyILNS6_22SynchronizedMutexLevelE1ELNS6_23SynchronizedMutexMethodE0EEEED2Ev.exit52, label %if.then3.i.i.i50

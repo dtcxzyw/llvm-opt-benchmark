@@ -9261,25 +9261,25 @@ cond.false.i:                                     ; preds = %entry
 
 invoke.cont:                                      ; preds = %cond.false.i, %entry
   %cond.i = phi ptr [ %call.i, %cond.false.i ], [ %1, %entry ]
-  %2 = ptrtoint ptr %cond.i to i64
-  store i64 %2, ptr %ref.tmp, align 8
-  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store i32 0, ptr %3, align 8
+  store ptr %cond.i, ptr %ref.tmp, align 8
+  %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i32 0, ptr %2, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
   %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  store ptr %3, ptr %_M_left.i.i.i.i.i, align 8
+  store ptr %2, ptr %_M_left.i.i.i.i.i, align 8
   %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  store ptr %3, ptr %_M_right.i.i.i.i.i, align 8
+  store ptr %2, ptr %_M_right.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   %keys_ = getelementptr inbounds %"struct.rocksdb::SubBatchCounter", ptr %this, i64 0, i32 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
   %_M_parent.i.i.i.i.i2 = getelementptr inbounds %"struct.rocksdb::SubBatchCounter", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
-  %4 = load ptr, ptr %_M_parent.i.i.i.i.i2, align 8
+  %3 = load ptr, ptr %_M_parent.i.i.i.i.i2, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.rocksdb::SubBatchCounter", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
-  %cmp.not5.i.i.i.i = icmp eq ptr %4, null
+  %cmp.not5.i.i.i.i = icmp eq ptr %3, null
+  %4 = ptrtoint ptr %cond.i to i64
   br i1 %cmp.not5.i.i.i.i, label %if.then.i, label %while.body.lr.ph.i.i.i.i
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %invoke.cont
@@ -9287,7 +9287,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %invoke.cont
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %__x.addr.07.i.i.i.i = phi ptr [ %4, %while.body.lr.ph.i.i.i.i ], [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ]
+  %__x.addr.07.i.i.i.i = phi ptr [ %3, %while.body.lr.ph.i.i.i.i ], [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ]
   %__y.addr.06.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %while.body.lr.ph.i.i.i.i ], [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.665", ptr %__x.addr.07.i.i.i.i, i64 0, i32 1
   %6 = load i32, ptr %_M_storage.i.i.i.i.i.i, align 4
@@ -9321,7 +9321,7 @@ if.then.i.invoke.cont5_crit_edge:                 ; preds = %if.then.i
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %if.then.i.invoke.cont5_crit_edge, %lor.rhs.i
-  %8 = phi i64 [ %2, %lor.rhs.i ], [ %.pre, %if.then.i.invoke.cont5_crit_edge ]
+  %8 = phi i64 [ %4, %lor.rhs.i ], [ %.pre, %if.then.i.invoke.cont5_crit_edge ]
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %lor.rhs.i ], [ %call12.i5, %if.then.i.invoke.cont5_crit_edge ]
   %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node.665", ptr %__i.sroa.0.0.i, i64 0, i32 1, i32 0, i64 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
@@ -9353,7 +9353,7 @@ _ZNSt8_Rb_treeIN7rocksdb5SliceES1_St9_IdentityIS1_ENS0_13SetComparatorESaIS1_EE5
   br i1 %cmp.not.i.i.i, label %_ZNSt3setIN7rocksdb5SliceENS0_13SetComparatorESaIS1_EEaSEOS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8_Rb_treeIN7rocksdb5SliceES1_St9_IdentityIS1_ENS0_13SetComparatorESaIS1_EE5clearEv.exit.i.i.i
-  %13 = load i32, ptr %3, align 8
+  %13 = load i32, ptr %2, align 8
   store i32 %13, ptr %add.ptr.i.i.i.i6, align 8
   store ptr %12, ptr %_M_parent.i.i.i.i.i.i, align 8
   %14 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i, align 8
@@ -9363,8 +9363,8 @@ if.then.i.i.i:                                    ; preds = %_ZNSt8_Rb_treeIN7ro
   %15 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
   store i64 %15, ptr %_M_node_count.i.i.i.i.i9, align 8
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
-  store ptr %3, ptr %_M_left.i.i.i.i.i, align 8
-  store ptr %3, ptr %_M_right.i.i.i.i.i, align 8
+  store ptr %2, ptr %_M_left.i.i.i.i.i, align 8
+  store ptr %2, ptr %_M_right.i.i.i.i.i, align 8
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   br label %_ZNSt3setIN7rocksdb5SliceENS0_13SetComparatorESaIS1_EEaSEOS4_.exit
 

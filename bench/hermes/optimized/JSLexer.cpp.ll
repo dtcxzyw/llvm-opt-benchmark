@@ -2237,7 +2237,7 @@ _ZN4llvhplERKNS_5TwineES2_.exit199:               ; preds = %if.else719
   %ref.tmp731.sroa.0.0.insert.insert = or disjoint i64 %ref.tmp731.sroa.0.0.insert.mask, %conv732
   %73 = inttoptr i64 %ref.tmp731.sroa.0.0.insert.insert to ptr
   store ptr @.str.49, ptr %ref.tmp729, align 8, !alias.scope !17
-  store ptr %73, ptr %RHS4.i.i.i158, align 8, !alias.scope !17
+  store i64 %ref.tmp731.sroa.0.0.insert.insert, ptr %RHS4.i.i.i158, align 8, !alias.scope !17
   store i8 3, ptr %LHSKind5.i.i.i159, align 8, !alias.scope !17
   store i8 8, ptr %RHSKind6.i.i.i160, align 1, !alias.scope !17
   store ptr %ref.tmp729, ptr %ref.tmp728, align 8, !alias.scope !22
@@ -8523,7 +8523,7 @@ _ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit: ; preds = %if.then, %if.
   %.pre13.i.i.i = phi i64 [ %5, %if.then.i.i.i ], [ 0, %if.then ]
   %6 = load ptr, ptr %tmpStorage_.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 %.pre13.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i, ptr align 1 %start, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %start, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   %.pre.i.i.i = load i32, ptr %Size.i.i.i, align 8
   %7 = trunc i64 %sub.ptr.sub.i.i.i.i.i to i32
   %conv.i12.i.i.i = add i32 %.pre.i.i.i, %7
@@ -8597,7 +8597,7 @@ _ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit41: ; preds = %if.then23, 
   %.pre13.i.i.i33 = phi i64 [ %14, %if.then.i.i.i38 ], [ 0, %if.then23 ]
   %15 = load ptr, ptr %tmpStorage_.i25, align 8
   %add.ptr.i.i.i.i35 = getelementptr inbounds i8, ptr %15, i64 %.pre13.i.i.i33
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i35, ptr align 1 %start, i64 %sub.ptr.sub.i.i.i.i.i29, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i.i.i.i35, ptr noundef nonnull align 1 dereferenceable(1) %start, i64 %sub.ptr.sub.i.i.i.i.i29, i1 false)
   %.pre.i.i.i36 = load i32, ptr %Size.i.i.i26, align 8
   %16 = trunc i64 %sub.ptr.sub.i.i.i.i.i29 to i32
   %conv.i12.i.i.i37 = add i32 %.pre.i.i.i36, %16
@@ -15037,7 +15037,7 @@ if.then:                                          ; preds = %_ZN4llvh8DenseMapIN
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %B.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %call.i, %if.then ]
-  store ptr inttoptr (i64 -1 to ptr), ptr %B.04.i, align 8
+  store i64 -1, ptr %B.04.i, align 8
   %EmptyKey.sroa.2.0.call4.sroa_idx.i = getelementptr inbounds i8, ptr %B.04.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i, align 8
   %incdec.ptr.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i, i64 1
@@ -15059,7 +15059,7 @@ if.end:                                           ; preds = %_ZN4llvh8DenseMapIN
 
 for.body.i.i:                                     ; preds = %if.end, %for.body.i.i
   %B.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i, %if.end ]
-  store ptr inttoptr (i64 -1 to ptr), ptr %B.04.i.i, align 8
+  store i64 -1, ptr %B.04.i.i, align 8
   %EmptyKey.sroa.2.0.call4.sroa_idx.i.i = getelementptr inbounds i8, ptr %B.04.i.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i, i64 1
@@ -15168,7 +15168,7 @@ _ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit: ; preds = %if.then, %if.
   %.pre13.i.i.i = phi i64 [ %5, %if.then.i.i.i ], [ 0, %if.then ]
   %6 = load ptr, ptr %tmpStorage_.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 %.pre13.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i, ptr align 1 %start, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %start, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   %.pre.i.i.i = load i32, ptr %Size.i.i.i, align 8
   %7 = trunc i64 %sub.ptr.sub.i.i.i.i.i to i32
   %conv.i12.i.i.i = add i32 %.pre.i.i.i, %7
@@ -15242,7 +15242,7 @@ _ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit42: ; preds = %if.then26, 
   %.pre13.i.i.i34 = phi i64 [ %14, %if.then.i.i.i39 ], [ 0, %if.then26 ]
   %15 = load ptr, ptr %tmpStorage_.i26, align 8
   %add.ptr.i.i.i.i36 = getelementptr inbounds i8, ptr %15, i64 %.pre13.i.i.i34
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i36, ptr align 1 %start, i64 %sub.ptr.sub.i.i.i.i.i30, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i.i.i.i36, ptr noundef nonnull align 1 dereferenceable(1) %start, i64 %sub.ptr.sub.i.i.i.i.i30, i1 false)
   %.pre.i.i.i37 = load i32, ptr %Size.i.i.i27, align 8
   %16 = trunc i64 %sub.ptr.sub.i.i.i.i.i30 to i32
   %conv.i12.i.i.i38 = add i32 %.pre.i.i.i37, %16
@@ -15404,7 +15404,7 @@ _ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit: ; preds = %if.then.i.i.i
   %.pre13.i.i.i = phi i64 [ %5, %if.then.i.i.i ], [ 0, %if.then ]
   %6 = load ptr, ptr %tmpStorage_.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 %.pre13.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i, ptr align 1 %start, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %start, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   %.pre.i.i.i = load i32, ptr %Size.i.i.i, align 8
   %7 = trunc i64 %sub.ptr.sub.i.i.i.i.i to i32
   %conv.i12.i.i.i = add i32 %.pre.i.i.i, %7
@@ -15478,7 +15478,7 @@ _ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit45: ; preds = %if.then.i.i
   %.pre13.i.i.i35 = phi i64 [ %14, %if.then.i.i.i42 ], [ 0, %if.then25 ]
   %15 = load ptr, ptr %tmpStorage_.i26, align 8
   %add.ptr.i.i.i.i39 = getelementptr inbounds i8, ptr %15, i64 %.pre13.i.i.i35
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i39, ptr align 1 %start, i64 %sub.ptr.sub.i.i.i.i.i30, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i.i.i.i39, ptr noundef nonnull align 1 dereferenceable(1) %start, i64 %sub.ptr.sub.i.i.i.i.i30, i1 false)
   %.pre.i.i.i40 = load i32, ptr %Size.i.i.i27, align 8
   %16 = trunc i64 %sub.ptr.sub.i.i.i.i.i30 to i32
   %conv.i12.i.i.i41 = add i32 %.pre.i.i.i40, %16
@@ -19596,7 +19596,7 @@ if.then:                                          ; preds = %_ZN4llvh8DenseMapIN
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %B.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %call.i, %if.then ]
-  store ptr inttoptr (i64 -1 to ptr), ptr %B.04.i, align 8
+  store i64 -1, ptr %B.04.i, align 8
   %EmptyKey.sroa.2.0.call4.sroa_idx.i = getelementptr inbounds i8, ptr %B.04.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i, align 8
   %incdec.ptr.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.70", ptr %B.04.i, i64 1
@@ -19618,7 +19618,7 @@ if.end:                                           ; preds = %_ZN4llvh8DenseMapIN
 
 for.body.i.i:                                     ; preds = %if.end, %for.body.i.i
   %B.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i, %if.end ]
-  store ptr inttoptr (i64 -1 to ptr), ptr %B.04.i.i, align 8
+  store i64 -1, ptr %B.04.i.i, align 8
   %EmptyKey.sroa.2.0.call4.sroa_idx.i.i = getelementptr inbounds i8, ptr %B.04.i.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.70", ptr %B.04.i.i, i64 1

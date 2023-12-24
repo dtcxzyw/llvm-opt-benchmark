@@ -234,35 +234,34 @@ upb_Arena_Malloc.exit.i.i:                        ; preds = %if.end.i.i.i, %if.t
   %5 = load i8, ptr %versions, align 1
   %or2.i.i.i.i.i.i = or i8 %5, 2
   store i8 %or2.i.i.i.i.i.i, ptr %versions, align 1
-  %6 = ptrtoint ptr %add.ptr.i.i to i64
-  store i64 %6, ptr %add.ptr.i.i.i, align 1
+  store ptr %add.ptr.i.i, ptr %add.ptr.i.i.i, align 1
   br label %grpc_gcp_RpcProtocolVersions_mutable_max_rpc_version.exit
 
 grpc_gcp_RpcProtocolVersions_mutable_max_rpc_version.exit: ; preds = %entry, %upb_Arena_Malloc.exit.i.i
   %sub.0.i = phi ptr [ %add.ptr.i.i, %upb_Arena_Malloc.exit.i.i ], [ %1, %entry ]
-  %7 = load i32, ptr %value, align 4
-  store i32 %7, ptr %sub.0.i, align 1
+  %6 = load i32, ptr %value, align 4
+  store i32 %6, ptr %sub.0.i, align 1
   %minor = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions_Version, ptr %value, i64 0, i32 1
-  %8 = load i32, ptr %minor, align 4
+  %7 = load i32, ptr %minor, align 4
   %add.ptr.i.i.i8 = getelementptr inbounds i8, ptr %sub.0.i, i64 4
-  store i32 %8, ptr %add.ptr.i.i.i8, align 1
+  store i32 %7, ptr %add.ptr.i.i.i8, align 1
   %add.ptr.i.i.i9 = getelementptr inbounds i8, ptr %versions, i64 16
-  %9 = load i64, ptr %add.ptr.i.i.i9, align 1
-  %10 = inttoptr i64 %9 to ptr
-  %cmp.i10 = icmp eq i64 %9, 0
+  %8 = load i64, ptr %add.ptr.i.i.i9, align 1
+  %9 = inttoptr i64 %8 to ptr
+  %cmp.i10 = icmp eq i64 %8, 0
   br i1 %cmp.i10, label %if.then.i12, label %grpc_gcp_RpcProtocolVersions_mutable_min_rpc_version.exit
 
 if.then.i12:                                      ; preds = %grpc_gcp_RpcProtocolVersions_mutable_max_rpc_version.exit
-  %11 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__gcp__RpcProtocolVersions__Version_msg_init, i64 0, i32 2), align 8
-  %conv.i.i.i13 = zext i16 %11 to i64
+  %10 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__gcp__RpcProtocolVersions__Version_msg_init, i64 0, i32 2), align 8
+  %conv.i.i.i13 = zext i16 %10 to i64
   %add.i.i.i14 = add nuw nsw i64 %conv.i.i.i13, 8
   %sub.i.i.i15 = add nuw nsw i64 %conv.i.i.i13, 23
   %div7.i.i.i16 = and i64 %sub.i.i.i15, 131064
   %end.i.i.i.i17 = getelementptr inbounds %struct._upb_ArenaHead, ptr %arena, i64 0, i32 1
-  %12 = load ptr, ptr %end.i.i.i.i17, align 8
-  %13 = load ptr, ptr %arena, align 8
-  %sub.ptr.lhs.cast.i.i.i.i18 = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast.i.i.i.i19 = ptrtoint ptr %13 to i64
+  %11 = load ptr, ptr %end.i.i.i.i17, align 8
+  %12 = load ptr, ptr %arena, align 8
+  %sub.ptr.lhs.cast.i.i.i.i18 = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i.i.i.i19 = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i.i.i20 = sub i64 %sub.ptr.lhs.cast.i.i.i.i18, %sub.ptr.rhs.cast.i.i.i.i19
   %cmp.i.i.i21 = icmp ult i64 %sub.ptr.sub.i.i.i.i20, %div7.i.i.i16
   br i1 %cmp.i.i.i21, label %if.then.i.i.i30, label %if.end.i.i.i22
@@ -272,32 +271,31 @@ if.then.i.i.i30:                                  ; preds = %if.then.i12
   br label %upb_Arena_Malloc.exit.i.i24
 
 if.end.i.i.i22:                                   ; preds = %if.then.i12
-  %add.ptr.i.i5.i23 = getelementptr inbounds i8, ptr %13, i64 %div7.i.i.i16
+  %add.ptr.i.i5.i23 = getelementptr inbounds i8, ptr %12, i64 %div7.i.i.i16
   store ptr %add.ptr.i.i5.i23, ptr %arena, align 8
   br label %upb_Arena_Malloc.exit.i.i24
 
 upb_Arena_Malloc.exit.i.i24:                      ; preds = %if.end.i.i.i22, %if.then.i.i.i30
-  %retval.0.i.i.i25 = phi ptr [ %call2.i.i.i31, %if.then.i.i.i30 ], [ %13, %if.end.i.i.i22 ]
+  %retval.0.i.i.i25 = phi ptr [ %call2.i.i.i31, %if.then.i.i.i30 ], [ %12, %if.end.i.i.i22 ]
   %tobool.not.i.i26 = icmp ne ptr %retval.0.i.i.i25, null
   tail call void @llvm.assume(i1 %tobool.not.i.i26)
   %add.ptr.i.i28 = getelementptr inbounds i8, ptr %retval.0.i.i.i25, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i25, i8 0, i64 %add.i.i.i14, i1 false)
-  %14 = load i8, ptr %versions, align 1
-  %or2.i.i.i.i.i.i29 = or i8 %14, 4
+  %13 = load i8, ptr %versions, align 1
+  %or2.i.i.i.i.i.i29 = or i8 %13, 4
   store i8 %or2.i.i.i.i.i.i29, ptr %versions, align 1
-  %15 = ptrtoint ptr %add.ptr.i.i28 to i64
-  store i64 %15, ptr %add.ptr.i.i.i9, align 1
+  store ptr %add.ptr.i.i28, ptr %add.ptr.i.i.i9, align 1
   br label %grpc_gcp_RpcProtocolVersions_mutable_min_rpc_version.exit
 
 grpc_gcp_RpcProtocolVersions_mutable_min_rpc_version.exit: ; preds = %grpc_gcp_RpcProtocolVersions_mutable_max_rpc_version.exit, %upb_Arena_Malloc.exit.i.i24
-  %sub.0.i11 = phi ptr [ %add.ptr.i.i28, %upb_Arena_Malloc.exit.i.i24 ], [ %10, %grpc_gcp_RpcProtocolVersions_mutable_max_rpc_version.exit ]
+  %sub.0.i11 = phi ptr [ %add.ptr.i.i28, %upb_Arena_Malloc.exit.i.i24 ], [ %9, %grpc_gcp_RpcProtocolVersions_mutable_max_rpc_version.exit ]
   %min_rpc_version = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions, ptr %value, i64 0, i32 1
-  %16 = load i32, ptr %min_rpc_version, align 4
-  store i32 %16, ptr %sub.0.i11, align 1
+  %14 = load i32, ptr %min_rpc_version, align 4
+  store i32 %14, ptr %sub.0.i11, align 1
   %minor5 = getelementptr inbounds %struct._grpc_gcp_RpcProtocolVersions, ptr %value, i64 0, i32 1, i32 1
-  %17 = load i32, ptr %minor5, align 4
+  %15 = load i32, ptr %minor5, align 4
   %add.ptr.i.i.i32 = getelementptr inbounds i8, ptr %sub.0.i11, i64 4
-  store i32 %17, ptr %add.ptr.i.i.i32, align 1
+  store i32 %15, ptr %add.ptr.i.i.i32, align 1
   ret void
 }
 

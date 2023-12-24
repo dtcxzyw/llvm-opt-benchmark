@@ -42,7 +42,7 @@ entry:
   %call = call i32 @sigfillset(ptr noundef nonnull %sa_mask) #11
   %sa_flags = getelementptr inbounds %struct.sigaction, ptr %act, i64 0, i32 2
   store i32 0, ptr %sa_flags, align 8
-  store ptr inttoptr (i64 1 to ptr), ptr %act, align 8
+  store i64 1, ptr %act, align 8
   %call1 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %act, ptr noundef null) #11
   ret void
 }

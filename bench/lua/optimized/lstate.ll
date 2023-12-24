@@ -607,13 +607,11 @@ if.end:                                           ; preds = %entry
   %call.i = tail call i64 @time(ptr noundef null) #9
   %conv.i = trunc i64 %call.i to i32
   store i32 %conv.i, ptr %h.i, align 4
-  %0 = ptrtoint ptr %l2 to i64
-  store i64 %0, ptr %buff.i, align 16
-  %1 = ptrtoint ptr %h.i to i64
+  store ptr %l2, ptr %buff.i, align 16
   %add.ptr6.i = getelementptr inbounds i8, ptr %buff.i, i64 8
-  store i64 %1, ptr %add.ptr6.i, align 8
+  store ptr %h.i, ptr %add.ptr6.i, align 8
   %add.ptr13.i = getelementptr inbounds i8, ptr %buff.i, i64 16
-  store i64 ptrtoint (ptr @lua_newstate to i64), ptr %add.ptr13.i, align 16
+  store ptr @lua_newstate, ptr %add.ptr13.i, align 16
   %call19.i = call i32 @luaS_hash(ptr noundef nonnull %buff.i, i64 noundef 24, i32 noundef %conv.i) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buff.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %h.i)

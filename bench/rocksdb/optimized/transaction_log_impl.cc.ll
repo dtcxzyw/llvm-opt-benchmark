@@ -497,21 +497,20 @@ _ZN7rocksdb5DeferC2EOSt8functionIFvvEE.exit:
   store i8 0, ptr %started_, align 8
   %is_valid_ = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 11
   store i8 0, ptr %is_valid_, align 1
-  %0 = ptrtoint ptr %this to i64
   %_M_invoker.i.i = getelementptr inbounds %"class.std::function", ptr %defer, i64 0, i32 1
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7rocksdb26TransactionLogIteratorImpl19SeekToStartSequenceEmbE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i, align 8
   %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %defer, i64 0, i32 1
-  store i64 %0, ptr %defer, align 8
+  store ptr %this, ptr %defer, align 8
   %ref.tmp.sroa.3.0.defer.sroa_idx = getelementptr inbounds i8, ptr %defer, i64 8
   store i64 0, ptr %ref.tmp.sroa.3.0.defer.sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7rocksdb26TransactionLogIteratorImpl19SeekToStartSequenceEmbE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8
   %files_ = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 6
-  %1 = load ptr, ptr %files_, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<rocksdb::LogFile>, std::allocator<std::unique_ptr<rocksdb::LogFile>>>::_Vector_impl_data", ptr %1, i64 0, i32 1
-  %2 = load ptr, ptr %_M_finish.i, align 8
-  %3 = load ptr, ptr %1, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
+  %0 = load ptr, ptr %files_, align 8
+  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<rocksdb::LogFile>, std::allocator<std::unique_ptr<rocksdb::LogFile>>>::_Vector_impl_data", ptr %0, i64 0, i32 1
+  %1 = load ptr, ptr %_M_finish.i, align 8
+  %2 = load ptr, ptr %0, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp.not = icmp ugt i64 %sub.ptr.div.i, %start_file_index
@@ -519,34 +518,34 @@ _ZN7rocksdb5DeferC2EOSt8functionIFvvEE.exit:
 
 invoke.cont5:                                     ; preds = %_ZN7rocksdb5DeferC2EOSt8functionIFvvEE.exit
   %current_status_ = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 12
-  %4 = load i8, ptr %current_status_, align 8
-  %cmp.i = icmp eq i8 %4, 0
+  %3 = load i8, ptr %current_status_, align 8
+  %cmp.i = icmp eq i8 %3, 0
   br i1 %cmp.i, label %invoke.cont11, label %if.end.i.i
 
 lpad4:                                            ; preds = %invoke.cont11
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup122
 
 invoke.cont11:                                    ; preds = %invoke.cont5
-  %add.ptr.i.i = getelementptr inbounds %"class.std::unique_ptr.166", ptr %3, i64 %start_file_index
-  %6 = load ptr, ptr %add.ptr.i.i, align 8
-  invoke void @_ZN7rocksdb26TransactionLogIteratorImpl13OpenLogReaderEPKNS_7LogFileE(ptr nonnull sret(%"class.rocksdb::Status") align 8 %s, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %6)
+  %add.ptr.i.i = getelementptr inbounds %"class.std::unique_ptr.166", ptr %2, i64 %start_file_index
+  %5 = load ptr, ptr %add.ptr.i.i, align 8
+  invoke void @_ZN7rocksdb26TransactionLogIteratorImpl13OpenLogReaderEPKNS_7LogFileE(ptr nonnull sret(%"class.rocksdb::Status") align 8 %s, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %5)
           to label %invoke.cont16 unwind label %lpad4
 
 invoke.cont16:                                    ; preds = %invoke.cont11
-  %7 = load i8, ptr %s, align 8
-  %cmp.i9 = icmp eq i8 %7, 0
+  %6 = load i8, ptr %s, align 8
+  %cmp.i9 = icmp eq i8 %6, 0
   br i1 %cmp.i9, label %while.cond.preheader, label %if.then18
 
 while.cond.preheader:                             ; preds = %invoke.cont16
   %current_last_seq_.i = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 19
   %versions_.i = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 7
-  %8 = load i64, ptr %current_last_seq_.i, align 8
-  %9 = load ptr, ptr %versions_.i, align 8
-  %last_sequence_.i.i140 = getelementptr inbounds %"class.rocksdb::VersionSet", ptr %9, i64 0, i32 16
-  %10 = load atomic i64, ptr %last_sequence_.i.i140 acquire, align 8
-  %cmp.not.i13141 = icmp ult i64 %8, %10
+  %7 = load i64, ptr %current_last_seq_.i, align 8
+  %8 = load ptr, ptr %versions_.i, align 8
+  %last_sequence_.i.i140 = getelementptr inbounds %"class.rocksdb::VersionSet", ptr %8, i64 0, i32 16
+  %9 = load atomic i64, ptr %last_sequence_.i.i140 acquire, align 8
+  %cmp.not.i13141 = icmp ult i64 %7, %9
   br i1 %cmp.not.i13141, label %if.end.i.lr.ph, label %while.end
 
 if.end.i.lr.ph:                                   ; preds = %while.cond.preheader
@@ -565,36 +564,36 @@ if.then18:                                        ; preds = %invoke.cont16
   br i1 %cmp.not.i, label %invoke.cont20, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then18
-  store i8 %7, ptr %current_status_, align 8
+  store i8 %6, ptr %current_status_, align 8
   %subcode_.i = getelementptr inbounds %"class.rocksdb::Status", ptr %s, i64 0, i32 1
-  %11 = load i8, ptr %subcode_.i, align 1
+  %10 = load i8, ptr %subcode_.i, align 1
   %subcode_3.i = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 12, i32 1
-  store i8 %11, ptr %subcode_3.i, align 1
+  store i8 %10, ptr %subcode_3.i, align 1
   %sev_.i = getelementptr inbounds %"class.rocksdb::Status", ptr %s, i64 0, i32 2
-  %12 = load i8, ptr %sev_.i, align 2
+  %11 = load i8, ptr %sev_.i, align 2
   %sev_4.i = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 12, i32 2
-  store i8 %12, ptr %sev_4.i, align 2
+  store i8 %11, ptr %sev_4.i, align 2
   %retryable_.i = getelementptr inbounds %"class.rocksdb::Status", ptr %s, i64 0, i32 3
-  %13 = load i8, ptr %retryable_.i, align 1
-  %14 = and i8 %13, 1
+  %12 = load i8, ptr %retryable_.i, align 1
+  %13 = and i8 %12, 1
   %retryable_5.i = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 12, i32 3
-  store i8 %14, ptr %retryable_5.i, align 1
+  store i8 %13, ptr %retryable_5.i, align 1
   %data_loss_.i = getelementptr inbounds %"class.rocksdb::Status", ptr %s, i64 0, i32 4
-  %15 = load i8, ptr %data_loss_.i, align 4
-  %16 = and i8 %15, 1
+  %14 = load i8, ptr %data_loss_.i, align 4
+  %15 = and i8 %14, 1
   %data_loss_7.i = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 12, i32 4
-  store i8 %16, ptr %data_loss_7.i, align 4
+  store i8 %15, ptr %data_loss_7.i, align 4
   %scope_.i = getelementptr inbounds %"class.rocksdb::Status", ptr %s, i64 0, i32 5
-  %17 = load i8, ptr %scope_.i, align 1
+  %16 = load i8, ptr %scope_.i, align 1
   %scope_9.i = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 12, i32 5
-  store i8 %17, ptr %scope_9.i, align 1
+  store i8 %16, ptr %scope_9.i, align 1
   %state_.i = getelementptr inbounds %"class.rocksdb::Status", ptr %s, i64 0, i32 6
-  %18 = load ptr, ptr %state_.i, align 8
-  %cmp.i.not.i.i = icmp eq ptr %18, null
+  %17 = load ptr, ptr %state_.i, align 8
+  %cmp.i.not.i.i = icmp eq ptr %17, null
   br i1 %cmp.i.not.i.i, label %cond.end.i, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then.i
-  invoke void @_ZN7rocksdb6Status9CopyStateEPKc(ptr nonnull sret(%"class.std::unique_ptr.2") align 8 %ref.tmp.i, ptr noundef nonnull %18)
+  invoke void @_ZN7rocksdb6Status9CopyStateEPKc(ptr nonnull sret(%"class.std::unique_ptr.2") align 8 %ref.tmp.i, ptr noundef nonnull %17)
           to label %.noexc11 unwind label %lpad15.loopexit.split-lp
 
 .noexc11:                                         ; preds = %cond.false.i
@@ -602,16 +601,16 @@ cond.false.i:                                     ; preds = %if.then.i
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %.noexc11, %if.then.i
-  %19 = phi ptr [ %.pre.i, %.noexc11 ], [ null, %if.then.i ]
+  %18 = phi ptr [ %.pre.i, %.noexc11 ], [ null, %if.then.i ]
   %state_12.i = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 12, i32 6
   store ptr null, ptr %ref.tmp.i, align 8
-  %20 = load ptr, ptr %state_12.i, align 8
-  store ptr %19, ptr %state_12.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %20, null
+  %19 = load ptr, ptr %state_12.i, align 8
+  store ptr %18, ptr %state_12.i, align 8
+  %tobool.not.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont20, label %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i
 
 _ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i: ; preds = %cond.end.i
-  call void @_ZdaPv(ptr noundef nonnull %20) #19
+  call void @_ZdaPv(ptr noundef nonnull %19) #19
   %.pr.i = load ptr, ptr %ref.tmp.i, align 8
   %cmp.not.i.i10 = icmp eq ptr %.pr.i, null
   br i1 %cmp.not.i.i10, label %invoke.cont20, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
@@ -628,8 +627,8 @@ invoke.cont20:                                    ; preds = %_ZNKSt14default_del
 invoke.cont24:                                    ; preds = %invoke.cont20
   %call25 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #20
   %info_log.i = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 17, i32 2
-  %21 = load ptr, ptr %info_log.i, align 8
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 1, ptr noundef %21, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds ([119 x i8], ptr @.str.13, i64 0, i64 93), ptr noundef %call25)
+  %20 = load ptr, ptr %info_log.i, align 8
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 1, ptr noundef %20, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds ([119 x i8], ptr @.str.13, i64 0, i64 93), ptr noundef %call25)
           to label %invoke.cont27 unwind label %lpad26
 
 invoke.cont27:                                    ; preds = %invoke.cont24
@@ -647,25 +646,25 @@ lpad15.loopexit.split-lp:                         ; preds = %invoke.cont20, %_ZN
   br label %ehcleanup
 
 lpad26:                                           ; preds = %invoke.cont24
-  %22 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #20
   br label %ehcleanup
 
 if.end.i:                                         ; preds = %if.end.i.lr.ph, %while.cond.backedge
-  %23 = load ptr, ptr %current_log_reader_.i, align 8
-  %vtable.i = load ptr, ptr %23, align 8
+  %22 = load ptr, ptr %current_log_reader_.i, align 8
+  %vtable.i = load ptr, ptr %22, align 8
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
-  %24 = load ptr, ptr %vfn.i, align 8
-  %call3.i14 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(240) %23, ptr noundef nonnull %record, ptr noundef nonnull %scratch_.i, i8 noundef signext 0, ptr noundef null)
+  %23 = load ptr, ptr %vfn.i, align 8
+  %call3.i14 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(240) %22, ptr noundef nonnull %record, ptr noundef nonnull %scratch_.i, i8 noundef signext 0, ptr noundef null)
           to label %invoke.cont29 unwind label %lpad15.loopexit
 
 invoke.cont29:                                    ; preds = %if.end.i
   br i1 %call3.i14, label %while.body, label %while.end
 
 while.body:                                       ; preds = %invoke.cont29
-  %25 = load i64, ptr %size_.i, align 8
-  %cmp33 = icmp ult i64 %25, 12
+  %24 = load i64, ptr %size_.i, align 8
+  %cmp33 = icmp ult i64 %24, 12
   br i1 %cmp33, label %if.then34, label %if.end46
 
 if.then34:                                        ; preds = %while.body
@@ -678,17 +677,17 @@ if.then34:                                        ; preds = %while.body
 
 invoke.cont43:                                    ; preds = %if.then34
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i22)
-  %26 = load ptr, ptr %info_log.i23, align 8
+  %25 = load ptr, ptr %info_log.i23, align 8
   invoke void @_ZNK7rocksdb6Status8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i22, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp38)
           to label %.noexc24 unwind label %lpad44
 
 .noexc24:                                         ; preds = %invoke.cont43
   %call2.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i22) #20
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 3, ptr noundef %26, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds ([119 x i8], ptr @.str.13, i64 0, i64 93), i64 noundef %25, ptr noundef %call2.i)
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 3, ptr noundef %25, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds ([119 x i8], ptr @.str.13, i64 0, i64 93), i64 noundef %24, ptr noundef %call2.i)
           to label %invoke.cont45 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc24
-  %27 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i22) #20
   br label %lpad44.body
@@ -696,12 +695,12 @@ lpad.i:                                           ; preds = %.noexc24
 invoke.cont45:                                    ; preds = %.noexc24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i22) #20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i22)
-  %28 = load ptr, ptr %state_.i25, align 8
-  %cmp.not.i.i26 = icmp eq ptr %28, null
+  %27 = load ptr, ptr %state_.i25, align 8
+  %cmp.not.i.i26 = icmp eq ptr %27, null
   br i1 %cmp.not.i.i26, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i27
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i27: ; preds = %invoke.cont45
-  call void @_ZdaPv(ptr noundef nonnull %28) #19
+  call void @_ZdaPv(ptr noundef nonnull %27) #19
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %invoke.cont45, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i27
@@ -710,26 +709,26 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %invoke.cont45, %_ZN
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %_ZN7rocksdb6StatusD2Ev.exit, %if.else77
-  %29 = phi i64 [ %.pre, %_ZN7rocksdb6StatusD2Ev.exit ], [ %34, %if.else77 ]
-  %30 = load ptr, ptr %versions_.i, align 8
-  %last_sequence_.i.i = getelementptr inbounds %"class.rocksdb::VersionSet", ptr %30, i64 0, i32 16
-  %31 = load atomic i64, ptr %last_sequence_.i.i acquire, align 8
-  %cmp.not.i13 = icmp ult i64 %29, %31
+  %28 = phi i64 [ %.pre, %_ZN7rocksdb6StatusD2Ev.exit ], [ %33, %if.else77 ]
+  %29 = load ptr, ptr %versions_.i, align 8
+  %last_sequence_.i.i = getelementptr inbounds %"class.rocksdb::VersionSet", ptr %29, i64 0, i32 16
+  %30 = load atomic i64, ptr %last_sequence_.i.i acquire, align 8
+  %cmp.not.i13 = icmp ult i64 %28, %30
   br i1 %cmp.not.i13, label %if.end.i, label %while.end, !llvm.loop !4
 
 lpad44:                                           ; preds = %invoke.cont43
-  %32 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
   br label %lpad44.body
 
 lpad44.body:                                      ; preds = %lpad.i, %lpad44
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %lpad44 ], [ %27, %lpad.i ]
-  %33 = load ptr, ptr %state_.i25, align 8
-  %cmp.not.i.i29 = icmp eq ptr %33, null
+  %eh.lpad-body = phi { ptr, i32 } [ %31, %lpad44 ], [ %26, %lpad.i ]
+  %32 = load ptr, ptr %state_.i25, align 8
+  %cmp.not.i.i29 = icmp eq ptr %32, null
   br i1 %cmp.not.i.i29, label %_ZN7rocksdb6StatusD2Ev.exit31, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i30
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i30: ; preds = %lpad44.body
-  call void @_ZdaPv(ptr noundef nonnull %33) #19
+  call void @_ZdaPv(ptr noundef nonnull %32) #19
   br label %_ZN7rocksdb6StatusD2Ev.exit31
 
 _ZN7rocksdb6StatusD2Ev.exit31:                    ; preds = %lpad44.body, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i30
@@ -741,15 +740,15 @@ if.end46:                                         ; preds = %while.body
           to label %invoke.cont47 unwind label %lpad15.loopexit
 
 invoke.cont47:                                    ; preds = %if.end46
-  %34 = load i64, ptr %current_last_seq_.i, align 8
-  %35 = load i64, ptr %starting_sequence_number_, align 8
-  %cmp48.not = icmp ult i64 %34, %35
+  %33 = load i64, ptr %current_last_seq_.i, align 8
+  %34 = load i64, ptr %starting_sequence_number_, align 8
+  %cmp48.not = icmp ult i64 %33, %34
   br i1 %cmp48.not, label %if.else77, label %if.then49
 
 if.then49:                                        ; preds = %invoke.cont47
   %current_batch_seq_ = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 18
-  %36 = load i64, ptr %current_batch_seq_, align 8
-  %cmp51.not = icmp ne i64 %36, %35
+  %35 = load i64, ptr %current_batch_seq_, align 8
+  %cmp51.not = icmp ne i64 %35, %34
   %or.cond.not = select i1 %strict, i1 %cmp51.not, i1 false
   br i1 %or.cond.not, label %if.then52, label %if.else68
 
@@ -768,54 +767,54 @@ invoke.cont58:                                    ; preds = %if.then52
   br i1 %cmp.not.i39, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %if.then.i40
 
 if.then.i40:                                      ; preds = %invoke.cont58
-  %37 = load i8, ptr %ref.tmp53, align 8
-  store i8 %37, ptr %current_status_, align 8
+  %36 = load i8, ptr %ref.tmp53, align 8
+  store i8 %36, ptr %current_status_, align 8
   %subcode_.i41 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp53, i64 0, i32 1
-  %38 = load i8, ptr %subcode_.i41, align 1
+  %37 = load i8, ptr %subcode_.i41, align 1
   %subcode_4.i = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 12, i32 1
-  store i8 %38, ptr %subcode_4.i, align 1
+  store i8 %37, ptr %subcode_4.i, align 1
   %sev_.i42 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp53, i64 0, i32 2
-  %39 = load i8, ptr %sev_.i42, align 2
+  %38 = load i8, ptr %sev_.i42, align 2
   %sev_6.i = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 12, i32 2
-  store i8 %39, ptr %sev_6.i, align 2
+  store i8 %38, ptr %sev_6.i, align 2
   %retryable_.i43 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp53, i64 0, i32 3
-  %40 = load i8, ptr %retryable_.i43, align 1
-  %41 = and i8 %40, 1
+  %39 = load i8, ptr %retryable_.i43, align 1
+  %40 = and i8 %39, 1
   %retryable_8.i = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 12, i32 3
-  store i8 %41, ptr %retryable_8.i, align 1
+  store i8 %40, ptr %retryable_8.i, align 1
   store <4 x i8> zeroinitializer, ptr %ref.tmp53, align 8
   %data_loss_.i44 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp53, i64 0, i32 4
-  %42 = load i8, ptr %data_loss_.i44, align 4
-  %43 = and i8 %42, 1
+  %41 = load i8, ptr %data_loss_.i44, align 4
+  %42 = and i8 %41, 1
   %data_loss_11.i = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 12, i32 4
-  store i8 %43, ptr %data_loss_11.i, align 4
+  store i8 %42, ptr %data_loss_11.i, align 4
   store i8 0, ptr %data_loss_.i44, align 4
   %scope_.i45 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp53, i64 0, i32 5
-  %44 = load i8, ptr %scope_.i45, align 1
+  %43 = load i8, ptr %scope_.i45, align 1
   %scope_14.i = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 12, i32 5
-  store i8 %44, ptr %scope_14.i, align 1
+  store i8 %43, ptr %scope_14.i, align 1
   store i8 0, ptr %scope_.i45, align 1
   %state_.i46 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp53, i64 0, i32 6
   %state_16.i = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 12, i32 6
-  %45 = load ptr, ptr %state_.i46, align 8
+  %44 = load ptr, ptr %state_.i46, align 8
   store ptr null, ptr %state_.i46, align 8
-  %46 = load ptr, ptr %state_16.i, align 8
-  store ptr %45, ptr %state_16.i, align 8
-  %tobool.not.i.i.i.i.i47 = icmp eq ptr %46, null
+  %45 = load ptr, ptr %state_16.i, align 8
+  store ptr %44, ptr %state_16.i, align 8
+  %tobool.not.i.i.i.i.i47 = icmp eq ptr %45, null
   br i1 %tobool.not.i.i.i.i.i47, label %_ZN7rocksdb6StatusaSEOS0_.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i: ; preds = %if.then.i40
-  call void @_ZdaPv(ptr noundef nonnull %46) #19
+  call void @_ZdaPv(ptr noundef nonnull %45) #19
   br label %_ZN7rocksdb6StatusaSEOS0_.exit
 
 _ZN7rocksdb6StatusaSEOS0_.exit:                   ; preds = %invoke.cont58, %if.then.i40, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i
   %state_.i49 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp53, i64 0, i32 6
-  %47 = load ptr, ptr %state_.i49, align 8
-  %cmp.not.i.i50 = icmp eq ptr %47, null
+  %46 = load ptr, ptr %state_.i49, align 8
+  %cmp.not.i.i50 = icmp eq ptr %46, null
   br i1 %cmp.not.i.i50, label %_ZN7rocksdb6StatusD2Ev.exit52, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i51
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i51: ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit
-  call void @_ZdaPv(ptr noundef nonnull %47) #19
+  call void @_ZdaPv(ptr noundef nonnull %46) #19
   br label %_ZN7rocksdb6StatusD2Ev.exit52
 
 _ZN7rocksdb6StatusD2Ev.exit52:                    ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i51
@@ -825,8 +824,8 @@ _ZN7rocksdb6StatusD2Ev.exit52:                    ; preds = %_ZN7rocksdb6Statusa
 
 invoke.cont64:                                    ; preds = %_ZN7rocksdb6StatusD2Ev.exit52
   %call65 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62) #20
-  %48 = load ptr, ptr %info_log.i23, align 8
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 1, ptr noundef %48, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds ([119 x i8], ptr @.str.13, i64 0, i64 93), ptr noundef %call65)
+  %47 = load ptr, ptr %info_log.i23, align 8
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 1, ptr noundef %47, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds ([119 x i8], ptr @.str.13, i64 0, i64 93), ptr noundef %call65)
           to label %invoke.cont67 unwind label %lpad66
 
 invoke.cont67:                                    ; preds = %invoke.cont64
@@ -834,7 +833,7 @@ invoke.cont67:                                    ; preds = %invoke.cont64
   br label %cleanup
 
 lpad66:                                           ; preds = %invoke.cont64
-  %49 = landingpad { ptr, i32 }
+  %48 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62) #20
   br label %ehcleanup
@@ -843,8 +842,8 @@ if.else68:                                        ; preds = %if.then49
   br i1 %strict, label %if.then70, label %if.end74
 
 if.then70:                                        ; preds = %if.else68
-  %50 = load ptr, ptr %info_log.i23, align 8
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 1, ptr noundef %50, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds ([119 x i8], ptr @.str.13, i64 0, i64 93), ptr noundef nonnull @.str.2)
+  %49 = load ptr, ptr %info_log.i23, align 8
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 1, ptr noundef %49, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds ([119 x i8], ptr @.str.13, i64 0, i64 93), ptr noundef nonnull @.str.2)
           to label %if.end74 unwind label %lpad15.loopexit.split-lp
 
 if.end74:                                         ; preds = %if.then70, %if.else68
@@ -874,54 +873,54 @@ invoke.cont87:                                    ; preds = %if.then81
   br i1 %cmp.not.i66, label %_ZN7rocksdb6StatusaSEOS0_.exit83, label %if.then.i67
 
 if.then.i67:                                      ; preds = %invoke.cont87
-  %51 = load i8, ptr %ref.tmp82, align 8
-  store i8 %51, ptr %current_status_, align 8
+  %50 = load i8, ptr %ref.tmp82, align 8
+  store i8 %50, ptr %current_status_, align 8
   %subcode_.i68 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp82, i64 0, i32 1
-  %52 = load i8, ptr %subcode_.i68, align 1
+  %51 = load i8, ptr %subcode_.i68, align 1
   %subcode_4.i69 = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 12, i32 1
-  store i8 %52, ptr %subcode_4.i69, align 1
+  store i8 %51, ptr %subcode_4.i69, align 1
   %sev_.i70 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp82, i64 0, i32 2
-  %53 = load i8, ptr %sev_.i70, align 2
+  %52 = load i8, ptr %sev_.i70, align 2
   %sev_6.i71 = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 12, i32 2
-  store i8 %53, ptr %sev_6.i71, align 2
+  store i8 %52, ptr %sev_6.i71, align 2
   %retryable_.i72 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp82, i64 0, i32 3
-  %54 = load i8, ptr %retryable_.i72, align 1
-  %55 = and i8 %54, 1
+  %53 = load i8, ptr %retryable_.i72, align 1
+  %54 = and i8 %53, 1
   %retryable_8.i73 = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 12, i32 3
-  store i8 %55, ptr %retryable_8.i73, align 1
+  store i8 %54, ptr %retryable_8.i73, align 1
   store <4 x i8> zeroinitializer, ptr %ref.tmp82, align 8
   %data_loss_.i74 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp82, i64 0, i32 4
-  %56 = load i8, ptr %data_loss_.i74, align 4
-  %57 = and i8 %56, 1
+  %55 = load i8, ptr %data_loss_.i74, align 4
+  %56 = and i8 %55, 1
   %data_loss_11.i75 = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 12, i32 4
-  store i8 %57, ptr %data_loss_11.i75, align 4
+  store i8 %56, ptr %data_loss_11.i75, align 4
   store i8 0, ptr %data_loss_.i74, align 4
   %scope_.i76 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp82, i64 0, i32 5
-  %58 = load i8, ptr %scope_.i76, align 1
+  %57 = load i8, ptr %scope_.i76, align 1
   %scope_14.i77 = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 12, i32 5
-  store i8 %58, ptr %scope_14.i77, align 1
+  store i8 %57, ptr %scope_14.i77, align 1
   store i8 0, ptr %scope_.i76, align 1
   %state_.i78 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp82, i64 0, i32 6
   %state_16.i79 = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 12, i32 6
-  %59 = load ptr, ptr %state_.i78, align 8
+  %58 = load ptr, ptr %state_.i78, align 8
   store ptr null, ptr %state_.i78, align 8
-  %60 = load ptr, ptr %state_16.i79, align 8
-  store ptr %59, ptr %state_16.i79, align 8
-  %tobool.not.i.i.i.i.i80 = icmp eq ptr %60, null
+  %59 = load ptr, ptr %state_16.i79, align 8
+  store ptr %58, ptr %state_16.i79, align 8
+  %tobool.not.i.i.i.i.i80 = icmp eq ptr %59, null
   br i1 %tobool.not.i.i.i.i.i80, label %_ZN7rocksdb6StatusaSEOS0_.exit83, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i81
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i81: ; preds = %if.then.i67
-  call void @_ZdaPv(ptr noundef nonnull %60) #19
+  call void @_ZdaPv(ptr noundef nonnull %59) #19
   br label %_ZN7rocksdb6StatusaSEOS0_.exit83
 
 _ZN7rocksdb6StatusaSEOS0_.exit83:                 ; preds = %invoke.cont87, %if.then.i67, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i81
   %state_.i84 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp82, i64 0, i32 6
-  %61 = load ptr, ptr %state_.i84, align 8
-  %cmp.not.i.i85 = icmp eq ptr %61, null
+  %60 = load ptr, ptr %state_.i84, align 8
+  %cmp.not.i.i85 = icmp eq ptr %60, null
   br i1 %cmp.not.i.i85, label %_ZN7rocksdb6StatusD2Ev.exit87, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i86
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i86: ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit83
-  call void @_ZdaPv(ptr noundef nonnull %61) #19
+  call void @_ZdaPv(ptr noundef nonnull %60) #19
   br label %_ZN7rocksdb6StatusD2Ev.exit87
 
 _ZN7rocksdb6StatusD2Ev.exit87:                    ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit83, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i86
@@ -932,8 +931,8 @@ _ZN7rocksdb6StatusD2Ev.exit87:                    ; preds = %_ZN7rocksdb6Statusa
 invoke.cont93:                                    ; preds = %_ZN7rocksdb6StatusD2Ev.exit87
   %call94 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp91) #20
   %info_log.i88 = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 17, i32 2
-  %62 = load ptr, ptr %info_log.i88, align 8
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 1, ptr noundef %62, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds ([119 x i8], ptr @.str.13, i64 0, i64 93), ptr noundef %call94)
+  %61 = load ptr, ptr %info_log.i88, align 8
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 1, ptr noundef %61, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds ([119 x i8], ptr @.str.13, i64 0, i64 93), ptr noundef %call94)
           to label %invoke.cont96 unwind label %lpad95
 
 invoke.cont96:                                    ; preds = %invoke.cont93
@@ -941,18 +940,18 @@ invoke.cont96:                                    ; preds = %invoke.cont93
   br label %cleanup
 
 lpad95:                                           ; preds = %invoke.cont93
-  %63 = landingpad { ptr, i32 }
+  %62 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp91) #20
   br label %ehcleanup
 
 if.else97:                                        ; preds = %while.end
-  %64 = load ptr, ptr %files_, align 8
-  %_M_finish.i91 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<rocksdb::LogFile>, std::allocator<std::unique_ptr<rocksdb::LogFile>>>::_Vector_impl_data", ptr %64, i64 0, i32 1
-  %65 = load ptr, ptr %_M_finish.i91, align 8
-  %66 = load ptr, ptr %64, align 8
-  %sub.ptr.lhs.cast.i92 = ptrtoint ptr %65 to i64
-  %sub.ptr.rhs.cast.i93 = ptrtoint ptr %66 to i64
+  %63 = load ptr, ptr %files_, align 8
+  %_M_finish.i91 = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<rocksdb::LogFile>, std::allocator<std::unique_ptr<rocksdb::LogFile>>>::_Vector_impl_data", ptr %63, i64 0, i32 1
+  %64 = load ptr, ptr %_M_finish.i91, align 8
+  %65 = load ptr, ptr %63, align 8
+  %sub.ptr.lhs.cast.i92 = ptrtoint ptr %64 to i64
+  %sub.ptr.rhs.cast.i93 = ptrtoint ptr %65 to i64
   %sub.ptr.sub.i94 = sub i64 %sub.ptr.lhs.cast.i92, %sub.ptr.rhs.cast.i93
   %cmp101.not = icmp eq i64 %sub.ptr.sub.i94, 8
   br i1 %cmp101.not, label %cleanup, label %if.then102
@@ -972,54 +971,54 @@ invoke.cont108:                                   ; preds = %if.then102
   br i1 %cmp.not.i103, label %_ZN7rocksdb6StatusaSEOS0_.exit120, label %if.then.i104
 
 if.then.i104:                                     ; preds = %invoke.cont108
-  %67 = load i8, ptr %ref.tmp103, align 8
-  store i8 %67, ptr %current_status_, align 8
+  %66 = load i8, ptr %ref.tmp103, align 8
+  store i8 %66, ptr %current_status_, align 8
   %subcode_.i105 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp103, i64 0, i32 1
-  %68 = load i8, ptr %subcode_.i105, align 1
+  %67 = load i8, ptr %subcode_.i105, align 1
   %subcode_4.i106 = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 12, i32 1
-  store i8 %68, ptr %subcode_4.i106, align 1
+  store i8 %67, ptr %subcode_4.i106, align 1
   %sev_.i107 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp103, i64 0, i32 2
-  %69 = load i8, ptr %sev_.i107, align 2
+  %68 = load i8, ptr %sev_.i107, align 2
   %sev_6.i108 = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 12, i32 2
-  store i8 %69, ptr %sev_6.i108, align 2
+  store i8 %68, ptr %sev_6.i108, align 2
   %retryable_.i109 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp103, i64 0, i32 3
-  %70 = load i8, ptr %retryable_.i109, align 1
-  %71 = and i8 %70, 1
+  %69 = load i8, ptr %retryable_.i109, align 1
+  %70 = and i8 %69, 1
   %retryable_8.i110 = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 12, i32 3
-  store i8 %71, ptr %retryable_8.i110, align 1
+  store i8 %70, ptr %retryable_8.i110, align 1
   store <4 x i8> zeroinitializer, ptr %ref.tmp103, align 8
   %data_loss_.i111 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp103, i64 0, i32 4
-  %72 = load i8, ptr %data_loss_.i111, align 4
-  %73 = and i8 %72, 1
+  %71 = load i8, ptr %data_loss_.i111, align 4
+  %72 = and i8 %71, 1
   %data_loss_11.i112 = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 12, i32 4
-  store i8 %73, ptr %data_loss_11.i112, align 4
+  store i8 %72, ptr %data_loss_11.i112, align 4
   store i8 0, ptr %data_loss_.i111, align 4
   %scope_.i113 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp103, i64 0, i32 5
-  %74 = load i8, ptr %scope_.i113, align 1
+  %73 = load i8, ptr %scope_.i113, align 1
   %scope_14.i114 = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 12, i32 5
-  store i8 %74, ptr %scope_14.i114, align 1
+  store i8 %73, ptr %scope_14.i114, align 1
   store i8 0, ptr %scope_.i113, align 1
   %state_.i115 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp103, i64 0, i32 6
   %state_16.i116 = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 12, i32 6
-  %75 = load ptr, ptr %state_.i115, align 8
+  %74 = load ptr, ptr %state_.i115, align 8
   store ptr null, ptr %state_.i115, align 8
-  %76 = load ptr, ptr %state_16.i116, align 8
-  store ptr %75, ptr %state_16.i116, align 8
-  %tobool.not.i.i.i.i.i117 = icmp eq ptr %76, null
+  %75 = load ptr, ptr %state_16.i116, align 8
+  store ptr %74, ptr %state_16.i116, align 8
+  %tobool.not.i.i.i.i.i117 = icmp eq ptr %75, null
   br i1 %tobool.not.i.i.i.i.i117, label %_ZN7rocksdb6StatusaSEOS0_.exit120, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i118
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i118: ; preds = %if.then.i104
-  call void @_ZdaPv(ptr noundef nonnull %76) #19
+  call void @_ZdaPv(ptr noundef nonnull %75) #19
   br label %_ZN7rocksdb6StatusaSEOS0_.exit120
 
 _ZN7rocksdb6StatusaSEOS0_.exit120:                ; preds = %invoke.cont108, %if.then.i104, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i118
   %state_.i121 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp103, i64 0, i32 6
-  %77 = load ptr, ptr %state_.i121, align 8
-  %cmp.not.i.i122 = icmp eq ptr %77, null
+  %76 = load ptr, ptr %state_.i121, align 8
+  %cmp.not.i.i122 = icmp eq ptr %76, null
   br i1 %cmp.not.i.i122, label %_ZN7rocksdb6StatusD2Ev.exit124, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i123
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i123: ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit120
-  call void @_ZdaPv(ptr noundef nonnull %77) #19
+  call void @_ZdaPv(ptr noundef nonnull %76) #19
   br label %_ZN7rocksdb6StatusD2Ev.exit124
 
 _ZN7rocksdb6StatusD2Ev.exit124:                   ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit120, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i123
@@ -1030,8 +1029,8 @@ _ZN7rocksdb6StatusD2Ev.exit124:                   ; preds = %_ZN7rocksdb6Statusa
 invoke.cont114:                                   ; preds = %_ZN7rocksdb6StatusD2Ev.exit124
   %call115 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp112) #20
   %info_log.i125 = getelementptr inbounds %"class.rocksdb::TransactionLogIteratorImpl", ptr %this, i64 0, i32 17, i32 2
-  %78 = load ptr, ptr %info_log.i125, align 8
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 1, ptr noundef %78, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds ([119 x i8], ptr @.str.13, i64 0, i64 93), ptr noundef %call115)
+  %77 = load ptr, ptr %info_log.i125, align 8
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 1, ptr noundef %77, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds ([119 x i8], ptr @.str.13, i64 0, i64 93), ptr noundef %call115)
           to label %invoke.cont117 unwind label %lpad116
 
 invoke.cont117:                                   ; preds = %invoke.cont114
@@ -1040,26 +1039,26 @@ invoke.cont117:                                   ; preds = %invoke.cont114
           to label %cleanup unwind label %lpad15.loopexit.split-lp
 
 lpad116:                                          ; preds = %invoke.cont114
-  %79 = landingpad { ptr, i32 }
+  %78 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp112) #20
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont96, %invoke.cont117, %if.else97, %if.end74, %invoke.cont67, %invoke.cont27
   %state_.i128 = getelementptr inbounds %"class.rocksdb::Status", ptr %s, i64 0, i32 6
-  %80 = load ptr, ptr %state_.i128, align 8
-  %cmp.not.i.i129 = icmp eq ptr %80, null
+  %79 = load ptr, ptr %state_.i128, align 8
+  %cmp.not.i.i129 = icmp eq ptr %79, null
   br i1 %cmp.not.i.i129, label %cleanup121, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i130
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i130: ; preds = %cleanup
-  call void @_ZdaPv(ptr noundef nonnull %80) #19
+  call void @_ZdaPv(ptr noundef nonnull %79) #19
   br label %cleanup121
 
 cleanup121:                                       ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i130, %cleanup
   store ptr null, ptr %state_.i128, align 8
   %.pre144 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %81 = icmp eq ptr %.pre144, null
-  br i1 %81, label %if.then.i.i134, label %if.end.i.i
+  %80 = icmp eq ptr %.pre144, null
+  br i1 %80, label %if.then.i.i134, label %if.end.i.i
 
 if.then.i.i134:                                   ; preds = %cleanup121
   invoke void @_ZSt25__throw_bad_function_callv() #21
@@ -1069,45 +1068,45 @@ if.then.i.i134:                                   ; preds = %cleanup121
   unreachable
 
 if.end.i.i:                                       ; preds = %_ZN7rocksdb5DeferC2EOSt8functionIFvvEE.exit, %invoke.cont5, %cleanup121
-  %82 = load ptr, ptr %_M_invoker.i.i, align 8
-  invoke void %82(ptr noundef nonnull align 8 dereferenceable(16) %defer)
+  %81 = load ptr, ptr %_M_invoker.i.i, align 8
+  invoke void %81(ptr noundef nonnull align 8 dereferenceable(16) %defer)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %if.end.i.i
-  %83 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i3.i = icmp eq ptr %83, null
+  %82 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %tobool.not.i.i3.i = icmp eq ptr %82, null
   br i1 %tobool.not.i.i3.i, label %_ZN7rocksdb5DeferD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  %call.i.i.i = invoke noundef zeroext i1 %83(ptr noundef nonnull align 8 dereferenceable(16) %defer, ptr noundef nonnull align 8 dereferenceable(16) %defer, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %82(ptr noundef nonnull align 8 dereferenceable(16) %defer, ptr noundef nonnull align 8 dereferenceable(16) %defer, i32 noundef 3)
           to label %_ZN7rocksdb5DeferD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
-  %84 = landingpad { ptr, i32 }
+  %83 = landingpad { ptr, i32 }
           catch ptr null
-  %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #22
+  %84 = extractvalue { ptr, i32 } %83, 0
+  call void @__clang_call_terminate(ptr %84) #22
   unreachable
 
 terminate.lpad.i:                                 ; preds = %if.end.i.i, %if.then.i.i134
-  %86 = landingpad { ptr, i32 }
+  %85 = landingpad { ptr, i32 }
           catch ptr null
-  %87 = extractvalue { ptr, i32 } %86, 0
-  call void @__clang_call_terminate(ptr %87) #22
+  %86 = extractvalue { ptr, i32 } %85, 0
+  call void @__clang_call_terminate(ptr %86) #22
   unreachable
 
 _ZN7rocksdb5DeferD2Ev.exit:                       ; preds = %invoke.cont.i, %if.then.i.i.i
   ret void
 
 ehcleanup:                                        ; preds = %lpad15.loopexit, %lpad15.loopexit.split-lp, %lpad116, %lpad95, %lpad66, %_ZN7rocksdb6StatusD2Ev.exit31, %lpad26
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %_ZN7rocksdb6StatusD2Ev.exit31 ], [ %49, %lpad66 ], [ %63, %lpad95 ], [ %79, %lpad116 ], [ %22, %lpad26 ], [ %lpad.loopexit, %lpad15.loopexit ], [ %lpad.loopexit.split-lp, %lpad15.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %_ZN7rocksdb6StatusD2Ev.exit31 ], [ %48, %lpad66 ], [ %62, %lpad95 ], [ %78, %lpad116 ], [ %21, %lpad26 ], [ %lpad.loopexit, %lpad15.loopexit ], [ %lpad.loopexit.split-lp, %lpad15.loopexit.split-lp ]
   %state_.i135 = getelementptr inbounds %"class.rocksdb::Status", ptr %s, i64 0, i32 6
-  %88 = load ptr, ptr %state_.i135, align 8
-  %cmp.not.i.i136 = icmp eq ptr %88, null
+  %87 = load ptr, ptr %state_.i135, align 8
+  %cmp.not.i.i136 = icmp eq ptr %87, null
   br i1 %cmp.not.i.i136, label %_ZN7rocksdb6StatusD2Ev.exit138, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i137
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i137: ; preds = %ehcleanup
-  call void @_ZdaPv(ptr noundef nonnull %88) #19
+  call void @_ZdaPv(ptr noundef nonnull %87) #19
   br label %_ZN7rocksdb6StatusD2Ev.exit138
 
 _ZN7rocksdb6StatusD2Ev.exit138:                   ; preds = %ehcleanup, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i137
@@ -1115,7 +1114,7 @@ _ZN7rocksdb6StatusD2Ev.exit138:                   ; preds = %ehcleanup, %_ZNKSt1
   br label %ehcleanup122
 
 ehcleanup122:                                     ; preds = %_ZN7rocksdb6StatusD2Ev.exit138, %lpad4
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7rocksdb6StatusD2Ev.exit138 ], [ %5, %lpad4 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7rocksdb6StatusD2Ev.exit138 ], [ %4, %lpad4 ]
   call void @_ZN7rocksdb5DeferD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %defer) #20
   resume { ptr, i32 } %.pn.pn
 }

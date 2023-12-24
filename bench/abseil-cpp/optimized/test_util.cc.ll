@@ -103,8 +103,7 @@ ehcleanup:                                        ; preds = %lpad7, %lpad
 return:                                           ; preds = %invoke.cont8, %if.then
   %storemerge.in.sroa.speculated.in = phi ptr [ %call3, %if.then ], [ %agg.tmp11.sroa.0.0.copyload, %invoke.cont8 ]
   %retval.0 = phi i1 [ true, %if.then ], [ %call9, %invoke.cont8 ]
-  %storemerge.in.sroa.speculated = ptrtoint ptr %storemerge.in.sroa.speculated.in to i64
-  store i64 %storemerge.in.sroa.speculated, ptr %tz, align 8
+  store ptr %storemerge.in.sroa.speculated.in, ptr %tz, align 8
   ret i1 %retval.0
 }
 

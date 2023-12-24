@@ -633,23 +633,22 @@ entry:
   %ref.tmp.i = alloca %struct._key_data.19, align 8
   %retval.sroa.0.0.copyload.i = load ptr, ptr %c, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %0 = ptrtoint ptr %retval.sroa.0.0.copyload.i to i64
-  store i64 %0, ptr %ref.tmp.i, align 8
+  store ptr %retval.sroa.0.0.copyload.i, ptr %ref.tmp.i, align 8
   %m_value.i.i = getelementptr inbounds %struct._key_data.19, ptr %ref.tmp.i, i64 0, i32 1
   store ptr %c, ptr %m_value.i.i, align 8
   call void @_ZN14core_hashtableI17default_map_entryI6symbolP10tactic_cmdEN9table2mapIS4_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS8_13entry_eq_procEE6insertEO9_key_dataIS1_S3_E(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %m_tactics = getelementptr inbounds %class.tactic_manager, ptr %this, i64 0, i32 3
-  %1 = load ptr, ptr %m_tactics, align 8
-  %cmp.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %m_tactics, align 8
+  %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %arrayidx.i = getelementptr inbounds i32, ptr %1, i64 -1
-  %2 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx4.i = getelementptr inbounds i32, ptr %1, i64 -2
-  %3 = load i32, ptr %arrayidx4.i, align 4
-  %cmp5.i = icmp eq i32 %2, %3
+  %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 -1
+  %1 = load i32, ptr %arrayidx.i, align 4
+  %arrayidx4.i = getelementptr inbounds i32, ptr %0, i64 -2
+  %2 = load i32, ptr %arrayidx4.i, align 4
+  %cmp5.i = icmp eq i32 %1, %2
   br i1 %cmp5.i, label %if.then.i, label %_ZN6vectorIP10tactic_cmdLb0EjE9push_backERKS1_.exit
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry
@@ -660,15 +659,15 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %e
   br label %_ZN6vectorIP10tactic_cmdLb0EjE9push_backERKS1_.exit
 
 _ZN6vectorIP10tactic_cmdLb0EjE9push_backERKS1_.exit: ; preds = %lor.lhs.false.i, %if.then.i
-  %4 = phi i32 [ %.pre1.i, %if.then.i ], [ %2, %lor.lhs.false.i ]
-  %5 = phi ptr [ %.pre.i, %if.then.i ], [ %1, %lor.lhs.false.i ]
-  %idx.ext.i = zext i32 %4 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %5, i64 %idx.ext.i
+  %3 = phi i32 [ %.pre1.i, %if.then.i ], [ %1, %lor.lhs.false.i ]
+  %4 = phi ptr [ %.pre.i, %if.then.i ], [ %0, %lor.lhs.false.i ]
+  %idx.ext.i = zext i32 %3 to i64
+  %add.ptr.i = getelementptr inbounds ptr, ptr %4, i64 %idx.ext.i
   store ptr %c, ptr %add.ptr.i, align 8
-  %6 = load ptr, ptr %m_tactics, align 8
-  %arrayidx10.i = getelementptr inbounds i32, ptr %6, i64 -1
-  %7 = load i32, ptr %arrayidx10.i, align 4
-  %inc.i = add i32 %7, 1
+  %5 = load ptr, ptr %m_tactics, align 8
+  %arrayidx10.i = getelementptr inbounds i32, ptr %5, i64 -1
+  %6 = load i32, ptr %arrayidx10.i, align 4
+  %inc.i = add i32 %6, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
   ret void
 }
@@ -680,23 +679,22 @@ entry:
   %retval.sroa.0.0.copyload.i = load ptr, ptr %c, align 8
   %m_name2simplifier = getelementptr inbounds %class.tactic_manager, ptr %this, i64 0, i32 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %0 = ptrtoint ptr %retval.sroa.0.0.copyload.i to i64
-  store i64 %0, ptr %ref.tmp.i, align 8
+  store ptr %retval.sroa.0.0.copyload.i, ptr %ref.tmp.i, align 8
   %m_value.i.i = getelementptr inbounds %struct._key_data, ptr %ref.tmp.i, i64 0, i32 1
   store ptr %c, ptr %m_value.i.i, align 8
   call void @_ZN14core_hashtableI17default_map_entryI6symbolP14simplifier_cmdEN9table2mapIS4_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS8_13entry_eq_procEE6insertEO9_key_dataIS1_S3_E(ptr noundef nonnull align 8 dereferenceable(20) %m_name2simplifier, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %m_simplifiers = getelementptr inbounds %class.tactic_manager, ptr %this, i64 0, i32 4
-  %1 = load ptr, ptr %m_simplifiers, align 8
-  %cmp.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %m_simplifiers, align 8
+  %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %arrayidx.i = getelementptr inbounds i32, ptr %1, i64 -1
-  %2 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx4.i = getelementptr inbounds i32, ptr %1, i64 -2
-  %3 = load i32, ptr %arrayidx4.i, align 4
-  %cmp5.i = icmp eq i32 %2, %3
+  %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 -1
+  %1 = load i32, ptr %arrayidx.i, align 4
+  %arrayidx4.i = getelementptr inbounds i32, ptr %0, i64 -2
+  %2 = load i32, ptr %arrayidx4.i, align 4
+  %cmp5.i = icmp eq i32 %1, %2
   br i1 %cmp5.i, label %if.then.i, label %_ZN6vectorIP14simplifier_cmdLb0EjE9push_backERKS1_.exit
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry
@@ -707,15 +705,15 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %e
   br label %_ZN6vectorIP14simplifier_cmdLb0EjE9push_backERKS1_.exit
 
 _ZN6vectorIP14simplifier_cmdLb0EjE9push_backERKS1_.exit: ; preds = %lor.lhs.false.i, %if.then.i
-  %4 = phi i32 [ %.pre1.i, %if.then.i ], [ %2, %lor.lhs.false.i ]
-  %5 = phi ptr [ %.pre.i, %if.then.i ], [ %1, %lor.lhs.false.i ]
-  %idx.ext.i = zext i32 %4 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %5, i64 %idx.ext.i
+  %3 = phi i32 [ %.pre1.i, %if.then.i ], [ %1, %lor.lhs.false.i ]
+  %4 = phi ptr [ %.pre.i, %if.then.i ], [ %0, %lor.lhs.false.i ]
+  %idx.ext.i = zext i32 %3 to i64
+  %add.ptr.i = getelementptr inbounds ptr, ptr %4, i64 %idx.ext.i
   store ptr %c, ptr %add.ptr.i, align 8
-  %6 = load ptr, ptr %m_simplifiers, align 8
-  %arrayidx10.i = getelementptr inbounds i32, ptr %6, i64 -1
-  %7 = load i32, ptr %arrayidx10.i, align 4
-  %inc.i = add i32 %7, 1
+  %5 = load ptr, ptr %m_simplifiers, align 8
+  %arrayidx10.i = getelementptr inbounds i32, ptr %5, i64 -1
+  %6 = load i32, ptr %arrayidx10.i, align 4
+  %inc.i = add i32 %6, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
   ret void
 }
@@ -727,23 +725,22 @@ entry:
   %retval.sroa.0.0.copyload.i = load ptr, ptr %p, align 8
   %m_name2probe = getelementptr inbounds %class.tactic_manager, ptr %this, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %0 = ptrtoint ptr %retval.sroa.0.0.copyload.i to i64
-  store i64 %0, ptr %ref.tmp.i, align 8
+  store ptr %retval.sroa.0.0.copyload.i, ptr %ref.tmp.i, align 8
   %m_value.i.i = getelementptr inbounds %struct._key_data.16, ptr %ref.tmp.i, i64 0, i32 1
   store ptr %p, ptr %m_value.i.i, align 8
   call void @_ZN14core_hashtableI17default_map_entryI6symbolP10probe_infoEN9table2mapIS4_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS8_13entry_eq_procEE6insertEO9_key_dataIS1_S3_E(ptr noundef nonnull align 8 dereferenceable(20) %m_name2probe, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %m_probes = getelementptr inbounds %class.tactic_manager, ptr %this, i64 0, i32 5
-  %1 = load ptr, ptr %m_probes, align 8
-  %cmp.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %m_probes, align 8
+  %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %arrayidx.i = getelementptr inbounds i32, ptr %1, i64 -1
-  %2 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx4.i = getelementptr inbounds i32, ptr %1, i64 -2
-  %3 = load i32, ptr %arrayidx4.i, align 4
-  %cmp5.i = icmp eq i32 %2, %3
+  %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 -1
+  %1 = load i32, ptr %arrayidx.i, align 4
+  %arrayidx4.i = getelementptr inbounds i32, ptr %0, i64 -2
+  %2 = load i32, ptr %arrayidx4.i, align 4
+  %cmp5.i = icmp eq i32 %1, %2
   br i1 %cmp5.i, label %if.then.i, label %_ZN6vectorIP10probe_infoLb0EjE9push_backERKS1_.exit
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry
@@ -754,15 +751,15 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %e
   br label %_ZN6vectorIP10probe_infoLb0EjE9push_backERKS1_.exit
 
 _ZN6vectorIP10probe_infoLb0EjE9push_backERKS1_.exit: ; preds = %lor.lhs.false.i, %if.then.i
-  %4 = phi i32 [ %.pre1.i, %if.then.i ], [ %2, %lor.lhs.false.i ]
-  %5 = phi ptr [ %.pre.i, %if.then.i ], [ %1, %lor.lhs.false.i ]
-  %idx.ext.i = zext i32 %4 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %5, i64 %idx.ext.i
+  %3 = phi i32 [ %.pre1.i, %if.then.i ], [ %1, %lor.lhs.false.i ]
+  %4 = phi ptr [ %.pre.i, %if.then.i ], [ %0, %lor.lhs.false.i ]
+  %idx.ext.i = zext i32 %3 to i64
+  %add.ptr.i = getelementptr inbounds ptr, ptr %4, i64 %idx.ext.i
   store ptr %p, ptr %add.ptr.i, align 8
-  %6 = load ptr, ptr %m_probes, align 8
-  %arrayidx10.i = getelementptr inbounds i32, ptr %6, i64 -1
-  %7 = load i32, ptr %arrayidx10.i, align 4
-  %inc.i = add i32 %7, 1
+  %5 = load ptr, ptr %m_probes, align 8
+  %arrayidx10.i = getelementptr inbounds i32, ptr %5, i64 -1
+  %6 = load i32, ptr %arrayidx10.i, align 4
+  %inc.i = add i32 %6, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
   ret void
 }

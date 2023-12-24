@@ -1638,17 +1638,16 @@ define hidden void @large_prof_info_get(ptr noundef %tsd, ptr noundef %edata, pt
 entry:
   %e_prof_tctx.i = getelementptr inbounds %struct.edata_s, ptr %edata, i64 0, i32 6, i32 0, i32 0, i64 2
   %0 = load atomic i64, ptr %e_prof_tctx.i acquire, align 8
-  %1 = inttoptr i64 %0 to ptr
   %alloc_tctx1 = getelementptr inbounds %struct.prof_info_s, ptr %prof_info, i64 0, i32 1
-  store ptr %1, ptr %alloc_tctx1, align 8
+  store i64 %0, ptr %alloc_tctx1, align 8
   %switch = icmp ult i64 %0, 2
   br i1 %switch, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %entry
-  %2 = getelementptr inbounds %struct.edata_s, ptr %edata, i64 0, i32 6
-  tail call void @nstime_copy(ptr noundef nonnull %prof_info, ptr noundef nonnull %2) #10
-  %3 = getelementptr i8, ptr %edata, i64 72
-  %edata.val = load i64, ptr %3, align 8
+  %1 = getelementptr inbounds %struct.edata_s, ptr %edata, i64 0, i32 6
+  tail call void @nstime_copy(ptr noundef nonnull %prof_info, ptr noundef nonnull %1) #10
+  %2 = getelementptr i8, ptr %edata, i64 72
+  %edata.val = load i64, ptr %2, align 8
   %alloc_size = getelementptr inbounds %struct.prof_info_s, ptr %prof_info, i64 0, i32 2
   store i64 %edata.val, ptr %alloc_size, align 8
   br i1 %reset_recent, label %if.then5, label %if.end6
@@ -1836,8 +1835,7 @@ monotonic.i.i:                                    ; preds = %if.then.i, %if.then
   %shl.i74 = shl i64 %10, 16
   %shr10.i = ashr exact i64 %shl.i74, 16
   %and11.i = and i64 %shr10.i, -128
-  %15 = inttoptr i64 %and11.i to ptr
-  store ptr %15, ptr %agg.result, align 8, !alias.scope !10
+  store i64 %and11.i, ptr %agg.result, align 8, !alias.scope !10
   ret void
 }
 

@@ -509,11 +509,10 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   store ptr null, ptr %message_.i, align 8
   %11 = load i64, ptr %tz, align 8
   store i64 %11, ptr %tz2, align 8
-  %agg.tmp.sroa.0.0.copyload.i.i15.cast = inttoptr i64 %11 to ptr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lhs.i.i.i.i13), !noalias !10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rhs.i.i.i.i14), !noalias !10
-  store ptr %agg.tmp.sroa.0.0.copyload.i.i15.cast, ptr %lhs.i.i.i.i13, align 8, !noalias !10
-  store ptr %agg.tmp.sroa.0.0.copyload.i.i15.cast, ptr %rhs.i.i.i.i14, align 8, !noalias !10
+  store i64 %11, ptr %lhs.i.i.i.i13, align 8, !noalias !10
+  store i64 %11, ptr %rhs.i.i.i.i14, align 8, !noalias !10
   %call.i.i.i.i17 = call noundef nonnull align 1 ptr @_ZNK4absl13time_internal4cctz9time_zone14effective_implEv(ptr noundef nonnull align 8 dereferenceable(8) %lhs.i.i.i.i13), !noalias !10
   %call2.i.i.i.i18 = call noundef nonnull align 1 ptr @_ZNK4absl13time_internal4cctz9time_zone14effective_implEv(ptr noundef nonnull align 8 dereferenceable(8) %rhs.i.i.i.i14), !noalias !10
   %cmp.i.i.i.i19 = icmp eq ptr %call.i.i.i.i17, %call2.i.i.i.i18
@@ -4947,8 +4946,7 @@ ehcleanup:                                        ; preds = %lpad7, %lpad
 return:                                           ; preds = %invoke.cont8, %if.then
   %storemerge.in.sroa.speculated.in = phi ptr [ %call3, %if.then ], [ %agg.tmp11.sroa.0.0.copyload, %invoke.cont8 ]
   %retval.0 = phi i1 [ true, %if.then ], [ %call9, %invoke.cont8 ]
-  %storemerge.in.sroa.speculated = ptrtoint ptr %storemerge.in.sroa.speculated.in to i64
-  store i64 %storemerge.in.sroa.speculated, ptr %tz, align 8
+  store ptr %storemerge.in.sroa.speculated.in, ptr %tz, align 8
   ret i1 %retval.0
 }
 

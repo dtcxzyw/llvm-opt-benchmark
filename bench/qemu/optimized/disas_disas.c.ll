@@ -386,20 +386,23 @@ if.end13:
   store ptr %out, ptr %stream, align 8
   %buffer = getelementptr inbounds %struct.disassemble_info, ptr %s, i64 0, i32 16
   store ptr %code, ptr %buffer, align 8
-  %1 = ptrtoint ptr %code to i64
   %buffer_vma = getelementptr inbounds %struct.disassemble_info, ptr %s, i64 0, i32 17
-  store i64 %1, ptr %buffer_vma, align 8
+  store ptr %code, ptr %buffer_vma, align 8
   %conv = trunc i64 %size to i32
   %buffer_length = getelementptr inbounds %struct.disassemble_info, ptr %s, i64 0, i32 18
   store i32 %conv, ptr %buffer_length, align 8
   %print_insn = getelementptr inbounds %struct.disassemble_info, ptr %s, i64 0, i32 14
   store ptr @print_insn_od_host, ptr %print_insn, align 8
   %cmp14.not11 = icmp eq i64 %size, 0
-  br i1 %cmp14.not11, label %for.end, label %for.body
+  br i1 %cmp14.not11, label %for.end, label %for.body.preheader
 
-for.body:                                         ; preds = %if.end13, %for.inc
-  %size.addr.013 = phi i64 [ %sub, %for.inc ], [ %size, %if.end13 ]
-  %pc.012 = phi i64 [ %add, %for.inc ], [ %1, %if.end13 ]
+for.body.preheader:                               ; preds = %if.end13
+  %1 = ptrtoint ptr %code to i64
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.preheader, %for.inc
+  %size.addr.013 = phi i64 [ %sub, %for.inc ], [ %size, %for.body.preheader ]
+  %pc.012 = phi i64 [ %add, %for.inc ], [ %1, %for.body.preheader ]
   %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %out, ptr noundef nonnull @.str, i64 noundef %pc.012)
   %2 = load ptr, ptr %print_insn, align 8
   %call19 = call i32 %2(i64 noundef %pc.012, ptr noundef nonnull %s) #10

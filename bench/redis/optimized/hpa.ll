@@ -533,23 +533,22 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %edata.030 = phi ptr [ %0, %for.body.lr.ph ], [ %7, %for.body ]
+  %edata.030 = phi ptr [ %0, %for.body.lr.ph ], [ %6, %for.body ]
   %1 = getelementptr i8, ptr %edata.030, i64 8
   %edata.val.i = load ptr, ptr %1, align 8
   %2 = ptrtoint ptr %edata.val.i to i64
   %and.i.i = and i64 %2, -4096
-  %3 = inttoptr i64 %and.i.i to ptr
-  store ptr %3, ptr %1, align 8
-  %4 = load i64, ptr %edata.030, align 8
-  %and.i6.i = and i64 %4, -32769
+  store i64 %and.i.i, ptr %1, align 8
+  %3 = load i64, ptr %edata.030, align 8
+  %and.i6.i = and i64 %3, -32769
   store i64 %and.i6.i, ptr %edata.030, align 8
-  %5 = load ptr, ptr %emap.i, align 8
-  tail call void @emap_deregister_boundary(ptr noundef %tsdn, ptr noundef %5, ptr noundef nonnull %edata.030) #8
-  %6 = getelementptr inbounds %struct.edata_s, ptr %edata.030, i64 0, i32 5
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %list, align 8
-  %cmp3.not = icmp eq ptr %7, %8
-  %cmp.not34 = icmp eq ptr %7, null
+  %4 = load ptr, ptr %emap.i, align 8
+  tail call void @emap_deregister_boundary(ptr noundef %tsdn, ptr noundef %4, ptr noundef nonnull %edata.030) #8
+  %5 = getelementptr inbounds %struct.edata_s, ptr %edata.030, i64 0, i32 5
+  %6 = load ptr, ptr %5, align 8
+  %7 = load ptr, ptr %list, align 8
+  %cmp3.not = icmp eq ptr %6, %7
+  %cmp.not34 = icmp eq ptr %6, null
   %cmp.not = or i1 %cmp3.not, %cmp.not34
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -568,19 +567,19 @@ if.then.i:                                        ; preds = %for.end
 
 if.end.i:                                         ; preds = %if.then.i, %for.end
   %n_lock_ops.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 2, i32 0, i32 0, i32 0, i32 8
-  %9 = load i64, ptr %n_lock_ops.i.i, align 8
-  %inc.i.i = add i64 %9, 1
+  %8 = load i64, ptr %n_lock_ops.i.i, align 8
+  %inc.i.i = add i64 %8, 1
   store i64 %inc.i.i, ptr %n_lock_ops.i.i, align 8
   %prev_owner.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 2, i32 0, i32 0, i32 0, i32 7
-  %10 = load ptr, ptr %prev_owner.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %10, %tsdn
+  %9 = load ptr, ptr %prev_owner.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %9, %tsdn
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   store ptr %tsdn, ptr %prev_owner.i.i, align 8
   %n_owner_switches.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 2, i32 0, i32 0, i32 0, i32 6
-  %11 = load i64, ptr %n_owner_switches.i.i, align 8
-  %inc2.i.i = add i64 %11, 1
+  %10 = load i64, ptr %n_owner_switches.i.i, align 8
+  %inc2.i.i = add i64 %10, 1
   store i64 %inc2.i.i, ptr %n_owner_switches.i.i, align 8
   br label %malloc_mutex_lock.exit
 
@@ -592,40 +591,40 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
 if.end.i19.lr.ph:                                 ; preds = %malloc_mutex_lock.exit
   %ecf.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 5
   %psset.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 6
-  %12 = getelementptr i8, ptr %self, i64 5632
+  %11 = getelementptr i8, ptr %self, i64 5632
   %central.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 1
   br label %if.end.i19
 
 if.end.i19:                                       ; preds = %if.end.i19.lr.ph, %hpa_dalloc_locked.exit
   %list.val33 = phi ptr [ %list.val31, %if.end.i19.lr.ph ], [ %list.val, %hpa_dalloc_locked.exit ]
-  %13 = getelementptr inbounds %struct.edata_s, ptr %list.val33, i64 0, i32 5
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %list, align 8
-  %cmp7.not.i = icmp eq ptr %14, %list.val33
+  %12 = getelementptr inbounds %struct.edata_s, ptr %list.val33, i64 0, i32 5
+  %13 = load ptr, ptr %12, align 8
+  store ptr %13, ptr %list, align 8
+  %cmp7.not.i = icmp eq ptr %13, %list.val33
   br i1 %cmp7.not.i, label %do.body25.i, label %do.body9.i
 
 do.body9.i:                                       ; preds = %if.end.i19
-  %qre_prev.i = getelementptr inbounds %struct.edata_s, ptr %14, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
-  %15 = load ptr, ptr %qre_prev.i, align 8
+  %qre_prev.i = getelementptr inbounds %struct.edata_s, ptr %13, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %14 = load ptr, ptr %qre_prev.i, align 8
   %qre_prev11.i = getelementptr inbounds %struct.edata_s, ptr %list.val33, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
-  %16 = load ptr, ptr %qre_prev11.i, align 8
-  %17 = getelementptr inbounds %struct.edata_s, ptr %16, i64 0, i32 5
-  store ptr %15, ptr %17, align 8
-  %18 = load ptr, ptr %qre_prev11.i, align 8
-  %19 = load ptr, ptr %13, align 8
-  %qre_prev15.i = getelementptr inbounds %struct.edata_s, ptr %19, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
-  store ptr %18, ptr %qre_prev15.i, align 8
-  %20 = getelementptr inbounds %struct.edata_s, ptr %18, i64 0, i32 5
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %qre_prev11.i, align 8
-  %22 = load ptr, ptr %13, align 8
-  %qre_prev21.i = getelementptr inbounds %struct.edata_s, ptr %22, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
-  %23 = load ptr, ptr %qre_prev21.i, align 8
-  %24 = getelementptr inbounds %struct.edata_s, ptr %23, i64 0, i32 5
-  store ptr %22, ptr %24, align 8
-  %25 = load ptr, ptr %qre_prev11.i, align 8
-  %26 = getelementptr inbounds %struct.edata_s, ptr %25, i64 0, i32 5
-  store ptr %list.val33, ptr %26, align 8
+  %15 = load ptr, ptr %qre_prev11.i, align 8
+  %16 = getelementptr inbounds %struct.edata_s, ptr %15, i64 0, i32 5
+  store ptr %14, ptr %16, align 8
+  %17 = load ptr, ptr %qre_prev11.i, align 8
+  %18 = load ptr, ptr %12, align 8
+  %qre_prev15.i = getelementptr inbounds %struct.edata_s, ptr %18, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  store ptr %17, ptr %qre_prev15.i, align 8
+  %19 = getelementptr inbounds %struct.edata_s, ptr %17, i64 0, i32 5
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %qre_prev11.i, align 8
+  %21 = load ptr, ptr %12, align 8
+  %qre_prev21.i = getelementptr inbounds %struct.edata_s, ptr %21, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %22 = load ptr, ptr %qre_prev21.i, align 8
+  %23 = getelementptr inbounds %struct.edata_s, ptr %22, i64 0, i32 5
+  store ptr %21, ptr %23, align 8
+  %24 = load ptr, ptr %qre_prev11.i, align 8
+  %25 = getelementptr inbounds %struct.edata_s, ptr %24, i64 0, i32 5
+  store ptr %list.val33, ptr %25, align 8
   br label %edata_list_active_remove.exit
 
 do.body25.i:                                      ; preds = %if.end.i19
@@ -633,28 +632,28 @@ do.body25.i:                                      ; preds = %if.end.i19
   br label %edata_list_active_remove.exit
 
 edata_list_active_remove.exit:                    ; preds = %do.body9.i, %do.body25.i
-  %27 = getelementptr i8, ptr %list.val33, i64 24
-  %edata.val.i21 = load ptr, ptr %27, align 8
-  %28 = getelementptr i8, ptr %list.val33, i64 8
-  %edata.val13.i = load ptr, ptr %28, align 8
-  %29 = getelementptr i8, ptr %list.val33, i64 16
-  %edata.val14.i = load i64, ptr %29, align 8
+  %26 = getelementptr i8, ptr %list.val33, i64 24
+  %edata.val.i21 = load ptr, ptr %26, align 8
+  %27 = getelementptr i8, ptr %list.val33, i64 8
+  %edata.val13.i = load ptr, ptr %27, align 8
+  %28 = getelementptr i8, ptr %list.val33, i64 16
+  %edata.val14.i = load i64, ptr %28, align 8
   %and.i.i22 = and i64 %edata.val14.i, -4096
   call void @edata_cache_fast_put(ptr noundef %tsdn, ptr noundef nonnull %ecf.i, ptr noundef nonnull %list.val33) #8
   call void @psset_update_begin(ptr noundef nonnull %psset.i, ptr noundef %edata.val.i21) #8
   call void @hpdata_unreserve(ptr noundef %edata.val.i21, ptr noundef %edata.val13.i, i64 noundef %and.i.i22) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %now.i.i)
   %h_mid_purge.i.i.i = getelementptr inbounds %struct.hpdata_s, ptr %edata.val.i21, i64 0, i32 9
-  %30 = load i8, ptr %h_mid_purge.i.i.i, align 1
-  %31 = and i8 %30, 1
-  %tobool.not.i.i.i = icmp eq i8 %31, 0
+  %29 = load i8, ptr %h_mid_purge.i.i.i, align 1
+  %30 = and i8 %29, 1
+  %tobool.not.i.i.i = icmp eq i8 %30, 0
   br i1 %tobool.not.i.i.i, label %hpdata_changing_state_get.exit.i.i, label %if.then.i.i23
 
 hpdata_changing_state_get.exit.i.i:               ; preds = %edata_list_active_remove.exit
   %h_mid_hugify.i.i.i = getelementptr inbounds %struct.hpdata_s, ptr %edata.val.i21, i64 0, i32 10
-  %32 = load i8, ptr %h_mid_hugify.i.i.i, align 2
-  %33 = and i8 %32, 1
-  %tobool1.i.not.i.i = icmp eq i8 %33, 0
+  %31 = load i8, ptr %h_mid_hugify.i.i.i, align 2
+  %32 = and i8 %31, 1
+  %tobool1.i.not.i.i = icmp eq i8 %32, 0
   br i1 %tobool1.i.not.i.i, label %if.end.i.i, label %if.then.i.i23
 
 if.then.i.i23:                                    ; preds = %hpdata_changing_state_get.exit.i.i, %edata_list_active_remove.exit
@@ -663,37 +662,37 @@ if.then.i.i23:                                    ; preds = %hpdata_changing_sta
   br label %if.end9.sink.split.i.i
 
 if.end.i.i:                                       ; preds = %hpdata_changing_state_get.exit.i.i
-  %34 = getelementptr i8, ptr %edata.val.i21, i64 104
-  %ps.val.i.i = load i64, ptr %34, align 8
-  %35 = getelementptr i8, ptr %edata.val.i21, i64 176
-  %ps.val12.i.i = load i64, ptr %35, align 8
+  %33 = getelementptr i8, ptr %edata.val.i21, i64 104
+  %ps.val.i.i = load i64, ptr %33, align 8
+  %34 = getelementptr i8, ptr %edata.val.i21, i64 176
+  %ps.val12.i.i = load i64, ptr %34, align 8
   %cmp.i.i = icmp ne i64 %ps.val12.i.i, %ps.val.i.i
   %frombool.i.i.i = zext i1 %cmp.i.i to i8
   %h_purge_allowed.i16.i.i = getelementptr inbounds %struct.hpdata_s, ptr %edata.val.i21, i64 0, i32 5
   store i8 %frombool.i.i.i, ptr %h_purge_allowed.i16.i.i, align 1
-  %shard.val.i.i = load i64, ptr %12, align 8
+  %shard.val.i.i = load i64, ptr %11, align 8
   %mul.i.i.i = shl i64 %ps.val.i.i, 12
   %cmp.i.not.i.i = icmp ult i64 %mul.i.i.i, %shard.val.i.i
   br i1 %cmp.i.not.i.i, label %if.end5.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
-  %36 = getelementptr i8, ptr %edata.val.i21, i64 16
-  %ps.val15.i.i = load i8, ptr %36, align 8
-  %37 = and i8 %ps.val15.i.i, 1
-  %tobool.i.not.i.i = icmp eq i8 %37, 0
+  %35 = getelementptr i8, ptr %edata.val.i21, i64 16
+  %ps.val15.i.i = load i8, ptr %35, align 8
+  %36 = and i8 %ps.val15.i.i, 1
+  %tobool.i.not.i.i = icmp eq i8 %36, 0
   br i1 %tobool.i.not.i.i, label %if.then4.i.i, label %if.end5.i.i
 
 if.then4.i.i:                                     ; preds = %land.lhs.true.i.i
-  %38 = load ptr, ptr %central.i.i, align 8
-  %curtime.i.i = getelementptr inbounds %struct.hpa_central_s, ptr %38, i64 0, i32 6, i32 5
-  %39 = load ptr, ptr %curtime.i.i, align 8
-  call void %39(ptr noundef nonnull %now.i.i, i1 noundef zeroext true) #8
-  %40 = load i64, ptr %now.i.i, align 8
+  %37 = load ptr, ptr %central.i.i, align 8
+  %curtime.i.i = getelementptr inbounds %struct.hpa_central_s, ptr %37, i64 0, i32 6, i32 5
+  %38 = load ptr, ptr %curtime.i.i, align 8
+  call void %38(ptr noundef nonnull %now.i.i, i1 noundef zeroext true) #8
+  %39 = load i64, ptr %now.i.i, align 8
   %h_hugify_allowed.i17.i.i = getelementptr inbounds %struct.hpdata_s, ptr %edata.val.i21, i64 0, i32 6
   store i8 1, ptr %h_hugify_allowed.i17.i.i, align 4
   %h_time_hugify_allowed.i.i.i = getelementptr inbounds %struct.hpdata_s, ptr %edata.val.i21, i64 0, i32 7
-  store i64 %40, ptr %h_time_hugify_allowed.i.i.i, align 8
-  %ps.val13.pre.i.i = load i64, ptr %34, align 8
+  store i64 %39, ptr %h_time_hugify_allowed.i.i.i, align 8
+  %ps.val13.pre.i.i = load i64, ptr %33, align 8
   br label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %if.then4.i.i, %land.lhs.true.i.i, %if.end.i.i
@@ -721,31 +720,31 @@ while.end:                                        ; preds = %hpa_dalloc_locked.e
   br i1 %cmp.not.i, label %lor.rhs.i, label %hpa_shard_has_deferred_work.exit
 
 lor.rhs.i:                                        ; preds = %while.end
-  %41 = getelementptr i8, ptr %self, i64 1368
-  %shard.val.i.i25 = load i64, ptr %41, align 8
-  %42 = getelementptr i8, ptr %self, i64 5664
-  %shard.val7.i.i = load i64, ptr %42, align 8
+  %40 = getelementptr i8, ptr %self, i64 1368
+  %shard.val.i.i25 = load i64, ptr %40, align 8
+  %41 = getelementptr i8, ptr %self, i64 5664
+  %shard.val7.i.i = load i64, ptr %41, align 8
   %sub.i.i.i = sub i64 %shard.val.i.i25, %shard.val7.i.i
   %dirty_mult.i.i.i = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 10, i32 2
-  %43 = load i32, ptr %dirty_mult.i.i.i, align 8
-  %cmp.i.i.i = icmp eq i32 %43, -1
+  %42 = load i32, ptr %dirty_mult.i.i.i, align 8
+  %cmp.i.i.i = icmp eq i32 %42, -1
   br i1 %cmp.i.i.i, label %if.end.i.i27, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %lor.rhs.i
-  %44 = getelementptr %struct.hpa_shard_s, ptr %self, i64 0, i32 6, i32 2, i32 1
-  %psset.val.i.i.i = load i64, ptr %44, align 8
+  %43 = getelementptr %struct.hpa_shard_s, ptr %self, i64 0, i32 6, i32 2, i32 1
+  %psset.val.i.i.i = load i64, ptr %43, align 8
   %cmp.i.i.i.i = icmp ult i64 %psset.val.i.i.i, 281474976710656
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %conv.i.i.i.i = zext i32 %43 to i64
+  %conv.i.i.i.i = zext i32 %42 to i64
   %mul.i.i.i.i = mul i64 %psset.val.i.i.i, %conv.i.i.i.i
   %shr.i.i.i.i = lshr i64 %mul.i.i.i.i, 16
   br label %hpa_ndirty_max.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
   %shr1.i.i.i.i = lshr i64 %psset.val.i.i.i, 16
-  %conv2.i.i.i.i = zext i32 %43 to i64
+  %conv2.i.i.i.i = zext i32 %42 to i64
   %mul3.i.i.i.i = mul i64 %shr1.i.i.i.i, %conv2.i.i.i.i
   br label %hpa_ndirty_max.exit.i.i
 
@@ -760,43 +759,43 @@ if.end.i.i27:                                     ; preds = %hpa_ndirty_max.exit
   br i1 %cmp.i8.i.i, label %hpa_shard_has_deferred_work.exit, label %if.end.i9.i.i
 
 if.end.i9.i.i:                                    ; preds = %if.end.i.i27
-  %shard.val.i.i.i = load i64, ptr %41, align 8
-  %shard.val7.i.i.i = load i64, ptr %42, align 8
-  %45 = getelementptr i8, ptr %call.i.i.i, i64 176
-  %call.val.i.i.i = load i64, ptr %45, align 8
+  %shard.val.i.i.i = load i64, ptr %40, align 8
+  %shard.val7.i.i.i = load i64, ptr %41, align 8
+  %44 = getelementptr i8, ptr %call.i.i.i, i64 176
+  %call.val.i.i.i = load i64, ptr %44, align 8
   %.neg = add i64 %shard.val.i.i.i, 512
-  %46 = add i64 %shard.val7.i.i.i, %call.val.i.i.i
-  %add.i.i.i = sub i64 %.neg, %46
-  %47 = load i32, ptr %dirty_mult.i.i.i, align 8
-  %cmp.i.i10.i.i = icmp eq i32 %47, -1
+  %45 = add i64 %shard.val7.i.i.i, %call.val.i.i.i
+  %add.i.i.i = sub i64 %.neg, %45
+  %46 = load i32, ptr %dirty_mult.i.i.i, align 8
+  %cmp.i.i10.i.i = icmp eq i32 %46, -1
   br i1 %cmp.i.i10.i.i, label %hpa_ndirty_max.exit.i.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i9.i.i
-  %48 = getelementptr %struct.hpa_shard_s, ptr %self, i64 0, i32 6, i32 2, i32 1
-  %psset.val.i.i.i.i = load i64, ptr %48, align 8
+  %47 = getelementptr %struct.hpa_shard_s, ptr %self, i64 0, i32 6, i32 2, i32 1
+  %psset.val.i.i.i.i = load i64, ptr %47, align 8
   %cmp.i.i.i.i.i = icmp ult i64 %psset.val.i.i.i.i, 281474976710656
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %conv.i.i.i.i.i = zext i32 %47 to i64
+  %conv.i.i.i.i.i = zext i32 %46 to i64
   %mul.i.i.i.i.i = mul i64 %psset.val.i.i.i.i, %conv.i.i.i.i.i
   %shr.i.i.i.i.i = lshr i64 %mul.i.i.i.i.i, 16
   br label %hpa_ndirty_max.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %shr1.i.i.i.i.i = lshr i64 %psset.val.i.i.i.i, 16
-  %conv2.i.i.i.i.i = zext i32 %47 to i64
+  %conv2.i.i.i.i.i = zext i32 %46 to i64
   %mul3.i.i.i.i.i = mul i64 %shr1.i.i.i.i.i, %conv2.i.i.i.i.i
   br label %hpa_ndirty_max.exit.i.i.i
 
 hpa_ndirty_max.exit.i.i.i:                        ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %if.end.i9.i.i
   %retval.0.i.i.i.i = phi i64 [ -1, %if.end.i9.i.i ], [ %shr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %mul3.i.i.i.i.i, %if.else.i.i.i.i.i ]
   %cmp4.i.i.i = icmp ugt i64 %add.i.i.i, %retval.0.i.i.i.i
-  %49 = zext i1 %cmp4.i.i.i to i8
+  %48 = zext i1 %cmp4.i.i.i to i8
   br label %hpa_shard_has_deferred_work.exit
 
 hpa_shard_has_deferred_work.exit:                 ; preds = %while.end, %hpa_ndirty_max.exit.i.i, %if.end.i.i27, %hpa_ndirty_max.exit.i.i.i
-  %frombool = phi i8 [ 1, %while.end ], [ 1, %hpa_ndirty_max.exit.i.i ], [ %49, %hpa_ndirty_max.exit.i.i.i ], [ 0, %if.end.i.i27 ]
+  %frombool = phi i8 [ 1, %while.end ], [ 1, %hpa_ndirty_max.exit.i.i ], [ %48, %hpa_ndirty_max.exit.i.i.i ], [ 0, %if.end.i.i27 ]
   store i8 %frombool, ptr %deferred_work_generated, align 1
   %locked.i28 = getelementptr inbounds %struct.hpa_shard_s, ptr %self, i64 0, i32 2, i32 0, i32 0, i32 2
   store atomic i8 0, ptr %locked.i28 monotonic, align 1

@@ -244,16 +244,15 @@ entry:
 "_ZN4llvh8OptionalIN6hermes5irgen14SurroundingTryEE7emplaceIJPNS2_15FunctionContextERKPNS1_6ESTree16TryStatementNodeENS_5SMLocEZZNS2_11ESTreeIRGen15genTryStatementESA_ENK3$_0clEvEUlPNS8_4NodeENS2_17ControlFlowChangeEPNS1_10BasicBlockEE_EEEvDpOT_.exit.i.i": ; preds = %entry
   %debugLoc_.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %2, i64 0, i32 4
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %debugLoc_.i.i.i, align 8
-  %4 = ptrtoint ptr %this to i64
   %surroundingTry.i.i.i.i = getelementptr inbounds %"class.hermes::irgen::FunctionContext", ptr %3, i64 0, i32 6
-  %5 = load ptr, ptr %surroundingTry.i.i.i.i, align 8
+  %4 = load ptr, ptr %surroundingTry.i.i.i.i, align 8
   %tryEndLoc3.i.i.i.i = getelementptr inbounds %"class.hermes::irgen::SurroundingTry", ptr %thisTry.i.i, i64 0, i32 3
   store ptr %retval.sroa.0.0.copyload.i.i.i, ptr %tryEndLoc3.i.i.i.i, align 8
   %genFinalizer4.i.i.i.i = getelementptr inbounds %"class.hermes::irgen::SurroundingTry", ptr %thisTry.i.i, i64 0, i32 4
   %_M_invoker.i.i.i.i.i = getelementptr inbounds %"class.hermes::irgen::SurroundingTry", ptr %thisTry.i.i, i64 0, i32 4, i32 1
   store ptr @"_ZNSt17_Function_handlerIFvPN6hermes6ESTree4NodeENS0_5irgen17ControlFlowChangeEPNS0_10BasicBlockEEZZNS4_11ESTreeIRGen15genTryStatementEPNS1_16TryStatementNodeEENK3$_0clEvEUlS3_S5_S7_E_E9_M_invokeERKSt9_Any_dataOS3_OS5_OS7_", ptr %_M_invoker.i.i.i.i.i, align 8
   %_M_manager.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::irgen::SurroundingTry", ptr %thisTry.i.i, i64 0, i32 4, i32 0, i32 1
-  store i64 %4, ptr %genFinalizer4.i.i.i.i, align 8
+  store ptr %this, ptr %genFinalizer4.i.i.i.i, align 8
   %agg.tmp8.sroa.3.0.genFinalizer4.i.sroa_idx.i.i.i = getelementptr inbounds %"class.hermes::irgen::SurroundingTry", ptr %thisTry.i.i, i64 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 1
   store i64 0, ptr %agg.tmp8.sroa.3.0.genFinalizer4.i.sroa_idx.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN6hermes6ESTree4NodeENS0_5irgen17ControlFlowChangeEPNS0_10BasicBlockEEZZNS4_11ESTreeIRGen15genTryStatementEPNS1_16TryStatementNodeEENK3$_0clEvEUlS3_S5_S7_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i, align 8
@@ -261,50 +260,50 @@ entry:
 
 _ZN4llvh8OptionalIN6hermes5irgen14SurroundingTryEE7emplaceIJPNS2_15FunctionContextERKPNS1_6ESTree16TryStatementNodeEEEEvDpOT_.exit.i.i: ; preds = %entry
   %surroundingTry.i.i13.i.i = getelementptr inbounds %"class.hermes::irgen::FunctionContext", ptr %3, i64 0, i32 6
-  %6 = load ptr, ptr %surroundingTry.i.i13.i.i, align 8
+  %5 = load ptr, ptr %surroundingTry.i.i13.i.i, align 8
   %tryEndLoc3.i.i15.i.i = getelementptr inbounds %"class.hermes::irgen::SurroundingTry", ptr %thisTry.i.i, i64 0, i32 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tryEndLoc3.i.i15.i.i, i8 0, i64 40, i1 false)
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZN4llvh8OptionalIN6hermes5irgen14SurroundingTryEE7emplaceIJPNS2_15FunctionContextERKPNS1_6ESTree16TryStatementNodeEEEEvDpOT_.exit.i.i, %"_ZN4llvh8OptionalIN6hermes5irgen14SurroundingTryEE7emplaceIJPNS2_15FunctionContextERKPNS1_6ESTree16TryStatementNodeENS_5SMLocEZZNS2_11ESTreeIRGen15genTryStatementESA_ENK3$_0clEvEUlPNS8_4NodeENS2_17ControlFlowChangeEPNS1_10BasicBlockEE_EEEvDpOT_.exit.i.i"
   %surroundingTry.i.i13.sink.i.i = phi ptr [ %surroundingTry.i.i13.i.i, %_ZN4llvh8OptionalIN6hermes5irgen14SurroundingTryEE7emplaceIJPNS2_15FunctionContextERKPNS1_6ESTree16TryStatementNodeEEEEvDpOT_.exit.i.i ], [ %surroundingTry.i.i.i.i, %"_ZN4llvh8OptionalIN6hermes5irgen14SurroundingTryEE7emplaceIJPNS2_15FunctionContextERKPNS1_6ESTree16TryStatementNodeENS_5SMLocEZZNS2_11ESTreeIRGen15genTryStatementESA_ENK3$_0clEvEUlPNS8_4NodeENS2_17ControlFlowChangeEPNS1_10BasicBlockEE_EEEvDpOT_.exit.i.i" ]
-  %.sink27.i.i = phi ptr [ %6, %_ZN4llvh8OptionalIN6hermes5irgen14SurroundingTryEE7emplaceIJPNS2_15FunctionContextERKPNS1_6ESTree16TryStatementNodeEEEEvDpOT_.exit.i.i ], [ %5, %"_ZN4llvh8OptionalIN6hermes5irgen14SurroundingTryEE7emplaceIJPNS2_15FunctionContextERKPNS1_6ESTree16TryStatementNodeENS_5SMLocEZZNS2_11ESTreeIRGen15genTryStatementESA_ENK3$_0clEvEUlPNS8_4NodeENS2_17ControlFlowChangeEPNS1_10BasicBlockEE_EEEvDpOT_.exit.i.i" ]
+  %.sink27.i.i = phi ptr [ %5, %_ZN4llvh8OptionalIN6hermes5irgen14SurroundingTryEE7emplaceIJPNS2_15FunctionContextERKPNS1_6ESTree16TryStatementNodeEEEEvDpOT_.exit.i.i ], [ %4, %"_ZN4llvh8OptionalIN6hermes5irgen14SurroundingTryEE7emplaceIJPNS2_15FunctionContextERKPNS1_6ESTree16TryStatementNodeENS_5SMLocEZZNS2_11ESTreeIRGen15genTryStatementESA_ENK3$_0clEvEUlPNS8_4NodeENS2_17ControlFlowChangeEPNS1_10BasicBlockEE_EEEvDpOT_.exit.i.i" ]
   store ptr %thisTry.i.i, ptr %surroundingTry.i.i13.sink.i.i, align 8
   store i8 1, ptr %hasVal.i.i.i.i, align 8
   store ptr %3, ptr %thisTry.i.i, align 8
-  %7 = getelementptr inbounds %"class.hermes::irgen::SurroundingTry", ptr %thisTry.i.i, i64 0, i32 1
-  store ptr %.sink27.i.i, ptr %7, align 8
-  %8 = getelementptr inbounds %"class.hermes::irgen::SurroundingTry", ptr %thisTry.i.i, i64 0, i32 2
-  store ptr %tryStmt, ptr %8, align 8
+  %6 = getelementptr inbounds %"class.hermes::irgen::SurroundingTry", ptr %thisTry.i.i, i64 0, i32 1
+  store ptr %.sink27.i.i, ptr %6, align 8
+  %7 = getelementptr inbounds %"class.hermes::irgen::SurroundingTry", ptr %thisTry.i.i, i64 0, i32 2
+  store ptr %tryStmt, ptr %7, align 8
   %_block.i.i = getelementptr inbounds %"class.hermes::ESTree::TryStatementNode", ptr %tryStmt, i64 0, i32 1
+  %8 = load ptr, ptr %_block.i.i, align 8
+  call void @_ZN6hermes5irgen11ESTreeIRGen12genStatementEPNS_6ESTree4NodeENS1_10IsLoopBodyE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %8, i32 noundef 0) #12
   %9 = load ptr, ptr %_block.i.i, align 8
-  call void @_ZN6hermes5irgen11ESTreeIRGen12genStatementEPNS_6ESTree4NodeENS1_10IsLoopBodyE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %9, i32 noundef 0) #12
-  %10 = load ptr, ptr %_block.i.i, align 8
-  %sourceRange_.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %10, i64 0, i32 3
+  %sourceRange_.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %9, i64 0, i32 3
   %retval.sroa.0.0.copyload.i16.i.i = load ptr, ptr %sourceRange_.i.i.i, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %10, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %9, i64 0, i32 3, i32 1
   %retval.sroa.2.0.copyload.i.i.i = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i.i.i, align 8
   %call11.i.i = call ptr @_ZN6hermes18SourceErrorManager20convertEndToLocationEN4llvh7SMRangeE(ptr %retval.sroa.0.0.copyload.i16.i.i, ptr %retval.sroa.2.0.copyload.i.i.i) #12
   %Location.i.i.i = getelementptr inbounds %"class.hermes::irgen::ESTreeIRGen", ptr %this, i64 0, i32 1, i32 3
   store ptr %call11.i.i, ptr %Location.i.i.i, align 8
-  %11 = load i8, ptr %hasVal.i.i.i.i, align 8
-  %12 = and i8 %11, 1
-  %tobool.not.i.i.i18.i.i = icmp eq i8 %12, 0
+  %10 = load i8, ptr %hasVal.i.i.i.i, align 8
+  %11 = and i8 %10, 1
+  %tobool.not.i.i.i18.i.i = icmp eq i8 %11, 0
   br i1 %tobool.not.i.i.i18.i.i, label %"_ZZN6hermes5irgen11ESTreeIRGen15genTryStatementEPNS_6ESTree16TryStatementNodeEENK3$_0clEv.exit.i", label %if.then.i.i.i19.i.i
 
 if.then.i.i.i19.i.i:                              ; preds = %if.end.i.i
-  %13 = load ptr, ptr %7, align 8
-  %14 = load ptr, ptr %thisTry.i.i, align 8
-  %surroundingTry.i.i.i.i21.i.i = getelementptr inbounds %"class.hermes::irgen::FunctionContext", ptr %14, i64 0, i32 6
-  store ptr %13, ptr %surroundingTry.i.i.i.i21.i.i, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = load ptr, ptr %thisTry.i.i, align 8
+  %surroundingTry.i.i.i.i21.i.i = getelementptr inbounds %"class.hermes::irgen::FunctionContext", ptr %13, i64 0, i32 6
+  store ptr %12, ptr %surroundingTry.i.i.i.i21.i.i, align 8
   %_M_manager.i.i.i.i.i.i22.i.i = getelementptr inbounds %"class.hermes::irgen::SurroundingTry", ptr %thisTry.i.i, i64 0, i32 4, i32 0, i32 1
-  %15 = load ptr, ptr %_M_manager.i.i.i.i.i.i22.i.i, align 8
-  %tobool.not.i.i.i.i.i.i23.i.i = icmp eq ptr %15, null
+  %14 = load ptr, ptr %_M_manager.i.i.i.i.i.i22.i.i, align 8
+  %tobool.not.i.i.i.i.i.i23.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i.i.i23.i.i, label %"_ZZN6hermes5irgen11ESTreeIRGen15genTryStatementEPNS_6ESTree16TryStatementNodeEENK3$_0clEv.exit.i", label %if.then.i.i.i.i.i.i24.i.i
 
 if.then.i.i.i.i.i.i24.i.i:                        ; preds = %if.then.i.i.i19.i.i
   %genFinalizer.i.i.i.i25.i.i = getelementptr inbounds %"class.hermes::irgen::SurroundingTry", ptr %thisTry.i.i, i64 0, i32 4
-  %call.i.i.i.i.i.i26.i.i = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %genFinalizer.i.i.i.i25.i.i, ptr noundef nonnull align 8 dereferenceable(16) %genFinalizer.i.i.i.i25.i.i, i32 noundef 3) #12
+  %call.i.i.i.i.i.i26.i.i = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %genFinalizer.i.i.i.i25.i.i, ptr noundef nonnull align 8 dereferenceable(16) %genFinalizer.i.i.i.i25.i.i, i32 noundef 3) #12
   br label %"_ZZN6hermes5irgen11ESTreeIRGen15genTryStatementEPNS_6ESTree16TryStatementNodeEENK3$_0clEv.exit.i"
 
 "_ZZN6hermes5irgen11ESTreeIRGen15genTryStatementEPNS_6ESTree16TryStatementNodeEENK3$_0clEv.exit.i": ; preds = %if.then.i.i.i.i.i.i24.i.i, %if.then.i.i.i19.i.i, %if.end.i.i
@@ -313,16 +312,16 @@ if.then.i.i.i.i.i.i24.i.i:                        ; preds = %if.then.i.i.i19.i.i
   %call14.i = call noundef ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call12.i) #12
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call12.i) #12
   %call17.i = call noundef ptr @_ZN6hermes9IRBuilder16createTryEndInstEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i) #12
-  %16 = load ptr, ptr %_finalizer.i.i, align 8
-  %tobool.not.i11.i = icmp eq ptr %16, null
+  %15 = load ptr, ptr %_finalizer.i.i, align 8
+  %tobool.not.i11.i = icmp eq ptr %15, null
   br i1 %tobool.not.i11.i, label %"_ZZN6hermes5irgen11ESTreeIRGen15genTryStatementEPNS_6ESTree16TryStatementNodeEENK3$_1clEv.exit.i", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %"_ZZN6hermes5irgen11ESTreeIRGen15genTryStatementEPNS_6ESTree16TryStatementNodeEENK3$_0clEv.exit.i"
-  call void @_ZN6hermes5irgen11ESTreeIRGen12genStatementEPNS_6ESTree4NodeENS1_10IsLoopBodyE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %16, i32 noundef 0) #12
-  %17 = load ptr, ptr %_finalizer.i.i, align 8
-  %sourceRange_.i.i12.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %17, i64 0, i32 3
+  call void @_ZN6hermes5irgen11ESTreeIRGen12genStatementEPNS_6ESTree4NodeENS1_10IsLoopBodyE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %15, i32 noundef 0) #12
+  %16 = load ptr, ptr %_finalizer.i.i, align 8
+  %sourceRange_.i.i12.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %16, i64 0, i32 3
   %retval.sroa.0.0.copyload.i.i13.i = load ptr, ptr %sourceRange_.i.i12.i, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i14.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %17, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i14.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %16, i64 0, i32 3, i32 1
   %retval.sroa.2.0.copyload.i.i15.i = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i.i14.i, align 8
   %call5.i.i = call ptr @_ZN6hermes18SourceErrorManager20convertEndToLocationEN4llvh7SMRangeE(ptr %retval.sroa.0.0.copyload.i.i13.i, ptr %retval.sroa.2.0.copyload.i.i15.i) #12
   store ptr %call5.i.i, ptr %Location.i.i.i, align 8
@@ -333,31 +332,31 @@ if.then.i.i:                                      ; preds = %"_ZZN6hermes5irgen1
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call3.i) #12
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %newScope.i.i)
   %_handler.i.i = getelementptr inbounds %"class.hermes::ESTree::TryStatementNode", ptr %tryStmt, i64 0, i32 2
-  %18 = load ptr, ptr %_handler.i.i, align 8
-  %tobool.not.i18.i = icmp eq ptr %18, null
+  %17 = load ptr, ptr %_handler.i.i, align 8
+  %tobool.not.i18.i = icmp eq ptr %17, null
   br i1 %tobool.not.i18.i, label %if.else24.i.i, label %if.then.i19.i
 
 if.then.i19.i:                                    ; preds = %"_ZZN6hermes5irgen11ESTreeIRGen15genTryStatementEPNS_6ESTree16TryStatementNodeEENK3$_1clEv.exit.i"
-  %kind_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %18, i64 0, i32 1
-  %19 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %19, 67
-  %spec.select.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i, ptr %18, ptr null
+  %kind_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %17, i64 0, i32 1
+  %18 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %18, 67
+  %spec.select.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i, ptr %17, ptr null
   %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %newScope.i.i, i64 0, i32 1
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
-  %20 = load ptr, ptr %this, align 8
-  %Ctx.i.i.i = getelementptr inbounds %"class.hermes::Module", ptr %20, i64 0, i32 1
-  %21 = load ptr, ptr %Ctx.i.i.i, align 8
-  %enableBlockScoping.i.i = getelementptr inbounds %"class.hermes::Context", ptr %21, i64 0, i32 24, i32 9
-  %22 = load i8, ptr %enableBlockScoping.i.i, align 1
-  %23 = and i8 %22, 1
-  %tobool5.not.i.i = icmp eq i8 %23, 0
+  %19 = load ptr, ptr %this, align 8
+  %Ctx.i.i.i = getelementptr inbounds %"class.hermes::Module", ptr %19, i64 0, i32 1
+  %20 = load ptr, ptr %Ctx.i.i.i, align 8
+  %enableBlockScoping.i.i = getelementptr inbounds %"class.hermes::Context", ptr %20, i64 0, i32 24, i32 9
+  %21 = load i8, ptr %enableBlockScoping.i.i, align 1
+  %22 = and i8 %21, 1
+  %tobool5.not.i.i = icmp eq i8 %22, 0
   br i1 %tobool5.not.i.i, label %if.then6.i.i, label %_ZNSt7variantIJSt9monostateN6hermes20ScopedHashTableScopeINS1_10IdentifierEPNS1_5ValueEEENS1_5irgen15EnterBlockScopeEEE7emplaceIS8_JPNS7_15FunctionContextEEEENSt9enable_ifIXaa18is_constructible_vIT_DpT0_E14__exactly_onceISE_EERSE_E4typeEDpOSF_.exit.i.i
 
 if.then6.i.i:                                     ; preds = %if.then.i19.i
   %nameTable_.i.i = getelementptr inbounds %"class.hermes::irgen::ESTreeIRGen", ptr %this, i64 0, i32 7
   call void @_ZNSt8__detail9__variant9__emplaceILm1ELb0EJSt9monostateN6hermes20ScopedHashTableScopeINS3_10IdentifierEPNS3_5ValueEEENS3_5irgen15EnterBlockScopeEEJRNS3_15ScopedHashTableIS5_S7_EEEEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_(ptr noundef nonnull align 8 dereferenceable(65) %newScope.i.i, ptr noundef nonnull align 8 dereferenceable(32) %nameTable_.i.i)
-  %24 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq i8 %24, 1
+  %23 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp eq i8 %23, 1
   br i1 %cmp.not.i.i.i.i.i, label %if.end.i20.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then6.i.i
@@ -365,35 +364,35 @@ if.then.i.i.i.i.i:                                ; preds = %if.then6.i.i
   unreachable
 
 _ZNSt7variantIJSt9monostateN6hermes20ScopedHashTableScopeINS1_10IdentifierEPNS1_5ValueEEENS1_5irgen15EnterBlockScopeEEE7emplaceIS8_JPNS7_15FunctionContextEEEENSt9enable_ifIXaa18is_constructible_vIT_DpT0_E14__exactly_onceISE_EERSE_E4typeEDpOSF_.exit.i.i: ; preds = %if.then.i19.i
-  %25 = load ptr, ptr %functionContext_.i1.i.i, align 8
+  %24 = load ptr, ptr %functionContext_.i1.i.i, align 8
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
-  call void @_ZN6hermes5irgen15EnterBlockScopeC1EPNS0_15FunctionContextE(ptr noundef nonnull align 8 dereferenceable(64) %newScope.i.i, ptr noundef %25) #12
+  call void @_ZN6hermes5irgen15EnterBlockScopeC1EPNS0_15FunctionContextE(ptr noundef nonnull align 8 dereferenceable(64) %newScope.i.i, ptr noundef %24) #12
   store i8 2, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
   br label %if.end.i20.i
 
 if.end.i20.i:                                     ; preds = %_ZNSt7variantIJSt9monostateN6hermes20ScopedHashTableScopeINS1_10IdentifierEPNS1_5ValueEEENS1_5irgen15EnterBlockScopeEEE7emplaceIS8_JPNS7_15FunctionContextEEEENSt9enable_ifIXaa18is_constructible_vIT_DpT0_E14__exactly_onceISE_EERSE_E4typeEDpOSF_.exit.i.i, %if.then6.i.i
-  %26 = load ptr, ptr %_handler.i.i, align 8
-  %debugLoc_.i.i21.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %26, i64 0, i32 4
+  %25 = load ptr, ptr %_handler.i.i, align 8
+  %debugLoc_.i.i21.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %25, i64 0, i32 4
   %retval.sroa.0.0.copyload.i.i22.i = load ptr, ptr %debugLoc_.i.i21.i, align 8
   store ptr %retval.sroa.0.0.copyload.i.i22.i, ptr %Location.i.i.i, align 8
   %call13.i.i = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen12prepareCatchEPNS_6ESTree15CatchClauseNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %spec.select.i.i.i)
   %_body.i.i = getelementptr inbounds %"class.hermes::ESTree::CatchClauseNode", ptr %spec.select.i.i.i, i64 0, i32 2
-  %27 = load ptr, ptr %_body.i.i, align 8
-  call void @_ZN6hermes5irgen11ESTreeIRGen15genCatchHandlerEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %27) #12
-  %28 = load ptr, ptr %_handler.i.i, align 8
-  %sourceRange_.i.i24.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %28, i64 0, i32 3
+  %26 = load ptr, ptr %_body.i.i, align 8
+  call void @_ZN6hermes5irgen11ESTreeIRGen15genCatchHandlerEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %26) #12
+  %27 = load ptr, ptr %_handler.i.i, align 8
+  %sourceRange_.i.i24.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %27, i64 0, i32 3
   %retval.sroa.0.0.copyload.i5.i.i = load ptr, ptr %sourceRange_.i.i24.i, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i25.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %28, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i25.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %27, i64 0, i32 3, i32 1
   %retval.sroa.2.0.copyload.i.i26.i = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i.i25.i, align 8
   %call19.i.i = call ptr @_ZN6hermes18SourceErrorManager20convertEndToLocationEN4llvh7SMRangeE(ptr %retval.sroa.0.0.copyload.i5.i.i, ptr %retval.sroa.2.0.copyload.i.i26.i) #12
   store ptr %call19.i.i, ptr %Location.i.i.i, align 8
   %call23.i.i = call noundef ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call5.i) #12
-  %29 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %29, -1
+  %28 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
+  %cmp.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %28, -1
   br i1 %cmp.i.not.i.i.i.i.i.i.i.i.i.i, label %"_ZN6hermes5irgen11ESTreeIRGen23emitTryCatchScaffoldingIZNS1_15genTryStatementEPNS_6ESTree16TryStatementNodeEE3$_0ZNS1_15genTryStatementES5_E3$_1ZNS1_15genTryStatementES5_E3$_2EEPNS_10BasicBlockESA_T_T0_T1_.exit", label %if.end.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i20.i
-  %conv.i.i.i.i.i.i.i.i.i.i.i.i = sext i8 %29 to i64
+  %conv.i.i.i.i.i.i.i.i.i.i.i.i = sext i8 %28 to i64
   switch i64 %conv.i.i.i.i.i.i.i.i.i.i.i.i, label %sw.default.i.i.i.i.i.i.i.i.i.i.i [
     i64 0, label %"_ZN6hermes5irgen11ESTreeIRGen23emitTryCatchScaffoldingIZNS1_15genTryStatementEPNS_6ESTree16TryStatementNodeEE3$_0ZNS1_15genTryStatementES5_E3$_1ZNS1_15genTryStatementES5_E3$_2EEPNS_10BasicBlockESA_T_T0_T1_.exit"
     i64 1, label %sw.bb2.i.i.i.i.i.i.i.i.i.i.i
@@ -402,19 +401,19 @@ if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i20.i
 
 sw.bb2.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i.i.i.i.i.i.i
   %base_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ScopedHashTableScope", ptr %newScope.i.i, i64 0, i32 3
-  %30 = load ptr, ptr %base_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %scope_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ScopedHashTable", ptr %30, i64 0, i32 1
-  %31 = load ptr, ptr %scope_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %head_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ScopedHashTableScope", ptr %31, i64 0, i32 1
-  %32 = load ptr, ptr %head_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %tobool.not3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %32, null
+  %29 = load ptr, ptr %base_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %scope_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ScopedHashTable", ptr %29, i64 0, i32 1
+  %30 = load ptr, ptr %scope_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %head_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ScopedHashTableScope", ptr %30, i64 0, i32 1
+  %31 = load ptr, ptr %head_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %tobool.not3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %31, null
   br i1 %tobool.not3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt9monostateN6hermes20ScopedHashTableScopeINS5_10IdentifierEPNS5_5ValueEEENS5_5irgen15EnterBlockScopeEEE8_M_resetEvEUlOT_E_RSt7variantIJS4_SA_SC_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESH_SK_.exit.i.i.i.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:   ; preds = %sw.bb2.i.i.i.i.i.i.i.i.i.i.i, %delete.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %current.04.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %33, %delete.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %32, %sw.bb2.i.i.i.i.i.i.i.i.i.i.i ]
-  %call.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = call noundef ptr @_ZN6hermes15ScopedHashTableINS_10IdentifierEPNS_5ValueEE3popERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(8) %current.04.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  %current.04.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %32, %delete.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %31, %sw.bb2.i.i.i.i.i.i.i.i.i.i.i ]
+  %call.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = call noundef ptr @_ZN6hermes15ScopedHashTableINS_10IdentifierEPNS_5ValueEE3popERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(8) %current.04.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   %nextInScope_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ScopedHashTableNode", ptr %current.04.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 0, i32 3
-  %33 = load ptr, ptr %nextInScope_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %32 = load ptr, ptr %nextInScope_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %isnull.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, null
   br i1 %isnull.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %delete.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -423,7 +422,7 @@ delete.notnull.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.
   br label %delete.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 delete.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:   ; preds = %delete.notnull.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %33, null
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %while.end.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !4
 
 while.end.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %delete.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -431,14 +430,14 @@ while.end.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %delete.end.i.
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt9monostateN6hermes20ScopedHashTableScopeINS5_10IdentifierEPNS5_5ValueEEENS5_5irgen15EnterBlockScopeEEE8_M_resetEvEUlOT_E_RSt7variantIJS4_SA_SC_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESH_SK_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt9monostateN6hermes20ScopedHashTableScopeINS5_10IdentifierEPNS5_5ValueEEENS5_5irgen15EnterBlockScopeEEE8_M_resetEvEUlOT_E_RSt7variantIJS4_SA_SC_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESH_SK_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %while.end.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sw.bb2.i.i.i.i.i.i.i.i.i.i.i
-  %34 = phi ptr [ %.pre.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %while.end.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %31, %sw.bb2.i.i.i.i.i.i.i.i.i.i.i ]
-  %head_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ScopedHashTableScope", ptr %34, i64 0, i32 1
+  %33 = phi ptr [ %.pre.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %while.end.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %30, %sw.bb2.i.i.i.i.i.i.i.i.i.i.i ]
+  %head_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ScopedHashTableScope", ptr %33, i64 0, i32 1
   store ptr null, ptr %head_3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %previous_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ScopedHashTableScope", ptr %newScope.i.i, i64 0, i32 2
-  %35 = load ptr, ptr %previous_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %36 = load ptr, ptr %base_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %scope_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ScopedHashTable", ptr %36, i64 0, i32 1
-  store ptr %35, ptr %scope_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %34 = load ptr, ptr %previous_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %35 = load ptr, ptr %base_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %scope_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ScopedHashTable", ptr %35, i64 0, i32 1
+  store ptr %34, ptr %scope_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %"_ZN6hermes5irgen11ESTreeIRGen23emitTryCatchScaffoldingIZNS1_15genTryStatementEPNS_6ESTree16TryStatementNodeEE3$_0ZNS1_15genTryStatementES5_E3$_1ZNS1_15genTryStatementES5_E3$_2EEPNS_10BasicBlockESA_T_T0_T1_.exit"
 
 sw.bb3.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i.i.i.i.i.i.i
@@ -449,23 +448,23 @@ sw.default.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %if.end.i.i.i.i.i.i.
   unreachable
 
 if.else24.i.i:                                    ; preds = %"_ZZN6hermes5irgen11ESTreeIRGen15genTryStatementEPNS_6ESTree16TryStatementNodeEENK3$_1clEv.exit.i"
-  %37 = load ptr, ptr %_finalizer.i.i, align 8
-  %debugLoc_.i7.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %37, i64 0, i32 4
+  %36 = load ptr, ptr %_finalizer.i.i, align 8
+  %debugLoc_.i7.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %36, i64 0, i32 4
   %retval.sroa.0.0.copyload.i8.i.i = load ptr, ptr %debugLoc_.i7.i.i, align 8
   store ptr %retval.sroa.0.0.copyload.i8.i.i, ptr %Location.i.i.i, align 8
   %call31.i.i = call noundef ptr @_ZN6hermes9IRBuilder15createCatchInstEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i) #12
+  %37 = load ptr, ptr %_finalizer.i.i, align 8
+  call void @_ZN6hermes5irgen11ESTreeIRGen12genStatementEPNS_6ESTree4NodeENS1_10IsLoopBodyE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %37, i32 noundef 0) #12
   %38 = load ptr, ptr %_finalizer.i.i, align 8
-  call void @_ZN6hermes5irgen11ESTreeIRGen12genStatementEPNS_6ESTree4NodeENS1_10IsLoopBodyE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %38, i32 noundef 0) #12
-  %39 = load ptr, ptr %_finalizer.i.i, align 8
-  %sourceRange_.i10.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %39, i64 0, i32 3
+  %sourceRange_.i10.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %38, i64 0, i32 3
   %retval.sroa.0.0.copyload.i11.i.i = load ptr, ptr %sourceRange_.i10.i.i, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i12.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %39, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i12.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %38, i64 0, i32 3, i32 1
   %retval.sroa.2.0.copyload.i13.i.i = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i12.i.i, align 8
   %call38.i.i = call ptr @_ZN6hermes18SourceErrorManager20convertEndToLocationEN4llvh7SMRangeE(ptr %retval.sroa.0.0.copyload.i11.i.i, ptr %retval.sroa.2.0.copyload.i13.i.i) #12
   store ptr %call38.i.i, ptr %Location.i.i.i, align 8
-  %40 = icmp eq ptr %call31.i.i, null
+  %39 = icmp eq ptr %call31.i.i, null
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call31.i.i, i64 16
-  %spec.select.i.i = select i1 %40, ptr null, ptr %add.ptr.i.i
+  %spec.select.i.i = select i1 %39, ptr null, ptr %add.ptr.i.i
   %call42.i.i = call noundef ptr @_ZN6hermes9IRBuilder15createThrowInstEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %spec.select.i.i) #12
   br label %"_ZN6hermes5irgen11ESTreeIRGen23emitTryCatchScaffoldingIZNS1_15genTryStatementEPNS_6ESTree16TryStatementNodeEE3$_0ZNS1_15genTryStatementES5_E3$_1ZNS1_15genTryStatementES5_E3$_2EEPNS_10BasicBlockESA_T_T0_T1_.exit"
 
@@ -1051,7 +1050,7 @@ if.end21.i.i.i:                                   ; preds = %if.end13.i.i.i
 
 if.end.i:                                         ; preds = %if.end21.i.i.i, %if.end.i.i.i
   %cond.sink.i.i.ph.i = phi ptr [ %add.ptr21.i.i.i, %if.end.i.i.i ], [ %add.ptr.i.i.i, %if.end21.i.i.i ]
-  store ptr inttoptr (i64 -16 to ptr), ptr %cond.sink.i.i.ph.i, align 8
+  store i64 -16, ptr %cond.sink.i.i.ph.i, align 8
   %NumEntries.i.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 1
   %9 = load <2 x i32>, ptr %NumEntries.i.i.i.i, align 8
   %10 = add <2 x i32> %9, <i32 -1, i32 1>
@@ -1251,7 +1250,7 @@ if.then:                                          ; preds = %_ZN4llvh8DenseMapIN
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %B.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %call.i, %if.then ]
-  store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i, align 8
+  store i64 -8, ptr %B.04.i, align 8
   %incdec.ptr.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !8
@@ -1271,7 +1270,7 @@ if.end:                                           ; preds = %_ZN4llvh8DenseMapIN
 
 for.body.i.i:                                     ; preds = %if.end, %for.body.i.i
   %B.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i, %if.end ]
-  store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i, align 8
+  store i64 -8, ptr %B.04.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i, i64 1
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !8
@@ -1336,7 +1335,7 @@ if.end21.i.i.i:                                   ; preds = %if.end13.i.i.i
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.exit.i: ; preds = %if.end21.i.i.i, %if.then20.i.i.i, %if.then.i
   %cond.sink.i.i.i = phi ptr [ %cond.i.i.i, %if.then20.i.i.i ], [ %add.ptr21.i.i.i, %if.then.i ], [ %add.ptr.i.i13.i, %if.end21.i.i.i ]
-  store i64 %magicptr.i, ptr %cond.sink.i.i.i, align 8
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %cond.sink.i.i.i, align 8
   %second.i.i = getelementptr inbounds %"struct.std::pair", ptr %cond.sink.i.i.i, i64 0, i32 1
   %second.i14.i = getelementptr inbounds %"struct.std::pair", ptr %B.021.i, i64 0, i32 1
   %7 = load ptr, ptr %second.i14.i, align 8

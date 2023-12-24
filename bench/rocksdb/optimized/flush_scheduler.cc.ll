@@ -191,10 +191,9 @@ _ZNSt6atomicIPN7rocksdb14FlushScheduler4NodeEE23compare_exchange_strongERS3_S3_S
   br i1 %8, label %while.end, label %_ZNSt6atomicIPN7rocksdb14FlushScheduler4NodeEE23compare_exchange_strongERS3_S3_St12memory_orderS6_.exit, !llvm.loop !4
 
 while.end:                                        ; preds = %_ZNSt6atomicIPN7rocksdb14FlushScheduler4NodeEE23compare_exchange_strongERS3_S3_St12memory_orderS6_.exit, %entry
-  %storemerge.lcssa.in = phi i64 [ %1, %entry ], [ %6, %_ZNSt6atomicIPN7rocksdb14FlushScheduler4NodeEE23compare_exchange_strongERS3_S3_St12memory_orderS6_.exit ]
-  %storemerge.lcssa = inttoptr i64 %storemerge.lcssa.in to ptr
+  %storemerge.lcssa = phi i64 [ %1, %entry ], [ %6, %_ZNSt6atomicIPN7rocksdb14FlushScheduler4NodeEE23compare_exchange_strongERS3_S3_St12memory_orderS6_.exit ]
   %next = getelementptr inbounds %"struct.rocksdb::FlushScheduler::Node", ptr %call, i64 0, i32 1
-  store ptr %storemerge.lcssa, ptr %next, align 8
+  store i64 %storemerge.lcssa, ptr %next, align 8
   ret void
 }
 

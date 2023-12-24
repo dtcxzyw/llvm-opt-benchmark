@@ -411,7 +411,6 @@ entry:
   %cmp.i = icmp ne ptr %0, null
   %cmp = icmp ult i64 %len, 2147483648
   %or.cond.not = and i1 %cmp, %cmp.i
-  %1 = ptrtoint ptr %0 to i64
   br i1 %or.cond.not, label %lor.lhs.false1, label %cleanup
 
 lor.lhs.false1:                                   ; preds = %entry
@@ -426,7 +425,7 @@ lor.lhs.false6:                                   ; preds = %lor.lhs.false1
   br i1 %cmp9.not, label %cleanup.thread, label %cleanup.thread4
 
 cleanup.thread:                                   ; preds = %lor.lhs.false6
-  store i64 %1, ptr %agg.result, align 8
+  store ptr %0, ptr %agg.result, align 8
   br label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit
 
 cleanup.thread4:                                  ; preds = %lor.lhs.false1, %lor.lhs.false6

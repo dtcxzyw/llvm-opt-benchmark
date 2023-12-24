@@ -2349,7 +2349,7 @@ for.body.lr.ph:                                   ; preds = %if.end29
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt10unique_ptrIN4node9inspector12ServerSocketENS0_15FunctionDeleterIS2_XadL_ZNS1_21InspectorSocketServer17CloseServerSocketEPS2_EEEEED2Ev.exit
-  %address.030 = phi ptr [ %5, %for.body.lr.ph ], [ %15, %_ZNSt10unique_ptrIN4node9inspector12ServerSocketENS0_15FunctionDeleterIS2_XadL_ZNS1_21InspectorSocketServer17CloseServerSocketEPS2_EEEEED2Ev.exit ]
+  %address.030 = phi ptr [ %5, %for.body.lr.ph ], [ %13, %_ZNSt10unique_ptrIN4node9inspector12ServerSocketENS0_15FunctionDeleterIS2_XadL_ZNS1_21InspectorSocketServer17CloseServerSocketEPS2_EEEEED2Ev.exit ]
   %call31 = call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %call31, i8 0, i64 248, i1 false)
   %server_.i = getelementptr inbounds %"class.node::inspector::ServerSocket", ptr %call31, i64 0, i32 1
@@ -2370,17 +2370,16 @@ if.then36:                                        ; preds = %for.body
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then36
-  %10 = ptrtoint ptr %call31 to i64
-  store i64 %10, ptr %8, align 8
-  %11 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %11, i64 1
+  store ptr %call31, ptr %8, align 8
+  %10 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %10, i64 1
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt10unique_ptrIN4node9inspector12ServerSocketENS0_15FunctionDeleterIS2_XadL_ZNS1_21InspectorSocketServer17CloseServerSocketEPS2_EEEEED2Ev.exit
 
 if.else.i.i:                                      ; preds = %if.then36
-  %12 = load ptr, ptr %server_sockets_, align 8
+  %11 = load ptr, ptr %server_sockets_, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %8 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %cmp.i.i10 = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
   br i1 %cmp.i.i10, label %if.then.i.i15, label %_ZNKSt6vectorISt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEESaIS8_EE12_M_check_lenEmPKc.exit.i
@@ -2408,18 +2407,17 @@ _ZNSt16allocator_traitsISaISt10unique_ptrIN4node9inspector12ServerSocketENS1_15F
 _ZNSt12_Vector_baseISt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEESaIS8_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEEEE8allocateERS9_m.exit.i.i, %_ZNKSt6vectorISt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEESaIS8_EE12_M_check_lenEmPKc.exit.i
   %cond.i10.i = phi ptr [ %call5.i.i.i.i, %_ZNSt16allocator_traitsISaISt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEEEE8allocateERS9_m.exit.i.i ], [ null, %_ZNKSt6vectorISt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEESaIS8_EE12_M_check_lenEmPKc.exit.i ]
   %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr", ptr %cond.i10.i, i64 %sub.ptr.div.i.i.i
-  %13 = ptrtoint ptr %call31 to i64
-  store i64 %13, ptr %add.ptr.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %12, %8
+  store ptr %call31, ptr %add.ptr.i, align 8
+  %cmp.not5.i.i.i.i = icmp eq ptr %11, %8
   br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i12
 
 for.body.i.i.i.i12:                               ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEESaIS8_EE11_M_allocateEm.exit.i, %for.body.i.i.i.i12
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i12 ], [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEESaIS8_EE11_M_allocateEm.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i13, %for.body.i.i.i.i12 ], [ %12, %_ZNSt12_Vector_baseISt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEESaIS8_EE11_M_allocateEm.exit.i ]
+  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i13, %for.body.i.i.i.i12 ], [ %11, %_ZNSt12_Vector_baseISt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEESaIS8_EE11_M_allocateEm.exit.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !83)
   call void @llvm.experimental.noalias.scope.decl(metadata !86)
-  %14 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !86, !noalias !83
-  store i64 %14, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !83, !noalias !86
+  %12 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !86, !noalias !83
+  store i64 %12, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !83, !noalias !86
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !86, !noalias !83
   %incdec.ptr.i.i.i.i13 = getelementptr inbounds %"class.std::unique_ptr", ptr %__first.addr.06.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__cur.07.i.i.i.i, i64 1
@@ -2429,11 +2427,11 @@ for.body.i.i.i.i12:                               ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i12, %_ZNSt12_Vector_baseISt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i12 ]
   %incdec.ptr.i = getelementptr %"class.std::unique_ptr", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %12, null
+  %tobool.not.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
 if.then.i20.i:                                    ; preds = %_ZNSt6vectorISt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i
-  call void @_ZdlPv(ptr noundef nonnull %12) #20
+  call void @_ZdlPv(ptr noundef nonnull %11) #20
   br label %_ZNSt6vectorISt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit
 
 _ZNSt6vectorISt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, %if.then.i20.i
@@ -2449,8 +2447,8 @@ if.then.i:                                        ; preds = %for.body
 
 _ZNSt10unique_ptrIN4node9inspector12ServerSocketENS0_15FunctionDeleterIS2_XadL_ZNS1_21InspectorSocketServer17CloseServerSocketEPS2_EEEEED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4node9inspector12ServerSocketENS1_15FunctionDeleterIS3_XadL_ZNS2_21InspectorSocketServer17CloseServerSocketEPS3_EEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, %if.then.i.i, %if.then.i
   %ai_next = getelementptr inbounds %struct.addrinfo, ptr %address.030, i64 0, i32 7
-  %15 = load ptr, ptr %ai_next, align 8
-  %cmp30.not = icmp eq ptr %15, null
+  %13 = load ptr, ptr %ai_next, align 8
+  %cmp30.not = icmp eq ptr %13, null
   br i1 %cmp30.not, label %for.end.loopexit, label %for.body, !llvm.loop !89
 
 for.end.loopexit:                                 ; preds = %_ZNSt10unique_ptrIN4node9inspector12ServerSocketENS0_15FunctionDeleterIS2_XadL_ZNS1_21InspectorSocketServer17CloseServerSocketEPS2_EEEEED2Ev.exit
@@ -2458,57 +2456,57 @@ for.end.loopexit:                                 ; preds = %_ZNSt10unique_ptrIN
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end29
-  %16 = phi ptr [ null, %if.end29 ], [ %.pre, %for.end.loopexit ]
+  %14 = phi ptr [ null, %if.end29 ], [ %.pre, %for.end.loopexit ]
   %err.0.lcssa = phi i32 [ %call18, %if.end29 ], [ %call34, %for.end.loopexit ]
-  call void @uv_freeaddrinfo(ptr noundef %16) #19
+  call void @uv_freeaddrinfo(ptr noundef %14) #19
   %server_sockets_39 = getelementptr inbounds %"class.node::inspector::InspectorSocketServer", ptr %this, i64 0, i32 6
-  %17 = load ptr, ptr %server_sockets_39, align 8
+  %15 = load ptr, ptr %server_sockets_39, align 8
   %_M_finish.i.i7 = getelementptr inbounds %"class.node::inspector::InspectorSocketServer", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
-  %18 = load ptr, ptr %_M_finish.i.i7, align 8
-  %cmp.i.i8 = icmp ne ptr %17, %18
+  %16 = load ptr, ptr %_M_finish.i.i7, align 8
+  %cmp.i.i8 = icmp ne ptr %15, %16
   br i1 %cmp.i.i8, label %if.end54, label %if.then41
 
 if.then41:                                        ; preds = %for.end
   %out_42 = getelementptr inbounds %"class.node::inspector::InspectorSocketServer", ptr %this, i64 0, i32 10
-  %19 = load ptr, ptr %out_42, align 8
-  %cmp43.not = icmp eq ptr %19, null
+  %17 = load ptr, ptr %out_42, align 8
+  %cmp43.not = icmp eq ptr %17, null
   br i1 %cmp43.not, label %cleanup, label %if.then44
 
 if.then44:                                        ; preds = %if.then41
   %call47 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %host_) #19
-  %20 = load i32, ptr %port_, align 8
+  %18 = load i32, ptr %port_, align 8
   %call49 = call ptr @uv_strerror(i32 noundef %err.0.lcssa) #19
-  %call50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %19, ptr noundef nonnull @.str.31, ptr noundef %call47, i32 noundef %20, ptr noundef %call49)
-  %21 = load ptr, ptr %out_42, align 8
-  %call52 = call i32 @fflush(ptr noundef %21)
+  %call50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %17, ptr noundef nonnull @.str.31, ptr noundef %call47, i32 noundef %18, ptr noundef %call49)
+  %19 = load ptr, ptr %out_42, align 8
+  %call52 = call i32 @fflush(ptr noundef %19)
   br label %cleanup
 
 if.end54:                                         ; preds = %for.end
-  %22 = load ptr, ptr %delegate_, align 8
+  %20 = load ptr, ptr %delegate_, align 8
   store ptr %0, ptr %delegate_, align 8
   store i32 1, ptr %state_, align 8
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
-  %23 = load ptr, ptr %vfn, align 8
-  call void %23(ptr nonnull sret(%"class.std::vector.5") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %0) #19
+  %21 = load ptr, ptr %vfn, align 8
+  call void %21(ptr nonnull sret(%"class.std::vector.5") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %0) #19
   %inspect_publish_uid_ = getelementptr inbounds %"class.node::inspector::InspectorSocketServer", ptr %this, i64 0, i32 4
-  %24 = load i8, ptr %inspect_publish_uid_, align 4
-  %25 = and i8 %24, 1
-  %tobool = icmp ne i8 %25, 0
+  %22 = load i8, ptr %inspect_publish_uid_, align 4
+  %23 = and i8 %22, 1
+  %tobool = icmp ne i8 %23, 0
   %out_61 = getelementptr inbounds %"class.node::inspector::InspectorSocketServer", ptr %this, i64 0, i32 10
-  %26 = load ptr, ptr %out_61, align 8
-  call void @_ZN4node9inspector25PrintDebuggerReadyMessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS0_12ServerSocketENS_15FunctionDeleterISB_XadL_ZNS0_21InspectorSocketServer17CloseServerSocketEPSB_EEEEESaISG_EERKS9_IS6_SaIS6_EEPKcbP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(32) %host_, ptr noundef nonnull align 8 dereferenceable(24) %server_sockets_39, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull @.str.32, i1 noundef zeroext %tobool, ptr noundef %26)
-  %27 = load ptr, ptr %ref.tmp, align 8
+  %24 = load ptr, ptr %out_61, align 8
+  call void @_ZN4node9inspector25PrintDebuggerReadyMessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10unique_ptrINS0_12ServerSocketENS_15FunctionDeleterISB_XadL_ZNS0_21InspectorSocketServer17CloseServerSocketEPSB_EEEEESaISG_EERKS9_IS6_SaIS6_EEPKcbP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(32) %host_, ptr noundef nonnull align 8 dereferenceable(24) %server_sockets_39, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull @.str.32, i1 noundef zeroext %tobool, ptr noundef %24)
+  %25 = load ptr, ptr %ref.tmp, align 8
   %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 1
-  %28 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.not3.i.i.i.i = icmp eq ptr %27, %28
+  %26 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.not3.i.i.i.i = icmp eq ptr %25, %26
   br i1 %cmp.not3.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.end54, %for.body.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %27, %if.end54 ]
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %25, %if.end54 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #19
   %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %28
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %26
   br i1 %cmp.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !22
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %for.body.i.i.i.i
@@ -2516,12 +2514,12 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, %if.end54
-  %29 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %27, %if.end54 ]
-  %tobool.not.i.i.i = icmp eq ptr %29, null
+  %27 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %25, %if.end54 ]
+  %tobool.not.i.i.i = icmp eq ptr %27, null
   br i1 %tobool.not.i.i.i, label %cleanup, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %29) #20
+  call void @_ZdlPv(ptr noundef nonnull %27) #20
   br label %cleanup
 
 cleanup.thread:                                   ; preds = %if.then20, %if.then22
@@ -2529,7 +2527,7 @@ cleanup.thread:                                   ; preds = %if.then20, %if.then
   br label %_ZNKSt14default_deleteIN4node9inspector20SocketServerDelegateEEclEPS2_.exit.i
 
 cleanup:                                          ; preds = %if.then.i.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %if.then41, %if.then44
-  %delegate_holder.sroa.0.0 = phi ptr [ %0, %if.then41 ], [ %0, %if.then44 ], [ %22, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %22, %if.then.i.i.i ]
+  %delegate_holder.sroa.0.0 = phi ptr [ %0, %if.then41 ], [ %0, %if.then44 ], [ %20, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %20, %if.then.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %port_string) #19
   %cmp.not.i9 = icmp eq ptr %delegate_holder.sroa.0.0, null
   br i1 %cmp.not.i9, label %_ZNSt10unique_ptrIN4node9inspector20SocketServerDelegateESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4node9inspector20SocketServerDelegateEEclEPS2_.exit.i
@@ -2539,8 +2537,8 @@ _ZNKSt14default_deleteIN4node9inspector20SocketServerDelegateEEclEPS2_.exit.i: ;
   %delegate_holder.sroa.0.025 = phi ptr [ %0, %cleanup.thread ], [ %delegate_holder.sroa.0.0, %cleanup ]
   %vtable.i.i = load ptr, ptr %delegate_holder.sroa.0.025, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 8
-  %30 = load ptr, ptr %vfn.i.i, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(8) %delegate_holder.sroa.0.025) #19
+  %28 = load ptr, ptr %vfn.i.i, align 8
+  call void %28(ptr noundef nonnull align 8 dereferenceable(8) %delegate_holder.sroa.0.025) #19
   br label %_ZNSt10unique_ptrIN4node9inspector20SocketServerDelegateESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node9inspector20SocketServerDelegateESt14default_deleteIS2_EED2Ev.exit: ; preds = %cleanup, %_ZNKSt14default_deleteIN4node9inspector20SocketServerDelegateEEclEPS2_.exit.i
@@ -2879,29 +2877,28 @@ entry:
   store ptr %this, ptr %server_.i, align 8
   %session_id_.i = getelementptr inbounds %"class.node::inspector::SocketSession::Delegate", ptr %call2, i64 0, i32 2
   store i32 %0, ptr %session_id_.i, align 8
-  %1 = ptrtoint ptr %call2 to i64
-  store i64 %1, ptr %agg.tmp, align 8
+  store ptr %call2, ptr %agg.tmp, align 8
   call void @_ZN4node9inspector15InspectorSocket6AcceptEP11uv_stream_sSt10unique_ptrINS1_8DelegateESt14default_deleteIS5_EE(ptr nonnull sret(%"class.std::unique_ptr.33") align 8 %inspector, ptr noundef %server_socket, ptr noundef nonnull %agg.tmp) #19
-  %2 = load ptr, ptr %agg.tmp, align 8
-  %cmp.not.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %agg.tmp, align 8
+  %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4node9inspector15InspectorSocket8DelegateESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN4node9inspector15InspectorSocket8DelegateEEclEPS3_.exit.i
 
 _ZNKSt14default_deleteIN4node9inspector15InspectorSocket8DelegateEEclEPS3_.exit.i: ; preds = %entry
-  %vtable.i.i = load ptr, ptr %2, align 8
+  %vtable.i.i = load ptr, ptr %1, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 4
-  %3 = load ptr, ptr %vfn.i.i, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
+  %2 = load ptr, ptr %vfn.i.i, align 8
+  call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #19
   br label %_ZNSt10unique_ptrIN4node9inspector15InspectorSocket8DelegateESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node9inspector15InspectorSocket8DelegateESt14default_deleteIS3_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN4node9inspector15InspectorSocket8DelegateEEclEPS3_.exit.i
   store ptr null, ptr %agg.tmp, align 8
-  %4 = load ptr, ptr %inspector, align 8
-  %cmp.i.not = icmp eq ptr %4, null
+  %3 = load ptr, ptr %inspector, align 8
+  %cmp.i.not = icmp eq ptr %3, null
   store ptr null, ptr %inspector, align 8
   br i1 %cmp.i.not, label %_ZNSt10unique_ptrIN4node9inspector13SocketSessionESt14default_deleteIS2_EED2Ev.exit.sink.split, label %_ZNSt10unique_ptrIN4node9inspector15InspectorSocketESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node9inspector15InspectorSocketESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4node9inspector15InspectorSocket8DelegateESt14default_deleteIS3_EED2Ev.exit
-  store ptr %4, ptr %ws_socket_.i, align 8
+  store ptr %3, ptr %ws_socket_.i, align 8
   %_M_parent.i.i.i.i.i.phi.trans.insert = getelementptr inbounds %"class.node::inspector::InspectorSocketServer", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 1
   %.pre = load ptr, ptr %_M_parent.i.i.i.i.i.phi.trans.insert, align 8
   %connected_sessions_ = getelementptr inbounds %"class.node::inspector::InspectorSocketServer", ptr %this, i64 0, i32 7
@@ -2916,8 +2913,8 @@ while.body.i.i.i.i:                               ; preds = %_ZNSt10unique_ptrIN
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %.pre, %_ZNSt10unique_ptrIN4node9inspector15InspectorSocketESt14default_deleteIS2_EED2Ev.exit ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %_ZNSt10unique_ptrIN4node9inspector15InspectorSocketESt14default_deleteIS2_EED2Ev.exit ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i.i, i64 0, i32 1
-  %5 = load i32, ptr %_M_storage.i.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i = icmp slt i32 %5, %0
+  %4 = load i32, ptr %_M_storage.i.i.i.i.i.i, align 4
+  %cmp.i.i.i.i.i = icmp slt i32 %4, %0
   %_M_right.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i, i64 0, i32 3
   %_M_left.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
@@ -2932,8 +2929,8 @@ _ZNSt3mapIiSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10uniqu
 
 lor.rhs.i:                                        ; preds = %_ZNSt3mapIiSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN4node9inspector13SocketSessionESt14default_deleteISA_EEESt4lessIiESaIS0_IKiSE_EEE11lower_boundERSH_.exit.i
   %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1
-  %6 = load i32, ptr %_M_storage.i.i.i, align 4
-  %cmp.i3.i = icmp slt i32 %0, %6
+  %5 = load i32, ptr %_M_storage.i.i.i, align 4
+  %cmp.i3.i = icmp slt i32 %0, %5
   br i1 %cmp.i3.i, label %if.then.i, label %_ZNSt3mapIiSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN4node9inspector13SocketSessionESt14default_deleteISA_EEESt4lessIiESaIS0_IKiSE_EEEixEOi.exit
 
 if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3mapIiSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN4node9inspector13SocketSessionESt14default_deleteISA_EEESt4lessIiESaIS0_IKiSE_EEE11lower_boundERSH_.exit.i, %_ZNSt10unique_ptrIN4node9inspector15InspectorSocketESt14default_deleteIS2_EED2Ev.exit
@@ -2947,24 +2944,24 @@ _ZNSt3mapIiSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10uniqu
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
   %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__i.sroa.0.0.i, i64 0, i32 1, i32 0, i64 40
-  %7 = load ptr, ptr %second, align 8
+  %6 = load ptr, ptr %second, align 8
   store ptr %call, ptr %second, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %7, null
+  %tobool.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i, label %if.end, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %_ZNSt3mapIiSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN4node9inspector13SocketSessionESt14default_deleteISA_EEESt4lessIiESaIS0_IKiSE_EEEixEOi.exit
-  %ws_socket_.i.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::SocketSession", ptr %7, i64 0, i32 2
-  %8 = load ptr, ptr %ws_socket_.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %8, null
+  %ws_socket_.i.i.i.i.i.i = getelementptr inbounds %"class.node::inspector::SocketSession", ptr %6, i64 0, i32 2
+  %7 = load ptr, ptr %ws_socket_.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4node9inspector13SocketSessionEEclEPS2_.exit.i.i.i.i, label %_ZNKSt14default_deleteIN4node9inspector15InspectorSocketEEclEPS2_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4node9inspector15InspectorSocketEEclEPS2_.exit.i.i.i.i.i.i.i: ; preds = %delete.notnull.i.i.i.i.i
-  call void @_ZN4node9inspector15InspectorSocketD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #19
-  call void @_ZdlPv(ptr noundef nonnull %8) #20
+  call void @_ZN4node9inspector15InspectorSocketD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #19
+  call void @_ZdlPv(ptr noundef nonnull %7) #20
   br label %_ZNKSt14default_deleteIN4node9inspector13SocketSessionEEclEPS2_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN4node9inspector13SocketSessionEEclEPS2_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4node9inspector15InspectorSocketEEclEPS2_.exit.i.i.i.i.i.i.i, %delete.notnull.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %7) #20
+  call void @_ZdlPv(ptr noundef nonnull %6) #20
   br label %if.end
 
 if.end:                                           ; preds = %_ZNKSt14default_deleteIN4node9inspector13SocketSessionEEclEPS2_.exit.i.i.i.i, %_ZNSt3mapIiSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN4node9inspector13SocketSessionESt14default_deleteISA_EEESt4lessIiESaIS0_IKiSE_EEEixEOi.exit

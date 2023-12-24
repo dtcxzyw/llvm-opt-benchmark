@@ -772,8 +772,7 @@ entry:
   %m_marks.i1.i.i = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_marks.i1.i.i, i8 0, i64 16, i1 false)
   %m_frozen_trail.i = getelementptr inbounds i8, ptr %this, i64 104
-  %1 = ptrtoint ptr %m to i64
-  store i64 %1, ptr %m_frozen_trail.i, align 8
+  store ptr %m, ptr %m_frozen_trail.i, align 8
   %m_nodes.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %m_region.i.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_nodes.i.i.i, i8 0, i64 24, i1 false)
@@ -781,7 +780,7 @@ entry:
           to label %invoke.cont unwind label %lpad2.i.i
 
 lpad2.i.i:                                        ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   %m_trail.i = getelementptr inbounds i8, ptr %this, i64 120
   %m_scopes.i.i = getelementptr inbounds i8, ptr %this, i64 128
@@ -808,7 +807,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
           to label %invoke.cont6 unwind label %lpad2.i
 
 lpad2.i:                                          ; preds = %invoke.cont4
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   %m_scopes.i = getelementptr inbounds %class.dependent_expr_state_tactic, ptr %this, i64 0, i32 5, i32 1
   tail call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_scopes.i) #16
@@ -821,19 +820,19 @@ invoke.cont6:                                     ; preds = %invoke.cont4
   store ptr null, ptr %m_goal, align 8
   %m_dep = getelementptr inbounds %class.dependent_expr_state_tactic, ptr %this, i64 0, i32 7
   %m_true.i = getelementptr inbounds %class.ast_manager, ptr %m, i64 0, i32 15
-  %4 = load ptr, ptr %m_true.i, align 8
+  %3 = load ptr, ptr %m_true.i, align 8
   store ptr %m, ptr %m_dep, align 8
   %m_fml.i = getelementptr inbounds %class.dependent_expr_state_tactic, ptr %this, i64 0, i32 7, i32 1
-  store ptr %4, ptr %m_fml.i, align 8
+  store ptr %3, ptr %m_fml.i, align 8
   %m_proof.i = getelementptr inbounds %class.dependent_expr_state_tactic, ptr %this, i64 0, i32 7, i32 2
-  %tobool.not.i.i = icmp eq ptr %4, null
+  %tobool.not.i.i = icmp eq ptr %3, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_proof.i, i8 0, i64 16, i1 false)
   br i1 %tobool.not.i.i, label %invoke.cont15, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont6
-  %m_ref_count.i.i.i = getelementptr inbounds %class.ast, ptr %4, i64 0, i32 2
-  %5 = load i32, ptr %m_ref_count.i.i.i, align 4
-  %inc.i.i.i = add i32 %5, 1
+  %m_ref_count.i.i.i = getelementptr inbounds %class.ast, ptr %3, i64 0, i32 2
+  %4 = load i32, ptr %m_ref_count.i.i.i, align 4
+  %inc.i.i.i = add i32 %4, 1
   store i32 %inc.i.i.i, ptr %m_ref_count.i.i.i, align 4
   br label %invoke.cont15
 
@@ -843,23 +842,23 @@ invoke.cont15:                                    ; preds = %if.then.i.i, %invok
   %m_factory = getelementptr inbounds %class.dependent_expr_state_tactic, ptr %this, i64 0, i32 9
   store ptr %f, ptr %m_factory, align 8
   %m_frozen = getelementptr inbounds %class.dependent_expr_state_tactic, ptr %this, i64 0, i32 10
-  store i64 %1, ptr %m_frozen, align 8
+  store ptr %m, ptr %m_frozen, align 8
   %m_nodes.i.i = getelementptr inbounds %class.dependent_expr_state_tactic, ptr %this, i64 0, i32 10, i32 0, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %m_nodes.i.i, i8 0, i64 25, i1 false)
   ret void
 
 lpad3:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup25
 
 ehcleanup25:                                      ; preds = %lpad2.i, %lpad3
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %3, %lpad2.i ], [ %6, %lpad3 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %2, %lpad2.i ], [ %5, %lpad3 ]
   tail call void @_ZN20dependent_expr_stateD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #16
   br label %ehcleanup26
 
 ehcleanup26:                                      ; preds = %lpad2.i.i, %ehcleanup25
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup25 ], [ %2, %lpad2.i.i ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup25 ], [ %1, %lpad2.i.i ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }
 
@@ -5075,8 +5074,7 @@ if.then10:                                        ; preds = %if.end
   %m_trail.i = getelementptr inbounds %class.model_reconstruction_trail, ptr %call11, i64 0, i32 2
   store ptr null, ptr %m_trail.i, align 8
   %m_model_vars_trail.i = getelementptr inbounds %class.model_reconstruction_trail, ptr %call11, i64 0, i32 3
-  %11 = ptrtoint ptr %10 to i64
-  store i64 %11, ptr %m_model_vars_trail.i, align 8
+  store ptr %10, ptr %m_model_vars_trail.i, align 8
   %m_nodes.i.i.i = getelementptr inbounds %class.model_reconstruction_trail, ptr %call11, i64 0, i32 3, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i.i, align 8
   %m_model_vars.i = getelementptr inbounds %class.model_reconstruction_trail, ptr %call11, i64 0, i32 4
@@ -5085,17 +5083,17 @@ if.then10:                                        ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_marks.i.i.i, i8 0, i64 16, i1 false)
   %m_marks.i1.i.i = getelementptr inbounds %class.model_reconstruction_trail, ptr %call11, i64 0, i32 4, i32 2, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %m_marks.i1.i.i, i8 0, i64 17, i1 false)
-  %12 = load ptr, ptr %m_model_trail, align 8
-  %cmp.not.i5 = icmp eq ptr %12, %call11
+  %11 = load ptr, ptr %m_model_trail, align 8
+  %cmp.not.i5 = icmp eq ptr %11, %call11
   br i1 %cmp.not.i5, label %if.end15, label %if.then.i6
 
 if.then.i6:                                       ; preds = %if.then10
-  %cmp.i.i7 = icmp eq ptr %12, null
+  %cmp.i.i7 = icmp eq ptr %11, null
   br i1 %cmp.i.i7, label %_Z7deallocI26model_reconstruction_trailEvPT_.exit.i, label %if.end.i.i8
 
 if.end.i.i8:                                      ; preds = %if.then.i6
-  tail call void @_ZN26model_reconstruction_trailD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %12) #16
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %12)
+  tail call void @_ZN26model_reconstruction_trailD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %11) #16
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %11)
   br label %_Z7deallocI26model_reconstruction_trailEvPT_.exit.i
 
 _Z7deallocI26model_reconstruction_trailEvPT_.exit.i: ; preds = %if.end.i.i8, %if.then.i6

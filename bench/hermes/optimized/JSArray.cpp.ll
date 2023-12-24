@@ -3291,12 +3291,11 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit161:  ; preds = %if.then79
   %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.8, i32 noundef %sub86) #11
   %conv.i110 = sext i32 %call.i to i64
   %ref.tmp85.sroa.0.0.insert.ext = zext i32 %sub86 to i64
-  %79 = inttoptr i64 %ref.tmp85.sroa.0.0.insert.ext to ptr
   store ptr @.str.3, ptr %ref.tmp83, align 8, !alias.scope !20
   %leftKind_.i22.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp83, i64 0, i32 1
   store i32 3, ptr %leftKind_.i22.i.i, align 8, !alias.scope !20
   %rightChild_.i.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp83, i64 0, i32 2
-  store ptr %79, ptr %rightChild_.i.i.i, align 8, !alias.scope !20
+  store i64 %ref.tmp85.sroa.0.0.insert.ext, ptr %rightChild_.i.i.i, align 8, !alias.scope !20
   %rightKind_.i23.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp83, i64 0, i32 3
   store i32 7, ptr %rightKind_.i23.i.i, align 8, !alias.scope !20
   %leftSize_.i24.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp83, i64 0, i32 4

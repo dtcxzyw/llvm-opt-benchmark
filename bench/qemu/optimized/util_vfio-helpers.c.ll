@@ -1336,39 +1336,38 @@ entry:
   %flags = getelementptr inbounds %struct.vfio_iommu_type1_dma_map, ptr %dma_map, i64 0, i32 1
   store i32 3, ptr %flags, align 4
   %vaddr = getelementptr inbounds %struct.vfio_iommu_type1_dma_map, ptr %dma_map, i64 0, i32 2
-  %0 = ptrtoint ptr %host to i64
-  store i64 %0, ptr %vaddr, align 8
+  store ptr %host, ptr %vaddr, align 8
   %iova1 = getelementptr inbounds %struct.vfio_iommu_type1_dma_map, ptr %dma_map, i64 0, i32 3
   store i64 %iova, ptr %iova1, align 8
   %size2 = getelementptr inbounds %struct.vfio_iommu_type1_dma_map, ptr %dma_map, i64 0, i32 4
   store i64 %size, ptr %size2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %1 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %1, 0
-  %2 = load i16, ptr @_TRACE_QEMU_VFIO_DO_MAPPING_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %2, 0
+  %0 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %0, 0
+  %1 = load i16, ptr @_TRACE_QEMU_VFIO_DO_MAPPING_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %1, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_qemu_vfio_do_mapping.exit
 
 land.lhs.true5.i.i:                               ; preds = %entry
-  %3 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %3, 32768
+  %2 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %2, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_qemu_vfio_do_mapping.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %4 = load i8, ptr @message_with_timestamp, align 1
-  %5 = and i8 %4, 1
-  %tobool7.not.i.i = icmp eq i8 %5, 0
+  %3 = load i8, ptr @message_with_timestamp, align 1
+  %4 = and i8 %3, 1
+  %tobool7.not.i.i = icmp eq i8 %4, 0
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
-  %6 = load i64, ptr %_now.i.i, align 8
+  %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
-  %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %s, ptr noundef %host, i64 noundef %iova, i64 noundef %size) #16
+  %6 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %s, ptr noundef %host, i64 noundef %iova, i64 noundef %size) #16
   br label %trace_qemu_vfio_do_mapping.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1378,17 +1377,17 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_qemu_vfio_do_mapping.exit:                  ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %container = getelementptr inbounds %struct.QEMUVFIOState, ptr %s, i64 0, i32 1
-  %8 = load i32, ptr %container, align 8
-  %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %8, i64 noundef 15217, ptr noundef nonnull %dma_map) #16
+  %7 = load i32, ptr %container, align 8
+  %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %7, i64 noundef 15217, ptr noundef nonnull %dma_map) #16
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %trace_qemu_vfio_do_mapping.exit
   %call3 = tail call ptr @__errno_location() #14
+  %8 = load i32, ptr %call3, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 627, ptr noundef nonnull @__func__.qemu_vfio_do_mapping, i32 noundef %8, ptr noundef nonnull @.str.60) #16
   %9 = load i32, ptr %call3, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 627, ptr noundef nonnull @__func__.qemu_vfio_do_mapping, i32 noundef %9, ptr noundef nonnull @.str.60) #16
-  %10 = load i32, ptr %call3, align 4
-  %sub = sub i32 0, %10
+  %sub = sub i32 0, %9
   br label %return
 
 return:                                           ; preds = %trace_qemu_vfio_do_mapping.exit, %if.then

@@ -343,7 +343,7 @@ if.then:                                          ; preds = %cleanup.done19
 
 cond.false33:                                     ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp35) #18
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8, !tbaa !31
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp, align 8, !tbaa !31
   %.fca.1.gep358 = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep358, align 8, !tbaa !31
   call void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp35, ptr noundef nonnull @.str.7, i32 noundef 138, i32 noundef 3, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)
@@ -655,7 +655,7 @@ if.then210:                                       ; preds = %if.then208
 
 cond.false221:                                    ; preds = %if.then210
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp223) #18
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp225, align 8, !tbaa !31
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp225, align 8, !tbaa !31
   %.fca.1.gep350 = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp225, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep350, align 8, !tbaa !31
   call void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp223, ptr noundef nonnull @.str.7, i32 noundef 178, i32 noundef 3, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp225)
@@ -742,7 +742,7 @@ if.else265:                                       ; preds = %if.end261
 
 cond.false303:                                    ; preds = %if.else265
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp305) #18
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp307, align 8, !tbaa !31
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp307, align 8, !tbaa !31
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp307, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !31
   call void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp305, ptr noundef nonnull @.str.7, i32 noundef 222, i32 noundef 3, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp307)
@@ -1083,7 +1083,7 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.then9:                                         ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #18
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8, !tbaa !31
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp, align 8, !tbaa !31
   %.fca.1.gep93 = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep93, align 8, !tbaa !31
   invoke void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str.7, i32 noundef 330, i32 noundef 1, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)
@@ -1182,7 +1182,7 @@ cleanup.action49:                                 ; preds = %lpad35, %lpad32
 
 if.else52:                                        ; preds = %land.lhs.true, %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp53) #18
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp54, align 8, !tbaa !31
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp54, align 8, !tbaa !31
   %.fca.1.gep90 = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp54, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep90, align 8, !tbaa !31
   invoke void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp53, ptr noundef nonnull @.str.7, i32 noundef 334, i32 noundef 3, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp54)
@@ -1256,7 +1256,7 @@ if.end.i125:                                      ; preds = %while.body.i120
 
 if.then72:                                        ; preds = %while.body.i120
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp73) #18
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp74, align 8, !tbaa !31
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp74, align 8, !tbaa !31
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp74, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !31
   invoke void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp73, ptr noundef nonnull @.str.7, i32 noundef 344, i32 noundef 1, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp74)
@@ -1418,7 +1418,7 @@ if.end.i:                                         ; preds = %while.body.i
 
 if.then2:                                         ; preds = %while.body.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #18
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8, !tbaa !31
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp, align 8, !tbaa !31
   %.fca.1.gep27 = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep27, align 8, !tbaa !31
   call void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str.7, i32 noundef 362, i32 noundef 1, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)
@@ -1455,7 +1455,7 @@ land.lhs.true10:                                  ; preds = %if.end6
 
 if.then15:                                        ; preds = %land.lhs.true10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp16) #18
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp17, align 8, !tbaa !31
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp17, align 8, !tbaa !31
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp17, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !31
   call void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16, ptr noundef nonnull @.str.7, i32 noundef 366, i32 noundef 1, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp17)
@@ -1560,7 +1560,7 @@ if.end.i:                                         ; preds = %while.body.i
 
 if.then3:                                         ; preds = %while.body.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #18
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8, !tbaa !31
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp, align 8, !tbaa !31
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !31
   invoke void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str.7, i32 noundef 384, i32 noundef 3, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)
@@ -1735,7 +1735,7 @@ if.end30:                                         ; preds = %if.end
 
 cond.false:                                       ; preds = %if.end30
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp33) #18
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8, !tbaa !31
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp, align 8, !tbaa !31
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !31
   call void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp33, ptr noundef nonnull @.str.7, i32 noundef 414, i32 noundef 1, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)

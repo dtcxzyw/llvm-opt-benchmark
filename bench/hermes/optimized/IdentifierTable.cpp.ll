@@ -3273,7 +3273,7 @@ if.else:                                          ; preds = %_ZN6hermes2vm15Iden
   %add.ptr.i40 = getelementptr inbounds %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %21, i64 %conv31
   %22 = inttoptr i64 %and.i.i.i.i to ptr
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %storage.i42)
-  store ptr %22, ptr %add.ptr.i40, align 8
+  store i64 %and.i.i.i.i, ptr %add.ptr.i40, align 8
   %isUTF16_.i43 = getelementptr inbounds %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %21, i64 %conv31, i32 1
   store i32 -6, ptr %isUTF16_.i43, align 8
   %hash_.i44 = getelementptr inbounds %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %21, i64 %conv31, i32 2

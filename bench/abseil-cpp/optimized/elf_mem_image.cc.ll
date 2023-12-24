@@ -196,28 +196,28 @@ for.body46:                                       ; preds = %if.end41, %for.inc6
   ]
 
 sw.bb49:                                          ; preds = %for.body46
+  store i64 %add47, ptr %hash_, align 8
   %28 = inttoptr i64 %add47 to ptr
-  store ptr %28, ptr %hash_, align 8
   br label %for.inc67
 
 sw.bb51:                                          ; preds = %for.body46
+  store i64 %add47, ptr %dynsym_, align 8
   %29 = inttoptr i64 %add47 to ptr
-  store ptr %29, ptr %dynsym_, align 8
   br label %for.inc67
 
 sw.bb53:                                          ; preds = %for.body46
+  store i64 %add47, ptr %dynstr_, align 8
   %30 = inttoptr i64 %add47 to ptr
-  store ptr %30, ptr %dynstr_, align 8
   br label %for.inc67
 
 sw.bb55:                                          ; preds = %for.body46
+  store i64 %add47, ptr %versym_, align 8
   %31 = inttoptr i64 %add47 to ptr
-  store ptr %31, ptr %versym_, align 8
   br label %for.inc67
 
 sw.bb57:                                          ; preds = %for.body46
+  store i64 %add47, ptr %verdef_, align 8
   %32 = inttoptr i64 %add47 to ptr
-  store ptr %32, ptr %verdef_, align 8
   br label %for.inc67
 
 sw.bb59:                                          ; preds = %for.body46

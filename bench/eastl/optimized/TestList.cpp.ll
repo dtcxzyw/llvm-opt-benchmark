@@ -3172,17 +3172,17 @@ sw.bb2:                                           ; preds = %entry
   store ptr %2, ptr %end2, align 8
   %mValue.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %2, i64 0, i32 1
   %3 = load ptr, ptr %i1, align 8
-  %mValue.i19 = getelementptr inbounds %"struct.eastl::ListNode", ptr %3, i64 0, i32 1
+  %mValue.i18 = getelementptr inbounds %"struct.eastl::ListNode", ptr %3, i64 0, i32 1
   %4 = load i8, ptr %mValue.i, align 1
   %5 = and i8 %4, 1
-  %6 = load i8, ptr %mValue.i19, align 1
+  %6 = load i8, ptr %mValue.i18, align 1
   %7 = and i8 %6, 1
   %cmp.i = icmp ult i8 %5, %7
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.bb2
-  %mpPrev.i20 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
-  %8 = load ptr, ptr %mpPrev.i20, align 8
+  %mpPrev.i19 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %8 = load ptr, ptr %mpPrev.i19, align 8
   %9 = load ptr, ptr %2, align 8
   %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %9, i64 0, i32 1
   store ptr %8, ptr %mpPrev2.i, align 8
@@ -3191,12 +3191,12 @@ if.then:                                          ; preds = %sw.bb2
   %11 = load ptr, ptr %end2, align 8
   %12 = load ptr, ptr %i1, align 8
   store ptr %12, ptr %11, align 8
-  %mpPrev.i21 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %12, i64 0, i32 1
-  %13 = load ptr, ptr %mpPrev.i21, align 8
-  %mpPrev2.i22 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %11, i64 0, i32 1
-  store ptr %13, ptr %mpPrev2.i22, align 8
+  %mpPrev.i20 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %12, i64 0, i32 1
+  %13 = load ptr, ptr %mpPrev.i20, align 8
+  %mpPrev2.i21 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %11, i64 0, i32 1
+  store ptr %13, ptr %mpPrev2.i21, align 8
   store ptr %11, ptr %13, align 8
-  store ptr %11, ptr %mpPrev.i21, align 8
+  store ptr %11, ptr %mpPrev.i20, align 8
   %14 = load ptr, ptr %end2, align 8
   store ptr %14, ptr %agg.result, align 8
   br label %return
@@ -3210,249 +3210,242 @@ sw.bb8:                                           ; preds = %entry
   store ptr %15, ptr %agg.result, align 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %end2, align 8
-  %cmp.i23.not75 = icmp eq ptr %16, %17
-  br i1 %cmp.i23.not75, label %if.then17, label %for.body
+  %cmp.i22.not76 = icmp eq ptr %16, %17
+  br i1 %cmp.i22.not76, label %if.then17, label %for.body
 
 for.body:                                         ; preds = %sw.bb8, %for.inc
-  %18 = phi ptr [ %25, %for.inc ], [ %15, %sw.bb8 ]
-  %19 = phi ptr [ %26, %for.inc ], [ %15, %sw.bb8 ]
-  %current.sroa.0.076 = phi ptr [ %27, %for.inc ], [ %16, %sw.bb8 ]
-  %mValue.i24 = getelementptr inbounds %"struct.eastl::ListNode", ptr %current.sroa.0.076, i64 0, i32 1
-  %mValue.i25 = getelementptr inbounds %"struct.eastl::ListNode", ptr %19, i64 0, i32 1
+  %current.sroa.0.078 = phi ptr [ %22, %for.inc ], [ %16, %sw.bb8 ]
+  %current.sroa.0.07577 = phi ptr [ %current.sroa.0.074, %for.inc ], [ %15, %sw.bb8 ]
+  %mValue.i23 = getelementptr inbounds %"struct.eastl::ListNode", ptr %current.sroa.0.078, i64 0, i32 1
+  %mValue.i24 = getelementptr inbounds %"struct.eastl::ListNode", ptr %current.sroa.0.07577, i64 0, i32 1
+  %18 = load i8, ptr %mValue.i23, align 1
+  %19 = and i8 %18, 1
   %20 = load i8, ptr %mValue.i24, align 1
   %21 = and i8 %20, 1
-  %22 = load i8, ptr %mValue.i25, align 1
-  %23 = and i8 %22, 1
-  %cmp.i26 = icmp ult i8 %21, %23
-  br i1 %cmp.i26, label %if.then13, label %for.inc
+  %cmp.i25 = icmp ult i8 %19, %21
+  br i1 %cmp.i25, label %if.then13, label %for.inc
 
 if.then13:                                        ; preds = %for.body
-  %24 = ptrtoint ptr %current.sroa.0.076 to i64
-  store i64 %24, ptr %agg.result, align 8
+  store ptr %current.sroa.0.078, ptr %agg.result, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then13
-  %25 = phi ptr [ %18, %for.body ], [ %current.sroa.0.076, %if.then13 ]
-  %26 = phi ptr [ %19, %for.body ], [ %current.sroa.0.076, %if.then13 ]
-  %27 = load ptr, ptr %current.sroa.0.076, align 8
-  %cmp.i23.not = icmp eq ptr %27, %17
-  br i1 %cmp.i23.not, label %for.end, label %for.body, !llvm.loop !89
+  %current.sroa.0.074 = phi ptr [ %current.sroa.0.07577, %for.body ], [ %current.sroa.0.078, %if.then13 ]
+  %22 = load ptr, ptr %current.sroa.0.078, align 8
+  %cmp.i22.not = icmp eq ptr %22, %17
+  br i1 %cmp.i22.not, label %for.end, label %for.body, !llvm.loop !89
 
 for.end:                                          ; preds = %for.inc
-  %cmp.i27 = icmp eq ptr %25, %15
-  br i1 %cmp.i27, label %if.then17, label %if.else
+  %cmp.i26 = icmp eq ptr %current.sroa.0.074, %15
+  br i1 %cmp.i26, label %if.then17, label %if.else
 
 if.then17:                                        ; preds = %sw.bb8, %for.end
   store ptr %16, ptr %i1, align 8
   br label %if.end22
 
 if.else:                                          ; preds = %for.end
-  %mpPrev.i28 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %25, i64 0, i32 1
-  %28 = load ptr, ptr %mpPrev.i28, align 8
-  %29 = load ptr, ptr %25, align 8
-  %mpPrev2.i29 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %29, i64 0, i32 1
-  store ptr %28, ptr %mpPrev2.i29, align 8
-  %30 = load ptr, ptr %25, align 8
-  store ptr %30, ptr %28, align 8
-  %31 = load ptr, ptr %i1, align 8
-  store ptr %31, ptr %25, align 8
-  %mpPrev.i30 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %31, i64 0, i32 1
-  %32 = load ptr, ptr %mpPrev.i30, align 8
-  store ptr %32, ptr %mpPrev.i28, align 8
-  store ptr %25, ptr %32, align 8
-  store ptr %25, ptr %mpPrev.i30, align 8
+  %mpPrev.i27 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %current.sroa.0.074, i64 0, i32 1
+  %23 = load ptr, ptr %mpPrev.i27, align 8
+  %24 = load ptr, ptr %current.sroa.0.074, align 8
+  %mpPrev2.i28 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %24, i64 0, i32 1
+  store ptr %23, ptr %mpPrev2.i28, align 8
+  %25 = load ptr, ptr %current.sroa.0.074, align 8
+  store ptr %25, ptr %23, align 8
+  %26 = load ptr, ptr %i1, align 8
+  store ptr %26, ptr %current.sroa.0.074, align 8
+  %mpPrev.i29 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %26, i64 0, i32 1
+  %27 = load ptr, ptr %mpPrev.i29, align 8
+  store ptr %27, ptr %mpPrev.i27, align 8
+  store ptr %current.sroa.0.074, ptr %27, align 8
+  store ptr %current.sroa.0.074, ptr %mpPrev.i29, align 8
   br label %if.end22
 
 if.end22:                                         ; preds = %if.else, %if.then17
-  %33 = load ptr, ptr %end2, align 8
-  %mpPrev.i32 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %33, i64 0, i32 1
-  %34 = load ptr, ptr %mpPrev.i32, align 8
-  store ptr %34, ptr %end2, align 8
-  %mValue.i33 = getelementptr inbounds %"struct.eastl::ListNode", ptr %34, i64 0, i32 1
-  %35 = load ptr, ptr %i1, align 8
-  %mValue.i34 = getelementptr inbounds %"struct.eastl::ListNode", ptr %35, i64 0, i32 1
-  %36 = load i8, ptr %mValue.i33, align 1
-  %37 = and i8 %36, 1
-  %38 = load i8, ptr %mValue.i34, align 1
-  %39 = and i8 %38, 1
-  %cmp.i35 = icmp ult i8 %37, %39
-  br i1 %cmp.i35, label %if.then27, label %return
+  %28 = load ptr, ptr %end2, align 8
+  %mpPrev.i31 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %28, i64 0, i32 1
+  %29 = load ptr, ptr %mpPrev.i31, align 8
+  store ptr %29, ptr %end2, align 8
+  %mValue.i32 = getelementptr inbounds %"struct.eastl::ListNode", ptr %29, i64 0, i32 1
+  %30 = load ptr, ptr %i1, align 8
+  %mValue.i33 = getelementptr inbounds %"struct.eastl::ListNode", ptr %30, i64 0, i32 1
+  %31 = load i8, ptr %mValue.i32, align 1
+  %32 = and i8 %31, 1
+  %33 = load i8, ptr %mValue.i33, align 1
+  %34 = and i8 %33, 1
+  %cmp.i34 = icmp ult i8 %32, %34
+  br i1 %cmp.i34, label %if.then27, label %return
 
 if.then27:                                        ; preds = %if.end22
-  %mpPrev.i36 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %34, i64 0, i32 1
-  %40 = load ptr, ptr %mpPrev.i36, align 8
-  %41 = load ptr, ptr %34, align 8
-  %mpPrev2.i37 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %41, i64 0, i32 1
-  store ptr %40, ptr %mpPrev2.i37, align 8
-  %42 = load ptr, ptr %34, align 8
-  store ptr %42, ptr %40, align 8
-  %43 = load ptr, ptr %end2, align 8
-  %44 = load ptr, ptr %i1, align 8
-  store ptr %44, ptr %43, align 8
-  %mpPrev.i38 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %44, i64 0, i32 1
-  %45 = load ptr, ptr %mpPrev.i38, align 8
-  %mpPrev2.i39 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %43, i64 0, i32 1
-  store ptr %45, ptr %mpPrev2.i39, align 8
-  store ptr %43, ptr %45, align 8
-  store ptr %43, ptr %mpPrev.i38, align 8
+  %mpPrev.i35 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %29, i64 0, i32 1
+  %35 = load ptr, ptr %mpPrev.i35, align 8
+  %36 = load ptr, ptr %29, align 8
+  %mpPrev2.i36 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %36, i64 0, i32 1
+  store ptr %35, ptr %mpPrev2.i36, align 8
+  %37 = load ptr, ptr %29, align 8
+  store ptr %37, ptr %35, align 8
+  %38 = load ptr, ptr %end2, align 8
+  %39 = load ptr, ptr %i1, align 8
+  store ptr %39, ptr %38, align 8
+  %mpPrev.i37 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %39, i64 0, i32 1
+  %40 = load ptr, ptr %mpPrev.i37, align 8
+  %mpPrev2.i38 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %38, i64 0, i32 1
+  store ptr %40, ptr %mpPrev2.i38, align 8
+  store ptr %38, ptr %40, align 8
+  store ptr %38, ptr %mpPrev.i37, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
   store ptr null, ptr %agg.result, align 8
   %div17 = lshr i64 %n, 1
-  %46 = load ptr, ptr %i1, align 8
+  %41 = load ptr, ptr %i1, align 8
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %sw.epilog
   %n.addr.08.i.i.i.i = phi i64 [ %div17, %sw.epilog ], [ %dec.i.i.i.i, %while.body.i.i.i.i ]
-  %47 = phi ptr [ %46, %sw.epilog ], [ %48, %while.body.i.i.i.i ]
+  %42 = phi ptr [ %41, %sw.epilog ], [ %43, %while.body.i.i.i.i ]
   %dec.i.i.i.i = add nsw i64 %n.addr.08.i.i.i.i, -1
-  %48 = load ptr, ptr %47, align 8, !noalias !90
+  %43 = load ptr, ptr %42, align 8, !noalias !90
   %tobool.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN5eastl4nextINS_12ListIteratorIbPbRbEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE.exit, label %while.body.i.i.i.i, !llvm.loop !93
 
 _ZN5eastl4nextINS_12ListIteratorIbPbRbEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE.exit: ; preds = %while.body.i.i.i.i
-  store ptr %46, ptr %agg.tmp32, align 8
-  store ptr %48, ptr %agg.tmp33, align 8
+  store ptr %41, ptr %agg.tmp32, align 8
+  store ptr %43, ptr %agg.tmp33, align 8
   call void @_ZN5eastl4listIbNS_9allocatorEE6DoSortINS_4lessIbEEEENS_12ListIteratorIbPbRbEES9_S9_mRT_(ptr nonnull sret(%"struct.eastl::ListIterator.0") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %agg.tmp32, ptr noundef nonnull %agg.tmp33, i64 noundef %div17, ptr noundef nonnull align 1 dereferenceable(1) %compare)
-  %49 = load i64, ptr %ref.tmp, align 8
-  store i64 %49, ptr %i1, align 8
-  store ptr %48, ptr %agg.tmp34, align 8
-  %50 = load ptr, ptr %end2, align 8
-  store ptr %50, ptr %agg.tmp35, align 8
+  %44 = load i64, ptr %ref.tmp, align 8
+  store i64 %44, ptr %i1, align 8
+  store ptr %43, ptr %agg.tmp34, align 8
+  %45 = load ptr, ptr %end2, align 8
+  store ptr %45, ptr %agg.tmp35, align 8
   %sub = sub i64 %n, %div17
   call void @_ZN5eastl4listIbNS_9allocatorEE6DoSortINS_4lessIbEEEENS_12ListIteratorIbPbRbEES9_S9_mRT_(ptr nonnull sret(%"struct.eastl::ListIterator.0") align 8 %i2, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %agg.tmp34, ptr noundef nonnull %agg.tmp35, i64 noundef %sub, ptr noundef nonnull align 1 dereferenceable(1) %compare)
-  %51 = load ptr, ptr %i2, align 8
-  %mValue.i40 = getelementptr inbounds %"struct.eastl::ListNode", ptr %51, i64 0, i32 1
-  %52 = load ptr, ptr %i1, align 8
-  %mValue.i41 = getelementptr inbounds %"struct.eastl::ListNode", ptr %52, i64 0, i32 1
-  %53 = load i8, ptr %mValue.i40, align 1
-  %54 = and i8 %53, 1
-  %55 = load i8, ptr %mValue.i41, align 1
-  %56 = and i8 %55, 1
-  %cmp.i42 = icmp ult i8 %54, %56
-  %57 = ptrtoint ptr %51 to i64
-  br i1 %cmp.i42, label %while.cond.preheader, label %if.else48
+  %46 = load ptr, ptr %i2, align 8
+  %mValue.i39 = getelementptr inbounds %"struct.eastl::ListNode", ptr %46, i64 0, i32 1
+  %47 = load ptr, ptr %i1, align 8
+  %mValue.i40 = getelementptr inbounds %"struct.eastl::ListNode", ptr %47, i64 0, i32 1
+  %48 = load i8, ptr %mValue.i39, align 1
+  %49 = and i8 %48, 1
+  %50 = load i8, ptr %mValue.i40, align 1
+  %51 = and i8 %50, 1
+  %cmp.i41 = icmp ult i8 %49, %51
+  br i1 %cmp.i41, label %while.cond.preheader, label %if.else48
 
 while.cond.preheader:                             ; preds = %_ZN5eastl4nextINS_12ListIteratorIbPbRbEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE.exit
-  %58 = load ptr, ptr %end2, align 8
+  %52 = load ptr, ptr %end2, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %land.rhs
-  %ix.sroa.0.0.in = phi ptr [ %ix.sroa.0.0, %land.rhs ], [ %51, %while.cond.preheader ]
+  %ix.sroa.0.0.in = phi ptr [ %ix.sroa.0.0, %land.rhs ], [ %46, %while.cond.preheader ]
   %ix.sroa.0.0 = load ptr, ptr %ix.sroa.0.0.in, align 8
-  %cmp.i43.not = icmp eq ptr %ix.sroa.0.0, %58
-  br i1 %cmp.i43.not, label %while.end, label %land.rhs
+  %cmp.i42.not = icmp eq ptr %ix.sroa.0.0, %52
+  br i1 %cmp.i42.not, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond
-  %mValue.i44 = getelementptr inbounds %"struct.eastl::ListNode", ptr %ix.sroa.0.0, i64 0, i32 1
-  %59 = load i8, ptr %mValue.i44, align 1
-  %60 = and i8 %59, 1
-  %cmp.i46 = icmp ult i8 %60, %56
-  br i1 %cmp.i46, label %while.cond, label %while.end, !llvm.loop !94
+  %mValue.i43 = getelementptr inbounds %"struct.eastl::ListNode", ptr %ix.sroa.0.0, i64 0, i32 1
+  %53 = load i8, ptr %mValue.i43, align 1
+  %54 = and i8 %53, 1
+  %cmp.i45 = icmp ult i8 %54, %51
+  br i1 %cmp.i45, label %while.cond, label %while.end, !llvm.loop !94
 
 while.end:                                        ; preds = %while.cond, %land.rhs
-  %ix.sroa.0.0.lcssa = phi ptr [ %58, %while.cond ], [ %ix.sroa.0.0, %land.rhs ]
+  %ix.sroa.0.0.lcssa = phi ptr [ %52, %while.cond ], [ %ix.sroa.0.0, %land.rhs ]
   %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ix.sroa.0.0.lcssa, i64 0, i32 1
-  %61 = load ptr, ptr %mpPrev, align 8
-  store i64 %57, ptr %agg.result, align 8
-  %.cast18 = ptrtoint ptr %ix.sroa.0.0.lcssa to i64
-  store i64 %.cast18, ptr %i2, align 8
-  %mpPrev.i47 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %51, i64 0, i32 1
-  %62 = load ptr, ptr %mpPrev.i47, align 8
-  %63 = load ptr, ptr %61, align 8
-  %mpPrev1.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %63, i64 0, i32 1
-  store ptr %62, ptr %mpPrev1.i, align 8
-  %64 = load ptr, ptr %61, align 8
-  store ptr %64, ptr %62, align 8
-  %65 = load ptr, ptr %i1, align 8
-  %mpPrev.i48 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %65, i64 0, i32 1
-  %66 = load ptr, ptr %mpPrev.i48, align 8
-  store ptr %51, ptr %66, align 8
-  %67 = load ptr, ptr %mpPrev.i48, align 8
-  store ptr %67, ptr %mpPrev.i47, align 8
-  store ptr %61, ptr %mpPrev.i48, align 8
-  store ptr %65, ptr %61, align 8
-  %storemerge.in77.pre = load ptr, ptr %i1, align 8
+  %55 = load ptr, ptr %mpPrev, align 8
+  store ptr %46, ptr %agg.result, align 8
+  store ptr %ix.sroa.0.0.lcssa, ptr %i2, align 8
+  %mpPrev.i46 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %46, i64 0, i32 1
+  %56 = load ptr, ptr %mpPrev.i46, align 8
+  %57 = load ptr, ptr %55, align 8
+  %mpPrev1.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %57, i64 0, i32 1
+  store ptr %56, ptr %mpPrev1.i, align 8
+  %58 = load ptr, ptr %55, align 8
+  store ptr %58, ptr %56, align 8
+  %59 = load ptr, ptr %i1, align 8
+  %mpPrev.i47 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %59, i64 0, i32 1
+  %60 = load ptr, ptr %mpPrev.i47, align 8
+  store ptr %46, ptr %60, align 8
+  %61 = load ptr, ptr %mpPrev.i47, align 8
+  store ptr %61, ptr %mpPrev.i46, align 8
+  store ptr %55, ptr %mpPrev.i47, align 8
+  store ptr %59, ptr %55, align 8
+  %storemerge.in79.pre = load ptr, ptr %i1, align 8
   br label %if.end49
 
 if.else48:                                        ; preds = %_ZN5eastl4nextINS_12ListIteratorIbPbRbEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE.exit
-  %68 = ptrtoint ptr %52 to i64
-  store i64 %68, ptr %agg.result, align 8
+  store ptr %47, ptr %agg.result, align 8
   br label %if.end49
 
 if.end49:                                         ; preds = %if.else48, %while.end
-  %storemerge.in77 = phi ptr [ %storemerge.in77.pre, %while.end ], [ %52, %if.else48 ]
-  %end1.sroa.0.0 = phi ptr [ %ix.sroa.0.0.lcssa, %while.end ], [ %51, %if.else48 ]
-  %storemerge78 = load ptr, ptr %storemerge.in77, align 8
-  store ptr %storemerge78, ptr %i1, align 8
-  %cmp.i49.not79 = icmp eq ptr %storemerge78, %end1.sroa.0.0
-  br i1 %cmp.i49.not79, label %return, label %land.rhs53
+  %storemerge.in79 = phi ptr [ %storemerge.in79.pre, %while.end ], [ %47, %if.else48 ]
+  %end1.sroa.0.0 = phi ptr [ %ix.sroa.0.0.lcssa, %while.end ], [ %46, %if.else48 ]
+  %storemerge80 = load ptr, ptr %storemerge.in79, align 8
+  store ptr %storemerge80, ptr %i1, align 8
+  %cmp.i48.not81 = icmp eq ptr %storemerge80, %end1.sroa.0.0
+  br i1 %cmp.i48.not81, label %return, label %land.rhs53
 
 land.rhs53:                                       ; preds = %if.end49, %for.inc82
-  %storemerge81 = phi ptr [ %storemerge, %for.inc82 ], [ %storemerge78, %if.end49 ]
-  %end1.sroa.0.180 = phi ptr [ %end1.sroa.0.3, %for.inc82 ], [ %end1.sroa.0.0, %if.end49 ]
-  %69 = load ptr, ptr %i2, align 8
-  %70 = load ptr, ptr %end2, align 8
-  %cmp.i50.not = icmp eq ptr %69, %70
-  br i1 %cmp.i50.not, label %return, label %for.body56
+  %storemerge83 = phi ptr [ %storemerge, %for.inc82 ], [ %storemerge80, %if.end49 ]
+  %end1.sroa.0.182 = phi ptr [ %end1.sroa.0.3, %for.inc82 ], [ %end1.sroa.0.0, %if.end49 ]
+  %62 = load ptr, ptr %i2, align 8
+  %63 = load ptr, ptr %end2, align 8
+  %cmp.i49.not = icmp eq ptr %62, %63
+  br i1 %cmp.i49.not, label %return, label %for.body56
 
 for.body56:                                       ; preds = %land.rhs53
-  %mValue.i51 = getelementptr inbounds %"struct.eastl::ListNode", ptr %69, i64 0, i32 1
-  %mValue.i52 = getelementptr inbounds %"struct.eastl::ListNode", ptr %storemerge81, i64 0, i32 1
-  %71 = load i8, ptr %mValue.i51, align 1
-  %72 = and i8 %71, 1
-  %73 = load i8, ptr %mValue.i52, align 1
-  %74 = and i8 %73, 1
-  %cmp.i53 = icmp ult i8 %72, %74
-  br i1 %cmp.i53, label %while.cond62, label %for.inc82
+  %mValue.i50 = getelementptr inbounds %"struct.eastl::ListNode", ptr %62, i64 0, i32 1
+  %mValue.i51 = getelementptr inbounds %"struct.eastl::ListNode", ptr %storemerge83, i64 0, i32 1
+  %64 = load i8, ptr %mValue.i50, align 1
+  %65 = and i8 %64, 1
+  %66 = load i8, ptr %mValue.i51, align 1
+  %67 = and i8 %66, 1
+  %cmp.i52 = icmp ult i8 %65, %67
+  br i1 %cmp.i52, label %while.cond62, label %for.inc82
 
 while.cond62:                                     ; preds = %for.body56, %land.rhs64
-  %ix61.sroa.0.0.in = phi ptr [ %ix61.sroa.0.0, %land.rhs64 ], [ %69, %for.body56 ]
+  %ix61.sroa.0.0.in = phi ptr [ %ix61.sroa.0.0, %land.rhs64 ], [ %62, %for.body56 ]
   %ix61.sroa.0.0 = load ptr, ptr %ix61.sroa.0.0.in, align 8
-  %cmp.i54.not = icmp eq ptr %ix61.sroa.0.0, %70
-  br i1 %cmp.i54.not, label %while.end71, label %land.rhs64
+  %cmp.i53.not = icmp eq ptr %ix61.sroa.0.0, %63
+  br i1 %cmp.i53.not, label %while.end71, label %land.rhs64
 
 land.rhs64:                                       ; preds = %while.cond62
-  %mValue.i55 = getelementptr inbounds %"struct.eastl::ListNode", ptr %ix61.sroa.0.0, i64 0, i32 1
-  %75 = load i8, ptr %mValue.i55, align 1
-  %76 = and i8 %75, 1
-  %cmp.i57 = icmp ult i8 %76, %74
-  br i1 %cmp.i57, label %while.cond62, label %while.end71, !llvm.loop !95
+  %mValue.i54 = getelementptr inbounds %"struct.eastl::ListNode", ptr %ix61.sroa.0.0, i64 0, i32 1
+  %68 = load i8, ptr %mValue.i54, align 1
+  %69 = and i8 %68, 1
+  %cmp.i56 = icmp ult i8 %69, %67
+  br i1 %cmp.i56, label %while.cond62, label %while.end71, !llvm.loop !95
 
 while.end71:                                      ; preds = %while.cond62, %land.rhs64
-  %ix61.sroa.0.0.lcssa = phi ptr [ %70, %while.cond62 ], [ %ix61.sroa.0.0, %land.rhs64 ]
+  %ix61.sroa.0.0.lcssa = phi ptr [ %63, %while.cond62 ], [ %ix61.sroa.0.0, %land.rhs64 ]
   %mpPrev76 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ix61.sroa.0.0.lcssa, i64 0, i32 1
-  %77 = load ptr, ptr %mpPrev76, align 8
-  %cmp.i58 = icmp eq ptr %end1.sroa.0.180, %69
-  %spec.select = select i1 %cmp.i58, ptr %ix61.sroa.0.0.lcssa, ptr %end1.sroa.0.180
-  %78 = ptrtoint ptr %ix61.sroa.0.0.lcssa to i64
-  store i64 %78, ptr %i2, align 8
-  %mpPrev.i59 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %69, i64 0, i32 1
-  %79 = load ptr, ptr %mpPrev.i59, align 8
-  %80 = load ptr, ptr %77, align 8
-  %mpPrev1.i60 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %80, i64 0, i32 1
-  store ptr %79, ptr %mpPrev1.i60, align 8
-  %81 = load ptr, ptr %77, align 8
-  store ptr %81, ptr %79, align 8
-  %82 = load ptr, ptr %i1, align 8
-  %mpPrev.i61 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %82, i64 0, i32 1
-  %83 = load ptr, ptr %mpPrev.i61, align 8
-  store ptr %69, ptr %83, align 8
-  %84 = load ptr, ptr %mpPrev.i61, align 8
-  store ptr %84, ptr %mpPrev.i59, align 8
-  store ptr %77, ptr %mpPrev.i61, align 8
-  store ptr %82, ptr %77, align 8
+  %70 = load ptr, ptr %mpPrev76, align 8
+  %cmp.i57 = icmp eq ptr %end1.sroa.0.182, %62
+  %spec.select = select i1 %cmp.i57, ptr %ix61.sroa.0.0.lcssa, ptr %end1.sroa.0.182
+  store ptr %ix61.sroa.0.0.lcssa, ptr %i2, align 8
+  %mpPrev.i58 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %62, i64 0, i32 1
+  %71 = load ptr, ptr %mpPrev.i58, align 8
+  %72 = load ptr, ptr %70, align 8
+  %mpPrev1.i59 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %72, i64 0, i32 1
+  store ptr %71, ptr %mpPrev1.i59, align 8
+  %73 = load ptr, ptr %70, align 8
+  store ptr %73, ptr %71, align 8
+  %74 = load ptr, ptr %i1, align 8
+  %mpPrev.i60 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %74, i64 0, i32 1
+  %75 = load ptr, ptr %mpPrev.i60, align 8
+  store ptr %62, ptr %75, align 8
+  %76 = load ptr, ptr %mpPrev.i60, align 8
+  store ptr %76, ptr %mpPrev.i58, align 8
+  store ptr %70, ptr %mpPrev.i60, align 8
+  store ptr %74, ptr %70, align 8
   %storemerge.in.pre = load ptr, ptr %i1, align 8
   br label %for.inc82
 
 for.inc82:                                        ; preds = %for.body56, %while.end71
-  %storemerge.in = phi ptr [ %storemerge.in.pre, %while.end71 ], [ %storemerge81, %for.body56 ]
-  %end1.sroa.0.3 = phi ptr [ %spec.select, %while.end71 ], [ %end1.sroa.0.180, %for.body56 ]
+  %storemerge.in = phi ptr [ %storemerge.in.pre, %while.end71 ], [ %storemerge83, %for.body56 ]
+  %end1.sroa.0.3 = phi ptr [ %spec.select, %while.end71 ], [ %end1.sroa.0.182, %for.body56 ]
   %storemerge = load ptr, ptr %storemerge.in, align 8
   store ptr %storemerge, ptr %i1, align 8
-  %cmp.i49.not = icmp eq ptr %storemerge, %end1.sroa.0.3
-  br i1 %cmp.i49.not, label %return, label %land.rhs53, !llvm.loop !96
+  %cmp.i48.not = icmp eq ptr %storemerge, %end1.sroa.0.3
+  br i1 %cmp.i48.not, label %return, label %land.rhs53, !llvm.loop !96
 
 return:                                           ; preds = %for.inc82, %land.rhs53, %if.end49, %if.end22, %if.then27, %if.end, %if.then, %sw.bb
   ret void
@@ -5771,15 +5764,15 @@ sw.bb2:                                           ; preds = %entry
   store ptr %2, ptr %end2, align 8
   %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %2, i64 0, i32 1
   %3 = load ptr, ptr %i1, align 8
-  %mValue.i19 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %3, i64 0, i32 1
+  %mValue.i18 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %3, i64 0, i32 1
   %4 = load i32, ptr %mValue.i, align 4
-  %5 = load i32, ptr %mValue.i19, align 4
+  %5 = load i32, ptr %mValue.i18, align 4
   %cmp.i = icmp slt i32 %4, %5
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.bb2
-  %mpPrev.i20 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
-  %6 = load ptr, ptr %mpPrev.i20, align 8
+  %mpPrev.i19 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %6 = load ptr, ptr %mpPrev.i19, align 8
   %7 = load ptr, ptr %2, align 8
   %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %7, i64 0, i32 1
   store ptr %6, ptr %mpPrev2.i, align 8
@@ -5788,12 +5781,12 @@ if.then:                                          ; preds = %sw.bb2
   %9 = load ptr, ptr %end2, align 8
   %10 = load ptr, ptr %i1, align 8
   store ptr %10, ptr %9, align 8
-  %mpPrev.i21 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %10, i64 0, i32 1
-  %11 = load ptr, ptr %mpPrev.i21, align 8
-  %mpPrev2.i22 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %9, i64 0, i32 1
-  store ptr %11, ptr %mpPrev2.i22, align 8
+  %mpPrev.i20 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %10, i64 0, i32 1
+  %11 = load ptr, ptr %mpPrev.i20, align 8
+  %mpPrev2.i21 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %9, i64 0, i32 1
+  store ptr %11, ptr %mpPrev2.i21, align 8
   store ptr %9, ptr %11, align 8
-  store ptr %9, ptr %mpPrev.i21, align 8
+  store ptr %9, ptr %mpPrev.i20, align 8
   %12 = load ptr, ptr %end2, align 8
   store ptr %12, ptr %agg.result, align 8
   br label %return
@@ -5807,239 +5800,232 @@ sw.bb8:                                           ; preds = %entry
   store ptr %13, ptr %agg.result, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %end2, align 8
-  %cmp.i23.not75 = icmp eq ptr %14, %15
-  br i1 %cmp.i23.not75, label %if.then17, label %for.body
+  %cmp.i22.not76 = icmp eq ptr %14, %15
+  br i1 %cmp.i22.not76, label %if.then17, label %for.body
 
 for.body:                                         ; preds = %sw.bb8, %for.inc
-  %16 = phi ptr [ %21, %for.inc ], [ %13, %sw.bb8 ]
-  %17 = phi ptr [ %22, %for.inc ], [ %13, %sw.bb8 ]
-  %current.sroa.0.076 = phi ptr [ %23, %for.inc ], [ %14, %sw.bb8 ]
-  %mValue.i24 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %current.sroa.0.076, i64 0, i32 1
-  %mValue.i25 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %17, i64 0, i32 1
-  %18 = load i32, ptr %mValue.i24, align 4
-  %19 = load i32, ptr %mValue.i25, align 4
-  %cmp.i26 = icmp slt i32 %18, %19
-  br i1 %cmp.i26, label %if.then13, label %for.inc
+  %current.sroa.0.078 = phi ptr [ %18, %for.inc ], [ %14, %sw.bb8 ]
+  %current.sroa.0.07577 = phi ptr [ %current.sroa.0.074, %for.inc ], [ %13, %sw.bb8 ]
+  %mValue.i23 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %current.sroa.0.078, i64 0, i32 1
+  %mValue.i24 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %current.sroa.0.07577, i64 0, i32 1
+  %16 = load i32, ptr %mValue.i23, align 4
+  %17 = load i32, ptr %mValue.i24, align 4
+  %cmp.i25 = icmp slt i32 %16, %17
+  br i1 %cmp.i25, label %if.then13, label %for.inc
 
 if.then13:                                        ; preds = %for.body
-  %20 = ptrtoint ptr %current.sroa.0.076 to i64
-  store i64 %20, ptr %agg.result, align 8
+  store ptr %current.sroa.0.078, ptr %agg.result, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then13
-  %21 = phi ptr [ %16, %for.body ], [ %current.sroa.0.076, %if.then13 ]
-  %22 = phi ptr [ %17, %for.body ], [ %current.sroa.0.076, %if.then13 ]
-  %23 = load ptr, ptr %current.sroa.0.076, align 8
-  %cmp.i23.not = icmp eq ptr %23, %15
-  br i1 %cmp.i23.not, label %for.end, label %for.body, !llvm.loop !181
+  %current.sroa.0.074 = phi ptr [ %current.sroa.0.07577, %for.body ], [ %current.sroa.0.078, %if.then13 ]
+  %18 = load ptr, ptr %current.sroa.0.078, align 8
+  %cmp.i22.not = icmp eq ptr %18, %15
+  br i1 %cmp.i22.not, label %for.end, label %for.body, !llvm.loop !181
 
 for.end:                                          ; preds = %for.inc
-  %cmp.i27 = icmp eq ptr %21, %13
-  br i1 %cmp.i27, label %if.then17, label %if.else
+  %cmp.i26 = icmp eq ptr %current.sroa.0.074, %13
+  br i1 %cmp.i26, label %if.then17, label %if.else
 
 if.then17:                                        ; preds = %sw.bb8, %for.end
   store ptr %14, ptr %i1, align 8
   br label %if.end22
 
 if.else:                                          ; preds = %for.end
-  %mpPrev.i28 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %21, i64 0, i32 1
-  %24 = load ptr, ptr %mpPrev.i28, align 8
-  %25 = load ptr, ptr %21, align 8
-  %mpPrev2.i29 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %25, i64 0, i32 1
-  store ptr %24, ptr %mpPrev2.i29, align 8
-  %26 = load ptr, ptr %21, align 8
-  store ptr %26, ptr %24, align 8
-  %27 = load ptr, ptr %i1, align 8
-  store ptr %27, ptr %21, align 8
-  %mpPrev.i30 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %27, i64 0, i32 1
-  %28 = load ptr, ptr %mpPrev.i30, align 8
-  store ptr %28, ptr %mpPrev.i28, align 8
-  store ptr %21, ptr %28, align 8
-  store ptr %21, ptr %mpPrev.i30, align 8
+  %mpPrev.i27 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %current.sroa.0.074, i64 0, i32 1
+  %19 = load ptr, ptr %mpPrev.i27, align 8
+  %20 = load ptr, ptr %current.sroa.0.074, align 8
+  %mpPrev2.i28 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %20, i64 0, i32 1
+  store ptr %19, ptr %mpPrev2.i28, align 8
+  %21 = load ptr, ptr %current.sroa.0.074, align 8
+  store ptr %21, ptr %19, align 8
+  %22 = load ptr, ptr %i1, align 8
+  store ptr %22, ptr %current.sroa.0.074, align 8
+  %mpPrev.i29 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %22, i64 0, i32 1
+  %23 = load ptr, ptr %mpPrev.i29, align 8
+  store ptr %23, ptr %mpPrev.i27, align 8
+  store ptr %current.sroa.0.074, ptr %23, align 8
+  store ptr %current.sroa.0.074, ptr %mpPrev.i29, align 8
   br label %if.end22
 
 if.end22:                                         ; preds = %if.else, %if.then17
-  %29 = load ptr, ptr %end2, align 8
-  %mpPrev.i32 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %29, i64 0, i32 1
-  %30 = load ptr, ptr %mpPrev.i32, align 8
-  store ptr %30, ptr %end2, align 8
-  %mValue.i33 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %30, i64 0, i32 1
-  %31 = load ptr, ptr %i1, align 8
-  %mValue.i34 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %31, i64 0, i32 1
-  %32 = load i32, ptr %mValue.i33, align 4
-  %33 = load i32, ptr %mValue.i34, align 4
-  %cmp.i35 = icmp slt i32 %32, %33
-  br i1 %cmp.i35, label %if.then27, label %return
+  %24 = load ptr, ptr %end2, align 8
+  %mpPrev.i31 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %24, i64 0, i32 1
+  %25 = load ptr, ptr %mpPrev.i31, align 8
+  store ptr %25, ptr %end2, align 8
+  %mValue.i32 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %25, i64 0, i32 1
+  %26 = load ptr, ptr %i1, align 8
+  %mValue.i33 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %26, i64 0, i32 1
+  %27 = load i32, ptr %mValue.i32, align 4
+  %28 = load i32, ptr %mValue.i33, align 4
+  %cmp.i34 = icmp slt i32 %27, %28
+  br i1 %cmp.i34, label %if.then27, label %return
 
 if.then27:                                        ; preds = %if.end22
-  %mpPrev.i36 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %30, i64 0, i32 1
-  %34 = load ptr, ptr %mpPrev.i36, align 8
-  %35 = load ptr, ptr %30, align 8
-  %mpPrev2.i37 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %35, i64 0, i32 1
-  store ptr %34, ptr %mpPrev2.i37, align 8
-  %36 = load ptr, ptr %30, align 8
-  store ptr %36, ptr %34, align 8
-  %37 = load ptr, ptr %end2, align 8
-  %38 = load ptr, ptr %i1, align 8
-  store ptr %38, ptr %37, align 8
-  %mpPrev.i38 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %38, i64 0, i32 1
-  %39 = load ptr, ptr %mpPrev.i38, align 8
-  %mpPrev2.i39 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %37, i64 0, i32 1
-  store ptr %39, ptr %mpPrev2.i39, align 8
-  store ptr %37, ptr %39, align 8
-  store ptr %37, ptr %mpPrev.i38, align 8
+  %mpPrev.i35 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %25, i64 0, i32 1
+  %29 = load ptr, ptr %mpPrev.i35, align 8
+  %30 = load ptr, ptr %25, align 8
+  %mpPrev2.i36 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %30, i64 0, i32 1
+  store ptr %29, ptr %mpPrev2.i36, align 8
+  %31 = load ptr, ptr %25, align 8
+  store ptr %31, ptr %29, align 8
+  %32 = load ptr, ptr %end2, align 8
+  %33 = load ptr, ptr %i1, align 8
+  store ptr %33, ptr %32, align 8
+  %mpPrev.i37 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %33, i64 0, i32 1
+  %34 = load ptr, ptr %mpPrev.i37, align 8
+  %mpPrev2.i38 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %32, i64 0, i32 1
+  store ptr %34, ptr %mpPrev2.i38, align 8
+  store ptr %32, ptr %34, align 8
+  store ptr %32, ptr %mpPrev.i37, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
   store ptr null, ptr %agg.result, align 8
   %div17 = lshr i64 %n, 1
-  %40 = load ptr, ptr %i1, align 8
+  %35 = load ptr, ptr %i1, align 8
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %sw.epilog
   %n.addr.08.i.i.i.i = phi i64 [ %div17, %sw.epilog ], [ %dec.i.i.i.i, %while.body.i.i.i.i ]
-  %41 = phi ptr [ %40, %sw.epilog ], [ %42, %while.body.i.i.i.i ]
+  %36 = phi ptr [ %35, %sw.epilog ], [ %37, %while.body.i.i.i.i ]
   %dec.i.i.i.i = add nsw i64 %n.addr.08.i.i.i.i, -1
-  %42 = load ptr, ptr %41, align 8, !noalias !182
+  %37 = load ptr, ptr %36, align 8, !noalias !182
   %tobool.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE.exit, label %while.body.i.i.i.i, !llvm.loop !185
 
 _ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE.exit: ; preds = %while.body.i.i.i.i
-  store ptr %40, ptr %agg.tmp32, align 8
-  store ptr %42, ptr %agg.tmp33, align 8
+  store ptr %35, ptr %agg.tmp32, align 8
+  store ptr %37, ptr %agg.tmp33, align 8
   call void @_ZN5eastl4listIiNS_9allocatorEE6DoSortINS_4lessIiEEEENS_12ListIteratorIiPiRiEES9_S9_mRT_(ptr nonnull sret(%"struct.eastl::ListIterator.6") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %agg.tmp32, ptr noundef nonnull %agg.tmp33, i64 noundef %div17, ptr noundef nonnull align 1 dereferenceable(1) %compare)
-  %43 = load i64, ptr %ref.tmp, align 8
-  store i64 %43, ptr %i1, align 8
-  store ptr %42, ptr %agg.tmp34, align 8
-  %44 = load ptr, ptr %end2, align 8
-  store ptr %44, ptr %agg.tmp35, align 8
+  %38 = load i64, ptr %ref.tmp, align 8
+  store i64 %38, ptr %i1, align 8
+  store ptr %37, ptr %agg.tmp34, align 8
+  %39 = load ptr, ptr %end2, align 8
+  store ptr %39, ptr %agg.tmp35, align 8
   %sub = sub i64 %n, %div17
   call void @_ZN5eastl4listIiNS_9allocatorEE6DoSortINS_4lessIiEEEENS_12ListIteratorIiPiRiEES9_S9_mRT_(ptr nonnull sret(%"struct.eastl::ListIterator.6") align 8 %i2, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %agg.tmp34, ptr noundef nonnull %agg.tmp35, i64 noundef %sub, ptr noundef nonnull align 1 dereferenceable(1) %compare)
-  %45 = load ptr, ptr %i2, align 8
-  %mValue.i40 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %45, i64 0, i32 1
-  %46 = load ptr, ptr %i1, align 8
-  %mValue.i41 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %46, i64 0, i32 1
-  %47 = load i32, ptr %mValue.i40, align 4
-  %48 = load i32, ptr %mValue.i41, align 4
-  %cmp.i42 = icmp slt i32 %47, %48
-  %49 = ptrtoint ptr %45 to i64
-  br i1 %cmp.i42, label %while.cond.preheader, label %if.else48
+  %40 = load ptr, ptr %i2, align 8
+  %mValue.i39 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %40, i64 0, i32 1
+  %41 = load ptr, ptr %i1, align 8
+  %mValue.i40 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %41, i64 0, i32 1
+  %42 = load i32, ptr %mValue.i39, align 4
+  %43 = load i32, ptr %mValue.i40, align 4
+  %cmp.i41 = icmp slt i32 %42, %43
+  br i1 %cmp.i41, label %while.cond.preheader, label %if.else48
 
 while.cond.preheader:                             ; preds = %_ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE.exit
-  %50 = load ptr, ptr %end2, align 8
+  %44 = load ptr, ptr %end2, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %land.rhs
-  %ix.sroa.0.0.in = phi ptr [ %ix.sroa.0.0, %land.rhs ], [ %45, %while.cond.preheader ]
+  %ix.sroa.0.0.in = phi ptr [ %ix.sroa.0.0, %land.rhs ], [ %40, %while.cond.preheader ]
   %ix.sroa.0.0 = load ptr, ptr %ix.sroa.0.0.in, align 8
-  %cmp.i43.not = icmp eq ptr %ix.sroa.0.0, %50
-  br i1 %cmp.i43.not, label %while.end, label %land.rhs
+  %cmp.i42.not = icmp eq ptr %ix.sroa.0.0, %44
+  br i1 %cmp.i42.not, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond
-  %mValue.i44 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ix.sroa.0.0, i64 0, i32 1
-  %51 = load i32, ptr %mValue.i44, align 4
-  %cmp.i46 = icmp slt i32 %51, %48
-  br i1 %cmp.i46, label %while.cond, label %while.end, !llvm.loop !186
+  %mValue.i43 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ix.sroa.0.0, i64 0, i32 1
+  %45 = load i32, ptr %mValue.i43, align 4
+  %cmp.i45 = icmp slt i32 %45, %43
+  br i1 %cmp.i45, label %while.cond, label %while.end, !llvm.loop !186
 
 while.end:                                        ; preds = %while.cond, %land.rhs
-  %ix.sroa.0.0.lcssa = phi ptr [ %50, %while.cond ], [ %ix.sroa.0.0, %land.rhs ]
+  %ix.sroa.0.0.lcssa = phi ptr [ %44, %while.cond ], [ %ix.sroa.0.0, %land.rhs ]
   %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ix.sroa.0.0.lcssa, i64 0, i32 1
-  %52 = load ptr, ptr %mpPrev, align 8
-  store i64 %49, ptr %agg.result, align 8
-  %.cast18 = ptrtoint ptr %ix.sroa.0.0.lcssa to i64
-  store i64 %.cast18, ptr %i2, align 8
-  %mpPrev.i47 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %45, i64 0, i32 1
-  %53 = load ptr, ptr %mpPrev.i47, align 8
-  %54 = load ptr, ptr %52, align 8
-  %mpPrev1.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %54, i64 0, i32 1
-  store ptr %53, ptr %mpPrev1.i, align 8
-  %55 = load ptr, ptr %52, align 8
-  store ptr %55, ptr %53, align 8
-  %56 = load ptr, ptr %i1, align 8
-  %mpPrev.i48 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %56, i64 0, i32 1
-  %57 = load ptr, ptr %mpPrev.i48, align 8
-  store ptr %45, ptr %57, align 8
-  %58 = load ptr, ptr %mpPrev.i48, align 8
-  store ptr %58, ptr %mpPrev.i47, align 8
-  store ptr %52, ptr %mpPrev.i48, align 8
-  store ptr %56, ptr %52, align 8
-  %storemerge.in77.pre = load ptr, ptr %i1, align 8
+  %46 = load ptr, ptr %mpPrev, align 8
+  store ptr %40, ptr %agg.result, align 8
+  store ptr %ix.sroa.0.0.lcssa, ptr %i2, align 8
+  %mpPrev.i46 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %40, i64 0, i32 1
+  %47 = load ptr, ptr %mpPrev.i46, align 8
+  %48 = load ptr, ptr %46, align 8
+  %mpPrev1.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %48, i64 0, i32 1
+  store ptr %47, ptr %mpPrev1.i, align 8
+  %49 = load ptr, ptr %46, align 8
+  store ptr %49, ptr %47, align 8
+  %50 = load ptr, ptr %i1, align 8
+  %mpPrev.i47 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %50, i64 0, i32 1
+  %51 = load ptr, ptr %mpPrev.i47, align 8
+  store ptr %40, ptr %51, align 8
+  %52 = load ptr, ptr %mpPrev.i47, align 8
+  store ptr %52, ptr %mpPrev.i46, align 8
+  store ptr %46, ptr %mpPrev.i47, align 8
+  store ptr %50, ptr %46, align 8
+  %storemerge.in79.pre = load ptr, ptr %i1, align 8
   br label %if.end49
 
 if.else48:                                        ; preds = %_ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15difference_typeE.exit
-  %59 = ptrtoint ptr %46 to i64
-  store i64 %59, ptr %agg.result, align 8
+  store ptr %41, ptr %agg.result, align 8
   br label %if.end49
 
 if.end49:                                         ; preds = %if.else48, %while.end
-  %storemerge.in77 = phi ptr [ %storemerge.in77.pre, %while.end ], [ %46, %if.else48 ]
-  %end1.sroa.0.0 = phi ptr [ %ix.sroa.0.0.lcssa, %while.end ], [ %45, %if.else48 ]
-  %storemerge78 = load ptr, ptr %storemerge.in77, align 8
-  store ptr %storemerge78, ptr %i1, align 8
-  %cmp.i49.not79 = icmp eq ptr %storemerge78, %end1.sroa.0.0
-  br i1 %cmp.i49.not79, label %return, label %land.rhs53
+  %storemerge.in79 = phi ptr [ %storemerge.in79.pre, %while.end ], [ %41, %if.else48 ]
+  %end1.sroa.0.0 = phi ptr [ %ix.sroa.0.0.lcssa, %while.end ], [ %40, %if.else48 ]
+  %storemerge80 = load ptr, ptr %storemerge.in79, align 8
+  store ptr %storemerge80, ptr %i1, align 8
+  %cmp.i48.not81 = icmp eq ptr %storemerge80, %end1.sroa.0.0
+  br i1 %cmp.i48.not81, label %return, label %land.rhs53
 
 land.rhs53:                                       ; preds = %if.end49, %for.inc82
-  %storemerge81 = phi ptr [ %storemerge, %for.inc82 ], [ %storemerge78, %if.end49 ]
-  %end1.sroa.0.180 = phi ptr [ %end1.sroa.0.3, %for.inc82 ], [ %end1.sroa.0.0, %if.end49 ]
-  %60 = load ptr, ptr %i2, align 8
-  %61 = load ptr, ptr %end2, align 8
-  %cmp.i50.not = icmp eq ptr %60, %61
-  br i1 %cmp.i50.not, label %return, label %for.body56
+  %storemerge83 = phi ptr [ %storemerge, %for.inc82 ], [ %storemerge80, %if.end49 ]
+  %end1.sroa.0.182 = phi ptr [ %end1.sroa.0.3, %for.inc82 ], [ %end1.sroa.0.0, %if.end49 ]
+  %53 = load ptr, ptr %i2, align 8
+  %54 = load ptr, ptr %end2, align 8
+  %cmp.i49.not = icmp eq ptr %53, %54
+  br i1 %cmp.i49.not, label %return, label %for.body56
 
 for.body56:                                       ; preds = %land.rhs53
-  %mValue.i51 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %60, i64 0, i32 1
-  %mValue.i52 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %storemerge81, i64 0, i32 1
-  %62 = load i32, ptr %mValue.i51, align 4
-  %63 = load i32, ptr %mValue.i52, align 4
-  %cmp.i53 = icmp slt i32 %62, %63
-  br i1 %cmp.i53, label %while.cond62, label %for.inc82
+  %mValue.i50 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %53, i64 0, i32 1
+  %mValue.i51 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %storemerge83, i64 0, i32 1
+  %55 = load i32, ptr %mValue.i50, align 4
+  %56 = load i32, ptr %mValue.i51, align 4
+  %cmp.i52 = icmp slt i32 %55, %56
+  br i1 %cmp.i52, label %while.cond62, label %for.inc82
 
 while.cond62:                                     ; preds = %for.body56, %land.rhs64
-  %ix61.sroa.0.0.in = phi ptr [ %ix61.sroa.0.0, %land.rhs64 ], [ %60, %for.body56 ]
+  %ix61.sroa.0.0.in = phi ptr [ %ix61.sroa.0.0, %land.rhs64 ], [ %53, %for.body56 ]
   %ix61.sroa.0.0 = load ptr, ptr %ix61.sroa.0.0.in, align 8
-  %cmp.i54.not = icmp eq ptr %ix61.sroa.0.0, %61
-  br i1 %cmp.i54.not, label %while.end71, label %land.rhs64
+  %cmp.i53.not = icmp eq ptr %ix61.sroa.0.0, %54
+  br i1 %cmp.i53.not, label %while.end71, label %land.rhs64
 
 land.rhs64:                                       ; preds = %while.cond62
-  %mValue.i55 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ix61.sroa.0.0, i64 0, i32 1
-  %64 = load i32, ptr %mValue.i55, align 4
-  %cmp.i57 = icmp slt i32 %64, %63
-  br i1 %cmp.i57, label %while.cond62, label %while.end71, !llvm.loop !187
+  %mValue.i54 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ix61.sroa.0.0, i64 0, i32 1
+  %57 = load i32, ptr %mValue.i54, align 4
+  %cmp.i56 = icmp slt i32 %57, %56
+  br i1 %cmp.i56, label %while.cond62, label %while.end71, !llvm.loop !187
 
 while.end71:                                      ; preds = %while.cond62, %land.rhs64
-  %ix61.sroa.0.0.lcssa = phi ptr [ %61, %while.cond62 ], [ %ix61.sroa.0.0, %land.rhs64 ]
+  %ix61.sroa.0.0.lcssa = phi ptr [ %54, %while.cond62 ], [ %ix61.sroa.0.0, %land.rhs64 ]
   %mpPrev76 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ix61.sroa.0.0.lcssa, i64 0, i32 1
-  %65 = load ptr, ptr %mpPrev76, align 8
-  %cmp.i58 = icmp eq ptr %end1.sroa.0.180, %60
-  %spec.select = select i1 %cmp.i58, ptr %ix61.sroa.0.0.lcssa, ptr %end1.sroa.0.180
-  %66 = ptrtoint ptr %ix61.sroa.0.0.lcssa to i64
-  store i64 %66, ptr %i2, align 8
-  %mpPrev.i59 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %60, i64 0, i32 1
-  %67 = load ptr, ptr %mpPrev.i59, align 8
-  %68 = load ptr, ptr %65, align 8
-  %mpPrev1.i60 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %68, i64 0, i32 1
-  store ptr %67, ptr %mpPrev1.i60, align 8
-  %69 = load ptr, ptr %65, align 8
-  store ptr %69, ptr %67, align 8
-  %70 = load ptr, ptr %i1, align 8
-  %mpPrev.i61 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %70, i64 0, i32 1
-  %71 = load ptr, ptr %mpPrev.i61, align 8
-  store ptr %60, ptr %71, align 8
-  %72 = load ptr, ptr %mpPrev.i61, align 8
-  store ptr %72, ptr %mpPrev.i59, align 8
-  store ptr %65, ptr %mpPrev.i61, align 8
-  store ptr %70, ptr %65, align 8
+  %58 = load ptr, ptr %mpPrev76, align 8
+  %cmp.i57 = icmp eq ptr %end1.sroa.0.182, %53
+  %spec.select = select i1 %cmp.i57, ptr %ix61.sroa.0.0.lcssa, ptr %end1.sroa.0.182
+  store ptr %ix61.sroa.0.0.lcssa, ptr %i2, align 8
+  %mpPrev.i58 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %53, i64 0, i32 1
+  %59 = load ptr, ptr %mpPrev.i58, align 8
+  %60 = load ptr, ptr %58, align 8
+  %mpPrev1.i59 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %60, i64 0, i32 1
+  store ptr %59, ptr %mpPrev1.i59, align 8
+  %61 = load ptr, ptr %58, align 8
+  store ptr %61, ptr %59, align 8
+  %62 = load ptr, ptr %i1, align 8
+  %mpPrev.i60 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %62, i64 0, i32 1
+  %63 = load ptr, ptr %mpPrev.i60, align 8
+  store ptr %53, ptr %63, align 8
+  %64 = load ptr, ptr %mpPrev.i60, align 8
+  store ptr %64, ptr %mpPrev.i58, align 8
+  store ptr %58, ptr %mpPrev.i60, align 8
+  store ptr %62, ptr %58, align 8
   %storemerge.in.pre = load ptr, ptr %i1, align 8
   br label %for.inc82
 
 for.inc82:                                        ; preds = %for.body56, %while.end71
-  %storemerge.in = phi ptr [ %storemerge.in.pre, %while.end71 ], [ %storemerge81, %for.body56 ]
-  %end1.sroa.0.3 = phi ptr [ %spec.select, %while.end71 ], [ %end1.sroa.0.180, %for.body56 ]
+  %storemerge.in = phi ptr [ %storemerge.in.pre, %while.end71 ], [ %storemerge83, %for.body56 ]
+  %end1.sroa.0.3 = phi ptr [ %spec.select, %while.end71 ], [ %end1.sroa.0.182, %for.body56 ]
   %storemerge = load ptr, ptr %storemerge.in, align 8
   store ptr %storemerge, ptr %i1, align 8
-  %cmp.i49.not = icmp eq ptr %storemerge, %end1.sroa.0.3
-  br i1 %cmp.i49.not, label %return, label %land.rhs53, !llvm.loop !188
+  %cmp.i48.not = icmp eq ptr %storemerge, %end1.sroa.0.3
+  br i1 %cmp.i48.not, label %return, label %land.rhs53, !llvm.loop !188
 
 return:                                           ; preds = %for.inc82, %land.rhs53, %if.end49, %if.end22, %if.then27, %if.end, %if.then, %sw.bb
   ret void
@@ -8346,15 +8332,15 @@ sw.bb2:                                           ; preds = %entry
   store ptr %2, ptr %end2, align 8
   %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %2, i64 0, i32 2
   %3 = load ptr, ptr %i1, align 8
-  %mValue.i19 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %3, i64 0, i32 2
+  %mValue.i18 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %3, i64 0, i32 2
   %4 = load i32, ptr %mValue.i, align 64
-  %5 = load i32, ptr %mValue.i19, align 64
+  %5 = load i32, ptr %mValue.i18, align 64
   %cmp.i.i = icmp slt i32 %4, %5
   br i1 %cmp.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.bb2
-  %mpPrev.i20 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
-  %6 = load ptr, ptr %mpPrev.i20, align 8
+  %mpPrev.i19 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %6 = load ptr, ptr %mpPrev.i19, align 8
   %7 = load ptr, ptr %2, align 8
   %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %7, i64 0, i32 1
   store ptr %6, ptr %mpPrev2.i, align 8
@@ -8363,12 +8349,12 @@ if.then:                                          ; preds = %sw.bb2
   %9 = load ptr, ptr %end2, align 8
   %10 = load ptr, ptr %i1, align 8
   store ptr %10, ptr %9, align 8
-  %mpPrev.i21 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %10, i64 0, i32 1
-  %11 = load ptr, ptr %mpPrev.i21, align 8
-  %mpPrev2.i22 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %9, i64 0, i32 1
-  store ptr %11, ptr %mpPrev2.i22, align 8
+  %mpPrev.i20 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %10, i64 0, i32 1
+  %11 = load ptr, ptr %mpPrev.i20, align 8
+  %mpPrev2.i21 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %9, i64 0, i32 1
+  store ptr %11, ptr %mpPrev2.i21, align 8
   store ptr %9, ptr %11, align 8
-  store ptr %9, ptr %mpPrev.i21, align 8
+  store ptr %9, ptr %mpPrev.i20, align 8
   %12 = load ptr, ptr %end2, align 8
   store ptr %12, ptr %agg.result, align 8
   br label %return
@@ -8382,239 +8368,232 @@ sw.bb8:                                           ; preds = %entry
   store ptr %13, ptr %agg.result, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %end2, align 8
-  %cmp.i.not74 = icmp eq ptr %14, %15
-  br i1 %cmp.i.not74, label %if.then17, label %for.body
+  %cmp.i.not75 = icmp eq ptr %14, %15
+  br i1 %cmp.i.not75, label %if.then17, label %for.body
 
 for.body:                                         ; preds = %sw.bb8, %for.inc
-  %16 = phi ptr [ %21, %for.inc ], [ %13, %sw.bb8 ]
-  %17 = phi ptr [ %22, %for.inc ], [ %13, %sw.bb8 ]
-  %current.sroa.0.075 = phi ptr [ %23, %for.inc ], [ %14, %sw.bb8 ]
-  %mValue.i23 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %current.sroa.0.075, i64 0, i32 2
-  %mValue.i24 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %17, i64 0, i32 2
-  %18 = load i32, ptr %mValue.i23, align 64
-  %19 = load i32, ptr %mValue.i24, align 64
-  %cmp.i.i25 = icmp slt i32 %18, %19
-  br i1 %cmp.i.i25, label %if.then13, label %for.inc
+  %current.sroa.0.077 = phi ptr [ %18, %for.inc ], [ %14, %sw.bb8 ]
+  %current.sroa.0.07476 = phi ptr [ %current.sroa.0.073, %for.inc ], [ %13, %sw.bb8 ]
+  %mValue.i22 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %current.sroa.0.077, i64 0, i32 2
+  %mValue.i23 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %current.sroa.0.07476, i64 0, i32 2
+  %16 = load i32, ptr %mValue.i22, align 64
+  %17 = load i32, ptr %mValue.i23, align 64
+  %cmp.i.i24 = icmp slt i32 %16, %17
+  br i1 %cmp.i.i24, label %if.then13, label %for.inc
 
 if.then13:                                        ; preds = %for.body
-  %20 = ptrtoint ptr %current.sroa.0.075 to i64
-  store i64 %20, ptr %agg.result, align 8
+  store ptr %current.sroa.0.077, ptr %agg.result, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then13
-  %21 = phi ptr [ %16, %for.body ], [ %current.sroa.0.075, %if.then13 ]
-  %22 = phi ptr [ %17, %for.body ], [ %current.sroa.0.075, %if.then13 ]
-  %23 = load ptr, ptr %current.sroa.0.075, align 8
-  %cmp.i.not = icmp eq ptr %23, %15
+  %current.sroa.0.073 = phi ptr [ %current.sroa.0.07476, %for.body ], [ %current.sroa.0.077, %if.then13 ]
+  %18 = load ptr, ptr %current.sroa.0.077, align 8
+  %cmp.i.not = icmp eq ptr %18, %15
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !273
 
 for.end:                                          ; preds = %for.inc
-  %cmp.i26 = icmp eq ptr %21, %13
-  br i1 %cmp.i26, label %if.then17, label %if.else
+  %cmp.i25 = icmp eq ptr %current.sroa.0.073, %13
+  br i1 %cmp.i25, label %if.then17, label %if.else
 
 if.then17:                                        ; preds = %sw.bb8, %for.end
   store ptr %14, ptr %i1, align 8
   br label %if.end22
 
 if.else:                                          ; preds = %for.end
-  %mpPrev.i27 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %21, i64 0, i32 1
-  %24 = load ptr, ptr %mpPrev.i27, align 8
-  %25 = load ptr, ptr %21, align 8
-  %mpPrev2.i28 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %25, i64 0, i32 1
-  store ptr %24, ptr %mpPrev2.i28, align 8
-  %26 = load ptr, ptr %21, align 8
-  store ptr %26, ptr %24, align 8
-  %27 = load ptr, ptr %i1, align 8
-  store ptr %27, ptr %21, align 8
-  %mpPrev.i29 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %27, i64 0, i32 1
-  %28 = load ptr, ptr %mpPrev.i29, align 8
-  store ptr %28, ptr %mpPrev.i27, align 8
-  store ptr %21, ptr %28, align 8
-  store ptr %21, ptr %mpPrev.i29, align 8
+  %mpPrev.i26 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %current.sroa.0.073, i64 0, i32 1
+  %19 = load ptr, ptr %mpPrev.i26, align 8
+  %20 = load ptr, ptr %current.sroa.0.073, align 8
+  %mpPrev2.i27 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %20, i64 0, i32 1
+  store ptr %19, ptr %mpPrev2.i27, align 8
+  %21 = load ptr, ptr %current.sroa.0.073, align 8
+  store ptr %21, ptr %19, align 8
+  %22 = load ptr, ptr %i1, align 8
+  store ptr %22, ptr %current.sroa.0.073, align 8
+  %mpPrev.i28 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %22, i64 0, i32 1
+  %23 = load ptr, ptr %mpPrev.i28, align 8
+  store ptr %23, ptr %mpPrev.i26, align 8
+  store ptr %current.sroa.0.073, ptr %23, align 8
+  store ptr %current.sroa.0.073, ptr %mpPrev.i28, align 8
   br label %if.end22
 
 if.end22:                                         ; preds = %if.else, %if.then17
-  %29 = load ptr, ptr %end2, align 8
-  %mpPrev.i31 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %29, i64 0, i32 1
-  %30 = load ptr, ptr %mpPrev.i31, align 8
-  store ptr %30, ptr %end2, align 8
-  %mValue.i32 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %30, i64 0, i32 2
-  %31 = load ptr, ptr %i1, align 8
-  %mValue.i33 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %31, i64 0, i32 2
-  %32 = load i32, ptr %mValue.i32, align 64
-  %33 = load i32, ptr %mValue.i33, align 64
-  %cmp.i.i34 = icmp slt i32 %32, %33
-  br i1 %cmp.i.i34, label %if.then27, label %return
+  %24 = load ptr, ptr %end2, align 8
+  %mpPrev.i30 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %24, i64 0, i32 1
+  %25 = load ptr, ptr %mpPrev.i30, align 8
+  store ptr %25, ptr %end2, align 8
+  %mValue.i31 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %25, i64 0, i32 2
+  %26 = load ptr, ptr %i1, align 8
+  %mValue.i32 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %26, i64 0, i32 2
+  %27 = load i32, ptr %mValue.i31, align 64
+  %28 = load i32, ptr %mValue.i32, align 64
+  %cmp.i.i33 = icmp slt i32 %27, %28
+  br i1 %cmp.i.i33, label %if.then27, label %return
 
 if.then27:                                        ; preds = %if.end22
-  %mpPrev.i35 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %30, i64 0, i32 1
-  %34 = load ptr, ptr %mpPrev.i35, align 8
-  %35 = load ptr, ptr %30, align 8
-  %mpPrev2.i36 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %35, i64 0, i32 1
-  store ptr %34, ptr %mpPrev2.i36, align 8
-  %36 = load ptr, ptr %30, align 8
-  store ptr %36, ptr %34, align 8
-  %37 = load ptr, ptr %end2, align 8
-  %38 = load ptr, ptr %i1, align 8
-  store ptr %38, ptr %37, align 8
-  %mpPrev.i37 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %38, i64 0, i32 1
-  %39 = load ptr, ptr %mpPrev.i37, align 8
-  %mpPrev2.i38 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %37, i64 0, i32 1
-  store ptr %39, ptr %mpPrev2.i38, align 8
-  store ptr %37, ptr %39, align 8
-  store ptr %37, ptr %mpPrev.i37, align 8
+  %mpPrev.i34 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %25, i64 0, i32 1
+  %29 = load ptr, ptr %mpPrev.i34, align 8
+  %30 = load ptr, ptr %25, align 8
+  %mpPrev2.i35 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %30, i64 0, i32 1
+  store ptr %29, ptr %mpPrev2.i35, align 8
+  %31 = load ptr, ptr %25, align 8
+  store ptr %31, ptr %29, align 8
+  %32 = load ptr, ptr %end2, align 8
+  %33 = load ptr, ptr %i1, align 8
+  store ptr %33, ptr %32, align 8
+  %mpPrev.i36 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %33, i64 0, i32 1
+  %34 = load ptr, ptr %mpPrev.i36, align 8
+  %mpPrev2.i37 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %32, i64 0, i32 1
+  store ptr %34, ptr %mpPrev2.i37, align 8
+  store ptr %32, ptr %34, align 8
+  store ptr %32, ptr %mpPrev.i36, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
   store ptr null, ptr %agg.result, align 8
   %div17 = lshr i64 %n, 1
-  %40 = load ptr, ptr %i1, align 8
+  %35 = load ptr, ptr %i1, align 8
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %sw.epilog
   %n.addr.08.i.i.i.i = phi i64 [ %div17, %sw.epilog ], [ %dec.i.i.i.i, %while.body.i.i.i.i ]
-  %41 = phi ptr [ %40, %sw.epilog ], [ %42, %while.body.i.i.i.i ]
+  %36 = phi ptr [ %35, %sw.epilog ], [ %37, %while.body.i.i.i.i ]
   %dec.i.i.i.i = add nsw i64 %n.addr.08.i.i.i.i, -1
-  %42 = load ptr, ptr %41, align 8, !noalias !274
+  %37 = load ptr, ptr %36, align 8, !noalias !274
   %tobool.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN5eastl4nextINS_12ListIteratorI7Align64PS2_RS2_EEEET_S6_NS_15iterator_traitsIS6_E15difference_typeE.exit, label %while.body.i.i.i.i, !llvm.loop !277
 
 _ZN5eastl4nextINS_12ListIteratorI7Align64PS2_RS2_EEEET_S6_NS_15iterator_traitsIS6_E15difference_typeE.exit: ; preds = %while.body.i.i.i.i
-  store ptr %40, ptr %agg.tmp32, align 8
-  store ptr %42, ptr %agg.tmp33, align 8
+  store ptr %35, ptr %agg.tmp32, align 8
+  store ptr %37, ptr %agg.tmp33, align 8
   call void @_ZN5eastl4listI7Align64NS_9allocatorEE6DoSortINS_4lessIS1_EEEENS_12ListIteratorIS1_PS1_RS1_EESA_SA_mRT_(ptr nonnull sret(%"struct.eastl::ListIterator.16") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %agg.tmp32, ptr noundef nonnull %agg.tmp33, i64 noundef %div17, ptr noundef nonnull align 1 dereferenceable(1) %compare)
-  %43 = load i64, ptr %ref.tmp, align 8
-  store i64 %43, ptr %i1, align 8
-  store ptr %42, ptr %agg.tmp34, align 8
-  %44 = load ptr, ptr %end2, align 8
-  store ptr %44, ptr %agg.tmp35, align 8
+  %38 = load i64, ptr %ref.tmp, align 8
+  store i64 %38, ptr %i1, align 8
+  store ptr %37, ptr %agg.tmp34, align 8
+  %39 = load ptr, ptr %end2, align 8
+  store ptr %39, ptr %agg.tmp35, align 8
   %sub = sub i64 %n, %div17
   call void @_ZN5eastl4listI7Align64NS_9allocatorEE6DoSortINS_4lessIS1_EEEENS_12ListIteratorIS1_PS1_RS1_EESA_SA_mRT_(ptr nonnull sret(%"struct.eastl::ListIterator.16") align 8 %i2, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %agg.tmp34, ptr noundef nonnull %agg.tmp35, i64 noundef %sub, ptr noundef nonnull align 1 dereferenceable(1) %compare)
-  %45 = load ptr, ptr %i2, align 8
-  %mValue.i39 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %45, i64 0, i32 2
-  %46 = load ptr, ptr %i1, align 8
-  %mValue.i40 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %46, i64 0, i32 2
-  %47 = load i32, ptr %mValue.i39, align 64
-  %48 = load i32, ptr %mValue.i40, align 64
-  %cmp.i.i41 = icmp slt i32 %47, %48
-  %49 = ptrtoint ptr %45 to i64
-  br i1 %cmp.i.i41, label %while.cond.preheader, label %if.else48
+  %40 = load ptr, ptr %i2, align 8
+  %mValue.i38 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %40, i64 0, i32 2
+  %41 = load ptr, ptr %i1, align 8
+  %mValue.i39 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %41, i64 0, i32 2
+  %42 = load i32, ptr %mValue.i38, align 64
+  %43 = load i32, ptr %mValue.i39, align 64
+  %cmp.i.i40 = icmp slt i32 %42, %43
+  br i1 %cmp.i.i40, label %while.cond.preheader, label %if.else48
 
 while.cond.preheader:                             ; preds = %_ZN5eastl4nextINS_12ListIteratorI7Align64PS2_RS2_EEEET_S6_NS_15iterator_traitsIS6_E15difference_typeE.exit
-  %50 = load ptr, ptr %end2, align 8
+  %44 = load ptr, ptr %end2, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %land.rhs
-  %ix.sroa.0.0.in = phi ptr [ %ix.sroa.0.0, %land.rhs ], [ %45, %while.cond.preheader ]
+  %ix.sroa.0.0.in = phi ptr [ %ix.sroa.0.0, %land.rhs ], [ %40, %while.cond.preheader ]
   %ix.sroa.0.0 = load ptr, ptr %ix.sroa.0.0.in, align 8
-  %cmp.i42.not = icmp eq ptr %ix.sroa.0.0, %50
-  br i1 %cmp.i42.not, label %while.end, label %land.rhs
+  %cmp.i41.not = icmp eq ptr %ix.sroa.0.0, %44
+  br i1 %cmp.i41.not, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond
-  %mValue.i43 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %ix.sroa.0.0, i64 0, i32 2
-  %51 = load i32, ptr %mValue.i43, align 64
-  %cmp.i.i45 = icmp slt i32 %51, %48
-  br i1 %cmp.i.i45, label %while.cond, label %while.end, !llvm.loop !278
+  %mValue.i42 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %ix.sroa.0.0, i64 0, i32 2
+  %45 = load i32, ptr %mValue.i42, align 64
+  %cmp.i.i44 = icmp slt i32 %45, %43
+  br i1 %cmp.i.i44, label %while.cond, label %while.end, !llvm.loop !278
 
 while.end:                                        ; preds = %while.cond, %land.rhs
-  %ix.sroa.0.0.lcssa = phi ptr [ %50, %while.cond ], [ %ix.sroa.0.0, %land.rhs ]
+  %ix.sroa.0.0.lcssa = phi ptr [ %44, %while.cond ], [ %ix.sroa.0.0, %land.rhs ]
   %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ix.sroa.0.0.lcssa, i64 0, i32 1
-  %52 = load ptr, ptr %mpPrev, align 8
-  store i64 %49, ptr %agg.result, align 8
-  %.cast18 = ptrtoint ptr %ix.sroa.0.0.lcssa to i64
-  store i64 %.cast18, ptr %i2, align 8
-  %mpPrev.i46 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %45, i64 0, i32 1
-  %53 = load ptr, ptr %mpPrev.i46, align 8
-  %54 = load ptr, ptr %52, align 8
-  %mpPrev1.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %54, i64 0, i32 1
-  store ptr %53, ptr %mpPrev1.i, align 8
-  %55 = load ptr, ptr %52, align 8
-  store ptr %55, ptr %53, align 8
-  %56 = load ptr, ptr %i1, align 8
-  %mpPrev.i47 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %56, i64 0, i32 1
-  %57 = load ptr, ptr %mpPrev.i47, align 8
-  store ptr %45, ptr %57, align 8
-  %58 = load ptr, ptr %mpPrev.i47, align 8
-  store ptr %58, ptr %mpPrev.i46, align 8
-  store ptr %52, ptr %mpPrev.i47, align 8
-  store ptr %56, ptr %52, align 8
-  %storemerge.in76.pre = load ptr, ptr %i1, align 8
+  %46 = load ptr, ptr %mpPrev, align 8
+  store ptr %40, ptr %agg.result, align 8
+  store ptr %ix.sroa.0.0.lcssa, ptr %i2, align 8
+  %mpPrev.i45 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %40, i64 0, i32 1
+  %47 = load ptr, ptr %mpPrev.i45, align 8
+  %48 = load ptr, ptr %46, align 8
+  %mpPrev1.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %48, i64 0, i32 1
+  store ptr %47, ptr %mpPrev1.i, align 8
+  %49 = load ptr, ptr %46, align 8
+  store ptr %49, ptr %47, align 8
+  %50 = load ptr, ptr %i1, align 8
+  %mpPrev.i46 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %50, i64 0, i32 1
+  %51 = load ptr, ptr %mpPrev.i46, align 8
+  store ptr %40, ptr %51, align 8
+  %52 = load ptr, ptr %mpPrev.i46, align 8
+  store ptr %52, ptr %mpPrev.i45, align 8
+  store ptr %46, ptr %mpPrev.i46, align 8
+  store ptr %50, ptr %46, align 8
+  %storemerge.in78.pre = load ptr, ptr %i1, align 8
   br label %if.end49
 
 if.else48:                                        ; preds = %_ZN5eastl4nextINS_12ListIteratorI7Align64PS2_RS2_EEEET_S6_NS_15iterator_traitsIS6_E15difference_typeE.exit
-  %59 = ptrtoint ptr %46 to i64
-  store i64 %59, ptr %agg.result, align 8
+  store ptr %41, ptr %agg.result, align 8
   br label %if.end49
 
 if.end49:                                         ; preds = %if.else48, %while.end
-  %storemerge.in76 = phi ptr [ %storemerge.in76.pre, %while.end ], [ %46, %if.else48 ]
-  %end1.sroa.0.0 = phi ptr [ %ix.sroa.0.0.lcssa, %while.end ], [ %45, %if.else48 ]
-  %storemerge77 = load ptr, ptr %storemerge.in76, align 8
-  store ptr %storemerge77, ptr %i1, align 8
-  %cmp.i48.not78 = icmp eq ptr %storemerge77, %end1.sroa.0.0
-  br i1 %cmp.i48.not78, label %return, label %land.rhs53
+  %storemerge.in78 = phi ptr [ %storemerge.in78.pre, %while.end ], [ %41, %if.else48 ]
+  %end1.sroa.0.0 = phi ptr [ %ix.sroa.0.0.lcssa, %while.end ], [ %40, %if.else48 ]
+  %storemerge79 = load ptr, ptr %storemerge.in78, align 8
+  store ptr %storemerge79, ptr %i1, align 8
+  %cmp.i47.not80 = icmp eq ptr %storemerge79, %end1.sroa.0.0
+  br i1 %cmp.i47.not80, label %return, label %land.rhs53
 
 land.rhs53:                                       ; preds = %if.end49, %for.inc82
-  %storemerge80 = phi ptr [ %storemerge, %for.inc82 ], [ %storemerge77, %if.end49 ]
-  %end1.sroa.0.179 = phi ptr [ %end1.sroa.0.3, %for.inc82 ], [ %end1.sroa.0.0, %if.end49 ]
-  %60 = load ptr, ptr %i2, align 8
-  %61 = load ptr, ptr %end2, align 8
-  %cmp.i49.not = icmp eq ptr %60, %61
-  br i1 %cmp.i49.not, label %return, label %for.body56
+  %storemerge82 = phi ptr [ %storemerge, %for.inc82 ], [ %storemerge79, %if.end49 ]
+  %end1.sroa.0.181 = phi ptr [ %end1.sroa.0.3, %for.inc82 ], [ %end1.sroa.0.0, %if.end49 ]
+  %53 = load ptr, ptr %i2, align 8
+  %54 = load ptr, ptr %end2, align 8
+  %cmp.i48.not = icmp eq ptr %53, %54
+  br i1 %cmp.i48.not, label %return, label %for.body56
 
 for.body56:                                       ; preds = %land.rhs53
-  %mValue.i50 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %60, i64 0, i32 2
-  %mValue.i51 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %storemerge80, i64 0, i32 2
-  %62 = load i32, ptr %mValue.i50, align 64
-  %63 = load i32, ptr %mValue.i51, align 64
-  %cmp.i.i52 = icmp slt i32 %62, %63
-  br i1 %cmp.i.i52, label %while.cond62, label %for.inc82
+  %mValue.i49 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %53, i64 0, i32 2
+  %mValue.i50 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %storemerge82, i64 0, i32 2
+  %55 = load i32, ptr %mValue.i49, align 64
+  %56 = load i32, ptr %mValue.i50, align 64
+  %cmp.i.i51 = icmp slt i32 %55, %56
+  br i1 %cmp.i.i51, label %while.cond62, label %for.inc82
 
 while.cond62:                                     ; preds = %for.body56, %land.rhs64
-  %ix61.sroa.0.0.in = phi ptr [ %ix61.sroa.0.0, %land.rhs64 ], [ %60, %for.body56 ]
+  %ix61.sroa.0.0.in = phi ptr [ %ix61.sroa.0.0, %land.rhs64 ], [ %53, %for.body56 ]
   %ix61.sroa.0.0 = load ptr, ptr %ix61.sroa.0.0.in, align 8
-  %cmp.i53.not = icmp eq ptr %ix61.sroa.0.0, %61
-  br i1 %cmp.i53.not, label %while.end71, label %land.rhs64
+  %cmp.i52.not = icmp eq ptr %ix61.sroa.0.0, %54
+  br i1 %cmp.i52.not, label %while.end71, label %land.rhs64
 
 land.rhs64:                                       ; preds = %while.cond62
-  %mValue.i54 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %ix61.sroa.0.0, i64 0, i32 2
-  %64 = load i32, ptr %mValue.i54, align 64
-  %cmp.i.i56 = icmp slt i32 %64, %63
-  br i1 %cmp.i.i56, label %while.cond62, label %while.end71, !llvm.loop !279
+  %mValue.i53 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %ix61.sroa.0.0, i64 0, i32 2
+  %57 = load i32, ptr %mValue.i53, align 64
+  %cmp.i.i55 = icmp slt i32 %57, %56
+  br i1 %cmp.i.i55, label %while.cond62, label %while.end71, !llvm.loop !279
 
 while.end71:                                      ; preds = %while.cond62, %land.rhs64
-  %ix61.sroa.0.0.lcssa = phi ptr [ %61, %while.cond62 ], [ %ix61.sroa.0.0, %land.rhs64 ]
+  %ix61.sroa.0.0.lcssa = phi ptr [ %54, %while.cond62 ], [ %ix61.sroa.0.0, %land.rhs64 ]
   %mpPrev76 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ix61.sroa.0.0.lcssa, i64 0, i32 1
-  %65 = load ptr, ptr %mpPrev76, align 8
-  %cmp.i57 = icmp eq ptr %end1.sroa.0.179, %60
-  %spec.select = select i1 %cmp.i57, ptr %ix61.sroa.0.0.lcssa, ptr %end1.sroa.0.179
-  %66 = ptrtoint ptr %ix61.sroa.0.0.lcssa to i64
-  store i64 %66, ptr %i2, align 8
-  %mpPrev.i58 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %60, i64 0, i32 1
-  %67 = load ptr, ptr %mpPrev.i58, align 8
-  %68 = load ptr, ptr %65, align 8
-  %mpPrev1.i59 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %68, i64 0, i32 1
-  store ptr %67, ptr %mpPrev1.i59, align 8
-  %69 = load ptr, ptr %65, align 8
-  store ptr %69, ptr %67, align 8
-  %70 = load ptr, ptr %i1, align 8
-  %mpPrev.i60 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %70, i64 0, i32 1
-  %71 = load ptr, ptr %mpPrev.i60, align 8
-  store ptr %60, ptr %71, align 8
-  %72 = load ptr, ptr %mpPrev.i60, align 8
-  store ptr %72, ptr %mpPrev.i58, align 8
-  store ptr %65, ptr %mpPrev.i60, align 8
-  store ptr %70, ptr %65, align 8
+  %58 = load ptr, ptr %mpPrev76, align 8
+  %cmp.i56 = icmp eq ptr %end1.sroa.0.181, %53
+  %spec.select = select i1 %cmp.i56, ptr %ix61.sroa.0.0.lcssa, ptr %end1.sroa.0.181
+  store ptr %ix61.sroa.0.0.lcssa, ptr %i2, align 8
+  %mpPrev.i57 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %53, i64 0, i32 1
+  %59 = load ptr, ptr %mpPrev.i57, align 8
+  %60 = load ptr, ptr %58, align 8
+  %mpPrev1.i58 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %60, i64 0, i32 1
+  store ptr %59, ptr %mpPrev1.i58, align 8
+  %61 = load ptr, ptr %58, align 8
+  store ptr %61, ptr %59, align 8
+  %62 = load ptr, ptr %i1, align 8
+  %mpPrev.i59 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %62, i64 0, i32 1
+  %63 = load ptr, ptr %mpPrev.i59, align 8
+  store ptr %53, ptr %63, align 8
+  %64 = load ptr, ptr %mpPrev.i59, align 8
+  store ptr %64, ptr %mpPrev.i57, align 8
+  store ptr %58, ptr %mpPrev.i59, align 8
+  store ptr %62, ptr %58, align 8
   %storemerge.in.pre = load ptr, ptr %i1, align 8
   br label %for.inc82
 
 for.inc82:                                        ; preds = %for.body56, %while.end71
-  %storemerge.in = phi ptr [ %storemerge.in.pre, %while.end71 ], [ %storemerge80, %for.body56 ]
-  %end1.sroa.0.3 = phi ptr [ %spec.select, %while.end71 ], [ %end1.sroa.0.179, %for.body56 ]
+  %storemerge.in = phi ptr [ %storemerge.in.pre, %while.end71 ], [ %storemerge82, %for.body56 ]
+  %end1.sroa.0.3 = phi ptr [ %spec.select, %while.end71 ], [ %end1.sroa.0.181, %for.body56 ]
   %storemerge = load ptr, ptr %storemerge.in, align 8
   store ptr %storemerge, ptr %i1, align 8
-  %cmp.i48.not = icmp eq ptr %storemerge, %end1.sroa.0.3
-  br i1 %cmp.i48.not, label %return, label %land.rhs53, !llvm.loop !280
+  %cmp.i47.not = icmp eq ptr %storemerge, %end1.sroa.0.3
+  br i1 %cmp.i47.not, label %return, label %land.rhs53, !llvm.loop !280
 
 return:                                           ; preds = %for.inc82, %land.rhs53, %if.end49, %if.end22, %if.then27, %if.end, %if.then, %sw.bb
   ret void
@@ -11740,15 +11719,15 @@ sw.bb2:                                           ; preds = %entry
   store ptr %2, ptr %end2, align 8
   %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %2, i64 0, i32 1
   %3 = load ptr, ptr %i1, align 8
-  %mValue.i19 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %3, i64 0, i32 1
+  %mValue.i18 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %3, i64 0, i32 1
   %4 = load i32, ptr %mValue.i, align 8
-  %5 = load i32, ptr %mValue.i19, align 8
+  %5 = load i32, ptr %mValue.i18, align 8
   %cmp.i.i = icmp slt i32 %4, %5
   br i1 %cmp.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.bb2
-  %mpPrev.i20 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
-  %6 = load ptr, ptr %mpPrev.i20, align 8
+  %mpPrev.i19 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %6 = load ptr, ptr %mpPrev.i19, align 8
   %7 = load ptr, ptr %2, align 8
   %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %7, i64 0, i32 1
   store ptr %6, ptr %mpPrev2.i, align 8
@@ -11757,12 +11736,12 @@ if.then:                                          ; preds = %sw.bb2
   %9 = load ptr, ptr %end2, align 8
   %10 = load ptr, ptr %i1, align 8
   store ptr %10, ptr %9, align 8
-  %mpPrev.i21 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %10, i64 0, i32 1
-  %11 = load ptr, ptr %mpPrev.i21, align 8
-  %mpPrev2.i22 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %9, i64 0, i32 1
-  store ptr %11, ptr %mpPrev2.i22, align 8
+  %mpPrev.i20 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %10, i64 0, i32 1
+  %11 = load ptr, ptr %mpPrev.i20, align 8
+  %mpPrev2.i21 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %9, i64 0, i32 1
+  store ptr %11, ptr %mpPrev2.i21, align 8
   store ptr %9, ptr %11, align 8
-  store ptr %9, ptr %mpPrev.i21, align 8
+  store ptr %9, ptr %mpPrev.i20, align 8
   %12 = load ptr, ptr %end2, align 8
   store ptr %12, ptr %agg.result, align 8
   br label %return
@@ -11776,239 +11755,232 @@ sw.bb8:                                           ; preds = %entry
   store ptr %13, ptr %agg.result, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %end2, align 8
-  %cmp.i.not74 = icmp eq ptr %14, %15
-  br i1 %cmp.i.not74, label %if.then17, label %for.body
+  %cmp.i.not75 = icmp eq ptr %14, %15
+  br i1 %cmp.i.not75, label %if.then17, label %for.body
 
 for.body:                                         ; preds = %sw.bb8, %for.inc
-  %16 = phi ptr [ %21, %for.inc ], [ %13, %sw.bb8 ]
-  %17 = phi ptr [ %22, %for.inc ], [ %13, %sw.bb8 ]
-  %current.sroa.0.075 = phi ptr [ %23, %for.inc ], [ %14, %sw.bb8 ]
-  %mValue.i23 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %current.sroa.0.075, i64 0, i32 1
-  %mValue.i24 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %17, i64 0, i32 1
-  %18 = load i32, ptr %mValue.i23, align 8
-  %19 = load i32, ptr %mValue.i24, align 8
-  %cmp.i.i25 = icmp slt i32 %18, %19
-  br i1 %cmp.i.i25, label %if.then13, label %for.inc
+  %current.sroa.0.077 = phi ptr [ %18, %for.inc ], [ %14, %sw.bb8 ]
+  %current.sroa.0.07476 = phi ptr [ %current.sroa.0.073, %for.inc ], [ %13, %sw.bb8 ]
+  %mValue.i22 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %current.sroa.0.077, i64 0, i32 1
+  %mValue.i23 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %current.sroa.0.07476, i64 0, i32 1
+  %16 = load i32, ptr %mValue.i22, align 8
+  %17 = load i32, ptr %mValue.i23, align 8
+  %cmp.i.i24 = icmp slt i32 %16, %17
+  br i1 %cmp.i.i24, label %if.then13, label %for.inc
 
 if.then13:                                        ; preds = %for.body
-  %20 = ptrtoint ptr %current.sroa.0.075 to i64
-  store i64 %20, ptr %agg.result, align 8
+  store ptr %current.sroa.0.077, ptr %agg.result, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then13
-  %21 = phi ptr [ %16, %for.body ], [ %current.sroa.0.075, %if.then13 ]
-  %22 = phi ptr [ %17, %for.body ], [ %current.sroa.0.075, %if.then13 ]
-  %23 = load ptr, ptr %current.sroa.0.075, align 8
-  %cmp.i.not = icmp eq ptr %23, %15
+  %current.sroa.0.073 = phi ptr [ %current.sroa.0.07476, %for.body ], [ %current.sroa.0.077, %if.then13 ]
+  %18 = load ptr, ptr %current.sroa.0.077, align 8
+  %cmp.i.not = icmp eq ptr %18, %15
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !357
 
 for.end:                                          ; preds = %for.inc
-  %cmp.i26 = icmp eq ptr %21, %13
-  br i1 %cmp.i26, label %if.then17, label %if.else
+  %cmp.i25 = icmp eq ptr %current.sroa.0.073, %13
+  br i1 %cmp.i25, label %if.then17, label %if.else
 
 if.then17:                                        ; preds = %sw.bb8, %for.end
   store ptr %14, ptr %i1, align 8
   br label %if.end22
 
 if.else:                                          ; preds = %for.end
-  %mpPrev.i27 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %21, i64 0, i32 1
-  %24 = load ptr, ptr %mpPrev.i27, align 8
-  %25 = load ptr, ptr %21, align 8
-  %mpPrev2.i28 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %25, i64 0, i32 1
-  store ptr %24, ptr %mpPrev2.i28, align 8
-  %26 = load ptr, ptr %21, align 8
-  store ptr %26, ptr %24, align 8
-  %27 = load ptr, ptr %i1, align 8
-  store ptr %27, ptr %21, align 8
-  %mpPrev.i29 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %27, i64 0, i32 1
-  %28 = load ptr, ptr %mpPrev.i29, align 8
-  store ptr %28, ptr %mpPrev.i27, align 8
-  store ptr %21, ptr %28, align 8
-  store ptr %21, ptr %mpPrev.i29, align 8
+  %mpPrev.i26 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %current.sroa.0.073, i64 0, i32 1
+  %19 = load ptr, ptr %mpPrev.i26, align 8
+  %20 = load ptr, ptr %current.sroa.0.073, align 8
+  %mpPrev2.i27 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %20, i64 0, i32 1
+  store ptr %19, ptr %mpPrev2.i27, align 8
+  %21 = load ptr, ptr %current.sroa.0.073, align 8
+  store ptr %21, ptr %19, align 8
+  %22 = load ptr, ptr %i1, align 8
+  store ptr %22, ptr %current.sroa.0.073, align 8
+  %mpPrev.i28 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %22, i64 0, i32 1
+  %23 = load ptr, ptr %mpPrev.i28, align 8
+  store ptr %23, ptr %mpPrev.i26, align 8
+  store ptr %current.sroa.0.073, ptr %23, align 8
+  store ptr %current.sroa.0.073, ptr %mpPrev.i28, align 8
   br label %if.end22
 
 if.end22:                                         ; preds = %if.else, %if.then17
-  %29 = load ptr, ptr %end2, align 8
-  %mpPrev.i31 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %29, i64 0, i32 1
-  %30 = load ptr, ptr %mpPrev.i31, align 8
-  store ptr %30, ptr %end2, align 8
-  %mValue.i32 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %30, i64 0, i32 1
-  %31 = load ptr, ptr %i1, align 8
-  %mValue.i33 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %31, i64 0, i32 1
-  %32 = load i32, ptr %mValue.i32, align 8
-  %33 = load i32, ptr %mValue.i33, align 8
-  %cmp.i.i34 = icmp slt i32 %32, %33
-  br i1 %cmp.i.i34, label %if.then27, label %return
+  %24 = load ptr, ptr %end2, align 8
+  %mpPrev.i30 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %24, i64 0, i32 1
+  %25 = load ptr, ptr %mpPrev.i30, align 8
+  store ptr %25, ptr %end2, align 8
+  %mValue.i31 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %25, i64 0, i32 1
+  %26 = load ptr, ptr %i1, align 8
+  %mValue.i32 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %26, i64 0, i32 1
+  %27 = load i32, ptr %mValue.i31, align 8
+  %28 = load i32, ptr %mValue.i32, align 8
+  %cmp.i.i33 = icmp slt i32 %27, %28
+  br i1 %cmp.i.i33, label %if.then27, label %return
 
 if.then27:                                        ; preds = %if.end22
-  %mpPrev.i35 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %30, i64 0, i32 1
-  %34 = load ptr, ptr %mpPrev.i35, align 8
-  %35 = load ptr, ptr %30, align 8
-  %mpPrev2.i36 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %35, i64 0, i32 1
-  store ptr %34, ptr %mpPrev2.i36, align 8
-  %36 = load ptr, ptr %30, align 8
-  store ptr %36, ptr %34, align 8
-  %37 = load ptr, ptr %end2, align 8
-  %38 = load ptr, ptr %i1, align 8
-  store ptr %38, ptr %37, align 8
-  %mpPrev.i37 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %38, i64 0, i32 1
-  %39 = load ptr, ptr %mpPrev.i37, align 8
-  %mpPrev2.i38 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %37, i64 0, i32 1
-  store ptr %39, ptr %mpPrev2.i38, align 8
-  store ptr %37, ptr %39, align 8
-  store ptr %37, ptr %mpPrev.i37, align 8
+  %mpPrev.i34 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %25, i64 0, i32 1
+  %29 = load ptr, ptr %mpPrev.i34, align 8
+  %30 = load ptr, ptr %25, align 8
+  %mpPrev2.i35 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %30, i64 0, i32 1
+  store ptr %29, ptr %mpPrev2.i35, align 8
+  %31 = load ptr, ptr %25, align 8
+  store ptr %31, ptr %29, align 8
+  %32 = load ptr, ptr %end2, align 8
+  %33 = load ptr, ptr %i1, align 8
+  store ptr %33, ptr %32, align 8
+  %mpPrev.i36 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %33, i64 0, i32 1
+  %34 = load ptr, ptr %mpPrev.i36, align 8
+  %mpPrev2.i37 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %32, i64 0, i32 1
+  store ptr %34, ptr %mpPrev2.i37, align 8
+  store ptr %32, ptr %34, align 8
+  store ptr %32, ptr %mpPrev.i36, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
   store ptr null, ptr %agg.result, align 8
   %div17 = lshr i64 %n, 1
-  %40 = load ptr, ptr %i1, align 8
+  %35 = load ptr, ptr %i1, align 8
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %sw.epilog
   %n.addr.08.i.i.i.i = phi i64 [ %div17, %sw.epilog ], [ %dec.i.i.i.i, %while.body.i.i.i.i ]
-  %41 = phi ptr [ %40, %sw.epilog ], [ %42, %while.body.i.i.i.i ]
+  %36 = phi ptr [ %35, %sw.epilog ], [ %37, %while.body.i.i.i.i ]
   %dec.i.i.i.i = add nsw i64 %n.addr.08.i.i.i.i, -1
-  %42 = load ptr, ptr %41, align 8, !noalias !358
+  %37 = load ptr, ptr %36, align 8, !noalias !358
   %tobool.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN5eastl4nextINS_12ListIteratorI10TestObjectPS2_RS2_EEEET_S6_NS_15iterator_traitsIS6_E15difference_typeE.exit, label %while.body.i.i.i.i, !llvm.loop !361
 
 _ZN5eastl4nextINS_12ListIteratorI10TestObjectPS2_RS2_EEEET_S6_NS_15iterator_traitsIS6_E15difference_typeE.exit: ; preds = %while.body.i.i.i.i
-  store ptr %40, ptr %agg.tmp32, align 8
-  store ptr %42, ptr %agg.tmp33, align 8
+  store ptr %35, ptr %agg.tmp32, align 8
+  store ptr %37, ptr %agg.tmp33, align 8
   call void @_ZN5eastl4listI10TestObjectNS_9allocatorEE6DoSortINS_4lessIS1_EEEENS_12ListIteratorIS1_PS1_RS1_EESA_SA_mRT_(ptr nonnull sret(%"struct.eastl::ListIterator.25") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %agg.tmp32, ptr noundef nonnull %agg.tmp33, i64 noundef %div17, ptr noundef nonnull align 1 dereferenceable(1) %compare)
-  %43 = load i64, ptr %ref.tmp, align 8
-  store i64 %43, ptr %i1, align 8
-  store ptr %42, ptr %agg.tmp34, align 8
-  %44 = load ptr, ptr %end2, align 8
-  store ptr %44, ptr %agg.tmp35, align 8
+  %38 = load i64, ptr %ref.tmp, align 8
+  store i64 %38, ptr %i1, align 8
+  store ptr %37, ptr %agg.tmp34, align 8
+  %39 = load ptr, ptr %end2, align 8
+  store ptr %39, ptr %agg.tmp35, align 8
   %sub = sub i64 %n, %div17
   call void @_ZN5eastl4listI10TestObjectNS_9allocatorEE6DoSortINS_4lessIS1_EEEENS_12ListIteratorIS1_PS1_RS1_EESA_SA_mRT_(ptr nonnull sret(%"struct.eastl::ListIterator.25") align 8 %i2, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %agg.tmp34, ptr noundef nonnull %agg.tmp35, i64 noundef %sub, ptr noundef nonnull align 1 dereferenceable(1) %compare)
-  %45 = load ptr, ptr %i2, align 8
-  %mValue.i39 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %45, i64 0, i32 1
-  %46 = load ptr, ptr %i1, align 8
-  %mValue.i40 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %46, i64 0, i32 1
-  %47 = load i32, ptr %mValue.i39, align 8
-  %48 = load i32, ptr %mValue.i40, align 8
-  %cmp.i.i41 = icmp slt i32 %47, %48
-  %49 = ptrtoint ptr %45 to i64
-  br i1 %cmp.i.i41, label %while.cond.preheader, label %if.else48
+  %40 = load ptr, ptr %i2, align 8
+  %mValue.i38 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %40, i64 0, i32 1
+  %41 = load ptr, ptr %i1, align 8
+  %mValue.i39 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %41, i64 0, i32 1
+  %42 = load i32, ptr %mValue.i38, align 8
+  %43 = load i32, ptr %mValue.i39, align 8
+  %cmp.i.i40 = icmp slt i32 %42, %43
+  br i1 %cmp.i.i40, label %while.cond.preheader, label %if.else48
 
 while.cond.preheader:                             ; preds = %_ZN5eastl4nextINS_12ListIteratorI10TestObjectPS2_RS2_EEEET_S6_NS_15iterator_traitsIS6_E15difference_typeE.exit
-  %50 = load ptr, ptr %end2, align 8
+  %44 = load ptr, ptr %end2, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %land.rhs
-  %ix.sroa.0.0.in = phi ptr [ %ix.sroa.0.0, %land.rhs ], [ %45, %while.cond.preheader ]
+  %ix.sroa.0.0.in = phi ptr [ %ix.sroa.0.0, %land.rhs ], [ %40, %while.cond.preheader ]
   %ix.sroa.0.0 = load ptr, ptr %ix.sroa.0.0.in, align 8
-  %cmp.i42.not = icmp eq ptr %ix.sroa.0.0, %50
-  br i1 %cmp.i42.not, label %while.end, label %land.rhs
+  %cmp.i41.not = icmp eq ptr %ix.sroa.0.0, %44
+  br i1 %cmp.i41.not, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond
-  %mValue.i43 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %ix.sroa.0.0, i64 0, i32 1
-  %51 = load i32, ptr %mValue.i43, align 8
-  %cmp.i.i45 = icmp slt i32 %51, %48
-  br i1 %cmp.i.i45, label %while.cond, label %while.end, !llvm.loop !362
+  %mValue.i42 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %ix.sroa.0.0, i64 0, i32 1
+  %45 = load i32, ptr %mValue.i42, align 8
+  %cmp.i.i44 = icmp slt i32 %45, %43
+  br i1 %cmp.i.i44, label %while.cond, label %while.end, !llvm.loop !362
 
 while.end:                                        ; preds = %while.cond, %land.rhs
-  %ix.sroa.0.0.lcssa = phi ptr [ %50, %while.cond ], [ %ix.sroa.0.0, %land.rhs ]
+  %ix.sroa.0.0.lcssa = phi ptr [ %44, %while.cond ], [ %ix.sroa.0.0, %land.rhs ]
   %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ix.sroa.0.0.lcssa, i64 0, i32 1
-  %52 = load ptr, ptr %mpPrev, align 8
-  store i64 %49, ptr %agg.result, align 8
-  %.cast18 = ptrtoint ptr %ix.sroa.0.0.lcssa to i64
-  store i64 %.cast18, ptr %i2, align 8
-  %mpPrev.i46 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %45, i64 0, i32 1
-  %53 = load ptr, ptr %mpPrev.i46, align 8
-  %54 = load ptr, ptr %52, align 8
-  %mpPrev1.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %54, i64 0, i32 1
-  store ptr %53, ptr %mpPrev1.i, align 8
-  %55 = load ptr, ptr %52, align 8
-  store ptr %55, ptr %53, align 8
-  %56 = load ptr, ptr %i1, align 8
-  %mpPrev.i47 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %56, i64 0, i32 1
-  %57 = load ptr, ptr %mpPrev.i47, align 8
-  store ptr %45, ptr %57, align 8
-  %58 = load ptr, ptr %mpPrev.i47, align 8
-  store ptr %58, ptr %mpPrev.i46, align 8
-  store ptr %52, ptr %mpPrev.i47, align 8
-  store ptr %56, ptr %52, align 8
-  %storemerge.in76.pre = load ptr, ptr %i1, align 8
+  %46 = load ptr, ptr %mpPrev, align 8
+  store ptr %40, ptr %agg.result, align 8
+  store ptr %ix.sroa.0.0.lcssa, ptr %i2, align 8
+  %mpPrev.i45 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %40, i64 0, i32 1
+  %47 = load ptr, ptr %mpPrev.i45, align 8
+  %48 = load ptr, ptr %46, align 8
+  %mpPrev1.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %48, i64 0, i32 1
+  store ptr %47, ptr %mpPrev1.i, align 8
+  %49 = load ptr, ptr %46, align 8
+  store ptr %49, ptr %47, align 8
+  %50 = load ptr, ptr %i1, align 8
+  %mpPrev.i46 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %50, i64 0, i32 1
+  %51 = load ptr, ptr %mpPrev.i46, align 8
+  store ptr %40, ptr %51, align 8
+  %52 = load ptr, ptr %mpPrev.i46, align 8
+  store ptr %52, ptr %mpPrev.i45, align 8
+  store ptr %46, ptr %mpPrev.i46, align 8
+  store ptr %50, ptr %46, align 8
+  %storemerge.in78.pre = load ptr, ptr %i1, align 8
   br label %if.end49
 
 if.else48:                                        ; preds = %_ZN5eastl4nextINS_12ListIteratorI10TestObjectPS2_RS2_EEEET_S6_NS_15iterator_traitsIS6_E15difference_typeE.exit
-  %59 = ptrtoint ptr %46 to i64
-  store i64 %59, ptr %agg.result, align 8
+  store ptr %41, ptr %agg.result, align 8
   br label %if.end49
 
 if.end49:                                         ; preds = %if.else48, %while.end
-  %storemerge.in76 = phi ptr [ %storemerge.in76.pre, %while.end ], [ %46, %if.else48 ]
-  %end1.sroa.0.0 = phi ptr [ %ix.sroa.0.0.lcssa, %while.end ], [ %45, %if.else48 ]
-  %storemerge77 = load ptr, ptr %storemerge.in76, align 8
-  store ptr %storemerge77, ptr %i1, align 8
-  %cmp.i48.not78 = icmp eq ptr %storemerge77, %end1.sroa.0.0
-  br i1 %cmp.i48.not78, label %return, label %land.rhs53
+  %storemerge.in78 = phi ptr [ %storemerge.in78.pre, %while.end ], [ %41, %if.else48 ]
+  %end1.sroa.0.0 = phi ptr [ %ix.sroa.0.0.lcssa, %while.end ], [ %40, %if.else48 ]
+  %storemerge79 = load ptr, ptr %storemerge.in78, align 8
+  store ptr %storemerge79, ptr %i1, align 8
+  %cmp.i47.not80 = icmp eq ptr %storemerge79, %end1.sroa.0.0
+  br i1 %cmp.i47.not80, label %return, label %land.rhs53
 
 land.rhs53:                                       ; preds = %if.end49, %for.inc82
-  %storemerge80 = phi ptr [ %storemerge, %for.inc82 ], [ %storemerge77, %if.end49 ]
-  %end1.sroa.0.179 = phi ptr [ %end1.sroa.0.3, %for.inc82 ], [ %end1.sroa.0.0, %if.end49 ]
-  %60 = load ptr, ptr %i2, align 8
-  %61 = load ptr, ptr %end2, align 8
-  %cmp.i49.not = icmp eq ptr %60, %61
-  br i1 %cmp.i49.not, label %return, label %for.body56
+  %storemerge82 = phi ptr [ %storemerge, %for.inc82 ], [ %storemerge79, %if.end49 ]
+  %end1.sroa.0.181 = phi ptr [ %end1.sroa.0.3, %for.inc82 ], [ %end1.sroa.0.0, %if.end49 ]
+  %53 = load ptr, ptr %i2, align 8
+  %54 = load ptr, ptr %end2, align 8
+  %cmp.i48.not = icmp eq ptr %53, %54
+  br i1 %cmp.i48.not, label %return, label %for.body56
 
 for.body56:                                       ; preds = %land.rhs53
-  %mValue.i50 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %60, i64 0, i32 1
-  %mValue.i51 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %storemerge80, i64 0, i32 1
-  %62 = load i32, ptr %mValue.i50, align 8
-  %63 = load i32, ptr %mValue.i51, align 8
-  %cmp.i.i52 = icmp slt i32 %62, %63
-  br i1 %cmp.i.i52, label %while.cond62, label %for.inc82
+  %mValue.i49 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %53, i64 0, i32 1
+  %mValue.i50 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %storemerge82, i64 0, i32 1
+  %55 = load i32, ptr %mValue.i49, align 8
+  %56 = load i32, ptr %mValue.i50, align 8
+  %cmp.i.i51 = icmp slt i32 %55, %56
+  br i1 %cmp.i.i51, label %while.cond62, label %for.inc82
 
 while.cond62:                                     ; preds = %for.body56, %land.rhs64
-  %ix61.sroa.0.0.in = phi ptr [ %ix61.sroa.0.0, %land.rhs64 ], [ %60, %for.body56 ]
+  %ix61.sroa.0.0.in = phi ptr [ %ix61.sroa.0.0, %land.rhs64 ], [ %53, %for.body56 ]
   %ix61.sroa.0.0 = load ptr, ptr %ix61.sroa.0.0.in, align 8
-  %cmp.i53.not = icmp eq ptr %ix61.sroa.0.0, %61
-  br i1 %cmp.i53.not, label %while.end71, label %land.rhs64
+  %cmp.i52.not = icmp eq ptr %ix61.sroa.0.0, %54
+  br i1 %cmp.i52.not, label %while.end71, label %land.rhs64
 
 land.rhs64:                                       ; preds = %while.cond62
-  %mValue.i54 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %ix61.sroa.0.0, i64 0, i32 1
-  %64 = load i32, ptr %mValue.i54, align 8
-  %cmp.i.i56 = icmp slt i32 %64, %63
-  br i1 %cmp.i.i56, label %while.cond62, label %while.end71, !llvm.loop !363
+  %mValue.i53 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %ix61.sroa.0.0, i64 0, i32 1
+  %57 = load i32, ptr %mValue.i53, align 8
+  %cmp.i.i55 = icmp slt i32 %57, %56
+  br i1 %cmp.i.i55, label %while.cond62, label %while.end71, !llvm.loop !363
 
 while.end71:                                      ; preds = %while.cond62, %land.rhs64
-  %ix61.sroa.0.0.lcssa = phi ptr [ %61, %while.cond62 ], [ %ix61.sroa.0.0, %land.rhs64 ]
+  %ix61.sroa.0.0.lcssa = phi ptr [ %54, %while.cond62 ], [ %ix61.sroa.0.0, %land.rhs64 ]
   %mpPrev76 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ix61.sroa.0.0.lcssa, i64 0, i32 1
-  %65 = load ptr, ptr %mpPrev76, align 8
-  %cmp.i57 = icmp eq ptr %end1.sroa.0.179, %60
-  %spec.select = select i1 %cmp.i57, ptr %ix61.sroa.0.0.lcssa, ptr %end1.sroa.0.179
-  %66 = ptrtoint ptr %ix61.sroa.0.0.lcssa to i64
-  store i64 %66, ptr %i2, align 8
-  %mpPrev.i58 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %60, i64 0, i32 1
-  %67 = load ptr, ptr %mpPrev.i58, align 8
-  %68 = load ptr, ptr %65, align 8
-  %mpPrev1.i59 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %68, i64 0, i32 1
-  store ptr %67, ptr %mpPrev1.i59, align 8
-  %69 = load ptr, ptr %65, align 8
-  store ptr %69, ptr %67, align 8
-  %70 = load ptr, ptr %i1, align 8
-  %mpPrev.i60 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %70, i64 0, i32 1
-  %71 = load ptr, ptr %mpPrev.i60, align 8
-  store ptr %60, ptr %71, align 8
-  %72 = load ptr, ptr %mpPrev.i60, align 8
-  store ptr %72, ptr %mpPrev.i58, align 8
-  store ptr %65, ptr %mpPrev.i60, align 8
-  store ptr %70, ptr %65, align 8
+  %58 = load ptr, ptr %mpPrev76, align 8
+  %cmp.i56 = icmp eq ptr %end1.sroa.0.181, %53
+  %spec.select = select i1 %cmp.i56, ptr %ix61.sroa.0.0.lcssa, ptr %end1.sroa.0.181
+  store ptr %ix61.sroa.0.0.lcssa, ptr %i2, align 8
+  %mpPrev.i57 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %53, i64 0, i32 1
+  %59 = load ptr, ptr %mpPrev.i57, align 8
+  %60 = load ptr, ptr %58, align 8
+  %mpPrev1.i58 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %60, i64 0, i32 1
+  store ptr %59, ptr %mpPrev1.i58, align 8
+  %61 = load ptr, ptr %58, align 8
+  store ptr %61, ptr %59, align 8
+  %62 = load ptr, ptr %i1, align 8
+  %mpPrev.i59 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %62, i64 0, i32 1
+  %63 = load ptr, ptr %mpPrev.i59, align 8
+  store ptr %53, ptr %63, align 8
+  %64 = load ptr, ptr %mpPrev.i59, align 8
+  store ptr %64, ptr %mpPrev.i57, align 8
+  store ptr %58, ptr %mpPrev.i59, align 8
+  store ptr %62, ptr %58, align 8
   %storemerge.in.pre = load ptr, ptr %i1, align 8
   br label %for.inc82
 
 for.inc82:                                        ; preds = %for.body56, %while.end71
-  %storemerge.in = phi ptr [ %storemerge.in.pre, %while.end71 ], [ %storemerge80, %for.body56 ]
-  %end1.sroa.0.3 = phi ptr [ %spec.select, %while.end71 ], [ %end1.sroa.0.179, %for.body56 ]
+  %storemerge.in = phi ptr [ %storemerge.in.pre, %while.end71 ], [ %storemerge82, %for.body56 ]
+  %end1.sroa.0.3 = phi ptr [ %spec.select, %while.end71 ], [ %end1.sroa.0.181, %for.body56 ]
   %storemerge = load ptr, ptr %storemerge.in, align 8
   store ptr %storemerge, ptr %i1, align 8
-  %cmp.i48.not = icmp eq ptr %storemerge, %end1.sroa.0.3
-  br i1 %cmp.i48.not, label %return, label %land.rhs53, !llvm.loop !364
+  %cmp.i47.not = icmp eq ptr %storemerge, %end1.sroa.0.3
+  br i1 %cmp.i47.not, label %return, label %land.rhs53, !llvm.loop !364
 
 return:                                           ; preds = %for.inc82, %land.rhs53, %if.end49, %if.end22, %if.then27, %if.end, %if.then, %sw.bb
   ret void
@@ -26308,16 +26280,16 @@ sw.bb2:                                           ; preds = %entry
   %1 = load ptr, ptr %mpPrev.i, align 8
   store ptr %1, ptr %end2, align 8
   %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %1, i64 0, i32 1
-  %i1.val25 = load ptr, ptr %i1, align 8
-  %mValue.i49 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %i1.val25, i64 0, i32 1
+  %i1.val24 = load ptr, ptr %i1, align 8
+  %mValue.i48 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %i1.val24, i64 0, i32 1
   %call3.val = load i32, ptr %mValue.i, align 4
-  %call4.val = load i32, ptr %mValue.i49, align 4
+  %call4.val = load i32, ptr %mValue.i48, align 4
   %cmp.i = icmp slt i32 %call3.val, %call4.val
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.bb2
-  %mpPrev.i50 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
-  %2 = load ptr, ptr %mpPrev.i50, align 8
+  %mpPrev.i49 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %2 = load ptr, ptr %mpPrev.i49, align 8
   %3 = load ptr, ptr %1, align 8
   %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
   store ptr %2, ptr %mpPrev2.i, align 8
@@ -26326,258 +26298,250 @@ if.then:                                          ; preds = %sw.bb2
   %5 = load ptr, ptr %end2, align 8
   %6 = load ptr, ptr %i1, align 8
   store ptr %6, ptr %5, align 8
-  %mpPrev.i51 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
-  %7 = load ptr, ptr %mpPrev.i51, align 8
-  %mpPrev2.i52 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
-  store ptr %7, ptr %mpPrev2.i52, align 8
+  %mpPrev.i50 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %7 = load ptr, ptr %mpPrev.i50, align 8
+  %mpPrev2.i51 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  store ptr %7, ptr %mpPrev2.i51, align 8
   store ptr %5, ptr %7, align 8
-  store ptr %5, ptr %mpPrev.i51, align 8
+  store ptr %5, ptr %mpPrev.i50, align 8
   %end2.val = load ptr, ptr %end2, align 8
   store ptr %end2.val, ptr %agg.result, align 8
   br label %return
 
 if.end:                                           ; preds = %sw.bb2
-  store ptr %i1.val25, ptr %agg.result, align 8
+  store ptr %i1.val24, ptr %agg.result, align 8
   br label %return
 
 sw.bb8:                                           ; preds = %entry
-  %i1.val20 = load ptr, ptr %i1, align 8
-  store ptr %i1.val20, ptr %agg.result, align 8
-  %i1.val32.val = load ptr, ptr %i1.val20, align 8
-  %end2.val36 = load ptr, ptr %end2, align 8
-  %cmp.i53.not96 = icmp eq ptr %i1.val32.val, %end2.val36
-  br i1 %cmp.i53.not96, label %if.then17, label %for.body
+  %i1.val19 = load ptr, ptr %i1, align 8
+  store ptr %i1.val19, ptr %agg.result, align 8
+  %i1.val31.val = load ptr, ptr %i1.val19, align 8
+  %end2.val35 = load ptr, ptr %end2, align 8
+  %cmp.i52.not95 = icmp eq ptr %i1.val31.val, %end2.val35
+  br i1 %cmp.i52.not95, label %if.then17, label %for.body
 
 for.body:                                         ; preds = %sw.bb8, %for.inc
-  %agg.result.val45106 = phi ptr [ %agg.result.val45105, %for.inc ], [ %i1.val20, %sw.bb8 ]
-  %agg.result.val = phi ptr [ %agg.result.val103, %for.inc ], [ %i1.val20, %sw.bb8 ]
-  %current.sroa.0.097 = phi ptr [ %9, %for.inc ], [ %i1.val32.val, %sw.bb8 ]
-  %mValue.i54 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %current.sroa.0.097, i64 0, i32 1
-  %mValue.i55 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %agg.result.val, i64 0, i32 1
-  %call10.val = load i32, ptr %mValue.i54, align 4
-  %call11.val = load i32, ptr %mValue.i55, align 4
-  %cmp.i56 = icmp slt i32 %call10.val, %call11.val
-  br i1 %cmp.i56, label %if.then13, label %for.inc
+  %current.sroa.0.09698 = phi ptr [ %current.sroa.0.09697, %for.inc ], [ %i1.val19, %sw.bb8 ]
+  %current.sroa.0.096 = phi ptr [ %8, %for.inc ], [ %i1.val31.val, %sw.bb8 ]
+  %mValue.i53 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %current.sroa.0.096, i64 0, i32 1
+  %mValue.i54 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %current.sroa.0.09698, i64 0, i32 1
+  %call10.val = load i32, ptr %mValue.i53, align 4
+  %call11.val = load i32, ptr %mValue.i54, align 4
+  %cmp.i55 = icmp slt i32 %call10.val, %call11.val
+  br i1 %cmp.i55, label %if.then13, label %for.inc
 
 if.then13:                                        ; preds = %for.body
-  %8 = ptrtoint ptr %current.sroa.0.097 to i64
-  store i64 %8, ptr %agg.result, align 8
+  store ptr %current.sroa.0.096, ptr %agg.result, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then13
-  %agg.result.val45105 = phi ptr [ %agg.result.val45106, %for.body ], [ %current.sroa.0.097, %if.then13 ]
-  %agg.result.val103 = phi ptr [ %agg.result.val, %for.body ], [ %current.sroa.0.097, %if.then13 ]
-  %9 = load ptr, ptr %current.sroa.0.097, align 8
-  %cmp.i53.not = icmp eq ptr %9, %end2.val36
-  br i1 %cmp.i53.not, label %for.end, label %for.body, !llvm.loop !609
+  %current.sroa.0.09697 = phi ptr [ %current.sroa.0.09698, %for.body ], [ %current.sroa.0.096, %if.then13 ]
+  %8 = load ptr, ptr %current.sroa.0.096, align 8
+  %cmp.i52.not = icmp eq ptr %8, %end2.val35
+  br i1 %cmp.i52.not, label %for.end, label %for.body, !llvm.loop !609
 
 for.end:                                          ; preds = %for.inc
-  %cmp.i57 = icmp eq ptr %agg.result.val45105, %i1.val20
-  br i1 %cmp.i57, label %if.then17, label %if.else
+  %cmp.i56 = icmp eq ptr %current.sroa.0.09697, %i1.val19
+  br i1 %cmp.i56, label %if.then17, label %if.else
 
 if.then17:                                        ; preds = %sw.bb8, %for.end
-  store ptr %i1.val32.val, ptr %i1, align 8
+  store ptr %i1.val31.val, ptr %i1, align 8
   br label %if.end22
 
 if.else:                                          ; preds = %for.end
-  %mpPrev.i58 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %agg.result.val45105, i64 0, i32 1
-  %10 = load ptr, ptr %mpPrev.i58, align 8
-  %11 = load ptr, ptr %agg.result.val45105, align 8
-  %mpPrev2.i59 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %11, i64 0, i32 1
-  store ptr %10, ptr %mpPrev2.i59, align 8
-  %12 = load ptr, ptr %agg.result.val45105, align 8
-  store ptr %12, ptr %10, align 8
-  %13 = load ptr, ptr %i1, align 8
-  store ptr %13, ptr %agg.result.val45105, align 8
-  %mpPrev.i60 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %13, i64 0, i32 1
-  %14 = load ptr, ptr %mpPrev.i60, align 8
-  store ptr %14, ptr %mpPrev.i58, align 8
-  store ptr %agg.result.val45105, ptr %14, align 8
-  store ptr %agg.result.val45105, ptr %mpPrev.i60, align 8
+  %mpPrev.i57 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %current.sroa.0.09697, i64 0, i32 1
+  %9 = load ptr, ptr %mpPrev.i57, align 8
+  %10 = load ptr, ptr %current.sroa.0.09697, align 8
+  %mpPrev2.i58 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %10, i64 0, i32 1
+  store ptr %9, ptr %mpPrev2.i58, align 8
+  %11 = load ptr, ptr %current.sroa.0.09697, align 8
+  store ptr %11, ptr %9, align 8
+  %12 = load ptr, ptr %i1, align 8
+  store ptr %12, ptr %current.sroa.0.09697, align 8
+  %mpPrev.i59 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %12, i64 0, i32 1
+  %13 = load ptr, ptr %mpPrev.i59, align 8
+  store ptr %13, ptr %mpPrev.i57, align 8
+  store ptr %current.sroa.0.09697, ptr %13, align 8
+  store ptr %current.sroa.0.09697, ptr %mpPrev.i59, align 8
   br label %if.end22
 
 if.end22:                                         ; preds = %if.else, %if.then17
-  %15 = load ptr, ptr %end2, align 8
-  %mpPrev.i62 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %15, i64 0, i32 1
-  %16 = load ptr, ptr %mpPrev.i62, align 8
-  store ptr %16, ptr %end2, align 8
-  %mValue.i63 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %16, i64 0, i32 1
-  %i1.val26 = load ptr, ptr %i1, align 8
-  %mValue.i64 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %i1.val26, i64 0, i32 1
-  %call24.val = load i32, ptr %mValue.i63, align 4
-  %call25.val = load i32, ptr %mValue.i64, align 4
-  %cmp.i65 = icmp slt i32 %call24.val, %call25.val
-  br i1 %cmp.i65, label %if.then27, label %return
+  %14 = load ptr, ptr %end2, align 8
+  %mpPrev.i61 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %14, i64 0, i32 1
+  %15 = load ptr, ptr %mpPrev.i61, align 8
+  store ptr %15, ptr %end2, align 8
+  %mValue.i62 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %15, i64 0, i32 1
+  %i1.val25 = load ptr, ptr %i1, align 8
+  %mValue.i63 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %i1.val25, i64 0, i32 1
+  %call24.val = load i32, ptr %mValue.i62, align 4
+  %call25.val = load i32, ptr %mValue.i63, align 4
+  %cmp.i64 = icmp slt i32 %call24.val, %call25.val
+  br i1 %cmp.i64, label %if.then27, label %return
 
 if.then27:                                        ; preds = %if.end22
-  %mpPrev.i66 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %16, i64 0, i32 1
-  %17 = load ptr, ptr %mpPrev.i66, align 8
-  %18 = load ptr, ptr %16, align 8
-  %mpPrev2.i67 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %18, i64 0, i32 1
-  store ptr %17, ptr %mpPrev2.i67, align 8
-  %19 = load ptr, ptr %16, align 8
-  store ptr %19, ptr %17, align 8
-  %20 = load ptr, ptr %end2, align 8
-  %21 = load ptr, ptr %i1, align 8
-  store ptr %21, ptr %20, align 8
-  %mpPrev.i68 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %21, i64 0, i32 1
-  %22 = load ptr, ptr %mpPrev.i68, align 8
-  %mpPrev2.i69 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %20, i64 0, i32 1
-  store ptr %22, ptr %mpPrev2.i69, align 8
-  store ptr %20, ptr %22, align 8
-  store ptr %20, ptr %mpPrev.i68, align 8
+  %mpPrev.i65 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %15, i64 0, i32 1
+  %16 = load ptr, ptr %mpPrev.i65, align 8
+  %17 = load ptr, ptr %15, align 8
+  %mpPrev2.i66 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %17, i64 0, i32 1
+  store ptr %16, ptr %mpPrev2.i66, align 8
+  %18 = load ptr, ptr %15, align 8
+  store ptr %18, ptr %16, align 8
+  %19 = load ptr, ptr %end2, align 8
+  %20 = load ptr, ptr %i1, align 8
+  store ptr %20, ptr %19, align 8
+  %mpPrev.i67 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %20, i64 0, i32 1
+  %21 = load ptr, ptr %mpPrev.i67, align 8
+  %mpPrev2.i68 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %19, i64 0, i32 1
+  store ptr %21, ptr %mpPrev2.i68, align 8
+  store ptr %19, ptr %21, align 8
+  store ptr %19, ptr %mpPrev.i67, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
   %div17 = lshr i64 %n, 1
-  %i1.val21 = load ptr, ptr %i1, align 8
+  %i1.val20 = load ptr, ptr %i1, align 8
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %sw.epilog, %while.body.i.i.i.i
   %n.addr.04.i.i.i.i = phi i64 [ %dec.i.i.i.i, %while.body.i.i.i.i ], [ %div17, %sw.epilog ]
-  %23 = phi ptr [ %24, %while.body.i.i.i.i ], [ %i1.val21, %sw.epilog ]
+  %22 = phi ptr [ %23, %while.body.i.i.i.i ], [ %i1.val20, %sw.epilog ]
   %dec.i.i.i.i = add nsw i64 %n.addr.04.i.i.i.i, -1
-  %24 = load ptr, ptr %23, align 8, !noalias !610
+  %23 = load ptr, ptr %22, align 8, !noalias !610
   %tobool.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN5eastl4nextINS_12ListIteratorIZ8TestListvE1A_2PS2_RS2_EEEET_S6_NS_15iterator_traitsIS6_E15difference_typeE.exit, label %while.body.i.i.i.i, !llvm.loop !613
 
 _ZN5eastl4nextINS_12ListIteratorIZ8TestListvE1A_2PS2_RS2_EEEET_S6_NS_15iterator_traitsIS6_E15difference_typeE.exit: ; preds = %while.body.i.i.i.i
-  store ptr %i1.val21, ptr %agg.tmp32, align 8
-  store ptr %24, ptr %agg.tmp33, align 8
+  store ptr %i1.val20, ptr %agg.tmp32, align 8
+  store ptr %23, ptr %agg.tmp33, align 8
   call fastcc void @"_ZN5eastl4listIZ8TestListvE1A_2NS_9allocatorEE6DoSortIZ8TestListvE3$_8EENS_12ListIteratorIS1_PS1_RS1_EES9_S9_mRT_"(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull %agg.tmp32, ptr noundef nonnull %agg.tmp33, i64 noundef %div17)
-  %25 = load i64, ptr %ref.tmp, align 8
-  store i64 %25, ptr %i1, align 8
-  store ptr %24, ptr %agg.tmp34, align 8
-  %end2.val24 = load ptr, ptr %end2, align 8
-  store ptr %end2.val24, ptr %agg.tmp35, align 8
+  %24 = load i64, ptr %ref.tmp, align 8
+  store i64 %24, ptr %i1, align 8
+  store ptr %23, ptr %agg.tmp34, align 8
+  %end2.val23 = load ptr, ptr %end2, align 8
+  store ptr %end2.val23, ptr %agg.tmp35, align 8
   %sub = sub i64 %n, %div17
   call fastcc void @"_ZN5eastl4listIZ8TestListvE1A_2NS_9allocatorEE6DoSortIZ8TestListvE3$_8EENS_12ListIteratorIS1_PS1_RS1_EES9_S9_mRT_"(ptr noalias nonnull align 8 %i2, ptr noundef nonnull %agg.tmp34, ptr noundef nonnull %agg.tmp35, i64 noundef %sub)
   %i2.val = load ptr, ptr %i2, align 8
-  %mValue.i70 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %i2.val, i64 0, i32 1
-  %i1.val27 = load ptr, ptr %i1, align 8
-  %mValue.i71 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %i1.val27, i64 0, i32 1
-  %call36.val = load i32, ptr %mValue.i70, align 4
-  %call37.val = load i32, ptr %mValue.i71, align 4
-  %cmp.i72 = icmp slt i32 %call36.val, %call37.val
-  %26 = ptrtoint ptr %i2.val to i64
-  br i1 %cmp.i72, label %while.cond.preheader, label %if.else48
+  %mValue.i69 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %i2.val, i64 0, i32 1
+  %i1.val26 = load ptr, ptr %i1, align 8
+  %mValue.i70 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %i1.val26, i64 0, i32 1
+  %call36.val = load i32, ptr %mValue.i69, align 4
+  %call37.val = load i32, ptr %mValue.i70, align 4
+  %cmp.i71 = icmp slt i32 %call36.val, %call37.val
+  br i1 %cmp.i71, label %while.cond.preheader, label %if.else48
 
 while.cond.preheader:                             ; preds = %_ZN5eastl4nextINS_12ListIteratorIZ8TestListvE1A_2PS2_RS2_EEEET_S6_NS_15iterator_traitsIS6_E15difference_typeE.exit
-  %end2.val38 = load ptr, ptr %end2, align 8
+  %end2.val37 = load ptr, ptr %end2, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %land.rhs
   %ix.sroa.0.0.in = phi ptr [ %ix.sroa.0.0, %land.rhs ], [ %i2.val, %while.cond.preheader ]
   %ix.sroa.0.0 = load ptr, ptr %ix.sroa.0.0.in, align 8
-  %cmp.i73.not = icmp eq ptr %ix.sroa.0.0, %end2.val38
-  br i1 %cmp.i73.not, label %while.end, label %land.rhs
+  %cmp.i72.not = icmp eq ptr %ix.sroa.0.0, %end2.val37
+  br i1 %cmp.i72.not, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond
-  %mValue.i74 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %ix.sroa.0.0, i64 0, i32 1
-  %call41.val = load i32, ptr %mValue.i74, align 4
-  %cmp.i76 = icmp slt i32 %call41.val, %call37.val
-  br i1 %cmp.i76, label %while.cond, label %while.end, !llvm.loop !614
+  %mValue.i73 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %ix.sroa.0.0, i64 0, i32 1
+  %call41.val = load i32, ptr %mValue.i73, align 4
+  %cmp.i75 = icmp slt i32 %call41.val, %call37.val
+  br i1 %cmp.i75, label %while.cond, label %while.end, !llvm.loop !614
 
 while.end:                                        ; preds = %while.cond, %land.rhs
-  %ix.sroa.0.0.lcssa = phi ptr [ %end2.val38, %while.cond ], [ %ix.sroa.0.0, %land.rhs ]
+  %ix.sroa.0.0.lcssa = phi ptr [ %end2.val37, %while.cond ], [ %ix.sroa.0.0, %land.rhs ]
   %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ix.sroa.0.0.lcssa, i64 0, i32 1
-  %27 = load ptr, ptr %mpPrev, align 8
-  store i64 %26, ptr %agg.result, align 8
-  %.cast18 = ptrtoint ptr %ix.sroa.0.0.lcssa to i64
-  store i64 %.cast18, ptr %i2, align 8
-  %mpPrev.i77 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %i2.val, i64 0, i32 1
-  %28 = load ptr, ptr %mpPrev.i77, align 8
-  %29 = load ptr, ptr %27, align 8
-  %mpPrev1.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %29, i64 0, i32 1
-  store ptr %28, ptr %mpPrev1.i, align 8
-  %30 = load ptr, ptr %27, align 8
-  store ptr %30, ptr %28, align 8
-  %31 = load ptr, ptr %i1, align 8
-  %mpPrev.i78 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %31, i64 0, i32 1
-  %32 = load ptr, ptr %mpPrev.i78, align 8
-  store ptr %i2.val, ptr %32, align 8
-  %33 = load ptr, ptr %mpPrev.i78, align 8
-  store ptr %33, ptr %mpPrev.i77, align 8
-  store ptr %27, ptr %mpPrev.i78, align 8
-  store ptr %31, ptr %27, align 8
-  %storemerge.in98.pre = load ptr, ptr %i1, align 8
+  %25 = load ptr, ptr %mpPrev, align 8
+  store ptr %i2.val, ptr %agg.result, align 8
+  store ptr %ix.sroa.0.0.lcssa, ptr %i2, align 8
+  %mpPrev.i76 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %i2.val, i64 0, i32 1
+  %26 = load ptr, ptr %mpPrev.i76, align 8
+  %27 = load ptr, ptr %25, align 8
+  %mpPrev1.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %27, i64 0, i32 1
+  store ptr %26, ptr %mpPrev1.i, align 8
+  %28 = load ptr, ptr %25, align 8
+  store ptr %28, ptr %26, align 8
+  %29 = load ptr, ptr %i1, align 8
+  %mpPrev.i77 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %29, i64 0, i32 1
+  %30 = load ptr, ptr %mpPrev.i77, align 8
+  store ptr %i2.val, ptr %30, align 8
+  %31 = load ptr, ptr %mpPrev.i77, align 8
+  store ptr %31, ptr %mpPrev.i76, align 8
+  store ptr %25, ptr %mpPrev.i77, align 8
+  store ptr %29, ptr %25, align 8
+  %storemerge.in101.pre = load ptr, ptr %i1, align 8
   br label %if.end49
 
 if.else48:                                        ; preds = %_ZN5eastl4nextINS_12ListIteratorIZ8TestListvE1A_2PS2_RS2_EEEET_S6_NS_15iterator_traitsIS6_E15difference_typeE.exit
-  %34 = ptrtoint ptr %i1.val27 to i64
-  store i64 %34, ptr %agg.result, align 8
+  store ptr %i1.val26, ptr %agg.result, align 8
   br label %if.end49
 
 if.end49:                                         ; preds = %if.else48, %while.end
-  %i2.val41111 = phi ptr [ %ix.sroa.0.0.lcssa, %while.end ], [ %i2.val, %if.else48 ]
-  %storemerge.in98 = phi ptr [ %storemerge.in98.pre, %while.end ], [ %i1.val27, %if.else48 ]
-  %storemerge99 = load ptr, ptr %storemerge.in98, align 8
-  store ptr %storemerge99, ptr %i1, align 8
-  %cmp.i79.not100 = icmp eq ptr %storemerge99, %i2.val41111
-  br i1 %cmp.i79.not100, label %return, label %land.rhs53
+  %storemerge.in101 = phi ptr [ %storemerge.in101.pre, %while.end ], [ %i1.val26, %if.else48 ]
+  %i2.promoted = phi ptr [ %ix.sroa.0.0.lcssa, %while.end ], [ %i2.val, %if.else48 ]
+  %storemerge102 = load ptr, ptr %storemerge.in101, align 8
+  store ptr %storemerge102, ptr %i1, align 8
+  %cmp.i78.not103 = icmp eq ptr %storemerge102, %i2.promoted
+  br i1 %cmp.i78.not103, label %return, label %land.rhs53
 
 land.rhs53:                                       ; preds = %if.end49, %for.inc82
-  %i2.val41 = phi ptr [ %i2.val41109, %for.inc82 ], [ %i2.val41111, %if.end49 ]
-  %storemerge102 = phi ptr [ %storemerge, %for.inc82 ], [ %storemerge99, %if.end49 ]
-  %end1.sroa.0.1101 = phi ptr [ %end1.sroa.0.3, %for.inc82 ], [ %i2.val41111, %if.end49 ]
-  %end2.val42 = load ptr, ptr %end2, align 8
-  %cmp.i80.not = icmp eq ptr %i2.val41, %end2.val42
-  br i1 %cmp.i80.not, label %return, label %for.body56
+  %storemerge106 = phi ptr [ %storemerge, %for.inc82 ], [ %storemerge102, %if.end49 ]
+  %end1.sroa.0.1105 = phi ptr [ %end1.sroa.0.3, %for.inc82 ], [ %i2.promoted, %if.end49 ]
+  %ix61.sroa.0.0.lcssa100104 = phi ptr [ %ix61.sroa.0.0.lcssa99, %for.inc82 ], [ %i2.promoted, %if.end49 ]
+  %end2.val41 = load ptr, ptr %end2, align 8
+  %cmp.i79.not = icmp eq ptr %ix61.sroa.0.0.lcssa100104, %end2.val41
+  br i1 %cmp.i79.not, label %return, label %for.body56
 
 for.body56:                                       ; preds = %land.rhs53
-  %mValue.i81 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %i2.val41, i64 0, i32 1
-  %mValue.i82 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %storemerge102, i64 0, i32 1
-  %call57.val = load i32, ptr %mValue.i81, align 4
-  %call58.val = load i32, ptr %mValue.i82, align 4
-  %cmp.i83 = icmp slt i32 %call57.val, %call58.val
-  br i1 %cmp.i83, label %while.cond62, label %for.inc82
+  %mValue.i80 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %ix61.sroa.0.0.lcssa100104, i64 0, i32 1
+  %mValue.i81 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %storemerge106, i64 0, i32 1
+  %call57.val = load i32, ptr %mValue.i80, align 4
+  %call58.val = load i32, ptr %mValue.i81, align 4
+  %cmp.i82 = icmp slt i32 %call57.val, %call58.val
+  br i1 %cmp.i82, label %while.cond62, label %for.inc82
 
 while.cond62:                                     ; preds = %for.body56, %land.rhs64
-  %ix61.sroa.0.0.in = phi ptr [ %ix61.sroa.0.0, %land.rhs64 ], [ %i2.val41, %for.body56 ]
+  %ix61.sroa.0.0.in = phi ptr [ %ix61.sroa.0.0, %land.rhs64 ], [ %ix61.sroa.0.0.lcssa100104, %for.body56 ]
   %ix61.sroa.0.0 = load ptr, ptr %ix61.sroa.0.0.in, align 8
-  %cmp.i84.not = icmp eq ptr %ix61.sroa.0.0, %end2.val42
-  br i1 %cmp.i84.not, label %while.end71, label %land.rhs64
+  %cmp.i83.not = icmp eq ptr %ix61.sroa.0.0, %end2.val41
+  br i1 %cmp.i83.not, label %while.end71, label %land.rhs64
 
 land.rhs64:                                       ; preds = %while.cond62
-  %mValue.i85 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %ix61.sroa.0.0, i64 0, i32 1
-  %call65.val = load i32, ptr %mValue.i85, align 4
-  %cmp.i87 = icmp slt i32 %call65.val, %call58.val
-  br i1 %cmp.i87, label %while.cond62, label %while.end71, !llvm.loop !615
+  %mValue.i84 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %ix61.sroa.0.0, i64 0, i32 1
+  %call65.val = load i32, ptr %mValue.i84, align 4
+  %cmp.i86 = icmp slt i32 %call65.val, %call58.val
+  br i1 %cmp.i86, label %while.cond62, label %while.end71, !llvm.loop !615
 
 while.end71:                                      ; preds = %while.cond62, %land.rhs64
-  %ix61.sroa.0.0.lcssa = phi ptr [ %end2.val42, %while.cond62 ], [ %ix61.sroa.0.0, %land.rhs64 ]
+  %ix61.sroa.0.0.lcssa = phi ptr [ %end2.val41, %while.cond62 ], [ %ix61.sroa.0.0, %land.rhs64 ]
   %mpPrev76 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ix61.sroa.0.0.lcssa, i64 0, i32 1
-  %35 = load ptr, ptr %mpPrev76, align 8
-  %cmp.i88 = icmp eq ptr %end1.sroa.0.1101, %i2.val41
-  %spec.select = select i1 %cmp.i88, ptr %ix61.sroa.0.0.lcssa, ptr %end1.sroa.0.1101
-  %36 = ptrtoint ptr %ix61.sroa.0.0.lcssa to i64
-  store i64 %36, ptr %i2, align 8
-  %mpPrev.i89 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %i2.val41, i64 0, i32 1
-  %37 = load ptr, ptr %mpPrev.i89, align 8
-  %38 = load ptr, ptr %35, align 8
-  %mpPrev1.i90 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %38, i64 0, i32 1
-  store ptr %37, ptr %mpPrev1.i90, align 8
-  %39 = load ptr, ptr %35, align 8
-  store ptr %39, ptr %37, align 8
-  %40 = load ptr, ptr %i1, align 8
-  %mpPrev.i91 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %40, i64 0, i32 1
-  %41 = load ptr, ptr %mpPrev.i91, align 8
-  store ptr %i2.val41, ptr %41, align 8
-  %42 = load ptr, ptr %mpPrev.i91, align 8
-  store ptr %42, ptr %mpPrev.i89, align 8
-  store ptr %35, ptr %mpPrev.i91, align 8
-  store ptr %40, ptr %35, align 8
+  %32 = load ptr, ptr %mpPrev76, align 8
+  %cmp.i87 = icmp eq ptr %end1.sroa.0.1105, %ix61.sroa.0.0.lcssa100104
+  %spec.select = select i1 %cmp.i87, ptr %ix61.sroa.0.0.lcssa, ptr %end1.sroa.0.1105
+  %mpPrev.i88 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ix61.sroa.0.0.lcssa100104, i64 0, i32 1
+  %33 = load ptr, ptr %mpPrev.i88, align 8
+  %34 = load ptr, ptr %32, align 8
+  %mpPrev1.i89 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %34, i64 0, i32 1
+  store ptr %33, ptr %mpPrev1.i89, align 8
+  %35 = load ptr, ptr %32, align 8
+  store ptr %35, ptr %33, align 8
+  %36 = load ptr, ptr %i1, align 8
+  %mpPrev.i90 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %36, i64 0, i32 1
+  %37 = load ptr, ptr %mpPrev.i90, align 8
+  store ptr %ix61.sroa.0.0.lcssa100104, ptr %37, align 8
+  %38 = load ptr, ptr %mpPrev.i90, align 8
+  store ptr %38, ptr %mpPrev.i88, align 8
+  store ptr %32, ptr %mpPrev.i90, align 8
+  store ptr %36, ptr %32, align 8
   %storemerge.in.pre = load ptr, ptr %i1, align 8
   br label %for.inc82
 
 for.inc82:                                        ; preds = %for.body56, %while.end71
-  %storemerge.in = phi ptr [ %storemerge.in.pre, %while.end71 ], [ %storemerge102, %for.body56 ]
-  %i2.val41109 = phi ptr [ %ix61.sroa.0.0.lcssa, %while.end71 ], [ %i2.val41, %for.body56 ]
-  %end1.sroa.0.3 = phi ptr [ %spec.select, %while.end71 ], [ %end1.sroa.0.1101, %for.body56 ]
+  %storemerge.in = phi ptr [ %storemerge.in.pre, %while.end71 ], [ %storemerge106, %for.body56 ]
+  %ix61.sroa.0.0.lcssa99 = phi ptr [ %ix61.sroa.0.0.lcssa, %while.end71 ], [ %ix61.sroa.0.0.lcssa100104, %for.body56 ]
+  %end1.sroa.0.3 = phi ptr [ %spec.select, %while.end71 ], [ %end1.sroa.0.1105, %for.body56 ]
   %storemerge = load ptr, ptr %storemerge.in, align 8
   store ptr %storemerge, ptr %i1, align 8
-  %cmp.i79.not = icmp eq ptr %storemerge, %end1.sroa.0.3
-  br i1 %cmp.i79.not, label %return, label %land.rhs53, !llvm.loop !616
+  %cmp.i78.not = icmp eq ptr %storemerge, %end1.sroa.0.3
+  br i1 %cmp.i78.not, label %return, label %land.rhs53, !llvm.loop !616
 
 return:                                           ; preds = %for.inc82, %land.rhs53, %if.end49, %if.end22, %if.then27, %if.end, %if.then, %sw.bb
   ret void

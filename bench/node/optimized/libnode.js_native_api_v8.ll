@@ -7070,8 +7070,7 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   %4 = ptrtoint ptr %3 to i64
   %storemerge.v.v = select i1 %value, i64 632, i64 640
   %storemerge.v = add i64 %storemerge.v.v, %4
-  %storemerge = inttoptr i64 %storemerge.v to ptr
-  store ptr %storemerge, ptr %result, align 8
+  store i64 %storemerge.v, ptr %result, align 8
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
@@ -8021,8 +8020,7 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   %3 = load ptr, ptr %isolate, align 8
   %4 = ptrtoint ptr %3 to i64
   %add1.i = add i64 %4, 608
-  %5 = inttoptr i64 %add1.i to ptr
-  store ptr %5, ptr %result, align 8
+  store i64 %add1.i, ptr %result, align 8
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
@@ -8073,8 +8071,7 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   %3 = load ptr, ptr %isolate, align 8
   %4 = ptrtoint ptr %3 to i64
   %add1.i = add i64 %4, 624
-  %5 = inttoptr i64 %add1.i to ptr
-  store ptr %5, ptr %result, align 8
+  store i64 %add1.i, ptr %result, align 8
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
@@ -13276,24 +13273,23 @@ napi_get_undefined.exit:                          ; preds = %land.lhs.true.i.i, 
   %6 = load ptr, ptr %isolate.i, align 8
   %7 = ptrtoint ptr %6 to i64
   %add1.i.i = add i64 %7, 608
-  %8 = inttoptr i64 %add1.i.i to ptr
-  store ptr %8, ptr %result, align 8
+  store i64 %add1.i.i, ptr %result, align 8
   %last_error.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i.i, i8 0, i64 24, i1 false)
   br label %return
 
 if.end.i39:                                       ; preds = %do.end7
   %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
-  %9 = load ptr, ptr %isolate, align 8
-  %10 = load i64, ptr %3, align 8
-  %call.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %10) #24
+  %8 = load ptr, ptr %isolate, align 8
+  %9 = load i64, ptr %3, align 8
+  %call.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %9) #24
   store ptr %call.i, ptr %result, align 8
-  %11 = load ptr, ptr %last_exception, align 8
-  %cmp.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %last_exception, align 8
+  %cmp.i = icmp eq ptr %10, null
   br i1 %cmp.i, label %if.end20, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i39
-  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %11) #24
+  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #24
   store ptr null, ptr %last_exception, align 8
   br label %if.end20
 
@@ -16361,13 +16357,12 @@ if.then:                                          ; preds = %for.end
   %10 = load ptr, ptr %arrayidx.i39, align 8
   %11 = ptrtoint ptr %10 to i64
   %add1.i47 = add i64 %11, 608
-  %12 = inttoptr i64 %add1.i47 to ptr
   br label %for.body27
 
 for.body27:                                       ; preds = %if.then, %for.body27
   %i.122 = phi i64 [ %.sroa.speculated, %if.then ], [ %add30, %for.body27 ]
   %arrayidx28 = getelementptr inbounds ptr, ptr %buffer, i64 %i.122
-  store ptr %12, ptr %arrayidx28, align 8
+  store i64 %add1.i47, ptr %arrayidx28, align 8
   %add30 = add nuw i64 %i.122, 1
   %exitcond23.not = icmp eq i64 %add30, %buffer_length
   br i1 %exitcond23.not, label %if.end, label %for.body27, !llvm.loop !12

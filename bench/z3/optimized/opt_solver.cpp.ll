@@ -789,9 +789,8 @@ invoke.cont18:                                    ; preds = %invoke.cont
   %m_objective_values = getelementptr inbounds %"class.opt::opt_solver", ptr %this, i64 0, i32 9
   %m_models = getelementptr inbounds %"class.opt::opt_solver", ptr %this, i64 0, i32 10
   %m_objective_terms = getelementptr inbounds %"class.opt::opt_solver", ptr %this, i64 0, i32 11
-  %0 = ptrtoint ptr %mgr to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %m_logic, i8 0, i64 40, i1 false)
-  store i64 %0, ptr %m_objective_terms, align 8
+  store ptr %mgr, ptr %m_objective_terms, align 8
   %m_nodes.i.i = getelementptr inbounds %"class.opt::opt_solver", ptr %this, i64 0, i32 11, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i, align 8
   %m_dump_benchmarks = getelementptr inbounds %"class.opt::opt_solver", ptr %this, i64 0, i32 12
@@ -811,8 +810,8 @@ invoke.cont20:                                    ; preds = %invoke.cont18
 
 invoke.cont22:                                    ; preds = %invoke.cont20
   %m_case_split_strategy = getelementptr inbounds %"class.opt::opt_solver", ptr %this, i64 0, i32 1, i32 42
-  %1 = load i32, ptr %m_case_split_strategy, align 8
-  %cmp = icmp eq i32 %1, 1
+  %0 = load i32, ptr %m_case_split_strategy, align 8
+  %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont22
@@ -821,18 +820,18 @@ if.then:                                          ; preds = %invoke.cont22
   br label %if.end
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup34
 
 lpad5:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #18
   br label %ehcleanup33
 
 lpad19:                                           ; preds = %invoke.cont20, %invoke.cont18
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10statisticsD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_stats) #18
   call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_objective_terms) #18
@@ -851,15 +850,15 @@ if.end:                                           ; preds = %if.then, %invoke.co
   ret void
 
 ehcleanup33:                                      ; preds = %lpad19, %lpad5
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %4, %lpad19 ], [ %3, %lpad5 ]
-  %5 = getelementptr inbounds %"class.opt::opt_solver", ptr %this, i64 0, i32 1, i32 2
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %3, %lpad19 ], [ %2, %lpad5 ]
+  %4 = getelementptr inbounds %"class.opt::opt_solver", ptr %this, i64 0, i32 1, i32 2
   %m_qi_new_gen.i.i = getelementptr inbounds %"class.opt::opt_solver", ptr %this, i64 0, i32 1, i32 2, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_qi_new_gen.i.i) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   br label %ehcleanup34
 
 ehcleanup34:                                      ; preds = %ehcleanup33, %lpad
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup33 ], [ %2, %lpad ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup33 ], [ %1, %lpad ]
   call void @_ZN12solver_na2asD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #18
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }
@@ -6551,8 +6550,7 @@ define linkonce_odr hidden void @_ZN3opt10opt_solver4cubeER10ref_vectorI4expr11a
 entry:
   %m = getelementptr inbounds %"class.opt::opt_solver", ptr %this, i64 0, i32 3
   %2 = load ptr, ptr %m, align 8
-  %3 = ptrtoint ptr %2 to i64
-  store i64 %3, ptr %agg.result, align 8
+  store ptr %2, ptr %agg.result, align 8
   %m_nodes.i.i = getelementptr inbounds %class.ref_vector_core, ptr %agg.result, i64 0, i32 1
   store ptr null, ptr %m_nodes.i.i, align 8
   ret void

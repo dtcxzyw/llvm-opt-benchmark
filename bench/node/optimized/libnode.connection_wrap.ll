@@ -927,12 +927,10 @@ _ZNK4node10BaseObject6objectEv.exit45:            ; preds = %_ZNK4node10BaseObje
   %add1.i.i = add i64 %30, 632
   %add1.i.i234 = add i64 %30, 640
   %retval.i167.sroa.0.0.in = select i1 %readable.0, i64 %add1.i.i, i64 %add1.i.i234
-  %retval.i167.sroa.0.0 = inttoptr i64 %retval.i167.sroa.0.0.in to ptr
-  store ptr %retval.i167.sroa.0.0, ptr %arrayinit.element97, align 8
+  store i64 %retval.i167.sroa.0.0.in, ptr %arrayinit.element97, align 8
   %arrayinit.element108 = getelementptr inbounds %"class.v8::Local.259", ptr %argv, i64 4
   %retval.i.sroa.0.0.in = select i1 %writable.0, i64 %add1.i.i, i64 %add1.i.i234
-  %retval.i.sroa.0.0 = inttoptr i64 %retval.i.sroa.0.0.in to ptr
-  store ptr %retval.i.sroa.0.0, ptr %arrayinit.element108, align 16
+  store i64 %retval.i.sroa.0.0.in, ptr %arrayinit.element108, align 16
   %31 = load atomic i64, ptr @_ZZN4node14ConnectionWrapINS_8PipeWrapE9uv_pipe_sE12AfterConnectEP12uv_connect_siE28trace_event_unique_atomic114 seq_cst, align 8
   %32 = inttoptr i64 %31 to ptr
   %tobool121.not = icmp eq i64 %31, 0
@@ -1232,12 +1230,10 @@ _ZNK4node10BaseObject6objectEv.exit45:            ; preds = %_ZNK4node10BaseObje
   %add1.i.i = add i64 %30, 632
   %add1.i.i234 = add i64 %30, 640
   %retval.i167.sroa.0.0.in = select i1 %readable.0, i64 %add1.i.i, i64 %add1.i.i234
-  %retval.i167.sroa.0.0 = inttoptr i64 %retval.i167.sroa.0.0.in to ptr
-  store ptr %retval.i167.sroa.0.0, ptr %arrayinit.element97, align 8
+  store i64 %retval.i167.sroa.0.0.in, ptr %arrayinit.element97, align 8
   %arrayinit.element108 = getelementptr inbounds %"class.v8::Local.259", ptr %argv, i64 4
   %retval.i.sroa.0.0.in = select i1 %writable.0, i64 %add1.i.i, i64 %add1.i.i234
-  %retval.i.sroa.0.0 = inttoptr i64 %retval.i.sroa.0.0.in to ptr
-  store ptr %retval.i.sroa.0.0, ptr %arrayinit.element108, align 16
+  store i64 %retval.i.sroa.0.0.in, ptr %arrayinit.element108, align 16
   %31 = load atomic i64, ptr @_ZZN4node14ConnectionWrapINS_7TCPWrapE8uv_tcp_sE12AfterConnectEP12uv_connect_siE28trace_event_unique_atomic114 seq_cst, align 8
   %32 = inttoptr i64 %31 to ptr
   %tobool121.not = icmp eq i64 %31, 0

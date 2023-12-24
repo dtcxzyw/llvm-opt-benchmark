@@ -4270,17 +4270,16 @@ blk_aio_get.exit:                                 ; preds = %entry, %cond.true.i
   store i32 2147483647, ptr %.compoundliteral.sroa.4.0.rwco.sroa_idx, align 8
   %.compoundliteral.sroa.5.0.rwco.sroa_idx = getelementptr inbounds %struct.BlkAioEmAIOCB, ptr %call1.i, i64 0, i32 1, i32 4
   store i32 0, ptr %.compoundliteral.sroa.5.0.rwco.sroa_idx, align 4
-  %3 = ptrtoint ptr %nr_zones to i64
   %bytes = getelementptr inbounds %struct.BlkAioEmAIOCB, ptr %call1.i, i64 0, i32 2
-  store i64 %3, ptr %bytes, align 8
+  store ptr %nr_zones, ptr %bytes, align 8
   %has_returned = getelementptr inbounds %struct.BlkAioEmAIOCB, ptr %call1.i, i64 0, i32 3
   store i8 0, ptr %has_returned, align 8
   %call3 = tail call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_aio_zone_report_entry, ptr noundef %call1.i) #16
   %call4 = tail call ptr @qemu_get_current_aio_context() #16
   tail call void @aio_co_enter(ptr noundef %call4, ptr noundef %call3) #16
   store i8 1, ptr %has_returned, align 8
-  %4 = load i32, ptr %.compoundliteral.sroa.4.0.rwco.sroa_idx, align 8
-  %cmp.not = icmp eq i32 %4, 2147483647
+  %3 = load i32, ptr %.compoundliteral.sroa.4.0.rwco.sroa_idx, align 8
+  %cmp.not = icmp eq i32 %3, 2147483647
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %blk_aio_get.exit
@@ -4383,12 +4382,11 @@ blk_aio_get.exit:                                 ; preds = %entry, %cond.true.i
   %call1.i = tail call ptr @qemu_aio_get(ptr noundef nonnull @blk_aio_em_aiocb_info, ptr noundef %cond.i.i, ptr noundef %cb, ptr noundef %opaque) #16
   %rwco = getelementptr inbounds %struct.BlkAioEmAIOCB, ptr %call1.i, i64 0, i32 1
   %conv = zext i32 %op to i64
-  %3 = inttoptr i64 %conv to ptr
   store ptr %blk, ptr %rwco, align 8
   %.compoundliteral.sroa.2.0.rwco.sroa_idx = getelementptr inbounds %struct.BlkAioEmAIOCB, ptr %call1.i, i64 0, i32 1, i32 1
   store i64 %offset, ptr %.compoundliteral.sroa.2.0.rwco.sroa_idx, align 8
   %.compoundliteral.sroa.3.0.rwco.sroa_idx = getelementptr inbounds %struct.BlkAioEmAIOCB, ptr %call1.i, i64 0, i32 1, i32 2
-  store ptr %3, ptr %.compoundliteral.sroa.3.0.rwco.sroa_idx, align 8
+  store i64 %conv, ptr %.compoundliteral.sroa.3.0.rwco.sroa_idx, align 8
   %.compoundliteral.sroa.4.0.rwco.sroa_idx = getelementptr inbounds %struct.BlkAioEmAIOCB, ptr %call1.i, i64 0, i32 1, i32 3
   store i32 2147483647, ptr %.compoundliteral.sroa.4.0.rwco.sroa_idx, align 8
   %.compoundliteral.sroa.5.0.rwco.sroa_idx = getelementptr inbounds %struct.BlkAioEmAIOCB, ptr %call1.i, i64 0, i32 1, i32 4
@@ -4401,8 +4399,8 @@ blk_aio_get.exit:                                 ; preds = %entry, %cond.true.i
   %call4 = tail call ptr @qemu_get_current_aio_context() #16
   tail call void @aio_co_enter(ptr noundef %call4, ptr noundef %call3) #16
   store i8 1, ptr %has_returned, align 8
-  %4 = load i32, ptr %.compoundliteral.sroa.4.0.rwco.sroa_idx, align 8
-  %cmp.not = icmp eq i32 %4, 2147483647
+  %3 = load i32, ptr %.compoundliteral.sroa.4.0.rwco.sroa_idx, align 8
+  %cmp.not = icmp eq i32 %3, 2147483647
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %blk_aio_get.exit
@@ -4480,17 +4478,16 @@ blk_aio_get.exit:                                 ; preds = %entry, %cond.true.i
   store i32 2147483647, ptr %.compoundliteral.sroa.4.0.rwco.sroa_idx, align 8
   %.compoundliteral.sroa.5.0.rwco.sroa_idx = getelementptr inbounds %struct.BlkAioEmAIOCB, ptr %call1.i, i64 0, i32 1, i32 4
   store i32 %flags, ptr %.compoundliteral.sroa.5.0.rwco.sroa_idx, align 4
-  %3 = ptrtoint ptr %offset to i64
   %bytes = getelementptr inbounds %struct.BlkAioEmAIOCB, ptr %call1.i, i64 0, i32 2
-  store i64 %3, ptr %bytes, align 8
+  store ptr %offset, ptr %bytes, align 8
   %has_returned = getelementptr inbounds %struct.BlkAioEmAIOCB, ptr %call1.i, i64 0, i32 3
   store i8 0, ptr %has_returned, align 8
   %call4 = tail call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_aio_zone_append_entry, ptr noundef %call1.i) #16
   %call5 = tail call ptr @qemu_get_current_aio_context() #16
   tail call void @aio_co_enter(ptr noundef %call5, ptr noundef %call4) #16
   store i8 1, ptr %has_returned, align 8
-  %4 = load i32, ptr %.compoundliteral.sroa.4.0.rwco.sroa_idx, align 8
-  %cmp.not = icmp eq i32 %4, 2147483647
+  %3 = load i32, ptr %.compoundliteral.sroa.4.0.rwco.sroa_idx, align 8
+  %cmp.not = icmp eq i32 %3, 2147483647
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %blk_aio_get.exit

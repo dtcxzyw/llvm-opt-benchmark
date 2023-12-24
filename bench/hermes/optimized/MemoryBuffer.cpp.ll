@@ -784,8 +784,7 @@ _ZNSt10unique_ptrIN4llvh20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit
   %bf.load.i24.i = load i8, ptr %HasError.i23.i, align 8, !alias.scope !29
   %bf.clear.i.i = and i8 %bf.load.i24.i, -2
   store i8 %bf.clear.i.i, ptr %HasError.i23.i, align 8, !alias.scope !29
-  %17 = ptrtoint ptr %call3.i.i to i64
-  store i64 %17, ptr %agg.result, align 8, !alias.scope !29
+  store ptr %call3.i.i, ptr %agg.result, align 8, !alias.scope !29
   br label %_ZL15getOpenFileImplIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbb.exit
 
 if.end25.i:                                       ; preds = %_ZNSt10unique_ptrIN4llvh20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread.i, %_ZL13shouldUseMmapimmlbib.exit.i, %if.end14.i
@@ -797,8 +796,8 @@ if.end25.i:                                       ; preds = %_ZNSt10unique_ptrIN
   %Capacity2.i.i.i.i.i.i.i29.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NameBuf.i26.i, i64 0, i32 2
   store i32 256, ptr %Capacity2.i.i.i.i.i.i.i29.i, align 4, !noalias !33
   %call.i30.i = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %Filename, ptr noundef nonnull align 8 dereferenceable(16) %NameBuf.i26.i), !noalias !33
-  %18 = extractvalue { ptr, i64 } %call.i30.i, 1
-  %sub1.i.i.i = add i64 %18, 40
+  %17 = extractvalue { ptr, i64 } %call.i30.i, 1
+  %sub1.i.i.i = add i64 %17, 40
   %add2.i.i.i = and i64 %sub1.i.i.i, -16
   %add4.i.i = add i64 %MapSize.addr.0.i, 1
   %add5.i.i = add i64 %add4.i.i, %add2.i.i.i
@@ -808,16 +807,16 @@ if.end25.i:                                       ; preds = %_ZNSt10unique_ptrIN
 
 if.end.i31.i:                                     ; preds = %if.end25.i
   %add.ptr.i32.i = getelementptr inbounds i8, ptr %call6.i.i, i64 24
-  %cmp.i.i.i33.i = icmp eq i64 %18, 0
+  %cmp.i.i.i33.i = icmp eq i64 %17, 0
   br i1 %cmp.i.i.i33.i, label %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i35.i, label %if.then.i.i34.i
 
 if.then.i.i34.i:                                  ; preds = %if.end.i31.i
-  %19 = extractvalue { ptr, i64 } %call.i30.i, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i32.i, ptr align 1 %19, i64 %18, i1 false)
+  %18 = extractvalue { ptr, i64 } %call.i30.i, 0
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i32.i, ptr align 1 %18, i64 %17, i1 false)
   br label %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i35.i
 
 _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i35.i: ; preds = %if.then.i.i34.i, %if.end.i31.i
-  %arrayidx.i.i36.i = getelementptr inbounds i8, ptr %add.ptr.i32.i, i64 %18
+  %arrayidx.i.i36.i = getelementptr inbounds i8, ptr %add.ptr.i32.i, i64 %17
   store i8 0, ptr %arrayidx.i.i36.i, align 1, !noalias !33
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 %add2.i.i.i
   %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr7.i.i, i64 %MapSize.addr.0.i
@@ -830,12 +829,12 @@ _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i35.i: ; preds = %if.then.i.i34.i, %i
   br label %cleanup.i.i
 
 cleanup.i.i:                                      ; preds = %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i35.i, %if.end25.i
-  %20 = load ptr, ptr %NameBuf.i26.i, align 8, !noalias !33
-  %cmp.i.i.i.i.i37.i = icmp eq ptr %20, %add.ptr.i.i.i.i.i.i.i27.i
+  %19 = load ptr, ptr %NameBuf.i26.i, align 8, !noalias !33
+  %cmp.i.i.i.i.i37.i = icmp eq ptr %19, %add.ptr.i.i.i.i.i.i.i27.i
   br i1 %cmp.i.i.i.i.i37.i, label %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i, label %if.then.i.i.i.i38.i
 
 if.then.i.i.i.i38.i:                              ; preds = %cleanup.i.i
-  call void @free(ptr noundef %20) #22, !noalias !33
+  call void @free(ptr noundef %19) #22, !noalias !33
   br label %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i
 
 _ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i: ; preds = %if.then.i.i.i.i38.i, %cleanup.i.i
@@ -859,13 +858,13 @@ if.end30.i:                                       ; preds = %_ZN4llvh20WritableM
 
 while.body.lr.ph.i:                               ; preds = %if.end30.i
   %BufferStart.i.i45.i = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call6.i.i, i64 0, i32 1
-  %21 = load ptr, ptr %BufferStart.i.i45.i, align 8, !noalias !29
+  %20 = load ptr, ptr %BufferStart.i.i45.i, align 8, !noalias !29
   %sub.i = add i64 %MapSize.addr.0.i, %Offset
   %call.i46.i = tail call ptr @__errno_location() #24
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end45.i, %while.body.lr.ph.i
-  %BufPtr.098.i = phi ptr [ %21, %while.body.lr.ph.i ], [ %add.ptr.i, %if.end45.i ]
+  %BufPtr.098.i = phi ptr [ %20, %while.body.lr.ph.i ], [ %add.ptr.i, %if.end45.i ]
   %BytesLeft.097.i = phi i64 [ %MapSize.addr.0.i, %while.body.lr.ph.i ], [ %sub46.i, %if.end45.i ]
   %add.i = sub i64 %sub.i, %BytesLeft.097.i
   br label %do.body.i.i
@@ -879,8 +878,8 @@ do.body.i.i:                                      ; preds = %land.rhs.i.i, %whil
   ]
 
 land.rhs.i.i:                                     ; preds = %do.body.i.i
-  %22 = load i32, ptr %call.i46.i, align 4, !noalias !29
-  %cmp9.i.i = icmp eq i32 %22, 4
+  %21 = load i32, ptr %call.i46.i, align 4, !noalias !29
+  %cmp9.i.i = icmp eq i32 %21, 4
   br i1 %cmp9.i.i, label %do.body.i.i, label %cleanup47.i, !llvm.loop !36
 
 if.then44.i:                                      ; preds = %do.body.i.i
@@ -898,8 +897,7 @@ while.end.i:                                      ; preds = %if.end45.i, %if.the
   %bf.load.i55.i = load i8, ptr %HasError.i54.i, align 8, !alias.scope !29
   %bf.clear.i56.i = and i8 %bf.load.i55.i, -2
   store i8 %bf.clear.i56.i, ptr %HasError.i54.i, align 8, !alias.scope !29
-  %23 = ptrtoint ptr %call6.i.i to i64
-  store i64 %23, ptr %agg.result, align 8, !alias.scope !29
+  store ptr %call6.i.i, ptr %agg.result, align 8, !alias.scope !29
   br label %_ZL15getOpenFileImplIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbb.exit
 
 cleanup47.i:                                      ; preds = %land.rhs.i.i
@@ -908,20 +906,20 @@ cleanup47.i:                                      ; preds = %land.rhs.i.i
   %bf.load.i51.i = load i8, ptr %HasError.i50.i, align 8, !alias.scope !29
   %bf.set.i52.i = or i8 %bf.load.i51.i, 1
   store i8 %bf.set.i52.i, ptr %HasError.i50.i, align 8, !alias.scope !29
-  store i32 %22, ptr %agg.result, align 8, !alias.scope !29
+  store i32 %21, ptr %agg.result, align 8, !alias.scope !29
   %EC.sroa.21.0.call.sroa_idx.i53.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call41.i, ptr %EC.sroa.21.0.call.sroa_idx.i53.i, align 8, !alias.scope !29
   %vtable.i.i59.i = load ptr, ptr %call6.i.i, align 8, !noalias !29
   %vfn.i.i60.i = getelementptr inbounds ptr, ptr %vtable.i.i59.i, i64 1
-  %24 = load ptr, ptr %vfn.i.i60.i, align 8, !noalias !29
-  call void %24(ptr noundef nonnull align 8 dereferenceable(24) %call6.i.i) #22, !noalias !29
+  %22 = load ptr, ptr %vfn.i.i60.i, align 8, !noalias !29
+  call void %22(ptr noundef nonnull align 8 dereferenceable(24) %call6.i.i) #22, !noalias !29
   br label %_ZL15getOpenFileImplIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbb.exit
 
 _ZL15getOpenFileImplIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbb.exit: ; preds = %if.then6.i, %if.then10.i, %_ZNSt10unique_ptrIN4llvh20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.i, %if.then27.i, %while.end.i, %cleanup47.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %Status.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %EC19.i)
-  %25 = load i32, ptr %FD, align 4
-  %call4 = call i32 @close(i32 noundef %25) #22
+  %23 = load i32, ptr %FD, align 4
+  %call4 = call i32 @close(i32 noundef %23) #22
   br label %return
 
 return:                                           ; preds = %_ZL15getOpenFileImplIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbb.exit, %if.then
@@ -1227,24 +1225,23 @@ cleanup.thread:                                   ; preds = %_ZN12_GLOBAL__N_120
   %bf.load.i25 = load i8, ptr %HasError.i24, align 8
   %bf.clear.i = and i8 %bf.load.i25, -2
   store i8 %bf.clear.i, ptr %HasError.i24, align 8
-  %15 = ptrtoint ptr %call3.i to i64
-  store i64 %15, ptr %agg.result, align 8
+  store ptr %call3.i, ptr %agg.result, align 8
   br label %return
 
 _ZNKSt14default_deleteIN4llvh24WriteThroughMemoryBufferEEclEPS1_.exit.i: ; preds = %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit, %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEC2EbimmRSt10error_code.exit
-  %16 = phi i32 [ %.pr, %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEC2EbimmRSt10error_code.exit ], [ %13, %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit ]
+  %15 = phi i32 [ %.pr, %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEC2EbimmRSt10error_code.exit ], [ %13, %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit ]
   %agg.tmp24.sroa.21.0.copyload = load ptr, ptr %1, align 8
   %HasError.i20 = getelementptr inbounds %"class.llvh::ErrorOr.19", ptr %agg.result, i64 0, i32 1
   %bf.load.i21 = load i8, ptr %HasError.i20, align 8
   %bf.set.i22 = or i8 %bf.load.i21, 1
   store i8 %bf.set.i22, ptr %HasError.i20, align 8
-  store i32 %16, ptr %agg.result, align 8
+  store i32 %15, ptr %agg.result, align 8
   %EC.sroa.21.0.call.sroa_idx.i23 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %agg.tmp24.sroa.21.0.copyload, ptr %EC.sroa.21.0.call.sroa_idx.i23, align 8
   %vtable.i.i = load ptr, ptr %call3.i, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
-  %17 = load ptr, ptr %vfn.i.i, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(24) %call3.i) #22
+  %16 = load ptr, ptr %vfn.i.i, align 8
+  call void %16(ptr noundef nonnull align 8 dereferenceable(24) %call3.i) #22
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN4llvh24WriteThroughMemoryBufferEEclEPS1_.exit.i, %cleanup.thread, %if.then14, %if.then8, %if.then
@@ -1500,8 +1497,7 @@ _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; pred
   %bf.load.i30 = load i8, ptr %HasError.i29, align 8
   %bf.clear.i = and i8 %bf.load.i30, -2
   store i8 %bf.clear.i, ptr %HasError.i29, align 8
-  %19 = ptrtoint ptr %call3.i to i64
-  store i64 %19, ptr %agg.result, align 8
+  store ptr %call3.i, ptr %agg.result, align 8
   br label %return
 
 if.end26:                                         ; preds = %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread, %if.end17.i, %_ZL13shouldUseMmapimmlbib.exit.thread, %_ZL13shouldUseMmapimmlbib.exit
@@ -1513,8 +1509,8 @@ if.end26:                                         ; preds = %_ZNSt10unique_ptrIN
   %Capacity2.i.i.i.i.i.i.i35 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NameBuf.i32, i64 0, i32 2
   store i32 256, ptr %Capacity2.i.i.i.i.i.i.i35, align 4, !noalias !42
   %call.i36 = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %Filename, ptr noundef nonnull align 8 dereferenceable(16) %NameBuf.i32), !noalias !42
-  %20 = extractvalue { ptr, i64 } %call.i36, 1
-  %sub1.i.i = add i64 %20, 40
+  %19 = extractvalue { ptr, i64 } %call.i36, 1
+  %sub1.i.i = add i64 %19, 40
   %add2.i.i = and i64 %sub1.i.i, -16
   %add4.i = add i64 %MapSize.addr.0, 1
   %add5.i = add i64 %add4.i, %add2.i.i
@@ -1524,16 +1520,16 @@ if.end26:                                         ; preds = %_ZNSt10unique_ptrIN
 
 if.end.i37:                                       ; preds = %if.end26
   %add.ptr.i38 = getelementptr inbounds i8, ptr %call6.i, i64 24
-  %cmp.i.i.i39 = icmp eq i64 %20, 0
+  %cmp.i.i.i39 = icmp eq i64 %19, 0
   br i1 %cmp.i.i.i39, label %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i41, label %if.then.i.i40
 
 if.then.i.i40:                                    ; preds = %if.end.i37
-  %21 = extractvalue { ptr, i64 } %call.i36, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i38, ptr align 1 %21, i64 %20, i1 false)
+  %20 = extractvalue { ptr, i64 } %call.i36, 0
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i38, ptr align 1 %20, i64 %19, i1 false)
   br label %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i41
 
 _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i41:   ; preds = %if.then.i.i40, %if.end.i37
-  %arrayidx.i.i42 = getelementptr inbounds i8, ptr %add.ptr.i38, i64 %20
+  %arrayidx.i.i42 = getelementptr inbounds i8, ptr %add.ptr.i38, i64 %19
   store i8 0, ptr %arrayidx.i.i42, align 1, !noalias !42
   %add.ptr7.i = getelementptr inbounds i8, ptr %call6.i, i64 %add2.i.i
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 %MapSize.addr.0
@@ -1546,12 +1542,12 @@ _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i41:   ; preds = %if.then.i.i40, %if.
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i41, %if.end26
-  %22 = load ptr, ptr %NameBuf.i32, align 8, !noalias !42
-  %cmp.i.i.i.i.i43 = icmp eq ptr %22, %add.ptr.i.i.i.i.i.i.i33
+  %21 = load ptr, ptr %NameBuf.i32, align 8, !noalias !42
+  %cmp.i.i.i.i.i43 = icmp eq ptr %21, %add.ptr.i.i.i.i.i.i.i33
   br i1 %cmp.i.i.i.i.i43, label %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit, label %if.then.i.i.i.i44
 
 if.then.i.i.i.i44:                                ; preds = %cleanup.i
-  call void @free(ptr noundef %22) #22, !noalias !42
+  call void @free(ptr noundef %21) #22, !noalias !42
   br label %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit
 
 _ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit: ; preds = %cleanup.i, %if.then.i.i.i.i44
@@ -1575,13 +1571,13 @@ if.end31:                                         ; preds = %_ZN4llvh20WritableM
 
 while.body.lr.ph:                                 ; preds = %if.end31
   %BufferStart.i.i51 = getelementptr inbounds %"class.llvh::MemoryBuffer", ptr %call6.i, i64 0, i32 1
-  %23 = load ptr, ptr %BufferStart.i.i51, align 8
+  %22 = load ptr, ptr %BufferStart.i.i51, align 8
   %sub = add i64 %MapSize.addr.0, %Offset
   %call.i52 = tail call ptr @__errno_location() #24
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end46
-  %BufPtr.0103 = phi ptr [ %23, %while.body.lr.ph ], [ %add.ptr, %if.end46 ]
+  %BufPtr.0103 = phi ptr [ %22, %while.body.lr.ph ], [ %add.ptr, %if.end46 ]
   %BytesLeft.0102 = phi i64 [ %MapSize.addr.0, %while.body.lr.ph ], [ %sub47, %if.end46 ]
   %add = sub i64 %sub, %BytesLeft.0102
   br label %do.body.i
@@ -1595,8 +1591,8 @@ do.body.i:                                        ; preds = %land.rhs.i, %while.
   ]
 
 land.rhs.i:                                       ; preds = %do.body.i
-  %24 = load i32, ptr %call.i52, align 4
-  %cmp9.i = icmp eq i32 %24, 4
+  %23 = load i32, ptr %call.i52, align 4
+  %cmp9.i = icmp eq i32 %23, 4
   br i1 %cmp9.i, label %do.body.i, label %cleanup48, !llvm.loop !36
 
 if.then45:                                        ; preds = %do.body.i
@@ -1623,13 +1619,13 @@ cleanup48:                                        ; preds = %land.rhs.i
   %bf.load.i57 = load i8, ptr %HasError.i56, align 8
   %bf.set.i58 = or i8 %bf.load.i57, 1
   store i8 %bf.set.i58, ptr %HasError.i56, align 8
-  store i32 %24, ptr %agg.result, align 8
+  store i32 %23, ptr %agg.result, align 8
   %EC.sroa.21.0.call.sroa_idx.i59 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call42, ptr %EC.sroa.21.0.call.sroa_idx.i59, align 8
   %vtable.i.i64 = load ptr, ptr %call6.i, align 8
   %vfn.i.i65 = getelementptr inbounds ptr, ptr %vtable.i.i64, i64 1
-  %25 = load ptr, ptr %vfn.i.i65, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(24) %call6.i) #22
+  %24 = load ptr, ptr %vfn.i.i65, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(24) %call6.i) #22
   br label %return
 
 return:                                           ; preds = %if.then28, %while.end, %cleanup48, %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit, %if.then.i, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEEC2IS1_INS_20WritableMemoryBufferES3_IS8_EEEEONS0_IT_EEPNSt9enable_ifIXsr3std14is_convertibleISB_S5_EE5valueEvE4typeE.exit, %if.then6
@@ -1786,17 +1782,16 @@ if.end.i:                                         ; preds = %_ZN4llvh20WritableM
   %bf.load.i4.i = load i8, ptr %HasError.i3.i, align 8, !alias.scope !48
   %bf.clear.i.i = and i8 %bf.load.i4.i, -2
   store i8 %bf.clear.i.i, ptr %HasError.i3.i, align 8, !alias.scope !48
-  %11 = ptrtoint ptr %call6.i.i to i64
-  store i64 %11, ptr %agg.result, align 8, !alias.scope !48
+  store ptr %call6.i.i, ptr %agg.result, align 8, !alias.scope !48
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end.i, %if.then.i10, %if.then
-  %12 = load ptr, ptr %Buffer, align 8
-  %cmp.i.i.i.i11 = icmp eq ptr %12, %add.ptr.i.i.i.i.i.i
+  %11 = load ptr, ptr %Buffer, align 8
+  %cmp.i.i.i.i11 = icmp eq ptr %11, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i11, label %_ZN4llvh11SmallStringILj16384EED2Ev.exit, label %if.then.i.i.i12
 
 if.then.i.i.i12:                                  ; preds = %cleanup
-  call void @free(ptr noundef %12) #22
+  call void @free(ptr noundef %11) #22
   br label %_ZN4llvh11SmallStringILj16384EED2Ev.exit
 
 _ZN4llvh11SmallStringILj16384EED2Ev.exit:         ; preds = %cleanup, %if.then.i.i.i12

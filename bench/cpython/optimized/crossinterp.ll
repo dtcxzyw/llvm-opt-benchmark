@@ -5133,22 +5133,21 @@ if.then4:                                         ; preds = %if.then
 if.end5:                                          ; preds = %land.lhs.true, %entry
   %interp = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 2
   %2 = load ptr, ptr %interp, align 8
-  %3 = inttoptr i64 %call to ptr
-  %4 = getelementptr inbounds i8, ptr %data, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 32, i1 false)
+  %3 = getelementptr inbounds i8, ptr %data, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 32, i1 false)
   %interpid.i.i = getelementptr inbounds %struct._xid, ptr %data, i64 0, i32 2
   store i64 -1, ptr %interpid.i.i, align 8
-  store ptr %3, ptr %data, align 8
+  store i64 %call, ptr %data, align 8
   %cmp3.not.i = icmp eq ptr %2, null
   br i1 %cmp3.not.i, label %_PyCrossInterpreterData_Init.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end5
   %id.i = getelementptr inbounds %struct._is, ptr %2, i64 0, i32 2
-  %5 = load i64, ptr %id.i, align 8
+  %4 = load i64, ptr %id.i, align 8
   br label %_PyCrossInterpreterData_Init.exit
 
 _PyCrossInterpreterData_Init.exit:                ; preds = %if.end5, %cond.true.i
-  %cond.i = phi i64 [ %5, %cond.true.i ], [ -1, %if.end5 ]
+  %cond.i = phi i64 [ %4, %cond.true.i ], [ -1, %if.end5 ]
   store i64 %cond.i, ptr %interpid.i.i, align 8
   %new_object4.i = getelementptr inbounds %struct._xid, ptr %data, i64 0, i32 3
   store ptr @_new_long_object, ptr %new_object4.i, align 8
@@ -5352,22 +5351,21 @@ entry:
   %0 = load ptr, ptr %interp, align 8
   %cmp = icmp eq ptr %obj, @_Py_TrueStruct
   %cond = zext i1 %cmp to i64
-  %1 = inttoptr i64 %cond to ptr
-  %2 = getelementptr inbounds i8, ptr %data, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 32, i1 false)
+  %1 = getelementptr inbounds i8, ptr %data, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 32, i1 false)
   %interpid.i.i = getelementptr inbounds %struct._xid, ptr %data, i64 0, i32 2
   store i64 -1, ptr %interpid.i.i, align 8
-  store ptr %1, ptr %data, align 8
+  store i64 %cond, ptr %data, align 8
   %cmp3.not.i = icmp eq ptr %0, null
   br i1 %cmp3.not.i, label %_PyCrossInterpreterData_Init.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry
   %id.i = getelementptr inbounds %struct._is, ptr %0, i64 0, i32 2
-  %3 = load i64, ptr %id.i, align 8
+  %2 = load i64, ptr %id.i, align 8
   br label %_PyCrossInterpreterData_Init.exit
 
 _PyCrossInterpreterData_Init.exit:                ; preds = %entry, %cond.true.i
-  %cond.i = phi i64 [ %3, %cond.true.i ], [ -1, %entry ]
+  %cond.i = phi i64 [ %2, %cond.true.i ], [ -1, %entry ]
   store i64 %cond.i, ptr %interpid.i.i, align 8
   %new_object4.i = getelementptr inbounds %struct._xid, ptr %data, i64 0, i32 3
   store ptr @_new_bool_object, ptr %new_object4.i, align 8

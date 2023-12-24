@@ -1520,8 +1520,7 @@ if.else:                                          ; preds = %for.body
 
 invoke.cont8:                                     ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %6 = inttoptr i64 %sub.ptr.sub to ptr
-  store ptr %6, ptr %ref.tmp.i, align 8, !noalias !20
+  store i64 %sub.ptr.sub, ptr %ref.tmp.i, align 8, !noalias !20
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIlEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !20
   invoke void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull @.str.6, i64 6, ptr nonnull %ref.tmp.i, i64 1)
           to label %invoke.cont12 unwind label %lpad
@@ -1532,7 +1531,7 @@ invoke.cont12:                                    ; preds = %invoke.cont8
           to label %for.inc.sink.split unwind label %lpad13
 
 lpad13:                                           ; preds = %invoke.cont12
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   br label %ehcleanup
@@ -1541,11 +1540,9 @@ invoke.cont19:                                    ; preds = %if.else
   %sub.ptr.lhs.cast32 = ptrtoint ptr %4 to i64
   %sub.ptr.sub34 = sub i64 %sub.ptr.lhs.cast32, %sub.ptr.rhs.cast
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i16)
-  %8 = inttoptr i64 %sub.ptr.sub to ptr
-  store ptr %8, ptr %ref.tmp.i16, align 8, !noalias !23
+  store i64 %sub.ptr.sub, ptr %ref.tmp.i16, align 8, !noalias !23
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIlEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i21, align 8, !noalias !23
-  %9 = inttoptr i64 %sub.ptr.sub34 to ptr
-  store ptr %9, ptr %arrayinit.element.i, align 8, !noalias !23
+  store i64 %sub.ptr.sub34, ptr %arrayinit.element.i, align 8, !noalias !23
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIlEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i2.i, align 8, !noalias !23
   invoke void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp17, ptr nonnull @.str.7, i64 7, ptr nonnull %ref.tmp.i16, i64 2)
           to label %invoke.cont35 unwind label %lpad
@@ -1556,7 +1553,7 @@ invoke.cont35:                                    ; preds = %invoke.cont19
           to label %for.inc.sink.split unwind label %lpad36
 
 lpad36:                                           ; preds = %invoke.cont35
-  %10 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #18
   br label %ehcleanup
@@ -1568,16 +1565,16 @@ for.inc.sink.split:                               ; preds = %invoke.cont35, %inv
 
 for.inc:                                          ; preds = %for.inc.sink.split, %if.then
   %indvars.iv.next = add nuw i64 %indvars.iv, 2
-  %11 = load i32, ptr %ncapture_, align 4
-  %12 = trunc i64 %indvars.iv.next to i32
-  %cmp = icmp sgt i32 %11, %12
+  %8 = load i32, ptr %ncapture_, align 4
+  %9 = trunc i64 %indvars.iv.next to i32
+  %cmp = icmp sgt i32 %8, %9
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !26
 
 nrvo.skipdtor:                                    ; preds = %for.inc, %entry
   ret void
 
 ehcleanup:                                        ; preds = %lpad36, %lpad13, %lpad
-  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %7, %lpad13 ], [ %10, %lpad36 ]
+  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %6, %lpad13 ], [ %7, %lpad36 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #18
   resume { ptr, i32 } %.pn
 }

@@ -482,66 +482,65 @@ invoke.cont10:
   %shutdown_error_ = getelementptr inbounds %"class.grpc_event_engine::experimental::PollEventHandle", ptr %this, i64 0, i32 15
   store i64 0, ptr %shutdown_error_, align 8, !alias.scope !10
   %exec_actions_closure_ = getelementptr inbounds %"class.grpc_event_engine::experimental::PollEventHandle", ptr %this, i64 0, i32 16
-  %4 = ptrtoint ptr %this to i64
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental19AnyInvocableClosureE, i64 0, inrange i32 0, i64 2), ptr %exec_actions_closure_, align 16
   %cb_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::PollEventHandle", ptr %this, i64 0, i32 16, i32 2
-  store i64 %4, ptr %cb_.i, align 16
+  store ptr %this, ptr %cb_.i, align 16
   %manager_5.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::PollEventHandle", ptr %this, i64 0, i32 16, i32 2, i32 0, i32 0, i32 1
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_5.i.i.i.i, align 16
   %invoker_6.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::PollEventHandle", ptr %this, i64 0, i32 16, i32 2, i32 0, i32 0, i32 2
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRZN17grpc_event_engine12experimental15PollEventHandleC1EiSt10shared_ptrINS4_10PollPollerEEEUlvE_JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE, ptr %invoker_6.i.i.i.i, align 8
   %on_done_ = getelementptr inbounds %"class.grpc_event_engine::experimental::PollEventHandle", ptr %this, i64 0, i32 17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %on_done_, i8 0, i64 24, i1 false)
-  %5 = load ptr, ptr %poller_, align 8
-  %mu_15 = getelementptr inbounds %"class.grpc_event_engine::experimental::PollPoller", ptr %5, i64 0, i32 2
+  %4 = load ptr, ptr %poller_, align 8
+  %mu_15 = getelementptr inbounds %"class.grpc_event_engine::experimental::PollPoller", ptr %4, i64 0, i32 2
   invoke void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_15)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont10
-  %6 = load ptr, ptr %poller_, align 8
-  %poll_handles_list_head_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::PollPoller", ptr %6, i64 0, i32 9
-  %7 = load ptr, ptr %poll_handles_list_head_.i, align 8
-  store ptr %7, ptr %next.i4, align 16
+  %5 = load ptr, ptr %poller_, align 8
+  %poll_handles_list_head_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::PollPoller", ptr %5, i64 0, i32 9
+  %6 = load ptr, ptr %poll_handles_list_head_.i, align 8
+  store ptr %6, ptr %next.i4, align 16
   %prev.i = getelementptr inbounds %"class.grpc_event_engine::experimental::PollEventHandle", ptr %this, i64 0, i32 6, i32 2
   store ptr null, ptr %prev.i, align 8
-  %8 = load ptr, ptr %poll_handles_list_head_.i, align 8
-  %cmp.not.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %poll_handles_list_head_.i, align 8
+  %cmp.not.i = icmp eq ptr %7, null
   br i1 %cmp.not.i, label %invoke.cont21, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont17
-  %prev6.i = getelementptr inbounds %"class.grpc_event_engine::experimental::PollEventHandle", ptr %8, i64 0, i32 6, i32 2
+  %prev6.i = getelementptr inbounds %"class.grpc_event_engine::experimental::PollEventHandle", ptr %7, i64 0, i32 6, i32 2
   store ptr %this, ptr %prev6.i, align 8
   br label %invoke.cont21
 
 invoke.cont21:                                    ; preds = %if.then.i, %invoke.cont17
   store ptr %this, ptr %poll_handles_list_head_.i, align 8
-  %num_poll_handles_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::PollPoller", ptr %6, i64 0, i32 8
-  %9 = load i32, ptr %num_poll_handles_.i, align 4
-  %inc.i = add nsw i32 %9, 1
+  %num_poll_handles_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::PollPoller", ptr %5, i64 0, i32 8
+  %8 = load i32, ptr %num_poll_handles_.i, align 4
+  %inc.i = add nsw i32 %8, 1
   store i32 %inc.i, ptr %num_poll_handles_.i, align 4
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_15)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %invoke.cont21
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #24
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #24
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %invoke.cont21
   ret void
 
 lpad16:                                           ; preds = %invoke.cont10
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental19AnyInvocableClosureE, i64 0, inrange i32 0, i64 2), ptr %exec_actions_closure_, align 16
-  %13 = load ptr, ptr %manager_5.i.i.i.i, align 16
-  tail call void %13(i1 noundef zeroext true, ptr noundef nonnull %cb_.i, ptr noundef nonnull %cb_.i) #22
+  %12 = load ptr, ptr %manager_5.i.i.i.i, align 16
+  tail call void %12(i1 noundef zeroext true, ptr noundef nonnull %cb_.i, ptr noundef nonnull %cb_.i) #22
   tail call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %shutdown_error_) #22
   tail call void @_ZNSt10shared_ptrIN17grpc_event_engine12experimental10PollPollerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %poller_) #22
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_) #22
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1074,7 +1073,7 @@ entry:
   ]
 
 if.then3:                                         ; preds = %entry
-  store ptr inttoptr (i64 1 to ptr), ptr %st, align 8
+  store i64 1, ptr %st, align 8
   br label %return
 
 if.else4:                                         ; preds = %entry

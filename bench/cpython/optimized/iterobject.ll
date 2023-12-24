@@ -951,16 +951,14 @@ _Py_NewRef.exit:                                  ; preds = %if.end3, %if.end.i.
   %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %4, i64 0, i32 1
   %5 = load i64, ptr %_gc_prev.i, align 8
   %6 = inttoptr i64 %5 to ptr
-  %7 = ptrtoint ptr %add.ptr.i.i to i64
-  store i64 %7, ptr %6, align 8
+  store ptr %add.ptr.i.i, ptr %6, align 8
   %_gc_prev.i.i = getelementptr i8, ptr %call1, i64 -8
-  %8 = load i64, ptr %_gc_prev.i.i, align 8
-  %and.i.i = and i64 %8, 3
+  %7 = load i64, ptr %_gc_prev.i.i, align 8
+  %and.i.i = and i64 %7, 3
   %or.i.i = or i64 %and.i.i, %5
   store i64 %or.i.i, ptr %_gc_prev.i.i, align 8
-  %9 = ptrtoint ptr %4 to i64
-  store i64 %9, ptr %add.ptr.i.i, align 8
-  store i64 %7, ptr %_gc_prev.i, align 8
+  store ptr %4, ptr %add.ptr.i.i, align 8
+  store ptr %add.ptr.i.i, ptr %_gc_prev.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %_Py_NewRef.exit, %if.then
@@ -1152,16 +1150,14 @@ _Py_NewRef.exit8:                                 ; preds = %_Py_NewRef.exit, %i
   %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %5, i64 0, i32 1
   %6 = load i64, ptr %_gc_prev.i, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = ptrtoint ptr %add.ptr.i.i to i64
-  store i64 %8, ptr %7, align 8
+  store ptr %add.ptr.i.i, ptr %7, align 8
   %_gc_prev.i.i = getelementptr i8, ptr %call, i64 -8
-  %9 = load i64, ptr %_gc_prev.i.i, align 8
-  %and.i.i = and i64 %9, 3
+  %8 = load i64, ptr %_gc_prev.i.i, align 8
+  %and.i.i = and i64 %8, 3
   %or.i.i = or i64 %and.i.i, %6
   store i64 %or.i.i, ptr %_gc_prev.i.i, align 8
-  %10 = ptrtoint ptr %5 to i64
-  store i64 %10, ptr %add.ptr.i.i, align 8
-  store i64 %8, ptr %_gc_prev.i, align 8
+  store ptr %5, ptr %add.ptr.i.i, align 8
+  store ptr %add.ptr.i.i, ptr %_gc_prev.i, align 8
   br label %return
 
 return:                                           ; preds = %entry, %_Py_NewRef.exit8
@@ -1637,16 +1633,14 @@ _Py_NewRef.exit8:                                 ; preds = %_Py_NewRef.exit, %i
   %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %5, i64 0, i32 1
   %6 = load i64, ptr %_gc_prev.i, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = ptrtoint ptr %add.ptr.i.i to i64
-  store i64 %8, ptr %7, align 8
+  store ptr %add.ptr.i.i, ptr %7, align 8
   %_gc_prev.i.i = getelementptr i8, ptr %call, i64 -8
-  %9 = load i64, ptr %_gc_prev.i.i, align 8
-  %and.i.i = and i64 %9, 3
+  %8 = load i64, ptr %_gc_prev.i.i, align 8
+  %and.i.i = and i64 %8, 3
   %or.i.i = or i64 %and.i.i, %6
   store i64 %or.i.i, ptr %_gc_prev.i.i, align 8
-  %10 = ptrtoint ptr %5 to i64
-  store i64 %10, ptr %add.ptr.i.i, align 8
-  store i64 %8, ptr %_gc_prev.i, align 8
+  store ptr %5, ptr %add.ptr.i.i, align 8
+  store ptr %add.ptr.i.i, ptr %_gc_prev.i, align 8
   br label %return
 
 return:                                           ; preds = %entry, %_Py_NewRef.exit8

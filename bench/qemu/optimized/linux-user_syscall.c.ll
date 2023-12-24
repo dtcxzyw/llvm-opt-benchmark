@@ -1549,7 +1549,7 @@ if.end6:                                          ; preds = %if.end
   %5 = load ptr, ptr %buffer, align 8
   %6 = ptrtoint ptr %5 to i64
   %target_buf_adr = getelementptr inbounds %struct.live_urb, ptr %call2, i64 0, i32 1
-  store i64 %6, ptr %target_buf_adr, align 8
+  store ptr %5, ptr %target_buf_adr, align 8
   %endpoint = getelementptr inbounds %struct.live_urb, ptr %call2, i64 0, i32 3, i32 1
   %7 = load i8, ptr %endpoint, align 1
   %tobool11.not = icmp sgt i8 %7, -1
@@ -1724,11 +1724,10 @@ urb_hashtable_remove.exit:                        ; preds = %if.end7, %if.then.i
   %target_buf_adr = getelementptr inbounds %struct.live_urb, ptr %8, i64 0, i32 1
   store ptr null, ptr %target_buf_ptr, align 8
   %12 = load i64, ptr %target_buf_adr, align 8
-  %13 = inttoptr i64 %12 to ptr
   %buffer = getelementptr inbounds %struct.live_urb, ptr %8, i64 0, i32 3, i32 4
-  store ptr %13, ptr %buffer, align 8
-  %14 = load i64, ptr %8, align 8
-  %call13 = tail call ptr @lock_user(i32 noundef 3, i64 noundef %14, i64 noundef %2, i1 noundef zeroext false) #26
+  store i64 %12, ptr %buffer, align 8
+  %13 = load i64, ptr %8, align 8
+  %call13 = tail call ptr @lock_user(i32 noundef 3, i64 noundef %13, i64 noundef %2, i1 noundef zeroext false) #26
   %tobool14.not = icmp eq ptr %call13, null
   br i1 %tobool14.not, label %if.then15, label %thunk_type_size.exit48
 
@@ -1748,8 +1747,8 @@ if.then27:                                        ; preds = %thunk_type_size.exi
   br label %return
 
 if.end28:                                         ; preds = %thunk_type_size.exit48
-  %15 = load i64, ptr %8, align 8
-  store i64 %15, ptr %target_urb_adr, align 8
+  %14 = load i64, ptr %8, align 8
+  store i64 %14, ptr %target_urb_adr, align 8
   %call31 = call ptr @thunk_convert(ptr noundef nonnull %call25, ptr noundef nonnull %target_urb_adr, ptr noundef nonnull %ptrvoid_arg_type, i32 noundef 0) #26
   call void @g_free(ptr noundef nonnull %8) #26
   br label %return
@@ -2595,8 +2594,7 @@ if.end40:                                         ; preds = %if.then35
 
 if.then51:                                        ; preds = %if.end40
   %call53 = tail call ptr @lock_user_string(i64 noundef %16) #26
-  %17 = ptrtoint ptr %call53 to i64
-  store i64 %17, ptr %add.ptr48, align 8
+  store ptr %call53, ptr %add.ptr48, align 8
   %tobool54.not = icmp eq ptr %call53, null
   br i1 %tobool54.not, label %return, label %if.end58
 
@@ -2612,8 +2610,8 @@ if.end60:                                         ; preds = %for.body
   %conv32 = sext i32 %13 to i64
   %add.ptr64 = getelementptr i8, ptr %buf_temp, i64 %conv32
   %arrayidx66 = getelementptr i32, ptr %10, i64 %indvars.iv
-  %18 = load i32, ptr %arrayidx66, align 4
-  %idx.ext67 = sext i32 %18 to i64
+  %17 = load i32, ptr %arrayidx66, align 4
+  %idx.ext67 = sext i32 %17 to i64
   %add.ptr68 = getelementptr i8, ptr %call10, i64 %idx.ext67
   %call69 = tail call ptr @thunk_convert(ptr noundef %add.ptr64, ptr noundef %add.ptr68, ptr noundef %field_types.049, i32 noundef 1) #26
   br label %for.inc
@@ -2623,34 +2621,34 @@ for.inc:                                          ; preds = %if.end60, %if.end58
   %target_rt_dev_ptr.1 = phi ptr [ %add.ptr44, %if.end58 ], [ %target_rt_dev_ptr.050, %if.end60 ]
   %host_rt_dev_ptr.1 = phi ptr [ %add.ptr48, %if.end58 ], [ %host_rt_dev_ptr.051, %if.end60 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = load i32, ptr %nb_fields, align 8
-  %20 = sext i32 %19 to i64
-  %cmp29 = icmp slt i64 %indvars.iv.next, %20
+  %18 = load i32, ptr %nb_fields, align 8
+  %19 = sext i32 %18 to i64
+  %cmp29 = icmp slt i64 %indvars.iv.next, %19
   br i1 %cmp29, label %for.body, label %for.end.loopexit, !llvm.loop !11
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %21 = icmp eq ptr %host_rt_dev_ptr.1, null
-  %22 = icmp eq ptr %target_rt_dev_ptr.1, null
+  %20 = icmp eq ptr %host_rt_dev_ptr.1, null
+  %21 = icmp eq ptr %target_rt_dev_ptr.1, null
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end24
-  %target_rt_dev_ptr.0.lcssa = phi i1 [ true, %if.end24 ], [ %22, %for.end.loopexit ]
-  %host_rt_dev_ptr.0.lcssa = phi i1 [ true, %if.end24 ], [ %21, %for.end.loopexit ]
-  %23 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
-  %24 = load ptr, ptr %23, align 8
-  %opaque = getelementptr inbounds %struct.CPUState, ptr %24, i64 0, i32 39
-  %25 = load ptr, ptr %opaque, align 16
-  %signal_pending = getelementptr inbounds %struct.TaskState, ptr %25, i64 0, i32 14
+  %target_rt_dev_ptr.0.lcssa = phi i1 [ true, %if.end24 ], [ %21, %for.end.loopexit ]
+  %host_rt_dev_ptr.0.lcssa = phi i1 [ true, %if.end24 ], [ %20, %for.end.loopexit ]
+  %22 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
+  %23 = load ptr, ptr %22, align 8
+  %opaque = getelementptr inbounds %struct.CPUState, ptr %23, i64 0, i32 39
+  %24 = load ptr, ptr %opaque, align 16
+  %signal_pending = getelementptr inbounds %struct.TaskState, ptr %24, i64 0, i32 14
   %host_cmd = getelementptr inbounds %struct.IOCTLEntry, ptr %ie, i64 0, i32 1
-  %26 = load i32, ptr %host_cmd, align 4
-  %call70 = tail call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending, i64 noundef 16, i32 noundef %fd, i32 noundef %26, ptr noundef %buf_temp) #26
+  %25 = load i32, ptr %host_cmd, align 4
+  %call70 = tail call i64 (ptr, i64, ...) @safe_syscall_base(ptr noundef nonnull %signal_pending, i64 noundef 16, i32 noundef %fd, i32 noundef %25, ptr noundef %buf_temp) #26
   %cmp.i = icmp eq i64 %call70, -1
   br i1 %cmp.i, label %if.then.i, label %get_errno.exit
 
 if.then.i:                                        ; preds = %for.end
   %call.i43 = tail call ptr @__errno_location() #25
-  %27 = load i32, ptr %call.i43, align 4
-  %sub.i = sub i32 0, %27
+  %26 = load i32, ptr %call.i43, align 4
+  %sub.i = sub i32 0, %26
   %conv.i = sext i32 %sub.i to i64
   br label %get_errno.exit
 
@@ -17693,21 +17691,20 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load i64, ptr %call, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %host_sevp, align 8
+  store i64 %0, ptr %host_sevp, align 8
   %sigev_signo = getelementptr inbounds %struct.target_sigevent, ptr %call, i64 0, i32 1
-  %2 = load i32, ptr %sigev_signo, align 8
-  %call4 = tail call i32 @target_to_host_signal(i32 noundef %2) #26
+  %1 = load i32, ptr %sigev_signo, align 8
+  %call4 = tail call i32 @target_to_host_signal(i32 noundef %1) #26
   %sigev_signo5 = getelementptr inbounds %struct.sigevent, ptr %host_sevp, i64 0, i32 1
   store i32 %call4, ptr %sigev_signo5, align 8
   %sigev_notify = getelementptr inbounds %struct.target_sigevent, ptr %call, i64 0, i32 2
-  %3 = load i32, ptr %sigev_notify, align 4
+  %2 = load i32, ptr %sigev_notify, align 4
   %sigev_notify7 = getelementptr inbounds %struct.sigevent, ptr %host_sevp, i64 0, i32 2
-  store i32 %3, ptr %sigev_notify7, align 4
+  store i32 %2, ptr %sigev_notify7, align 4
   %_sigev_un = getelementptr inbounds %struct.target_sigevent, ptr %call, i64 0, i32 3
-  %4 = load i32, ptr %_sigev_un, align 8
+  %3 = load i32, ptr %_sigev_un, align 8
   %_sigev_un9 = getelementptr inbounds %struct.sigevent, ptr %host_sevp, i64 0, i32 3
-  store i32 %4, ptr %_sigev_un9, align 8
+  store i32 %3, ptr %_sigev_un9, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -18310,7 +18307,7 @@ if.then:                                          ; preds = %entry
   ]
 
 if.then10:                                        ; preds = %if.then
-  store ptr inttoptr (i64 -1 to ptr), ptr %msg, align 8
+  store i64 -1, ptr %msg, align 8
   br label %if.end18
 
 if.else15:                                        ; preds = %entry

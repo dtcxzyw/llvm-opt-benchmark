@@ -551,9 +551,8 @@ if.then6.i89:                                     ; preds = %if.then4.i86
 tsd_set.exit91:                                   ; preds = %if.then4.i86, %if.end.i83
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i = getelementptr inbounds %struct.tsd_s, ptr %tsd, i64 0, i32 29
   tail call void @rtree_ctx_data_init(ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i) #7
-  %21 = ptrtoint ptr %tsd to i64
   %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i = getelementptr inbounds %struct.tsd_s, ptr %tsd, i64 0, i32 16
-  store i64 %21, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i, align 8
+  store ptr %tsd, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i, align 8
   tail call void @tsd_te_init(ptr noundef %tsd) #7
   tail call void @tsd_san_init(ptr noundef %tsd) #7
   %call1.i = tail call zeroext i1 @tsd_tcache_enabled_data_init(ptr noundef %tsd) #7
@@ -561,25 +560,25 @@ tsd_set.exit91:                                   ; preds = %if.then4.i86, %if.e
 
 if.else17:                                        ; preds = %if.then12
   tail call void @tsd_state_set(ptr noundef nonnull %tsd, i8 noundef zeroext 3)
-  %22 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %cmp.i65.not = icmp eq ptr %22, %tsd
+  %21 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
+  %cmp.i65.not = icmp eq ptr %21, %tsd
   br i1 %cmp.i65.not, label %if.end.i69, label %if.then.i76
 
 if.then.i76:                                      ; preds = %if.else17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2640) %22, ptr noundef nonnull align 8 dereferenceable(2640) %tsd, i64 2640, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2640) %21, ptr noundef nonnull align 8 dereferenceable(2640) %tsd, i64 2640, i1 false)
   br label %if.end.i69
 
 if.end.i69:                                       ; preds = %if.then.i76, %if.else17
-  %23 = load i32, ptr @tsd_tsd, align 4
-  %call.i70 = tail call i32 @pthread_setspecific(i32 noundef %23, ptr noundef nonnull %22) #7
+  %22 = load i32, ptr @tsd_tsd, align 4
+  %call.i70 = tail call i32 @pthread_setspecific(i32 noundef %22, ptr noundef nonnull %21) #7
   %cmp2.i71.not = icmp eq i32 %call.i70, 0
   br i1 %cmp2.i71.not, label %tsd_set.exit77, label %if.then4.i72
 
 if.then4.i72:                                     ; preds = %if.end.i69
   tail call void @malloc_write(ptr noundef nonnull @.str.1) #7
-  %24 = load i8, ptr @opt_abort, align 1
-  %25 = and i8 %24, 1
-  %tobool5.i73.not = icmp eq i8 %25, 0
+  %23 = load i8, ptr @opt_abort, align 1
+  %24 = and i8 %23, 1
+  %tobool5.i73.not = icmp eq i8 %24, 0
   br i1 %tobool5.i73.not, label %tsd_set.exit77, label %if.then6.i75
 
 if.then6.i75:                                     ; preds = %if.then4.i72
@@ -592,9 +591,8 @@ tsd_set.exit77:                                   ; preds = %if.then4.i72, %if.e
   store i8 0, ptr %tsd, align 1
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i = getelementptr inbounds %struct.tsd_s, ptr %tsd, i64 0, i32 1
   store i8 1, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i, align 1
-  %26 = ptrtoint ptr %tsd to i64
   %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i52 = getelementptr inbounds %struct.tsd_s, ptr %tsd, i64 0, i32 16
-  store i64 %26, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i52, align 8
+  store ptr %tsd, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i52, align 8
   tail call void @tsd_te_init(ptr noundef nonnull %tsd) #7
   tail call void @tsd_san_init(ptr noundef nonnull %tsd) #7
   %cant_access_tsd_items_directly_use_a_getter_or_setter_min_init_state_nfetched.i = getelementptr inbounds %struct.tsd_s, ptr %tsd, i64 0, i32 2
@@ -603,8 +601,8 @@ tsd_set.exit77:                                   ; preds = %if.then4.i72, %if.e
 
 if.then26:                                        ; preds = %entry
   %cant_access_tsd_items_directly_use_a_getter_or_setter_min_init_state_nfetched.i106 = getelementptr inbounds %struct.tsd_s, ptr %tsd, i64 0, i32 2
-  %27 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_min_init_state_nfetched.i106, align 1
-  %inc = add i8 %27, 1
+  %25 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_min_init_state_nfetched.i106, align 1
+  %inc = add i8 %25, 1
   store i8 %inc, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_min_init_state_nfetched.i106, align 1
   %cmp32 = icmp ne i8 %inc, -128
   %or.cond.not = select i1 %minimal, i1 %cmp32, i1 false
@@ -613,8 +611,8 @@ if.then26:                                        ; preds = %entry
 if.then34:                                        ; preds = %if.then26
   tail call void @tsd_state_set(ptr noundef nonnull %tsd, i8 noundef zeroext 0)
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i = getelementptr inbounds %struct.tsd_s, ptr %tsd, i64 0, i32 1
-  %28 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i, align 1
-  %dec = add i8 %28, -1
+  %26 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i, align 1
+  %dec = add i8 %26, -1
   store i8 %dec, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i, align 1
   br label %do.body.i54
 
@@ -624,41 +622,40 @@ do.body.i54:                                      ; preds = %tsd_state_compute.e
   br i1 %cmp.i.i.i56, label %if.end.i.i60, label %tsd_state_compute.exit.i57
 
 if.end.i.i60:                                     ; preds = %do.body.i54
-  %29 = load i8, ptr @malloc_slow, align 1
-  %30 = and i8 %29, 1
-  %tobool.not.i.i61 = icmp eq i8 %30, 0
+  %27 = load i8, ptr @malloc_slow, align 1
+  %28 = and i8 %27, 1
+  %tobool.not.i.i61 = icmp eq i8 %28, 0
   br i1 %tobool.not.i.i61, label %lor.lhs.false.i.i62, label %tsd_state_compute.exit.i57
 
 lor.lhs.false.i.i62:                              ; preds = %if.end.i.i60
-  %31 = load i8, ptr %tsd, align 1
-  %32 = and i8 %31, 1
-  %tobool.i.not.i.i.i63 = icmp eq i8 %32, 0
+  %29 = load i8, ptr %tsd, align 1
+  %30 = and i8 %29, 1
+  %tobool.i.not.i.i.i63 = icmp eq i8 %30, 0
   br i1 %tobool.i.not.i.i.i63, label %tsd_state_compute.exit.i57, label %tsd_local_slow.exit.i.i64
 
 tsd_local_slow.exit.i.i64:                        ; preds = %lor.lhs.false.i.i62
-  %33 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i, align 1
-  %cmp.i3.i.i65 = icmp sgt i8 %33, 0
+  %31 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i, align 1
+  %cmp.i3.i.i65 = icmp sgt i8 %31, 0
   br i1 %cmp.i3.i.i65, label %tsd_state_compute.exit.i57, label %lor.lhs.false3.i.i66
 
 lor.lhs.false3.i.i66:                             ; preds = %tsd_local_slow.exit.i.i64
-  %34 = load atomic i32, ptr @tsd_global_slow_count monotonic, align 4
-  %cmp.i4.not.i.i67 = icmp ne i32 %34, 0
+  %32 = load atomic i32, ptr @tsd_global_slow_count monotonic, align 4
+  %cmp.i4.not.i.i67 = icmp ne i32 %32, 0
   %spec.select.i.i68 = zext i1 %cmp.i4.not.i.i67 to i8
   br label %tsd_state_compute.exit.i57
 
 tsd_state_compute.exit.i57:                       ; preds = %lor.lhs.false3.i.i66, %tsd_local_slow.exit.i.i64, %lor.lhs.false.i.i62, %if.end.i.i60, %do.body.i54
   %retval.0.i.i58 = phi i8 [ 1, %tsd_local_slow.exit.i.i64 ], [ 1, %if.end.i.i60 ], [ %spec.select.i.i68, %lor.lhs.false3.i.i66 ], [ %tsd.val.i.i55, %do.body.i54 ], [ 1, %lor.lhs.false.i.i62 ]
-  %35 = atomicrmw xchg ptr %state.i63, i8 %retval.0.i.i58 acquire, align 1
-  %cmp.i59 = icmp eq i8 %35, 2
+  %33 = atomicrmw xchg ptr %state.i63, i8 %retval.0.i.i58 acquire, align 1
+  %cmp.i59 = icmp eq i8 %33, 2
   br i1 %cmp.i59, label %do.body.i54, label %tsd_slow_update.exit69, !llvm.loop !4
 
 tsd_slow_update.exit69:                           ; preds = %tsd_state_compute.exit.i57
   tail call void @te_recompute_fast_threshold(ptr noundef nonnull %tsd) #7
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i70 = getelementptr inbounds %struct.tsd_s, ptr %tsd, i64 0, i32 29
   tail call void @rtree_ctx_data_init(ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i70) #7
-  %36 = ptrtoint ptr %tsd to i64
   %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i71 = getelementptr inbounds %struct.tsd_s, ptr %tsd, i64 0, i32 16
-  store i64 %36, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i71, align 8
+  store ptr %tsd, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i71, align 8
   tail call void @tsd_te_init(ptr noundef nonnull %tsd) #7
   tail call void @tsd_san_init(ptr noundef nonnull %tsd) #7
   %call1.i72 = tail call zeroext i1 @tsd_tcache_enabled_data_init(ptr noundef nonnull %tsd) #7
@@ -666,25 +663,25 @@ tsd_slow_update.exit69:                           ; preds = %tsd_state_compute.e
 
 if.then46:                                        ; preds = %entry
   tail call void @tsd_state_set(ptr noundef nonnull %tsd, i8 noundef zeroext 5)
-  %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %cmp.i.not = icmp eq ptr %37, %tsd
+  %34 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
+  %cmp.i.not = icmp eq ptr %34, %tsd
   br i1 %cmp.i.not, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then46
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2640) %37, ptr noundef nonnull align 8 dereferenceable(2640) %tsd, i64 2640, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2640) %34, ptr noundef nonnull align 8 dereferenceable(2640) %tsd, i64 2640, i1 false)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then46
-  %38 = load i32, ptr @tsd_tsd, align 4
-  %call.i = tail call i32 @pthread_setspecific(i32 noundef %38, ptr noundef nonnull %37) #7
+  %35 = load i32, ptr @tsd_tsd, align 4
+  %call.i = tail call i32 @pthread_setspecific(i32 noundef %35, ptr noundef nonnull %34) #7
   %cmp2.i.not = icmp eq i32 %call.i, 0
   br i1 %cmp2.i.not, label %tsd_set.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
   tail call void @malloc_write(ptr noundef nonnull @.str.1) #7
-  %39 = load i8, ptr @opt_abort, align 1
-  %40 = and i8 %39, 1
-  %tobool5.i.not = icmp eq i8 %40, 0
+  %36 = load i8, ptr @opt_abort, align 1
+  %37 = and i8 %36, 1
+  %tobool5.i.not = icmp eq i8 %37, 0
   br i1 %tobool5.i.not, label %tsd_set.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then4.i
@@ -697,9 +694,8 @@ tsd_set.exit:                                     ; preds = %if.then4.i, %if.end
   store i8 0, ptr %tsd, align 1
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i74 = getelementptr inbounds %struct.tsd_s, ptr %tsd, i64 0, i32 1
   store i8 1, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i74, align 1
-  %41 = ptrtoint ptr %tsd to i64
   %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i75 = getelementptr inbounds %struct.tsd_s, ptr %tsd, i64 0, i32 16
-  store i64 %41, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i75, align 8
+  store ptr %tsd, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i75, align 8
   tail call void @tsd_te_init(ptr noundef nonnull %tsd) #7
   tail call void @tsd_san_init(ptr noundef nonnull %tsd) #7
   br label %if.end55

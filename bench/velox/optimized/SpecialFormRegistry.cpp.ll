@@ -288,7 +288,7 @@ _ZN8facebook5velox4exec26mutableSpecialFormRegistryEv.exit: ; preds = %entry, %i
 
 call.i.i.noexc.i.i:                               ; preds = %.noexc
   %5 = load ptr, ptr %call.i.i2.i.i, align 8
-  store ptr %4, ptr %call.i.i2.i.i, align 8
+  store i64 %3, ptr %call.i.i2.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %if.then3.i.i.i.i.i, label %_ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i.i.i.i.i.i.i
 

@@ -4810,7 +4810,7 @@ for.body18.lr.ph:                                 ; preds = %for.body
 
 for.body18:                                       ; preds = %for.body18.lr.ph, %for.inc
   %slices.val111 = phi ptr [ %slices.val102, %for.body18.lr.ph ], [ %slices.val, %for.inc ]
-  %13 = phi ptr [ %7, %for.body18.lr.ph ], [ %43, %for.inc ]
+  %13 = phi ptr [ %7, %for.body18.lr.ph ], [ %42, %for.inc ]
   %conv14110 = phi i64 [ 0, %for.body18.lr.ph ], [ %conv14, %for.inc ]
   %i.0109 = phi i32 [ 0, %for.body18.lr.ph ], [ %inc, %for.inc ]
   %add.ptr.i30 = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::OutSliceInfo", ptr %slices.val111, i64 %conv14110
@@ -5061,26 +5061,25 @@ _ZN9Imath_3_24divpEii.exit73:                     ; preds = %cond.true2.i71, %co
   %38 = load i64, ptr %xStride, align 8
   %mul44 = mul i64 %38, %conv43
   %add45 = add i64 %add42, %mul44
-  %39 = inttoptr i64 %add45 to ptr
-  store ptr %39, ptr %readPtr, align 8
+  store i64 %add45, ptr %readPtr, align 8
   %conv46 = sext i32 %cond21.i40 to i64
   %mul48 = mul i64 %38, %conv46
   %add49 = add i64 %add42, %mul48
-  %40 = inttoptr i64 %add49 to ptr
+  %39 = inttoptr i64 %add49 to ptr
   %format52 = getelementptr inbounds %"struct.Imf_3_2::OutputFile::Data", ptr %13, i64 0, i32 17
-  %41 = load i32, ptr %format52, align 8
-  %42 = load i32, ptr %add.ptr.i30, align 8
-  invoke void @_ZN7Imf_3_219copyFromFrameBufferERPcRPKcS3_mNS_10Compressor6FormatENS_9PixelTypeE(ptr noundef nonnull align 8 dereferenceable(8) %writePtr, ptr noundef nonnull align 8 dereferenceable(8) %readPtr, ptr noundef %40, i64 noundef %38, i32 noundef %41, i32 noundef %42)
+  %40 = load i32, ptr %format52, align 8
+  %41 = load i32, ptr %add.ptr.i30, align 8
+  invoke void @_ZN7Imf_3_219copyFromFrameBufferERPcRPKcS3_mNS_10Compressor6FormatENS_9PixelTypeE(ptr noundef nonnull align 8 dereferenceable(8) %writePtr, ptr noundef nonnull align 8 dereferenceable(8) %readPtr, ptr noundef %39, i64 noundef %38, i32 noundef %40, i32 noundef %41)
           to label %for.inc unwind label %lpad.loopexit.split-lp.loopexit
 
 for.inc:                                          ; preds = %if.then32, %_ZN9Imath_3_24divpEii.exit73, %_ZN9Imath_3_24modpEii.exit
   %inc = add i32 %i.0109, 1
   %conv14 = zext i32 %inc to i64
-  %43 = load ptr, ptr %_ofd, align 8
-  %slices = getelementptr inbounds %"struct.Imf_3_2::OutputFile::Data", ptr %43, i64 0, i32 19
+  %42 = load ptr, ptr %_ofd, align 8
+  %slices = getelementptr inbounds %"struct.Imf_3_2::OutputFile::Data", ptr %42, i64 0, i32 19
   %slices.val = load ptr, ptr %slices, align 8
-  %44 = getelementptr %"struct.Imf_3_2::OutputFile::Data", ptr %43, i64 0, i32 19, i32 0, i32 0, i32 0, i32 1
-  %slices.val29 = load ptr, ptr %44, align 8
+  %43 = getelementptr %"struct.Imf_3_2::OutputFile::Data", ptr %42, i64 0, i32 19, i32 0, i32 0, i32 0, i32 1
+  %slices.val29 = load ptr, ptr %43, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %slices.val29 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %slices.val to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -5094,15 +5093,15 @@ for.end.loopexit:                                 ; preds = %for.inc
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %for.body
-  %45 = phi ptr [ %.pre115, %for.end.loopexit ], [ %add.ptr, %for.body ]
-  %46 = phi ptr [ %.pre, %for.end.loopexit ], [ %5, %for.body ]
-  %endOfLineBufferData = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %46, i64 0, i32 3
-  %47 = load ptr, ptr %endOfLineBufferData, align 8
-  %cmp57 = icmp ult ptr %47, %45
+  %44 = phi ptr [ %.pre115, %for.end.loopexit ], [ %add.ptr, %for.body ]
+  %45 = phi ptr [ %.pre, %for.end.loopexit ], [ %5, %for.body ]
+  %endOfLineBufferData = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %45, i64 0, i32 3
+  %46 = load ptr, ptr %endOfLineBufferData, align 8
+  %cmp57 = icmp ult ptr %46, %44
   br i1 %cmp57, label %if.then58, label %for.inc62
 
 if.then58:                                        ; preds = %for.end
-  store ptr %45, ptr %endOfLineBufferData, align 8
+  store ptr %44, ptr %endOfLineBufferData, align 8
   br label %for.inc62
 
 for.inc62:                                        ; preds = %for.end, %if.then58
@@ -5115,96 +5114,96 @@ for.end64.loopexit:                               ; preds = %for.inc62
   br label %for.end64
 
 for.end64:                                        ; preds = %for.end64.loopexit, %if.end
-  %48 = phi ptr [ %.pre116, %for.end64.loopexit ], [ %2, %if.end ]
+  %47 = phi ptr [ %.pre116, %for.end64.loopexit ], [ %2, %if.end ]
   %_lineBuffer65 = getelementptr inbounds %"class.Imf_3_2::(anonymous namespace)::LineBufferTask", ptr %this, i64 0, i32 2
-  %minY66 = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %48, i64 0, i32 4
-  %49 = load i32, ptr %minY66, align 8
-  %cmp67.not = icmp slt i32 %yStop.0, %49
+  %minY66 = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %47, i64 0, i32 4
+  %48 = load i32, ptr %minY66, align 8
+  %cmp67.not = icmp slt i32 %yStop.0, %48
   br i1 %cmp67.not, label %if.end71, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.end64
-  %maxY = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %48, i64 0, i32 5
-  %50 = load i32, ptr %maxY, align 4
-  %cmp69.not = icmp sgt i32 %yStop.0, %50
+  %maxY = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %47, i64 0, i32 5
+  %49 = load i32, ptr %maxY, align 4
+  %cmp69.not = icmp sgt i32 %yStop.0, %49
   br i1 %cmp69.not, label %if.end71, label %try.cont
 
 if.end71:                                         ; preds = %land.lhs.true, %for.end64
-  %_data.i74 = getelementptr inbounds %"class.Imf_3_2::Array", ptr %48, i64 0, i32 1
-  %51 = load ptr, ptr %_data.i74, align 8
-  %dataPtr = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %48, i64 0, i32 1
-  store ptr %51, ptr %dataPtr, align 8
-  %52 = load ptr, ptr %_lineBuffer65, align 8
-  %endOfLineBufferData77 = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %52, i64 0, i32 3
-  %53 = load ptr, ptr %endOfLineBufferData77, align 8
-  %_data.i75 = getelementptr inbounds %"class.Imf_3_2::Array", ptr %52, i64 0, i32 1
-  %54 = load ptr, ptr %_data.i75, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %53 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %54 to i64
+  %_data.i74 = getelementptr inbounds %"class.Imf_3_2::Array", ptr %47, i64 0, i32 1
+  %50 = load ptr, ptr %_data.i74, align 8
+  %dataPtr = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %47, i64 0, i32 1
+  store ptr %50, ptr %dataPtr, align 8
+  %51 = load ptr, ptr %_lineBuffer65, align 8
+  %endOfLineBufferData77 = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %51, i64 0, i32 3
+  %52 = load ptr, ptr %endOfLineBufferData77, align 8
+  %_data.i75 = getelementptr inbounds %"class.Imf_3_2::Array", ptr %51, i64 0, i32 1
+  %53 = load ptr, ptr %_data.i75, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %52 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %53 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv81 = trunc i64 %sub.ptr.sub to i32
-  %dataSize = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %52, i64 0, i32 2
+  %dataSize = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %51, i64 0, i32 2
   store i32 %conv81, ptr %dataSize, align 8
-  %55 = load ptr, ptr %_lineBuffer65, align 8
-  %compressor84 = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %55, i64 0, i32 8
-  %56 = load ptr, ptr %compressor84, align 8
-  %tobool85.not = icmp eq ptr %56, null
+  %54 = load ptr, ptr %_lineBuffer65, align 8
+  %compressor84 = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %54, i64 0, i32 8
+  %55 = load ptr, ptr %compressor84, align 8
+  %tobool85.not = icmp eq ptr %55, null
   br i1 %tobool85.not, label %if.end120, label %if.then86
 
 if.then86:                                        ; preds = %if.end71
-  %dataPtr88 = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %55, i64 0, i32 1
-  %57 = load ptr, ptr %dataPtr88, align 8
-  %dataSize90 = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %55, i64 0, i32 2
-  %58 = load i32, ptr %dataSize90, align 8
-  %minY92 = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %55, i64 0, i32 4
-  %59 = load i32, ptr %minY92, align 8
-  %vtable = load ptr, ptr %56, align 8
+  %dataPtr88 = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %54, i64 0, i32 1
+  %56 = load ptr, ptr %dataPtr88, align 8
+  %dataSize90 = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %54, i64 0, i32 2
+  %57 = load i32, ptr %dataSize90, align 8
+  %minY92 = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %54, i64 0, i32 4
+  %58 = load i32, ptr %minY92, align 8
+  %vtable = load ptr, ptr %55, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
-  %60 = load ptr, ptr %vfn, align 8
-  %call94 = invoke noundef i32 %60(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef %57, i32 noundef %58, i32 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %compPtr)
+  %59 = load ptr, ptr %vfn, align 8
+  %call94 = invoke noundef i32 %59(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef %56, i32 noundef %57, i32 noundef %58, ptr noundef nonnull align 8 dereferenceable(8) %compPtr)
           to label %invoke.cont93 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont93:                                    ; preds = %if.then86
-  %61 = load ptr, ptr %_lineBuffer65, align 8
-  %dataSize96 = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %61, i64 0, i32 2
-  %62 = load i32, ptr %dataSize96, align 8
-  %cmp97 = icmp slt i32 %call94, %62
+  %60 = load ptr, ptr %_lineBuffer65, align 8
+  %dataSize96 = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %60, i64 0, i32 2
+  %61 = load i32, ptr %dataSize96, align 8
+  %cmp97 = icmp slt i32 %call94, %61
   br i1 %cmp97, label %if.then98, label %if.else103
 
 if.then98:                                        ; preds = %invoke.cont93
   store i32 %call94, ptr %dataSize96, align 8
-  %63 = load ptr, ptr %compPtr, align 8
-  %64 = load ptr, ptr %_lineBuffer65, align 8
-  %dataPtr102 = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %64, i64 0, i32 1
-  store ptr %63, ptr %dataPtr102, align 8
+  %62 = load ptr, ptr %compPtr, align 8
+  %63 = load ptr, ptr %_lineBuffer65, align 8
+  %dataPtr102 = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %63, i64 0, i32 1
+  store ptr %62, ptr %dataPtr102, align 8
   br label %if.end120
 
 if.else103:                                       ; preds = %invoke.cont93
-  %65 = load ptr, ptr %_ofd, align 8
-  %format105 = getelementptr inbounds %"struct.Imf_3_2::OutputFile::Data", ptr %65, i64 0, i32 17
-  %66 = load i32, ptr %format105, align 8
-  %cmp106 = icmp eq i32 %66, 0
+  %64 = load ptr, ptr %_ofd, align 8
+  %format105 = getelementptr inbounds %"struct.Imf_3_2::OutputFile::Data", ptr %64, i64 0, i32 17
+  %65 = load i32, ptr %format105, align 8
+  %cmp106 = icmp eq i32 %65, 0
   br i1 %cmp106, label %if.then107, label %if.end120
 
 if.then107:                                       ; preds = %if.else103
-  %minY112 = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %61, i64 0, i32 4
-  %67 = load i32, ptr %minY112, align 8
-  %maxY114 = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %61, i64 0, i32 5
-  %68 = load i32, ptr %maxY114, align 4
-  %69 = getelementptr i8, ptr %61, i64 8
-  %.val = load ptr, ptr %69, align 8
+  %minY112 = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %60, i64 0, i32 4
+  %66 = load i32, ptr %minY112, align 8
+  %maxY114 = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %60, i64 0, i32 5
+  %67 = load i32, ptr %maxY114, align 4
+  %68 = getelementptr i8, ptr %60, i64 8
+  %.val = load ptr, ptr %68, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %writePtr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %readPtr.i)
   store ptr %.val, ptr %writePtr.i, align 8
-  %cmp.not11.i = icmp sgt i32 %67, %68
+  %cmp.not11.i = icmp sgt i32 %66, %67
   br i1 %cmp.not11.i, label %_ZN7Imf_3_212_GLOBAL__N_112convertToXdrEPNS_10OutputFile4DataERNS_5ArrayIcEEiii.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then107
-  %slices.i = getelementptr inbounds %"struct.Imf_3_2::OutputFile::Data", ptr %65, i64 0, i32 19
-  %70 = getelementptr %"struct.Imf_3_2::OutputFile::Data", ptr %65, i64 0, i32 19, i32 0, i32 0, i32 0, i32 1
-  %minX.i = getelementptr inbounds %"struct.Imf_3_2::OutputFile::Data", ptr %65, i64 0, i32 9
-  %maxX.i = getelementptr inbounds %"struct.Imf_3_2::OutputFile::Data", ptr %65, i64 0, i32 10
+  %slices.i = getelementptr inbounds %"struct.Imf_3_2::OutputFile::Data", ptr %64, i64 0, i32 19
+  %69 = getelementptr %"struct.Imf_3_2::OutputFile::Data", ptr %64, i64 0, i32 19, i32 0, i32 0, i32 0, i32 1
+  %minX.i = getelementptr inbounds %"struct.Imf_3_2::OutputFile::Data", ptr %64, i64 0, i32 9
+  %maxX.i = getelementptr inbounds %"struct.Imf_3_2::OutputFile::Data", ptr %64, i64 0, i32 10
   %slices.val1.pre.i = load ptr, ptr %slices.i, align 8
-  %slices.val112.pre.i = load ptr, ptr %70, align 8
+  %slices.val112.pre.i = load ptr, ptr %69, align 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc14.i, %for.body.lr.ph.i
@@ -5212,15 +5211,15 @@ for.body.i:                                       ; preds = %for.inc14.i, %for.b
   %slices.val17.i = phi ptr [ %slices.val1.pre.i, %for.body.lr.ph.i ], [ %slices.val18.i, %for.inc14.i ]
   %slices.val112.i = phi ptr [ %slices.val112.pre.i, %for.body.lr.ph.i ], [ %slices.val11215.i, %for.inc14.i ]
   %slices.val1.i = phi ptr [ %slices.val1.pre.i, %for.body.lr.ph.i ], [ %slices.val113.i, %for.inc14.i ]
-  %y.012.i = phi i32 [ %67, %for.body.lr.ph.i ], [ %inc15.i, %for.inc14.i ]
-  %71 = load ptr, ptr %writePtr.i, align 8
-  store ptr %71, ptr %readPtr.i, align 8
+  %y.012.i = phi i32 [ %66, %for.body.lr.ph.i ], [ %inc15.i, %for.inc14.i ]
+  %70 = load ptr, ptr %writePtr.i, align 8
+  store ptr %70, ptr %readPtr.i, align 8
   %cmp37.not.i = icmp eq ptr %slices.val112.i, %slices.val1.i
   br i1 %cmp37.not.i, label %for.inc14.i, label %for.body4.lr.ph.i
 
 for.body4.lr.ph.i:                                ; preds = %for.body.i
   %cmp.i.i.i = icmp sgt i32 %y.012.i, -1
-  %72 = xor i32 %y.012.i, -1
+  %71 = xor i32 %y.012.i, -1
   br label %for.body4.i
 
 for.body4.i:                                      ; preds = %for.inc.i, %for.body4.lr.ph.i
@@ -5231,19 +5230,19 @@ for.body4.i:                                      ; preds = %for.inc.i, %for.bod
   %i.08.i = phi i32 [ 0, %for.body4.lr.ph.i ], [ %inc.i, %for.inc.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::OutSliceInfo", ptr %slices.val10.i, i64 %conv9.i
   %ySampling.i = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::OutSliceInfo", ptr %slices.val10.i, i64 %conv9.i, i32 6
-  %73 = load i32, ptr %ySampling.i, align 4
-  %cmp1.i.i.i = icmp sgt i32 %73, -1
+  %72 = load i32, ptr %ySampling.i, align 4
+  %cmp1.i.i.i = icmp sgt i32 %72, -1
   br i1 %cmp.i.i.i, label %cond.true.i.i.i, label %cond.false5.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %for.body4.i
   br i1 %cmp1.i.i.i, label %cond.true2.i.i.i, label %cond.false.i.i.i
 
 cond.true2.i.i.i:                                 ; preds = %cond.true.i.i.i
-  %div.i.i.i = udiv i32 %y.012.i, %73
+  %div.i.i.i = udiv i32 %y.012.i, %72
   br label %_ZN9Imath_3_24modpEii.exit.i
 
 cond.false.i.i.i:                                 ; preds = %cond.true.i.i.i
-  %sub.i.i.i = sub nsw i32 0, %73
+  %sub.i.i.i = sub nsw i32 0, %72
   %div3.i.i.i = udiv i32 %y.012.i, %sub.i.i.i
   %sub4.i.i.i = sub nsw i32 0, %div3.i.i.i
   br label %_ZN9Imath_3_24modpEii.exit.i
@@ -5252,42 +5251,42 @@ cond.false5.i.i.i:                                ; preds = %for.body4.i
   br i1 %cmp1.i.i.i, label %cond.true7.i.i.i, label %cond.false12.i.i.i
 
 cond.true7.i.i.i:                                 ; preds = %cond.false5.i.i.i
-  %sub9.i.i.i = add nuw i32 %73, %72
-  %div10.i.i.i = sdiv i32 %sub9.i.i.i, %73
+  %sub9.i.i.i = add nuw i32 %72, %71
+  %div10.i.i.i = sdiv i32 %sub9.i.i.i, %72
   %sub11.i.i.i = sub nsw i32 0, %div10.i.i.i
   br label %_ZN9Imath_3_24modpEii.exit.i
 
 cond.false12.i.i.i:                               ; preds = %cond.false5.i.i.i
-  %sub13.i.i.i = sub nsw i32 0, %73
-  %sub14.i.i.i = xor i32 %73, -1
+  %sub13.i.i.i = sub nsw i32 0, %72
+  %sub14.i.i.i = xor i32 %72, -1
   %sub15.i.i.i = sub nsw i32 %sub14.i.i.i, %y.012.i
   %div17.i.i.i = udiv i32 %sub15.i.i.i, %sub13.i.i.i
   br label %_ZN9Imath_3_24modpEii.exit.i
 
 _ZN9Imath_3_24modpEii.exit.i:                     ; preds = %cond.false12.i.i.i, %cond.true7.i.i.i, %cond.false.i.i.i, %cond.true2.i.i.i
   %cond21.i.i.i = phi i32 [ %div.i.i.i, %cond.true2.i.i.i ], [ %sub4.i.i.i, %cond.false.i.i.i ], [ %sub11.i.i.i, %cond.true7.i.i.i ], [ %div17.i.i.i, %cond.false12.i.i.i ]
-  %mul.i.i = mul nsw i32 %cond21.i.i.i, %73
+  %mul.i.i = mul nsw i32 %cond21.i.i.i, %72
   %cmp9.not.i = icmp eq i32 %y.012.i, %mul.i.i
   br i1 %cmp9.not.i, label %if.end.i, label %for.inc.i
 
 if.end.i:                                         ; preds = %_ZN9Imath_3_24modpEii.exit.i
-  %74 = load i32, ptr %minX.i, align 4
+  %73 = load i32, ptr %minX.i, align 4
   %xSampling.i = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::OutSliceInfo", ptr %slices.val10.i, i64 %conv9.i, i32 5
-  %75 = load i32, ptr %xSampling.i, align 8
-  %cmp.i.i76 = icmp sgt i32 %74, -1
-  %cmp1.i.i77 = icmp sgt i32 %75, -1
+  %74 = load i32, ptr %xSampling.i, align 8
+  %cmp.i.i76 = icmp sgt i32 %73, -1
+  %cmp1.i.i77 = icmp sgt i32 %74, -1
   br i1 %cmp.i.i76, label %cond.true.i.i89, label %cond.false5.i.i78
 
 cond.true.i.i89:                                  ; preds = %if.end.i
   br i1 %cmp1.i.i77, label %cond.true2.i.i93, label %cond.false.i.i90
 
 cond.true2.i.i93:                                 ; preds = %cond.true.i.i89
-  %div.i.i94 = udiv i32 %74, %75
+  %div.i.i94 = udiv i32 %73, %74
   br label %_ZN9Imath_3_24divpEii.exit.i
 
 cond.false.i.i90:                                 ; preds = %cond.true.i.i89
-  %sub.i13.i = sub nsw i32 0, %75
-  %div3.i.i91 = udiv i32 %74, %sub.i13.i
+  %sub.i13.i = sub nsw i32 0, %74
+  %div3.i.i91 = udiv i32 %73, %sub.i13.i
   %sub4.i.i92 = sub nsw i32 0, %div3.i.i91
   br label %_ZN9Imath_3_24divpEii.exit.i
 
@@ -5295,35 +5294,35 @@ cond.false5.i.i78:                                ; preds = %if.end.i
   br i1 %cmp1.i.i77, label %cond.true7.i.i85, label %cond.false12.i.i79
 
 cond.true7.i.i85:                                 ; preds = %cond.false5.i.i78
-  %76 = xor i32 %74, -1
-  %sub9.i.i86 = add nuw i32 %75, %76
-  %div10.i.i87 = sdiv i32 %sub9.i.i86, %75
+  %75 = xor i32 %73, -1
+  %sub9.i.i86 = add nuw i32 %74, %75
+  %div10.i.i87 = sdiv i32 %sub9.i.i86, %74
   %sub11.i.i88 = sub nsw i32 0, %div10.i.i87
   br label %_ZN9Imath_3_24divpEii.exit.i
 
 cond.false12.i.i79:                               ; preds = %cond.false5.i.i78
-  %sub13.i.i80 = sub nsw i32 0, %75
-  %sub14.i.i81 = xor i32 %75, -1
-  %sub15.i.i82 = sub nsw i32 %sub14.i.i81, %74
+  %sub13.i.i80 = sub nsw i32 0, %74
+  %sub14.i.i81 = xor i32 %74, -1
+  %sub15.i.i82 = sub nsw i32 %sub14.i.i81, %73
   %div17.i.i83 = udiv i32 %sub15.i.i82, %sub13.i.i80
   br label %_ZN9Imath_3_24divpEii.exit.i
 
 _ZN9Imath_3_24divpEii.exit.i:                     ; preds = %cond.false12.i.i79, %cond.true7.i.i85, %cond.false.i.i90, %cond.true2.i.i93
   %cond21.i.i84 = phi i32 [ %div.i.i94, %cond.true2.i.i93 ], [ %sub4.i.i92, %cond.false.i.i90 ], [ %sub11.i.i88, %cond.true7.i.i85 ], [ %div17.i.i83, %cond.false12.i.i79 ]
-  %77 = load i32, ptr %maxX.i, align 8
-  %cmp.i14.i = icmp sgt i32 %77, -1
+  %76 = load i32, ptr %maxX.i, align 8
+  %cmp.i14.i = icmp sgt i32 %76, -1
   br i1 %cmp.i14.i, label %cond.true.i27.i, label %cond.false5.i16.i
 
 cond.true.i27.i:                                  ; preds = %_ZN9Imath_3_24divpEii.exit.i
   br i1 %cmp1.i.i77, label %cond.true2.i32.i, label %cond.false.i28.i
 
 cond.true2.i32.i:                                 ; preds = %cond.true.i27.i
-  %div.i33.i = udiv i32 %77, %75
+  %div.i33.i = udiv i32 %76, %74
   br label %_ZN9Imath_3_24divpEii.exit34.i
 
 cond.false.i28.i:                                 ; preds = %cond.true.i27.i
-  %sub.i29.i = sub nsw i32 0, %75
-  %div3.i30.i = udiv i32 %77, %sub.i29.i
+  %sub.i29.i = sub nsw i32 0, %74
+  %div3.i30.i = udiv i32 %76, %sub.i29.i
   %sub4.i31.i = sub nsw i32 0, %div3.i30.i
   br label %_ZN9Imath_3_24divpEii.exit34.i
 
@@ -5331,31 +5330,31 @@ cond.false5.i16.i:                                ; preds = %_ZN9Imath_3_24divpE
   br i1 %cmp1.i.i77, label %cond.true7.i23.i, label %cond.false12.i17.i
 
 cond.true7.i23.i:                                 ; preds = %cond.false5.i16.i
-  %78 = xor i32 %77, -1
-  %sub9.i24.i = add nuw i32 %75, %78
-  %div10.i25.i = sdiv i32 %sub9.i24.i, %75
+  %77 = xor i32 %76, -1
+  %sub9.i24.i = add nuw i32 %74, %77
+  %div10.i25.i = sdiv i32 %sub9.i24.i, %74
   %sub11.i26.i = sub nsw i32 0, %div10.i25.i
   br label %_ZN9Imath_3_24divpEii.exit34.i
 
 cond.false12.i17.i:                               ; preds = %cond.false5.i16.i
-  %sub13.i18.i = sub nsw i32 0, %75
-  %sub14.i19.i = xor i32 %75, -1
-  %sub15.i20.i = sub nsw i32 %sub14.i19.i, %77
+  %sub13.i18.i = sub nsw i32 0, %74
+  %sub14.i19.i = xor i32 %74, -1
+  %sub15.i20.i = sub nsw i32 %sub14.i19.i, %76
   %div17.i21.i = udiv i32 %sub15.i20.i, %sub13.i18.i
   br label %_ZN9Imath_3_24divpEii.exit34.i
 
 _ZN9Imath_3_24divpEii.exit34.i:                   ; preds = %cond.false12.i17.i, %cond.true7.i23.i, %cond.false.i28.i, %cond.true2.i32.i
   %cond21.i22.i = phi i32 [ %div.i33.i, %cond.true2.i32.i ], [ %sub4.i31.i, %cond.false.i28.i ], [ %sub11.i26.i, %cond.true7.i23.i ], [ %div17.i21.i, %cond.false12.i17.i ]
-  %79 = load i32, ptr %add.ptr.i.i, align 8
+  %78 = load i32, ptr %add.ptr.i.i, align 8
   %reass.sub114 = sub i32 %cond21.i22.i, %cond21.i.i84
   %add.i = add i32 %reass.sub114, 1
   %conv13.i = sext i32 %add.i to i64
-  invoke void @_ZN7Imf_3_214convertInPlaceERPcRPKcNS_9PixelTypeEm(ptr noundef nonnull align 8 dereferenceable(8) %writePtr.i, ptr noundef nonnull align 8 dereferenceable(8) %readPtr.i, i32 noundef %79, i64 noundef %conv13.i)
+  invoke void @_ZN7Imf_3_214convertInPlaceERPcRPKcNS_9PixelTypeEm(ptr noundef nonnull align 8 dereferenceable(8) %writePtr.i, ptr noundef nonnull align 8 dereferenceable(8) %readPtr.i, i32 noundef %78, i64 noundef %conv13.i)
           to label %.noexc unwind label %lpad.loopexit
 
 .noexc:                                           ; preds = %_ZN9Imath_3_24divpEii.exit34.i
   %slices.val.pre.i = load ptr, ptr %slices.i, align 8
-  %slices.val11.pre.i = load ptr, ptr %70, align 8
+  %slices.val11.pre.i = load ptr, ptr %69, align 8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %.noexc, %_ZN9Imath_3_24modpEii.exit.i
@@ -5376,7 +5375,7 @@ for.inc14.i:                                      ; preds = %for.inc.i, %for.bod
   %slices.val11215.i = phi ptr [ %slices.val112.i, %for.body.i ], [ %slices.val11.i, %for.inc.i ]
   %slices.val113.i = phi ptr [ %slices.val112.i, %for.body.i ], [ %slices.val.i, %for.inc.i ]
   %inc15.i = add i32 %y.012.i, 1
-  %exitcond.not.i = icmp eq i32 %y.012.i, %68
+  %exitcond.not.i = icmp eq i32 %y.012.i, %67
   br i1 %exitcond.not.i, label %_ZN7Imf_3_212_GLOBAL__N_112convertToXdrEPNS_10OutputFile4DataERNS_5ArrayIcEEiii.exit, label %for.body.i, !llvm.loop !36
 
 _ZN7Imf_3_212_GLOBAL__N_112convertToXdrEPNS_10OutputFile4DataERNS_5ArrayIcEEiii.exit: ; preds = %for.inc14.i, %if.then107
@@ -5385,13 +5384,13 @@ _ZN7Imf_3_212_GLOBAL__N_112convertToXdrEPNS_10OutputFile4DataERNS_5ArrayIcEEiii.
   br label %if.end120
 
 if.end120:                                        ; preds = %_ZN7Imf_3_212_GLOBAL__N_112convertToXdrEPNS_10OutputFile4DataERNS_5ArrayIcEEiii.exit, %if.then98, %if.else103, %if.end71
-  %80 = load ptr, ptr %_lineBuffer65, align 8
-  %partiallyFull = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %80, i64 0, i32 9
+  %79 = load ptr, ptr %_lineBuffer65, align 8
+  %partiallyFull = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::LineBuffer", ptr %79, i64 0, i32 9
   store i8 0, ptr %partiallyFull, align 8
   br label %try.cont
 
 lpad126:                                          ; preds = %if.then124
-  %81 = landingpad { ptr, i32 }
+  %80 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -5401,7 +5400,7 @@ if.end131:                                        ; preds = %invoke.cont127, %ca
   br label %try.cont
 
 lpad144:                                          ; preds = %if.then138
-  %82 = landingpad { ptr, i32 }
+  %81 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -5414,14 +5413,14 @@ try.cont:                                         ; preds = %land.lhs.true, %if.
   ret void
 
 eh.resume:                                        ; preds = %lpad144, %lpad126
-  %.pn = phi { ptr, i32 } [ %82, %lpad144 ], [ %81, %lpad126 ]
+  %.pn = phi { ptr, i32 } [ %81, %lpad144 ], [ %80, %lpad126 ]
   resume { ptr, i32 } %.pn
 
 terminate.lpad:                                   ; preds = %lpad144, %lpad126
-  %83 = landingpad { ptr, i32 }
+  %82 = landingpad { ptr, i32 }
           catch ptr null
-  %84 = extractvalue { ptr, i32 } %83, 0
-  call void @__clang_call_terminate(ptr %84) #22
+  %83 = extractvalue { ptr, i32 } %82, 0
+  call void @__clang_call_terminate(ptr %83) #22
   unreachable
 }
 

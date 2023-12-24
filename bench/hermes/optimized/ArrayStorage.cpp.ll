@@ -431,12 +431,11 @@ if.then:                                          ; preds = %entry
   %call.i.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.5, i32 noundef %capacity) #7
   %conv.i.i = sext i32 %call.i.i to i64
   %ref.tmp4.i.sroa.0.0.insert.ext = zext i32 %capacity to i64
-  %2 = inttoptr i64 %ref.tmp4.i.sroa.0.0.insert.ext to ptr
   store ptr @.str.2, ptr %ref.tmp2.i, align 8, !alias.scope !4
   %leftKind_.i22.i.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp2.i, i64 0, i32 1
   store i32 3, ptr %leftKind_.i22.i.i.i, align 8, !alias.scope !4
   %rightChild_.i.i.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp2.i, i64 0, i32 2
-  store ptr %2, ptr %rightChild_.i.i.i.i, align 8, !alias.scope !4
+  store i64 %ref.tmp4.i.sroa.0.0.insert.ext, ptr %rightChild_.i.i.i.i, align 8, !alias.scope !4
   %rightKind_.i23.i.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp2.i, i64 0, i32 3
   store i32 7, ptr %rightKind_.i23.i.i.i, align 8, !alias.scope !4
   %leftSize_.i24.i.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp2.i, i64 0, i32 4
@@ -462,7 +461,7 @@ if.then:                                          ; preds = %entry
   %leftKind_.i22.i.i80.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 1
   store i32 2, ptr %leftKind_.i22.i.i80.i, align 8, !alias.scope !14
   %rightChild_.i.i.i81.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 2
-  store ptr inttoptr (i64 513535 to ptr), ptr %rightChild_.i.i.i81.i, align 8, !alias.scope !14
+  store i64 513535, ptr %rightChild_.i.i.i81.i, align 8, !alias.scope !14
   %rightKind_.i23.i.i82.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 3
   store i32 7, ptr %rightKind_.i23.i.i82.i, align 8, !alias.scope !14
   %leftSize_.i24.i.i83.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 4
@@ -480,12 +479,12 @@ if.end:                                           ; preds = %entry
   %sub.i.i.i.i = add nuw nsw i32 %mul.i.i.i, 15
   %div1.i.i.i.i = and i32 %sub.i.i.i.i, 8388600
   %level_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 97, i32 0, i32 5, i32 0, i32 1
-  %3 = load ptr, ptr %level_.i.i.i.i.i.i, align 8
+  %2 = load ptr, ptr %level_.i.i.i.i.i.i, align 8
   %idx.ext.i.i.i.i.i.i = zext nneg i32 %div1.i.i.i.i to i64
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %idx.ext.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 %idx.ext.i.i.i.i.i.i
   %effectiveEnd_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 97, i32 0, i32 5, i32 0, i32 2
-  %4 = load ptr, ptr %effectiveEnd_.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp ugt ptr %add.ptr.i.i.i.i.i.i, %4
+  %3 = load ptr, ptr %effectiveEnd_.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i = icmp ugt ptr %add.ptr.i.i.i.i.i.i, %3
   br i1 %cmp.i.i.i.i.i.i, label %cond.true.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 cond.true.i.i.i.i.i:                              ; preds = %if.end
@@ -498,12 +497,12 @@ cond.false.i.i.i.i.i:                             ; preds = %if.end
   br label %_ZN6hermes2vm7Runtime13makeAVariableINS0_16ArrayStorageBaseINS0_11HermesValueEEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJEEEPT_jDpOT2_.exit
 
 _ZN6hermes2vm7Runtime13makeAVariableINS0_16ArrayStorageBaseINS0_11HermesValueEEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJEEEPT_jDpOT2_.exit: ; preds = %cond.true.i.i.i.i.i, %cond.false.i.i.i.i.i
-  %cond.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %3, %cond.false.i.i.i.i.i ]
+  %cond.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %2, %cond.false.i.i.i.i.i ]
   store i64 0, ptr %cond.i.i.i.i.i, align 8
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %div1.i.i.i.i, 234881024
   store i32 %bf.set7.i.i.i.i.i.i, ptr %cond.i.i.i.i.i, align 4
-  %5 = ptrtoint ptr %cond.i.i.i.i.i to i64
-  %or.i.i.i = or i64 %5, -281474976710656
+  %4 = ptrtoint ptr %cond.i.i.i.i.i to i64
+  %or.i.i.i = or i64 %4, -281474976710656
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm7Runtime13makeAVariableINS0_16ArrayStorageBaseINS0_11HermesValueEEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJEEEPT_jDpOT2_.exit, %if.then
@@ -529,12 +528,11 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit91:
   %call.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.5, i32 noundef %capacity) #7
   %conv.i = sext i32 %call.i to i64
   %ref.tmp4.sroa.0.0.insert.ext = zext i32 %capacity to i64
-  %2 = inttoptr i64 %ref.tmp4.sroa.0.0.insert.ext to ptr
   store ptr @.str.2, ptr %ref.tmp2, align 8, !alias.scope !19
   %leftKind_.i22.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp2, i64 0, i32 1
   store i32 3, ptr %leftKind_.i22.i.i, align 8, !alias.scope !19
   %rightChild_.i.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp2, i64 0, i32 2
-  store ptr %2, ptr %rightChild_.i.i.i, align 8, !alias.scope !19
+  store i64 %ref.tmp4.sroa.0.0.insert.ext, ptr %rightChild_.i.i.i, align 8, !alias.scope !19
   %rightKind_.i23.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp2, i64 0, i32 3
   store i32 7, ptr %rightKind_.i23.i.i, align 8, !alias.scope !19
   %leftSize_.i24.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp2, i64 0, i32 4
@@ -560,7 +558,7 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit91:
   %leftKind_.i22.i.i80 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp, i64 0, i32 1
   store i32 2, ptr %leftKind_.i22.i.i80, align 8, !alias.scope !29
   %rightChild_.i.i.i81 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp, i64 0, i32 2
-  store ptr inttoptr (i64 513535 to ptr), ptr %rightChild_.i.i.i81, align 8, !alias.scope !29
+  store i64 513535, ptr %rightChild_.i.i.i81, align 8, !alias.scope !29
   %rightKind_.i23.i.i82 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp, i64 0, i32 3
   store i32 7, ptr %rightKind_.i23.i.i82, align 8, !alias.scope !29
   %leftSize_.i24.i.i83 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp, i64 0, i32 4
@@ -594,12 +592,11 @@ if.then:                                          ; preds = %entry
   %call.i.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.5, i32 noundef %capacity) #7
   %conv.i.i = sext i32 %call.i.i to i64
   %ref.tmp4.i.sroa.0.0.insert.ext = zext i32 %capacity to i64
-  %2 = inttoptr i64 %ref.tmp4.i.sroa.0.0.insert.ext to ptr
   store ptr @.str.2, ptr %ref.tmp2.i, align 8, !alias.scope !34
   %leftKind_.i22.i.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp2.i, i64 0, i32 1
   store i32 3, ptr %leftKind_.i22.i.i.i, align 8, !alias.scope !34
   %rightChild_.i.i.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp2.i, i64 0, i32 2
-  store ptr %2, ptr %rightChild_.i.i.i.i, align 8, !alias.scope !34
+  store i64 %ref.tmp4.i.sroa.0.0.insert.ext, ptr %rightChild_.i.i.i.i, align 8, !alias.scope !34
   %rightKind_.i23.i.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp2.i, i64 0, i32 3
   store i32 7, ptr %rightKind_.i23.i.i.i, align 8, !alias.scope !34
   %leftSize_.i24.i.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp2.i, i64 0, i32 4
@@ -625,7 +622,7 @@ if.then:                                          ; preds = %entry
   %leftKind_.i22.i.i80.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 1
   store i32 2, ptr %leftKind_.i22.i.i80.i, align 8, !alias.scope !44
   %rightChild_.i.i.i81.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 2
-  store ptr inttoptr (i64 513535 to ptr), ptr %rightChild_.i.i.i81.i, align 8, !alias.scope !44
+  store i64 513535, ptr %rightChild_.i.i.i81.i, align 8, !alias.scope !44
   %rightKind_.i23.i.i82.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 3
   store i32 7, ptr %rightKind_.i23.i.i82.i, align 8, !alias.scope !44
   %leftSize_.i24.i.i83.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 4
@@ -649,11 +646,11 @@ if.end:                                           ; preds = %entry
   store i64 0, ptr %call.i.i.i.i, align 8
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %div1.i.i.i.i, 234881024
   store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 4
-  %3 = load ptr, ptr %lk.i.i.i.i, align 8
-  %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #7
+  %2 = load ptr, ptr %lk.i.i.i.i, align 8
+  %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i.i)
-  %4 = ptrtoint ptr %call.i.i.i.i to i64
-  %or.i.i.i = or i64 %4, -281474976710656
+  %3 = ptrtoint ptr %call.i.i.i.i to i64
+  %or.i.i.i = or i64 %3, -281474976710656
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -1775,12 +1772,11 @@ if.then:                                          ; preds = %entry
   %call.i.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.5, i32 noundef %capacity) #7
   %conv.i.i = sext i32 %call.i.i to i64
   %ref.tmp4.i.sroa.0.0.insert.ext = zext i32 %capacity to i64
-  %2 = inttoptr i64 %ref.tmp4.i.sroa.0.0.insert.ext to ptr
   store ptr @.str.2, ptr %ref.tmp2.i, align 8, !alias.scope !54
   %leftKind_.i22.i.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp2.i, i64 0, i32 1
   store i32 3, ptr %leftKind_.i22.i.i.i, align 8, !alias.scope !54
   %rightChild_.i.i.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp2.i, i64 0, i32 2
-  store ptr %2, ptr %rightChild_.i.i.i.i, align 8, !alias.scope !54
+  store i64 %ref.tmp4.i.sroa.0.0.insert.ext, ptr %rightChild_.i.i.i.i, align 8, !alias.scope !54
   %rightKind_.i23.i.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp2.i, i64 0, i32 3
   store i32 7, ptr %rightKind_.i23.i.i.i, align 8, !alias.scope !54
   %leftSize_.i24.i.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp2.i, i64 0, i32 4
@@ -1806,7 +1802,7 @@ if.then:                                          ; preds = %entry
   %leftKind_.i22.i.i80.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 1
   store i32 2, ptr %leftKind_.i22.i.i80.i, align 8, !alias.scope !64
   %rightChild_.i.i.i81.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 2
-  store ptr inttoptr (i64 1027070 to ptr), ptr %rightChild_.i.i.i81.i, align 8, !alias.scope !64
+  store i64 1027070, ptr %rightChild_.i.i.i81.i, align 8, !alias.scope !64
   %rightKind_.i23.i.i82.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 3
   store i32 7, ptr %rightKind_.i23.i.i82.i, align 8, !alias.scope !64
   %leftSize_.i24.i.i83.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 4
@@ -1824,12 +1820,12 @@ if.end:                                           ; preds = %entry
   %sub.i.i.i.i = add nuw nsw i32 %mul.i.i.i, 15
   %div1.i.i.i.i = and i32 %sub.i.i.i.i, 8388600
   %level_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 97, i32 0, i32 5, i32 0, i32 1
-  %3 = load ptr, ptr %level_.i.i.i.i.i.i, align 8
+  %2 = load ptr, ptr %level_.i.i.i.i.i.i, align 8
   %idx.ext.i.i.i.i.i.i = zext nneg i32 %div1.i.i.i.i to i64
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %idx.ext.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 %idx.ext.i.i.i.i.i.i
   %effectiveEnd_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 97, i32 0, i32 5, i32 0, i32 2
-  %4 = load ptr, ptr %effectiveEnd_.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp ugt ptr %add.ptr.i.i.i.i.i.i, %4
+  %3 = load ptr, ptr %effectiveEnd_.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i = icmp ugt ptr %add.ptr.i.i.i.i.i.i, %3
   br i1 %cmp.i.i.i.i.i.i, label %cond.true.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 cond.true.i.i.i.i.i:                              ; preds = %if.end
@@ -1842,12 +1838,12 @@ cond.false.i.i.i.i.i:                             ; preds = %if.end
   br label %_ZN6hermes2vm7Runtime13makeAVariableINS0_16ArrayStorageBaseINS0_13HermesValue32EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJEEEPT_jDpOT2_.exit
 
 _ZN6hermes2vm7Runtime13makeAVariableINS0_16ArrayStorageBaseINS0_13HermesValue32EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJEEEPT_jDpOT2_.exit: ; preds = %cond.true.i.i.i.i.i, %cond.false.i.i.i.i.i
-  %cond.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %3, %cond.false.i.i.i.i.i ]
+  %cond.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %2, %cond.false.i.i.i.i.i ]
   store i64 0, ptr %cond.i.i.i.i.i, align 4
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %div1.i.i.i.i, 251658240
   store i32 %bf.set7.i.i.i.i.i.i, ptr %cond.i.i.i.i.i, align 4
-  %5 = ptrtoint ptr %cond.i.i.i.i.i to i64
-  %or.i.i.i = or i64 %5, -281474976710656
+  %4 = ptrtoint ptr %cond.i.i.i.i.i to i64
+  %or.i.i.i = or i64 %4, -281474976710656
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm7Runtime13makeAVariableINS0_16ArrayStorageBaseINS0_13HermesValue32EEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJEEEPT_jDpOT2_.exit, %if.then
@@ -1873,12 +1869,11 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit91:
   %call.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.5, i32 noundef %capacity) #7
   %conv.i = sext i32 %call.i to i64
   %ref.tmp4.sroa.0.0.insert.ext = zext i32 %capacity to i64
-  %2 = inttoptr i64 %ref.tmp4.sroa.0.0.insert.ext to ptr
   store ptr @.str.2, ptr %ref.tmp2, align 8, !alias.scope !69
   %leftKind_.i22.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp2, i64 0, i32 1
   store i32 3, ptr %leftKind_.i22.i.i, align 8, !alias.scope !69
   %rightChild_.i.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp2, i64 0, i32 2
-  store ptr %2, ptr %rightChild_.i.i.i, align 8, !alias.scope !69
+  store i64 %ref.tmp4.sroa.0.0.insert.ext, ptr %rightChild_.i.i.i, align 8, !alias.scope !69
   %rightKind_.i23.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp2, i64 0, i32 3
   store i32 7, ptr %rightKind_.i23.i.i, align 8, !alias.scope !69
   %leftSize_.i24.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp2, i64 0, i32 4
@@ -1904,7 +1899,7 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit91:
   %leftKind_.i22.i.i80 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp, i64 0, i32 1
   store i32 2, ptr %leftKind_.i22.i.i80, align 8, !alias.scope !79
   %rightChild_.i.i.i81 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp, i64 0, i32 2
-  store ptr inttoptr (i64 1027070 to ptr), ptr %rightChild_.i.i.i81, align 8, !alias.scope !79
+  store i64 1027070, ptr %rightChild_.i.i.i81, align 8, !alias.scope !79
   %rightKind_.i23.i.i82 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp, i64 0, i32 3
   store i32 7, ptr %rightKind_.i23.i.i82, align 8, !alias.scope !79
   %leftSize_.i24.i.i83 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp, i64 0, i32 4
@@ -1938,12 +1933,11 @@ if.then:                                          ; preds = %entry
   %call.i.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.5, i32 noundef %capacity) #7
   %conv.i.i = sext i32 %call.i.i to i64
   %ref.tmp4.i.sroa.0.0.insert.ext = zext i32 %capacity to i64
-  %2 = inttoptr i64 %ref.tmp4.i.sroa.0.0.insert.ext to ptr
   store ptr @.str.2, ptr %ref.tmp2.i, align 8, !alias.scope !84
   %leftKind_.i22.i.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp2.i, i64 0, i32 1
   store i32 3, ptr %leftKind_.i22.i.i.i, align 8, !alias.scope !84
   %rightChild_.i.i.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp2.i, i64 0, i32 2
-  store ptr %2, ptr %rightChild_.i.i.i.i, align 8, !alias.scope !84
+  store i64 %ref.tmp4.i.sroa.0.0.insert.ext, ptr %rightChild_.i.i.i.i, align 8, !alias.scope !84
   %rightKind_.i23.i.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp2.i, i64 0, i32 3
   store i32 7, ptr %rightKind_.i23.i.i.i, align 8, !alias.scope !84
   %leftSize_.i24.i.i.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp2.i, i64 0, i32 4
@@ -1969,7 +1963,7 @@ if.then:                                          ; preds = %entry
   %leftKind_.i22.i.i80.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 1
   store i32 2, ptr %leftKind_.i22.i.i80.i, align 8, !alias.scope !94
   %rightChild_.i.i.i81.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 2
-  store ptr inttoptr (i64 1027070 to ptr), ptr %rightChild_.i.i.i81.i, align 8, !alias.scope !94
+  store i64 1027070, ptr %rightChild_.i.i.i81.i, align 8, !alias.scope !94
   %rightKind_.i23.i.i82.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 3
   store i32 7, ptr %rightKind_.i23.i.i82.i, align 8, !alias.scope !94
   %leftSize_.i24.i.i83.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp.i, i64 0, i32 4
@@ -1993,11 +1987,11 @@ if.end:                                           ; preds = %entry
   store i64 0, ptr %call.i.i.i.i, align 4
   %bf.set7.i.i.i.i.i.i = or disjoint i32 %div1.i.i.i.i, 251658240
   store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 4
-  %3 = load ptr, ptr %lk.i.i.i.i, align 8
-  %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #7
+  %2 = load ptr, ptr %lk.i.i.i.i, align 8
+  %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i.i)
-  %4 = ptrtoint ptr %call.i.i.i.i to i64
-  %or.i.i.i = or i64 %4, -281474976710656
+  %3 = ptrtoint ptr %call.i.i.i.i to i64
+  %or.i.i.i = or i64 %3, -281474976710656
   br label %return
 
 return:                                           ; preds = %if.end, %if.then

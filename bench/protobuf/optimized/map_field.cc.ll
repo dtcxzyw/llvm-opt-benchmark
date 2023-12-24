@@ -1310,18 +1310,17 @@ if.end.i.i:                                       ; preds = %for.body.i.i
   br i1 %cmp.i.not.i.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
-  %9 = inttoptr i64 %7 to ptr
-  store ptr %9, ptr %map_iter, align 8
+  store i64 %7, ptr %map_iter, align 8
   br label %_ZN6google8protobuf8internal18UntypedMapIterator8PlusPlusEv.exit
 
 if.else.i.i:                                      ; preds = %if.end.i.i
   %sub.i.i.i = add nsw i64 %7, -1
-  %10 = inttoptr i64 %sub.i.i.i to ptr
+  %9 = inttoptr i64 %sub.i.i.i to ptr
+  %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr %11, align 8
-  %second.i.i = getelementptr inbounds i8, ptr %12, i64 32
-  %13 = load ptr, ptr %second.i.i, align 8
-  store ptr %13, ptr %map_iter, align 8
+  %second.i.i = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = load ptr, ptr %second.i.i, align 8
+  store ptr %12, ptr %map_iter, align 8
   br label %_ZN6google8protobuf8internal18UntypedMapIterator8PlusPlusEv.exit
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
@@ -1339,10 +1338,10 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN6google8protobuf8internal18UntypedMapIterator8PlusPlusEv.exit
 
 _ZN6google8protobuf8internal18UntypedMapIterator8PlusPlusEv.exit: ; preds = %if.then5.i.i, %if.else.i.i, %for.end.i.i, %if.else.i
-  %14 = load ptr, ptr %this, align 8
-  %set_map_iterator_value.i = getelementptr inbounds %"struct.google::protobuf::internal::MapFieldBase::VTable", ptr %14, i64 0, i32 3
-  %15 = load ptr, ptr %set_map_iterator_value.i, align 8
-  tail call void %15(ptr noundef nonnull %map_iter)
+  %13 = load ptr, ptr %this, align 8
+  %set_map_iterator_value.i = getelementptr inbounds %"struct.google::protobuf::internal::MapFieldBase::VTable", ptr %13, i64 0, i32 3
+  %14 = load ptr, ptr %set_map_iterator_value.i, align 8
+  tail call void %14(ptr noundef nonnull %map_iter)
   ret void
 }
 
@@ -1610,7 +1609,6 @@ entry:
   br i1 %tobool.i.not, label %if.then, label %if.end11
 
 if.then:                                          ; preds = %entry
-  %1 = inttoptr i64 %0 to ptr
   %cmp.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -1619,6 +1617,7 @@ if.then.i.i:                                      ; preds = %if.then
   br label %_ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINS4_8internal12MapFieldBase17ReflectionPayloadEJRPS5_EEEPT_SA_DpOT0_EUlDpOT_E_ZNS6_IS9_JSB_EEESD_SA_SG_EUlSJ_E0_JSB_EEEDaOT0_OT1_DpOT2_.exit
 
 if.end.i.i:                                       ; preds = %if.then
+  %1 = inttoptr i64 %0 to ptr
   %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena26AllocateAlignedWithCleanupEmmPFvPvE(ptr noundef nonnull align 8 dereferenceable(144) %1, i64 noundef 40, i64 noundef 8, ptr noundef nonnull @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectINS1_12MapFieldBase17ReflectionPayloadEEEvPv)
   br label %_ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINS4_8internal12MapFieldBase17ReflectionPayloadEJRPS5_EEEPT_SA_DpOT0_EUlDpOT_E_ZNS6_IS9_JSB_EEESD_SA_SG_EUlSJ_E0_JSB_EEEDaOT0_OT1_DpOT2_.exit
 
@@ -1626,7 +1625,7 @@ _ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf
   %call.sink7.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call.i.i.i, %if.end.i.i ]
   %arena_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %call.sink7.i.i, i64 0, i32 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.sink7.i.i, i8 0, i64 16, i1 false)
-  store ptr %1, ptr %arena_.i.i.i.i.i, align 8
+  store i64 %0, ptr %arena_.i.i.i.i.i, align 8
   %mutex.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::MapFieldBase::ReflectionPayload", ptr %call.sink7.i.i, i64 0, i32 1
   store i64 0, ptr %mutex.i.i.i, align 8
   %state.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::MapFieldBase::ReflectionPayload", ptr %call.sink7.i.i, i64 0, i32 2
@@ -2459,18 +2458,17 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   br i1 %cmp.i.not.i.i.i.i, label %if.then5.i.i.i, label %if.else.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.end.i.i.i
-  %58 = inttoptr i64 %56 to ptr
-  store ptr %58, ptr %it, align 8
+  store i64 %56, ptr %it, align 8
   br label %_ZN6google8protobuf8internal18UntypedMapIterator8PlusPlusEv.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i.i
   %sub.i.i.i.i = add nsw i64 %56, -1
-  %59 = inttoptr i64 %sub.i.i.i.i to ptr
+  %58 = inttoptr i64 %sub.i.i.i.i to ptr
+  %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr %60, align 8
-  %second.i.i.i = getelementptr inbounds i8, ptr %61, i64 32
-  %62 = load ptr, ptr %second.i.i.i, align 8
-  store ptr %62, ptr %it, align 8
+  %second.i.i.i = getelementptr inbounds i8, ptr %60, i64 32
+  %61 = load ptr, ptr %second.i.i.i, align 8
+  store ptr %61, ptr %it, align 8
   br label %_ZN6google8protobuf8internal18UntypedMapIterator8PlusPlusEv.exit.i
 
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
@@ -2488,16 +2486,16 @@ if.else.i.i101:                                   ; preds = %for.inc
   br label %_ZN6google8protobuf8internal18UntypedMapIterator8PlusPlusEv.exit.i
 
 _ZN6google8protobuf8internal18UntypedMapIterator8PlusPlusEv.exit.i: ; preds = %if.else.i.i101, %for.end.i.i.i, %if.else.i.i.i, %if.then5.i.i.i
-  %63 = load ptr, ptr %this, align 8
-  %set_map_iterator_value.i.i = getelementptr inbounds %"struct.google::protobuf::internal::MapFieldBase::VTable", ptr %63, i64 0, i32 3
-  %64 = load ptr, ptr %set_map_iterator_value.i.i, align 8
-  invoke void %64(ptr noundef nonnull %it)
+  %62 = load ptr, ptr %this, align 8
+  %set_map_iterator_value.i.i = getelementptr inbounds %"struct.google::protobuf::internal::MapFieldBase::VTable", ptr %62, i64 0, i32 3
+  %63 = load ptr, ptr %set_map_iterator_value.i.i, align 8
+  invoke void %63(ptr noundef nonnull %it)
           to label %invoke.cont15 unwind label %lpad7.loopexit
 
 for.end:                                          ; preds = %invoke.cont15
   %type_.i.i111 = getelementptr inbounds %"class.google::protobuf::MapIterator", ptr %end, i64 0, i32 2, i32 1
-  %65 = load i32, ptr %type_.i.i111, align 8
-  %cmp.i.i112 = icmp eq i32 %65, 9
+  %64 = load i32, ptr %type_.i.i111, align 8
+  %cmp.i.i112 = icmp eq i32 %64, 9
   br i1 %cmp.i.i112, label %if.then.i.i113, label %_ZN6google8protobuf11MapIteratorD2Ev.exit
 
 if.then.i.i113:                                   ; preds = %for.end
@@ -2507,8 +2505,8 @@ if.then.i.i113:                                   ; preds = %for.end
 
 _ZN6google8protobuf11MapIteratorD2Ev.exit:        ; preds = %for.end, %if.then.i.i113
   %type_.i.i115 = getelementptr inbounds %"class.google::protobuf::MapIterator", ptr %it, i64 0, i32 2, i32 1
-  %66 = load i32, ptr %type_.i.i115, align 8
-  %cmp.i.i116 = icmp eq i32 %66, 9
+  %65 = load i32, ptr %type_.i.i115, align 8
+  %cmp.i.i116 = icmp eq i32 %65, 9
   br i1 %cmp.i.i116, label %if.then.i.i117, label %_ZN6google8protobuf11MapIteratorD2Ev.exit119
 
 if.then.i.i117:                                   ; preds = %_ZN6google8protobuf11MapIteratorD2Ev.exit
@@ -2521,8 +2519,8 @@ _ZN6google8protobuf11MapIteratorD2Ev.exit119:     ; preds = %_ZN6google8protobuf
 ehcleanup:                                        ; preds = %lpad7.loopexit, %lpad7.loopexit.split-lp, %lpad61, %lpad29
   %.pn = phi { ptr, i32 } [ %48, %lpad61 ], [ %40, %lpad29 ], [ %lpad.loopexit, %lpad7.loopexit ], [ %lpad.loopexit.split-lp, %lpad7.loopexit.split-lp ]
   %type_.i.i120 = getelementptr inbounds %"class.google::protobuf::MapIterator", ptr %end, i64 0, i32 2, i32 1
-  %67 = load i32, ptr %type_.i.i120, align 8
-  %cmp.i.i121 = icmp eq i32 %67, 9
+  %66 = load i32, ptr %type_.i.i120, align 8
+  %cmp.i.i121 = icmp eq i32 %66, 9
   br i1 %cmp.i.i121, label %if.then.i.i122, label %ehcleanup103
 
 if.then.i.i122:                                   ; preds = %ehcleanup
@@ -2533,8 +2531,8 @@ if.then.i.i122:                                   ; preds = %ehcleanup
 ehcleanup103:                                     ; preds = %if.then.i.i122, %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %39, %lpad ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i122 ]
   %type_.i.i125 = getelementptr inbounds %"class.google::protobuf::MapIterator", ptr %it, i64 0, i32 2, i32 1
-  %68 = load i32, ptr %type_.i.i125, align 8
-  %cmp.i.i126 = icmp eq i32 %68, 9
+  %67 = load i32, ptr %type_.i.i125, align 8
+  %cmp.i.i126 = icmp eq i32 %67, 9
   br i1 %cmp.i.i126, label %if.then.i.i127, label %_ZN6google8protobuf11MapIteratorD2Ev.exit129
 
 if.then.i.i127:                                   ; preds = %ehcleanup103
@@ -5346,10 +5344,9 @@ define void @_ZN6google8protobuf8internal15DynamicMapFieldC2EPKNS0_7MessageEPNS0
 entry:
   store ptr @_ZN6google8protobuf8internal15DynamicMapField7kVTableE, ptr %this, align 8
   %payload_.i.i = getelementptr inbounds %"class.google::protobuf::internal::MapFieldBase", ptr %this, i64 0, i32 1
-  %0 = ptrtoint ptr %arena to i64
-  store i64 %0, ptr %payload_.i.i, align 8
-  %1 = getelementptr inbounds %"class.google::protobuf::internal::TypeDefinedMapFieldBase", ptr %this, i64 0, i32 1
-  store <4 x i32> <i32 0, i32 1, i32 0, i32 1>, ptr %1, align 8
+  store ptr %arena, ptr %payload_.i.i, align 8
+  %0 = getelementptr inbounds %"class.google::protobuf::internal::TypeDefinedMapFieldBase", ptr %this, i64 0, i32 1
+  store <4 x i32> <i32 0, i32 1, i32 0, i32 1>, ptr %0, align 8
   %table_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::TypeDefinedMapFieldBase", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 4
   store ptr @_ZN6google8protobuf8internal17kGlobalEmptyTableE, ptr %table_.i.i.i.i, align 8
   %alloc_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::TypeDefinedMapFieldBase", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 5
@@ -7682,10 +7679,9 @@ if.then:                                          ; preds = %while.body.i, %entr
   %b.addr.012 = phi i32 [ %and.i, %entry ], [ %7, %_ZNK6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE23revalidate_if_necessaryERjPNS1_7KeyNodeIS3_EEPN4absl12lts_2023080218container_internal14btree_iteratorINSB_10btree_nodeINSB_10map_paramsINS1_10VariantKeyEPNS1_8NodeBaseESt4lessISF_ENS1_12MapAllocatorISt4pairIKSF_SH_EEELi256ELb0EEEEERSN_PSN_EE.exit ], [ %and.i, %while.body.i ]
   %11 = inttoptr i64 %10 to ptr
   %call3 = call noundef ptr @_ZN6google8protobuf8internal19EraseFromLinkedListEPNS1_8NodeBaseES3_(ptr noundef %node, ptr noundef %11)
-  %12 = ptrtoint ptr %call3 to i64
-  %13 = load ptr, ptr %table_.i, align 8
-  %arrayidx7 = getelementptr inbounds i64, ptr %13, i64 %idxprom.pre-phi
-  store i64 %12, ptr %arrayidx7, align 8
+  %12 = load ptr, ptr %table_.i, align 8
+  %arrayidx7 = getelementptr inbounds i64, ptr %12, i64 %idxprom.pre-phi
+  store ptr %call3, ptr %arrayidx7, align 8
   br label %if.end
 
 if.else:                                          ; preds = %_ZNK6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE23revalidate_if_necessaryERjPNS1_7KeyNodeIS3_EEPN4absl12lts_2023080218container_internal14btree_iteratorINSB_10btree_nodeINSB_10map_paramsINS1_10VariantKeyEPNS1_8NodeBaseESt4lessISF_ENS1_12MapAllocatorISt4pairIKSF_SH_EEELi256ELb0EEEEERSN_PSN_EE.exit
@@ -7696,36 +7692,36 @@ if.else:                                          ; preds = %_ZNK6google8protobu
 
 if.end:                                           ; preds = %if.else, %if.then
   %b.addr.013 = phi i32 [ %7, %if.else ], [ %b.addr.012, %if.then ]
-  %14 = load i32, ptr %this, align 8
-  %dec = add i32 %14, -1
+  %13 = load i32, ptr %this, align 8
+  %dec = add i32 %13, -1
   store i32 %dec, ptr %this, align 8
   %index_of_first_non_null_ = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 3
-  %15 = load i32, ptr %index_of_first_non_null_, align 4
-  %cmp = icmp eq i32 %b.addr.013, %15
+  %14 = load i32, ptr %index_of_first_non_null_, align 4
+  %cmp = icmp eq i32 %b.addr.013, %14
   br i1 %cmp, label %while.cond.preheader, label %if.end14
 
 while.cond.preheader:                             ; preds = %if.end
-  %16 = load i32, ptr %num_buckets_.i, align 4
-  %cmp1015 = icmp ult i32 %b.addr.013, %16
+  %15 = load i32, ptr %num_buckets_.i, align 4
+  %cmp1015 = icmp ult i32 %b.addr.013, %15
   br i1 %cmp1015, label %land.rhs.lr.ph, label %if.end14
 
 land.rhs.lr.ph:                                   ; preds = %while.cond.preheader
-  %17 = load ptr, ptr %table_.i, align 8
-  %18 = zext i32 %b.addr.013 to i64
-  %wide.trip.count = zext i32 %16 to i64
+  %16 = load ptr, ptr %table_.i, align 8
+  %17 = zext i32 %b.addr.013 to i64
+  %wide.trip.count = zext i32 %15 to i64
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.body
-  %indvars.iv = phi i64 [ %18, %land.rhs.lr.ph ], [ %indvars.iv.next, %while.body ]
-  %arrayidx.i5 = getelementptr inbounds i64, ptr %17, i64 %indvars.iv
-  %19 = load i64, ptr %arrayidx.i5, align 8
-  %cmp.i.i = icmp eq i64 %19, 0
+  %indvars.iv = phi i64 [ %17, %land.rhs.lr.ph ], [ %indvars.iv.next, %while.body ]
+  %arrayidx.i5 = getelementptr inbounds i64, ptr %16, i64 %indvars.iv
+  %18 = load i64, ptr %arrayidx.i5, align 8
+  %cmp.i.i = icmp eq i64 %18, 0
   br i1 %cmp.i.i, label %while.body, label %if.end14
 
 while.body:                                       ; preds = %land.rhs
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = trunc i64 %indvars.iv.next to i32
-  store i32 %20, ptr %index_of_first_non_null_, align 4
+  %19 = trunc i64 %indvars.iv.next to i32
+  store i32 %19, ptr %index_of_first_non_null_, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end14, label %land.rhs, !llvm.loop !47
 
@@ -8336,22 +8332,22 @@ for.body.lr.ph.i.i.i:                             ; preds = %cond.false.i.i.i.i.
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i.i, %for.body.lr.ph.i.i.i
-  %agg.tmp3.sroa.6.0.i.i = phi i32 [ %13, %for.body.lr.ph.i.i.i ], [ %agg.tmp3.sroa.6.1.i.i, %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i.i ]
+  %agg.tmp3.sroa.10.0.i.i = phi i32 [ %13, %for.body.lr.ph.i.i.i ], [ %agg.tmp3.sroa.10.1.i.i, %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i.i ]
   %22 = phi ptr [ %cond.i.i.i.i.i, %for.body.lr.ph.i.i.i ], [ %34, %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i.i ]
   %kv.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::Map<google::protobuf::MapKey, google::protobuf::MapValueRef>::Node", ptr %22, i64 0, i32 1
   %second.i.i.i = getelementptr inbounds %"struct.google::protobuf::Map<google::protobuf::MapKey, google::protobuf::MapValueRef>::Node", ptr %22, i64 0, i32 1, i32 1
   call void @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE18TryEmplaceInternalIRKS2_JRKS3_EEESt4pairINS4_8iteratorEbEOT_DpOT0_(ptr nonnull sret(%"struct.std::pair.51") align 8 %tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %copy, ptr noundef nonnull align 8 dereferenceable(36) %kv.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i)
   %23 = load ptr, ptr %22, align 8
   %cmp.i.i2.i.i.i = icmp eq ptr %23, null
-  br i1 %cmp.i.i2.i.i.i, label %if.then.i.i.i6.i.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i.i
+  br i1 %cmp.i.i2.i.i.i, label %if.then.i.i.i7.i.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i.i
 
-if.then.i.i.i6.i.i:                               ; preds = %for.body.i.i.i
-  %add.i.i.i.i.i = add i32 %agg.tmp3.sroa.6.0.i.i, 1
+if.then.i.i.i7.i.i:                               ; preds = %for.body.i.i.i
+  %add.i.i.i.i.i = add i32 %agg.tmp3.sroa.10.0.i.i, 1
   %24 = load i32, ptr %num_buckets_.i.i.i.i.i, align 4
   %cmp8.i.i.i.i.i.i = icmp ugt i32 %24, %add.i.i.i.i.i
   br i1 %cmp8.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEEC2ERKS4_.exit
 
-for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i6.i.i
+for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i7.i.i
   %25 = load ptr, ptr %table_.i.i.i.i.i, align 8
   %26 = zext i32 %add.i.i.i.i.i to i64
   %wide.trip.count.i.i.i.i.i.i = zext i32 %24 to i64
@@ -8389,12 +8385,12 @@ for.inc.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEEC2ERKS4_.exit, label %for.body.i.i.i.i.i.i, !llvm.loop !7
 
 _ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then5.i.i.i.i.i.i, %for.body.i.i.i
-  %agg.tmp3.sroa.6.1.i.i = phi i32 [ %28, %if.then5.i.i.i.i.i.i ], [ %28, %if.else.i.i.i.i.i.i ], [ %agg.tmp3.sroa.6.0.i.i, %for.body.i.i.i ]
+  %agg.tmp3.sroa.10.1.i.i = phi i32 [ %28, %if.then5.i.i.i.i.i.i ], [ %28, %if.else.i.i.i.i.i.i ], [ %agg.tmp3.sroa.10.0.i.i, %for.body.i.i.i ]
   %34 = phi ptr [ %29, %if.then5.i.i.i.i.i.i ], [ %33, %if.else.i.i.i.i.i.i ], [ %23, %for.body.i.i.i ]
   %cmp.i.i.not.i.i.i = icmp eq ptr %34, null
   br i1 %cmp.i.i.not.i.i.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEEC2ERKS4_.exit, label %for.body.i.i.i, !llvm.loop !52
 
-_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEEC2ERKS4_.exit: ; preds = %if.then.i.i.i6.i.i, %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i.i, %for.inc.i.i.i.i.i.i, %_ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5beginEv.exit.thread.i.i
+_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEEC2ERKS4_.exit: ; preds = %if.then.i.i.i7.i.i, %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i.i, %for.inc.i.i.i.i.i.i, %_ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5beginEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i.i.i)
   %call3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
@@ -8453,7 +8449,7 @@ for.body.lr.ph.i.i:                               ; preds = %cond.false.i.i.i.i,
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i, %for.body.lr.ph.i.i
-  %agg.tmp3.sroa.6.0.i = phi i32 [ %36, %for.body.lr.ph.i.i ], [ %agg.tmp3.sroa.6.1.i, %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i ]
+  %agg.tmp3.sroa.10.0.i = phi i32 [ %36, %for.body.lr.ph.i.i ], [ %agg.tmp3.sroa.10.1.i, %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i ]
   %45 = phi ptr [ %cond.i.i.i.i, %for.body.lr.ph.i.i ], [ %57, %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i ]
   %kv.i.i.i = getelementptr inbounds %"struct.google::protobuf::Map<google::protobuf::MapKey, google::protobuf::MapValueRef>::Node", ptr %45, i64 0, i32 1
   %second.i.i = getelementptr inbounds %"struct.google::protobuf::Map<google::protobuf::MapKey, google::protobuf::MapValueRef>::Node", ptr %45, i64 0, i32 1, i32 1
@@ -8463,15 +8459,15 @@ for.body.i.i:                                     ; preds = %_ZN6google8protobuf
 .noexc15:                                         ; preds = %for.body.i.i
   %46 = load ptr, ptr %45, align 8
   %cmp.i.i2.i.i = icmp eq ptr %46, null
-  br i1 %cmp.i.i2.i.i, label %if.then.i.i.i6.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i
+  br i1 %cmp.i.i2.i.i, label %if.then.i.i.i7.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i
 
-if.then.i.i.i6.i:                                 ; preds = %.noexc15
-  %add.i.i.i.i = add i32 %agg.tmp3.sroa.6.0.i, 1
+if.then.i.i.i7.i:                                 ; preds = %.noexc15
+  %add.i.i.i.i = add i32 %agg.tmp3.sroa.10.0.i, 1
   %47 = load i32, ptr %num_buckets_.i.i.i.i, align 4
   %cmp8.i.i.i.i.i = icmp ugt i32 %47, %add.i.i.i.i
   br i1 %cmp8.i.i.i.i.i, label %for.body.lr.ph.i.i.i.i.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit.i
 
-for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.then.i.i.i6.i
+for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.then.i.i.i7.i
   %48 = load ptr, ptr %table_.i.i.i.i, align 16
   %49 = zext i32 %add.i.i.i.i to i64
   %wide.trip.count.i.i.i.i.i = zext i32 %47 to i64
@@ -8509,12 +8505,12 @@ for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit.i, label %for.body.i.i.i.i.i, !llvm.loop !7
 
 _ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i: ; preds = %if.else.i.i.i.i.i12, %if.then5.i.i.i.i.i, %.noexc15
-  %agg.tmp3.sroa.6.1.i = phi i32 [ %51, %if.then5.i.i.i.i.i ], [ %51, %if.else.i.i.i.i.i12 ], [ %agg.tmp3.sroa.6.0.i, %.noexc15 ]
+  %agg.tmp3.sroa.10.1.i = phi i32 [ %51, %if.then5.i.i.i.i.i ], [ %51, %if.else.i.i.i.i.i12 ], [ %agg.tmp3.sroa.10.0.i, %.noexc15 ]
   %57 = phi ptr [ %52, %if.then5.i.i.i.i.i ], [ %56, %if.else.i.i.i.i.i12 ], [ %46, %.noexc15 ]
   %cmp.i.i.not.i.i = icmp eq ptr %57, null
   br i1 %cmp.i.i.not.i.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit.i, label %for.body.i.i, !llvm.loop !52
 
-_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit.i: ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i, %if.then.i.i.i6.i, %for.inc.i.i.i.i.i, %_ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5beginEv.exit.thread.i
+_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit.i: ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i, %if.then.i.i.i7.i, %for.inc.i.i.i.i.i, %_ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5beginEv.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i.i)
   br label %invoke.cont4
 
@@ -8613,22 +8609,22 @@ for.body.lr.ph.i:                                 ; preds = %cond.false.i.i.i, %
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i, %for.body.lr.ph.i
-  %agg.tmp3.sroa.6.0 = phi i32 [ %1, %for.body.lr.ph.i ], [ %agg.tmp3.sroa.6.1, %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i ]
+  %agg.tmp3.sroa.10.0 = phi i32 [ %1, %for.body.lr.ph.i ], [ %agg.tmp3.sroa.10.1, %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i ]
   %10 = phi ptr [ %cond.i.i.i, %for.body.lr.ph.i ], [ %22, %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i ]
   %kv.i.i = getelementptr inbounds %"struct.google::protobuf::Map<google::protobuf::MapKey, google::protobuf::MapValueRef>::Node", ptr %10, i64 0, i32 1
   %second.i = getelementptr inbounds %"struct.google::protobuf::Map<google::protobuf::MapKey, google::protobuf::MapValueRef>::Node", ptr %10, i64 0, i32 1, i32 1
   call void @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE18TryEmplaceInternalIRKS2_JRKS3_EEESt4pairINS4_8iteratorEbEOT_DpOT0_(ptr nonnull sret(%"struct.std::pair.51") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(36) %kv.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second.i)
   %11 = load ptr, ptr %10, align 8
   %cmp.i.i2.i = icmp eq ptr %11, null
-  br i1 %cmp.i.i2.i, label %if.then.i.i.i6, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i
+  br i1 %cmp.i.i2.i, label %if.then.i.i.i7, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i
 
-if.then.i.i.i6:                                   ; preds = %for.body.i
-  %add.i.i.i = add i32 %agg.tmp3.sroa.6.0, 1
+if.then.i.i.i7:                                   ; preds = %for.body.i
+  %add.i.i.i = add i32 %agg.tmp3.sroa.10.0, 1
   %12 = load i32, ptr %num_buckets_.i.i.i, align 4
   %cmp8.i.i.i.i = icmp ugt i32 %12, %add.i.i.i
   br i1 %cmp8.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit
 
-for.body.lr.ph.i.i.i.i:                           ; preds = %if.then.i.i.i6
+for.body.lr.ph.i.i.i.i:                           ; preds = %if.then.i.i.i7
   %13 = load ptr, ptr %table_.i.i.i, align 8
   %14 = zext i32 %add.i.i.i to i64
   %wide.trip.count.i.i.i.i = zext i32 %12 to i64
@@ -8665,13 +8661,13 @@ for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit, label %for.body.i.i.i.i, !llvm.loop !7
 
-_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i: ; preds = %if.else.i.i.i.i, %if.then5.i.i.i.i, %for.body.i
-  %agg.tmp3.sroa.6.1 = phi i32 [ %16, %if.then5.i.i.i.i ], [ %16, %if.else.i.i.i.i ], [ %agg.tmp3.sroa.6.0, %for.body.i ]
+_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i: ; preds = %for.body.i, %if.else.i.i.i.i, %if.then5.i.i.i.i
+  %agg.tmp3.sroa.10.1 = phi i32 [ %16, %if.then5.i.i.i.i ], [ %16, %if.else.i.i.i.i ], [ %agg.tmp3.sroa.10.0, %for.body.i ]
   %22 = phi ptr [ %17, %if.then5.i.i.i.i ], [ %21, %if.else.i.i.i.i ], [ %11, %for.body.i ]
   %cmp.i.i.not.i = icmp eq ptr %22, null
   br i1 %cmp.i.i.not.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit, label %for.body.i, !llvm.loop !52
 
-_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit: ; preds = %if.then.i.i.i6, %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i, %for.inc.i.i.i.i, %_ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5beginEv.exit.thread
+_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit: ; preds = %if.then.i.i.i7, %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i, %for.inc.i.i.i.i, %_ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5beginEv.exit.thread
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i)
   br label %if.end
 
@@ -8785,14 +8781,13 @@ if.end21:                                         ; preds = %_ZN6google8protobuf
   br i1 %cmp.i.i.i, label %if.then.i12, label %if.else.i11
 
 if.then.i12:                                      ; preds = %if.end21
-  store ptr null, ptr %retval.0.i.i, align 8
-  %11 = ptrtoint ptr %retval.0.i.i to i64
-  %12 = load ptr, ptr %table_.i.i, align 8
-  %arrayidx14.i.i = getelementptr inbounds i64, ptr %12, i64 %idxprom.i.i
-  store i64 %11, ptr %arrayidx14.i.i, align 8
+  store i64 0, ptr %retval.0.i.i, align 8
+  %11 = load ptr, ptr %table_.i.i, align 8
+  %arrayidx14.i.i = getelementptr inbounds i64, ptr %11, i64 %idxprom.i.i
+  store ptr %retval.0.i.i, ptr %arrayidx14.i.i, align 8
   %index_of_first_non_null_.i = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 3
-  %13 = load i32, ptr %index_of_first_non_null_.i, align 4
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %13, i32 %p.sroa.4.0)
+  %12 = load i32, ptr %index_of_first_non_null_.i, align 4
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %12, i32 %p.sroa.4.0)
   store i32 %.sroa.speculated.i, ptr %index_of_first_non_null_.i, align 4
   br label %_ZN6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE12InsertUniqueEjPNS1_7KeyNodeIS3_EE.exit
 
@@ -8802,15 +8797,15 @@ if.else.i11:                                      ; preds = %if.end21
   br i1 %cmp.i.not.i.i.i.i, label %land.lhs.true.i, label %if.else7.i
 
 land.lhs.true.i:                                  ; preds = %if.else.i11
-  %14 = inttoptr i64 %10 to ptr
+  %13 = inttoptr i64 %10 to ptr
   br label %do.body.i.i.i
 
 do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %land.lhs.true.i
-  %node.addr.0.i.i.i = phi ptr [ %14, %land.lhs.true.i ], [ %15, %do.body.i.i.i ]
+  %node.addr.0.i.i.i = phi ptr [ %13, %land.lhs.true.i ], [ %14, %do.body.i.i.i ]
   %count.0.i.i.i = phi i64 [ 0, %land.lhs.true.i ], [ %inc.i.i.i, %do.body.i.i.i ]
   %inc.i.i.i = add i64 %count.0.i.i.i, 1
-  %15 = load ptr, ptr %node.addr.0.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %15, null
+  %14 = load ptr, ptr %node.addr.0.i.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf8internal14UntypedMapBase19TableEntryIsTooLongEj.exit.i, label %do.body.i.i.i, !llvm.loop !60
 
 _ZN6google8protobuf8internal14UntypedMapBase19TableEntryIsTooLongEj.exit.i: ; preds = %do.body.i.i.i
@@ -8818,11 +8813,10 @@ _ZN6google8protobuf8internal14UntypedMapBase19TableEntryIsTooLongEj.exit.i: ; pr
   br i1 %cmp1.i.i.i, label %if.else7.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %_ZN6google8protobuf8internal14UntypedMapBase19TableEntryIsTooLongEj.exit.i
-  store ptr %14, ptr %retval.0.i.i, align 8
-  %16 = ptrtoint ptr %retval.0.i.i to i64
-  %17 = load ptr, ptr %table_.i.i, align 8
-  %arrayidx14.i12.i = getelementptr inbounds i64, ptr %17, i64 %idxprom.i.i
-  store i64 %16, ptr %arrayidx14.i12.i, align 8
+  store i64 %10, ptr %retval.0.i.i, align 8
+  %15 = load ptr, ptr %table_.i.i, align 8
+  %arrayidx14.i12.i = getelementptr inbounds i64, ptr %15, i64 %idxprom.i.i
+  store ptr %retval.0.i.i, ptr %arrayidx14.i12.i, align 8
   br label %_ZN6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE12InsertUniqueEjPNS1_7KeyNodeIS3_EE.exit
 
 if.else7.i:                                       ; preds = %_ZN6google8protobuf8internal14UntypedMapBase19TableEntryIsTooLongEj.exit.i, %if.else.i11
@@ -8830,8 +8824,8 @@ if.else7.i:                                       ; preds = %_ZN6google8protobuf
   br label %_ZN6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE12InsertUniqueEjPNS1_7KeyNodeIS3_EE.exit
 
 _ZN6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE12InsertUniqueEjPNS1_7KeyNodeIS3_EE.exit: ; preds = %if.then.i12, %if.then6.i, %if.else7.i
-  %18 = load i32, ptr %this, align 8
-  %inc = add i32 %18, 1
+  %16 = load i32, ptr %this, align 8
+  %inc = add i32 %16, 1
   store i32 %inc, ptr %this, align 8
   br label %return
 
@@ -9113,13 +9107,12 @@ _ZNK6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE12BucketNumberERKS3_.exit
   br i1 %cmp.i.i.i4, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZNK6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE12BucketNumberERKS3_.exit
-  store ptr null, ptr %node.addr.0, align 8
-  %8 = ptrtoint ptr %node.addr.0 to i64
-  %9 = load ptr, ptr %table_.i.i, align 8
-  %arrayidx14.i.i = getelementptr inbounds i64, ptr %9, i64 %idxprom.i.i
-  store i64 %8, ptr %arrayidx14.i.i, align 8
-  %10 = load i32, ptr %index_of_first_non_null_.i, align 4
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %10, i32 %conv3.i.i)
+  store i64 0, ptr %node.addr.0, align 8
+  %8 = load ptr, ptr %table_.i.i, align 8
+  %arrayidx14.i.i = getelementptr inbounds i64, ptr %8, i64 %idxprom.i.i
+  store ptr %node.addr.0, ptr %arrayidx14.i.i, align 8
+  %9 = load i32, ptr %index_of_first_non_null_.i, align 4
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %9, i32 %conv3.i.i)
   store i32 %.sroa.speculated.i, ptr %index_of_first_non_null_.i, align 4
   br label %_ZN6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE12InsertUniqueEjPNS1_7KeyNodeIS3_EE.exit
 
@@ -9129,15 +9122,15 @@ if.else.i:                                        ; preds = %_ZNK6google8protobu
   br i1 %cmp.i.not.i.i.i.i, label %land.lhs.true.i, label %if.else7.i
 
 land.lhs.true.i:                                  ; preds = %if.else.i
-  %11 = inttoptr i64 %7 to ptr
+  %10 = inttoptr i64 %7 to ptr
   br label %do.body.i.i.i
 
 do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %land.lhs.true.i
-  %node.addr.0.i.i.i = phi ptr [ %11, %land.lhs.true.i ], [ %12, %do.body.i.i.i ]
+  %node.addr.0.i.i.i = phi ptr [ %10, %land.lhs.true.i ], [ %11, %do.body.i.i.i ]
   %count.0.i.i.i = phi i64 [ 0, %land.lhs.true.i ], [ %inc.i.i.i, %do.body.i.i.i ]
   %inc.i.i.i = add i64 %count.0.i.i.i, 1
-  %12 = load ptr, ptr %node.addr.0.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %12, null
+  %11 = load ptr, ptr %node.addr.0.i.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf8internal14UntypedMapBase19TableEntryIsTooLongEj.exit.i, label %do.body.i.i.i, !llvm.loop !60
 
 _ZN6google8protobuf8internal14UntypedMapBase19TableEntryIsTooLongEj.exit.i: ; preds = %do.body.i.i.i
@@ -9145,11 +9138,10 @@ _ZN6google8protobuf8internal14UntypedMapBase19TableEntryIsTooLongEj.exit.i: ; pr
   br i1 %cmp1.i.i.i, label %if.else7.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %_ZN6google8protobuf8internal14UntypedMapBase19TableEntryIsTooLongEj.exit.i
-  store ptr %11, ptr %node.addr.0, align 8
-  %13 = ptrtoint ptr %node.addr.0 to i64
-  %14 = load ptr, ptr %table_.i.i, align 8
-  %arrayidx14.i12.i = getelementptr inbounds i64, ptr %14, i64 %idxprom.i.i
-  store i64 %13, ptr %arrayidx14.i12.i, align 8
+  store i64 %7, ptr %node.addr.0, align 8
+  %12 = load ptr, ptr %table_.i.i, align 8
+  %arrayidx14.i12.i = getelementptr inbounds i64, ptr %12, i64 %idxprom.i.i
+  store ptr %node.addr.0, ptr %arrayidx14.i12.i, align 8
   br label %_ZN6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE12InsertUniqueEjPNS1_7KeyNodeIS3_EE.exit
 
 if.else7.i:                                       ; preds = %_ZN6google8protobuf8internal14UntypedMapBase19TableEntryIsTooLongEj.exit.i, %if.else.i
@@ -9313,14 +9305,13 @@ if.end21:                                         ; preds = %_ZN6google8protobuf
   br i1 %cmp.i.i.i, label %if.then.i12, label %if.else.i11
 
 if.then.i12:                                      ; preds = %if.end21
-  store ptr null, ptr %retval.0.i.i, align 8
-  %11 = ptrtoint ptr %retval.0.i.i to i64
-  %12 = load ptr, ptr %table_.i.i, align 8
-  %arrayidx14.i.i = getelementptr inbounds i64, ptr %12, i64 %idxprom.i.i
-  store i64 %11, ptr %arrayidx14.i.i, align 8
+  store i64 0, ptr %retval.0.i.i, align 8
+  %11 = load ptr, ptr %table_.i.i, align 8
+  %arrayidx14.i.i = getelementptr inbounds i64, ptr %11, i64 %idxprom.i.i
+  store ptr %retval.0.i.i, ptr %arrayidx14.i.i, align 8
   %index_of_first_non_null_.i = getelementptr inbounds %"class.google::protobuf::internal::UntypedMapBase", ptr %this, i64 0, i32 3
-  %13 = load i32, ptr %index_of_first_non_null_.i, align 4
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %13, i32 %p.sroa.4.0)
+  %12 = load i32, ptr %index_of_first_non_null_.i, align 4
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %12, i32 %p.sroa.4.0)
   store i32 %.sroa.speculated.i, ptr %index_of_first_non_null_.i, align 4
   br label %_ZN6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE12InsertUniqueEjPNS1_7KeyNodeIS3_EE.exit
 
@@ -9330,15 +9321,15 @@ if.else.i11:                                      ; preds = %if.end21
   br i1 %cmp.i.not.i.i.i.i, label %land.lhs.true.i, label %if.else7.i
 
 land.lhs.true.i:                                  ; preds = %if.else.i11
-  %14 = inttoptr i64 %10 to ptr
+  %13 = inttoptr i64 %10 to ptr
   br label %do.body.i.i.i
 
 do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %land.lhs.true.i
-  %node.addr.0.i.i.i = phi ptr [ %14, %land.lhs.true.i ], [ %15, %do.body.i.i.i ]
+  %node.addr.0.i.i.i = phi ptr [ %13, %land.lhs.true.i ], [ %14, %do.body.i.i.i ]
   %count.0.i.i.i = phi i64 [ 0, %land.lhs.true.i ], [ %inc.i.i.i, %do.body.i.i.i ]
   %inc.i.i.i = add i64 %count.0.i.i.i, 1
-  %15 = load ptr, ptr %node.addr.0.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %15, null
+  %14 = load ptr, ptr %node.addr.0.i.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i, label %_ZN6google8protobuf8internal14UntypedMapBase19TableEntryIsTooLongEj.exit.i, label %do.body.i.i.i, !llvm.loop !60
 
 _ZN6google8protobuf8internal14UntypedMapBase19TableEntryIsTooLongEj.exit.i: ; preds = %do.body.i.i.i
@@ -9346,11 +9337,10 @@ _ZN6google8protobuf8internal14UntypedMapBase19TableEntryIsTooLongEj.exit.i: ; pr
   br i1 %cmp1.i.i.i, label %if.else7.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %_ZN6google8protobuf8internal14UntypedMapBase19TableEntryIsTooLongEj.exit.i
-  store ptr %14, ptr %retval.0.i.i, align 8
-  %16 = ptrtoint ptr %retval.0.i.i to i64
-  %17 = load ptr, ptr %table_.i.i, align 8
-  %arrayidx14.i12.i = getelementptr inbounds i64, ptr %17, i64 %idxprom.i.i
-  store i64 %16, ptr %arrayidx14.i12.i, align 8
+  store i64 %10, ptr %retval.0.i.i, align 8
+  %15 = load ptr, ptr %table_.i.i, align 8
+  %arrayidx14.i12.i = getelementptr inbounds i64, ptr %15, i64 %idxprom.i.i
+  store ptr %retval.0.i.i, ptr %arrayidx14.i12.i, align 8
   br label %_ZN6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE12InsertUniqueEjPNS1_7KeyNodeIS3_EE.exit
 
 if.else7.i:                                       ; preds = %_ZN6google8protobuf8internal14UntypedMapBase19TableEntryIsTooLongEj.exit.i, %if.else.i11
@@ -9358,8 +9348,8 @@ if.else7.i:                                       ; preds = %_ZN6google8protobuf
   br label %_ZN6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE12InsertUniqueEjPNS1_7KeyNodeIS3_EE.exit
 
 _ZN6google8protobuf8internal10KeyMapBaseINS0_6MapKeyEE12InsertUniqueEjPNS1_7KeyNodeIS3_EE.exit: ; preds = %if.then.i12, %if.then6.i, %if.else7.i
-  %18 = load i32, ptr %this, align 8
-  %inc = add i32 %18, 1
+  %16 = load i32, ptr %this, align 8
+  %inc = add i32 %16, 1
   store i32 %inc, ptr %this, align 8
   br label %return
 

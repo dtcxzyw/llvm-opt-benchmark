@@ -1246,7 +1246,7 @@ call.i.noexc.i:                                   ; preds = %call.i.noexc
   %_M_func.i.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i1.i, i64 0, i32 1
   store ptr %this, ptr %_M_func.i.i.i, align 8, !noalias !25
   %2 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i1.i, i64 0, i32 1, i32 0, i32 0, i32 1
-  store i64 ptrtoint (ptr @_ZN7rocksdb5Timer3RunEv to i64), ptr %2, align 8, !noalias !25
+  store ptr @_ZN7rocksdb5Timer3RunEv, ptr %2, align 8, !noalias !25
   %this.repack3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i1.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
   store i64 0, ptr %this.repack3.i.i.i.i.i.i.i, align 8, !noalias !25
   store ptr %call.i1.i, ptr %agg.tmp.i.i, align 8, !noalias !25

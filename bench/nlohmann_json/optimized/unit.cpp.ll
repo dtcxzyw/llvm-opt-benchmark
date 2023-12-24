@@ -9741,7 +9741,7 @@ delete.notnull.i.i447:                            ; preds = %if.then2.i.i445
   br label %if.end.i464
 
 if.end.i464:                                      ; preds = %if.then.i.i.i433.thread, %delete.notnull.i.i447, %if.then2.i.i445, %if.then.i.i.i433
-  store ptr inttoptr (i64 1701603686 to ptr), ptr %strRes, align 8
+  store i64 1701603686, ptr %strRes, align 8
   store i8 19, ptr %arrayidx.i.i, align 1
   %call110.i475 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE(i32 noundef %argc, ptr noundef %argv, ptr noundef nonnull getelementptr inbounds ([13 x i8], ptr @.str.92, i64 0, i64 3), ptr noundef nonnull %strRes)
           to label %call110.i.noexc474 unwind label %lpad87
@@ -9771,7 +9771,7 @@ delete.notnull.i.i506:                            ; preds = %if.then2.i.i504
   br label %if.end.i523
 
 if.end.i523:                                      ; preds = %delete.notnull.i.i506, %if.then2.i.i504, %if.then.i.i.i492
-  store ptr inttoptr (i64 1701603686 to ptr), ptr %strRes, align 8
+  store i64 1701603686, ptr %strRes, align 8
   store i8 19, ptr %arrayidx.i.i, align 1
   %call110.i534 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE(i32 noundef %argc, ptr noundef %argv, ptr noundef nonnull getelementptr inbounds ([7 x i8], ptr @.str.94, i64 0, i64 3), ptr noundef nonnull %strRes)
           to label %call110.i.noexc533 unwind label %lpad94

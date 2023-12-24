@@ -4609,7 +4609,6 @@ if.end62:                                         ; preds = %_ZN5folly6detail17d
   %10 = load i32, ptr %signal, align 4, !tbaa !48
   %cmp66 = icmp eq i32 %10, 7
   %cmp67 = icmp eq i32 %10, 10
-  %11 = inttoptr i64 %8 to ptr
   switch i32 %10, label %cleanup80.thread153 [
     i32 10, label %if.then71
     i32 7, label %if.then71
@@ -4621,7 +4620,7 @@ if.then71:                                        ; preds = %if.end62, %if.end62
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i: ; preds = %if.then71
   store ptr null, ptr %1, align 16, !tbaa !217
-  store ptr %11, ptr %agg.tmp.i.i, align 8, !tbaa !217
+  store i64 %8, ptr %agg.tmp.i.i, align 8, !tbaa !217
   invoke void @_ZSt17rethrow_exceptionNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull %agg.tmp.i.i) #31
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
@@ -4629,10 +4628,10 @@ invoke.cont.i.i:                                  ; preds = %_ZNSt15__exception_
   unreachable
 
 lpad.i.i:                                         ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %13 = load ptr, ptr %agg.tmp.i.i, align 8, !tbaa !217
-  %tobool.not.i4.i.i = icmp eq ptr %13, null
+  %12 = load ptr, ptr %agg.tmp.i.i, align 8, !tbaa !217
+  %tobool.not.i4.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i4.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i, label %if.then.i5.i.i
 
 if.then.i5.i.i:                                   ; preds = %lpad.i.i
@@ -4640,25 +4639,23 @@ if.then.i5.i.i:                                   ; preds = %lpad.i.i
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i: ; preds = %if.then.i5.i.i, %lpad.i.i
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %11
 
 _ZN5folly6detail17distributed_mutex6detachINS1_6WaiterISt6atomicEEZNS_16ThrottledLifoSem21maybeStartWakingChainEvEUlvE_EEvRNS1_17RequestWithReturnIT0_EERT_bRNS_4UnitE.exit: ; preds = %if.then71
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
-  %14 = getelementptr inbounds %"class.folly::detail::distributed_mutex::RequestWithReturn", ptr %request, i64 0, i32 1
-  store ptr %11, ptr %14, align 8, !tbaa !49
+  %13 = getelementptr inbounds %"class.folly::detail::distributed_mutex::RequestWithReturn", ptr %request, i64 0, i32 1
+  store i64 %8, ptr %13, align 8, !tbaa !49
   br label %cleanup80.thread153
 
 cleanup80.thread153:                              ; preds = %_ZN5folly6detail17distributed_mutex6detachINS1_6WaiterISt6atomicEEZNS_16ThrottledLifoSem21maybeStartWakingChainEvEUlvE_EEvRNS1_17RequestWithReturnIT0_EERT_bRNS_4UnitE.exit, %if.end62
   %and18.i123 = select i1 %cmp63, i64 0, i64 %9
-  %15 = inttoptr i64 %and18.i123 to ptr
   %tobool75 = icmp ne i8 %timedWaiter.1, 0
-  %16 = or i1 %cmp66, %cmp67
-  %17 = load i64, ptr %agg.tmp120.sroa.5.0..sroa_idx, align 8, !tbaa !47
-  %and18.i124 = and i64 %17, -2
-  %18 = inttoptr i64 %and18.i124 to ptr
+  %14 = or i1 %cmp66, %cmp67
+  %15 = load i64, ptr %agg.tmp120.sroa.5.0..sroa_idx, align 8, !tbaa !47
+  %and18.i124 = and i64 %15, -2
   %frombool.i125 = zext i1 %tobool75 to i8
-  %frombool1.i = zext i1 %16 to i8
-  store ptr %15, ptr %agg.result, align 8, !tbaa !211
+  %frombool1.i = zext i1 %14 to i8
+  store i64 %and18.i123, ptr %agg.result, align 8, !tbaa !211
   %expected_.i126 = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %agg.result, i64 0, i32 1
   store i64 %spec.select, ptr %expected_.i126, align 8, !tbaa !212
   %timedWaiters_.i127 = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %agg.result, i64 0, i32 2
@@ -4668,7 +4665,7 @@ cleanup80.thread153:                              ; preds = %_ZN5folly6detail17d
   %waker_.i129 = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %agg.result, i64 0, i32 4
   store i64 %8, ptr %waker_.i129, align 8, !tbaa !219
   %waiters_.i130 = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %agg.result, i64 0, i32 5
-  store ptr %18, ptr %waiters_.i130, align 8, !tbaa !220
+  store i64 %and18.i124, ptr %waiters_.i130, align 8, !tbaa !220
   %ready_.i131 = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %agg.result, i64 0, i32 6
   store ptr %nextSleeper.0, ptr %ready_.i131, align 8, !tbaa !213
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %signal) #17
@@ -5790,7 +5787,6 @@ if.end61:                                         ; preds = %_ZN5folly6detail17d
   %10 = load i32, ptr %signal, align 4, !tbaa !48
   %cmp65 = icmp eq i32 %10, 7
   %cmp66 = icmp eq i32 %10, 10
-  %11 = inttoptr i64 %8 to ptr
   switch i32 %10, label %cleanup79.thread152 [
     i32 10, label %if.then70
     i32 7, label %if.then70
@@ -5802,7 +5798,7 @@ if.then70:                                        ; preds = %if.end61, %if.end61
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i: ; preds = %if.then70
   store ptr null, ptr %1, align 16, !tbaa !217
-  store ptr %11, ptr %agg.tmp.i.i, align 8, !tbaa !217
+  store i64 %8, ptr %agg.tmp.i.i, align 8, !tbaa !217
   invoke void @_ZSt17rethrow_exceptionNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull %agg.tmp.i.i) #31
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
@@ -5810,10 +5806,10 @@ invoke.cont.i.i:                                  ; preds = %_ZNSt15__exception_
   unreachable
 
 lpad.i.i:                                         ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %13 = load ptr, ptr %agg.tmp.i.i, align 8, !tbaa !217
-  %tobool.not.i4.i.i = icmp eq ptr %13, null
+  %12 = load ptr, ptr %agg.tmp.i.i, align 8, !tbaa !217
+  %tobool.not.i4.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i4.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i, label %if.then.i5.i.i
 
 if.then.i5.i.i:                                   ; preds = %lpad.i.i
@@ -5821,7 +5817,7 @@ if.then.i5.i.i:                                   ; preds = %lpad.i.i
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i: ; preds = %if.then.i5.i.i, %lpad.i.i
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %11
 
 _ZN5folly6detail17distributed_mutex6detachINS1_6WaiterISt6atomicEEZNS_16ThrottledLifoSem16tryWaitUntilSlowINSt6chrono3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS8_10time_pointIT_T0_EEEUlvE_EEvRNS1_20RequestWithoutReturnISH_EERSG_bRNS_4UnitE.exit: ; preds = %if.then70
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
@@ -5829,15 +5825,13 @@ _ZN5folly6detail17distributed_mutex6detachINS1_6WaiterISt6atomicEEZNS_16Throttle
 
 cleanup79.thread152:                              ; preds = %_ZN5folly6detail17distributed_mutex6detachINS1_6WaiterISt6atomicEEZNS_16ThrottledLifoSem16tryWaitUntilSlowINSt6chrono3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS8_10time_pointIT_T0_EEEUlvE_EEvRNS1_20RequestWithoutReturnISH_EERSG_bRNS_4UnitE.exit, %if.end61
   %and18.i122 = select i1 %cmp62, i64 0, i64 %9
-  %14 = inttoptr i64 %and18.i122 to ptr
   %tobool74 = icmp ne i8 %timedWaiter.1, 0
-  %15 = or i1 %cmp65, %cmp66
-  %16 = load i64, ptr %agg.tmp119.sroa.5.0..sroa_idx, align 8, !tbaa !47
-  %and18.i123 = and i64 %16, -2
-  %17 = inttoptr i64 %and18.i123 to ptr
+  %13 = or i1 %cmp65, %cmp66
+  %14 = load i64, ptr %agg.tmp119.sroa.5.0..sroa_idx, align 8, !tbaa !47
+  %and18.i123 = and i64 %14, -2
   %frombool.i124 = zext i1 %tobool74 to i8
-  %frombool1.i = zext i1 %15 to i8
-  store ptr %14, ptr %agg.result, align 8, !tbaa !211
+  %frombool1.i = zext i1 %13 to i8
+  store i64 %and18.i122, ptr %agg.result, align 8, !tbaa !211
   %expected_.i125 = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %agg.result, i64 0, i32 1
   store i64 %spec.select, ptr %expected_.i125, align 8, !tbaa !212
   %timedWaiters_.i126 = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %agg.result, i64 0, i32 2
@@ -5847,7 +5841,7 @@ cleanup79.thread152:                              ; preds = %_ZN5folly6detail17d
   %waker_.i128 = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %agg.result, i64 0, i32 4
   store i64 %8, ptr %waker_.i128, align 8, !tbaa !219
   %waiters_.i129 = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %agg.result, i64 0, i32 5
-  store ptr %17, ptr %waiters_.i129, align 8, !tbaa !220
+  store i64 %and18.i123, ptr %waiters_.i129, align 8, !tbaa !220
   %ready_.i130 = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %agg.result, i64 0, i32 6
   store ptr %nextSleeper.0, ptr %ready_.i130, align 8, !tbaa !213
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %signal) #17
@@ -6132,7 +6126,6 @@ if.end61:                                         ; preds = %_ZN5folly6detail17d
   %cmp65 = icmp eq i32 %11, 7
   %cmp66 = icmp eq i32 %11, 10
   %12 = trunc i64 %9 to i8
-  %13 = inttoptr i64 %9 to ptr
   switch i32 %11, label %cleanup79.thread152 [
     i32 10, label %if.then70
     i32 7, label %if.then70
@@ -6144,7 +6137,7 @@ if.then70:                                        ; preds = %if.end61, %if.end61
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i: ; preds = %if.then70
   store ptr null, ptr %1, align 16, !tbaa !217
-  store ptr %13, ptr %agg.tmp.i.i, align 8, !tbaa !217
+  store i64 %9, ptr %agg.tmp.i.i, align 8, !tbaa !217
   invoke void @_ZSt17rethrow_exceptionNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull %agg.tmp.i.i) #31
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
@@ -6152,10 +6145,10 @@ invoke.cont.i.i:                                  ; preds = %_ZNSt15__exception_
   unreachable
 
 lpad.i.i:                                         ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %15 = load ptr, ptr %agg.tmp.i.i, align 8, !tbaa !217
-  %tobool.not.i4.i.i = icmp eq ptr %15, null
+  %14 = load ptr, ptr %agg.tmp.i.i, align 8, !tbaa !217
+  %tobool.not.i4.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i4.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i, label %if.then.i5.i.i
 
 if.then.i5.i.i:                                   ; preds = %lpad.i.i
@@ -6163,25 +6156,23 @@ if.then.i5.i.i:                                   ; preds = %lpad.i.i
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i: ; preds = %if.then.i5.i.i, %lpad.i.i
-  resume { ptr, i32 } %14
+  resume { ptr, i32 } %13
 
 _ZN5folly6detail17distributed_mutex6detachINS1_6WaiterISt6atomicEEZNS_16ThrottledLifoSem16tryWaitUntilSlowINSt6chrono3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS8_10time_pointIT_T0_EEEUlvE0_EEvRNS1_17RequestWithReturnISH_EERSG_bRNS_4UnitE.exit: ; preds = %if.then70
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
-  %16 = getelementptr inbounds %"class.folly::detail::distributed_mutex::RequestWithReturn.107", ptr %request, i64 0, i32 1
-  store i8 %12, ptr %16, align 8, !tbaa !151
+  %15 = getelementptr inbounds %"class.folly::detail::distributed_mutex::RequestWithReturn.107", ptr %request, i64 0, i32 1
+  store i8 %12, ptr %15, align 8, !tbaa !151
   br label %cleanup79.thread152
 
 cleanup79.thread152:                              ; preds = %_ZN5folly6detail17distributed_mutex6detachINS1_6WaiterISt6atomicEEZNS_16ThrottledLifoSem16tryWaitUntilSlowINSt6chrono3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS8_10time_pointIT_T0_EEEUlvE0_EEvRNS1_17RequestWithReturnISH_EERSG_bRNS_4UnitE.exit, %if.end61
   %and18.i122 = select i1 %cmp62, i64 0, i64 %10
-  %17 = inttoptr i64 %and18.i122 to ptr
   %tobool74 = icmp ne i8 %timedWaiter.1, 0
-  %18 = or i1 %cmp65, %cmp66
-  %19 = load i64, ptr %agg.tmp119.sroa.5.0..sroa_idx, align 8, !tbaa !47
-  %and18.i123 = and i64 %19, -2
-  %20 = inttoptr i64 %and18.i123 to ptr
+  %16 = or i1 %cmp65, %cmp66
+  %17 = load i64, ptr %agg.tmp119.sroa.5.0..sroa_idx, align 8, !tbaa !47
+  %and18.i123 = and i64 %17, -2
   %frombool.i124 = zext i1 %tobool74 to i8
-  %frombool1.i = zext i1 %18 to i8
-  store ptr %17, ptr %agg.result, align 8, !tbaa !211
+  %frombool1.i = zext i1 %16 to i8
+  store i64 %and18.i122, ptr %agg.result, align 8, !tbaa !211
   %expected_.i125 = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %agg.result, i64 0, i32 1
   store i64 %spec.select, ptr %expected_.i125, align 8, !tbaa !212
   %timedWaiters_.i126 = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %agg.result, i64 0, i32 2
@@ -6191,7 +6182,7 @@ cleanup79.thread152:                              ; preds = %_ZN5folly6detail17d
   %waker_.i128 = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %agg.result, i64 0, i32 4
   store i64 %9, ptr %waker_.i128, align 8, !tbaa !219
   %waiters_.i129 = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %agg.result, i64 0, i32 5
-  store ptr %20, ptr %waiters_.i129, align 8, !tbaa !220
+  store i64 %and18.i123, ptr %waiters_.i129, align 8, !tbaa !220
   %ready_.i130 = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %agg.result, i64 0, i32 6
   store ptr %nextSleeper.0, ptr %ready_.i130, align 8, !tbaa !213
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %signal) #17
@@ -6395,7 +6386,6 @@ if.end62:                                         ; preds = %_ZN5folly6detail17d
   %10 = load i32, ptr %signal, align 4, !tbaa !48
   %cmp66 = icmp eq i32 %10, 7
   %cmp67 = icmp eq i32 %10, 10
-  %11 = inttoptr i64 %8 to ptr
   switch i32 %10, label %cleanup80.thread153 [
     i32 10, label %if.then71
     i32 7, label %if.then71
@@ -6407,7 +6397,7 @@ if.then71:                                        ; preds = %if.end62, %if.end62
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i: ; preds = %if.then71
   store ptr null, ptr %1, align 16, !tbaa !217
-  store ptr %11, ptr %agg.tmp.i.i, align 8, !tbaa !217
+  store i64 %8, ptr %agg.tmp.i.i, align 8, !tbaa !217
   invoke void @_ZSt17rethrow_exceptionNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull %agg.tmp.i.i) #31
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
@@ -6415,10 +6405,10 @@ invoke.cont.i.i:                                  ; preds = %_ZNSt15__exception_
   unreachable
 
 lpad.i.i:                                         ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %13 = load ptr, ptr %agg.tmp.i.i, align 8, !tbaa !217
-  %tobool.not.i4.i.i = icmp eq ptr %13, null
+  %12 = load ptr, ptr %agg.tmp.i.i, align 8, !tbaa !217
+  %tobool.not.i4.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i4.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i, label %if.then.i5.i.i
 
 if.then.i5.i.i:                                   ; preds = %lpad.i.i
@@ -6426,25 +6416,23 @@ if.then.i5.i.i:                                   ; preds = %lpad.i.i
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit9.i.i: ; preds = %if.then.i5.i.i, %lpad.i.i
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %11
 
 _ZN5folly6detail17distributed_mutex6detachINS1_6WaiterISt6atomicEEZNS_16ThrottledLifoSem16tryWaitUntilSlowINSt6chrono3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS8_10time_pointIT_T0_EEEUlvE1_EEvRNS1_17RequestWithReturnISH_EERSG_bRNS_4UnitE.exit: ; preds = %if.then71
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
-  %14 = getelementptr inbounds %"class.folly::detail::distributed_mutex::RequestWithReturn.116", ptr %request, i64 0, i32 1
-  store ptr %11, ptr %14, align 8, !tbaa !49
+  %13 = getelementptr inbounds %"class.folly::detail::distributed_mutex::RequestWithReturn.116", ptr %request, i64 0, i32 1
+  store i64 %8, ptr %13, align 8, !tbaa !49
   br label %cleanup80.thread153
 
 cleanup80.thread153:                              ; preds = %_ZN5folly6detail17distributed_mutex6detachINS1_6WaiterISt6atomicEEZNS_16ThrottledLifoSem16tryWaitUntilSlowINSt6chrono3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS8_10time_pointIT_T0_EEEUlvE1_EEvRNS1_17RequestWithReturnISH_EERSG_bRNS_4UnitE.exit, %if.end62
   %and18.i123 = select i1 %cmp63, i64 0, i64 %9
-  %15 = inttoptr i64 %and18.i123 to ptr
   %tobool75 = icmp ne i8 %timedWaiter.1, 0
-  %16 = or i1 %cmp66, %cmp67
-  %17 = load i64, ptr %agg.tmp120.sroa.5.0..sroa_idx, align 8, !tbaa !47
-  %and18.i124 = and i64 %17, -2
-  %18 = inttoptr i64 %and18.i124 to ptr
+  %14 = or i1 %cmp66, %cmp67
+  %15 = load i64, ptr %agg.tmp120.sroa.5.0..sroa_idx, align 8, !tbaa !47
+  %and18.i124 = and i64 %15, -2
   %frombool.i125 = zext i1 %tobool75 to i8
-  %frombool1.i = zext i1 %16 to i8
-  store ptr %15, ptr %agg.result, align 8, !tbaa !211
+  %frombool1.i = zext i1 %14 to i8
+  store i64 %and18.i123, ptr %agg.result, align 8, !tbaa !211
   %expected_.i126 = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %agg.result, i64 0, i32 1
   store i64 %spec.select, ptr %expected_.i126, align 8, !tbaa !212
   %timedWaiters_.i127 = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %agg.result, i64 0, i32 2
@@ -6454,7 +6442,7 @@ cleanup80.thread153:                              ; preds = %_ZN5folly6detail17d
   %waker_.i129 = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %agg.result, i64 0, i32 4
   store i64 %8, ptr %waker_.i129, align 8, !tbaa !219
   %waiters_.i130 = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %agg.result, i64 0, i32 5
-  store ptr %18, ptr %waiters_.i130, align 8, !tbaa !220
+  store i64 %and18.i124, ptr %waiters_.i130, align 8, !tbaa !220
   %ready_.i131 = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %agg.result, i64 0, i32 6
   store ptr %nextSleeper.0, ptr %ready_.i131, align 8, !tbaa !213
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %signal) #17

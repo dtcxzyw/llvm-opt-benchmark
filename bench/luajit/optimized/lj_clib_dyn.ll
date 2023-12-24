@@ -157,8 +157,7 @@ if.then37:                                        ; preds = %if.end24
   %22 = load i64, ptr %grayagain.i, align 8
   %gclist.i = getelementptr inbounds %struct.GCtab, ptr %17, i64 0, i32 6
   store i64 %22, ptr %gclist.i, align 8
-  %23 = ptrtoint ptr %17 to i64
-  store i64 %23, ptr %grayagain.i, align 8
+  store ptr %17, ptr %grayagain.i, align 8
   br label %if.end41
 
 if.end41:                                         ; preds = %if.else, %if.then14, %if.then37, %if.end24, %entry
@@ -397,16 +396,15 @@ clib_loadlib.exit:                                ; preds = %clib_extname.exit.i
   store ptr %call.i, ptr %cache.i, align 8
   %udtype.i = getelementptr inbounds %struct.GCudata, ptr %call1.i2, i64 0, i32 3
   store i8 2, ptr %udtype.i, align 2
-  %10 = ptrtoint ptr %mt to i64
   %metatable.i = getelementptr inbounds %struct.GCudata, ptr %call1.i2, i64 0, i32 7
-  store i64 %10, ptr %metatable.i, align 8
+  store ptr %mt, ptr %metatable.i, align 8
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %11 = load ptr, ptr %top.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %union.TValue, ptr %11, i64 1
+  %10 = load ptr, ptr %top.i, align 8
+  %incdec.ptr.i = getelementptr inbounds %union.TValue, ptr %10, i64 1
   store ptr %incdec.ptr.i, ptr %top.i, align 8
-  %12 = ptrtoint ptr %call1.i2 to i64
-  %or.i.i.i = or i64 %12, -1829587348619264
-  store i64 %or.i.i.i, ptr %11, align 8
+  %11 = ptrtoint ptr %call1.i2 to i64
+  %or.i.i.i = or i64 %11, -1829587348619264
+  store i64 %or.i.i.i, ptr %10, align 8
   store ptr %retval.0.i, ptr %add.ptr.i3, align 8
   ret void
 }
@@ -437,16 +435,15 @@ entry:
   store ptr %call.i, ptr %cache.i, align 8
   %udtype.i = getelementptr inbounds %struct.GCudata, ptr %call1.i, i64 0, i32 3
   store i8 2, ptr %udtype.i, align 2
-  %0 = ptrtoint ptr %mt to i64
   %metatable.i = getelementptr inbounds %struct.GCudata, ptr %call1.i, i64 0, i32 7
-  store i64 %0, ptr %metatable.i, align 8
+  store ptr %mt, ptr %metatable.i, align 8
   %top.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %1 = load ptr, ptr %top.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %union.TValue, ptr %1, i64 1
+  %0 = load ptr, ptr %top.i, align 8
+  %incdec.ptr.i = getelementptr inbounds %union.TValue, ptr %0, i64 1
   store ptr %incdec.ptr.i, ptr %top.i, align 8
-  %2 = ptrtoint ptr %call1.i to i64
-  %or.i.i.i = or i64 %2, -1829587348619264
-  store i64 %or.i.i.i, ptr %1, align 8
+  %1 = ptrtoint ptr %call1.i to i64
+  %or.i.i.i = or i64 %1, -1829587348619264
+  store i64 %or.i.i.i, ptr %0, align 8
   store ptr null, ptr %add.ptr.i, align 8
   ret void
 }

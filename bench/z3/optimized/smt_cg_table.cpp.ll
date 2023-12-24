@@ -784,7 +784,7 @@ sw.bb:                                            ; preds = %entry
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %sw.bb
   %i.07.i.i.i.i = phi i32 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %sw.bb ]
   %curr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %call.i.i.i.i, %sw.bb ]
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i.i.i, align 8
+  store i64 1, ptr %curr.06.i.i.i.i, align 8
   %inc.i.i.i.i = add nuw nsw i32 %i.07.i.i.i.i, 1
   %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.chashtable<smt::enode *, smt::cg_table::cg_unary_hash, smt::cg_table::cg_unary_eq>::cell", ptr %curr.06.i.i.i.i, i64 1
   %exitcond.not.i.i.i.i = icmp eq i32 %inc.i.i.i.i, 10
@@ -828,7 +828,7 @@ if.then:                                          ; preds = %_ZNK9func_decl19is_
 for.body.i.i.i.i11:                               ; preds = %for.body.i.i.i.i11, %if.then
   %i.07.i.i.i.i12 = phi i32 [ %inc.i.i.i.i14, %for.body.i.i.i.i11 ], [ 0, %if.then ]
   %curr.06.i.i.i.i13 = phi ptr [ %incdec.ptr.i.i.i.i15, %for.body.i.i.i.i11 ], [ %call.i.i.i.i10, %if.then ]
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i.i.i13, align 8
+  store i64 1, ptr %curr.06.i.i.i.i13, align 8
   %inc.i.i.i.i14 = add nuw nsw i32 %i.07.i.i.i.i12, 1
   %incdec.ptr.i.i.i.i15 = getelementptr inbounds %"struct.chashtable<smt::enode *, smt::cg_table::cg_hash, smt::cg_table::cg_eq>::cell", ptr %curr.06.i.i.i.i13, i64 1
   %exitcond.not.i.i.i.i16 = icmp eq i32 %inc.i.i.i.i14, 10
@@ -856,8 +856,7 @@ _ZNK9func_decl14is_commutativeEv.exit:            ; preds = %_ZNK9func_decl19is_
 if.then11:                                        ; preds = %_ZNK9func_decl14is_commutativeEv.exit
   %call12 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 72)
   %m_commutativity = getelementptr inbounds %"class.smt::cg_table", ptr %this, i64 0, i32 1
-  %6 = ptrtoint ptr %m_commutativity to i64
-  store i64 %6, ptr %call12, align 8
+  store ptr %m_commutativity, ptr %call12, align 8
   %m_init_slots.i29 = getelementptr inbounds %class.chashtable.37, ptr %call12, i64 0, i32 3
   store i32 8, ptr %m_init_slots.i29, align 4
   %m_init_cellar.i30 = getelementptr inbounds %class.chashtable.37, ptr %call12, i64 0, i32 4
@@ -870,7 +869,7 @@ if.then11:                                        ; preds = %_ZNK9func_decl14is_
 for.body.i.i.i.i33:                               ; preds = %for.body.i.i.i.i33, %if.then11
   %i.07.i.i.i.i34 = phi i32 [ %inc.i.i.i.i36, %for.body.i.i.i.i33 ], [ 0, %if.then11 ]
   %curr.06.i.i.i.i35 = phi ptr [ %incdec.ptr.i.i.i.i37, %for.body.i.i.i.i33 ], [ %call.i.i.i.i32, %if.then11 ]
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i.i.i35, align 8
+  store i64 1, ptr %curr.06.i.i.i.i35, align 8
   %inc.i.i.i.i36 = add nuw nsw i32 %i.07.i.i.i.i34, 1
   %incdec.ptr.i.i.i.i37 = getelementptr inbounds %"struct.chashtable<smt::enode *, smt::cg_table::cg_comm_hash, smt::cg_table::cg_comm_eq>::cell", ptr %curr.06.i.i.i.i35, i64 1
   %exitcond.not.i.i.i.i38 = icmp eq i32 %inc.i.i.i.i36, 10
@@ -886,9 +885,9 @@ _ZN10chashtableIPN3smt5enodeENS0_8cg_table12cg_comm_hashENS3_10cg_comm_eqEEC2ERK
   %m_free_cell.i.i44 = getelementptr inbounds %class.chashtable.37, ptr %call12, i64 0, i32 10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_cell.i.i44, i8 0, i64 16, i1 false)
   store <4 x i32> <i32 8, i32 0, i32 0, i32 0>, ptr %m_slots.i.i39, align 4
-  %7 = ptrtoint ptr %call12 to i64
-  %or15 = or i64 %7, 2
-  %8 = inttoptr i64 %or15 to ptr
+  %6 = ptrtoint ptr %call12 to i64
+  %or15 = or i64 %6, 2
+  %7 = inttoptr i64 %or15 to ptr
   br label %return
 
 if.else16:                                        ; preds = %sw.bb4, %_ZNK9func_decl14is_commutativeEv.exit
@@ -905,7 +904,7 @@ if.else16:                                        ; preds = %sw.bb4, %_ZNK9func_
 for.body.i.i.i.i50:                               ; preds = %for.body.i.i.i.i50, %if.else16
   %i.07.i.i.i.i51 = phi i32 [ %inc.i.i.i.i53, %for.body.i.i.i.i50 ], [ 0, %if.else16 ]
   %curr.06.i.i.i.i52 = phi ptr [ %incdec.ptr.i.i.i.i54, %for.body.i.i.i.i50 ], [ %call.i.i.i.i49, %if.else16 ]
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i.i.i52, align 8
+  store i64 1, ptr %curr.06.i.i.i.i52, align 8
   %inc.i.i.i.i53 = add nuw nsw i32 %i.07.i.i.i.i51, 1
   %incdec.ptr.i.i.i.i54 = getelementptr inbounds %"struct.chashtable<smt::enode *, smt::cg_table::cg_binary_hash, smt::cg_table::cg_binary_eq>::cell", ptr %curr.06.i.i.i.i52, i64 1
   %exitcond.not.i.i.i.i55 = icmp eq i32 %inc.i.i.i.i53, 10
@@ -920,9 +919,9 @@ _ZN10chashtableIPN3smt5enodeENS0_8cg_table14cg_binary_hashENS3_12cg_binary_eqEEC
   %m_free_cell.i.i61 = getelementptr inbounds %class.chashtable.38, ptr %call17, i64 0, i32 9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_cell.i.i61, i8 0, i64 16, i1 false)
   store <4 x i32> <i32 8, i32 0, i32 0, i32 0>, ptr %m_slots.i.i56, align 4
-  %9 = ptrtoint ptr %call17 to i64
-  %or20 = or i64 %9, 1
-  %10 = inttoptr i64 %or20 to ptr
+  %8 = ptrtoint ptr %call17 to i64
+  %or20 = or i64 %8, 1
+  %9 = inttoptr i64 %or20 to ptr
   br label %return
 
 sw.default:                                       ; preds = %entry
@@ -939,7 +938,7 @@ sw.default:                                       ; preds = %entry
 for.body.i.i.i.i67:                               ; preds = %for.body.i.i.i.i67, %sw.default
   %i.07.i.i.i.i68 = phi i32 [ %inc.i.i.i.i70, %for.body.i.i.i.i67 ], [ 0, %sw.default ]
   %curr.06.i.i.i.i69 = phi ptr [ %incdec.ptr.i.i.i.i71, %for.body.i.i.i.i67 ], [ %call.i.i.i.i66, %sw.default ]
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i.i.i69, align 8
+  store i64 1, ptr %curr.06.i.i.i.i69, align 8
   %inc.i.i.i.i70 = add nuw nsw i32 %i.07.i.i.i.i68, 1
   %incdec.ptr.i.i.i.i71 = getelementptr inbounds %"struct.chashtable<smt::enode *, smt::cg_table::cg_hash, smt::cg_table::cg_eq>::cell", ptr %curr.06.i.i.i.i69, i64 1
   %exitcond.not.i.i.i.i72 = icmp eq i32 %inc.i.i.i.i70, 10
@@ -954,13 +953,13 @@ _ZN10chashtableIPN3smt5enodeENS0_8cg_table7cg_hashENS3_5cg_eqEEC2ERKS4_RKS5_jj.e
   %m_free_cell.i.i78 = getelementptr inbounds %class.chashtable.36, ptr %call21, i64 0, i32 9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_cell.i.i78, i8 0, i64 16, i1 false)
   store <4 x i32> <i32 8, i32 0, i32 0, i32 0>, ptr %m_slots.i.i73, align 4
-  %11 = ptrtoint ptr %call21 to i64
-  %or24 = or i64 %11, 3
-  %12 = inttoptr i64 %or24 to ptr
+  %10 = ptrtoint ptr %call21 to i64
+  %or24 = or i64 %10, 3
+  %11 = inttoptr i64 %or24 to ptr
   br label %return
 
 return:                                           ; preds = %_ZN10chashtableIPN3smt5enodeENS0_8cg_table7cg_hashENS3_5cg_eqEEC2ERKS4_RKS5_jj.exit80, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table14cg_binary_hashENS3_12cg_binary_eqEEC2ERKS4_RKS5_jj.exit, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table12cg_comm_hashENS3_10cg_comm_eqEEC2ERKS4_RKS5_jj.exit, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table7cg_hashENS3_5cg_eqEEC2ERKS4_RKS5_jj.exit, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table13cg_unary_hashENS3_11cg_unary_eqEEC2ERKS4_RKS5_jj.exit
-  %retval.0 = phi ptr [ %12, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table7cg_hashENS3_5cg_eqEEC2ERKS4_RKS5_jj.exit80 ], [ %4, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table7cg_hashENS3_5cg_eqEEC2ERKS4_RKS5_jj.exit ], [ %8, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table12cg_comm_hashENS3_10cg_comm_eqEEC2ERKS4_RKS5_jj.exit ], [ %10, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table14cg_binary_hashENS3_12cg_binary_eqEEC2ERKS4_RKS5_jj.exit ], [ %call2, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table13cg_unary_hashENS3_11cg_unary_eqEEC2ERKS4_RKS5_jj.exit ]
+  %retval.0 = phi ptr [ %11, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table7cg_hashENS3_5cg_eqEEC2ERKS4_RKS5_jj.exit80 ], [ %4, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table7cg_hashENS3_5cg_eqEEC2ERKS4_RKS5_jj.exit ], [ %7, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table12cg_comm_hashENS3_10cg_comm_eqEEC2ERKS4_RKS5_jj.exit ], [ %9, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table14cg_binary_hashENS3_12cg_binary_eqEEC2ERKS4_RKS5_jj.exit ], [ %call2, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table13cg_unary_hashENS3_11cg_unary_eqEEC2ERKS4_RKS5_jj.exit ]
   ret ptr %retval.0
 }
 
@@ -2456,7 +2455,7 @@ if.end14.lr.ph.i:                                 ; preds = %do.body.preheader.i
   br label %if.end14.i
 
 do.body.i:                                        ; preds = %if.end14.i
-  %m_data.i = getelementptr inbounds %"struct.chashtable<smt::enode *, smt::cg_table::cg_unary_hash, smt::cg_table::cg_unary_eq>::cell", ptr %33, i64 0, i32 1
+  %m_data.i = getelementptr inbounds %"struct.chashtable<smt::enode *, smt::cg_table::cg_unary_hash, smt::cg_table::cg_unary_eq>::cell", ptr %32, i64 0, i32 1
   %17 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i.i.i15.i = getelementptr inbounds %"class.smt::enode", ptr %17, i64 0, i32 16, i64 0
   %18 = load ptr, ptr %arrayidx.i.i.i15.i, align 8
@@ -2485,38 +2484,37 @@ if.then7.i:                                       ; preds = %if.then5.i
   %25 = load ptr, ptr %add.ptr.i, align 8
   %26 = ptrtoint ptr %25 to i64
   %or.i.i = or i64 %26, 1
-  %27 = inttoptr i64 %or.i.i to ptr
-  store ptr %27, ptr %add.ptr.i, align 8
+  store i64 %or.i.i, ptr %add.ptr.i, align 8
   br label %sw.epilog
 
 if.else.i:                                        ; preds = %if.then5.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
   %m_free_cell.i.i = getelementptr inbounds %class.chashtable.35, ptr %5, i64 0, i32 9
-  %28 = load ptr, ptr %m_free_cell.i.i, align 8
-  store ptr %28, ptr %23, align 8
+  %27 = load ptr, ptr %m_free_cell.i.i, align 8
+  store ptr %27, ptr %23, align 8
   store ptr %23, ptr %m_free_cell.i.i, align 8
   br label %sw.epilog
 
 if.else10.i:                                      ; preds = %do.body.i
   %m_size.i = getelementptr inbounds %class.chashtable.35, ptr %5, i64 0, i32 6
-  %29 = load i32, ptr %m_size.i, align 4
-  %dec.i = add i32 %29, -1
+  %28 = load i32, ptr %m_size.i, align 4
+  %dec.i = add i32 %28, -1
   store i32 %dec.i, ptr %m_size.i, align 4
-  %30 = load ptr, ptr %33, align 8
-  store ptr %30, ptr %c.026.i, align 8
+  %29 = load ptr, ptr %32, align 8
+  store ptr %29, ptr %c.026.i, align 8
   %m_free_cell.i17.i = getelementptr inbounds %class.chashtable.35, ptr %5, i64 0, i32 9
-  %31 = load ptr, ptr %m_free_cell.i17.i, align 8
-  store ptr %31, ptr %33, align 8
-  store ptr %33, ptr %m_free_cell.i17.i, align 8
+  %30 = load ptr, ptr %m_free_cell.i17.i, align 8
+  store ptr %30, ptr %32, align 8
+  store ptr %32, ptr %m_free_cell.i17.i, align 8
   br label %sw.epilog
 
 if.end14.i:                                       ; preds = %do.body.i, %if.end14.lr.ph.i
-  %32 = phi i32 [ %.pre.i, %if.end14.lr.ph.i ], [ %inc.i, %do.body.i ]
-  %c.026.i = phi ptr [ %add.ptr.i, %if.end14.lr.ph.i ], [ %33, %do.body.i ]
-  %inc.i = add i32 %32, 1
+  %31 = phi i32 [ %.pre.i, %if.end14.lr.ph.i ], [ %inc.i, %do.body.i ]
+  %c.026.i = phi ptr [ %add.ptr.i, %if.end14.lr.ph.i ], [ %32, %do.body.i ]
+  %inc.i = add i32 %31, 1
   store i32 %inc.i, ptr %m_collisions.i, align 8
-  %33 = load ptr, ptr %c.026.i, align 8
-  %cmp16.not.i = icmp eq ptr %33, null
+  %32 = load ptr, ptr %c.026.i, align 8
+  %cmp16.not.i = icmp eq ptr %32, null
   br i1 %cmp16.not.i, label %sw.epilog, label %do.body.i, !llvm.loop !44
 
 sw.bb3:                                           ; preds = %_ZN3smt8cg_table9get_tableEPNS_5enodeE.exit
@@ -2581,7 +2579,7 @@ do.body.preheader:                                ; preds = %entry
 
 do.body:                                          ; preds = %do.body.preheader, %if.end14
   %prev.0 = phi ptr [ %c.0, %if.end14 ], [ null, %do.body.preheader ]
-  %c.0 = phi ptr [ %32, %if.end14 ], [ %add.ptr, %do.body.preheader ]
+  %c.0 = phi ptr [ %31, %if.end14 ], [ %add.ptr, %do.body.preheader ]
   %m_data = getelementptr inbounds %"struct.chashtable<smt::enode *, smt::cg_table::cg_binary_hash, smt::cg_table::cg_binary_eq>::cell", ptr %c.0, i64 0, i32 1
   %13 = load ptr, ptr %m_data, align 8
   %14 = load ptr, ptr %d, align 8
@@ -2629,32 +2627,31 @@ if.then7:                                         ; preds = %if.then5
   %26 = load ptr, ptr %c.0, align 8
   %27 = ptrtoint ptr %26 to i64
   %or.i = or i64 %27, 1
-  %28 = inttoptr i64 %or.i to ptr
-  store ptr %28, ptr %c.0, align 8
+  store i64 %or.i, ptr %c.0, align 8
   br label %do.end
 
 if.else:                                          ; preds = %if.then5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c.0, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   %m_free_cell.i = getelementptr inbounds %class.chashtable.38, ptr %this, i64 0, i32 9
-  %29 = load ptr, ptr %m_free_cell.i, align 8
-  store ptr %29, ptr %24, align 8
+  %28 = load ptr, ptr %m_free_cell.i, align 8
+  store ptr %28, ptr %24, align 8
   store ptr %24, ptr %m_free_cell.i, align 8
   br label %do.end
 
 if.else10:                                        ; preds = %if.then4
   store ptr %24, ptr %prev.0, align 8
   %m_free_cell.i17 = getelementptr inbounds %class.chashtable.38, ptr %this, i64 0, i32 9
-  %30 = load ptr, ptr %m_free_cell.i17, align 8
-  store ptr %30, ptr %c.0, align 8
+  %29 = load ptr, ptr %m_free_cell.i17, align 8
+  store ptr %29, ptr %c.0, align 8
   store ptr %c.0, ptr %m_free_cell.i17, align 8
   br label %do.end
 
 if.end14:                                         ; preds = %do.body, %_ZNK10chashtableIPN3smt5enodeENS0_8cg_table14cg_binary_hashENS3_12cg_binary_eqEE6equalsERKS2_S8_.exit
-  %31 = load i32, ptr %m_collisions, align 8
-  %inc = add i32 %31, 1
+  %30 = load i32, ptr %m_collisions, align 8
+  %inc = add i32 %30, 1
   store i32 %inc, ptr %m_collisions, align 8
-  %32 = load ptr, ptr %c.0, align 8
-  %cmp16.not = icmp eq ptr %32, null
+  %31 = load ptr, ptr %c.0, align 8
+  %cmp16.not = icmp eq ptr %31, null
   br i1 %cmp16.not, label %do.end, label %do.body, !llvm.loop !45
 
 do.end:                                           ; preds = %if.end14, %if.else10, %if.else, %if.then7, %entry
@@ -2722,7 +2719,7 @@ do.body.preheader:                                ; preds = %entry
 
 do.body:                                          ; preds = %do.body.preheader, %if.end14
   %prev.0 = phi ptr [ %c.0, %if.end14 ], [ null, %do.body.preheader ]
-  %c.0 = phi ptr [ %35, %if.end14 ], [ %add.ptr, %do.body.preheader ]
+  %c.0 = phi ptr [ %34, %if.end14 ], [ %add.ptr, %do.body.preheader ]
   %m_data = getelementptr inbounds %"struct.chashtable<smt::enode *, smt::cg_table::cg_comm_hash, smt::cg_table::cg_comm_eq>::cell", ptr %c.0, i64 0, i32 1
   %15 = load ptr, ptr %m_data, align 8
   %16 = load ptr, ptr %d, align 8
@@ -2779,32 +2776,31 @@ if.then7:                                         ; preds = %if.then5
   %29 = load ptr, ptr %c.0, align 8
   %30 = ptrtoint ptr %29 to i64
   %or.i = or i64 %30, 1
-  %31 = inttoptr i64 %or.i to ptr
-  store ptr %31, ptr %c.0, align 8
+  store i64 %or.i, ptr %c.0, align 8
   br label %do.end
 
 if.else:                                          ; preds = %if.then5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c.0, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false)
   %m_free_cell.i = getelementptr inbounds %class.chashtable.37, ptr %this, i64 0, i32 10
-  %32 = load ptr, ptr %m_free_cell.i, align 8
-  store ptr %32, ptr %27, align 8
+  %31 = load ptr, ptr %m_free_cell.i, align 8
+  store ptr %31, ptr %27, align 8
   store ptr %27, ptr %m_free_cell.i, align 8
   br label %do.end
 
 if.else10:                                        ; preds = %if.then4
   store ptr %27, ptr %prev.0, align 8
   %m_free_cell.i17 = getelementptr inbounds %class.chashtable.37, ptr %this, i64 0, i32 10
-  %33 = load ptr, ptr %m_free_cell.i17, align 8
-  store ptr %33, ptr %c.0, align 8
+  %32 = load ptr, ptr %m_free_cell.i17, align 8
+  store ptr %32, ptr %c.0, align 8
   store ptr %c.0, ptr %m_free_cell.i17, align 8
   br label %do.end
 
 if.end14:                                         ; preds = %if.end.i.i
-  %34 = load i32, ptr %m_collisions, align 8
-  %inc = add i32 %34, 1
+  %33 = load i32, ptr %m_collisions, align 8
+  %inc = add i32 %33, 1
   store i32 %inc, ptr %m_collisions, align 8
-  %35 = load ptr, ptr %c.0, align 8
-  %cmp16.not = icmp eq ptr %35, null
+  %34 = load ptr, ptr %c.0, align 8
+  %cmp16.not = icmp eq ptr %34, null
   br i1 %cmp16.not, label %do.end, label %do.body, !llvm.loop !46
 
 do.end:                                           ; preds = %if.end14, %if.else10, %if.else, %if.then7, %entry
@@ -2835,7 +2831,7 @@ do.body.preheader:                                ; preds = %entry
 
 do.body:                                          ; preds = %do.body.preheader, %if.end14
   %prev.0 = phi ptr [ %c.0, %if.end14 ], [ null, %do.body.preheader ]
-  %c.0 = phi ptr [ %26, %if.end14 ], [ %add.ptr, %do.body.preheader ]
+  %c.0 = phi ptr [ %25, %if.end14 ], [ %add.ptr, %do.body.preheader ]
   %m_data = getelementptr inbounds %"struct.chashtable<smt::enode *, smt::cg_table::cg_hash, smt::cg_table::cg_eq>::cell", ptr %c.0, i64 0, i32 1
   %5 = load ptr, ptr %m_data, align 8
   %6 = load ptr, ptr %d, align 8
@@ -2917,32 +2913,31 @@ if.then7:                                         ; preds = %if.then5
   %20 = load ptr, ptr %c.0, align 8
   %21 = ptrtoint ptr %20 to i64
   %or.i = or i64 %21, 1
-  %22 = inttoptr i64 %or.i to ptr
-  store ptr %22, ptr %c.0, align 8
+  store i64 %or.i, ptr %c.0, align 8
   br label %do.end
 
 if.else:                                          ; preds = %if.then5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c.0, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
   %m_free_cell.i = getelementptr inbounds %class.chashtable.36, ptr %this, i64 0, i32 9
-  %23 = load ptr, ptr %m_free_cell.i, align 8
-  store ptr %23, ptr %18, align 8
+  %22 = load ptr, ptr %m_free_cell.i, align 8
+  store ptr %22, ptr %18, align 8
   store ptr %18, ptr %m_free_cell.i, align 8
   br label %do.end
 
 if.else10:                                        ; preds = %if.then4
   store ptr %18, ptr %prev.0, align 8
   %m_free_cell.i15 = getelementptr inbounds %class.chashtable.36, ptr %this, i64 0, i32 9
-  %24 = load ptr, ptr %m_free_cell.i15, align 8
-  store ptr %24, ptr %c.0, align 8
+  %23 = load ptr, ptr %m_free_cell.i15, align 8
+  store ptr %23, ptr %c.0, align 8
   store ptr %c.0, ptr %m_free_cell.i15, align 8
   br label %do.end
 
 if.end14:                                         ; preds = %for.body.i.i, %_ZNK3smt5enode12get_num_argsEv.exit13.i.i
-  %25 = load i32, ptr %m_collisions, align 8
-  %inc = add i32 %25, 1
+  %24 = load i32, ptr %m_collisions, align 8
+  %inc = add i32 %24, 1
   store i32 %inc, ptr %m_collisions, align 8
-  %26 = load ptr, ptr %c.0, align 8
-  %cmp16.not = icmp eq ptr %26, null
+  %25 = load ptr, ptr %c.0, align 8
+  %cmp16.not = icmp eq ptr %25, null
   br i1 %cmp16.not, label %do.end, label %do.body, !llvm.loop !47
 
 do.end:                                           ; preds = %if.end14, %if.else10, %if.else, %if.then7, %entry
@@ -3495,7 +3490,7 @@ while.body:                                       ; preds = %while.body.backedge
 for.body.i.i:                                     ; preds = %while.body, %for.body.i.i
   %i.07.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %while.body ]
   %curr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i.i, %while.body ]
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i, align 8
+  store i64 1, ptr %curr.06.i.i, align 8
   %inc.i.i = add nuw i32 %i.07.i.i, 1
   %incdec.ptr.i.i = getelementptr inbounds %"struct.chashtable<smt::enode *, smt::cg_table::cg_unary_hash, smt::cg_table::cg_unary_eq>::cell", ptr %curr.06.i.i, i64 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %add
@@ -3639,7 +3634,7 @@ while.body:                                       ; preds = %while.body.backedge
 for.body.i.i:                                     ; preds = %while.body, %for.body.i.i
   %i.07.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %while.body ]
   %curr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i.i, %while.body ]
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i, align 8
+  store i64 1, ptr %curr.06.i.i, align 8
   %inc.i.i = add nuw i32 %i.07.i.i, 1
   %incdec.ptr.i.i = getelementptr inbounds %"struct.chashtable<smt::enode *, smt::cg_table::cg_binary_hash, smt::cg_table::cg_binary_eq>::cell", ptr %curr.06.i.i, i64 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %add
@@ -3798,7 +3793,7 @@ while.body:                                       ; preds = %while.body.backedge
 for.body.i.i:                                     ; preds = %while.body, %for.body.i.i
   %i.07.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %while.body ]
   %curr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i.i, %while.body ]
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i, align 8
+  store i64 1, ptr %curr.06.i.i, align 8
   %inc.i.i = add nuw i32 %i.07.i.i, 1
   %incdec.ptr.i.i = getelementptr inbounds %"struct.chashtable<smt::enode *, smt::cg_table::cg_comm_hash, smt::cg_table::cg_comm_eq>::cell", ptr %curr.06.i.i, i64 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %add
@@ -3983,7 +3978,7 @@ while.body:                                       ; preds = %while.body.backedge
 for.body.i.i:                                     ; preds = %while.body, %for.body.i.i
   %i.07.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %while.body ]
   %curr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i.i, %while.body ]
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i, align 8
+  store i64 1, ptr %curr.06.i.i, align 8
   %inc.i.i = add nuw i32 %i.07.i.i, 1
   %incdec.ptr.i.i = getelementptr inbounds %"struct.chashtable<smt::enode *, smt::cg_table::cg_hash, smt::cg_table::cg_eq>::cell", ptr %curr.06.i.i, i64 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %add

@@ -1100,71 +1100,70 @@ invoke.cont:                                      ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %stats_union10, ptr noundef nonnull align 8 dereferenceable(40) %stats_union9, i64 40, i1 false), !tbaa.struct !38
   %child_stats12 = getelementptr inbounds %"class.duckdb::BaseStatistics", ptr %other, i64 0, i32 5
   %13 = load i64, ptr %child_stats, align 8, !tbaa !26
-  %14 = inttoptr i64 %13 to ptr
   store ptr null, ptr %child_stats, align 8, !tbaa !26
-  %15 = load ptr, ptr %child_stats12, align 8, !tbaa !26
+  %14 = load ptr, ptr %child_stats12, align 8, !tbaa !26
   store ptr null, ptr %child_stats12, align 8, !tbaa !26
-  %16 = load ptr, ptr %child_stats, align 8, !tbaa !26
-  store ptr %15, ptr %child_stats, align 8, !tbaa !26
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %16, null
+  %15 = load ptr, ptr %child_stats, align 8, !tbaa !26
+  store ptr %14, ptr %child_stats, align 8, !tbaa !26
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN6duckdb10unique_ptrIA_NS_14BaseStatisticsESt14default_deleteIS1_ELb0EEaSEOS5_.exit.i, label %delete.notnull.i.i.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %invoke.cont
-  %17 = getelementptr inbounds i8, ptr %16, i64 -8
-  %18 = load i64, ptr %17, align 8
-  %arraydestroy.isempty.i.i.i.i.i.i.i = icmp eq i64 %18, 0
+  %16 = getelementptr inbounds i8, ptr %15, i64 -8
+  %17 = load i64, ptr %16, align 8
+  %arraydestroy.isempty.i.i.i.i.i.i.i = icmp eq i64 %17, 0
   br i1 %arraydestroy.isempty.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i.i, label %arraydestroy.body.preheader.i.i.i.i.i.i.i
 
 arraydestroy.body.preheader.i.i.i.i.i.i.i:        ; preds = %delete.notnull.i.i.i.i.i.i.i
-  %delete.end.i.i.i.i.i.i.i = getelementptr inbounds %"class.duckdb::BaseStatistics", ptr %16, i64 %18
+  %delete.end.i.i.i.i.i.i.i = getelementptr inbounds %"class.duckdb::BaseStatistics", ptr %15, i64 %17
   br label %arraydestroy.body.i.i.i.i.i.i.i
 
 arraydestroy.body.i.i.i.i.i.i.i:                  ; preds = %arraydestroy.body.i.i.i.i.i.i.i, %arraydestroy.body.preheader.i.i.i.i.i.i.i
   %arraydestroy.elementPast.i.i.i.i.i.i.i = phi ptr [ %arraydestroy.element.i.i.i.i.i.i.i, %arraydestroy.body.i.i.i.i.i.i.i ], [ %delete.end.i.i.i.i.i.i.i, %arraydestroy.body.preheader.i.i.i.i.i.i.i ]
   %arraydestroy.element.i.i.i.i.i.i.i = getelementptr inbounds %"class.duckdb::BaseStatistics", ptr %arraydestroy.elementPast.i.i.i.i.i.i.i, i64 -1
   call void @_ZN6duckdb14BaseStatisticsD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %arraydestroy.element.i.i.i.i.i.i.i) #25
-  %arraydestroy.done.i.i.i.i.i.i.i = icmp eq ptr %arraydestroy.element.i.i.i.i.i.i.i, %16
+  %arraydestroy.done.i.i.i.i.i.i.i = icmp eq ptr %arraydestroy.element.i.i.i.i.i.i.i, %15
   br i1 %arraydestroy.done.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i.i, label %arraydestroy.body.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i.i.i, %delete.notnull.i.i.i.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %17) #26
+  call void @_ZdaPv(ptr noundef nonnull %16) #26
   br label %_ZN6duckdb10unique_ptrIA_NS_14BaseStatisticsESt14default_deleteIS1_ELb0EEaSEOS5_.exit.i
 
 _ZN6duckdb10unique_ptrIA_NS_14BaseStatisticsESt14default_deleteIS1_ELb0EEaSEOS5_.exit.i: ; preds = %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i.i, %invoke.cont
-  %19 = load ptr, ptr %child_stats12, align 8, !tbaa !26
-  store ptr %14, ptr %child_stats12, align 8, !tbaa !26
-  %tobool.not.i.i.i.i.i4.i = icmp eq ptr %19, null
+  %18 = load ptr, ptr %child_stats12, align 8, !tbaa !26
+  store i64 %13, ptr %child_stats12, align 8, !tbaa !26
+  %tobool.not.i.i.i.i.i4.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i.i.i4.i, label %_ZSt4swapIN6duckdb10unique_ptrIA_NS0_14BaseStatisticsESt14default_deleteIS2_ELb0EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISA_ESt18is_move_assignableISA_EEE5valueEvE4typeERSA_SJ_.exit, label %delete.notnull.i.i.i.i.i.i5.i
 
 delete.notnull.i.i.i.i.i.i5.i:                    ; preds = %_ZN6duckdb10unique_ptrIA_NS_14BaseStatisticsESt14default_deleteIS1_ELb0EEaSEOS5_.exit.i
-  %20 = getelementptr inbounds i8, ptr %19, i64 -8
-  %21 = load i64, ptr %20, align 8
-  %arraydestroy.isempty.i.i.i.i.i.i6.i = icmp eq i64 %21, 0
+  %19 = getelementptr inbounds i8, ptr %18, i64 -8
+  %20 = load i64, ptr %19, align 8
+  %arraydestroy.isempty.i.i.i.i.i.i6.i = icmp eq i64 %20, 0
   br i1 %arraydestroy.isempty.i.i.i.i.i.i6.i, label %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i13.i, label %arraydestroy.body.preheader.i.i.i.i.i.i7.i
 
 arraydestroy.body.preheader.i.i.i.i.i.i7.i:       ; preds = %delete.notnull.i.i.i.i.i.i5.i
-  %delete.end.i.i.i.i.i.i8.i = getelementptr inbounds %"class.duckdb::BaseStatistics", ptr %19, i64 %21
+  %delete.end.i.i.i.i.i.i8.i = getelementptr inbounds %"class.duckdb::BaseStatistics", ptr %18, i64 %20
   br label %arraydestroy.body.i.i.i.i.i.i9.i
 
 arraydestroy.body.i.i.i.i.i.i9.i:                 ; preds = %arraydestroy.body.i.i.i.i.i.i9.i, %arraydestroy.body.preheader.i.i.i.i.i.i7.i
   %arraydestroy.elementPast.i.i.i.i.i.i10.i = phi ptr [ %arraydestroy.element.i.i.i.i.i.i11.i, %arraydestroy.body.i.i.i.i.i.i9.i ], [ %delete.end.i.i.i.i.i.i8.i, %arraydestroy.body.preheader.i.i.i.i.i.i7.i ]
   %arraydestroy.element.i.i.i.i.i.i11.i = getelementptr inbounds %"class.duckdb::BaseStatistics", ptr %arraydestroy.elementPast.i.i.i.i.i.i10.i, i64 -1
   call void @_ZN6duckdb14BaseStatisticsD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %arraydestroy.element.i.i.i.i.i.i11.i) #25
-  %arraydestroy.done.i.i.i.i.i.i12.i = icmp eq ptr %arraydestroy.element.i.i.i.i.i.i11.i, %19
+  %arraydestroy.done.i.i.i.i.i.i12.i = icmp eq ptr %arraydestroy.element.i.i.i.i.i.i11.i, %18
   br i1 %arraydestroy.done.i.i.i.i.i.i12.i, label %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i13.i, label %arraydestroy.body.i.i.i.i.i.i9.i
 
 _ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i13.i: ; preds = %arraydestroy.body.i.i.i.i.i.i9.i, %delete.notnull.i.i.i.i.i.i5.i
-  call void @_ZdaPv(ptr noundef nonnull %20) #26
+  call void @_ZdaPv(ptr noundef nonnull %19) #26
   br label %_ZSt4swapIN6duckdb10unique_ptrIA_NS0_14BaseStatisticsESt14default_deleteIS2_ELb0EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISA_ESt18is_move_assignableISA_EEE5valueEvE4typeERSA_SJ_.exit
 
 _ZSt4swapIN6duckdb10unique_ptrIA_NS0_14BaseStatisticsESt14default_deleteIS2_ELb0EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISA_ESt18is_move_assignableISA_EEE5valueEvE4typeERSA_SJ_.exit: ; preds = %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i13.i, %_ZN6duckdb10unique_ptrIA_NS_14BaseStatisticsESt14default_deleteIS1_ELb0EEaSEOS5_.exit.i
   ret void
 
 terminate.lpad:                                   ; preds = %entry
-  %22 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  tail call void @__clang_call_terminate(ptr %23) #28
+  %22 = extractvalue { ptr, i32 } %21, 0
+  tail call void @__clang_call_terminate(ptr %22) #28
   unreachable
 }
 
@@ -1236,61 +1235,60 @@ entry:
   %child_stats = getelementptr inbounds %"class.duckdb::BaseStatistics", ptr %this, i64 0, i32 5
   %child_stats9 = getelementptr inbounds %"class.duckdb::BaseStatistics", ptr %other, i64 0, i32 5
   %13 = load i64, ptr %child_stats, align 8, !tbaa !26
-  %14 = inttoptr i64 %13 to ptr
   store ptr null, ptr %child_stats, align 8, !tbaa !26
-  %15 = load ptr, ptr %child_stats9, align 8, !tbaa !26
+  %14 = load ptr, ptr %child_stats9, align 8, !tbaa !26
   store ptr null, ptr %child_stats9, align 8, !tbaa !26
-  %16 = load ptr, ptr %child_stats, align 8, !tbaa !26
-  store ptr %15, ptr %child_stats, align 8, !tbaa !26
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %16, null
+  %15 = load ptr, ptr %child_stats, align 8, !tbaa !26
+  store ptr %14, ptr %child_stats, align 8, !tbaa !26
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN6duckdb10unique_ptrIA_NS_14BaseStatisticsESt14default_deleteIS1_ELb0EEaSEOS5_.exit.i, label %delete.notnull.i.i.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %entry
-  %17 = getelementptr inbounds i8, ptr %16, i64 -8
-  %18 = load i64, ptr %17, align 8
-  %arraydestroy.isempty.i.i.i.i.i.i.i = icmp eq i64 %18, 0
+  %16 = getelementptr inbounds i8, ptr %15, i64 -8
+  %17 = load i64, ptr %16, align 8
+  %arraydestroy.isempty.i.i.i.i.i.i.i = icmp eq i64 %17, 0
   br i1 %arraydestroy.isempty.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i.i, label %arraydestroy.body.preheader.i.i.i.i.i.i.i
 
 arraydestroy.body.preheader.i.i.i.i.i.i.i:        ; preds = %delete.notnull.i.i.i.i.i.i.i
-  %delete.end.i.i.i.i.i.i.i = getelementptr inbounds %"class.duckdb::BaseStatistics", ptr %16, i64 %18
+  %delete.end.i.i.i.i.i.i.i = getelementptr inbounds %"class.duckdb::BaseStatistics", ptr %15, i64 %17
   br label %arraydestroy.body.i.i.i.i.i.i.i
 
 arraydestroy.body.i.i.i.i.i.i.i:                  ; preds = %arraydestroy.body.i.i.i.i.i.i.i, %arraydestroy.body.preheader.i.i.i.i.i.i.i
   %arraydestroy.elementPast.i.i.i.i.i.i.i = phi ptr [ %arraydestroy.element.i.i.i.i.i.i.i, %arraydestroy.body.i.i.i.i.i.i.i ], [ %delete.end.i.i.i.i.i.i.i, %arraydestroy.body.preheader.i.i.i.i.i.i.i ]
   %arraydestroy.element.i.i.i.i.i.i.i = getelementptr inbounds %"class.duckdb::BaseStatistics", ptr %arraydestroy.elementPast.i.i.i.i.i.i.i, i64 -1
   call void @_ZN6duckdb14BaseStatisticsD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %arraydestroy.element.i.i.i.i.i.i.i) #25
-  %arraydestroy.done.i.i.i.i.i.i.i = icmp eq ptr %arraydestroy.element.i.i.i.i.i.i.i, %16
+  %arraydestroy.done.i.i.i.i.i.i.i = icmp eq ptr %arraydestroy.element.i.i.i.i.i.i.i, %15
   br i1 %arraydestroy.done.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i.i, label %arraydestroy.body.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i.i.i, %delete.notnull.i.i.i.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %17) #26
+  call void @_ZdaPv(ptr noundef nonnull %16) #26
   br label %_ZN6duckdb10unique_ptrIA_NS_14BaseStatisticsESt14default_deleteIS1_ELb0EEaSEOS5_.exit.i
 
 _ZN6duckdb10unique_ptrIA_NS_14BaseStatisticsESt14default_deleteIS1_ELb0EEaSEOS5_.exit.i: ; preds = %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i.i, %entry
-  %19 = load ptr, ptr %child_stats9, align 8, !tbaa !26
-  store ptr %14, ptr %child_stats9, align 8, !tbaa !26
-  %tobool.not.i.i.i.i.i4.i = icmp eq ptr %19, null
+  %18 = load ptr, ptr %child_stats9, align 8, !tbaa !26
+  store i64 %13, ptr %child_stats9, align 8, !tbaa !26
+  %tobool.not.i.i.i.i.i4.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i.i.i4.i, label %_ZSt4swapIN6duckdb10unique_ptrIA_NS0_14BaseStatisticsESt14default_deleteIS2_ELb0EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISA_ESt18is_move_assignableISA_EEE5valueEvE4typeERSA_SJ_.exit, label %delete.notnull.i.i.i.i.i.i5.i
 
 delete.notnull.i.i.i.i.i.i5.i:                    ; preds = %_ZN6duckdb10unique_ptrIA_NS_14BaseStatisticsESt14default_deleteIS1_ELb0EEaSEOS5_.exit.i
-  %20 = getelementptr inbounds i8, ptr %19, i64 -8
-  %21 = load i64, ptr %20, align 8
-  %arraydestroy.isempty.i.i.i.i.i.i6.i = icmp eq i64 %21, 0
+  %19 = getelementptr inbounds i8, ptr %18, i64 -8
+  %20 = load i64, ptr %19, align 8
+  %arraydestroy.isempty.i.i.i.i.i.i6.i = icmp eq i64 %20, 0
   br i1 %arraydestroy.isempty.i.i.i.i.i.i6.i, label %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i13.i, label %arraydestroy.body.preheader.i.i.i.i.i.i7.i
 
 arraydestroy.body.preheader.i.i.i.i.i.i7.i:       ; preds = %delete.notnull.i.i.i.i.i.i5.i
-  %delete.end.i.i.i.i.i.i8.i = getelementptr inbounds %"class.duckdb::BaseStatistics", ptr %19, i64 %21
+  %delete.end.i.i.i.i.i.i8.i = getelementptr inbounds %"class.duckdb::BaseStatistics", ptr %18, i64 %20
   br label %arraydestroy.body.i.i.i.i.i.i9.i
 
 arraydestroy.body.i.i.i.i.i.i9.i:                 ; preds = %arraydestroy.body.i.i.i.i.i.i9.i, %arraydestroy.body.preheader.i.i.i.i.i.i7.i
   %arraydestroy.elementPast.i.i.i.i.i.i10.i = phi ptr [ %arraydestroy.element.i.i.i.i.i.i11.i, %arraydestroy.body.i.i.i.i.i.i9.i ], [ %delete.end.i.i.i.i.i.i8.i, %arraydestroy.body.preheader.i.i.i.i.i.i7.i ]
   %arraydestroy.element.i.i.i.i.i.i11.i = getelementptr inbounds %"class.duckdb::BaseStatistics", ptr %arraydestroy.elementPast.i.i.i.i.i.i10.i, i64 -1
   call void @_ZN6duckdb14BaseStatisticsD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %arraydestroy.element.i.i.i.i.i.i11.i) #25
-  %arraydestroy.done.i.i.i.i.i.i12.i = icmp eq ptr %arraydestroy.element.i.i.i.i.i.i11.i, %19
+  %arraydestroy.done.i.i.i.i.i.i12.i = icmp eq ptr %arraydestroy.element.i.i.i.i.i.i11.i, %18
   br i1 %arraydestroy.done.i.i.i.i.i.i12.i, label %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i13.i, label %arraydestroy.body.i.i.i.i.i.i9.i
 
 _ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i13.i: ; preds = %arraydestroy.body.i.i.i.i.i.i9.i, %delete.notnull.i.i.i.i.i.i5.i
-  call void @_ZdaPv(ptr noundef nonnull %20) #26
+  call void @_ZdaPv(ptr noundef nonnull %19) #26
   br label %_ZSt4swapIN6duckdb10unique_ptrIA_NS0_14BaseStatisticsESt14default_deleteIS2_ELb0EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISA_ESt18is_move_assignableISA_EEE5valueEvE4typeERSA_SJ_.exit
 
 _ZSt4swapIN6duckdb10unique_ptrIA_NS0_14BaseStatisticsESt14default_deleteIS2_ELb0EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISA_ESt18is_move_assignableISA_EEE5valueEvE4typeERSA_SJ_.exit: ; preds = %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i13.i, %_ZN6duckdb10unique_ptrIA_NS_14BaseStatisticsESt14default_deleteIS1_ELb0EEaSEOS5_.exit.i

@@ -3261,8 +3261,7 @@ if.end:                                           ; preds = %for.cond.i.i.i.i, %
   %retval.sroa.0.1.i.i = phi ptr [ %5, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %7, %for.cond.i.i.i.i ]
   store ptr null, ptr %agg.result, align 8
   %storage_.i.i = getelementptr inbounds %"class.arrow::Result.92", ptr %agg.result, i64 0, i32 1
-  %21 = ptrtoint ptr %retval.sroa.0.1.i.i to i64
-  store i64 %21, ptr %storage_.i.i, align 8
+  store ptr %retval.sroa.0.1.i.i, ptr %storage_.i.i, align 8
   br label %return
 
 return:                                           ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i, %if.then, %if.end

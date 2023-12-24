@@ -3175,10 +3175,10 @@ invoke.cont24:                                    ; preds = %_ZNSt10unique_ptrIN
   br i1 %cmp.not.i.i, label %if.else.i.i, label %invoke.cont27.thread
 
 invoke.cont27.thread:                             ; preds = %invoke.cont24
-  store i64 %8, ptr %12, align 8, !tbaa !21
+  store ptr %7, ptr %12, align 8, !tbaa !21
   %new_check.sroa.0.0.vec.insert17 = insertelement <2 x i64> %new_check.sroa.0.8.vec.insert, i64 0, i64 0
   %then_expr.i.i.i.i.i = getelementptr inbounds %"struct.duckdb::CaseCheck", ptr %12, i64 0, i32 1
-  store i64 %11, ptr %then_expr.i.i.i.i.i, align 8, !tbaa !21
+  store ptr %10, ptr %then_expr.i.i.i.i.i, align 8, !tbaa !21
   %14 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !62
   %incdec.ptr.i.i = getelementptr inbounds %"struct.duckdb::CaseCheck", ptr %14, i64 1
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8, !tbaa !62
@@ -14511,27 +14511,26 @@ _ZN6duckdb14BaseExpressionD2Ev.exit:              ; preds = %if.then.i.i.i, %_ZN
 if.end:                                           ; preds = %if.else.i.i, %entry
   %5 = load ptr, ptr %right, align 8
   %cmp.i9.not = icmp eq ptr %5, null
-  %6 = ptrtoint ptr %5 to i64
   br i1 %cmp.i9.not, label %if.end7, label %if.then4
 
 if.then4:                                         ; preds = %if.end
   %_M_finish.i.i10 = getelementptr inbounds %"class.duckdb::OperatorExpression", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  %7 = load ptr, ptr %_M_finish.i.i10, align 8, !tbaa !21
+  %6 = load ptr, ptr %_M_finish.i.i10, align 8, !tbaa !21
   %_M_end_of_storage.i.i11 = getelementptr inbounds %"class.duckdb::OperatorExpression", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
-  %8 = load ptr, ptr %_M_end_of_storage.i.i11, align 8, !tbaa !112
-  %cmp.not.i.i12 = icmp eq ptr %7, %8
+  %7 = load ptr, ptr %_M_end_of_storage.i.i11, align 8, !tbaa !112
+  %cmp.not.i.i12 = icmp eq ptr %6, %7
   br i1 %cmp.not.i.i12, label %if.else.i.i15, label %if.then.i.i13
 
 if.then.i.i13:                                    ; preds = %if.then4
-  store i64 %6, ptr %7, align 8, !tbaa !21
+  store ptr %5, ptr %6, align 8, !tbaa !21
   store ptr null, ptr %right, align 8, !tbaa !21
-  %9 = load ptr, ptr %_M_finish.i.i10, align 8, !tbaa !114
-  %incdec.ptr.i.i14 = getelementptr inbounds %"class.duckdb::unique_ptr", ptr %9, i64 1
+  %8 = load ptr, ptr %_M_finish.i.i10, align 8, !tbaa !114
+  %incdec.ptr.i.i14 = getelementptr inbounds %"class.duckdb::unique_ptr", ptr %8, i64 1
   store ptr %incdec.ptr.i.i14, ptr %_M_finish.i.i10, align 8, !tbaa !114
   br label %if.end7
 
 if.else.i.i15:                                    ; preds = %if.then4
-  invoke void @_ZNSt6vectorIN6duckdb10unique_ptrINS0_16ParsedExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %children, ptr %7, ptr noundef nonnull align 8 dereferenceable(8) %right)
+  invoke void @_ZNSt6vectorIN6duckdb10unique_ptrINS0_16ParsedExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %children, ptr %6, ptr noundef nonnull align 8 dereferenceable(8) %right)
           to label %if.end7 unwind label %lpad
 
 if.end7:                                          ; preds = %if.else.i.i15, %if.then.i.i13, %if.end

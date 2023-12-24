@@ -749,8 +749,7 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont10:                                    ; preds = %invoke.cont
   %m_pinned = getelementptr inbounds %"class.smt::theory_array_bapa::imp", ptr %this, i64 0, i32 6
   %4 = load ptr, ptr %this, align 8
-  %5 = ptrtoint ptr %4 to i64
-  store i64 %5, ptr %m_pinned, align 8
+  store ptr %4, ptr %m_pinned, align 8
   %m_nodes.i.i = getelementptr inbounds %"class.smt::theory_array_bapa::imp", ptr %this, i64 0, i32 6, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i, align 8
   %m_sizeof = getelementptr inbounds %"class.smt::theory_array_bapa::imp", ptr %this, i64 0, i32 7
@@ -818,8 +817,8 @@ invoke.cont18:                                    ; preds = %invoke.cont16
   %m_num_deleted.i.i21 = getelementptr inbounds %"class.smt::theory_array_bapa::imp", ptr %this, i64 0, i32 10, i32 0, i32 3
   store i32 0, ptr %m_num_deleted.i.i21, align 8
   %ctx.i = getelementptr inbounds %"class.smt::theory", ptr %th, i64 0, i32 3
-  %6 = load ptr, ptr %ctx.i, align 8
-  invoke void @_ZN3smt11arith_value4initEPNS_7contextE(ptr noundef nonnull align 8 dereferenceable(88) %m_arith_value, ptr noundef nonnull %6)
+  %5 = load ptr, ptr %ctx.i, align 8
+  invoke void @_ZN3smt11arith_value4initEPNS_7contextE(ptr noundef nonnull align 8 dereferenceable(88) %m_arith_value, ptr noundef nonnull %5)
           to label %invoke.cont23 unwind label %lpad19
 
 invoke.cont23:                                    ; preds = %invoke.cont18
@@ -828,69 +827,69 @@ invoke.cont23:                                    ; preds = %invoke.cont18
   ret void
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #16
   br label %eh.resume
 
 lpad7:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup27
 
 lpad11:                                           ; preds = %invoke.cont10
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup26
 
 lpad13:                                           ; preds = %invoke.cont12
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup25
 
 lpad15:                                           ; preds = %invoke.cont14
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup24
 
 lpad17:                                           ; preds = %invoke.cont16
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad19:                                           ; preds = %invoke.cont18
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7obj_mapI4sortP9func_declED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_size_limit_sort2skolems) #16
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad19, %lpad17
-  %.pn = phi { ptr, i32 } [ %13, %lpad19 ], [ %12, %lpad17 ]
+  %.pn = phi { ptr, i32 } [ %12, %lpad19 ], [ %11, %lpad17 ]
   call void @_ZN7obj_mapI4sortSt4pairIP9func_declS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_index_skolems) #16
   br label %ehcleanup24
 
 ehcleanup24:                                      ; preds = %ehcleanup, %lpad15
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %11, %lpad15 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %10, %lpad15 ]
   call void @_ZN7obj_mapI4expr8rationalED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_size_limit) #16
   br label %ehcleanup25
 
 ehcleanup25:                                      ; preds = %ehcleanup24, %lpad13
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup24 ], [ %10, %lpad13 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup24 ], [ %9, %lpad13 ]
   call void @_ZN7obj_mapI3appPN3smt17theory_array_bapa3imp7sz_infoEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_sizeof) #16
   br label %ehcleanup26
 
 ehcleanup26:                                      ; preds = %ehcleanup25, %lpad11
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup25 ], [ %9, %lpad11 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup25 ], [ %8, %lpad11 ]
   call void @_ZN10ref_vectorI3ast11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_pinned) #16
   br label %ehcleanup27
 
 ehcleanup27:                                      ; preds = %ehcleanup26, %lpad7
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup26 ], [ %8, %lpad7 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup26 ], [ %7, %lpad7 ]
   call void @_ZN11th_rewriterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_rw) #16
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup27, %lpad
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup27 ], [ %7, %lpad ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup27 ], [ %6, %lpad ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn
 }
 
@@ -2149,7 +2148,7 @@ invoke.cont:                                      ; preds = %_ZN7obj_refI3app11a
   %ctx.i.i = getelementptr inbounds %"class.smt::theory", ptr %5, i64 0, i32 3
   %6 = load ptr, ptr %ctx.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  store ptr inttoptr (i64 2 to ptr), ptr %ref.tmp.i, align 8
+  store i64 2, ptr %ref.tmp.i, align 8
   %m_assignment.i.i.i.i = getelementptr inbounds %"class.smt::context", ptr %6, i64 0, i32 50
   %7 = load ptr, ptr %m_assignment.i.i.i.i, align 8
   %idxprom.i.i.i.i.i = zext i32 %call4 to i64
@@ -4935,7 +4934,7 @@ if.then43:                                        ; preds = %end_remove
   br label %if.end55
 
 if.else44:                                        ; preds = %end_remove
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.2, align 8
+  store i64 1, ptr %curr.2, align 8
   %m_num_deleted = getelementptr inbounds %class.core_hashtable, ptr %this, i64 0, i32 3
   %10 = load i32, ptr %m_num_deleted, align 8
   %inc = add i32 %10, 1

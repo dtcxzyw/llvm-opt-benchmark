@@ -214,8 +214,7 @@ entry:
   %last_zone_ = getelementptr inbounds %"class.grpc_core::Arena", ptr %this, i64 0, i32 3
   %4 = load atomic i64, ptr %last_zone_ monotonic, align 8
   %5 = ptrtoint ptr %call3 to i64
-  %prev.011 = inttoptr i64 %4 to ptr
-  store ptr %prev.011, ptr %call3, align 8
+  store i64 %4, ptr %call3, align 8
   %6 = cmpxchg weak ptr %last_zone_, i64 %4, i64 %5 monotonic monotonic, align 8
   %7 = extractvalue { i64, i1 } %6, 1
   br i1 %7, label %do.end, label %_ZNSt6atomicIPN9grpc_core5Arena4ZoneEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit
@@ -223,8 +222,7 @@ entry:
 _ZNSt6atomicIPN9grpc_core5Arena4ZoneEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit: ; preds = %entry, %_ZNSt6atomicIPN9grpc_core5Arena4ZoneEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit
   %8 = phi { i64, i1 } [ %10, %_ZNSt6atomicIPN9grpc_core5Arena4ZoneEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit ], [ %6, %entry ]
   %9 = extractvalue { i64, i1 } %8, 0
-  %prev.0 = inttoptr i64 %9 to ptr
-  store ptr %prev.0, ptr %call3, align 8
+  store i64 %9, ptr %call3, align 8
   %10 = cmpxchg weak ptr %last_zone_, i64 %9, i64 %5 monotonic monotonic, align 8
   %11 = extractvalue { i64, i1 } %10, 1
   br i1 %11, label %do.end, label %_ZNSt6atomicIPN9grpc_core5Arena4ZoneEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit, !llvm.loop !8
@@ -245,8 +243,7 @@ entry:
   %0 = load atomic i64, ptr %head monotonic, align 8
   %next = getelementptr inbounds %"struct.grpc_core::Arena::ManagedNewObject", ptr %this, i64 0, i32 1
   %1 = ptrtoint ptr %this to i64
-  %storemerge3 = inttoptr i64 %0 to ptr
-  store ptr %storemerge3, ptr %next, align 8
+  store i64 %0, ptr %next, align 8
   %2 = cmpxchg weak ptr %head, i64 %0, i64 %1 acq_rel monotonic, align 8
   %3 = extractvalue { i64, i1 } %2, 1
   br i1 %3, label %while.end, label %_ZNSt6atomicIPN9grpc_core5Arena16ManagedNewObjectEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit
@@ -254,8 +251,7 @@ entry:
 _ZNSt6atomicIPN9grpc_core5Arena16ManagedNewObjectEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit: ; preds = %entry, %_ZNSt6atomicIPN9grpc_core5Arena16ManagedNewObjectEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit
   %4 = phi { i64, i1 } [ %6, %_ZNSt6atomicIPN9grpc_core5Arena16ManagedNewObjectEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit ], [ %2, %entry ]
   %5 = extractvalue { i64, i1 } %4, 0
-  %storemerge = inttoptr i64 %5 to ptr
-  store ptr %storemerge, ptr %next, align 8
+  store i64 %5, ptr %next, align 8
   %6 = cmpxchg weak ptr %head, i64 %5, i64 %1 acq_rel monotonic, align 8
   %7 = extractvalue { i64, i1 } %6, 1
   br i1 %7, label %while.end, label %_ZNSt6atomicIPN9grpc_core5Arena16ManagedNewObjectEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit, !llvm.loop !9

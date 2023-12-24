@@ -756,9 +756,8 @@ while.end.i:                                      ; preds = %while.cond.i
   store ptr %call81.i, ptr %bar0_wo_map.i, align 8
   %72 = ptrtoint ptr %call81.i to i64
   %add83.i = add i64 %72, 4096
-  %73 = inttoptr i64 %add83.i to ptr
   %doorbells.i = getelementptr inbounds %struct.BDRVNVMeState, ptr %1, i64 0, i32 3
-  store ptr %73, ptr %doorbells.i, align 8
+  store i64 %add83.i, ptr %doorbells.i, align 8
   %tobool85.not.i = icmp eq i64 %add83.i, 0
   br i1 %tobool85.not.i, label %nvme_init.exit, label %if.end87.i
 
@@ -771,28 +770,28 @@ if.end87.i:                                       ; preds = %while.end.i
   br i1 %tobool90.not.i, label %nvme_init.exit, label %if.end92.i
 
 if.end92.i:                                       ; preds = %if.end87.i
-  %74 = load ptr, ptr %queues.i, align 8
-  store ptr %call89.i, ptr %74, align 8
+  %73 = load ptr, ptr %queues.i, align 8
+  store ptr %call89.i, ptr %73, align 8
   %queue_count.i = getelementptr inbounds %struct.BDRVNVMeState, ptr %1, i64 0, i32 5
   store i32 1, ptr %queue_count.i, align 8
   %aqa.i = getelementptr inbounds %struct.NvmeBar, ptr %call12.i, i64 0, i32 8
   store volatile i32 8323199, ptr %aqa.i, align 1
   %iova.i = getelementptr inbounds %struct.NVMeQueuePair, ptr %call89.i, i64 0, i32 5, i32 3
-  %75 = load i64, ptr %iova.i, align 8
+  %74 = load i64, ptr %iova.i, align 8
   %asq.i = getelementptr inbounds %struct.NvmeBar, ptr %call12.i, i64 0, i32 9
-  store volatile i64 %75, ptr %asq.i, align 1
+  store volatile i64 %74, ptr %asq.i, align 1
   %iova97.i = getelementptr inbounds %struct.NVMeQueuePair, ptr %call89.i, i64 0, i32 6, i32 3
-  %76 = load i64, ptr %iova97.i, align 8
+  %75 = load i64, ptr %iova97.i, align 8
   %acq.i = getelementptr inbounds %struct.NvmeBar, ptr %call12.i, i64 0, i32 10
-  store volatile i64 %76, ptr %acq.i, align 1
+  store volatile i64 %75, ptr %acq.i, align 1
   store volatile i32 4587521, ptr %cc.i, align 1
   %call106.i = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #16
   %add108.i = add i64 %call106.i, %mul69.i
   br label %while.cond109.i
 
 while.cond109.i:                                  ; preds = %while.body115.i, %if.end92.i
-  %77 = load volatile i32, ptr %csts.i, align 1
-  %and113.i = and i32 %77, 1
+  %76 = load volatile i32, ptr %csts.i, align 1
+  %and113.i = and i32 %76, 1
   %tobool114.not.i = icmp eq i32 %and113.i, 0
   br i1 %tobool114.not.i, label %while.body115.i, label %while.end121.i
 
@@ -806,8 +805,8 @@ if.then119.i:                                     ; preds = %while.body115.i
   br label %nvme_init.exit
 
 while.end121.i:                                   ; preds = %while.cond109.i
-  %78 = load ptr, ptr %vfio.i, align 8
-  %call124.i = tail call i32 @qemu_vfio_pci_init_irq(ptr noundef %78, ptr noundef nonnull %irq_notifier.i, i32 noundef 2, ptr noundef %errp) #16
+  %77 = load ptr, ptr %vfio.i, align 8
+  %call124.i = tail call i32 @qemu_vfio_pci_init_irq(ptr noundef %77, ptr noundef nonnull %irq_notifier.i, i32 noundef 2, ptr noundef %errp) #16
   %tobool125.not.i = icmp eq i32 %call124.i, 0
   br i1 %tobool125.not.i, label %if.end127.i, label %nvme_init.exit
 
@@ -829,8 +828,8 @@ nvme_init.exit.thread:                            ; preds = %if.then.i, %if.end.
 
 nvme_init.exit:                                   ; preds = %if.end133.i, %if.then40.i, %if.then78.i, %while.end.i, %if.end87.i, %if.then119.i, %while.end121.i, %if.end127.i
   %ret.0.ph.i = phi i32 [ -5, %if.end127.i ], [ -22, %if.end87.i ], [ -22, %while.end.i ], [ -22, %if.then40.i ], [ %call124.i, %while.end121.i ], [ -110, %if.then119.i ], [ -110, %if.then78.i ], [ %spec.select, %if.end133.i ]
-  %79 = load ptr, ptr %vfio.i, align 8
-  tail call void @qemu_vfio_pci_unmap_bar(ptr noundef %79, i32 noundef 0, ptr noundef nonnull %call12.i, i64 noundef 0, i64 noundef 4096) #16
+  %78 = load ptr, ptr %vfio.i, align 8
+  tail call void @qemu_vfio_pci_unmap_bar(ptr noundef %78, i32 noundef 0, ptr noundef nonnull %call12.i, i64 noundef 0, i64 noundef 4096) #16
   tail call void @qemu_opts_del(ptr noundef %call) #16
   %tobool5.not = icmp eq i32 %ret.0.ph.i, 0
   br i1 %tobool5.not, label %if.end7, label %fail
@@ -842,9 +841,9 @@ if.end7:                                          ; preds = %nvme_init.exit
 
 if.then9:                                         ; preds = %if.end7
   %write_cache_supported = getelementptr inbounds %struct.BDRVNVMeState, ptr %0, i64 0, i32 8
-  %80 = load i8, ptr %write_cache_supported, align 8
-  %81 = and i8 %80, 1
-  %tobool10.not = icmp eq i8 %81, 0
+  %79 = load i8, ptr %write_cache_supported, align 8
+  %80 = and i8 %79, 1
+  %tobool10.not = icmp eq i8 %80, 0
   br i1 %tobool10.not, label %if.end15.thread, label %if.else
 
 if.end15.thread:                                  ; preds = %if.then9
@@ -853,14 +852,14 @@ if.end15.thread:                                  ; preds = %if.then9
 
 if.else:                                          ; preds = %if.then9
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %cmd.i)
-  %82 = load ptr, ptr %opaque, align 8
-  %83 = getelementptr inbounds i8, ptr %cmd.i, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %83, i8 0, i64 63, i1 false)
+  %81 = load ptr, ptr %opaque, align 8
+  %82 = getelementptr inbounds i8, ptr %cmd.i, i64 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %82, i8 0, i64 63, i1 false)
   store i8 9, ptr %cmd.i, align 1
   %nsid.i17 = getelementptr inbounds %struct.NvmeCmd, ptr %cmd.i, i64 0, i32 3
-  %nsid1.i = getelementptr inbounds %struct.BDRVNVMeState, ptr %82, i64 0, i32 11
-  %84 = load i32, ptr %nsid1.i, align 8
-  store i32 %84, ptr %nsid.i17, align 1
+  %nsid1.i = getelementptr inbounds %struct.BDRVNVMeState, ptr %81, i64 0, i32 11
+  %83 = load i32, ptr %nsid1.i, align 8
+  store i32 %83, ptr %nsid.i17, align 1
   %cdw10.i = getelementptr inbounds %struct.NvmeCmd, ptr %cmd.i, i64 0, i32 7
   store i32 6, ptr %cdw10.i, align 1
   %call4.i = call fastcc i32 @nvme_admin_cmd_sync(ptr noundef %bs, ptr noundef nonnull %cmd.i)
@@ -2116,7 +2115,7 @@ entry:
   %conv.i = sext i32 %call.i to i64
   %sub = add nsw i64 %conv.i, 4095
   %2 = urem i64 %sub, %conv.i
-  %mul = sub i64 %sub, %2
+  %mul = sub nuw i64 %sub, %2
   %call5 = tail call ptr @qemu_try_memalign(i64 noundef %conv.i, i64 noundef %mul) #16
   %tobool.not = icmp eq ptr %call5, null
   br i1 %tobool.not, label %if.then, label %if.end

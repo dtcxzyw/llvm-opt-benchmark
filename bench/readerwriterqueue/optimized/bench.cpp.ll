@@ -1115,8 +1115,7 @@ invoke.cont47:                                    ; preds = %call.i.noexc
           to label %call.i.noexc111 unwind label %lpad49
 
 call.i.noexc111:                                  ; preds = %invoke.cont47
-  %56 = ptrtoint ptr %q40 to i64
-  store i64 %56, ptr %call.i112, align 8
+  store ptr %q40, ptr %call.i112, align 8
   invoke void @_ZN12SimpleThread11startThreadEPvPFvS0_E(ptr noundef nonnull align 8 dereferenceable(8) %producer, ptr noundef nonnull %call.i112, ptr noundef nonnull @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE0_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv)
           to label %invoke.cont50 unwind label %lpad49
 
@@ -1133,76 +1132,76 @@ invoke.cont53:                                    ; preds = %invoke.cont52
           to label %invoke.cont55 unwind label %lpad51
 
 invoke.cont55:                                    ; preds = %invoke.cont53
-  %57 = load i32, ptr %total41, align 4
-  store volatile i32 %57, ptr %forceNoOptimizeDummy, align 4
+  %56 = load i32, ptr %total41, align 4
+  store volatile i32 %56, ptr %forceNoOptimizeDummy, align 4
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer) #18
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer) #18
   fence seq_cst
-  %58 = load atomic i64, ptr %q40 monotonic, align 64
-  %atomic-temp.i.0.i.i.i.i113 = inttoptr i64 %58 to ptr
+  %57 = load atomic i64, ptr %q40 monotonic, align 64
+  %atomic-temp.i.0.i.i.i.i113 = inttoptr i64 %57 to ptr
   br label %do.body.i114
 
 do.body.i114:                                     ; preds = %do.body.i114, %invoke.cont55
   %block.0.i115 = phi ptr [ %atomic-temp.i.0.i.i.i.i113, %invoke.cont55 ], [ %atomic-temp.i.0.i.i.i10.i117, %do.body.i114 ]
   %next.i116 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i115, i64 0, i32 6
-  %59 = load atomic i64, ptr %next.i116 monotonic, align 8
-  %atomic-temp.i.0.i.i.i10.i117 = inttoptr i64 %59 to ptr
-  %60 = load atomic i64, ptr %block.0.i115 monotonic, align 8
+  %58 = load atomic i64, ptr %next.i116 monotonic, align 8
+  %atomic-temp.i.0.i.i.i10.i117 = inttoptr i64 %58 to ptr
+  %59 = load atomic i64, ptr %block.0.i115 monotonic, align 8
   %tail.i118 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i115, i64 0, i32 3
-  %61 = load atomic i64, ptr %tail.i118 monotonic, align 8
+  %60 = load atomic i64, ptr %tail.i118 monotonic, align 8
   %rawThis.i119 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i115, i64 0, i32 9
-  %62 = load ptr, ptr %rawThis.i119, align 8
-  call void @free(ptr noundef %62) #18
+  %61 = load ptr, ptr %rawThis.i119, align 8
+  call void @free(ptr noundef %61) #18
   %cmp6.not.i120 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i117, %atomic-temp.i.0.i.i.i.i113
   br i1 %cmp6.not.i120, label %sw.epilog, label %do.body.i114, !llvm.loop !16
 
 lpad43:                                           ; preds = %call.i.noexc, %invoke.cont44, %sw.bb38
-  %63 = landingpad { ptr, i32 }
+  %62 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup57
 
 lpad49:                                           ; preds = %call.i.noexc111, %invoke.cont47
-  %64 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad51:                                           ; preds = %invoke.cont53, %invoke.cont52, %invoke.cont50
-  %65 = landingpad { ptr, i32 }
+  %64 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer) #18
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad51, %lpad49
-  %.pn41 = phi { ptr, i32 } [ %65, %lpad51 ], [ %64, %lpad49 ]
+  %.pn41 = phi { ptr, i32 } [ %64, %lpad51 ], [ %63, %lpad49 ]
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer) #18
   br label %ehcleanup57
 
 ehcleanup57:                                      ; preds = %ehcleanup, %lpad43
-  %.pn41.pn = phi { ptr, i32 } [ %.pn41, %ehcleanup ], [ %63, %lpad43 ]
+  %.pn41.pn = phi { ptr, i32 } [ %.pn41, %ehcleanup ], [ %62, %lpad43 ]
   fence seq_cst
-  %66 = load atomic i64, ptr %q40 monotonic, align 64
-  %atomic-temp.i.0.i.i.i.i122 = inttoptr i64 %66 to ptr
+  %65 = load atomic i64, ptr %q40 monotonic, align 64
+  %atomic-temp.i.0.i.i.i.i122 = inttoptr i64 %65 to ptr
   br label %do.body.i123
 
 do.body.i123:                                     ; preds = %do.body.i123, %ehcleanup57
   %block.0.i124 = phi ptr [ %atomic-temp.i.0.i.i.i.i122, %ehcleanup57 ], [ %atomic-temp.i.0.i.i.i10.i126, %do.body.i123 ]
   %next.i125 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i124, i64 0, i32 6
-  %67 = load atomic i64, ptr %next.i125 monotonic, align 8
-  %atomic-temp.i.0.i.i.i10.i126 = inttoptr i64 %67 to ptr
-  %68 = load atomic i64, ptr %block.0.i124 monotonic, align 8
+  %66 = load atomic i64, ptr %next.i125 monotonic, align 8
+  %atomic-temp.i.0.i.i.i10.i126 = inttoptr i64 %66 to ptr
+  %67 = load atomic i64, ptr %block.0.i124 monotonic, align 8
   %tail.i127 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i124, i64 0, i32 3
-  %69 = load atomic i64, ptr %tail.i127 monotonic, align 8
+  %68 = load atomic i64, ptr %tail.i127 monotonic, align 8
   %rawThis.i128 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i124, i64 0, i32 9
-  %70 = load ptr, ptr %rawThis.i128, align 8
-  call void @free(ptr noundef %70) #18
+  %69 = load ptr, ptr %rawThis.i128, align 8
+  call void @free(ptr noundef %69) #18
   %cmp6.not.i129 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i126, %atomic-temp.i.0.i.i.i.i122
   br i1 %cmp6.not.i129, label %eh.resume, label %do.body.i123, !llvm.loop !16
 
 sw.bb58:                                          ; preds = %entry
   store double 2.000000e+05, ptr %out_Ops, align 8
   %rem.i.i.i.i440 = urem i32 %randomSeed, 2147483647
-  %71 = tail call i32 @llvm.umax.i32(i32 %rem.i.i.i.i440, i32 1)
-  %storemerge.i.i = zext nneg i32 %71 to i64
+  %70 = tail call i32 @llvm.umax.i32(i32 %rem.i.i.i.i440, i32 1)
+  %storemerge.i.i = zext nneg i32 %70 to i64
   store i64 %storemerge.i.i, ptr %rng, align 8
   store i32 0, ptr %rand, align 4
   %_M_b.i.i = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand, i64 0, i32 1
@@ -1213,8 +1212,8 @@ sw.bb58:                                          ; preds = %entry
           to label %invoke.cont65 unwind label %lpad64.loopexit.split-lp
 
 invoke.cont65:                                    ; preds = %sw.bb58
-  %72 = extractvalue { i64, i64 } %call66, 0
-  %73 = extractvalue { i64, i64 } %call66, 1
+  %71 = extractvalue { i64, i64 } %call66, 0
+  %72 = extractvalue { i64, i64 } %call66, 1
   %tailBlock.i163 = getelementptr inbounds %"class.moodycamel::ReaderWriterQueue", ptr %q60, i64 0, i32 2
   br label %for.body70
 
@@ -1232,8 +1231,8 @@ if.then:                                          ; preds = %invoke.cont71
           to label %invoke.cont74 unwind label %lpad64.loopexit
 
 invoke.cont74:                                    ; preds = %if.then
-  %74 = load i32, ptr %num61, align 4
-  %inc76 = add nsw i32 %74, 1
+  %73 = load i32, ptr %num61, align 4
+  %inc76 = add nsw i32 %73, 1
   store i32 %inc76, ptr %num61, align 4
   br label %for.inc79
 
@@ -1250,38 +1249,38 @@ lpad64.loopexit.split-lp:                         ; preds = %sw.bb58, %for.end81
 lpad64:                                           ; preds = %lpad64.loopexit.split-lp, %lpad64.loopexit
   %lpad.phi456 = phi { ptr, i32 } [ %lpad.loopexit454, %lpad64.loopexit ], [ %lpad.loopexit.split-lp455, %lpad64.loopexit.split-lp ]
   fence seq_cst
-  %75 = load atomic i64, ptr %q60 monotonic, align 64
-  %atomic-temp.i.0.i.i.i.i136 = inttoptr i64 %75 to ptr
+  %74 = load atomic i64, ptr %q60 monotonic, align 64
+  %atomic-temp.i.0.i.i.i.i136 = inttoptr i64 %74 to ptr
   br label %do.body.i137
 
 do.body.i137:                                     ; preds = %do.body.i137, %lpad64
   %block.0.i138 = phi ptr [ %atomic-temp.i.0.i.i.i.i136, %lpad64 ], [ %atomic-temp.i.0.i.i.i10.i140, %do.body.i137 ]
   %next.i139 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i138, i64 0, i32 6
-  %76 = load atomic i64, ptr %next.i139 monotonic, align 8
-  %atomic-temp.i.0.i.i.i10.i140 = inttoptr i64 %76 to ptr
-  %77 = load atomic i64, ptr %block.0.i138 monotonic, align 8
+  %75 = load atomic i64, ptr %next.i139 monotonic, align 8
+  %atomic-temp.i.0.i.i.i10.i140 = inttoptr i64 %75 to ptr
+  %76 = load atomic i64, ptr %block.0.i138 monotonic, align 8
   %tail.i141 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i138, i64 0, i32 3
-  %78 = load atomic i64, ptr %tail.i141 monotonic, align 8
+  %77 = load atomic i64, ptr %tail.i141 monotonic, align 8
   %rawThis.i142 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i138, i64 0, i32 9
-  %79 = load ptr, ptr %rawThis.i142, align 8
-  call void @free(ptr noundef %79) #18
+  %78 = load ptr, ptr %rawThis.i142, align 8
+  call void @free(ptr noundef %78) #18
   %cmp6.not.i143 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i140, %atomic-temp.i.0.i.i.i.i136
   br i1 %cmp6.not.i143, label %eh.resume, label %do.body.i137, !llvm.loop !16
 
 if.else:                                          ; preds = %invoke.cont71
-  %80 = load atomic i64, ptr %q60 monotonic, align 64
-  %atomic-temp.i.0.i.i.i145 = inttoptr i64 %80 to ptr
+  %79 = load atomic i64, ptr %q60 monotonic, align 64
+  %atomic-temp.i.0.i.i.i145 = inttoptr i64 %79 to ptr
   %localTail.i146 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i145, i64 0, i32 1
-  %81 = load i64, ptr %localTail.i146, align 8
-  %82 = load atomic i64, ptr %atomic-temp.i.0.i.i.i145 monotonic, align 8
-  %cmp.not.i147 = icmp eq i64 %82, %81
+  %80 = load i64, ptr %localTail.i146, align 8
+  %81 = load atomic i64, ptr %atomic-temp.i.0.i.i.i145 monotonic, align 8
+  %cmp.not.i147 = icmp eq i64 %81, %80
   br i1 %cmp.not.i147, label %lor.lhs.false.i159, label %if.then.i148
 
 lor.lhs.false.i159:                               ; preds = %if.else
   %tail.i160 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i145, i64 0, i32 3
-  %83 = load atomic i64, ptr %tail.i160 monotonic, align 8
-  store i64 %83, ptr %localTail.i146, align 8
-  %cmp5.not.i161 = icmp eq i64 %81, %83
+  %82 = load atomic i64, ptr %tail.i160 monotonic, align 8
+  store i64 %82, ptr %localTail.i146, align 8
+  %cmp5.not.i161 = icmp eq i64 %80, %82
   br i1 %cmp5.not.i161, label %if.else.i162, label %if.then.i148
 
 if.then.i148:                                     ; preds = %lor.lhs.false.i159, %if.else
@@ -1289,46 +1288,46 @@ if.then.i148:                                     ; preds = %lor.lhs.false.i159,
   br label %return.sink.split.i149
 
 if.else.i162:                                     ; preds = %lor.lhs.false.i159
-  %84 = load atomic i64, ptr %tailBlock.i163 monotonic, align 64
-  %atomic-temp.i.0.i.i6.i164 = inttoptr i64 %84 to ptr
+  %83 = load atomic i64, ptr %tailBlock.i163 monotonic, align 64
+  %atomic-temp.i.0.i.i6.i164 = inttoptr i64 %83 to ptr
   %cmp9.not.i165 = icmp eq ptr %atomic-temp.i.0.i.i.i145, %atomic-temp.i.0.i.i6.i164
   br i1 %cmp9.not.i165, label %for.inc79, label %if.then10.i166
 
 if.then10.i166:                                   ; preds = %if.else.i162
   fence acquire
-  %85 = load atomic i64, ptr %q60 monotonic, align 64
-  %atomic-temp.i.0.i.i7.i167 = inttoptr i64 %85 to ptr
+  %84 = load atomic i64, ptr %q60 monotonic, align 64
+  %atomic-temp.i.0.i.i7.i167 = inttoptr i64 %84 to ptr
   %tail13.i168 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i167, i64 0, i32 3
-  %86 = load atomic i64, ptr %tail13.i168 monotonic, align 8
+  %85 = load atomic i64, ptr %tail13.i168 monotonic, align 8
   %localTail15.i169 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i167, i64 0, i32 1
-  store i64 %86, ptr %localTail15.i169, align 8
-  %87 = load atomic i64, ptr %atomic-temp.i.0.i.i7.i167 monotonic, align 8
+  store i64 %85, ptr %localTail15.i169, align 8
+  %86 = load atomic i64, ptr %atomic-temp.i.0.i.i7.i167 monotonic, align 8
   fence acquire
-  %cmp18.not.i170 = icmp eq i64 %87, %86
+  %cmp18.not.i170 = icmp eq i64 %86, %85
   br i1 %cmp18.not.i170, label %if.end.i171, label %return.sink.split.i149
 
 if.end.i171:                                      ; preds = %if.then10.i166
   %next.i172 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i167, i64 0, i32 6
-  %88 = load atomic i64, ptr %next.i172 monotonic, align 8
-  %atomic-temp.i.0.i.i.i.i173 = inttoptr i64 %88 to ptr
-  %89 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i173 monotonic, align 8
+  %87 = load atomic i64, ptr %next.i172 monotonic, align 8
+  %atomic-temp.i.0.i.i.i.i173 = inttoptr i64 %87 to ptr
+  %88 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i173 monotonic, align 8
   %tail23.i174 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i173, i64 0, i32 3
-  %90 = load atomic i64, ptr %tail23.i174 monotonic, align 8
+  %89 = load atomic i64, ptr %tail23.i174 monotonic, align 8
   %localTail25.i175 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i173, i64 0, i32 1
-  store i64 %90, ptr %localTail25.i175, align 8
+  store i64 %89, ptr %localTail25.i175, align 8
   fence acquire
   fence release
-  store atomic i64 %88, ptr %q60 monotonic, align 64
+  store atomic i64 %87, ptr %q60 monotonic, align 64
   fence syncscope("singlethread") release
   br label %return.sink.split.i149
 
 return.sink.split.i149:                           ; preds = %if.end.i171, %if.then10.i166, %if.then.i148
   %frontBlock_.0.sink24.i150 = phi ptr [ %atomic-temp.i.0.i.i.i.i173, %if.end.i171 ], [ %atomic-temp.i.0.i.i7.i167, %if.then10.i166 ], [ %atomic-temp.i.0.i.i.i145, %if.then.i148 ]
-  %blockFront.0.sink23.i151 = phi i64 [ %89, %if.end.i171 ], [ %87, %if.then10.i166 ], [ %82, %if.then.i148 ]
+  %blockFront.0.sink23.i151 = phi i64 [ %88, %if.end.i171 ], [ %86, %if.then10.i166 ], [ %81, %if.then.i148 ]
   %add.i155 = add i64 %blockFront.0.sink23.i151, 1
   %sizeMask.i156 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i150, i64 0, i32 8
-  %91 = load i64, ptr %sizeMask.i156, align 8
-  %and.i157 = and i64 %91, %add.i155
+  %90 = load i64, ptr %sizeMask.i156, align 8
+  %and.i157 = and i64 %90, %add.i155
   fence release
   store atomic i64 %and.i157, ptr %frontBlock_.0.sink24.i150 monotonic, align 8
   br label %for.inc79
@@ -1339,23 +1338,23 @@ for.inc79:                                        ; preds = %return.sink.split.i
   br i1 %cmp69.not, label %for.end81, label %for.body70, !llvm.loop !19
 
 for.end81:                                        ; preds = %for.inc79
-  %call84 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %72, i64 %73)
+  %call84 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %71, i64 %72)
           to label %invoke.cont83 unwind label %lpad64.loopexit.split-lp
 
 invoke.cont83:                                    ; preds = %for.end81
-  %92 = load atomic i64, ptr %q60 monotonic, align 64
-  %atomic-temp.i.0.i.i.i177 = inttoptr i64 %92 to ptr
+  %91 = load atomic i64, ptr %q60 monotonic, align 64
+  %atomic-temp.i.0.i.i.i177 = inttoptr i64 %91 to ptr
   %localTail.i178 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i177, i64 0, i32 1
-  %93 = load i64, ptr %localTail.i178, align 8
-  %94 = load atomic i64, ptr %atomic-temp.i.0.i.i.i177 monotonic, align 8
-  %cmp.not.i179 = icmp eq i64 %94, %93
+  %92 = load i64, ptr %localTail.i178, align 8
+  %93 = load atomic i64, ptr %atomic-temp.i.0.i.i.i177 monotonic, align 8
+  %cmp.not.i179 = icmp eq i64 %93, %92
   br i1 %cmp.not.i179, label %lor.lhs.false.i191, label %if.then.i180
 
 lor.lhs.false.i191:                               ; preds = %invoke.cont83
   %tail.i192 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i177, i64 0, i32 3
-  %95 = load atomic i64, ptr %tail.i192 monotonic, align 8
-  store i64 %95, ptr %localTail.i178, align 8
-  %cmp5.not.i193 = icmp eq i64 %93, %95
+  %94 = load atomic i64, ptr %tail.i192 monotonic, align 8
+  store i64 %94, ptr %localTail.i178, align 8
+  %cmp5.not.i193 = icmp eq i64 %92, %94
   br i1 %cmp5.not.i193, label %if.else.i194, label %if.then.i180
 
 if.then.i180:                                     ; preds = %lor.lhs.false.i191, %invoke.cont83
@@ -1363,46 +1362,46 @@ if.then.i180:                                     ; preds = %lor.lhs.false.i191,
   br label %return.sink.split.i181
 
 if.else.i194:                                     ; preds = %lor.lhs.false.i191
-  %96 = load atomic i64, ptr %tailBlock.i163 monotonic, align 64
-  %atomic-temp.i.0.i.i6.i196 = inttoptr i64 %96 to ptr
+  %95 = load atomic i64, ptr %tailBlock.i163 monotonic, align 64
+  %atomic-temp.i.0.i.i6.i196 = inttoptr i64 %95 to ptr
   %cmp9.not.i197 = icmp eq ptr %atomic-temp.i.0.i.i.i177, %atomic-temp.i.0.i.i6.i196
   br i1 %cmp9.not.i197, label %invoke.cont85, label %if.then10.i198
 
 if.then10.i198:                                   ; preds = %if.else.i194
   fence acquire
-  %97 = load atomic i64, ptr %q60 monotonic, align 64
-  %atomic-temp.i.0.i.i7.i199 = inttoptr i64 %97 to ptr
+  %96 = load atomic i64, ptr %q60 monotonic, align 64
+  %atomic-temp.i.0.i.i7.i199 = inttoptr i64 %96 to ptr
   %tail13.i200 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i199, i64 0, i32 3
-  %98 = load atomic i64, ptr %tail13.i200 monotonic, align 8
+  %97 = load atomic i64, ptr %tail13.i200 monotonic, align 8
   %localTail15.i201 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i199, i64 0, i32 1
-  store i64 %98, ptr %localTail15.i201, align 8
-  %99 = load atomic i64, ptr %atomic-temp.i.0.i.i7.i199 monotonic, align 8
+  store i64 %97, ptr %localTail15.i201, align 8
+  %98 = load atomic i64, ptr %atomic-temp.i.0.i.i7.i199 monotonic, align 8
   fence acquire
-  %cmp18.not.i202 = icmp eq i64 %99, %98
+  %cmp18.not.i202 = icmp eq i64 %98, %97
   br i1 %cmp18.not.i202, label %if.end.i203, label %return.sink.split.i181
 
 if.end.i203:                                      ; preds = %if.then10.i198
   %next.i204 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i199, i64 0, i32 6
-  %100 = load atomic i64, ptr %next.i204 monotonic, align 8
-  %atomic-temp.i.0.i.i.i.i205 = inttoptr i64 %100 to ptr
-  %101 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i205 monotonic, align 8
+  %99 = load atomic i64, ptr %next.i204 monotonic, align 8
+  %atomic-temp.i.0.i.i.i.i205 = inttoptr i64 %99 to ptr
+  %100 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i205 monotonic, align 8
   %tail23.i206 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i205, i64 0, i32 3
-  %102 = load atomic i64, ptr %tail23.i206 monotonic, align 8
+  %101 = load atomic i64, ptr %tail23.i206 monotonic, align 8
   %localTail25.i207 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i205, i64 0, i32 1
-  store i64 %102, ptr %localTail25.i207, align 8
+  store i64 %101, ptr %localTail25.i207, align 8
   fence acquire
   fence release
-  store atomic i64 %100, ptr %q60 monotonic, align 64
+  store atomic i64 %99, ptr %q60 monotonic, align 64
   fence syncscope("singlethread") release
   br label %return.sink.split.i181
 
 return.sink.split.i181:                           ; preds = %if.end.i203, %if.then10.i198, %if.then.i180
   %frontBlock_.0.sink24.i182 = phi ptr [ %atomic-temp.i.0.i.i.i.i205, %if.end.i203 ], [ %atomic-temp.i.0.i.i7.i199, %if.then10.i198 ], [ %atomic-temp.i.0.i.i.i177, %if.then.i180 ]
-  %blockFront.0.sink23.i183 = phi i64 [ %101, %if.end.i203 ], [ %99, %if.then10.i198 ], [ %94, %if.then.i180 ]
+  %blockFront.0.sink23.i183 = phi i64 [ %100, %if.end.i203 ], [ %98, %if.then10.i198 ], [ %93, %if.then.i180 ]
   %add.i187 = add i64 %blockFront.0.sink23.i183, 1
   %sizeMask.i188 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i182, i64 0, i32 8
-  %103 = load i64, ptr %sizeMask.i188, align 8
-  %and.i189 = and i64 %103, %add.i187
+  %102 = load i64, ptr %sizeMask.i188, align 8
+  %and.i189 = and i64 %102, %add.i187
   fence release
   store atomic i64 %and.i189, ptr %frontBlock_.0.sink24.i182 monotonic, align 8
   br label %invoke.cont85
@@ -1411,21 +1410,21 @@ invoke.cont85:                                    ; preds = %return.sink.split.i
   %retval.0.i190 = phi i32 [ 0, %if.else.i194 ], [ 1, %return.sink.split.i181 ]
   store volatile i32 %retval.0.i190, ptr %forceNoOptimizeDummy, align 4
   fence seq_cst
-  %104 = load atomic i64, ptr %q60 monotonic, align 64
-  %atomic-temp.i.0.i.i.i.i209 = inttoptr i64 %104 to ptr
+  %103 = load atomic i64, ptr %q60 monotonic, align 64
+  %atomic-temp.i.0.i.i.i.i209 = inttoptr i64 %103 to ptr
   br label %do.body.i210
 
 do.body.i210:                                     ; preds = %do.body.i210, %invoke.cont85
   %block.0.i211 = phi ptr [ %atomic-temp.i.0.i.i.i.i209, %invoke.cont85 ], [ %atomic-temp.i.0.i.i.i10.i213, %do.body.i210 ]
   %next.i212 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i211, i64 0, i32 6
-  %105 = load atomic i64, ptr %next.i212 monotonic, align 8
-  %atomic-temp.i.0.i.i.i10.i213 = inttoptr i64 %105 to ptr
-  %106 = load atomic i64, ptr %block.0.i211 monotonic, align 8
+  %104 = load atomic i64, ptr %next.i212 monotonic, align 8
+  %atomic-temp.i.0.i.i.i10.i213 = inttoptr i64 %104 to ptr
+  %105 = load atomic i64, ptr %block.0.i211 monotonic, align 8
   %tail.i214 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i211, i64 0, i32 3
-  %107 = load atomic i64, ptr %tail.i214 monotonic, align 8
+  %106 = load atomic i64, ptr %tail.i214 monotonic, align 8
   %rawThis.i215 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i211, i64 0, i32 9
-  %108 = load ptr, ptr %rawThis.i215, align 8
-  call void @free(ptr noundef %108) #18
+  %107 = load ptr, ptr %rawThis.i215, align 8
+  call void @free(ptr noundef %107) #18
   %cmp6.not.i216 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i213, %atomic-temp.i.0.i.i.i.i209
   br i1 %cmp6.not.i216, label %sw.epilog, label %do.body.i210, !llvm.loop !16
 
@@ -1433,8 +1432,8 @@ sw.bb89:                                          ; preds = %entry
   store double 1.200000e+06, ptr %out_Ops, align 8
   store i32 0, ptr %readOps, align 4
   %rem.i.i.i.i218441 = urem i32 %randomSeed, 2147483647
-  %109 = tail call i32 @llvm.umax.i32(i32 %rem.i.i.i.i218441, i32 1)
-  %storemerge.i.i219 = zext nneg i32 %109 to i64
+  %108 = tail call i32 @llvm.umax.i32(i32 %rem.i.i.i.i218441, i32 1)
+  %storemerge.i.i219 = zext nneg i32 %108 to i64
   store i64 %storemerge.i.i219, ptr %rng91, align 8
   store i32 0, ptr %rand93, align 4
   %_M_b.i.i220 = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand93, i64 0, i32 1
@@ -1445,8 +1444,8 @@ sw.bb89:                                          ; preds = %entry
           to label %invoke.cont98 unwind label %lpad97
 
 invoke.cont98:                                    ; preds = %sw.bb89
-  %110 = extractvalue { i64, i64 } %call99, 0
-  %111 = extractvalue { i64, i64 } %call99, 1
+  %109 = extractvalue { i64, i64 } %call99, 0
+  %110 = extractvalue { i64, i64 } %call99, 1
   %call.i222 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
           to label %call.i.noexc221 unwind label %lpad97
 
@@ -1468,8 +1467,7 @@ invoke.cont102:                                   ; preds = %call.i.noexc221
           to label %call.i.noexc223 unwind label %lpad105
 
 call.i.noexc223:                                  ; preds = %invoke.cont102
-  %112 = ptrtoint ptr %q94 to i64
-  store i64 %112, ptr %call.i224, align 8
+  store ptr %q94, ptr %call.i224, align 8
   invoke void @_ZN12SimpleThread11startThreadEPvPFvS0_E(ptr noundef nonnull align 8 dereferenceable(8) %producer103, ptr noundef nonnull %call.i224, ptr noundef nonnull @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE2_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv)
           to label %invoke.cont106 unwind label %lpad105
 
@@ -1482,23 +1480,23 @@ invoke.cont108:                                   ; preds = %invoke.cont106
           to label %invoke.cont109 unwind label %lpad107
 
 invoke.cont109:                                   ; preds = %invoke.cont108
-  %call112 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %110, i64 %111)
+  %call112 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %109, i64 %110)
           to label %invoke.cont111 unwind label %lpad107
 
 invoke.cont111:                                   ; preds = %invoke.cont109
-  %113 = load atomic i64, ptr %q94 monotonic, align 64
-  %atomic-temp.i.0.i.i.i225 = inttoptr i64 %113 to ptr
+  %111 = load atomic i64, ptr %q94 monotonic, align 64
+  %atomic-temp.i.0.i.i.i225 = inttoptr i64 %111 to ptr
   %localTail.i226 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i225, i64 0, i32 1
-  %114 = load i64, ptr %localTail.i226, align 8
-  %115 = load atomic i64, ptr %atomic-temp.i.0.i.i.i225 monotonic, align 8
-  %cmp.not.i227 = icmp eq i64 %115, %114
+  %112 = load i64, ptr %localTail.i226, align 8
+  %113 = load atomic i64, ptr %atomic-temp.i.0.i.i.i225 monotonic, align 8
+  %cmp.not.i227 = icmp eq i64 %113, %112
   br i1 %cmp.not.i227, label %lor.lhs.false.i239, label %if.then.i228
 
 lor.lhs.false.i239:                               ; preds = %invoke.cont111
   %tail.i240 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i225, i64 0, i32 3
-  %116 = load atomic i64, ptr %tail.i240 monotonic, align 8
-  store i64 %116, ptr %localTail.i226, align 8
-  %cmp5.not.i241 = icmp eq i64 %114, %116
+  %114 = load atomic i64, ptr %tail.i240 monotonic, align 8
+  store i64 %114, ptr %localTail.i226, align 8
+  %cmp5.not.i241 = icmp eq i64 %112, %114
   br i1 %cmp5.not.i241, label %if.else.i242, label %if.then.i228
 
 if.then.i228:                                     ; preds = %lor.lhs.false.i239, %invoke.cont111
@@ -1507,52 +1505,52 @@ if.then.i228:                                     ; preds = %lor.lhs.false.i239,
 
 if.else.i242:                                     ; preds = %lor.lhs.false.i239
   %tailBlock.i243 = getelementptr inbounds %"class.moodycamel::ReaderWriterQueue", ptr %q94, i64 0, i32 2
-  %117 = load atomic i64, ptr %tailBlock.i243 monotonic, align 64
-  %atomic-temp.i.0.i.i6.i244 = inttoptr i64 %117 to ptr
+  %115 = load atomic i64, ptr %tailBlock.i243 monotonic, align 64
+  %atomic-temp.i.0.i.i6.i244 = inttoptr i64 %115 to ptr
   %cmp9.not.i245 = icmp eq ptr %atomic-temp.i.0.i.i.i225, %atomic-temp.i.0.i.i6.i244
   br i1 %cmp9.not.i245, label %invoke.cont113, label %if.then10.i246
 
 if.then10.i246:                                   ; preds = %if.else.i242
   fence acquire
-  %118 = load atomic i64, ptr %q94 monotonic, align 64
-  %atomic-temp.i.0.i.i7.i247 = inttoptr i64 %118 to ptr
+  %116 = load atomic i64, ptr %q94 monotonic, align 64
+  %atomic-temp.i.0.i.i7.i247 = inttoptr i64 %116 to ptr
   %tail13.i248 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i247, i64 0, i32 3
-  %119 = load atomic i64, ptr %tail13.i248 monotonic, align 8
+  %117 = load atomic i64, ptr %tail13.i248 monotonic, align 8
   %localTail15.i249 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i247, i64 0, i32 1
-  store i64 %119, ptr %localTail15.i249, align 8
-  %120 = load atomic i64, ptr %atomic-temp.i.0.i.i7.i247 monotonic, align 8
+  store i64 %117, ptr %localTail15.i249, align 8
+  %118 = load atomic i64, ptr %atomic-temp.i.0.i.i7.i247 monotonic, align 8
   fence acquire
-  %cmp18.not.i250 = icmp eq i64 %120, %119
+  %cmp18.not.i250 = icmp eq i64 %118, %117
   br i1 %cmp18.not.i250, label %if.end.i251, label %return.sink.split.i229
 
 if.end.i251:                                      ; preds = %if.then10.i246
   %next.i252 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i247, i64 0, i32 6
-  %121 = load atomic i64, ptr %next.i252 monotonic, align 8
-  %atomic-temp.i.0.i.i.i.i253 = inttoptr i64 %121 to ptr
-  %122 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i253 monotonic, align 8
+  %119 = load atomic i64, ptr %next.i252 monotonic, align 8
+  %atomic-temp.i.0.i.i.i.i253 = inttoptr i64 %119 to ptr
+  %120 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i253 monotonic, align 8
   %tail23.i254 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i253, i64 0, i32 3
-  %123 = load atomic i64, ptr %tail23.i254 monotonic, align 8
+  %121 = load atomic i64, ptr %tail23.i254 monotonic, align 8
   %localTail25.i255 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i253, i64 0, i32 1
-  store i64 %123, ptr %localTail25.i255, align 8
+  store i64 %121, ptr %localTail25.i255, align 8
   fence acquire
   fence release
-  store atomic i64 %121, ptr %q94 monotonic, align 64
+  store atomic i64 %119, ptr %q94 monotonic, align 64
   fence syncscope("singlethread") release
   br label %return.sink.split.i229
 
 return.sink.split.i229:                           ; preds = %if.end.i251, %if.then10.i246, %if.then.i228
   %frontBlock_.0.sink24.i230 = phi ptr [ %atomic-temp.i.0.i.i.i.i253, %if.end.i251 ], [ %atomic-temp.i.0.i.i7.i247, %if.then10.i246 ], [ %atomic-temp.i.0.i.i.i225, %if.then.i228 ]
-  %blockFront.0.sink23.i231 = phi i64 [ %122, %if.end.i251 ], [ %120, %if.then10.i246 ], [ %115, %if.then.i228 ]
+  %blockFront.0.sink23.i231 = phi i64 [ %120, %if.end.i251 ], [ %118, %if.then10.i246 ], [ %113, %if.then.i228 ]
   %data.i232 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i230, i64 0, i32 7
-  %124 = load ptr, ptr %data.i232, align 8
+  %122 = load ptr, ptr %data.i232, align 8
   %mul.i233 = shl i64 %blockFront.0.sink23.i231, 2
-  %add.ptr.i234 = getelementptr inbounds i8, ptr %124, i64 %mul.i233
-  %125 = load i32, ptr %add.ptr.i234, align 4
-  store i32 %125, ptr %element95, align 4
+  %add.ptr.i234 = getelementptr inbounds i8, ptr %122, i64 %mul.i233
+  %123 = load i32, ptr %add.ptr.i234, align 4
+  store i32 %123, ptr %element95, align 4
   %add.i235 = add i64 %blockFront.0.sink23.i231, 1
   %sizeMask.i236 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i230, i64 0, i32 8
-  %126 = load i64, ptr %sizeMask.i236, align 8
-  %and.i237 = and i64 %126, %add.i235
+  %124 = load i64, ptr %sizeMask.i236, align 8
+  %and.i237 = and i64 %124, %add.i235
   fence release
   store atomic i64 %and.i237, ptr %frontBlock_.0.sink24.i230 monotonic, align 8
   br label %invoke.cont113
@@ -1560,71 +1558,71 @@ return.sink.split.i229:                           ; preds = %if.end.i251, %if.th
 invoke.cont113:                                   ; preds = %return.sink.split.i229, %if.else.i242
   %retval.0.i238 = phi i32 [ 0, %if.else.i242 ], [ 1, %return.sink.split.i229 ]
   store volatile i32 %retval.0.i238, ptr %forceNoOptimizeDummy, align 4
-  %127 = load i32, ptr %readOps, align 4
-  %conv116 = sitofp i32 %127 to double
-  %128 = load double, ptr %out_Ops, align 8
-  %add117 = fadd double %128, %conv116
+  %125 = load i32, ptr %readOps, align 4
+  %conv116 = sitofp i32 %125 to double
+  %126 = load double, ptr %out_Ops, align 8
+  %add117 = fadd double %126, %conv116
   store double %add117, ptr %out_Ops, align 8
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer103) #18
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer100) #18
   fence seq_cst
-  %129 = load atomic i64, ptr %q94 monotonic, align 64
-  %atomic-temp.i.0.i.i.i.i257 = inttoptr i64 %129 to ptr
+  %127 = load atomic i64, ptr %q94 monotonic, align 64
+  %atomic-temp.i.0.i.i.i.i257 = inttoptr i64 %127 to ptr
   br label %do.body.i258
 
 do.body.i258:                                     ; preds = %do.body.i258, %invoke.cont113
   %block.0.i259 = phi ptr [ %atomic-temp.i.0.i.i.i.i257, %invoke.cont113 ], [ %atomic-temp.i.0.i.i.i10.i261, %do.body.i258 ]
   %next.i260 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i259, i64 0, i32 6
-  %130 = load atomic i64, ptr %next.i260 monotonic, align 8
-  %atomic-temp.i.0.i.i.i10.i261 = inttoptr i64 %130 to ptr
-  %131 = load atomic i64, ptr %block.0.i259 monotonic, align 8
+  %128 = load atomic i64, ptr %next.i260 monotonic, align 8
+  %atomic-temp.i.0.i.i.i10.i261 = inttoptr i64 %128 to ptr
+  %129 = load atomic i64, ptr %block.0.i259 monotonic, align 8
   %tail.i262 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i259, i64 0, i32 3
-  %132 = load atomic i64, ptr %tail.i262 monotonic, align 8
+  %130 = load atomic i64, ptr %tail.i262 monotonic, align 8
   %rawThis.i263 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i259, i64 0, i32 9
-  %133 = load ptr, ptr %rawThis.i263, align 8
-  call void @free(ptr noundef %133) #18
+  %131 = load ptr, ptr %rawThis.i263, align 8
+  call void @free(ptr noundef %131) #18
   %cmp6.not.i264 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i261, %atomic-temp.i.0.i.i.i.i257
   br i1 %cmp6.not.i264, label %sw.epilog, label %do.body.i258, !llvm.loop !16
 
 lpad97:                                           ; preds = %call.i.noexc221, %invoke.cont98, %sw.bb89
-  %134 = landingpad { ptr, i32 }
+  %132 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup120
 
 lpad105:                                          ; preds = %call.i.noexc223, %invoke.cont102
-  %135 = landingpad { ptr, i32 }
+  %133 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup119
 
 lpad107:                                          ; preds = %invoke.cont109, %invoke.cont108, %invoke.cont106
-  %136 = landingpad { ptr, i32 }
+  %134 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer103) #18
   br label %ehcleanup119
 
 ehcleanup119:                                     ; preds = %lpad107, %lpad105
-  %.pn38 = phi { ptr, i32 } [ %136, %lpad107 ], [ %135, %lpad105 ]
+  %.pn38 = phi { ptr, i32 } [ %134, %lpad107 ], [ %133, %lpad105 ]
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer100) #18
   br label %ehcleanup120
 
 ehcleanup120:                                     ; preds = %ehcleanup119, %lpad97
-  %.pn38.pn = phi { ptr, i32 } [ %.pn38, %ehcleanup119 ], [ %134, %lpad97 ]
+  %.pn38.pn = phi { ptr, i32 } [ %.pn38, %ehcleanup119 ], [ %132, %lpad97 ]
   fence seq_cst
-  %137 = load atomic i64, ptr %q94 monotonic, align 64
-  %atomic-temp.i.0.i.i.i.i266 = inttoptr i64 %137 to ptr
+  %135 = load atomic i64, ptr %q94 monotonic, align 64
+  %atomic-temp.i.0.i.i.i.i266 = inttoptr i64 %135 to ptr
   br label %do.body.i267
 
 do.body.i267:                                     ; preds = %do.body.i267, %ehcleanup120
   %block.0.i268 = phi ptr [ %atomic-temp.i.0.i.i.i.i266, %ehcleanup120 ], [ %atomic-temp.i.0.i.i.i10.i270, %do.body.i267 ]
   %next.i269 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i268, i64 0, i32 6
-  %138 = load atomic i64, ptr %next.i269 monotonic, align 8
-  %atomic-temp.i.0.i.i.i10.i270 = inttoptr i64 %138 to ptr
-  %139 = load atomic i64, ptr %block.0.i268 monotonic, align 8
+  %136 = load atomic i64, ptr %next.i269 monotonic, align 8
+  %atomic-temp.i.0.i.i.i10.i270 = inttoptr i64 %136 to ptr
+  %137 = load atomic i64, ptr %block.0.i268 monotonic, align 8
   %tail.i271 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i268, i64 0, i32 3
-  %140 = load atomic i64, ptr %tail.i271 monotonic, align 8
+  %138 = load atomic i64, ptr %tail.i271 monotonic, align 8
   %rawThis.i272 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i268, i64 0, i32 9
-  %141 = load ptr, ptr %rawThis.i272, align 8
-  call void @free(ptr noundef %141) #18
+  %139 = load ptr, ptr %rawThis.i272, align 8
+  call void @free(ptr noundef %139) #18
   %cmp6.not.i273 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i270, %atomic-temp.i.0.i.i.i.i266
   br i1 %cmp6.not.i273, label %eh.resume, label %do.body.i267, !llvm.loop !16
 
@@ -1632,8 +1630,8 @@ sw.bb121:                                         ; preds = %entry
   store double 1.200000e+06, ptr %out_Ops, align 8
   store i32 0, ptr %writeOps, align 4
   %rem.i.i.i.i275442 = urem i32 %randomSeed, 2147483647
-  %142 = tail call i32 @llvm.umax.i32(i32 %rem.i.i.i.i275442, i32 1)
-  %storemerge.i.i276 = zext nneg i32 %142 to i64
+  %140 = tail call i32 @llvm.umax.i32(i32 %rem.i.i.i.i275442, i32 1)
+  %storemerge.i.i276 = zext nneg i32 %140 to i64
   store i64 %storemerge.i.i276, ptr %rng123, align 8
   store i32 0, ptr %rand125, align 4
   %_M_b.i.i277 = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand125, i64 0, i32 1
@@ -1644,8 +1642,8 @@ sw.bb121:                                         ; preds = %entry
           to label %invoke.cont130 unwind label %lpad129
 
 invoke.cont130:                                   ; preds = %sw.bb121
-  %143 = extractvalue { i64, i64 } %call131, 0
-  %144 = extractvalue { i64, i64 } %call131, 1
+  %141 = extractvalue { i64, i64 } %call131, 0
+  %142 = extractvalue { i64, i64 } %call131, 1
   %call.i279 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
           to label %call.i.noexc278 unwind label %lpad129
 
@@ -1680,23 +1678,23 @@ invoke.cont140:                                   ; preds = %invoke.cont138
           to label %invoke.cont141 unwind label %lpad139
 
 invoke.cont141:                                   ; preds = %invoke.cont140
-  %call144 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %143, i64 %144)
+  %call144 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %141, i64 %142)
           to label %invoke.cont143 unwind label %lpad139
 
 invoke.cont143:                                   ; preds = %invoke.cont141
-  %145 = load atomic i64, ptr %q126 monotonic, align 64
-  %atomic-temp.i.0.i.i.i282 = inttoptr i64 %145 to ptr
+  %143 = load atomic i64, ptr %q126 monotonic, align 64
+  %atomic-temp.i.0.i.i.i282 = inttoptr i64 %143 to ptr
   %localTail.i283 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i282, i64 0, i32 1
-  %146 = load i64, ptr %localTail.i283, align 8
-  %147 = load atomic i64, ptr %atomic-temp.i.0.i.i.i282 monotonic, align 8
-  %cmp.not.i284 = icmp eq i64 %147, %146
+  %144 = load i64, ptr %localTail.i283, align 8
+  %145 = load atomic i64, ptr %atomic-temp.i.0.i.i.i282 monotonic, align 8
+  %cmp.not.i284 = icmp eq i64 %145, %144
   br i1 %cmp.not.i284, label %lor.lhs.false.i296, label %if.then.i285
 
 lor.lhs.false.i296:                               ; preds = %invoke.cont143
   %tail.i297 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i282, i64 0, i32 3
-  %148 = load atomic i64, ptr %tail.i297 monotonic, align 8
-  store i64 %148, ptr %localTail.i283, align 8
-  %cmp5.not.i298 = icmp eq i64 %146, %148
+  %146 = load atomic i64, ptr %tail.i297 monotonic, align 8
+  store i64 %146, ptr %localTail.i283, align 8
+  %cmp5.not.i298 = icmp eq i64 %144, %146
   br i1 %cmp5.not.i298, label %if.else.i299, label %if.then.i285
 
 if.then.i285:                                     ; preds = %lor.lhs.false.i296, %invoke.cont143
@@ -1705,52 +1703,52 @@ if.then.i285:                                     ; preds = %lor.lhs.false.i296,
 
 if.else.i299:                                     ; preds = %lor.lhs.false.i296
   %tailBlock.i300 = getelementptr inbounds %"class.moodycamel::ReaderWriterQueue", ptr %q126, i64 0, i32 2
-  %149 = load atomic i64, ptr %tailBlock.i300 monotonic, align 64
-  %atomic-temp.i.0.i.i6.i301 = inttoptr i64 %149 to ptr
+  %147 = load atomic i64, ptr %tailBlock.i300 monotonic, align 64
+  %atomic-temp.i.0.i.i6.i301 = inttoptr i64 %147 to ptr
   %cmp9.not.i302 = icmp eq ptr %atomic-temp.i.0.i.i.i282, %atomic-temp.i.0.i.i6.i301
   br i1 %cmp9.not.i302, label %invoke.cont145, label %if.then10.i303
 
 if.then10.i303:                                   ; preds = %if.else.i299
   fence acquire
-  %150 = load atomic i64, ptr %q126 monotonic, align 64
-  %atomic-temp.i.0.i.i7.i304 = inttoptr i64 %150 to ptr
+  %148 = load atomic i64, ptr %q126 monotonic, align 64
+  %atomic-temp.i.0.i.i7.i304 = inttoptr i64 %148 to ptr
   %tail13.i305 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i304, i64 0, i32 3
-  %151 = load atomic i64, ptr %tail13.i305 monotonic, align 8
+  %149 = load atomic i64, ptr %tail13.i305 monotonic, align 8
   %localTail15.i306 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i304, i64 0, i32 1
-  store i64 %151, ptr %localTail15.i306, align 8
-  %152 = load atomic i64, ptr %atomic-temp.i.0.i.i7.i304 monotonic, align 8
+  store i64 %149, ptr %localTail15.i306, align 8
+  %150 = load atomic i64, ptr %atomic-temp.i.0.i.i7.i304 monotonic, align 8
   fence acquire
-  %cmp18.not.i307 = icmp eq i64 %152, %151
+  %cmp18.not.i307 = icmp eq i64 %150, %149
   br i1 %cmp18.not.i307, label %if.end.i308, label %return.sink.split.i286
 
 if.end.i308:                                      ; preds = %if.then10.i303
   %next.i309 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i304, i64 0, i32 6
-  %153 = load atomic i64, ptr %next.i309 monotonic, align 8
-  %atomic-temp.i.0.i.i.i.i310 = inttoptr i64 %153 to ptr
-  %154 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i310 monotonic, align 8
+  %151 = load atomic i64, ptr %next.i309 monotonic, align 8
+  %atomic-temp.i.0.i.i.i.i310 = inttoptr i64 %151 to ptr
+  %152 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i310 monotonic, align 8
   %tail23.i311 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i310, i64 0, i32 3
-  %155 = load atomic i64, ptr %tail23.i311 monotonic, align 8
+  %153 = load atomic i64, ptr %tail23.i311 monotonic, align 8
   %localTail25.i312 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i310, i64 0, i32 1
-  store i64 %155, ptr %localTail25.i312, align 8
+  store i64 %153, ptr %localTail25.i312, align 8
   fence acquire
   fence release
-  store atomic i64 %153, ptr %q126 monotonic, align 64
+  store atomic i64 %151, ptr %q126 monotonic, align 64
   fence syncscope("singlethread") release
   br label %return.sink.split.i286
 
 return.sink.split.i286:                           ; preds = %if.end.i308, %if.then10.i303, %if.then.i285
   %frontBlock_.0.sink24.i287 = phi ptr [ %atomic-temp.i.0.i.i.i.i310, %if.end.i308 ], [ %atomic-temp.i.0.i.i7.i304, %if.then10.i303 ], [ %atomic-temp.i.0.i.i.i282, %if.then.i285 ]
-  %blockFront.0.sink23.i288 = phi i64 [ %154, %if.end.i308 ], [ %152, %if.then10.i303 ], [ %147, %if.then.i285 ]
+  %blockFront.0.sink23.i288 = phi i64 [ %152, %if.end.i308 ], [ %150, %if.then10.i303 ], [ %145, %if.then.i285 ]
   %data.i289 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i287, i64 0, i32 7
-  %156 = load ptr, ptr %data.i289, align 8
+  %154 = load ptr, ptr %data.i289, align 8
   %mul.i290 = shl i64 %blockFront.0.sink23.i288, 2
-  %add.ptr.i291 = getelementptr inbounds i8, ptr %156, i64 %mul.i290
-  %157 = load i32, ptr %add.ptr.i291, align 4
-  store i32 %157, ptr %element127, align 4
+  %add.ptr.i291 = getelementptr inbounds i8, ptr %154, i64 %mul.i290
+  %155 = load i32, ptr %add.ptr.i291, align 4
+  store i32 %155, ptr %element127, align 4
   %add.i292 = add i64 %blockFront.0.sink23.i288, 1
   %sizeMask.i293 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i287, i64 0, i32 8
-  %158 = load i64, ptr %sizeMask.i293, align 8
-  %and.i294 = and i64 %158, %add.i292
+  %156 = load i64, ptr %sizeMask.i293, align 8
+  %and.i294 = and i64 %156, %add.i292
   fence release
   store atomic i64 %and.i294, ptr %frontBlock_.0.sink24.i287 monotonic, align 8
   br label %invoke.cont145
@@ -1758,71 +1756,71 @@ return.sink.split.i286:                           ; preds = %if.end.i308, %if.th
 invoke.cont145:                                   ; preds = %return.sink.split.i286, %if.else.i299
   %retval.0.i295 = phi i32 [ 0, %if.else.i299 ], [ 1, %return.sink.split.i286 ]
   store volatile i32 %retval.0.i295, ptr %forceNoOptimizeDummy, align 4
-  %159 = load i32, ptr %writeOps, align 4
-  %conv148 = sitofp i32 %159 to double
-  %160 = load double, ptr %out_Ops, align 8
-  %add149 = fadd double %160, %conv148
+  %157 = load i32, ptr %writeOps, align 4
+  %conv148 = sitofp i32 %157 to double
+  %158 = load double, ptr %out_Ops, align 8
+  %add149 = fadd double %158, %conv148
   store double %add149, ptr %out_Ops, align 8
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer135) #18
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer132) #18
   fence seq_cst
-  %161 = load atomic i64, ptr %q126 monotonic, align 64
-  %atomic-temp.i.0.i.i.i.i314 = inttoptr i64 %161 to ptr
+  %159 = load atomic i64, ptr %q126 monotonic, align 64
+  %atomic-temp.i.0.i.i.i.i314 = inttoptr i64 %159 to ptr
   br label %do.body.i315
 
 do.body.i315:                                     ; preds = %do.body.i315, %invoke.cont145
   %block.0.i316 = phi ptr [ %atomic-temp.i.0.i.i.i.i314, %invoke.cont145 ], [ %atomic-temp.i.0.i.i.i10.i318, %do.body.i315 ]
   %next.i317 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i316, i64 0, i32 6
-  %162 = load atomic i64, ptr %next.i317 monotonic, align 8
-  %atomic-temp.i.0.i.i.i10.i318 = inttoptr i64 %162 to ptr
-  %163 = load atomic i64, ptr %block.0.i316 monotonic, align 8
+  %160 = load atomic i64, ptr %next.i317 monotonic, align 8
+  %atomic-temp.i.0.i.i.i10.i318 = inttoptr i64 %160 to ptr
+  %161 = load atomic i64, ptr %block.0.i316 monotonic, align 8
   %tail.i319 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i316, i64 0, i32 3
-  %164 = load atomic i64, ptr %tail.i319 monotonic, align 8
+  %162 = load atomic i64, ptr %tail.i319 monotonic, align 8
   %rawThis.i320 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i316, i64 0, i32 9
-  %165 = load ptr, ptr %rawThis.i320, align 8
-  call void @free(ptr noundef %165) #18
+  %163 = load ptr, ptr %rawThis.i320, align 8
+  call void @free(ptr noundef %163) #18
   %cmp6.not.i321 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i318, %atomic-temp.i.0.i.i.i.i314
   br i1 %cmp6.not.i321, label %sw.epilog, label %do.body.i315, !llvm.loop !16
 
 lpad129:                                          ; preds = %call.i.noexc278, %invoke.cont130, %sw.bb121
-  %166 = landingpad { ptr, i32 }
+  %164 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup152
 
 lpad137:                                          ; preds = %call.i.noexc280, %invoke.cont134
-  %167 = landingpad { ptr, i32 }
+  %165 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup151
 
 lpad139:                                          ; preds = %invoke.cont141, %invoke.cont140, %invoke.cont138
-  %168 = landingpad { ptr, i32 }
+  %166 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer135) #18
   br label %ehcleanup151
 
 ehcleanup151:                                     ; preds = %lpad139, %lpad137
-  %.pn35 = phi { ptr, i32 } [ %168, %lpad139 ], [ %167, %lpad137 ]
+  %.pn35 = phi { ptr, i32 } [ %166, %lpad139 ], [ %165, %lpad137 ]
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer132) #18
   br label %ehcleanup152
 
 ehcleanup152:                                     ; preds = %ehcleanup151, %lpad129
-  %.pn35.pn = phi { ptr, i32 } [ %.pn35, %ehcleanup151 ], [ %166, %lpad129 ]
+  %.pn35.pn = phi { ptr, i32 } [ %.pn35, %ehcleanup151 ], [ %164, %lpad129 ]
   fence seq_cst
-  %169 = load atomic i64, ptr %q126 monotonic, align 64
-  %atomic-temp.i.0.i.i.i.i323 = inttoptr i64 %169 to ptr
+  %167 = load atomic i64, ptr %q126 monotonic, align 64
+  %atomic-temp.i.0.i.i.i.i323 = inttoptr i64 %167 to ptr
   br label %do.body.i324
 
 do.body.i324:                                     ; preds = %do.body.i324, %ehcleanup152
   %block.0.i325 = phi ptr [ %atomic-temp.i.0.i.i.i.i323, %ehcleanup152 ], [ %atomic-temp.i.0.i.i.i10.i327, %do.body.i324 ]
   %next.i326 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i325, i64 0, i32 6
-  %170 = load atomic i64, ptr %next.i326 monotonic, align 8
-  %atomic-temp.i.0.i.i.i10.i327 = inttoptr i64 %170 to ptr
-  %171 = load atomic i64, ptr %block.0.i325 monotonic, align 8
+  %168 = load atomic i64, ptr %next.i326 monotonic, align 8
+  %atomic-temp.i.0.i.i.i10.i327 = inttoptr i64 %168 to ptr
+  %169 = load atomic i64, ptr %block.0.i325 monotonic, align 8
   %tail.i328 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i325, i64 0, i32 3
-  %172 = load atomic i64, ptr %tail.i328 monotonic, align 8
+  %170 = load atomic i64, ptr %tail.i328 monotonic, align 8
   %rawThis.i329 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i325, i64 0, i32 9
-  %173 = load ptr, ptr %rawThis.i329, align 8
-  call void @free(ptr noundef %173) #18
+  %171 = load ptr, ptr %rawThis.i329, align 8
+  call void @free(ptr noundef %171) #18
   %cmp6.not.i330 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i327, %atomic-temp.i.0.i.i.i.i323
   br i1 %cmp6.not.i330, label %eh.resume, label %do.body.i324, !llvm.loop !16
 
@@ -1834,8 +1832,8 @@ sw.bb153:                                         ; preds = %entry
           to label %invoke.cont159 unwind label %lpad158
 
 invoke.cont159:                                   ; preds = %sw.bb153
-  %174 = extractvalue { i64, i64 } %call160, 0
-  %175 = extractvalue { i64, i64 } %call160, 1
+  %172 = extractvalue { i64, i64 } %call160, 0
+  %173 = extractvalue { i64, i64 } %call160, 1
   %call.i333 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
           to label %call.i.noexc332 unwind label %lpad158
 
@@ -1851,8 +1849,7 @@ invoke.cont163:                                   ; preds = %call.i.noexc332
           to label %call.i.noexc334 unwind label %lpad166
 
 call.i.noexc334:                                  ; preds = %invoke.cont163
-  %176 = ptrtoint ptr %q155 to i64
-  store i64 %176, ptr %call.i335, align 8
+  store ptr %q155, ptr %call.i335, align 8
   invoke void @_ZN12SimpleThread11startThreadEPvPFvS0_E(ptr noundef nonnull align 8 dereferenceable(8) %producer164, ptr noundef nonnull %call.i335, ptr noundef nonnull @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE6_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv)
           to label %invoke.cont167 unwind label %lpad166
 
@@ -1865,23 +1862,23 @@ invoke.cont169:                                   ; preds = %invoke.cont167
           to label %invoke.cont170 unwind label %lpad168
 
 invoke.cont170:                                   ; preds = %invoke.cont169
-  %call173 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %174, i64 %175)
+  %call173 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %172, i64 %173)
           to label %invoke.cont172 unwind label %lpad168
 
 invoke.cont172:                                   ; preds = %invoke.cont170
-  %177 = load atomic i64, ptr %q155 monotonic, align 64
-  %atomic-temp.i.0.i.i.i336 = inttoptr i64 %177 to ptr
+  %174 = load atomic i64, ptr %q155 monotonic, align 64
+  %atomic-temp.i.0.i.i.i336 = inttoptr i64 %174 to ptr
   %localTail.i337 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i336, i64 0, i32 1
-  %178 = load i64, ptr %localTail.i337, align 8
-  %179 = load atomic i64, ptr %atomic-temp.i.0.i.i.i336 monotonic, align 8
-  %cmp.not.i338 = icmp eq i64 %179, %178
+  %175 = load i64, ptr %localTail.i337, align 8
+  %176 = load atomic i64, ptr %atomic-temp.i.0.i.i.i336 monotonic, align 8
+  %cmp.not.i338 = icmp eq i64 %176, %175
   br i1 %cmp.not.i338, label %lor.lhs.false.i350, label %if.then.i339
 
 lor.lhs.false.i350:                               ; preds = %invoke.cont172
   %tail.i351 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i336, i64 0, i32 3
-  %180 = load atomic i64, ptr %tail.i351 monotonic, align 8
-  store i64 %180, ptr %localTail.i337, align 8
-  %cmp5.not.i352 = icmp eq i64 %178, %180
+  %177 = load atomic i64, ptr %tail.i351 monotonic, align 8
+  store i64 %177, ptr %localTail.i337, align 8
+  %cmp5.not.i352 = icmp eq i64 %175, %177
   br i1 %cmp5.not.i352, label %if.else.i353, label %if.then.i339
 
 if.then.i339:                                     ; preds = %lor.lhs.false.i350, %invoke.cont172
@@ -1890,52 +1887,52 @@ if.then.i339:                                     ; preds = %lor.lhs.false.i350,
 
 if.else.i353:                                     ; preds = %lor.lhs.false.i350
   %tailBlock.i354 = getelementptr inbounds %"class.moodycamel::ReaderWriterQueue", ptr %q155, i64 0, i32 2
-  %181 = load atomic i64, ptr %tailBlock.i354 monotonic, align 64
-  %atomic-temp.i.0.i.i6.i355 = inttoptr i64 %181 to ptr
+  %178 = load atomic i64, ptr %tailBlock.i354 monotonic, align 64
+  %atomic-temp.i.0.i.i6.i355 = inttoptr i64 %178 to ptr
   %cmp9.not.i356 = icmp eq ptr %atomic-temp.i.0.i.i.i336, %atomic-temp.i.0.i.i6.i355
   br i1 %cmp9.not.i356, label %invoke.cont174, label %if.then10.i357
 
 if.then10.i357:                                   ; preds = %if.else.i353
   fence acquire
-  %182 = load atomic i64, ptr %q155 monotonic, align 64
-  %atomic-temp.i.0.i.i7.i358 = inttoptr i64 %182 to ptr
+  %179 = load atomic i64, ptr %q155 monotonic, align 64
+  %atomic-temp.i.0.i.i7.i358 = inttoptr i64 %179 to ptr
   %tail13.i359 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i358, i64 0, i32 3
-  %183 = load atomic i64, ptr %tail13.i359 monotonic, align 8
+  %180 = load atomic i64, ptr %tail13.i359 monotonic, align 8
   %localTail15.i360 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i358, i64 0, i32 1
-  store i64 %183, ptr %localTail15.i360, align 8
-  %184 = load atomic i64, ptr %atomic-temp.i.0.i.i7.i358 monotonic, align 8
+  store i64 %180, ptr %localTail15.i360, align 8
+  %181 = load atomic i64, ptr %atomic-temp.i.0.i.i7.i358 monotonic, align 8
   fence acquire
-  %cmp18.not.i361 = icmp eq i64 %184, %183
+  %cmp18.not.i361 = icmp eq i64 %181, %180
   br i1 %cmp18.not.i361, label %if.end.i362, label %return.sink.split.i340
 
 if.end.i362:                                      ; preds = %if.then10.i357
   %next.i363 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i358, i64 0, i32 6
-  %185 = load atomic i64, ptr %next.i363 monotonic, align 8
-  %atomic-temp.i.0.i.i.i.i364 = inttoptr i64 %185 to ptr
-  %186 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i364 monotonic, align 8
+  %182 = load atomic i64, ptr %next.i363 monotonic, align 8
+  %atomic-temp.i.0.i.i.i.i364 = inttoptr i64 %182 to ptr
+  %183 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i364 monotonic, align 8
   %tail23.i365 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i364, i64 0, i32 3
-  %187 = load atomic i64, ptr %tail23.i365 monotonic, align 8
+  %184 = load atomic i64, ptr %tail23.i365 monotonic, align 8
   %localTail25.i366 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i364, i64 0, i32 1
-  store i64 %187, ptr %localTail25.i366, align 8
+  store i64 %184, ptr %localTail25.i366, align 8
   fence acquire
   fence release
-  store atomic i64 %185, ptr %q155 monotonic, align 64
+  store atomic i64 %182, ptr %q155 monotonic, align 64
   fence syncscope("singlethread") release
   br label %return.sink.split.i340
 
 return.sink.split.i340:                           ; preds = %if.end.i362, %if.then10.i357, %if.then.i339
   %frontBlock_.0.sink24.i341 = phi ptr [ %atomic-temp.i.0.i.i.i.i364, %if.end.i362 ], [ %atomic-temp.i.0.i.i7.i358, %if.then10.i357 ], [ %atomic-temp.i.0.i.i.i336, %if.then.i339 ]
-  %blockFront.0.sink23.i342 = phi i64 [ %186, %if.end.i362 ], [ %184, %if.then10.i357 ], [ %179, %if.then.i339 ]
+  %blockFront.0.sink23.i342 = phi i64 [ %183, %if.end.i362 ], [ %181, %if.then10.i357 ], [ %176, %if.then.i339 ]
   %data.i343 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i341, i64 0, i32 7
-  %188 = load ptr, ptr %data.i343, align 8
+  %185 = load ptr, ptr %data.i343, align 8
   %mul.i344 = shl i64 %blockFront.0.sink23.i342, 2
-  %add.ptr.i345 = getelementptr inbounds i8, ptr %188, i64 %mul.i344
-  %189 = load i32, ptr %add.ptr.i345, align 4
-  store i32 %189, ptr %element156, align 4
+  %add.ptr.i345 = getelementptr inbounds i8, ptr %185, i64 %mul.i344
+  %186 = load i32, ptr %add.ptr.i345, align 4
+  store i32 %186, ptr %element156, align 4
   %add.i346 = add i64 %blockFront.0.sink23.i342, 1
   %sizeMask.i347 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i341, i64 0, i32 8
-  %190 = load i64, ptr %sizeMask.i347, align 8
-  %and.i348 = and i64 %190, %add.i346
+  %187 = load i64, ptr %sizeMask.i347, align 8
+  %and.i348 = and i64 %187, %add.i346
   fence release
   store atomic i64 %and.i348, ptr %frontBlock_.0.sink24.i341 monotonic, align 8
   br label %invoke.cont174
@@ -1946,63 +1943,63 @@ invoke.cont174:                                   ; preds = %return.sink.split.i
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer164) #18
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer161) #18
   fence seq_cst
-  %191 = load atomic i64, ptr %q155 monotonic, align 64
-  %atomic-temp.i.0.i.i.i.i368 = inttoptr i64 %191 to ptr
+  %188 = load atomic i64, ptr %q155 monotonic, align 64
+  %atomic-temp.i.0.i.i.i.i368 = inttoptr i64 %188 to ptr
   br label %do.body.i369
 
 do.body.i369:                                     ; preds = %do.body.i369, %invoke.cont174
   %block.0.i370 = phi ptr [ %atomic-temp.i.0.i.i.i.i368, %invoke.cont174 ], [ %atomic-temp.i.0.i.i.i10.i372, %do.body.i369 ]
   %next.i371 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i370, i64 0, i32 6
-  %192 = load atomic i64, ptr %next.i371 monotonic, align 8
-  %atomic-temp.i.0.i.i.i10.i372 = inttoptr i64 %192 to ptr
-  %193 = load atomic i64, ptr %block.0.i370 monotonic, align 8
+  %189 = load atomic i64, ptr %next.i371 monotonic, align 8
+  %atomic-temp.i.0.i.i.i10.i372 = inttoptr i64 %189 to ptr
+  %190 = load atomic i64, ptr %block.0.i370 monotonic, align 8
   %tail.i373 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i370, i64 0, i32 3
-  %194 = load atomic i64, ptr %tail.i373 monotonic, align 8
+  %191 = load atomic i64, ptr %tail.i373 monotonic, align 8
   %rawThis.i374 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i370, i64 0, i32 9
-  %195 = load ptr, ptr %rawThis.i374, align 8
-  call void @free(ptr noundef %195) #18
+  %192 = load ptr, ptr %rawThis.i374, align 8
+  call void @free(ptr noundef %192) #18
   %cmp6.not.i375 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i372, %atomic-temp.i.0.i.i.i.i368
   br i1 %cmp6.not.i375, label %sw.epilog, label %do.body.i369, !llvm.loop !16
 
 lpad158:                                          ; preds = %call.i.noexc332, %invoke.cont159, %sw.bb153
-  %196 = landingpad { ptr, i32 }
+  %193 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup179
 
 lpad166:                                          ; preds = %call.i.noexc334, %invoke.cont163
-  %197 = landingpad { ptr, i32 }
+  %194 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup178
 
 lpad168:                                          ; preds = %invoke.cont170, %invoke.cont169, %invoke.cont167
-  %198 = landingpad { ptr, i32 }
+  %195 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer164) #18
   br label %ehcleanup178
 
 ehcleanup178:                                     ; preds = %lpad168, %lpad166
-  %.pn32 = phi { ptr, i32 } [ %198, %lpad168 ], [ %197, %lpad166 ]
+  %.pn32 = phi { ptr, i32 } [ %195, %lpad168 ], [ %194, %lpad166 ]
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer161) #18
   br label %ehcleanup179
 
 ehcleanup179:                                     ; preds = %ehcleanup178, %lpad158
-  %.pn32.pn = phi { ptr, i32 } [ %.pn32, %ehcleanup178 ], [ %196, %lpad158 ]
+  %.pn32.pn = phi { ptr, i32 } [ %.pn32, %ehcleanup178 ], [ %193, %lpad158 ]
   fence seq_cst
-  %199 = load atomic i64, ptr %q155 monotonic, align 64
-  %atomic-temp.i.0.i.i.i.i377 = inttoptr i64 %199 to ptr
+  %196 = load atomic i64, ptr %q155 monotonic, align 64
+  %atomic-temp.i.0.i.i.i.i377 = inttoptr i64 %196 to ptr
   br label %do.body.i378
 
 do.body.i378:                                     ; preds = %do.body.i378, %ehcleanup179
   %block.0.i379 = phi ptr [ %atomic-temp.i.0.i.i.i.i377, %ehcleanup179 ], [ %atomic-temp.i.0.i.i.i10.i381, %do.body.i378 ]
   %next.i380 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i379, i64 0, i32 6
-  %200 = load atomic i64, ptr %next.i380 monotonic, align 8
-  %atomic-temp.i.0.i.i.i10.i381 = inttoptr i64 %200 to ptr
-  %201 = load atomic i64, ptr %block.0.i379 monotonic, align 8
+  %197 = load atomic i64, ptr %next.i380 monotonic, align 8
+  %atomic-temp.i.0.i.i.i10.i381 = inttoptr i64 %197 to ptr
+  %198 = load atomic i64, ptr %block.0.i379 monotonic, align 8
   %tail.i382 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i379, i64 0, i32 3
-  %202 = load atomic i64, ptr %tail.i382 monotonic, align 8
+  %199 = load atomic i64, ptr %tail.i382 monotonic, align 8
   %rawThis.i383 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i379, i64 0, i32 9
-  %203 = load ptr, ptr %rawThis.i383, align 8
-  call void @free(ptr noundef %203) #18
+  %200 = load ptr, ptr %rawThis.i383, align 8
+  call void @free(ptr noundef %200) #18
   %cmp6.not.i384 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i381, %atomic-temp.i.0.i.i.i.i377
   br i1 %cmp6.not.i384, label %eh.resume, label %do.body.i378, !llvm.loop !16
 
@@ -2015,8 +2012,8 @@ sw.bb180:                                         ; preds = %entry
           to label %invoke.cont188 unwind label %lpad187
 
 invoke.cont188:                                   ; preds = %sw.bb180
-  %204 = extractvalue { i64, i64 } %call189, 0
-  %205 = extractvalue { i64, i64 } %call189, 1
+  %201 = extractvalue { i64, i64 } %call189, 0
+  %202 = extractvalue { i64, i64 } %call189, 1
   %call.i387 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19
           to label %call.i.noexc386 unwind label %lpad187
 
@@ -2053,23 +2050,23 @@ invoke.cont198:                                   ; preds = %invoke.cont196
           to label %invoke.cont199 unwind label %lpad197
 
 invoke.cont199:                                   ; preds = %invoke.cont198
-  %call202 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %204, i64 %205)
+  %call202 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %201, i64 %202)
           to label %invoke.cont201 unwind label %lpad197
 
 invoke.cont201:                                   ; preds = %invoke.cont199
-  %206 = load atomic i64, ptr %q184 monotonic, align 64
-  %atomic-temp.i.0.i.i.i390 = inttoptr i64 %206 to ptr
+  %203 = load atomic i64, ptr %q184 monotonic, align 64
+  %atomic-temp.i.0.i.i.i390 = inttoptr i64 %203 to ptr
   %localTail.i391 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i390, i64 0, i32 1
-  %207 = load i64, ptr %localTail.i391, align 8
-  %208 = load atomic i64, ptr %atomic-temp.i.0.i.i.i390 monotonic, align 8
-  %cmp.not.i392 = icmp eq i64 %208, %207
+  %204 = load i64, ptr %localTail.i391, align 8
+  %205 = load atomic i64, ptr %atomic-temp.i.0.i.i.i390 monotonic, align 8
+  %cmp.not.i392 = icmp eq i64 %205, %204
   br i1 %cmp.not.i392, label %lor.lhs.false.i404, label %if.then.i393
 
 lor.lhs.false.i404:                               ; preds = %invoke.cont201
   %tail.i405 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i390, i64 0, i32 3
-  %209 = load atomic i64, ptr %tail.i405 monotonic, align 8
-  store i64 %209, ptr %localTail.i391, align 8
-  %cmp5.not.i406 = icmp eq i64 %207, %209
+  %206 = load atomic i64, ptr %tail.i405 monotonic, align 8
+  store i64 %206, ptr %localTail.i391, align 8
+  %cmp5.not.i406 = icmp eq i64 %204, %206
   br i1 %cmp5.not.i406, label %if.else.i407, label %if.then.i393
 
 if.then.i393:                                     ; preds = %lor.lhs.false.i404, %invoke.cont201
@@ -2078,52 +2075,52 @@ if.then.i393:                                     ; preds = %lor.lhs.false.i404,
 
 if.else.i407:                                     ; preds = %lor.lhs.false.i404
   %tailBlock.i408 = getelementptr inbounds %"class.moodycamel::ReaderWriterQueue", ptr %q184, i64 0, i32 2
-  %210 = load atomic i64, ptr %tailBlock.i408 monotonic, align 64
-  %atomic-temp.i.0.i.i6.i409 = inttoptr i64 %210 to ptr
+  %207 = load atomic i64, ptr %tailBlock.i408 monotonic, align 64
+  %atomic-temp.i.0.i.i6.i409 = inttoptr i64 %207 to ptr
   %cmp9.not.i410 = icmp eq ptr %atomic-temp.i.0.i.i.i390, %atomic-temp.i.0.i.i6.i409
   br i1 %cmp9.not.i410, label %invoke.cont203, label %if.then10.i411
 
 if.then10.i411:                                   ; preds = %if.else.i407
   fence acquire
-  %211 = load atomic i64, ptr %q184 monotonic, align 64
-  %atomic-temp.i.0.i.i7.i412 = inttoptr i64 %211 to ptr
+  %208 = load atomic i64, ptr %q184 monotonic, align 64
+  %atomic-temp.i.0.i.i7.i412 = inttoptr i64 %208 to ptr
   %tail13.i413 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i412, i64 0, i32 3
-  %212 = load atomic i64, ptr %tail13.i413 monotonic, align 8
+  %209 = load atomic i64, ptr %tail13.i413 monotonic, align 8
   %localTail15.i414 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i412, i64 0, i32 1
-  store i64 %212, ptr %localTail15.i414, align 8
-  %213 = load atomic i64, ptr %atomic-temp.i.0.i.i7.i412 monotonic, align 8
+  store i64 %209, ptr %localTail15.i414, align 8
+  %210 = load atomic i64, ptr %atomic-temp.i.0.i.i7.i412 monotonic, align 8
   fence acquire
-  %cmp18.not.i415 = icmp eq i64 %213, %212
+  %cmp18.not.i415 = icmp eq i64 %210, %209
   br i1 %cmp18.not.i415, label %if.end.i416, label %return.sink.split.i394
 
 if.end.i416:                                      ; preds = %if.then10.i411
   %next.i417 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i7.i412, i64 0, i32 6
-  %214 = load atomic i64, ptr %next.i417 monotonic, align 8
-  %atomic-temp.i.0.i.i.i.i418 = inttoptr i64 %214 to ptr
-  %215 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i418 monotonic, align 8
+  %211 = load atomic i64, ptr %next.i417 monotonic, align 8
+  %atomic-temp.i.0.i.i.i.i418 = inttoptr i64 %211 to ptr
+  %212 = load atomic i64, ptr %atomic-temp.i.0.i.i.i.i418 monotonic, align 8
   %tail23.i419 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i418, i64 0, i32 3
-  %216 = load atomic i64, ptr %tail23.i419 monotonic, align 8
+  %213 = load atomic i64, ptr %tail23.i419 monotonic, align 8
   %localTail25.i420 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %atomic-temp.i.0.i.i.i.i418, i64 0, i32 1
-  store i64 %216, ptr %localTail25.i420, align 8
+  store i64 %213, ptr %localTail25.i420, align 8
   fence acquire
   fence release
-  store atomic i64 %214, ptr %q184 monotonic, align 64
+  store atomic i64 %211, ptr %q184 monotonic, align 64
   fence syncscope("singlethread") release
   br label %return.sink.split.i394
 
 return.sink.split.i394:                           ; preds = %if.end.i416, %if.then10.i411, %if.then.i393
   %frontBlock_.0.sink24.i395 = phi ptr [ %atomic-temp.i.0.i.i.i.i418, %if.end.i416 ], [ %atomic-temp.i.0.i.i7.i412, %if.then10.i411 ], [ %atomic-temp.i.0.i.i.i390, %if.then.i393 ]
-  %blockFront.0.sink23.i396 = phi i64 [ %215, %if.end.i416 ], [ %213, %if.then10.i411 ], [ %208, %if.then.i393 ]
+  %blockFront.0.sink23.i396 = phi i64 [ %212, %if.end.i416 ], [ %210, %if.then10.i411 ], [ %205, %if.then.i393 ]
   %data.i397 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i395, i64 0, i32 7
-  %217 = load ptr, ptr %data.i397, align 8
+  %214 = load ptr, ptr %data.i397, align 8
   %mul.i398 = shl i64 %blockFront.0.sink23.i396, 2
-  %add.ptr.i399 = getelementptr inbounds i8, ptr %217, i64 %mul.i398
-  %218 = load i32, ptr %add.ptr.i399, align 4
-  store i32 %218, ptr %element185, align 4
+  %add.ptr.i399 = getelementptr inbounds i8, ptr %214, i64 %mul.i398
+  %215 = load i32, ptr %add.ptr.i399, align 4
+  store i32 %215, ptr %element185, align 4
   %add.i400 = add i64 %blockFront.0.sink23.i396, 1
   %sizeMask.i401 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %frontBlock_.0.sink24.i395, i64 0, i32 8
-  %219 = load i64, ptr %sizeMask.i401, align 8
-  %and.i402 = and i64 %219, %add.i400
+  %216 = load i64, ptr %sizeMask.i401, align 8
+  %and.i402 = and i64 %216, %add.i400
   fence release
   store atomic i64 %and.i402, ptr %frontBlock_.0.sink24.i395 monotonic, align 8
   br label %invoke.cont203
@@ -2131,71 +2128,71 @@ return.sink.split.i394:                           ; preds = %if.end.i416, %if.th
 invoke.cont203:                                   ; preds = %return.sink.split.i394, %if.else.i407
   %retval.0.i403 = phi i32 [ 0, %if.else.i407 ], [ 1, %return.sink.split.i394 ]
   store volatile i32 %retval.0.i403, ptr %forceNoOptimizeDummy, align 4
-  %220 = load i32, ptr %readOps182, align 4
-  %221 = load i32, ptr %writeOps183, align 4
-  %add206 = add nsw i32 %221, %220
+  %217 = load i32, ptr %readOps182, align 4
+  %218 = load i32, ptr %writeOps183, align 4
+  %add206 = add nsw i32 %218, %217
   %conv207 = sitofp i32 %add206 to double
   store double %conv207, ptr %out_Ops, align 8
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer193) #18
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer190) #18
   fence seq_cst
-  %222 = load atomic i64, ptr %q184 monotonic, align 64
-  %atomic-temp.i.0.i.i.i.i422 = inttoptr i64 %222 to ptr
+  %219 = load atomic i64, ptr %q184 monotonic, align 64
+  %atomic-temp.i.0.i.i.i.i422 = inttoptr i64 %219 to ptr
   br label %do.body.i423
 
 do.body.i423:                                     ; preds = %do.body.i423, %invoke.cont203
   %block.0.i424 = phi ptr [ %atomic-temp.i.0.i.i.i.i422, %invoke.cont203 ], [ %atomic-temp.i.0.i.i.i10.i426, %do.body.i423 ]
   %next.i425 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i424, i64 0, i32 6
-  %223 = load atomic i64, ptr %next.i425 monotonic, align 8
-  %atomic-temp.i.0.i.i.i10.i426 = inttoptr i64 %223 to ptr
-  %224 = load atomic i64, ptr %block.0.i424 monotonic, align 8
+  %220 = load atomic i64, ptr %next.i425 monotonic, align 8
+  %atomic-temp.i.0.i.i.i10.i426 = inttoptr i64 %220 to ptr
+  %221 = load atomic i64, ptr %block.0.i424 monotonic, align 8
   %tail.i427 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i424, i64 0, i32 3
-  %225 = load atomic i64, ptr %tail.i427 monotonic, align 8
+  %222 = load atomic i64, ptr %tail.i427 monotonic, align 8
   %rawThis.i428 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i424, i64 0, i32 9
-  %226 = load ptr, ptr %rawThis.i428, align 8
-  call void @free(ptr noundef %226) #18
+  %223 = load ptr, ptr %rawThis.i428, align 8
+  call void @free(ptr noundef %223) #18
   %cmp6.not.i429 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i426, %atomic-temp.i.0.i.i.i.i422
   br i1 %cmp6.not.i429, label %sw.epilog, label %do.body.i423, !llvm.loop !16
 
 lpad187:                                          ; preds = %call.i.noexc386, %invoke.cont188, %sw.bb180
-  %227 = landingpad { ptr, i32 }
+  %224 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup210
 
 lpad195:                                          ; preds = %call.i.noexc388, %invoke.cont192
-  %228 = landingpad { ptr, i32 }
+  %225 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup209
 
 lpad197:                                          ; preds = %invoke.cont199, %invoke.cont198, %invoke.cont196
-  %229 = landingpad { ptr, i32 }
+  %226 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer193) #18
   br label %ehcleanup209
 
 ehcleanup209:                                     ; preds = %lpad197, %lpad195
-  %.pn = phi { ptr, i32 } [ %229, %lpad197 ], [ %228, %lpad195 ]
+  %.pn = phi { ptr, i32 } [ %226, %lpad197 ], [ %225, %lpad195 ]
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer190) #18
   br label %ehcleanup210
 
 ehcleanup210:                                     ; preds = %ehcleanup209, %lpad187
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup209 ], [ %227, %lpad187 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup209 ], [ %224, %lpad187 ]
   fence seq_cst
-  %230 = load atomic i64, ptr %q184 monotonic, align 64
-  %atomic-temp.i.0.i.i.i.i431 = inttoptr i64 %230 to ptr
+  %227 = load atomic i64, ptr %q184 monotonic, align 64
+  %atomic-temp.i.0.i.i.i.i431 = inttoptr i64 %227 to ptr
   br label %do.body.i432
 
 do.body.i432:                                     ; preds = %do.body.i432, %ehcleanup210
   %block.0.i433 = phi ptr [ %atomic-temp.i.0.i.i.i.i431, %ehcleanup210 ], [ %atomic-temp.i.0.i.i.i10.i435, %do.body.i432 ]
   %next.i434 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i433, i64 0, i32 6
-  %231 = load atomic i64, ptr %next.i434 monotonic, align 8
-  %atomic-temp.i.0.i.i.i10.i435 = inttoptr i64 %231 to ptr
-  %232 = load atomic i64, ptr %block.0.i433 monotonic, align 8
+  %228 = load atomic i64, ptr %next.i434 monotonic, align 8
+  %atomic-temp.i.0.i.i.i10.i435 = inttoptr i64 %228 to ptr
+  %229 = load atomic i64, ptr %block.0.i433 monotonic, align 8
   %tail.i436 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i433, i64 0, i32 3
-  %233 = load atomic i64, ptr %tail.i436 monotonic, align 8
+  %230 = load atomic i64, ptr %tail.i436 monotonic, align 8
   %rawThis.i437 = getelementptr inbounds %"struct.moodycamel::ReaderWriterQueue<int>::Block", ptr %block.0.i433, i64 0, i32 9
-  %234 = load ptr, ptr %rawThis.i437, align 8
-  call void @free(ptr noundef %234) #18
+  %231 = load ptr, ptr %rawThis.i437, align 8
+  call void @free(ptr noundef %231) #18
   %cmp6.not.i438 = icmp eq ptr %atomic-temp.i.0.i.i.i10.i435, %atomic-temp.i.0.i.i.i.i431
   br i1 %cmp6.not.i438, label %eh.resume, label %do.body.i432, !llvm.loop !16
 
@@ -2575,8 +2572,7 @@ invoke.cont45:                                    ; preds = %call.i.noexc
           to label %call.i.noexc101 unwind label %lpad47
 
 call.i.noexc101:                                  ; preds = %invoke.cont45
-  %50 = ptrtoint ptr %q38 to i64
-  store i64 %50, ptr %call.i102, align 8
+  store ptr %q38, ptr %call.i102, align 8
   invoke void @_ZN12SimpleThread11startThreadEPvPFvS0_E(ptr noundef nonnull align 8 dereferenceable(8) %producer, ptr noundef nonnull %call.i102, ptr noundef nonnull @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE0_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv)
           to label %invoke.cont48 unwind label %lpad47
 
@@ -2593,59 +2589,59 @@ invoke.cont51:                                    ; preds = %invoke.cont50
           to label %invoke.cont53 unwind label %lpad49
 
 invoke.cont53:                                    ; preds = %invoke.cont51
-  %51 = load i32, ptr %total39, align 4
-  store volatile i32 %51, ptr %forceNoOptimizeDummy, align 4
+  %50 = load i32, ptr %total39, align 4
+  store volatile i32 %50, ptr %forceNoOptimizeDummy, align 4
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer) #18
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer) #18
   %items.i.i103 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q38, i64 0, i32 5
-  %52 = load ptr, ptr %items.i.i103, align 8
-  %53 = load atomic i64, ptr %52 monotonic, align 8
+  %51 = load ptr, ptr %items.i.i103, align 8
+  %52 = load atomic i64, ptr %51 monotonic, align 8
   %rawData.i.i104 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q38, i64 0, i32 2
-  %54 = load ptr, ptr %rawData.i.i104, align 8
-  call void @free(ptr noundef %54) #18
-  %55 = load ptr, ptr %items.i.i103, align 8
-  %cmp.not.i.i.i105 = icmp eq ptr %55, null
+  %53 = load ptr, ptr %rawData.i.i104, align 8
+  call void @free(ptr noundef %53) #18
+  %54 = load ptr, ptr %items.i.i103, align 8
+  %cmp.not.i.i.i105 = icmp eq ptr %54, null
   br i1 %cmp.not.i.i.i105, label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i109, label %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i106
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i106: ; preds = %invoke.cont53
-  %m_sema.i.i.i.i.i107 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %55, i64 0, i32 1
+  %m_sema.i.i.i.i.i107 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %54, i64 0, i32 1
   %call.i.i.i.i.i.i108 = call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i.i.i107) #18
-  call void @_ZdlPv(ptr noundef nonnull %55) #20
+  call void @_ZdlPv(ptr noundef nonnull %54) #20
   br label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i109
 
 _ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i109: ; preds = %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i106, %invoke.cont53
   store ptr null, ptr %items.i.i103, align 8
   %slots_.i.i110 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q38, i64 0, i32 4
-  %56 = load ptr, ptr %slots_.i.i110, align 8
-  %cmp.not.i2.i.i111 = icmp eq ptr %56, null
+  %55 = load ptr, ptr %slots_.i.i110, align 8
+  %cmp.not.i2.i.i111 = icmp eq ptr %55, null
   br i1 %cmp.not.i2.i.i111, label %sw.epilog, label %sw.epilog.sink.split
 
 lpad41:                                           ; preds = %call.i.noexc, %invoke.cont42, %sw.bb36
-  %57 = landingpad { ptr, i32 }
+  %56 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad47:                                           ; preds = %call.i.noexc101, %invoke.cont45
-  %58 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad49:                                           ; preds = %invoke.cont51, %invoke.cont50, %invoke.cont48
-  %59 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer) #18
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad49, %lpad47
-  %.pn41 = phi { ptr, i32 } [ %59, %lpad49 ], [ %58, %lpad47 ]
+  %.pn41 = phi { ptr, i32 } [ %58, %lpad49 ], [ %57, %lpad47 ]
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer) #18
   br label %eh.resume
 
 sw.bb56:                                          ; preds = %entry
   store double 2.000000e+05, ptr %out_Ops, align 8
   %rem.i.i.i.i332 = urem i32 %randomSeed, 2147483647
-  %60 = tail call i32 @llvm.umax.i32(i32 %rem.i.i.i.i332, i32 1)
-  %storemerge.i.i = zext nneg i32 %60 to i64
+  %59 = tail call i32 @llvm.umax.i32(i32 %rem.i.i.i.i332, i32 1)
+  %storemerge.i.i = zext nneg i32 %59 to i64
   store i64 %storemerge.i.i, ptr %rng, align 8
   store i32 0, ptr %rand, align 4
   %_M_b.i.i = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand, i64 0, i32 1
@@ -2655,8 +2651,8 @@ sw.bb56:                                          ; preds = %entry
           to label %invoke.cont63 unwind label %lpad62.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont63:                                    ; preds = %sw.bb56
-  %61 = extractvalue { i64, i64 } %call64, 0
-  %62 = extractvalue { i64, i64 } %call64, 1
+  %60 = extractvalue { i64, i64 } %call64, 0
+  %61 = extractvalue { i64, i64 } %call64, 1
   %items.i140 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q58, i64 0, i32 5
   %nextItem.i.i143 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q58, i64 0, i32 9
   %slots_.i.i149 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q58, i64 0, i32 4
@@ -2676,38 +2672,38 @@ invoke.cont69:                                    ; preds = %for.body68
   br i1 %cmp71, label %while.cond.i.i119, label %if.else
 
 while.cond.i.i119:                                ; preds = %invoke.cont69, %call2.i.i.i.noexc137
-  %63 = load ptr, ptr %slots_.i.i149, align 8
-  %64 = load atomic i64, ptr %63 monotonic, align 8
-  %cmp.i.i.i.i120 = icmp sgt i64 %64, 0
+  %62 = load ptr, ptr %slots_.i.i149, align 8
+  %63 = load atomic i64, ptr %62 monotonic, align 8
+  %cmp.i.i.i.i120 = icmp sgt i64 %63, 0
   br i1 %cmp.i.i.i.i120, label %_ZN10moodycamel9spsc_sema20LightweightSemaphore4waitEv.exit.thread.i.i136, label %_ZN10moodycamel9spsc_sema20LightweightSemaphore4waitEv.exit.i.i121
 
 _ZN10moodycamel9spsc_sema20LightweightSemaphore4waitEv.exit.thread.i.i136: ; preds = %while.cond.i.i119
-  %65 = atomicrmw add ptr %63, i64 -1 acquire, align 8
+  %64 = atomicrmw add ptr %62, i64 -1 acquire, align 8
   br label %while.end.i.i122
 
 _ZN10moodycamel9spsc_sema20LightweightSemaphore4waitEv.exit.i.i121: ; preds = %while.cond.i.i119
-  %call2.i.i.i138 = invoke noundef zeroext i1 @_ZN10moodycamel9spsc_sema20LightweightSemaphore23waitWithPartialSpinningEl(ptr noundef nonnull align 8 dereferenceable(40) %63, i64 noundef -1)
+  %call2.i.i.i138 = invoke noundef zeroext i1 @_ZN10moodycamel9spsc_sema20LightweightSemaphore23waitWithPartialSpinningEl(ptr noundef nonnull align 8 dereferenceable(40) %62, i64 noundef -1)
           to label %call2.i.i.i.noexc137 unwind label %lpad62.loopexit
 
 call2.i.i.i.noexc137:                             ; preds = %_ZN10moodycamel9spsc_sema20LightweightSemaphore4waitEv.exit.i.i121
   br i1 %call2.i.i.i138, label %while.end.i.i122, label %while.cond.i.i119, !llvm.loop !20
 
 while.end.i.i122:                                 ; preds = %call2.i.i.i.noexc137, %_ZN10moodycamel9spsc_sema20LightweightSemaphore4waitEv.exit.thread.i.i136
-  %66 = load i64, ptr %nextSlot.i.i.i123, align 8
-  %inc.i.i.i124 = add i64 %66, 1
+  %65 = load i64, ptr %nextSlot.i.i.i123, align 8
+  %inc.i.i.i124 = add i64 %65, 1
   store i64 %inc.i.i.i124, ptr %nextSlot.i.i.i123, align 8
-  %67 = load ptr, ptr %data.i.i.i125, align 8
-  %68 = load i64, ptr %mask.i.i.i126, align 8
-  %and.i.i.i127 = and i64 %68, %66
-  %add.ptr.i.i.i128 = getelementptr inbounds i32, ptr %67, i64 %and.i.i.i127
+  %66 = load ptr, ptr %data.i.i.i125, align 8
+  %67 = load i64, ptr %mask.i.i.i126, align 8
+  %and.i.i.i127 = and i64 %67, %65
+  %add.ptr.i.i.i128 = getelementptr inbounds i32, ptr %66, i64 %and.i.i.i127
   store i32 %num59.0354, ptr %add.ptr.i.i.i128, align 4
-  %69 = load ptr, ptr %items.i140, align 8
-  %70 = atomicrmw add ptr %69, i64 1 release, align 8
-  %cmp.i.i1.i.i130 = icmp slt i64 %70, 0
+  %68 = load ptr, ptr %items.i140, align 8
+  %69 = atomicrmw add ptr %68, i64 1 release, align 8
+  %cmp.i.i1.i.i130 = icmp slt i64 %69, 0
   br i1 %cmp.i.i1.i.i130, label %if.then.i.i.i.i131, label %invoke.cont72
 
 if.then.i.i.i.i131:                               ; preds = %while.end.i.i122
-  %m_sema.i.i.i.i132 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %69, i64 0, i32 1
+  %m_sema.i.i.i.i132 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %68, i64 0, i32 1
   br label %while.cond2.i.i.i.i.i133
 
 while.cond2.i.i.i.i.i133:                         ; preds = %while.cond2.i.i.i.i.i133, %if.then.i.i.i.i131
@@ -2735,23 +2731,23 @@ lpad62.loopexit.split-lp.loopexit.split-lp:       ; preds = %for.end78, %sw.bb56
   br label %eh.resume
 
 if.else:                                          ; preds = %invoke.cont69
-  %71 = load ptr, ptr %items.i140, align 8
-  %72 = load atomic i64, ptr %71 monotonic, align 8
-  %cmp.i.i141 = icmp sgt i64 %72, 0
+  %70 = load ptr, ptr %items.i140, align 8
+  %71 = load atomic i64, ptr %70 monotonic, align 8
+  %cmp.i.i141 = icmp sgt i64 %71, 0
   br i1 %cmp.i.i141, label %if.end.i142, label %for.inc76
 
 if.end.i142:                                      ; preds = %if.else
-  %73 = atomicrmw add ptr %71, i64 -1 acquire, align 8
-  %74 = load i64, ptr %nextItem.i.i143, align 8
-  %inc.i.i144 = add i64 %74, 1
+  %72 = atomicrmw add ptr %70, i64 -1 acquire, align 8
+  %73 = load i64, ptr %nextItem.i.i143, align 8
+  %inc.i.i144 = add i64 %73, 1
   store i64 %inc.i.i144, ptr %nextItem.i.i143, align 8
-  %75 = load ptr, ptr %slots_.i.i149, align 8
-  %76 = atomicrmw add ptr %75, i64 1 release, align 8
-  %cmp.i.i.i150 = icmp slt i64 %76, 0
+  %74 = load ptr, ptr %slots_.i.i149, align 8
+  %75 = atomicrmw add ptr %74, i64 1 release, align 8
+  %cmp.i.i.i150 = icmp slt i64 %75, 0
   br i1 %cmp.i.i.i150, label %if.then.i.i.i151, label %for.inc76
 
 if.then.i.i.i151:                                 ; preds = %if.end.i142
-  %m_sema.i.i.i152 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %75, i64 0, i32 1
+  %m_sema.i.i.i152 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %74, i64 0, i32 1
   br label %while.cond2.i.i.i.i153
 
 while.cond2.i.i.i.i153:                           ; preds = %while.cond2.i.i.i.i153, %if.then.i.i.i151
@@ -2766,27 +2762,27 @@ for.inc76:                                        ; preds = %while.cond2.i.i.i.i
   br i1 %cmp67.not, label %for.end78, label %for.body68, !llvm.loop !25
 
 for.end78:                                        ; preds = %for.inc76
-  %call81 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %61, i64 %62)
+  %call81 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %60, i64 %61)
           to label %invoke.cont80 unwind label %lpad62.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont80:                                    ; preds = %for.end78
-  %77 = load ptr, ptr %items.i140, align 8
-  %78 = load atomic i64, ptr %77 monotonic, align 8
-  %cmp.i.i158 = icmp sgt i64 %78, 0
+  %76 = load ptr, ptr %items.i140, align 8
+  %77 = load atomic i64, ptr %76 monotonic, align 8
+  %cmp.i.i158 = icmp sgt i64 %77, 0
   br i1 %cmp.i.i158, label %if.end.i159, label %invoke.cont82
 
 if.end.i159:                                      ; preds = %invoke.cont80
-  %79 = atomicrmw add ptr %77, i64 -1 acquire, align 8
-  %80 = load i64, ptr %nextItem.i.i143, align 8
-  %inc.i.i161 = add i64 %80, 1
+  %78 = atomicrmw add ptr %76, i64 -1 acquire, align 8
+  %79 = load i64, ptr %nextItem.i.i143, align 8
+  %inc.i.i161 = add i64 %79, 1
   store i64 %inc.i.i161, ptr %nextItem.i.i143, align 8
-  %81 = load ptr, ptr %slots_.i.i149, align 8
-  %82 = atomicrmw add ptr %81, i64 1 release, align 8
-  %cmp.i.i.i167 = icmp slt i64 %82, 0
+  %80 = load ptr, ptr %slots_.i.i149, align 8
+  %81 = atomicrmw add ptr %80, i64 1 release, align 8
+  %cmp.i.i.i167 = icmp slt i64 %81, 0
   br i1 %cmp.i.i.i167, label %if.then.i.i.i168, label %invoke.cont82
 
 if.then.i.i.i168:                                 ; preds = %if.end.i159
-  %m_sema.i.i.i169 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %81, i64 0, i32 1
+  %m_sema.i.i.i169 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %80, i64 0, i32 1
   br label %while.cond2.i.i.i.i170
 
 while.cond2.i.i.i.i170:                           ; preds = %while.cond2.i.i.i.i170, %if.then.i.i.i168
@@ -2797,33 +2793,33 @@ while.cond2.i.i.i.i170:                           ; preds = %while.cond2.i.i.i.i
 invoke.cont82:                                    ; preds = %while.cond2.i.i.i.i170, %if.end.i159, %invoke.cont80
   %conv84 = zext i1 %cmp.i.i158 to i32
   store volatile i32 %conv84, ptr %forceNoOptimizeDummy, align 4
-  %83 = load ptr, ptr %items.i140, align 8
-  %84 = load atomic i64, ptr %83 monotonic, align 8
+  %82 = load ptr, ptr %items.i140, align 8
+  %83 = load atomic i64, ptr %82 monotonic, align 8
   %rawData.i.i175 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q58, i64 0, i32 2
-  %85 = load ptr, ptr %rawData.i.i175, align 8
-  call void @free(ptr noundef %85) #18
-  %86 = load ptr, ptr %items.i140, align 8
-  %cmp.not.i.i.i176 = icmp eq ptr %86, null
+  %84 = load ptr, ptr %rawData.i.i175, align 8
+  call void @free(ptr noundef %84) #18
+  %85 = load ptr, ptr %items.i140, align 8
+  %cmp.not.i.i.i176 = icmp eq ptr %85, null
   br i1 %cmp.not.i.i.i176, label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i180, label %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i177
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i177: ; preds = %invoke.cont82
-  %m_sema.i.i.i.i.i178 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %86, i64 0, i32 1
+  %m_sema.i.i.i.i.i178 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %85, i64 0, i32 1
   %call.i.i.i.i.i.i179 = call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i.i.i178) #18
-  call void @_ZdlPv(ptr noundef nonnull %86) #20
+  call void @_ZdlPv(ptr noundef nonnull %85) #20
   br label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i180
 
 _ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i180: ; preds = %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i177, %invoke.cont82
   store ptr null, ptr %items.i140, align 8
-  %87 = load ptr, ptr %slots_.i.i149, align 8
-  %cmp.not.i2.i.i182 = icmp eq ptr %87, null
+  %86 = load ptr, ptr %slots_.i.i149, align 8
+  %cmp.not.i2.i.i182 = icmp eq ptr %86, null
   br i1 %cmp.not.i2.i.i182, label %sw.epilog, label %sw.epilog.sink.split
 
 sw.bb86:                                          ; preds = %entry
   store double 1.200000e+06, ptr %out_Ops, align 8
   store i32 0, ptr %readOps, align 4
   %rem.i.i.i.i187333 = urem i32 %randomSeed, 2147483647
-  %88 = tail call i32 @llvm.umax.i32(i32 %rem.i.i.i.i187333, i32 1)
-  %storemerge.i.i188 = zext nneg i32 %88 to i64
+  %87 = tail call i32 @llvm.umax.i32(i32 %rem.i.i.i.i187333, i32 1)
+  %storemerge.i.i188 = zext nneg i32 %87 to i64
   store i64 %storemerge.i.i188, ptr %rng88, align 8
   store i32 0, ptr %rand90, align 4
   %_M_b.i.i189 = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand90, i64 0, i32 1
@@ -2834,8 +2830,8 @@ sw.bb86:                                          ; preds = %entry
           to label %invoke.cont95 unwind label %lpad94
 
 invoke.cont95:                                    ; preds = %sw.bb86
-  %89 = extractvalue { i64, i64 } %call96, 0
-  %90 = extractvalue { i64, i64 } %call96, 1
+  %88 = extractvalue { i64, i64 } %call96, 0
+  %89 = extractvalue { i64, i64 } %call96, 1
   %call.i191 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
           to label %call.i.noexc190 unwind label %lpad94
 
@@ -2857,8 +2853,7 @@ invoke.cont99:                                    ; preds = %call.i.noexc190
           to label %call.i.noexc192 unwind label %lpad102
 
 call.i.noexc192:                                  ; preds = %invoke.cont99
-  %91 = ptrtoint ptr %q91 to i64
-  store i64 %91, ptr %call.i193, align 8
+  store ptr %q91, ptr %call.i193, align 8
   invoke void @_ZN12SimpleThread11startThreadEPvPFvS0_E(ptr noundef nonnull align 8 dereferenceable(8) %producer100, ptr noundef nonnull %call.i193, ptr noundef nonnull @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE2_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv)
           to label %invoke.cont103 unwind label %lpad102
 
@@ -2871,38 +2866,38 @@ invoke.cont105:                                   ; preds = %invoke.cont103
           to label %invoke.cont106 unwind label %lpad104
 
 invoke.cont106:                                   ; preds = %invoke.cont105
-  %call109 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %89, i64 %90)
+  %call109 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %88, i64 %89)
           to label %invoke.cont108 unwind label %lpad104
 
 invoke.cont108:                                   ; preds = %invoke.cont106
   %items.i194 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q91, i64 0, i32 5
-  %92 = load ptr, ptr %items.i194, align 8
-  %93 = load atomic i64, ptr %92 monotonic, align 8
-  %cmp.i.i195 = icmp sgt i64 %93, 0
+  %90 = load ptr, ptr %items.i194, align 8
+  %91 = load atomic i64, ptr %90 monotonic, align 8
+  %cmp.i.i195 = icmp sgt i64 %91, 0
   br i1 %cmp.i.i195, label %if.end.i196, label %invoke.cont110
 
 if.end.i196:                                      ; preds = %invoke.cont108
-  %94 = atomicrmw add ptr %92, i64 -1 acquire, align 8
+  %92 = atomicrmw add ptr %90, i64 -1 acquire, align 8
   %nextItem.i.i197 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q91, i64 0, i32 9
-  %95 = load i64, ptr %nextItem.i.i197, align 8
-  %inc.i.i198 = add i64 %95, 1
+  %93 = load i64, ptr %nextItem.i.i197, align 8
+  %inc.i.i198 = add i64 %93, 1
   store i64 %inc.i.i198, ptr %nextItem.i.i197, align 8
   %data.i.i199 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q91, i64 0, i32 3
-  %96 = load ptr, ptr %data.i.i199, align 8
+  %94 = load ptr, ptr %data.i.i199, align 8
   %mask.i.i200 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q91, i64 0, i32 1
-  %97 = load i64, ptr %mask.i.i200, align 8
-  %and.i.i201 = and i64 %97, %95
-  %arrayidx.i.i202 = getelementptr inbounds i32, ptr %96, i64 %and.i.i201
-  %98 = load i32, ptr %arrayidx.i.i202, align 4
-  store i32 %98, ptr %element92, align 4
+  %95 = load i64, ptr %mask.i.i200, align 8
+  %and.i.i201 = and i64 %95, %93
+  %arrayidx.i.i202 = getelementptr inbounds i32, ptr %94, i64 %and.i.i201
+  %96 = load i32, ptr %arrayidx.i.i202, align 4
+  store i32 %96, ptr %element92, align 4
   %slots_.i.i203 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q91, i64 0, i32 4
-  %99 = load ptr, ptr %slots_.i.i203, align 8
-  %100 = atomicrmw add ptr %99, i64 1 release, align 8
-  %cmp.i.i.i204 = icmp slt i64 %100, 0
+  %97 = load ptr, ptr %slots_.i.i203, align 8
+  %98 = atomicrmw add ptr %97, i64 1 release, align 8
+  %cmp.i.i.i204 = icmp slt i64 %98, 0
   br i1 %cmp.i.i.i204, label %if.then.i.i.i205, label %invoke.cont110
 
 if.then.i.i.i205:                                 ; preds = %if.end.i196
-  %m_sema.i.i.i206 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %99, i64 0, i32 1
+  %m_sema.i.i.i206 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %97, i64 0, i32 1
   br label %while.cond2.i.i.i.i207
 
 while.cond2.i.i.i.i207:                           ; preds = %while.cond2.i.i.i.i207, %if.then.i.i.i205
@@ -2913,53 +2908,53 @@ while.cond2.i.i.i.i207:                           ; preds = %while.cond2.i.i.i.i
 invoke.cont110:                                   ; preds = %while.cond2.i.i.i.i207, %if.end.i196, %invoke.cont108
   %conv112 = zext i1 %cmp.i.i195 to i32
   store volatile i32 %conv112, ptr %forceNoOptimizeDummy, align 4
-  %101 = load i32, ptr %readOps, align 4
-  %conv113 = sitofp i32 %101 to double
-  %102 = load double, ptr %out_Ops, align 8
-  %add114 = fadd double %102, %conv113
+  %99 = load i32, ptr %readOps, align 4
+  %conv113 = sitofp i32 %99 to double
+  %100 = load double, ptr %out_Ops, align 8
+  %add114 = fadd double %100, %conv113
   store double %add114, ptr %out_Ops, align 8
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer100) #18
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer97) #18
-  %103 = load ptr, ptr %items.i194, align 8
-  %104 = load atomic i64, ptr %103 monotonic, align 8
+  %101 = load ptr, ptr %items.i194, align 8
+  %102 = load atomic i64, ptr %101 monotonic, align 8
   %rawData.i.i212 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q91, i64 0, i32 2
-  %105 = load ptr, ptr %rawData.i.i212, align 8
-  call void @free(ptr noundef %105) #18
-  %106 = load ptr, ptr %items.i194, align 8
-  %cmp.not.i.i.i213 = icmp eq ptr %106, null
+  %103 = load ptr, ptr %rawData.i.i212, align 8
+  call void @free(ptr noundef %103) #18
+  %104 = load ptr, ptr %items.i194, align 8
+  %cmp.not.i.i.i213 = icmp eq ptr %104, null
   br i1 %cmp.not.i.i.i213, label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i217, label %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i214
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i214: ; preds = %invoke.cont110
-  %m_sema.i.i.i.i.i215 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %106, i64 0, i32 1
+  %m_sema.i.i.i.i.i215 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %104, i64 0, i32 1
   %call.i.i.i.i.i.i216 = call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i.i.i215) #18
-  call void @_ZdlPv(ptr noundef nonnull %106) #20
+  call void @_ZdlPv(ptr noundef nonnull %104) #20
   br label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i217
 
 _ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i217: ; preds = %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i214, %invoke.cont110
   store ptr null, ptr %items.i194, align 8
   %slots_.i.i218 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q91, i64 0, i32 4
-  %107 = load ptr, ptr %slots_.i.i218, align 8
-  %cmp.not.i2.i.i219 = icmp eq ptr %107, null
+  %105 = load ptr, ptr %slots_.i.i218, align 8
+  %cmp.not.i2.i.i219 = icmp eq ptr %105, null
   br i1 %cmp.not.i2.i.i219, label %sw.epilog, label %sw.epilog.sink.split
 
 lpad94:                                           ; preds = %call.i.noexc190, %invoke.cont95, %sw.bb86
-  %108 = landingpad { ptr, i32 }
+  %106 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad102:                                          ; preds = %call.i.noexc192, %invoke.cont99
-  %109 = landingpad { ptr, i32 }
+  %107 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup116
 
 lpad104:                                          ; preds = %invoke.cont106, %invoke.cont105, %invoke.cont103
-  %110 = landingpad { ptr, i32 }
+  %108 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer100) #18
   br label %ehcleanup116
 
 ehcleanup116:                                     ; preds = %lpad104, %lpad102
-  %.pn38 = phi { ptr, i32 } [ %110, %lpad104 ], [ %109, %lpad102 ]
+  %.pn38 = phi { ptr, i32 } [ %108, %lpad104 ], [ %107, %lpad102 ]
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer97) #18
   br label %eh.resume
 
@@ -2967,8 +2962,8 @@ sw.bb118:                                         ; preds = %entry
   store double 1.200000e+06, ptr %out_Ops, align 8
   store i32 0, ptr %writeOps, align 4
   %rem.i.i.i.i224334 = urem i32 %randomSeed, 2147483647
-  %111 = tail call i32 @llvm.umax.i32(i32 %rem.i.i.i.i224334, i32 1)
-  %storemerge.i.i225 = zext nneg i32 %111 to i64
+  %109 = tail call i32 @llvm.umax.i32(i32 %rem.i.i.i.i224334, i32 1)
+  %storemerge.i.i225 = zext nneg i32 %109 to i64
   store i64 %storemerge.i.i225, ptr %rng120, align 8
   store i32 0, ptr %rand122, align 4
   %_M_b.i.i226 = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand122, i64 0, i32 1
@@ -2979,8 +2974,8 @@ sw.bb118:                                         ; preds = %entry
           to label %invoke.cont127 unwind label %lpad126
 
 invoke.cont127:                                   ; preds = %sw.bb118
-  %112 = extractvalue { i64, i64 } %call128, 0
-  %113 = extractvalue { i64, i64 } %call128, 1
+  %110 = extractvalue { i64, i64 } %call128, 0
+  %111 = extractvalue { i64, i64 } %call128, 1
   %call.i228 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
           to label %call.i.noexc227 unwind label %lpad126
 
@@ -3015,38 +3010,38 @@ invoke.cont137:                                   ; preds = %invoke.cont135
           to label %invoke.cont138 unwind label %lpad136
 
 invoke.cont138:                                   ; preds = %invoke.cont137
-  %call141 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %112, i64 %113)
+  %call141 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %110, i64 %111)
           to label %invoke.cont140 unwind label %lpad136
 
 invoke.cont140:                                   ; preds = %invoke.cont138
   %items.i231 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q123, i64 0, i32 5
-  %114 = load ptr, ptr %items.i231, align 8
-  %115 = load atomic i64, ptr %114 monotonic, align 8
-  %cmp.i.i232 = icmp sgt i64 %115, 0
+  %112 = load ptr, ptr %items.i231, align 8
+  %113 = load atomic i64, ptr %112 monotonic, align 8
+  %cmp.i.i232 = icmp sgt i64 %113, 0
   br i1 %cmp.i.i232, label %if.end.i233, label %invoke.cont142
 
 if.end.i233:                                      ; preds = %invoke.cont140
-  %116 = atomicrmw add ptr %114, i64 -1 acquire, align 8
+  %114 = atomicrmw add ptr %112, i64 -1 acquire, align 8
   %nextItem.i.i234 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q123, i64 0, i32 9
-  %117 = load i64, ptr %nextItem.i.i234, align 8
-  %inc.i.i235 = add i64 %117, 1
+  %115 = load i64, ptr %nextItem.i.i234, align 8
+  %inc.i.i235 = add i64 %115, 1
   store i64 %inc.i.i235, ptr %nextItem.i.i234, align 8
   %data.i.i236 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q123, i64 0, i32 3
-  %118 = load ptr, ptr %data.i.i236, align 8
+  %116 = load ptr, ptr %data.i.i236, align 8
   %mask.i.i237 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q123, i64 0, i32 1
-  %119 = load i64, ptr %mask.i.i237, align 8
-  %and.i.i238 = and i64 %119, %117
-  %arrayidx.i.i239 = getelementptr inbounds i32, ptr %118, i64 %and.i.i238
-  %120 = load i32, ptr %arrayidx.i.i239, align 4
-  store i32 %120, ptr %element124, align 4
+  %117 = load i64, ptr %mask.i.i237, align 8
+  %and.i.i238 = and i64 %117, %115
+  %arrayidx.i.i239 = getelementptr inbounds i32, ptr %116, i64 %and.i.i238
+  %118 = load i32, ptr %arrayidx.i.i239, align 4
+  store i32 %118, ptr %element124, align 4
   %slots_.i.i240 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q123, i64 0, i32 4
-  %121 = load ptr, ptr %slots_.i.i240, align 8
-  %122 = atomicrmw add ptr %121, i64 1 release, align 8
-  %cmp.i.i.i241 = icmp slt i64 %122, 0
+  %119 = load ptr, ptr %slots_.i.i240, align 8
+  %120 = atomicrmw add ptr %119, i64 1 release, align 8
+  %cmp.i.i.i241 = icmp slt i64 %120, 0
   br i1 %cmp.i.i.i241, label %if.then.i.i.i242, label %invoke.cont142
 
 if.then.i.i.i242:                                 ; preds = %if.end.i233
-  %m_sema.i.i.i243 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %121, i64 0, i32 1
+  %m_sema.i.i.i243 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %119, i64 0, i32 1
   br label %while.cond2.i.i.i.i244
 
 while.cond2.i.i.i.i244:                           ; preds = %while.cond2.i.i.i.i244, %if.then.i.i.i242
@@ -3057,53 +3052,53 @@ while.cond2.i.i.i.i244:                           ; preds = %while.cond2.i.i.i.i
 invoke.cont142:                                   ; preds = %while.cond2.i.i.i.i244, %if.end.i233, %invoke.cont140
   %conv144 = zext i1 %cmp.i.i232 to i32
   store volatile i32 %conv144, ptr %forceNoOptimizeDummy, align 4
-  %123 = load i32, ptr %writeOps, align 4
-  %conv145 = sitofp i32 %123 to double
-  %124 = load double, ptr %out_Ops, align 8
-  %add146 = fadd double %124, %conv145
+  %121 = load i32, ptr %writeOps, align 4
+  %conv145 = sitofp i32 %121 to double
+  %122 = load double, ptr %out_Ops, align 8
+  %add146 = fadd double %122, %conv145
   store double %add146, ptr %out_Ops, align 8
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer132) #18
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer129) #18
-  %125 = load ptr, ptr %items.i231, align 8
-  %126 = load atomic i64, ptr %125 monotonic, align 8
+  %123 = load ptr, ptr %items.i231, align 8
+  %124 = load atomic i64, ptr %123 monotonic, align 8
   %rawData.i.i249 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q123, i64 0, i32 2
-  %127 = load ptr, ptr %rawData.i.i249, align 8
-  call void @free(ptr noundef %127) #18
-  %128 = load ptr, ptr %items.i231, align 8
-  %cmp.not.i.i.i250 = icmp eq ptr %128, null
+  %125 = load ptr, ptr %rawData.i.i249, align 8
+  call void @free(ptr noundef %125) #18
+  %126 = load ptr, ptr %items.i231, align 8
+  %cmp.not.i.i.i250 = icmp eq ptr %126, null
   br i1 %cmp.not.i.i.i250, label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i254, label %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i251
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i251: ; preds = %invoke.cont142
-  %m_sema.i.i.i.i.i252 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %128, i64 0, i32 1
+  %m_sema.i.i.i.i.i252 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %126, i64 0, i32 1
   %call.i.i.i.i.i.i253 = call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i.i.i252) #18
-  call void @_ZdlPv(ptr noundef nonnull %128) #20
+  call void @_ZdlPv(ptr noundef nonnull %126) #20
   br label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i254
 
 _ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i254: ; preds = %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i251, %invoke.cont142
   store ptr null, ptr %items.i231, align 8
   %slots_.i.i255 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q123, i64 0, i32 4
-  %129 = load ptr, ptr %slots_.i.i255, align 8
-  %cmp.not.i2.i.i256 = icmp eq ptr %129, null
+  %127 = load ptr, ptr %slots_.i.i255, align 8
+  %cmp.not.i2.i.i256 = icmp eq ptr %127, null
   br i1 %cmp.not.i2.i.i256, label %sw.epilog, label %sw.epilog.sink.split
 
 lpad126:                                          ; preds = %call.i.noexc227, %invoke.cont127, %sw.bb118
-  %130 = landingpad { ptr, i32 }
+  %128 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad134:                                          ; preds = %call.i.noexc229, %invoke.cont131
-  %131 = landingpad { ptr, i32 }
+  %129 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup148
 
 lpad136:                                          ; preds = %invoke.cont138, %invoke.cont137, %invoke.cont135
-  %132 = landingpad { ptr, i32 }
+  %130 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer132) #18
   br label %ehcleanup148
 
 ehcleanup148:                                     ; preds = %lpad136, %lpad134
-  %.pn35 = phi { ptr, i32 } [ %132, %lpad136 ], [ %131, %lpad134 ]
+  %.pn35 = phi { ptr, i32 } [ %130, %lpad136 ], [ %129, %lpad134 ]
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer129) #18
   br label %eh.resume
 
@@ -3115,8 +3110,8 @@ sw.bb150:                                         ; preds = %entry
           to label %invoke.cont156 unwind label %lpad155
 
 invoke.cont156:                                   ; preds = %sw.bb150
-  %133 = extractvalue { i64, i64 } %call157, 0
-  %134 = extractvalue { i64, i64 } %call157, 1
+  %131 = extractvalue { i64, i64 } %call157, 0
+  %132 = extractvalue { i64, i64 } %call157, 1
   %call.i262 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
           to label %call.i.noexc261 unwind label %lpad155
 
@@ -3132,8 +3127,7 @@ invoke.cont160:                                   ; preds = %call.i.noexc261
           to label %call.i.noexc263 unwind label %lpad163
 
 call.i.noexc263:                                  ; preds = %invoke.cont160
-  %135 = ptrtoint ptr %q152 to i64
-  store i64 %135, ptr %call.i264, align 8
+  store ptr %q152, ptr %call.i264, align 8
   invoke void @_ZN12SimpleThread11startThreadEPvPFvS0_E(ptr noundef nonnull align 8 dereferenceable(8) %producer161, ptr noundef nonnull %call.i264, ptr noundef nonnull @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE6_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv)
           to label %invoke.cont164 unwind label %lpad163
 
@@ -3146,38 +3140,38 @@ invoke.cont166:                                   ; preds = %invoke.cont164
           to label %invoke.cont167 unwind label %lpad165
 
 invoke.cont167:                                   ; preds = %invoke.cont166
-  %call170 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %133, i64 %134)
+  %call170 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %131, i64 %132)
           to label %invoke.cont169 unwind label %lpad165
 
 invoke.cont169:                                   ; preds = %invoke.cont167
   %items.i265 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q152, i64 0, i32 5
-  %136 = load ptr, ptr %items.i265, align 8
-  %137 = load atomic i64, ptr %136 monotonic, align 8
-  %cmp.i.i266 = icmp sgt i64 %137, 0
+  %133 = load ptr, ptr %items.i265, align 8
+  %134 = load atomic i64, ptr %133 monotonic, align 8
+  %cmp.i.i266 = icmp sgt i64 %134, 0
   br i1 %cmp.i.i266, label %if.end.i267, label %invoke.cont171
 
 if.end.i267:                                      ; preds = %invoke.cont169
-  %138 = atomicrmw add ptr %136, i64 -1 acquire, align 8
+  %135 = atomicrmw add ptr %133, i64 -1 acquire, align 8
   %nextItem.i.i268 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q152, i64 0, i32 9
-  %139 = load i64, ptr %nextItem.i.i268, align 8
-  %inc.i.i269 = add i64 %139, 1
+  %136 = load i64, ptr %nextItem.i.i268, align 8
+  %inc.i.i269 = add i64 %136, 1
   store i64 %inc.i.i269, ptr %nextItem.i.i268, align 8
   %data.i.i270 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q152, i64 0, i32 3
-  %140 = load ptr, ptr %data.i.i270, align 8
+  %137 = load ptr, ptr %data.i.i270, align 8
   %mask.i.i271 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q152, i64 0, i32 1
-  %141 = load i64, ptr %mask.i.i271, align 8
-  %and.i.i272 = and i64 %141, %139
-  %arrayidx.i.i273 = getelementptr inbounds i32, ptr %140, i64 %and.i.i272
-  %142 = load i32, ptr %arrayidx.i.i273, align 4
-  store i32 %142, ptr %element153, align 4
+  %138 = load i64, ptr %mask.i.i271, align 8
+  %and.i.i272 = and i64 %138, %136
+  %arrayidx.i.i273 = getelementptr inbounds i32, ptr %137, i64 %and.i.i272
+  %139 = load i32, ptr %arrayidx.i.i273, align 4
+  store i32 %139, ptr %element153, align 4
   %slots_.i.i274 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q152, i64 0, i32 4
-  %143 = load ptr, ptr %slots_.i.i274, align 8
-  %144 = atomicrmw add ptr %143, i64 1 release, align 8
-  %cmp.i.i.i275 = icmp slt i64 %144, 0
+  %140 = load ptr, ptr %slots_.i.i274, align 8
+  %141 = atomicrmw add ptr %140, i64 1 release, align 8
+  %cmp.i.i.i275 = icmp slt i64 %141, 0
   br i1 %cmp.i.i.i275, label %if.then.i.i.i276, label %invoke.cont171
 
 if.then.i.i.i276:                                 ; preds = %if.end.i267
-  %m_sema.i.i.i277 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %143, i64 0, i32 1
+  %m_sema.i.i.i277 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %140, i64 0, i32 1
   br label %while.cond2.i.i.i.i278
 
 while.cond2.i.i.i.i278:                           ; preds = %while.cond2.i.i.i.i278, %if.then.i.i.i276
@@ -3190,46 +3184,46 @@ invoke.cont171:                                   ; preds = %while.cond2.i.i.i.i
   store volatile i32 %conv173, ptr %forceNoOptimizeDummy, align 4
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer161) #18
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer158) #18
-  %145 = load ptr, ptr %items.i265, align 8
-  %146 = load atomic i64, ptr %145 monotonic, align 8
+  %142 = load ptr, ptr %items.i265, align 8
+  %143 = load atomic i64, ptr %142 monotonic, align 8
   %rawData.i.i283 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q152, i64 0, i32 2
-  %147 = load ptr, ptr %rawData.i.i283, align 8
-  call void @free(ptr noundef %147) #18
-  %148 = load ptr, ptr %items.i265, align 8
-  %cmp.not.i.i.i284 = icmp eq ptr %148, null
+  %144 = load ptr, ptr %rawData.i.i283, align 8
+  call void @free(ptr noundef %144) #18
+  %145 = load ptr, ptr %items.i265, align 8
+  %cmp.not.i.i.i284 = icmp eq ptr %145, null
   br i1 %cmp.not.i.i.i284, label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i288, label %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i285
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i285: ; preds = %invoke.cont171
-  %m_sema.i.i.i.i.i286 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %148, i64 0, i32 1
+  %m_sema.i.i.i.i.i286 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %145, i64 0, i32 1
   %call.i.i.i.i.i.i287 = call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i.i.i286) #18
-  call void @_ZdlPv(ptr noundef nonnull %148) #20
+  call void @_ZdlPv(ptr noundef nonnull %145) #20
   br label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i288
 
 _ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i288: ; preds = %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i285, %invoke.cont171
   store ptr null, ptr %items.i265, align 8
   %slots_.i.i289 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q152, i64 0, i32 4
-  %149 = load ptr, ptr %slots_.i.i289, align 8
-  %cmp.not.i2.i.i290 = icmp eq ptr %149, null
+  %146 = load ptr, ptr %slots_.i.i289, align 8
+  %cmp.not.i2.i.i290 = icmp eq ptr %146, null
   br i1 %cmp.not.i2.i.i290, label %sw.epilog, label %sw.epilog.sink.split
 
 lpad155:                                          ; preds = %call.i.noexc261, %invoke.cont156, %sw.bb150
-  %150 = landingpad { ptr, i32 }
+  %147 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad163:                                          ; preds = %call.i.noexc263, %invoke.cont160
-  %151 = landingpad { ptr, i32 }
+  %148 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup175
 
 lpad165:                                          ; preds = %invoke.cont167, %invoke.cont166, %invoke.cont164
-  %152 = landingpad { ptr, i32 }
+  %149 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer161) #18
   br label %ehcleanup175
 
 ehcleanup175:                                     ; preds = %lpad165, %lpad163
-  %.pn32 = phi { ptr, i32 } [ %152, %lpad165 ], [ %151, %lpad163 ]
+  %.pn32 = phi { ptr, i32 } [ %149, %lpad165 ], [ %148, %lpad163 ]
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer158) #18
   br label %eh.resume
 
@@ -3242,8 +3236,8 @@ sw.bb177:                                         ; preds = %entry
           to label %invoke.cont185 unwind label %lpad184
 
 invoke.cont185:                                   ; preds = %sw.bb177
-  %153 = extractvalue { i64, i64 } %call186, 0
-  %154 = extractvalue { i64, i64 } %call186, 1
+  %150 = extractvalue { i64, i64 } %call186, 0
+  %151 = extractvalue { i64, i64 } %call186, 1
   %call.i296 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19
           to label %call.i.noexc295 unwind label %lpad184
 
@@ -3280,38 +3274,38 @@ invoke.cont195:                                   ; preds = %invoke.cont193
           to label %invoke.cont196 unwind label %lpad194
 
 invoke.cont196:                                   ; preds = %invoke.cont195
-  %call199 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %153, i64 %154)
+  %call199 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %150, i64 %151)
           to label %invoke.cont198 unwind label %lpad194
 
 invoke.cont198:                                   ; preds = %invoke.cont196
   %items.i299 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q181, i64 0, i32 5
-  %155 = load ptr, ptr %items.i299, align 8
-  %156 = load atomic i64, ptr %155 monotonic, align 8
-  %cmp.i.i300 = icmp sgt i64 %156, 0
+  %152 = load ptr, ptr %items.i299, align 8
+  %153 = load atomic i64, ptr %152 monotonic, align 8
+  %cmp.i.i300 = icmp sgt i64 %153, 0
   br i1 %cmp.i.i300, label %if.end.i301, label %invoke.cont200
 
 if.end.i301:                                      ; preds = %invoke.cont198
-  %157 = atomicrmw add ptr %155, i64 -1 acquire, align 8
+  %154 = atomicrmw add ptr %152, i64 -1 acquire, align 8
   %nextItem.i.i302 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q181, i64 0, i32 9
-  %158 = load i64, ptr %nextItem.i.i302, align 8
-  %inc.i.i303 = add i64 %158, 1
+  %155 = load i64, ptr %nextItem.i.i302, align 8
+  %inc.i.i303 = add i64 %155, 1
   store i64 %inc.i.i303, ptr %nextItem.i.i302, align 8
   %data.i.i304 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q181, i64 0, i32 3
-  %159 = load ptr, ptr %data.i.i304, align 8
+  %156 = load ptr, ptr %data.i.i304, align 8
   %mask.i.i305 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q181, i64 0, i32 1
-  %160 = load i64, ptr %mask.i.i305, align 8
-  %and.i.i306 = and i64 %160, %158
-  %arrayidx.i.i307 = getelementptr inbounds i32, ptr %159, i64 %and.i.i306
-  %161 = load i32, ptr %arrayidx.i.i307, align 4
-  store i32 %161, ptr %element182, align 4
+  %157 = load i64, ptr %mask.i.i305, align 8
+  %and.i.i306 = and i64 %157, %155
+  %arrayidx.i.i307 = getelementptr inbounds i32, ptr %156, i64 %and.i.i306
+  %158 = load i32, ptr %arrayidx.i.i307, align 4
+  store i32 %158, ptr %element182, align 4
   %slots_.i.i308 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q181, i64 0, i32 4
-  %162 = load ptr, ptr %slots_.i.i308, align 8
-  %163 = atomicrmw add ptr %162, i64 1 release, align 8
-  %cmp.i.i.i309 = icmp slt i64 %163, 0
+  %159 = load ptr, ptr %slots_.i.i308, align 8
+  %160 = atomicrmw add ptr %159, i64 1 release, align 8
+  %cmp.i.i.i309 = icmp slt i64 %160, 0
   br i1 %cmp.i.i.i309, label %if.then.i.i.i310, label %invoke.cont200
 
 if.then.i.i.i310:                                 ; preds = %if.end.i301
-  %m_sema.i.i.i311 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %162, i64 0, i32 1
+  %m_sema.i.i.i311 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %159, i64 0, i32 1
   br label %while.cond2.i.i.i.i312
 
 while.cond2.i.i.i.i312:                           ; preds = %while.cond2.i.i.i.i312, %if.then.i.i.i310
@@ -3322,53 +3316,53 @@ while.cond2.i.i.i.i312:                           ; preds = %while.cond2.i.i.i.i
 invoke.cont200:                                   ; preds = %while.cond2.i.i.i.i312, %if.end.i301, %invoke.cont198
   %conv202 = zext i1 %cmp.i.i300 to i32
   store volatile i32 %conv202, ptr %forceNoOptimizeDummy, align 4
-  %164 = load i32, ptr %readOps179, align 4
-  %165 = load i32, ptr %writeOps180, align 4
-  %add203 = add nsw i32 %165, %164
+  %161 = load i32, ptr %readOps179, align 4
+  %162 = load i32, ptr %writeOps180, align 4
+  %add203 = add nsw i32 %162, %161
   %conv204 = sitofp i32 %add203 to double
   store double %conv204, ptr %out_Ops, align 8
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer190) #18
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer187) #18
-  %166 = load ptr, ptr %items.i299, align 8
-  %167 = load atomic i64, ptr %166 monotonic, align 8
+  %163 = load ptr, ptr %items.i299, align 8
+  %164 = load atomic i64, ptr %163 monotonic, align 8
   %rawData.i.i317 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q181, i64 0, i32 2
-  %168 = load ptr, ptr %rawData.i.i317, align 8
-  call void @free(ptr noundef %168) #18
-  %169 = load ptr, ptr %items.i299, align 8
-  %cmp.not.i.i.i318 = icmp eq ptr %169, null
+  %165 = load ptr, ptr %rawData.i.i317, align 8
+  call void @free(ptr noundef %165) #18
+  %166 = load ptr, ptr %items.i299, align 8
+  %cmp.not.i.i.i318 = icmp eq ptr %166, null
   br i1 %cmp.not.i.i.i318, label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i322, label %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i319
 
 _ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i319: ; preds = %invoke.cont200
-  %m_sema.i.i.i.i.i320 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %169, i64 0, i32 1
+  %m_sema.i.i.i.i.i320 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %166, i64 0, i32 1
   %call.i.i.i.i.i.i321 = call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i.i.i320) #18
-  call void @_ZdlPv(ptr noundef nonnull %169) #20
+  call void @_ZdlPv(ptr noundef nonnull %166) #20
   br label %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i322
 
 _ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i322: ; preds = %_ZNKSt14default_deleteIN10moodycamel9spsc_sema20LightweightSemaphoreEEclEPS2_.exit.i.i.i319, %invoke.cont200
   store ptr null, ptr %items.i299, align 8
   %slots_.i.i323 = getelementptr inbounds %"class.moodycamel::BlockingReaderWriterCircularBuffer", ptr %q181, i64 0, i32 4
-  %170 = load ptr, ptr %slots_.i.i323, align 8
-  %cmp.not.i2.i.i324 = icmp eq ptr %170, null
+  %167 = load ptr, ptr %slots_.i.i323, align 8
+  %cmp.not.i2.i.i324 = icmp eq ptr %167, null
   br i1 %cmp.not.i2.i.i324, label %sw.epilog, label %sw.epilog.sink.split
 
 lpad184:                                          ; preds = %call.i.noexc295, %invoke.cont185, %sw.bb177
-  %171 = landingpad { ptr, i32 }
+  %168 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad192:                                          ; preds = %call.i.noexc297, %invoke.cont189
-  %172 = landingpad { ptr, i32 }
+  %169 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup206
 
 lpad194:                                          ; preds = %invoke.cont196, %invoke.cont195, %invoke.cont193
-  %173 = landingpad { ptr, i32 }
+  %170 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer190) #18
   br label %ehcleanup206
 
 ehcleanup206:                                     ; preds = %lpad194, %lpad192
-  %.pn = phi { ptr, i32 } [ %173, %lpad194 ], [ %172, %lpad192 ]
+  %.pn = phi { ptr, i32 } [ %170, %lpad194 ], [ %169, %lpad192 ]
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer187) #18
   br label %eh.resume
 
@@ -3377,7 +3371,7 @@ sw.default:                                       ; preds = %entry
   br label %return
 
 sw.epilog.sink.split:                             ; preds = %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i322, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i288, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i254, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i217, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i180, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i109, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i93, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i
-  %.sink381 = phi ptr [ %23, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i ], [ %47, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i93 ], [ %56, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i109 ], [ %87, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i180 ], [ %107, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i217 ], [ %129, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i254 ], [ %149, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i288 ], [ %170, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i322 ]
+  %.sink381 = phi ptr [ %23, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i ], [ %47, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i93 ], [ %55, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i109 ], [ %86, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i180 ], [ %105, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i217 ], [ %127, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i254 ], [ %146, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i288 ], [ %167, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i322 ]
   %result.0.ph = phi double [ %call4, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i ], [ %call35, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i93 ], [ %call54, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i109 ], [ %call81, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i180 ], [ %call109, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i217 ], [ %call141, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i254 ], [ %call170, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i288 ], [ %call199, %_ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_deleteIS2_EED2Ev.exit.i.i322 ]
   %m_sema.i.i.i4.i.i326 = getelementptr inbounds %"class.moodycamel::spsc_sema::LightweightSemaphore", ptr %.sink381, i64 0, i32 1
   %call.i.i.i.i5.i.i327 = call i32 @sem_destroy(ptr noundef nonnull %m_sema.i.i.i4.i.i326) #18
@@ -3396,7 +3390,7 @@ return:                                           ; preds = %sw.epilog, %sw.defa
 
 eh.resume:                                        ; preds = %lpad184, %ehcleanup206, %lpad155, %ehcleanup175, %lpad126, %ehcleanup148, %lpad94, %ehcleanup116, %lpad62.loopexit, %lpad62.loopexit.split-lp.loopexit.split-lp, %lpad62.loopexit.split-lp.loopexit, %lpad41, %ehcleanup, %lpad15.loopexit, %lpad15.loopexit.split-lp, %lpad.loopexit, %lpad.loopexit.split-lp
   %q181.sink = phi ptr [ %q, %lpad.loopexit.split-lp ], [ %q, %lpad.loopexit ], [ %q9, %lpad15.loopexit.split-lp ], [ %q9, %lpad15.loopexit ], [ %q38, %ehcleanup ], [ %q38, %lpad41 ], [ %q58, %lpad62.loopexit.split-lp.loopexit ], [ %q58, %lpad62.loopexit.split-lp.loopexit.split-lp ], [ %q58, %lpad62.loopexit ], [ %q91, %ehcleanup116 ], [ %q91, %lpad94 ], [ %q123, %ehcleanup148 ], [ %q123, %lpad126 ], [ %q152, %ehcleanup175 ], [ %q152, %lpad155 ], [ %q181, %ehcleanup206 ], [ %q181, %lpad184 ]
-  %.pn.pn.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp336, %lpad.loopexit.split-lp ], [ %lpad.loopexit335, %lpad.loopexit ], [ %lpad.loopexit.split-lp338, %lpad15.loopexit.split-lp ], [ %lpad.loopexit337, %lpad15.loopexit ], [ %.pn41, %ehcleanup ], [ %57, %lpad41 ], [ %lpad.loopexit343, %lpad62.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp344, %lpad62.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit340, %lpad62.loopexit ], [ %.pn38, %ehcleanup116 ], [ %108, %lpad94 ], [ %.pn35, %ehcleanup148 ], [ %130, %lpad126 ], [ %.pn32, %ehcleanup175 ], [ %150, %lpad155 ], [ %.pn, %ehcleanup206 ], [ %171, %lpad184 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp336, %lpad.loopexit.split-lp ], [ %lpad.loopexit335, %lpad.loopexit ], [ %lpad.loopexit.split-lp338, %lpad15.loopexit.split-lp ], [ %lpad.loopexit337, %lpad15.loopexit ], [ %.pn41, %ehcleanup ], [ %56, %lpad41 ], [ %lpad.loopexit343, %lpad62.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp344, %lpad62.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit340, %lpad62.loopexit ], [ %.pn38, %ehcleanup116 ], [ %106, %lpad94 ], [ %.pn35, %ehcleanup148 ], [ %128, %lpad126 ], [ %.pn32, %ehcleanup175 ], [ %147, %lpad155 ], [ %.pn, %ehcleanup206 ], [ %168, %lpad184 ]
   call void @_ZN41BlockingReaderWriterCircularBufferAdapterIiED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %q181.sink) #18
   resume { ptr, i32 } %.pn.pn.pn
 }
@@ -3893,8 +3887,7 @@ invoke.cont45:                                    ; preds = %call.i141.noexc
           to label %call.i143.noexc unwind label %lpad47
 
 call.i143.noexc:                                  ; preds = %invoke.cont45
-  %37 = ptrtoint ptr %q38 to i64
-  store i64 %37, ptr %call.i143144, align 8
+  store ptr %q38, ptr %call.i143144, align 8
   invoke void @_ZN12SimpleThread11startThreadEPvPFvS0_E(ptr noundef nonnull align 8 dereferenceable(8) %producer, ptr noundef nonnull %call.i143144, ptr noundef nonnull @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE0_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv)
           to label %invoke.cont48 unwind label %lpad47
 
@@ -3911,58 +3904,58 @@ invoke.cont51:                                    ; preds = %invoke.cont50
           to label %invoke.cont53 unwind label %lpad49
 
 invoke.cont53:                                    ; preds = %invoke.cont51
-  %38 = load i32, ptr %total39, align 4
-  store volatile i32 %38, ptr %forceNoOptimizeDummy, align 4
+  %37 = load i32, ptr %total39, align 4
+  store volatile i32 %37, ptr %forceNoOptimizeDummy, align 4
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer) #18
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer) #18
-  %39 = load ptr, ptr %first_.i116, align 8
+  %38 = load ptr, ptr %first_.i116, align 8
   br label %do.body.i146
 
 do.body.i146:                                     ; preds = %do.body.i146, %invoke.cont53
-  %n.0.i147 = phi ptr [ %39, %invoke.cont53 ], [ %40, %do.body.i146 ]
-  %40 = load ptr, ptr %n.0.i147, align 8
+  %n.0.i147 = phi ptr [ %38, %invoke.cont53 ], [ %39, %do.body.i146 ]
+  %39 = load ptr, ptr %n.0.i147, align 8
   call void @_ZdlPv(ptr noundef %n.0.i147) #20
-  %tobool.not.i148 = icmp eq ptr %40, null
+  %tobool.not.i148 = icmp eq ptr %39, null
   br i1 %tobool.not.i148, label %sw.epilog, label %do.body.i146, !llvm.loop !29
 
 lpad41:                                           ; preds = %call.i141.noexc, %invoke.cont42, %_ZN10spsc_queueIiEC2Em.exit140
-  %41 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup55
 
 lpad47:                                           ; preds = %call.i143.noexc, %invoke.cont45
-  %42 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad49:                                           ; preds = %invoke.cont51, %invoke.cont50, %invoke.cont48
-  %43 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer) #18
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad49, %lpad47
-  %.pn44 = phi { ptr, i32 } [ %43, %lpad49 ], [ %42, %lpad47 ]
+  %.pn44 = phi { ptr, i32 } [ %42, %lpad49 ], [ %41, %lpad47 ]
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer) #18
   br label %ehcleanup55
 
 ehcleanup55:                                      ; preds = %ehcleanup, %lpad41
-  %.pn44.pn = phi { ptr, i32 } [ %.pn44, %ehcleanup ], [ %41, %lpad41 ]
-  %44 = load ptr, ptr %first_.i116, align 8
+  %.pn44.pn = phi { ptr, i32 } [ %.pn44, %ehcleanup ], [ %40, %lpad41 ]
+  %43 = load ptr, ptr %first_.i116, align 8
   br label %do.body.i151
 
 do.body.i151:                                     ; preds = %do.body.i151, %ehcleanup55
-  %n.0.i152 = phi ptr [ %44, %ehcleanup55 ], [ %45, %do.body.i151 ]
-  %45 = load ptr, ptr %n.0.i152, align 8
+  %n.0.i152 = phi ptr [ %43, %ehcleanup55 ], [ %44, %do.body.i151 ]
+  %44 = load ptr, ptr %n.0.i152, align 8
   call void @_ZdlPv(ptr noundef %n.0.i152) #20
-  %tobool.not.i153 = icmp eq ptr %45, null
+  %tobool.not.i153 = icmp eq ptr %44, null
   br i1 %tobool.not.i153, label %eh.resume, label %do.body.i151, !llvm.loop !29
 
 sw.bb56:                                          ; preds = %entry
   store double 2.000000e+05, ptr %out_Ops, align 8
   %rem.i.i.i.i444 = urem i32 %randomSeed, 2147483647
-  %46 = tail call i32 @llvm.umax.i32(i32 %rem.i.i.i.i444, i32 1)
-  %storemerge.i.i = zext nneg i32 %46 to i64
+  %45 = tail call i32 @llvm.umax.i32(i32 %rem.i.i.i.i444, i32 1)
+  %storemerge.i.i = zext nneg i32 %45 to i64
   store i64 %storemerge.i.i, ptr %rng, align 8
   store i32 0, ptr %rand, align 4
   %_M_b.i.i = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand, i64 0, i32 1
@@ -3981,7 +3974,7 @@ for.body.i159:                                    ; preds = %_ZN10spsc_queueIiE7
   br i1 %cmp.not.i.i.i161, label %if.end.i.i.i176, label %if.then.i.i.i162
 
 if.then.i.i.i162:                                 ; preds = %for.body.i159
-  %47 = load ptr, ptr %q58.sroa.19.0, align 8
+  %46 = load ptr, ptr %q58.sroa.19.0, align 8
   br label %_ZN10spsc_queueIiE7enqueueEi.exit.i163
 
 if.end.i.i.i176:                                  ; preds = %for.body.i159
@@ -3991,7 +3984,7 @@ if.end.i.i.i176:                                  ; preds = %for.body.i159
   br i1 %cmp8.not.i.i.i177, label %if.end15.i.i.i179, label %if.then9.i.i.i178
 
 if.then9.i.i.i178:                                ; preds = %if.end.i.i.i176
-  %48 = load ptr, ptr %q58.sroa.19.0, align 8
+  %47 = load ptr, ptr %q58.sroa.19.0, align 8
   br label %_ZN10spsc_queueIiE7enqueueEi.exit.i163
 
 if.end15.i.i.i179:                                ; preds = %if.end.i.i.i176
@@ -3999,7 +3992,7 @@ if.end15.i.i.i179:                                ; preds = %if.end.i.i.i176
   br label %_ZN10spsc_queueIiE7enqueueEi.exit.i163
 
 _ZN10spsc_queueIiE7enqueueEi.exit.i163:           ; preds = %if.end15.i.i.i179, %if.then9.i.i.i178, %if.then.i.i.i162
-  %q58.sroa.19.1 = phi ptr [ %q58.sroa.19.0, %if.end15.i.i.i179 ], [ %48, %if.then9.i.i.i178 ], [ %47, %if.then.i.i.i162 ]
+  %q58.sroa.19.1 = phi ptr [ %q58.sroa.19.0, %if.end15.i.i.i179 ], [ %47, %if.then9.i.i.i178 ], [ %46, %if.then.i.i.i162 ]
   %q58.sroa.30.1 = phi ptr [ %q58.sroa.19.0, %if.end15.i.i.i179 ], [ %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.403, %if.then9.i.i.i178 ], [ %q58.sroa.30.0, %if.then.i.i.i162 ]
   %retval.0.i.i.i164 = phi ptr [ %call17.i.i.i180, %if.end15.i.i.i179 ], [ %q58.sroa.19.0, %if.then9.i.i.i178 ], [ %q58.sroa.19.0, %if.then.i.i.i162 ]
   store ptr null, ptr %retval.0.i.i.i164, align 8
@@ -4014,16 +4007,16 @@ _ZN10spsc_queueIiE7enqueueEi.exit.i163:           ; preds = %if.end15.i.i.i179, 
 for.body5.i169:                                   ; preds = %_ZN10spsc_queueIiE7enqueueEi.exit.i163, %_ZN10spsc_queueIiE11try_dequeueERi.exit.i173
   %i2.09.i170 = phi i64 [ %inc8.i174, %_ZN10spsc_queueIiE11try_dequeueERi.exit.i173 ], [ 0, %_ZN10spsc_queueIiE7enqueueEi.exit.i163 ]
   %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0. = load ptr, ptr %q58.sroa.0, align 8
-  %49 = load volatile ptr, ptr %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0., align 8
+  %48 = load volatile ptr, ptr %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0., align 8
   fence syncscope("singlethread") seq_cst
-  %tobool.not.i.not.i171 = icmp eq ptr %49, null
+  %tobool.not.i.not.i171 = icmp eq ptr %48, null
   br i1 %tobool.not.i.not.i171, label %_ZN10spsc_queueIiE11try_dequeueERi.exit.i173, label %if.then.i.i172
 
 if.then.i.i172:                                   ; preds = %for.body5.i169
   %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.402 = load ptr, ptr %q58.sroa.0, align 8
-  %50 = load ptr, ptr %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.402, align 8
+  %49 = load ptr, ptr %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.402, align 8
   fence syncscope("singlethread") seq_cst
-  store volatile ptr %50, ptr %q58.sroa.0, align 8
+  store volatile ptr %49, ptr %q58.sroa.0, align 8
   br label %_ZN10spsc_queueIiE11try_dequeueERi.exit.i173
 
 _ZN10spsc_queueIiE11try_dequeueERi.exit.i173:     ; preds = %if.then.i.i172, %for.body5.i169
@@ -4036,8 +4029,8 @@ _ZN10spsc_queueIiEC2Em.exit181:                   ; preds = %_ZN10spsc_queueIiE1
           to label %invoke.cont63 unwind label %lpad62.loopexit.split-lp
 
 invoke.cont63:                                    ; preds = %_ZN10spsc_queueIiEC2Em.exit181
-  %51 = extractvalue { i64, i64 } %call64, 0
-  %52 = extractvalue { i64, i64 } %call64, 1
+  %50 = extractvalue { i64, i64 } %call64, 0
+  %51 = extractvalue { i64, i64 } %call64, 1
   br label %for.body68
 
 for.body68:                                       ; preds = %invoke.cont63, %for.inc76
@@ -4070,11 +4063,11 @@ if.end15.i.i194:                                  ; preds = %if.end.i.i191
 invoke.cont72.sink.split:                         ; preds = %if.end.i.i191, %if.then
   %q58.sroa.30.2475.sink = phi ptr [ %q58.sroa.19.2474, %if.then ], [ %q58.sroa.30.2475, %if.end.i.i191 ]
   %q58.sroa.30.3.ph = phi ptr [ %q58.sroa.30.2475, %if.then ], [ %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.404, %if.end.i.i191 ]
-  %53 = load ptr, ptr %q58.sroa.30.2475.sink, align 8
+  %52 = load ptr, ptr %q58.sroa.30.2475.sink, align 8
   br label %invoke.cont72
 
 invoke.cont72:                                    ; preds = %invoke.cont72.sink.split, %if.end15.i.i194
-  %q58.sroa.19.3 = phi ptr [ %q58.sroa.30.2475, %if.end15.i.i194 ], [ %53, %invoke.cont72.sink.split ]
+  %q58.sroa.19.3 = phi ptr [ %q58.sroa.30.2475, %if.end15.i.i194 ], [ %52, %invoke.cont72.sink.split ]
   %q58.sroa.30.3 = phi ptr [ %q58.sroa.30.2475, %if.end15.i.i194 ], [ %q58.sroa.30.3.ph, %invoke.cont72.sink.split ]
   %retval.0.i.i188 = phi ptr [ %call17.i.i196, %if.end15.i.i194 ], [ %q58.sroa.30.2475.sink, %invoke.cont72.sink.split ]
   store ptr null, ptr %retval.0.i.i188, align 8
@@ -4103,24 +4096,24 @@ lpad62:                                           ; preds = %lpad62.loopexit.spl
   br label %do.body.i199
 
 do.body.i199:                                     ; preds = %do.body.i199, %lpad62
-  %n.0.i200 = phi ptr [ %q58.sroa.19.4, %lpad62 ], [ %54, %do.body.i199 ]
-  %54 = load ptr, ptr %n.0.i200, align 8
+  %n.0.i200 = phi ptr [ %q58.sroa.19.4, %lpad62 ], [ %53, %do.body.i199 ]
+  %53 = load ptr, ptr %n.0.i200, align 8
   call void @_ZdlPv(ptr noundef %n.0.i200) #20
-  %tobool.not.i201 = icmp eq ptr %54, null
+  %tobool.not.i201 = icmp eq ptr %53, null
   br i1 %tobool.not.i201, label %eh.resume, label %do.body.i199, !llvm.loop !29
 
 if.else:                                          ; preds = %invoke.cont69
   %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.405 = load ptr, ptr %q58.sroa.0, align 8
-  %55 = load volatile ptr, ptr %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.405, align 8
+  %54 = load volatile ptr, ptr %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.405, align 8
   fence syncscope("singlethread") seq_cst
-  %tobool.not.i203.not = icmp eq ptr %55, null
+  %tobool.not.i203.not = icmp eq ptr %54, null
   br i1 %tobool.not.i203.not, label %for.inc76, label %if.then.i204
 
 if.then.i204:                                     ; preds = %if.else
   %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.406 = load ptr, ptr %q58.sroa.0, align 8
-  %56 = load ptr, ptr %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.406, align 8
+  %55 = load ptr, ptr %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.406, align 8
   fence syncscope("singlethread") seq_cst
-  store volatile ptr %56, ptr %q58.sroa.0, align 8
+  store volatile ptr %55, ptr %q58.sroa.0, align 8
   br label %for.inc76
 
 for.inc76:                                        ; preds = %if.then.i204, %if.else, %invoke.cont72
@@ -4133,21 +4126,21 @@ for.inc76:                                        ; preds = %if.then.i204, %if.e
   br i1 %cmp67.not, label %for.end78, label %for.body68, !llvm.loop !32
 
 for.end78:                                        ; preds = %for.inc76
-  %call81 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %51, i64 %52)
+  %call81 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %50, i64 %51)
           to label %invoke.cont80 unwind label %lpad62.loopexit.split-lp
 
 invoke.cont80:                                    ; preds = %for.end78
   %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.408 = load ptr, ptr %q58.sroa.0, align 8
-  %57 = load volatile ptr, ptr %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.408, align 8
+  %56 = load volatile ptr, ptr %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.408, align 8
   fence syncscope("singlethread") seq_cst
-  %tobool.not.i207 = icmp ne ptr %57, null
+  %tobool.not.i207 = icmp ne ptr %56, null
   br i1 %tobool.not.i207, label %if.then.i208, label %_ZN10spsc_queueIiE11try_dequeueERi.exit210
 
 if.then.i208:                                     ; preds = %invoke.cont80
   %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.409 = load ptr, ptr %q58.sroa.0, align 8
-  %58 = load ptr, ptr %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.409, align 8
+  %57 = load ptr, ptr %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.409, align 8
   fence syncscope("singlethread") seq_cst
-  store volatile ptr %58, ptr %q58.sroa.0, align 8
+  store volatile ptr %57, ptr %q58.sroa.0, align 8
   br label %_ZN10spsc_queueIiE11try_dequeueERi.exit210
 
 _ZN10spsc_queueIiE11try_dequeueERi.exit210:       ; preds = %invoke.cont80, %if.then.i208
@@ -4156,18 +4149,18 @@ _ZN10spsc_queueIiE11try_dequeueERi.exit210:       ; preds = %invoke.cont80, %if.
   br label %do.body.i212
 
 do.body.i212:                                     ; preds = %do.body.i212, %_ZN10spsc_queueIiE11try_dequeueERi.exit210
-  %n.0.i213 = phi ptr [ %q58.sroa.19.5, %_ZN10spsc_queueIiE11try_dequeueERi.exit210 ], [ %59, %do.body.i212 ]
-  %59 = load ptr, ptr %n.0.i213, align 8
+  %n.0.i213 = phi ptr [ %q58.sroa.19.5, %_ZN10spsc_queueIiE11try_dequeueERi.exit210 ], [ %58, %do.body.i212 ]
+  %58 = load ptr, ptr %n.0.i213, align 8
   call void @_ZdlPv(ptr noundef %n.0.i213) #20
-  %tobool.not.i214 = icmp eq ptr %59, null
+  %tobool.not.i214 = icmp eq ptr %58, null
   br i1 %tobool.not.i214, label %sw.epilog, label %do.body.i212, !llvm.loop !29
 
 sw.bb86:                                          ; preds = %entry
   store double 1.200000e+06, ptr %out_Ops, align 8
   store i32 0, ptr %readOps, align 4
   %rem.i.i.i.i216445 = urem i32 %randomSeed, 2147483647
-  %60 = tail call i32 @llvm.umax.i32(i32 %rem.i.i.i.i216445, i32 1)
-  %storemerge.i.i217 = zext nneg i32 %60 to i64
+  %59 = tail call i32 @llvm.umax.i32(i32 %rem.i.i.i.i216445, i32 1)
+  %storemerge.i.i217 = zext nneg i32 %59 to i64
   store i64 %storemerge.i.i217, ptr %rng88, align 8
   store i32 0, ptr %rand90, align 4
   %_M_b.i.i218 = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand90, i64 0, i32 1
@@ -4185,27 +4178,27 @@ sw.bb86:                                          ; preds = %entry
 
 for.body.i223:                                    ; preds = %_ZN10spsc_queueIiE7enqueueEi.exit.i227, %sw.bb86
   %i.07.i224 = phi i64 [ %inc.i230, %_ZN10spsc_queueIiE7enqueueEi.exit.i227 ], [ 0, %sw.bb86 ]
-  %61 = load ptr, ptr %first_.i221, align 8
-  %62 = load ptr, ptr %tail_copy_.i220, align 8
-  %cmp.not.i.i.i225 = icmp eq ptr %61, %62
+  %60 = load ptr, ptr %first_.i221, align 8
+  %61 = load ptr, ptr %tail_copy_.i220, align 8
+  %cmp.not.i.i.i225 = icmp eq ptr %60, %61
   br i1 %cmp.not.i.i.i225, label %if.end.i.i.i240, label %if.then.i.i.i226
 
 if.then.i.i.i226:                                 ; preds = %for.body.i223
-  %63 = load ptr, ptr %61, align 8
-  store ptr %63, ptr %first_.i221, align 8
+  %62 = load ptr, ptr %60, align 8
+  store ptr %62, ptr %first_.i221, align 8
   br label %_ZN10spsc_queueIiE7enqueueEi.exit.i227
 
 if.end.i.i.i240:                                  ; preds = %for.body.i223
-  %64 = load volatile ptr, ptr %q91, align 8
+  %63 = load volatile ptr, ptr %q91, align 8
   fence syncscope("singlethread") seq_cst
-  store ptr %64, ptr %tail_copy_.i220, align 8
-  %65 = load ptr, ptr %first_.i221, align 8
-  %cmp8.not.i.i.i241 = icmp eq ptr %65, %64
+  store ptr %63, ptr %tail_copy_.i220, align 8
+  %64 = load ptr, ptr %first_.i221, align 8
+  %cmp8.not.i.i.i241 = icmp eq ptr %64, %63
   br i1 %cmp8.not.i.i.i241, label %if.end15.i.i.i243, label %if.then9.i.i.i242
 
 if.then9.i.i.i242:                                ; preds = %if.end.i.i.i240
-  %66 = load ptr, ptr %65, align 8
-  store ptr %66, ptr %first_.i221, align 8
+  %65 = load ptr, ptr %64, align 8
+  store ptr %65, ptr %first_.i221, align 8
   br label %_ZN10spsc_queueIiE7enqueueEi.exit.i227
 
 if.end15.i.i.i243:                                ; preds = %if.end.i.i.i240
@@ -4213,13 +4206,13 @@ if.end15.i.i.i243:                                ; preds = %if.end.i.i.i240
   br label %_ZN10spsc_queueIiE7enqueueEi.exit.i227
 
 _ZN10spsc_queueIiE7enqueueEi.exit.i227:           ; preds = %if.end15.i.i.i243, %if.then9.i.i.i242, %if.then.i.i.i226
-  %retval.0.i.i.i228 = phi ptr [ %61, %if.then.i.i.i226 ], [ %65, %if.then9.i.i.i242 ], [ %call17.i.i.i244, %if.end15.i.i.i243 ]
+  %retval.0.i.i.i228 = phi ptr [ %60, %if.then.i.i.i226 ], [ %64, %if.then9.i.i.i242 ], [ %call17.i.i.i244, %if.end15.i.i.i243 ]
   store ptr null, ptr %retval.0.i.i.i228, align 8
   %value_.i.i229 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %retval.0.i.i.i228, i64 0, i32 1
   store i32 0, ptr %value_.i.i229, align 8
-  %67 = load ptr, ptr %head_.i222, align 8
+  %66 = load ptr, ptr %head_.i222, align 8
   fence syncscope("singlethread") seq_cst
-  store volatile ptr %retval.0.i.i.i228, ptr %67, align 8
+  store volatile ptr %retval.0.i.i.i228, ptr %66, align 8
   store ptr %retval.0.i.i.i228, ptr %head_.i222, align 8
   %inc.i230 = add nuw nsw i64 %i.07.i224, 1
   %cmp.not.i231 = icmp eq i64 %inc.i230, 1200000
@@ -4227,17 +4220,17 @@ _ZN10spsc_queueIiE7enqueueEi.exit.i227:           ; preds = %if.end15.i.i.i243, 
 
 for.body5.i233:                                   ; preds = %_ZN10spsc_queueIiE7enqueueEi.exit.i227, %_ZN10spsc_queueIiE11try_dequeueERi.exit.i237
   %i2.09.i234 = phi i64 [ %inc8.i238, %_ZN10spsc_queueIiE11try_dequeueERi.exit.i237 ], [ 0, %_ZN10spsc_queueIiE7enqueueEi.exit.i227 ]
-  %68 = load ptr, ptr %q91, align 8
-  %69 = load volatile ptr, ptr %68, align 8
+  %67 = load ptr, ptr %q91, align 8
+  %68 = load volatile ptr, ptr %67, align 8
   fence syncscope("singlethread") seq_cst
-  %tobool.not.i.not.i235 = icmp eq ptr %69, null
+  %tobool.not.i.not.i235 = icmp eq ptr %68, null
   br i1 %tobool.not.i.not.i235, label %_ZN10spsc_queueIiE11try_dequeueERi.exit.i237, label %if.then.i.i236
 
 if.then.i.i236:                                   ; preds = %for.body5.i233
-  %70 = load ptr, ptr %q91, align 8
-  %71 = load ptr, ptr %70, align 8
+  %69 = load ptr, ptr %q91, align 8
+  %70 = load ptr, ptr %69, align 8
   fence syncscope("singlethread") seq_cst
-  store volatile ptr %71, ptr %q91, align 8
+  store volatile ptr %70, ptr %q91, align 8
   br label %_ZN10spsc_queueIiE11try_dequeueERi.exit.i237
 
 _ZN10spsc_queueIiE11try_dequeueERi.exit.i237:     ; preds = %if.then.i.i236, %for.body5.i233
@@ -4251,8 +4244,8 @@ _ZN10spsc_queueIiEC2Em.exit245:                   ; preds = %_ZN10spsc_queueIiE1
           to label %invoke.cont95 unwind label %lpad94
 
 invoke.cont95:                                    ; preds = %_ZN10spsc_queueIiEC2Em.exit245
-  %72 = extractvalue { i64, i64 } %call96, 0
-  %73 = extractvalue { i64, i64 } %call96, 1
+  %71 = extractvalue { i64, i64 } %call96, 0
+  %72 = extractvalue { i64, i64 } %call96, 1
   %call.i246247 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
           to label %call.i246.noexc unwind label %lpad94
 
@@ -4274,8 +4267,7 @@ invoke.cont99:                                    ; preds = %call.i246.noexc
           to label %call.i248.noexc unwind label %lpad102
 
 call.i248.noexc:                                  ; preds = %invoke.cont99
-  %74 = ptrtoint ptr %q91 to i64
-  store i64 %74, ptr %call.i248249, align 8
+  store ptr %q91, ptr %call.i248249, align 8
   invoke void @_ZN12SimpleThread11startThreadEPvPFvS0_E(ptr noundef nonnull align 8 dereferenceable(8) %producer100, ptr noundef nonnull %call.i248249, ptr noundef nonnull @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE2_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv)
           to label %invoke.cont103 unwind label %lpad102
 
@@ -4288,85 +4280,85 @@ invoke.cont105:                                   ; preds = %invoke.cont103
           to label %invoke.cont106 unwind label %lpad104
 
 invoke.cont106:                                   ; preds = %invoke.cont105
-  %call109 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %72, i64 %73)
+  %call109 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %71, i64 %72)
           to label %invoke.cont108 unwind label %lpad104
 
 invoke.cont108:                                   ; preds = %invoke.cont106
-  %75 = load ptr, ptr %q91, align 8
-  %76 = load volatile ptr, ptr %75, align 8
+  %73 = load ptr, ptr %q91, align 8
+  %74 = load volatile ptr, ptr %73, align 8
   fence syncscope("singlethread") seq_cst
-  %tobool.not.i250 = icmp ne ptr %76, null
+  %tobool.not.i250 = icmp ne ptr %74, null
   br i1 %tobool.not.i250, label %if.then.i251, label %_ZN10spsc_queueIiE11try_dequeueERi.exit253
 
 if.then.i251:                                     ; preds = %invoke.cont108
-  %77 = load ptr, ptr %q91, align 8
-  %78 = load ptr, ptr %77, align 8
-  %value_.i252 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %78, i64 0, i32 1
-  %79 = load i32, ptr %value_.i252, align 8
-  store i32 %79, ptr %element92, align 4
+  %75 = load ptr, ptr %q91, align 8
+  %76 = load ptr, ptr %75, align 8
+  %value_.i252 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %76, i64 0, i32 1
+  %77 = load i32, ptr %value_.i252, align 8
+  store i32 %77, ptr %element92, align 4
   fence syncscope("singlethread") seq_cst
-  store volatile ptr %78, ptr %q91, align 8
+  store volatile ptr %76, ptr %q91, align 8
   br label %_ZN10spsc_queueIiE11try_dequeueERi.exit253
 
 _ZN10spsc_queueIiE11try_dequeueERi.exit253:       ; preds = %invoke.cont108, %if.then.i251
   %conv112 = zext i1 %tobool.not.i250 to i32
   store volatile i32 %conv112, ptr %forceNoOptimizeDummy, align 4
-  %80 = load i32, ptr %readOps, align 4
-  %conv113 = sitofp i32 %80 to double
-  %81 = load double, ptr %out_Ops, align 8
-  %add114 = fadd double %81, %conv113
+  %78 = load i32, ptr %readOps, align 4
+  %conv113 = sitofp i32 %78 to double
+  %79 = load double, ptr %out_Ops, align 8
+  %add114 = fadd double %79, %conv113
   store double %add114, ptr %out_Ops, align 8
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer100) #18
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer97) #18
-  %82 = load ptr, ptr %first_.i221, align 8
+  %80 = load ptr, ptr %first_.i221, align 8
   br label %do.body.i255
 
 do.body.i255:                                     ; preds = %do.body.i255, %_ZN10spsc_queueIiE11try_dequeueERi.exit253
-  %n.0.i256 = phi ptr [ %82, %_ZN10spsc_queueIiE11try_dequeueERi.exit253 ], [ %83, %do.body.i255 ]
-  %83 = load ptr, ptr %n.0.i256, align 8
+  %n.0.i256 = phi ptr [ %80, %_ZN10spsc_queueIiE11try_dequeueERi.exit253 ], [ %81, %do.body.i255 ]
+  %81 = load ptr, ptr %n.0.i256, align 8
   call void @_ZdlPv(ptr noundef %n.0.i256) #20
-  %tobool.not.i257 = icmp eq ptr %83, null
+  %tobool.not.i257 = icmp eq ptr %81, null
   br i1 %tobool.not.i257, label %sw.epilog, label %do.body.i255, !llvm.loop !29
 
 lpad94:                                           ; preds = %call.i246.noexc, %invoke.cont95, %_ZN10spsc_queueIiEC2Em.exit245
-  %84 = landingpad { ptr, i32 }
+  %82 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup117
 
 lpad102:                                          ; preds = %call.i248.noexc, %invoke.cont99
-  %85 = landingpad { ptr, i32 }
+  %83 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup116
 
 lpad104:                                          ; preds = %invoke.cont106, %invoke.cont105, %invoke.cont103
-  %86 = landingpad { ptr, i32 }
+  %84 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer100) #18
   br label %ehcleanup116
 
 ehcleanup116:                                     ; preds = %lpad104, %lpad102
-  %.pn41 = phi { ptr, i32 } [ %86, %lpad104 ], [ %85, %lpad102 ]
+  %.pn41 = phi { ptr, i32 } [ %84, %lpad104 ], [ %83, %lpad102 ]
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer97) #18
   br label %ehcleanup117
 
 ehcleanup117:                                     ; preds = %ehcleanup116, %lpad94
-  %.pn41.pn = phi { ptr, i32 } [ %.pn41, %ehcleanup116 ], [ %84, %lpad94 ]
-  %87 = load ptr, ptr %first_.i221, align 8
+  %.pn41.pn = phi { ptr, i32 } [ %.pn41, %ehcleanup116 ], [ %82, %lpad94 ]
+  %85 = load ptr, ptr %first_.i221, align 8
   br label %do.body.i260
 
 do.body.i260:                                     ; preds = %do.body.i260, %ehcleanup117
-  %n.0.i261 = phi ptr [ %87, %ehcleanup117 ], [ %88, %do.body.i260 ]
-  %88 = load ptr, ptr %n.0.i261, align 8
+  %n.0.i261 = phi ptr [ %85, %ehcleanup117 ], [ %86, %do.body.i260 ]
+  %86 = load ptr, ptr %n.0.i261, align 8
   call void @_ZdlPv(ptr noundef %n.0.i261) #20
-  %tobool.not.i262 = icmp eq ptr %88, null
+  %tobool.not.i262 = icmp eq ptr %86, null
   br i1 %tobool.not.i262, label %eh.resume, label %do.body.i260, !llvm.loop !29
 
 sw.bb118:                                         ; preds = %entry
   store double 1.200000e+06, ptr %out_Ops, align 8
   store i32 0, ptr %writeOps, align 4
   %rem.i.i.i.i264446 = urem i32 %randomSeed, 2147483647
-  %89 = tail call i32 @llvm.umax.i32(i32 %rem.i.i.i.i264446, i32 1)
-  %storemerge.i.i265 = zext nneg i32 %89 to i64
+  %87 = tail call i32 @llvm.umax.i32(i32 %rem.i.i.i.i264446, i32 1)
+  %storemerge.i.i265 = zext nneg i32 %87 to i64
   store i64 %storemerge.i.i265, ptr %rng120, align 8
   store i32 0, ptr %rand122, align 4
   %_M_b.i.i266 = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand122, i64 0, i32 1
@@ -4384,27 +4376,27 @@ sw.bb118:                                         ; preds = %entry
 
 for.body.i271:                                    ; preds = %_ZN10spsc_queueIiE7enqueueEi.exit.i275, %sw.bb118
   %i.07.i272 = phi i64 [ %inc.i278, %_ZN10spsc_queueIiE7enqueueEi.exit.i275 ], [ 0, %sw.bb118 ]
-  %90 = load ptr, ptr %first_.i269, align 8
-  %91 = load ptr, ptr %tail_copy_.i268, align 8
-  %cmp.not.i.i.i273 = icmp eq ptr %90, %91
+  %88 = load ptr, ptr %first_.i269, align 8
+  %89 = load ptr, ptr %tail_copy_.i268, align 8
+  %cmp.not.i.i.i273 = icmp eq ptr %88, %89
   br i1 %cmp.not.i.i.i273, label %if.end.i.i.i288, label %if.then.i.i.i274
 
 if.then.i.i.i274:                                 ; preds = %for.body.i271
-  %92 = load ptr, ptr %90, align 8
-  store ptr %92, ptr %first_.i269, align 8
+  %90 = load ptr, ptr %88, align 8
+  store ptr %90, ptr %first_.i269, align 8
   br label %_ZN10spsc_queueIiE7enqueueEi.exit.i275
 
 if.end.i.i.i288:                                  ; preds = %for.body.i271
-  %93 = load volatile ptr, ptr %q123, align 8
+  %91 = load volatile ptr, ptr %q123, align 8
   fence syncscope("singlethread") seq_cst
-  store ptr %93, ptr %tail_copy_.i268, align 8
-  %94 = load ptr, ptr %first_.i269, align 8
-  %cmp8.not.i.i.i289 = icmp eq ptr %94, %93
+  store ptr %91, ptr %tail_copy_.i268, align 8
+  %92 = load ptr, ptr %first_.i269, align 8
+  %cmp8.not.i.i.i289 = icmp eq ptr %92, %91
   br i1 %cmp8.not.i.i.i289, label %if.end15.i.i.i291, label %if.then9.i.i.i290
 
 if.then9.i.i.i290:                                ; preds = %if.end.i.i.i288
-  %95 = load ptr, ptr %94, align 8
-  store ptr %95, ptr %first_.i269, align 8
+  %93 = load ptr, ptr %92, align 8
+  store ptr %93, ptr %first_.i269, align 8
   br label %_ZN10spsc_queueIiE7enqueueEi.exit.i275
 
 if.end15.i.i.i291:                                ; preds = %if.end.i.i.i288
@@ -4412,13 +4404,13 @@ if.end15.i.i.i291:                                ; preds = %if.end.i.i.i288
   br label %_ZN10spsc_queueIiE7enqueueEi.exit.i275
 
 _ZN10spsc_queueIiE7enqueueEi.exit.i275:           ; preds = %if.end15.i.i.i291, %if.then9.i.i.i290, %if.then.i.i.i274
-  %retval.0.i.i.i276 = phi ptr [ %90, %if.then.i.i.i274 ], [ %94, %if.then9.i.i.i290 ], [ %call17.i.i.i292, %if.end15.i.i.i291 ]
+  %retval.0.i.i.i276 = phi ptr [ %88, %if.then.i.i.i274 ], [ %92, %if.then9.i.i.i290 ], [ %call17.i.i.i292, %if.end15.i.i.i291 ]
   store ptr null, ptr %retval.0.i.i.i276, align 8
   %value_.i.i277 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %retval.0.i.i.i276, i64 0, i32 1
   store i32 0, ptr %value_.i.i277, align 8
-  %96 = load ptr, ptr %head_.i270, align 8
+  %94 = load ptr, ptr %head_.i270, align 8
   fence syncscope("singlethread") seq_cst
-  store volatile ptr %retval.0.i.i.i276, ptr %96, align 8
+  store volatile ptr %retval.0.i.i.i276, ptr %94, align 8
   store ptr %retval.0.i.i.i276, ptr %head_.i270, align 8
   %inc.i278 = add nuw nsw i64 %i.07.i272, 1
   %cmp.not.i279 = icmp eq i64 %inc.i278, 1200000
@@ -4426,17 +4418,17 @@ _ZN10spsc_queueIiE7enqueueEi.exit.i275:           ; preds = %if.end15.i.i.i291, 
 
 for.body5.i281:                                   ; preds = %_ZN10spsc_queueIiE7enqueueEi.exit.i275, %_ZN10spsc_queueIiE11try_dequeueERi.exit.i285
   %i2.09.i282 = phi i64 [ %inc8.i286, %_ZN10spsc_queueIiE11try_dequeueERi.exit.i285 ], [ 0, %_ZN10spsc_queueIiE7enqueueEi.exit.i275 ]
-  %97 = load ptr, ptr %q123, align 8
-  %98 = load volatile ptr, ptr %97, align 8
+  %95 = load ptr, ptr %q123, align 8
+  %96 = load volatile ptr, ptr %95, align 8
   fence syncscope("singlethread") seq_cst
-  %tobool.not.i.not.i283 = icmp eq ptr %98, null
+  %tobool.not.i.not.i283 = icmp eq ptr %96, null
   br i1 %tobool.not.i.not.i283, label %_ZN10spsc_queueIiE11try_dequeueERi.exit.i285, label %if.then.i.i284
 
 if.then.i.i284:                                   ; preds = %for.body5.i281
-  %99 = load ptr, ptr %q123, align 8
-  %100 = load ptr, ptr %99, align 8
+  %97 = load ptr, ptr %q123, align 8
+  %98 = load ptr, ptr %97, align 8
   fence syncscope("singlethread") seq_cst
-  store volatile ptr %100, ptr %q123, align 8
+  store volatile ptr %98, ptr %q123, align 8
   br label %_ZN10spsc_queueIiE11try_dequeueERi.exit.i285
 
 _ZN10spsc_queueIiE11try_dequeueERi.exit.i285:     ; preds = %if.then.i.i284, %for.body5.i281
@@ -4450,8 +4442,8 @@ _ZN10spsc_queueIiEC2Em.exit293:                   ; preds = %_ZN10spsc_queueIiE1
           to label %invoke.cont127 unwind label %lpad126
 
 invoke.cont127:                                   ; preds = %_ZN10spsc_queueIiEC2Em.exit293
-  %101 = extractvalue { i64, i64 } %call128, 0
-  %102 = extractvalue { i64, i64 } %call128, 1
+  %99 = extractvalue { i64, i64 } %call128, 0
+  %100 = extractvalue { i64, i64 } %call128, 1
   %call.i294295 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
           to label %call.i294.noexc unwind label %lpad126
 
@@ -4486,77 +4478,77 @@ invoke.cont137:                                   ; preds = %invoke.cont135
           to label %invoke.cont138 unwind label %lpad136
 
 invoke.cont138:                                   ; preds = %invoke.cont137
-  %call141 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %101, i64 %102)
+  %call141 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %99, i64 %100)
           to label %invoke.cont140 unwind label %lpad136
 
 invoke.cont140:                                   ; preds = %invoke.cont138
-  %103 = load ptr, ptr %q123, align 8
-  %104 = load volatile ptr, ptr %103, align 8
+  %101 = load ptr, ptr %q123, align 8
+  %102 = load volatile ptr, ptr %101, align 8
   fence syncscope("singlethread") seq_cst
-  %tobool.not.i298 = icmp ne ptr %104, null
+  %tobool.not.i298 = icmp ne ptr %102, null
   br i1 %tobool.not.i298, label %if.then.i299, label %_ZN10spsc_queueIiE11try_dequeueERi.exit301
 
 if.then.i299:                                     ; preds = %invoke.cont140
-  %105 = load ptr, ptr %q123, align 8
-  %106 = load ptr, ptr %105, align 8
-  %value_.i300 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %106, i64 0, i32 1
-  %107 = load i32, ptr %value_.i300, align 8
-  store i32 %107, ptr %element124, align 4
+  %103 = load ptr, ptr %q123, align 8
+  %104 = load ptr, ptr %103, align 8
+  %value_.i300 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %104, i64 0, i32 1
+  %105 = load i32, ptr %value_.i300, align 8
+  store i32 %105, ptr %element124, align 4
   fence syncscope("singlethread") seq_cst
-  store volatile ptr %106, ptr %q123, align 8
+  store volatile ptr %104, ptr %q123, align 8
   br label %_ZN10spsc_queueIiE11try_dequeueERi.exit301
 
 _ZN10spsc_queueIiE11try_dequeueERi.exit301:       ; preds = %invoke.cont140, %if.then.i299
   %conv144 = zext i1 %tobool.not.i298 to i32
   store volatile i32 %conv144, ptr %forceNoOptimizeDummy, align 4
-  %108 = load i32, ptr %writeOps, align 4
-  %conv145 = sitofp i32 %108 to double
-  %109 = load double, ptr %out_Ops, align 8
-  %add146 = fadd double %109, %conv145
+  %106 = load i32, ptr %writeOps, align 4
+  %conv145 = sitofp i32 %106 to double
+  %107 = load double, ptr %out_Ops, align 8
+  %add146 = fadd double %107, %conv145
   store double %add146, ptr %out_Ops, align 8
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer132) #18
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer129) #18
-  %110 = load ptr, ptr %first_.i269, align 8
+  %108 = load ptr, ptr %first_.i269, align 8
   br label %do.body.i303
 
 do.body.i303:                                     ; preds = %do.body.i303, %_ZN10spsc_queueIiE11try_dequeueERi.exit301
-  %n.0.i304 = phi ptr [ %110, %_ZN10spsc_queueIiE11try_dequeueERi.exit301 ], [ %111, %do.body.i303 ]
-  %111 = load ptr, ptr %n.0.i304, align 8
+  %n.0.i304 = phi ptr [ %108, %_ZN10spsc_queueIiE11try_dequeueERi.exit301 ], [ %109, %do.body.i303 ]
+  %109 = load ptr, ptr %n.0.i304, align 8
   call void @_ZdlPv(ptr noundef %n.0.i304) #20
-  %tobool.not.i305 = icmp eq ptr %111, null
+  %tobool.not.i305 = icmp eq ptr %109, null
   br i1 %tobool.not.i305, label %sw.epilog, label %do.body.i303, !llvm.loop !29
 
 lpad126:                                          ; preds = %call.i294.noexc, %invoke.cont127, %_ZN10spsc_queueIiEC2Em.exit293
-  %112 = landingpad { ptr, i32 }
+  %110 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup149
 
 lpad134:                                          ; preds = %call.i296.noexc, %invoke.cont131
-  %113 = landingpad { ptr, i32 }
+  %111 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup148
 
 lpad136:                                          ; preds = %invoke.cont138, %invoke.cont137, %invoke.cont135
-  %114 = landingpad { ptr, i32 }
+  %112 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer132) #18
   br label %ehcleanup148
 
 ehcleanup148:                                     ; preds = %lpad136, %lpad134
-  %.pn38 = phi { ptr, i32 } [ %114, %lpad136 ], [ %113, %lpad134 ]
+  %.pn38 = phi { ptr, i32 } [ %112, %lpad136 ], [ %111, %lpad134 ]
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer129) #18
   br label %ehcleanup149
 
 ehcleanup149:                                     ; preds = %ehcleanup148, %lpad126
-  %.pn38.pn = phi { ptr, i32 } [ %.pn38, %ehcleanup148 ], [ %112, %lpad126 ]
-  %115 = load ptr, ptr %first_.i269, align 8
+  %.pn38.pn = phi { ptr, i32 } [ %.pn38, %ehcleanup148 ], [ %110, %lpad126 ]
+  %113 = load ptr, ptr %first_.i269, align 8
   br label %do.body.i308
 
 do.body.i308:                                     ; preds = %do.body.i308, %ehcleanup149
-  %n.0.i309 = phi ptr [ %115, %ehcleanup149 ], [ %116, %do.body.i308 ]
-  %116 = load ptr, ptr %n.0.i309, align 8
+  %n.0.i309 = phi ptr [ %113, %ehcleanup149 ], [ %114, %do.body.i308 ]
+  %114 = load ptr, ptr %n.0.i309, align 8
   call void @_ZdlPv(ptr noundef %n.0.i309) #20
-  %tobool.not.i310 = icmp eq ptr %116, null
+  %tobool.not.i310 = icmp eq ptr %114, null
   br i1 %tobool.not.i310, label %eh.resume, label %do.body.i308, !llvm.loop !29
 
 sw.bb150:                                         ; preds = %entry
@@ -4574,27 +4566,27 @@ sw.bb150:                                         ; preds = %entry
 
 for.body.i316:                                    ; preds = %_ZN10spsc_queueIiE7enqueueEi.exit.i320, %sw.bb150
   %i.07.i317 = phi i64 [ %inc.i323, %_ZN10spsc_queueIiE7enqueueEi.exit.i320 ], [ 0, %sw.bb150 ]
-  %117 = load ptr, ptr %first_.i314, align 8
-  %118 = load ptr, ptr %tail_copy_.i313, align 8
-  %cmp.not.i.i.i318 = icmp eq ptr %117, %118
+  %115 = load ptr, ptr %first_.i314, align 8
+  %116 = load ptr, ptr %tail_copy_.i313, align 8
+  %cmp.not.i.i.i318 = icmp eq ptr %115, %116
   br i1 %cmp.not.i.i.i318, label %if.end.i.i.i333, label %if.then.i.i.i319
 
 if.then.i.i.i319:                                 ; preds = %for.body.i316
-  %119 = load ptr, ptr %117, align 8
-  store ptr %119, ptr %first_.i314, align 8
+  %117 = load ptr, ptr %115, align 8
+  store ptr %117, ptr %first_.i314, align 8
   br label %_ZN10spsc_queueIiE7enqueueEi.exit.i320
 
 if.end.i.i.i333:                                  ; preds = %for.body.i316
-  %120 = load volatile ptr, ptr %q152, align 8
+  %118 = load volatile ptr, ptr %q152, align 8
   fence syncscope("singlethread") seq_cst
-  store ptr %120, ptr %tail_copy_.i313, align 8
-  %121 = load ptr, ptr %first_.i314, align 8
-  %cmp8.not.i.i.i334 = icmp eq ptr %121, %120
+  store ptr %118, ptr %tail_copy_.i313, align 8
+  %119 = load ptr, ptr %first_.i314, align 8
+  %cmp8.not.i.i.i334 = icmp eq ptr %119, %118
   br i1 %cmp8.not.i.i.i334, label %if.end15.i.i.i336, label %if.then9.i.i.i335
 
 if.then9.i.i.i335:                                ; preds = %if.end.i.i.i333
-  %122 = load ptr, ptr %121, align 8
-  store ptr %122, ptr %first_.i314, align 8
+  %120 = load ptr, ptr %119, align 8
+  store ptr %120, ptr %first_.i314, align 8
   br label %_ZN10spsc_queueIiE7enqueueEi.exit.i320
 
 if.end15.i.i.i336:                                ; preds = %if.end.i.i.i333
@@ -4602,13 +4594,13 @@ if.end15.i.i.i336:                                ; preds = %if.end.i.i.i333
   br label %_ZN10spsc_queueIiE7enqueueEi.exit.i320
 
 _ZN10spsc_queueIiE7enqueueEi.exit.i320:           ; preds = %if.end15.i.i.i336, %if.then9.i.i.i335, %if.then.i.i.i319
-  %retval.0.i.i.i321 = phi ptr [ %117, %if.then.i.i.i319 ], [ %121, %if.then9.i.i.i335 ], [ %call17.i.i.i337, %if.end15.i.i.i336 ]
+  %retval.0.i.i.i321 = phi ptr [ %115, %if.then.i.i.i319 ], [ %119, %if.then9.i.i.i335 ], [ %call17.i.i.i337, %if.end15.i.i.i336 ]
   store ptr null, ptr %retval.0.i.i.i321, align 8
   %value_.i.i322 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %retval.0.i.i.i321, i64 0, i32 1
   store i32 0, ptr %value_.i.i322, align 8
-  %123 = load ptr, ptr %head_.i315, align 8
+  %121 = load ptr, ptr %head_.i315, align 8
   fence syncscope("singlethread") seq_cst
-  store volatile ptr %retval.0.i.i.i321, ptr %123, align 8
+  store volatile ptr %retval.0.i.i.i321, ptr %121, align 8
   store ptr %retval.0.i.i.i321, ptr %head_.i315, align 8
   %inc.i323 = add nuw nsw i64 %i.07.i317, 1
   %cmp.not.i324 = icmp eq i64 %inc.i323, 1000000
@@ -4616,17 +4608,17 @@ _ZN10spsc_queueIiE7enqueueEi.exit.i320:           ; preds = %if.end15.i.i.i336, 
 
 for.body5.i326:                                   ; preds = %_ZN10spsc_queueIiE7enqueueEi.exit.i320, %_ZN10spsc_queueIiE11try_dequeueERi.exit.i330
   %i2.09.i327 = phi i64 [ %inc8.i331, %_ZN10spsc_queueIiE11try_dequeueERi.exit.i330 ], [ 0, %_ZN10spsc_queueIiE7enqueueEi.exit.i320 ]
-  %124 = load ptr, ptr %q152, align 8
-  %125 = load volatile ptr, ptr %124, align 8
+  %122 = load ptr, ptr %q152, align 8
+  %123 = load volatile ptr, ptr %122, align 8
   fence syncscope("singlethread") seq_cst
-  %tobool.not.i.not.i328 = icmp eq ptr %125, null
+  %tobool.not.i.not.i328 = icmp eq ptr %123, null
   br i1 %tobool.not.i.not.i328, label %_ZN10spsc_queueIiE11try_dequeueERi.exit.i330, label %if.then.i.i329
 
 if.then.i.i329:                                   ; preds = %for.body5.i326
-  %126 = load ptr, ptr %q152, align 8
-  %127 = load ptr, ptr %126, align 8
+  %124 = load ptr, ptr %q152, align 8
+  %125 = load ptr, ptr %124, align 8
   fence syncscope("singlethread") seq_cst
-  store volatile ptr %127, ptr %q152, align 8
+  store volatile ptr %125, ptr %q152, align 8
   br label %_ZN10spsc_queueIiE11try_dequeueERi.exit.i330
 
 _ZN10spsc_queueIiE11try_dequeueERi.exit.i330:     ; preds = %if.then.i.i329, %for.body5.i326
@@ -4640,8 +4632,8 @@ _ZN10spsc_queueIiEC2Em.exit338:                   ; preds = %_ZN10spsc_queueIiE1
           to label %invoke.cont156 unwind label %lpad155
 
 invoke.cont156:                                   ; preds = %_ZN10spsc_queueIiEC2Em.exit338
-  %128 = extractvalue { i64, i64 } %call157, 0
-  %129 = extractvalue { i64, i64 } %call157, 1
+  %126 = extractvalue { i64, i64 } %call157, 0
+  %127 = extractvalue { i64, i64 } %call157, 1
   %call.i339340 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
           to label %call.i339.noexc unwind label %lpad155
 
@@ -4657,8 +4649,7 @@ invoke.cont160:                                   ; preds = %call.i339.noexc
           to label %call.i341.noexc unwind label %lpad163
 
 call.i341.noexc:                                  ; preds = %invoke.cont160
-  %130 = ptrtoint ptr %q152 to i64
-  store i64 %130, ptr %call.i341342, align 8
+  store ptr %q152, ptr %call.i341342, align 8
   invoke void @_ZN12SimpleThread11startThreadEPvPFvS0_E(ptr noundef nonnull align 8 dereferenceable(8) %producer161, ptr noundef nonnull %call.i341342, ptr noundef nonnull @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE6_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv)
           to label %invoke.cont164 unwind label %lpad163
 
@@ -4671,24 +4662,24 @@ invoke.cont166:                                   ; preds = %invoke.cont164
           to label %invoke.cont167 unwind label %lpad165
 
 invoke.cont167:                                   ; preds = %invoke.cont166
-  %call170 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %128, i64 %129)
+  %call170 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %126, i64 %127)
           to label %invoke.cont169 unwind label %lpad165
 
 invoke.cont169:                                   ; preds = %invoke.cont167
-  %131 = load ptr, ptr %q152, align 8
-  %132 = load volatile ptr, ptr %131, align 8
+  %128 = load ptr, ptr %q152, align 8
+  %129 = load volatile ptr, ptr %128, align 8
   fence syncscope("singlethread") seq_cst
-  %tobool.not.i343 = icmp ne ptr %132, null
+  %tobool.not.i343 = icmp ne ptr %129, null
   br i1 %tobool.not.i343, label %if.then.i344, label %_ZN10spsc_queueIiE11try_dequeueERi.exit346
 
 if.then.i344:                                     ; preds = %invoke.cont169
-  %133 = load ptr, ptr %q152, align 8
-  %134 = load ptr, ptr %133, align 8
-  %value_.i345 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %134, i64 0, i32 1
-  %135 = load i32, ptr %value_.i345, align 8
-  store i32 %135, ptr %element153, align 4
+  %130 = load ptr, ptr %q152, align 8
+  %131 = load ptr, ptr %130, align 8
+  %value_.i345 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %131, i64 0, i32 1
+  %132 = load i32, ptr %value_.i345, align 8
+  store i32 %132, ptr %element153, align 4
   fence syncscope("singlethread") seq_cst
-  store volatile ptr %134, ptr %q152, align 8
+  store volatile ptr %131, ptr %q152, align 8
   br label %_ZN10spsc_queueIiE11try_dequeueERi.exit346
 
 _ZN10spsc_queueIiE11try_dequeueERi.exit346:       ; preds = %invoke.cont169, %if.then.i344
@@ -4696,47 +4687,47 @@ _ZN10spsc_queueIiE11try_dequeueERi.exit346:       ; preds = %invoke.cont169, %if
   store volatile i32 %conv173, ptr %forceNoOptimizeDummy, align 4
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer161) #18
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer158) #18
-  %136 = load ptr, ptr %first_.i314, align 8
+  %133 = load ptr, ptr %first_.i314, align 8
   br label %do.body.i348
 
 do.body.i348:                                     ; preds = %do.body.i348, %_ZN10spsc_queueIiE11try_dequeueERi.exit346
-  %n.0.i349 = phi ptr [ %136, %_ZN10spsc_queueIiE11try_dequeueERi.exit346 ], [ %137, %do.body.i348 ]
-  %137 = load ptr, ptr %n.0.i349, align 8
+  %n.0.i349 = phi ptr [ %133, %_ZN10spsc_queueIiE11try_dequeueERi.exit346 ], [ %134, %do.body.i348 ]
+  %134 = load ptr, ptr %n.0.i349, align 8
   call void @_ZdlPv(ptr noundef %n.0.i349) #20
-  %tobool.not.i350 = icmp eq ptr %137, null
+  %tobool.not.i350 = icmp eq ptr %134, null
   br i1 %tobool.not.i350, label %sw.epilog, label %do.body.i348, !llvm.loop !29
 
 lpad155:                                          ; preds = %call.i339.noexc, %invoke.cont156, %_ZN10spsc_queueIiEC2Em.exit338
-  %138 = landingpad { ptr, i32 }
+  %135 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup176
 
 lpad163:                                          ; preds = %call.i341.noexc, %invoke.cont160
-  %139 = landingpad { ptr, i32 }
+  %136 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup175
 
 lpad165:                                          ; preds = %invoke.cont167, %invoke.cont166, %invoke.cont164
-  %140 = landingpad { ptr, i32 }
+  %137 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer161) #18
   br label %ehcleanup175
 
 ehcleanup175:                                     ; preds = %lpad165, %lpad163
-  %.pn35 = phi { ptr, i32 } [ %140, %lpad165 ], [ %139, %lpad163 ]
+  %.pn35 = phi { ptr, i32 } [ %137, %lpad165 ], [ %136, %lpad163 ]
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer158) #18
   br label %ehcleanup176
 
 ehcleanup176:                                     ; preds = %ehcleanup175, %lpad155
-  %.pn35.pn = phi { ptr, i32 } [ %.pn35, %ehcleanup175 ], [ %138, %lpad155 ]
-  %141 = load ptr, ptr %first_.i314, align 8
+  %.pn35.pn = phi { ptr, i32 } [ %.pn35, %ehcleanup175 ], [ %135, %lpad155 ]
+  %138 = load ptr, ptr %first_.i314, align 8
   br label %do.body.i353
 
 do.body.i353:                                     ; preds = %do.body.i353, %ehcleanup176
-  %n.0.i354 = phi ptr [ %141, %ehcleanup176 ], [ %142, %do.body.i353 ]
-  %142 = load ptr, ptr %n.0.i354, align 8
+  %n.0.i354 = phi ptr [ %138, %ehcleanup176 ], [ %139, %do.body.i353 ]
+  %139 = load ptr, ptr %n.0.i354, align 8
   call void @_ZdlPv(ptr noundef %n.0.i354) #20
-  %tobool.not.i355 = icmp eq ptr %142, null
+  %tobool.not.i355 = icmp eq ptr %139, null
   br i1 %tobool.not.i355, label %eh.resume, label %do.body.i353, !llvm.loop !29
 
 sw.bb177:                                         ; preds = %entry
@@ -4755,27 +4746,27 @@ sw.bb177:                                         ; preds = %entry
 
 for.body.i361:                                    ; preds = %_ZN10spsc_queueIiE7enqueueEi.exit.i365, %sw.bb177
   %i.07.i362 = phi i64 [ %inc.i368, %_ZN10spsc_queueIiE7enqueueEi.exit.i365 ], [ 0, %sw.bb177 ]
-  %143 = load ptr, ptr %first_.i359, align 8
-  %144 = load ptr, ptr %tail_copy_.i358, align 8
-  %cmp.not.i.i.i363 = icmp eq ptr %143, %144
+  %140 = load ptr, ptr %first_.i359, align 8
+  %141 = load ptr, ptr %tail_copy_.i358, align 8
+  %cmp.not.i.i.i363 = icmp eq ptr %140, %141
   br i1 %cmp.not.i.i.i363, label %if.end.i.i.i378, label %if.then.i.i.i364
 
 if.then.i.i.i364:                                 ; preds = %for.body.i361
-  %145 = load ptr, ptr %143, align 8
-  store ptr %145, ptr %first_.i359, align 8
+  %142 = load ptr, ptr %140, align 8
+  store ptr %142, ptr %first_.i359, align 8
   br label %_ZN10spsc_queueIiE7enqueueEi.exit.i365
 
 if.end.i.i.i378:                                  ; preds = %for.body.i361
-  %146 = load volatile ptr, ptr %q181, align 8
+  %143 = load volatile ptr, ptr %q181, align 8
   fence syncscope("singlethread") seq_cst
-  store ptr %146, ptr %tail_copy_.i358, align 8
-  %147 = load ptr, ptr %first_.i359, align 8
-  %cmp8.not.i.i.i379 = icmp eq ptr %147, %146
+  store ptr %143, ptr %tail_copy_.i358, align 8
+  %144 = load ptr, ptr %first_.i359, align 8
+  %cmp8.not.i.i.i379 = icmp eq ptr %144, %143
   br i1 %cmp8.not.i.i.i379, label %if.end15.i.i.i381, label %if.then9.i.i.i380
 
 if.then9.i.i.i380:                                ; preds = %if.end.i.i.i378
-  %148 = load ptr, ptr %147, align 8
-  store ptr %148, ptr %first_.i359, align 8
+  %145 = load ptr, ptr %144, align 8
+  store ptr %145, ptr %first_.i359, align 8
   br label %_ZN10spsc_queueIiE7enqueueEi.exit.i365
 
 if.end15.i.i.i381:                                ; preds = %if.end.i.i.i378
@@ -4783,13 +4774,13 @@ if.end15.i.i.i381:                                ; preds = %if.end.i.i.i378
   br label %_ZN10spsc_queueIiE7enqueueEi.exit.i365
 
 _ZN10spsc_queueIiE7enqueueEi.exit.i365:           ; preds = %if.end15.i.i.i381, %if.then9.i.i.i380, %if.then.i.i.i364
-  %retval.0.i.i.i366 = phi ptr [ %143, %if.then.i.i.i364 ], [ %147, %if.then9.i.i.i380 ], [ %call17.i.i.i382, %if.end15.i.i.i381 ]
+  %retval.0.i.i.i366 = phi ptr [ %140, %if.then.i.i.i364 ], [ %144, %if.then9.i.i.i380 ], [ %call17.i.i.i382, %if.end15.i.i.i381 ]
   store ptr null, ptr %retval.0.i.i.i366, align 8
   %value_.i.i367 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %retval.0.i.i.i366, i64 0, i32 1
   store i32 0, ptr %value_.i.i367, align 8
-  %149 = load ptr, ptr %head_.i360, align 8
+  %146 = load ptr, ptr %head_.i360, align 8
   fence syncscope("singlethread") seq_cst
-  store volatile ptr %retval.0.i.i.i366, ptr %149, align 8
+  store volatile ptr %retval.0.i.i.i366, ptr %146, align 8
   store ptr %retval.0.i.i.i366, ptr %head_.i360, align 8
   %inc.i368 = add nuw nsw i64 %i.07.i362, 1
   %cmp.not.i369 = icmp eq i64 %inc.i368, 800000
@@ -4797,17 +4788,17 @@ _ZN10spsc_queueIiE7enqueueEi.exit.i365:           ; preds = %if.end15.i.i.i381, 
 
 for.body5.i371:                                   ; preds = %_ZN10spsc_queueIiE7enqueueEi.exit.i365, %_ZN10spsc_queueIiE11try_dequeueERi.exit.i375
   %i2.09.i372 = phi i64 [ %inc8.i376, %_ZN10spsc_queueIiE11try_dequeueERi.exit.i375 ], [ 0, %_ZN10spsc_queueIiE7enqueueEi.exit.i365 ]
-  %150 = load ptr, ptr %q181, align 8
-  %151 = load volatile ptr, ptr %150, align 8
+  %147 = load ptr, ptr %q181, align 8
+  %148 = load volatile ptr, ptr %147, align 8
   fence syncscope("singlethread") seq_cst
-  %tobool.not.i.not.i373 = icmp eq ptr %151, null
+  %tobool.not.i.not.i373 = icmp eq ptr %148, null
   br i1 %tobool.not.i.not.i373, label %_ZN10spsc_queueIiE11try_dequeueERi.exit.i375, label %if.then.i.i374
 
 if.then.i.i374:                                   ; preds = %for.body5.i371
-  %152 = load ptr, ptr %q181, align 8
-  %153 = load ptr, ptr %152, align 8
+  %149 = load ptr, ptr %q181, align 8
+  %150 = load ptr, ptr %149, align 8
   fence syncscope("singlethread") seq_cst
-  store volatile ptr %153, ptr %q181, align 8
+  store volatile ptr %150, ptr %q181, align 8
   br label %_ZN10spsc_queueIiE11try_dequeueERi.exit.i375
 
 _ZN10spsc_queueIiE11try_dequeueERi.exit.i375:     ; preds = %if.then.i.i374, %for.body5.i371
@@ -4821,8 +4812,8 @@ _ZN10spsc_queueIiEC2Em.exit383:                   ; preds = %_ZN10spsc_queueIiE1
           to label %invoke.cont185 unwind label %lpad184
 
 invoke.cont185:                                   ; preds = %_ZN10spsc_queueIiEC2Em.exit383
-  %154 = extractvalue { i64, i64 } %call186, 0
-  %155 = extractvalue { i64, i64 } %call186, 1
+  %151 = extractvalue { i64, i64 } %call186, 0
+  %152 = extractvalue { i64, i64 } %call186, 1
   %call.i384385 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19
           to label %call.i384.noexc unwind label %lpad184
 
@@ -4859,77 +4850,77 @@ invoke.cont195:                                   ; preds = %invoke.cont193
           to label %invoke.cont196 unwind label %lpad194
 
 invoke.cont196:                                   ; preds = %invoke.cont195
-  %call199 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %154, i64 %155)
+  %call199 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %151, i64 %152)
           to label %invoke.cont198 unwind label %lpad194
 
 invoke.cont198:                                   ; preds = %invoke.cont196
-  %156 = load ptr, ptr %q181, align 8
-  %157 = load volatile ptr, ptr %156, align 8
+  %153 = load ptr, ptr %q181, align 8
+  %154 = load volatile ptr, ptr %153, align 8
   fence syncscope("singlethread") seq_cst
-  %tobool.not.i388 = icmp ne ptr %157, null
+  %tobool.not.i388 = icmp ne ptr %154, null
   br i1 %tobool.not.i388, label %if.then.i389, label %_ZN10spsc_queueIiE11try_dequeueERi.exit391
 
 if.then.i389:                                     ; preds = %invoke.cont198
-  %158 = load ptr, ptr %q181, align 8
-  %159 = load ptr, ptr %158, align 8
-  %value_.i390 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %159, i64 0, i32 1
-  %160 = load i32, ptr %value_.i390, align 8
-  store i32 %160, ptr %element182, align 4
+  %155 = load ptr, ptr %q181, align 8
+  %156 = load ptr, ptr %155, align 8
+  %value_.i390 = getelementptr inbounds %"struct.spsc_queue<int>::node", ptr %156, i64 0, i32 1
+  %157 = load i32, ptr %value_.i390, align 8
+  store i32 %157, ptr %element182, align 4
   fence syncscope("singlethread") seq_cst
-  store volatile ptr %159, ptr %q181, align 8
+  store volatile ptr %156, ptr %q181, align 8
   br label %_ZN10spsc_queueIiE11try_dequeueERi.exit391
 
 _ZN10spsc_queueIiE11try_dequeueERi.exit391:       ; preds = %invoke.cont198, %if.then.i389
   %conv202 = zext i1 %tobool.not.i388 to i32
   store volatile i32 %conv202, ptr %forceNoOptimizeDummy, align 4
-  %161 = load i32, ptr %readOps179, align 4
-  %162 = load i32, ptr %writeOps180, align 4
-  %add203 = add nsw i32 %162, %161
+  %158 = load i32, ptr %readOps179, align 4
+  %159 = load i32, ptr %writeOps180, align 4
+  %add203 = add nsw i32 %159, %158
   %conv204 = sitofp i32 %add203 to double
   store double %conv204, ptr %out_Ops, align 8
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer190) #18
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer187) #18
-  %163 = load ptr, ptr %first_.i359, align 8
+  %160 = load ptr, ptr %first_.i359, align 8
   br label %do.body.i393
 
 do.body.i393:                                     ; preds = %do.body.i393, %_ZN10spsc_queueIiE11try_dequeueERi.exit391
-  %n.0.i394 = phi ptr [ %163, %_ZN10spsc_queueIiE11try_dequeueERi.exit391 ], [ %164, %do.body.i393 ]
-  %164 = load ptr, ptr %n.0.i394, align 8
+  %n.0.i394 = phi ptr [ %160, %_ZN10spsc_queueIiE11try_dequeueERi.exit391 ], [ %161, %do.body.i393 ]
+  %161 = load ptr, ptr %n.0.i394, align 8
   call void @_ZdlPv(ptr noundef %n.0.i394) #20
-  %tobool.not.i395 = icmp eq ptr %164, null
+  %tobool.not.i395 = icmp eq ptr %161, null
   br i1 %tobool.not.i395, label %sw.epilog, label %do.body.i393, !llvm.loop !29
 
 lpad184:                                          ; preds = %call.i384.noexc, %invoke.cont185, %_ZN10spsc_queueIiEC2Em.exit383
-  %165 = landingpad { ptr, i32 }
+  %162 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup207
 
 lpad192:                                          ; preds = %call.i386.noexc, %invoke.cont189
-  %166 = landingpad { ptr, i32 }
+  %163 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup206
 
 lpad194:                                          ; preds = %invoke.cont196, %invoke.cont195, %invoke.cont193
-  %167 = landingpad { ptr, i32 }
+  %164 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer190) #18
   br label %ehcleanup206
 
 ehcleanup206:                                     ; preds = %lpad194, %lpad192
-  %.pn = phi { ptr, i32 } [ %167, %lpad194 ], [ %166, %lpad192 ]
+  %.pn = phi { ptr, i32 } [ %164, %lpad194 ], [ %163, %lpad192 ]
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer187) #18
   br label %ehcleanup207
 
 ehcleanup207:                                     ; preds = %ehcleanup206, %lpad184
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup206 ], [ %165, %lpad184 ]
-  %168 = load ptr, ptr %first_.i359, align 8
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup206 ], [ %162, %lpad184 ]
+  %165 = load ptr, ptr %first_.i359, align 8
   br label %do.body.i398
 
 do.body.i398:                                     ; preds = %do.body.i398, %ehcleanup207
-  %n.0.i399 = phi ptr [ %168, %ehcleanup207 ], [ %169, %do.body.i398 ]
-  %169 = load ptr, ptr %n.0.i399, align 8
+  %n.0.i399 = phi ptr [ %165, %ehcleanup207 ], [ %166, %do.body.i398 ]
+  %166 = load ptr, ptr %n.0.i399, align 8
   call void @_ZdlPv(ptr noundef %n.0.i399) #20
-  %tobool.not.i400 = icmp eq ptr %169, null
+  %tobool.not.i400 = icmp eq ptr %166, null
   br i1 %tobool.not.i400, label %eh.resume, label %do.body.i398, !llvm.loop !29
 
 sw.default:                                       ; preds = %entry
@@ -5190,8 +5181,7 @@ invoke.cont47:                                    ; preds = %call.i100.noexc
           to label %call.i102.noexc unwind label %lpad49
 
 call.i102.noexc:                                  ; preds = %invoke.cont47
-  %10 = ptrtoint ptr %q40 to i64
-  store i64 %10, ptr %call.i102103, align 8
+  store ptr %q40, ptr %call.i102103, align 8
   invoke void @_ZN12SimpleThread11startThreadEPvPFvS0_E(ptr noundef nonnull align 8 dereferenceable(8) %producer, ptr noundef nonnull %call.i102103, ptr noundef nonnull @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE0_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv)
           to label %invoke.cont50 unwind label %lpad49
 
@@ -5208,52 +5198,52 @@ invoke.cont53:                                    ; preds = %invoke.cont52
           to label %invoke.cont55 unwind label %lpad51
 
 invoke.cont55:                                    ; preds = %invoke.cont53
-  %11 = load i32, ptr %total41, align 4
-  store volatile i32 %11, ptr %forceNoOptimizeDummy, align 4
+  %10 = load i32, ptr %total41, align 4
+  store volatile i32 %10, ptr %forceNoOptimizeDummy, align 4
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer) #18
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer) #18
-  %12 = load ptr, ptr %records_.i91, align 8
-  call void @free(ptr noundef %12) #18
+  %11 = load ptr, ptr %records_.i91, align 8
+  call void @free(ptr noundef %11) #18
   br label %sw.epilog
 
 lpad43:                                           ; preds = %call.i100.noexc, %invoke.cont44, %_ZN5folly21ProducerConsumerQueueIiEC2Ej.exit99
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup57
 
 lpad49:                                           ; preds = %call.i102.noexc, %invoke.cont47
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad51:                                           ; preds = %invoke.cont53, %invoke.cont52, %invoke.cont50
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer) #18
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad51, %lpad49
-  %.pn41 = phi { ptr, i32 } [ %15, %lpad51 ], [ %14, %lpad49 ]
+  %.pn41 = phi { ptr, i32 } [ %14, %lpad51 ], [ %13, %lpad49 ]
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer) #18
   br label %ehcleanup57
 
 ehcleanup57:                                      ; preds = %ehcleanup, %lpad43
-  %.pn41.pn = phi { ptr, i32 } [ %.pn41, %ehcleanup ], [ %13, %lpad43 ]
-  %16 = load ptr, ptr %records_.i91, align 8
-  call void @free(ptr noundef %16) #18
+  %.pn41.pn = phi { ptr, i32 } [ %.pn41, %ehcleanup ], [ %12, %lpad43 ]
+  %15 = load ptr, ptr %records_.i91, align 8
+  call void @free(ptr noundef %15) #18
   br label %eh.resume
 
 sw.bb58:                                          ; preds = %entry
   store double 2.000000e+05, ptr %out_Ops, align 8
   %rem.i.i.i.i287 = urem i32 %randomSeed, 2147483647
-  %17 = tail call i32 @llvm.umax.i32(i32 %rem.i.i.i.i287, i32 1)
-  %storemerge.i.i = zext nneg i32 %17 to i64
+  %16 = tail call i32 @llvm.umax.i32(i32 %rem.i.i.i.i287, i32 1)
+  %storemerge.i.i = zext nneg i32 %16 to i64
   store i64 %storemerge.i.i, ptr %rng, align 8
   store i32 0, ptr %rand, align 4
   %_M_b.i.i = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand, i64 0, i32 1
   store i32 1, ptr %_M_b.i.i, align 4
   %call66 = tail call { i64, i64 } @_ZN10moodycamel13getSystemTimeEv()
-  %18 = extractvalue { i64, i64 } %call66, 0
+  %17 = extractvalue { i64, i64 } %call66, 0
   br label %for.body70
 
 for.body70:                                       ; preds = %sw.bb58, %for.inc79
@@ -5290,8 +5280,8 @@ for.inc79:                                        ; preds = %if.end.i132, %if.el
   br i1 %cmp69.not, label %for.end81, label %for.body70, !llvm.loop !36
 
 for.end81:                                        ; preds = %for.inc79
-  %19 = extractvalue { i64, i64 } %call66, 1
-  %call84 = call noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %18, i64 %19)
+  %18 = extractvalue { i64, i64 } %call66, 1
+  %call84 = call noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %17, i64 %18)
   %cmp.i142 = icmp ne i32 %q60.sroa.10.2, %q60.sroa.16.2
   %conv87 = zext i1 %cmp.i142 to i32
   store volatile i32 %conv87, ptr %forceNoOptimizeDummy, align 4
@@ -5301,8 +5291,8 @@ sw.bb89:                                          ; preds = %entry
   store double 1.200000e+06, ptr %out_Ops, align 8
   store i32 0, ptr %readOps, align 4
   %rem.i.i.i.i152288 = urem i32 %randomSeed, 2147483647
-  %20 = tail call i32 @llvm.umax.i32(i32 %rem.i.i.i.i152288, i32 1)
-  %storemerge.i.i153 = zext nneg i32 %20 to i64
+  %19 = tail call i32 @llvm.umax.i32(i32 %rem.i.i.i.i152288, i32 1)
+  %storemerge.i.i153 = zext nneg i32 %19 to i64
   store i64 %storemerge.i.i153, ptr %rng91, align 8
   store i32 0, ptr %rand93, align 4
   %_M_b.i.i154 = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand93, i64 0, i32 1
@@ -5330,8 +5320,8 @@ _ZN5folly21ProducerConsumerQueueIiEC2Ej.exit163:  ; preds = %sw.bb89
           to label %invoke.cont98 unwind label %lpad97
 
 invoke.cont98:                                    ; preds = %_ZN5folly21ProducerConsumerQueueIiEC2Ej.exit163
-  %21 = extractvalue { i64, i64 } %call99, 0
-  %22 = extractvalue { i64, i64 } %call99, 1
+  %20 = extractvalue { i64, i64 } %call99, 0
+  %21 = extractvalue { i64, i64 } %call99, 1
   %call.i164165 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
           to label %call.i164.noexc unwind label %lpad97
 
@@ -5353,8 +5343,7 @@ invoke.cont102:                                   ; preds = %call.i164.noexc
           to label %call.i166.noexc unwind label %lpad105
 
 call.i166.noexc:                                  ; preds = %invoke.cont102
-  %23 = ptrtoint ptr %q94 to i64
-  store i64 %23, ptr %call.i166167, align 8
+  store ptr %q94, ptr %call.i166167, align 8
   invoke void @_ZN12SimpleThread11startThreadEPvPFvS0_E(ptr noundef nonnull align 8 dereferenceable(8) %producer103, ptr noundef nonnull %call.i166167, ptr noundef nonnull @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE2_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv)
           to label %invoke.cont106 unwind label %lpad105
 
@@ -5367,24 +5356,24 @@ invoke.cont108:                                   ; preds = %invoke.cont106
           to label %invoke.cont109 unwind label %lpad107
 
 invoke.cont109:                                   ; preds = %invoke.cont108
-  %call112 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %21, i64 %22)
+  %call112 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %20, i64 %21)
           to label %invoke.cont111 unwind label %lpad107
 
 invoke.cont111:                                   ; preds = %invoke.cont109
-  %24 = load atomic i32, ptr %readIndex_.i157 monotonic, align 8
-  %25 = load atomic i32, ptr %writeIndex_.i158 acquire, align 4
-  %cmp.i170 = icmp ne i32 %24, %25
+  %22 = load atomic i32, ptr %readIndex_.i157 monotonic, align 8
+  %23 = load atomic i32, ptr %writeIndex_.i158 acquire, align 4
+  %cmp.i170 = icmp ne i32 %22, %23
   br i1 %cmp.i170, label %if.end.i171, label %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit178
 
 if.end.i171:                                      ; preds = %invoke.cont111
-  %26 = load i32, ptr %q94, align 8
-  %27 = load ptr, ptr %records_.i155, align 8
-  %idxprom.i173 = sext i32 %24 to i64
-  %arrayidx.i174 = getelementptr inbounds i32, ptr %27, i64 %idxprom.i173
-  %28 = load i32, ptr %arrayidx.i174, align 4
-  store i32 %28, ptr %element95, align 4
-  %add.i175 = add nsw i32 %24, 1
-  %cmp3.i176 = icmp eq i32 %add.i175, %26
+  %24 = load i32, ptr %q94, align 8
+  %25 = load ptr, ptr %records_.i155, align 8
+  %idxprom.i173 = sext i32 %22 to i64
+  %arrayidx.i174 = getelementptr inbounds i32, ptr %25, i64 %idxprom.i173
+  %26 = load i32, ptr %arrayidx.i174, align 4
+  store i32 %26, ptr %element95, align 4
+  %add.i175 = add nsw i32 %22, 1
+  %cmp3.i176 = icmp eq i32 %add.i175, %24
   %spec.store.select.i177 = select i1 %cmp3.i176, i32 0, i32 %add.i175
   store atomic i32 %spec.store.select.i177, ptr %readIndex_.i157 release, align 8
   br label %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit178
@@ -5392,50 +5381,50 @@ if.end.i171:                                      ; preds = %invoke.cont111
 _ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit178: ; preds = %invoke.cont111, %if.end.i171
   %conv115 = zext i1 %cmp.i170 to i32
   store volatile i32 %conv115, ptr %forceNoOptimizeDummy, align 4
-  %29 = load i32, ptr %readOps, align 4
-  %conv116 = sitofp i32 %29 to double
-  %30 = load double, ptr %out_Ops, align 8
-  %add117 = fadd double %30, %conv116
+  %27 = load i32, ptr %readOps, align 4
+  %conv116 = sitofp i32 %27 to double
+  %28 = load double, ptr %out_Ops, align 8
+  %add117 = fadd double %28, %conv116
   store double %add117, ptr %out_Ops, align 8
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer103) #18
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer100) #18
-  %31 = load ptr, ptr %records_.i155, align 8
-  call void @free(ptr noundef %31) #18
+  %29 = load ptr, ptr %records_.i155, align 8
+  call void @free(ptr noundef %29) #18
   br label %sw.epilog
 
 lpad97:                                           ; preds = %call.i164.noexc, %invoke.cont98, %_ZN5folly21ProducerConsumerQueueIiEC2Ej.exit163
-  %32 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup120
 
 lpad105:                                          ; preds = %call.i166.noexc, %invoke.cont102
-  %33 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup119
 
 lpad107:                                          ; preds = %invoke.cont109, %invoke.cont108, %invoke.cont106
-  %34 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer103) #18
   br label %ehcleanup119
 
 ehcleanup119:                                     ; preds = %lpad107, %lpad105
-  %.pn38 = phi { ptr, i32 } [ %34, %lpad107 ], [ %33, %lpad105 ]
+  %.pn38 = phi { ptr, i32 } [ %32, %lpad107 ], [ %31, %lpad105 ]
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer100) #18
   br label %ehcleanup120
 
 ehcleanup120:                                     ; preds = %ehcleanup119, %lpad97
-  %.pn38.pn = phi { ptr, i32 } [ %.pn38, %ehcleanup119 ], [ %32, %lpad97 ]
-  %35 = load ptr, ptr %records_.i155, align 8
-  call void @free(ptr noundef %35) #18
+  %.pn38.pn = phi { ptr, i32 } [ %.pn38, %ehcleanup119 ], [ %30, %lpad97 ]
+  %33 = load ptr, ptr %records_.i155, align 8
+  call void @free(ptr noundef %33) #18
   br label %eh.resume
 
 sw.bb121:                                         ; preds = %entry
   store double 1.200000e+06, ptr %out_Ops, align 8
   store i32 0, ptr %writeOps, align 4
   %rem.i.i.i.i181289 = urem i32 %randomSeed, 2147483647
-  %36 = tail call i32 @llvm.umax.i32(i32 %rem.i.i.i.i181289, i32 1)
-  %storemerge.i.i182 = zext nneg i32 %36 to i64
+  %34 = tail call i32 @llvm.umax.i32(i32 %rem.i.i.i.i181289, i32 1)
+  %storemerge.i.i182 = zext nneg i32 %34 to i64
   store i64 %storemerge.i.i182, ptr %rng123, align 8
   store i32 0, ptr %rand125, align 4
   %_M_b.i.i183 = getelementptr inbounds %"struct.std::uniform_int_distribution<>::param_type", ptr %rand125, i64 0, i32 1
@@ -5463,8 +5452,8 @@ _ZN5folly21ProducerConsumerQueueIiEC2Ej.exit192:  ; preds = %sw.bb121
           to label %invoke.cont130 unwind label %lpad129
 
 invoke.cont130:                                   ; preds = %_ZN5folly21ProducerConsumerQueueIiEC2Ej.exit192
-  %37 = extractvalue { i64, i64 } %call131, 0
-  %38 = extractvalue { i64, i64 } %call131, 1
+  %35 = extractvalue { i64, i64 } %call131, 0
+  %36 = extractvalue { i64, i64 } %call131, 1
   %call.i193194 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
           to label %call.i193.noexc unwind label %lpad129
 
@@ -5499,24 +5488,24 @@ invoke.cont140:                                   ; preds = %invoke.cont138
           to label %invoke.cont141 unwind label %lpad139
 
 invoke.cont141:                                   ; preds = %invoke.cont140
-  %call144 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %37, i64 %38)
+  %call144 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %35, i64 %36)
           to label %invoke.cont143 unwind label %lpad139
 
 invoke.cont143:                                   ; preds = %invoke.cont141
-  %39 = load atomic i32, ptr %readIndex_.i186 monotonic, align 8
-  %40 = load atomic i32, ptr %writeIndex_.i187 acquire, align 4
-  %cmp.i199 = icmp ne i32 %39, %40
+  %37 = load atomic i32, ptr %readIndex_.i186 monotonic, align 8
+  %38 = load atomic i32, ptr %writeIndex_.i187 acquire, align 4
+  %cmp.i199 = icmp ne i32 %37, %38
   br i1 %cmp.i199, label %if.end.i200, label %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit207
 
 if.end.i200:                                      ; preds = %invoke.cont143
-  %41 = load i32, ptr %q126, align 8
-  %42 = load ptr, ptr %records_.i184, align 8
-  %idxprom.i202 = sext i32 %39 to i64
-  %arrayidx.i203 = getelementptr inbounds i32, ptr %42, i64 %idxprom.i202
-  %43 = load i32, ptr %arrayidx.i203, align 4
-  store i32 %43, ptr %element127, align 4
-  %add.i204 = add nsw i32 %39, 1
-  %cmp3.i205 = icmp eq i32 %add.i204, %41
+  %39 = load i32, ptr %q126, align 8
+  %40 = load ptr, ptr %records_.i184, align 8
+  %idxprom.i202 = sext i32 %37 to i64
+  %arrayidx.i203 = getelementptr inbounds i32, ptr %40, i64 %idxprom.i202
+  %41 = load i32, ptr %arrayidx.i203, align 4
+  store i32 %41, ptr %element127, align 4
+  %add.i204 = add nsw i32 %37, 1
+  %cmp3.i205 = icmp eq i32 %add.i204, %39
   %spec.store.select.i206 = select i1 %cmp3.i205, i32 0, i32 %add.i204
   store atomic i32 %spec.store.select.i206, ptr %readIndex_.i186 release, align 8
   br label %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit207
@@ -5524,42 +5513,42 @@ if.end.i200:                                      ; preds = %invoke.cont143
 _ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit207: ; preds = %invoke.cont143, %if.end.i200
   %conv147 = zext i1 %cmp.i199 to i32
   store volatile i32 %conv147, ptr %forceNoOptimizeDummy, align 4
-  %44 = load i32, ptr %writeOps, align 4
-  %conv148 = sitofp i32 %44 to double
-  %45 = load double, ptr %out_Ops, align 8
-  %add149 = fadd double %45, %conv148
+  %42 = load i32, ptr %writeOps, align 4
+  %conv148 = sitofp i32 %42 to double
+  %43 = load double, ptr %out_Ops, align 8
+  %add149 = fadd double %43, %conv148
   store double %add149, ptr %out_Ops, align 8
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer135) #18
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer132) #18
-  %46 = load ptr, ptr %records_.i184, align 8
-  call void @free(ptr noundef %46) #18
+  %44 = load ptr, ptr %records_.i184, align 8
+  call void @free(ptr noundef %44) #18
   br label %sw.epilog
 
 lpad129:                                          ; preds = %call.i193.noexc, %invoke.cont130, %_ZN5folly21ProducerConsumerQueueIiEC2Ej.exit192
-  %47 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup152
 
 lpad137:                                          ; preds = %call.i195.noexc, %invoke.cont134
-  %48 = landingpad { ptr, i32 }
+  %46 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup151
 
 lpad139:                                          ; preds = %invoke.cont141, %invoke.cont140, %invoke.cont138
-  %49 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer135) #18
   br label %ehcleanup151
 
 ehcleanup151:                                     ; preds = %lpad139, %lpad137
-  %.pn35 = phi { ptr, i32 } [ %49, %lpad139 ], [ %48, %lpad137 ]
+  %.pn35 = phi { ptr, i32 } [ %47, %lpad139 ], [ %46, %lpad137 ]
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer132) #18
   br label %ehcleanup152
 
 ehcleanup152:                                     ; preds = %ehcleanup151, %lpad129
-  %.pn35.pn = phi { ptr, i32 } [ %.pn35, %ehcleanup151 ], [ %47, %lpad129 ]
-  %50 = load ptr, ptr %records_.i184, align 8
-  call void @free(ptr noundef %50) #18
+  %.pn35.pn = phi { ptr, i32 } [ %.pn35, %ehcleanup151 ], [ %45, %lpad129 ]
+  %48 = load ptr, ptr %records_.i184, align 8
+  call void @free(ptr noundef %48) #18
   br label %eh.resume
 
 sw.bb153:                                         ; preds = %entry
@@ -5587,8 +5576,8 @@ _ZN5folly21ProducerConsumerQueueIiEC2Ej.exit218:  ; preds = %sw.bb153
           to label %invoke.cont159 unwind label %lpad158
 
 invoke.cont159:                                   ; preds = %_ZN5folly21ProducerConsumerQueueIiEC2Ej.exit218
-  %51 = extractvalue { i64, i64 } %call160, 0
-  %52 = extractvalue { i64, i64 } %call160, 1
+  %49 = extractvalue { i64, i64 } %call160, 0
+  %50 = extractvalue { i64, i64 } %call160, 1
   %call.i219220 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
           to label %call.i219.noexc unwind label %lpad158
 
@@ -5604,8 +5593,7 @@ invoke.cont163:                                   ; preds = %call.i219.noexc
           to label %call.i221.noexc unwind label %lpad166
 
 call.i221.noexc:                                  ; preds = %invoke.cont163
-  %53 = ptrtoint ptr %q155 to i64
-  store i64 %53, ptr %call.i221222, align 8
+  store ptr %q155, ptr %call.i221222, align 8
   invoke void @_ZN12SimpleThread11startThreadEPvPFvS0_E(ptr noundef nonnull align 8 dereferenceable(8) %producer164, ptr noundef nonnull %call.i221222, ptr noundef nonnull @_ZN12SimpleThread15CallbackWrapperIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE6_N7details10ArgWrapperIvvvEEE13callAndDeleteEPv)
           to label %invoke.cont167 unwind label %lpad166
 
@@ -5618,24 +5606,24 @@ invoke.cont169:                                   ; preds = %invoke.cont167
           to label %invoke.cont170 unwind label %lpad168
 
 invoke.cont170:                                   ; preds = %invoke.cont169
-  %call173 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %51, i64 %52)
+  %call173 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %49, i64 %50)
           to label %invoke.cont172 unwind label %lpad168
 
 invoke.cont172:                                   ; preds = %invoke.cont170
-  %54 = load atomic i32, ptr %readIndex_.i212 monotonic, align 8
-  %55 = load atomic i32, ptr %writeIndex_.i213 acquire, align 4
-  %cmp.i225 = icmp ne i32 %54, %55
+  %51 = load atomic i32, ptr %readIndex_.i212 monotonic, align 8
+  %52 = load atomic i32, ptr %writeIndex_.i213 acquire, align 4
+  %cmp.i225 = icmp ne i32 %51, %52
   br i1 %cmp.i225, label %if.end.i226, label %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit233
 
 if.end.i226:                                      ; preds = %invoke.cont172
-  %56 = load i32, ptr %q155, align 8
-  %57 = load ptr, ptr %records_.i210, align 8
-  %idxprom.i228 = sext i32 %54 to i64
-  %arrayidx.i229 = getelementptr inbounds i32, ptr %57, i64 %idxprom.i228
-  %58 = load i32, ptr %arrayidx.i229, align 4
-  store i32 %58, ptr %element156, align 4
-  %add.i230 = add nsw i32 %54, 1
-  %cmp3.i231 = icmp eq i32 %add.i230, %56
+  %53 = load i32, ptr %q155, align 8
+  %54 = load ptr, ptr %records_.i210, align 8
+  %idxprom.i228 = sext i32 %51 to i64
+  %arrayidx.i229 = getelementptr inbounds i32, ptr %54, i64 %idxprom.i228
+  %55 = load i32, ptr %arrayidx.i229, align 4
+  store i32 %55, ptr %element156, align 4
+  %add.i230 = add nsw i32 %51, 1
+  %cmp3.i231 = icmp eq i32 %add.i230, %53
   %spec.store.select.i232 = select i1 %cmp3.i231, i32 0, i32 %add.i230
   store atomic i32 %spec.store.select.i232, ptr %readIndex_.i212 release, align 8
   br label %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit233
@@ -5645,35 +5633,35 @@ _ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit233: ; preds = %invoke.c
   store volatile i32 %conv176, ptr %forceNoOptimizeDummy, align 4
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer164) #18
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer161) #18
-  %59 = load ptr, ptr %records_.i210, align 8
-  call void @free(ptr noundef %59) #18
+  %56 = load ptr, ptr %records_.i210, align 8
+  call void @free(ptr noundef %56) #18
   br label %sw.epilog
 
 lpad158:                                          ; preds = %call.i219.noexc, %invoke.cont159, %_ZN5folly21ProducerConsumerQueueIiEC2Ej.exit218
-  %60 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup179
 
 lpad166:                                          ; preds = %call.i221.noexc, %invoke.cont163
-  %61 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup178
 
 lpad168:                                          ; preds = %invoke.cont170, %invoke.cont169, %invoke.cont167
-  %62 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer164) #18
   br label %ehcleanup178
 
 ehcleanup178:                                     ; preds = %lpad168, %lpad166
-  %.pn32 = phi { ptr, i32 } [ %62, %lpad168 ], [ %61, %lpad166 ]
+  %.pn32 = phi { ptr, i32 } [ %59, %lpad168 ], [ %58, %lpad166 ]
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer161) #18
   br label %ehcleanup179
 
 ehcleanup179:                                     ; preds = %ehcleanup178, %lpad158
-  %.pn32.pn = phi { ptr, i32 } [ %.pn32, %ehcleanup178 ], [ %60, %lpad158 ]
-  %63 = load ptr, ptr %records_.i210, align 8
-  call void @free(ptr noundef %63) #18
+  %.pn32.pn = phi { ptr, i32 } [ %.pn32, %ehcleanup178 ], [ %57, %lpad158 ]
+  %60 = load ptr, ptr %records_.i210, align 8
+  call void @free(ptr noundef %60) #18
   br label %eh.resume
 
 sw.bb180:                                         ; preds = %entry
@@ -5702,8 +5690,8 @@ _ZN5folly21ProducerConsumerQueueIiEC2Ej.exit244:  ; preds = %sw.bb180
           to label %invoke.cont188 unwind label %lpad187
 
 invoke.cont188:                                   ; preds = %_ZN5folly21ProducerConsumerQueueIiEC2Ej.exit244
-  %64 = extractvalue { i64, i64 } %call189, 0
-  %65 = extractvalue { i64, i64 } %call189, 1
+  %61 = extractvalue { i64, i64 } %call189, 0
+  %62 = extractvalue { i64, i64 } %call189, 1
   %call.i245246 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19
           to label %call.i245.noexc unwind label %lpad187
 
@@ -5740,24 +5728,24 @@ invoke.cont198:                                   ; preds = %invoke.cont196
           to label %invoke.cont199 unwind label %lpad197
 
 invoke.cont199:                                   ; preds = %invoke.cont198
-  %call202 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %64, i64 %65)
+  %call202 = invoke noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %61, i64 %62)
           to label %invoke.cont201 unwind label %lpad197
 
 invoke.cont201:                                   ; preds = %invoke.cont199
-  %66 = load atomic i32, ptr %readIndex_.i238 monotonic, align 8
-  %67 = load atomic i32, ptr %writeIndex_.i239 acquire, align 4
-  %cmp.i251 = icmp ne i32 %66, %67
+  %63 = load atomic i32, ptr %readIndex_.i238 monotonic, align 8
+  %64 = load atomic i32, ptr %writeIndex_.i239 acquire, align 4
+  %cmp.i251 = icmp ne i32 %63, %64
   br i1 %cmp.i251, label %if.end.i252, label %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit259
 
 if.end.i252:                                      ; preds = %invoke.cont201
-  %68 = load i32, ptr %q184, align 8
-  %69 = load ptr, ptr %records_.i236, align 8
-  %idxprom.i254 = sext i32 %66 to i64
-  %arrayidx.i255 = getelementptr inbounds i32, ptr %69, i64 %idxprom.i254
-  %70 = load i32, ptr %arrayidx.i255, align 4
-  store i32 %70, ptr %element185, align 4
-  %add.i256 = add nsw i32 %66, 1
-  %cmp3.i257 = icmp eq i32 %add.i256, %68
+  %65 = load i32, ptr %q184, align 8
+  %66 = load ptr, ptr %records_.i236, align 8
+  %idxprom.i254 = sext i32 %63 to i64
+  %arrayidx.i255 = getelementptr inbounds i32, ptr %66, i64 %idxprom.i254
+  %67 = load i32, ptr %arrayidx.i255, align 4
+  store i32 %67, ptr %element185, align 4
+  %add.i256 = add nsw i32 %63, 1
+  %cmp3.i257 = icmp eq i32 %add.i256, %65
   %spec.store.select.i258 = select i1 %cmp3.i257, i32 0, i32 %add.i256
   store atomic i32 %spec.store.select.i258, ptr %readIndex_.i238 release, align 8
   br label %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit259
@@ -5765,42 +5753,42 @@ if.end.i252:                                      ; preds = %invoke.cont201
 _ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit259: ; preds = %invoke.cont201, %if.end.i252
   %conv205 = zext i1 %cmp.i251 to i32
   store volatile i32 %conv205, ptr %forceNoOptimizeDummy, align 4
-  %71 = load i32, ptr %readOps182, align 4
-  %72 = load i32, ptr %writeOps183, align 4
-  %add206 = add nsw i32 %72, %71
+  %68 = load i32, ptr %readOps182, align 4
+  %69 = load i32, ptr %writeOps183, align 4
+  %add206 = add nsw i32 %69, %68
   %conv207 = sitofp i32 %add206 to double
   store double %conv207, ptr %out_Ops, align 8
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer193) #18
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer190) #18
-  %73 = load ptr, ptr %records_.i236, align 8
-  call void @free(ptr noundef %73) #18
+  %70 = load ptr, ptr %records_.i236, align 8
+  call void @free(ptr noundef %70) #18
   br label %sw.epilog
 
 lpad187:                                          ; preds = %call.i245.noexc, %invoke.cont188, %_ZN5folly21ProducerConsumerQueueIiEC2Ej.exit244
-  %74 = landingpad { ptr, i32 }
+  %71 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup210
 
 lpad195:                                          ; preds = %call.i247.noexc, %invoke.cont192
-  %75 = landingpad { ptr, i32 }
+  %72 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup209
 
 lpad197:                                          ; preds = %invoke.cont199, %invoke.cont198, %invoke.cont196
-  %76 = landingpad { ptr, i32 }
+  %73 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %producer193) #18
   br label %ehcleanup209
 
 ehcleanup209:                                     ; preds = %lpad197, %lpad195
-  %.pn = phi { ptr, i32 } [ %76, %lpad197 ], [ %75, %lpad195 ]
+  %.pn = phi { ptr, i32 } [ %73, %lpad197 ], [ %72, %lpad195 ]
   call void @_ZN12SimpleThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %consumer190) #18
   br label %ehcleanup210
 
 ehcleanup210:                                     ; preds = %ehcleanup209, %lpad187
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup209 ], [ %74, %lpad187 ]
-  %77 = load ptr, ptr %records_.i236, align 8
-  call void @free(ptr noundef %77) #18
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup209 ], [ %71, %lpad187 ]
+  %74 = load ptr, ptr %records_.i236, align 8
+  call void @free(ptr noundef %74) #18
   br label %eh.resume
 
 sw.default:                                       ; preds = %entry
@@ -9474,7 +9462,7 @@ if.then2.i31.i:                                   ; preds = %for.body.i16.i
   %sub.ptr.div.i.i.i.i.i.i35.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i34.i, 3
   %.pre.i.i.i.i.i.i36.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i35.i
   %add.ptr.i.i.i.i.i.i37.i = getelementptr inbounds double, ptr %add.ptr3.i32.i, i64 %.pre.i.i.i.i.i.i36.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i37.i, ptr nonnull align 8 %__first, i64 %sub.ptr.sub.i.i.i.i.i.i34.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i37.i, ptr noundef nonnull align 8 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i34.i, i1 false)
   br label %for.inc.i22.i
 
 if.else.i20.i:                                    ; preds = %for.body.i16.i

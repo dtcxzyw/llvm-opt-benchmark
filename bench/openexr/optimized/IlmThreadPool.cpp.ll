@@ -2550,7 +2550,7 @@ invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i
   %14 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i20, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
   store ptr %this, ptr %14, align 8
   %15 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i20, i64 0, i32 1, i32 0, i32 0, i32 1
-  store i64 ptrtoint (ptr @_ZN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProvider10threadLoopESt10shared_ptrINS0_21DefaultThreadPoolDataEE to i64), ptr %15, align 8
+  store ptr @_ZN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProvider10threadLoopESt10shared_ptrINS0_21DefaultThreadPoolDataEE, ptr %15, align 8
   %this.repack3.i.i.i.i.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i20, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
   store i64 0, ptr %this.repack3.i.i.i.i.i.i, align 8
   store ptr %call.i20, ptr %agg.tmp.i, align 8

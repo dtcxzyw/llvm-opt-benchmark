@@ -969,17 +969,16 @@ ir_nextk64.exit:                                  ; preds = %if.then.i, %for.end
   %idxprom10 = zext i32 %sub.i to i64
   %arrayidx11 = getelementptr inbounds %union.IRIns, ptr %5, i64 %idxprom10
   store i32 0, ptr %arrayidx11, align 8
-  %6 = ptrtoint ptr %o to i64
   %arrayidx12 = getelementptr inbounds %union.IRIns, ptr %arrayidx11, i64 1
-  store i64 %6, ptr %arrayidx12, align 8
+  store ptr %o, ptr %arrayidx12, align 8
   %conv14 = trunc i32 %t to i8
   %t15 = getelementptr inbounds %struct.anon.0, ptr %arrayidx11, i64 0, i32 1
   store i8 %conv14, ptr %t15, align 4
   %o16 = getelementptr inbounds %struct.anon.0, ptr %arrayidx11, i64 0, i32 2
   store i8 24, ptr %o16, align 1
-  %7 = load i16, ptr %arrayidx, align 2
+  %6 = load i16, ptr %arrayidx, align 2
   %prev19 = getelementptr inbounds %struct.anon, ptr %arrayidx11, i64 0, i32 3
-  store i16 %7, ptr %prev19, align 2
+  store i16 %6, ptr %prev19, align 2
   %conv20 = trunc i32 %sub.i to i16
   store i16 %conv20, ptr %arrayidx, align 2
   br label %found
@@ -1074,17 +1073,16 @@ ir_nextk64.exit:                                  ; preds = %if.then.i, %for.end
   %idxprom11 = zext i32 %sub.i to i64
   %arrayidx12 = getelementptr inbounds %union.IRIns, ptr %5, i64 %idxprom11
   store i32 0, ptr %arrayidx12, align 8
-  %6 = ptrtoint ptr %ptr to i64
   %arrayidx13 = getelementptr inbounds %union.IRIns, ptr %arrayidx12, i64 1
-  store i64 %6, ptr %arrayidx13, align 8
+  store ptr %ptr, ptr %arrayidx13, align 8
   %t = getelementptr inbounds %struct.anon.0, ptr %arrayidx12, i64 0, i32 1
   store i8 9, ptr %t, align 4
   %conv15 = trunc i32 %op to i8
   %o = getelementptr inbounds %struct.anon.0, ptr %arrayidx12, i64 0, i32 2
   store i8 %conv15, ptr %o, align 1
-  %7 = load i16, ptr %arrayidx, align 2
+  %6 = load i16, ptr %arrayidx, align 2
   %prev19 = getelementptr inbounds %struct.anon, ptr %arrayidx12, i64 0, i32 3
-  store i16 %7, ptr %prev19, align 2
+  store i16 %6, ptr %prev19, align 2
   %conv20 = trunc i32 %sub.i to i16
   store i16 %conv20, ptr %arrayidx, align 2
   br label %found

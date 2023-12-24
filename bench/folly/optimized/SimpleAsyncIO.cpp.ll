@@ -2321,7 +2321,7 @@ if.end.i.i:                                       ; preds = %invoke.cont4
 
 _ZN5folly8FunctionIFviEEC2EOS2_.exit:             ; preds = %if.end.i.i, %invoke.cont4
   %7 = getelementptr inbounds %class.anon.148, ptr %agg.tmp5, i64 0, i32 3
-  store i64 %1, ptr %7, align 16, !tbaa !7
+  store ptr %0, ptr %7, align 16, !tbaa !7
   %call2.i25 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #22
           to label %call2.i.noexc unwind label %_ZNSt10unique_ptrIN5folly11AsyncBaseOpESt14default_deleteIS1_EED2Ev.exit.i39
 

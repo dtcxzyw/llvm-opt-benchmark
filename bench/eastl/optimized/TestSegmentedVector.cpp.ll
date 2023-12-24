@@ -814,20 +814,19 @@ _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %entry
   store i64 %dec2, ptr %mSegmentCount, align 8
   %4 = load i64, ptr %0, align 8
   %and = and i64 %4, -2
-  %5 = inttoptr i64 %and to ptr
-  store ptr %5, ptr %mLastSegment, align 8
+  store i64 %and, ptr %mLastSegment, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %0) #8
-  %6 = load ptr, ptr %mLastSegment, align 8
-  %tobool5.not = icmp eq ptr %6, null
+  %5 = load ptr, ptr %mLastSegment, align 8
+  %tobool5.not = icmp eq ptr %5, null
   br i1 %tobool5.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit
-  %7 = load i64, ptr %6, align 8
-  %or = or i64 %7, 1
-  store i64 %or, ptr %6, align 8
-  %8 = load ptr, ptr %mLastSegment, align 8
-  %9 = getelementptr inbounds %"class.eastl::segment", ptr %8, i64 0, i32 1
-  store i64 16, ptr %9, align 8
+  %6 = load i64, ptr %5, align 8
+  %or = or i64 %6, 1
+  store i64 %or, ptr %5, align 8
+  %7 = load ptr, ptr %mLastSegment, align 8
+  %8 = getelementptr inbounds %"class.eastl::segment", ptr %7, i64 0, i32 1
+  store i64 16, ptr %8, align 8
   br label %if.end10
 
 if.else:                                          ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit
@@ -866,20 +865,19 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %entry
   store i64 %dec2.i, ptr %mSegmentCount.i, align 8
   %9 = load i64, ptr %5, align 8
   %and.i = and i64 %9, -2
-  %10 = inttoptr i64 %and.i to ptr
-  store ptr %10, ptr %mLastSegment.i, align 8
+  store i64 %and.i, ptr %mLastSegment.i, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %5) #8
-  %11 = load ptr, ptr %mLastSegment.i, align 8
-  %tobool5.not.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %mLastSegment.i, align 8
+  %tobool5.not.i = icmp eq ptr %10, null
   br i1 %tobool5.not.i, label %if.else.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
-  %12 = load i64, ptr %11, align 8
-  %or.i = or i64 %12, 1
-  store i64 %or.i, ptr %11, align 8
-  %13 = load ptr, ptr %mLastSegment.i, align 8
-  %14 = getelementptr inbounds %"class.eastl::segment", ptr %13, i64 0, i32 1
-  store i64 16, ptr %14, align 8
+  %11 = load i64, ptr %10, align 8
+  %or.i = or i64 %11, 1
+  store i64 %or.i, ptr %10, align 8
+  %12 = load ptr, ptr %mLastSegment.i, align 8
+  %13 = getelementptr inbounds %"class.eastl::segment", ptr %12, i64 0, i32 1
+  store i64 16, ptr %13, align 8
   br label %_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE8pop_backEv.exit
 
 if.else.i:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
@@ -936,20 +934,19 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %if.end
   store i64 %dec2.i, ptr %mSegmentCount.i, align 8
   %13 = load i64, ptr %7, align 8
   %and.i = and i64 %13, -2
-  %14 = inttoptr i64 %and.i to ptr
-  store ptr %14, ptr %mLastSegment.i, align 8
+  store i64 %and.i, ptr %mLastSegment.i, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %7) #8
-  %15 = load ptr, ptr %mLastSegment.i, align 8
-  %tobool5.not.i = icmp eq ptr %15, null
+  %14 = load ptr, ptr %mLastSegment.i, align 8
+  %tobool5.not.i = icmp eq ptr %14, null
   br i1 %tobool5.not.i, label %if.else.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
-  %16 = load i64, ptr %15, align 8
-  %or.i = or i64 %16, 1
-  store i64 %or.i, ptr %15, align 8
-  %17 = load ptr, ptr %mLastSegment.i, align 8
-  %18 = getelementptr inbounds %"class.eastl::segment", ptr %17, i64 0, i32 1
-  store i64 16, ptr %18, align 8
+  %15 = load i64, ptr %14, align 8
+  %or.i = or i64 %15, 1
+  store i64 %or.i, ptr %14, align 8
+  %16 = load ptr, ptr %mLastSegment.i, align 8
+  %17 = getelementptr inbounds %"class.eastl::segment", ptr %16, i64 0, i32 1
+  store i64 16, ptr %17, align 8
   br label %_ZN5eastl16segmented_vectorIbLm16ENS_9allocatorEE8pop_backEv.exit
 
 if.else.i:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
@@ -1507,20 +1504,19 @@ _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %entry
   store i64 %dec2, ptr %mSegmentCount, align 8
   %4 = load i64, ptr %0, align 8
   %and = and i64 %4, -2
-  %5 = inttoptr i64 %and to ptr
-  store ptr %5, ptr %mLastSegment, align 8
+  store i64 %and, ptr %mLastSegment, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %0) #8
-  %6 = load ptr, ptr %mLastSegment, align 8
-  %tobool5.not = icmp eq ptr %6, null
+  %5 = load ptr, ptr %mLastSegment, align 8
+  %tobool5.not = icmp eq ptr %5, null
   br i1 %tobool5.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit
-  %7 = load i64, ptr %6, align 8
-  %or = or i64 %7, 1
-  store i64 %or, ptr %6, align 8
-  %8 = load ptr, ptr %mLastSegment, align 8
-  %9 = getelementptr inbounds %"class.eastl::segment.4", ptr %8, i64 0, i32 1
-  store i64 16, ptr %9, align 8
+  %6 = load i64, ptr %5, align 8
+  %or = or i64 %6, 1
+  store i64 %or, ptr %5, align 8
+  %7 = load ptr, ptr %mLastSegment, align 8
+  %8 = getelementptr inbounds %"class.eastl::segment.4", ptr %7, i64 0, i32 1
+  store i64 16, ptr %8, align 8
   br label %if.end10
 
 if.else:                                          ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit
@@ -1558,20 +1554,19 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %entry
   store i64 %dec2.i, ptr %mSegmentCount.i, align 8
   %8 = load i64, ptr %4, align 8
   %and.i = and i64 %8, -2
-  %9 = inttoptr i64 %and.i to ptr
-  store ptr %9, ptr %mLastSegment.i, align 8
+  store i64 %and.i, ptr %mLastSegment.i, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %4) #8
-  %10 = load ptr, ptr %mLastSegment.i, align 8
-  %tobool5.not.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %mLastSegment.i, align 8
+  %tobool5.not.i = icmp eq ptr %9, null
   br i1 %tobool5.not.i, label %if.else.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
-  %11 = load i64, ptr %10, align 8
-  %or.i = or i64 %11, 1
-  store i64 %or.i, ptr %10, align 8
-  %12 = load ptr, ptr %mLastSegment.i, align 8
-  %13 = getelementptr inbounds %"class.eastl::segment.4", ptr %12, i64 0, i32 1
-  store i64 16, ptr %13, align 8
+  %10 = load i64, ptr %9, align 8
+  %or.i = or i64 %10, 1
+  store i64 %or.i, ptr %9, align 8
+  %11 = load ptr, ptr %mLastSegment.i, align 8
+  %12 = getelementptr inbounds %"class.eastl::segment.4", ptr %11, i64 0, i32 1
+  store i64 16, ptr %12, align 8
   br label %_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE8pop_backEv.exit
 
 if.else.i:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
@@ -1627,20 +1622,19 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %if.end
   store i64 %dec2.i, ptr %mSegmentCount.i, align 8
   %12 = load i64, ptr %6, align 8
   %and.i = and i64 %12, -2
-  %13 = inttoptr i64 %and.i to ptr
-  store ptr %13, ptr %mLastSegment.i, align 8
+  store i64 %and.i, ptr %mLastSegment.i, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %6) #8
-  %14 = load ptr, ptr %mLastSegment.i, align 8
-  %tobool5.not.i = icmp eq ptr %14, null
+  %13 = load ptr, ptr %mLastSegment.i, align 8
+  %tobool5.not.i = icmp eq ptr %13, null
   br i1 %tobool5.not.i, label %if.else.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
-  %15 = load i64, ptr %14, align 8
-  %or.i = or i64 %15, 1
-  store i64 %or.i, ptr %14, align 8
-  %16 = load ptr, ptr %mLastSegment.i, align 8
-  %17 = getelementptr inbounds %"class.eastl::segment.4", ptr %16, i64 0, i32 1
-  store i64 16, ptr %17, align 8
+  %14 = load i64, ptr %13, align 8
+  %or.i = or i64 %14, 1
+  store i64 %or.i, ptr %13, align 8
+  %15 = load ptr, ptr %mLastSegment.i, align 8
+  %16 = getelementptr inbounds %"class.eastl::segment.4", ptr %15, i64 0, i32 1
+  store i64 16, ptr %16, align 8
   br label %_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE8pop_backEv.exit
 
 if.else.i:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
@@ -2197,20 +2191,19 @@ _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %entry
   store i64 %dec2, ptr %mSegmentCount, align 8
   %4 = load i64, ptr %0, align 64
   %and = and i64 %4, -2
-  %5 = inttoptr i64 %and to ptr
-  store ptr %5, ptr %mLastSegment, align 8
+  store i64 %and, ptr %mLastSegment, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %0) #8
-  %6 = load ptr, ptr %mLastSegment, align 8
-  %tobool5.not = icmp eq ptr %6, null
+  %5 = load ptr, ptr %mLastSegment, align 8
+  %tobool5.not = icmp eq ptr %5, null
   br i1 %tobool5.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit
-  %7 = load i64, ptr %6, align 64
-  %or = or i64 %7, 1
-  store i64 %or, ptr %6, align 64
-  %8 = load ptr, ptr %mLastSegment, align 8
-  %9 = getelementptr inbounds %"class.eastl::segment.9", ptr %8, i64 0, i32 1
-  store i64 16, ptr %9, align 8
+  %6 = load i64, ptr %5, align 64
+  %or = or i64 %6, 1
+  store i64 %or, ptr %5, align 64
+  %7 = load ptr, ptr %mLastSegment, align 8
+  %8 = getelementptr inbounds %"class.eastl::segment.9", ptr %7, i64 0, i32 1
+  store i64 16, ptr %8, align 8
   br label %if.end10
 
 if.else:                                          ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit
@@ -2248,20 +2241,19 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %entry
   store i64 %dec2.i, ptr %mSegmentCount.i, align 8
   %8 = load i64, ptr %4, align 64
   %and.i = and i64 %8, -2
-  %9 = inttoptr i64 %and.i to ptr
-  store ptr %9, ptr %mLastSegment.i, align 8
+  store i64 %and.i, ptr %mLastSegment.i, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %4) #8
-  %10 = load ptr, ptr %mLastSegment.i, align 8
-  %tobool5.not.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %mLastSegment.i, align 8
+  %tobool5.not.i = icmp eq ptr %9, null
   br i1 %tobool5.not.i, label %if.else.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
-  %11 = load i64, ptr %10, align 64
-  %or.i = or i64 %11, 1
-  store i64 %or.i, ptr %10, align 64
-  %12 = load ptr, ptr %mLastSegment.i, align 8
-  %13 = getelementptr inbounds %"class.eastl::segment.9", ptr %12, i64 0, i32 1
-  store i64 16, ptr %13, align 8
+  %10 = load i64, ptr %9, align 64
+  %or.i = or i64 %10, 1
+  store i64 %or.i, ptr %9, align 64
+  %11 = load ptr, ptr %mLastSegment.i, align 8
+  %12 = getelementptr inbounds %"class.eastl::segment.9", ptr %11, i64 0, i32 1
+  store i64 16, ptr %12, align 8
   br label %_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE8pop_backEv.exit
 
 if.else.i:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
@@ -2317,20 +2309,19 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %if.end
   store i64 %dec2.i, ptr %mSegmentCount.i, align 8
   %12 = load i64, ptr %6, align 64
   %and.i = and i64 %12, -2
-  %13 = inttoptr i64 %and.i to ptr
-  store ptr %13, ptr %mLastSegment.i, align 8
+  store i64 %and.i, ptr %mLastSegment.i, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %6) #8
-  %14 = load ptr, ptr %mLastSegment.i, align 8
-  %tobool5.not.i = icmp eq ptr %14, null
+  %13 = load ptr, ptr %mLastSegment.i, align 8
+  %tobool5.not.i = icmp eq ptr %13, null
   br i1 %tobool5.not.i, label %if.else.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
-  %15 = load i64, ptr %14, align 64
-  %or.i = or i64 %15, 1
-  store i64 %or.i, ptr %14, align 64
-  %16 = load ptr, ptr %mLastSegment.i, align 8
-  %17 = getelementptr inbounds %"class.eastl::segment.9", ptr %16, i64 0, i32 1
-  store i64 16, ptr %17, align 8
+  %14 = load i64, ptr %13, align 64
+  %or.i = or i64 %14, 1
+  store i64 %or.i, ptr %13, align 64
+  %15 = load ptr, ptr %mLastSegment.i, align 8
+  %16 = getelementptr inbounds %"class.eastl::segment.9", ptr %15, i64 0, i32 1
+  store i64 16, ptr %16, align 8
   br label %_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE8pop_backEv.exit
 
 if.else.i:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
@@ -2994,20 +2985,19 @@ _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %_ZN10TestObjectD2Ev
   store i64 %dec2, ptr %mSegmentCount, align 8
   %9 = load i64, ptr %0, align 8
   %and = and i64 %9, -2
-  %10 = inttoptr i64 %and to ptr
-  store ptr %10, ptr %mLastSegment, align 8
+  store i64 %and, ptr %mLastSegment, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %0) #8
-  %11 = load ptr, ptr %mLastSegment, align 8
-  %tobool5.not = icmp eq ptr %11, null
+  %10 = load ptr, ptr %mLastSegment, align 8
+  %tobool5.not = icmp eq ptr %10, null
   br i1 %tobool5.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit
-  %12 = load i64, ptr %11, align 8
-  %or = or i64 %12, 1
-  store i64 %or, ptr %11, align 8
-  %13 = load ptr, ptr %mLastSegment, align 8
-  %14 = getelementptr inbounds %"class.eastl::segment.14", ptr %13, i64 0, i32 1
-  store i64 16, ptr %14, align 8
+  %11 = load i64, ptr %10, align 8
+  %or = or i64 %11, 1
+  store i64 %or, ptr %10, align 8
+  %12 = load ptr, ptr %mLastSegment, align 8
+  %13 = getelementptr inbounds %"class.eastl::segment.14", ptr %12, i64 0, i32 1
+  store i64 16, ptr %13, align 8
   br label %if.end10
 
 if.else:                                          ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit
@@ -3088,20 +3078,19 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %_ZN10TestObjectD2Ev
   store i64 %dec2.i, ptr %mSegmentCount.i, align 8
   %16 = load i64, ptr %8, align 8
   %and.i = and i64 %16, -2
-  %17 = inttoptr i64 %and.i to ptr
-  store ptr %17, ptr %mLastSegment.i, align 8
+  store i64 %and.i, ptr %mLastSegment.i, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %8) #8
-  %18 = load ptr, ptr %mLastSegment.i, align 8
-  %tobool5.not.i = icmp eq ptr %18, null
+  %17 = load ptr, ptr %mLastSegment.i, align 8
+  %tobool5.not.i = icmp eq ptr %17, null
   br i1 %tobool5.not.i, label %if.else.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
-  %19 = load i64, ptr %18, align 8
-  %or.i = or i64 %19, 1
-  store i64 %or.i, ptr %18, align 8
-  %20 = load ptr, ptr %mLastSegment.i, align 8
-  %21 = getelementptr inbounds %"class.eastl::segment.14", ptr %20, i64 0, i32 1
-  store i64 16, ptr %21, align 8
+  %18 = load i64, ptr %17, align 8
+  %or.i = or i64 %18, 1
+  store i64 %or.i, ptr %17, align 8
+  %19 = load ptr, ptr %mLastSegment.i, align 8
+  %20 = getelementptr inbounds %"class.eastl::segment.14", ptr %19, i64 0, i32 1
+  store i64 16, ptr %20, align 8
   br label %_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE8pop_backEv.exit
 
 if.else.i:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
@@ -3198,20 +3187,19 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %_ZN10TestObjectD2Ev
   store i64 %dec2.i, ptr %mSegmentCount.i, align 8
   %21 = load i64, ptr %9, align 8
   %and.i = and i64 %21, -2
-  %22 = inttoptr i64 %and.i to ptr
-  store ptr %22, ptr %mLastSegment.i, align 8
+  store i64 %and.i, ptr %mLastSegment.i, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %9) #8
-  %23 = load ptr, ptr %mLastSegment.i, align 8
-  %tobool5.not.i = icmp eq ptr %23, null
+  %22 = load ptr, ptr %mLastSegment.i, align 8
+  %tobool5.not.i = icmp eq ptr %22, null
   br i1 %tobool5.not.i, label %if.else.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
-  %24 = load i64, ptr %23, align 8
-  %or.i = or i64 %24, 1
-  store i64 %or.i, ptr %23, align 8
-  %25 = load ptr, ptr %mLastSegment.i, align 8
-  %26 = getelementptr inbounds %"class.eastl::segment.14", ptr %25, i64 0, i32 1
-  store i64 16, ptr %26, align 8
+  %23 = load i64, ptr %22, align 8
+  %or.i = or i64 %23, 1
+  store i64 %or.i, ptr %22, align 8
+  %24 = load ptr, ptr %mLastSegment.i, align 8
+  %25 = getelementptr inbounds %"class.eastl::segment.14", ptr %24, i64 0, i32 1
+  store i64 16, ptr %25, align 8
   br label %_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE8pop_backEv.exit
 
 if.else.i:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
@@ -3953,19 +3941,18 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %invoke.cont146
   store i64 %dec2.i, ptr %mSegmentCount.i249, align 8
   %114 = load i64, ptr %102, align 8
   %and.i368 = and i64 %114, -2
-  %115 = inttoptr i64 %and.i368 to ptr
-  store ptr %115, ptr %mLastSegment.i.i223, align 8
+  store i64 %and.i368, ptr %mLastSegment.i.i223, align 8
   call void @_ZdaPv(ptr noundef nonnull %102) #8
-  %116 = load ptr, ptr %mLastSegment.i.i223, align 8
-  %tobool5.not.i = icmp eq ptr %116, null
+  %115 = load ptr, ptr %mLastSegment.i.i223, align 8
+  %tobool5.not.i = icmp eq ptr %115, null
   br i1 %tobool5.not.i, label %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE8pop_backEv.exit.thread, label %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE8pop_backEv.exit.thread444
 
 _ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE8pop_backEv.exit.thread444: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
-  %117 = load i64, ptr %116, align 8
-  %or.i = or i64 %117, 1
-  store i64 %or.i, ptr %116, align 8
-  %118 = getelementptr inbounds %"class.eastl::segment.27", ptr %116, i64 0, i32 1
-  store i64 4, ptr %118, align 8
+  %116 = load i64, ptr %115, align 8
+  %or.i = or i64 %116, 1
+  store i64 %or.i, ptr %115, align 8
+  %117 = getelementptr inbounds %"class.eastl::segment.27", ptr %115, i64 0, i32 1
+  store i64 4, ptr %117, align 8
   br label %if.then.i373
 
 _ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE8pop_backEv.exit.thread: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i
@@ -3978,51 +3965,51 @@ _ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE8pop_backEv.exit: ; preds = %inv
   br i1 %tobool.not.i372, label %_ZNK5eastl16segmented_vectorIiLm4ENS_9allocatorEE4sizeEv.exit379, label %if.then.i373
 
 if.then.i373:                                     ; preds = %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE8pop_backEv.exit.thread444, %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE8pop_backEv.exit
-  %.pr447 = phi ptr [ %116, %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE8pop_backEv.exit.thread444 ], [ %.pr.pre, %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE8pop_backEv.exit ]
-  %119 = load i64, ptr %mSegmentCount.i249, align 8
-  %sub.i375 = shl i64 %119, 2
+  %.pr447 = phi ptr [ %115, %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE8pop_backEv.exit.thread444 ], [ %.pr.pre, %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE8pop_backEv.exit ]
+  %118 = load i64, ptr %mSegmentCount.i249, align 8
+  %sub.i375 = shl i64 %118, 2
   %mul.i376 = add i64 %sub.i375, -4
-  %120 = getelementptr inbounds %"class.eastl::segment.27", ptr %.pr447, i64 0, i32 1
-  %121 = load i64, ptr %120, align 8
-  %add.i377 = add i64 %mul.i376, %121
-  %122 = icmp eq i64 %add.i377, 4
+  %119 = getelementptr inbounds %"class.eastl::segment.27", ptr %.pr447, i64 0, i32 1
+  %120 = load i64, ptr %119, align 8
+  %add.i377 = add i64 %mul.i376, %120
+  %121 = icmp eq i64 %add.i377, 4
   br label %_ZNK5eastl16segmented_vectorIiLm4ENS_9allocatorEE4sizeEv.exit379
 
 _ZNK5eastl16segmented_vectorIiLm4ENS_9allocatorEE4sizeEv.exit379: ; preds = %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE8pop_backEv.exit.thread, %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE8pop_backEv.exit, %if.then.i373
-  %123 = phi ptr [ %.pr447, %if.then.i373 ], [ null, %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE8pop_backEv.exit ], [ null, %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE8pop_backEv.exit.thread ]
-  %retval.0.i378 = phi i1 [ %122, %if.then.i373 ], [ false, %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE8pop_backEv.exit ], [ false, %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE8pop_backEv.exit.thread ]
+  %122 = phi ptr [ %.pr447, %if.then.i373 ], [ null, %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE8pop_backEv.exit ], [ null, %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE8pop_backEv.exit.thread ]
+  %retval.0.i378 = phi i1 [ %121, %if.then.i373 ], [ false, %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE8pop_backEv.exit ], [ false, %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE8pop_backEv.exit.thread ]
   %call153 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i378, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 79, ptr noundef nonnull @.str.19)
           to label %invoke.cont152 unwind label %lpad98
 
 invoke.cont152:                                   ; preds = %_ZNK5eastl16segmented_vectorIiLm4ENS_9allocatorEE4sizeEv.exit379
-  %124 = load i64, ptr %mSegmentCount.i249, align 8
-  %cmp156 = icmp eq i64 %124, 1
+  %123 = load i64, ptr %mSegmentCount.i249, align 8
+  %cmp156 = icmp eq i64 %123, 1
   %call158 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp156, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 80, ptr noundef nonnull @.str.13)
           to label %invoke.cont157 unwind label %lpad98
 
 invoke.cont157:                                   ; preds = %invoke.cont152
-  %125 = load ptr, ptr %mFirstSegment.i222, align 8
-  %tobool.not.i382 = icmp eq ptr %125, null
+  %124 = load ptr, ptr %mFirstSegment.i222, align 8
+  %tobool.not.i382 = icmp eq ptr %124, null
   br i1 %tobool.not.i382, label %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE5clearEv.exit, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %invoke.cont157
-  %cmp.not12.i = icmp eq ptr %125, %123
+  %cmp.not12.i = icmp eq ptr %124, %122
   br i1 %cmp.not12.i, label %delete.notnull.i10.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i384
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i384:    ; preds = %while.cond.preheader.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i384
-  %segment.013.i = phi ptr [ %127, %_ZN5eastl9allocator10deallocateEPvm.exit.i384 ], [ %125, %while.cond.preheader.i ]
-  %126 = getelementptr inbounds %"class.eastl::segment.27", ptr %segment.013.i, i64 0, i32 1
-  %127 = load ptr, ptr %126, align 8
+  %segment.013.i = phi ptr [ %126, %_ZN5eastl9allocator10deallocateEPvm.exit.i384 ], [ %124, %while.cond.preheader.i ]
+  %125 = getelementptr inbounds %"class.eastl::segment.27", ptr %segment.013.i, i64 0, i32 1
+  %126 = load ptr, ptr %125, align 8
   call void @_ZdaPv(ptr noundef nonnull %segment.013.i) #8
-  %cmp.not.i = icmp eq ptr %127, %123
+  %cmp.not.i = icmp eq ptr %126, %122
   br i1 %cmp.not.i, label %while.end.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i384, !llvm.loop !27
 
 while.end.i:                                      ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i384
-  %isnull.i9.i = icmp eq ptr %123, null
+  %isnull.i9.i = icmp eq ptr %122, null
   br i1 %isnull.i9.i, label %_ZN5eastl9allocator10deallocateEPvm.exit11.i, label %delete.notnull.i10.i
 
 delete.notnull.i10.i:                             ; preds = %while.end.i, %while.cond.preheader.i
-  call void @_ZdaPv(ptr noundef nonnull %123) #8
+  call void @_ZdaPv(ptr noundef nonnull %122) #8
   br label %_ZN5eastl9allocator10deallocateEPvm.exit11.i
 
 _ZN5eastl9allocator10deallocateEPvm.exit11.i:     ; preds = %delete.notnull.i10.i, %while.end.i
@@ -4030,31 +4017,31 @@ _ZN5eastl9allocator10deallocateEPvm.exit11.i:     ; preds = %delete.notnull.i10.
   br label %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE5clearEv.exit
 
 _ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE5clearEv.exit: ; preds = %invoke.cont157, %_ZN5eastl9allocator10deallocateEPvm.exit11.i
-  %128 = phi i64 [ %124, %invoke.cont157 ], [ 0, %_ZN5eastl9allocator10deallocateEPvm.exit11.i ]
-  %129 = phi ptr [ %123, %invoke.cont157 ], [ null, %_ZN5eastl9allocator10deallocateEPvm.exit11.i ]
+  %127 = phi i64 [ %123, %invoke.cont157 ], [ 0, %_ZN5eastl9allocator10deallocateEPvm.exit11.i ]
+  %128 = phi ptr [ %122, %invoke.cont157 ], [ null, %_ZN5eastl9allocator10deallocateEPvm.exit11.i ]
   %call163 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 83, ptr noundef nonnull @.str.9)
           to label %invoke.cont162 unwind label %lpad98
 
 invoke.cont162:                                   ; preds = %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE5clearEv.exit
-  %tobool.not.i388 = icmp eq ptr %129, null
+  %tobool.not.i388 = icmp eq ptr %128, null
   br i1 %tobool.not.i388, label %_ZNK5eastl16segmented_vectorIiLm4ENS_9allocatorEE4sizeEv.exit395, label %if.then.i389
 
 if.then.i389:                                     ; preds = %invoke.cont162
-  %sub.i391 = shl i64 %128, 2
+  %sub.i391 = shl i64 %127, 2
   %mul.i392 = add i64 %sub.i391, -4
-  %130 = getelementptr inbounds %"class.eastl::segment.27", ptr %129, i64 0, i32 1
-  %131 = load i64, ptr %130, align 8
-  %add.i393 = sub i64 0, %131
-  %132 = icmp eq i64 %mul.i392, %add.i393
+  %129 = getelementptr inbounds %"class.eastl::segment.27", ptr %128, i64 0, i32 1
+  %130 = load i64, ptr %129, align 8
+  %add.i393 = sub i64 0, %130
+  %131 = icmp eq i64 %mul.i392, %add.i393
   br label %_ZNK5eastl16segmented_vectorIiLm4ENS_9allocatorEE4sizeEv.exit395
 
 _ZNK5eastl16segmented_vectorIiLm4ENS_9allocatorEE4sizeEv.exit395: ; preds = %invoke.cont162, %if.then.i389
-  %retval.0.i394 = phi i1 [ %132, %if.then.i389 ], [ true, %invoke.cont162 ]
+  %retval.0.i394 = phi i1 [ %131, %if.then.i389 ], [ true, %invoke.cont162 ]
   %call168 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i394, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 84, ptr noundef nonnull @.str.20)
           to label %invoke.cont167 unwind label %lpad98
 
 invoke.cont167:                                   ; preds = %_ZNK5eastl16segmented_vectorIiLm4ENS_9allocatorEE4sizeEv.exit395
-  %cmp171 = icmp eq i64 %128, 0
+  %cmp171 = icmp eq i64 %127, 0
   %call173 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp171, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 85, ptr noundef nonnull @.str.21)
           to label %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEED2Ev.exit unwind label %lpad98
 
@@ -4063,13 +4050,13 @@ _ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEED2Ev.exit: ; preds = %invoke.con
   ret i32 %.pre
 
 lpad:                                             ; preds = %if.else8.i.i72, %if.else.i.i61, %if.else.i.i36, %if.else.i.i11, %if.else8.i.i, %_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEv.exit195, %_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEv.exit179, %_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEv.exit, %invoke.cont45, %invoke.cont35, %invoke.cont31, %invoke.cont24, %invoke.cont17, %invoke.cont11
-  %133 = landingpad { ptr, i32 }
+  %132 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl16segmented_vectorIiLm8ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %sv) #9
   br label %eh.resume
 
 lpad81:                                           ; preds = %invoke.cont88, %invoke.cont84, %invoke.cont80
-  %134 = landingpad { ptr, i32 }
+  %133 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl16segmented_vectorINS_4listI10TestObjectNS_9allocatorEEELm8ES3_E5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %vectorOfListOfTO)
   call void @_ZN5eastl16segmented_vectorI10TestObjectLm8ENS_9allocatorEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %vectorOfTO)
@@ -4077,13 +4064,13 @@ lpad81:                                           ; preds = %invoke.cont88, %inv
   br label %eh.resume
 
 lpad98:                                           ; preds = %if.else.i.i331, %if.else8.i.i317, %if.else.i.i306, %if.else.i.i281, %if.else.i.i256, %if.else8.i.i238, %invoke.cont167, %_ZNK5eastl16segmented_vectorIiLm4ENS_9allocatorEE4sizeEv.exit395, %_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEE5clearEv.exit, %invoke.cont152, %_ZNK5eastl16segmented_vectorIiLm4ENS_9allocatorEE4sizeEv.exit379, %invoke.cont141, %invoke.cont136, %invoke.cont131, %_ZNK5eastl16segmented_vectorIiLm4ENS_9allocatorEE4sizeEv.exit360, %invoke.cont109, %invoke.cont104, %_ZNK5eastl16segmented_vectorIiLm4ENS_9allocatorEE4sizeEv.exit
-  %135 = landingpad { ptr, i32 }
+  %134 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl16segmented_vectorIiLm4ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %vectorOfInt95) #9
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad98, %lpad81, %lpad
-  %.pn3 = phi { ptr, i32 } [ %135, %lpad98 ], [ %134, %lpad81 ], [ %133, %lpad ]
+  %.pn3 = phi { ptr, i32 } [ %134, %lpad98 ], [ %133, %lpad81 ], [ %132, %lpad ]
   resume { ptr, i32 } %.pn3
 }
 

@@ -1418,17 +1418,16 @@ entry:
   br i1 %cmp.not, label %_ZNKSt14default_deleteIN2v88platform7tracing11TraceObjectEEclEPS3_.exit.i3, label %if.end.thread
 
 if.end.thread:                                    ; preds = %entry
-  %2 = ptrtoint ptr %call to i64
   %metadata_events_mutex_.i = getelementptr inbounds %"class.node::tracing::Agent", ptr %call7, i64 0, i32 11
   tail call void @uv_mutex_lock(ptr noundef nonnull %metadata_events_mutex_.i) #14
   %metadata_events_.i = getelementptr inbounds %"class.node::tracing::Agent", ptr %call7, i64 0, i32 12
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
   %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 1
-  store i64 %2, ptr %_M_storage.i.i.i.i.i, align 8
+  store ptr %call, ptr %_M_storage.i.i.i.i.i, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i, ptr noundef nonnull %metadata_events_.i) #14
   %_M_size.i.i.i.i = getelementptr inbounds %"class.node::tracing::Agent", ptr %call7, i64 0, i32 12, i32 0, i32 0, i32 0, i32 1
-  %3 = load i64, ptr %_M_size.i.i.i.i, align 8
-  %add.i.i.i.i = add i64 %3, 1
+  %2 = load i64, ptr %_M_size.i.i.i.i, align 8
+  %add.i.i.i.i = add i64 %2, 1
   store i64 %add.i.i.i.i, ptr %_M_size.i.i.i.i, align 8
   tail call void @uv_mutex_unlock(ptr noundef nonnull %metadata_events_mutex_.i) #14
   br label %_ZNSt10unique_ptrIN2v88platform7tracing11TraceObjectESt14default_deleteIS3_EED2Ev.exit4

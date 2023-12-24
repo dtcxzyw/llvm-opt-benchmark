@@ -2272,8 +2272,7 @@ entry:
   store ptr %function, ptr %function.addr, align 8
   store i32 %id, ptr %ref.tmp, align 8
   %filename = getelementptr inbounds %"struct.hermes::Module::CJSModule", ptr %ref.tmp, i64 0, i32 1
-  %.cast = ptrtoint ptr %name.coerce to i64
-  store i64 %.cast, ptr %filename, align 8
+  store ptr %name.coerce, ptr %filename, align 8
   %function3 = getelementptr inbounds %"struct.hermes::Module::CJSModule", ptr %ref.tmp, i64 0, i32 2
   store ptr %function, ptr %function3, align 8
   %_M_finish.i = getelementptr inbounds %"class.hermes::Module", ptr %this, i64 0, i32 18, i32 0, i32 0, i32 0, i32 3
@@ -2323,7 +2322,8 @@ _ZNSt5dequeIN6hermes6Module9CJSModuleESaIS2_EE4backEv.exit: ; preds = %if.end.i,
   br i1 %cmp.i.i.i2, label %if.end.i4, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNSt5dequeIN6hermes6Module9CJSModuleESaIS2_EE4backEv.exit
-  %conv.i.i.i.i.i.i = trunc i64 %.cast to i32
+  %10 = ptrtoint ptr %name.coerce to i64
+  %conv.i.i.i.i.i.i = trunc i64 %10 to i32
   %shr.i.i.i.i.i.i = lshr i32 %conv.i.i.i.i.i.i, 4
   %shr2.i.i.i.i.i.i = lshr i32 %conv.i.i.i.i.i.i, 9
   %xor.i.i.i.i.i.i = xor i32 %shr.i.i.i.i.i.i, %shr2.i.i.i.i.i.i
@@ -2366,41 +2366,41 @@ if.end21.i.i.i:                                   ; preds = %if.end13.i.i.i
 if.end.i4:                                        ; preds = %if.then20.i.i.i, %_ZNSt5dequeIN6hermes6Module9CJSModuleESaIS2_EE4backEv.exit
   %cond.sink.i.i.i = phi ptr [ %cond.i.i.i, %if.then20.i.i.i ], [ null, %_ZNSt5dequeIN6hermes6Module9CJSModuleESaIS2_EE4backEv.exit ]
   %call.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E20InsertIntoBucketImplIS3_EEPS8_RKS3_RKT_SC_(ptr noundef nonnull align 1 dereferenceable(1) %cjsModuleFilenameMap_, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr noundef %cond.sink.i.i.i), !noalias !32
-  %10 = load i64, ptr %name, align 8, !noalias !32
-  store i64 %10, ptr %call.i.i, align 8, !noalias !32
+  %11 = load i64, ptr %name, align 8, !noalias !32
+  store i64 %11, ptr %call.i.i, align 8, !noalias !32
   %second.i.i2.i = getelementptr inbounds %"struct.std::pair.300", ptr %call.i.i, i64 0, i32 1
   store i32 %id, ptr %second.i.i2.i, align 4, !noalias !32
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E11try_emplaceIJRjEEESt4pairINS_16DenseMapIteratorIS3_jS5_S8_Lb0EEEbERKS3_DpOT_.exit
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E11try_emplaceIJRjEEESt4pairINS_16DenseMapIteratorIS3_jS5_S8_Lb0EEEbERKS3_DpOT_.exit: ; preds = %if.end21.i.i.i, %if.end.i.i.i, %if.end.i4
   %cjsModuleFunctionMap_ = getelementptr inbounds %"class.hermes::Module", ptr %this, i64 0, i32 19
-  %11 = load ptr, ptr %cjsModuleFunctionMap_, align 8, !noalias !36
+  %12 = load ptr, ptr %cjsModuleFunctionMap_, align 8, !noalias !36
   %NumBuckets.i.i.i.i.i5 = getelementptr inbounds %"class.hermes::Module", ptr %this, i64 0, i32 19, i32 3
-  %12 = load i32, ptr %NumBuckets.i.i.i.i.i5, align 8, !noalias !36
-  %cmp.i.i.i6 = icmp eq i32 %12, 0
+  %13 = load i32, ptr %NumBuckets.i.i.i.i.i5, align 8, !noalias !36
+  %cmp.i.i.i6 = icmp eq i32 %13, 0
   br i1 %cmp.i.i.i6, label %if.end.i31, label %if.end.i.i.i7
 
 if.end.i.i.i7:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E11try_emplaceIJRjEEESt4pairINS_16DenseMapIteratorIS3_jS5_S8_Lb0EEEbERKS3_DpOT_.exit
-  %13 = ptrtoint ptr %function to i64
-  %conv.i.i.i.i.i = trunc i64 %13 to i32
+  %14 = ptrtoint ptr %function to i64
+  %conv.i.i.i.i.i = trunc i64 %14 to i32
   %shr.i.i.i.i.i = lshr i32 %conv.i.i.i.i.i, 4
   %shr2.i.i.i.i.i = lshr i32 %conv.i.i.i.i.i, 9
   %xor.i.i.i.i.i = xor i32 %shr.i.i.i.i.i, %shr2.i.i.i.i.i
-  %sub.i.i.i8 = add i32 %12, -1
+  %sub.i.i.i8 = add i32 %13, -1
   %BucketNo.019.i.i.i9 = and i32 %xor.i.i.i.i.i, %sub.i.i.i8
   %idx.ext20.i.i.i10 = zext nneg i32 %BucketNo.019.i.i.i9 to i64
-  %add.ptr21.i.i.i11 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.303", ptr %11, i64 %idx.ext20.i.i.i10
-  %14 = load ptr, ptr %add.ptr21.i.i.i11, align 8, !noalias !36
-  %cmp.i22.i.i.i = icmp eq ptr %14, %function
+  %add.ptr21.i.i.i11 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.303", ptr %12, i64 %idx.ext20.i.i.i10
+  %15 = load ptr, ptr %add.ptr21.i.i.i11, align 8, !noalias !36
+  %cmp.i22.i.i.i = icmp eq ptr %15, %function
   br i1 %cmp.i22.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbERKS4_DpOT_.exit, label %if.end9.i.i.i
 
 if.end9.i.i.i:                                    ; preds = %if.end.i.i.i7, %if.end13.i.i.i13
-  %15 = phi ptr [ %16, %if.end13.i.i.i13 ], [ %14, %if.end.i.i.i7 ]
+  %16 = phi ptr [ %17, %if.end13.i.i.i13 ], [ %15, %if.end.i.i.i7 ]
   %add.ptr26.i.i.i = phi ptr [ %add.ptr.i.i.i20, %if.end13.i.i.i13 ], [ %add.ptr21.i.i.i11, %if.end.i.i.i7 ]
   %BucketNo.025.i.i.i = phi i32 [ %BucketNo.0.i.i.i18, %if.end13.i.i.i13 ], [ %BucketNo.019.i.i.i9, %if.end.i.i.i7 ]
   %ProbeAmt.024.i.i.i12 = phi i32 [ %inc.i.i.i16, %if.end13.i.i.i13 ], [ 1, %if.end.i.i.i7 ]
   %FoundTombstone.023.i.i.i = phi ptr [ %spec.select.i.i.i15, %if.end13.i.i.i13 ], [ null, %if.end.i.i.i7 ]
-  %cmp.i15.i.i.i = icmp eq ptr %15, inttoptr (i64 -8 to ptr)
+  %cmp.i15.i.i.i = icmp eq ptr %16, inttoptr (i64 -8 to ptr)
   br i1 %cmp.i15.i.i.i, label %if.then12.i.i.i, label %if.end13.i.i.i13
 
 if.then12.i.i.i:                                  ; preds = %if.end9.i.i.i
@@ -2409,7 +2409,7 @@ if.then12.i.i.i:                                  ; preds = %if.end9.i.i.i
   br label %if.end.i31
 
 if.end13.i.i.i13:                                 ; preds = %if.end9.i.i.i
-  %cmp.i16.i.i.i = icmp eq ptr %15, inttoptr (i64 -16 to ptr)
+  %cmp.i16.i.i.i = icmp eq ptr %16, inttoptr (i64 -16 to ptr)
   %tobool16.i.i.i = icmp eq ptr %FoundTombstone.023.i.i.i, null
   %or.cond.not.i.i.i14 = select i1 %cmp.i16.i.i.i, i1 %tobool16.i.i.i, i1 false
   %spec.select.i.i.i15 = select i1 %or.cond.not.i.i.i14, ptr %add.ptr26.i.i.i, ptr %FoundTombstone.023.i.i.i
@@ -2417,45 +2417,45 @@ if.end13.i.i.i13:                                 ; preds = %if.end9.i.i.i
   %add.i.i.i17 = add i32 %ProbeAmt.024.i.i.i12, %BucketNo.025.i.i.i
   %BucketNo.0.i.i.i18 = and i32 %add.i.i.i17, %sub.i.i.i8
   %idx.ext.i.i.i19 = zext i32 %BucketNo.0.i.i.i18 to i64
-  %add.ptr.i.i.i20 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.303", ptr %11, i64 %idx.ext.i.i.i19
-  %16 = load ptr, ptr %add.ptr.i.i.i20, align 8, !noalias !36
-  %cmp.i.i.i.i = icmp eq ptr %16, %function
+  %add.ptr.i.i.i20 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.303", ptr %12, i64 %idx.ext.i.i.i19
+  %17 = load ptr, ptr %add.ptr.i.i.i20, align 8, !noalias !36
+  %cmp.i.i.i.i = icmp eq ptr %17, %function
   br i1 %cmp.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbERKS4_DpOT_.exit, label %if.end9.i.i.i, !llvm.loop !39
 
 if.end.i31:                                       ; preds = %if.then12.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E11try_emplaceIJRjEEESt4pairINS_16DenseMapIteratorIS3_jS5_S8_Lb0EEEbERKS3_DpOT_.exit
   %cond.sink.i.i.i32 = phi ptr [ %cond.i.i.i30, %if.then12.i.i.i ], [ null, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E11try_emplaceIJRjEEESt4pairINS_16DenseMapIteratorIS3_jS5_S8_Lb0EEEbERKS3_DpOT_.exit ]
   %call.i.i33 = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E20InsertIntoBucketImplIS4_EEPSC_RKS4_RKT_SG_(ptr noundef nonnull align 1 dereferenceable(1) %cjsModuleFunctionMap_, ptr noundef nonnull align 8 dereferenceable(8) %function.addr, ptr noundef nonnull align 8 dereferenceable(8) %function.addr, ptr noundef %cond.sink.i.i.i32), !noalias !36
-  %17 = load ptr, ptr %function.addr, align 8, !noalias !36
-  store ptr %17, ptr %call.i.i33, align 8, !noalias !36
+  %18 = load ptr, ptr %function.addr, align 8, !noalias !36
+  store ptr %18, ptr %call.i.i33, align 8, !noalias !36
   %second.i.i2.i34 = getelementptr inbounds %"struct.std::pair.304", ptr %call.i.i33, i64 0, i32 1
   store ptr %incdec.ptr.i.i, ptr %second.i.i2.i34, align 8, !noalias !36
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbERKS4_DpOT_.exit
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbERKS4_DpOT_.exit: ; preds = %if.end13.i.i.i13, %if.end.i.i.i7, %if.end.i31
   %cjsModuleSegmentMap_ = getelementptr inbounds %"class.hermes::Module", ptr %this, i64 0, i32 21
-  %18 = load ptr, ptr %cjsModuleSegmentMap_, align 8
+  %19 = load ptr, ptr %cjsModuleSegmentMap_, align 8
   %NumBuckets.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::Module", ptr %this, i64 0, i32 21, i32 3
-  %19 = load i32, ptr %NumBuckets.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i35 = icmp eq i32 %19, 0
+  %20 = load i32, ptr %NumBuckets.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i35 = icmp eq i32 %20, 0
   br i1 %cmp.i.i.i.i35, label %if.end.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbERKS4_DpOT_.exit
   %mul.i.i.i.i.i.i = mul i32 %segmentID, 37
-  %sub.i.i.i.i = add i32 %19, -1
+  %sub.i.i.i.i = add i32 %20, -1
   %BucketNo.019.i.i.i.i = and i32 %mul.i.i.i.i.i.i, %sub.i.i.i.i
   %idx.ext20.i.i.i.i = zext i32 %BucketNo.019.i.i.i.i to i64
-  %add.ptr21.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.306", ptr %18, i64 %idx.ext20.i.i.i.i
-  %20 = load i32, ptr %add.ptr21.i.i.i.i, align 4
-  %cmp.i22.i.i.i.i = icmp eq i32 %20, %segmentID
+  %add.ptr21.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.306", ptr %19, i64 %idx.ext20.i.i.i.i
+  %21 = load i32, ptr %add.ptr21.i.i.i.i, align 4
+  %cmp.i22.i.i.i.i = icmp eq i32 %21, %segmentID
   br i1 %cmp.i22.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIjSt6vectorIPN6hermes8FunctionESaIS5_EENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_EixERKj.exit, label %if.end9.i.i.i.i
 
 if.end9.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %if.end13.i.i.i.i
-  %21 = phi i32 [ %22, %if.end13.i.i.i.i ], [ %20, %if.end.i.i.i.i ]
+  %22 = phi i32 [ %23, %if.end13.i.i.i.i ], [ %21, %if.end.i.i.i.i ]
   %add.ptr26.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i36, %if.end13.i.i.i.i ], [ %add.ptr21.i.i.i.i, %if.end.i.i.i.i ]
   %BucketNo.025.i.i.i.i = phi i32 [ %BucketNo.0.i.i.i.i, %if.end13.i.i.i.i ], [ %BucketNo.019.i.i.i.i, %if.end.i.i.i.i ]
   %ProbeAmt.024.i.i.i.i = phi i32 [ %inc.i.i.i.i, %if.end13.i.i.i.i ], [ 1, %if.end.i.i.i.i ]
   %FoundTombstone.023.i.i.i.i = phi ptr [ %spec.select.i.i.i.i, %if.end13.i.i.i.i ], [ null, %if.end.i.i.i.i ]
-  %cmp.i15.i.i.i.i = icmp eq i32 %21, -1
+  %cmp.i15.i.i.i.i = icmp eq i32 %22, -1
   br i1 %cmp.i15.i.i.i.i, label %if.then12.i.i.i.i, label %if.end13.i.i.i.i
 
 if.then12.i.i.i.i:                                ; preds = %if.end9.i.i.i.i
@@ -2464,7 +2464,7 @@ if.then12.i.i.i.i:                                ; preds = %if.end9.i.i.i.i
   br label %if.end.i.i
 
 if.end13.i.i.i.i:                                 ; preds = %if.end9.i.i.i.i
-  %cmp.i16.i.i.i.i = icmp eq i32 %21, -2
+  %cmp.i16.i.i.i.i = icmp eq i32 %22, -2
   %tobool16.i.i.i.i = icmp eq ptr %FoundTombstone.023.i.i.i.i, null
   %or.cond.not.i.i.i.i = select i1 %cmp.i16.i.i.i.i, i1 %tobool16.i.i.i.i, i1 false
   %spec.select.i.i.i.i = select i1 %or.cond.not.i.i.i.i, ptr %add.ptr26.i.i.i.i, ptr %FoundTombstone.023.i.i.i.i
@@ -2472,16 +2472,16 @@ if.end13.i.i.i.i:                                 ; preds = %if.end9.i.i.i.i
   %add.i.i.i.i = add i32 %ProbeAmt.024.i.i.i.i, %BucketNo.025.i.i.i.i
   %BucketNo.0.i.i.i.i = and i32 %add.i.i.i.i, %sub.i.i.i.i
   %idx.ext.i.i.i.i = zext i32 %BucketNo.0.i.i.i.i to i64
-  %add.ptr.i.i.i.i36 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.306", ptr %18, i64 %idx.ext.i.i.i.i
-  %22 = load i32, ptr %add.ptr.i.i.i.i36, align 4
-  %cmp.i.i.i.i.i37 = icmp eq i32 %22, %segmentID
+  %add.ptr.i.i.i.i36 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.306", ptr %19, i64 %idx.ext.i.i.i.i
+  %23 = load i32, ptr %add.ptr.i.i.i.i36, align 4
+  %cmp.i.i.i.i.i37 = icmp eq i32 %23, %segmentID
   br i1 %cmp.i.i.i.i.i37, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIjSt6vectorIPN6hermes8FunctionESaIS5_EENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_EixERKj.exit, label %if.end9.i.i.i.i, !llvm.loop !40
 
 if.end.i.i:                                       ; preds = %if.then12.i.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbERKS4_DpOT_.exit
   %cond.sink.i.i.i.i = phi ptr [ %cond.i.i.i.i, %if.then12.i.i.i.i ], [ null, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbERKS4_DpOT_.exit ]
   %call.i.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIjSt6vectorIPN6hermes8FunctionESaIS5_EENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E20InsertIntoBucketImplIjEEPSC_RKjRKT_SG_(ptr noundef nonnull align 1 dereferenceable(1) %cjsModuleSegmentMap_, ptr noundef nonnull align 4 dereferenceable(4) %segmentID.addr, ptr noundef nonnull align 4 dereferenceable(4) %segmentID.addr, ptr noundef %cond.sink.i.i.i.i)
-  %23 = load i32, ptr %segmentID.addr, align 4
-  store i32 %23, ptr %call.i.i.i, align 4
+  %24 = load i32, ptr %segmentID.addr, align 4
+  store i32 %24, ptr %call.i.i.i, align 4
   %second.i.i.i.i = getelementptr inbounds %"struct.std::pair.307", ptr %call.i.i.i, i64 0, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i.i, i8 0, i64 24, i1 false)
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIjSt6vectorIPN6hermes8FunctionESaIS5_EENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_EixERKj.exit
@@ -2490,24 +2490,24 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIjSt6vectorIPN6hermes8FunctionESaIS5_EENS_12D
   %retval.0.i.i = phi ptr [ %call.i.i.i, %if.end.i.i ], [ %add.ptr21.i.i.i.i, %if.end.i.i.i.i ], [ %add.ptr.i.i.i.i36, %if.end13.i.i.i.i ]
   %second.i = getelementptr inbounds %"struct.std::pair.307", ptr %retval.0.i.i, i64 0, i32 1
   %_M_finish.i38 = getelementptr inbounds %"struct.std::pair.307", ptr %retval.0.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %24 = load ptr, ptr %_M_finish.i38, align 8
+  %25 = load ptr, ptr %_M_finish.i38, align 8
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::pair.307", ptr %retval.0.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %25 = load ptr, ptr %_M_end_of_storage.i, align 8
-  %cmp.not.i39 = icmp eq ptr %24, %25
+  %26 = load ptr, ptr %_M_end_of_storage.i, align 8
+  %cmp.not.i39 = icmp eq ptr %25, %26
   br i1 %cmp.not.i39, label %if.else.i43, label %if.then.i40
 
 if.then.i40:                                      ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIjSt6vectorIPN6hermes8FunctionESaIS5_EENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_EixERKj.exit
-  %26 = load ptr, ptr %function.addr, align 8
-  store ptr %26, ptr %24, align 8
-  %27 = load ptr, ptr %_M_finish.i38, align 8
-  %incdec.ptr.i41 = getelementptr inbounds ptr, ptr %27, i64 1
+  %27 = load ptr, ptr %function.addr, align 8
+  store ptr %27, ptr %25, align 8
+  %28 = load ptr, ptr %_M_finish.i38, align 8
+  %incdec.ptr.i41 = getelementptr inbounds ptr, ptr %28, i64 1
   store ptr %incdec.ptr.i41, ptr %_M_finish.i38, align 8
   br label %_ZNSt6vectorIPN6hermes8FunctionESaIS2_EE9push_backERKS2_.exit
 
 if.else.i43:                                      ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIjSt6vectorIPN6hermes8FunctionESaIS5_EENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_EixERKj.exit
-  %28 = load ptr, ptr %second.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %24 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %28 to i64
+  %29 = load ptr, ptr %second.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %25 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %29 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i44 = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i44, label %if.then.i.i.i50, label %_ZNKSt6vectorIPN6hermes8FunctionESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -2535,22 +2535,22 @@ _ZNSt16allocator_traitsISaIPN6hermes8FunctionEEE8allocateERS3_m.exit.i.i.i: ; pr
 _ZNSt12_Vector_baseIPN6hermes8FunctionESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIPN6hermes8FunctionEEE8allocateERS3_m.exit.i.i.i, %_ZNKSt6vectorIPN6hermes8FunctionESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %cond.i10.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNSt16allocator_traitsISaIPN6hermes8FunctionEEE8allocateERS3_m.exit.i.i.i ], [ null, %_ZNKSt6vectorIPN6hermes8FunctionESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i47 = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
-  %29 = load ptr, ptr %function.addr, align 8
-  store ptr %29, ptr %add.ptr.i.i47, align 8
+  %30 = load ptr, ptr %function.addr, align 8
+  store ptr %30, ptr %add.ptr.i.i47, align 8
   %cmp.i.i.i11.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
   br i1 %cmp.i.i.i11.i.i, label %if.then.i.i.i12.i.i, label %_ZNSt6vectorIPN6hermes8FunctionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i
 
 if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_baseIPN6hermes8FunctionESaIS2_EE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %28, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %29, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIPN6hermes8FunctionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i
 
 _ZNSt6vectorIPN6hermes8FunctionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPN6hermes8FunctionESaIS2_EE11_M_allocateEm.exit.i.i
   %incdec.ptr.i.i48 = getelementptr inbounds ptr, ptr %add.ptr.i.i47, i64 1
-  %tobool.not.i.i.i49 = icmp eq ptr %28, null
+  %tobool.not.i.i.i49 = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i49, label %_ZNSt6vectorIPN6hermes8FunctionESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i21.i.i
 
 if.then.i21.i.i:                                  ; preds = %_ZNSt6vectorIPN6hermes8FunctionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i
-  call void @_ZdlPv(ptr noundef nonnull %28) #18
+  call void @_ZdlPv(ptr noundef nonnull %29) #18
   br label %_ZNSt6vectorIPN6hermes8FunctionESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN6hermes8FunctionESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i21.i.i, %_ZNSt6vectorIPN6hermes8FunctionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i
@@ -3255,18 +3255,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -4729,20 +4728,19 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit: ; 
   %25 = load ptr, ptr %excludedItems, align 8
   %conv.i3.i = zext i32 %24 to i64
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %25, i64 %conv.i3.i
-  %26 = ptrtoint ptr %call57 to i64
-  store i64 %26, ptr %add.ptr.i.i, align 1
-  %27 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %add.i = add i32 %27, 1
+  store ptr %call57, ptr %add.ptr.i.i, align 1
+  %26 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %add.i = add i32 %26, 1
   store i32 %add.i, ptr %Size.i.i.i.i.i, align 8
   call void @_ZN6hermes5irgen11ESTreeIRGen10createLRefEPNS_6ESTree4NodeEb(ptr nonnull sret(%"class.hermes::irgen::LReference") align 8 %lref, ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %valueNode.0, i1 noundef zeroext %declInit)
   %call62 = call noundef ptr @_ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(40) %Builder78, ptr noundef %source, ptr %21) #15
-  %28 = icmp eq ptr %call62, null
+  %27 = icmp eq ptr %call62, null
   %add.ptr64 = getelementptr inbounds i8, ptr %call62, i64 16
-  %spec.select1 = select i1 %28, ptr null, ptr %add.ptr64
+  %spec.select1 = select i1 %27, ptr null, ptr %add.ptr64
   %call69 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen26emitOptionalInitializationEPNS_5ValueEPNS_6ESTree4NodeENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %spec.select1, ptr noundef %init.0, ptr %nameHint.sroa.0.0)
-  %29 = load ptr, ptr %irgen_.i.i, align 8
-  %30 = load i32, ptr %lref, align 8
-  switch i32 %30, label %sw.epilog.i [
+  %28 = load ptr, ptr %irgen_.i.i, align 8
+  %29 = load i32, ptr %lref, align 8
+  switch i32 %29, label %sw.epilog.i [
     i32 0, label %for.inc
     i32 1, label %sw.bb2.i
     i32 2, label %sw.bb4.i
@@ -4751,60 +4749,60 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit: ; 
   ]
 
 sw.bb2.i:                                         ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit
-  %Builder.i.i = getelementptr inbounds %"class.hermes::irgen::ESTreeIRGen", ptr %29, i64 0, i32 1
-  %31 = load ptr, ptr %9, align 8
-  %32 = load ptr, ptr %property_.i, align 8
-  %call3.i = call noundef ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i.i, ptr noundef %call69, ptr noundef %31, ptr noundef %32) #15
+  %Builder.i.i = getelementptr inbounds %"class.hermes::irgen::ESTreeIRGen", ptr %28, i64 0, i32 1
+  %30 = load ptr, ptr %9, align 8
+  %31 = load ptr, ptr %property_.i, align 8
+  %call3.i = call noundef ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i.i, ptr noundef %call69, ptr noundef %30, ptr noundef %31) #15
   br label %for.inc
 
 sw.bb4.i:                                         ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit
-  %33 = load ptr, ptr %9, align 8
-  %34 = load i8, ptr %declInit_10.i, align 8
-  %35 = and i8 %34, 1
-  %tobool.i = icmp ne i8 %35, 0
-  %call6.i = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen9emitStoreEPNS_5ValueES3_b(ptr noundef nonnull align 8 dereferenceable(200) %29, ptr noundef %call69, ptr noundef %33, i1 noundef zeroext %tobool.i)
+  %32 = load ptr, ptr %9, align 8
+  %33 = load i8, ptr %declInit_10.i, align 8
+  %34 = and i8 %33, 1
+  %tobool.i = icmp ne i8 %34, 0
+  %call6.i = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen9emitStoreEPNS_5ValueES3_b(ptr noundef nonnull align 8 dereferenceable(200) %28, ptr noundef %call69, ptr noundef %32, i1 noundef zeroext %tobool.i)
   br label %for.inc
 
 sw.bb8.i:                                         ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit
-  %36 = load i8, ptr %declInit_10.i, align 8
-  %37 = and i8 %36, 1
-  %tobool11.i = icmp ne i8 %37, 0
-  %38 = load ptr, ptr %9, align 8
+  %35 = load i8, ptr %declInit_10.i, align 8
+  %36 = and i8 %35, 1
+  %tobool11.i = icmp ne i8 %36, 0
+  %37 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %38, i64 0, i32 1
-  %39 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %39, 92
-  %tobool.not.i98 = icmp eq ptr %38, null
+  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %37, i64 0, i32 1
+  %38 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %38, 92
+  %tobool.not.i98 = icmp eq ptr %37, null
   %tobool.not.i = or i1 %tobool.not.i98, %cmp.i.i.i.i.i.i.i.i
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i63
 
 if.then.i63:                                      ; preds = %sw.bb8.i
-  call void @_ZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %29, i1 noundef zeroext %tobool11.i, ptr noundef nonnull %38, ptr noundef %call69)
+  call void @_ZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %28, i1 noundef zeroext %tobool11.i, ptr noundef nonnull %37, ptr noundef %call69)
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit
 
 if.else.i:                                        ; preds = %sw.bb8.i
-  %cmp.i.i.i.i.i.i.i8.i = icmp ne i32 %39, 91
+  %cmp.i.i.i.i.i.i.i8.i = icmp ne i32 %38, 91
   %tobool4.not.i = or i1 %tobool.not.i98, %cmp.i.i.i.i.i.i.i8.i
   br i1 %tobool4.not.i, label %if.else7.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.else.i
-  call void @_ZN6hermes5irgen11ESTreeIRGen23emitDestructuringObjectEbPNS_6ESTree17ObjectPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %29, i1 noundef zeroext %tobool11.i, ptr noundef nonnull %38, ptr noundef %call69)
+  call void @_ZN6hermes5irgen11ESTreeIRGen23emitDestructuringObjectEbPNS_6ESTree17ObjectPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %28, i1 noundef zeroext %tobool11.i, ptr noundef nonnull %37, ptr noundef %call69)
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit
 
 if.else7.i:                                       ; preds = %if.else.i
-  %40 = load ptr, ptr %29, align 8
-  %Ctx.i.i = getelementptr inbounds %"class.hermes::Module", ptr %40, i64 0, i32 1
-  %41 = load ptr, ptr %Ctx.i.i, align 8
-  %sm_.i.i = getelementptr inbounds %"class.hermes::Context", ptr %41, i64 0, i32 6
-  %42 = load ptr, ptr %sm_.i.i, align 8
-  %sourceRange_.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %38, i64 0, i32 3
+  %39 = load ptr, ptr %28, align 8
+  %Ctx.i.i = getelementptr inbounds %"class.hermes::Module", ptr %39, i64 0, i32 1
+  %40 = load ptr, ptr %Ctx.i.i, align 8
+  %sm_.i.i = getelementptr inbounds %"class.hermes::Context", ptr %40, i64 0, i32 6
+  %41 = load ptr, ptr %sm_.i.i, align 8
+  %sourceRange_.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %37, i64 0, i32 3
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %sourceRange_.i.i, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %38, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %37, i64 0, i32 3, i32 1
   %retval.sroa.2.0.copyload.i.i = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i.i, align 8
   store i8 1, ptr %RHSKind.i.i, align 1
   store ptr @.str.23, ptr %ref.tmp.i, align 8
   store i8 3, ptr %LHSKind.i.i, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %42, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i, i32 noundef 0) #15
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %41, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i, i32 noundef 0) #15
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit
 
 _ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit: ; preds = %if.then.i63, %if.then5.i, %if.else7.i
@@ -4816,9 +4814,9 @@ sw.epilog.i:                                      ; preds = %_ZN4llvh23SmallVect
 
 if.else:                                          ; preds = %land.lhs.true, %cond.end
   %call74 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen13genExpressionEPNS_6ESTree4NodeENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %17, ptr null) #15
-  %43 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %44 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
-  %cmp.not.i38 = icmp ult i32 %43, %44
+  %42 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %43 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
+  %cmp.not.i38 = icmp ult i32 %42, %43
   br i1 %cmp.not.i38, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit45, label %if.then.i39
 
 if.then.i39:                                      ; preds = %if.else
@@ -4827,24 +4825,23 @@ if.then.i39:                                      ; preds = %if.else
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit45
 
 _ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit45: ; preds = %if.else, %if.then.i39
-  %45 = phi i32 [ %.pre.i41, %if.then.i39 ], [ %43, %if.else ]
-  %46 = load ptr, ptr %excludedItems, align 8
-  %conv.i3.i42 = zext i32 %45 to i64
-  %add.ptr.i.i43 = getelementptr inbounds ptr, ptr %46, i64 %conv.i3.i42
-  %47 = ptrtoint ptr %call74 to i64
-  store i64 %47, ptr %add.ptr.i.i43, align 1
-  %48 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %add.i44 = add i32 %48, 1
+  %44 = phi i32 [ %.pre.i41, %if.then.i39 ], [ %42, %if.else ]
+  %45 = load ptr, ptr %excludedItems, align 8
+  %conv.i3.i42 = zext i32 %44 to i64
+  %add.ptr.i.i43 = getelementptr inbounds ptr, ptr %45, i64 %conv.i3.i42
+  store ptr %call74, ptr %add.ptr.i.i43, align 1
+  %46 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %add.i44 = add i32 %46, 1
   store i32 %add.i44, ptr %Size.i.i.i.i.i, align 8
   call void @_ZN6hermes5irgen11ESTreeIRGen10createLRefEPNS_6ESTree4NodeEb(ptr nonnull sret(%"class.hermes::irgen::LReference") align 8 %lref75, ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %valueNode.0, i1 noundef zeroext %declInit)
   %call79 = call noundef ptr @_ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueES2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder78, ptr noundef %source, ptr noundef %call74) #15
-  %49 = icmp eq ptr %call79, null
+  %47 = icmp eq ptr %call79, null
   %add.ptr81 = getelementptr inbounds i8, ptr %call79, i64 16
-  %spec.select2 = select i1 %49, ptr null, ptr %add.ptr81
+  %spec.select2 = select i1 %47, ptr null, ptr %add.ptr81
   %call87 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen26emitOptionalInitializationEPNS_5ValueEPNS_6ESTree4NodeENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %spec.select2, ptr noundef %init.0, ptr %nameHint.sroa.0.0)
-  %50 = load ptr, ptr %irgen_.i.i46, align 8
-  %51 = load i32, ptr %lref75, align 8
-  switch i32 %51, label %sw.epilog.i60 [
+  %48 = load ptr, ptr %irgen_.i.i46, align 8
+  %49 = load i32, ptr %lref75, align 8
+  switch i32 %49, label %sw.epilog.i60 [
     i32 0, label %for.inc
     i32 1, label %sw.bb2.i57
     i32 2, label %sw.bb4.i52
@@ -4853,60 +4850,60 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit45: 
   ]
 
 sw.bb2.i57:                                       ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit45
-  %Builder.i.i47 = getelementptr inbounds %"class.hermes::irgen::ESTreeIRGen", ptr %50, i64 0, i32 1
-  %52 = load ptr, ptr %8, align 8
-  %53 = load ptr, ptr %property_.i58, align 8
-  %call3.i59 = call noundef ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i.i47, ptr noundef %call87, ptr noundef %52, ptr noundef %53) #15
+  %Builder.i.i47 = getelementptr inbounds %"class.hermes::irgen::ESTreeIRGen", ptr %48, i64 0, i32 1
+  %50 = load ptr, ptr %8, align 8
+  %51 = load ptr, ptr %property_.i58, align 8
+  %call3.i59 = call noundef ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i.i47, ptr noundef %call87, ptr noundef %50, ptr noundef %51) #15
   br label %for.inc
 
 sw.bb4.i52:                                       ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit45
-  %54 = load ptr, ptr %8, align 8
-  %55 = load i8, ptr %declInit_10.i50, align 8
-  %56 = and i8 %55, 1
-  %tobool.i55 = icmp ne i8 %56, 0
-  %call6.i56 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen9emitStoreEPNS_5ValueES3_b(ptr noundef nonnull align 8 dereferenceable(200) %50, ptr noundef %call87, ptr noundef %54, i1 noundef zeroext %tobool.i55)
+  %52 = load ptr, ptr %8, align 8
+  %53 = load i8, ptr %declInit_10.i50, align 8
+  %54 = and i8 %53, 1
+  %tobool.i55 = icmp ne i8 %54, 0
+  %call6.i56 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen9emitStoreEPNS_5ValueES3_b(ptr noundef nonnull align 8 dereferenceable(200) %48, ptr noundef %call87, ptr noundef %52, i1 noundef zeroext %tobool.i55)
   br label %for.inc
 
 sw.bb8.i48:                                       ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit45
-  %57 = load i8, ptr %declInit_10.i50, align 8
-  %58 = and i8 %57, 1
-  %tobool11.i51 = icmp ne i8 %58, 0
-  %59 = load ptr, ptr %8, align 8
+  %55 = load i8, ptr %declInit_10.i50, align 8
+  %56 = and i8 %55, 1
+  %tobool11.i51 = icmp ne i8 %56, 0
+  %57 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i64)
-  %kind_.i.i.i.i.i.i.i.i.i65 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %59, i64 0, i32 1
-  %60 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i65, align 8
-  %cmp.i.i.i.i.i.i.i.i66 = icmp ne i32 %60, 92
-  %tobool.not.i6896 = icmp eq ptr %59, null
+  %kind_.i.i.i.i.i.i.i.i.i65 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %57, i64 0, i32 1
+  %58 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i65, align 8
+  %cmp.i.i.i.i.i.i.i.i66 = icmp ne i32 %58, 92
+  %tobool.not.i6896 = icmp eq ptr %57, null
   %tobool.not.i68 = or i1 %tobool.not.i6896, %cmp.i.i.i.i.i.i.i.i66
   br i1 %tobool.not.i68, label %if.else.i70, label %if.then.i69
 
 if.then.i69:                                      ; preds = %sw.bb8.i48
-  call void @_ZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %50, i1 noundef zeroext %tobool11.i51, ptr noundef nonnull %59, ptr noundef %call87)
+  call void @_ZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %48, i1 noundef zeroext %tobool11.i51, ptr noundef nonnull %57, ptr noundef %call87)
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit87
 
 if.else.i70:                                      ; preds = %sw.bb8.i48
-  %cmp.i.i.i.i.i.i.i8.i72 = icmp ne i32 %60, 91
+  %cmp.i.i.i.i.i.i.i8.i72 = icmp ne i32 %58, 91
   %tobool4.not.i74 = or i1 %tobool.not.i6896, %cmp.i.i.i.i.i.i.i8.i72
   br i1 %tobool4.not.i74, label %if.else7.i76, label %if.then5.i75
 
 if.then5.i75:                                     ; preds = %if.else.i70
-  call void @_ZN6hermes5irgen11ESTreeIRGen23emitDestructuringObjectEbPNS_6ESTree17ObjectPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %50, i1 noundef zeroext %tobool11.i51, ptr noundef nonnull %59, ptr noundef %call87)
+  call void @_ZN6hermes5irgen11ESTreeIRGen23emitDestructuringObjectEbPNS_6ESTree17ObjectPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %48, i1 noundef zeroext %tobool11.i51, ptr noundef nonnull %57, ptr noundef %call87)
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit87
 
 if.else7.i76:                                     ; preds = %if.else.i70
-  %61 = load ptr, ptr %50, align 8
-  %Ctx.i.i77 = getelementptr inbounds %"class.hermes::Module", ptr %61, i64 0, i32 1
-  %62 = load ptr, ptr %Ctx.i.i77, align 8
-  %sm_.i.i78 = getelementptr inbounds %"class.hermes::Context", ptr %62, i64 0, i32 6
-  %63 = load ptr, ptr %sm_.i.i78, align 8
-  %sourceRange_.i.i79 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %59, i64 0, i32 3
+  %59 = load ptr, ptr %48, align 8
+  %Ctx.i.i77 = getelementptr inbounds %"class.hermes::Module", ptr %59, i64 0, i32 1
+  %60 = load ptr, ptr %Ctx.i.i77, align 8
+  %sm_.i.i78 = getelementptr inbounds %"class.hermes::Context", ptr %60, i64 0, i32 6
+  %61 = load ptr, ptr %sm_.i.i78, align 8
+  %sourceRange_.i.i79 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %57, i64 0, i32 3
   %retval.sroa.0.0.copyload.i.i80 = load ptr, ptr %sourceRange_.i.i79, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i81 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %59, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i81 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %57, i64 0, i32 3, i32 1
   %retval.sroa.2.0.copyload.i.i82 = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i.i81, align 8
   store i8 1, ptr %RHSKind.i.i86, align 1
   store ptr @.str.23, ptr %ref.tmp.i64, align 8
   store i8 3, ptr %LHSKind.i.i85, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %63, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i80, ptr %retval.sroa.2.0.copyload.i.i82, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i64, i32 noundef 0) #15
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %61, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i80, ptr %retval.sroa.2.0.copyload.i.i82, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i64, i32 noundef 0) #15
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit87
 
 _ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit87: ; preds = %if.then.i69, %if.then5.i75, %if.else7.i76
@@ -4923,12 +4920,12 @@ for.inc:                                          ; preds = %_ZN6hermes5irgen11E
   br i1 %cmp.i28.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %if.end, %if.then36
-  %64 = load ptr, ptr %excludedItems, align 8
-  %cmp.i.i.i = icmp eq ptr %64, %add.ptr.i.i.i.i.i
+  %62 = load ptr, ptr %excludedItems, align 8
+  %cmp.i.i.i = icmp eq ptr %62, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIPN6hermes5ValueELj4EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.end
-  call void @free(ptr noundef %64) #15
+  call void @free(ptr noundef %62) #15
   br label %_ZN4llvh11SmallVectorIPN6hermes5ValueELj4EED2Ev.exit
 
 _ZN4llvh11SmallVectorIPN6hermes5ValueELj4EED2Ev.exit: ; preds = %for.end, %if.then.i.i
@@ -5620,10 +5617,9 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit: ; 
   %8 = load ptr, ptr %computedExcludedItems, align 8
   %conv.i3.i = zext i32 %7 to i64
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %8, i64 %conv.i3.i
-  %9 = ptrtoint ptr %3 to i64
-  store i64 %9, ptr %add.ptr.i.i, align 1
-  %10 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %add.i = add i32 %10, 1
+  store ptr %3, ptr %add.ptr.i.i, align 1
+  %9 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %add.i = add i32 %9, 1
   store i32 %add.i, ptr %Size.i.i.i.i.i, align 8
   br label %for.inc
 
@@ -5634,8 +5630,8 @@ for.inc:                                          ; preds = %if.then, %_ZN4llvh2
 
 for.end:                                          ; preds = %for.inc
   %.pre = load i32, ptr %Size.i, align 8
-  %11 = icmp eq i32 %.pre, 0
-  br i1 %11, label %if.then8, label %if.else11
+  %10 = icmp eq i32 %.pre, 0
+  br i1 %10, label %if.then8, label %if.else11
 
 if.then8:                                         ; preds = %entry, %for.end
   %call10 = call noundef ptr @_ZN6hermes9IRBuilder19getLiteralUndefinedEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder) #15
@@ -5643,45 +5639,45 @@ if.then8:                                         ; preds = %entry, %for.end
 
 if.else11:                                        ; preds = %for.end
   %_M_finish.i.i = getelementptr inbounds %"class.llvh::SetVector", ptr %literalExcludedItems, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %12 = load ptr, ptr %_M_finish.i.i, align 8
-  %13 = load ptr, ptr %vector_.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %13 to i64
+  %11 = load ptr, ptr %_M_finish.i.i, align 8
+  %12 = load ptr, ptr %vector_.i, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
-  %14 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %15 = trunc i64 %sub.ptr.div.i.i to i32
-  %conv = add i32 %14, %15
+  %13 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %14 = trunc i64 %sub.ptr.div.i.i to i32
+  %conv = add i32 %13, %14
   %call16 = call noundef ptr @_ZN6hermes9IRBuilder14getLiteralNullEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder) #15
   %call17 = call noundef ptr @_ZN6hermes9IRBuilder21createAllocObjectInstEjPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, i32 noundef %conv, ptr noundef %call16) #15
-  %16 = icmp eq ptr %call17, null
+  %15 = icmp eq ptr %call17, null
   %add.ptr = getelementptr inbounds i8, ptr %call17, i64 16
-  %spec.select = select i1 %16, ptr null, ptr %add.ptr
-  %17 = load ptr, ptr %vector_.i, align 8
-  %18 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i.not38 = icmp eq ptr %17, %18
+  %spec.select = select i1 %15, ptr null, ptr %add.ptr
+  %16 = load ptr, ptr %vector_.i, align 8
+  %17 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp.i.not38 = icmp eq ptr %16, %17
   br i1 %cmp.i.not38, label %for.end30, label %for.body23
 
 for.body23:                                       ; preds = %if.else11, %for.body23
-  %__begin3.sroa.0.039 = phi ptr [ %incdec.ptr.i, %for.body23 ], [ %17, %if.else11 ]
-  %19 = load ptr, ptr %__begin3.sroa.0.039, align 8
-  %call27 = call noundef ptr @_ZN6hermes9IRBuilder29createStoreNewOwnPropertyInstEPNS_5ValueES2_PNS_7LiteralENS0_14PropEnumerableE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call, ptr noundef %spec.select, ptr noundef %19, i32 noundef 1) #15
+  %__begin3.sroa.0.039 = phi ptr [ %incdec.ptr.i, %for.body23 ], [ %16, %if.else11 ]
+  %18 = load ptr, ptr %__begin3.sroa.0.039, align 8
+  %call27 = call noundef ptr @_ZN6hermes9IRBuilder29createStoreNewOwnPropertyInstEPNS_5ValueES2_PNS_7LiteralENS0_14PropEnumerableE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call, ptr noundef %spec.select, ptr noundef %18, i32 noundef 1) #15
   %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin3.sroa.0.039, i64 1
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %18
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %17
   br i1 %cmp.i.not, label %for.end30, label %for.body23
 
 for.end30:                                        ; preds = %for.body23, %if.else11
-  %20 = load ptr, ptr %computedExcludedItems, align 8
-  %21 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %conv.i21 = zext i32 %21 to i64
-  %add.ptr.i65 = getelementptr inbounds ptr, ptr %20, i64 %conv.i21
-  %cmp37.not40 = icmp eq i32 %21, 0
+  %19 = load ptr, ptr %computedExcludedItems, align 8
+  %20 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %conv.i21 = zext i32 %20 to i64
+  %add.ptr.i65 = getelementptr inbounds ptr, ptr %19, i64 %conv.i21
+  %cmp37.not40 = icmp eq i32 %20, 0
   br i1 %cmp37.not40, label %if.end45, label %for.body38
 
 for.body38:                                       ; preds = %for.end30, %for.body38
-  %__begin332.041 = phi ptr [ %incdec.ptr43, %for.body38 ], [ %20, %for.end30 ]
-  %22 = load ptr, ptr %__begin332.041, align 8
-  %call41 = call noundef ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call, ptr noundef %spec.select, ptr noundef %22) #15
+  %__begin332.041 = phi ptr [ %incdec.ptr43, %for.body38 ], [ %19, %for.end30 ]
+  %21 = load ptr, ptr %__begin332.041, align 8
+  %call41 = call noundef ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call, ptr noundef %spec.select, ptr noundef %21) #15
   %incdec.ptr43 = getelementptr inbounds ptr, ptr %__begin332.041, i64 1
   %cmp37.not = icmp eq ptr %incdec.ptr43, %add.ptr.i65
   br i1 %cmp37.not, label %if.end45, label %for.body38
@@ -5689,22 +5685,22 @@ for.body38:                                       ; preds = %for.end30, %for.bod
 if.end45:                                         ; preds = %for.body38, %for.end30, %if.then8
   %excludedObj.0 = phi ptr [ %call10, %if.then8 ], [ %spec.select, %for.end30 ], [ %spec.select, %for.body38 ]
   %call49 = call noundef ptr @_ZN6hermes9IRBuilder21createAllocObjectInstEjPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, i32 noundef 0, ptr noundef null) #15
-  %23 = icmp eq ptr %call49, null
+  %22 = icmp eq ptr %call49, null
   %add.ptr51 = getelementptr inbounds i8, ptr %call49, i64 16
-  %spec.select1 = select i1 %23, ptr null, ptr %add.ptr51
+  %spec.select1 = select i1 %22, ptr null, ptr %add.ptr51
   store ptr %spec.select1, ptr %ref.tmp47, align 8
   %arrayinit.element = getelementptr inbounds ptr, ptr %ref.tmp47, i64 1
   store ptr %source, ptr %arrayinit.element, align 8
   %arrayinit.element54 = getelementptr inbounds ptr, ptr %ref.tmp47, i64 2
   store ptr %excludedObj.0, ptr %arrayinit.element54, align 8
   %call.i = call noundef ptr @_ZN6hermes9IRBuilder21createCallBuiltinInstENS_13BuiltinMethod4EnumEN4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, i8 noundef zeroext 44, ptr nonnull %ref.tmp47, i64 3) #15
-  %24 = icmp eq ptr %call.i, null
+  %23 = icmp eq ptr %call.i, null
   %add.ptr.i24 = getelementptr inbounds i8, ptr %call.i, i64 16
-  %spec.select.i25 = select i1 %24, ptr null, ptr %add.ptr.i24
+  %spec.select.i25 = select i1 %23, ptr null, ptr %add.ptr.i24
   %irgen_.i.i = getelementptr inbounds %"class.hermes::irgen::LReference", ptr %lref, i64 0, i32 1
-  %25 = load ptr, ptr %irgen_.i.i, align 8
-  %26 = load i32, ptr %lref, align 8
-  switch i32 %26, label %sw.epilog.i [
+  %24 = load ptr, ptr %irgen_.i.i, align 8
+  %25 = load i32, ptr %lref, align 8
+  switch i32 %25, label %sw.epilog.i [
     i32 0, label %_ZN6hermes5irgen10LReference9emitStoreEPNS_5ValueE.exit
     i32 1, label %sw.bb2.i
     i32 2, label %sw.bb4.i
@@ -5713,68 +5709,68 @@ if.end45:                                         ; preds = %for.body38, %for.en
   ]
 
 sw.bb2.i:                                         ; preds = %if.end45
-  %Builder.i.i = getelementptr inbounds %"class.hermes::irgen::ESTreeIRGen", ptr %25, i64 0, i32 1
-  %27 = getelementptr inbounds %"class.hermes::irgen::LReference", ptr %lref, i64 0, i32 3
-  %28 = load ptr, ptr %27, align 8
+  %Builder.i.i = getelementptr inbounds %"class.hermes::irgen::ESTreeIRGen", ptr %24, i64 0, i32 1
+  %26 = getelementptr inbounds %"class.hermes::irgen::LReference", ptr %lref, i64 0, i32 3
+  %27 = load ptr, ptr %26, align 8
   %property_.i = getelementptr inbounds %"class.hermes::irgen::LReference", ptr %lref, i64 0, i32 3, i32 0, i32 1
-  %29 = load ptr, ptr %property_.i, align 8
-  %call3.i = call noundef ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i.i, ptr noundef %spec.select.i25, ptr noundef %28, ptr noundef %29) #15
+  %28 = load ptr, ptr %property_.i, align 8
+  %call3.i = call noundef ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i.i, ptr noundef %spec.select.i25, ptr noundef %27, ptr noundef %28) #15
   br label %_ZN6hermes5irgen10LReference9emitStoreEPNS_5ValueE.exit
 
 sw.bb4.i:                                         ; preds = %if.end45
-  %30 = getelementptr inbounds %"class.hermes::irgen::LReference", ptr %lref, i64 0, i32 3
-  %31 = load ptr, ptr %30, align 8
+  %29 = getelementptr inbounds %"class.hermes::irgen::LReference", ptr %lref, i64 0, i32 3
+  %30 = load ptr, ptr %29, align 8
   %declInit_.i = getelementptr inbounds %"class.hermes::irgen::LReference", ptr %lref, i64 0, i32 2
-  %32 = load i8, ptr %declInit_.i, align 8
-  %33 = and i8 %32, 1
-  %tobool.i = icmp ne i8 %33, 0
-  %call6.i = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen9emitStoreEPNS_5ValueES3_b(ptr noundef nonnull align 8 dereferenceable(200) %25, ptr noundef %spec.select.i25, ptr noundef %31, i1 noundef zeroext %tobool.i)
+  %31 = load i8, ptr %declInit_.i, align 8
+  %32 = and i8 %31, 1
+  %tobool.i = icmp ne i8 %32, 0
+  %call6.i = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen9emitStoreEPNS_5ValueES3_b(ptr noundef nonnull align 8 dereferenceable(200) %24, ptr noundef %spec.select.i25, ptr noundef %30, i1 noundef zeroext %tobool.i)
   br label %_ZN6hermes5irgen10LReference9emitStoreEPNS_5ValueE.exit
 
 sw.bb8.i:                                         ; preds = %if.end45
   %declInit_10.i = getelementptr inbounds %"class.hermes::irgen::LReference", ptr %lref, i64 0, i32 2
-  %34 = load i8, ptr %declInit_10.i, align 8
-  %35 = and i8 %34, 1
-  %tobool11.i = icmp ne i8 %35, 0
-  %36 = getelementptr inbounds %"class.hermes::irgen::LReference", ptr %lref, i64 0, i32 3
-  %37 = load ptr, ptr %36, align 8
+  %33 = load i8, ptr %declInit_10.i, align 8
+  %34 = and i8 %33, 1
+  %tobool11.i = icmp ne i8 %34, 0
+  %35 = getelementptr inbounds %"class.hermes::irgen::LReference", ptr %lref, i64 0, i32 3
+  %36 = load ptr, ptr %35, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %37, i64 0, i32 1
-  %38 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %38, 92
-  %tobool.not.i2834 = icmp eq ptr %37, null
+  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %36, i64 0, i32 1
+  %37 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %37, 92
+  %tobool.not.i2834 = icmp eq ptr %36, null
   %tobool.not.i28 = or i1 %tobool.not.i2834, %cmp.i.i.i.i.i.i.i.i
   br i1 %tobool.not.i28, label %if.else.i, label %if.then.i29
 
 if.then.i29:                                      ; preds = %sw.bb8.i
-  call void @_ZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %25, i1 noundef zeroext %tobool11.i, ptr noundef nonnull %37, ptr noundef %spec.select.i25)
+  call void @_ZN6hermes5irgen11ESTreeIRGen22emitDestructuringArrayEbPNS_6ESTree16ArrayPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %24, i1 noundef zeroext %tobool11.i, ptr noundef nonnull %36, ptr noundef %spec.select.i25)
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit
 
 if.else.i:                                        ; preds = %sw.bb8.i
-  %cmp.i.i.i.i.i.i.i8.i = icmp ne i32 %38, 91
+  %cmp.i.i.i.i.i.i.i8.i = icmp ne i32 %37, 91
   %tobool4.not.i = or i1 %tobool.not.i2834, %cmp.i.i.i.i.i.i.i8.i
   br i1 %tobool4.not.i, label %if.else7.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.else.i
-  call void @_ZN6hermes5irgen11ESTreeIRGen23emitDestructuringObjectEbPNS_6ESTree17ObjectPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %25, i1 noundef zeroext %tobool11.i, ptr noundef nonnull %37, ptr noundef %spec.select.i25)
+  call void @_ZN6hermes5irgen11ESTreeIRGen23emitDestructuringObjectEbPNS_6ESTree17ObjectPatternNodeEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %24, i1 noundef zeroext %tobool11.i, ptr noundef nonnull %36, ptr noundef %spec.select.i25)
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit
 
 if.else7.i:                                       ; preds = %if.else.i
-  %39 = load ptr, ptr %25, align 8
-  %Ctx.i.i = getelementptr inbounds %"class.hermes::Module", ptr %39, i64 0, i32 1
-  %40 = load ptr, ptr %Ctx.i.i, align 8
-  %sm_.i.i = getelementptr inbounds %"class.hermes::Context", ptr %40, i64 0, i32 6
-  %41 = load ptr, ptr %sm_.i.i, align 8
-  %sourceRange_.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %37, i64 0, i32 3
+  %38 = load ptr, ptr %24, align 8
+  %Ctx.i.i = getelementptr inbounds %"class.hermes::Module", ptr %38, i64 0, i32 1
+  %39 = load ptr, ptr %Ctx.i.i, align 8
+  %sm_.i.i = getelementptr inbounds %"class.hermes::Context", ptr %39, i64 0, i32 6
+  %40 = load ptr, ptr %sm_.i.i, align 8
+  %sourceRange_.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %36, i64 0, i32 3
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %sourceRange_.i.i, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %37, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %36, i64 0, i32 3, i32 1
   %retval.sroa.2.0.copyload.i.i = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i.i, align 8
   %LHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i, i64 0, i32 2
   %RHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i, i64 0, i32 3
   store i8 1, ptr %RHSKind.i.i, align 1
   store ptr @.str.23, ptr %ref.tmp.i, align 8
   store i8 3, ptr %LHSKind.i.i, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %41, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i, i32 noundef 0) #15
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %40, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i, i32 noundef 0) #15
   br label %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit
 
 _ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit: ; preds = %if.then.i29, %if.then5.i, %if.else7.i
@@ -5785,23 +5781,23 @@ sw.epilog.i:                                      ; preds = %if.end45
   unreachable
 
 _ZN6hermes5irgen10LReference9emitStoreEPNS_5ValueE.exit: ; preds = %if.end45, %if.end45, %sw.bb2.i, %sw.bb4.i, %_ZN6hermes5irgen11ESTreeIRGen27emitDestructuringAssignmentEbPNS_6ESTree11PatternNodeEPNS_5ValueE.exit
-  %42 = load ptr, ptr %vector_.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %42, null
+  %41 = load ptr, ptr %vector_.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %41, null
   br i1 %tobool.not.i.i.i.i, label %_ZN4llvh9SetVectorIPN6hermes7LiteralESt6vectorIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_EEEEED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN6hermes5irgen10LReference9emitStoreEPNS_5ValueE.exit
-  call void @_ZdlPv(ptr noundef nonnull %42) #18
+  call void @_ZdlPv(ptr noundef nonnull %41) #18
   br label %_ZN4llvh9SetVectorIPN6hermes7LiteralESt6vectorIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_EEEEED2Ev.exit
 
 _ZN4llvh9SetVectorIPN6hermes7LiteralESt6vectorIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_EEEEED2Ev.exit: ; preds = %_ZN6hermes5irgen10LReference9emitStoreEPNS_5ValueE.exit, %if.then.i.i.i.i
-  %43 = load ptr, ptr %literalExcludedItems, align 8
-  call void @_ZdlPv(ptr noundef %43) #15
-  %44 = load ptr, ptr %computedExcludedItems, align 8
-  %cmp.i.i.i = icmp eq ptr %44, %add.ptr.i.i.i.i.i
+  %42 = load ptr, ptr %literalExcludedItems, align 8
+  call void @_ZdlPv(ptr noundef %42) #15
+  %43 = load ptr, ptr %computedExcludedItems, align 8
+  %cmp.i.i.i = icmp eq ptr %43, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIPN6hermes5ValueELj4EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4llvh9SetVectorIPN6hermes7LiteralESt6vectorIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_EEEEED2Ev.exit
-  call void @free(ptr noundef %44) #15
+  call void @free(ptr noundef %43) #15
   br label %_ZN4llvh11SmallVectorIPN6hermes5ValueELj4EED2Ev.exit
 
 _ZN4llvh11SmallVectorIPN6hermes5ValueELj4EED2Ev.exit: ; preds = %_ZN4llvh9SetVectorIPN6hermes7LiteralESt6vectorIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_EEEEED2Ev.exit, %if.then.i.i
@@ -7458,7 +7454,7 @@ if.then:                                          ; preds = %_ZN4llvh8DenseMapIN
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %B.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %call.i, %if.then ]
-  store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i, align 8
+  store i64 -8, ptr %B.04.i, align 8
   %incdec.ptr.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !104
@@ -7478,7 +7474,7 @@ if.end:                                           ; preds = %_ZN4llvh8DenseMapIN
 
 for.body.i.i:                                     ; preds = %if.end, %for.body.i.i
   %B.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i, %if.end ]
-  store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i, align 8
+  store i64 -8, ptr %B.04.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i, i64 1
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !104
@@ -7543,7 +7539,7 @@ if.end21.i.i.i:                                   ; preds = %if.end13.i.i.i
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i: ; preds = %if.end21.i.i.i, %if.then20.i.i.i, %if.then.i
   %cond.sink.i.i.i = phi ptr [ %cond.i.i.i, %if.then20.i.i.i ], [ %add.ptr21.i.i.i, %if.then.i ], [ %add.ptr.i.i13.i, %if.end21.i.i.i ]
-  store i64 %magicptr.i, ptr %cond.sink.i.i.i, align 8
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %cond.sink.i.i.i, align 8
   %second.i.i = getelementptr inbounds %"struct.std::pair.300", ptr %cond.sink.i.i.i, i64 0, i32 1
   %second.i14.i = getelementptr inbounds %"struct.std::pair.300", ptr %B.021.i, i64 0, i32 1
   %7 = load i32, ptr %second.i14.i, align 4
@@ -7752,7 +7748,7 @@ if.then:                                          ; preds = %_ZN4llvh8DenseMapIP
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %B.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %call.i, %if.then ]
-  store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i, align 8
+  store i64 -8, ptr %B.04.i, align 8
   %incdec.ptr.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.303", ptr %B.04.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !106
@@ -7772,7 +7768,7 @@ if.end:                                           ; preds = %_ZN4llvh8DenseMapIP
 
 for.body.i.i:                                     ; preds = %if.end, %for.body.i.i
   %B.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i, %if.end ]
-  store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i, align 8
+  store i64 -8, ptr %B.04.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.303", ptr %B.04.i.i, i64 1
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !106
@@ -8408,7 +8404,7 @@ if.then:                                          ; preds = %_ZN4llvh8DenseMapIN
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %B.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %call.i, %if.then ]
-  store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i, align 8
+  store i64 -8, ptr %B.04.i, align 8
   %incdec.ptr.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.315", ptr %B.04.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !110
@@ -8428,7 +8424,7 @@ if.end:                                           ; preds = %_ZN4llvh8DenseMapIN
 
 for.body.i.i:                                     ; preds = %if.end, %for.body.i.i
   %B.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i, %if.end ]
-  store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i, align 8
+  store i64 -8, ptr %B.04.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.315", ptr %B.04.i.i, i64 1
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !110
@@ -8493,7 +8489,7 @@ if.end21.i.i.i:                                   ; preds = %if.end13.i.i.i
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.exit.i: ; preds = %if.end21.i.i.i, %if.then20.i.i.i, %if.then.i
   %cond.sink.i.i.i = phi ptr [ %cond.i.i.i, %if.then20.i.i.i ], [ %add.ptr21.i.i.i, %if.then.i ], [ %add.ptr.i.i13.i, %if.end21.i.i.i ]
-  store i64 %magicptr.i, ptr %cond.sink.i.i.i, align 8
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %cond.sink.i.i.i, align 8
   %second.i.i = getelementptr inbounds %"struct.std::pair.316", ptr %cond.sink.i.i.i, i64 0, i32 1
   %second.i14.i = getelementptr inbounds %"struct.std::pair.316", ptr %B.021.i, i64 0, i32 1
   %7 = load ptr, ptr %second.i14.i, align 8
@@ -9741,10 +9737,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -9798,10 +9793,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -9855,24 +9849,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %this, i64 0, i32 2
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_params = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %this, i64 0, i32 3
   %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
   %__begin2.i.sroa.0.013 = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -9889,17 +9882,17 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %if.end
   %_body = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %this, i64 0, i32 4
-  %11 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_body, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %this, i64 0, i32 5
-  %12 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_typeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   %_returnType = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %this, i64 0, i32 6
-  %13 = load ptr, ptr %_returnType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %13)
+  %12 = load ptr, ptr %_returnType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
   %_predicate = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %this, i64 0, i32 7
-  %14 = load ptr, ptr %_predicate, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %14)
+  %13 = load ptr, ptr %_predicate, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %13)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
@@ -9952,24 +9945,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %this, i64 0, i32 2
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_params = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %this, i64 0, i32 3
   %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
   %__begin2.i.sroa.0.013 = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -9986,17 +9978,17 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %if.end
   %_body = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %this, i64 0, i32 4
-  %11 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_body, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %this, i64 0, i32 5
-  %12 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_typeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   %_returnType = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %this, i64 0, i32 6
-  %13 = load ptr, ptr %_returnType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %13)
+  %12 = load ptr, ptr %_returnType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
   %_predicate = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %this, i64 0, i32 7
-  %14 = load ptr, ptr %_predicate, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %14)
+  %13 = load ptr, ptr %_predicate, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %13)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
@@ -10049,24 +10041,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %this, i64 0, i32 2
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_params = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %this, i64 0, i32 3
   %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
   %__begin2.i.sroa.0.013 = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -10083,17 +10074,17 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %if.end
   %_body = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %this, i64 0, i32 4
-  %11 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_body, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %this, i64 0, i32 5
-  %12 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_typeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   %_returnType = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %this, i64 0, i32 6
-  %13 = load ptr, ptr %_returnType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %13)
+  %12 = load ptr, ptr %_returnType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
   %_predicate = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %this, i64 0, i32 7
-  %14 = load ptr, ptr %_predicate, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %14)
+  %13 = load ptr, ptr %_predicate, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %13)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
@@ -10146,24 +10137,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::ComponentDeclarationNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_params = getelementptr inbounds %"class.hermes::ESTree::ComponentDeclarationNode", ptr %this, i64 0, i32 2
   %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ComponentDeclarationNode", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
   %__begin2.i.sroa.0.010 = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -10180,14 +10170,14 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %if.end
   %_body = getelementptr inbounds %"class.hermes::ESTree::ComponentDeclarationNode", ptr %this, i64 0, i32 3
-  %11 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_body, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::ComponentDeclarationNode", ptr %this, i64 0, i32 4
-  %12 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_typeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   %_rendersType = getelementptr inbounds %"class.hermes::ESTree::ComponentDeclarationNode", ptr %this, i64 0, i32 5
-  %13 = load ptr, ptr %_rendersType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %13)
+  %12 = load ptr, ptr %_rendersType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
@@ -10240,27 +10230,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_body = getelementptr inbounds %"class.hermes::ESTree::WhileStatementNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_body, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_test = getelementptr inbounds %"class.hermes::ESTree::WhileStatementNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_test, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_test, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -10313,27 +10302,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_body = getelementptr inbounds %"class.hermes::ESTree::DoWhileStatementNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_body, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_test = getelementptr inbounds %"class.hermes::ESTree::DoWhileStatementNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_test, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_test, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -10386,30 +10374,29 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_left = getelementptr inbounds %"class.hermes::ESTree::ForInStatementNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_left, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_left, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_right = getelementptr inbounds %"class.hermes::ESTree::ForInStatementNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_right, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_right, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_body = getelementptr inbounds %"class.hermes::ESTree::ForInStatementNode", ptr %this, i64 0, i32 3
-  %12 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_body, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -10462,30 +10449,29 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_left = getelementptr inbounds %"class.hermes::ESTree::ForOfStatementNode", ptr %this, i64 0, i32 2
-  %10 = load ptr, ptr %_left, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_left, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_right = getelementptr inbounds %"class.hermes::ESTree::ForOfStatementNode", ptr %this, i64 0, i32 3
-  %11 = load ptr, ptr %_right, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_right, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_body = getelementptr inbounds %"class.hermes::ESTree::ForOfStatementNode", ptr %this, i64 0, i32 4
-  %12 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_body, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -10538,33 +10524,32 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_init = getelementptr inbounds %"class.hermes::ESTree::ForStatementNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_init, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_init, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_test = getelementptr inbounds %"class.hermes::ESTree::ForStatementNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_test, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_test, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_update = getelementptr inbounds %"class.hermes::ESTree::ForStatementNode", ptr %this, i64 0, i32 3
-  %12 = load ptr, ptr %_update, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_update, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   %_body = getelementptr inbounds %"class.hermes::ESTree::ForStatementNode", ptr %this, i64 0, i32 4
-  %13 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %13)
+  %12 = load ptr, ptr %_body, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -10617,10 +10602,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -10674,10 +10658,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -10731,18 +10714,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -10810,24 +10792,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_label = getelementptr inbounds %"class.hermes::ESTree::BreakStatementNode", ptr %this, i64 0, i32 2
-  %10 = load ptr, ptr %_label, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_label, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -10880,24 +10861,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_label = getelementptr inbounds %"class.hermes::ESTree::ContinueStatementNode", ptr %this, i64 0, i32 2
-  %10 = load ptr, ptr %_label, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_label, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -10950,24 +10930,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_argument = getelementptr inbounds %"class.hermes::ESTree::ThrowStatementNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_argument, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_argument, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -11020,24 +10999,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_argument = getelementptr inbounds %"class.hermes::ESTree::ReturnStatementNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_argument, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_argument, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -11090,27 +11068,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_object = getelementptr inbounds %"class.hermes::ESTree::WithStatementNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_object, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_object, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_body = getelementptr inbounds %"class.hermes::ESTree::WithStatementNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_body, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -11163,24 +11140,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_discriminant = getelementptr inbounds %"class.hermes::ESTree::SwitchStatementNode", ptr %this, i64 0, i32 2
-  %10 = load ptr, ptr %_discriminant, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_discriminant, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_cases = getelementptr inbounds %"class.hermes::ESTree::SwitchStatementNode", ptr %this, i64 0, i32 3
   %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::SwitchStatementNode", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
   %__begin2.i.sroa.0.07 = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -11245,27 +11221,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_label = getelementptr inbounds %"class.hermes::ESTree::LabeledStatementNode", ptr %this, i64 0, i32 2
-  %10 = load ptr, ptr %_label, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_label, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_body = getelementptr inbounds %"class.hermes::ESTree::LabeledStatementNode", ptr %this, i64 0, i32 3
-  %11 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_body, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -11318,24 +11293,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_expression = getelementptr inbounds %"class.hermes::ESTree::ExpressionStatementNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_expression, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_expression, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -11388,30 +11362,29 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_block = getelementptr inbounds %"class.hermes::ESTree::TryStatementNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_block, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_block, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_handler = getelementptr inbounds %"class.hermes::ESTree::TryStatementNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_handler, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_handler, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_finalizer = getelementptr inbounds %"class.hermes::ESTree::TryStatementNode", ptr %this, i64 0, i32 3
-  %12 = load ptr, ptr %_finalizer, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_finalizer, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -11464,30 +11437,29 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_test = getelementptr inbounds %"class.hermes::ESTree::IfStatementNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_test, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_test, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_consequent = getelementptr inbounds %"class.hermes::ESTree::IfStatementNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_consequent, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_consequent, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_alternate = getelementptr inbounds %"class.hermes::ESTree::IfStatementNode", ptr %this, i64 0, i32 3
-  %12 = load ptr, ptr %_alternate, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_alternate, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -11540,10 +11512,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -11597,10 +11568,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -11654,10 +11624,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -11711,10 +11680,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -11768,10 +11736,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -11825,10 +11792,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -11882,10 +11848,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -11939,10 +11904,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -11996,18 +11960,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -12075,18 +12038,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -12154,18 +12116,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -12233,24 +12194,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_argument = getelementptr inbounds %"class.hermes::ESTree::SpreadElementNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_argument, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_argument, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -12303,27 +12263,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_callee = getelementptr inbounds %"class.hermes::ESTree::NewExpressionNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_callee, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_callee, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeArguments = getelementptr inbounds %"class.hermes::ESTree::NewExpressionNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeArguments, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeArguments, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_arguments = getelementptr inbounds %"class.hermes::ESTree::NewExpressionNode", ptr %this, i64 0, i32 3
   %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::NewExpressionNode", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
   %__begin2.i.sroa.0.08 = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -12388,24 +12347,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_argument = getelementptr inbounds %"class.hermes::ESTree::YieldExpressionNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_argument, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_argument, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -12458,24 +12416,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_argument = getelementptr inbounds %"class.hermes::ESTree::AwaitExpressionNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_argument, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_argument, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -12528,27 +12485,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_source = getelementptr inbounds %"class.hermes::ESTree::ImportExpressionNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_source, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_source, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_attributes = getelementptr inbounds %"class.hermes::ESTree::ImportExpressionNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_attributes, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_attributes, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -12601,27 +12557,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_callee = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_callee, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_callee, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeArguments = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeArguments, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeArguments, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_arguments = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %this, i64 0, i32 3
   %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
   %__begin2.i.sroa.0.08 = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -12686,27 +12641,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_callee = getelementptr inbounds %"class.hermes::ESTree::OptionalCallExpressionNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_callee, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_callee, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeArguments = getelementptr inbounds %"class.hermes::ESTree::OptionalCallExpressionNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeArguments, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeArguments, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_arguments = getelementptr inbounds %"class.hermes::ESTree::OptionalCallExpressionNode", ptr %this, i64 0, i32 3
   %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::OptionalCallExpressionNode", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
   %__begin2.i.sroa.0.09 = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -12771,27 +12725,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_left = getelementptr inbounds %"class.hermes::ESTree::AssignmentExpressionNode", ptr %this, i64 0, i32 2
-  %10 = load ptr, ptr %_left, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_left, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_right = getelementptr inbounds %"class.hermes::ESTree::AssignmentExpressionNode", ptr %this, i64 0, i32 3
-  %11 = load ptr, ptr %_right, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_right, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -12844,24 +12797,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_argument = getelementptr inbounds %"class.hermes::ESTree::UnaryExpressionNode", ptr %this, i64 0, i32 2
-  %10 = load ptr, ptr %_argument, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_argument, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -12914,24 +12866,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_argument = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %this, i64 0, i32 2
-  %10 = load ptr, ptr %_argument, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_argument, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -12984,27 +12935,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_object = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_object, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_object, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_property = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_property, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_property, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -13057,27 +13007,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_object = getelementptr inbounds %"class.hermes::ESTree::OptionalMemberExpressionNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_object, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_object, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_property = getelementptr inbounds %"class.hermes::ESTree::OptionalMemberExpressionNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_property, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_property, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -13130,27 +13079,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_left = getelementptr inbounds %"class.hermes::ESTree::LogicalExpressionNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_left, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_left, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_right = getelementptr inbounds %"class.hermes::ESTree::LogicalExpressionNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_right, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_right, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -13203,30 +13151,29 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_test = getelementptr inbounds %"class.hermes::ESTree::ConditionalExpressionNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_test, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_test, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_alternate = getelementptr inbounds %"class.hermes::ESTree::ConditionalExpressionNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_alternate, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_alternate, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_consequent = getelementptr inbounds %"class.hermes::ESTree::ConditionalExpressionNode", ptr %this, i64 0, i32 3
-  %12 = load ptr, ptr %_consequent, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_consequent, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -13279,27 +13226,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_left = getelementptr inbounds %"class.hermes::ESTree::BinaryExpressionNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_left, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_left, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_right = getelementptr inbounds %"class.hermes::ESTree::BinaryExpressionNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_right, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_right, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -13352,24 +13298,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_value = getelementptr inbounds %"class.hermes::ESTree::DirectiveNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_value, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_value, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -13422,10 +13367,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -13479,24 +13423,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::IdentifierNode", ptr %this, i64 0, i32 2
-  %10 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_typeAnnotation, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -13549,24 +13492,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::PrivateNameNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -13619,27 +13561,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_meta = getelementptr inbounds %"class.hermes::ESTree::MetaPropertyNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_meta, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_meta, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_property = getelementptr inbounds %"class.hermes::ESTree::MetaPropertyNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_property, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_property, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -13692,24 +13633,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_test = getelementptr inbounds %"class.hermes::ESTree::SwitchCaseNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_test, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_test, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_consequent = getelementptr inbounds %"class.hermes::ESTree::SwitchCaseNode", ptr %this, i64 0, i32 2
   %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::SwitchCaseNode", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
   %__begin2.i.sroa.0.07 = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -13774,27 +13714,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_param = getelementptr inbounds %"class.hermes::ESTree::CatchClauseNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_param, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_param, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_body = getelementptr inbounds %"class.hermes::ESTree::CatchClauseNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_body, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -13847,27 +13786,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_init = getelementptr inbounds %"class.hermes::ESTree::VariableDeclaratorNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_init, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_init, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_id = getelementptr inbounds %"class.hermes::ESTree::VariableDeclaratorNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -13920,18 +13858,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -13999,18 +13936,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -14093,27 +14029,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_tag = getelementptr inbounds %"class.hermes::ESTree::TaggedTemplateExpressionNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_tag, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_tag, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_quasi = getelementptr inbounds %"class.hermes::ESTree::TaggedTemplateExpressionNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_quasi, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_quasi, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -14166,10 +14101,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -14223,27 +14157,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_key = getelementptr inbounds %"class.hermes::ESTree::PropertyNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_key, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_key, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_value = getelementptr inbounds %"class.hermes::ESTree::PropertyNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_value, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_value, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -14296,33 +14229,32 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_superClass = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %this, i64 0, i32 3
-  %12 = load ptr, ptr %_superClass, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_superClass, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   %_superTypeParameters = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %this, i64 0, i32 4
-  %13 = load ptr, ptr %_superTypeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %13)
+  %12 = load ptr, ptr %_superTypeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
   %_implements = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %this, i64 0, i32 5
   %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
   %__begin2.i.sroa.0.022 = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -14354,8 +14286,8 @@ for.body.i15:                                     ; preds = %_ZN6hermes6ESTree11
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit17: ; preds = %for.body.i15, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %_body = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %this, i64 0, i32 7
-  %14 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %14)
+  %13 = load ptr, ptr %_body, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %13)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit17
@@ -14408,33 +14340,32 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_superClass = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %this, i64 0, i32 3
-  %12 = load ptr, ptr %_superClass, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_superClass, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   %_superTypeParameters = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %this, i64 0, i32 4
-  %13 = load ptr, ptr %_superTypeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %13)
+  %12 = load ptr, ptr %_superTypeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
   %_implements = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %this, i64 0, i32 5
   %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
   %__begin2.i.sroa.0.022 = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -14466,8 +14397,8 @@ for.body.i15:                                     ; preds = %_ZN6hermes6ESTree11
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit17: ; preds = %for.body.i15, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %_body = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %this, i64 0, i32 7
-  %14 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %14)
+  %13 = load ptr, ptr %_body, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %13)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit17
@@ -14520,18 +14451,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -14599,36 +14529,35 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_key = getelementptr inbounds %"class.hermes::ESTree::ClassPropertyNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_key, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_key, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_value = getelementptr inbounds %"class.hermes::ESTree::ClassPropertyNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_value, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_value, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_variance = getelementptr inbounds %"class.hermes::ESTree::ClassPropertyNode", ptr %this, i64 0, i32 7
-  %12 = load ptr, ptr %_variance, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_variance, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::ClassPropertyNode", ptr %this, i64 0, i32 8
-  %13 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %13)
+  %12 = load ptr, ptr %_typeAnnotation, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
   %_tsModifiers = getelementptr inbounds %"class.hermes::ESTree::ClassPropertyNode", ptr %this, i64 0, i32 9
-  %14 = load ptr, ptr %_tsModifiers, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %14)
+  %13 = load ptr, ptr %_tsModifiers, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %13)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -14681,36 +14610,35 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_key = getelementptr inbounds %"class.hermes::ESTree::ClassPrivatePropertyNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_key, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_key, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_value = getelementptr inbounds %"class.hermes::ESTree::ClassPrivatePropertyNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_value, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_value, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_variance = getelementptr inbounds %"class.hermes::ESTree::ClassPrivatePropertyNode", ptr %this, i64 0, i32 6
-  %12 = load ptr, ptr %_variance, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_variance, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::ClassPrivatePropertyNode", ptr %this, i64 0, i32 7
-  %13 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %13)
+  %12 = load ptr, ptr %_typeAnnotation, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
   %_tsModifiers = getelementptr inbounds %"class.hermes::ESTree::ClassPrivatePropertyNode", ptr %this, i64 0, i32 8
-  %14 = load ptr, ptr %_tsModifiers, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %14)
+  %13 = load ptr, ptr %_tsModifiers, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %13)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -14763,27 +14691,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_key = getelementptr inbounds %"class.hermes::ESTree::MethodDefinitionNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_key, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_key, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_value = getelementptr inbounds %"class.hermes::ESTree::MethodDefinitionNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_value, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_value, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -14836,18 +14763,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -14867,8 +14793,8 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %if.end
   %_source = getelementptr inbounds %"class.hermes::ESTree::ImportDeclarationNode", ptr %this, i64 0, i32 2
-  %10 = load ptr, ptr %_source, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_source, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_assertions = getelementptr inbounds %"class.hermes::ESTree::ImportDeclarationNode", ptr %this, i64 0, i32 3
   %Next.i.i.i.i.i9 = getelementptr inbounds %"class.hermes::ESTree::ImportDeclarationNode", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
   %__begin2.i7.sroa.0.022 = load ptr, ptr %Next.i.i.i.i.i9, align 8
@@ -14933,27 +14859,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_imported = getelementptr inbounds %"class.hermes::ESTree::ImportSpecifierNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_imported, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_imported, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_local = getelementptr inbounds %"class.hermes::ESTree::ImportSpecifierNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_local, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_local, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -15006,24 +14931,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_local = getelementptr inbounds %"class.hermes::ESTree::ImportDefaultSpecifierNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_local, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_local, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -15076,24 +15000,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_local = getelementptr inbounds %"class.hermes::ESTree::ImportNamespaceSpecifierNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_local, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_local, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -15146,27 +15069,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_key = getelementptr inbounds %"class.hermes::ESTree::ImportAttributeNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_key, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_key, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_value = getelementptr inbounds %"class.hermes::ESTree::ImportAttributeNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_value, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_value, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -15219,24 +15141,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_declaration = getelementptr inbounds %"class.hermes::ESTree::ExportNamedDeclarationNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_declaration, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_declaration, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_specifiers = getelementptr inbounds %"class.hermes::ESTree::ExportNamedDeclarationNode", ptr %this, i64 0, i32 2
   %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ExportNamedDeclarationNode", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
   %__begin2.i.sroa.0.09 = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -15253,8 +15174,8 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %if.end
   %_source = getelementptr inbounds %"class.hermes::ESTree::ExportNamedDeclarationNode", ptr %this, i64 0, i32 3
-  %11 = load ptr, ptr %_source, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_source, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
@@ -15307,27 +15228,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_exported = getelementptr inbounds %"class.hermes::ESTree::ExportSpecifierNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_exported, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_exported, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_local = getelementptr inbounds %"class.hermes::ESTree::ExportSpecifierNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_local, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_local, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -15380,24 +15300,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_exported = getelementptr inbounds %"class.hermes::ESTree::ExportNamespaceSpecifierNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_exported, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_exported, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -15450,24 +15369,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_declaration = getelementptr inbounds %"class.hermes::ESTree::ExportDefaultDeclarationNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_declaration, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_declaration, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -15520,24 +15438,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_source = getelementptr inbounds %"class.hermes::ESTree::ExportAllDeclarationNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_source, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_source, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -15590,18 +15507,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -15621,8 +15537,8 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %if.end
   %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::ObjectPatternNode", ptr %this, i64 0, i32 2
-  %10 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_typeAnnotation, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
@@ -15675,18 +15591,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -15706,8 +15621,8 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %if.end
   %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::ArrayPatternNode", ptr %this, i64 0, i32 2
-  %10 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_typeAnnotation, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
@@ -15760,24 +15675,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_argument = getelementptr inbounds %"class.hermes::ESTree::RestElementNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_argument, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_argument, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -15830,27 +15744,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_left = getelementptr inbounds %"class.hermes::ESTree::AssignmentPatternNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_left, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_left, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_right = getelementptr inbounds %"class.hermes::ESTree::AssignmentPatternNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_right, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_right, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -15903,10 +15816,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -15960,27 +15872,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_object = getelementptr inbounds %"class.hermes::ESTree::JSXMemberExpressionNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_object, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_object, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_property = getelementptr inbounds %"class.hermes::ESTree::JSXMemberExpressionNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_property, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_property, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -16033,27 +15944,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_namespace = getelementptr inbounds %"class.hermes::ESTree::JSXNamespacedNameNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_namespace, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_namespace, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_name = getelementptr inbounds %"class.hermes::ESTree::JSXNamespacedNameNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_name, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_name, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -16106,10 +16016,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -16163,24 +16072,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_expression = getelementptr inbounds %"class.hermes::ESTree::JSXExpressionContainerNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_expression, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_expression, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -16233,24 +16141,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_expression = getelementptr inbounds %"class.hermes::ESTree::JSXSpreadChildNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_expression, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_expression, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -16303,24 +16210,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_name = getelementptr inbounds %"class.hermes::ESTree::JSXOpeningElementNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_name, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_name, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_attributes = getelementptr inbounds %"class.hermes::ESTree::JSXOpeningElementNode", ptr %this, i64 0, i32 2
   %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::JSXOpeningElementNode", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
   %__begin2.i.sroa.0.09 = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -16337,8 +16243,8 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %if.end
   %_typeArguments = getelementptr inbounds %"class.hermes::ESTree::JSXOpeningElementNode", ptr %this, i64 0, i32 4
-  %11 = load ptr, ptr %_typeArguments, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeArguments, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
@@ -16391,24 +16297,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_name = getelementptr inbounds %"class.hermes::ESTree::JSXClosingElementNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_name, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_name, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -16461,27 +16366,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_name = getelementptr inbounds %"class.hermes::ESTree::JSXAttributeNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_name, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_name, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_value = getelementptr inbounds %"class.hermes::ESTree::JSXAttributeNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_value, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_value, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -16534,24 +16438,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_argument = getelementptr inbounds %"class.hermes::ESTree::JSXSpreadAttributeNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_argument, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_argument, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -16604,10 +16507,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -16661,10 +16563,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -16718,24 +16619,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_openingElement = getelementptr inbounds %"class.hermes::ESTree::JSXElementNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_openingElement, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_openingElement, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_children = getelementptr inbounds %"class.hermes::ESTree::JSXElementNode", ptr %this, i64 0, i32 2
   %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::JSXElementNode", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
   %__begin2.i.sroa.0.08 = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -16752,8 +16652,8 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %if.end
   %_closingElement = getelementptr inbounds %"class.hermes::ESTree::JSXElementNode", ptr %this, i64 0, i32 3
-  %11 = load ptr, ptr %_closingElement, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_closingElement, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
@@ -16806,24 +16706,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_openingFragment = getelementptr inbounds %"class.hermes::ESTree::JSXFragmentNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_openingFragment, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_openingFragment, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_children = getelementptr inbounds %"class.hermes::ESTree::JSXFragmentNode", ptr %this, i64 0, i32 2
   %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::JSXFragmentNode", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
   %__begin2.i.sroa.0.08 = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -16840,8 +16739,8 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %if.end
   %_closingFragment = getelementptr inbounds %"class.hermes::ESTree::JSXFragmentNode", ptr %this, i64 0, i32 3
-  %11 = load ptr, ptr %_closingFragment, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_closingFragment, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
@@ -16894,10 +16793,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -16951,10 +16849,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -17008,10 +16905,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -17065,10 +16961,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -17122,10 +17017,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -17179,10 +17073,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -17236,10 +17129,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -17293,10 +17185,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -17350,10 +17241,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -17407,10 +17297,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -17464,10 +17353,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -17521,10 +17409,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -17578,10 +17465,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -17635,10 +17521,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -17692,10 +17577,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -17749,10 +17633,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -17806,10 +17689,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -17863,18 +17745,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -17894,17 +17775,17 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %if.end
   %_this = getelementptr inbounds %"class.hermes::ESTree::FunctionTypeAnnotationNode", ptr %this, i64 0, i32 2
-  %10 = load ptr, ptr %_this, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_this, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_returnType = getelementptr inbounds %"class.hermes::ESTree::FunctionTypeAnnotationNode", ptr %this, i64 0, i32 3
-  %11 = load ptr, ptr %_returnType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_returnType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_rest = getelementptr inbounds %"class.hermes::ESTree::FunctionTypeAnnotationNode", ptr %this, i64 0, i32 4
-  %12 = load ptr, ptr %_rest, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_rest, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::FunctionTypeAnnotationNode", ptr %this, i64 0, i32 5
-  %13 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %13)
+  %12 = load ptr, ptr %_typeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
@@ -17957,27 +17838,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_name = getelementptr inbounds %"class.hermes::ESTree::FunctionTypeParamNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_name, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_name, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::FunctionTypeParamNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeAnnotation, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -18030,18 +17910,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -18061,14 +17940,14 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %if.end
   %_rest = getelementptr inbounds %"class.hermes::ESTree::ComponentTypeAnnotationNode", ptr %this, i64 0, i32 2
-  %10 = load ptr, ptr %_rest, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_rest, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::ComponentTypeAnnotationNode", ptr %this, i64 0, i32 3
-  %11 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_rendersType = getelementptr inbounds %"class.hermes::ESTree::ComponentTypeAnnotationNode", ptr %this, i64 0, i32 4
-  %12 = load ptr, ptr %_rendersType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_rendersType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
@@ -18121,27 +18000,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_name = getelementptr inbounds %"class.hermes::ESTree::ComponentTypeParameterNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_name, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_name, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::ComponentTypeParameterNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeAnnotation, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -18194,24 +18072,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::NullableTypeAnnotationNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_typeAnnotation, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -18264,27 +18141,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_qualification = getelementptr inbounds %"class.hermes::ESTree::QualifiedTypeIdentifierNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_qualification, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_qualification, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_id = getelementptr inbounds %"class.hermes::ESTree::QualifiedTypeIdentifierNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -18337,24 +18213,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_argument = getelementptr inbounds %"class.hermes::ESTree::TypeofTypeAnnotationNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_argument, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_argument, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -18407,24 +18282,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_argument = getelementptr inbounds %"class.hermes::ESTree::KeyofTypeAnnotationNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_argument, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_argument, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -18477,24 +18351,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TypeOperatorNode", ptr %this, i64 0, i32 2
-  %10 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_typeAnnotation, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -18547,27 +18420,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_qualification = getelementptr inbounds %"class.hermes::ESTree::QualifiedTypeofIdentifierNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_qualification, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_qualification, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_id = getelementptr inbounds %"class.hermes::ESTree::QualifiedTypeofIdentifierNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -18620,18 +18492,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -18699,27 +18570,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_label = getelementptr inbounds %"class.hermes::ESTree::TupleTypeSpreadElementNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_label, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_label, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TupleTypeSpreadElementNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeAnnotation, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -18772,30 +18642,29 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_label = getelementptr inbounds %"class.hermes::ESTree::TupleTypeLabeledElementNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_label, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_label, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_elementType = getelementptr inbounds %"class.hermes::ESTree::TupleTypeLabeledElementNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_elementType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_elementType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_variance = getelementptr inbounds %"class.hermes::ESTree::TupleTypeLabeledElementNode", ptr %this, i64 0, i32 4
-  %12 = load ptr, ptr %_variance, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_variance, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -18848,24 +18717,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_elementType = getelementptr inbounds %"class.hermes::ESTree::ArrayTypeAnnotationNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_elementType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_elementType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -18918,24 +18786,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_typeParameter = getelementptr inbounds %"class.hermes::ESTree::InferTypeAnnotationNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_typeParameter, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_typeParameter, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -18988,18 +18855,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -19067,18 +18933,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -19146,27 +19011,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::GenericTypeAnnotationNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::GenericTypeAnnotationNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -19219,27 +19083,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_objectType = getelementptr inbounds %"class.hermes::ESTree::IndexedAccessTypeNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_objectType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_objectType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_indexType = getelementptr inbounds %"class.hermes::ESTree::IndexedAccessTypeNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_indexType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_indexType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -19292,27 +19155,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_objectType = getelementptr inbounds %"class.hermes::ESTree::OptionalIndexedAccessTypeNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_objectType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_objectType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_indexType = getelementptr inbounds %"class.hermes::ESTree::OptionalIndexedAccessTypeNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_indexType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_indexType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -19365,33 +19227,32 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_checkType = getelementptr inbounds %"class.hermes::ESTree::ConditionalTypeAnnotationNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_checkType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_checkType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_extendsType = getelementptr inbounds %"class.hermes::ESTree::ConditionalTypeAnnotationNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_extendsType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_extendsType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_trueType = getelementptr inbounds %"class.hermes::ESTree::ConditionalTypeAnnotationNode", ptr %this, i64 0, i32 3
-  %12 = load ptr, ptr %_trueType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_trueType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   %_falseType = getelementptr inbounds %"class.hermes::ESTree::ConditionalTypeAnnotationNode", ptr %this, i64 0, i32 4
-  %13 = load ptr, ptr %_falseType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %13)
+  %12 = load ptr, ptr %_falseType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -19444,27 +19305,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_parameterName = getelementptr inbounds %"class.hermes::ESTree::TypePredicateNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_parameterName, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_parameterName, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TypePredicateNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeAnnotation, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -19517,18 +19377,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -19548,8 +19407,8 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %if.end
   %_body = getelementptr inbounds %"class.hermes::ESTree::InterfaceTypeAnnotationNode", ptr %this, i64 0, i32 2
-  %10 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_body, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
@@ -19602,30 +19461,29 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::TypeAliasNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::TypeAliasNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_right = getelementptr inbounds %"class.hermes::ESTree::TypeAliasNode", ptr %this, i64 0, i32 3
-  %12 = load ptr, ptr %_right, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_right, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -19678,33 +19536,32 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::OpaqueTypeNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::OpaqueTypeNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_impltype = getelementptr inbounds %"class.hermes::ESTree::OpaqueTypeNode", ptr %this, i64 0, i32 3
-  %12 = load ptr, ptr %_impltype, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_impltype, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   %_supertype = getelementptr inbounds %"class.hermes::ESTree::OpaqueTypeNode", ptr %this, i64 0, i32 4
-  %13 = load ptr, ptr %_supertype, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %13)
+  %12 = load ptr, ptr %_supertype, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -19757,27 +19614,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::InterfaceDeclarationNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::InterfaceDeclarationNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_extends = getelementptr inbounds %"class.hermes::ESTree::InterfaceDeclarationNode", ptr %this, i64 0, i32 3
   %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::InterfaceDeclarationNode", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
   %__begin2.i.sroa.0.09 = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -19794,8 +19650,8 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %if.end
   %_body = getelementptr inbounds %"class.hermes::ESTree::InterfaceDeclarationNode", ptr %this, i64 0, i32 4
-  %12 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_body, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
@@ -19848,30 +19704,29 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::DeclareTypeAliasNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::DeclareTypeAliasNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_right = getelementptr inbounds %"class.hermes::ESTree::DeclareTypeAliasNode", ptr %this, i64 0, i32 3
-  %12 = load ptr, ptr %_right, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_right, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -19924,33 +19779,32 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::DeclareOpaqueTypeNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::DeclareOpaqueTypeNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_impltype = getelementptr inbounds %"class.hermes::ESTree::DeclareOpaqueTypeNode", ptr %this, i64 0, i32 3
-  %12 = load ptr, ptr %_impltype, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_impltype, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   %_supertype = getelementptr inbounds %"class.hermes::ESTree::DeclareOpaqueTypeNode", ptr %this, i64 0, i32 4
-  %13 = load ptr, ptr %_supertype, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %13)
+  %12 = load ptr, ptr %_supertype, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -20003,27 +19857,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::DeclareInterfaceNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::DeclareInterfaceNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_extends = getelementptr inbounds %"class.hermes::ESTree::DeclareInterfaceNode", ptr %this, i64 0, i32 3
   %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::DeclareInterfaceNode", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
   %__begin2.i.sroa.0.09 = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -20040,8 +19893,8 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %if.end
   %_body = getelementptr inbounds %"class.hermes::ESTree::DeclareInterfaceNode", ptr %this, i64 0, i32 4
-  %12 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_body, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
@@ -20094,27 +19947,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::DeclareClassNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::DeclareClassNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_extends = getelementptr inbounds %"class.hermes::ESTree::DeclareClassNode", ptr %this, i64 0, i32 3
   %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::DeclareClassNode", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
   %__begin2.i.sroa.0.031 = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -20161,8 +20013,8 @@ for.body.i22:                                     ; preds = %_ZN6hermes6ESTree11
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit24: ; preds = %for.body.i22, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit16
   %_body = getelementptr inbounds %"class.hermes::ESTree::DeclareClassNode", ptr %this, i64 0, i32 6
-  %12 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_body, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit24
@@ -20215,27 +20067,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::DeclareFunctionNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_predicate = getelementptr inbounds %"class.hermes::ESTree::DeclareFunctionNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_predicate, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_predicate, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -20288,24 +20139,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::DeclareComponentNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_params = getelementptr inbounds %"class.hermes::ESTree::DeclareComponentNode", ptr %this, i64 0, i32 2
   %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::DeclareComponentNode", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
   %__begin2.i.sroa.0.010 = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -20322,14 +20172,14 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %if.end
   %_rest = getelementptr inbounds %"class.hermes::ESTree::DeclareComponentNode", ptr %this, i64 0, i32 3
-  %11 = load ptr, ptr %_rest, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_rest, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::DeclareComponentNode", ptr %this, i64 0, i32 4
-  %12 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_typeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   %_rendersType = getelementptr inbounds %"class.hermes::ESTree::DeclareComponentNode", ptr %this, i64 0, i32 5
-  %13 = load ptr, ptr %_rendersType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %13)
+  %12 = load ptr, ptr %_rendersType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
@@ -20382,24 +20232,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::DeclareVariableNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -20452,27 +20301,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::DeclareEnumNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_body = getelementptr inbounds %"class.hermes::ESTree::DeclareEnumNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_body, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -20525,24 +20373,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_declaration = getelementptr inbounds %"class.hermes::ESTree::DeclareExportDeclarationNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_declaration, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_declaration, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_specifiers = getelementptr inbounds %"class.hermes::ESTree::DeclareExportDeclarationNode", ptr %this, i64 0, i32 2
   %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::DeclareExportDeclarationNode", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
   %__begin2.i.sroa.0.09 = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -20559,8 +20406,8 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %if.end
   %_source = getelementptr inbounds %"class.hermes::ESTree::DeclareExportDeclarationNode", ptr %this, i64 0, i32 3
-  %11 = load ptr, ptr %_source, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_source, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
@@ -20613,24 +20460,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_source = getelementptr inbounds %"class.hermes::ESTree::DeclareExportAllDeclarationNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_source, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_source, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -20683,27 +20529,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::DeclareModuleNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_body = getelementptr inbounds %"class.hermes::ESTree::DeclareModuleNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_body, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -20756,24 +20601,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::DeclareModuleExportsNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_typeAnnotation, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -20826,27 +20670,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::InterfaceExtendsNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::InterfaceExtendsNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -20899,27 +20742,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::ClassImplementsNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::ClassImplementsNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -20972,24 +20814,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TypeAnnotationNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_typeAnnotation, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -21042,18 +20883,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -21166,30 +21006,29 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_key = getelementptr inbounds %"class.hermes::ESTree::ObjectTypePropertyNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_key, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_key, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_value = getelementptr inbounds %"class.hermes::ESTree::ObjectTypePropertyNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_value, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_value, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_variance = getelementptr inbounds %"class.hermes::ESTree::ObjectTypePropertyNode", ptr %this, i64 0, i32 7
-  %12 = load ptr, ptr %_variance, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_variance, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -21242,24 +21081,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_argument = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeSpreadPropertyNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_argument, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_argument, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -21312,27 +21150,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeInternalSlotNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_value = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeInternalSlotNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_value, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_value, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -21385,24 +21222,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_value = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeCallPropertyNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_value, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_value, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -21455,33 +21291,32 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeIndexerNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_key = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeIndexerNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_key, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_key, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_value = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeIndexerNode", ptr %this, i64 0, i32 3
-  %12 = load ptr, ptr %_value, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_value, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   %_variance = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeIndexerNode", ptr %this, i64 0, i32 5
-  %13 = load ptr, ptr %_variance, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %13)
+  %12 = load ptr, ptr %_variance, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -21534,33 +21369,32 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_keyTparam = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeMappedTypePropertyNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_keyTparam, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_keyTparam, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_propType = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeMappedTypePropertyNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_propType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_propType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_sourceType = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeMappedTypePropertyNode", ptr %this, i64 0, i32 3
-  %12 = load ptr, ptr %_sourceType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_sourceType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   %_variance = getelementptr inbounds %"class.hermes::ESTree::ObjectTypeMappedTypePropertyNode", ptr %this, i64 0, i32 4
-  %13 = load ptr, ptr %_variance, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %13)
+  %12 = load ptr, ptr %_variance, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -21613,10 +21447,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -21670,18 +21503,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -21749,30 +21581,29 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_bound = getelementptr inbounds %"class.hermes::ESTree::TypeParameterNode", ptr %this, i64 0, i32 2
-  %10 = load ptr, ptr %_bound, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_bound, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_variance = getelementptr inbounds %"class.hermes::ESTree::TypeParameterNode", ptr %this, i64 0, i32 3
-  %11 = load ptr, ptr %_variance, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_variance, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_default = getelementptr inbounds %"class.hermes::ESTree::TypeParameterNode", ptr %this, i64 0, i32 4
-  %12 = load ptr, ptr %_default, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_default, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -21825,18 +21656,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -21904,27 +21734,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_expression = getelementptr inbounds %"class.hermes::ESTree::TypeCastExpressionNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_expression, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_expression, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TypeCastExpressionNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeAnnotation, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -21977,27 +21806,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_expression = getelementptr inbounds %"class.hermes::ESTree::AsExpressionNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_expression, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_expression, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::AsExpressionNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeAnnotation, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -22050,10 +21878,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -22107,24 +21934,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_value = getelementptr inbounds %"class.hermes::ESTree::DeclaredPredicateNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_value, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_value, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -22177,27 +22003,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::EnumDeclarationNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_body = getelementptr inbounds %"class.hermes::ESTree::EnumDeclarationNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_body, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -22250,18 +22075,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -22329,18 +22153,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -22408,18 +22231,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -22487,18 +22309,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -22566,24 +22387,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::EnumDefaultedMemberNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -22636,27 +22456,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::EnumStringMemberNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_init = getelementptr inbounds %"class.hermes::ESTree::EnumStringMemberNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_init, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_init, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -22709,27 +22528,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::EnumNumberMemberNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_init = getelementptr inbounds %"class.hermes::ESTree::EnumNumberMemberNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_init, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_init, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -22782,27 +22600,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::EnumBooleanMemberNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_init = getelementptr inbounds %"class.hermes::ESTree::EnumBooleanMemberNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_init, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_init, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -22855,27 +22672,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_name = getelementptr inbounds %"class.hermes::ESTree::ComponentParameterNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_name, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_name, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_local = getelementptr inbounds %"class.hermes::ESTree::ComponentParameterNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_local, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_local, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -22928,24 +22744,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TSTypeAnnotationNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_typeAnnotation, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -22998,10 +22813,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -23055,10 +22869,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -23112,10 +22925,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -23169,10 +22981,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -23226,10 +23037,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -23283,10 +23093,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -23340,10 +23149,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -23397,10 +23205,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -23454,10 +23261,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -23511,10 +23317,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -23568,10 +23373,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -23625,24 +23429,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_literal = getelementptr inbounds %"class.hermes::ESTree::TSLiteralTypeNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_literal, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_literal, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -23695,27 +23498,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_objectType = getelementptr inbounds %"class.hermes::ESTree::TSIndexedAccessTypeNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_objectType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_objectType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_indexType = getelementptr inbounds %"class.hermes::ESTree::TSIndexedAccessTypeNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_indexType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_indexType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -23768,24 +23570,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_elementType = getelementptr inbounds %"class.hermes::ESTree::TSArrayTypeNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_elementType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_elementType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -23838,27 +23639,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_typeName = getelementptr inbounds %"class.hermes::ESTree::TSTypeReferenceNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_typeName, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_typeName, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::TSTypeReferenceNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -23911,27 +23711,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_left = getelementptr inbounds %"class.hermes::ESTree::TSQualifiedNameNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_left, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_left, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_right = getelementptr inbounds %"class.hermes::ESTree::TSQualifiedNameNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_right, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_right, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -23984,18 +23783,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -24015,11 +23813,11 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %if.end
   %_returnType = getelementptr inbounds %"class.hermes::ESTree::TSFunctionTypeNode", ptr %this, i64 0, i32 2
-  %10 = load ptr, ptr %_returnType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_returnType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::TSFunctionTypeNode", ptr %this, i64 0, i32 3
-  %11 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
@@ -24072,18 +23870,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -24103,11 +23900,11 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %if.end
   %_returnType = getelementptr inbounds %"class.hermes::ESTree::TSConstructorTypeNode", ptr %this, i64 0, i32 2
-  %10 = load ptr, ptr %_returnType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_returnType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::TSConstructorTypeNode", ptr %this, i64 0, i32 3
-  %11 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
@@ -24160,27 +23957,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_parameterName = getelementptr inbounds %"class.hermes::ESTree::TSTypePredicateNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_parameterName, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_parameterName, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TSTypePredicateNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeAnnotation, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -24233,18 +24029,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -24312,27 +24107,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TSTypeAssertionNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_typeAnnotation, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_expression = getelementptr inbounds %"class.hermes::ESTree::TSTypeAssertionNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_expression, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_expression, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -24385,27 +24179,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_expression = getelementptr inbounds %"class.hermes::ESTree::TSAsExpressionNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_expression, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_expression, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TSAsExpressionNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeAnnotation, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -24458,24 +24251,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_parameter = getelementptr inbounds %"class.hermes::ESTree::TSParameterPropertyNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_parameter, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_parameter, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -24528,30 +24320,29 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::TSTypeAliasDeclarationNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::TSTypeAliasDeclarationNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TSTypeAliasDeclarationNode", ptr %this, i64 0, i32 3
-  %12 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_typeAnnotation, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -24604,27 +24395,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::TSInterfaceDeclarationNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_body = getelementptr inbounds %"class.hermes::ESTree::TSInterfaceDeclarationNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_body, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_extends = getelementptr inbounds %"class.hermes::ESTree::TSInterfaceDeclarationNode", ptr %this, i64 0, i32 3
   %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::TSInterfaceDeclarationNode", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
   %__begin2.i.sroa.0.09 = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -24641,8 +24431,8 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %if.end
   %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::TSInterfaceDeclarationNode", ptr %this, i64 0, i32 4
-  %12 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_typeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
@@ -24695,27 +24485,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_expression = getelementptr inbounds %"class.hermes::ESTree::TSInterfaceHeritageNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_expression, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_expression, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeParameters = getelementptr inbounds %"class.hermes::ESTree::TSInterfaceHeritageNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeParameters, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeParameters, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -24768,18 +24557,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -24847,24 +24635,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::TSEnumDeclarationNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_members = getelementptr inbounds %"class.hermes::ESTree::TSEnumDeclarationNode", ptr %this, i64 0, i32 2
   %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::TSEnumDeclarationNode", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
   %__begin2.i.sroa.0.07 = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -24929,27 +24716,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::TSEnumMemberNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_initializer = getelementptr inbounds %"class.hermes::ESTree::TSEnumMemberNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_initializer, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_initializer, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -25002,27 +24788,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::TSModuleDeclarationNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_body = getelementptr inbounds %"class.hermes::ESTree::TSModuleDeclarationNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_body, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -25075,18 +24860,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -25154,27 +24938,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_id = getelementptr inbounds %"class.hermes::ESTree::TSModuleMemberNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_id, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_id, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_initializer = getelementptr inbounds %"class.hermes::ESTree::TSModuleMemberNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_initializer, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_initializer, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -25227,18 +25010,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -25306,30 +25088,29 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_name = getelementptr inbounds %"class.hermes::ESTree::TSTypeParameterNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_name, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_name, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_constraint = getelementptr inbounds %"class.hermes::ESTree::TSTypeParameterNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_constraint, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_constraint, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_default = getelementptr inbounds %"class.hermes::ESTree::TSTypeParameterNode", ptr %this, i64 0, i32 3
-  %12 = load ptr, ptr %_default, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_default, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -25382,18 +25163,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -25461,18 +25241,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -25540,18 +25319,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -25619,24 +25397,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_exprName = getelementptr inbounds %"class.hermes::ESTree::TSTypeQueryNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_exprName, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_exprName, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -25689,33 +25466,32 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_checkType = getelementptr inbounds %"class.hermes::ESTree::TSConditionalTypeNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_checkType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_checkType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_extendsType = getelementptr inbounds %"class.hermes::ESTree::TSConditionalTypeNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_extendsType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_extendsType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_trueType = getelementptr inbounds %"class.hermes::ESTree::TSConditionalTypeNode", ptr %this, i64 0, i32 3
-  %12 = load ptr, ptr %_trueType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_trueType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   %_falseType = getelementptr inbounds %"class.hermes::ESTree::TSConditionalTypeNode", ptr %this, i64 0, i32 4
-  %13 = load ptr, ptr %_falseType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %13)
+  %12 = load ptr, ptr %_falseType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -25768,18 +25544,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -25847,30 +25622,29 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_key = getelementptr inbounds %"class.hermes::ESTree::TSPropertySignatureNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_key, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_key, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TSPropertySignatureNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_typeAnnotation, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   %_initializer = getelementptr inbounds %"class.hermes::ESTree::TSPropertySignatureNode", ptr %this, i64 0, i32 3
-  %12 = load ptr, ptr %_initializer, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %12)
+  %11 = load ptr, ptr %_initializer, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -25923,24 +25697,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_key = getelementptr inbounds %"class.hermes::ESTree::TSMethodSignatureNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_key, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_key, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_params = getelementptr inbounds %"class.hermes::ESTree::TSMethodSignatureNode", ptr %this, i64 0, i32 2
   %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::TSMethodSignatureNode", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
   %__begin2.i.sroa.0.09 = load ptr, ptr %Next.i.i.i.i.i, align 8
@@ -25957,8 +25730,8 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %if.end
   %_returnType = getelementptr inbounds %"class.hermes::ESTree::TSMethodSignatureNode", ptr %this, i64 0, i32 3
-  %11 = load ptr, ptr %_returnType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_returnType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
@@ -26011,18 +25784,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -26042,8 +25814,8 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %if.end
   %_typeAnnotation = getelementptr inbounds %"class.hermes::ESTree::TSIndexSignatureNode", ptr %this, i64 0, i32 2
-  %10 = load ptr, ptr %_typeAnnotation, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_typeAnnotation, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
@@ -26096,18 +25868,17 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
@@ -26127,8 +25898,8 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 _ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %if.end
   %_returnType = getelementptr inbounds %"class.hermes::ESTree::TSCallSignatureDeclarationNode", ptr %this, i64 0, i32 2
-  %10 = load ptr, ptr %_returnType, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_returnType, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
@@ -26181,10 +25952,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -26238,10 +26008,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -26295,10 +26064,9 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   br label %return
 
@@ -26352,24 +26120,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_init = getelementptr inbounds %"class.hermes::ESTree::CoverInitializerNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_init, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_init, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -26422,24 +26189,23 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_rest = getelementptr inbounds %"class.hermes::ESTree::CoverRestElementNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_rest, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_rest, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -26492,27 +26258,26 @@ if.end5.sink.split.i.i:                           ; preds = %if.then.i8.i.i, %if
   %5 = load ptr, ptr %closures.sink.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %.sink17.i.i to i64
   %add.ptr.i.i12.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i11.i.i
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %add.ptr.i.i12.i.i, align 1
-  %7 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
-  %add.i13.i.i = add i32 %7, 1
+  store ptr %this, ptr %add.ptr.i.i12.i.i, align 1
+  %6 = load i32, ptr %Size.i.i5.sink16.i.i, align 8
+  %add.i13.i.i = add i32 %6, 1
   store i32 %add.i13.i.i, ptr %Size.i.i5.sink16.i.i, align 8
   %.pre.i = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
 
 _ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit: ; preds = %entry, %if.end5.sink.split.i.i
-  %8 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
-  %9 = add i32 %8, -7
-  %switch.i = icmp ult i32 %9, -3
+  %7 = phi i32 [ %.pre.i, %if.end5.sink.split.i.i ], [ %0, %entry ]
+  %8 = add i32 %7, -7
+  %switch.i = icmp ult i32 %8, -3
   br i1 %switch.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit
   %_left = getelementptr inbounds %"class.hermes::ESTree::CoverTypedIdentifierNode", ptr %this, i64 0, i32 1
-  %10 = load ptr, ptr %_left, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
+  %9 = load ptr, ptr %_left, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %9)
   %_right = getelementptr inbounds %"class.hermes::ESTree::CoverTypedIdentifierNode", ptr %this, i64 0, i32 2
-  %11 = load ptr, ptr %_right, align 8
-  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %11)
+  %10 = load ptr, ptr %_right, align 8
+  tail call fastcc void @_ZN6hermes6ESTree11ESTreeVisitINS_5irgen12_GLOBAL__N_112DeclHoistingEEEvRT_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(160) %V, ptr noundef %10)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes5irgen12_GLOBAL__N_112DeclHoisting11shouldVisitEPNS_6ESTree4NodeE.exit, %if.end
@@ -26705,7 +26470,7 @@ if.then:                                          ; preds = %_ZN4llvh8DenseMapIP
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %B.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %call.i, %if.then ]
-  store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i, align 8
+  store i64 -8, ptr %B.04.i, align 8
   %incdec.ptr.i = getelementptr inbounds %"class.llvh::detail::DenseSetPair", ptr %B.04.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !112
@@ -26725,7 +26490,7 @@ if.end:                                           ; preds = %_ZN4llvh8DenseMapIP
 
 for.body.i.i:                                     ; preds = %if.end, %for.body.i.i
   %B.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i, %if.end ]
-  store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i, align 8
+  store i64 -8, ptr %B.04.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds %"class.llvh::detail::DenseSetPair", ptr %B.04.i.i, i64 1
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes7LiteralENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !112

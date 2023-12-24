@@ -963,16 +963,15 @@ if.else.i:                                        ; preds = %if.else
   %15 = load ptr, ptr %sqe16.i, align 8
   %arrayidx18.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %15, i64 %idxprom.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx18.i, i8 0, i64 64, i1 false)
-  %16 = ptrtoint ptr %arrayidx.i to i64
-  %17 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %15, i64 %idxprom.i, i32 5
-  store i64 %16, ptr %17, align 8
+  %16 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %15, i64 %idxprom.i, i32 5
+  store ptr %arrayidx.i, ptr %16, align 8
   %fd19.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %15, i64 %idxprom.i, i32 3
   store i32 %9, ptr %fd19.i, align 4
   %len.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %15, i64 %idxprom.i, i32 6
   store i32 2, ptr %len.i, align 8
   %conv.i = sext i32 %fd to i64
-  %18 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %15, i64 %idxprom.i, i32 4
-  store i64 %conv.i, ptr %18, align 8
+  %17 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %15, i64 %idxprom.i, i32 4
+  store i64 %conv.i, ptr %17, align 8
   store i8 29, ptr %arrayidx18.i, align 8
   %shl.i = shl i32 %and.i, 2
   %or.i = or disjoint i32 %shl.i, 2
@@ -981,13 +980,13 @@ if.else.i:                                        ; preds = %if.else
   %or23.i = or disjoint i64 %shl22.i, %conv20.i
   %user_data.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %15, i64 %idxprom.i, i32 8
   store i64 %or23.i, ptr %user_data.i, align 8
-  %19 = load ptr, ptr %ctl, align 8
-  %20 = load i32, ptr %19, align 4
-  %21 = load ptr, ptr %sqtail.i, align 8
-  %22 = load i32, ptr %21, align 4
-  %23 = xor i32 %22, %20
-  %24 = and i32 %23, %12
-  %cmp27.i = icmp eq i32 %24, 0
+  %18 = load ptr, ptr %ctl, align 8
+  %19 = load i32, ptr %18, align 4
+  %20 = load ptr, ptr %sqtail.i, align 8
+  %21 = load i32, ptr %20, align 4
+  %22 = xor i32 %21, %19
+  %23 = and i32 %22, %12
+  %cmp27.i = icmp eq i32 %23, 0
   br i1 %cmp27.i, label %if.then29.i, label %if.end13
 
 if.then29.i:                                      ; preds = %if.else.i
@@ -1062,16 +1061,15 @@ if.else:                                          ; preds = %entry
   %5 = load ptr, ptr %sqe16, align 8
   %arrayidx18 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %5, i64 %idxprom
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx18, i8 0, i64 64, i1 false)
-  %6 = ptrtoint ptr %arrayidx to i64
-  %7 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %5, i64 %idxprom, i32 5
-  store i64 %6, ptr %7, align 8
+  %6 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %5, i64 %idxprom, i32 5
+  store ptr %arrayidx, ptr %6, align 8
   %fd19 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %5, i64 %idxprom, i32 3
   store i32 %epollfd, ptr %fd19, align 4
   %len = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %5, i64 %idxprom, i32 6
   store i32 %op, ptr %len, align 8
   %conv = sext i32 %fd to i64
-  %8 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %5, i64 %idxprom, i32 4
-  store i64 %conv, ptr %8, align 8
+  %7 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %5, i64 %idxprom, i32 4
+  store i64 %conv, ptr %7, align 8
   store i8 29, ptr %arrayidx18, align 8
   %shl = shl i32 %and, 2
   %or = or i32 %shl, %op
@@ -1080,13 +1078,13 @@ if.else:                                          ; preds = %entry
   %or23 = or disjoint i64 %shl22, %conv20
   %user_data = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %5, i64 %idxprom, i32 8
   store i64 %or23, ptr %user_data, align 8
-  %9 = load ptr, ptr %ctl, align 8
-  %10 = load i32, ptr %9, align 4
-  %11 = load ptr, ptr %sqtail, align 8
-  %12 = load i32, ptr %11, align 4
-  %13 = xor i32 %12, %10
-  %14 = and i32 %13, %2
-  %cmp27 = icmp eq i32 %14, 0
+  %8 = load ptr, ptr %ctl, align 8
+  %9 = load i32, ptr %8, align 4
+  %10 = load ptr, ptr %sqtail, align 8
+  %11 = load i32, ptr %10, align 4
+  %12 = xor i32 %11, %9
+  %13 = and i32 %12, %2
+  %cmp27 = icmp eq i32 %13, 0
   br i1 %cmp27, label %if.then29, label %if.end31
 
 if.then29:                                        ; preds = %if.else
@@ -1176,9 +1174,8 @@ if.end9:                                          ; preds = %if.end.i
   %idxprom.i = zext i32 %and5.i to i64
   %arrayidx.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
-  %10 = ptrtoint ptr %req to i64
   %user_data.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 8
-  store i64 %10, ptr %user_data.i, align 8
+  store ptr %req, ptr %user_data.i, align 8
   %work_req.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
   %loop7.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21, i32 2
   store ptr %loop, ptr %loop7.i, align 8
@@ -1188,40 +1185,40 @@ if.end9:                                          ; preds = %if.end.i
   %prev.i.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21, i32 3, i32 1
   store ptr %wq.i, ptr %prev.i.i, align 8
   %active_reqs.i = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
-  %11 = load i32, ptr %active_reqs.i, align 8
-  %inc.i = add i32 %11, 1
+  %10 = load i32, ptr %active_reqs.i, align 8
+  %inc.i = add i32 %10, 1
   store i32 %inc.i, ptr %active_reqs.i, align 8
   %in_flight.i = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 4, i32 16
-  %12 = load i32, ptr %in_flight.i, align 4
-  %inc11.i = add i32 %12, 1
+  %11 = load i32, ptr %in_flight.i, align 4
+  %inc11.i = add i32 %11, 1
   store i32 %inc11.i, ptr %in_flight.i, align 4
   %file = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 11
-  %13 = load i32, ptr %file, align 8
+  %12 = load i32, ptr %file, align 8
   %fd = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 3
-  store i32 %13, ptr %fd, align 4
+  store i32 %12, ptr %fd, align 4
   store i8 19, ptr %arrayidx.i, align 8
-  %14 = load ptr, ptr %sqtail.i, align 8
-  %15 = load i32, ptr %14, align 4
-  %add.i9 = add i32 %15, 1
-  store atomic i32 %add.i9, ptr %14 release, align 4
+  %13 = load ptr, ptr %sqtail.i, align 8
+  %14 = load i32, ptr %13, align 4
+  %add.i9 = add i32 %14, 1
+  store atomic i32 %add.i9, ptr %13 release, align 4
   %sqflags.i = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 4, i32 4
-  %16 = load ptr, ptr %sqflags.i, align 8
-  %17 = load atomic i32, ptr %16 acquire, align 4
-  %and.i = and i32 %17, 1
+  %15 = load ptr, ptr %sqflags.i, align 8
+  %16 = load atomic i32, ptr %15 acquire, align 4
+  %and.i = and i32 %16, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end9
-  %18 = load i32, ptr %ringfd.i, align 8
-  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 426, i32 noundef %18, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, i64 noundef 0) #18
-  %19 = and i64 %call.i.i, 4294967295
-  %tobool2.not.i = icmp eq i64 %19, 0
+  %17 = load i32, ptr %ringfd.i, align 8
+  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 426, i32 noundef %17, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, i64 noundef 0) #18
+  %18 = and i64 %call.i.i, 4294967295
+  %tobool2.not.i = icmp eq i64 %18, 0
   br i1 %tobool2.not.i, label %return, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
   %call4.i = tail call ptr @__errno_location() #20
-  %20 = load i32, ptr %call4.i, align 4
-  %cmp.not.i = icmp eq i32 %20, 130
+  %19 = load i32, ptr %call4.i, align 4
+  %cmp.not.i = icmp eq i32 %19, 130
   br i1 %cmp.not.i, label %return, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.then3.i
@@ -1265,9 +1262,8 @@ if.end:                                           ; preds = %if.end.i
   %idxprom.i = zext i32 %and5.i to i64
   %arrayidx.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
-  %10 = ptrtoint ptr %req to i64
   %user_data.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 8
-  store i64 %10, ptr %user_data.i, align 8
+  store ptr %req, ptr %user_data.i, align 8
   %work_req.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
   %loop7.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21, i32 2
   store ptr %loop, ptr %loop7.i, align 8
@@ -1277,42 +1273,42 @@ if.end:                                           ; preds = %if.end.i
   %prev.i.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21, i32 3, i32 1
   store ptr %wq.i, ptr %prev.i.i, align 8
   %active_reqs.i = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
-  %11 = load i32, ptr %active_reqs.i, align 8
-  %inc.i = add i32 %11, 1
+  %10 = load i32, ptr %active_reqs.i, align 8
+  %inc.i = add i32 %10, 1
   store i32 %inc.i, ptr %active_reqs.i, align 8
   %in_flight.i = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 4, i32 16
-  %12 = load i32, ptr %in_flight.i, align 4
-  %inc11.i = add i32 %12, 1
+  %11 = load i32, ptr %in_flight.i, align 4
+  %inc11.i = add i32 %11, 1
   store i32 %inc11.i, ptr %in_flight.i, align 4
   %file = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 11
-  %13 = load i32, ptr %file, align 8
+  %12 = load i32, ptr %file, align 8
   %fd = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 3
-  store i32 %13, ptr %fd, align 4
-  %14 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 7
-  store i32 %fsync_flags, ptr %14, align 4
+  store i32 %12, ptr %fd, align 4
+  %13 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 7
+  store i32 %fsync_flags, ptr %13, align 4
   store i8 3, ptr %arrayidx.i, align 8
-  %15 = load ptr, ptr %sqtail.i, align 8
-  %16 = load i32, ptr %15, align 4
-  %add.i8 = add i32 %16, 1
-  store atomic i32 %add.i8, ptr %15 release, align 4
+  %14 = load ptr, ptr %sqtail.i, align 8
+  %15 = load i32, ptr %14, align 4
+  %add.i8 = add i32 %15, 1
+  store atomic i32 %add.i8, ptr %14 release, align 4
   %sqflags.i = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 4, i32 4
-  %17 = load ptr, ptr %sqflags.i, align 8
-  %18 = load atomic i32, ptr %17 acquire, align 4
-  %and.i = and i32 %18, 1
+  %16 = load ptr, ptr %sqflags.i, align 8
+  %17 = load atomic i32, ptr %16 acquire, align 4
+  %and.i = and i32 %17, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %19 = load i32, ptr %ringfd.i, align 8
-  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 426, i32 noundef %19, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, i64 noundef 0) #18
-  %20 = and i64 %call.i.i, 4294967295
-  %tobool2.not.i = icmp eq i64 %20, 0
+  %18 = load i32, ptr %ringfd.i, align 8
+  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 426, i32 noundef %18, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, i64 noundef 0) #18
+  %19 = and i64 %call.i.i, 4294967295
+  %tobool2.not.i = icmp eq i64 %19, 0
   br i1 %tobool2.not.i, label %return, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
   %call4.i = tail call ptr @__errno_location() #20
-  %21 = load i32, ptr %call4.i, align 4
-  %cmp.not.i = icmp eq i32 %21, 130
+  %20 = load i32, ptr %call4.i, align 4
+  %cmp.not.i = icmp eq i32 %20, 130
   br i1 %cmp.not.i, label %return, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.then3.i
@@ -1363,9 +1359,8 @@ if.end3:                                          ; preds = %if.end.i
   %idxprom.i = zext i32 %and5.i to i64
   %arrayidx.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
-  %11 = ptrtoint ptr %req to i64
   %user_data.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i, i32 8
-  store i64 %11, ptr %user_data.i, align 8
+  store ptr %req, ptr %user_data.i, align 8
   %work_req.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
   %loop7.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21, i32 2
   store ptr %loop, ptr %loop7.i, align 8
@@ -1375,50 +1370,48 @@ if.end3:                                          ; preds = %if.end.i
   %prev.i.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21, i32 3, i32 1
   store ptr %wq.i, ptr %prev.i.i, align 8
   %active_reqs.i = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
-  %12 = load i32, ptr %active_reqs.i, align 8
-  %inc.i = add i32 %12, 1
+  %11 = load i32, ptr %active_reqs.i, align 8
+  %inc.i = add i32 %11, 1
   store i32 %inc.i, ptr %active_reqs.i, align 8
   %in_flight.i = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 4, i32 16
-  %13 = load i32, ptr %in_flight.i, align 4
-  %inc11.i = add i32 %13, 1
+  %12 = load i32, ptr %in_flight.i, align 4
+  %inc11.i = add i32 %12, 1
   store i32 %inc11.i, ptr %in_flight.i, align 4
   %path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
-  %14 = load ptr, ptr %path, align 8
-  %15 = ptrtoint ptr %14 to i64
-  %16 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i, i32 5
-  store i64 %15, ptr %16, align 8
+  %13 = load ptr, ptr %path, align 8
+  %14 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i, i32 5
+  store ptr %13, ptr %14, align 8
   %fd = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i, i32 3
   store i32 -100, ptr %fd, align 4
   %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
-  %17 = load ptr, ptr %new_path, align 8
-  %18 = ptrtoint ptr %17 to i64
-  %19 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i, i32 4
-  store i64 %18, ptr %19, align 8
+  %15 = load ptr, ptr %new_path, align 8
+  %16 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i, i32 4
+  store ptr %15, ptr %16, align 8
   %len = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i, i32 6
   store i32 -100, ptr %len, align 8
   store i8 39, ptr %arrayidx.i, align 8
-  %20 = load ptr, ptr %sqtail.i, align 8
-  %21 = load i32, ptr %20, align 4
-  %add.i12 = add i32 %21, 1
-  store atomic i32 %add.i12, ptr %20 release, align 4
+  %17 = load ptr, ptr %sqtail.i, align 8
+  %18 = load i32, ptr %17, align 4
+  %add.i12 = add i32 %18, 1
+  store atomic i32 %add.i12, ptr %17 release, align 4
   %sqflags.i = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 4, i32 4
-  %22 = load ptr, ptr %sqflags.i, align 8
-  %23 = load atomic i32, ptr %22 acquire, align 4
-  %and.i = and i32 %23, 1
+  %19 = load ptr, ptr %sqflags.i, align 8
+  %20 = load atomic i32, ptr %19 acquire, align 4
+  %and.i = and i32 %20, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end3
-  %24 = load i32, ptr %ringfd.i, align 8
-  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 426, i32 noundef %24, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, i64 noundef 0) #18
-  %25 = and i64 %call.i.i, 4294967295
-  %tobool2.not.i = icmp eq i64 %25, 0
+  %21 = load i32, ptr %ringfd.i, align 8
+  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 426, i32 noundef %21, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, i64 noundef 0) #18
+  %22 = and i64 %call.i.i, 4294967295
+  %tobool2.not.i = icmp eq i64 %22, 0
   br i1 %tobool2.not.i, label %return, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
   %call4.i = tail call ptr @__errno_location() #20
-  %26 = load i32, ptr %call4.i, align 4
-  %cmp.not.i = icmp eq i32 %26, 130
+  %23 = load i32, ptr %call4.i, align 4
+  %cmp.not.i = icmp eq i32 %23, 130
   br i1 %cmp.not.i, label %return, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.then3.i
@@ -1469,9 +1462,8 @@ if.end3:                                          ; preds = %if.end.i
   %idxprom.i = zext i32 %and5.i to i64
   %arrayidx.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
-  %11 = ptrtoint ptr %req to i64
   %user_data.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i, i32 8
-  store i64 %11, ptr %user_data.i, align 8
+  store ptr %req, ptr %user_data.i, align 8
   %work_req.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
   %loop7.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21, i32 2
   store ptr %loop, ptr %loop7.i, align 8
@@ -1481,47 +1473,46 @@ if.end3:                                          ; preds = %if.end.i
   %prev.i.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21, i32 3, i32 1
   store ptr %wq.i, ptr %prev.i.i, align 8
   %active_reqs.i = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
-  %12 = load i32, ptr %active_reqs.i, align 8
-  %inc.i = add i32 %12, 1
+  %11 = load i32, ptr %active_reqs.i, align 8
+  %inc.i = add i32 %11, 1
   store i32 %inc.i, ptr %active_reqs.i, align 8
   %in_flight.i = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 4, i32 16
-  %13 = load i32, ptr %in_flight.i, align 4
-  %inc11.i = add i32 %13, 1
+  %12 = load i32, ptr %in_flight.i, align 4
+  %inc11.i = add i32 %12, 1
   store i32 %inc11.i, ptr %in_flight.i, align 4
   %path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
-  %14 = load ptr, ptr %path, align 8
-  %15 = ptrtoint ptr %14 to i64
-  %16 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i, i32 5
-  store i64 %15, ptr %16, align 8
+  %13 = load ptr, ptr %path, align 8
+  %14 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i, i32 5
+  store ptr %13, ptr %14, align 8
   %fd = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i, i32 3
   store i32 -100, ptr %fd, align 4
   %mode = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 13
-  %17 = load i32, ptr %mode, align 8
+  %15 = load i32, ptr %mode, align 8
   %len = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i, i32 6
-  store i32 %17, ptr %len, align 8
+  store i32 %15, ptr %len, align 8
   store i8 37, ptr %arrayidx.i, align 8
-  %18 = load ptr, ptr %sqtail.i, align 8
-  %19 = load i32, ptr %18, align 4
-  %add.i11 = add i32 %19, 1
-  store atomic i32 %add.i11, ptr %18 release, align 4
+  %16 = load ptr, ptr %sqtail.i, align 8
+  %17 = load i32, ptr %16, align 4
+  %add.i11 = add i32 %17, 1
+  store atomic i32 %add.i11, ptr %16 release, align 4
   %sqflags.i = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 4, i32 4
-  %20 = load ptr, ptr %sqflags.i, align 8
-  %21 = load atomic i32, ptr %20 acquire, align 4
-  %and.i = and i32 %21, 1
+  %18 = load ptr, ptr %sqflags.i, align 8
+  %19 = load atomic i32, ptr %18 acquire, align 4
+  %and.i = and i32 %19, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end3
-  %22 = load i32, ptr %ringfd.i, align 8
-  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 426, i32 noundef %22, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, i64 noundef 0) #18
-  %23 = and i64 %call.i.i, 4294967295
-  %tobool2.not.i = icmp eq i64 %23, 0
+  %20 = load i32, ptr %ringfd.i, align 8
+  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 426, i32 noundef %20, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, i64 noundef 0) #18
+  %21 = and i64 %call.i.i, 4294967295
+  %tobool2.not.i = icmp eq i64 %21, 0
   br i1 %tobool2.not.i, label %return, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
   %call4.i = tail call ptr @__errno_location() #20
-  %24 = load i32, ptr %call4.i, align 4
-  %cmp.not.i = icmp eq i32 %24, 130
+  %22 = load i32, ptr %call4.i, align 4
+  %cmp.not.i = icmp eq i32 %22, 130
   br i1 %cmp.not.i, label %return, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.then3.i
@@ -1565,9 +1556,8 @@ if.end:                                           ; preds = %if.end.i
   %idxprom.i = zext i32 %and5.i to i64
   %arrayidx.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
-  %10 = ptrtoint ptr %req to i64
   %user_data.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 8
-  store i64 %10, ptr %user_data.i, align 8
+  store ptr %req, ptr %user_data.i, align 8
   %work_req.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
   %loop7.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21, i32 2
   store ptr %loop, ptr %loop7.i, align 8
@@ -1577,52 +1567,51 @@ if.end:                                           ; preds = %if.end.i
   %prev.i.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21, i32 3, i32 1
   store ptr %wq.i, ptr %prev.i.i, align 8
   %active_reqs.i = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
-  %11 = load i32, ptr %active_reqs.i, align 8
-  %inc.i = add i32 %11, 1
+  %10 = load i32, ptr %active_reqs.i, align 8
+  %inc.i = add i32 %10, 1
   store i32 %inc.i, ptr %active_reqs.i, align 8
   %in_flight.i = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 4, i32 16
-  %12 = load i32, ptr %in_flight.i, align 4
-  %inc11.i = add i32 %12, 1
+  %11 = load i32, ptr %in_flight.i, align 4
+  %inc11.i = add i32 %11, 1
   store i32 %inc11.i, ptr %in_flight.i, align 4
   %path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
-  %13 = load ptr, ptr %path, align 8
-  %14 = ptrtoint ptr %13 to i64
-  %15 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 5
-  store i64 %14, ptr %15, align 8
+  %12 = load ptr, ptr %path, align 8
+  %13 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 5
+  store ptr %12, ptr %13, align 8
   %fd = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 3
   store i32 -100, ptr %fd, align 4
   %mode = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 13
-  %16 = load i32, ptr %mode, align 8
+  %14 = load i32, ptr %mode, align 8
   %len = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 6
-  store i32 %16, ptr %len, align 8
+  store i32 %14, ptr %len, align 8
   store i8 18, ptr %arrayidx.i, align 8
   %flags = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 12
-  %17 = load i32, ptr %flags, align 4
-  %or = or i32 %17, 524288
-  %18 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 7
-  store i32 %or, ptr %18, align 4
-  %19 = load ptr, ptr %sqtail.i, align 8
-  %20 = load i32, ptr %19, align 4
-  %add.i12 = add i32 %20, 1
-  store atomic i32 %add.i12, ptr %19 release, align 4
+  %15 = load i32, ptr %flags, align 4
+  %or = or i32 %15, 524288
+  %16 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 7
+  store i32 %or, ptr %16, align 4
+  %17 = load ptr, ptr %sqtail.i, align 8
+  %18 = load i32, ptr %17, align 4
+  %add.i12 = add i32 %18, 1
+  store atomic i32 %add.i12, ptr %17 release, align 4
   %sqflags.i = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 4, i32 4
-  %21 = load ptr, ptr %sqflags.i, align 8
-  %22 = load atomic i32, ptr %21 acquire, align 4
-  %and.i = and i32 %22, 1
+  %19 = load ptr, ptr %sqflags.i, align 8
+  %20 = load atomic i32, ptr %19 acquire, align 4
+  %and.i = and i32 %20, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %23 = load i32, ptr %ringfd.i, align 8
-  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 426, i32 noundef %23, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, i64 noundef 0) #18
-  %24 = and i64 %call.i.i, 4294967295
-  %tobool2.not.i = icmp eq i64 %24, 0
+  %21 = load i32, ptr %ringfd.i, align 8
+  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 426, i32 noundef %21, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, i64 noundef 0) #18
+  %22 = and i64 %call.i.i, 4294967295
+  %tobool2.not.i = icmp eq i64 %22, 0
   br i1 %tobool2.not.i, label %return, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
   %call4.i = tail call ptr @__errno_location() #20
-  %25 = load i32, ptr %call4.i, align 4
-  %cmp.not.i = icmp eq i32 %25, 130
+  %23 = load i32, ptr %call4.i, align 4
+  %cmp.not.i = icmp eq i32 %23, 130
   br i1 %cmp.not.i, label %return, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.then3.i
@@ -1666,9 +1655,8 @@ if.end:                                           ; preds = %if.end.i
   %idxprom.i = zext i32 %and5.i to i64
   %arrayidx.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
-  %10 = ptrtoint ptr %req to i64
   %user_data.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 8
-  store i64 %10, ptr %user_data.i, align 8
+  store ptr %req, ptr %user_data.i, align 8
   %work_req.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
   %loop7.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21, i32 2
   store ptr %loop, ptr %loop7.i, align 8
@@ -1678,50 +1666,48 @@ if.end:                                           ; preds = %if.end.i
   %prev.i.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21, i32 3, i32 1
   store ptr %wq.i, ptr %prev.i.i, align 8
   %active_reqs.i = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
-  %11 = load i32, ptr %active_reqs.i, align 8
-  %inc.i = add i32 %11, 1
+  %10 = load i32, ptr %active_reqs.i, align 8
+  %inc.i = add i32 %10, 1
   store i32 %inc.i, ptr %active_reqs.i, align 8
   %in_flight.i = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 4, i32 16
-  %12 = load i32, ptr %in_flight.i, align 4
-  %inc11.i = add i32 %12, 1
+  %11 = load i32, ptr %in_flight.i, align 4
+  %inc11.i = add i32 %11, 1
   store i32 %inc11.i, ptr %in_flight.i, align 4
   %path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
-  %13 = load ptr, ptr %path, align 8
-  %14 = ptrtoint ptr %13 to i64
-  %15 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 5
-  store i64 %14, ptr %15, align 8
+  %12 = load ptr, ptr %path, align 8
+  %13 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 5
+  store ptr %12, ptr %13, align 8
   %fd = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 3
   store i32 -100, ptr %fd, align 4
   %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
-  %16 = load ptr, ptr %new_path, align 8
-  %17 = ptrtoint ptr %16 to i64
-  %18 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 4
-  store i64 %17, ptr %18, align 8
+  %14 = load ptr, ptr %new_path, align 8
+  %15 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 4
+  store ptr %14, ptr %15, align 8
   %len = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 6
   store i32 -100, ptr %len, align 8
   store i8 35, ptr %arrayidx.i, align 8
-  %19 = load ptr, ptr %sqtail.i, align 8
-  %20 = load i32, ptr %19, align 4
-  %add.i11 = add i32 %20, 1
-  store atomic i32 %add.i11, ptr %19 release, align 4
+  %16 = load ptr, ptr %sqtail.i, align 8
+  %17 = load i32, ptr %16, align 4
+  %add.i11 = add i32 %17, 1
+  store atomic i32 %add.i11, ptr %16 release, align 4
   %sqflags.i = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 4, i32 4
-  %21 = load ptr, ptr %sqflags.i, align 8
-  %22 = load atomic i32, ptr %21 acquire, align 4
-  %and.i = and i32 %22, 1
+  %18 = load ptr, ptr %sqflags.i, align 8
+  %19 = load atomic i32, ptr %18 acquire, align 4
+  %and.i = and i32 %19, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %23 = load i32, ptr %ringfd.i, align 8
-  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 426, i32 noundef %23, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, i64 noundef 0) #18
-  %24 = and i64 %call.i.i, 4294967295
-  %tobool2.not.i = icmp eq i64 %24, 0
+  %20 = load i32, ptr %ringfd.i, align 8
+  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 426, i32 noundef %20, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, i64 noundef 0) #18
+  %21 = and i64 %call.i.i, 4294967295
+  %tobool2.not.i = icmp eq i64 %21, 0
   br i1 %tobool2.not.i, label %return, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
   %call4.i = tail call ptr @__errno_location() #20
-  %25 = load i32, ptr %call4.i, align 4
-  %cmp.not.i = icmp eq i32 %25, 130
+  %22 = load i32, ptr %call4.i, align 4
+  %cmp.not.i = icmp eq i32 %22, 130
   br i1 %cmp.not.i, label %return, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.then3.i
@@ -1772,9 +1758,8 @@ if.end3:                                          ; preds = %if.end.i
   %idxprom.i = zext i32 %and5.i to i64
   %arrayidx.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
-  %11 = ptrtoint ptr %req to i64
   %user_data.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i, i32 8
-  store i64 %11, ptr %user_data.i, align 8
+  store ptr %req, ptr %user_data.i, align 8
   %work_req.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
   %loop7.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21, i32 2
   store ptr %loop, ptr %loop7.i, align 8
@@ -1784,48 +1769,46 @@ if.end3:                                          ; preds = %if.end.i
   %prev.i.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21, i32 3, i32 1
   store ptr %wq.i, ptr %prev.i.i, align 8
   %active_reqs.i = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
-  %12 = load i32, ptr %active_reqs.i, align 8
-  %inc.i = add i32 %12, 1
+  %11 = load i32, ptr %active_reqs.i, align 8
+  %inc.i = add i32 %11, 1
   store i32 %inc.i, ptr %active_reqs.i, align 8
   %in_flight.i = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 4, i32 16
-  %13 = load i32, ptr %in_flight.i, align 4
-  %inc11.i = add i32 %13, 1
+  %12 = load i32, ptr %in_flight.i, align 4
+  %inc11.i = add i32 %12, 1
   store i32 %inc11.i, ptr %in_flight.i, align 4
   %path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
-  %14 = load ptr, ptr %path, align 8
-  %15 = ptrtoint ptr %14 to i64
-  %16 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i, i32 5
-  store i64 %15, ptr %16, align 8
+  %13 = load ptr, ptr %path, align 8
+  %14 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i, i32 5
+  store ptr %13, ptr %14, align 8
   %fd = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i, i32 3
   store i32 -100, ptr %fd, align 4
   %new_path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 10
-  %17 = load ptr, ptr %new_path, align 8
-  %18 = ptrtoint ptr %17 to i64
-  %19 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i, i32 4
-  store i64 %18, ptr %19, align 8
+  %15 = load ptr, ptr %new_path, align 8
+  %16 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i, i32 4
+  store ptr %15, ptr %16, align 8
   store i8 38, ptr %arrayidx.i, align 8
-  %20 = load ptr, ptr %sqtail.i, align 8
-  %21 = load i32, ptr %20, align 4
-  %add.i11 = add i32 %21, 1
-  store atomic i32 %add.i11, ptr %20 release, align 4
+  %17 = load ptr, ptr %sqtail.i, align 8
+  %18 = load i32, ptr %17, align 4
+  %add.i11 = add i32 %18, 1
+  store atomic i32 %add.i11, ptr %17 release, align 4
   %sqflags.i = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 4, i32 4
-  %22 = load ptr, ptr %sqflags.i, align 8
-  %23 = load atomic i32, ptr %22 acquire, align 4
-  %and.i = and i32 %23, 1
+  %19 = load ptr, ptr %sqflags.i, align 8
+  %20 = load atomic i32, ptr %19 acquire, align 4
+  %and.i = and i32 %20, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end3
-  %24 = load i32, ptr %ringfd.i, align 8
-  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 426, i32 noundef %24, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, i64 noundef 0) #18
-  %25 = and i64 %call.i.i, 4294967295
-  %tobool2.not.i = icmp eq i64 %25, 0
+  %21 = load i32, ptr %ringfd.i, align 8
+  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 426, i32 noundef %21, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, i64 noundef 0) #18
+  %22 = and i64 %call.i.i, 4294967295
+  %tobool2.not.i = icmp eq i64 %22, 0
   br i1 %tobool2.not.i, label %return, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
   %call4.i = tail call ptr @__errno_location() #20
-  %26 = load i32, ptr %call4.i, align 4
-  %cmp.not.i = icmp eq i32 %26, 130
+  %23 = load i32, ptr %call4.i, align 4
+  %cmp.not.i = icmp eq i32 %23, 130
   br i1 %cmp.not.i, label %return, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.then3.i
@@ -1869,9 +1852,8 @@ if.end:                                           ; preds = %if.end.i
   %idxprom.i = zext i32 %and5.i to i64
   %arrayidx.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
-  %10 = ptrtoint ptr %req to i64
   %user_data.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 8
-  store i64 %10, ptr %user_data.i, align 8
+  store ptr %req, ptr %user_data.i, align 8
   %work_req.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
   %loop7.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21, i32 2
   store ptr %loop, ptr %loop7.i, align 8
@@ -1881,43 +1863,42 @@ if.end:                                           ; preds = %if.end.i
   %prev.i.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21, i32 3, i32 1
   store ptr %wq.i, ptr %prev.i.i, align 8
   %active_reqs.i = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
-  %11 = load i32, ptr %active_reqs.i, align 8
-  %inc.i = add i32 %11, 1
+  %10 = load i32, ptr %active_reqs.i, align 8
+  %inc.i = add i32 %10, 1
   store i32 %inc.i, ptr %active_reqs.i, align 8
   %in_flight.i = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 4, i32 16
-  %12 = load i32, ptr %in_flight.i, align 4
-  %inc11.i = add i32 %12, 1
+  %11 = load i32, ptr %in_flight.i, align 4
+  %inc11.i = add i32 %11, 1
   store i32 %inc11.i, ptr %in_flight.i, align 4
   %path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
-  %13 = load ptr, ptr %path, align 8
-  %14 = ptrtoint ptr %13 to i64
-  %15 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 5
-  store i64 %14, ptr %15, align 8
+  %12 = load ptr, ptr %path, align 8
+  %13 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 5
+  store ptr %12, ptr %13, align 8
   %fd = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 3
   store i32 -100, ptr %fd, align 4
   store i8 36, ptr %arrayidx.i, align 8
-  %16 = load ptr, ptr %sqtail.i, align 8
-  %17 = load i32, ptr %16, align 4
-  %add.i8 = add i32 %17, 1
-  store atomic i32 %add.i8, ptr %16 release, align 4
+  %14 = load ptr, ptr %sqtail.i, align 8
+  %15 = load i32, ptr %14, align 4
+  %add.i8 = add i32 %15, 1
+  store atomic i32 %add.i8, ptr %14 release, align 4
   %sqflags.i = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 4, i32 4
-  %18 = load ptr, ptr %sqflags.i, align 8
-  %19 = load atomic i32, ptr %18 acquire, align 4
-  %and.i = and i32 %19, 1
+  %16 = load ptr, ptr %sqflags.i, align 8
+  %17 = load atomic i32, ptr %16 acquire, align 4
+  %and.i = and i32 %17, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %20 = load i32, ptr %ringfd.i, align 8
-  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 426, i32 noundef %20, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, i64 noundef 0) #18
-  %21 = and i64 %call.i.i, 4294967295
-  %tobool2.not.i = icmp eq i64 %21, 0
+  %18 = load i32, ptr %ringfd.i, align 8
+  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 426, i32 noundef %18, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, i64 noundef 0) #18
+  %19 = and i64 %call.i.i, 4294967295
+  %tobool2.not.i = icmp eq i64 %19, 0
   br i1 %tobool2.not.i, label %return, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
   %call4.i = tail call ptr @__errno_location() #20
-  %22 = load i32, ptr %call4.i, align 4
-  %cmp.not.i = icmp eq i32 %22, 130
+  %20 = load i32, ptr %call4.i, align 4
+  %cmp.not.i = icmp eq i32 %20, 130
   br i1 %cmp.not.i, label %return, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.then3.i
@@ -1975,9 +1956,8 @@ if.end7:                                          ; preds = %if.end.i
   %idxprom.i = zext i32 %and5.i to i64
   %arrayidx.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
-  %11 = ptrtoint ptr %req to i64
   %user_data.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i, i32 8
-  store i64 %11, ptr %user_data.i, align 8
+  store ptr %req, ptr %user_data.i, align 8
   %work_req.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
   %loop7.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21, i32 2
   store ptr %loop, ptr %loop7.i, align 8
@@ -1987,55 +1967,54 @@ if.end7:                                          ; preds = %if.end.i
   %prev.i.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21, i32 3, i32 1
   store ptr %wq.i, ptr %prev.i.i, align 8
   %active_reqs.i = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
-  %12 = load i32, ptr %active_reqs.i, align 8
-  %inc.i = add i32 %12, 1
+  %11 = load i32, ptr %active_reqs.i, align 8
+  %inc.i = add i32 %11, 1
   store i32 %inc.i, ptr %active_reqs.i, align 8
   %in_flight.i = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %1, i64 0, i32 4, i32 16
-  %13 = load i32, ptr %in_flight.i, align 4
-  %inc11.i = add i32 %13, 1
+  %12 = load i32, ptr %in_flight.i, align 4
+  %inc11.i = add i32 %12, 1
   store i32 %inc11.i, ptr %in_flight.i, align 4
   %bufs = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 15
-  %14 = load ptr, ptr %bufs, align 8
-  %15 = ptrtoint ptr %14 to i64
-  %16 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i, i32 5
-  store i64 %15, ptr %16, align 8
+  %13 = load ptr, ptr %bufs, align 8
+  %14 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i, i32 5
+  store ptr %13, ptr %14, align 8
   %file = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 11
-  %17 = load i32, ptr %file, align 8
+  %15 = load i32, ptr %file, align 8
   %fd = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i, i32 3
-  store i32 %17, ptr %fd, align 4
-  %18 = load i32, ptr %nbufs, align 4
+  store i32 %15, ptr %fd, align 4
+  %16 = load i32, ptr %nbufs, align 4
   %len = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i, i32 6
-  store i32 %18, ptr %len, align 8
+  store i32 %16, ptr %len, align 8
   %off = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 16
-  %19 = load i64, ptr %off, align 8
-  %spec.select = tail call i64 @llvm.smax.i64(i64 %19, i64 -1)
-  %20 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i, i32 4
-  store i64 %spec.select, ptr %20, align 8
+  %17 = load i64, ptr %off, align 8
+  %spec.select = tail call i64 @llvm.smax.i64(i64 %17, i64 -1)
+  %18 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i, i32 4
+  store i64 %spec.select, ptr %18, align 8
   %tobool11.not = icmp eq i32 %is_read, 0
   %conv = select i1 %tobool11.not, i8 2, i8 1
   store i8 %conv, ptr %arrayidx.i, align 8
-  %21 = load ptr, ptr %sqtail.i, align 8
-  %22 = load i32, ptr %21, align 4
-  %add.i17 = add i32 %22, 1
-  store atomic i32 %add.i17, ptr %21 release, align 4
+  %19 = load ptr, ptr %sqtail.i, align 8
+  %20 = load i32, ptr %19, align 4
+  %add.i17 = add i32 %20, 1
+  store atomic i32 %add.i17, ptr %19 release, align 4
   %sqflags.i = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %1, i64 0, i32 4, i32 4
-  %23 = load ptr, ptr %sqflags.i, align 8
-  %24 = load atomic i32, ptr %23 acquire, align 4
-  %and.i = and i32 %24, 1
+  %21 = load ptr, ptr %sqflags.i, align 8
+  %22 = load atomic i32, ptr %21 acquire, align 4
+  %and.i = and i32 %22, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end7
-  %25 = load i32, ptr %ringfd.i, align 8
-  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 426, i32 noundef %25, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, i64 noundef 0) #18
-  %26 = and i64 %call.i.i, 4294967295
-  %tobool2.not.i = icmp eq i64 %26, 0
+  %23 = load i32, ptr %ringfd.i, align 8
+  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 426, i32 noundef %23, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, i64 noundef 0) #18
+  %24 = and i64 %call.i.i, 4294967295
+  %tobool2.not.i = icmp eq i64 %24, 0
   br i1 %tobool2.not.i, label %return, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
   %call4.i = tail call ptr @__errno_location() #20
-  %27 = load i32, ptr %call4.i, align 4
-  %cmp.not.i = icmp eq i32 %27, 130
+  %25 = load i32, ptr %call4.i, align 4
+  %cmp.not.i = icmp eq i32 %25, 130
   br i1 %cmp.not.i, label %return, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.then3.i
@@ -2088,9 +2067,8 @@ if.end5:                                          ; preds = %if.end.i
   %idxprom.i = zext i32 %and5.i to i64
   %arrayidx.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
-  %10 = ptrtoint ptr %req to i64
   %user_data.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 8
-  store i64 %10, ptr %user_data.i, align 8
+  store ptr %req, ptr %user_data.i, align 8
   %work_req.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21
   %loop7.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21, i32 2
   store ptr %loop, ptr %loop7.i, align 8
@@ -2100,23 +2078,21 @@ if.end5:                                          ; preds = %if.end.i
   %prev.i.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 21, i32 3, i32 1
   store ptr %wq.i, ptr %prev.i.i, align 8
   %active_reqs.i = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
-  %11 = load i32, ptr %active_reqs.i, align 8
-  %inc.i = add i32 %11, 1
+  %10 = load i32, ptr %active_reqs.i, align 8
+  %inc.i = add i32 %10, 1
   store i32 %inc.i, ptr %active_reqs.i, align 8
   %in_flight.i = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 4, i32 16
-  %12 = load i32, ptr %in_flight.i, align 4
-  %inc11.i = add i32 %12, 1
+  %11 = load i32, ptr %in_flight.i, align 4
+  %inc11.i = add i32 %11, 1
   store i32 %inc11.i, ptr %in_flight.i, align 4
   %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 7
   store ptr %call, ptr %ptr, align 8
   %path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
-  %13 = load ptr, ptr %path, align 8
-  %14 = ptrtoint ptr %13 to i64
-  %15 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 5
-  store i64 %14, ptr %15, align 8
-  %16 = ptrtoint ptr %call to i64
-  %17 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 4
-  store i64 %16, ptr %17, align 8
+  %12 = load ptr, ptr %path, align 8
+  %13 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 5
+  store ptr %12, ptr %13, align 8
+  %14 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 4
+  store ptr %call, ptr %14, align 8
   %fd = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 3
   store i32 -100, ptr %fd, align 4
   %len = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 6
@@ -2126,14 +2102,14 @@ if.end5:                                          ; preds = %if.end.i
   br i1 %tobool.not, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %if.end5
-  store i64 ptrtoint (ptr @.str.5 to i64), ptr %15, align 8
+  store ptr @.str.5, ptr %13, align 8
   %file = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 11
-  %18 = load i32, ptr %file, align 8
-  store i32 %18, ptr %fd, align 4
-  %19 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 7
-  %20 = load i32, ptr %19, align 4
-  %or = or i32 %20, 4096
-  store i32 %or, ptr %19, align 4
+  %15 = load i32, ptr %file, align 8
+  store i32 %15, ptr %fd, align 4
+  %16 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 7
+  %17 = load i32, ptr %16, align 4
+  %or = or i32 %17, 4096
+  store i32 %or, ptr %16, align 4
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %if.end5
@@ -2141,35 +2117,35 @@ if.end8:                                          ; preds = %if.then6, %if.end5
   br i1 %tobool9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
-  %21 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 7
-  %22 = load i32, ptr %21, align 4
-  %or11 = or i32 %22, 256
-  store i32 %or11, ptr %21, align 4
+  %18 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i, i32 7
+  %19 = load i32, ptr %18, align 4
+  %or11 = or i32 %19, 256
+  store i32 %or11, ptr %18, align 4
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %if.end8
-  %23 = load ptr, ptr %sqtail.i, align 8
-  %24 = load i32, ptr %23, align 4
-  %add.i19 = add i32 %24, 1
-  store atomic i32 %add.i19, ptr %23 release, align 4
+  %20 = load ptr, ptr %sqtail.i, align 8
+  %21 = load i32, ptr %20, align 4
+  %add.i19 = add i32 %21, 1
+  store atomic i32 %add.i19, ptr %20 release, align 4
   %sqflags.i = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 4, i32 4
-  %25 = load ptr, ptr %sqflags.i, align 8
-  %26 = load atomic i32, ptr %25 acquire, align 4
-  %and.i = and i32 %26, 1
+  %22 = load ptr, ptr %sqflags.i, align 8
+  %23 = load atomic i32, ptr %22 acquire, align 4
+  %and.i = and i32 %23, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end12
-  %27 = load i32, ptr %ringfd.i, align 8
-  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 426, i32 noundef %27, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, i64 noundef 0) #18
-  %28 = and i64 %call.i.i, 4294967295
-  %tobool2.not.i = icmp eq i64 %28, 0
+  %24 = load i32, ptr %ringfd.i, align 8
+  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 426, i32 noundef %24, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, i64 noundef 0) #18
+  %25 = and i64 %call.i.i, 4294967295
+  %tobool2.not.i = icmp eq i64 %25, 0
   br i1 %tobool2.not.i, label %return, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
   %call4.i = tail call ptr @__errno_location() #20
-  %29 = load i32, ptr %call4.i, align 4
-  %cmp.not.i = icmp eq i32 %29, 130
+  %26 = load i32, ptr %call4.i, align 4
+  %cmp.not.i = icmp eq i32 %26, 130
   br i1 %cmp.not.i, label %return, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.then3.i
@@ -2845,15 +2821,14 @@ if.else.i:                                        ; preds = %if.then80
   %106 = load ptr, ptr %sqe16.i, align 8
   %arrayidx18.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %106, i64 %idxprom.i113
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx18.i, i8 0, i64 64, i1 false)
-  %107 = ptrtoint ptr %arrayidx.i114 to i64
-  %108 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %106, i64 %idxprom.i113, i32 5
-  store i64 %107, ptr %108, align 8
+  %107 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %106, i64 %idxprom.i113, i32 5
+  store ptr %arrayidx.i114, ptr %107, align 8
   %fd19.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %106, i64 %idxprom.i113, i32 3
   store i32 %4, ptr %fd19.i, align 4
   %len.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %106, i64 %idxprom.i113, i32 6
   store i32 2, ptr %len.i, align 8
-  %109 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %106, i64 %idxprom.i113, i32 4
-  store i64 %idxprom, ptr %109, align 8
+  %108 = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %106, i64 %idxprom.i113, i32 4
+  store i64 %idxprom, ptr %108, align 8
   store i8 29, ptr %arrayidx18.i, align 8
   %shl.i = shl i32 %and.i112, 2
   %or.i = or disjoint i32 %shl.i, 2
@@ -2862,13 +2837,13 @@ if.else.i:                                        ; preds = %if.then80
   %or23.i = or disjoint i64 %shl22.i, %conv20.i116
   %user_data.i = getelementptr inbounds %struct.uv__io_uring_sqe, ptr %106, i64 %idxprom.i113, i32 8
   store i64 %or23.i, ptr %user_data.i, align 8
-  %110 = load ptr, ptr %ctl1, align 8
-  %111 = load i32, ptr %110, align 4
-  %112 = load ptr, ptr %sqtail, align 8
-  %113 = load i32, ptr %112, align 4
-  %114 = xor i32 %113, %111
-  %115 = and i32 %114, %103
-  %cmp27.i = icmp eq i32 %115, 0
+  %109 = load ptr, ptr %ctl1, align 8
+  %110 = load i32, ptr %109, align 4
+  %111 = load ptr, ptr %sqtail, align 8
+  %112 = load i32, ptr %111, align 4
+  %113 = xor i32 %112, %110
+  %114 = and i32 %113, %103
+  %cmp27.i = icmp eq i32 %114, 0
   br i1 %cmp27.i, label %if.then29.i, label %for.inc
 
 if.then29.i:                                      ; preds = %if.else.i
@@ -2877,10 +2852,10 @@ if.then29.i:                                      ; preds = %if.else.i
 
 if.end81:                                         ; preds = %if.end78
   %pevents82 = getelementptr inbounds %struct.uv__io_s, ptr %101, i64 0, i32 3
-  %116 = load i32, ptr %pevents82, align 8
-  %or83 = or i32 %116, 24
-  %117 = load i32, ptr %add.ptr70, align 4
-  %and85 = and i32 %117, %or83
+  %115 = load i32, ptr %pevents82, align 8
+  %or83 = or i32 %115, 24
+  %116 = load i32, ptr %add.ptr70, align 4
+  %and85 = and i32 %116, %or83
   store i32 %and85, ptr %add.ptr70, align 4
   switch i32 %and85, label %if.then99 [
     i32 8, label %if.end96.thread
@@ -2889,8 +2864,8 @@ if.end81:                                         ; preds = %if.end78
   ]
 
 if.end96.thread:                                  ; preds = %if.end81, %if.end81
-  %118 = load i32, ptr %pevents82, align 8
-  %and93 = and i32 %118, 8199
+  %117 = load i32, ptr %pevents82, align 8
+  %and93 = and i32 %117, 8199
   %or95 = or i32 %and93, %and85
   store i32 %or95, ptr %add.ptr70, align 4
   br label %if.then99
@@ -2901,9 +2876,9 @@ if.then99:                                        ; preds = %if.end81, %if.end96
 
 if.else102:                                       ; preds = %if.then99
   call void @uv__metrics_update_idle_time(ptr noundef nonnull %loop) #18
-  %119 = load ptr, ptr %101, align 8
-  %120 = load i32, ptr %add.ptr70, align 4
-  call void %119(ptr noundef nonnull %loop, ptr noundef nonnull %101, i32 noundef %120) #18
+  %118 = load ptr, ptr %101, align 8
+  %119 = load i32, ptr %add.ptr70, align 4
+  call void %118(ptr noundef nonnull %loop, ptr noundef nonnull %101, i32 noundef %119) #18
   br label %if.end104
 
 if.end104:                                        ; preds = %if.then99, %if.else102
@@ -2924,19 +2899,19 @@ do.body107:                                       ; preds = %for.inc, %if.end64
   %nevents.0.lcssa = phi i32 [ 0, %if.end64 ], [ %nevents.1, %for.inc ]
   %have_iou_events.0.lcssa = phi i32 [ 0, %if.end64 ], [ %have_iou_events.1, %for.inc ]
   %conv = sext i32 %nevents.0.lcssa to i64
-  %121 = load ptr, ptr %internal_fields, align 8
-  %events109 = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %121, i64 0, i32 1, i32 0, i32 1
-  %122 = load i64, ptr %events109, align 8
-  %add = add i64 %122, %conv
+  %120 = load ptr, ptr %internal_fields, align 8
+  %events109 = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %120, i64 0, i32 1, i32 0, i32 1
+  %121 = load i64, ptr %events109, align 8
+  %add = add i64 %121, %conv
   store i64 %add, ptr %events109, align 8
   %cmp111.not = icmp eq i32 %reset_timeout.1, 0
   br i1 %cmp111.not, label %if.end121, label %if.then113
 
 if.then113:                                       ; preds = %do.body107
-  %123 = load ptr, ptr %internal_fields, align 8
-  %events_waiting = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %123, i64 0, i32 1, i32 0, i32 2
-  %124 = load i64, ptr %events_waiting, align 8
-  %add119 = add i64 %124, %conv
+  %122 = load ptr, ptr %internal_fields, align 8
+  %events_waiting = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %122, i64 0, i32 1, i32 0, i32 2
+  %123 = load i64, ptr %events_waiting, align 8
+  %add119 = add i64 %123, %conv
   store i64 %add119, ptr %events_waiting, align 8
   br label %if.end121
 
@@ -2947,14 +2922,14 @@ if.end121:                                        ; preds = %if.then113, %do.bod
 
 if.then124:                                       ; preds = %if.end121
   call void @uv__metrics_update_idle_time(ptr noundef nonnull %loop) #18
-  %125 = load ptr, ptr %signal_io_watcher, align 8
-  call void %125(ptr noundef nonnull %loop, ptr noundef nonnull %signal_io_watcher, i32 noundef 1) #18
+  %124 = load ptr, ptr %signal_io_watcher, align 8
+  call void %124(ptr noundef nonnull %loop, ptr noundef nonnull %signal_io_watcher, i32 noundef 1) #18
   br label %if.end128
 
 if.end128:                                        ; preds = %if.then124, %if.end121
   store ptr null, ptr %inv66, align 8
-  %126 = or i32 %have_iou_events.0.lcssa, %have_signals.0.lcssa
-  %or.cond1.not = icmp eq i32 %126, 0
+  %125 = or i32 %have_iou_events.0.lcssa, %have_signals.0.lcssa
+  %or.cond1.not = icmp eq i32 %125, 0
   br i1 %or.cond1.not, label %if.end137, label %for.end165
 
 if.end137:                                        ; preds = %if.end128
@@ -2976,33 +2951,33 @@ update_timeout:                                   ; preds = %if.then56, %if.end1
   ]
 
 if.end156:                                        ; preds = %update_timeout
-  %127 = load i64, ptr %time, align 8
-  %sub.neg = sub i64 %2, %127
-  %128 = trunc i64 %sub.neg to i32
-  %conv160 = add i32 %real_timeout.0.ph121, %128
+  %126 = load i64, ptr %time, align 8
+  %sub.neg = sub i64 %2, %126
+  %127 = trunc i64 %sub.neg to i32
+  %conv160 = add i32 %real_timeout.0.ph121, %127
   %cmp161 = icmp slt i32 %conv160, 1
   br i1 %cmp161, label %for.end165, label %for.cond.outer120
 
 for.end165:                                       ; preds = %if.then140, %if.end156, %update_timeout, %if.end128, %if.then26
-  %129 = load i32, ptr %ringfd, align 8
-  %cmp167.not = icmp eq i32 %129, -1
+  %128 = load i32, ptr %ringfd, align 8
+  %cmp167.not = icmp eq i32 %128, -1
   br i1 %cmp167.not, label %if.end177, label %while.cond170.preheader
 
 while.cond170.preheader:                          ; preds = %for.end165
-  %130 = load ptr, ptr %ctl1, align 8
-  %131 = load i32, ptr %130, align 4
-  %132 = load ptr, ptr %sqtail, align 8
-  %133 = load i32, ptr %132, align 4
-  %cmp173.not147 = icmp eq i32 %131, %133
+  %129 = load ptr, ptr %ctl1, align 8
+  %130 = load i32, ptr %129, align 4
+  %131 = load ptr, ptr %sqtail, align 8
+  %132 = load i32, ptr %131, align 4
+  %cmp173.not147 = icmp eq i32 %130, %132
   br i1 %cmp173.not147, label %if.end177, label %while.body175
 
 while.body175:                                    ; preds = %while.cond170.preheader, %while.body175
   call fastcc void @uv__epoll_ctl_flush(i32 noundef %4, ptr noundef nonnull %ctl1, ptr noundef nonnull %prep)
-  %134 = load ptr, ptr %ctl1, align 8
-  %135 = load i32, ptr %134, align 4
-  %136 = load ptr, ptr %sqtail, align 8
-  %137 = load i32, ptr %136, align 4
-  %cmp173.not = icmp eq i32 %135, %137
+  %133 = load ptr, ptr %ctl1, align 8
+  %134 = load i32, ptr %133, align 4
+  %135 = load ptr, ptr %sqtail, align 8
+  %136 = load i32, ptr %135, align 4
+  %cmp173.not = icmp eq i32 %134, %136
   br i1 %cmp173.not, label %if.end177, label %while.body175
 
 if.end177:                                        ; preds = %if.then56, %while.body175, %while.cond170.preheader, %for.end165

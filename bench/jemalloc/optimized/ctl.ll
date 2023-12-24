@@ -1256,17 +1256,16 @@ for.body:                                         ; preds = %arenas_i.exit, %for
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %arenas_i.exit ]
   %arrayidx.i = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %indvars.iv
   %9 = load atomic i64, ptr %arrayidx.i acquire, align 8
-  %10 = inttoptr i64 %9 to ptr
   %arrayidx = getelementptr inbounds ptr, ptr %vla, i64 %indvars.iv
-  store ptr %10, ptr %arrayidx, align 8
+  store i64 %9, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
   br i1 %exitcond.not, label %for.cond4.preheader, label %for.body, !llvm.loop !11
 
 for.body6:                                        ; preds = %for.cond4.preheader, %for.inc17
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %for.inc17 ], [ 0, %for.cond4.preheader ]
-  %11 = load i8, ptr %state.i.i.i, align 8
-  %cmp6.i.not.i32 = icmp eq i8 %11, 0
+  %10 = load i8, ptr %state.i.i.i, align 8
+  %cmp6.i.not.i32 = icmp eq i8 %10, 0
   br i1 %cmp6.i.not.i32, label %tsd_fetch_impl.exit.i, label %if.then11.i.i33
 
 if.then11.i.i33:                                  ; preds = %for.body6
@@ -1274,9 +1273,9 @@ if.then11.i.i33:                                  ; preds = %for.body6
   br label %tsd_fetch_impl.exit.i
 
 tsd_fetch_impl.exit.i:                            ; preds = %if.then11.i.i33, %for.body6
-  %12 = load ptr, ptr @ctl_arenas, align 8
-  %13 = trunc i64 %indvars.iv46 to i32
-  switch i32 %13, label %sw.default.i.i.i [
+  %11 = load ptr, ptr @ctl_arenas, align 8
+  %12 = trunc i64 %indvars.iv46 to i32
+  switch i32 %12, label %sw.default.i.i.i [
     i32 4096, label %arenas_i.exit36
     i32 4097, label %sw.bb2.i.i.i
   ]
@@ -1285,31 +1284,31 @@ sw.bb2.i.i.i:                                     ; preds = %tsd_fetch_impl.exit
   br label %arenas_i.exit36
 
 sw.default.i.i.i:                                 ; preds = %tsd_fetch_impl.exit.i
-  %narenas.i.i.i = getelementptr inbounds %struct.ctl_arenas_s, ptr %12, i64 0, i32 1
-  %14 = load i32, ptr %narenas.i.i.i, align 8
-  %15 = zext i32 %14 to i64
-  %cmp.i.i.i = icmp eq i64 %indvars.iv46, %15
+  %narenas.i.i.i = getelementptr inbounds %struct.ctl_arenas_s, ptr %11, i64 0, i32 1
+  %13 = load i32, ptr %narenas.i.i.i, align 8
+  %14 = zext i32 %13 to i64
+  %cmp.i.i.i = icmp eq i64 %indvars.iv46, %14
   br i1 %cmp.i.i.i, label %arenas_i.exit36, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %sw.default.i.i.i
   %add.i.i.i = add nuw nsw i64 %indvars.iv46, 2
-  %16 = and i64 %add.i.i.i, 4294967295
+  %15 = and i64 %add.i.i.i, 4294967295
   br label %arenas_i.exit36
 
 arenas_i.exit36:                                  ; preds = %tsd_fetch_impl.exit.i, %sw.bb2.i.i.i, %sw.default.i.i.i, %if.else.i.i.i
-  %a.0.i.i.i = phi i64 [ %16, %if.else.i.i.i ], [ 1, %sw.bb2.i.i.i ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %sw.default.i.i.i ]
-  %arrayidx.i.i35 = getelementptr inbounds %struct.ctl_arenas_s, ptr %12, i64 0, i32 3, i64 %a.0.i.i.i
-  %17 = load ptr, ptr %arrayidx.i.i35, align 8
+  %a.0.i.i.i = phi i64 [ %15, %if.else.i.i.i ], [ 1, %sw.bb2.i.i.i ], [ 0, %tsd_fetch_impl.exit.i ], [ 0, %sw.default.i.i.i ]
+  %arrayidx.i.i35 = getelementptr inbounds %struct.ctl_arenas_s, ptr %11, i64 0, i32 3, i64 %a.0.i.i.i
+  %16 = load ptr, ptr %arrayidx.i.i35, align 8
   %arrayidx9 = getelementptr inbounds ptr, ptr %vla, i64 %indvars.iv46
-  %18 = load ptr, ptr %arrayidx9, align 8
-  %cmp10 = icmp ne ptr %18, null
+  %17 = load ptr, ptr %arrayidx9, align 8
+  %cmp10 = icmp ne ptr %17, null
   %frombool = zext i1 %cmp10 to i8
-  %initialized12 = getelementptr inbounds %struct.ctl_arena_s, ptr %17, i64 0, i32 1
+  %initialized12 = getelementptr inbounds %struct.ctl_arena_s, ptr %16, i64 0, i32 1
   store i8 %frombool, ptr %initialized12, align 4
   br i1 %cmp10, label %if.then, label %for.inc17
 
 if.then:                                          ; preds = %arenas_i.exit36
-  tail call fastcc void @ctl_arena_refresh(ptr noundef %tsdn, ptr noundef nonnull %18, ptr noundef %5, i32 noundef %13, i1 noundef zeroext false)
+  tail call fastcc void @ctl_arena_refresh(ptr noundef %tsdn, ptr noundef nonnull %17, ptr noundef %5, i32 noundef %12, i1 noundef zeroext false)
   br label %for.inc17
 
 for.inc17:                                        ; preds = %arenas_i.exit36, %if.then
@@ -1318,71 +1317,71 @@ for.inc17:                                        ; preds = %arenas_i.exit36, %i
   br i1 %exitcond50.not, label %for.end19, label %for.body6, !llvm.loop !12
 
 for.end19:                                        ; preds = %for.inc17, %arenas_i.exit, %for.cond4.preheader
-  %19 = load ptr, ptr %astats.i, align 8
-  %allocated_small = getelementptr inbounds %struct.ctl_arena_stats_s, ptr %19, i64 0, i32 1
-  %20 = load i64, ptr %allocated_small, align 8
-  %allocated_large = getelementptr inbounds %struct.arena_stats_s, ptr %19, i64 0, i32 7
-  %21 = load i64, ptr %allocated_large, align 8
-  %add = add i64 %21, %20
-  %22 = load ptr, ptr @ctl_stats, align 8
-  store i64 %add, ptr %22, align 8
-  %23 = load i64, ptr %pactive.i, align 8
-  %shl = shl i64 %23, 12
-  %active = getelementptr inbounds %struct.ctl_stats_s, ptr %22, i64 0, i32 1
+  %18 = load ptr, ptr %astats.i, align 8
+  %allocated_small = getelementptr inbounds %struct.ctl_arena_stats_s, ptr %18, i64 0, i32 1
+  %19 = load i64, ptr %allocated_small, align 8
+  %allocated_large = getelementptr inbounds %struct.arena_stats_s, ptr %18, i64 0, i32 7
+  %20 = load i64, ptr %allocated_large, align 8
+  %add = add i64 %20, %19
+  %21 = load ptr, ptr @ctl_stats, align 8
+  store i64 %add, ptr %21, align 8
+  %22 = load i64, ptr %pactive.i, align 8
+  %shl = shl i64 %22, 12
+  %active = getelementptr inbounds %struct.ctl_stats_s, ptr %21, i64 0, i32 1
   store i64 %shl, ptr %active, align 8
-  %24 = load ptr, ptr %astats.i, align 8
-  %25 = load i64, ptr %24, align 8
-  %internal = getelementptr inbounds %struct.arena_stats_s, ptr %24, i64 0, i32 6
-  %26 = load atomic i64, ptr %internal monotonic, align 8
-  %add27 = add i64 %26, %25
-  %metadata = getelementptr inbounds %struct.ctl_stats_s, ptr %22, i64 0, i32 2
+  %23 = load ptr, ptr %astats.i, align 8
+  %24 = load i64, ptr %23, align 8
+  %internal = getelementptr inbounds %struct.arena_stats_s, ptr %23, i64 0, i32 6
+  %25 = load atomic i64, ptr %internal monotonic, align 8
+  %add27 = add i64 %25, %24
+  %metadata = getelementptr inbounds %struct.ctl_stats_s, ptr %21, i64 0, i32 2
   store i64 %add27, ptr %metadata, align 8
-  %27 = load ptr, ptr %astats.i, align 8
-  %metadata_edata = getelementptr inbounds %struct.arena_stats_s, ptr %27, i64 0, i32 1
-  %28 = load i64, ptr %metadata_edata, align 8
-  %metadata_edata30 = getelementptr inbounds %struct.ctl_stats_s, ptr %22, i64 0, i32 3
-  store i64 %28, ptr %metadata_edata30, align 8
-  %29 = load ptr, ptr %astats.i, align 8
-  %metadata_rtree = getelementptr inbounds %struct.arena_stats_s, ptr %29, i64 0, i32 2
-  %30 = load i64, ptr %metadata_rtree, align 8
-  %metadata_rtree33 = getelementptr inbounds %struct.ctl_stats_s, ptr %22, i64 0, i32 4
-  store i64 %30, ptr %metadata_rtree33, align 8
-  %31 = load ptr, ptr %astats.i, align 8
-  %resident = getelementptr inbounds %struct.arena_stats_s, ptr %31, i64 0, i32 3
-  %32 = load i64, ptr %resident, align 8
-  %resident36 = getelementptr inbounds %struct.ctl_stats_s, ptr %22, i64 0, i32 6
-  store i64 %32, ptr %resident36, align 8
-  %33 = load ptr, ptr %astats.i, align 8
-  %metadata_thp = getelementptr inbounds %struct.arena_stats_s, ptr %33, i64 0, i32 4
-  %34 = load i64, ptr %metadata_thp, align 8
-  %metadata_thp39 = getelementptr inbounds %struct.ctl_stats_s, ptr %22, i64 0, i32 5
-  store i64 %34, ptr %metadata_thp39, align 8
-  %35 = load ptr, ptr %astats.i, align 8
-  %mapped = getelementptr inbounds %struct.arena_stats_s, ptr %35, i64 0, i32 5
-  %36 = load i64, ptr %mapped, align 8
-  %mapped42 = getelementptr inbounds %struct.ctl_stats_s, ptr %22, i64 0, i32 7
-  store i64 %36, ptr %mapped42, align 8
-  %37 = load ptr, ptr %astats.i, align 8
-  %retained = getelementptr inbounds %struct.arena_stats_s, ptr %37, i64 0, i32 13, i32 1, i32 2
-  %38 = load i64, ptr %retained, align 8
-  %retained45 = getelementptr inbounds %struct.ctl_stats_s, ptr %22, i64 0, i32 8
-  store i64 %38, ptr %retained45, align 8
-  %background_thread.i = getelementptr inbounds %struct.ctl_stats_s, ptr %22, i64 0, i32 9
+  %26 = load ptr, ptr %astats.i, align 8
+  %metadata_edata = getelementptr inbounds %struct.arena_stats_s, ptr %26, i64 0, i32 1
+  %27 = load i64, ptr %metadata_edata, align 8
+  %metadata_edata30 = getelementptr inbounds %struct.ctl_stats_s, ptr %21, i64 0, i32 3
+  store i64 %27, ptr %metadata_edata30, align 8
+  %28 = load ptr, ptr %astats.i, align 8
+  %metadata_rtree = getelementptr inbounds %struct.arena_stats_s, ptr %28, i64 0, i32 2
+  %29 = load i64, ptr %metadata_rtree, align 8
+  %metadata_rtree33 = getelementptr inbounds %struct.ctl_stats_s, ptr %21, i64 0, i32 4
+  store i64 %29, ptr %metadata_rtree33, align 8
+  %30 = load ptr, ptr %astats.i, align 8
+  %resident = getelementptr inbounds %struct.arena_stats_s, ptr %30, i64 0, i32 3
+  %31 = load i64, ptr %resident, align 8
+  %resident36 = getelementptr inbounds %struct.ctl_stats_s, ptr %21, i64 0, i32 6
+  store i64 %31, ptr %resident36, align 8
+  %32 = load ptr, ptr %astats.i, align 8
+  %metadata_thp = getelementptr inbounds %struct.arena_stats_s, ptr %32, i64 0, i32 4
+  %33 = load i64, ptr %metadata_thp, align 8
+  %metadata_thp39 = getelementptr inbounds %struct.ctl_stats_s, ptr %21, i64 0, i32 5
+  store i64 %33, ptr %metadata_thp39, align 8
+  %34 = load ptr, ptr %astats.i, align 8
+  %mapped = getelementptr inbounds %struct.arena_stats_s, ptr %34, i64 0, i32 5
+  %35 = load i64, ptr %mapped, align 8
+  %mapped42 = getelementptr inbounds %struct.ctl_stats_s, ptr %21, i64 0, i32 7
+  store i64 %35, ptr %mapped42, align 8
+  %36 = load ptr, ptr %astats.i, align 8
+  %retained = getelementptr inbounds %struct.arena_stats_s, ptr %36, i64 0, i32 13, i32 1, i32 2
+  %37 = load i64, ptr %retained, align 8
+  %retained45 = getelementptr inbounds %struct.ctl_stats_s, ptr %21, i64 0, i32 8
+  store i64 %37, ptr %retained45, align 8
+  %background_thread.i = getelementptr inbounds %struct.ctl_stats_s, ptr %21, i64 0, i32 9
   %call.i = tail call zeroext i1 @background_thread_stats_read(ptr noundef %tsdn, ptr noundef nonnull %background_thread.i) #14
   br i1 %call.i, label %if.then.i, label %ctl_background_thread_stats_read.exit
 
 if.then.i:                                        ; preds = %for.end19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %background_thread.i, i8 0, i64 88, i1 false)
-  %run_interval.i = getelementptr inbounds %struct.ctl_stats_s, ptr %22, i64 0, i32 9, i32 2
+  %run_interval.i = getelementptr inbounds %struct.ctl_stats_s, ptr %21, i64 0, i32 9, i32 2
   tail call void @nstime_copy(ptr noundef nonnull %run_interval.i, ptr noundef nonnull @nstime_zero) #14
   br label %ctl_background_thread_stats_read.exit
 
 ctl_background_thread_stats_read.exit:            ; preds = %for.end19, %if.then.i
-  %39 = load ptr, ptr @ctl_stats, align 8
-  %arrayidx.i37 = getelementptr inbounds %struct.ctl_stats_s, ptr %39, i64 0, i32 10, i64 1
-  %max_counter_per_bg_thd.i = getelementptr inbounds %struct.ctl_stats_s, ptr %22, i64 0, i32 9, i32 3
+  %38 = load ptr, ptr @ctl_stats, align 8
+  %arrayidx.i37 = getelementptr inbounds %struct.ctl_stats_s, ptr %38, i64 0, i32 10, i64 1
+  %max_counter_per_bg_thd.i = getelementptr inbounds %struct.ctl_stats_s, ptr %21, i64 0, i32 9, i32 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i37, ptr noundef nonnull align 8 dereferenceable(64) %max_counter_per_bg_thd.i, i64 64, i1 false)
-  %n_waiting_thds.i.i = getelementptr inbounds %struct.ctl_stats_s, ptr %39, i64 0, i32 10, i64 1, i32 5
+  %n_waiting_thds.i.i = getelementptr inbounds %struct.ctl_stats_s, ptr %38, i64 0, i32 10, i64 1, i32 5
   store atomic i32 0, ptr %n_waiting_thds.i.i monotonic, align 4
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 2)) #14
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
@@ -1394,37 +1393,37 @@ if.then.i38:                                      ; preds = %ctl_background_thre
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i38, %ctl_background_thread_stats_read.exit
-  %40 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %inc.i.i = add i64 %40, 1
+  %39 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
+  %inc.i.i = add i64 %39, 1
   store i64 %inc.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 0, i32 8), align 8
-  %41 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %cmp.not.i.i = icmp eq ptr %41, %tsdn
+  %40 = load ptr, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
+  %cmp.not.i.i = icmp eq ptr %40, %tsdn
   br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   store ptr %tsdn, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 0, i32 7), align 8
-  %42 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
-  %inc2.i.i = add i64 %42, 1
+  %41 = load i64, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
+  %inc2.i.i = add i64 %41, 1
   store i64 %inc2.i.i, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 0, i32 6), align 8
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
-  %43 = load ptr, ptr @ctl_stats, align 8
-  %mutex_prof_data = getelementptr inbounds %struct.ctl_stats_s, ptr %43, i64 0, i32 10
+  %42 = load ptr, ptr @ctl_stats, align 8
+  %mutex_prof_data = getelementptr inbounds %struct.ctl_stats_s, ptr %42, i64 0, i32 10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %mutex_prof_data, ptr noundef nonnull align 8 dereferenceable(64) @background_thread_lock, i64 64, i1 false)
-  %n_waiting_thds.i.i39 = getelementptr inbounds %struct.ctl_stats_s, ptr %43, i64 0, i32 10, i64 0, i32 5
+  %n_waiting_thds.i.i39 = getelementptr inbounds %struct.ctl_stats_s, ptr %42, i64 0, i32 10, i64 0, i32 5
   store atomic i32 0, ptr %n_waiting_thds.i.i39 monotonic, align 4
   store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 1) monotonic, align 8
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @background_thread_lock, i64 0, i32 0, i32 0, i32 2)) #14
-  %44 = load ptr, ptr @ctl_stats, align 8
-  %arrayidx48 = getelementptr inbounds %struct.ctl_stats_s, ptr %44, i64 0, i32 10, i64 2
+  %43 = load ptr, ptr @ctl_stats, align 8
+  %arrayidx48 = getelementptr inbounds %struct.ctl_stats_s, ptr %43, i64 0, i32 10, i64 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx48, ptr noundef nonnull align 8 dereferenceable(64) @ctl_mtx, i64 64, i1 false)
-  %n_waiting_thds.i.i40 = getelementptr inbounds %struct.ctl_stats_s, ptr %44, i64 0, i32 10, i64 2, i32 5
+  %n_waiting_thds.i.i40 = getelementptr inbounds %struct.ctl_stats_s, ptr %43, i64 0, i32 10, i64 2, i32 5
   store atomic i32 0, ptr %n_waiting_thds.i.i40 monotonic, align 4
-  %45 = load ptr, ptr @ctl_arenas, align 8
-  %46 = load i64, ptr %45, align 8
-  %inc49 = add i64 %46, 1
-  store i64 %inc49, ptr %45, align 8
+  %44 = load ptr, ptr @ctl_arenas, align 8
+  %45 = load i64, ptr %44, align 8
+  %inc49 = add i64 %45, 1
+  store i64 %inc49, ptr %44, align 8
   ret void
 }
 
@@ -7549,7 +7548,7 @@ do.end62:                                         ; preds = %if.then56
 if.then70:                                        ; preds = %do.end62
   %10 = load i64, ptr %oldlenp, align 8
   %cmp71.not = icmp eq i64 %10, 8
-  br i1 %cmp71.not, label %if.end110.sink.split, label %if.then73
+  br i1 %cmp71.not, label %if.end81, label %if.then73
 
 if.then73:                                        ; preds = %if.then70
   %spec.select50 = tail call i64 @llvm.umin.i64(i64 %10, i64 8)
@@ -7557,34 +7556,36 @@ if.then73:                                        ; preds = %if.then70
   store i64 %spec.select50, ptr %oldlenp, align 8
   br label %label_return
 
+if.end81:                                         ; preds = %if.then70
+  store ptr %call63, ptr %oldp, align 8
+  br label %if.end110
+
 if.else84:                                        ; preds = %if.else
   %call85 = tail call ptr @arena_get_ehooks(ptr noundef nonnull %5) #14
   %ptr.i = getelementptr inbounds %struct.ehooks_s, ptr %call85, i64 0, i32 1
   %11 = load atomic i64, ptr %ptr.i acquire, align 8
-  %12 = inttoptr i64 %11 to ptr
-  store ptr %12, ptr %old_extent_hooks, align 8
+  store i64 %11, ptr %old_extent_hooks, align 8
   %cmp88 = icmp ne ptr %oldp, null
   %cmp91 = icmp ne ptr %oldlenp, null
   %or.cond2 = and i1 %cmp88, %cmp91
   br i1 %or.cond2, label %if.then93, label %if.end110
 
 if.then93:                                        ; preds = %if.else84
-  %13 = load i64, ptr %oldlenp, align 8
-  %cmp94.not = icmp eq i64 %13, 8
-  br i1 %cmp94.not, label %if.end110.sink.split, label %if.then96
+  %12 = load i64, ptr %oldlenp, align 8
+  %cmp94.not = icmp eq i64 %12, 8
+  br i1 %cmp94.not, label %if.end104, label %if.then96
 
 if.then96:                                        ; preds = %if.then93
-  %spec.select51 = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
+  %spec.select51 = tail call i64 @llvm.umin.i64(i64 %12, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %old_extent_hooks, i64 %spec.select51, i1 false)
   store i64 %spec.select51, ptr %oldlenp, align 8
   br label %label_return
 
-if.end110.sink.split:                             ; preds = %if.then93, %if.then70
-  %.sink = phi ptr [ %call63, %if.then70 ], [ %12, %if.then93 ]
-  store ptr %.sink, ptr %oldp, align 8
+if.end104:                                        ; preds = %if.then93
+  store i64 %11, ptr %oldp, align 8
   br label %if.end110
 
-if.end110:                                        ; preds = %if.end110.sink.split, %do.end41, %do.end28, %if.else84, %do.end62
+if.end110:                                        ; preds = %do.end41, %do.end28, %if.end104, %if.else84, %if.end81, %do.end62
   br label %label_return
 
 label_return:                                     ; preds = %if.end, %if.then56, %do.end41, %if.then35, %if.then10, %malloc_mutex_lock.exit, %if.end110, %if.then96, %if.then73, %if.then23
@@ -7843,9 +7844,8 @@ for.body:                                         ; preds = %if.then, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.then ]
   %arrayidx.i = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %indvars.iv
   %7 = load atomic i64, ptr %arrayidx.i acquire, align 8
-  %8 = inttoptr i64 %7 to ptr
   %arrayidx = getelementptr inbounds ptr, ptr %vla, i64 %indvars.iv
-  store ptr %8, ptr %arrayidx, align 8
+  store i64 %7, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
@@ -7858,12 +7858,12 @@ for.end:                                          ; preds = %for.body
 for.body6:                                        ; preds = %for.end, %for.inc13
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %for.inc13 ], [ 0, %for.end ]
   %arrayidx8 = getelementptr inbounds ptr, ptr %vla, i64 %indvars.iv31
-  %9 = load ptr, ptr %arrayidx8, align 8
-  %cmp9.not = icmp eq ptr %9, null
+  %8 = load ptr, ptr %arrayidx8, align 8
+  %cmp9.not = icmp eq ptr %8, null
   br i1 %cmp9.not, label %for.inc13, label %if.then10
 
 if.then10:                                        ; preds = %for.body6
-  tail call void @arena_decay(ptr noundef %tsdn, ptr noundef nonnull %9, i1 noundef zeroext false, i1 noundef zeroext %all) #14
+  tail call void @arena_decay(ptr noundef %tsdn, ptr noundef nonnull %8, i1 noundef zeroext false, i1 noundef zeroext %all) #14
   br label %for.inc13
 
 for.inc13:                                        ; preds = %for.body6, %if.then10
@@ -7878,15 +7878,15 @@ for.end15:                                        ; preds = %for.inc13, %for.end
 do.end:                                           ; preds = %malloc_mutex_lock.exit
   %idxprom.i22 = zext i32 %arena_ind to i64
   %arrayidx.i23 = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %idxprom.i22
-  %10 = load atomic i64, ptr %arrayidx.i23 acquire, align 8
+  %9 = load atomic i64, ptr %arrayidx.i23 acquire, align 8
   store atomic i8 0, ptr getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 1) monotonic, align 8
   %call1.i25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.malloc_mutex_s, ptr @ctl_mtx, i64 0, i32 0, i32 0, i32 2)) #14
-  %cmp17.not = icmp eq i64 %10, 0
+  %cmp17.not = icmp eq i64 %9, 0
   br i1 %cmp17.not, label %if.end21, label %if.then18
 
 if.then18:                                        ; preds = %do.end
-  %11 = inttoptr i64 %10 to ptr
-  tail call void @arena_decay(ptr noundef %tsdn, ptr noundef nonnull %11, i1 noundef zeroext false, i1 noundef zeroext %all) #14
+  %10 = inttoptr i64 %9 to ptr
+  tail call void @arena_decay(ptr noundef %tsdn, ptr noundef nonnull %10, i1 noundef zeroext false, i1 noundef zeroext %all) #14
   br label %if.end21
 
 if.end21:                                         ; preds = %do.end, %if.then18, %for.end15
@@ -9048,8 +9048,7 @@ acquire.i.i:                                      ; preds = %rtree_leaf_elm_look
   %shl.i74 = shl i64 %10, 16
   %shr10.i = ashr exact i64 %shl.i74, 16
   %and11.i = and i64 %shr10.i, -128
-  %15 = inttoptr i64 %and11.i to ptr
-  store ptr %15, ptr %r_contents, align 8
+  store i64 %and11.i, ptr %r_contents, align 8
   %tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %r_contents, i64 8
   store i32 %conv.i70, ptr %tmp.sroa.2.0..sroa_idx, align 8
   %tmp.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %r_contents, i64 12

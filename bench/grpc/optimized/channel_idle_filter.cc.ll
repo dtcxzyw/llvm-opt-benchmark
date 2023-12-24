@@ -885,8 +885,7 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i
   store ptr null, ptr %idle_filter_state_.i.i, align 8
   %activity_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i32 4
   %12 = atomicrmw xchg ptr %activity_.i.i, i64 0 seq_cst, align 8
-  %atomic-temp.i.0.i.i.i.i.i.i.i = inttoptr i64 %12 to ptr
-  store ptr %atomic-temp.i.0.i.i.i.i.i.i.i, ptr %activity_.i.i.i.i.i, align 8
+  store i64 %12, ptr %activity_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN9grpc_core16ClientIdleFilterE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
   store i64 0, ptr %agg.result, align 8
   call void @_ZN9grpc_core17ChannelIdleFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %filter) #24
@@ -953,14 +952,12 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i
   %activity_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.7", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i32 4
   %activity_4.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ChannelIdleFilter", ptr %filter, i64 0, i32 4
   %7 = atomicrmw xchg ptr %activity_4.i.i.i.i.i, i64 0 seq_cst, align 8
-  %atomic-temp.i.0.i.i.i.i.i.i.i = inttoptr i64 %7 to ptr
-  store ptr %atomic-temp.i.0.i.i.i.i.i.i.i, ptr %activity_.i.i.i.i.i, align 8
+  store i64 %7, ptr %activity_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN9grpc_core12MaxAgeFilterE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
   %max_age_activity_.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.7", ptr %agg.result, i64 0, i32 1, i32 0, i32 1
   %max_age_activity_2.i.i.i.i = getelementptr inbounds %"class.grpc_core::MaxAgeFilter", ptr %filter, i64 0, i32 1
   %8 = atomicrmw xchg ptr %max_age_activity_2.i.i.i.i, i64 0 seq_cst, align 8
-  %atomic-temp.i.0.i.i.i.i.i.i = inttoptr i64 %8 to ptr
-  store ptr %atomic-temp.i.0.i.i.i.i.i.i, ptr %max_age_activity_.i.i.i.i, align 8
+  store i64 %8, ptr %max_age_activity_.i.i.i.i, align 8
   %max_connection_age_.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.7", ptr %agg.result, i64 0, i32 1, i32 0, i32 2
   %max_connection_age_3.i.i.i.i = getelementptr inbounds %"class.grpc_core::MaxAgeFilter", ptr %filter, i64 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_connection_age_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %max_connection_age_3.i.i.i.i, i64 16, i1 false)
@@ -9104,10 +9101,9 @@ entry:
   store ptr %4, ptr %5, align 8
   %pollent_.i.i.i = getelementptr inbounds %"class.grpc_core::promise_filter_detail::BaseCallData", ptr %0, i64 0, i32 10
   %7 = load atomic i64, ptr %pollent_.i.i.i acquire, align 8
-  %atomic-temp.i.0.i.i.i.i = inttoptr i64 %7 to ptr
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail7ContextI19grpc_polling_entityE8current_E)
   %9 = load ptr, ptr %8, align 8
-  store ptr %atomic-temp.i.0.i.i.i.i, ptr %8, align 8
+  store i64 %7, ptr %8, align 8
   %finalization_.i.i.i = getelementptr inbounds %"class.grpc_core::promise_filter_detail::BaseCallData", ptr %0, i64 0, i32 7
   %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail7ContextINS_16CallFinalizationEE8current_E)
   %11 = load ptr, ptr %10, align 8
@@ -9292,8 +9288,7 @@ _ZN9grpc_core16ClientIdleFilterC2EOS0_.exit:      ; preds = %invoke.cont11, %if.
   %activity_.i.i = getelementptr inbounds %"class.grpc_core::ChannelIdleFilter", ptr %3, i64 0, i32 4
   %activity_4.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %status, i64 0, i32 1, i32 0, i32 0, i32 4
   %20 = atomicrmw xchg ptr %activity_4.i.i, i64 0 seq_cst, align 8
-  %atomic-temp.i.0.i.i.i.i = inttoptr i64 %20 to ptr
-  store ptr %atomic-temp.i.0.i.i.i.i, ptr %activity_.i.i, align 8
+  store i64 %20, ptr %activity_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN9grpc_core16ClientIdleFilterE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
   store i64 0, ptr %agg.result, align 8, !alias.scope !281
   br label %cleanup
@@ -10333,10 +10328,9 @@ entry:
   store ptr %4, ptr %5, align 8
   %pollent_.i.i.i = getelementptr inbounds %"class.grpc_core::promise_filter_detail::BaseCallData", ptr %0, i64 0, i32 10
   %7 = load atomic i64, ptr %pollent_.i.i.i acquire, align 8
-  %atomic-temp.i.0.i.i.i.i = inttoptr i64 %7 to ptr
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail7ContextI19grpc_polling_entityE8current_E)
   %9 = load ptr, ptr %8, align 8
-  store ptr %atomic-temp.i.0.i.i.i.i, ptr %8, align 8
+  store i64 %7, ptr %8, align 8
   %finalization_.i.i.i = getelementptr inbounds %"class.grpc_core::promise_filter_detail::BaseCallData", ptr %0, i64 0, i32 7
   %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail7ContextINS_16CallFinalizationEE8current_E)
   %11 = load ptr, ptr %10, align 8
@@ -10463,14 +10457,12 @@ invoke.cont.i:                                    ; preds = %if.else.i.i.i.i.i.i
   %activity_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.7", ptr %status, i64 0, i32 1, i32 0, i32 0, i32 4
   %activity_4.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ChannelIdleFilter", ptr %filter.i, i64 0, i32 4
   %9 = atomicrmw xchg ptr %activity_4.i.i.i.i.i.i, i64 0 seq_cst, align 8, !noalias !294
-  %atomic-temp.i.0.i.i.i.i.i.i.i.i = inttoptr i64 %9 to ptr
-  store ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i, ptr %activity_.i.i.i.i.i.i, align 8, !alias.scope !294
+  store i64 %9, ptr %activity_.i.i.i.i.i.i, align 8, !alias.scope !294
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN9grpc_core12MaxAgeFilterE, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !alias.scope !294
   %max_age_activity_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.7", ptr %status, i64 0, i32 1, i32 0, i32 1
   %max_age_activity_2.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::MaxAgeFilter", ptr %filter.i, i64 0, i32 1
   %10 = atomicrmw xchg ptr %max_age_activity_2.i.i.i.i.i, i64 0 seq_cst, align 8, !noalias !294
-  %atomic-temp.i.0.i.i.i.i.i.i.i = inttoptr i64 %10 to ptr
-  store ptr %atomic-temp.i.0.i.i.i.i.i.i.i, ptr %max_age_activity_.i.i.i.i.i, align 8, !alias.scope !294
+  store i64 %10, ptr %max_age_activity_.i.i.i.i.i, align 8, !alias.scope !294
   %max_connection_age_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.7", ptr %status, i64 0, i32 1, i32 0, i32 2
   %max_connection_age_3.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::MaxAgeFilter", ptr %filter.i, i64 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_connection_age_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %max_connection_age_3.i.i.i.i.i, i64 16, i1 false)
@@ -10539,19 +10531,17 @@ cleanup:                                          ; preds = %if.else.i.i.i.i.i.i
   store ptr null, ptr %idle_filter_state_.i.i.i.i.i.i, align 8
   %activity_.i.i = getelementptr inbounds %"class.grpc_core::ChannelIdleFilter", ptr %15, i64 0, i32 4
   %23 = atomicrmw xchg ptr %activity_.i.i.i.i.i.i, i64 0 seq_cst, align 8
-  %atomic-temp.i.0.i.i.i.i12 = inttoptr i64 %23 to ptr
-  store ptr %atomic-temp.i.0.i.i.i.i12, ptr %activity_.i.i, align 8
+  store i64 %23, ptr %activity_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN9grpc_core12MaxAgeFilterE, i64 0, inrange i32 0, i64 2), ptr %15, align 8
   %max_age_activity_.i = getelementptr inbounds %"class.grpc_core::MaxAgeFilter", ptr %15, i64 0, i32 1
   %24 = atomicrmw xchg ptr %max_age_activity_.i.i.i.i.i, i64 0 seq_cst, align 8
-  %atomic-temp.i.0.i.i.i = inttoptr i64 %24 to ptr
-  store ptr %atomic-temp.i.0.i.i.i, ptr %max_age_activity_.i, align 8
+  store i64 %24, ptr %max_age_activity_.i, align 8
   %max_connection_age_.i = getelementptr inbounds %"class.grpc_core::MaxAgeFilter", ptr %15, i64 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_connection_age_.i, ptr noundef nonnull align 8 dereferenceable(16) %max_connection_age_.i.i.i.i.i, i64 16, i1 false)
   store i64 0, ptr %agg.result, align 8, !alias.scope !297
   %.pre = load i64, ptr %status, align 8
-  %cmp.i.i.i.i13 = icmp eq i64 %.pre, 0
-  br i1 %cmp.i.i.i.i13, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
+  %cmp.i.i.i.i12 = icmp eq i64 %.pre, 0
+  br i1 %cmp.i.i.i.i12, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i:       ; preds = %cleanup
   %25 = load atomic i64, ptr %max_age_activity_.i.i.i.i.i monotonic, align 8

@@ -299,7 +299,7 @@ recff_stitch.exit:                                ; preds = %sw.default
   %sub.ptr.sub.i = add i64 %sub.ptr.lhs.cast.i, 2
   %add15.i = sub i64 %sub.ptr.sub.i, %sub.ptr.rhs.cast.i
   store i64 %add15.i, ptr %add.ptr4.i, align 8
-  store i64 ptrtoint (ptr @lj_cont_stitch to i64), ptr %add.ptr, align 8
+  store ptr @lj_cont_stitch, ptr %add.ptr, align 8
   store i64 %5, ptr %4, align 8
   store i64 -1, ptr %arrayidx13.i, align 8
   %15 = load <2 x ptr>, ptr %base, align 8

@@ -977,35 +977,34 @@ if.end32:                                         ; preds = %int128_get64.exit40
   %22 = load i64, ptr %offset_within_address_space, align 8
   %sub.i41 = sub i64 %0, %22
   %add.ptr1.i = getelementptr i8, ptr %add.ptr.i, i64 %sub.i41
-  %23 = ptrtoint ptr %add.ptr1.i to i64
   %vaddr = getelementptr inbounds %struct.vfio_iommu_spapr_register_memory, ptr %reg, i64 0, i32 2
-  store i64 %23, ptr %vaddr, align 8
+  store ptr %add.ptr1.i, ptr %vaddr, align 8
   %sub = sub i64 %add29, %0
   %size34 = getelementptr inbounds %struct.vfio_iommu_spapr_register_memory, ptr %reg, i64 0, i32 3
   store i64 %sub, ptr %size34, align 8
   %fd = getelementptr i8, ptr %listener, i64 -200
-  %24 = load i32, ptr %fd, align 8
-  %call35 = call i32 (i32, i64, ...) @ioctl(i32 noundef %24, i64 noundef 15221, ptr noundef nonnull %reg) #14
-  %25 = load i64, ptr %vaddr, align 8
-  %26 = load i64, ptr %size34, align 8
+  %23 = load i32, ptr %fd, align 8
+  %call35 = call i32 (i32, i64, ...) @ioctl(i32 noundef %23, i64 noundef 15221, ptr noundef nonnull %reg) #14
+  %24 = load i64, ptr %vaddr, align 8
+  %25 = load i64, ptr %size34, align 8
   %tobool38.not = icmp eq i32 %call35, 0
   br i1 %tobool38.not, label %if.end51.critedge, label %cond.true
 
 cond.true:                                        ; preds = %if.end32
   %call39 = tail call ptr @__errno_location() #15
-  %27 = load i32, ptr %call39, align 4
-  %sub40 = sub i32 0, %27
-  call fastcc void @trace_vfio_prereg_register(i64 noundef %25, i64 noundef %26, i32 noundef %sub40)
+  %26 = load i32, ptr %call39, align 4
+  %sub40 = sub i32 0, %26
+  call fastcc void @trace_vfio_prereg_register(i64 noundef %24, i64 noundef %25, i32 noundef %sub40)
   %initialized = getelementptr i8, ptr %listener, i64 208
-  %28 = load i8, ptr %initialized, align 8
-  %29 = and i8 %28, 1
-  %tobool43.not = icmp eq i8 %29, 0
+  %27 = load i8, ptr %initialized, align 8
+  %28 = and i8 %27, 1
+  %tobool43.not = icmp eq i8 %28, 0
   br i1 %tobool43.not, label %if.then44, label %if.else
 
 if.then44:                                        ; preds = %cond.true
   %error = getelementptr i8, ptr %listener, i64 200
-  %30 = load ptr, ptr %error, align 8
-  %tobool45.not = icmp eq ptr %30, null
+  %29 = load ptr, ptr %error, align 8
+  %tobool45.not = icmp eq ptr %29, null
   br i1 %tobool45.not, label %if.then46, label %if.end51
 
 if.then46:                                        ; preds = %if.then44
@@ -1018,7 +1017,7 @@ if.else:                                          ; preds = %cond.true
   unreachable
 
 if.end51.critedge:                                ; preds = %if.end32
-  call fastcc void @trace_vfio_prereg_register(i64 noundef %25, i64 noundef %26, i32 noundef 0)
+  call fastcc void @trace_vfio_prereg_register(i64 noundef %24, i64 noundef %25, i32 noundef 0)
   br label %if.end51
 
 if.end51:                                         ; preds = %if.end51.critedge, %if.then46, %if.then44, %int128_get64.exit40, %if.then23, %trace_vfio_prereg_listener_region_add_skip.exit
@@ -1175,29 +1174,28 @@ if.end32:                                         ; preds = %int128_get64.exit34
   %21 = load i64, ptr %offset_within_address_space, align 8
   %sub.i35 = sub i64 %0, %21
   %add.ptr1.i = getelementptr i8, ptr %add.ptr.i, i64 %sub.i35
-  %22 = ptrtoint ptr %add.ptr1.i to i64
   %vaddr = getelementptr inbounds %struct.vfio_iommu_spapr_register_memory, ptr %reg, i64 0, i32 2
-  store i64 %22, ptr %vaddr, align 8
+  store ptr %add.ptr1.i, ptr %vaddr, align 8
   %sub = sub i64 %add29, %0
   %size34 = getelementptr inbounds %struct.vfio_iommu_spapr_register_memory, ptr %reg, i64 0, i32 3
   store i64 %sub, ptr %size34, align 8
   %fd = getelementptr i8, ptr %listener, i64 -200
-  %23 = load i32, ptr %fd, align 8
-  %call35 = call i32 (i32, i64, ...) @ioctl(i32 noundef %23, i64 noundef 15222, ptr noundef nonnull %reg) #14
-  %24 = load i64, ptr %vaddr, align 8
-  %25 = load i64, ptr %size34, align 8
+  %22 = load i32, ptr %fd, align 8
+  %call35 = call i32 (i32, i64, ...) @ioctl(i32 noundef %22, i64 noundef 15222, ptr noundef nonnull %reg) #14
+  %23 = load i64, ptr %vaddr, align 8
+  %24 = load i64, ptr %size34, align 8
   %tobool38.not = icmp eq i32 %call35, 0
   br i1 %tobool38.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.end32
   %call39 = tail call ptr @__errno_location() #15
-  %26 = load i32, ptr %call39, align 4
-  %sub40 = sub i32 0, %26
+  %25 = load i32, ptr %call39, align 4
+  %sub40 = sub i32 0, %25
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end32, %cond.true
   %cond = phi i32 [ %sub40, %cond.true ], [ 0, %if.end32 ]
-  call fastcc void @trace_vfio_prereg_unregister(i64 noundef %24, i64 noundef %25, i32 noundef %cond)
+  call fastcc void @trace_vfio_prereg_unregister(i64 noundef %23, i64 noundef %24, i32 noundef %cond)
   br label %return
 
 return:                                           ; preds = %int128_get64.exit34, %cond.end, %if.then23, %trace_vfio_prereg_listener_region_del_skip.exit

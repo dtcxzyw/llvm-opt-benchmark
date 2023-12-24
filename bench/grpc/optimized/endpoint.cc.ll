@@ -1010,118 +1010,117 @@ _ZN17grpc_event_engine12experimental11SliceBufferD2Ev.exit.i: ; preds = %_ZN9grp
   %read_buffer6.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper::grpc_event_engine_endpoint", ptr %eeep_.val.i, i64 0, i32 2
   call void @grpc_slice_buffer_reset_and_unref(ptr noundef nonnull %read_buffer6.i)
   %16 = load ptr, ptr %10, align 8
-  %17 = ptrtoint ptr %10 to i64
-  store i64 %17, ptr %agg.tmp.i, align 16
+  store ptr %10, ptr %agg.tmp.i, align 16
   %invoker_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.16", ptr %agg.tmp.i, i64 0, i32 2
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper4ReadEP12grpc_closureP17grpc_slice_bufferPKNS4_11EventEngine8Endpoint8ReadArgsEEUlNS0_6StatusEE_JSG_EEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE, ptr %invoker_.i.i.i.i.i.i, align 8
   %manager_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.16", ptr %agg.tmp.i, i64 0, i32 1
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i.i.i.i, align 16
   %vtable.i = load ptr, ptr %16, align 8
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
-  %18 = load ptr, ptr %vfn.i, align 8
-  %call11.i = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %read_buffer6.i, ptr noundef nonnull %read_args)
+  %17 = load ptr, ptr %vfn.i, align 8
+  %call11.i = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %read_buffer6.i, ptr noundef nonnull %read_args)
           to label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper4ReadEP12grpc_closureP17grpc_slice_bufferPKNS0_11EventEngine8Endpoint8ReadArgsE.exit unwind label %lpad9.i
 
 common.resume:                                    ; preds = %lpad, %lpad6, %lpad.i, %lpad9.i
-  %common.resume.op = phi { ptr, i32 } [ %19, %lpad9.i ], [ %36, %lpad.i ], [ %26, %lpad6 ], [ %9, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %18, %lpad9.i ], [ %35, %lpad.i ], [ %25, %lpad6 ], [ %9, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad9.i:                                          ; preds = %_ZN17grpc_event_engine12experimental11SliceBufferD2Ev.exit.i
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %20 = load ptr, ptr %manager_.i.i.i.i.i.i.i, align 16
-  call void %20(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp.i) #22
+  %19 = load ptr, ptr %manager_.i.i.i.i.i.i.i, align 16
+  call void %19(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp.i) #22
   br label %common.resume
 
 _ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper4ReadEP12grpc_closureP17grpc_slice_bufferPKNS0_11EventEngine8Endpoint8ReadArgsE.exit: ; preds = %_ZN17grpc_event_engine12experimental11SliceBufferD2Ev.exit.i
-  %21 = load ptr, ptr %manager_.i.i.i.i.i.i.i, align 16
-  call void %21(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp.i) #22
+  %20 = load ptr, ptr %manager_.i.i.i.i.i.i.i, align 16
+  call void %20(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp.i) #22
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   br i1 %call11.i, label %if.then3, label %if.end8
 
 if.then3:                                         ; preds = %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper4ReadEP12grpc_closureP17grpc_slice_bufferPKNS0_11EventEngine8Endpoint8ReadArgsE.exit
-  %22 = load ptr, ptr %wrapper, align 8
+  %21 = load ptr, ptr %wrapper, align 8
   store i64 0, ptr %agg.tmp5, align 8, !alias.scope !13
-  invoke fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper17FinishPendingReadEN4absl12lts_202308026StatusE(ptr noundef nonnull align 16 dereferenceable(164) %22, ptr noundef nonnull %agg.tmp5)
+  invoke fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper17FinishPendingReadEN4absl12lts_202308026StatusE(ptr noundef nonnull align 16 dereferenceable(164) %21, ptr noundef nonnull %agg.tmp5)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %if.then3
-  %23 = load i64, ptr %agg.tmp5, align 8
-  %and.i.i.i6 = and i64 %23, 1
+  %22 = load i64, ptr %agg.tmp5, align 8
+  %and.i.i.i6 = and i64 %22, 1
   %cmp.i.i.i7 = icmp eq i64 %and.i.i.i6, 0
   br i1 %cmp.i.i.i7, label %if.end8, label %if.then.i.i8
 
 if.then.i.i8:                                     ; preds = %invoke.cont7
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %23)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %22)
           to label %if.end8 unwind label %terminate.lpad.i9
 
 terminate.lpad.i9:                                ; preds = %if.then.i.i8
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #23
+  %24 = extractvalue { ptr, i32 } %23, 0
+  call void @__clang_call_terminate(ptr %24) #23
   unreachable
 
 lpad6:                                            ; preds = %if.then3
-  %26 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp5) #22
   br label %common.resume
 
 if.end8:                                          ; preds = %if.then.i.i8, %invoke.cont7, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper4ReadEP12grpc_closureP17grpc_slice_bufferPKNS0_11EventEngine8Endpoint8ReadArgsE.exit
-  %27 = load ptr, ptr %wrapper, align 8
+  %26 = load ptr, ptr %wrapper, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i11)
-  %shutdown_ref_.i12 = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %27, i64 0, i32 3
-  %28 = atomicrmw sub ptr %shutdown_ref_.i12, i64 1 acq_rel, align 8
-  %cmp.i = icmp eq i64 %28, 4294967297
+  %shutdown_ref_.i12 = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %26, i64 0, i32 3
+  %27 = atomicrmw sub ptr %shutdown_ref_.i12, i64 1 acq_rel, align 8
+  %cmp.i = icmp eq i64 %27, 4294967297
   br i1 %cmp.i, label %if.then.i, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper13ShutdownUnrefEv.exit
 
 if.then.i:                                        ; preds = %if.end8
   %call2.i = call noundef zeroext i1 @_ZN17grpc_event_engine12experimental21EventEngineSupportsFdEv()
-  %fd_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %27, i64 0, i32 11
-  %29 = load i32, ptr %fd_.i, align 16
-  %cmp3.i = icmp sgt i32 %29, 0
+  %fd_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %26, i64 0, i32 11
+  %28 = load i32, ptr %fd_.i, align 16
+  %cmp3.i = icmp sgt i32 %28, 0
   %or.cond.i = select i1 %call2.i, i1 %cmp3.i, i1 false
   br i1 %or.cond.i, label %land.lhs.true4.i, label %if.end.i13
 
 land.lhs.true4.i:                                 ; preds = %if.then.i
-  %invoker_.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %27, i64 0, i32 4, i32 0, i32 0, i32 2
-  %30 = load ptr, ptr %invoker_.i.i.i, align 8
-  %cmp.i.i.not.i = icmp eq ptr %30, null
+  %invoker_.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %26, i64 0, i32 4, i32 0, i32 0, i32 2
+  %29 = load ptr, ptr %invoker_.i.i.i, align 8
+  %cmp.i.i.not.i = icmp eq ptr %29, null
   br i1 %cmp.i.i.not.i, label %if.end.i13, label %if.then6.i
 
 if.then6.i:                                       ; preds = %land.lhs.true4.i
-  %on_release_fd_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %27, i64 0, i32 4
-  %31 = load ptr, ptr %27, align 8
-  %manager_.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %27, i64 0, i32 4, i32 0, i32 0, i32 1
-  %32 = load ptr, ptr %manager_.i.i.i.i, align 16
-  call void %32(i1 noundef zeroext false, ptr noundef nonnull %on_release_fd_.i, ptr noundef nonnull %agg.tmp.i11) #22
+  %on_release_fd_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %26, i64 0, i32 4
+  %30 = load ptr, ptr %26, align 8
+  %manager_.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %26, i64 0, i32 4, i32 0, i32 0, i32 1
+  %31 = load ptr, ptr %manager_.i.i.i.i, align 16
+  call void %31(i1 noundef zeroext false, ptr noundef nonnull %on_release_fd_.i, ptr noundef nonnull %agg.tmp.i11) #22
   %manager_5.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp.i11, i64 0, i32 1
-  %33 = load <2 x ptr>, ptr %manager_.i.i.i.i, align 16
-  store <2 x ptr> %33, ptr %manager_5.i.i.i.i, align 16
+  %32 = load <2 x ptr>, ptr %manager_.i.i.i.i, align 16
+  store <2 x ptr> %32, ptr %manager_5.i.i.i.i, align 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i, align 16
   store ptr null, ptr %invoker_.i.i.i, align 8
-  %vtable.i14 = load ptr, ptr %31, align 8
+  %vtable.i14 = load ptr, ptr %30, align 8
   %vfn.i15 = getelementptr inbounds ptr, ptr %vtable.i14, i64 9
-  %34 = load ptr, ptr %vfn.i15, align 8
-  invoke void %34(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull %agg.tmp.i11)
+  %33 = load ptr, ptr %vfn.i15, align 8
+  invoke void %33(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull %agg.tmp.i11)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then6.i
-  %35 = load ptr, ptr %manager_5.i.i.i.i, align 16
-  call void %35(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i11, ptr noundef nonnull %agg.tmp.i11) #22
+  %34 = load ptr, ptr %manager_5.i.i.i.i, align 16
+  call void %34(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i11, ptr noundef nonnull %agg.tmp.i11) #22
   br label %if.end.i13
 
 lpad.i:                                           ; preds = %if.then6.i
-  %36 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %37 = load ptr, ptr %manager_5.i.i.i.i, align 16
-  call void %37(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i11, ptr noundef nonnull %agg.tmp.i11) #22
+  %36 = load ptr, ptr %manager_5.i.i.i.i, align 16
+  call void %36(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i11, ptr noundef nonnull %agg.tmp.i11) #22
   br label %common.resume
 
 if.end.i13:                                       ; preds = %invoke.cont.i, %land.lhs.true4.i, %if.then.i
-  call fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper18OnShutdownInternalEv(ptr noundef nonnull align 16 dereferenceable(164) %27)
+  call fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper18OnShutdownInternalEv(ptr noundef nonnull align 16 dereferenceable(164) %26)
   br label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper13ShutdownUnrefEv.exit
 
 _ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper13ShutdownUnrefEv.exit: ; preds = %if.end8, %if.end.i13
@@ -1315,32 +1314,31 @@ _ZN17grpc_event_engine12experimental11SliceBufferD2Ev.exit.i: ; preds = %_ZN9grp
   %pending_write_cb_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %9, i64 0, i32 7
   store ptr %cb, ptr %pending_write_cb_.i, align 16
   %29 = load ptr, ptr %9, align 8
-  %30 = ptrtoint ptr %9 to i64
-  store i64 %30, ptr %agg.tmp.i, align 16
+  store ptr %9, ptr %agg.tmp.i, align 16
   %invoker_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.16", ptr %agg.tmp.i, i64 0, i32 2
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper5WriteEP12grpc_closureP17grpc_slice_bufferPKNS4_11EventEngine8Endpoint9WriteArgsEEUlNS0_6StatusEE_JSG_EEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE, ptr %invoker_.i.i.i.i.i.i, align 8
   %manager_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl.16", ptr %agg.tmp.i, i64 0, i32 1
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i.i.i.i, align 16
   %vtable.i = load ptr, ptr %29, align 8
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
-  %31 = load ptr, ptr %vfn.i, align 8
-  %call23.i = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %write_buffer18.i, ptr noundef nonnull %write_args)
+  %30 = load ptr, ptr %vfn.i, align 8
+  %call23.i = invoke noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %write_buffer18.i, ptr noundef nonnull %write_args)
           to label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper5WriteEP12grpc_closureP17grpc_slice_bufferPKNS0_11EventEngine8Endpoint9WriteArgsE.exit unwind label %lpad21.i
 
 lpad21.i:                                         ; preds = %_ZN17grpc_event_engine12experimental11SliceBufferD2Ev.exit.i
-  %32 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %33 = load ptr, ptr %manager_.i.i.i.i.i.i.i, align 16
-  call void %33(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp.i) #22
+  %32 = load ptr, ptr %manager_.i.i.i.i.i.i.i, align 16
+  call void %32(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp.i) #22
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad, %lpad7, %ehcleanup.i, %lpad21.i, %lpad.i20
-  %common.resume.op = phi { ptr, i32 } [ %49, %lpad.i20 ], [ %32, %lpad21.i ], [ %.pn.i, %ehcleanup.i ], [ %39, %lpad7 ], [ %8, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %48, %lpad.i20 ], [ %31, %lpad21.i ], [ %.pn.i, %ehcleanup.i ], [ %38, %lpad7 ], [ %8, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper5WriteEP12grpc_closureP17grpc_slice_bufferPKNS0_11EventEngine8Endpoint9WriteArgsE.exit: ; preds = %_ZN17grpc_event_engine12experimental11SliceBufferD2Ev.exit.i
-  %34 = load ptr, ptr %manager_.i.i.i.i.i.i.i, align 16
-  call void %34(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp.i) #22
+  %33 = load ptr, ptr %manager_.i.i.i.i.i.i.i, align 16
+  call void %33(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp.i) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp4.i)
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %ref.tmp14.i)
@@ -1348,87 +1346,87 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper5W
   br i1 %call23.i, label %if.then4, label %if.end9
 
 if.then4:                                         ; preds = %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper5WriteEP12grpc_closureP17grpc_slice_bufferPKNS0_11EventEngine8Endpoint9WriteArgsE.exit
-  %35 = load ptr, ptr %wrapper, align 8
+  %34 = load ptr, ptr %wrapper, align 8
   store i64 0, ptr %agg.tmp6, align 8, !alias.scope !20
-  invoke fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper18FinishPendingWriteEN4absl12lts_202308026StatusE(ptr noundef nonnull align 16 dereferenceable(164) %35, ptr noundef nonnull %agg.tmp6)
+  invoke fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper18FinishPendingWriteEN4absl12lts_202308026StatusE(ptr noundef nonnull align 16 dereferenceable(164) %34, ptr noundef nonnull %agg.tmp6)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %if.then4
-  %36 = load i64, ptr %agg.tmp6, align 8
-  %and.i.i.i7 = and i64 %36, 1
+  %35 = load i64, ptr %agg.tmp6, align 8
+  %and.i.i.i7 = and i64 %35, 1
   %cmp.i.i.i8 = icmp eq i64 %and.i.i.i7, 0
   br i1 %cmp.i.i.i8, label %if.end9, label %if.then.i.i9
 
 if.then.i.i9:                                     ; preds = %invoke.cont8
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %36)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %35)
           to label %if.end9 unwind label %terminate.lpad.i10
 
 terminate.lpad.i10:                               ; preds = %if.then.i.i9
-  %37 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #23
+  %37 = extractvalue { ptr, i32 } %36, 0
+  call void @__clang_call_terminate(ptr %37) #23
   unreachable
 
 lpad7:                                            ; preds = %if.then4
-  %39 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp6) #22
   br label %common.resume
 
 if.end9:                                          ; preds = %if.then.i.i9, %invoke.cont8, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper5WriteEP12grpc_closureP17grpc_slice_bufferPKNS0_11EventEngine8Endpoint9WriteArgsE.exit
-  %40 = load ptr, ptr %wrapper, align 8
+  %39 = load ptr, ptr %wrapper, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i13)
-  %shutdown_ref_.i14 = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %40, i64 0, i32 3
-  %41 = atomicrmw sub ptr %shutdown_ref_.i14, i64 1 acq_rel, align 8
-  %cmp.i15 = icmp eq i64 %41, 4294967297
+  %shutdown_ref_.i14 = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %39, i64 0, i32 3
+  %40 = atomicrmw sub ptr %shutdown_ref_.i14, i64 1 acq_rel, align 8
+  %cmp.i15 = icmp eq i64 %40, 4294967297
   br i1 %cmp.i15, label %if.then.i16, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper13ShutdownUnrefEv.exit
 
 if.then.i16:                                      ; preds = %if.end9
   %call2.i = call noundef zeroext i1 @_ZN17grpc_event_engine12experimental21EventEngineSupportsFdEv()
-  %fd_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %40, i64 0, i32 11
-  %42 = load i32, ptr %fd_.i, align 16
-  %cmp3.i = icmp sgt i32 %42, 0
+  %fd_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %39, i64 0, i32 11
+  %41 = load i32, ptr %fd_.i, align 16
+  %cmp3.i = icmp sgt i32 %41, 0
   %or.cond.i = select i1 %call2.i, i1 %cmp3.i, i1 false
   br i1 %or.cond.i, label %land.lhs.true4.i, label %if.end.i17
 
 land.lhs.true4.i:                                 ; preds = %if.then.i16
-  %invoker_.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %40, i64 0, i32 4, i32 0, i32 0, i32 2
-  %43 = load ptr, ptr %invoker_.i.i.i, align 8
-  %cmp.i.i.not.i = icmp eq ptr %43, null
+  %invoker_.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %39, i64 0, i32 4, i32 0, i32 0, i32 2
+  %42 = load ptr, ptr %invoker_.i.i.i, align 8
+  %cmp.i.i.not.i = icmp eq ptr %42, null
   br i1 %cmp.i.i.not.i, label %if.end.i17, label %if.then6.i
 
 if.then6.i:                                       ; preds = %land.lhs.true4.i
-  %on_release_fd_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %40, i64 0, i32 4
-  %44 = load ptr, ptr %40, align 8
-  %manager_.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %40, i64 0, i32 4, i32 0, i32 0, i32 1
-  %45 = load ptr, ptr %manager_.i.i.i.i, align 16
-  call void %45(i1 noundef zeroext false, ptr noundef nonnull %on_release_fd_.i, ptr noundef nonnull %agg.tmp.i13) #22
+  %on_release_fd_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %39, i64 0, i32 4
+  %43 = load ptr, ptr %39, align 8
+  %manager_.i.i.i.i = getelementptr inbounds %"class.grpc_event_engine::experimental::(anonymous namespace)::EventEngineEndpointWrapper", ptr %39, i64 0, i32 4, i32 0, i32 0, i32 1
+  %44 = load ptr, ptr %manager_.i.i.i.i, align 16
+  call void %44(i1 noundef zeroext false, ptr noundef nonnull %on_release_fd_.i, ptr noundef nonnull %agg.tmp.i13) #22
   %manager_5.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp.i13, i64 0, i32 1
-  %46 = load <2 x ptr>, ptr %manager_.i.i.i.i, align 16
-  store <2 x ptr> %46, ptr %manager_5.i.i.i.i, align 16
+  %45 = load <2 x ptr>, ptr %manager_.i.i.i.i, align 16
+  store <2 x ptr> %45, ptr %manager_5.i.i.i.i, align 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i, align 16
   store ptr null, ptr %invoker_.i.i.i, align 8
-  %vtable.i18 = load ptr, ptr %44, align 8
+  %vtable.i18 = load ptr, ptr %43, align 8
   %vfn.i19 = getelementptr inbounds ptr, ptr %vtable.i18, i64 9
-  %47 = load ptr, ptr %vfn.i19, align 8
-  invoke void %47(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull %agg.tmp.i13)
+  %46 = load ptr, ptr %vfn.i19, align 8
+  invoke void %46(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull %agg.tmp.i13)
           to label %invoke.cont.i21 unwind label %lpad.i20
 
 invoke.cont.i21:                                  ; preds = %if.then6.i
-  %48 = load ptr, ptr %manager_5.i.i.i.i, align 16
-  call void %48(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i13, ptr noundef nonnull %agg.tmp.i13) #22
+  %47 = load ptr, ptr %manager_5.i.i.i.i, align 16
+  call void %47(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i13, ptr noundef nonnull %agg.tmp.i13) #22
   br label %if.end.i17
 
 lpad.i20:                                         ; preds = %if.then6.i
-  %49 = landingpad { ptr, i32 }
+  %48 = landingpad { ptr, i32 }
           cleanup
-  %50 = load ptr, ptr %manager_5.i.i.i.i, align 16
-  call void %50(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i13, ptr noundef nonnull %agg.tmp.i13) #22
+  %49 = load ptr, ptr %manager_5.i.i.i.i, align 16
+  call void %49(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i13, ptr noundef nonnull %agg.tmp.i13) #22
   br label %common.resume
 
 if.end.i17:                                       ; preds = %invoke.cont.i21, %land.lhs.true4.i, %if.then.i16
-  call fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper18OnShutdownInternalEv(ptr noundef nonnull align 16 dereferenceable(164) %40)
+  call fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper18OnShutdownInternalEv(ptr noundef nonnull align 16 dereferenceable(164) %39)
   br label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper13ShutdownUnrefEv.exit
 
 _ZN17grpc_event_engine12experimental12_GLOBAL__N_126EventEngineEndpointWrapper13ShutdownUnrefEv.exit: ; preds = %if.end9, %if.end.i17

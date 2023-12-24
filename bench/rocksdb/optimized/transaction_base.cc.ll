@@ -1513,7 +1513,7 @@ entry:
   %snapshot_.i = getelementptr inbounds %"class.rocksdb::TransactionBaseImpl", ptr %this, i64 0, i32 7
   %db_.i = getelementptr inbounds %"class.rocksdb::TransactionBaseImpl", ptr %this, i64 0, i32 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  store i64 ptrtoint (ptr @_ZN7rocksdb19TransactionBaseImpl15ReleaseSnapshotEPKNS_8SnapshotEPNS_2DBE to i64), ptr %agg.tmp.i, align 8, !alias.scope !7
+  store ptr @_ZN7rocksdb19TransactionBaseImpl15ReleaseSnapshotEPKNS_8SnapshotEPNS_2DBE, ptr %agg.tmp.i, align 8, !alias.scope !7
   %this.repack3.i.i.i = getelementptr inbounds { i64, i64 }, ptr %agg.tmp.i, i64 0, i32 1
   store i64 0, ptr %this.repack3.i.i.i, align 8, !alias.scope !7
   %_M_bound_args.i.i.i = getelementptr inbounds %"class.std::_Bind", ptr %agg.tmp.i, i64 0, i32 1
@@ -1805,7 +1805,7 @@ entry:
   %snapshot_ = getelementptr inbounds %"class.rocksdb::TransactionBaseImpl", ptr %this, i64 0, i32 7
   %db_ = getelementptr inbounds %"class.rocksdb::TransactionBaseImpl", ptr %this, i64 0, i32 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  store i64 ptrtoint (ptr @_ZN7rocksdb19TransactionBaseImpl15ReleaseSnapshotEPKNS_8SnapshotEPNS_2DBE to i64), ptr %agg.tmp, align 8, !alias.scope !10
+  store ptr @_ZN7rocksdb19TransactionBaseImpl15ReleaseSnapshotEPKNS_8SnapshotEPNS_2DBE, ptr %agg.tmp, align 8, !alias.scope !10
   %this.repack3.i.i = getelementptr inbounds { i64, i64 }, ptr %agg.tmp, i64 0, i32 1
   store i64 0, ptr %this.repack3.i.i, align 8, !alias.scope !10
   %_M_bound_args.i.i = getelementptr inbounds %"class.std::_Bind", ptr %agg.tmp, i64 0, i32 1
@@ -2076,7 +2076,7 @@ entry:
   %snapshot_.i = getelementptr inbounds %"class.rocksdb::TransactionBaseImpl", ptr %this, i64 0, i32 7
   %db_.i = getelementptr inbounds %"class.rocksdb::TransactionBaseImpl", ptr %this, i64 0, i32 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  store i64 ptrtoint (ptr @_ZN7rocksdb19TransactionBaseImpl15ReleaseSnapshotEPKNS_8SnapshotEPNS_2DBE to i64), ptr %agg.tmp.i, align 8, !alias.scope !13
+  store ptr @_ZN7rocksdb19TransactionBaseImpl15ReleaseSnapshotEPKNS_8SnapshotEPNS_2DBE, ptr %agg.tmp.i, align 8, !alias.scope !13
   %this.repack3.i.i.i = getelementptr inbounds { i64, i64 }, ptr %agg.tmp.i, i64 0, i32 1
   store i64 0, ptr %this.repack3.i.i.i, align 8, !alias.scope !13
   %_M_bound_args.i.i.i = getelementptr inbounds %"class.std::_Bind", ptr %agg.tmp.i, i64 0, i32 1

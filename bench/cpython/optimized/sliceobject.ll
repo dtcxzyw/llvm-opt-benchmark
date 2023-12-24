@@ -1055,26 +1055,24 @@ _Py_NewRef.exit:                                  ; preds = %if.end6, %if.end.i.
   %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %7, i64 0, i32 1
   %8 = load i64, ptr %_gc_prev.i, align 8
   %9 = inttoptr i64 %8 to ptr
-  %10 = ptrtoint ptr %add.ptr.i.i to i64
-  store i64 %10, ptr %9, align 8
+  store ptr %add.ptr.i.i, ptr %9, align 8
   %_gc_prev.i.i = getelementptr i8, ptr %obj.0, i64 -8
-  %11 = load i64, ptr %_gc_prev.i.i, align 8
-  %and.i.i = and i64 %11, 3
+  %10 = load i64, ptr %_gc_prev.i.i, align 8
+  %and.i.i = and i64 %10, 3
   %or.i.i = or i64 %and.i.i, %8
   store i64 %or.i.i, ptr %_gc_prev.i.i, align 8
-  %12 = ptrtoint ptr %7 to i64
-  store i64 %12, ptr %add.ptr.i.i, align 8
-  store i64 %10, ptr %_gc_prev.i, align 8
+  store ptr %7, ptr %add.ptr.i.i, align 8
+  store ptr %add.ptr.i.i, ptr %_gc_prev.i, align 8
   br label %return
 
 error:                                            ; preds = %if.else
-  %13 = load i64, ptr %start, align 8
-  %14 = and i64 %13, 2147483648
-  %cmp.i21.not = icmp eq i64 %14, 0
+  %11 = load i64, ptr %start, align 8
+  %12 = and i64 %11, 2147483648
+  %cmp.i21.not = icmp eq i64 %12, 0
   br i1 %cmp.i21.not, label %if.end.i14, label %Py_DECREF.exit19
 
 if.end.i14:                                       ; preds = %error
-  %dec.i15 = add i64 %13, -1
+  %dec.i15 = add i64 %11, -1
   store i64 %dec.i15, ptr %start, align 8
   %cmp.i16 = icmp eq i64 %dec.i15, 0
   br i1 %cmp.i16, label %if.then1.i17, label %Py_DECREF.exit19
@@ -1084,13 +1082,13 @@ if.then1.i17:                                     ; preds = %if.end.i14
   br label %Py_DECREF.exit19
 
 Py_DECREF.exit19:                                 ; preds = %error, %if.then1.i17, %if.end.i14
-  %15 = load i64, ptr %stop, align 8
-  %16 = and i64 %15, 2147483648
-  %cmp.i24.not = icmp eq i64 %16, 0
+  %13 = load i64, ptr %stop, align 8
+  %14 = and i64 %13, 2147483648
+  %cmp.i24.not = icmp eq i64 %14, 0
   br i1 %cmp.i24.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %Py_DECREF.exit19
-  %dec.i = add i64 %15, -1
+  %dec.i = add i64 %13, -1
   store i64 %dec.i, ptr %stop, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %return

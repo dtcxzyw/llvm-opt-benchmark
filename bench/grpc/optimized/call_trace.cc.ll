@@ -637,7 +637,6 @@ invoke.cont13:                                    ; preds = %_ZN4absl12lts_20230
   %shr.i.i.i.i.i.i.i.i.i.i.i = lshr i64 %17, 12
   %xor.i.i.i.i.i.i.i.i.i.i = xor i64 %shr.i.i.i.i.i.i.i.i.i.i.i, %shr.i.i.i.i.i
   %this.val7.i.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct.15", ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 0, i32 0, i64 16), align 8, !noalias !13
-  %18 = ptrtoint ptr %call.i11 to i64
   br label %while.body.i.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %if.end36.i.i.i.i.i.i.i, %invoke.cont13
@@ -645,20 +644,20 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %if.end36.i.i.i.i.i.
   %seq.sroa.10.0.i.i.i.i.i.i.i = phi i64 [ 0, %invoke.cont13 ], [ %add.i15.i.i.i.i.i.i.i, %if.end36.i.i.i.i.i.i.i ]
   %seq.sroa.4.0.i.i.i.i.i.i.i = and i64 %xor.i.i.i.pn.i.i.i.i.i.i.i, %16
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val6.i.i.i.i.i.i.i, i64 %seq.sroa.4.0.i.i.i.i.i.i.i
-  %19 = load <16 x i8>, ptr %add.ptr.i.i.i.i.i.i.i, align 1, !noalias !13
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq <16 x i8> %vecinit15.i.i.i.i, %19
-  %20 = bitcast <16 x i1> %cmp.i.i.i.i.i.i.i.i.i to i16
-  %cmp.i.not32.i.i.i.i.i.i.i = icmp eq i16 %20, 0
+  %18 = load <16 x i8>, ptr %add.ptr.i.i.i.i.i.i.i, align 1, !noalias !13
+  %cmp.i.i.i.i.i.i.i.i.i = icmp eq <16 x i8> %vecinit15.i.i.i.i, %18
+  %19 = bitcast <16 x i1> %cmp.i.i.i.i.i.i.i.i.i to i16
+  %cmp.i.not32.i.i.i.i.i.i.i = icmp eq i16 %19, 0
   br i1 %cmp.i.not32.i.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %while.body.i.i.i.i.i.i.i
-  %21 = zext i16 %20 to i32
+  %20 = zext i16 %19 to i32
   br label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.inc.i.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i.i.i
-  %__begin0.sroa.0.033.i.i.i.i.i.i.i = phi i32 [ %and.i12.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ], [ %21, %for.body.preheader.i.i.i.i.i.i.i ]
-  %22 = call noundef i32 @llvm.cttz.i32(i32 %__begin0.sroa.0.033.i.i.i.i.i.i.i, i1 true), !range !7
-  %conv.i.i.i.i.i.i.i = zext nneg i32 %22 to i64
+  %__begin0.sroa.0.033.i.i.i.i.i.i.i = phi i32 [ %and.i12.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ], [ %20, %for.body.preheader.i.i.i.i.i.i.i ]
+  %21 = call noundef i32 @llvm.cttz.i32(i32 %__begin0.sroa.0.033.i.i.i.i.i.i.i, i1 true), !range !7
+  %conv.i.i.i.i.i.i.i = zext nneg i32 %21 to i64
   %add.i.i.i.i.i.i.i.i = add i64 %seq.sroa.4.0.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i
   %and.i.i.i.i.i.i.i.i = and i64 %add.i.i.i.i.i.i.i.i, %16
   %add.ptr21.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %this.val7.i.i.i.i.i.i.i, i64 %and.i.i.i.i.i.i.i.i
@@ -673,9 +672,9 @@ for.inc.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.not.i.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
 for.end.i.i.i.i.i.i.i:                            ; preds = %for.inc.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i
-  %cmp.i.i13.i.i.i.i.i.i.i = icmp eq <16 x i8> %19, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
-  %23 = bitcast <16 x i1> %cmp.i.i13.i.i.i.i.i.i.i to i16
-  %cmp.i14.not.i.i.i.i.i.i.i = icmp eq i16 %23, 0
+  %cmp.i.i13.i.i.i.i.i.i.i = icmp eq <16 x i8> %18, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
+  %22 = bitcast <16 x i1> %cmp.i.i13.i.i.i.i.i.i.i to i16
+  %cmp.i14.not.i.i.i.i.i.i.i = icmp eq i16 %22, 0
   br i1 %cmp.i14.not.i.i.i.i.i.i.i, label %if.end36.i.i.i.i.i.i.i, label %while.end.i.i.i.i.i.i.i
 
 if.end36.i.i.i.i.i.i.i:                           ; preds = %for.end.i.i.i.i.i.i.i
@@ -688,17 +687,17 @@ while.end.i.i.i.i.i.i.i:                          ; preds = %for.end.i.i.i.i.i.i
           to label %call7.i.i.i.i.i.i.i.i.noexc unwind label %lpad14
 
 call7.i.i.i.i.i.i.i.i.noexc:                      ; preds = %while.end.i.i.i.i.i.i.i
-  %24 = extractvalue { i64, i64 } %call7.i.i.i.i.i.i.i.i12, 0
+  %23 = extractvalue { i64, i64 } %call7.i.i.i.i.i.i.i.i12, 0
   %this.val12.i.i.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct.15", ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 0, i32 0, i64 8), align 8, !noalias !13
-  %25 = getelementptr i8, ptr %this.val12.i.i.i.i.i.i.i.i, i64 -8
-  %this.val12.val.i.i.i.i.i.i.i.i = load i64, ptr %25, align 8, !noalias !13
+  %24 = getelementptr i8, ptr %this.val12.i.i.i.i.i.i.i.i, i64 -8
+  %this.val12.val.i.i.i.i.i.i.i.i = load i64, ptr %24, align 8, !noalias !13
   %cmp10.i.i.i.i.i.i.i.i = icmp eq i64 %this.val12.val.i.i.i.i.i.i.i.i, 0
   br i1 %cmp10.i.i.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i.i.i, label %invoke.cont16.thread
 
 land.rhs.i.i.i.i.i.i.i.i:                         ; preds = %call7.i.i.i.i.i.i.i.i.noexc
-  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val12.i.i.i.i.i.i.i.i, i64 %24
-  %26 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1, !noalias !13
-  %cmp.i.i21.i.i.i.i.i.i.i = icmp eq i8 %26, -2
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val12.i.i.i.i.i.i.i.i, i64 %23
+  %25 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1, !noalias !13
+  %cmp.i.i21.i.i.i.i.i.i.i = icmp eq i8 %25, -2
   br i1 %cmp.i.i21.i.i.i.i.i.i.i, label %invoke.cont16.thread, label %if.then13.i.i.i.i.i.i.i.i
 
 if.then13.i.i.i.i.i.i.i.i:                        ; preds = %land.rhs.i.i.i.i.i.i.i.i
@@ -733,39 +732,39 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
           to label %call15.i.i.i.i.i.i.i.i.noexc unwind label %lpad14
 
 call15.i.i.i.i.i.i.i.i.noexc:                     ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPK19grpc_channel_filterSt10unique_ptrIZN9grpc_core23PromiseTracingFilterForES6_E13DerivedFilterSt14default_deleteIS9_EEEENS1_6HashEqIS6_vE4HashENSF_2EqESaISt4pairIKS6_SC_EEE28rehash_and_grow_if_necessaryEv.exit.i.i.i.i.i.i.i.i
-  %27 = extractvalue { i64, i64 } %call15.i.i.i.i.i.i.i.i14, 0
+  %26 = extractvalue { i64, i64 } %call15.i.i.i.i.i.i.i.i14, 0
   %this.val13.pre.i.i.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct.15", ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 0, i32 0, i64 8), align 8, !noalias !13
   br label %invoke.cont16.thread
 
 invoke.cont16.thread:                             ; preds = %call7.i.i.i.i.i.i.i.i.noexc, %land.rhs.i.i.i.i.i.i.i.i, %call15.i.i.i.i.i.i.i.i.noexc
   %this.val13.i.i.i.i.i.i.i.i = phi ptr [ %this.val13.pre.i.i.i.i.i.i.i.i, %call15.i.i.i.i.i.i.i.i.noexc ], [ %this.val12.i.i.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i.i ], [ %this.val12.i.i.i.i.i.i.i.i, %call7.i.i.i.i.i.i.i.i.noexc ]
-  %target.sroa.0.0.i.i.i.i.i.i.i.i = phi i64 [ %27, %call15.i.i.i.i.i.i.i.i.noexc ], [ %24, %land.rhs.i.i.i.i.i.i.i.i ], [ %24, %call7.i.i.i.i.i.i.i.i.noexc ]
-  %28 = load i64, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct.15", ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 0, i32 0, i64 32), align 8, !noalias !13
-  %add.i18.i.i.i.i.i.i.i = add i64 %28, 1
+  %target.sroa.0.0.i.i.i.i.i.i.i.i = phi i64 [ %26, %call15.i.i.i.i.i.i.i.i.noexc ], [ %23, %land.rhs.i.i.i.i.i.i.i.i ], [ %23, %call7.i.i.i.i.i.i.i.i.noexc ]
+  %27 = load i64, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct.15", ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 0, i32 0, i64 32), align 8, !noalias !13
+  %add.i18.i.i.i.i.i.i.i = add i64 %27, 1
   store i64 %add.i18.i.i.i.i.i.i.i, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct.15", ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 0, i32 0, i64 32), align 8, !noalias !13
-  %29 = getelementptr i8, ptr %this.val13.i.i.i.i.i.i.i.i, i64 -8
-  %this.val13.val.i.i.i.i.i.i.i.i = load i64, ptr %29, align 8, !noalias !13
+  %28 = getelementptr i8, ptr %this.val13.i.i.i.i.i.i.i.i, i64 -8
+  %this.val13.val.i.i.i.i.i.i.i.i = load i64, ptr %28, align 8, !noalias !13
   %arrayidx23.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val13.i.i.i.i.i.i.i.i, i64 %target.sroa.0.0.i.i.i.i.i.i.i.i
-  %30 = load i8, ptr %arrayidx23.i.i.i.i.i.i.i.i, align 1, !noalias !13
-  %cmp.i18.i.i.i.i.i.i.i.i = icmp eq i8 %30, -128
+  %29 = load i8, ptr %arrayidx23.i.i.i.i.i.i.i.i, align 1, !noalias !13
+  %cmp.i18.i.i.i.i.i.i.i.i = icmp eq i8 %29, -128
   %conv.neg.i.i.i.i.i.i.i.i = sext i1 %cmp.i18.i.i.i.i.i.i.i.i to i64
   %sub.i19.i.i.i.i.i.i.i = add i64 %this.val13.val.i.i.i.i.i.i.i.i, %conv.neg.i.i.i.i.i.i.i.i
-  store i64 %sub.i19.i.i.i.i.i.i.i, ptr %29, align 8, !noalias !13
-  %31 = load i64, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct.15", ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 0, i32 0, i64 24), align 8, !noalias !13
-  %32 = load ptr, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct.15", ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 0, i32 0, i64 8), align 8, !noalias !13
-  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 %target.sroa.0.0.i.i.i.i.i.i.i.i
+  store i64 %sub.i19.i.i.i.i.i.i.i, ptr %28, align 8, !noalias !13
+  %30 = load i64, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct.15", ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 0, i32 0, i64 24), align 8, !noalias !13
+  %31 = load ptr, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct.15", ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 0, i32 0, i64 8), align 8, !noalias !13
+  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 %target.sroa.0.0.i.i.i.i.i.i.i.i
   store i8 %conv.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !13
   %sub.i.i.i.i.i.i.i.i.i.i = add i64 %target.sroa.0.0.i.i.i.i.i.i.i.i, -15
-  %and.i.i.i20.i.i.i.i.i.i.i = and i64 %31, %sub.i.i.i.i.i.i.i.i.i.i
-  %and6.i.i.i.i.i.i.i.i.i.i = and i64 %31, 15
-  %33 = getelementptr i8, ptr %32, i64 %and.i.i.i20.i.i.i.i.i.i.i
-  %arrayidx7.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %33, i64 %and6.i.i.i.i.i.i.i.i.i.i
+  %and.i.i.i20.i.i.i.i.i.i.i = and i64 %30, %sub.i.i.i.i.i.i.i.i.i.i
+  %and6.i.i.i.i.i.i.i.i.i.i = and i64 %30, 15
+  %32 = getelementptr i8, ptr %31, i64 %and.i.i.i20.i.i.i.i.i.i.i
+  %arrayidx7.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %32, i64 %and6.i.i.i.i.i.i.i.i.i.i
   store i8 %conv.i.i.i, ptr %arrayidx7.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !13
   %.val2.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct.15", ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 0, i32 0, i64 16), align 8, !noalias !13
   %add.ptr.i3.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %.val2.i.i.i.i.i.i, i64 %target.sroa.0.0.i.i.i.i.i.i.i.i
   store ptr %filter, ptr %add.ptr.i3.i.i.i.i.i.i, align 8, !noalias !13
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %add.ptr.i3.i.i.i.i.i.i, i64 0, i32 1
-  store i64 %18, ptr %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !13
+  store ptr %call.i11, ptr %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !13
   %.val1.pre.i.i.i.i.i.i = load ptr, ptr getelementptr inbounds (%"class.grpc_core::NoDestruct.15", ptr @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E, i64 0, i32 0, i64 16), align 8, !noalias !13
   %second1822 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %.val1.pre.i.i.i.i.i.i, i64 %target.sroa.0.0.i.i.i.i.i.i.i.i, i32 0, i32 1
   %second18.val23 = load ptr, ptr %second1822, align 8
@@ -784,7 +783,7 @@ _ZNSt10unique_ptrIZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterE
   br label %cleanup
 
 lpad14:                                           ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPK19grpc_channel_filterSt10unique_ptrIZN9grpc_core23PromiseTracingFilterForES6_E13DerivedFilterSt14default_deleteIS9_EEEENS1_6HashEqIS6_vE4HashENSF_2EqESaISt4pairIKS6_SC_EEE28rehash_and_grow_if_necessaryEv.exit.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %while.end.i.i.i.i.i.i.i
-  %34 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZNSt10unique_ptrIZN9grpc_core23PromiseTracingFilterForEPK19grpc_channel_filterE13DerivedFilterSt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12) #31
   br label %ehcleanup
@@ -795,25 +794,25 @@ cleanup:                                          ; preds = %_ZNSt10unique_ptrIZ
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %cleanup
-  %35 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #33
+  %35 = extractvalue { ptr, i32 } %34, 0
+  call void @__clang_call_terminate(ptr %35) #33
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %cleanup
   ret ptr %retval.0
 
 ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpad14
-  %.pn = phi { ptr, i32 } [ %34, %lpad14 ], [ %11, %lpad ], [ %15, %lpad.i ]
+  %.pn = phi { ptr, i32 } [ %33, %lpad14 ], [ %11, %lpad ], [ %15, %lpad.i ]
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN9grpc_core19NoDestructSingletonIZNS_23PromiseTracingFilterForEPK19grpc_channel_filterE7GlobalsE6value_E)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit16 unwind label %terminate.lpad.i15
 
 terminate.lpad.i15:                               ; preds = %ehcleanup
-  %37 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #33
+  %37 = extractvalue { ptr, i32 } %36, 0
+  call void @__clang_call_terminate(ptr %37) #33
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit16:      ; preds = %ehcleanup

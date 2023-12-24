@@ -245,50 +245,49 @@ entry:
   %slice = alloca %struct.BHListSlice, align 8
   %bh_list = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 7
   %0 = atomicrmw xchg ptr %bh_list, i64 0 seq_cst, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %slice, align 8
+  store i64 %0, ptr %slice, align 8
   %next = getelementptr inbounds %struct.BHListSlice, ptr %slice, i64 0, i32 1
   store ptr null, ptr %next, align 8
   %bh_slice_list = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 8
   %sqh_last = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 8, i32 1
-  %2 = load ptr, ptr %sqh_last, align 8
-  store ptr %slice, ptr %2, align 8
+  %1 = load ptr, ptr %sqh_last, align 8
+  store ptr %slice, ptr %1, align 8
   store ptr %next, ptr %sqh_last, align 8
-  %3 = load ptr, ptr %bh_slice_list, align 8
-  %tobool.not1820 = icmp eq ptr %3, null
+  %2 = load ptr, ptr %bh_slice_list, align 8
+  %tobool.not1820 = icmp eq ptr %2, null
   br i1 %tobool.not1820, label %while.end44, label %while.body14.lr.ph
 
 while.body14.lr.ph:                               ; preds = %entry, %if.end43
-  %4 = phi ptr [ %14, %if.end43 ], [ %3, %entry ]
+  %3 = phi ptr [ %13, %if.end43 ], [ %2, %entry ]
   %ret.0.ph21 = phi i32 [ %ret.2, %if.end43 ], [ 0, %entry ]
   br label %while.body14
 
 while.body14:                                     ; preds = %while.body14.lr.ph, %if.end
-  %5 = phi ptr [ %4, %while.body14.lr.ph ], [ %13, %if.end ]
-  %6 = load atomic i64, ptr %5 monotonic, align 8
+  %4 = phi ptr [ %3, %while.body14.lr.ph ], [ %12, %if.end ]
+  %5 = load atomic i64, ptr %4 monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !9
-  %tobool.not.i = icmp eq i64 %6, 0
+  %tobool.not.i = icmp eq i64 %5, 0
   br i1 %tobool.not.i, label %do.body17, label %aio_bh_dequeue.exit
 
 aio_bh_dequeue.exit:                              ; preds = %while.body14
-  %7 = inttoptr i64 %6 to ptr
-  %8 = load ptr, ptr %5, align 8
-  %next.i = getelementptr inbounds %struct.QEMUBH, ptr %8, i64 0, i32 4
-  %9 = load ptr, ptr %next.i, align 8
-  store ptr %9, ptr %5, align 8
+  %6 = inttoptr i64 %5 to ptr
+  %7 = load ptr, ptr %4, align 8
+  %next.i = getelementptr inbounds %struct.QEMUBH, ptr %7, i64 0, i32 4
+  %8 = load ptr, ptr %next.i, align 8
+  store ptr %8, ptr %4, align 8
   store ptr null, ptr %next.i, align 8
-  %flags7.i = getelementptr inbounds %struct.QEMUBH, ptr %7, i64 0, i32 5
-  %10 = atomicrmw and ptr %flags7.i, i32 -20 seq_cst, align 8
-  %and = and i32 %10, 6
+  %flags7.i = getelementptr inbounds %struct.QEMUBH, ptr %6, i64 0, i32 5
+  %9 = atomicrmw and ptr %flags7.i, i32 -20 seq_cst, align 8
+  %and = and i32 %9, 6
   %cmp33 = icmp eq i32 %and, 2
   br i1 %cmp33, label %if.then34, label %if.end39
 
 do.body17:                                        ; preds = %while.body14
-  %11 = load ptr, ptr %bh_slice_list, align 8
-  %next20 = getelementptr inbounds %struct.BHListSlice, ptr %11, i64 0, i32 1
-  %12 = load ptr, ptr %next20, align 8
-  store ptr %12, ptr %bh_slice_list, align 8
-  %cmp = icmp eq ptr %12, null
+  %10 = load ptr, ptr %bh_slice_list, align 8
+  %next20 = getelementptr inbounds %struct.BHListSlice, ptr %10, i64 0, i32 1
+  %11 = load ptr, ptr %next20, align 8
+  store ptr %11, ptr %bh_slice_list, align 8
+  %cmp = icmp eq ptr %11, null
   br i1 %cmp, label %if.then24, label %if.end
 
 if.then24:                                        ; preds = %do.body17
@@ -297,30 +296,30 @@ if.then24:                                        ; preds = %do.body17
 
 if.end:                                           ; preds = %if.then24, %do.body17
   store ptr null, ptr %next20, align 8
-  %13 = load ptr, ptr %bh_slice_list, align 8
-  %tobool.not = icmp eq ptr %13, null
+  %12 = load ptr, ptr %bh_slice_list, align 8
+  %tobool.not = icmp eq ptr %12, null
   br i1 %tobool.not, label %while.end44, label %while.body14, !llvm.loop !10
 
 if.then34:                                        ; preds = %aio_bh_dequeue.exit
-  %and35 = and i32 %10, 16
+  %and35 = and i32 %9, 16
   %tobool36.not = icmp eq i32 %and35, 0
   %spec.select = select i1 %tobool36.not, i32 1, i32 %ret.0.ph21
-  call void @aio_bh_call(ptr noundef nonnull %7)
+  call void @aio_bh_call(ptr noundef nonnull %6)
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then34, %aio_bh_dequeue.exit
   %ret.2 = phi i32 [ %spec.select, %if.then34 ], [ %ret.0.ph21, %aio_bh_dequeue.exit ]
-  %and40 = and i32 %10, 12
+  %and40 = and i32 %9, 12
   %tobool41.not = icmp eq i32 %and40, 0
   br i1 %tobool41.not, label %if.end43, label %if.then42
 
 if.then42:                                        ; preds = %if.end39
-  call void @g_free(ptr noundef nonnull %7) #12
+  call void @g_free(ptr noundef nonnull %6) #12
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then42, %if.end39
-  %14 = load ptr, ptr %bh_slice_list, align 8
-  %tobool.not18 = icmp eq ptr %14, null
+  %13 = load ptr, ptr %bh_slice_list, align 8
+  %tobool.not18 = icmp eq ptr %13, null
   br i1 %tobool.not18, label %while.end44, label %while.body14.lr.ph, !llvm.loop !10
 
 while.end44:                                      ; preds = %if.end43, %if.end, %entry

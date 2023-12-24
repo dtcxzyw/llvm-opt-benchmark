@@ -39,36 +39,35 @@ entry:
   store i32 %strip, ptr %strip2, align 8
   %status3 = getelementptr inbounds %struct.BCWriteCtx, ptr %ctx, i64 0, i32 5
   store i32 0, ptr %status3, align 4
-  %0 = ptrtoint ptr %L to i64
   %L1.i = getelementptr inbounds %struct.SBuf, ptr %ctx, i64 0, i32 3
-  store i64 %0, ptr %L1.i, align 8
+  store ptr %L, ptr %L1.i, align 8
   %b.i = getelementptr inbounds %struct.SBuf, ptr %ctx, i64 0, i32 2
   %e.i = getelementptr inbounds %struct.SBuf, ptr %ctx, i64 0, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ctx, i8 0, i64 24, i1 false)
   %call = call i32 @lj_vm_cpcall(ptr noundef %L, ptr noundef null, ptr noundef nonnull %ctx, ptr noundef nonnull @cpwriter) #7
   %cmp = icmp eq i32 %call, 0
-  %1 = load i32, ptr %status3, align 4
-  %spec.select = select i1 %cmp, i32 %1, i32 %call
-  %2 = load i64, ptr %L1.i, align 8
-  %and = and i64 %2, -8
-  %3 = inttoptr i64 %and to ptr
-  %glref = getelementptr inbounds %struct.lua_State, ptr %3, i64 0, i32 5
-  %4 = load i64, ptr %glref, align 8
-  %5 = inttoptr i64 %4 to ptr
-  %6 = load ptr, ptr %b.i, align 8
-  %7 = load ptr, ptr %e.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %6 to i64
+  %0 = load i32, ptr %status3, align 4
+  %spec.select = select i1 %cmp, i32 %0, i32 %call
+  %1 = load i64, ptr %L1.i, align 8
+  %and = and i64 %1, -8
+  %2 = inttoptr i64 %and to ptr
+  %glref = getelementptr inbounds %struct.lua_State, ptr %2, i64 0, i32 5
+  %3 = load i64, ptr %glref, align 8
+  %4 = inttoptr i64 %3 to ptr
+  %5 = load ptr, ptr %b.i, align 8
+  %6 = load ptr, ptr %e.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv2.i = and i64 %sub.ptr.sub.i, 4294967295
-  %gc.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 2
-  %8 = load i64, ptr %gc.i, align 8
-  %sub.i = sub i64 %8, %conv2.i
+  %gc.i = getelementptr inbounds %struct.global_State, ptr %4, i64 0, i32 2
+  %7 = load i64, ptr %gc.i, align 8
+  %sub.i = sub i64 %7, %conv2.i
   store i64 %sub.i, ptr %gc.i, align 8
-  %9 = load ptr, ptr %5, align 8
-  %allocd.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 1
-  %10 = load ptr, ptr %allocd.i, align 8
-  %call.i = call ptr %9(ptr noundef %10, ptr noundef %6, i64 noundef %conv2.i, i64 noundef 0) #7
+  %8 = load ptr, ptr %4, align 8
+  %allocd.i = getelementptr inbounds %struct.global_State, ptr %4, i64 0, i32 1
+  %9 = load ptr, ptr %allocd.i, align 8
+  %call.i = call ptr %8(ptr noundef %9, ptr noundef %5, i64 noundef %conv2.i, i64 noundef 0) #7
   ret i32 %spec.select
 }
 

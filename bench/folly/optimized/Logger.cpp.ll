@@ -90,14 +90,13 @@ init.check.i:                                     ; preds = %invoke.cont.i
 
 init.i:                                           ; preds = %init.check.i
   store i8 0, ptr @_ZZZN5folly8LoggerDB3getEvEN9SingletonC1EvE5guard, align 8, !tbaa !14, !alias.scope !17
-  %2 = ptrtoint ptr %call to i64
-  store i64 %2, ptr getelementptr inbounds (%"class.folly::detail::ScopeGuardImpl", ptr @_ZZZN5folly8LoggerDB3getEvEN9SingletonC1EvE5guard, i64 0, i32 1), align 8, !tbaa !20, !alias.scope !17
-  %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5folly6detail14ScopeGuardImplIZZNS_8LoggerDB3getEvEN9SingletonC1EvEUlvE_Lb1EED2Ev, ptr nonnull @_ZZZN5folly8LoggerDB3getEvEN9SingletonC1EvE5guard, ptr nonnull @__dso_handle) #10
+  store ptr %call, ptr getelementptr inbounds (%"class.folly::detail::ScopeGuardImpl", ptr @_ZZZN5folly8LoggerDB3getEvEN9SingletonC1EvE5guard, i64 0, i32 1), align 8, !tbaa !20, !alias.scope !17
+  %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5folly6detail14ScopeGuardImplIZZNS_8LoggerDB3getEvEN9SingletonC1EvEUlvE_Lb1EED2Ev, ptr nonnull @_ZZZN5folly8LoggerDB3getEvEN9SingletonC1EvE5guard, ptr nonnull @__dso_handle) #10
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZZN5folly8LoggerDB3getEvEN9SingletonC1EvE5guard) #10
   br label %invoke.cont
 
 lpad.i:                                           ; preds = %.noexc
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5folly8LoggerDBD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %call) #10
   br label %lpad.body
@@ -106,12 +105,12 @@ invoke.cont:                                      ; preds = %init.i, %init.check
   ret ptr %call
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad, %lpad.i
-  %eh.lpad-body = phi { ptr, i32 } [ %5, %lpad ], [ %4, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %4, %lpad ], [ %3, %lpad.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call) #11
   resume { ptr, i32 } %eh.lpad-body
 }

@@ -72,8 +72,7 @@ if.else.i.i:                                      ; preds = %entry
   br label %_ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEaSIRSB_EERSD_OT_.exit
 
 _ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEaSIRSB_EERSD_OT_.exit: ; preds = %entry, %if.else.i.i
-  %2 = ptrtoint ptr %timestampIn to i64
-  store i64 %2, ptr %this, align 8
+  store ptr %timestampIn, ptr %this, align 8
   ret ptr %this
 }
 
@@ -92,8 +91,7 @@ if.else.i.i:                                      ; preds = %entry
 
 _ZN5folly8OptionalISt17reference_wrapperIKN8proxygen11HTTPHeadersEEEaSIRS4_EERS6_OT_.exit: ; preds = %entry, %if.else.i.i
   %maybeHTTPHeadersRef = getelementptr inbounds %"struct.proxygen::HTTPSessionObserverInterface::RequestStartedEvent::BuilderFields", ptr %this, i64 0, i32 1
-  %2 = ptrtoint ptr %headersIn to i64
-  store i64 %2, ptr %maybeHTTPHeadersRef, align 8
+  store ptr %headersIn, ptr %maybeHTTPHeadersRef, align 8
   ret ptr %this
 }
 
@@ -239,8 +237,7 @@ if.else.i.i:                                      ; preds = %entry
   br label %_ZN5folly8OptionalISt17reference_wrapperIKmEEaSIRS2_EERS4_OT_.exit
 
 _ZN5folly8OptionalISt17reference_wrapperIKmEEaSIRS2_EERS4_OT_.exit: ; preds = %entry, %if.else.i.i
-  %2 = ptrtoint ptr %pendingEgressBytesIn to i64
-  store i64 %2, ptr %this, align 8
+  store ptr %pendingEgressBytesIn, ptr %this, align 8
   ret ptr %this
 }
 
@@ -259,8 +256,7 @@ if.else.i.i:                                      ; preds = %entry
 
 _ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEaSIRSB_EERSD_OT_.exit: ; preds = %entry, %if.else.i.i
   %maybeTimestampRef = getelementptr inbounds %"struct.proxygen::HTTPSessionObserverInterface::PreWriteEvent::BuilderFields", ptr %this, i64 0, i32 1
-  %2 = ptrtoint ptr %timestampIn to i64
-  store i64 %2, ptr %maybeTimestampRef, align 8
+  store ptr %timestampIn, ptr %maybeTimestampRef, align 8
   ret ptr %this
 }
 
@@ -407,8 +403,7 @@ if.else.i.i:                                      ; preds = %entry
   br label %_ZN5folly8OptionalISt17reference_wrapperIKmEEaSIRS2_EERS4_OT_.exit
 
 _ZN5folly8OptionalISt17reference_wrapperIKmEEaSIRS2_EERS4_OT_.exit: ; preds = %entry, %if.else.i.i
-  %2 = ptrtoint ptr %IdIn to i64
-  store i64 %2, ptr %this, align 8
+  store ptr %IdIn, ptr %this, align 8
   ret ptr %this
 }
 
@@ -427,8 +422,7 @@ if.else.i.i:                                      ; preds = %entry
 
 _ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEaSIRSB_EERSD_OT_.exit: ; preds = %entry, %if.else.i.i
   %maybeTimestampRef = getelementptr inbounds %"struct.proxygen::HTTPSessionObserverInterface::PingReplyEvent::BuilderFields", ptr %this, i64 0, i32 1
-  %2 = ptrtoint ptr %timestampIn to i64
-  store i64 %2, ptr %maybeTimestampRef, align 8
+  store ptr %timestampIn, ptr %maybeTimestampRef, align 8
   ret ptr %this
 }
 

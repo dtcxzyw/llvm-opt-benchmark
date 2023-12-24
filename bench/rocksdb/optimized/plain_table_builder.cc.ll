@@ -741,17 +741,16 @@ if.then107:                                       ; preds = %invoke.cont104
   br i1 %cmp.not.i28, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then107
-  %23 = ptrtoint ptr %call105 to i64
-  store i64 %23, ptr %21, align 8
-  %24 = load ptr, ptr %_M_finish.i27, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.138", ptr %24, i64 1
+  store ptr %call105, ptr %21, align 8
+  %23 = load ptr, ptr %_M_finish.i27, align 8
+  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.138", ptr %23, i64 1
   store ptr %incdec.ptr.i, ptr %_M_finish.i27, align 8
   br label %_ZNSt10unique_ptrIN7rocksdb19IntTblPropCollectorESt14default_deleteIS1_EED2Ev.exit35
 
 if.else.i:                                        ; preds = %if.then107
-  %25 = load ptr, ptr %table_properties_collectors_, align 16
+  %24 = load ptr, ptr %table_properties_collectors_, align 16
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %21 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %25 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %24 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %cmp.i.i46 = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
   br i1 %cmp.i.i46, label %if.then.i.i52, label %_ZNKSt6vectorISt10unique_ptrIN7rocksdb19IntTblPropCollectorESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i
@@ -782,18 +781,17 @@ _ZNSt16allocator_traitsISaISt10unique_ptrIN7rocksdb19IntTblPropCollectorESt14def
 _ZNSt12_Vector_baseISt10unique_ptrIN7rocksdb19IntTblPropCollectorESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrIN7rocksdb19IntTblPropCollectorESt14default_deleteIS2_EEEE8allocateERS6_m.exit.i.i, %_ZNKSt6vectorISt10unique_ptrIN7rocksdb19IntTblPropCollectorESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i
   %cond.i10.i = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN7rocksdb19IntTblPropCollectorESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i ], [ %call5.i.i.i.i54, %_ZNSt16allocator_traitsISaISt10unique_ptrIN7rocksdb19IntTblPropCollectorESt14default_deleteIS2_EEEE8allocateERS6_m.exit.i.i ]
   %add.ptr.i48 = getelementptr inbounds %"class.std::unique_ptr.138", ptr %cond.i10.i, i64 %sub.ptr.div.i.i.i
-  %26 = ptrtoint ptr %call105 to i64
-  store i64 %26, ptr %add.ptr.i48, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %25, %21
+  store ptr %call105, ptr %add.ptr.i48, align 8
+  %cmp.not5.i.i.i.i = icmp eq ptr %24, %21
   br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN7rocksdb19IntTblPropCollectorESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN7rocksdb19IntTblPropCollectorESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i, %for.body.i.i.i.i
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN7rocksdb19IntTblPropCollectorESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %25, %_ZNSt12_Vector_baseISt10unique_ptrIN7rocksdb19IntTblPropCollectorESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ]
+  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %24, %_ZNSt12_Vector_baseISt10unique_ptrIN7rocksdb19IntTblPropCollectorESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  %27 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !7, !noalias !4
-  store i64 %27, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !4, !noalias !7
+  %25 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !7, !noalias !4
+  store i64 %25, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !4, !noalias !7
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !7, !noalias !4
   %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.138", ptr %__first.addr.06.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.138", ptr %__cur.07.i.i.i.i, i64 1
@@ -803,11 +801,11 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt10unique_ptrIN7rocksdb19IntTblPropCollectorESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN7rocksdb19IntTblPropCollectorESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN7rocksdb19IntTblPropCollectorESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
   %incdec.ptr.i49 = getelementptr %"class.std::unique_ptr.138", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i50 = icmp eq ptr %25, null
+  %tobool.not.i.i50 = icmp eq ptr %24, null
   br i1 %tobool.not.i.i50, label %.noexc29, label %if.then.i20.i
 
 if.then.i20.i:                                    ; preds = %_ZNSt6vectorISt10unique_ptrIN7rocksdb19IntTblPropCollectorESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i
-  call void @_ZdlPv(ptr noundef nonnull %25) #21
+  call void @_ZdlPv(ptr noundef nonnull %24) #21
   br label %.noexc29
 
 .noexc29:                                         ; preds = %if.then.i20.i, %_ZNSt6vectorISt10unique_ptrIN7rocksdb19IntTblPropCollectorESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i
@@ -818,12 +816,12 @@ if.then.i20.i:                                    ; preds = %_ZNSt6vectorISt10un
   br label %_ZNSt10unique_ptrIN7rocksdb19IntTblPropCollectorESt14default_deleteIS1_EED2Ev.exit35
 
 lpad79:                                           ; preds = %call.i.noexc, %cond.false
-  %28 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   br label %lpad79.body
 
 lpad79.body:                                      ; preds = %lpad.i, %lpad79
-  %eh.lpad-body = phi { ptr, i32 } [ %28, %lpad79 ], [ %15, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %26, %lpad79 ], [ %15, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78) #22
   br label %ehcleanup114
 
@@ -851,8 +849,8 @@ _ZNSt10unique_ptrIN7rocksdb19IntTblPropCollectorESt14default_deleteIS1_EED2Ev.ex
   %lpad.phi62 = phi { ptr, i32 } [ %lpad.loopexit60, %_ZNSt10unique_ptrIN7rocksdb19IntTblPropCollectorESt14default_deleteIS1_EED2Ev.exit.loopexit ], [ %lpad.loopexit.split-lp61, %_ZNSt10unique_ptrIN7rocksdb19IntTblPropCollectorESt14default_deleteIS1_EED2Ev.exit.loopexit.split-lp ]
   %vtable.i.i = load ptr, ptr %call105, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
-  %29 = load ptr, ptr %vfn.i.i, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(8) %call105) #22
+  %27 = load ptr, ptr %vfn.i.i, align 8
+  call void %27(ptr noundef nonnull align 8 dereferenceable(8) %call105) #22
   br label %ehcleanup
 
 _ZNSt10unique_ptrIN7rocksdb19IntTblPropCollectorESt14default_deleteIS1_EED2Ev.exit35: ; preds = %invoke.cont104, %if.then.i, %.noexc29
@@ -871,25 +869,25 @@ ehcleanup:                                        ; preds = %lpad87.loopexit, %l
 
 ehcleanup114:                                     ; preds = %lpad79.body, %ehcleanup, %lpad23, %lpad16
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %5, %lpad16 ], [ %eh.lpad-body, %lpad79.body ], [ %6, %lpad23 ]
-  %30 = load ptr, ptr %keys_or_prefixes_hashes_, align 16
-  %tobool.not.i.i.i = icmp eq ptr %30, null
+  %28 = load ptr, ptr %keys_or_prefixes_hashes_, align 16
+  %tobool.not.i.i.i = icmp eq ptr %28, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %ehcleanup114
-  call void @_ZdlPv(ptr noundef nonnull %30) #21
+  call void @_ZdlPv(ptr noundef nonnull %28) #21
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %ehcleanup114, %if.then.i.i.i
-  %31 = load ptr, ptr %pre_prefix_.i, align 16
-  %cmp.not.i.i.i = icmp eq ptr %31, %space_.i.i
+  %29 = load ptr, ptr %pre_prefix_.i, align 16
+  %cmp.not.i.i.i = icmp eq ptr %29, %space_.i.i
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb20PlainTableKeyEncoderD2Ev.exit, label %if.then.i.i.i38
 
 if.then.i.i.i38:                                  ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit
-  %isnull.i.i.i = icmp eq ptr %31, null
+  %isnull.i.i.i = icmp eq ptr %29, null
   br i1 %isnull.i.i.i, label %delete.end.i.i.i, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i38
-  call void @_ZdaPv(ptr noundef nonnull %31) #21
+  call void @_ZdaPv(ptr noundef nonnull %29) #21
   br label %delete.end.i.i.i
 
 delete.end.i.i.i:                                 ; preds = %delete.notnull.i.i.i, %if.then.i.i.i38
@@ -900,32 +898,32 @@ _ZN7rocksdb20PlainTableKeyEncoderD2Ev.exit:       ; preds = %_ZNSt6vectorIjSaIjE
   store i64 39, ptr %buf_size_.i.i, align 8
   store i64 0, ptr %key_size_.i.i, align 16
   call void @_ZN7rocksdb15TablePropertiesD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %properties_) #22
-  %32 = load ptr, ptr %state_.i.i.i, align 16
-  %cmp.not.i.i.i39 = icmp eq ptr %32, null
+  %30 = load ptr, ptr %state_.i.i.i, align 16
+  %cmp.not.i.i.i39 = icmp eq ptr %30, null
   br i1 %cmp.not.i.i.i39, label %_ZN7rocksdb8IOStatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i: ; preds = %_ZN7rocksdb20PlainTableKeyEncoderD2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %32) #21
+  call void @_ZdaPv(ptr noundef nonnull %30) #21
   br label %_ZN7rocksdb8IOStatusD2Ev.exit
 
 _ZN7rocksdb8IOStatusD2Ev.exit:                    ; preds = %_ZN7rocksdb20PlainTableKeyEncoderD2Ev.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
   store ptr null, ptr %state_.i.i.i, align 16
-  %33 = load ptr, ptr %state_.i, align 16
-  %cmp.not.i.i41 = icmp eq ptr %33, null
+  %31 = load ptr, ptr %state_.i, align 16
+  %cmp.not.i.i41 = icmp eq ptr %31, null
   br i1 %cmp.not.i.i41, label %_ZN7rocksdb6StatusD2Ev.exit43, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i42
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i42: ; preds = %_ZN7rocksdb8IOStatusD2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %33) #21
+  call void @_ZdaPv(ptr noundef nonnull %31) #21
   br label %_ZN7rocksdb6StatusD2Ev.exit43
 
 _ZN7rocksdb6StatusD2Ev.exit43:                    ; preds = %_ZN7rocksdb8IOStatusD2Ev.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i42
   store ptr null, ptr %state_.i, align 16
-  %34 = load ptr, ptr %index_builder_, align 16
-  %cmp.not.i44 = icmp eq ptr %34, null
+  %32 = load ptr, ptr %index_builder_, align 16
+  %cmp.not.i44 = icmp eq ptr %32, null
   br i1 %cmp.not.i44, label %_ZNSt10unique_ptrIN7rocksdb22PlainTableIndexBuilderESt14default_deleteIS1_EED2Ev.exit, label %if.then.i45
 
 if.then.i45:                                      ; preds = %_ZN7rocksdb6StatusD2Ev.exit43
-  call void @_ZNKSt14default_deleteIN7rocksdb22PlainTableIndexBuilderEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %index_builder_, ptr noundef nonnull %34)
+  call void @_ZNKSt14default_deleteIN7rocksdb22PlainTableIndexBuilderEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %index_builder_, ptr noundef nonnull %32)
   br label %_ZNSt10unique_ptrIN7rocksdb22PlainTableIndexBuilderESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN7rocksdb22PlainTableIndexBuilderESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN7rocksdb6StatusD2Ev.exit43, %if.then.i45

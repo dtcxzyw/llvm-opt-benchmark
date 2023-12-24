@@ -219,34 +219,33 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes2vm17PinnedHermesValueELb1EE9push_bac
   %5 = load ptr, ptr %chunks_, align 8
   %conv.i3.i = zext i32 %4 to i64
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i
-  %6 = ptrtoint ptr %call.i to i64
-  store i64 %6, ptr %add.ptr.i.i, align 1
-  %7 = load i32, ptr %Size.i, align 8
-  %add.i = add i32 %7, 1
+  store ptr %call.i, ptr %add.ptr.i.i, align 1
+  %6 = load i32, ptr %Size.i, align 8
+  %add.i = add i32 %6, 1
   store i32 %add.i, ptr %Size.i, align 8
-  %8 = load ptr, ptr %chunks_, align 8
+  %7 = load ptr, ptr %chunks_, align 8
   %conv.i.i = zext i32 %add.i to i64
-  %add.ptr.i.i2 = getelementptr inbounds ptr, ptr %8, i64 %conv.i.i
+  %add.ptr.i.i2 = getelementptr inbounds ptr, ptr %7, i64 %conv.i.i
   %arrayidx.i3 = getelementptr inbounds ptr, ptr %add.ptr.i.i2, i64 -1
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %conv = zext i32 %inc to i64
-  %9 = load ptr, ptr %chunks_, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %conv
+  %8 = load ptr, ptr %chunks_, align 8
+  %arrayidx.i = getelementptr inbounds ptr, ptr %8, i64 %conv
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes2vm17PinnedHermesValueELb1EE9push_backERKS4_.exit
   %arrayidx.i.sink = phi ptr [ %arrayidx.i, %if.else ], [ %arrayidx.i3, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes2vm17PinnedHermesValueELb1EE9push_backERKS4_.exit ]
-  %10 = load ptr, ptr %arrayidx.i.sink, align 8
+  %9 = load ptr, ptr %arrayidx.i.sink, align 8
   %next_12 = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %this, i64 0, i32 4
-  %add.ptr = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %10, i64 16
+  %add.ptr = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %9, i64 16
   %curChunkEnd_ = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %this, i64 0, i32 5
   store ptr %add.ptr, ptr %curChunkEnd_, align 8
-  %incdec.ptr = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %10, i64 1
+  %incdec.ptr = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %9, i64 1
   store ptr %incdec.ptr, ptr %next_12, align 8
-  store i64 %value.coerce, ptr %10, align 8
-  ret ptr %10
+  store i64 %value.coerce, ptr %9, align 8
+  ret ptr %9
 }
 
 declare noalias noundef nonnull ptr @_ZN6hermes13checkedMallocEm(i64 noundef) local_unnamed_addr #2

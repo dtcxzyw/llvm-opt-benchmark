@@ -460,7 +460,7 @@ if.end.i11.i:                                     ; preds = %if.end.i
   %arrayidx66.i.i = getelementptr %struct._multibyte_codec, ptr %14, i64 5
   store ptr @.str.33, ptr %arrayidx66.i.i, align 8
   %.compoundliteral67.sroa.2.0.arrayidx66.sroa_idx.i.i = getelementptr %struct._multibyte_codec, ptr %14, i64 5, i32 1
-  store ptr inttoptr (i64 2000 to ptr), ptr %.compoundliteral67.sroa.2.0.arrayidx66.sroa_idx.i.i, align 8
+  store i64 2000, ptr %.compoundliteral67.sroa.2.0.arrayidx66.sroa_idx.i.i, align 8
   %.compoundliteral67.sroa.3.0.arrayidx66.sroa_idx.i.i = getelementptr %struct._multibyte_codec, ptr %14, i64 5, i32 2
   store ptr null, ptr %.compoundliteral67.sroa.3.0.arrayidx66.sroa_idx.i.i, align 8
   %.compoundliteral67.sroa.4.0.arrayidx66.sroa_idx.i.i = getelementptr %struct._multibyte_codec, ptr %14, i64 5, i32 3
@@ -475,7 +475,7 @@ if.end.i11.i:                                     ; preds = %if.end.i
   %arrayidx81.i.i = getelementptr %struct._multibyte_codec, ptr %15, i64 6
   store ptr @.str.34, ptr %arrayidx81.i.i, align 8
   %.compoundliteral82.sroa.2.0.arrayidx81.sroa_idx.i.i = getelementptr %struct._multibyte_codec, ptr %15, i64 6, i32 1
-  store ptr inttoptr (i64 2000 to ptr), ptr %.compoundliteral82.sroa.2.0.arrayidx81.sroa_idx.i.i, align 8
+  store i64 2000, ptr %.compoundliteral82.sroa.2.0.arrayidx81.sroa_idx.i.i, align 8
   %.compoundliteral82.sroa.3.0.arrayidx81.sroa_idx.i.i = getelementptr %struct._multibyte_codec, ptr %15, i64 6, i32 2
   store ptr null, ptr %.compoundliteral82.sroa.3.0.arrayidx81.sroa_idx.i.i, align 8
   %.compoundliteral82.sroa.4.0.arrayidx81.sroa_idx.i.i = getelementptr %struct._multibyte_codec, ptr %15, i64 6, i32 3

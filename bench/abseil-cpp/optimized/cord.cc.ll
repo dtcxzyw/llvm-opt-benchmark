@@ -571,9 +571,9 @@ entry:
   %scope = alloca %"class.absl::cord_internal::CordzUpdateScope", align 8
   %0 = load i64, ptr %this, align 8
   %sub.i = add nsw i64 %0, -1
-  %1 = inttoptr i64 %sub.i to ptr
-  store ptr %1, ptr %scope, align 8
+  store i64 %sub.i, ptr %scope, align 8
   %tobool.not.i = icmp eq i64 %sub.i, 0
+  %1 = inttoptr i64 %sub.i to ptr
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -867,9 +867,9 @@ entry:
   %scope = alloca %"class.absl::cord_internal::CordzUpdateScope", align 8
   %0 = load i64, ptr %this, align 8
   %sub.i = add nsw i64 %0, -1
-  %1 = inttoptr i64 %sub.i to ptr
-  store ptr %1, ptr %scope, align 8
+  store i64 %sub.i, ptr %scope, align 8
   %tobool.not.i = icmp eq i64 %sub.i, 0
+  %1 = inttoptr i64 %sub.i to ptr
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -1307,12 +1307,12 @@ entry:
 if.then:                                          ; preds = %entry
   %3 = load i64, ptr %this, align 8
   %sub.i.i = add nsw i64 %3, -1
-  %4 = inttoptr i64 %sub.i.i to ptr
-  store ptr %4, ptr %scope, align 8
+  store i64 %sub.i.i, ptr %scope, align 8
   %tobool.not.i = icmp eq i64 %sub.i.i, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
+  %4 = inttoptr i64 %sub.i.i to ptr
   tail call void @_ZN4absl13cord_internal9CordzInfo4LockENS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(1332) %4, i32 noundef 6)
   store ptr %call, ptr %rep.i.i.i.i, align 8
   %rep_.i.i.i = getelementptr inbounds %"class.absl::cord_internal::CordzInfo", ptr %4, i64 0, i32 5
@@ -1547,12 +1547,12 @@ if.end12:                                         ; preds = %entry
 if.then14:                                        ; preds = %if.end12
   %14 = load i64, ptr %this, align 8
   %sub.i.i57 = add nsw i64 %14, -1
-  %15 = inttoptr i64 %sub.i.i57 to ptr
-  store ptr %15, ptr %scope, align 8
+  store i64 %sub.i.i57, ptr %scope, align 8
   %tobool.not.i = icmp eq i64 %sub.i.i57, 0
   br i1 %tobool.not.i, label %_ZN4absl13cord_internal16CordzUpdateScopeC2EPNS0_9CordzInfoENS0_18CordzUpdateTracker16MethodIdentifierE.exit, label %if.then.i58
 
 if.then.i58:                                      ; preds = %if.then14
+  %15 = inttoptr i64 %sub.i.i57 to ptr
   tail call void @_ZN4absl13cord_internal9CordzInfo4LockENS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(1332) %15, i32 noundef 6)
   br label %_ZN4absl13cord_internal16CordzUpdateScopeC2EPNS0_9CordzInfoENS0_18CordzUpdateTracker16MethodIdentifierE.exit
 
@@ -1723,12 +1723,12 @@ if.end:                                           ; preds = %_ZN4absl4Cord9Inlin
 cond.true:                                        ; preds = %if.end
   %10 = load i64, ptr %this, align 8
   %sub.i.i = add nsw i64 %10, -1
-  %11 = inttoptr i64 %sub.i.i to ptr
-  store ptr %11, ptr %scope, align 8
+  store i64 %sub.i.i, ptr %scope, align 8
   %tobool.not.i = icmp eq i64 %sub.i.i, 0
   br i1 %tobool.not.i, label %_ZN4absl13cord_internal16CordzUpdateScopeC2EPNS0_9CordzInfoENS0_18CordzUpdateTracker16MethodIdentifierE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cond.true
+  %11 = inttoptr i64 %sub.i.i to ptr
   tail call void @_ZN4absl13cord_internal9CordzInfo4LockENS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(1332) %11, i32 noundef %method)
   br label %_ZN4absl13cord_internal16CordzUpdateScopeC2EPNS0_9CordzInfoENS0_18CordzUpdateTracker16MethodIdentifierE.exit
 
@@ -2040,9 +2040,9 @@ entry:
 if.then:                                          ; preds = %entry
   %3 = load i64, ptr %this, align 8
   %sub.i.i = add nsw i64 %3, -1
-  %4 = inttoptr i64 %sub.i.i to ptr
-  store ptr %4, ptr %scope, align 8
+  store i64 %sub.i.i, ptr %scope, align 8
   %tobool.not.i = icmp eq i64 %sub.i.i, 0
+  %4 = inttoptr i64 %sub.i.i to ptr
   br i1 %tobool.not.i, label %_ZN4absl13cord_internal16CordzUpdateScopeC2EPNS0_9CordzInfoENS0_18CordzUpdateTracker16MethodIdentifierE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
@@ -3672,12 +3672,12 @@ _ZN4absl4Cord9InlineRep13remove_prefixEm.exit:    ; preds = %if.then.i.i50, %if.
 if.else:                                          ; preds = %_ZN4absl4Cord9InlineRep23MaybeRemoveEmptyCrcNodeEv.exit
   %26 = load i64, ptr %this, align 8
   %sub.i.i = add nsw i64 %26, -1
-  %27 = inttoptr i64 %sub.i.i to ptr
-  store ptr %27, ptr %scope, align 8
+  store i64 %sub.i.i, ptr %scope, align 8
   %tobool.not.i = icmp eq i64 %sub.i.i, 0
   br i1 %tobool.not.i, label %_ZN4absl13cord_internal16CordzUpdateScopeC2EPNS0_9CordzInfoENS0_18CordzUpdateTracker16MethodIdentifierE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
+  %27 = inttoptr i64 %sub.i.i to ptr
   tail call void @_ZN4absl13cord_internal9CordzInfo4LockENS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(1332) %27, i32 noundef 21)
   br label %_ZN4absl13cord_internal16CordzUpdateScopeC2EPNS0_9CordzInfoENS0_18CordzUpdateTracker16MethodIdentifierE.exit
 
@@ -4103,12 +4103,12 @@ if.then30:                                        ; preds = %_ZN4absl4Cord9Inlin
 if.else:                                          ; preds = %_ZN4absl4Cord9InlineRep23MaybeRemoveEmptyCrcNodeEv.exit
   %21 = load i64, ptr %this, align 8
   %sub.i.i = add nsw i64 %21, -1
-  %22 = inttoptr i64 %sub.i.i to ptr
-  store ptr %22, ptr %scope, align 8
+  store i64 %sub.i.i, ptr %scope, align 8
   %tobool.not.i = icmp eq i64 %sub.i.i, 0
   br i1 %tobool.not.i, label %_ZN4absl13cord_internal16CordzUpdateScopeC2EPNS0_9CordzInfoENS0_18CordzUpdateTracker16MethodIdentifierE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
+  %22 = inttoptr i64 %sub.i.i to ptr
   tail call void @_ZN4absl13cord_internal9CordzInfo4LockENS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(1332) %22, i32 noundef 22)
   br label %_ZN4absl13cord_internal16CordzUpdateScopeC2EPNS0_9CordzInfoENS0_18CordzUpdateTracker16MethodIdentifierE.exit
 
@@ -5018,9 +5018,9 @@ lpad11:                                           ; preds = %if.then6
   br label %eh.resume
 
 if.else15:                                        ; preds = %_ZNK4absl4Cord5emptyEv.exit
-  %14 = inttoptr i64 %sub.i.i.i to ptr
-  store ptr %14, ptr %scope, align 8
+  store i64 %sub.i.i.i, ptr %scope, align 8
   %tobool.not.i = icmp eq i64 %sub.i.i.i, 0
+  %14 = inttoptr i64 %sub.i.i.i to ptr
   br i1 %tobool.not.i, label %invoke.cont22, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else15
@@ -8273,12 +8273,12 @@ if.end:                                           ; preds = %_ZNK4absl4Cord19Cop
   %new_buffer.0 = phi ptr [ %storage.i, %_ZNK4absl4Cord19CopyToArraySlowPathEPc.exit ], [ %call5.i15, %_ZNK4absl4Cord19CopyToArraySlowPathEPc.exit36 ]
   %21 = load i64, ptr %this, align 8
   %sub.i.i = add nsw i64 %21, -1
-  %22 = inttoptr i64 %sub.i.i to ptr
-  store ptr %22, ptr %scope, align 8
+  store i64 %sub.i.i, ptr %scope, align 8
   %tobool.not.i = icmp eq i64 %sub.i.i, 0
   br i1 %tobool.not.i, label %invoke.cont11, label %if.then.i39
 
 if.then.i39:                                      ; preds = %if.end
+  %22 = inttoptr i64 %sub.i.i to ptr
   call void @_ZN4absl13cord_internal9CordzInfo4LockENS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(1332) %22, i32 noundef 11)
   br label %invoke.cont11
 

@@ -5454,7 +5454,7 @@ invoke.cont406:                                   ; preds = %if.then.i.i607, %in
 
 invoke.cont408:                                   ; preds = %invoke.cont406
   %_M_invoker.i613 = getelementptr inbounds %"class.std::function.35", ptr %ref.tmp407, i64 0, i32 1
-  store i64 ptrtoint (ptr @_ZNK19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImpl14getLocalBypassEv to i64), ptr %call.i.i2.i614, align 16
+  store ptr @_ZNK19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImpl14getLocalBypassEv, ptr %call.i.i2.i614, align 16
   %getLB.sroa.2.0.call.i.i2.i614.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i614, i64 8
   store i64 0, ptr %getLB.sroa.2.0.call.i.i2.i614.sroa_idx, align 8
   %getLB.sroa.3.0.call.i.i2.i614.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i614, i64 16

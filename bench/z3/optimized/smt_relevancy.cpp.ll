@@ -1205,8 +1205,7 @@ invoke.cont3:
   %m_relevant_exprs = getelementptr inbounds %"struct.smt::relevancy_propagator_imp", ptr %this, i64 0, i32 3
   %m.i = getelementptr inbounds %"class.smt::context", ptr %ctx, i64 0, i32 2
   %0 = load ptr, ptr %m.i, align 8
-  %1 = ptrtoint ptr %0 to i64
-  store i64 %1, ptr %m_relevant_exprs, align 8
+  store ptr %0, ptr %m_relevant_exprs, align 8
   %m_nodes.i.i = getelementptr inbounds %"struct.smt::relevancy_propagator_imp", ptr %this, i64 0, i32 3, i32 0, i32 1
   %m_relevant_ehs = getelementptr inbounds %"struct.smt::relevancy_propagator_imp", ptr %this, i64 0, i32 5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_nodes.i.i, i8 0, i64 16, i1 false)
@@ -1249,12 +1248,12 @@ arrayctor.cont:                                   ; preds = %invoke.cont7
   ret void
 
 lpad4:                                            ; preds = %invoke.cont3
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup20
 
 lpad6:                                            ; preds = %arrayctor.loop
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   %arraydestroy.isempty = icmp eq i64 %arrayctor.cur.idx, 72
   br i1 %arraydestroy.isempty, label %ehcleanup19, label %arraydestroy.body
@@ -1272,7 +1271,7 @@ ehcleanup19:                                      ; preds = %arraydestroy.body, 
   br label %ehcleanup20
 
 ehcleanup20:                                      ; preds = %ehcleanup19, %lpad4
-  %.pn = phi { ptr, i32 } [ %3, %ehcleanup19 ], [ %2, %lpad4 ]
+  %.pn = phi { ptr, i32 } [ %2, %ehcleanup19 ], [ %1, %lpad4 ]
   %m_is_relevant = getelementptr inbounds %"struct.smt::relevancy_propagator_imp", ptr %this, i64 0, i32 4
   tail call void @_ZN8uint_setD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_is_relevant) #20
   tail call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_relevant_exprs) #20
@@ -3218,7 +3217,7 @@ if.then43:                                        ; preds = %end_remove
   br label %if.end55
 
 if.else44:                                        ; preds = %end_remove
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.2, align 8
+  store i64 1, ptr %curr.2, align 8
   %m_num_deleted = getelementptr inbounds %class.core_hashtable.311, ptr %this, i64 0, i32 3
   %10 = load i32, ptr %m_num_deleted, align 8
   %inc = add i32 %10, 1

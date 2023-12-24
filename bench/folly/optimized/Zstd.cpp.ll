@@ -1643,10 +1643,9 @@ _ZN5folly11compression31CompressionCoreLocalContextPoolI11ZSTD_CCtx_sNS0_8contex
 
 if.then:                                          ; preds = %_ZN5folly11compression31CompressionCoreLocalContextPoolI11ZSTD_CCtx_sNS0_8contexts17ZSTD_CCtx_CreatorENS3_17ZSTD_CCtx_DeleterENS3_18ZSTD_CCtx_ResetterELm4EE5localEv.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.ensured.i)
-  %10 = ptrtoint ptr %this to i64
-  store i64 %10, ptr %agg.tmp.ensured.i, align 8, !tbaa !7
-  %11 = getelementptr inbounds i8, ptr %agg.tmp.ensured.i, i64 8
-  store ptr %ptr, ptr %11, align 8, !tbaa !91
+  store ptr %this, ptr %agg.tmp.ensured.i, align 8, !tbaa !7
+  %10 = getelementptr inbounds i8, ptr %agg.tmp.ensured.i, i64 8
+  store ptr %ptr, ptr %10, align 8, !tbaa !91
   %cmp.not.i.i = icmp eq ptr %ptr, null
   br i1 %cmp.not.i.i, label %_ZN5folly11compression31CompressionCoreLocalContextPoolI11ZSTD_CCtx_sNS0_8contexts17ZSTD_CCtx_CreatorENS3_17ZSTD_CCtx_DeleterENS3_18ZSTD_CCtx_ResetterELm4EE22return_to_backing_poolEPS2_.exit, label %if.then.i.i25
 
@@ -1655,10 +1654,10 @@ if.then.i.i25:                                    ; preds = %if.then
           to label %_ZN5folly11compression31CompressionCoreLocalContextPoolI11ZSTD_CCtx_sNS0_8contexts17ZSTD_CCtx_CreatorENS3_17ZSTD_CCtx_DeleterENS3_18ZSTD_CCtx_ResetterELm4EE22return_to_backing_poolEPS2_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i25
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #22
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #22
   unreachable
 
 _ZN5folly11compression31CompressionCoreLocalContextPoolI11ZSTD_CCtx_sNS0_8contexts17ZSTD_CCtx_CreatorENS3_17ZSTD_CCtx_DeleterENS3_18ZSTD_CCtx_ResetterELm4EE22return_to_backing_poolEPS2_.exit: ; preds = %if.then.i.i25, %if.then
@@ -1722,8 +1721,7 @@ entry:
   %agg.tmp = alloca %"class.std::unique_ptr.72", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr) #19
   %0 = load ptr, ptr %this, align 8, !tbaa !93
-  %.cast = ptrtoint ptr %t to i64
-  store i64 %.cast, ptr %agg.tmp, align 8, !tbaa !7
+  store ptr %t, ptr %agg.tmp, align 8, !tbaa !7
   store ptr null, ptr %ptr, align 8, !tbaa !7
   invoke void @_ZN5folly11compression22CompressionContextPoolI11ZSTD_CCtx_sNS0_8contexts17ZSTD_CCtx_CreatorENS3_17ZSTD_CCtx_DeleterENS3_18ZSTD_CCtx_ResetterEE3addESt10unique_ptrIS2_S5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
@@ -2583,10 +2581,9 @@ _ZN5folly11compression31CompressionCoreLocalContextPoolI11ZSTD_DCtx_sNS0_8contex
 
 if.then:                                          ; preds = %_ZN5folly11compression31CompressionCoreLocalContextPoolI11ZSTD_DCtx_sNS0_8contexts17ZSTD_DCtx_CreatorENS3_17ZSTD_DCtx_DeleterENS3_18ZSTD_DCtx_ResetterELm4EE5localEv.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.ensured.i)
-  %10 = ptrtoint ptr %this to i64
-  store i64 %10, ptr %agg.tmp.ensured.i, align 8, !tbaa !7
-  %11 = getelementptr inbounds i8, ptr %agg.tmp.ensured.i, i64 8
-  store ptr %ptr, ptr %11, align 8, !tbaa !131
+  store ptr %this, ptr %agg.tmp.ensured.i, align 8, !tbaa !7
+  %10 = getelementptr inbounds i8, ptr %agg.tmp.ensured.i, i64 8
+  store ptr %ptr, ptr %10, align 8, !tbaa !131
   %cmp.not.i.i = icmp eq ptr %ptr, null
   br i1 %cmp.not.i.i, label %_ZN5folly11compression31CompressionCoreLocalContextPoolI11ZSTD_DCtx_sNS0_8contexts17ZSTD_DCtx_CreatorENS3_17ZSTD_DCtx_DeleterENS3_18ZSTD_DCtx_ResetterELm4EE22return_to_backing_poolEPS2_.exit, label %if.then.i.i24
 
@@ -2595,10 +2592,10 @@ if.then.i.i24:                                    ; preds = %if.then
           to label %_ZN5folly11compression31CompressionCoreLocalContextPoolI11ZSTD_DCtx_sNS0_8contexts17ZSTD_DCtx_CreatorENS3_17ZSTD_DCtx_DeleterENS3_18ZSTD_DCtx_ResetterELm4EE22return_to_backing_poolEPS2_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i24
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #22
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #22
   unreachable
 
 _ZN5folly11compression31CompressionCoreLocalContextPoolI11ZSTD_DCtx_sNS0_8contexts17ZSTD_DCtx_CreatorENS3_17ZSTD_DCtx_DeleterENS3_18ZSTD_DCtx_ResetterELm4EE22return_to_backing_poolEPS2_.exit: ; preds = %if.then.i.i24, %if.then
@@ -2619,8 +2616,7 @@ entry:
   %agg.tmp = alloca %"class.std::unique_ptr.100", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr) #19
   %0 = load ptr, ptr %this, align 8, !tbaa !133
-  %.cast = ptrtoint ptr %t to i64
-  store i64 %.cast, ptr %agg.tmp, align 8, !tbaa !7
+  store ptr %t, ptr %agg.tmp, align 8, !tbaa !7
   store ptr null, ptr %ptr, align 8, !tbaa !7
   invoke void @_ZN5folly11compression22CompressionContextPoolI11ZSTD_DCtx_sNS0_8contexts17ZSTD_DCtx_CreatorENS3_17ZSTD_DCtx_DeleterENS3_18ZSTD_DCtx_ResetterEE3addESt10unique_ptrIS2_S5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad

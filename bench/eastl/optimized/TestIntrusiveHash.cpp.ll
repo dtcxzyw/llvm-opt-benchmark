@@ -157,12 +157,12 @@ for.end:                                          ; preds = %for.body
   store i64 0, ptr %mnElementCount.i.i154, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %ihmSW1, i8 0, i64 296, i1 false)
   %arrayidx.i.i155 = getelementptr inbounds [38 x ptr], ptr %ihmSW1, i64 0, i64 37
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i155, align 8
+  store i64 -1, ptr %arrayidx.i.i155, align 8
   %mnElementCount.i.i156 = getelementptr inbounds %"class.eastl::intrusive_hashtable", ptr %ihmSW2, i64 0, i32 1
   store i64 0, ptr %mnElementCount.i.i156, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %ihmSW2, i8 0, i64 296, i1 false)
   %arrayidx.i.i157 = getelementptr inbounds [38 x ptr], ptr %ihmSW2, i64 0, i64 37
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i157, align 8
+  store i64 -1, ptr %arrayidx.i.i157, align 8
   %call22 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 195, ptr noundef nonnull @.str.5)
   %ihmSW1.val66 = load i64, ptr %mnElementCount.i.i154, align 8
   %cmp.i158 = icmp eq i64 %ihmSW1.val66, 0
@@ -2130,12 +2130,12 @@ for.end416:                                       ; preds = %for.body406
   store i64 0, ptr %mnElementCount.i.i1281, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %ihmMW1, i8 0, i64 296, i1 false)
   %arrayidx.i.i1282 = getelementptr inbounds [38 x ptr], ptr %ihmMW1, i64 0, i64 37
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i1282, align 8
+  store i64 -1, ptr %arrayidx.i.i1282, align 8
   %mnElementCount.i.i1283 = getelementptr inbounds %"class.eastl::intrusive_hashtable.2", ptr %ihmMW2, i64 0, i32 1
   store i64 0, ptr %mnElementCount.i.i1283, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %ihmMW2, i8 0, i64 296, i1 false)
   %arrayidx.i.i1284 = getelementptr inbounds [38 x ptr], ptr %ihmMW2, i64 0, i64 37
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i1284, align 8
+  store i64 -1, ptr %arrayidx.i.i1284, align 8
   %call423 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 466, ptr noundef nonnull @.str.50)
   %ihmMW1.val92 = load i64, ptr %mnElementCount.i.i1281, align 8
   %cmp.i1285 = icmp eq i64 %ihmMW1.val92, 0
@@ -4295,7 +4295,7 @@ while.cond.i.i.i2757.preheader:                   ; preds = %while.body.i2666, %
   %mnElementCount.i.i2669 = getelementptr inbounds %"class.eastl::intrusive_hashtable", ptr %hs811, i64 0, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %hs811, i8 0, i64 296, i1 false)
   %arrayidx.i.i2670 = getelementptr inbounds [38 x ptr], ptr %hs811, i64 0, i64 37
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i2670, align 8
+  store i64 -1, ptr %arrayidx.i.i2670, align 8
   %mX.i2671 = getelementptr inbounds %"struct.(anonymous namespace)::SetWidget", ptr %node1814, i64 0, i32 1
   %mX.i2672 = getelementptr inbounds %"struct.(anonymous namespace)::SetWidget", ptr %node2815, i64 0, i32 1
   %mX.i2673 = getelementptr inbounds %"struct.(anonymous namespace)::SetWidget", ptr %node3816, i64 0, i32 1

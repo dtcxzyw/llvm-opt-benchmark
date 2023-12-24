@@ -2648,8 +2648,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool6.not, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.end3
-  %4 = inttoptr i64 %call4 to ptr
-  store ptr %4, ptr %ptr, align 8
+  store i64 %call4, ptr %ptr, align 8
   br label %return
 
 return:                                           ; preds = %if.end3, %if.end8, %if.then2, %if.then
@@ -2718,15 +2717,14 @@ if.else:                                          ; preds = %if.end
 
 if.then9:                                         ; preds = %if.else
   %call10 = tail call i64 @PyLong_AsUnsignedLongLongMask(ptr noundef %value) #9
-  %6 = inttoptr i64 %call10 to ptr
-  store ptr %6, ptr %ptr, align 8
+  store i64 %call10, ptr %ptr, align 8
   br label %return
 
 if.end12:                                         ; preds = %if.else
-  %7 = load ptr, ptr @PyExc_TypeError, align 8
+  %6 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name = getelementptr inbounds %struct._typeobject, ptr %value.val11, i64 0, i32 1
-  %8 = load ptr, ptr %tp_name, align 8
-  %call14 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.19, ptr noundef %8) #9
+  %7 = load ptr, ptr %tp_name, align 8
+  %call14 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %6, ptr noundef nonnull @.str.19, ptr noundef %7) #9
   br label %return
 
 return:                                           ; preds = %if.end.i.i14, %if.then3, %if.end.i.i, %if.then, %if.end12, %if.then9
@@ -2944,20 +2942,19 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   %call4 = tail call i64 @PyLong_AsUnsignedLongLongMask(ptr noundef %value) #9
-  %4 = inttoptr i64 %call4 to ptr
-  store ptr %4, ptr %ptr, align 8
+  store i64 %call4, ptr %ptr, align 8
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %5 = and i64 %call1.val, 268435456
-  %tobool8.not = icmp eq i64 %5, 0
+  %4 = and i64 %call1.val, 268435456
+  %tobool8.not = icmp eq i64 %4, 0
   br i1 %tobool8.not, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %if.end5
-  %6 = load ptr, ptr @PyExc_TypeError, align 8
+  %5 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name = getelementptr inbounds %struct._typeobject, ptr %value.val14, i64 0, i32 1
-  %7 = load ptr, ptr %tp_name, align 8
-  %call11 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %6, ptr noundef nonnull @.str.23, ptr noundef %7) #9
+  %6 = load ptr, ptr %tp_name, align 8
+  %call11 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.23, ptr noundef %6) #9
   br label %return
 
 if.end12:                                         ; preds = %if.end5

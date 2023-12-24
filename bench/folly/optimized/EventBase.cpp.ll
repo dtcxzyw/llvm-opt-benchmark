@@ -3275,8 +3275,7 @@ if.then.i.i:
   %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp3, i64 0, i32 1
   %1 = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
   store i64 0, ptr %1, align 8
-  %2 = ptrtoint ptr %evb to i64
-  store i64 %2, ptr %agg.tmp3, align 8, !tbaa !134
+  store ptr %evb, ptr %agg.tmp3, align 8, !tbaa !134
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3, i64 16, i1 false)
   %_M_manager3.i.i.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %ref.tmp, i64 0, i32 2, i32 0, i32 1
@@ -3290,8 +3289,8 @@ if.then.i.i:
   %backendFactory.i15 = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp, i64 0, i32 2
   %_M_manager.i.i.i16 = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp, i64 0, i32 2, i32 0, i32 1
   %_M_invoker.i.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp, i64 0, i32 2, i32 1
-  %3 = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
-  store i64 0, ptr %3, align 8
+  %2 = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  store i64 0, ptr %2, align 8
   %call5.val.i.i = load i64, ptr %backendFactory.i, align 8, !tbaa !134
   store i64 %call5.val.i.i, ptr %backendFactory.i15, align 8, !tbaa !134
   store ptr @"_ZNSt17_Function_handlerIFSt10unique_ptrIN5folly20EventBaseBackendBaseESt14default_deleteIS2_EEvEZNS1_9EventBaseC1EP10event_basebE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i, align 8, !tbaa !169
@@ -3302,19 +3301,19 @@ if.then.i.i:
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %if.then.i.i
-  %4 = load ptr, ptr %_M_manager.i.i.i16, align 8, !tbaa !153
-  %tobool.not.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %_M_manager.i.i.i16, align 8, !tbaa !153
+  %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i.i23
 
 if.then.i.i23:                                    ; preds = %invoke.cont8
-  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i15, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i15, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i15, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i15, i32 noundef 3)
           to label %_ZN5folly9EventBase7OptionsD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i23
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #50
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #50
   unreachable
 
 _ZN5folly9EventBase7OptionsD2Ev.exit:             ; preds = %if.then.i.i23
@@ -3327,26 +3326,26 @@ if.then.i:                                        ; preds = %_ZN5folly9EventBase
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #50
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #50
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %if.then.i, %_ZN5folly9EventBase7OptionsD2Ev.exit, %invoke.cont8
-  %9 = load ptr, ptr %_M_manager3.i.i.i, align 8, !tbaa !153
-  %tobool.not.i.i26 = icmp eq ptr %9, null
+  %8 = load ptr, ptr %_M_manager3.i.i.i, align 8, !tbaa !153
+  %tobool.not.i.i26 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i26, label %_ZN5folly9EventBase7OptionsD2Ev.exit31, label %if.then.i.i27
 
 if.then.i.i27:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit
-  %call.i.i29 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, i32 noundef 3)
+  %call.i.i29 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, i32 noundef 3)
           to label %_ZN5folly9EventBase7OptionsD2Ev.exit31 unwind label %terminate.lpad.i.i30
 
 terminate.lpad.i.i30:                             ; preds = %if.then.i.i27
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #50
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #50
   unreachable
 
 _ZN5folly9EventBase7OptionsD2Ev.exit31:           ; preds = %if.then.i.i27, %_ZNSt14_Function_baseD2Ev.exit
@@ -3354,21 +3353,21 @@ _ZN5folly9EventBase7OptionsD2Ev.exit31:           ; preds = %if.then.i.i27, %_ZN
   ret void
 
 lpad7:                                            ; preds = %if.then.i.i
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %13 = load ptr, ptr %_M_manager.i.i.i16, align 8, !tbaa !153
-  %tobool.not.i.i33 = icmp eq ptr %13, null
+  %12 = load ptr, ptr %_M_manager.i.i.i16, align 8, !tbaa !153
+  %tobool.not.i.i33 = icmp eq ptr %12, null
   br i1 %tobool.not.i.i33, label %_ZNSt14_Function_baseD2Ev.exit44, label %if.then.i.i34
 
 if.then.i.i34:                                    ; preds = %lpad7
-  %call.i.i36 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i15, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i15, i32 noundef 3)
+  %call.i.i36 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i15, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i15, i32 noundef 3)
           to label %ehcleanup unwind label %terminate.lpad.i.i37
 
 terminate.lpad.i.i37:                             ; preds = %if.then.i.i34
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #50
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #50
   unreachable
 
 ehcleanup:                                        ; preds = %if.then.i.i34
@@ -3381,31 +3380,31 @@ if.then.i41:                                      ; preds = %ehcleanup
           to label %_ZNSt14_Function_baseD2Ev.exit44 unwind label %terminate.lpad.i43
 
 terminate.lpad.i43:                               ; preds = %if.then.i41
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #50
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #50
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit44:                 ; preds = %if.then.i41, %ehcleanup, %lpad7
-  %18 = load ptr, ptr %_M_manager3.i.i.i, align 8, !tbaa !153
-  %tobool.not.i.i46 = icmp eq ptr %18, null
+  %17 = load ptr, ptr %_M_manager3.i.i.i, align 8, !tbaa !153
+  %tobool.not.i.i46 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i46, label %_ZN5folly9EventBase7OptionsD2Ev.exit51, label %if.then.i.i47
 
 if.then.i.i47:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit44
-  %call.i.i49 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, i32 noundef 3)
+  %call.i.i49 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, i32 noundef 3)
           to label %_ZN5folly9EventBase7OptionsD2Ev.exit51 unwind label %terminate.lpad.i.i50
 
 terminate.lpad.i.i50:                             ; preds = %if.then.i.i47
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #50
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #50
   unreachable
 
 _ZN5folly9EventBase7OptionsD2Ev.exit51:           ; preds = %if.then.i.i47, %_ZNSt14_Function_baseD2Ev.exit44
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp) #51
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %11
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3669,8 +3668,7 @@ if.then.i.i:
   %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp2, i64 0, i32 1
   %1 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   store i64 0, ptr %1, align 8
-  %2 = ptrtoint ptr %evb to i64
-  store i64 %2, ptr %agg.tmp2, align 8, !tbaa !134
+  store ptr %evb, ptr %agg.tmp2, align 8, !tbaa !134
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, i64 16, i1 false)
   %_M_manager3.i.i.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %ref.tmp, i64 0, i32 2, i32 0, i32 1
@@ -3684,8 +3682,8 @@ if.then.i.i:
   %backendFactory.i13 = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp, i64 0, i32 2
   %_M_manager.i.i.i14 = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp, i64 0, i32 2, i32 0, i32 1
   %_M_invoker.i.i = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp, i64 0, i32 2, i32 1
-  %3 = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
-  store i64 0, ptr %3, align 8
+  %2 = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %agg.tmp, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  store i64 0, ptr %2, align 8
   %call5.val.i.i = load i64, ptr %backendFactory.i, align 8, !tbaa !134
   store i64 %call5.val.i.i, ptr %backendFactory.i13, align 8, !tbaa !134
   store ptr @"_ZNSt17_Function_handlerIFSt10unique_ptrIN5folly20EventBaseBackendBaseESt14default_deleteIS2_EEvEZNS1_9EventBaseC1EP10event_basebE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i, align 8, !tbaa !169
@@ -3696,19 +3694,19 @@ if.then.i.i:
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %if.then.i.i
-  %4 = load ptr, ptr %_M_manager.i.i.i14, align 8, !tbaa !153
-  %tobool.not.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %_M_manager.i.i.i14, align 8, !tbaa !153
+  %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i.i21
 
 if.then.i.i21:                                    ; preds = %invoke.cont6
-  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i13, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i13, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i13, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i13, i32 noundef 3)
           to label %_ZN5folly9EventBase7OptionsD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i21
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #50
+  %5 = extractvalue { ptr, i32 } %4, 0
+  call void @__clang_call_terminate(ptr %5) #50
   unreachable
 
 _ZN5folly9EventBase7OptionsD2Ev.exit:             ; preds = %if.then.i.i21
@@ -3721,26 +3719,26 @@ if.then.i:                                        ; preds = %_ZN5folly9EventBase
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #50
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #50
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %if.then.i, %_ZN5folly9EventBase7OptionsD2Ev.exit, %invoke.cont6
-  %9 = load ptr, ptr %_M_manager3.i.i.i, align 8, !tbaa !153
-  %tobool.not.i.i24 = icmp eq ptr %9, null
+  %8 = load ptr, ptr %_M_manager3.i.i.i, align 8, !tbaa !153
+  %tobool.not.i.i24 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i24, label %_ZN5folly9EventBase7OptionsD2Ev.exit29, label %if.then.i.i25
 
 if.then.i.i25:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit
-  %call.i.i27 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, i32 noundef 3)
+  %call.i.i27 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, i32 noundef 3)
           to label %_ZN5folly9EventBase7OptionsD2Ev.exit29 unwind label %terminate.lpad.i.i28
 
 terminate.lpad.i.i28:                             ; preds = %if.then.i.i25
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #50
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #50
   unreachable
 
 _ZN5folly9EventBase7OptionsD2Ev.exit29:           ; preds = %if.then.i.i25, %_ZNSt14_Function_baseD2Ev.exit
@@ -3748,21 +3746,21 @@ _ZN5folly9EventBase7OptionsD2Ev.exit29:           ; preds = %if.then.i.i25, %_ZN
   ret void
 
 lpad5:                                            ; preds = %if.then.i.i
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %13 = load ptr, ptr %_M_manager.i.i.i14, align 8, !tbaa !153
-  %tobool.not.i.i31 = icmp eq ptr %13, null
+  %12 = load ptr, ptr %_M_manager.i.i.i14, align 8, !tbaa !153
+  %tobool.not.i.i31 = icmp eq ptr %12, null
   br i1 %tobool.not.i.i31, label %_ZNSt14_Function_baseD2Ev.exit42, label %if.then.i.i32
 
 if.then.i.i32:                                    ; preds = %lpad5
-  %call.i.i34 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i13, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i13, i32 noundef 3)
+  %call.i.i34 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i13, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i13, i32 noundef 3)
           to label %ehcleanup unwind label %terminate.lpad.i.i35
 
 terminate.lpad.i.i35:                             ; preds = %if.then.i.i32
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #50
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #50
   unreachable
 
 ehcleanup:                                        ; preds = %if.then.i.i32
@@ -3775,31 +3773,31 @@ if.then.i39:                                      ; preds = %ehcleanup
           to label %_ZNSt14_Function_baseD2Ev.exit42 unwind label %terminate.lpad.i41
 
 terminate.lpad.i41:                               ; preds = %if.then.i39
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #50
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #50
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit42:                 ; preds = %if.then.i39, %ehcleanup, %lpad5
-  %18 = load ptr, ptr %_M_manager3.i.i.i, align 8, !tbaa !153
-  %tobool.not.i.i44 = icmp eq ptr %18, null
+  %17 = load ptr, ptr %_M_manager3.i.i.i, align 8, !tbaa !153
+  %tobool.not.i.i44 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i44, label %_ZN5folly9EventBase7OptionsD2Ev.exit49, label %if.then.i.i45
 
 if.then.i.i45:                                    ; preds = %_ZNSt14_Function_baseD2Ev.exit42
-  %call.i.i47 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, i32 noundef 3)
+  %call.i.i47 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, ptr noundef nonnull align 8 dereferenceable(16) %backendFactory.i, i32 noundef 3)
           to label %_ZN5folly9EventBase7OptionsD2Ev.exit49 unwind label %terminate.lpad.i.i48
 
 terminate.lpad.i.i48:                             ; preds = %if.then.i.i45
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #50
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #50
   unreachable
 
 _ZN5folly9EventBase7OptionsD2Ev.exit49:           ; preds = %if.then.i.i45, %_ZNSt14_Function_baseD2Ev.exit42
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp) #51
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %11
 }
 
 declare void @_ZN5folly14TimeoutManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2

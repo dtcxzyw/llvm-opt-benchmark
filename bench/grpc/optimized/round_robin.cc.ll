@@ -1757,8 +1757,7 @@ _ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev.exit.i.i: ; preds = %if.end8
   store ptr %51, ptr %health_watcher_.i.i, align 8
   %subchannel_25.i.i = getelementptr inbounds %"class.grpc_core::SubchannelData", ptr %__begin0.sroa.0.010.i, i64 0, i32 2
   %52 = load ptr, ptr %subchannel_25.i.i, align 8
-  %.cast.i.i = ptrtoint ptr %51 to i64
-  store i64 %.cast.i.i, ptr %agg.tmp27.i.i, align 8
+  store ptr %51, ptr %agg.tmp27.i.i, align 8
   store ptr null, ptr %health_watcher.i.i, align 8
   %vtable28.i.i = load ptr, ptr %52, align 8
   %vfn29.i.i = getelementptr inbounds ptr, ptr %vtable28.i.i, i64 7

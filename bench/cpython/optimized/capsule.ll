@@ -518,16 +518,14 @@ if.then6:                                         ; preds = %if.end3
   %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %8, i64 0, i32 1
   %9 = load i64, ptr %_gc_prev.i, align 8
   %10 = inttoptr i64 %9 to ptr
-  %11 = ptrtoint ptr %4 to i64
-  store i64 %11, ptr %10, align 8
+  store ptr %4, ptr %10, align 8
   %_gc_prev.i.i = getelementptr i8, ptr %op, i64 -8
-  %12 = load i64, ptr %_gc_prev.i.i, align 8
-  %and.i.i = and i64 %12, 3
+  %11 = load i64, ptr %_gc_prev.i.i, align 8
+  %and.i.i = and i64 %11, 3
   %or.i.i = or i64 %and.i.i, %9
   store i64 %or.i.i, ptr %_gc_prev.i.i, align 8
-  %13 = ptrtoint ptr %8 to i64
-  store i64 %13, ptr %4, align 8
-  store i64 %11, ptr %_gc_prev.i, align 8
+  store ptr %8, ptr %4, align 8
+  store ptr %4, ptr %_gc_prev.i, align 8
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then6, %if.end3

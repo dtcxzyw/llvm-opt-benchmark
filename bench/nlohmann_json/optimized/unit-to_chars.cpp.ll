@@ -9143,33 +9143,30 @@ entry:
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_7)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE_EE", i64 0, inrange i32 0, i64 2), ptr %DOCTEST_CAPTURE_7, align 8, !alias.scope !5
   %lambda_.i.i = getelementptr inbounds %"class.doctest::detail::ContextScope", ptr %DOCTEST_CAPTURE_7, i64 0, i32 1
-  %0 = ptrtoint ptr %number.addr to i64
-  store i64 %0, ptr %lambda_.i.i, align 8, !alias.scope !5
+  store ptr %number.addr, ptr %lambda_.i.i, align 8, !alias.scope !5
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_10)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE0_EE", i64 0, inrange i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8, !alias.scope !8
   %lambda_.i.i8 = getelementptr inbounds %"class.doctest::detail::ContextScope.4", ptr %DOCTEST_CAPTURE_10, i64 0, i32 1
-  %1 = ptrtoint ptr %digits to i64
-  store i64 %1, ptr %lambda_.i.i8, align 8, !alias.scope !8
+  store ptr %digits, ptr %lambda_.i.i8, align 8, !alias.scope !8
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_13)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE1_EE", i64 0, inrange i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8, !alias.scope !11
   %lambda_.i.i9 = getelementptr inbounds %"class.doctest::detail::ContextScope.6", ptr %DOCTEST_CAPTURE_13, i64 0, i32 1
-  %2 = ptrtoint ptr %expected_exponent.addr to i64
-  store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !11
+  store ptr %expected_exponent.addr, ptr %lambda_.i.i9, align 8, !alias.scope !11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %buf, i8 0, i64 32, i1 false)
   store i32 0, ptr %len, align 4
   store i32 0, ptr %exponent, align 4
-  %3 = load i32, ptr %number.addr, align 4
+  %0 = load i32, ptr %number.addr, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp1.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i)
-  %4 = and i32 %3, 8388607
-  %and.i.i = zext nneg i32 %4 to i64
-  %cmp.i.i = icmp ult i32 %3, 8388608
+  %1 = and i32 %0, 8388607
+  %and.i.i = zext nneg i32 %1 to i64
+  %cmp.i.i = icmp ult i32 %0, 8388608
   br i1 %cmp.i.i, label %cond.end.thread.i.i, label %cond.end.i.i
 
 cond.end.thread.i.i:                              ; preds = %invoke.cont5
@@ -9177,15 +9174,15 @@ cond.end.thread.i.i:                              ; preds = %invoke.cont5
   br label %cond.end20.i.i
 
 cond.end.i.i:                                     ; preds = %invoke.cont5
-  %shr.i.i = lshr i32 %3, 23
+  %shr.i.i = lshr i32 %0, 23
   %add.i.i = or disjoint i64 %and.i.i, 8388608
   %sub.i.i = add nsw i32 %shr.i.i, -150
-  %cmp2.i.i = icmp eq i32 %4, 0
-  %cmp3.i.i = icmp ugt i32 %3, 16777215
-  %5 = and i1 %cmp3.i.i, %cmp2.i.i
+  %cmp2.i.i = icmp eq i32 %1, 0
+  %cmp3.i.i = icmp ugt i32 %0, 16777215
+  %2 = and i1 %cmp3.i.i, %cmp2.i.i
   %mul.i.i = shl nuw nsw i64 %add.i.i, 1
   %sub6.i.i = add nsw i32 %shr.i.i, -151
-  br i1 %5, label %cond.true8.i.i, label %cond.end20.i.i
+  br i1 %2, label %cond.true8.i.i, label %cond.end20.i.i
 
 cond.true8.i.i:                                   ; preds = %cond.end.i.i
   %mul10.i.i = shl nuw nsw i64 %add.i.i, 2
@@ -9239,12 +9236,12 @@ invoke.cont7:                                     ; preds = %_ZN8nlohmann16json_
           to label %invoke.cont12 unwind label %lpad6
 
 invoke.cont12:                                    ; preds = %invoke.cont7
-  %6 = load i32, ptr %ref.tmp10, align 4
+  %3 = load i32, ptr %ref.tmp10, align 4
   store ptr %digits, ptr %ref.tmp9, align 8
-  %7 = getelementptr inbounds { ptr, i32 }, ptr %ref.tmp9, i64 0, i32 1
-  store i32 %6, ptr %7, align 8
-  %8 = load i32, ptr %len, align 4
-  %idx.ext = sext i32 %8 to i64
+  %4 = getelementptr inbounds { ptr, i32 }, ptr %ref.tmp9, i64 0, i32 1
+  store i32 %3, ptr %4, align 8
+  %5 = load i32, ptr %len, align 4
+  %idx.ext = sext i32 %5 to i64
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #18
   %call.i10 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14)
@@ -9261,7 +9258,7 @@ call.i.noexc:                                     ; preds = %invoke.cont12
           to label %invoke.cont19 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
-  %9 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #18
   br label %ehcleanup25
@@ -9283,10 +9280,10 @@ invoke.cont23:                                    ; preds = %invoke.cont21
           to label %invoke.cont30 unwind label %lpad6
 
 invoke.cont30:                                    ; preds = %invoke.cont23
-  %10 = load i32, ptr %ref.tmp28, align 4
+  %7 = load i32, ptr %ref.tmp28, align 4
   store ptr %expected_exponent.addr, ptr %ref.tmp27, align 8
-  %11 = getelementptr inbounds { ptr, i32 }, ptr %ref.tmp27, i64 0, i32 1
-  store i32 %10, ptr %11, align 8
+  %8 = getelementptr inbounds { ptr, i32 }, ptr %ref.tmp27, i64 0, i32 1
+  store i32 %7, ptr %8, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIRiEeqIS2_EEDTcmcvveqclL_ZNS0_7declvalIS2_EEOT_vEEclsr7doctest6detailE7declvalIS6_EEtlNS0_6ResultEEES7_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp26, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp27, ptr noundef nonnull align 4 dereferenceable(4) %exponent)
           to label %invoke.cont32 unwind label %lpad6
 
@@ -9299,9 +9296,9 @@ invoke.cont34:                                    ; preds = %invoke.cont32
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i13) #18
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE1_EE", i64 0, inrange i32 0, i64 2), ptr %DOCTEST_CAPTURE_13, align 8
   %need_to_destroy.i = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %DOCTEST_CAPTURE_13, i64 0, i32 1
-  %12 = load i8, ptr %need_to_destroy.i, align 8
-  %13 = and i8 %12, 1
-  %tobool.not.i = icmp eq i8 %13, 0
+  %9 = load i8, ptr %need_to_destroy.i, align 8
+  %10 = and i8 %9, 1
+  %tobool.not.i = icmp eq i8 %10, 0
   br i1 %tobool.not.i, label %"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE1_ED2Ev.exit", label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont34
@@ -9309,19 +9306,19 @@ if.then.i:                                        ; preds = %invoke.cont34
           to label %"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE1_ED2Ev.exit" unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %14 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #19
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #19
   unreachable
 
 "_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE1_ED2Ev.exit": ; preds = %invoke.cont34, %if.then.i
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_13) #18
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE0_EE", i64 0, inrange i32 0, i64 2), ptr %DOCTEST_CAPTURE_10, align 8
   %need_to_destroy.i14 = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %DOCTEST_CAPTURE_10, i64 0, i32 1
-  %16 = load i8, ptr %need_to_destroy.i14, align 8
-  %17 = and i8 %16, 1
-  %tobool.not.i15 = icmp eq i8 %17, 0
+  %13 = load i8, ptr %need_to_destroy.i14, align 8
+  %14 = and i8 %13, 1
+  %tobool.not.i15 = icmp eq i8 %14, 0
   br i1 %tobool.not.i15, label %"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE0_ED2Ev.exit", label %if.then.i16
 
 if.then.i16:                                      ; preds = %"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE1_ED2Ev.exit"
@@ -9329,19 +9326,19 @@ if.then.i16:                                      ; preds = %"_ZN7doctest6detail
           to label %"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE0_ED2Ev.exit" unwind label %terminate.lpad.i17
 
 terminate.lpad.i17:                               ; preds = %if.then.i16
-  %18 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #19
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #19
   unreachable
 
 "_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE0_ED2Ev.exit": ; preds = %"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE1_ED2Ev.exit", %if.then.i16
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_10) #18
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE_EE", i64 0, inrange i32 0, i64 2), ptr %DOCTEST_CAPTURE_7, align 8
   %need_to_destroy.i18 = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %DOCTEST_CAPTURE_7, i64 0, i32 1
-  %20 = load i8, ptr %need_to_destroy.i18, align 8
-  %21 = and i8 %20, 1
-  %tobool.not.i19 = icmp eq i8 %21, 0
+  %17 = load i8, ptr %need_to_destroy.i18, align 8
+  %18 = and i8 %17, 1
+  %tobool.not.i19 = icmp eq i8 %18, 0
   br i1 %tobool.not.i19, label %"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE_ED2Ev.exit", label %if.then.i20
 
 if.then.i20:                                      ; preds = %"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE0_ED2Ev.exit"
@@ -9349,10 +9346,10 @@ if.then.i20:                                      ; preds = %"_ZN7doctest6detail
           to label %"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE_ED2Ev.exit" unwind label %terminate.lpad.i21
 
 terminate.lpad.i21:                               ; preds = %if.then.i20
-  %22 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #19
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #19
   unreachable
 
 "_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE_ED2Ev.exit": ; preds = %"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE0_ED2Ev.exit", %if.then.i20
@@ -9360,66 +9357,66 @@ terminate.lpad.i21:                               ; preds = %if.then.i20
   ret void
 
 lpad:                                             ; preds = %entry
-  %24 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup39
 
 lpad4:                                            ; preds = %invoke.cont
-  %25 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup38
 
 lpad6:                                            ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl18compute_boundariesIfEENS2_10boundariesET_.exit.i, %invoke.cont30, %invoke.cont23, %invoke.cont7
-  %26 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup37
 
 lpad18:                                           ; preds = %call.i.noexc, %invoke.cont12
-  %27 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup25
 
 lpad20:                                           ; preds = %invoke.cont19
-  %28 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad22:                                           ; preds = %invoke.cont21
-  %29 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   %m_decomp.i22 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp8, i64 0, i32 1
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i22) #18
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad22, %lpad20
-  %.pn = phi { ptr, i32 } [ %29, %lpad22 ], [ %28, %lpad20 ]
+  %.pn = phi { ptr, i32 } [ %26, %lpad22 ], [ %25, %lpad20 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #18
   br label %ehcleanup25
 
 ehcleanup25:                                      ; preds = %lpad18, %lpad.i, %ehcleanup
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %27, %lpad18 ], [ %9, %lpad.i ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %24, %lpad18 ], [ %6, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #18
   br label %ehcleanup37
 
 lpad33:                                           ; preds = %invoke.cont32
-  %30 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   %m_decomp.i23 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp26, i64 0, i32 1
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i23) #18
   br label %ehcleanup37
 
 ehcleanup37:                                      ; preds = %lpad33, %ehcleanup25, %lpad6
-  %.pn4 = phi { ptr, i32 } [ %30, %lpad33 ], [ %26, %lpad6 ], [ %.pn.pn, %ehcleanup25 ]
+  %.pn4 = phi { ptr, i32 } [ %27, %lpad33 ], [ %23, %lpad6 ], [ %.pn.pn, %ehcleanup25 ]
   call void @"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE1_ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %DOCTEST_CAPTURE_13) #18
   br label %ehcleanup38
 
 ehcleanup38:                                      ; preds = %ehcleanup37, %lpad4
-  %.pn4.pn = phi { ptr, i32 } [ %.pn4, %ehcleanup37 ], [ %25, %lpad4 ]
+  %.pn4.pn = phi { ptr, i32 } [ %.pn4, %ehcleanup37 ], [ %22, %lpad4 ]
   call void @"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE0_ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %DOCTEST_CAPTURE_10) #18
   br label %ehcleanup39
 
 ehcleanup39:                                      ; preds = %ehcleanup38, %lpad
-  %.pn4.pn.pn = phi { ptr, i32 } [ %.pn4.pn, %ehcleanup38 ], [ %24, %lpad ]
+  %.pn4.pn.pn = phi { ptr, i32 } [ %.pn4.pn, %ehcleanup38 ], [ %21, %lpad ]
   call void @"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE_ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %DOCTEST_CAPTURE_7) #18
   resume { ptr, i32 } %.pn4.pn.pn
 }
@@ -9464,51 +9461,48 @@ entry:
   call void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_17)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE_EE", i64 0, inrange i32 0, i64 2), ptr %DOCTEST_CAPTURE_17, align 8, !alias.scope !16
   %lambda_.i.i = getelementptr inbounds %"class.doctest::detail::ContextScope.11", ptr %DOCTEST_CAPTURE_17, i64 0, i32 1
-  %0 = ptrtoint ptr %number.addr to i64
-  store i64 %0, ptr %lambda_.i.i, align 8, !alias.scope !16
+  store ptr %number.addr, ptr %lambda_.i.i, align 8, !alias.scope !16
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_20)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE0_EE", i64 0, inrange i32 0, i64 2), ptr %DOCTEST_CAPTURE_20, align 8, !alias.scope !19
   %lambda_.i.i8 = getelementptr inbounds %"class.doctest::detail::ContextScope.13", ptr %DOCTEST_CAPTURE_20, i64 0, i32 1
-  %1 = ptrtoint ptr %digits to i64
-  store i64 %1, ptr %lambda_.i.i8, align 8, !alias.scope !19
+  store ptr %digits, ptr %lambda_.i.i8, align 8, !alias.scope !19
   invoke void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %DOCTEST_CAPTURE_23)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE1_EE", i64 0, inrange i32 0, i64 2), ptr %DOCTEST_CAPTURE_23, align 8, !alias.scope !22
   %lambda_.i.i9 = getelementptr inbounds %"class.doctest::detail::ContextScope.15", ptr %DOCTEST_CAPTURE_23, i64 0, i32 1
-  %2 = ptrtoint ptr %expected_exponent.addr to i64
-  store i64 %2, ptr %lambda_.i.i9, align 8, !alias.scope !22
+  store ptr %expected_exponent.addr, ptr %lambda_.i.i9, align 8, !alias.scope !22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %buf, i8 0, i64 32, i1 false)
   store i32 0, ptr %len, align 4
   store i32 0, ptr %exponent, align 4
-  %3 = load i64, ptr %number.addr, align 8
+  %0 = load i64, ptr %number.addr, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp1.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i)
-  %and.i.i = and i64 %3, 4503599627370495
-  %cmp.i.i = icmp ult i64 %3, 4503599627370496
+  %and.i.i = and i64 %0, 4503599627370495
+  %cmp.i.i = icmp ult i64 %0, 4503599627370496
   br i1 %cmp.i.i, label %cond.end.thread.i.i, label %cond.end.i.i
 
 cond.end.thread.i.i:                              ; preds = %invoke.cont5
-  %mul36.i.i = shl nuw nsw i64 %3, 1
+  %mul36.i.i = shl nuw nsw i64 %0, 1
   %add437.i.i = or disjoint i64 %mul36.i.i, 1
   br label %cond.false13.i.i
 
 cond.end.i.i:                                     ; preds = %invoke.cont5
-  %shr.i.i = lshr i64 %3, 52
+  %shr.i.i = lshr i64 %0, 52
   %add.i.i = or disjoint i64 %and.i.i, 4503599627370496
   %conv.i.i = trunc i64 %shr.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i, -1075
   %cmp1.i.i = icmp eq i64 %and.i.i, 0
-  %cmp2.i.i = icmp ugt i64 %3, 9007199254740991
-  %4 = and i1 %cmp2.i.i, %cmp1.i.i
+  %cmp2.i.i = icmp ugt i64 %0, 9007199254740991
+  %1 = and i1 %cmp2.i.i, %cmp1.i.i
   %mul.i.i = shl nuw nsw i64 %add.i.i, 1
   %add4.i.i = or disjoint i64 %mul.i.i, 1
   %sub5.i.i = add nsw i32 %conv.i.i, -1076
-  br i1 %4, label %cond.true7.i.i, label %cond.false13.i.i
+  br i1 %1, label %cond.true7.i.i, label %cond.false13.i.i
 
 cond.true7.i.i:                                   ; preds = %cond.end.i.i
   %sub12.i.i = add nsw i32 %conv.i.i, -1077
@@ -9568,12 +9562,12 @@ invoke.cont7:                                     ; preds = %_ZN8nlohmann16json_
           to label %invoke.cont12 unwind label %lpad6
 
 invoke.cont12:                                    ; preds = %invoke.cont7
-  %5 = load i32, ptr %ref.tmp10, align 4
+  %2 = load i32, ptr %ref.tmp10, align 4
   store ptr %digits, ptr %ref.tmp9, align 8
-  %6 = getelementptr inbounds { ptr, i32 }, ptr %ref.tmp9, i64 0, i32 1
-  store i32 %5, ptr %6, align 8
-  %7 = load i32, ptr %len, align 4
-  %idx.ext = sext i32 %7 to i64
+  %3 = getelementptr inbounds { ptr, i32 }, ptr %ref.tmp9, i64 0, i32 1
+  store i32 %2, ptr %3, align 8
+  %4 = load i32, ptr %len, align 4
+  %idx.ext = sext i32 %4 to i64
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #18
   %call.i10 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14)
@@ -9590,7 +9584,7 @@ call.i.noexc:                                     ; preds = %invoke.cont12
           to label %invoke.cont19 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
-  %8 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #18
   br label %ehcleanup25
@@ -9612,10 +9606,10 @@ invoke.cont23:                                    ; preds = %invoke.cont21
           to label %invoke.cont30 unwind label %lpad6
 
 invoke.cont30:                                    ; preds = %invoke.cont23
-  %9 = load i32, ptr %ref.tmp28, align 4
+  %6 = load i32, ptr %ref.tmp28, align 4
   store ptr %expected_exponent.addr, ptr %ref.tmp27, align 8
-  %10 = getelementptr inbounds { ptr, i32 }, ptr %ref.tmp27, i64 0, i32 1
-  store i32 %9, ptr %10, align 8
+  %7 = getelementptr inbounds { ptr, i32 }, ptr %ref.tmp27, i64 0, i32 1
+  store i32 %6, ptr %7, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIRiEeqIS2_EEDTcmcvveqclL_ZNS0_7declvalIS2_EEOT_vEEclsr7doctest6detailE7declvalIS6_EEtlNS0_6ResultEEES7_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp26, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp27, ptr noundef nonnull align 4 dereferenceable(4) %exponent)
           to label %invoke.cont32 unwind label %lpad6
 
@@ -9628,9 +9622,9 @@ invoke.cont34:                                    ; preds = %invoke.cont32
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i13) #18
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE1_EE", i64 0, inrange i32 0, i64 2), ptr %DOCTEST_CAPTURE_23, align 8
   %need_to_destroy.i = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %DOCTEST_CAPTURE_23, i64 0, i32 1
-  %11 = load i8, ptr %need_to_destroy.i, align 8
-  %12 = and i8 %11, 1
-  %tobool.not.i = icmp eq i8 %12, 0
+  %8 = load i8, ptr %need_to_destroy.i, align 8
+  %9 = and i8 %8, 1
+  %tobool.not.i = icmp eq i8 %9, 0
   br i1 %tobool.not.i, label %"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE1_ED2Ev.exit", label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont34
@@ -9638,19 +9632,19 @@ if.then.i:                                        ; preds = %invoke.cont34
           to label %"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE1_ED2Ev.exit" unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %13 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #19
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #19
   unreachable
 
 "_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE1_ED2Ev.exit": ; preds = %invoke.cont34, %if.then.i
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_23) #18
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE0_EE", i64 0, inrange i32 0, i64 2), ptr %DOCTEST_CAPTURE_20, align 8
   %need_to_destroy.i14 = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %DOCTEST_CAPTURE_20, i64 0, i32 1
-  %15 = load i8, ptr %need_to_destroy.i14, align 8
-  %16 = and i8 %15, 1
-  %tobool.not.i15 = icmp eq i8 %16, 0
+  %12 = load i8, ptr %need_to_destroy.i14, align 8
+  %13 = and i8 %12, 1
+  %tobool.not.i15 = icmp eq i8 %13, 0
   br i1 %tobool.not.i15, label %"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE0_ED2Ev.exit", label %if.then.i16
 
 if.then.i16:                                      ; preds = %"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE1_ED2Ev.exit"
@@ -9658,19 +9652,19 @@ if.then.i16:                                      ; preds = %"_ZN7doctest6detail
           to label %"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE0_ED2Ev.exit" unwind label %terminate.lpad.i17
 
 terminate.lpad.i17:                               ; preds = %if.then.i16
-  %17 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #19
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #19
   unreachable
 
 "_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE0_ED2Ev.exit": ; preds = %"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE1_ED2Ev.exit", %if.then.i16
   call void @_ZN7doctest13IContextScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %DOCTEST_CAPTURE_20) #18
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE_EE", i64 0, inrange i32 0, i64 2), ptr %DOCTEST_CAPTURE_17, align 8
   %need_to_destroy.i18 = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %DOCTEST_CAPTURE_17, i64 0, i32 1
-  %19 = load i8, ptr %need_to_destroy.i18, align 8
-  %20 = and i8 %19, 1
-  %tobool.not.i19 = icmp eq i8 %20, 0
+  %16 = load i8, ptr %need_to_destroy.i18, align 8
+  %17 = and i8 %16, 1
+  %tobool.not.i19 = icmp eq i8 %17, 0
   br i1 %tobool.not.i19, label %"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE_ED2Ev.exit", label %if.then.i20
 
 if.then.i20:                                      ; preds = %"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE0_ED2Ev.exit"
@@ -9678,10 +9672,10 @@ if.then.i20:                                      ; preds = %"_ZN7doctest6detail
           to label %"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE_ED2Ev.exit" unwind label %terminate.lpad.i21
 
 terminate.lpad.i21:                               ; preds = %if.then.i20
-  %21 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #19
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #19
   unreachable
 
 "_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE_ED2Ev.exit": ; preds = %"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE0_ED2Ev.exit", %if.then.i20
@@ -9689,66 +9683,66 @@ terminate.lpad.i21:                               ; preds = %if.then.i20
   ret void
 
 lpad:                                             ; preds = %entry
-  %23 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup39
 
 lpad4:                                            ; preds = %invoke.cont
-  %24 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup38
 
 lpad6:                                            ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail9dtoa_impl18compute_boundariesIdEENS2_10boundariesET_.exit.i, %invoke.cont30, %invoke.cont23, %invoke.cont7
-  %25 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup37
 
 lpad18:                                           ; preds = %call.i.noexc, %invoke.cont12
-  %26 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup25
 
 lpad20:                                           ; preds = %invoke.cont19
-  %27 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad22:                                           ; preds = %invoke.cont21
-  %28 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   %m_decomp.i22 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp8, i64 0, i32 1
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i22) #18
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad22, %lpad20
-  %.pn = phi { ptr, i32 } [ %28, %lpad22 ], [ %27, %lpad20 ]
+  %.pn = phi { ptr, i32 } [ %25, %lpad22 ], [ %24, %lpad20 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #18
   br label %ehcleanup25
 
 ehcleanup25:                                      ; preds = %lpad18, %lpad.i, %ehcleanup
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %26, %lpad18 ], [ %8, %lpad.i ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %23, %lpad18 ], [ %5, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17) #18
   br label %ehcleanup37
 
 lpad33:                                           ; preds = %invoke.cont32
-  %29 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   %m_decomp.i23 = getelementptr inbounds %"struct.doctest::detail::Result", ptr %ref.tmp26, i64 0, i32 1
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decomp.i23) #18
   br label %ehcleanup37
 
 ehcleanup37:                                      ; preds = %lpad33, %ehcleanup25, %lpad6
-  %.pn4 = phi { ptr, i32 } [ %29, %lpad33 ], [ %25, %lpad6 ], [ %.pn.pn, %ehcleanup25 ]
+  %.pn4 = phi { ptr, i32 } [ %26, %lpad33 ], [ %22, %lpad6 ], [ %.pn.pn, %ehcleanup25 ]
   call void @"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE1_ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %DOCTEST_CAPTURE_23) #18
   br label %ehcleanup38
 
 ehcleanup38:                                      ; preds = %ehcleanup37, %lpad4
-  %.pn4.pn = phi { ptr, i32 } [ %.pn4, %ehcleanup37 ], [ %24, %lpad4 ]
+  %.pn4.pn = phi { ptr, i32 } [ %.pn4, %ehcleanup37 ], [ %21, %lpad4 ]
   call void @"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE0_ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %DOCTEST_CAPTURE_20) #18
   br label %ehcleanup39
 
 ehcleanup39:                                      ; preds = %ehcleanup38, %lpad
-  %.pn4.pn.pn = phi { ptr, i32 } [ %.pn4.pn, %ehcleanup38 ], [ %23, %lpad ]
+  %.pn4.pn.pn = phi { ptr, i32 } [ %.pn4.pn, %ehcleanup38 ], [ %20, %lpad ]
   call void @"_ZN7doctest6detail12ContextScopeIZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEUlPSoE_ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %DOCTEST_CAPTURE_17) #18
   resume { ptr, i32 } %.pn4.pn.pn
 }

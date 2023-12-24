@@ -375,12 +375,11 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _ZN8facebook5velox12StlAllocatorIjEC2EPNS0_19HashStringAllocatorE.exit: ; preds = %entry
-  %0 = ptrtoint ptr %allocator to i64
-  store i64 %0, ptr %this, align 8
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %1, i8 0, i64 28, i1 false)
-  %2 = load i8, ptr %serialized, align 1
-  %cmp.not.i = icmp eq i8 %2, 2
+  store ptr %allocator, ptr %this, align 8
+  %0 = getelementptr inbounds i8, ptr %this, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 28, i1 false)
+  %1 = load i8, ptr %serialized, align 1
+  %cmp.not.i = icmp eq i8 %1, 2
   br i1 %cmp.not.i, label %invoke.cont, label %if.then.i4
 
 if.then.i4:                                       ; preds = %_ZN8facebook5velox12StlAllocatorIjEC2EPNS0_19HashStringAllocatorE.exit
@@ -389,41 +388,41 @@ if.then.i4:                                       ; preds = %_ZN8facebook5velox1
 
 invoke.cont:                                      ; preds = %_ZN8facebook5velox12StlAllocatorIjEC2EPNS0_19HashStringAllocatorE.exit
   %add.ptr.i = getelementptr inbounds i8, ptr %serialized, i64 2
-  %3 = load i16, ptr %add.ptr.i, align 2
-  %cmp.i.not = icmp eq i16 %3, 0
+  %2 = load i16, ptr %add.ptr.i, align 2
+  %cmp.i.not = icmp eq i16 %2, 0
   br i1 %cmp.i.not, label %for.end, label %if.then.i5
 
 if.then.i5:                                       ; preds = %invoke.cont
-  %conv = sext i16 %3 to i64
+  %conv = sext i16 %2 to i64
   invoke void @_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv)
           to label %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit unwind label %lpad
 
 _ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit: ; preds = %if.then.i5
-  %cmp13 = icmp sgt i16 %3, 0
+  %cmp13 = icmp sgt i16 %2, 0
   br i1 %cmp13, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit
-  %conv6 = zext nneg i16 %3 to i64
+  %conv6 = zext nneg i16 %2 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv16 = phi i64 [ 4, %for.body.preheader ], [ %indvars.iv.next17, %for.body ]
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %add.ptr.i8 = getelementptr inbounds i8, ptr %serialized, i64 %indvars.iv16
-  %4 = load i32, ptr %add.ptr.i8, align 4
+  %3 = load i32, ptr %add.ptr.i8, align 4
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 4
-  %5 = load ptr, ptr %1, align 8
-  %add.ptr2.i = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
-  store i32 %4, ptr %add.ptr2.i, align 4
+  %4 = load ptr, ptr %0, align 8
+  %add.ptr2.i = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  store i32 %3, ptr %add.ptr2.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv6
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 lpad:                                             ; preds = %if.then.i5
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %5
 
 for.end:                                          ; preds = %for.body, %invoke.cont, %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit
   ret void

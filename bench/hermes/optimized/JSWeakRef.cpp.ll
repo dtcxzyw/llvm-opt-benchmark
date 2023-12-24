@@ -376,8 +376,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
   %retval.sroa.0.0.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i
   %call5.i.i = tail call noundef ptr @_ZN6hermes2vm6GCBase13allocWeakSlotENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(741) %heapStorage_.i, i32 %retval.sroa.0.0.i.i.i.i.i) #4
   %ref_ = getelementptr inbounds %"class.hermes::vm::JSWeakRef", ptr %this, i64 0, i32 1
-  %1 = ptrtoint ptr %call5.i.i to i64
-  store i64 %1, ptr %ref_, align 8
+  store ptr %call5.i.i, ptr %ref_, align 8
   %call1.i.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %weakRefMutex_.i) #4
   ret void
 }

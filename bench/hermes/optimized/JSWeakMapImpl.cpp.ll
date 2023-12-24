@@ -1597,7 +1597,7 @@ _ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapI
   store i64 %or.i.i.i, ptr %retval.0.i.i.i.i, align 8
   %21 = load i32, ptr %second.i, align 8
   store i32 %21, ptr %freeListHead_.i, align 4
-  store ptr inttoptr (i64 1 to ptr), ptr %cond.sink.i.i.ph.pn.i, align 8
+  store i64 1, ptr %cond.sink.i.i.ph.pn.i, align 8
   %ref.tmp.sroa.2.0.call4.sroa_idx.i.i = getelementptr inbounds i8, ptr %cond.sink.i.i.ph.pn.i, i64 8
   store i32 1, ptr %ref.tmp.sroa.2.0.call4.sroa_idx.i.i, align 8
   %NumEntries.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::JSWeakMapImplBase", ptr %1, i64 0, i32 2, i32 1
@@ -1676,7 +1676,7 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE9setNonPtrILNS3_6InlineE0EE
   store i64 %or.i.i, ptr %retval.0.i.i.i, align 8
   %11 = load i32, ptr %second, align 8
   store i32 %11, ptr %freeListHead_, align 4
-  store ptr inttoptr (i64 1 to ptr), ptr %it.coerce0, align 8
+  store i64 1, ptr %it.coerce0, align 8
   %ref.tmp.sroa.2.0.call4.sroa_idx.i = getelementptr inbounds i8, ptr %it.coerce0, i64 8
   store i32 1, ptr %ref.tmp.sroa.2.0.call4.sroa_idx.i, align 8
   %NumEntries.i.i.i.i = getelementptr inbounds %"class.hermes::vm::JSWeakMapImplBase", ptr %this, i64 0, i32 2, i32 1
@@ -2331,7 +2331,7 @@ _ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapI
   store i64 %or.i.i.i, ptr %retval.0.i.i.i.i, align 8
   %17 = load i32, ptr %second.i, align 8
   store i32 %17, ptr %freeListHead_.i, align 4
-  store ptr inttoptr (i64 1 to ptr), ptr %it.sroa.0.09, align 8
+  store i64 1, ptr %it.sroa.0.09, align 8
   %ref.tmp.sroa.2.0.call4.sroa_idx.i.i = getelementptr inbounds i8, ptr %it.sroa.0.09, i64 8
   store i32 1, ptr %ref.tmp.sroa.2.0.call4.sroa_idx.i.i, align 8
   %18 = load <2 x i32>, ptr %NumEntries.i.i.i.i, align 8

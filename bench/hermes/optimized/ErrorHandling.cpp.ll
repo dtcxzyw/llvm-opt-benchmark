@@ -107,10 +107,9 @@ _ZN4llvhplERKNS_5TwineES2_.exit33:
   %ref.tmp5 = alloca %"class.llvh::Twine", align 8
   %ref.tmp14 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7.sroa.0.0.insert.ext = zext i32 %code.coerce0 to i64
-  %0 = inttoptr i64 %ref.tmp7.sroa.0.0.insert.ext to ptr
   store ptr @.str, ptr %ref.tmp5, align 8, !alias.scope !5
   %RHS4.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp5, i64 0, i32 1
-  store ptr %0, ptr %RHS4.i.i.i, align 8, !alias.scope !5
+  store i64 %ref.tmp7.sroa.0.0.insert.ext, ptr %RHS4.i.i.i, align 8, !alias.scope !5
   %LHSKind5.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp5, i64 0, i32 2
   store i8 3, ptr %LHSKind5.i.i.i, align 8, !alias.scope !5
   %RHSKind6.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp5, i64 0, i32 3
@@ -124,10 +123,10 @@ _ZN4llvhplERKNS_5TwineES2_.exit33:
   store i8 3, ptr %RHSKind6.i.i.i27, align 1, !alias.scope !10
   %vtable = load ptr, ptr %code.coerce1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %1 = load ptr, ptr %vfn, align 8
-  %call11 = call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %code.coerce1) #11
-  %2 = load i8, ptr %call11, align 1
-  %cmp.not.i = icmp eq i8 %2, 0
+  %0 = load ptr, ptr %vfn, align 8
+  %call11 = call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %code.coerce1) #11
+  %1 = load i8, ptr %call11, align 1
+  %cmp.not.i = icmp eq i8 %1, 0
   br i1 %cmp.not.i, label %_ZN4llvhplERKNS_5TwineES2_.exit64, label %_ZN4llvhplERKNS_5TwineES2_.exit64.thread
 
 _ZN4llvhplERKNS_5TwineES2_.exit64.thread:         ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit33
@@ -148,7 +147,7 @@ _ZN4llvhplERKNS_5TwineES2_.exit64:                ; preds = %_ZN4llvhplERKNS_5Tw
   call void @llvm.experimental.noalias.scope.decl(metadata !26)
   switch i8 %.pre, label %_ZN4llvhplERKNS_5TwineES2_.exit97 [
     i8 0, label %_ZN4llvhplERKNS_5TwineES2_.exit97.thread179
-    i8 1, label %6
+    i8 1, label %5
   ]
 
 _ZN4llvhplERKNS_5TwineES2_.exit97.thread179:      ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit64
@@ -158,8 +157,8 @@ _ZN4llvhplERKNS_5TwineES2_.exit97.thread179:      ; preds = %_ZN4llvhplERKNS_5Tw
   store i8 1, ptr %RHSKind.i.i.i96, align 1, !alias.scope !20
   %vtable.i182 = load ptr, ptr %code.coerce1, align 8, !noalias !27
   %vfn.i183 = getelementptr inbounds ptr, ptr %vtable.i182, i64 4
-  %3 = load ptr, ptr %vfn.i183, align 8, !noalias !27
-  call void %3(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(8) %code.coerce1, i32 noundef %code.coerce0) #11
+  %2 = load ptr, ptr %vfn.i183, align 8, !noalias !27
+  call void %2(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(8) %code.coerce1, i32 noundef %code.coerce0) #11
   %LHSKind.i.i.i126 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp1, i64 0, i32 2
   store i8 0, ptr %LHSKind.i.i.i126, align 8, !alias.scope !30
   %RHSKind.i.i.i127 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp1, i64 0, i32 3
@@ -167,12 +166,12 @@ _ZN4llvhplERKNS_5TwineES2_.exit97.thread179:      ; preds = %_ZN4llvhplERKNS_5Tw
   br label %_ZN4llvhplERKNS_5TwineES2_.exit161
 
 _ZN4llvhplERKNS_5TwineES2_.exit97:                ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit64, %_ZN4llvhplERKNS_5TwineES2_.exit64.thread
-  %4 = phi i8 [ 2, %_ZN4llvhplERKNS_5TwineES2_.exit64.thread ], [ %.pre, %_ZN4llvhplERKNS_5TwineES2_.exit64 ]
+  %3 = phi i8 [ 2, %_ZN4llvhplERKNS_5TwineES2_.exit64.thread ], [ %.pre, %_ZN4llvhplERKNS_5TwineES2_.exit64 ]
   %RHSKind.i.i.i.i79 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 3
-  %5 = load i8, ptr %RHSKind.i.i.i.i79, align 1, !noalias !20
-  %cmp.i13.i.i80 = icmp eq i8 %5, 1
+  %4 = load i8, ptr %RHSKind.i.i.i.i79, align 1, !noalias !20
+  %cmp.i13.i.i80 = icmp eq i8 %4, 1
   %NewLHS.sroa.0.0.copyload.i.i81 = load ptr, ptr %ref.tmp3, align 8, !noalias !20
-  %spec.select.i.i82 = select i1 %cmp.i13.i.i80, i8 %4, i8 2
+  %spec.select.i.i82 = select i1 %cmp.i13.i.i80, i8 %3, i8 2
   %spec.select20.i.i83 = select i1 %cmp.i13.i.i80, ptr %NewLHS.sroa.0.0.copyload.i.i81, ptr %ref.tmp3
   store ptr %spec.select20.i.i83, ptr %ref.tmp2, align 8, !alias.scope !20
   %RHS4.i.i.i89 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 1
@@ -181,28 +180,28 @@ _ZN4llvhplERKNS_5TwineES2_.exit97:                ; preds = %_ZN4llvhplERKNS_5Tw
   store i8 %spec.select.i.i82, ptr %LHSKind5.i.i.i90, align 8, !alias.scope !20
   %RHSKind6.i.i.i91 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 3
   store i8 3, ptr %RHSKind6.i.i.i91, align 1, !alias.scope !20
-  br label %7
+  br label %6
 
-6:                                                ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit64
+5:                                                ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit64
   store ptr @.str.2, ptr %ref.tmp2, align 8
   %ref.tmp12.sroa.2166.0.ref.tmp2.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store i8 3, ptr %ref.tmp12.sroa.2166.0.ref.tmp2.sroa_idx, align 8
   %ref.tmp12.sroa.4.0.ref.tmp2.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp2, i64 17
   store i8 1, ptr %ref.tmp12.sroa.4.0.ref.tmp2.sroa_idx, align 1
-  br label %7
+  br label %6
 
-7:                                                ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit97, %6
-  %8 = phi i8 [ 3, %6 ], [ 2, %_ZN4llvhplERKNS_5TwineES2_.exit97 ]
-  %9 = phi ptr [ @.str.2, %6 ], [ %ref.tmp2, %_ZN4llvhplERKNS_5TwineES2_.exit97 ]
+6:                                                ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit97, %5
+  %7 = phi i8 [ 3, %5 ], [ 2, %_ZN4llvhplERKNS_5TwineES2_.exit97 ]
+  %8 = phi ptr [ @.str.2, %5 ], [ %ref.tmp2, %_ZN4llvhplERKNS_5TwineES2_.exit97 ]
   %vtable.i = load ptr, ptr %code.coerce1, align 8, !noalias !27
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
-  %10 = load ptr, ptr %vfn.i, align 8, !noalias !27
-  call void %10(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(8) %code.coerce1, i32 noundef %code.coerce0) #11
-  store ptr %9, ptr %ref.tmp1, align 8, !alias.scope !30
+  %9 = load ptr, ptr %vfn.i, align 8, !noalias !27
+  call void %9(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(8) %code.coerce1, i32 noundef %code.coerce0) #11
+  store ptr %8, ptr %ref.tmp1, align 8, !alias.scope !30
   %RHS4.i.i.i120 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp1, i64 0, i32 1
   store ptr %ref.tmp14, ptr %RHS4.i.i.i120, align 8, !alias.scope !30
   %LHSKind5.i.i.i121 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp1, i64 0, i32 2
-  store i8 %8, ptr %LHSKind5.i.i.i121, align 8, !alias.scope !30
+  store i8 %7, ptr %LHSKind5.i.i.i121, align 8, !alias.scope !30
   %RHSKind6.i.i.i122 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp1, i64 0, i32 3
   store i8 4, ptr %RHSKind6.i.i.i122, align 1, !alias.scope !30
   store ptr %ref.tmp1, ptr %ref.tmp, align 8, !alias.scope !35
@@ -210,9 +209,9 @@ _ZN4llvhplERKNS_5TwineES2_.exit97:                ; preds = %_ZN4llvhplERKNS_5Tw
   store ptr @.str.3, ptr %RHS4.i.i.i153, align 8, !alias.scope !35
   br label %_ZN4llvhplERKNS_5TwineES2_.exit161
 
-_ZN4llvhplERKNS_5TwineES2_.exit161:               ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit97.thread179, %7
-  %.sink210 = phi i8 [ 0, %_ZN4llvhplERKNS_5TwineES2_.exit97.thread179 ], [ 2, %7 ]
-  %.sink = phi i8 [ 1, %_ZN4llvhplERKNS_5TwineES2_.exit97.thread179 ], [ 3, %7 ]
+_ZN4llvhplERKNS_5TwineES2_.exit161:               ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit97.thread179, %6
+  %.sink210 = phi i8 [ 0, %_ZN4llvhplERKNS_5TwineES2_.exit97.thread179 ], [ 2, %6 ]
+  %.sink = phi i8 [ 1, %_ZN4llvhplERKNS_5TwineES2_.exit97.thread179 ], [ 3, %6 ]
   %LHSKind.i.i.i159 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
   store i8 %.sink210, ptr %LHSKind.i.i.i159, align 8, !alias.scope !35
   %RHSKind.i.i.i160 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3

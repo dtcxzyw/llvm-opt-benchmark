@@ -203,8 +203,7 @@ entry:
   %m_autil = getelementptr inbounds %"struct.expr2subpaving::imp", ptr %this, i64 0, i32 3
   tail call void @_ZN10arith_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16) %m_autil, ptr noundef nonnull align 8 dereferenceable(976) %m)
   %m_var2expr = getelementptr inbounds %"struct.expr2subpaving::imp", ptr %this, i64 0, i32 6
-  %1 = ptrtoint ptr %m to i64
-  store i64 %1, ptr %m_var2expr, align 8
+  store ptr %m, ptr %m_var2expr, align 8
   %m_nodes.i.i = getelementptr inbounds %"struct.expr2subpaving::imp", ptr %this, i64 0, i32 6, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i, align 8
   %m_cache = getelementptr inbounds %"struct.expr2subpaving::imp", ptr %this, i64 0, i32 7
@@ -223,14 +222,14 @@ invoke.cont9:                                     ; preds = %entry
   %m_cached_vars = getelementptr inbounds %"struct.expr2subpaving::imp", ptr %this, i64 0, i32 8
   store ptr null, ptr %m_cached_vars, align 8
   %m_cached_numerators = getelementptr inbounds %"struct.expr2subpaving::imp", ptr %this, i64 0, i32 9
-  %2 = load ptr, ptr %m_qm, align 8
+  %1 = load ptr, ptr %m_qm, align 8
   store ptr null, ptr %m_cached_numerators, align 8
   %m_manager.i = getelementptr inbounds %"struct.expr2subpaving::imp", ptr %this, i64 0, i32 9, i32 1
-  store ptr %2, ptr %m_manager.i, align 8
+  store ptr %1, ptr %m_manager.i, align 8
   %m_cached_denominators = getelementptr inbounds %"struct.expr2subpaving::imp", ptr %this, i64 0, i32 10
   store ptr null, ptr %m_cached_denominators, align 8
   %m_manager.i11 = getelementptr inbounds %"struct.expr2subpaving::imp", ptr %this, i64 0, i32 10, i32 1
-  store ptr %2, ptr %m_manager.i11, align 8
+  store ptr %1, ptr %m_manager.i11, align 8
   %m_lit_cache = getelementptr inbounds %"struct.expr2subpaving::imp", ptr %this, i64 0, i32 11
   %call.i.i.i.i15 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 128)
           to label %invoke.cont11 unwind label %lpad10
@@ -256,17 +255,17 @@ invoke.cont13:                                    ; preds = %if.then
           to label %if.end unwind label %lpad12
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup21
 
 lpad10:                                           ; preds = %invoke.cont9
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad12:                                           ; preds = %invoke.cont13, %if.then
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN7obj_mapI4exprPN9subpaving4ineqEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_lit_cache) #15
   br label %ehcleanup
@@ -281,7 +280,7 @@ if.end:                                           ; preds = %invoke.cont11, %inv
   ret void
 
 ehcleanup:                                        ; preds = %lpad12, %lpad10
-  %.pn = phi { ptr, i32 } [ %5, %lpad12 ], [ %4, %lpad10 ]
+  %.pn = phi { ptr, i32 } [ %4, %lpad12 ], [ %3, %lpad10 ]
   tail call void @_ZN22_scoped_numeral_vectorI11mpz_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_cached_denominators) #15
   tail call void @_ZN22_scoped_numeral_vectorI11mpz_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_cached_numerators) #15
   tail call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_cached_vars) #15
@@ -289,7 +288,7 @@ ehcleanup:                                        ; preds = %lpad12, %lpad10
   br label %ehcleanup21
 
 ehcleanup21:                                      ; preds = %ehcleanup, %lpad
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %3, %lpad ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %2, %lpad ]
   tail call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_var2expr) #15
   resume { ptr, i32 } %.pn.pn.pn.pn
 }

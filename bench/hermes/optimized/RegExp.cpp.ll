@@ -10459,9 +10459,8 @@ if.end.i:                                         ; preds = %entry
   store ptr %add.ptr.i.i, ptr %stackPointer_.i.i, align 8
   %currentFrame_.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %runtime, i64 0, i32 131
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %currentFrame_.i, align 8
-  %6 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i to i64
   %arrayidx.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %add.ptr.i.i, i64 -1
-  store i64 %6, ptr %arrayidx.i.i, align 8
+  store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %arrayidx.i.i, align 8
   %arrayidx14.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %add.ptr.i.i, i64 -3
   %conv.i.i = zext i32 %argCount to i64
   %or.i.i.i3 = or disjoint i64 %conv.i.i, -1125899906842624

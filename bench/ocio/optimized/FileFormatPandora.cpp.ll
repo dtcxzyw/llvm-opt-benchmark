@@ -3382,7 +3382,11 @@ for.body:                                         ; preds = %entry, %if.end17
   %conv.i.i = zext i8 %3 to i32
   %call.i.i = tail call i32 @isspace(i32 noundef %conv.i.i) #25
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %tobool.not.i.i, label %return, label %if.end
+  br i1 %tobool.not.i.i, label %if.then, label %if.end
+
+if.then:                                          ; preds = %for.body
+  store i64 %1, ptr %agg.result, align 8
+  br label %return
 
 if.end:                                           ; preds = %for.body
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 -1
@@ -3396,7 +3400,7 @@ if.end:                                           ; preds = %for.body
 
 if.then6:                                         ; preds = %if.end
   %incdec.ptr.i.i.le = getelementptr inbounds i8, ptr %0, i64 -1
-  %.cast = ptrtoint ptr %incdec.ptr.i.i.le to i64
+  store ptr %incdec.ptr.i.i.le, ptr %agg.result, align 8
   br label %return
 
 if.end7:                                          ; preds = %if.end
@@ -3411,7 +3415,7 @@ if.end7:                                          ; preds = %if.end
 
 if.then11:                                        ; preds = %if.end7
   %incdec.ptr.i.i6.le = getelementptr inbounds i8, ptr %0, i64 -2
-  %.cast37 = ptrtoint ptr %incdec.ptr.i.i6.le to i64
+  store ptr %incdec.ptr.i.i6.le, ptr %agg.result, align 8
   br label %return
 
 if.end12:                                         ; preds = %if.end7
@@ -3426,7 +3430,7 @@ if.end12:                                         ; preds = %if.end7
 
 if.then16:                                        ; preds = %if.end12
   %incdec.ptr.i.i11.le = getelementptr inbounds i8, ptr %0, i64 -3
-  %.cast38 = ptrtoint ptr %incdec.ptr.i.i11.le to i64
+  store ptr %incdec.ptr.i.i11.le, ptr %agg.result, align 8
   br label %return
 
 if.end17:                                         ; preds = %if.end12
@@ -3447,7 +3451,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %10 = phi i64 [ %7, %for.end.loopexit ], [ %sub.ptr.lhs.cast.i.i, %entry ]
   %11 = phi ptr [ %incdec.ptr.i.i16, %for.end.loopexit ], [ %retval.sroa.0.0.copyload.i.i, %entry ]
   %sub.ptr.sub.i.i21 = sub i64 %10, %9
-  switch i64 %sub.ptr.sub.i.i21, label %return [
+  switch i64 %sub.ptr.sub.i.i21, label %sw.default [
     i64 3, label %sw.bb
     i64 2, label %sw.bb25
     i64 1, label %sw.bb31
@@ -3460,7 +3464,11 @@ sw.bb:                                            ; preds = %for.end
   %conv.i.i23 = zext i8 %13 to i32
   %call.i.i24 = tail call i32 @isspace(i32 noundef %conv.i.i23) #25
   %tobool.not.i.i25 = icmp eq i32 %call.i.i24, 0
-  br i1 %tobool.not.i.i25, label %return, label %if.end23
+  br i1 %tobool.not.i.i25, label %if.then22, label %if.end23
+
+if.then22:                                        ; preds = %sw.bb
+  store i64 %10, ptr %agg.result, align 8
+  br label %return
 
 if.end23:                                         ; preds = %sw.bb
   %incdec.ptr.i.i26 = getelementptr inbounds i8, ptr %11, i64 -1
@@ -3477,7 +3485,11 @@ sw.bb25:                                          ; preds = %if.end23, %for.end
   %conv.i.i28 = zext i8 %18 to i32
   %call.i.i29 = tail call i32 @isspace(i32 noundef %conv.i.i28) #25
   %tobool.not.i.i30 = icmp eq i32 %call.i.i29, 0
-  br i1 %tobool.not.i.i30, label %return, label %if.end29
+  br i1 %tobool.not.i.i30, label %if.then28, label %if.end29
+
+if.then28:                                        ; preds = %sw.bb25
+  store i64 %16, ptr %agg.result, align 8
+  br label %return
 
 if.end29:                                         ; preds = %sw.bb25
   %incdec.ptr.i.i31 = getelementptr inbounds i8, ptr %15, i64 -1
@@ -3494,17 +3506,24 @@ sw.bb31:                                          ; preds = %if.end29, %for.end
   %conv.i.i33 = zext i8 %23 to i32
   %call.i.i34 = tail call i32 @isspace(i32 noundef %conv.i.i33) #25
   %tobool.not.i.i35 = icmp eq i32 %call.i.i34, 0
-  br i1 %tobool.not.i.i35, label %return, label %if.end35
+  br i1 %tobool.not.i.i35, label %if.then34, label %if.end35
+
+if.then34:                                        ; preds = %sw.bb31
+  store i64 %21, ptr %agg.result, align 8
+  br label %return
 
 if.end35:                                         ; preds = %sw.bb31
   %incdec.ptr.i.i36 = getelementptr inbounds i8, ptr %20, i64 -1
   store ptr %incdec.ptr.i.i36, ptr %__first, align 8
   %.pre = load i64, ptr %__last, align 8
+  br label %sw.default
+
+sw.default:                                       ; preds = %if.end35, %for.end
+  %24 = phi i64 [ %.pre, %if.end35 ], [ %9, %for.end ]
+  store i64 %24, ptr %agg.result, align 8
   br label %return
 
-return:                                           ; preds = %for.body, %for.end, %if.end35, %sw.bb31, %sw.bb25, %sw.bb, %if.then16, %if.then11, %if.then6
-  %.sink = phi i64 [ %.cast38, %if.then16 ], [ %.cast37, %if.then11 ], [ %.cast, %if.then6 ], [ %10, %sw.bb ], [ %16, %sw.bb25 ], [ %21, %sw.bb31 ], [ %.pre, %if.end35 ], [ %9, %for.end ], [ %1, %for.body ]
-  store i64 %.sink, ptr %agg.result, align 8
+return:                                           ; preds = %sw.default, %if.then34, %if.then28, %if.then22, %if.then16, %if.then11, %if.then6, %if.then
   ret void
 }
 

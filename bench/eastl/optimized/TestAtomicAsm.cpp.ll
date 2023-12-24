@@ -5732,7 +5732,7 @@ _ZL34TestAtomic128OperatorXorAssignmentv.exit:    ; preds = %do.body.i.i.i1205
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %b.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %t.i, ptr noundef nonnull align 4 dereferenceable(16) @__const._ZL33TestCompilerBarrierDataDependencyv.t, i64 16, i1 false)
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %t.i) #5, !srcloc !5
-  store ptr inttoptr (i64 3735928559 to ptr), ptr %p.i1221, align 8
+  store i64 3735928559, ptr %p.i1221, align 8
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %p.i1221) #5, !srcloc !5
   store i8 0, ptr %b.i, align 1
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %b.i) #5, !srcloc !5

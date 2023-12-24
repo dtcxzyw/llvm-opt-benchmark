@@ -75,7 +75,7 @@ if.then:                                          ; preds = %_ZN4absl13cord_inte
 
 if.then6:                                         ; preds = %if.then
   %atomic-temp.i.0.i = inttoptr i64 %4 to ptr
-  store ptr %atomic-temp.i.0.i, ptr %dq_prev_, align 8
+  store i64 %4, ptr %dq_prev_, align 8
   %dq_next_8 = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %atomic-temp.i.0.i, i64 0, i32 3
   store ptr %this, ptr %dq_next_8, align 8
   br label %if.end
@@ -476,7 +476,7 @@ if.then2:                                         ; preds = %_ZNK4absl13cord_int
 if.then5:                                         ; preds = %if.then2
   %atomic-temp.i.0.i = inttoptr i64 %11 to ptr
   %dq_prev_ = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %handle, i64 0, i32 2
-  store ptr %atomic-temp.i.0.i, ptr %dq_prev_, align 8
+  store i64 %11, ptr %dq_prev_, align 8
   %dq_next_ = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %atomic-temp.i.0.i, i64 0, i32 3
   store ptr %handle, ptr %dq_next_, align 8
   %12 = ptrtoint ptr %handle to i64

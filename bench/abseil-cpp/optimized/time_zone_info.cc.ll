@@ -6263,7 +6263,7 @@ if.then.i12.i.i.i.i:                              ; preds = %if.end19.i.i.i.i
   br label %ehcleanup27.i.i.i.i
 
 common.resume.i.i.i:                              ; preds = %ehcleanup52.i.i.i.i, %lpad.body.i.i.i.i, %ehcleanup88.i.i.i.i, %if.then.i69.i.i.i.i, %ehcleanup27.i.i.i.i
-  %common.resume.op.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %ehcleanup27.i.i.i.i ], [ %9, %if.then.i69.i.i.i.i ], [ %10, %ehcleanup88.i.i.i.i ], [ %.pn.pn.pn.i.i.i.i, %ehcleanup52.i.i.i.i ], [ %eh.lpad-body.i.i.i.i, %lpad.body.i.i.i.i ]
+  %common.resume.op.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %ehcleanup27.i.i.i.i ], [ %8, %if.then.i69.i.i.i.i ], [ %9, %ehcleanup88.i.i.i.i ], [ %.pn.pn.pn.i.i.i.i, %ehcleanup52.i.i.i.i ], [ %eh.lpad-body.i.i.i.i, %lpad.body.i.i.i.i ]
   resume { ptr, i32 } %common.resume.op.i.i.i
 
 ehcleanup27.i.i.i.i:                              ; preds = %if.then.i12.i.i.i.i, %lpad.i.i.i.i
@@ -6272,12 +6272,11 @@ ehcleanup27.i.i.i.i:                              ; preds = %if.then.i12.i.i.i.i
   br label %common.resume.i.i.i
 
 nrvo.skipdtor.i.i.i:                              ; preds = %if.end19.i.i.i.i
-  %4 = ptrtoint ptr %call.i.i.i.i.i to i64
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSourceE, i64 0, inrange i32 0, i64 2), ptr %call22.i.i.i.i, align 8, !noalias !128
   %fp_.i.i.i.i.i = getelementptr inbounds %"class.absl::time_internal::cctz::(anonymous namespace)::FileZoneInfoSource", ptr %call22.i.i.i.i, i64 0, i32 1
-  store i64 ptrtoint (ptr @fclose to i64), ptr %fp_.i.i.i.i.i, align 8, !noalias !128
-  %5 = getelementptr inbounds %"class.absl::time_internal::cctz::(anonymous namespace)::FileZoneInfoSource", ptr %call22.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  store i64 %4, ptr %5, align 8, !noalias !128
+  store ptr @fclose, ptr %fp_.i.i.i.i.i, align 8, !noalias !128
+  %4 = getelementptr inbounds %"class.absl::time_internal::cctz::(anonymous namespace)::FileZoneInfoSource", ptr %call22.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  store ptr %call.i.i.i.i.i, ptr %4, align 8, !noalias !128
   %len_.i.i.i.i.i = getelementptr inbounds %"class.absl::time_internal::cctz::(anonymous namespace)::FileZoneInfoSource", ptr %call22.i.i.i.i, i64 0, i32 2
   store i64 -1, ptr %len_.i.i.i.i.i, align 8, !noalias !128
   store ptr %call22.i.i.i.i, ptr %agg.result, align 8, !alias.scope !128
@@ -6307,8 +6306,8 @@ cleanup.cont.i.i.i:                               ; preds = %invoke.cont16.i.i.i
 for.body.i.i.i.i:                                 ; preds = %for.inc89.i.i.i.i, %cleanup.cont.i.i.i
   %__begin3.0.idx119.i.i.i.i = phi i64 [ 0, %cleanup.cont.i.i.i ], [ %__begin3.0.add.i.i.i.i, %for.inc89.i.i.i.i ]
   %__begin3.0.ptr.i.i.i.i = getelementptr inbounds i8, ptr @constinit.16, i64 %__begin3.0.idx119.i.i.i.i
-  %6 = load ptr, ptr %__begin3.0.ptr.i.i.i.i, align 8, !noalias !135
-  %call.i.i12.i.i.i = call noalias ptr @fopen(ptr noundef %6, ptr noundef nonnull @.str.12), !noalias !136
+  %5 = load ptr, ptr %__begin3.0.ptr.i.i.i.i, align 8, !noalias !135
+  %call.i.i12.i.i.i = call noalias ptr @fopen(ptr noundef %5, ptr noundef nonnull @.str.12), !noalias !136
   %cmp.i.not.i.i13.i.i.i = icmp eq ptr %call.i.i12.i.i.i, null
   br i1 %cmp.i.not.i.i13.i.i.i, label %for.inc89.i.i.i.i, label %if.end.i14.i.i.i
 
@@ -6323,7 +6322,7 @@ if.end10.i.i.i.i:                                 ; preds = %if.end.i14.i.i.i
   br i1 %cmp13.not.i.i.i.i, label %if.end15.i.i.i.i, label %if.then.i75.i.i.i.i
 
 if.end15.i.i.i.i:                                 ; preds = %if.end10.i.i.i.i
-  %7 = load i8, ptr %arrayidx.i.i.i.i, align 1, !noalias !135
+  %6 = load i8, ptr %arrayidx.i.i.i.i, align 1, !noalias !135
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.end15.i.i.i.i
@@ -6423,8 +6422,8 @@ invoke.cont57.i.i.i.i:                            ; preds = %for.body.i48.i.i.i.
   %cmp1.i59.i.i.i.i = icmp ult i64 %or.i56.i.i.i.i, 2147483648
   %sub4.i60.i.i.i.i = add i64 %or.i56.i.i.i.i, -4294967296
   %retval.0.i61.i.i.i.i = select i1 %cmp1.i59.i.i.i.i, i64 %or.i56.i.i.i.i, i64 %sub4.i60.i.i.i.i
-  %8 = or i64 %retval.0.i61.i.i.i.i, %add.i.i.i.i
-  %or.cond.not.i.i.i.i = icmp sgt i64 %8, -1
+  %7 = or i64 %retval.0.i61.i.i.i.i, %add.i.i.i.i
+  %or.cond.not.i.i.i.i = icmp sgt i64 %7, -1
   br i1 %or.cond.not.i.i.i.i, label %if.end63.i.i.i.i, label %if.then.i75.i.i.i.i
 
 if.end63.i.i.i.i:                                 ; preds = %invoke.cont57.i.i.i.i
@@ -6445,7 +6444,7 @@ if.end76.i.i.i.i:                                 ; preds = %if.then70.i.i.i.i
           to label %invoke.cont77.i.i.i.i unwind label %ehcleanup88.i.i.i.i, !noalias !135
 
 invoke.cont77.i.i.i.i:                            ; preds = %if.end76.i.i.i.i
-  %cmp17.le.i.i.i.i = icmp eq i8 %7, 0
+  %cmp17.le.i.i.i.i = icmp eq i8 %6, 0
   %add.ptr.le.i.i.i.i = getelementptr inbounds i8, ptr %hbuf.i.i.i.i, i64 6
   %cond19.le.i.i.i.i = select i1 %cmp17.le.i.i.i.i, ptr %add.ptr.le.i.i.i.i, ptr @.str.18
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp80.i.i.i.i) #22, !noalias !135
@@ -6453,7 +6452,7 @@ invoke.cont77.i.i.i.i:                            ; preds = %if.end76.i.i.i.i
           to label %nrvo.skipdtor9.i.i.i unwind label %if.then.i69.i.i.i.i, !noalias !135
 
 if.then.i69.i.i.i.i:                              ; preds = %invoke.cont77.i.i.i.i
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp80.i.i.i.i) #22, !noalias !135
   %call3.i70.i.i.i.i = call noundef i32 @fclose(ptr noundef nonnull %call.i.i12.i.i.i), !noalias !135
@@ -6470,17 +6469,16 @@ for.inc89.i.i.i.i:                                ; preds = %if.then.i75.i.i.i.i
   br i1 %cmp4.not.i.i.i.i, label %cleanup.cont11.i.i.i, label %for.body.i.i.i.i
 
 ehcleanup88.i.i.i.i:                              ; preds = %if.end76.i.i.i.i
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   %call3.i82.i.i.i.i = call noundef i32 @fclose(ptr noundef nonnull %call.i.i12.i.i.i), !noalias !135
   br label %common.resume.i.i.i
 
 nrvo.skipdtor9.i.i.i:                             ; preds = %invoke.cont77.i.i.i.i
-  %11 = ptrtoint ptr %call.i.i12.i.i.i to i64
   %fp_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::time_internal::cctz::(anonymous namespace)::FileZoneInfoSource", ptr %call78.i.i.i.i, i64 0, i32 1
-  store i64 ptrtoint (ptr @fclose to i64), ptr %fp_.i.i.i.i.i.i, align 8, !noalias !135
-  %12 = getelementptr inbounds %"class.absl::time_internal::cctz::(anonymous namespace)::FileZoneInfoSource", ptr %call78.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  store i64 %11, ptr %12, align 8, !noalias !135
+  store ptr @fclose, ptr %fp_.i.i.i.i.i.i, align 8, !noalias !135
+  %10 = getelementptr inbounds %"class.absl::time_internal::cctz::(anonymous namespace)::FileZoneInfoSource", ptr %call78.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  store ptr %call.i.i12.i.i.i, ptr %10, align 8, !noalias !135
   %len_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::time_internal::cctz::(anonymous namespace)::FileZoneInfoSource", ptr %call78.i.i.i.i, i64 0, i32 2
   store i64 %retval.0.i61.i.i.i.i, ptr %len_.i.i.i.i.i.i, align 8, !noalias !135
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_121AndroidZoneInfoSourceE, i64 0, inrange i32 0, i64 2), ptr %call78.i.i.i.i, align 8, !noalias !135
@@ -6522,22 +6520,22 @@ cleanup.cont11.i.i.i:                             ; preds = %for.inc89.i.i.i.i
 
 land.end.i.i.i.i:                                 ; preds = %cleanup.cont11.i.i.i
   %call8.i.i.i.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %__args, i64 noundef %cond.i25.i.i.i) #22, !noalias !143
-  %13 = load i8, ptr %call8.i.i.i.i, align 1, !noalias !143
-  %.fr.i.i.i.i = freeze i8 %13
+  %11 = load i8, ptr %call8.i.i.i.i, align 1, !noalias !143
+  %.fr.i.i.i.i = freeze i8 %11
   %cmp10.i.i.i.i = icmp eq i8 %.fr.i.i.i.i, 47
   %spec.select.i27.i.i.i = select i1 %cmp10.i.i.i.i, ptr %ref.tmp1.i.i.i.i, ptr %ref.tmp.i.i.i.i
   %spec.select45.i.i.i.i = select i1 %cmp10.i.i.i.i, i64 1, i64 4
   br label %for.body.preheader.i.i.i.i
 
 for.body.preheader.i.i.i.i:                       ; preds = %land.end.i.i.i.i, %cleanup.cont11.i.i.i
-  %14 = phi ptr [ %ref.tmp.i.i.i.i, %cleanup.cont11.i.i.i ], [ %spec.select.i27.i.i.i, %land.end.i.i.i.i ]
-  %15 = phi i64 [ 4, %cleanup.cont11.i.i.i ], [ %spec.select45.i.i.i.i, %land.end.i.i.i.i ]
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %14, i64 %15
+  %12 = phi ptr [ %ref.tmp.i.i.i.i, %cleanup.cont11.i.i.i ], [ %spec.select.i27.i.i.i, %land.end.i.i.i.i ]
+  %13 = phi i64 [ 4, %cleanup.cont11.i.i.i ], [ %spec.select45.i.i.i.i, %land.end.i.i.i.i ]
+  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %12, i64 %13
   br label %for.body.i28.i.i.i
 
 for.body.i28.i.i.i:                               ; preds = %for.inc.critedge.i.i.i.i, %for.body.preheader.i.i.i.i
-  %__begin3.052.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.inc.critedge.i.i.i.i ], [ %14, %for.body.preheader.i.i.i.i ]
-  %16 = load ptr, ptr %__begin3.052.i.i.i.i, align 8, !noalias !143
+  %__begin3.052.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.inc.critedge.i.i.i.i ], [ %12, %for.body.preheader.i.i.i.i ]
+  %14 = load ptr, ptr %__begin3.052.i.i.i.i, align 8, !noalias !143
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14.i.i.i.i) #22, !noalias !143
   %call.i14.i.i.i.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %prefix.i.i.i.i)
           to label %call.i.noexc.i.i.i.i unwind label %lpad.i29.i.i.i, !noalias !143
@@ -6547,7 +6545,7 @@ call.i.noexc.i.i.i.i:                             ; preds = %for.body.i28.i.i.i
           to label %.noexc.i.i.i.i unwind label %lpad.i29.i.i.i, !noalias !143
 
 .noexc.i.i.i.i:                                   ; preds = %call.i.noexc.i.i.i.i
-  %cmp.i.i.i.i.i = icmp eq ptr %16, null
+  %cmp.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %.noexc.i.i.i.i
@@ -6573,9 +6571,9 @@ lpad.i.i.i.i.i:                                   ; preds = %lpad.i.loopexit.spl
   br label %lpad.body.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %.noexc.i.i.i.i
-  %call.i.i.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #22, !noalias !143
-  %add.ptr.i13.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 %call.i.i.i.i.i.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %prefix.i.i.i.i, ptr noundef nonnull %16, ptr noundef nonnull %add.ptr.i13.i.i.i.i)
+  %call.i.i.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #22, !noalias !143
+  %add.ptr.i13.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 %call.i.i.i.i.i.i
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %prefix.i.i.i.i, ptr noundef nonnull %14, ptr noundef nonnull %add.ptr.i13.i.i.i.i)
           to label %invoke.cont.i30.i.i.i unwind label %lpad.i.loopexit.i.i.i.i, !noalias !143
 
 invoke.cont.i30.i.i.i:                            ; preds = %if.end.i.i.i.i.i
@@ -6592,22 +6590,22 @@ if.then.i32.i.i.i:                                ; preds = %invoke.cont16.i31.i
           to label %if.end.i33.i.i.i unwind label %lpad18.i.i.i.i, !noalias !143
 
 lpad.i29.i.i.i:                                   ; preds = %call.i.noexc.i.i.i.i, %for.body.i28.i.i.i
-  %17 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i.i.i.i
 
 lpad.body.i.i.i.i:                                ; preds = %lpad.i29.i.i.i, %lpad.i.i.i.i.i
-  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %17, %lpad.i29.i.i.i ], [ %lpad.phi.i.i.i.i, %lpad.i.i.i.i.i ]
+  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %15, %lpad.i29.i.i.i ], [ %lpad.phi.i.i.i.i, %lpad.i.i.i.i.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14.i.i.i.i) #22, !noalias !143
   br label %common.resume.i.i.i
 
 lpad15.i.i.i.i:                                   ; preds = %invoke.cont.i30.i.i.i
-  %18 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup52.i.i.i.i
 
 lpad18.i.i.i.i:                                   ; preds = %if.end.i33.i.i.i, %if.then.i32.i.i.i
-  %19 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup50.i.i.i.i
 
@@ -6635,7 +6633,7 @@ if.then29.i.i.i.i:                                ; preds = %if.end27.i.i.i.i
           to label %invoke.cont32.i.i.i.i unwind label %lpad.i16.i.i.i.i, !noalias !143
 
 lpad.i16.i.i.i.i:                                 ; preds = %.noexc17.i.i.i.i
-  %20 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30.i.i.i.i) #22, !noalias !143
   br label %if.then.i25.i.i.i.i
@@ -6657,18 +6655,18 @@ if.then38.i.i.i.i:                                ; preds = %invoke.cont36.i.i.i
           to label %if.end41.i.i.i.i unwind label %lpad35.i.i.i.i, !noalias !143
 
 lpad31.i.i.i.i:                                   ; preds = %if.end42.i.i.i.i, %if.then29.i.i.i.i
-  %21 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i25.i.i.i.i
 
 lpad33.i.i.i.i:                                   ; preds = %invoke.cont32.i.i.i.i
-  %22 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30.i.i.i.i) #22, !noalias !143
   br label %if.then.i25.i.i.i.i
 
 lpad35.i.i.i.i:                                   ; preds = %if.then38.i.i.i.i, %invoke.cont34.i.i.i.i
-  %23 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %version_stream.i.i.i.i) #22, !noalias !143
   br label %if.then.i25.i.i.i.i
@@ -6682,18 +6680,18 @@ if.end42.i.i.i.i:                                 ; preds = %if.end41.i.i.i.i, %
           to label %_ZN4absl13time_internal4cctz12_GLOBAL__N_121FuchsiaZoneInfoSource4OpenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i unwind label %lpad31.i.i.i.i, !noalias !143
 
 if.then.i25.i.i.i.i:                              ; preds = %lpad35.i.i.i.i, %lpad33.i.i.i.i, %lpad31.i.i.i.i, %lpad.i16.i.i.i.i
-  %.pn.i37.i.i.i = phi { ptr, i32 } [ %23, %lpad35.i.i.i.i ], [ %22, %lpad33.i.i.i.i ], [ %21, %lpad31.i.i.i.i ], [ %20, %lpad.i16.i.i.i.i ]
+  %.pn.i37.i.i.i = phi { ptr, i32 } [ %21, %lpad35.i.i.i.i ], [ %20, %lpad33.i.i.i.i ], [ %19, %lpad31.i.i.i.i ], [ %18, %lpad.i16.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %version.i.i.i.i) #22, !noalias !143
   %call3.i26.i.i.i.i = call noundef i32 @fclose(ptr noundef nonnull %call.i.i35.i.i.i), !noalias !143
   br label %ehcleanup50.i.i.i.i
 
 ehcleanup50.i.i.i.i:                              ; preds = %if.then.i25.i.i.i.i, %lpad18.i.i.i.i
-  %.pn.pn.i.i.i.i = phi { ptr, i32 } [ %19, %lpad18.i.i.i.i ], [ %.pn.i37.i.i.i, %if.then.i25.i.i.i.i ]
+  %.pn.pn.i.i.i.i = phi { ptr, i32 } [ %17, %lpad18.i.i.i.i ], [ %.pn.i37.i.i.i, %if.then.i25.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path.i22.i.i.i) #22, !noalias !143
   br label %ehcleanup52.i.i.i.i
 
 ehcleanup52.i.i.i.i:                              ; preds = %ehcleanup50.i.i.i.i, %lpad15.i.i.i.i
-  %.pn.pn.pn.i.i.i.i = phi { ptr, i32 } [ %.pn.pn.i.i.i.i, %ehcleanup50.i.i.i.i ], [ %18, %lpad15.i.i.i.i ]
+  %.pn.pn.pn.i.i.i.i = phi { ptr, i32 } [ %.pn.pn.i.i.i.i, %ehcleanup50.i.i.i.i ], [ %16, %lpad15.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %prefix.i.i.i.i) #22, !noalias !143
   br label %common.resume.i.i.i
 
@@ -6705,12 +6703,11 @@ for.inc.critedge.i.i.i.i:                         ; preds = %invoke.cont24.i.i.i
   br i1 %cmp13.not.i42.i.i.i, label %cleanup.cont21.i.i.i, label %for.body.i28.i.i.i
 
 _ZN4absl13time_internal4cctz12_GLOBAL__N_121FuchsiaZoneInfoSource4OpenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i: ; preds = %if.end42.i.i.i.i
-  %24 = ptrtoint ptr %call.i.i35.i.i.i to i64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp45.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %version.i.i.i.i) #22, !noalias !143
   %fp_.i.i.i39.i.i.i = getelementptr inbounds %"class.absl::time_internal::cctz::(anonymous namespace)::FileZoneInfoSource", ptr %call44.i.i.i.i, i64 0, i32 1
-  store i64 ptrtoint (ptr @fclose to i64), ptr %fp_.i.i.i39.i.i.i, align 8, !noalias !143
-  %25 = getelementptr inbounds %"class.absl::time_internal::cctz::(anonymous namespace)::FileZoneInfoSource", ptr %call44.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  store i64 %24, ptr %25, align 8, !noalias !143
+  store ptr @fclose, ptr %fp_.i.i.i39.i.i.i, align 8, !noalias !143
+  %22 = getelementptr inbounds %"class.absl::time_internal::cctz::(anonymous namespace)::FileZoneInfoSource", ptr %call44.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  store ptr %call.i.i35.i.i.i, ptr %22, align 8, !noalias !143
   %len_.i.i.i40.i.i.i = getelementptr inbounds %"class.absl::time_internal::cctz::(anonymous namespace)::FileZoneInfoSource", ptr %call44.i.i.i.i, i64 0, i32 2
   store i64 -1, ptr %len_.i.i.i40.i.i.i, align 8, !noalias !143
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_121FuchsiaZoneInfoSourceE, i64 0, inrange i32 0, i64 2), ptr %call44.i.i.i.i, align 8, !noalias !143

@@ -9459,8 +9459,7 @@ lpad10:                                           ; preds = %try.cont, %catch
 if.end:                                           ; preds = %entry
   %_M_left.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::File::Impl", ptr %0, i64 0, i32 5, i32 0, i32 0, i32 1, i32 0, i32 2
   %8 = load ptr, ptr %_M_left.i.i, align 8
-  %9 = ptrtoint ptr %8 to i64
-  store i64 %9, ptr %agg.result, align 8
+  store ptr %8, ptr %agg.result, align 8
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -9473,8 +9472,7 @@ entry:
   %mImpl.i = getelementptr inbounds %"class.openvdb::v11_0::io::File", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %mImpl.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"struct.openvdb::v11_0::io::File::Impl", ptr %0, i64 0, i32 5, i32 0, i32 0, i32 1
-  %1 = ptrtoint ptr %add.ptr.i.i to i64
-  store i64 %1, ptr %agg.result, align 8
+  store ptr %add.ptr.i.i, ptr %agg.result, align 8
   ret void
 }
 

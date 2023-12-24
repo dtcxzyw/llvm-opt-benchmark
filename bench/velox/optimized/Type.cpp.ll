@@ -15601,13 +15601,13 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss)
   %cmp = icmp slt i32 %value, 0
+  %spec.select = select i1 %cmp, ptr @.str.46, ptr @.str.37
   %spec.select9 = call i32 @llvm.abs.i32(i32 %value, i1 true)
   %div7 = udiv i32 %spec.select9, 12
   %rem8 = urem i32 %spec.select9, 12
-  %0 = select i1 %cmp, i64 ptrtoint (ptr @.str.46 to i64), i64 ptrtoint (ptr @.str.37 to i64)
   %retval.i16.sroa.0.0.insert.ext.i = zext nneg i32 %div7 to i64
   %retval.i7.sroa.0.0.insert.ext.i = zext nneg i32 %rem8 to i64
-  store i64 %0, ptr %ref.tmp.i, align 16, !alias.scope !180
+  store ptr %spec.select, ptr %ref.tmp.i, align 16, !alias.scope !180
   %arrayinit.element.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 1
   store i64 %retval.i16.sroa.0.0.insert.ext.i, ptr %arrayinit.element.i.i, align 16, !alias.scope !180
   %arrayinit.element6.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 2
@@ -15629,18 +15629,18 @@ invoke.cont7:                                     ; preds = %invoke.cont6
   ret void
 
 lpad:                                             ; preds = %invoke.cont6, %entry
-  %1 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont4
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #37
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad5, %lpad
-  %.pn = phi { ptr, i32 } [ %1, %lpad ], [ %2, %lpad5 ]
+  %.pn = phi { ptr, i32 } [ %0, %lpad ], [ %1, %lpad5 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss) #37
   resume { ptr, i32 } %.pn
 }

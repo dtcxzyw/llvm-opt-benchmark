@@ -1509,7 +1509,7 @@ for.cond.preheader:                               ; preds = %vduse_log_get.exit
 
 if.then.sink.split:                               ; preds = %entry, %vduse_log_get.exit.thread13
   %log216 = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 13
-  store ptr inttoptr (i64 -1 to ptr), ptr %log216, align 8
+  store i64 -1, ptr %log216, align 8
   br label %if.then
 
 if.then:                                          ; preds = %if.then.sink.split, %vduse_log_get.exit
@@ -2169,16 +2169,15 @@ vduse_iova_add_region.exit:                       ; preds = %if.end26
 
 if.then32:                                        ; preds = %for.body.i
   %arrayidx.i = getelementptr %struct.VduseDev, ptr %dev, i64 0, i32 1, i64 %indvars.iv.i
-  %15 = ptrtoint ptr %call.i to i64
-  store i64 %15, ptr %mmap_addr4.i, align 8
+  store ptr %call.i, ptr %mmap_addr4.i, align 8
   %mmap_offset.i = getelementptr %struct.VduseDev, ptr %dev, i64 0, i32 1, i64 %indvars.iv.i, i32 2
   store i64 %9, ptr %mmap_offset.i, align 8
   store i64 %10, ptr %arrayidx.i, align 8
   %size19.i = getelementptr %struct.VduseDev, ptr %dev, i64 0, i32 1, i64 %indvars.iv.i, i32 1
   store i64 %add.i, ptr %size19.i, align 8
   %num_regions.i = getelementptr inbounds %struct.VduseDev, ptr %dev, i64 0, i32 2
-  %16 = load i32, ptr %num_regions.i, align 8
-  %inc.i = add i32 %16, 1
+  %15 = load i32, ptr %num_regions.i, align 8
+  %inc.i = add i32 %15, 1
   store i32 %inc.i, ptr %num_regions.i, align 8
   %call25.i27 = call i32 @close(i32 noundef %call) #19
   %call33 = call fastcc ptr @iova_to_va(ptr noundef nonnull %dev, ptr noundef %plen, i64 noundef %iova)

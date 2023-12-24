@@ -10988,8 +10988,9 @@ if.end.i.i.i:                                     ; preds = %if.then.i
   br i1 %cmp1.not12.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_EC2ESD_l.exit.thread22, label %for.body.i.i.preheader.i
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_EC2ESD_l.exit.thread22: ; preds = %if.end.i.i.i
-  %1 = inttoptr i64 %0 to ptr
-  br label %if.else.sink.split
+  store ptr null, ptr %call.i.i, align 8
+  store i64 %0, ptr %__first.coerce, align 8
+  br label %if.else
 
 for.body.i.i.preheader.i:                         ; preds = %if.end.i.i.i
   %__cur.011.i.i.i = getelementptr %"class.std::unique_ptr.12", ptr %call.i.i, i64 1
@@ -11008,26 +11009,21 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_EC2ESD_l.exit: ; preds = %for.body.i.i.i
   %.pre.i = load ptr, ptr %incdec.ptr4.i.i.i, align 8
-  br label %if.else.sink.split
+  store ptr null, ptr %incdec.ptr4.i.i.i, align 8
+  store ptr %.pre.i, ptr %__first.coerce, align 8
+  br label %if.else
 
 if.then6:                                         ; preds = %if.end4.i.i, %if.end
   invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS8_SH_EEEEvT_SL_T0_(ptr %__first.coerce, ptr %__last.coerce, ptr %__comp.coerce)
           to label %if.end25 unwind label %lpad
 
 lpad:                                             ; preds = %if.else, %if.then6
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %__buf) #17
-  resume { ptr, i32 } %2
+  resume { ptr, i32 } %1
 
-if.else.sink.split:                               ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_EC2ESD_l.exit, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_EC2ESD_l.exit.thread22
-  %call.i.i.sink = phi ptr [ %call.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_EC2ESD_l.exit.thread22 ], [ %incdec.ptr4.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_EC2ESD_l.exit ]
-  %.sink = phi ptr [ %1, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_EC2ESD_l.exit.thread22 ], [ %.pre.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_EC2ESD_l.exit ]
-  store ptr null, ptr %call.i.i.sink, align 8
-  store ptr %.sink, ptr %__first.coerce, align 8
-  br label %if.else
-
-if.else:                                          ; preds = %if.else.sink.split, %if.then.i
+if.else:                                          ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_EC2ESD_l.exit.thread22, %if.then.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_EC2ESD_l.exit
   store ptr %call.i.i, ptr %_M_buffer.i, align 8
   store i64 %storemerge27.i.i, ptr %_M_len.i, align 8
   invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_lNS0_5__ops15_Iter_comp_iterIPFbRKS8_SH_EEEEvT_SL_T0_T1_T2_(ptr %__first.coerce, ptr %__last.coerce, ptr noundef nonnull %call.i.i, i64 noundef %storemerge27.i.i, ptr %__comp.coerce)
@@ -11035,22 +11031,22 @@ if.else:                                          ; preds = %if.else.sink.split,
 
 if.end25:                                         ; preds = %if.else, %if.then6
   %.pre.i818 = phi ptr [ %call.i.i, %if.else ], [ null, %if.then6 ]
-  %3 = phi i64 [ %storemerge27.i.i, %if.else ], [ 0, %if.then6 ]
-  %add.ptr.i6 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %.pre.i818, i64 %3
-  %cmp.not3.i.i.i = icmp eq i64 %3, 0
+  %2 = phi i64 [ %storemerge27.i.i, %if.else ], [ 0, %if.then6 ]
+  %add.ptr.i6 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %.pre.i818, i64 %2
+  %cmp.not3.i.i.i = icmp eq i64 %2, 0
   br i1 %cmp.not3.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_ED2Ev.exit, label %for.body.i.i.i7
 
 for.body.i.i.i7:                                  ; preds = %if.end25, %_ZSt8_DestroyISt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt8_DestroyISt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEEvPT_.exit.i.i.i ], [ %.pre.i818, %if.end25 ]
-  %4 = load ptr, ptr %__first.addr.04.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %__first.addr.04.i.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEEvPT_.exit.i.i.i, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i: ; preds = %for.body.i.i.i7
-  %vtable.i.i.i.i.i.i = load ptr, ptr %4, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %3, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 1
-  %5 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  %4 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
   br label %_ZSt8_DestroyISt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEEvPT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i, %for.body.i.i.i7
@@ -11195,7 +11191,6 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then10:                                        ; preds = %for.body
   %0 = load i64, ptr %__i.sroa.0.020, align 8
-  %1 = inttoptr i64 %0 to ptr
   store ptr null, ptr %__i.sroa.0.020, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__i.sroa.0.020 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
@@ -11213,18 +11208,18 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   %__last.addr.05.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i ], [ %__i.sroa.0.020, %for.body.i.i.i.i.i.preheader ]
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__last.addr.05.i.i.i.i.i, i64 -1
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__result.addr.06.i.i.i.i.i, i64 -1
-  %2 = load ptr, ptr %incdec.ptr.i.i.i.i.i, align 8
+  %1 = load ptr, ptr %incdec.ptr.i.i.i.i.i, align 8
   store ptr null, ptr %incdec.ptr.i.i.i.i.i, align 8
-  %3 = load ptr, ptr %incdec.ptr1.i.i.i.i.i, align 8
-  store ptr %2, ptr %incdec.ptr1.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %incdec.ptr1.i.i.i.i.i, align 8
+  store ptr %1, ptr %incdec.ptr1.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
+  %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 1
-  %4 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
+  %3 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
+  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #17
   br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i
 
 _ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
@@ -11233,22 +11228,22 @@ _ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %invoke.cont, !llvm.loop !72
 
 invoke.cont:                                      ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i, %if.then10
-  %5 = load ptr, ptr %__first.coerce, align 8
-  store ptr %1, ptr %__first.coerce, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %__first.coerce, align 8
+  store i64 %0, ptr %__first.coerce, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %for.inc, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i: ; preds = %invoke.cont
-  %vtable.i.i.i.i.i = load ptr, ptr %5, align 8
+  %vtable.i.i.i.i.i = load ptr, ptr %4, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 1
-  %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  %5 = load ptr, ptr %vfn.i.i.i.i.i, align 8
+  call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__val.i)
-  %7 = load i64, ptr %__i.sroa.0.020, align 8
-  store i64 %7, ptr %__val.i, align 8
+  %6 = load i64, ptr %__i.sroa.0.020, align 8
+  store i64 %6, ptr %__val.i, align 8
   store ptr null, ptr %__i.sroa.0.020, align 8
   br label %while.cond.i
 
@@ -11262,53 +11257,53 @@ invoke.cont.i:                                    ; preds = %while.cond.i
   br i1 %call2.i1.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %invoke.cont.i
-  %8 = load ptr, ptr %__next.sroa.0.0.i, align 8
+  %7 = load ptr, ptr %__next.sroa.0.0.i, align 8
   store ptr null, ptr %__next.sroa.0.0.i, align 8
-  %9 = load ptr, ptr %__last.sroa.0.0.i, align 8
-  store ptr %8, ptr %__last.sroa.0.0.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %__last.sroa.0.0.i, align 8
+  store ptr %7, ptr %__last.sroa.0.0.i, align 8
+  %tobool.not.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i.i, label %while.cond.i.backedge, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i: ; preds = %while.body.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %9, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %8, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 1
-  %10 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9) #17
+  %9 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
+  call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
   br label %while.cond.i.backedge
 
 while.cond.i.backedge:                            ; preds = %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i, %while.body.i
   br label %while.cond.i, !llvm.loop !73
 
 lpad.i:                                           ; preds = %while.cond.i
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %12 = load ptr, ptr %__val.i, align 8
-  %cmp.not.i.i = icmp eq ptr %12, null
+  %11 = load ptr, ptr %__val.i, align 8
+  %cmp.not.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i: ; preds = %lpad.i
-  %vtable.i.i.i = load ptr, ptr %12, align 8
+  %vtable.i.i.i = load ptr, ptr %11, align 8
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
-  %13 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(8) %12) #17
+  %12 = load ptr, ptr %vfn.i.i.i, align 8
+  call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11) #17
   br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i, %lpad.i
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %10
 
 while.end.i:                                      ; preds = %invoke.cont.i
-  %14 = load ptr, ptr %__val.i, align 8
+  %13 = load ptr, ptr %__val.i, align 8
   store ptr null, ptr %__val.i, align 8
-  %15 = load ptr, ptr %__last.sroa.0.0.i, align 8
-  store ptr %14, ptr %__last.sroa.0.0.i, align 8
-  %tobool.not.i.i.i.i3.i = icmp eq ptr %15, null
+  %14 = load ptr, ptr %__last.sroa.0.0.i, align 8
+  store ptr %13, ptr %__last.sroa.0.0.i, align 8
+  %tobool.not.i.i.i.i3.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i3.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterIPFbRKS8_SH_EEEEvT_T0_.exit, label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit7.i
 
 _ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit7.i: ; preds = %while.end.i
-  %vtable.i.i.i.i.i5.i = load ptr, ptr %15, align 8
+  %vtable.i.i.i.i.i5.i = load ptr, ptr %14, align 8
   %vfn.i.i.i.i.i6.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i5.i, i64 1
-  %16 = load ptr, ptr %vfn.i.i.i.i.i6.i, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15) #17
+  %15 = load ptr, ptr %vfn.i.i.i.i.i6.i, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(8) %14) #17
   %.pre.i = load ptr, ptr %__val.i, align 8
   %cmp.not.i8.i = icmp eq ptr %.pre.i, null
   br i1 %cmp.not.i8.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterIPFbRKS8_SH_EEEEvT_T0_.exit, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i9.i
@@ -11316,8 +11311,8 @@ _ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit
 _ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i9.i: ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit7.i
   %vtable.i.i10.i = load ptr, ptr %.pre.i, align 8
   %vfn.i.i11.i = getelementptr inbounds ptr, ptr %vtable.i.i10.i, i64 1
-  %17 = load ptr, ptr %vfn.i.i11.i, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(8) %.pre.i) #17
+  %16 = load ptr, ptr %vfn.i.i11.i, align 8
+  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %.pre.i) #17
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterIPFbRKS8_SH_EEEEvT_T0_.exit
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops14_Val_comp_iterIPFbRKS8_SH_EEEEvT_T0_.exit: ; preds = %while.end.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit7.i, %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i9.i

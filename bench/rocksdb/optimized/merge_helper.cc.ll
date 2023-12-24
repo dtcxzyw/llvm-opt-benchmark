@@ -5926,8 +5926,7 @@ _ZNK7rocksdb11MergeHelper6valuesEv.exit:          ; preds = %entry, %if.end.i.i.
   %retval.0.i.i.i = phi ptr [ @_ZN7rocksdbL18empty_operand_listE, %entry ], [ %1, %if.end.i.i.i ], [ %.pre.i.i.i, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit.i.i.i.i ]
   %it_values_ = getelementptr inbounds %"class.rocksdb::MergeOutputIterator", ptr %this, i64 0, i32 2
   %6 = load ptr, ptr %retval.0.i.i.i, align 8, !noalias !214
-  %7 = ptrtoint ptr %6 to i64
-  store i64 %7, ptr %it_values_, align 8
+  store ptr %6, ptr %it_values_, align 8
   ret void
 }
 
@@ -5989,8 +5988,7 @@ _ZNK7rocksdb11MergeHelper6valuesEv.exit:          ; preds = %entry, %if.end.i.i.
   %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::Slice, std::allocator<rocksdb::Slice>>::_Vector_impl_data", ptr %retval.0.i.i.i, i64 0, i32 1
   %7 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !220
   %it_values_ = getelementptr inbounds %"class.rocksdb::MergeOutputIterator", ptr %this, i64 0, i32 2
-  %8 = ptrtoint ptr %7 to i64
-  store i64 %8, ptr %it_values_, align 8
+  store ptr %7, ptr %it_values_, align 8
   ret void
 }
 

@@ -434,20 +434,20 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %sub.i.i.i = add i64 %1, 3
   %and.i.i.i = and i64 %sub.i.i.i, -4
-  %2 = inttoptr i64 %and.i.i.i to ptr
-  store ptr %2, ptr %buf.i, align 8
+  store i64 %and.i.i.i, ptr %buf.i, align 8
   %h.i = getelementptr inbounds %struct.BytecodeFileFieldsPopulator, ptr %visitor, i64 0, i32 2
-  %3 = load ptr, ptr %h.i, align 8
-  %functionCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %3, i64 0, i32 5
-  %4 = load i32, ptr %functionCount.i, align 1
-  %conv.i = zext i32 %4 to i64
+  %2 = load ptr, ptr %h.i, align 8
+  %functionCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %2, i64 0, i32 5
+  %3 = load i32, ptr %functionCount.i, align 1
+  %conv.i = zext i32 %3 to i64
   %end.i = getelementptr inbounds %struct.BytecodeFileFieldsPopulator, ptr %visitor, i64 0, i32 3
-  %5 = load ptr, ptr %end.i, align 8
-  %cmp.i.i = icmp ult ptr %5, %2
+  %4 = load ptr, ptr %end.i, align 8
+  %5 = inttoptr i64 %and.i.i.i to ptr
+  %cmp.i.i = icmp ult ptr %4, %5
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %entry
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %5 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %and.i.i.i
   %div7.i.i = lshr i64 %sub.ptr.sub.i.i, 4
   %cmp1.i.i = icmp ult i64 %div7.i.i, %conv.i
@@ -459,29 +459,29 @@ if.then.i.i:                                      ; preds = %lor.rhs.i.i, %entry
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator20visitFunctionHeadersEv.exit: ; preds = %lor.rhs.i.i
   %mul.i.i = shl nuw nsw i64 %conv.i, 4
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %mul.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 %mul.i.i
   store ptr %add.ptr.i.i, ptr %buf.i, align 8
   %6 = load ptr, ptr %visitor, align 8
   %functionHeaders.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %6, i64 0, i32 1
-  store ptr %2, ptr %functionHeaders.i, align 8
+  store i64 %and.i.i.i, ptr %functionHeaders.i, align 8
   %ref.tmp.sroa.2.0.functionHeaders.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %6, i64 0, i32 1, i32 1
   store i64 %conv.i, ptr %ref.tmp.sroa.2.0.functionHeaders.sroa_idx.i, align 8
   %7 = load ptr, ptr %buf.i, align 8
   %8 = ptrtoint ptr %7 to i64
   %sub.i.i.i16 = add i64 %8, 3
   %and.i.i.i17 = and i64 %sub.i.i.i16, -4
-  %9 = inttoptr i64 %and.i.i.i17 to ptr
-  store ptr %9, ptr %buf.i, align 8
-  %10 = load ptr, ptr %h.i, align 8
-  %stringKindCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %10, i64 0, i32 6
-  %11 = load i32, ptr %stringKindCount.i, align 1
-  %conv.i19 = zext i32 %11 to i64
-  %12 = load ptr, ptr %end.i, align 8
-  %cmp.i.i21 = icmp ult ptr %12, %9
+  store i64 %and.i.i.i17, ptr %buf.i, align 8
+  %9 = load ptr, ptr %h.i, align 8
+  %stringKindCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %9, i64 0, i32 6
+  %10 = load i32, ptr %stringKindCount.i, align 1
+  %conv.i19 = zext i32 %10 to i64
+  %11 = load ptr, ptr %end.i, align 8
+  %12 = inttoptr i64 %and.i.i.i17 to ptr
+  %cmp.i.i21 = icmp ult ptr %11, %12
   br i1 %cmp.i.i21, label %if.then.i.i29, label %lor.rhs.i.i22
 
 lor.rhs.i.i22:                                    ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator20visitFunctionHeadersEv.exit
-  %sub.ptr.lhs.cast.i.i23 = ptrtoint ptr %12 to i64
+  %sub.ptr.lhs.cast.i.i23 = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i24 = sub i64 %sub.ptr.lhs.cast.i.i23, %and.i.i.i17
   %div7.i.i25 = lshr i64 %sub.ptr.sub.i.i24, 2
   %cmp1.i.i26 = icmp ult i64 %div7.i.i25, %conv.i19
@@ -493,29 +493,29 @@ if.then.i.i29:                                    ; preds = %lor.rhs.i.i22, %_ZZ
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitStringKindsEv.exit: ; preds = %lor.rhs.i.i22
   %mul.i.i27 = shl nuw nsw i64 %conv.i19, 2
-  %add.ptr.i.i28 = getelementptr inbounds i8, ptr %9, i64 %mul.i.i27
+  %add.ptr.i.i28 = getelementptr inbounds i8, ptr %12, i64 %mul.i.i27
   store ptr %add.ptr.i.i28, ptr %buf.i, align 8
   %13 = load ptr, ptr %visitor, align 8
   %stringKinds.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %13, i64 0, i32 3
-  store ptr %9, ptr %stringKinds.i, align 8
+  store i64 %and.i.i.i17, ptr %stringKinds.i, align 8
   %ref.tmp.sroa.2.0.stringKinds.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %13, i64 0, i32 3, i32 1
   store i64 %conv.i19, ptr %ref.tmp.sroa.2.0.stringKinds.sroa_idx.i, align 8
   %14 = load ptr, ptr %buf.i, align 8
   %15 = ptrtoint ptr %14 to i64
   %sub.i.i.i31 = add i64 %15, 3
   %and.i.i.i32 = and i64 %sub.i.i.i31, -4
-  %16 = inttoptr i64 %and.i.i.i32 to ptr
-  store ptr %16, ptr %buf.i, align 8
-  %17 = load ptr, ptr %h.i, align 8
-  %identifierCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %17, i64 0, i32 7
-  %18 = load i32, ptr %identifierCount.i, align 1
-  %conv.i34 = zext i32 %18 to i64
-  %19 = load ptr, ptr %end.i, align 8
-  %cmp.i.i36 = icmp ult ptr %19, %16
+  store i64 %and.i.i.i32, ptr %buf.i, align 8
+  %16 = load ptr, ptr %h.i, align 8
+  %identifierCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %16, i64 0, i32 7
+  %17 = load i32, ptr %identifierCount.i, align 1
+  %conv.i34 = zext i32 %17 to i64
+  %18 = load ptr, ptr %end.i, align 8
+  %19 = inttoptr i64 %and.i.i.i32 to ptr
+  %cmp.i.i36 = icmp ult ptr %18, %19
   br i1 %cmp.i.i36, label %if.then.i.i44, label %lor.rhs.i.i37
 
 lor.rhs.i.i37:                                    ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitStringKindsEv.exit
-  %sub.ptr.lhs.cast.i.i38 = ptrtoint ptr %19 to i64
+  %sub.ptr.lhs.cast.i.i38 = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i39 = sub i64 %sub.ptr.lhs.cast.i.i38, %and.i.i.i32
   %div7.i.i40 = lshr i64 %sub.ptr.sub.i.i39, 2
   %cmp1.i.i41 = icmp ult i64 %div7.i.i40, %conv.i34
@@ -527,29 +527,29 @@ if.then.i.i44:                                    ; preds = %lor.rhs.i.i37, %_ZZ
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator21visitIdentifierHashesEv.exit: ; preds = %lor.rhs.i.i37
   %mul.i.i42 = shl nuw nsw i64 %conv.i34, 2
-  %add.ptr.i.i43 = getelementptr inbounds i8, ptr %16, i64 %mul.i.i42
+  %add.ptr.i.i43 = getelementptr inbounds i8, ptr %19, i64 %mul.i.i42
   store ptr %add.ptr.i.i43, ptr %buf.i, align 8
   %20 = load ptr, ptr %visitor, align 8
   %identifierHashes.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %20, i64 0, i32 4
-  store ptr %16, ptr %identifierHashes.i, align 8
+  store i64 %and.i.i.i32, ptr %identifierHashes.i, align 8
   %ref.tmp.sroa.2.0.identifierHashes.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %20, i64 0, i32 4, i32 1
   store i64 %conv.i34, ptr %ref.tmp.sroa.2.0.identifierHashes.sroa_idx.i, align 8
   %21 = load ptr, ptr %buf.i, align 8
   %22 = ptrtoint ptr %21 to i64
   %sub.i.i.i46 = add i64 %22, 3
   %and.i.i.i47 = and i64 %sub.i.i.i46, -4
-  %23 = inttoptr i64 %and.i.i.i47 to ptr
-  store ptr %23, ptr %buf.i, align 8
-  %24 = load ptr, ptr %h.i, align 8
-  %stringCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %24, i64 0, i32 8
-  %25 = load i32, ptr %stringCount.i, align 1
-  %conv.i49 = zext i32 %25 to i64
-  %26 = load ptr, ptr %end.i, align 8
-  %cmp.i.i51 = icmp ult ptr %26, %23
+  store i64 %and.i.i.i47, ptr %buf.i, align 8
+  %23 = load ptr, ptr %h.i, align 8
+  %stringCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %23, i64 0, i32 8
+  %24 = load i32, ptr %stringCount.i, align 1
+  %conv.i49 = zext i32 %24 to i64
+  %25 = load ptr, ptr %end.i, align 8
+  %26 = inttoptr i64 %and.i.i.i47 to ptr
+  %cmp.i.i51 = icmp ult ptr %25, %26
   br i1 %cmp.i.i51, label %if.then.i.i59, label %lor.rhs.i.i52
 
 lor.rhs.i.i52:                                    ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator21visitIdentifierHashesEv.exit
-  %sub.ptr.lhs.cast.i.i53 = ptrtoint ptr %26 to i64
+  %sub.ptr.lhs.cast.i.i53 = ptrtoint ptr %25 to i64
   %sub.ptr.sub.i.i54 = sub i64 %sub.ptr.lhs.cast.i.i53, %and.i.i.i47
   %div7.i.i55 = lshr i64 %sub.ptr.sub.i.i54, 2
   %cmp1.i.i56 = icmp ult i64 %div7.i.i55, %conv.i49
@@ -561,29 +561,29 @@ if.then.i.i59:                                    ; preds = %lor.rhs.i.i52, %_ZZ
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator21visitSmallStringTableEv.exit: ; preds = %lor.rhs.i.i52
   %mul.i.i57 = shl nuw nsw i64 %conv.i49, 2
-  %add.ptr.i.i58 = getelementptr inbounds i8, ptr %23, i64 %mul.i.i57
+  %add.ptr.i.i58 = getelementptr inbounds i8, ptr %26, i64 %mul.i.i57
   store ptr %add.ptr.i.i58, ptr %buf.i, align 8
   %27 = load ptr, ptr %visitor, align 8
   %stringTableEntries.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %27, i64 0, i32 2
-  store ptr %23, ptr %stringTableEntries.i, align 8
+  store i64 %and.i.i.i47, ptr %stringTableEntries.i, align 8
   %ref.tmp.sroa.2.0.stringTableEntries.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %27, i64 0, i32 2, i32 1
   store i64 %conv.i49, ptr %ref.tmp.sroa.2.0.stringTableEntries.sroa_idx.i, align 8
   %28 = load ptr, ptr %buf.i, align 8
   %29 = ptrtoint ptr %28 to i64
   %sub.i.i.i61 = add i64 %29, 3
   %and.i.i.i62 = and i64 %sub.i.i.i61, -4
-  %30 = inttoptr i64 %and.i.i.i62 to ptr
-  store ptr %30, ptr %buf.i, align 8
-  %31 = load ptr, ptr %h.i, align 8
-  %overflowStringCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %31, i64 0, i32 9
-  %32 = load i32, ptr %overflowStringCount.i, align 1
-  %conv.i64 = zext i32 %32 to i64
-  %33 = load ptr, ptr %end.i, align 8
-  %cmp.i.i66 = icmp ult ptr %33, %30
+  store i64 %and.i.i.i62, ptr %buf.i, align 8
+  %30 = load ptr, ptr %h.i, align 8
+  %overflowStringCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %30, i64 0, i32 9
+  %31 = load i32, ptr %overflowStringCount.i, align 1
+  %conv.i64 = zext i32 %31 to i64
+  %32 = load ptr, ptr %end.i, align 8
+  %33 = inttoptr i64 %and.i.i.i62 to ptr
+  %cmp.i.i66 = icmp ult ptr %32, %33
   br i1 %cmp.i.i66, label %if.then.i.i74, label %lor.rhs.i.i67
 
 lor.rhs.i.i67:                                    ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator21visitSmallStringTableEv.exit
-  %sub.ptr.lhs.cast.i.i68 = ptrtoint ptr %33 to i64
+  %sub.ptr.lhs.cast.i.i68 = ptrtoint ptr %32 to i64
   %sub.ptr.sub.i.i69 = sub i64 %sub.ptr.lhs.cast.i.i68, %and.i.i.i62
   %div7.i.i70 = lshr i64 %sub.ptr.sub.i.i69, 3
   %cmp1.i.i71 = icmp ult i64 %div7.i.i70, %conv.i64
@@ -595,26 +595,26 @@ if.then.i.i74:                                    ; preds = %lor.rhs.i.i67, %_ZZ
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator24visitOverflowStringTableEv.exit: ; preds = %lor.rhs.i.i67
   %mul.i.i72 = shl nuw nsw i64 %conv.i64, 3
-  %add.ptr.i.i73 = getelementptr inbounds i8, ptr %30, i64 %mul.i.i72
+  %add.ptr.i.i73 = getelementptr inbounds i8, ptr %33, i64 %mul.i.i72
   store ptr %add.ptr.i.i73, ptr %buf.i, align 8
   %34 = load ptr, ptr %visitor, align 8
   %stringTableOverflowEntries.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %34, i64 0, i32 5
-  store ptr %30, ptr %stringTableOverflowEntries.i, align 8
+  store i64 %and.i.i.i62, ptr %stringTableOverflowEntries.i, align 8
   %ref.tmp.sroa.2.0.stringTableOverflowEntries.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %34, i64 0, i32 5, i32 1
   store i64 %conv.i64, ptr %ref.tmp.sroa.2.0.stringTableOverflowEntries.sroa_idx.i, align 8
   %35 = load ptr, ptr %buf.i, align 8
   %36 = ptrtoint ptr %35 to i64
   %sub.i.i.i76 = add i64 %36, 3
   %and.i.i.i77 = and i64 %sub.i.i.i76, -4
-  %37 = inttoptr i64 %and.i.i.i77 to ptr
-  store ptr %37, ptr %buf.i, align 8
-  %38 = load ptr, ptr %h.i, align 8
-  %stringStorageSize.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %38, i64 0, i32 10
-  %39 = load i32, ptr %stringStorageSize.i, align 1
-  %conv.i79 = zext i32 %39 to i64
-  %40 = load ptr, ptr %end.i, align 8
-  %cmp.i.i81 = icmp ult ptr %40, %37
-  %sub.ptr.lhs.cast.i.i82 = ptrtoint ptr %40 to i64
+  store i64 %and.i.i.i77, ptr %buf.i, align 8
+  %37 = load ptr, ptr %h.i, align 8
+  %stringStorageSize.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %37, i64 0, i32 10
+  %38 = load i32, ptr %stringStorageSize.i, align 1
+  %conv.i79 = zext i32 %38 to i64
+  %39 = load ptr, ptr %end.i, align 8
+  %40 = inttoptr i64 %and.i.i.i77 to ptr
+  %cmp.i.i81 = icmp ult ptr %39, %40
+  %sub.ptr.lhs.cast.i.i82 = ptrtoint ptr %39 to i64
   %sub.ptr.sub.i.i83 = sub i64 %sub.ptr.lhs.cast.i.i82, %and.i.i.i77
   %cmp1.i.i84 = icmp ult i64 %sub.ptr.sub.i.i83, %conv.i79
   %or.cond.i.i = or i1 %cmp.i.i81, %cmp1.i.i84
@@ -625,26 +625,26 @@ if.then.i.i86:                                    ; preds = %_ZZN6hermes3hbc18By
   unreachable
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator18visitStringStorageEv.exit: ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator24visitOverflowStringTableEv.exit
-  %add.ptr.i.i85 = getelementptr inbounds i8, ptr %37, i64 %conv.i79
+  %add.ptr.i.i85 = getelementptr inbounds i8, ptr %40, i64 %conv.i79
   store ptr %add.ptr.i.i85, ptr %buf.i, align 8
   %41 = load ptr, ptr %visitor, align 8
   %stringStorage.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %41, i64 0, i32 6
-  store ptr %37, ptr %stringStorage.i, align 8
+  store i64 %and.i.i.i77, ptr %stringStorage.i, align 8
   %ref.tmp.sroa.2.0.stringStorage.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %41, i64 0, i32 6, i32 1
   store i64 %conv.i79, ptr %ref.tmp.sroa.2.0.stringStorage.sroa_idx.i, align 8
   %42 = load ptr, ptr %buf.i, align 8
   %43 = ptrtoint ptr %42 to i64
   %sub.i.i.i88 = add i64 %43, 3
   %and.i.i.i89 = and i64 %sub.i.i.i88, -4
-  %44 = inttoptr i64 %and.i.i.i89 to ptr
-  store ptr %44, ptr %buf.i, align 8
-  %45 = load ptr, ptr %h.i, align 8
-  %arrayBufferSize.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %45, i64 0, i32 15
-  %46 = load i32, ptr %arrayBufferSize.i, align 1
-  %conv.i91 = zext i32 %46 to i64
-  %47 = load ptr, ptr %end.i, align 8
-  %cmp.i.i93 = icmp ult ptr %47, %44
-  %sub.ptr.lhs.cast.i.i94 = ptrtoint ptr %47 to i64
+  store i64 %and.i.i.i89, ptr %buf.i, align 8
+  %44 = load ptr, ptr %h.i, align 8
+  %arrayBufferSize.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %44, i64 0, i32 15
+  %45 = load i32, ptr %arrayBufferSize.i, align 1
+  %conv.i91 = zext i32 %45 to i64
+  %46 = load ptr, ptr %end.i, align 8
+  %47 = inttoptr i64 %and.i.i.i89 to ptr
+  %cmp.i.i93 = icmp ult ptr %46, %47
+  %sub.ptr.lhs.cast.i.i94 = ptrtoint ptr %46 to i64
   %sub.ptr.sub.i.i95 = sub i64 %sub.ptr.lhs.cast.i.i94, %and.i.i.i89
   %cmp1.i.i96 = icmp ult i64 %sub.ptr.sub.i.i95, %conv.i91
   %or.cond.i.i97 = or i1 %cmp.i.i93, %cmp1.i.i96
@@ -655,26 +655,26 @@ if.then.i.i99:                                    ; preds = %_ZZN6hermes3hbc18By
   unreachable
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitArrayBufferEv.exit: ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator18visitStringStorageEv.exit
-  %add.ptr.i.i98 = getelementptr inbounds i8, ptr %44, i64 %conv.i91
+  %add.ptr.i.i98 = getelementptr inbounds i8, ptr %47, i64 %conv.i91
   store ptr %add.ptr.i.i98, ptr %buf.i, align 8
   %48 = load ptr, ptr %visitor, align 8
   %arrayBuffer.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %48, i64 0, i32 7
-  store ptr %44, ptr %arrayBuffer.i, align 8
+  store i64 %and.i.i.i89, ptr %arrayBuffer.i, align 8
   %ref.tmp.sroa.2.0.arrayBuffer.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %48, i64 0, i32 7, i32 1
   store i64 %conv.i91, ptr %ref.tmp.sroa.2.0.arrayBuffer.sroa_idx.i, align 8
   %49 = load ptr, ptr %buf.i, align 8
   %50 = ptrtoint ptr %49 to i64
   %sub.i.i.i101 = add i64 %50, 3
   %and.i.i.i102 = and i64 %sub.i.i.i101, -4
-  %51 = inttoptr i64 %and.i.i.i102 to ptr
-  store ptr %51, ptr %buf.i, align 8
-  %52 = load ptr, ptr %h.i, align 8
-  %objKeyBufferSize.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %52, i64 0, i32 16
-  %53 = load i32, ptr %objKeyBufferSize.i, align 1
-  %conv.i104 = zext i32 %53 to i64
-  %54 = load ptr, ptr %end.i, align 8
-  %cmp.i.i106 = icmp ult ptr %54, %51
-  %sub.ptr.lhs.cast.i.i107 = ptrtoint ptr %54 to i64
+  store i64 %and.i.i.i102, ptr %buf.i, align 8
+  %51 = load ptr, ptr %h.i, align 8
+  %objKeyBufferSize.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %51, i64 0, i32 16
+  %52 = load i32, ptr %objKeyBufferSize.i, align 1
+  %conv.i104 = zext i32 %52 to i64
+  %53 = load ptr, ptr %end.i, align 8
+  %54 = inttoptr i64 %and.i.i.i102 to ptr
+  %cmp.i.i106 = icmp ult ptr %53, %54
+  %sub.ptr.lhs.cast.i.i107 = ptrtoint ptr %53 to i64
   %sub.ptr.sub.i.i108 = sub i64 %sub.ptr.lhs.cast.i.i107, %and.i.i.i102
   %cmp1.i.i109 = icmp ult i64 %sub.ptr.sub.i.i108, %conv.i104
   %or.cond.i.i110 = or i1 %cmp.i.i106, %cmp1.i.i109
@@ -685,26 +685,26 @@ if.then.i.i112:                                   ; preds = %_ZZN6hermes3hbc18By
   unreachable
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator20visitObjectKeyBufferEv.exit: ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitArrayBufferEv.exit
-  %add.ptr.i.i111 = getelementptr inbounds i8, ptr %51, i64 %conv.i104
+  %add.ptr.i.i111 = getelementptr inbounds i8, ptr %54, i64 %conv.i104
   store ptr %add.ptr.i.i111, ptr %buf.i, align 8
   %55 = load ptr, ptr %visitor, align 8
   %objKeyBuffer.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %55, i64 0, i32 8
-  store ptr %51, ptr %objKeyBuffer.i, align 8
+  store i64 %and.i.i.i102, ptr %objKeyBuffer.i, align 8
   %ref.tmp.sroa.2.0.objKeyBuffer.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %55, i64 0, i32 8, i32 1
   store i64 %conv.i104, ptr %ref.tmp.sroa.2.0.objKeyBuffer.sroa_idx.i, align 8
   %56 = load ptr, ptr %buf.i, align 8
   %57 = ptrtoint ptr %56 to i64
   %sub.i.i.i114 = add i64 %57, 3
   %and.i.i.i115 = and i64 %sub.i.i.i114, -4
-  %58 = inttoptr i64 %and.i.i.i115 to ptr
-  store ptr %58, ptr %buf.i, align 8
-  %59 = load ptr, ptr %h.i, align 8
-  %objValueBufferSize.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %59, i64 0, i32 17
-  %60 = load i32, ptr %objValueBufferSize.i, align 1
-  %conv.i117 = zext i32 %60 to i64
-  %61 = load ptr, ptr %end.i, align 8
-  %cmp.i.i119 = icmp ult ptr %61, %58
-  %sub.ptr.lhs.cast.i.i120 = ptrtoint ptr %61 to i64
+  store i64 %and.i.i.i115, ptr %buf.i, align 8
+  %58 = load ptr, ptr %h.i, align 8
+  %objValueBufferSize.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %58, i64 0, i32 17
+  %59 = load i32, ptr %objValueBufferSize.i, align 1
+  %conv.i117 = zext i32 %59 to i64
+  %60 = load ptr, ptr %end.i, align 8
+  %61 = inttoptr i64 %and.i.i.i115 to ptr
+  %cmp.i.i119 = icmp ult ptr %60, %61
+  %sub.ptr.lhs.cast.i.i120 = ptrtoint ptr %60 to i64
   %sub.ptr.sub.i.i121 = sub i64 %sub.ptr.lhs.cast.i.i120, %and.i.i.i115
   %cmp1.i.i122 = icmp ult i64 %sub.ptr.sub.i.i121, %conv.i117
   %or.cond.i.i123 = or i1 %cmp.i.i119, %cmp1.i.i122
@@ -715,29 +715,29 @@ if.then.i.i125:                                   ; preds = %_ZZN6hermes3hbc18By
   unreachable
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator22visitObjectValueBufferEv.exit: ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator20visitObjectKeyBufferEv.exit
-  %add.ptr.i.i124 = getelementptr inbounds i8, ptr %58, i64 %conv.i117
+  %add.ptr.i.i124 = getelementptr inbounds i8, ptr %61, i64 %conv.i117
   store ptr %add.ptr.i.i124, ptr %buf.i, align 8
   %62 = load ptr, ptr %visitor, align 8
   %objValueBuffer.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %62, i64 0, i32 9
-  store ptr %58, ptr %objValueBuffer.i, align 8
+  store i64 %and.i.i.i115, ptr %objValueBuffer.i, align 8
   %ref.tmp.sroa.2.0.objValueBuffer.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %62, i64 0, i32 9, i32 1
   store i64 %conv.i117, ptr %ref.tmp.sroa.2.0.objValueBuffer.sroa_idx.i, align 8
   %63 = load ptr, ptr %buf.i, align 8
   %64 = ptrtoint ptr %63 to i64
   %sub.i.i.i127 = add i64 %64, 3
   %and.i.i.i128 = and i64 %sub.i.i.i127, -4
-  %65 = inttoptr i64 %and.i.i.i128 to ptr
-  store ptr %65, ptr %buf.i, align 8
-  %66 = load ptr, ptr %h.i, align 8
-  %bigIntCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %66, i64 0, i32 11
-  %67 = load i32, ptr %bigIntCount.i, align 1
-  %conv.i130 = zext i32 %67 to i64
-  %68 = load ptr, ptr %end.i, align 8
-  %cmp.i.i132 = icmp ult ptr %68, %65
+  store i64 %and.i.i.i128, ptr %buf.i, align 8
+  %65 = load ptr, ptr %h.i, align 8
+  %bigIntCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %65, i64 0, i32 11
+  %66 = load i32, ptr %bigIntCount.i, align 1
+  %conv.i130 = zext i32 %66 to i64
+  %67 = load ptr, ptr %end.i, align 8
+  %68 = inttoptr i64 %and.i.i.i128 to ptr
+  %cmp.i.i132 = icmp ult ptr %67, %68
   br i1 %cmp.i.i132, label %if.then.i.i140, label %lor.rhs.i.i133
 
 lor.rhs.i.i133:                                   ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator22visitObjectValueBufferEv.exit
-  %sub.ptr.lhs.cast.i.i134 = ptrtoint ptr %68 to i64
+  %sub.ptr.lhs.cast.i.i134 = ptrtoint ptr %67 to i64
   %sub.ptr.sub.i.i135 = sub i64 %sub.ptr.lhs.cast.i.i134, %and.i.i.i128
   %div7.i.i136 = lshr i64 %sub.ptr.sub.i.i135, 3
   %cmp1.i.i137 = icmp ult i64 %div7.i.i136, %conv.i130
@@ -749,26 +749,26 @@ if.then.i.i140:                                   ; preds = %lor.rhs.i.i133, %_Z
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitBigIntTableEv.exit: ; preds = %lor.rhs.i.i133
   %mul.i.i138 = shl nuw nsw i64 %conv.i130, 3
-  %add.ptr.i.i139 = getelementptr inbounds i8, ptr %65, i64 %mul.i.i138
+  %add.ptr.i.i139 = getelementptr inbounds i8, ptr %68, i64 %mul.i.i138
   store ptr %add.ptr.i.i139, ptr %buf.i, align 8
   %69 = load ptr, ptr %visitor, align 8
   %bigIntTable.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %69, i64 0, i32 10
-  store ptr %65, ptr %bigIntTable.i, align 8
+  store i64 %and.i.i.i128, ptr %bigIntTable.i, align 8
   %ref.tmp.sroa.2.0.bigIntTable.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %69, i64 0, i32 10, i32 1
   store i64 %conv.i130, ptr %ref.tmp.sroa.2.0.bigIntTable.sroa_idx.i, align 8
   %70 = load ptr, ptr %buf.i, align 8
   %71 = ptrtoint ptr %70 to i64
   %sub.i.i.i142 = add i64 %71, 3
   %and.i.i.i143 = and i64 %sub.i.i.i142, -4
-  %72 = inttoptr i64 %and.i.i.i143 to ptr
-  store ptr %72, ptr %buf.i, align 8
-  %73 = load ptr, ptr %h.i, align 8
-  %bigIntStorageSize.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %73, i64 0, i32 12
-  %74 = load i32, ptr %bigIntStorageSize.i, align 1
-  %conv.i145 = zext i32 %74 to i64
-  %75 = load ptr, ptr %end.i, align 8
-  %cmp.i.i147 = icmp ult ptr %75, %72
-  %sub.ptr.lhs.cast.i.i148 = ptrtoint ptr %75 to i64
+  store i64 %and.i.i.i143, ptr %buf.i, align 8
+  %72 = load ptr, ptr %h.i, align 8
+  %bigIntStorageSize.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %72, i64 0, i32 12
+  %73 = load i32, ptr %bigIntStorageSize.i, align 1
+  %conv.i145 = zext i32 %73 to i64
+  %74 = load ptr, ptr %end.i, align 8
+  %75 = inttoptr i64 %and.i.i.i143 to ptr
+  %cmp.i.i147 = icmp ult ptr %74, %75
+  %sub.ptr.lhs.cast.i.i148 = ptrtoint ptr %74 to i64
   %sub.ptr.sub.i.i149 = sub i64 %sub.ptr.lhs.cast.i.i148, %and.i.i.i143
   %cmp1.i.i150 = icmp ult i64 %sub.ptr.sub.i.i149, %conv.i145
   %or.cond.i.i151 = or i1 %cmp.i.i147, %cmp1.i.i150
@@ -779,29 +779,29 @@ if.then.i.i153:                                   ; preds = %_ZZN6hermes3hbc18By
   unreachable
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator18visitBigIntStorageEv.exit: ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitBigIntTableEv.exit
-  %add.ptr.i.i152 = getelementptr inbounds i8, ptr %72, i64 %conv.i145
+  %add.ptr.i.i152 = getelementptr inbounds i8, ptr %75, i64 %conv.i145
   store ptr %add.ptr.i.i152, ptr %buf.i, align 8
   %76 = load ptr, ptr %visitor, align 8
   %bigIntStorage.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %76, i64 0, i32 11
-  store ptr %72, ptr %bigIntStorage.i, align 8
+  store i64 %and.i.i.i143, ptr %bigIntStorage.i, align 8
   %ref.tmp.sroa.2.0.bigIntStorage.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %76, i64 0, i32 11, i32 1
   store i64 %conv.i145, ptr %ref.tmp.sroa.2.0.bigIntStorage.sroa_idx.i, align 8
   %77 = load ptr, ptr %buf.i, align 8
   %78 = ptrtoint ptr %77 to i64
   %sub.i.i.i155 = add i64 %78, 3
   %and.i.i.i156 = and i64 %sub.i.i.i155, -4
-  %79 = inttoptr i64 %and.i.i.i156 to ptr
-  store ptr %79, ptr %buf.i, align 8
-  %80 = load ptr, ptr %h.i, align 8
-  %regExpCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %80, i64 0, i32 13
-  %81 = load i32, ptr %regExpCount.i, align 1
-  %conv.i158 = zext i32 %81 to i64
-  %82 = load ptr, ptr %end.i, align 8
-  %cmp.i.i160 = icmp ult ptr %82, %79
+  store i64 %and.i.i.i156, ptr %buf.i, align 8
+  %79 = load ptr, ptr %h.i, align 8
+  %regExpCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %79, i64 0, i32 13
+  %80 = load i32, ptr %regExpCount.i, align 1
+  %conv.i158 = zext i32 %80 to i64
+  %81 = load ptr, ptr %end.i, align 8
+  %82 = inttoptr i64 %and.i.i.i156 to ptr
+  %cmp.i.i160 = icmp ult ptr %81, %82
   br i1 %cmp.i.i160, label %if.then.i.i168, label %lor.rhs.i.i161
 
 lor.rhs.i.i161:                                   ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator18visitBigIntStorageEv.exit
-  %sub.ptr.lhs.cast.i.i162 = ptrtoint ptr %82 to i64
+  %sub.ptr.lhs.cast.i.i162 = ptrtoint ptr %81 to i64
   %sub.ptr.sub.i.i163 = sub i64 %sub.ptr.lhs.cast.i.i162, %and.i.i.i156
   %div7.i.i164 = lshr i64 %sub.ptr.sub.i.i163, 3
   %cmp1.i.i165 = icmp ult i64 %div7.i.i164, %conv.i158
@@ -813,26 +813,26 @@ if.then.i.i168:                                   ; preds = %lor.rhs.i.i161, %_Z
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitRegExpTableEv.exit: ; preds = %lor.rhs.i.i161
   %mul.i.i166 = shl nuw nsw i64 %conv.i158, 3
-  %add.ptr.i.i167 = getelementptr inbounds i8, ptr %79, i64 %mul.i.i166
+  %add.ptr.i.i167 = getelementptr inbounds i8, ptr %82, i64 %mul.i.i166
   store ptr %add.ptr.i.i167, ptr %buf.i, align 8
   %83 = load ptr, ptr %visitor, align 8
   %regExpTable.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %83, i64 0, i32 12
-  store ptr %79, ptr %regExpTable.i, align 8
+  store i64 %and.i.i.i156, ptr %regExpTable.i, align 8
   %ref.tmp.sroa.2.0.regExpTable.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %83, i64 0, i32 12, i32 1
   store i64 %conv.i158, ptr %ref.tmp.sroa.2.0.regExpTable.sroa_idx.i, align 8
   %84 = load ptr, ptr %buf.i, align 8
   %85 = ptrtoint ptr %84 to i64
   %sub.i.i.i170 = add i64 %85, 3
   %and.i.i.i171 = and i64 %sub.i.i.i170, -4
-  %86 = inttoptr i64 %and.i.i.i171 to ptr
-  store ptr %86, ptr %buf.i, align 8
-  %87 = load ptr, ptr %h.i, align 8
-  %regExpStorageSize.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %87, i64 0, i32 14
-  %88 = load i32, ptr %regExpStorageSize.i, align 1
-  %conv.i173 = zext i32 %88 to i64
-  %89 = load ptr, ptr %end.i, align 8
-  %cmp.i.i175 = icmp ult ptr %89, %86
-  %sub.ptr.lhs.cast.i.i176 = ptrtoint ptr %89 to i64
+  store i64 %and.i.i.i171, ptr %buf.i, align 8
+  %86 = load ptr, ptr %h.i, align 8
+  %regExpStorageSize.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %86, i64 0, i32 14
+  %87 = load i32, ptr %regExpStorageSize.i, align 1
+  %conv.i173 = zext i32 %87 to i64
+  %88 = load ptr, ptr %end.i, align 8
+  %89 = inttoptr i64 %and.i.i.i171 to ptr
+  %cmp.i.i175 = icmp ult ptr %88, %89
+  %sub.ptr.lhs.cast.i.i176 = ptrtoint ptr %88 to i64
   %sub.ptr.sub.i.i177 = sub i64 %sub.ptr.lhs.cast.i.i176, %and.i.i.i171
   %cmp1.i.i178 = icmp ult i64 %sub.ptr.sub.i.i177, %conv.i173
   %or.cond.i.i179 = or i1 %cmp.i.i175, %cmp1.i.i178
@@ -843,29 +843,29 @@ if.then.i.i181:                                   ; preds = %_ZZN6hermes3hbc18By
   unreachable
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator18visitRegExpStorageEv.exit: ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitRegExpTableEv.exit
-  %add.ptr.i.i180 = getelementptr inbounds i8, ptr %86, i64 %conv.i173
+  %add.ptr.i.i180 = getelementptr inbounds i8, ptr %89, i64 %conv.i173
   store ptr %add.ptr.i.i180, ptr %buf.i, align 8
   %90 = load ptr, ptr %visitor, align 8
   %regExpStorage.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %90, i64 0, i32 13
-  store ptr %86, ptr %regExpStorage.i, align 8
+  store i64 %and.i.i.i171, ptr %regExpStorage.i, align 8
   %ref.tmp.sroa.2.0.regExpStorage.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %90, i64 0, i32 13, i32 1
   store i64 %conv.i173, ptr %ref.tmp.sroa.2.0.regExpStorage.sroa_idx.i, align 8
   %91 = load ptr, ptr %buf.i, align 8
   %92 = ptrtoint ptr %91 to i64
   %sub.i.i.i183 = add i64 %92, 3
   %and.i.i.i184 = and i64 %sub.i.i.i183, -4
-  %93 = inttoptr i64 %and.i.i.i184 to ptr
-  store ptr %93, ptr %buf.i, align 8
-  %94 = load ptr, ptr %h.i, align 8
-  %options.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %94, i64 0, i32 22
+  store i64 %and.i.i.i184, ptr %buf.i, align 8
+  %93 = load ptr, ptr %h.i, align 8
+  %options.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %93, i64 0, i32 22
   %bf.load.i = load i8, ptr %options.i, align 1
-  %95 = and i8 %bf.load.i, 2
-  %bf.cast.not.i = icmp eq i8 %95, 0
-  %cjsModuleCount7.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %94, i64 0, i32 19
+  %94 = and i8 %bf.load.i, 2
+  %bf.cast.not.i = icmp eq i8 %94, 0
+  %95 = inttoptr i64 %and.i.i.i184 to ptr
+  %cjsModuleCount7.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %93, i64 0, i32 19
   %96 = load i32, ptr %cjsModuleCount7.i, align 1
   %conv8.i = zext i32 %96 to i64
   %97 = load ptr, ptr %end.i, align 8
-  %cmp.i1.i = icmp ult ptr %97, %93
+  %cmp.i1.i = icmp ult ptr %97, %95
   br i1 %bf.cast.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator18visitRegExpStorageEv.exit
@@ -884,11 +884,11 @@ if.then.i.i193:                                   ; preds = %lor.rhs.i.i186, %if
 
 _ZN6hermes3hbc12_GLOBAL__N_112castArrayRefISt4pairIjjEEEN4llvh8ArrayRefIT_EERPKhmSA_.exit.i: ; preds = %lor.rhs.i.i186
   %mul.i.i191 = shl nuw nsw i64 %conv8.i, 3
-  %add.ptr.i.i192 = getelementptr inbounds i8, ptr %93, i64 %mul.i.i191
+  %add.ptr.i.i192 = getelementptr inbounds i8, ptr %95, i64 %mul.i.i191
   store ptr %add.ptr.i.i192, ptr %buf.i, align 8
   %98 = load ptr, ptr %visitor, align 8
   %cjsModuleTableStatic.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %98, i64 0, i32 15
-  store ptr %93, ptr %cjsModuleTableStatic.i, align 8
+  store i64 %and.i.i.i184, ptr %cjsModuleTableStatic.i, align 8
   %ref.tmp.sroa.2.0.cjsModuleTableStatic.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %98, i64 0, i32 15, i32 1
   br label %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
 
@@ -908,11 +908,11 @@ if.then.i12.i:                                    ; preds = %lor.rhs.i2.i, %if.e
 
 _ZN6hermes3hbc12_GLOBAL__N_112castArrayRefISt4pairIjjEEEN4llvh8ArrayRefIT_EERPKhmSA_.exit13.i: ; preds = %lor.rhs.i2.i
   %mul.i8.i = shl nuw nsw i64 %conv8.i, 3
-  %add.ptr.i9.i = getelementptr inbounds i8, ptr %93, i64 %mul.i8.i
+  %add.ptr.i9.i = getelementptr inbounds i8, ptr %95, i64 %mul.i8.i
   store ptr %add.ptr.i9.i, ptr %buf.i, align 8
   %99 = load ptr, ptr %visitor, align 8
   %cjsModuleTable.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %99, i64 0, i32 14
-  store ptr %93, ptr %cjsModuleTable.i, align 8
+  store i64 %and.i.i.i184, ptr %cjsModuleTable.i, align 8
   %ref.tmp4.sroa.2.0.cjsModuleTable.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %99, i64 0, i32 14, i32 1
   br label %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
 
@@ -923,18 +923,18 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhE
   %101 = ptrtoint ptr %100 to i64
   %sub.i.i.i195 = add i64 %101, 3
   %and.i.i.i196 = and i64 %sub.i.i.i195, -4
-  %102 = inttoptr i64 %and.i.i.i196 to ptr
-  store ptr %102, ptr %buf.i, align 8
-  %103 = load ptr, ptr %h.i, align 8
-  %functionSourceCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %103, i64 0, i32 20
-  %104 = load i32, ptr %functionSourceCount.i, align 1
-  %conv.i198 = zext i32 %104 to i64
-  %105 = load ptr, ptr %end.i, align 8
-  %cmp.i.i200 = icmp ult ptr %105, %102
+  store i64 %and.i.i.i196, ptr %buf.i, align 8
+  %102 = load ptr, ptr %h.i, align 8
+  %functionSourceCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %102, i64 0, i32 20
+  %103 = load i32, ptr %functionSourceCount.i, align 1
+  %conv.i198 = zext i32 %103 to i64
+  %104 = load ptr, ptr %end.i, align 8
+  %105 = inttoptr i64 %and.i.i.i196 to ptr
+  %cmp.i.i200 = icmp ult ptr %104, %105
   br i1 %cmp.i.i200, label %if.then.i.i209, label %lor.rhs.i.i201
 
 lor.rhs.i.i201:                                   ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
-  %sub.ptr.lhs.cast.i.i202 = ptrtoint ptr %105 to i64
+  %sub.ptr.lhs.cast.i.i202 = ptrtoint ptr %104 to i64
   %sub.ptr.sub.i.i203 = sub i64 %sub.ptr.lhs.cast.i.i202, %and.i.i.i196
   %div7.i.i204 = lshr i64 %sub.ptr.sub.i.i203, 3
   %cmp1.i.i205 = icmp ult i64 %div7.i.i204, %conv.i198
@@ -946,11 +946,11 @@ if.then.i.i209:                                   ; preds = %lor.rhs.i.i201, %_Z
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator24visitFunctionSourceTableEv.exit: ; preds = %lor.rhs.i.i201
   %mul.i.i207 = shl nuw nsw i64 %conv.i198, 3
-  %add.ptr.i.i208 = getelementptr inbounds i8, ptr %102, i64 %mul.i.i207
+  %add.ptr.i.i208 = getelementptr inbounds i8, ptr %105, i64 %mul.i.i207
   store ptr %add.ptr.i.i208, ptr %buf.i, align 8
   %106 = load ptr, ptr %visitor, align 8
   %functionSourceTable.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %106, i64 0, i32 16
-  store ptr %102, ptr %functionSourceTable.i, align 8
+  store i64 %and.i.i.i196, ptr %functionSourceTable.i, align 8
   %ref.tmp.sroa.2.0.functionSourceTable.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields", ptr %106, i64 0, i32 16, i32 1
   store i64 %conv.i198, ptr %ref.tmp.sroa.2.0.functionSourceTable.sroa_idx.i, align 8
   ret void
@@ -989,20 +989,20 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %sub.i.i.i = add i64 %1, 3
   %and.i.i.i = and i64 %sub.i.i.i, -4
-  %2 = inttoptr i64 %and.i.i.i to ptr
-  store ptr %2, ptr %buf.i, align 8
+  store i64 %and.i.i.i, ptr %buf.i, align 8
   %h.i = getelementptr inbounds %struct.BytecodeFileFieldsPopulator.8, ptr %visitor, i64 0, i32 2
-  %3 = load ptr, ptr %h.i, align 8
-  %functionCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %3, i64 0, i32 5
-  %4 = load i32, ptr %functionCount.i, align 1
-  %conv.i = zext i32 %4 to i64
+  %2 = load ptr, ptr %h.i, align 8
+  %functionCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %2, i64 0, i32 5
+  %3 = load i32, ptr %functionCount.i, align 1
+  %conv.i = zext i32 %3 to i64
   %end.i = getelementptr inbounds %struct.BytecodeFileFieldsPopulator.8, ptr %visitor, i64 0, i32 3
-  %5 = load ptr, ptr %end.i, align 8
-  %cmp.i.i = icmp ult ptr %5, %2
+  %4 = load ptr, ptr %end.i, align 8
+  %5 = inttoptr i64 %and.i.i.i to ptr
+  %cmp.i.i = icmp ult ptr %4, %5
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %entry
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %5 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %and.i.i.i
   %div7.i.i = lshr i64 %sub.ptr.sub.i.i, 4
   %cmp1.i.i = icmp ult i64 %div7.i.i, %conv.i
@@ -1014,29 +1014,29 @@ if.then.i.i:                                      ; preds = %lor.rhs.i.i, %entry
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator20visitFunctionHeadersEv.exit: ; preds = %lor.rhs.i.i
   %mul.i.i = shl nuw nsw i64 %conv.i, 4
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %mul.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 %mul.i.i
   store ptr %add.ptr.i.i, ptr %buf.i, align 8
   %6 = load ptr, ptr %visitor, align 8
   %functionHeaders.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %6, i64 0, i32 1
-  store ptr %2, ptr %functionHeaders.i, align 8
+  store i64 %and.i.i.i, ptr %functionHeaders.i, align 8
   %ref.tmp.sroa.2.0.functionHeaders.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %6, i64 0, i32 1, i32 0, i32 1
   store i64 %conv.i, ptr %ref.tmp.sroa.2.0.functionHeaders.sroa_idx.i, align 8
   %7 = load ptr, ptr %buf.i, align 8
   %8 = ptrtoint ptr %7 to i64
   %sub.i.i.i16 = add i64 %8, 3
   %and.i.i.i17 = and i64 %sub.i.i.i16, -4
-  %9 = inttoptr i64 %and.i.i.i17 to ptr
-  store ptr %9, ptr %buf.i, align 8
-  %10 = load ptr, ptr %h.i, align 8
-  %stringKindCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %10, i64 0, i32 6
-  %11 = load i32, ptr %stringKindCount.i, align 1
-  %conv.i19 = zext i32 %11 to i64
-  %12 = load ptr, ptr %end.i, align 8
-  %cmp.i.i21 = icmp ult ptr %12, %9
+  store i64 %and.i.i.i17, ptr %buf.i, align 8
+  %9 = load ptr, ptr %h.i, align 8
+  %stringKindCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %9, i64 0, i32 6
+  %10 = load i32, ptr %stringKindCount.i, align 1
+  %conv.i19 = zext i32 %10 to i64
+  %11 = load ptr, ptr %end.i, align 8
+  %12 = inttoptr i64 %and.i.i.i17 to ptr
+  %cmp.i.i21 = icmp ult ptr %11, %12
   br i1 %cmp.i.i21, label %if.then.i.i29, label %lor.rhs.i.i22
 
 lor.rhs.i.i22:                                    ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator20visitFunctionHeadersEv.exit
-  %sub.ptr.lhs.cast.i.i23 = ptrtoint ptr %12 to i64
+  %sub.ptr.lhs.cast.i.i23 = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i24 = sub i64 %sub.ptr.lhs.cast.i.i23, %and.i.i.i17
   %div7.i.i25 = lshr i64 %sub.ptr.sub.i.i24, 2
   %cmp1.i.i26 = icmp ult i64 %div7.i.i25, %conv.i19
@@ -1048,29 +1048,29 @@ if.then.i.i29:                                    ; preds = %lor.rhs.i.i22, %_ZZ
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitStringKindsEv.exit: ; preds = %lor.rhs.i.i22
   %mul.i.i27 = shl nuw nsw i64 %conv.i19, 2
-  %add.ptr.i.i28 = getelementptr inbounds i8, ptr %9, i64 %mul.i.i27
+  %add.ptr.i.i28 = getelementptr inbounds i8, ptr %12, i64 %mul.i.i27
   store ptr %add.ptr.i.i28, ptr %buf.i, align 8
   %13 = load ptr, ptr %visitor, align 8
   %stringKinds.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %13, i64 0, i32 3
-  store ptr %9, ptr %stringKinds.i, align 8
+  store i64 %and.i.i.i17, ptr %stringKinds.i, align 8
   %ref.tmp.sroa.2.0.stringKinds.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %13, i64 0, i32 3, i32 0, i32 1
   store i64 %conv.i19, ptr %ref.tmp.sroa.2.0.stringKinds.sroa_idx.i, align 8
   %14 = load ptr, ptr %buf.i, align 8
   %15 = ptrtoint ptr %14 to i64
   %sub.i.i.i31 = add i64 %15, 3
   %and.i.i.i32 = and i64 %sub.i.i.i31, -4
-  %16 = inttoptr i64 %and.i.i.i32 to ptr
-  store ptr %16, ptr %buf.i, align 8
-  %17 = load ptr, ptr %h.i, align 8
-  %identifierCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %17, i64 0, i32 7
-  %18 = load i32, ptr %identifierCount.i, align 1
-  %conv.i34 = zext i32 %18 to i64
-  %19 = load ptr, ptr %end.i, align 8
-  %cmp.i.i36 = icmp ult ptr %19, %16
+  store i64 %and.i.i.i32, ptr %buf.i, align 8
+  %16 = load ptr, ptr %h.i, align 8
+  %identifierCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %16, i64 0, i32 7
+  %17 = load i32, ptr %identifierCount.i, align 1
+  %conv.i34 = zext i32 %17 to i64
+  %18 = load ptr, ptr %end.i, align 8
+  %19 = inttoptr i64 %and.i.i.i32 to ptr
+  %cmp.i.i36 = icmp ult ptr %18, %19
   br i1 %cmp.i.i36, label %if.then.i.i44, label %lor.rhs.i.i37
 
 lor.rhs.i.i37:                                    ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitStringKindsEv.exit
-  %sub.ptr.lhs.cast.i.i38 = ptrtoint ptr %19 to i64
+  %sub.ptr.lhs.cast.i.i38 = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i39 = sub i64 %sub.ptr.lhs.cast.i.i38, %and.i.i.i32
   %div7.i.i40 = lshr i64 %sub.ptr.sub.i.i39, 2
   %cmp1.i.i41 = icmp ult i64 %div7.i.i40, %conv.i34
@@ -1082,29 +1082,29 @@ if.then.i.i44:                                    ; preds = %lor.rhs.i.i37, %_ZZ
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator21visitIdentifierHashesEv.exit: ; preds = %lor.rhs.i.i37
   %mul.i.i42 = shl nuw nsw i64 %conv.i34, 2
-  %add.ptr.i.i43 = getelementptr inbounds i8, ptr %16, i64 %mul.i.i42
+  %add.ptr.i.i43 = getelementptr inbounds i8, ptr %19, i64 %mul.i.i42
   store ptr %add.ptr.i.i43, ptr %buf.i, align 8
   %20 = load ptr, ptr %visitor, align 8
   %identifierHashes.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %20, i64 0, i32 4
-  store ptr %16, ptr %identifierHashes.i, align 8
+  store i64 %and.i.i.i32, ptr %identifierHashes.i, align 8
   %ref.tmp.sroa.2.0.identifierHashes.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %20, i64 0, i32 4, i32 0, i32 1
   store i64 %conv.i34, ptr %ref.tmp.sroa.2.0.identifierHashes.sroa_idx.i, align 8
   %21 = load ptr, ptr %buf.i, align 8
   %22 = ptrtoint ptr %21 to i64
   %sub.i.i.i46 = add i64 %22, 3
   %and.i.i.i47 = and i64 %sub.i.i.i46, -4
-  %23 = inttoptr i64 %and.i.i.i47 to ptr
-  store ptr %23, ptr %buf.i, align 8
-  %24 = load ptr, ptr %h.i, align 8
-  %stringCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %24, i64 0, i32 8
-  %25 = load i32, ptr %stringCount.i, align 1
-  %conv.i49 = zext i32 %25 to i64
-  %26 = load ptr, ptr %end.i, align 8
-  %cmp.i.i51 = icmp ult ptr %26, %23
+  store i64 %and.i.i.i47, ptr %buf.i, align 8
+  %23 = load ptr, ptr %h.i, align 8
+  %stringCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %23, i64 0, i32 8
+  %24 = load i32, ptr %stringCount.i, align 1
+  %conv.i49 = zext i32 %24 to i64
+  %25 = load ptr, ptr %end.i, align 8
+  %26 = inttoptr i64 %and.i.i.i47 to ptr
+  %cmp.i.i51 = icmp ult ptr %25, %26
   br i1 %cmp.i.i51, label %if.then.i.i59, label %lor.rhs.i.i52
 
 lor.rhs.i.i52:                                    ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator21visitIdentifierHashesEv.exit
-  %sub.ptr.lhs.cast.i.i53 = ptrtoint ptr %26 to i64
+  %sub.ptr.lhs.cast.i.i53 = ptrtoint ptr %25 to i64
   %sub.ptr.sub.i.i54 = sub i64 %sub.ptr.lhs.cast.i.i53, %and.i.i.i47
   %div7.i.i55 = lshr i64 %sub.ptr.sub.i.i54, 2
   %cmp1.i.i56 = icmp ult i64 %div7.i.i55, %conv.i49
@@ -1116,29 +1116,29 @@ if.then.i.i59:                                    ; preds = %lor.rhs.i.i52, %_ZZ
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator21visitSmallStringTableEv.exit: ; preds = %lor.rhs.i.i52
   %mul.i.i57 = shl nuw nsw i64 %conv.i49, 2
-  %add.ptr.i.i58 = getelementptr inbounds i8, ptr %23, i64 %mul.i.i57
+  %add.ptr.i.i58 = getelementptr inbounds i8, ptr %26, i64 %mul.i.i57
   store ptr %add.ptr.i.i58, ptr %buf.i, align 8
   %27 = load ptr, ptr %visitor, align 8
   %stringTableEntries.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %27, i64 0, i32 2
-  store ptr %23, ptr %stringTableEntries.i, align 8
+  store i64 %and.i.i.i47, ptr %stringTableEntries.i, align 8
   %ref.tmp.sroa.2.0.stringTableEntries.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %27, i64 0, i32 2, i32 0, i32 1
   store i64 %conv.i49, ptr %ref.tmp.sroa.2.0.stringTableEntries.sroa_idx.i, align 8
   %28 = load ptr, ptr %buf.i, align 8
   %29 = ptrtoint ptr %28 to i64
   %sub.i.i.i61 = add i64 %29, 3
   %and.i.i.i62 = and i64 %sub.i.i.i61, -4
-  %30 = inttoptr i64 %and.i.i.i62 to ptr
-  store ptr %30, ptr %buf.i, align 8
-  %31 = load ptr, ptr %h.i, align 8
-  %overflowStringCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %31, i64 0, i32 9
-  %32 = load i32, ptr %overflowStringCount.i, align 1
-  %conv.i64 = zext i32 %32 to i64
-  %33 = load ptr, ptr %end.i, align 8
-  %cmp.i.i66 = icmp ult ptr %33, %30
+  store i64 %and.i.i.i62, ptr %buf.i, align 8
+  %30 = load ptr, ptr %h.i, align 8
+  %overflowStringCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %30, i64 0, i32 9
+  %31 = load i32, ptr %overflowStringCount.i, align 1
+  %conv.i64 = zext i32 %31 to i64
+  %32 = load ptr, ptr %end.i, align 8
+  %33 = inttoptr i64 %and.i.i.i62 to ptr
+  %cmp.i.i66 = icmp ult ptr %32, %33
   br i1 %cmp.i.i66, label %if.then.i.i74, label %lor.rhs.i.i67
 
 lor.rhs.i.i67:                                    ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator21visitSmallStringTableEv.exit
-  %sub.ptr.lhs.cast.i.i68 = ptrtoint ptr %33 to i64
+  %sub.ptr.lhs.cast.i.i68 = ptrtoint ptr %32 to i64
   %sub.ptr.sub.i.i69 = sub i64 %sub.ptr.lhs.cast.i.i68, %and.i.i.i62
   %div7.i.i70 = lshr i64 %sub.ptr.sub.i.i69, 3
   %cmp1.i.i71 = icmp ult i64 %div7.i.i70, %conv.i64
@@ -1150,26 +1150,26 @@ if.then.i.i74:                                    ; preds = %lor.rhs.i.i67, %_ZZ
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator24visitOverflowStringTableEv.exit: ; preds = %lor.rhs.i.i67
   %mul.i.i72 = shl nuw nsw i64 %conv.i64, 3
-  %add.ptr.i.i73 = getelementptr inbounds i8, ptr %30, i64 %mul.i.i72
+  %add.ptr.i.i73 = getelementptr inbounds i8, ptr %33, i64 %mul.i.i72
   store ptr %add.ptr.i.i73, ptr %buf.i, align 8
   %34 = load ptr, ptr %visitor, align 8
   %stringTableOverflowEntries.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %34, i64 0, i32 5
-  store ptr %30, ptr %stringTableOverflowEntries.i, align 8
+  store i64 %and.i.i.i62, ptr %stringTableOverflowEntries.i, align 8
   %ref.tmp.sroa.2.0.stringTableOverflowEntries.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %34, i64 0, i32 5, i32 0, i32 1
   store i64 %conv.i64, ptr %ref.tmp.sroa.2.0.stringTableOverflowEntries.sroa_idx.i, align 8
   %35 = load ptr, ptr %buf.i, align 8
   %36 = ptrtoint ptr %35 to i64
   %sub.i.i.i76 = add i64 %36, 3
   %and.i.i.i77 = and i64 %sub.i.i.i76, -4
-  %37 = inttoptr i64 %and.i.i.i77 to ptr
-  store ptr %37, ptr %buf.i, align 8
-  %38 = load ptr, ptr %h.i, align 8
-  %stringStorageSize.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %38, i64 0, i32 10
-  %39 = load i32, ptr %stringStorageSize.i, align 1
-  %conv.i79 = zext i32 %39 to i64
-  %40 = load ptr, ptr %end.i, align 8
-  %cmp.i.i81 = icmp ult ptr %40, %37
-  %sub.ptr.lhs.cast.i.i82 = ptrtoint ptr %40 to i64
+  store i64 %and.i.i.i77, ptr %buf.i, align 8
+  %37 = load ptr, ptr %h.i, align 8
+  %stringStorageSize.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %37, i64 0, i32 10
+  %38 = load i32, ptr %stringStorageSize.i, align 1
+  %conv.i79 = zext i32 %38 to i64
+  %39 = load ptr, ptr %end.i, align 8
+  %40 = inttoptr i64 %and.i.i.i77 to ptr
+  %cmp.i.i81 = icmp ult ptr %39, %40
+  %sub.ptr.lhs.cast.i.i82 = ptrtoint ptr %39 to i64
   %sub.ptr.sub.i.i83 = sub i64 %sub.ptr.lhs.cast.i.i82, %and.i.i.i77
   %cmp1.i.i84 = icmp ult i64 %sub.ptr.sub.i.i83, %conv.i79
   %or.cond.i.i = or i1 %cmp.i.i81, %cmp1.i.i84
@@ -1180,26 +1180,26 @@ if.then.i.i86:                                    ; preds = %_ZZN6hermes3hbc18By
   unreachable
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator18visitStringStorageEv.exit: ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator24visitOverflowStringTableEv.exit
-  %add.ptr.i.i85 = getelementptr inbounds i8, ptr %37, i64 %conv.i79
+  %add.ptr.i.i85 = getelementptr inbounds i8, ptr %40, i64 %conv.i79
   store ptr %add.ptr.i.i85, ptr %buf.i, align 8
   %41 = load ptr, ptr %visitor, align 8
   %stringStorage.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %41, i64 0, i32 6
-  store ptr %37, ptr %stringStorage.i, align 8
+  store i64 %and.i.i.i77, ptr %stringStorage.i, align 8
   %ref.tmp.sroa.2.0.stringStorage.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %41, i64 0, i32 6, i32 0, i32 1
   store i64 %conv.i79, ptr %ref.tmp.sroa.2.0.stringStorage.sroa_idx.i, align 8
   %42 = load ptr, ptr %buf.i, align 8
   %43 = ptrtoint ptr %42 to i64
   %sub.i.i.i88 = add i64 %43, 3
   %and.i.i.i89 = and i64 %sub.i.i.i88, -4
-  %44 = inttoptr i64 %and.i.i.i89 to ptr
-  store ptr %44, ptr %buf.i, align 8
-  %45 = load ptr, ptr %h.i, align 8
-  %arrayBufferSize.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %45, i64 0, i32 15
-  %46 = load i32, ptr %arrayBufferSize.i, align 1
-  %conv.i91 = zext i32 %46 to i64
-  %47 = load ptr, ptr %end.i, align 8
-  %cmp.i.i93 = icmp ult ptr %47, %44
-  %sub.ptr.lhs.cast.i.i94 = ptrtoint ptr %47 to i64
+  store i64 %and.i.i.i89, ptr %buf.i, align 8
+  %44 = load ptr, ptr %h.i, align 8
+  %arrayBufferSize.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %44, i64 0, i32 15
+  %45 = load i32, ptr %arrayBufferSize.i, align 1
+  %conv.i91 = zext i32 %45 to i64
+  %46 = load ptr, ptr %end.i, align 8
+  %47 = inttoptr i64 %and.i.i.i89 to ptr
+  %cmp.i.i93 = icmp ult ptr %46, %47
+  %sub.ptr.lhs.cast.i.i94 = ptrtoint ptr %46 to i64
   %sub.ptr.sub.i.i95 = sub i64 %sub.ptr.lhs.cast.i.i94, %and.i.i.i89
   %cmp1.i.i96 = icmp ult i64 %sub.ptr.sub.i.i95, %conv.i91
   %or.cond.i.i97 = or i1 %cmp.i.i93, %cmp1.i.i96
@@ -1210,26 +1210,26 @@ if.then.i.i99:                                    ; preds = %_ZZN6hermes3hbc18By
   unreachable
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitArrayBufferEv.exit: ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator18visitStringStorageEv.exit
-  %add.ptr.i.i98 = getelementptr inbounds i8, ptr %44, i64 %conv.i91
+  %add.ptr.i.i98 = getelementptr inbounds i8, ptr %47, i64 %conv.i91
   store ptr %add.ptr.i.i98, ptr %buf.i, align 8
   %48 = load ptr, ptr %visitor, align 8
   %arrayBuffer.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %48, i64 0, i32 7
-  store ptr %44, ptr %arrayBuffer.i, align 8
+  store i64 %and.i.i.i89, ptr %arrayBuffer.i, align 8
   %ref.tmp.sroa.2.0.arrayBuffer.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %48, i64 0, i32 7, i32 0, i32 1
   store i64 %conv.i91, ptr %ref.tmp.sroa.2.0.arrayBuffer.sroa_idx.i, align 8
   %49 = load ptr, ptr %buf.i, align 8
   %50 = ptrtoint ptr %49 to i64
   %sub.i.i.i101 = add i64 %50, 3
   %and.i.i.i102 = and i64 %sub.i.i.i101, -4
-  %51 = inttoptr i64 %and.i.i.i102 to ptr
-  store ptr %51, ptr %buf.i, align 8
-  %52 = load ptr, ptr %h.i, align 8
-  %objKeyBufferSize.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %52, i64 0, i32 16
-  %53 = load i32, ptr %objKeyBufferSize.i, align 1
-  %conv.i104 = zext i32 %53 to i64
-  %54 = load ptr, ptr %end.i, align 8
-  %cmp.i.i106 = icmp ult ptr %54, %51
-  %sub.ptr.lhs.cast.i.i107 = ptrtoint ptr %54 to i64
+  store i64 %and.i.i.i102, ptr %buf.i, align 8
+  %51 = load ptr, ptr %h.i, align 8
+  %objKeyBufferSize.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %51, i64 0, i32 16
+  %52 = load i32, ptr %objKeyBufferSize.i, align 1
+  %conv.i104 = zext i32 %52 to i64
+  %53 = load ptr, ptr %end.i, align 8
+  %54 = inttoptr i64 %and.i.i.i102 to ptr
+  %cmp.i.i106 = icmp ult ptr %53, %54
+  %sub.ptr.lhs.cast.i.i107 = ptrtoint ptr %53 to i64
   %sub.ptr.sub.i.i108 = sub i64 %sub.ptr.lhs.cast.i.i107, %and.i.i.i102
   %cmp1.i.i109 = icmp ult i64 %sub.ptr.sub.i.i108, %conv.i104
   %or.cond.i.i110 = or i1 %cmp.i.i106, %cmp1.i.i109
@@ -1240,26 +1240,26 @@ if.then.i.i112:                                   ; preds = %_ZZN6hermes3hbc18By
   unreachable
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator20visitObjectKeyBufferEv.exit: ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitArrayBufferEv.exit
-  %add.ptr.i.i111 = getelementptr inbounds i8, ptr %51, i64 %conv.i104
+  %add.ptr.i.i111 = getelementptr inbounds i8, ptr %54, i64 %conv.i104
   store ptr %add.ptr.i.i111, ptr %buf.i, align 8
   %55 = load ptr, ptr %visitor, align 8
   %objKeyBuffer.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %55, i64 0, i32 8
-  store ptr %51, ptr %objKeyBuffer.i, align 8
+  store i64 %and.i.i.i102, ptr %objKeyBuffer.i, align 8
   %ref.tmp.sroa.2.0.objKeyBuffer.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %55, i64 0, i32 8, i32 0, i32 1
   store i64 %conv.i104, ptr %ref.tmp.sroa.2.0.objKeyBuffer.sroa_idx.i, align 8
   %56 = load ptr, ptr %buf.i, align 8
   %57 = ptrtoint ptr %56 to i64
   %sub.i.i.i114 = add i64 %57, 3
   %and.i.i.i115 = and i64 %sub.i.i.i114, -4
-  %58 = inttoptr i64 %and.i.i.i115 to ptr
-  store ptr %58, ptr %buf.i, align 8
-  %59 = load ptr, ptr %h.i, align 8
-  %objValueBufferSize.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %59, i64 0, i32 17
-  %60 = load i32, ptr %objValueBufferSize.i, align 1
-  %conv.i117 = zext i32 %60 to i64
-  %61 = load ptr, ptr %end.i, align 8
-  %cmp.i.i119 = icmp ult ptr %61, %58
-  %sub.ptr.lhs.cast.i.i120 = ptrtoint ptr %61 to i64
+  store i64 %and.i.i.i115, ptr %buf.i, align 8
+  %58 = load ptr, ptr %h.i, align 8
+  %objValueBufferSize.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %58, i64 0, i32 17
+  %59 = load i32, ptr %objValueBufferSize.i, align 1
+  %conv.i117 = zext i32 %59 to i64
+  %60 = load ptr, ptr %end.i, align 8
+  %61 = inttoptr i64 %and.i.i.i115 to ptr
+  %cmp.i.i119 = icmp ult ptr %60, %61
+  %sub.ptr.lhs.cast.i.i120 = ptrtoint ptr %60 to i64
   %sub.ptr.sub.i.i121 = sub i64 %sub.ptr.lhs.cast.i.i120, %and.i.i.i115
   %cmp1.i.i122 = icmp ult i64 %sub.ptr.sub.i.i121, %conv.i117
   %or.cond.i.i123 = or i1 %cmp.i.i119, %cmp1.i.i122
@@ -1270,29 +1270,29 @@ if.then.i.i125:                                   ; preds = %_ZZN6hermes3hbc18By
   unreachable
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator22visitObjectValueBufferEv.exit: ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator20visitObjectKeyBufferEv.exit
-  %add.ptr.i.i124 = getelementptr inbounds i8, ptr %58, i64 %conv.i117
+  %add.ptr.i.i124 = getelementptr inbounds i8, ptr %61, i64 %conv.i117
   store ptr %add.ptr.i.i124, ptr %buf.i, align 8
   %62 = load ptr, ptr %visitor, align 8
   %objValueBuffer.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %62, i64 0, i32 9
-  store ptr %58, ptr %objValueBuffer.i, align 8
+  store i64 %and.i.i.i115, ptr %objValueBuffer.i, align 8
   %ref.tmp.sroa.2.0.objValueBuffer.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %62, i64 0, i32 9, i32 0, i32 1
   store i64 %conv.i117, ptr %ref.tmp.sroa.2.0.objValueBuffer.sroa_idx.i, align 8
   %63 = load ptr, ptr %buf.i, align 8
   %64 = ptrtoint ptr %63 to i64
   %sub.i.i.i127 = add i64 %64, 3
   %and.i.i.i128 = and i64 %sub.i.i.i127, -4
-  %65 = inttoptr i64 %and.i.i.i128 to ptr
-  store ptr %65, ptr %buf.i, align 8
-  %66 = load ptr, ptr %h.i, align 8
-  %bigIntCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %66, i64 0, i32 11
-  %67 = load i32, ptr %bigIntCount.i, align 1
-  %conv.i130 = zext i32 %67 to i64
-  %68 = load ptr, ptr %end.i, align 8
-  %cmp.i.i132 = icmp ult ptr %68, %65
+  store i64 %and.i.i.i128, ptr %buf.i, align 8
+  %65 = load ptr, ptr %h.i, align 8
+  %bigIntCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %65, i64 0, i32 11
+  %66 = load i32, ptr %bigIntCount.i, align 1
+  %conv.i130 = zext i32 %66 to i64
+  %67 = load ptr, ptr %end.i, align 8
+  %68 = inttoptr i64 %and.i.i.i128 to ptr
+  %cmp.i.i132 = icmp ult ptr %67, %68
   br i1 %cmp.i.i132, label %if.then.i.i140, label %lor.rhs.i.i133
 
 lor.rhs.i.i133:                                   ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator22visitObjectValueBufferEv.exit
-  %sub.ptr.lhs.cast.i.i134 = ptrtoint ptr %68 to i64
+  %sub.ptr.lhs.cast.i.i134 = ptrtoint ptr %67 to i64
   %sub.ptr.sub.i.i135 = sub i64 %sub.ptr.lhs.cast.i.i134, %and.i.i.i128
   %div7.i.i136 = lshr i64 %sub.ptr.sub.i.i135, 3
   %cmp1.i.i137 = icmp ult i64 %div7.i.i136, %conv.i130
@@ -1304,26 +1304,26 @@ if.then.i.i140:                                   ; preds = %lor.rhs.i.i133, %_Z
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitBigIntTableEv.exit: ; preds = %lor.rhs.i.i133
   %mul.i.i138 = shl nuw nsw i64 %conv.i130, 3
-  %add.ptr.i.i139 = getelementptr inbounds i8, ptr %65, i64 %mul.i.i138
+  %add.ptr.i.i139 = getelementptr inbounds i8, ptr %68, i64 %mul.i.i138
   store ptr %add.ptr.i.i139, ptr %buf.i, align 8
   %69 = load ptr, ptr %visitor, align 8
   %bigIntTable.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %69, i64 0, i32 10
-  store ptr %65, ptr %bigIntTable.i, align 8
+  store i64 %and.i.i.i128, ptr %bigIntTable.i, align 8
   %ref.tmp.sroa.2.0.bigIntTable.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %69, i64 0, i32 10, i32 0, i32 1
   store i64 %conv.i130, ptr %ref.tmp.sroa.2.0.bigIntTable.sroa_idx.i, align 8
   %70 = load ptr, ptr %buf.i, align 8
   %71 = ptrtoint ptr %70 to i64
   %sub.i.i.i142 = add i64 %71, 3
   %and.i.i.i143 = and i64 %sub.i.i.i142, -4
-  %72 = inttoptr i64 %and.i.i.i143 to ptr
-  store ptr %72, ptr %buf.i, align 8
-  %73 = load ptr, ptr %h.i, align 8
-  %bigIntStorageSize.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %73, i64 0, i32 12
-  %74 = load i32, ptr %bigIntStorageSize.i, align 1
-  %conv.i145 = zext i32 %74 to i64
-  %75 = load ptr, ptr %end.i, align 8
-  %cmp.i.i147 = icmp ult ptr %75, %72
-  %sub.ptr.lhs.cast.i.i148 = ptrtoint ptr %75 to i64
+  store i64 %and.i.i.i143, ptr %buf.i, align 8
+  %72 = load ptr, ptr %h.i, align 8
+  %bigIntStorageSize.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %72, i64 0, i32 12
+  %73 = load i32, ptr %bigIntStorageSize.i, align 1
+  %conv.i145 = zext i32 %73 to i64
+  %74 = load ptr, ptr %end.i, align 8
+  %75 = inttoptr i64 %and.i.i.i143 to ptr
+  %cmp.i.i147 = icmp ult ptr %74, %75
+  %sub.ptr.lhs.cast.i.i148 = ptrtoint ptr %74 to i64
   %sub.ptr.sub.i.i149 = sub i64 %sub.ptr.lhs.cast.i.i148, %and.i.i.i143
   %cmp1.i.i150 = icmp ult i64 %sub.ptr.sub.i.i149, %conv.i145
   %or.cond.i.i151 = or i1 %cmp.i.i147, %cmp1.i.i150
@@ -1334,29 +1334,29 @@ if.then.i.i153:                                   ; preds = %_ZZN6hermes3hbc18By
   unreachable
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator18visitBigIntStorageEv.exit: ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitBigIntTableEv.exit
-  %add.ptr.i.i152 = getelementptr inbounds i8, ptr %72, i64 %conv.i145
+  %add.ptr.i.i152 = getelementptr inbounds i8, ptr %75, i64 %conv.i145
   store ptr %add.ptr.i.i152, ptr %buf.i, align 8
   %76 = load ptr, ptr %visitor, align 8
   %bigIntStorage.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %76, i64 0, i32 11
-  store ptr %72, ptr %bigIntStorage.i, align 8
+  store i64 %and.i.i.i143, ptr %bigIntStorage.i, align 8
   %ref.tmp.sroa.2.0.bigIntStorage.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %76, i64 0, i32 11, i32 0, i32 1
   store i64 %conv.i145, ptr %ref.tmp.sroa.2.0.bigIntStorage.sroa_idx.i, align 8
   %77 = load ptr, ptr %buf.i, align 8
   %78 = ptrtoint ptr %77 to i64
   %sub.i.i.i155 = add i64 %78, 3
   %and.i.i.i156 = and i64 %sub.i.i.i155, -4
-  %79 = inttoptr i64 %and.i.i.i156 to ptr
-  store ptr %79, ptr %buf.i, align 8
-  %80 = load ptr, ptr %h.i, align 8
-  %regExpCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %80, i64 0, i32 13
-  %81 = load i32, ptr %regExpCount.i, align 1
-  %conv.i158 = zext i32 %81 to i64
-  %82 = load ptr, ptr %end.i, align 8
-  %cmp.i.i160 = icmp ult ptr %82, %79
+  store i64 %and.i.i.i156, ptr %buf.i, align 8
+  %79 = load ptr, ptr %h.i, align 8
+  %regExpCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %79, i64 0, i32 13
+  %80 = load i32, ptr %regExpCount.i, align 1
+  %conv.i158 = zext i32 %80 to i64
+  %81 = load ptr, ptr %end.i, align 8
+  %82 = inttoptr i64 %and.i.i.i156 to ptr
+  %cmp.i.i160 = icmp ult ptr %81, %82
   br i1 %cmp.i.i160, label %if.then.i.i168, label %lor.rhs.i.i161
 
 lor.rhs.i.i161:                                   ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator18visitBigIntStorageEv.exit
-  %sub.ptr.lhs.cast.i.i162 = ptrtoint ptr %82 to i64
+  %sub.ptr.lhs.cast.i.i162 = ptrtoint ptr %81 to i64
   %sub.ptr.sub.i.i163 = sub i64 %sub.ptr.lhs.cast.i.i162, %and.i.i.i156
   %div7.i.i164 = lshr i64 %sub.ptr.sub.i.i163, 3
   %cmp1.i.i165 = icmp ult i64 %div7.i.i164, %conv.i158
@@ -1368,26 +1368,26 @@ if.then.i.i168:                                   ; preds = %lor.rhs.i.i161, %_Z
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitRegExpTableEv.exit: ; preds = %lor.rhs.i.i161
   %mul.i.i166 = shl nuw nsw i64 %conv.i158, 3
-  %add.ptr.i.i167 = getelementptr inbounds i8, ptr %79, i64 %mul.i.i166
+  %add.ptr.i.i167 = getelementptr inbounds i8, ptr %82, i64 %mul.i.i166
   store ptr %add.ptr.i.i167, ptr %buf.i, align 8
   %83 = load ptr, ptr %visitor, align 8
   %regExpTable.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %83, i64 0, i32 12
-  store ptr %79, ptr %regExpTable.i, align 8
+  store i64 %and.i.i.i156, ptr %regExpTable.i, align 8
   %ref.tmp.sroa.2.0.regExpTable.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %83, i64 0, i32 12, i32 0, i32 1
   store i64 %conv.i158, ptr %ref.tmp.sroa.2.0.regExpTable.sroa_idx.i, align 8
   %84 = load ptr, ptr %buf.i, align 8
   %85 = ptrtoint ptr %84 to i64
   %sub.i.i.i170 = add i64 %85, 3
   %and.i.i.i171 = and i64 %sub.i.i.i170, -4
-  %86 = inttoptr i64 %and.i.i.i171 to ptr
-  store ptr %86, ptr %buf.i, align 8
-  %87 = load ptr, ptr %h.i, align 8
-  %regExpStorageSize.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %87, i64 0, i32 14
-  %88 = load i32, ptr %regExpStorageSize.i, align 1
-  %conv.i173 = zext i32 %88 to i64
-  %89 = load ptr, ptr %end.i, align 8
-  %cmp.i.i175 = icmp ult ptr %89, %86
-  %sub.ptr.lhs.cast.i.i176 = ptrtoint ptr %89 to i64
+  store i64 %and.i.i.i171, ptr %buf.i, align 8
+  %86 = load ptr, ptr %h.i, align 8
+  %regExpStorageSize.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %86, i64 0, i32 14
+  %87 = load i32, ptr %regExpStorageSize.i, align 1
+  %conv.i173 = zext i32 %87 to i64
+  %88 = load ptr, ptr %end.i, align 8
+  %89 = inttoptr i64 %and.i.i.i171 to ptr
+  %cmp.i.i175 = icmp ult ptr %88, %89
+  %sub.ptr.lhs.cast.i.i176 = ptrtoint ptr %88 to i64
   %sub.ptr.sub.i.i177 = sub i64 %sub.ptr.lhs.cast.i.i176, %and.i.i.i171
   %cmp1.i.i178 = icmp ult i64 %sub.ptr.sub.i.i177, %conv.i173
   %or.cond.i.i179 = or i1 %cmp.i.i175, %cmp1.i.i178
@@ -1398,29 +1398,29 @@ if.then.i.i181:                                   ; preds = %_ZZN6hermes3hbc18By
   unreachable
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator18visitRegExpStorageEv.exit: ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitRegExpTableEv.exit
-  %add.ptr.i.i180 = getelementptr inbounds i8, ptr %86, i64 %conv.i173
+  %add.ptr.i.i180 = getelementptr inbounds i8, ptr %89, i64 %conv.i173
   store ptr %add.ptr.i.i180, ptr %buf.i, align 8
   %90 = load ptr, ptr %visitor, align 8
   %regExpStorage.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %90, i64 0, i32 13
-  store ptr %86, ptr %regExpStorage.i, align 8
+  store i64 %and.i.i.i171, ptr %regExpStorage.i, align 8
   %ref.tmp.sroa.2.0.regExpStorage.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %90, i64 0, i32 13, i32 0, i32 1
   store i64 %conv.i173, ptr %ref.tmp.sroa.2.0.regExpStorage.sroa_idx.i, align 8
   %91 = load ptr, ptr %buf.i, align 8
   %92 = ptrtoint ptr %91 to i64
   %sub.i.i.i183 = add i64 %92, 3
   %and.i.i.i184 = and i64 %sub.i.i.i183, -4
-  %93 = inttoptr i64 %and.i.i.i184 to ptr
-  store ptr %93, ptr %buf.i, align 8
-  %94 = load ptr, ptr %h.i, align 8
-  %options.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %94, i64 0, i32 22
+  store i64 %and.i.i.i184, ptr %buf.i, align 8
+  %93 = load ptr, ptr %h.i, align 8
+  %options.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %93, i64 0, i32 22
   %bf.load.i = load i8, ptr %options.i, align 1
-  %95 = and i8 %bf.load.i, 2
-  %bf.cast.not.i = icmp eq i8 %95, 0
-  %cjsModuleCount7.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %94, i64 0, i32 19
+  %94 = and i8 %bf.load.i, 2
+  %bf.cast.not.i = icmp eq i8 %94, 0
+  %95 = inttoptr i64 %and.i.i.i184 to ptr
+  %cjsModuleCount7.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %93, i64 0, i32 19
   %96 = load i32, ptr %cjsModuleCount7.i, align 1
   %conv8.i = zext i32 %96 to i64
   %97 = load ptr, ptr %end.i, align 8
-  %cmp.i1.i = icmp ult ptr %97, %93
+  %cmp.i1.i = icmp ult ptr %97, %95
   br i1 %bf.cast.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator18visitRegExpStorageEv.exit
@@ -1439,11 +1439,11 @@ if.then.i.i193:                                   ; preds = %lor.rhs.i.i186, %if
 
 _ZN6hermes3hbc12_GLOBAL__N_112castArrayRefISt4pairIjjEEEN4llvh15MutableArrayRefIT_EERPhmPKh.exit.i: ; preds = %lor.rhs.i.i186
   %mul.i.i191 = shl nuw nsw i64 %conv8.i, 3
-  %add.ptr.i.i192 = getelementptr inbounds i8, ptr %93, i64 %mul.i.i191
+  %add.ptr.i.i192 = getelementptr inbounds i8, ptr %95, i64 %mul.i.i191
   store ptr %add.ptr.i.i192, ptr %buf.i, align 8
   %98 = load ptr, ptr %visitor, align 8
   %cjsModuleTableStatic.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %98, i64 0, i32 15
-  store ptr %93, ptr %cjsModuleTableStatic.i, align 8
+  store i64 %and.i.i.i184, ptr %cjsModuleTableStatic.i, align 8
   %ref.tmp.sroa.2.0.cjsModuleTableStatic.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %98, i64 0, i32 15, i32 0, i32 1
   br label %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
 
@@ -1463,11 +1463,11 @@ if.then.i12.i:                                    ; preds = %lor.rhs.i2.i, %if.e
 
 _ZN6hermes3hbc12_GLOBAL__N_112castArrayRefISt4pairIjjEEEN4llvh15MutableArrayRefIT_EERPhmPKh.exit13.i: ; preds = %lor.rhs.i2.i
   %mul.i8.i = shl nuw nsw i64 %conv8.i, 3
-  %add.ptr.i9.i = getelementptr inbounds i8, ptr %93, i64 %mul.i8.i
+  %add.ptr.i9.i = getelementptr inbounds i8, ptr %95, i64 %mul.i8.i
   store ptr %add.ptr.i9.i, ptr %buf.i, align 8
   %99 = load ptr, ptr %visitor, align 8
   %cjsModuleTable.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %99, i64 0, i32 14
-  store ptr %93, ptr %cjsModuleTable.i, align 8
+  store i64 %and.i.i.i184, ptr %cjsModuleTable.i, align 8
   %ref.tmp4.sroa.2.0.cjsModuleTable.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %99, i64 0, i32 14, i32 0, i32 1
   br label %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
 
@@ -1478,18 +1478,18 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArr
   %101 = ptrtoint ptr %100 to i64
   %sub.i.i.i195 = add i64 %101, 3
   %and.i.i.i196 = and i64 %sub.i.i.i195, -4
-  %102 = inttoptr i64 %and.i.i.i196 to ptr
-  store ptr %102, ptr %buf.i, align 8
-  %103 = load ptr, ptr %h.i, align 8
-  %functionSourceCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %103, i64 0, i32 20
-  %104 = load i32, ptr %functionSourceCount.i, align 1
-  %conv.i198 = zext i32 %104 to i64
-  %105 = load ptr, ptr %end.i, align 8
-  %cmp.i.i200 = icmp ult ptr %105, %102
+  store i64 %and.i.i.i196, ptr %buf.i, align 8
+  %102 = load ptr, ptr %h.i, align 8
+  %functionSourceCount.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %102, i64 0, i32 20
+  %103 = load i32, ptr %functionSourceCount.i, align 1
+  %conv.i198 = zext i32 %103 to i64
+  %104 = load ptr, ptr %end.i, align 8
+  %105 = inttoptr i64 %and.i.i.i196 to ptr
+  %cmp.i.i200 = icmp ult ptr %104, %105
   br i1 %cmp.i.i200, label %if.then.i.i209, label %lor.rhs.i.i201
 
 lor.rhs.i.i201:                                   ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
-  %sub.ptr.lhs.cast.i.i202 = ptrtoint ptr %105 to i64
+  %sub.ptr.lhs.cast.i.i202 = ptrtoint ptr %104 to i64
   %sub.ptr.sub.i.i203 = sub i64 %sub.ptr.lhs.cast.i.i202, %and.i.i.i196
   %div7.i.i204 = lshr i64 %sub.ptr.sub.i.i203, 3
   %cmp1.i.i205 = icmp ult i64 %div7.i.i204, %conv.i198
@@ -1501,11 +1501,11 @@ if.then.i.i209:                                   ; preds = %lor.rhs.i.i201, %_Z
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator24visitFunctionSourceTableEv.exit: ; preds = %lor.rhs.i.i201
   %mul.i.i207 = shl nuw nsw i64 %conv.i198, 3
-  %add.ptr.i.i208 = getelementptr inbounds i8, ptr %102, i64 %mul.i.i207
+  %add.ptr.i.i208 = getelementptr inbounds i8, ptr %105, i64 %mul.i.i207
   store ptr %add.ptr.i.i208, ptr %buf.i, align 8
   %106 = load ptr, ptr %visitor, align 8
   %functionSourceTable.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %106, i64 0, i32 16
-  store ptr %102, ptr %functionSourceTable.i, align 8
+  store i64 %and.i.i.i196, ptr %functionSourceTable.i, align 8
   %ref.tmp.sroa.2.0.functionSourceTable.sroa_idx.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileFields.9", ptr %106, i64 0, i32 16, i32 0, i32 1
   store i64 %conv.i198, ptr %ref.tmp.sroa.2.0.functionSourceTable.sroa_idx.i, align 8
   ret void

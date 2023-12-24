@@ -878,22 +878,20 @@ entry:
   br i1 %cmp, label %if.then, label %invoke.cont6
 
 if.then:                                          ; preds = %entry
-  %2 = inttoptr i64 %1 to ptr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %3 = inttoptr i64 %incoming_frame_size to ptr
-  store ptr %3, ptr %ref.tmp.i, align 8, !noalias !16
+  store i64 %incoming_frame_size, ptr %ref.tmp.i, align 8, !noalias !16
   %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 0, i32 1
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIlEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !16
   %arrayinit.element.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 1
-  store ptr %2, ptr %arrayinit.element.i, align 8, !noalias !16
+  store i64 %1, ptr %arrayinit.element.i, align 8, !noalias !16
   %dispatcher_.i.i2.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 1, i32 1
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIlEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i2.i, align 8, !noalias !16
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull @.str.14, i64 47, ptr nonnull %ref.tmp.i, i64 2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #27
-  %4 = extractvalue { i64, ptr } %call, 0
-  %5 = extractvalue { i64, ptr } %call, 1
-  invoke void @_ZN4absl12lts_2023080213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %4, ptr %5)
+  %2 = extractvalue { i64, ptr } %call, 0
+  %3 = extractvalue { i64, ptr } %call, 1
+  invoke void @_ZN4absl12lts_2023080213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %2, ptr %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -901,27 +899,27 @@ invoke.cont:                                      ; preds = %if.then
   br label %return
 
 lpad:                                             ; preds = %if.then
-  %6 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #27
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %4
 
 invoke.cont6:                                     ; preds = %entry
   call void %stream.coerce1(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %error, ptr %stream.coerce0)
-  %7 = load i64, ptr %error, align 8
-  %cmp.i = icmp eq i64 %7, 0
+  %5 = load i64, ptr %error, align 8
+  %cmp.i = icmp eq i64 %5, 0
   br i1 %cmp.i, label %if.end9, label %cleanup
 
 if.end9:                                          ; preds = %invoke.cont6
-  %8 = load ptr, ptr %this, align 8
-  %announced_window_11 = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %8, i64 0, i32 10
-  %9 = load i64, ptr %announced_window_11, align 8
-  %sub = sub nsw i64 %9, %incoming_frame_size
+  %6 = load ptr, ptr %this, align 8
+  %announced_window_11 = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %6, i64 0, i32 10
+  %7 = load i64, ptr %announced_window_11, align 8
+  %sub = sub nsw i64 %7, %incoming_frame_size
   store i64 %sub, ptr %announced_window_11, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont6, %if.end9
-  store i64 %7, ptr %agg.result, align 8
+  store i64 %5, ptr %agg.result, align 8
   br label %return
 
 return:                                           ; preds = %cleanup, %invoke.cont
@@ -2536,22 +2534,20 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %7 = inttoptr i64 %6 to ptr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i), !noalias !59
-  store ptr %7, ptr %ref.tmp.i.i.i.i.i, align 8, !noalias !60
+  store i64 %6, ptr %ref.tmp.i.i.i.i.i, align 8, !noalias !60
   %dispatcher_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i.i.i.i.i, i64 0, i32 1
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIlEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i.i.i.i, align 8, !noalias !60
   %arrayinit.element.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i.i.i.i.i, i64 1
-  %8 = inttoptr i64 %add.i.i.i.i to ptr
-  store ptr %8, ptr %arrayinit.element.i.i.i.i.i, align 8, !noalias !60
+  store i64 %add.i.i.i.i, ptr %arrayinit.element.i.i.i.i.i, align 8, !noalias !60
   %dispatcher_.i.i2.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i.i.i.i.i, i64 1, i32 1
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIlEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i2.i.i.i.i.i, align 8, !noalias !60
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i.i.i, ptr nonnull @.str.14, i64 47, ptr nonnull %ref.tmp.i.i.i.i.i, i64 2), !noalias !59
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i), !noalias !59
   %call4.i.i.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i) #27, !noalias !59
-  %9 = extractvalue { i64, ptr } %call4.i.i.i.i, 0
-  %10 = extractvalue { i64, ptr } %call4.i.i.i.i, 1
-  invoke void @_ZN4absl12lts_2023080213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %9, ptr %10)
+  %7 = extractvalue { i64, ptr } %call4.i.i.i.i, 0
+  %8 = extractvalue { i64, ptr } %call4.i.i.i.i, 1
+  invoke void @_ZN4absl12lts_2023080213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %7, ptr %8)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %if.then.i.i.i.i
@@ -2559,10 +2555,10 @@ invoke.cont.i.i.i.i:                              ; preds = %if.then.i.i.i.i
   br label %"_ZSt6invokeIRKZN9grpc_core6chttp217StreamFlowControl21IncomingUpdateContext8RecvDataElE3$_0JEENSt13invoke_resultIT_JDpT0_EE4typeEOS8_DpOS9_.exit"
 
 lpad.i.i.i.i:                                     ; preds = %if.then.i.i.i.i
-  %11 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i) #27
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %9
 
 if.end.i.i.i.i:                                   ; preds = %entry
   %cmp.i.i.i.i.i = icmp eq i64 %6, 0
@@ -2573,36 +2569,36 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   br i1 %cmp2.i.i.i.i.i, label %if.then3.i.i.i.i.i, label %if.end4.i.i.i.i.i
 
 if.then3.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  %12 = load ptr, ptr %0, align 8, !noalias !59
-  %announced_stream_total_over_incoming_window_.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %12, i64 0, i32 1
-  %13 = load i64, ptr %announced_stream_total_over_incoming_window_.i.i.i.i.i, align 8, !noalias !59
-  %sub.i.i.i.i.i = sub nsw i64 %13, %2
+  %10 = load ptr, ptr %0, align 8, !noalias !59
+  %announced_stream_total_over_incoming_window_.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %10, i64 0, i32 1
+  %11 = load i64, ptr %announced_stream_total_over_incoming_window_.i.i.i.i.i, align 8, !noalias !59
+  %sub.i.i.i.i.i = sub nsw i64 %11, %2
   store i64 %sub.i.i.i.i.i, ptr %announced_stream_total_over_incoming_window_.i.i.i.i.i, align 8, !noalias !59
   %.pre.i.i.i.i.i = load i64, ptr %announced_window_delta_.i.i.i.i, align 8, !noalias !59
   br label %if.end4.i.i.i.i.i
 
 if.end4.i.i.i.i.i:                                ; preds = %if.then3.i.i.i.i.i, %if.end.i.i.i.i.i
-  %14 = phi i64 [ %.pre.i.i.i.i.i, %if.then3.i.i.i.i.i ], [ %2, %if.end.i.i.i.i.i ]
-  %add.i.i.i.i.i = sub i64 %14, %6
+  %12 = phi i64 [ %.pre.i.i.i.i.i, %if.then3.i.i.i.i.i ], [ %2, %if.end.i.i.i.i.i ]
+  %add.i.i.i.i.i = sub i64 %12, %6
   store i64 %add.i.i.i.i.i, ptr %announced_window_delta_.i.i.i.i, align 8, !noalias !59
   %cmp5.i.i.i.i.i = icmp sgt i64 %add.i.i.i.i.i, 0
   br i1 %cmp5.i.i.i.i.i, label %if.then6.i.i.i.i.i, label %_ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContext26UpdateAnnouncedWindowDeltaEPll.exit.i.i.i.i
 
 if.then6.i.i.i.i.i:                               ; preds = %if.end4.i.i.i.i.i
-  %15 = load ptr, ptr %0, align 8, !noalias !59
-  %announced_stream_total_over_incoming_window_8.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %15, i64 0, i32 1
-  %16 = load i64, ptr %announced_stream_total_over_incoming_window_8.i.i.i.i.i, align 8, !noalias !59
-  %add9.i.i.i.i.i = add nsw i64 %16, %add.i.i.i.i.i
+  %13 = load ptr, ptr %0, align 8, !noalias !59
+  %announced_stream_total_over_incoming_window_8.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::chttp2::TransportFlowControl", ptr %13, i64 0, i32 1
+  %14 = load i64, ptr %announced_stream_total_over_incoming_window_8.i.i.i.i.i, align 8, !noalias !59
+  %add9.i.i.i.i.i = add nsw i64 %14, %add.i.i.i.i.i
   store i64 %add9.i.i.i.i.i, ptr %announced_stream_total_over_incoming_window_8.i.i.i.i.i, align 8, !noalias !59
   br label %_ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContext26UpdateAnnouncedWindowDeltaEPll.exit.i.i.i.i
 
 _ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContext26UpdateAnnouncedWindowDeltaEPll.exit.i.i.i.i: ; preds = %if.then6.i.i.i.i.i, %if.end4.i.i.i.i.i, %if.end.i.i.i.i
-  %17 = load ptr, ptr %sfc_.i.i.i.i, align 8, !noalias !59
-  %min_progress_size_.i.i.i.i = getelementptr inbounds %"class.grpc_core::chttp2::StreamFlowControl", ptr %17, i64 0, i32 1
-  %18 = load i64, ptr %5, align 8, !noalias !59
-  %19 = load i64, ptr %min_progress_size_.i.i.i.i, align 8, !noalias !59
-  %20 = tail call i64 @llvm.smin.i64(i64 %18, i64 %19)
-  %sub11.i.i.i.i = sub nsw i64 %19, %20
+  %15 = load ptr, ptr %sfc_.i.i.i.i, align 8, !noalias !59
+  %min_progress_size_.i.i.i.i = getelementptr inbounds %"class.grpc_core::chttp2::StreamFlowControl", ptr %15, i64 0, i32 1
+  %16 = load i64, ptr %5, align 8, !noalias !59
+  %17 = load i64, ptr %min_progress_size_.i.i.i.i, align 8, !noalias !59
+  %18 = tail call i64 @llvm.smin.i64(i64 %16, i64 %17)
+  %sub11.i.i.i.i = sub nsw i64 %17, %18
   store i64 %sub11.i.i.i.i, ptr %min_progress_size_.i.i.i.i, align 8, !noalias !59
   store i64 0, ptr %agg.result, align 8, !alias.scope !63
   br label %"_ZSt6invokeIRKZN9grpc_core6chttp217StreamFlowControl21IncomingUpdateContext8RecvDataElE3$_0JEENSt13invoke_resultIT_JDpT0_EE4typeEOS8_DpOS9_.exit"

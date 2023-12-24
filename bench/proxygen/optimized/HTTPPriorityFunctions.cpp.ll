@@ -1605,7 +1605,7 @@ if.end.i.i:                                       ; preds = %if.then3.i.i, %if.t
 if.then7.i.i:                                     ; preds = %if.end.i.i
   %10 = load atomic i32, ptr @"_ZZZN8proxygen22httpPriorityFromStringEN5folly5RangeIPKcEEENK3$_0clEvE14occurrences_51" seq_cst, align 4
   %conv.i.i = sext i32 %10 to i64
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp.i.i, align 8
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp.i.i, align 8
   %.fca.1.gep.i.i = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp.i.i, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep.i.i, align 8
   invoke void @_ZN6google10LogMessageC1EPKciilMS0_FvvE(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp.i.i, ptr noundef nonnull @.str.17, i32 noundef 51, i32 noundef 2, i64 noundef %conv.i.i, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp.i.i)

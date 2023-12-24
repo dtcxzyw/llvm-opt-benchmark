@@ -255,7 +255,7 @@ tc_ptr_to_region_tree.exit:                       ; preds = %if.end3.i, %if.else
   %7 = load i64, ptr @tree_size, align 8
   %mul11.i = mul i64 %7, %region_idx.0.i
   %add.ptr12.i = getelementptr i8, ptr %6, i64 %mul11.i
-  store ptr %0, ptr %s, align 8
+  store i64 %tc_ptr, ptr %s, align 8
   %size = getelementptr inbounds %struct.tb_tc, ptr %s, i64 0, i32 1
   store i64 0, ptr %size, align 8
   %cmp = icmp eq ptr %add.ptr12.i, null

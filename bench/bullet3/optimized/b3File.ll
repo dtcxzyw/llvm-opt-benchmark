@@ -4002,8 +4002,7 @@ if.then45.i:                                      ; preds = %if.then39.i
 
 if.else49.i:                                      ; preds = %if.then39.i
   %conv50.i = sext i32 %49 to i64
-  %51 = inttoptr i64 %conv50.i to ptr
-  store ptr %51, ptr %dp.sroa.0, align 8
+  store i64 %conv50.i, ptr %dp.sroa.0, align 8
   br label %_ZN6bParse5bFile11safeSwapPtrEPcPKc.exit
 
 if.else52.i:                                      ; preds = %if.else35.i
@@ -4011,12 +4010,12 @@ if.else52.i:                                      ; preds = %if.else35.i
   br label %_ZN6bParse5bFile11safeSwapPtrEPcPKc.exit
 
 _ZN6bParse5bFile11safeSwapPtrEPcPKc.exit:         ; preds = %if.then4.i, %if.then10.i, %if.end32.i, %if.then45.i, %if.else49.i, %if.else52.i
-  %52 = mul nsw i64 %indvars.iv151, %42
-  %add.ptr = getelementptr inbounds i8, ptr %call21, i64 %52
+  %51 = mul nsw i64 %indvars.iv151, %42
+  %add.ptr = getelementptr inbounds i8, ptr %call21, i64 %51
   %dp.sroa.0.0.dp.sroa.0.0.dp.sroa.0.0.dp.sroa.0.0. = load ptr, ptr %dp.sroa.0, align 8
-  %53 = ptrtoint ptr %dp.sroa.0.0.dp.sroa.0.0.dp.sroa.0.0.dp.sroa.0.0. to i64
-  %ref.tmp.sroa.0.0.extract.trunc.i78 = trunc i64 %53 to i32
-  %ref.tmp.sroa.0.4.extract.shift.i79 = lshr i64 %53, 32
+  %52 = ptrtoint ptr %dp.sroa.0.0.dp.sroa.0.0.dp.sroa.0.0.dp.sroa.0.0. to i64
+  %ref.tmp.sroa.0.0.extract.trunc.i78 = trunc i64 %52 to i32
+  %ref.tmp.sroa.0.4.extract.shift.i79 = lshr i64 %52, 32
   %ref.tmp.sroa.0.4.extract.trunc.i80 = trunc i64 %ref.tmp.sroa.0.4.extract.shift.i79 to i32
   %add.i.i.i.i81 = add nsw i32 %ref.tmp.sroa.0.4.extract.trunc.i80, %ref.tmp.sroa.0.0.extract.trunc.i78
   %shl.i.i.i.i82 = shl i32 %add.i.i.i.i81, 15
@@ -4032,52 +4031,52 @@ _ZN6bParse5bFile11safeSwapPtrEPcPKc.exit:         ; preds = %if.then4.i, %if.the
   %add10.i.i.i.i92 = add nsw i32 %xor7.i.i.i.i89, %not9.i.i.i.i91
   %shr11.i.i.i.i93 = ashr i32 %add10.i.i.i.i92, 16
   %xor12.i.i.i.i94 = xor i32 %shr11.i.i.i.i93, %add10.i.i.i.i92
-  %54 = load i32, ptr %m_capacity.i.i.i.i47, align 8
-  %sub.i.i.i96 = add nsw i32 %54, -1
+  %53 = load i32, ptr %m_capacity.i.i.i.i47, align 8
+  %sub.i.i.i96 = add nsw i32 %53, -1
   %and.i.i.i97 = and i32 %xor12.i.i.i.i94, %sub.i.i.i96
-  %55 = load i32, ptr %m_size.i.i.i.i50, align 4
-  %cmp.not.i.i.i99 = icmp ult i32 %and.i.i.i97, %55
+  %54 = load i32, ptr %m_size.i.i.i.i50, align 4
+  %cmp.not.i.i.i99 = icmp ult i32 %and.i.i.i97, %54
   br i1 %cmp.not.i.i.i99, label %if.end.i.i.i101, label %_ZN6bParse5bFile14findLibPointerEPv.exit124
 
 if.end.i.i.i101:                                  ; preds = %_ZN6bParse5bFile11safeSwapPtrEPcPKc.exit
-  %56 = load ptr, ptr %m_data.i.i.i.i54, align 8
+  %55 = load ptr, ptr %m_data.i.i.i.i54, align 8
   %idxprom.i.i.i.i103 = sext i32 %and.i.i.i97 to i64
-  %arrayidx.i.i.i.i104 = getelementptr inbounds i32, ptr %56, i64 %idxprom.i.i.i.i103
+  %arrayidx.i.i.i.i104 = getelementptr inbounds i32, ptr %55, i64 %idxprom.i.i.i.i103
   %index.012.i.i.i105 = load i32, ptr %arrayidx.i.i.i.i104, align 4
   %cmp6.not13.i.i.i106 = icmp eq i32 %index.012.i.i.i105, -1
   br i1 %cmp6.not13.i.i.i106, label %_ZN6bParse5bFile14findLibPointerEPv.exit124, label %land.rhs.lr.ph.i.i.i107
 
 land.rhs.lr.ph.i.i.i107:                          ; preds = %if.end.i.i.i101
-  %57 = load ptr, ptr %m_data.i6.i.i.i60, align 8
-  %58 = load ptr, ptr %m_data.i9.i.i.i61, align 8
+  %56 = load ptr, ptr %m_data.i6.i.i.i60, align 8
+  %57 = load ptr, ptr %m_data.i9.i.i.i61, align 8
   br label %land.rhs.i.i.i110
 
 land.rhs.i.i.i110:                                ; preds = %while.body.i.i.i115, %land.rhs.lr.ph.i.i.i107
   %index.014.i.i.i111 = phi i32 [ %index.012.i.i.i105, %land.rhs.lr.ph.i.i.i107 ], [ %index.0.i.i.i117, %while.body.i.i.i115 ]
   %idxprom.i7.i.i.i112 = sext i32 %index.014.i.i.i111 to i64
-  %arrayidx.i8.i.i.i113 = getelementptr inbounds %class.b3HashPtr, ptr %57, i64 %idxprom.i7.i.i.i112
-  %59 = load ptr, ptr %arrayidx.i8.i.i.i113, align 8
-  %cmp.i.i.i.i114 = icmp eq ptr %59, %dp.sroa.0.0.dp.sroa.0.0.dp.sroa.0.0.dp.sroa.0.0.
+  %arrayidx.i8.i.i.i113 = getelementptr inbounds %class.b3HashPtr, ptr %56, i64 %idxprom.i7.i.i.i112
+  %58 = load ptr, ptr %arrayidx.i8.i.i.i113, align 8
+  %cmp.i.i.i.i114 = icmp eq ptr %58, %dp.sroa.0.0.dp.sroa.0.0.dp.sroa.0.0.dp.sroa.0.0.
   br i1 %cmp.i.i.i.i114, label %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i119, label %while.body.i.i.i115
 
 while.body.i.i.i115:                              ; preds = %land.rhs.i.i.i110
-  %arrayidx.i11.i.i.i116 = getelementptr inbounds i32, ptr %58, i64 %idxprom.i7.i.i.i112
+  %arrayidx.i11.i.i.i116 = getelementptr inbounds i32, ptr %57, i64 %idxprom.i7.i.i.i112
   %index.0.i.i.i117 = load i32, ptr %arrayidx.i11.i.i.i116, align 4
   %cmp6.not.i.i.i118 = icmp eq i32 %index.0.i.i.i117, -1
   br i1 %cmp6.not.i.i.i118, label %_ZN6bParse5bFile14findLibPointerEPv.exit124, label %land.rhs.i.i.i110, !llvm.loop !11
 
 _ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i119: ; preds = %land.rhs.i.i.i110
-  %60 = load ptr, ptr %m_data.i.i.i72, align 8
-  %tobool.not.i121 = icmp eq ptr %60, null
+  %59 = load ptr, ptr %m_data.i.i.i72, align 8
+  %tobool.not.i121 = icmp eq ptr %59, null
   br i1 %tobool.not.i121, label %_ZN6bParse5bFile14findLibPointerEPv.exit124, label %if.then.i122
 
 if.then.i122:                                     ; preds = %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i119
-  %arrayidx.i.i.i123 = getelementptr inbounds ptr, ptr %60, i64 %idxprom.i7.i.i.i112
-  %61 = load ptr, ptr %arrayidx.i.i.i123, align 8
+  %arrayidx.i.i.i123 = getelementptr inbounds ptr, ptr %59, i64 %idxprom.i7.i.i.i112
+  %60 = load ptr, ptr %arrayidx.i.i.i123, align 8
   br label %_ZN6bParse5bFile14findLibPointerEPv.exit124
 
 _ZN6bParse5bFile14findLibPointerEPv.exit124:      ; preds = %while.body.i.i.i115, %_ZN6bParse5bFile11safeSwapPtrEPcPKc.exit, %if.end.i.i.i101, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i119, %if.then.i122
-  %retval.0.i100 = phi ptr [ %61, %if.then.i122 ], [ null, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i119 ], [ null, %_ZN6bParse5bFile11safeSwapPtrEPcPKc.exit ], [ null, %if.end.i.i.i101 ], [ null, %while.body.i.i.i115 ]
+  %retval.0.i100 = phi ptr [ %60, %if.then.i122 ], [ null, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i119 ], [ null, %_ZN6bParse5bFile11safeSwapPtrEPcPKc.exit ], [ null, %if.end.i.i.i101 ], [ null, %while.body.i.i.i115 ]
   store ptr %retval.0.i100, ptr %add.ptr, align 8
   %add.ptr28 = getelementptr inbounds i8, ptr %oldPtr.0141, i64 %idx.ext27
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
@@ -4090,9 +4089,9 @@ while.end:                                        ; preds = %_ZN6bParse5bFile14f
 
 for.inc32:                                        ; preds = %while.body.i.i, %while.body.i.i.i67, %if.end.i.i.i53, %if.then15, %_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE4findERKS0_.exit.i71, %if.end.i.i, %for.body8, %_ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEE4findERKS0_.exit, %while.end, %_ZN6bParse5bFile14findLibPointerEPv.exit76
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
-  %62 = load i32, ptr %m_size.i23, align 4
-  %63 = sext i32 %62 to i64
-  %cmp7 = icmp slt i64 %indvars.iv.next156, %63
+  %61 = load i32, ptr %m_size.i23, align 4
+  %62 = sext i32 %61 to i64
+  %cmp7 = icmp slt i64 %indvars.iv.next156, %62
   br i1 %cmp7, label %for.body8, label %for.end34, !llvm.loop !38
 
 for.end34:                                        ; preds = %for.inc32, %for.cond5.preheader

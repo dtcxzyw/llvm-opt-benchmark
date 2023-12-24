@@ -464,7 +464,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = getelementptr inbounds i8, ptr %action, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %0, i8 0, i64 144, i1 false)
-  store ptr inttoptr (i64 1 to ptr), ptr %action, align 8
+  store i64 1, ptr %action, align 8
   %sa_mask = getelementptr inbounds %struct.sigaction, ptr %action, i64 0, i32 1
   %call1 = call i32 @sigemptyset(ptr noundef nonnull %sa_mask) #18
   %call2 = call i32 @sigaction(i32 noundef 6, ptr noundef nonnull %action, ptr noundef nonnull %old_action) #18

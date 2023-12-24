@@ -1363,7 +1363,7 @@ define internal void @_GLOBAL__sub_I_symbol.cpp() #12 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
-  store ptr inttoptr (i64 2 to ptr), ptr @_ZN6symbol7m_dummyE, align 8
+  store i64 2, ptr @_ZN6symbol7m_dummyE, align 8
   store ptr null, ptr @_ZN6symbol4nullE, align 8
   ret void
 }

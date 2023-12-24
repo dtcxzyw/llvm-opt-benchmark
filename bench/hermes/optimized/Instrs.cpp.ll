@@ -1527,8 +1527,7 @@ _ZN4llvh12hash_combineIJNS_9hash_codeEPN6hermes5ValueEEEES1_DpRKT_.exit: ; preds
   %11 = load i64, ptr @_ZZN4llvh7hashing6detail18get_execution_seedEvE4seed, align 8
   store i64 %11, ptr %seed.i.i6, align 8
   store i64 %hc.sroa.0.030, ptr %helper.i4, align 8
-  %12 = ptrtoint ptr %call9 to i64
-  store i64 %12, ptr %add.ptr.i.i.i, align 8
+  store ptr %call9, ptr %add.ptr.i.i.i, align 8
   %call3.i.i.i = call i64 @_ZN4llvh7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %helper.i4, i64 noundef 0, ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %add.ptr.i7)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %helper.i4)
   %inc = add nuw i32 %i.031, 1
@@ -1538,27 +1537,27 @@ _ZN4llvh12hash_combineIJNS_9hash_codeEPN6hermes5ValueEEEES1_DpRKT_.exit: ; preds
 for.end:                                          ; preds = %_ZN4llvh12hash_combineIJNS_9hash_codeEPN6hermes5ValueEEEES1_DpRKT_.exit, %_ZN4llvh12hash_combineIJN6hermes11Instruction7VarietyEjEEENS_9hash_codeEDpRKT_.exit
   %hc.sroa.0.0.lcssa = phi i64 [ %call.i, %_ZN4llvh12hash_combineIJN6hermes11Instruction7VarietyEjEEENS_9hash_codeEDpRKT_.exit ], [ %call3.i.i.i, %_ZN4llvh12hash_combineIJNS_9hash_codeEPN6hermes5ValueEEEES1_DpRKT_.exit ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %helper.i14)
-  %13 = load atomic i8, ptr @_ZGVZN4llvh7hashing6detail18get_execution_seedEvE4seed acquire, align 8
-  %guard.uninitialized.i.i.i15 = icmp eq i8 %13, 0
+  %12 = load atomic i8, ptr @_ZGVZN4llvh7hashing6detail18get_execution_seedEvE4seed acquire, align 8
+  %guard.uninitialized.i.i.i15 = icmp eq i8 %12, 0
   br i1 %guard.uninitialized.i.i.i15, label %init.check.i.i.i21, label %_ZN4llvh12hash_combineIJNS_9hash_codeES1_EEES1_DpRKT_.exit, !prof !12
 
 init.check.i.i.i21:                               ; preds = %for.end
-  %14 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvh7hashing6detail18get_execution_seedEvE4seed) #15
-  %tobool.not.i.i.i22 = icmp eq i32 %14, 0
+  %13 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvh7hashing6detail18get_execution_seedEvE4seed) #15
+  %tobool.not.i.i.i22 = icmp eq i32 %13, 0
   br i1 %tobool.not.i.i.i22, label %_ZN4llvh12hash_combineIJNS_9hash_codeES1_EEES1_DpRKT_.exit, label %init.i.i.i23
 
 init.i.i.i23:                                     ; preds = %init.check.i.i.i21
-  %15 = load i64, ptr @_ZN4llvh7hashing6detail19fixed_seed_overrideE, align 8
-  %tobool1.not.i.i.i24 = icmp eq i64 %15, 0
-  %cond.i.i.i25 = select i1 %tobool1.not.i.i.i24, i64 -49064778989728563, i64 %15
+  %14 = load i64, ptr @_ZN4llvh7hashing6detail19fixed_seed_overrideE, align 8
+  %tobool1.not.i.i.i24 = icmp eq i64 %14, 0
+  %cond.i.i.i25 = select i1 %tobool1.not.i.i.i24, i64 -49064778989728563, i64 %14
   store i64 %cond.i.i.i25, ptr @_ZZN4llvh7hashing6detail18get_execution_seedEvE4seed, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvh7hashing6detail18get_execution_seedEvE4seed) #15
   br label %_ZN4llvh12hash_combineIJNS_9hash_codeES1_EEES1_DpRKT_.exit
 
 _ZN4llvh12hash_combineIJNS_9hash_codeES1_EEES1_DpRKT_.exit: ; preds = %for.end, %init.check.i.i.i21, %init.i.i.i23
   %seed.i.i16 = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %helper.i14, i64 0, i32 2
-  %16 = load i64, ptr @_ZZN4llvh7hashing6detail18get_execution_seedEvE4seed, align 8
-  store i64 %16, ptr %seed.i.i16, align 8
+  %15 = load i64, ptr @_ZZN4llvh7hashing6detail18get_execution_seedEvE4seed, align 8
+  store i64 %15, ptr %seed.i.i16, align 8
   %add.ptr.i17 = getelementptr inbounds i8, ptr %helper.i14, i64 64
   %add.ptr.i.i.i18 = getelementptr inbounds i8, ptr %helper.i14, i64 8
   store i64 %hc.sroa.0.0.lcssa, ptr %helper.i14, align 8

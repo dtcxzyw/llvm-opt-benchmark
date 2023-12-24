@@ -1202,7 +1202,7 @@ if.end:                                           ; preds = %if.then, %entry
 if.then6:                                         ; preds = %if.end
   %5 = load atomic i32, ptr @_ZZN8proxygen24StructuredHeadersEncoder17handleEncodeErrorENS_17StructuredHeaders11EncodeErrorEE15occurrences_227 seq_cst, align 4
   %conv = sext i32 %5 to i64
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp, align 8
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8
   call void @_ZN6google10LogMessageC1EPKciilMS0_FvvE(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp, ptr noundef nonnull @.str.19, i32 noundef 227, i32 noundef 2, i64 noundef %conv, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)
@@ -1808,15 +1808,14 @@ lpad.body.i:                                      ; preds = %.noexc2.i, %.noexc
   br label %ehcleanup9
 
 invoke.cont:                                      ; preds = %.noexc2.i
-  %2 = ptrtoint ptr %this to i64
   %storage_.i.i.i = getelementptr inbounds %"class.proxygen::StructuredHeadersEncoder", ptr %this, i64 0, i32 1, i32 0, i32 2
-  store i64 %2, ptr %storage_.i.i.i, align 8
+  store ptr %this, ptr %storage_.i.i.i, align 8
   store i8 1, ptr %initialized_.i.i.i, align 8
-  %3 = load i32, ptr %flags_.i.i, align 8
-  %spec.select.i.i.i = or i32 %3, 3
+  %2 = load i32, ptr %flags_.i.i, align 8
+  %spec.select.i.i.i = or i32 %2, 3
   store i32 %spec.select.i.i.i, ptr %flags_.i.i, align 8
-  %4 = load i32, ptr %flags_.i.i.i, align 8
-  %and.i11.i.i.i = and i32 %4, -8
+  %3 = load i32, ptr %flags_.i.i.i, align 8
+  %and.i11.i.i.i = and i32 %3, -8
   store i32 %and.i11.i.i.i, ptr %flags_.i.i.i, align 8
   %outputStream_ = getelementptr inbounds %"class.proxygen::StructuredHeadersEncoder", ptr %this, i64 0, i32 2
   invoke void @_ZNSoC1EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %outputStream_, ptr noundef nonnull %buf_)
@@ -1832,18 +1831,18 @@ invoke.cont5:                                     ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %entry
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup9
 
 lpad4:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5boost9iostreams13stream_bufferINS0_18back_insert_deviceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_S7_NS0_6outputEED2Ev(ptr noundef nonnull align 8 dereferenceable(124) %buf_) #20
   br label %ehcleanup9
 
 ehcleanup9:                                       ; preds = %lpad, %lpad.body.i, %lpad4
-  %.pn = phi { ptr, i32 } [ %6, %lpad4 ], [ %5, %lpad ], [ %1, %lpad.body.i ]
+  %.pn = phi { ptr, i32 } [ %5, %lpad4 ], [ %4, %lpad ], [ %1, %lpad.body.i ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #20
   resume { ptr, i32 } %.pn
 }
@@ -2122,7 +2121,7 @@ if.end:                                           ; preds = %if.then, %entry
 if.then6:                                         ; preds = %if.end
   %5 = load atomic i32, ptr @_ZZN8proxygen24StructuredHeadersEncoder17handleEncodeErrorENS_17StructuredHeaders11EncodeErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15occurrences_219 seq_cst, align 4
   %conv = sext i32 %5 to i64
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp, align 8
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8
   call void @_ZN6google10LogMessageC1EPKciilMS0_FvvE(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp, ptr noundef nonnull @.str.19, i32 noundef 219, i32 noundef 2, i64 noundef %conv, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)

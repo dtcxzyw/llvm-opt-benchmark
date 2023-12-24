@@ -171,7 +171,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @grpc_slice_from_static_buffer(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef %s, i64 noundef %len) local_unnamed_addr #5 {
 entry:
-  store ptr inttoptr (i64 1 to ptr), ptr %agg.result, align 8
+  store i64 1, ptr %agg.result, align 8
   %ref.tmp.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %len, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx, align 8
   %ref.tmp.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -185,7 +185,7 @@ entry:
 define void @grpc_slice_from_static_string(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef %s) local_unnamed_addr #6 {
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #24, !noalias !17
-  store ptr inttoptr (i64 1 to ptr), ptr %agg.result, align 8
+  store i64 1, ptr %agg.result, align 8
   %ref.tmp.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %call.i, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx, align 8
   %ref.tmp.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -386,13 +386,12 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %1 = ptrtoint ptr %0 to i64
   %call5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   store i64 1, ptr %call5, align 8
   %destroyer_fn_.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %call5, i64 0, i32 1
   store ptr @_ZN9grpc_core24MovedStringSliceRefCount7DestroyEP19grpc_slice_refcount, ptr %destroyer_fn_.i.i, align 8
   %str_.i = getelementptr inbounds %"class.grpc_core::MovedStringSliceRefCount", ptr %call5, i64 0, i32 1
-  store i64 %1, ptr %str_.i, align 8
+  store ptr %0, ptr %str_.i, align 8
   store ptr null, ptr %p, align 8
   %data7 = getelementptr inbounds %struct.grpc_slice, ptr %agg.result, i64 0, i32 1
   %bytes8 = getelementptr inbounds %struct.grpc_slice, ptr %agg.result, i64 0, i32 1, i32 0, i32 1
@@ -412,8 +411,7 @@ entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %0 = load ptr, ptr %p, align 8
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
-  %.cast = ptrtoint ptr %0 to i64
-  store i64 %.cast, ptr %agg.tmp, align 8
+  store ptr %0, ptr %agg.tmp, align 8
   store ptr null, ptr %p, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   %cmp.i = icmp ult i64 %call1, 24
@@ -428,7 +426,7 @@ invoke.cont.thread:                               ; preds = %if.else.i
   %destroyer_fn_.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %call5.i1, i64 0, i32 1
   store ptr @_ZN9grpc_core24MovedStringSliceRefCount7DestroyEP19grpc_slice_refcount, ptr %destroyer_fn_.i.i.i, align 8, !noalias !51
   %str_.i.i = getelementptr inbounds %"class.grpc_core::MovedStringSliceRefCount", ptr %call5.i1, i64 0, i32 1
-  store i64 %.cast, ptr %str_.i.i, align 8, !noalias !51
+  store ptr %0, ptr %str_.i.i, align 8, !noalias !51
   %data7.i = getelementptr inbounds %struct.grpc_slice, ptr %agg.result, i64 0, i32 1
   %bytes8.i = getelementptr inbounds %struct.grpc_slice, ptr %agg.result, i64 0, i32 1, i32 0, i32 1
   store ptr %0, ptr %bytes8.i, align 8, !alias.scope !51
@@ -752,7 +750,7 @@ do.end:                                           ; preds = %do.body
   br label %if.end92
 
 if.then23:                                        ; preds = %entry
-  store ptr inttoptr (i64 1 to ptr), ptr %agg.result, align 8
+  store i64 1, ptr %agg.result, align 8
   %data26 = getelementptr inbounds %struct.grpc_slice, ptr %source, i64 0, i32 1
   %bytes27 = getelementptr inbounds %struct.grpc_slice, ptr %source, i64 0, i32 1, i32 0, i32 1
   %3 = load ptr, ptr %bytes27, align 8
@@ -804,11 +802,11 @@ if.else64:                                        ; preds = %do.end50
 
 sw.bb:                                            ; preds = %if.else64
   store ptr %0, ptr %agg.result, align 8
-  store ptr inttoptr (i64 1 to ptr), ptr %source, align 8
+  store i64 1, ptr %source, align 8
   br label %sw.epilog
 
 sw.bb69:                                          ; preds = %if.else64
-  store ptr inttoptr (i64 1 to ptr), ptr %agg.result, align 8
+  store i64 1, ptr %agg.result, align 8
   br label %sw.epilog
 
 if.then78:                                        ; preds = %if.else64
@@ -874,7 +872,7 @@ do.end.i:                                         ; preds = %do.body.i
   br label %grpc_slice_split_tail_maybe_ref.exit
 
 if.then23.i:                                      ; preds = %entry
-  store ptr inttoptr (i64 1 to ptr), ptr %agg.result, align 8, !alias.scope !64
+  store i64 1, ptr %agg.result, align 8, !alias.scope !64
   %data26.i = getelementptr inbounds %struct.grpc_slice, ptr %source, i64 0, i32 1
   %bytes27.i = getelementptr inbounds %struct.grpc_slice, ptr %source, i64 0, i32 1, i32 0, i32 1
   %3 = load ptr, ptr %bytes27.i, align 8, !noalias !64

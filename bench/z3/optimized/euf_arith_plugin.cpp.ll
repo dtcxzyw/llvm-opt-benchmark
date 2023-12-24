@@ -162,28 +162,27 @@ invoke.cont11:                                    ; preds = %invoke.cont7
           to label %if.then.i.i.i unwind label %lpad10
 
 if.then.i.i.i:                                    ; preds = %invoke.cont11
-  %3 = ptrtoint ptr %this to i64
   %m_undo_notify.i = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 3, i32 21
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   %_M_manager.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp.i.i, i64 0, i32 1
   %_M_invoker.i.i.i = getelementptr inbounds %"class.std::function", ptr %ref.tmp.i.i, i64 0, i32 1
-  %4 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
-  store i64 %3, ptr %ref.tmp.i.i, align 8
+  %3 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
+  store ptr %this, ptr %ref.tmp.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager3.i.i.i = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 3, i32 21, i32 0, i32 1
-  %5 = load ptr, ptr %_M_manager3.i.i.i, align 8
-  store ptr %5, ptr %_M_manager.i.i.i.i, align 8
+  %4 = load ptr, ptr %_M_manager3.i.i.i, align 8
+  store ptr %4, ptr %_M_manager.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN3euf12arith_pluginC1ERNS1_6egraphEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %_M_manager3.i.i.i, align 8
   %_M_invoker4.i2.i.i = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 3, i32 21, i32 1
-  %6 = load ptr, ptr %_M_invoker4.i2.i.i, align 8
-  store ptr %6, ptr %_M_invoker.i.i.i, align 8
+  %5 = load ptr, ptr %_M_invoker4.i2.i.i, align 8
+  store ptr %5, ptr %_M_invoker.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN3euf12arith_pluginC1ERNS1_6egraphEE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i2.i.i, align 8
-  %tobool.not.i.i4.i.i = icmp eq ptr %5, null
+  %tobool.not.i.i4.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i4.i.i, label %invoke.cont18.thread, label %if.then.i.i5.i.i
 
 invoke.cont18.thread:                             ; preds = %if.then.i.i.i
@@ -191,14 +190,14 @@ invoke.cont18.thread:                             ; preds = %if.then.i.i.i
   br label %if.then.i.i14
 
 if.then.i.i5.i.i:                                 ; preds = %if.then.i.i.i
-  %call.i.i6.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
+  %call.i.i6.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
           to label %invoke.cont18 unwind label %terminate.lpad.i.i7.i.i
 
 terminate.lpad.i.i7.i.i:                          ; preds = %if.then.i.i5.i.i
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #16
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #16
   unreachable
 
 invoke.cont18:                                    ; preds = %if.then.i.i5.i.i
@@ -210,23 +209,23 @@ if.then.i.i14:                                    ; preds = %invoke.cont18, %inv
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i38)
   %_M_manager.i.i.i.i40 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp.i.i38, i64 0, i32 1
   %_M_invoker.i.i.i41 = getelementptr inbounds %"class.std::function", ptr %ref.tmp.i.i38, i64 0, i32 1
-  %9 = getelementptr inbounds i8, ptr %ref.tmp.i.i38, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 24, i1 false)
-  store i64 %3, ptr %ref.tmp.i.i38, align 8
+  %8 = getelementptr inbounds i8, ptr %ref.tmp.i.i38, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 24, i1 false)
+  store ptr %this, ptr %ref.tmp.i.i38, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i37)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i37, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i38, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i38, ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i39, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i39, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i37, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i37)
   %_M_manager3.i.i.i55 = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 4, i32 21, i32 0, i32 1
-  %10 = load ptr, ptr %_M_manager3.i.i.i55, align 8
-  store ptr %10, ptr %_M_manager.i.i.i.i40, align 8
+  %9 = load ptr, ptr %_M_manager3.i.i.i55, align 8
+  store ptr %9, ptr %_M_manager.i.i.i.i40, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN3euf12arith_pluginC1ERNS1_6egraphEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %_M_manager3.i.i.i55, align 8
   %_M_invoker4.i2.i.i56 = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 4, i32 21, i32 1
-  %11 = load ptr, ptr %_M_invoker4.i2.i.i56, align 8
-  store ptr %11, ptr %_M_invoker.i.i.i41, align 8
+  %10 = load ptr, ptr %_M_invoker4.i2.i.i56, align 8
+  store ptr %10, ptr %_M_invoker.i.i.i41, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN3euf12arith_pluginC1ERNS1_6egraphEE3$_1E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i2.i.i56, align 8
-  %tobool.not.i.i4.i.i57 = icmp eq ptr %10, null
+  %tobool.not.i.i4.i.i57 = icmp eq ptr %9, null
   br i1 %tobool.not.i.i4.i.i57, label %invoke.cont25.thread, label %if.then.i.i5.i.i58
 
 invoke.cont25.thread:                             ; preds = %if.then.i.i14
@@ -234,14 +233,14 @@ invoke.cont25.thread:                             ; preds = %if.then.i.i14
   br label %if.then.i.i65
 
 if.then.i.i5.i.i58:                               ; preds = %if.then.i.i14
-  %call.i.i6.i.i59 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i38, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i38, i32 noundef 3)
+  %call.i.i6.i.i59 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i38, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i38, i32 noundef 3)
           to label %invoke.cont25 unwind label %terminate.lpad.i.i7.i.i60
 
 terminate.lpad.i.i7.i.i60:                        ; preds = %if.then.i.i5.i.i58
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #16
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #16
   unreachable
 
 invoke.cont25:                                    ; preds = %if.then.i.i5.i.i58
@@ -252,18 +251,18 @@ if.then.i.i65:                                    ; preds = %invoke.cont25, %inv
   ret void
 
 lpad4:                                            ; preds = %invoke.cont5, %entry
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup29
 
 lpad10:                                           ; preds = %invoke.cont11, %invoke.cont7
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN3euf9ac_pluginD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %m_add) #17
   br label %ehcleanup29
 
 ehcleanup29:                                      ; preds = %lpad10, %lpad4
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %15, %lpad10 ], [ %14, %lpad4 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %14, %lpad10 ], [ %13, %lpad4 ]
   tail call void @_ZN7svectorIN3euf12arith_plugin6undo_tEjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_undo) #17
   resume { ptr, i32 } %.pn.pn.pn.pn
 }

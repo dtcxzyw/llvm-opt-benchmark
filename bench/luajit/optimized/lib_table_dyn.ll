@@ -285,8 +285,7 @@ if.then57:                                        ; preds = %land.lhs.true52
   %26 = load i64, ptr %grayagain.i, align 8
   %gclist.i = getelementptr inbounds %struct.GCtab, ptr %call, i64 0, i32 6
   store i64 %26, ptr %gclist.i, align 8
-  %27 = ptrtoint ptr %call to i64
-  store i64 %27, ptr %grayagain.i, align 8
+  store ptr %call, ptr %grayagain.i, align 8
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then57, %land.lhs.true52, %land.lhs.true, %cond.end42
@@ -326,32 +325,31 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %3 = load i64, ptr %glref.i, align 8
   %4 = inttoptr i64 %3 to ptr
   %tmpbuf.i = getelementptr inbounds %struct.global_State, ptr %4, i64 0, i32 11
-  %5 = ptrtoint ptr %L to i64
   %L1.i = getelementptr inbounds %struct.global_State, ptr %4, i64 0, i32 11, i32 3
-  store i64 %5, ptr %L1.i, align 8
+  store ptr %L, ptr %L1.i, align 8
   %b.i58 = getelementptr inbounds %struct.global_State, ptr %4, i64 0, i32 11, i32 2
-  %6 = load ptr, ptr %b.i58, align 8
-  store ptr %6, ptr %tmpbuf.i, align 8
+  %5 = load ptr, ptr %b.i58, align 8
+  store ptr %5, ptr %tmpbuf.i, align 8
   %call9 = tail call ptr @lj_buf_puttab(ptr noundef nonnull %tmpbuf.i, ptr noundef %call, ptr noundef %call1, i32 noundef %call2, i32 noundef %cond) #3
   %tobool.not = icmp eq ptr %call9, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cond.end
-  %7 = load ptr, ptr %tmpbuf.i, align 8
-  %8 = ptrtoint ptr %7 to i64
-  %conv13 = trunc i64 %8 to i32
+  %6 = load ptr, ptr %tmpbuf.i, align 8
+  %7 = ptrtoint ptr %6 to i64
+  %conv13 = trunc i64 %7 to i32
   %asize = getelementptr inbounds %struct.GCtab, ptr %call, i64 0, i32 9
-  %9 = load i32, ptr %asize, align 8
-  %cmp14 = icmp ugt i32 %9, %conv13
+  %8 = load i32, ptr %asize, align 8
+  %cmp14 = icmp ugt i32 %8, %conv13
   br i1 %cmp14, label %cond.true16, label %cond.false17
 
 cond.true16:                                      ; preds = %if.then
   %array = getelementptr inbounds %struct.GCtab, ptr %call, i64 0, i32 5
-  %10 = load i64, ptr %array, align 8
-  %11 = inttoptr i64 %10 to ptr
-  %sext = shl i64 %8, 32
+  %9 = load i64, ptr %array, align 8
+  %10 = inttoptr i64 %9 to ptr
+  %sext = shl i64 %7, 32
   %idxprom = ashr exact i64 %sext, 32
-  %arrayidx = getelementptr inbounds %union.TValue, ptr %11, i64 %idxprom
+  %arrayidx = getelementptr inbounds %union.TValue, ptr %10, i64 %idxprom
   br label %cond.end19
 
 cond.false17:                                     ; preds = %if.then
@@ -364,45 +362,45 @@ cond.end19:                                       ; preds = %cond.false17, %cond
   br i1 %tobool21.not, label %cond.end33, label %cond.true22
 
 cond.true22:                                      ; preds = %cond.end19
-  %12 = load i64, ptr %cond20, align 8
-  %shr = ashr i64 %12, 47
+  %11 = load i64, ptr %cond20, align 8
+  %shr = ashr i64 %11, 47
   %conv23 = trunc i64 %shr to i32
   %cmp24 = icmp ult i32 %conv23, -13
   br i1 %cmp24, label %cond.end33, label %cond.false27
 
 cond.false27:                                     ; preds = %cond.true22
   %not = and i64 %shr, 4294967295
-  %13 = xor i64 %not, 4294967295
+  %12 = xor i64 %not, 4294967295
   br label %cond.end33
 
 cond.end33:                                       ; preds = %cond.end19, %cond.false27, %cond.true22
-  %cond34 = phi i64 [ %13, %cond.false27 ], [ 13, %cond.true22 ], [ 0, %cond.end19 ]
+  %cond34 = phi i64 [ %12, %cond.false27 ], [ 13, %cond.true22 ], [ 0, %cond.end19 ]
   %arrayidx36 = getelementptr inbounds [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %cond34
-  %14 = load ptr, ptr %arrayidx36, align 8
-  tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef nonnull %L, i32 noundef 1423, ptr noundef %14, i32 noundef %conv13) #4
+  %13 = load ptr, ptr %arrayidx36, align 8
+  tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef nonnull %L, i32 noundef 1423, ptr noundef %13, i32 noundef %conv13) #4
   unreachable
 
 if.end:                                           ; preds = %cond.end
-  %15 = load ptr, ptr %top, align 8
-  %add.ptr38 = getelementptr inbounds %union.TValue, ptr %15, i64 -1
+  %14 = load ptr, ptr %top, align 8
+  %add.ptr38 = getelementptr inbounds %union.TValue, ptr %14, i64 -1
   %b.i = getelementptr inbounds %struct.SBuf, ptr %call9, i64 0, i32 2
-  %16 = load ptr, ptr %b.i, align 8
-  %17 = load ptr, ptr %call9, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %17 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %16 to i64
+  %15 = load ptr, ptr %b.i, align 8
+  %16 = load ptr, ptr %call9, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %16 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv2.i = and i64 %sub.ptr.sub.i, 4294967295
-  %call.i = tail call ptr @lj_str_new(ptr noundef nonnull %L, ptr noundef %16, i64 noundef %conv2.i) #3
-  %18 = ptrtoint ptr %call.i to i64
-  %or.i = or i64 %18, -703687441776640
+  %call.i = tail call ptr @lj_str_new(ptr noundef nonnull %L, ptr noundef %15, i64 noundef %conv2.i) #3
+  %17 = ptrtoint ptr %call.i to i64
+  %or.i = or i64 %17, -703687441776640
   store i64 %or.i, ptr %add.ptr38, align 8
-  %19 = load i64, ptr %glref.i, align 8
-  %20 = inttoptr i64 %19 to ptr
-  %gc = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 2
-  %21 = load i64, ptr %gc, align 8
-  %threshold = getelementptr inbounds %struct.global_State, ptr %20, i64 0, i32 2, i32 1
-  %22 = load i64, ptr %threshold, align 8
-  %cmp44.not = icmp ult i64 %21, %22
+  %18 = load i64, ptr %glref.i, align 8
+  %19 = inttoptr i64 %18 to ptr
+  %gc = getelementptr inbounds %struct.global_State, ptr %19, i64 0, i32 2
+  %20 = load i64, ptr %gc, align 8
+  %threshold = getelementptr inbounds %struct.global_State, ptr %19, i64 0, i32 2, i32 1
+  %21 = load i64, ptr %threshold, align 8
+  %cmp44.not = icmp ult i64 %20, %21
   br i1 %cmp44.not, label %if.end54, label %if.then52
 
 if.then52:                                        ; preds = %if.end

@@ -697,7 +697,7 @@ _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFv
   %ff30 = alloca %"class.eastl::fixed_function.32", align 8
   %ff43 = alloca %"class.eastl::fixed_function.34", align 8
   store i32 0, ptr %nErrorCount, align 4
-  store i64 ptrtoint (ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvENK11TestVoidRet4IncXEv to i64), ptr %ff, align 8
+  store ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvENK11TestVoidRet4IncXEv, ptr %ff, align 8
   %call.repack3.i.i.i.i = getelementptr inbounds { i64, i64 }, ptr %ff, i64 0, i32 1
   store i64 0, ptr %call.repack3.i.i.i.i, align 8
   %mInvokeFuncPtr.i.i = getelementptr inbounds %"class.eastl::internal::function_detail.26", ptr %ff, i64 0, i32 2
@@ -724,7 +724,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   unreachable
 
 _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit.i97: ; preds = %invoke.cont1, %if.then.i.i.i
-  store i64 ptrtoint (ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvENK11TestVoidRet4IncXEv to i64), ptr %ff2, align 8
+  store ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvENK11TestVoidRet4IncXEv, ptr %ff2, align 8
   %call.repack3.i.i.i.i3 = getelementptr inbounds { i64, i64 }, ptr %ff2, i64 0, i32 1
   store i64 0, ptr %call.repack3.i.i.i.i3, align 8
   %mInvokeFuncPtr.i.i4 = getelementptr inbounds %"class.eastl::internal::function_detail.26", ptr %ff2, i64 0, i32 2
@@ -751,7 +751,7 @@ terminate.lpad.i.i.i12:                           ; preds = %if.then.i.i.i10
   unreachable
 
 _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.exit.i: ; preds = %invoke.cont8, %if.then.i.i.i10
-  store i64 ptrtoint (ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvEN11TestVoidRet4IncXEv to i64), ptr %ff10, align 8
+  store ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvEN11TestVoidRet4IncXEv, ptr %ff10, align 8
   %call.repack3.i.i.i.i14 = getelementptr inbounds { i64, i64 }, ptr %ff10, i64 0, i32 1
   store i64 0, ptr %call.repack3.i.i.i.i14, align 8
   %mInvokeFuncPtr.i.i15 = getelementptr inbounds %"class.eastl::internal::function_detail.31", ptr %ff10, i64 0, i32 2
@@ -778,7 +778,7 @@ terminate.lpad.i.i.i22:                           ; preds = %if.then.i.i.i20
   unreachable
 
 _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.exit.i: ; preds = %invoke.cont16, %if.then.i.i.i20
-  store i64 ptrtoint (ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvENK10TestIntRet4IncXEv to i64), ptr %ff18, align 8
+  store ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvENK10TestIntRet4IncXEv, ptr %ff18, align 8
   %call.repack3.i.i.i.i23 = getelementptr inbounds { i64, i64 }, ptr %ff18, i64 0, i32 1
   store i64 0, ptr %call.repack3.i.i.i.i23, align 8
   %mInvokeFuncPtr.i.i24 = getelementptr inbounds %"class.eastl::internal::function_detail.33", ptr %ff18, i64 0, i32 2
@@ -809,7 +809,7 @@ terminate.lpad.i.i.i32:                           ; preds = %if.then.i.i.i30
   unreachable
 
 _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.exit.i125: ; preds = %invoke.cont28, %if.then.i.i.i30
-  store i64 ptrtoint (ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvENK10TestIntRet4IncXEv to i64), ptr %ff30, align 8
+  store ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvENK10TestIntRet4IncXEv, ptr %ff30, align 8
   %call.repack3.i.i.i.i33 = getelementptr inbounds { i64, i64 }, ptr %ff30, i64 0, i32 1
   store i64 0, ptr %call.repack3.i.i.i.i33, align 8
   %mInvokeFuncPtr.i.i34 = getelementptr inbounds %"class.eastl::internal::function_detail.33", ptr %ff30, i64 0, i32 2
@@ -840,7 +840,7 @@ terminate.lpad.i.i.i43:                           ; preds = %if.then.i.i.i41
   unreachable
 
 _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEJRS1_EEEDcOT_DpOT0_.exit.i: ; preds = %invoke.cont41, %if.then.i.i.i41
-  store i64 ptrtoint (ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvEN10TestIntRet4IncXEv to i64), ptr %ff43, align 8
+  store ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvEN10TestIntRet4IncXEv, ptr %ff43, align 8
   %call.repack3.i.i.i.i45 = getelementptr inbounds { i64, i64 }, ptr %ff43, i64 0, i32 1
   store i64 0, ptr %call.repack3.i.i.i.i45, align 8
   %mInvokeFuncPtr.i.i46 = getelementptr inbounds %"class.eastl::internal::function_detail.35", ptr %ff43, i64 0, i32 2

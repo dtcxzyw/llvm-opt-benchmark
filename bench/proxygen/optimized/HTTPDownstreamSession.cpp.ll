@@ -1972,19 +1972,18 @@ lpad:                                             ; preds = %if.then
 
 if.end:                                           ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %invoke.cont, %entry
   %13 = load i64, ptr %httpSessionActivityTracker, align 8
-  %14 = inttoptr i64 %13 to ptr
   store ptr null, ptr %httpSessionActivityTracker, align 8
   %httpSessionActivityTracker_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 11
-  %15 = load ptr, ptr %httpSessionActivityTracker_.i, align 8
-  store ptr %14, ptr %httpSessionActivityTracker_.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %15, null
+  %14 = load ptr, ptr %httpSessionActivityTracker_.i, align 8
+  store i64 %13, ptr %httpSessionActivityTracker_.i, align 8
+  %tobool.not.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN8proxygen26HTTPSessionActivityTrackerEEclEPS1_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN8proxygen26HTTPSessionActivityTrackerEEclEPS1_.exit.i.i.i.i.i: ; preds = %if.end
-  %vtable.i.i.i.i.i.i2 = load ptr, ptr %15, align 8
+  %vtable.i.i.i.i.i.i2 = load ptr, ptr %14, align 8
   %vfn.i.i.i.i.i.i3 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i2, i64 2
-  %16 = load ptr, ptr %vfn.i.i.i.i.i.i3, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(48) %15) #21
+  %15 = load ptr, ptr %vfn.i.i.i.i.i.i3, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(48) %14) #21
   br label %_ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN8proxygen26HTTPSessionActivityTrackerEEclEPS1_.exit.i.i.i.i.i, %if.end

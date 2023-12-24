@@ -2934,7 +2934,7 @@ crec_snap_caller.exit.i:                          ; preds = %lor.lhs.false.i.i
   %69 = load ptr, ptr %pc4.i140.i, align 8
   %top3.i139.i = getelementptr inbounds %struct.lua_State, ptr %61, i64 0, i32 8
   %70 = load ptr, ptr %top3.i139.i, align 8
-  store ptr %64, ptr %pc4.i140.i, align 8
+  store i64 %63, ptr %pc4.i140.i, align 8
   %71 = load i32, ptr %arrayidx81.i, align 4
   %shr.i136.i = lshr i32 %71, 8
   %and11.i.i = and i32 %shr.i136.i, 255
@@ -4917,9 +4917,8 @@ if.then229:                                       ; preds = %land.lhs.true225
   br i1 %cmp236, label %if.then238, label %if.end243
 
 if.then238:                                       ; preds = %if.then229
-  %157 = ptrtoint ptr %add.ptr234 to i64
   %tmptv = getelementptr inbounds i8, ptr %J, i64 -496
-  store i64 %157, ptr %tmptv, align 8
+  store ptr %add.ptr234, ptr %tmptv, align 8
   store i32 1, ptr %postproc, align 4
   br label %if.end243
 
@@ -5167,7 +5166,7 @@ if.then:                                          ; preds = %entry
   %L2.i = getelementptr inbounds %struct.CTState, ptr %6, i64 0, i32 3
   store ptr %2, ptr %L2.i, align 8
   %cts = getelementptr inbounds %struct.CPState, ptr %cp, i64 0, i32 8
-  store ptr %6, ptr %cts, align 8
+  store i64 %5, ptr %cts, align 8
   %top = getelementptr inbounds %struct.CTState, ptr %6, i64 0, i32 1
   %7 = load i32, ptr %top, align 8
   %add.ptr = getelementptr inbounds %struct.GCstr, ptr %1, i64 1

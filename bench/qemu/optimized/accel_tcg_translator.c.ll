@@ -325,20 +325,19 @@ if.then.i70:                                      ; preds = %while.end
   %53 = load ptr, ptr %24, align 8
   %54 = ptrtoint ptr %call.i71 to i64
   %add.ptr.i.i.i = getelementptr i8, ptr %53, i64 %54
-  %55 = ptrtoint ptr %add.ptr.i.i.i to i64
   %arrayidx.i.i = getelementptr %struct.TCGOp, ptr %icount_start_insn.016.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %55, ptr %arrayidx.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %arrayidx.i.i, align 8
   br label %if.end.i72
 
 if.end.i72:                                       ; preds = %while.end, %if.then.i70
-  %56 = load ptr, ptr %24, align 8
-  %exitreq_label.i73 = getelementptr inbounds %struct.TCGContext, ptr %56, i64 0, i32 32
-  %57 = load ptr, ptr %exitreq_label.i73, align 8
-  %tobool2.not.i74 = icmp eq ptr %57, null
+  %55 = load ptr, ptr %24, align 8
+  %exitreq_label.i73 = getelementptr inbounds %struct.TCGContext, ptr %55, i64 0, i32 32
+  %56 = load ptr, ptr %exitreq_label.i73, align 8
+  %tobool2.not.i74 = icmp eq ptr %56, null
   br i1 %tobool2.not.i74, label %gen_tb_end.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i72
-  tail call void @gen_set_label(ptr noundef nonnull %57) #8
+  tail call void @gen_set_label(ptr noundef nonnull %56) #8
   tail call void @tcg_gen_exit_tb(ptr noundef %tb, i32 noundef 3) #8
   br label %gen_tb_end.exit
 
@@ -346,30 +345,30 @@ gen_tb_end.exit:                                  ; preds = %if.end.i72, %if.the
   br i1 %call15.fr, label %if.then51, label %if.end53
 
 if.then51:                                        ; preds = %gen_tb_end.exit
-  %58 = load i32, ptr %num_insns, align 4
-  %conv = sext i32 %58 to i64
+  %57 = load i32, ptr %num_insns, align 4
+  %conv = sext i32 %57 to i64
   tail call void @plugin_gen_tb_end(ptr noundef %cpu, i64 noundef %conv) #8
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then51, %gen_tb_end.exit
-  %59 = load i64, ptr %pc_next, align 8
-  %60 = load i64, ptr %pc_first, align 8
-  %sub = sub i64 %59, %60
+  %58 = load i64, ptr %pc_next, align 8
+  %59 = load i64, ptr %pc_first, align 8
+  %sub = sub i64 %58, %59
   %conv56 = trunc i64 %sub to i16
   %size = getelementptr inbounds %struct.TranslationBlock, ptr %tb, i64 0, i32 4
   store i16 %conv56, ptr %size, align 8
-  %61 = load i32, ptr %num_insns, align 4
-  %conv58 = trunc i32 %61 to i16
+  %60 = load i32, ptr %num_insns, align 4
+  %conv58 = trunc i32 %60 to i16
   %icount = getelementptr inbounds %struct.TranslationBlock, ptr %tb, i64 0, i32 5
   store i16 %conv58, ptr %icount, align 2
-  %62 = load i32, ptr @qemu_loglevel, align 4
-  %and.i75 = and i32 %62, 2
+  %61 = load i32, ptr @qemu_loglevel, align 4
+  %and.i75 = and i32 %61, 2
   %cmp.i76.not = icmp eq i32 %and.i75, 0
   br i1 %cmp.i76.not, label %if.end71, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end53
-  %63 = load i64, ptr %pc_first, align 8
-  %call62 = tail call zeroext i1 @qemu_log_in_addr_range(i64 noundef %63) #8
+  %62 = load i64, ptr %pc_first, align 8
+  %call62 = tail call zeroext i1 @qemu_log_in_addr_range(i64 noundef %62) #8
   br i1 %call62, label %if.then64, label %if.end71
 
 if.then64:                                        ; preds = %land.lhs.true
@@ -378,10 +377,10 @@ if.then64:                                        ; preds = %land.lhs.true
   br i1 %tobool66.not, label %if.end71, label %if.then67
 
 if.then67:                                        ; preds = %if.then64
-  %64 = tail call i64 @fwrite(ptr nonnull @.str, i64 17, i64 1, ptr nonnull %call65)
+  %63 = tail call i64 @fwrite(ptr nonnull @.str, i64 17, i64 1, ptr nonnull %call65)
   %disas_log = getelementptr inbounds %struct.TranslatorOps, ptr %ops, i64 0, i32 5
-  %65 = load ptr, ptr %disas_log, align 8
-  tail call void %65(ptr noundef nonnull %db, ptr noundef %cpu, ptr noundef nonnull %call65) #8
+  %64 = load ptr, ptr %disas_log, align 8
+  tail call void %64(ptr noundef nonnull %db, ptr noundef %cpu, ptr noundef nonnull %call65) #8
   %fputc = tail call i32 @fputc(i32 10, ptr nonnull %call65)
   tail call void @qemu_log_unlock(ptr noundef nonnull %call65) #8
   br label %if.end71

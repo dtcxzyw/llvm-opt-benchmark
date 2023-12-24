@@ -151,7 +151,7 @@ entry:
   store ptr %park_arg, ptr %wait, align 8
   %addr2 = getelementptr inbounds %struct.wait_entry, ptr %wait, i64 0, i32 1
   %1 = ptrtoint ptr %addr to i64
-  store i64 %1, ptr %addr2, align 8
+  store ptr %addr, ptr %addr2, align 8
   %rem = urem i64 %1, 257
   %arrayidx = getelementptr [257 x %struct.Bucket], ptr @buckets, i64 0, i64 %rem
   %2 = cmpxchg ptr %arrayidx, i64 0, i64 1 seq_cst seq_cst, align 8

@@ -9495,16 +9495,15 @@ entry:
 
 invoke.cont4:                                     ; preds = %entry
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
-  %1 = ptrtoint ptr %this to i64
-  store i64 %1, ptr %call, align 8
-  %2 = getelementptr inbounds i8, ptr %call, i64 8
-  store i32 0, ptr %2, align 8
+  store ptr %this, ptr %call, align 8
+  %1 = getelementptr inbounds i8, ptr %call, i64 8
+  store i32 0, ptr %1, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
   %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
-  store ptr %2, ptr %_M_left.i.i.i.i.i, align 8
+  store ptr %1, ptr %_M_left.i.i.i.i.i, align 8
   %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 32
-  store ptr %2, ptr %_M_right.i.i.i.i.i, align 8
+  store ptr %1, ptr %_M_right.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   store ptr %call, ptr %string_pool, align 8
@@ -9512,46 +9511,46 @@ invoke.cont4:                                     ; preds = %entry
 
 if.end:                                           ; preds = %invoke.cont4, %entry
   %size_.i = getelementptr inbounds %"class.flatbuffers::vector_downward", ptr %this, i64 0, i32 6
-  %3 = load i32, ptr %size_.i, align 8
+  %2 = load i32, ptr %size_.i, align 8
   tail call void @_ZN11flatbuffers21FlatBufferBuilderImplILb0EE16CreateStringImplEPKcm(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %str, i64 noundef %len)
-  %4 = load i32, ptr %size_.i, align 8
-  store i32 %4, ptr %off, align 4
-  %5 = load ptr, ptr %string_pool, align 8
-  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
-  %6 = load ptr, ptr %_M_parent.i.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  %cmp.not5.i.i.i = icmp eq ptr %6, null
+  %3 = load i32, ptr %size_.i, align 8
+  store i32 %3, ptr %off, align 4
+  %4 = load ptr, ptr %string_pool, align 8
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = load ptr, ptr %_M_parent.i.i.i.i, align 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %cmp.not5.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not5.i.i.i, label %if.end23, label %while.body.lr.ph.i.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %if.end
-  %7 = load ptr, ptr %5, align 8
-  %buf_.i.i.i.i.i = getelementptr inbounds %"class.flatbuffers::vector_downward", ptr %7, i64 0, i32 7
-  %8 = load ptr, ptr %buf_.i.i.i.i.i, align 8
-  %reserved_.i.i.i.i.i = getelementptr inbounds %"class.flatbuffers::vector_downward", ptr %7, i64 0, i32 5
-  %9 = load i64, ptr %reserved_.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 %9
-  %conv4.i.i.i.i = zext i32 %4 to i64
+  %6 = load ptr, ptr %4, align 8
+  %buf_.i.i.i.i.i = getelementptr inbounds %"class.flatbuffers::vector_downward", ptr %6, i64 0, i32 7
+  %7 = load ptr, ptr %buf_.i.i.i.i.i, align 8
+  %reserved_.i.i.i.i.i = getelementptr inbounds %"class.flatbuffers::vector_downward", ptr %6, i64 0, i32 5
+  %8 = load i64, ptr %reserved_.i.i.i.i.i, align 8
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %8
+  %conv4.i.i.i.i = zext i32 %3 to i64
   %idx.neg.i6.i.i.i.i = sub nsw i64 0, %conv4.i.i.i.i
   %add.ptr2.i7.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %idx.neg.i6.i.i.i.i
   %add.ptr.i.i8.i.i.i.i = getelementptr inbounds i32, ptr %add.ptr2.i7.i.i.i.i, i64 1
-  %10 = load i32, ptr %add.ptr2.i7.i.i.i.i, align 4
+  %9 = load i32, ptr %add.ptr2.i7.i.i.i.i, align 4
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %while.body.lr.ph.i.i.i
-  %__x.addr.07.i.i.i = phi ptr [ %6, %while.body.lr.ph.i.i.i ], [ %__x.addr.1.i.i.i, %while.body.i.i.i ]
+  %__x.addr.07.i.i.i = phi ptr [ %5, %while.body.lr.ph.i.i.i ], [ %__x.addr.1.i.i.i, %while.body.i.i.i ]
   %__y.addr.06.i.i.i = phi ptr [ %add.ptr.i.i.i, %while.body.lr.ph.i.i.i ], [ %__y.addr.1.i.i.i, %while.body.i.i.i ]
   %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i, i64 0, i32 1
-  %11 = load i32, ptr %_M_storage.i.i.i.i.i, align 4
-  %conv.i.i.i.i = zext i32 %11 to i64
+  %10 = load i32, ptr %_M_storage.i.i.i.i.i, align 4
+  %conv.i.i.i.i = zext i32 %10 to i64
   %idx.neg.i.i.i.i.i = sub nsw i64 0, %conv.i.i.i.i
   %add.ptr2.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %idx.neg.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i32, ptr %add.ptr2.i.i.i.i.i, i64 1
-  %12 = load i32, ptr %add.ptr2.i.i.i.i.i, align 4
-  %.sroa.speculated.i.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %10, i32 %12)
+  %11 = load i32, ptr %add.ptr2.i.i.i.i.i, align 4
+  %.sroa.speculated.i.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %9, i32 %11)
   %conv.i.i.i.i.i = zext i32 %.sroa.speculated.i.i.i.i.i to i64
   %call1.i.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull %add.ptr.i.i.i.i.i.i, ptr noundef nonnull %add.ptr.i.i8.i.i.i.i, i64 noundef %conv.i.i.i.i.i) #25
   %cmp2.i.i.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
-  %cmp3.i.i.i.i.i = icmp ult i32 %12, %10
+  %cmp3.i.i.i.i.i = icmp ult i32 %11, %9
   %cmp4.i.i.i.i.i = icmp slt i32 %call1.i.i.i.i.i, 0
   %cond.i.i.i.i.i = select i1 %cmp2.i.i.i.i.i, i1 %cmp3.i.i.i.i.i, i1 %cmp4.i.i.i.i.i
   %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 3
@@ -9568,35 +9567,35 @@ _ZNSt8_Rb_treeIN11flatbuffers6OffsetINS0_6StringEEES3_St9_IdentityIS3_ENS0_21Fla
 
 _ZNSt3setIN11flatbuffers6OffsetINS0_6StringEEENS0_21FlatBufferBuilderImplILb0EE19StringOffsetCompareESaIS3_EE4findERKS3_.exit: ; preds = %_ZNSt8_Rb_treeIN11flatbuffers6OffsetINS0_6StringEEES3_St9_IdentityIS3_ENS0_21FlatBufferBuilderImplILb0EE19StringOffsetCompareESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i
   %_M_storage.i.i.i3.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1
-  %13 = load i32, ptr %_M_storage.i.i.i3.i.i, align 4
-  %conv4.i.i.i = zext i32 %13 to i64
+  %12 = load i32, ptr %_M_storage.i.i.i3.i.i, align 4
+  %conv4.i.i.i = zext i32 %12 to i64
   %idx.neg.i6.i.i.i = sub nsw i64 0, %conv4.i.i.i
   %add.ptr2.i7.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %idx.neg.i6.i.i.i
   %add.ptr.i.i8.i.i.i = getelementptr inbounds i32, ptr %add.ptr2.i7.i.i.i, i64 1
-  %14 = load i32, ptr %add.ptr2.i7.i.i.i, align 4
-  %.sroa.speculated.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %14, i32 %10)
+  %13 = load i32, ptr %add.ptr2.i7.i.i.i, align 4
+  %.sroa.speculated.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %13, i32 %9)
   %conv.i.i5.i.i = zext i32 %.sroa.speculated.i.i.i.i to i64
   %call1.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull %add.ptr.i.i8.i.i.i.i, ptr noundef nonnull %add.ptr.i.i8.i.i.i, i64 noundef %conv.i.i5.i.i) #25
   %cmp2.i.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
-  %cmp3.i.i.i.i = icmp ult i32 %10, %14
+  %cmp3.i.i.i.i = icmp ult i32 %9, %13
   %cmp4.i.i.i.i = icmp slt i32 %call1.i.i.i.i, 0
   %cond.i.i.i.i = select i1 %cmp2.i.i.i.i, i1 %cmp3.i.i.i.i, i1 %cmp4.i.i.i.i
   br i1 %cond.i.i.i.i, label %if.end23, label %if.then17
 
 if.then17:                                        ; preds = %_ZNSt3setIN11flatbuffers6OffsetINS0_6StringEEENS0_21FlatBufferBuilderImplILb0EE19StringOffsetCompareESaIS3_EE4findERKS3_.exit
-  %conv = zext i32 %3 to i64
+  %conv = zext i32 %2 to i64
   %sub = sub nsw i64 %conv4.i.i.i.i, %conv
   %cur_.i = getelementptr inbounds %"class.flatbuffers::vector_downward", ptr %this, i64 0, i32 8
-  %15 = load ptr, ptr %cur_.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %15, i64 %sub
+  %14 = load ptr, ptr %cur_.i, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %14, i64 %sub
   store ptr %add.ptr.i, ptr %cur_.i, align 8
   %conv.i = trunc i64 %sub to i32
-  %sub.i = sub i32 %4, %conv.i
+  %sub.i = sub i32 %3, %conv.i
   store i32 %sub.i, ptr %size_.i, align 8
   br label %return
 
 if.end23:                                         ; preds = %if.end, %_ZNSt8_Rb_treeIN11flatbuffers6OffsetINS0_6StringEEES3_St9_IdentityIS3_ENS0_21FlatBufferBuilderImplILb0EE19StringOffsetCompareESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_.exit.i.i, %_ZNSt3setIN11flatbuffers6OffsetINS0_6StringEEENS0_21FlatBufferBuilderImplILb0EE19StringOffsetCompareESaIS3_EE4findERKS3_.exit
-  %call.i = call { ptr, i8 } @_ZNSt8_Rb_treeIN11flatbuffers6OffsetINS0_6StringEEES3_St9_IdentityIS3_ENS0_21FlatBufferBuilderImplILb0EE19StringOffsetCompareESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 4 dereferenceable(4) %off)
+  %call.i = call { ptr, i8 } @_ZNSt8_Rb_treeIN11flatbuffers6OffsetINS0_6StringEEES3_St9_IdentityIS3_ENS0_21FlatBufferBuilderImplILb0EE19StringOffsetCompareESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 4 dereferenceable(4) %off)
   br label %return
 
 return:                                           ; preds = %if.end23, %if.then17

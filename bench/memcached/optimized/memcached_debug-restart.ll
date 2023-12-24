@@ -626,24 +626,22 @@ if.then18:                                        ; preds = %if.then16
   %16 = load ptr, ptr @mmap_base, align 8
   %17 = ptrtoint ptr %16 to i64
   %add22 = add i64 %sub, %17
-  %18 = inttoptr i64 %add22 to ptr
-  store ptr %18, ptr %add.ptr, align 8
+  store i64 %add22, ptr %add.ptr, align 8
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then18, %if.then16
   %prev = getelementptr inbounds %struct._stritem, ptr %add.ptr, i64 0, i32 1
-  %19 = load ptr, ptr %prev, align 8
-  %tobool25.not = icmp eq ptr %19, null
+  %18 = load ptr, ptr %prev, align 8
+  %tobool25.not = icmp eq ptr %18, null
   br i1 %tobool25.not, label %if.end33, label %if.then26
 
 if.then26:                                        ; preds = %if.end24
-  %20 = ptrtoint ptr %19 to i64
-  %sub28 = sub i64 %20, %8
-  %21 = load ptr, ptr @mmap_base, align 8
-  %22 = ptrtoint ptr %21 to i64
-  %add31 = add i64 %sub28, %22
-  %23 = inttoptr i64 %add31 to ptr
-  store ptr %23, ptr %prev, align 8
+  %19 = ptrtoint ptr %18 to i64
+  %sub28 = sub i64 %19, %8
+  %20 = load ptr, ptr @mmap_base, align 8
+  %21 = ptrtoint ptr %20 to i64
+  %add31 = add i64 %sub28, %21
+  store i64 %add31, ptr %prev, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then26, %if.end24
@@ -652,8 +650,8 @@ if.end33:                                         ; preds = %if.then26, %if.end2
   br label %if.end34
 
 if.end34:                                         ; preds = %if.end33, %if.end14
-  %24 = phi i16 [ %.pre, %if.end33 ], [ %12, %if.end14 ]
-  %conv36 = zext i16 %24 to i32
+  %22 = phi i16 [ %.pre, %if.end33 ], [ %12, %if.end14 ]
+  %conv36 = zext i16 %22 to i32
   %and37 = and i32 %conv36, 96
   %tobool38.not = icmp eq i32 %and37, 0
   br i1 %tobool38.not, label %if.end91, label %if.then39
@@ -666,71 +664,68 @@ if.then39:                                        ; preds = %if.end34
 if.then44:                                        ; preds = %if.then39
   %data = getelementptr inbounds %struct._stritem, ptr %add.ptr, i64 0, i32 10
   %nkey = getelementptr inbounds %struct._stritem, ptr %add.ptr, i64 0, i32 9
-  %25 = load i8, ptr %nkey, align 1
-  %idx.ext = zext i8 %25 to i64
+  %23 = load i8, ptr %nkey, align 1
+  %idx.ext = zext i8 %23 to i64
   %add.ptr46 = getelementptr inbounds i8, ptr %data, i64 %idx.ext
   %add.ptr47 = getelementptr inbounds i8, ptr %add.ptr46, i64 1
   %and50 = lshr i32 %conv36, 6
-  %26 = and i32 %and50, 4
-  %cond = zext nneg i32 %26 to i64
+  %24 = and i32 %and50, 4
+  %cond = zext nneg i32 %24 to i64
   %add.ptr52 = getelementptr inbounds i8, ptr %add.ptr47, i64 %cond
   %and55 = shl nuw nsw i32 %conv36, 2
-  %27 = and i32 %and55, 8
-  %cond57 = zext nneg i32 %27 to i64
+  %25 = and i32 %and55, 8
+  %cond57 = zext nneg i32 %25 to i64
   %add.ptr58 = getelementptr inbounds i8, ptr %add.ptr52, i64 %cond57
   %orig_clsid = getelementptr inbounds %struct._strchunk, ptr %add.ptr58, i64 0, i32 9
-  %28 = load i8, ptr %orig_clsid, align 1
-  %conv59 = zext i8 %28 to i32
+  %26 = load i8, ptr %orig_clsid, align 1
+  %conv59 = zext i8 %26 to i32
   %call60 = tail call i32 @slabs_size(i32 noundef %conv59) #19
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then39, %if.then44
   %size.0 = phi i32 [ %call60, %if.then44 ], [ %call9, %if.then39 ]
   %ch.0 = phi ptr [ %add.ptr58, %if.then44 ], [ %add.ptr, %if.then39 ]
-  %29 = load ptr, ptr %ch.0, align 8
-  %tobool63.not = icmp eq ptr %29, null
+  %27 = load ptr, ptr %ch.0, align 8
+  %tobool63.not = icmp eq ptr %27, null
   br i1 %tobool63.not, label %if.end71, label %if.then64
 
 if.then64:                                        ; preds = %if.end61
+  %28 = ptrtoint ptr %27 to i64
+  %sub66 = sub i64 %28, %8
+  %29 = load ptr, ptr @mmap_base, align 8
   %30 = ptrtoint ptr %29 to i64
-  %sub66 = sub i64 %30, %8
-  %31 = load ptr, ptr @mmap_base, align 8
-  %32 = ptrtoint ptr %31 to i64
-  %add69 = add i64 %sub66, %32
-  %33 = inttoptr i64 %add69 to ptr
-  store ptr %33, ptr %ch.0, align 8
+  %add69 = add i64 %sub66, %30
+  store i64 %add69, ptr %ch.0, align 8
   br label %if.end71
 
 if.end71:                                         ; preds = %if.then64, %if.end61
   %prev72 = getelementptr inbounds %struct._strchunk, ptr %ch.0, i64 0, i32 1
-  %34 = load ptr, ptr %prev72, align 8
-  %tobool73.not = icmp eq ptr %34, null
+  %31 = load ptr, ptr %prev72, align 8
+  %tobool73.not = icmp eq ptr %31, null
   br i1 %tobool73.not, label %if.end81, label %if.then74
 
 if.then74:                                        ; preds = %if.end71
-  %35 = ptrtoint ptr %34 to i64
-  %sub76 = sub i64 %35, %8
-  %36 = load ptr, ptr @mmap_base, align 8
-  %37 = ptrtoint ptr %36 to i64
-  %add79 = add i64 %sub76, %37
-  %38 = inttoptr i64 %add79 to ptr
-  store ptr %38, ptr %prev72, align 8
+  %32 = ptrtoint ptr %31 to i64
+  %sub76 = sub i64 %32, %8
+  %33 = load ptr, ptr @mmap_base, align 8
+  %34 = ptrtoint ptr %33 to i64
+  %add79 = add i64 %sub76, %34
+  store i64 %add79, ptr %prev72, align 8
   br label %if.end81
 
 if.end81:                                         ; preds = %if.then74, %if.end71
   %head = getelementptr inbounds %struct._strchunk, ptr %ch.0, i64 0, i32 2
-  %39 = load ptr, ptr %head, align 8
-  %tobool82.not = icmp eq ptr %39, null
+  %35 = load ptr, ptr %head, align 8
+  %tobool82.not = icmp eq ptr %35, null
   br i1 %tobool82.not, label %if.end91, label %if.then83
 
 if.then83:                                        ; preds = %if.end81
-  %40 = ptrtoint ptr %39 to i64
-  %sub85 = sub i64 %40, %8
-  %41 = load ptr, ptr @mmap_base, align 8
-  %42 = ptrtoint ptr %41 to i64
-  %add88 = add i64 %sub85, %42
-  %43 = inttoptr i64 %add88 to ptr
-  store ptr %43, ptr %head, align 8
+  %36 = ptrtoint ptr %35 to i64
+  %sub85 = sub i64 %36, %8
+  %37 = load ptr, ptr @mmap_base, align 8
+  %38 = ptrtoint ptr %37 to i64
+  %add88 = add i64 %sub85, %38
+  store i64 %add88, ptr %head, align 8
   br label %if.end91
 
 if.end91:                                         ; preds = %if.end81, %if.then83, %if.end34
@@ -739,25 +734,25 @@ if.end91:                                         ; preds = %if.end81, %if.then8
   %add93 = add i64 %checked.058, %conv92
   %sub94 = sub i32 %page_remain.057, %size.1
   %cmp95 = icmp ugt i32 %size.1, %sub94
-  %44 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i64 0, i32 24), align 4
-  %page_remain.1 = select i1 %cmp95, i32 %44, i32 %sub94
+  %39 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i64 0, i32 24), align 4
+  %page_remain.1 = select i1 %cmp95, i32 %39, i32 %sub94
   %narrow = select i1 %cmp95, i32 %sub94, i32 0
   br label %while.cond.backedge
 
 while.end:                                        ; preds = %while.cond.backedge, %if.end
-  %45 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i64 0, i32 5), align 8
-  %cmp101 = icmp sgt i32 %45, 0
+  %40 = load i32, ptr getelementptr inbounds (%struct.settings, ptr @settings, i64 0, i32 5), align 8
+  %cmp101 = icmp sgt i32 %40, 0
   br i1 %cmp101, label %if.then103, label %if.end110
 
 if.then103:                                       ; preds = %while.end
   %call104 = call i32 @gettimeofday(ptr noundef nonnull %tv, ptr noundef null) #19
-  %46 = load ptr, ptr @stderr, align 8
-  %47 = load i64, ptr %tv, align 8
-  %conv106 = trunc i64 %47 to i32
+  %41 = load ptr, ptr @stderr, align 8
+  %42 = load i64, ptr %tv, align 8
+  %conv106 = trunc i64 %42 to i32
   %tv_usec107 = getelementptr inbounds %struct.timeval, ptr %tv, i64 0, i32 1
-  %48 = load i64, ptr %tv_usec107, align 8
-  %conv108 = trunc i64 %48 to i32
-  %call109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.14, i32 noundef %conv106, i32 noundef %conv108) #17
+  %43 = load i64, ptr %tv_usec107, align 8
+  %conv108 = trunc i64 %43 to i32
+  %call109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.14, i32 noundef %conv106, i32 noundef %conv108) #17
   br label %if.end110
 
 if.end110:                                        ; preds = %if.then103, %while.end

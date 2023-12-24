@@ -6977,7 +6977,7 @@ if.end:                                           ; preds = %entry
   %7 = getelementptr inbounds %class.anon, ptr %continuation, i64 0, i32 5
   store ptr %start_level_inputs.addr, ptr %7, align 8
   %8 = ptrtoint ptr %vstorage to i64
-  store i64 %8, ptr %rnd, align 8
+  store ptr %vstorage, ptr %rnd, align 8
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end
@@ -7213,8 +7213,7 @@ if.end:                                           ; preds = %land.lhs.true, %con
 
 if.then.i:                                        ; preds = %if.end
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #27
-  %24 = ptrtoint ptr %level_file.coerce1 to i64
-  store i64 %24, ptr %call5.i.i.i.i.i, align 8
+  store ptr %level_file.coerce1, ptr %call5.i.i.i.i.i, align 8
   %_M_finish.i = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %21, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
   %tobool.not.i.i = icmp eq ptr %22, null
   br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE13_M_deallocateEPS2_m.exit.i, label %if.then.i13.i
@@ -7232,10 +7231,9 @@ _ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE13_M_deallocateEPS2_m.exit.
 
 if.else.i:                                        ; preds = %if.end
   %_M_finish.i.i = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %21, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %25 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp24.not.i = icmp eq ptr %25, %23
-  %26 = ptrtoint ptr %level_file.coerce1 to i64
-  store i64 %26, ptr %23, align 8
+  %24 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp24.not.i = icmp eq ptr %24, %23
+  store ptr %level_file.coerce1, ptr %23, align 8
   br i1 %cmp24.not.i, label %_ZSt22__uninitialized_copy_aIPKPN7rocksdb12FileMetaDataEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.else.i
@@ -7254,18 +7252,18 @@ _ZSt22__uninitialized_copy_aIPKPN7rocksdb12FileMetaDataEPS2_S2_ET0_T_S7_S6_RSaIT
   br label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit
 
 _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit: ; preds = %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE13_M_deallocateEPS2_m.exit.i, %if.then25.i, %invoke.cont.i.i, %_ZSt22__uninitialized_copy_aIPKPN7rocksdb12FileMetaDataEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.i
-  %27 = load ptr, ptr %2, align 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = load i32, ptr %28, align 4
-  %30 = load ptr, ptr %19, align 8
+  %25 = load ptr, ptr %2, align 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = load i32, ptr %26, align 4
+  %28 = load ptr, ptr %19, align 8
+  %29 = load ptr, ptr %28, align 8
+  store i32 %27, ptr %29, align 8
+  %30 = getelementptr inbounds %class.anon, ptr %this, i64 0, i32 3
   %31 = load ptr, ptr %30, align 8
-  store i32 %29, ptr %31, align 8
-  %32 = getelementptr inbounds %class.anon, ptr %this, i64 0, i32 3
-  %33 = load ptr, ptr %32, align 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %19, align 8
   %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %19, align 8
-  %36 = load ptr, ptr %35, align 8
-  %call6 = tail call noundef zeroext i1 @_ZN7rocksdb16CompactionPicker22ExpandInputsToCleanCutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18VersionStorageInfoEPNS_20CompactionInputFilesEPPNS_11InternalKeyE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr nonnull align 8 poison, ptr noundef %34, ptr noundef %36, ptr noundef null)
+  %call6 = tail call noundef zeroext i1 @_ZN7rocksdb16CompactionPicker22ExpandInputsToCleanCutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18VersionStorageInfoEPNS_20CompactionInputFilesEPPNS_11InternalKeyE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr nonnull align 8 poison, ptr noundef %32, ptr noundef %34, ptr noundef null)
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit

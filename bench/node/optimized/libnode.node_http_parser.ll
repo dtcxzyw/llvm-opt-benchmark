@@ -7517,22 +7517,21 @@ if.end.i:                                         ; preds = %_ZN2v810MaybeLocalI
   %14 = load ptr, ptr %isolate_.i.i, align 8
   %15 = ptrtoint ptr %14 to i64
   %add1.i.i = add i64 %15, 608
-  %16 = inttoptr i64 %add1.i.i to ptr
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end.i
   %i.075.i = phi i64 [ 0, %if.end.i ], [ %inc.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [9 x %"class.v8::Local.0"], ptr %argv.i, i64 0, i64 %i.075.i
-  store ptr %16, ptr %arrayidx.i, align 8
+  store i64 %add1.i.i, ptr %arrayidx.i, align 8
   %inc.i = add nuw nsw i64 %i.075.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 9
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !52
 
 for.end.i:                                        ; preds = %for.body.i
   %have_flushed_.i = getelementptr inbounds %"class.node::(anonymous namespace)::Parser", ptr %1, i64 0, i32 9
-  %17 = load i8, ptr %have_flushed_.i, align 8
-  %18 = and i8 %17, 1
-  %tobool.not.i = icmp eq i8 %18, 0
+  %16 = load i8, ptr %have_flushed_.i, align 8
+  %17 = and i8 %16, 1
+  %tobool.not.i = icmp eq i8 %17, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then35.i
 
 if.then35.i:                                      ; preds = %for.end.i
@@ -7544,26 +7543,26 @@ if.else.i:                                        ; preds = %for.end.i
   %arrayidx45.i = getelementptr inbounds [9 x %"class.v8::Local.0"], ptr %argv.i, i64 0, i64 2
   store ptr %call38.i, ptr %arrayidx45.i, align 16
   %type.i = getelementptr inbounds %"class.node::(anonymous namespace)::Parser", ptr %1, i64 0, i32 2, i32 9
-  %19 = load i8, ptr %type.i, align 8
-  %cmp46.i = icmp eq i8 %19, 1
+  %18 = load i8, ptr %type.i, align 8
+  %cmp46.i = icmp eq i8 %18, 1
   br i1 %cmp46.i, label %if.then47.i, label %if.end60.i
 
 if.then47.i:                                      ; preds = %if.else.i
-  %20 = load ptr, ptr %realm_.i.i.i, align 8
-  %env_.i.i18.i = getelementptr inbounds %"class.node::Realm", ptr %20, i64 0, i32 5
-  %21 = load ptr, ptr %env_.i.i18.i, align 8
-  %22 = getelementptr inbounds %"class.node::(anonymous namespace)::Parser", ptr %1, i64 0, i32 5, i32 2
-  %url_.val14.i = load i64, ptr %22, align 8
+  %19 = load ptr, ptr %realm_.i.i.i, align 8
+  %env_.i.i18.i = getelementptr inbounds %"class.node::Realm", ptr %19, i64 0, i32 5
+  %20 = load ptr, ptr %env_.i.i18.i, align 8
+  %21 = getelementptr inbounds %"class.node::(anonymous namespace)::Parser", ptr %1, i64 0, i32 5, i32 2
+  %url_.val14.i = load i64, ptr %21, align 8
   %cmp.not.i.i = icmp eq i64 %url_.val14.i, 0
-  %isolate_.i3.i.i = getelementptr inbounds %"class.node::Environment", ptr %21, i64 0, i32 3
-  %23 = load ptr, ptr %isolate_.i3.i.i, align 8
+  %isolate_.i3.i.i = getelementptr inbounds %"class.node::Environment", ptr %20, i64 0, i32 3
+  %22 = load ptr, ptr %isolate_.i3.i.i, align 8
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then47.i
   %url_.i = getelementptr inbounds %"class.node::(anonymous namespace)::Parser", ptr %1, i64 0, i32 5
   %url_.val.i = load ptr, ptr %url_.i, align 8
   %conv.i.i = trunc i64 %url_.val14.i to i32
-  %call.i.i.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %23, ptr noundef %url_.val.i, i32 noundef 0, i32 noundef %conv.i.i) #20
+  %call.i.i.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %22, ptr noundef %url_.val.i, i32 noundef 0, i32 noundef %conv.i.i) #20
   %cmp.i.i.i.i19.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i.i19.i, label %if.then.i.i.i.i, label %_ZNK4node12_GLOBAL__N_19StringPtr8ToStringEPNS_11EnvironmentE.exit.i
 
@@ -7572,13 +7571,13 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i
   br label %_ZNK4node12_GLOBAL__N_19StringPtr8ToStringEPNS_11EnvironmentE.exit.i
 
 if.else.i.i:                                      ; preds = %if.then47.i
-  %24 = ptrtoint ptr %23 to i64
-  %add1.i.i.i.i = add i64 %24, 648
-  %25 = inttoptr i64 %add1.i.i.i.i to ptr
+  %23 = ptrtoint ptr %22 to i64
+  %add1.i.i.i.i = add i64 %23, 648
+  %24 = inttoptr i64 %add1.i.i.i.i to ptr
   br label %_ZNK4node12_GLOBAL__N_19StringPtr8ToStringEPNS_11EnvironmentE.exit.i
 
 _ZNK4node12_GLOBAL__N_19StringPtr8ToStringEPNS_11EnvironmentE.exit.i: ; preds = %if.else.i.i, %if.then.i.i.i.i, %if.then.i.i
-  %retval.sroa.0.0.i.i = phi ptr [ %25, %if.else.i.i ], [ %call.i.i.i, %if.then.i.i ], [ null, %if.then.i.i.i.i ]
+  %retval.sroa.0.0.i.i = phi ptr [ %24, %if.else.i.i ], [ %call.i.i.i, %if.then.i.i ], [ null, %if.then.i.i.i.i ]
   %arrayidx58.i = getelementptr inbounds [9 x %"class.v8::Local.0"], ptr %argv.i, i64 0, i64 4
   store ptr %retval.sroa.0.0.i.i, ptr %arrayidx58.i, align 16
   br label %if.end60.i
@@ -7588,20 +7587,20 @@ if.end60.i:                                       ; preds = %_ZNK4node12_GLOBAL_
   %parser_61.i = getelementptr inbounds %"class.node::(anonymous namespace)::Parser", ptr %1, i64 0, i32 2
   %type62.i = getelementptr inbounds %"class.node::(anonymous namespace)::Parser", ptr %1, i64 0, i32 2, i32 9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %num_fields_.i, i8 0, i64 16, i1 false)
-  %26 = load i8, ptr %type62.i, align 8
-  %cmp64.i = icmp eq i8 %26, 1
+  %25 = load i8, ptr %type62.i, align 8
+  %cmp64.i = icmp eq i8 %25, 1
   %.pre78.pre79.i = load ptr, ptr %realm_.i.i.i, align 8
   br i1 %cmp64.i, label %if.then65.i, label %if.end80.i
 
 if.then65.i:                                      ; preds = %if.end60.i
   %env_.i.i21.i = getelementptr inbounds %"class.node::Realm", ptr %.pre78.pre79.i, i64 0, i32 5
-  %27 = load ptr, ptr %env_.i.i21.i, align 8
-  %isolate_.i22.i = getelementptr inbounds %"class.node::Environment", ptr %27, i64 0, i32 3
-  %28 = load ptr, ptr %isolate_.i22.i, align 8
+  %26 = load ptr, ptr %env_.i.i21.i, align 8
+  %isolate_.i22.i = getelementptr inbounds %"class.node::Environment", ptr %26, i64 0, i32 3
+  %27 = load ptr, ptr %isolate_.i22.i, align 8
   %method.i = getelementptr inbounds %"class.node::(anonymous namespace)::Parser", ptr %1, i64 0, i32 2, i32 10
-  %29 = load i8, ptr %method.i, align 1
-  %conv71.i = zext i8 %29 to i32
-  %call72.i = tail call ptr @_ZN2v87Integer15NewFromUnsignedEPNS_7IsolateEj(ptr noundef %28, i32 noundef %conv71.i) #20
+  %28 = load i8, ptr %method.i, align 1
+  %conv71.i = zext i8 %28 to i32
+  %call72.i = tail call ptr @_ZN2v87Integer15NewFromUnsignedEPNS_7IsolateEj(ptr noundef %27, i32 noundef %conv71.i) #20
   %arrayidx79.i = getelementptr inbounds [9 x %"class.v8::Local.0"], ptr %argv.i, i64 0, i64 3
   store ptr %call72.i, ptr %arrayidx79.i, align 8
   %.pr.i = load i8, ptr %type62.i, align 8
@@ -7610,36 +7609,36 @@ if.then65.i:                                      ; preds = %if.end60.i
 
 if.end80.i:                                       ; preds = %if.then65.i, %if.end60.i
   %.pre78.i = phi ptr [ %.pre78.pre.i, %if.then65.i ], [ %.pre78.pre79.i, %if.end60.i ]
-  %30 = phi i8 [ %.pr.i, %if.then65.i ], [ %26, %if.end60.i ]
-  %cmp84.i = icmp eq i8 %30, 2
+  %29 = phi i8 [ %.pr.i, %if.then65.i ], [ %25, %if.end60.i ]
+  %cmp84.i = icmp eq i8 %29, 2
   br i1 %cmp84.i, label %if.then85.i, label %if.end111.i
 
 if.then85.i:                                      ; preds = %if.end80.i
   %env_.i.i24.i = getelementptr inbounds %"class.node::Realm", ptr %.pre78.i, i64 0, i32 5
-  %31 = load ptr, ptr %env_.i.i24.i, align 8
-  %isolate_.i25.i = getelementptr inbounds %"class.node::Environment", ptr %31, i64 0, i32 3
-  %32 = load ptr, ptr %isolate_.i25.i, align 8
+  %30 = load ptr, ptr %env_.i.i24.i, align 8
+  %isolate_.i25.i = getelementptr inbounds %"class.node::Environment", ptr %30, i64 0, i32 3
+  %31 = load ptr, ptr %isolate_.i25.i, align 8
   %status_code.i = getelementptr inbounds %"class.node::(anonymous namespace)::Parser", ptr %1, i64 0, i32 2, i32 18
-  %33 = load i16, ptr %status_code.i, align 4
-  %conv91.i = zext i16 %33 to i32
-  %call92.i = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %32, i32 noundef %conv91.i) #20
+  %32 = load i16, ptr %status_code.i, align 4
+  %conv91.i = zext i16 %32 to i32
+  %call92.i = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %31, i32 noundef %conv91.i) #20
   %arrayidx99.i = getelementptr inbounds [9 x %"class.v8::Local.0"], ptr %argv.i, i64 0, i64 5
   store ptr %call92.i, ptr %arrayidx99.i, align 8
-  %34 = load ptr, ptr %realm_.i.i.i, align 8
-  %env_.i.i27.i = getelementptr inbounds %"class.node::Realm", ptr %34, i64 0, i32 5
-  %35 = load ptr, ptr %env_.i.i27.i, align 8
-  %36 = getelementptr inbounds %"class.node::(anonymous namespace)::Parser", ptr %1, i64 0, i32 6, i32 2
-  %status_message_.val13.i = load i64, ptr %36, align 8
+  %33 = load ptr, ptr %realm_.i.i.i, align 8
+  %env_.i.i27.i = getelementptr inbounds %"class.node::Realm", ptr %33, i64 0, i32 5
+  %34 = load ptr, ptr %env_.i.i27.i, align 8
+  %35 = getelementptr inbounds %"class.node::(anonymous namespace)::Parser", ptr %1, i64 0, i32 6, i32 2
+  %status_message_.val13.i = load i64, ptr %35, align 8
   %cmp.not.i28.i = icmp eq i64 %status_message_.val13.i, 0
-  %isolate_.i3.i29.i = getelementptr inbounds %"class.node::Environment", ptr %35, i64 0, i32 3
-  %37 = load ptr, ptr %isolate_.i3.i29.i, align 8
+  %isolate_.i3.i29.i = getelementptr inbounds %"class.node::Environment", ptr %34, i64 0, i32 3
+  %36 = load ptr, ptr %isolate_.i3.i29.i, align 8
   br i1 %cmp.not.i28.i, label %if.else.i36.i, label %if.then.i30.i
 
 if.then.i30.i:                                    ; preds = %if.then85.i
   %status_message_.i = getelementptr inbounds %"class.node::(anonymous namespace)::Parser", ptr %1, i64 0, i32 6
   %status_message_.val.i = load ptr, ptr %status_message_.i, align 8
   %conv.i31.i = trunc i64 %status_message_.val13.i to i32
-  %call.i.i32.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %37, ptr noundef %status_message_.val.i, i32 noundef 0, i32 noundef %conv.i31.i) #20
+  %call.i.i32.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %36, ptr noundef %status_message_.val.i, i32 noundef 0, i32 noundef %conv.i31.i) #20
   %cmp.i.i.i.i33.i = icmp eq ptr %call.i.i32.i, null
   br i1 %cmp.i.i.i.i33.i, label %if.then.i.i.i35.i, label %_ZNK4node12_GLOBAL__N_19StringPtr8ToStringEPNS_11EnvironmentE.exit38.i
 
@@ -7648,94 +7647,92 @@ if.then.i.i.i35.i:                                ; preds = %if.then.i30.i
   br label %_ZNK4node12_GLOBAL__N_19StringPtr8ToStringEPNS_11EnvironmentE.exit38.i
 
 if.else.i36.i:                                    ; preds = %if.then85.i
-  %38 = ptrtoint ptr %37 to i64
-  %add1.i.i.i37.i = add i64 %38, 648
-  %39 = inttoptr i64 %add1.i.i.i37.i to ptr
+  %37 = ptrtoint ptr %36 to i64
+  %add1.i.i.i37.i = add i64 %37, 648
+  %38 = inttoptr i64 %add1.i.i.i37.i to ptr
   br label %_ZNK4node12_GLOBAL__N_19StringPtr8ToStringEPNS_11EnvironmentE.exit38.i
 
 _ZNK4node12_GLOBAL__N_19StringPtr8ToStringEPNS_11EnvironmentE.exit38.i: ; preds = %if.else.i36.i, %if.then.i.i.i35.i, %if.then.i30.i
-  %retval.sroa.0.0.i34.i = phi ptr [ %39, %if.else.i36.i ], [ %call.i.i32.i, %if.then.i30.i ], [ null, %if.then.i.i.i35.i ]
+  %retval.sroa.0.0.i34.i = phi ptr [ %38, %if.else.i36.i ], [ %call.i.i32.i, %if.then.i30.i ], [ null, %if.then.i.i.i35.i ]
   %arrayidx110.i = getelementptr inbounds [9 x %"class.v8::Local.0"], ptr %argv.i, i64 0, i64 6
   store ptr %retval.sroa.0.0.i34.i, ptr %arrayidx110.i, align 16
   %.pre77.i = load ptr, ptr %realm_.i.i.i, align 8
   br label %if.end111.i
 
 if.end111.i:                                      ; preds = %_ZNK4node12_GLOBAL__N_19StringPtr8ToStringEPNS_11EnvironmentE.exit38.i, %if.end80.i
-  %40 = phi ptr [ %.pre77.i, %_ZNK4node12_GLOBAL__N_19StringPtr8ToStringEPNS_11EnvironmentE.exit38.i ], [ %.pre78.i, %if.end80.i ]
-  %env_.i.i40.i = getelementptr inbounds %"class.node::Realm", ptr %40, i64 0, i32 5
-  %41 = load ptr, ptr %env_.i.i40.i, align 8
-  %isolate_.i41.i = getelementptr inbounds %"class.node::Environment", ptr %41, i64 0, i32 3
-  %42 = load ptr, ptr %isolate_.i41.i, align 8
+  %39 = phi ptr [ %.pre77.i, %_ZNK4node12_GLOBAL__N_19StringPtr8ToStringEPNS_11EnvironmentE.exit38.i ], [ %.pre78.i, %if.end80.i ]
+  %env_.i.i40.i = getelementptr inbounds %"class.node::Realm", ptr %39, i64 0, i32 5
+  %40 = load ptr, ptr %env_.i.i40.i, align 8
+  %isolate_.i41.i = getelementptr inbounds %"class.node::Environment", ptr %40, i64 0, i32 3
+  %41 = load ptr, ptr %isolate_.i41.i, align 8
   %http_major.i = getelementptr inbounds %"class.node::(anonymous namespace)::Parser", ptr %1, i64 0, i32 2, i32 11
-  %43 = load i8, ptr %http_major.i, align 2
-  %conv117.i = zext i8 %43 to i32
-  %call118.i = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %42, i32 noundef %conv117.i) #20
+  %42 = load i8, ptr %http_major.i, align 2
+  %conv117.i = zext i8 %42 to i32
+  %call118.i = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %41, i32 noundef %conv117.i) #20
   store ptr %call118.i, ptr %argv.i, align 16
-  %44 = load ptr, ptr %realm_.i.i.i, align 8
-  %env_.i.i43.i = getelementptr inbounds %"class.node::Realm", ptr %44, i64 0, i32 5
-  %45 = load ptr, ptr %env_.i.i43.i, align 8
-  %isolate_.i44.i = getelementptr inbounds %"class.node::Environment", ptr %45, i64 0, i32 3
-  %46 = load ptr, ptr %isolate_.i44.i, align 8
+  %43 = load ptr, ptr %realm_.i.i.i, align 8
+  %env_.i.i43.i = getelementptr inbounds %"class.node::Realm", ptr %43, i64 0, i32 5
+  %44 = load ptr, ptr %env_.i.i43.i, align 8
+  %isolate_.i44.i = getelementptr inbounds %"class.node::Environment", ptr %44, i64 0, i32 3
+  %45 = load ptr, ptr %isolate_.i44.i, align 8
   %http_minor.i = getelementptr inbounds %"class.node::(anonymous namespace)::Parser", ptr %1, i64 0, i32 2, i32 12
-  %47 = load i8, ptr %http_minor.i, align 1
-  %conv131.i = zext i8 %47 to i32
-  %call132.i = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %46, i32 noundef %conv131.i) #20
+  %46 = load i8, ptr %http_minor.i, align 1
+  %conv131.i = zext i8 %46 to i32
+  %call132.i = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %45, i32 noundef %conv131.i) #20
   %arrayidx139.i = getelementptr inbounds [9 x %"class.v8::Local.0"], ptr %argv.i, i64 0, i64 1
   store ptr %call132.i, ptr %arrayidx139.i, align 8
   %call141.i = tail call i32 @llhttp_should_keep_alive(ptr noundef nonnull %parser_61.i) #20
   %tobool142.not.i = icmp eq i32 %call141.i, 0
-  %48 = load ptr, ptr %realm_.i.i.i, align 8
-  %env_.i.i46.i = getelementptr inbounds %"class.node::Realm", ptr %48, i64 0, i32 5
-  %49 = load ptr, ptr %env_.i.i46.i, align 8
-  %isolate_.i47.i = getelementptr inbounds %"class.node::Environment", ptr %49, i64 0, i32 3
-  %50 = load ptr, ptr %isolate_.i47.i, align 8
-  %51 = ptrtoint ptr %50 to i64
-  %add1.i.i.i = add i64 %51, 632
-  %add1.i.i422.i = add i64 %51, 640
+  %47 = load ptr, ptr %realm_.i.i.i, align 8
+  %env_.i.i46.i = getelementptr inbounds %"class.node::Realm", ptr %47, i64 0, i32 5
+  %48 = load ptr, ptr %env_.i.i46.i, align 8
+  %isolate_.i47.i = getelementptr inbounds %"class.node::Environment", ptr %48, i64 0, i32 3
+  %49 = load ptr, ptr %isolate_.i47.i, align 8
+  %50 = ptrtoint ptr %49 to i64
+  %add1.i.i.i = add i64 %50, 632
+  %add1.i.i422.i = add i64 %50, 640
   %retval.i371.sroa.0.0.in.i = select i1 %tobool142.not.i, i64 %add1.i.i422.i, i64 %add1.i.i.i
-  %retval.i371.sroa.0.0.i = inttoptr i64 %retval.i371.sroa.0.0.in.i to ptr
   %arrayidx155.i = getelementptr inbounds [9 x %"class.v8::Local.0"], ptr %argv.i, i64 0, i64 8
-  store ptr %retval.i371.sroa.0.0.i, ptr %arrayidx155.i, align 16
+  store i64 %retval.i371.sroa.0.0.in.i, ptr %arrayidx155.i, align 16
   %upgrade.i = getelementptr inbounds %"class.node::(anonymous namespace)::Parser", ptr %1, i64 0, i32 2, i32 15
-  %52 = load i8, ptr %upgrade.i, align 8
-  %tobool161.not.i = icmp eq i8 %52, 0
+  %51 = load i8, ptr %upgrade.i, align 8
+  %tobool161.not.i = icmp eq i8 %51, 0
   %retval.i369.sroa.0.0.in.i = select i1 %tobool161.not.i, i64 %add1.i.i422.i, i64 %add1.i.i.i
-  %retval.i369.sroa.0.0.i = inttoptr i64 %retval.i369.sroa.0.0.in.i to ptr
   %arrayidx169.i = getelementptr inbounds [9 x %"class.v8::Local.0"], ptr %argv.i, i64 0, i64 7
-  store ptr %retval.i369.sroa.0.0.i, ptr %arrayidx169.i, align 8
+  store i64 %retval.i369.sroa.0.0.in.i, ptr %arrayidx169.i, align 8
   call void @_ZN4node21InternalCallbackScopeC1EPNS_9AsyncWrapEi(ptr noundef nonnull align 8 dereferenceable(37) %callback_scope.i, ptr noundef nonnull %1, i32 noundef 2) #20
-  %53 = load ptr, ptr %realm_.i.i.i, align 8
-  %env_.i.i52.i = getelementptr inbounds %"class.node::Realm", ptr %53, i64 0, i32 5
-  %54 = load ptr, ptr %env_.i.i52.i, align 8
-  %principal_realm_.i.i53.i = getelementptr inbounds %"class.node::Environment", ptr %54, i64 0, i32 89
-  %55 = load ptr, ptr %principal_realm_.i.i53.i, align 8
-  %vtable.i54.i = load ptr, ptr %55, align 8
+  %52 = load ptr, ptr %realm_.i.i.i, align 8
+  %env_.i.i52.i = getelementptr inbounds %"class.node::Realm", ptr %52, i64 0, i32 5
+  %53 = load ptr, ptr %env_.i.i52.i, align 8
+  %principal_realm_.i.i53.i = getelementptr inbounds %"class.node::Environment", ptr %53, i64 0, i32 89
+  %54 = load ptr, ptr %principal_realm_.i.i53.i, align 8
+  %vtable.i54.i = load ptr, ptr %54, align 8
   %vfn.i55.i = getelementptr inbounds ptr, ptr %vtable.i54.i, i64 8
-  %56 = load ptr, ptr %vfn.i55.i, align 8
-  %call2.i56.i = call ptr %56(ptr noundef nonnull align 8 dereferenceable(872) %55) #20
-  %57 = load ptr, ptr %realm_.i.i.i, align 8
-  %env_.i.i.i58.i = getelementptr inbounds %"class.node::Realm", ptr %57, i64 0, i32 5
-  %58 = load ptr, ptr %env_.i.i.i58.i, align 8
-  %isolate_.i.i59.i = getelementptr inbounds %"class.node::Environment", ptr %58, i64 0, i32 3
-  %59 = load ptr, ptr %isolate_.i.i59.i, align 8
-  %60 = load ptr, ptr %persistent_handle_.i.i, align 8
-  %cmp.i.i.i.i61.i = icmp eq ptr %60, null
+  %55 = load ptr, ptr %vfn.i55.i, align 8
+  %call2.i56.i = call ptr %55(ptr noundef nonnull align 8 dereferenceable(872) %54) #20
+  %56 = load ptr, ptr %realm_.i.i.i, align 8
+  %env_.i.i.i58.i = getelementptr inbounds %"class.node::Realm", ptr %56, i64 0, i32 5
+  %57 = load ptr, ptr %env_.i.i.i58.i, align 8
+  %isolate_.i.i59.i = getelementptr inbounds %"class.node::Environment", ptr %57, i64 0, i32 3
+  %58 = load ptr, ptr %isolate_.i.i59.i, align 8
+  %59 = load ptr, ptr %persistent_handle_.i.i, align 8
+  %cmp.i.i.i.i61.i = icmp eq ptr %59, null
   br i1 %cmp.i.i.i.i61.i, label %_ZNK4node10BaseObject6objectEv.exit68.i, label %if.end.i.i.i62.i
 
 if.end.i.i.i62.i:                                 ; preds = %if.end111.i
-  %add.ptr.i.i.i63.i = getelementptr inbounds i8, ptr %60, i64 11
-  %61 = load i8, ptr %add.ptr.i.i.i63.i, align 1
-  %62 = and i8 %61, 3
-  %cmp.i.i.i64.i = icmp eq i8 %62, 2
+  %add.ptr.i.i.i63.i = getelementptr inbounds i8, ptr %59, i64 11
+  %60 = load i8, ptr %add.ptr.i.i.i63.i, align 1
+  %61 = and i8 %60, 3
+  %cmp.i.i.i64.i = icmp eq i8 %61, 2
   br i1 %cmp.i.i.i64.i, label %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i66.i, label %_ZNK4node10BaseObject6objectEv.exit68.i
 
 _ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i66.i: ; preds = %if.end.i.i.i62.i
-  %63 = load i64, ptr %60, align 8
-  %call.i.i.i.i67.i = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %59, i64 noundef %63) #20
+  %62 = load i64, ptr %59, align 8
+  %call.i.i.i.i67.i = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %58, i64 noundef %62) #20
   br label %_ZNK4node10BaseObject6objectEv.exit68.i
 
 _ZNK4node10BaseObject6objectEv.exit68.i:          ; preds = %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i66.i, %if.end.i.i.i62.i, %if.end111.i
-  %retval.sroa.0.0.i.i65.i = phi ptr [ %call.i.i.i.i67.i, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i66.i ], [ null, %if.end111.i ], [ %60, %if.end.i.i.i62.i ]
+  %retval.sroa.0.0.i.i65.i = phi ptr [ %call.i.i.i.i67.i, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i66.i ], [ null, %if.end111.i ], [ %59, %if.end.i.i.i62.i ]
   %call200.i = call ptr @_ZN2v88Function4CallENS_5LocalINS_7ContextEEENS1_INS_5ValueEEEiPS5_(ptr noundef nonnull align 1 dereferenceable(1) %call13.i, ptr %call2.i56.i, ptr %retval.sroa.0.0.i.i65.i, i32 noundef 9, ptr noundef nonnull %argv.i) #20
   %cmp.i.i306.i = icmp eq ptr %call200.i, null
   br i1 %cmp.i.i306.i, label %if.then206.i, label %lor.rhs.critedge.i
@@ -7748,19 +7745,19 @@ if.then206.i:                                     ; preds = %_ZNK4node10BaseObje
 
 lor.rhs.critedge.i:                               ; preds = %_ZNK4node10BaseObject6objectEv.exit68.i
   call void @_ZN4node21InternalCallbackScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(37) %callback_scope.i) #20
-  %64 = load ptr, ptr %realm_.i.i.i, align 8
-  %env_.i.i70.i = getelementptr inbounds %"class.node::Realm", ptr %64, i64 0, i32 5
-  %65 = load ptr, ptr %env_.i.i70.i, align 8
-  %principal_realm_.i.i71.i = getelementptr inbounds %"class.node::Environment", ptr %65, i64 0, i32 89
-  %66 = load ptr, ptr %principal_realm_.i.i71.i, align 8
-  %vtable.i72.i = load ptr, ptr %66, align 8
+  %63 = load ptr, ptr %realm_.i.i.i, align 8
+  %env_.i.i70.i = getelementptr inbounds %"class.node::Realm", ptr %63, i64 0, i32 5
+  %64 = load ptr, ptr %env_.i.i70.i, align 8
+  %principal_realm_.i.i71.i = getelementptr inbounds %"class.node::Environment", ptr %64, i64 0, i32 89
+  %65 = load ptr, ptr %principal_realm_.i.i71.i, align 8
+  %vtable.i72.i = load ptr, ptr %65, align 8
   %vfn.i73.i = getelementptr inbounds ptr, ptr %vtable.i72.i, i64 8
-  %67 = load ptr, ptr %vfn.i73.i, align 8
-  %call2.i74.i = call ptr %67(ptr noundef nonnull align 8 dereferenceable(872) %66) #20
+  %66 = load ptr, ptr %vfn.i73.i, align 8
+  %call2.i74.i = call ptr %66(ptr noundef nonnull align 8 dereferenceable(872) %65) #20
   %call225.i = call { i8, i64 } @_ZNK2v85Value12IntegerValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %call200.i, ptr %call2.i74.i) #20
-  %68 = extractvalue { i8, i64 } %call225.i, 0
-  %69 = and i8 %68, 1
-  %tobool.i506.not.i = icmp eq i8 %69, 0
+  %67 = extractvalue { i8, i64 } %call225.i, 0
+  %68 = and i8 %67, 1
+  %tobool.i506.not.i = icmp eq i8 %68, 0
   br i1 %tobool.i506.not.i, label %_ZN4node12_GLOBAL__N_16Parser19on_headers_completeEv.exit.thread8, label %_ZN4node12_GLOBAL__N_16Parser19on_headers_completeEv.exit
 
 _ZN4node12_GLOBAL__N_16Parser19on_headers_completeEv.exit.thread8: ; preds = %if.then206.i, %lor.rhs.critedge.i
@@ -7771,8 +7768,8 @@ _ZN4node12_GLOBAL__N_16Parser19on_headers_completeEv.exit.thread8: ; preds = %if
   br label %if.end
 
 _ZN4node12_GLOBAL__N_16Parser19on_headers_completeEv.exit: ; preds = %lor.rhs.critedge.i
-  %70 = extractvalue { i8, i64 } %call225.i, 1
-  %conv229.i = trunc i64 %70 to i32
+  %69 = extractvalue { i8, i64 } %call225.i, 1
+  %conv229.i = trunc i64 %69 to i32
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %argv.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %callback_scope.i)
   %cmp = icmp eq i32 %conv229.i, 0
@@ -7780,9 +7777,9 @@ _ZN4node12_GLOBAL__N_16Parser19on_headers_completeEv.exit: ; preds = %lor.rhs.cr
 
 if.then:                                          ; preds = %_ZN4node12_GLOBAL__N_16Parser19on_headers_completeEv.exit.thread, %_ZN4node12_GLOBAL__N_16Parser19on_headers_completeEv.exit
   %pending_pause_.i = getelementptr inbounds %"class.node::(anonymous namespace)::Parser", ptr %1, i64 0, i32 14
-  %71 = load i8, ptr %pending_pause_.i, align 1
-  %72 = and i8 %71, 1
-  %tobool.not.i3 = icmp eq i8 %72, 0
+  %70 = load i8, ptr %pending_pause_.i, align 1
+  %71 = and i8 %70, 1
+  %tobool.not.i3 = icmp eq i8 %71, 0
   br i1 %tobool.not.i3, label %if.end, label %if.end.i4
 
 if.end.i4:                                        ; preds = %if.then

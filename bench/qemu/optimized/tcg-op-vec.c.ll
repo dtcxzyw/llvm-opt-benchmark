@@ -197,8 +197,6 @@ if.then:                                          ; preds = %entry
   %bf.cast5.i = and i32 %7, 255
   %cmp.i = icmp uge i32 %bf.cast5.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp.i)
-  %8 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %9 = ptrtoint ptr %add.ptr.i.i4.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 149, i32 noundef 2) #5
   %bf.load.i.i = load i32, ptr %call.i.i, align 8
   %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
@@ -208,9 +206,9 @@ if.then:                                          ; preds = %entry
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
   %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
-  store i64 %8, ptr %args.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
-  store i64 %9, ptr %arrayidx7.i.i, align 8
+  store ptr %add.ptr.i.i4.i, ptr %arrayidx7.i.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -247,8 +245,6 @@ if.then.i:                                        ; preds = %entry
   %bf.cast5.i.i = and i32 %10, 255
   %cmp.i.i = icmp uge i32 %bf.cast5.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
-  %11 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %12 = ptrtoint ptr %add.ptr.i.i4.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 149, i32 noundef 2) #5
   %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
   %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
@@ -258,9 +254,9 @@ if.then.i:                                        ; preds = %entry
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
   %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
-  store i64 %11, ptr %args.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
-  store i64 %12, ptr %arrayidx7.i.i.i, align 8
+  store ptr %add.ptr.i.i4.i.i, ptr %arrayidx7.i.i.i, align 8
   br label %tcg_gen_mov_vec.exit
 
 tcg_gen_mov_vec.exit:                             ; preds = %entry, %if.then.i
@@ -276,15 +272,13 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %2 = ptrtoint ptr %r to i64
   %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %add.ptr.i.i.i to i64
   %bf.load = load i64, ptr %add.ptr.i.i.i, align 8
-  %4 = trunc i64 %bf.load to i32
-  %5 = ptrtoint ptr %a to i64
-  %add.ptr.i.i.i2 = getelementptr i8, ptr %1, i64 %5
-  %6 = ptrtoint ptr %add.ptr.i.i.i2 to i64
+  %3 = trunc i64 %bf.load to i32
+  %4 = ptrtoint ptr %a to i64
+  %add.ptr.i.i.i2 = getelementptr i8, ptr %1, i64 %4
   %call.i = tail call ptr @tcg_emit_op(i32 noundef 150, i32 noundef 2) #5
   %bf.load.i = load i32, ptr %call.i, align 8
-  %bf.value.i = add i32 %4, 16580608
+  %bf.value.i = add i32 %3, 16580608
   %bf.clear.i = and i32 %bf.load.i, 65535
   %bf.value2.i = shl i32 %vece, 24
   %bf.value.masked.i = and i32 %bf.value.i, 16711680
@@ -292,9 +286,9 @@ entry:
   %bf.set5.i = or disjoint i32 %bf.clear4.i, %bf.value2.i
   store i32 %bf.set5.i, ptr %call.i, align 8
   %args.i = getelementptr inbounds %struct.TCGOp, ptr %call.i, i64 0, i32 4
-  store i64 %3, ptr %args.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %args.i, align 8
   %arrayidx7.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2
-  store i64 %6, ptr %arrayidx7.i, align 8
+  store ptr %add.ptr.i.i.i2, ptr %arrayidx7.i, align 8
   ret void
 }
 
@@ -305,15 +299,13 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %2 = ptrtoint ptr %r to i64
   %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %4 = ptrtoint ptr %a to i64
-  %add.ptr.i.i = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i to i64
+  %3 = ptrtoint ptr %a to i64
+  %add.ptr.i.i = getelementptr i8, ptr %1, i64 %3
   %bf.load = load i64, ptr %add.ptr.i.i.i, align 8
-  %6 = trunc i64 %bf.load to i32
+  %4 = trunc i64 %bf.load to i32
   %call.i = tail call ptr @tcg_emit_op(i32 noundef 150, i32 noundef 2) #5
   %bf.load.i = load i32, ptr %call.i, align 8
-  %bf.value.i = add i32 %6, 16580608
+  %bf.value.i = add i32 %4, 16580608
   %bf.clear.i = and i32 %bf.load.i, 65535
   %bf.value2.i = shl i32 %vece, 24
   %bf.value.masked.i = and i32 %bf.value.i, 16711680
@@ -321,9 +313,9 @@ entry:
   %bf.set5.i = or disjoint i32 %bf.clear4.i, %bf.value2.i
   store i32 %bf.set5.i, ptr %call.i, align 8
   %args.i = getelementptr inbounds %struct.TCGOp, ptr %call.i, i64 0, i32 4
-  store i64 %3, ptr %args.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %args.i, align 8
   %arrayidx7.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2
-  store i64 %5, ptr %arrayidx7.i, align 8
+  store ptr %add.ptr.i.i, ptr %arrayidx7.i, align 8
   ret void
 }
 
@@ -334,15 +326,13 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %2 = ptrtoint ptr %r to i64
   %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i.i2 = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i.i2 to i64
+  %3 = ptrtoint ptr %b to i64
+  %add.ptr.i.i.i2 = getelementptr i8, ptr %1, i64 %3
   %bf.load = load i64, ptr %add.ptr.i.i.i, align 8
-  %6 = trunc i64 %bf.load to i32
+  %4 = trunc i64 %bf.load to i32
   %call.i = tail call ptr @tcg_emit_op(i32 noundef 154, i32 noundef 3) #5
   %bf.load.i = load i32, ptr %call.i, align 8
-  %bf.value.i = add i32 %6, 16580608
+  %bf.value.i = add i32 %4, 16580608
   %bf.clear.i = and i32 %bf.load.i, 65535
   %bf.value2.i = shl i32 %vece, 24
   %bf.value.masked.i = and i32 %bf.value.i, 16711680
@@ -350,9 +340,9 @@ entry:
   %bf.set5.i = or disjoint i32 %bf.clear4.i, %bf.value2.i
   store i32 %bf.set5.i, ptr %call.i, align 8
   %args.i = getelementptr inbounds %struct.TCGOp, ptr %call.i, i64 0, i32 4
-  store i64 %3, ptr %args.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %args.i, align 8
   %arrayidx7.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2
-  store i64 %5, ptr %arrayidx7.i, align 8
+  store ptr %add.ptr.i.i.i2, ptr %arrayidx7.i, align 8
   %arrayidx9.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2, i32 0, i32 1
   store i64 %ofs, ptr %arrayidx9.i, align 8
   ret void
@@ -365,23 +355,21 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %2 = ptrtoint ptr %r to i64
   %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i.i2.i = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i.i2.i to i64
+  %3 = ptrtoint ptr %b to i64
+  %add.ptr.i.i.i2.i = getelementptr i8, ptr %1, i64 %3
   %bf.load.i = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %6 = trunc i64 %bf.load.i to i32
+  %4 = trunc i64 %bf.load.i to i32
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 152, i32 noundef 3) #5
   %bf.load.i.i = load i32, ptr %call.i.i, align 8
-  %bf.value.i.i = add i32 %6, 16580608
+  %bf.value.i.i = add i32 %4, 16580608
   %bf.clear.i.i = and i32 %bf.load.i.i, 65535
   %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
   %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
-  store i64 %3, ptr %args.i.i, align 8
+  store ptr %add.ptr.i.i.i.i, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
-  store i64 %5, ptr %arrayidx7.i.i, align 8
+  store ptr %add.ptr.i.i.i2.i, ptr %arrayidx7.i.i, align 8
   %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
   store i64 %o, ptr %arrayidx9.i.i, align 8
   ret void
@@ -394,23 +382,21 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %2 = ptrtoint ptr %r to i64
   %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i.i2.i = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i.i2.i to i64
+  %3 = ptrtoint ptr %b to i64
+  %add.ptr.i.i.i2.i = getelementptr i8, ptr %1, i64 %3
   %bf.load.i = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %6 = trunc i64 %bf.load.i to i32
+  %4 = trunc i64 %bf.load.i to i32
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 153, i32 noundef 3) #5
   %bf.load.i.i = load i32, ptr %call.i.i, align 8
-  %bf.value.i.i = add i32 %6, 16580608
+  %bf.value.i.i = add i32 %4, 16580608
   %bf.clear.i.i = and i32 %bf.load.i.i, 65535
   %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
   %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
-  store i64 %3, ptr %args.i.i, align 8
+  store ptr %add.ptr.i.i.i.i, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
-  store i64 %5, ptr %arrayidx7.i.i, align 8
+  store ptr %add.ptr.i.i.i2.i, ptr %arrayidx7.i.i, align 8
   %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
   store i64 %o, ptr %arrayidx9.i.i, align 8
   ret void
@@ -423,14 +409,12 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %2 = ptrtoint ptr %r to i64
   %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 %2
-  %3 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %4 = ptrtoint ptr %b to i64
-  %add.ptr.i.i.i4 = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i.i4 to i64
+  %3 = ptrtoint ptr %b to i64
+  %add.ptr.i.i.i4 = getelementptr i8, ptr %1, i64 %3
   %bf.load = load i64, ptr %add.ptr.i.i.i, align 8
-  %6 = trunc i64 %bf.load to i32
-  %7 = lshr i32 %6, 16
-  %bf.cast = and i32 %7, 255
+  %4 = trunc i64 %bf.load to i32
+  %5 = lshr i32 %4, 16
+  %bf.cast = and i32 %5, 255
   %cmp = icmp ugt i32 %low_type, 2
   tail call void @llvm.assume(i1 %cmp)
   %cmp4 = icmp uge i32 %bf.cast, %low_type
@@ -444,9 +428,9 @@ entry:
   %bf.clear4.i = or disjoint i32 %bf.clear.i, %bf.value.masked.i
   store i32 %bf.clear4.i, ptr %call.i, align 8
   %args.i = getelementptr inbounds %struct.TCGOp, ptr %call.i, i64 0, i32 4
-  store i64 %3, ptr %args.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %args.i, align 8
   %arrayidx7.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2
-  store i64 %5, ptr %arrayidx7.i, align 8
+  store ptr %add.ptr.i.i.i4, ptr %arrayidx7.i, align 8
   %arrayidx9.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2, i32 0, i32 1
   store i64 %o, ptr %arrayidx9.i, align 8
   ret void
@@ -479,9 +463,6 @@ entry:
   %bf.cast11.i = and i32 %10, 255
   %cmp12.i = icmp uge i32 %bf.cast11.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp12.i)
-  %11 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %12 = ptrtoint ptr %add.ptr.i.i6.i to i64
-  %13 = ptrtoint ptr %add.ptr.i.i7.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 168, i32 noundef 3) #5
   %bf.load.i.i = load i32, ptr %call.i.i, align 8
   %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
@@ -491,11 +472,11 @@ entry:
   %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
   %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
-  store i64 %11, ptr %args.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
-  store i64 %12, ptr %arrayidx7.i.i, align 8
+  store ptr %add.ptr.i.i6.i, ptr %arrayidx7.i.i, align 8
   %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %13, ptr %arrayidx9.i.i, align 8
+  store ptr %add.ptr.i.i7.i, ptr %arrayidx9.i.i, align 8
   ret void
 }
 
@@ -526,9 +507,6 @@ entry:
   %bf.cast11.i = and i32 %10, 255
   %cmp12.i = icmp uge i32 %bf.cast11.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp12.i)
-  %11 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %12 = ptrtoint ptr %add.ptr.i.i6.i to i64
-  %13 = ptrtoint ptr %add.ptr.i.i7.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 169, i32 noundef 3) #5
   %bf.load.i.i = load i32, ptr %call.i.i, align 8
   %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
@@ -538,11 +516,11 @@ entry:
   %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
   %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
-  store i64 %11, ptr %args.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
-  store i64 %12, ptr %arrayidx7.i.i, align 8
+  store ptr %add.ptr.i.i6.i, ptr %arrayidx7.i.i, align 8
   %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %13, ptr %arrayidx9.i.i, align 8
+  store ptr %add.ptr.i.i7.i, ptr %arrayidx9.i.i, align 8
   ret void
 }
 
@@ -573,9 +551,6 @@ entry:
   %bf.cast11.i = and i32 %10, 255
   %cmp12.i = icmp uge i32 %bf.cast11.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp12.i)
-  %11 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %12 = ptrtoint ptr %add.ptr.i.i6.i to i64
-  %13 = ptrtoint ptr %add.ptr.i.i7.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
   %bf.load.i.i = load i32, ptr %call.i.i, align 8
   %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
@@ -585,11 +560,11 @@ entry:
   %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
   %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
-  store i64 %11, ptr %args.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
-  store i64 %12, ptr %arrayidx7.i.i, align 8
+  store ptr %add.ptr.i.i6.i, ptr %arrayidx7.i.i, align 8
   %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %13, ptr %arrayidx9.i.i, align 8
+  store ptr %add.ptr.i.i7.i, ptr %arrayidx9.i.i, align 8
   ret void
 }
 
@@ -620,9 +595,6 @@ entry:
   %bf.cast11.i = and i32 %10, 255
   %cmp12.i = icmp uge i32 %bf.cast11.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp12.i)
-  %11 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %12 = ptrtoint ptr %add.ptr.i.i6.i to i64
-  %13 = ptrtoint ptr %add.ptr.i.i7.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 171, i32 noundef 3) #5
   %bf.load.i.i = load i32, ptr %call.i.i, align 8
   %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
@@ -632,11 +604,11 @@ entry:
   %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
   %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
-  store i64 %11, ptr %args.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
-  store i64 %12, ptr %arrayidx7.i.i, align 8
+  store ptr %add.ptr.i.i6.i, ptr %arrayidx7.i.i, align 8
   %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %13, ptr %arrayidx9.i.i, align 8
+  store ptr %add.ptr.i.i7.i, ptr %arrayidx9.i.i, align 8
   ret void
 }
 
@@ -673,9 +645,6 @@ if.then:                                          ; preds = %entry
   %bf.cast11.i = and i32 %12, 255
   %cmp12.i = icmp uge i32 %bf.cast11.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp12.i)
-  %13 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %14 = ptrtoint ptr %add.ptr.i.i6.i to i64
-  %15 = ptrtoint ptr %add.ptr.i.i7.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 172, i32 noundef 3) #5
   %bf.load.i.i = load i32, ptr %call.i.i, align 8
   %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
@@ -685,39 +654,37 @@ if.then:                                          ; preds = %entry
   %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
   %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
-  store i64 %13, ptr %args.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
-  store i64 %14, ptr %arrayidx7.i.i, align 8
+  store ptr %add.ptr.i.i6.i, ptr %arrayidx7.i.i, align 8
   %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %15, ptr %arrayidx9.i.i, align 8
+  store ptr %add.ptr.i.i7.i, ptr %arrayidx9.i.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %call = tail call ptr @tcg_temp_new_vec_matching(ptr noundef %r) #5
-  %16 = load i32, ptr @cpuinfo, align 4
-  %17 = and i32 %16, 6144
-  %or.cond.not.i = icmp eq i32 %17, 6144
+  %13 = load i32, ptr @cpuinfo, align 4
+  %14 = and i32 %13, 6144
+  %or.cond.not.i = icmp eq i32 %14, 6144
   br i1 %or.cond.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.else
-  %18 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %19 = load ptr, ptr %18, align 8
-  %20 = ptrtoint ptr %call to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %19, i64 %20
-  %21 = ptrtoint ptr %b to i64
-  %add.ptr.i.i4.i.i = getelementptr i8, ptr %19, i64 %21
+  %15 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %16 = load ptr, ptr %15, align 8
+  %17 = ptrtoint ptr %call to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %16, i64 %17
+  %18 = ptrtoint ptr %b to i64
+  %add.ptr.i.i4.i.i = getelementptr i8, ptr %16, i64 %18
   %bf.load.i.i7 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %22 = trunc i64 %bf.load.i.i7 to i32
-  %23 = lshr i32 %22, 16
-  %bf.cast.i.i = and i32 %23, 255
+  %19 = trunc i64 %bf.load.i.i7 to i32
+  %20 = lshr i32 %19, 16
+  %bf.cast.i.i = and i32 %20, 255
   %bf.load2.i.i = load i64, ptr %add.ptr.i.i4.i.i, align 8
-  %24 = trunc i64 %bf.load2.i.i to i32
-  %25 = lshr i32 %24, 16
-  %bf.cast5.i.i = and i32 %25, 255
+  %21 = trunc i64 %bf.load2.i.i to i32
+  %22 = lshr i32 %21, 16
+  %bf.cast5.i.i = and i32 %22, 255
   %cmp.i.i = icmp uge i32 %bf.cast5.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
-  %26 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %27 = ptrtoint ptr %add.ptr.i.i4.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 176, i32 noundef 2) #5
   %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
   %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
@@ -727,40 +694,37 @@ if.then.i:                                        ; preds = %if.else
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
   %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
-  store i64 %26, ptr %args.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
-  store i64 %27, ptr %arrayidx7.i.i.i, align 8
+  store ptr %add.ptr.i.i4.i.i, ptr %arrayidx7.i.i.i, align 8
   br label %tcg_gen_not_vec.exit
 
 if.else.i:                                        ; preds = %if.else
   %call.i = tail call ptr @tcg_constant_vec_matching(ptr noundef %call, i32 noundef 0, i64 noundef -1) #5
-  %28 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %29 = load ptr, ptr %28, align 8
-  %30 = ptrtoint ptr %call to i64
-  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %29, i64 %30
-  %31 = ptrtoint ptr %b to i64
-  %add.ptr.i.i6.i.i.i = getelementptr i8, ptr %29, i64 %31
-  %32 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i7.i.i.i = getelementptr i8, ptr %29, i64 %32
+  %23 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %24 = load ptr, ptr %23, align 8
+  %25 = ptrtoint ptr %call to i64
+  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %24, i64 %25
+  %26 = ptrtoint ptr %b to i64
+  %add.ptr.i.i6.i.i.i = getelementptr i8, ptr %24, i64 %26
+  %27 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i7.i.i.i = getelementptr i8, ptr %24, i64 %27
   %bf.load.i.i4.i = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %33 = trunc i64 %bf.load.i.i4.i to i32
-  %34 = lshr i32 %33, 16
-  %bf.cast.i.i.i = and i32 %34, 255
+  %28 = trunc i64 %bf.load.i.i4.i to i32
+  %29 = lshr i32 %28, 16
+  %bf.cast.i.i.i = and i32 %29, 255
   %bf.load3.i.i.i = load i64, ptr %add.ptr.i.i6.i.i.i, align 8
-  %35 = trunc i64 %bf.load3.i.i.i to i32
-  %36 = lshr i32 %35, 16
-  %bf.cast6.i.i.i = and i32 %36, 255
+  %30 = trunc i64 %bf.load3.i.i.i to i32
+  %31 = lshr i32 %30, 16
+  %bf.cast6.i.i.i = and i32 %31, 255
   %cmp.i.i.i = icmp uge i32 %bf.cast6.i.i.i, %bf.cast.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %bf.load8.i.i.i = load i64, ptr %add.ptr.i.i7.i.i.i, align 8
-  %37 = trunc i64 %bf.load8.i.i.i to i32
-  %38 = lshr i32 %37, 16
-  %bf.cast11.i.i.i = and i32 %38, 255
+  %32 = trunc i64 %bf.load8.i.i.i to i32
+  %33 = lshr i32 %32, 16
+  %bf.cast11.i.i.i = and i32 %33, 255
   %cmp12.i.i.i = icmp uge i32 %bf.cast11.i.i.i, %bf.cast.i.i.i
   tail call void @llvm.assume(i1 %cmp12.i.i.i)
-  %39 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
-  %40 = ptrtoint ptr %add.ptr.i.i6.i.i.i to i64
-  %41 = ptrtoint ptr %add.ptr.i.i7.i.i.i to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
   %bf.load.i.i.i.i = load i32, ptr %call.i.i.i.i, align 8
   %sub.i.i.i.i = shl nuw nsw i32 %bf.cast.i.i.i, 16
@@ -770,41 +734,38 @@ if.else.i:                                        ; preds = %if.else
   %bf.clear4.i.i.i.i = or disjoint i32 %bf.clear.i.i.i.i, %bf.value.masked.i.i.i.i
   store i32 %bf.clear4.i.i.i.i, ptr %call.i.i.i.i, align 8
   %args.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i.i, i64 0, i32 4
-  store i64 %39, ptr %args.i.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i.i, ptr %args.i.i.i.i, align 8
   %arrayidx7.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2
-  store i64 %40, ptr %arrayidx7.i.i.i.i, align 8
+  store ptr %add.ptr.i.i6.i.i.i, ptr %arrayidx7.i.i.i.i, align 8
   %arrayidx9.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %41, ptr %arrayidx9.i.i.i.i, align 8
+  store ptr %add.ptr.i.i7.i.i.i, ptr %arrayidx9.i.i.i.i, align 8
   br label %tcg_gen_not_vec.exit
 
 tcg_gen_not_vec.exit:                             ; preds = %if.then.i, %if.else.i
-  %.pre-phi21 = phi ptr [ %18, %if.then.i ], [ %28, %if.else.i ]
-  %.pre-phi = phi i64 [ %20, %if.then.i ], [ %30, %if.else.i ]
-  %42 = load ptr, ptr %.pre-phi21, align 8
-  %43 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i.i8 = getelementptr i8, ptr %42, i64 %43
-  %44 = ptrtoint ptr %a to i64
-  %add.ptr.i.i6.i.i = getelementptr i8, ptr %42, i64 %44
-  %add.ptr.i.i7.i.i = getelementptr i8, ptr %42, i64 %.pre-phi
+  %.pre-phi21 = phi ptr [ %15, %if.then.i ], [ %23, %if.else.i ]
+  %.pre-phi = phi i64 [ %17, %if.then.i ], [ %25, %if.else.i ]
+  %34 = load ptr, ptr %.pre-phi21, align 8
+  %35 = ptrtoint ptr %r to i64
+  %add.ptr.i.i.i.i8 = getelementptr i8, ptr %34, i64 %35
+  %36 = ptrtoint ptr %a to i64
+  %add.ptr.i.i6.i.i = getelementptr i8, ptr %34, i64 %36
+  %add.ptr.i.i7.i.i = getelementptr i8, ptr %34, i64 %.pre-phi
   %bf.load.i.i9 = load i64, ptr %add.ptr.i.i.i.i8, align 8
-  %45 = trunc i64 %bf.load.i.i9 to i32
-  %46 = lshr i32 %45, 16
-  %bf.cast.i.i10 = and i32 %46, 255
+  %37 = trunc i64 %bf.load.i.i9 to i32
+  %38 = lshr i32 %37, 16
+  %bf.cast.i.i10 = and i32 %38, 255
   %bf.load3.i.i = load i64, ptr %add.ptr.i.i6.i.i, align 8
-  %47 = trunc i64 %bf.load3.i.i to i32
-  %48 = lshr i32 %47, 16
-  %bf.cast6.i.i = and i32 %48, 255
+  %39 = trunc i64 %bf.load3.i.i to i32
+  %40 = lshr i32 %39, 16
+  %bf.cast6.i.i = and i32 %40, 255
   %cmp.i.i11 = icmp uge i32 %bf.cast6.i.i, %bf.cast.i.i10
   tail call void @llvm.assume(i1 %cmp.i.i11)
   %bf.load8.i.i = load i64, ptr %add.ptr.i.i7.i.i, align 8
-  %49 = trunc i64 %bf.load8.i.i to i32
-  %50 = lshr i32 %49, 16
-  %bf.cast11.i.i = and i32 %50, 255
+  %41 = trunc i64 %bf.load8.i.i to i32
+  %42 = lshr i32 %41, 16
+  %bf.cast11.i.i = and i32 %42, 255
   %cmp12.i.i = icmp uge i32 %bf.cast11.i.i, %bf.cast.i.i10
   tail call void @llvm.assume(i1 %cmp12.i.i)
-  %51 = ptrtoint ptr %add.ptr.i.i.i.i8 to i64
-  %52 = ptrtoint ptr %add.ptr.i.i6.i.i to i64
-  %53 = ptrtoint ptr %add.ptr.i.i7.i.i to i64
   %call.i.i.i12 = tail call ptr @tcg_emit_op(i32 noundef 169, i32 noundef 3) #5
   %bf.load.i.i.i13 = load i32, ptr %call.i.i.i12, align 8
   %sub.i.i.i14 = shl nuw nsw i32 %bf.cast.i.i10, 16
@@ -814,11 +775,11 @@ tcg_gen_not_vec.exit:                             ; preds = %if.then.i, %if.else
   %bf.clear4.i.i.i18 = or disjoint i32 %bf.clear.i.i.i16, %bf.value.masked.i.i.i17
   store i32 %bf.clear4.i.i.i18, ptr %call.i.i.i12, align 8
   %args.i.i.i19 = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i12, i64 0, i32 4
-  store i64 %51, ptr %args.i.i.i19, align 8
+  store ptr %add.ptr.i.i.i.i8, ptr %args.i.i.i19, align 8
   %arrayidx7.i.i.i20 = getelementptr %struct.TCGOp, ptr %call.i.i.i12, i64 1, i32 2
-  store i64 %52, ptr %arrayidx7.i.i.i20, align 8
+  store ptr %add.ptr.i.i6.i.i, ptr %arrayidx7.i.i.i20, align 8
   %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i12, i64 1, i32 2, i32 0, i32 1
-  store i64 %53, ptr %arrayidx9.i.i.i, align 8
+  store ptr %add.ptr.i.i7.i.i, ptr %arrayidx9.i.i.i, align 8
   tail call void @tcg_temp_free_vec(ptr noundef %call) #5
   br label %if.end
 
@@ -853,8 +814,6 @@ if.then:                                          ; preds = %entry
   %bf.cast5.i = and i32 %9, 255
   %cmp.i = icmp uge i32 %bf.cast5.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp.i)
-  %10 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %11 = ptrtoint ptr %add.ptr.i.i4.i to i64
   %call.i.i = tail call ptr @tcg_emit_op(i32 noundef 176, i32 noundef 2) #5
   %bf.load.i.i = load i32, ptr %call.i.i, align 8
   %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
@@ -864,40 +823,37 @@ if.then:                                          ; preds = %entry
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
   %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
-  store i64 %10, ptr %args.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
-  store i64 %11, ptr %arrayidx7.i.i, align 8
+  store ptr %add.ptr.i.i4.i, ptr %arrayidx7.i.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %call = tail call ptr @tcg_constant_vec_matching(ptr noundef %r, i32 noundef 0, i64 noundef -1) #5
-  %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %13 = load ptr, ptr %12, align 8
-  %14 = ptrtoint ptr %r to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %13, i64 %14
-  %15 = ptrtoint ptr %a to i64
-  %add.ptr.i.i6.i.i = getelementptr i8, ptr %13, i64 %15
-  %16 = ptrtoint ptr %call to i64
-  %add.ptr.i.i7.i.i = getelementptr i8, ptr %13, i64 %16
+  %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %11 = load ptr, ptr %10, align 8
+  %12 = ptrtoint ptr %r to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %11, i64 %12
+  %13 = ptrtoint ptr %a to i64
+  %add.ptr.i.i6.i.i = getelementptr i8, ptr %11, i64 %13
+  %14 = ptrtoint ptr %call to i64
+  %add.ptr.i.i7.i.i = getelementptr i8, ptr %11, i64 %14
   %bf.load.i.i4 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %17 = trunc i64 %bf.load.i.i4 to i32
-  %18 = lshr i32 %17, 16
-  %bf.cast.i.i = and i32 %18, 255
+  %15 = trunc i64 %bf.load.i.i4 to i32
+  %16 = lshr i32 %15, 16
+  %bf.cast.i.i = and i32 %16, 255
   %bf.load3.i.i = load i64, ptr %add.ptr.i.i6.i.i, align 8
-  %19 = trunc i64 %bf.load3.i.i to i32
-  %20 = lshr i32 %19, 16
-  %bf.cast6.i.i = and i32 %20, 255
+  %17 = trunc i64 %bf.load3.i.i to i32
+  %18 = lshr i32 %17, 16
+  %bf.cast6.i.i = and i32 %18, 255
   %cmp.i.i = icmp uge i32 %bf.cast6.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   %bf.load8.i.i = load i64, ptr %add.ptr.i.i7.i.i, align 8
-  %21 = trunc i64 %bf.load8.i.i to i32
-  %22 = lshr i32 %21, 16
-  %bf.cast11.i.i = and i32 %22, 255
+  %19 = trunc i64 %bf.load8.i.i to i32
+  %20 = lshr i32 %19, 16
+  %bf.cast11.i.i = and i32 %20, 255
   %cmp12.i.i = icmp uge i32 %bf.cast11.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp12.i.i)
-  %23 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %24 = ptrtoint ptr %add.ptr.i.i6.i.i to i64
-  %25 = ptrtoint ptr %add.ptr.i.i7.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
   %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
   %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
@@ -907,11 +863,11 @@ if.else:                                          ; preds = %entry
   %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
   %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
-  store i64 %23, ptr %args.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
-  store i64 %24, ptr %arrayidx7.i.i.i, align 8
+  store ptr %add.ptr.i.i6.i.i, ptr %arrayidx7.i.i.i, align 8
   %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %25, ptr %arrayidx9.i.i.i, align 8
+  store ptr %add.ptr.i.i7.i.i, ptr %arrayidx9.i.i.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -950,9 +906,6 @@ entry:
   %bf.cast11.i = and i32 %12, 255
   %cmp12.i = icmp uge i32 %bf.cast11.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp12.i)
-  %13 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %14 = ptrtoint ptr %add.ptr.i.i6.i to i64
-  %15 = ptrtoint ptr %add.ptr.i.i7.i to i64
   %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
   %bf.value.i.i = add nuw nsw i32 %sub.i.i, 16580608
   %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
@@ -965,11 +918,11 @@ if.then:                                          ; preds = %entry
   %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
   %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
-  store i64 %13, ptr %args.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
-  store i64 %14, ptr %arrayidx7.i.i, align 8
+  store ptr %add.ptr.i.i6.i, ptr %arrayidx7.i.i, align 8
   %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %15, ptr %arrayidx9.i.i, align 8
+  store ptr %add.ptr.i.i7.i, ptr %arrayidx9.i.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -979,53 +932,50 @@ if.else:                                          ; preds = %entry
   %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
   %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
-  store i64 %13, ptr %args.i.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
-  store i64 %14, ptr %arrayidx7.i.i.i, align 8
+  store ptr %add.ptr.i.i6.i, ptr %arrayidx7.i.i.i, align 8
   %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %15, ptr %arrayidx9.i.i.i, align 8
-  %16 = load i32, ptr @cpuinfo, align 4
-  %17 = and i32 %16, 6144
-  %or.cond.not.i = icmp eq i32 %17, 6144
+  store ptr %add.ptr.i.i7.i, ptr %arrayidx9.i.i.i, align 8
+  %13 = load i32, ptr @cpuinfo, align 4
+  %14 = and i32 %13, 6144
+  %or.cond.not.i = icmp eq i32 %14, 6144
   br i1 %or.cond.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.else
-  %18 = load ptr, ptr %2, align 8
-  %add.ptr.i.i.i.i7 = getelementptr i8, ptr %18, i64 %4
+  %15 = load ptr, ptr %2, align 8
+  %add.ptr.i.i.i.i7 = getelementptr i8, ptr %15, i64 %4
   %bf.load.i.i8 = load i64, ptr %add.ptr.i.i.i.i7, align 8
-  %19 = trunc i64 %bf.load.i.i8 to i32
-  %20 = ptrtoint ptr %add.ptr.i.i.i.i7 to i64
+  %16 = trunc i64 %bf.load.i.i8 to i32
   %call.i.i.i11 = tail call ptr @tcg_emit_op(i32 noundef 176, i32 noundef 2) #5
   %bf.load.i.i.i12 = load i32, ptr %call.i.i.i11, align 8
-  %bf.value.i.i.i14 = add i32 %19, 16580608
+  %bf.value.i.i.i14 = add i32 %16, 16580608
   %bf.clear.i.i.i15 = and i32 %bf.load.i.i.i12, 65535
   %bf.value.masked.i.i.i16 = and i32 %bf.value.i.i.i14, 16711680
   %bf.clear4.i.i.i17 = or disjoint i32 %bf.value.masked.i.i.i16, %bf.clear.i.i.i15
   store i32 %bf.clear4.i.i.i17, ptr %call.i.i.i11, align 8
   %args.i.i.i18 = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i11, i64 0, i32 4
-  store i64 %20, ptr %args.i.i.i18, align 8
+  store ptr %add.ptr.i.i.i.i7, ptr %args.i.i.i18, align 8
   %arrayidx7.i.i.i19 = getelementptr %struct.TCGOp, ptr %call.i.i.i11, i64 1, i32 2
-  store i64 %20, ptr %arrayidx7.i.i.i19, align 8
+  store ptr %add.ptr.i.i.i.i7, ptr %arrayidx7.i.i.i19, align 8
   br label %if.end
 
 if.else.i:                                        ; preds = %if.else
   %call.i = tail call ptr @tcg_constant_vec_matching(ptr noundef %r, i32 noundef 0, i64 noundef -1) #5
-  %21 = load ptr, ptr %2, align 8
-  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %21, i64 %4
-  %22 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i7.i.i.i = getelementptr i8, ptr %21, i64 %22
+  %17 = load ptr, ptr %2, align 8
+  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %17, i64 %4
+  %18 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i7.i.i.i = getelementptr i8, ptr %17, i64 %18
   %bf.load.i.i4.i = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %23 = trunc i64 %bf.load.i.i4.i to i32
-  %24 = lshr i32 %23, 16
-  %bf.cast.i.i.i = and i32 %24, 255
+  %19 = trunc i64 %bf.load.i.i4.i to i32
+  %20 = lshr i32 %19, 16
+  %bf.cast.i.i.i = and i32 %20, 255
   %bf.load8.i.i.i = load i64, ptr %add.ptr.i.i7.i.i.i, align 8
-  %25 = trunc i64 %bf.load8.i.i.i to i32
-  %26 = lshr i32 %25, 16
-  %bf.cast11.i.i.i = and i32 %26, 255
+  %21 = trunc i64 %bf.load8.i.i.i to i32
+  %22 = lshr i32 %21, 16
+  %bf.cast11.i.i.i = and i32 %22, 255
   %cmp12.i.i.i = icmp uge i32 %bf.cast11.i.i.i, %bf.cast.i.i.i
   tail call void @llvm.assume(i1 %cmp12.i.i.i)
-  %27 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
-  %28 = ptrtoint ptr %add.ptr.i.i7.i.i.i to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
   %bf.load.i.i.i.i = load i32, ptr %call.i.i.i.i, align 8
   %sub.i.i.i.i = shl nuw nsw i32 %bf.cast.i.i.i, 16
@@ -1035,11 +985,11 @@ if.else.i:                                        ; preds = %if.else
   %bf.clear4.i.i.i.i = or disjoint i32 %bf.value.masked.i.i.i.i, %bf.clear.i.i.i.i
   store i32 %bf.clear4.i.i.i.i, ptr %call.i.i.i.i, align 8
   %args.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i.i, i64 0, i32 4
-  store i64 %27, ptr %args.i.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i.i, ptr %args.i.i.i.i, align 8
   %arrayidx7.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2
-  store i64 %27, ptr %arrayidx7.i.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i.i, ptr %arrayidx7.i.i.i.i, align 8
   %arrayidx9.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %28, ptr %arrayidx9.i.i.i.i, align 8
+  store ptr %add.ptr.i.i7.i.i.i, ptr %arrayidx9.i.i.i.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i, %if.then.i, %if.then
@@ -1076,9 +1026,6 @@ entry:
   %bf.cast11.i = and i32 %12, 255
   %cmp12.i = icmp uge i32 %bf.cast11.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp12.i)
-  %13 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %14 = ptrtoint ptr %add.ptr.i.i6.i to i64
-  %15 = ptrtoint ptr %add.ptr.i.i7.i to i64
   %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
   %bf.value.i.i = add nuw nsw i32 %sub.i.i, 16580608
   %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
@@ -1091,11 +1038,11 @@ if.then:                                          ; preds = %entry
   %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
   %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
-  store i64 %13, ptr %args.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
-  store i64 %14, ptr %arrayidx7.i.i, align 8
+  store ptr %add.ptr.i.i6.i, ptr %arrayidx7.i.i, align 8
   %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %15, ptr %arrayidx9.i.i, align 8
+  store ptr %add.ptr.i.i7.i, ptr %arrayidx9.i.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -1105,53 +1052,50 @@ if.else:                                          ; preds = %entry
   %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
   %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
-  store i64 %13, ptr %args.i.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
-  store i64 %14, ptr %arrayidx7.i.i.i, align 8
+  store ptr %add.ptr.i.i6.i, ptr %arrayidx7.i.i.i, align 8
   %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %15, ptr %arrayidx9.i.i.i, align 8
-  %16 = load i32, ptr @cpuinfo, align 4
-  %17 = and i32 %16, 6144
-  %or.cond.not.i = icmp eq i32 %17, 6144
+  store ptr %add.ptr.i.i7.i, ptr %arrayidx9.i.i.i, align 8
+  %13 = load i32, ptr @cpuinfo, align 4
+  %14 = and i32 %13, 6144
+  %or.cond.not.i = icmp eq i32 %14, 6144
   br i1 %or.cond.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.else
-  %18 = load ptr, ptr %2, align 8
-  %add.ptr.i.i.i.i7 = getelementptr i8, ptr %18, i64 %4
+  %15 = load ptr, ptr %2, align 8
+  %add.ptr.i.i.i.i7 = getelementptr i8, ptr %15, i64 %4
   %bf.load.i.i8 = load i64, ptr %add.ptr.i.i.i.i7, align 8
-  %19 = trunc i64 %bf.load.i.i8 to i32
-  %20 = ptrtoint ptr %add.ptr.i.i.i.i7 to i64
+  %16 = trunc i64 %bf.load.i.i8 to i32
   %call.i.i.i11 = tail call ptr @tcg_emit_op(i32 noundef 176, i32 noundef 2) #5
   %bf.load.i.i.i12 = load i32, ptr %call.i.i.i11, align 8
-  %bf.value.i.i.i14 = add i32 %19, 16580608
+  %bf.value.i.i.i14 = add i32 %16, 16580608
   %bf.clear.i.i.i15 = and i32 %bf.load.i.i.i12, 65535
   %bf.value.masked.i.i.i16 = and i32 %bf.value.i.i.i14, 16711680
   %bf.clear4.i.i.i17 = or disjoint i32 %bf.value.masked.i.i.i16, %bf.clear.i.i.i15
   store i32 %bf.clear4.i.i.i17, ptr %call.i.i.i11, align 8
   %args.i.i.i18 = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i11, i64 0, i32 4
-  store i64 %20, ptr %args.i.i.i18, align 8
+  store ptr %add.ptr.i.i.i.i7, ptr %args.i.i.i18, align 8
   %arrayidx7.i.i.i19 = getelementptr %struct.TCGOp, ptr %call.i.i.i11, i64 1, i32 2
-  store i64 %20, ptr %arrayidx7.i.i.i19, align 8
+  store ptr %add.ptr.i.i.i.i7, ptr %arrayidx7.i.i.i19, align 8
   br label %if.end
 
 if.else.i:                                        ; preds = %if.else
   %call.i = tail call ptr @tcg_constant_vec_matching(ptr noundef %r, i32 noundef 0, i64 noundef -1) #5
-  %21 = load ptr, ptr %2, align 8
-  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %21, i64 %4
-  %22 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i7.i.i.i = getelementptr i8, ptr %21, i64 %22
+  %17 = load ptr, ptr %2, align 8
+  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %17, i64 %4
+  %18 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i7.i.i.i = getelementptr i8, ptr %17, i64 %18
   %bf.load.i.i4.i = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %23 = trunc i64 %bf.load.i.i4.i to i32
-  %24 = lshr i32 %23, 16
-  %bf.cast.i.i.i = and i32 %24, 255
+  %19 = trunc i64 %bf.load.i.i4.i to i32
+  %20 = lshr i32 %19, 16
+  %bf.cast.i.i.i = and i32 %20, 255
   %bf.load8.i.i.i = load i64, ptr %add.ptr.i.i7.i.i.i, align 8
-  %25 = trunc i64 %bf.load8.i.i.i to i32
-  %26 = lshr i32 %25, 16
-  %bf.cast11.i.i.i = and i32 %26, 255
+  %21 = trunc i64 %bf.load8.i.i.i to i32
+  %22 = lshr i32 %21, 16
+  %bf.cast11.i.i.i = and i32 %22, 255
   %cmp12.i.i.i = icmp uge i32 %bf.cast11.i.i.i, %bf.cast.i.i.i
   tail call void @llvm.assume(i1 %cmp12.i.i.i)
-  %27 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
-  %28 = ptrtoint ptr %add.ptr.i.i7.i.i.i to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
   %bf.load.i.i.i.i = load i32, ptr %call.i.i.i.i, align 8
   %sub.i.i.i.i = shl nuw nsw i32 %bf.cast.i.i.i, 16
@@ -1161,11 +1105,11 @@ if.else.i:                                        ; preds = %if.else
   %bf.clear4.i.i.i.i = or disjoint i32 %bf.value.masked.i.i.i.i, %bf.clear.i.i.i.i
   store i32 %bf.clear4.i.i.i.i, ptr %call.i.i.i.i, align 8
   %args.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i.i, i64 0, i32 4
-  store i64 %27, ptr %args.i.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i.i, ptr %args.i.i.i.i, align 8
   %arrayidx7.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2
-  store i64 %27, ptr %arrayidx7.i.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i.i, ptr %arrayidx7.i.i.i.i, align 8
   %arrayidx9.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %28, ptr %arrayidx9.i.i.i.i, align 8
+  store ptr %add.ptr.i.i7.i.i.i, ptr %arrayidx9.i.i.i.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i, %if.then.i, %if.then
@@ -1202,9 +1146,6 @@ entry:
   %bf.cast11.i = and i32 %12, 255
   %cmp12.i = icmp uge i32 %bf.cast11.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp12.i)
-  %13 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %14 = ptrtoint ptr %add.ptr.i.i6.i to i64
-  %15 = ptrtoint ptr %add.ptr.i.i7.i to i64
   %sub.i.i = shl nuw nsw i32 %bf.cast.i, 16
   %bf.value.i.i = add nuw nsw i32 %sub.i.i, 16580608
   %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
@@ -1217,11 +1158,11 @@ if.then:                                          ; preds = %entry
   %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
   %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
-  store i64 %13, ptr %args.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
-  store i64 %14, ptr %arrayidx7.i.i, align 8
+  store ptr %add.ptr.i.i6.i, ptr %arrayidx7.i.i, align 8
   %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %15, ptr %arrayidx9.i.i, align 8
+  store ptr %add.ptr.i.i7.i, ptr %arrayidx9.i.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -1231,53 +1172,50 @@ if.else:                                          ; preds = %entry
   %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
   %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
-  store i64 %13, ptr %args.i.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
-  store i64 %14, ptr %arrayidx7.i.i.i, align 8
+  store ptr %add.ptr.i.i6.i, ptr %arrayidx7.i.i.i, align 8
   %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %15, ptr %arrayidx9.i.i.i, align 8
-  %16 = load i32, ptr @cpuinfo, align 4
-  %17 = and i32 %16, 6144
-  %or.cond.not.i = icmp eq i32 %17, 6144
+  store ptr %add.ptr.i.i7.i, ptr %arrayidx9.i.i.i, align 8
+  %13 = load i32, ptr @cpuinfo, align 4
+  %14 = and i32 %13, 6144
+  %or.cond.not.i = icmp eq i32 %14, 6144
   br i1 %or.cond.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.else
-  %18 = load ptr, ptr %2, align 8
-  %add.ptr.i.i.i.i7 = getelementptr i8, ptr %18, i64 %4
+  %15 = load ptr, ptr %2, align 8
+  %add.ptr.i.i.i.i7 = getelementptr i8, ptr %15, i64 %4
   %bf.load.i.i8 = load i64, ptr %add.ptr.i.i.i.i7, align 8
-  %19 = trunc i64 %bf.load.i.i8 to i32
-  %20 = ptrtoint ptr %add.ptr.i.i.i.i7 to i64
+  %16 = trunc i64 %bf.load.i.i8 to i32
   %call.i.i.i11 = tail call ptr @tcg_emit_op(i32 noundef 176, i32 noundef 2) #5
   %bf.load.i.i.i12 = load i32, ptr %call.i.i.i11, align 8
-  %bf.value.i.i.i14 = add i32 %19, 16580608
+  %bf.value.i.i.i14 = add i32 %16, 16580608
   %bf.clear.i.i.i15 = and i32 %bf.load.i.i.i12, 65535
   %bf.value.masked.i.i.i16 = and i32 %bf.value.i.i.i14, 16711680
   %bf.clear4.i.i.i17 = or disjoint i32 %bf.value.masked.i.i.i16, %bf.clear.i.i.i15
   store i32 %bf.clear4.i.i.i17, ptr %call.i.i.i11, align 8
   %args.i.i.i18 = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i11, i64 0, i32 4
-  store i64 %20, ptr %args.i.i.i18, align 8
+  store ptr %add.ptr.i.i.i.i7, ptr %args.i.i.i18, align 8
   %arrayidx7.i.i.i19 = getelementptr %struct.TCGOp, ptr %call.i.i.i11, i64 1, i32 2
-  store i64 %20, ptr %arrayidx7.i.i.i19, align 8
+  store ptr %add.ptr.i.i.i.i7, ptr %arrayidx7.i.i.i19, align 8
   br label %if.end
 
 if.else.i:                                        ; preds = %if.else
   %call.i = tail call ptr @tcg_constant_vec_matching(ptr noundef %r, i32 noundef 0, i64 noundef -1) #5
-  %21 = load ptr, ptr %2, align 8
-  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %21, i64 %4
-  %22 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i7.i.i.i = getelementptr i8, ptr %21, i64 %22
+  %17 = load ptr, ptr %2, align 8
+  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %17, i64 %4
+  %18 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i7.i.i.i = getelementptr i8, ptr %17, i64 %18
   %bf.load.i.i4.i = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %23 = trunc i64 %bf.load.i.i4.i to i32
-  %24 = lshr i32 %23, 16
-  %bf.cast.i.i.i = and i32 %24, 255
+  %19 = trunc i64 %bf.load.i.i4.i to i32
+  %20 = lshr i32 %19, 16
+  %bf.cast.i.i.i = and i32 %20, 255
   %bf.load8.i.i.i = load i64, ptr %add.ptr.i.i7.i.i.i, align 8
-  %25 = trunc i64 %bf.load8.i.i.i to i32
-  %26 = lshr i32 %25, 16
-  %bf.cast11.i.i.i = and i32 %26, 255
+  %21 = trunc i64 %bf.load8.i.i.i to i32
+  %22 = lshr i32 %21, 16
+  %bf.cast11.i.i.i = and i32 %22, 255
   %cmp12.i.i.i = icmp uge i32 %bf.cast11.i.i.i, %bf.cast.i.i.i
   tail call void @llvm.assume(i1 %cmp12.i.i.i)
-  %27 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
-  %28 = ptrtoint ptr %add.ptr.i.i7.i.i.i to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
   %bf.load.i.i.i.i = load i32, ptr %call.i.i.i.i, align 8
   %sub.i.i.i.i = shl nuw nsw i32 %bf.cast.i.i.i, 16
@@ -1287,11 +1225,11 @@ if.else.i:                                        ; preds = %if.else
   %bf.clear4.i.i.i.i = or disjoint i32 %bf.value.masked.i.i.i.i, %bf.clear.i.i.i.i
   store i32 %bf.clear4.i.i.i.i, ptr %call.i.i.i.i, align 8
   %args.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i.i, i64 0, i32 4
-  store i64 %27, ptr %args.i.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i.i, ptr %args.i.i.i.i, align 8
   %arrayidx7.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2
-  store i64 %27, ptr %arrayidx7.i.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i.i, ptr %arrayidx7.i.i.i.i, align 8
   %arrayidx9.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %28, ptr %arrayidx9.i.i.i.i, align 8
+  store ptr %add.ptr.i.i7.i.i.i, ptr %arrayidx9.i.i.i.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i, %if.then.i, %if.then
@@ -1347,11 +1285,11 @@ if.then21.i.i.i:                                  ; preds = %entry
   %bf.set5.i.i.i.i = or disjoint i32 %bf.clear4.i.i.i.i, %bf.value2.i.i.i.i
   store i32 %bf.set5.i.i.i.i, ptr %call.i.i.i.i, align 8
   %args.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i.i, i64 0, i32 4
-  store i64 %5, ptr %args.i.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i.i, ptr %args.i.i.i.i, align 8
   %arrayidx7.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2
-  store i64 %6, ptr %arrayidx7.i.i.i.i, align 8
+  store ptr %add.ptr.i.i17.i.i.i, ptr %arrayidx7.i.i.i.i, align 8
   %arrayidx9.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %7, ptr %arrayidx9.i.i.i.i, align 8
+  store ptr %add.ptr.i.i18.i.i.i, ptr %arrayidx9.i.i.i.i, align 8
   br label %tcg_gen_sub_vec.exit
 
 if.else.i.i.i:                                    ; preds = %entry
@@ -1414,11 +1352,11 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
   %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
-  store i64 %5, ptr %args.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
-  store i64 %6, ptr %arrayidx7.i.i.i, align 8
+  store ptr %add.ptr.i.i17.i.i, ptr %arrayidx7.i.i.i, align 8
   %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %7, ptr %arrayidx9.i.i.i, align 8
+  store ptr %add.ptr.i.i18.i.i, ptr %arrayidx9.i.i.i, align 8
   br label %do_op3_nofail.exit
 
 if.else.i.i:                                      ; preds = %entry
@@ -1472,9 +1410,9 @@ if.then10.i:                                      ; preds = %entry
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
   %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
-  store i64 %4, ptr %args.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
-  store i64 %5, ptr %arrayidx7.i.i, align 8
+  store ptr %add.ptr.i.i14.i, ptr %arrayidx7.i.i, align 8
   br label %if.end15
 
 if.else.i:                                        ; preds = %entry
@@ -1543,11 +1481,11 @@ if.then21.i.i.i.i:                                ; preds = %if.then7
   %bf.set5.i.i.i.i.i = or disjoint i32 %bf.clear4.i.i.i.i.i, %bf.value2.i.i.i.i.i
   store i32 %bf.set5.i.i.i.i.i, ptr %call.i.i.i.i.i, align 8
   %args.i.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i.i.i, i64 0, i32 4
-  store i64 %16, ptr %args.i.i.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i.i.i, ptr %args.i.i.i.i.i, align 8
   %arrayidx7.i.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i.i, i64 1, i32 2
-  store i64 %17, ptr %arrayidx7.i.i.i.i.i, align 8
+  store ptr %add.ptr.i.i17.i.i.i.i, ptr %arrayidx7.i.i.i.i.i, align 8
   %arrayidx9.i.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %18, ptr %arrayidx9.i.i.i.i.i, align 8
+  store ptr %add.ptr.i.i18.i.i.i.i, ptr %arrayidx9.i.i.i.i.i, align 8
   br label %tcg_gen_neg_vec.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.then7
@@ -1585,23 +1523,20 @@ if.else11:                                        ; preds = %if.else
   %add.ptr.i.i15.i = getelementptr i8, ptr %25, i64 %3
   %27 = ptrtoint ptr %call12 to i64
   %add.ptr.i.i16.i = getelementptr i8, ptr %25, i64 %27
-  %28 = ptrtoint ptr %add.ptr.i.i.i32 to i64
-  %29 = ptrtoint ptr %add.ptr.i.i15.i to i64
-  %30 = ptrtoint ptr %add.ptr.i.i16.i to i64
   %bf.load.i33 = load i64, ptr %add.ptr.i.i.i32, align 8
-  %31 = trunc i64 %bf.load.i33 to i32
-  %32 = lshr i32 %31, 16
-  %bf.cast.i34 = and i32 %32, 255
+  %28 = trunc i64 %bf.load.i33 to i32
+  %29 = lshr i32 %28, 16
+  %bf.cast.i34 = and i32 %29, 255
   %bf.load6.i = load i64, ptr %add.ptr.i.i15.i, align 8
-  %33 = trunc i64 %bf.load6.i to i32
-  %34 = lshr i32 %33, 16
-  %bf.cast9.i = and i32 %34, 255
+  %30 = trunc i64 %bf.load6.i to i32
+  %31 = lshr i32 %30, 16
+  %bf.cast9.i = and i32 %31, 255
   %cmp.i35 = icmp uge i32 %bf.cast9.i, %bf.cast.i34
   tail call void @llvm.assume(i1 %cmp.i35)
   %bf.load11.i = load i64, ptr %add.ptr.i.i16.i, align 8
-  %35 = trunc i64 %bf.load11.i to i32
-  %36 = lshr i32 %35, 16
-  %bf.cast14.i = and i32 %36, 255
+  %32 = trunc i64 %bf.load11.i to i32
+  %33 = lshr i32 %32, 16
+  %bf.cast14.i = and i32 %33, 255
   %cmp15.i = icmp uge i32 %bf.cast14.i, %bf.cast.i34
   tail call void @llvm.assume(i1 %cmp15.i)
   %call19.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 190, i32 noundef %bf.cast.i34, i32 noundef %vece) #5
@@ -1620,19 +1555,22 @@ if.then21.i:                                      ; preds = %if.else11
   %bf.set5.i.i45 = or disjoint i32 %bf.clear4.i.i44, %bf.value2.i.i42
   store i32 %bf.set5.i.i45, ptr %call.i.i37, align 8
   %args.i.i46 = getelementptr inbounds %struct.TCGOp, ptr %call.i.i37, i64 0, i32 4
-  store i64 %28, ptr %args.i.i46, align 8
+  store ptr %add.ptr.i.i.i32, ptr %args.i.i46, align 8
   %arrayidx7.i.i47 = getelementptr %struct.TCGOp, ptr %call.i.i37, i64 1, i32 2
-  store i64 %29, ptr %arrayidx7.i.i47, align 8
+  store ptr %add.ptr.i.i15.i, ptr %arrayidx7.i.i47, align 8
   %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i37, i64 1, i32 2, i32 0, i32 1
-  store i64 %30, ptr %arrayidx9.i.i, align 8
+  store ptr %add.ptr.i.i16.i, ptr %arrayidx9.i.i, align 8
   %arrayidx11.i.i = getelementptr %struct.TCGOp, ptr %call.i.i37, i64 1, i32 3
   store i64 2, ptr %arrayidx11.i.i, align 8
   br label %if.end13
 
 if.else.i36:                                      ; preds = %if.else11
+  %34 = ptrtoint ptr %add.ptr.i.i16.i to i64
+  %35 = ptrtoint ptr %add.ptr.i.i15.i to i64
+  %36 = ptrtoint ptr %add.ptr.i.i.i32 to i64
   %cmp24.i = icmp ne i32 %call19.i, 0
   tail call void @llvm.assume(i1 %cmp24.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 190, i32 noundef %bf.cast.i34, i32 noundef %vece, i64 noundef %28, i64 noundef %29, i64 noundef %30, i32 noundef 2) #5
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 190, i32 noundef %bf.cast.i34, i32 noundef %vece, i64 noundef %36, i64 noundef %35, i64 noundef %34, i32 noundef 2) #5
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else.i36, %if.then21.i, %if.then10
@@ -1657,9 +1595,6 @@ if.end13:                                         ; preds = %if.else.i36, %if.th
   %bf.cast11.i.i = and i32 %43, 255
   %cmp12.i.i = icmp uge i32 %bf.cast11.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp12.i.i)
-  %44 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %45 = ptrtoint ptr %add.ptr.i.i6.i.i to i64
-  %46 = ptrtoint ptr %add.ptr.i.i7.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
   %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
   %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
@@ -1669,24 +1604,24 @@ if.end13:                                         ; preds = %if.else.i36, %if.th
   %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
   %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
-  store i64 %44, ptr %args.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
-  store i64 %45, ptr %arrayidx7.i.i.i, align 8
+  store ptr %add.ptr.i.i6.i.i, ptr %arrayidx7.i.i.i, align 8
   %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %46, ptr %arrayidx9.i.i.i, align 8
-  %47 = load ptr, ptr %0, align 8
-  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %47, i64 %2
-  %add.ptr.i.i18.i.i.i = getelementptr i8, ptr %47, i64 %.pre-phi
-  %48 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
-  %49 = ptrtoint ptr %add.ptr.i.i18.i.i.i to i64
+  store ptr %add.ptr.i.i7.i.i, ptr %arrayidx9.i.i.i, align 8
+  %44 = load ptr, ptr %0, align 8
+  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %44, i64 %2
+  %add.ptr.i.i18.i.i.i = getelementptr i8, ptr %44, i64 %.pre-phi
+  %45 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
+  %46 = ptrtoint ptr %add.ptr.i.i18.i.i.i to i64
   %bf.load.i.i.i49 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %50 = trunc i64 %bf.load.i.i.i49 to i32
-  %51 = lshr i32 %50, 16
-  %bf.cast.i.i.i = and i32 %51, 255
+  %47 = trunc i64 %bf.load.i.i.i49 to i32
+  %48 = lshr i32 %47, 16
+  %bf.cast.i.i.i = and i32 %48, 255
   %bf.load11.i.i.i = load i64, ptr %add.ptr.i.i18.i.i.i, align 8
-  %52 = trunc i64 %bf.load11.i.i.i to i32
-  %53 = lshr i32 %52, 16
-  %bf.cast14.i.i.i = and i32 %53, 255
+  %49 = trunc i64 %bf.load11.i.i.i to i32
+  %50 = lshr i32 %49, 16
+  %bf.cast14.i.i.i = and i32 %50, 255
   %cmp15.i.i.i = icmp uge i32 %bf.cast14.i.i.i, %bf.cast.i.i.i
   tail call void @llvm.assume(i1 %cmp15.i.i.i)
   %call19.i.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece) #5
@@ -1705,11 +1640,11 @@ if.then21.i.i.i:                                  ; preds = %if.end13
   %bf.set5.i.i.i.i = or disjoint i32 %bf.clear4.i.i.i.i, %bf.value2.i.i.i.i
   store i32 %bf.set5.i.i.i.i, ptr %call.i.i.i.i, align 8
   %args.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i.i, i64 0, i32 4
-  store i64 %48, ptr %args.i.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i.i, ptr %args.i.i.i.i, align 8
   %arrayidx7.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2
-  store i64 %48, ptr %arrayidx7.i.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i.i, ptr %arrayidx7.i.i.i.i, align 8
   %arrayidx9.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %49, ptr %arrayidx9.i.i.i.i, align 8
+  store ptr %add.ptr.i.i18.i.i.i, ptr %arrayidx9.i.i.i.i, align 8
   br label %tcg_gen_sub_vec.exit
 
 if.else.i.i.i:                                    ; preds = %if.end13
@@ -1717,7 +1652,7 @@ if.else.i.i.i:                                    ; preds = %if.end13
   br i1 %cmp22.i.i.i, label %if.then23.i.i.i, label %tcg_gen_sub_vec.exit
 
 if.then23.i.i.i:                                  ; preds = %if.else.i.i.i
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece, i64 noundef %48, i64 noundef %48, i64 noundef %49) #5
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 156, i32 noundef %bf.cast.i.i.i, i32 noundef %vece, i64 noundef %45, i64 noundef %45, i64 noundef %46) #5
   br label %tcg_gen_sub_vec.exit
 
 tcg_gen_sub_vec.exit:                             ; preds = %if.then21.i.i.i, %if.else.i.i.i, %if.then23.i.i.i
@@ -1760,23 +1695,20 @@ entry:
   %add.ptr.i.i15 = getelementptr i8, ptr %1, i64 %3
   %4 = ptrtoint ptr %b to i64
   %add.ptr.i.i16 = getelementptr i8, ptr %1, i64 %4
-  %5 = ptrtoint ptr %add.ptr.i.i to i64
-  %6 = ptrtoint ptr %add.ptr.i.i15 to i64
-  %7 = ptrtoint ptr %add.ptr.i.i16 to i64
   %bf.load = load i64, ptr %add.ptr.i.i, align 8
-  %8 = trunc i64 %bf.load to i32
-  %9 = lshr i32 %8, 16
-  %bf.cast = and i32 %9, 255
+  %5 = trunc i64 %bf.load to i32
+  %6 = lshr i32 %5, 16
+  %bf.cast = and i32 %6, 255
   %bf.load6 = load i64, ptr %add.ptr.i.i15, align 8
-  %10 = trunc i64 %bf.load6 to i32
-  %11 = lshr i32 %10, 16
-  %bf.cast9 = and i32 %11, 255
+  %7 = trunc i64 %bf.load6 to i32
+  %8 = lshr i32 %7, 16
+  %bf.cast9 = and i32 %8, 255
   %cmp = icmp uge i32 %bf.cast9, %bf.cast
   tail call void @llvm.assume(i1 %cmp)
   %bf.load11 = load i64, ptr %add.ptr.i.i16, align 8
-  %12 = trunc i64 %bf.load11 to i32
-  %13 = lshr i32 %12, 16
-  %bf.cast14 = and i32 %13, 255
+  %9 = trunc i64 %bf.load11 to i32
+  %10 = lshr i32 %9, 16
+  %bf.cast14 = and i32 %10, 255
   %cmp15 = icmp uge i32 %bf.cast14, %bf.cast
   tail call void @llvm.assume(i1 %cmp15)
   %call19 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 190, i32 noundef %bf.cast, i32 noundef %vece) #5
@@ -1796,19 +1728,22 @@ if.then21:                                        ; preds = %entry
   %bf.set5.i = or disjoint i32 %bf.clear4.i, %bf.value2.i
   store i32 %bf.set5.i, ptr %call.i, align 8
   %args.i = getelementptr inbounds %struct.TCGOp, ptr %call.i, i64 0, i32 4
-  store i64 %5, ptr %args.i, align 8
+  store ptr %add.ptr.i.i, ptr %args.i, align 8
   %arrayidx7.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2
-  store i64 %6, ptr %arrayidx7.i, align 8
+  store ptr %add.ptr.i.i15, ptr %arrayidx7.i, align 8
   %arrayidx9.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %7, ptr %arrayidx9.i, align 8
+  store ptr %add.ptr.i.i16, ptr %arrayidx9.i, align 8
   %arrayidx11.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 3
   store i64 %conv, ptr %arrayidx11.i, align 8
   br label %if.end30
 
 if.else:                                          ; preds = %entry
+  %11 = ptrtoint ptr %add.ptr.i.i16 to i64
+  %12 = ptrtoint ptr %add.ptr.i.i15 to i64
+  %13 = ptrtoint ptr %add.ptr.i.i to i64
   %cmp24 = icmp ne i32 %call19, 0
   tail call void @llvm.assume(i1 %cmp24)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 190, i32 noundef %bf.cast, i32 noundef %vece, i64 noundef %5, i64 noundef %6, i64 noundef %7, i32 noundef %cond) #5
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 190, i32 noundef %bf.cast, i32 noundef %vece, i64 noundef %13, i64 noundef %12, i64 noundef %11, i32 noundef %cond) #5
   br label %if.end30
 
 if.end30:                                         ; preds = %if.else, %if.then21
@@ -1866,9 +1801,9 @@ if.then.i:                                        ; preds = %if.then17
   %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
   %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
-  store i64 %4, ptr %args.i.i.i, align 8
+  store ptr %add.ptr.i.i, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
-  store i64 %5, ptr %arrayidx7.i.i.i, align 8
+  store ptr %add.ptr.i.i21, ptr %arrayidx7.i.i.i, align 8
   br label %if.end31
 
 if.end18:                                         ; preds = %entry
@@ -1888,9 +1823,9 @@ if.then22:                                        ; preds = %if.end18
   %bf.set5.i = or disjoint i32 %bf.clear4.i, %bf.value2.i
   store i32 %bf.set5.i, ptr %call.i, align 8
   %args.i = getelementptr inbounds %struct.TCGOp, ptr %call.i, i64 0, i32 4
-  store i64 %4, ptr %args.i, align 8
+  store ptr %add.ptr.i.i, ptr %args.i, align 8
   %arrayidx7.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2
-  store i64 %5, ptr %arrayidx7.i, align 8
+  store ptr %add.ptr.i.i21, ptr %arrayidx7.i, align 8
   %arrayidx9.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2, i32 0, i32 1
   store i64 %i, ptr %arrayidx9.i, align 8
   br label %if.end31
@@ -1984,11 +1919,11 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
   %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
-  store i64 %5, ptr %args.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
-  store i64 %6, ptr %arrayidx7.i.i.i, align 8
+  store ptr %add.ptr.i.i17.i.i, ptr %arrayidx7.i.i.i, align 8
   %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %7, ptr %arrayidx9.i.i.i, align 8
+  store ptr %add.ptr.i.i18.i.i, ptr %arrayidx9.i.i.i, align 8
   br label %do_op3_nofail.exit
 
 if.else.i.i:                                      ; preds = %entry
@@ -2051,11 +1986,11 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
   %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
-  store i64 %5, ptr %args.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
-  store i64 %6, ptr %arrayidx7.i.i.i, align 8
+  store ptr %add.ptr.i.i17.i.i, ptr %arrayidx7.i.i.i, align 8
   %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %7, ptr %arrayidx9.i.i.i, align 8
+  store ptr %add.ptr.i.i18.i.i, ptr %arrayidx9.i.i.i, align 8
   br label %do_op3_nofail.exit
 
 if.else.i.i:                                      ; preds = %entry
@@ -2118,11 +2053,11 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
   %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
-  store i64 %5, ptr %args.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
-  store i64 %6, ptr %arrayidx7.i.i.i, align 8
+  store ptr %add.ptr.i.i17.i.i, ptr %arrayidx7.i.i.i, align 8
   %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %7, ptr %arrayidx9.i.i.i, align 8
+  store ptr %add.ptr.i.i18.i.i, ptr %arrayidx9.i.i.i, align 8
   br label %do_op3_nofail.exit
 
 if.else.i.i:                                      ; preds = %entry
@@ -2185,11 +2120,11 @@ if.then21.i:                                      ; preds = %entry
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
   %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
-  store i64 %5, ptr %args.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
-  store i64 %6, ptr %arrayidx7.i.i, align 8
+  store ptr %add.ptr.i.i17.i, ptr %arrayidx7.i.i, align 8
   %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %7, ptr %arrayidx9.i.i, align 8
+  store ptr %add.ptr.i.i18.i, ptr %arrayidx9.i.i, align 8
   br label %if.end
 
 if.else.i:                                        ; preds = %entry
@@ -2222,8 +2157,6 @@ if.then.i:                                        ; preds = %if.then
   %bf.cast5.i.i = and i32 %21, 255
   %cmp.i.i = icmp uge i32 %bf.cast5.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
-  %22 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %23 = ptrtoint ptr %add.ptr.i.i4.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 176, i32 noundef 2) #5
   %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
   %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
@@ -2233,38 +2166,35 @@ if.then.i:                                        ; preds = %if.then
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
   %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
-  store i64 %22, ptr %args.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
-  store i64 %23, ptr %arrayidx7.i.i.i, align 8
+  store ptr %add.ptr.i.i4.i.i, ptr %arrayidx7.i.i.i, align 8
   br label %tcg_gen_not_vec.exit
 
 if.else.i13:                                      ; preds = %if.then
   %call.i = tail call ptr @tcg_constant_vec_matching(ptr noundef %call2, i32 noundef 0, i64 noundef -1) #5
-  %24 = load ptr, ptr %0, align 8
-  %25 = ptrtoint ptr %call2 to i64
-  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %24, i64 %25
-  %add.ptr.i.i6.i.i.i = getelementptr i8, ptr %24, i64 %4
-  %26 = ptrtoint ptr %call.i to i64
-  %add.ptr.i.i7.i.i.i = getelementptr i8, ptr %24, i64 %26
+  %22 = load ptr, ptr %0, align 8
+  %23 = ptrtoint ptr %call2 to i64
+  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %22, i64 %23
+  %add.ptr.i.i6.i.i.i = getelementptr i8, ptr %22, i64 %4
+  %24 = ptrtoint ptr %call.i to i64
+  %add.ptr.i.i7.i.i.i = getelementptr i8, ptr %22, i64 %24
   %bf.load.i.i4.i = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %27 = trunc i64 %bf.load.i.i4.i to i32
-  %28 = lshr i32 %27, 16
-  %bf.cast.i.i.i = and i32 %28, 255
+  %25 = trunc i64 %bf.load.i.i4.i to i32
+  %26 = lshr i32 %25, 16
+  %bf.cast.i.i.i = and i32 %26, 255
   %bf.load3.i.i.i = load i64, ptr %add.ptr.i.i6.i.i.i, align 8
-  %29 = trunc i64 %bf.load3.i.i.i to i32
-  %30 = lshr i32 %29, 16
-  %bf.cast6.i.i.i = and i32 %30, 255
+  %27 = trunc i64 %bf.load3.i.i.i to i32
+  %28 = lshr i32 %27, 16
+  %bf.cast6.i.i.i = and i32 %28, 255
   %cmp.i.i.i = icmp uge i32 %bf.cast6.i.i.i, %bf.cast.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %bf.load8.i.i.i = load i64, ptr %add.ptr.i.i7.i.i.i, align 8
-  %31 = trunc i64 %bf.load8.i.i.i to i32
-  %32 = lshr i32 %31, 16
-  %bf.cast11.i.i.i = and i32 %32, 255
+  %29 = trunc i64 %bf.load8.i.i.i to i32
+  %30 = lshr i32 %29, 16
+  %bf.cast11.i.i.i = and i32 %30, 255
   %cmp12.i.i.i = icmp uge i32 %bf.cast11.i.i.i, %bf.cast.i.i.i
   tail call void @llvm.assume(i1 %cmp12.i.i.i)
-  %33 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
-  %34 = ptrtoint ptr %add.ptr.i.i6.i.i.i to i64
-  %35 = ptrtoint ptr %add.ptr.i.i7.i.i.i to i64
   %call.i.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
   %bf.load.i.i.i.i = load i32, ptr %call.i.i.i.i, align 8
   %sub.i.i.i.i = shl nuw nsw i32 %bf.cast.i.i.i, 16
@@ -2274,37 +2204,37 @@ if.else.i13:                                      ; preds = %if.then
   %bf.clear4.i.i.i.i = or disjoint i32 %bf.clear.i.i.i.i, %bf.value.masked.i.i.i.i
   store i32 %bf.clear4.i.i.i.i, ptr %call.i.i.i.i, align 8
   %args.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i.i, i64 0, i32 4
-  store i64 %33, ptr %args.i.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i.i, ptr %args.i.i.i.i, align 8
   %arrayidx7.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2
-  store i64 %34, ptr %arrayidx7.i.i.i.i, align 8
+  store ptr %add.ptr.i.i6.i.i.i, ptr %arrayidx7.i.i.i.i, align 8
   %arrayidx9.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %35, ptr %arrayidx9.i.i.i.i, align 8
+  store ptr %add.ptr.i.i7.i.i.i, ptr %arrayidx9.i.i.i.i, align 8
   br label %tcg_gen_not_vec.exit
 
 tcg_gen_not_vec.exit:                             ; preds = %if.then.i, %if.else.i13
-  %.pre-phi = phi i64 [ %17, %if.then.i ], [ %25, %if.else.i13 ]
+  %.pre-phi = phi i64 [ %17, %if.then.i ], [ %23, %if.else.i13 ]
   tail call fastcc void @do_minmax(i32 noundef %vece, ptr noundef %call2, ptr noundef %call2, ptr noundef %a, i32 noundef 165, i32 noundef 4)
-  %36 = load ptr, ptr %0, align 8
-  %add.ptr.i.i.i.i.i15 = getelementptr i8, ptr %36, i64 %2
-  %add.ptr.i.i17.i.i.i = getelementptr i8, ptr %36, i64 %.pre-phi
-  %add.ptr.i.i18.i.i.i = getelementptr i8, ptr %36, i64 %4
-  %37 = ptrtoint ptr %add.ptr.i.i.i.i.i15 to i64
-  %38 = ptrtoint ptr %add.ptr.i.i17.i.i.i to i64
-  %39 = ptrtoint ptr %add.ptr.i.i18.i.i.i to i64
+  %31 = load ptr, ptr %0, align 8
+  %add.ptr.i.i.i.i.i15 = getelementptr i8, ptr %31, i64 %2
+  %add.ptr.i.i17.i.i.i = getelementptr i8, ptr %31, i64 %.pre-phi
+  %add.ptr.i.i18.i.i.i = getelementptr i8, ptr %31, i64 %4
+  %32 = ptrtoint ptr %add.ptr.i.i.i.i.i15 to i64
+  %33 = ptrtoint ptr %add.ptr.i.i17.i.i.i to i64
+  %34 = ptrtoint ptr %add.ptr.i.i18.i.i.i to i64
   %bf.load.i.i.i16 = load i64, ptr %add.ptr.i.i.i.i.i15, align 8
-  %40 = trunc i64 %bf.load.i.i.i16 to i32
-  %41 = lshr i32 %40, 16
-  %bf.cast.i.i.i17 = and i32 %41, 255
+  %35 = trunc i64 %bf.load.i.i.i16 to i32
+  %36 = lshr i32 %35, 16
+  %bf.cast.i.i.i17 = and i32 %36, 255
   %bf.load6.i.i.i = load i64, ptr %add.ptr.i.i17.i.i.i, align 8
-  %42 = trunc i64 %bf.load6.i.i.i to i32
-  %43 = lshr i32 %42, 16
-  %bf.cast9.i.i.i = and i32 %43, 255
+  %37 = trunc i64 %bf.load6.i.i.i to i32
+  %38 = lshr i32 %37, 16
+  %bf.cast9.i.i.i = and i32 %38, 255
   %cmp.i.i.i18 = icmp uge i32 %bf.cast9.i.i.i, %bf.cast.i.i.i17
   tail call void @llvm.assume(i1 %cmp.i.i.i18)
   %bf.load11.i.i.i = load i64, ptr %add.ptr.i.i18.i.i.i, align 8
-  %44 = trunc i64 %bf.load11.i.i.i to i32
-  %45 = lshr i32 %44, 16
-  %bf.cast14.i.i.i = and i32 %45, 255
+  %39 = trunc i64 %bf.load11.i.i.i to i32
+  %40 = lshr i32 %39, 16
+  %bf.cast14.i.i.i = and i32 %40, 255
   %cmp15.i.i.i = icmp uge i32 %bf.cast14.i.i.i, %bf.cast.i.i.i17
   tail call void @llvm.assume(i1 %cmp15.i.i.i)
   %call19.i.i.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 155, i32 noundef %bf.cast.i.i.i17, i32 noundef %vece) #5
@@ -2323,11 +2253,11 @@ if.then21.i.i.i:                                  ; preds = %tcg_gen_not_vec.exi
   %bf.set5.i.i.i.i = or disjoint i32 %bf.clear4.i.i.i.i25, %bf.value2.i.i.i.i
   store i32 %bf.set5.i.i.i.i, ptr %call.i.i.i.i19, align 8
   %args.i.i.i.i26 = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i.i19, i64 0, i32 4
-  store i64 %37, ptr %args.i.i.i.i26, align 8
+  store ptr %add.ptr.i.i.i.i.i15, ptr %args.i.i.i.i26, align 8
   %arrayidx7.i.i.i.i27 = getelementptr %struct.TCGOp, ptr %call.i.i.i.i19, i64 1, i32 2
-  store i64 %38, ptr %arrayidx7.i.i.i.i27, align 8
+  store ptr %add.ptr.i.i17.i.i.i, ptr %arrayidx7.i.i.i.i27, align 8
   %arrayidx9.i.i.i.i28 = getelementptr %struct.TCGOp, ptr %call.i.i.i.i19, i64 1, i32 2, i32 0, i32 1
-  store i64 %39, ptr %arrayidx9.i.i.i.i28, align 8
+  store ptr %add.ptr.i.i18.i.i.i, ptr %arrayidx9.i.i.i.i28, align 8
   br label %tcg_gen_add_vec.exit
 
 if.else.i.i.i:                                    ; preds = %tcg_gen_not_vec.exit
@@ -2335,7 +2265,7 @@ if.else.i.i.i:                                    ; preds = %tcg_gen_not_vec.exi
   br i1 %cmp22.i.i.i, label %if.then23.i.i.i, label %tcg_gen_add_vec.exit
 
 if.then23.i.i.i:                                  ; preds = %if.else.i.i.i
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 155, i32 noundef %bf.cast.i.i.i17, i32 noundef %vece, i64 noundef %37, i64 noundef %38, i64 noundef %39) #5
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 155, i32 noundef %bf.cast.i.i.i17, i32 noundef %vece, i64 noundef %32, i64 noundef %33, i64 noundef %34) #5
   br label %tcg_gen_add_vec.exit
 
 tcg_gen_add_vec.exit:                             ; preds = %if.then21.i.i.i, %if.else.i.i.i, %if.then23.i.i.i
@@ -2401,11 +2331,11 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
   %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
-  store i64 %5, ptr %args.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
-  store i64 %6, ptr %arrayidx7.i.i.i, align 8
+  store ptr %add.ptr.i.i17.i.i, ptr %arrayidx7.i.i.i, align 8
   %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %7, ptr %arrayidx9.i.i.i, align 8
+  store ptr %add.ptr.i.i18.i.i, ptr %arrayidx9.i.i.i, align 8
   br label %do_op3_nofail.exit
 
 if.else.i.i:                                      ; preds = %entry
@@ -2468,11 +2398,11 @@ if.then21.i:                                      ; preds = %entry
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
   %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
-  store i64 %5, ptr %args.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
-  store i64 %6, ptr %arrayidx7.i.i, align 8
+  store ptr %add.ptr.i.i17.i, ptr %arrayidx7.i.i, align 8
   %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %7, ptr %arrayidx9.i.i, align 8
+  store ptr %add.ptr.i.i18.i, ptr %arrayidx9.i.i, align 8
   br label %if.end
 
 if.else.i:                                        ; preds = %entry
@@ -2526,11 +2456,11 @@ if.then21.i.i.i:                                  ; preds = %if.then
   %bf.set5.i.i.i.i = or disjoint i32 %bf.clear4.i.i.i.i, %bf.value2.i.i.i.i
   store i32 %bf.set5.i.i.i.i, ptr %call.i.i.i.i, align 8
   %args.i.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i.i, i64 0, i32 4
-  store i64 %16, ptr %args.i.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i.i, ptr %args.i.i.i.i, align 8
   %arrayidx7.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2
-  store i64 %17, ptr %arrayidx7.i.i.i.i, align 8
+  store ptr %add.ptr.i.i17.i.i.i, ptr %arrayidx7.i.i.i.i, align 8
   %arrayidx9.i.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %18, ptr %arrayidx9.i.i.i.i, align 8
+  store ptr %add.ptr.i.i18.i.i.i, ptr %arrayidx9.i.i.i.i, align 8
   br label %tcg_gen_sub_vec.exit
 
 if.else.i.i.i:                                    ; preds = %if.then
@@ -2611,11 +2541,11 @@ if.then21.i:                                      ; preds = %entry
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
   %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
-  store i64 %5, ptr %args.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
-  store i64 %6, ptr %arrayidx7.i.i, align 8
+  store ptr %add.ptr.i.i17.i, ptr %arrayidx7.i.i, align 8
   %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %7, ptr %arrayidx9.i.i, align 8
+  store ptr %add.ptr.i.i18.i, ptr %arrayidx9.i.i, align 8
   br label %if.end
 
 if.else.i:                                        ; preds = %entry
@@ -2680,11 +2610,11 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
   %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
-  store i64 %5, ptr %args.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
-  store i64 %6, ptr %arrayidx7.i.i.i, align 8
+  store ptr %add.ptr.i.i17.i.i, ptr %arrayidx7.i.i.i, align 8
   %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %7, ptr %arrayidx9.i.i.i, align 8
+  store ptr %add.ptr.i.i18.i.i, ptr %arrayidx9.i.i.i, align 8
   br label %do_op3_nofail.exit
 
 if.else.i.i:                                      ; preds = %entry
@@ -2747,11 +2677,11 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
   %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
-  store i64 %5, ptr %args.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
-  store i64 %6, ptr %arrayidx7.i.i.i, align 8
+  store ptr %add.ptr.i.i17.i.i, ptr %arrayidx7.i.i.i, align 8
   %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %7, ptr %arrayidx9.i.i.i, align 8
+  store ptr %add.ptr.i.i18.i.i, ptr %arrayidx9.i.i.i, align 8
   br label %do_op3_nofail.exit
 
 if.else.i.i:                                      ; preds = %entry
@@ -2814,11 +2744,11 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
   %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
-  store i64 %5, ptr %args.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
-  store i64 %6, ptr %arrayidx7.i.i.i, align 8
+  store ptr %add.ptr.i.i17.i.i, ptr %arrayidx7.i.i.i, align 8
   %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %7, ptr %arrayidx9.i.i.i, align 8
+  store ptr %add.ptr.i.i18.i.i, ptr %arrayidx9.i.i.i, align 8
   br label %do_op3_nofail.exit
 
 if.else.i.i:                                      ; preds = %entry
@@ -2881,11 +2811,11 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
   %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
-  store i64 %5, ptr %args.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
-  store i64 %6, ptr %arrayidx7.i.i.i, align 8
+  store ptr %add.ptr.i.i17.i.i, ptr %arrayidx7.i.i.i, align 8
   %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %7, ptr %arrayidx9.i.i.i, align 8
+  store ptr %add.ptr.i.i18.i.i, ptr %arrayidx9.i.i.i, align 8
   br label %do_op3_nofail.exit
 
 if.else.i.i:                                      ; preds = %entry
@@ -2948,11 +2878,11 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
   %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
-  store i64 %5, ptr %args.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
-  store i64 %6, ptr %arrayidx7.i.i.i, align 8
+  store ptr %add.ptr.i.i17.i.i, ptr %arrayidx7.i.i.i, align 8
   %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %7, ptr %arrayidx9.i.i.i, align 8
+  store ptr %add.ptr.i.i18.i.i, ptr %arrayidx9.i.i.i, align 8
   br label %do_op3_nofail.exit
 
 if.else.i.i:                                      ; preds = %entry
@@ -3009,11 +2939,11 @@ if.then12.i:                                      ; preds = %entry
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
   %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
-  store i64 %5, ptr %args.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
-  store i64 %6, ptr %arrayidx7.i.i, align 8
+  store ptr %add.ptr.i.i15.i, ptr %arrayidx7.i.i, align 8
   %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %7, ptr %arrayidx9.i.i, align 8
+  store ptr %add.ptr.i.i, ptr %arrayidx9.i.i, align 8
   br label %do_shifts.exit
 
 if.else.i:                                        ; preds = %entry
@@ -3072,11 +3002,11 @@ if.then12.i:                                      ; preds = %entry
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
   %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
-  store i64 %5, ptr %args.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
-  store i64 %6, ptr %arrayidx7.i.i, align 8
+  store ptr %add.ptr.i.i15.i, ptr %arrayidx7.i.i, align 8
   %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %7, ptr %arrayidx9.i.i, align 8
+  store ptr %add.ptr.i.i, ptr %arrayidx9.i.i, align 8
   br label %do_shifts.exit
 
 if.else.i:                                        ; preds = %entry
@@ -3135,11 +3065,11 @@ if.then12.i:                                      ; preds = %entry
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
   %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
-  store i64 %5, ptr %args.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
-  store i64 %6, ptr %arrayidx7.i.i, align 8
+  store ptr %add.ptr.i.i15.i, ptr %arrayidx7.i.i, align 8
   %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %7, ptr %arrayidx9.i.i, align 8
+  store ptr %add.ptr.i.i, ptr %arrayidx9.i.i, align 8
   br label %do_shifts.exit
 
 if.else.i:                                        ; preds = %entry
@@ -3198,11 +3128,11 @@ if.then12.i:                                      ; preds = %entry
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
   %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
-  store i64 %5, ptr %args.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
-  store i64 %6, ptr %arrayidx7.i.i, align 8
+  store ptr %add.ptr.i.i15.i, ptr %arrayidx7.i.i, align 8
   %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %7, ptr %arrayidx9.i.i, align 8
+  store ptr %add.ptr.i.i, ptr %arrayidx9.i.i, align 8
   br label %do_shifts.exit
 
 if.else.i:                                        ; preds = %entry
@@ -3262,10 +3192,6 @@ entry:
   br i1 %or.cond.not, label %if.then28, label %if.else
 
 if.then28:                                        ; preds = %entry
-  %16 = ptrtoint ptr %add.ptr.i.i to i64
-  %17 = ptrtoint ptr %add.ptr.i.i18 to i64
-  %18 = ptrtoint ptr %add.ptr.i.i19 to i64
-  %19 = ptrtoint ptr %add.ptr.i.i20 to i64
   %call.i = tail call ptr @tcg_emit_op(i32 noundef 191, i32 noundef 4) #5
   %bf.load.i = load i32, ptr %call.i, align 8
   %sub.i = shl nuw nsw i32 %bf.cast, 16
@@ -3275,41 +3201,38 @@ if.then28:                                        ; preds = %entry
   %bf.clear4.i = or disjoint i32 %bf.clear.i, %bf.value.masked.i
   store i32 %bf.clear4.i, ptr %call.i, align 8
   %args.i = getelementptr inbounds %struct.TCGOp, ptr %call.i, i64 0, i32 4
-  store i64 %16, ptr %args.i, align 8
+  store ptr %add.ptr.i.i, ptr %args.i, align 8
   %arrayidx7.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2
-  store i64 %17, ptr %arrayidx7.i, align 8
+  store ptr %add.ptr.i.i18, ptr %arrayidx7.i, align 8
   %arrayidx9.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %18, ptr %arrayidx9.i, align 8
+  store ptr %add.ptr.i.i19, ptr %arrayidx9.i, align 8
   %arrayidx11.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 3
-  store i64 %19, ptr %arrayidx11.i, align 8
+  store ptr %add.ptr.i.i20, ptr %arrayidx11.i, align 8
   br label %if.end34
 
 if.else:                                          ; preds = %entry
   %call33 = tail call ptr @tcg_temp_new_vec(i32 noundef %bf.cast) #5
-  %20 = load ptr, ptr %0, align 8
-  %21 = ptrtoint ptr %call33 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %20, i64 %21
-  %add.ptr.i.i6.i.i = getelementptr i8, ptr %20, i64 %3
-  %add.ptr.i.i7.i.i = getelementptr i8, ptr %20, i64 %4
+  %16 = load ptr, ptr %0, align 8
+  %17 = ptrtoint ptr %call33 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %16, i64 %17
+  %add.ptr.i.i6.i.i = getelementptr i8, ptr %16, i64 %3
+  %add.ptr.i.i7.i.i = getelementptr i8, ptr %16, i64 %4
   %bf.load.i.i = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %22 = trunc i64 %bf.load.i.i to i32
-  %23 = lshr i32 %22, 16
-  %bf.cast.i.i = and i32 %23, 255
+  %18 = trunc i64 %bf.load.i.i to i32
+  %19 = lshr i32 %18, 16
+  %bf.cast.i.i = and i32 %19, 255
   %bf.load3.i.i = load i64, ptr %add.ptr.i.i6.i.i, align 8
-  %24 = trunc i64 %bf.load3.i.i to i32
-  %25 = lshr i32 %24, 16
-  %bf.cast6.i.i = and i32 %25, 255
+  %20 = trunc i64 %bf.load3.i.i to i32
+  %21 = lshr i32 %20, 16
+  %bf.cast6.i.i = and i32 %21, 255
   %cmp.i.i = icmp uge i32 %bf.cast6.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp.i.i)
   %bf.load8.i.i = load i64, ptr %add.ptr.i.i7.i.i, align 8
-  %26 = trunc i64 %bf.load8.i.i to i32
-  %27 = lshr i32 %26, 16
-  %bf.cast11.i.i = and i32 %27, 255
+  %22 = trunc i64 %bf.load8.i.i to i32
+  %23 = lshr i32 %22, 16
+  %bf.cast11.i.i = and i32 %23, 255
   %cmp12.i.i = icmp uge i32 %bf.cast11.i.i, %bf.cast.i.i
   tail call void @llvm.assume(i1 %cmp12.i.i)
-  %28 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %29 = ptrtoint ptr %add.ptr.i.i6.i.i to i64
-  %30 = ptrtoint ptr %add.ptr.i.i7.i.i to i64
   %call.i.i.i = tail call ptr @tcg_emit_op(i32 noundef 168, i32 noundef 3) #5
   %bf.load.i.i.i = load i32, ptr %call.i.i.i, align 8
   %sub.i.i.i = shl nuw nsw i32 %bf.cast.i.i, 16
@@ -3319,34 +3242,31 @@ if.else:                                          ; preds = %entry
   %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
   %args.i.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i, i64 0, i32 4
-  store i64 %28, ptr %args.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2
-  store i64 %29, ptr %arrayidx7.i.i.i, align 8
+  store ptr %add.ptr.i.i6.i.i, ptr %arrayidx7.i.i.i, align 8
   %arrayidx9.i.i.i = getelementptr %struct.TCGOp, ptr %call.i.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %30, ptr %arrayidx9.i.i.i, align 8
-  %31 = load ptr, ptr %0, align 8
-  %add.ptr.i.i.i.i21 = getelementptr i8, ptr %31, i64 %2
-  %add.ptr.i.i6.i.i22 = getelementptr i8, ptr %31, i64 %5
-  %add.ptr.i.i7.i.i23 = getelementptr i8, ptr %31, i64 %3
+  store ptr %add.ptr.i.i7.i.i, ptr %arrayidx9.i.i.i, align 8
+  %24 = load ptr, ptr %0, align 8
+  %add.ptr.i.i.i.i21 = getelementptr i8, ptr %24, i64 %2
+  %add.ptr.i.i6.i.i22 = getelementptr i8, ptr %24, i64 %5
+  %add.ptr.i.i7.i.i23 = getelementptr i8, ptr %24, i64 %3
   %bf.load.i.i24 = load i64, ptr %add.ptr.i.i.i.i21, align 8
-  %32 = trunc i64 %bf.load.i.i24 to i32
-  %33 = lshr i32 %32, 16
-  %bf.cast.i.i25 = and i32 %33, 255
+  %25 = trunc i64 %bf.load.i.i24 to i32
+  %26 = lshr i32 %25, 16
+  %bf.cast.i.i25 = and i32 %26, 255
   %bf.load3.i.i26 = load i64, ptr %add.ptr.i.i6.i.i22, align 8
-  %34 = trunc i64 %bf.load3.i.i26 to i32
-  %35 = lshr i32 %34, 16
-  %bf.cast6.i.i27 = and i32 %35, 255
+  %27 = trunc i64 %bf.load3.i.i26 to i32
+  %28 = lshr i32 %27, 16
+  %bf.cast6.i.i27 = and i32 %28, 255
   %cmp.i.i28 = icmp uge i32 %bf.cast6.i.i27, %bf.cast.i.i25
   tail call void @llvm.assume(i1 %cmp.i.i28)
   %bf.load8.i.i29 = load i64, ptr %add.ptr.i.i7.i.i23, align 8
-  %36 = trunc i64 %bf.load8.i.i29 to i32
-  %37 = lshr i32 %36, 16
-  %bf.cast11.i.i30 = and i32 %37, 255
+  %29 = trunc i64 %bf.load8.i.i29 to i32
+  %30 = lshr i32 %29, 16
+  %bf.cast11.i.i30 = and i32 %30, 255
   %cmp12.i.i31 = icmp uge i32 %bf.cast11.i.i30, %bf.cast.i.i25
   tail call void @llvm.assume(i1 %cmp12.i.i31)
-  %38 = ptrtoint ptr %add.ptr.i.i.i.i21 to i64
-  %39 = ptrtoint ptr %add.ptr.i.i6.i.i22 to i64
-  %40 = ptrtoint ptr %add.ptr.i.i7.i.i23 to i64
   %call.i.i.i32 = tail call ptr @tcg_emit_op(i32 noundef 171, i32 noundef 3) #5
   %bf.load.i.i.i33 = load i32, ptr %call.i.i.i32, align 8
   %sub.i.i.i34 = shl nuw nsw i32 %bf.cast.i.i25, 16
@@ -3356,26 +3276,24 @@ if.else:                                          ; preds = %entry
   %bf.clear4.i.i.i38 = or disjoint i32 %bf.clear.i.i.i36, %bf.value.masked.i.i.i37
   store i32 %bf.clear4.i.i.i38, ptr %call.i.i.i32, align 8
   %args.i.i.i39 = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i32, i64 0, i32 4
-  store i64 %38, ptr %args.i.i.i39, align 8
+  store ptr %add.ptr.i.i.i.i21, ptr %args.i.i.i39, align 8
   %arrayidx7.i.i.i40 = getelementptr %struct.TCGOp, ptr %call.i.i.i32, i64 1, i32 2
-  store i64 %39, ptr %arrayidx7.i.i.i40, align 8
+  store ptr %add.ptr.i.i6.i.i22, ptr %arrayidx7.i.i.i40, align 8
   %arrayidx9.i.i.i41 = getelementptr %struct.TCGOp, ptr %call.i.i.i32, i64 1, i32 2, i32 0, i32 1
-  store i64 %40, ptr %arrayidx9.i.i.i41, align 8
-  %41 = load ptr, ptr %0, align 8
-  %add.ptr.i.i.i.i42 = getelementptr i8, ptr %41, i64 %2
-  %add.ptr.i.i7.i.i44 = getelementptr i8, ptr %41, i64 %21
+  store ptr %add.ptr.i.i7.i.i23, ptr %arrayidx9.i.i.i41, align 8
+  %31 = load ptr, ptr %0, align 8
+  %add.ptr.i.i.i.i42 = getelementptr i8, ptr %31, i64 %2
+  %add.ptr.i.i7.i.i44 = getelementptr i8, ptr %31, i64 %17
   %bf.load.i.i45 = load i64, ptr %add.ptr.i.i.i.i42, align 8
-  %42 = trunc i64 %bf.load.i.i45 to i32
-  %43 = lshr i32 %42, 16
-  %bf.cast.i.i46 = and i32 %43, 255
+  %32 = trunc i64 %bf.load.i.i45 to i32
+  %33 = lshr i32 %32, 16
+  %bf.cast.i.i46 = and i32 %33, 255
   %bf.load8.i.i50 = load i64, ptr %add.ptr.i.i7.i.i44, align 8
-  %44 = trunc i64 %bf.load8.i.i50 to i32
-  %45 = lshr i32 %44, 16
-  %bf.cast11.i.i51 = and i32 %45, 255
+  %34 = trunc i64 %bf.load8.i.i50 to i32
+  %35 = lshr i32 %34, 16
+  %bf.cast11.i.i51 = and i32 %35, 255
   %cmp12.i.i52 = icmp uge i32 %bf.cast11.i.i51, %bf.cast.i.i46
   tail call void @llvm.assume(i1 %cmp12.i.i52)
-  %46 = ptrtoint ptr %add.ptr.i.i.i.i42 to i64
-  %47 = ptrtoint ptr %add.ptr.i.i7.i.i44 to i64
   %call.i.i.i53 = tail call ptr @tcg_emit_op(i32 noundef 169, i32 noundef 3) #5
   %bf.load.i.i.i54 = load i32, ptr %call.i.i.i53, align 8
   %sub.i.i.i55 = shl nuw nsw i32 %bf.cast.i.i46, 16
@@ -3385,11 +3303,11 @@ if.else:                                          ; preds = %entry
   %bf.clear4.i.i.i59 = or disjoint i32 %bf.value.masked.i.i.i58, %bf.clear.i.i.i57
   store i32 %bf.clear4.i.i.i59, ptr %call.i.i.i53, align 8
   %args.i.i.i60 = getelementptr inbounds %struct.TCGOp, ptr %call.i.i.i53, i64 0, i32 4
-  store i64 %46, ptr %args.i.i.i60, align 8
+  store ptr %add.ptr.i.i.i.i42, ptr %args.i.i.i60, align 8
   %arrayidx7.i.i.i61 = getelementptr %struct.TCGOp, ptr %call.i.i.i53, i64 1, i32 2
-  store i64 %46, ptr %arrayidx7.i.i.i61, align 8
+  store ptr %add.ptr.i.i.i.i42, ptr %arrayidx7.i.i.i61, align 8
   %arrayidx9.i.i.i62 = getelementptr %struct.TCGOp, ptr %call.i.i.i53, i64 1, i32 2, i32 0, i32 1
-  store i64 %47, ptr %arrayidx9.i.i.i62, align 8
+  store ptr %add.ptr.i.i7.i.i44, ptr %arrayidx9.i.i.i62, align 8
   tail call void @tcg_temp_free_vec(ptr noundef %call33) #5
   br label %if.end34
 
@@ -3462,15 +3380,15 @@ if.then44:                                        ; preds = %entry
   %bf.set5.i = or disjoint i32 %bf.clear4.i, %bf.value2.i
   store i32 %bf.set5.i, ptr %call.i, align 8
   %args.i = getelementptr inbounds %struct.TCGOp, ptr %call.i, i64 0, i32 4
-  store i64 %7, ptr %args.i, align 8
+  store ptr %add.ptr.i.i, ptr %args.i, align 8
   %arrayidx7.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2
-  store i64 %8, ptr %arrayidx7.i, align 8
+  store ptr %add.ptr.i.i32, ptr %arrayidx7.i, align 8
   %arrayidx9.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %9, ptr %arrayidx9.i, align 8
+  store ptr %add.ptr.i.i33, ptr %arrayidx9.i, align 8
   %arrayidx11.i = getelementptr %struct.TCGOp, ptr %call.i, i64 1, i32 3
-  store i64 %10, ptr %arrayidx11.i, align 8
+  store ptr %add.ptr.i.i34, ptr %arrayidx11.i, align 8
   %arrayidx13.i = getelementptr %struct.TCGOp, ptr %call.i, i64 2
-  store i64 %11, ptr %arrayidx13.i, align 8
+  store ptr %add.ptr.i.i35, ptr %arrayidx13.i, align 8
   %arrayidx15.i = getelementptr %struct.TCGOp, ptr %call.i, i64 2, i32 2
   store i64 %conv, ptr %arrayidx15.i, align 8
   br label %if.end51
@@ -3490,23 +3408,20 @@ if.else48:                                        ; preds = %if.else
   %add.ptr.i.i.i = getelementptr i8, ptr %22, i64 %23
   %add.ptr.i.i15.i = getelementptr i8, ptr %22, i64 %3
   %add.ptr.i.i16.i = getelementptr i8, ptr %22, i64 %4
-  %24 = ptrtoint ptr %add.ptr.i.i.i to i64
-  %25 = ptrtoint ptr %add.ptr.i.i15.i to i64
-  %26 = ptrtoint ptr %add.ptr.i.i16.i to i64
   %bf.load.i36 = load i64, ptr %add.ptr.i.i.i, align 8
-  %27 = trunc i64 %bf.load.i36 to i32
-  %28 = lshr i32 %27, 16
-  %bf.cast.i = and i32 %28, 255
+  %24 = trunc i64 %bf.load.i36 to i32
+  %25 = lshr i32 %24, 16
+  %bf.cast.i = and i32 %25, 255
   %bf.load6.i = load i64, ptr %add.ptr.i.i15.i, align 8
-  %29 = trunc i64 %bf.load6.i to i32
-  %30 = lshr i32 %29, 16
-  %bf.cast9.i = and i32 %30, 255
+  %26 = trunc i64 %bf.load6.i to i32
+  %27 = lshr i32 %26, 16
+  %bf.cast9.i = and i32 %27, 255
   %cmp.i = icmp uge i32 %bf.cast9.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp.i)
   %bf.load11.i = load i64, ptr %add.ptr.i.i16.i, align 8
-  %31 = trunc i64 %bf.load11.i to i32
-  %32 = lshr i32 %31, 16
-  %bf.cast14.i = and i32 %32, 255
+  %28 = trunc i64 %bf.load11.i to i32
+  %29 = lshr i32 %28, 16
+  %bf.cast14.i = and i32 %29, 255
   %cmp15.i = icmp uge i32 %bf.cast14.i, %bf.cast.i
   tail call void @llvm.assume(i1 %cmp15.i)
   %call19.i = tail call i32 @tcg_can_emit_vec_op(i32 noundef 190, i32 noundef %bf.cast.i, i32 noundef %vece) #5
@@ -3526,19 +3441,22 @@ if.then21.i:                                      ; preds = %if.else48
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
   %args.i.i = getelementptr inbounds %struct.TCGOp, ptr %call.i.i, i64 0, i32 4
-  store i64 %24, ptr %args.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2
-  store i64 %25, ptr %arrayidx7.i.i, align 8
+  store ptr %add.ptr.i.i15.i, ptr %arrayidx7.i.i, align 8
   %arrayidx9.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 2, i32 0, i32 1
-  store i64 %26, ptr %arrayidx9.i.i, align 8
+  store ptr %add.ptr.i.i16.i, ptr %arrayidx9.i.i, align 8
   %arrayidx11.i.i = getelementptr %struct.TCGOp, ptr %call.i.i, i64 1, i32 3
   store i64 %conv.i, ptr %arrayidx11.i.i, align 8
   br label %tcg_gen_cmp_vec.exit
 
 if.else.i:                                        ; preds = %if.else48
+  %30 = ptrtoint ptr %add.ptr.i.i16.i to i64
+  %31 = ptrtoint ptr %add.ptr.i.i15.i to i64
+  %32 = ptrtoint ptr %add.ptr.i.i.i to i64
   %cmp24.i = icmp ne i32 %call19.i, 0
   tail call void @llvm.assume(i1 %cmp24.i)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 190, i32 noundef %bf.cast.i, i32 noundef %vece, i64 noundef %24, i64 noundef %25, i64 noundef %26, i32 noundef %cond) #5
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 190, i32 noundef %bf.cast.i, i32 noundef %vece, i64 noundef %32, i64 noundef %31, i64 noundef %30, i32 noundef %cond) #5
   br label %tcg_gen_cmp_vec.exit
 
 tcg_gen_cmp_vec.exit:                             ; preds = %if.then21.i, %if.else.i

@@ -264,15 +264,13 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
   %1 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %this, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i6)
   %retval.sroa.0.0.insert.ext.i.i.i.i11 = zext nneg i32 %shr.i to i64
-  %2 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i11 to ptr
-  store ptr %2, ptr %ref.tmp.i6, align 8, !noalias !4
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i11, ptr %ref.tmp.i6, align 8, !noalias !4
   %dispatcher_.i.i.i12 = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i6, i64 0, i32 1
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i12, align 8, !noalias !4
   %arrayinit.element.i = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i6, i64 1
   %retval.sroa.0.0.copyload.i.i.i1.i = load i32, ptr %1, align 4, !noalias !4
   %retval.sroa.0.0.insert.ext.i.i.i2.i = zext i32 %retval.sroa.0.0.copyload.i.i.i1.i to i64
-  %3 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i2.i to ptr
-  store ptr %3, ptr %arrayinit.element.i, align 8, !noalias !4
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i2.i, ptr %arrayinit.element.i, align 8, !noalias !4
   %dispatcher_.i.i3.i = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i6, i64 1, i32 1
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIjEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i3.i, align 8, !noalias !4
   call void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.1, i64 14, ptr nonnull %ref.tmp.i6, i64 2)
@@ -281,18 +279,16 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
 
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067ELS3_131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067ELS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit17: ; preds = %entry
   %shr.i18 = lshr i32 %0, 4
-  %4 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %this, i64 0, i32 1
+  %2 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %this, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i19)
   %retval.sroa.0.0.insert.ext.i.i.i.i24 = zext nneg i32 %shr.i18 to i64
-  %5 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i24 to ptr
-  store ptr %5, ptr %ref.tmp.i19, align 8, !noalias !7
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i24, ptr %ref.tmp.i19, align 8, !noalias !7
   %dispatcher_.i.i.i25 = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i19, i64 0, i32 1
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i25, align 8, !noalias !7
   %arrayinit.element.i26 = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i19, i64 1
-  %retval.sroa.0.0.copyload.i.i.i1.i27 = load i32, ptr %4, align 4, !noalias !7
+  %retval.sroa.0.0.copyload.i.i.i1.i27 = load i32, ptr %2, align 4, !noalias !7
   %retval.sroa.0.0.insert.ext.i.i.i2.i28 = zext i32 %retval.sroa.0.0.copyload.i.i.i1.i27 to i64
-  %6 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i2.i28 to ptr
-  store ptr %6, ptr %arrayinit.element.i26, align 8, !noalias !7
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i2.i28, ptr %arrayinit.element.i26, align 8, !noalias !7
   %dispatcher_.i.i3.i29 = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i19, i64 1, i32 1
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIjEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i3.i29, align 8, !noalias !7
   call void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.2, i64 19, ptr nonnull %ref.tmp.i19, i64 2)
@@ -301,42 +297,38 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
 
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE262148ELS3_131067ELS3_131067ELS3_131067ELS3_131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_262148ELS3_131067ELS3_131067ELS3_131067ELS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit: ; preds = %entry
   %hint_foldcase_.i = getelementptr inbounds i8, ptr %this, i64 6
-  %7 = load i16, ptr %hint_foldcase_.i, align 2
-  %8 = and i16 %7, 1
-  %tobool.not = icmp eq i16 %8, 0
+  %3 = load i16, ptr %hint_foldcase_.i, align 2
+  %4 = and i16 %3, 1
+  %tobool.not = icmp eq i16 %4, 0
   %cond = select i1 %tobool.not, ptr @.str.5, ptr @.str.4
-  %9 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %this, i64 0, i32 1
+  %5 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %this, i64 0, i32 1
   %hi_ = getelementptr inbounds i8, ptr %this, i64 5
-  %10 = lshr i16 %7, 1
+  %6 = lshr i16 %3, 1
   %shr.i37 = lshr i32 %0, 4
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i38)
   store ptr %cond, ptr %ref.tmp.i38, align 8, !noalias !10
   %dispatcher_.i.i.i42 = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i38, i64 0, i32 1
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIPKcEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i42, align 8, !noalias !10
   %arrayinit.element.i43 = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i38, i64 1
-  %retval.sroa.0.0.copyload.i.i.i.i44 = load i8, ptr %9, align 4, !noalias !10
+  %retval.sroa.0.0.copyload.i.i.i.i44 = load i8, ptr %5, align 4, !noalias !10
   %retval.sroa.0.0.insert.ext.i.i.i.i45 = zext i8 %retval.sroa.0.0.copyload.i.i.i.i44 to i64
-  %11 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i45 to ptr
-  store ptr %11, ptr %arrayinit.element.i43, align 8, !noalias !10
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i45, ptr %arrayinit.element.i43, align 8, !noalias !10
   %dispatcher_.i.i1.i = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i38, i64 1, i32 1
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIhEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i1.i, align 8, !noalias !10
   %arrayinit.element11.i = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i38, i64 2
   %retval.sroa.0.0.copyload.i.i.i2.i = load i8, ptr %hi_, align 1, !noalias !10
   %retval.sroa.0.0.insert.ext.i.i.i3.i = zext i8 %retval.sroa.0.0.copyload.i.i.i2.i to i64
-  %12 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i3.i to ptr
-  store ptr %12, ptr %arrayinit.element11.i, align 8, !noalias !10
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i3.i, ptr %arrayinit.element11.i, align 8, !noalias !10
   %dispatcher_.i.i4.i = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i38, i64 2, i32 1
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIhEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i4.i, align 8, !noalias !10
   %arrayinit.element12.i = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i38, i64 3
-  %retval.sroa.0.0.insert.ext.i.i.i6.i = zext nneg i16 %10 to i64
-  %13 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i6.i to ptr
-  store ptr %13, ptr %arrayinit.element12.i, align 8, !noalias !10
+  %retval.sroa.0.0.insert.ext.i.i.i6.i = zext nneg i16 %6 to i64
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i6.i, ptr %arrayinit.element12.i, align 8, !noalias !10
   %dispatcher_.i.i7.i = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i38, i64 3, i32 1
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i7.i, align 8, !noalias !10
   %arrayinit.element13.i = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i38, i64 4
   %retval.sroa.0.0.insert.ext.i.i.i9.i = zext nneg i32 %shr.i37 to i64
-  %14 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i9.i to ptr
-  store ptr %14, ptr %arrayinit.element13.i, align 8, !noalias !10
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i9.i, ptr %arrayinit.element13.i, align 8, !noalias !10
   %dispatcher_.i.i10.i = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i38, i64 4, i32 1
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i10.i, align 8, !noalias !10
   call void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.3, i64 27, ptr nonnull %ref.tmp.i38, i64 5)
@@ -344,19 +336,17 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
   br label %return
 
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067ELS3_131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067ELS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit50: ; preds = %entry
-  %15 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %this, i64 0, i32 1
+  %7 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %this, i64 0, i32 1
   %shr.i51 = lshr i32 %0, 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i52)
-  %retval.sroa.0.0.copyload.i.i.i.i56 = load i32, ptr %15, align 4, !noalias !13
+  %retval.sroa.0.0.copyload.i.i.i.i56 = load i32, ptr %7, align 4, !noalias !13
   %retval.sroa.0.0.insert.ext.i.i.i.i57 = zext i32 %retval.sroa.0.0.copyload.i.i.i.i56 to i64
-  %16 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i57 to ptr
-  store ptr %16, ptr %ref.tmp.i52, align 8, !noalias !13
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i57, ptr %ref.tmp.i52, align 8, !noalias !13
   %dispatcher_.i.i.i58 = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i52, i64 0, i32 1
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i58, align 8, !noalias !13
   %arrayinit.element.i59 = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i52, i64 1
   %retval.sroa.0.0.insert.ext.i.i.i2.i61 = zext nneg i32 %shr.i51 to i64
-  %17 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i2.i61 to ptr
-  store ptr %17, ptr %arrayinit.element.i59, align 8, !noalias !13
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i2.i61, ptr %arrayinit.element.i59, align 8, !noalias !13
   %dispatcher_.i.i3.i62 = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i52, i64 1, i32 1
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i3.i62, align 8, !noalias !13
   call void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.6, i64 16, ptr nonnull %ref.tmp.i52, i64 2)
@@ -364,19 +354,17 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
   br label %return
 
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067ELS3_131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067ELS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit67: ; preds = %entry
-  %18 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %this, i64 0, i32 1
-  %19 = load i32, ptr %18, align 4
+  %8 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %this, i64 0, i32 1
+  %9 = load i32, ptr %8, align 4
   %shr.i68 = lshr i32 %0, 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i69)
-  %retval.sroa.0.0.insert.ext.i.i.i.i74 = zext i32 %19 to i64
-  %20 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i74 to ptr
-  store ptr %20, ptr %ref.tmp.i69, align 8, !noalias !16
+  %retval.sroa.0.0.insert.ext.i.i.i.i74 = zext i32 %9 to i64
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i74, ptr %ref.tmp.i69, align 8, !noalias !16
   %dispatcher_.i.i.i75 = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i69, i64 0, i32 1
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i75, align 8, !noalias !16
   %arrayinit.element.i76 = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i69, i64 1
   %retval.sroa.0.0.insert.ext.i.i.i2.i78 = zext nneg i32 %shr.i68 to i64
-  %21 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i2.i78 to ptr
-  store ptr %21, ptr %arrayinit.element.i76, align 8, !noalias !16
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i2.i78, ptr %arrayinit.element.i76, align 8, !noalias !16
   %dispatcher_.i.i3.i79 = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i69, i64 1, i32 1
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i3.i79, align 8, !noalias !16
   call void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.7, i64 20, ptr nonnull %ref.tmp.i69, i64 2)
@@ -384,12 +372,11 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
   br label %return
 
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit84: ; preds = %entry
-  %22 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %this, i64 0, i32 1
-  %23 = load i32, ptr %22, align 4
+  %10 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %this, i64 0, i32 1
+  %11 = load i32, ptr %10, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i85)
-  %retval.sroa.0.0.insert.ext.i.i.i.i90 = zext i32 %23 to i64
-  %24 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i90 to ptr
-  store ptr %24, ptr %ref.tmp.i85, align 8, !noalias !19
+  %retval.sroa.0.0.insert.ext.i.i.i.i90 = zext i32 %11 to i64
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i90, ptr %ref.tmp.i85, align 8, !noalias !19
   %dispatcher_.i.i.i91 = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i85, i64 0, i32 1
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i91, align 8, !noalias !19
   call void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.8, i64 9, ptr nonnull %ref.tmp.i85, i64 1)
@@ -400,8 +387,7 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
   %shr.i97 = lshr i32 %0, 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i98)
   %retval.sroa.0.0.insert.ext.i.i.i.i103 = zext nneg i32 %shr.i97 to i64
-  %25 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i103 to ptr
-  store ptr %25, ptr %ref.tmp.i98, align 8, !noalias !22
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i103, ptr %ref.tmp.i98, align 8, !noalias !22
   %dispatcher_.i.i.i104 = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i98, i64 0, i32 1
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i104, align 8, !noalias !22
   call void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.9, i64 9, ptr nonnull %ref.tmp.i98, i64 1)
@@ -670,8 +656,7 @@ invoke.cont6:                                     ; preds = %invoke.cont1
 invoke.cont8:                                     ; preds = %invoke.cont6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %retval.sroa.0.0.insert.ext.i.i.i.i = and i64 %indvars.iv, 4294967295
-  %5 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
-  store ptr %5, ptr %ref.tmp.i, align 8, !noalias !25
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i, ptr %ref.tmp.i, align 8, !noalias !25
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !25
   store ptr %ref.tmp7, ptr %arrayinit.element.i, align 8, !noalias !25
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i1.i, align 8, !noalias !25
@@ -684,23 +669,23 @@ invoke.cont10:                                    ; preds = %invoke.cont8
           to label %for.inc unwind label %lpad11
 
 lpad:                                             ; preds = %invoke.cont16, %invoke.cont6
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup26
 
 lpad9:                                            ; preds = %invoke.cont8
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad11:                                           ; preds = %invoke.cont10
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad11, %lpad9
-  %.pn5 = phi { ptr, i32 } [ %8, %lpad11 ], [ %7, %lpad9 ]
+  %.pn5 = phi { ptr, i32 } [ %7, %lpad11 ], [ %6, %lpad9 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #23
   br label %ehcleanup26
 
@@ -711,8 +696,7 @@ invoke.cont16:                                    ; preds = %invoke.cont1
 invoke.cont18:                                    ; preds = %invoke.cont16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i13)
   %retval.sroa.0.0.insert.ext.i.i.i.i18 = and i64 %indvars.iv, 4294967295
-  %9 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i18 to ptr
-  store ptr %9, ptr %ref.tmp.i13, align 8, !noalias !28
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i18, ptr %ref.tmp.i13, align 8, !noalias !28
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i19, align 8, !noalias !28
   store ptr %ref.tmp17, ptr %arrayinit.element.i20, align 8, !noalias !28
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i1.i21, align 8, !noalias !28
@@ -725,18 +709,18 @@ invoke.cont20:                                    ; preds = %invoke.cont18
           to label %for.inc unwind label %lpad21
 
 lpad19:                                           ; preds = %invoke.cont18
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup25
 
 lpad21:                                           ; preds = %invoke.cont20
-  %11 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #23
   br label %ehcleanup25
 
 ehcleanup25:                                      ; preds = %lpad21, %lpad19
-  %.pn = phi { ptr, i32 } [ %11, %lpad21 ], [ %10, %lpad19 ]
+  %.pn = phi { ptr, i32 } [ %9, %lpad21 ], [ %8, %lpad19 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #23
   br label %ehcleanup26
 
@@ -746,16 +730,16 @@ for.inc:                                          ; preds = %invoke.cont20, %inv
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.sink) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7.sink) #23
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %12 = load i32, ptr %size_.i, align 8
-  %13 = sext i32 %12 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %13
+  %10 = load i32, ptr %size_.i, align 8
+  %11 = sext i32 %10 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %11
   br i1 %cmp, label %invoke.cont1, label %nrvo.skipdtor, !llvm.loop !31
 
 nrvo.skipdtor:                                    ; preds = %for.inc, %entry
   ret void
 
 ehcleanup26:                                      ; preds = %ehcleanup25, %ehcleanup, %lpad
-  %.pn5.pn = phi { ptr, i32 } [ %.pn5, %ehcleanup ], [ %6, %lpad ], [ %.pn, %ehcleanup25 ]
+  %.pn5.pn = phi { ptr, i32 } [ %.pn5, %ehcleanup ], [ %5, %lpad ], [ %.pn, %ehcleanup25 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #23
   resume { ptr, i32 } %.pn5.pn
 }
@@ -794,8 +778,7 @@ invoke.cont3:                                     ; preds = %invoke.cont3.lr.ph,
 invoke.cont8:                                     ; preds = %invoke.cont3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i32 %2 to i64
-  %4 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
-  store ptr %4, ptr %ref.tmp.i, align 8, !noalias !33
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i, ptr %ref.tmp.i, align 8, !noalias !33
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !33
   store ptr %ref.tmp7, ptr %arrayinit.element.i, align 8, !noalias !33
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i1.i, align 8, !noalias !33
@@ -810,121 +793,121 @@ invoke.cont10:                                    ; preds = %invoke.cont8
 invoke.cont12:                                    ; preds = %invoke.cont10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #23
-  %5 = load i32, ptr %arrayidx.i.i.i, align 4
-  %shr.i = lshr i32 %5, 4
-  %cmp.not.i = icmp ult i32 %5, 16
+  %4 = load i32, ptr %arrayidx.i.i.i, align 4
+  %shr.i = lshr i32 %4, 4
+  %cmp.not.i = icmp ult i32 %4, 16
   br i1 %cmp.not.i, label %invoke.cont15, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont12
-  %6 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp ne ptr %6, null
-  %7 = load i32, ptr %dense_.i.i.i.i, align 4
-  %cmp.not19.i.i.i = icmp ugt i32 %7, %shr.i
+  %5 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i = icmp ne ptr %5, null
+  %6 = load i32, ptr %dense_.i.i.i.i, align 4
+  %cmp.not19.i.i.i = icmp ugt i32 %6, %shr.i
   %cmp.not.i.i.i = select i1 %cmp.not.i.i.i.i, i1 %cmp.not19.i.i.i, i1 false
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %invoke.cont15
 
 if.end.i.i.i:                                     ; preds = %if.then.i
   %conv.i.i8.i.i.i = zext nneg i32 %shr.i to i64
-  %8 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i4.i.i.i.i, align 8
-  %arrayidx.i.i.i9.i.i.i = getelementptr inbounds i32, ptr %8, i64 %conv.i.i8.i.i.i
-  %9 = load i32, ptr %arrayidx.i.i.i9.i.i.i, align 4
-  %10 = load i32, ptr %q, align 8
-  %cmp3.i.i.i.i = icmp ult i32 %9, %10
+  %7 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i4.i.i.i.i, align 8
+  %arrayidx.i.i.i9.i.i.i = getelementptr inbounds i32, ptr %7, i64 %conv.i.i8.i.i.i
+  %8 = load i32, ptr %arrayidx.i.i.i9.i.i.i, align 4
+  %9 = load i32, ptr %q, align 8
+  %cmp3.i.i.i.i = icmp ult i32 %8, %9
   br i1 %cmp3.i.i.i.i, label %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i.i, label %if.then5.i.i.i
 
 _ZNK3re210SparseSetTIvE8containsEi.exit.i.i.i:    ; preds = %if.end.i.i.i
-  %conv.i8.i.i.i.i = sext i32 %9 to i64
-  %arrayidx.i.i10.i.i.i.i = getelementptr inbounds i32, ptr %6, i64 %conv.i8.i.i.i.i
-  %11 = load i32, ptr %arrayidx.i.i10.i.i.i.i, align 4
-  %cmp7.i.i.i.i = icmp eq i32 %11, %shr.i
+  %conv.i8.i.i.i.i = sext i32 %8 to i64
+  %arrayidx.i.i10.i.i.i.i = getelementptr inbounds i32, ptr %5, i64 %conv.i8.i.i.i.i
+  %10 = load i32, ptr %arrayidx.i.i10.i.i.i.i, align 4
+  %cmp7.i.i.i.i = icmp eq i32 %10, %shr.i
   br i1 %cmp7.i.i.i.i, label %invoke.cont15, label %if.then5.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i.i, %if.end.i.i.i
-  store i32 %10, ptr %arrayidx.i.i.i9.i.i.i, align 4
-  %conv.i2.i13.i.i.i = sext i32 %10 to i64
-  %12 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i4.i15.i.i.i = getelementptr inbounds i32, ptr %12, i64 %conv.i2.i13.i.i.i
+  store i32 %9, ptr %arrayidx.i.i.i9.i.i.i, align 4
+  %conv.i2.i13.i.i.i = sext i32 %9 to i64
+  %11 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
+  %arrayidx.i.i4.i15.i.i.i = getelementptr inbounds i32, ptr %11, i64 %conv.i2.i13.i.i.i
   store i32 %shr.i, ptr %arrayidx.i.i4.i15.i.i.i, align 4
-  %13 = load i32, ptr %q, align 8
-  %inc.i16.i.i.i = add nsw i32 %13, 1
+  %12 = load i32, ptr %q, align 8
+  %inc.i16.i.i.i = add nsw i32 %12, 1
   store i32 %inc.i16.i.i.i, ptr %q, align 8
   %.pre = load i32, ptr %arrayidx.i.i.i, align 4
   br label %invoke.cont15
 
 invoke.cont15:                                    ; preds = %if.then5.i.i.i, %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i.i, %if.then.i, %invoke.cont12
-  %14 = phi i32 [ %.pre, %if.then5.i.i.i ], [ %5, %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i.i ], [ %5, %if.then.i ], [ %5, %invoke.cont12 ]
-  %and.i = and i32 %14, 6
+  %13 = phi i32 [ %.pre, %if.then5.i.i.i ], [ %4, %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i.i ], [ %4, %if.then.i ], [ %4, %invoke.cont12 ]
+  %and.i = and i32 %13, 6
   %switch = icmp eq i32 %and.i, 0
   br i1 %switch, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %invoke.cont15
-  %15 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %3, i64 %conv.i.i, i32 1
-  %16 = load i32, ptr %15, align 4
-  %cmp.not.i15 = icmp eq i32 %16, 0
+  %14 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %3, i64 %conv.i.i, i32 1
+  %15 = load i32, ptr %14, align 4
+  %cmp.not.i15 = icmp eq i32 %15, 0
   br i1 %cmp.not.i15, label %for.inc, label %if.then.i16
 
 if.then.i16:                                      ; preds = %if.then
-  %17 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i19 = icmp ne ptr %17, null
-  %18 = load i32, ptr %dense_.i.i.i.i, align 4
-  %cmp.not19.i.i.i20 = icmp ugt i32 %18, %16
+  %16 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i19 = icmp ne ptr %16, null
+  %17 = load i32, ptr %dense_.i.i.i.i, align 4
+  %cmp.not19.i.i.i20 = icmp ugt i32 %17, %15
   %cmp.not.i.i.i21 = select i1 %cmp.not.i.i.i.i19, i1 %cmp.not19.i.i.i20, i1 false
   br i1 %cmp.not.i.i.i21, label %if.end.i.i.i22, label %for.inc
 
 if.end.i.i.i22:                                   ; preds = %if.then.i16
-  %conv.i.i8.i.i.i23 = sext i32 %16 to i64
-  %19 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i4.i.i.i.i, align 8
-  %arrayidx.i.i.i9.i.i.i25 = getelementptr inbounds i32, ptr %19, i64 %conv.i.i8.i.i.i23
-  %20 = load i32, ptr %arrayidx.i.i.i9.i.i.i25, align 4
-  %21 = load i32, ptr %q, align 8
-  %cmp3.i.i.i.i26 = icmp ult i32 %20, %21
+  %conv.i.i8.i.i.i23 = sext i32 %15 to i64
+  %18 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i4.i.i.i.i, align 8
+  %arrayidx.i.i.i9.i.i.i25 = getelementptr inbounds i32, ptr %18, i64 %conv.i.i8.i.i.i23
+  %19 = load i32, ptr %arrayidx.i.i.i9.i.i.i25, align 4
+  %20 = load i32, ptr %q, align 8
+  %cmp3.i.i.i.i26 = icmp ult i32 %19, %20
   br i1 %cmp3.i.i.i.i26, label %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i.i31, label %if.then5.i.i.i27
 
 _ZNK3re210SparseSetTIvE8containsEi.exit.i.i.i31:  ; preds = %if.end.i.i.i22
-  %conv.i8.i.i.i.i32 = sext i32 %20 to i64
-  %arrayidx.i.i10.i.i.i.i33 = getelementptr inbounds i32, ptr %17, i64 %conv.i8.i.i.i.i32
-  %22 = load i32, ptr %arrayidx.i.i10.i.i.i.i33, align 4
-  %cmp7.i.i.i.i34 = icmp eq i32 %22, %16
+  %conv.i8.i.i.i.i32 = sext i32 %19 to i64
+  %arrayidx.i.i10.i.i.i.i33 = getelementptr inbounds i32, ptr %16, i64 %conv.i8.i.i.i.i32
+  %21 = load i32, ptr %arrayidx.i.i10.i.i.i.i33, align 4
+  %cmp7.i.i.i.i34 = icmp eq i32 %21, %15
   br i1 %cmp7.i.i.i.i34, label %for.inc, label %if.then5.i.i.i27
 
 if.then5.i.i.i27:                                 ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i.i31, %if.end.i.i.i22
-  store i32 %21, ptr %arrayidx.i.i.i9.i.i.i25, align 4
-  %conv.i2.i13.i.i.i28 = sext i32 %21 to i64
-  %23 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i4.i15.i.i.i29 = getelementptr inbounds i32, ptr %23, i64 %conv.i2.i13.i.i.i28
-  store i32 %16, ptr %arrayidx.i.i4.i15.i.i.i29, align 4
-  %24 = load i32, ptr %q, align 8
-  %inc.i16.i.i.i30 = add nsw i32 %24, 1
+  store i32 %20, ptr %arrayidx.i.i.i9.i.i.i25, align 4
+  %conv.i2.i13.i.i.i28 = sext i32 %20 to i64
+  %22 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
+  %arrayidx.i.i4.i15.i.i.i29 = getelementptr inbounds i32, ptr %22, i64 %conv.i2.i13.i.i.i28
+  store i32 %15, ptr %arrayidx.i.i4.i15.i.i.i29, align 4
+  %23 = load i32, ptr %q, align 8
+  %inc.i16.i.i.i30 = add nsw i32 %23, 1
   store i32 %inc.i16.i.i.i30, ptr %q, align 8
   br label %for.inc
 
 lpad:                                             ; preds = %invoke.cont3
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup23
 
 lpad9:                                            ; preds = %invoke.cont8
-  %26 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad11:                                           ; preds = %invoke.cont10
-  %27 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad11, %lpad9
-  %.pn = phi { ptr, i32 } [ %27, %lpad11 ], [ %26, %lpad9 ]
+  %.pn = phi { ptr, i32 } [ %26, %lpad11 ], [ %25, %lpad9 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #23
   br label %ehcleanup23
 
 for.inc:                                          ; preds = %invoke.cont15, %if.then5.i.i.i27, %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i.i31, %if.then.i16, %if.then
   %incdec.ptr = getelementptr inbounds i32, ptr %i.039, i64 1
-  %28 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %29 = load i32, ptr %q, align 8
-  %idx.ext.i = sext i32 %29 to i64
-  %add.ptr.i = getelementptr inbounds i32, ptr %28, i64 %idx.ext.i
+  %27 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
+  %28 = load i32, ptr %q, align 8
+  %idx.ext.i = sext i32 %28 to i64
+  %add.ptr.i = getelementptr inbounds i32, ptr %27, i64 %idx.ext.i
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %nrvo.skipdtor, label %invoke.cont3, !llvm.loop !36
 
@@ -932,7 +915,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc, %entry
   ret void
 
 ehcleanup23:                                      ; preds = %ehcleanup, %lpad
-  %.pn11 = phi { ptr, i32 } [ %25, %lpad ], [ %.pn, %ehcleanup ]
+  %.pn11 = phi { ptr, i32 } [ %24, %lpad ], [ %.pn, %ehcleanup ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #23
   resume { ptr, i32 } %.pn11
 }
@@ -1106,16 +1089,13 @@ invoke.cont:                                      ; preds = %while.cond, %invoke
   %c.1.lcssa = phi i32 [ %2, %invoke.cont.split.loop.exit ], [ %smax, %while.cond ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i32 %c.010 to i64
-  %3 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
-  store ptr %3, ptr %ref.tmp.i, align 8, !noalias !38
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i, ptr %ref.tmp.i, align 8, !noalias !38
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !38
   %retval.sroa.0.0.insert.ext.i.i.i2.i = zext i32 %c.1.lcssa to i64
-  %4 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i2.i to ptr
-  store ptr %4, ptr %arrayinit.element.i, align 8, !noalias !38
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i2.i, ptr %arrayinit.element.i, align 8, !noalias !38
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i3.i, align 8, !noalias !38
   %retval.sroa.0.0.insert.ext.i.i.i5.i = zext i8 %0 to i64
-  %5 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i5.i to ptr
-  store ptr %5, ptr %arrayinit.element7.i, align 8, !noalias !38
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i5.i, ptr %arrayinit.element7.i, align 8, !noalias !38
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i6.i, align 8, !noalias !38
   invoke void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull @.str.11, i64 18, ptr nonnull %ref.tmp.i, i64 3)
           to label %invoke.cont9 unwind label %lpad
@@ -1132,12 +1112,12 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !41
 
 lpad:                                             ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad10:                                           ; preds = %invoke.cont9
-  %7 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   br label %ehcleanup
@@ -1146,7 +1126,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont11
   ret void
 
 ehcleanup:                                        ; preds = %lpad10, %lpad
-  %.pn = phi { ptr, i32 } [ %7, %lpad10 ], [ %6, %lpad ]
+  %.pn = phi { ptr, i32 } [ %4, %lpad10 ], [ %3, %lpad ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #23
   resume { ptr, i32 } %.pn
 }

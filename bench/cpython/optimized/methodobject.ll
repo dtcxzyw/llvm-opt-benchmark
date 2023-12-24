@@ -1058,16 +1058,14 @@ _Py_XNewRef.exit20:                               ; preds = %_Py_XNewRef.exit, %
   %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %11, i64 0, i32 1
   %12 = load i64, ptr %_gc_prev.i, align 8
   %13 = inttoptr i64 %12 to ptr
-  %14 = ptrtoint ptr %add.ptr.i.i to i64
-  store i64 %14, ptr %13, align 8
+  store ptr %add.ptr.i.i, ptr %13, align 8
   %_gc_prev.i.i = getelementptr i8, ptr %op.0, i64 -8
-  %15 = load i64, ptr %_gc_prev.i.i, align 8
-  %and.i.i = and i64 %15, 3
+  %14 = load i64, ptr %_gc_prev.i.i, align 8
+  %and.i.i = and i64 %14, 3
   %or.i.i = or i64 %and.i.i, %12
   store i64 %or.i.i, ptr %_gc_prev.i.i, align 8
-  %16 = ptrtoint ptr %11 to i64
-  store i64 %16, ptr %add.ptr.i.i, align 8
-  store i64 %14, ptr %_gc_prev.i, align 8
+  store ptr %11, ptr %add.ptr.i.i, align 8
+  store ptr %add.ptr.i.i, ptr %_gc_prev.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end16, %if.end, %_Py_XNewRef.exit20, %if.then15, %if.then9, %sw.default

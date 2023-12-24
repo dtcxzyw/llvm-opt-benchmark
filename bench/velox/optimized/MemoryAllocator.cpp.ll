@@ -2384,15 +2384,13 @@ init.check.i2.i11:                                ; preds = %_ZN8facebook5velox6
   call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %call.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %allocatorErrMsg) #13, !noalias !37
   %call2.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %allocatorErrMsg) #13, !noalias !37
-  %11 = ptrtoint ptr %call.i.i.i to i64
   %call.i.i21.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #13, !noalias !37
   %call2.i.i22.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #13, !noalias !37
-  %12 = ptrtoint ptr %call.i.i21.i to i64
-  store i64 %11, ptr %ref.tmp.i, align 16, !alias.scope !37
+  store ptr %call.i.i.i, ptr %ref.tmp.i, align 16, !alias.scope !37
   %ref.tmp.i.sroa.2.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 %call2.i.i.i, ptr %ref.tmp.i.sroa.2.0.agg.result.sroa_idx.i, align 8, !alias.scope !37
   %arrayinit.element.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 1
-  store i64 %12, ptr %arrayinit.element.i.i, align 16, !alias.scope !37
+  store ptr %call.i.i21.i, ptr %arrayinit.element.i.i, align 16, !alias.scope !37
   %ref.tmp5.i.sroa.2.0.arrayinit.element.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store i64 %call2.i.i22.i, ptr %ref.tmp5.i.sroa.2.0.arrayinit.element.i.sroa_idx.i, align 8, !alias.scope !37
   invoke void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull @.str.9, i64 5, i64 221, ptr nonnull %ref.tmp.i)
@@ -2405,7 +2403,7 @@ invoke.cont12:                                    ; preds = %.noexc
   br label %if.end14
 
 lpad11:                                           ; preds = %.noexc
-  %13 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #13
   br label %ehcleanup
@@ -2419,7 +2417,7 @@ cleanup:                                          ; preds = %_ZN8facebook5velox6
   ret void
 
 ehcleanup:                                        ; preds = %lpad11, %lpad
-  %.pn = phi { ptr, i32 } [ %7, %lpad ], [ %13, %lpad11 ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad ], [ %11, %lpad11 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %allocatorErrMsg) #13
   resume { ptr, i32 } %.pn
 }

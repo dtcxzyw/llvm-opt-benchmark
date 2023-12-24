@@ -1478,8 +1478,7 @@ entry:
   %extent.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds %"class.pbrt::FilterSampler", ptr %this, i64 0, i32 1, i32 0, i32 1
   store i64 %retval.sroa.0.0.insert.insert.i14.i.i, ptr %extent.sroa.3.0.this.sroa_idx.i.i, align 8
   %allocator3.i.i = getelementptr inbounds %"class.pbrt::FilterSampler", ptr %this, i64 0, i32 1, i32 1
-  %.cast.i.i = ptrtoint ptr %alloc.coerce to i64
-  store i64 %.cast.i.i, ptr %allocator3.i.i, align 8
+  store ptr %alloc.coerce, ptr %allocator3.i.i, align 8
   %sub.i.i.i.i = sub nsw i32 %.sroa.speculated5.i9.i.i, %.sroa.speculated5.i.i.i
   %sub4.i.i.i.i = sub nsw i32 %.sroa.speculated.i10.i.i, %.sroa.speculated.i.i.i
   %mul.i.i.i = mul nsw i32 %sub4.i.i.i.i, %sub.i.i.i.i
@@ -1520,15 +1519,15 @@ _ZN4pbrt7Array2DIfEC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit: ; pred
   %distrib = getelementptr inbounds %"class.pbrt::FilterSampler", ptr %this, i64 0, i32 2
   store <4 x i32> <i32 2139095039, i32 2139095039, i32 -8388609, i32 -8388609>, ptr %distrib, align 8
   %pConditionalV.i = getelementptr inbounds %"class.pbrt::FilterSampler", ptr %this, i64 0, i32 2, i32 1
-  store i64 %.cast.i.i, ptr %pConditionalV.i, align 8
+  store ptr %alloc.coerce, ptr %pConditionalV.i, align 8
   %ptr.i.i = getelementptr inbounds %"class.pbrt::FilterSampler", ptr %this, i64 0, i32 2, i32 1, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr.i.i, i8 0, i64 24, i1 false)
   %pMarginal.i = getelementptr inbounds %"class.pbrt::FilterSampler", ptr %this, i64 0, i32 2, i32 2
-  store i64 %.cast.i.i, ptr %pMarginal.i, align 8
+  store ptr %alloc.coerce, ptr %pMarginal.i, align 8
   %ptr.i.i.i = getelementptr inbounds %"class.pbrt::FilterSampler", ptr %this, i64 0, i32 2, i32 2, i32 0, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr.i.i.i, i8 0, i64 24, i1 false)
   %cdf.i.i = getelementptr inbounds %"class.pbrt::FilterSampler", ptr %this, i64 0, i32 2, i32 2, i32 1
-  store i64 %.cast.i.i, ptr %cdf.i.i, align 8
+  store ptr %alloc.coerce, ptr %cdf.i.i, align 8
   %ptr.i1.i.i = getelementptr inbounds %"class.pbrt::FilterSampler", ptr %this, i64 0, i32 2, i32 2, i32 1, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr.i1.i.i, i8 0, i64 24, i1 false)
   %funcInt.i.i = getelementptr inbounds %"class.pbrt::FilterSampler", ptr %this, i64 0, i32 2, i32 2, i32 4
@@ -2433,16 +2432,15 @@ do.body:
   %domain.sroa.4.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
   store <2 x float> %domain.coerce1, ptr %domain.sroa.4.0.this.sroa_idx, align 8
   %pConditionalV = getelementptr inbounds %"class.pbrt::PiecewiseConstant2D", ptr %this, i64 0, i32 1
-  %0 = ptrtoint ptr %alloc.coerce to i64
-  store i64 %0, ptr %pConditionalV, align 8
+  store ptr %alloc.coerce, ptr %pConditionalV, align 8
   %ptr.i = getelementptr inbounds %"class.pbrt::PiecewiseConstant2D", ptr %this, i64 0, i32 1, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr.i, i8 0, i64 24, i1 false)
   %pMarginal = getelementptr inbounds %"class.pbrt::PiecewiseConstant2D", ptr %this, i64 0, i32 2
-  store i64 %0, ptr %pMarginal, align 8
+  store ptr %alloc.coerce, ptr %pMarginal, align 8
   %ptr.i.i = getelementptr inbounds %"class.pbrt::PiecewiseConstant2D", ptr %this, i64 0, i32 2, i32 0, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr.i.i, i8 0, i64 24, i1 false)
   %cdf.i = getelementptr inbounds %"class.pbrt::PiecewiseConstant2D", ptr %this, i64 0, i32 2, i32 1
-  store i64 %0, ptr %cdf.i, align 8
+  store ptr %alloc.coerce, ptr %cdf.i, align 8
   %ptr.i1.i = getelementptr inbounds %"class.pbrt::PiecewiseConstant2D", ptr %this, i64 0, i32 2, i32 1, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr.i1.i, i8 0, i64 24, i1 false)
   %funcInt.i = getelementptr inbounds %"class.pbrt::PiecewiseConstant2D", ptr %this, i64 0, i32 2, i32 4
@@ -2490,19 +2488,19 @@ invoke.cont17.lr.ph:                              ; preds = %for.cond.preheader
   br label %invoke.cont17
 
 invoke.cont17:                                    ; preds = %invoke.cont17.lr.ph, %for.inc
-  %1 = phi i64 [ %.pre, %invoke.cont17.lr.ph ], [ %inc.i, %for.inc ]
+  %0 = phi i64 [ %.pre, %invoke.cont17.lr.ph ], [ %inc.i, %for.inc ]
   %indvars.iv = phi i64 [ 0, %invoke.cont17.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %2 = mul nsw i64 %indvars.iv, %conv
-  %sub.i = sub i64 %func.coerce1, %2
+  %1 = mul nsw i64 %indvars.iv, %conv
+  %sub.i = sub i64 %func.coerce1, %1
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %conv)
-  %add.ptr.i = getelementptr inbounds float, ptr %func.coerce0, i64 %2
-  %3 = load i64, ptr %nAlloc.i, align 8
-  %cmp.i = icmp eq i64 %3, %1
+  %add.ptr.i = getelementptr inbounds float, ptr %func.coerce0, i64 %1
+  %2 = load i64, ptr %nAlloc.i, align 8
+  %cmp.i = icmp eq i64 %2, %0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %invoke.cont17
-  %cmp9.i = icmp eq i64 %1, 0
-  %mul.i = shl i64 %1, 1
+  %cmp9.i = icmp eq i64 %0, 0
+  %mul.i = shl i64 %0, 1
   %spec.select.i18 = select i1 %cmp9.i, i64 4, i64 %mul.i
   invoke void @_ZN4pstd6vectorIN4pbrt19PiecewiseConstant1DENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %pConditionalV, i64 noundef %spec.select.i18)
           to label %.noexc unwind label %lpad4.loopexit
@@ -2512,15 +2510,15 @@ if.then.i:                                        ; preds = %invoke.cont17
   br label %if.end.i
 
 if.end.i:                                         ; preds = %.noexc, %invoke.cont17
-  %4 = phi i64 [ %.pre.i, %.noexc ], [ %1, %invoke.cont17 ]
-  %5 = load ptr, ptr %ptr.i, align 8
-  %add.ptr.i17 = getelementptr inbounds %"class.pbrt::PiecewiseConstant1D", ptr %5, i64 %4
+  %3 = phi i64 [ %.pre.i, %.noexc ], [ %0, %invoke.cont17 ]
+  %4 = load ptr, ptr %ptr.i, align 8
+  %add.ptr.i17 = getelementptr inbounds %"class.pbrt::PiecewiseConstant1D", ptr %4, i64 %3
   invoke void @_ZN4pbrt19PiecewiseConstant1DC2EN4pstd4spanIKfEEffNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(76) %add.ptr.i17, ptr %add.ptr.i, i64 %spec.select.i, float noundef %domain.sroa.0.0.vec.extract, float noundef %domain.sroa.4.8.vec.extract, ptr %alloc.coerce)
           to label %for.inc unwind label %lpad4.loopexit
 
 for.inc:                                          ; preds = %if.end.i
-  %6 = load i64, ptr %nStored.i, align 8
-  %inc.i = add i64 %6, 1
+  %5 = load i64, ptr %nStored.i, align 8
+  %inc.i = add i64 %5, 1
   store i64 %inc.i, ptr %nStored.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2528,8 +2526,7 @@ for.inc:                                          ; preds = %if.end.i
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %call.i = tail call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #16
-  %7 = ptrtoint ptr %call.i to i64
-  store i64 %7, ptr %marginalFunc, align 8
+  store ptr %call.i, ptr %marginalFunc, align 8
   %ptr.i20 = getelementptr inbounds %"class.pstd::vector.7", ptr %marginalFunc, i64 0, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr.i20, i8 0, i64 24, i1 false)
   %nAlloc.i21 = getelementptr inbounds %"class.pstd::vector.7", ptr %marginalFunc, i64 0, i32 2
@@ -2540,8 +2537,8 @@ if.end.i.i.i.i:                                   ; preds = %for.end
   %mul.i.i = shl nsw i64 %conv6, 2
   %vtable.i.i.i.i = load ptr, ptr %call.i, align 8
   %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
-  %8 = load ptr, ptr %vfn.i.i.i.i, align 8
-  %call.i.i.i.i27 = invoke noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %call.i, i64 noundef %mul.i.i, i64 noundef 4)
+  %6 = load ptr, ptr %vfn.i.i.i.i, align 8
+  %call.i.i.i.i27 = invoke noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %call.i, i64 noundef %mul.i.i, i64 noundef 4)
           to label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit unwind label %lpad27.loopexit.split-lp
 
 _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit: ; preds = %if.end.i.i.i.i
@@ -2555,21 +2552,21 @@ for.body32.lr.ph:                                 ; preds = %_ZN4pstd6vectorIfNS
   br label %for.body32
 
 for.body32:                                       ; preds = %for.body32.lr.ph, %for.inc41
-  %9 = phi ptr [ %call.i.i.i.i27, %for.body32.lr.ph ], [ %18, %for.inc41 ]
-  %10 = phi i64 [ 0, %for.body32.lr.ph ], [ %inc.i38, %for.inc41 ]
-  %11 = phi i64 [ %conv6, %for.body32.lr.ph ], [ %19, %for.inc41 ]
+  %7 = phi ptr [ %call.i.i.i.i27, %for.body32.lr.ph ], [ %16, %for.inc41 ]
+  %8 = phi i64 [ 0, %for.body32.lr.ph ], [ %inc.i38, %for.inc41 ]
+  %9 = phi i64 [ %conv6, %for.body32.lr.ph ], [ %17, %for.inc41 ]
   %indvars.iv77 = phi i64 [ 0, %for.body32.lr.ph ], [ %indvars.iv.next78, %for.inc41 ]
-  %12 = load ptr, ptr %ptr.i, align 8
-  %funcInt.i31 = getelementptr inbounds %"class.pbrt::PiecewiseConstant1D", ptr %12, i64 %indvars.iv77, i32 4
-  %13 = load float, ptr %funcInt.i31, align 8
-  %cmp.i34 = icmp eq i64 %11, %10
+  %10 = load ptr, ptr %ptr.i, align 8
+  %funcInt.i31 = getelementptr inbounds %"class.pbrt::PiecewiseConstant1D", ptr %10, i64 %indvars.iv77, i32 4
+  %11 = load float, ptr %funcInt.i31, align 8
+  %cmp.i34 = icmp eq i64 %9, %8
   br i1 %cmp.i34, label %if.then.i39, label %for.inc41
 
 if.then.i39:                                      ; preds = %for.body32
-  %cmp3.i = icmp eq i64 %10, 0
-  %mul.i40 = shl i64 %10, 1
+  %cmp3.i = icmp eq i64 %8, 0
+  %mul.i40 = shl i64 %8, 1
   %spec.select.i41 = select i1 %cmp3.i, i64 4, i64 %mul.i40
-  %cmp.not.i.i = icmp ult i64 %10, %spec.select.i41
+  %cmp.not.i.i = icmp ult i64 %8, %spec.select.i41
   br i1 %cmp.not.i.i, label %if.end.i.i, label %for.inc41
 
 if.end.i.i:                                       ; preds = %if.then.i39
@@ -2580,8 +2577,8 @@ if.end.i.i:                                       ; preds = %if.then.i39
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %call.i, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
-  %14 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  %call.i.i.i.i.i44 = invoke noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %call.i, i64 noundef %mul.i.i.i, i64 noundef 4)
+  %12 = load ptr, ptr %vfn.i.i.i.i.i, align 8
+  %call.i.i.i.i.i44 = invoke noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %call.i, i64 noundef %mul.i.i.i, i64 noundef 4)
           to label %call.i.i.i.i.i.noexc unwind label %lpad27.loopexit
 
 call.i.i.i.i.i.noexc:                             ; preds = %if.end.i.i.i.i.i
@@ -2590,8 +2587,8 @@ call.i.i.i.i.i.noexc:                             ; preds = %if.end.i.i.i.i.i
   br label %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i
 
 _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i: ; preds = %call.i.i.i.i.i.noexc, %if.end.i.i
-  %.pre83 = phi ptr [ %.pre83.pre, %call.i.i.i.i.i.noexc ], [ %9, %if.end.i.i ]
-  %.pre1.pre.i = phi i64 [ %.pre.i42, %call.i.i.i.i.i.noexc ], [ %10, %if.end.i.i ]
+  %.pre83 = phi ptr [ %.pre83.pre, %call.i.i.i.i.i.noexc ], [ %7, %if.end.i.i ]
+  %.pre1.pre.i = phi i64 [ %.pre.i42, %call.i.i.i.i.i.noexc ], [ %8, %if.end.i.i ]
   %retval.0.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i44, %call.i.i.i.i.i.noexc ], [ null, %if.end.i.i ]
   %cmp213.not.i.i = icmp eq i64 %.pre1.pre.i, 0
   br i1 %cmp213.not.i.i, label %for.end.i.i, label %for.body.i.i
@@ -2600,8 +2597,8 @@ for.body.i.i:                                     ; preds = %_ZN4pstd3pmr21polym
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds float, ptr %retval.0.i.i.i.i.i, i64 %indvars.iv.i.i
   %arrayidx.i.i = getelementptr inbounds float, ptr %.pre83, i64 %indvars.iv.i.i
-  %15 = load float, ptr %arrayidx.i.i, align 4
-  store float %15, ptr %add.ptr.i.i, align 4
+  %13 = load float, ptr %arrayidx.i.i, align 4
+  store float %13, ptr %add.ptr.i.i, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %cmp2.i.i = icmp ugt i64 %.pre1.pre.i, %indvars.iv.next.i.i
   br i1 %cmp2.i.i, label %for.body.i.i, label %if.end.i.i.i9.i.i, !llvm.loop !13
@@ -2611,12 +2608,12 @@ for.end.i.i:                                      ; preds = %_ZN4pstd3pmr21polym
   br i1 %tobool.not.i.i.i.i.i, label %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i, label %if.end.i.i.i9.i.i
 
 if.end.i.i.i9.i.i:                                ; preds = %for.body.i.i, %for.end.i.i
-  %16 = load i64, ptr %nAlloc.i21, align 8
-  %mul.i10.i.i = shl i64 %16, 2
+  %14 = load i64, ptr %nAlloc.i21, align 8
+  %mul.i10.i.i = shl i64 %14, 2
   %vtable.i.i.i11.i.i = load ptr, ptr %call.i, align 8
   %vfn.i.i.i12.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i11.i.i, i64 3
-  %17 = load ptr, ptr %vfn.i.i.i12.i.i, align 8
-  invoke void %17(ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull %.pre83, i64 noundef %mul.i10.i.i, i64 noundef 4)
+  %15 = load ptr, ptr %vfn.i.i.i12.i.i, align 8
+  invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull %.pre83, i64 noundef %mul.i10.i.i, i64 noundef 4)
           to label %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i unwind label %lpad27.loopexit
 
 _ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i: ; preds = %if.end.i.i.i9.i.i, %for.end.i.i
@@ -2625,13 +2622,13 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i: ; p
   br label %for.inc41
 
 for.inc41:                                        ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i, %if.then.i39, %for.body32
-  %18 = phi ptr [ %retval.0.i.i.i.i.i, %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i ], [ %9, %if.then.i39 ], [ %9, %for.body32 ]
-  %19 = phi i64 [ %spec.select.i41, %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i ], [ %10, %if.then.i39 ], [ %11, %for.body32 ]
-  %20 = phi i64 [ %.pre1.pre.i, %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i ], [ %10, %if.then.i39 ], [ %10, %for.body32 ]
-  %add.ptr.i37 = getelementptr inbounds float, ptr %18, i64 %20
-  store float %13, ptr %add.ptr.i37, align 4
-  %21 = load i64, ptr %nStored.i33, align 8
-  %inc.i38 = add i64 %21, 1
+  %16 = phi ptr [ %retval.0.i.i.i.i.i, %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i ], [ %7, %if.then.i39 ], [ %7, %for.body32 ]
+  %17 = phi i64 [ %spec.select.i41, %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i ], [ %8, %if.then.i39 ], [ %9, %for.body32 ]
+  %18 = phi i64 [ %.pre1.pre.i, %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i ], [ %8, %if.then.i39 ], [ %8, %for.body32 ]
+  %add.ptr.i37 = getelementptr inbounds float, ptr %16, i64 %18
+  store float %11, ptr %add.ptr.i37, align 4
+  %19 = load i64, ptr %nStored.i33, align 8
+  %inc.i38 = add i64 %19, 1
   store i64 %inc.i38, ptr %nStored.i33, align 8
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
@@ -2648,12 +2645,12 @@ lpad27.loopexit.split-lp:                         ; preds = %for.end43, %if.end.
   br label %ehcleanup
 
 for.end43:                                        ; preds = %for.inc41, %for.end, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit
-  %22 = phi i64 [ 0, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit ], [ 0, %for.end ], [ %inc.i38, %for.inc41 ]
-  %23 = phi ptr [ %call.i.i.i.i27, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit ], [ null, %for.end ], [ %18, %for.inc41 ]
+  %20 = phi i64 [ 0, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit ], [ 0, %for.end ], [ %inc.i38, %for.inc41 ]
+  %21 = phi ptr [ %call.i.i.i.i27, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit ], [ null, %for.end ], [ %16, %for.inc41 ]
   %nStored.i.i = getelementptr inbounds %"class.pstd::vector.7", ptr %marginalFunc, i64 0, i32 3
   %domain.sroa.0.4.vec.extract = extractelement <2 x float> %domain.coerce0, i64 1
   %domain.sroa.4.12.vec.extract = extractelement <2 x float> %domain.coerce1, i64 1
-  invoke void @_ZN4pbrt19PiecewiseConstant1DC2EN4pstd4spanIKfEEffNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(76) %ref.tmp44, ptr %23, i64 %22, float noundef %domain.sroa.0.4.vec.extract, float noundef %domain.sroa.4.12.vec.extract, ptr %alloc.coerce)
+  invoke void @_ZN4pbrt19PiecewiseConstant1DC2EN4pstd4spanIKfEEffNS1_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(76) %ref.tmp44, ptr %21, i64 %20, float noundef %domain.sroa.0.4.vec.extract, float noundef %domain.sroa.4.12.vec.extract, ptr %alloc.coerce)
           to label %invoke.cont54 unwind label %lpad27.loopexit.split-lp
 
 invoke.cont54:                                    ; preds = %for.end43
@@ -2672,88 +2669,88 @@ invoke.cont57:                                    ; preds = %call.i49.noexc
   %nStored.le.i.i.i = getelementptr inbounds %"class.pbrt::PiecewiseConstant1D", ptr %ref.tmp44, i64 0, i32 1, i32 3
   store i64 0, ptr %nStored.le.i.i.i, align 8
   %ptr.i.i53 = getelementptr inbounds %"class.pbrt::PiecewiseConstant1D", ptr %ref.tmp44, i64 0, i32 1, i32 1
-  %24 = load ptr, ptr %ptr.i.i53, align 8
-  %tobool.not.i.i.i.i.i54 = icmp eq ptr %24, null
+  %22 = load ptr, ptr %ptr.i.i53, align 8
+  %tobool.not.i.i.i.i.i54 = icmp eq ptr %22, null
   br i1 %tobool.not.i.i.i.i.i54, label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i, label %if.end.i.i.i.i.i55
 
 if.end.i.i.i.i.i55:                               ; preds = %invoke.cont57
   %nAlloc.i.i = getelementptr inbounds %"class.pbrt::PiecewiseConstant1D", ptr %ref.tmp44, i64 0, i32 1, i32 2
-  %25 = load i64, ptr %nAlloc.i.i, align 8
-  %mul.i.i.i57 = shl i64 %25, 2
-  %26 = load ptr, ptr %cdf3.i, align 8
-  %vtable.i.i.i.i.i58 = load ptr, ptr %26, align 8
+  %23 = load i64, ptr %nAlloc.i.i, align 8
+  %mul.i.i.i57 = shl i64 %23, 2
+  %24 = load ptr, ptr %cdf3.i, align 8
+  %vtable.i.i.i.i.i58 = load ptr, ptr %24, align 8
   %vfn.i.i.i.i.i59 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i58, i64 3
-  %27 = load ptr, ptr %vfn.i.i.i.i.i59, align 8
-  invoke void %27(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull %24, i64 noundef %mul.i.i.i57, i64 noundef 4)
+  %25 = load ptr, ptr %vfn.i.i.i.i.i59, align 8
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %22, i64 noundef %mul.i.i.i57, i64 noundef 4)
           to label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i55
-  %28 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #18
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #18
   unreachable
 
 _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i: ; preds = %if.end.i.i.i.i.i55, %invoke.cont57
   %nStored.le.i.i1.i = getelementptr inbounds %"class.pstd::vector.7", ptr %ref.tmp44, i64 0, i32 3
   store i64 0, ptr %nStored.le.i.i1.i, align 8
   %ptr.i2.i = getelementptr inbounds %"class.pstd::vector.7", ptr %ref.tmp44, i64 0, i32 1
-  %30 = load ptr, ptr %ptr.i2.i, align 8
-  %tobool.not.i.i.i.i3.i = icmp eq ptr %30, null
+  %28 = load ptr, ptr %ptr.i2.i, align 8
+  %tobool.not.i.i.i.i3.i = icmp eq ptr %28, null
   br i1 %tobool.not.i.i.i.i3.i, label %_ZN4pbrt19PiecewiseConstant1DD2Ev.exit, label %if.end.i.i.i.i4.i
 
 if.end.i.i.i.i4.i:                                ; preds = %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i
   %nAlloc.i5.i = getelementptr inbounds %"class.pstd::vector.7", ptr %ref.tmp44, i64 0, i32 2
-  %31 = load i64, ptr %nAlloc.i5.i, align 8
-  %mul.i.i6.i = shl i64 %31, 2
-  %32 = load ptr, ptr %ref.tmp44, align 8
-  %vtable.i.i.i.i7.i = load ptr, ptr %32, align 8
+  %29 = load i64, ptr %nAlloc.i5.i, align 8
+  %mul.i.i6.i = shl i64 %29, 2
+  %30 = load ptr, ptr %ref.tmp44, align 8
+  %vtable.i.i.i.i7.i = load ptr, ptr %30, align 8
   %vfn.i.i.i.i8.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i7.i, i64 3
-  %33 = load ptr, ptr %vfn.i.i.i.i8.i, align 8
-  invoke void %33(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull %30, i64 noundef %mul.i.i6.i, i64 noundef 4)
+  %31 = load ptr, ptr %vfn.i.i.i.i8.i, align 8
+  invoke void %31(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull %28, i64 noundef %mul.i.i6.i, i64 noundef 4)
           to label %_ZN4pbrt19PiecewiseConstant1DD2Ev.exit unwind label %terminate.lpad.i9.i
 
 terminate.lpad.i9.i:                              ; preds = %if.end.i.i.i.i4.i
-  %34 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #18
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #18
   unreachable
 
 _ZN4pbrt19PiecewiseConstant1DD2Ev.exit:           ; preds = %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i, %if.end.i.i.i.i4.i
   store i64 0, ptr %nStored.i.i, align 8
-  %36 = load ptr, ptr %ptr.i20, align 8
-  %tobool.not.i.i.i.i61 = icmp eq ptr %36, null
+  %34 = load ptr, ptr %ptr.i20, align 8
+  %tobool.not.i.i.i.i61 = icmp eq ptr %34, null
   br i1 %tobool.not.i.i.i.i61, label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit, label %if.end.i.i.i.i62
 
 if.end.i.i.i.i62:                                 ; preds = %_ZN4pbrt19PiecewiseConstant1DD2Ev.exit
-  %37 = load i64, ptr %nAlloc.i21, align 8
-  %mul.i.i64 = shl i64 %37, 2
-  %38 = load ptr, ptr %marginalFunc, align 8
-  %vtable.i.i.i.i65 = load ptr, ptr %38, align 8
+  %35 = load i64, ptr %nAlloc.i21, align 8
+  %mul.i.i64 = shl i64 %35, 2
+  %36 = load ptr, ptr %marginalFunc, align 8
+  %vtable.i.i.i.i65 = load ptr, ptr %36, align 8
   %vfn.i.i.i.i66 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i65, i64 3
-  %39 = load ptr, ptr %vfn.i.i.i.i66, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull %36, i64 noundef %mul.i.i64, i64 noundef 4)
+  %37 = load ptr, ptr %vfn.i.i.i.i66, align 8
+  invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull %34, i64 noundef %mul.i.i64, i64 noundef 4)
           to label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i62
-  %40 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #18
+  %39 = extractvalue { ptr, i32 } %38, 0
+  call void @__clang_call_terminate(ptr %39) #18
   unreachable
 
 _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit: ; preds = %_ZN4pbrt19PiecewiseConstant1DD2Ev.exit, %if.end.i.i.i.i62
   ret void
 
 lpad56:                                           ; preds = %call.i49.noexc, %invoke.cont54
-  %42 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4pbrt19PiecewiseConstant1DD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %ref.tmp44) #16
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad27.loopexit, %lpad27.loopexit.split-lp, %lpad56
-  %.pn = phi { ptr, i32 } [ %42, %lpad56 ], [ %lpad.loopexit, %lpad27.loopexit ], [ %lpad.loopexit.split-lp, %lpad27.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %40, %lpad56 ], [ %lpad.loopexit, %lpad27.loopexit ], [ %lpad.loopexit.split-lp, %lpad27.loopexit.split-lp ]
   call void @_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %marginalFunc) #16
   br label %ehcleanup59
 
@@ -2963,8 +2960,7 @@ entry:
   %va25 = alloca float, align 4
   %vb29 = alloca i32, align 4
   %add.ptr.i = getelementptr inbounds float, ptr %f.coerce0, i64 %f.coerce1
-  %0 = ptrtoint ptr %alloc.coerce to i64
-  store i64 %0, ptr %this, align 8
+  store ptr %alloc.coerce, ptr %this, align 8
   %ptr.i = getelementptr inbounds %"class.pstd::vector.7", ptr %this, i64 0, i32 1
   %nAlloc.i = getelementptr inbounds %"class.pstd::vector.7", ptr %this, i64 0, i32 2
   %nStored.i = getelementptr inbounds %"class.pstd::vector.7", ptr %this, i64 0, i32 3
@@ -2974,7 +2970,7 @@ entry:
 
 if.end.i.i.i.thread:                              ; preds = %entry
   %cdf66 = getelementptr inbounds %"class.pbrt::PiecewiseConstant1D", ptr %this, i64 0, i32 1
-  store i64 %0, ptr %cdf66, align 8
+  store ptr %alloc.coerce, ptr %cdf66, align 8
   %ptr.i.i68 = getelementptr inbounds %"class.pbrt::PiecewiseConstant1D", ptr %this, i64 0, i32 1, i32 1
   %nAlloc.i.i69 = getelementptr inbounds %"class.pbrt::PiecewiseConstant1D", ptr %this, i64 0, i32 1, i32 2
   %nStored.i.i70 = getelementptr inbounds %"class.pbrt::PiecewiseConstant1D", ptr %this, i64 0, i32 1, i32 3
@@ -2985,37 +2981,37 @@ if.end.i.i.i.i.i:                                 ; preds = %entry
   %add.ptr.i.idx = shl nsw i64 %f.coerce1, 2
   %vtable.i.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
-  %1 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  %call.i.i.i.i.i = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef %add.ptr.i.idx, i64 noundef 4)
-  %2 = load i64, ptr %nStored.i, align 8
-  %cmp213.not.i.i = icmp eq i64 %2, 0
+  %0 = load ptr, ptr %vfn.i.i.i.i.i, align 8
+  %call.i.i.i.i.i = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef %add.ptr.i.idx, i64 noundef 4)
+  %1 = load i64, ptr %nStored.i, align 8
+  %cmp213.not.i.i = icmp eq i64 %1, 0
   br i1 %cmp213.not.i.i, label %for.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i.i.i.i, %for.body.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %if.end.i.i.i.i.i ]
   %add.ptr.i.i = getelementptr inbounds float, ptr %call.i.i.i.i.i, i64 %indvars.iv.i.i
-  %3 = load ptr, ptr %ptr.i, align 8
-  %arrayidx.i.i = getelementptr inbounds float, ptr %3, i64 %indvars.iv.i.i
-  %4 = load float, ptr %arrayidx.i.i, align 4
-  store float %4, ptr %add.ptr.i.i, align 4
+  %2 = load ptr, ptr %ptr.i, align 8
+  %arrayidx.i.i = getelementptr inbounds float, ptr %2, i64 %indvars.iv.i.i
+  %3 = load float, ptr %arrayidx.i.i, align 4
+  store float %3, ptr %add.ptr.i.i, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %5 = load i64, ptr %nStored.i, align 8
-  %cmp2.i.i = icmp ugt i64 %5, %indvars.iv.next.i.i
+  %4 = load i64, ptr %nStored.i, align 8
+  %cmp2.i.i = icmp ugt i64 %4, %indvars.iv.next.i.i
   br i1 %cmp2.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !13
 
 for.end.i.i:                                      ; preds = %for.body.i.i, %if.end.i.i.i.i.i
-  %6 = load ptr, ptr %ptr.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %ptr.i, align 8
+  %tobool.not.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i, label %if.end.i.i.i9.i.i
 
 if.end.i.i.i9.i.i:                                ; preds = %for.end.i.i
-  %7 = load i64, ptr %nAlloc.i, align 8
-  %mul.i10.i.i = shl i64 %7, 2
-  %8 = load ptr, ptr %this, align 8
-  %vtable.i.i.i11.i.i = load ptr, ptr %8, align 8
+  %6 = load i64, ptr %nAlloc.i, align 8
+  %mul.i10.i.i = shl i64 %6, 2
+  %7 = load ptr, ptr %this, align 8
+  %vtable.i.i.i11.i.i = load ptr, ptr %7, align 8
   %vfn.i.i.i12.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i11.i.i, i64 3
-  %9 = load ptr, ptr %vfn.i.i.i12.i.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %6, i64 noundef %mul.i10.i.i, i64 noundef 4)
+  %8 = load ptr, ptr %vfn.i.i.i12.i.i, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %5, i64 noundef %mul.i10.i.i, i64 noundef 4)
   br label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i
 
 _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i: ; preds = %if.end.i.i.i9.i.i, %for.end.i.i
@@ -3026,10 +3022,10 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i: ; preds =
 for.body.i:                                       ; preds = %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i, %for.body.i
   %iter.08.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %f.coerce0, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i ]
   %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i ]
-  %10 = load ptr, ptr %ptr.i, align 8
-  %add.ptr.i25 = getelementptr inbounds float, ptr %10, i64 %i.07.i
-  %11 = load float, ptr %iter.08.i, align 4
-  store float %11, ptr %add.ptr.i25, align 4
+  %9 = load ptr, ptr %ptr.i, align 8
+  %add.ptr.i25 = getelementptr inbounds float, ptr %9, i64 %i.07.i
+  %10 = load float, ptr %iter.08.i, align 4
+  store float %10, ptr %add.ptr.i25, align 4
   %incdec.ptr.i = getelementptr inbounds float, ptr %iter.08.i, i64 1
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
@@ -3040,7 +3036,7 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEEC2IPKfEET_S8_RKS3_.exit: ; p
   store i64 %.pre.i, ptr %nStored.i, align 8
   %cdf = getelementptr inbounds %"class.pbrt::PiecewiseConstant1D", ptr %this, i64 0, i32 1
   %add = add i64 %f.coerce1, 1
-  store i64 %0, ptr %cdf, align 8
+  store ptr %alloc.coerce, ptr %cdf, align 8
   %ptr.i.i = getelementptr inbounds %"class.pbrt::PiecewiseConstant1D", ptr %this, i64 0, i32 1, i32 1
   %nStored.i.i = getelementptr inbounds %"class.pbrt::PiecewiseConstant1D", ptr %this, i64 0, i32 1, i32 3
   %cmp.not.i.not.i.i = icmp eq i64 %add, 0
@@ -3062,8 +3058,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i.i: ; pr
   %nStored.i.i7988 = phi ptr [ %nStored.i.i70, %if.end.i.i.i.thread ], [ %nStored.i.i, %if.end.i.i.i ]
   %vtable.i.i.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
-  %12 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  %call.i.i.i.i.i.i29 = invoke noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef %mul.i.i.i.i98, i64 noundef 4)
+  %11 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
+  %call.i.i.i.i.i.i29 = invoke noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef %mul.i.i.i.i98, i64 noundef 4)
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.i.i.noexc:                           ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i.i
@@ -3074,13 +3070,13 @@ call.i.i.i.i.i.i.noexc:                           ; preds = %_ZN4pstd3pmr21polym
 for.body.i.i.i:                                   ; preds = %call.i.i.i.i.i.i.noexc, %for.body.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %for.body.i.i.i ], [ 0, %call.i.i.i.i.i.i.noexc ]
   %add.ptr.i.i.i = getelementptr inbounds float, ptr %call.i.i.i.i.i.i29, i64 %indvars.iv.i.i.i
-  %13 = load ptr, ptr %ptr.i.i7692, align 8
-  %arrayidx.i.i.i = getelementptr inbounds float, ptr %13, i64 %indvars.iv.i.i.i
-  %14 = load float, ptr %arrayidx.i.i.i, align 4
-  store float %14, ptr %add.ptr.i.i.i, align 4
+  %12 = load ptr, ptr %ptr.i.i7692, align 8
+  %arrayidx.i.i.i = getelementptr inbounds float, ptr %12, i64 %indvars.iv.i.i.i
+  %13 = load float, ptr %arrayidx.i.i.i, align 4
+  store float %13, ptr %add.ptr.i.i.i, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %15 = load i64, ptr %nStored.i.i7988, align 8
-  %cmp2.i.i.i = icmp ugt i64 %15, %indvars.iv.next.i.i.i
+  %14 = load i64, ptr %nStored.i.i7988, align 8
+  %cmp2.i.i.i = icmp ugt i64 %14, %indvars.iv.next.i.i.i
   br i1 %cmp2.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i, !llvm.loop !13
 
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i, %call.i.i.i.i.i.i.noexc
@@ -3089,13 +3085,13 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i, %ca
   br i1 %tobool.not.i.i.i.i.i.i, label %for.body.preheader.i.i, label %if.end.i.i.i9.i.i.i
 
 if.end.i.i.i9.i.i.i:                              ; preds = %for.end.i.i.i
-  %16 = load i64, ptr %nAlloc.i.i7890, align 8
-  %mul.i10.i.i.i = shl i64 %16, 2
-  %17 = load ptr, ptr %cdf7296, align 8
-  %vtable.i.i.i11.i.i.i = load ptr, ptr %17, align 8
+  %15 = load i64, ptr %nAlloc.i.i7890, align 8
+  %mul.i10.i.i.i = shl i64 %15, 2
+  %16 = load ptr, ptr %cdf7296, align 8
+  %vtable.i.i.i11.i.i.i = load ptr, ptr %16, align 8
   %vfn.i.i.i12.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i11.i.i.i, i64 3
-  %18 = load ptr, ptr %vfn.i.i.i12.i.i.i, align 8
-  invoke void %18(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %.pr.i, i64 noundef %mul.i10.i.i.i, i64 noundef 4)
+  %17 = load ptr, ptr %vfn.i.i.i12.i.i.i, align 8
+  invoke void %17(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %.pr.i, i64 noundef %mul.i10.i.i.i, i64 noundef 4)
           to label %for.body.preheader.i.i unwind label %lpad
 
 for.body.preheader.i.i:                           ; preds = %if.end.i.i.i9.i.i.i, %for.end.i.i.i, %if.end.i.i.i
@@ -3111,8 +3107,8 @@ for.body.preheader.i.i:                           ; preds = %if.end.i.i.i9.i.i.i
 
 for.body.i.i27:                                   ; preds = %for.body.i.i27, %for.body.preheader.i.i
   %i.09.i.i = phi i64 [ %inc.i.i, %for.body.i.i27 ], [ 0, %for.body.preheader.i.i ]
-  %19 = load ptr, ptr %ptr.i.i7693, align 8
-  %add.ptr.i.i28 = getelementptr inbounds float, ptr %19, i64 %i.09.i.i
+  %18 = load ptr, ptr %ptr.i.i7693, align 8
+  %add.ptr.i.i28 = getelementptr inbounds float, ptr %18, i64 %i.09.i.i
   store float 0.000000e+00, ptr %add.ptr.i.i28, align 4
   %inc.i.i = add nuw i64 %i.09.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %i.09.i.i, %f.coerce1
@@ -3143,35 +3139,35 @@ invoke.cont8:                                     ; preds = %if.then
   unreachable
 
 lpad:                                             ; preds = %if.end.i.i.i9.i.i.i, %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i.i
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad7:                                            ; preds = %if.then31, %if.then
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cdf73) #16
   br label %ehcleanup
 
 do.end:                                           ; preds = %invoke.cont
-  %22 = load ptr, ptr %ptr.i, align 8
-  %23 = load i64, ptr %nStored.i, align 8
-  %add.ptr.i33 = getelementptr inbounds float, ptr %22, i64 %23
-  %cmp13.not55 = icmp eq i64 %23, 0
+  %21 = load ptr, ptr %ptr.i, align 8
+  %22 = load i64, ptr %nStored.i, align 8
+  %add.ptr.i33 = getelementptr inbounds float, ptr %21, i64 %22
+  %cmp13.not55 = icmp eq i64 %22, 0
   br i1 %cmp13.not55, label %for.end, label %for.body
 
 for.body:                                         ; preds = %do.end, %for.body
-  %__begin2.056 = phi ptr [ %incdec.ptr, %for.body ], [ %22, %do.end ]
-  %24 = load float, ptr %__begin2.056, align 4
-  %25 = tail call noundef float @llvm.fabs.f32(float %24)
-  store float %25, ptr %__begin2.056, align 4
+  %__begin2.056 = phi ptr [ %incdec.ptr, %for.body ], [ %21, %do.end ]
+  %23 = load float, ptr %__begin2.056, align 4
+  %24 = tail call noundef float @llvm.fabs.f32(float %23)
+  store float %24, ptr %__begin2.056, align 4
   %incdec.ptr = getelementptr inbounds float, ptr %__begin2.056, i64 1
   %cmp13.not = icmp eq ptr %incdec.ptr, %add.ptr.i33
   br i1 %cmp13.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %do.end
-  %26 = load ptr, ptr %ptr.i.i77, align 8
-  store float 0.000000e+00, ptr %26, align 4
+  %25 = load ptr, ptr %ptr.i.i77, align 8
+  store float 0.000000e+00, ptr %25, align 4
   %cmp2257 = icmp ugt i64 %add75, 1
   br i1 %cmp2257, label %do.body24.lr.ph, label %for.end51.thread
 
@@ -3183,12 +3179,12 @@ do.body24.lr.ph:                                  ; preds = %for.end
 do.body24:                                        ; preds = %do.body24.lr.ph, %do.end35
   %i.058 = phi i64 [ 1, %do.body24.lr.ph ], [ %inc, %do.end35 ]
   %sub = add i64 %i.058, -1
-  %27 = load ptr, ptr %ptr.i, align 8
-  %arrayidx.i = getelementptr inbounds float, ptr %27, i64 %sub
-  %28 = load float, ptr %arrayidx.i, align 4
-  store float %28, ptr %va25, align 4
+  %26 = load ptr, ptr %ptr.i, align 8
+  %arrayidx.i = getelementptr inbounds float, ptr %26, i64 %sub
+  %27 = load float, ptr %arrayidx.i, align 4
+  store float %27, ptr %va25, align 4
   store i32 0, ptr %vb29, align 4
-  %cmp30 = fcmp ult float %28, 0.000000e+00
+  %cmp30 = fcmp ult float %27, 0.000000e+00
   br i1 %cmp30, label %if.then31, label %do.end35
 
 if.then31:                                        ; preds = %do.body24
@@ -3199,31 +3195,31 @@ invoke.cont32:                                    ; preds = %if.then31
   unreachable
 
 do.end35:                                         ; preds = %do.body24
-  %29 = load ptr, ptr %ptr.i.i77, align 8
-  %arrayidx.i38 = getelementptr inbounds float, ptr %29, i64 %sub
-  %30 = load float, ptr %arrayidx.i38, align 4
-  %mul = fmul float %sub44, %28
+  %28 = load ptr, ptr %ptr.i.i77, align 8
+  %arrayidx.i38 = getelementptr inbounds float, ptr %28, i64 %sub
+  %29 = load float, ptr %arrayidx.i38, align 4
+  %mul = fmul float %sub44, %27
   %div = fdiv float %mul, %conv45
-  %add46 = fadd float %30, %div
-  %arrayidx.i42 = getelementptr inbounds float, ptr %29, i64 %i.058
+  %add46 = fadd float %29, %div
+  %arrayidx.i42 = getelementptr inbounds float, ptr %28, i64 %i.058
   store float %add46, ptr %arrayidx.i42, align 4
   %inc = add nuw i64 %i.058, 1
   %exitcond.not = icmp eq i64 %i.058, %f.coerce1
   br i1 %exitcond.not, label %for.end51, label %do.body24, !llvm.loop !18
 
 for.end51:                                        ; preds = %do.end35
-  %31 = load ptr, ptr %ptr.i.i77, align 8
-  %arrayidx.i44 = getelementptr inbounds float, ptr %31, i64 %f.coerce1
-  %32 = load float, ptr %arrayidx.i44, align 4
-  store float %32, ptr %funcInt, align 8
-  %cmp57 = fcmp oeq float %32, 0.000000e+00
+  %30 = load ptr, ptr %ptr.i.i77, align 8
+  %arrayidx.i44 = getelementptr inbounds float, ptr %30, i64 %f.coerce1
+  %31 = load float, ptr %arrayidx.i44, align 4
+  store float %31, ptr %funcInt, align 8
+  %cmp57 = fcmp oeq float %31, 0.000000e+00
   br i1 %cmp57, label %for.cond60.preheader, label %for.cond74.preheader
 
 for.end51.thread:                                 ; preds = %for.end
-  %33 = load ptr, ptr %ptr.i.i77, align 8
-  %arrayidx.i4499 = getelementptr inbounds float, ptr %33, i64 %f.coerce1
-  %34 = load float, ptr %arrayidx.i4499, align 4
-  store float %34, ptr %funcInt, align 8
+  %32 = load ptr, ptr %ptr.i.i77, align 8
+  %arrayidx.i4499 = getelementptr inbounds float, ptr %32, i64 %f.coerce1
+  %33 = load float, ptr %arrayidx.i4499, align 4
+  store float %33, ptr %funcInt, align 8
   br label %if.end86
 
 for.cond74.preheader:                             ; preds = %for.end51
@@ -3240,8 +3236,8 @@ for.body63:                                       ; preds = %for.body63.lr.ph, %
   %i59.062 = phi i64 [ 1, %for.body63.lr.ph ], [ %inc71, %for.body63 ]
   %conv64 = uitofp i64 %i59.062 to float
   %div66 = fdiv float %conv64, %conv65
-  %35 = load ptr, ptr %ptr.i.i77, align 8
-  %arrayidx.i46 = getelementptr inbounds float, ptr %35, i64 %i59.062
+  %34 = load ptr, ptr %ptr.i.i77, align 8
+  %arrayidx.i46 = getelementptr inbounds float, ptr %34, i64 %i59.062
   store float %div66, ptr %arrayidx.i46, align 4
   %inc71 = add nuw i64 %i59.062, 1
   %exitcond65.not = icmp eq i64 %i59.062, %f.coerce1
@@ -3249,11 +3245,11 @@ for.body63:                                       ; preds = %for.body63.lr.ph, %
 
 for.body77:                                       ; preds = %for.cond74.preheader, %for.body77
   %i73.060 = phi i64 [ %inc84, %for.body77 ], [ 1, %for.cond74.preheader ]
-  %36 = load float, ptr %funcInt, align 8
-  %37 = load ptr, ptr %ptr.i.i77, align 8
-  %arrayidx.i48 = getelementptr inbounds float, ptr %37, i64 %i73.060
-  %38 = load float, ptr %arrayidx.i48, align 4
-  %div82 = fdiv float %38, %36
+  %35 = load float, ptr %funcInt, align 8
+  %36 = load ptr, ptr %ptr.i.i77, align 8
+  %arrayidx.i48 = getelementptr inbounds float, ptr %36, i64 %i73.060
+  %37 = load float, ptr %arrayidx.i48, align 4
+  %div82 = fdiv float %37, %35
   store float %div82, ptr %arrayidx.i48, align 4
   %inc84 = add nuw i64 %i73.060, 1
   %exitcond64.not = icmp eq i64 %i73.060, %f.coerce1
@@ -3263,7 +3259,7 @@ if.end86:                                         ; preds = %for.body77, %for.bo
   ret void
 
 ehcleanup:                                        ; preds = %lpad7, %lpad
-  %.pn = phi { ptr, i32 } [ %21, %lpad7 ], [ %20, %lpad ]
+  %.pn = phi { ptr, i32 } [ %20, %lpad7 ], [ %19, %lpad ]
   call void @_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #16
   resume { ptr, i32 } %.pn
 }

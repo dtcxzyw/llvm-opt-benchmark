@@ -130,8 +130,8 @@ land.lhs.true:                                    ; preds = %if.then7
 
 if.then12:                                        ; preds = %land.lhs.true
   %call13 = call i64 @strtoull(ptr nocapture noundef nonnull %call9, ptr noundef null, i32 noundef 16) #11
+  store i64 %call13, ptr @_ZN12_GLOBAL__N_117gpOSGlobalManagerE, align 8
   %2 = inttoptr i64 %call13 to ptr
-  store ptr %2, ptr @_ZN12_GLOBAL__N_117gpOSGlobalManagerE, align 8
   br label %if.end23
 
 if.else:                                          ; preds = %land.lhs.true, %if.then7

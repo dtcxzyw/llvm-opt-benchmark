@@ -6630,39 +6630,38 @@ invoke.cont18:                                    ; preds = %if.then15
   %_M_invoker.i.i = getelementptr inbounds %"class.std::function", ptr %ref.tmp20, i64 0, i32 1
   %8 = getelementptr inbounds i8, ptr %ref.tmp20, i64 8
   store i64 0, ptr %8, align 8, !alias.scope !32
-  %9 = ptrtoint ptr %working_stats_ to i64
-  store i64 %9, ptr %ref.tmp20, align 8, !alias.scope !32
+  store ptr %working_stats_, ptr %ref.tmp20, align 8, !alias.scope !32
   store ptr @"_ZNSt17_Function_handlerIFvRKN7rocksdb5SliceEPvmPKNS0_5Cache15CacheItemHelperEEZNS0_13InternalStats19CacheEntryRoleStats16GetEntryCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataS3_OS4_OmOS8_", ptr %_M_invoker.i.i, align 8, !alias.scope !32
   store ptr @"_ZNSt17_Function_handlerIFvRKN7rocksdb5SliceEPvmPKNS0_5Cache15CacheItemHelperEEZNS0_13InternalStats19CacheEntryRoleStats16GetEntryCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8, !alias.scope !32
   store i64 256, ptr %ref.tmp22, align 8
   %vtable23 = load ptr, ptr %7, align 8
   %vfn24 = getelementptr inbounds ptr, ptr %vtable23, i64 25
-  %10 = load ptr, ptr %vfn24, align 8
-  invoke void %10(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp22)
+  %9 = load ptr, ptr %vfn24, align 8
+  invoke void %9(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp22)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %invoke.cont18
-  %11 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i9 = icmp eq ptr %11, null
+  %10 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %tobool.not.i.i9 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i9, label %_ZNSt8functionIFvRKN7rocksdb5SliceEPvmPKNS0_5Cache15CacheItemHelperEEED2Ev.exit, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %invoke.cont26
-  %call.i.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp20, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp20, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN7rocksdb5SliceEPvmPKNS0_5Cache15CacheItemHelperEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i10
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #31
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #31
   unreachable
 
 _ZNSt8functionIFvRKN7rocksdb5SliceEPvmPKNS0_5Cache15CacheItemHelperEEED2Ev.exit: ; preds = %invoke.cont26, %if.then.i.i10
-  %14 = load ptr, ptr %clock_, align 8
-  %vtable28 = load ptr, ptr %14, align 8
+  %13 = load ptr, ptr %clock_, align 8
+  %vtable28 = load ptr, ptr %13, align 8
   %vfn29 = getelementptr inbounds ptr, ptr %vtable28, i64 19
-  %15 = load ptr, ptr %vfn29, align 8
-  %call31 = invoke noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(32) %14)
+  %14 = load ptr, ptr %vfn29, align 8
+  %call31 = invoke noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %invoke.cont30 unwind label %lpad
 
 invoke.cont30:                                    ; preds = %_ZNSt8functionIFvRKN7rocksdb5SliceEPvmPKNS0_5Cache15CacheItemHelperEEED2Ev.exit
@@ -6672,27 +6671,27 @@ invoke.cont30:                                    ; preds = %_ZNSt8functionIFvRK
   br label %if.end37
 
 lpad25:                                           ; preds = %invoke.cont18
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %17 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i12 = icmp eq ptr %17, null
+  %16 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %tobool.not.i.i12 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i12, label %ehcleanup, label %if.then.i.i13
 
 if.then.i.i13:                                    ; preds = %lpad25
-  %call.i.i14 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp20, i32 noundef 3)
+  %call.i.i14 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp20, i32 noundef 3)
           to label %ehcleanup unwind label %terminate.lpad.i.i15
 
 terminate.lpad.i.i15:                             ; preds = %if.then.i.i13
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #31
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #31
   unreachable
 
 if.else:                                          ; preds = %invoke.cont10
   %copies_of_last_collection.i = getelementptr inbounds %"class.rocksdb::CacheEntryStatsCollector", ptr %this, i64 0, i32 3, i32 8
-  %20 = load i32, ptr %copies_of_last_collection.i, align 4
-  %inc.i = add i32 %20, 1
+  %19 = load i32, ptr %copies_of_last_collection.i, align 4
+  %inc.i = add i32 %19, 1
   store i32 %inc.i, ptr %copies_of_last_collection.i, align 4
   br label %if.end37
 
@@ -6726,13 +6725,13 @@ invoke.cont41:                                    ; preds = %invoke.cont38
   ret void
 
 lpad40:                                           ; preds = %invoke.cont38
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   %call1.i.i.i24 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #28
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %if.then.i.i13, %lpad25, %lpad40, %lpad
-  %.pn = phi { ptr, i32 } [ %21, %lpad40 ], [ %2, %lpad ], [ %16, %lpad25 ], [ %16, %if.then.i.i13 ]
+  %.pn = phi { ptr, i32 } [ %20, %lpad40 ], [ %2, %lpad ], [ %15, %lpad25 ], [ %15, %if.then.i.i13 ]
   %call1.i.i.i25 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %working_mutex_) #28
   resume { ptr, i32 } %.pn
 }
@@ -6744,8 +6743,7 @@ entry:
   %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.result, i64 0, i32 1
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 0, ptr %0, align 8
-  %1 = ptrtoint ptr %this to i64
-  store i64 %1, ptr %agg.result, align 8
+  store ptr %this, ptr %agg.result, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN7rocksdb5SliceEPvmPKNS0_5Cache15CacheItemHelperEEZNS0_13InternalStats19CacheEntryRoleStats16GetEntryCallbackEvE3$_0E9_M_invokeERKSt9_Any_dataS3_OS4_OmOS8_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN7rocksdb5SliceEPvmPKNS0_5Cache15CacheItemHelperEEZNS0_13InternalStats19CacheEntryRoleStats16GetEntryCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   ret void
@@ -20729,7 +20727,7 @@ __cxx_global_var_init.233.exit:                   ; preds = %__cxx_global_var_in
   %second.i.i673 = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 0, i32 1
   store i8 0, ptr %second.i.i673, align 8
   %ref.tmp1.sroa.2679.0.second.i.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 0, i32 1, i32 1
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats21HandleNumFilesAtLevelEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE to i64), ptr %ref.tmp1.sroa.2679.0.second.i.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats21HandleNumFilesAtLevelEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE, ptr %ref.tmp1.sroa.2679.0.second.i.sroa_idx.i, align 8
   %ref.tmp1.sroa.3.0.second.i.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 0, i32 1, i32 1, i32 1
   %arrayinit.element.i674 = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp1.sroa.3.0.second.i.sroa_idx.i, i8 0, i64 56, i1 false)
@@ -20740,7 +20738,7 @@ invoke.cont8.i:                                   ; preds = %__cxx_global_var_in
   %second.i496.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 1, i32 1
   store i8 0, ptr %second.i496.i, align 8
   %ref.tmp2.sroa.2678.0.second.i496.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 1, i32 1, i32 1
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats35HandleCompressionRatioAtLevelPrefixEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE to i64), ptr %ref.tmp2.sroa.2678.0.second.i496.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats35HandleCompressionRatioAtLevelPrefixEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE, ptr %ref.tmp2.sroa.2678.0.second.i496.sroa_idx.i, align 8
   %ref.tmp2.sroa.3.0.second.i496.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 1, i32 1, i32 1, i32 1
   %arrayinit.element9.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp2.sroa.3.0.second.i496.sroa_idx.i, i8 0, i64 56, i1 false)
@@ -20751,7 +20749,7 @@ invoke.cont16.i:                                  ; preds = %invoke.cont8.i
   %second.i498.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 2, i32 1
   store i8 0, ptr %second.i498.i, align 8
   %ref.tmp10.sroa.2677.0.second.i498.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 2, i32 1, i32 1
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats16HandleLevelStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE to i64), ptr %ref.tmp10.sroa.2677.0.second.i498.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats16HandleLevelStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE, ptr %ref.tmp10.sroa.2677.0.second.i498.sroa_idx.i, align 8
   %ref.tmp10.sroa.3.0.second.i498.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 2, i32 1, i32 1, i32 1
   %arrayinit.element17.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp10.sroa.3.0.second.i498.sroa_idx.i, i8 0, i64 56, i1 false)
@@ -20762,7 +20760,7 @@ invoke.cont24.i:                                  ; preds = %invoke.cont16.i
   %second.i500.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 3, i32 1
   store i8 0, ptr %second.i500.i, align 8
   %ref.tmp18.sroa.2676.0.second.i500.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 3, i32 1, i32 1
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats11HandleStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE to i64), ptr %ref.tmp18.sroa.2676.0.second.i500.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats11HandleStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE, ptr %ref.tmp18.sroa.2676.0.second.i500.sroa_idx.i, align 8
   %ref.tmp18.sroa.3.0.second.i500.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 3, i32 1, i32 1, i32 1
   %arrayinit.element25.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp18.sroa.3.0.second.i500.sroa_idx.i, i8 0, i64 56, i1 false)
@@ -20773,11 +20771,11 @@ invoke.cont32.i:                                  ; preds = %invoke.cont24.i
   %second.i502.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 4, i32 1
   store i8 0, ptr %second.i502.i, align 8
   %ref.tmp26.sroa.2675.0.second.i502.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 4, i32 1, i32 1
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats13HandleCFStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE to i64), ptr %ref.tmp26.sroa.2675.0.second.i502.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats13HandleCFStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE, ptr %ref.tmp26.sroa.2675.0.second.i502.sroa_idx.i, align 8
   %ref.tmp26.sroa.3.0.second.i502.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 4, i32 1, i32 1, i32 1
   %ref.tmp26.sroa.6.0.second.i502.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 4, i32 1, i32 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp26.sroa.3.0.second.i502.sroa_idx.i, i8 0, i64 24, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats16HandleCFMapStatsEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE to i64), ptr %ref.tmp26.sroa.6.0.second.i502.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats16HandleCFMapStatsEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE, ptr %ref.tmp26.sroa.6.0.second.i502.sroa_idx.i, align 8
   %ref.tmp26.sroa.7.0.second.i502.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 4, i32 1, i32 3, i32 1
   %arrayinit.element33.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp26.sroa.7.0.second.i502.sroa_idx.i, i8 0, i64 24, i1 false)
@@ -20788,7 +20786,7 @@ invoke.cont40.i:                                  ; preds = %invoke.cont32.i
   %second.i504.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 5, i32 1
   store i8 0, ptr %second.i504.i, align 8
   %ref.tmp34.sroa.2674.0.second.i504.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 5, i32 1, i32 1
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats21HandleCFStatsPeriodicEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE to i64), ptr %ref.tmp34.sroa.2674.0.second.i504.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats21HandleCFStatsPeriodicEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE, ptr %ref.tmp34.sroa.2674.0.second.i504.sroa_idx.i, align 8
   %ref.tmp34.sroa.3.0.second.i504.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 5, i32 1, i32 1, i32 1
   %arrayinit.element41.i683 = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp34.sroa.3.0.second.i504.sroa_idx.i, i8 0, i64 56, i1 false)
@@ -20799,7 +20797,7 @@ invoke.cont48.i:                                  ; preds = %invoke.cont40.i
   %second.i506.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 6, i32 1
   store i8 0, ptr %second.i506.i, align 8
   %ref.tmp42.sroa.2673.0.second.i506.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 6, i32 1, i32 1
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats28HandleCFStatsNoFileHistogramEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE to i64), ptr %ref.tmp42.sroa.2673.0.second.i506.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats28HandleCFStatsNoFileHistogramEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE, ptr %ref.tmp42.sroa.2673.0.second.i506.sroa_idx.i, align 8
   %ref.tmp42.sroa.3.0.second.i506.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 6, i32 1, i32 1, i32 1
   %arrayinit.element49.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp42.sroa.3.0.second.i506.sroa_idx.i, i8 0, i64 56, i1 false)
@@ -20810,7 +20808,7 @@ invoke.cont56.i684:                               ; preds = %invoke.cont48.i
   %second.i508.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 7, i32 1
   store i8 0, ptr %second.i508.i, align 8
   %ref.tmp50.sroa.2672.0.second.i508.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 7, i32 1, i32 1
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats21HandleCFFileHistogramEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE to i64), ptr %ref.tmp50.sroa.2672.0.second.i508.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats21HandleCFFileHistogramEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE, ptr %ref.tmp50.sroa.2672.0.second.i508.sroa_idx.i, align 8
   %ref.tmp50.sroa.3.0.second.i508.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 7, i32 1, i32 1, i32 1
   %arrayinit.element57.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp50.sroa.3.0.second.i508.sroa_idx.i, i8 0, i64 56, i1 false)
@@ -20821,11 +20819,11 @@ invoke.cont64.i:                                  ; preds = %invoke.cont56.i684
   %second.i510.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 8, i32 1
   store i8 0, ptr %second.i510.i, align 8
   %ref.tmp58.sroa.2671.0.second.i510.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 8, i32 1, i32 1
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats23HandleCFWriteStallStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE to i64), ptr %ref.tmp58.sroa.2671.0.second.i510.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats23HandleCFWriteStallStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE, ptr %ref.tmp58.sroa.2671.0.second.i510.sroa_idx.i, align 8
   %ref.tmp58.sroa.3.0.second.i510.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 8, i32 1, i32 1, i32 1
   %ref.tmp58.sroa.6.0.second.i510.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 8, i32 1, i32 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp58.sroa.3.0.second.i510.sroa_idx.i, i8 0, i64 24, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats26HandleCFWriteStallStatsMapEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE to i64), ptr %ref.tmp58.sroa.6.0.second.i510.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats26HandleCFWriteStallStatsMapEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE, ptr %ref.tmp58.sroa.6.0.second.i510.sroa_idx.i, align 8
   %ref.tmp58.sroa.7.0.second.i510.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 8, i32 1, i32 3, i32 1
   %arrayinit.element65.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp58.sroa.7.0.second.i510.sroa_idx.i, i8 0, i64 24, i1 false)
@@ -20836,11 +20834,11 @@ invoke.cont72.i685:                               ; preds = %invoke.cont64.i
   %second.i512.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 9, i32 1
   store i8 0, ptr %second.i512.i, align 8
   %ref.tmp66.sroa.2670.0.second.i512.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 9, i32 1, i32 1
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats13HandleDBStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE to i64), ptr %ref.tmp66.sroa.2670.0.second.i512.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats13HandleDBStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE, ptr %ref.tmp66.sroa.2670.0.second.i512.sroa_idx.i, align 8
   %ref.tmp66.sroa.3.0.second.i512.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 9, i32 1, i32 1, i32 1
   %ref.tmp66.sroa.6.0.second.i512.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 9, i32 1, i32 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp66.sroa.3.0.second.i512.sroa_idx.i, i8 0, i64 24, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats16HandleDBMapStatsEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE to i64), ptr %ref.tmp66.sroa.6.0.second.i512.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats16HandleDBMapStatsEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE, ptr %ref.tmp66.sroa.6.0.second.i512.sroa_idx.i, align 8
   %ref.tmp66.sroa.7.0.second.i512.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 9, i32 1, i32 3, i32 1
   %arrayinit.element73.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp66.sroa.7.0.second.i512.sroa_idx.i, i8 0, i64 24, i1 false)
@@ -20851,11 +20849,11 @@ invoke.cont80.i:                                  ; preds = %invoke.cont72.i685
   %second.i514.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 10, i32 1
   store i8 0, ptr %second.i514.i, align 8
   %ref.tmp74.sroa.2669.0.second.i514.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 10, i32 1, i32 1
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats23HandleDBWriteStallStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE to i64), ptr %ref.tmp74.sroa.2669.0.second.i514.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats23HandleDBWriteStallStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE, ptr %ref.tmp74.sroa.2669.0.second.i514.sroa_idx.i, align 8
   %ref.tmp74.sroa.3.0.second.i514.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 10, i32 1, i32 1, i32 1
   %ref.tmp74.sroa.6.0.second.i514.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 10, i32 1, i32 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp74.sroa.3.0.second.i514.sroa_idx.i, i8 0, i64 24, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats26HandleDBWriteStallStatsMapEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE to i64), ptr %ref.tmp74.sroa.6.0.second.i514.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats26HandleDBWriteStallStatsMapEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE, ptr %ref.tmp74.sroa.6.0.second.i514.sroa_idx.i, align 8
   %ref.tmp74.sroa.7.0.second.i514.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 10, i32 1, i32 3, i32 1
   %arrayinit.element81.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp74.sroa.7.0.second.i514.sroa_idx.i, i8 0, i64 24, i1 false)
@@ -20866,11 +20864,11 @@ invoke.cont88.i:                                  ; preds = %invoke.cont80.i
   %second.i516.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 11, i32 1
   store i8 1, ptr %second.i516.i, align 8
   %ref.tmp82.sroa.2668.0.second.i516.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 11, i32 1, i32 1
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats26HandleBlockCacheEntryStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE to i64), ptr %ref.tmp82.sroa.2668.0.second.i516.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats26HandleBlockCacheEntryStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE, ptr %ref.tmp82.sroa.2668.0.second.i516.sroa_idx.i, align 8
   %ref.tmp82.sroa.3.0.second.i516.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 11, i32 1, i32 1, i32 1
   %ref.tmp82.sroa.6.0.second.i516.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 11, i32 1, i32 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp82.sroa.3.0.second.i516.sroa_idx.i, i8 0, i64 24, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats29HandleBlockCacheEntryStatsMapEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE to i64), ptr %ref.tmp82.sroa.6.0.second.i516.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats29HandleBlockCacheEntryStatsMapEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE, ptr %ref.tmp82.sroa.6.0.second.i516.sroa_idx.i, align 8
   %ref.tmp82.sroa.7.0.second.i516.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 11, i32 1, i32 3, i32 1
   %arrayinit.element89.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp82.sroa.7.0.second.i516.sroa_idx.i, i8 0, i64 24, i1 false)
@@ -20881,11 +20879,11 @@ invoke.cont96.i:                                  ; preds = %invoke.cont88.i
   %second.i518.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 12, i32 1
   store i8 1, ptr %second.i518.i, align 8
   %ref.tmp90.sroa.2667.0.second.i518.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 12, i32 1, i32 1
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats30HandleFastBlockCacheEntryStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE to i64), ptr %ref.tmp90.sroa.2667.0.second.i518.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats30HandleFastBlockCacheEntryStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE, ptr %ref.tmp90.sroa.2667.0.second.i518.sroa_idx.i, align 8
   %ref.tmp90.sroa.3.0.second.i518.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 12, i32 1, i32 1, i32 1
   %ref.tmp90.sroa.6.0.second.i518.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 12, i32 1, i32 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp90.sroa.3.0.second.i518.sroa_idx.i, i8 0, i64 24, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats33HandleFastBlockCacheEntryStatsMapEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE to i64), ptr %ref.tmp90.sroa.6.0.second.i518.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats33HandleFastBlockCacheEntryStatsMapEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE, ptr %ref.tmp90.sroa.6.0.second.i518.sroa_idx.i, align 8
   %ref.tmp90.sroa.7.0.second.i518.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 12, i32 1, i32 3, i32 1
   %arrayinit.element97.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp90.sroa.7.0.second.i518.sroa_idx.i, i8 0, i64 24, i1 false)
@@ -20896,7 +20894,7 @@ invoke.cont104.i:                                 ; preds = %invoke.cont96.i
   %second.i520.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 13, i32 1
   store i8 0, ptr %second.i520.i, align 8
   %ref.tmp98.sroa.2666.0.second.i520.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 13, i32 1, i32 1
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats14HandleSsTablesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE to i64), ptr %ref.tmp98.sroa.2666.0.second.i520.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats14HandleSsTablesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE, ptr %ref.tmp98.sroa.2666.0.second.i520.sroa_idx.i, align 8
   %ref.tmp98.sroa.3.0.second.i520.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 13, i32 1, i32 1, i32 1
   %arrayinit.element105.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp98.sroa.3.0.second.i520.sroa_idx.i, i8 0, i64 56, i1 false)
@@ -20907,11 +20905,11 @@ invoke.cont112.i:                                 ; preds = %invoke.cont104.i
   %second.i522.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 14, i32 1
   store i8 0, ptr %second.i522.i, align 8
   %ref.tmp106.sroa.2665.0.second.i522.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 14, i32 1, i32 1
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats31HandleAggregatedTablePropertiesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE to i64), ptr %ref.tmp106.sroa.2665.0.second.i522.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats31HandleAggregatedTablePropertiesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE, ptr %ref.tmp106.sroa.2665.0.second.i522.sroa_idx.i, align 8
   %ref.tmp106.sroa.3.0.second.i522.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 14, i32 1, i32 1, i32 1
   %ref.tmp106.sroa.6.0.second.i522.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 14, i32 1, i32 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp106.sroa.3.0.second.i522.sroa_idx.i, i8 0, i64 24, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats34HandleAggregatedTablePropertiesMapEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE to i64), ptr %ref.tmp106.sroa.6.0.second.i522.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats34HandleAggregatedTablePropertiesMapEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE, ptr %ref.tmp106.sroa.6.0.second.i522.sroa_idx.i, align 8
   %ref.tmp106.sroa.7.0.second.i522.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 14, i32 1, i32 3, i32 1
   %arrayinit.element113.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp106.sroa.7.0.second.i522.sroa_idx.i, i8 0, i64 24, i1 false)
@@ -20922,11 +20920,11 @@ invoke.cont120.i:                                 ; preds = %invoke.cont112.i
   %second.i524.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 15, i32 1
   store i8 0, ptr %second.i524.i, align 8
   %ref.tmp114.sroa.2664.0.second.i524.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 15, i32 1, i32 1
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats38HandleAggregatedTablePropertiesAtLevelEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE to i64), ptr %ref.tmp114.sroa.2664.0.second.i524.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats38HandleAggregatedTablePropertiesAtLevelEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE, ptr %ref.tmp114.sroa.2664.0.second.i524.sroa_idx.i, align 8
   %ref.tmp114.sroa.3.0.second.i524.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 15, i32 1, i32 1, i32 1
   %ref.tmp114.sroa.6.0.second.i524.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 15, i32 1, i32 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp114.sroa.3.0.second.i524.sroa_idx.i, i8 0, i64 24, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats41HandleAggregatedTablePropertiesAtLevelMapEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE to i64), ptr %ref.tmp114.sroa.6.0.second.i524.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats41HandleAggregatedTablePropertiesAtLevelMapEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEENS_5SliceE, ptr %ref.tmp114.sroa.6.0.second.i524.sroa_idx.i, align 8
   %ref.tmp114.sroa.7.0.second.i524.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 15, i32 1, i32 3, i32 1
   %arrayinit.element121.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp114.sroa.7.0.second.i524.sroa_idx.i, i8 0, i64 24, i1 false)
@@ -20939,7 +20937,7 @@ invoke.cont128.i:                                 ; preds = %invoke.cont120.i
   %ref.tmp122.sroa.2663.0.second.i526.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 16, i32 1, i32 1
   %ref.tmp122.sroa.4.0.second.i526.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 16, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp122.sroa.2663.0.second.i526.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats26HandleNumImmutableMemTableEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp122.sroa.4.0.second.i526.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats26HandleNumImmutableMemTableEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp122.sroa.4.0.second.i526.sroa_idx.i, align 8
   %ref.tmp122.sroa.5.0.second.i526.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 16, i32 1, i32 2, i32 1
   %arrayinit.element129.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp122.sroa.5.0.second.i526.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -20952,7 +20950,7 @@ invoke.cont136.i:                                 ; preds = %invoke.cont128.i
   %ref.tmp130.sroa.2662.0.second.i528.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 17, i32 1, i32 1
   %ref.tmp130.sroa.4.0.second.i528.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 17, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp130.sroa.2662.0.second.i528.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats33HandleNumImmutableMemTableFlushedEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp130.sroa.4.0.second.i528.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats33HandleNumImmutableMemTableFlushedEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp130.sroa.4.0.second.i528.sroa_idx.i, align 8
   %ref.tmp130.sroa.5.0.second.i528.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 17, i32 1, i32 2, i32 1
   %arrayinit.element137.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp130.sroa.5.0.second.i528.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -20965,7 +20963,7 @@ invoke.cont144.i:                                 ; preds = %invoke.cont136.i
   %ref.tmp138.sroa.2661.0.second.i530.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 18, i32 1, i32 1
   %ref.tmp138.sroa.4.0.second.i530.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 18, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp138.sroa.2661.0.second.i530.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats26HandleMemTableFlushPendingEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp138.sroa.4.0.second.i530.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats26HandleMemTableFlushPendingEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp138.sroa.4.0.second.i530.sroa_idx.i, align 8
   %ref.tmp138.sroa.5.0.second.i530.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 18, i32 1, i32 2, i32 1
   %arrayinit.element145.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp138.sroa.5.0.second.i530.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -20978,7 +20976,7 @@ invoke.cont152.i:                                 ; preds = %invoke.cont144.i
   %ref.tmp146.sroa.2660.0.second.i532.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 19, i32 1, i32 1
   %ref.tmp146.sroa.4.0.second.i532.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 19, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp146.sroa.2660.0.second.i532.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats23HandleCompactionPendingEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp146.sroa.4.0.second.i532.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats23HandleCompactionPendingEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp146.sroa.4.0.second.i532.sroa_idx.i, align 8
   %ref.tmp146.sroa.5.0.second.i532.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 19, i32 1, i32 2, i32 1
   %arrayinit.element153.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp146.sroa.5.0.second.i532.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -20991,7 +20989,7 @@ invoke.cont160.i:                                 ; preds = %invoke.cont152.i
   %ref.tmp154.sroa.2659.0.second.i534.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 20, i32 1, i32 1
   %ref.tmp154.sroa.4.0.second.i534.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 20, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp154.sroa.2659.0.second.i534.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats22HandleBackgroundErrorsEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp154.sroa.4.0.second.i534.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats22HandleBackgroundErrorsEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp154.sroa.4.0.second.i534.sroa_idx.i, align 8
   %ref.tmp154.sroa.5.0.second.i534.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 20, i32 1, i32 2, i32 1
   %arrayinit.element161.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp154.sroa.5.0.second.i534.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21004,7 +21002,7 @@ invoke.cont168.i:                                 ; preds = %invoke.cont160.i
   %ref.tmp162.sroa.2658.0.second.i536.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 21, i32 1, i32 1
   %ref.tmp162.sroa.4.0.second.i536.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 21, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp162.sroa.2658.0.second.i536.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats27HandleCurSizeActiveMemTableEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp162.sroa.4.0.second.i536.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats27HandleCurSizeActiveMemTableEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp162.sroa.4.0.second.i536.sroa_idx.i, align 8
   %ref.tmp162.sroa.5.0.second.i536.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 21, i32 1, i32 2, i32 1
   %arrayinit.element169.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp162.sroa.5.0.second.i536.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21017,7 +21015,7 @@ invoke.cont176.i:                                 ; preds = %invoke.cont168.i
   %ref.tmp170.sroa.2657.0.second.i538.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 22, i32 1, i32 1
   %ref.tmp170.sroa.4.0.second.i538.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 22, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp170.sroa.2657.0.second.i538.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats25HandleCurSizeAllMemTablesEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp170.sroa.4.0.second.i538.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats25HandleCurSizeAllMemTablesEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp170.sroa.4.0.second.i538.sroa_idx.i, align 8
   %ref.tmp170.sroa.5.0.second.i538.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 22, i32 1, i32 2, i32 1
   %arrayinit.element177.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp170.sroa.5.0.second.i538.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21030,7 +21028,7 @@ invoke.cont184.i:                                 ; preds = %invoke.cont176.i
   %ref.tmp178.sroa.2656.0.second.i540.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 23, i32 1, i32 1
   %ref.tmp178.sroa.4.0.second.i540.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 23, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp178.sroa.2656.0.second.i540.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats22HandleSizeAllMemTablesEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp178.sroa.4.0.second.i540.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats22HandleSizeAllMemTablesEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp178.sroa.4.0.second.i540.sroa_idx.i, align 8
   %ref.tmp178.sroa.5.0.second.i540.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 23, i32 1, i32 2, i32 1
   %arrayinit.element185.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp178.sroa.5.0.second.i540.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21043,7 +21041,7 @@ invoke.cont192.i:                                 ; preds = %invoke.cont184.i
   %ref.tmp186.sroa.2655.0.second.i542.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 24, i32 1, i32 1
   %ref.tmp186.sroa.4.0.second.i542.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 24, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp186.sroa.2655.0.second.i542.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats30HandleNumEntriesActiveMemTableEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp186.sroa.4.0.second.i542.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats30HandleNumEntriesActiveMemTableEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp186.sroa.4.0.second.i542.sroa_idx.i, align 8
   %ref.tmp186.sroa.5.0.second.i542.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 24, i32 1, i32 2, i32 1
   %arrayinit.element193.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp186.sroa.5.0.second.i542.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21056,7 +21054,7 @@ invoke.cont200.i:                                 ; preds = %invoke.cont192.i
   %ref.tmp194.sroa.2654.0.second.i544.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 25, i32 1, i32 1
   %ref.tmp194.sroa.4.0.second.i544.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 25, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp194.sroa.2654.0.second.i544.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats28HandleNumEntriesImmMemTablesEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp194.sroa.4.0.second.i544.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats28HandleNumEntriesImmMemTablesEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp194.sroa.4.0.second.i544.sroa_idx.i, align 8
   %ref.tmp194.sroa.5.0.second.i544.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 25, i32 1, i32 2, i32 1
   %arrayinit.element201.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp194.sroa.5.0.second.i544.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21069,7 +21067,7 @@ invoke.cont208.i:                                 ; preds = %invoke.cont200.i
   %ref.tmp202.sroa.2653.0.second.i546.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 26, i32 1, i32 1
   %ref.tmp202.sroa.4.0.second.i546.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 26, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp202.sroa.2653.0.second.i546.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats30HandleNumDeletesActiveMemTableEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp202.sroa.4.0.second.i546.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats30HandleNumDeletesActiveMemTableEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp202.sroa.4.0.second.i546.sroa_idx.i, align 8
   %ref.tmp202.sroa.5.0.second.i546.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 26, i32 1, i32 2, i32 1
   %arrayinit.element209.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp202.sroa.5.0.second.i546.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21082,7 +21080,7 @@ invoke.cont216.i:                                 ; preds = %invoke.cont208.i
   %ref.tmp210.sroa.2652.0.second.i548.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 27, i32 1, i32 1
   %ref.tmp210.sroa.4.0.second.i548.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 27, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp210.sroa.2652.0.second.i548.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats28HandleNumDeletesImmMemTablesEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp210.sroa.4.0.second.i548.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats28HandleNumDeletesImmMemTablesEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp210.sroa.4.0.second.i548.sroa_idx.i, align 8
   %ref.tmp210.sroa.5.0.second.i548.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 27, i32 1, i32 2, i32 1
   %arrayinit.element217.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp210.sroa.5.0.second.i548.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21095,7 +21093,7 @@ invoke.cont224.i:                                 ; preds = %invoke.cont216.i
   %ref.tmp218.sroa.2651.0.second.i550.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 28, i32 1, i32 1
   %ref.tmp218.sroa.4.0.second.i550.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 28, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp218.sroa.2651.0.second.i550.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats21HandleEstimateNumKeysEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp218.sroa.4.0.second.i550.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats21HandleEstimateNumKeysEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp218.sroa.4.0.second.i550.sroa_idx.i, align 8
   %ref.tmp218.sroa.5.0.second.i550.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 28, i32 1, i32 2, i32 1
   %arrayinit.element225.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp218.sroa.5.0.second.i550.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21108,7 +21106,7 @@ invoke.cont232.i:                                 ; preds = %invoke.cont224.i
   %ref.tmp226.sroa.2650.0.second.i552.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 29, i32 1, i32 1
   %ref.tmp226.sroa.4.0.second.i552.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 29, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp226.sroa.2650.0.second.i552.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats29HandleEstimateTableReadersMemEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp226.sroa.4.0.second.i552.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats29HandleEstimateTableReadersMemEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp226.sroa.4.0.second.i552.sroa_idx.i, align 8
   %ref.tmp226.sroa.5.0.second.i552.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 29, i32 1, i32 2, i32 1
   %arrayinit.element233.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp226.sroa.5.0.second.i552.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21121,7 +21119,7 @@ invoke.cont240.i:                                 ; preds = %invoke.cont232.i
   %ref.tmp234.sroa.2649.0.second.i554.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 30, i32 1, i32 1
   %ref.tmp234.sroa.4.0.second.i554.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 30, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp234.sroa.2649.0.second.i554.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats28HandleIsFileDeletionsEnabledEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp234.sroa.4.0.second.i554.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats28HandleIsFileDeletionsEnabledEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp234.sroa.4.0.second.i554.sroa_idx.i, align 8
   %ref.tmp234.sroa.5.0.second.i554.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 30, i32 1, i32 2, i32 1
   %arrayinit.element241.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp234.sroa.5.0.second.i554.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21134,7 +21132,7 @@ invoke.cont248.i:                                 ; preds = %invoke.cont240.i
   %ref.tmp242.sroa.2648.0.second.i556.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 31, i32 1, i32 1
   %ref.tmp242.sroa.4.0.second.i556.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 31, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp242.sroa.2648.0.second.i556.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats18HandleNumSnapshotsEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp242.sroa.4.0.second.i556.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats18HandleNumSnapshotsEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp242.sroa.4.0.second.i556.sroa_idx.i, align 8
   %ref.tmp242.sroa.5.0.second.i556.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 31, i32 1, i32 2, i32 1
   %arrayinit.element249.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp242.sroa.5.0.second.i556.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21147,7 +21145,7 @@ invoke.cont256.i:                                 ; preds = %invoke.cont248.i
   %ref.tmp250.sroa.2647.0.second.i558.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 32, i32 1, i32 1
   %ref.tmp250.sroa.4.0.second.i558.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 32, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp250.sroa.2647.0.second.i558.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats24HandleOldestSnapshotTimeEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp250.sroa.4.0.second.i558.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats24HandleOldestSnapshotTimeEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp250.sroa.4.0.second.i558.sroa_idx.i, align 8
   %ref.tmp250.sroa.5.0.second.i558.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 32, i32 1, i32 2, i32 1
   %arrayinit.element257.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp250.sroa.5.0.second.i558.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21160,7 +21158,7 @@ invoke.cont264.i:                                 ; preds = %invoke.cont256.i
   %ref.tmp258.sroa.2646.0.second.i560.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 33, i32 1, i32 1
   %ref.tmp258.sroa.4.0.second.i560.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 33, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp258.sroa.2646.0.second.i560.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats28HandleOldestSnapshotSequenceEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp258.sroa.4.0.second.i560.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats28HandleOldestSnapshotSequenceEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp258.sroa.4.0.second.i560.sroa_idx.i, align 8
   %ref.tmp258.sroa.5.0.second.i560.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 33, i32 1, i32 2, i32 1
   %arrayinit.element265.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 34
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp258.sroa.5.0.second.i560.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21173,7 +21171,7 @@ invoke.cont272.i:                                 ; preds = %invoke.cont264.i
   %ref.tmp266.sroa.2645.0.second.i562.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 34, i32 1, i32 1
   %ref.tmp266.sroa.4.0.second.i562.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 34, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp266.sroa.2645.0.second.i562.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats21HandleNumLiveVersionsEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp266.sroa.4.0.second.i562.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats21HandleNumLiveVersionsEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp266.sroa.4.0.second.i562.sroa_idx.i, align 8
   %ref.tmp266.sroa.5.0.second.i562.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 34, i32 1, i32 2, i32 1
   %arrayinit.element273.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp266.sroa.5.0.second.i562.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21186,7 +21184,7 @@ invoke.cont280.i:                                 ; preds = %invoke.cont272.i
   %ref.tmp274.sroa.2644.0.second.i564.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 35, i32 1, i32 1
   %ref.tmp274.sroa.4.0.second.i564.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 35, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp274.sroa.2644.0.second.i564.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats31HandleCurrentSuperVersionNumberEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp274.sroa.4.0.second.i564.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats31HandleCurrentSuperVersionNumberEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp274.sroa.4.0.second.i564.sroa_idx.i, align 8
   %ref.tmp274.sroa.5.0.second.i564.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 35, i32 1, i32 2, i32 1
   %arrayinit.element281.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp274.sroa.5.0.second.i564.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21199,7 +21197,7 @@ invoke.cont288.i:                                 ; preds = %invoke.cont280.i
   %ref.tmp282.sroa.2643.0.second.i566.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 36, i32 1, i32 1
   %ref.tmp282.sroa.4.0.second.i566.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 36, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp282.sroa.2643.0.second.i566.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats26HandleEstimateLiveDataSizeEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp282.sroa.4.0.second.i566.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats26HandleEstimateLiveDataSizeEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp282.sroa.4.0.second.i566.sroa_idx.i, align 8
   %ref.tmp282.sroa.5.0.second.i566.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 36, i32 1, i32 2, i32 1
   %arrayinit.element289.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp282.sroa.5.0.second.i566.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21212,7 +21210,7 @@ invoke.cont296.i:                                 ; preds = %invoke.cont288.i
   %ref.tmp290.sroa.2642.0.second.i568.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 37, i32 1, i32 1
   %ref.tmp290.sroa.4.0.second.i568.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 37, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp290.sroa.2642.0.second.i568.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats24HandleMinLogNumberToKeepEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp290.sroa.4.0.second.i568.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats24HandleMinLogNumberToKeepEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp290.sroa.4.0.second.i568.sroa_idx.i, align 8
   %ref.tmp290.sroa.5.0.second.i568.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 37, i32 1, i32 2, i32 1
   %arrayinit.element297.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp290.sroa.5.0.second.i568.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21225,7 +21223,7 @@ invoke.cont304.i:                                 ; preds = %invoke.cont296.i
   %ref.tmp298.sroa.2641.0.second.i570.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 38, i32 1, i32 1
   %ref.tmp298.sroa.4.0.second.i570.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 38, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp298.sroa.2641.0.second.i570.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats32HandleMinObsoleteSstNumberToKeepEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp298.sroa.4.0.second.i570.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats32HandleMinObsoleteSstNumberToKeepEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp298.sroa.4.0.second.i570.sroa_idx.i, align 8
   %ref.tmp298.sroa.5.0.second.i570.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 38, i32 1, i32 2, i32 1
   %arrayinit.element305.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 39
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp298.sroa.5.0.second.i570.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21238,7 +21236,7 @@ invoke.cont312.i:                                 ; preds = %invoke.cont304.i
   %ref.tmp306.sroa.2640.0.second.i572.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 39, i32 1, i32 1
   %ref.tmp306.sroa.4.0.second.i572.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 39, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp306.sroa.2640.0.second.i572.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats15HandleBaseLevelEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp306.sroa.4.0.second.i572.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats15HandleBaseLevelEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp306.sroa.4.0.second.i572.sroa_idx.i, align 8
   %ref.tmp306.sroa.5.0.second.i572.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 39, i32 1, i32 2, i32 1
   %arrayinit.element313.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp306.sroa.5.0.second.i572.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21251,7 +21249,7 @@ invoke.cont320.i:                                 ; preds = %invoke.cont312.i
   %ref.tmp314.sroa.2639.0.second.i574.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 40, i32 1, i32 1
   %ref.tmp314.sroa.4.0.second.i574.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 40, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp314.sroa.2639.0.second.i574.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats23HandleTotalSstFilesSizeEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp314.sroa.4.0.second.i574.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats23HandleTotalSstFilesSizeEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp314.sroa.4.0.second.i574.sroa_idx.i, align 8
   %ref.tmp314.sroa.5.0.second.i574.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 40, i32 1, i32 2, i32 1
   %arrayinit.element321.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp314.sroa.5.0.second.i574.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21264,7 +21262,7 @@ invoke.cont328.i:                                 ; preds = %invoke.cont320.i
   %ref.tmp322.sroa.2638.0.second.i576.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 41, i32 1, i32 1
   %ref.tmp322.sroa.4.0.second.i576.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 41, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp322.sroa.2638.0.second.i576.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats22HandleLiveSstFilesSizeEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp322.sroa.4.0.second.i576.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats22HandleLiveSstFilesSizeEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp322.sroa.4.0.second.i576.sroa_idx.i, align 8
   %ref.tmp322.sroa.5.0.second.i576.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 41, i32 1, i32 2, i32 1
   %arrayinit.element329.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 42
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp322.sroa.5.0.second.i576.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21275,7 +21273,7 @@ invoke.cont336.i:                                 ; preds = %invoke.cont328.i
   %second.i578.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 42, i32 1
   store i8 0, ptr %second.i578.i, align 8
   %ref.tmp330.sroa.2637.0.second.i578.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 42, i32 1, i32 1
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats35HandleLiveSstFilesSizeAtTemperatureEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE to i64), ptr %ref.tmp330.sroa.2637.0.second.i578.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats35HandleLiveSstFilesSizeAtTemperatureEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE, ptr %ref.tmp330.sroa.2637.0.second.i578.sroa_idx.i, align 8
   %ref.tmp330.sroa.3.0.second.i578.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 42, i32 1, i32 1, i32 1
   %arrayinit.element337.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp330.sroa.3.0.second.i578.sroa_idx.i, i8 0, i64 56, i1 false)
@@ -21288,7 +21286,7 @@ invoke.cont344.i:                                 ; preds = %invoke.cont336.i
   %ref.tmp338.sroa.2636.0.second.i580.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 43, i32 1, i32 1
   %ref.tmp338.sroa.4.0.second.i580.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 43, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp338.sroa.2636.0.second.i580.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats26HandleObsoleteSstFilesSizeEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp338.sroa.4.0.second.i580.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats26HandleObsoleteSstFilesSizeEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp338.sroa.4.0.second.i580.sroa_idx.i, align 8
   %ref.tmp338.sroa.5.0.second.i580.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 43, i32 1, i32 2, i32 1
   %arrayinit.element345.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp338.sroa.5.0.second.i580.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21301,7 +21299,7 @@ invoke.cont352.i:                                 ; preds = %invoke.cont344.i
   %ref.tmp346.sroa.2635.0.second.i582.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 44, i32 1, i32 1
   %ref.tmp346.sroa.4.0.second.i582.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 44, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp346.sroa.2635.0.second.i582.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats36HandleEstimatePendingCompactionBytesEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp346.sroa.4.0.second.i582.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats36HandleEstimatePendingCompactionBytesEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp346.sroa.4.0.second.i582.sroa_idx.i, align 8
   %ref.tmp346.sroa.5.0.second.i582.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 44, i32 1, i32 2, i32 1
   %arrayinit.element353.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 45
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp346.sroa.5.0.second.i582.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21314,7 +21312,7 @@ invoke.cont360.i:                                 ; preds = %invoke.cont352.i
   %ref.tmp354.sroa.2634.0.second.i584.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 45, i32 1, i32 1
   %ref.tmp354.sroa.4.0.second.i584.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 45, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp354.sroa.2634.0.second.i584.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats23HandleNumRunningFlushesEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp354.sroa.4.0.second.i584.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats23HandleNumRunningFlushesEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp354.sroa.4.0.second.i584.sroa_idx.i, align 8
   %ref.tmp354.sroa.5.0.second.i584.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 45, i32 1, i32 2, i32 1
   %arrayinit.element361.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 46
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp354.sroa.5.0.second.i584.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21327,7 +21325,7 @@ invoke.cont368.i:                                 ; preds = %invoke.cont360.i
   %ref.tmp362.sroa.2633.0.second.i586.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 46, i32 1, i32 1
   %ref.tmp362.sroa.4.0.second.i586.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 46, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp362.sroa.2633.0.second.i586.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats27HandleNumRunningCompactionsEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp362.sroa.4.0.second.i586.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats27HandleNumRunningCompactionsEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp362.sroa.4.0.second.i586.sroa_idx.i, align 8
   %ref.tmp362.sroa.5.0.second.i586.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 46, i32 1, i32 2, i32 1
   %arrayinit.element369.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 47
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp362.sroa.5.0.second.i586.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21340,7 +21338,7 @@ invoke.cont376.i:                                 ; preds = %invoke.cont368.i
   %ref.tmp370.sroa.2632.0.second.i588.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 47, i32 1, i32 1
   %ref.tmp370.sroa.4.0.second.i588.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 47, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp370.sroa.2632.0.second.i588.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats28HandleActualDelayedWriteRateEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp370.sroa.4.0.second.i588.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats28HandleActualDelayedWriteRateEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp370.sroa.4.0.second.i588.sroa_idx.i, align 8
   %ref.tmp370.sroa.5.0.second.i588.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 47, i32 1, i32 2, i32 1
   %arrayinit.element377.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp370.sroa.5.0.second.i588.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21353,7 +21351,7 @@ invoke.cont384.i:                                 ; preds = %invoke.cont376.i
   %ref.tmp378.sroa.2631.0.second.i590.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 48, i32 1, i32 1
   %ref.tmp378.sroa.4.0.second.i590.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 48, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp378.sroa.2631.0.second.i590.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats20HandleIsWriteStoppedEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp378.sroa.4.0.second.i590.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats20HandleIsWriteStoppedEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp378.sroa.4.0.second.i590.sroa_idx.i, align 8
   %ref.tmp378.sroa.5.0.second.i590.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 48, i32 1, i32 2, i32 1
   %arrayinit.element385.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 49
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp378.sroa.5.0.second.i590.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21366,7 +21364,7 @@ invoke.cont392.i:                                 ; preds = %invoke.cont384.i
   %ref.tmp386.sroa.2630.0.second.i592.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 49, i32 1, i32 1
   %ref.tmp386.sroa.4.0.second.i592.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 49, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp386.sroa.2630.0.second.i592.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats27HandleEstimateOldestKeyTimeEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp386.sroa.4.0.second.i592.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats27HandleEstimateOldestKeyTimeEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp386.sroa.4.0.second.i592.sroa_idx.i, align 8
   %ref.tmp386.sroa.5.0.second.i592.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 49, i32 1, i32 2, i32 1
   %arrayinit.element393.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 50
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp386.sroa.5.0.second.i592.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21379,7 +21377,7 @@ invoke.cont400.i:                                 ; preds = %invoke.cont392.i
   %ref.tmp394.sroa.2629.0.second.i594.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 50, i32 1, i32 1
   %ref.tmp394.sroa.4.0.second.i594.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 50, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp394.sroa.2629.0.second.i594.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats24HandleBlockCacheCapacityEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp394.sroa.4.0.second.i594.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats24HandleBlockCacheCapacityEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp394.sroa.4.0.second.i594.sroa_idx.i, align 8
   %ref.tmp394.sroa.5.0.second.i594.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 50, i32 1, i32 2, i32 1
   %arrayinit.element401.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 51
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp394.sroa.5.0.second.i594.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21392,7 +21390,7 @@ invoke.cont408.i:                                 ; preds = %invoke.cont400.i
   %ref.tmp402.sroa.2628.0.second.i596.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 51, i32 1, i32 1
   %ref.tmp402.sroa.4.0.second.i596.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 51, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp402.sroa.2628.0.second.i596.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats21HandleBlockCacheUsageEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp402.sroa.4.0.second.i596.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats21HandleBlockCacheUsageEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp402.sroa.4.0.second.i596.sroa_idx.i, align 8
   %ref.tmp402.sroa.5.0.second.i596.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 51, i32 1, i32 2, i32 1
   %arrayinit.element409.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp402.sroa.5.0.second.i596.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21405,7 +21403,7 @@ invoke.cont416.i:                                 ; preds = %invoke.cont408.i
   %ref.tmp410.sroa.2627.0.second.i598.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 52, i32 1, i32 1
   %ref.tmp410.sroa.4.0.second.i598.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 52, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp410.sroa.2627.0.second.i598.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats27HandleBlockCachePinnedUsageEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp410.sroa.4.0.second.i598.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats27HandleBlockCachePinnedUsageEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp410.sroa.4.0.second.i598.sroa_idx.i, align 8
   %ref.tmp410.sroa.5.0.second.i598.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 52, i32 1, i32 2, i32 1
   %arrayinit.element417.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 53
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp410.sroa.5.0.second.i598.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21418,7 +21416,7 @@ invoke.cont424.i:                                 ; preds = %invoke.cont416.i
   %ref.tmp418.sroa.2626.0.second.i600.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 53, i32 1, i32 1
   %ref.tmp418.sroa.8.0.second.i600.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 53, i32 1, i32 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp418.sroa.2626.0.second.i600.sroa_idx.i, i8 0, i64 48, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb6DBImpl34GetPropertyHandleOptionsStatisticsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE to i64), ptr %ref.tmp418.sroa.8.0.second.i600.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb6DBImpl34GetPropertyHandleOptionsStatisticsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %ref.tmp418.sroa.8.0.second.i600.sroa_idx.i, align 8
   %ref.tmp418.sroa.9.0.second.i600.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 53, i32 1, i32 4, i32 1
   store i64 0, ptr %ref.tmp418.sroa.9.0.second.i600.sroa_idx.i, align 8
   %arrayinit.element425.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 54
@@ -21431,7 +21429,7 @@ invoke.cont432.i:                                 ; preds = %invoke.cont424.i
   %ref.tmp426.sroa.2625.0.second.i602.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 54, i32 1, i32 1
   %ref.tmp426.sroa.4.0.second.i602.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 54, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp426.sroa.2625.0.second.i602.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats18HandleNumBlobFilesEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp426.sroa.4.0.second.i602.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats18HandleNumBlobFilesEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp426.sroa.4.0.second.i602.sroa_idx.i, align 8
   %ref.tmp426.sroa.5.0.second.i602.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 54, i32 1, i32 2, i32 1
   %arrayinit.element433.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 55
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp426.sroa.5.0.second.i602.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21442,7 +21440,7 @@ invoke.cont440.i:                                 ; preds = %invoke.cont432.i
   %second.i604.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 55, i32 1
   store i8 0, ptr %second.i604.i, align 8
   %ref.tmp434.sroa.2624.0.second.i604.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 55, i32 1, i32 1
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats15HandleBlobStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE to i64), ptr %ref.tmp434.sroa.2624.0.second.i604.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats15HandleBlobStatsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5SliceE, ptr %ref.tmp434.sroa.2624.0.second.i604.sroa_idx.i, align 8
   %ref.tmp434.sroa.3.0.second.i604.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 55, i32 1, i32 1, i32 1
   %arrayinit.element441.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp434.sroa.3.0.second.i604.sroa_idx.i, i8 0, i64 56, i1 false)
@@ -21455,7 +21453,7 @@ invoke.cont448.i:                                 ; preds = %invoke.cont440.i
   %ref.tmp442.sroa.2623.0.second.i606.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 56, i32 1, i32 1
   %ref.tmp442.sroa.4.0.second.i606.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 56, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp442.sroa.2623.0.second.i606.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats23HandleTotalBlobFileSizeEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp442.sroa.4.0.second.i606.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats23HandleTotalBlobFileSizeEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp442.sroa.4.0.second.i606.sroa_idx.i, align 8
   %ref.tmp442.sroa.5.0.second.i606.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 56, i32 1, i32 2, i32 1
   %arrayinit.element449.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 57
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp442.sroa.5.0.second.i606.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21468,7 +21466,7 @@ invoke.cont456.i:                                 ; preds = %invoke.cont448.i
   %ref.tmp450.sroa.2622.0.second.i608.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 57, i32 1, i32 1
   %ref.tmp450.sroa.4.0.second.i608.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 57, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp450.sroa.2622.0.second.i608.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats22HandleLiveBlobFileSizeEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp450.sroa.4.0.second.i608.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats22HandleLiveBlobFileSizeEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp450.sroa.4.0.second.i608.sroa_idx.i, align 8
   %ref.tmp450.sroa.5.0.second.i608.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 57, i32 1, i32 2, i32 1
   %arrayinit.element457.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 58
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp450.sroa.5.0.second.i608.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21481,7 +21479,7 @@ invoke.cont464.i:                                 ; preds = %invoke.cont456.i
   %ref.tmp458.sroa.2621.0.second.i610.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 58, i32 1, i32 1
   %ref.tmp458.sroa.4.0.second.i610.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 58, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp458.sroa.2621.0.second.i610.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats29HandleLiveBlobFileGarbageSizeEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp458.sroa.4.0.second.i610.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats29HandleLiveBlobFileGarbageSizeEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp458.sroa.4.0.second.i610.sroa_idx.i, align 8
   %ref.tmp458.sroa.5.0.second.i610.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 58, i32 1, i32 2, i32 1
   %arrayinit.element465.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 59
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp458.sroa.5.0.second.i610.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21494,7 +21492,7 @@ invoke.cont472.i:                                 ; preds = %invoke.cont464.i
   %ref.tmp466.sroa.2620.0.second.i612.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 59, i32 1, i32 1
   %ref.tmp466.sroa.4.0.second.i612.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 59, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp466.sroa.2620.0.second.i612.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats23HandleBlobCacheCapacityEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp466.sroa.4.0.second.i612.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats23HandleBlobCacheCapacityEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp466.sroa.4.0.second.i612.sroa_idx.i, align 8
   %ref.tmp466.sroa.5.0.second.i612.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 59, i32 1, i32 2, i32 1
   %arrayinit.element473.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp466.sroa.5.0.second.i612.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21507,7 +21505,7 @@ invoke.cont480.i:                                 ; preds = %invoke.cont472.i
   %ref.tmp474.sroa.2619.0.second.i614.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 60, i32 1, i32 1
   %ref.tmp474.sroa.4.0.second.i614.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 60, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp474.sroa.2619.0.second.i614.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats20HandleBlobCacheUsageEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp474.sroa.4.0.second.i614.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats20HandleBlobCacheUsageEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp474.sroa.4.0.second.i614.sroa_idx.i, align 8
   %ref.tmp474.sroa.5.0.second.i614.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 60, i32 1, i32 2, i32 1
   %arrayinit.element481.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 61
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp474.sroa.5.0.second.i614.sroa_idx.i, i8 0, i64 40, i1 false)
@@ -21520,7 +21518,7 @@ invoke.cont488.i:                                 ; preds = %invoke.cont480.i
   %ref.tmp482.sroa.2618.0.second.i616.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 61, i32 1, i32 1
   %ref.tmp482.sroa.4.0.second.i616.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 61, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp482.sroa.2618.0.second.i616.sroa_idx.i, i8 0, i64 16, i1 false)
-  store i64 ptrtoint (ptr @_ZN7rocksdb13InternalStats26HandleBlobCachePinnedUsageEPmPNS_6DBImplEPNS_7VersionE to i64), ptr %ref.tmp482.sroa.4.0.second.i616.sroa_idx.i, align 8
+  store ptr @_ZN7rocksdb13InternalStats26HandleBlobCachePinnedUsageEPmPNS_6DBImplEPNS_7VersionE, ptr %ref.tmp482.sroa.4.0.second.i616.sroa_idx.i, align 8
   %ref.tmp482.sroa.5.0.second.i616.sroa_idx.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 61, i32 1, i32 2, i32 1
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair.30", ptr %ref.tmp.i672, i64 62
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp482.sroa.5.0.second.i616.sroa_idx.i, i8 0, i64 40, i1 false)

@@ -25792,7 +25792,7 @@ if.end14.i:                                       ; preds = %invoke.cont9.i
   %this.val.val.i = load ptr, ptr %this.val.i, align 8, !noalias !533
   store ptr %this.val.val.i, ptr %batch_ctx.i, align 8, !noalias !533
   store i64 0, ptr %3, align 8, !noalias !533
-  store ptr %20, ptr %state_.i.i, align 8, !noalias !533
+  store i64 %19, ptr %state_.i.i, align 8, !noalias !533
   %22 = load ptr, ptr %kernel_.i, align 8, !noalias !533
   %consume.i = getelementptr inbounds %"struct.arrow::compute::ScalarAggregateKernel", ptr %22, i64 0, i32 1
   %23 = load ptr, ptr %consume.i, align 8, !noalias !533

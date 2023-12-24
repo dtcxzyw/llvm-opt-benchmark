@@ -123,11 +123,10 @@ _ZN8facebook4yoga12_GLOBAL__N_14NodeC2EOSt8functionIFvPK6YGNodeNS0_5Event4TypeEN
 
 do.body.i:                                        ; preds = %do.body.i, %_ZN8facebook4yoga12_GLOBAL__N_14NodeC2EOSt8functionIFvPK6YGNodeNS0_5Event4TypeENS7_4DataEEE.exit
   %3 = load atomic i64, ptr @_ZN8facebook4yoga12_GLOBAL__N_111subscribersE monotonic, align 8
-  %4 = inttoptr i64 %3 to ptr
-  store ptr %4, ptr %next.i, align 8
-  %5 = cmpxchg weak ptr @_ZN8facebook4yoga12_GLOBAL__N_111subscribersE, i64 %3, i64 %2 release monotonic, align 8
-  %6 = extractvalue { i64, i1 } %5, 1
-  br i1 %6, label %_ZN8facebook4yoga12_GLOBAL__N_14pushEPNS1_4NodeE.exit, label %do.body.i
+  store i64 %3, ptr %next.i, align 8
+  %4 = cmpxchg weak ptr @_ZN8facebook4yoga12_GLOBAL__N_111subscribersE, i64 %3, i64 %2 release monotonic, align 8
+  %5 = extractvalue { i64, i1 } %4, 1
+  br i1 %5, label %_ZN8facebook4yoga12_GLOBAL__N_14pushEPNS1_4NodeE.exit, label %do.body.i
 
 _ZN8facebook4yoga12_GLOBAL__N_14pushEPNS1_4NodeE.exit: ; preds = %do.body.i
   ret void

@@ -2089,7 +2089,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  store ptr inttoptr (i64 1 to ptr), ptr %agg.tmp, align 8, !alias.scope !105
+  store i64 1, ptr %agg.tmp, align 8, !alias.scope !105
   %slice.sroa.2.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 %key.coerce0, ptr %slice.sroa.2.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !105
   %slice.sroa.3.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
@@ -2223,7 +2223,7 @@ if.else.i.i:                                      ; preds = %_ZN9grpc_core12Vari
   br label %if.end40
 
 if.else:                                          ; preds = %if.then21
-  store ptr inttoptr (i64 1 to ptr), ptr %agg.tmp28, align 8, !alias.scope !114
+  store i64 1, ptr %agg.tmp28, align 8, !alias.scope !114
   %slice.sroa.2.0.agg.result.sroa_idx.i.i32 = getelementptr inbounds i8, ptr %agg.tmp28, i64 8
   store i64 %key.coerce0, ptr %slice.sroa.2.0.agg.result.sroa_idx.i.i32, align 8, !alias.scope !114
   %slice.sroa.3.0.agg.result.sroa_idx.i.i33 = getelementptr inbounds i8, ptr %agg.tmp28, i64 16
@@ -2404,7 +2404,7 @@ for.end.loopexit:                                 ; preds = %if.end57
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end
   %57 = phi ptr [ %.pre108, %for.end.loopexit ], [ %1, %if.end ]
-  store ptr inttoptr (i64 1 to ptr), ptr %agg.tmp60, align 8, !alias.scope !129
+  store i64 1, ptr %agg.tmp60, align 8, !alias.scope !129
   %slice.sroa.2.0.agg.result.sroa_idx.i.i59 = getelementptr inbounds i8, ptr %agg.tmp60, i64 8
   store i64 %key.coerce0, ptr %slice.sroa.2.0.agg.result.sroa_idx.i.i59, align 8, !alias.scope !129
   %slice.sroa.3.0.agg.result.sroa_idx.i.i60 = getelementptr inbounds i8, ptr %agg.tmp60, i64 16
@@ -2806,7 +2806,7 @@ if.then9:                                         ; preds = %entry
   br label %if.end15.sink.split
 
 if.else:                                          ; preds = %entry
-  store ptr inttoptr (i64 1 to ptr), ptr %agg.tmp, align 8, !alias.scope !149
+  store i64 1, ptr %agg.tmp, align 8, !alias.scope !149
   %slice.sroa.2.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 7, ptr %slice.sroa.2.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !149
   %slice.sroa.3.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
@@ -2919,12 +2919,12 @@ sw.bb2:                                           ; preds = %entry
   br label %sw.epilog.sink.split
 
 invoke.cont:                                      ; preds = %entry
-  store ptr inttoptr (i64 1 to ptr), ptr %agg.tmp, align 8, !alias.scope !159
+  store i64 1, ptr %agg.tmp, align 8, !alias.scope !159
   %slice.sroa.2.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 7, ptr %slice.sroa.2.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !159
   %slice.sroa.3.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr @.str.5, ptr %slice.sroa.3.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !159
-  store ptr inttoptr (i64 1 to ptr), ptr %agg.tmp4, align 8, !alias.scope !164
+  store i64 1, ptr %agg.tmp4, align 8, !alias.scope !164
   %slice.sroa.2.0.agg.result.sroa_idx.i.i7 = getelementptr inbounds i8, ptr %agg.tmp4, i64 8
   store i64 3, ptr %slice.sroa.2.0.agg.result.sroa_idx.i.i7, align 8, !alias.scope !164
   %slice.sroa.3.0.agg.result.sroa_idx.i.i8 = getelementptr inbounds i8, ptr %agg.tmp4, i64 16
@@ -3054,7 +3054,7 @@ if.else.i.i:                                      ; preds = %_ZN9grpc_core12Vari
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  store ptr inttoptr (i64 1 to ptr), ptr %agg.tmp, align 8, !alias.scope !169
+  store i64 1, ptr %agg.tmp, align 8, !alias.scope !169
   %slice.sroa.2.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 %key.coerce0, ptr %slice.sroa.2.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !169
   %slice.sroa.3.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
@@ -3176,7 +3176,7 @@ lpad:                                             ; preds = %if.then
   br label %eh.resume
 
 if.else:                                          ; preds = %entry
-  store ptr inttoptr (i64 1 to ptr), ptr %agg.tmp5, align 8, !alias.scope !180
+  store i64 1, ptr %agg.tmp5, align 8, !alias.scope !180
   %slice.sroa.2.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.tmp5, i64 8
   store i64 %key.coerce0, ptr %slice.sroa.2.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !180
   %slice.sroa.3.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.tmp5, i64 16
@@ -3270,7 +3270,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  store ptr inttoptr (i64 1 to ptr), ptr %agg.tmp, align 8, !alias.scope !188
+  store i64 1, ptr %agg.tmp, align 8, !alias.scope !188
   %slice.sroa.2.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 %0, ptr %slice.sroa.2.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !188
   %slice.sroa.3.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
@@ -3514,7 +3514,7 @@ for.inc:                                          ; preds = %if.end, %for.body
 
 invoke.cont:                                      ; preds = %for.inc
   call void @_ZNK9grpc_core7Timeout6EncodeEv(ptr nonnull sret(%"class.grpc_core::Slice") align 8 %encoded, ptr noundef nonnull align 2 dereferenceable(3) %timeout)
-  store ptr inttoptr (i64 1 to ptr), ptr %agg.tmp23, align 8, !alias.scope !200
+  store i64 1, ptr %agg.tmp23, align 8, !alias.scope !200
   %slice.sroa.2.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.tmp23, i64 8
   store i64 %key.coerce0, ptr %slice.sroa.2.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !200
   %slice.sroa.3.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.tmp23, i64 16

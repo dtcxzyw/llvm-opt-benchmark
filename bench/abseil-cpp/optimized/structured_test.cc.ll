@@ -821,8 +821,7 @@ ehcleanup.i:                                      ; preds = %lpad4.i, %lpad.i13
 invoke.cont34:                                    ; preds = %invoke.cont2.i
   store i32 1, ptr %call.i.i1.i.i2.i, align 4, !noalias !8
   %value.i.i.i.i.i.i = getelementptr inbounds %"struct.testing::internal::SharedPayload", ptr %call.i.i1.i.i2.i, i64 0, i32 1
-  %20 = ptrtoint ptr %call.i to i64
-  store i64 %20, ptr %value.i.i.i.i.i.i, align 8, !noalias !8
+  store ptr %call.i, ptr %value.i.i.i.i.i.i, align 8, !noalias !8
   store ptr %call.i.i1.i.i2.i, ptr %buffer_.i.i.i, align 8, !alias.scope !8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKN4absl8LogEntryEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp12, align 8, !alias.scope !8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %values.i)
@@ -833,30 +832,29 @@ invoke.cont34:                                    ; preds = %invoke.cont2.i
           to label %land.lhs.true.i.i.i.i.i.i.i.i unwind label %lpad35
 
 land.lhs.true.i.i.i.i.i.i.i.i:                    ; preds = %invoke.cont34
-  %21 = ptrtoint ptr %call.i.i1.i.i2.i to i64
-  %22 = atomicrmw add ptr %call.i.i1.i.i2.i, i32 1 monotonic, align 4, !noalias !11
+  %20 = atomicrmw add ptr %call.i.i1.i.i2.i, i32 1 monotonic, align 4, !noalias !11
   store ptr %gmock01_Send_164.i, ptr %ref.tmp11, align 8, !alias.scope !14
   %vtable_.i.i.i.i.i.i1.i7.i = getelementptr inbounds %"class.testing::internal::MockSpec", ptr %ref.tmp11, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
   store ptr @_ZZN7testing8internal11MatcherBaseIRKN4absl8LogEntryEE9GetVTableINS6_11ValuePolicyIPKNS_16MatcherInterfaceIS5_EELb1EEEEEPKNS6_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i1.i7.i, align 8, !alias.scope !14
   %buffer_.i.i.i.i.i.i3.i8.i = getelementptr inbounds %"class.testing::internal::MockSpec", ptr %ref.tmp11, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
-  store i64 %21, ptr %buffer_.i.i.i.i.i.i3.i8.i, align 8, !alias.scope !14
+  store ptr %call.i.i1.i.i2.i, ptr %buffer_.i.i.i.i.i.i3.i8.i, align 8, !alias.scope !14
   %matchers_.i.i6.i = getelementptr inbounds %"class.testing::internal::MockSpec", ptr %ref.tmp11, i64 0, i32 1
-  %23 = atomicrmw add ptr %call.i.i1.i.i2.i, i32 1 monotonic, align 4, !noalias !17
+  %21 = atomicrmw add ptr %call.i.i1.i.i2.i, i32 1 monotonic, align 4, !noalias !17
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKN4absl8LogEntryEEE, i64 0, inrange i32 0, i64 2), ptr %matchers_.i.i6.i, align 8, !alias.scope !17
-  %24 = atomicrmw sub ptr %call.i.i1.i.i2.i, i32 1 acq_rel, align 4, !noalias !17
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %24, 1
+  %22 = atomicrmw sub ptr %call.i.i1.i.i2.i, i32 1 acq_rel, align 4, !noalias !17
+  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %22, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i10.i.i, label %invoke.cont36
 
 if.then.i.i.i.i.i.i10.i.i:                        ; preds = %land.lhs.true.i.i.i.i.i.i.i.i
-  %25 = load ptr, ptr %value.i.i.i.i.i.i, align 8, !noalias !17
-  %cmp.not.i.i.i = icmp eq ptr %25, null
+  %23 = load ptr, ptr %value.i.i.i.i.i.i, align 8, !noalias !17
+  %cmp.not.i.i.i = icmp eq ptr %23, null
   br i1 %cmp.not.i.i.i, label %_ZN7testing8internal13SharedPayloadISt10unique_ptrIKNS_16MatcherInterfaceIRKN4absl8LogEntryEEESt14default_deleteIS9_EEE7DestroyEPNS0_17SharedPayloadBaseE.exit, label %_ZNKSt14default_deleteIKN7testing16MatcherInterfaceIRKN4absl8LogEntryEEEEclEPS7_.exit.i.i.i
 
 _ZNKSt14default_deleteIKN7testing16MatcherInterfaceIRKN4absl8LogEntryEEEEclEPS7_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i10.i.i
-  %vtable.i.i.i.i = load ptr, ptr %25, align 8, !noalias !17
+  %vtable.i.i.i.i = load ptr, ptr %23, align 8, !noalias !17
   %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
-  %26 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !17
-  call void %26(ptr noundef nonnull align 8 dereferenceable(8) %25) #21, !noalias !17
+  %24 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !17
+  call void %24(ptr noundef nonnull align 8 dereferenceable(8) %23) #21, !noalias !17
   br label %_ZN7testing8internal13SharedPayloadISt10unique_ptrIKNS_16MatcherInterfaceIRKN4absl8LogEntryEEESt14default_deleteIS9_EEE7DestroyEPNS0_17SharedPayloadBaseE.exit
 
 _ZN7testing8internal13SharedPayloadISt10unique_ptrIKNS_16MatcherInterfaceIRKN4absl8LogEntryEEESt14default_deleteIS9_EEE7DestroyEPNS0_17SharedPayloadBaseE.exit: ; preds = %if.then.i.i.i.i.i.i10.i.i, %_ZNKSt14default_deleteIKN7testing16MatcherInterfaceIRKN4absl8LogEntryEEEEclEPS7_.exit.i.i.i
@@ -873,268 +871,268 @@ invoke.cont39:                                    ; preds = %invoke.cont36
 
 invoke.cont42:                                    ; preds = %invoke.cont39
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl8LogEntryEEE, i64 0, inrange i32 0, i64 2), ptr %matchers_.i.i6.i, align 8
-  %27 = load ptr, ptr %vtable_.i.i.i.i.i.i1.i7.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i20 = icmp eq ptr %27, null
+  %25 = load ptr, ptr %vtable_.i.i.i.i.i.i1.i7.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i20 = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i20, label %_ZN7testing8internal8MockSpecIFvRKN4absl8LogEntryEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKN4absl8LogEntryEE8IsSharedEv.exit.i.i.i.i.i.i.i21
 
 _ZNK7testing8internal11MatcherBaseIRKN4absl8LogEntryEE8IsSharedEv.exit.i.i.i.i.i.i.i21: ; preds = %invoke.cont42
-  %shared_destroy.i.i.i.i.i.i.i.i22 = getelementptr inbounds %"struct.testing::internal::MatcherBase<const absl::LogEntry &>::VTable", ptr %27, i64 0, i32 3
-  %28 = load ptr, ptr %shared_destroy.i.i.i.i.i.i.i.i22, align 8
-  %cmp3.i.not.i.i.i.i.i.i.i23 = icmp eq ptr %28, null
+  %shared_destroy.i.i.i.i.i.i.i.i22 = getelementptr inbounds %"struct.testing::internal::MatcherBase<const absl::LogEntry &>::VTable", ptr %25, i64 0, i32 3
+  %26 = load ptr, ptr %shared_destroy.i.i.i.i.i.i.i.i22, align 8
+  %cmp3.i.not.i.i.i.i.i.i.i23 = icmp eq ptr %26, null
   br i1 %cmp3.i.not.i.i.i.i.i.i.i23, label %_ZN7testing8internal8MockSpecIFvRKN4absl8LogEntryEEED2Ev.exit, label %land.lhs.true.i.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i.i:                      ; preds = %_ZNK7testing8internal11MatcherBaseIRKN4absl8LogEntryEE8IsSharedEv.exit.i.i.i.i.i.i.i21
-  %29 = load ptr, ptr %buffer_.i.i.i.i.i.i3.i8.i, align 8
-  %30 = atomicrmw sub ptr %29, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %30, 1
+  %27 = load ptr, ptr %buffer_.i.i.i.i.i.i3.i8.i, align 8
+  %28 = atomicrmw sub ptr %27, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %28, 1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i25, label %_ZN7testing8internal8MockSpecIFvRKN4absl8LogEntryEEED2Ev.exit
 
 if.then.i.i.i.i.i.i.i25:                          ; preds = %land.lhs.true.i.i.i.i.i.i.i
-  %31 = load ptr, ptr %vtable_.i.i.i.i.i.i1.i7.i, align 8
-  %shared_destroy.i.i.i.i.i.i.i = getelementptr inbounds %"struct.testing::internal::MatcherBase<const absl::LogEntry &>::VTable", ptr %31, i64 0, i32 3
-  %32 = load ptr, ptr %shared_destroy.i.i.i.i.i.i.i, align 8
-  %33 = load ptr, ptr %buffer_.i.i.i.i.i.i3.i8.i, align 8
-  invoke void %32(ptr noundef %33)
+  %29 = load ptr, ptr %vtable_.i.i.i.i.i.i1.i7.i, align 8
+  %shared_destroy.i.i.i.i.i.i.i = getelementptr inbounds %"struct.testing::internal::MatcherBase<const absl::LogEntry &>::VTable", ptr %29, i64 0, i32 3
+  %30 = load ptr, ptr %shared_destroy.i.i.i.i.i.i.i, align 8
+  %31 = load ptr, ptr %buffer_.i.i.i.i.i.i3.i8.i, align 8
+  invoke void %30(ptr noundef %31)
           to label %_ZN7testing8internal8MockSpecIFvRKN4absl8LogEntryEEED2Ev.exit unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i.i25
-  %34 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #24
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #24
   unreachable
 
 _ZN7testing8internal8MockSpecIFvRKN4absl8LogEntryEEED2Ev.exit: ; preds = %invoke.cont42, %_ZNK7testing8internal11MatcherBaseIRKN4absl8LogEntryEE8IsSharedEv.exit.i.i.i.i.i.i.i21, %land.lhs.true.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i25
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl8LogEntryEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp12, align 8
-  %36 = load ptr, ptr %vtable_.i.i.i, align 8
-  %cmp.not.i.i.i.i26 = icmp eq ptr %36, null
+  %34 = load ptr, ptr %vtable_.i.i.i, align 8
+  %cmp.not.i.i.i.i26 = icmp eq ptr %34, null
   br i1 %cmp.not.i.i.i.i26, label %_ZN7testing7MatcherIRKN4absl8LogEntryEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKN4absl8LogEntryEE8IsSharedEv.exit.i.i.i27
 
 _ZNK7testing8internal11MatcherBaseIRKN4absl8LogEntryEE8IsSharedEv.exit.i.i.i27: ; preds = %_ZN7testing8internal8MockSpecIFvRKN4absl8LogEntryEEED2Ev.exit
-  %shared_destroy.i.i.i.i28 = getelementptr inbounds %"struct.testing::internal::MatcherBase<const absl::LogEntry &>::VTable", ptr %36, i64 0, i32 3
-  %37 = load ptr, ptr %shared_destroy.i.i.i.i28, align 8
-  %cmp3.i.not.i.i.i29 = icmp eq ptr %37, null
+  %shared_destroy.i.i.i.i28 = getelementptr inbounds %"struct.testing::internal::MatcherBase<const absl::LogEntry &>::VTable", ptr %34, i64 0, i32 3
+  %35 = load ptr, ptr %shared_destroy.i.i.i.i28, align 8
+  %cmp3.i.not.i.i.i29 = icmp eq ptr %35, null
   br i1 %cmp3.i.not.i.i.i29, label %_ZN7testing7MatcherIRKN4absl8LogEntryEED2Ev.exit, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %_ZNK7testing8internal11MatcherBaseIRKN4absl8LogEntryEE8IsSharedEv.exit.i.i.i27
-  %38 = load ptr, ptr %buffer_.i.i.i, align 8
-  %39 = atomicrmw sub ptr %38, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i = icmp eq i32 %39, 1
+  %36 = load ptr, ptr %buffer_.i.i.i, align 8
+  %37 = atomicrmw sub ptr %36, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i = icmp eq i32 %37, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i31, label %_ZN7testing7MatcherIRKN4absl8LogEntryEED2Ev.exit
 
 if.then.i.i.i31:                                  ; preds = %land.lhs.true.i.i.i
-  %40 = load ptr, ptr %vtable_.i.i.i, align 8
-  %shared_destroy.i.i.i = getelementptr inbounds %"struct.testing::internal::MatcherBase<const absl::LogEntry &>::VTable", ptr %40, i64 0, i32 3
-  %41 = load ptr, ptr %shared_destroy.i.i.i, align 8
-  %42 = load ptr, ptr %buffer_.i.i.i, align 8
-  invoke void %41(ptr noundef %42)
+  %38 = load ptr, ptr %vtable_.i.i.i, align 8
+  %shared_destroy.i.i.i = getelementptr inbounds %"struct.testing::internal::MatcherBase<const absl::LogEntry &>::VTable", ptr %38, i64 0, i32 3
+  %39 = load ptr, ptr %shared_destroy.i.i.i, align 8
+  %40 = load ptr, ptr %buffer_.i.i.i, align 8
+  invoke void %39(ptr noundef %40)
           to label %_ZN7testing7MatcherIRKN4absl8LogEntryEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i31
-  %43 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #24
+  %42 = extractvalue { ptr, i32 } %41, 0
+  call void @__clang_call_terminate(ptr %42) #24
   unreachable
 
 _ZN7testing7MatcherIRKN4absl8LogEntryEED2Ev.exit: ; preds = %_ZN7testing8internal8MockSpecIFvRKN4absl8LogEntryEEED2Ev.exit, %_ZNK7testing8internal11MatcherBaseIRKN4absl8LogEntryEE8IsSharedEv.exit.i.i.i27, %land.lhs.true.i.i.i, %if.then.i.i.i31
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl8LogEntryEEE, i64 0, inrange i32 0, i64 2), ptr %15, align 8
-  %45 = load ptr, ptr %vtable_.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i33 = icmp eq ptr %45, null
+  %43 = load ptr, ptr %vtable_.i.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i33 = icmp eq ptr %43, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i33, label %_ZNSt10_Head_baseILm0EN7testing7MatcherIRKN4absl8LogEntryEEELb0EED2Ev.exit.i.i.i, label %_ZNK7testing8internal11MatcherBaseIRKN4absl8LogEntryEE8IsSharedEv.exit.i.i.i.i.i.i.i34
 
 _ZNK7testing8internal11MatcherBaseIRKN4absl8LogEntryEE8IsSharedEv.exit.i.i.i.i.i.i.i34: ; preds = %_ZN7testing7MatcherIRKN4absl8LogEntryEED2Ev.exit
-  %shared_destroy.i.i.i.i.i.i.i.i35 = getelementptr inbounds %"struct.testing::internal::MatcherBase<const absl::LogEntry &>::VTable", ptr %45, i64 0, i32 3
-  %46 = load ptr, ptr %shared_destroy.i.i.i.i.i.i.i.i35, align 8
-  %cmp3.i.not.i.i.i.i.i.i.i36 = icmp eq ptr %46, null
+  %shared_destroy.i.i.i.i.i.i.i.i35 = getelementptr inbounds %"struct.testing::internal::MatcherBase<const absl::LogEntry &>::VTable", ptr %43, i64 0, i32 3
+  %44 = load ptr, ptr %shared_destroy.i.i.i.i.i.i.i.i35, align 8
+  %cmp3.i.not.i.i.i.i.i.i.i36 = icmp eq ptr %44, null
   br i1 %cmp3.i.not.i.i.i.i.i.i.i36, label %_ZNSt10_Head_baseILm0EN7testing7MatcherIRKN4absl8LogEntryEEELb0EED2Ev.exit.i.i.i, label %land.lhs.true.i.i.i.i.i.i.i37
 
 land.lhs.true.i.i.i.i.i.i.i37:                    ; preds = %_ZNK7testing8internal11MatcherBaseIRKN4absl8LogEntryEE8IsSharedEv.exit.i.i.i.i.i.i.i34
-  %47 = load ptr, ptr %buffer_.i.i.i.i.i.i.i, align 8
-  %48 = atomicrmw sub ptr %47, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i.i.i.i39 = icmp eq i32 %48, 1
+  %45 = load ptr, ptr %buffer_.i.i.i.i.i.i.i, align 8
+  %46 = atomicrmw sub ptr %45, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i.i.i.i39 = icmp eq i32 %46, 1
   br i1 %cmp.i.i.i.i.i.i.i.i39, label %if.then.i.i.i.i.i.i.i49, label %_ZNSt10_Head_baseILm0EN7testing7MatcherIRKN4absl8LogEntryEEELb0EED2Ev.exit.i.i.i
 
 if.then.i.i.i.i.i.i.i49:                          ; preds = %land.lhs.true.i.i.i.i.i.i.i37
-  %49 = load ptr, ptr %vtable_.i.i.i.i.i.i.i, align 8
-  %shared_destroy.i.i.i.i.i.i.i50 = getelementptr inbounds %"struct.testing::internal::MatcherBase<const absl::LogEntry &>::VTable", ptr %49, i64 0, i32 3
-  %50 = load ptr, ptr %shared_destroy.i.i.i.i.i.i.i50, align 8
-  %51 = load ptr, ptr %buffer_.i.i.i.i.i.i.i, align 8
-  invoke void %50(ptr noundef %51)
+  %47 = load ptr, ptr %vtable_.i.i.i.i.i.i.i, align 8
+  %shared_destroy.i.i.i.i.i.i.i50 = getelementptr inbounds %"struct.testing::internal::MatcherBase<const absl::LogEntry &>::VTable", ptr %47, i64 0, i32 3
+  %48 = load ptr, ptr %shared_destroy.i.i.i.i.i.i.i50, align 8
+  %49 = load ptr, ptr %buffer_.i.i.i.i.i.i.i, align 8
+  invoke void %48(ptr noundef %49)
           to label %_ZNSt10_Head_baseILm0EN7testing7MatcherIRKN4absl8LogEntryEEELb0EED2Ev.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i51
 
 terminate.lpad.i.i.i.i.i.i51:                     ; preds = %if.then.i.i.i.i.i.i.i49
-  %52 = landingpad { ptr, i32 }
+  %50 = landingpad { ptr, i32 }
           catch ptr null
-  %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #24
+  %51 = extractvalue { ptr, i32 } %50, 0
+  call void @__clang_call_terminate(ptr %51) #24
   unreachable
 
 _ZNSt10_Head_baseILm0EN7testing7MatcherIRKN4absl8LogEntryEEELb0EED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i49, %land.lhs.true.i.i.i.i.i.i.i37, %_ZNK7testing8internal11MatcherBaseIRKN4absl8LogEntryEE8IsSharedEv.exit.i.i.i.i.i.i.i34, %_ZN7testing7MatcherIRKN4absl8LogEntryEED2Ev.exit
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl8LogEntryEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp13, align 8
-  %54 = load ptr, ptr %vtable_.i.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i40 = icmp eq ptr %54, null
+  %52 = load ptr, ptr %vtable_.i.i.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i40 = icmp eq ptr %52, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i40, label %_ZN7testing8internal15VariadicMatcherINS0_16AllOfMatcherImplEJNS_7MatcherIRKN4absl8LogEntryEEES8_NS0_15AnythingMatcherEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKN4absl8LogEntryEE8IsSharedEv.exit.i.i.i.i.i.i.i.i41
 
 _ZNK7testing8internal11MatcherBaseIRKN4absl8LogEntryEE8IsSharedEv.exit.i.i.i.i.i.i.i.i41: ; preds = %_ZNSt10_Head_baseILm0EN7testing7MatcherIRKN4absl8LogEntryEEELb0EED2Ev.exit.i.i.i
-  %shared_destroy.i.i.i.i.i.i.i.i.i42 = getelementptr inbounds %"struct.testing::internal::MatcherBase<const absl::LogEntry &>::VTable", ptr %54, i64 0, i32 3
-  %55 = load ptr, ptr %shared_destroy.i.i.i.i.i.i.i.i.i42, align 8
-  %cmp3.i.not.i.i.i.i.i.i.i.i43 = icmp eq ptr %55, null
+  %shared_destroy.i.i.i.i.i.i.i.i.i42 = getelementptr inbounds %"struct.testing::internal::MatcherBase<const absl::LogEntry &>::VTable", ptr %52, i64 0, i32 3
+  %53 = load ptr, ptr %shared_destroy.i.i.i.i.i.i.i.i.i42, align 8
+  %cmp3.i.not.i.i.i.i.i.i.i.i43 = icmp eq ptr %53, null
   br i1 %cmp3.i.not.i.i.i.i.i.i.i.i43, label %_ZN7testing8internal15VariadicMatcherINS0_16AllOfMatcherImplEJNS_7MatcherIRKN4absl8LogEntryEEES8_NS0_15AnythingMatcherEEED2Ev.exit, label %land.lhs.true.i.i.i.i.i.i.i.i44
 
 land.lhs.true.i.i.i.i.i.i.i.i44:                  ; preds = %_ZNK7testing8internal11MatcherBaseIRKN4absl8LogEntryEE8IsSharedEv.exit.i.i.i.i.i.i.i.i41
-  %56 = load ptr, ptr %buffer_.i.i.i.i.i.i.i.i, align 8
-  %57 = atomicrmw sub ptr %56, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i.i.i.i.i46 = icmp eq i32 %57, 1
+  %54 = load ptr, ptr %buffer_.i.i.i.i.i.i.i.i, align 8
+  %55 = atomicrmw sub ptr %54, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i.i.i.i.i46 = icmp eq i32 %55, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i46, label %if.then.i.i.i.i.i.i.i.i47, label %_ZN7testing8internal15VariadicMatcherINS0_16AllOfMatcherImplEJNS_7MatcherIRKN4absl8LogEntryEEES8_NS0_15AnythingMatcherEEED2Ev.exit
 
 if.then.i.i.i.i.i.i.i.i47:                        ; preds = %land.lhs.true.i.i.i.i.i.i.i.i44
-  %58 = load ptr, ptr %vtable_.i.i.i.i.i.i.i.i, align 8
-  %shared_destroy.i.i.i.i.i1.i.i.i = getelementptr inbounds %"struct.testing::internal::MatcherBase<const absl::LogEntry &>::VTable", ptr %58, i64 0, i32 3
-  %59 = load ptr, ptr %shared_destroy.i.i.i.i.i1.i.i.i, align 8
-  %60 = load ptr, ptr %buffer_.i.i.i.i.i.i.i.i, align 8
-  invoke void %59(ptr noundef %60)
+  %56 = load ptr, ptr %vtable_.i.i.i.i.i.i.i.i, align 8
+  %shared_destroy.i.i.i.i.i1.i.i.i = getelementptr inbounds %"struct.testing::internal::MatcherBase<const absl::LogEntry &>::VTable", ptr %56, i64 0, i32 3
+  %57 = load ptr, ptr %shared_destroy.i.i.i.i.i1.i.i.i, align 8
+  %58 = load ptr, ptr %buffer_.i.i.i.i.i.i.i.i, align 8
+  invoke void %57(ptr noundef %58)
           to label %_ZN7testing8internal15VariadicMatcherINS0_16AllOfMatcherImplEJNS_7MatcherIRKN4absl8LogEntryEEES8_NS0_15AnythingMatcherEEED2Ev.exit unwind label %terminate.lpad.i.i.i.i.i.i.i48
 
 terminate.lpad.i.i.i.i.i.i.i48:                   ; preds = %if.then.i.i.i.i.i.i.i.i47
-  %61 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           catch ptr null
-  %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #24
+  %60 = extractvalue { ptr, i32 } %59, 0
+  call void @__clang_call_terminate(ptr %60) #24
   unreachable
 
 _ZN7testing8internal15VariadicMatcherINS0_16AllOfMatcherImplEJNS_7MatcherIRKN4absl8LogEntryEEES8_NS0_15AnythingMatcherEEED2Ev.exit: ; preds = %_ZNSt10_Head_baseILm0EN7testing7MatcherIRKN4absl8LogEntryEEELb0EED2Ev.exit.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKN4absl8LogEntryEE8IsSharedEv.exit.i.i.i.i.i.i.i.i41, %land.lhs.true.i.i.i.i.i.i.i.i44, %if.then.i.i.i.i.i.i.i.i47
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl8LogEntryEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp20, align 8
-  %63 = load ptr, ptr %vtable_2.i.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i53 = icmp eq ptr %63, null
+  %61 = load ptr, ptr %vtable_2.i.i.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i53 = icmp eq ptr %61, null
   br i1 %cmp.not.i.i.i.i53, label %_ZN7testing7MatcherIRKN4absl8LogEntryEED2Ev.exit63, label %_ZNK7testing8internal11MatcherBaseIRKN4absl8LogEntryEE8IsSharedEv.exit.i.i.i54
 
 _ZNK7testing8internal11MatcherBaseIRKN4absl8LogEntryEE8IsSharedEv.exit.i.i.i54: ; preds = %_ZN7testing8internal15VariadicMatcherINS0_16AllOfMatcherImplEJNS_7MatcherIRKN4absl8LogEntryEEES8_NS0_15AnythingMatcherEEED2Ev.exit
-  %shared_destroy.i.i.i.i55 = getelementptr inbounds %"struct.testing::internal::MatcherBase<const absl::LogEntry &>::VTable", ptr %63, i64 0, i32 3
-  %64 = load ptr, ptr %shared_destroy.i.i.i.i55, align 8
-  %cmp3.i.not.i.i.i56 = icmp eq ptr %64, null
+  %shared_destroy.i.i.i.i55 = getelementptr inbounds %"struct.testing::internal::MatcherBase<const absl::LogEntry &>::VTable", ptr %61, i64 0, i32 3
+  %62 = load ptr, ptr %shared_destroy.i.i.i.i55, align 8
+  %cmp3.i.not.i.i.i56 = icmp eq ptr %62, null
   br i1 %cmp3.i.not.i.i.i56, label %_ZN7testing7MatcherIRKN4absl8LogEntryEED2Ev.exit63, label %land.lhs.true.i.i.i57
 
 land.lhs.true.i.i.i57:                            ; preds = %_ZNK7testing8internal11MatcherBaseIRKN4absl8LogEntryEE8IsSharedEv.exit.i.i.i54
-  %65 = load ptr, ptr %buffer_3.i.i.i.i.i.i.i.i, align 8
-  %66 = atomicrmw sub ptr %65, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i59 = icmp eq i32 %66, 1
+  %63 = load ptr, ptr %buffer_3.i.i.i.i.i.i.i.i, align 8
+  %64 = atomicrmw sub ptr %63, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i59 = icmp eq i32 %64, 1
   br i1 %cmp.i.i.i.i59, label %if.then.i.i.i60, label %_ZN7testing7MatcherIRKN4absl8LogEntryEED2Ev.exit63
 
 if.then.i.i.i60:                                  ; preds = %land.lhs.true.i.i.i57
-  %67 = load ptr, ptr %vtable_2.i.i.i.i.i.i.i.i, align 8
-  %shared_destroy.i.i.i61 = getelementptr inbounds %"struct.testing::internal::MatcherBase<const absl::LogEntry &>::VTable", ptr %67, i64 0, i32 3
-  %68 = load ptr, ptr %shared_destroy.i.i.i61, align 8
-  %69 = load ptr, ptr %buffer_3.i.i.i.i.i.i.i.i, align 8
-  invoke void %68(ptr noundef %69)
+  %65 = load ptr, ptr %vtable_2.i.i.i.i.i.i.i.i, align 8
+  %shared_destroy.i.i.i61 = getelementptr inbounds %"struct.testing::internal::MatcherBase<const absl::LogEntry &>::VTable", ptr %65, i64 0, i32 3
+  %66 = load ptr, ptr %shared_destroy.i.i.i61, align 8
+  %67 = load ptr, ptr %buffer_3.i.i.i.i.i.i.i.i, align 8
+  invoke void %66(ptr noundef %67)
           to label %_ZN7testing7MatcherIRKN4absl8LogEntryEED2Ev.exit63 unwind label %terminate.lpad.i.i62
 
 terminate.lpad.i.i62:                             ; preds = %if.then.i.i.i60
-  %70 = landingpad { ptr, i32 }
+  %68 = landingpad { ptr, i32 }
           catch ptr null
-  %71 = extractvalue { ptr, i32 } %70, 0
-  call void @__clang_call_terminate(ptr %71) #24
+  %69 = extractvalue { ptr, i32 } %68, 0
+  call void @__clang_call_terminate(ptr %69) #24
   unreachable
 
 _ZN7testing7MatcherIRKN4absl8LogEntryEED2Ev.exit63: ; preds = %_ZN7testing8internal15VariadicMatcherINS0_16AllOfMatcherImplEJNS_7MatcherIRKN4absl8LogEntryEEES8_NS0_15AnythingMatcherEEED2Ev.exit, %_ZNK7testing8internal11MatcherBaseIRKN4absl8LogEntryEE8IsSharedEv.exit.i.i.i54, %land.lhs.true.i.i.i57, %if.then.i.i.i60
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp21, align 8
-  %72 = load ptr, ptr %vtable_.i.i, align 8
-  %cmp.not.i.i.i.i65 = icmp eq ptr %72, null
+  %70 = load ptr, ptr %vtable_.i.i, align 8
+  %cmp.not.i.i.i.i65 = icmp eq ptr %70, null
   br i1 %cmp.not.i.i.i.i65, label %_ZN7testing7MatcherISt17basic_string_viewIcSt11char_traitsIcEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i
 
 _ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i: ; preds = %_ZN7testing7MatcherIRKN4absl8LogEntryEED2Ev.exit63
-  %shared_destroy.i.i.i.i66 = getelementptr inbounds %"struct.testing::internal::MatcherBase<std::basic_string_view<char>>::VTable", ptr %72, i64 0, i32 3
-  %73 = load ptr, ptr %shared_destroy.i.i.i.i66, align 8
-  %cmp3.i.not.i.i.i67 = icmp eq ptr %73, null
+  %shared_destroy.i.i.i.i66 = getelementptr inbounds %"struct.testing::internal::MatcherBase<std::basic_string_view<char>>::VTable", ptr %70, i64 0, i32 3
+  %71 = load ptr, ptr %shared_destroy.i.i.i.i66, align 8
+  %cmp3.i.not.i.i.i67 = icmp eq ptr %71, null
   br i1 %cmp3.i.not.i.i.i67, label %_ZN7testing7MatcherISt17basic_string_viewIcSt11char_traitsIcEEED2Ev.exit, label %land.lhs.true.i.i.i68
 
 land.lhs.true.i.i.i68:                            ; preds = %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i
-  %74 = load ptr, ptr %buffer_.i.i, align 8
-  %75 = atomicrmw sub ptr %74, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i70 = icmp eq i32 %75, 1
+  %72 = load ptr, ptr %buffer_.i.i, align 8
+  %73 = atomicrmw sub ptr %72, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i70 = icmp eq i32 %73, 1
   br i1 %cmp.i.i.i.i70, label %if.then.i.i.i71, label %_ZN7testing7MatcherISt17basic_string_viewIcSt11char_traitsIcEEED2Ev.exit
 
 if.then.i.i.i71:                                  ; preds = %land.lhs.true.i.i.i68
-  %76 = load ptr, ptr %vtable_.i.i, align 8
-  %shared_destroy.i.i.i72 = getelementptr inbounds %"struct.testing::internal::MatcherBase<std::basic_string_view<char>>::VTable", ptr %76, i64 0, i32 3
-  %77 = load ptr, ptr %shared_destroy.i.i.i72, align 8
-  %78 = load ptr, ptr %buffer_.i.i, align 8
-  invoke void %77(ptr noundef %78)
+  %74 = load ptr, ptr %vtable_.i.i, align 8
+  %shared_destroy.i.i.i72 = getelementptr inbounds %"struct.testing::internal::MatcherBase<std::basic_string_view<char>>::VTable", ptr %74, i64 0, i32 3
+  %75 = load ptr, ptr %shared_destroy.i.i.i72, align 8
+  %76 = load ptr, ptr %buffer_.i.i, align 8
+  invoke void %75(ptr noundef %76)
           to label %_ZN7testing7MatcherISt17basic_string_viewIcSt11char_traitsIcEEED2Ev.exit unwind label %terminate.lpad.i.i73
 
 terminate.lpad.i.i73:                             ; preds = %if.then.i.i.i71
-  %79 = landingpad { ptr, i32 }
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #24
+  %78 = extractvalue { ptr, i32 } %77, 0
+  call void @__clang_call_terminate(ptr %78) #24
   unreachable
 
 _ZN7testing7MatcherISt17basic_string_viewIcSt11char_traitsIcEEED2Ev.exit: ; preds = %_ZN7testing7MatcherIRKN4absl8LogEntryEED2Ev.exit63, %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i, %land.lhs.true.i.i.i68, %if.then.i.i.i71
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl8LogEntryEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp14, align 8
-  %81 = load ptr, ptr %vtable_2.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i75 = icmp eq ptr %81, null
+  %79 = load ptr, ptr %vtable_2.i.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i75 = icmp eq ptr %79, null
   br i1 %cmp.not.i.i.i.i75, label %_ZN7testing7MatcherIRKN4absl8LogEntryEED2Ev.exit85, label %_ZNK7testing8internal11MatcherBaseIRKN4absl8LogEntryEE8IsSharedEv.exit.i.i.i76
 
 _ZNK7testing8internal11MatcherBaseIRKN4absl8LogEntryEE8IsSharedEv.exit.i.i.i76: ; preds = %_ZN7testing7MatcherISt17basic_string_viewIcSt11char_traitsIcEEED2Ev.exit
-  %shared_destroy.i.i.i.i77 = getelementptr inbounds %"struct.testing::internal::MatcherBase<const absl::LogEntry &>::VTable", ptr %81, i64 0, i32 3
-  %82 = load ptr, ptr %shared_destroy.i.i.i.i77, align 8
-  %cmp3.i.not.i.i.i78 = icmp eq ptr %82, null
+  %shared_destroy.i.i.i.i77 = getelementptr inbounds %"struct.testing::internal::MatcherBase<const absl::LogEntry &>::VTable", ptr %79, i64 0, i32 3
+  %80 = load ptr, ptr %shared_destroy.i.i.i.i77, align 8
+  %cmp3.i.not.i.i.i78 = icmp eq ptr %80, null
   br i1 %cmp3.i.not.i.i.i78, label %_ZN7testing7MatcherIRKN4absl8LogEntryEED2Ev.exit85, label %land.lhs.true.i.i.i79
 
 land.lhs.true.i.i.i79:                            ; preds = %_ZNK7testing8internal11MatcherBaseIRKN4absl8LogEntryEE8IsSharedEv.exit.i.i.i76
-  %83 = load ptr, ptr %buffer_3.i.i.i.i.i.i.i, align 8
-  %84 = atomicrmw sub ptr %83, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i81 = icmp eq i32 %84, 1
+  %81 = load ptr, ptr %buffer_3.i.i.i.i.i.i.i, align 8
+  %82 = atomicrmw sub ptr %81, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i81 = icmp eq i32 %82, 1
   br i1 %cmp.i.i.i.i81, label %if.then.i.i.i82, label %_ZN7testing7MatcherIRKN4absl8LogEntryEED2Ev.exit85
 
 if.then.i.i.i82:                                  ; preds = %land.lhs.true.i.i.i79
-  %85 = load ptr, ptr %vtable_2.i.i.i.i.i.i.i, align 8
-  %shared_destroy.i.i.i83 = getelementptr inbounds %"struct.testing::internal::MatcherBase<const absl::LogEntry &>::VTable", ptr %85, i64 0, i32 3
-  %86 = load ptr, ptr %shared_destroy.i.i.i83, align 8
-  %87 = load ptr, ptr %buffer_3.i.i.i.i.i.i.i, align 8
-  invoke void %86(ptr noundef %87)
+  %83 = load ptr, ptr %vtable_2.i.i.i.i.i.i.i, align 8
+  %shared_destroy.i.i.i83 = getelementptr inbounds %"struct.testing::internal::MatcherBase<const absl::LogEntry &>::VTable", ptr %83, i64 0, i32 3
+  %84 = load ptr, ptr %shared_destroy.i.i.i83, align 8
+  %85 = load ptr, ptr %buffer_3.i.i.i.i.i.i.i, align 8
+  invoke void %84(ptr noundef %85)
           to label %_ZN7testing7MatcherIRKN4absl8LogEntryEED2Ev.exit85 unwind label %terminate.lpad.i.i84
 
 terminate.lpad.i.i84:                             ; preds = %if.then.i.i.i82
-  %88 = landingpad { ptr, i32 }
+  %86 = landingpad { ptr, i32 }
           catch ptr null
-  %89 = extractvalue { ptr, i32 } %88, 0
-  call void @__clang_call_terminate(ptr %89) #24
+  %87 = extractvalue { ptr, i32 } %86, 0
+  call void @__clang_call_terminate(ptr %87) #24
   unreachable
 
 _ZN7testing7MatcherIRKN4absl8LogEntryEED2Ev.exit85: ; preds = %_ZN7testing7MatcherISt17basic_string_viewIcSt11char_traitsIcEEED2Ev.exit, %_ZNK7testing8internal11MatcherBaseIRKN4absl8LogEntryEE8IsSharedEv.exit.i.i.i76, %land.lhs.true.i.i.i79, %if.then.i.i.i82
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp15, align 8
   %vtable_.i.i.i.i86 = getelementptr inbounds %"class.testing::internal::MatcherBase.22", ptr %ref.tmp15, i64 0, i32 1
-  %90 = load ptr, ptr %vtable_.i.i.i.i86, align 8
-  %cmp.not.i.i.i.i87 = icmp eq ptr %90, null
+  %88 = load ptr, ptr %vtable_.i.i.i.i86, align 8
+  %cmp.not.i.i.i.i87 = icmp eq ptr %88, null
   br i1 %cmp.not.i.i.i.i87, label %_ZN7testing7MatcherISt17basic_string_viewIcSt11char_traitsIcEEED2Ev.exit97, label %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i88
 
 _ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i88: ; preds = %_ZN7testing7MatcherIRKN4absl8LogEntryEED2Ev.exit85
-  %shared_destroy.i.i.i.i89 = getelementptr inbounds %"struct.testing::internal::MatcherBase<std::basic_string_view<char>>::VTable", ptr %90, i64 0, i32 3
-  %91 = load ptr, ptr %shared_destroy.i.i.i.i89, align 8
-  %cmp3.i.not.i.i.i90 = icmp eq ptr %91, null
+  %shared_destroy.i.i.i.i89 = getelementptr inbounds %"struct.testing::internal::MatcherBase<std::basic_string_view<char>>::VTable", ptr %88, i64 0, i32 3
+  %89 = load ptr, ptr %shared_destroy.i.i.i.i89, align 8
+  %cmp3.i.not.i.i.i90 = icmp eq ptr %89, null
   br i1 %cmp3.i.not.i.i.i90, label %_ZN7testing7MatcherISt17basic_string_viewIcSt11char_traitsIcEEED2Ev.exit97, label %land.lhs.true.i.i.i91
 
 land.lhs.true.i.i.i91:                            ; preds = %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i88
   %buffer_.i.i.i92 = getelementptr inbounds %"class.testing::internal::MatcherBase.22", ptr %ref.tmp15, i64 0, i32 2
-  %92 = load ptr, ptr %buffer_.i.i.i92, align 8
-  %93 = atomicrmw sub ptr %92, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i93 = icmp eq i32 %93, 1
+  %90 = load ptr, ptr %buffer_.i.i.i92, align 8
+  %91 = atomicrmw sub ptr %90, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i93 = icmp eq i32 %91, 1
   br i1 %cmp.i.i.i.i93, label %if.then.i.i.i94, label %_ZN7testing7MatcherISt17basic_string_viewIcSt11char_traitsIcEEED2Ev.exit97
 
 if.then.i.i.i94:                                  ; preds = %land.lhs.true.i.i.i91
-  %94 = load ptr, ptr %vtable_.i.i.i.i86, align 8
-  %shared_destroy.i.i.i95 = getelementptr inbounds %"struct.testing::internal::MatcherBase<std::basic_string_view<char>>::VTable", ptr %94, i64 0, i32 3
-  %95 = load ptr, ptr %shared_destroy.i.i.i95, align 8
-  %96 = load ptr, ptr %buffer_.i.i.i92, align 8
-  invoke void %95(ptr noundef %96)
+  %92 = load ptr, ptr %vtable_.i.i.i.i86, align 8
+  %shared_destroy.i.i.i95 = getelementptr inbounds %"struct.testing::internal::MatcherBase<std::basic_string_view<char>>::VTable", ptr %92, i64 0, i32 3
+  %93 = load ptr, ptr %shared_destroy.i.i.i95, align 8
+  %94 = load ptr, ptr %buffer_.i.i.i92, align 8
+  invoke void %93(ptr noundef %94)
           to label %_ZN7testing7MatcherISt17basic_string_viewIcSt11char_traitsIcEEED2Ev.exit97 unwind label %terminate.lpad.i.i96
 
 terminate.lpad.i.i96:                             ; preds = %if.then.i.i.i94
-  %97 = landingpad { ptr, i32 }
+  %95 = landingpad { ptr, i32 }
           catch ptr null
-  %98 = extractvalue { ptr, i32 } %97, 0
-  call void @__clang_call_terminate(ptr %98) #24
+  %96 = extractvalue { ptr, i32 } %95, 0
+  call void @__clang_call_terminate(ptr %96) #24
   unreachable
 
 _ZN7testing7MatcherISt17basic_string_viewIcSt11char_traitsIcEEED2Ev.exit97: ; preds = %_ZN7testing7MatcherIRKN4absl8LogEntryEED2Ev.exit85, %_ZNK7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEE8IsSharedEv.exit.i.i.i88, %land.lhs.true.i.i.i91, %if.then.i.i.i94
@@ -1147,9 +1145,9 @@ invoke.cont49:                                    ; preds = %_ZN7testing7Matcher
 
 invoke.cont60:                                    ; preds = %invoke.cont49
   %call59 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %not_a_literal) #21
-  %99 = extractvalue { i64, ptr } %call59, 0
-  %100 = extractvalue { i64, ptr } %call59, 1
-  invoke void @_ZN4absl12log_internal10LogMessage19CopyToEncodedBufferILNS1_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp51, i64 %99, ptr %100)
+  %97 = extractvalue { i64, ptr } %call59, 0
+  %98 = extractvalue { i64, ptr } %call59, 1
+  invoke void @_ZN4absl12log_internal10LogMessage19CopyToEncodedBufferILNS1_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp51, i64 %97, ptr %98)
           to label %invoke.cont63 unwind label %lpad54
 
 invoke.cont63:                                    ; preds = %invoke.cont60
@@ -1160,48 +1158,48 @@ invoke.cont63:                                    ; preds = %invoke.cont60
   ret void
 
 lpad:                                             ; preds = %call.i.noexc, %entry
-  %101 = landingpad { ptr, i32 }
+  %99 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i104, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %101, %lpad ], [ %2, %lpad.i104 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %99, %lpad ], [ %2, %lpad.i104 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #21
   br label %ehcleanup69
 
 lpad2:                                            ; preds = %invoke.cont6, %invoke.cont8, %invoke.cont
-  %102 = landingpad { ptr, i32 }
+  %100 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup68
 
 lpad16:                                           ; preds = %invoke.cont49, %_ZN7testing7MatcherISt17basic_string_viewIcSt11char_traitsIcEEED2Ev.exit97, %invoke.cont10
-  %103 = landingpad { ptr, i32 }
+  %101 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup67
 
 lpad18:                                           ; preds = %invoke.cont17
-  %104 = landingpad { ptr, i32 }
+  %102 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup48
 
 lpad29:                                           ; preds = %invoke.cont28
-  %105 = landingpad { ptr, i32 }
+  %103 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup46
 
 lpad35:                                           ; preds = %invoke.cont34
-  %106 = landingpad { ptr, i32 }
+  %104 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad38:                                           ; preds = %invoke.cont39, %invoke.cont36
-  %107 = landingpad { ptr, i32 }
+  %105 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7testing8internal8MockSpecIFvRKN4absl8LogEntryEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad38, %lpad35
-  %.pn = phi { ptr, i32 } [ %107, %lpad38 ], [ %106, %lpad35 ]
+  %.pn = phi { ptr, i32 } [ %105, %lpad38 ], [ %104, %lpad35 ]
   call void @_ZN7testing7MatcherIRKN4absl8LogEntryEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp12) #21
   br label %ehcleanup44
 
@@ -1212,29 +1210,29 @@ ehcleanup44:                                      ; preds = %ehcleanup.i, %ehcle
   br label %ehcleanup46
 
 ehcleanup46:                                      ; preds = %ehcleanup44, %lpad29
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup44 ], [ %105, %lpad29 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup44 ], [ %103, %lpad29 ]
   call void @_ZN7testing7MatcherISt17basic_string_viewIcSt11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp21) #21
   call void @_ZN7testing7MatcherIRKN4absl8LogEntryEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp14) #21
   br label %ehcleanup48
 
 ehcleanup48:                                      ; preds = %ehcleanup46, %lpad18
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup46 ], [ %104, %lpad18 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup46 ], [ %102, %lpad18 ]
   call void @_ZN7testing7MatcherISt17basic_string_viewIcSt11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp15) #21
   br label %ehcleanup67
 
 lpad54:                                           ; preds = %invoke.cont60
-  %108 = landingpad { ptr, i32 }
+  %106 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp51) #26
   br label %ehcleanup67
 
 ehcleanup67:                                      ; preds = %lpad54, %ehcleanup48, %lpad16
-  %.pn7 = phi { ptr, i32 } [ %108, %lpad54 ], [ %103, %lpad16 ], [ %.pn.pn.pn.pn.pn.pn, %ehcleanup48 ]
+  %.pn7 = phi { ptr, i32 } [ %106, %lpad54 ], [ %101, %lpad16 ], [ %.pn.pn.pn.pn.pn.pn, %ehcleanup48 ]
   call void @_ZN4absl13ScopedMockLogD1Ev(ptr noundef nonnull align 8 dereferenceable(240) %sink) #21
   br label %ehcleanup68
 
 ehcleanup68:                                      ; preds = %ehcleanup67, %lpad2
-  %.pn7.pn = phi { ptr, i32 } [ %.pn7, %ehcleanup67 ], [ %102, %lpad2 ]
+  %.pn7.pn = phi { ptr, i32 } [ %.pn7, %ehcleanup67 ], [ %100, %lpad2 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %not_a_literal) #21
   br label %ehcleanup69
 

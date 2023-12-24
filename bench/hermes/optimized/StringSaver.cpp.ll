@@ -220,14 +220,14 @@ _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE12StartNewSla
   %16 = load ptr, ptr %Slabs.i, align 8
   %conv.i3.i.i = zext i32 %15 to i64
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %16, i64 %conv.i3.i.i
-  %17 = ptrtoint ptr %call.i.i.i to i64
-  store i64 %17, ptr %add.ptr.i.i.i, align 1
-  %18 = load i32, ptr %Size.i.i13, align 8
-  %add.i.i15 = add i32 %18, 1
+  store ptr %call.i.i.i, ptr %add.ptr.i.i.i, align 1
+  %17 = load i32, ptr %Size.i.i13, align 8
+  %add.i.i15 = add i32 %17, 1
   store i32 %add.i.i15, ptr %Size.i.i13, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 %mul.i.i
   store ptr %add.ptr.i, ptr %End, align 8
-  %sub.i18 = add i64 %add.i.i, %17
+  %18 = ptrtoint ptr %call.i.i.i to i64
+  %sub.i18 = add i64 %add.i.i, %18
   %and.i20 = and i64 %sub.i18, %not.i.i
   %19 = inttoptr i64 %and.i20 to ptr
   %add.ptr19 = getelementptr inbounds i8, ptr %19, i64 %Size
@@ -587,7 +587,7 @@ if.then:                                          ; preds = %_ZN4llvh8DenseMapIN
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %B.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %call.i, %if.then ]
-  store ptr inttoptr (i64 -1 to ptr), ptr %B.04.i, align 8
+  store i64 -1, ptr %B.04.i, align 8
   %EmptyKey.sroa.2.0.call4.sroa_idx.i = getelementptr inbounds i8, ptr %B.04.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i, align 8
   %incdec.ptr.i = getelementptr inbounds %"class.llvh::detail::DenseSetPair", ptr %B.04.i, i64 1
@@ -609,7 +609,7 @@ if.end:                                           ; preds = %_ZN4llvh8DenseMapIN
 
 for.body.i.i:                                     ; preds = %if.end, %for.body.i.i
   %B.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i, %if.end ]
-  store ptr inttoptr (i64 -1 to ptr), ptr %B.04.i.i, align 8
+  store i64 -1, ptr %B.04.i.i, align 8
   %EmptyKey.sroa.2.0.call4.sroa_idx.i.i = getelementptr inbounds i8, ptr %B.04.i.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds %"class.llvh::detail::DenseSetPair", ptr %B.04.i.i, i64 1

@@ -572,8 +572,7 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN17grpc_event_engine12experimental27GrpcClosureToStatusCallbackEP12grpc_closure(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::AnyInvocable") align 16 %agg.result, ptr noundef %closure) local_unnamed_addr #6 {
 entry:
-  %0 = ptrtoint ptr %closure to i64
-  store i64 %0, ptr %agg.result, align 16
+  store ptr %closure, ptr %agg.result, align 16
   %invoker_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.result, i64 0, i32 2
   store ptr @"_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRZN17grpc_event_engine12experimental27GrpcClosureToStatusCallbackEP12grpc_closureE3$_0JNS0_6StatusEEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE", ptr %invoker_.i.i.i.i.i, align 8
   %manager_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.result, i64 0, i32 1
