@@ -1256,8 +1256,6 @@ $_ZN7testing8internal18CmpHelperEQFailureIbbEENS_15AssertionResultEPKcS4_RKT_RKT
 
 $_ZN4absl15random_internal18DistributionCallerINS_13MockingBitGenEE4ImplINS_17beta_distributionIdEEJRdS7_EEENT_11result_typeESt17integral_constantIbLb1EEPS2_DpOT0_ = comdat any
 
-$_ZN4absl17beta_distributionIdE10param_typeC2Edd = comdat any
-
 $_ZN4absl17beta_distributionIdEclINS_13MockingBitGenEEEdRT_RKNS1_10param_typeE = comdat any
 
 $_ZN4absl17beta_distributionIdE15AlgorithmJoehnkINS_13MockingBitGenEEEdRT_RKNS1_10param_typeE = comdat any
@@ -19339,8 +19337,8 @@ if.then:                                          ; preds = %_ZN4absl18container
   %impl_.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::MockingBitGen", ptr %urbg, i64 0, i32 1, i32 0, i32 2
   %has_crypto_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::MockingBitGen", ptr %urbg, i64 0, i32 1, i32 0, i32 2, i32 1
   %.pre.i.i = load i64, ptr %next_.i.i.i.i.i.i.i, align 8
-  %20 = tail call i1 @llvm.is.fpclass.f64(double %sub.i.i.i.i.i.fr, i32 384)
-  br i1 %20, label %while.body.i.i, label %while.body.i.i.us
+  %cmp6.i.i = fcmp ugt double %sub.i.i.i.i.i.fr, 0.000000e+00
+  br i1 %cmp6.i.i, label %if.then.split, label %while.body.i.i.us
 
 while.body.i.i.us:                                ; preds = %if.then
   %cmp.i.i.i.i.i.i.i.us = icmp ugt i64 %.pre.i.i, 31
@@ -19348,95 +19346,144 @@ while.body.i.i.us:                                ; preds = %if.then
 
 if.then.i.i.i.i.i.i.i.us:                         ; preds = %while.body.i.i.us
   store i64 2, ptr %next_.i.i.i.i.i.i.i, align 8
-  %21 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i, align 8
-  %22 = and i8 %21, 1
-  %tobool.not.i.i.i.i.i.i.i.i.us = icmp eq i8 %22, 0
-  %23 = load ptr, ptr %impl_.i.i.i.i.i.i.i, align 8
+  %20 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i, align 8
+  %21 = and i8 %20, 1
+  %tobool.not.i.i.i.i.i.i.i.i.us = icmp eq i8 %21, 0
+  %22 = load ptr, ptr %impl_.i.i.i.i.i.i.i, align 8
   br i1 %tobool.not.i.i.i.i.i.i.i.i.us, label %if.else.i.i.i.i.i.i.i.i.us, label %if.then.i.i.i.i.i.i.i.i.us
 
 if.then.i.i.i.i.i.i.i.i.us:                       ; preds = %if.then.i.i.i.i.i.i.i.us
-  tail call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %23, ptr noundef nonnull %cond.i.i.i.i.i.i.i.i)
+  tail call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %22, ptr noundef nonnull %cond.i.i.i.i.i.i.i.i)
   br label %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i.us
 
 if.else.i.i.i.i.i.i.i.i.us:                       ; preds = %if.then.i.i.i.i.i.i.i.us
-  tail call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %23, ptr noundef nonnull %cond.i.i.i.i.i.i.i.i)
+  tail call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %22, ptr noundef nonnull %cond.i.i.i.i.i.i.i.i)
   br label %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i.us
 
 _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i.us: ; preds = %if.else.i.i.i.i.i.i.i.i.us, %if.then.i.i.i.i.i.i.i.i.us, %while.body.i.i.us
-  %24 = load i64, ptr %next_.i.i.i.i.i.i.i, align 8
-  %inc.i.i.i.i.i.i.i.us = add i64 %24, 1
+  %23 = load i64, ptr %next_.i.i.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i.i.i.us = add i64 %23, 1
   store i64 %inc.i.i.i.i.i.i.i.us, ptr %next_.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i.i.us = getelementptr inbounds i64, ptr %cond.i.i.i.i.i.i.i.i, i64 %24
-  %25 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.us, align 8
-  %cmp.i.i.i.us = icmp eq i64 %25, 0
+  %arrayidx.i.i.i.i.i.i.i.us = getelementptr inbounds i64, ptr %cond.i.i.i.i.i.i.i.i, i64 %23
+  %24 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.us, align 8
+  %cmp.i.i.i.us = icmp eq i64 %24, 0
   br i1 %cmp.i.i.i.us, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us, label %if.end.i.i.i.us
 
 if.end.i.i.i.us:                                  ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i.us
-  %26 = tail call i64 @llvm.ctlz.i64(i64 %25, i1 true), !range !196
-  %shl.i.i.i.us = shl i64 %25, %26
+  %25 = tail call i64 @llvm.ctlz.i64(i64 %24, i1 true), !range !196
+  %shl.i.i.i.us = shl i64 %24, %25
   %shr.i.i.i.us = lshr i64 %shl.i.i.i.us, 11
   %and.i.i.i.us = and i64 %shr.i.i.i.us, 4503599627370495
-  %27 = shl nuw nsw i64 %26, 52
-  %reass.sub = sub nsw i64 %and.i.i.i.us, %27
+  %26 = shl nuw nsw i64 %25, 52
+  %reass.sub = sub nsw i64 %and.i.i.i.us, %26
   %or2.i.i.i.us = add nsw i64 %reass.sub, 4602678819172646912
-  %28 = bitcast i64 %or2.i.i.i.us to double
+  %27 = bitcast i64 %or2.i.i.i.us to double
   br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us: ; preds = %if.end.i.i.i.us, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i.us
-  %retval.0.i.i.i.us = phi double [ %28, %if.end.i.i.i.us ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i.us ]
-  %29 = tail call double @llvm.fmuladd.f64(double %retval.0.i.i.i.us, double %sub.i.i.i.i.i.fr, double %2)
+  %retval.0.i.i.i.us = phi double [ %27, %if.end.i.i.i.us ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i.us ]
+  %28 = tail call double @llvm.fmuladd.f64(double %retval.0.i.i.i.us, double %sub.i.i.i.i.i.fr, double %2)
   br label %if.end
 
-while.body.i.i:                                   ; preds = %if.then, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %30 = phi i64 [ %inc.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %.pre.i.i, %if.then ]
-  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %30, 31
+if.then.split:                                    ; preds = %if.then
+  %29 = tail call i1 @llvm.is.fpclass.f64(double %sub.i.i.i.i.i.fr, i32 504)
+  br i1 %29, label %while.body.i.i.us5, label %while.body.i.i, !llvm.loop !197
+
+while.body.i.i.us5:                               ; preds = %if.then.split, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us22
+  %30 = phi i64 [ %inc.i.i.i.i.i.i.i.us12, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us22 ], [ %.pre.i.i, %if.then.split ]
+  %cmp.i.i.i.i.i.i.i.us6 = icmp ugt i64 %30, 31
+  br i1 %cmp.i.i.i.i.i.i.i.us6, label %if.then.i.i.i.i.i.i.i.us7, label %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i.us11
+
+if.then.i.i.i.i.i.i.i.us7:                        ; preds = %while.body.i.i.us5
+  store i64 2, ptr %next_.i.i.i.i.i.i.i, align 8
+  %31 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i, align 8
+  %32 = and i8 %31, 1
+  %tobool.not.i.i.i.i.i.i.i.i.us8 = icmp eq i8 %32, 0
+  %33 = load ptr, ptr %impl_.i.i.i.i.i.i.i, align 8
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.us8, label %if.else.i.i.i.i.i.i.i.i.us10, label %if.then.i.i.i.i.i.i.i.i.us9
+
+if.then.i.i.i.i.i.i.i.i.us9:                      ; preds = %if.then.i.i.i.i.i.i.i.us7
+  tail call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %33, ptr noundef nonnull %cond.i.i.i.i.i.i.i.i)
+  br label %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i.us11
+
+if.else.i.i.i.i.i.i.i.i.us10:                     ; preds = %if.then.i.i.i.i.i.i.i.us7
+  tail call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %33, ptr noundef nonnull %cond.i.i.i.i.i.i.i.i)
+  br label %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i.us11
+
+_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i.us11: ; preds = %if.else.i.i.i.i.i.i.i.i.us10, %if.then.i.i.i.i.i.i.i.i.us9, %while.body.i.i.us5
+  %34 = load i64, ptr %next_.i.i.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i.i.i.us12 = add i64 %34, 1
+  store i64 %inc.i.i.i.i.i.i.i.us12, ptr %next_.i.i.i.i.i.i.i, align 8
+  %arrayidx.i.i.i.i.i.i.i.us13 = getelementptr inbounds i64, ptr %cond.i.i.i.i.i.i.i.i, i64 %34
+  %35 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.us13, align 8
+  %cmp.i.i.i.us14 = icmp eq i64 %35, 0
+  br i1 %cmp.i.i.i.us14, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us22, label %if.end.i.i.i.us15
+
+if.end.i.i.i.us15:                                ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i.us11
+  %36 = tail call i64 @llvm.ctlz.i64(i64 %35, i1 true), !range !196
+  %shl.i.i.i.us16 = shl i64 %35, %36
+  %shr.i.i.i.us17 = lshr i64 %shl.i.i.i.us16, 11
+  %and.i.i.i.us18 = and i64 %shr.i.i.i.us17, 4503599627370495
+  %37 = shl nuw nsw i64 %36, 52
+  %reass.sub29 = sub nsw i64 %and.i.i.i.us18, %37
+  %or2.i.i.i.us21 = add nsw i64 %reass.sub29, 4602678819172646912
+  %38 = bitcast i64 %or2.i.i.i.us21 to double
+  br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us22
+
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us22: ; preds = %if.end.i.i.i.us15, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i.us11
+  %retval.0.i.i.i.us23 = phi double [ %38, %if.end.i.i.i.us15 ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i.us11 ]
+  %39 = tail call double @llvm.fmuladd.f64(double %retval.0.i.i.i.us23, double %sub.i.i.i.i.i.fr, double %2)
+  %cmp.i.i2.us = fcmp uge double %39, %0
+  br i1 %cmp.i.i2.us, label %while.body.i.i.us5, label %if.end
+
+while.body.i.i:                                   ; preds = %if.then.split
+  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %.pre.i.i, 31
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %while.body.i.i
   store i64 2, ptr %next_.i.i.i.i.i.i.i, align 8
-  %31 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i, align 8
-  %32 = and i8 %31, 1
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq i8 %32, 0
-  %33 = load ptr, ptr %impl_.i.i.i.i.i.i.i, align 8
+  %40 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i, align 8
+  %41 = and i8 %40, 1
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq i8 %41, 0
+  %42 = load ptr, ptr %impl_.i.i.i.i.i.i.i, align 8
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
-  tail call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %33, ptr noundef nonnull %cond.i.i.i.i.i.i.i.i)
+  tail call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %42, ptr noundef nonnull %cond.i.i.i.i.i.i.i.i)
   br label %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
-  tail call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %33, ptr noundef nonnull %cond.i.i.i.i.i.i.i.i)
+  tail call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %42, ptr noundef nonnull %cond.i.i.i.i.i.i.i.i)
   br label %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i
 
 _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %while.body.i.i
-  %34 = load i64, ptr %next_.i.i.i.i.i.i.i, align 8
-  %inc.i.i.i.i.i.i.i = add i64 %34, 1
+  %43 = load i64, ptr %next_.i.i.i.i.i.i.i, align 8
+  %inc.i.i.i.i.i.i.i = add i64 %43, 1
   store i64 %inc.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %cond.i.i.i.i.i.i.i.i, i64 %34
-  %35 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i = icmp eq i64 %35, 0
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %cond.i.i.i.i.i.i.i.i, i64 %43
+  %44 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i = icmp eq i64 %44, 0
   br i1 %cmp.i.i.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i
-  %36 = tail call i64 @llvm.ctlz.i64(i64 %35, i1 true), !range !196
-  %shl.i.i.i = shl i64 %35, %36
+  %45 = tail call i64 @llvm.ctlz.i64(i64 %44, i1 true), !range !196
+  %shl.i.i.i = shl i64 %44, %45
   %shr.i.i.i = lshr i64 %shl.i.i.i, 11
   %and.i.i.i = and i64 %shr.i.i.i, 4503599627370495
-  %37 = shl nuw nsw i64 %36, 52
-  %reass.sub8 = sub nsw i64 %and.i.i.i, %37
-  %or2.i.i.i = add nsw i64 %reass.sub8, 4602678819172646912
-  %38 = bitcast i64 %or2.i.i.i to double
+  %46 = shl nuw nsw i64 %45, 52
+  %reass.sub28 = sub nsw i64 %and.i.i.i, %46
+  %or2.i.i.i = add nsw i64 %reass.sub28, 4602678819172646912
+  %47 = bitcast i64 %or2.i.i.i to double
   br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i: ; preds = %if.end.i.i.i, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i
-  %retval.0.i.i.i = phi double [ %38, %if.end.i.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i ]
-  %39 = tail call double @llvm.fmuladd.f64(double %retval.0.i.i.i, double %sub.i.i.i.i.i.fr, double %2)
-  %cmp.i.i2 = fcmp uge double %39, %0
-  br i1 %cmp.i.i2, label %while.body.i.i, label %if.end, !llvm.loop !197
+  %retval.0.i.i.i = phi double [ %47, %if.end.i.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i ]
+  %48 = tail call double @llvm.fmuladd.f64(double %retval.0.i.i.i, double %sub.i.i.i.i.i.fr, double %2)
+  br label %if.end
 
-if.end:                                           ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us, %_ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit.thread
-  %40 = phi double [ %.pre, %_ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit.thread ], [ %29, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us ], [ %39, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ]
-  ret double %40
+if.end:                                           ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us22, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i, %_ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit.thread
+  %49 = phi double [ %.pre, %_ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit.thread ], [ %28, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us ], [ %48, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %39, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us22 ]
+  ret double %49
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -40193,149 +40240,140 @@ _ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit.thread: ; preds = %_ZN4absl18c
   br label %if.end
 
 if.then:                                          ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE4findIS4_EENSK_8iteratorERKT_.exit.i
-  call void @_ZN4absl17beta_distributionIdE10param_typeC2Edd(ptr noundef nonnull align 8 dereferenceable(69) %dist, double noundef %2, double noundef %0)
+  store double %2, ptr %dist, align 8
+  %beta_.i = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %dist, i64 0, i32 1
+  store double %0, ptr %beta_.i, align 8
+  %cmp.i = fcmp oeq double %2, 0.000000e+00
+  %cmp2.i = fcmp oeq double %0, 0.000000e+00
+  %or.cond.i = or i1 %cmp.i, %cmp2.i
+  br i1 %or.cond.i, label %if.then.i, label %if.end.i2
+
+if.then.i:                                        ; preds = %if.then
+  %method_.i = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %dist, i64 0, i32 8
+  store i32 3, ptr %method_.i, align 8
+  %cmp3.i = fcmp oge double %2, %0
+  %conv.i = uitofp i1 %cmp3.i to double
+  %x_.i = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %dist, i64 0, i32 4
+  store double %conv.i, ptr %x_.i, align 8
+  br label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit
+
+if.end.i2:                                        ; preds = %if.then
+  %cmp4.i = fcmp olt double %0, %2
+  %19 = zext i1 %cmp4.i to i8
+  %alpha.sink.i = select i1 %cmp4.i, double %0, double %2
+  %20 = select i1 %cmp4.i, double %2, double %0
+  %21 = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %dist, i64 0, i32 9
+  store i8 %19, ptr %21, align 4
+  %22 = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %dist, i64 0, i32 2
+  store double %alpha.sink.i, ptr %22, align 8
+  %23 = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %dist, i64 0, i32 3
+  store double %20, ptr %23, align 8
+  %cmp11.i = fcmp ugt double %alpha.sink.i, 1.000000e+00
+  %cmp13.i = fcmp ult double %20, 0x7F571547652B837F
+  %or.cond14.i = or i1 %cmp11.i, %cmp13.i
+  br i1 %or.cond14.i, label %if.end19.i, label %if.then14.i
+
+if.then14.i:                                      ; preds = %if.end.i2
+  %method_15.i = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %dist, i64 0, i32 8
+  store i32 3, ptr %method_15.i, align 8
+  %cond17.i = select i1 %cmp4.i, double 1.000000e+00, double 0.000000e+00
+  %x_18.i = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %dist, i64 0, i32 4
+  store double %cond17.i, ptr %x_18.i, align 8
+  br label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit
+
+if.end19.i:                                       ; preds = %if.end.i2
+  %cmp21.i = fcmp uge double %20, 1.000000e+00
+  %add.i = fadd double %2, %0
+  %cmp25.i = fcmp ugt double %add.i, 1.200000e+00
+  %or.cond15.i = or i1 %cmp25.i, %cmp21.i
+  %cmp29.i = fcmp ugt double %alpha.sink.i, 0x3F571547652B82FE
+  %or.cond16.i = and i1 %cmp29.i, %or.cond15.i
+  br i1 %or.cond16.i, label %if.end49.i, label %if.then30.i
+
+if.then30.i:                                      ; preds = %if.end19.i
+  %method_31.i = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %dist, i64 0, i32 8
+  store i32 0, ptr %method_31.i, align 8
+  %24 = insertelement <2 x double> poison, double %2, i64 0
+  %25 = insertelement <2 x double> %24, double %0, i64 1
+  %26 = fdiv <2 x double> <double 1.000000e+00, double 1.000000e+00>, %25
+  store <2 x double> %26, ptr %22, align 8
+  %27 = extractelement <2 x double> %26, i64 0
+  %28 = tail call noundef i1 @llvm.is.fpclass.f64(double %27, i32 516)
+  br i1 %28, label %if.then42.i, label %lor.lhs.false39.i
+
+lor.lhs.false39.i:                                ; preds = %if.then30.i
+  %29 = extractelement <2 x double> %26, i64 1
+  %30 = tail call noundef i1 @llvm.is.fpclass.f64(double %29, i32 516)
+  br i1 %30, label %if.then42.i, label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit
+
+if.then42.i:                                      ; preds = %lor.lhs.false39.i, %if.then30.i
+  store i32 3, ptr %method_31.i, align 8
+  %cond46.i = select i1 %cmp4.i, double 1.000000e+00, double 0.000000e+00
+  %x_47.i = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %dist, i64 0, i32 4
+  store double %cond46.i, ptr %x_47.i, align 8
+  br label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit
+
+if.end49.i:                                       ; preds = %if.end19.i
+  %cmp52.i = fcmp ult double %alpha.sink.i, 0x7F571547652B837F
+  br i1 %cmp52.i, label %if.end64.i, label %if.then53.i
+
+if.then53.i:                                      ; preds = %if.end49.i
+  %method_54.i = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %dist, i64 0, i32 8
+  store i32 4, ptr %method_54.i, align 8
+  %div57.i = fdiv double %alpha.sink.i, %20
+  %cond60.i = select i1 %cmp4.i, double 1.000000e+00, double %div57.i
+  %add61.i = fadd double %div57.i, 1.000000e+00
+  %div62.i = fdiv double %cond60.i, %add61.i
+  %x_63.i = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %dist, i64 0, i32 4
+  store double %div62.i, ptr %x_63.i, align 8
+  br label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit
+
+if.end64.i:                                       ; preds = %if.end49.i
+  %x_68.i = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %dist, i64 0, i32 4
+  store double %add.i, ptr %x_68.i, align 8
+  %call70.i = tail call double @log(double noundef %add.i) #24
+  %log_x_.i = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %dist, i64 0, i32 5
+  store double %call70.i, ptr %log_x_.i, align 8
+  %method_81.i = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %dist, i64 0, i32 8
+  br i1 %cmp11.i, label %if.end80.i, label %if.then73.i
+
+if.then73.i:                                      ; preds = %if.end64.i
+  store i32 1, ptr %method_81.i, align 8
+  %div76.i = fdiv double 1.000000e+00, %alpha.sink.i
+  %y_.i = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %dist, i64 0, i32 6
+  store double %div76.i, ptr %y_.i, align 8
+  %add79.i = fadd double %alpha.sink.i, %alpha.sink.i
+  %gamma_.i = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %dist, i64 0, i32 7
+  store double %add79.i, ptr %gamma_.i, align 8
+  br label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit
+
+if.end80.i:                                       ; preds = %if.end64.i
+  store i32 2, ptr %method_81.i, align 8
+  %sub.i = fadd double %alpha.sink.i, -1.000000e+00
+  %sub85.i = fadd double %20, -1.000000e+00
+  %div86.i = fdiv double %sub.i, %sub85.i
+  %add87.i = fadd double %div86.i, 1.000000e+00
+  %mul.i = fmul double %20, %div86.i
+  %neg.i = fneg double %div86.i
+  %31 = tail call double @llvm.fmuladd.f64(double %mul.i, double 2.000000e+00, double %neg.i)
+  %add90.i = fadd double %31, 1.000000e+00
+  %div91.i = fdiv double %add87.i, %add90.i
+  %call92.i = tail call double @sqrt(double noundef %div91.i) #24
+  %y_93.i = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %dist, i64 0, i32 6
+  store double %call92.i, ptr %y_93.i, align 8
+  %div96.i = fdiv double 1.000000e+00, %call92.i
+  %add97.i = fadd double %div96.i, %alpha.sink.i
+  %gamma_98.i = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %dist, i64 0, i32 7
+  store double %add97.i, ptr %gamma_98.i, align 8
+  br label %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit
+
+_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit: ; preds = %if.then.i, %if.then14.i, %lor.lhs.false39.i, %if.then42.i, %if.then53.i, %if.then73.i, %if.end80.i
   %call.i = call noundef double @_ZN4absl17beta_distributionIdEclINS_13MockingBitGenEEEdRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(73) %dist, ptr noundef nonnull align 8 dereferenceable(320) %urbg, ptr noundef nonnull align 8 dereferenceable(69) %dist)
   br label %if.end
 
-if.end:                                           ; preds = %_ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit.thread, %if.then
-  %19 = phi double [ %.pre, %_ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit.thread ], [ %call.i, %if.then ]
-  ret double %19
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4absl17beta_distributionIdE10param_typeC2Edd(ptr noundef nonnull align 8 dereferenceable(69) %this, double noundef %alpha, double noundef %beta) unnamed_addr #3 comdat align 2 {
-entry:
-  store double %alpha, ptr %this, align 8
-  %beta_ = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %this, i64 0, i32 1
-  store double %beta, ptr %beta_, align 8
-  %cmp = fcmp oeq double %alpha, 0.000000e+00
-  %cmp2 = fcmp oeq double %beta, 0.000000e+00
-  %or.cond = or i1 %cmp, %cmp2
-  br i1 %or.cond, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %method_ = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %this, i64 0, i32 8
-  store i32 3, ptr %method_, align 8
-  %cmp3 = fcmp oge double %alpha, %beta
-  %conv = uitofp i1 %cmp3 to double
-  %x_ = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %this, i64 0, i32 4
-  store double %conv, ptr %x_, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %cmp4 = fcmp olt double %beta, %alpha
-  %0 = zext i1 %cmp4 to i8
-  %alpha.sink = select i1 %cmp4, double %beta, double %alpha
-  %1 = select i1 %cmp4, double %alpha, double %beta
-  %2 = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %this, i64 0, i32 9
-  store i8 %0, ptr %2, align 4
-  %3 = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %this, i64 0, i32 2
-  store double %alpha.sink, ptr %3, align 8
-  %4 = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %this, i64 0, i32 3
-  store double %1, ptr %4, align 8
-  %cmp11 = fcmp ugt double %alpha.sink, 1.000000e+00
-  %cmp13 = fcmp ult double %1, 0x7F571547652B837F
-  %or.cond14 = or i1 %cmp11, %cmp13
-  br i1 %or.cond14, label %if.end19, label %if.then14
-
-if.then14:                                        ; preds = %if.end
-  %method_15 = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %this, i64 0, i32 8
-  store i32 3, ptr %method_15, align 8
-  %cond17 = select i1 %cmp4, double 1.000000e+00, double 0.000000e+00
-  %x_18 = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %this, i64 0, i32 4
-  store double %cond17, ptr %x_18, align 8
-  br label %return
-
-if.end19:                                         ; preds = %if.end
-  %cmp21 = fcmp uge double %1, 1.000000e+00
-  %add = fadd double %beta, %alpha
-  %cmp25 = fcmp ugt double %add, 1.200000e+00
-  %or.cond15 = or i1 %cmp21, %cmp25
-  %cmp29 = fcmp ugt double %alpha.sink, 0x3F571547652B82FE
-  %or.cond16 = and i1 %cmp29, %or.cond15
-  br i1 %or.cond16, label %if.end49, label %if.then30
-
-if.then30:                                        ; preds = %if.end19
-  %method_31 = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %this, i64 0, i32 8
-  store i32 0, ptr %method_31, align 8
-  %5 = insertelement <2 x double> poison, double %alpha, i64 0
-  %6 = insertelement <2 x double> %5, double %beta, i64 1
-  %7 = fdiv <2 x double> <double 1.000000e+00, double 1.000000e+00>, %6
-  store <2 x double> %7, ptr %3, align 8
-  %8 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %7)
-  %9 = fcmp oeq <2 x double> %8, <double 0x7FF0000000000000, double 0x7FF0000000000000>
-  %shift = shufflevector <2 x i1> %9, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
-  %10 = or <2 x i1> %9, %shift
-  %or.cond18 = extractelement <2 x i1> %10, i64 0
-  br i1 %or.cond18, label %if.then42, label %return
-
-if.then42:                                        ; preds = %if.then30
-  store i32 3, ptr %method_31, align 8
-  %cond46 = select i1 %cmp4, double 1.000000e+00, double 0.000000e+00
-  %x_47 = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %this, i64 0, i32 4
-  store double %cond46, ptr %x_47, align 8
-  br label %return
-
-if.end49:                                         ; preds = %if.end19
-  %cmp52 = fcmp ult double %alpha.sink, 0x7F571547652B837F
-  br i1 %cmp52, label %if.end64, label %if.then53
-
-if.then53:                                        ; preds = %if.end49
-  %method_54 = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %this, i64 0, i32 8
-  store i32 4, ptr %method_54, align 8
-  %div57 = fdiv double %alpha.sink, %1
-  %cond60 = select i1 %cmp4, double 1.000000e+00, double %div57
-  %add61 = fadd double %div57, 1.000000e+00
-  %div62 = fdiv double %cond60, %add61
-  %x_63 = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %this, i64 0, i32 4
-  store double %div62, ptr %x_63, align 8
-  br label %return
-
-if.end64:                                         ; preds = %if.end49
-  %x_68 = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %this, i64 0, i32 4
-  store double %add, ptr %x_68, align 8
-  %call70 = tail call double @log(double noundef %add) #24
-  %log_x_ = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %this, i64 0, i32 5
-  store double %call70, ptr %log_x_, align 8
-  %11 = load double, ptr %3, align 8
-  %cmp72 = fcmp ugt double %11, 1.000000e+00
-  %method_81 = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %this, i64 0, i32 8
-  br i1 %cmp72, label %if.end80, label %if.then73
-
-if.then73:                                        ; preds = %if.end64
-  store i32 1, ptr %method_81, align 8
-  %div76 = fdiv double 1.000000e+00, %11
-  %y_ = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %this, i64 0, i32 6
-  store double %div76, ptr %y_, align 8
-  %add79 = fadd double %11, %11
-  %gamma_ = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %this, i64 0, i32 7
-  store double %add79, ptr %gamma_, align 8
-  br label %return
-
-if.end80:                                         ; preds = %if.end64
-  store i32 2, ptr %method_81, align 8
-  %sub = fadd double %11, -1.000000e+00
-  %12 = load double, ptr %4, align 8
-  %sub85 = fadd double %12, -1.000000e+00
-  %div86 = fdiv double %sub, %sub85
-  %add87 = fadd double %div86, 1.000000e+00
-  %mul = fmul double %12, %div86
-  %neg = fneg double %div86
-  %13 = tail call double @llvm.fmuladd.f64(double %mul, double 2.000000e+00, double %neg)
-  %add90 = fadd double %13, 1.000000e+00
-  %div91 = fdiv double %add87, %add90
-  %call92 = tail call double @sqrt(double noundef %div91) #24
-  %y_93 = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %this, i64 0, i32 6
-  store double %call92, ptr %y_93, align 8
-  %14 = load double, ptr %3, align 8
-  %div96 = fdiv double 1.000000e+00, %call92
-  %add97 = fadd double %div96, %14
-  %gamma_98 = getelementptr inbounds %"class.absl::beta_distribution<>::param_type", ptr %this, i64 0, i32 7
-  store double %add97, ptr %gamma_98, align 8
-  br label %return
-
-return:                                           ; preds = %if.then30, %if.then42, %if.end80, %if.then73, %if.then53, %if.then14, %if.then
-  ret void
+if.end:                                           ; preds = %_ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit.thread, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit
+  %32 = phi double [ %.pre, %_ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit.thread ], [ %call.i, %_ZN4absl17beta_distributionIdE10param_typeC2Edd.exit ]
+  ret double %32
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -40495,8 +40533,8 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit36
   %shr.i41 = lshr i64 %shl.i39, 11
   %16 = shl nuw nsw i64 %15, 52
   %and2.i44 = and i64 %shr.i41, 4503599627370495
-  %reass.sub49 = sub nsw i64 %and2.i44, %16
-  %or3.i45 = add nsw i64 %reass.sub49, 4602678819172646912
+  %reass.sub48 = sub nsw i64 %and2.i44, %16
+  %or3.i45 = add nsw i64 %reass.sub48, 4602678819172646912
   %17 = bitcast i64 %or3.i45 to double
   %18 = load double, ptr %a_, align 8
   %call6 = tail call double @pow(double noundef %9, double noundef %18) #24
@@ -40505,9 +40543,6 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit36
   %add = fadd double %call6, %call7
   %cmp = fcmp ogt double %add, 1.000000e+00
   br i1 %cmp, label %for.cond.backedge, label %if.end
-
-for.cond.backedge:                                ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit36, %if.end19, %if.end10
-  br label %for.cond, !llvm.loop !465
 
 if.end:                                           ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit36
   %cmp8 = fcmp ogt double %add, 0.000000e+00
@@ -40524,14 +40559,17 @@ if.end10:                                         ; preds = %if.end
   %call13 = tail call double @log(double noundef %17) #24
   %21 = load double, ptr %b_, align 8
   %mul15 = fmul double %call13, %21
-  %22 = tail call double @llvm.fabs.f64(double %mul)
-  %23 = fcmp one double %22, 0x7FF0000000000000
-  %24 = tail call double @llvm.fabs.f64(double %mul15)
-  %25 = fcmp one double %24, 0x7FF0000000000000
-  %or.cond = select i1 %23, i1 %25, i1 false
-  br i1 %or.cond, label %if.end19, label %for.cond.backedge
+  %22 = tail call noundef i1 @llvm.is.fpclass.f64(double %mul, i32 504)
+  br i1 %22, label %lor.lhs.false, label %for.cond.backedge
 
-if.end19:                                         ; preds = %if.end10
+for.cond.backedge:                                ; preds = %if.end10, %lor.lhs.false, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit36, %if.end19
+  br label %for.cond, !llvm.loop !465
+
+lor.lhs.false:                                    ; preds = %if.end10
+  %23 = tail call noundef i1 @llvm.is.fpclass.f64(double %mul15, i32 504)
+  br i1 %23, label %if.end19, label %for.cond.backedge
+
+if.end19:                                         ; preds = %lor.lhs.false
   %cmp20 = fcmp ogt double %mul, %mul15
   %sub25 = fsub double %mul, %mul15
   %sub = fsub double %mul15, %mul
@@ -41027,7 +41065,7 @@ for.cond:                                         ; preds = %for.cond.backedge, 
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i, %for.cond
-  %1 = phi i64 [ %inc.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %.pre.i.i, %for.cond ]
+  %1 = phi i64 [ %.pre.i.i, %for.cond ], [ %inc.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %1, 31
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i
 
@@ -52343,9 +52381,6 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fabs.v2f64(<2 x double>) #23
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

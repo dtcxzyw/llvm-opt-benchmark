@@ -2253,6 +2253,9 @@ return:                                           ; preds = %_ZN6hermes2vm9JSONL
 
 declare noundef i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832), i32 noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #5
+
 declare ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832)) local_unnamed_addr #2
 
 declare noundef i32 @_ZN6hermes2vm9JSONLexer18advanceStrAsSymbolEv(ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #2
@@ -2326,7 +2329,7 @@ _ZNK6hermes2vm11TwineChar166concatERKS1_.exit:    ; preds = %if.then.i, %if.then
 declare i32 @_ZN6hermes2vm8JSObject26defineOwnComputedPrimitiveENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEENS0_19DefinePropertyFlagsES7_NS0_11PropOpFlagsE(ptr, ptr noundef nonnull align 8 dereferenceable(9832), ptr, i32, ptr, i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 declare noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
@@ -2873,7 +2876,7 @@ declare ptr @_ZN6hermes2vm8JSObject18getOwnPropertyKeysENS0_6HandleIS1_EERNS0_7R
 declare noundef ptr @_ZN6hermes2vm15IdentifierTable13getStringPrimERNS0_7RuntimeENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 8 dereferenceable(9832), i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
@@ -3342,13 +3345,12 @@ if.end295:                                        ; preds = %if.end280
   br i1 %cmp.i.i106, label %if.then299, label %if.end322
 
 if.then299:                                       ; preds = %if.end295
-  %81 = tail call double @llvm.fabs.f64(double %76)
-  %82 = fcmp ueq double %81, 0x7FF0000000000000
-  br i1 %82, label %if.else316, label %if.then304
+  %81 = tail call noundef i1 @llvm.is.fpclass.f64(double %76, i32 504)
+  br i1 %81, label %if.then304, label %if.else316
 
 if.then304:                                       ; preds = %if.then299
-  %83 = load ptr, ptr %this, align 8
-  %call311 = tail call ptr @_ZN6hermes2vm12toString_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %83, ptr nonnull %74) #12
+  %82 = load ptr, ptr %this, align 8
+  %call311 = tail call ptr @_ZN6hermes2vm12toString_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %82, ptr nonnull %74) #12
   %output_.i107 = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::JSONStringifyer", ptr %this, i64 0, i32 12
   tail call void @_ZNK6hermes2vm15StringPrimitive17appendUTF16StringERN4llvh15SmallVectorImplIDsEE(ptr noundef nonnull align 4 dereferenceable(8) %call311, ptr noundef nonnull align 8 dereferenceable(16) %output_.i107) #12
   br label %cleanup
@@ -3363,14 +3365,14 @@ if.end322:                                        ; preds = %if.end295
 
 _ZN6hermes2vm5vmisaINS0_15BigIntPrimitiveEEEbNS0_11HermesValueE.exit118: ; preds = %if.end322
   %and.i.i114 = and i64 %75, 281474976710655
-  %84 = inttoptr i64 %and.i.i114 to ptr
-  %bf.load.i.i.i.i.i.i.i.i.i115 = load i32, ptr %84, align 4
+  %83 = inttoptr i64 %and.i.i114 to ptr
+  %bf.load.i.i.i.i.i.i.i.i.i115 = load i32, ptr %83, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i116 = and i32 %bf.load.i.i.i.i.i.i.i.i.i115, -16777216
   %cmp.i.i.i.i.i.i.i117 = icmp eq i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i116, 1291845632
   br i1 %cmp.i.i.i.i.i.i.i117, label %if.then329, label %_ZN6hermes2vm5vmisaINS0_8JSObjectEEEbNS0_11HermesValueE.exit
 
 if.then329:                                       ; preds = %_ZN6hermes2vm5vmisaINS0_15BigIntPrimitiveEEEbNS0_11HermesValueE.exit118
-  %85 = load ptr, ptr %this, align 8
+  %84 = load ptr, ptr %this, align 8
   %rightKind_.i3.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp331, i64 0, i32 3
   store i32 1, ptr %rightKind_.i3.i, align 8
   %leftSize_.i4.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp331, i64 0, i32 4
@@ -3378,15 +3380,15 @@ if.then329:                                       ; preds = %_ZN6hermes2vm5vmisa
   %rightSize_.i5.i = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp331, i64 0, i32 5
   store i64 0, ptr %rightSize_.i5.i, align 8
   store ptr @.str.7, ptr %ref.tmp331, align 8
-  %86 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp331, i64 0, i32 1
-  store i32 3, ptr %86, align 8
-  %call332 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %85, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp331) #12
+  %85 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp331, i64 0, i32 1
+  store i32 3, ptr %85, align 8
+  %call332 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %84, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp331) #12
   %bf.value.i = and i32 %call332, 255
   br label %cleanup
 
 _ZN6hermes2vm5vmisaINS0_8JSObjectEEEbNS0_11HermesValueE.exit: ; preds = %_ZN6hermes2vm5vmisaINS0_15BigIntPrimitiveEEEbNS0_11HermesValueE.exit118
-  %87 = add i32 %bf.load.i.i.i.i.i.i.i.i.i115, -1140850688
-  %or.cond = icmp ult i32 %87, -704643072
+  %86 = add i32 %bf.load.i.i.i.i.i.i.i.i.i115, -1140850688
+  %or.cond = icmp ult i32 %86, -704643072
   br i1 %or.cond, label %cleanup, label %if.then346
 
 if.then346:                                       ; preds = %_ZN6hermes2vm5vmisaINS0_8JSObjectEEEbNS0_11HermesValueE.exit
@@ -3396,12 +3398,12 @@ if.then346:                                       ; preds = %_ZN6hermes2vm5vmisa
   br i1 %cmp.i134, label %cleanup, label %if.end355
 
 if.end355:                                        ; preds = %if.then346
-  %88 = and i32 %call352, 256
-  %bf.cast.i.i138.not = icmp eq i32 %88, 0
+  %87 = and i32 %call352, 256
+  %bf.cast.i.i138.not = icmp eq i32 %87, 0
   br i1 %bf.cast.i.i138.not, label %if.then357, label %if.end361
 
 if.then357:                                       ; preds = %if.end355
-  %89 = load ptr, ptr %this, align 8
+  %88 = load ptr, ptr %this, align 8
   %rightKind_.i3.i140 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp359, i64 0, i32 3
   store i32 1, ptr %rightKind_.i3.i140, align 8
   %leftSize_.i4.i141 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp359, i64 0, i32 4
@@ -3409,36 +3411,36 @@ if.then357:                                       ; preds = %if.end355
   %rightSize_.i5.i142 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp359, i64 0, i32 5
   store i64 0, ptr %rightSize_.i5.i142, align 8
   store ptr @.str.8, ptr %ref.tmp359, align 8
-  %90 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp359, i64 0, i32 1
-  store i32 3, ptr %90, align 8
-  %call360 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %89, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp359) #12
+  %89 = getelementptr inbounds %"class.hermes::vm::TwineChar16", ptr %ref.tmp359, i64 0, i32 1
+  store i32 3, ptr %89, align 8
+  %call360 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %88, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp359) #12
   %bf.value.i148 = and i32 %call360, 255
   br label %cleanup
 
 if.end361:                                        ; preds = %if.end355
   %chunks_.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %1, i64 0, i32 3
   %conv.i.i = zext i32 %3 to i64
-  %91 = load ptr, ptr %chunks_.i.i, align 8
-  %arrayidx.i19.i.i = getelementptr inbounds ptr, ptr %91, i64 %conv.i.i
-  %92 = load ptr, ptr %arrayidx.i19.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %92, i64 16
+  %90 = load ptr, ptr %chunks_.i.i, align 8
+  %arrayidx.i19.i.i = getelementptr inbounds ptr, ptr %90, i64 %conv.i.i
+  %91 = load ptr, ptr %arrayidx.i19.i.i, align 8
+  %add.ptr.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %91, i64 16
   store i32 %3, ptr %curChunkIndex_.i.i, align 8
   %curChunkEnd_.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %1, i64 0, i32 5
   store ptr %add.ptr.i.i, ptr %curChunkEnd_.i.i, align 8
   store ptr %2, ptr %next_.i.i, align 8
-  %93 = load ptr, ptr %this, align 8
-  %94 = load ptr, ptr %operationStrValue_, align 8
-  %retval.sroa.0.0.copyload.i.i.i154 = load i64, ptr %94, align 8
+  %92 = load ptr, ptr %this, align 8
+  %93 = load ptr, ptr %operationStrValue_, align 8
+  %retval.sroa.0.0.copyload.i.i.i154 = load i64, ptr %93, align 8
   %and.i.i155 = and i64 %retval.sroa.0.0.copyload.i.i.i154, 281474976710655
-  %95 = inttoptr i64 %and.i.i155 to ptr
-  %call369 = tail call i32 @_ZN6hermes2vm7isArrayERNS0_7RuntimeEPNS0_8JSObjectE(ptr noundef nonnull align 8 dereferenceable(9832) %93, ptr noundef %95) #12
+  %94 = inttoptr i64 %and.i.i155 to ptr
+  %call369 = tail call i32 @_ZN6hermes2vm7isArrayERNS0_7RuntimeEPNS0_8JSObjectE(ptr noundef nonnull align 8 dereferenceable(9832) %92, ptr noundef %94) #12
   %bf.cast.i.i159185.mask = and i32 %call369, 255
   %cmp.i160 = icmp eq i32 %bf.cast.i.i159185.mask, 0
   br i1 %cmp.i160, label %cleanup, label %if.end372
 
 if.end372:                                        ; preds = %if.end361
-  %96 = and i32 %call369, 256
-  %bf.cast.i.i164.not = icmp eq i32 %96, 0
+  %95 = and i32 %call369, 256
+  %bf.cast.i.i164.not = icmp eq i32 %95, 0
   br i1 %bf.cast.i.i164.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end372
@@ -3460,10 +3462,10 @@ cleanup:                                          ; preds = %cond.end, %if.end32
   %retval.sroa.0.0 = phi i32 [ 257, %if.then256 ], [ 257, %if.then284 ], [ %bf.value.i, %if.then329 ], [ %bf.value.i148, %if.then357 ], [ 0, %entry ], [ 0, %if.then30 ], [ 0, %if.then48 ], [ 0, %if.end97 ], [ 0, %if.end142 ], [ 0, %if.then177 ], [ 0, %if.then198 ], [ 257, %if.else274 ], [ 257, %if.then269 ], [ 257, %if.else316 ], [ 257, %if.then304 ], [ 0, %if.then346 ], [ 0, %if.end361 ], [ 1, %_ZN6hermes2vm5vmisaINS0_8JSObjectEEEbNS0_11HermesValueE.exit ], [ 1, %if.end322 ], [ %spec.select, %cond.end ]
   %chunks_.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %1, i64 0, i32 3
   %conv.i.i.i = zext i32 %3 to i64
-  %97 = load ptr, ptr %chunks_.i.i.i, align 8
-  %arrayidx.i19.i.i.i = getelementptr inbounds ptr, ptr %97, i64 %conv.i.i.i
-  %98 = load ptr, ptr %arrayidx.i19.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %98, i64 16
+  %96 = load ptr, ptr %chunks_.i.i.i, align 8
+  %arrayidx.i19.i.i.i = getelementptr inbounds ptr, ptr %96, i64 %conv.i.i.i
+  %97 = load ptr, ptr %arrayidx.i19.i.i.i, align 8
+  %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %97, i64 16
   store i32 %3, ptr %curChunkIndex_.i.i, align 8
   %curChunkEnd_.i.i.i = getelementptr inbounds %"class.hermes::vm::GCScope", ptr %1, i64 0, i32 5
   store ptr %add.ptr.i.i.i, ptr %curChunkEnd_.i.i.i, align 8
@@ -5891,13 +5893,10 @@ declare { i32, i64 } @_ZN6hermes2vm15StringPrimitive13createDynamicERNS0_7Runtim
 declare { i32, i64 } @_ZN6hermes2vm23ExternalStringPrimitiveIDsE6createINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEOT_(ptr noundef nonnull align 8 dereferenceable(9832), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #9
+declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
@@ -5913,11 +5912,11 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nounwind }

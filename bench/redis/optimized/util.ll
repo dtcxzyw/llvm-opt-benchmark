@@ -1556,7 +1556,9 @@ lor.lhs.false17:                                  ; preds = %lor.lhs.false8
   br i1 %cmp19, label %land.lhs.true, label %lor.lhs.false30
 
 land.lhs.true:                                    ; preds = %lor.lhs.false17
-  %or.cond14 = call i1 @llvm.is.fpclass.f80(x86_fp80 %call3, i32 612)
+  %or.cond1 = call i1 @llvm.is.fpclass.f80(x86_fp80 %call3, i32 516)
+  %iszero = fcmp oeq x86_fp80 %call3, 0xK00000000000000000000
+  %or.cond14 = select i1 %or.cond1, i1 true, i1 %iszero
   br i1 %or.cond14, label %return, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %land.lhs.true, %lor.lhs.false17
@@ -1623,10 +1625,10 @@ lor.lhs.false8:                                   ; preds = %lor.lhs.false5
   br i1 %cmp10, label %land.lhs.true, label %lor.lhs.false21
 
 land.lhs.true:                                    ; preds = %lor.lhs.false8
-  %or.cond9 = tail call i1 @llvm.is.fpclass.f64(double %call1, i32 612)
+  %or.cond = tail call i1 @llvm.is.fpclass.f64(double %call1, i32 612)
   %6 = fcmp uno double %call1, 0.000000e+00
-  %or.cond = select i1 %or.cond9, i1 true, i1 %6
-  br i1 %or.cond, label %return, label %if.end
+  %or.cond10 = select i1 %or.cond, i1 true, i1 %6
+  br i1 %or.cond10, label %return, label %if.end
 
 lor.lhs.false21:                                  ; preds = %lor.lhs.false8
   %.old = fcmp uno double %call1, 0.000000e+00

@@ -230,6 +230,8 @@ $_ZNSt8seed_seq8generateIPjEEvT_S2_ = comdat any
 
 $_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEE13ConstructURBGIRSt8seed_seqEES3_OT_ = comdat any
 
+$_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRdSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_ = comdat any
+
 $_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIjEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_ = comdat any
 
 $_ZN4absl20poisson_distributionIjEclINS_15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS3_17RandenPoolSeedSeqEEEEEjRT_RKNS1_10param_typeE = comdat any
@@ -1417,6 +1419,8 @@ _ZNSt8seed_seqD2Ev.exit3:                         ; preds = %lpad, %if.then.i.i.
 define dso_local void @_ZN54NonsecureURBGBase_CompatibleWithDistributionUtils_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mean.addr.i = alloca double, align 8
+  %lo.addr.i = alloca double, align 8
+  %hi.addr.i = alloca double, align 8
   %__arr.i.i.i.i = alloca [624 x i32], align 16
   %rbg = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
@@ -1474,72 +1478,51 @@ _ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32EL
   %4 = trunc i64 %call.i.i.i.i.i.i.i.i.i to i32
   %conv.i13.i.i.i.i.i.i = mul i32 %4, 100
   %cmp1022.i.i.i.i.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i, 96
-  br i1 %cmp1022.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %while.body.i.i.i.i.preheader
+  br i1 %cmp1022.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN4absl7UniformIiRNS_15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES9_E4typeEOT0_S9_S9_.exit
 
 while.body.i.i.i.i.i.i:                           ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEEC2Ev.exit, %while.body.i.i.i.i.i.i
   %call.i.i.i15.i.i.i.i.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %rbg)
   %5 = trunc i64 %call.i.i.i15.i.i.i.i.i.i to i32
   %conv.i14.i.i.i.i.i.i = mul i32 %5, 100
   %cmp10.i.i.i.i.i.i = icmp ult i32 %conv.i14.i.i.i.i.i.i, 96
-  br i1 %cmp10.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %while.body.i.i.i.i.preheader, !llvm.loop !21
+  br i1 %cmp10.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN4absl7UniformIiRNS_15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES9_E4typeEOT0_S9_S9_.exit, !llvm.loop !21
 
-while.body.i.i.i.i.preheader:                     ; preds = %while.body.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEEC2Ev.exit
-  br label %while.body.i.i.i.i
-
-while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
-  %call.i.i.i.i.i.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %rbg)
-  %shl.i.i.i.i.i.i = shl i64 %call.i.i.i.i.i.i.i, 32
-  %call.i4.i.i.i.i.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %rbg)
-  %add.i.i.i.i.i.i = add i64 %call.i4.i.i.i.i.i.i, %shl.i.i.i.i.i.i
-  %cmp.i.i.i.i.i = icmp eq i64 %add.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i, label %if.end.i.i.i.i.i
-
-if.end.i.i.i.i.i:                                 ; preds = %while.body.i.i.i.i
-  %6 = call i64 @llvm.ctlz.i64(i64 %add.i.i.i.i.i.i, i1 true), !range !22
-  %shl.i.i.i.i.i = shl i64 %add.i.i.i.i.i.i, %6
-  %shr.i.i.i.i.i = lshr i64 %shl.i.i.i.i.i, 11
-  %and.i.i.i.i.i = and i64 %shr.i.i.i.i.i, 4503599627370495
-  %7 = shl nuw nsw i64 %6, 52
-  %reass.sub = sub nsw i64 %and.i.i.i.i.i, %7
-  %or2.i.i.i.i.i = add nsw i64 %reass.sub, 4602678819172646912
-  %8 = bitcast i64 %or2.i.i.i.i.i to double
-  br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
-
-_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i, %while.body.i.i.i.i
-  %retval.0.i.i.i.i.i = phi double [ %8, %if.end.i.i.i.i.i ], [ 0.000000e+00, %while.body.i.i.i.i ]
-  %9 = call double @llvm.fmuladd.f64(double %retval.0.i.i.i.i.i, double 0x3FC9999999999998, double 5.000000e-01)
-  %cmp.i.i.i.i = fcmp uge double %9, 0x3FE6666666666666
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN4absl7UniformIdRNS_15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES9_E4typeEOT0_S9_S9_.exit, !llvm.loop !23
-
-_ZN4absl7UniformIdRNS_15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES9_E4typeEOT0_S9_S9_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
+_ZN4absl7UniformIiRNS_15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES9_E4typeEOT0_S9_S9_.exit: ; preds = %while.body.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEEC2Ev.exit
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lo.addr.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hi.addr.i)
+  store double 5.000000e-01, ptr %lo.addr.i, align 8
+  store double 0x3FE6666666666666, ptr %hi.addr.i, align 8
+  %call.i.i = call noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRdSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %rbg, ptr noundef nonnull align 8 dereferenceable(8) %lo.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %hi.addr.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lo.addr.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hi.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mean.addr.i)
   store double 1.000000e+00, ptr %mean.addr.i, align 8
-  %call.i.i = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIjEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %rbg, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i)
+  %call.i.i1 = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEEEE4ImplINS_20poisson_distributionIjEEJRdEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull %rbg, ptr noundef nonnull align 8 dereferenceable(8) %mean.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mean.addr.i)
   %call.i.i.i.i.i.i.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %rbg)
   %shl.i.i.i.i.i.i.i = shl i64 %call.i.i.i.i.i.i.i.i, 32
   %call.i4.i.i.i.i.i.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %rbg)
   %add.i.i.i.i.i.i.i = add i64 %call.i4.i.i.i.i.i.i.i, %shl.i.i.i.i.i.i.i
-  %10 = call i64 @llvm.ctlz.i64(i64 %add.i.i.i.i.i.i.i, i1 false), !range !22
-  %cast.i.i.i.i.i.i.i.i = trunc i64 %10 to i32
-  %and.i.i.i.i.i.i = and i64 %10, 63
-  %shl.i.i.i.i.i.i1 = shl i64 %add.i.i.i.i.i.i.i, %and.i.i.i.i.i.i
-  %shr.i.i.i.i.i.i = lshr i64 %shl.i.i.i.i.i.i1, 40
+  %6 = call i64 @llvm.ctlz.i64(i64 %add.i.i.i.i.i.i.i, i1 false), !range !22
+  %cast.i.i.i.i.i.i.i.i = trunc i64 %6 to i32
+  %and.i.i.i.i.i.i = and i64 %6, 63
+  %shl.i.i.i.i.i.i = shl i64 %add.i.i.i.i.i.i.i, %and.i.i.i.i.i.i
+  %shr.i.i.i.i.i.i = lshr i64 %shl.i.i.i.i.i.i, 40
   %conv.i.i.i.i.i.i = trunc i64 %shr.i.i.i.i.i.i to i32
   %and2.i.i.i.i.i.i = and i32 %conv.i.i.i.i.i.i, 8388607
-  %11 = shl nuw nsw i32 %cast.i.i.i.i.i.i.i.i, 23
-  %reass.sub4 = sub nsw i32 %and2.i.i.i.i.i.i, %11
-  %or.i.i.i.i.i.i = add nsw i32 %reass.sub4, 1056964608
+  %7 = shl nuw nsw i32 %cast.i.i.i.i.i.i.i.i, 23
+  %reass.sub = sub nsw i32 %and2.i.i.i.i.i.i, %7
+  %or.i.i.i.i.i.i = add nsw i32 %reass.sub, 1056964608
   %or3.i.i.i.i.i.i = or i32 %or.i.i.i.i.i.i, -2147483648
-  %12 = bitcast i32 %or3.i.i.i.i.i.i to float
-  %13 = fcmp ugt float %12, -1.000000e+00
-  br i1 %13, label %cdce.end, label %cdce.call, !prof !24
+  %8 = bitcast i32 %or3.i.i.i.i.i.i to float
+  %9 = fcmp ugt float %8, -1.000000e+00
+  br i1 %9, label %cdce.end, label %cdce.call, !prof !23
 
-cdce.call:                                        ; preds = %_ZN4absl7UniformIdRNS_15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES9_E4typeEOT0_S9_S9_.exit
-  %call.i.i.i.i.i.i = call noundef float @log1pf(float noundef %12) #17
+cdce.call:                                        ; preds = %_ZN4absl7UniformIiRNS_15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES9_E4typeEOT0_S9_S9_.exit
+  %call.i.i.i.i.i.i = call noundef float @log1pf(float noundef %8) #17
   br label %cdce.end
 
-cdce.end:                                         ; preds = %_ZN4absl7UniformIdRNS_15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES9_E4typeEOT0_S9_S9_.exit, %cdce.call
+cdce.end:                                         ; preds = %_ZN4absl7UniformIiRNS_15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES9_E4typeEOT0_S9_S9_.exit, %cdce.call
   ret void
 }
 
@@ -1549,19 +1532,19 @@ entry:
   %__arr.i.i.i.i = alloca [624 x i32], align 16
   %rbg = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
   %ref.tmp = alloca %"class.std::uniform_int_distribution", align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
-  call void @llvm.lifetime.start.p0(i64 2496, ptr nonnull %__arr.i.i.i.i), !noalias !25
-  call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %__arr.i.i.i.i, i64 2496), !noalias !25
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
+  call void @llvm.lifetime.start.p0(i64 2496, ptr nonnull %__arr.i.i.i.i), !noalias !24
+  call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %__arr.i.i.i.i, i64 2496), !noalias !24
   br label %for.cond4.preheader.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.inc24.i.i.i.i, %entry
   %__i.015.i.i.i.i = phi i64 [ 0, %entry ], [ %inc25.i.i.i.i, %for.inc24.i.i.i.i ]
   %__zero.014.i.i.i.i = phi i8 [ 1, %entry ], [ %__zero.1.i.i.i.i, %for.inc24.i.i.i.i ]
   %arrayidx.i.i.i.i = getelementptr inbounds [624 x i32], ptr %__arr.i.i.i.i, i64 0, i64 %__i.015.i.i.i.i
-  %0 = load i32, ptr %arrayidx.i.i.i.i, align 4, !noalias !25
+  %0 = load i32, ptr %arrayidx.i.i.i.i, align 4, !noalias !24
   %conv.i.i.i.i = zext i32 %0 to i64
   %arrayidx10.i.i.i.i = getelementptr inbounds [624 x i64], ptr %rbg, i64 0, i64 %__i.015.i.i.i.i
-  store i64 %conv.i.i.i.i, ptr %arrayidx10.i.i.i.i, align 8, !alias.scope !25
+  store i64 %conv.i.i.i.i, ptr %arrayidx10.i.i.i.i, align 8, !alias.scope !24
   %1 = and i8 %__zero.014.i.i.i.i, 1
   %tobool.not.i.i.i.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i.i.i.i, label %for.inc24.i.i.i.i, label %if.then.i.i.i.i
@@ -1571,7 +1554,7 @@ if.then.i.i.i.i:                                  ; preds = %for.cond4.preheader
   br i1 %cmp11.i.i.i.i, label %if.then12.i.i.i.i, label %if.else.i.i.i.i
 
 if.then12.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  %2 = load i64, ptr %rbg, align 8, !alias.scope !25
+  %2 = load i64, ptr %rbg, align 8, !alias.scope !24
   %cmp15.not.i.i.i.i = icmp ult i64 %2, 2147483648
   %spec.select.i.i.i.i = select i1 %cmp15.not.i.i.i.i, i8 %__zero.014.i.i.i.i, i8 0
   br label %for.inc24.i.i.i.i
@@ -1593,13 +1576,13 @@ for.end26.i.i.i.i:                                ; preds = %for.inc24.i.i.i.i
   br i1 %tobool27.not.i.i.i.i, label %_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEEC2Ev.exit, label %if.then28.i.i.i.i
 
 if.then28.i.i.i.i:                                ; preds = %for.end26.i.i.i.i
-  store i64 2147483648, ptr %rbg, align 8, !alias.scope !25
+  store i64 2147483648, ptr %rbg, align 8, !alias.scope !24
   br label %_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEEC2Ev.exit
 
 _ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEEC2Ev.exit: ; preds = %for.end26.i.i.i.i, %if.then28.i.i.i.i
   %_M_p.i.i.i.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %rbg, i64 0, i32 1
-  store i64 624, ptr %_M_p.i.i.i.i, align 8, !alias.scope !25
-  call void @llvm.lifetime.end.p0(i64 2496, ptr nonnull %__arr.i.i.i.i), !noalias !25
+  store i64 624, ptr %_M_p.i.i.i.i, align 8, !alias.scope !24
+  call void @llvm.lifetime.end.p0(i64 2496, ptr nonnull %__arr.i.i.i.i), !noalias !24
   store i32 0, ptr %ref.tmp, align 4
   %_M_b.i.i = getelementptr inbounds %"struct.std::uniform_int_distribution<unsigned int>::param_type", ptr %ref.tmp, i64 0, i32 1
   store i32 100, ptr %_M_b.i.i, align 4
@@ -1623,7 +1606,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %conv16.i.i.i.i = fmul float %__tmp.014.i.i.i.i, 0x41F0000000000000
   %dec.i.i.i.i = add i64 %__k.015.i.i.i.i, -1
   %cmp.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !28
+  br i1 %cmp.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !27
 
 for.end.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %div17.i.i.i.i = fdiv float %4, %conv16.i.i.i.i
@@ -1656,7 +1639,7 @@ for.body.i.i.i.i11:                               ; preds = %for.body.i.i.i.i11,
   %conv16.i.i.i.i14 = fptrunc x86_fp80 %mul.i.i.i.i to double
   %dec.i.i.i.i15 = add i64 %__k.014.i.i.i.i, -1
   %cmp.not.i.i.i.i16 = icmp eq i64 %dec.i.i.i.i15, 0
-  br i1 %cmp.not.i.i.i.i16, label %for.end.i.i.i.i17, label %for.body.i.i.i.i11, !llvm.loop !29
+  br i1 %cmp.not.i.i.i.i16, label %for.end.i.i.i.i17, label %for.body.i.i.i.i11, !llvm.loop !28
 
 for.end.i.i.i.i17:                                ; preds = %for.body.i.i.i.i11
   %div17.i.i.i.i18 = fdiv double %5, %conv16.i.i.i.i14
@@ -1683,19 +1666,19 @@ entry:
   %ref.tmp2 = alloca i64, align 8
   %ref.tmp5 = alloca %"class.testing::Message", align 8
   %ref.tmp7 = alloca %"class.testing::internal::AssertHelper", align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  call void @llvm.lifetime.start.p0(i64 2496, ptr nonnull %__arr.i.i.i.i), !noalias !30
-  call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %__arr.i.i.i.i, i64 2496), !noalias !30
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
+  call void @llvm.lifetime.start.p0(i64 2496, ptr nonnull %__arr.i.i.i.i), !noalias !29
+  call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %__arr.i.i.i.i, i64 2496), !noalias !29
   br label %for.cond4.preheader.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.inc24.i.i.i.i, %entry
   %__i.015.i.i.i.i = phi i64 [ 0, %entry ], [ %inc25.i.i.i.i, %for.inc24.i.i.i.i ]
   %__zero.014.i.i.i.i = phi i8 [ 1, %entry ], [ %__zero.1.i.i.i.i, %for.inc24.i.i.i.i ]
   %arrayidx.i.i.i.i = getelementptr inbounds [624 x i32], ptr %__arr.i.i.i.i, i64 0, i64 %__i.015.i.i.i.i
-  %0 = load i32, ptr %arrayidx.i.i.i.i, align 4, !noalias !30
+  %0 = load i32, ptr %arrayidx.i.i.i.i, align 4, !noalias !29
   %conv.i.i.i.i = zext i32 %0 to i64
   %arrayidx10.i.i.i.i = getelementptr inbounds [624 x i64], ptr %rbg1, i64 0, i64 %__i.015.i.i.i.i
-  store i64 %conv.i.i.i.i, ptr %arrayidx10.i.i.i.i, align 8, !alias.scope !30
+  store i64 %conv.i.i.i.i, ptr %arrayidx10.i.i.i.i, align 8, !alias.scope !29
   %1 = and i8 %__zero.014.i.i.i.i, 1
   %tobool.not.i.i.i.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i.i.i.i, label %for.inc24.i.i.i.i, label %if.then.i.i.i.i
@@ -1705,7 +1688,7 @@ if.then.i.i.i.i:                                  ; preds = %for.cond4.preheader
   br i1 %cmp11.i.i.i.i, label %if.then12.i.i.i.i, label %if.else.i.i.i.i
 
 if.then12.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  %2 = load i64, ptr %rbg1, align 8, !alias.scope !30
+  %2 = load i64, ptr %rbg1, align 8, !alias.scope !29
   %cmp15.not.i.i.i.i = icmp ult i64 %2, 2147483648
   %spec.select.i.i.i.i = select i1 %cmp15.not.i.i.i.i, i8 %__zero.014.i.i.i.i, i8 0
   br label %for.inc24.i.i.i.i
@@ -1727,26 +1710,26 @@ for.end26.i.i.i.i:                                ; preds = %for.inc24.i.i.i.i
   br i1 %tobool27.not.i.i.i.i, label %_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEEC2Ev.exit, label %if.then28.i.i.i.i
 
 if.then28.i.i.i.i:                                ; preds = %for.end26.i.i.i.i
-  store i64 2147483648, ptr %rbg1, align 8, !alias.scope !30
+  store i64 2147483648, ptr %rbg1, align 8, !alias.scope !29
   br label %_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEEC2Ev.exit
 
 _ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEEC2Ev.exit: ; preds = %for.end26.i.i.i.i, %if.then28.i.i.i.i
   %_M_p.i.i.i.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %rbg1, i64 0, i32 1
-  store i64 624, ptr %_M_p.i.i.i.i, align 8, !alias.scope !30
-  call void @llvm.lifetime.end.p0(i64 2496, ptr nonnull %__arr.i.i.i.i), !noalias !30
-  call void @llvm.experimental.noalias.scope.decl(metadata !33)
-  call void @llvm.lifetime.start.p0(i64 2496, ptr nonnull %__arr.i.i.i.i4), !noalias !33
-  call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %__arr.i.i.i.i4, i64 2496), !noalias !33
+  store i64 624, ptr %_M_p.i.i.i.i, align 8, !alias.scope !29
+  call void @llvm.lifetime.end.p0(i64 2496, ptr nonnull %__arr.i.i.i.i), !noalias !29
+  call void @llvm.experimental.noalias.scope.decl(metadata !32)
+  call void @llvm.lifetime.start.p0(i64 2496, ptr nonnull %__arr.i.i.i.i4), !noalias !32
+  call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %__arr.i.i.i.i4, i64 2496), !noalias !32
   br label %for.cond4.preheader.i.i.i.i5
 
 for.cond4.preheader.i.i.i.i5:                     ; preds = %for.inc24.i.i.i.i17, %_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEEC2Ev.exit
   %__i.015.i.i.i.i6 = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %inc25.i.i.i.i19, %for.inc24.i.i.i.i17 ]
   %__zero.014.i.i.i.i7 = phi i8 [ 1, %_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__zero.1.i.i.i.i18, %for.inc24.i.i.i.i17 ]
   %arrayidx.i.i.i.i8 = getelementptr inbounds [624 x i32], ptr %__arr.i.i.i.i4, i64 0, i64 %__i.015.i.i.i.i6
-  %4 = load i32, ptr %arrayidx.i.i.i.i8, align 4, !noalias !33
+  %4 = load i32, ptr %arrayidx.i.i.i.i8, align 4, !noalias !32
   %conv.i.i.i.i9 = zext i32 %4 to i64
   %arrayidx10.i.i.i.i10 = getelementptr inbounds [624 x i64], ptr %rbg2, i64 0, i64 %__i.015.i.i.i.i6
-  store i64 %conv.i.i.i.i9, ptr %arrayidx10.i.i.i.i10, align 8, !alias.scope !33
+  store i64 %conv.i.i.i.i9, ptr %arrayidx10.i.i.i.i10, align 8, !alias.scope !32
   %5 = and i8 %__zero.014.i.i.i.i7, 1
   %tobool.not.i.i.i.i11 = icmp eq i8 %5, 0
   br i1 %tobool.not.i.i.i.i11, label %for.inc24.i.i.i.i17, label %if.then.i.i.i.i12
@@ -1756,7 +1739,7 @@ if.then.i.i.i.i12:                                ; preds = %for.cond4.preheader
   br i1 %cmp11.i.i.i.i13, label %if.then12.i.i.i.i25, label %if.else.i.i.i.i14
 
 if.then12.i.i.i.i25:                              ; preds = %if.then.i.i.i.i12
-  %6 = load i64, ptr %rbg2, align 8, !alias.scope !33
+  %6 = load i64, ptr %rbg2, align 8, !alias.scope !32
   %cmp15.not.i.i.i.i26 = icmp ult i64 %6, 2147483648
   %spec.select.i.i.i.i27 = select i1 %cmp15.not.i.i.i.i26, i8 %__zero.014.i.i.i.i7, i8 0
   br label %for.inc24.i.i.i.i17
@@ -1778,13 +1761,13 @@ for.end26.i.i.i.i21:                              ; preds = %for.inc24.i.i.i.i17
   br i1 %tobool27.not.i.i.i.i22, label %_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEEC2Ev.exit28, label %if.then28.i.i.i.i23
 
 if.then28.i.i.i.i23:                              ; preds = %for.end26.i.i.i.i21
-  store i64 2147483648, ptr %rbg2, align 8, !alias.scope !33
+  store i64 2147483648, ptr %rbg2, align 8, !alias.scope !32
   br label %_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEEC2Ev.exit28
 
 _ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEEC2Ev.exit28: ; preds = %for.end26.i.i.i.i21, %if.then28.i.i.i.i23
   %_M_p.i.i.i.i24 = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %rbg2, i64 0, i32 1
-  store i64 624, ptr %_M_p.i.i.i.i24, align 8, !alias.scope !33
-  call void @llvm.lifetime.end.p0(i64 2496, ptr nonnull %__arr.i.i.i.i4), !noalias !33
+  store i64 624, ptr %_M_p.i.i.i.i24, align 8, !alias.scope !32
+  call void @llvm.lifetime.end.p0(i64 2496, ptr nonnull %__arr.i.i.i.i4), !noalias !32
   %message_.i.i = getelementptr inbounds %"class.testing::AssertionResult", ptr %gtest_ar, i64 0, i32 1
   br label %for.body
 
@@ -1794,7 +1777,7 @@ for.body:                                         ; preds = %_ZN4absl15random_in
   store i64 %call.i, ptr %ref.tmp, align 8
   %call.i29 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %rbg2)
   store i64 %call.i29, ptr %ref.tmp2, align 8
-  %8 = load i64, ptr %ref.tmp, align 8, !noalias !36
+  %8 = load i64, ptr %ref.tmp, align 8, !noalias !35
   %cmp.not.i = icmp eq i64 %8, %call.i29
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
@@ -1898,7 +1881,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   store ptr null, ptr %message_.i.i, align 8
   %inc = add nuw nsw i64 %i.036, 1
   %exitcond.not = icmp eq i64 %inc, 128
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !39
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !38
 
 ehcleanup14:                                      ; preds = %_ZN7testing7MessageD2Ev.exit34, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit34 ], [ %11, %lpad ]
@@ -1949,7 +1932,7 @@ invoke.cont3:                                     ; preds = %for.body
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   store i64 %call.i11, ptr %ref.tmp4, align 8
-  %0 = load i64, ptr %ref.tmp, align 8, !noalias !40
+  %0 = load i64, ptr %ref.tmp, align 8, !noalias !39
   %cmp.i.i = icmp eq i64 %0, %call.i11
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -2068,7 +2051,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   store ptr null, ptr %message_.i.i, align 8
   %inc = add nuw nsw i32 %i.0124, 1
   %exitcond.not = icmp eq i32 %inc, 1000
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !45
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !44
 
 ehcleanup20:                                      ; preds = %_ZN7testing7MessageD2Ev.exit18, %lpad8
   %.pn5.pn = phi { ptr, i32 } [ %.pn5, %_ZN7testing7MessageD2Ev.exit18 ], [ %3, %lpad8 ]
@@ -2116,7 +2099,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %wh
   %xor9.i.i.i = xor i64 %xor.i.i.i, %cond.i.i.i
   store i64 %xor9.i.i.i, ptr %arrayidx.i.i.i, align 8
   %exitcond.not.i.i.i = icmp eq i64 %add.i.i.i, 227
-  br i1 %exitcond.not.i.i.i, label %for.body15.preheader.i.i.i, label %for.body.i.i.i, !llvm.loop !46
+  br i1 %exitcond.not.i.i.i, label %for.body15.preheader.i.i.i, label %for.body.i.i.i, !llvm.loop !45
 
 for.body15.preheader.i.i.i:                       ; preds = %for.body.i.i.i
   %.pre17.i.i.i = load i64, ptr %arrayidx18.phi.trans.insert.i.i.i, align 8
@@ -2143,7 +2126,7 @@ for.body15.i.i.i:                                 ; preds = %for.body15.i.i.i, %
   %xor33.i.i.i = xor i64 %xor29.i.i.i, %cond32.i.i.i
   store i64 %xor33.i.i.i, ptr %arrayidx18.i.i.i, align 8
   %exitcond16.not.i.i.i = icmp eq i64 %add21.i.i.i, 623
-  br i1 %exitcond16.not.i.i.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i.i, label %for.body15.i.i.i, !llvm.loop !47
+  br i1 %exitcond16.not.i.i.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i.i, label %for.body15.i.i.i, !llvm.loop !46
 
 _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i.i: ; preds = %for.body15.i.i.i
   %sub4.i.i = sub i64 %__z.addr.05.i.i, %sub6.i.i
@@ -2162,7 +2145,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   store i64 %xor54.i.i.i, ptr %arrayidx41.i.i.i, align 8
   store i64 0, ptr %_M_p.i.i, align 8
   %cmp.i.i20 = icmp ugt i64 %sub4.i.i, 624
-  br i1 %cmp.i.i20, label %while.body.i.i, label %invoke.cont21, !llvm.loop !48
+  br i1 %cmp.i.i20, label %while.body.i.i, label %invoke.cont21, !llvm.loop !47
 
 invoke.cont21:                                    ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i.i, %for.end
   %__z.addr.0.lcssa.i.i = phi i64 [ 100, %for.end ], [ %sub4.i.i, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i.i ]
@@ -2209,7 +2192,7 @@ for.body.i.i.i36:                                 ; preds = %for.body.i.i.i36, %
   %xor9.i.i.i51 = xor i64 %xor.i.i.i47, %cond.i.i.i50
   store i64 %xor9.i.i.i51, ptr %arrayidx.i.i.i38, align 8
   %exitcond.not.i.i.i52 = icmp eq i64 %add.i.i.i40, 227
-  br i1 %exitcond.not.i.i.i52, label %for.body15.preheader.i.i.i53, label %for.body.i.i.i36, !llvm.loop !46
+  br i1 %exitcond.not.i.i.i52, label %for.body15.preheader.i.i.i53, label %for.body.i.i.i36, !llvm.loop !45
 
 for.body15.preheader.i.i.i53:                     ; preds = %for.body.i.i.i36
   %.pre17.i.i.i54 = load i64, ptr %arrayidx18.phi.trans.insert.i.i.i28, align 8
@@ -2236,7 +2219,7 @@ for.body15.i.i.i55:                               ; preds = %for.body15.i.i.i55,
   %xor33.i.i.i70 = xor i64 %xor29.i.i.i66, %cond32.i.i.i69
   store i64 %xor33.i.i.i70, ptr %arrayidx18.i.i.i57, align 8
   %exitcond16.not.i.i.i71 = icmp eq i64 %add21.i.i.i59, 623
-  br i1 %exitcond16.not.i.i.i71, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i.i72, label %for.body15.i.i.i55, !llvm.loop !47
+  br i1 %exitcond16.not.i.i.i71, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i.i72, label %for.body15.i.i.i55, !llvm.loop !46
 
 _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i.i72: ; preds = %for.body15.i.i.i55
   %sub4.i.i73 = sub i64 %__z.addr.05.i.i35, %sub6.i.i34
@@ -2255,7 +2238,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   store i64 %xor54.i.i.i82, ptr %arrayidx41.i.i.i29, align 8
   store i64 0, ptr %_M_p.i.i21, align 8
   %cmp.i.i83 = icmp ugt i64 %sub4.i.i73, 624
-  br i1 %cmp.i.i83, label %while.body.i.i32, label %_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEE7discardEy.exit84, !llvm.loop !48
+  br i1 %cmp.i.i83, label %while.body.i.i32, label %_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEE7discardEy.exit84, !llvm.loop !47
 
 _ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEE7discardEy.exit84: ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i.i72, %invoke.cont21
   %__z.addr.0.lcssa.i.i24 = phi i64 [ 100, %invoke.cont21 ], [ %sub4.i.i73, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i.i72 ]
@@ -2277,7 +2260,7 @@ invoke.cont29:                                    ; preds = %for.body26
 
 invoke.cont32:                                    ; preds = %invoke.cont29
   store i64 %call.i87, ptr %ref.tmp31, align 8
-  %32 = load i64, ptr %ref.tmp28, align 8, !noalias !49
+  %32 = load i64, ptr %ref.tmp28, align 8, !noalias !48
   %cmp.i.i89 = icmp eq i64 %32, %call.i87
   br i1 %cmp.i.i89, label %if.then.i.i91, label %if.end.i.i90
 
@@ -2381,7 +2364,7 @@ _ZN7testing15AssertionResultD2Ev.exit115:         ; preds = %if.end51, %_ZNKSt14
   store ptr null, ptr %message_.i.i96, align 8
   %inc54 = add nuw nsw i32 %i23.0125, 1
   %exitcond126.not = icmp eq i32 %inc54, 1000
-  br i1 %exitcond126.not, label %for.end55, label %for.body26, !llvm.loop !54
+  br i1 %exitcond126.not, label %for.end55, label %for.body26, !llvm.loop !53
 
 ehcleanup52:                                      ; preds = %_ZN7testing7MessageD2Ev.exit111, %lpad35
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit111 ], [ %35, %lpad35 ]
@@ -3790,7 +3773,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   store i32 %7, ptr %arrayidx20, align 16
   store i32 %6, ptr %arrayidx22, align 8
   %cmp8 = icmp ugt i64 %dec19, 7
-  br i1 %cmp8, label %while.body, label %if.end, !llvm.loop !55
+  br i1 %cmp8, label %while.body, label %if.end, !llvm.loop !54
 
 if.end:                                           ; preds = %while.body
   %8 = ptrtoint ptr %this to i64
@@ -3923,7 +3906,7 @@ call.i.i.i.i.i.i.i.i.i.noexc:                     ; preds = %for.body.i.i.i.i.i.
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.addr.05.i.i.i.i.i.i, i64 1
   %dec.i.i.i.i.i.i = add nsw i64 %__n.06.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.06.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %invoke.cont2.loopexit, !llvm.loop !56
+  br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %invoke.cont2.loopexit, !llvm.loop !55
 
 invoke.cont2.loopexit:                            ; preds = %call.i.i.i.i.i.i.i.i.i.noexc
   %.pre = load i64, ptr %data, align 8
@@ -3935,7 +3918,7 @@ invoke.cont2:                                     ; preds = %invoke.cont2.loopex
   %2 = phi ptr [ %.pre14, %invoke.cont2.loopexit ], [ undef, %invoke.cont ]
   %3 = phi i64 [ %.pre, %invoke.cont2.loopexit ], [ 0, %invoke.cont ]
   %data_.i.i.i = getelementptr inbounds %"class.absl::inlined_vector_internal::Storage", ptr %data, i64 0, i32 1
-  call void @llvm.experimental.noalias.scope.decl(metadata !57)
+  call void @llvm.experimental.noalias.scope.decl(metadata !56)
   %call.i.i6 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
           to label %call.i.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -3946,16 +3929,16 @@ call.i.i.noexc:                                   ; preds = %invoke.cont2
   %shr.i.i.i = lshr i64 %3, 1
   %add.ptr.i = getelementptr inbounds i32, ptr %cond.i.i, i64 %shr.i.i.i
   invoke void @_ZNSt8seed_seqC2IPjEET_S2_(ptr noundef nonnull align 8 dereferenceable(24) %call.i.i6, ptr noundef %cond.i.i, ptr noundef %add.ptr.i)
-          to label %invoke.cont5 unwind label %lpad.i.i, !noalias !57
+          to label %invoke.cont5 unwind label %lpad.i.i, !noalias !56
 
 lpad.i.i:                                         ; preds = %call.i.i.noexc
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call.i.i6) #18, !noalias !57
+  call void @_ZdlPv(ptr noundef nonnull %call.i.i6) #18, !noalias !56
   br label %lpad.body
 
 invoke.cont5:                                     ; preds = %call.i.i.noexc
-  store ptr %call.i.i6, ptr %agg.result, align 8, !alias.scope !57
+  store ptr %call.i.i6, ptr %agg.result, align 8, !alias.scope !56
   %5 = load i64, ptr %data, align 8
   %and.i.i.i.i = and i64 %5, 1
   %tobool.i.not.i.i.i = icmp eq i64 %and.i.i.i.i, 0
@@ -4030,7 +4013,7 @@ entry:
   %data_.i1.i = getelementptr inbounds %"class.absl::inlined_vector_internal::Storage", ptr %this, i64 0, i32 1
   %1 = load ptr, ptr %data_.i1.i, align 8
   %allocated_capacity.i.i = getelementptr inbounds %"class.absl::inlined_vector_internal::Storage", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %2 = load i64, ptr %allocated_capacity.i.i, align 8, !noalias !60
+  %2 = load i64, ptr %allocated_capacity.i.i, align 8, !noalias !59
   %.sink3.i = select i1 %tobool.i.not.i, ptr %data_.i1.i, ptr %1
   %.sink.i = select i1 %tobool.i.not.i, i64 8, i64 %2
   %shr.i.sink.i = lshr i64 %0, 1
@@ -4080,7 +4063,7 @@ for.inc.i.i:                                      ; preds = %_ZN4absl23inlined_v
   %incdec.ptr.i.i.i.i = getelementptr inbounds i32, ptr %move_values.sroa.0.0.i, i64 1
   %inc.i.i = add nuw nsw i64 %i.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %.sink.i
-  br i1 %exitcond.not.i.i, label %invoke.cont21.i, label %for.inc.i.i, !llvm.loop !61
+  br i1 %exitcond.not.i.i, label %invoke.cont21.i, label %for.inc.i.i, !llvm.loop !60
 
 invoke.cont21.i:                                  ; preds = %for.inc.i.i, %_ZN4absl23inlined_vector_internal13MallocAdapterISaIjELb0EE8AllocateERS2_m.exit.i.i
   br i1 %tobool.i.not.i, label %_ZN4absl23inlined_vector_internal7StorageIjLm8ESaIjEE15EmplaceBackSlowIJRKjEEERjDpOT_.exit, label %if.then.i.i
@@ -4220,7 +4203,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIjSaIjE
   %7 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i12 ]
   %incdec.ptr = getelementptr inbounds i32, ptr %__iter.019, i64 1
   %cmp.not = icmp eq ptr %incdec.ptr, %__end
-  br i1 %cmp.not, label %for.end, label %invoke.cont5, !llvm.loop !62
+  br i1 %cmp.not, label %for.end, label %invoke.cont5, !llvm.loop !61
 
 lpad.loopexit:                                    ; preds = %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i
   %lpad.loopexit16 = landingpad { ptr, i32 }
@@ -4355,7 +4338,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i32 %add49, ptr %arrayidx35, align 4
   %inc = add nuw i64 %__k.096, 1
   %exitcond = icmp eq i64 %inc, %umax
-  br i1 %exitcond, label %for.cond59.preheader, label %for.body, !llvm.loop !63
+  br i1 %exitcond, label %for.cond59.preheader, label %for.body, !llvm.loop !62
 
 for.cond96.preheader:                             ; preds = %for.body61, %for.cond59.preheader
   %add97 = add nsw i64 %.sroa.speculated, %sub.ptr.div
@@ -4393,7 +4376,7 @@ for.body61:                                       ; preds = %for.cond59.preheade
   store i32 %add84, ptr %arrayidx71, align 4
   %inc93 = add nuw i64 %__k57.098, 1
   %exitcond103.not = icmp eq i64 %inc93, %.sroa.speculated
-  br i1 %exitcond103.not, label %for.cond96.preheader, label %for.body61, !llvm.loop !64
+  br i1 %exitcond103.not, label %for.cond96.preheader, label %for.body61, !llvm.loop !63
 
 for.body99:                                       ; preds = %for.cond96.preheader, %for.body99
   %__k95.0100 = phi i64 [ %inc128, %for.body99 ], [ %.sroa.speculated, %for.cond96.preheader ]
@@ -4426,7 +4409,7 @@ for.body99:                                       ; preds = %for.cond96.preheade
   store i32 %conv121, ptr %arrayidx109, align 4
   %inc128 = add nuw i64 %__k95.0100, 1
   %exitcond104.not = icmp eq i64 %inc128, %add97
-  br i1 %exitcond104.not, label %for.end129, label %for.body99, !llvm.loop !65
+  br i1 %exitcond104.not, label %for.end129, label %for.body99, !llvm.loop !64
 
 for.end129:                                       ; preds = %for.body99, %for.cond96.preheader, %entry
   ret void
@@ -4498,7 +4481,7 @@ for.inc24.i.i:                                    ; preds = %if.else.i.i, %if.th
   %__zero.1.i.i = phi i8 [ %__zero.014.i.i, %for.cond4.preheader.i.i ], [ %spec.select.i.i, %if.then12.i.i ], [ %spec.select11.i.i, %if.else.i.i ]
   %inc25.i.i = add nuw nsw i64 %__i.015.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc25.i.i, 624
-  br i1 %exitcond.not.i.i, label %for.end26.i.i, label %for.cond4.preheader.i.i, !llvm.loop !66
+  br i1 %exitcond.not.i.i, label %for.end26.i.i, label %for.cond4.preheader.i.i, !llvm.loop !65
 
 for.end26.i.i:                                    ; preds = %for.inc24.i.i
   %5 = and i8 %__zero.1.i.i, 1
@@ -4538,6 +4521,101 @@ lpad:                                             ; preds = %call2.i.i.i.i.noexc
           cleanup
   call void @_ZN4absl15random_internal13SaltedSeedSeqISt8seed_seqED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %salted_seq) #17
   resume { ptr, i32 } %8
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #11
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRdSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %0 = load double, ptr %args, align 8
+  %1 = load double, ptr %args1, align 8
+  %sub.i.i.i = fsub double %1, %0
+  %sub.i.i.i.fr = freeze double %sub.i.i.i
+  %cmp6.i.i = fcmp ugt double %sub.i.i.i.fr, 0.000000e+00
+  br i1 %cmp6.i.i, label %entry.split, label %while.body.i.i.us
+
+while.body.i.i.us:                                ; preds = %entry
+  %call.i.i.i.i.i.us = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %urbg)
+  %shl.i.i.i.i.us = shl i64 %call.i.i.i.i.i.us, 32
+  %call.i4.i.i.i.i.us = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %urbg)
+  %add.i.i.i.i.us = add i64 %call.i4.i.i.i.i.us, %shl.i.i.i.i.us
+  %cmp.i.i.i.us = icmp eq i64 %add.i.i.i.i.us, 0
+  br i1 %cmp.i.i.i.us, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us, label %if.end.i.i.i.us
+
+if.end.i.i.i.us:                                  ; preds = %while.body.i.i.us
+  %2 = tail call i64 @llvm.ctlz.i64(i64 %add.i.i.i.i.us, i1 true), !range !22
+  %shl.i.i.i.us = shl i64 %add.i.i.i.i.us, %2
+  %shr.i.i.i.us = lshr i64 %shl.i.i.i.us, 11
+  %and.i.i.i.us = and i64 %shr.i.i.i.us, 4503599627370495
+  %3 = shl nuw nsw i64 %2, 52
+  %reass.sub = sub nsw i64 %and.i.i.i.us, %3
+  %or2.i.i.i.us = add nsw i64 %reass.sub, 4602678819172646912
+  %4 = bitcast i64 %or2.i.i.i.us to double
+  br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us
+
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us: ; preds = %if.end.i.i.i.us, %while.body.i.i.us
+  %retval.0.i.i.i.us = phi double [ %4, %if.end.i.i.i.us ], [ 0.000000e+00, %while.body.i.i.us ]
+  %5 = tail call double @llvm.fmuladd.f64(double %retval.0.i.i.i.us, double %sub.i.i.i.fr, double %0)
+  br label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
+
+entry.split:                                      ; preds = %entry
+  %6 = tail call i1 @llvm.is.fpclass.f64(double %sub.i.i.i.fr, i32 504)
+  br i1 %6, label %while.body.i.i.us2, label %while.body.i.i, !llvm.loop !66
+
+while.body.i.i.us2:                               ; preds = %entry.split, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us15
+  %call.i.i.i.i.i.us3 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %urbg)
+  %shl.i.i.i.i.us4 = shl i64 %call.i.i.i.i.i.us3, 32
+  %call.i4.i.i.i.i.us5 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %urbg)
+  %add.i.i.i.i.us6 = add i64 %call.i4.i.i.i.i.us5, %shl.i.i.i.i.us4
+  %cmp.i.i.i.us7 = icmp eq i64 %add.i.i.i.i.us6, 0
+  br i1 %cmp.i.i.i.us7, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us15, label %if.end.i.i.i.us8
+
+if.end.i.i.i.us8:                                 ; preds = %while.body.i.i.us2
+  %7 = tail call i64 @llvm.ctlz.i64(i64 %add.i.i.i.i.us6, i1 true), !range !22
+  %shl.i.i.i.us9 = shl i64 %add.i.i.i.i.us6, %7
+  %shr.i.i.i.us10 = lshr i64 %shl.i.i.i.us9, 11
+  %and.i.i.i.us11 = and i64 %shr.i.i.i.us10, 4503599627370495
+  %8 = shl nuw nsw i64 %7, 52
+  %reass.sub22 = sub nsw i64 %and.i.i.i.us11, %8
+  %or2.i.i.i.us14 = add nsw i64 %reass.sub22, 4602678819172646912
+  %9 = bitcast i64 %or2.i.i.i.us14 to double
+  br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us15
+
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us15: ; preds = %if.end.i.i.i.us8, %while.body.i.i.us2
+  %retval.0.i.i.i.us16 = phi double [ %9, %if.end.i.i.i.us8 ], [ 0.000000e+00, %while.body.i.i.us2 ]
+  %10 = tail call double @llvm.fmuladd.f64(double %retval.0.i.i.i.us16, double %sub.i.i.i.fr, double %0)
+  %cmp.i.i.us = fcmp uge double %10, %1
+  br i1 %cmp.i.i.us, label %while.body.i.i.us2, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
+
+while.body.i.i:                                   ; preds = %entry.split
+  %call.i.i.i.i.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %urbg)
+  %shl.i.i.i.i = shl i64 %call.i.i.i.i.i, 32
+  %call.i4.i.i.i.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %urbg)
+  %add.i.i.i.i = add i64 %call.i4.i.i.i.i, %shl.i.i.i.i
+  %cmp.i.i.i = icmp eq i64 %add.i.i.i.i, 0
+  br i1 %cmp.i.i.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i, label %if.end.i.i.i
+
+if.end.i.i.i:                                     ; preds = %while.body.i.i
+  %11 = tail call i64 @llvm.ctlz.i64(i64 %add.i.i.i.i, i1 true), !range !22
+  %shl.i.i.i = shl i64 %add.i.i.i.i, %11
+  %shr.i.i.i = lshr i64 %shl.i.i.i, 11
+  %and.i.i.i = and i64 %shr.i.i.i, 4503599627370495
+  %12 = shl nuw nsw i64 %11, 52
+  %reass.sub21 = sub nsw i64 %and.i.i.i, %12
+  %or2.i.i.i = add nsw i64 %reass.sub21, 4602678819172646912
+  %13 = bitcast i64 %or2.i.i.i to double
+  br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
+
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i: ; preds = %if.end.i.i.i, %while.body.i.i
+  %retval.0.i.i.i = phi double [ %13, %if.end.i.i.i ], [ 0.000000e+00, %while.body.i.i ]
+  %14 = tail call double @llvm.fmuladd.f64(double %retval.0.i.i.i, double %sub.i.i.i.fr, double %0)
+  br label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
+
+_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS3_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us15, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us
+  %.us-phi = phi double [ %5, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us ], [ %14, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %10, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us15 ]
+  ret double %.us-phi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -4686,7 +4764,7 @@ for.body.i.i67:                                   ; preds = %for.body.i.i67, %if
   %xor9.i.i82 = xor i64 %xor.i.i78, %cond.i.i81
   store i64 %xor9.i.i82, ptr %arrayidx.i.i69, align 8
   %exitcond.not.i.i83 = icmp eq i64 %add.i.i71, 227
-  br i1 %exitcond.not.i.i83, label %for.body15.preheader.i.i84, label %for.body.i.i67, !llvm.loop !46
+  br i1 %exitcond.not.i.i83, label %for.body15.preheader.i.i84, label %for.body.i.i67, !llvm.loop !45
 
 for.body15.preheader.i.i84:                       ; preds = %for.body.i.i67
   %.pre17.i.i86 = load i64, ptr %arrayidx18.phi.trans.insert.i.i85, align 8
@@ -4713,7 +4791,7 @@ for.body15.i.i87:                                 ; preds = %for.body15.i.i87, %
   %xor33.i.i102 = xor i64 %xor29.i.i98, %cond32.i.i101
   store i64 %xor33.i.i102, ptr %arrayidx18.i.i89, align 8
   %exitcond16.not.i.i103 = icmp eq i64 %add21.i.i91, 623
-  br i1 %exitcond16.not.i.i103, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i104, label %for.body15.i.i87, !llvm.loop !47
+  br i1 %exitcond16.not.i.i103, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i104, label %for.body15.i.i87, !llvm.loop !46
 
 _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i104: ; preds = %for.body15.i.i87
   %8 = load i64, ptr %arrayidx41.i.i105, align 8
@@ -4777,7 +4855,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.t
   %xor9.i.i = xor i64 %xor.i.i, %cond.i.i
   store i64 %xor9.i.i, ptr %arrayidx.i.i, align 8
   %exitcond.not.i.i = icmp eq i64 %add.i.i48, 227
-  br i1 %exitcond.not.i.i, label %for.body15.preheader.i.i, label %for.body.i.i, !llvm.loop !46
+  br i1 %exitcond.not.i.i, label %for.body15.preheader.i.i, label %for.body.i.i, !llvm.loop !45
 
 for.body15.preheader.i.i:                         ; preds = %for.body.i.i
   %.pre17.i.i = load i64, ptr %arrayidx18.phi.trans.insert.i.i85, align 8
@@ -4804,7 +4882,7 @@ for.body15.i.i:                                   ; preds = %for.body15.i.i, %fo
   %xor33.i.i = xor i64 %xor29.i.i, %cond32.i.i
   store i64 %xor33.i.i, ptr %arrayidx18.i.i, align 8
   %exitcond16.not.i.i = icmp eq i64 %add21.i.i, 623
-  br i1 %exitcond16.not.i.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i, label %for.body15.i.i, !llvm.loop !47
+  br i1 %exitcond16.not.i.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i, label %for.body15.i.i, !llvm.loop !46
 
 _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i: ; preds = %for.body15.i.i
   %19 = load i64, ptr %arrayidx41.i.i105, align 8
@@ -5088,7 +5166,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   %xor9.i = xor i64 %xor.i, %cond.i
   store i64 %xor9.i, ptr %arrayidx.i, align 8
   %exitcond.not.i = icmp eq i64 %add.i, 227
-  br i1 %exitcond.not.i, label %for.body15.preheader.i, label %for.body.i, !llvm.loop !46
+  br i1 %exitcond.not.i, label %for.body15.preheader.i, label %for.body.i, !llvm.loop !45
 
 for.body15.preheader.i:                           ; preds = %for.body.i
   %arrayidx18.phi.trans.insert.i = getelementptr inbounds [624 x i64], ptr %this, i64 0, i64 227
@@ -5116,7 +5194,7 @@ for.body15.i:                                     ; preds = %for.body15.i, %for.
   %xor33.i = xor i64 %xor29.i, %cond32.i
   store i64 %xor33.i, ptr %arrayidx18.i, align 8
   %exitcond16.not.i = icmp eq i64 %add21.i, 623
-  br i1 %exitcond16.not.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit, label %for.body15.i, !llvm.loop !47
+  br i1 %exitcond16.not.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit, label %for.body15.i, !llvm.loop !46
 
 _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit: ; preds = %for.body15.i
   %arrayidx41.i = getelementptr inbounds [624 x i64], ptr %this, i64 0, i64 623
@@ -6965,44 +7043,44 @@ attributes #21 = { noreturn nounwind }
 !20 = distinct !{!20, !"_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEE13ConstructURBGEv"}
 !21 = distinct !{!21, !9}
 !22 = !{i64 0, i64 65}
-!23 = distinct !{!23, !9}
-!24 = !{!"branch_weights", i32 2000, i32 1}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEE13ConstructURBGEv: %agg.result"}
-!27 = distinct !{!27, !"_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEE13ConstructURBGEv"}
+!23 = !{!"branch_weights", i32 2000, i32 1}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEE13ConstructURBGEv: %agg.result"}
+!26 = distinct !{!26, !"_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEE13ConstructURBGEv"}
+!27 = distinct !{!27, !9}
 !28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEE13ConstructURBGEv: %agg.result"}
-!32 = distinct !{!32, !"_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEE13ConstructURBGEv"}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEE13ConstructURBGEv: %agg.result"}
-!35 = distinct !{!35, !"_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEE13ConstructURBGEv"}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZN7testing8internal11CmpHelperNEImmEENS_15AssertionResultEPKcS4_RKT_RKT0_: %agg.result"}
-!38 = distinct !{!38, !"_ZN7testing8internal11CmpHelperNEImmEENS_15AssertionResultEPKcS4_RKT_RKT0_"}
-!39 = distinct !{!39, !9}
-!40 = !{!41, !43}
-!41 = distinct !{!41, !42, !"_ZN7testing8internal11CmpHelperEQImmEENS_15AssertionResultEPKcS4_RKT_RKT0_: %agg.result"}
-!42 = distinct !{!42, !"_ZN7testing8internal11CmpHelperEQImmEENS_15AssertionResultEPKcS4_RKT_RKT0_"}
-!43 = distinct !{!43, !44, !"_ZN7testing8internal8EqHelper7CompareImmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_: %agg.result"}
-!44 = distinct !{!44, !"_ZN7testing8internal8EqHelper7CompareImmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEE13ConstructURBGEv: %agg.result"}
+!31 = distinct !{!31, !"_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEE13ConstructURBGEv"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEE13ConstructURBGEv: %agg.result"}
+!34 = distinct !{!34, !"_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEE13ConstructURBGEv"}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"_ZN7testing8internal11CmpHelperNEImmEENS_15AssertionResultEPKcS4_RKT_RKT0_: %agg.result"}
+!37 = distinct !{!37, !"_ZN7testing8internal11CmpHelperNEImmEENS_15AssertionResultEPKcS4_RKT_RKT0_"}
+!38 = distinct !{!38, !9}
+!39 = !{!40, !42}
+!40 = distinct !{!40, !41, !"_ZN7testing8internal11CmpHelperEQImmEENS_15AssertionResultEPKcS4_RKT_RKT0_: %agg.result"}
+!41 = distinct !{!41, !"_ZN7testing8internal11CmpHelperEQImmEENS_15AssertionResultEPKcS4_RKT_RKT0_"}
+!42 = distinct !{!42, !43, !"_ZN7testing8internal8EqHelper7CompareImmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_: %agg.result"}
+!43 = distinct !{!43, !"_ZN7testing8internal8EqHelper7CompareImmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
+!44 = distinct !{!44, !9}
 !45 = distinct !{!45, !9}
 !46 = distinct !{!46, !9}
 !47 = distinct !{!47, !9}
-!48 = distinct !{!48, !9}
-!49 = !{!50, !52}
-!50 = distinct !{!50, !51, !"_ZN7testing8internal11CmpHelperEQImmEENS_15AssertionResultEPKcS4_RKT_RKT0_: %agg.result"}
-!51 = distinct !{!51, !"_ZN7testing8internal11CmpHelperEQImmEENS_15AssertionResultEPKcS4_RKT_RKT0_"}
-!52 = distinct !{!52, !53, !"_ZN7testing8internal8EqHelper7CompareImmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_: %agg.result"}
-!53 = distinct !{!53, !"_ZN7testing8internal8EqHelper7CompareImmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
+!48 = !{!49, !51}
+!49 = distinct !{!49, !50, !"_ZN7testing8internal11CmpHelperEQImmEENS_15AssertionResultEPKcS4_RKT_RKT0_: %agg.result"}
+!50 = distinct !{!50, !"_ZN7testing8internal11CmpHelperEQImmEENS_15AssertionResultEPKcS4_RKT_RKT0_"}
+!51 = distinct !{!51, !52, !"_ZN7testing8internal8EqHelper7CompareImmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_: %agg.result"}
+!52 = distinct !{!52, !"_ZN7testing8internal8EqHelper7CompareImmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
+!53 = distinct !{!53, !9}
 !54 = distinct !{!54, !9}
 !55 = distinct !{!55, !9}
-!56 = distinct !{!56, !9}
-!57 = !{!58}
-!58 = distinct !{!58, !59, !"_ZSt11make_uniqueISt8seed_seqJRPjS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!59 = distinct !{!59, !"_ZSt11make_uniqueISt8seed_seqJRPjS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!60 = !{}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"_ZSt11make_uniqueISt8seed_seqJRPjS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!58 = distinct !{!58, !"_ZSt11make_uniqueISt8seed_seqJRPjS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!59 = !{}
+!60 = distinct !{!60, !9}
 !61 = distinct !{!61, !9}
 !62 = distinct !{!62, !9}
 !63 = distinct !{!63, !9}

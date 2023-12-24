@@ -1491,63 +1491,64 @@ if.else.i:                                        ; preds = %if.then501
 if.else2.i:                                       ; preds = %if.else.i
   %72 = tail call noundef double @llvm.fabs.f64(double %69)
   %cmp4.i = fcmp oeq double %72, 1.000000e+00
-  %73 = tail call double @llvm.fabs.f64(double %70)
-  %74 = fcmp oeq double %73, 0x7FF0000000000000
-  %or.cond.i496 = and i1 %cmp4.i, %74
-  br i1 %or.cond.i496, label %_ZN6hermes5expOpEdd.exit, label %if.end8.i
+  br i1 %cmp4.i, label %land.lhs.true.i, label %if.end8.i
 
-if.end8.i:                                        ; preds = %if.else2.i
+land.lhs.true.i:                                  ; preds = %if.else2.i
+  %73 = tail call noundef i1 @llvm.is.fpclass.f64(double %70, i32 516)
+  br i1 %73, label %_ZN6hermes5expOpEdd.exit, label %if.end8.i
+
+if.end8.i:                                        ; preds = %land.lhs.true.i, %if.else2.i
   %call9.i = tail call double @pow(double noundef %69, double noundef %70) #6
   br label %_ZN6hermes5expOpEdd.exit
 
-_ZN6hermes5expOpEdd.exit:                         ; preds = %if.then501, %if.else.i, %if.else2.i, %if.end8.i
-  %retval.0.i497 = phi double [ %call9.i, %if.end8.i ], [ 0x7FF8000000000000, %if.then501 ], [ 1.000000e+00, %if.else.i ], [ 0x7FF8000000000000, %if.else2.i ]
-  %call505 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %retval.0.i497) #6
+_ZN6hermes5expOpEdd.exit:                         ; preds = %if.then501, %if.else.i, %land.lhs.true.i, %if.end8.i
+  %retval.0.i496 = phi double [ %call9.i, %if.end8.i ], [ 0x7FF8000000000000, %if.then501 ], [ 1.000000e+00, %if.else.i ], [ 0x7FF8000000000000, %land.lhs.true.i ]
+  %call505 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %retval.0.i496) #6
   br label %return
 
 sw.bb507:                                         ; preds = %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit
   br i1 %or.cond.i, label %if.then511, label %return
 
 if.then511:                                       ; preds = %sw.bb507
-  %value.i498 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i, i64 0, i32 2
-  %75 = load double, ptr %value.i498, align 8
-  %conv4.i.i500 = fptoui double %75 to i64
-  %shl.i.i501 = shl i64 %conv4.i.i500, 1
-  %shr.i.i502 = ashr exact i64 %shl.i.i501, 1
-  %conv5.i.i503 = sitofp i64 %shr.i.i502 to double
-  %cmp6.i.i504 = fcmp oeq double %75, %conv5.i.i503
-  br i1 %cmp6.i.i504, label %if.then8.i.i508, label %if.end11.i.i505
+  %value.i497 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i, i64 0, i32 2
+  %74 = load double, ptr %value.i497, align 8
+  %conv4.i.i499 = fptoui double %74 to i64
+  %shl.i.i500 = shl i64 %conv4.i.i499, 1
+  %shr.i.i501 = ashr exact i64 %shl.i.i500, 1
+  %conv5.i.i502 = sitofp i64 %shr.i.i501 to double
+  %cmp6.i.i503 = fcmp oeq double %74, %conv5.i.i502
+  br i1 %cmp6.i.i503, label %if.then8.i.i507, label %if.end11.i.i504
 
-if.then8.i.i508:                                  ; preds = %if.then511
-  %conv9.i.i509 = trunc i64 %conv4.i.i500 to i32
-  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit517
+if.then8.i.i507:                                  ; preds = %if.then511
+  %conv9.i.i508 = trunc i64 %conv4.i.i499 to i32
+  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit516
 
-if.end11.i.i505:                                  ; preds = %if.then511
-  %call.i.i506 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %75) #6
-  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit517
+if.end11.i.i504:                                  ; preds = %if.then511
+  %call.i.i505 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %74) #6
+  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit516
 
-_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit517: ; preds = %if.then8.i.i508, %if.end11.i.i505
-  %retval.0.i.i507 = phi i32 [ %call.i.i506, %if.end11.i.i505 ], [ %conv9.i.i509, %if.then8.i.i508 ]
-  %value.i518 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i265, i64 0, i32 2
-  %76 = load double, ptr %value.i518, align 8
-  %conv4.i.i520 = fptoui double %76 to i64
-  %shl.i.i521 = shl i64 %conv4.i.i520, 1
-  %shr.i.i522 = ashr exact i64 %shl.i.i521, 1
-  %conv5.i.i523 = sitofp i64 %shr.i.i522 to double
-  %cmp6.i.i524 = fcmp oeq double %76, %conv5.i.i523
-  br i1 %cmp6.i.i524, label %if.then8.i.i528, label %if.end11.i.i525
+_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit516: ; preds = %if.then8.i.i507, %if.end11.i.i504
+  %retval.0.i.i506 = phi i32 [ %call.i.i505, %if.end11.i.i504 ], [ %conv9.i.i508, %if.then8.i.i507 ]
+  %value.i517 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i265, i64 0, i32 2
+  %75 = load double, ptr %value.i517, align 8
+  %conv4.i.i519 = fptoui double %75 to i64
+  %shl.i.i520 = shl i64 %conv4.i.i519, 1
+  %shr.i.i521 = ashr exact i64 %shl.i.i520, 1
+  %conv5.i.i522 = sitofp i64 %shr.i.i521 to double
+  %cmp6.i.i523 = fcmp oeq double %75, %conv5.i.i522
+  br i1 %cmp6.i.i523, label %if.then8.i.i527, label %if.end11.i.i524
 
-if.then8.i.i528:                                  ; preds = %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit517
-  %conv9.i.i529 = trunc i64 %conv4.i.i520 to i32
-  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit537
+if.then8.i.i527:                                  ; preds = %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit516
+  %conv9.i.i528 = trunc i64 %conv4.i.i519 to i32
+  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit536
 
-if.end11.i.i525:                                  ; preds = %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit517
-  %call.i.i526 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %76) #6
-  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit537
+if.end11.i.i524:                                  ; preds = %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit516
+  %call.i.i525 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %75) #6
+  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit536
 
-_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit537: ; preds = %if.then8.i.i528, %if.end11.i.i525
-  %retval.0.i.i527 = phi i32 [ %call.i.i526, %if.end11.i.i525 ], [ %conv9.i.i529, %if.then8.i.i528 ]
-  %or = or i32 %retval.0.i.i527, %retval.0.i.i507
+_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit536: ; preds = %if.then8.i.i527, %if.end11.i.i524
+  %retval.0.i.i526 = phi i32 [ %call.i.i525, %if.end11.i.i524 ], [ %conv9.i.i528, %if.then8.i.i527 ]
+  %or = or i32 %retval.0.i.i526, %retval.0.i.i506
   %conv514 = sitofp i32 %or to double
   %call515 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %conv514) #6
   br label %return
@@ -1556,45 +1557,45 @@ sw.bb517:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then521, label %return
 
 if.then521:                                       ; preds = %sw.bb517
-  %value.i538 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i, i64 0, i32 2
-  %77 = load double, ptr %value.i538, align 8
-  %conv4.i.i540 = fptoui double %77 to i64
-  %shl.i.i541 = shl i64 %conv4.i.i540, 1
-  %shr.i.i542 = ashr exact i64 %shl.i.i541, 1
-  %conv5.i.i543 = sitofp i64 %shr.i.i542 to double
-  %cmp6.i.i544 = fcmp oeq double %77, %conv5.i.i543
-  br i1 %cmp6.i.i544, label %if.then8.i.i548, label %if.end11.i.i545
+  %value.i537 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i, i64 0, i32 2
+  %76 = load double, ptr %value.i537, align 8
+  %conv4.i.i539 = fptoui double %76 to i64
+  %shl.i.i540 = shl i64 %conv4.i.i539, 1
+  %shr.i.i541 = ashr exact i64 %shl.i.i540, 1
+  %conv5.i.i542 = sitofp i64 %shr.i.i541 to double
+  %cmp6.i.i543 = fcmp oeq double %76, %conv5.i.i542
+  br i1 %cmp6.i.i543, label %if.then8.i.i547, label %if.end11.i.i544
 
-if.then8.i.i548:                                  ; preds = %if.then521
-  %conv9.i.i549 = trunc i64 %conv4.i.i540 to i32
-  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit557
+if.then8.i.i547:                                  ; preds = %if.then521
+  %conv9.i.i548 = trunc i64 %conv4.i.i539 to i32
+  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit556
 
-if.end11.i.i545:                                  ; preds = %if.then521
-  %call.i.i546 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %77) #6
-  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit557
+if.end11.i.i544:                                  ; preds = %if.then521
+  %call.i.i545 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %76) #6
+  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit556
 
-_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit557: ; preds = %if.then8.i.i548, %if.end11.i.i545
-  %retval.0.i.i547 = phi i32 [ %call.i.i546, %if.end11.i.i545 ], [ %conv9.i.i549, %if.then8.i.i548 ]
-  %value.i558 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i265, i64 0, i32 2
-  %78 = load double, ptr %value.i558, align 8
-  %conv4.i.i560 = fptoui double %78 to i64
-  %shl.i.i561 = shl i64 %conv4.i.i560, 1
-  %shr.i.i562 = ashr exact i64 %shl.i.i561, 1
-  %conv5.i.i563 = sitofp i64 %shr.i.i562 to double
-  %cmp6.i.i564 = fcmp oeq double %78, %conv5.i.i563
-  br i1 %cmp6.i.i564, label %if.then8.i.i568, label %if.end11.i.i565
+_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit556: ; preds = %if.then8.i.i547, %if.end11.i.i544
+  %retval.0.i.i546 = phi i32 [ %call.i.i545, %if.end11.i.i544 ], [ %conv9.i.i548, %if.then8.i.i547 ]
+  %value.i557 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i265, i64 0, i32 2
+  %77 = load double, ptr %value.i557, align 8
+  %conv4.i.i559 = fptoui double %77 to i64
+  %shl.i.i560 = shl i64 %conv4.i.i559, 1
+  %shr.i.i561 = ashr exact i64 %shl.i.i560, 1
+  %conv5.i.i562 = sitofp i64 %shr.i.i561 to double
+  %cmp6.i.i563 = fcmp oeq double %77, %conv5.i.i562
+  br i1 %cmp6.i.i563, label %if.then8.i.i567, label %if.end11.i.i564
 
-if.then8.i.i568:                                  ; preds = %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit557
-  %conv9.i.i569 = trunc i64 %conv4.i.i560 to i32
-  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit577
+if.then8.i.i567:                                  ; preds = %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit556
+  %conv9.i.i568 = trunc i64 %conv4.i.i559 to i32
+  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit576
 
-if.end11.i.i565:                                  ; preds = %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit557
-  %call.i.i566 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %78) #6
-  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit577
+if.end11.i.i564:                                  ; preds = %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit556
+  %call.i.i565 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %77) #6
+  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit576
 
-_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit577: ; preds = %if.then8.i.i568, %if.end11.i.i565
-  %retval.0.i.i567 = phi i32 [ %call.i.i566, %if.end11.i.i565 ], [ %conv9.i.i569, %if.then8.i.i568 ]
-  %xor = xor i32 %retval.0.i.i567, %retval.0.i.i547
+_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit576: ; preds = %if.then8.i.i567, %if.end11.i.i564
+  %retval.0.i.i566 = phi i32 [ %call.i.i565, %if.end11.i.i564 ], [ %conv9.i.i568, %if.then8.i.i567 ]
+  %xor = xor i32 %retval.0.i.i566, %retval.0.i.i546
   %conv524 = sitofp i32 %xor to double
   %call525 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %conv524) #6
   br label %return
@@ -1603,51 +1604,51 @@ sw.bb527:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then531, label %return
 
 if.then531:                                       ; preds = %sw.bb527
-  %value.i578 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i, i64 0, i32 2
-  %79 = load double, ptr %value.i578, align 8
-  %conv4.i.i580 = fptoui double %79 to i64
-  %shl.i.i581 = shl i64 %conv4.i.i580, 1
-  %shr.i.i582 = ashr exact i64 %shl.i.i581, 1
-  %conv5.i.i583 = sitofp i64 %shr.i.i582 to double
-  %cmp6.i.i584 = fcmp oeq double %79, %conv5.i.i583
-  br i1 %cmp6.i.i584, label %if.then8.i.i588, label %if.end11.i.i585
+  %value.i577 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i, i64 0, i32 2
+  %78 = load double, ptr %value.i577, align 8
+  %conv4.i.i579 = fptoui double %78 to i64
+  %shl.i.i580 = shl i64 %conv4.i.i579, 1
+  %shr.i.i581 = ashr exact i64 %shl.i.i580, 1
+  %conv5.i.i582 = sitofp i64 %shr.i.i581 to double
+  %cmp6.i.i583 = fcmp oeq double %78, %conv5.i.i582
+  br i1 %cmp6.i.i583, label %if.then8.i.i587, label %if.end11.i.i584
 
-if.then8.i.i588:                                  ; preds = %if.then531
-  %conv9.i.i589 = trunc i64 %conv4.i.i580 to i32
-  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit597
+if.then8.i.i587:                                  ; preds = %if.then531
+  %conv9.i.i588 = trunc i64 %conv4.i.i579 to i32
+  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit596
 
-if.end11.i.i585:                                  ; preds = %if.then531
-  %call.i.i586 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %79) #6
-  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit597
+if.end11.i.i584:                                  ; preds = %if.then531
+  %call.i.i585 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %78) #6
+  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit596
 
-_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit597: ; preds = %if.then8.i.i588, %if.end11.i.i585
-  %retval.0.i.i587 = phi i32 [ %call.i.i586, %if.end11.i.i585 ], [ %conv9.i.i589, %if.then8.i.i588 ]
-  %value.i598 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i265, i64 0, i32 2
-  %80 = load double, ptr %value.i598, align 8
-  %conv4.i.i600 = fptoui double %80 to i64
-  %shl.i.i601 = shl i64 %conv4.i.i600, 1
-  %shr.i.i602 = ashr exact i64 %shl.i.i601, 1
-  %conv5.i.i603 = sitofp i64 %shr.i.i602 to double
-  %cmp6.i.i604 = fcmp oeq double %80, %conv5.i.i603
-  br i1 %cmp6.i.i604, label %if.then8.i.i608, label %if.end11.i.i605
+_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit596: ; preds = %if.then8.i.i587, %if.end11.i.i584
+  %retval.0.i.i586 = phi i32 [ %call.i.i585, %if.end11.i.i584 ], [ %conv9.i.i588, %if.then8.i.i587 ]
+  %value.i597 = getelementptr inbounds %"class.hermes::LiteralNumber", ptr %spec.select.i265, i64 0, i32 2
+  %79 = load double, ptr %value.i597, align 8
+  %conv4.i.i599 = fptoui double %79 to i64
+  %shl.i.i600 = shl i64 %conv4.i.i599, 1
+  %shr.i.i601 = ashr exact i64 %shl.i.i600, 1
+  %conv5.i.i602 = sitofp i64 %shr.i.i601 to double
+  %cmp6.i.i603 = fcmp oeq double %79, %conv5.i.i602
+  br i1 %cmp6.i.i603, label %if.then8.i.i607, label %if.end11.i.i604
 
-if.then8.i.i608:                                  ; preds = %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit597
-  %conv9.i.i609 = trunc i64 %conv4.i.i600 to i32
-  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit617
+if.then8.i.i607:                                  ; preds = %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit596
+  %conv9.i.i608 = trunc i64 %conv4.i.i599 to i32
+  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit616
 
-if.end11.i.i605:                                  ; preds = %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit597
-  %call.i.i606 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %80) #6
-  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit617
+if.end11.i.i604:                                  ; preds = %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit596
+  %call.i.i605 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %79) #6
+  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit616
 
-_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit617: ; preds = %if.then8.i.i608, %if.end11.i.i605
-  %retval.0.i.i607 = phi i32 [ %call.i.i606, %if.end11.i.i605 ], [ %conv9.i.i609, %if.then8.i.i608 ]
-  %and534 = and i32 %retval.0.i.i607, %retval.0.i.i587
+_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit616: ; preds = %if.then8.i.i607, %if.end11.i.i604
+  %retval.0.i.i606 = phi i32 [ %call.i.i605, %if.end11.i.i604 ], [ %conv9.i.i608, %if.then8.i.i607 ]
+  %and534 = and i32 %retval.0.i.i606, %retval.0.i.i586
   %conv535 = sitofp i32 %and534 to double
   %call536 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %conv535) #6
   br label %return
 
-return:                                           ; preds = %if.then180, %if.then149, %if.then112, %if.then72, %if.end6.i345, %if.then.i.i.i481, %if.then419, %if.then.i.i.i466, %if.then397, %if.then.i.i.i451, %if.then375, %if.then.i.i.i436, %if.then354, %if.then.i.i.i421, %if.then318, %if.then.i.i.i300, %if.then39, %if.then.i.i.i, %if.then30, %if.end82, %if.end122, %if.end159, %if.end190, %if.then213, %if.end211, %if.then232, %if.end230, %if.then251, %if.end249, %if.then270, %if.end268, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit353, %if.else417, %if.end411, %sw.bb434, %sw.bb478, %sw.bb487, %sw.bb497, %sw.bb507, %sw.bb517, %sw.bb527, %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit, %if.end451, %if.then370, %if.then349, %if.then, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit617, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit577, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit537, %_ZN6hermes5expOpEdd.exit, %if.then491, %if.then482, %if.end475, %if.then473, %if.then447, %if.then438, %if.then415, %if.then393, %if.then345, %if.then339, %if.then310, %if.end303, %sw.bb276, %sw.bb274, %sw.bb272, %if.then266, %sw.bb257, %sw.bb255, %sw.bb253, %if.then247, %sw.bb238, %sw.bb236, %sw.bb234, %if.then228, %sw.bb219, %sw.bb217, %sw.bb215, %if.then209, %if.then194, %sw.bb186, %sw.bb184, %sw.bb182, %if.then176, %if.then163, %sw.bb155, %sw.bb153, %sw.bb151, %if.then145, %if.then139, %if.then126, %sw.bb118, %sw.bb116, %sw.bb114, %if.then104, %if.then98, %if.then85, %sw.bb78, %sw.bb76, %sw.bb74, %if.then66, %if.then60, %sw.bb53, %if.end51, %sw.bb25, %sw.bb
-  %retval.0 = phi ptr [ %call54, %sw.bb53 ], [ %call52, %if.end51 ], [ %call536, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit617 ], [ %call525, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit577 ], [ %call515, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit537 ], [ %call505, %_ZN6hermes5expOpEdd.exit ], [ %call495, %if.then491 ], [ %call485, %if.then482 ], [ %call450, %if.then447 ], [ %call474, %if.then473 ], [ %call476, %if.end475 ], [ %call441, %if.then438 ], [ %call313, %if.then310 ], [ %call340, %if.then339 ], [ %call346, %if.then345 ], [ %call394, %if.then393 ], [ %call416, %if.then415 ], [ %call305, %if.end303 ], [ %call277, %sw.bb276 ], [ %call275, %sw.bb274 ], [ %call273, %sw.bb272 ], [ %call267, %if.then266 ], [ %call258, %sw.bb257 ], [ %call256, %sw.bb255 ], [ %call254, %sw.bb253 ], [ %call248, %if.then247 ], [ %call239, %sw.bb238 ], [ %call237, %sw.bb236 ], [ %call235, %sw.bb234 ], [ %call229, %if.then228 ], [ %call220, %sw.bb219 ], [ %call218, %sw.bb217 ], [ %call216, %sw.bb215 ], [ %call210, %if.then209 ], [ %call177, %if.then176 ], [ %call203, %if.then194 ], [ %call187, %sw.bb186 ], [ %call185, %sw.bb184 ], [ %call183, %sw.bb182 ], [ %call140, %if.then139 ], [ %call146, %if.then145 ], [ %call172, %if.then163 ], [ %call156, %sw.bb155 ], [ %call154, %sw.bb153 ], [ %call152, %sw.bb151 ], [ %call99, %if.then98 ], [ %call109, %if.then104 ], [ %call135, %if.then126 ], [ %call119, %sw.bb118 ], [ %call117, %sw.bb116 ], [ %call115, %sw.bb114 ], [ %call61, %if.then60 ], [ %call69, %if.then66 ], [ %call94, %if.then85 ], [ %call79, %sw.bb78 ], [ %call77, %sw.bb76 ], [ %call75, %sw.bb74 ], [ %call26, %sw.bb25 ], [ %call24, %sw.bb ], [ null, %if.then ], [ %rhs, %if.then349 ], [ %lhs, %if.then370 ], [ null, %if.end451 ], [ null, %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit ], [ null, %sw.bb527 ], [ null, %sw.bb517 ], [ null, %sw.bb507 ], [ null, %sw.bb497 ], [ null, %sw.bb487 ], [ null, %sw.bb478 ], [ null, %sw.bb434 ], [ null, %if.end411 ], [ null, %if.else417 ], [ null, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit353 ], [ null, %if.end268 ], [ null, %if.then270 ], [ null, %if.end249 ], [ null, %if.then251 ], [ null, %if.end230 ], [ null, %if.then232 ], [ null, %if.end211 ], [ null, %if.then213 ], [ null, %if.end190 ], [ null, %if.end159 ], [ null, %if.end122 ], [ null, %if.end82 ], [ %call37, %if.then30 ], [ %call37, %if.then.i.i.i ], [ %call50, %if.then39 ], [ %call50, %if.then.i.i.i300 ], [ %call334, %if.then318 ], [ %call334, %if.then.i.i.i421 ], [ %call365, %if.then354 ], [ %call365, %if.then.i.i.i436 ], [ %call386, %if.then375 ], [ %call386, %if.then.i.i.i451 ], [ %call408, %if.then397 ], [ %call408, %if.then.i.i.i466 ], [ %call430, %if.then419 ], [ %call430, %if.then.i.i.i481 ], [ null, %if.end6.i345 ], [ null, %if.then72 ], [ null, %if.then112 ], [ null, %if.then149 ], [ null, %if.then180 ]
+return:                                           ; preds = %if.then180, %if.then149, %if.then112, %if.then72, %if.end6.i345, %if.then.i.i.i481, %if.then419, %if.then.i.i.i466, %if.then397, %if.then.i.i.i451, %if.then375, %if.then.i.i.i436, %if.then354, %if.then.i.i.i421, %if.then318, %if.then.i.i.i300, %if.then39, %if.then.i.i.i, %if.then30, %if.end82, %if.end122, %if.end159, %if.end190, %if.then213, %if.end211, %if.then232, %if.end230, %if.then251, %if.end249, %if.then270, %if.end268, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit353, %if.else417, %if.end411, %sw.bb434, %sw.bb478, %sw.bb487, %sw.bb497, %sw.bb507, %sw.bb517, %sw.bb527, %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit, %if.end451, %if.then370, %if.then349, %if.then, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit616, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit576, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit536, %_ZN6hermes5expOpEdd.exit, %if.then491, %if.then482, %if.end475, %if.then473, %if.then447, %if.then438, %if.then415, %if.then393, %if.then345, %if.then339, %if.then310, %if.end303, %sw.bb276, %sw.bb274, %sw.bb272, %if.then266, %sw.bb257, %sw.bb255, %sw.bb253, %if.then247, %sw.bb238, %sw.bb236, %sw.bb234, %if.then228, %sw.bb219, %sw.bb217, %sw.bb215, %if.then209, %if.then194, %sw.bb186, %sw.bb184, %sw.bb182, %if.then176, %if.then163, %sw.bb155, %sw.bb153, %sw.bb151, %if.then145, %if.then139, %if.then126, %sw.bb118, %sw.bb116, %sw.bb114, %if.then104, %if.then98, %if.then85, %sw.bb78, %sw.bb76, %sw.bb74, %if.then66, %if.then60, %sw.bb53, %if.end51, %sw.bb25, %sw.bb
+  %retval.0 = phi ptr [ %call54, %sw.bb53 ], [ %call52, %if.end51 ], [ %call536, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit616 ], [ %call525, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit576 ], [ %call515, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit536 ], [ %call505, %_ZN6hermes5expOpEdd.exit ], [ %call495, %if.then491 ], [ %call485, %if.then482 ], [ %call450, %if.then447 ], [ %call474, %if.then473 ], [ %call476, %if.end475 ], [ %call441, %if.then438 ], [ %call313, %if.then310 ], [ %call340, %if.then339 ], [ %call346, %if.then345 ], [ %call394, %if.then393 ], [ %call416, %if.then415 ], [ %call305, %if.end303 ], [ %call277, %sw.bb276 ], [ %call275, %sw.bb274 ], [ %call273, %sw.bb272 ], [ %call267, %if.then266 ], [ %call258, %sw.bb257 ], [ %call256, %sw.bb255 ], [ %call254, %sw.bb253 ], [ %call248, %if.then247 ], [ %call239, %sw.bb238 ], [ %call237, %sw.bb236 ], [ %call235, %sw.bb234 ], [ %call229, %if.then228 ], [ %call220, %sw.bb219 ], [ %call218, %sw.bb217 ], [ %call216, %sw.bb215 ], [ %call210, %if.then209 ], [ %call177, %if.then176 ], [ %call203, %if.then194 ], [ %call187, %sw.bb186 ], [ %call185, %sw.bb184 ], [ %call183, %sw.bb182 ], [ %call140, %if.then139 ], [ %call146, %if.then145 ], [ %call172, %if.then163 ], [ %call156, %sw.bb155 ], [ %call154, %sw.bb153 ], [ %call152, %sw.bb151 ], [ %call99, %if.then98 ], [ %call109, %if.then104 ], [ %call135, %if.then126 ], [ %call119, %sw.bb118 ], [ %call117, %sw.bb116 ], [ %call115, %sw.bb114 ], [ %call61, %if.then60 ], [ %call69, %if.then66 ], [ %call94, %if.then85 ], [ %call79, %sw.bb78 ], [ %call77, %sw.bb76 ], [ %call75, %sw.bb74 ], [ %call26, %sw.bb25 ], [ %call24, %sw.bb ], [ null, %if.then ], [ %rhs, %if.then349 ], [ %lhs, %if.then370 ], [ null, %if.end451 ], [ null, %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit ], [ null, %sw.bb527 ], [ null, %sw.bb517 ], [ null, %sw.bb507 ], [ null, %sw.bb497 ], [ null, %sw.bb487 ], [ null, %sw.bb478 ], [ null, %sw.bb434 ], [ null, %if.end411 ], [ null, %if.else417 ], [ null, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit353 ], [ null, %if.end268 ], [ null, %if.then270 ], [ null, %if.end249 ], [ null, %if.then251 ], [ null, %if.end230 ], [ null, %if.then232 ], [ null, %if.end211 ], [ null, %if.then213 ], [ null, %if.end190 ], [ null, %if.end159 ], [ null, %if.end122 ], [ null, %if.end82 ], [ %call37, %if.then30 ], [ %call37, %if.then.i.i.i ], [ %call50, %if.then39 ], [ %call50, %if.then.i.i.i300 ], [ %call334, %if.then318 ], [ %call334, %if.then.i.i.i421 ], [ %call365, %if.then354 ], [ %call365, %if.then.i.i.i436 ], [ %call386, %if.then375 ], [ %call386, %if.then.i.i.i451 ], [ %call408, %if.then397 ], [ %call408, %if.then.i.i.i466 ], [ %call430, %if.then419 ], [ %call430, %if.then.i.i.i481 ], [ null, %if.end6.i345 ], [ null, %if.then72 ], [ null, %if.then112 ], [ null, %if.then149 ], [ null, %if.then180 ]
   ret ptr %retval.0
 }
 
@@ -1947,6 +1948,9 @@ declare double @pow(double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #5
 
 declare noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef) local_unnamed_addr #1
 

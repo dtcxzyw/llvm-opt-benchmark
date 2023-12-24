@@ -1856,21 +1856,20 @@ if.then5:                                         ; preds = %land.lhs.true.i.i
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true.i.i
-  %5 = call float @llvm.fabs.f32(float %call1.i.i.i)
-  %6 = fcmp oeq float %5, 0x7FF0000000000000
+  %5 = call noundef i1 @llvm.is.fpclass.f32(float %call1.i.i.i, i32 516)
   %vtable8 = load ptr, ptr %this, align 8
-  br i1 %6, label %if.then7, label %if.end10
+  br i1 %5, label %if.then7, label %if.end10
 
 if.then7:                                         ; preds = %if.end
   %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 6
-  %7 = load ptr, ptr %vfn9, align 8
-  call void %7(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, float noundef %call1.i.i.i)
+  %6 = load ptr, ptr %vfn9, align 8
+  call void %6(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, float noundef %call1.i.i.i)
   br label %return
 
 if.end10:                                         ; preds = %if.end
   %vfn12 = getelementptr inbounds ptr, ptr %vtable8, i64 5
-  %8 = load ptr, ptr %vfn12, align 8
-  call void %8(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, float noundef %call1.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constant2)
+  %7 = load ptr, ptr %vfn12, align 8
+  call void %7(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, float noundef %call1.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constant2)
   br label %return
 
 if.end13:                                         ; preds = %land.end.i.i, %entry
@@ -1888,7 +1887,7 @@ call.i.noexc:                                     ; preds = %if.end13
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #12
   br label %lpad.body
@@ -1898,12 +1897,12 @@ invoke.cont:                                      ; preds = %.noexc
   br label %return
 
 lpad:                                             ; preds = %call.i.noexc, %if.end13
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad ], [ %9, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %9, %lpad ], [ %8, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
   resume { ptr, i32 } %eh.lpad-body
 
@@ -1944,21 +1943,20 @@ if.then5:                                         ; preds = %land.lhs.true.i.i
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true.i.i
-  %5 = call double @llvm.fabs.f64(double %call1.i.i.i)
-  %6 = fcmp oeq double %5, 0x7FF0000000000000
+  %5 = call noundef i1 @llvm.is.fpclass.f64(double %call1.i.i.i, i32 516)
   %vtable8 = load ptr, ptr %this, align 8
-  br i1 %6, label %if.then7, label %if.end10
+  br i1 %5, label %if.then7, label %if.end10
 
 if.then7:                                         ; preds = %if.end
   %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 3
-  %7 = load ptr, ptr %vfn9, align 8
-  call void %7(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, double noundef %call1.i.i.i)
+  %6 = load ptr, ptr %vfn9, align 8
+  call void %6(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, double noundef %call1.i.i.i)
   br label %return
 
 if.end10:                                         ; preds = %if.end
   %vfn12 = getelementptr inbounds ptr, ptr %vtable8, i64 2
-  %8 = load ptr, ptr %vfn12, align 8
-  call void %8(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, double noundef %call1.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constant2)
+  %7 = load ptr, ptr %vfn12, align 8
+  call void %7(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, double noundef %call1.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %constant2)
   br label %return
 
 if.end13:                                         ; preds = %land.end.i.i, %entry
@@ -1976,7 +1974,7 @@ call.i.noexc:                                     ; preds = %if.end13
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #12
   br label %lpad.body
@@ -1986,12 +1984,12 @@ invoke.cont:                                      ; preds = %.noexc
   br label %return
 
 lpad:                                             ; preds = %call.i.noexc, %if.end13
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad ], [ %9, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %9, %lpad ], [ %8, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #12
   resume { ptr, i32 } %eh.lpad-body
 
@@ -2853,14 +2851,14 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 ; Function Attrs: nounwind
 declare float @strtof_l(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #10
+
 ; Function Attrs: nounwind
 declare double @strtod_l(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #10
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
@@ -2878,7 +2876,7 @@ attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nounwind }
 attributes #13 = { nounwind willreturn memory(read) }

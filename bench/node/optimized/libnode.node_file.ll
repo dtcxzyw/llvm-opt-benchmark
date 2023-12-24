@@ -18178,24 +18178,24 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit433: ; preds = %if.end.i425, %
 if.end.i99:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit433
   %call9.i = tail call noundef double @_ZNK2v86Number5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i416.sroa.0.0) #30
   %38 = fcmp uno double %call9.i, 0.000000e+00
-  br i1 %38, label %do.body82, label %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit
+  br i1 %38, label %do.body82, label %if.end12.i
 
-_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit: ; preds = %if.end.i99
-  %39 = tail call double @llvm.fabs.f64(double %call9.i)
-  %40 = fcmp une double %39, 0x7FF0000000000000
-  %41 = tail call double @llvm.trunc.f64(double %call9.i)
-  %cmp.i = fcmp oeq double %41, %call9.i
-  %or.cond.not.i = and i1 %40, %cmp.i
-  %cmp19.i = fcmp ole double %39, 0x433FFFFFFFFFFFFF
-  %spec.select.i = and i1 %cmp19.i, %or.cond.not.i
-  br i1 %spec.select.i, label %lor.lhs.false.i404, label %do.body82
+if.end12.i:                                       ; preds = %if.end.i99
+  %39 = tail call noundef i1 @llvm.is.fpclass.f64(double %call9.i, i32 516)
+  %40 = tail call double @llvm.trunc.f64(double %call9.i)
+  %cmp.i = fcmp une double %40, %call9.i
+  %or.cond.i = or i1 %39, %cmp.i
+  %41 = tail call double @llvm.fabs.f64(double %call9.i)
+  %cmp19.i = fcmp ugt double %41, 0x433FFFFFFFFFFFFF
+  %or.cond.not = or i1 %cmp19.i, %or.cond.i
+  br i1 %or.cond.not, label %do.body82, label %lor.lhs.false.i404
 
-do.body82:                                        ; preds = %if.end.i99, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit433, %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit
+do.body82:                                        ; preds = %if.end12.i, %if.end.i99, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit433
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node2fsL4ReadERKN2v820FunctionCallbackInfoINS1_5ValueEEEE4args_2) #30
   tail call void @abort() #32
   unreachable
 
-lor.lhs.false.i404:                               ; preds = %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit
+lor.lhs.false.i404:                               ; preds = %if.end12.i
   %42 = load i32, ptr %length_.i695, align 8
   %cmp2.i406 = icmp slt i32 %42, 3
   br i1 %cmp2.i406, label %if.then.i412, label %if.end.i407
@@ -18322,19 +18322,19 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit361: ; preds = %if.end.i353, %
 if.end.i104:                                      ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit361
   %call9.i105 = tail call noundef double @_ZNK2v86Number5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i344.sroa.0.0) #30
   %66 = fcmp uno double %call9.i105, 0.000000e+00
-  br i1 %66, label %lor.lhs.false.i332, label %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit111
+  br i1 %66, label %lor.lhs.false.i332, label %if.end12.i106
 
-_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit111: ; preds = %if.end.i104
-  %67 = tail call double @llvm.fabs.f64(double %call9.i105)
-  %68 = fcmp une double %67, 0x7FF0000000000000
-  %69 = tail call double @llvm.trunc.f64(double %call9.i105)
-  %cmp.i107 = fcmp oeq double %69, %call9.i105
-  %or.cond.not.i108 = and i1 %68, %cmp.i107
-  %cmp19.i109 = fcmp ole double %67, 0x433FFFFFFFFFFFFF
-  %spec.select.i110 = and i1 %cmp19.i109, %or.cond.not.i108
-  br i1 %spec.select.i110, label %lor.lhs.false.i314, label %lor.lhs.false.i332
+if.end12.i106:                                    ; preds = %if.end.i104
+  %67 = tail call noundef i1 @llvm.is.fpclass.f64(double %call9.i105, i32 516)
+  %68 = tail call double @llvm.trunc.f64(double %call9.i105)
+  %cmp.i107 = fcmp une double %68, %call9.i105
+  %or.cond.i108 = or i1 %67, %cmp.i107
+  %69 = tail call double @llvm.fabs.f64(double %call9.i105)
+  %cmp19.i110 = fcmp ugt double %69, 0x433FFFFFFFFFFFFF
+  %or.cond205.not = or i1 %cmp19.i110, %or.cond.i108
+  br i1 %or.cond205.not, label %lor.lhs.false.i332, label %lor.lhs.false.i314
 
-lor.lhs.false.i332:                               ; preds = %if.end.i104, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit361, %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit111
+lor.lhs.false.i332:                               ; preds = %if.end12.i106, %if.end.i104, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit361
   %70 = load i32, ptr %length_.i695, align 8
   %cmp2.i334 = icmp slt i32 %70, 5
   br i1 %cmp2.i334, label %if.then.i340, label %if.end.i335
@@ -18363,7 +18363,7 @@ do.body179:                                       ; preds = %_ZNK2v820FunctionCa
   tail call void @abort() #32
   unreachable
 
-lor.lhs.false.i314:                               ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit343, %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit111
+lor.lhs.false.i314:                               ; preds = %if.end12.i106, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit343
   %76 = load i32, ptr %length_.i695, align 8
   %cmp2.i316 = icmp slt i32 %76, 5
   br i1 %cmp2.i316, label %if.then.i322, label %if.end.i317
@@ -19986,24 +19986,24 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %lor.lhs.false.i.t
 if.end.i.i67:                                     ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   %call9.i.i = tail call noundef double @_ZNK2v86Number5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0) #30
   %32 = fcmp uno double %call9.i.i, 0.000000e+00
-  br i1 %32, label %_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit, label %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit.i
+  br i1 %32, label %_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit, label %if.end12.i.i
 
-_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit.i: ; preds = %if.end.i.i67
-  %33 = tail call double @llvm.fabs.f64(double %call9.i.i)
-  %34 = fcmp une double %33, 0x7FF0000000000000
-  %35 = tail call double @llvm.trunc.f64(double %call9.i.i)
-  %cmp.i.i = fcmp oeq double %35, %call9.i.i
-  %or.cond.not.i.i = and i1 %34, %cmp.i.i
-  %cmp19.i.i = fcmp ole double %33, 0x433FFFFFFFFFFFFF
-  %spec.select.i.i = and i1 %cmp19.i.i, %or.cond.not.i.i
-  br i1 %spec.select.i.i, label %cond.true.i, label %_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit
+if.end12.i.i:                                     ; preds = %if.end.i.i67
+  %33 = tail call noundef i1 @llvm.is.fpclass.f64(double %call9.i.i, i32 516)
+  %34 = tail call double @llvm.trunc.f64(double %call9.i.i)
+  %cmp.i.i = fcmp une double %34, %call9.i.i
+  %or.cond.i.i = or i1 %33, %cmp.i.i
+  %35 = tail call double @llvm.fabs.f64(double %call9.i.i)
+  %cmp19.i.i = fcmp ugt double %35, 0x433FFFFFFFFFFFFF
+  %or.cond.not.i = or i1 %cmp19.i.i, %or.cond.i.i
+  br i1 %or.cond.not.i, label %_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit, label %cond.true.i
 
-cond.true.i:                                      ; preds = %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit.i
+cond.true.i:                                      ; preds = %if.end12.i.i
   %call11.i = tail call noundef i64 @_ZNK2v87Integer5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0) #30
   br label %_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit
 
-_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %if.end.i.i67, %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit.i, %cond.true.i
-  %cond.i = phi i64 [ %call11.i, %cond.true.i ], [ -1, %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit.i ], [ -1, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ], [ -1, %if.end.i.i67 ]
+_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %if.end.i.i67, %if.end12.i.i, %cond.true.i
+  %cond.i = phi i64 [ %call11.i, %cond.true.i ], [ -1, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ], [ -1, %if.end.i.i67 ], [ -1, %if.end12.i.i ]
   %call66 = tail call noundef i32 @_ZNK2v85Array6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i192.sroa.0.0180) #30
   %conv = zext i32 %call66 to i64
   store i64 0, ptr %iovs, align 8
@@ -22140,24 +22140,24 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit134: ; preds = %if.end.i126, %
 if.end.i48:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit134
   %call9.i = tail call noundef double @_ZNK2v86Number5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i117.sroa.0.0) #30
   %26 = fcmp uno double %call9.i, 0.000000e+00
-  br i1 %26, label %do.body45, label %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit
+  br i1 %26, label %do.body45, label %if.end12.i
 
-_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit: ; preds = %if.end.i48
-  %27 = tail call double @llvm.fabs.f64(double %call9.i)
-  %28 = fcmp une double %27, 0x7FF0000000000000
-  %29 = tail call double @llvm.trunc.f64(double %call9.i)
-  %cmp.i = fcmp oeq double %29, %call9.i
-  %or.cond.not.i = and i1 %28, %cmp.i
-  %cmp19.i = fcmp ole double %27, 0x433FFFFFFFFFFFFF
-  %spec.select.i = and i1 %cmp19.i, %or.cond.not.i
-  br i1 %spec.select.i, label %lor.lhs.false.i, label %do.body45
+if.end12.i:                                       ; preds = %if.end.i48
+  %27 = tail call noundef i1 @llvm.is.fpclass.f64(double %call9.i, i32 516)
+  %28 = tail call double @llvm.trunc.f64(double %call9.i)
+  %cmp.i = fcmp une double %28, %call9.i
+  %or.cond.i = or i1 %27, %cmp.i
+  %29 = tail call double @llvm.fabs.f64(double %call9.i)
+  %cmp19.i = fcmp ugt double %29, 0x433FFFFFFFFFFFFF
+  %or.cond.not = or i1 %cmp19.i, %or.cond.i
+  br i1 %or.cond.not, label %do.body45, label %lor.lhs.false.i
 
-do.body45:                                        ; preds = %if.end.i48, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit134, %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit
+do.body45:                                        ; preds = %if.end12.i, %if.end.i48, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit134
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node2fsL9FTruncateERKN2v820FunctionCallbackInfoINS1_5ValueEEEE4args_1) #30
   tail call void @abort() #32
   unreachable
 
-lor.lhs.false.i:                                  ; preds = %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit
+lor.lhs.false.i:                                  ; preds = %if.end12.i
   %30 = load i32, ptr %length_.i263, align 8
   %cmp2.i = icmp slt i32 %30, 2
   br i1 %cmp2.i, label %if.then.i, label %if.end.i
@@ -29711,24 +29711,24 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit358: ; preds = %if.end.i350, %
 if.end.i92:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit358
   %call9.i = tail call noundef double @_ZNK2v86Number5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i341.sroa.0.0) #30
   %38 = fcmp uno double %call9.i, 0.000000e+00
-  br i1 %38, label %do.body82, label %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit
+  br i1 %38, label %do.body82, label %if.end12.i
 
-_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit: ; preds = %if.end.i92
-  %39 = tail call double @llvm.fabs.f64(double %call9.i)
-  %40 = fcmp une double %39, 0x7FF0000000000000
-  %41 = tail call double @llvm.trunc.f64(double %call9.i)
-  %cmp.i = fcmp oeq double %41, %call9.i
-  %or.cond.not.i = and i1 %40, %cmp.i
-  %cmp19.i = fcmp ole double %39, 0x433FFFFFFFFFFFFF
-  %spec.select.i = and i1 %cmp19.i, %or.cond.not.i
-  br i1 %spec.select.i, label %lor.lhs.false.i329, label %do.body82
+if.end12.i:                                       ; preds = %if.end.i92
+  %39 = tail call noundef i1 @llvm.is.fpclass.f64(double %call9.i, i32 516)
+  %40 = tail call double @llvm.trunc.f64(double %call9.i)
+  %cmp.i = fcmp une double %40, %call9.i
+  %or.cond.i = or i1 %39, %cmp.i
+  %41 = tail call double @llvm.fabs.f64(double %call9.i)
+  %cmp19.i = fcmp ugt double %41, 0x433FFFFFFFFFFFFF
+  %or.cond.not = or i1 %cmp19.i, %or.cond.i
+  br i1 %or.cond.not, label %do.body82, label %lor.lhs.false.i329
 
-do.body82:                                        ; preds = %if.end.i92, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit358, %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit
+do.body82:                                        ; preds = %if.end12.i, %if.end.i92, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit358
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node2fsL11WriteBufferERKN2v820FunctionCallbackInfoINS1_5ValueEEEE4args_2) #30
   tail call void @abort() #32
   unreachable
 
-lor.lhs.false.i329:                               ; preds = %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit
+lor.lhs.false.i329:                               ; preds = %if.end12.i
   %42 = load i32, ptr %length_.i590, align 8
   %cmp2.i331 = icmp slt i32 %42, 3
   br i1 %cmp2.i331, label %if.then.i337, label %if.end.i332
@@ -29874,24 +29874,24 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit286: ; preds = %if.end.i278, %
 if.end.i.i95:                                     ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit286
   %call9.i.i = tail call noundef double @_ZNK2v86Number5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i269.sroa.0.0) #30
   %67 = fcmp uno double %call9.i.i, 0.000000e+00
-  br i1 %67, label %_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit, label %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit.i
+  br i1 %67, label %_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit, label %if.end12.i.i
 
-_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit.i: ; preds = %if.end.i.i95
-  %68 = tail call double @llvm.fabs.f64(double %call9.i.i)
-  %69 = fcmp une double %68, 0x7FF0000000000000
-  %70 = tail call double @llvm.trunc.f64(double %call9.i.i)
-  %cmp.i.i = fcmp oeq double %70, %call9.i.i
-  %or.cond.not.i.i = and i1 %69, %cmp.i.i
-  %cmp19.i.i = fcmp ole double %68, 0x433FFFFFFFFFFFFF
-  %spec.select.i.i = and i1 %cmp19.i.i, %or.cond.not.i.i
-  br i1 %spec.select.i.i, label %cond.true.i, label %_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit
+if.end12.i.i:                                     ; preds = %if.end.i.i95
+  %68 = tail call noundef i1 @llvm.is.fpclass.f64(double %call9.i.i, i32 516)
+  %69 = tail call double @llvm.trunc.f64(double %call9.i.i)
+  %cmp.i.i = fcmp une double %69, %call9.i.i
+  %or.cond.i.i = or i1 %68, %cmp.i.i
+  %70 = tail call double @llvm.fabs.f64(double %call9.i.i)
+  %cmp19.i.i = fcmp ugt double %70, 0x433FFFFFFFFFFFFF
+  %or.cond.not.i = or i1 %cmp19.i.i, %or.cond.i.i
+  br i1 %or.cond.not.i, label %_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit, label %cond.true.i
 
-cond.true.i:                                      ; preds = %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit.i
+cond.true.i:                                      ; preds = %if.end12.i.i
   %call11.i = tail call noundef i64 @_ZNK2v87Integer5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i269.sroa.0.0) #30
   br label %_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit
 
-_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit286, %if.end.i.i95, %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit.i, %cond.true.i
-  %cond.i = phi i64 [ %call11.i, %cond.true.i ], [ -1, %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit.i ], [ -1, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit286 ], [ -1, %if.end.i.i95 ]
+_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit286, %if.end.i.i95, %if.end12.i.i, %cond.true.i
+  %cond.i = phi i64 [ %call11.i, %cond.true.i ], [ -1, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit286 ], [ -1, %if.end.i.i95 ], [ -1, %if.end12.i.i ]
   %add.ptr = getelementptr inbounds i8, ptr %call62, i64 %call97
   %call189 = tail call { ptr, i64 } @uv_buf_init(ptr noundef %add.ptr, i32 noundef %call145) #30
   %71 = extractvalue { ptr, i64 } %call189, 0
@@ -30500,24 +30500,24 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %lor.lhs.false.i.t
 if.end.i.i67:                                     ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   %call9.i.i = tail call noundef double @_ZNK2v86Number5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0) #30
   %32 = fcmp uno double %call9.i.i, 0.000000e+00
-  br i1 %32, label %_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit, label %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit.i
+  br i1 %32, label %_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit, label %if.end12.i.i
 
-_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit.i: ; preds = %if.end.i.i67
-  %33 = tail call double @llvm.fabs.f64(double %call9.i.i)
-  %34 = fcmp une double %33, 0x7FF0000000000000
-  %35 = tail call double @llvm.trunc.f64(double %call9.i.i)
-  %cmp.i.i = fcmp oeq double %35, %call9.i.i
-  %or.cond.not.i.i = and i1 %34, %cmp.i.i
-  %cmp19.i.i = fcmp ole double %33, 0x433FFFFFFFFFFFFF
-  %spec.select.i.i = and i1 %cmp19.i.i, %or.cond.not.i.i
-  br i1 %spec.select.i.i, label %cond.true.i, label %_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit
+if.end12.i.i:                                     ; preds = %if.end.i.i67
+  %33 = tail call noundef i1 @llvm.is.fpclass.f64(double %call9.i.i, i32 516)
+  %34 = tail call double @llvm.trunc.f64(double %call9.i.i)
+  %cmp.i.i = fcmp une double %34, %call9.i.i
+  %or.cond.i.i = or i1 %33, %cmp.i.i
+  %35 = tail call double @llvm.fabs.f64(double %call9.i.i)
+  %cmp19.i.i = fcmp ugt double %35, 0x433FFFFFFFFFFFFF
+  %or.cond.not.i = or i1 %cmp19.i.i, %or.cond.i.i
+  br i1 %or.cond.not.i, label %_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit, label %cond.true.i
 
-cond.true.i:                                      ; preds = %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit.i
+cond.true.i:                                      ; preds = %if.end12.i.i
   %call11.i = tail call noundef i64 @_ZNK2v87Integer5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0) #30
   br label %_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit
 
-_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %if.end.i.i67, %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit.i, %cond.true.i
-  %cond.i = phi i64 [ %call11.i, %cond.true.i ], [ -1, %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit.i ], [ -1, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ], [ -1, %if.end.i.i67 ]
+_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %if.end.i.i67, %if.end12.i.i, %cond.true.i
+  %cond.i = phi i64 [ %call11.i, %cond.true.i ], [ -1, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ], [ -1, %if.end.i.i67 ], [ -1, %if.end12.i.i ]
   %call66 = tail call noundef i32 @_ZNK2v85Array6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i192.sroa.0.0180) #30
   %conv = zext i32 %call66 to i64
   store i64 0, ptr %iovs, align 8
@@ -31157,24 +31157,24 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit333: ; preds = %if.end.i325, %
 if.end.i.i114:                                    ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit333
   %call9.i.i = tail call noundef double @_ZNK2v86Number5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i316.sroa.0.0) #30
   %27 = fcmp uno double %call9.i.i, 0.000000e+00
-  br i1 %27, label %_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit, label %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit.i
+  br i1 %27, label %_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit, label %if.end12.i.i
 
-_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit.i: ; preds = %if.end.i.i114
-  %28 = tail call double @llvm.fabs.f64(double %call9.i.i)
-  %29 = fcmp une double %28, 0x7FF0000000000000
-  %30 = tail call double @llvm.trunc.f64(double %call9.i.i)
-  %cmp.i.i115 = fcmp oeq double %30, %call9.i.i
-  %or.cond.not.i.i = and i1 %29, %cmp.i.i115
-  %cmp19.i.i = fcmp ole double %28, 0x433FFFFFFFFFFFFF
-  %spec.select.i.i = and i1 %cmp19.i.i, %or.cond.not.i.i
-  br i1 %spec.select.i.i, label %cond.true.i, label %_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit
+if.end12.i.i:                                     ; preds = %if.end.i.i114
+  %28 = tail call noundef i1 @llvm.is.fpclass.f64(double %call9.i.i, i32 516)
+  %29 = tail call double @llvm.trunc.f64(double %call9.i.i)
+  %cmp.i.i115 = fcmp une double %29, %call9.i.i
+  %or.cond.i.i = or i1 %28, %cmp.i.i115
+  %30 = tail call double @llvm.fabs.f64(double %call9.i.i)
+  %cmp19.i.i = fcmp ugt double %30, 0x433FFFFFFFFFFFFF
+  %or.cond.not.i = or i1 %cmp19.i.i, %or.cond.i.i
+  br i1 %or.cond.not.i, label %_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit, label %cond.true.i
 
-cond.true.i:                                      ; preds = %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit.i
+cond.true.i:                                      ; preds = %if.end12.i.i
   %call11.i = tail call noundef i64 @_ZNK2v87Integer5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i316.sroa.0.0) #30
   br label %_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit
 
-_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit333, %if.end.i.i114, %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit.i, %cond.true.i
-  %cond.i = phi i64 [ %call11.i, %cond.true.i ], [ -1, %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit.i ], [ -1, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit333 ], [ -1, %if.end.i.i114 ]
+_ZN4node2fs9GetOffsetEN2v85LocalINS1_5ValueEEE.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit333, %if.end.i.i114, %if.end12.i.i, %cond.true.i
+  %cond.i = phi i64 [ %call11.i, %cond.true.i ], [ -1, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit333 ], [ -1, %if.end.i.i114 ], [ -1, %if.end12.i.i ]
   %31 = load i32, ptr %length_.i500, align 8
   %cmp2.i306 = icmp slt i32 %31, 4
   br i1 %cmp2.i306, label %if.then.i312, label %if.end.i307
@@ -35283,24 +35283,24 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit221: ; preds = %if.end.i213, %
 if.end.i58:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit221
   %call9.i = call noundef double @_ZNK2v86Number5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i204.sroa.0.0) #30
   %29 = fcmp uno double %call9.i, 0.000000e+00
-  br i1 %29, label %do.body52, label %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit
+  br i1 %29, label %do.body52, label %if.end12.i
 
-_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit: ; preds = %if.end.i58
-  %30 = call double @llvm.fabs.f64(double %call9.i)
-  %31 = fcmp une double %30, 0x7FF0000000000000
-  %32 = call double @llvm.trunc.f64(double %call9.i)
-  %cmp.i = fcmp oeq double %32, %call9.i
-  %or.cond.not.i = and i1 %31, %cmp.i
-  %cmp19.i = fcmp ole double %30, 0x433FFFFFFFFFFFFF
-  %spec.select.i = and i1 %cmp19.i, %or.cond.not.i
-  br i1 %spec.select.i, label %lor.lhs.false.i192, label %do.body52
+if.end12.i:                                       ; preds = %if.end.i58
+  %30 = call noundef i1 @llvm.is.fpclass.f64(double %call9.i, i32 516)
+  %31 = call double @llvm.trunc.f64(double %call9.i)
+  %cmp.i = fcmp une double %31, %call9.i
+  %or.cond.i = or i1 %30, %cmp.i
+  %32 = call double @llvm.fabs.f64(double %call9.i)
+  %cmp19.i = fcmp ugt double %32, 0x433FFFFFFFFFFFFF
+  %or.cond.not = or i1 %cmp19.i, %or.cond.i
+  br i1 %or.cond.not, label %do.body52, label %lor.lhs.false.i192
 
-do.body52:                                        ; preds = %if.end.i58, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit221, %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit
+do.body52:                                        ; preds = %if.end12.i, %if.end.i58, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit221
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node2fsL5ChownERKN2v820FunctionCallbackInfoINS1_5ValueEEEE4args_1) #30
   call void @abort() #32
   unreachable
 
-lor.lhs.false.i192:                               ; preds = %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit
+lor.lhs.false.i192:                               ; preds = %if.end12.i
   %33 = load i32, ptr %length_.i329, align 8
   %cmp2.i194 = icmp slt i32 %33, 2
   br i1 %cmp2.i194, label %if.then.i200, label %if.end.i195
@@ -35349,24 +35349,24 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit185: ; preds = %if.end.i177, %
 if.end.i61:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit185
   %call9.i62 = call noundef double @_ZNK2v86Number5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i168.sroa.0.0) #30
   %45 = fcmp uno double %call9.i62, 0.000000e+00
-  br i1 %45, label %do.body85, label %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit68
+  br i1 %45, label %do.body85, label %if.end12.i63
 
-_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit68: ; preds = %if.end.i61
-  %46 = call double @llvm.fabs.f64(double %call9.i62)
-  %47 = fcmp une double %46, 0x7FF0000000000000
-  %48 = call double @llvm.trunc.f64(double %call9.i62)
-  %cmp.i64 = fcmp oeq double %48, %call9.i62
-  %or.cond.not.i65 = and i1 %47, %cmp.i64
-  %cmp19.i66 = fcmp ole double %46, 0x433FFFFFFFFFFFFF
-  %spec.select.i67 = and i1 %cmp19.i66, %or.cond.not.i65
-  br i1 %spec.select.i67, label %lor.lhs.false.i, label %do.body85
+if.end12.i63:                                     ; preds = %if.end.i61
+  %46 = call noundef i1 @llvm.is.fpclass.f64(double %call9.i62, i32 516)
+  %47 = call double @llvm.trunc.f64(double %call9.i62)
+  %cmp.i64 = fcmp une double %47, %call9.i62
+  %or.cond.i65 = or i1 %46, %cmp.i64
+  %48 = call double @llvm.fabs.f64(double %call9.i62)
+  %cmp19.i67 = fcmp ugt double %48, 0x433FFFFFFFFFFFFF
+  %or.cond166.not = or i1 %cmp19.i67, %or.cond.i65
+  br i1 %or.cond166.not, label %do.body85, label %lor.lhs.false.i
 
-do.body85:                                        ; preds = %if.end.i61, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit185, %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit68
+do.body85:                                        ; preds = %if.end12.i63, %if.end.i61, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit185
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node2fsL5ChownERKN2v820FunctionCallbackInfoINS1_5ValueEEEE4args_2) #30
   call void @abort() #32
   unreachable
 
-lor.lhs.false.i:                                  ; preds = %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit68
+lor.lhs.false.i:                                  ; preds = %if.end12.i63
   %49 = load i32, ptr %length_.i329, align 8
   %cmp2.i = icmp slt i32 %49, 3
   br i1 %cmp2.i, label %if.then.i, label %if.end.i
@@ -35902,24 +35902,24 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit203: ; preds = %if.end.i195, %
 if.end.i57:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit203
   %call9.i = tail call noundef double @_ZNK2v86Number5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i186.sroa.0.0) #30
   %26 = fcmp uno double %call9.i, 0.000000e+00
-  br i1 %26, label %do.body45, label %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit
+  br i1 %26, label %do.body45, label %if.end12.i
 
-_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit: ; preds = %if.end.i57
-  %27 = tail call double @llvm.fabs.f64(double %call9.i)
-  %28 = fcmp une double %27, 0x7FF0000000000000
-  %29 = tail call double @llvm.trunc.f64(double %call9.i)
-  %cmp.i = fcmp oeq double %29, %call9.i
-  %or.cond.not.i = and i1 %28, %cmp.i
-  %cmp19.i = fcmp ole double %27, 0x433FFFFFFFFFFFFF
-  %spec.select.i = and i1 %cmp19.i, %or.cond.not.i
-  br i1 %spec.select.i, label %lor.lhs.false.i174, label %do.body45
+if.end12.i:                                       ; preds = %if.end.i57
+  %27 = tail call noundef i1 @llvm.is.fpclass.f64(double %call9.i, i32 516)
+  %28 = tail call double @llvm.trunc.f64(double %call9.i)
+  %cmp.i = fcmp une double %28, %call9.i
+  %or.cond.i = or i1 %27, %cmp.i
+  %29 = tail call double @llvm.fabs.f64(double %call9.i)
+  %cmp19.i = fcmp ugt double %29, 0x433FFFFFFFFFFFFF
+  %or.cond.not = or i1 %cmp19.i, %or.cond.i
+  br i1 %or.cond.not, label %do.body45, label %lor.lhs.false.i174
 
-do.body45:                                        ; preds = %if.end.i57, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit203, %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit
+do.body45:                                        ; preds = %if.end12.i, %if.end.i57, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit203
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node2fsL6FChownERKN2v820FunctionCallbackInfoINS1_5ValueEEEE4args_1) #30
   tail call void @abort() #32
   unreachable
 
-lor.lhs.false.i174:                               ; preds = %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit
+lor.lhs.false.i174:                               ; preds = %if.end12.i
   %30 = load i32, ptr %length_.i348, align 8
   %cmp2.i176 = icmp slt i32 %30, 2
   br i1 %cmp2.i176, label %if.then.i182, label %if.end.i177
@@ -35968,24 +35968,24 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit167: ; preds = %if.end.i159, %
 if.end.i60:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit167
   %call9.i61 = tail call noundef double @_ZNK2v86Number5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i150.sroa.0.0) #30
   %42 = fcmp uno double %call9.i61, 0.000000e+00
-  br i1 %42, label %do.body76, label %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit67
+  br i1 %42, label %do.body76, label %if.end12.i62
 
-_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit67: ; preds = %if.end.i60
-  %43 = tail call double @llvm.fabs.f64(double %call9.i61)
-  %44 = fcmp une double %43, 0x7FF0000000000000
-  %45 = tail call double @llvm.trunc.f64(double %call9.i61)
-  %cmp.i63 = fcmp oeq double %45, %call9.i61
-  %or.cond.not.i64 = and i1 %44, %cmp.i63
-  %cmp19.i65 = fcmp ole double %43, 0x433FFFFFFFFFFFFF
-  %spec.select.i66 = and i1 %cmp19.i65, %or.cond.not.i64
-  br i1 %spec.select.i66, label %lor.lhs.false.i, label %do.body76
+if.end12.i62:                                     ; preds = %if.end.i60
+  %43 = tail call noundef i1 @llvm.is.fpclass.f64(double %call9.i61, i32 516)
+  %44 = tail call double @llvm.trunc.f64(double %call9.i61)
+  %cmp.i63 = fcmp une double %44, %call9.i61
+  %or.cond.i64 = or i1 %43, %cmp.i63
+  %45 = tail call double @llvm.fabs.f64(double %call9.i61)
+  %cmp19.i66 = fcmp ugt double %45, 0x433FFFFFFFFFFFFF
+  %or.cond158.not = or i1 %cmp19.i66, %or.cond.i64
+  br i1 %or.cond158.not, label %do.body76, label %lor.lhs.false.i
 
-do.body76:                                        ; preds = %if.end.i60, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit167, %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit67
+do.body76:                                        ; preds = %if.end12.i62, %if.end.i60, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit167
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node2fsL6FChownERKN2v820FunctionCallbackInfoINS1_5ValueEEEE4args_2) #30
   tail call void @abort() #32
   unreachable
 
-lor.lhs.false.i:                                  ; preds = %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit67
+lor.lhs.false.i:                                  ; preds = %if.end12.i62
   %46 = load i32, ptr %length_.i348, align 8
   %cmp2.i = icmp slt i32 %46, 3
   br i1 %cmp2.i, label %if.then.i, label %if.end.i
@@ -36507,24 +36507,24 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit221: ; preds = %if.end.i213, %
 if.end.i58:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit221
   %call9.i = call noundef double @_ZNK2v86Number5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i204.sroa.0.0) #30
   %29 = fcmp uno double %call9.i, 0.000000e+00
-  br i1 %29, label %do.body52, label %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit
+  br i1 %29, label %do.body52, label %if.end12.i
 
-_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit: ; preds = %if.end.i58
-  %30 = call double @llvm.fabs.f64(double %call9.i)
-  %31 = fcmp une double %30, 0x7FF0000000000000
-  %32 = call double @llvm.trunc.f64(double %call9.i)
-  %cmp.i = fcmp oeq double %32, %call9.i
-  %or.cond.not.i = and i1 %31, %cmp.i
-  %cmp19.i = fcmp ole double %30, 0x433FFFFFFFFFFFFF
-  %spec.select.i = and i1 %cmp19.i, %or.cond.not.i
-  br i1 %spec.select.i, label %lor.lhs.false.i192, label %do.body52
+if.end12.i:                                       ; preds = %if.end.i58
+  %30 = call noundef i1 @llvm.is.fpclass.f64(double %call9.i, i32 516)
+  %31 = call double @llvm.trunc.f64(double %call9.i)
+  %cmp.i = fcmp une double %31, %call9.i
+  %or.cond.i = or i1 %30, %cmp.i
+  %32 = call double @llvm.fabs.f64(double %call9.i)
+  %cmp19.i = fcmp ugt double %32, 0x433FFFFFFFFFFFFF
+  %or.cond.not = or i1 %cmp19.i, %or.cond.i
+  br i1 %or.cond.not, label %do.body52, label %lor.lhs.false.i192
 
-do.body52:                                        ; preds = %if.end.i58, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit221, %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit
+do.body52:                                        ; preds = %if.end12.i, %if.end.i58, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit221
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node2fsL6LChownERKN2v820FunctionCallbackInfoINS1_5ValueEEEE4args_1) #30
   call void @abort() #32
   unreachable
 
-lor.lhs.false.i192:                               ; preds = %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit
+lor.lhs.false.i192:                               ; preds = %if.end12.i
   %33 = load i32, ptr %length_.i329, align 8
   %cmp2.i194 = icmp slt i32 %33, 2
   br i1 %cmp2.i194, label %if.then.i200, label %if.end.i195
@@ -36573,24 +36573,24 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit185: ; preds = %if.end.i177, %
 if.end.i61:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit185
   %call9.i62 = call noundef double @_ZNK2v86Number5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i168.sroa.0.0) #30
   %45 = fcmp uno double %call9.i62, 0.000000e+00
-  br i1 %45, label %do.body85, label %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit68
+  br i1 %45, label %do.body85, label %if.end12.i63
 
-_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit68: ; preds = %if.end.i61
-  %46 = call double @llvm.fabs.f64(double %call9.i62)
-  %47 = fcmp une double %46, 0x7FF0000000000000
-  %48 = call double @llvm.trunc.f64(double %call9.i62)
-  %cmp.i64 = fcmp oeq double %48, %call9.i62
-  %or.cond.not.i65 = and i1 %47, %cmp.i64
-  %cmp19.i66 = fcmp ole double %46, 0x433FFFFFFFFFFFFF
-  %spec.select.i67 = and i1 %cmp19.i66, %or.cond.not.i65
-  br i1 %spec.select.i67, label %lor.lhs.false.i, label %do.body85
+if.end12.i63:                                     ; preds = %if.end.i61
+  %46 = call noundef i1 @llvm.is.fpclass.f64(double %call9.i62, i32 516)
+  %47 = call double @llvm.trunc.f64(double %call9.i62)
+  %cmp.i64 = fcmp une double %47, %call9.i62
+  %or.cond.i65 = or i1 %46, %cmp.i64
+  %48 = call double @llvm.fabs.f64(double %call9.i62)
+  %cmp19.i67 = fcmp ugt double %48, 0x433FFFFFFFFFFFFF
+  %or.cond166.not = or i1 %cmp19.i67, %or.cond.i65
+  br i1 %or.cond166.not, label %do.body85, label %lor.lhs.false.i
 
-do.body85:                                        ; preds = %if.end.i61, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit185, %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit68
+do.body85:                                        ; preds = %if.end12.i63, %if.end.i61, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit185
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node2fsL6LChownERKN2v820FunctionCallbackInfoINS1_5ValueEEEE4args_2) #30
   call void @abort() #32
   unreachable
 
-lor.lhs.false.i:                                  ; preds = %_ZN4node11IsSafeJsIntEN2v85LocalINS0_5ValueEEE.exit68
+lor.lhs.false.i:                                  ; preds = %if.end12.i63
   %49 = load i32, ptr %length_.i329, align 8
   %cmp2.i = icmp slt i32 %49, 3
   br i1 %cmp2.i, label %if.then.i, label %if.end.i
@@ -45691,6 +45691,9 @@ declare noundef double @_ZNK2v86Number5ValueEv(ptr noundef nonnull align 1 deref
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.trunc.f64(double) #24
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #24
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #24

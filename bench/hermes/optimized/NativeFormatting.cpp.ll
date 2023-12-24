@@ -498,17 +498,16 @@ if.then4.i.i:                                     ; preds = %if.then
   br label %return
 
 if.else:                                          ; preds = %entry
-  %5 = tail call double @llvm.fabs.f64(double %N)
-  %6 = fcmp oeq double %5, 0x7FF0000000000000
-  br i1 %6, label %if.then5, label %if.end7
+  %5 = tail call noundef i1 @llvm.is.fpclass.f64(double %N, i32 516)
+  br i1 %5, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.else
   %OutBufEnd.i5.i13 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %S, i64 0, i32 2
-  %7 = load ptr, ptr %OutBufEnd.i5.i13, align 8
+  %6 = load ptr, ptr %OutBufEnd.i5.i13, align 8
   %OutBufCur.i6.i14 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %S, i64 0, i32 3
-  %8 = load ptr, ptr %OutBufCur.i6.i14, align 8
-  %sub.ptr.lhs.cast.i7.i15 = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast.i8.i16 = ptrtoint ptr %8 to i64
+  %7 = load ptr, ptr %OutBufCur.i6.i14, align 8
+  %sub.ptr.lhs.cast.i7.i15 = ptrtoint ptr %6 to i64
+  %sub.ptr.rhs.cast.i8.i16 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i9.i17 = sub i64 %sub.ptr.lhs.cast.i7.i15, %sub.ptr.rhs.cast.i8.i16
   %cmp.i.i18 = icmp ult i64 %sub.ptr.sub.i9.i17, 3
   br i1 %cmp.i.i18, label %if.then.i.i24, label %if.then4.i.i21
@@ -518,9 +517,9 @@ if.then.i.i24:                                    ; preds = %if.then5
   br label %return
 
 if.then4.i.i21:                                   ; preds = %if.then5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %8, ptr noundef nonnull align 1 dereferenceable(3) @.str.1, i64 3, i1 false)
-  %9 = load ptr, ptr %OutBufCur.i6.i14, align 8
-  %add.ptr.i.i22 = getelementptr inbounds i8, ptr %9, i64 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %7, ptr noundef nonnull align 1 dereferenceable(3) @.str.1, i64 3, i1 false)
+  %8 = load ptr, ptr %OutBufCur.i6.i14, align 8
+  %add.ptr.i.i22 = getelementptr inbounds i8, ptr %8, i64 3
   store ptr %add.ptr.i.i22, ptr %OutBufCur.i6.i14, align 8
   br label %return
 
@@ -544,11 +543,11 @@ if.end7:                                          ; preds = %if.else
   store ptr %Spec, ptr %OS.i, align 8
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36) %Out, ptr noundef null, i64 noundef 0, i32 noundef 0) #12
   %OutBufEnd.i5.i28 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %Out, i64 0, i32 2
-  %10 = load ptr, ptr %OutBufEnd.i5.i28, align 8
+  %9 = load ptr, ptr %OutBufEnd.i5.i28, align 8
   %OutBufCur.i6.i29 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %Out, i64 0, i32 3
-  %11 = load ptr, ptr %OutBufCur.i6.i29, align 8
-  %sub.ptr.lhs.cast.i7.i30 = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast.i8.i31 = ptrtoint ptr %11 to i64
+  %10 = load ptr, ptr %OutBufCur.i6.i29, align 8
+  %sub.ptr.lhs.cast.i7.i30 = ptrtoint ptr %9 to i64
+  %sub.ptr.rhs.cast.i8.i31 = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i9.i32 = sub i64 %sub.ptr.lhs.cast.i7.i30, %sub.ptr.rhs.cast.i8.i31
   %cmp.i.i33 = icmp ult i64 %sub.ptr.sub.i9.i32, 2
   br i1 %cmp.i.i33, label %if.then.i.i39, label %if.then4.i.i36
@@ -558,9 +557,9 @@ if.then.i.i39:                                    ; preds = %if.end7
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit41
 
 if.then4.i.i36:                                   ; preds = %if.end7
-  store i16 11813, ptr %11, align 1
-  %12 = load ptr, ptr %OutBufCur.i6.i29, align 8
-  %add.ptr.i.i37 = getelementptr inbounds i8, ptr %12, i64 2
+  store i16 11813, ptr %10, align 1
+  %11 = load ptr, ptr %OutBufCur.i6.i29, align 8
+  %add.ptr.i.i37 = getelementptr inbounds i8, ptr %11, i64 2
   store ptr %add.ptr.i.i37, ptr %OutBufCur.i6.i29, align 8
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit41
 
@@ -568,10 +567,10 @@ _ZN4llvh11raw_ostreamlsEPKc.exit41:               ; preds = %if.then.i.i39, %if.
   %phi.call.i38 = phi ptr [ %call3.i.i40, %if.then.i.i39 ], [ %Out, %if.then4.i.i36 ]
   %call16 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i38, i64 noundef %cond.i) #12
   %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call16, i64 0, i32 3
-  %13 = load ptr, ptr %OutBufCur.i, align 8
+  %12 = load ptr, ptr %OutBufCur.i, align 8
   %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call16, i64 0, i32 2
-  %14 = load ptr, ptr %OutBufEnd.i, align 8
-  %cmp.not.i = icmp ult ptr %13, %14
+  %13 = load ptr, ptr %OutBufEnd.i, align 8
+  %cmp.not.i = icmp ult ptr %12, %13
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit41
@@ -579,9 +578,9 @@ if.then.i:                                        ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit41
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %13, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %12, i64 1
   store ptr %incdec.ptr.i, ptr %OutBufCur.i, align 8
-  store i8 %switch.select11, ptr %13, align 1
+  store i8 %switch.select11, ptr %12, align 1
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i
@@ -590,9 +589,9 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.
 
 if.then23:                                        ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
   %mul = fmul double %N, 1.000000e+02
-  %15 = load i32, ptr %Size.i.i.i.i.i.i, align 8
-  %16 = load i32, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %cmp.not.i.i = icmp ult i32 %15, %16
+  %14 = load i32, ptr %Size.i.i.i.i.i.i, align 8
+  %15 = load i32, ptr %Capacity2.i.i.i.i.i.i, align 4
+  %cmp.not.i.i = icmp ult i32 %14, %15
   br i1 %cmp.not.i.i, label %_ZN4llvh11SmallStringILj8EE5c_strEv.exit, label %if.then.i.i42
 
 if.then.i.i42:                                    ; preds = %if.then23
@@ -601,20 +600,20 @@ if.then.i.i42:                                    ; preds = %if.then23
   br label %_ZN4llvh11SmallStringILj8EE5c_strEv.exit
 
 _ZN4llvh11SmallStringILj8EE5c_strEv.exit:         ; preds = %if.then23, %if.then.i.i42
-  %17 = phi i32 [ %.pre.i.i, %if.then.i.i42 ], [ %15, %if.then23 ]
-  %18 = load ptr, ptr %Spec, align 8
-  %conv.i3.i.i = zext i32 %17 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %18, i64 %conv.i3.i.i
+  %16 = phi i32 [ %.pre.i.i, %if.then.i.i42 ], [ %14, %if.then23 ]
+  %17 = load ptr, ptr %Spec, align 8
+  %conv.i3.i.i = zext i32 %16 to i64
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 %conv.i3.i.i
   store i8 0, ptr %add.ptr.i.i.i, align 1
-  %19 = load ptr, ptr %Spec, align 8
-  %call2.i.i = call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %Buf, i64 noundef 32, ptr noundef %19, double noundef %mul) #12
+  %18 = load ptr, ptr %Spec, align 8
+  %call2.i.i = call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %Buf, i64 noundef 32, ptr noundef %18, double noundef %mul) #12
   %call.i.i44 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %Buf) #13
   %OutBufEnd.i5.i45 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %S, i64 0, i32 2
-  %20 = load ptr, ptr %OutBufEnd.i5.i45, align 8
+  %19 = load ptr, ptr %OutBufEnd.i5.i45, align 8
   %OutBufCur.i6.i46 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %S, i64 0, i32 3
-  %21 = load ptr, ptr %OutBufCur.i6.i46, align 8
-  %sub.ptr.lhs.cast.i7.i47 = ptrtoint ptr %20 to i64
-  %sub.ptr.rhs.cast.i8.i48 = ptrtoint ptr %21 to i64
+  %20 = load ptr, ptr %OutBufCur.i6.i46, align 8
+  %sub.ptr.lhs.cast.i7.i47 = ptrtoint ptr %19 to i64
+  %sub.ptr.rhs.cast.i8.i48 = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i9.i49 = sub i64 %sub.ptr.lhs.cast.i7.i47, %sub.ptr.rhs.cast.i8.i48
   %cmp.i.i50 = icmp ult i64 %sub.ptr.sub.i9.i49, %call.i.i44
   br i1 %cmp.i.i50, label %if.then.i.i56, label %if.end.i.i51
@@ -629,16 +628,16 @@ if.end.i.i51:                                     ; preds = %_ZN4llvh11SmallStri
   br i1 %tobool.not.i.i52, label %_ZN4llvh11raw_ostreamlsEPKc.exit58, label %if.then4.i.i53
 
 if.then4.i.i53:                                   ; preds = %if.end.i.i51
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr nonnull align 16 %Buf, i64 %call.i.i44, i1 false)
-  %22 = load ptr, ptr %OutBufCur.i6.i46, align 8
-  %add.ptr.i.i54 = getelementptr inbounds i8, ptr %22, i64 %call.i.i44
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr nonnull align 16 %Buf, i64 %call.i.i44, i1 false)
+  %21 = load ptr, ptr %OutBufCur.i6.i46, align 8
+  %add.ptr.i.i54 = getelementptr inbounds i8, ptr %21, i64 %call.i.i44
   store ptr %add.ptr.i.i54, ptr %OutBufCur.i6.i46, align 8
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit58
 
 _ZN4llvh11raw_ostreamlsEPKc.exit58:               ; preds = %if.then.i.i56, %if.end.i.i51, %if.then4.i.i53
-  %23 = phi ptr [ %.pre, %if.then.i.i56 ], [ %21, %if.end.i.i51 ], [ %add.ptr.i.i54, %if.then4.i.i53 ]
-  %24 = load ptr, ptr %OutBufEnd.i5.i45, align 8
-  %cmp.not.i61 = icmp ult ptr %23, %24
+  %22 = phi ptr [ %.pre, %if.then.i.i56 ], [ %20, %if.end.i.i51 ], [ %add.ptr.i.i54, %if.then4.i.i53 ]
+  %23 = load ptr, ptr %OutBufEnd.i5.i45, align 8
+  %cmp.not.i61 = icmp ult ptr %22, %23
   br i1 %cmp.not.i61, label %if.end.i65, label %if.then.i62
 
 if.then.i62:                                      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit58
@@ -646,15 +645,15 @@ if.then.i62:                                      ; preds = %_ZN4llvh11raw_ostre
   br label %if.end33
 
 if.end.i65:                                       ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit58
-  %incdec.ptr.i66 = getelementptr inbounds i8, ptr %23, i64 1
+  %incdec.ptr.i66 = getelementptr inbounds i8, ptr %22, i64 1
   store ptr %incdec.ptr.i66, ptr %OutBufCur.i6.i46, align 8
-  store i8 37, ptr %23, align 1
+  store i8 37, ptr %22, align 1
   br label %if.end33
 
 if.end33.critedge:                                ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
-  %25 = load i32, ptr %Size.i.i.i.i.i.i, align 8
-  %26 = load i32, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %cmp.not.i.i70 = icmp ult i32 %25, %26
+  %24 = load i32, ptr %Size.i.i.i.i.i.i, align 8
+  %25 = load i32, ptr %Capacity2.i.i.i.i.i.i, align 4
+  %cmp.not.i.i70 = icmp ult i32 %24, %25
   br i1 %cmp.not.i.i70, label %_ZN4llvh11SmallStringILj8EE5c_strEv.exit76, label %if.then.i.i71
 
 if.then.i.i71:                                    ; preds = %if.end33.critedge
@@ -663,20 +662,20 @@ if.then.i.i71:                                    ; preds = %if.end33.critedge
   br label %_ZN4llvh11SmallStringILj8EE5c_strEv.exit76
 
 _ZN4llvh11SmallStringILj8EE5c_strEv.exit76:       ; preds = %if.end33.critedge, %if.then.i.i71
-  %27 = phi i32 [ %.pre.i.i73, %if.then.i.i71 ], [ %25, %if.end33.critedge ]
-  %28 = load ptr, ptr %Spec, align 8
-  %conv.i3.i.i74 = zext i32 %27 to i64
-  %add.ptr.i.i.i75 = getelementptr inbounds i8, ptr %28, i64 %conv.i3.i.i74
+  %26 = phi i32 [ %.pre.i.i73, %if.then.i.i71 ], [ %24, %if.end33.critedge ]
+  %27 = load ptr, ptr %Spec, align 8
+  %conv.i3.i.i74 = zext i32 %26 to i64
+  %add.ptr.i.i.i75 = getelementptr inbounds i8, ptr %27, i64 %conv.i3.i.i74
   store i8 0, ptr %add.ptr.i.i.i75, align 1
-  %29 = load ptr, ptr %Spec, align 8
-  %call2.i.i81 = call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %Buf, i64 noundef 32, ptr noundef %29, double noundef %N) #12
+  %28 = load ptr, ptr %Spec, align 8
+  %call2.i.i81 = call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %Buf, i64 noundef 32, ptr noundef %28, double noundef %N) #12
   %call.i.i82 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %Buf) #13
   %OutBufEnd.i5.i83 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %S, i64 0, i32 2
-  %30 = load ptr, ptr %OutBufEnd.i5.i83, align 8
+  %29 = load ptr, ptr %OutBufEnd.i5.i83, align 8
   %OutBufCur.i6.i84 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %S, i64 0, i32 3
-  %31 = load ptr, ptr %OutBufCur.i6.i84, align 8
-  %sub.ptr.lhs.cast.i7.i85 = ptrtoint ptr %30 to i64
-  %sub.ptr.rhs.cast.i8.i86 = ptrtoint ptr %31 to i64
+  %30 = load ptr, ptr %OutBufCur.i6.i84, align 8
+  %sub.ptr.lhs.cast.i7.i85 = ptrtoint ptr %29 to i64
+  %sub.ptr.rhs.cast.i8.i86 = ptrtoint ptr %30 to i64
   %sub.ptr.sub.i9.i87 = sub i64 %sub.ptr.lhs.cast.i7.i85, %sub.ptr.rhs.cast.i8.i86
   %cmp.i.i88 = icmp ult i64 %sub.ptr.sub.i9.i87, %call.i.i82
   br i1 %cmp.i.i88, label %if.then.i.i94, label %if.end.i.i89
@@ -690,20 +689,20 @@ if.end.i.i89:                                     ; preds = %_ZN4llvh11SmallStri
   br i1 %tobool.not.i.i90, label %if.end33, label %if.then4.i.i91
 
 if.then4.i.i91:                                   ; preds = %if.end.i.i89
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr nonnull align 16 %Buf, i64 %call.i.i82, i1 false)
-  %32 = load ptr, ptr %OutBufCur.i6.i84, align 8
-  %add.ptr.i.i92 = getelementptr inbounds i8, ptr %32, i64 %call.i.i82
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr nonnull align 16 %Buf, i64 %call.i.i82, i1 false)
+  %31 = load ptr, ptr %OutBufCur.i6.i84, align 8
+  %add.ptr.i.i92 = getelementptr inbounds i8, ptr %31, i64 %call.i.i82
   store ptr %add.ptr.i.i92, ptr %OutBufCur.i6.i84, align 8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then4.i.i91, %if.end.i.i89, %if.then.i.i94, %if.end.i65, %if.then.i62
   call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %Out) #12
-  %33 = load ptr, ptr %Spec, align 8
-  %cmp.i.i.i.i = icmp eq ptr %33, %add.ptr.i.i.i.i.i.i
+  %32 = load ptr, ptr %Spec, align 8
+  %cmp.i.i.i.i = icmp eq ptr %32, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end33
-  call void @free(ptr noundef %33) #12
+  call void @free(ptr noundef %32) #12
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %if.end33, %if.then4.i.i21, %if.then.i.i24, %if.then4.i.i, %if.then.i.i
@@ -728,24 +727,27 @@ entry:
   ret i1 %1
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #4
+
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 
 declare void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(36), ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36), i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36)) unnamed_addr #6
+declare void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #8
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZL19write_unsigned_implIjEvRN4llvh11raw_ostreamET_mNS0_12IntegerStyleEb(ptr noundef nonnull align 8 dereferenceable(36) %S, i32 noundef %N, i64 noundef %MinDigits, i32 noundef %Style, i1 noundef zeroext %IsNegative) unnamed_addr #0 {
@@ -887,9 +889,6 @@ declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -905,11 +904,11 @@ attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

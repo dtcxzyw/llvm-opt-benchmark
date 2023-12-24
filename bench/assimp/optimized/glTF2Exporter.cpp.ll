@@ -45031,21 +45031,25 @@ for.cond8.preheader.us.preheader:                 ; preds = %for.cond8.preheader
 
 for.cond8.preheader.us:                           ; preds = %for.cond8.preheader.us.preheader, %for.cond8.for.inc38_crit_edge.us
   %buffer_ptr.087.us = phi ptr [ %add.ptr39.us, %for.cond8.for.inc38_crit_edge.us ], [ %data, %for.cond8.preheader.us.preheader ]
-  br label %if.end.us
+  br label %for.body10.us
 
-if.end.us:                                        ; preds = %for.cond8.preheader.us, %for.inc35.us
+for.body10.us:                                    ; preds = %for.cond8.preheader.us, %for.inc35.us
   %indvars.iv = phi i64 [ 0, %for.cond8.preheader.us ], [ %indvars.iv.next, %for.inc35.us ]
   %arrayidx.us = getelementptr inbounds i16, ptr %buffer_ptr.087.us, i64 %indvars.iv
   %12 = load i16, ptr %arrayidx.us, align 2
   %conv11.us = sitofp i16 %12 to double
-  %13 = load ptr, ptr %acc.coerce0, align 8
-  %add.ptr.i.i57.us = getelementptr inbounds ptr, ptr %13, i64 %conv.i56
-  %14 = load ptr, ptr %add.ptr.i.i57.us, align 8
-  %min14.us = getelementptr inbounds %"struct.glTF2::Accessor", ptr %14, i64 0, i32 7
-  %15 = load ptr, ptr %min14.us, align 8
-  %add.ptr.i.us = getelementptr inbounds double, ptr %15, i64 %indvars.iv
-  %16 = load double, ptr %add.ptr.i.us, align 8
-  %cmp17.us = fcmp ogt double %16, %conv11.us
+  %13 = tail call noundef i1 @llvm.is.fpclass.f64(double %conv11.us, i32 328)
+  br i1 %13, label %if.end.us, label %for.inc35.us
+
+if.end.us:                                        ; preds = %for.body10.us
+  %14 = load ptr, ptr %acc.coerce0, align 8
+  %add.ptr.i.i57.us = getelementptr inbounds ptr, ptr %14, i64 %conv.i56
+  %15 = load ptr, ptr %add.ptr.i.i57.us, align 8
+  %min14.us = getelementptr inbounds %"struct.glTF2::Accessor", ptr %15, i64 0, i32 7
+  %16 = load ptr, ptr %min14.us, align 8
+  %add.ptr.i.us = getelementptr inbounds double, ptr %16, i64 %indvars.iv
+  %17 = load double, ptr %add.ptr.i.us, align 8
+  %cmp17.us = fcmp ogt double %17, %conv11.us
   br i1 %cmp17.us, label %if.then18.us, label %if.end23.us
 
 if.then18.us:                                     ; preds = %if.end.us
@@ -45056,22 +45060,22 @@ if.then18.us:                                     ; preds = %if.end.us
   br label %if.end23.us
 
 if.end23.us:                                      ; preds = %if.then18.us, %if.end.us
-  %17 = phi ptr [ %.pre91, %if.then18.us ], [ %14, %if.end.us ]
-  %max25.us = getelementptr inbounds %"struct.glTF2::Accessor", ptr %17, i64 0, i32 6
-  %18 = load ptr, ptr %max25.us, align 8
-  %add.ptr.i65.us = getelementptr inbounds double, ptr %18, i64 %indvars.iv
-  %19 = load double, ptr %add.ptr.i65.us, align 8
-  %cmp28.us = fcmp olt double %19, %conv11.us
+  %18 = phi ptr [ %.pre91, %if.then18.us ], [ %15, %if.end.us ]
+  %max25.us = getelementptr inbounds %"struct.glTF2::Accessor", ptr %18, i64 0, i32 6
+  %19 = load ptr, ptr %max25.us, align 8
+  %add.ptr.i65.us = getelementptr inbounds double, ptr %19, i64 %indvars.iv
+  %20 = load double, ptr %add.ptr.i65.us, align 8
+  %cmp28.us = fcmp olt double %20, %conv11.us
   br i1 %cmp28.us, label %if.then29.us, label %for.inc35.us
 
 if.then29.us:                                     ; preds = %if.end23.us
   store double %conv11.us, ptr %add.ptr.i65.us, align 8
   br label %for.inc35.us
 
-for.inc35.us:                                     ; preds = %if.then29.us, %if.end23.us
+for.inc35.us:                                     ; preds = %if.then29.us, %if.end23.us, %for.body10.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond90.not, label %for.cond8.for.inc38_crit_edge.us, label %if.end.us, !llvm.loop !388
+  br i1 %exitcond90.not, label %for.cond8.for.inc38_crit_edge.us, label %for.body10.us, !llvm.loop !388
 
 for.cond8.for.inc38_crit_edge.us:                 ; preds = %for.inc35.us
   %add.ptr39.us = getelementptr inbounds i16, ptr %buffer_ptr.087.us, i64 %conv
@@ -45263,21 +45267,25 @@ for.cond8.preheader.us.preheader:                 ; preds = %for.cond8.preheader
 
 for.cond8.preheader.us:                           ; preds = %for.cond8.preheader.us.preheader, %for.cond8.for.inc38_crit_edge.us
   %buffer_ptr.087.us = phi ptr [ %add.ptr39.us, %for.cond8.for.inc38_crit_edge.us ], [ %data, %for.cond8.preheader.us.preheader ]
-  br label %if.end.us
+  br label %for.body10.us
 
-if.end.us:                                        ; preds = %for.cond8.preheader.us, %for.inc35.us
+for.body10.us:                                    ; preds = %for.cond8.preheader.us, %for.inc35.us
   %indvars.iv = phi i64 [ 0, %for.cond8.preheader.us ], [ %indvars.iv.next, %for.inc35.us ]
   %arrayidx.us = getelementptr inbounds i16, ptr %buffer_ptr.087.us, i64 %indvars.iv
   %12 = load i16, ptr %arrayidx.us, align 2
   %conv11.us = uitofp i16 %12 to double
-  %13 = load ptr, ptr %acc.coerce0, align 8
-  %add.ptr.i.i57.us = getelementptr inbounds ptr, ptr %13, i64 %conv.i56
-  %14 = load ptr, ptr %add.ptr.i.i57.us, align 8
-  %min14.us = getelementptr inbounds %"struct.glTF2::Accessor", ptr %14, i64 0, i32 7
-  %15 = load ptr, ptr %min14.us, align 8
-  %add.ptr.i.us = getelementptr inbounds double, ptr %15, i64 %indvars.iv
-  %16 = load double, ptr %add.ptr.i.us, align 8
-  %cmp17.us = fcmp ogt double %16, %conv11.us
+  %13 = tail call noundef i1 @llvm.is.fpclass.f64(double %conv11.us, i32 320)
+  br i1 %13, label %if.end.us, label %for.inc35.us
+
+if.end.us:                                        ; preds = %for.body10.us
+  %14 = load ptr, ptr %acc.coerce0, align 8
+  %add.ptr.i.i57.us = getelementptr inbounds ptr, ptr %14, i64 %conv.i56
+  %15 = load ptr, ptr %add.ptr.i.i57.us, align 8
+  %min14.us = getelementptr inbounds %"struct.glTF2::Accessor", ptr %15, i64 0, i32 7
+  %16 = load ptr, ptr %min14.us, align 8
+  %add.ptr.i.us = getelementptr inbounds double, ptr %16, i64 %indvars.iv
+  %17 = load double, ptr %add.ptr.i.us, align 8
+  %cmp17.us = fcmp ogt double %17, %conv11.us
   br i1 %cmp17.us, label %if.then18.us, label %if.end23.us
 
 if.then18.us:                                     ; preds = %if.end.us
@@ -45288,22 +45296,22 @@ if.then18.us:                                     ; preds = %if.end.us
   br label %if.end23.us
 
 if.end23.us:                                      ; preds = %if.then18.us, %if.end.us
-  %17 = phi ptr [ %.pre91, %if.then18.us ], [ %14, %if.end.us ]
-  %max25.us = getelementptr inbounds %"struct.glTF2::Accessor", ptr %17, i64 0, i32 6
-  %18 = load ptr, ptr %max25.us, align 8
-  %add.ptr.i65.us = getelementptr inbounds double, ptr %18, i64 %indvars.iv
-  %19 = load double, ptr %add.ptr.i65.us, align 8
-  %cmp28.us = fcmp olt double %19, %conv11.us
+  %18 = phi ptr [ %.pre91, %if.then18.us ], [ %15, %if.end.us ]
+  %max25.us = getelementptr inbounds %"struct.glTF2::Accessor", ptr %18, i64 0, i32 6
+  %19 = load ptr, ptr %max25.us, align 8
+  %add.ptr.i65.us = getelementptr inbounds double, ptr %19, i64 %indvars.iv
+  %20 = load double, ptr %add.ptr.i65.us, align 8
+  %cmp28.us = fcmp olt double %20, %conv11.us
   br i1 %cmp28.us, label %if.then29.us, label %for.inc35.us
 
 if.then29.us:                                     ; preds = %if.end23.us
   store double %conv11.us, ptr %add.ptr.i65.us, align 8
   br label %for.inc35.us
 
-for.inc35.us:                                     ; preds = %if.then29.us, %if.end23.us
+for.inc35.us:                                     ; preds = %if.then29.us, %if.end23.us, %for.body10.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond90.not, label %for.cond8.for.inc38_crit_edge.us, label %if.end.us, !llvm.loop !391
+  br i1 %exitcond90.not, label %for.cond8.for.inc38_crit_edge.us, label %for.body10.us, !llvm.loop !391
 
 for.cond8.for.inc38_crit_edge.us:                 ; preds = %for.inc35.us
   %add.ptr39.us = getelementptr inbounds i16, ptr %buffer_ptr.087.us, i64 %conv
@@ -45495,21 +45503,25 @@ for.cond8.preheader.us.preheader:                 ; preds = %for.cond8.preheader
 
 for.cond8.preheader.us:                           ; preds = %for.cond8.preheader.us.preheader, %for.cond8.for.inc38_crit_edge.us
   %buffer_ptr.087.us = phi ptr [ %add.ptr39.us, %for.cond8.for.inc38_crit_edge.us ], [ %data, %for.cond8.preheader.us.preheader ]
-  br label %if.end.us
+  br label %for.body10.us
 
-if.end.us:                                        ; preds = %for.cond8.preheader.us, %for.inc35.us
+for.body10.us:                                    ; preds = %for.cond8.preheader.us, %for.inc35.us
   %indvars.iv = phi i64 [ 0, %for.cond8.preheader.us ], [ %indvars.iv.next, %for.inc35.us ]
   %arrayidx.us = getelementptr inbounds i32, ptr %buffer_ptr.087.us, i64 %indvars.iv
   %12 = load i32, ptr %arrayidx.us, align 4
   %conv11.us = uitofp i32 %12 to double
-  %13 = load ptr, ptr %acc.coerce0, align 8
-  %add.ptr.i.i57.us = getelementptr inbounds ptr, ptr %13, i64 %conv.i56
-  %14 = load ptr, ptr %add.ptr.i.i57.us, align 8
-  %min14.us = getelementptr inbounds %"struct.glTF2::Accessor", ptr %14, i64 0, i32 7
-  %15 = load ptr, ptr %min14.us, align 8
-  %add.ptr.i.us = getelementptr inbounds double, ptr %15, i64 %indvars.iv
-  %16 = load double, ptr %add.ptr.i.us, align 8
-  %cmp17.us = fcmp ogt double %16, %conv11.us
+  %13 = tail call noundef i1 @llvm.is.fpclass.f64(double %conv11.us, i32 320)
+  br i1 %13, label %if.end.us, label %for.inc35.us
+
+if.end.us:                                        ; preds = %for.body10.us
+  %14 = load ptr, ptr %acc.coerce0, align 8
+  %add.ptr.i.i57.us = getelementptr inbounds ptr, ptr %14, i64 %conv.i56
+  %15 = load ptr, ptr %add.ptr.i.i57.us, align 8
+  %min14.us = getelementptr inbounds %"struct.glTF2::Accessor", ptr %15, i64 0, i32 7
+  %16 = load ptr, ptr %min14.us, align 8
+  %add.ptr.i.us = getelementptr inbounds double, ptr %16, i64 %indvars.iv
+  %17 = load double, ptr %add.ptr.i.us, align 8
+  %cmp17.us = fcmp ogt double %17, %conv11.us
   br i1 %cmp17.us, label %if.then18.us, label %if.end23.us
 
 if.then18.us:                                     ; preds = %if.end.us
@@ -45520,22 +45532,22 @@ if.then18.us:                                     ; preds = %if.end.us
   br label %if.end23.us
 
 if.end23.us:                                      ; preds = %if.then18.us, %if.end.us
-  %17 = phi ptr [ %.pre91, %if.then18.us ], [ %14, %if.end.us ]
-  %max25.us = getelementptr inbounds %"struct.glTF2::Accessor", ptr %17, i64 0, i32 6
-  %18 = load ptr, ptr %max25.us, align 8
-  %add.ptr.i65.us = getelementptr inbounds double, ptr %18, i64 %indvars.iv
-  %19 = load double, ptr %add.ptr.i65.us, align 8
-  %cmp28.us = fcmp olt double %19, %conv11.us
+  %18 = phi ptr [ %.pre91, %if.then18.us ], [ %15, %if.end.us ]
+  %max25.us = getelementptr inbounds %"struct.glTF2::Accessor", ptr %18, i64 0, i32 6
+  %19 = load ptr, ptr %max25.us, align 8
+  %add.ptr.i65.us = getelementptr inbounds double, ptr %19, i64 %indvars.iv
+  %20 = load double, ptr %add.ptr.i65.us, align 8
+  %cmp28.us = fcmp olt double %20, %conv11.us
   br i1 %cmp28.us, label %if.then29.us, label %for.inc35.us
 
 if.then29.us:                                     ; preds = %if.end23.us
   store double %conv11.us, ptr %add.ptr.i65.us, align 8
   br label %for.inc35.us
 
-for.inc35.us:                                     ; preds = %if.then29.us, %if.end23.us
+for.inc35.us:                                     ; preds = %if.then29.us, %if.end23.us, %for.body10.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond90.not, label %for.cond8.for.inc38_crit_edge.us, label %if.end.us, !llvm.loop !394
+  br i1 %exitcond90.not, label %for.cond8.for.inc38_crit_edge.us, label %for.body10.us, !llvm.loop !394
 
 for.cond8.for.inc38_crit_edge.us:                 ; preds = %for.inc35.us
   %add.ptr39.us = getelementptr inbounds i32, ptr %buffer_ptr.087.us, i64 %conv
@@ -45734,19 +45746,18 @@ for.body10.us:                                    ; preds = %for.cond8.preheader
   %arrayidx.us = getelementptr inbounds float, ptr %buffer_ptr.087.us, i64 %indvars.iv
   %12 = load float, ptr %arrayidx.us, align 4
   %conv11.us = fpext float %12 to double
-  %13 = tail call double @llvm.fabs.f64(double %conv11.us)
-  %14 = fcmp ueq double %13, 0x7FF0000000000000
-  br i1 %14, label %for.inc35.us, label %if.end.us
+  %13 = tail call noundef i1 @llvm.is.fpclass.f64(double %conv11.us, i32 360)
+  br i1 %13, label %if.end.us, label %for.inc35.us
 
 if.end.us:                                        ; preds = %for.body10.us
-  %15 = load ptr, ptr %acc.coerce0, align 8
-  %add.ptr.i.i57.us = getelementptr inbounds ptr, ptr %15, i64 %conv.i56
-  %16 = load ptr, ptr %add.ptr.i.i57.us, align 8
-  %min14.us = getelementptr inbounds %"struct.glTF2::Accessor", ptr %16, i64 0, i32 7
-  %17 = load ptr, ptr %min14.us, align 8
-  %add.ptr.i.us = getelementptr inbounds double, ptr %17, i64 %indvars.iv
-  %18 = load double, ptr %add.ptr.i.us, align 8
-  %cmp17.us = fcmp ogt double %18, %conv11.us
+  %14 = load ptr, ptr %acc.coerce0, align 8
+  %add.ptr.i.i57.us = getelementptr inbounds ptr, ptr %14, i64 %conv.i56
+  %15 = load ptr, ptr %add.ptr.i.i57.us, align 8
+  %min14.us = getelementptr inbounds %"struct.glTF2::Accessor", ptr %15, i64 0, i32 7
+  %16 = load ptr, ptr %min14.us, align 8
+  %add.ptr.i.us = getelementptr inbounds double, ptr %16, i64 %indvars.iv
+  %17 = load double, ptr %add.ptr.i.us, align 8
+  %cmp17.us = fcmp ogt double %17, %conv11.us
   br i1 %cmp17.us, label %if.then18.us, label %if.end23.us
 
 if.then18.us:                                     ; preds = %if.end.us
@@ -45757,12 +45768,12 @@ if.then18.us:                                     ; preds = %if.end.us
   br label %if.end23.us
 
 if.end23.us:                                      ; preds = %if.then18.us, %if.end.us
-  %19 = phi ptr [ %.pre91, %if.then18.us ], [ %16, %if.end.us ]
-  %max25.us = getelementptr inbounds %"struct.glTF2::Accessor", ptr %19, i64 0, i32 6
-  %20 = load ptr, ptr %max25.us, align 8
-  %add.ptr.i65.us = getelementptr inbounds double, ptr %20, i64 %indvars.iv
-  %21 = load double, ptr %add.ptr.i65.us, align 8
-  %cmp28.us = fcmp olt double %21, %conv11.us
+  %18 = phi ptr [ %.pre91, %if.then18.us ], [ %15, %if.end.us ]
+  %max25.us = getelementptr inbounds %"struct.glTF2::Accessor", ptr %18, i64 0, i32 6
+  %19 = load ptr, ptr %max25.us, align 8
+  %add.ptr.i65.us = getelementptr inbounds double, ptr %19, i64 %indvars.iv
+  %20 = load double, ptr %add.ptr.i65.us, align 8
+  %cmp28.us = fcmp olt double %20, %conv11.us
   br i1 %cmp28.us, label %if.then29.us, label %for.inc35.us
 
 if.then29.us:                                     ; preds = %if.end23.us
@@ -45964,21 +45975,25 @@ for.cond8.preheader.us.preheader:                 ; preds = %for.cond8.preheader
 
 for.cond8.preheader.us:                           ; preds = %for.cond8.preheader.us.preheader, %for.cond8.for.inc38_crit_edge.us
   %buffer_ptr.087.us = phi ptr [ %add.ptr39.us, %for.cond8.for.inc38_crit_edge.us ], [ %data, %for.cond8.preheader.us.preheader ]
-  br label %if.end.us
+  br label %for.body10.us
 
-if.end.us:                                        ; preds = %for.cond8.preheader.us, %for.inc35.us
+for.body10.us:                                    ; preds = %for.cond8.preheader.us, %for.inc35.us
   %indvars.iv = phi i64 [ 0, %for.cond8.preheader.us ], [ %indvars.iv.next, %for.inc35.us ]
   %arrayidx.us = getelementptr inbounds i8, ptr %buffer_ptr.087.us, i64 %indvars.iv
   %12 = load i8, ptr %arrayidx.us, align 1
   %conv11.us = sitofp i8 %12 to double
-  %13 = load ptr, ptr %acc.coerce0, align 8
-  %add.ptr.i.i57.us = getelementptr inbounds ptr, ptr %13, i64 %conv.i56
-  %14 = load ptr, ptr %add.ptr.i.i57.us, align 8
-  %min14.us = getelementptr inbounds %"struct.glTF2::Accessor", ptr %14, i64 0, i32 7
-  %15 = load ptr, ptr %min14.us, align 8
-  %add.ptr.i.us = getelementptr inbounds double, ptr %15, i64 %indvars.iv
-  %16 = load double, ptr %add.ptr.i.us, align 8
-  %cmp17.us = fcmp ogt double %16, %conv11.us
+  %13 = tail call noundef i1 @llvm.is.fpclass.f64(double %conv11.us, i32 328)
+  br i1 %13, label %if.end.us, label %for.inc35.us
+
+if.end.us:                                        ; preds = %for.body10.us
+  %14 = load ptr, ptr %acc.coerce0, align 8
+  %add.ptr.i.i57.us = getelementptr inbounds ptr, ptr %14, i64 %conv.i56
+  %15 = load ptr, ptr %add.ptr.i.i57.us, align 8
+  %min14.us = getelementptr inbounds %"struct.glTF2::Accessor", ptr %15, i64 0, i32 7
+  %16 = load ptr, ptr %min14.us, align 8
+  %add.ptr.i.us = getelementptr inbounds double, ptr %16, i64 %indvars.iv
+  %17 = load double, ptr %add.ptr.i.us, align 8
+  %cmp17.us = fcmp ogt double %17, %conv11.us
   br i1 %cmp17.us, label %if.then18.us, label %if.end23.us
 
 if.then18.us:                                     ; preds = %if.end.us
@@ -45989,22 +46004,22 @@ if.then18.us:                                     ; preds = %if.end.us
   br label %if.end23.us
 
 if.end23.us:                                      ; preds = %if.then18.us, %if.end.us
-  %17 = phi ptr [ %.pre91, %if.then18.us ], [ %14, %if.end.us ]
-  %max25.us = getelementptr inbounds %"struct.glTF2::Accessor", ptr %17, i64 0, i32 6
-  %18 = load ptr, ptr %max25.us, align 8
-  %add.ptr.i65.us = getelementptr inbounds double, ptr %18, i64 %indvars.iv
-  %19 = load double, ptr %add.ptr.i65.us, align 8
-  %cmp28.us = fcmp olt double %19, %conv11.us
+  %18 = phi ptr [ %.pre91, %if.then18.us ], [ %15, %if.end.us ]
+  %max25.us = getelementptr inbounds %"struct.glTF2::Accessor", ptr %18, i64 0, i32 6
+  %19 = load ptr, ptr %max25.us, align 8
+  %add.ptr.i65.us = getelementptr inbounds double, ptr %19, i64 %indvars.iv
+  %20 = load double, ptr %add.ptr.i65.us, align 8
+  %cmp28.us = fcmp olt double %20, %conv11.us
   br i1 %cmp28.us, label %if.then29.us, label %for.inc35.us
 
 if.then29.us:                                     ; preds = %if.end23.us
   store double %conv11.us, ptr %add.ptr.i65.us, align 8
   br label %for.inc35.us
 
-for.inc35.us:                                     ; preds = %if.then29.us, %if.end23.us
+for.inc35.us:                                     ; preds = %if.then29.us, %if.end23.us, %for.body10.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond90.not, label %for.cond8.for.inc38_crit_edge.us, label %if.end.us, !llvm.loop !400
+  br i1 %exitcond90.not, label %for.cond8.for.inc38_crit_edge.us, label %for.body10.us, !llvm.loop !400
 
 for.cond8.for.inc38_crit_edge.us:                 ; preds = %for.inc35.us
   %add.ptr39.us = getelementptr inbounds i8, ptr %buffer_ptr.087.us, i64 %conv
@@ -46196,21 +46211,25 @@ for.cond8.preheader.us.preheader:                 ; preds = %for.cond8.preheader
 
 for.cond8.preheader.us:                           ; preds = %for.cond8.preheader.us.preheader, %for.cond8.for.inc38_crit_edge.us
   %buffer_ptr.087.us = phi ptr [ %add.ptr39.us, %for.cond8.for.inc38_crit_edge.us ], [ %data, %for.cond8.preheader.us.preheader ]
-  br label %if.end.us
+  br label %for.body10.us
 
-if.end.us:                                        ; preds = %for.cond8.preheader.us, %for.inc35.us
+for.body10.us:                                    ; preds = %for.cond8.preheader.us, %for.inc35.us
   %indvars.iv = phi i64 [ 0, %for.cond8.preheader.us ], [ %indvars.iv.next, %for.inc35.us ]
   %arrayidx.us = getelementptr inbounds i8, ptr %buffer_ptr.087.us, i64 %indvars.iv
   %12 = load i8, ptr %arrayidx.us, align 1
   %conv11.us = uitofp i8 %12 to double
-  %13 = load ptr, ptr %acc.coerce0, align 8
-  %add.ptr.i.i57.us = getelementptr inbounds ptr, ptr %13, i64 %conv.i56
-  %14 = load ptr, ptr %add.ptr.i.i57.us, align 8
-  %min14.us = getelementptr inbounds %"struct.glTF2::Accessor", ptr %14, i64 0, i32 7
-  %15 = load ptr, ptr %min14.us, align 8
-  %add.ptr.i.us = getelementptr inbounds double, ptr %15, i64 %indvars.iv
-  %16 = load double, ptr %add.ptr.i.us, align 8
-  %cmp17.us = fcmp ogt double %16, %conv11.us
+  %13 = tail call noundef i1 @llvm.is.fpclass.f64(double %conv11.us, i32 320)
+  br i1 %13, label %if.end.us, label %for.inc35.us
+
+if.end.us:                                        ; preds = %for.body10.us
+  %14 = load ptr, ptr %acc.coerce0, align 8
+  %add.ptr.i.i57.us = getelementptr inbounds ptr, ptr %14, i64 %conv.i56
+  %15 = load ptr, ptr %add.ptr.i.i57.us, align 8
+  %min14.us = getelementptr inbounds %"struct.glTF2::Accessor", ptr %15, i64 0, i32 7
+  %16 = load ptr, ptr %min14.us, align 8
+  %add.ptr.i.us = getelementptr inbounds double, ptr %16, i64 %indvars.iv
+  %17 = load double, ptr %add.ptr.i.us, align 8
+  %cmp17.us = fcmp ogt double %17, %conv11.us
   br i1 %cmp17.us, label %if.then18.us, label %if.end23.us
 
 if.then18.us:                                     ; preds = %if.end.us
@@ -46221,22 +46240,22 @@ if.then18.us:                                     ; preds = %if.end.us
   br label %if.end23.us
 
 if.end23.us:                                      ; preds = %if.then18.us, %if.end.us
-  %17 = phi ptr [ %.pre91, %if.then18.us ], [ %14, %if.end.us ]
-  %max25.us = getelementptr inbounds %"struct.glTF2::Accessor", ptr %17, i64 0, i32 6
-  %18 = load ptr, ptr %max25.us, align 8
-  %add.ptr.i65.us = getelementptr inbounds double, ptr %18, i64 %indvars.iv
-  %19 = load double, ptr %add.ptr.i65.us, align 8
-  %cmp28.us = fcmp olt double %19, %conv11.us
+  %18 = phi ptr [ %.pre91, %if.then18.us ], [ %15, %if.end.us ]
+  %max25.us = getelementptr inbounds %"struct.glTF2::Accessor", ptr %18, i64 0, i32 6
+  %19 = load ptr, ptr %max25.us, align 8
+  %add.ptr.i65.us = getelementptr inbounds double, ptr %19, i64 %indvars.iv
+  %20 = load double, ptr %add.ptr.i65.us, align 8
+  %cmp28.us = fcmp olt double %20, %conv11.us
   br i1 %cmp28.us, label %if.then29.us, label %for.inc35.us
 
 if.then29.us:                                     ; preds = %if.end23.us
   store double %conv11.us, ptr %add.ptr.i65.us, align 8
   br label %for.inc35.us
 
-for.inc35.us:                                     ; preds = %if.then29.us, %if.end23.us
+for.inc35.us:                                     ; preds = %if.then29.us, %if.end23.us, %for.body10.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond90.not, label %for.cond8.for.inc38_crit_edge.us, label %if.end.us, !llvm.loop !403
+  br i1 %exitcond90.not, label %for.cond8.for.inc38_crit_edge.us, label %for.body10.us, !llvm.loop !403
 
 for.cond8.for.inc38_crit_edge.us:                 ; preds = %for.inc35.us
   %add.ptr39.us = getelementptr inbounds i8, ptr %buffer_ptr.087.us, i64 %conv
@@ -46246,6 +46265,9 @@ for.cond8.for.inc38_crit_edge.us:                 ; preds = %for.inc35.us
 for.end40:                                        ; preds = %for.cond8.for.inc38_crit_edge.us, %entry, %for.cond8.preheader.lr.ph, %for.end
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_Z12ai_to_stringIN5glTF213ComponentTypeEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i32 noundef %value) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
@@ -58426,9 +58448,6 @@ declare void @llvm.assume(i1 noundef) #19
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
@@ -58454,6 +58473,9 @@ declare i32 @llvm.smax.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #21

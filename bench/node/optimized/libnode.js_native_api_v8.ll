@@ -376,7 +376,7 @@ if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
   %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(189) %this, ptr noundef %finalizer) #24
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(189) %this, ptr noundef %finalizer) #25
   br label %if.end
 
 "_ZN4node16OnScopeLeaveImplIZN10napi_env__21InvokeFinalizerFromGCEPN6v8impl10RefTrackerEE3$_0ED2Ev.exit": ; preds = %entry
@@ -387,7 +387,7 @@ if.then:                                          ; preds = %entry
   %vtable3 = load ptr, ptr %finalizer, align 8
   %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 2
   %4 = load ptr, ptr %vfn4, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(24) %finalizer) #24
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(24) %finalizer) #25
   store i8 %3, ptr %in_gc_finalizer, align 4
   br label %if.end
 
@@ -447,7 +447,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull ptr @_ZN6v8impl16TrackedFinalizer3NewEP10napi_env__PFvS2_PvS3_ES3_S3_(ptr noundef %env, ptr noundef %finalize_callback, ptr noundef %finalize_data, ptr noundef %finalize_hint) local_unnamed_addr #3 align 2 {
 entry:
-  %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
+  %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #26
   %env_.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %call, i64 0, i32 1
   store ptr %env, ptr %env_.i.i, align 8
   %finalize_callback_.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %call, i64 0, i32 2
@@ -520,7 +520,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit:             ; preds = %if.end.i, %if.then6
   %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
   %3 = load ptr, ptr %vfn, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(189) %2, ptr noundef nonnull %add.ptr) #24
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(189) %2, ptr noundef nonnull %add.ptr) #25
   ret void
 }
 
@@ -559,7 +559,7 @@ _ZN6v8impl16TrackedFinalizerD2Ev.exit:            ; preds = %if.end.i.i, %if.the
   %vtable.i = load ptr, ptr %3, align 8
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
   %4 = load ptr, ptr %vfn.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(189) %3, ptr noundef nonnull %this) #24
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(189) %3, ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -598,8 +598,8 @@ _ZN6v8impl16TrackedFinalizerD2Ev.exit:            ; preds = %if.end.i.i, %if.the
   %vtable.i = load ptr, ptr %2, align 8
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
   %3 = load ptr, ptr %vfn.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(189) %2, ptr noundef nonnull %add.ptr.i) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(189) %2, ptr noundef nonnull %add.ptr.i) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
 
@@ -641,8 +641,8 @@ _ZN6v8impl16TrackedFinalizerD0Ev.exit:            ; preds = %if.end.i.i.i, %if.t
   %vtable.i.i = load ptr, ptr %3, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
   %4 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(189) %3, ptr noundef nonnull %this) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #26
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(189) %3, ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #27
   ret void
 }
 
@@ -689,14 +689,14 @@ if.then.i:                                        ; preds = %_ZN6v8impl10RefTrac
   %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
   %6 = load ptr, ptr %vfn.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(189) %5, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #24
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(189) %5, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #25
   br label %_ZN6v8impl16TrackedFinalizer12FinalizeCoreEb.exit
 
 _ZN6v8impl16TrackedFinalizer12FinalizeCoreEb.exit: ; preds = %_ZN6v8impl10RefTracker6UnlinkEv.exit.i, %if.then.i
   %vtable3.i = load ptr, ptr %this, align 8
   %vfn4.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 1
   %7 = load ptr, ptr %vfn4.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(64) %this) #24
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
 }
 
@@ -743,7 +743,7 @@ if.then:                                          ; preds = %_ZN6v8impl10RefTrac
   %vtable = load ptr, ptr %5, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
   %6 = load ptr, ptr %vfn, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(189) %5, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #24
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(189) %5, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #25
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN6v8impl10RefTracker6UnlinkEv.exit
@@ -753,7 +753,7 @@ delete.notnull:                                   ; preds = %if.end
   %vtable3 = load ptr, ptr %this, align 8
   %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 1
   %7 = load ptr, ptr %vfn4, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(64) %this) #24
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   br label %if.end5
 
 if.end5:                                          ; preds = %delete.notnull, %if.end
@@ -803,7 +803,7 @@ if.then.i.i:                                      ; preds = %_ZN6v8impl10RefTrac
   %vtable.i.i = load ptr, ptr %5, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
   %6 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(189) %5, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #24
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(189) %5, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #25
   br label %_ZN6v8impl16TrackedFinalizer8FinalizeEv.exit
 
 _ZN6v8impl16TrackedFinalizer8FinalizeEv.exit:     ; preds = %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i, %if.then.i.i
@@ -811,7 +811,7 @@ _ZN6v8impl16TrackedFinalizer8FinalizeEv.exit:     ; preds = %_ZN6v8impl10RefTrac
   %vtable3.i.i = load ptr, ptr %7, align 8
   %vfn4.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i, i64 1
   %8 = load ptr, ptr %vfn4.i.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(64) %7) #24
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(64) %7) #25
   ret void
 }
 
@@ -862,7 +862,7 @@ _ZN6v8impl16TrackedFinalizerC2EP10napi_env__PFvS2_PvS3_ES3_S3_.exit: ; preds = %
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull ptr @_ZN6v8impl7RefBase3NewEP10napi_env__jNS_9OwnershipEPFvS2_PvS4_ES4_S4_(ptr noundef %env, i32 noundef %initial_refcount, i32 noundef %ownership, ptr noundef %finalize_callback, ptr noundef %finalize_data, ptr noundef %finalize_hint) local_unnamed_addr #3 align 2 {
 entry:
-  %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
+  %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %env_.i.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %call, i64 0, i32 1
   store ptr %env, ptr %env_.i.i.i, align 8
   %finalize_callback_.i.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %call, i64 0, i32 2
@@ -991,7 +991,7 @@ if.then.i:                                        ; preds = %_ZN6v8impl10RefTrac
   %vtable.i = load ptr, ptr %6, align 8
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
   %7 = load ptr, ptr %vfn.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(189) %6, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) #24
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(189) %6, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) #25
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %_ZN6v8impl10RefTracker6UnlinkEv.exit.i
@@ -1001,7 +1001,7 @@ delete.notnull.i:                                 ; preds = %if.end.i
   %vtable3.i = load ptr, ptr %this, align 8
   %vfn4.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 1
   %8 = load ptr, ptr %vfn4.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(64) %this) #24
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   br label %_ZN6v8impl16TrackedFinalizer12FinalizeCoreEb.exit
 
 _ZN6v8impl16TrackedFinalizer12FinalizeCoreEb.exit: ; preds = %if.end.i, %delete.notnull.i
@@ -1055,7 +1055,7 @@ if.then.i.i:                                      ; preds = %_ZN6v8impl10RefTrac
   %vtable.i.i = load ptr, ptr %7, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
   %8 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4) #24
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4) #25
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i
@@ -1065,7 +1065,7 @@ delete.notnull.i.i:                               ; preds = %if.end.i.i
   %vtable3.i.i = load ptr, ptr %0, align 8
   %vfn4.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i, i64 1
   %9 = load ptr, ptr %vfn4.i.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(64) %0) #24
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(64) %0) #25
   br label %_ZN6v8impl7RefBase8FinalizeEv.exit
 
 _ZN6v8impl7RefBase8FinalizeEv.exit:               ; preds = %if.end.i.i, %delete.notnull.i.i
@@ -1084,7 +1084,7 @@ entry:
   br i1 %cmp.i9, label %_ZN2v86GlobalINS_5ValueEED2Ev.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %0) #24
+  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %0) #25
   store ptr null, ptr %persistent_, align 8
   br label %_ZN2v86GlobalINS_5ValueEED2Ev.exit
 
@@ -1120,7 +1120,7 @@ _ZN6v8impl7RefBaseD2Ev.exit:                      ; preds = %if.end.i.i.i, %if.t
   %vtable.i.i = load ptr, ptr %3, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
   %4 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(189) %3, ptr noundef nonnull %add.ptr) #24
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(189) %3, ptr noundef nonnull %add.ptr) #25
   ret void
 }
 
@@ -1136,7 +1136,7 @@ entry:
   br i1 %cmp.i9.i, label %_ZN2v86GlobalINS_5ValueEED2Ev.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %1) #24
+  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %1) #25
   store ptr null, ptr %persistent_.i, align 8
   br label %_ZN2v86GlobalINS_5ValueEED2Ev.exit.i
 
@@ -1172,7 +1172,7 @@ _ZN6v8impl9ReferenceD2Ev.exit:                    ; preds = %if.end.i.i.i.i, %if
   %vtable.i.i.i = load ptr, ptr %4, align 8
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 3
   %5 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(189) %4, ptr noundef nonnull %this) #24
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(189) %4, ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -1188,7 +1188,7 @@ entry:
   br i1 %cmp.i9.i, label %_ZN2v86GlobalINS_5ValueEED2Ev.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %0) #24
+  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %0) #25
   store ptr null, ptr %persistent_.i, align 8
   br label %_ZN2v86GlobalINS_5ValueEED2Ev.exit.i
 
@@ -1224,8 +1224,8 @@ _ZN6v8impl9ReferenceD2Ev.exit:                    ; preds = %if.end.i.i.i.i, %if
   %vtable.i.i.i = load ptr, ptr %3, align 8
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 3
   %4 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(189) %3, ptr noundef nonnull %add.ptr.i) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(189) %3, ptr noundef nonnull %add.ptr.i) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
 
@@ -1241,7 +1241,7 @@ entry:
   br i1 %cmp.i9.i.i, label %_ZN2v86GlobalINS_5ValueEED2Ev.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
-  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %1) #24
+  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %1) #25
   store ptr null, ptr %persistent_.i.i, align 8
   br label %_ZN2v86GlobalINS_5ValueEED2Ev.exit.i.i
 
@@ -1277,8 +1277,8 @@ _ZN6v8impl9ReferenceD0Ev.exit:                    ; preds = %if.end.i.i.i.i.i, %
   %vtable.i.i.i.i = load ptr, ptr %4, align 8
   %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 3
   %5 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(189) %4, ptr noundef nonnull %this) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #26
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(189) %4, ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #27
   ret void
 }
 
@@ -1295,7 +1295,7 @@ entry:
   store ptr %finalize_callback, ptr %finalize_callback.addr, align 8
   store ptr %finalize_data, ptr %finalize_data.addr, align 8
   store ptr %finalize_hint, ptr %finalize_hint.addr, align 8
-  %call = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #25
+  %call = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #26
   call void @_ZN6v8impl9ReferenceC2IJRjRNS_9OwnershipERPFvP10napi_env__PvS7_ERS7_SB_EEES6_N2v85LocalINSC_5ValueEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(81) %call, ptr noundef %env, ptr %value.coerce, ptr noundef nonnull align 4 dereferenceable(4) %initial_refcount.addr, ptr noundef nonnull align 4 dereferenceable(4) %ownership.addr, ptr noundef nonnull align 8 dereferenceable(8) %finalize_callback.addr, ptr noundef nonnull align 8 dereferenceable(8) %finalize_data.addr, ptr noundef nonnull align 8 dereferenceable(8) %finalize_hint.addr)
   ret ptr %call
 }
@@ -1357,18 +1357,18 @@ if.end.i.i:                                       ; preds = %_ZN6v8impl7RefBaseC
   %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %7 = load ptr, ptr %isolate, align 8
   %8 = load i64, ptr %value.coerce, align 8
-  %call2.i.i = tail call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %7, i64 noundef %8) #24
+  %call2.i.i = tail call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %7, i64 noundef %8) #25
   br label %_ZN2v86GlobalINS_5ValueEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit
 
 _ZN2v86GlobalINS_5ValueEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit: ; preds = %_ZN6v8impl7RefBaseC2EP10napi_env__jNS_9OwnershipEPFvS2_PvS4_ES4_S4_.exit, %if.end.i.i
   %retval.i.i.0 = phi ptr [ %call2.i.i, %if.end.i.i ], [ null, %_ZN6v8impl7RefBaseC2EP10napi_env__jNS_9OwnershipEPFvS2_PvS4_ES4_S4_.exit ]
   store ptr %retval.i.i.0, ptr %persistent_, align 8
   %can_be_weak_ = getelementptr inbounds %"class.v8impl::Reference", ptr %this, i64 0, i32 2
-  %call3.i = tail call noundef zeroext i1 @_ZNK2v85Value8IsObjectEv(ptr noundef nonnull align 1 dereferenceable(1) %value.coerce) #24
+  %call3.i = tail call noundef zeroext i1 @_ZNK2v85Value8IsObjectEv(ptr noundef nonnull align 1 dereferenceable(1) %value.coerce) #25
   br i1 %call3.i, label %_ZN6v8impl12_GLOBAL__N_115CanBeHeldWeaklyEN2v85LocalINS1_5ValueEEE.exit.thread, label %_ZN6v8impl12_GLOBAL__N_115CanBeHeldWeaklyEN2v85LocalINS1_5ValueEEE.exit
 
 _ZN6v8impl12_GLOBAL__N_115CanBeHeldWeaklyEN2v85LocalINS1_5ValueEEE.exit: ; preds = %_ZN2v86GlobalINS_5ValueEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit
-  %call5.i = tail call noundef zeroext i1 @_ZNK2v85Value8IsSymbolEv(ptr noundef nonnull align 1 dereferenceable(1) %value.coerce) #24
+  %call5.i = tail call noundef zeroext i1 @_ZNK2v85Value8IsSymbolEv(ptr noundef nonnull align 1 dereferenceable(1) %value.coerce) #25
   %9 = zext i1 %call5.i to i8
   store i8 %9, ptr %can_be_weak_, align 8
   %10 = load i32, ptr %refcount_.i, align 8
@@ -1391,7 +1391,7 @@ if.then:                                          ; preds = %_ZN6v8impl12_GLOBAL
 
 if.then.i:                                        ; preds = %if.then.thread, %if.then
   %14 = phi ptr [ %12, %if.then.thread ], [ %13, %if.then ]
-  tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef %14, ptr noundef nonnull %this, ptr noundef nonnull @_ZN6v8impl9Reference12WeakCallbackERKN2v816WeakCallbackInfoIS0_EE, i32 noundef 0) #24
+  tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef %14, ptr noundef nonnull %this, ptr noundef nonnull @_ZN6v8impl9Reference12WeakCallbackERKN2v816WeakCallbackInfoIS0_EE, i32 noundef 0) #25
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
@@ -1399,7 +1399,7 @@ if.else.i:                                        ; preds = %if.then
   br i1 %cmp.i.i5, label %if.end, label %if.end.i.i6
 
 if.end.i.i6:                                      ; preds = %if.else.i
-  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #24
+  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #25
   store ptr null, ptr %persistent_, align 8
   br label %if.end
 
@@ -1431,7 +1431,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %land.lhs.true
-  %call2.i = tail call noundef ptr @_ZN2v812api_internal9ClearWeakEPm(ptr noundef nonnull %0) #24
+  %call2.i = tail call noundef ptr @_ZN2v812api_internal9ClearWeakEPm(ptr noundef nonnull %0) #25
   br label %return
 
 return:                                           ; preds = %if.end, %land.lhs.true, %if.then3, %entry
@@ -1467,11 +1467,11 @@ if.then5:                                         ; preds = %_ZN6v8impl7RefBase5
   br i1 %tobool.not.i, label %if.end.i.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then5
-  tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef nonnull %0, ptr noundef nonnull %this, ptr noundef nonnull @_ZN6v8impl9Reference12WeakCallbackERKN2v816WeakCallbackInfoIS0_EE, i32 noundef 0) #24
+  tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef nonnull %0, ptr noundef nonnull %this, ptr noundef nonnull @_ZN6v8impl9Reference12WeakCallbackERKN2v816WeakCallbackInfoIS0_EE, i32 noundef 0) #25
   br label %return
 
 if.end.i.i:                                       ; preds = %if.then5
-  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %0) #24
+  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %0) #25
   store ptr null, ptr %persistent_, align 8
   br label %return
 
@@ -1492,7 +1492,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef %2, ptr noundef nonnull %this, ptr noundef nonnull @_ZN6v8impl9Reference12WeakCallbackERKN2v816WeakCallbackInfoIS0_EE, i32 noundef 0) #24
+  tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef %2, ptr noundef nonnull %this, ptr noundef nonnull @_ZN6v8impl9Reference12WeakCallbackERKN2v816WeakCallbackInfoIS0_EE, i32 noundef 0) #25
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -1500,7 +1500,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else
-  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %2) #24
+  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %2) #25
   store ptr null, ptr %persistent_2, align 8
   br label %if.end
 
@@ -1522,7 +1522,7 @@ if.end.i:                                         ; preds = %entry
   %isolate = getelementptr inbounds %struct.napi_env__, ptr %1, i64 0, i32 1
   %2 = load ptr, ptr %isolate, align 8
   %3 = load i64, ptr %0, align 8
-  %call.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %2, i64 noundef %3) #24
+  %call.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %2, i64 noundef %3) #25
   br label %return
 
 return:                                           ; preds = %entry, %if.end.i
@@ -1539,7 +1539,7 @@ entry:
   br i1 %cmp.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %0) #24
+  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %0) #25
   store ptr null, ptr %persistent_, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit
 
@@ -1587,7 +1587,7 @@ if.then.i.i:                                      ; preds = %_ZN6v8impl10RefTrac
   %vtable.i.i = load ptr, ptr %7, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
   %8 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4) #24
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4) #25
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i
@@ -1597,7 +1597,7 @@ delete.notnull.i.i:                               ; preds = %if.end.i.i
   %vtable3.i.i = load ptr, ptr %this, align 8
   %vfn4.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i, i64 1
   %9 = load ptr, ptr %vfn4.i.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(64) %this) #24
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   br label %_ZN6v8impl7RefBase8FinalizeEv.exit
 
 _ZN6v8impl7RefBase8FinalizeEv.exit:               ; preds = %if.end.i.i, %delete.notnull.i.i
@@ -1614,7 +1614,7 @@ entry:
   br i1 %cmp.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %1) #24
+  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %1) #25
   store ptr null, ptr %persistent_.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i
 
@@ -1662,7 +1662,7 @@ if.then.i.i.i:                                    ; preds = %_ZN6v8impl10RefTrac
   %vtable.i.i.i = load ptr, ptr %8, align 8
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
   %9 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(189) %8, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5) #24
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(189) %8, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5) #25
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i.i
@@ -1672,7 +1672,7 @@ delete.notnull.i.i.i:                             ; preds = %if.end.i.i.i
   %vtable3.i.i.i = load ptr, ptr %0, align 8
   %vfn4.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i, i64 1
   %10 = load ptr, ptr %vfn4.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(64) %0) #24
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(64) %0) #25
   br label %_ZN6v8impl9Reference8FinalizeEv.exit
 
 _ZN6v8impl9Reference8FinalizeEv.exit:             ; preds = %if.end.i.i.i, %delete.notnull.i.i.i
@@ -1690,7 +1690,7 @@ entry:
   br i1 %cmp.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %1) #24
+  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %1) #25
   store ptr null, ptr %persistent_, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit
 
@@ -1707,7 +1707,7 @@ if.then.i:                                        ; preds = %_ZN2v814PersistentB
   %vtable.i = load ptr, ptr %2, align 8
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
   %4 = load ptr, ptr %vfn.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(189) %2, ptr noundef nonnull %add.ptr) #24
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(189) %2, ptr noundef nonnull %add.ptr) #25
   br label %_ZN10napi_env__21InvokeFinalizerFromGCEPN6v8impl10RefTrackerE.exit
 
 "_ZN4node16OnScopeLeaveImplIZN10napi_env__21InvokeFinalizerFromGCEPN6v8impl10RefTrackerEE3$_0ED2Ev.exit.i": ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit
@@ -1718,7 +1718,7 @@ if.then.i:                                        ; preds = %_ZN2v814PersistentB
   %vtable3.i = load ptr, ptr %add.ptr, align 8
   %vfn4.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 2
   %7 = load ptr, ptr %vfn4.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr) #24
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr) #25
   store i8 %6, ptr %in_gc_finalizer.i, align 4
   br label %_ZN10napi_env__21InvokeFinalizerFromGCEPN6v8impl10RefTrackerE.exit
 
@@ -1753,8 +1753,8 @@ do.end5:                                          ; preds = %do.body1
   br i1 %cmp7, label %do.body11, label %do.end14
 
 do.body11:                                        ; preds = %do.end5
-  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZ24napi_get_last_error_infoE4args) #24
-  tail call void @abort() #27
+  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZ24napi_get_last_error_infoE4args) #25
+  tail call void @abort() #28
   unreachable
 
 do.end14:                                         ; preds = %do.end5
@@ -1806,7 +1806,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -1827,7 +1827,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -1847,7 +1847,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -1877,7 +1877,7 @@ if.then24:                                        ; preds = %do.body22
 
 do.end28:                                         ; preds = %do.body22
   %7 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %7) #24
+  call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %7) #25
   store ptr null, ptr %fn, align 8
   %call30 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewFunctionEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_8FunctionEEE(ptr noundef nonnull %env, ptr noundef nonnull %cb, ptr noundef %callback_data, ptr noundef nonnull %fn)
   %cmp31.not = icmp eq i32 %call30, 0
@@ -1885,7 +1885,7 @@ do.end28:                                         ; preds = %do.body22
 
 do.end35:                                         ; preds = %do.end28
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %fn, align 8
-  %call4.i = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %agg.tmp.sroa.0.0.copyload) #24
+  %call4.i = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %agg.tmp.sroa.0.0.copyload) #25
   %cmp42.not = icmp eq ptr %utf8name, null
   br i1 %cmp42.not, label %if.end85, label %if.then43
 
@@ -1897,17 +1897,17 @@ if.then43:                                        ; preds = %do.end35
 do.end59:                                         ; preds = %if.then43
   %9 = load ptr, ptr %isolate.i, align 8
   %conv = trunc i64 %length to i32
-  %call61 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %9, ptr noundef nonnull %utf8name, i32 noundef 1, i32 noundef %conv) #24
+  %call61 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %9, ptr noundef nonnull %utf8name, i32 noundef 1, i32 noundef %conv) #25
   %cmp.i.i = icmp eq ptr %call61, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end59
-  call void @_ZN2v88Function7SetNameENS_5LocalINS_6StringEEE(ptr noundef nonnull align 1 dereferenceable(1) %call4.i, ptr nonnull %call61) #24
+  call void @_ZN2v88Function7SetNameENS_5LocalINS_6StringEEE(ptr noundef nonnull align 1 dereferenceable(1) %call4.i, ptr nonnull %call61) #25
   br label %if.end85
 
 if.end85:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit, %do.end35
   store ptr %call4.i, ptr %result, align 8
-  %call95 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call95 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call95, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %if.end85, %do.end59, %if.then43
@@ -1922,12 +1922,12 @@ cleanup.sink.split:                               ; preds = %if.end85, %do.end59
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end85, %do.end28
   %retval.0 = phi i32 [ %call30, %do.end28 ], [ 0, %if.end85 ], [ %.sink, %cleanup.sink.split ]
-  call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #24
+  call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #25
   br label %cleanup98
 
 cleanup98:                                        ; preds = %cleanup, %if.then24, %if.then18
   %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 1, %if.then24 ], [ 1, %if.then18 ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i45, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i45:                                      ; preds = %cleanup98
@@ -1935,13 +1935,13 @@ if.then.i45:                                      ; preds = %cleanup98
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %10, i64 0, i32 3
   %isolate.i47 = getelementptr inbounds %struct.napi_env__, ptr %10, i64 0, i32 1
   %11 = load ptr, ptr %isolate.i47, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %12 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %12, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i45
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %12) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %12) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -1951,12 +1951,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %13 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %11, i64 noundef %13) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %11, i64 noundef %13) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup98, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -1974,7 +1974,7 @@ entry:
   %finalize_callback.addr.i.i = alloca ptr, align 8
   %finalize_data.addr.i.i = alloca ptr, align 8
   %finalize_hint.addr.i.i = alloca ptr, align 8
-  %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
+  %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
   %cb1.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::CallbackBundle", ptr %call.i, i64 0, i32 2
   store ptr %cb, ptr %cb1.i, align 8
   %cb_data.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::CallbackBundle", ptr %call.i, i64 0, i32 1
@@ -1982,7 +1982,7 @@ entry:
   store ptr %env, ptr %call.i, align 8
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %0 = load ptr, ptr %isolate.i, align 8
-  %call3.i = tail call ptr @_ZN2v88External3NewEPNS_7IsolateEPv(ptr noundef %0, ptr noundef nonnull %call.i) #24
+  %call3.i = tail call ptr @_ZN2v88External3NewEPNS_7IsolateEPv(ptr noundef %0, ptr noundef nonnull %call.i) #25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %initial_refcount.addr.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ownership.addr.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %finalize_callback.addr.i.i)
@@ -1993,7 +1993,7 @@ entry:
   store ptr @_ZN6v8impl12_GLOBAL__N_114CallbackBundle6DeleteEP10napi_env__PvS4_, ptr %finalize_callback.addr.i.i, align 8
   store ptr %call.i, ptr %finalize_data.addr.i.i, align 8
   store ptr null, ptr %finalize_hint.addr.i.i, align 8
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #25
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #26
   call void @_ZN6v8impl9ReferenceC2IJRjRNS_9OwnershipERPFvP10napi_env__PvS7_ERS7_SB_EEES6_N2v85LocalINSC_5ValueEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(81) %call.i.i, ptr noundef %env, ptr %call3.i, ptr noundef nonnull align 4 dereferenceable(4) %initial_refcount.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ownership.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_callback.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_data.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_hint.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %initial_refcount.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ownership.addr.i.i)
@@ -2015,7 +2015,7 @@ if.then:                                          ; preds = %entry
 do.end:                                           ; preds = %entry
   %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
-  %call16 = call ptr @_ZN2v88Function3NewENS_5LocalINS_7ContextEEEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS1_IS5_EEiNS_19ConstructorBehaviorENS_14SideEffectTypeE(ptr %retval.sroa.0.0.copyload.i.i, ptr noundef nonnull @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper6InvokeERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr nonnull %call3.i, i32 noundef 0, i32 noundef 1, i32 noundef 0) #24
+  %call16 = call ptr @_ZN2v88Function3NewENS_5LocalINS_7ContextEEEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS1_IS5_EEiNS_19ConstructorBehaviorENS_14SideEffectTypeE(ptr %retval.sroa.0.0.copyload.i.i, ptr noundef nonnull @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper6InvokeERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr nonnull %call3.i, i32 noundef 0, i32 noundef 1, i32 noundef 0) #25
   %cmp.i.i40 = icmp eq ptr %call16, null
   br i1 %cmp.i.i40, label %if.then23, label %_ZN2v810MaybeLocalINS_8FunctionEE14ToLocalCheckedEv.exit
 
@@ -2073,7 +2073,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -2094,7 +2094,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -2114,7 +2114,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -2159,7 +2159,7 @@ if.then33:                                        ; preds = %do.end28
 
 if.end38:                                         ; preds = %do.end28
   %7 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %7) #24
+  call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %7) #25
   store ptr null, ptr %tpl, align 8
   %call43 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewTemplateEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_16FunctionTemplateEEENSC_INSB_9SignatureEEE(ptr noundef nonnull %env, ptr noundef nonnull %constructor, ptr noundef %callback_data, ptr noundef nonnull %tpl, ptr null)
   %cmp44.not = icmp eq i32 %call43, 0
@@ -2175,13 +2175,13 @@ do.end48:                                         ; preds = %if.end38
 do.end64:                                         ; preds = %do.end48
   %9 = load ptr, ptr %isolate.i, align 8
   %conv = trunc i64 %length to i32
-  %call66 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %9, ptr noundef nonnull %utf8name, i32 noundef 1, i32 noundef %conv) #24
+  %call66 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %9, ptr noundef nonnull %utf8name, i32 noundef 1, i32 noundef %conv) #25
   %cmp.i.i = icmp eq ptr %call66, null
   br i1 %cmp.i.i, label %cleanup298.sink.split, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end64
   %10 = load ptr, ptr %tpl, align 8
-  call void @_ZN2v816FunctionTemplate12SetClassNameENS_5LocalINS_6StringEEE(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr nonnull %call66) #24
+  call void @_ZN2v816FunctionTemplate12SetClassNameENS_5LocalINS_6StringEEE(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr nonnull %call66) #25
   br i1 %cmp29, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit, %for.inc
@@ -2251,10 +2251,10 @@ do.body127.if.end141_crit_edge:                   ; preds = %do.body127
 
 if.end141:                                        ; preds = %do.body127.if.end141_crit_edge, %if.end123
   %agg.tmp151.sroa.0.0.copyload = phi ptr [ %agg.tmp151.sroa.0.0.copyload.pre, %do.body127.if.end141_crit_edge ], [ null, %if.end123 ]
-  %call144 = call ptr @_ZN2v816FunctionTemplate17PrototypeTemplateEv(ptr noundef nonnull align 1 dereferenceable(1) %10) #24
+  %call144 = call ptr @_ZN2v816FunctionTemplate17PrototypeTemplateEv(ptr noundef nonnull align 1 dereferenceable(1) %10) #25
   %agg.tmp149.sroa.0.0.copyload = load ptr, ptr %property_name, align 8
   %agg.tmp150.sroa.0.0.copyload = load ptr, ptr %getter_tpl, align 8
-  call void @_ZN2v88Template19SetAccessorPropertyENS_5LocalINS_4NameEEENS1_INS_16FunctionTemplateEEES5_NS_17PropertyAttributeENS_13AccessControlE(ptr noundef nonnull align 1 dereferenceable(1) %call144, ptr %agg.tmp149.sroa.0.0.copyload, ptr %agg.tmp150.sroa.0.0.copyload, ptr %agg.tmp151.sroa.0.0.copyload, i32 noundef %call102, i32 noundef 0) #24
+  call void @_ZN2v88Template19SetAccessorPropertyENS_5LocalINS_4NameEEENS1_INS_16FunctionTemplateEEES5_NS_17PropertyAttributeENS_13AccessControlE(ptr noundef nonnull align 1 dereferenceable(1) %call144, ptr %agg.tmp149.sroa.0.0.copyload, ptr %agg.tmp150.sroa.0.0.copyload, ptr %agg.tmp151.sroa.0.0.copyload, i32 noundef %call102, i32 noundef 0) #25
   br label %for.inc
 
 if.else:                                          ; preds = %lor.lhs.false104
@@ -2267,24 +2267,24 @@ if.then162:                                       ; preds = %if.else
   store ptr null, ptr %t, align 8
   %data166 = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.099, i32 7
   %18 = load ptr, ptr %data166, align 8
-  %call172 = call ptr @_ZN2v89Signature3NewEPNS_7IsolateENS_5LocalINS_16FunctionTemplateEEE(ptr noundef %7, ptr nonnull %10) #24
+  %call172 = call ptr @_ZN2v89Signature3NewEPNS_7IsolateENS_5LocalINS_16FunctionTemplateEEE(ptr noundef %7, ptr nonnull %10) #25
   %call179 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewTemplateEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_16FunctionTemplateEEENSC_INSB_9SignatureEEE(ptr noundef nonnull %env, ptr noundef nonnull %17, ptr noundef %18, ptr noundef nonnull %t, ptr %call172)
   %cmp180.not = icmp eq i32 %call179, 0
   br i1 %cmp180.not, label %do.end184, label %cleanup298
 
 do.end184:                                        ; preds = %if.then162
-  %call187 = call ptr @_ZN2v816FunctionTemplate17PrototypeTemplateEv(ptr noundef nonnull align 1 dereferenceable(1) %10) #24
+  %call187 = call ptr @_ZN2v816FunctionTemplate17PrototypeTemplateEv(ptr noundef nonnull align 1 dereferenceable(1) %10) #25
   %agg.tmp192.sroa.0.0.copyload = load ptr, ptr %property_name, align 8
   %agg.tmp194.sroa.0.0.copyload = load ptr, ptr %t, align 8
-  call void @_ZN2v88Template3SetENS_5LocalINS_4NameEEENS1_INS_4DataEEENS_17PropertyAttributeE(ptr noundef nonnull align 1 dereferenceable(1) %call187, ptr %agg.tmp192.sroa.0.0.copyload, ptr %agg.tmp194.sroa.0.0.copyload, i32 noundef %call102) #24
+  call void @_ZN2v88Template3SetENS_5LocalINS_4NameEEENS1_INS_4DataEEENS_17PropertyAttributeE(ptr noundef nonnull align 1 dereferenceable(1) %call187, ptr %agg.tmp192.sroa.0.0.copyload, ptr %agg.tmp194.sroa.0.0.copyload, i32 noundef %call102) #25
   br label %for.inc
 
 if.else204:                                       ; preds = %if.else
   %value205 = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.099, i32 5
   %19 = load ptr, ptr %value205, align 8
-  %call212 = call ptr @_ZN2v816FunctionTemplate17PrototypeTemplateEv(ptr noundef nonnull align 1 dereferenceable(1) %10) #24
+  %call212 = call ptr @_ZN2v816FunctionTemplate17PrototypeTemplateEv(ptr noundef nonnull align 1 dereferenceable(1) %10) #25
   %agg.tmp217.sroa.0.0.copyload = load ptr, ptr %property_name, align 8
-  call void @_ZN2v88Template3SetENS_5LocalINS_4NameEEENS1_INS_4DataEEENS_17PropertyAttributeE(ptr noundef nonnull align 1 dereferenceable(1) %call212, ptr %agg.tmp217.sroa.0.0.copyload, ptr %19, i32 noundef %call102) #24
+  call void @_ZN2v88Template3SetENS_5LocalINS_4NameEEENS1_INS_4DataEEENS_17PropertyAttributeE(ptr noundef nonnull align 1 dereferenceable(1) %call212, ptr %agg.tmp217.sroa.0.0.copyload, ptr %19, i32 noundef %call102) #25
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end141, %if.else204, %do.end184, %if.then91
@@ -2297,16 +2297,16 @@ for.end:                                          ; preds = %for.inc, %_ZN2v810M
   %static_property_count.0.lcssa = phi i64 [ 0, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit ], [ %static_property_count.1, %for.inc ]
   %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
-  %call245 = call ptr @_ZN2v816FunctionTemplate11GetFunctionENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call245 = call ptr @_ZN2v816FunctionTemplate11GetFunctionENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i370 = icmp eq ptr %call245, null
   br i1 %cmp.i.i370, label %if.then.i365, label %_ZN2v810MaybeLocalINS_8FunctionEE14ToLocalCheckedEv.exit
 
 if.then.i365:                                     ; preds = %for.end
-  call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
+  call void @_ZN2v812api_internal12ToLocalEmptyEv() #25
   br label %_ZN2v810MaybeLocalINS_8FunctionEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_8FunctionEE14ToLocalCheckedEv.exit: ; preds = %if.then.i365, %for.end
-  %call4.i = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %call245) #24
+  %call4.i = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %call245) #25
   store ptr %call4.i, ptr %result, align 8
   %cmp268.not = icmp eq i64 %static_property_count.0.lcssa, 0
   br i1 %cmp268.not, label %if.end294, label %if.then269
@@ -2350,14 +2350,14 @@ do.body284:                                       ; preds = %for.inc281, %if.the
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorI24napi_property_descriptorSaIS0_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %do.body284
-  call void @_ZdlPv(ptr noundef nonnull %24) #26
+  call void @_ZdlPv(ptr noundef nonnull %24) #27
   br label %_ZNSt6vectorI24napi_property_descriptorSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI24napi_property_descriptorSaIS0_EED2Ev.exit: ; preds = %do.body284, %if.then.i.i.i
   br i1 %cmp289.not, label %if.end294, label %cleanup298
 
 if.end294:                                        ; preds = %_ZNSt6vectorI24napi_property_descriptorSaIS0_EED2Ev.exit, %_ZN2v810MaybeLocalINS_8FunctionEE14ToLocalCheckedEv.exit
-  %call295 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call295 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call295, label %cleanup298.sink.split, label %cleanup298
 
 cleanup298.sink.split:                            ; preds = %if.end294, %do.end64, %do.end48
@@ -2372,12 +2372,12 @@ cleanup298.sink.split:                            ; preds = %if.end294, %do.end6
 
 cleanup298:                                       ; preds = %if.then162, %do.body127, %do.body110, %if.end92, %cleanup298.sink.split, %if.end294, %if.end38, %_ZNSt6vectorI24napi_property_descriptorSaIS0_EED2Ev.exit
   %retval.1 = phi i32 [ %call288, %_ZNSt6vectorI24napi_property_descriptorSaIS0_EED2Ev.exit ], [ %call43, %if.end38 ], [ 0, %if.end294 ], [ %.sink, %cleanup298.sink.split ], [ %call179, %if.then162 ], [ %call135, %do.body127 ], [ %call117, %do.body110 ], [ %call95, %if.end92 ]
-  call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #24
+  call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #25
   br label %cleanup299
 
 cleanup299:                                       ; preds = %cleanup298, %if.then33, %if.then24, %if.then18
   %retval.2 = phi i32 [ %retval.1, %cleanup298 ], [ 1, %if.then33 ], [ 1, %if.then24 ], [ 1, %if.then18 ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i94, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i94:                                      ; preds = %cleanup299
@@ -2385,13 +2385,13 @@ if.then.i94:                                      ; preds = %cleanup299
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %25, i64 0, i32 3
   %isolate.i96 = getelementptr inbounds %struct.napi_env__, ptr %25, i64 0, i32 1
   %26 = load ptr, ptr %isolate.i96, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %27 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %27, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i94
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %27) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %27) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -2401,12 +2401,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %28 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %26, i64 noundef %28) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %26, i64 noundef %28) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup299, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -2422,7 +2422,7 @@ entry:
   %finalize_callback.addr.i.i = alloca ptr, align 8
   %finalize_data.addr.i.i = alloca ptr, align 8
   %finalize_hint.addr.i.i = alloca ptr, align 8
-  %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
+  %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
   %cb1.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::CallbackBundle", ptr %call.i, i64 0, i32 2
   store ptr %cb, ptr %cb1.i, align 8
   %cb_data.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::CallbackBundle", ptr %call.i, i64 0, i32 1
@@ -2430,7 +2430,7 @@ entry:
   store ptr %env, ptr %call.i, align 8
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %0 = load ptr, ptr %isolate.i, align 8
-  %call3.i = tail call ptr @_ZN2v88External3NewEPNS_7IsolateEPv(ptr noundef %0, ptr noundef nonnull %call.i) #24
+  %call3.i = tail call ptr @_ZN2v88External3NewEPNS_7IsolateEPv(ptr noundef %0, ptr noundef nonnull %call.i) #25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %initial_refcount.addr.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ownership.addr.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %finalize_callback.addr.i.i)
@@ -2441,7 +2441,7 @@ entry:
   store ptr @_ZN6v8impl12_GLOBAL__N_114CallbackBundle6DeleteEP10napi_env__PvS4_, ptr %finalize_callback.addr.i.i, align 8
   store ptr %call.i, ptr %finalize_data.addr.i.i, align 8
   store ptr null, ptr %finalize_hint.addr.i.i, align 8
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #25
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #26
   call void @_ZN6v8impl9ReferenceC2IJRjRNS_9OwnershipERPFvP10napi_env__PvS7_ERS7_SB_EEES6_N2v85LocalINSC_5ValueEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(81) %call.i.i, ptr noundef %env, ptr %call3.i, ptr noundef nonnull align 4 dereferenceable(4) %initial_refcount.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ownership.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_callback.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_data.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_hint.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %initial_refcount.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ownership.addr.i.i)
@@ -2462,7 +2462,7 @@ if.then:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %1 = load ptr, ptr %isolate.i, align 8
-  %call15 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %1, ptr noundef nonnull @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper6InvokeERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr nonnull %call3.i, ptr %sig.coerce, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef null, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #24
+  %call15 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %1, ptr noundef nonnull @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper6InvokeERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr nonnull %call3.i, ptr %sig.coerce, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef null, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #25
   store ptr %call15, ptr %result, align 8
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -2485,7 +2485,7 @@ entry:
 do.end6:                                          ; preds = %entry
   %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %1 = load ptr, ptr %isolate, align 8
-  %call8 = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %1, ptr noundef nonnull %0, i32 noundef 1, i32 noundef -1) #24
+  %call8 = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %1, ptr noundef nonnull %0, i32 noundef 1, i32 noundef -1) #25
   %cmp.i.i = icmp eq ptr %call8, null
   br i1 %cmp.i.i, label %if.then14, label %if.end42
 
@@ -2501,7 +2501,7 @@ if.then14:                                        ; preds = %do.end6
 if.else:                                          ; preds = %entry
   %name = getelementptr inbounds %struct.napi_property_descriptor, ptr %p, i64 0, i32 1
   %2 = load ptr, ptr %name, align 8
-  %call32 = tail call noundef zeroext i1 @_ZNK2v85Value6IsNameEv(ptr noundef nonnull align 1 dereferenceable(1) %2) #24
+  %call32 = tail call noundef zeroext i1 @_ZNK2v85Value6IsNameEv(ptr noundef nonnull align 1 dereferenceable(1) %2) #25
   br i1 %call32, label %if.end42, label %if.then33
 
 if.then33:                                        ; preds = %if.else
@@ -2574,7 +2574,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.54) #27
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.54) #28
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -2595,7 +2595,7 @@ _ZNSt12_Vector_baseI24napi_property_descriptorSaIS0_EE11_M_allocateEm.exit: ; pr
   %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i9 = ashr exact i64 %sub.ptr.sub.i8, 6
   %mul.i.i.i = shl nuw nsw i64 %__n, 6
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #25
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #26
   %cmp.i.i.i10 = icmp sgt i64 %sub.ptr.div.i9, 0
   br i1 %cmp.i.i.i10, label %if.then.i.i.i11, label %_ZNSt6vectorI24napi_property_descriptorSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
 
@@ -2608,7 +2608,7 @@ _ZNSt6vectorI24napi_property_descriptorSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseI24napi_property_descriptorSaIS0_EE13_M_deallocateEPS0_m.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNSt6vectorI24napi_property_descriptorSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #27
   br label %_ZNSt12_Vector_baseI24napi_property_descriptorSaIS0_EE13_M_deallocateEPS0_m.exit
 
 _ZNSt12_Vector_baseI24napi_property_descriptorSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI24napi_property_descriptorSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %if.then.i
@@ -2649,7 +2649,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorI24napi_property_descriptorSaIS0_EE12_M_check_lenEmPKc.exit.i
 
 if.then.i.i:                                      ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.55) #27
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.55) #28
   unreachable
 
 _ZNKSt6vectorI24napi_property_descriptorSaIS0_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else
@@ -2665,7 +2665,7 @@ _ZNKSt6vectorI24napi_property_descriptorSaIS0_EE12_M_check_lenEmPKc.exit.i: ; pr
 
 _ZNSt16allocator_traitsISaI24napi_property_descriptorEE8allocateERS1_m.exit.i.i: ; preds = %_ZNKSt6vectorI24napi_property_descriptorSaIS0_EE12_M_check_lenEmPKc.exit.i
   %mul.i.i.i.i = shl nuw nsw i64 %cond.i.i, 6
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #25
+  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #26
   br label %_ZNSt12_Vector_baseI24napi_property_descriptorSaIS0_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseI24napi_property_descriptorSaIS0_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaI24napi_property_descriptorEE8allocateERS1_m.exit.i.i, %_ZNKSt6vectorI24napi_property_descriptorSaIS0_EE12_M_check_lenEmPKc.exit.i
@@ -2685,7 +2685,7 @@ _ZNSt6vectorI24napi_property_descriptorSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
   br i1 %tobool.not.i.i, label %_ZNSt6vectorI24napi_property_descriptorSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit, label %if.then.i21.i
 
 if.then.i21.i:                                    ; preds = %_ZNSt6vectorI24napi_property_descriptorSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit20.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #27
   br label %_ZNSt6vectorI24napi_property_descriptorSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit
 
 _ZNSt6vectorI24napi_property_descriptorSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit: ; preds = %_ZNSt6vectorI24napi_property_descriptorSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit20.i, %if.then.i21.i
@@ -2726,7 +2726,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -2747,7 +2747,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -2767,7 +2767,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp16 = icmp eq i64 %property_count, 0
@@ -2800,7 +2800,7 @@ if.then31:                                        ; preds = %if.end24
   br label %cleanup274
 
 do.end35:                                         ; preds = %if.end24
-  %call44 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call44 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i = icmp eq ptr %call44, null
   br i1 %cmp.i.i, label %if.then51, label %for.cond.preheader
 
@@ -2825,7 +2825,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 do.end6.i:                                        ; preds = %for.body
   %8 = load ptr, ptr %isolate.i, align 8
-  %call8.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull %7, i32 noundef 1, i32 noundef -1) #24
+  %call8.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull %7, i32 noundef 1, i32 noundef -1) #25
   %cmp.i.i.i = icmp eq ptr %call8.i, null
   br i1 %cmp.i.i.i, label %if.then14.i, label %do.end70
 
@@ -2841,7 +2841,7 @@ if.then14.i:                                      ; preds = %do.end6.i
 if.else.i:                                        ; preds = %for.body
   %name.i = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.0106, i32 1
   %9 = load ptr, ptr %name.i, align 8
-  %call32.i = call noundef zeroext i1 @_ZNK2v85Value6IsNameEv(ptr noundef nonnull align 1 dereferenceable(1) %9) #24
+  %call32.i = call noundef zeroext i1 @_ZNK2v85Value6IsNameEv(ptr noundef nonnull align 1 dereferenceable(1) %9) #25
   br i1 %call32.i, label %do.end70, label %if.then33.i
 
 if.then33.i:                                      ; preds = %if.else.i
@@ -2901,23 +2901,23 @@ do.body90.if.end100_crit_edge:                    ; preds = %do.body90
 if.end100:                                        ; preds = %do.body90.if.end100_crit_edge, %if.end86
   %agg.tmp107.sroa.0.0.copyload = phi ptr [ %agg.tmp107.sroa.0.0.copyload.pre, %do.body90.if.end100_crit_edge ], [ null, %if.end86 ]
   %agg.tmp102.sroa.0.0.copyload = load ptr, ptr %local_getter, align 8
-  call void @_ZN2v818PropertyDescriptorC1ENS_5LocalINS_5ValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8) %descriptor, ptr %agg.tmp102.sroa.0.0.copyload, ptr %agg.tmp107.sroa.0.0.copyload) #24
+  call void @_ZN2v818PropertyDescriptorC1ENS_5LocalINS_5ValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8) %descriptor, ptr %agg.tmp102.sroa.0.0.copyload, ptr %agg.tmp107.sroa.0.0.copyload) #25
   %attributes = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.0106, i32 6
   %15 = load i32, ptr %attributes, align 8
   %and = and i32 %15, 2
   %cmp117 = icmp ne i32 %and, 0
-  call void @_ZN2v818PropertyDescriptor14set_enumerableEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor, i1 noundef zeroext %cmp117) #24
+  call void @_ZN2v818PropertyDescriptor14set_enumerableEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor, i1 noundef zeroext %cmp117) #25
   %16 = load i32, ptr %attributes, align 8
   %and119 = and i32 %16, 4
   %cmp120 = icmp ne i32 %and119, 0
-  call void @_ZN2v818PropertyDescriptor16set_configurableEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor, i1 noundef zeroext %cmp120) #24
-  %call130 = call i16 @_ZN2v86Object14DefinePropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEERNS_18PropertyDescriptorE(ptr noundef nonnull align 1 dereferenceable(1) %call44, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %property_name.sroa.0.0.ph, ptr noundef nonnull align 8 dereferenceable(8) %descriptor) #24
+  call void @_ZN2v818PropertyDescriptor16set_configurableEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor, i1 noundef zeroext %cmp120) #25
+  %call130 = call i16 @_ZN2v86Object14DefinePropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEERNS_18PropertyDescriptorE(ptr noundef nonnull align 1 dereferenceable(1) %call44, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %property_name.sroa.0.0.ph, ptr noundef nonnull align 8 dereferenceable(8) %descriptor) #25
   %17 = and i16 %call130, 257
   %cond.i331 = icmp eq i16 %17, 257
   br i1 %cond.i331, label %for.inc.sink.split, label %cleanup
 
 cleanup:                                          ; preds = %if.end100
-  %call135 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call135 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %cond136 = select i1 %call135, i32 10, i32 1
   %error_code1.i83 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
   store i32 %cond136, ptr %error_code1.i83, align 4
@@ -2925,7 +2925,7 @@ cleanup:                                          ; preds = %if.end100
   store i32 0, ptr %engine_error_code3.i84, align 8
   %engine_reserved5.i85 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
   store ptr null, ptr %engine_reserved5.i85, align 8
-  call void @_ZN2v818PropertyDescriptorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %descriptor) #24
+  call void @_ZN2v818PropertyDescriptorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %descriptor) #25
   br label %cleanup274
 
 if.else:                                          ; preds = %lor.lhs.false
@@ -2948,22 +2948,22 @@ do.end153:                                        ; preds = %if.then142
   %20 = load i32, ptr %attributes160, align 8
   %and161 = and i32 %20, 1
   %cmp162 = icmp ne i32 %and161, 0
-  call void @_ZN2v818PropertyDescriptorC1ENS_5LocalINS_5ValueEEEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor154, ptr %agg.tmp156.sroa.0.0.copyload, i1 noundef zeroext %cmp162) #24
+  call void @_ZN2v818PropertyDescriptorC1ENS_5LocalINS_5ValueEEEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor154, ptr %agg.tmp156.sroa.0.0.copyload, i1 noundef zeroext %cmp162) #25
   %21 = load i32, ptr %attributes160, align 8
   %and167 = and i32 %21, 2
   %cmp168 = icmp ne i32 %and167, 0
-  call void @_ZN2v818PropertyDescriptor14set_enumerableEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor154, i1 noundef zeroext %cmp168) #24
+  call void @_ZN2v818PropertyDescriptor14set_enumerableEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor154, i1 noundef zeroext %cmp168) #25
   %22 = load i32, ptr %attributes160, align 8
   %and170 = and i32 %22, 4
   %cmp171 = icmp ne i32 %and170, 0
-  call void @_ZN2v818PropertyDescriptor16set_configurableEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor154, i1 noundef zeroext %cmp171) #24
-  %call182 = call i16 @_ZN2v86Object14DefinePropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEERNS_18PropertyDescriptorE(ptr noundef nonnull align 1 dereferenceable(1) %call44, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %property_name.sroa.0.0.ph, ptr noundef nonnull align 8 dereferenceable(8) %descriptor154) #24
+  call void @_ZN2v818PropertyDescriptor16set_configurableEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor154, i1 noundef zeroext %cmp171) #25
+  %call182 = call i16 @_ZN2v86Object14DefinePropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEERNS_18PropertyDescriptorE(ptr noundef nonnull align 1 dereferenceable(1) %call44, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %property_name.sroa.0.0.ph, ptr noundef nonnull align 8 dereferenceable(8) %descriptor154) #25
   %23 = and i16 %call182, 257
   %cond.i320 = icmp eq i16 %23, 257
   br i1 %cond.i320, label %for.inc.sink.split, label %cleanup194
 
 cleanup194:                                       ; preds = %do.end153
-  %call188 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call188 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %cond189 = select i1 %call188, i32 10, i32 9
   %error_code1.i86 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
   store i32 %cond189, ptr %error_code1.i86, align 4
@@ -2971,7 +2971,7 @@ cleanup194:                                       ; preds = %do.end153
   store i32 0, ptr %engine_error_code3.i87, align 8
   %engine_reserved5.i88 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
   store ptr null, ptr %engine_reserved5.i88, align 8
-  call void @_ZN2v818PropertyDescriptorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %descriptor154) #24
+  call void @_ZN2v818PropertyDescriptorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %descriptor154) #25
   br label %cleanup274
 
 if.else197:                                       ; preds = %if.else
@@ -2984,23 +2984,23 @@ if.else197:                                       ; preds = %if.else
   br i1 %or.cond68.not, label %if.then215, label %if.else231
 
 if.then215:                                       ; preds = %if.else197
-  %call230 = call i16 @_ZN2v86Object18CreateDataPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call44, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %property_name.sroa.0.0.ph, ptr %24) #24
+  %call230 = call i16 @_ZN2v86Object18CreateDataPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call44, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %property_name.sroa.0.0.ph, ptr %24) #25
   br label %do.body258
 
 if.else231:                                       ; preds = %if.else197
   %and209 = and i32 %25, 1
   %cmp236 = icmp ne i32 %and209, 0
-  call void @_ZN2v818PropertyDescriptorC1ENS_5LocalINS_5ValueEEEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor232, ptr %24, i1 noundef zeroext %cmp236) #24
+  call void @_ZN2v818PropertyDescriptorC1ENS_5LocalINS_5ValueEEEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor232, ptr %24, i1 noundef zeroext %cmp236) #25
   %27 = load i32, ptr %attributes206, align 8
   %and241 = and i32 %27, 2
   %cmp242 = icmp ne i32 %and241, 0
-  call void @_ZN2v818PropertyDescriptor14set_enumerableEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor232, i1 noundef zeroext %cmp242) #24
+  call void @_ZN2v818PropertyDescriptor14set_enumerableEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor232, i1 noundef zeroext %cmp242) #25
   %28 = load i32, ptr %attributes206, align 8
   %and244 = and i32 %28, 4
   %cmp245 = icmp ne i32 %and244, 0
-  call void @_ZN2v818PropertyDescriptor16set_configurableEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor232, i1 noundef zeroext %cmp245) #24
-  %call256 = call i16 @_ZN2v86Object14DefinePropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEERNS_18PropertyDescriptorE(ptr noundef nonnull align 1 dereferenceable(1) %call44, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %property_name.sroa.0.0.ph, ptr noundef nonnull align 8 dereferenceable(8) %descriptor232) #24
-  call void @_ZN2v818PropertyDescriptorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %descriptor232) #24
+  call void @_ZN2v818PropertyDescriptor16set_configurableEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor232, i1 noundef zeroext %cmp245) #25
+  %call256 = call i16 @_ZN2v86Object14DefinePropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEERNS_18PropertyDescriptorE(ptr noundef nonnull align 1 dereferenceable(1) %call44, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %property_name.sroa.0.0.ph, ptr noundef nonnull align 8 dereferenceable(8) %descriptor232) #25
+  call void @_ZN2v818PropertyDescriptorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %descriptor232) #25
   br label %do.body258
 
 do.body258:                                       ; preds = %if.then215, %if.else231
@@ -3010,7 +3010,7 @@ do.body258:                                       ; preds = %if.then215, %if.els
   br i1 %cond.i, label %for.inc, label %if.then262
 
 if.then262:                                       ; preds = %do.body258
-  %call263 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call263 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %cond264 = select i1 %call263, i32 10, i32 1
   %error_code1.i89 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
   store i32 %cond264, ptr %error_code1.i89, align 4
@@ -3022,7 +3022,7 @@ if.then262:                                       ; preds = %do.body258
 
 for.inc.sink.split:                               ; preds = %do.end153, %if.end100
   %descriptor154.sink = phi ptr [ %descriptor, %if.end100 ], [ %descriptor154, %do.end153 ]
-  call void @_ZN2v818PropertyDescriptorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %descriptor154.sink) #24
+  call void @_ZN2v818PropertyDescriptorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %descriptor154.sink) #25
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %do.body258
@@ -3031,7 +3031,7 @@ for.inc:                                          ; preds = %for.inc.sink.split,
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  %call271 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call271 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call271, label %cond.false, label %cleanup274
 
 cond.false:                                       ; preds = %for.end
@@ -3045,7 +3045,7 @@ cond.false:                                       ; preds = %for.end
 
 cleanup274:                                       ; preds = %if.then142, %do.body90, %do.body77, %cleanup194, %cleanup, %if.then33.i, %if.then14.i, %cond.false, %for.end, %if.then262, %if.then51, %if.then31, %if.then20
   %retval.4 = phi i32 [ 2, %if.then51 ], [ %cond136, %cleanup ], [ %cond189, %cleanup194 ], [ %cond264, %if.then262 ], [ 1, %if.then31 ], [ 1, %if.then20 ], [ 10, %cond.false ], [ 0, %for.end ], [ 9, %if.then14.i ], [ 4, %if.then33.i ], [ %call148, %if.then142 ], [ %call94, %do.body90 ], [ %call80, %do.body77 ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i95, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i95:                                      ; preds = %cleanup274
@@ -3053,13 +3053,13 @@ if.then.i95:                                      ; preds = %cleanup274
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %30, i64 0, i32 3
   %isolate.i97 = getelementptr inbounds %struct.napi_env__, ptr %30, i64 0, i32 1
   %31 = load ptr, ptr %isolate.i97, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %32 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i98 = icmp eq ptr %32, null
   br i1 %cmp.i.i.i98, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i95
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %32) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %32) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -3069,12 +3069,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %33 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %31, i64 noundef %33) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %31, i64 noundef %33) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup274, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -3110,7 +3110,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -3131,7 +3131,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -3151,7 +3151,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -3164,7 +3164,7 @@ do.end21:                                         ; preds = %do.end14
   br i1 %cmp27.not, label %cleanup.sink.split, label %do.end32
 
 do.end32:                                         ; preds = %do.end21
-  %call41 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call41 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i = icmp eq ptr %call41, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
 
@@ -3190,18 +3190,18 @@ sw.bb85:                                          ; preds = %sw.epilog
 
 sw.epilog88:                                      ; preds = %sw.epilog, %sw.bb85
   %conversion_mode.0 = phi i32 [ 0, %sw.bb85 ], [ 1, %sw.epilog ]
-  %call94 = call ptr @_ZN2v86Object16GetPropertyNamesENS_5LocalINS_7ContextEEENS_17KeyCollectionModeENS_14PropertyFilterENS_11IndexFilterENS_17KeyConversionModeE(ptr noundef nonnull align 1 dereferenceable(1) %call41, ptr %retval.sroa.0.0.copyload.i.i, i32 noundef %collection_mode.0, i32 noundef %filter.4, i32 noundef 0, i32 noundef %conversion_mode.0) #24
+  %call94 = call ptr @_ZN2v86Object16GetPropertyNamesENS_5LocalINS_7ContextEEENS_17KeyCollectionModeENS_14PropertyFilterENS_11IndexFilterENS_17KeyConversionModeE(ptr noundef nonnull align 1 dereferenceable(1) %call41, ptr %retval.sroa.0.0.copyload.i.i, i32 noundef %collection_mode.0, i32 noundef %filter.4, i32 noundef 0, i32 noundef %conversion_mode.0) #25
   %cmp.i.i141 = icmp eq ptr %call94, null
   br i1 %cmp.i.i141, label %if.then101, label %_ZN2v810MaybeLocalINS_5ArrayEE14ToLocalCheckedEv.exit
 
 if.then101:                                       ; preds = %sw.epilog88
-  %call102 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call102 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %cond103 = select i1 %call102, i32 10, i32 9
   br label %cleanup.sink.split
 
 _ZN2v810MaybeLocalINS_5ArrayEE14ToLocalCheckedEv.exit: ; preds = %sw.epilog88
   store ptr %call94, ptr %result, align 8
-  %call121 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call121 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call121, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_5ArrayEE14ToLocalCheckedEv.exit, %sw.epilog, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit, %do.end32, %do.end21, %do.end14, %if.then101
@@ -3216,7 +3216,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_5ArrayEE14ToLocalCheckedEv.exit
   %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_5ArrayEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i55, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i55:                                      ; preds = %cleanup
@@ -3224,13 +3224,13 @@ if.then.i55:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
   %isolate.i57 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
   %8 = load ptr, ptr %isolate.i57, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %9 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i55
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -3240,12 +3240,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -3278,7 +3278,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -3299,7 +3299,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -3319,7 +3319,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %key, null
@@ -3334,15 +3334,15 @@ do.end28:                                         ; preds = %do.end14
   br i1 %cmp34.not, label %cleanup.sink.split, label %do.end39
 
 do.end39:                                         ; preds = %do.end28
-  %call48 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call48 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i = icmp eq ptr %call48, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end39
-  %call88 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %key, ptr nonnull %value) #24
+  %call88 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %key, ptr nonnull %value) #25
   %7 = and i16 %call88, 257
   %cond.i.not = icmp eq i16 %7, 257
-  %call99 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call99 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %cond.i.not, label %do.end98, label %if.then92
 
 if.then92:                                        ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
@@ -3364,7 +3364,7 @@ cleanup.sink.split:                               ; preds = %do.end98, %do.end39
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end98
   %retval.0 = phi i32 [ 0, %do.end98 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i42, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i42:                                      ; preds = %cleanup
@@ -3372,13 +3372,13 @@ if.then.i42:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 3
   %isolate.i44 = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 1
   %9 = load ptr, ptr %isolate.i44, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %10 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i42
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -3388,12 +3388,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %11 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -3424,7 +3424,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -3445,7 +3445,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -3465,7 +3465,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -3480,18 +3480,18 @@ do.end28:                                         ; preds = %do.end14
   br i1 %cmp34.not, label %cleanup.sink.split, label %do.end39
 
 do.end39:                                         ; preds = %do.end28
-  %call48 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call48 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i = icmp eq ptr %call48, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end39
-  %call80 = call i16 @_ZN2v86Object3HasENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %key) #24
+  %call80 = call i16 @_ZN2v86Object3HasENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %key) #25
   %7 = and i16 %call80, 1
   %tobool.i112.not = icmp eq i16 %7, 0
   br i1 %tobool.i112.not, label %if.then83, label %cond.true.i
 
 if.then83:                                        ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
-  %call84 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call84 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %cond85 = select i1 %call84, i32 10, i32 9
   br label %cleanup.sink.split
 
@@ -3500,7 +3500,7 @@ cond.true.i:                                      ; preds = %_ZN2v810MaybeLocalI
   %9 = trunc i16 %8 to i8
   %10 = and i8 %9, 1
   store i8 %10, ptr %result, align 1
-  %call92 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call92 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call92, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %cond.true.i, %do.end39, %do.end28, %do.end14, %if.then83
@@ -3515,7 +3515,7 @@ cleanup.sink.split:                               ; preds = %cond.true.i, %do.en
 
 cleanup:                                          ; preds = %cleanup.sink.split, %cond.true.i
   %retval.0 = phi i32 [ 0, %cond.true.i ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i43, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i43:                                      ; preds = %cleanup
@@ -3523,13 +3523,13 @@ if.then.i43:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 3
   %isolate.i45 = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 1
   %12 = load ptr, ptr %isolate.i45, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %13 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i43
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -3539,12 +3539,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %14 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -3575,7 +3575,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -3596,7 +3596,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -3616,7 +3616,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %key, null
@@ -3631,23 +3631,23 @@ do.end28:                                         ; preds = %do.end14
   br i1 %cmp38.not, label %cleanup.sink.split, label %do.end43
 
 do.end43:                                         ; preds = %do.end28
-  %call52 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call52 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i = icmp eq ptr %call52, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end43
-  %call80 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call52, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %key) #24
+  %call80 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call52, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %key) #25
   %cmp.i.i123 = icmp eq ptr %call80, null
   br i1 %cmp.i.i123, label %if.then87, label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
 
 if.then87:                                        ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
-  %call88 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call88 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %cond89 = select i1 %call88, i32 10, i32 9
   br label %cleanup.sink.split
 
 _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
   store ptr %call80, ptr %result, align 8
-  %call103 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call103 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call103, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %do.end43, %do.end28, %do.end14, %if.then87
@@ -3662,7 +3662,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
   %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i43, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i43:                                      ; preds = %cleanup
@@ -3670,13 +3670,13 @@ if.then.i43:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
   %isolate.i45 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
   %8 = load ptr, ptr %isolate.i45, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %9 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i43
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -3686,12 +3686,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -3722,7 +3722,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -3743,7 +3743,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -3763,7 +3763,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %key, null
@@ -3776,18 +3776,18 @@ do.end21:                                         ; preds = %do.end14
   br i1 %cmp31.not, label %cleanup.sink.split, label %do.end36
 
 do.end36:                                         ; preds = %do.end21
-  %call45 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call45 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i = icmp eq ptr %call45, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end36
-  %call73 = call i16 @_ZN2v86Object6DeleteENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call45, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %key) #24
+  %call73 = call i16 @_ZN2v86Object6DeleteENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call45, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %key) #25
   %7 = and i16 %call73, 1
   %tobool.i108.not = icmp eq i16 %7, 0
   br i1 %tobool.i108.not, label %if.then76, label %do.end82
 
 if.then76:                                        ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
-  %call77 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call77 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %cond78 = select i1 %call77, i32 10, i32 9
   br label %cleanup.sink.split
 
@@ -3803,7 +3803,7 @@ if.then84:                                        ; preds = %do.end82
   br label %if.end87
 
 if.end87:                                         ; preds = %if.then84, %do.end82
-  %call88 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call88 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call88, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %if.end87, %do.end36, %do.end21, %do.end14, %if.then76
@@ -3818,7 +3818,7 @@ cleanup.sink.split:                               ; preds = %if.end87, %do.end36
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end87
   %retval.0 = phi i32 [ 0, %if.end87 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i39, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i39:                                      ; preds = %cleanup
@@ -3826,13 +3826,13 @@ if.then.i39:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 3
   %isolate.i41 = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 1
   %12 = load ptr, ptr %isolate.i41, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %13 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i39
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -3842,12 +3842,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %14 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -3878,7 +3878,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -3899,7 +3899,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -3919,7 +3919,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %key, null
@@ -3934,22 +3934,22 @@ do.end28:                                         ; preds = %do.end14
   br i1 %cmp34.not, label %cleanup.sink.split, label %do.end39
 
 do.end39:                                         ; preds = %do.end28
-  %call48 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call48 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i = icmp eq ptr %call48, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end39
-  %call73 = call noundef zeroext i1 @_ZNK2v85Value6IsNameEv(ptr noundef nonnull align 1 dereferenceable(1) %key) #24
+  %call73 = call noundef zeroext i1 @_ZNK2v85Value6IsNameEv(ptr noundef nonnull align 1 dereferenceable(1) %key) #25
   br i1 %call73, label %do.end78, label %cleanup.sink.split
 
 do.end78:                                         ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
-  %call92 = call i16 @_ZN2v86Object14HasOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEE(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %key) #24
+  %call92 = call i16 @_ZN2v86Object14HasOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4NameEEE(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %key) #25
   %7 = and i16 %call92, 1
   %tobool.i127.not = icmp eq i16 %7, 0
   br i1 %tobool.i127.not, label %if.then95, label %cond.true.i
 
 if.then95:                                        ; preds = %do.end78
-  %call96 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call96 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %cond97 = select i1 %call96, i32 10, i32 9
   br label %cleanup.sink.split
 
@@ -3958,7 +3958,7 @@ cond.true.i:                                      ; preds = %do.end78
   %9 = trunc i16 %8 to i8
   %10 = and i8 %9, 1
   store i8 %10, ptr %result, align 1
-  %call104 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call104 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call104, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %cond.true.i, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit, %do.end39, %do.end28, %do.end14, %if.then95
@@ -3973,7 +3973,7 @@ cleanup.sink.split:                               ; preds = %cond.true.i, %_ZN2v
 
 cleanup:                                          ; preds = %cleanup.sink.split, %cond.true.i
   %retval.0 = phi i32 [ 0, %cond.true.i ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i47, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i47:                                      ; preds = %cleanup
@@ -3981,13 +3981,13 @@ if.then.i47:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 3
   %isolate.i49 = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 1
   %12 = load ptr, ptr %isolate.i49, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %13 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i47
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -3997,12 +3997,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %14 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -4035,7 +4035,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -4056,7 +4056,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -4076,7 +4076,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
@@ -4089,7 +4089,7 @@ do.end21:                                         ; preds = %do.end14
   br i1 %cmp27.not, label %cleanup.sink.split, label %do.end32
 
 do.end32:                                         ; preds = %do.end21
-  %call41 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call41 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i145 = icmp eq ptr %call41, null
   br i1 %cmp.i.i145, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
 
@@ -4099,15 +4099,15 @@ _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end32
 
 do.end70:                                         ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
   %7 = load ptr, ptr %isolate.i, align 8
-  %call71 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %7, ptr noundef nonnull %utf8name, i32 noundef 1, i32 noundef -1) #24
+  %call71 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %7, ptr noundef nonnull %utf8name, i32 noundef 1, i32 noundef -1) #25
   %cmp.i.i = icmp eq ptr %call71, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end70
-  %call115 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call41, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %call71, ptr nonnull %value) #24
+  %call115 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call41, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %call71, ptr nonnull %value) #25
   %8 = and i16 %call115, 257
   %cond.i.not = icmp eq i16 %8, 257
-  %call126 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call126 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %cond.i.not, label %do.end125, label %if.then119
 
 if.then119:                                       ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
@@ -4129,7 +4129,7 @@ cleanup.sink.split:                               ; preds = %do.end125, %do.end7
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end125
   %retval.0 = phi i32 [ 0, %do.end125 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i48, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i48:                                      ; preds = %cleanup
@@ -4137,13 +4137,13 @@ if.then.i48:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %9, i64 0, i32 3
   %isolate.i50 = getelementptr inbounds %struct.napi_env__, ptr %9, i64 0, i32 1
   %10 = load ptr, ptr %isolate.i50, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %11 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i48
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %11) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %11) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -4153,12 +4153,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %12 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %10, i64 noundef %12) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %10, i64 noundef %12) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -4187,7 +4187,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -4208,7 +4208,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -4228,7 +4228,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -4241,7 +4241,7 @@ do.end21:                                         ; preds = %do.end14
   br i1 %cmp27.not, label %cleanup.sink.split, label %do.end32
 
 do.end32:                                         ; preds = %do.end21
-  %call41 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call41 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i138 = icmp eq ptr %call41, null
   br i1 %cmp.i.i138, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
 
@@ -4251,18 +4251,18 @@ _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end32
 
 do.end70:                                         ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
   %7 = load ptr, ptr %isolate.i, align 8
-  %call71 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %7, ptr noundef nonnull %utf8name, i32 noundef 1, i32 noundef -1) #24
+  %call71 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %7, ptr noundef nonnull %utf8name, i32 noundef 1, i32 noundef -1) #25
   %cmp.i.i = icmp eq ptr %call71, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end70
-  %call107 = call i16 @_ZN2v86Object3HasENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call41, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %call71) #24
+  %call107 = call i16 @_ZN2v86Object3HasENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call41, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %call71) #25
   %8 = and i16 %call107, 1
   %tobool.i156.not = icmp eq i16 %8, 0
   br i1 %tobool.i156.not, label %if.then110, label %cond.true.i
 
 if.then110:                                       ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
-  %call111 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call111 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %cond112 = select i1 %call111, i32 10, i32 9
   br label %cleanup.sink.split
 
@@ -4271,7 +4271,7 @@ cond.true.i:                                      ; preds = %_ZN2v810MaybeLocalI
   %10 = trunc i16 %9 to i8
   %11 = and i8 %10, 1
   store i8 %11, ptr %result, align 1
-  %call119 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call119 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call119, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %cond.true.i, %do.end70, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit, %do.end32, %do.end21, %do.end14, %if.then110
@@ -4286,7 +4286,7 @@ cleanup.sink.split:                               ; preds = %cond.true.i, %do.en
 
 cleanup:                                          ; preds = %cleanup.sink.split, %cond.true.i
   %retval.0 = phi i32 [ 0, %cond.true.i ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i49, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i49:                                      ; preds = %cleanup
@@ -4294,13 +4294,13 @@ if.then.i49:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %12, i64 0, i32 3
   %isolate.i51 = getelementptr inbounds %struct.napi_env__, ptr %12, i64 0, i32 1
   %13 = load ptr, ptr %isolate.i51, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %14 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %14, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i49
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %14) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %14) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -4310,12 +4310,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %15 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %13, i64 noundef %15) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %13, i64 noundef %15) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -4344,7 +4344,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -4365,7 +4365,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -4385,7 +4385,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -4399,7 +4399,7 @@ do.end21:                                         ; preds = %do.end14
 
 do.end35:                                         ; preds = %do.end21
   %7 = load ptr, ptr %isolate.i, align 8
-  %call36 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %7, ptr noundef nonnull %utf8name, i32 noundef 1, i32 noundef -1) #24
+  %call36 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %7, ptr noundef nonnull %utf8name, i32 noundef 1, i32 noundef -1) #25
   %cmp.i.i = icmp eq ptr %call36, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
@@ -4408,23 +4408,23 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end35
   br i1 %cmp59.not, label %cleanup.sink.split, label %do.end64
 
 do.end64:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
-  %call75 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call75 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i149 = icmp eq ptr %call75, null
   br i1 %cmp.i.i149, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end64
-  %call107 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call75, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %call36) #24
+  %call107 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call75, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %call36) #25
   %cmp.i.i167 = icmp eq ptr %call107, null
   br i1 %cmp.i.i167, label %if.then114, label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
 
 if.then114:                                       ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
-  %call115 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call115 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %cond116 = select i1 %call115, i32 10, i32 9
   br label %cleanup.sink.split
 
 _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
   store ptr %call107, ptr %result, align 8
-  %call130 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call130 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call130, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %do.end64, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit, %do.end35, %do.end21, %do.end14, %if.then114
@@ -4439,7 +4439,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
   %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i49, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i49:                                      ; preds = %cleanup
@@ -4447,13 +4447,13 @@ if.then.i49:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 3
   %isolate.i51 = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 1
   %9 = load ptr, ptr %isolate.i51, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %10 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i49
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -4463,12 +4463,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %11 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -4497,7 +4497,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -4518,7 +4518,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -4538,7 +4538,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
@@ -4551,15 +4551,15 @@ do.end21:                                         ; preds = %do.end14
   br i1 %cmp27.not, label %cleanup.sink.split, label %do.end32
 
 do.end32:                                         ; preds = %do.end21
-  %call41 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call41 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i = icmp eq ptr %call41, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end32
-  %call73 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEEjNS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call41, ptr %retval.sroa.0.0.copyload.i.i, i32 noundef %index, ptr nonnull %value) #24
+  %call73 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEEjNS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call41, ptr %retval.sroa.0.0.copyload.i.i, i32 noundef %index, ptr nonnull %value) #25
   %7 = and i16 %call73, 257
   %cond.i.not = icmp eq i16 %7, 257
-  %call84 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call84 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %cond.i.not, label %do.end83, label %if.then77
 
 if.then77:                                        ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
@@ -4581,7 +4581,7 @@ cleanup.sink.split:                               ; preds = %do.end83, %do.end32
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end83
   %retval.0 = phi i32 [ 0, %do.end83 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i37, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i37:                                      ; preds = %cleanup
@@ -4589,13 +4589,13 @@ if.then.i37:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 3
   %isolate.i39 = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 1
   %9 = load ptr, ptr %isolate.i39, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %10 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i37
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -4605,12 +4605,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %11 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -4641,7 +4641,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -4662,7 +4662,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -4682,7 +4682,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -4695,18 +4695,18 @@ do.end21:                                         ; preds = %do.end14
   br i1 %cmp27.not, label %cleanup.sink.split, label %do.end32
 
 do.end32:                                         ; preds = %do.end21
-  %call41 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call41 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i = icmp eq ptr %call41, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end32
-  %call65 = call i16 @_ZN2v86Object3HasENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1) %call41, ptr %retval.sroa.0.0.copyload.i.i, i32 noundef %index) #24
+  %call65 = call i16 @_ZN2v86Object3HasENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1) %call41, ptr %retval.sroa.0.0.copyload.i.i, i32 noundef %index) #25
   %7 = and i16 %call65, 1
   %tobool.i97.not = icmp eq i16 %7, 0
   br i1 %tobool.i97.not, label %if.then68, label %cond.true.i
 
 if.then68:                                        ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
-  %call69 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call69 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %cond70 = select i1 %call69, i32 10, i32 9
   br label %cleanup.sink.split
 
@@ -4715,7 +4715,7 @@ cond.true.i:                                      ; preds = %_ZN2v810MaybeLocalI
   %9 = trunc i16 %8 to i8
   %10 = and i8 %9, 1
   store i8 %10, ptr %result, align 1
-  %call77 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call77 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call77, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %cond.true.i, %do.end32, %do.end21, %do.end14, %if.then68
@@ -4730,7 +4730,7 @@ cleanup.sink.split:                               ; preds = %cond.true.i, %do.en
 
 cleanup:                                          ; preds = %cleanup.sink.split, %cond.true.i
   %retval.0 = phi i32 [ 0, %cond.true.i ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i38, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i38:                                      ; preds = %cleanup
@@ -4738,13 +4738,13 @@ if.then.i38:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 3
   %isolate.i40 = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 1
   %12 = load ptr, ptr %isolate.i40, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %13 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i38
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -4754,12 +4754,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %14 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -4790,7 +4790,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -4811,7 +4811,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -4831,7 +4831,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -4844,23 +4844,23 @@ do.end21:                                         ; preds = %do.end14
   br i1 %cmp27.not, label %cleanup.sink.split, label %do.end32
 
 do.end32:                                         ; preds = %do.end21
-  %call41 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call41 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i = icmp eq ptr %call41, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end32
-  %call65 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1) %call41, ptr %retval.sroa.0.0.copyload.i.i, i32 noundef %index) #24
+  %call65 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1) %call41, ptr %retval.sroa.0.0.copyload.i.i, i32 noundef %index) #25
   %cmp.i.i108 = icmp eq ptr %call65, null
   br i1 %cmp.i.i108, label %if.then72, label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
 
 if.then72:                                        ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
-  %call73 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call73 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %cond74 = select i1 %call73, i32 10, i32 9
   br label %cleanup.sink.split
 
 _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
   store ptr %call65, ptr %result, align 8
-  %call88 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call88 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call88, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %do.end32, %do.end21, %do.end14, %if.then72
@@ -4875,7 +4875,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
   %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i38, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i38:                                      ; preds = %cleanup
@@ -4883,13 +4883,13 @@ if.then.i38:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
   %isolate.i40 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
   %8 = load ptr, ptr %isolate.i40, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %9 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i38
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -4899,12 +4899,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -4935,7 +4935,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -4956,7 +4956,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -4976,7 +4976,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
@@ -4985,18 +4985,18 @@ do.end14:                                         ; preds = %do.body8
   br i1 %cmp21.not, label %cleanup.sink.split, label %do.end25
 
 do.end25:                                         ; preds = %do.end14
-  %call34 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call34 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i = icmp eq ptr %call34, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end25
-  %call58 = call i16 @_ZN2v86Object6DeleteENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1) %call34, ptr %retval.sroa.0.0.copyload.i.i, i32 noundef %index) #24
+  %call58 = call i16 @_ZN2v86Object6DeleteENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1) %call34, ptr %retval.sroa.0.0.copyload.i.i, i32 noundef %index) #25
   %7 = and i16 %call58, 1
   %tobool.i93.not = icmp eq i16 %7, 0
   br i1 %tobool.i93.not, label %if.then61, label %do.end67
 
 if.then61:                                        ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
-  %call62 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call62 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %cond63 = select i1 %call62, i32 10, i32 9
   br label %cleanup.sink.split
 
@@ -5012,7 +5012,7 @@ if.then69:                                        ; preds = %do.end67
   br label %if.end72
 
 if.end72:                                         ; preds = %if.then69, %do.end67
-  %call73 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call73 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call73, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %if.end72, %do.end25, %do.end14, %if.then61
@@ -5027,7 +5027,7 @@ cleanup.sink.split:                               ; preds = %if.end72, %do.end25
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end72
   %retval.0 = phi i32 [ 0, %if.end72 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i34, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i34:                                      ; preds = %cleanup
@@ -5035,13 +5035,13 @@ if.then.i34:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 3
   %isolate.i36 = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 1
   %12 = load ptr, ptr %isolate.i36, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %13 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i34
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -5051,12 +5051,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %14 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -5102,7 +5102,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -5123,7 +5123,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -5143,7 +5143,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
@@ -5152,15 +5152,15 @@ do.end14:                                         ; preds = %do.body8
   br i1 %cmp21.not, label %cleanup.sink.split, label %do.end25
 
 do.end25:                                         ; preds = %do.end14
-  %call34 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call34 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i = icmp eq ptr %call34, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end25
-  %call58 = call i16 @_ZN2v86Object17SetIntegrityLevelENS_5LocalINS_7ContextEEENS_14IntegrityLevelE(ptr noundef nonnull align 1 dereferenceable(1) %call34, ptr %retval.sroa.0.0.copyload.i.i, i32 noundef 0) #24
+  %call58 = call i16 @_ZN2v86Object17SetIntegrityLevelENS_5LocalINS_7ContextEEENS_14IntegrityLevelE(ptr noundef nonnull align 1 dereferenceable(1) %call34, ptr %retval.sroa.0.0.copyload.i.i, i32 noundef 0) #25
   %7 = and i16 %call58, 257
   %cond.i.not = icmp eq i16 %7, 257
-  %call69 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call69 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %cond.i.not, label %do.end68, label %if.then62
 
 if.then62:                                        ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
@@ -5182,7 +5182,7 @@ cleanup.sink.split:                               ; preds = %do.end68, %do.end25
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end68
   %retval.0 = phi i32 [ 0, %do.end68 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i32, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i32:                                      ; preds = %cleanup
@@ -5190,13 +5190,13 @@ if.then.i32:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 3
   %isolate.i34 = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 1
   %9 = load ptr, ptr %isolate.i34, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %10 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i32
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -5206,12 +5206,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %11 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -5242,7 +5242,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -5263,7 +5263,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -5283,7 +5283,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
@@ -5292,15 +5292,15 @@ do.end14:                                         ; preds = %do.body8
   br i1 %cmp21.not, label %cleanup.sink.split, label %do.end25
 
 do.end25:                                         ; preds = %do.end14
-  %call34 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call34 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i = icmp eq ptr %call34, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end25
-  %call58 = call i16 @_ZN2v86Object17SetIntegrityLevelENS_5LocalINS_7ContextEEENS_14IntegrityLevelE(ptr noundef nonnull align 1 dereferenceable(1) %call34, ptr %retval.sroa.0.0.copyload.i.i, i32 noundef 1) #24
+  %call58 = call i16 @_ZN2v86Object17SetIntegrityLevelENS_5LocalINS_7ContextEEENS_14IntegrityLevelE(ptr noundef nonnull align 1 dereferenceable(1) %call34, ptr %retval.sroa.0.0.copyload.i.i, i32 noundef 1) #25
   %7 = and i16 %call58, 257
   %cond.i.not = icmp eq i16 %7, 257
-  %call69 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call69 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %cond.i.not, label %do.end68, label %if.then62
 
 if.then62:                                        ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
@@ -5322,7 +5322,7 @@ cleanup.sink.split:                               ; preds = %do.end68, %do.end25
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end68
   %retval.0 = phi i32 [ 0, %do.end68 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i32, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i32:                                      ; preds = %cleanup
@@ -5330,13 +5330,13 @@ if.then.i32:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 3
   %isolate.i34 = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 1
   %9 = load ptr, ptr %isolate.i34, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %10 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i32
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -5346,12 +5346,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %11 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -5379,7 +5379,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -5409,7 +5409,7 @@ if.then10:                                        ; preds = %do.body8
   br label %return
 
 do.end13:                                         ; preds = %do.body8
-  %call18 = tail call noundef zeroext i1 @_ZNK2v85Value7IsArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call18 = tail call noundef zeroext i1 @_ZNK2v85Value7IsArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   %frombool = zext i1 %call18 to i8
   store i8 %frombool, ptr %result, align 1
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
@@ -5444,7 +5444,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -5465,7 +5465,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -5485,7 +5485,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
@@ -5494,13 +5494,13 @@ do.end14:                                         ; preds = %do.body8
   br i1 %or.cond, label %cleanup.sink.split, label %do.end28
 
 do.end28:                                         ; preds = %do.end14
-  %call34 = call noundef zeroext i1 @_ZNK2v85Value7IsArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call34 = call noundef zeroext i1 @_ZNK2v85Value7IsArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br i1 %call34, label %do.end39, label %cleanup.sink.split
 
 do.end39:                                         ; preds = %do.end28
-  %call45 = call noundef i32 @_ZNK2v85Array6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call45 = call noundef i32 @_ZNK2v85Array6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   store i32 %call45, ptr %result, align 4
-  %call46 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call46 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call46, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %do.end39, %do.end28, %do.end14
@@ -5515,7 +5515,7 @@ cleanup.sink.split:                               ; preds = %do.end39, %do.end28
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end39
   %retval.0 = phi i32 [ 0, %do.end39 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i31, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i31:                                      ; preds = %cleanup
@@ -5523,13 +5523,13 @@ if.then.i31:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
   %isolate.i33 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
   %8 = load ptr, ptr %isolate.i33, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %9 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i31
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -5539,12 +5539,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -5575,7 +5575,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -5596,7 +5596,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -5616,7 +5616,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %lhs, null
@@ -5627,10 +5627,10 @@ do.end14:                                         ; preds = %do.body8
   br i1 %or.cond35, label %cleanup.sink.split, label %do.end35
 
 do.end35:                                         ; preds = %do.end14
-  %call47 = call noundef zeroext i1 @_ZNK2v85Value12StrictEqualsENS_5LocalIS0_EE(ptr noundef nonnull align 1 dereferenceable(1) %lhs, ptr nonnull %rhs) #24
+  %call47 = call noundef zeroext i1 @_ZNK2v85Value12StrictEqualsENS_5LocalIS0_EE(ptr noundef nonnull align 1 dereferenceable(1) %lhs, ptr nonnull %rhs) #25
   %frombool = zext i1 %call47 to i8
   store i8 %frombool, ptr %result, align 1
-  %call48 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call48 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call48, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %do.end35, %do.end14
@@ -5645,7 +5645,7 @@ cleanup.sink.split:                               ; preds = %do.end35, %do.end14
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end35
   %retval.0 = phi i32 [ 0, %do.end35 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i32, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i32:                                      ; preds = %cleanup
@@ -5653,13 +5653,13 @@ if.then.i32:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
   %isolate.i34 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
   %8 = load ptr, ptr %isolate.i34, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %9 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i32
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -5669,12 +5669,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -5705,7 +5705,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -5726,7 +5726,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -5746,7 +5746,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -5757,14 +5757,14 @@ do.end14:                                         ; preds = %do.body8
 do.end32:                                         ; preds = %do.end14
   %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
-  %call41 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call41 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i = icmp eq ptr %call41, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end32
-  %call61 = call ptr @_ZN2v86Object12GetPrototypeEv(ptr noundef nonnull align 1 dereferenceable(1) %call41) #24
+  %call61 = call ptr @_ZN2v86Object12GetPrototypeEv(ptr noundef nonnull align 1 dereferenceable(1) %call41) #25
   store ptr %call61, ptr %result, align 8
-  %call70 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call70 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call70, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit, %do.end32, %do.end14
@@ -5779,7 +5779,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
   %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i33, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i33:                                      ; preds = %cleanup
@@ -5787,13 +5787,13 @@ if.then.i33:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
   %isolate.i35 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
   %8 = load ptr, ptr %isolate.i35, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %9 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i33
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -5803,12 +5803,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -5838,7 +5838,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -5857,7 +5857,7 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %3 = load ptr, ptr %isolate, align 8
-  %call9 = tail call ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef %3) #24
+  %call9 = tail call ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef %3) #25
   store ptr %call9, ptr %result, align 8
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -5890,7 +5890,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -5909,7 +5909,7 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %3 = load ptr, ptr %isolate, align 8
-  %call9 = tail call ptr @_ZN2v85Array3NewEPNS_7IsolateEi(ptr noundef %3, i32 noundef 0) #24
+  %call9 = tail call ptr @_ZN2v85Array3NewEPNS_7IsolateEi(ptr noundef %3, i32 noundef 0) #25
   store ptr %call9, ptr %result, align 8
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -5942,7 +5942,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -5962,7 +5962,7 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %3 = load ptr, ptr %isolate, align 8
   %conv = trunc i64 %length to i32
-  %call9 = tail call ptr @_ZN2v85Array3NewEPNS_7IsolateEi(ptr noundef %3, i32 noundef %conv) #24
+  %call9 = tail call ptr @_ZN2v85Array3NewEPNS_7IsolateEi(ptr noundef %3, i32 noundef %conv) #25
   store ptr %call9, ptr %result, align 8
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -5993,7 +5993,7 @@ land.lhs.true.i.i:                                ; preds = %do.end.i
   br i1 %tobool.not.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit.i:          ; preds = %land.lhs.true.i.i, %do.end.i
@@ -6042,7 +6042,7 @@ do.end25.i:                                       ; preds = %do.body18.i
   %isolate26.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %4 = load ptr, ptr %isolate26.i, align 8
   %conv.i.i = trunc i64 %length to i32
-  %call.i.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %4, ptr noundef %str, i32 noundef 0, i32 noundef %conv.i.i) #24
+  %call.i.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %4, ptr noundef %str, i32 noundef 0, i32 noundef %conv.i.i) #25
   %cmp.i.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i.i, label %if.then33.i, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
 
@@ -6086,7 +6086,7 @@ land.lhs.true.i.i:                                ; preds = %do.end.i
   br i1 %tobool.not.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit.i:          ; preds = %land.lhs.true.i.i, %do.end.i
@@ -6135,7 +6135,7 @@ do.end25.i:                                       ; preds = %do.body18.i
   %isolate26.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %4 = load ptr, ptr %isolate26.i, align 8
   %conv.i.i = trunc i64 %length to i32
-  %call.i.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %4, ptr noundef %str, i32 noundef 0, i32 noundef %conv.i.i) #24
+  %call.i.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %4, ptr noundef %str, i32 noundef 0, i32 noundef %conv.i.i) #25
   %cmp.i.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i.i, label %if.then33.i, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
 
@@ -6179,7 +6179,7 @@ land.lhs.true.i.i:                                ; preds = %do.end.i
   br i1 %tobool.not.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit.i:          ; preds = %land.lhs.true.i.i, %do.end.i
@@ -6228,7 +6228,7 @@ do.end25.i:                                       ; preds = %do.body18.i
   %isolate26.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %4 = load ptr, ptr %isolate26.i, align 8
   %conv.i.i = trunc i64 %length to i32
-  %call.i.i = tail call ptr @_ZN2v86String14NewFromTwoByteEPNS_7IsolateEPKtNS_13NewStringTypeEi(ptr noundef %4, ptr noundef %str, i32 noundef 0, i32 noundef %conv.i.i) #24
+  %call.i.i = tail call ptr @_ZN2v86String14NewFromTwoByteEPNS_7IsolateEPKtNS_13NewStringTypeEi(ptr noundef %4, ptr noundef %str, i32 noundef 0, i32 noundef %conv.i.i) #25
   %cmp.i.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i.i, label %if.then33.i, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
 
@@ -6272,7 +6272,7 @@ land.lhs.true.i.i:                                ; preds = %do.end.i
   br i1 %tobool.not.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit.i:          ; preds = %land.lhs.true.i.i, %do.end.i
@@ -6328,7 +6328,7 @@ land.lhs.true.i.i.i:                              ; preds = %do.end25.i
   br i1 %tobool.not.i.i.i, label %do.end25.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 do.end25.i.i:                                     ; preds = %land.lhs.true.i.i.i, %do.end25.i
@@ -6338,12 +6338,12 @@ do.end25.i.i:                                     ; preds = %land.lhs.true.i.i.i
   br i1 %cmp.i16.i.i, label %if.then.i17.i.i, label %if.end.i.i.i
 
 if.then.i17.i.i:                                  ; preds = %do.end25.i.i
-  %call.i.i.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #24
+  %call.i.i.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #25
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i17.i.i, %do.end25.i.i
   %7 = phi i64 [ %call.i.i.i.i.i, %if.then.i17.i.i ], [ %length, %do.end25.i.i ]
-  %call2.i.i.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #25
+  %call2.i.i.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #26
   %cached_data_.i.i.i.i.i = getelementptr inbounds %"class.v8::String::ExternalOneByteStringResource", ptr %call2.i.i.i, i64 0, i32 1
   store ptr null, ptr %cached_data_.i.i.i.i.i, align 8
   %env_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 24
@@ -6383,7 +6383,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
   store ptr %str, ptr %string_.i.i.i.i, align 8
   %length_.i.i.i.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::ExternalOneByteStringResource", ptr %call2.i.i.i, i64 0, i32 3
   store i64 %7, ptr %length_.i.i.i.i, align 8
-  %call3.i.i.i = tail call ptr @_ZN2v86String18NewExternalOneByteEPNS_7IsolateEPNS0_29ExternalOneByteStringResourceE(ptr noundef %6, ptr noundef nonnull %call2.i.i.i) #24
+  %call3.i.i.i = tail call ptr @_ZN2v86String18NewExternalOneByteEPNS_7IsolateEPNS0_29ExternalOneByteStringResourceE(ptr noundef %6, ptr noundef nonnull %call2.i.i.i) #25
   %cmp.i.i.i.i = icmp eq ptr %call3.i.i.i, null
   br i1 %cmp.i.i.i.i, label %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ38node_api_create_external_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.thread.i", label %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ38node_api_create_external_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.i"
 
@@ -6432,7 +6432,7 @@ land.lhs.true.i.i:                                ; preds = %do.end.i
   br i1 %tobool.not.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit.i:          ; preds = %land.lhs.true.i.i, %do.end.i
@@ -6488,7 +6488,7 @@ land.lhs.true.i.i.i:                              ; preds = %do.end25.i
   br i1 %tobool.not.i.i.i, label %do.end25.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 do.end25.i.i:                                     ; preds = %land.lhs.true.i.i.i, %do.end25.i
@@ -6507,7 +6507,7 @@ while.cond.i.i.i.i.i:                             ; preds = %do.end25.i.i, %whil
 
 if.end.i.i.i:                                     ; preds = %while.cond.i.i.i.i.i, %do.end25.i.i
   %8 = phi i64 [ %length, %do.end25.i.i ], [ %__i.0.i.i.i.i.i, %while.cond.i.i.i.i.i ]
-  %call2.i.i.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #25
+  %call2.i.i.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #26
   %cached_data_.i.i.i.i.i = getelementptr inbounds %"class.v8::String::ExternalStringResource", ptr %call2.i.i.i, i64 0, i32 1
   store ptr null, ptr %cached_data_.i.i.i.i.i, align 8
   %env_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 24
@@ -6547,7 +6547,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
   store ptr %str, ptr %string_.i.i.i.i, align 8
   %length_.i.i.i.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::ExternalStringResource", ptr %call2.i.i.i, i64 0, i32 3
   store i64 %8, ptr %length_.i.i.i.i, align 8
-  %call3.i.i.i = tail call ptr @_ZN2v86String18NewExternalTwoByteEPNS_7IsolateEPNS0_22ExternalStringResourceE(ptr noundef %6, ptr noundef nonnull %call2.i.i.i) #24
+  %call3.i.i.i = tail call ptr @_ZN2v86String18NewExternalTwoByteEPNS_7IsolateEPNS0_22ExternalStringResourceE(ptr noundef %6, ptr noundef nonnull %call2.i.i.i) #25
   %cmp.i.i.i.i = icmp eq ptr %call3.i.i.i, null
   br i1 %cmp.i.i.i.i, label %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ37node_api_create_external_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.thread.i", label %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ37node_api_create_external_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.i"
 
@@ -6596,7 +6596,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -6615,7 +6615,7 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %3 = load ptr, ptr %isolate, align 8
-  %call9 = tail call ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef %3, double noundef %value) #24
+  %call9 = tail call ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef %3, double noundef %value) #25
   store ptr %call9, ptr %result, align 8
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -6648,7 +6648,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -6667,7 +6667,7 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %3 = load ptr, ptr %isolate, align 8
-  %call9 = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %3, i32 noundef %value) #24
+  %call9 = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %3, i32 noundef %value) #25
   store ptr %call9, ptr %result, align 8
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -6700,7 +6700,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -6719,7 +6719,7 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %3 = load ptr, ptr %isolate, align 8
-  %call9 = tail call ptr @_ZN2v87Integer15NewFromUnsignedEPNS_7IsolateEj(ptr noundef %3, i32 noundef %value) #24
+  %call9 = tail call ptr @_ZN2v87Integer15NewFromUnsignedEPNS_7IsolateEj(ptr noundef %3, i32 noundef %value) #25
   store ptr %call9, ptr %result, align 8
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -6752,7 +6752,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -6772,7 +6772,7 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %3 = load ptr, ptr %isolate, align 8
   %conv = sitofp i64 %value to double
-  %call9 = tail call ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef %3, double noundef %conv) #24
+  %call9 = tail call ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef %3, double noundef %conv) #25
   store ptr %call9, ptr %result, align 8
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -6803,7 +6803,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -6822,7 +6822,7 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %3 = load ptr, ptr %isolate, align 8
-  %call9 = tail call ptr @_ZN2v86BigInt3NewEPNS_7IsolateEl(ptr noundef %3, i64 noundef %value) #24
+  %call9 = tail call ptr @_ZN2v86BigInt3NewEPNS_7IsolateEl(ptr noundef %3, i64 noundef %value) #25
   store ptr %call9, ptr %result, align 8
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -6855,7 +6855,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -6874,7 +6874,7 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %3 = load ptr, ptr %isolate, align 8
-  %call9 = tail call ptr @_ZN2v86BigInt15NewFromUnsignedEPNS_7IsolateEm(ptr noundef %3, i64 noundef %value) #24
+  %call9 = tail call ptr @_ZN2v86BigInt15NewFromUnsignedEPNS_7IsolateEm(ptr noundef %3, i64 noundef %value) #25
   store ptr %call9, ptr %result, align 8
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -6908,7 +6908,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -6929,7 +6929,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -6949,7 +6949,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp ne ptr %words, null
@@ -6963,18 +6963,18 @@ do.end38:                                         ; preds = %do.end14
   %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %conv = trunc i64 %word_count to i32
-  %call42 = call ptr @_ZN2v86BigInt12NewFromWordsENS_5LocalINS_7ContextEEEiiPKm(ptr %retval.sroa.0.0.copyload.i.i, i32 noundef %sign_bit, i32 noundef %conv, ptr noundef nonnull %words) #24
+  %call42 = call ptr @_ZN2v86BigInt12NewFromWordsENS_5LocalINS_7ContextEEEiiPKm(ptr %retval.sroa.0.0.copyload.i.i, i32 noundef %sign_bit, i32 noundef %conv, ptr noundef nonnull %words) #25
   %cmp.i.i = icmp eq ptr %call42, null
   br i1 %cmp.i.i, label %if.then49, label %_ZN2v810MaybeLocalINS_6BigIntEE14ToLocalCheckedEv.exit
 
 if.then49:                                        ; preds = %do.end38
-  %call50 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call50 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %cond51 = select i1 %call50, i32 10, i32 9
   br label %cleanup.sink.split
 
 _ZN2v810MaybeLocalINS_6BigIntEE14ToLocalCheckedEv.exit: ; preds = %do.end38
   store ptr %call42, ptr %result, align 8
-  %call69 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call69 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call69, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_6BigIntEE14ToLocalCheckedEv.exit, %do.end14, %if.then49
@@ -6989,7 +6989,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_6BigIntEE14ToLocalCheckedEv.exit
   %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_6BigIntEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i38, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i38:                                      ; preds = %cleanup
@@ -6997,13 +6997,13 @@ if.then.i38:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
   %isolate.i40 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
   %8 = load ptr, ptr %isolate.i40, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %9 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i38
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -7013,12 +7013,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -7048,7 +7048,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -7101,7 +7101,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -7124,7 +7124,7 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %do.end7
-  %call15 = tail call ptr @_ZN2v86Symbol3NewEPNS_7IsolateENS_5LocalINS_6StringEEE(ptr noundef %3, ptr null) #24
+  %call15 = tail call ptr @_ZN2v86Symbol3NewEPNS_7IsolateENS_5LocalINS_6StringEEE(ptr noundef %3, ptr null) #25
   br label %if.end58
 
 if.else:                                          ; preds = %do.end7
@@ -7153,7 +7153,7 @@ if.then33:                                        ; preds = %if.else, %if.end.i
   br label %return
 
 do.end36:                                         ; preds = %if.end.i
-  %call47 = tail call ptr @_ZN2v86Symbol3NewEPNS_7IsolateENS_5LocalINS_6StringEEE(ptr noundef %3, ptr nonnull %description) #24
+  %call47 = tail call ptr @_ZN2v86Symbol3NewEPNS_7IsolateENS_5LocalINS_6StringEEE(ptr noundef %3, ptr nonnull %description) #25
   br label %if.end58
 
 if.end58:                                         ; preds = %do.end36, %if.then10
@@ -7190,7 +7190,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %land.lhs.true.i
@@ -7243,7 +7243,7 @@ do.end25.i.i:                                     ; preds = %do.body12.i.i
   %isolate26.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %4 = load ptr, ptr %isolate26.i.i, align 8
   %conv.i.i.i = trunc i64 %length to i32
-  %call.i.i.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %4, ptr noundef %utf8description, i32 noundef 0, i32 noundef %conv.i.i.i) #24
+  %call.i.i.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %4, ptr noundef %utf8description, i32 noundef 0, i32 noundef %conv.i.i.i) #25
   %cmp.i.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i.i, label %if.then33.i.i, label %do.end13
 
@@ -7260,7 +7260,7 @@ do.end13:                                         ; preds = %do.end25.i.i
   %last_error.i.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i.i.i, i8 0, i64 24, i1 false)
   %5 = load ptr, ptr %isolate26.i.i, align 8
-  %call26 = tail call ptr @_ZN2v86Symbol3ForEPNS_7IsolateENS_5LocalINS_6StringEEE(ptr noundef %5, ptr nonnull %call.i.i.i) #24
+  %call26 = tail call ptr @_ZN2v86Symbol3ForEPNS_7IsolateENS_5LocalINS_6StringEEE(ptr noundef %5, ptr nonnull %call.i.i.i) #25
   store ptr %call26, ptr %result, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i.i.i, i8 0, i64 24, i1 false)
   br label %return
@@ -7292,7 +7292,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -7347,7 +7347,7 @@ if.then20:                                        ; preds = %do.end13, %if.end.i
   br label %return
 
 do.end23:                                         ; preds = %if.end.i
-  %call31 = tail call ptr @_ZN2v89Exception5ErrorENS_5LocalINS_6StringEEE(ptr nonnull %msg) #24
+  %call31 = tail call ptr @_ZN2v89Exception5ErrorENS_5LocalINS_6StringEEE(ptr nonnull %msg) #25
   %cmp.i19.not = icmp eq ptr %code, null
   br i1 %cmp.i19.not, label %do.end44, label %if.then16.i
 
@@ -7372,12 +7372,12 @@ if.end.i.i:                                       ; preds = %if.then16.i
 if.end54.i:                                       ; preds = %if.end.i.i
   %isolate61.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %13 = load ptr, ptr %isolate61.i, align 8
-  %call62.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %13, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
+  %call62.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %13, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #25
   %cmp.i.i.i = icmp eq ptr %call62.i, null
   br i1 %cmp.i.i.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
-  %call100.i = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call31, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %code) #24
+  %call100.i = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call31, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %code) #25
   %14 = and i16 %call100.i, 257
   %cond.i.not.i = icmp eq i16 %14, 257
   br i1 %cond.i.not.i, label %do.end44, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
@@ -7425,7 +7425,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -7480,7 +7480,7 @@ if.then20:                                        ; preds = %do.end13, %if.end.i
   br label %return
 
 do.end23:                                         ; preds = %if.end.i
-  %call31 = tail call ptr @_ZN2v89Exception9TypeErrorENS_5LocalINS_6StringEEE(ptr nonnull %msg) #24
+  %call31 = tail call ptr @_ZN2v89Exception9TypeErrorENS_5LocalINS_6StringEEE(ptr nonnull %msg) #25
   %cmp.i19.not = icmp eq ptr %code, null
   br i1 %cmp.i19.not, label %do.end44, label %if.then16.i
 
@@ -7505,12 +7505,12 @@ if.end.i.i:                                       ; preds = %if.then16.i
 if.end54.i:                                       ; preds = %if.end.i.i
   %isolate61.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %13 = load ptr, ptr %isolate61.i, align 8
-  %call62.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %13, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
+  %call62.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %13, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #25
   %cmp.i.i.i = icmp eq ptr %call62.i, null
   br i1 %cmp.i.i.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
-  %call100.i = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call31, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %code) #24
+  %call100.i = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call31, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %code) #25
   %14 = and i16 %call100.i, 257
   %cond.i.not.i = icmp eq i16 %14, 257
   br i1 %cond.i.not.i, label %do.end44, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
@@ -7558,7 +7558,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -7613,7 +7613,7 @@ if.then20:                                        ; preds = %do.end13, %if.end.i
   br label %return
 
 do.end23:                                         ; preds = %if.end.i
-  %call31 = tail call ptr @_ZN2v89Exception10RangeErrorENS_5LocalINS_6StringEEE(ptr nonnull %msg) #24
+  %call31 = tail call ptr @_ZN2v89Exception10RangeErrorENS_5LocalINS_6StringEEE(ptr nonnull %msg) #25
   %cmp.i19.not = icmp eq ptr %code, null
   br i1 %cmp.i19.not, label %do.end44, label %if.then16.i
 
@@ -7638,12 +7638,12 @@ if.end.i.i:                                       ; preds = %if.then16.i
 if.end54.i:                                       ; preds = %if.end.i.i
   %isolate61.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %13 = load ptr, ptr %isolate61.i, align 8
-  %call62.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %13, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
+  %call62.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %13, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #25
   %cmp.i.i.i = icmp eq ptr %call62.i, null
   br i1 %cmp.i.i.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
-  %call100.i = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call31, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %code) #24
+  %call100.i = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call31, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %code) #25
   %14 = and i16 %call100.i, 257
   %cond.i.not.i = icmp eq i16 %14, 257
   br i1 %cond.i.not.i, label %do.end44, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
@@ -7691,7 +7691,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -7746,7 +7746,7 @@ if.then20:                                        ; preds = %do.end13, %if.end.i
   br label %return
 
 do.end23:                                         ; preds = %if.end.i
-  %call31 = tail call ptr @_ZN2v89Exception11SyntaxErrorENS_5LocalINS_6StringEEE(ptr nonnull %msg) #24
+  %call31 = tail call ptr @_ZN2v89Exception11SyntaxErrorENS_5LocalINS_6StringEEE(ptr nonnull %msg) #25
   %cmp.i19.not = icmp eq ptr %code, null
   br i1 %cmp.i19.not, label %do.end44, label %if.then16.i
 
@@ -7771,12 +7771,12 @@ if.end.i.i:                                       ; preds = %if.then16.i
 if.end54.i:                                       ; preds = %if.end.i.i
   %isolate61.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %13 = load ptr, ptr %isolate61.i, align 8
-  %call62.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %13, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
+  %call62.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %13, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #25
   %cmp.i.i.i = icmp eq ptr %call62.i, null
   br i1 %cmp.i.i.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
-  %call100.i = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call31, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %code) #24
+  %call100.i = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call31, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %code) #25
   %14 = and i16 %call100.i, 257
   %cond.i.not.i = icmp eq i16 %14, 257
   br i1 %cond.i.not.i, label %do.end44, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
@@ -7824,7 +7824,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -7854,11 +7854,11 @@ if.then10:                                        ; preds = %do.body8
   br label %return
 
 do.end13:                                         ; preds = %do.body8
-  %call18 = tail call noundef zeroext i1 @_ZNK2v85Value8IsNumberEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call18 = tail call noundef zeroext i1 @_ZNK2v85Value8IsNumberEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br i1 %call18, label %if.end66, label %if.else
 
 if.else:                                          ; preds = %do.end13
-  %call21 = tail call noundef zeroext i1 @_ZNK2v85Value8IsBigIntEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call21 = tail call noundef zeroext i1 @_ZNK2v85Value8IsBigIntEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br i1 %call21, label %if.end66, label %if.else23
 
 if.else23:                                        ; preds = %if.else
@@ -7878,19 +7878,19 @@ if.end.i:                                         ; preds = %if.else23
   br i1 %cmp.i, label %if.end66, label %if.else27
 
 if.else27:                                        ; preds = %if.else23, %if.end.i
-  %call29 = tail call noundef zeroext i1 @_ZNK2v85Value10IsFunctionEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call29 = tail call noundef zeroext i1 @_ZNK2v85Value10IsFunctionEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br i1 %call29, label %if.end66, label %if.else31
 
 if.else31:                                        ; preds = %if.else27
-  %call33 = tail call noundef zeroext i1 @_ZNK2v85Value10IsExternalEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call33 = tail call noundef zeroext i1 @_ZNK2v85Value10IsExternalEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br i1 %call33, label %if.end66, label %if.else35
 
 if.else35:                                        ; preds = %if.else31
-  %call37 = tail call noundef zeroext i1 @_ZNK2v85Value8IsObjectEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call37 = tail call noundef zeroext i1 @_ZNK2v85Value8IsObjectEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br i1 %call37, label %if.end66, label %if.else39
 
 if.else39:                                        ; preds = %if.else35
-  %call41 = tail call noundef zeroext i1 @_ZNK2v85Value9IsBooleanEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call41 = tail call noundef zeroext i1 @_ZNK2v85Value9IsBooleanEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br i1 %call41, label %if.end66, label %if.else43
 
 if.else43:                                        ; preds = %if.else39
@@ -7918,7 +7918,7 @@ if.end5.i:                                        ; preds = %if.end.i124
   br i1 %cmp7.i, label %if.end66, label %if.else47
 
 if.else47:                                        ; preds = %if.else43, %if.end.i124, %if.end5.i
-  %call49 = tail call noundef zeroext i1 @_ZNK2v85Value8IsSymbolEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call49 = tail call noundef zeroext i1 @_ZNK2v85Value8IsSymbolEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br i1 %call49, label %if.end66, label %if.else51
 
 if.else51:                                        ; preds = %if.else47
@@ -8000,7 +8000,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -8052,7 +8052,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -8125,7 +8125,7 @@ if.end14.thread:                                  ; preds = %do.body8
   %vtable = load ptr, ptr %cbinfo, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
   %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %cbinfo, ptr noundef nonnull %argv, i64 noundef %0) #24
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %cbinfo, ptr noundef nonnull %argv, i64 noundef %0) #25
   br label %if.then16
 
 if.end14:                                         ; preds = %do.end5
@@ -8187,7 +8187,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -8219,7 +8219,7 @@ if.then10:                                        ; preds = %do.body8
 do.end13:                                         ; preds = %do.body8
   %vtable = load ptr, ptr %cbinfo, align 8
   %3 = load ptr, ptr %vtable, align 8
-  %call14 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(32) %cbinfo) #24
+  %call14 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(32) %cbinfo) #25
   store ptr %call14, ptr %result, align 8
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -8251,7 +8251,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -8272,7 +8272,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -8292,7 +8292,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %recv, null
@@ -8338,7 +8338,7 @@ if.then42:                                        ; preds = %if.end31
   br label %cleanup
 
 do.end46:                                         ; preds = %if.end31
-  %call53 = call noundef zeroext i1 @_ZNK2v85Value10IsFunctionEv(ptr noundef nonnull align 1 dereferenceable(1) %func) #24
+  %call53 = call noundef zeroext i1 @_ZNK2v85Value10IsFunctionEv(ptr noundef nonnull align 1 dereferenceable(1) %func) #25
   br i1 %call53, label %do.end58, label %if.then54
 
 if.then54:                                        ; preds = %do.end46
@@ -8352,12 +8352,12 @@ if.then54:                                        ; preds = %do.end46
 
 do.end58:                                         ; preds = %do.end46
   %conv = trunc i64 %argc to i32
-  %call73 = call ptr @_ZN2v88Function4CallENS_5LocalINS_7ContextEEENS1_INS_5ValueEEEiPS5_(ptr noundef nonnull align 1 dereferenceable(1) %func, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %recv, i32 noundef %conv, ptr noundef %argv) #24
+  %call73 = call ptr @_ZN2v88Function4CallENS_5LocalINS_7ContextEEENS1_INS_5ValueEEEiPS5_(ptr noundef nonnull align 1 dereferenceable(1) %func, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %recv, i32 noundef %conv, ptr noundef %argv) #25
   %cmp.i.i = icmp eq ptr %call73, null
   br i1 %cmp.i.i, label %if.then80, label %do.end86
 
 if.then80:                                        ; preds = %do.end58
-  %call81 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call81 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %cond82 = select i1 %call81, i32 10, i32 9
   %error_code1.i38 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
   store i32 %cond82, ptr %error_code1.i38, align 4
@@ -8381,7 +8381,7 @@ if.end98:                                         ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %if.end98, %if.then80, %if.then54, %if.then42, %if.then26, %if.then18
   %retval.0 = phi i32 [ %cond82, %if.then80 ], [ 0, %if.end98 ], [ 1, %if.then54 ], [ 1, %if.then42 ], [ 1, %if.then26 ], [ 1, %if.then18 ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i42, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i42:                                      ; preds = %cleanup
@@ -8389,13 +8389,13 @@ if.then.i42:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
   %isolate.i44 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
   %8 = load ptr, ptr %isolate.i44, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %9 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i42
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -8405,12 +8405,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -8440,7 +8440,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -8459,7 +8459,7 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
-  %call13 = tail call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.copyload.i.i) #24
+  %call13 = tail call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.copyload.i.i) #25
   store ptr %call13, ptr %result, align 8
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -8493,7 +8493,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -8514,7 +8514,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -8534,7 +8534,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %error, null
@@ -8551,13 +8551,13 @@ if.then18:                                        ; preds = %do.end14
 
 do.end21:                                         ; preds = %do.end14
   %7 = load ptr, ptr %isolate.i, align 8
-  %call29 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr nonnull %error) #24
+  %call29 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr nonnull %error) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %cleanup
 
 cleanup:                                          ; preds = %do.end21, %if.then18
   %retval.0 = phi i32 [ 0, %do.end21 ], [ 1, %if.then18 ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i21, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i21:                                      ; preds = %cleanup
@@ -8565,13 +8565,13 @@ if.then.i21:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 3
   %isolate.i23 = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 1
   %9 = load ptr, ptr %isolate.i23, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %10 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i21
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -8581,12 +8581,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %11 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -8617,7 +8617,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -8638,7 +8638,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -8658,7 +8658,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %7 = load ptr, ptr %isolate.i, align 8
@@ -8675,7 +8675,7 @@ if.then22:                                        ; preds = %do.end14
   br label %cleanup
 
 do.end26:                                         ; preds = %do.end14
-  %call28 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %7, ptr noundef nonnull %msg, i32 noundef 1, i32 noundef -1) #24
+  %call28 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %7, ptr noundef nonnull %msg, i32 noundef 1, i32 noundef -1) #25
   %cmp.i.i = icmp eq ptr %call28, null
   br i1 %cmp.i.i, label %if.then34, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
@@ -8689,7 +8689,7 @@ if.then34:                                        ; preds = %do.end26
   br label %cleanup
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end26
-  %call48 = call ptr @_ZN2v89Exception5ErrorENS_5LocalINS_6StringEEE(ptr nonnull %call28) #24
+  %call48 = call ptr @_ZN2v89Exception5ErrorENS_5LocalINS_6StringEEE(ptr nonnull %call28) #25
   %cmp3.i.not = icmp eq ptr %code, null
   br i1 %cmp3.i.not, label %do.end62, label %do.end33.i
 
@@ -8697,18 +8697,18 @@ do.end33.i:                                       ; preds = %_ZN2v810MaybeLocalI
   %context_persistent.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %context_persistent.i.i, align 8
   %8 = load ptr, ptr %isolate.i, align 8
-  %call34.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull %code, i32 noundef 1, i32 noundef -1) #24
+  %call34.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull %code, i32 noundef 1, i32 noundef -1) #25
   %cmp.i.i113.i = icmp eq ptr %call34.i, null
   br i1 %cmp.i.i113.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, label %if.end54.i
 
 if.end54.i:                                       ; preds = %do.end33.i
   %9 = load ptr, ptr %isolate.i, align 8
-  %call62.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %9, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
+  %call62.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %9, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #25
   %cmp.i.i.i = icmp eq ptr %call62.i, null
   br i1 %cmp.i.i.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
-  %call100.i = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %call34.i) #24
+  %call100.i = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %call34.i) #25
   %10 = and i16 %call100.i, 257
   %cond.i.not.i = icmp eq i16 %10, 257
   br i1 %cond.i.not.i, label %do.end62, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
@@ -8723,13 +8723,13 @@ _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit:
   br label %cleanup
 
 do.end62:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
-  %call67 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr %call48) #24
+  %call67 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr %call48) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, %do.end62, %if.then34, %if.then22
   %retval.0 = phi i32 [ 9, %if.then34 ], [ 0, %do.end62 ], [ 1, %if.then22 ], [ 9, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i31, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i31:                                      ; preds = %cleanup
@@ -8737,13 +8737,13 @@ if.then.i31:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 3
   %isolate.i33 = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 1
   %12 = load ptr, ptr %isolate.i33, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %13 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i34 = icmp eq ptr %13, null
   br i1 %cmp.i.i.i34, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i31
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -8753,12 +8753,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %14 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -8787,7 +8787,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -8808,7 +8808,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -8828,7 +8828,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %7 = load ptr, ptr %isolate.i, align 8
@@ -8845,7 +8845,7 @@ if.then22:                                        ; preds = %do.end14
   br label %cleanup
 
 do.end26:                                         ; preds = %do.end14
-  %call28 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %7, ptr noundef nonnull %msg, i32 noundef 1, i32 noundef -1) #24
+  %call28 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %7, ptr noundef nonnull %msg, i32 noundef 1, i32 noundef -1) #25
   %cmp.i.i = icmp eq ptr %call28, null
   br i1 %cmp.i.i, label %if.then34, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
@@ -8859,7 +8859,7 @@ if.then34:                                        ; preds = %do.end26
   br label %cleanup
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end26
-  %call48 = call ptr @_ZN2v89Exception9TypeErrorENS_5LocalINS_6StringEEE(ptr nonnull %call28) #24
+  %call48 = call ptr @_ZN2v89Exception9TypeErrorENS_5LocalINS_6StringEEE(ptr nonnull %call28) #25
   %cmp3.i.not = icmp eq ptr %code, null
   br i1 %cmp3.i.not, label %do.end62, label %do.end33.i
 
@@ -8867,18 +8867,18 @@ do.end33.i:                                       ; preds = %_ZN2v810MaybeLocalI
   %context_persistent.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %context_persistent.i.i, align 8
   %8 = load ptr, ptr %isolate.i, align 8
-  %call34.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull %code, i32 noundef 1, i32 noundef -1) #24
+  %call34.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull %code, i32 noundef 1, i32 noundef -1) #25
   %cmp.i.i113.i = icmp eq ptr %call34.i, null
   br i1 %cmp.i.i113.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, label %if.end54.i
 
 if.end54.i:                                       ; preds = %do.end33.i
   %9 = load ptr, ptr %isolate.i, align 8
-  %call62.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %9, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
+  %call62.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %9, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #25
   %cmp.i.i.i = icmp eq ptr %call62.i, null
   br i1 %cmp.i.i.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
-  %call100.i = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %call34.i) #24
+  %call100.i = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %call34.i) #25
   %10 = and i16 %call100.i, 257
   %cond.i.not.i = icmp eq i16 %10, 257
   br i1 %cond.i.not.i, label %do.end62, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
@@ -8893,13 +8893,13 @@ _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit:
   br label %cleanup
 
 do.end62:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
-  %call67 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr %call48) #24
+  %call67 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr %call48) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, %do.end62, %if.then34, %if.then22
   %retval.0 = phi i32 [ 9, %if.then34 ], [ 0, %do.end62 ], [ 1, %if.then22 ], [ 9, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i31, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i31:                                      ; preds = %cleanup
@@ -8907,13 +8907,13 @@ if.then.i31:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 3
   %isolate.i33 = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 1
   %12 = load ptr, ptr %isolate.i33, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %13 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i34 = icmp eq ptr %13, null
   br i1 %cmp.i.i.i34, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i31
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -8923,12 +8923,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %14 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -8957,7 +8957,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -8978,7 +8978,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -8998,7 +8998,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %7 = load ptr, ptr %isolate.i, align 8
@@ -9015,7 +9015,7 @@ if.then22:                                        ; preds = %do.end14
   br label %cleanup
 
 do.end26:                                         ; preds = %do.end14
-  %call28 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %7, ptr noundef nonnull %msg, i32 noundef 1, i32 noundef -1) #24
+  %call28 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %7, ptr noundef nonnull %msg, i32 noundef 1, i32 noundef -1) #25
   %cmp.i.i = icmp eq ptr %call28, null
   br i1 %cmp.i.i, label %if.then34, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
@@ -9029,7 +9029,7 @@ if.then34:                                        ; preds = %do.end26
   br label %cleanup
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end26
-  %call48 = call ptr @_ZN2v89Exception10RangeErrorENS_5LocalINS_6StringEEE(ptr nonnull %call28) #24
+  %call48 = call ptr @_ZN2v89Exception10RangeErrorENS_5LocalINS_6StringEEE(ptr nonnull %call28) #25
   %cmp3.i.not = icmp eq ptr %code, null
   br i1 %cmp3.i.not, label %do.end62, label %do.end33.i
 
@@ -9037,18 +9037,18 @@ do.end33.i:                                       ; preds = %_ZN2v810MaybeLocalI
   %context_persistent.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %context_persistent.i.i, align 8
   %8 = load ptr, ptr %isolate.i, align 8
-  %call34.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull %code, i32 noundef 1, i32 noundef -1) #24
+  %call34.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull %code, i32 noundef 1, i32 noundef -1) #25
   %cmp.i.i113.i = icmp eq ptr %call34.i, null
   br i1 %cmp.i.i113.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, label %if.end54.i
 
 if.end54.i:                                       ; preds = %do.end33.i
   %9 = load ptr, ptr %isolate.i, align 8
-  %call62.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %9, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
+  %call62.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %9, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #25
   %cmp.i.i.i = icmp eq ptr %call62.i, null
   br i1 %cmp.i.i.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
-  %call100.i = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %call34.i) #24
+  %call100.i = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %call34.i) #25
   %10 = and i16 %call100.i, 257
   %cond.i.not.i = icmp eq i16 %10, 257
   br i1 %cond.i.not.i, label %do.end62, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
@@ -9063,13 +9063,13 @@ _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit:
   br label %cleanup
 
 do.end62:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
-  %call67 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr %call48) #24
+  %call67 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr %call48) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, %do.end62, %if.then34, %if.then22
   %retval.0 = phi i32 [ 9, %if.then34 ], [ 0, %do.end62 ], [ 1, %if.then22 ], [ 9, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i31, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i31:                                      ; preds = %cleanup
@@ -9077,13 +9077,13 @@ if.then.i31:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 3
   %isolate.i33 = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 1
   %12 = load ptr, ptr %isolate.i33, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %13 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i34 = icmp eq ptr %13, null
   br i1 %cmp.i.i.i34, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i31
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -9093,12 +9093,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %14 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -9127,7 +9127,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -9148,7 +9148,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -9168,7 +9168,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %7 = load ptr, ptr %isolate.i, align 8
@@ -9185,7 +9185,7 @@ if.then22:                                        ; preds = %do.end14
   br label %cleanup
 
 do.end26:                                         ; preds = %do.end14
-  %call28 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %7, ptr noundef nonnull %msg, i32 noundef 1, i32 noundef -1) #24
+  %call28 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %7, ptr noundef nonnull %msg, i32 noundef 1, i32 noundef -1) #25
   %cmp.i.i = icmp eq ptr %call28, null
   br i1 %cmp.i.i, label %if.then34, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
@@ -9199,7 +9199,7 @@ if.then34:                                        ; preds = %do.end26
   br label %cleanup
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end26
-  %call48 = call ptr @_ZN2v89Exception11SyntaxErrorENS_5LocalINS_6StringEEE(ptr nonnull %call28) #24
+  %call48 = call ptr @_ZN2v89Exception11SyntaxErrorENS_5LocalINS_6StringEEE(ptr nonnull %call28) #25
   %cmp3.i.not = icmp eq ptr %code, null
   br i1 %cmp3.i.not, label %do.end62, label %do.end33.i
 
@@ -9207,18 +9207,18 @@ do.end33.i:                                       ; preds = %_ZN2v810MaybeLocalI
   %context_persistent.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %context_persistent.i.i, align 8
   %8 = load ptr, ptr %isolate.i, align 8
-  %call34.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull %code, i32 noundef 1, i32 noundef -1) #24
+  %call34.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull %code, i32 noundef 1, i32 noundef -1) #25
   %cmp.i.i113.i = icmp eq ptr %call34.i, null
   br i1 %cmp.i.i113.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, label %if.end54.i
 
 if.end54.i:                                       ; preds = %do.end33.i
   %9 = load ptr, ptr %isolate.i, align 8
-  %call62.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %9, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
+  %call62.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %9, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #25
   %cmp.i.i.i = icmp eq ptr %call62.i, null
   br i1 %cmp.i.i.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
-  %call100.i = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %call34.i) #24
+  %call100.i = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call48, ptr %retval.sroa.0.0.copyload.i.i.i, ptr nonnull %call62.i, ptr nonnull %call34.i) #25
   %10 = and i16 %call100.i, 257
   %cond.i.not.i = icmp eq i16 %10, 257
   br i1 %cond.i.not.i, label %do.end62, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
@@ -9233,13 +9233,13 @@ _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit:
   br label %cleanup
 
 do.end62:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
-  %call67 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr %call48) #24
+  %call67 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr %call48) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, %do.end62, %if.then34, %if.then22
   %retval.0 = phi i32 [ 9, %if.then34 ], [ 0, %do.end62 ], [ 1, %if.then22 ], [ 9, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i31, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i31:                                      ; preds = %cleanup
@@ -9247,13 +9247,13 @@ if.then.i31:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 3
   %isolate.i33 = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 1
   %12 = load ptr, ptr %isolate.i33, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %13 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i34 = icmp eq ptr %13, null
   br i1 %cmp.i.i.i34, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i31
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -9263,12 +9263,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %14 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %12, i64 noundef %14) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -9296,7 +9296,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -9326,7 +9326,7 @@ if.then10:                                        ; preds = %do.body8
   br label %return
 
 do.end13:                                         ; preds = %do.body8
-  %call18 = tail call noundef zeroext i1 @_ZNK2v85Value13IsNativeErrorEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call18 = tail call noundef zeroext i1 @_ZNK2v85Value13IsNativeErrorEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   %frombool = zext i1 %call18 to i8
   store i8 %frombool, ptr %result, align 1
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
@@ -9360,7 +9360,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -9390,7 +9390,7 @@ if.then10:                                        ; preds = %do.body8
   br label %return
 
 do.end13:                                         ; preds = %do.body8
-  %call19 = tail call noundef zeroext i1 @_ZNK2v85Value8IsNumberEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call19 = tail call noundef zeroext i1 @_ZNK2v85Value8IsNumberEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br i1 %call19, label %do.end23, label %if.then20
 
 if.then20:                                        ; preds = %do.end13
@@ -9403,7 +9403,7 @@ if.then20:                                        ; preds = %do.end13
   br label %return
 
 do.end23:                                         ; preds = %do.end13
-  %call29 = tail call noundef double @_ZNK2v86Number5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call29 = tail call noundef double @_ZNK2v86Number5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   store double %call29, ptr %result, align 8
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -9436,7 +9436,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i12
 
 if.then.i12:                                      ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -9466,15 +9466,15 @@ if.then10:                                        ; preds = %do.body8
   br label %return
 
 do.end13:                                         ; preds = %do.body8
-  %call18 = tail call noundef zeroext i1 @_ZNK2v85Value7IsInt32Ev(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call18 = tail call noundef zeroext i1 @_ZNK2v85Value7IsInt32Ev(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br i1 %call18, label %if.then19, label %do.body26
 
 if.then19:                                        ; preds = %do.end13
-  %call25 = tail call noundef i32 @_ZNK2v85Int325ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call25 = tail call noundef i32 @_ZNK2v85Int325ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br label %if.end40
 
 do.body26:                                        ; preds = %do.end13
-  %call28 = tail call noundef zeroext i1 @_ZNK2v85Value8IsNumberEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call28 = tail call noundef zeroext i1 @_ZNK2v85Value8IsNumberEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br i1 %call28, label %do.end32, label %if.then29
 
 if.then29:                                        ; preds = %do.body26
@@ -9487,7 +9487,7 @@ if.then29:                                        ; preds = %do.body26
   br label %return
 
 do.end32:                                         ; preds = %do.body26
-  %call38 = tail call i64 @_ZNK2v85Value10Int32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr null) #24
+  %call38 = tail call i64 @_ZNK2v85Value10Int32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr null) #25
   %ref.tmp33.sroa.29.0.extract.shift = lshr i64 %call38, 32
   %ref.tmp33.sroa.29.0.extract.trunc = trunc i64 %ref.tmp33.sroa.29.0.extract.shift to i32
   %3 = and i64 %call38, 1
@@ -9495,7 +9495,7 @@ do.end32:                                         ; preds = %do.body26
   br i1 %tobool.i.not, label %if.then.i, label %if.end40
 
 if.then.i:                                        ; preds = %do.end32
-  tail call void @_ZN2v812api_internal17FromJustIsNothingEv() #24
+  tail call void @_ZN2v812api_internal17FromJustIsNothingEv() #25
   br label %if.end40
 
 if.end40:                                         ; preds = %do.end32, %if.then.i, %if.then19
@@ -9536,7 +9536,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i12
 
 if.then.i12:                                      ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -9566,15 +9566,15 @@ if.then10:                                        ; preds = %do.body8
   br label %return
 
 do.end13:                                         ; preds = %do.body8
-  %call18 = tail call noundef zeroext i1 @_ZNK2v85Value8IsUint32Ev(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call18 = tail call noundef zeroext i1 @_ZNK2v85Value8IsUint32Ev(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br i1 %call18, label %if.then19, label %do.body26
 
 if.then19:                                        ; preds = %do.end13
-  %call25 = tail call noundef i32 @_ZNK2v86Uint325ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call25 = tail call noundef i32 @_ZNK2v86Uint325ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br label %if.end40
 
 do.body26:                                        ; preds = %do.end13
-  %call28 = tail call noundef zeroext i1 @_ZNK2v85Value8IsNumberEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call28 = tail call noundef zeroext i1 @_ZNK2v85Value8IsNumberEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br i1 %call28, label %do.end32, label %if.then29
 
 if.then29:                                        ; preds = %do.body26
@@ -9587,7 +9587,7 @@ if.then29:                                        ; preds = %do.body26
   br label %return
 
 do.end32:                                         ; preds = %do.body26
-  %call38 = tail call i64 @_ZNK2v85Value11Uint32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr null) #24
+  %call38 = tail call i64 @_ZNK2v85Value11Uint32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr null) #25
   %ref.tmp33.sroa.29.0.extract.shift = lshr i64 %call38, 32
   %ref.tmp33.sroa.29.0.extract.trunc = trunc i64 %ref.tmp33.sroa.29.0.extract.shift to i32
   %3 = and i64 %call38, 1
@@ -9595,7 +9595,7 @@ do.end32:                                         ; preds = %do.body26
   br i1 %tobool.i.not, label %if.then.i, label %if.end40
 
 if.then.i:                                        ; preds = %do.end32
-  tail call void @_ZN2v812api_internal17FromJustIsNothingEv() #24
+  tail call void @_ZN2v812api_internal17FromJustIsNothingEv() #25
   br label %if.end40
 
 if.end40:                                         ; preds = %do.end32, %if.then.i, %if.then19
@@ -9636,7 +9636,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i13
 
 if.then.i13:                                      ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -9666,11 +9666,11 @@ if.then10:                                        ; preds = %do.body8
   br label %return
 
 do.end13:                                         ; preds = %do.body8
-  %call18 = tail call noundef zeroext i1 @_ZNK2v85Value7IsInt32Ev(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call18 = tail call noundef zeroext i1 @_ZNK2v85Value7IsInt32Ev(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br i1 %call18, label %if.then19, label %do.body28
 
 if.then19:                                        ; preds = %do.end13
-  %call25 = tail call noundef i32 @_ZNK2v85Int325ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call25 = tail call noundef i32 @_ZNK2v85Int325ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   %conv = sext i32 %call25 to i64
   store i64 %conv, ptr %result, align 8
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
@@ -9678,7 +9678,7 @@ if.then19:                                        ; preds = %do.end13
   br label %return
 
 do.body28:                                        ; preds = %do.end13
-  %call30 = tail call noundef zeroext i1 @_ZNK2v85Value8IsNumberEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call30 = tail call noundef zeroext i1 @_ZNK2v85Value8IsNumberEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br i1 %call30, label %do.end34, label %if.then31
 
 if.then31:                                        ; preds = %do.body28
@@ -9691,25 +9691,24 @@ if.then31:                                        ; preds = %do.body28
   br label %return
 
 do.end34:                                         ; preds = %do.body28
-  %call41 = tail call noundef double @_ZNK2v86Number5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
-  %3 = tail call double @llvm.fabs.f64(double %call41)
-  %4 = fcmp ueq double %3, 0x7FF0000000000000
-  br i1 %4, label %if.end51, label %if.then43
+  %call41 = tail call noundef double @_ZNK2v86Number5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
+  %3 = tail call noundef i1 @llvm.is.fpclass.f64(double %call41, i32 504)
+  br i1 %3, label %if.then43, label %if.end51
 
 if.then43:                                        ; preds = %do.end34
-  %call49 = tail call { i8, i64 } @_ZNK2v85Value12IntegerValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr null) #24
-  %5 = extractvalue { i8, i64 } %call49, 0
-  %6 = extractvalue { i8, i64 } %call49, 1
-  %7 = and i8 %5, 1
-  %tobool.i.not = icmp eq i8 %7, 0
+  %call49 = tail call { i8, i64 } @_ZNK2v85Value12IntegerValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr null) #25
+  %4 = extractvalue { i8, i64 } %call49, 0
+  %5 = extractvalue { i8, i64 } %call49, 1
+  %6 = and i8 %4, 1
+  %tobool.i.not = icmp eq i8 %6, 0
   br i1 %tobool.i.not, label %if.then.i, label %if.end51
 
 if.then.i:                                        ; preds = %if.then43
-  tail call void @_ZN2v812api_internal17FromJustIsNothingEv() #24
+  tail call void @_ZN2v812api_internal17FromJustIsNothingEv() #25
   br label %if.end51
 
 if.end51:                                         ; preds = %do.end34, %if.then43, %if.then.i
-  %storemerge = phi i64 [ %6, %if.then.i ], [ %6, %if.then43 ], [ 0, %do.end34 ]
+  %storemerge = phi i64 [ %5, %if.then.i ], [ %5, %if.then43 ], [ 0, %do.end34 ]
   store i64 %storemerge, ptr %result, align 8
   %last_error.i20 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i20, i8 0, i64 24, i1 false)
@@ -9742,7 +9741,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -9785,7 +9784,7 @@ if.then16:                                        ; preds = %do.body14
   br label %return
 
 do.end19:                                         ; preds = %do.body14
-  %call25 = tail call noundef zeroext i1 @_ZNK2v85Value8IsBigIntEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call25 = tail call noundef zeroext i1 @_ZNK2v85Value8IsBigIntEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br i1 %call25, label %do.end29, label %if.then26
 
 if.then26:                                        ; preds = %do.end19
@@ -9798,7 +9797,7 @@ if.then26:                                        ; preds = %do.end19
   br label %return
 
 do.end29:                                         ; preds = %do.end19
-  %call35 = tail call noundef i64 @_ZNK2v86BigInt10Int64ValueEPb(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef nonnull %lossless) #24
+  %call35 = tail call noundef i64 @_ZNK2v86BigInt10Int64ValueEPb(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef nonnull %lossless) #25
   store i64 %call35, ptr %result, align 8
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -9831,7 +9830,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -9874,7 +9873,7 @@ if.then16:                                        ; preds = %do.body14
   br label %return
 
 do.end19:                                         ; preds = %do.body14
-  %call25 = tail call noundef zeroext i1 @_ZNK2v85Value8IsBigIntEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call25 = tail call noundef zeroext i1 @_ZNK2v85Value8IsBigIntEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br i1 %call25, label %do.end29, label %if.then26
 
 if.then26:                                        ; preds = %do.end19
@@ -9887,7 +9886,7 @@ if.then26:                                        ; preds = %do.end19
   br label %return
 
 do.end29:                                         ; preds = %do.end19
-  %call35 = tail call noundef i64 @_ZNK2v86BigInt11Uint64ValueEPb(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef nonnull %lossless) #24
+  %call35 = tail call noundef i64 @_ZNK2v86BigInt11Uint64ValueEPb(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef nonnull %lossless) #25
   store i64 %call35, ptr %result, align 8
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -9921,7 +9920,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -9951,7 +9950,7 @@ if.then10:                                        ; preds = %do.body8
   br label %return
 
 do.end13:                                         ; preds = %do.body8
-  %call19 = tail call noundef zeroext i1 @_ZNK2v85Value8IsBigIntEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call19 = tail call noundef zeroext i1 @_ZNK2v85Value8IsBigIntEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br i1 %call19, label %do.end23, label %if.then20
 
 if.then20:                                        ; preds = %do.end13
@@ -9973,7 +9972,7 @@ do.end23:                                         ; preds = %do.end13
   br i1 %or.cond, label %if.then30, label %do.body33
 
 if.then30:                                        ; preds = %do.end23
-  %call32 = tail call noundef i32 @_ZNK2v86BigInt9WordCountEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call32 = tail call noundef i32 @_ZNK2v86BigInt9WordCountEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br label %if.end46
 
 do.body33:                                        ; preds = %do.end23
@@ -10001,7 +10000,7 @@ if.then41:                                        ; preds = %do.body39
   br label %return
 
 do.end44:                                         ; preds = %do.body39
-  call void @_ZNK2v86BigInt12ToWordsArrayEPiS1_Pm(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef nonnull %sign_bit, ptr noundef nonnull %word_count_int, ptr noundef nonnull %words) #24
+  call void @_ZNK2v86BigInt12ToWordsArrayEPiS1_Pm(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef nonnull %sign_bit, ptr noundef nonnull %word_count_int, ptr noundef nonnull %words) #25
   %.pre = load i32, ptr %word_count_int, align 4
   br label %if.end46
 
@@ -10042,7 +10041,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -10072,7 +10071,7 @@ if.then10:                                        ; preds = %do.body8
   br label %return
 
 do.end13:                                         ; preds = %do.body8
-  %call19 = tail call noundef zeroext i1 @_ZNK2v85Value9IsBooleanEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call19 = tail call noundef zeroext i1 @_ZNK2v85Value9IsBooleanEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br i1 %call19, label %do.end23, label %if.then20
 
 if.then20:                                        ; preds = %do.end13
@@ -10085,7 +10084,7 @@ if.then20:                                        ; preds = %do.end13
   br label %return
 
 do.end23:                                         ; preds = %do.end13
-  %call29 = tail call noundef zeroext i1 @_ZNK2v87Boolean5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call29 = tail call noundef zeroext i1 @_ZNK2v87Boolean5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   %frombool = zext i1 %call29 to i8
   store i8 %frombool, ptr %result, align 1
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
@@ -10119,7 +10118,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -10178,7 +10177,7 @@ if.then21:                                        ; preds = %do.body19
   br label %return
 
 do.end24:                                         ; preds = %do.body19
-  %call30 = tail call noundef i32 @_ZNK2v86String6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call30 = tail call noundef i32 @_ZNK2v86String6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   %conv = sext i32 %call30 to i64
   br label %if.end50.sink.split
 
@@ -10191,7 +10190,7 @@ if.then32:                                        ; preds = %if.else
   %8 = load ptr, ptr %isolate, align 8
   %9 = trunc i64 %bufsize to i32
   %conv39 = add i32 %9, -1
-  %call40 = tail call noundef i32 @_ZNK2v86String12WriteOneByteEPNS_7IsolateEPhiii(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef %8, ptr noundef nonnull %buf, i32 noundef 0, i32 noundef %conv39, i32 noundef 2) #24
+  %call40 = tail call noundef i32 @_ZNK2v86String12WriteOneByteEPNS_7IsolateEPhiii(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef %8, ptr noundef nonnull %buf, i32 noundef 0, i32 noundef %conv39, i32 noundef 2) #25
   %idxprom = sext i32 %call40 to i64
   %arrayidx = getelementptr inbounds i8, ptr %buf, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
@@ -10241,7 +10240,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -10302,7 +10301,7 @@ if.then21:                                        ; preds = %do.body19
 do.end24:                                         ; preds = %do.body19
   %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %8 = load ptr, ptr %isolate, align 8
-  %call30 = tail call noundef i32 @_ZNK2v86String10Utf8LengthEPNS_7IsolateE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef %8) #24
+  %call30 = tail call noundef i32 @_ZNK2v86String10Utf8LengthEPNS_7IsolateE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef %8) #25
   %conv = sext i32 %call30 to i64
   br label %if.end51.sink.split
 
@@ -10315,7 +10314,7 @@ if.then32:                                        ; preds = %if.else
   %9 = load ptr, ptr %isolate39, align 8
   %10 = trunc i64 %bufsize to i32
   %conv40 = add i32 %10, -1
-  %call41 = tail call noundef i32 @_ZNK2v86String9WriteUtf8EPNS_7IsolateEPciPii(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef %9, ptr noundef nonnull %buf, i32 noundef %conv40, ptr noundef null, i32 noundef 10) #24
+  %call41 = tail call noundef i32 @_ZNK2v86String9WriteUtf8EPNS_7IsolateEPciPii(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef %9, ptr noundef nonnull %buf, i32 noundef %conv40, ptr noundef null, i32 noundef 10) #25
   %idxprom = sext i32 %call41 to i64
   %arrayidx = getelementptr inbounds i8, ptr %buf, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
@@ -10365,7 +10364,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -10424,7 +10423,7 @@ if.then21:                                        ; preds = %do.body19
   br label %return
 
 do.end24:                                         ; preds = %do.body19
-  %call30 = tail call noundef i32 @_ZNK2v86String6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call30 = tail call noundef i32 @_ZNK2v86String6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   %conv = sext i32 %call30 to i64
   br label %if.end50.sink.split
 
@@ -10437,7 +10436,7 @@ if.then32:                                        ; preds = %if.else
   %8 = load ptr, ptr %isolate, align 8
   %9 = trunc i64 %bufsize to i32
   %conv39 = add i32 %9, -1
-  %call40 = tail call noundef i32 @_ZNK2v86String5WriteEPNS_7IsolateEPtiii(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef %8, ptr noundef nonnull %buf, i32 noundef 0, i32 noundef %conv39, i32 noundef 2) #24
+  %call40 = tail call noundef i32 @_ZNK2v86String5WriteEPNS_7IsolateEPtiii(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef %8, ptr noundef nonnull %buf, i32 noundef 0, i32 noundef %conv39, i32 noundef 2) #25
   %idxprom = sext i32 %call40 to i64
   %arrayidx = getelementptr inbounds i16, ptr %buf, i64 %idxprom
   store i16 0, ptr %arrayidx, align 2
@@ -10486,7 +10485,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -10507,7 +10506,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -10527,7 +10526,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
@@ -10537,9 +10536,9 @@ do.end14:                                         ; preds = %do.body8
 
 do.end28:                                         ; preds = %do.end14
   %7 = load ptr, ptr %isolate.i, align 8
-  %call34 = call ptr @_ZNK2v85Value9ToBooleanEPNS_7IsolateE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef %7) #24
+  %call34 = call ptr @_ZNK2v85Value9ToBooleanEPNS_7IsolateE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef %7) #25
   store ptr %call34, ptr %result, align 8
-  %call46 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call46 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call46, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %do.end28, %do.end14
@@ -10554,7 +10553,7 @@ cleanup.sink.split:                               ; preds = %do.end28, %do.end14
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end28
   %retval.0 = phi i32 [ 0, %do.end28 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i28, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i28:                                      ; preds = %cleanup
@@ -10562,13 +10561,13 @@ if.then.i28:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 3
   %isolate.i30 = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 1
   %9 = load ptr, ptr %isolate.i30, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %10 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i28
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -10578,12 +10577,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %11 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -10614,7 +10613,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -10635,7 +10634,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -10655,7 +10654,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
@@ -10666,13 +10665,13 @@ do.end14:                                         ; preds = %do.body8
 do.end28:                                         ; preds = %do.end14
   %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
-  %call48 = call ptr @_ZNK2v85Value8ToNumberENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call48 = call ptr @_ZNK2v85Value8ToNumberENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i = icmp eq ptr %call48, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6NumberEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_6NumberEE14ToLocalCheckedEv.exit: ; preds = %do.end28
   store ptr %call48, ptr %result, align 8
-  %call76 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call76 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call76, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_6NumberEE14ToLocalCheckedEv.exit, %do.end28, %do.end14
@@ -10687,7 +10686,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_6NumberEE14ToLocalCheckedEv.exit
   %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_6NumberEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i35, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i35:                                      ; preds = %cleanup
@@ -10695,13 +10694,13 @@ if.then.i35:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
   %isolate.i37 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
   %8 = load ptr, ptr %isolate.i37, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %9 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i35
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -10711,12 +10710,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -10747,7 +10746,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -10768,7 +10767,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -10788,7 +10787,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
@@ -10799,13 +10798,13 @@ do.end14:                                         ; preds = %do.body8
 do.end28:                                         ; preds = %do.end14
   %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
-  %call48 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call48 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i = icmp eq ptr %call48, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end28
   store ptr %call48, ptr %result, align 8
-  %call76 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call76 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call76, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit, %do.end28, %do.end14
@@ -10820,7 +10819,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
   %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i35, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i35:                                      ; preds = %cleanup
@@ -10828,13 +10827,13 @@ if.then.i35:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
   %isolate.i37 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
   %8 = load ptr, ptr %isolate.i37, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %9 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i35
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -10844,12 +10843,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -10878,7 +10877,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -10899,7 +10898,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -10919,7 +10918,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
@@ -10930,13 +10929,13 @@ do.end14:                                         ; preds = %do.body8
 do.end28:                                         ; preds = %do.end14
   %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
-  %call48 = call ptr @_ZNK2v85Value8ToStringENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call48 = call ptr @_ZNK2v85Value8ToStringENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i = icmp eq ptr %call48, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end28
   store ptr %call48, ptr %result, align 8
-  %call76 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call76 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call76, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit, %do.end28, %do.end14
@@ -10951,7 +10950,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
   %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i35, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i35:                                      ; preds = %cleanup
@@ -10959,13 +10958,13 @@ if.then.i35:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
   %isolate.i37 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
   %8 = load ptr, ptr %isolate.i37, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %9 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i35
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -10975,12 +10974,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -11012,7 +11011,7 @@ land.lhs.true.i.i:                                ; preds = %do.end.i
   br i1 %tobool.not.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i, label %if.then.i28.i
 
 if.then.i28.i:                                    ; preds = %land.lhs.true.i.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit.i:          ; preds = %land.lhs.true.i.i, %do.end.i
@@ -11033,7 +11032,7 @@ if.then4.i:                                       ; preds = %_ZN10napi_env__13Ch
 do.body8.i:                                       ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit.i
   %vtable.i = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable.i, align 8
-  %call9.i = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9.i = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9.i, label %do.end14.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %do.body8.i
@@ -11053,7 +11052,7 @@ do.end14.i:                                       ; preds = %do.body8.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i.i, i8 0, i64 24, i1 false)
   %isolate.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch.i, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch.i, ptr noundef %6) #25
   %_env.i.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch.i, i64 0, i32 1
   store ptr %env, ptr %_env.i.i, align 8
   %cmp17.not.i = icmp eq ptr %js_object, null
@@ -11062,13 +11061,13 @@ do.end14.i:                                       ; preds = %do.body8.i
 do.end21.i:                                       ; preds = %do.end14.i
   %context_persistent.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %context_persistent.i.i, align 8
-  %call31.i = call noundef zeroext i1 @_ZNK2v85Value8IsObjectEv(ptr noundef nonnull align 1 dereferenceable(1) %js_object) #24
+  %call31.i = call noundef zeroext i1 @_ZNK2v85Value8IsObjectEv(ptr noundef nonnull align 1 dereferenceable(1) %js_object) #25
   br i1 %call31.i, label %do.end36.i, label %cleanup.sink.split.i
 
 do.end36.i:                                       ; preds = %do.end21.i
   %cmp.i.i.i.i = icmp ne ptr %retval.sroa.0.0.copyload.i.i.i, null
   call void @llvm.assume(i1 %cmp.i.i.i.i)
-  %call5.i.i.i = call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.copyload.i.i.i) #24
+  %call5.i.i.i = call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.copyload.i.i.i) #25
   %cmp.i.i.i = icmp ugt i32 %call5.i.i.i, 39
   call void @llvm.assume(i1 %cmp.i.i.i)
   %7 = load i64, ptr %retval.sroa.0.0.copyload.i.i.i, align 8
@@ -11090,13 +11089,13 @@ do.end36.i:                                       ; preds = %do.end21.i
   %17 = load ptr, ptr %isolate_data_.i.i.i, align 8
   %napi_wrapper_.i.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %17, i64 0, i32 10
   %18 = load ptr, ptr %napi_wrapper_.i.i.i, align 8
-  %call59.i = call i16 @_ZN2v86Object10HasPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %js_object, ptr nonnull %retval.sroa.0.0.copyload.i.i.i, ptr %18) #24
+  %call59.i = call i16 @_ZN2v86Object10HasPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %js_object, ptr nonnull %retval.sroa.0.0.copyload.i.i.i, ptr %18) #25
   %19 = and i16 %call59.i, 1
   %tobool.i183.not.i = icmp eq i16 %19, 0
   br i1 %tobool.i183.not.i, label %if.then.i179.i, label %_ZNO2v85MaybeIbE8FromJustEv.exit180.i
 
 if.then.i179.i:                                   ; preds = %do.end36.i
-  call void @_ZN2v812api_internal17FromJustIsNothingEv() #24
+  call void @_ZN2v812api_internal17FromJustIsNothingEv() #25
   br label %_ZNO2v85MaybeIbE8FromJustEv.exit180.i
 
 _ZNO2v85MaybeIbE8FromJustEv.exit180.i:            ; preds = %if.then.i179.i, %do.end36.i
@@ -11130,14 +11129,14 @@ do.body97.i:                                      ; preds = %if.else.i, %do.end7
   %napi_wrapper_.i.i45.i = getelementptr inbounds %"class.node::IsolateData", ptr %21, i64 0, i32 10
   %22 = load ptr, ptr %napi_wrapper_.i.i45.i, align 8
   %23 = load ptr, ptr %isolate.i.i, align 8
-  %call113.i = call ptr @_ZN2v88External3NewEPNS_7IsolateEPv(ptr noundef %23, ptr noundef nonnull %reference.0.i) #24
-  %call129.i = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %js_object, ptr nonnull %retval.sroa.0.0.copyload.i.i.i, ptr %22, ptr %call113.i) #24
+  %call113.i = call ptr @_ZN2v88External3NewEPNS_7IsolateEPv(ptr noundef %23, ptr noundef nonnull %reference.0.i) #25
+  %call129.i = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %js_object, ptr nonnull %retval.sroa.0.0.copyload.i.i.i, ptr %22, ptr %call113.i) #25
   %24 = and i16 %call129.i, 1
   %tobool.i186.not.i = icmp eq i16 %24, 0
   br i1 %tobool.i186.not.i, label %if.then.i.i, label %_ZNO2v85MaybeIbE8FromJustEv.exit.i
 
 if.then.i.i:                                      ; preds = %do.body97.i
-  call void @_ZN2v812api_internal17FromJustIsNothingEv() #24
+  call void @_ZN2v812api_internal17FromJustIsNothingEv() #25
   br label %_ZNO2v85MaybeIbE8FromJustEv.exit.i
 
 _ZNO2v85MaybeIbE8FromJustEv.exit.i:               ; preds = %if.then.i.i, %do.body97.i
@@ -11146,12 +11145,12 @@ _ZNO2v85MaybeIbE8FromJustEv.exit.i:               ; preds = %if.then.i.i, %do.bo
   br i1 %tobool.i.not.i, label %do.body135.i, label %do.end140.i
 
 do.body135.i:                                     ; preds = %_ZNO2v85MaybeIbE8FromJustEv.exit.i
-  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN6v8impl12_GLOBAL__N_14WrapEP10napi_env__P12napi_value__PvPFvS2_S5_S5_ES5_PP10napi_ref__E4args) #24
-  call void @abort() #27
+  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN6v8impl12_GLOBAL__N_14WrapEP10napi_env__P12napi_value__PvPFvS2_S5_S5_ES5_PP10napi_ref__E4args) #25
+  call void @abort() #28
   unreachable
 
 do.end140.i:                                      ; preds = %_ZNO2v85MaybeIbE8FromJustEv.exit.i
-  %call141.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch.i) #24
+  %call141.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch.i) #25
   br i1 %call141.i, label %cleanup.sink.split.i, label %cleanup.i
 
 cleanup.sink.split.i:                             ; preds = %do.end140.i, %do.body69.i, %_ZNO2v85MaybeIbE8FromJustEv.exit180.i, %do.end21.i, %do.end14.i
@@ -11166,7 +11165,7 @@ cleanup.sink.split.i:                             ; preds = %do.end140.i, %do.bo
 
 cleanup.i:                                        ; preds = %cleanup.sink.split.i, %do.end140.i
   %retval.0.i = phi i32 [ 0, %do.end140.i ], [ %.sink.i, %cleanup.sink.split.i ]
-  %call.i.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch.i) #24
+  %call.i.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch.i) #25
   br i1 %call.i.i, label %if.then.i50.i, label %_ZN6v8impl8TryCatchD2Ev.exit.i
 
 if.then.i50.i:                                    ; preds = %cleanup.i
@@ -11174,13 +11173,13 @@ if.then.i50.i:                                    ; preds = %cleanup.i
   %last_exception.i.i = getelementptr inbounds %struct.napi_env__, ptr %26, i64 0, i32 3
   %isolate.i52.i = getelementptr inbounds %struct.napi_env__, ptr %26, i64 0, i32 1
   %27 = load ptr, ptr %isolate.i52.i, align 8
-  %call3.i.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch.i) #24
+  %call3.i.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch.i) #25
   %28 = load ptr, ptr %last_exception.i.i, align 8
   %cmp.i.i.i53.i = icmp eq ptr %28, null
   br i1 %cmp.i.i.i53.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i50.i
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %28) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %28) #25
   store ptr null, ptr %last_exception.i.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i.i
 
@@ -11190,12 +11189,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i.i: ; preds = %if.end.i.i.i.i
 
 if.end.i7.i.i:                                    ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i.i
   %29 = load i64, ptr %call3.i.i, align 8
-  %call2.i.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %27, i64 noundef %29) #24
+  %call2.i.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %27, i64 noundef %29) #25
   store ptr %call2.i.i.i, ptr %last_exception.i.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit.i
 
 _ZN6v8impl8TryCatchD2Ev.exit.i:                   ; preds = %if.end.i7.i.i, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i.i, %cleanup.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch.i) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch.i) #25
   br label %_ZN6v8impl12_GLOBAL__N_14WrapEP10napi_env__P12napi_value__PvPFvS2_S5_S5_ES5_PP10napi_ref__.exit
 
 _ZN6v8impl12_GLOBAL__N_14WrapEP10napi_env__P12napi_value__PvPFvS2_S5_S5_ES5_PP10napi_ref__.exit: ; preds = %entry, %if.then4.i, %if.then10.i, %_ZN6v8impl8TryCatchD2Ev.exit.i
@@ -11232,7 +11231,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i24
 
 if.then.i24:                                      ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -11253,7 +11252,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -11273,7 +11272,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %js_object, null
@@ -11288,7 +11287,7 @@ do.end21:                                         ; preds = %do.end14
 if.end31:                                         ; preds = %do.end21
   %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
-  %call41 = call noundef zeroext i1 @_ZNK2v85Value8IsObjectEv(ptr noundef nonnull align 1 dereferenceable(1) %js_object) #24
+  %call41 = call noundef zeroext i1 @_ZNK2v85Value8IsObjectEv(ptr noundef nonnull align 1 dereferenceable(1) %js_object) #25
   br i1 %call41, label %do.end46, label %cleanup.sink.split
 
 do.end46:                                         ; preds = %if.end31
@@ -11297,20 +11296,20 @@ do.end46:                                         ; preds = %if.end31
   %7 = load ptr, ptr %isolate_data_.i.i, align 8
   %napi_wrapper_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %7, i64 0, i32 10
   %8 = load ptr, ptr %napi_wrapper_.i.i, align 8
-  %call68 = call ptr @_ZN2v86Object10GetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %js_object, ptr %retval.sroa.0.0.copyload.i.i, ptr %8) #24
+  %call68 = call ptr @_ZN2v86Object10GetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %js_object, ptr %retval.sroa.0.0.copyload.i.i, ptr %8) #25
   %cmp.i.i.i = icmp eq ptr %call68, null
   br i1 %cmp.i.i.i, label %if.then.i, label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
 
 if.then.i:                                        ; preds = %do.end46
-  call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
+  call void @_ZN2v812api_internal12ToLocalEmptyEv() #25
   br label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %if.then.i, %do.end46
-  %call79 = call noundef zeroext i1 @_ZNK2v85Value10IsExternalEv(ptr noundef nonnull align 1 dereferenceable(1) %call68) #24
+  %call79 = call noundef zeroext i1 @_ZNK2v85Value10IsExternalEv(ptr noundef nonnull align 1 dereferenceable(1) %call68) #25
   br i1 %call79, label %do.end84, label %cleanup.sink.split
 
 do.end84:                                         ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
-  %call91 = call noundef ptr @_ZNK2v88External5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %call68) #24
+  %call91 = call noundef ptr @_ZNK2v88External5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %call68) #25
   br i1 %cmp25, label %if.then92, label %if.end94
 
 if.then92:                                        ; preds = %do.end84
@@ -11329,13 +11328,13 @@ do.body97:                                        ; preds = %if.end94
   %10 = load ptr, ptr %isolate_data_.i.i40, align 8
   %napi_wrapper_.i.i41 = getelementptr inbounds %"class.node::IsolateData", ptr %10, i64 0, i32 10
   %11 = load ptr, ptr %napi_wrapper_.i.i41, align 8
-  %call117 = call i16 @_ZN2v86Object13DeletePrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %js_object, ptr %retval.sroa.0.0.copyload.i.i, ptr %11) #24
+  %call117 = call i16 @_ZN2v86Object13DeletePrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %js_object, ptr %retval.sroa.0.0.copyload.i.i, ptr %11) #25
   %12 = and i16 %call117, 1
   %tobool.i175.not = icmp eq i16 %12, 0
   br i1 %tobool.i175.not, label %if.then.i172, label %_ZNO2v85MaybeIbE8FromJustEv.exit
 
 if.then.i172:                                     ; preds = %do.body97
-  call void @_ZN2v812api_internal17FromJustIsNothingEv() #24
+  call void @_ZN2v812api_internal17FromJustIsNothingEv() #25
   br label %_ZNO2v85MaybeIbE8FromJustEv.exit
 
 _ZNO2v85MaybeIbE8FromJustEv.exit:                 ; preds = %if.then.i172, %do.body97
@@ -11344,8 +11343,8 @@ _ZNO2v85MaybeIbE8FromJustEv.exit:                 ; preds = %if.then.i172, %do.b
   br i1 %tobool.i.not, label %do.body122, label %do.end127
 
 do.body122:                                       ; preds = %_ZNO2v85MaybeIbE8FromJustEv.exit
-  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN6v8impl12_GLOBAL__N_16UnwrapEP10napi_env__P12napi_value__PPvNS0_12UnwrapActionEE4args) #24
-  call void @abort() #27
+  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN6v8impl12_GLOBAL__N_16UnwrapEP10napi_env__P12napi_value__PPvNS0_12UnwrapActionEE4args) #25
+  call void @abort() #28
   unreachable
 
 do.end127:                                        ; preds = %_ZNO2v85MaybeIbE8FromJustEv.exit
@@ -11363,11 +11362,11 @@ delete.notnull:                                   ; preds = %do.end127
   %vtable131 = load ptr, ptr %call91, align 8
   %vfn132 = getelementptr inbounds ptr, ptr %vtable131, i64 1
   %15 = load ptr, ptr %vfn132, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(81) %call91) #24
+  call void %15(ptr noundef nonnull align 8 dereferenceable(81) %call91) #25
   br label %if.end134
 
 if.end134:                                        ; preds = %if.then130, %delete.notnull, %if.end94
-  %call135 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call135 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call135, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %if.end134, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %if.end31, %do.end21, %do.end14
@@ -11382,7 +11381,7 @@ cleanup.sink.split:                               ; preds = %if.end134, %_ZN2v81
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end134
   %retval.0 = phi i32 [ 0, %if.end134 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i45, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i45:                                      ; preds = %cleanup
@@ -11390,13 +11389,13 @@ if.then.i45:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %16, i64 0, i32 3
   %isolate.i47 = getelementptr inbounds %struct.napi_env__, ptr %16, i64 0, i32 1
   %17 = load ptr, ptr %isolate.i47, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %18 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i48 = icmp eq ptr %18, null
   br i1 %cmp.i.i.i48, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i45
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %18) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %18) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -11406,12 +11405,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %19 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %17, i64 noundef %19) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %17, i64 noundef %19) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -11452,7 +11451,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -11473,7 +11472,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -11493,7 +11492,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -11510,7 +11509,7 @@ if.then18:                                        ; preds = %do.end14
 
 do.end21:                                         ; preds = %do.end14
   %7 = load ptr, ptr %isolate.i, align 8
-  %call23 = call ptr @_ZN2v88External3NewEPNS_7IsolateEPv(ptr noundef %7, ptr noundef %data) #24
+  %call23 = call ptr @_ZN2v88External3NewEPNS_7IsolateEPv(ptr noundef %7, ptr noundef %data) #25
   %tobool.not = icmp eq ptr %finalize_cb, null
   br i1 %tobool.not, label %if.end35, label %if.then29
 
@@ -11525,7 +11524,7 @@ if.then29:                                        ; preds = %do.end21
   store ptr %finalize_cb, ptr %finalize_callback.addr.i, align 8
   store ptr %data, ptr %finalize_data.addr.i, align 8
   store ptr %finalize_hint, ptr %finalize_hint.addr.i, align 8
-  %call.i = call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #25
+  %call.i = call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #26
   call void @_ZN6v8impl9ReferenceC2IJRjRNS_9OwnershipERPFvP10napi_env__PvS7_ERS7_SB_EEES6_N2v85LocalINSC_5ValueEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(81) %call.i, ptr noundef nonnull %env, ptr %call23, ptr noundef nonnull align 4 dereferenceable(4) %initial_refcount.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %ownership.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_callback.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_data.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_hint.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %initial_refcount.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ownership.addr.i)
@@ -11541,7 +11540,7 @@ if.end35:                                         ; preds = %if.then29, %do.end2
 
 cleanup:                                          ; preds = %if.end35, %if.then18
   %retval.0 = phi i32 [ 0, %if.end35 ], [ 1, %if.then18 ]
-  %call.i24 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i24 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i24, label %if.then.i25, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i25:                                      ; preds = %cleanup
@@ -11549,13 +11548,13 @@ if.then.i25:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 3
   %isolate.i27 = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 1
   %9 = load ptr, ptr %isolate.i27, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %10 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i25
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -11565,12 +11564,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %11 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -11601,7 +11600,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -11622,7 +11621,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -11642,7 +11641,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
@@ -11651,17 +11650,17 @@ do.end14:                                         ; preds = %do.body8
   br i1 %cmp21.not, label %if.then22, label %do.end27
 
 if.then22:                                        ; preds = %do.end14
-  %call23 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call23 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %cond24 = select i1 %call23, i32 10, i32 1
   br label %cleanup.sink.split
 
 do.end27:                                         ; preds = %do.end14
-  %call36 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call36 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i = icmp eq ptr %call36, null
   br i1 %cmp.i.i, label %if.then43, label %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
 
 if.then43:                                        ; preds = %do.end27
-  %call44 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call44 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %cond45 = select i1 %call44, i32 10, i32 2
   br label %cleanup.sink.split
 
@@ -11670,14 +11669,14 @@ _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end27
   br i1 %cmp58.not, label %if.then59, label %do.end65
 
 if.then59:                                        ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
-  %call60 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call60 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %cond61 = select i1 %call60, i32 10, i32 1
   br label %cleanup.sink.split
 
 do.end65:                                         ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
   %cmp.i.i.i = icmp ne ptr %retval.sroa.0.0.copyload.i.i, null
   call void @llvm.assume(i1 %cmp.i.i.i)
-  %call5.i.i = call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.copyload.i.i) #24
+  %call5.i.i = call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i39 = icmp ugt i32 %call5.i.i, 39
   call void @llvm.assume(i1 %cmp.i.i39)
   %7 = load i64, ptr %retval.sroa.0.0.copyload.i.i, align 8
@@ -11699,13 +11698,13 @@ do.end65:                                         ; preds = %_ZN2v810MaybeLocalI
   %17 = load ptr, ptr %isolate_data_.i.i, align 8
   %napi_type_tag_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %17, i64 0, i32 9
   %18 = load ptr, ptr %napi_type_tag_.i.i, align 8
-  %call84 = call i16 @_ZN2v86Object10HasPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %call36, ptr nonnull %retval.sroa.0.0.copyload.i.i, ptr %18) #24
+  %call84 = call i16 @_ZN2v86Object10HasPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %call36, ptr nonnull %retval.sroa.0.0.copyload.i.i, ptr %18) #25
   %19 = and i16 %call84, 1
   %tobool.i185.not = icmp eq i16 %19, 0
   br i1 %tobool.i185.not, label %if.then87, label %_ZNKR2v85MaybeIbE8FromJustEv.exit217
 
 if.then87:                                        ; preds = %do.end65
-  %call88 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call88 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %cond89 = select i1 %call88, i32 10, i32 9
   br label %cleanup.sink.split
 
@@ -11715,35 +11714,35 @@ _ZNKR2v85MaybeIbE8FromJustEv.exit217:             ; preds = %do.end65
   br i1 %tobool.i215.not, label %do.end102, label %if.then96
 
 if.then96:                                        ; preds = %_ZNKR2v85MaybeIbE8FromJustEv.exit217
-  %call97 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call97 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %cond98 = select i1 %call97, i32 10, i32 1
   br label %cleanup.sink.split
 
 do.end102:                                        ; preds = %_ZNKR2v85MaybeIbE8FromJustEv.exit217
-  %call107 = call ptr @_ZN2v86BigInt12NewFromWordsENS_5LocalINS_7ContextEEEiiPKm(ptr nonnull %retval.sroa.0.0.copyload.i.i, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %type_tag) #24
+  %call107 = call ptr @_ZN2v86BigInt12NewFromWordsENS_5LocalINS_7ContextEEEiiPKm(ptr nonnull %retval.sroa.0.0.copyload.i.i, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %type_tag) #25
   %cmp.i.i192 = icmp eq ptr %call107, null
   br i1 %cmp.i.i192, label %if.then114, label %_ZN2v810MaybeLocalINS_6BigIntEE14ToLocalCheckedEv.exit
 
 if.then114:                                       ; preds = %do.end102
-  %call115 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call115 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %cond116 = select i1 %call115, i32 10, i32 9
   br label %cleanup.sink.split
 
 _ZN2v810MaybeLocalINS_6BigIntEE14ToLocalCheckedEv.exit: ; preds = %do.end102
-  %call142 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call36, ptr nonnull %retval.sroa.0.0.copyload.i.i, ptr %18, ptr nonnull %call107) #24
+  %call142 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %call36, ptr nonnull %retval.sroa.0.0.copyload.i.i, ptr %18, ptr nonnull %call107) #25
   %21 = and i16 %call142, 1
   %tobool.i.not = icmp eq i16 %21, 0
   br i1 %tobool.i.not, label %if.then145, label %_ZNKR2v85MaybeIbE8FromJustEv.exit
 
 if.then145:                                       ; preds = %_ZN2v810MaybeLocalINS_6BigIntEE14ToLocalCheckedEv.exit
-  %call146 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call146 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %cond147 = select i1 %call146, i32 10, i32 9
   br label %cleanup.sink.split
 
 _ZNKR2v85MaybeIbE8FromJustEv.exit:                ; preds = %_ZN2v810MaybeLocalINS_6BigIntEE14ToLocalCheckedEv.exit
   %22 = and i16 %call142, 256
   %tobool.i207.not = icmp eq i16 %22, 0
-  %call155 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call155 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %tobool.i207.not, label %if.then154, label %do.end160
 
 if.then154:                                       ; preds = %_ZNKR2v85MaybeIbE8FromJustEv.exit
@@ -11765,7 +11764,7 @@ cleanup.sink.split:                               ; preds = %do.end160, %if.then
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end160
   %retval.0 = phi i32 [ 0, %do.end160 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i59, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i59:                                      ; preds = %cleanup
@@ -11773,13 +11772,13 @@ if.then.i59:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %23, i64 0, i32 3
   %isolate.i61 = getelementptr inbounds %struct.napi_env__, ptr %23, i64 0, i32 1
   %24 = load ptr, ptr %isolate.i61, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %25 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i62 = icmp eq ptr %25, null
   br i1 %cmp.i.i.i62, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i59
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %25) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %25) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -11789,12 +11788,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %26 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %24, i64 noundef %26) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %24, i64 noundef %26) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -11809,7 +11808,7 @@ entry:
   br i1 %cmp.i.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call5.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce) #24
+  %call5.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce) #25
   %cmp.i = icmp ult i32 %call5.i, 40
   br i1 %cmp.i, label %return, label %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit
 
@@ -11866,7 +11865,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -11887,7 +11886,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -11907,7 +11906,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
@@ -11916,7 +11915,7 @@ do.end14:                                         ; preds = %do.body8
   br i1 %cmp21.not, label %cleanup.sink.split.sink.split, label %do.end27
 
 do.end27:                                         ; preds = %do.end14
-  %call36 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call36 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i = icmp eq ptr %call36, null
   br i1 %cmp.i.i, label %cleanup.sink.split.sink.split, label %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
 
@@ -11932,18 +11931,18 @@ do.end74:                                         ; preds = %_ZN2v810MaybeLocalI
   %7 = load ptr, ptr %isolate_data_.i.i, align 8
   %napi_type_tag_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %7, i64 0, i32 9
   %8 = load ptr, ptr %napi_type_tag_.i.i, align 8
-  %call93 = call ptr @_ZN2v86Object10GetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %call36, ptr %retval.sroa.0.0.copyload.i.i, ptr %8) #24
+  %call93 = call ptr @_ZN2v86Object10GetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %call36, ptr %retval.sroa.0.0.copyload.i.i, ptr %8) #25
   %cmp.i.i176 = icmp eq ptr %call93, null
   br i1 %cmp.i.i176, label %cleanup.sink.split.sink.split, label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %do.end74
   store i8 0, ptr %result, align 1
-  %call112 = call noundef zeroext i1 @_ZNK2v85Value8IsBigIntEv(ptr noundef nonnull align 1 dereferenceable(1) %call93) #24
+  %call112 = call noundef zeroext i1 @_ZNK2v85Value8IsBigIntEv(ptr noundef nonnull align 1 dereferenceable(1) %call93) #25
   br i1 %call112, label %if.then113, label %if.end152
 
 if.then113:                                       ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
   store i32 2, ptr %size, align 4
-  call void @_ZNK2v86BigInt12ToWordsArrayEPiS1_Pm(ptr noundef nonnull align 1 dereferenceable(1) %call93, ptr noundef nonnull %sign, ptr noundef nonnull %size, ptr noundef nonnull %tag) #24
+  call void @_ZNK2v86BigInt12ToWordsArrayEPiS1_Pm(ptr noundef nonnull align 1 dereferenceable(1) %call93, ptr noundef nonnull %sign, ptr noundef nonnull %size, ptr noundef nonnull %tag) #25
   %9 = load i32, ptr %sign, align 4
   %cmp120 = icmp eq i32 %9, 0
   br i1 %cmp120, label %if.then121, label %if.end152
@@ -12003,12 +12002,12 @@ if.end152.sink.split:                             ; preds = %if.end152.sink.spli
   br label %if.end152
 
 if.end152:                                        ; preds = %if.end152.sink.split, %if.then121, %if.then113, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
-  %call153 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call153 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call153, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split.sink.split:                    ; preds = %do.end74, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit, %do.end27, %do.end14
   %.sink56 = phi i32 [ 1, %do.end14 ], [ 2, %do.end27 ], [ 1, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ 9, %do.end74 ]
-  %call23 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call23 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %cond24 = select i1 %call23, i32 10, i32 %.sink56
   br label %cleanup.sink.split
 
@@ -12024,7 +12023,7 @@ cleanup.sink.split:                               ; preds = %cleanup.sink.split.
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end152
   %retval.0 = phi i32 [ 0, %if.end152 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i51, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i51:                                      ; preds = %cleanup
@@ -12032,13 +12031,13 @@ if.then.i51:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %21, i64 0, i32 3
   %isolate.i53 = getelementptr inbounds %struct.napi_env__, ptr %21, i64 0, i32 1
   %22 = load ptr, ptr %isolate.i53, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %23 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %23, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i51
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %23) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %23) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -12048,12 +12047,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %24 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %22, i64 noundef %24) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %22, i64 noundef %24) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -12083,7 +12082,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -12113,7 +12112,7 @@ if.then10:                                        ; preds = %do.body8
   br label %return
 
 do.end13:                                         ; preds = %do.body8
-  %call19 = tail call noundef zeroext i1 @_ZNK2v85Value10IsExternalEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call19 = tail call noundef zeroext i1 @_ZNK2v85Value10IsExternalEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br i1 %call19, label %do.end23, label %if.then20
 
 if.then20:                                        ; preds = %do.end13
@@ -12126,7 +12125,7 @@ if.then20:                                        ; preds = %do.end13
   br label %return
 
 do.end23:                                         ; preds = %do.end13
-  %call29 = tail call noundef ptr @_ZNK2v88External5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call29 = tail call noundef ptr @_ZNK2v88External5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   store ptr %call29, ptr %result, align 8
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -12164,7 +12163,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -12197,15 +12196,15 @@ do.end13:                                         ; preds = %do.body8
   br i1 %cmp.i, label %if.end29, label %if.then18
 
 if.then18:                                        ; preds = %do.end13
-  %call20 = tail call noundef zeroext i1 @_ZNK2v85Value8IsObjectEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call20 = tail call noundef zeroext i1 @_ZNK2v85Value8IsObjectEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br i1 %call20, label %if.end29, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then18
-  %call22 = tail call noundef zeroext i1 @_ZNK2v85Value10IsFunctionEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call22 = tail call noundef zeroext i1 @_ZNK2v85Value10IsFunctionEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br i1 %call22, label %if.end29, label %lor.lhs.false23
 
 lor.lhs.false23:                                  ; preds = %lor.lhs.false
-  %call25 = tail call noundef zeroext i1 @_ZNK2v85Value8IsSymbolEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call25 = tail call noundef zeroext i1 @_ZNK2v85Value8IsSymbolEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br i1 %call25, label %if.end29, label %if.then26
 
 if.then26:                                        ; preds = %lor.lhs.false23
@@ -12228,7 +12227,7 @@ if.end29:                                         ; preds = %if.then18, %lor.lhs
   store ptr null, ptr %finalize_callback.addr.i, align 8
   store ptr null, ptr %finalize_data.addr.i, align 8
   store ptr null, ptr %finalize_hint.addr.i, align 8
-  %call.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #25
+  %call.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #26
   call void @_ZN6v8impl9ReferenceC2IJRjRNS_9OwnershipERPFvP10napi_env__PvS7_ERS7_SB_EEES6_N2v85LocalINSC_5ValueEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(81) %call.i, ptr noundef nonnull %env, ptr nonnull %value, ptr noundef nonnull align 4 dereferenceable(4) %initial_refcount.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %ownership.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_callback.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_data.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_hint.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %initial_refcount.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ownership.addr.i)
@@ -12265,7 +12264,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -12285,7 +12284,7 @@ delete.notnull:                                   ; preds = %_ZN10napi_env__13Ch
   %vtable = load ptr, ptr %ref, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
   %3 = load ptr, ptr %vfn, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(81) %ref) #24
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(81) %ref) #25
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
@@ -12315,7 +12314,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -12353,7 +12352,7 @@ land.lhs.true.i7:                                 ; preds = %if.end.i
   br i1 %tobool.not.i8, label %_ZN6v8impl9Reference3RefEv.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %land.lhs.true.i7
-  %call2.i.i = tail call noundef ptr @_ZN2v812api_internal9ClearWeakEPm(ptr noundef nonnull %3) #24
+  %call2.i.i = tail call noundef ptr @_ZN2v812api_internal9ClearWeakEPm(ptr noundef nonnull %3) #25
   br label %_ZN6v8impl9Reference3RefEv.exit
 
 _ZN6v8impl9Reference3RefEv.exit:                  ; preds = %do.end7, %if.end.i, %land.lhs.true.i7, %if.then3.i
@@ -12395,7 +12394,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -12446,11 +12445,11 @@ if.then5.i:                                       ; preds = %_ZN6v8impl7RefBase5
   br i1 %tobool.not.i.i, label %if.end.i.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then5.i
-  tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef nonnull %4, ptr noundef nonnull %ref, ptr noundef nonnull @_ZN6v8impl9Reference12WeakCallbackERKN2v816WeakCallbackInfoIS0_EE, i32 noundef 0) #24
+  tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef nonnull %4, ptr noundef nonnull %ref, ptr noundef nonnull @_ZN6v8impl9Reference12WeakCallbackERKN2v816WeakCallbackInfoIS0_EE, i32 noundef 0) #25
   br label %_ZN6v8impl9Reference5UnrefEv.exit
 
 if.end.i.i.i:                                     ; preds = %if.then5.i
-  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %4) #24
+  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %4) #25
   store ptr null, ptr %persistent_.i, align 8
   br label %_ZN6v8impl9Reference5UnrefEv.exit
 
@@ -12493,7 +12492,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -12534,7 +12533,7 @@ if.end.i.i:                                       ; preds = %do.end13
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %4, i64 0, i32 1
   %5 = load ptr, ptr %isolate.i, align 8
   %6 = load i64, ptr %3, align 8
-  %call.i.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %5, i64 noundef %6) #24
+  %call.i.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %5, i64 noundef %6) #25
   br label %_ZN6v8impl9Reference3GetEv.exit
 
 _ZN6v8impl9Reference3GetEv.exit:                  ; preds = %do.end13, %if.end.i.i
@@ -12569,7 +12568,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -12586,10 +12585,10 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %call8 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
+  %call8 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
   %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %3 = load ptr, ptr %isolate, align 8
-  tail call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %call8, ptr noundef %3) #24
+  tail call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %call8, ptr noundef %3) #25
   store ptr %call8, ptr %result, align 8
   %open_handle_scopes = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 8
   %4 = load i32, ptr %open_handle_scopes, align 8
@@ -12624,7 +12623,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -12649,8 +12648,8 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
 if.end10:                                         ; preds = %do.end7
   %dec = add nsw i32 %3, -1
   store i32 %dec, ptr %open_handle_scopes, align 8
-  tail call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %scope) #26
+  tail call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %scope) #27
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
@@ -12680,7 +12679,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -12697,10 +12696,10 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %call8 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
+  %call8 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %3 = load ptr, ptr %isolate, align 8
-  tail call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %call8, ptr noundef %3) #24
+  tail call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %call8, ptr noundef %3) #25
   %escape_called_.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::EscapableHandleScopeWrapper", ptr %call8, i64 0, i32 1
   store i8 0, ptr %escape_called_.i, align 8
   store ptr %call8, ptr %result, align 8
@@ -12737,7 +12736,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -12760,8 +12759,8 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %do.end7
-  tail call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %scope) #26
+  tail call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %scope) #27
   %4 = load i32, ptr %open_handle_scopes, align 8
   %dec = add nsw i32 %4, -1
   store i32 %dec, ptr %open_handle_scopes, align 8
@@ -12794,7 +12793,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -12845,7 +12844,7 @@ do.end19:                                         ; preds = %do.body14
 
 if.then22:                                        ; preds = %do.end19
   store i8 1, ptr %3, align 8
-  %call4.i.i = tail call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef nonnull %escapee) #24
+  %call4.i.i = tail call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef nonnull %escapee) #25
   store ptr %call4.i.i, ptr %result, align 8
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -12886,7 +12885,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -12907,7 +12906,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -12927,7 +12926,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %constructor, null
@@ -12944,18 +12943,18 @@ do.end21:                                         ; preds = %do.end14
 do.end38:                                         ; preds = %do.end21
   %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
-  %call56 = call noundef zeroext i1 @_ZNK2v85Value10IsFunctionEv(ptr noundef nonnull align 1 dereferenceable(1) %constructor) #24
+  %call56 = call noundef zeroext i1 @_ZNK2v85Value10IsFunctionEv(ptr noundef nonnull align 1 dereferenceable(1) %constructor) #25
   br i1 %call56, label %do.end61, label %cleanup.sink.split
 
 do.end61:                                         ; preds = %do.end38
   %conv = trunc i64 %argc to i32
-  %call72 = call ptr @_ZNK2v88Function11NewInstanceENS_5LocalINS_7ContextEEEiPNS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %constructor, ptr %retval.sroa.0.0.copyload.i.i, i32 noundef %conv, ptr noundef %argv) #24
+  %call72 = call ptr @_ZNK2v88Function11NewInstanceENS_5LocalINS_7ContextEEEiPNS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %constructor, ptr %retval.sroa.0.0.copyload.i.i, i32 noundef %conv, ptr noundef %argv) #25
   %cmp.i.i = icmp eq ptr %call72, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end61
   store ptr %call72, ptr %result, align 8
-  %call97 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call97 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call97, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit, %do.end61, %do.end38, %do.end21, %do.end14
@@ -12970,7 +12969,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
   %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i45, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i45:                                      ; preds = %cleanup
@@ -12978,13 +12977,13 @@ if.then.i45:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
   %isolate.i47 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
   %8 = load ptr, ptr %isolate.i47, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %9 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i45
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -12994,12 +12993,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -13030,7 +13029,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -13051,7 +13050,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -13071,7 +13070,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %object, null
@@ -13087,12 +13086,12 @@ do.end28:                                         ; preds = %do.end14
   br i1 %cmp34.not, label %cleanup.sink.split, label %do.end39
 
 do.end39:                                         ; preds = %do.end28
-  %call48 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %constructor, ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call48 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %constructor, ptr %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i = icmp eq ptr %call48, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end39
-  %call68 = call noundef zeroext i1 @_ZNK2v85Value10IsFunctionEv(ptr noundef nonnull align 1 dereferenceable(1) %call48) #24
+  %call68 = call noundef zeroext i1 @_ZNK2v85Value10IsFunctionEv(ptr noundef nonnull align 1 dereferenceable(1) %call48) #25
   br i1 %call68, label %if.end72, label %if.then69
 
 if.then69:                                        ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
@@ -13100,7 +13099,7 @@ if.then69:                                        ; preds = %_ZN2v810MaybeLocalI
   br label %cleanup.sink.split
 
 if.end72:                                         ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
-  %call86 = call i16 @_ZN2v85Value10InstanceOfENS_5LocalINS_7ContextEEENS1_INS_6ObjectEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %call48) #24
+  %call86 = call i16 @_ZN2v85Value10InstanceOfENS_5LocalINS_7ContextEEENS1_INS_6ObjectEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %call48) #25
   %7 = and i16 %call86, 1
   %tobool.i.not = icmp eq i16 %7, 0
   br i1 %tobool.i.not, label %cleanup.sink.split, label %_ZNKR2v85MaybeIbE8FromJustEv.exit
@@ -13110,7 +13109,7 @@ _ZNKR2v85MaybeIbE8FromJustEv.exit:                ; preds = %if.end72
   %9 = trunc i16 %8 to i8
   %frombool = and i8 %9, 1
   store i8 %frombool, ptr %result, align 1
-  %call95 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call95 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call95, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZNKR2v85MaybeIbE8FromJustEv.exit, %if.end72, %do.end39, %do.end28, %do.end14, %if.then69
@@ -13125,7 +13124,7 @@ cleanup.sink.split:                               ; preds = %_ZNKR2v85MaybeIbE8F
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZNKR2v85MaybeIbE8FromJustEv.exit
   %retval.0 = phi i32 [ 0, %_ZNKR2v85MaybeIbE8FromJustEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i49, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i49:                                      ; preds = %cleanup
@@ -13133,13 +13132,13 @@ if.then.i49:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %10, i64 0, i32 3
   %isolate.i51 = getelementptr inbounds %struct.napi_env__, ptr %10, i64 0, i32 1
   %11 = load ptr, ptr %isolate.i51, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %12 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %12, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i49
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %12) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %12) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -13149,12 +13148,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %13 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %11, i64 noundef %13) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %11, i64 noundef %13) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -13184,7 +13183,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -13235,7 +13234,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -13268,7 +13267,7 @@ land.lhs.true.i.i:                                ; preds = %do.end.i
   br i1 %tobool.not.i.i, label %napi_get_undefined.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 napi_get_undefined.exit:                          ; preds = %land.lhs.true.i.i, %do.end.i
@@ -13286,14 +13285,14 @@ if.end.i39:                                       ; preds = %do.end7
   %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %9 = load ptr, ptr %isolate, align 8
   %10 = load i64, ptr %3, align 8
-  %call.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %10) #24
+  %call.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %10) #25
   store ptr %call.i, ptr %result, align 8
   %11 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %11, null
   br i1 %cmp.i, label %if.end20, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i39
-  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %11) #24
+  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %11) #25
   store ptr null, ptr %last_exception, align 8
   br label %if.end20
 
@@ -13327,7 +13326,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -13357,7 +13356,7 @@ if.then10:                                        ; preds = %do.body8
   br label %return
 
 do.end13:                                         ; preds = %do.body8
-  %call18 = tail call noundef zeroext i1 @_ZNK2v85Value13IsArrayBufferEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call18 = tail call noundef zeroext i1 @_ZNK2v85Value13IsArrayBufferEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   %frombool = zext i1 %call18 to i8
   store i8 %frombool, ptr %result, align 1
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
@@ -13392,7 +13391,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -13413,7 +13412,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -13433,7 +13432,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -13441,18 +13440,18 @@ do.end14:                                         ; preds = %do.body8
 
 do.end21:                                         ; preds = %do.end14
   %7 = load ptr, ptr %isolate.i, align 8
-  %call23 = call ptr @_ZN2v811ArrayBuffer3NewEPNS_7IsolateEm(ptr noundef %7, i64 noundef %byte_length) #24
+  %call23 = call ptr @_ZN2v811ArrayBuffer3NewEPNS_7IsolateEm(ptr noundef %7, i64 noundef %byte_length) #25
   %cmp26.not = icmp eq ptr %data, null
   br i1 %cmp26.not, label %if.end30, label %if.then27
 
 if.then27:                                        ; preds = %do.end21
-  %call29 = call noundef ptr @_ZNK2v811ArrayBuffer4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %call23) #24
+  %call29 = call noundef ptr @_ZNK2v811ArrayBuffer4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %call23) #25
   store ptr %call29, ptr %data, align 8
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then27, %do.end21
   store ptr %call23, ptr %result, align 8
-  %call39 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call39 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call39, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %if.end30, %do.end14
@@ -13467,7 +13466,7 @@ cleanup.sink.split:                               ; preds = %if.end30, %do.end14
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end30
   %retval.0 = phi i32 [ 0, %if.end30 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i24, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i24:                                      ; preds = %cleanup
@@ -13475,13 +13474,13 @@ if.then.i24:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 3
   %isolate.i26 = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 1
   %9 = load ptr, ptr %isolate.i26, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %10 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i24
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -13491,12 +13490,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %11 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %11) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -13512,7 +13511,7 @@ declare noundef ptr @_ZNK2v811ArrayBuffer4DataEv(ptr noundef nonnull align 1 der
 define dso_local i32 @napi_create_external_arraybuffer(ptr noundef %env, ptr noundef %external_data, i64 noundef %byte_length, ptr noundef %finalize_cb, ptr noundef %finalize_hint, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %buffer = alloca ptr, align 8
-  %call = call i32 @napi_create_external_buffer(ptr noundef %env, i64 noundef %byte_length, ptr noundef %external_data, ptr noundef %finalize_cb, ptr noundef %finalize_hint, ptr noundef nonnull %buffer) #24
+  %call = call i32 @napi_create_external_buffer(ptr noundef %env, i64 noundef %byte_length, ptr noundef %external_data, ptr noundef %finalize_cb, ptr noundef %finalize_hint, ptr noundef nonnull %buffer) #25
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %do.end, label %return
 
@@ -13535,7 +13534,7 @@ land.lhs.true.i.i:                                ; preds = %do.end.i
   br i1 %tobool.not.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit.i:          ; preds = %land.lhs.true.i.i, %do.end.i
@@ -13552,7 +13551,7 @@ if.then5.i:                                       ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 do.end7.i:                                        ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit.i
-  %call13.i = call noundef zeroext i1 @_ZNK2v85Value12IsTypedArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #24
+  %call13.i = call noundef zeroext i1 @_ZNK2v85Value12IsTypedArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #25
   br i1 %call13.i, label %do.end17.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %do.end7.i
@@ -13569,7 +13568,7 @@ do.end17.i:                                       ; preds = %do.end7.i
   br i1 %cmp84.i.not, label %if.end109.i, label %if.then100.i
 
 if.then100.i:                                     ; preds = %do.end17.i
-  %call87.i = call ptr @_ZN2v815ArrayBufferView6BufferEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #24
+  %call87.i = call ptr @_ZN2v815ArrayBufferView6BufferEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #25
   store ptr %call87.i, ptr %result, align 8
   br label %if.end109.i
 
@@ -13605,7 +13604,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -13622,7 +13621,7 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %call13 = tail call noundef zeroext i1 @_ZNK2v85Value12IsTypedArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #24
+  %call13 = tail call noundef zeroext i1 @_ZNK2v85Value12IsTypedArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #25
   br i1 %call13, label %do.end17, label %if.then14
 
 if.then14:                                        ; preds = %do.end7
@@ -13639,47 +13638,47 @@ do.end17:                                         ; preds = %do.end7
   br i1 %cmp22.not, label %if.end77, label %if.then23
 
 if.then23:                                        ; preds = %do.end17
-  %call25 = tail call noundef zeroext i1 @_ZNK2v85Value11IsInt8ArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #24
+  %call25 = tail call noundef zeroext i1 @_ZNK2v85Value11IsInt8ArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #25
   br i1 %call25, label %if.end77.sink.split, label %if.else
 
 if.else:                                          ; preds = %if.then23
-  %call28 = tail call noundef zeroext i1 @_ZNK2v85Value12IsUint8ArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #24
+  %call28 = tail call noundef zeroext i1 @_ZNK2v85Value12IsUint8ArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #25
   br i1 %call28, label %if.end77.sink.split, label %if.else30
 
 if.else30:                                        ; preds = %if.else
-  %call32 = tail call noundef zeroext i1 @_ZNK2v85Value19IsUint8ClampedArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #24
+  %call32 = tail call noundef zeroext i1 @_ZNK2v85Value19IsUint8ClampedArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #25
   br i1 %call32, label %if.end77.sink.split, label %if.else34
 
 if.else34:                                        ; preds = %if.else30
-  %call36 = tail call noundef zeroext i1 @_ZNK2v85Value12IsInt16ArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #24
+  %call36 = tail call noundef zeroext i1 @_ZNK2v85Value12IsInt16ArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #25
   br i1 %call36, label %if.end77.sink.split, label %if.else38
 
 if.else38:                                        ; preds = %if.else34
-  %call40 = tail call noundef zeroext i1 @_ZNK2v85Value13IsUint16ArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #24
+  %call40 = tail call noundef zeroext i1 @_ZNK2v85Value13IsUint16ArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #25
   br i1 %call40, label %if.end77.sink.split, label %if.else42
 
 if.else42:                                        ; preds = %if.else38
-  %call44 = tail call noundef zeroext i1 @_ZNK2v85Value12IsInt32ArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #24
+  %call44 = tail call noundef zeroext i1 @_ZNK2v85Value12IsInt32ArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #25
   br i1 %call44, label %if.end77.sink.split, label %if.else46
 
 if.else46:                                        ; preds = %if.else42
-  %call48 = tail call noundef zeroext i1 @_ZNK2v85Value13IsUint32ArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #24
+  %call48 = tail call noundef zeroext i1 @_ZNK2v85Value13IsUint32ArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #25
   br i1 %call48, label %if.end77.sink.split, label %if.else50
 
 if.else50:                                        ; preds = %if.else46
-  %call52 = tail call noundef zeroext i1 @_ZNK2v85Value14IsFloat32ArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #24
+  %call52 = tail call noundef zeroext i1 @_ZNK2v85Value14IsFloat32ArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #25
   br i1 %call52, label %if.end77.sink.split, label %if.else54
 
 if.else54:                                        ; preds = %if.else50
-  %call56 = tail call noundef zeroext i1 @_ZNK2v85Value14IsFloat64ArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #24
+  %call56 = tail call noundef zeroext i1 @_ZNK2v85Value14IsFloat64ArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #25
   br i1 %call56, label %if.end77.sink.split, label %if.else58
 
 if.else58:                                        ; preds = %if.else54
-  %call60 = tail call noundef zeroext i1 @_ZNK2v85Value15IsBigInt64ArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #24
+  %call60 = tail call noundef zeroext i1 @_ZNK2v85Value15IsBigInt64ArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #25
   br i1 %call60, label %if.end77.sink.split, label %if.else62
 
 if.else62:                                        ; preds = %if.else58
-  %call64 = tail call noundef zeroext i1 @_ZNK2v85Value16IsBigUint64ArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #24
+  %call64 = tail call noundef zeroext i1 @_ZNK2v85Value16IsBigUint64ArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #25
   br i1 %call64, label %if.end77.sink.split, label %if.end77
 
 if.end77.sink.split:                              ; preds = %if.else62, %if.else58, %if.else54, %if.else50, %if.else46, %if.else42, %if.else38, %if.else34, %if.else30, %if.else, %if.then23
@@ -13692,7 +13691,7 @@ if.end77:                                         ; preds = %if.end77.sink.split
   br i1 %cmp78.not, label %if.end82, label %if.then79
 
 if.then79:                                        ; preds = %if.end77
-  %call81 = tail call noundef i64 @_ZN2v810TypedArray6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #24
+  %call81 = tail call noundef i64 @_ZN2v810TypedArray6LengthEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #25
   store i64 %call81, ptr %length, align 8
   br label %if.end82
 
@@ -13703,12 +13702,12 @@ if.end82:                                         ; preds = %if.then79, %if.end7
   br i1 %or.cond, label %if.end91, label %if.end109
 
 if.end91:                                         ; preds = %if.end82
-  %call87 = tail call ptr @_ZN2v815ArrayBufferView6BufferEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #24
+  %call87 = tail call ptr @_ZN2v815ArrayBufferView6BufferEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #25
   br i1 %cmp83, label %if.then93, label %if.end98
 
 if.then93:                                        ; preds = %if.end91
-  %call95 = tail call noundef ptr @_ZNK2v811ArrayBuffer4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %call87) #24
-  %call97 = tail call noundef i64 @_ZN2v815ArrayBufferView10ByteOffsetEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #24
+  %call95 = tail call noundef ptr @_ZNK2v811ArrayBuffer4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %call87) #25
+  %call97 = tail call noundef i64 @_ZN2v815ArrayBufferView10ByteOffsetEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #25
   %add.ptr = getelementptr inbounds i8, ptr %call95, i64 %call97
   store ptr %add.ptr, ptr %data, align 8
   br label %if.end98
@@ -13725,7 +13724,7 @@ if.end109:                                        ; preds = %if.end82, %if.then1
   br i1 %cmp110.not, label %if.end114, label %if.then111
 
 if.then111:                                       ; preds = %if.end109
-  %call113 = tail call noundef i64 @_ZN2v815ArrayBufferView10ByteOffsetEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #24
+  %call113 = tail call noundef i64 @_ZN2v815ArrayBufferView10ByteOffsetEv(ptr noundef nonnull align 1 dereferenceable(1) %typedarray) #25
   store i64 %call113, ptr %byte_offset, align 8
   br label %if.end114
 
@@ -13759,7 +13758,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -13776,7 +13775,7 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %call13 = tail call noundef zeroext i1 @_ZNK2v85Value13IsArrayBufferEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
+  %call13 = tail call noundef zeroext i1 @_ZNK2v85Value13IsArrayBufferEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #25
   br i1 %call13, label %do.end17, label %if.then14
 
 if.then14:                                        ; preds = %do.end7
@@ -13793,7 +13792,7 @@ do.end17:                                         ; preds = %do.end7
   br i1 %cmp22.not, label %if.end26, label %if.then23
 
 if.then23:                                        ; preds = %do.end17
-  %call25 = tail call noundef ptr @_ZNK2v811ArrayBuffer4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
+  %call25 = tail call noundef ptr @_ZNK2v811ArrayBuffer4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #25
   store ptr %call25, ptr %data, align 8
   br label %if.end26
 
@@ -13802,7 +13801,7 @@ if.end26:                                         ; preds = %if.then23, %do.end1
   br i1 %cmp27.not, label %if.end31, label %if.then28
 
 if.then28:                                        ; preds = %if.end26
-  %call30 = tail call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
+  %call30 = tail call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #25
   store i64 %call30, ptr %byte_length, align 8
   br label %if.end31
 
@@ -13838,7 +13837,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -13868,7 +13867,7 @@ if.then10:                                        ; preds = %do.body8
   br label %return
 
 do.end13:                                         ; preds = %do.body8
-  %call18 = tail call noundef zeroext i1 @_ZNK2v85Value12IsTypedArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call18 = tail call noundef zeroext i1 @_ZNK2v85Value12IsTypedArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   %frombool = zext i1 %call18 to i8
   store i8 %frombool, ptr %result, align 1
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
@@ -13903,7 +13902,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -13924,7 +13923,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -13944,7 +13943,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %arraybuffer, null
@@ -13953,7 +13952,7 @@ do.end14:                                         ; preds = %do.body8
   br i1 %or.cond, label %cleanup.sink.split, label %do.end28
 
 do.end28:                                         ; preds = %do.end14
-  %call34 = call noundef zeroext i1 @_ZNK2v85Value13IsArrayBufferEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
+  %call34 = call noundef zeroext i1 @_ZNK2v85Value13IsArrayBufferEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #25
   br i1 %call34, label %do.end39, label %cleanup.sink.split
 
 do.end39:                                         ; preds = %do.end28
@@ -13973,7 +13972,7 @@ do.end39:                                         ; preds = %do.end28
 
 do.body45:                                        ; preds = %do.end39
   %add = add i64 %byte_offset, %length
-  %call47 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
+  %call47 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #25
   %cmp48.not = icmp ugt i64 %add, %call47
   br i1 %cmp48.not, label %if.then49, label %do.end54
 
@@ -13982,12 +13981,12 @@ if.then49:                                        ; preds = %do.body45
   br label %cleanup.sink.split
 
 do.end54:                                         ; preds = %do.body45
-  %call59 = call ptr @_ZN2v89Int8Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %arraybuffer, i64 noundef %byte_offset, i64 noundef %length) #24
+  %call59 = call ptr @_ZN2v89Int8Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %arraybuffer, i64 noundef %byte_offset, i64 noundef %length) #25
   br label %sw.epilog
 
 do.body70:                                        ; preds = %do.end39
   %add72 = add i64 %byte_offset, %length
-  %call74 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
+  %call74 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #25
   %cmp75.not = icmp ugt i64 %add72, %call74
   br i1 %cmp75.not, label %if.then76, label %do.end81
 
@@ -13996,12 +13995,12 @@ if.then76:                                        ; preds = %do.body70
   br label %cleanup.sink.split
 
 do.end81:                                         ; preds = %do.body70
-  %call88 = call ptr @_ZN2v810Uint8Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %arraybuffer, i64 noundef %byte_offset, i64 noundef %length) #24
+  %call88 = call ptr @_ZN2v810Uint8Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %arraybuffer, i64 noundef %byte_offset, i64 noundef %length) #25
   br label %sw.epilog
 
 do.body99:                                        ; preds = %do.end39
   %add101 = add i64 %byte_offset, %length
-  %call103 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
+  %call103 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #25
   %cmp104.not = icmp ugt i64 %add101, %call103
   br i1 %cmp104.not, label %if.then105, label %do.end110
 
@@ -14010,7 +14009,7 @@ if.then105:                                       ; preds = %do.body99
   br label %cleanup.sink.split
 
 do.end110:                                        ; preds = %do.body99
-  %call117 = call ptr @_ZN2v817Uint8ClampedArray3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %arraybuffer, i64 noundef %byte_offset, i64 noundef %length) #24
+  %call117 = call ptr @_ZN2v817Uint8ClampedArray3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %arraybuffer, i64 noundef %byte_offset, i64 noundef %length) #25
   br label %sw.epilog
 
 do.body128:                                       ; preds = %do.end39
@@ -14025,7 +14024,7 @@ if.then130:                                       ; preds = %do.body128
 do.body136:                                       ; preds = %do.body128
   %mul137 = shl i64 %length, 1
   %add138 = add i64 %mul137, %byte_offset
-  %call140 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
+  %call140 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #25
   %cmp141.not = icmp ugt i64 %add138, %call140
   br i1 %cmp141.not, label %if.then142, label %do.end147
 
@@ -14034,7 +14033,7 @@ if.then142:                                       ; preds = %do.body136
   br label %cleanup.sink.split
 
 do.end147:                                        ; preds = %do.body136
-  %call154 = call ptr @_ZN2v810Int16Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %arraybuffer, i64 noundef %byte_offset, i64 noundef %length) #24
+  %call154 = call ptr @_ZN2v810Int16Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %arraybuffer, i64 noundef %byte_offset, i64 noundef %length) #25
   br label %sw.epilog
 
 do.body165:                                       ; preds = %do.end39
@@ -14049,7 +14048,7 @@ if.then168:                                       ; preds = %do.body165
 do.body174:                                       ; preds = %do.body165
   %mul175 = shl i64 %length, 1
   %add176 = add i64 %mul175, %byte_offset
-  %call178 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
+  %call178 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #25
   %cmp179.not = icmp ugt i64 %add176, %call178
   br i1 %cmp179.not, label %if.then180, label %do.end185
 
@@ -14058,7 +14057,7 @@ if.then180:                                       ; preds = %do.body174
   br label %cleanup.sink.split
 
 do.end185:                                        ; preds = %do.body174
-  %call192 = call ptr @_ZN2v811Uint16Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %arraybuffer, i64 noundef %byte_offset, i64 noundef %length) #24
+  %call192 = call ptr @_ZN2v811Uint16Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %arraybuffer, i64 noundef %byte_offset, i64 noundef %length) #25
   br label %sw.epilog
 
 do.body203:                                       ; preds = %do.end39
@@ -14073,7 +14072,7 @@ if.then206:                                       ; preds = %do.body203
 do.body212:                                       ; preds = %do.body203
   %mul213 = shl i64 %length, 2
   %add214 = add i64 %mul213, %byte_offset
-  %call216 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
+  %call216 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #25
   %cmp217.not = icmp ugt i64 %add214, %call216
   br i1 %cmp217.not, label %if.then218, label %do.end223
 
@@ -14082,7 +14081,7 @@ if.then218:                                       ; preds = %do.body212
   br label %cleanup.sink.split
 
 do.end223:                                        ; preds = %do.body212
-  %call230 = call ptr @_ZN2v810Int32Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %arraybuffer, i64 noundef %byte_offset, i64 noundef %length) #24
+  %call230 = call ptr @_ZN2v810Int32Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %arraybuffer, i64 noundef %byte_offset, i64 noundef %length) #25
   br label %sw.epilog
 
 do.body241:                                       ; preds = %do.end39
@@ -14097,7 +14096,7 @@ if.then244:                                       ; preds = %do.body241
 do.body250:                                       ; preds = %do.body241
   %mul251 = shl i64 %length, 2
   %add252 = add i64 %mul251, %byte_offset
-  %call254 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
+  %call254 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #25
   %cmp255.not = icmp ugt i64 %add252, %call254
   br i1 %cmp255.not, label %if.then256, label %do.end261
 
@@ -14106,7 +14105,7 @@ if.then256:                                       ; preds = %do.body250
   br label %cleanup.sink.split
 
 do.end261:                                        ; preds = %do.body250
-  %call268 = call ptr @_ZN2v811Uint32Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %arraybuffer, i64 noundef %byte_offset, i64 noundef %length) #24
+  %call268 = call ptr @_ZN2v811Uint32Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %arraybuffer, i64 noundef %byte_offset, i64 noundef %length) #25
   br label %sw.epilog
 
 do.body279:                                       ; preds = %do.end39
@@ -14121,7 +14120,7 @@ if.then282:                                       ; preds = %do.body279
 do.body288:                                       ; preds = %do.body279
   %mul289 = shl i64 %length, 2
   %add290 = add i64 %mul289, %byte_offset
-  %call292 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
+  %call292 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #25
   %cmp293.not = icmp ugt i64 %add290, %call292
   br i1 %cmp293.not, label %if.then294, label %do.end299
 
@@ -14130,7 +14129,7 @@ if.then294:                                       ; preds = %do.body288
   br label %cleanup.sink.split
 
 do.end299:                                        ; preds = %do.body288
-  %call306 = call ptr @_ZN2v812Float32Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %arraybuffer, i64 noundef %byte_offset, i64 noundef %length) #24
+  %call306 = call ptr @_ZN2v812Float32Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %arraybuffer, i64 noundef %byte_offset, i64 noundef %length) #25
   br label %sw.epilog
 
 do.body317:                                       ; preds = %do.end39
@@ -14145,7 +14144,7 @@ if.then320:                                       ; preds = %do.body317
 do.body326:                                       ; preds = %do.body317
   %mul327 = shl i64 %length, 3
   %add328 = add i64 %mul327, %byte_offset
-  %call330 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
+  %call330 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #25
   %cmp331.not = icmp ugt i64 %add328, %call330
   br i1 %cmp331.not, label %if.then332, label %do.end337
 
@@ -14154,7 +14153,7 @@ if.then332:                                       ; preds = %do.body326
   br label %cleanup.sink.split
 
 do.end337:                                        ; preds = %do.body326
-  %call344 = call ptr @_ZN2v812Float64Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %arraybuffer, i64 noundef %byte_offset, i64 noundef %length) #24
+  %call344 = call ptr @_ZN2v812Float64Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %arraybuffer, i64 noundef %byte_offset, i64 noundef %length) #25
   br label %sw.epilog
 
 do.body355:                                       ; preds = %do.end39
@@ -14169,7 +14168,7 @@ if.then358:                                       ; preds = %do.body355
 do.body364:                                       ; preds = %do.body355
   %mul365 = shl i64 %length, 3
   %add366 = add i64 %mul365, %byte_offset
-  %call368 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
+  %call368 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #25
   %cmp369.not = icmp ugt i64 %add366, %call368
   br i1 %cmp369.not, label %if.then370, label %do.end375
 
@@ -14178,7 +14177,7 @@ if.then370:                                       ; preds = %do.body364
   br label %cleanup.sink.split
 
 do.end375:                                        ; preds = %do.body364
-  %call382 = call ptr @_ZN2v813BigInt64Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %arraybuffer, i64 noundef %byte_offset, i64 noundef %length) #24
+  %call382 = call ptr @_ZN2v813BigInt64Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %arraybuffer, i64 noundef %byte_offset, i64 noundef %length) #25
   br label %sw.epilog
 
 do.body393:                                       ; preds = %do.end39
@@ -14193,7 +14192,7 @@ if.then396:                                       ; preds = %do.body393
 do.body402:                                       ; preds = %do.body393
   %mul403 = shl i64 %length, 3
   %add404 = add i64 %mul403, %byte_offset
-  %call406 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
+  %call406 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #25
   %cmp407.not = icmp ugt i64 %add404, %call406
   br i1 %cmp407.not, label %if.then408, label %do.end413
 
@@ -14202,13 +14201,13 @@ if.then408:                                       ; preds = %do.body402
   br label %cleanup.sink.split
 
 do.end413:                                        ; preds = %do.body402
-  %call420 = call ptr @_ZN2v814BigUint64Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %arraybuffer, i64 noundef %byte_offset, i64 noundef %length) #24
+  %call420 = call ptr @_ZN2v814BigUint64Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %arraybuffer, i64 noundef %byte_offset, i64 noundef %length) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %do.end413, %do.end375, %do.end337, %do.end299, %do.end261, %do.end223, %do.end185, %do.end147, %do.end110, %do.end81, %do.end54
   %typedArray.sroa.0.0 = phi ptr [ %call420, %do.end413 ], [ %call382, %do.end375 ], [ %call344, %do.end337 ], [ %call306, %do.end299 ], [ %call268, %do.end261 ], [ %call230, %do.end223 ], [ %call192, %do.end185 ], [ %call154, %do.end147 ], [ %call117, %do.end110 ], [ %call88, %do.end81 ], [ %call59, %do.end54 ]
   store ptr %typedArray.sroa.0.0, ptr %result, align 8
-  %call439 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call439 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call439, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %sw.epilog, %do.end39, %do.end28, %do.end14, %if.then49, %if.then76, %if.then105, %if.then130, %if.then142, %if.then168, %if.then180, %if.then206, %if.then218, %if.then244, %if.then256, %if.then282, %if.then294, %if.then320, %if.then332, %if.then358, %if.then370, %if.then396, %if.then408
@@ -14223,7 +14222,7 @@ cleanup.sink.split:                               ; preds = %sw.epilog, %do.end3
 
 cleanup:                                          ; preds = %cleanup.sink.split, %sw.epilog
   %retval.0 = phi i32 [ 0, %sw.epilog ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i190, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i190:                                     ; preds = %cleanup
@@ -14231,13 +14230,13 @@ if.then.i190:                                     ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
   %isolate.i192 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
   %8 = load ptr, ptr %isolate.i192, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %9 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i190
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -14247,12 +14246,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -14331,7 +14330,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -14352,7 +14351,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -14372,7 +14371,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %arraybuffer, null
@@ -14381,12 +14380,12 @@ do.end14:                                         ; preds = %do.body8
   br i1 %or.cond, label %cleanup.sink.split, label %do.end28
 
 do.end28:                                         ; preds = %do.end14
-  %call34 = call noundef zeroext i1 @_ZNK2v85Value13IsArrayBufferEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
+  %call34 = call noundef zeroext i1 @_ZNK2v85Value13IsArrayBufferEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #25
   br i1 %call34, label %do.end39, label %cleanup.sink.split
 
 do.end39:                                         ; preds = %do.end28
   %add = add i64 %byte_offset, %byte_length
-  %call45 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
+  %call45 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #25
   %cmp46 = icmp ugt i64 %add, %call45
   br i1 %cmp46, label %if.then47, label %if.end50
 
@@ -14395,9 +14394,9 @@ if.then47:                                        ; preds = %do.end39
   br label %cleanup.sink.split
 
 if.end50:                                         ; preds = %do.end39
-  %call54 = call ptr @_ZN2v88DataView3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %arraybuffer, i64 noundef %byte_offset, i64 noundef %byte_length) #24
+  %call54 = call ptr @_ZN2v88DataView3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %arraybuffer, i64 noundef %byte_offset, i64 noundef %byte_length) #25
   store ptr %call54, ptr %result, align 8
-  %call67 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call67 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call67, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %if.end50, %do.end28, %do.end14, %if.then47
@@ -14412,7 +14411,7 @@ cleanup.sink.split:                               ; preds = %if.end50, %do.end28
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end50
   %retval.0 = phi i32 [ 0, %if.end50 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i38, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i38:                                      ; preds = %cleanup
@@ -14420,13 +14419,13 @@ if.then.i38:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
   %isolate.i40 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
   %8 = load ptr, ptr %isolate.i40, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %9 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i38
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -14436,12 +14435,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -14471,7 +14470,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -14501,7 +14500,7 @@ if.then10:                                        ; preds = %do.body8
   br label %return
 
 do.end13:                                         ; preds = %do.body8
-  %call18 = tail call noundef zeroext i1 @_ZNK2v85Value10IsDataViewEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call18 = tail call noundef zeroext i1 @_ZNK2v85Value10IsDataViewEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   %frombool = zext i1 %call18 to i8
   store i8 %frombool, ptr %result, align 1
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
@@ -14535,7 +14534,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -14552,7 +14551,7 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %call13 = tail call noundef zeroext i1 @_ZNK2v85Value10IsDataViewEv(ptr noundef nonnull align 1 dereferenceable(1) %dataview) #24
+  %call13 = tail call noundef zeroext i1 @_ZNK2v85Value10IsDataViewEv(ptr noundef nonnull align 1 dereferenceable(1) %dataview) #25
   br i1 %call13, label %do.end17, label %if.then14
 
 if.then14:                                        ; preds = %do.end7
@@ -14569,7 +14568,7 @@ do.end17:                                         ; preds = %do.end7
   br i1 %cmp22.not, label %if.end26, label %if.then23
 
 if.then23:                                        ; preds = %do.end17
-  %call25 = tail call noundef i64 @_ZN2v815ArrayBufferView10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %dataview) #24
+  %call25 = tail call noundef i64 @_ZN2v815ArrayBufferView10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %dataview) #25
   store i64 %call25, ptr %byte_length, align 8
   br label %if.end26
 
@@ -14580,12 +14579,12 @@ if.end26:                                         ; preds = %if.then23, %do.end1
   br i1 %or.cond, label %if.end35, label %if.end53
 
 if.end35:                                         ; preds = %if.end26
-  %call31 = tail call ptr @_ZN2v815ArrayBufferView6BufferEv(ptr noundef nonnull align 1 dereferenceable(1) %dataview) #24
+  %call31 = tail call ptr @_ZN2v815ArrayBufferView6BufferEv(ptr noundef nonnull align 1 dereferenceable(1) %dataview) #25
   br i1 %cmp27, label %if.then37, label %if.end42
 
 if.then37:                                        ; preds = %if.end35
-  %call39 = tail call noundef ptr @_ZNK2v811ArrayBuffer4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %call31) #24
-  %call41 = tail call noundef i64 @_ZN2v815ArrayBufferView10ByteOffsetEv(ptr noundef nonnull align 1 dereferenceable(1) %dataview) #24
+  %call39 = tail call noundef ptr @_ZNK2v811ArrayBuffer4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %call31) #25
+  %call41 = tail call noundef i64 @_ZN2v815ArrayBufferView10ByteOffsetEv(ptr noundef nonnull align 1 dereferenceable(1) %dataview) #25
   %add.ptr = getelementptr inbounds i8, ptr %call39, i64 %call41
   store ptr %add.ptr, ptr %data, align 8
   br label %if.end42
@@ -14602,7 +14601,7 @@ if.end53:                                         ; preds = %if.end26, %if.then4
   br i1 %cmp54.not, label %if.end58, label %if.then55
 
 if.then55:                                        ; preds = %if.end53
-  %call57 = tail call noundef i64 @_ZN2v815ArrayBufferView10ByteOffsetEv(ptr noundef nonnull align 1 dereferenceable(1) %dataview) #24
+  %call57 = tail call noundef i64 @_ZN2v815ArrayBufferView10ByteOffsetEv(ptr noundef nonnull align 1 dereferenceable(1) %dataview) #25
   store i64 %call57, ptr %byte_offset, align 8
   br label %if.end58
 
@@ -14669,7 +14668,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -14690,7 +14689,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -14710,7 +14709,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %deferred, null
@@ -14721,20 +14720,20 @@ do.end14:                                         ; preds = %do.body8
 do.end28:                                         ; preds = %do.end14
   %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
-  %call35 = call ptr @_ZN2v87Promise8Resolver3NewENS_5LocalINS_7ContextEEE(ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call35 = call ptr @_ZN2v87Promise8Resolver3NewENS_5LocalINS_7ContextEEE(ptr %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i = icmp eq ptr %call35, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_7Promise8ResolverEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_7Promise8ResolverEE14ToLocalCheckedEv.exit: ; preds = %do.end28
-  %call51 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #25
+  %call51 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #26
   %7 = load ptr, ptr %isolate.i, align 8
   %8 = load i64, ptr %call35, align 8
-  %call2.i91 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %7, i64 noundef %8) #24
+  %call2.i91 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %7, i64 noundef %8) #25
   store ptr %call2.i91, ptr %call51, align 8
   store ptr %call51, ptr %deferred, align 8
-  %call56 = call ptr @_ZN2v87Promise8Resolver10GetPromiseEv(ptr noundef nonnull align 1 dereferenceable(1) %call35) #24
+  %call56 = call ptr @_ZN2v87Promise8Resolver10GetPromiseEv(ptr noundef nonnull align 1 dereferenceable(1) %call35) #25
   store ptr %call56, ptr %promise, align 8
-  %call67 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call67 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call67, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_7Promise8ResolverEE14ToLocalCheckedEv.exit, %do.end28, %do.end14
@@ -14749,7 +14748,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_7Promise8ResolverEE14ToLocalCheckedEv.exit
   %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_7Promise8ResolverEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i39, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i39:                                      ; preds = %cleanup
@@ -14757,13 +14756,13 @@ if.then.i39:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %9, i64 0, i32 3
   %isolate.i41 = getelementptr inbounds %struct.napi_env__, ptr %9, i64 0, i32 1
   %10 = load ptr, ptr %isolate.i41, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %11 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i39
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %11) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %11) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -14773,12 +14772,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %12 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %10, i64 noundef %12) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %10, i64 noundef %12) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -14818,7 +14817,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -14839,7 +14838,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -14859,7 +14858,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -14875,7 +14874,7 @@ do.end21:                                         ; preds = %do.end14
 if.end.i:                                         ; preds = %do.end21
   %8 = load ptr, ptr %isolate.i, align 8
   %9 = load i64, ptr %7, align 8
-  %call.i = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %9) #24
+  %call.i = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %9) #25
   br label %_ZN2v89LocalBaseINS_5ValueEE3NewEPNS_7IsolateEPS1_.exit
 
 _ZN2v89LocalBaseINS_5ValueEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %do.end21, %if.end.i
@@ -14883,11 +14882,11 @@ _ZN2v89LocalBaseINS_5ValueEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %do.end21, %i
   br i1 %is_resolved, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %_ZN2v89LocalBaseINS_5ValueEE3NewEPNS_7IsolateEPS1_.exit
-  %call46 = call i16 @_ZN2v87Promise8Resolver7ResolveENS_5LocalINS_7ContextEEENS2_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.i109.sroa.0.0, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %result) #24
+  %call46 = call i16 @_ZN2v87Promise8Resolver7ResolveENS_5LocalINS_7ContextEEENS2_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.i109.sroa.0.0, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %result) #25
   br label %delete.notnull
 
 cond.false:                                       ; preds = %_ZN2v89LocalBaseINS_5ValueEE3NewEPNS_7IsolateEPS1_.exit
-  %call60 = call i16 @_ZN2v87Promise8Resolver6RejectENS_5LocalINS_7ContextEEENS2_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.i109.sroa.0.0, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %result) #24
+  %call60 = call i16 @_ZN2v87Promise8Resolver6RejectENS_5LocalINS_7ContextEEENS2_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.i109.sroa.0.0, ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %result) #25
   br label %delete.notnull
 
 delete.notnull:                                   ; preds = %cond.true, %cond.false
@@ -14897,17 +14896,17 @@ delete.notnull:                                   ; preds = %cond.true, %cond.fa
   br i1 %cmp.i, label %_ZN2v86GlobalINS_5ValueEED2Ev.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %delete.notnull
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %10) #25
   br label %_ZN2v86GlobalINS_5ValueEED2Ev.exit
 
 _ZN2v86GlobalINS_5ValueEED2Ev.exit:               ; preds = %delete.notnull, %if.end.i.i
-  call void @_ZdlPv(ptr noundef nonnull %deferred) #26
+  call void @_ZdlPv(ptr noundef nonnull %deferred) #27
   %11 = and i16 %success.sroa.0.0.in, 257
   %cond.i.not = icmp eq i16 %11, 257
   br i1 %cond.i.not, label %do.end67, label %cleanup.sink.split
 
 do.end67:                                         ; preds = %_ZN2v86GlobalINS_5ValueEED2Ev.exit
-  %call68 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call68 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call68, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %do.end67, %_ZN2v86GlobalINS_5ValueEED2Ev.exit, %do.end14
@@ -14922,7 +14921,7 @@ cleanup.sink.split:                               ; preds = %do.end67, %_ZN2v86G
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end67
   %retval.0 = phi i32 [ 0, %do.end67 ], [ %.sink, %cleanup.sink.split ]
-  %call.i36 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i36 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i36, label %if.then.i38, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i38:                                      ; preds = %cleanup
@@ -14930,13 +14929,13 @@ if.then.i38:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %12, i64 0, i32 3
   %isolate.i40 = getelementptr inbounds %struct.napi_env__, ptr %12, i64 0, i32 1
   %13 = load ptr, ptr %isolate.i40, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %14 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %14, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i38
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %14) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %14) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -14946,12 +14945,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %15 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %13, i64 noundef %15) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %13, i64 noundef %15) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -14986,7 +14985,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -15016,7 +15015,7 @@ if.then10:                                        ; preds = %do.body8
   br label %return
 
 do.end13:                                         ; preds = %do.body8
-  %call18 = tail call noundef zeroext i1 @_ZNK2v85Value9IsPromiseEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call18 = tail call noundef zeroext i1 @_ZNK2v85Value9IsPromiseEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   %frombool = zext i1 %call18 to i8
   store i8 %frombool, ptr %is_promise, align 1
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
@@ -15051,7 +15050,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -15072,7 +15071,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -15092,7 +15091,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
@@ -15101,13 +15100,13 @@ do.end14:                                         ; preds = %do.body8
 do.end21:                                         ; preds = %do.end14
   %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
-  %call28 = call ptr @_ZN2v84Date3NewENS_5LocalINS_7ContextEEEd(ptr %retval.sroa.0.0.copyload.i.i, double noundef %time) #24
+  %call28 = call ptr @_ZN2v84Date3NewENS_5LocalINS_7ContextEEEd(ptr %retval.sroa.0.0.copyload.i.i, double noundef %time) #25
   %cmp.i.i = icmp eq ptr %call28, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %do.end21
   store ptr %call28, ptr %result, align 8
-  %call49 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call49 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call49, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %do.end21, %do.end14
@@ -15122,7 +15121,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
   %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i28, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i28:                                      ; preds = %cleanup
@@ -15130,13 +15129,13 @@ if.then.i28:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
   %isolate.i30 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
   %8 = load ptr, ptr %isolate.i30, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %9 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i28
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -15146,12 +15145,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -15181,7 +15180,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -15211,7 +15210,7 @@ if.then10:                                        ; preds = %do.body8
   br label %return
 
 do.end13:                                         ; preds = %do.body8
-  %call18 = tail call noundef zeroext i1 @_ZNK2v85Value6IsDateEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call18 = tail call noundef zeroext i1 @_ZNK2v85Value6IsDateEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   %frombool = zext i1 %call18 to i8
   store i8 %frombool, ptr %is_date, align 1
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
@@ -15246,7 +15245,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -15267,7 +15266,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -15287,7 +15286,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
@@ -15296,13 +15295,13 @@ do.end14:                                         ; preds = %do.body8
   br i1 %or.cond, label %cleanup.sink.split, label %do.end28
 
 do.end28:                                         ; preds = %do.end14
-  %call34 = call noundef zeroext i1 @_ZNK2v85Value6IsDateEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call34 = call noundef zeroext i1 @_ZNK2v85Value6IsDateEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   br i1 %call34, label %do.end39, label %cleanup.sink.split
 
 do.end39:                                         ; preds = %do.end28
-  %call45 = call noundef double @_ZNK2v84Date7ValueOfEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
+  %call45 = call noundef double @_ZNK2v84Date7ValueOfEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #25
   store double %call45, ptr %result, align 8
-  %call46 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call46 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call46, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %do.end39, %do.end28, %do.end14
@@ -15317,7 +15316,7 @@ cleanup.sink.split:                               ; preds = %do.end39, %do.end28
 
 cleanup:                                          ; preds = %cleanup.sink.split, %do.end39
   %retval.0 = phi i32 [ 0, %do.end39 ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i31, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i31:                                      ; preds = %cleanup
@@ -15325,13 +15324,13 @@ if.then.i31:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
   %isolate.i33 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
   %8 = load ptr, ptr %isolate.i33, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %9 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i31
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %9) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -15341,12 +15340,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %10 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %10) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -15377,7 +15376,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -15398,7 +15397,7 @@ if.then4:                                         ; preds = %_ZN10napi_env__13Ch
 do.body8:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %env, align 8
   %4 = load ptr, ptr %vtable, align 8
-  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #24
+  %call9 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(189) %env) #25
   br i1 %call9, label %do.end14, label %if.then10
 
 if.then10:                                        ; preds = %do.body8
@@ -15418,7 +15417,7 @@ do.end14:                                         ; preds = %do.body8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %6 = load ptr, ptr %isolate.i, align 8
-  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
+  call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #25
   %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %script, null
@@ -15445,18 +15444,18 @@ if.end.i:                                         ; preds = %do.end28
 if.end36:                                         ; preds = %if.end.i
   %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
-  %call52 = call ptr @_ZN2v86Script7CompileENS_5LocalINS_7ContextEEENS1_INS_6StringEEEPNS_12ScriptOriginE(ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %script, ptr noundef null) #24
+  %call52 = call ptr @_ZN2v86Script7CompileENS_5LocalINS_7ContextEEENS1_INS_6StringEEEPNS_12ScriptOriginE(ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %script, ptr noundef null) #25
   %cmp.i.i116 = icmp eq ptr %call52, null
   br i1 %cmp.i.i116, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6ScriptEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_6ScriptEE14ToLocalCheckedEv.exit: ; preds = %if.end36
-  %call73 = call ptr @_ZN2v86Script3RunENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %call52, ptr %retval.sroa.0.0.copyload.i.i) #24
+  %call73 = call ptr @_ZN2v86Script3RunENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %call52, ptr %retval.sroa.0.0.copyload.i.i) #25
   %cmp.i.i = icmp eq ptr %call73, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
 
 _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %_ZN2v810MaybeLocalINS_6ScriptEE14ToLocalCheckedEv.exit
   store ptr %call73, ptr %result, align 8
-  %call94 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call94 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call94, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %_ZN2v810MaybeLocalINS_6ScriptEE14ToLocalCheckedEv.exit, %if.end36, %if.end.i, %do.end28, %do.end14
@@ -15471,7 +15470,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
   %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
-  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br i1 %call.i, label %if.then.i45, label %_ZN6v8impl8TryCatchD2Ev.exit
 
 if.then.i45:                                      ; preds = %cleanup
@@ -15479,13 +15478,13 @@ if.then.i45:                                      ; preds = %cleanup
   %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %12, i64 0, i32 3
   %isolate.i47 = getelementptr inbounds %struct.napi_env__, ptr %12, i64 0, i32 1
   %13 = load ptr, ptr %isolate.i47, align 8
-  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   %14 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i.i = icmp eq ptr %14, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i45
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %14) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %14) #25
   store ptr null, ptr %last_exception.i, align 8
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
 
@@ -15495,12 +15494,12 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i: ; preds = %if.end.i.i.i, %i
 
 if.end.i7.i:                                      ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i
   %15 = load i64, ptr %call3.i, align 8
-  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %13, i64 noundef %15) #24
+  %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %13, i64 noundef %15) #25
   store ptr %call2.i.i, ptr %last_exception.i, align 8
   br label %_ZN6v8impl8TryCatchD2Ev.exit
 
 _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i.i, %if.end.i7.i
-  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
+  call void @_ZN2v88TryCatchD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #25
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
@@ -15537,7 +15536,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -15567,7 +15566,7 @@ if.then10:                                        ; preds = %do.body8
   br label %return
 
 do.end13:                                         ; preds = %do.body8
-  %call19 = tail call noundef zeroext i1 @_ZNK2v85Value8IsObjectEv(ptr noundef nonnull align 1 dereferenceable(1) %js_object) #24
+  %call19 = tail call noundef zeroext i1 @_ZNK2v85Value8IsObjectEv(ptr noundef nonnull align 1 dereferenceable(1) %js_object) #25
   br i1 %call19, label %do.end23, label %if.then20
 
 if.then20:                                        ; preds = %do.end13
@@ -15592,7 +15591,7 @@ do.end23:                                         ; preds = %do.end13
   store ptr %finalize_cb, ptr %finalize_callback.addr.i, align 8
   store ptr %finalize_data, ptr %finalize_data.addr.i, align 8
   store ptr %finalize_hint, ptr %finalize_hint.addr.i, align 8
-  %call.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #25
+  %call.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #26
   call void @_ZN6v8impl9ReferenceC2IJRjRNS_9OwnershipERPFvP10napi_env__PvS7_ERS7_SB_EEES6_N2v85LocalINSC_5ValueEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(81) %call.i, ptr noundef nonnull %env, ptr nonnull %js_object, ptr noundef nonnull align 4 dereferenceable(4) %initial_refcount.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %ownership.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_callback.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_data.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_hint.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %initial_refcount.addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ownership.addr.i)
@@ -15623,7 +15622,7 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %call.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
+  %call.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #26
   %env_.i.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %call.i, i64 0, i32 1
   store ptr %env, ptr %env_.i.i.i, align 8
   %finalize_callback_.i.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %call.i, i64 0, i32 2
@@ -15658,7 +15657,7 @@ _ZN6v8impl16TrackedFinalizer3NewEP10napi_env__PFvS2_PvS3_ES3_S3_.exit: ; preds =
   %vtable = load ptr, ptr %env, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
   %2 = load ptr, ptr %vfn, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(189) %env, ptr noundef nonnull %0) #24
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(189) %env, ptr noundef nonnull %0) #25
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
@@ -15690,7 +15689,7 @@ if.then3:                                         ; preds = %do.body1
 do.end5:                                          ; preds = %do.body1
   %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
   %0 = load ptr, ptr %isolate, align 8
-  %call6 = tail call noundef i64 @_ZN2v87Isolate37AdjustAmountOfExternalAllocatedMemoryEl(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %change_in_bytes) #24
+  %call6 = tail call noundef i64 @_ZN2v87Isolate37AdjustAmountOfExternalAllocatedMemoryEl(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %change_in_bytes) #25
   store i64 %call6, ptr %adjusted_value, align 8
   %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -15719,11 +15718,11 @@ delete.notnull:                                   ; preds = %do.end
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
   %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(72) %0) #24
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(72) %0) #25
   br label %if.end3
 
 if.end3:                                          ; preds = %delete.notnull, %do.end
-  %call.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
+  %call.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #26
   %env_.i.i.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %call.i, i64 0, i32 1
   store ptr %env, ptr %env_.i.i.i.i, align 8
   %finalize_callback_.i.i.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %call.i, i64 0, i32 2
@@ -15831,7 +15830,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i8
 
 if.then.i8:                                       ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -15848,7 +15847,7 @@ if.then5:                                         ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %call13 = tail call noundef zeroext i1 @_ZNK2v85Value13IsArrayBufferEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
+  %call13 = tail call noundef zeroext i1 @_ZNK2v85Value13IsArrayBufferEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #25
   br i1 %call13, label %do.end17, label %if.then14
 
 if.then14:                                        ; preds = %do.end7
@@ -15861,7 +15860,7 @@ if.then14:                                        ; preds = %do.end7
   br label %return
 
 do.end17:                                         ; preds = %do.end7
-  %call24 = tail call noundef zeroext i1 @_ZNK2v811ArrayBuffer12IsDetachableEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
+  %call24 = tail call noundef zeroext i1 @_ZNK2v811ArrayBuffer12IsDetachableEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #25
   br i1 %call24, label %do.end28, label %if.then25
 
 if.then25:                                        ; preds = %do.end17
@@ -15874,13 +15873,13 @@ if.then25:                                        ; preds = %do.end17
   br label %return
 
 do.end28:                                         ; preds = %do.end17
-  %call33 = tail call i16 @_ZN2v811ArrayBuffer6DetachENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer, ptr null) #24
+  %call33 = tail call i16 @_ZN2v811ArrayBuffer6DetachENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer, ptr null) #25
   %3 = and i16 %call33, 1
   %tobool.i.not = icmp eq i16 %3, 0
   br i1 %tobool.i.not, label %if.then.i, label %_ZNK2v85MaybeIbE5CheckEv.exit
 
 if.then.i:                                        ; preds = %do.end28
-  tail call void @_ZN2v812api_internal17FromJustIsNothingEv() #24
+  tail call void @_ZN2v812api_internal17FromJustIsNothingEv() #25
   br label %_ZNK2v85MaybeIbE5CheckEv.exit
 
 _ZNK2v85MaybeIbE5CheckEv.exit:                    ; preds = %if.then.i, %do.end28
@@ -15917,7 +15916,7 @@ land.lhs.true.i:                                  ; preds = %do.end
   br i1 %tobool.not.i, label %_ZN10napi_env__13CheckGCAccessEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #28
+  tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.41) #29
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
@@ -15947,11 +15946,11 @@ if.then10:                                        ; preds = %do.body8
   br label %return
 
 do.end13:                                         ; preds = %do.body8
-  %call18 = tail call noundef zeroext i1 @_ZNK2v85Value13IsArrayBufferEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
+  %call18 = tail call noundef zeroext i1 @_ZNK2v85Value13IsArrayBufferEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #25
   br i1 %call18, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %do.end13
-  %call24 = tail call noundef zeroext i1 @_ZNK2v811ArrayBuffer11WasDetachedEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #24
+  %call24 = tail call noundef zeroext i1 @_ZNK2v811ArrayBuffer11WasDetachedEv(ptr noundef nonnull align 1 dereferenceable(1) %arraybuffer) #25
   %3 = zext i1 %call24 to i8
   br label %land.end
 
@@ -16004,7 +16003,7 @@ _ZN6v8impl16TrackedFinalizerD2Ev.exit:            ; preds = %if.end.i.i, %if.the
   %vtable.i = load ptr, ptr %2, align 8
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
   %3 = load ptr, ptr %vfn.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(189) %2, ptr noundef nonnull %add.ptr.i) #24
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(189) %2, ptr noundef nonnull %add.ptr.i) #25
   ret void
 }
 
@@ -16043,8 +16042,8 @@ _ZN6v8impl7RefBaseD2Ev.exit:                      ; preds = %if.end.i.i.i, %if.t
   %vtable.i.i = load ptr, ptr %2, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
   %3 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(189) %2, ptr noundef nonnull %add.ptr.i.i) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(189) %2, ptr noundef nonnull %add.ptr.i.i) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
 
@@ -16083,7 +16082,7 @@ _ZN6v8impl7RefBaseD2Ev.exit:                      ; preds = %if.end.i.i.i, %if.t
   %vtable.i.i = load ptr, ptr %3, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
   %4 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(189) %3, ptr noundef nonnull %this) #24
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(189) %3, ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -16122,15 +16121,15 @@ _ZN6v8impl7RefBaseD0Ev.exit:                      ; preds = %if.end.i.i.i.i, %if
   %vtable.i.i.i = load ptr, ptr %3, align 8
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 3
   %4 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(189) %3, ptr noundef nonnull %this) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #26
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(189) %3, ptr noundef nonnull %this) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #27
   ret void
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
 define linkonce_odr dso_local void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef %location, ptr noundef %message) local_unnamed_addr #15 comdat {
 entry:
-  tail call void @_ZN4node12OnFatalErrorEPKcS1_(ptr noundef %location, ptr noundef %message) #27
+  tail call void @_ZN4node12OnFatalErrorEPKcS1_(ptr noundef %location, ptr noundef %message) #28
   unreachable
 }
 
@@ -16160,7 +16159,7 @@ entry:
   store ptr %info, ptr %_cbinfo.i.i, align 8
   %2 = load ptr, ptr %info, align 8
   %arrayidx.i.i.i = getelementptr inbounds i64, ptr %2, i64 4
-  %call22.i.i = tail call noundef ptr @_ZNK2v88External5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx.i.i.i) #24
+  %call22.i.i = tail call noundef ptr @_ZNK2v88External5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx.i.i.i) #25
   %_bundle.i.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::CallbackWrapperBase", ptr %cbwrapper, i64 0, i32 2
   store ptr %call22.i.i, ptr %_bundle.i.i, align 8
   %cb_data.i.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::CallbackBundle", ptr %call22.i.i, i64 0, i32 1
@@ -16176,14 +16175,14 @@ entry:
   %7 = load i32, ptr %open_callback_scopes.i.i, align 4
   %last_error.i.i.i = getelementptr inbounds %struct.napi_env__, ptr %4, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i.i.i, i8 0, i64 24, i1 false)
-  %call.i3.i.i = call noundef ptr %5(ptr noundef nonnull %4, ptr noundef nonnull %cbwrapper) #24
+  %call.i3.i.i = call noundef ptr %5(ptr noundef nonnull %4, ptr noundef nonnull %cbwrapper) #25
   %8 = load i32, ptr %open_handle_scopes.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %8, %6
   br i1 %cmp.not.i.i, label %do.body8.i.i, label %do.body6.i.i
 
 do.body6.i.i:                                     ; preds = %entry
-  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN10napi_env__14CallIntoModuleIZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvEUlPS_E_ZNS3_14InvokeCallbackEvEUlS4_N2v85LocalINS6_5ValueEEEE_EEvOT_OT0_E4args) #24
-  call void @abort() #27
+  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN10napi_env__14CallIntoModuleIZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvEUlPS_E_ZNS3_14InvokeCallbackEvEUlS4_N2v85LocalINS6_5ValueEEEE_EEvOT_OT0_E4args) #25
+  call void @abort() #28
   unreachable
 
 do.body8.i.i:                                     ; preds = %entry
@@ -16192,8 +16191,8 @@ do.body8.i.i:                                     ; preds = %entry
   br i1 %cmp10.not.i.i, label %do.end18.i.i, label %do.body15.i.i
 
 do.body15.i.i:                                    ; preds = %do.body8.i.i
-  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN10napi_env__14CallIntoModuleIZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvEUlPS_E_ZNS3_14InvokeCallbackEvEUlS4_N2v85LocalINS6_5ValueEEEE_EEvOT_OT0_E4args_0) #24
-  call void @abort() #27
+  call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN10napi_env__14CallIntoModuleIZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvEUlPS_E_ZNS3_14InvokeCallbackEvEUlS4_N2v85LocalINS6_5ValueEEEE_EEvOT_OT0_E4args_0) #25
+  call void @abort() #28
   unreachable
 
 do.end18.i.i:                                     ; preds = %do.body8.i.i
@@ -16206,20 +16205,20 @@ if.end.i48.i.i:                                   ; preds = %do.end18.i.i
   %isolate.i.i = getelementptr inbounds %struct.napi_env__, ptr %4, i64 0, i32 1
   %11 = load ptr, ptr %isolate.i.i, align 8
   %12 = load i64, ptr %10, align 8
-  %call.i.i.i = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %11, i64 noundef %12) #24
+  %call.i.i.i = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %11, i64 noundef %12) #25
   %13 = load ptr, ptr %isolate.i.i, align 8
-  %call.i.i.i.i = call noundef zeroext i1 @_ZN2v87Isolate22IsExecutionTerminatingEv(ptr noundef nonnull align 1 dereferenceable(1) %13) #24
+  %call.i.i.i.i = call noundef zeroext i1 @_ZN2v87Isolate22IsExecutionTerminatingEv(ptr noundef nonnull align 1 dereferenceable(1) %13) #25
   br i1 %call.i.i.i.i, label %_ZZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvENKUlP10napi_env__N2v85LocalINS4_5ValueEEEE_clES3_S7_.exit.i.i, label %_ZN10napi_env__23terminatedOrTerminatingEv.exit.i.i.i
 
 _ZN10napi_env__23terminatedOrTerminatingEv.exit.i.i.i: ; preds = %if.end.i48.i.i
   %vtable.i.i.i.i = load ptr, ptr %4, align 8
   %14 = load ptr, ptr %vtable.i.i.i.i, align 8
-  %call2.i.i.i.i = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(189) %4) #24
+  %call2.i.i.i.i = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(189) %4) #25
   br i1 %call2.i.i.i.i, label %if.end.i4.i.i, label %_ZZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvENKUlP10napi_env__N2v85LocalINS4_5ValueEEEE_clES3_S7_.exit.i.i
 
 if.end.i4.i.i:                                    ; preds = %_ZN10napi_env__23terminatedOrTerminatingEv.exit.i.i.i
   %15 = load ptr, ptr %isolate.i.i, align 8
-  %call7.i.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr %call.i.i.i) #24
+  %call7.i.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr %call.i.i.i) #25
   br label %_ZZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvENKUlP10napi_env__N2v85LocalINS4_5ValueEEEE_clES3_S7_.exit.i.i
 
 _ZZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvENKUlP10napi_env__N2v85LocalINS4_5ValueEEEE_clES3_S7_.exit.i.i: ; preds = %if.end.i4.i.i, %_ZN10napi_env__23terminatedOrTerminatingEv.exit.i.i.i, %if.end.i48.i.i
@@ -16228,7 +16227,7 @@ _ZZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvENKUlP10napi_env
   br i1 %cmp.i.i.i, label %_ZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEv.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvENKUlP10napi_env__N2v85LocalINS4_5ValueEEEE_clES3_S7_.exit.i.i
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %16) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %16) #25
   store ptr null, ptr %last_exception.i.i, align 8
   br label %_ZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEv.exit
 
@@ -16240,7 +16239,7 @@ if.then.i:                                        ; preds = %_ZN10napi_env__14Ca
   %vtable.i = load ptr, ptr %cbwrapper, align 8
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
   %17 = load ptr, ptr %vfn.i, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(32) %cbwrapper, ptr noundef nonnull %call.i3.i.i) #24
+  call void %17(ptr noundef nonnull align 8 dereferenceable(32) %cbwrapper, ptr noundef nonnull %call.i3.i.i) #25
   br label %_ZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEv.exit
 
 _ZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEv.exit: ; preds = %_ZZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvENKUlP10napi_env__N2v85LocalINS4_5ValueEEEE_clES3_S7_.exit.i.i, %if.end.i.i.i, %_ZN10napi_env__14CallIntoModuleIZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvEUlPS_E_ZNS3_14InvokeCallbackEvEUlS4_N2v85LocalINS6_5ValueEEEE_EEvOT_OT0_.exit.i, %if.then.i
@@ -16254,7 +16253,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %data) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %data) #27
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -16415,6 +16414,9 @@ declare noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7Isol
 
 declare ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef, ptr noundef, ptr, ptr, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #0
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #19
+
 declare void @_ZN2v812api_internal17FromJustIsNothingEv() local_unnamed_addr #0
 
 declare i16 @_ZN2v86Object13DeletePrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr) local_unnamed_addr #0
@@ -16455,7 +16457,7 @@ declare ptr @_ZN2v86String14NewFromTwoByteEPNS_7IsolateEPKtNS_13NewStringTypeEi(
 declare ptr @_ZN2v86String18NewExternalOneByteEPNS_7IsolateEPNS0_29ExternalOneByteStringResourceE(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #19
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 {
@@ -16480,7 +16482,7 @@ if.then3.i:                                       ; preds = %if.end.i
   %3 = load ptr, ptr %finalize_data_.i, align 8
   %finalize_hint_.i = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load ptr, ptr %finalize_hint_.i, align 8
-  tail call void %1(ptr noundef null, ptr noundef %3, ptr noundef %4) #24
+  tail call void %1(ptr noundef null, ptr noundef %3, ptr noundef %4) #25
   br label %_ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD2Ev.exit
 
 if.else.i:                                        ; preds = %if.end.i
@@ -16517,7 +16519,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i:           ; preds = %if.then6.i.i, %if.e
   %vtable.i = load ptr, ptr %7, align 8
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
   %11 = load ptr, ptr %vfn.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #24
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #25
   br label %_ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD2Ev.exit
 
 _ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD2Ev.exit: ; preds = %entry, %if.then3.i, %_ZN6v8impl10RefTracker6UnlinkEv.exit.i
@@ -16547,7 +16549,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
   %3 = load ptr, ptr %finalize_data_.i.i, align 8
   %finalize_hint_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load ptr, ptr %finalize_hint_.i.i, align 8
-  tail call void %1(ptr noundef null, ptr noundef %3, ptr noundef %4) #24
+  tail call void %1(ptr noundef null, ptr noundef %3, ptr noundef %4) #25
   br label %_ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD2Ev.exit
 
 if.else.i.i:                                      ; preds = %if.end.i.i
@@ -16584,11 +16586,11 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i:         ; preds = %if.then6.i.i.i, %if
   %vtable.i.i = load ptr, ptr %7, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
   %11 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #24
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #25
   br label %_ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD2Ev.exit
 
 _ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD2Ev.exit: ; preds = %entry, %if.then3.i.i, %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
 
@@ -16604,7 +16606,7 @@ entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
   %0 = load ptr, ptr %vfn, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %this) #24
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %this) #25
   ret void
 }
 
@@ -16658,7 +16660,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
   %2 = load ptr, ptr %finalize_data_.i.i, align 8
   %finalize_hint_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %finalize_hint_.i.i, align 8
-  tail call void %0(ptr noundef null, ptr noundef %2, ptr noundef %3) #24
+  tail call void %0(ptr noundef null, ptr noundef %2, ptr noundef %3) #25
   br label %_ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD2Ev.exit
 
 if.else.i.i:                                      ; preds = %if.end.i.i
@@ -16695,7 +16697,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i:         ; preds = %if.then6.i.i.i, %if
   %vtable.i.i = load ptr, ptr %6, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
   %10 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(189) %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #24
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(189) %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #25
   br label %_ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD2Ev.exit
 
 _ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD2Ev.exit: ; preds = %entry, %if.then3.i.i, %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i
@@ -16724,7 +16726,7 @@ if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
   %2 = load ptr, ptr %finalize_data_.i.i.i, align 8
   %finalize_hint_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %finalize_hint_.i.i.i, align 8
-  tail call void %0(ptr noundef null, ptr noundef %2, ptr noundef %3) #24
+  tail call void %0(ptr noundef null, ptr noundef %2, ptr noundef %3) #25
   br label %_ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD0Ev.exit
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i.i
@@ -16761,17 +16763,17 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i.i:       ; preds = %if.then6.i.i.i.i, %
   %vtable.i.i.i = load ptr, ptr %6, align 8
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
   %10 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(189) %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #24
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(189) %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #25
   br label %_ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD0Ev.exit
 
 _ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD0Ev.exit: ; preds = %entry, %if.then3.i.i.i, %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i.i
   %11 = getelementptr inbounds i8, ptr %this, i64 -16
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #27
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6v8impl12_GLOBAL__N_121TrackedStringResource8FinalizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #20 align 2 {
+define internal void @_ZN6v8impl12_GLOBAL__N_121TrackedStringResource8FinalizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #21 align 2 {
 entry:
   %prev_.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %prev_.i, align 8
@@ -16824,7 +16826,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
   %3 = load ptr, ptr %finalize_data_.i.i, align 8
   %finalize_hint_.i.i = getelementptr inbounds i8, ptr %this, i64 -8
   %4 = load ptr, ptr %finalize_hint_.i.i, align 8
-  tail call void %1(ptr noundef null, ptr noundef %3, ptr noundef %4) #24
+  tail call void %1(ptr noundef null, ptr noundef %3, ptr noundef %4) #25
   br label %_ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD2Ev.exit
 
 if.else.i.i:                                      ; preds = %if.end.i.i
@@ -16861,7 +16863,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i:         ; preds = %if.then6.i.i.i, %if
   %vtable.i.i = load ptr, ptr %7, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
   %11 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #24
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #25
   br label %_ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD2Ev.exit
 
 _ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD2Ev.exit: ; preds = %entry, %if.then3.i.i, %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i
@@ -16890,7 +16892,7 @@ if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
   %3 = load ptr, ptr %finalize_data_.i.i.i, align 8
   %finalize_hint_.i.i.i = getelementptr inbounds i8, ptr %this, i64 -8
   %4 = load ptr, ptr %finalize_hint_.i.i.i, align 8
-  tail call void %1(ptr noundef null, ptr noundef %3, ptr noundef %4) #24
+  tail call void %1(ptr noundef null, ptr noundef %3, ptr noundef %4) #25
   br label %_ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD0Ev.exit
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i.i
@@ -16927,17 +16929,17 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i.i:       ; preds = %if.then6.i.i.i.i, %
   %vtable.i.i.i = load ptr, ptr %7, align 8
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
   %11 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #24
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #25
   br label %_ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD0Ev.exit
 
 _ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD0Ev.exit: ; preds = %entry, %if.then3.i.i.i, %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i.i
   %12 = getelementptr inbounds i8, ptr %this, i64 -56
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #27
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZThn40_N6v8impl12_GLOBAL__N_121TrackedStringResource8FinalizeEv(ptr nocapture noundef %this) unnamed_addr #20 align 2 {
+define internal void @_ZThn40_N6v8impl12_GLOBAL__N_121TrackedStringResource8FinalizeEv(ptr nocapture noundef %this) unnamed_addr #21 align 2 {
 entry:
   %prev_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %prev_.i.i, align 8
@@ -16990,7 +16992,7 @@ if.then3:                                         ; preds = %if.end
   %2 = load ptr, ptr %finalize_data_, align 8
   %finalize_hint_ = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 4
   %3 = load ptr, ptr %finalize_hint_, align 8
-  tail call void %0(ptr noundef null, ptr noundef %2, ptr noundef %3) #24
+  tail call void %0(ptr noundef null, ptr noundef %2, ptr noundef %3) #25
   br label %cleanup
 
 if.else:                                          ; preds = %if.end
@@ -17027,7 +17029,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit:             ; preds = %if.end.i, %if.then6
   %vtable = load ptr, ptr %6, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
   %10 = load ptr, ptr %vfn, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(189) %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #24
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(189) %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #25
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then3, %_ZN6v8impl10RefTracker6UnlinkEv.exit, %entry
@@ -17056,7 +17058,7 @@ if.then3.i:                                       ; preds = %if.end.i
   %2 = load ptr, ptr %finalize_data_.i, align 8
   %finalize_hint_.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 4
   %3 = load ptr, ptr %finalize_hint_.i, align 8
-  tail call void %0(ptr noundef null, ptr noundef %2, ptr noundef %3) #24
+  tail call void %0(ptr noundef null, ptr noundef %2, ptr noundef %3) #25
   br label %_ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD2Ev.exit
 
 if.else.i:                                        ; preds = %if.end.i
@@ -17093,11 +17095,11 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i:           ; preds = %if.then6.i.i, %if.e
   %vtable.i = load ptr, ptr %6, align 8
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
   %10 = load ptr, ptr %vfn.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(189) %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #24
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(189) %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #25
   br label %_ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD2Ev.exit
 
 _ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD2Ev.exit: ; preds = %entry, %if.then3.i, %_ZN6v8impl10RefTracker6UnlinkEv.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
 
@@ -17123,7 +17125,7 @@ if.then3.i:                                       ; preds = %if.end.i
   %3 = load ptr, ptr %finalize_data_.i, align 8
   %finalize_hint_.i = getelementptr inbounds i8, ptr %this, i64 -8
   %4 = load ptr, ptr %finalize_hint_.i, align 8
-  tail call void %1(ptr noundef null, ptr noundef %3, ptr noundef %4) #24
+  tail call void %1(ptr noundef null, ptr noundef %3, ptr noundef %4) #25
   br label %_ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD2Ev.exit
 
 if.else.i:                                        ; preds = %if.end.i
@@ -17160,7 +17162,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i:           ; preds = %if.then6.i.i, %if.e
   %vtable.i = load ptr, ptr %7, align 8
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
   %11 = load ptr, ptr %vfn.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #24
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #25
   br label %_ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD2Ev.exit
 
 _ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD2Ev.exit: ; preds = %entry, %if.then3.i, %_ZN6v8impl10RefTracker6UnlinkEv.exit.i
@@ -17189,7 +17191,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
   %3 = load ptr, ptr %finalize_data_.i.i, align 8
   %finalize_hint_.i.i = getelementptr inbounds i8, ptr %this, i64 -8
   %4 = load ptr, ptr %finalize_hint_.i.i, align 8
-  tail call void %1(ptr noundef null, ptr noundef %3, ptr noundef %4) #24
+  tail call void %1(ptr noundef null, ptr noundef %3, ptr noundef %4) #25
   br label %_ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD0Ev.exit
 
 if.else.i.i:                                      ; preds = %if.end.i.i
@@ -17226,11 +17228,11 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i:         ; preds = %if.then6.i.i.i, %if
   %vtable.i.i = load ptr, ptr %7, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
   %11 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #24
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #25
   br label %_ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD0Ev.exit
 
 _ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD0Ev.exit: ; preds = %entry, %if.then3.i.i, %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #27
   ret void
 }
 
@@ -17259,7 +17261,7 @@ if.then3.i:                                       ; preds = %if.end.i
   %3 = load ptr, ptr %finalize_data_.i, align 8
   %finalize_hint_.i = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load ptr, ptr %finalize_hint_.i, align 8
-  tail call void %1(ptr noundef null, ptr noundef %3, ptr noundef %4) #24
+  tail call void %1(ptr noundef null, ptr noundef %3, ptr noundef %4) #25
   br label %_ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD2Ev.exit
 
 if.else.i:                                        ; preds = %if.end.i
@@ -17296,7 +17298,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i:           ; preds = %if.then6.i.i, %if.e
   %vtable.i = load ptr, ptr %7, align 8
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
   %11 = load ptr, ptr %vfn.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #24
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #25
   br label %_ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD2Ev.exit
 
 _ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD2Ev.exit: ; preds = %entry, %if.then3.i, %_ZN6v8impl10RefTracker6UnlinkEv.exit.i
@@ -17326,7 +17328,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
   %3 = load ptr, ptr %finalize_data_.i.i, align 8
   %finalize_hint_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load ptr, ptr %finalize_hint_.i.i, align 8
-  tail call void %1(ptr noundef null, ptr noundef %3, ptr noundef %4) #24
+  tail call void %1(ptr noundef null, ptr noundef %3, ptr noundef %4) #25
   br label %_ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD2Ev.exit
 
 if.else.i.i:                                      ; preds = %if.end.i.i
@@ -17363,11 +17365,11 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i:         ; preds = %if.then6.i.i.i, %if
   %vtable.i.i = load ptr, ptr %7, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
   %11 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #24
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #25
   br label %_ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD2Ev.exit
 
 _ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD2Ev.exit: ; preds = %entry, %if.then3.i.i, %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
 
@@ -17409,7 +17411,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
   %2 = load ptr, ptr %finalize_data_.i.i, align 8
   %finalize_hint_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %finalize_hint_.i.i, align 8
-  tail call void %0(ptr noundef null, ptr noundef %2, ptr noundef %3) #24
+  tail call void %0(ptr noundef null, ptr noundef %2, ptr noundef %3) #25
   br label %_ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD2Ev.exit
 
 if.else.i.i:                                      ; preds = %if.end.i.i
@@ -17446,7 +17448,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i:         ; preds = %if.then6.i.i.i, %if
   %vtable.i.i = load ptr, ptr %6, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
   %10 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(189) %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #24
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(189) %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #25
   br label %_ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD2Ev.exit
 
 _ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD2Ev.exit: ; preds = %entry, %if.then3.i.i, %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i
@@ -17475,7 +17477,7 @@ if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
   %2 = load ptr, ptr %finalize_data_.i.i.i, align 8
   %finalize_hint_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %finalize_hint_.i.i.i, align 8
-  tail call void %0(ptr noundef null, ptr noundef %2, ptr noundef %3) #24
+  tail call void %0(ptr noundef null, ptr noundef %2, ptr noundef %3) #25
   br label %_ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD0Ev.exit
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i.i
@@ -17512,12 +17514,12 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i.i:       ; preds = %if.then6.i.i.i.i, %
   %vtable.i.i.i = load ptr, ptr %6, align 8
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
   %10 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(189) %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #24
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(189) %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #25
   br label %_ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD0Ev.exit
 
 _ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD0Ev.exit: ; preds = %entry, %if.then3.i.i.i, %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i.i
   %11 = getelementptr inbounds i8, ptr %this, i64 -16
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #27
   ret void
 }
 
@@ -17543,7 +17545,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
   %3 = load ptr, ptr %finalize_data_.i.i, align 8
   %finalize_hint_.i.i = getelementptr inbounds i8, ptr %this, i64 -8
   %4 = load ptr, ptr %finalize_hint_.i.i, align 8
-  tail call void %1(ptr noundef null, ptr noundef %3, ptr noundef %4) #24
+  tail call void %1(ptr noundef null, ptr noundef %3, ptr noundef %4) #25
   br label %_ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD2Ev.exit
 
 if.else.i.i:                                      ; preds = %if.end.i.i
@@ -17580,7 +17582,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i:         ; preds = %if.then6.i.i.i, %if
   %vtable.i.i = load ptr, ptr %7, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
   %11 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #24
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #25
   br label %_ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD2Ev.exit
 
 _ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD2Ev.exit: ; preds = %entry, %if.then3.i.i, %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i
@@ -17609,7 +17611,7 @@ if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
   %3 = load ptr, ptr %finalize_data_.i.i.i, align 8
   %finalize_hint_.i.i.i = getelementptr inbounds i8, ptr %this, i64 -8
   %4 = load ptr, ptr %finalize_hint_.i.i.i, align 8
-  tail call void %1(ptr noundef null, ptr noundef %3, ptr noundef %4) #24
+  tail call void %1(ptr noundef null, ptr noundef %3, ptr noundef %4) #25
   br label %_ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD0Ev.exit
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i.i
@@ -17646,25 +17648,22 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i.i:       ; preds = %if.then6.i.i.i.i, %
   %vtable.i.i.i = load ptr, ptr %7, align 8
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
   %11 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #24
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #25
   br label %_ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD0Ev.exit
 
 _ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD0Ev.exit: ; preds = %entry, %if.then3.i.i.i, %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i.i
   %12 = getelementptr inbounds i8, ptr %this, i64 -56
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #27
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @_GLOBAL__sub_I_js_native_api_v8.cc() #8 section ".text.startup" {
 entry:
-  tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit) #24
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #24
+  tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit) #25
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #25
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
@@ -17673,13 +17672,13 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #21
+declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #21
+declare i64 @llvm.umax.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #23
+declare void @llvm.assume(i1 noundef) #24
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -17700,16 +17699,17 @@ attributes #15 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" 
 attributes #16 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #24 = { nounwind }
-attributes #25 = { builtin nounwind allocsize(0) }
-attributes #26 = { builtin nounwind }
-attributes #27 = { noreturn nounwind }
-attributes #28 = { noreturn }
+attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #25 = { nounwind }
+attributes #26 = { builtin nounwind allocsize(0) }
+attributes #27 = { builtin nounwind }
+attributes #28 = { noreturn nounwind }
+attributes #29 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -662,19 +662,18 @@ if.else79:                                        ; preds = %if.end129, %if.end6
 
 if.else84:                                        ; preds = %if.else79
   %call85 = tail call fastcc noundef double @_ZN4absl15random_internal12_GLOBAL__N_118BetaIncompleteImplEdddd(double noundef %value.1102, double noundef %p, double noundef %q, double noundef %beta)
-  %15 = tail call double @llvm.fabs.f64(double %call85)
-  %16 = fcmp ueq double %15, 0x7FF0000000000000
-  br i1 %16, label %common.ret124, label %if.end90
+  %15 = tail call noundef i1 @llvm.is.fpclass.f64(double %call85, i32 504)
+  br i1 %15, label %if.end90, label %common.ret124
 
 if.end90:                                         ; preds = %if.else79, %if.else84
   %y74.0 = phi double [ %call85, %if.else84 ], [ %value.1102, %if.else79 ]
   %sub91 = fsub double %y74.0, %alpha
   %call92 = tail call double @log(double noundef %value.1102) #15
-  %17 = tail call double @llvm.fmuladd.f64(double %sub71, double %call92, double %beta)
+  %16 = tail call double @llvm.fmuladd.f64(double %sub71, double %call92, double %beta)
   %sub94 = fsub double 1.000000e+00, %value.1102
   %call95 = tail call double @log(double noundef %sub94) #15
-  %18 = tail call double @llvm.fmuladd.f64(double %sub73, double %call95, double %17)
-  %call97 = tail call double @exp(double noundef %18) #15
+  %17 = tail call double @llvm.fmuladd.f64(double %sub73, double %call95, double %16)
+  %call97 = tail call double @exp(double noundef %17) #15
   %mul98 = fmul double %sub91, %call97
   %mul123 = fmul double %mul98, %mul98
   %mul123.fr = freeze double %mul123
@@ -750,6 +749,9 @@ entry:
 }
 
 declare noundef i64 @_ZN4absl16numbers_internal17SixDigitsToBufferEdPc(double noundef, ptr noundef) local_unnamed_addr #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #4
 
 declare void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr, i64, ptr, i64) local_unnamed_addr #0
 

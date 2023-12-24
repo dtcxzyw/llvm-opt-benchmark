@@ -6523,9 +6523,8 @@ sw.bb7:                                           ; preds = %entry
   %27 = load float, ptr %ptr, align 4
   %28 = tail call noundef float @llvm.fma.f32(float %24, float %27, float %26)
   %29 = tail call noundef float @llvm.fma.f32(float %24, float %28, float %25)
-  %30 = tail call float @llvm.fabs.f32(float %29)
-  %31 = fcmp oeq float %30, 0x7FF0000000000000
-  br i1 %31, label %if.then.i.i.i.i, label %if.end.i.i.i.i
+  %30 = tail call noundef i1 @llvm.is.fpclass.f32(float %29, i32 516)
+  br i1 %30, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %sw.bb7
   %cmp.i.i.i.i19 = fcmp ogt float %29, 0.000000e+00
@@ -6542,129 +6541,127 @@ if.end.i.i.i.i:                                   ; preds = %sw.bb7
   br label %return
 
 sw.bb9:                                           ; preds = %entry
-  %32 = load ptr, ptr %func, align 8
-  %33 = load float, ptr %32, align 4
-  %34 = load float, ptr %ptr, align 4
+  %31 = load ptr, ptr %func, align 8
+  %32 = load float, ptr %31, align 4
+  %33 = load float, ptr %ptr, align 4
   %rsp.i.i = getelementptr inbounds %"class.pbrt::RGBUnboundedSpectrum", ptr %ptr, i64 0, i32 1
   %c2.i.i.i21 = getelementptr inbounds %"class.pbrt::RGBUnboundedSpectrum", ptr %ptr, i64 0, i32 1, i32 2
-  %35 = load float, ptr %c2.i.i.i21, align 4
+  %34 = load float, ptr %c2.i.i.i21, align 4
   %c1.i.i.i22 = getelementptr inbounds %"class.pbrt::RGBUnboundedSpectrum", ptr %ptr, i64 0, i32 1, i32 1
-  %36 = load float, ptr %c1.i.i.i22, align 4
-  %37 = load float, ptr %rsp.i.i, align 4
-  %38 = tail call noundef float @llvm.fma.f32(float %33, float %37, float %36)
-  %39 = tail call noundef float @llvm.fma.f32(float %33, float %38, float %35)
-  %40 = tail call float @llvm.fabs.f32(float %39)
-  %41 = fcmp oeq float %40, 0x7FF0000000000000
-  br i1 %41, label %if.then.i.i.i.i31, label %if.end.i.i.i.i23
+  %35 = load float, ptr %c1.i.i.i22, align 4
+  %36 = load float, ptr %rsp.i.i, align 4
+  %37 = tail call noundef float @llvm.fma.f32(float %32, float %36, float %35)
+  %38 = tail call noundef float @llvm.fma.f32(float %32, float %37, float %34)
+  %39 = tail call noundef i1 @llvm.is.fpclass.f32(float %38, i32 516)
+  br i1 %39, label %if.then.i.i.i.i31, label %if.end.i.i.i.i23
 
 if.then.i.i.i.i31:                                ; preds = %sw.bb9
-  %cmp.i.i.i.i32 = fcmp ogt float %39, 0.000000e+00
+  %cmp.i.i.i.i32 = fcmp ogt float %38, 0.000000e+00
   %conv.i.i.i.i33 = uitofp i1 %cmp.i.i.i.i32 to float
   br label %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS1_.exit
 
 if.end.i.i.i.i23:                                 ; preds = %sw.bb9
-  %mul.i.i.i.i.i24 = fmul float %39, %39
+  %mul.i.i.i.i.i24 = fmul float %38, %38
   %add.i.i.i.i25 = fadd float %mul.i.i.i.i.i24, 1.000000e+00
   %sqrt.i.i.i.i26 = tail call float @llvm.sqrt.f32(float %add.i.i.i.i25)
   %mul.i.i.i.i27 = fmul float %sqrt.i.i.i.i26, 2.000000e+00
-  %div.i.i.i.i28 = fdiv float %39, %mul.i.i.i.i27
+  %div.i.i.i.i28 = fdiv float %38, %mul.i.i.i.i27
   %add3.i.i.i.i29 = fadd float %div.i.i.i.i28, 5.000000e-01
   br label %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS1_.exit
 
 _ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS1_.exit: ; preds = %if.then.i.i.i.i31, %if.end.i.i.i.i23
   %retval.0.i.i.i.i30 = phi float [ %conv.i.i.i.i33, %if.then.i.i.i.i31 ], [ %add3.i.i.i.i29, %if.end.i.i.i.i23 ]
-  %mul.i.i = fmul float %34, %retval.0.i.i.i.i30
+  %mul.i.i = fmul float %33, %retval.0.i.i.i.i30
   br label %return
 
 sw.bb11:                                          ; preds = %entry
-  %42 = load ptr, ptr %func, align 8
-  %43 = load float, ptr %42, align 4
+  %40 = load ptr, ptr %func, align 8
+  %41 = load float, ptr %40, align 4
   %illuminant.i.i = getelementptr inbounds %"class.pbrt::RGBIlluminantSpectrum", ptr %ptr, i64 0, i32 2
-  %44 = load ptr, ptr %illuminant.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %44, null
+  %42 = load ptr, ptr %illuminant.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %42, null
   br i1 %tobool.not.i.i, label %return, label %if.end.i.i34
 
 if.end.i.i34:                                     ; preds = %sw.bb11
-  %45 = load float, ptr %ptr, align 8
+  %43 = load float, ptr %ptr, align 8
   %rsp.i.i35 = getelementptr inbounds %"class.pbrt::RGBIlluminantSpectrum", ptr %ptr, i64 0, i32 1
   %c2.i.i.i36 = getelementptr inbounds %"class.pbrt::RGBIlluminantSpectrum", ptr %ptr, i64 0, i32 1, i32 2
-  %46 = load float, ptr %c2.i.i.i36, align 4
+  %44 = load float, ptr %c2.i.i.i36, align 4
   %c1.i.i.i37 = getelementptr inbounds %"class.pbrt::RGBIlluminantSpectrum", ptr %ptr, i64 0, i32 1, i32 1
-  %47 = load float, ptr %c1.i.i.i37, align 4
-  %48 = load float, ptr %rsp.i.i35, align 4
-  %49 = tail call noundef float @llvm.fma.f32(float %43, float %48, float %47)
-  %50 = tail call noundef float @llvm.fma.f32(float %43, float %49, float %46)
-  %51 = tail call float @llvm.fabs.f32(float %50)
-  %52 = fcmp oeq float %51, 0x7FF0000000000000
-  br i1 %52, label %if.then.i.i.i.i50, label %if.end.i.i.i.i38
+  %45 = load float, ptr %c1.i.i.i37, align 4
+  %46 = load float, ptr %rsp.i.i35, align 4
+  %47 = tail call noundef float @llvm.fma.f32(float %41, float %46, float %45)
+  %48 = tail call noundef float @llvm.fma.f32(float %41, float %47, float %44)
+  %49 = tail call noundef i1 @llvm.is.fpclass.f32(float %48, i32 516)
+  br i1 %49, label %if.then.i.i.i.i50, label %if.end.i.i.i.i38
 
 if.then.i.i.i.i50:                                ; preds = %if.end.i.i34
-  %cmp.i.i.i.i51 = fcmp ogt float %50, 0.000000e+00
+  %cmp.i.i.i.i51 = fcmp ogt float %48, 0.000000e+00
   %conv.i.i.i.i52 = uitofp i1 %cmp.i.i.i.i51 to float
   br label %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i
 
 if.end.i.i.i.i38:                                 ; preds = %if.end.i.i34
-  %mul.i.i.i.i.i39 = fmul float %50, %50
+  %mul.i.i.i.i.i39 = fmul float %48, %48
   %add.i.i.i.i40 = fadd float %mul.i.i.i.i.i39, 1.000000e+00
   %sqrt.i.i.i.i41 = tail call float @llvm.sqrt.f32(float %add.i.i.i.i40)
   %mul.i.i.i.i42 = fmul float %sqrt.i.i.i.i41, 2.000000e+00
-  %div.i.i.i.i43 = fdiv float %50, %mul.i.i.i.i42
+  %div.i.i.i.i43 = fdiv float %48, %mul.i.i.i.i42
   %add3.i.i.i.i44 = fadd float %div.i.i.i.i43, 5.000000e-01
   br label %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i
 
 _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i:     ; preds = %if.end.i.i.i.i38, %if.then.i.i.i.i50
   %retval.0.i.i.i.i45 = phi float [ %conv.i.i.i.i52, %if.then.i.i.i.i50 ], [ %add3.i.i.i.i44, %if.end.i.i.i.i38 ]
-  %mul.i.i46 = fmul float %45, %retval.0.i.i.i.i45
-  %call.i.i.i.i = tail call noundef i64 @lroundf(float noundef %43) #24
-  %53 = load i32, ptr %44, align 8
-  %54 = trunc i64 %call.i.i.i.i to i32
-  %conv2.i.i.i = sub i32 %54, %53
+  %mul.i.i46 = fmul float %43, %retval.0.i.i.i.i45
+  %call.i.i.i.i = tail call noundef i64 @lroundf(float noundef %41) #24
+  %50 = load i32, ptr %42, align 8
+  %51 = trunc i64 %call.i.i.i.i to i32
+  %conv2.i.i.i = sub i32 %51, %50
   %cmp.i.i.i47 = icmp slt i32 %conv2.i.i.i, 0
   br i1 %cmp.i.i.i47, label %_ZNK4pbrt22DenselySampledSpectrumclEf.exit.i.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i
   %conv3.i.i.i = zext nneg i32 %conv2.i.i.i to i64
-  %nStored.i.i.i.i48 = getelementptr inbounds %"class.pbrt::DenselySampledSpectrum", ptr %44, i64 0, i32 2, i32 3
-  %55 = load i64, ptr %nStored.i.i.i.i48, align 8
-  %cmp5.not.i.i.i = icmp ugt i64 %55, %conv3.i.i.i
+  %nStored.i.i.i.i48 = getelementptr inbounds %"class.pbrt::DenselySampledSpectrum", ptr %42, i64 0, i32 2, i32 3
+  %52 = load i64, ptr %nStored.i.i.i.i48, align 8
+  %cmp5.not.i.i.i = icmp ugt i64 %52, %conv3.i.i.i
   br i1 %cmp5.not.i.i.i, label %if.end.i.i.i, label %_ZNK4pbrt22DenselySampledSpectrumclEf.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %lor.lhs.false.i.i.i
-  %ptr.i.i.i.i = getelementptr inbounds %"class.pbrt::DenselySampledSpectrum", ptr %44, i64 0, i32 2, i32 1
-  %56 = load ptr, ptr %ptr.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds float, ptr %56, i64 %conv3.i.i.i
-  %57 = load float, ptr %arrayidx.i.i.i.i, align 4
+  %ptr.i.i.i.i = getelementptr inbounds %"class.pbrt::DenselySampledSpectrum", ptr %42, i64 0, i32 2, i32 1
+  %53 = load ptr, ptr %ptr.i.i.i.i, align 8
+  %arrayidx.i.i.i.i = getelementptr inbounds float, ptr %53, i64 %conv3.i.i.i
+  %54 = load float, ptr %arrayidx.i.i.i.i, align 4
   br label %_ZNK4pbrt22DenselySampledSpectrumclEf.exit.i.i
 
 _ZNK4pbrt22DenselySampledSpectrumclEf.exit.i.i:   ; preds = %if.end.i.i.i, %lor.lhs.false.i.i.i, %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i
-  %retval.0.i.i.i = phi float [ %57, %if.end.i.i.i ], [ 0.000000e+00, %lor.lhs.false.i.i.i ], [ 0.000000e+00, %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i ]
+  %retval.0.i.i.i = phi float [ %54, %if.end.i.i.i ], [ 0.000000e+00, %lor.lhs.false.i.i.i ], [ 0.000000e+00, %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i ]
   %mul4.i.i = fmul float %mul.i.i46, %retval.0.i.i.i
   br label %return
 
 sw.default:                                       ; preds = %entry
-  %58 = load float, ptr %ptr, align 4
-  %cmp.i.i.i53 = fcmp ugt float %58, 0.000000e+00
+  %55 = load float, ptr %ptr, align 4
+  %cmp.i.i.i53 = fcmp ugt float %55, 0.000000e+00
   br i1 %cmp.i.i.i53, label %if.end.i.i.i56, label %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit
 
 if.end.i.i.i56:                                   ; preds = %sw.default
-  %59 = load ptr, ptr %func, align 8
-  %60 = load float, ptr %59, align 4
-  %mul.i.i.i57 = fmul float %60, 0x3E112E0BE0000000
+  %56 = load ptr, ptr %func, align 8
+  %57 = load float, ptr %56, align 4
+  %mul.i.i.i57 = fmul float %57, 0x3E112E0BE0000000
   %mul.i.i.i.i.i58 = fmul float %mul.i.i.i57, %mul.i.i.i57
   %mul.i.i.i.i59 = fmul float %mul.i.i.i.i.i58, %mul.i.i.i.i.i58
   %mul2.i.i.i.i = fmul float %mul.i.i.i57, %mul.i.i.i.i59
   %mul1.i.i.i60 = fmul float %mul.i.i.i57, 0x3B30B0E6A0000000
-  %mul2.i.i.i = fmul float %58, %mul1.i.i.i60
+  %mul2.i.i.i = fmul float %55, %mul1.i.i.i60
   %div.i.i.i = fdiv float 0x3ACEBD1F40000000, %mul2.i.i.i
   %mul.i4.i.i.i = fmul float %div.i.i.i, 0x3FF7154760000000
-  %61 = tail call noundef float @llvm.floor.f32(float %mul.i4.i.i.i)
-  %sub.i.i.i.i = fsub float %mul.i4.i.i.i, %61
-  %conv.i.i.i.i61 = fptosi float %61 to i32
-  %62 = tail call noundef float @llvm.fma.f32(float %sub.i.i.i.i, float 0x3FB4015920000000, float 0x3FCCF34160000000)
-  %63 = tail call noundef float @llvm.fma.f32(float %sub.i.i.i.i, float %62, float 0x3FE6420080000000)
-  %64 = tail call noundef float @llvm.fma.f32(float %sub.i.i.i.i, float %63, float 1.000000e+00)
-  %65 = bitcast float %64 to i32
-  %shr.i.i.i.i.i = lshr i32 %65, 23
+  %58 = tail call noundef float @llvm.floor.f32(float %mul.i4.i.i.i)
+  %sub.i.i.i.i = fsub float %mul.i4.i.i.i, %58
+  %conv.i.i.i.i61 = fptosi float %58 to i32
+  %59 = tail call noundef float @llvm.fma.f32(float %sub.i.i.i.i, float 0x3FB4015920000000, float 0x3FCCF34160000000)
+  %60 = tail call noundef float @llvm.fma.f32(float %sub.i.i.i.i, float %59, float 0x3FE6420080000000)
+  %61 = tail call noundef float @llvm.fma.f32(float %sub.i.i.i.i, float %60, float 1.000000e+00)
+  %62 = bitcast float %61 to i32
+  %shr.i.i.i.i.i = lshr i32 %62, 23
   %sub.i.i.i.i.i = add i32 %conv.i.i.i.i61, -127
   %add.i.i.i.i62 = add i32 %sub.i.i.i.i.i, %shr.i.i.i.i.i
   %cmp.i.i.i.i63 = icmp slt i32 %add.i.i.i.i62, -126
@@ -6675,20 +6672,20 @@ if.end.i.i.i.i64:                                 ; preds = %if.end.i.i.i56
   br i1 %cmp3.i.i.i.i, label %_ZN4pbrt7FastExpEf.exit.i.i.i, label %if.end5.i.i.i.i
 
 if.end5.i.i.i.i:                                  ; preds = %if.end.i.i.i.i64
-  %and.i.i.i.i = and i32 %65, -2139095041
+  %and.i.i.i.i = and i32 %62, -2139095041
   %add7.i.i.i.i = shl nsw i32 %add.i.i.i.i62, 23
   %shl.i.i.i.i = add i32 %add7.i.i.i.i, 1065353216
   %or.i.i.i.i = or i32 %shl.i.i.i.i, %and.i.i.i.i
-  %66 = bitcast i32 %or.i.i.i.i to float
-  %67 = fadd float %66, -1.000000e+00
+  %63 = bitcast i32 %or.i.i.i.i to float
+  %64 = fadd float %63, -1.000000e+00
   br label %_ZN4pbrt7FastExpEf.exit.i.i.i
 
 _ZN4pbrt7FastExpEf.exit.i.i.i:                    ; preds = %if.end5.i.i.i.i, %if.end.i.i.i.i64, %if.end.i.i.i56
-  %retval.0.i.i.i.i65 = phi float [ %67, %if.end5.i.i.i.i ], [ -1.000000e+00, %if.end.i.i.i56 ], [ 0x7FF0000000000000, %if.end.i.i.i.i64 ]
+  %retval.0.i.i.i.i65 = phi float [ %64, %if.end5.i.i.i.i ], [ -1.000000e+00, %if.end.i.i.i56 ], [ 0x7FF0000000000000, %if.end.i.i.i.i64 ]
   %mul4.i.i.i = fmul float %mul2.i.i.i.i, %retval.0.i.i.i.i65
   %div5.i.i.i = fdiv float 0x3CA12A2C20000000, %mul4.i.i.i
-  %68 = fcmp uno float %div5.i.i.i, 0.000000e+00
-  br i1 %68, label %land.rhs.i.i.i, label %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit
+  %65 = fcmp uno float %div5.i.i.i, 0.000000e+00
+  br i1 %65, label %land.rhs.i.i.i, label %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit
 
 land.rhs.i.i.i:                                   ; preds = %_ZN4pbrt7FastExpEf.exit.i.i.i
   tail call void @_ZN4pbrt8LogFatalIJRA11_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.125, i32 noundef 78, ptr noundef nonnull @.str.126, ptr noundef nonnull align 1 dereferenceable(11) @.str.127) #25
@@ -6697,14 +6694,17 @@ land.rhs.i.i.i:                                   ; preds = %_ZN4pbrt7FastExpEf.
 _ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit: ; preds = %sw.default, %_ZN4pbrt7FastExpEf.exit.i.i.i
   %retval.0.i.i.i54 = phi float [ 0.000000e+00, %sw.default ], [ %div5.i.i.i, %_ZN4pbrt7FastExpEf.exit.i.i.i ]
   %normalizationFactor.i.i = getelementptr inbounds %"class.pbrt::BlackbodySpectrum", ptr %ptr, i64 0, i32 1
-  %69 = load float, ptr %normalizationFactor.i.i, align 4
-  %mul.i.i55 = fmul float %retval.0.i.i.i54, %69
+  %66 = load float, ptr %normalizationFactor.i.i, align 4
+  %mul.i.i55 = fmul float %retval.0.i.i.i54, %66
   br label %return
 
 return:                                           ; preds = %_ZNK4pbrt22DenselySampledSpectrumclEf.exit.i.i, %sw.bb11, %if.end.i.i.i.i, %if.then.i.i.i.i, %"_ZN4pbrt12FindIntervalIZNKS_23PiecewiseLinearSpectrumclEfE3$_0EEmmRKT_.exit.i.i", %lor.lhs.false4.i.i, %lor.lhs.false.i.i13, %sw.bb5, %if.end.i.i, %lor.lhs.false.i.i, %sw.bb3, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS1_.exit, %sw.bb
   %retval.0 = phi float [ %mul.i.i55, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit ], [ %mul.i.i, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS1_.exit ], [ %0, %sw.bb ], [ %7, %if.end.i.i ], [ 0.000000e+00, %lor.lhs.false.i.i ], [ 0.000000e+00, %sw.bb3 ], [ %add.i21.i.i, %"_ZN4pbrt12FindIntervalIZNKS_23PiecewiseLinearSpectrumclEfE3$_0EEmmRKT_.exit.i.i" ], [ 0.000000e+00, %lor.lhs.false4.i.i ], [ 0.000000e+00, %lor.lhs.false.i.i13 ], [ 0.000000e+00, %sw.bb5 ], [ %conv.i.i.i.i20, %if.then.i.i.i.i ], [ %add3.i.i.i.i, %if.end.i.i.i.i ], [ %mul4.i.i, %_ZNK4pbrt22DenselySampledSpectrumclEf.exit.i.i ], [ 0.000000e+00, %sw.bb11 ]
   ret float %retval.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fma.f32(float, float, float) #12
@@ -15117,9 +15117,6 @@ entry:
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt8SpectrumESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev, ptr nonnull @_ZN4pbrt7Spectra12_GLOBAL__N_112namedSpectraB5cxx11E, ptr nonnull @__dso_handle) #24
   ret void
 }
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #21

@@ -4448,9 +4448,8 @@ for.body.i:                                       ; preds = %_ZNK4pbrt20RGBSigmo
   %22 = load float, ptr %arrayidx.i.i.i, align 4
   %23 = call noundef float @llvm.fma.f32(float %22, float %21, float %20)
   %24 = call noundef float @llvm.fma.f32(float %22, float %23, float %19)
-  %25 = call float @llvm.fabs.f32(float %24)
-  %26 = fcmp oeq float %25, 0x7FF0000000000000
-  br i1 %26, label %if.then.i.i.i, label %if.end.i.i.i
+  %25 = call noundef i1 @llvm.is.fpclass.f32(float %24, i32 516)
+  br i1 %25, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
   %cmp.i.i.i = fcmp ogt float %24, 0.000000e+00
@@ -4483,41 +4482,40 @@ _ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds 
   br label %return
 
 if.then32:                                        ; preds = %if.then
-  %27 = fcmp ogt <2 x float> %14, <float 1.000000e+00, float 1.000000e+00>
-  %28 = select <2 x i1> %27, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %14
+  %26 = fcmp ogt <2 x float> %14, <float 1.000000e+00, float 1.000000e+00>
+  %27 = select <2 x i1> %26, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %14
   %cmp3.i14.i = fcmp ogt float %.sroa.speculated.i, 1.000000e+00
   %conv2.val.i15.i = select i1 %cmp3.i14.i, float 1.000000e+00, float %.sroa.speculated.i
-  call void @_ZN4pbrt17RGBAlbedoSpectrumC1ERKNS_13RGBColorSpaceENS_3RGBE(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(152) %16, <2 x float> %28, float %conv2.val.i15.i)
+  call void @_ZN4pbrt17RGBAlbedoSpectrumC1ERKNS_13RGBColorSpaceENS_3RGBE(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(152) %16, <2 x float> %27, float %conv2.val.i15.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i20)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i20, i8 0, i64 16, i1 false)
   %c2.i.i21 = getelementptr inbounds %"class.pbrt::RGBSigmoidPolynomial", ptr %ref.tmp33, i64 0, i32 2
-  %29 = load float, ptr %c2.i.i21, align 4
+  %28 = load float, ptr %c2.i.i21, align 4
   %c1.i.i22 = getelementptr inbounds %"class.pbrt::RGBSigmoidPolynomial", ptr %ref.tmp33, i64 0, i32 1
-  %30 = load float, ptr %c1.i.i22, align 4
-  %31 = load float, ptr %ref.tmp33, align 4
+  %29 = load float, ptr %c1.i.i22, align 4
+  %30 = load float, ptr %ref.tmp33, align 4
   br label %for.body.i23
 
 for.body.i23:                                     ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i33, %if.then32
   %indvars.iv.i24 = phi i64 [ 0, %if.then32 ], [ %indvars.iv.next.i36, %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i33 ]
   %arrayidx.i.i.i25 = getelementptr inbounds [4 x float], ptr %lambda, i64 0, i64 %indvars.iv.i24
-  %32 = load float, ptr %arrayidx.i.i.i25, align 4
-  %33 = call noundef float @llvm.fma.f32(float %32, float %31, float %30)
-  %34 = call noundef float @llvm.fma.f32(float %32, float %33, float %29)
-  %35 = call float @llvm.fabs.f32(float %34)
-  %36 = fcmp oeq float %35, 0x7FF0000000000000
-  br i1 %36, label %if.then.i.i.i43, label %if.end.i.i.i26
+  %31 = load float, ptr %arrayidx.i.i.i25, align 4
+  %32 = call noundef float @llvm.fma.f32(float %31, float %30, float %29)
+  %33 = call noundef float @llvm.fma.f32(float %31, float %32, float %28)
+  %34 = call noundef i1 @llvm.is.fpclass.f32(float %33, i32 516)
+  br i1 %34, label %if.then.i.i.i43, label %if.end.i.i.i26
 
 if.then.i.i.i43:                                  ; preds = %for.body.i23
-  %cmp.i.i.i44 = fcmp ogt float %34, 0.000000e+00
+  %cmp.i.i.i44 = fcmp ogt float %33, 0.000000e+00
   %conv.i.i.i45 = uitofp i1 %cmp.i.i.i44 to float
   br label %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i33
 
 if.end.i.i.i26:                                   ; preds = %for.body.i23
-  %mul.i.i.i.i27 = fmul float %34, %34
+  %mul.i.i.i.i27 = fmul float %33, %33
   %add.i.i.i28 = fadd float %mul.i.i.i.i27, 1.000000e+00
   %sqrt.i.i.i29 = call float @llvm.sqrt.f32(float %add.i.i.i28)
   %mul.i.i.i30 = fmul float %sqrt.i.i.i29, 2.000000e+00
-  %div.i.i.i31 = fdiv float %34, %mul.i.i.i30
+  %div.i.i.i31 = fdiv float %33, %mul.i.i.i30
   %add3.i.i.i32 = fadd float %div.i.i.i31, 5.000000e-01
   br label %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i33
 
@@ -4539,19 +4537,19 @@ _ZNK4pbrt17RGBAlbedoSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds = %
 if.else41:                                        ; preds = %if.then
   call void @_ZN4pbrt21RGBIlluminantSpectrumC1ERKNS_13RGBColorSpaceENS_3RGBE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp42, ptr noundef nonnull align 8 dereferenceable(152) %16, <2 x float> %14, float %.sroa.speculated.i)
   %call44 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp42, ptr noundef nonnull align 4 dereferenceable(32) %lambda)
-  %37 = extractvalue { <2 x float>, <2 x float> } %call44, 0
-  %38 = extractvalue { <2 x float>, <2 x float> } %call44, 1
+  %35 = extractvalue { <2 x float>, <2 x float> } %call44, 0
+  %36 = extractvalue { <2 x float>, <2 x float> } %call44, 1
   br label %return
 
 do.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval, i8 0, i64 16, i1 false)
-  %39 = extractelement <2 x float> %14, i64 0
+  %37 = extractelement <2 x float> %14, i64 0
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %do.end
   %indvars.iv.i.i = phi i64 [ 0, %do.end ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %arrayidx.i.i = getelementptr inbounds [4 x float], ptr %retval, i64 0, i64 %indvars.iv.i.i
-  store float %39, ptr %arrayidx.i.i, align 4
+  store float %37, ptr %arrayidx.i.i, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
   br i1 %exitcond.not.i.i, label %return.loopexit, label %for.body.i.i, !llvm.loop !75
@@ -4563,8 +4561,8 @@ return.loopexit:                                  ; preds = %for.body.i.i
   br label %return
 
 return:                                           ; preds = %return.loopexit, %if.else41, %_ZNK4pbrt17RGBAlbedoSpectrum6SampleERKNS_18SampledWavelengthsE.exit, %_ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit
-  %.fca.1.load = phi <2 x float> [ %.fca.1.load.pre, %return.loopexit ], [ %38, %if.else41 ], [ %.fca.1.load.i41, %_ZNK4pbrt17RGBAlbedoSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %.fca.1.load.i, %_ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit ]
-  %.fca.0.load = phi <2 x float> [ %.fca.0.load.pre, %return.loopexit ], [ %37, %if.else41 ], [ %.fca.0.load.i38, %_ZNK4pbrt17RGBAlbedoSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %.fca.0.load.i, %_ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit ]
+  %.fca.1.load = phi <2 x float> [ %.fca.1.load.pre, %return.loopexit ], [ %36, %if.else41 ], [ %.fca.1.load.i41, %_ZNK4pbrt17RGBAlbedoSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %.fca.1.load.i, %_ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit ]
+  %.fca.0.load = phi <2 x float> [ %.fca.0.load.pre, %return.loopexit ], [ %35, %if.else41 ], [ %.fca.0.load.i38, %_ZNK4pbrt17RGBAlbedoSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %.fca.0.load.i, %_ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.fca.1.load, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
@@ -4606,9 +4604,8 @@ for.body:                                         ; preds = %if.end, %_ZNK4pbrt2
   %5 = load float, ptr %arrayidx.i.i5, align 4
   %6 = tail call noundef float @llvm.fma.f32(float %5, float %4, float %3)
   %7 = tail call noundef float @llvm.fma.f32(float %5, float %6, float %2)
-  %8 = tail call float @llvm.fabs.f32(float %7)
-  %9 = fcmp oeq float %8, 0x7FF0000000000000
-  br i1 %9, label %if.then.i.i, label %if.end.i.i
+  %8 = tail call noundef i1 @llvm.is.fpclass.f32(float %7, i32 516)
+  br i1 %8, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %for.body
   %cmp.i.i = fcmp ogt float %7, 0.000000e+00
@@ -4643,28 +4640,28 @@ for.end:                                          ; preds = %_ZNK4pbrt20RGBSigmo
 for.body.i:                                       ; preds = %for.inc.i, %for.end
   %indvars.iv.i = phi i64 [ 0, %for.end ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i.i.i = getelementptr inbounds [4 x float], ptr %lambda, i64 0, i64 %indvars.iv.i
-  %10 = load float, ptr %arrayidx.i.i.i, align 4
-  %call.i.i = tail call noundef i64 @lroundf(float noundef %10) #23
-  %11 = load i32, ptr %0, align 8
-  %12 = trunc i64 %call.i.i to i32
-  %conv3.i = sub i32 %12, %11
+  %9 = load float, ptr %arrayidx.i.i.i, align 4
+  %call.i.i = tail call noundef i64 @lroundf(float noundef %9) #23
+  %10 = load i32, ptr %0, align 8
+  %11 = trunc i64 %call.i.i to i32
+  %conv3.i = sub i32 %11, %10
   %cmp4.i = icmp slt i32 %conv3.i, 0
   br i1 %cmp4.i, label %for.inc.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
   %conv5.i = zext nneg i32 %conv3.i to i64
-  %13 = load i64, ptr %nStored.i.i, align 8
-  %cmp7.not.i = icmp ugt i64 %13, %conv5.i
+  %12 = load i64, ptr %nStored.i.i, align 8
+  %cmp7.not.i = icmp ugt i64 %12, %conv5.i
   br i1 %cmp7.not.i, label %if.else.i, label %for.inc.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  %14 = load ptr, ptr %ptr.i.i, align 8
-  %arrayidx.i.i8 = getelementptr inbounds float, ptr %14, i64 %conv5.i
-  %15 = load float, ptr %arrayidx.i.i8, align 4
+  %13 = load ptr, ptr %ptr.i.i, align 8
+  %arrayidx.i.i8 = getelementptr inbounds float, ptr %13, i64 %conv5.i
+  %14 = load float, ptr %arrayidx.i.i8, align 4
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else.i, %lor.lhs.false.i, %for.body.i
-  %.sink.i = phi float [ %15, %if.else.i ], [ 0.000000e+00, %lor.lhs.false.i ], [ 0.000000e+00, %for.body.i ]
+  %.sink.i = phi float [ %14, %if.else.i ], [ 0.000000e+00, %lor.lhs.false.i ], [ 0.000000e+00, %for.body.i ]
   %arrayidx.i.i8.i = getelementptr inbounds [4 x float], ptr %retval.i, i64 0, i64 %indvars.iv.i
   store float %.sink.i, ptr %arrayidx.i.i8.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4677,17 +4674,17 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; pred
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
   store <2 x float> %.fca.0.load.i, ptr %ref.tmp, align 8
-  %16 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp, i64 0, i32 1
-  store <2 x float> %.fca.1.load.i, ptr %16, align 8
+  %15 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp, i64 0, i32 1
+  store <2 x float> %.fca.1.load.i, ptr %15, align 8
   br label %for.body.i.i9
 
 for.body.i.i9:                                    ; preds = %for.body.i.i9, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit
   %indvars.iv.i.i10 = phi i64 [ 0, %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %indvars.iv.next.i.i13, %for.body.i.i9 ]
   %arrayidx.i.i.i11 = getelementptr inbounds [4 x float], ptr %ref.tmp, i64 0, i64 %indvars.iv.i.i10
-  %17 = load float, ptr %arrayidx.i.i.i11, align 4
+  %16 = load float, ptr %arrayidx.i.i.i11, align 4
   %arrayidx.i4.i.i = getelementptr inbounds [4 x float], ptr %s, i64 0, i64 %indvars.iv.i.i10
-  %18 = load float, ptr %arrayidx.i4.i.i, align 4
-  %mul.i.i12 = fmul float %17, %18
+  %17 = load float, ptr %arrayidx.i4.i.i, align 4
+  %mul.i.i12 = fmul float %16, %17
   store float %mul.i.i12, ptr %arrayidx.i4.i.i, align 4
   %indvars.iv.next.i.i13 = add nuw nsw i64 %indvars.iv.i.i10, 1
   %exitcond.not.i.i14 = icmp eq i64 %indvars.iv.next.i.i13, 4
@@ -6428,9 +6425,8 @@ for.body.i:                                       ; preds = %_ZNK4pbrt20RGBSigmo
   %17 = load float, ptr %arrayidx.i.i.i39, align 4
   %18 = call noundef float @llvm.fma.f32(float %17, float %16, float %15)
   %19 = call noundef float @llvm.fma.f32(float %17, float %18, float %14)
-  %20 = call float @llvm.fabs.f32(float %19)
-  %21 = fcmp oeq float %20, 0x7FF0000000000000
-  br i1 %21, label %if.then.i.i.i, label %if.end.i.i.i
+  %20 = call noundef i1 @llvm.is.fpclass.f32(float %19, i32 516)
+  br i1 %20, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
   %cmp.i.i.i = fcmp ogt float %19, 0.000000e+00
@@ -8192,9 +8188,8 @@ for.body.i:                                       ; preds = %_ZNK4pbrt20RGBSigmo
   %9 = load float, ptr %arrayidx.i.i.i, align 4
   %10 = call noundef float @llvm.fma.f32(float %9, float %8, float %7)
   %11 = call noundef float @llvm.fma.f32(float %9, float %10, float %6)
-  %12 = call float @llvm.fabs.f32(float %11)
-  %13 = fcmp oeq float %12, 0x7FF0000000000000
-  br i1 %13, label %if.then.i.i.i, label %if.end.i.i.i
+  %12 = call noundef i1 @llvm.is.fpclass.f32(float %11, i32 516)
+  br i1 %12, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
   %cmp.i.i.i = fcmp ogt float %11, 0.000000e+00
@@ -8227,47 +8222,46 @@ _ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds 
   br label %return
 
 if.then12:                                        ; preds = %do.end
-  %14 = insertelement <2 x float> poison, float %0, i64 0
-  %15 = insertelement <2 x float> %14, float %1, i64 1
-  %16 = fcmp olt <2 x float> %15, zeroinitializer
-  %17 = fcmp ogt <2 x float> %15, <float 1.000000e+00, float 1.000000e+00>
-  %18 = select <2 x i1> %17, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %15
-  %19 = select <2 x i1> %16, <2 x float> zeroinitializer, <2 x float> %18
+  %13 = insertelement <2 x float> poison, float %0, i64 0
+  %14 = insertelement <2 x float> %13, float %1, i64 1
+  %15 = fcmp olt <2 x float> %14, zeroinitializer
+  %16 = fcmp ogt <2 x float> %14, <float 1.000000e+00, float 1.000000e+00>
+  %17 = select <2 x i1> %16, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %14
+  %18 = select <2 x i1> %15, <2 x float> zeroinitializer, <2 x float> %17
   %cmp.i12.i = fcmp olt float %2, 0.000000e+00
   %cmp3.i14.i = fcmp ogt float %2, 1.000000e+00
   %conv2.val.i15.i = select i1 %cmp3.i14.i, float 1.000000e+00, float %2
   %retval.0.i16.i = select i1 %cmp.i12.i, float 0.000000e+00, float %conv2.val.i15.i
-  call void @_ZN4pbrt17RGBAlbedoSpectrumC1ERKNS_13RGBColorSpaceENS_3RGBE(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(152) %4, <2 x float> %19, float %retval.0.i16.i)
+  call void @_ZN4pbrt17RGBAlbedoSpectrumC1ERKNS_13RGBColorSpaceENS_3RGBE(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(152) %4, <2 x float> %18, float %retval.0.i16.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i3, i8 0, i64 16, i1 false)
   %c2.i.i4 = getelementptr inbounds %"class.pbrt::RGBSigmoidPolynomial", ptr %ref.tmp13, i64 0, i32 2
-  %20 = load float, ptr %c2.i.i4, align 4
+  %19 = load float, ptr %c2.i.i4, align 4
   %c1.i.i5 = getelementptr inbounds %"class.pbrt::RGBSigmoidPolynomial", ptr %ref.tmp13, i64 0, i32 1
-  %21 = load float, ptr %c1.i.i5, align 4
-  %22 = load float, ptr %ref.tmp13, align 4
+  %20 = load float, ptr %c1.i.i5, align 4
+  %21 = load float, ptr %ref.tmp13, align 4
   br label %for.body.i6
 
 for.body.i6:                                      ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i16, %if.then12
   %indvars.iv.i7 = phi i64 [ 0, %if.then12 ], [ %indvars.iv.next.i19, %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i16 ]
   %arrayidx.i.i.i8 = getelementptr inbounds [4 x float], ptr %lambda, i64 0, i64 %indvars.iv.i7
-  %23 = load float, ptr %arrayidx.i.i.i8, align 4
-  %24 = call noundef float @llvm.fma.f32(float %23, float %22, float %21)
-  %25 = call noundef float @llvm.fma.f32(float %23, float %24, float %20)
-  %26 = call float @llvm.fabs.f32(float %25)
-  %27 = fcmp oeq float %26, 0x7FF0000000000000
-  br i1 %27, label %if.then.i.i.i26, label %if.end.i.i.i9
+  %22 = load float, ptr %arrayidx.i.i.i8, align 4
+  %23 = call noundef float @llvm.fma.f32(float %22, float %21, float %20)
+  %24 = call noundef float @llvm.fma.f32(float %22, float %23, float %19)
+  %25 = call noundef i1 @llvm.is.fpclass.f32(float %24, i32 516)
+  br i1 %25, label %if.then.i.i.i26, label %if.end.i.i.i9
 
 if.then.i.i.i26:                                  ; preds = %for.body.i6
-  %cmp.i.i.i27 = fcmp ogt float %25, 0.000000e+00
+  %cmp.i.i.i27 = fcmp ogt float %24, 0.000000e+00
   %conv.i.i.i28 = uitofp i1 %cmp.i.i.i27 to float
   br label %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i16
 
 if.end.i.i.i9:                                    ; preds = %for.body.i6
-  %mul.i.i.i.i10 = fmul float %25, %25
+  %mul.i.i.i.i10 = fmul float %24, %24
   %add.i.i.i11 = fadd float %mul.i.i.i.i10, 1.000000e+00
   %sqrt.i.i.i12 = call float @llvm.sqrt.f32(float %add.i.i.i11)
   %mul.i.i.i13 = fmul float %sqrt.i.i.i12, 2.000000e+00
-  %div.i.i.i14 = fdiv float %25, %mul.i.i.i13
+  %div.i.i.i14 = fdiv float %24, %mul.i.i.i13
   %add3.i.i.i15 = fadd float %div.i.i.i14, 5.000000e-01
   br label %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i16
 
@@ -8289,8 +8283,8 @@ _ZNK4pbrt17RGBAlbedoSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds = %
 if.else20:                                        ; preds = %do.end
   call void @_ZN4pbrt21RGBIlluminantSpectrumC1ERKNS_13RGBColorSpaceENS_3RGBE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(152) %4, <2 x float> %rgb.sroa.0.4.vec.insert, float %2)
   %call23 = call { <2 x float>, <2 x float> } @_ZNK4pbrt21RGBIlluminantSpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp21, ptr noundef nonnull align 4 dereferenceable(32) %lambda)
-  %28 = extractvalue { <2 x float>, <2 x float> } %call23, 0
-  %29 = extractvalue { <2 x float>, <2 x float> } %call23, 1
+  %26 = extractvalue { <2 x float>, <2 x float> } %call23, 0
+  %27 = extractvalue { <2 x float>, <2 x float> } %call23, 1
   br label %return
 
 return.loopexit:                                  ; preds = %for.body.i.i
@@ -8300,8 +8294,8 @@ return.loopexit:                                  ; preds = %for.body.i.i
   br label %return
 
 return:                                           ; preds = %return.loopexit, %if.else20, %_ZNK4pbrt17RGBAlbedoSpectrum6SampleERKNS_18SampledWavelengthsE.exit, %_ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit
-  %.fca.1.load = phi <2 x float> [ %.fca.1.load.pre, %return.loopexit ], [ %29, %if.else20 ], [ %.fca.1.load.i24, %_ZNK4pbrt17RGBAlbedoSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %.fca.1.load.i, %_ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit ]
-  %.fca.0.load = phi <2 x float> [ %.fca.0.load.pre, %return.loopexit ], [ %28, %if.else20 ], [ %.fca.0.load.i21, %_ZNK4pbrt17RGBAlbedoSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %.fca.0.load.i, %_ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit ]
+  %.fca.1.load = phi <2 x float> [ %.fca.1.load.pre, %return.loopexit ], [ %27, %if.else20 ], [ %.fca.1.load.i24, %_ZNK4pbrt17RGBAlbedoSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %.fca.1.load.i, %_ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit ]
+  %.fca.0.load = phi <2 x float> [ %.fca.0.load.pre, %return.loopexit ], [ %26, %if.else20 ], [ %.fca.0.load.i21, %_ZNK4pbrt17RGBAlbedoSpectrum6SampleERKNS_18SampledWavelengthsE.exit ], [ %.fca.0.load.i, %_ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.fca.1.load, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
@@ -11855,6 +11849,9 @@ declare float @llvm.fabs.f32(float) #9
 declare float @llvm.floor.f32(float) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fma.f32(float, float, float) #9
 
 ; Function Attrs: nounwind
@@ -13684,9 +13681,8 @@ for.body.i.i26:                                   ; preds = %_ZNK4pbrt20RGBSigmo
   %11 = load float, ptr %arrayidx.i.i.i.i28, align 4
   %12 = tail call noundef float @llvm.fma.f32(float %11, float %10, float %9)
   %13 = tail call noundef float @llvm.fma.f32(float %11, float %12, float %8)
-  %14 = tail call float @llvm.fabs.f32(float %13)
-  %15 = fcmp oeq float %14, 0x7FF0000000000000
-  br i1 %15, label %if.then.i.i.i.i, label %if.end.i.i.i.i
+  %14 = tail call noundef i1 @llvm.is.fpclass.f32(float %13, i32 516)
+  br i1 %14, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i26
   %cmp.i.i.i.i = fcmp ogt float %13, 0.000000e+00
@@ -13722,42 +13718,41 @@ _ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_17RGBAlbed
 sw.bb16:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i37)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i37, i8 0, i64 16, i1 false)
-  %16 = load float, ptr %ptr, align 4
+  %15 = load float, ptr %ptr, align 4
   %rsp.i.i = getelementptr inbounds %"class.pbrt::RGBUnboundedSpectrum", ptr %ptr, i64 0, i32 1
   %c2.i.i.i38 = getelementptr inbounds %"class.pbrt::RGBUnboundedSpectrum", ptr %ptr, i64 0, i32 1, i32 2
-  %17 = load float, ptr %c2.i.i.i38, align 4
+  %16 = load float, ptr %c2.i.i.i38, align 4
   %c1.i.i.i39 = getelementptr inbounds %"class.pbrt::RGBUnboundedSpectrum", ptr %ptr, i64 0, i32 1, i32 1
-  %18 = load float, ptr %c1.i.i.i39, align 4
-  %19 = load float, ptr %rsp.i.i, align 4
+  %17 = load float, ptr %c1.i.i.i39, align 4
+  %18 = load float, ptr %rsp.i.i, align 4
   br label %for.body.i.i40
 
 for.body.i.i40:                                   ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i50, %sw.bb16
   %indvars.iv.i.i41 = phi i64 [ 0, %sw.bb16 ], [ %indvars.iv.next.i.i53, %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i50 ]
   %arrayidx.i.i.i.i42 = getelementptr inbounds [4 x float], ptr %0, i64 0, i64 %indvars.iv.i.i41
-  %20 = load float, ptr %arrayidx.i.i.i.i42, align 4
-  %21 = tail call noundef float @llvm.fma.f32(float %20, float %19, float %18)
-  %22 = tail call noundef float @llvm.fma.f32(float %20, float %21, float %17)
-  %23 = tail call float @llvm.fabs.f32(float %22)
-  %24 = fcmp oeq float %23, 0x7FF0000000000000
-  br i1 %24, label %if.then.i.i.i.i60, label %if.end.i.i.i.i43
+  %19 = load float, ptr %arrayidx.i.i.i.i42, align 4
+  %20 = tail call noundef float @llvm.fma.f32(float %19, float %18, float %17)
+  %21 = tail call noundef float @llvm.fma.f32(float %19, float %20, float %16)
+  %22 = tail call noundef i1 @llvm.is.fpclass.f32(float %21, i32 516)
+  br i1 %22, label %if.then.i.i.i.i60, label %if.end.i.i.i.i43
 
 if.then.i.i.i.i60:                                ; preds = %for.body.i.i40
-  %cmp.i.i.i.i61 = fcmp ogt float %22, 0.000000e+00
+  %cmp.i.i.i.i61 = fcmp ogt float %21, 0.000000e+00
   %conv.i.i.i.i62 = uitofp i1 %cmp.i.i.i.i61 to float
   br label %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i50
 
 if.end.i.i.i.i43:                                 ; preds = %for.body.i.i40
-  %mul.i.i.i.i.i44 = fmul float %22, %22
+  %mul.i.i.i.i.i44 = fmul float %21, %21
   %add.i.i.i.i45 = fadd float %mul.i.i.i.i.i44, 1.000000e+00
   %sqrt.i.i.i.i46 = tail call float @llvm.sqrt.f32(float %add.i.i.i.i45)
   %mul.i.i.i.i47 = fmul float %sqrt.i.i.i.i46, 2.000000e+00
-  %div.i.i.i.i48 = fdiv float %22, %mul.i.i.i.i47
+  %div.i.i.i.i48 = fdiv float %21, %mul.i.i.i.i47
   %add3.i.i.i.i49 = fadd float %div.i.i.i.i48, 5.000000e-01
   br label %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i50
 
 _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i50:   ; preds = %if.end.i.i.i.i43, %if.then.i.i.i.i60
   %retval.0.i.i.i.i51 = phi float [ %conv.i.i.i.i62, %if.then.i.i.i.i60 ], [ %add3.i.i.i.i49, %if.end.i.i.i.i43 ]
-  %mul.i.i = fmul float %16, %retval.0.i.i.i.i51
+  %mul.i.i = fmul float %15, %retval.0.i.i.i.i51
   %arrayidx.i.i5.i.i52 = getelementptr inbounds [4 x float], ptr %retval.i.i37, i64 0, i64 %indvars.iv.i.i41
   store float %mul.i.i, ptr %arrayidx.i.i5.i.i52, align 4
   %indvars.iv.next.i.i53 = add nuw nsw i64 %indvars.iv.i.i41, 1
@@ -14445,9 +14440,8 @@ for.body.i:                                       ; preds = %_ZNK4pbrt20RGBSigmo
   %9 = load float, ptr %arrayidx.i.i.i, align 4
   %10 = call noundef float @llvm.fma.f32(float %9, float %8, float %7)
   %11 = call noundef float @llvm.fma.f32(float %9, float %10, float %6)
-  %12 = call float @llvm.fabs.f32(float %11)
-  %13 = fcmp oeq float %12, 0x7FF0000000000000
-  br i1 %13, label %if.then.i.i.i, label %if.end.i.i.i
+  %12 = call noundef i1 @llvm.is.fpclass.f32(float %11, i32 516)
+  br i1 %12, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
   %cmp.i.i.i = fcmp ogt float %11, 0.000000e+00
@@ -14482,45 +14476,44 @@ _ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds 
   br label %return
 
 if.then13:                                        ; preds = %land.end
-  %14 = fcmp olt <2 x float> %rgb.sroa.0.0.copyload, zeroinitializer
-  %15 = fcmp ogt <2 x float> %rgb.sroa.0.0.copyload, <float 1.000000e+00, float 1.000000e+00>
-  %16 = select <2 x i1> %15, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %rgb.sroa.0.0.copyload
-  %17 = select <2 x i1> %14, <2 x float> zeroinitializer, <2 x float> %16
+  %13 = fcmp olt <2 x float> %rgb.sroa.0.0.copyload, zeroinitializer
+  %14 = fcmp ogt <2 x float> %rgb.sroa.0.0.copyload, <float 1.000000e+00, float 1.000000e+00>
+  %15 = select <2 x i1> %14, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %rgb.sroa.0.0.copyload
+  %16 = select <2 x i1> %13, <2 x float> zeroinitializer, <2 x float> %15
   %cmp.i12.i = fcmp olt float %rgb.sroa.4.0.copyload, 0.000000e+00
   %cmp3.i14.i = fcmp ogt float %rgb.sroa.4.0.copyload, 1.000000e+00
   %conv2.val.i15.i = select i1 %cmp3.i14.i, float 1.000000e+00, float %rgb.sroa.4.0.copyload
   %retval.0.i16.i = select i1 %cmp.i12.i, float 0.000000e+00, float %conv2.val.i15.i
-  call void @_ZN4pbrt17RGBAlbedoSpectrumC1ERKNS_13RGBColorSpaceENS_3RGBE(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(152) %3, <2 x float> %17, float %retval.0.i16.i)
+  call void @_ZN4pbrt17RGBAlbedoSpectrumC1ERKNS_13RGBColorSpaceENS_3RGBE(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(152) %3, <2 x float> %16, float %retval.0.i16.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i9, i8 0, i64 16, i1 false)
   %c2.i.i10 = getelementptr inbounds %"class.pbrt::RGBSigmoidPolynomial", ptr %ref.tmp14, i64 0, i32 2
-  %18 = load float, ptr %c2.i.i10, align 4
+  %17 = load float, ptr %c2.i.i10, align 4
   %c1.i.i11 = getelementptr inbounds %"class.pbrt::RGBSigmoidPolynomial", ptr %ref.tmp14, i64 0, i32 1
-  %19 = load float, ptr %c1.i.i11, align 4
-  %20 = load float, ptr %ref.tmp14, align 4
+  %18 = load float, ptr %c1.i.i11, align 4
+  %19 = load float, ptr %ref.tmp14, align 4
   br label %for.body.i12
 
 for.body.i12:                                     ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i22, %if.then13
   %indvars.iv.i13 = phi i64 [ 0, %if.then13 ], [ %indvars.iv.next.i25, %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i22 ]
   %arrayidx.i.i.i14 = getelementptr inbounds [4 x float], ptr %lambda, i64 0, i64 %indvars.iv.i13
-  %21 = load float, ptr %arrayidx.i.i.i14, align 4
-  %22 = call noundef float @llvm.fma.f32(float %21, float %20, float %19)
-  %23 = call noundef float @llvm.fma.f32(float %21, float %22, float %18)
-  %24 = call float @llvm.fabs.f32(float %23)
-  %25 = fcmp oeq float %24, 0x7FF0000000000000
-  br i1 %25, label %if.then.i.i.i32, label %if.end.i.i.i15
+  %20 = load float, ptr %arrayidx.i.i.i14, align 4
+  %21 = call noundef float @llvm.fma.f32(float %20, float %19, float %18)
+  %22 = call noundef float @llvm.fma.f32(float %20, float %21, float %17)
+  %23 = call noundef i1 @llvm.is.fpclass.f32(float %22, i32 516)
+  br i1 %23, label %if.then.i.i.i32, label %if.end.i.i.i15
 
 if.then.i.i.i32:                                  ; preds = %for.body.i12
-  %cmp.i.i.i33 = fcmp ogt float %23, 0.000000e+00
+  %cmp.i.i.i33 = fcmp ogt float %22, 0.000000e+00
   %conv.i.i.i34 = uitofp i1 %cmp.i.i.i33 to float
   br label %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i22
 
 if.end.i.i.i15:                                   ; preds = %for.body.i12
-  %mul.i.i.i.i16 = fmul float %23, %23
+  %mul.i.i.i.i16 = fmul float %22, %22
   %add.i.i.i17 = fadd float %mul.i.i.i.i16, 1.000000e+00
   %sqrt.i.i.i18 = call float @llvm.sqrt.f32(float %add.i.i.i17)
   %mul.i.i.i19 = fmul float %sqrt.i.i.i18, 2.000000e+00
-  %div.i.i.i20 = fdiv float %23, %mul.i.i.i19
+  %div.i.i.i20 = fdiv float %22, %mul.i.i.i19
   %add3.i.i.i21 = fadd float %div.i.i.i20, 5.000000e-01
   br label %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i22
 

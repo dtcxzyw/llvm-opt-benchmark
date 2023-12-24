@@ -672,20 +672,21 @@ if.else.i:                                        ; preds = %if.end18
 if.else2.i:                                       ; preds = %if.else.i
   %12 = tail call noundef double @llvm.fabs.f64(double %5)
   %cmp4.i = fcmp oeq double %12, 1.000000e+00
-  %13 = tail call double @llvm.fabs.f64(double %10)
-  %14 = fcmp oeq double %13, 0x7FF0000000000000
-  %or.cond.i = and i1 %cmp4.i, %14
-  br i1 %or.cond.i, label %_ZN6hermes2vm5expOpEdd.exit, label %if.end8.i
+  br i1 %cmp4.i, label %land.lhs.true.i, label %if.end8.i
 
-if.end8.i:                                        ; preds = %if.else2.i
+land.lhs.true.i:                                  ; preds = %if.else2.i
+  %13 = tail call noundef i1 @llvm.is.fpclass.f64(double %10, i32 516)
+  br i1 %13, label %_ZN6hermes2vm5expOpEdd.exit, label %if.end8.i
+
+if.end8.i:                                        ; preds = %land.lhs.true.i, %if.else2.i
   %call9.i = tail call double @pow(double noundef %5, double noundef %10) #10
   br label %_ZN6hermes2vm5expOpEdd.exit
 
-_ZN6hermes2vm5expOpEdd.exit:                      ; preds = %if.end18, %if.else.i, %if.else2.i, %if.end8.i
-  %retval.0.i = phi double [ %call9.i, %if.end8.i ], [ 0x7FF8000000000000, %if.end18 ], [ 1.000000e+00, %if.else.i ], [ 0x7FF8000000000000, %if.else2.i ]
-  %15 = fcmp uno double %retval.0.i, 0.000000e+00
-  %16 = bitcast double %retval.0.i to i64
-  %retval.sroa.0.0.i10 = select i1 %15, i64 9221120237041090560, i64 %16
+_ZN6hermes2vm5expOpEdd.exit:                      ; preds = %if.end18, %if.else.i, %land.lhs.true.i, %if.end8.i
+  %retval.0.i = phi double [ %call9.i, %if.end8.i ], [ 0x7FF8000000000000, %if.end18 ], [ 1.000000e+00, %if.else.i ], [ 0x7FF8000000000000, %land.lhs.true.i ]
+  %14 = fcmp uno double %retval.0.i, 0.000000e+00
+  %15 = bitcast double %retval.0.i to i64
+  %retval.sroa.0.0.i10 = select i1 %14, i64 9221120237041090560, i64 %15
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %_ZN6hermes2vm5expOpEdd.exit
@@ -890,8 +891,8 @@ for.body.lr.ph:                                   ; preds = %_ZN4llvh15SmallVect
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4llvh23SmallVectorTemplateBaseIdLb1EE9push_backERKd.exit
-  %hasNaN.046 = phi i1 [ false, %for.body.lr.ph ], [ %16, %_ZN4llvh23SmallVectorTemplateBaseIdLb1EE9push_backERKd.exit ]
-  %hasInf.045 = phi i1 [ false, %for.body.lr.ph ], [ %14, %_ZN4llvh23SmallVectorTemplateBaseIdLb1EE9push_backERKd.exit ]
+  %hasNaN.046 = phi i1 [ false, %for.body.lr.ph ], [ %15, %_ZN4llvh23SmallVectorTemplateBaseIdLb1EE9push_backERKd.exit ]
+  %hasInf.045 = phi i1 [ false, %for.body.lr.ph ], [ %13, %_ZN4llvh23SmallVectorTemplateBaseIdLb1EE9push_backERKd.exit ]
   %max.044 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %.sroa.speculated, %_ZN4llvh23SmallVectorTemplateBaseIdLb1EE9push_backERKd.exit ]
   %__begin2.sroa.0.043 = phi ptr [ %6, %for.body.lr.ph ], [ %incdec.ptr.i.i, %_ZN4llvh23SmallVectorTemplateBaseIdLb1EE9push_backERKd.exit ]
   %incdec.ptr.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %__begin2.sroa.0.043, i64 -1
@@ -903,22 +904,20 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   store ptr %add.ptr.i17, ptr %curChunkEnd_.i, align 8
   store ptr %5, ptr %next_.i, align 8
   %call8 = call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %incdec.ptr.i.i) #10
-  %call8.fr = freeze { i32, i64 } %call8
-  %9 = extractvalue { i32, i64 } %call8.fr, 0
-  %10 = extractvalue { i32, i64 } %call8.fr, 1
+  %9 = extractvalue { i32, i64 } %call8, 0
+  %10 = extractvalue { i32, i64 } %call8, 1
   %cmp.i21 = icmp eq i32 %9, 0
   br i1 %cmp.i21, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %for.body
   %11 = bitcast i64 %10 to double
-  %12 = call double @llvm.fabs.f64(double %11)
-  %13 = fcmp oeq double %12, 0x7FF0000000000000
-  %14 = select i1 %13, i1 true, i1 %hasInf.045
-  %15 = fcmp uno double %11, 0.000000e+00
-  %16 = select i1 %15, i1 true, i1 %hasNaN.046
-  %17 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %18 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
-  %cmp.not.i = icmp ult i32 %17, %18
+  %12 = call noundef i1 @llvm.is.fpclass.f64(double %11, i32 516)
+  %13 = select i1 %12, i1 true, i1 %hasInf.045
+  %14 = fcmp uno double %11, 0.000000e+00
+  %15 = select i1 %14, i1 true, i1 %hasNaN.046
+  %16 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %17 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
+  %cmp.not.i = icmp ult i32 %16, %17
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseIdLb1EE9push_backERKd.exit, label %if.then.i23
 
 if.then.i23:                                      ; preds = %if.end
@@ -927,22 +926,23 @@ if.then.i23:                                      ; preds = %if.end
   br label %_ZN4llvh23SmallVectorTemplateBaseIdLb1EE9push_backERKd.exit
 
 _ZN4llvh23SmallVectorTemplateBaseIdLb1EE9push_backERKd.exit: ; preds = %if.end, %if.then.i23
-  %19 = phi i32 [ %.pre.i, %if.then.i23 ], [ %17, %if.end ]
-  %20 = load ptr, ptr %coerced, align 8
-  %conv.i3.i = zext i32 %19 to i64
-  %add.ptr.i.i = getelementptr inbounds double, ptr %20, i64 %conv.i3.i
+  %18 = phi i32 [ %.pre.i, %if.then.i23 ], [ %16, %if.end ]
+  %19 = load ptr, ptr %coerced, align 8
+  %conv.i3.i = zext i32 %18 to i64
+  %add.ptr.i.i = getelementptr inbounds double, ptr %19, i64 %conv.i3.i
   store i64 %10, ptr %add.ptr.i.i, align 1
-  %21 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %add.i = add i32 %21, 1
+  %20 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %add.i = add i32 %20, 1
   store i32 %add.i, ptr %Size.i.i.i.i.i, align 8
-  %cmp.i25 = fcmp olt double %12, %max.044
-  %.sroa.speculated = select i1 %cmp.i25, double %max.044, double %12
+  %21 = call double @llvm.fabs.f64(double %11)
+  %cmp.i25 = fcmp olt double %21, %max.044
+  %.sroa.speculated = select i1 %cmp.i25, double %max.044, double %21
   %cmp.i.i.i.not = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.i.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZN4llvh23SmallVectorTemplateBaseIdLb1EE9push_backERKd.exit
-  %brmerge = select i1 %14, i1 true, i1 %16
-  %. = select i1 %14, i64 9218868437227405312, i64 9221120237041090560
+  %brmerge = select i1 %13, i1 true, i1 %15
+  %. = select i1 %13, i64 9218868437227405312, i64 9221120237041090560
   br i1 %brmerge, label %cleanup, label %if.end36
 
 if.end36:                                         ; preds = %for.end
@@ -1308,6 +1308,9 @@ declare double @llvm.floor.f64(double) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.copysign.f64(double, double) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #1
