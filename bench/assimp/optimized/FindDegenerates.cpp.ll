@@ -660,11 +660,7 @@ for.end101:                                       ; preds = %for.inc99
 
 for.cond107.preheader:                            ; preds = %for.end101
   %58 = icmp eq i32 %54, 0
-  br i1 %58, label %for.end139.thread, label %invoke.cont116.lr.ph
-
-for.end139.thread:                                ; preds = %for.cond107.preheader
-  store i32 0, ptr %mNumFaces2, align 8
-  br label %if.then143
+  br i1 %58, label %if.then143, label %invoke.cont116.lr.ph
 
 invoke.cont116.lr.ph:                             ; preds = %for.cond107.preheader
   %mFaces111 = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 10
@@ -732,7 +728,7 @@ for.end139:                                       ; preds = %for.inc137
   %tobool142.not = icmp eq i32 %n.1, 0
   br i1 %tobool142.not, label %if.then143, label %if.end148
 
-if.then143:                                       ; preds = %for.end139.thread, %for.end139
+if.then143:                                       ; preds = %for.cond107.preheader, %for.end139
   %call145 = invoke noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
           to label %invoke.cont144 unwind label %lpad.loopexit.split-lp
 

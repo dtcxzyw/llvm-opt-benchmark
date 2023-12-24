@@ -4990,7 +4990,7 @@ if.end39.i:                                       ; preds = %if.then1.i.i, %if.e
   %28 = load i32, ptr %readable.i36.i, align 8
   %tobool.not.i37.i = icmp eq i32 %28, 0
   %read_end.i22.i.i = getelementptr inbounds %struct.buffered, ptr %self, i64 0, i32 12
-  br i1 %tobool.not.i37.i, label %if.end.i.i40.i, label %land.lhs.true3.i.i
+  br i1 %tobool.not.i37.i, label %if.end.i.sink.split.i.i, label %land.lhs.true3.i.i
 
 land.lhs.true3.i.i:                               ; preds = %if.end39.i
   %29 = load i64, ptr %read_end.i22.i.i, align 8
@@ -5002,7 +5002,7 @@ cond.end.i38.i:                                   ; preds = %land.lhs.true3.i.i
   %30 = load i64, ptr %pos.i39.i, align 8
   %sub.i.i = sub i64 %29, %30
   %cmp5.i.i = icmp sgt i64 %sub.i.i, 0
-  br i1 %cmp5.i.i, label %if.then.i42.i, label %if.end.i.i40.i
+  br i1 %cmp5.i.i, label %if.then.i42.i, label %if.end.i.sink.split.i.i
 
 if.then.i42.i:                                    ; preds = %cond.end.i38.i
   %31 = load ptr, ptr %buffer.i, align 8
@@ -5010,8 +5010,11 @@ if.then.i42.i:                                    ; preds = %cond.end.i38.i
   %call.i43.i = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %add.ptr.i.i, i64 noundef %sub.i.i) #10
   br label %do.body41.i
 
-if.end.i.i40.i:                                   ; preds = %cond.end.i38.i, %land.lhs.true3.i.i, %if.end39.i
+if.end.i.sink.split.i.i:                          ; preds = %cond.end.i38.i, %if.end39.i
   store i64 -1, ptr %read_end.i22.i.i, align 8
+  br label %if.end.i.i40.i
+
+if.end.i.i40.i:                                   ; preds = %if.end.i.sink.split.i.i, %land.lhs.true3.i.i
   %buffer_size.i.i.i = getelementptr inbounds %struct.buffered, ptr %self, i64 0, i32 17
   %32 = load i64, ptr %buffer_size.i.i.i, align 8
   %33 = load ptr, ptr %buffer.i, align 8

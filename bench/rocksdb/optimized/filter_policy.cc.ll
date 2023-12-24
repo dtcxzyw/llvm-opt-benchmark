@@ -10202,14 +10202,10 @@ _ZNSt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt1
   store ptr null, ptr %final_filter_cache_res_handle, align 8
   %149 = load ptr, ptr %mutable_buf, align 8
   %cmp.not.i331 = icmp eq ptr %149, null
-  br i1 %cmp.not.i331, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit334, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i332
+  br i1 %cmp.not.i331, label %ehcleanup159, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i332
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i332: ; preds = %_ZNSt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS2_EED2Ev.exit330
   call void @_ZdaPv(ptr noundef nonnull %149) #33
-  br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit334
-
-_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit334: ; preds = %_ZNSt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS2_EED2Ev.exit330, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i332
-  store ptr null, ptr %mutable_buf, align 8
   br label %ehcleanup159
 
 cleanup:                                          ; preds = %if.then93, %invoke.cont91, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
@@ -10228,8 +10224,8 @@ _ZN7rocksdb6StatusD2Ev.exit338:                   ; preds = %cleanup, %_ZNKSt14d
   store ptr null, ptr %state_.i335, align 8
   br label %cleanup160
 
-ehcleanup159:                                     ; preds = %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit334, %lpad83
-  %.pn.pn = phi { ptr, i32 } [ %107, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit334 ], [ %100, %lpad83 ]
+ehcleanup159:                                     ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i332, %_ZNSt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS2_EED2Ev.exit330, %lpad83
+  %.pn.pn = phi { ptr, i32 } [ %100, %lpad83 ], [ %107, %_ZNSt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS2_EED2Ev.exit330 ], [ %107, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i332 ]
   %state_.i339 = getelementptr inbounds %"class.rocksdb::Status", ptr %verify_hash_entries_checksum_status, i64 0, i32 6
   %151 = load ptr, ptr %state_.i339, align 8
   %cmp.not.i.i340 = icmp eq ptr %151, null

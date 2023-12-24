@@ -2907,7 +2907,6 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %invoke.cont13
 
 invoke.cont13:                                    ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i12, %nrvo.unused
-  store ptr null, ptr %state_.i.i10, align 8
   %writable_file_opened_ = getelementptr inbounds %"class.rocksdb::TestFSWritableFile", ptr %this, i64 0, i32 4
   store i8 0, ptr %writable_file_opened_, align 8
   %target_ = getelementptr inbounds %"class.rocksdb::TestFSWritableFile", ptr %this, i64 0, i32 3
@@ -3046,23 +3045,19 @@ cleanup62:                                        ; preds = %if.then53
 nrvo.unused64:                                    ; preds = %cleanup62
   %33 = load ptr, ptr %state_.i.i10, align 8
   %cmp.not.i.i.i47 = icmp eq ptr %33, null
-  br i1 %cmp.not.i.i.i47, label %_ZN7rocksdb8IOStatusD2Ev.exit49, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i48
+  br i1 %cmp.not.i.i.i47, label %if.end68, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i48
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i48: ; preds = %nrvo.unused64
   call void @_ZdaPv(ptr noundef nonnull %33) #24
-  br label %_ZN7rocksdb8IOStatusD2Ev.exit49
-
-_ZN7rocksdb8IOStatusD2Ev.exit49:                  ; preds = %nrvo.unused64, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i48
-  store ptr null, ptr %state_.i.i10, align 8
   br label %if.end68
 
-if.end68:                                         ; preds = %invoke.cont29, %_ZN7rocksdb8IOStatusD2Ev.exit49, %invoke.cont51
-  %io_s.sroa.19.1 = phi i8 [ %29, %_ZN7rocksdb8IOStatusD2Ev.exit49 ], [ %29, %invoke.cont51 ], [ %18, %invoke.cont29 ]
-  %io_s.sroa.16.1.in = phi i8 [ %28, %_ZN7rocksdb8IOStatusD2Ev.exit49 ], [ %28, %invoke.cont51 ], [ %17, %invoke.cont29 ]
-  %io_s.sroa.13.1.in = phi i8 [ %27, %_ZN7rocksdb8IOStatusD2Ev.exit49 ], [ %27, %invoke.cont51 ], [ %16, %invoke.cont29 ]
-  %io_s.sroa.23.2 = phi ptr [ %30, %_ZN7rocksdb8IOStatusD2Ev.exit49 ], [ %30, %invoke.cont51 ], [ %19, %invoke.cont29 ]
-  %io_s.sroa.7.1 = phi i8 [ %26, %_ZN7rocksdb8IOStatusD2Ev.exit49 ], [ %26, %invoke.cont51 ], [ %15, %invoke.cont29 ]
-  %io_s.sroa.0.1 = phi i8 [ 0, %_ZN7rocksdb8IOStatusD2Ev.exit49 ], [ %25, %invoke.cont51 ], [ %14, %invoke.cont29 ]
+if.end68:                                         ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i48, %nrvo.unused64, %invoke.cont29, %invoke.cont51
+  %io_s.sroa.19.1 = phi i8 [ %29, %invoke.cont51 ], [ %18, %invoke.cont29 ], [ %29, %nrvo.unused64 ], [ %29, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i48 ]
+  %io_s.sroa.16.1.in = phi i8 [ %28, %invoke.cont51 ], [ %17, %invoke.cont29 ], [ %28, %nrvo.unused64 ], [ %28, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i48 ]
+  %io_s.sroa.13.1.in = phi i8 [ %27, %invoke.cont51 ], [ %16, %invoke.cont29 ], [ %27, %nrvo.unused64 ], [ %27, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i48 ]
+  %io_s.sroa.23.2 = phi ptr [ %30, %invoke.cont51 ], [ %19, %invoke.cont29 ], [ %30, %nrvo.unused64 ], [ %30, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i48 ]
+  %io_s.sroa.7.1 = phi i8 [ %26, %invoke.cont51 ], [ %15, %invoke.cont29 ], [ %26, %nrvo.unused64 ], [ %26, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i48 ]
+  %io_s.sroa.0.1 = phi i8 [ %25, %invoke.cont51 ], [ %14, %invoke.cont29 ], [ 0, %nrvo.unused64 ], [ 0, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i48 ]
   %io_s.sroa.13.1 = and i8 %io_s.sroa.13.1.in, 1
   %io_s.sroa.16.1 = and i8 %io_s.sroa.16.1.in, 1
   %subcode_.i.i.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 1
@@ -5416,7 +5411,6 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb8IOStatusD2Ev.exit108
 
 _ZN7rocksdb8IOStatusD2Ev.exit108:                 ; preds = %ehcleanup, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i107
-  store ptr null, ptr %state_.i.i.i8, align 8
   %cmp.not.i.i.i110 = icmp eq ptr %ret.sroa.25.6, null
   br i1 %cmp.not.i.i.i110, label %_ZN7rocksdb8IOStatusD2Ev.exit112, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i111
 

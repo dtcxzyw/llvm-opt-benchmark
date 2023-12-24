@@ -4782,7 +4782,6 @@ terminate.lpad.i.i139:                            ; preds = %for.cond.preheader.
   unreachable
 
 _ZN7obj_mapI3appjED2Ev.exit:                      ; preds = %_ZN6spacer13spacer_matrixD2Ev.exit, %for.cond.preheader.i.i.i.i
-  store ptr null, ptr %map, align 8
   %133 = load ptr, ptr %ordered_basis, align 8
   %tobool.not.i.i.i140 = icmp eq ptr %133, null
   br i1 %tobool.not.i.i.i140, label %return, label %if.then.i.i.i141

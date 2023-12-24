@@ -20679,7 +20679,6 @@ invoke.cont:                                      ; preds = %for.body.i, %for.bo
   %sum.0.lcssa.i = phi float [ 0.000000e+00, %for.body5 ], [ %add.i, %for.body.i ]
   %conv5.i = uitofp i64 %7 to float
   %div.i = fdiv float %sum.0.lcssa.i, %conv5.i
-  store i64 0, ptr %nStored.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN4pbrt18ImageChannelValuesD2Ev.exit, label %if.end.i.i.i.i.i
 

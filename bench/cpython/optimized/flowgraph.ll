@@ -3602,11 +3602,7 @@ for.body.lr.ph.i155:                              ; preds = %get_max_label.exit.
 while.cond.preheader.i170:                        ; preds = %for.inc.i169, %get_max_label.exit.i
   %355 = load ptr, ptr %b_next.i131, align 8
   %tobool47.not100.i = icmp eq ptr %355, null
-  br i1 %tobool47.not100.i, label %while.end89.thread.i, label %while.cond48.preheader.i
-
-while.end89.thread.i:                             ; preds = %while.cond.preheader.i170
-  store ptr null, ptr %b_next.i131, align 8
-  br label %if.end28
+  br i1 %tobool47.not100.i, label %if.end28, label %while.cond48.preheader.i
 
 for.body.i156:                                    ; preds = %for.inc.i169, %for.body.lr.ph.i155
   %next_lbl.096.i = phi i32 [ %lbl.0.lcssa.i.i, %for.body.lr.ph.i155 ], [ %next_lbl.2.i, %for.inc.i169 ]
@@ -3876,7 +3872,7 @@ remove_redundant_jumps.exit.i:                    ; preds = %if.then.i68.i
   tail call void @PyErr_SetString(ptr noundef %391, ptr noundef nonnull @.str.3) #9
   br label %return
 
-if.end28:                                         ; preds = %for.inc.i.i180, %while.end89.i, %while.end89.thread.i
+if.end28:                                         ; preds = %for.inc.i.i180, %while.cond.preheader.i170, %while.end89.i
   %.pr319 = load ptr, ptr %g, align 8
   %cmp.not5.i.i.i231 = icmp eq ptr %.pr319, null
   br i1 %cmp.not5.i.i.i231, label %if.end.thread.i, label %for.body.i.i.i232.preheader
@@ -5528,18 +5524,18 @@ entry:
   br i1 %cmp.not40, label %for.end62, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
-  %b_next75 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %0, i64 0, i32 4
-  %next.03676 = load ptr, ptr %b_next75, align 8
-  %tobool.not3777 = icmp eq ptr %next.03676, null
-  br i1 %tobool.not3777, label %while.cond5thread-pre-split, label %land.rhs.preheader
+  %b_next71 = getelementptr inbounds %struct._PyCfgBasicblock, ptr %0, i64 0, i32 4
+  %next.03672 = load ptr, ptr %b_next71, align 8
+  %tobool.not3773 = icmp eq ptr %next.03672, null
+  br i1 %tobool.not3773, label %while.cond5thread-pre-split, label %land.rhs.preheader
 
 land.rhs.preheader:                               ; preds = %for.body.preheader, %while.end
-  %next.03679 = phi ptr [ %next.036, %while.end ], [ %next.03676, %for.body.preheader ]
-  %b_next78 = phi ptr [ %b_next, %while.end ], [ %b_next75, %for.body.preheader ]
+  %next.03675 = phi ptr [ %next.036, %while.end ], [ %next.03672, %for.body.preheader ]
+  %b_next74 = phi ptr [ %b_next, %while.end ], [ %b_next71, %for.body.preheader ]
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body
-  %next.038 = phi ptr [ %next.0, %while.body ], [ %next.03679, %land.rhs.preheader ]
+  %next.038 = phi ptr [ %next.0, %while.body ], [ %next.03675, %land.rhs.preheader ]
   %b_iused = getelementptr inbounds %struct._PyCfgBasicblock, ptr %next.038, i64 0, i32 5
   %1 = load i32, ptr %b_iused, align 8
   %cmp1 = icmp eq i32 %1, 0
@@ -5552,15 +5548,13 @@ while.body:                                       ; preds = %land.rhs
   br i1 %tobool.not, label %while.cond5thread-pre-split, label %land.rhs, !llvm.loop !98
 
 while.end:                                        ; preds = %land.rhs
-  store ptr %next.038, ptr %b_next78, align 8
+  store ptr %next.038, ptr %b_next74, align 8
   %b_next = getelementptr inbounds %struct._PyCfgBasicblock, ptr %next.038, i64 0, i32 4
   %next.036 = load ptr, ptr %b_next, align 8
   %tobool.not37 = icmp eq ptr %next.036, null
   br i1 %tobool.not37, label %while.cond5thread-pre-split, label %land.rhs.preheader, !llvm.loop !99
 
 while.cond5thread-pre-split:                      ; preds = %while.end, %while.body, %for.body.preheader
-  %b_next74 = phi ptr [ %b_next75, %for.body.preheader ], [ %b_next78, %while.body ], [ %b_next, %while.end ]
-  store ptr null, ptr %b_next74, align 8
   %.pr.pre = load ptr, ptr %g, align 8
   %tobool7.not42 = icmp eq ptr %.pr.pre, null
   br i1 %tobool7.not42, label %for.end62, label %land.rhs8

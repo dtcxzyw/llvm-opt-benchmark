@@ -4958,7 +4958,6 @@ lor.lhs.false:                                    ; preds = %_ZNK6vectorIN3sat8a
   br i1 %15, label %_ZN6vectorIN3sat8aig_cuts4nodeELb0EjE5resetEv.exit, label %if.else45
 
 _ZN6vectorIN3sat8aig_cuts4nodeELb0EjE5resetEv.exit: ; preds = %_ZNK6vectorIN3sat8aig_cuts4nodeELb0EjE5emptyEv.exit40, %lor.lhs.false
-  store i32 0, ptr %arrayidx.i38, align 4
   %.pre = load ptr, ptr %m_aig12, align 8
   %arrayidx.i46.phi.trans.insert = getelementptr inbounds %class.svector.8, ptr %.pre, i64 %idxprom.i34
   %.pre83 = load ptr, ptr %arrayidx.i46.phi.trans.insert, align 8

@@ -778,7 +778,6 @@ ossl_decoder_instance_free.exit:                  ; preds = %if.then.i, %if.then
   %decoderctx4.i = getelementptr inbounds %struct.ossl_decoder_instance_st, ptr %call, i64 0, i32 1
   store ptr null, ptr %decoderctx4.i, align 8
   tail call void @OSSL_DECODER_free(ptr noundef %0) #7
-  store ptr null, ptr %call, align 8
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 280) #7
   br label %return
 

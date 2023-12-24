@@ -1363,7 +1363,6 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i: ; pr
   br label %_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont57, %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i
-  store ptr null, ptr %agg.tmp, align 8
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.050, align 8
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.0, %children
   br i1 %cmp.i.not, label %for.end, label %for.body

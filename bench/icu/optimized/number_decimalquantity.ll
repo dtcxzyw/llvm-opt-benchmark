@@ -1565,7 +1565,6 @@ for.cond31.preheader:                             ; preds = %if.else25
   br i1 %cmp33102, label %if.else.i52, label %for.end41
 
 _ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit44: ; preds = %if.else25
-  store i64 0, ptr %fBCD26, align 8
   %scale.i38 = getelementptr inbounds %"class.icu_75::number::impl::DecimalQuantity", ptr %this, i64 0, i32 3
   store i32 0, ptr %scale.i38, align 4
   %precision.i39 = getelementptr inbounds %"class.icu_75::number::impl::DecimalQuantity", ptr %this, i64 0, i32 4

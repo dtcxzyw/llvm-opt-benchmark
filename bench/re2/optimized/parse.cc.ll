@@ -2015,11 +2015,7 @@ entry:
   tail call void @_ZN3re26Regexp10ParseState10DoCollapseENS_8RegexpOpE(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef 6)
   %2 = load ptr, ptr %stacktop_.i, align 8
   %cmp.not = icmp eq ptr %2, null
-  br i1 %cmp.not, label %entry.split, label %land.lhs.true
-
-entry.split:                                      ; preds = %entry
-  store ptr null, ptr %stacktop_.i, align 8
-  br label %return
+  br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %down_ = getelementptr inbounds %"class.re2::Regexp", ptr %2, i64 0, i32 6
@@ -2077,8 +2073,8 @@ if.then:                                          ; preds = %land.lhs.true
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %error_arg.sroa.2.0.error_arg_.sroa_idx.i, align 8
   br label %return
 
-return:                                           ; preds = %_ZN3re216CharClassBuilderD2Ev.exit.i, %land.lhs.true.i, %if.end.i, %entry.split, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %entry.split ], [ %2, %if.end.i ], [ %2, %land.lhs.true.i ], [ %2, %_ZN3re216CharClassBuilderD2Ev.exit.i ]
+return:                                           ; preds = %entry, %_ZN3re216CharClassBuilderD2Ev.exit.i, %land.lhs.true.i, %if.end.i, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ %2, %if.end.i ], [ %2, %land.lhs.true.i ], [ %2, %_ZN3re216CharClassBuilderD2Ev.exit.i ], [ null, %entry ]
   ret ptr %retval.0
 }
 

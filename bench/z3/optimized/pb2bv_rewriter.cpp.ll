@@ -22791,11 +22791,7 @@ invoke.cont64:                                    ; preds = %invoke.cont62
 if.then.i177:                                     ; preds = %invoke.cont64
   %102 = load ptr, ptr %m_manager3.i29.i, align 8, !noalias !104
   %tobool.not.i.i.i = icmp eq ptr %101, null
-  br i1 %tobool.not.i.i.i, label %invoke.cont67.thread, label %return.sink.split.i
-
-invoke.cont67.thread:                             ; preds = %if.then.i177
-  store ptr null, ptr %result, align 8
-  br label %_ZN7obj_refI4expr11ast_managerED2Ev.exit
+  br i1 %tobool.not.i.i.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %return.sink.split.i
 
 if.end.i175:                                      ; preds = %invoke.cont64
   %cmp.i10.i = icmp eq ptr %100, %101
@@ -22871,7 +22867,7 @@ terminate.lpad.i184:                              ; preds = %if.then2.i.i.i.i
   call void @__clang_call_terminate(ptr %111) #21
   unreachable
 
-_ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %if.then2.i.i.i.i, %if.then.i.i.i.i181, %invoke.cont67, %invoke.cont67.thread
+_ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %if.then.i177, %if.then2.i.i.i.i, %if.then.i.i.i.i181, %invoke.cont67
   %112 = load ptr, ptr %m, align 8, !noalias !107
   %113 = load ptr, ptr %gt, align 8, !noalias !107
   %m_true.i.i193 = getelementptr inbounds %class.ast_manager, ptr %112, i64 0, i32 15

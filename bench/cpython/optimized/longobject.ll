@@ -14583,7 +14583,6 @@ if.then1.i.i271:                                  ; preds = %if.end.i.i268
 
 Py_XDECREF.exit272:                               ; preds = %if.end177, %if.then.i265, %if.end.i.i268, %if.then1.i.i271
   %79 = load ptr, ptr %temp, align 8
-  store ptr null, ptr %temp, align 8
   br label %do.end180
 
 do.end180:                                        ; preds = %Py_XDECREF.exit272, %Py_XDECREF.exit263

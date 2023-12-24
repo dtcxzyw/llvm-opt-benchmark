@@ -2295,7 +2295,7 @@ define dso_local i32 @_PyTuple_Resize(ptr nocapture noundef %pv, i64 noundef %ne
 entry:
   %0 = load ptr, ptr %pv, align 8
   %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+  br i1 %cmp, label %Py_XDECREF.exit, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %1 = getelementptr i8, ptr %0, i64 8
@@ -2314,10 +2314,6 @@ land.lhs.true:                                    ; preds = %lor.lhs.false1
   %cmp5.not = icmp eq i64 %.val48, 1
   br i1 %cmp5.not, label %if.end, label %if.then.i
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %pv, align 8
-  br label %Py_XDECREF.exit
-
 if.then.i:                                        ; preds = %land.lhs.true, %lor.lhs.false
   store ptr null, ptr %pv, align 8
   %3 = load i64, ptr %0, align 8
@@ -2335,7 +2331,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %0) #8
   br label %Py_XDECREF.exit
 
-Py_XDECREF.exit:                                  ; preds = %if.then, %if.then.i, %if.end.i.i, %if.then1.i.i
+Py_XDECREF.exit:                                  ; preds = %entry, %if.then.i, %if.end.i.i, %if.then1.i.i
   tail call void @_PyErr_BadInternalCall(ptr noundef nonnull @.str, i32 noundef 911) #8
   br label %return
 

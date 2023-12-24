@@ -342,7 +342,6 @@ err.i:                                            ; preds = %if.end14.i, %if.end
 
 if.then21.i:                                      ; preds = %err.i
   call void @OPENSSL_sk_free(ptr noundef nonnull %12) #3
-  store ptr null, ptr %safes, align 8
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.then21.i, %err.i

@@ -13109,7 +13109,6 @@ for.cond.preheader.i.i.i.i:                       ; preds = %if.then12.i.i
           to label %_ZN14core_hashtableIN7obj_mapI4sortjE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE12delete_tableEv.exit.i.i unwind label %lpad16.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN14core_hashtableIN7obj_mapI4sortjE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE12delete_tableEv.exit.i.i: ; preds = %for.cond.preheader.i.i.i.i, %if.then12.i.i
-  store ptr null, ptr %max_vars, align 8
   %shr.i.i = lshr i32 %19, 1
   store i32 %shr.i.i, ptr %m_capacity.i.i29, align 8
   %conv.i.i.i.i = zext nneg i32 %shr.i.i to i64
@@ -14081,7 +14080,6 @@ terminate.lpad.i.i156:                            ; preds = %for.cond.preheader.
   unreachable
 
 _ZN7obj_mapI4sortjED2Ev.exit:                     ; preds = %for.end111, %for.cond.preheader.i.i.i.i155
-  store ptr null, ptr %max_vars, align 8
   %123 = load ptr, ptr %var_idxs, align 8
   %124 = load i32, ptr %m_capacity.i.i, align 8
   %cmp.i.i.i.i158 = icmp eq ptr %123, null

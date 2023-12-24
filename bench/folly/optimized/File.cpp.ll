@@ -8155,7 +8155,6 @@ entry:
 
 _ZN5folly4File12closeNoThrowEv.exit.thread:       ; preds = %entry
   store i32 -1, ptr %this, align 4, !tbaa !7
-  store i8 0, ptr %ownsFd_.i, align 4, !tbaa !13
   br label %if.end
 
 _ZN5folly4File12closeNoThrowEv.exit:              ; preds = %entry

@@ -177,11 +177,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 if.end24:                                         ; preds = %for.end
   %2 = load i64, ptr %msgs_processed, align 8
   %cmp2676.not = icmp eq i64 %2, 0
-  br i1 %cmp2676.not, label %for.end103.thread, label %for.body27.lr.ph
-
-for.end103.thread:                                ; preds = %if.end24
-  store i64 0, ptr %msgs_processed, align 8
-  br label %if.then106
+  br i1 %cmp2676.not, label %if.then106, label %for.body27.lr.ph
 
 for.body27.lr.ph:                                 ; preds = %if.end24
   %reinject_dgram = getelementptr inbounds %struct.noisy_dgram_st, ptr %call2, i64 0, i32 2
@@ -382,7 +378,7 @@ for.end103:                                       ; preds = %for.inc99
   %cmp104 = icmp eq i64 %msg_cnt.1, 0
   br i1 %cmp104, label %if.then106, label %return
 
-if.then106:                                       ; preds = %for.end103.thread, %for.end103
+if.then106:                                       ; preds = %if.end24, %for.end103
   tail call void @ERR_new() #2
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 319, ptr noundef nonnull @__func__.noisy_dgram_recvmmsg) #2
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 112, ptr noundef null) #2

@@ -13424,24 +13424,20 @@ lpad21:                                           ; preds = %if.else.i.i
           cleanup
   %19 = load ptr, ptr %agg.result, align 8, !tbaa !17
   %cmp.not.i = icmp eq ptr %19, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i
+  br i1 %cmp.not.i, label %eh.resume, label %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i: ; preds = %lpad21
   %vtable.i.i = load ptr, ptr %19, align 8, !tbaa !3
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
   %20 = load ptr, ptr %vfn.i.i, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(80) %19) #21
-  br label %_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit
-
-_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i, %lpad21
-  store ptr null, ptr %agg.result, align 8, !tbaa !17
   br label %eh.resume
 
 nrvo.skipdtor:                                    ; preds = %if.else.i.i, %if.then.i.i33
   ret void
 
-eh.resume:                                        ; preds = %_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit, %lpad16, %cleanup.action, %ehcleanup, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  %.pn26 = phi { ptr, i32 } [ %18, %_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit ], [ %17, %lpad16 ], [ %.pn36, %cleanup.action ], [ %2, %ehcleanup ], [ %2, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+eh.resume:                                        ; preds = %lpad21, %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i, %lpad16, %cleanup.action, %ehcleanup, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
+  %.pn26 = phi { ptr, i32 } [ %17, %lpad16 ], [ %.pn36, %cleanup.action ], [ %2, %ehcleanup ], [ %2, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %18, %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i ], [ %18, %lpad21 ]
   resume { ptr, i32 } %.pn26
 
 unreachable:                                      ; preds = %invoke.cont4

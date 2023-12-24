@@ -4055,7 +4055,6 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br i1 %cmp.i26, label %if.end31, label %if.then21
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %invoke.cont19
-  store ptr null, ptr %state_.i, align 8
   br i1 %cmp.i26, label %if.end31, label %if.then21
 
 if.then21:                                        ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %invoke.cont19.thread, %_ZN7rocksdb6StatusD2Ev.exit

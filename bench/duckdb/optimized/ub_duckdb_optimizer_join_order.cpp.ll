@@ -7808,7 +7808,6 @@ _ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i124: ; preds = %
   br label %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit127
 
 _ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit127: ; preds = %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i124, %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit
-  store ptr null, ptr %agg.tmp, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp60) #31
   %call63 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_15LogicalOperatorESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %children175, i64 noundef 1)
@@ -22437,7 +22436,6 @@ _ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i525: ; preds = %
   br label %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit529
 
 _ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit529: ; preds = %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i525, %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit
-  store ptr null, ptr %agg.tmp, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp53) #31
   %79 = load ptr, ptr %_M_finish.i530, align 8, !tbaa !27
   %80 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !351
@@ -22547,7 +22545,6 @@ _ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i544: ; preds = %
   br label %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit548
 
 _ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit548: ; preds = %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i544, %lpad55
-  store ptr null, ptr %agg.tmp, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp53) #31
   br label %ehcleanup64
 
@@ -22880,7 +22877,6 @@ _ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i650: ; preds = %
   br label %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit654
 
 _ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit654: ; preds = %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i650, %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit648
-  store ptr null, ptr %agg.tmp103, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp102) #31
   %call123 = invoke noundef nonnull align 8 dereferenceable(224) ptr @_ZN6duckdb15LogicalOperator4CastINS_16LogicalAggregateEEERT_v(ptr noundef nonnull align 8 dereferenceable(97) %op.0.lcssa1210)
           to label %invoke.cont122 unwind label %lpad121
@@ -22935,21 +22931,17 @@ ehcleanup119:                                     ; preds = %_ZNSt10unique_ptrIN
   %.pn412 = phi { ptr, i32 } [ %123, %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit662 ], [ %122, %lpad109 ]
   %126 = load ptr, ptr %agg.tmp103, align 8, !tbaa !27
   %cmp.not.i663 = icmp eq ptr %126, null
-  br i1 %cmp.not.i663, label %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit668, label %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i664
+  br i1 %cmp.not.i663, label %ehcleanup120, label %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i664
 
 _ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i664: ; preds = %ehcleanup119
   %vtable.i.i665 = load ptr, ptr %126, align 8, !tbaa !242
   %vfn.i.i666 = getelementptr inbounds ptr, ptr %vtable.i.i665, i64 1
   %127 = load ptr, ptr %vfn.i.i666, align 8
   call void %127(ptr noundef nonnull align 8 dereferenceable(97) %126) #31
-  br label %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit668
-
-_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit668: ; preds = %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i664, %ehcleanup119
-  store ptr null, ptr %agg.tmp103, align 8, !tbaa !27
   br label %ehcleanup120
 
-ehcleanup120:                                     ; preds = %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit668, %lpad105
-  %.pn412.pn = phi { ptr, i32 } [ %.pn412, %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit668 ], [ %121, %lpad105 ]
+ehcleanup120:                                     ; preds = %ehcleanup119, %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i664, %lpad105
+  %.pn412.pn = phi { ptr, i32 } [ %121, %lpad105 ], [ %.pn412, %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i664 ], [ %.pn412, %ehcleanup119 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp102) #31
   br label %ehcleanup140
 
@@ -23304,7 +23296,6 @@ _ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i797: ; preds = %
   br label %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit801
 
 _ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit801: ; preds = %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i797, %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit795
-  store ptr null, ptr %agg.tmp153, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp152) #31
   %call173 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN6duckdb15LogicalOperator4CastINS_13LogicalWindowEEERT_v(ptr noundef nonnull align 8 dereferenceable(97) %op.0.lcssa1210)
           to label %invoke.cont172 unwind label %lpad171
@@ -23495,21 +23486,17 @@ ehcleanup169:                                     ; preds = %_ZNSt10unique_ptrIN
   %.pn404 = phi { ptr, i32 } [ %181, %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit865 ], [ %180, %lpad159 ]
   %184 = load ptr, ptr %agg.tmp153, align 8, !tbaa !27
   %cmp.not.i866 = icmp eq ptr %184, null
-  br i1 %cmp.not.i866, label %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit871, label %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i867
+  br i1 %cmp.not.i866, label %ehcleanup170, label %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i867
 
 _ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i867: ; preds = %ehcleanup169
   %vtable.i.i868 = load ptr, ptr %184, align 8, !tbaa !242
   %vfn.i.i869 = getelementptr inbounds ptr, ptr %vtable.i.i868, i64 1
   %185 = load ptr, ptr %vfn.i.i869, align 8
   call void %185(ptr noundef nonnull align 8 dereferenceable(97) %184) #31
-  br label %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit871
-
-_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit871: ; preds = %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i867, %ehcleanup169
-  store ptr null, ptr %agg.tmp153, align 8, !tbaa !27
   br label %ehcleanup170
 
-ehcleanup170:                                     ; preds = %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit871, %lpad155
-  %.pn404.pn = phi { ptr, i32 } [ %.pn404, %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit871 ], [ %179, %lpad155 ]
+ehcleanup170:                                     ; preds = %ehcleanup169, %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i867, %lpad155
+  %.pn404.pn = phi { ptr, i32 } [ %179, %lpad155 ], [ %.pn404, %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i867 ], [ %.pn404, %ehcleanup169 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp152) #31
   br label %ehcleanup184
 
@@ -24101,7 +24088,6 @@ _ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i1033: ; preds = 
   br label %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit1037
 
 _ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit1037: ; preds = %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i1033, %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit1031
-  store ptr null, ptr %agg.tmp283, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp282) #31
   %call303 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN6duckdb15LogicalOperator4CastINS_17LogicalProjectionEEERT_v(ptr noundef nonnull align 8 dereferenceable(97) %op.0.lcssa1210)
           to label %invoke.cont302 unwind label %lpad301
@@ -24292,21 +24278,17 @@ ehcleanup299:                                     ; preds = %_ZNSt10unique_ptrIN
   %.pn385 = phi { ptr, i32 } [ %266, %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit1101 ], [ %265, %lpad289 ]
   %269 = load ptr, ptr %agg.tmp283, align 8, !tbaa !27
   %cmp.not.i1102 = icmp eq ptr %269, null
-  br i1 %cmp.not.i1102, label %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit1107, label %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i1103
+  br i1 %cmp.not.i1102, label %ehcleanup300, label %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i1103
 
 _ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i1103: ; preds = %ehcleanup299
   %vtable.i.i1104 = load ptr, ptr %269, align 8, !tbaa !242
   %vfn.i.i1105 = getelementptr inbounds ptr, ptr %vtable.i.i1104, i64 1
   %270 = load ptr, ptr %vfn.i.i1105, align 8
   call void %270(ptr noundef nonnull align 8 dereferenceable(97) %269) #31
-  br label %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit1107
-
-_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit1107: ; preds = %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i1103, %ehcleanup299
-  store ptr null, ptr %agg.tmp283, align 8, !tbaa !27
   br label %ehcleanup300
 
-ehcleanup300:                                     ; preds = %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit1107, %lpad285
-  %.pn385.pn = phi { ptr, i32 } [ %.pn385, %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit1107 ], [ %264, %lpad285 ]
+ehcleanup300:                                     ; preds = %ehcleanup299, %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i1103, %lpad285
+  %.pn385.pn = phi { ptr, i32 } [ %264, %lpad285 ], [ %.pn385, %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i1103 ], [ %.pn385, %ehcleanup299 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp282) #31
   br label %ehcleanup313
 

@@ -5210,7 +5210,6 @@ if.then39:                                        ; preds = %lor.lhs.false37, %_
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true22, %_ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit, %if.end19
-  store i64 0, ptr %cursize_.i.i28, align 8
   %initial_end_offset_.i45 = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %11, i64 %conv.i27.pre-phi, i32 7
   store i64 0, ptr %initial_end_offset_.i45, align 8
   %.pre197 = load ptr, ptr %this, align 8

@@ -17854,6 +17854,7 @@ if.then.i240:                                     ; preds = %invoke.cont93
   %109 = and i8 %108, 1
   %data_loss_12.i248 = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 4
   store i8 %109, ptr %data_loss_12.i248, align 4
+  store i8 0, ptr %data_loss_.i247, align 4
   %scope_.i249 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp88, i64 0, i32 5
   %110 = load i8, ptr %scope_.i249, align 1
   %scope_15.i250 = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 5

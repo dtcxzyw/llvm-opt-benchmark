@@ -6520,12 +6520,7 @@ _ZNK5nlsat7explain3imp8todo_set5emptyEv.exit:     ; preds = %land.lhs.true
   %arrayidx.i.i.i34 = getelementptr inbounds i32, ptr %21, i64 -1
   %22 = load i32, ptr %arrayidx.i.i.i34, align 4
   %cmp3.i.i.i = icmp eq i32 %22, 0
-  br i1 %cmp3.i.i.i, label %if.then.i.i.i66, label %if.end15
-
-if.then.i.i.i66:                                  ; preds = %_ZNK5nlsat7explain3imp8todo_set5emptyEv.exit
-  %arrayidx.i.i.i34.le = getelementptr inbounds i32, ptr %21, i64 -1
-  store i32 0, ptr %arrayidx.i.i.i34.le, align 4
-  br label %while.end
+  br i1 %cmp3.i.i.i, label %while.end, label %if.end15
 
 if.end15:                                         ; preds = %if.end.i.preheader, %for.body.preheader.i, %_ZNK5nlsat7explain3imp8todo_set5emptyEv.exit, %_ZN5nlsat7explain3imp8all_univERK10ref_vectorIN10polynomial10polynomialENS3_7managerEEj.exit
   tail call void @_ZN5nlsat7explain3imp6add_lcER10ref_vectorIN10polynomial10polynomialENS3_7managerEEj(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef nonnull align 8 dereferenceable(16) %ps, i32 noundef %x.0)
@@ -6545,7 +6540,7 @@ if.end19:                                         ; preds = %_ZNK5nlsat7explain3
   %call21 = tail call noundef i32 @_ZN5nlsat7explain3imp8todo_set16remove_max_polysER10ref_vectorIN10polynomial10polynomialENS4_7managerEE(ptr noundef nonnull align 8 dereferenceable(32) %m_todo, ptr noundef nonnull align 8 dereferenceable(16) %ps)
   br label %while.body.sink.split, !llvm.loop !38
 
-while.end:                                        ; preds = %if.end15, %land.lhs.true, %_ZNK5nlsat7explain3imp8todo_set5emptyEv.exit74, %entry, %if.then.i.i.i66, %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5emptyEv.exit
+while.end:                                        ; preds = %if.end15, %land.lhs.true, %_ZNK5nlsat7explain3imp8todo_set5emptyEv.exit74, %_ZNK5nlsat7explain3imp8todo_set5emptyEv.exit, %entry, %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5emptyEv.exit
   ret void
 }
 

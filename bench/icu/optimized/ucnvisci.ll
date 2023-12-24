@@ -1762,8 +1762,11 @@ if.end255:                                        ; preds = %if.end128
 
 sw.bb:                                            ; preds = %if.end255
   %tobool257.not = icmp eq i16 %22, 0
+  br i1 %tobool257.not, label %while.cond.backedge, label %if.then258
+
+if.then258:                                       ; preds = %sw.bb
   store i16 0, ptr %contextCharFromUnicode, align 2
-  br i1 %tobool257.not, label %while.cond.backedge, label %sw.epilog
+  br label %sw.epilog
 
 while.cond.backedge:                              ; preds = %sw.bb, %do.end250
   %offsets.0.be = phi ptr [ %offsets.7.ph, %do.end250 ], [ %offsets.4, %sw.bb ]
@@ -1967,12 +1970,12 @@ if.end469:                                        ; preds = %if.end460, %sw.defa
   store i16 0, ptr %contextCharFromUnicode, align 2
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb, %if.else407, %if.then435, %do.end455, %if.end469, %sw.bb263
-  %offsets.13 = phi ptr [ %offsets.10.ph, %do.end455 ], [ %offsets.12, %if.end469 ], [ %offsets.4, %sw.bb263 ], [ %offsets.4, %if.then435 ], [ %offsets.9376, %if.else407 ], [ %offsets.4, %sw.bb ]
-  %targetByteUnit.3 = phi i32 [ %targetByteUnit.1, %do.end455 ], [ %targetByteUnit.2, %if.end469 ], [ %., %sw.bb263 ], [ %targetByteUnit.1, %if.then435 ], [ %targetByteUnit.1, %if.else407 ], [ 232, %sw.bb ]
-  %sourceChar.3 = phi i32 [ %sourceChar.1, %do.end455 ], [ %sourceChar.2, %if.end469 ], [ 8205, %sw.bb263 ], [ %sourceChar.1, %if.then435 ], [ %sourceChar.1, %if.else407 ], [ 8204, %sw.bb ]
-  %target.10 = phi ptr [ %target.7.ph, %do.end455 ], [ %target.9, %if.end469 ], [ %target.3, %sw.bb263 ], [ %target.3, %if.then435 ], [ %incdec.ptr394, %if.else407 ], [ %target.3, %sw.bb ]
-  %range.3 = phi i16 [ %range.1, %do.end455 ], [ %range.2, %if.end469 ], [ %range.0.ph460, %sw.bb263 ], [ %range.1, %if.then435 ], [ %range.1, %if.else407 ], [ %range.0.ph460, %sw.bb ]
+sw.epilog:                                        ; preds = %if.else407, %if.then435, %do.end455, %if.end469, %sw.bb263, %if.then258
+  %offsets.13 = phi ptr [ %offsets.10.ph, %do.end455 ], [ %offsets.12, %if.end469 ], [ %offsets.4, %sw.bb263 ], [ %offsets.4, %if.then258 ], [ %offsets.4, %if.then435 ], [ %offsets.9376, %if.else407 ]
+  %targetByteUnit.3 = phi i32 [ %targetByteUnit.1, %do.end455 ], [ %targetByteUnit.2, %if.end469 ], [ %., %sw.bb263 ], [ 232, %if.then258 ], [ %targetByteUnit.1, %if.then435 ], [ %targetByteUnit.1, %if.else407 ]
+  %sourceChar.3 = phi i32 [ %sourceChar.1, %do.end455 ], [ %sourceChar.2, %if.end469 ], [ 8205, %sw.bb263 ], [ 8204, %if.then258 ], [ %sourceChar.1, %if.then435 ], [ %sourceChar.1, %if.else407 ]
+  %target.10 = phi ptr [ %target.7.ph, %do.end455 ], [ %target.9, %if.end469 ], [ %target.3, %sw.bb263 ], [ %target.3, %if.then258 ], [ %target.3, %if.then435 ], [ %incdec.ptr394, %if.else407 ]
+  %range.3 = phi i16 [ %range.1, %do.end455 ], [ %range.2, %if.end469 ], [ %range.0.ph460, %sw.bb263 ], [ %range.0.ph460, %if.then258 ], [ %range.1, %if.then435 ], [ %range.1, %if.else407 ]
   %48 = load i16, ptr %currentDeltaFromUnicode, align 2
   %cmp473 = icmp ne i16 %48, 256
   %cmp475 = icmp ne i16 %22, 2673

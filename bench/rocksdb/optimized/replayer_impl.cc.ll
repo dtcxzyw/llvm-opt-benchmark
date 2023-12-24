@@ -2911,14 +2911,10 @@ lpad.i117:                                        ; preds = %cond.false.i116
           cleanup
   %77 = load ptr, ptr %state_.i113, align 8
   %cmp.not.i9.i118 = icmp eq ptr %77, null
-  br i1 %cmp.not.i9.i118, label %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit11.i120, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i10.i119
+  br i1 %cmp.not.i9.i118, label %ehcleanup, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i10.i119
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i10.i119: ; preds = %lpad.i117
   call void @_ZdaPv(ptr noundef nonnull %77) #14
-  br label %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit11.i120
-
-_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit11.i120: ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i10.i119, %lpad.i117
-  store ptr null, ptr %state_.i113, align 8
   br label %ehcleanup
 
 invoke.cont47:                                    ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i128, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EEaSEOS4_.exit.i125, %cond.end.i121, %_ZN7rocksdb6StatusD2Ev.exit101
@@ -2987,8 +2983,8 @@ _ZN7rocksdb6StatusD2Ev.exit152:                   ; preds = %lpad48, %_ZNKSt14de
   store ptr null, ptr %state_.i113, align 8
   br label %ehcleanup
 
-ehcleanup:                                        ; preds = %lpad41, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit11.i120, %_ZN7rocksdb6StatusD2Ev.exit152
-  %.pn = phi { ptr, i32 } [ %84, %_ZN7rocksdb6StatusD2Ev.exit152 ], [ %83, %lpad41 ], [ %76, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit11.i120 ]
+ehcleanup:                                        ; preds = %lpad.i117, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i10.i119, %lpad41, %_ZN7rocksdb6StatusD2Ev.exit152
+  %.pn = phi { ptr, i32 } [ %84, %_ZN7rocksdb6StatusD2Ev.exit152 ], [ %83, %lpad41 ], [ %76, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i10.i119 ], [ %76, %lpad.i117 ]
   %86 = load ptr, ptr %res, align 8
   %cmp.not.i153 = icmp eq ptr %86, null
   br i1 %cmp.not.i153, label %_ZNSt10unique_ptrIN7rocksdb17TraceRecordResultESt14default_deleteIS1_EED2Ev.exit158, label %_ZNKSt14default_deleteIN7rocksdb17TraceRecordResultEEclEPS1_.exit.i154

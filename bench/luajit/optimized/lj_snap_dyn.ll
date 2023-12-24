@@ -1220,7 +1220,6 @@ if.end:                                           ; preds = %for.inc20.i, %if.th
   br i1 %cmp1738.not, label %for.end.thread, label %for.body.preheader
 
 for.end.thread:                                   ; preds = %if.end
-  store i8 0, ptr %nent6, align 2
   %nsnapmap52 = getelementptr inbounds %struct.GCtrace, ptr %J, i64 0, i32 9
   %23 = load i32, ptr %nsnapmap52, align 4
   %24 = xor i32 %4, -1

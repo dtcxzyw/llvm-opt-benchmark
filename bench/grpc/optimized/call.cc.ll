@@ -13474,21 +13474,17 @@ invoke.cont35:                                    ; preds = %invoke.cont10, %if.
 invoke.cont39:                                    ; preds = %invoke.cont35
   %32 = load ptr, ptr %7, align 8
   %cmp.not.i = icmp eq ptr %32, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit, label %if.then.i28
+  br i1 %cmp.not.i, label %for.inc, label %if.then.i28
 
 if.then.i28:                                      ; preds = %invoke.cont39
   %33 = load i8, ptr %agg.tmp36, align 8
   %34 = and i8 %33, 1
   %tobool.not.i.i = icmp eq i8 %34, 0
-  br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit, label %delete.notnull.i.i
+  br i1 %tobool.not.i.i, label %for.inc, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %if.then.i28
   call void @_ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEED2Ev(ptr noundef nonnull align 8 dereferenceable(568) %32) #28
   call void @_ZdlPv(ptr noundef nonnull %32) #31
-  br label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit
-
-_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit: ; preds = %invoke.cont39, %if.then.i28, %delete.notnull.i.i
-  store ptr null, ptr %7, align 8
   br label %for.inc
 
 lpad38:                                           ; preds = %invoke.cont35
@@ -13738,7 +13734,7 @@ sw.bb61:                                          ; preds = %for.body, %for.body
   call void @abort() #30
   unreachable
 
-for.inc:                                          ; preds = %"_ZN9grpc_core16PromiseBasedCall16StartRecvMessageIZNS_22ClientPromiseBasedCall11CommitBatchEPK7grpc_opmRKNS0_10CompletionEE3$_0EEvRS4_S8_T_PNS_12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEEbRNS_5Party11BulkSpawnerE.exit", %_ZN9grpc_core22ClientPromiseBasedCall23StartRecvStatusOnClientERKNS_16PromiseBasedCall10CompletionEN7grpc_op12grpc_op_data29grpc_op_recv_status_on_clientERNS_5Party11BulkSpawnerE.exit, %_ZN9grpc_core22ClientPromiseBasedCall24StartRecvInitialMetadataEP19grpc_metadata_arrayRKNS_16PromiseBasedCall10CompletionERNS_5Party11BulkSpawnerE.exit, %for.body, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit, %"_ZZN9grpc_core22ClientPromiseBasedCall11CommitBatchEPK7grpc_opmRKNS_16PromiseBasedCall10CompletionEEN3$_2D2Ev.exit", %sw.bb, %sw.bb47
+for.inc:                                          ; preds = %delete.notnull.i.i, %if.then.i28, %invoke.cont39, %"_ZN9grpc_core16PromiseBasedCall16StartRecvMessageIZNS_22ClientPromiseBasedCall11CommitBatchEPK7grpc_opmRKNS0_10CompletionEE3$_0EEvRS4_S8_T_PNS_12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEEbRNS_5Party11BulkSpawnerE.exit", %_ZN9grpc_core22ClientPromiseBasedCall23StartRecvStatusOnClientERKNS_16PromiseBasedCall10CompletionEN7grpc_op12grpc_op_data29grpc_op_recv_status_on_clientERNS_5Party11BulkSpawnerE.exit, %_ZN9grpc_core22ClientPromiseBasedCall24StartRecvInitialMetadataEP19grpc_metadata_arrayRKNS_16PromiseBasedCall10CompletionERNS_5Party11BulkSpawnerE.exit, %for.body, %"_ZZN9grpc_core22ClientPromiseBasedCall11CommitBatchEPK7grpc_opmRKNS_16PromiseBasedCall10CompletionEEN3$_2D2Ev.exit", %sw.bb, %sw.bb47
   %inc = add nuw i64 %op_idx.067, 1
   %exitcond.not = icmp eq i64 %inc, %nops
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !151

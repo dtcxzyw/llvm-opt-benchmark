@@ -3025,7 +3025,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN9grpc_core12_GLOBAL__N_18Ri
   %sub.ptr.div.i.i.i.i.i.i54.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i53.i.i.i.i.i, 4
   %.pre.i.i.i.i.i.i55.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i54.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i56.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %add.ptr.i7.i51.i.i.i.i.i, i64 %.pre.i.i.i.i.i.i55.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i56.i.i.i.i.i, ptr nonnull align 8 %ring_.val34.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i53.i.i.i.i.i, i1 false), !noalias !19
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i56.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %ring_.val34.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i53.i.i.i.i.i, i1 false), !noalias !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ring_.val34.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__val.i20.i.i.i.i.i, i64 16, i1 false), !noalias !19
   br label %for.inc.i41.i.i.i.i.i
 
@@ -3276,13 +3276,13 @@ invoke.cont62:                                    ; preds = %invoke.cont60
 invoke.cont64:                                    ; preds = %invoke.cont62
   %109 = load ptr, ptr %ref.tmp58, align 8
   %cmp.not.i40 = icmp eq ptr %109, null
-  br i1 %cmp.not.i40, label %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicyEED2Ev.exit, label %if.then.i41
+  br i1 %cmp.not.i40, label %if.end67, label %if.then.i41
 
 if.then.i41:                                      ; preds = %invoke.cont64
   %vtable.i.i = load ptr, ptr %109, align 8
   %110 = load ptr, ptr %vtable.i.i, align 8
   invoke void %110(ptr noundef nonnull align 8 dereferenceable(64) %109)
-          to label %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicyEED2Ev.exit unwind label %terminate.lpad.i
+          to label %if.end67 unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i41
   %111 = landingpad { ptr, i32 }
@@ -3290,10 +3290,6 @@ terminate.lpad.i:                                 ; preds = %if.then.i41
   %112 = extractvalue { ptr, i32 } %111, 0
   call void @__clang_call_terminate(ptr %112) #26
   unreachable
-
-_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicyEED2Ev.exit: ; preds = %if.then.i41, %invoke.cont64
-  store ptr null, ptr %ref.tmp58, align 8
-  br label %if.end67
 
 lpad63:                                           ; preds = %invoke.cont62
   %113 = landingpad { ptr, i32 }
@@ -3329,7 +3325,7 @@ if.then.i.i58:                                    ; preds = %if.then.i55
   call void %120(ptr noundef nonnull align 8 dereferenceable(56) %this) #23
   br label %ehcleanup68
 
-if.end67:                                         ; preds = %invoke.cont52, %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicyEED2Ev.exit
+if.end67:                                         ; preds = %invoke.cont52, %invoke.cont64, %if.then.i41
   %121 = load ptr, ptr %_M_parent.i.i.i.i.i62, align 8
   invoke void @_ZNSt8_Rb_treeI21grpc_resolved_addressS0_St9_IdentityIS0_EN9grpc_core23ResolvedAddressLessThanESaIS0_EE8_M_eraseEPSt13_Rb_tree_nodeIS0_E(ptr noundef nonnull align 8 dereferenceable(48) %address_set, ptr noundef %121)
           to label %_ZN9grpc_core18EndpointAddressSetD2Ev.exit unwind label %terminate.lpad.i.i.i

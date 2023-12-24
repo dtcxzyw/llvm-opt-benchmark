@@ -9165,7 +9165,6 @@ if.end.i.i.thread.i.i:                            ; preds = %land.lhs.true1.i.i
   br label %evdns_tcp_disconnect.exit.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %land.lhs.true.i.i
-  store i32 0, ptr %state.i.i, align 8
   %awaiting_packet_size.i.i.i.i = getelementptr inbounds %struct.tcp_connection, ptr %5, i64 0, i32 2
   store i16 0, ptr %awaiting_packet_size.i.i.i.i, align 4
   %tobool1.not.i.i.i.i = icmp eq ptr %.pr.i.i, null

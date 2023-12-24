@@ -4313,7 +4313,6 @@ invoke.cont513:                                   ; preds = %for.body.i, %invoke
   %sum.0.lcssa.i = phi float [ 0.000000e+00, %invoke.cont511 ], [ %add.i, %for.body.i ]
   %conv5.i = uitofp i64 %78 to float
   %div.i = fdiv float %sum.0.lcssa.i, %conv5.i
-  store i64 0, ptr %nStored.i.i214, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont517, label %if.end.i.i.i.i.i
 

@@ -3386,7 +3386,6 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br i1 %cond.ph, label %while.cond.backedge, label %cleanup60
 
 _ZN7rocksdb6StatusD2Ev.exit41:                    ; preds = %cleanup
-  store ptr null, ptr %state_.i2.i, align 8
   br i1 %cond.ph, label %while.cond.backedge, label %cleanup60
 
 while.cond.backedge:                              ; preds = %_ZN7rocksdb6StatusD2Ev.exit41, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i40

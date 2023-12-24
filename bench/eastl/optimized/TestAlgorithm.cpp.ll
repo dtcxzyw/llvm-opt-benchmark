@@ -5401,7 +5401,6 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i17
   br i1 %cmp.not.i.i.i1761, label %_ZN5eastl5slistIiNS_9allocatorEED2Ev.exit1762, label %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i1758, !llvm.loop !55
 
 _ZN5eastl5slistIiNS_9allocatorEED2Ev.exit1762:    ; preds = %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i1758, %_ZN5eastl6vectorImNS_9allocatorEED2Ev.exit
-  store ptr null, ptr %intList848.sroa.0, align 8
   %tobool.not.i.i1764 = icmp eq ptr %call.i.i.i.i.i, null
   br i1 %tobool.not.i.i1764, label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit1766, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i1765
 
@@ -20734,7 +20733,6 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i10
   br i1 %cmp.not.i.i.i10662, label %_ZN5eastl5slistIiNS_9allocatorEED2Ev.exit10663, label %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i10659, !llvm.loop !55
 
 _ZN5eastl5slistIiNS_9allocatorEED2Ev.exit10663:   ; preds = %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i10659, %for.end5631
-  store ptr null, ptr %intSlist.sroa.0, align 8
   %cmp.i.i.i10664 = icmp eq i32 %rng.sroa.0.1513211, 0
   %spec.select.i.i.i10665 = select i1 %cmp.i.i.i10664, i32 65278, i32 %rng.sroa.0.1513211
   %conv.i.i.i10666 = zext i32 %spec.select.i.i.i10665 to i64

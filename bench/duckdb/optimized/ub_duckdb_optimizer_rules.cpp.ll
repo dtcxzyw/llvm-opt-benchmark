@@ -7421,7 +7421,6 @@ _ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i: ; preds = %invoke.c
   br label %_ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i, %invoke.cont86
-  store ptr null, ptr %agg.tmp.ensured, align 8, !tbaa !3
   %inc88 = add nuw i64 %i76.0618, 1
   %112 = load ptr, ptr %_M_finish.i, align 8, !tbaa !137
   %113 = load ptr, ptr %children, align 8, !tbaa !139

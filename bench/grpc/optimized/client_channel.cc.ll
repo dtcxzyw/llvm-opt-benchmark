@@ -7051,7 +7051,6 @@ terminate.lpad.i:                                 ; preds = %if.then.i2
   unreachable
 
 _ZNSt10unique_ptrIN9grpc_core13ClientChannel28PromiseBasedLoadBalancedCallENS0_16OrphanableDeleteEED2Ev.exit: ; preds = %invoke.cont, %if.then.i2
-  store ptr null, ptr %agg.tmp4, align 8
   %18 = load ptr, ptr %client_initial_metadata_outstanding.i, align 8
   %cmp.not.i.i4 = icmp eq ptr %18, null
   br i1 %cmp.not.i.i4, label %_ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i, label %if.then.i.i5

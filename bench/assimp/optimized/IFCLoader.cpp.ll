@@ -4277,7 +4277,6 @@ _ZNKSt14default_deleteIN6Assimp4STEP2DBEEclEPS2_.exit.i: ; preds = %_ZN6Assimp4S
   br label %_ZNSt10unique_ptrIN6Assimp4STEP2DBESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN6Assimp4STEP2DBESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZN6Assimp4STEP7EXPRESS16ConversionSchemaD2Ev.exit, %_ZNKSt14default_deleteIN6Assimp4STEP2DBEEclEPS2_.exit.i
-  store ptr null, ptr %db, align 8
   %346 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i378 = icmp eq ptr %346, null
   br i1 %cmp.not.i.i.i378, label %_ZNSt10shared_ptrIN6Assimp8IOStreamEED2Ev.exit408, label %if.then.i.i.i379
@@ -8036,15 +8035,11 @@ if.then.i.i.i362:                                 ; preds = %invoke.cont.i
 _ZNSt6vectorIN6Assimp3IFC11TempOpeningESaIS2_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i362
   %187 = load ptr, ptr %nd_aggr, align 8
   %cmp.not.i363 = icmp eq ptr %187, null
-  br i1 %cmp.not.i363, label %_ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i
+  br i1 %cmp.not.i363, label %for.inc295, label %_ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i
 
 _ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i:    ; preds = %_ZNSt6vectorIN6Assimp3IFC11TempOpeningESaIS2_EED2Ev.exit
   call void @_ZN6aiNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(1144) %187) #22
   call void @_ZdlPv(ptr noundef nonnull %187) #27
-  br label %_ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev.exit
-
-_ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorIN6Assimp3IFC11TempOpeningESaIS2_EED2Ev.exit, %_ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i
-  store ptr null, ptr %nd_aggr, align 8
   br label %for.inc295
 
 for.inc295.loopexit:                              ; preds = %for.inc199, %if.end173
@@ -8053,10 +8048,10 @@ for.inc295.loopexit:                              ; preds = %for.inc199, %if.end
   store ptr %cond.i10.i.i634.lcssa, ptr %subnodes, align 8
   br label %for.inc295
 
-for.inc295:                                       ; preds = %for.inc295.loopexit, %invoke.cont209, %_ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev.exit, %invoke.cont203, %invoke.cont160, %invoke.cont138
-  %189 = phi ptr [ %57, %invoke.cont138 ], [ %57, %invoke.cont203 ], [ %182, %_ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev.exit ], [ %57, %invoke.cont209 ], [ %57, %invoke.cont160 ], [ %188, %for.inc295.loopexit ]
-  %didinv.4 = phi i8 [ %didinv.0663, %invoke.cont138 ], [ %didinv.0663, %invoke.cont203 ], [ %didinv.3, %_ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev.exit ], [ %didinv.0663, %invoke.cont209 ], [ %didinv.0663, %invoke.cont160 ], [ %didinv.0663, %for.inc295.loopexit ]
-  %190 = phi <16 x double> [ %58, %invoke.cont138 ], [ %58, %invoke.cont203 ], [ %183, %_ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev.exit ], [ %58, %invoke.cont209 ], [ %58, %invoke.cont160 ], [ %58, %for.inc295.loopexit ]
+for.inc295:                                       ; preds = %_ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i, %_ZNSt6vectorIN6Assimp3IFC11TempOpeningESaIS2_EED2Ev.exit, %for.inc295.loopexit, %invoke.cont209, %invoke.cont203, %invoke.cont160, %invoke.cont138
+  %189 = phi ptr [ %57, %invoke.cont138 ], [ %57, %invoke.cont203 ], [ %57, %invoke.cont209 ], [ %57, %invoke.cont160 ], [ %188, %for.inc295.loopexit ], [ %182, %_ZNSt6vectorIN6Assimp3IFC11TempOpeningESaIS2_EED2Ev.exit ], [ %182, %_ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i ]
+  %didinv.4 = phi i8 [ %didinv.0663, %invoke.cont138 ], [ %didinv.0663, %invoke.cont203 ], [ %didinv.0663, %invoke.cont209 ], [ %didinv.0663, %invoke.cont160 ], [ %didinv.0663, %for.inc295.loopexit ], [ %didinv.3, %_ZNSt6vectorIN6Assimp3IFC11TempOpeningESaIS2_EED2Ev.exit ], [ %didinv.3, %_ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i ]
+  %190 = phi <16 x double> [ %58, %invoke.cont138 ], [ %58, %invoke.cont203 ], [ %58, %invoke.cont209 ], [ %58, %invoke.cont160 ], [ %58, %for.inc295.loopexit ], [ %183, %_ZNSt6vectorIN6Assimp3IFC11TempOpeningESaIS2_EED2Ev.exit ], [ %183, %_ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i ]
   %call.i365 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %range2.sroa.0.0646) #28
   %cmp.i196.not = icmp eq ptr %call.i365, %retval.sroa.3.0.i.i183
   br i1 %cmp.i196.not, label %for.cond299.preheader, label %for.body132, !llvm.loop !55
@@ -8413,20 +8408,16 @@ invoke.cont405:                                   ; preds = %_ZNSt6vectorIP6aiNo
   %cond.i10.i.i.i464670 = phi ptr [ %cond.i10.i.i.i464, %_ZNSt6vectorIP6aiNodeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i471 ], [ %cond.i10.i.i.i464671673, %if.then.i.i445 ]
   %230 = load ptr, ptr %nd_aggr344, align 8
   %cmp.not.i479 = icmp eq ptr %230, null
-  br i1 %cmp.not.i479, label %_ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev.exit482, label %_ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i480
+  br i1 %cmp.not.i479, label %for.inc408, label %_ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i480
 
 _ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i480: ; preds = %invoke.cont405
   call void @_ZN6aiNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(1144) %230) #22
   call void @_ZdlPv(ptr noundef nonnull %230) #27
-  br label %_ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev.exit482
-
-_ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev.exit482: ; preds = %invoke.cont405, %_ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i480
-  store ptr null, ptr %nd_aggr344, align 8
   br label %for.inc408
 
-for.inc408:                                       ; preds = %invoke.cont325, %_ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev.exit482, %invoke.cont329, %invoke.cont309
-  %231 = phi ptr [ %191, %invoke.cont325 ], [ %229, %_ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev.exit482 ], [ %191, %invoke.cont329 ], [ %191, %invoke.cont309 ]
-  %cond.i10.i.i.i464669 = phi ptr [ %cond.i10.i.i.i464671673, %invoke.cont325 ], [ %cond.i10.i.i.i464670, %_ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev.exit482 ], [ %cond.i10.i.i.i464671673, %invoke.cont329 ], [ %cond.i10.i.i.i464671673, %invoke.cont309 ]
+for.inc408:                                       ; preds = %_ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i480, %invoke.cont405, %invoke.cont325, %invoke.cont329, %invoke.cont309
+  %231 = phi ptr [ %191, %invoke.cont325 ], [ %191, %invoke.cont329 ], [ %191, %invoke.cont309 ], [ %229, %invoke.cont405 ], [ %229, %_ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i480 ]
+  %cond.i10.i.i.i464669 = phi ptr [ %cond.i10.i.i.i464671673, %invoke.cont325 ], [ %cond.i10.i.i.i464671673, %invoke.cont329 ], [ %cond.i10.i.i.i464671673, %invoke.cont309 ], [ %cond.i10.i.i.i464670, %invoke.cont405 ], [ %cond.i10.i.i.i464670, %_ZNKSt14default_deleteI6aiNodeEclEPS0_.exit.i480 ]
   %call.i483 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %range.sroa.0.0674) #28
   %cmp.i366.not = icmp eq ptr %call.i483, %retval.sroa.3.0.i.i183
   br i1 %cmp.i366.not, label %for.end411, label %for.body303, !llvm.loop !56
@@ -13642,7 +13633,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3IFC10Schema_2x317
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i2, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i, ptr nonnull align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %for.inc
 
 if.else:                                          ; preds = %for.body

@@ -11412,7 +11412,6 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  store i32 1, ptr %m_simplex_strategy.i, align 4
   invoke void @_ZN2lp10lar_solver26prepare_costs_for_r_solverERKNS_8lar_termE(ptr noundef nonnull align 8 dereferenceable(1888) %this, ptr noundef nonnull align 8 dereferenceable(24) %term)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
@@ -13934,7 +13933,6 @@ if.then.i17:                                      ; preds = %invoke.cont6
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i17, %invoke.cont6
-  store i32 1, ptr %m_simplex_strategy.i.i, align 4
   invoke void @_ZN2lp10lar_solver26prepare_costs_for_r_solverERKNS_8lar_termE(ptr noundef nonnull align 8 dereferenceable(1888) %this, ptr noundef nonnull align 8 dereferenceable(24) %term)
           to label %invoke.cont.i unwind label %lpad.loopexit.split-lp.i
 

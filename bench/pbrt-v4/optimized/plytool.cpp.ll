@@ -12260,7 +12260,6 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 
 invoke.cont.i.i.i:                                ; preds = %for.body.i.i.i.i, %entry
   %sum.0.lcssa.i.i.i.i = phi float [ 0.000000e+00, %entry ], [ %add.i.i.i.i, %for.body.i.i.i.i ]
-  store i64 0, ptr %nStored.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %.pre.i.i.i, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZZ8displaceSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEENK3$_1clEPN4pbrt6Point3IfEEPKNSA_7Normal3IfEEPKNSA_6Point2IfEEiEUllE_JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESP_E4typeEOSQ_DpOSR_.exit", label %if.end.i.i.i.i.i.i.i.i
 

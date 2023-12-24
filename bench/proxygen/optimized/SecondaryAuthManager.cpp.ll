@@ -1092,7 +1092,6 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %invoke.cont
   br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
-  store ptr null, ptr %agg.tmp, align 8
   %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<std::unique_ptr<folly::IOBuf>>::StorageNonTriviallyDestructible", ptr %authRequest, i64 0, i32 1
   %3 = load i8, ptr %hasValue.i.i, align 8
   %4 = and i8 %3, 1

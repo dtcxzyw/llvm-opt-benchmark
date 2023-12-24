@@ -8733,7 +8733,6 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
 
 _ZN20b3AlignedObjectArrayI6b3Int2ED2Ev.exit:      ; preds = %do.end398, %if.then.i.i.i, %if.then3.i.i.i
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
   store i32 0, ptr %m_capacity.i.i, align 8
   br label %for.inc
@@ -16400,7 +16399,6 @@ terminate.lpad.i1752:                             ; preds = %if.then3.i.i.i1751
 
 _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit1756: ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit, %if.then.i.i.i1748, %if.then3.i.i.i1751
   store i8 1, ptr %m_ownsMemory.i.i1267, align 8
-  store ptr null, ptr %m_data.i.i1268, align 8
   store i32 0, ptr %m_size.i.i1269, align 4
   store i32 0, ptr %m_capacity.i.i1270, align 8
   %676 = load ptr, ptr %m_data.i.i1261, align 8
@@ -16426,7 +16424,6 @@ terminate.lpad.i1763:                             ; preds = %if.then3.i.i.i1762
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit1767:        ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit1756, %if.then.i.i.i1759, %if.then3.i.i.i1762
   store i8 1, ptr %m_ownsMemory.i.i1260, align 8
-  store ptr null, ptr %m_data.i.i1261, align 8
   store i32 0, ptr %m_size.i.i1262, align 4
   store i32 0, ptr %m_capacity.i.i1263, align 8
   %681 = load ptr, ptr %m_data.i.i1257, align 8
@@ -18962,7 +18959,6 @@ terminate.lpad.i2492:                             ; preds = %if.then3.i.i.i2491
 
 _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayI9b3BvhInfoED2Ev.exit, %if.then.i.i.i2488, %if.then3.i.i.i2491
   store i8 1, ptr %m_ownsMemory.i.i2379, align 8
-  store ptr null, ptr %m_data.i.i2380, align 8
   store i32 0, ptr %m_size.i.i2381, align 4
   store i32 0, ptr %m_capacity.i.i2382, align 8
   %1061 = load ptr, ptr %m_data.i.i2376, align 8
@@ -19014,7 +19010,6 @@ terminate.lpad.i2512:                             ; preds = %if.then3.i.i.i2511
 
 _ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit2516:  ; preds = %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeED2Ev.exit, %if.then.i.i.i2508, %if.then3.i.i.i2511
   store i8 1, ptr %m_ownsMemory.i.i2360, align 8
-  store ptr null, ptr %m_data.i.i2361, align 8
   store i32 0, ptr %m_size.i.i2362, align 4
   store i32 0, ptr %m_capacity.i.i2363, align 8
   %1071 = load ptr, ptr %m_data.i.i2357, align 8
@@ -21510,7 +21505,6 @@ terminate.lpad.i3383:                             ; preds = %if.then3.i.i.i3382
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit3387:        ; preds = %_ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit3376, %if.then.i.i.i3379, %if.then3.i.i.i3382
   store i8 1, ptr %m_ownsMemory.i.i2993, align 8
-  store ptr null, ptr %m_data.i.i2994, align 8
   store i32 0, ptr %m_size.i.i2995, align 4
   store i32 0, ptr %m_capacity.i.i2996, align 8
   %1449 = load ptr, ptr %m_data.i.i2990, align 8
@@ -21536,7 +21530,6 @@ terminate.lpad.i3394:                             ; preds = %if.then3.i.i.i3393
 
 _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit3398: ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit3387, %if.then.i.i.i3390, %if.then3.i.i.i3393
   store i8 1, ptr %m_ownsMemory.i.i2989, align 8
-  store ptr null, ptr %m_data.i.i2990, align 8
   store i32 0, ptr %m_size.i.i2991, align 4
   store i32 0, ptr %m_capacity.i.i2992, align 8
   %1454 = load ptr, ptr %m_data.i.i2986, align 8
@@ -21562,7 +21555,6 @@ terminate.lpad.i3405:                             ; preds = %if.then3.i.i.i3404
 
 _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit3409: ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit3398, %if.then.i.i.i3401, %if.then3.i.i.i3404
   store i8 1, ptr %m_ownsMemory.i.i2985, align 8
-  store ptr null, ptr %m_data.i.i2986, align 8
   store i32 0, ptr %m_size.i.i2987, align 4
   store i32 0, ptr %m_capacity.i.i2988, align 8
   %1459 = load ptr, ptr %m_data.i.i2982, align 8
@@ -21588,7 +21580,6 @@ terminate.lpad.i3416:                             ; preds = %if.then3.i.i.i3415
 
 _ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit3420: ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit3409, %if.then.i.i.i3412, %if.then3.i.i.i3415
   store i8 1, ptr %m_ownsMemory.i.i2981, align 8
-  store ptr null, ptr %m_data.i.i2982, align 8
   store i32 0, ptr %m_size.i.i2983, align 4
   store i32 0, ptr %m_capacity.i.i2984, align 8
   %1464 = load ptr, ptr %m_data.i.i2978, align 8
@@ -21614,7 +21605,6 @@ terminate.lpad.i3427:                             ; preds = %if.then3.i.i.i3426
 
 _ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit3431:  ; preds = %_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev.exit3420, %if.then.i.i.i3423, %if.then3.i.i.i3426
   store i8 1, ptr %m_ownsMemory.i.i2977, align 8
-  store ptr null, ptr %m_data.i.i2978, align 8
   store i32 0, ptr %m_size.i.i2979, align 4
   store i32 0, ptr %m_capacity.i.i2980, align 8
   br label %if.end1853

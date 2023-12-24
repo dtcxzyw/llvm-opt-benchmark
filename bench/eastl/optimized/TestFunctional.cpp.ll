@@ -3585,7 +3585,6 @@ for.body.i.i.i:                                   ; preds = %invoke.cont519
   br i1 %tobool.not7.i.i.i, label %invoke.cont.i.thread, label %while.body.i.i.i2125
 
 invoke.cont.i.thread:                             ; preds = %for.body.i.i.i
-  store ptr null, ptr @_ZN5eastl18gpEmptyBucketArrayE, align 16
   store i64 0, ptr %mnElementCount.i.i.i942, align 8
   br label %_ZN5eastl9hashtableINS_12basic_stringIDs15MallocAllocatorEES3_NS_9allocatorENS_8use_selfIS3_EENS_8equal_toIS3_EENS_11string_hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EED2Ev.exit
 

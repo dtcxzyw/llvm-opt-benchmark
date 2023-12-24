@@ -593,7 +593,6 @@ _ZNKSt14default_deleteIN4cvc56parser3CmdEEclEPS2_.exit.i92: ; preds = %ehcleanup
   br label %_ZNSt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS2_EED2Ev.exit96
 
 _ZNSt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS2_EED2Ev.exit96: ; preds = %ehcleanup53, %_ZNKSt14default_deleteIN4cvc56parser3CmdEEclEPS2_.exit.i92
-  store ptr null, ptr %agg.result, align 8
   resume { ptr, i32 } %lpad.val56.merged
 
 terminate.lpad:                                   ; preds = %lpad30, %ehcleanup

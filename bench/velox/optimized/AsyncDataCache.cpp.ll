@@ -5674,7 +5674,6 @@ if.then.i.i23:                                    ; preds = %if.then20
           to label %_ZN8facebook5velox5cache8CachePin7releaseEv.exit.i unwind label %lpad25.loopexit.loopexit
 
 _ZN8facebook5velox5cache8CachePin7releaseEv.exit.i: ; preds = %if.then.i.i23, %if.then20
-  store ptr null, ptr %pin, align 8
   %numPins_.i.i = getelementptr inbounds %"class.facebook::velox::cache::AsyncDataCacheEntry", ptr %21, i64 0, i32 6
   %23 = load atomic i32, ptr %numPins_.i.i seq_cst, align 4
   %cmp.i.i24 = icmp eq i32 %23, -10000
@@ -12809,7 +12808,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i, 2
   %.pre.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
   %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds i32, ptr %add.ptr.i3.i31.i, i64 %.pre.i.i.i.i.i.i35.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i36.i, ptr nonnull align 4 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i, ptr noundef nonnull align 4 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
   br label %for.inc.i21.i
 
 if.else.i19.i:                                    ; preds = %for.body.i15.i

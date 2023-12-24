@@ -2736,7 +2736,6 @@ entry:
 
 for.end.thread:                                   ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %old_alloc.i)
-  store ptr null, ptr @_preinit_warnoptions, align 8
   %call.i8 = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef nonnull %old_alloc.i) #15
   br label %_clear_preinit_entries.exit
 
@@ -2811,7 +2810,6 @@ entry:
 
 for.end.thread:                                   ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %old_alloc.i)
-  store ptr null, ptr @_preinit_xoptions, align 8
   %call.i8 = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef nonnull %old_alloc.i) #15
   br label %_clear_preinit_entries.exit
 

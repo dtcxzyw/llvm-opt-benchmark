@@ -3362,36 +3362,51 @@ trace_sdcard_erase.exit:                          ; preds = %entry, %land.lhs.tr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %9 = load i32, ptr %erase_start1, align 8
   %cmp = icmp eq i32 %9, -1
-  br i1 %cmp, label %for.end.sink.split, label %lor.lhs.false
+  br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %trace_sdcard_erase.exit
   %10 = load i32, ptr %erase_end2, align 4
   %cmp9 = icmp eq i32 %10, -1
-  br i1 %cmp9, label %for.end.sink.split, label %if.end
+  br i1 %cmp9, label %if.then, label %if.end
+
+if.then:                                          ; preds = %lor.lhs.false, %trace_sdcard_erase.exit
+  %card_status = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 7
+  %11 = load i32, ptr %card_status, align 4
+  %or = or i32 %11, 268435456
+  store i32 %or, ptr %card_status, align 4
+  br label %for.end.sink.split
 
 if.end:                                           ; preds = %lor.lhs.false
   %ocr = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 2
-  %11 = load i32, ptr %ocr, align 4
-  %12 = and i32 %11, 1073741824
-  %tobool.not = icmp eq i32 %12, 0
+  %12 = load i32, ptr %ocr, align 4
+  %13 = and i32 %12, 1073741824
+  %tobool.not = icmp eq i32 %13, 0
   %mul = shl nuw nsw i64 %conv, 9
   %mul14 = shl nuw nsw i64 %conv3, 9
   %erase_end.0 = select i1 %tobool.not, i64 %conv3, i64 %mul14
   %erase_start.0 = select i1 %tobool.not, i64 %conv, i64 %mul
   %size = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 17
-  %13 = load i64, ptr %size, align 8
-  %cmp16 = icmp ugt i64 %erase_start.0, %13
-  %cmp20 = icmp ugt i64 %erase_end.0, %13
+  %14 = load i64, ptr %size, align 8
+  %cmp16 = icmp ugt i64 %erase_start.0, %14
+  %cmp20 = icmp ugt i64 %erase_end.0, %14
   %or.cond = select i1 %cmp16, i1 true, i1 %cmp20
-  br i1 %or.cond, label %for.end.sink.split, label %if.end27
+  br i1 %or.cond, label %if.then22, label %if.end27
+
+if.then22:                                        ; preds = %if.end
+  %card_status23 = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 7
+  %15 = load i32, ptr %card_status23, align 4
+  %or24 = or i32 %15, -2147483648
+  store i32 %or24, ptr %card_status23, align 4
+  store i32 -1, ptr %erase_start1, align 8
+  br label %for.end.sink.split
 
 if.end27:                                         ; preds = %if.end
   store i32 -1, ptr %erase_start1, align 8
   store i32 -1, ptr %erase_end2, align 4
   %arrayidx = getelementptr %struct.SDState, ptr %sd, i64 0, i32 5, i64 14
-  %14 = load i8, ptr %arrayidx, align 2
-  %15 = or i8 %14, 64
-  store i8 %15, ptr %arrayidx, align 2
+  %16 = load i8, ptr %arrayidx, align 2
+  %17 = or i8 %16, 64
+  store i8 %17, ptr %arrayidx, align 2
   %data = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(512) %data, i8 -1, i64 512, i1 false)
   %cmp34.not37 = icmp ugt i64 %erase_start.0, %erase_end.0
@@ -3406,25 +3421,25 @@ for.body.lr.ph:                                   ; preds = %if.end27
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %erase_addr.038.us = phi i64 [ %add.us, %for.inc.us ], [ %conv, %for.body.lr.ph ]
   %shr.i33.us = lshr i64 %erase_addr.038.us, 21
-  %16 = load i32, ptr %wp_group_bits, align 8
-  %conv39.us = sext i32 %16 to i64
+  %18 = load i32, ptr %wp_group_bits, align 8
+  %conv39.us = sext i32 %18 to i64
   %cmp40.us = icmp ult i64 %shr.i33.us, %conv39.us
   br i1 %cmp40.us, label %if.end43.us, label %if.else
 
 if.end43.us:                                      ; preds = %for.body.us
-  %17 = load ptr, ptr %wp_group_bmap, align 8
+  %19 = load ptr, ptr %wp_group_bmap, align 8
   %div2.i.us = lshr i64 %erase_addr.038.us, 27
-  %arrayidx.i.us = getelementptr i64, ptr %17, i64 %div2.i.us
-  %18 = load i64, ptr %arrayidx.i.us, align 8
+  %arrayidx.i.us = getelementptr i64, ptr %19, i64 %div2.i.us
+  %20 = load i64, ptr %arrayidx.i.us, align 8
   %and.i34.us = and i64 %shr.i33.us, 63
-  %19 = shl nuw i64 1, %and.i34.us
-  %20 = and i64 %18, %19
-  %tobool45.not.us = icmp eq i64 %20, 0
+  %21 = shl nuw i64 1, %and.i34.us
+  %22 = and i64 %20, %21
+  %tobool45.not.us = icmp eq i64 %22, 0
   br i1 %tobool45.not.us, label %if.end50.us, label %if.then46.us
 
 if.then46.us:                                     ; preds = %if.end43.us
-  %21 = load i32, ptr %card_status47, align 4
-  %or48.us = or i32 %21, 32768
+  %23 = load i32, ptr %card_status47, align 4
+  %or48.us = or i32 %23, 32768
   store i32 %or48.us, ptr %card_status47, align 4
   br label %for.inc.us
 
@@ -3448,13 +3463,7 @@ if.else:                                          ; preds = %for.body.us
   tail call void @__assert_fail(ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.6, i32 noundef 847, ptr noundef nonnull @__PRETTY_FUNCTION__.sd_erase) #18
   unreachable
 
-for.end.sink.split:                               ; preds = %if.end, %trace_sdcard_erase.exit, %lor.lhs.false
-  %.sink42 = phi i32 [ 268435456, %lor.lhs.false ], [ 268435456, %trace_sdcard_erase.exit ], [ -2147483648, %if.end ]
-  %card_status = getelementptr inbounds %struct.SDState, ptr %sd, i64 0, i32 7
-  %22 = load i32, ptr %card_status, align 4
-  %or24 = or i32 %22, %.sink42
-  store i32 %or24, ptr %card_status, align 4
-  store i32 -1, ptr %erase_start1, align 8
+for.end.sink.split:                               ; preds = %if.then, %if.then22
   store i32 -1, ptr %erase_end2, align 4
   br label %for.end
 

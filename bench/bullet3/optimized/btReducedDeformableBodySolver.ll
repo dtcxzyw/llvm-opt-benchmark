@@ -6016,7 +6016,6 @@ terminate.lpad.i176:                              ; preds = %if.then3.i.i.i175
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit180:         ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit, %if.then.i.i.i172, %if.then3.i.i.i175
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
   store i32 0, ptr %m_capacity.i.i, align 8
   %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239, 1

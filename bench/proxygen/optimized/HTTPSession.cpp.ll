@@ -1956,7 +1956,6 @@ _ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i: ; preds = %invoke.c
   br label %_ZNSt10unique_ptrIN8proxygen9HTTPCodecESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8proxygen9HTTPCodecESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont, %_ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i
-  store ptr null, ptr %agg.tmp2, align 8
   %4 = load ptr, ptr %agg.tmp, align 8
   %cmp.not.i1 = icmp eq ptr %4, null
   br i1 %cmp.not.i1, label %_ZNSt10unique_ptrIN5folly14AsyncTransportENS0_18DelayedDestruction10DestructorEED2Ev.exit, label %if.then.i
@@ -1993,7 +1992,6 @@ _ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i5: ; preds = %lpad
   br label %_ZNSt10unique_ptrIN8proxygen9HTTPCodecESt14default_deleteIS1_EED2Ev.exit8
 
 _ZNSt10unique_ptrIN8proxygen9HTTPCodecESt14default_deleteIS1_EED2Ev.exit8: ; preds = %lpad, %_ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i5
-  store ptr null, ptr %agg.tmp2, align 8
   %11 = load ptr, ptr %agg.tmp, align 8
   %cmp.not.i9 = icmp eq ptr %11, null
   br i1 %cmp.not.i9, label %_ZNSt10unique_ptrIN5folly14AsyncTransportENS0_18DelayedDestruction10DestructorEED2Ev.exit14, label %if.then.i10
@@ -26237,11 +26235,7 @@ for.body:                                         ; preds = %if.end, %for.inc
 invoke.cont37:                                    ; preds = %for.body
   %12 = load ptr, ptr %writeBuf, align 8
   %cmp.i12.not = icmp eq ptr %12, null
-  br i1 %cmp.i12.not, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.thread, label %if.end40
-
-_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.thread: ; preds = %invoke.cont37
-  store ptr null, ptr %writeBuf, align 8
-  br label %for.end
+  br i1 %cmp.i12.not, label %for.end, label %if.end40
 
 if.end40:                                         ; preds = %invoke.cont37
   %call43 = invoke noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56) %12)
@@ -26513,7 +26507,7 @@ for.inc:                                          ; preds = %_ZNSt10unique_ptrIN
   %exitcond.not = icmp eq i32 %inc200, 32
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !200
 
-for.end:                                          ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, %for.inc, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.thread
+for.end:                                          ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, %for.inc, %invoke.cont37
   %46 = load i32, ptr %numActiveWrites_, align 8
   %cmp202 = icmp ne i32 %46, 0
   %writes_.i = getelementptr inbounds %"class.proxygen::HTTPSession", ptr %this, i64 0, i32 46

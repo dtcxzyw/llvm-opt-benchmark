@@ -1594,7 +1594,6 @@ invoke.cont170:                                   ; preds = %if.then167
   br label %if.end172
 
 if.end172:                                        ; preds = %invoke.cont170, %if.end164
-  store i32 0, ptr %mNumCameras165, align 8
   store i32 0, ptr %mNumLights157, align 8
   %call176 = invoke noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #24
           to label %invoke.cont175 unwind label %lpad17.loopexit.split-lp
@@ -3788,18 +3787,14 @@ if.then239:                                       ; preds = %if.end237
 if.end242:                                        ; preds = %if.then239, %if.end237
   %109 = load ptr, ptr %defmat, align 8
   %cmp.not.i254 = icmp eq ptr %109, null
-  br i1 %cmp.not.i254, label %_ZNSt10unique_ptrIKN6Assimp3COB8MaterialESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIKN6Assimp3COB8MaterialEEclEPS3_.exit.i
+  br i1 %cmp.not.i254, label %for.inc244, label %_ZNKSt14default_deleteIKN6Assimp3COB8MaterialEEclEPS3_.exit.i
 
 _ZNKSt14default_deleteIKN6Assimp3COB8MaterialEEclEPS3_.exit.i: ; preds = %if.end242
   call void @_ZN6Assimp3COB8MaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %109) #22
   call void @_ZdlPv(ptr noundef nonnull %109) #25
-  br label %_ZNSt10unique_ptrIKN6Assimp3COB8MaterialESt14default_deleteIS3_EED2Ev.exit
-
-_ZNSt10unique_ptrIKN6Assimp3COB8MaterialESt14default_deleteIS3_EED2Ev.exit: ; preds = %if.end242, %_ZNKSt14default_deleteIKN6Assimp3COB8MaterialEEclEPS3_.exit.i
-  store ptr null, ptr %defmat, align 8
   br label %for.inc244
 
-for.inc244:                                       ; preds = %for.body, %for.end, %_ZNSt10unique_ptrIKN6Assimp3COB8MaterialESt14default_deleteIS3_EED2Ev.exit
+for.inc244:                                       ; preds = %_ZNKSt14default_deleteIKN6Assimp3COB8MaterialEEclEPS3_.exit.i, %if.end242, %for.body, %for.end
   %call.i256 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin3.sroa.0.0369) #27
   %cmp.i127.not = icmp eq ptr %call.i256, %add.ptr.i.i
   br i1 %cmp.i127.not, label %if.end275, label %for.body

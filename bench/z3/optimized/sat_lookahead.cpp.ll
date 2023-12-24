@@ -23650,13 +23650,9 @@ _ZNK6vectorI5lboolLb0EjE5emptyEv.exit:            ; preds = %entry
   %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 -1
   %1 = load i32, ptr %arrayidx.i, align 4
   %cmp3.i = icmp eq i32 %1, 0
-  br i1 %cmp3.i, label %if.then.i.i, label %if.end
+  br i1 %cmp3.i, label %_ZN6vectorI5lboolLb0EjE5resetEv.exit.i, label %if.end
 
-if.then.i.i:                                      ; preds = %_ZNK6vectorI5lboolLb0EjE5emptyEv.exit
-  store i32 0, ptr %arrayidx.i, align 4
-  br label %_ZN6vectorI5lboolLb0EjE5resetEv.exit.i
-
-_ZN6vectorI5lboolLb0EjE5resetEv.exit.i:           ; preds = %entry, %if.then.i.i
+_ZN6vectorI5lboolLb0EjE5resetEv.exit.i:           ; preds = %_ZNK6vectorI5lboolLb0EjE5emptyEv.exit, %entry
   %m_num_vars.i = getelementptr inbounds %"class.sat::lookahead", ptr %this, i64 0, i32 1
   %2 = load i32, ptr %m_num_vars.i, align 8
   %cmp10.not.i = icmp eq i32 %2, 0

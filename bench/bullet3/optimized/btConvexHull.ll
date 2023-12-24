@@ -4942,7 +4942,6 @@ if.then3.i.i.i320:                                ; preds = %if.then.i.i.i317
 
 _ZN20btAlignedObjectArrayIjE5clearEv.exit.i:      ; preds = %if.then3.i.i.i320, %if.then.i.i.i317, %if.then.i
   store i8 1, ptr %m_ownsMemory.i.i.i, align 8
-  store ptr null, ptr %m_data.i.i.i, align 8
   br label %invoke.cont164
 
 invoke.cont164:                                   ; preds = %_ZN20btAlignedObjectArrayIjE5clearEv.exit.i, %if.end163

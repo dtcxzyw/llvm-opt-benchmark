@@ -947,7 +947,6 @@ ossl_encoder_instance_free.exit.i:                ; preds = %if.then2.i.i, %if.t
   %encoderctx4.i.i = getelementptr inbounds %struct.ossl_encoder_instance_st, ptr %call.i, i64 0, i32 1
   store ptr null, ptr %encoderctx4.i.i, align 8
   tail call void @OSSL_ENCODER_free(ptr noundef %1) #7
-  store ptr null, ptr %call.i, align 8
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 248) #7
   br label %if.then31
 

@@ -226,15 +226,8 @@ ll_register.exit:                                 ; preds = %if.else.i, %if.then
   %0 = load ptr, ptr %plib.0.i, align 8, !tbaa !4
   %cmp = icmp eq ptr %0, null
   tail call void @lua_pushlstring(ptr noundef %L, ptr noundef nonnull @.str.21, i64 noundef 58) #6
-  br i1 %cmp, label %if.end.thread, label %cleanup8
-
-if.end.thread:                                    ; preds = %ll_register.exit
-  store ptr null, ptr %plib.0.i, align 8, !tbaa !4
-  br label %cleanup8
-
-cleanup8:                                         ; preds = %if.end.thread, %ll_register.exit
-  %retval.1 = phi i32 [ 1, %if.end.thread ], [ 2, %ll_register.exit ]
-  ret i32 %retval.1
+  %spec.select = select i1 %cmp, i32 1, i32 2
+  ret i32 %spec.select
 }
 
 declare void @lua_pushnil(ptr noundef) local_unnamed_addr #2

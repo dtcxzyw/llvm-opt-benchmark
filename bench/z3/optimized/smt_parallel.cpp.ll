@@ -1825,7 +1825,6 @@ terminate.lpad.i211:                              ; preds = %for.body.i.i210
   unreachable
 
 _ZN13scoped_limitsD2Ev.exit:                      ; preds = %.noexc.i, %_ZN13obj_hashtableI4exprED2Ev.exit
-  store i32 0, ptr %m_sz.i, align 8
   %198 = load ptr, ptr %pasms, align 8
   %tobool.not.i.i214 = icmp eq ptr %198, null
   br i1 %tobool.not.i.i214, label %_ZN6vectorI10ref_vectorI4expr11ast_managerELb1EjED2Ev.exit, label %if.then.i.i215

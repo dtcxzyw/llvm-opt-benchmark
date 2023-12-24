@@ -18622,7 +18622,6 @@ _ZNKSt14default_deleteISt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS4_ESa
   br label %_ZNSt10unique_ptrISt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS4_ESaIS4_EESt14default_deleteIS8_EED2Ev.exit
 
 _ZNSt10unique_ptrISt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS4_ESaIS4_EESt14default_deleteIS8_EED2Ev.exit: ; preds = %_ZNSt3setIN4cvc58internal12NodeTemplateILb0EEESt4lessIS3_ESaIS3_EED2Ev.exit, %_ZNKSt14default_deleteISt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS4_ESaIS4_EEEclEPS8_.exit.i
-  store ptr null, ptr %inputAssertions, align 8
   %_M_refcount.i.i3834 = getelementptr inbounds %"class.std::__shared_ptr", ptr %lcp, i64 0, i32 1
   %578 = load ptr, ptr %_M_refcount.i.i3834, align 8
   %cmp.not.i.i.i3835 = icmp eq ptr %578, null

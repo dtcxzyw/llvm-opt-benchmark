@@ -2571,15 +2571,11 @@ cleanup167.sink.split:                            ; preds = %_ZNSt10_HashtableIN
 cleanup167:                                       ; preds = %cleanup167.sink.split, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i226, %_ZNSt10_HashtableImSt4pairIKmN7rocksdb13CachableEntryINS2_5BlockEEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit
   %200 = load ptr, ptr %prefetch_buffer, align 8
   %cmp.not.i233 = icmp eq ptr %200, null
-  br i1 %cmp.not.i233, label %_ZNSt10unique_ptrIN7rocksdb18FilePrefetchBufferESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb18FilePrefetchBufferEEclEPS1_.exit.i
+  br i1 %cmp.not.i233, label %cleanup169, label %_ZNKSt14default_deleteIN7rocksdb18FilePrefetchBufferEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN7rocksdb18FilePrefetchBufferEEclEPS1_.exit.i: ; preds = %cleanup167
   call void @_ZN7rocksdb18FilePrefetchBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %200) #18
   call void @_ZdlPv(ptr noundef nonnull %200) #17
-  br label %_ZNSt10unique_ptrIN7rocksdb18FilePrefetchBufferESt14default_deleteIS1_EED2Ev.exit
-
-_ZNSt10unique_ptrIN7rocksdb18FilePrefetchBufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %cleanup167, %_ZNKSt14default_deleteIN7rocksdb18FilePrefetchBufferEEclEPS1_.exit.i
-  store ptr null, ptr %prefetch_buffer, align 8
   br label %cleanup169
 
 ehcleanup168:                                     ; preds = %lpad64.body.thread, %if.then.i.i103, %lpad64.body, %ehcleanup166, %ehcleanup
@@ -2587,7 +2583,7 @@ ehcleanup168:                                     ; preds = %lpad64.body.thread,
   call void @_ZNSt10unique_ptrIN7rocksdb18FilePrefetchBufferESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %prefetch_buffer) #18
   br label %ehcleanup170
 
-cleanup169:                                       ; preds = %_ZNK7rocksdb9BlockIterINS_10IndexValueEE6statusEv.exit61, %_ZNK7rocksdb9BlockIterINS_10IndexValueEE6statusEv.exit, %cleanup, %_ZNSt10unique_ptrIN7rocksdb18FilePrefetchBufferESt14default_deleteIS1_EED2Ev.exit
+cleanup169:                                       ; preds = %_ZNKSt14default_deleteIN7rocksdb18FilePrefetchBufferEEclEPS1_.exit.i, %cleanup167, %_ZNK7rocksdb9BlockIterINS_10IndexValueEE6statusEv.exit61, %_ZNK7rocksdb9BlockIterINS_10IndexValueEE6statusEv.exit, %cleanup
   %cache_handle_.i.i235 = getelementptr inbounds %"class.rocksdb::CachableEntry", ptr %index_block, i64 0, i32 2
   %201 = load ptr, ptr %cache_handle_.i.i235, align 8
   %cmp.not.i.i236 = icmp eq ptr %201, null

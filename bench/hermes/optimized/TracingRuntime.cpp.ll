@@ -7837,7 +7837,6 @@ _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i: ; preds = %_ZNSt8fun
   br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit, %_ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i
-  store ptr null, ptr %agg.tmp, align 8
   %15 = load ptr, ptr %ref.tmp, align 8
   %tobool.not.i.i14 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i14, label %_ZN8facebook3jsi6ObjectD2Ev.exit, label %if.then.i.i15
@@ -7902,21 +7901,17 @@ terminate.lpad.i.i28:                             ; preds = %if.then.i.i26
 _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit29: ; preds = %_ZNSt8functionIFvvEED2Ev.exit23, %if.then.i.i26
   %27 = load ptr, ptr %agg.tmp, align 8
   %cmp.not.i30 = icmp eq ptr %27, null
-  br i1 %cmp.not.i30, label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit34, label %_ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i31
+  br i1 %cmp.not.i30, label %ehcleanup, label %_ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i31
 
 _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i31: ; preds = %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit29
   %vtable.i.i32 = load ptr, ptr %27, align 8
   %vfn.i.i33 = getelementptr inbounds ptr, ptr %vtable.i.i32, i64 1
   %28 = load ptr, ptr %vfn.i.i33, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(36) %27) #28
-  br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit34
-
-_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit34: ; preds = %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit29, %_ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i31
-  store ptr null, ptr %agg.tmp, align 8
   br label %ehcleanup
 
-ehcleanup:                                        ; preds = %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit34, %lpad
-  %.pn = phi { ptr, i32 } [ %20, %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit34 ], [ %19, %lpad ]
+ehcleanup:                                        ; preds = %_ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i31, %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit29, %lpad
+  %.pn = phi { ptr, i32 } [ %19, %lpad ], [ %20, %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit29 ], [ %20, %_ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i31 ]
   %29 = load ptr, ptr %ref.tmp, align 8
   %tobool.not.i.i35 = icmp eq ptr %29, null
   br i1 %tobool.not.i.i35, label %_ZN8facebook3jsi6ObjectD2Ev.exit39, label %if.then.i.i36
@@ -7970,7 +7965,6 @@ _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i: ; preds = %invoke.co
   br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont, %_ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i
-  store ptr null, ptr %agg.tmp2, align 8
   %4 = load ptr, ptr %agg.tmp, align 8
   %cmp.not.i4 = icmp eq ptr %4, null
   br i1 %cmp.not.i4, label %_ZNSt10unique_ptrIN8facebook3jsi7RuntimeESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i
@@ -7983,7 +7977,6 @@ _ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i: ; preds = %_ZNSt1
   br label %_ZNSt10unique_ptrIN8facebook3jsi7RuntimeESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8facebook3jsi7RuntimeESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i
-  store ptr null, ptr %agg.tmp, align 8
   store ptr getelementptr inbounds ({ [91 x ptr], [16 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing20TracingHermesRuntimeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ({ [91 x ptr], [16 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing20TracingHermesRuntimeE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8

@@ -11660,11 +11660,11 @@ if.then25:                                        ; preds = %invoke.cont23
 invoke.cont27:                                    ; preds = %if.then25
   %call.i63 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %method, ptr noundef nonnull @.str.63) #31
   %cmp.i64 = icmp eq i32 %call.i63, 0
-  br i1 %cmp.i64, label %if.then31, label %if.end
+  br i1 %cmp.i64, label %if.then31, label %if.end137.sink.split
 
 if.then31:                                        ; preds = %invoke.cont27
   store i32 1, ptr %mMethod, align 4
-  br label %if.end
+  br label %if.end137.sink.split
 
 lpad6:                                            ; preds = %call.i.noexc, %_ZNK4pugi8xml_node4nameEv.exit
   %16 = landingpad { ptr, i32 }
@@ -11687,10 +11687,6 @@ lpad26:                                           ; preds = %if.then25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %method) #31
   br label %ehcleanup
 
-if.end:                                           ; preds = %if.then31, %invoke.cont27
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %method) #31
-  br label %if.end137
-
 if.else:                                          ; preds = %invoke.cont7
   %call.i65 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.64) #31
   %cmp.i66 = icmp eq i32 %call.i65, 0
@@ -11700,13 +11696,13 @@ if.then36:                                        ; preds = %if.else
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %id) #31
   %19 = load ptr, ptr %currentNode, align 8
   %tobool.not.i.i = icmp eq ptr %19, null
-  br i1 %tobool.not.i.i, label %if.end46, label %if.end.i.i
+  br i1 %tobool.not.i.i, label %if.end137.sink.split, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then36
   %first_attribute.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %19, i64 0, i32 7
   %i.06.i.i = load ptr, ptr %first_attribute.i.i, align 8
   %tobool3.not7.i.i = icmp eq ptr %i.06.i.i, null
-  br i1 %tobool3.not7.i.i, label %if.end46, label %for.body.i.i
+  br i1 %tobool3.not7.i.i, label %if.end137.sink.split, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i, %for.inc.i.i
   %i.08.i.i = phi ptr [ %i.0.i.i, %for.inc.i.i ], [ %i.06.i.i, %if.end.i.i ]
@@ -11724,7 +11720,7 @@ for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, 
   %next_attribute.i.i = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %i.08.i.i, i64 0, i32 4
   %i.0.i.i = load ptr, ptr %next_attribute.i.i, align 8
   %tobool3.not.i.i = icmp eq ptr %i.0.i.i, null
-  br i1 %tobool3.not.i.i, label %if.end46, label %for.body.i.i, !llvm.loop !27
+  br i1 %tobool3.not.i.i, label %if.end137.sink.split, label %for.body.i.i, !llvm.loop !27
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %land.lhs.true.i.i
   %value3.i.i = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %i.08.i.i, i64 0, i32 2
@@ -11743,17 +11739,13 @@ if.then40:                                        ; preds = %_ZNK4pugi13xml_attr
 invoke.cont43:                                    ; preds = %if.then40
   %call45 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %mMeshId44, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp41) #31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp41) #31
-  br label %if.end46
+  br label %if.end137.sink.split
 
 lpad37:                                           ; preds = %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, %if.then40
   %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %id) #31
   br label %ehcleanup
-
-if.end46:                                         ; preds = %for.inc.i.i, %if.end.i.i, %if.then36, %invoke.cont43
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %id) #31
-  br label %if.end137
 
 if.else47:                                        ; preds = %if.else
   %call.i68 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.65) #31
@@ -11810,7 +11802,7 @@ while.body.i.i72:                                 ; preds = %while.cond.i.i70, %
 for.inc:                                          ; preds = %while.cond.i.i70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %for.end, label %while.cond.i.i.preheader, !llvm.loop !117
+  br i1 %exitcond.not, label %if.end137.sink.split, label %while.cond.i.i.preheader, !llvm.loop !117
 
 lpad51.loopexit:                                  ; preds = %invoke.cont56
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -11826,10 +11818,6 @@ lpad51:                                           ; preds = %lpad51.loopexit.spl
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad51.loopexit ], [ %lpad.loopexit.split-lp, %lpad51.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %v) #31
   br label %ehcleanup
-
-for.end:                                          ; preds = %for.inc
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %v) #31
-  br label %if.end137
 
 if.else62:                                        ; preds = %if.else47
   %call.i76 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.48) #31
@@ -12022,11 +12010,7 @@ if.end124:                                        ; preds = %if.then118.invoke, 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp88) #31
   %37 = load ptr, ptr %currentNode, align 8
   %tobool.not.i157 = icmp eq ptr %37, null
-  br i1 %tobool.not.i157, label %invoke.cont127.thread, label %invoke.cont127
-
-invoke.cont127.thread:                            ; preds = %if.end124
-  store ptr null, ptr %currentNode, align 8
-  br label %if.end137
+  br i1 %tobool.not.i157, label %if.end137, label %invoke.cont127
 
 invoke.cont127:                                   ; preds = %if.end124
   %next_sibling.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %37, i64 0, i32 6
@@ -12035,7 +12019,12 @@ invoke.cont127:                                   ; preds = %if.end124
   %tobool.not.i87 = icmp eq ptr %38, null
   br i1 %tobool.not.i87, label %if.end137, label %for.body87, !llvm.loop !118
 
-if.end137:                                        ; preds = %invoke.cont127, %for.inc.i51, %invoke.cont127.thread, %invoke.cont81, %if.end.i40, %invoke.cont17, %if.end.i58, %if.end46, %if.then65, %if.then75, %if.else77, %if.then70, %for.end, %invoke.cont23, %if.end
+if.end137.sink.split:                             ; preds = %for.inc, %for.inc.i.i, %invoke.cont43, %if.then36, %if.end.i.i, %invoke.cont27, %if.then31
+  %id.sink = phi ptr [ %method, %if.then31 ], [ %method, %invoke.cont27 ], [ %id, %if.end.i.i ], [ %id, %if.then36 ], [ %id, %invoke.cont43 ], [ %id, %for.inc.i.i ], [ %v, %for.inc ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %id.sink) #31
+  br label %if.end137
+
+if.end137:                                        ; preds = %invoke.cont127, %if.end124, %for.inc.i51, %if.end137.sink.split, %invoke.cont81, %if.end.i40, %invoke.cont17, %if.end.i58, %if.then65, %if.then75, %if.else77, %if.then70, %invoke.cont23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #31
   %39 = load i64, ptr %mIndex.i, align 8
   %40 = load ptr, ptr %_M_finish.i.i, align 8
@@ -24884,11 +24873,7 @@ if.end66:                                         ; preds = %_ZN6Assimp7Collada2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38) #31
   %52 = load ptr, ptr %instanceMatNode, align 8
   %tobool.not.i128 = icmp eq ptr %52, null
-  br i1 %tobool.not.i128, label %_ZNK4pugi8xml_node12next_siblingEv.exit.thread, label %_ZNK4pugi8xml_node12next_siblingEv.exit
-
-_ZNK4pugi8xml_node12next_siblingEv.exit.thread:   ; preds = %if.end66
-  store ptr null, ptr %instanceMatNode, align 8
-  br label %_ZNK4pugi8xml_node12next_siblingEv.exit135
+  br i1 %tobool.not.i128, label %_ZNK4pugi8xml_node12next_siblingEv.exit135, label %_ZNK4pugi8xml_node12next_siblingEv.exit
 
 _ZNK4pugi8xml_node12next_siblingEv.exit:          ; preds = %if.end66
   %next_sibling.i129 = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %52, i64 0, i32 6
@@ -24897,7 +24882,7 @@ _ZNK4pugi8xml_node12next_siblingEv.exit:          ; preds = %if.end66
   %tobool.not.i44 = icmp eq ptr %53, null
   br i1 %tobool.not.i44, label %_ZNK4pugi8xml_node12next_siblingEv.exit135, label %_ZNK4pugi8xml_node4nameEv.exit52
 
-_ZNK4pugi8xml_node12next_siblingEv.exit135:       ; preds = %for.inc.i, %_ZNK4pugi8xml_node12next_siblingEv.exit, %_ZNK4pugi8xml_node12next_siblingEv.exit.thread, %_ZNK4pugi8xml_node5childEPKc.exit43.thread, %if.end.i19, %invoke.cont18
+_ZNK4pugi8xml_node12next_siblingEv.exit135:       ; preds = %for.inc.i, %_ZNK4pugi8xml_node12next_siblingEv.exit, %if.end66, %_ZNK4pugi8xml_node5childEPKc.exit43.thread, %if.end.i19, %invoke.cont18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #31
   %next_sibling.i133 = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %storemerge173, i64 0, i32 6
   %54 = load ptr, ptr %next_sibling.i133, align 8

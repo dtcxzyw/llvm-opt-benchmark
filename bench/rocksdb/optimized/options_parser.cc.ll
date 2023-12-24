@@ -2561,15 +2561,11 @@ cleanup:                                          ; preds = %if.end287, %if.then
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %options_file_content) #20
   %253 = load ptr, ptr %writable, align 8
   %cmp.not.i = icmp eq ptr %253, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i
+  br i1 %cmp.not.i, label %cleanup291, label %_ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i: ; preds = %cleanup
   call void @_ZN7rocksdb18WritableFileWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(218) %253) #20
   call void @_ZdlPv(ptr noundef nonnull %253) #21
-  br label %_ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EED2Ev.exit
-
-_ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EED2Ev.exit: ; preds = %cleanup, %_ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i
-  store ptr null, ptr %writable, align 8
   br label %cleanup291
 
 ehcleanup288:                                     ; preds = %lpad42.loopexit, %lpad42.loopexit.split-lp, %lpad.i, %lpad.i361, %lpad.i460, %lpad.i261, %lpad260, %ehcleanup243, %lpad196, %ehcleanup179, %lpad143, %ehcleanup126, %ehcleanup108, %ehcleanup78
@@ -2584,7 +2580,7 @@ ehcleanup290:                                     ; preds = %cleanup.action, %eh
   %cmp.not.i.i551 = icmp eq ptr %254, null
   br i1 %cmp.not.i.i551, label %_ZN7rocksdb6StatusD2Ev.exit553, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i552
 
-cleanup291:                                       ; preds = %if.then16, %_ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EED2Ev.exit
+cleanup291:                                       ; preds = %_ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i, %cleanup, %if.then16
   %.pr611 = load ptr, ptr %state_.i.i, align 8
   %cmp.not.i.i546 = icmp eq ptr %.pr611, null
   br i1 %cmp.not.i.i546, label %_ZN7rocksdb6StatusD2Ev.exit548, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i547
