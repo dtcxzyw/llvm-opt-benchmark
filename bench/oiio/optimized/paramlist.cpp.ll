@@ -3426,7 +3426,7 @@ if.end.us.i:                                      ; preds = %if.then13
   %11 = load ptr, ptr %m_data.i.i50, align 8
   %cond.i.i51 = select i1 %tobool.not.i.i49, ptr %m_data.i.i50, ptr %11
   %mul.i = mul nsw i32 %conv.i, %index
-  %idx.ext.i = sext i32 %mul.i to i64
+  %idx.ext.i = zext nneg i32 %mul.i to i64
   %add.ptr.i = getelementptr inbounds float, ptr %cond.i.i51, i64 %idx.ext.i
   br label %for.body7.us.i
 
@@ -3485,7 +3485,7 @@ if.end.us.i73:                                    ; preds = %if.then19
   %16 = load ptr, ptr %m_data.i.i64, align 8
   %cond.i.i65 = select i1 %tobool.not.i.i63, ptr %m_data.i.i64, ptr %16
   %mul.i66 = mul nsw i32 %conv.i59, %index
-  %idx.ext.i67 = sext i32 %mul.i66 to i64
+  %idx.ext.i67 = zext nneg i32 %mul.i66 to i64
   %add.ptr.i68 = getelementptr inbounds double, ptr %cond.i.i65, i64 %idx.ext.i67
   br label %for.body7.us.i74
 
@@ -3543,7 +3543,7 @@ if.end.us.i124:                                   ; preds = %if.then26
   %21 = load ptr, ptr %m_data.i.i115, align 8
   %cond.i.i116 = select i1 %tobool.not.i.i114, ptr %m_data.i.i115, ptr %21
   %mul.i117 = mul nsw i32 %conv.i110, %index
-  %idx.ext.i118 = sext i32 %mul.i117 to i64
+  %idx.ext.i118 = zext nneg i32 %mul.i117 to i64
   %add.ptr.i119 = getelementptr inbounds %class.half, ptr %cond.i.i116, i64 %idx.ext.i118
   br label %for.body7.us.i125
 
@@ -3734,7 +3734,7 @@ if.end.us.i204:                                   ; preds = %if.then86
   %38 = load ptr, ptr %m_data.i.i195, align 8
   %cond.i.i196 = select i1 %tobool.not.i.i194, ptr %m_data.i.i195, ptr %38
   %mul.i197 = mul nsw i32 %conv.i190, %index
-  %idx.ext.i198 = sext i32 %mul.i197 to i64
+  %idx.ext.i198 = zext nneg i32 %mul.i197 to i64
   %add.ptr.i199 = getelementptr inbounds i16, ptr %cond.i.i196, i64 %idx.ext.i198
   br label %for.body7.us.i205
 
@@ -3793,7 +3793,7 @@ if.end.us.i256:                                   ; preds = %if.then93
   %43 = load ptr, ptr %m_data.i.i247, align 8
   %cond.i.i248 = select i1 %tobool.not.i.i246, ptr %m_data.i.i247, ptr %43
   %mul.i249 = mul nsw i32 %conv.i242, %index
-  %idx.ext.i250 = sext i32 %mul.i249 to i64
+  %idx.ext.i250 = zext nneg i32 %mul.i249 to i64
   %add.ptr.i251 = getelementptr inbounds i16, ptr %cond.i.i248, i64 %idx.ext.i250
   br label %for.body7.us.i257
 
@@ -3853,7 +3853,7 @@ if.end.us.i308:                                   ; preds = %if.then100
   %48 = load ptr, ptr %m_data.i.i299, align 8
   %cond.i.i300 = select i1 %tobool.not.i.i298, ptr %m_data.i.i299, ptr %48
   %mul.i301 = mul nsw i32 %conv.i294, %index
-  %idx.ext.i302 = sext i32 %mul.i301 to i64
+  %idx.ext.i302 = zext nneg i32 %mul.i301 to i64
   %add.ptr.i303 = getelementptr inbounds i64, ptr %cond.i.i300, i64 %idx.ext.i302
   br label %for.body7.us.i309
 
@@ -3911,7 +3911,7 @@ if.end.us.i359:                                   ; preds = %if.then107
   %53 = load ptr, ptr %m_data.i.i350, align 8
   %cond.i.i351 = select i1 %tobool.not.i.i349, ptr %m_data.i.i350, ptr %53
   %mul.i352 = mul nsw i32 %conv.i345, %index
-  %idx.ext.i353 = sext i32 %mul.i352 to i64
+  %idx.ext.i353 = zext nneg i32 %mul.i352 to i64
   %add.ptr.i354 = getelementptr inbounds i64, ptr %cond.i.i351, i64 %idx.ext.i353
   br label %for.body7.us.i360
 
@@ -3969,7 +3969,7 @@ if.end.us.i410:                                   ; preds = %if.then114
   %58 = load ptr, ptr %m_data.i.i401, align 8
   %cond.i.i402 = select i1 %tobool.not.i.i400, ptr %m_data.i.i401, ptr %58
   %mul.i403 = mul nsw i32 %conv.i396, %index
-  %idx.ext.i404 = sext i32 %mul.i403 to i64
+  %idx.ext.i404 = zext nneg i32 %mul.i403 to i64
   %add.ptr.i405 = getelementptr inbounds i8, ptr %cond.i.i402, i64 %idx.ext.i404
   br label %for.body7.us.i411
 
@@ -4028,7 +4028,7 @@ if.end.us.i462:                                   ; preds = %if.then121
   %63 = load ptr, ptr %m_data.i.i453, align 8
   %cond.i.i454 = select i1 %tobool.not.i.i452, ptr %m_data.i.i453, ptr %63
   %mul.i455 = mul nsw i32 %conv.i448, %index
-  %idx.ext.i456 = sext i32 %mul.i455 to i64
+  %idx.ext.i456 = zext nneg i32 %mul.i455 to i64
   %add.ptr.i457 = getelementptr inbounds i8, ptr %cond.i.i454, i64 %idx.ext.i456
   br label %for.body7.us.i463
 
@@ -4093,7 +4093,7 @@ if.end.us.i514:                                   ; preds = %invoke.cont129
   %69 = load ptr, ptr %m_data.i.i505, align 8
   %cond.i.i506 = select i1 %tobool.not.i.i504, ptr %m_data.i.i505, ptr %69
   %mul.i507 = mul nsw i32 %conv.i500, %index
-  %idx.ext.i508 = sext i32 %mul.i507 to i64
+  %idx.ext.i508 = zext nneg i32 %mul.i507 to i64
   %add.ptr.i509 = getelementptr inbounds ptr, ptr %cond.i.i506, i64 %idx.ext.i508
   br label %for.body7.us.i515
 

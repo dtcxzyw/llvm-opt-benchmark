@@ -417,9 +417,8 @@ if.else.i.i.i50:                                  ; preds = %if.then.i.i.i44
 
 pcnet_aprom_readb.exit51:                         ; preds = %if.then18, %land.lhs.true5.i.i.i41, %if.then8.i.i.i46, %if.else.i.i.i50
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i33)
-  %conv21 = add nuw nsw i32 %conv19, 1
-  %and.i53 = and i32 %conv21, 15
-  %idxprom.i54 = zext nneg i32 %and.i53 to i64
+  %conv21 = or disjoint i32 %conv19, 1
+  %idxprom.i54 = zext nneg i32 %conv21 to i64
   %arrayidx.i55 = getelementptr %struct.PCNetState_st, ptr %opaque, i64 0, i32 8, i64 %idxprom.i54
   %25 = load i8, ptr %arrayidx.i55, align 1
   %conv.i56 = zext i8 %25 to i32
@@ -510,9 +509,8 @@ if.else.i.i.i88:                                  ; preds = %if.then.i.i.i82
 
 pcnet_aprom_readb.exit89:                         ; preds = %if.then37, %land.lhs.true5.i.i.i79, %if.then8.i.i.i84, %if.else.i.i.i88
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i71)
-  %conv41 = add nuw nsw i32 %conv38, 1
-  %and.i91 = and i32 %conv41, 15
-  %idxprom.i92 = zext nneg i32 %and.i91 to i64
+  %conv41 = or disjoint i32 %conv38, 1
+  %idxprom.i92 = zext nneg i32 %conv41 to i64
   %arrayidx.i93 = getelementptr %struct.PCNetState_st, ptr %opaque, i64 0, i32 8, i64 %idxprom.i92
   %41 = load i8, ptr %arrayidx.i93, align 1
   %conv.i94 = zext i8 %41 to i32
@@ -552,9 +550,8 @@ if.else.i.i.i107:                                 ; preds = %if.then.i.i.i101
 pcnet_aprom_readb.exit108:                        ; preds = %pcnet_aprom_readb.exit89, %land.lhs.true5.i.i.i98, %if.then8.i.i.i103, %if.else.i.i.i107
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i90)
   %shl43 = shl nuw nsw i32 %conv.i94, 8
-  %conv46 = add nuw nsw i32 %conv38, 2
-  %and.i110 = and i32 %conv46, 15
-  %idxprom.i111 = zext nneg i32 %and.i110 to i64
+  %conv46 = or disjoint i32 %conv38, 2
+  %idxprom.i111 = zext nneg i32 %conv46 to i64
   %arrayidx.i112 = getelementptr %struct.PCNetState_st, ptr %opaque, i64 0, i32 8, i64 %idxprom.i111
   %49 = load i8, ptr %arrayidx.i112, align 1
   %conv.i113 = zext i8 %49 to i32
@@ -594,9 +591,8 @@ if.else.i.i.i126:                                 ; preds = %if.then.i.i.i120
 pcnet_aprom_readb.exit127:                        ; preds = %pcnet_aprom_readb.exit108, %land.lhs.true5.i.i.i117, %if.then8.i.i.i122, %if.else.i.i.i126
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i109)
   %shl48 = shl nuw nsw i32 %conv.i113, 16
-  %conv51 = add nuw nsw i32 %conv38, 3
-  %and.i129 = and i32 %conv51, 15
-  %idxprom.i130 = zext nneg i32 %and.i129 to i64
+  %conv51 = or disjoint i32 %conv38, 3
+  %idxprom.i130 = zext nneg i32 %conv51 to i64
   %arrayidx.i131 = getelementptr %struct.PCNetState_st, ptr %opaque, i64 0, i32 8, i64 %idxprom.i130
   %57 = load i8, ptr %arrayidx.i131, align 1
   %conv.i132 = zext i8 %57 to i32
@@ -744,7 +740,7 @@ if.then18:                                        ; preds = %land.lhs.true11
   %9 = trunc i64 %data to i32
   %conv21 = and i32 %9, 255
   tail call fastcc void @pcnet_aprom_writeb(ptr noundef nonnull %opaque, i32 noundef %conv19, i32 noundef %conv21)
-  %conv22 = add nuw nsw i32 %conv19, 1
+  %conv22 = or disjoint i32 %conv19, 1
   %shr = lshr i64 %data, 8
   %conv23 = trunc i64 %shr to i32
   tail call fastcc void @pcnet_aprom_writeb(ptr noundef nonnull %opaque, i32 noundef %conv22, i32 noundef %conv23)
@@ -762,15 +758,15 @@ if.then37:                                        ; preds = %land.lhs.true30
   %10 = trunc i64 %data to i32
   %conv40 = and i32 %10, 255
   tail call fastcc void @pcnet_aprom_writeb(ptr noundef nonnull %opaque, i32 noundef %conv38, i32 noundef %conv40)
-  %conv42 = add nuw nsw i32 %conv38, 1
+  %conv42 = or disjoint i32 %conv38, 1
   %11 = lshr i32 %10, 8
   %conv45 = and i32 %11, 255
   tail call fastcc void @pcnet_aprom_writeb(ptr noundef nonnull %opaque, i32 noundef %conv42, i32 noundef %conv45)
-  %conv47 = add nuw nsw i32 %conv38, 2
+  %conv47 = or disjoint i32 %conv38, 2
   %12 = lshr i32 %10, 16
   %conv50 = and i32 %12, 255
   tail call fastcc void @pcnet_aprom_writeb(ptr noundef nonnull %opaque, i32 noundef %conv47, i32 noundef %conv50)
-  %conv52 = add nuw nsw i32 %conv38, 3
+  %conv52 = or disjoint i32 %conv38, 3
   %shr53 = lshr i64 %data, 24
   %conv54 = trunc i64 %shr53 to i32
   tail call fastcc void @pcnet_aprom_writeb(ptr noundef nonnull %opaque, i32 noundef %conv52, i32 noundef %conv54)

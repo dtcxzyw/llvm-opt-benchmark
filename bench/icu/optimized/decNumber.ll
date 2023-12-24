@@ -3081,9 +3081,9 @@ if.then456:                                       ; preds = %land.lhs.true453
   %round457 = getelementptr inbounds %struct.decContext, ptr %set, i64 0, i32 3
   %110 = load i32, ptr %round457, align 4
   %cmp458 = icmp eq i32 %110, 6
-  %and467 = and i8 %107, 127
-  %masksel = select i1 %cmp458, i8 -128, i8 0
-  %and467.sink = or disjoint i8 %and467, %masksel
+  %and467 = and i8 %107, 15
+  %or462 = or i8 %107, -128
+  %and467.sink = select i1 %cmp458, i8 %or462, i8 %and467
   store i8 %and467.sink, ptr %bits346, align 4
   br label %do.end
 

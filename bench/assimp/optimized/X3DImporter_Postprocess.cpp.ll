@@ -3379,7 +3379,6 @@ if.then5:                                         ; preds = %if.then
   br i1 %or.cond, label %for.cond.preheader, label %for.end91
 
 for.cond.preheader:                               ; preds = %if.then5
-  %conv20 = zext nneg i32 %4 to i64
   %cmp21101.not = icmp eq i32 %4, 0
   br i1 %cmp21101.not, label %for.end, label %for.body
 
@@ -3397,8 +3396,8 @@ for.body:                                         ; preds = %for.cond.preheader,
   %i.0103 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
   %chit_begin.sroa.0.0102 = phi ptr [ %6, %for.body ], [ %0, %for.cond.preheader ]
   %6 = load ptr, ptr %chit_begin.sroa.0.0102, align 8
-  %inc = add nuw i64 %i.0103, 1
-  %exitcond.not = icmp eq i64 %inc, %conv20
+  %inc = add nuw nsw i64 %i.0103, 1
+  %exitcond.not = icmp eq i64 %inc, %conv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !49
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader

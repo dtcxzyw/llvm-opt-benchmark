@@ -2180,7 +2180,7 @@ _ZNK19OpenColorIO_v2_4dev19FixedFunctionOpData12getDirectionEv.exit: ; preds = %
   br i1 %or.cond, label %switch.lookup2, label %if.end
 
 switch.lookup2:                                   ; preds = %_ZNK19OpenColorIO_v2_4dev19FixedFunctionOpData12getDirectionEv.exit
-  %4 = sext i32 %0 to i64
+  %4 = zext nneg i32 %0 to i64
   %switch.gep3 = getelementptr inbounds [22 x i32], ptr @switch.table._ZN19OpenColorIO_v2_4dev19FixedFunctionOpData12setDirectionENS_18TransformDirectionE.2, i64 0, i64 %4
   %switch.load4 = load i32, ptr %switch.gep3, align 4
   store i32 %switch.load4, ptr %m_style.i, align 8

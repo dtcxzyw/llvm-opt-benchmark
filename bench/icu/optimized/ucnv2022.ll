@@ -3382,7 +3382,7 @@ if.then82:                                        ; preds = %getTrailByte
   %63 = trunc i16 %mySourceChar.0 to i8
   %conv85 = xor i8 %63, -128
   store i8 %conv85, ptr %tempBuf, align 1
-  %add88 = xor i8 %61, -128
+  %add88 = or disjoint i8 %61, -128
   %arrayidx90 = getelementptr inbounds [2 x i8], ptr %tempBuf, i64 0, i64 1
   store i8 %add88, ptr %arrayidx90, align 1
   %call91 = call i32 @ucnv_MBCSSimpleGetNextUChar_75(ptr noundef %44, ptr noundef nonnull %tempBuf, i32 noundef 2, i8 noundef signext %45)

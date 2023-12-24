@@ -4627,47 +4627,47 @@ if.end:                                           ; preds = %for.body13, %if.the
 if.then31:                                        ; preds = %if.end
   %26 = zext nneg i32 %25 to i64
   %27 = add nuw nsw i32 %25, 2
-  %28 = zext nneg i32 %27 to i64
   br label %for.body37
 
 for.body37:                                       ; preds = %if.then31, %if.end41
   %indvars.iv90 = phi i64 [ %26, %if.then31 ], [ %indvars.iv.next91, %if.end41 ]
-  %leastSquaresResidual.384 = phi float [ %leastSquaresResidual.1.lcssa, %if.then31 ], [ %35, %if.end41 ]
-  %29 = load ptr, ptr %m_data.i65, align 8
-  %m_frictionIndex = getelementptr inbounds %struct.btSolverConstraint, ptr %29, i64 %indvars.iv90, i32 17
-  %30 = load i32, ptr %m_frictionIndex, align 4
-  %cmp39.not = icmp eq i32 %30, %2
+  %leastSquaresResidual.384 = phi float [ %leastSquaresResidual.1.lcssa, %if.then31 ], [ %34, %if.end41 ]
+  %28 = load ptr, ptr %m_data.i65, align 8
+  %m_frictionIndex = getelementptr inbounds %struct.btSolverConstraint, ptr %28, i64 %indvars.iv90, i32 17
+  %29 = load i32, ptr %m_frictionIndex, align 4
+  %cmp39.not = icmp eq i32 %29, %2
   br i1 %cmp39.not, label %if.end41, label %for.inc65
 
 if.end41:                                         ; preds = %for.body37
-  %arrayidx.i67 = getelementptr inbounds %struct.btSolverConstraint, ptr %29, i64 %indvars.iv90
-  %m_friction42 = getelementptr inbounds %struct.btSolverConstraint, ptr %29, i64 %indvars.iv90, i32 8
-  %31 = load float, ptr %m_friction42, align 8
-  %mul43 = fmul float %8, %31
-  %cmp45 = fcmp ogt float %mul43, %31
-  %rollingFrictionMagnitude.0 = select i1 %cmp45, float %31, float %mul43
+  %arrayidx.i67 = getelementptr inbounds %struct.btSolverConstraint, ptr %28, i64 %indvars.iv90
+  %m_friction42 = getelementptr inbounds %struct.btSolverConstraint, ptr %28, i64 %indvars.iv90, i32 8
+  %30 = load float, ptr %m_friction42, align 8
+  %mul43 = fmul float %8, %30
+  %cmp45 = fcmp ogt float %mul43, %30
+  %rollingFrictionMagnitude.0 = select i1 %cmp45, float %30, float %mul43
   %fneg49 = fneg float %rollingFrictionMagnitude.0
-  %m_lowerLimit50 = getelementptr inbounds %struct.btSolverConstraint, ptr %29, i64 %indvars.iv90, i32 12
+  %m_lowerLimit50 = getelementptr inbounds %struct.btSolverConstraint, ptr %28, i64 %indvars.iv90, i32 12
   store float %fneg49, ptr %m_lowerLimit50, align 8
-  %m_upperLimit51 = getelementptr inbounds %struct.btSolverConstraint, ptr %29, i64 %indvars.iv90, i32 13
+  %m_upperLimit51 = getelementptr inbounds %struct.btSolverConstraint, ptr %28, i64 %indvars.iv90, i32 13
   store float %rollingFrictionMagnitude.0, ptr %m_upperLimit51, align 4
-  %m_solverBodyIdA54 = getelementptr inbounds %struct.btSolverConstraint, ptr %29, i64 %indvars.iv90, i32 18
-  %32 = load i32, ptr %m_solverBodyIdA54, align 8
-  %33 = load ptr, ptr %m_data.i47, align 8
-  %idxprom.i69 = sext i32 %32 to i64
-  %arrayidx.i70 = getelementptr inbounds %struct.btSolverBody, ptr %33, i64 %idxprom.i69
-  %m_solverBodyIdB57 = getelementptr inbounds %struct.btSolverConstraint, ptr %29, i64 %indvars.iv90, i32 19
-  %34 = load i32, ptr %m_solverBodyIdB57, align 4
-  %idxprom.i72 = sext i32 %34 to i64
-  %arrayidx.i73 = getelementptr inbounds %struct.btSolverBody, ptr %33, i64 %idxprom.i72
+  %m_solverBodyIdA54 = getelementptr inbounds %struct.btSolverConstraint, ptr %28, i64 %indvars.iv90, i32 18
+  %31 = load i32, ptr %m_solverBodyIdA54, align 8
+  %32 = load ptr, ptr %m_data.i47, align 8
+  %idxprom.i69 = sext i32 %31 to i64
+  %arrayidx.i70 = getelementptr inbounds %struct.btSolverBody, ptr %32, i64 %idxprom.i69
+  %m_solverBodyIdB57 = getelementptr inbounds %struct.btSolverConstraint, ptr %28, i64 %indvars.iv90, i32 19
+  %33 = load i32, ptr %m_solverBodyIdB57, align 4
+  %idxprom.i72 = sext i32 %33 to i64
+  %arrayidx.i73 = getelementptr inbounds %struct.btSolverBody, ptr %32, i64 %idxprom.i72
   %call59 = tail call noundef float @_ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i70, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i73, ptr noundef nonnull align 8 dereferenceable(160) %arrayidx.i67)
-  %35 = tail call float @llvm.fmuladd.f32(float %call59, float %call59, float %leastSquaresResidual.384)
+  %34 = tail call float @llvm.fmuladd.f32(float %call59, float %call59, float %leastSquaresResidual.384)
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
-  %cmp36 = icmp ult i64 %indvars.iv90, %28
+  %35 = trunc i64 %indvars.iv90 to i32
+  %cmp36 = icmp sgt i32 %27, %35
   br i1 %cmp36, label %for.body37, label %for.inc65, !llvm.loop !38
 
 for.inc65:                                        ; preds = %for.body37, %if.end41, %for.body, %if.end
-  %leastSquaresResidual.4 = phi float [ %leastSquaresResidual.1.lcssa, %if.end ], [ %7, %for.body ], [ %35, %if.end41 ], [ %leastSquaresResidual.384, %for.body37 ]
+  %leastSquaresResidual.4 = phi float [ %leastSquaresResidual.1.lcssa, %if.end ], [ %7, %for.body ], [ %34, %if.end41 ], [ %leastSquaresResidual.384, %for.body37 ]
   %indvars.iv.next94 = add nsw i64 %indvars.iv93, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next94 to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %batchEnd

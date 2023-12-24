@@ -11101,9 +11101,8 @@ land.lhs.true:                                    ; preds = %for.body
 
 if.then:                                          ; preds = %land.lhs.true
   %m_val2.i.i.le = getelementptr inbounds %"class.sat::watched", ptr %__begin1.012, i64 0, i32 1
-  %and.i = and i32 %4, -8
   %masksel.i = select i1 %redundant, i32 4, i32 0
-  %and.sink.i = or disjoint i32 %and.i, %masksel.i
+  %and.sink.i = or disjoint i32 %4, %masksel.i
   store i32 %and.sink.i, ptr %m_val2.i.i.le, align 8
   br label %for.end
 
@@ -12506,9 +12505,8 @@ land.lhs.true.i:                                  ; preds = %for.body.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %m_val2.i.i.i.le = getelementptr inbounds %"class.sat::watched", ptr %__begin1.012.i, i64 0, i32 1
-  %and.i.i = and i32 %4, -8
   %masksel.i.i = select i1 %redundant, i32 4, i32 0
-  %and.sink.i.i = or disjoint i32 %and.i.i, %masksel.i.i
+  %and.sink.i.i = or disjoint i32 %4, %masksel.i.i
   store i32 %and.sink.i.i, ptr %m_val2.i.i.i.le, align 8
   %.pre = load ptr, ptr %m_watches.i.i, align 8
   br label %_ZN3sat6solver12set_learned1ENS_7literalES1_b.exit
@@ -12525,7 +12523,7 @@ _ZN3sat6solver12set_learned1ENS_7literalES1_b.exit: ; preds = %for.inc.i, %entry
   %arrayidx.i.i.i7 = getelementptr inbounds %class.vector.53, ptr %7, i64 %idxprom.i.i.i6
   %8 = load ptr, ptr %arrayidx.i.i.i7, align 8
   %cmp.i.i.i8 = icmp eq ptr %8, null
-  br i1 %cmp.i.i.i8, label %_ZN3sat6solver12set_learned1ENS_7literalES1_b.exit31, label %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i9
+  br i1 %cmp.i.i.i8, label %_ZN3sat6solver12set_learned1ENS_7literalES1_b.exit30, label %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i9
 
 _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i9:    ; preds = %_ZN3sat6solver12set_learned1ENS_7literalES1_b.exit
   %arrayidx.i.i7.i10 = getelementptr inbounds i32, ptr %8, i64 -1
@@ -12533,7 +12531,7 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i9:    ; preds = %_ZN3sat6solver12set
   %10 = zext i32 %9 to i64
   %add.ptr.i.i11 = getelementptr inbounds %"class.sat::watched", ptr %8, i64 %10
   %cmp.not11.i12 = icmp eq i32 %9, 0
-  br i1 %cmp.not11.i12, label %_ZN3sat6solver12set_learned1ENS_7literalES1_b.exit31, label %for.body.i13
+  br i1 %cmp.not11.i12, label %_ZN3sat6solver12set_learned1ENS_7literalES1_b.exit30, label %for.body.i13
 
 for.body.i13:                                     ; preds = %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i9, %for.inc.i18
   %__begin1.012.i14 = phi ptr [ %incdec.ptr.i19, %for.inc.i18 ], [ %8, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i9 ]
@@ -12554,18 +12552,17 @@ land.lhs.true.i21:                                ; preds = %for.body.i13
 
 if.then.i26:                                      ; preds = %land.lhs.true.i21
   %m_val2.i.i.i15.le = getelementptr inbounds %"class.sat::watched", ptr %__begin1.012.i14, i64 0, i32 1
-  %and.i.i28 = and i32 %11, -8
-  %masksel.i.i29 = select i1 %redundant, i32 4, i32 0
-  %and.sink.i.i30 = or disjoint i32 %and.i.i28, %masksel.i.i29
-  store i32 %and.sink.i.i30, ptr %m_val2.i.i.i15.le, align 8
-  br label %_ZN3sat6solver12set_learned1ENS_7literalES1_b.exit31
+  %masksel.i.i28 = select i1 %redundant, i32 4, i32 0
+  %and.sink.i.i29 = or disjoint i32 %11, %masksel.i.i28
+  store i32 %and.sink.i.i29, ptr %m_val2.i.i.i15.le, align 8
+  br label %_ZN3sat6solver12set_learned1ENS_7literalES1_b.exit30
 
 for.inc.i18:                                      ; preds = %land.lhs.true.i21, %for.body.i13
   %incdec.ptr.i19 = getelementptr inbounds %"class.sat::watched", ptr %__begin1.012.i14, i64 1
   %cmp.not.i20 = icmp eq ptr %incdec.ptr.i19, %add.ptr.i.i11
-  br i1 %cmp.not.i20, label %_ZN3sat6solver12set_learned1ENS_7literalES1_b.exit31, label %for.body.i13
+  br i1 %cmp.not.i20, label %_ZN3sat6solver12set_learned1ENS_7literalES1_b.exit30, label %for.body.i13
 
-_ZN3sat6solver12set_learned1ENS_7literalES1_b.exit31: ; preds = %for.inc.i18, %_ZN3sat6solver12set_learned1ENS_7literalES1_b.exit, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i9, %if.then.i26
+_ZN3sat6solver12set_learned1ENS_7literalES1_b.exit30: ; preds = %for.inc.i18, %_ZN3sat6solver12set_learned1ENS_7literalES1_b.exit, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i9, %if.then.i26
   ret void
 }
 

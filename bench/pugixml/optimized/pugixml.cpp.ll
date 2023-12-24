@@ -33968,7 +33968,7 @@ land.lhs.true26.i.i.i:                            ; preds = %if.else.i.i.i
 
 if.then31.i.i.i:                                  ; preds = %land.lhs.true26.i.i.i
   %and33.i.i.i = shl nuw nsw i32 %conv.i.i.i, 6
-  %shl.i.i.i = and i32 %and33.i.i.i, 4032
+  %shl.i.i.i = and i32 %and33.i.i.i, 1984
   %and36.i.i.i = and i32 %conv28.i.i.i, 63
   %or.i.i.i = or disjoint i32 %and36.i.i.i, %shl.i.i.i
   %conv.i62.i.i.i = trunc i32 %or.i.i.i to i16
@@ -34048,7 +34048,7 @@ land.lhs.true88.i.i.i:                            ; preds = %land.lhs.true83.i.i
 
 if.then93.i.i.i:                                  ; preds = %land.lhs.true88.i.i.i
   %and95.i.i.i = shl nuw nsw i32 %conv.i.i.i, 18
-  %shl96.i.i.i = and i32 %and95.i.i.i, 3932160
+  %shl96.i.i.i = and i32 %and95.i.i.i, 1835008
   %and99.i.i.i = shl nuw nsw i32 %conv80.i.i.i, 12
   %shl100.i.i.i = and i32 %and99.i.i.i, 258048
   %and104.i.i.i = shl nuw nsw i32 %conv85.i.i.i, 6
@@ -34203,7 +34203,7 @@ land.lhs.true26.i.i80.i:                          ; preds = %if.else.i.i24.i
 
 if.then31.i.i85.i:                                ; preds = %land.lhs.true26.i.i80.i
   %and33.i.i86.i = shl nuw nsw i32 %conv.i.i22.i, 6
-  %shl.i.i87.i = and i32 %and33.i.i86.i, 4032
+  %shl.i.i87.i = and i32 %and33.i.i86.i, 1984
   %and36.i.i88.i = and i32 %conv28.i.i82.i, 63
   %or.i.i89.i = or disjoint i32 %and36.i.i88.i, %shl.i.i87.i
   %cmp.i.i.i.i = icmp ugt i32 %or.i.i89.i, 255
@@ -34240,7 +34240,7 @@ land.lhs.true51.i.i64.i:                          ; preds = %land.lhs.true46.i.i
 
 if.then56.i.i69.i:                                ; preds = %land.lhs.true51.i.i64.i
   %and58.i.i70.i = shl nuw nsw i32 %conv.i.i22.i, 12
-  %shl59.i.i.i = and i32 %and58.i.i70.i, 126976
+  %shl59.i.i.i = and i32 %and58.i.i70.i, 61440
   %and62.i.i71.i = shl nuw nsw i32 %conv48.i.i61.i, 6
   %shl63.i.i72.i = and i32 %and62.i.i71.i, 4032
   %or64.i.i73.i = or disjoint i32 %shl63.i.i72.i, %shl59.i.i.i
@@ -34399,7 +34399,7 @@ land.lhs.true26:                                  ; preds = %if.else
 
 if.then31:                                        ; preds = %land.lhs.true26
   %and33 = shl nuw nsw i32 %conv, 6
-  %shl = and i32 %and33, 4032
+  %shl = and i32 %and33, 1984
   %and36 = and i32 %conv28, 63
   %or = or disjoint i32 %and36, %shl
   store i32 %or, ptr %result.addr.062, align 4
@@ -34433,7 +34433,7 @@ land.lhs.true51:                                  ; preds = %land.lhs.true46
 
 if.then56:                                        ; preds = %land.lhs.true51
   %and58 = shl nuw nsw i32 %conv, 12
-  %shl59 = and i32 %and58, 126976
+  %shl59 = and i32 %and58, 61440
   %and62 = shl nuw nsw i32 %conv48, 6
   %shl63 = and i32 %and62, 4032
   %or64 = or disjoint i32 %shl63, %shl59
@@ -34478,7 +34478,7 @@ land.lhs.true88:                                  ; preds = %land.lhs.true83
 
 if.then93:                                        ; preds = %land.lhs.true88
   %and95 = shl nuw nsw i32 %conv, 18
-  %shl96 = and i32 %and95, 3932160
+  %shl96 = and i32 %and95, 1835008
   %and99 = shl nuw nsw i32 %conv80, 12
   %shl100 = and i32 %and99, 258048
   %or101 = or disjoint i32 %shl100, %shl96

@@ -3636,8 +3636,8 @@ if.else159:                                       ; preds = %if.end148
   %conv160 = zext nneg i32 %call84 to i64
   %mul161 = shl nuw nsw i64 %conv160, 3
   %mul162 = shl nsw i32 %call84, 2
-  %conv163 = sext i32 %mul162 to i64
-  %add164 = add nsw i64 %mul161, %conv163
+  %conv163 = zext nneg i32 %mul162 to i64
+  %add164 = add nuw nsw i64 %mul161, %conv163
   %call165 = call noalias ptr @uprv_malloc_75(i64 noundef %add164) #20
   %rows166 = getelementptr inbounds %struct.TempTable, ptr %tempTable, i64 0, i32 1
   store ptr %call165, ptr %rows166, align 8

@@ -2179,7 +2179,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %kind_ = getelementptr inbounds %"class.re2::DFA", ptr %this, i64 0, i32 1
   %3 = add i32 %c, -65
   %4 = icmp ult i32 %3, 26
-  %add.i = add nuw nsw i32 %c, 32
+  %add.i = or disjoint i32 %c, 32
   %str_.i = getelementptr inbounds %class.LogMessage, ptr %ref.tmp, i64 0, i32 1
   br label %for.body
 

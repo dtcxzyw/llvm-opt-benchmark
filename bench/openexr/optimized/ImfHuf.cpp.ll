@@ -1797,8 +1797,8 @@ if.end60:                                         ; preds = %invoke.cont49
   br i1 %cmp.not72.i, label %invoke.cont65, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end60
-  %44 = sext i32 %1 to i64
-  %45 = add i32 %2, 1
+  %44 = zext nneg i32 %1 to i64
+  %45 = add nuw nsw i32 %2, 1
   br label %for.body.i72
 
 for.body.i72:                                     ; preds = %for.inc80.i, %for.body.preheader.i
@@ -1962,7 +1962,7 @@ if.end66.i:                                       ; preds = %lor.lhs.false.i
   br i1 %cmp57.not.i, label %for.inc80.i, label %for.body58.i, !llvm.loop !26
 
 for.inc80.i:                                      ; preds = %if.end66.i, %if.else45.i, %if.end38.i
-  %indvars.iv.next54.i = add nsw i64 %indvars.iv53.i, 1
+  %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next54.i to i32
   %exitcond.not.i85 = icmp eq i32 %45, %lftr.wideiv.i
   br i1 %exitcond.not.i85, label %invoke.cont65, label %for.body.i72, !llvm.loop !27

@@ -34607,8 +34607,7 @@ _ZN5folly11AsyncSocket17BytesWriteRequestC2EPS0_NS0_22WriteCallbackWithStateEPK5
   %conv.i = zext i32 %bytesWritten to i64
   store i64 %conv.i, ptr %bytesWritten_.i, align 8, !tbaa !14
   %writeOps_.i = getelementptr inbounds %"class.folly::AsyncSocket::BytesWriteRequest", ptr %call1, i64 0, i32 9
-  %conv3.i = zext nneg i32 %opCount to i64
-  %mul.i = shl nuw nsw i64 %conv3.i, 4
+  %mul.i = zext i32 %1 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %writeOps_.i, ptr align 8 %ops, i64 %mul.i, i1 false)
   %zeroCopyEnabled_.i.i = getelementptr inbounds %"class.folly::AsyncSocket", ptr %socket, i64 0, i32 47
   %8 = load i8, ptr %zeroCopyEnabled_.i.i, align 8, !tbaa !253, !range !19, !noundef !187

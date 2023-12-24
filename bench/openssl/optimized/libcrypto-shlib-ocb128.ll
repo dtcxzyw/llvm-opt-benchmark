@@ -307,7 +307,7 @@ if.end:                                           ; preds = %entry
   %idx.neg = sub nsw i64 0, %len
   %add.ptr8 = getelementptr inbounds i8, ptr %add.ptr7, i64 %idx.neg
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr8, ptr align 1 %iv, i64 %len, i1 false)
-  %sub = sub nuw nsw i64 15, %len
+  %sub = xor i64 %len, 15
   %arrayidx9 = getelementptr inbounds [16 x i8], ptr %nonce, i64 0, i64 %sub
   %3 = load i8, ptr %arrayidx9, align 1
   %4 = or i8 %3, 1

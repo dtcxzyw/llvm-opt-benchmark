@@ -623,7 +623,7 @@ if.end69:                                         ; preds = %if.end42
   %shr73 = lshr i32 %call6, 18
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i104)
   %22 = trunc i32 %shr73 to i8
-  %conv.i105 = add nuw nsw i8 %22, -16
+  %conv.i105 = or disjoint i8 %22, -16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i104) #7, !noalias !33
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EmcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp72, i64 noundef 1, i8 noundef signext %conv.i105, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i104)
           to label %invoke.cont75 unwind label %lpad.i106

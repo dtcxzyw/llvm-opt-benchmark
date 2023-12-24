@@ -201,7 +201,7 @@ if.end8:                                          ; preds = %if.end
   br i1 %or.cond, label %switch.lookup, label %if.else
 
 switch.lookup:                                    ; preds = %if.end8
-  %4 = sext i32 %index to i64
+  %4 = zext nneg i32 %index to i64
   %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.vfio_set_irq_signaling, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, ptr, ...) @error_prepend(ptr noundef %errp, ptr noundef nonnull @.str.2, ptr noundef nonnull %switch.load, i32 noundef %subindex) #11

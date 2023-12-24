@@ -6312,7 +6312,7 @@ if.then34:                                        ; preds = %entry
 
 while.end.thread:                                 ; preds = %if.then34
   %6 = trunc i64 %5 to i8
-  %conv40152 = add nuw nsw i8 %6, 48
+  %conv40152 = or disjoint i8 %6, 48
   %incdec.ptr41153 = getelementptr inbounds i8, ptr %pValue, i64 1
   store i8 %conv40152, ptr %pValue, align 1
   br label %if.end110
@@ -6450,7 +6450,7 @@ _ZN2EA4StdC9uint128_tdVERKS1_.exit:               ; preds = %if.end.i.i.i, %if.e
 
 while.end:                                        ; preds = %_ZN2EA4StdC9uint128_tdVERKS1_.exit
   %15 = trunc i64 %ref.tmp.sroa.0.3.i to i8
-  %conv40 = add nuw nsw i8 %15, 48
+  %conv40 = or disjoint i8 %15, 48
   %incdec.ptr41 = getelementptr inbounds i8, ptr %pValue.addr.4126, i64 2
   store i8 %conv40, ptr %incdec.ptr36, align 1
   %cmp43128 = icmp ugt ptr %incdec.ptr36, %pValue

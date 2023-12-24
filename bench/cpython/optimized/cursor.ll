@@ -1112,10 +1112,14 @@ if.then1.i284:                                    ; preds = %if.end.i281
 do.end143:                                        ; preds = %if.end.i281, %if.then1.i284, %do.body138
   %130 = phi ptr [ %call142, %do.body138 ], [ %.pr250.pre, %if.then1.i284 ], [ %call142, %if.end.i281 ]
   %tobool145.not = icmp eq ptr %130, null
-  br i1 %tobool145.not, label %if.then.i207, label %for.body
+  br i1 %tobool145.not, label %if.then.i207, label %for.body.preheader
 
-for.body:                                         ; preds = %do.end143, %if.end167
-  %indvars.iv = phi i64 [ %indvars.iv.next, %if.end167 ], [ 0, %do.end143 ]
+for.body.preheader:                               ; preds = %do.end143
+  %wide.trip.count = zext nneg i32 %call132 to i64
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.preheader, %if.end167
+  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end167 ]
   %131 = load ptr, ptr %statement, align 8
   %st151 = getelementptr inbounds %struct.pysqlite_Statement, ptr %131, i64 0, i32 1
   %132 = load ptr, ptr %st151, align 8
@@ -1202,7 +1206,7 @@ if.end167:                                        ; preds = %Py_DECREF.exit277
   %arrayidx.i188 = getelementptr %struct.PyTupleObject, ptr %139, i64 0, i32 1, i64 %indvars.iv
   store ptr %call163, ptr %arrayidx.i188, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end170, label %for.body, !llvm.loop !11
 
 if.end170:                                        ; preds = %if.end167, %if.end128

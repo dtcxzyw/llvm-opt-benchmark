@@ -3736,7 +3736,7 @@ while.cond73:                                     ; preds = %while.cond73.backed
 invoke.cont75:                                    ; preds = %while.cond73
   %tobool77 = icmp ne i8 %call76, 0
   %cmp79 = icmp slt i64 %indvars.iv, %14
-  %30 = and i1 %tobool77, %cmp79
+  %30 = select i1 %tobool77, i1 %cmp79, i1 false
   br i1 %30, label %while.body81, label %while.end85
 
 while.body81:                                     ; preds = %invoke.cont75

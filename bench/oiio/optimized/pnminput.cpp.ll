@@ -218,7 +218,6 @@ for.body.lr.ph:                                   ; preds = %if.end
   %conv132 = sext i32 %mul to i64
   %m_scaling_factor = getelementptr inbounds %"class.OpenImageIO_v2_6_0::PNMInput", ptr %this, i64 0, i32 3
   %cmp5.i.i.i = icmp sgt i32 %mul, 0
-  %wide.trip.count.i.i.i = and i64 %conv132, 4294967295
   %cmp48.not.i = icmp eq i32 %mul, 0
   %m_max_val111 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::PNMInput", ptr %this, i64 0, i32 2
   %wide.trip.count.i = zext nneg i32 %mul to i64
@@ -757,7 +756,7 @@ for.body.i.i.i:                                   ; preds = %sw.bb130, %for.body
   %51 = call i32 @llvm.bswap.i32(i32 %50)
   store i32 %51, ptr %arrayidx.i.i.i, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %conv132
   br i1 %exitcond.not.i.i.i, label %if.end.i133, label %for.body.i.i.i, !llvm.loop !17
 
 if.end.i133:                                      ; preds = %for.body.i.i.i, %sw.bb130

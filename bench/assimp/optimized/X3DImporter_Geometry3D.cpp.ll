@@ -2510,7 +2510,7 @@ lpad36:                                           ; preds = %if.then34
 
 if.end38:                                         ; preds = %if.end
   %mul = mul nsw i32 %xDimension.0863869877, %zDimension.0878
-  %conv = sext i32 %mul to i64
+  %conv = zext nneg i32 %mul to i64
   %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %height, i64 0, i32 1
   %31 = load ptr, ptr %_M_finish.i, align 8
   %32 = load ptr, ptr %height, align 8
@@ -2867,7 +2867,7 @@ for.body96.us.preheader:                          ; preds = %for.end68
   %tobool.not = icmp eq i8 %52, 0
   %_M_finish.i.i385 = getelementptr inbounds %struct.X3DNodeElementElevationGrid, ptr %call45, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
   %_M_end_of_storage.i.i386 = getelementptr inbounds %struct.X3DNodeElementElevationGrid, ptr %call45, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
-  %53 = add i32 %zDimension.0878, -2
+  %53 = add nsw i32 %zDimension.0878, -2
   br label %for.body96.us
 
 for.body96.us:                                    ; preds = %for.body96.us.preheader, %for.cond98.for.inc158_crit_edge.us

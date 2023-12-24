@@ -1730,7 +1730,7 @@ entry:
 
 if.else:                                          ; preds = %entry
   %mul = shl nsw i32 %x, 2
-  %conv = sext i32 %mul to i64
+  %conv = zext nneg i32 %mul to i64
   %call = tail call noalias ptr @malloc(i64 noundef %conv) #28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(66) %header, ptr noundef nonnull align 16 dereferenceable(66) @__const.stbi_write_hdr_core.header, i64 66, i1 false)
   %0 = load ptr, ptr %s, align 8
@@ -1749,7 +1749,7 @@ for.body:                                         ; preds = %if.else, %for.body
   %4 = load i32, ptr @stbi__flip_vertically_on_write, align 4
   %tobool.not = icmp eq i32 %4, 0
   %5 = xor i32 %i.019, -1
-  %sub12 = add i32 %5, %y
+  %sub12 = add nsw i32 %5, %y
   %cond = select i1 %tobool.not, i32 %i.019, i32 %sub12
   %mul13 = mul nsw i32 %mul11, %cond
   %idx.ext = sext i32 %mul13 to i64

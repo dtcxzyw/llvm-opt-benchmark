@@ -2009,9 +2009,9 @@ entry:
   %cmp1 = icmp slt i64 %offset, 0
   %cmp2 = icmp slt i64 %bytes, 1
   %or.cond.not113 = or i1 %cmp1, %cmp2
-  %sub4 = sub nuw nsw i64 9223372036854775807, %offset
-  %cmp5.not = icmp ult i64 %sub4, %bytes
-  %or.cond65 = select i1 %or.cond.not113, i1 true, i1 %cmp5.not
+  %sub4 = xor i64 %offset, 9223372036854775807
+  %cmp5.not = icmp slt i64 %sub4, %bytes
+  %or.cond65 = or i1 %cmp5.not, %or.cond.not113
   br i1 %or.cond65, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry

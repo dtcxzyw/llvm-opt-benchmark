@@ -2934,7 +2934,6 @@ while.cond:                                       ; preds = %while.cond, %if.end
   br i1 %or.cond137, label %while.end, label %while.cond, !llvm.loop !37
 
 while.end:                                        ; preds = %while.cond
-  %arrayidx165.le = getelementptr i8, ptr %10, i64 %idxprom160
   %cmp182 = icmp eq i8 %16, %17
   br i1 %cmp182, label %if.then184, label %if.end186
 
@@ -2959,9 +2958,11 @@ if.else197:                                       ; preds = %if.end186
   br i1 %or.cond1, label %land.lhs.true207, label %if.end217
 
 land.lhs.true207:                                 ; preds = %if.else197
-  %arrayidx210 = getelementptr i8, ptr %arrayidx165.le, i64 -1
-  %18 = load i8, ptr %arrayidx210, align 1
-  %cmp212 = icmp eq i8 %18, 47
+  %18 = zext nneg i32 %pos.1 to i64
+  %19 = getelementptr i8, ptr %10, i64 %18
+  %arrayidx210 = getelementptr i8, ptr %19, i64 -1
+  %20 = load i8, ptr %arrayidx210, align 1
+  %cmp212 = icmp eq i8 %20, 47
   %sub215 = add nsw i32 %pos.1, -2
   br i1 %cmp212, label %if.end217, label %for.body221.preheader
 
@@ -2978,8 +2979,8 @@ for.body221:                                      ; preds = %for.body221.prehead
   %ix.2172 = phi i32 [ %dec231, %for.inc230 ], [ %ix.2172.ph, %for.body221.preheader ]
   %idxprom223 = zext nneg i32 %ix.2172 to i64
   %arrayidx224 = getelementptr i8, ptr %10, i64 %idxprom223
-  %19 = load i8, ptr %arrayidx224, align 1
-  %cmp226 = icmp eq i8 %19, 47
+  %21 = load i8, ptr %arrayidx224, align 1
+  %cmp226 = icmp eq i8 %21, 47
   br i1 %cmp226, label %if.else237, label %for.inc230
 
 for.inc230:                                       ; preds = %for.body221
@@ -3008,8 +3009,8 @@ for.cond253:                                      ; preds = %if.end242, %for.inc
   %nbslash.2 = phi i32 [ 0, %if.end242 ], [ %nbslash.3, %for.inc268 ]
   %idxprom254 = sext i32 %ix.4 to i64
   %arrayidx255 = getelementptr i8, ptr %bptr.0, i64 %idxprom254
-  %20 = load i8, ptr %arrayidx255, align 1
-  switch i8 %20, label %for.inc268 [
+  %22 = load i8, ptr %arrayidx255, align 1
+  switch i8 %22, label %for.inc268 [
     i8 0, label %if.end275
     i8 47, label %if.then265
   ]
@@ -3025,8 +3026,8 @@ for.inc268:                                       ; preds = %for.cond253, %if.th
 
 if.end275:                                        ; preds = %for.cond253
   %call272 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %uptr.1) #16
-  %21 = trunc i64 %call272 to i32
-  %conv274 = add i32 %21, 1
+  %23 = trunc i64 %call272 to i32
+  %conv274 = add i32 %23, 1
   %cmp276 = icmp eq i32 %nbslash.2, 0
   br i1 %cmp276, label %if.then278, label %if.end284
 
@@ -3066,19 +3067,19 @@ for.end297:                                       ; preds = %for.body291, %if.en
 
 if.then300:                                       ; preds = %for.end297
   %cmp301 = icmp ugt ptr %vptr.0.lcssa, %call287
-  %cmp304 = icmp ult i32 %21, 2147483647
+  %cmp304 = icmp ult i32 %23, 2147483647
   %or.cond2 = and i1 %cmp304, %cmp301
   br i1 %or.cond2, label %land.lhs.true306, label %if.else323
 
 land.lhs.true306:                                 ; preds = %if.then300
-  %22 = load i8, ptr %uptr.1, align 1
-  %cmp309 = icmp eq i8 %22, 47
+  %24 = load i8, ptr %uptr.1, align 1
+  %cmp309 = icmp eq i8 %24, 47
   br i1 %cmp309, label %land.lhs.true311, label %if.else323
 
 land.lhs.true311:                                 ; preds = %land.lhs.true306
   %arrayidx312 = getelementptr i8, ptr %vptr.0.lcssa, i64 -1
-  %23 = load i8, ptr %arrayidx312, align 1
-  %cmp314 = icmp eq i8 %23, 47
+  %25 = load i8, ptr %arrayidx312, align 1
+  %cmp314 = icmp eq i8 %25, 47
   br i1 %cmp314, label %if.then316, label %if.else323
 
 if.then316:                                       ; preds = %land.lhs.true311

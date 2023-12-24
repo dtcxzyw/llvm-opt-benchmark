@@ -35993,13 +35993,12 @@ lua_rawgeti.exit:                                 ; preds = %land.lhs.true.i.i28
   br i1 %cmp797, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %lua_rawgeti.exit
-  %sext101 = shl i64 %cond.i, 32
-  %31 = ashr exact i64 %sext101, 32
+  %31 = and i64 %cond.i, 4294967295
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %lua_rawgeti.exit72
   %indvars.iv = phi i64 [ %31, %for.body.preheader ], [ %indvars.iv.next, %lua_rawgeti.exit72 ]
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load ptr, ptr %base.i.i.i, align 8
   %33 = load ptr, ptr %top.i.i.i, align 8
   %cmp1.not.i.i33 = icmp ult ptr %32, %33
@@ -36007,8 +36006,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %34 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i34, align 8
   %sizearray.i.i35 = getelementptr inbounds %struct.Table, ptr %34, i64 0, i32 10
   %35 = load i32, ptr %sizearray.i.i35, align 8
-  %36 = trunc i64 %indvars.iv to i32
-  %cmp.i5.i36 = icmp ugt i32 %35, %36
+  %36 = zext i32 %35 to i64
+  %cmp.i5.i36 = icmp ult i64 %indvars.iv, %36
   br i1 %cmp.i5.i36, label %if.then.i9.i68, label %if.else.i.i37
 
 if.then.i9.i68:                                   ; preds = %for.body
@@ -36057,7 +36056,7 @@ if.else8.i.i57:                                   ; preds = %land.lhs.true.i.i65
   br i1 %tobool.not.i.i59, label %lua_rawgeti.exit72, label %do.body.i.i53, !llvm.loop !7
 
 lua_rawgeti.exit72:                               ; preds = %land.lhs.true.i.i65, %if.else8.i.i57, %if.then.i9.i68
-  %lftr.wideiv.pre-phi = phi i32 [ %.pre100, %if.then.i9.i68 ], [ %38, %if.else8.i.i57 ], [ %38, %land.lhs.true.i.i65 ]
+  %.pre-phi = phi i32 [ %.pre100, %if.then.i9.i68 ], [ %38, %if.else8.i.i57 ], [ %38, %land.lhs.true.i.i65 ]
   %retval.0.i8.i60 = phi ptr [ %arrayidx.i11.i71, %if.then.i9.i68 ], [ %n.0.i.i54, %land.lhs.true.i.i65 ], [ @luaO_nilobject_, %if.else8.i.i57 ]
   %45 = load i64, ptr %retval.0.i8.i60, align 8
   store i64 %45, ptr %33, align 8
@@ -36068,20 +36067,21 @@ lua_rawgeti.exit72:                               ; preds = %land.lhs.true.i.i65
   %47 = load ptr, ptr %top.i.i.i, align 8
   %incdec.ptr.i64 = getelementptr inbounds %struct.lua_TValue, ptr %47, i64 1
   store ptr %incdec.ptr.i64, ptr %top.i.i.i, align 8
-  tail call fastcc void @lua_rawseti(ptr noundef %L, i32 noundef 1, i32 noundef %36)
-  %exitcond.not = icmp eq i32 %lftr.wideiv.pre-phi, %conv
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !132
+  %48 = trunc i64 %indvars.iv to i32
+  tail call fastcc void @lua_rawseti(ptr noundef %L, i32 noundef 1, i32 noundef %48)
+  %cmp7 = icmp slt i32 %.pre-phi, %conv
+  br i1 %cmp7, label %for.body, label %for.end.loopexit, !llvm.loop !132
 
 for.end.loopexit:                                 ; preds = %lua_rawgeti.exit72
   %.pre = load ptr, ptr %top.i.i.i, align 8
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %lua_rawgeti.exit
-  %48 = phi ptr [ %.pre, %for.end.loopexit ], [ %incdec.ptr.i, %lua_rawgeti.exit ]
-  %tt.i74 = getelementptr inbounds %struct.lua_TValue, ptr %48, i64 0, i32 1
+  %49 = phi ptr [ %.pre, %for.end.loopexit ], [ %incdec.ptr.i, %lua_rawgeti.exit ]
+  %tt.i74 = getelementptr inbounds %struct.lua_TValue, ptr %49, i64 0, i32 1
   store i32 0, ptr %tt.i74, align 8
-  %49 = load ptr, ptr %top.i.i.i, align 8
-  %incdec.ptr.i75 = getelementptr inbounds %struct.lua_TValue, ptr %49, i64 1
+  %50 = load ptr, ptr %top.i.i.i, align 8
+  %incdec.ptr.i75 = getelementptr inbounds %struct.lua_TValue, ptr %50, i64 1
   store ptr %incdec.ptr.i75, ptr %top.i.i.i, align 8
   tail call fastcc void @lua_rawseti(ptr noundef nonnull %L, i32 noundef 1, i32 noundef %conv)
   br label %return

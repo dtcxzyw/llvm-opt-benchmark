@@ -2186,7 +2186,8 @@ for.cond.preheader.i:                             ; preds = %for.end89.i, %if.el
   %x.080.i = phi i32 [ 0, %if.else62 ], [ %x.1.i, %for.end89.i ]
   %sub24.i = sub i32 %sub23.i, %x.080.i
   %sub.i31 = sub i32 %h, %y.081.i
-  %invariant.smin.i = tail call i32 @llvm.smin.i32(i32 %sub.i31, i32 %sub24.i)
+  %sub24.fr.i = freeze i32 %sub24.i
+  %invariant.smin.i = tail call i32 @llvm.smin.i32(i32 %sub.i31, i32 %sub24.fr.i)
   %or.cond75.i = icmp sgt i32 %invariant.smin.i, 0
   br i1 %or.cond75.i, label %for.body.preheader.i, label %for.end89.i
 
@@ -3530,7 +3531,8 @@ for.cond5.preheader:                              ; preds = %for.cond5.preheader
   %y.012 = phi i32 [ 0, %for.cond5.preheader.lr.ph ], [ %y.1, %for.end64 ]
   %sub10 = sub i32 %sub9, %x.014
   %sub = sub i32 %h, %y.012
-  %invariant.smin = tail call i32 @llvm.smin.i32(i32 %sub, i32 %sub10)
+  %sub10.fr = freeze i32 %sub10
+  %invariant.smin = tail call i32 @llvm.smin.i32(i32 %sub, i32 %sub10.fr)
   %or.cond7 = icmp sgt i32 %invariant.smin, 0
   br i1 %or.cond7, label %for.cond15.preheader.preheader, label %for.end64
 
@@ -3732,7 +3734,8 @@ for.cond.preheader:                               ; preds = %for.cond.preheader.
   %x.080 = phi i32 [ 0, %for.cond.preheader.lr.ph ], [ %x.1, %for.end87 ]
   %sub24 = sub i32 %sub23, %x.080
   %sub = sub i32 %h, %y.081
-  %invariant.smin = tail call i32 @llvm.smin.i32(i32 %sub, i32 %sub24)
+  %sub24.fr = freeze i32 %sub24
+  %invariant.smin = tail call i32 @llvm.smin.i32(i32 %sub, i32 %sub24.fr)
   %or.cond75 = icmp sgt i32 %invariant.smin, 0
   br i1 %or.cond75, label %for.body.preheader, label %for.end87
 

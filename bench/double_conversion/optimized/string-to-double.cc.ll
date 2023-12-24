@@ -2798,8 +2798,8 @@ lor.lhs.false.i:                                  ; preds = %if.end
   %cmp4.i = icmp sgt i32 %base, 10
   %cmp6.i = icmp sgt i8 %2, 96
   %or.cond1.i = and i1 %cmp4.i, %cmp6.i
-  %sub.i = add nsw i32 %base, 87
-  %cmp9.i = icmp ugt i32 %sub.i, %conv2
+  %sub.i = add nuw nsw i32 %base, 87
+  %cmp9.i = icmp sgt i32 %sub.i, %conv2
   %or.cond14.i = select i1 %or.cond1.i, i1 %cmp9.i, i1 false
   br i1 %or.cond14.i, label %if.end6, label %lor.rhs.i
 
@@ -2849,8 +2849,8 @@ lor.lhs.false.i22:                                ; preds = %land.lhs.true
   %cmp4.i23 = icmp sgt i32 %base, 10
   %cmp6.i24 = icmp sgt i8 %7, 96
   %or.cond1.i25 = and i1 %cmp4.i23, %cmp6.i24
-  %sub.i26 = add nsw i32 %base, 87
-  %cmp9.i27 = icmp ugt i32 %sub.i26, %conv18
+  %sub.i26 = add nuw nsw i32 %base, 87
+  %cmp9.i27 = icmp sgt i32 %sub.i26, %conv18
   %or.cond14.i28 = select i1 %or.cond1.i25, i1 %cmp9.i27, i1 false
   br i1 %or.cond14.i28, label %if.then20, label %lor.rhs.i29
 
@@ -4876,8 +4876,8 @@ lor.lhs.false.i:                                  ; preds = %if.end
   %cmp4.i = icmp sgt i32 %base, 10
   %cmp6.i = icmp ugt i16 %2, 96
   %or.cond1.i = and i1 %cmp4.i, %cmp6.i
-  %sub.i = add nsw i32 %base, 87
-  %cmp9.i = icmp ugt i32 %sub.i, %conv2
+  %sub.i = add nuw nsw i32 %base, 87
+  %cmp9.i = icmp sgt i32 %sub.i, %conv2
   %or.cond14.i = select i1 %or.cond1.i, i1 %cmp9.i, i1 false
   br i1 %or.cond14.i, label %if.end6, label %lor.rhs.i
 
@@ -4926,8 +4926,8 @@ lor.lhs.false.i22:                                ; preds = %land.lhs.true
   %cmp4.i23 = icmp sgt i32 %base, 10
   %cmp6.i24 = icmp ugt i16 %7, 96
   %or.cond1.i25 = and i1 %cmp4.i23, %cmp6.i24
-  %sub.i26 = add nsw i32 %base, 87
-  %cmp9.i27 = icmp ugt i32 %sub.i26, %conv18
+  %sub.i26 = add nuw nsw i32 %base, 87
+  %cmp9.i27 = icmp sgt i32 %sub.i26, %conv18
   %or.cond14.i28 = select i1 %or.cond1.i25, i1 %cmp9.i27, i1 false
   br i1 %or.cond14.i28, label %if.then20, label %lor.rhs.i29
 
@@ -5982,9 +5982,9 @@ if.end131:                                        ; preds = %if.end61
   %or.cond13.i.i275 = and i1 %cmp3.i.i274, %or.cond.i92
   %cmp6.i.i277 = icmp ugt i16 %16, 96
   %or.cond560 = or i1 %cmp6.i.i277, %or.cond13.i.i275
-  %43 = add i16 %16, -65
+  %43 = add nsw i16 %16, -65
   %or.cond.i283 = icmp ult i16 %43, 6
-  %or.cond569 = or i1 %or.cond.i283, %or.cond560
+  %or.cond569 = select i1 %or.cond560, i1 true, i1 %or.cond.i283
   %incdec.ptr7.i289 = getelementptr inbounds i16, ptr %incdec.ptr.i314615, i64 1
   store ptr %incdec.ptr7.i289, ptr %current, align 8
   %cmp8.i290 = icmp eq ptr %incdec.ptr7.i289, %end

@@ -954,12 +954,13 @@ for.body154:                                      ; preds = %for.body154.prehead
   br i1 %exitcond253.not, label %while.cond.preheader, label %for.body154, !llvm.loop !18
 
 for.cond170.preheader:                            ; preds = %while.cond.preheader, %for.end221
-  %57 = phi i32 [ %80, %for.end221 ], [ %54, %while.cond.preheader ]
+  %57 = phi i32 [ %82, %for.end221 ], [ %54, %while.cond.preheader ]
   %58 = zext nneg i32 %57 to i64
   %wide.trip.count259 = zext nneg i32 %57 to i64
   br label %for.cond170
 
 for.cond170:                                      ; preds = %for.cond170.preheader, %for.body173
+  %indvars.iv261 = phi i64 [ 1, %for.cond170.preheader ], [ %indvars.iv.next262, %for.body173 ]
   %indvars.iv254 = phi i64 [ 0, %for.cond170.preheader ], [ %indvars.iv.next255, %for.body173 ]
   %exitcond260.not = icmp eq i64 %indvars.iv254, %wide.trip.count259
   br i1 %exitcond260.not, label %for.end221, label %for.body173
@@ -967,12 +968,12 @@ for.cond170:                                      ; preds = %for.cond170.prehead
 for.body173:                                      ; preds = %for.cond170
   %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
   %59 = trunc i64 %indvars.iv.next255 to i32
-  %rem = srem i32 %59, %57
+  %rem = urem i32 %59, %57
   %60 = trunc i64 %indvars.iv254 to i32
   %61 = add i32 %60, 2
-  %rem179 = srem i32 %61, %57
+  %rem179 = urem i32 %61, %57
   %arrayidx183 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %agg.result, i64 0, i64 %indvars.iv254
-  %idxprom186 = zext i32 %rem to i64
+  %idxprom186 = zext nneg i32 %rem to i64
   %arrayidx187 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %agg.result, i64 0, i64 %idxprom186
   %62 = load float, ptr %arrayidx187, align 4
   %arrayidx187.sroa_idx = getelementptr inbounds i8, ptr %arrayidx187, i64 4
@@ -1003,24 +1004,30 @@ for.body173:                                      ; preds = %for.cond170
   %neg.i128 = fmul float %e191.sroa.0.0.vec.extract131, %75
   %76 = tail call noundef float @llvm.fmuladd.f32(float %sub.i114, float %e191.sroa.0.4.vec.extract134, float %neg.i128)
   %cmp198 = fcmp ugt float %76, 0x3F847AE140000000
+  %indvars.iv.next262 = add i64 %indvars.iv261, 1
   br i1 %cmp198, label %for.cond170, label %for.cond201.preheader, !llvm.loop !19
 
 for.cond201.preheader:                            ; preds = %for.body173
   %sub203214 = add nsw i32 %57, -1
   %cmp204215 = icmp slt i32 %rem, %sub203214
-  br i1 %cmp204215, label %for.body205, label %for.end215
+  br i1 %cmp204215, label %for.body205.preheader, label %for.end215
 
-for.body205:                                      ; preds = %for.cond201.preheader, %for.body205
-  %indvars.iv261 = phi i64 [ %indvars.iv.next262, %for.body205 ], [ %idxprom186, %for.cond201.preheader ]
-  %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
-  %arrayidx209 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %agg.result, i64 0, i64 %indvars.iv.next262
-  %arrayidx212 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %agg.result, i64 0, i64 %indvars.iv261
-  %77 = load i64, ptr %arrayidx209, align 4
-  store i64 %77, ptr %arrayidx212, align 4
-  %78 = load i32, ptr %count1, align 4
-  %sub203 = add nsw i32 %78, -1
-  %79 = trunc i64 %indvars.iv.next262 to i32
-  %cmp204 = icmp sgt i32 %sub203, %79
+for.body205.preheader:                            ; preds = %for.cond201.preheader
+  %77 = zext i32 %57 to i64
+  %78 = urem i64 %indvars.iv261, %77
+  br label %for.body205
+
+for.body205:                                      ; preds = %for.body205.preheader, %for.body205
+  %indvars.iv264 = phi i64 [ %78, %for.body205.preheader ], [ %indvars.iv.next265, %for.body205 ]
+  %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
+  %arrayidx209 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %agg.result, i64 0, i64 %indvars.iv.next265
+  %arrayidx212 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %agg.result, i64 0, i64 %indvars.iv264
+  %79 = load i64, ptr %arrayidx209, align 4
+  store i64 %79, ptr %arrayidx212, align 4
+  %80 = load i32, ptr %count1, align 4
+  %sub203 = add nsw i32 %80, -1
+  %81 = trunc i64 %indvars.iv.next265 to i32
+  %cmp204 = icmp sgt i32 %sub203, %81
   br i1 %cmp204, label %for.body205, label %for.end215, !llvm.loop !20
 
 for.end215:                                       ; preds = %for.body205, %for.cond201.preheader
@@ -1029,15 +1036,15 @@ for.end215:                                       ; preds = %for.body205, %for.c
   br label %for.end221
 
 for.end221:                                       ; preds = %for.cond170, %for.end215
-  %80 = phi i32 [ %sub203.lcssa, %for.end215 ], [ %57, %for.cond170 ]
-  %cmp172266 = icmp ult i64 %indvars.iv254, %58
-  %cmp168 = icmp sgt i32 %80, 2
-  %81 = and i1 %cmp172266, %cmp168
-  br i1 %81, label %for.cond170.preheader, label %while.end, !llvm.loop !21
+  %82 = phi i32 [ %sub203.lcssa, %for.end215 ], [ %57, %for.cond170 ]
+  %cmp172268 = icmp ult i64 %indvars.iv254, %58
+  %cmp168 = icmp sgt i32 %82, 2
+  %83 = and i1 %cmp172268, %cmp168
+  br i1 %83, label %for.cond170.preheader, label %while.end, !llvm.loop !21
 
 while.end:                                        ; preds = %for.end221
-  %82 = icmp slt i32 %80, 3
-  br i1 %82, label %if.then224, label %return
+  %84 = icmp slt i32 %82, 3
+  br i1 %84, label %if.then224, label %return
 
 if.then224:                                       ; preds = %while.cond.preheader, %while.end
   store i32 0, ptr %count1, align 4

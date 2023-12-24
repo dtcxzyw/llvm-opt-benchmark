@@ -2037,11 +2037,11 @@ if.else99:                                        ; preds = %if.then79
   br i1 %or.cond.i, label %if.then.i131, label %if.end.i
 
 if.then.i131:                                     ; preds = %if.else99
-  switch i32 %30, label %if.end148 [
-    i32 1, label %sw.bb.i
-    i32 2, label %sw.bb1.i
-    i32 4, label %sw.bb6.i
-    i32 8, label %sw.bb11.i
+  switch i64 %conv102, label %if.end148 [
+    i64 1, label %sw.bb.i
+    i64 2, label %sw.bb1.i
+    i64 4, label %sw.bb6.i
+    i64 8, label %sw.bb11.i
   ]
 
 sw.bb.i:                                          ; preds = %if.then.i131
@@ -5316,11 +5316,11 @@ if.else95:                                        ; preds = %if.then74
   br i1 %or.cond.i, label %if.then.i119, label %if.end.i
 
 if.then.i119:                                     ; preds = %if.else95
-  switch i32 %25, label %if.end140 [
-    i32 1, label %sw.bb.i
-    i32 2, label %sw.bb1.i
-    i32 4, label %sw.bb6.i
-    i32 8, label %sw.bb11.i
+  switch i64 %conv78, label %if.end140 [
+    i64 1, label %sw.bb.i
+    i64 2, label %sw.bb1.i
+    i64 4, label %sw.bb6.i
+    i64 8, label %sw.bb11.i
   ]
 
 sw.bb.i:                                          ; preds = %if.then.i119

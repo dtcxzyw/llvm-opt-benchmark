@@ -430,7 +430,7 @@ if.then122:                                       ; preds = %while.end
   %cmp126 = icmp eq i32 %and125, 8192
   %cmp129 = icmp sgt i32 %depth, 0
   %or.cond = and i1 %cmp129, %cmp126
-  %add132 = add i32 %28, 4096
+  %add132 = or disjoint i32 %28, 4096
   %spec.select = select i1 %or.cond, i32 %add132, i32 %28
   %conv135 = trunc i32 %ref to i16
   br label %for.body.i

@@ -2243,7 +2243,7 @@ lor.lhs.false:                                    ; preds = %if.end4
   %cmp9 = icmp sgt i64 %incr, 0
   %cmp11 = icmp sgt i64 %3, 0
   %or.cond1 = select i1 %cmp9, i1 %cmp11, i1 false
-  %sub13 = sub nuw nsw i64 9223372036854775807, %3
+  %sub13 = xor i64 %3, 9223372036854775807
   %cmp14 = icmp slt i64 %sub13, %incr
   %or.cond35 = select i1 %or.cond1, i1 %cmp14, i1 false
   br i1 %or.cond35, label %if.then15, label %if.end16

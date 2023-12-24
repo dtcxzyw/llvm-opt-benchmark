@@ -750,7 +750,7 @@ while.end18:                                      ; preds = %while.end
 
 if.then:                                          ; preds = %while.end18
   %6 = trunc i32 %run_count.049 to i8
-  %conv23 = xor i8 %6, -128
+  %conv23 = or disjoint i8 %6, -128
   store i8 %conv23, ptr %buf, align 1
   %idxprom25 = sext i32 %cur.054 to i64
   %arrayidx26 = getelementptr inbounds i8, ptr %data, i64 %idxprom25

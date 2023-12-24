@@ -1712,7 +1712,7 @@ for.end:                                          ; preds = %do.end160, %for.end
   br i1 %cmp16986, label %for.body170.preheader, label %do.body198
 
 for.body170.preheader:                            ; preds = %for.end
-  %56 = sext i32 %start.0 to i64
+  %56 = zext nneg i32 %start.0 to i64
   %57 = zext i32 %off.0.lcssa to i64
   %58 = add i32 %end.0, %off.0.lcssa
   %59 = sub i32 %58, %start.0
@@ -1726,23 +1726,23 @@ for.body170:                                      ; preds = %for.body170.prehead
   %cmp174 = icmp eq i8 %60, 0
   %cmp176 = icmp ugt i64 %indvars.iv96, 1019
   %or.cond4 = select i1 %cmp174, i1 true, i1 %cmp176
-  br i1 %or.cond4, label %do.body198.loopexit.split.loop.exit104, label %do.end191
+  br i1 %or.cond4, label %do.body198.loopexit.split.loop.exit103, label %do.end191
 
 do.end191:                                        ; preds = %for.body170
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %arrayidx194 = getelementptr inbounds [1024 x i8], ptr %underline_buf, i64 0, i64 %indvars.iv96
   store i8 94, ptr %arrayidx194, align 1
-  %indvars.iv.next95 = add nsw i64 %indvars.iv94, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next95 to i32
-  %exitcond101.not = icmp eq i32 %end.0, %lftr.wideiv
-  br i1 %exitcond101.not, label %do.body198, label %for.body170, !llvm.loop !20
+  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
+  %61 = trunc i64 %indvars.iv.next95 to i32
+  %cmp169 = icmp sgt i32 %end.0, %61
+  br i1 %cmp169, label %for.body170, label %do.body198, !llvm.loop !20
 
-do.body198.loopexit.split.loop.exit104:           ; preds = %for.body170
-  %61 = trunc i64 %indvars.iv96 to i32
+do.body198.loopexit.split.loop.exit103:           ; preds = %for.body170
+  %62 = trunc i64 %indvars.iv96 to i32
   br label %do.body198
 
-do.body198:                                       ; preds = %do.end191, %do.body198.loopexit.split.loop.exit104, %for.end
-  %off.1.lcssa = phi i32 [ %off.0.lcssa, %for.end ], [ %61, %do.body198.loopexit.split.loop.exit104 ], [ %59, %do.end191 ]
+do.body198:                                       ; preds = %do.end191, %do.body198.loopexit.split.loop.exit103, %for.end
+  %off.1.lcssa = phi i32 [ %off.0.lcssa, %for.end ], [ %62, %do.body198.loopexit.split.loop.exit103 ], [ %59, %do.end191 ]
   %cmp199 = icmp ugt i32 %off.1.lcssa, 1020
   br i1 %cmp199, label %do.body205, label %do.end210
 
@@ -1766,28 +1766,28 @@ do.end210:                                        ; preds = %do.body198
 
 cleanup217:                                       ; preds = %do.end210, %if.then137
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buf) #20
-  %62 = load ptr, ptr %buf_.i68, align 8
-  %cmp.i.i.i.i70 = icmp ne ptr %62, null
+  %63 = load ptr, ptr %buf_.i68, align 8
+  %cmp.i.i.i.i70 = icmp ne ptr %63, null
   %buf_st_.i.i.i = getelementptr inbounds %"class.node::MaybeStackBuffer", ptr %filename, i64 0, i32 3
-  %cmp.i.i.i71 = icmp ne ptr %62, %buf_st_.i.i.i
-  %63 = select i1 %cmp.i.i.i.i70, i1 %cmp.i.i.i71, i1 false
-  br i1 %63, label %if.then.i.i72, label %cleanup219
+  %cmp.i.i.i71 = icmp ne ptr %63, %buf_st_.i.i.i
+  %64 = select i1 %cmp.i.i.i.i70, i1 %cmp.i.i.i71, i1 false
+  br i1 %64, label %if.then.i.i72, label %cleanup219
 
 if.then.i.i72:                                    ; preds = %cleanup217
-  call void @free(ptr noundef nonnull %62) #20
+  call void @free(ptr noundef nonnull %63) #20
   br label %cleanup219
 
 cleanup219:                                       ; preds = %if.then.i.i72, %cleanup217, %_ZN4nodeL23GetSourceMapErrorSourceB5cxx11EPN2v87IsolateENS0_5LocalINS0_7ContextEEENS3_INS0_7MessageEEEPb.exit, %if.then
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %sourceline) #20
-  %64 = load ptr, ptr %buf_.i, align 8
-  %cmp.i.i.i.i74 = icmp ne ptr %64, null
+  %65 = load ptr, ptr %buf_.i, align 8
+  %cmp.i.i.i.i74 = icmp ne ptr %65, null
   %buf_st_.i.i.i75 = getelementptr inbounds %"class.node::MaybeStackBuffer", ptr %encoded_source, i64 0, i32 3
-  %cmp.i.i.i76 = icmp ne ptr %64, %buf_st_.i.i.i75
-  %65 = select i1 %cmp.i.i.i.i74, i1 %cmp.i.i.i76, i1 false
-  br i1 %65, label %if.then.i.i77, label %_ZN4node9Utf8ValueD2Ev.exit78
+  %cmp.i.i.i76 = icmp ne ptr %65, %buf_st_.i.i.i75
+  %66 = select i1 %cmp.i.i.i.i74, i1 %cmp.i.i.i76, i1 false
+  br i1 %66, label %if.then.i.i77, label %_ZN4node9Utf8ValueD2Ev.exit78
 
 if.then.i.i77:                                    ; preds = %cleanup219
-  call void @free(ptr noundef nonnull %64) #20
+  call void @free(ptr noundef nonnull %65) #20
   br label %_ZN4node9Utf8ValueD2Ev.exit78
 
 _ZN4node9Utf8ValueD2Ev.exit78:                    ; preds = %cleanup219, %if.then.i.i77

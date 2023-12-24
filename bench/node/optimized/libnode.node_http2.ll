@@ -8319,14 +8319,14 @@ _ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit: ; preds = %entry, %if.end.i
   br i1 %7, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit
-  %and.i15 = and i32 %5, -3
+  %and.i15 = and i32 %5, -7
   store i32 %and.i15, ptr %flags_.i, align 8
   %and.i17 = and i32 %5, 16
   %tobool.i.not54 = icmp eq i32 %and.i17, 0
   br i1 %tobool.i.not54, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %and.i19 = and i32 %5, -19
+  %and.i19 = and i32 %5, -23
   %and.sink.i = or disjoint i32 %and.i19, 16
   store i32 %and.sink.i, ptr %flags_.i, align 8
   %outgoing_buffers_ = getelementptr inbounds %"class.node::http2::Http2Session", ptr %this, i64 0, i32 24

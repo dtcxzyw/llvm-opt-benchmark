@@ -3094,12 +3094,11 @@ if.then34:                                        ; preds = %if.end32
 if.end35:                                         ; preds = %if.end32
   %conv53.i = trunc i64 %bus.0.i to i32
   %and = shl nuw nsw i32 %conv21.i, 3
-  %shl = and i32 %and, 248
   br label %if.end36
 
 if.end36:                                         ; preds = %if.end24, %if.end35
   %busnr.1 = phi i32 [ %conv53.i, %if.end35 ], [ 0, %if.end24 ]
-  %devfn.0 = phi i32 [ %shl, %if.end35 ], [ -1, %if.end24 ]
+  %devfn.0 = phi i32 [ %and, %if.end35 ], [ -1, %if.end24 ]
   %call37 = tail call ptr @pci_find_bus_nr(ptr noundef nonnull %rootbus, i32 noundef %busnr.1)
   %tobool38.not = icmp eq ptr %call37, null
   %14 = load ptr, ptr %model, align 8
@@ -3513,29 +3512,29 @@ if.end.loopexit:                                  ; preds = %for.body.i
   br label %if.end
 
 if.end:                                           ; preds = %for.body.i.preheader, %if.end.loopexit
-  %conv.pre-phi = phi i64 [ %idxprom6.i, %if.end.loopexit ], [ %idxprom6.i23, %for.body.i.preheader ]
+  %.pre-phi = phi i64 [ %idxprom6.i, %if.end.loopexit ], [ %idxprom6.i23, %for.body.i.preheader ]
   %prev.03.i.lcssa = phi i64 [ %8, %if.end.loopexit ], [ 52, %for.body.i.preheader ]
-  %9 = getelementptr i8, ptr %pdev.val, i64 %conv.pre-phi
+  %9 = getelementptr i8, ptr %pdev.val, i64 %.pre-phi
   %arrayidx = getelementptr i8, ptr %9, i64 1
   %10 = load i8, ptr %arrayidx, align 1
   %arrayidx3 = getelementptr i8, ptr %pdev.val, i64 %prev.03.i.lcssa
   store i8 %10, ptr %arrayidx3, align 1
   %wmask = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 5
   %11 = load ptr, ptr %wmask, align 8
-  %add.ptr = getelementptr i8, ptr %11, i64 %conv.pre-phi
+  %add.ptr = getelementptr i8, ptr %11, i64 %.pre-phi
   %conv5 = zext i8 %size to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 -1, i64 %conv5, i1 false)
   %w1cmask = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 6
   %12 = load ptr, ptr %w1cmask, align 16
-  %add.ptr8 = getelementptr i8, ptr %12, i64 %conv.pre-phi
+  %add.ptr8 = getelementptr i8, ptr %12, i64 %.pre-phi
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr8, i8 0, i64 %conv5, i1 false)
   %cmask = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 4
   %13 = load ptr, ptr %cmask, align 16
-  %add.ptr12 = getelementptr i8, ptr %13, i64 %conv.pre-phi
+  %add.ptr12 = getelementptr i8, ptr %13, i64 %.pre-phi
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr12, i8 0, i64 %conv5, i1 false)
   %used = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 7
   %14 = load ptr, ptr %used, align 8
-  %add.ptr16 = getelementptr i8, ptr %14, i64 %conv.pre-phi
+  %add.ptr16 = getelementptr i8, ptr %14, i64 %.pre-phi
   %sub = add nuw nsw i64 %conv5, 3
   %div17 = and i64 %sub, 508
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr16, i8 0, i64 %div17, i1 false)

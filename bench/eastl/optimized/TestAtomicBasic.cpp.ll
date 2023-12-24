@@ -1971,7 +1971,7 @@ entry:
   %3 = and i64 %2, 4294967295
   %cmp8.i = icmp eq i64 %3, 0
   %or.cond217 = select i1 %or.cond, i1 %cmp8.i, i1 false
-  %cmp10.i = icmp ult i64 %2, 4294967296
+  %cmp10.i = icmp eq i64 %2, 0
   %spec.select = select i1 %or.cond217, i1 %cmp10.i, i1 false
   %call7 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 3860, ptr noundef nonnull @.str.34)
   store i64 0, ptr %atomic8, align 16
@@ -2004,175 +2004,154 @@ _ZeqRK17Atomic128LoadTypeS1_.exit15:              ; preds = %entry, %land.rhs.i1
   %12 = and i64 %11, 4294967295
   %cmp8.i25 = icmp eq i64 %12, 0
   %or.cond221 = select i1 %or.cond220, i1 %cmp8.i25, i1 false
-  br i1 %or.cond221, label %land.rhs.i26, label %_ZeqRK17Atomic128LoadTypeS1_.exit30
-
-land.rhs.i26:                                     ; preds = %_ZeqRK17Atomic128LoadTypeS1_.exit15
-  %ref.tmp29.sroa.5.8.extract.shift.mask = and i64 %11, -4294967296
-  %cmp10.i29 = icmp eq i64 %ref.tmp29.sroa.5.8.extract.shift.mask, 4294967296
-  br label %_ZeqRK17Atomic128LoadTypeS1_.exit30
-
-_ZeqRK17Atomic128LoadTypeS1_.exit30:              ; preds = %_ZeqRK17Atomic128LoadTypeS1_.exit15, %land.rhs.i26
-  %13 = phi i1 [ false, %_ZeqRK17Atomic128LoadTypeS1_.exit15 ], [ %cmp10.i29, %land.rhs.i26 ]
-  %call37 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %13, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 3872, ptr noundef nonnull @.str.36)
+  %cmp10.i29 = icmp eq i64 %11, 4294967296
+  %spec.select240 = select i1 %or.cond221, i1 %cmp10.i29, i1 false
+  %call37 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select240, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 3872, ptr noundef nonnull @.str.36)
   store i64 1, ptr %atomic38, align 16
   %desired.sroa.2.0.mAtomic.sroa_idx.i.i.i31 = getelementptr inbounds i8, ptr %atomic38, i64 8
   store i64 1, ptr %desired.sroa.2.0.mAtomic.sroa_idx.i.i.i31, align 8
-  %14 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic38, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic38) #7, !srcloc !9
-  %15 = extractvalue { i64, i64 } %14, 0
-  %16 = extractvalue { i64, i64 } %14, 1
-  %or.cond222 = icmp eq i64 %15, 1
-  %17 = and i64 %16, 4294967295
-  %cmp8.i40 = icmp eq i64 %17, 1
+  %13 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic38, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic38) #7, !srcloc !9
+  %14 = extractvalue { i64, i64 } %13, 0
+  %15 = extractvalue { i64, i64 } %13, 1
+  %or.cond222 = icmp eq i64 %14, 1
+  %16 = and i64 %15, 4294967295
+  %cmp8.i40 = icmp eq i64 %16, 1
   %or.cond223 = select i1 %or.cond222, i1 %cmp8.i40, i1 false
-  %cmp10.i44 = icmp ult i64 %16, 4294967296
-  %spec.select240 = select i1 %or.cond223, i1 %cmp10.i44, i1 false
-  %call52 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select240, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 3878, ptr noundef nonnull @.str.37)
+  %cmp10.i44 = icmp ult i64 %15, 4294967296
+  %spec.select245 = select i1 %or.cond223, i1 %cmp10.i44, i1 false
+  %call52 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select245, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 3878, ptr noundef nonnull @.str.37)
   store i64 4294967297, ptr %atomic53, align 16
   %desired.sroa.2.0.mAtomic.sroa_idx.i.i.i46 = getelementptr inbounds i8, ptr %atomic53, i64 8
   store i64 0, ptr %desired.sroa.2.0.mAtomic.sroa_idx.i.i.i46, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i)
-  %18 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic53, ptr nonnull elementtype(i8) %retVal.i, i64 4294967297, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic53) #7, !srcloc !10
-  %asmresult.i = extractvalue { i64, i64 } %18, 0
-  %asmresult20.i = extractvalue { i64, i64 } %18, 1
+  %17 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic53, ptr nonnull elementtype(i8) %retVal.i, i64 4294967297, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic53) #7, !srcloc !10
+  %asmresult.i = extractvalue { i64, i64 } %17, 0
+  %asmresult20.i = extractvalue { i64, i64 } %17, 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i)
   %or.cond224 = icmp eq i64 %asmresult.i, 4294967297
-  %19 = and i64 %asmresult20.i, 4294967295
-  %cmp8.i55 = icmp eq i64 %19, 0
+  %18 = and i64 %asmresult20.i, 4294967295
+  %cmp8.i55 = icmp eq i64 %18, 0
   %or.cond225 = select i1 %or.cond224, i1 %cmp8.i55, i1 false
-  %cmp10.i59 = icmp ult i64 %asmresult20.i, 4294967296
-  %spec.select243 = select i1 %or.cond225, i1 %cmp10.i59, i1 false
-  %call71 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select243, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 3887, ptr noundef nonnull @.str.38)
+  %cmp10.i59 = icmp eq i64 %asmresult20.i, 0
+  %spec.select241 = select i1 %or.cond225, i1 %cmp10.i59, i1 false
+  %call71 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select241, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 3887, ptr noundef nonnull @.str.38)
   store i64 0, ptr %atomic72, align 16
   %desired.sroa.2.0.mAtomic.sroa_idx.i.i.i61 = getelementptr inbounds i8, ptr %atomic72, i64 8
   store i64 4294967297, ptr %desired.sroa.2.0.mAtomic.sroa_idx.i.i.i61, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i62)
-  %20 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic72, ptr nonnull elementtype(i8) %retVal.i62, i64 0, i64 4294967297, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic72) #7, !srcloc !10
-  %asmresult.i64 = extractvalue { i64, i64 } %20, 0
-  %asmresult20.i65 = extractvalue { i64, i64 } %20, 1
+  %19 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic72, ptr nonnull elementtype(i8) %retVal.i62, i64 0, i64 4294967297, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic72) #7, !srcloc !10
+  %asmresult.i64 = extractvalue { i64, i64 } %19, 0
+  %asmresult20.i65 = extractvalue { i64, i64 } %19, 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i62)
   %or.cond226 = icmp eq i64 %asmresult.i64, 0
-  %21 = and i64 %asmresult20.i65, 4294967295
-  %cmp8.i75 = icmp eq i64 %21, 1
+  %20 = and i64 %asmresult20.i65, 4294967295
+  %cmp8.i75 = icmp eq i64 %20, 1
   %or.cond227 = select i1 %or.cond226, i1 %cmp8.i75, i1 false
   br i1 %or.cond227, label %land.rhs.i76, label %_ZeqRK17Atomic128LoadTypeS1_.exit80
 
-land.rhs.i76:                                     ; preds = %_ZeqRK17Atomic128LoadTypeS1_.exit30
+land.rhs.i76:                                     ; preds = %_ZeqRK17Atomic128LoadTypeS1_.exit15
   %expected78.sroa.5.12.extract.shift.mask = and i64 %asmresult20.i65, -4294967296
   %cmp10.i79 = icmp eq i64 %expected78.sroa.5.12.extract.shift.mask, 4294967296
   br label %_ZeqRK17Atomic128LoadTypeS1_.exit80
 
-_ZeqRK17Atomic128LoadTypeS1_.exit80:              ; preds = %_ZeqRK17Atomic128LoadTypeS1_.exit30, %land.rhs.i76
-  %22 = phi i1 [ false, %_ZeqRK17Atomic128LoadTypeS1_.exit30 ], [ %cmp10.i79, %land.rhs.i76 ]
-  %call91 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %22, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 3896, ptr noundef nonnull @.str.39)
+_ZeqRK17Atomic128LoadTypeS1_.exit80:              ; preds = %_ZeqRK17Atomic128LoadTypeS1_.exit15, %land.rhs.i76
+  %21 = phi i1 [ false, %_ZeqRK17Atomic128LoadTypeS1_.exit15 ], [ %cmp10.i79, %land.rhs.i76 ]
+  %call91 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %21, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 3896, ptr noundef nonnull @.str.39)
   store i64 4294967296, ptr %atomic92, align 16
   %desired.sroa.2.0.mAtomic.sroa_idx.i.i.i81 = getelementptr inbounds i8, ptr %atomic92, i64 8
   store i64 4294967296, ptr %desired.sroa.2.0.mAtomic.sroa_idx.i.i.i81, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i82)
-  %23 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic92, ptr nonnull elementtype(i8) %retVal.i82, i64 4294967296, i64 4294967296, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic92) #7, !srcloc !10
-  %asmresult.i84 = extractvalue { i64, i64 } %23, 0
-  %asmresult20.i85 = extractvalue { i64, i64 } %23, 1
+  %22 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic92, ptr nonnull elementtype(i8) %retVal.i82, i64 4294967296, i64 4294967296, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic92) #7, !srcloc !10
+  %asmresult.i84 = extractvalue { i64, i64 } %22, 0
+  %asmresult20.i85 = extractvalue { i64, i64 } %22, 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i82)
   %or.cond228 = icmp eq i64 %asmresult.i84, 4294967296
-  %24 = and i64 %asmresult20.i85, 4294967295
-  %cmp8.i95 = icmp eq i64 %24, 0
+  %23 = and i64 %asmresult20.i85, 4294967295
+  %cmp8.i95 = icmp eq i64 %23, 0
   %or.cond229 = select i1 %or.cond228, i1 %cmp8.i95, i1 false
-  br i1 %or.cond229, label %land.rhs.i96, label %_ZeqRK17Atomic128LoadTypeS1_.exit100
-
-land.rhs.i96:                                     ; preds = %_ZeqRK17Atomic128LoadTypeS1_.exit80
-  %expected98.sroa.5.12.extract.shift.mask = and i64 %asmresult20.i85, -4294967296
-  %cmp10.i99 = icmp eq i64 %expected98.sroa.5.12.extract.shift.mask, 4294967296
-  br label %_ZeqRK17Atomic128LoadTypeS1_.exit100
-
-_ZeqRK17Atomic128LoadTypeS1_.exit100:             ; preds = %_ZeqRK17Atomic128LoadTypeS1_.exit80, %land.rhs.i96
-  %25 = phi i1 [ false, %_ZeqRK17Atomic128LoadTypeS1_.exit80 ], [ %cmp10.i99, %land.rhs.i96 ]
-  %call111 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %25, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 3905, ptr noundef nonnull @.str.40)
+  %cmp10.i99 = icmp eq i64 %asmresult20.i85, 4294967296
+  %spec.select242 = select i1 %or.cond229, i1 %cmp10.i99, i1 false
+  %call111 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select242, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 3905, ptr noundef nonnull @.str.40)
   store i64 1, ptr %atomic112, align 16
   %desired.sroa.2.0.mAtomic.sroa_idx.i.i.i101 = getelementptr inbounds i8, ptr %atomic112, i64 8
   store i64 1, ptr %desired.sroa.2.0.mAtomic.sroa_idx.i.i.i101, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i102)
-  %26 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic112, ptr nonnull elementtype(i8) %retVal.i102, i64 1, i64 1, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic112) #7, !srcloc !10
-  %asmresult.i104 = extractvalue { i64, i64 } %26, 0
-  %asmresult20.i105 = extractvalue { i64, i64 } %26, 1
+  %24 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic112, ptr nonnull elementtype(i8) %retVal.i102, i64 1, i64 1, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic112) #7, !srcloc !10
+  %asmresult.i104 = extractvalue { i64, i64 } %24, 0
+  %asmresult20.i105 = extractvalue { i64, i64 } %24, 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i102)
   %or.cond230 = icmp eq i64 %asmresult.i104, 1
-  %27 = and i64 %asmresult20.i105, 4294967295
-  %cmp8.i115 = icmp eq i64 %27, 1
+  %25 = and i64 %asmresult20.i105, 4294967295
+  %cmp8.i115 = icmp eq i64 %25, 1
   %or.cond231 = select i1 %or.cond230, i1 %cmp8.i115, i1 false
   %cmp10.i119 = icmp ult i64 %asmresult20.i105, 4294967296
-  %spec.select241 = select i1 %or.cond231, i1 %cmp10.i119, i1 false
-  %call131 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select241, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 3914, ptr noundef nonnull @.str.41)
+  %spec.select246 = select i1 %or.cond231, i1 %cmp10.i119, i1 false
+  %call131 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select246, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 3914, ptr noundef nonnull @.str.41)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic132, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i122)
-  %28 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic132, ptr nonnull elementtype(i8) %retVal.i122, i64 4294967297, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic132) #7, !srcloc !10
+  %26 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic132, ptr nonnull elementtype(i8) %retVal.i122, i64 4294967297, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic132) #7, !srcloc !10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i122)
-  %29 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic132, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic132) #7, !srcloc !9
-  %30 = extractvalue { i64, i64 } %29, 0
-  %31 = extractvalue { i64, i64 } %29, 1
-  %or.cond232 = icmp eq i64 %30, 4294967297
-  %32 = and i64 %31, 4294967295
-  %cmp8.i135 = icmp eq i64 %32, 0
+  %27 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic132, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic132) #7, !srcloc !9
+  %28 = extractvalue { i64, i64 } %27, 0
+  %29 = extractvalue { i64, i64 } %27, 1
+  %or.cond232 = icmp eq i64 %28, 4294967297
+  %30 = and i64 %29, 4294967295
+  %cmp8.i135 = icmp eq i64 %30, 0
   %or.cond233 = select i1 %or.cond232, i1 %cmp8.i135, i1 false
-  %cmp10.i139 = icmp ult i64 %31, 4294967296
-  %spec.select244 = select i1 %or.cond233, i1 %cmp10.i139, i1 false
-  %call153 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select244, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 3923, ptr noundef nonnull @.str.34)
+  %cmp10.i139 = icmp eq i64 %29, 0
+  %spec.select243 = select i1 %or.cond233, i1 %cmp10.i139, i1 false
+  %call153 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select243, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 3923, ptr noundef nonnull @.str.34)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic154, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i142)
-  %33 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic154, ptr nonnull elementtype(i8) %retVal.i142, i64 0, i64 4294967297, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic154) #7, !srcloc !10
+  %31 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic154, ptr nonnull elementtype(i8) %retVal.i142, i64 0, i64 4294967297, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic154) #7, !srcloc !10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i142)
-  %34 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic154, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic154) #7, !srcloc !9
-  %35 = extractvalue { i64, i64 } %34, 0
-  %36 = extractvalue { i64, i64 } %34, 1
-  %or.cond234 = icmp eq i64 %35, 0
-  %37 = and i64 %36, 4294967295
-  %cmp8.i155 = icmp eq i64 %37, 1
+  %32 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic154, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic154) #7, !srcloc !9
+  %33 = extractvalue { i64, i64 } %32, 0
+  %34 = extractvalue { i64, i64 } %32, 1
+  %or.cond234 = icmp eq i64 %33, 0
+  %35 = and i64 %34, 4294967295
+  %cmp8.i155 = icmp eq i64 %35, 1
   %or.cond235 = select i1 %or.cond234, i1 %cmp8.i155, i1 false
   br i1 %or.cond235, label %land.rhs.i156, label %_ZeqRK17Atomic128LoadTypeS1_.exit160
 
-land.rhs.i156:                                    ; preds = %_ZeqRK17Atomic128LoadTypeS1_.exit100
-  %ref.tmp167.sroa.5.8.extract.shift.mask = and i64 %36, -4294967296
+land.rhs.i156:                                    ; preds = %_ZeqRK17Atomic128LoadTypeS1_.exit80
+  %ref.tmp167.sroa.5.8.extract.shift.mask = and i64 %34, -4294967296
   %cmp10.i159 = icmp eq i64 %ref.tmp167.sroa.5.8.extract.shift.mask, 4294967296
   br label %_ZeqRK17Atomic128LoadTypeS1_.exit160
 
-_ZeqRK17Atomic128LoadTypeS1_.exit160:             ; preds = %_ZeqRK17Atomic128LoadTypeS1_.exit100, %land.rhs.i156
-  %38 = phi i1 [ false, %_ZeqRK17Atomic128LoadTypeS1_.exit100 ], [ %cmp10.i159, %land.rhs.i156 ]
-  %call175 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %38, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 3932, ptr noundef nonnull @.str.35)
+_ZeqRK17Atomic128LoadTypeS1_.exit160:             ; preds = %_ZeqRK17Atomic128LoadTypeS1_.exit80, %land.rhs.i156
+  %36 = phi i1 [ false, %_ZeqRK17Atomic128LoadTypeS1_.exit80 ], [ %cmp10.i159, %land.rhs.i156 ]
+  %call175 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %36, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 3932, ptr noundef nonnull @.str.35)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic176, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i162)
-  %39 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic176, ptr nonnull elementtype(i8) %retVal.i162, i64 4294967296, i64 4294967296, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic176) #7, !srcloc !10
+  %37 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic176, ptr nonnull elementtype(i8) %retVal.i162, i64 4294967296, i64 4294967296, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic176) #7, !srcloc !10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i162)
-  %40 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic176, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic176) #7, !srcloc !9
-  %41 = extractvalue { i64, i64 } %40, 0
-  %42 = extractvalue { i64, i64 } %40, 1
-  %or.cond236 = icmp eq i64 %41, 4294967296
-  %43 = and i64 %42, 4294967295
-  %cmp8.i175 = icmp eq i64 %43, 0
+  %38 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic176, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic176) #7, !srcloc !9
+  %39 = extractvalue { i64, i64 } %38, 0
+  %40 = extractvalue { i64, i64 } %38, 1
+  %or.cond236 = icmp eq i64 %39, 4294967296
+  %41 = and i64 %40, 4294967295
+  %cmp8.i175 = icmp eq i64 %41, 0
   %or.cond237 = select i1 %or.cond236, i1 %cmp8.i175, i1 false
-  br i1 %or.cond237, label %land.rhs.i176, label %_ZeqRK17Atomic128LoadTypeS1_.exit180
-
-land.rhs.i176:                                    ; preds = %_ZeqRK17Atomic128LoadTypeS1_.exit160
-  %ref.tmp189.sroa.5.8.extract.shift.mask = and i64 %42, -4294967296
-  %cmp10.i179 = icmp eq i64 %ref.tmp189.sroa.5.8.extract.shift.mask, 4294967296
-  br label %_ZeqRK17Atomic128LoadTypeS1_.exit180
-
-_ZeqRK17Atomic128LoadTypeS1_.exit180:             ; preds = %_ZeqRK17Atomic128LoadTypeS1_.exit160, %land.rhs.i176
-  %44 = phi i1 [ false, %_ZeqRK17Atomic128LoadTypeS1_.exit160 ], [ %cmp10.i179, %land.rhs.i176 ]
-  %call197 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %44, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 3941, ptr noundef nonnull @.str.36)
+  %cmp10.i179 = icmp eq i64 %40, 4294967296
+  %spec.select244 = select i1 %or.cond237, i1 %cmp10.i179, i1 false
+  %call197 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select244, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 3941, ptr noundef nonnull @.str.36)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic198, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %retVal.i182)
-  %45 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic198, ptr nonnull elementtype(i8) %retVal.i182, i64 1, i64 1, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic198) #7, !srcloc !10
+  %42 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2\0Asete $3", "={ax},={dx},=*m,=*rm,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic198, ptr nonnull elementtype(i8) %retVal.i182, i64 1, i64 1, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic198) #7, !srcloc !10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %retVal.i182)
-  %46 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic198, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic198) #7, !srcloc !9
-  %47 = extractvalue { i64, i64 } %46, 0
-  %48 = extractvalue { i64, i64 } %46, 1
-  %or.cond238 = icmp eq i64 %47, 1
-  %49 = and i64 %48, 4294967295
-  %cmp8.i195 = icmp eq i64 %49, 1
+  %43 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic198, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic198) #7, !srcloc !9
+  %44 = extractvalue { i64, i64 } %43, 0
+  %45 = extractvalue { i64, i64 } %43, 1
+  %or.cond238 = icmp eq i64 %44, 1
+  %46 = and i64 %45, 4294967295
+  %cmp8.i195 = icmp eq i64 %46, 1
   %or.cond239 = select i1 %or.cond238, i1 %cmp8.i195, i1 false
-  %cmp10.i199 = icmp ult i64 %48, 4294967296
-  %spec.select242 = select i1 %or.cond239, i1 %cmp10.i199, i1 false
-  %call219 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select242, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 3950, ptr noundef nonnull @.str.37)
-  %50 = load i32, ptr %nErrorCount, align 4
-  ret i32 %50
+  %cmp10.i199 = icmp ult i64 %45, 4294967296
+  %spec.select247 = select i1 %or.cond239, i1 %cmp10.i199, i1 false
+  %call219 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select247, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 3950, ptr noundef nonnull @.str.37)
+  %47 = load i32, ptr %nErrorCount, align 4
+  ret i32 %47
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3440,7 +3419,7 @@ entry:
   %3 = and i64 %2, 4294967295
   %cmp8.i.i = icmp eq i64 %3, 0
   %or.cond24.i = select i1 %or.cond.i, i1 %cmp8.i.i, i1 false
-  %cmp10.i.i = icmp ult i64 %2, 4294967296
+  %cmp10.i.i = icmp eq i64 %2, 0
   %spec.select.i = select i1 %or.cond24.i, i1 %cmp10.i.i, i1 false
   %call3.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1597, ptr noundef nonnull @.str.17)
   store i64 34359738373, ptr %atomic4.i, align 16
@@ -3453,7 +3432,7 @@ entry:
   %7 = and i64 %6, 4294967295
   %cmp8.i18.i = icmp eq i64 %7, 0
   %or.cond26.i = select i1 %or.cond25.i, i1 %cmp8.i18.i, i1 false
-  %cmp10.i22.i = icmp ult i64 %6, 4294967296
+  %cmp10.i22.i = icmp eq i64 %6, 0
   %spec.select27.i = select i1 %or.cond26.i, i1 %cmp10.i22.i, i1 false
   %call12.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select27.i, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1606, ptr noundef nonnull @.str.17)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %atomic.i)
@@ -13629,7 +13608,7 @@ _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EEaSES2_.exit: ; pr
   %6 = and i64 %5, 4294967295
   %cmp8.i = icmp eq i64 %6, 0
   %or.cond40 = select i1 %or.cond, i1 %cmp8.i, i1 false
-  %cmp10.i = icmp ult i64 %5, 4294967296
+  %cmp10.i = icmp eq i64 %5, 0
   %spec.select = select i1 %or.cond40, i1 %cmp10.i, i1 false
   %call5 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1619, ptr noundef nonnull @.str.18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic6, i8 0, i64 16, i1 false)
@@ -13656,7 +13635,7 @@ _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EEaSES2_.exit25: ; 
   %13 = and i64 %12, 4294967295
   %cmp8.i34 = icmp eq i64 %13, 0
   %or.cond42 = select i1 %or.cond41, i1 %cmp8.i34, i1 false
-  %cmp10.i38 = icmp ult i64 %12, 4294967296
+  %cmp10.i38 = icmp eq i64 %12, 0
   %spec.select43 = select i1 %or.cond42, i1 %cmp10.i38, i1 false
   %call16 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select43, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1628, ptr noundef nonnull @.str.18)
   ret void
@@ -13693,7 +13672,7 @@ _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22m
   %6 = and i64 %5, 4294967295
   %cmp8.i = icmp eq i64 %6, 0
   %or.cond35 = select i1 %or.cond, i1 %cmp8.i, i1 false
-  %cmp10.i = icmp ult i64 %5, 4294967296
+  %cmp10.i = icmp eq i64 %5, 0
   %spec.select = select i1 %or.cond35, i1 %cmp10.i, i1 false
   %call5 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1655, ptr noundef nonnull @.str.17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic6, i8 0, i64 16, i1 false)
@@ -13720,7 +13699,7 @@ _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE5storeES2_NS0_22m
   %13 = and i64 %12, 4294967295
   %cmp8.i29 = icmp eq i64 %13, 0
   %or.cond37 = select i1 %or.cond36, i1 %cmp8.i29, i1 false
-  %cmp10.i33 = icmp ult i64 %12, 4294967296
+  %cmp10.i33 = icmp eq i64 %12, 0
   %spec.select38 = select i1 %or.cond37, i1 %cmp10.i33, i1 false
   %call15 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select38, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1666, ptr noundef nonnull @.str.17)
   ret void
@@ -13739,7 +13718,7 @@ entry:
   %3 = and i64 %2, 4294967295
   %cmp8.i = icmp eq i64 %3, 0
   %or.cond60 = select i1 %or.cond, i1 %cmp8.i, i1 false
-  %cmp10.i = icmp ult i64 %2, 4294967296
+  %cmp10.i = icmp eq i64 %2, 0
   %spec.select = select i1 %or.cond60, i1 %cmp10.i, i1 false
   %call3 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1677, ptr noundef nonnull @.str.18)
   %4 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !51
@@ -13749,7 +13728,7 @@ entry:
   %7 = and i64 %6, 4294967295
   %cmp8.i12 = icmp eq i64 %7, 0
   %or.cond62 = select i1 %or.cond61, i1 %cmp8.i12, i1 false
-  %cmp10.i16 = icmp ult i64 %6, 4294967296
+  %cmp10.i16 = icmp eq i64 %6, 0
   %spec.select68 = select i1 %or.cond62, i1 %cmp10.i16, i1 false
   %call8 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select68, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1679, ptr noundef nonnull @.str.69)
   store i64 25769803781, ptr %atomic9, align 16
@@ -13762,7 +13741,7 @@ entry:
   %11 = and i64 %10, 4294967295
   %cmp8.i32 = icmp eq i64 %11, 0
   %or.cond64 = select i1 %or.cond63, i1 %cmp8.i32, i1 false
-  %cmp10.i36 = icmp ult i64 %10, 4294967296
+  %cmp10.i36 = icmp eq i64 %10, 0
   %spec.select67 = select i1 %or.cond64, i1 %cmp10.i36, i1 false
   %call17 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select67, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1686, ptr noundef nonnull @.str.18)
   %12 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic9, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic9) #7, !srcloc !51
@@ -13772,7 +13751,7 @@ entry:
   %15 = and i64 %14, 4294967295
   %cmp8.i46 = icmp eq i64 %15, 0
   %or.cond66 = select i1 %or.cond65, i1 %cmp8.i46, i1 false
-  %cmp10.i50 = icmp ult i64 %14, 4294967296
+  %cmp10.i50 = icmp eq i64 %14, 0
   %spec.select69 = select i1 %or.cond66, i1 %cmp10.i50, i1 false
   %call22 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select69, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1688, ptr noundef nonnull @.str.69)
   ret void
@@ -13806,7 +13785,7 @@ _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_
   %3 = and i64 %asmresult18.i, 4294967295
   %cmp8.i = icmp eq i64 %3, 0
   %or.cond55 = select i1 %or.cond, i1 %cmp8.i, i1 false
-  %cmp10.i = icmp ult i64 %asmresult18.i, 4294967296
+  %cmp10.i = icmp eq i64 %asmresult18.i, 0
   %spec.select = select i1 %or.cond55, i1 %cmp10.i, i1 false
   %call4 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1701, ptr noundef nonnull @.str.17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic5, i8 0, i64 16, i1 false)
@@ -13830,7 +13809,7 @@ _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_
   %7 = and i64 %asmresult18.i24, 4294967295
   %cmp8.i35 = icmp eq i64 %7, 0
   %or.cond57 = select i1 %or.cond56, i1 %cmp8.i35, i1 false
-  %cmp10.i39 = icmp ult i64 %asmresult18.i24, 4294967296
+  %cmp10.i39 = icmp eq i64 %asmresult18.i24, 0
   %spec.select60 = select i1 %or.cond57, i1 %cmp10.i39, i1 false
   %call13 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select60, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1711, ptr noundef nonnull @.str.17)
   %8 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic5, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic5) #7, !srcloc !11
@@ -13840,7 +13819,7 @@ _ZN5eastl8internal17atomic_base_widthI17AtomicUserType128Lj16EE8exchangeES2_NS0_
   %11 = and i64 %10, 4294967295
   %cmp8.i49 = icmp eq i64 %11, 0
   %or.cond59 = select i1 %or.cond58, i1 %cmp8.i49, i1 false
-  %cmp10.i53 = icmp ult i64 %10, 4294967296
+  %cmp10.i53 = icmp eq i64 %10, 0
   %spec.select61 = select i1 %or.cond59, i1 %cmp10.i53, i1 false
   %call18 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select61, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1712, ptr noundef nonnull @.str.70)
   ret void
@@ -13882,7 +13861,7 @@ if.then:                                          ; preds = %entry
   %7 = and i64 %6, 4294967295
   %cmp8.i20 = icmp eq i64 %7, 0
   %or.cond111 = select i1 %or.cond110, i1 %cmp8.i20, i1 false
-  %cmp10.i24 = icmp ult i64 %6, 4294967296
+  %cmp10.i24 = icmp eq i64 %6, 0
   %spec.select119 = select i1 %or.cond111, i1 %cmp10.i24, i1 false
   %call12 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select119, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1730, ptr noundef nonnull @.str.18)
   br label %if.end
@@ -13915,7 +13894,7 @@ if.then22:                                        ; preds = %if.end
   %15 = and i64 %14, 4294967295
   %cmp8.i65 = icmp eq i64 %15, 0
   %or.cond115 = select i1 %or.cond114, i1 %cmp8.i65, i1 false
-  %cmp10.i69 = icmp ult i64 %14, 4294967296
+  %cmp10.i69 = icmp eq i64 %14, 0
   %spec.select120 = select i1 %or.cond115, i1 %cmp10.i69, i1 false
   %call36 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select120, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1746, ptr noundef nonnull @.str.18)
   br label %if.end37
@@ -13935,7 +13914,7 @@ if.end37:                                         ; preds = %if.then22, %if.end
   %19 = and i64 %asmresult20.i80, 4294967295
   %cmp8.i93 = icmp eq i64 %19, 0
   %or.cond117 = select i1 %or.cond116, i1 %cmp8.i93, i1 false
-  %cmp10.i97 = icmp ult i64 %asmresult20.i80, 4294967296
+  %cmp10.i97 = icmp eq i64 %asmresult20.i80, 0
   %spec.select121 = select i1 %or.cond117, i1 %cmp10.i97, i1 false
   %call53 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select121, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1759, ptr noundef nonnull @.str.71)
   ret void
@@ -13964,7 +13943,7 @@ entry:
   %3 = and i64 %asmresult20.i, 4294967295
   %cmp8.i = icmp eq i64 %3, 0
   %or.cond107 = select i1 %or.cond, i1 %cmp8.i, i1 false
-  %cmp10.i = icmp ult i64 %asmresult20.i, 4294967296
+  %cmp10.i = icmp eq i64 %asmresult20.i, 0
   %spec.select = select i1 %or.cond107, i1 %cmp10.i, i1 false
   %call6 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1775, ptr noundef nonnull @.str.71)
   %4 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic) #7, !srcloc !11
@@ -13974,7 +13953,7 @@ entry:
   %7 = and i64 %6, 4294967295
   %cmp8.i18 = icmp eq i64 %7, 0
   %or.cond109 = select i1 %or.cond108, i1 %cmp8.i18, i1 false
-  %cmp10.i22 = icmp ult i64 %6, 4294967296
+  %cmp10.i22 = icmp eq i64 %6, 0
   %spec.select118 = select i1 %or.cond109, i1 %cmp10.i22, i1 false
   %call11 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select118, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1776, ptr noundef nonnull @.str.18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic12, i8 0, i64 16, i1 false)
@@ -13991,7 +13970,7 @@ entry:
   %11 = and i64 %asmresult20.i33, 4294967295
   %cmp8.i49 = icmp eq i64 %11, 0
   %or.cond111 = select i1 %or.cond110, i1 %cmp8.i49, i1 false
-  %cmp10.i53 = icmp ult i64 %asmresult20.i33, 4294967296
+  %cmp10.i53 = icmp eq i64 %asmresult20.i33, 0
   %spec.select116 = select i1 %or.cond111, i1 %cmp10.i53, i1 false
   %call27 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select116, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1789, ptr noundef nonnull @.str.72)
   %12 = call { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) %atomic12, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) %atomic12) #7, !srcloc !11
@@ -14001,7 +13980,7 @@ entry:
   %15 = and i64 %14, 4294967295
   %cmp8.i63 = icmp eq i64 %15, 0
   %or.cond113 = select i1 %or.cond112, i1 %cmp8.i63, i1 false
-  %cmp10.i67 = icmp ult i64 %14, 4294967296
+  %cmp10.i67 = icmp eq i64 %14, 0
   %spec.select119 = select i1 %or.cond113, i1 %cmp10.i67, i1 false
   %call33 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select119, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1790, ptr noundef nonnull @.str.18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %atomic34, i8 0, i64 16, i1 false)
@@ -14018,7 +13997,7 @@ entry:
   %19 = and i64 %asmresult20.i78, 4294967295
   %cmp8.i91 = icmp eq i64 %19, 0
   %or.cond115 = select i1 %or.cond114, i1 %cmp8.i91, i1 false
-  %cmp10.i95 = icmp ult i64 %asmresult20.i78, 4294967296
+  %cmp10.i95 = icmp eq i64 %asmresult20.i78, 0
   %spec.select117 = select i1 %or.cond115, i1 %cmp10.i95, i1 false
   %call49 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select117, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1802, ptr noundef nonnull @.str.71)
   ret void

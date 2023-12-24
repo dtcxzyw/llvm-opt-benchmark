@@ -363,17 +363,15 @@ for.end40:                                        ; preds = %for.body31, %for.en
   %8 = select i1 %isnotneg.i90.inv, i1 true, i1 %isnotneg.i.inv
   %and45 = select i1 %8, i32 0, i32 %and27
   %sub46 = add nsw i32 %num, -11
-  %xor.i92 = xor i32 %sub46, %tlen
   %sub.i93 = sub i32 %sub46, %tlen
-  %xor1.i = xor i32 %sub.i93, %tlen
-  %or.i = or i32 %xor1.i, %xor.i92
-  %xor2.i = xor i32 %or.i, %sub46
+  %9 = sub nsw i32 10, %num
+  %xor2.i = and i32 %sub.i93, %9
   %shr.neg.i.i94 = ashr i32 %xor2.i, 31
-  %9 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %shr.neg.i.i94) #5, !srcloc !10
-  %and.i.i95 = and i32 %9, %sub46
+  %10 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %shr.neg.i.i94) #5, !srcloc !10
+  %and.i.i95 = and i32 %10, %sub46
   %not.i.i96 = xor i32 %shr.neg.i.i94, -1
-  %10 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i96) #5, !srcloc !10
-  %and2.i.i97 = and i32 %10, %tlen
+  %11 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i96) #5, !srcloc !10
+  %and2.i.i97 = and i32 %11, %tlen
   %or.i.i98 = or i32 %and2.i.i97, %and.i.i95
   %cmp52136 = icmp sgt i32 %num, 12
   br i1 %cmp52136, label %for.body54.lr.ph, label %for.cond79.preheader
@@ -387,7 +385,7 @@ for.cond79.preheader:                             ; preds = %for.inc77, %for.end
   br i1 %cmp80138, label %for.body82.lr.ph, label %for.end96
 
 for.body82.lr.ph:                                 ; preds = %for.cond79.preheader
-  %11 = and i32 %and45, 255
+  %12 = and i32 %and45, 255
   %wide.trip.count152 = zext nneg i32 %or.i.i98 to i64
   %invariant.gep154 = getelementptr i8, ptr %incdec.ptr, i64 11
   br label %for.body82
@@ -403,24 +401,24 @@ for.body64.lr.ph:                                 ; preds = %for.body54
   %sub.i.i100 = add i32 %and57, -1
   %.inv = icmp slt i32 %sub.i.i100, 0
   %conv.i = select i1 %.inv, i32 0, i32 255
-  %12 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i) #5, !srcloc !10
+  %13 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i) #5, !srcloc !10
   %not.i.i103 = xor i32 %conv.i, -1
-  %13 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i103) #5, !srcloc !10
-  %14 = sext i32 %msg_index.0137 to i64
+  %14 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i103) #5, !srcloc !10
+  %15 = sext i32 %msg_index.0137 to i64
   %wide.trip.count146 = zext nneg i32 %sub61 to i64
-  %invariant.gep = getelementptr i8, ptr %incdec.ptr, i64 %14
+  %invariant.gep = getelementptr i8, ptr %incdec.ptr, i64 %15
   br label %for.body64
 
 for.body64:                                       ; preds = %for.body64.lr.ph, %for.body64
   %indvars.iv142 = phi i64 [ 11, %for.body64.lr.ph ], [ %indvars.iv.next143, %for.body64 ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv142
-  %15 = load i8, ptr %gep, align 1
+  %16 = load i8, ptr %gep, align 1
   %arrayidx70 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %indvars.iv142
-  %16 = load i8, ptr %arrayidx70, align 1
-  %conv1.i = zext i8 %15 to i32
-  %conv2.i = zext i8 %16 to i32
-  %and.i.i102 = and i32 %12, %conv1.i
-  %and2.i.i104 = and i32 %13, %conv2.i
+  %17 = load i8, ptr %arrayidx70, align 1
+  %conv1.i = zext i8 %16 to i32
+  %conv2.i = zext i8 %17 to i32
+  %and.i.i102 = and i32 %13, %conv1.i
+  %and2.i.i104 = and i32 %14, %conv2.i
   %or.i.i105 = or i32 %and2.i.i104, %and.i.i102
   %conv3.i = trunc i32 %or.i.i105 to i8
   store i8 %conv3.i, ptr %arrayidx70, align 1
@@ -435,22 +433,22 @@ for.inc77:                                        ; preds = %for.body64, %for.bo
 
 for.body82:                                       ; preds = %for.body82.lr.ph, %for.body82
   %indvars.iv148 = phi i64 [ 0, %for.body82.lr.ph ], [ %indvars.iv.next149, %for.body82 ]
-  %17 = trunc i64 %indvars.iv148 to i32
-  %sub.i107 = sub i32 %17, %sub43
+  %18 = trunc i64 %indvars.iv148 to i32
+  %sub.i107 = sub i32 %18, %sub43
   %or.i109 = or i32 %sub.i107, %sub43
   %isneg = icmp slt i32 %or.i109, 0
   %gep155 = getelementptr i8, ptr %invariant.gep154, i64 %indvars.iv148
-  %18 = load i8, ptr %gep155, align 1
+  %19 = load i8, ptr %gep155, align 1
   %arrayidx90 = getelementptr inbounds i8, ptr %to, i64 %indvars.iv148
-  %19 = load i8, ptr %arrayidx90, align 1
-  %conv.i112 = select i1 %isneg, i32 %11, i32 0
-  %conv1.i113 = zext i8 %18 to i32
-  %conv2.i114 = zext i8 %19 to i32
-  %20 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i112) #5, !srcloc !10
-  %and.i.i115 = and i32 %20, %conv1.i113
+  %20 = load i8, ptr %arrayidx90, align 1
+  %conv.i112 = select i1 %isneg, i32 %12, i32 0
+  %conv1.i113 = zext i8 %19 to i32
+  %conv2.i114 = zext i8 %20 to i32
+  %21 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i112) #5, !srcloc !10
+  %and.i.i115 = and i32 %21, %conv1.i113
   %not.i.i116 = xor i32 %conv.i112, -1
-  %21 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i116) #5, !srcloc !10
-  %and2.i.i117 = and i32 %21, %conv2.i114
+  %22 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i116) #5, !srcloc !10
+  %and2.i.i117 = and i32 %22, %conv2.i114
   %or.i.i118 = or i32 %and2.i.i117, %and.i.i115
   %conv3.i119 = trunc i32 %or.i.i118 to i8
   store i8 %conv3.i119, ptr %arrayidx90, align 1
@@ -465,11 +463,11 @@ for.end96:                                        ; preds = %for.body82, %for.co
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 159, ptr noundef null) #4
   %and98 = and i32 %and45, 1
   tail call void @err_clear_last_constant_time(i32 noundef %and98) #4
-  %22 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %and45) #5, !srcloc !10
-  %and.i.i120 = and i32 %22, %sub43
+  %23 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %and45) #5, !srcloc !10
+  %and.i.i120 = and i32 %23, %sub43
   %not.i.i121 = xor i32 %and45, -1
-  %23 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i121) #5, !srcloc !10
-  %or.i.i122 = or i32 %23, %and.i.i120
+  %24 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i121) #5, !srcloc !10
+  %or.i.i122 = or i32 %24, %and.i.i120
   br label %return
 
 return:                                           ; preds = %if.end6, %entry, %for.end96, %if.then5

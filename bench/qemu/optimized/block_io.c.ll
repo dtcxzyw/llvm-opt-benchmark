@@ -3629,7 +3629,7 @@ if.then39:                                        ; preds = %land.lhs.true36
   %.fr98 = freeze i32 %9
   %cmp41 = icmp eq i32 %.fr98, 2
   %spec.select.v = select i1 %cmp41, i32 6, i32 2
-  %flags.masked = and i32 %flags, -9
+  %flags.masked = and i32 %flags, -11
   %and46 = or i32 %spec.select.v, %flags.masked
   br label %if.else51
 
