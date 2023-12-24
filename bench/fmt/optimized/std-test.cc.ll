@@ -334,8 +334,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._Guard.350 = type { ptr }
 %"struct.fmt::v10::formatter.354" = type { i8 }
 %class.anon.355 = type { ptr }
-%"class.std::bad_variant_access" = type { %"class.std::exception", ptr }
 %"struct.fmt::v10::detail::dragonbox::decimal_fp" = type { i32, i32 }
+%"class.std::bad_variant_access" = type { %"class.std::exception", ptr }
 %class.anon.359 = type { i8, i32, i32, i8, i32, i8, i8, i32 }
 %class.anon.360 = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %class.anon.361 = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
@@ -854,8 +854,6 @@ $_ZNSt18bad_variant_accessD0Ev = comdat any
 $_ZNKSt18bad_variant_access4whatEv = comdat any
 
 $_ZN3fmt3v106detail5writeIcNS0_8appenderEiTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_ = comdat any
-
-$_ZZNK3fmt3v109formatterISt7variantIJifNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfL0p0_3outEERKS9_RT_ENKUlRKSI_E_clIfEEDaSL_ = comdat any
 
 $_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_12format_specsIT1_EENS1_11float_specsENS1_10locale_refE = comdat any
 
@@ -36953,8 +36951,14 @@ terminate.lpad:                                   ; preds = %lpad12
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultIvEEZNK3fmt3v109formatterISt7variantIJifNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEcvE6formatINS5_20basic_format_contextINS5_8appenderEcEEEEDTcldtfL0p0_3outEERKSE_RT_EUlRKSN_E_JSM_EEDcOT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %__visitor, ptr noundef nonnull align 8 dereferenceable(33) %__variants) local_unnamed_addr #3 comdat {
 entry:
+  %specs.i.i.i.i.i.i.i = alloca %"struct.fmt::v10::format_specs", align 8
+  %ref.tmp.i.i.i.i.i.i.i = alloca %class.anon.313, align 8
+  %specs.i.i.i.i.i.i = alloca %"struct.fmt::v10::format_specs", align 4
+  %dec.i.i.i.i.i.i = alloca %"struct.fmt::v10::detail::dragonbox::decimal_fp", align 8
   %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
   %0 = load i8, ptr %_M_index.i, align 8
+  %1 = load ptr, ptr %__visitor, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %1, align 8
   switch i8 %0, label %sw.default [
     i8 0, label %sw.bb
     i8 1, label %sw.bb2
@@ -36963,41 +36967,76 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %1 = load ptr, ptr %__visitor, align 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %1, align 8
   %2 = load i32, ptr %__variants, align 8
   %call.i.i.i.i.i = tail call ptr @_ZN3fmt3v106detail5writeIcNS0_8appenderEiTnNSt9enable_ifIXaaaasr11is_integralIT1_EE5valuentsr3std7is_sameIS5_bEE5valuentsr3std7is_sameIS5_T_EE5valueEiE4typeELi0EEET0_S9_S5_(ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i, i32 noundef %2)
-  %3 = load ptr, ptr %__visitor, align 8
-  store ptr %call.i.i.i.i.i, ptr %3, align 8
   br label %return
 
 sw.bb2:                                           ; preds = %entry
-  tail call void @_ZZNK3fmt3v109formatterISt7variantIJifNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfL0p0_3outEERKS9_RT_ENKUlRKSI_E_clIfEEDaSL_(ptr noundef nonnull align 8 dereferenceable(8) %__visitor, ptr noundef nonnull align 4 dereferenceable(4) %__variants)
+  %3 = load float, ptr %__variants, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dec.i.i.i.i.i.i)
+  %4 = bitcast float %3 to i32
+  %value.addr.0.i.i.i.i.i.i = tail call float @llvm.fabs.f32(float %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %specs.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) @__const._ZN3fmt3v106detail5writeIcNS0_8appenderEfTnNSt9enable_ifIXsr13is_fast_floatIT1_EE5valueEiE4typeELi0EEET0_S8_S5_.specs, i64 16, i1 false)
+  %5 = bitcast float %value.addr.0.i.i.i.i.i.i to i32
+  %and.i.i.i.i.i.i = and i32 %5, 2139095040
+  %cmp.i.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 2139095040
+  br i1 %cmp.i.i.i.i.i.i, label %_ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit.i.i.i.i.i.i, label %if.end16.i.i.i.i.i.i
+
+_ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit.i.i.i.i.i.i: ; preds = %sw.bb2
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
+  store i64 -4294967296, ptr %specs.i.i.i.i.i.i.i, align 8
+  %6 = getelementptr inbounds { i64, i64 }, ptr %specs.i.i.i.i.i.i.i, i64 0, i32 1
+  store i64 72057594574798848, ptr %6, align 8
+  %7 = fcmp uno float %3, 0.000000e+00
+  %cond-lvalue14.i.i.i.i.i.i.i = select i1 %7, ptr @.str.226, ptr @.str.228
+  %bf.lshr17.i.i.i.i.i.i.i = lshr i32 %4, 31
+  %bf.cast19.i.i.i.i.i.i.i = trunc i32 %bf.lshr17.i.i.i.i.i.i.i to i8
+  %tobool20.not.not.i.i.i.i.i.i.i = icmp sgt i32 %4, -1
+  %add.i.i.i.i.i.i.i = select i1 %tobool20.not.not.i.i.i.i.i.i.i, i64 3, i64 4
+  store i8 %bf.cast19.i.i.i.i.i.i.i, ptr %ref.tmp.i.i.i.i.i.i.i, align 8
+  %8 = getelementptr inbounds %class.anon.313, ptr %ref.tmp.i.i.i.i.i.i.i, i64 0, i32 1
+  store ptr %cond-lvalue14.i.i.i.i.i.i.i, ptr %8, align 8
+  %call.i.i.i.i.i.i.i.i = call ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE1ENS0_8appenderEcRZNS1_15write_nonfiniteIcS5_EET0_S7_bNS0_12format_specsIT_EERKNS1_11float_specsEEUlS5_E_EES7_S7_RKNS8_IT1_EEmmOT2_(ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %specs.i.i.i.i.i.i.i, i64 noundef %add.i.i.i.i.i.i.i, i64 noundef %add.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %specs.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
+  br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZNK3fmt3v109formatterISt7variantIJifNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEcvE6formatINS6_20basic_format_contextINS6_8appenderEcEEEEDTcldtfL1p0_3outEERKSF_RT_EUlRKSO_E_SN_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeEST_SN_.exit
+
+if.end16.i.i.i.i.i.i:                             ; preds = %sw.bb2
+  %9 = lshr i32 %4, 23
+  %fspecs.sroa.2.0.i.i.i.i.i.i = and i32 %9, 256
+  %call17.i.i.i.i.i.i = tail call i64 @_ZN3fmt3v106detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %value.addr.0.i.i.i.i.i.i) #25
+  store i64 %call17.i.i.i.i.i.i, ptr %dec.i.i.i.i.i.i, align 8
+  %fspecs.sroa.2.0.insert.ext.i.i.i.i.i.i = zext nneg i32 %fspecs.sroa.2.0.i.i.i.i.i.i to i64
+  %fspecs.sroa.2.0.insert.shift.i.i.i.i.i.i = shl nuw nsw i64 %fspecs.sroa.2.0.insert.ext.i.i.i.i.i.i, 32
+  %call.i.i.i.i.i.i.i = call ptr @_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_12format_specsIT1_EENS1_11float_specsENS1_10locale_refE(ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %dec.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %specs.i.i.i.i.i.i, i64 %fspecs.sroa.2.0.insert.shift.i.i.i.i.i.i, ptr null)
+  br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZNK3fmt3v109formatterISt7variantIJifNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEcvE6formatINS6_20basic_format_contextINS6_8appenderEcEEEEDTcldtfL1p0_3outEERKSF_RT_EUlRKSO_E_SN_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeEST_SN_.exit
+
+_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZNK3fmt3v109formatterISt7variantIJifNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEcvE6formatINS6_20basic_format_contextINS6_8appenderEcEEEEDTcldtfL1p0_3outEERKSF_RT_EUlRKSO_E_SN_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeEST_SN_.exit: ; preds = %_ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit.i.i.i.i.i.i, %if.end16.i.i.i.i.i.i
+  %retval.sroa.0.0.i.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i.i.i, %_ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i, %if.end16.i.i.i.i.i.i ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %specs.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dec.i.i.i.i.i.i)
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %4 = load ptr, ptr %__visitor, align 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i8 = load ptr, ptr %4, align 8
-  %call.i.i.i.i.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__variants) #25
+  %call.i.i.i.i.i.i.i10 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__variants) #25
   %call2.i.i.i.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__variants) #25
-  %call5.i.i.i.i.i = tail call ptr @_ZN3fmt3v106detail20write_escaped_stringIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EE(ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i8, ptr %call.i.i.i.i.i.i.i, i64 %call2.i.i.i.i.i.i.i)
-  %5 = load ptr, ptr %__visitor, align 8
-  store ptr %call5.i.i.i.i.i, ptr %5, align 8
+  %call5.i.i.i.i.i = tail call ptr @_ZN3fmt3v106detail20write_escaped_stringIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EE(ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i, ptr %call.i.i.i.i.i.i.i10, i64 %call2.i.i.i.i.i.i.i)
   br label %return
 
 sw.bb4:                                           ; preds = %entry
-  %6 = load ptr, ptr %__visitor, align 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i9 = load ptr, ptr %6, align 8
-  %7 = load i8, ptr %__variants, align 8
-  %call.i.i.i.i.i10 = tail call ptr @_ZN3fmt3v106detail18write_escaped_charIcNS0_8appenderEEET0_S4_T_(ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i9, i8 noundef signext %7)
-  %8 = load ptr, ptr %__visitor, align 8
-  store ptr %call.i.i.i.i.i10, ptr %8, align 8
+  %10 = load i8, ptr %__variants, align 8
+  %call.i.i.i.i.i12 = tail call ptr @_ZN3fmt3v106detail18write_escaped_charIcNS0_8appenderEEET0_S4_T_(ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i, i8 noundef signext %10)
   br label %return
 
 sw.default:                                       ; preds = %entry
   unreachable
 
-return:                                           ; preds = %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb
+return:                                           ; preds = %sw.bb4, %sw.bb3, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZNK3fmt3v109formatterISt7variantIJifNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEcvE6formatINS6_20basic_format_contextINS6_8appenderEcEEEEDTcldtfL1p0_3outEERKSF_RT_EUlRKSO_E_SN_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeEST_SN_.exit, %sw.bb
+  %call.i.i.i.i.i12.sink = phi ptr [ %call.i.i.i.i.i12, %sw.bb4 ], [ %call5.i.i.i.i.i, %sw.bb3 ], [ %retval.sroa.0.0.i.i.i.i.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZNK3fmt3v109formatterISt7variantIJifNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEcvE6formatINS6_20basic_format_contextINS6_8appenderEcEEEEDTcldtfL1p0_3outEERKSF_RT_EUlRKSO_E_SN_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeEST_SN_.exit ], [ %call.i.i.i.i.i, %sw.bb ]
+  %11 = load ptr, ptr %__visitor, align 8
+  store ptr %call.i.i.i.i.i12.sink, ptr %11, align 8
   ret void
 }
 
@@ -37235,67 +37274,6 @@ _ZN3fmt3v106detail14format_decimalIcjNS0_8appenderETnNSt9enable_ifIXntsr3std10is
 
 return:                                           ; preds = %if.end.i, %if.then.i, %_ZN3fmt3v106detail14format_decimalIcjNS0_8appenderETnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT1_E4typeEE4typeEEE5valueEiE4typeELi0EEENS1_21format_decimal_resultIS7_EES7_T0_i.exit
   ret ptr %out.coerce
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZZNK3fmt3v109formatterISt7variantIJifNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfL0p0_3outEERKS9_RT_ENKUlRKSI_E_clIfEEDaSL_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 4 dereferenceable(4) %v) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %specs.i.i.i = alloca %"struct.fmt::v10::format_specs", align 8
-  %ref.tmp.i.i.i = alloca %class.anon.313, align 8
-  %specs.i.i = alloca %"struct.fmt::v10::format_specs", align 4
-  %dec.i.i = alloca %"struct.fmt::v10::detail::dragonbox::decimal_fp", align 8
-  %0 = load ptr, ptr %this, align 8
-  %agg.tmp.sroa.0.0.copyload = load ptr, ptr %0, align 8
-  %1 = load float, ptr %v, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dec.i.i)
-  %2 = bitcast float %1 to i32
-  %3 = icmp slt i32 %2, 0
-  %fneg.i.i = fneg float %1
-  %value.addr.0.i.i = select i1 %3, float %fneg.i.i, float %1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %specs.i.i, ptr noundef nonnull align 4 dereferenceable(16) @__const._ZN3fmt3v106detail5writeIcNS0_8appenderEfTnNSt9enable_ifIXsr13is_fast_floatIT1_EE5valueEiE4typeELi0EEET0_S8_S5_.specs, i64 16, i1 false)
-  %4 = bitcast float %value.addr.0.i.i to i32
-  %and.i.i = and i32 %4, 2139095040
-  %cmp.i.i = icmp eq i32 %and.i.i, 2139095040
-  br i1 %cmp.i.i, label %_ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit.i.i, label %if.end16.i.i
-
-_ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit.i.i: ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i)
-  store i64 -4294967296, ptr %specs.i.i.i, align 8
-  %5 = getelementptr inbounds { i64, i64 }, ptr %specs.i.i.i, i64 0, i32 1
-  store i64 72057594574798848, ptr %5, align 8
-  %6 = fcmp uno float %value.addr.0.i.i, 0.000000e+00
-  %cond-lvalue14.i.i.i = select i1 %6, ptr @.str.226, ptr @.str.228
-  %bf.lshr17.i.i.i = lshr i32 %2, 31
-  %bf.cast19.i.i.i = trunc i32 %bf.lshr17.i.i.i to i8
-  %tobool20.not.not.i.i.i = icmp sgt i32 %2, -1
-  %add.i.i.i = select i1 %tobool20.not.not.i.i.i, i64 3, i64 4
-  store i8 %bf.cast19.i.i.i, ptr %ref.tmp.i.i.i, align 8
-  %7 = getelementptr inbounds %class.anon.313, ptr %ref.tmp.i.i.i, i64 0, i32 1
-  store ptr %cond-lvalue14.i.i.i, ptr %7, align 8
-  %call.i.i.i.i = call ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE1ENS0_8appenderEcRZNS1_15write_nonfiniteIcS5_EET0_S7_bNS0_12format_specsIT_EERKNS1_11float_specsEEUlS5_E_EES7_S7_RKNS8_IT1_EEmmOT2_(ptr %agg.tmp.sroa.0.0.copyload, ptr noundef nonnull align 4 dereferenceable(16) %specs.i.i.i, i64 noundef %add.i.i.i, i64 noundef %add.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %specs.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i)
-  br label %_ZN3fmt3v106detail25write_variant_alternativeIcNS0_8appenderEfEET0_S4_RKT1_.exit
-
-if.end16.i.i:                                     ; preds = %entry
-  %8 = lshr i32 %2, 23
-  %fspecs.sroa.2.0.i.i = and i32 %8, 256
-  %call17.i.i = tail call i64 @_ZN3fmt3v106detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %value.addr.0.i.i) #25
-  store i64 %call17.i.i, ptr %dec.i.i, align 8
-  %fspecs.sroa.2.0.insert.ext.i.i = zext nneg i32 %fspecs.sroa.2.0.i.i to i64
-  %fspecs.sroa.2.0.insert.shift.i.i = shl nuw nsw i64 %fspecs.sroa.2.0.insert.ext.i.i, 32
-  %call.i.i.i = call ptr @_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIfEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_12format_specsIT1_EENS1_11float_specsENS1_10locale_refE(ptr %agg.tmp.sroa.0.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %dec.i.i, ptr noundef nonnull align 4 dereferenceable(16) %specs.i.i, i64 %fspecs.sroa.2.0.insert.shift.i.i, ptr null)
-  br label %_ZN3fmt3v106detail25write_variant_alternativeIcNS0_8appenderEfEET0_S4_RKT1_.exit
-
-_ZN3fmt3v106detail25write_variant_alternativeIcNS0_8appenderEfEET0_S4_RKT1_.exit: ; preds = %_ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit.i.i, %if.end16.i.i
-  %retval.sroa.0.0.i.i = phi ptr [ %call.i.i.i.i, %_ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit.i.i ], [ %call.i.i.i, %if.end16.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %specs.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dec.i.i)
-  %9 = load ptr, ptr %this, align 8
-  store ptr %retval.sroa.0.0.i.i, ptr %9, align 8
-  ret void
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -46114,6 +46092,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #21
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

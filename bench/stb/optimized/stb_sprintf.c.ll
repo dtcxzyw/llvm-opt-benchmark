@@ -3104,9 +3104,7 @@ entry:
   %shr = lshr i64 %0, 52
   %1 = trunc i64 %shr to i32
   %conv = and i32 %1, 2047
-  %fneg = fneg double %value
-  %tobool.not139 = icmp slt i64 %0, 0
-  %d.0 = select i1 %tobool.not139, double %fneg, double %value
+  %d.0 = tail call double @llvm.fabs.f64(double %value)
   switch i32 %conv, label %if.end23 [
     i32 2047, label %if.then7
     i32 0, label %if.then13
