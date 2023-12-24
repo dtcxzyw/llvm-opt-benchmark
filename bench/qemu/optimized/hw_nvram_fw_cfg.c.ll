@@ -914,19 +914,21 @@ if.then15:                                        ; preds = %if.end13
 
 for.body.i:                                       ; preds = %if.then15, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %if.then15 ]
-  %arrayidx.i = getelementptr [22 x %struct.anon.7], ptr @fw_cfg_order, i64 0, i64 %indvars.iv.i
-  %9 = load ptr, ptr %arrayidx.i, align 16
-  %cmp5.i = icmp eq ptr %9, null
-  br i1 %cmp5.i, label %for.inc.i, label %if.end8.i
+  %9 = lshr i64 27648, %indvars.iv.i
+  %10 = and i64 %9, 1
+  %cmp5.not.i = icmp eq i64 %10, 0
+  br i1 %cmp5.not.i, label %if.end8.i, label %for.inc.i
 
 if.end8.i:                                        ; preds = %for.body.i
-  %call.i78 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(1) %9) #21
+  %arrayidx.i = getelementptr [22 x %struct.anon.7], ptr @fw_cfg_order, i64 0, i64 %indvars.iv.i
+  %11 = load ptr, ptr %arrayidx.i, align 16
+  %call.i78 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(1) %11) #21
   %cmp12.i = icmp eq i32 %call.i78, 0
   br i1 %cmp12.i, label %if.then14.i, label %for.inc.i
 
 if.then14.i:                                      ; preds = %if.end8.i
   %order.i = getelementptr [22 x %struct.anon.7], ptr @fw_cfg_order, i64 0, i64 %indvars.iv.i, i32 1
-  %10 = load i32, ptr %order.i, align 8
+  %12 = load i32, ptr %order.i, align 8
   br label %get_fw_cfg_order.exit
 
 for.inc.i:                                        ; preds = %if.end8.i, %for.body.i
@@ -939,22 +941,22 @@ for.end.i:                                        ; preds = %for.inc.i
   br label %get_fw_cfg_order.exit
 
 get_fw_cfg_order.exit:                            ; preds = %if.then15, %if.then14.i, %for.end.i
-  %retval.0.i = phi i32 [ %10, %if.then14.i ], [ 200, %for.end.i ], [ %s.val77, %if.then15 ]
+  %retval.0.i = phi i32 [ %12, %if.then14.i ], [ 200, %for.end.i ], [ %s.val77, %if.then15 ]
   %cmp1787 = icmp sgt i32 %4, 0
   br i1 %cmp1787, label %land.rhs.lr.ph, label %if.end38.for.end78_crit_edge
 
 land.rhs.lr.ph:                                   ; preds = %get_fw_cfg_order.exit
   %entry_order = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 3
-  %11 = load ptr, ptr %entry_order, align 8
-  %invariant.gep = getelementptr i32, ptr %11, i64 -1
+  %13 = load ptr, ptr %entry_order, align 8
+  %invariant.gep = getelementptr i32, ptr %13, i64 -1
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
   %index.088 = phi i32 [ %4, %land.rhs.lr.ph ], [ %dec, %for.inc ]
-  %12 = zext nneg i32 %index.088 to i64
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %12
-  %13 = load i32, ptr %gep, align 4
-  %cmp19 = icmp slt i32 %retval.0.i, %13
+  %14 = zext nneg i32 %index.088 to i64
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %14
+  %15 = load i32, ptr %gep, align 4
+  %cmp19 = icmp slt i32 %retval.0.i, %15
   br i1 %cmp19, label %for.inc, label %if.end38
 
 for.inc:                                          ; preds = %land.rhs
@@ -963,20 +965,20 @@ for.inc:                                          ; preds = %land.rhs
   br i1 %cmp17, label %land.rhs, label %if.end38, !llvm.loop !7
 
 for.cond22:                                       ; preds = %for.cond22.preheader, %land.rhs25
-  %indvars.iv = phi i64 [ %7, %for.cond22.preheader ], [ %15, %land.rhs25 ]
-  %14 = trunc i64 %indvars.iv to i32
-  %cmp23 = icmp sgt i32 %14, 0
+  %indvars.iv = phi i64 [ %7, %for.cond22.preheader ], [ %17, %land.rhs25 ]
+  %16 = trunc i64 %indvars.iv to i32
+  %cmp23 = icmp sgt i32 %16, 0
   br i1 %cmp23, label %land.rhs25, label %if.end38
 
 land.rhs25:                                       ; preds = %for.cond22
-  %15 = add nsw i64 %indvars.iv, -1
-  %name = getelementptr %struct.FWCfgFiles, ptr %2, i64 0, i32 1, i64 %15, i32 3
+  %17 = add nsw i64 %indvars.iv, -1
+  %name = getelementptr %struct.FWCfgFiles, ptr %2, i64 0, i32 1, i64 %17, i32 3
   %call30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(1) %name) #21
   %cmp31 = icmp slt i32 %call30, 0
   br i1 %cmp31, label %for.cond22, label %if.end38, !llvm.loop !8
 
 if.end38:                                         ; preds = %for.inc, %land.rhs, %land.rhs25, %for.cond22
-  %index.2 = phi i32 [ %14, %land.rhs25 ], [ %smin, %for.cond22 ], [ 0, %for.inc ], [ %index.088, %land.rhs ]
+  %index.2 = phi i32 [ %16, %land.rhs25 ], [ %smin, %for.cond22 ], [ 0, %for.inc ], [ %index.088, %land.rhs ]
   %order.0 = phi i32 [ 0, %for.cond22 ], [ 0, %land.rhs25 ], [ %retval.0.i, %land.rhs ], [ %retval.0.i, %for.inc ]
   %cmp4090 = icmp sgt i32 %4, %index.2
   br i1 %cmp4090, label %for.body42.lr.ph, label %if.end38.for.end78_crit_edge
@@ -990,70 +992,70 @@ if.end38.for.end78_crit_edge:                     ; preds = %get_fw_cfg_order.ex
 for.body42.lr.ph:                                 ; preds = %if.end38
   %entries = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 2
   %entry_order69 = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 3
-  %16 = sext i32 %4 to i64
-  %17 = sext i32 %index.2 to i64
+  %18 = sext i32 %4 to i64
+  %19 = sext i32 %index.2 to i64
   br label %for.body42
 
 for.body42:                                       ; preds = %for.body42.lr.ph, %for.body42
-  %indvars.iv98 = phi i64 [ %16, %for.body42.lr.ph ], [ %indvars.iv.next99, %for.body42 ]
-  %18 = load ptr, ptr %files, align 16
-  %arrayidx46 = getelementptr %struct.FWCfgFiles, ptr %18, i64 0, i32 1, i64 %indvars.iv98
+  %indvars.iv98 = phi i64 [ %18, %for.body42.lr.ph ], [ %indvars.iv.next99, %for.body42 ]
+  %20 = load ptr, ptr %files, align 16
+  %arrayidx46 = getelementptr %struct.FWCfgFiles, ptr %20, i64 0, i32 1, i64 %indvars.iv98
   %indvars.iv.next99 = add nsw i64 %indvars.iv98, -1
-  %arrayidx51 = getelementptr %struct.FWCfgFiles, ptr %18, i64 0, i32 1, i64 %indvars.iv.next99
+  %arrayidx51 = getelementptr %struct.FWCfgFiles, ptr %20, i64 0, i32 1, i64 %indvars.iv.next99
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx46, ptr noundef nonnull align 4 dereferenceable(64) %arrayidx51, i64 64, i1 false)
-  %19 = add nsw i64 %indvars.iv98, 32
-  %conv53 = trunc i64 %19 to i16
-  %20 = tail call i16 @llvm.bswap.i16(i16 %conv53)
-  %21 = load ptr, ptr %files, align 16
-  %select = getelementptr %struct.FWCfgFiles, ptr %21, i64 0, i32 1, i64 %indvars.iv98, i32 1
-  store i16 %20, ptr %select, align 4
-  %22 = load ptr, ptr %entries, align 8
-  %arrayidx62 = getelementptr %struct.FWCfgEntry, ptr %22, i64 %19
-  %23 = getelementptr %struct.FWCfgEntry, ptr %22, i64 %indvars.iv98
-  %arrayidx68 = getelementptr %struct.FWCfgEntry, ptr %23, i64 31
+  %21 = add nsw i64 %indvars.iv98, 32
+  %conv53 = trunc i64 %21 to i16
+  %22 = tail call i16 @llvm.bswap.i16(i16 %conv53)
+  %23 = load ptr, ptr %files, align 16
+  %select = getelementptr %struct.FWCfgFiles, ptr %23, i64 0, i32 1, i64 %indvars.iv98, i32 1
+  store i16 %22, ptr %select, align 4
+  %24 = load ptr, ptr %entries, align 8
+  %arrayidx62 = getelementptr %struct.FWCfgEntry, ptr %24, i64 %21
+  %25 = getelementptr %struct.FWCfgEntry, ptr %24, i64 %indvars.iv98
+  %arrayidx68 = getelementptr %struct.FWCfgEntry, ptr %25, i64 31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx62, ptr noundef nonnull align 8 dereferenceable(40) %arrayidx68, i64 40, i1 false)
-  %24 = load ptr, ptr %entry_order69, align 8
-  %arrayidx72 = getelementptr i32, ptr %24, i64 %indvars.iv.next99
-  %25 = load i32, ptr %arrayidx72, align 4
-  %arrayidx75 = getelementptr i32, ptr %24, i64 %indvars.iv98
-  store i32 %25, ptr %arrayidx75, align 4
-  %cmp40 = icmp sgt i64 %indvars.iv.next99, %17
+  %26 = load ptr, ptr %entry_order69, align 8
+  %arrayidx72 = getelementptr i32, ptr %26, i64 %indvars.iv.next99
+  %27 = load i32, ptr %arrayidx72, align 4
+  %arrayidx75 = getelementptr i32, ptr %26, i64 %indvars.iv98
+  store i32 %27, ptr %arrayidx75, align 4
+  %cmp40 = icmp sgt i64 %indvars.iv.next99, %19
   br i1 %cmp40, label %for.body42, label %for.end78, !llvm.loop !9
 
 for.end78:                                        ; preds = %for.body42, %if.end38.for.end78_crit_edge
   %order.0111 = phi i32 [ %order.0112, %if.end38.for.end78_crit_edge ], [ %order.0, %for.body42 ]
   %index.2109 = phi i32 [ %index.2110, %if.end38.for.end78_crit_edge ], [ %index.2, %for.body42 ]
-  %idxprom81.pre-phi = phi i64 [ %.pre105, %if.end38.for.end78_crit_edge ], [ %17, %for.body42 ]
-  %26 = load ptr, ptr %files, align 16
-  %arrayidx82 = getelementptr %struct.FWCfgFiles, ptr %26, i64 0, i32 1, i64 %idxprom81.pre-phi
+  %idxprom81.pre-phi = phi i64 [ %.pre105, %if.end38.for.end78_crit_edge ], [ %19, %for.body42 ]
+  %28 = load ptr, ptr %files, align 16
+  %arrayidx82 = getelementptr %struct.FWCfgFiles, ptr %28, i64 0, i32 1, i64 %idxprom81.pre-phi
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %arrayidx82, i8 0, i64 64, i1 false)
   %entries83 = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 2
-  %27 = load ptr, ptr %entries83, align 8
+  %29 = load ptr, ptr %entries83, align 8
   %add85 = add nsw i32 %index.2109, 32
   %idxprom86 = sext i32 %add85 to i64
-  %arrayidx87 = getelementptr %struct.FWCfgEntry, ptr %27, i64 %idxprom86
+  %arrayidx87 = getelementptr %struct.FWCfgEntry, ptr %29, i64 %idxprom86
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx87, i8 0, i64 40, i1 false)
-  %28 = load ptr, ptr %files, align 16
-  %name92 = getelementptr %struct.FWCfgFiles, ptr %28, i64 0, i32 1, i64 %idxprom81.pre-phi, i32 3
+  %30 = load ptr, ptr %files, align 16
+  %name92 = getelementptr %struct.FWCfgFiles, ptr %30, i64 0, i32 1, i64 %idxprom81.pre-phi, i32 3
   tail call void @pstrcpy(ptr noundef %name92, i32 noundef 56, ptr noundef %filename) #19
   %cmp95.not92 = icmp slt i32 %4, 0
   br i1 %cmp95.not92, label %for.end124, label %for.body97.preheader
 
 for.body97.preheader:                             ; preds = %for.end78
-  %29 = zext i32 %index.2109 to i64
-  %30 = add nuw i32 %4, 1
-  %wide.trip.count = zext i32 %30 to i64
+  %31 = zext i32 %index.2109 to i64
+  %32 = add nuw i32 %4, 1
+  %wide.trip.count = zext i32 %32 to i64
   br label %for.body97
 
 for.body97:                                       ; preds = %for.body97.preheader, %for.inc123
   %indvars.iv102 = phi i64 [ 0, %for.body97.preheader ], [ %indvars.iv.next103, %for.inc123 ]
-  %cmp98.not = icmp eq i64 %indvars.iv102, %29
+  %cmp98.not = icmp eq i64 %indvars.iv102, %31
   br i1 %cmp98.not, label %for.inc123, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body97
-  %31 = load ptr, ptr %files, align 16
-  %name104 = getelementptr %struct.FWCfgFiles, ptr %31, i64 0, i32 1, i64 %idxprom81.pre-phi, i32 3
-  %name110 = getelementptr %struct.FWCfgFiles, ptr %31, i64 0, i32 1, i64 %indvars.iv102, i32 3
+  %33 = load ptr, ptr %files, align 16
+  %name104 = getelementptr %struct.FWCfgFiles, ptr %33, i64 0, i32 1, i64 %idxprom81.pre-phi, i32 3
+  %name110 = getelementptr %struct.FWCfgFiles, ptr %33, i64 0, i32 1, i64 %indvars.iv102, i32 3
   %call112 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name104, ptr noundef nonnull dereferenceable(1) %name110) #21
   %cmp113 = icmp eq i32 %call112, 0
   br i1 %cmp113, label %if.then115, label %for.inc123
@@ -1084,15 +1086,15 @@ if.else.i:                                        ; preds = %for.end124
   unreachable
 
 if.end.i:                                         ; preds = %for.end124
-  %32 = and i16 %conv126, 16383
+  %34 = and i16 %conv126, 16383
   %key.lobit.i = lshr i16 %conv126, 15
   %idxprom.i = zext nneg i16 %key.lobit.i to i64
   %arrayidx.i80 = getelementptr %struct.FWCfgState, ptr %s, i64 0, i32 2, i64 %idxprom.i
-  %33 = load ptr, ptr %arrayidx.i80, align 8
-  %idxprom9.i = zext nneg i16 %32 to i64
-  %data11.i = getelementptr %struct.FWCfgEntry, ptr %33, i64 %idxprom9.i, i32 2
-  %34 = load ptr, ptr %data11.i, align 8
-  %cmp12.i81 = icmp eq ptr %34, null
+  %35 = load ptr, ptr %arrayidx.i80, align 8
+  %idxprom9.i = zext nneg i16 %34 to i64
+  %data11.i = getelementptr %struct.FWCfgEntry, ptr %35, i64 %idxprom9.i, i32 2
+  %36 = load ptr, ptr %data11.i, align 8
+  %cmp12.i81 = icmp eq ptr %36, null
   br i1 %cmp12.i81, label %fw_cfg_add_bytes_callback.exit, label %if.else15.i
 
 if.else15.i:                                      ; preds = %if.end.i
@@ -1102,64 +1104,64 @@ if.else15.i:                                      ; preds = %if.end.i
 fw_cfg_add_bytes_callback.exit:                   ; preds = %if.end.i
   store ptr %data, ptr %data11.i, align 8
   %conv23.i = trunc i64 %len to i32
-  %35 = load ptr, ptr %arrayidx.i80, align 8
-  %arrayidx28.i = getelementptr %struct.FWCfgEntry, ptr %35, i64 %idxprom9.i
-  store i32 %conv23.i, ptr %arrayidx28.i, align 8
-  %36 = load ptr, ptr %arrayidx.i80, align 8
-  %select_cb35.i = getelementptr %struct.FWCfgEntry, ptr %36, i64 %idxprom9.i, i32 4
-  store ptr %select_cb, ptr %select_cb35.i, align 8
   %37 = load ptr, ptr %arrayidx.i80, align 8
-  %write_cb41.i = getelementptr %struct.FWCfgEntry, ptr %37, i64 %idxprom9.i, i32 5
-  store ptr %write_cb, ptr %write_cb41.i, align 8
+  %arrayidx28.i = getelementptr %struct.FWCfgEntry, ptr %37, i64 %idxprom9.i
+  store i32 %conv23.i, ptr %arrayidx28.i, align 8
   %38 = load ptr, ptr %arrayidx.i80, align 8
-  %callback_opaque47.i = getelementptr %struct.FWCfgEntry, ptr %38, i64 %idxprom9.i, i32 3
+  %select_cb35.i = getelementptr %struct.FWCfgEntry, ptr %38, i64 %idxprom9.i, i32 4
+  store ptr %select_cb, ptr %select_cb35.i, align 8
+  %39 = load ptr, ptr %arrayidx.i80, align 8
+  %write_cb41.i = getelementptr %struct.FWCfgEntry, ptr %39, i64 %idxprom9.i, i32 5
+  store ptr %write_cb, ptr %write_cb41.i, align 8
+  %40 = load ptr, ptr %arrayidx.i80, align 8
+  %callback_opaque47.i = getelementptr %struct.FWCfgEntry, ptr %40, i64 %idxprom9.i, i32 3
   store ptr %callback_opaque, ptr %callback_opaque47.i, align 8
   %lnot49.i = xor i1 %read_only, true
-  %39 = load ptr, ptr %arrayidx.i80, align 8
-  %allow_write.i = getelementptr %struct.FWCfgEntry, ptr %39, i64 %idxprom9.i, i32 1
+  %41 = load ptr, ptr %arrayidx.i80, align 8
+  %allow_write.i = getelementptr %struct.FWCfgEntry, ptr %41, i64 %idxprom9.i, i32 1
   %frombool56.i = zext i1 %lnot49.i to i8
   store i8 %frombool56.i, ptr %allow_write.i, align 4
-  %40 = tail call i32 @llvm.bswap.i32(i32 %conv23.i)
-  %41 = load ptr, ptr %files, align 16
-  %arrayidx133 = getelementptr %struct.FWCfgFiles, ptr %41, i64 0, i32 1, i64 %idxprom81.pre-phi
-  store i32 %40, ptr %arrayidx133, align 4
-  %42 = tail call i16 @llvm.bswap.i16(i16 %conv126)
+  %42 = tail call i32 @llvm.bswap.i32(i32 %conv23.i)
   %43 = load ptr, ptr %files, align 16
-  %select141 = getelementptr %struct.FWCfgFiles, ptr %43, i64 0, i32 1, i64 %idxprom81.pre-phi, i32 1
-  store i16 %42, ptr %select141, align 4
-  %entry_order142 = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 3
-  %44 = load ptr, ptr %entry_order142, align 8
-  %arrayidx144 = getelementptr i32, ptr %44, i64 %idxprom81.pre-phi
-  store i32 %order.0111, ptr %arrayidx144, align 4
+  %arrayidx133 = getelementptr %struct.FWCfgFiles, ptr %43, i64 0, i32 1, i64 %idxprom81.pre-phi
+  store i32 %42, ptr %arrayidx133, align 4
+  %44 = tail call i16 @llvm.bswap.i16(i16 %conv126)
   %45 = load ptr, ptr %files, align 16
-  %name149 = getelementptr %struct.FWCfgFiles, ptr %45, i64 0, i32 1, i64 %idxprom81.pre-phi, i32 3
+  %select141 = getelementptr %struct.FWCfgFiles, ptr %45, i64 0, i32 1, i64 %idxprom81.pre-phi, i32 1
+  store i16 %44, ptr %select141, align 4
+  %entry_order142 = getelementptr inbounds %struct.FWCfgState, ptr %s, i64 0, i32 3
+  %46 = load ptr, ptr %entry_order142, align 8
+  %arrayidx144 = getelementptr i32, ptr %46, i64 %idxprom81.pre-phi
+  store i32 %order.0111, ptr %arrayidx144, align 4
+  %47 = load ptr, ptr %files, align 16
+  %name149 = getelementptr %struct.FWCfgFiles, ptr %47, i64 0, i32 1, i64 %idxprom81.pre-phi, i32 3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %46 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %46, 0
-  %47 = load i16, ptr @_TRACE_FW_CFG_ADD_FILE_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %47, 0
+  %48 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %48, 0
+  %49 = load i16, ptr @_TRACE_FW_CFG_ADD_FILE_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %49, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_fw_cfg_add_file.exit
 
 land.lhs.true5.i.i:                               ; preds = %fw_cfg_add_bytes_callback.exit
-  %48 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %48, 32768
+  %50 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %50, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_fw_cfg_add_file.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %49 = load i8, ptr @message_with_timestamp, align 1
-  %50 = and i8 %49, 1
-  %tobool7.not.i.i = icmp eq i8 %50, 0
+  %51 = load i8, ptr @message_with_timestamp, align 1
+  %52 = and i8 %51, 1
+  %tobool7.not.i.i = icmp eq i8 %52, 0
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
   %call10.i.i = tail call i32 @qemu_get_thread_id() #19
-  %51 = load i64, ptr %_now.i.i, align 8
+  %53 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
-  %52 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.77, i32 noundef %call10.i.i, i64 noundef %51, i64 noundef %52, ptr noundef nonnull %s, i32 noundef %index.2109, ptr noundef %name149, i64 noundef %len) #19
+  %54 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.77, i32 noundef %call10.i.i, i64 noundef %53, i64 noundef %54, ptr noundef nonnull %s, i32 noundef %index.2109, ptr noundef %name149, i64 noundef %len) #19
   br label %trace_fw_cfg_add_file.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1169,9 +1171,9 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_fw_cfg_add_file.exit:                       ; preds = %fw_cfg_add_bytes_callback.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %add151 = add nsw i32 %4, 1
-  %53 = tail call i32 @llvm.bswap.i32(i32 %add151)
-  %54 = load ptr, ptr %files, align 16
-  store i32 %53, ptr %54, align 4
+  %55 = tail call i32 @llvm.bswap.i32(i32 %add151)
+  %56 = load ptr, ptr %files, align 16
+  store i32 %55, ptr %56, align 4
   %call.i82 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(16) @.str.71) #21
   %tobool.not.i = icmp eq i32 %call.i82, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i83

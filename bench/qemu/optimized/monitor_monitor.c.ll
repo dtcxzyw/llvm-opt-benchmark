@@ -719,7 +719,7 @@ do.body18.lr.ph:                                  ; preds = %if.end16
   br label %do.body18
 
 do.body18:                                        ; preds = %do.body18.lr.ph, %qobject_unref_impl.exit
-  %10 = phi ptr [ %9, %do.body18.lr.ph ], [ %39, %qobject_unref_impl.exit ]
+  %10 = phi ptr [ %9, %do.body18.lr.ph ], [ %41, %qobject_unref_impl.exit ]
   %entry20 = getelementptr inbounds %struct.MonitorQapiEvent, ptr %10, i64 0, i32 2
   %11 = load ptr, ptr %entry20, align 8
   store ptr %11, ptr %5, align 8
@@ -784,8 +784,10 @@ trace_monitor_protocol_event_queue.exit.i:        ; preds = %if.else.i.i.i, %if.
   %22 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %23 = inttoptr i64 %22 to ptr
   call void %23(ptr noundef nonnull @monitor_lock, ptr noundef nonnull @.str.18, i32 noundef 122) #13
-  %tobool.not.i = icmp eq i64 %14, 0
-  br i1 %tobool.not.i, label %if.then3.i, label %if.else4.i
+  %24 = lshr i64 15270017394278143, %idxprom.i
+  %25 = and i64 %24, 1
+  %tobool.not.not.i = icmp eq i64 %25, 0
+  br i1 %tobool.not.not.i, label %if.else4.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %trace_monitor_protocol_event_queue.exit.i
   call fastcc void @monitor_qapi_event_emit(i32 noundef %12, ptr noundef %13)
@@ -798,8 +800,8 @@ if.else4.i:                                       ; preds = %trace_monitor_proto
 
 land.lhs.true.i.i:                                ; preds = %if.else4.i
   %obj.val.i.i = load i32, ptr %call5.i, align 8
-  %24 = add i32 %obj.val.i.i, -1
-  %or.cond.i.i31.i = icmp ult i32 %24, 6
+  %26 = add i32 %obj.val.i.i, -1
+  %or.cond.i.i31.i = icmp ult i32 %26, 6
   br i1 %or.cond.i.i31.i, label %qobject_type.exit.i.i, label %if.else.i.i32.i
 
 if.else.i.i32.i:                                  ; preds = %land.lhs.true.i.i
@@ -818,15 +820,15 @@ qobject_check_type.exit.i:                        ; preds = %if.else.i.i, %qobje
   store i32 %12, ptr %key.i, align 8
   store ptr %retval.0.i.i, ptr %data8.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timer.i, i8 0, i64 16, i1 false)
-  %25 = load ptr, ptr @monitor_qapi_event_state, align 8
-  %call10.i = call ptr @g_hash_table_lookup(ptr noundef %25, ptr noundef nonnull %key.i) #13
+  %27 = load ptr, ptr @monitor_qapi_event_state, align 8
+  %call10.i = call ptr @g_hash_table_lookup(ptr noundef %27, ptr noundef nonnull %key.i) #13
   %tobool11.not.i = icmp eq ptr %call10.i, null
   br i1 %tobool11.not.i, label %if.else34.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %qobject_check_type.exit.i
   %timer12.i = getelementptr inbounds %struct.MonitorQAPIEventState, ptr %call10.i, i64 0, i32 2
-  %26 = load ptr, ptr %timer12.i, align 8
-  %call13.i = call zeroext i1 @timer_pending(ptr noundef %26) #13
+  %28 = load ptr, ptr %timer12.i, align 8
+  %call13.i = call zeroext i1 @timer_pending(ptr noundef %28) #13
   br i1 %call13.i, label %if.then18.i, label %if.else15.i
 
 if.else15.i:                                      ; preds = %lor.lhs.false.i
@@ -835,14 +837,14 @@ if.else15.i:                                      ; preds = %lor.lhs.false.i
 
 if.then18.i:                                      ; preds = %lor.lhs.false.i
   %qdict19.i = getelementptr inbounds %struct.MonitorQAPIEventState, ptr %call10.i, i64 0, i32 3
-  %27 = load ptr, ptr %qdict19.i, align 8
-  %tobool20.not.i = icmp eq ptr %27, null
+  %29 = load ptr, ptr %qdict19.i, align 8
+  %tobool20.not.i = icmp eq ptr %29, null
   br i1 %tobool20.not.i, label %qobject_unref_impl.exit.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then18.i
-  %refcnt.i.i = getelementptr inbounds %struct.QObjectBase_, ptr %27, i64 0, i32 1
-  %28 = load i64, ptr %refcnt.i.i, align 8
-  %tobool1.not.i.i = icmp eq i64 %28, 0
+  %refcnt.i.i = getelementptr inbounds %struct.QObjectBase_, ptr %29, i64 0, i32 1
+  %30 = load i64, ptr %refcnt.i.i, align 8
+  %tobool1.not.i.i = icmp eq i64 %30, 0
   br i1 %tobool1.not.i.i, label %if.else.i35.i, label %land.lhs.true.i33.i
 
 if.else.i35.i:                                    ; preds = %lor.lhs.false.i.i
@@ -850,13 +852,13 @@ if.else.i35.i:                                    ; preds = %lor.lhs.false.i.i
   unreachable
 
 land.lhs.true.i33.i:                              ; preds = %lor.lhs.false.i.i
-  %dec.i.i = add i64 %28, -1
+  %dec.i.i = add i64 %30, -1
   store i64 %dec.i.i, ptr %refcnt.i.i, align 8
   %cmp.i34.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i34.i, label %if.then5.i.i, label %qobject_unref_impl.exit.i
 
 if.then5.i.i:                                     ; preds = %land.lhs.true.i33.i
-  call void @qobject_destroy(ptr noundef nonnull %27) #13
+  call void @qobject_destroy(ptr noundef nonnull %29) #13
   br label %qobject_unref_impl.exit.i
 
 qobject_unref_impl.exit.i:                        ; preds = %if.then5.i.i, %land.lhs.true.i33.i, %if.then18.i
@@ -865,8 +867,8 @@ qobject_unref_impl.exit.i:                        ; preds = %if.then5.i.i, %land
 
 if.then.i.i:                                      ; preds = %qobject_unref_impl.exit.i
   %refcnt.i36.i = getelementptr inbounds %struct.QObjectBase_, ptr %13, i64 0, i32 1
-  %29 = load i64, ptr %refcnt.i36.i, align 8
-  %inc.i.i = add i64 %29, 1
+  %31 = load i64, ptr %refcnt.i36.i, align 8
+  %inc.i.i = add i64 %31, 1
   store i64 %inc.i.i, ptr %refcnt.i36.i, align 8
   br label %qobject_ref_impl.exit.i
 
@@ -875,9 +877,9 @@ qobject_ref_impl.exit.i:                          ; preds = %if.then.i.i, %qobje
   br label %monitor_qapi_event_queue_no_reenter.exit
 
 if.else34.i:                                      ; preds = %qobject_check_type.exit.i
-  %30 = load i8, ptr @qtest_allowed, align 1
-  %31 = and i8 %30, 1
-  %cond.i.i = zext nneg i8 %31 to i32
+  %32 = load i8, ptr @qtest_allowed, align 1
+  %33 = and i8 %32, 1
+  %cond.i.i = zext nneg i8 %33 to i32
   %call36.i = call i64 @qemu_clock_get_ns(i32 noundef %cond.i.i) #13
   call fastcc void @monitor_qapi_event_emit(i32 noundef %12, ptr noundef %13)
   %call37.i = call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #16
@@ -887,8 +889,8 @@ if.else34.i:                                      ; preds = %qobject_check_type.
 
 if.then.i37.i:                                    ; preds = %if.else34.i
   %refcnt.i38.i = getelementptr inbounds %struct.QObjectBase_, ptr %retval.0.i.i, i64 0, i32 1
-  %32 = load i64, ptr %refcnt.i38.i, align 8
-  %inc.i39.i = add i64 %32, 1
+  %34 = load i64, ptr %refcnt.i38.i, align 8
+  %inc.i39.i = add i64 %34, 1
   store i64 %inc.i39.i, ptr %refcnt.i38.i, align 8
   br label %qobject_ref_impl.exit40.i
 
@@ -897,31 +899,31 @@ qobject_ref_impl.exit40.i:                        ; preds = %if.then.i37.i, %if.
   store ptr %retval.0.i.i, ptr %data51.i, align 8
   %qdict52.i = getelementptr inbounds %struct.MonitorQAPIEventState, ptr %call37.i, i64 0, i32 3
   store ptr null, ptr %qdict52.i, align 8
-  %33 = load i8, ptr @qtest_allowed, align 1
-  %34 = and i8 %33, 1
-  %cond.i41.i = zext nneg i8 %34 to i32
+  %35 = load i8, ptr @qtest_allowed, align 1
+  %36 = and i8 %35, 1
+  %cond.i41.i = zext nneg i8 %36 to i32
   %call.i.i.i.i = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #16
   call void @timer_init_full(ptr noundef %call.i.i.i.i, ptr noundef null, i32 noundef %cond.i41.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @monitor_qapi_event_handler, ptr noundef nonnull %call37.i) #13
   %timer55.i = getelementptr inbounds %struct.MonitorQAPIEventState, ptr %call37.i, i64 0, i32 2
   store ptr %call.i.i.i.i, ptr %timer55.i, align 8
-  %35 = load ptr, ptr @monitor_qapi_event_state, align 8
-  %call56.i = call i32 @g_hash_table_add(ptr noundef %35, ptr noundef nonnull %call37.i) #13
-  %36 = load ptr, ptr %timer55.i, align 8
+  %37 = load ptr, ptr @monitor_qapi_event_state, align 8
+  %call56.i = call i32 @g_hash_table_add(ptr noundef %37, ptr noundef nonnull %call37.i) #13
+  %38 = load ptr, ptr %timer55.i, align 8
   %add.i = add i64 %call36.i, %14
-  call void @timer_mod_ns(ptr noundef %36, i64 noundef %add.i) #13
+  call void @timer_mod_ns(ptr noundef %38, i64 noundef %add.i) #13
   br label %monitor_qapi_event_queue_no_reenter.exit
 
 monitor_qapi_event_queue_no_reenter.exit:         ; preds = %if.then3.i, %qobject_ref_impl.exit.i, %qobject_ref_impl.exit40.i
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull @monitor_lock, ptr noundef nonnull @.str.18, i32 noundef 132) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %key.i)
-  %37 = load ptr, ptr %qdict32, align 8
-  %tobool35.not = icmp eq ptr %37, null
+  %39 = load ptr, ptr %qdict32, align 8
+  %tobool35.not = icmp eq ptr %39, null
   br i1 %tobool35.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i15
 
 lor.lhs.false.i15:                                ; preds = %monitor_qapi_event_queue_no_reenter.exit
-  %refcnt.i16 = getelementptr inbounds %struct.QObjectBase_, ptr %37, i64 0, i32 1
-  %38 = load i64, ptr %refcnt.i16, align 8
-  %tobool1.not.i = icmp eq i64 %38, 0
+  %refcnt.i16 = getelementptr inbounds %struct.QObjectBase_, ptr %39, i64 0, i32 1
+  %40 = load i64, ptr %refcnt.i16, align 8
+  %tobool1.not.i = icmp eq i64 %40, 0
   br i1 %tobool1.not.i, label %if.else.i18, label %land.lhs.true.i
 
 if.else.i18:                                      ; preds = %lor.lhs.false.i15
@@ -929,19 +931,19 @@ if.else.i18:                                      ; preds = %lor.lhs.false.i15
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i15
-  %dec.i = add i64 %38, -1
+  %dec.i = add i64 %40, -1
   store i64 %dec.i, ptr %refcnt.i16, align 8
   %cmp.i17 = icmp eq i64 %dec.i, 0
   br i1 %cmp.i17, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  call void @qobject_destroy(ptr noundef nonnull %37) #13
+  call void @qobject_destroy(ptr noundef nonnull %39) #13
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %monitor_qapi_event_queue_no_reenter.exit, %land.lhs.true.i, %if.then5.i
   call void @g_free(ptr noundef nonnull %10) #13
-  %39 = load ptr, ptr %5, align 8
-  %cmp.not = icmp eq ptr %39, null
+  %41 = load ptr, ptr %5, align 8
+  %cmp.not = icmp eq ptr %41, null
   br i1 %cmp.not, label %while.end, label %do.body18, !llvm.loop !7
 
 while.end:                                        ; preds = %qobject_unref_impl.exit, %if.end16

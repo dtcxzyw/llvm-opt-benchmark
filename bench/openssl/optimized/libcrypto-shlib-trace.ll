@@ -38,18 +38,14 @@ if.end:                                           ; preds = %entry
   %conv = zext nneg i32 %num to i64
   %arrayidx = getelementptr inbounds [19 x %struct.trace_category_st], ptr @trace_categories, i64 0, i64 %conv
   %0 = load ptr, ptr %arrayidx, align 16
-  %cmp3.not = icmp eq ptr %0, null
-  br i1 %cmp3.not, label %return, label %lor.lhs.false9
-
-lor.lhs.false9:                                   ; preds = %if.end
   %num12 = getelementptr inbounds [19 x %struct.trace_category_st], ptr @trace_categories, i64 0, i64 %conv, i32 1
   %1 = load i32, ptr %num12, align 8
   %cmp13 = icmp eq i32 %1, %num
   %spec.select = select i1 %cmp13, ptr %0, ptr null
   br label %return
 
-return:                                           ; preds = %lor.lhs.false9, %if.end, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ %spec.select, %lor.lhs.false9 ]
+return:                                           ; preds = %if.end, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ %spec.select, %if.end ]
   ret ptr %retval.0
 }
 

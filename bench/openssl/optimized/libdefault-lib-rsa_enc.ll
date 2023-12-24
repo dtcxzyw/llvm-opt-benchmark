@@ -484,32 +484,26 @@ sw.bb:                                            ; preds = %if.then2
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %return, label %if.end24
 
-for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %3 = phi i32 [ 1, %for.cond.preheader ], [ %4, %for.inc ]
-  %cmp12 = icmp eq i32 %1, %3
-  br i1 %cmp12, label %for.end, label %for.inc
-
-for.inc:                                          ; preds = %for.body
+for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds [6 x %struct.ossl_item_st], ptr @padding_item, i64 0, i64 %indvars.iv.next
-  %4 = load i32, ptr %arrayidx, align 16
-  %exitcond = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond, label %if.else, label %for.body, !llvm.loop !7
+  %cmp7.not = icmp eq i64 %indvars.iv.next, 5
+  br i1 %cmp7.not, label %if.else, label %for.body, !llvm.loop !7
 
-for.end:                                          ; preds = %for.body
-  %5 = and i64 %indvars.iv, 4294967295
-  %cmp17.not = icmp eq i64 %5, 5
-  br i1 %cmp17.not, label %if.else, label %if.then18
+for.body:                                         ; preds = %for.cond.preheader, %for.cond
+  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.cond ]
+  %arrayidx = getelementptr inbounds [6 x %struct.ossl_item_st], ptr @padding_item, i64 0, i64 %indvars.iv
+  %3 = load i32, ptr %arrayidx, align 16
+  %cmp12 = icmp eq i32 %1, %3
+  br i1 %cmp12, label %if.then18, label %for.cond
 
-if.then18:                                        ; preds = %for.end
+if.then18:                                        ; preds = %for.body
   %ptr = getelementptr inbounds [6 x %struct.ossl_item_st], ptr @padding_item, i64 0, i64 %indvars.iv, i32 1
-  %6 = load ptr, ptr %ptr, align 8
-  %call19 = tail call i32 @OSSL_PARAM_set_utf8_string(ptr noundef nonnull %call, ptr noundef nonnull %6) #6
+  %4 = load ptr, ptr %ptr, align 8
+  %call19 = tail call i32 @OSSL_PARAM_set_utf8_string(ptr noundef nonnull %call, ptr noundef nonnull %4) #6
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %return, label %if.end24
 
-if.else:                                          ; preds = %for.inc, %for.end
+if.else:                                          ; preds = %for.cond
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 369, ptr noundef nonnull @__func__.rsa_get_ctx_params) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 786691, ptr noundef null) #6
@@ -522,12 +516,12 @@ if.end24:                                         ; preds = %sw.bb, %if.then18, 
 
 land.lhs.true:                                    ; preds = %if.end24
   %oaep_md = getelementptr inbounds %struct.PROV_RSA_CTX, ptr %vprsactx, i64 0, i32 4
-  %7 = load ptr, ptr %oaep_md, align 8
-  %cmp27 = icmp eq ptr %7, null
+  %5 = load ptr, ptr %oaep_md, align 8
+  %cmp27 = icmp eq ptr %5, null
   br i1 %cmp27, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %land.lhs.true
-  %call29 = tail call ptr @EVP_MD_get0_name(ptr noundef nonnull %7) #6
+  %call29 = tail call ptr @EVP_MD_get0_name(ptr noundef nonnull %5) #6
   br label %cond.end
 
 cond.end:                                         ; preds = %land.lhs.true, %cond.false
@@ -543,18 +537,18 @@ if.end33:                                         ; preds = %cond.end, %if.end24
 
 if.then36:                                        ; preds = %if.end33
   %mgf1_md37 = getelementptr inbounds %struct.PROV_RSA_CTX, ptr %vprsactx, i64 0, i32 5
-  %8 = load ptr, ptr %mgf1_md37, align 8
-  %cmp38 = icmp eq ptr %8, null
+  %6 = load ptr, ptr %mgf1_md37, align 8
+  %cmp38 = icmp eq ptr %6, null
   br i1 %cmp38, label %cond.end43, label %cond.false47
 
 cond.end43:                                       ; preds = %if.then36
   %oaep_md40 = getelementptr inbounds %struct.PROV_RSA_CTX, ptr %vprsactx, i64 0, i32 4
-  %9 = load ptr, ptr %oaep_md40, align 8
-  %cmp45 = icmp eq ptr %9, null
+  %7 = load ptr, ptr %oaep_md40, align 8
+  %cmp45 = icmp eq ptr %7, null
   br i1 %cmp45, label %cond.end49, label %cond.false47
 
 cond.false47:                                     ; preds = %if.then36, %cond.end43
-  %cond4445 = phi ptr [ %9, %cond.end43 ], [ %8, %if.then36 ]
+  %cond4445 = phi ptr [ %7, %cond.end43 ], [ %6, %if.then36 ]
   %call48 = tail call ptr @EVP_MD_get0_name(ptr noundef nonnull %cond4445) #6
   br label %cond.end49
 
@@ -571,10 +565,10 @@ if.end55:                                         ; preds = %cond.end49, %if.end
 
 land.lhs.true58:                                  ; preds = %if.end55
   %oaep_label = getelementptr inbounds %struct.PROV_RSA_CTX, ptr %vprsactx, i64 0, i32 6
-  %10 = load ptr, ptr %oaep_label, align 8
+  %8 = load ptr, ptr %oaep_label, align 8
   %oaep_labellen = getelementptr inbounds %struct.PROV_RSA_CTX, ptr %vprsactx, i64 0, i32 7
-  %11 = load i64, ptr %oaep_labellen, align 8
-  %call59 = tail call i32 @OSSL_PARAM_set_octet_ptr(ptr noundef nonnull %call56, ptr noundef %10, i64 noundef %11) #6
+  %9 = load i64, ptr %oaep_labellen, align 8
+  %call59 = tail call i32 @OSSL_PARAM_set_octet_ptr(ptr noundef nonnull %call56, ptr noundef %8, i64 noundef %9) #6
   %tobool60.not = icmp eq i32 %call59, 0
   br i1 %tobool60.not, label %return, label %if.end62
 
@@ -585,8 +579,8 @@ if.end62:                                         ; preds = %land.lhs.true58, %i
 
 land.lhs.true65:                                  ; preds = %if.end62
   %client_version = getelementptr inbounds %struct.PROV_RSA_CTX, ptr %vprsactx, i64 0, i32 8
-  %12 = load i32, ptr %client_version, align 8
-  %call66 = tail call i32 @OSSL_PARAM_set_uint(ptr noundef nonnull %call63, i32 noundef %12) #6
+  %10 = load i32, ptr %client_version, align 8
+  %call66 = tail call i32 @OSSL_PARAM_set_uint(ptr noundef nonnull %call63, i32 noundef %10) #6
   %tobool67.not = icmp eq i32 %call66, 0
   br i1 %tobool67.not, label %return, label %if.end69
 
@@ -597,8 +591,8 @@ if.end69:                                         ; preds = %land.lhs.true65, %i
 
 land.lhs.true72:                                  ; preds = %if.end69
   %alt_version = getelementptr inbounds %struct.PROV_RSA_CTX, ptr %vprsactx, i64 0, i32 9
-  %13 = load i32, ptr %alt_version, align 4
-  %call73 = tail call i32 @OSSL_PARAM_set_uint(ptr noundef nonnull %call70, i32 noundef %13) #6
+  %11 = load i32, ptr %alt_version, align 4
+  %call73 = tail call i32 @OSSL_PARAM_set_uint(ptr noundef nonnull %call70, i32 noundef %11) #6
   %tobool74.not = icmp eq i32 %call73, 0
   br i1 %tobool74.not, label %return, label %if.end76
 
@@ -609,8 +603,8 @@ if.end76:                                         ; preds = %land.lhs.true72, %i
 
 land.lhs.true79:                                  ; preds = %if.end76
   %implicit_rejection = getelementptr inbounds %struct.PROV_RSA_CTX, ptr %vprsactx, i64 0, i32 10
-  %14 = load i32, ptr %implicit_rejection, align 8
-  %call80 = tail call i32 @OSSL_PARAM_set_uint(ptr noundef nonnull %call77, i32 noundef %14) #6
+  %12 = load i32, ptr %implicit_rejection, align 8
+  %call80 = tail call i32 @OSSL_PARAM_set_uint(ptr noundef nonnull %call77, i32 noundef %12) #6
   %tobool81.not = icmp eq i32 %call80, 0
   br i1 %tobool81.not, label %return, label %if.end83
 
@@ -708,38 +702,29 @@ sw.bb34:                                          ; preds = %if.then29
   %data = getelementptr inbounds %struct.ossl_param_st, ptr %call27, i64 0, i32 2
   %3 = load ptr, ptr %data, align 8
   %cmp35 = icmp eq ptr %3, null
-  br i1 %cmp35, label %return, label %for.body.preheader
+  br i1 %cmp35, label %return, label %for.body
 
-for.body.preheader:                               ; preds = %sw.bb34
-  %call4261 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(6) @.str.10) #8
-  %cmp4362 = icmp eq i32 %call4261, 0
-  br i1 %cmp4362, label %if.then44, label %for.cond
+for.cond:                                         ; preds = %for.body
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %cmp38.not = icmp eq i64 %indvars.iv.next, 5
+  br i1 %cmp38.not, label %if.end64, label %for.body, !llvm.loop !9
 
-for.cond:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv63 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv63, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond, label %if.end64, label %for.body, !llvm.loop !9
-
-for.body:                                         ; preds = %for.cond
-  %ptr = getelementptr inbounds [6 x %struct.ossl_item_st], ptr @padding_item, i64 0, i64 %indvars.iv.next, i32 1
+for.body:                                         ; preds = %sw.bb34, %for.cond
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %sw.bb34 ]
+  %ptr = getelementptr inbounds [6 x %struct.ossl_item_st], ptr @padding_item, i64 0, i64 %indvars.iv, i32 1
   %4 = load ptr, ptr %ptr, align 8
   %call42 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #8
   %cmp43 = icmp eq i32 %call42, 0
-  br i1 %cmp43, label %for.body.if.then44_crit_edge, label %for.cond, !llvm.loop !9
+  br i1 %cmp43, label %if.then44, label %for.cond
 
-for.body.if.then44_crit_edge:                     ; preds = %for.body
-  %arrayidx = getelementptr inbounds [6 x %struct.ossl_item_st], ptr @padding_item, i64 0, i64 %indvars.iv.next
-  %5 = load i32, ptr %arrayidx, align 16
-  br label %if.then44
-
-if.then44:                                        ; preds = %for.body.if.then44_crit_edge, %for.body.preheader
-  %.lcssa = phi i32 [ %5, %for.body.if.then44_crit_edge ], [ 1, %for.body.preheader ]
-  store i32 %.lcssa, ptr %pad_mode, align 4
+if.then44:                                        ; preds = %for.body
+  %arrayidx.le = getelementptr inbounds [6 x %struct.ossl_item_st], ptr @padding_item, i64 0, i64 %indvars.iv
+  %5 = load i32, ptr %arrayidx.le, align 16
+  store i32 %5, ptr %pad_mode, align 4
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb.sw.epilogthread-pre-split_crit_edge, %if.then44
-  %6 = phi i32 [ %.lcssa, %if.then44 ], [ %.pr.pre, %sw.bb.sw.epilogthread-pre-split_crit_edge ]
+  %6 = phi i32 [ %5, %if.then44 ], [ %.pr.pre, %sw.bb.sw.epilogthread-pre-split_crit_edge ]
   switch i32 %6, label %if.end64 [
     i32 6, label %return
     i32 4, label %land.lhs.true

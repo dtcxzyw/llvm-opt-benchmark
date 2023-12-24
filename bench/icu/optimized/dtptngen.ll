@@ -4034,8 +4034,8 @@ _ZN6icu_7512FormatParser3setERKNS_13UnicodeStringE.exit: ; preds = %do.body.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i)
   store i32 0, ptr %i, align 4
-  %cmp3113 = icmp sgt i32 %.pre, 0
-  br i1 %cmp3113, label %for.body4.lr.ph, label %for.end33
+  %cmp3112 = icmp sgt i32 %.pre, 0
+  br i1 %cmp3112, label %for.body4.lr.ph, label %for.end33
 
 for.body4.lr.ph:                                  ; preds = %_ZN6icu_7512FormatParser3setERKNS_13UnicodeStringE.exit.thread, %_ZN6icu_7512FormatParser3setERKNS_13UnicodeStringE.exit
   %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %quoteLiteral, i64 0, i32 1
@@ -4043,8 +4043,8 @@ for.body4.lr.ph:                                  ; preds = %_ZN6icu_7512FormatP
   br label %for.body4
 
 for.body4:                                        ; preds = %for.body4.lr.ph, %for.inc31
-  %storemerge42114 = phi i32 [ 0, %for.body4.lr.ph ], [ %inc32, %for.inc31 ]
-  %idxprom5 = sext i32 %storemerge42114 to i64
+  %storemerge42113 = phi i32 [ 0, %for.body4.lr.ph ], [ %inc32, %for.inc31 ]
+  %idxprom5 = sext i32 %storemerge42113 to i64
   %fUnion.i.i.i.i.i = getelementptr inbounds %"class.icu_75::FormatParser", ptr %fp, i64 0, i32 1, i64 %idxprom5, i32 1
   %5 = load i16, ptr %fUnion.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp slt i16 %5, 0
@@ -4075,7 +4075,7 @@ if.then:                                          ; preds = %_ZN6icu_7512FormatP
 
 invoke.cont:                                      ; preds = %if.then
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %quoteLiteral) #35
-  %.pre136 = load i32, ptr %i, align 4
+  %.pre128 = load i32, ptr %i, align 4
   br label %for.inc31
 
 lpad:                                             ; preds = %if.then
@@ -4108,17 +4108,17 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
   br i1 %cmp5.not.i.i, label %for.cond.i.i, label %for.inc31
 
 while.body.i.i:                                   ; preds = %while.body.preheader.i.i, %if.then16.i.i
-  %indvars.iv50.i.i = phi i64 [ %idxprom37.i.i, %while.body.preheader.i.i ], [ %indvars.iv.next51.i.i, %if.then16.i.i ]
-  %13 = phi i16 [ %18, %while.body.preheader.i.i ], [ %14, %if.then16.i.i ]
+  %indvars.iv50.i.i = phi i64 [ %18, %while.body.preheader.i.i ], [ %indvars.iv.next51.i.i, %if.then16.i.i ]
+  %.in.i.i = getelementptr inbounds [87 x %"struct.icu_75::dtTypeElem"], ptr @_ZN6icu_75L7dtTypesE, i64 0, i64 %indvars.iv50.i.i
+  %13 = load i16, ptr %.in.i.i, align 16
   %cmp15.not.i.i = icmp eq i16 %13, %10
   br i1 %cmp15.not.i.i, label %if.end18.i.i, label %if.then16.i.i
 
 if.then16.i.i:                                    ; preds = %while.body.i.i
-  %indvars.iv.next51.i.i = add i64 %indvars.iv50.i.i, 1
-  %arrayidx.i.i = getelementptr inbounds [87 x %"struct.icu_75::dtTypeElem"], ptr @_ZN6icu_75L7dtTypesE, i64 0, i64 %indvars.iv.next51.i.i
-  %14 = load i16, ptr %arrayidx.i.i, align 16
-  %cmp9.not.i.i = icmp eq i16 %14, 0
-  br i1 %cmp9.not.i.i, label %for.inc31, label %while.body.i.i, !llvm.loop !25
+  %indvars.iv.next51.i.i = add nsw i64 %indvars.iv50.i.i, 1
+  %14 = and i64 %indvars.iv.next51.i.i, 4294967295
+  %exitcond53.i.i = icmp eq i64 %14, 86
+  br i1 %exitcond53.i.i, label %for.inc31, label %while.body.i.i, !llvm.loop !25
 
 if.end18.i.i:                                     ; preds = %while.body.i.i
   %15 = trunc i64 %indvars.iv50.i.i to i32
@@ -4137,13 +4137,12 @@ if.end29.i.i:                                     ; preds = %if.end18.i.i
   br i1 %cmp34.not.i.i, label %_ZN6icu_7512FormatParser17getCanonicalIndexERKNS_13UnicodeStringE.exit, label %while.cond.outer.i.i, !llvm.loop !25
 
 while.cond.outer.i.i:                             ; preds = %while.cond.outer.i.i.preheader, %if.end29.i.i
-  %18 = phi i16 [ %10, %if.end29.i.i ], [ 71, %while.cond.outer.i.i.preheader ]
   %i.0.ph.i.i = phi i32 [ %add.i.i, %if.end29.i.i ], [ 0, %while.cond.outer.i.i.preheader ]
-  %cmp9.not39.i.i = icmp eq i16 %18, 0
+  %cmp9.not39.i.i = icmp eq i32 %i.0.ph.i.i, 86
   br i1 %cmp9.not39.i.i, label %for.inc31, label %while.body.preheader.i.i
 
 while.body.preheader.i.i:                         ; preds = %while.cond.outer.i.i
-  %idxprom37.i.i = sext i32 %i.0.ph.i.i to i64
+  %18 = sext i32 %i.0.ph.i.i to i64
   br label %while.body.i.i
 
 _ZN6icu_7512FormatParser17getCanonicalIndexERKNS_13UnicodeStringE.exit: ; preds = %if.end18.i.i, %if.end29.i.i
@@ -4157,8 +4156,8 @@ if.end10:                                         ; preds = %_ZN6icu_7512FormatP
   %19 = load i32, ptr %field13, align 4
   %20 = trunc i16 %10 to i8
   %idxprom.i.i = sext i32 %19 to i64
-  %arrayidx.i.i57 = getelementptr inbounds [16 x i8], ptr %original, i64 0, i64 %idxprom.i.i
-  store i8 %20, ptr %arrayidx.i.i57, align 1
+  %arrayidx.i.i = getelementptr inbounds [16 x i8], ptr %original, i64 0, i64 %idxprom.i.i
+  store i8 %20, ptr %arrayidx.i.i, align 1
   %conv2.i.i = trunc i32 %cond.i.i.i.i to i8
   %arrayidx4.i.i = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 2, i32 1, i64 %idxprom.i.i
   store i8 %conv2.i.i, ptr %arrayidx4.i.i, align 1
@@ -4166,8 +4165,8 @@ if.end10:                                         ; preds = %_ZN6icu_7512FormatP
   %minLen = getelementptr inbounds [87 x %"struct.icu_75::dtTypeElem"], ptr @_ZN6icu_75L7dtTypesE, i64 0, i64 %idxprom11, i32 3
   %22 = load i16, ptr %minLen, align 2
   %conv.i = trunc i16 %21 to i8
-  %arrayidx.i59 = getelementptr inbounds [16 x i8], ptr %baseOriginal, i64 0, i64 %idxprom.i.i
-  store i8 %conv.i, ptr %arrayidx.i59, align 1
+  %arrayidx.i58 = getelementptr inbounds [16 x i8], ptr %baseOriginal, i64 0, i64 %idxprom.i.i
+  store i8 %conv.i, ptr %arrayidx.i58, align 1
   %conv2.i = trunc i16 %22 to i8
   %arrayidx4.i = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 3, i32 1, i64 %idxprom.i.i
   store i8 %conv2.i, ptr %arrayidx4.i, align 1
@@ -4178,11 +4177,11 @@ if.end10:                                         ; preds = %_ZN6icu_7512FormatP
 
 if.then20:                                        ; preds = %if.end10
   %24 = load i16, ptr %fUnion.i.i.i.i.i, align 8
-  %cmp.i.i60 = icmp slt i16 %24, 0
+  %cmp.i.i59 = icmp slt i16 %24, 0
   %25 = ashr i16 %24, 5
   %shr.i.i = zext i16 %25 to i32
   %26 = load i32, ptr %fLength.i.i.i.i, align 4
-  %cond.i = select i1 %cmp.i.i60, i32 %26, i32 %shr.i.i
+  %cond.i = select i1 %cmp.i.i59, i32 %26, i32 %shr.i.i
   %27 = trunc i32 %cond.i to i16
   %conv25 = add i16 %23, %27
   br label %if.end26
@@ -4195,7 +4194,7 @@ if.end26:                                         ; preds = %if.then20, %if.end1
   br label %for.inc31
 
 for.inc31:                                        ; preds = %for.body.i.i, %while.cond.outer.i.i, %if.then16.i.i, %for.body4, %_ZN6icu_7512FormatParser17getCanonicalIndexERKNS_13UnicodeStringE.exit, %if.end26, %invoke.cont
-  %28 = phi i32 [ %storemerge42114, %for.body4 ], [ %storemerge42114, %_ZN6icu_7512FormatParser17getCanonicalIndexERKNS_13UnicodeStringE.exit ], [ %storemerge42114, %if.end26 ], [ %.pre136, %invoke.cont ], [ %storemerge42114, %if.then16.i.i ], [ %storemerge42114, %while.cond.outer.i.i ], [ %storemerge42114, %for.body.i.i ]
+  %28 = phi i32 [ %storemerge42113, %for.body4 ], [ %storemerge42113, %_ZN6icu_7512FormatParser17getCanonicalIndexERKNS_13UnicodeStringE.exit ], [ %storemerge42113, %if.end26 ], [ %.pre128, %invoke.cont ], [ %storemerge42113, %if.then16.i.i ], [ %storemerge42113, %while.cond.outer.i.i ], [ %storemerge42113, %for.body.i.i ]
   %inc32 = add nsw i32 %28, 1
   store i32 %inc32, ptr %i, align 4
   %29 = load i32, ptr %itemNumber.i, align 8
@@ -4203,76 +4202,76 @@ for.inc31:                                        ; preds = %for.body.i.i, %whil
   br i1 %cmp3, label %for.body4, label %for.end33, !llvm.loop !26
 
 for.end33:                                        ; preds = %for.inc31, %_ZN6icu_7512FormatParser3setERKNS_13UnicodeStringE.exit
-  %arrayidx.i61 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 2, i32 1, i64 12
-  %30 = load i8, ptr %arrayidx.i61, align 4
-  %cmp.i62.not = icmp eq i8 %30, 0
-  %arrayidx.i64 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 2, i32 1, i64 14
-  %31 = load i8, ptr %arrayidx.i64, align 2
-  %cmp.i65.not = icmp eq i8 %31, 0
-  %or.cond = select i1 %cmp.i62.not, i1 true, i1 %cmp.i65.not
+  %arrayidx.i60 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 2, i32 1, i64 12
+  %30 = load i8, ptr %arrayidx.i60, align 4
+  %cmp.i61.not = icmp eq i8 %30, 0
+  %arrayidx.i63 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 2, i32 1, i64 14
+  %31 = load i8, ptr %arrayidx.i63, align 2
+  %cmp.i64.not = icmp eq i8 %31, 0
+  %or.cond = select i1 %cmp.i61.not, i1 true, i1 %cmp.i64.not
   br i1 %or.cond, label %if.end88, label %land.lhs.true40
 
 land.lhs.true40:                                  ; preds = %for.end33
-  %arrayidx.i67 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 2, i32 1, i64 13
-  %32 = load i8, ptr %arrayidx.i67, align 1
-  %cmp.i68.not = icmp eq i8 %32, 0
-  br i1 %cmp.i68.not, label %if.then56, label %if.end88
+  %arrayidx.i66 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 2, i32 1, i64 13
+  %32 = load i8, ptr %arrayidx.i66, align 1
+  %cmp.i67.not = icmp eq i8 %32, 0
+  br i1 %cmp.i67.not, label %if.then56, label %if.end88
 
 if.then56:                                        ; preds = %land.lhs.true40
-  %arrayidx.i71 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 2, i32 0, i64 13
-  store i8 115, ptr %arrayidx.i71, align 1
-  store i8 1, ptr %arrayidx.i67, align 1
-  %arrayidx.i75 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 3, i32 0, i64 13
-  store i8 115, ptr %arrayidx.i75, align 1
-  %arrayidx4.i77 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 3, i32 1, i64 13
-  store i8 1, ptr %arrayidx4.i77, align 1
+  %arrayidx.i70 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 2, i32 0, i64 13
+  store i8 115, ptr %arrayidx.i70, align 1
+  store i8 1, ptr %arrayidx.i66, align 1
+  %arrayidx.i74 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 3, i32 0, i64 13
+  store i8 115, ptr %arrayidx.i74, align 1
+  %arrayidx4.i76 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 3, i32 1, i64 13
+  store i8 1, ptr %arrayidx4.i76, align 1
   %arrayidx83 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 1, i64 13
   store i32 257, ptr %arrayidx83, align 4
   br label %if.end88
 
 if.end88:                                         ; preds = %if.then56, %land.lhs.true40, %for.end33
-  %arrayidx.i78 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 2, i32 1, i64 11
-  %33 = load i8, ptr %arrayidx.i78, align 1
-  %cmp.i79.not = icmp eq i8 %33, 0
-  br i1 %cmp.i79.not, label %if.end151, label %if.then92
+  %arrayidx.i77 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 2, i32 1, i64 11
+  %33 = load i8, ptr %arrayidx.i77, align 1
+  %cmp.i78.not = icmp eq i8 %33, 0
+  br i1 %cmp.i78.not, label %if.end151, label %if.then92
 
 if.then92:                                        ; preds = %if.end88
-  %arrayidx.i81 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 2, i32 0, i64 11
-  %34 = load i8, ptr %arrayidx.i81, align 1
-  %conv.i82 = sext i8 %34 to i16
-  switch i16 %conv.i82, label %if.else [
+  %arrayidx.i80 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 2, i32 0, i64 11
+  %34 = load i8, ptr %arrayidx.i80, align 1
+  %conv.i81 = sext i8 %34 to i16
+  switch i16 %conv.i81, label %if.else [
     i16 104, label %if.then101
     i16 75, label %if.then101
   ]
 
 if.then101:                                       ; preds = %if.then92, %if.then92
-  %arrayidx.i85 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 2, i32 1, i64 10
-  %35 = load i8, ptr %arrayidx.i85, align 2
-  %cmp.i86.not = icmp eq i8 %35, 0
-  br i1 %cmp.i86.not, label %if.then117, label %if.end151
+  %arrayidx.i84 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 2, i32 1, i64 10
+  %35 = load i8, ptr %arrayidx.i84, align 2
+  %cmp.i85.not = icmp eq i8 %35, 0
+  br i1 %cmp.i85.not, label %if.then117, label %if.end151
 
 if.then117:                                       ; preds = %if.then101
-  %arrayidx.i89 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 2, i32 0, i64 10
-  store i8 97, ptr %arrayidx.i89, align 2
-  store i8 1, ptr %arrayidx.i85, align 2
-  %arrayidx.i93 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 3, i32 0, i64 10
-  store i8 97, ptr %arrayidx.i93, align 2
-  %arrayidx4.i95 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 3, i32 1, i64 10
-  store i8 1, ptr %arrayidx4.i95, align 2
+  %arrayidx.i88 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 2, i32 0, i64 10
+  store i8 97, ptr %arrayidx.i88, align 2
+  store i8 1, ptr %arrayidx.i84, align 2
+  %arrayidx.i92 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 3, i32 0, i64 10
+  store i8 97, ptr %arrayidx.i92, align 2
+  %arrayidx4.i94 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 3, i32 1, i64 10
+  store i8 1, ptr %arrayidx4.i94, align 2
   %arrayidx139 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 1, i64 10
   store i32 -259, ptr %arrayidx139, align 8
   store i8 1, ptr %addedDefaultDayPeriod, align 8
   br label %if.end151
 
 if.else:                                          ; preds = %if.then92
-  %arrayidx.i96 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 2, i32 0, i64 10
-  store i8 0, ptr %arrayidx.i96, align 2
+  %arrayidx.i95 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 2, i32 0, i64 10
+  store i8 0, ptr %arrayidx.i95, align 2
   %arrayidx3.i = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 2, i32 1, i64 10
   store i8 0, ptr %arrayidx3.i, align 2
-  %arrayidx.i97 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 3, i32 0, i64 10
-  store i8 0, ptr %arrayidx.i97, align 2
-  %arrayidx3.i98 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 3, i32 1, i64 10
-  store i8 0, ptr %arrayidx3.i98, align 2
+  %arrayidx.i96 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 3, i32 0, i64 10
+  store i8 0, ptr %arrayidx.i96, align 2
+  %arrayidx3.i97 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 3, i32 1, i64 10
+  store i8 0, ptr %arrayidx3.i97, align 2
   %arrayidx149 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %skeletonResult, i64 0, i32 1, i64 10
   store i32 0, ptr %arrayidx149, align 8
   br label %if.end151
@@ -6979,17 +6978,17 @@ for.body.i.i:                                     ; preds = %if.end, %for.cond.i
   br i1 %cmp5.not.i.i, label %for.cond.i.i, label %if.end191.invoke
 
 while.body.i.i:                                   ; preds = %while.body.preheader.i.i, %if.then16.i.i
-  %indvars.iv50.i.i = phi i64 [ %idxprom37.i.i, %while.body.preheader.i.i ], [ %indvars.iv.next51.i.i, %if.then16.i.i ]
-  %29 = phi i16 [ %34, %while.body.preheader.i.i ], [ %30, %if.then16.i.i ]
+  %indvars.iv50.i.i = phi i64 [ %34, %while.body.preheader.i.i ], [ %indvars.iv.next51.i.i, %if.then16.i.i ]
+  %.in.i.i = getelementptr inbounds [87 x %"struct.icu_75::dtTypeElem"], ptr @_ZN6icu_75L7dtTypesE, i64 0, i64 %indvars.iv50.i.i
+  %29 = load i16, ptr %.in.i.i, align 16
   %cmp15.not.i.i = icmp eq i16 %29, %14
   br i1 %cmp15.not.i.i, label %if.end18.i.i, label %if.then16.i.i
 
 if.then16.i.i:                                    ; preds = %while.body.i.i
-  %indvars.iv.next51.i.i = add i64 %indvars.iv50.i.i, 1
-  %arrayidx.i.i = getelementptr inbounds [87 x %"struct.icu_75::dtTypeElem"], ptr @_ZN6icu_75L7dtTypesE, i64 0, i64 %indvars.iv.next51.i.i
-  %30 = load i16, ptr %arrayidx.i.i, align 16
-  %cmp9.not.i.i = icmp eq i16 %30, 0
-  br i1 %cmp9.not.i.i, label %if.end191.invoke, label %while.body.i.i, !llvm.loop !25
+  %indvars.iv.next51.i.i = add nsw i64 %indvars.iv50.i.i, 1
+  %30 = and i64 %indvars.iv.next51.i.i, 4294967295
+  %exitcond53.i.i = icmp eq i64 %30, 86
+  br i1 %exitcond53.i.i, label %if.end191.invoke, label %while.body.i.i, !llvm.loop !25
 
 if.end18.i.i:                                     ; preds = %while.body.i.i
   %31 = trunc i64 %indvars.iv50.i.i to i32
@@ -7008,13 +7007,12 @@ if.end29.i.i:                                     ; preds = %if.end18.i.i
   br i1 %cmp34.not.i.i, label %invoke.cont22, label %while.cond.outer.i.i, !llvm.loop !25
 
 while.cond.outer.i.i:                             ; preds = %while.cond.outer.i.i.preheader, %if.end29.i.i
-  %34 = phi i16 [ %14, %if.end29.i.i ], [ 71, %while.cond.outer.i.i.preheader ]
   %i.0.ph.i.i = phi i32 [ %add.i.i, %if.end29.i.i ], [ 0, %while.cond.outer.i.i.preheader ]
-  %cmp9.not39.i.i = icmp eq i16 %34, 0
+  %cmp9.not39.i.i = icmp eq i32 %i.0.ph.i.i, 86
   br i1 %cmp9.not39.i.i, label %if.end191.invoke, label %while.body.preheader.i.i
 
 while.body.preheader.i.i:                         ; preds = %while.cond.outer.i.i
-  %idxprom37.i.i = sext i32 %i.0.ph.i.i to i64
+  %34 = sext i32 %i.0.ph.i.i to i64
   br label %while.body.i.i
 
 invoke.cont22:                                    ; preds = %if.end29.i.i, %if.end18.i.i
@@ -11098,17 +11096,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp5.not, label %for.cond, label %return
 
 while.body:                                       ; preds = %while.body.preheader, %if.then16
-  %indvars.iv50 = phi i64 [ %idxprom37, %while.body.preheader ], [ %indvars.iv.next51, %if.then16 ]
-  %7 = phi i16 [ %12, %while.body.preheader ], [ %8, %if.then16 ]
+  %indvars.iv50 = phi i64 [ %12, %while.body.preheader ], [ %indvars.iv.next51, %if.then16 ]
+  %.in = getelementptr inbounds [87 x %"struct.icu_75::dtTypeElem"], ptr @_ZN6icu_75L7dtTypesE, i64 0, i64 %indvars.iv50
+  %7 = load i16, ptr %.in, align 16
   %cmp15.not = icmp eq i16 %7, %5
   br i1 %cmp15.not, label %if.end18, label %if.then16
 
 if.then16:                                        ; preds = %while.body
-  %indvars.iv.next51 = add i64 %indvars.iv50, 1
-  %arrayidx = getelementptr inbounds [87 x %"struct.icu_75::dtTypeElem"], ptr @_ZN6icu_75L7dtTypesE, i64 0, i64 %indvars.iv.next51
-  %8 = load i16, ptr %arrayidx, align 16
-  %cmp9.not = icmp eq i16 %8, 0
-  br i1 %cmp9.not, label %while.end, label %while.body, !llvm.loop !25
+  %indvars.iv.next51 = add nsw i64 %indvars.iv50, 1
+  %8 = and i64 %indvars.iv.next51, 4294967295
+  %exitcond53 = icmp eq i64 %8, 86
+  br i1 %exitcond53, label %while.end, label %while.body, !llvm.loop !25
 
 if.end18:                                         ; preds = %while.body
   %9 = trunc i64 %indvars.iv50 to i32
@@ -11127,14 +11125,13 @@ if.end29:                                         ; preds = %if.end18
   br i1 %cmp34.not, label %return, label %while.cond.outer, !llvm.loop !25
 
 while.cond.outer:                                 ; preds = %while.cond.outer.preheader, %if.end29
-  %12 = phi i16 [ %5, %if.end29 ], [ 71, %while.cond.outer.preheader ]
   %i.0.ph = phi i32 [ %add, %if.end29 ], [ 0, %while.cond.outer.preheader ]
   %bestRow.0.ph = phi i32 [ %9, %if.end29 ], [ -1, %while.cond.outer.preheader ]
-  %cmp9.not39 = icmp eq i16 %12, 0
+  %cmp9.not39 = icmp eq i32 %i.0.ph, 86
   br i1 %cmp9.not39, label %while.end, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %while.cond.outer
-  %idxprom37 = sext i32 %i.0.ph to i64
+  %12 = sext i32 %i.0.ph to i64
   br label %while.body
 
 while.end:                                        ; preds = %while.cond.outer, %if.then16

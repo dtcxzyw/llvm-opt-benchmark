@@ -1934,12 +1934,13 @@ lpad:                                             ; preds = %if.then
 if.end:                                           ; preds = %entry
   %conv = zext nneg i32 %cdtype to i64
   %arrayidx.i.i = getelementptr inbounds [42 x %"struct.Assimp::Blender::CustomDataTypeDescription"], ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 0, i64 %conv
-  %cdtd.sroa.0.0.copyload = load ptr, ptr %arrayidx.i.i, align 8
   %cdtd.sroa.3.0.call1.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %cdtd.sroa.3.0.copyload = load ptr, ptr %cdtd.sroa.3.0.call1.sroa_idx, align 8
   %cdtd.sroa.5.0.call1.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %cdtd.sroa.5.0.copyload = load ptr, ptr %cdtd.sroa.5.0.call1.sroa_idx, align 8
-  %tobool = icmp ne ptr %cdtd.sroa.0.0.copyload, null
+  %2 = lshr i64 100892729, %conv
+  %3 = and i64 %2, 1
+  %tobool = icmp ne i64 %3, 0
   %tobool2 = icmp ne ptr %cdtd.sroa.3.0.copyload, null
   %or.cond = select i1 %tobool, i1 %tobool2, i1 false
   %tobool4 = icmp ne ptr %cdtd.sroa.5.0.copyload, null
@@ -1949,10 +1950,11 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond2, label %if.then6, label %return
 
 if.then6:                                         ; preds = %if.end
+  %cdtd.sroa.0.0.copyload = load ptr, ptr %arrayidx.i.i, align 8
   %call8 = tail call noundef ptr %cdtd.sroa.3.0.copyload(i64 noundef %cnt)
   tail call void @_ZNSt12__shared_ptrIN6Assimp7Blender8ElemBaseELN9__gnu_cxx12_Lock_policyE2EE5resetIS2_PFvPS2_EEENSt9enable_ifIXsr21__sp_is_constructibleIS2_T_EE5valueEvE4typeEPSB_T0_(ptr noundef nonnull align 8 dereferenceable(16) %out, ptr noundef %call8, ptr noundef nonnull %cdtd.sroa.5.0.copyload)
-  %2 = load ptr, ptr %out, align 8
-  %call12 = tail call noundef zeroext i1 %cdtd.sroa.0.0.copyload(ptr noundef %2, i64 noundef %cnt, ptr noundef nonnull align 8 dereferenceable(232) %db)
+  %4 = load ptr, ptr %out, align 8
+  %call12 = tail call noundef zeroext i1 %cdtd.sroa.0.0.copyload(ptr noundef %4, i64 noundef %cnt, ptr noundef nonnull align 8 dereferenceable(232) %db)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then6

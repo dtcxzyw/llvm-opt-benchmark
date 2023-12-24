@@ -1354,20 +1354,17 @@ if.end.i23:                                       ; preds = %if.else.i, %if.then
   %len.0.i = phi i64 [ %sub.ptr.div.i, %if.then.i22 ], [ %call2.i, %if.else.i ]
   %call3.i = call i32 @wcsncmp(ptr noundef %14, ptr noundef nonnull @.str.2, i64 noundef %len.0.i) #19
   %cmp4.i = icmp eq i32 %call3.i, 0
-  br i1 %cmp4.i, label %land.lhs.true.i, label %for.inc.i
+  %15 = and i64 %len.0.i, 4611686018427387903
+  %cmp6.i = icmp eq i64 %15, 3
+  %or.cond = and i1 %cmp4.i, %cmp6.i
+  br i1 %or.cond, label %_Py_get_xoption.exit, label %for.inc.i
 
-land.lhs.true.i:                                  ; preds = %if.end.i23
-  %arrayidx5.i = getelementptr i32, ptr @.str.2, i64 %len.0.i
-  %15 = load i32, ptr %arrayidx5.i, align 4
-  %cmp6.i = icmp eq i32 %15, 0
-  br i1 %cmp6.i, label %_Py_get_xoption.exit, label %for.inc.i
-
-for.inc.i:                                        ; preds = %land.lhs.true.i, %if.end.i23
+for.inc.i:                                        ; preds = %if.end.i23
   %inc.i = add nuw nsw i64 %i.012.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %12
   br i1 %exitcond.not.i, label %lor.lhs.false, label %for.body.i, !llvm.loop !10
 
-_Py_get_xoption.exit:                             ; preds = %land.lhs.true.i
+_Py_get_xoption.exit:                             ; preds = %if.end.i23
   %tobool17.not = icmp eq ptr %14, null
   br i1 %tobool17.not, label %lor.lhs.false, label %if.end28.sink.split
 
@@ -1425,20 +1422,17 @@ if.end.i44:                                       ; preds = %if.else.i54, %if.th
   %len.0.i45 = phi i64 [ %sub.ptr.div.i43, %if.then.i39 ], [ %call2.i55, %if.else.i54 ]
   %call3.i46 = call i32 @wcsncmp(ptr noundef %18, ptr noundef nonnull @.str.4, i64 noundef %len.0.i45) #19
   %cmp4.i47 = icmp eq i32 %call3.i46, 0
-  br i1 %cmp4.i47, label %land.lhs.true.i51, label %for.inc.i48
+  %19 = and i64 %len.0.i45, 4611686018427387903
+  %cmp6.i53 = icmp eq i64 %19, 21
+  %or.cond77 = and i1 %cmp4.i47, %cmp6.i53
+  br i1 %or.cond77, label %_Py_get_xoption.exit56, label %for.inc.i48
 
-land.lhs.true.i51:                                ; preds = %if.end.i44
-  %arrayidx5.i52 = getelementptr i32, ptr @.str.4, i64 %len.0.i45
-  %19 = load i32, ptr %arrayidx5.i52, align 4
-  %cmp6.i53 = icmp eq i32 %19, 0
-  br i1 %cmp6.i53, label %_Py_get_xoption.exit56, label %for.inc.i48
-
-for.inc.i48:                                      ; preds = %land.lhs.true.i51, %if.end.i44
+for.inc.i48:                                      ; preds = %if.end.i44
   %inc.i49 = add nuw nsw i64 %i.012.i35, 1
   %exitcond.not.i50 = icmp eq i64 %inc.i49, %12
   br i1 %exitcond.not.i50, label %lor.lhs.false32, label %for.body.i34, !llvm.loop !10
 
-_Py_get_xoption.exit56:                           ; preds = %land.lhs.true.i51
+_Py_get_xoption.exit56:                           ; preds = %if.end.i44
   %tobool31.not = icmp eq ptr %18, null
   br i1 %tobool31.not, label %lor.lhs.false32, label %if.then36
 
@@ -2529,20 +2523,17 @@ if.end.i.i24.i:                                   ; preds = %if.else.i.i.i, %if.
   %len.0.i.i.i = phi i64 [ %sub.ptr.div.i.i.i, %if.then.i.i.i ], [ %call2.i.i.i, %if.else.i.i.i ]
   %call3.i.i.i = call i32 @wcsncmp(ptr noundef %45, ptr noundef nonnull @.str.22, i64 noundef %len.0.i.i.i) #19, !noalias !17
   %cmp4.i.i.i = icmp eq i32 %call3.i.i.i, 0
-  br i1 %cmp4.i.i.i, label %land.lhs.true.i.i25.i, label %for.inc.i.i.i
+  %46 = and i64 %len.0.i.i.i, 4611686018427387903
+  %cmp6.i.i.i = icmp eq i64 %46, 4
+  %or.cond.i25.i = and i1 %cmp4.i.i.i, %cmp6.i.i.i
+  br i1 %or.cond.i25.i, label %_Py_get_xoption.exit.i.i, label %for.inc.i.i.i
 
-land.lhs.true.i.i25.i:                            ; preds = %if.end.i.i24.i
-  %arrayidx5.i.i.i = getelementptr i32, ptr @.str.22, i64 %len.0.i.i.i
-  %46 = load i32, ptr %arrayidx5.i.i.i, align 4, !noalias !17
-  %cmp6.i.i.i = icmp eq i32 %46, 0
-  br i1 %cmp6.i.i.i, label %_Py_get_xoption.exit.i.i, label %for.inc.i.i.i
-
-for.inc.i.i.i:                                    ; preds = %land.lhs.true.i.i25.i, %if.end.i.i24.i
+for.inc.i.i.i:                                    ; preds = %if.end.i.i24.i
   %inc.i.i.i = add nuw nsw i64 %i.012.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %43
   br i1 %exitcond.not.i.i.i, label %if.end24.i.i, label %for.body.i.i.i, !llvm.loop !10
 
-_Py_get_xoption.exit.i.i:                         ; preds = %land.lhs.true.i.i25.i
+_Py_get_xoption.exit.i.i:                         ; preds = %if.end.i.i24.i
   %tobool.not.i26.i = icmp eq ptr %45, null
   br i1 %tobool.not.i26.i, label %if.end24.i.i, label %if.then1.i.i
 

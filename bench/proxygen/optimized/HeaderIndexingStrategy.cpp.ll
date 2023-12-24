@@ -131,9 +131,9 @@ if.end3.i.i:                                      ; preds = %if.end
   %cmp741.i.i = icmp ugt ptr %add.ptr.i1.i, %value.coerce0
   br i1 %cmp741.i.i, label %while.cond8.preheader.i.i, label %sw.epilog
 
-while.cond8.preheader.i.i:                        ; preds = %if.end3.i.i, %if.end28.i.i
-  %i.043.i.i = phi ptr [ %add.ptr29.i.i, %if.end28.i.i ], [ %value.coerce0, %if.end3.i.i ]
-  %skip.042.i.i = phi i64 [ %skip.2.i.i, %if.end28.i.i ], [ 0, %if.end3.i.i ]
+while.cond8.preheader.i.i:                        ; preds = %if.end3.i.i, %if.then17.i.i
+  %i.043.i.i = phi ptr [ %add.ptr29.i.i, %if.then17.i.i ], [ %value.coerce0, %if.end3.i.i ]
+  %skip.042.i.i = phi i64 [ %skip.2.i.i, %if.then17.i.i ], [ 0, %if.end3.i.i ]
   br label %while.cond8.i.i
 
 while.cond8.i.i:                                  ; preds = %while.body10.i.i, %while.cond8.preheader.i.i
@@ -159,31 +159,15 @@ for.cond.i.i:                                     ; preds = %while.cond8.i.i, %i
 
 if.then17.i.i:                                    ; preds = %for.cond.i.i
   %cmp18.i.i = icmp eq i64 %skip.042.i.i, 0
-  br i1 %cmp18.i.i, label %land.rhs.i.i, label %if.end28.i.i
-
-land.rhs.i.i:                                     ; preds = %if.then17.i.i, %while.body26.i.i
-  %skip.139.i.i = phi i64 [ %inc.i.i, %while.body26.i.i ], [ 1, %if.then17.i.i ]
-  %sub22.i.i = sub nuw nsw i64 2, %skip.139.i.i
-  %arrayidx.i33.i.i = getelementptr inbounds i8, ptr @.str, i64 %sub22.i.i
-  %6 = load i8, ptr %arrayidx.i33.i.i, align 1
-  %cmp.i34.i.i = icmp eq i8 %6, 103
-  br i1 %cmp.i34.i.i, label %if.end28.i.i, label %while.body26.i.i
-
-while.body26.i.i:                                 ; preds = %land.rhs.i.i
-  %inc.i.i = add nuw nsw i64 %skip.139.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %inc.i.i, 3
-  br i1 %exitcond.not.i.i, label %if.end28.i.i, label %land.rhs.i.i, !llvm.loop !7
-
-if.end28.i.i:                                     ; preds = %while.body26.i.i, %land.rhs.i.i, %if.then17.i.i
-  %skip.2.i.i = phi i64 [ %skip.042.i.i, %if.then17.i.i ], [ 3, %while.body26.i.i ], [ %skip.139.i.i, %land.rhs.i.i ]
+  %skip.2.i.i = select i1 %cmp18.i.i, i64 3, i64 %skip.042.i.i
   %add.ptr29.i.i = getelementptr inbounds i8, ptr %i.1.i.i, i64 %skip.2.i.i
   %cmp7.i.i = icmp ult ptr %add.ptr29.i.i, %add.ptr.i1.i
-  br i1 %cmp7.i.i, label %while.cond8.preheader.i.i, label %sw.epilog, !llvm.loop !8
+  br i1 %cmp7.i.i, label %while.cond8.preheader.i.i, label %sw.epilog, !llvm.loop !7
 
 if.end30.i.i:                                     ; preds = %for.cond.i.i
   %inc31.i.i = add nuw nsw i64 %j.0.i.i, 1
   %cmp32.i.i = icmp eq i64 %inc31.i.i, 3
-  br i1 %cmp32.i.i, label %_ZNK5folly5RangeIPKcE4findES2_.exit, label %for.cond.i.i, !llvm.loop !9
+  br i1 %cmp32.i.i, label %_ZNK5folly5RangeIPKcE4findES2_.exit, label %for.cond.i.i, !llvm.loop !8
 
 _ZNK5folly5RangeIPKcE4findES2_.exit:              ; preds = %if.end30.i.i
   %sub.ptr.lhs.cast.i.i12 = ptrtoint ptr %i.1.i.i to i64
@@ -191,7 +175,7 @@ _ZNK5folly5RangeIPKcE4findES2_.exit:              ; preds = %if.end30.i.i
   %cmp4.not = icmp eq i64 %sub.ptr.sub.i.i13, -1
   br i1 %cmp4.not, label %sw.epilog, label %return
 
-sw.epilog:                                        ; preds = %if.end28.i.i, %while.body10.i.i, %if.end3.i.i, %if.end, %if.else.i.i, %_ZNK8proxygen15HPACKHeaderName13getHeaderCodeEv.exit, %_ZNK5folly5RangeIPKcE4findES2_.exit
+sw.epilog:                                        ; preds = %if.then17.i.i, %while.body10.i.i, %if.end3.i.i, %if.end, %if.else.i.i, %_ZNK8proxygen15HPACKHeaderName13getHeaderCodeEv.exit, %_ZNK5folly5RangeIPKcE4findES2_.exit
   br label %return
 
 return:                                           ; preds = %_ZNK8proxygen15HPACKHeaderName13getHeaderCodeEv.exit, %if.end.i.i, %entry, %_ZNK8proxygen15HPACKHeaderName13getHeaderCodeEv.exit, %_ZNK8proxygen15HPACKHeaderName13getHeaderCodeEv.exit, %_ZNK5folly5RangeIPKcE4findES2_.exit, %sw.epilog
@@ -256,4 +240,3 @@ attributes #12 = { builtin nounwind }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}

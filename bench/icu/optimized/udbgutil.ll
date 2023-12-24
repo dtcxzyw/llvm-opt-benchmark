@@ -1235,10 +1235,6 @@ udbg_getSystemParameterNameByIndex.exit:          ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %arrayidx.i = getelementptr inbounds [25 x %struct.USystemParams], ptr @_ZL12systemParams, i64 0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx.i, align 16
-  %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %for.end, label %udbg_getSystemParameterValueByIndex.exit
-
-udbg_getSystemParameterValueByIndex.exit:         ; preds = %udbg_getSystemParameterNameByIndex.exit
   store i32 0, ptr %status2, align 4
   %paramFunction.i = getelementptr inbounds [25 x %struct.USystemParams], ptr @_ZL12systemParams, i64 0, i64 %indvars.iv, i32 1
   %2 = load ptr, ptr %paramFunction.i, align 8
@@ -1247,11 +1243,11 @@ udbg_getSystemParameterValueByIndex.exit:         ; preds = %udbg_getSystemParam
   %cmp.i = icmp sgt i32 %3, 0
   br i1 %cmp.i, label %if.else, label %if.then
 
-if.then:                                          ; preds = %udbg_getSystemParameterValueByIndex.exit
+if.then:                                          ; preds = %udbg_getSystemParameterNameByIndex.exit
   %call5 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %out, ptr noundef nonnull @.str.2, ptr noundef nonnull %1, ptr noundef nonnull %str)
   br label %for.inc
 
-if.else:                                          ; preds = %udbg_getSystemParameterValueByIndex.exit
+if.else:                                          ; preds = %udbg_getSystemParameterNameByIndex.exit
   %call6 = call ptr @u_errorName_75(i32 noundef %3)
   %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %out, ptr noundef nonnull @.str.3, ptr noundef nonnull %1, ptr noundef %call6)
   br label %for.inc
@@ -1261,7 +1257,7 @@ for.inc:                                          ; preds = %if.then, %if.else
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
   br i1 %exitcond.not, label %for.end, label %udbg_getSystemParameterNameByIndex.exit, !llvm.loop !7
 
-for.end:                                          ; preds = %for.inc, %udbg_getSystemParameterNameByIndex.exit
+for.end:                                          ; preds = %for.inc
   %4 = call i64 @fwrite(ptr nonnull @.str.4, i64 20, i64 1, ptr %out)
   ret void
 }

@@ -631,17 +631,19 @@ if.else5.i:                                       ; preds = %do.end.i
 
 riscv_validate_misa_info_idx.exit:                ; preds = %do.end.i
   %idxprom = zext nneg i32 %0 to i64
-  %arrayidx = getelementptr [22 x %struct.misa_ext_info], ptr @misa_ext_info_arr, i64 0, i64 %idxprom
-  %1 = load ptr, ptr %arrayidx, align 16
-  %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %if.else, label %do.end
+  %1 = lshr i64 781314, %idxprom
+  %2 = and i64 %1, 1
+  %cmp.not.not = icmp eq i64 %2, 0
+  br i1 %cmp.not.not, label %do.end, label %if.else
 
 if.else:                                          ; preds = %riscv_validate_misa_info_idx.exit
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.218, i32 noundef 1279, ptr noundef nonnull @__func__.riscv_get_misa_ext_name, ptr noundef nonnull @.str.220) #15
   unreachable
 
 do.end:                                           ; preds = %riscv_validate_misa_info_idx.exit
-  ret ptr %1
+  %arrayidx = getelementptr [22 x %struct.misa_ext_info], ptr @misa_ext_info_arr, i64 0, i64 %idxprom
+  %3 = load ptr, ptr %arrayidx, align 16
+  ret ptr %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

@@ -260,27 +260,31 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden ptr @pysqlite_error_name(i32 noundef %rc) local_unnamed_addr #0 {
 entry:
   %conv = sext i32 %rc to i64
-  %cmp36 = icmp eq i32 %rc, 4
-  br i1 %cmp36, label %return, label %for.cond
+  br label %for.body
 
-for.cond:                                         ; preds = %entry, %for.body
-  %i.047 = phi i32 [ %inc, %for.body ], [ 0, %entry ]
-  %inc = add i32 %i.047, 1
+for.cond:                                         ; preds = %for.body
+  %inc = add i32 %i.06, 1
   %idxprom = sext i32 %inc to i64
-  %arrayidx = getelementptr [106 x %struct.anon], ptr @error_codes, i64 0, i64 %idxprom
-  %0 = load ptr, ptr %arrayidx, align 16
-  %cmp.not = icmp eq ptr %0, null
+  %0 = and i64 %idxprom, 1152921504606846975
+  %cmp.not = icmp eq i64 %0, 105
   br i1 %cmp.not, label %return, label %for.body, !llvm.loop !4
 
-for.body:                                         ; preds = %for.cond
-  %value = getelementptr [106 x %struct.anon], ptr @error_codes, i64 0, i64 %idxprom, i32 1
+for.body:                                         ; preds = %entry, %for.cond
+  %idxprom7 = phi i64 [ 0, %entry ], [ %idxprom, %for.cond ]
+  %i.06 = phi i32 [ 0, %entry ], [ %inc, %for.cond ]
+  %value = getelementptr [106 x %struct.anon], ptr @error_codes, i64 0, i64 %idxprom7, i32 1
   %1 = load i64, ptr %value, align 8
   %cmp3 = icmp eq i64 %1, %conv
-  br i1 %cmp3, label %return, label %for.cond, !llvm.loop !4
+  br i1 %cmp3, label %return.split.loop.exit4, label %for.cond
 
-return:                                           ; preds = %for.body, %for.cond, %entry
-  %.lcssa = phi ptr [ @.str.1, %entry ], [ %0, %for.body ], [ null, %for.cond ]
-  ret ptr %.lcssa
+return.split.loop.exit4:                          ; preds = %for.body
+  %arrayidx.le = getelementptr [106 x %struct.anon], ptr @error_codes, i64 0, i64 %idxprom7
+  %2 = load ptr, ptr %arrayidx.le, align 16
+  br label %return
+
+return:                                           ; preds = %for.cond, %return.split.loop.exit4
+  %retval.0 = phi ptr [ %2, %return.split.loop.exit4 ], [ null, %for.cond ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1885,18 +1889,18 @@ entry:
 for.cond:                                         ; preds = %for.body
   %inc = add i32 %i.04, 1
   %idxprom = sext i32 %inc to i64
-  %arrayidx = getelementptr [106 x %struct.anon], ptr @error_codes, i64 0, i64 %idxprom
-  %0 = load ptr, ptr %arrayidx, align 16
-  %cmp.not = icmp eq ptr %0, null
+  %0 = and i64 %idxprom, 1152921504606846975
+  %cmp.not = icmp eq i64 %0, 105
   br i1 %cmp.not, label %return, label %for.body, !llvm.loop !9
 
 for.body:                                         ; preds = %entry, %for.cond
-  %1 = phi ptr [ @.str.1, %entry ], [ %0, %for.cond ]
   %idxprom5 = phi i64 [ 0, %entry ], [ %idxprom, %for.cond ]
   %i.04 = phi i32 [ 0, %entry ], [ %inc, %for.cond ]
+  %arrayidx = getelementptr [106 x %struct.anon], ptr @error_codes, i64 0, i64 %idxprom5
+  %1 = load ptr, ptr %arrayidx, align 16
   %value7 = getelementptr [106 x %struct.anon], ptr @error_codes, i64 0, i64 %idxprom5, i32 1
   %2 = load i64, ptr %value7, align 8
-  %call = tail call i32 @PyModule_AddIntConstant(ptr noundef %module, ptr noundef nonnull %1, i64 noundef %2) #5
+  %call = tail call i32 @PyModule_AddIntConstant(ptr noundef %module, ptr noundef %1, i64 noundef %2) #5
   %cmp8 = icmp slt i32 %call, 0
   br i1 %cmp8, label %return, label %for.cond
 

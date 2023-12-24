@@ -418,10 +418,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = call i32 @ack_generic_decode(ptr noundef nonnull %pkt) #4
-  %2 = lshr i64 74, %idxprom
-  %3 = and i64 %2, 1
-  %tobool3.not.not = icmp eq i64 %3, 0
-  br i1 %tobool3.not.not, label %if.then4, label %if.else
+  %2 = and i32 %idx, -3
+  %tobool3.not = icmp eq i32 %2, 1
+  br i1 %tobool3.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.end
   %call5 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 1440, ptr noundef nonnull @.str.157, ptr noundef nonnull @.str.66, i32 noundef %call2, i32 noundef 0) #4

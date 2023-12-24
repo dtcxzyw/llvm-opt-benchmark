@@ -3816,31 +3816,25 @@ tailrecurse.i.i:                                  ; preds = %tailrecurse.backedg
   %arrayidx.i.i = getelementptr inbounds i8, ptr @.str.24, i64 %prefixIdx.tr.i.i
   %4 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !20
   switch i8 %4, label %cond.false24.i.i [
-    i8 58, label %land.lhs.true.i.i
+    i8 58, label %cond.true.i.i
     i8 0, label %cond.true.i.i
   ]
 
-land.lhs.true.i.i:                                ; preds = %tailrecurse.i.i
-  %arrayidx1.i.i = getelementptr inbounds i8, ptr @.str.23, i64 %filenameIdx.tr.i.i
-  %5 = load i8, ptr %arrayidx1.i.i, align 1, !tbaa !20
-  %cmp3.not.i.i = icmp eq i8 %5, 58
-  br i1 %cmp3.not.i.i, label %cond.false24.i.i, label %cond.true.i.i
-
-cond.true.i.i:                                    ; preds = %land.lhs.true.i.i, %tailrecurse.i.i
+cond.true.i.i:                                    ; preds = %tailrecurse.i.i, %tailrecurse.i.i
   %cmp8.i.i = icmp ne i64 %filenameIdx.tr.i.i, 0
   %or.cond.i.i = and i1 %cmp8.i.i, %match.tr.i.i
   br i1 %or.cond.i.i, label %land.lhs.true9.i.i, label %cond.false.i.i
 
 land.lhs.true9.i.i:                               ; preds = %cond.true.i.i
   %gep.i.i = getelementptr i8, ptr getelementptr ([166 x i8], ptr @.str.24, i64 -1, i64 165), i64 %filenameIdx.tr.i.i
-  %6 = load i8, ptr %gep.i.i, align 1, !tbaa !20
-  %cmp.i.i.i = icmp eq i8 %6, 47
+  %5 = load i8, ptr %gep.i.i, align 1, !tbaa !20
+  %cmp.i.i.i = icmp eq i8 %5, 47
   br i1 %cmp.i.i.i, label %tailrecurse.i1.i.preheader, label %lor.lhs.false11.i.i
 
 lor.lhs.false11.i.i:                              ; preds = %land.lhs.true9.i.i
   %arrayidx12.i.i = getelementptr inbounds i8, ptr @.str.23, i64 %filenameIdx.tr.i.i
-  %7 = load i8, ptr %arrayidx12.i.i, align 1, !tbaa !20
-  %cmp.i82.i.i = icmp eq i8 %7, 47
+  %6 = load i8, ptr %arrayidx12.i.i, align 1, !tbaa !20
+  %cmp.i82.i.i = icmp eq i8 %6, 47
   br i1 %cmp.i82.i.i, label %tailrecurse.i1.i.preheader, label %cond.false.i.i
 
 tailrecurse.i1.i.preheader:                       ; preds = %lor.lhs.false11.i.i, %land.lhs.true9.i.i
@@ -3849,8 +3843,8 @@ tailrecurse.i1.i.preheader:                       ; preds = %lor.lhs.false11.i.i
 tailrecurse.i1.i:                                 ; preds = %tailrecurse.i1.i.preheader, %cond.true3.i.i
   %filenameIdx.tr.i2.i = phi i64 [ %add4.i.i, %cond.true3.i.i ], [ %filenameIdx.tr.i.i, %tailrecurse.i1.i.preheader ]
   %arrayidx.i3.i = getelementptr inbounds i8, ptr @.str.23, i64 %filenameIdx.tr.i2.i
-  %8 = load i8, ptr %arrayidx.i3.i, align 1, !tbaa !20
-  switch i8 %8, label %invoke.cont53.loopexit [
+  %7 = load i8, ptr %arrayidx.i3.i, align 1, !tbaa !20
+  switch i8 %7, label %invoke.cont53.loopexit [
     i8 0, label %cond.true.i4.i
     i8 47, label %cond.true3.i.i
   ]
@@ -3865,7 +3859,7 @@ cond.true3.i.i:                                   ; preds = %tailrecurse.i1.i
   br label %tailrecurse.i1.i
 
 cond.false.i.i:                                   ; preds = %lor.lhs.false11.i.i, %cond.true.i.i
-  %cmp18.i.i = icmp eq i8 %4, 0
+  %cmp18.i.i = icmp eq i64 %prefixIdx.tr.i.i, 165
   br i1 %cmp18.i.i, label %invoke.cont53, label %tailrecurse.backedge.i.i
 
 tailrecurse.backedge.i.i:                         ; preds = %cond.true38.i.i, %lor.lhs.false32.i.i, %cond.false24.i.i, %cond.false.i.i
@@ -3874,18 +3868,18 @@ tailrecurse.backedge.i.i:                         ; preds = %cond.true38.i.i, %l
   %prefixIdx.tr.be.i.i = add i64 %prefixIdx.tr.i.i, 1
   br label %tailrecurse.i.i
 
-cond.false24.i.i:                                 ; preds = %land.lhs.true.i.i, %tailrecurse.i.i
+cond.false24.i.i:                                 ; preds = %tailrecurse.i.i
   br i1 %match.tr.i.i, label %land.lhs.true26.i.i, label %tailrecurse.backedge.i.i
 
 land.lhs.true26.i.i:                              ; preds = %cond.false24.i.i
   %arrayidx29.i.i = getelementptr inbounds i8, ptr @.str.23, i64 %filenameIdx.tr.i.i
-  %9 = load i8, ptr %arrayidx29.i.i, align 1, !tbaa !20
-  %cmp31.i.i = icmp eq i8 %4, %9
+  %8 = load i8, ptr %arrayidx29.i.i, align 1, !tbaa !20
+  %cmp31.i.i = icmp eq i8 %4, %8
   br i1 %cmp31.i.i, label %cond.true38.i.i, label %lor.lhs.false32.i.i
 
 lor.lhs.false32.i.i:                              ; preds = %land.lhs.true26.i.i
   %cmp.i83.i.i = icmp eq i8 %4, 47
-  %cmp.i84.i.i = icmp eq i8 %9, 47
+  %cmp.i84.i.i = icmp eq i8 %8, 47
   %or.cond86.i.i = and i1 %cmp.i83.i.i, %cmp.i84.i.i
   br i1 %or.cond86.i.i, label %cond.true38.i.i, label %tailrecurse.backedge.i.i
 
@@ -3926,20 +3920,20 @@ invoke.cont74:                                    ; preds = %if.else69
   br label %if.end115
 
 lpad73:                                           ; preds = %if.else69
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  %12 = extractvalue { ptr, i32 } %10, 1
+  %10 = extractvalue { ptr, i32 } %9, 0
+  %11 = extractvalue { ptr, i32 } %9, 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp) #40
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #40
-  %matches = icmp eq i32 %12, %13
+  %12 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #40
+  %matches = icmp eq i32 %11, %12
   br i1 %matches, label %catch, label %terminate.handler
 
 catch:                                            ; preds = %lpad73
-  %14 = tail call ptr @__cxa_begin_catch(ptr %11) #40
-  %15 = load atomic i32, ptr @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE monotonic, align 8
-  %cmp.i.i147 = icmp ugt i32 %15, 3000
+  %13 = tail call ptr @__cxa_begin_catch(ptr %10) #40
+  %14 = load atomic i32, ptr @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE monotonic, align 8
+  %cmp.i.i147 = icmp ugt i32 %14, 3000
   br i1 %cmp.i.i147, label %cleanup.done112, label %if.end.i.i148, !prof !101
 
 if.end.i.i148:                                    ; preds = %catch
@@ -3969,10 +3963,10 @@ invoke.cont94:                                    ; preds = %invoke.cont89
           to label %invoke.cont101 unwind label %terminate.lpad
 
 invoke.cont101:                                   ; preds = %invoke.cont94
-  %vtable = load ptr, ptr %14, align 8, !tbaa !38
+  %vtable = load ptr, ptr %13, align 8, !tbaa !38
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %16 = load ptr, ptr %vfn, align 8
-  %call103 = call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %14) #40
+  %15 = load ptr, ptr %vfn, align 8
+  %call103 = call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %13) #40
   %call105 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i164, ptr noundef %call103)
           to label %cleanup.action108 unwind label %terminate.lpad
 
@@ -3987,17 +3981,17 @@ cleanup.done112:                                  ; preds = %cleanup.action108, 
 
 if.end115:                                        ; preds = %cleanup.done112, %invoke.cont74, %cleanup.action64, %invoke.cont35, %if.then33, %entry
   %pipes_ = getelementptr inbounds %"class.folly::Subprocess", ptr %this, i64 0, i32 3
-  %17 = load ptr, ptr %pipes_, align 8, !tbaa !143
+  %16 = load ptr, ptr %pipes_, align 8, !tbaa !143
   %_M_finish.i = getelementptr inbounds %"class.folly::Subprocess", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
-  %18 = load ptr, ptr %_M_finish.i, align 8, !tbaa !144
-  %cmp.not3.i.i.i.i = icmp eq ptr %17, %18
+  %17 = load ptr, ptr %_M_finish.i, align 8, !tbaa !144
+  %cmp.not3.i.i.i.i = icmp eq ptr %16, %17
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.end115, %for.body.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %17, %if.end115 ]
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %16, %if.end115 ]
   call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %__first.addr.04.i.i.i.i) #40
   %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.folly::Subprocess::Pipe", ptr %__first.addr.04.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %18
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %17
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !160
 
 invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
@@ -4005,26 +3999,26 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %if.end115
-  %19 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %17, %if.end115 ]
-  %tobool.not.i.i.i = icmp eq ptr %19, null
+  %18 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %16, %if.end115 ]
+  %tobool.not.i.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN5folly10Subprocess4PipeESaIS2_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  call void @_ZdlPv(ptr noundef nonnull %19) #42
+  call void @_ZdlPv(ptr noundef nonnull %18) #42
   br label %_ZNSt6vectorIN5folly10Subprocess4PipeESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN5folly10Subprocess4PipeESaIS2_EED2Ev.exit: ; preds = %if.then.i.i.i, %invoke.cont.i
   ret void
 
 terminate.lpad:                                   ; preds = %cleanup.done112, %invoke.cont101, %invoke.cont94, %invoke.cont89, %if.end.i.i148, %invoke.cont53, %cond.true.i4.i, %if.end.i.i125, %invoke.cont25, %invoke.cont18, %invoke.cont13, %if.end.i.i
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #43
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #43
   unreachable
 
 terminate.handler:                                ; preds = %lpad73
-  tail call void @__clang_call_terminate(ptr %11) #43
+  tail call void @__clang_call_terminate(ptr %10) #43
   unreachable
 }
 
@@ -4192,31 +4186,25 @@ tailrecurse.i.i:                                  ; preds = %tailrecurse.backedg
   %arrayidx.i.i = getelementptr inbounds i8, ptr @.str.24, i64 %prefixIdx.tr.i.i
   %3 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !20
   switch i8 %3, label %cond.false24.i.i [
-    i8 58, label %land.lhs.true.i.i
+    i8 58, label %cond.true.i.i
     i8 0, label %cond.true.i.i
   ]
 
-land.lhs.true.i.i:                                ; preds = %tailrecurse.i.i
-  %arrayidx1.i.i = getelementptr inbounds i8, ptr @.str.23, i64 %filenameIdx.tr.i.i
-  %4 = load i8, ptr %arrayidx1.i.i, align 1, !tbaa !20
-  %cmp3.not.i.i = icmp eq i8 %4, 58
-  br i1 %cmp3.not.i.i, label %cond.false24.i.i, label %cond.true.i.i
-
-cond.true.i.i:                                    ; preds = %land.lhs.true.i.i, %tailrecurse.i.i
+cond.true.i.i:                                    ; preds = %tailrecurse.i.i, %tailrecurse.i.i
   %cmp8.i.i = icmp ne i64 %filenameIdx.tr.i.i, 0
   %or.cond.i.i = and i1 %cmp8.i.i, %match.tr.i.i
   br i1 %or.cond.i.i, label %land.lhs.true9.i.i, label %cond.false.i.i
 
 land.lhs.true9.i.i:                               ; preds = %cond.true.i.i
   %gep.i.i = getelementptr i8, ptr getelementptr ([166 x i8], ptr @.str.24, i64 -1, i64 165), i64 %filenameIdx.tr.i.i
-  %5 = load i8, ptr %gep.i.i, align 1, !tbaa !20
-  %cmp.i.i.i43 = icmp eq i8 %5, 47
+  %4 = load i8, ptr %gep.i.i, align 1, !tbaa !20
+  %cmp.i.i.i43 = icmp eq i8 %4, 47
   br i1 %cmp.i.i.i43, label %tailrecurse.i1.i.preheader, label %lor.lhs.false11.i.i
 
 lor.lhs.false11.i.i:                              ; preds = %land.lhs.true9.i.i
   %arrayidx12.i.i = getelementptr inbounds i8, ptr @.str.23, i64 %filenameIdx.tr.i.i
-  %6 = load i8, ptr %arrayidx12.i.i, align 1, !tbaa !20
-  %cmp.i82.i.i = icmp eq i8 %6, 47
+  %5 = load i8, ptr %arrayidx12.i.i, align 1, !tbaa !20
+  %cmp.i82.i.i = icmp eq i8 %5, 47
   br i1 %cmp.i82.i.i, label %tailrecurse.i1.i.preheader, label %cond.false.i.i
 
 tailrecurse.i1.i.preheader:                       ; preds = %lor.lhs.false11.i.i, %land.lhs.true9.i.i
@@ -4225,8 +4213,8 @@ tailrecurse.i1.i.preheader:                       ; preds = %lor.lhs.false11.i.i
 tailrecurse.i1.i:                                 ; preds = %tailrecurse.i1.i.preheader, %cond.true3.i.i
   %filenameIdx.tr.i2.i = phi i64 [ %add4.i.i, %cond.true3.i.i ], [ %filenameIdx.tr.i.i, %tailrecurse.i1.i.preheader ]
   %arrayidx.i3.i = getelementptr inbounds i8, ptr @.str.23, i64 %filenameIdx.tr.i2.i
-  %7 = load i8, ptr %arrayidx.i3.i, align 1, !tbaa !20
-  switch i8 %7, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit [
+  %6 = load i8, ptr %arrayidx.i3.i, align 1, !tbaa !20
+  switch i8 %6, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit [
     i8 0, label %cond.true.i4.i
     i8 47, label %cond.true3.i.i
   ]
@@ -4241,7 +4229,7 @@ cond.true3.i.i:                                   ; preds = %tailrecurse.i1.i
   br label %tailrecurse.i1.i
 
 cond.false.i.i:                                   ; preds = %lor.lhs.false11.i.i, %cond.true.i.i
-  %cmp18.i.i = icmp eq i8 %3, 0
+  %cmp18.i.i = icmp eq i64 %prefixIdx.tr.i.i, 165
   br i1 %cmp18.i.i, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit, label %tailrecurse.backedge.i.i
 
 tailrecurse.backedge.i.i:                         ; preds = %cond.true38.i.i, %lor.lhs.false32.i.i, %cond.false24.i.i, %cond.false.i.i
@@ -4250,18 +4238,18 @@ tailrecurse.backedge.i.i:                         ; preds = %cond.true38.i.i, %l
   %prefixIdx.tr.be.i.i = add i64 %prefixIdx.tr.i.i, 1
   br label %tailrecurse.i.i
 
-cond.false24.i.i:                                 ; preds = %land.lhs.true.i.i, %tailrecurse.i.i
+cond.false24.i.i:                                 ; preds = %tailrecurse.i.i
   br i1 %match.tr.i.i, label %land.lhs.true26.i.i, label %tailrecurse.backedge.i.i
 
 land.lhs.true26.i.i:                              ; preds = %cond.false24.i.i
   %arrayidx29.i.i = getelementptr inbounds i8, ptr @.str.23, i64 %filenameIdx.tr.i.i
-  %8 = load i8, ptr %arrayidx29.i.i, align 1, !tbaa !20
-  %cmp31.i.i = icmp eq i8 %3, %8
+  %7 = load i8, ptr %arrayidx29.i.i, align 1, !tbaa !20
+  %cmp31.i.i = icmp eq i8 %3, %7
   br i1 %cmp31.i.i, label %cond.true38.i.i, label %lor.lhs.false32.i.i
 
 lor.lhs.false32.i.i:                              ; preds = %land.lhs.true26.i.i
   %cmp.i83.i.i = icmp eq i8 %3, 47
-  %cmp.i84.i.i = icmp eq i8 %8, 47
+  %cmp.i84.i.i = icmp eq i8 %7, 47
   %or.cond86.i.i = and i1 %cmp.i83.i.i, %cmp.i84.i.i
   br i1 %or.cond86.i.i, label %cond.true38.i.i, label %tailrecurse.backedge.i.i
 
@@ -4284,20 +4272,20 @@ _ZN5folly17xlogStripFilenameEPKcS1_.exit:         ; preds = %cond.false.i.i, %_Z
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #40
   call void @_ZN5folly18LogStreamProcessor15formatLogStringIJiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEDpRKT_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(464) %ref.tmp24, ptr nonnull @.str.61, ptr nonnull getelementptr inbounds ([19 x i8], ptr @.str.61, i64 0, i64 18), ptr noundef nonnull align 4 dereferenceable(4) %this) #40
   call void @_ZN5folly18LogStreamProcessorC2EPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPKcEEjS7_NS0_12InternalTypeEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(464) %ref.tmp24, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE, i32 noundef 2000, ptr %cond48.i.i, ptr %add.ptr.i, i32 noundef 877, ptr noundef nonnull byval(%"class.folly::Range") align 8 %agg.tmp3.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #40
-  %9 = load ptr, ptr %ref.tmp.i, align 8, !tbaa !11
-  %10 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 2
-  %cmp.i.i.i.i = icmp eq ptr %9, %10
+  %8 = load ptr, ptr %ref.tmp.i, align 8, !tbaa !11
+  %9 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 2
+  %cmp.i.i.i.i = icmp eq ptr %8, %9
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i54
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZN5folly17xlogStripFilenameEPKcS1_.exit
   %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 1
-  %11 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !16
-  %cmp3.i.i.i.i = icmp ult i64 %11, 16
+  %10 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !16
+  %cmp3.i.i.i.i = icmp ult i64 %10, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i)
   br label %cond.end
 
 if.then.i.i.i54:                                  ; preds = %_ZN5folly17xlogStripFilenameEPKcS1_.exit
-  call void @_ZdlPv(ptr noundef %9) #42
+  call void @_ZdlPv(ptr noundef %8) #42
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then.i.i.i54, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
@@ -4309,8 +4297,8 @@ cond.end:                                         ; preds = %if.then.i.i.i54, %_
 
 cleanup.done40:                                   ; preds = %cond.end, %"_ZZN5folly10Subprocess15terminateOrKillENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEENK3$_0clEv.exit", %if.end19
   call void @_ZNK5folly17ProcessReturnCode7enforceENS0_5StateE(ptr noundef nonnull align 4 dereferenceable(4) %returnCode_, i32 noundef 1)
-  %12 = load i32, ptr %this, align 8, !tbaa !103
-  %call.i.i56 = call i32 @kill(i32 noundef %12, i32 noundef 9) #40
+  %11 = load i32, ptr %this, align 8, !tbaa !103
+  %call.i.i56 = call i32 @kill(i32 noundef %11, i32 noundef 9) #40
   %cmp.i.i.i57 = icmp eq i32 %call.i.i56, -1
   br i1 %cmp.i.i.i57, label %if.then.i.i.i58, label %_ZN5folly10Subprocess4killEv.exit, !prof !23
 
@@ -5567,31 +5555,25 @@ tailrecurse.i.i:                                  ; preds = %tailrecurse.backedg
   %arrayidx.i.i = getelementptr inbounds i8, ptr @.str.24, i64 %prefixIdx.tr.i.i
   %1 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !20
   switch i8 %1, label %cond.false24.i.i [
-    i8 58, label %land.lhs.true.i.i
+    i8 58, label %cond.true.i.i
     i8 0, label %cond.true.i.i
   ]
 
-land.lhs.true.i.i:                                ; preds = %tailrecurse.i.i
-  %arrayidx1.i.i = getelementptr inbounds i8, ptr @.str.23, i64 %filenameIdx.tr.i.i
-  %2 = load i8, ptr %arrayidx1.i.i, align 1, !tbaa !20
-  %cmp3.not.i.i = icmp eq i8 %2, 58
-  br i1 %cmp3.not.i.i, label %cond.false24.i.i, label %cond.true.i.i
-
-cond.true.i.i:                                    ; preds = %land.lhs.true.i.i, %tailrecurse.i.i
+cond.true.i.i:                                    ; preds = %tailrecurse.i.i, %tailrecurse.i.i
   %cmp8.i.i = icmp ne i64 %filenameIdx.tr.i.i, 0
   %or.cond.i.i = and i1 %cmp8.i.i, %match.tr.i.i
   br i1 %or.cond.i.i, label %land.lhs.true9.i.i, label %cond.false.i.i
 
 land.lhs.true9.i.i:                               ; preds = %cond.true.i.i
   %gep.i.i = getelementptr i8, ptr getelementptr ([166 x i8], ptr @.str.24, i64 -1, i64 165), i64 %filenameIdx.tr.i.i
-  %3 = load i8, ptr %gep.i.i, align 1, !tbaa !20
-  %cmp.i.i.i = icmp eq i8 %3, 47
+  %2 = load i8, ptr %gep.i.i, align 1, !tbaa !20
+  %cmp.i.i.i = icmp eq i8 %2, 47
   br i1 %cmp.i.i.i, label %tailrecurse.i1.i.preheader, label %lor.lhs.false11.i.i
 
 lor.lhs.false11.i.i:                              ; preds = %land.lhs.true9.i.i
   %arrayidx12.i.i = getelementptr inbounds i8, ptr @.str.23, i64 %filenameIdx.tr.i.i
-  %4 = load i8, ptr %arrayidx12.i.i, align 1, !tbaa !20
-  %cmp.i82.i.i = icmp eq i8 %4, 47
+  %3 = load i8, ptr %arrayidx12.i.i, align 1, !tbaa !20
+  %cmp.i82.i.i = icmp eq i8 %3, 47
   br i1 %cmp.i82.i.i, label %tailrecurse.i1.i.preheader, label %cond.false.i.i
 
 tailrecurse.i1.i.preheader:                       ; preds = %lor.lhs.false11.i.i, %land.lhs.true9.i.i
@@ -5600,8 +5582,8 @@ tailrecurse.i1.i.preheader:                       ; preds = %lor.lhs.false11.i.i
 tailrecurse.i1.i:                                 ; preds = %tailrecurse.i1.i.preheader, %cond.true3.i.i
   %filenameIdx.tr.i2.i = phi i64 [ %add4.i.i, %cond.true3.i.i ], [ %filenameIdx.tr.i.i, %tailrecurse.i1.i.preheader ]
   %arrayidx.i3.i = getelementptr inbounds i8, ptr @.str.23, i64 %filenameIdx.tr.i2.i
-  %5 = load i8, ptr %arrayidx.i3.i, align 1, !tbaa !20
-  switch i8 %5, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit [
+  %4 = load i8, ptr %arrayidx.i3.i, align 1, !tbaa !20
+  switch i8 %4, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit [
     i8 0, label %cond.true.i4.i
     i8 47, label %cond.true3.i.i
   ]
@@ -5616,7 +5598,7 @@ cond.true3.i.i:                                   ; preds = %tailrecurse.i1.i
   br label %tailrecurse.i1.i
 
 cond.false.i.i:                                   ; preds = %lor.lhs.false11.i.i, %cond.true.i.i
-  %cmp18.i.i = icmp eq i8 %1, 0
+  %cmp18.i.i = icmp eq i64 %prefixIdx.tr.i.i, 165
   br i1 %cmp18.i.i, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit, label %tailrecurse.backedge.i.i
 
 tailrecurse.backedge.i.i:                         ; preds = %cond.true38.i.i, %lor.lhs.false32.i.i, %cond.false24.i.i, %cond.false.i.i
@@ -5625,18 +5607,18 @@ tailrecurse.backedge.i.i:                         ; preds = %cond.true38.i.i, %l
   %prefixIdx.tr.be.i.i = add i64 %prefixIdx.tr.i.i, 1
   br label %tailrecurse.i.i
 
-cond.false24.i.i:                                 ; preds = %land.lhs.true.i.i, %tailrecurse.i.i
+cond.false24.i.i:                                 ; preds = %tailrecurse.i.i
   br i1 %match.tr.i.i, label %land.lhs.true26.i.i, label %tailrecurse.backedge.i.i
 
 land.lhs.true26.i.i:                              ; preds = %cond.false24.i.i
   %arrayidx29.i.i = getelementptr inbounds i8, ptr @.str.23, i64 %filenameIdx.tr.i.i
-  %6 = load i8, ptr %arrayidx29.i.i, align 1, !tbaa !20
-  %cmp31.i.i = icmp eq i8 %1, %6
+  %5 = load i8, ptr %arrayidx29.i.i, align 1, !tbaa !20
+  %cmp31.i.i = icmp eq i8 %1, %5
   br i1 %cmp31.i.i, label %cond.true38.i.i, label %lor.lhs.false32.i.i
 
 lor.lhs.false32.i.i:                              ; preds = %land.lhs.true26.i.i
   %cmp.i83.i.i = icmp eq i8 %1, 47
-  %cmp.i84.i.i = icmp eq i8 %6, 47
+  %cmp.i84.i.i = icmp eq i8 %5, 47
   %or.cond86.i.i = and i1 %cmp.i83.i.i, %cmp.i84.i.i
   br i1 %or.cond86.i.i, label %cond.true38.i.i, label %tailrecurse.backedge.i.i
 
@@ -5660,20 +5642,20 @@ _ZN5folly17xlogStripFilenameEPKcS1_.exit:         ; preds = %cond.false.i.i, %_Z
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #40
   call void @_ZN5folly18LogStreamProcessor15formatLogStringIJliEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEDpRKT_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(464) %ref.tmp6, ptr nonnull @.str.48, ptr nonnull getelementptr inbounds ([70 x i8], ptr @.str.48, i64 0, i64 69), ptr noundef nonnull align 8 dereferenceable(8) %rc, ptr noundef nonnull align 4 dereferenceable(4) %call17) #40
   call void @_ZN5folly18LogStreamProcessorC2EPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPKcEEjS7_NS0_12InternalTypeEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(464) %ref.tmp6, ptr noundef nonnull @_ZN5folly6detail6custom12_GLOBAL__N_117xlogFileScopeInfoE, i32 noundef 4000, ptr %cond48.i.i, ptr %add.ptr.i, i32 noundef 741, ptr noundef nonnull byval(%"class.folly::Range") align 8 %agg.tmp5.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #40
-  %7 = load ptr, ptr %ref.tmp.i, align 8, !tbaa !11
-  %8 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 2
-  %cmp.i.i.i.i = icmp eq ptr %7, %8
+  %6 = load ptr, ptr %ref.tmp.i, align 8, !tbaa !11
+  %7 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 2
+  %cmp.i.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZN5folly17xlogStripFilenameEPKcS1_.exit
   %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 1
-  %9 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !16
-  %cmp3.i.i.i.i = icmp ult i64 %9, 16
+  %8 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !16
+  %cmp3.i.i.i.i = icmp ult i64 %8, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i)
   br label %cond.end
 
 if.then.i.i.i:                                    ; preds = %_ZN5folly17xlogStripFilenameEPKcS1_.exit
-  call void @_ZdlPv(ptr noundef %7) #42
+  call void @_ZdlPv(ptr noundef %6) #42
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
@@ -5688,10 +5670,10 @@ if.end23:                                         ; preds = %entry
   call void @_ZN5folly10Subprocess4waitEv(ptr nonnull sret(%"class.folly::ProcessReturnCode") align 4 %tmp, ptr noundef nonnull align 8 dereferenceable(40) %this)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp) #40
   %exception = call ptr @__cxa_allocate_exception(i64 24) #40
-  %10 = load i32, ptr %info, align 4, !tbaa !211
+  %9 = load i32, ptr %info, align 4, !tbaa !211
   %errnoValue = getelementptr inbounds %"struct.folly::(anonymous namespace)::ChildErrorInfo", ptr %info, i64 0, i32 1
-  %11 = load i32, ptr %errnoValue, align 4, !tbaa !213
-  invoke void @_ZN5folly20SubprocessSpawnErrorC1EPKcii(ptr noundef nonnull align 8 dereferenceable(20) %exception, ptr noundef %executable, i32 noundef %10, i32 noundef %11)
+  %10 = load i32, ptr %errnoValue, align 4, !tbaa !213
+  invoke void @_ZN5folly20SubprocessSpawnErrorC1EPKcii(ptr noundef nonnull align 8 dereferenceable(20) %exception, ptr noundef %executable, i32 noundef %9, i32 noundef %10)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end23
@@ -5699,12 +5681,12 @@ invoke.cont:                                      ; preds = %if.end23
   unreachable
 
 lpad:                                             ; preds = %if.end23
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception) #40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rc) #40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %info) #40
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %11
 
 cleanup:                                          ; preds = %cond.end, %"_ZZN5folly10Subprocess18readChildErrorPipeEiPKcENK3$_0clEv.exit", %if.then3, %entry
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rc) #40

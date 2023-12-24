@@ -811,7 +811,8 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %1 = phi ptr [ %17, %for.inc ], [ @.str.53, %entry ]
+  %arrayidx = getelementptr inbounds [9 x %struct.anon], ptr @libbc_map, i64 0, i64 %indvars.iv
+  %1 = load ptr, ptr %arrayidx, align 16
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %p) #18
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then5, label %for.inc
@@ -927,14 +928,12 @@ libdef_fixupbc.exit:                              ; preds = %libdef_fixupbc.exit
 
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds [9 x %struct.anon], ptr @libbc_map, i64 0, i64 %indvars.iv.next
-  %17 = load ptr, ptr %arrayidx, align 16
-  %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %for.end, label %for.body, !llvm.loop !17
+  %cmp1.not = icmp eq i64 %indvars.iv.next, 8
+  br i1 %cmp1.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc
-  %18 = load ptr, ptr @stderr, align 8
-  %call15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.52, ptr noundef %p) #16
+  %17 = load ptr, ptr @stderr, align 8
+  %call15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.52, ptr noundef %p) #16
   tail call void @exit(i32 noundef 1) #17
   unreachable
 

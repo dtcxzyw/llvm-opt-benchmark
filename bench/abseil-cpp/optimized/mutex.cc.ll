@@ -3047,8 +3047,8 @@ lor.lhs.false:                                    ; preds = %_ZN4abslL13GetSynch
 if.then:                                          ; preds = %lor.lhs.false, %_ZN4abslL13GetSynchEventEPKv.exit
   %call1 = call noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef nonnull %pcs, i32 noundef 40, i32 noundef 1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(3) %buffer, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
-  %cmp4.not42 = icmp eq i32 %call1, 0
-  br i1 %cmp4.not42, label %if.end20, label %for.body.preheader
+  %cmp4.not41 = icmp eq i32 %call1, 0
+  br i1 %cmp4.not41, label %if.end20, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.then
   %12 = zext i32 %call1 to i64
@@ -3056,8 +3056,8 @@ for.body.preheader:                               ; preds = %if.then
 
 for.body:                                         ; preds = %for.body.preheader, %if.end
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end ]
-  %pos.044 = phi i32 [ 2, %for.body.preheader ], [ %add, %if.end ]
-  %idxprom = sext i32 %pos.044 to i64
+  %pos.043 = phi i32 [ 2, %for.body.preheader ], [ %add, %if.end ]
+  %idxprom = sext i32 %pos.043 to i64
   %arrayidx = getelementptr inbounds [960 x i8], ptr %buffer, i64 0, i64 %idxprom
   %sub = sub nsw i64 960, %idxprom
   %arrayidx6 = getelementptr inbounds [40 x ptr], ptr %pcs, i64 0, i64 %indvars.iv
@@ -3070,7 +3070,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %or.cond21, label %if.end, label %if.end20
 
 if.end:                                           ; preds = %for.body
-  %add = add nuw nsw i32 %call7, %pos.044
+  %add = add nuw nsw i32 %call7, %pos.043
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp4.not = icmp eq i64 %indvars.iv.next, %12
   br i1 %cmp4.not, label %if.end20, label %for.body, !llvm.loop !24
@@ -3082,68 +3082,66 @@ if.end20:                                         ; preds = %if.end, %for.body, 
   %name = getelementptr inbounds %"struct.absl::SynchEvent", ptr %e.08.i, i64 0, i32 6
   %cond-lvalue = select i1 %cmp, ptr @.str.35, ptr %name
   call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 0, ptr noundef nonnull getelementptr inbounds ([129 x i8], ptr @.str, i64 0, i64 120), i32 noundef 452, ptr noundef nonnull @.str.52, ptr noundef %14, ptr noundef %obj, ptr noundef nonnull %cond-lvalue, ptr noundef nonnull %buffer)
-  %arrayidx22 = getelementptr inbounds [14 x %struct.anon], ptr @_ZN4abslL16event_propertiesE, i64 0, i64 %idxprom15
-  %15 = load i32, ptr %arrayidx22, align 16
-  %and = and i32 %15, 2
-  %cmp24 = icmp ne i32 %and, 0
+  %15 = lshr i64 933, %idxprom15
+  %16 = and i64 %15, 1
+  %cmp24 = icmp ne i64 %16, 0
   %cmp25 = icmp ne ptr %e.08.i, null
-  %or.cond = and i1 %cmp25, %cmp24
+  %or.cond = and i1 %cmp24, %cmp25
   br i1 %or.cond, label %land.lhs.true26, label %if.end41
 
 if.end20.thread:                                  ; preds = %lor.lhs.false
   %idxprom2134 = zext nneg i32 %ev to i64
-  %arrayidx2235 = getelementptr inbounds [14 x %struct.anon], ptr @_ZN4abslL16event_propertiesE, i64 0, i64 %idxprom2134
-  %16 = load i32, ptr %arrayidx2235, align 16
-  %and36 = and i32 %16, 2
-  %cmp2437.not = icmp eq i32 %and36, 0
-  br i1 %cmp2437.not, label %if.then.i23, label %land.lhs.true26
+  %17 = lshr i64 933, %idxprom2134
+  %18 = and i64 %17, 1
+  %cmp2435.not = icmp eq i64 %18, 0
+  br i1 %cmp2435.not, label %if.then.i23, label %land.lhs.true26
 
 land.lhs.true26:                                  ; preds = %if.end20.thread, %if.end20
   %invariant = getelementptr inbounds %"struct.absl::SynchEvent", ptr %e.08.i, i64 0, i32 3
-  %17 = load ptr, ptr %invariant, align 8
-  %cmp27.not = icmp eq ptr %17, null
+  %19 = load ptr, ptr %invariant, align 8
+  %cmp27.not = icmp eq ptr %19, null
   br i1 %cmp27.not, label %if.then.i23, label %if.then28
 
 if.then28:                                        ; preds = %land.lhs.true26
   %arg.i = getelementptr inbounds %"struct.absl::SynchEvent", ptr %e.08.i, i64 0, i32 4
-  %18 = load ptr, ptr %arg.i, align 8
-  call void %17(ptr noundef %18)
+  %20 = load ptr, ptr %arg.i, align 8
+  call void %19(ptr noundef %20)
   br label %if.then.i23
 
 if.end41:                                         ; preds = %if.end20
   br i1 %cmp, label %_ZN4abslL15UnrefSynchEventEPNS_10SynchEventE.exit, label %if.then.i23
 
 if.then.i23:                                      ; preds = %land.lhs.true26, %if.then28, %if.end20.thread, %if.end41
-  %19 = load atomic i32, ptr @_ZN4abslL14synch_event_muE monotonic, align 4
-  %and.i.i.i.i24 = and i32 %19, 1
+  %21 = load atomic i32, ptr @_ZN4abslL14synch_event_muE monotonic, align 4
+  %and.i.i.i.i24 = and i32 %21, 1
   %cmp.not.i.i.i.i25 = icmp eq i32 %and.i.i.i.i24, 0
   br i1 %cmp.not.i.i.i.i25, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i31, label %if.then.i.i26
 
 _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i31: ; preds = %if.then.i23
-  %or9.i.i.i.i32 = or disjoint i32 %19, 1
-  %20 = cmpxchg ptr @_ZN4abslL14synch_event_muE, i32 %19, i32 %or9.i.i.i.i32 acquire monotonic, align 4
-  %21 = extractvalue { i32, i1 } %20, 0
-  %.pre.i.i.i33 = and i32 %21, 1
-  %22 = icmp eq i32 %.pre.i.i.i33, 0
-  br i1 %22, label %_ZN4absl13base_internal8SpinLock4LockEv.exit.i27, label %if.then.i.i26
+  %or9.i.i.i.i32 = or disjoint i32 %21, 1
+  %22 = cmpxchg ptr @_ZN4abslL14synch_event_muE, i32 %21, i32 %or9.i.i.i.i32 acquire monotonic, align 4
+  %23 = extractvalue { i32, i1 } %22, 0
+  %.pre.i.i.i33 = and i32 %23, 1
+  %24 = icmp eq i32 %.pre.i.i.i33, 0
+  br i1 %24, label %_ZN4absl13base_internal8SpinLock4LockEv.exit.i27, label %if.then.i.i26
 
 if.then.i.i26:                                    ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i31, %if.then.i23
   call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE) #25
   br label %_ZN4absl13base_internal8SpinLock4LockEv.exit.i27
 
 _ZN4absl13base_internal8SpinLock4LockEv.exit.i27: ; preds = %if.then.i.i26, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i31
-  %23 = load i32, ptr %e.08.i, align 8
-  %dec.i = add nsw i32 %23, -1
+  %25 = load i32, ptr %e.08.i, align 8
+  %dec.i = add nsw i32 %25, -1
   store i32 %dec.i, ptr %e.08.i, align 8
   %cmp1.i = icmp eq i32 %dec.i, 0
-  %24 = load atomic i32, ptr @_ZN4abslL14synch_event_muE monotonic, align 4
-  %and.i.i28 = and i32 %24, 2
-  %25 = atomicrmw xchg ptr @_ZN4abslL14synch_event_muE, i32 %and.i.i28 release, align 4
-  %cmp6.not.i.i29 = icmp ult i32 %25, 8
+  %26 = load atomic i32, ptr @_ZN4abslL14synch_event_muE monotonic, align 4
+  %and.i.i28 = and i32 %26, 2
+  %27 = atomicrmw xchg ptr @_ZN4abslL14synch_event_muE, i32 %and.i.i28 release, align 4
+  %cmp6.not.i.i29 = icmp ult i32 %27, 8
   br i1 %cmp6.not.i.i29, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, label %if.then7.i.i30
 
 if.then7.i.i30:                                   ; preds = %_ZN4absl13base_internal8SpinLock4LockEv.exit.i27
-  call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE, i32 noundef %25) #25
+  call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE, i32 noundef %27) #25
   br label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i
 
 _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %if.then7.i.i30, %_ZN4absl13base_internal8SpinLock4LockEv.exit.i27

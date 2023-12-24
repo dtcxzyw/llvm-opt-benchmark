@@ -2070,8 +2070,8 @@ if.then.i:                                        ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
   %out.1.i = phi i64 [ %or.i, %if.then.i ], [ %out.06.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %exitcond.i, label %moduleConvertKeySpecsFlags.exit, label %for.body.i, !llvm.loop !13
+  %tobool3.not.i = icmp eq i64 %indvars.iv.next.i, 11
+  br i1 %tobool3.not.i, label %moduleConvertKeySpecsFlags.exit, label %for.body.i, !llvm.loop !13
 
 moduleConvertKeySpecsFlags.exit:                  ; preds = %for.inc.i
   %conv16 = trunc i64 %out.1.i to i32
@@ -2097,7 +2097,7 @@ entry:
 for.body.i:                                       ; preds = %for.inc.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.inc.i ]
   %out.06.i = phi i64 [ 0, %entry ], [ %out.1.i, %for.inc.i ]
-  %0 = lshr i64 4013, %indvars.iv.i
+  %0 = lshr i64 1965, %indvars.iv.i
   %1 = and i64 %0, 1
   %tobool8.not.i.not = icmp eq i64 %1, 0
   br i1 %tobool8.not.i.not, label %if.then.i, label %for.inc.i
@@ -2111,8 +2111,8 @@ if.then.i:                                        ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
   %out.1.i = phi i64 [ %or.i, %if.then.i ], [ %out.06.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %exitcond.i, label %moduleConvertKeySpecsFlags.exit, label %for.body.i, !llvm.loop !13
+  %tobool3.not.i = icmp eq i64 %indvars.iv.next.i, 11
+  br i1 %tobool3.not.i, label %moduleConvertKeySpecsFlags.exit, label %for.body.i, !llvm.loop !13
 
 moduleConvertKeySpecsFlags.exit:                  ; preds = %for.inc.i
   %flags1.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
@@ -2173,8 +2173,8 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 for.inc.i.i:                                      ; preds = %if.then.i.i, %for.body.i.i
   %out.1.i.i = phi i64 [ %or.i.i, %if.then.i.i ], [ %out.06.i.i, %for.body.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 11
-  br i1 %exitcond.i.i, label %moduleConvertKeySpecsFlags.exit.i, label %for.body.i.i, !llvm.loop !13
+  %tobool3.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 11
+  br i1 %tobool3.not.i.i, label %moduleConvertKeySpecsFlags.exit.i, label %for.body.i.i, !llvm.loop !13
 
 moduleConvertKeySpecsFlags.exit.i:                ; preds = %for.inc.i.i
   %conv16.i = trunc i64 %out.1.i.i to i32
@@ -3456,29 +3456,29 @@ cond.end:                                         ; preds = %while.end
   %mul = add nuw i64 %add, 16
   %call58 = tail call noalias ptr @zmalloc(i64 noundef %mul) #35
   store ptr %call58, ptr %history, align 8
-  %cmp60182.not = icmp eq i64 %count.0, 0
-  br i1 %cmp60182.not, label %for.end, label %for.body
+  %cmp60181.not = icmp eq i64 %count.0, 0
+  br i1 %cmp60181.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %cond.end, %for.body
-  %j.0183 = phi i64 [ %inc75, %for.body ], [ 0, %cond.end ]
+  %j.0182 = phi i64 [ %inc75, %for.body ], [ 0, %cond.end ]
   %43 = load ptr, ptr %history.i, align 8
   %.val142 = load i64, ptr %41, align 8
-  %sext160 = shl i64 %j.0183, 32
-  %conv.i145 = ashr exact i64 %sext160, 32
+  %sext159 = shl i64 %j.0182, 32
+  %conv.i145 = ashr exact i64 %sext159, 32
   %mul.i146 = mul i64 %.val142, %conv.i145
   %add.ptr.i147 = getelementptr inbounds i8, ptr %43, i64 %mul.i146
   %44 = load ptr, ptr %add.ptr.i147, align 8
   %call67 = tail call noalias ptr @zstrdup(ptr noundef %44) #34
   %45 = load ptr, ptr %history, align 8
-  %arrayidx69 = getelementptr inbounds %struct.commandHistory, ptr %45, i64 %j.0183
+  %arrayidx69 = getelementptr inbounds %struct.commandHistory, ptr %45, i64 %j.0182
   store ptr %call67, ptr %arrayidx69, align 8
   %changes = getelementptr inbounds %struct.RedisModuleCommandHistoryEntry, ptr %add.ptr.i147, i64 0, i32 1
   %46 = load ptr, ptr %changes, align 8
   %call71 = tail call noalias ptr @zstrdup(ptr noundef %46) #34
   %47 = load ptr, ptr %history, align 8
-  %changes74 = getelementptr inbounds %struct.commandHistory, ptr %47, i64 %j.0183, i32 1
+  %changes74 = getelementptr inbounds %struct.commandHistory, ptr %47, i64 %j.0182, i32 1
   store ptr %call71, ptr %changes74, align 8
-  %inc75 = add nuw i64 %j.0183, 1
+  %inc75 = add nuw i64 %j.0182, 1
   %exitcond.not = icmp eq i64 %inc75, %count.0
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !24
 
@@ -3517,11 +3517,11 @@ if.then93:                                        ; preds = %if.then86
   %call97 = call noalias ptr @zmalloc(i64 noundef %mul96) #35
   store ptr %call97, ptr %tips, align 8
   %52 = load i32, ptr %count87, align 4
-  %cmp101184 = icmp sgt i32 %52, 0
-  br i1 %cmp101184, label %for.body103, label %if.then93.for.end111_crit_edge
+  %cmp101183 = icmp sgt i32 %52, 0
+  br i1 %cmp101183, label %for.body103, label %if.then93.for.end111_crit_edge
 
 if.then93.for.end111_crit_edge:                   ; preds = %if.then93
-  %.pre210 = sext i32 %52 to i64
+  %.pre209 = sext i32 %52 to i64
   br label %for.end111
 
 for.body103:                                      ; preds = %if.then93, %for.body103
@@ -3539,18 +3539,18 @@ for.body103:                                      ; preds = %if.then93, %for.bod
   br i1 %cmp101, label %for.body103, label %for.end111.loopexit, !llvm.loop !25
 
 for.end111.loopexit:                              ; preds = %for.body103
-  %.pre209 = load ptr, ptr %tips, align 8
+  %.pre208 = load ptr, ptr %tips, align 8
   br label %for.end111
 
 for.end111:                                       ; preds = %if.then93.for.end111_crit_edge, %for.end111.loopexit
-  %idxprom113.pre-phi = phi i64 [ %.pre210, %if.then93.for.end111_crit_edge ], [ %56, %for.end111.loopexit ]
-  %57 = phi ptr [ %call97, %if.then93.for.end111_crit_edge ], [ %.pre209, %for.end111.loopexit ]
-  %.lcssa163 = phi i32 [ %52, %if.then93.for.end111_crit_edge ], [ %55, %for.end111.loopexit ]
+  %idxprom113.pre-phi = phi i64 [ %.pre209, %if.then93.for.end111_crit_edge ], [ %56, %for.end111.loopexit ]
+  %57 = phi ptr [ %call97, %if.then93.for.end111_crit_edge ], [ %.pre208, %for.end111.loopexit ]
+  %.lcssa162 = phi i32 [ %52, %if.then93.for.end111_crit_edge ], [ %55, %for.end111.loopexit ]
   %arrayidx114 = getelementptr inbounds ptr, ptr %57, i64 %idxprom113.pre-phi
   store ptr null, ptr %arrayidx114, align 8
   %num_tips = getelementptr inbounds %struct.redisCommand, ptr %25, i64 0, i32 11
-  store i32 %.lcssa163, ptr %num_tips, align 8
-  call void @sdsfreesplitres(ptr noundef nonnull %call91, i32 noundef %.lcssa163) #34
+  store i32 %.lcssa162, ptr %num_tips, align 8
+  call void @sdsfreesplitres(ptr noundef nonnull %call91, i32 noundef %.lcssa162) #34
   br label %if.end116
 
 if.end116:                                        ; preds = %if.then86, %for.end111, %if.end83
@@ -3577,8 +3577,8 @@ while.cond126.preheader:                          ; preds = %if.end121
 
 while.cond126:                                    ; preds = %while.cond126, %while.cond126.preheader
   %count125.0 = phi i64 [ %inc133, %while.cond126 ], [ 0, %while.cond126.preheader ]
-  %sext161 = shl i64 %count125.0, 32
-  %conv.i148 = ashr exact i64 %sext161, 32
+  %sext160 = shl i64 %count125.0, 32
+  %conv.i148 = ashr exact i64 %sext160, 32
   %mul.i149 = mul i64 %conv.i148, %.val143
   %gep = getelementptr i8, ptr %invariant.gep, i64 %mul.i149
   %61 = load i32, ptr %gep, align 8
@@ -3604,15 +3604,15 @@ cond.end145:                                      ; preds = %while.end134
   %call148 = call noalias ptr @zmalloc(i64 noundef %mul147) #35
   store ptr %call148, ptr %key_specs146, align 8
   store i32 %conv128.le, ptr %key_specs_num, align 8
-  %cmp154187.not = icmp eq i64 %count125.0, 0
-  br i1 %cmp154187.not, label %for.end263, label %for.body156
+  %cmp154186.not = icmp eq i64 %count125.0, 0
+  br i1 %cmp154186.not, label %for.end263, label %for.body156
 
 for.body156:                                      ; preds = %cond.end145, %for.inc261
-  %j152.0188 = phi i64 [ %inc262, %for.inc261 ], [ 0, %cond.end145 ]
+  %j152.0187 = phi i64 [ %inc262, %for.inc261 ], [ 0, %cond.end145 ]
   %63 = load ptr, ptr %key_specs.i, align 8
   %.val144 = load i64, ptr %60, align 8
-  %sext162 = shl i64 %j152.0188, 32
-  %conv.i151 = ashr exact i64 %sext162, 32
+  %sext161 = shl i64 %j152.0187, 32
+  %conv.i151 = ashr exact i64 %sext161, 32
   %mul.i152 = mul i64 %.val144, %conv.i151
   %add.ptr.i153 = getelementptr inbounds i8, ptr %63, i64 %mul.i152
   %64 = load ptr, ptr %add.ptr.i153, align 8
@@ -3626,7 +3626,7 @@ cond.true161:                                     ; preds = %for.body156
 cond.end165:                                      ; preds = %for.body156, %cond.true161
   %cond = phi ptr [ %call163, %cond.true161 ], [ null, %for.body156 ]
   %65 = load ptr, ptr %key_specs146, align 8
-  %arrayidx167 = getelementptr inbounds %struct.keySpec, ptr %65, i64 %j152.0188
+  %arrayidx167 = getelementptr inbounds %struct.keySpec, ptr %65, i64 %j152.0187
   store ptr %cond, ptr %arrayidx167, align 8
   %flags = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i153, i64 0, i32 1
   %66 = load i64, ptr %flags, align 8
@@ -3650,12 +3650,12 @@ if.then.i:                                        ; preds = %for.body.i154
 for.inc.i156:                                     ; preds = %if.then.i, %for.body.i154
   %out.1.i = phi i64 [ %or.i, %if.then.i ], [ %out.06.i, %for.body.i154 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i157 = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %exitcond.i157, label %moduleConvertKeySpecsFlags.exit, label %for.body.i154, !llvm.loop !13
+  %tobool3.not.i = icmp eq i64 %indvars.iv.next.i, 11
+  br i1 %tobool3.not.i, label %moduleConvertKeySpecsFlags.exit, label %for.body.i154, !llvm.loop !13
 
 moduleConvertKeySpecsFlags.exit:                  ; preds = %for.inc.i156
   %69 = load ptr, ptr %key_specs146, align 8
-  %flags172 = getelementptr inbounds %struct.keySpec, ptr %69, i64 %j152.0188, i32 1
+  %flags172 = getelementptr inbounds %struct.keySpec, ptr %69, i64 %j152.0187, i32 1
   store i64 %out.1.i, ptr %flags172, align 8
   %begin_search_type173 = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i153, i64 0, i32 2
   %70 = load i32, ptr %begin_search_type173, align 8
@@ -3667,35 +3667,35 @@ moduleConvertKeySpecsFlags.exit:                  ; preds = %for.inc.i156
 
 sw.bb:                                            ; preds = %moduleConvertKeySpecsFlags.exit
   %71 = load ptr, ptr %key_specs146, align 8
-  %begin_search_type176 = getelementptr inbounds %struct.keySpec, ptr %71, i64 %j152.0188, i32 2
+  %begin_search_type176 = getelementptr inbounds %struct.keySpec, ptr %71, i64 %j152.0187, i32 2
   store i32 1, ptr %begin_search_type176, align 8
   br label %sw.epilog
 
 sw.bb177:                                         ; preds = %moduleConvertKeySpecsFlags.exit
   %72 = load ptr, ptr %key_specs146, align 8
-  %begin_search_type180 = getelementptr inbounds %struct.keySpec, ptr %72, i64 %j152.0188, i32 2
+  %begin_search_type180 = getelementptr inbounds %struct.keySpec, ptr %72, i64 %j152.0187, i32 2
   store i32 2, ptr %begin_search_type180, align 8
   %bs = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i153, i64 0, i32 3
   %73 = load i32, ptr %bs, align 8
   %74 = load ptr, ptr %key_specs146, align 8
-  %bs183 = getelementptr inbounds %struct.keySpec, ptr %74, i64 %j152.0188, i32 3
+  %bs183 = getelementptr inbounds %struct.keySpec, ptr %74, i64 %j152.0187, i32 3
   store i32 %73, ptr %bs183, align 8
   br label %sw.epilog
 
 sw.bb185:                                         ; preds = %moduleConvertKeySpecsFlags.exit
   %75 = load ptr, ptr %key_specs146, align 8
-  %begin_search_type188 = getelementptr inbounds %struct.keySpec, ptr %75, i64 %j152.0188, i32 2
+  %begin_search_type188 = getelementptr inbounds %struct.keySpec, ptr %75, i64 %j152.0187, i32 2
   store i32 3, ptr %begin_search_type188, align 8
   %bs189 = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i153, i64 0, i32 3
   %76 = load ptr, ptr %bs189, align 8
   %call190 = call noalias ptr @zstrdup(ptr noundef %76) #34
   %77 = load ptr, ptr %key_specs146, align 8
-  %bs193 = getelementptr inbounds %struct.keySpec, ptr %77, i64 %j152.0188, i32 3
+  %bs193 = getelementptr inbounds %struct.keySpec, ptr %77, i64 %j152.0187, i32 3
   store ptr %call190, ptr %bs193, align 8
   %startfrom = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i153, i64 0, i32 3, i32 0, i32 1
   %78 = load i32, ptr %startfrom, align 8
   %79 = load ptr, ptr %key_specs146, align 8
-  %startfrom199 = getelementptr inbounds %struct.keySpec, ptr %79, i64 %j152.0188, i32 3, i32 0, i32 1
+  %startfrom199 = getelementptr inbounds %struct.keySpec, ptr %79, i64 %j152.0187, i32 3, i32 0, i32 1
   store i32 %78, ptr %startfrom199, align 8
   br label %sw.epilog
 
@@ -3716,64 +3716,64 @@ sw.epilog:                                        ; preds = %sw.bb185, %sw.bb177
 
 sw.bb201:                                         ; preds = %sw.epilog
   %81 = load ptr, ptr %key_specs146, align 8
-  %find_keys_type204 = getelementptr inbounds %struct.keySpec, ptr %81, i64 %j152.0188, i32 4
+  %find_keys_type204 = getelementptr inbounds %struct.keySpec, ptr %81, i64 %j152.0187, i32 4
   store i32 2, ptr %find_keys_type204, align 8
   %82 = load ptr, ptr %key_specs146, align 8
-  %fk = getelementptr inbounds %struct.keySpec, ptr %82, i64 %j152.0188, i32 5
+  %fk = getelementptr inbounds %struct.keySpec, ptr %82, i64 %j152.0187, i32 5
   store i32 0, ptr %fk, align 4
   %83 = load ptr, ptr %key_specs146, align 8
-  %keystep = getelementptr inbounds %struct.keySpec, ptr %83, i64 %j152.0188, i32 5, i32 0, i32 1
+  %keystep = getelementptr inbounds %struct.keySpec, ptr %83, i64 %j152.0187, i32 5, i32 0, i32 1
   store i32 1, ptr %keystep, align 4
   %84 = load ptr, ptr %key_specs146, align 8
-  %limit = getelementptr inbounds %struct.keySpec, ptr %84, i64 %j152.0188, i32 5, i32 0, i32 2
+  %limit = getelementptr inbounds %struct.keySpec, ptr %84, i64 %j152.0187, i32 5, i32 0, i32 2
   store i32 0, ptr %limit, align 4
   br label %for.inc261
 
 sw.bb213:                                         ; preds = %sw.epilog
   %85 = load ptr, ptr %key_specs146, align 8
-  %find_keys_type216 = getelementptr inbounds %struct.keySpec, ptr %85, i64 %j152.0188, i32 4
+  %find_keys_type216 = getelementptr inbounds %struct.keySpec, ptr %85, i64 %j152.0187, i32 4
   store i32 1, ptr %find_keys_type216, align 8
   br label %for.inc261
 
 sw.bb217:                                         ; preds = %sw.epilog
   %86 = load ptr, ptr %key_specs146, align 8
-  %find_keys_type220 = getelementptr inbounds %struct.keySpec, ptr %86, i64 %j152.0188, i32 4
+  %find_keys_type220 = getelementptr inbounds %struct.keySpec, ptr %86, i64 %j152.0187, i32 4
   store i32 2, ptr %find_keys_type220, align 8
   %fk221 = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i153, i64 0, i32 5
   %87 = load i32, ptr %fk221, align 4
   %88 = load ptr, ptr %key_specs146, align 8
-  %fk225 = getelementptr inbounds %struct.keySpec, ptr %88, i64 %j152.0188, i32 5
+  %fk225 = getelementptr inbounds %struct.keySpec, ptr %88, i64 %j152.0187, i32 5
   store i32 %87, ptr %fk225, align 4
   %keystep228 = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i153, i64 0, i32 5, i32 0, i32 1
   %89 = load i32, ptr %keystep228, align 4
   %90 = load ptr, ptr %key_specs146, align 8
-  %keystep232 = getelementptr inbounds %struct.keySpec, ptr %90, i64 %j152.0188, i32 5, i32 0, i32 1
+  %keystep232 = getelementptr inbounds %struct.keySpec, ptr %90, i64 %j152.0187, i32 5, i32 0, i32 1
   store i32 %89, ptr %keystep232, align 4
   %limit234 = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i153, i64 0, i32 5, i32 0, i32 2
   %91 = load i32, ptr %limit234, align 4
   %92 = load ptr, ptr %key_specs146, align 8
-  %limit238 = getelementptr inbounds %struct.keySpec, ptr %92, i64 %j152.0188, i32 5, i32 0, i32 2
+  %limit238 = getelementptr inbounds %struct.keySpec, ptr %92, i64 %j152.0187, i32 5, i32 0, i32 2
   store i32 %91, ptr %limit238, align 4
   br label %for.inc261
 
 sw.bb239:                                         ; preds = %sw.epilog
   %93 = load ptr, ptr %key_specs146, align 8
-  %find_keys_type242 = getelementptr inbounds %struct.keySpec, ptr %93, i64 %j152.0188, i32 4
+  %find_keys_type242 = getelementptr inbounds %struct.keySpec, ptr %93, i64 %j152.0187, i32 4
   store i32 3, ptr %find_keys_type242, align 8
   %fk243 = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i153, i64 0, i32 5
   %94 = load i32, ptr %fk243, align 4
   %95 = load ptr, ptr %key_specs146, align 8
-  %fk246 = getelementptr inbounds %struct.keySpec, ptr %95, i64 %j152.0188, i32 5
+  %fk246 = getelementptr inbounds %struct.keySpec, ptr %95, i64 %j152.0187, i32 5
   store i32 %94, ptr %fk246, align 4
   %firstkey = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i153, i64 0, i32 5, i32 0, i32 1
   %96 = load i32, ptr %firstkey, align 4
   %97 = load ptr, ptr %key_specs146, align 8
-  %firstkey252 = getelementptr inbounds %struct.keySpec, ptr %97, i64 %j152.0188, i32 5, i32 0, i32 1
+  %firstkey252 = getelementptr inbounds %struct.keySpec, ptr %97, i64 %j152.0187, i32 5, i32 0, i32 1
   store i32 %96, ptr %firstkey252, align 4
   %keystep254 = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i153, i64 0, i32 5, i32 0, i32 2
   %98 = load i32, ptr %keystep254, align 4
   %99 = load ptr, ptr %key_specs146, align 8
-  %keystep258 = getelementptr inbounds %struct.keySpec, ptr %99, i64 %j152.0188, i32 5, i32 0, i32 2
+  %keystep258 = getelementptr inbounds %struct.keySpec, ptr %99, i64 %j152.0187, i32 5, i32 0, i32 2
   store i32 %98, ptr %keystep258, align 4
   br label %for.inc261
 
@@ -3783,9 +3783,9 @@ sw.default259:                                    ; preds = %sw.epilog
   unreachable
 
 for.inc261:                                       ; preds = %sw.bb201, %sw.bb213, %sw.bb217, %sw.bb239
-  %inc262 = add nuw i64 %j152.0188, 1
-  %exitcond208.not = icmp eq i64 %inc262, %count125.0
-  br i1 %exitcond208.not, label %for.end263, label %for.body156, !llvm.loop !27
+  %inc262 = add nuw i64 %j152.0187, 1
+  %exitcond207.not = icmp eq i64 %inc262, %count125.0
+  br i1 %exitcond207.not, label %for.end263, label %for.body156, !llvm.loop !27
 
 for.end263:                                       ; preds = %for.inc261, %cond.end145
   call void @populateCommandLegacyRangeSpec(ptr noundef nonnull %25) #34
@@ -20463,8 +20463,8 @@ if.then.i:                                        ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
   %out.1.i = phi i64 [ %or.i, %if.then.i ], [ %out.06.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %exitcond.i, label %moduleConvertKeySpecsFlags.exit, label %for.body.i, !llvm.loop !13
+  %tobool3.not.i = icmp eq i64 %indvars.iv.next.i, 11
+  br i1 %tobool3.not.i, label %moduleConvertKeySpecsFlags.exit, label %for.body.i, !llvm.loop !13
 
 moduleConvertKeySpecsFlags.exit:                  ; preds = %for.inc.i
   %conv2 = trunc i64 %out.1.i to i32
@@ -29107,8 +29107,8 @@ if.then.i:                                        ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
   %out.1.i = phi i64 [ %or.i, %if.then.i ], [ %out.06.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %exitcond.i, label %moduleConvertKeySpecsFlags.exit, label %for.body.i, !llvm.loop !13
+  %tobool3.not.i = icmp eq i64 %indvars.iv.next.i, 11
+  br i1 %tobool3.not.i, label %moduleConvertKeySpecsFlags.exit, label %for.body.i, !llvm.loop !13
 
 moduleConvertKeySpecsFlags.exit:                  ; preds = %for.inc.i
   %conv38 = trunc i64 %out.1.i to i32

@@ -237,32 +237,30 @@ declare i64 @ossl_quic_cfq_item_get_encoded_len(ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @check(ptr noundef %cfq) unnamed_addr #0 {
 entry:
-  br label %for.body
+  br label %if.end6.preheader
 
 for.cond:                                         ; preds = %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %err, label %for.body, !llvm.loop !16
+  br i1 %exitcond.not, label %err, label %if.end6.preheader, !llvm.loop !16
 
-for.body:                                         ; preds = %entry, %for.cond
+if.end6.preheader:                                ; preds = %for.cond, %entry
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
   %0 = trunc i64 %indvars.iv to i32
   %call = tail call ptr @ossl_quic_cfq_get_priority_head(ptr noundef %cfq, i32 noundef %0) #3
   %arrayidx219 = getelementptr inbounds [3 x [11 x i32]], ptr @expect, i64 0, i64 %indvars.iv, i64 0
   %1 = load i32, ptr %arrayidx219, align 4
-  %cmp320 = icmp eq i32 %1, -1
-  br i1 %cmp320, label %if.then, label %if.end6
+  br label %if.end6
 
-if.then:                                          ; preds = %for.inc, %for.body
-  %item.0.lcssa = phi ptr [ %call, %for.body ], [ %call28, %for.inc ]
-  %call4 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.1, i32 noundef 78, ptr noundef nonnull @.str.15, ptr noundef %item.0.lcssa) #3
+if.then:                                          ; preds = %for.inc
+  %call4 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.1, i32 noundef 78, ptr noundef nonnull @.str.15, ptr noundef %call28) #3
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %err, label %for.cond
 
-if.end6:                                          ; preds = %for.body, %for.inc
-  %2 = phi i32 [ %3, %for.inc ], [ %1, %for.body ]
-  %i.022 = phi i64 [ %inc, %for.inc ], [ 0, %for.body ]
-  %item.021 = phi ptr [ %call28, %for.inc ], [ %call, %for.body ]
+if.end6:                                          ; preds = %if.end6.preheader, %for.inc
+  %2 = phi i32 [ %3, %for.inc ], [ %1, %if.end6.preheader ]
+  %i.022 = phi i64 [ %inc, %for.inc ], [ 0, %if.end6.preheader ]
+  %item.021 = phi ptr [ %call28, %for.inc ], [ %call, %if.end6.preheader ]
   %arrayidx9 = getelementptr inbounds [3 x [10 x ptr]], ptr @items, i64 0, i64 %indvars.iv, i64 %i.022
   store ptr %item.021, ptr %arrayidx9, align 8
   %call10 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 86, ptr noundef nonnull @.str.15, ptr noundef %item.021) #3

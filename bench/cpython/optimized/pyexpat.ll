@@ -6497,12 +6497,12 @@ if.end4:                                          ; preds = %if.end
 
 for.body:                                         ; preds = %if.end4, %for.inc
   %error_index.037 = phi i64 [ %inc, %for.inc ], [ 0, %if.end4 ]
-  %arrayidx = getelementptr [44 x %struct.ErrorInfo], ptr @error_info_of, i64 0, i64 %error_index.037
-  %0 = load ptr, ptr %arrayidx, align 16
-  %cmp10 = icmp eq ptr %0, null
+  %cmp10 = icmp eq i64 %error_index.037, 0
   br i1 %cmp10, label %for.inc, label %if.end12
 
 if.end12:                                         ; preds = %for.body
+  %arrayidx.i = getelementptr [44 x %struct.ErrorInfo], ptr @error_info_of, i64 0, i64 %error_index.037
+  %0 = load ptr, ptr %arrayidx.i, align 16
   %conv.i = trunc i64 %error_index.037 to i32
   %call.i = tail call ptr @PyExpat_XML_ErrorString(i32 noundef %conv.i) #8
   %cmp.i17 = icmp eq ptr %call.i, null
@@ -6515,7 +6515,7 @@ if.then.i:                                        ; preds = %if.end12
 
 if.end.i18:                                       ; preds = %if.then.i, %if.end12
   %error_string.0.i = phi ptr [ %1, %if.then.i ], [ %call.i, %if.end12 ]
-  %call4.i = tail call i32 @PyModule_AddStringConstant(ptr noundef nonnull %call, ptr noundef nonnull %0, ptr noundef %error_string.0.i) #8
+  %call4.i = tail call i32 @PyModule_AddStringConstant(ptr noundef nonnull %call, ptr noundef %0, ptr noundef %error_string.0.i) #8
   %cmp5.i = icmp slt i32 %call4.i, 0
   br i1 %cmp5.i, label %if.then.i19, label %if.end8.i
 

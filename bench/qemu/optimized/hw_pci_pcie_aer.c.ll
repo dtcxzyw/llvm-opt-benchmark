@@ -1184,8 +1184,8 @@ if.end:                                           ; preds = %for.body
   %val = getelementptr [24 x %struct.PCIEAERErrorName], ptr @pcie_aer_error_list, i64 0, i64 %indvars.iv, i32 1
   %1 = load i32, ptr %val, align 8
   store i32 %1, ptr %status, align 4
-  %2 = and i64 %indvars.iv, 24
-  %tobool3 = icmp eq i64 %2, 16
+  %2 = add nsw i64 %indvars.iv, -16
+  %tobool3 = icmp ult i64 %2, 7
   %frombool = zext i1 %tobool3 to i8
   store i8 %frombool, ptr %correctable, align 1
   br label %return

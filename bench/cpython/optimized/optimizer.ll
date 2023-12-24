@@ -1254,7 +1254,7 @@ if.end201.i:                                      ; preds = %land.lhs.true188.i,
 
 if.then205.i:                                     ; preds = %if.end201.i
   %conv208.i = zext i16 %22 to i32
-  %cmp209.i = icmp eq i16 %22, 356
+  %cmp209.i = icmp eq i16 %18, 355
   br i1 %cmp209.i, label %sw.epilog.thread.i, label %sw.epilog.i
 
 sw.epilog.thread.i:                               ; preds = %if.then205.i

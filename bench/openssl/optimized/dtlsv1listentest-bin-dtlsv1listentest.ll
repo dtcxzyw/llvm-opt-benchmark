@@ -120,7 +120,7 @@ if.then37:                                        ; preds = %if.else
   ]
 
 land.lhs.true:                                    ; preds = %if.then37
-  %5 = lshr i64 396, %idxprom
+  %5 = lshr i64 140, %idxprom
   %6 = trunc i64 %5 to i32
   %spec.select = and i32 %6, 1
   br label %lor.end

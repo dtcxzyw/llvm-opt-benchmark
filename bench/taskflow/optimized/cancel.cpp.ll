@@ -14735,44 +14735,36 @@ if.end:                                           ; preds = %for.body
   %call95 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 10)
   %arrayidx.i.i49 = getelementptr inbounds [6 x i32], ptr @_ZN2tf10TASK_TYPESE, i64 0, i64 %i.066
   %15 = load i32, ptr %arrayidx.i.i49, align 4
-  %16 = icmp ult i32 %15, 6
-  br i1 %16, label %switch.lookup, label %_ZN2tf9to_stringENS_8TaskTypeE.exit
-
-switch.lookup:                                    ; preds = %if.end
-  %17 = zext nneg i32 %15 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK2tf14TFProfObserver7Summary9dump_wsumERSo, i64 0, i64 %17
+  %16 = sext i32 %15 to i64
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK2tf14TFProfObserver7Summary9dump_wsumERSo, i64 0, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %_ZN2tf9to_stringENS_8TaskTypeE.exit
-
-_ZN2tf9to_stringENS_8TaskTypeE.exit:              ; preds = %if.end, %switch.lookup
-  %val.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.42, %if.end ]
-  %call98 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call95, ptr noundef nonnull %val.0.i)
+  %call98 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call95, ptr noundef nonnull %switch.load)
   %call105 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %call98, i32 %conv47)
-  %18 = load i64, ptr %arrayidx.i.i, align 8
-  %call109 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call105, i64 noundef %18)
+  %17 = load i64, ptr %arrayidx.i.i, align 8
+  %call109 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call105, i64 noundef %17)
   %call116 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %call109, i32 %conv55)
   %total_span = getelementptr inbounds [6 x %"struct.tf::TFProfObserver::TaskSummary"], ptr %this, i64 0, i64 %i.066, i32 1
-  %19 = load i64, ptr %total_span, align 8
-  %call119 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call116, i64 noundef %19)
+  %18 = load i64, ptr %total_span, align 8
+  %call119 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call116, i64 noundef %18)
   %call126 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %call119, i32 %conv63)
-  %20 = load i64, ptr %total_span, align 8
-  %conv.i = uitofp i64 %20 to float
-  %21 = load i64, ptr %arrayidx.i.i, align 8
-  %conv2.i = uitofp i64 %21 to float
+  %19 = load i64, ptr %total_span, align 8
+  %conv.i = uitofp i64 %19 to float
+  %20 = load i64, ptr %arrayidx.i.i, align 8
+  %conv2.i = uitofp i64 %20 to float
   %div.i = fdiv float %conv.i, %conv2.i
   %conv.i53 = fpext float %div.i to double
   call void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull @vsnprintf, i64 noundef 58, ptr noundef nonnull @.str.54, double noundef %conv.i53)
   %call130 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call126, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %_ZN2tf9to_stringENS_8TaskTypeE.exit
+invoke.cont:                                      ; preds = %if.end
   %call139 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %call130, i32 %conv71)
           to label %invoke.cont138 unwind label %lpad
 
 invoke.cont138:                                   ; preds = %invoke.cont
   %min_span = getelementptr inbounds [6 x %"struct.tf::TFProfObserver::TaskSummary"], ptr %this, i64 0, i64 %i.066, i32 2
-  %22 = load i64, ptr %min_span, align 8
-  %call143 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call139, i64 noundef %22)
+  %21 = load i64, ptr %min_span, align 8
+  %call143 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call139, i64 noundef %21)
           to label %invoke.cont142 unwind label %lpad
 
 invoke.cont142:                                   ; preds = %invoke.cont138
@@ -14781,8 +14773,8 @@ invoke.cont142:                                   ; preds = %invoke.cont138
 
 invoke.cont151:                                   ; preds = %invoke.cont142
   %max_span = getelementptr inbounds [6 x %"struct.tf::TFProfObserver::TaskSummary"], ptr %this, i64 0, i64 %i.066, i32 3
-  %23 = load i64, ptr %max_span, align 8
-  %call156 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call152, i64 noundef %23)
+  %22 = load i64, ptr %max_span, align 8
+  %call156 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call152, i64 noundef %22)
           to label %invoke.cont155 unwind label %lpad
 
 invoke.cont155:                                   ; preds = %invoke.cont151
@@ -14798,11 +14790,11 @@ for.inc:                                          ; preds = %for.body, %invoke.c
   %exitcond.not = icmp eq i64 %inc, 6
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !160
 
-lpad:                                             ; preds = %invoke.cont155, %invoke.cont151, %invoke.cont142, %invoke.cont138, %invoke.cont, %_ZN2tf9to_stringENS_8TaskTypeE.exit
-  %24 = landingpad { ptr, i32 }
+lpad:                                             ; preds = %invoke.cont155, %invoke.cont151, %invoke.cont142, %invoke.cont138, %invoke.cont, %if.end
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #27
-  resume { ptr, i32 } %24
+  resume { ptr, i32 } %23
 
 for.end:                                          ; preds = %for.inc
   ret void
@@ -15093,44 +15085,36 @@ if.end178:                                        ; preds = %for.body173
   %call190 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 %spec.select)
   %arrayidx.i.i94 = getelementptr inbounds [6 x i32], ptr @_ZN2tf10TASK_TYPESE, i64 0, i64 %i.0127
   %31 = load i32, ptr %arrayidx.i.i94, align 4
-  %32 = icmp ult i32 %31, 6
-  br i1 %32, label %switch.lookup, label %_ZN2tf9to_stringENS_8TaskTypeE.exit
-
-switch.lookup:                                    ; preds = %if.end178
-  %33 = zext nneg i32 %31 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK2tf14TFProfObserver7Summary9dump_wsumERSo, i64 0, i64 %33
+  %32 = sext i32 %31 to i64
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK2tf14TFProfObserver7Summary9dump_wsumERSo, i64 0, i64 %32
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %_ZN2tf9to_stringENS_8TaskTypeE.exit
-
-_ZN2tf9to_stringENS_8TaskTypeE.exit:              ; preds = %if.end178, %switch.lookup
-  %val.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.42, %if.end178 ]
-  %call193 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %val.0.i)
+  %call193 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   %call200 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %call193, i32 %conv109)
-  %34 = load i64, ptr %arrayidx.i.i, align 8
-  %call204 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call200, i64 noundef %34)
+  %33 = load i64, ptr %arrayidx.i.i, align 8
+  %call204 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call200, i64 noundef %33)
   %call211 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %call204, i32 %d_w.2157165180)
   %total_span = getelementptr inbounds [6 x %"struct.tf::TFProfObserver::TaskSummary"], ptr %tsum, i64 0, i64 %i.0127, i32 1
-  %35 = load i64, ptr %total_span, align 8
-  %call214 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call211, i64 noundef %35)
+  %34 = load i64, ptr %total_span, align 8
+  %call214 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call211, i64 noundef %34)
   %call221 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %call214, i32 %avg_w.2168177)
-  %36 = load i64, ptr %total_span, align 8
-  %conv.i = uitofp i64 %36 to float
-  %37 = load i64, ptr %arrayidx.i.i, align 8
-  %conv2.i = uitofp i64 %37 to float
+  %35 = load i64, ptr %total_span, align 8
+  %conv.i = uitofp i64 %35 to float
+  %36 = load i64, ptr %arrayidx.i.i, align 8
+  %conv2.i = uitofp i64 %36 to float
   %div.i = fdiv float %conv.i, %conv2.i
   %conv.i98 = fpext float %div.i to double
   call void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull @vsnprintf, i64 noundef 58, ptr noundef nonnull @.str.54, double noundef %conv.i98)
   %call225 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call221, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %_ZN2tf9to_stringENS_8TaskTypeE.exit
+invoke.cont:                                      ; preds = %if.end178
   %call233 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %call225, i32 %min_w.2181)
           to label %invoke.cont232 unwind label %lpad
 
 invoke.cont232:                                   ; preds = %invoke.cont
   %min_span = getelementptr inbounds [6 x %"struct.tf::TFProfObserver::TaskSummary"], ptr %tsum, i64 0, i64 %i.0127, i32 2
-  %38 = load i64, ptr %min_span, align 8
-  %call237 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call233, i64 noundef %38)
+  %37 = load i64, ptr %min_span, align 8
+  %call237 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call233, i64 noundef %37)
           to label %invoke.cont236 unwind label %lpad
 
 invoke.cont236:                                   ; preds = %invoke.cont232
@@ -15139,8 +15123,8 @@ invoke.cont236:                                   ; preds = %invoke.cont232
 
 invoke.cont244:                                   ; preds = %invoke.cont236
   %max_span = getelementptr inbounds [6 x %"struct.tf::TFProfObserver::TaskSummary"], ptr %tsum, i64 0, i64 %i.0127, i32 3
-  %39 = load i64, ptr %max_span, align 8
-  %call249 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call245, i64 noundef %39)
+  %38 = load i64, ptr %max_span, align 8
+  %call249 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call245, i64 noundef %38)
           to label %invoke.cont248 unwind label %lpad
 
 invoke.cont248:                                   ; preds = %invoke.cont244
@@ -15157,24 +15141,24 @@ for.inc:                                          ; preds = %for.body173, %invok
   %exitcond.not = icmp eq i64 %inc, 6
   br i1 %exitcond.not, label %for.end, label %for.body173, !llvm.loop !167
 
-lpad:                                             ; preds = %invoke.cont248, %invoke.cont244, %invoke.cont236, %invoke.cont232, %invoke.cont, %_ZN2tf9to_stringENS_8TaskTypeE.exit
-  %40 = landingpad { ptr, i32 }
+lpad:                                             ; preds = %invoke.cont248, %invoke.cont244, %invoke.cont236, %invoke.cont232, %invoke.cont, %if.end178
+  %39 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 for.end:                                          ; preds = %for.inc
   %call261 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 %conv257)
-  %41 = load i64, ptr %count, align 8
-  %call263 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call261, i64 noundef %41)
+  %40 = load i64, ptr %count, align 8
+  %call263 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call261, i64 noundef %40)
   %call270 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %call263, i32 %d_w.2157165180)
   %total_span271 = getelementptr inbounds %"struct.tf::TFProfObserver::WorkerSummary", ptr %__begin1.sroa.0.0130, i64 0, i32 3
-  %42 = load i64, ptr %total_span271, align 8
-  %call272 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call270, i64 noundef %42)
+  %41 = load i64, ptr %total_span271, align 8
+  %call272 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call270, i64 noundef %41)
   %call279 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %call272, i32 %avg_w.2168177)
-  %43 = load i64, ptr %total_span271, align 8
-  %conv.i102 = uitofp i64 %43 to float
-  %44 = load i64, ptr %count, align 8
-  %conv2.i103 = uitofp i64 %44 to float
+  %42 = load i64, ptr %total_span271, align 8
+  %conv.i102 = uitofp i64 %42 to float
+  %43 = load i64, ptr %count, align 8
+  %conv2.i103 = uitofp i64 %43 to float
   %div.i104 = fdiv float %conv.i102, %conv2.i103
   %conv.i105 = fpext float %div.i104 to double
   call void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp280, ptr noundef nonnull @vsnprintf, i64 noundef 58, ptr noundef nonnull @.str.54, double noundef %conv.i105)
@@ -15187,8 +15171,8 @@ invoke.cont283:                                   ; preds = %for.end
 
 invoke.cont291:                                   ; preds = %invoke.cont283
   %min_span293 = getelementptr inbounds %"struct.tf::TFProfObserver::WorkerSummary", ptr %__begin1.sroa.0.0130, i64 0, i32 4
-  %45 = load i64, ptr %min_span293, align 8
-  %call295 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call292, i64 noundef %45)
+  %44 = load i64, ptr %min_span293, align 8
+  %call295 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call292, i64 noundef %44)
           to label %invoke.cont294 unwind label %lpad282
 
 invoke.cont294:                                   ; preds = %invoke.cont291
@@ -15197,8 +15181,8 @@ invoke.cont294:                                   ; preds = %invoke.cont291
 
 invoke.cont302:                                   ; preds = %invoke.cont294
   %max_span304 = getelementptr inbounds %"struct.tf::TFProfObserver::WorkerSummary", ptr %__begin1.sroa.0.0130, i64 0, i32 5
-  %46 = load i64, ptr %max_span304, align 8
-  %call306 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call303, i64 noundef %46)
+  %45 = load i64, ptr %max_span304, align 8
+  %call306 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call303, i64 noundef %45)
           to label %invoke.cont305 unwind label %lpad282
 
 invoke.cont305:                                   ; preds = %invoke.cont302
@@ -15215,7 +15199,7 @@ for.inc309:                                       ; preds = %for.body, %invoke.c
   br i1 %cmp.i.not, label %for.end311, label %for.body
 
 lpad282:                                          ; preds = %invoke.cont305, %invoke.cont302, %invoke.cont294, %invoke.cont291, %invoke.cont283, %for.end
-  %47 = landingpad { ptr, i32 }
+  %46 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -15224,7 +15208,7 @@ for.end311:                                       ; preds = %for.inc309, %_ZSt8f
 
 eh.resume:                                        ; preds = %lpad282, %lpad
   %ref.tmp280.sink = phi ptr [ %ref.tmp280, %lpad282 ], [ %ref.tmp, %lpad ]
-  %.pn = phi { ptr, i32 } [ %47, %lpad282 ], [ %40, %lpad ]
+  %.pn = phi { ptr, i32 } [ %46, %lpad282 ], [ %39, %lpad ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp280.sink) #27
   resume { ptr, i32 } %.pn
 }

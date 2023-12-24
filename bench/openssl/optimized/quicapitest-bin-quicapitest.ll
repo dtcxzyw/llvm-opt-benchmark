@@ -1181,10 +1181,9 @@ if.end:                                           ; preds = %entry
 for.body:                                         ; preds = %if.end, %for.inc
   %i.010 = phi i64 [ %inc, %for.inc ], [ 0, %if.end ]
   %arrayidx = getelementptr inbounds [5 x %struct.anon], ptr @__const.test_cipher_find.testciphers, i64 0, i64 %i.010
-  %1 = add nsw i64 %i.010, -3
-  %tobool8.not = icmp ult i64 %1, 2
-  %2 = load ptr, ptr %arrayidx, align 16
-  %call18 = tail call ptr @SSL_CIPHER_find(ptr noundef %call3, ptr noundef %2) #9
+  %tobool8.not = icmp eq i64 %i.010, 3
+  %1 = load ptr, ptr %arrayidx, align 16
+  %call18 = tail call ptr @SSL_CIPHER_find(ptr noundef %call3, ptr noundef %1) #9
   br i1 %tobool8.not, label %if.else, label %if.then9
 
 if.then9:                                         ; preds = %for.body
