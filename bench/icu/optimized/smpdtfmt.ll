@@ -12973,9 +12973,8 @@ invoke.cont30:                                    ; preds = %if.then29
   %cmp39 = icmp eq i32 %field, 1
   %inc41 = zext i1 %cmp39 to i32
   %spec.select32 = add nuw nsw i32 %bestMatch.0.lcssa, %inc41
-  %8 = select i1 %or.cond1, i32 2, i32 %field
-  %9 = select i1 %or.cond1, i32 6, i32 %spec.select32
-  invoke void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %cal, i32 noundef %8, i32 noundef %9)
+  %8 = select i1 %or.cond1, i32 6, i32 %spec.select32
+  invoke void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %cal, i32 noundef %field, i32 noundef %8)
           to label %if.end44 unwind label %lpad.loopexit.split-lp
 
 if.end44:                                         ; preds = %invoke.cont30
