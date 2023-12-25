@@ -2973,32 +2973,31 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %1 = bitcast double %offset to i64
-  %2 = icmp sgt i64 %1, -1
-  %fneg = fneg double %offset
-  %offset.addr.0 = select i1 %2, double %offset, double %fneg
+  %offset.addr.0 = tail call double @llvm.fabs.f64(double %offset)
   %fNumberFormat = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this, i64 0, i32 2
-  %3 = load ptr, ptr %fNumberFormat, align 8
-  %ptr.i = getelementptr inbounds %"class.icu_75::SharedNumberFormat", ptr %3, i64 0, i32 1
-  %4 = load ptr, ptr %ptr.i, align 8
+  %1 = load ptr, ptr %fNumberFormat, align 8
+  %ptr.i = getelementptr inbounds %"class.icu_75::SharedNumberFormat", ptr %1, i64 0, i32 1
+  %2 = load ptr, ptr %ptr.i, align 8
   %fPluralRules = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this, i64 0, i32 3
-  %5 = load ptr, ptr %fPluralRules, align 8
-  %ptr.i17 = getelementptr inbounds %"class.icu_75::SharedPluralRules", ptr %5, i64 0, i32 1
-  %6 = load ptr, ptr %ptr.i17, align 8
+  %3 = load ptr, ptr %fPluralRules, align 8
+  %ptr.i17 = getelementptr inbounds %"class.icu_75::SharedPluralRules", ptr %3, i64 0, i32 1
+  %4 = load ptr, ptr %ptr.i17, align 8
   %fString.i = getelementptr inbounds %"class.icu_75::FormattedValueStringBuilderImpl", ptr %output, i64 0, i32 1
-  call void @_ZN6icu_7517QuantityFormatter15formatAndSelectEdRKNS_12NumberFormatERKNS_11PluralRulesERNS_22FormattedStringBuilderERNS_14StandardPlural4FormER10UErrorCode(double noundef %offset.addr.0, ptr noundef nonnull align 8 dereferenceable(356) %4, ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 8 dereferenceable(136) %fString.i, ptr noundef nonnull align 4 dereferenceable(4) %pluralForm, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %7 = load i32, ptr %status, align 4
-  %cmp.i18 = icmp slt i32 %7, 1
+  call void @_ZN6icu_7517QuantityFormatter15formatAndSelectEdRKNS_12NumberFormatERKNS_11PluralRulesERNS_22FormattedStringBuilderERNS_14StandardPlural4FormER10UErrorCode(double noundef %offset.addr.0, ptr noundef nonnull align 8 dereferenceable(356) %2, ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull align 8 dereferenceable(136) %fString.i, ptr noundef nonnull align 4 dereferenceable(4) %pluralForm, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %5 = load i32, ptr %status, align 4
+  %cmp.i18 = icmp slt i32 %5, 1
   br i1 %cmp.i18, label %if.end19, label %return
 
 if.end19:                                         ; preds = %if.end4
+  %6 = bitcast double %offset to i64
+  %7 = icmp sgt i64 %6, -1
   %fCache = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this, i64 0, i32 1
   %8 = load ptr, ptr %fCache, align 8
   %fStyle = getelementptr inbounds %"class.icu_75::RelativeDateTimeFormatter", ptr %this, i64 0, i32 4
   %9 = load i32, ptr %fStyle, align 8
   %10 = load i32, ptr %pluralForm, align 4
   %idxprom2.i = zext nneg i32 %unit to i64
-  %idxprom4.i = zext i1 %2 to i64
+  %idxprom4.i = zext i1 %7 to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %do.end.i, %if.end19
@@ -5770,6 +5769,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
