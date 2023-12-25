@@ -1582,9 +1582,8 @@ do.end:                                           ; preds = %while.body8, %if.th
 define dso_local ptr @PyLong_FromDouble(double noundef %dval) local_unnamed_addr #0 {
 entry:
   %expo = alloca i32, align 4
-  %cmp = fcmp ogt double %dval, 0xC3E0000000000000
-  %cmp1 = fcmp olt double %dval, 0x43E0000000000000
-  %or.cond = and i1 %cmp, %cmp1
+  %0 = tail call double @llvm.fabs.f64(double %dval)
+  %or.cond = fcmp olt double %0, 0x43E0000000000000
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1593,7 +1592,6 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %0 = tail call double @llvm.fabs.f64(double %dval) #17
   %isinf = fcmp oeq double %0, 0x7FF0000000000000
   br i1 %isinf, label %if.then2, label %if.end3
 
@@ -5977,7 +5975,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %if.end145, %if.then.i31, %if.end.i.i, %if.then1.i.i
-  %call146 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #18
+  %call146 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #17
   %spec.select = tail call i64 @llvm.umin.i64(i64 %call146, i64 200)
   %call150 = tail call ptr @PyUnicode_FromStringAndSize(ptr noundef nonnull %str, i64 noundef %spec.select) #16
   %cmp151 = icmp eq ptr %call150, null
@@ -19621,8 +19619,7 @@ attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nounwind }
-attributes #17 = { memory(none) }
-attributes #18 = { nounwind willreturn memory(read) }
+attributes #17 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

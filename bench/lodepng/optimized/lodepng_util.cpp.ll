@@ -4033,10 +4033,9 @@ while.end136.i.i:                                 ; preds = %while.body134.i.i, 
   %div142.i.i = fdiv float %20, %21
   %add143.i.i = fadd float %j.3.lcssa.i.i, %div142.i.i
   %mul144.i.i = fmul float %add143.i.i, 0x4003333340000000
-  %cmp145.i.i = fcmp ole float %mul144.i.i, -1.280000e+02
-  %cmp147.i.i = fcmp oge float %mul144.i.i, 1.280000e+02
-  %or.cond6.i.i = or i1 %cmp145.i.i, %cmp147.i.i
-  br i1 %or.cond6.i.i, label %if.then148.i.i, label %if.end158.i.i
+  %22 = tail call float @llvm.fabs.f32(float %mul144.i.i)
+  %or.cond6.i.i = fcmp ult float %22, 1.280000e+02
+  br i1 %or.cond6.i.i, label %if.end158.i.i, label %if.then148.i.i
 
 if.then148.i.i:                                   ; preds = %while.end136.i.i
   %cmp149.i.i = fcmp ogt float %div64.i, 1.000000e+00
@@ -4047,11 +4046,11 @@ if.end158.i.i:                                    ; preds = %while.end136.i.i
   %conv159.i.i = fptosi float %mul144.i.i to i32
   %conv160.i.i = sitofp i32 %conv159.i.i to float
   %sub161.i.i = fsub float %mul144.i.i, %conv160.i.i
-  %22 = tail call float @llvm.fmuladd.f32(float %sub161.i.i, float 0x3F7714C020000000, float 0x3FB2A62F00000000)
-  %23 = tail call float @llvm.fmuladd.f32(float %sub161.i.i, float %22, float 0x3FDABCE160000000)
-  %24 = tail call float @llvm.fmuladd.f32(float %sub161.i.i, float %23, float 1.000000e+00)
-  %25 = tail call float @llvm.fmuladd.f32(float %sub161.i.i, float 0x3F9810C360000000, float 0xBFD19FAA20000000)
-  %26 = tail call float @llvm.fmuladd.f32(float %sub161.i.i, float %25, float 1.000000e+00)
+  %23 = tail call float @llvm.fmuladd.f32(float %sub161.i.i, float 0x3F7714C020000000, float 0x3FB2A62F00000000)
+  %24 = tail call float @llvm.fmuladd.f32(float %sub161.i.i, float %23, float 0x3FDABCE160000000)
+  %25 = tail call float @llvm.fmuladd.f32(float %sub161.i.i, float %24, float 1.000000e+00)
+  %26 = tail call float @llvm.fmuladd.f32(float %sub161.i.i, float 0x3F9810C360000000, float 0xBFD19FAA20000000)
+  %27 = tail call float @llvm.fmuladd.f32(float %sub161.i.i, float %26, float 1.000000e+00)
   %cmp168118.i.i = icmp slt i32 %conv159.i.i, -30
   br i1 %cmp168118.i.i, label %while.body169.i.i, label %while.cond173.preheader.i.i
 
@@ -4061,7 +4060,7 @@ while.cond173.preheader.i.i:                      ; preds = %if.end158.i.i
 
 while.body169.i.i:                                ; preds = %if.end158.i.i, %while.body169.i.i
   %i.1120.i.i = phi i32 [ %add171.i.i, %while.body169.i.i ], [ %conv159.i.i, %if.end158.i.i ]
-  %t0.0119.i.i = phi float [ %mul170.i.i, %while.body169.i.i ], [ %24, %if.end158.i.i ]
+  %t0.0119.i.i = phi float [ %mul170.i.i, %while.body169.i.i ], [ %25, %if.end158.i.i ]
   %mul170.i.i = fmul float %t0.0119.i.i, 0x3E00000000000000
   %add171.i.i = add nsw i32 %i.1120.i.i, 31
   %cmp168.i.i = icmp ult i32 %i.1120.i.i, -61
@@ -4069,14 +4068,14 @@ while.body169.i.i:                                ; preds = %if.end158.i.i, %whi
 
 while.body175.i.i:                                ; preds = %while.cond173.preheader.i.i, %while.body175.i.i
   %i.2125.i.i = phi i32 [ %sub177.i.i, %while.body175.i.i ], [ %conv159.i.i, %while.cond173.preheader.i.i ]
-  %t0.1124.i.i = phi float [ %mul176.i.i, %while.body175.i.i ], [ %24, %while.cond173.preheader.i.i ]
+  %t0.1124.i.i = phi float [ %mul176.i.i, %while.body175.i.i ], [ %25, %while.cond173.preheader.i.i ]
   %mul176.i.i = fmul float %t0.1124.i.i, 0x41E0000000000000
   %sub177.i.i = add nsw i32 %i.2125.i.i, -31
   %cmp174.i.i = icmp ugt i32 %i.2125.i.i, 61
   br i1 %cmp174.i.i, label %while.body175.i.i, label %cond.false185.i.i, !llvm.loop !37
 
 while.end178.i.i:                                 ; preds = %while.body169.i.i, %while.cond173.preheader.i.i
-  %t0.1.lcssa.i.i = phi float [ %24, %while.cond173.preheader.i.i ], [ %mul170.i.i, %while.body169.i.i ]
+  %t0.1.lcssa.i.i = phi float [ %25, %while.cond173.preheader.i.i ], [ %mul170.i.i, %while.body169.i.i ]
   %i.2.lcssa.i.i = phi i32 [ %conv159.i.i, %while.cond173.preheader.i.i ], [ %add171.i.i, %while.body169.i.i ]
   %cmp179.i.i = icmp slt i32 %i.2.lcssa.i.i, 0
   br i1 %cmp179.i.i, label %cond.true180.i.i, label %cond.false185.i.i
@@ -4085,7 +4084,7 @@ cond.true180.i.i:                                 ; preds = %while.end178.i.i
   %sub181.i.i = sub nsw i32 0, %i.2.lcssa.i.i
   %shl.i.i = shl nuw nsw i32 1, %sub181.i.i
   %conv182.i.i = sitofp i32 %shl.i.i to float
-  %mul183.i.i = fmul float %26, %conv182.i.i
+  %mul183.i.i = fmul float %27, %conv182.i.i
   %div184.i.i = fdiv float %t0.1.lcssa.i.i, %mul183.i.i
   br label %cond.end66.i
 
@@ -4095,7 +4094,7 @@ cond.false185.i.i:                                ; preds = %while.body175.i.i, 
   %shl186.i.i = shl nuw nsw i32 1, %i.2.lcssa135.i.i
   %conv187.i.i = sitofp i32 %shl186.i.i to float
   %mul188.i.i = fmul float %t0.1.lcssa134.i.i, %conv187.i.i
-  %div189.i.i = fdiv float %mul188.i.i, %26
+  %div189.i.i = fdiv float %mul188.i.i, %27
   br label %cond.end66.i
 
 cond.end66.i:                                     ; preds = %cond.false185.i.i, %cond.true180.i.i, %if.then148.i.i, %cond.true42.i.i, %cond.false40.i.i, %if.else.i.i, %if.then18.i.i, %if.then15.i.i, %cond.false62.i, %cond.true60.i
@@ -4117,12 +4116,12 @@ _ZN7lodepngL18convertToXYZ_gammaEPfPKfjjPK11LodePNGInfojPKNS_10LodePNGICCE.exit:
 
 cleanup:                                          ; preds = %if.then, %_ZN7lodepngL18convertToXYZ_gammaEPfPKfjjPK11LodePNGInfojPKNS_10LodePNGICCE.exit
   %error.1 = phi i32 [ 1, %if.then ], [ 0, %_ZN7lodepngL18convertToXYZ_gammaEPfPKfjjPK11LodePNGInfojPKNS_10LodePNGICCE.exit ]
-  %27 = load ptr, ptr %lut.i.i, align 8
-  tail call void @free(ptr noundef %27) #26
-  %28 = load ptr, ptr %lut.i3.i, align 8
+  %28 = load ptr, ptr %lut.i.i, align 8
   tail call void @free(ptr noundef %28) #26
-  %29 = load ptr, ptr %lut.i4.i, align 8
+  %29 = load ptr, ptr %lut.i3.i, align 8
   tail call void @free(ptr noundef %29) #26
+  %30 = load ptr, ptr %lut.i4.i, align 8
+  tail call void @free(ptr noundef %30) #26
   ret i32 %error.1
 }
 
@@ -4958,10 +4957,9 @@ while.end136.i:                                   ; preds = %while.body134.i, %w
   %div142.i = fdiv float %46, %47
   %add143.i = fadd float %j.3.lcssa.i, %div142.i
   %mul144.i = fmul float %add143.i, 0x3FDAAAAAA0000000
-  %cmp145.i = fcmp ole float %mul144.i, -1.280000e+02
-  %cmp147.i = fcmp oge float %mul144.i, 1.280000e+02
-  %or.cond6.i = or i1 %cmp145.i, %cmp147.i
-  br i1 %or.cond6.i, label %if.then148.i, label %if.end158.i
+  %48 = tail call float @llvm.fabs.f32(float %mul144.i)
+  %or.cond6.i = fcmp ult float %48, 1.280000e+02
+  br i1 %or.cond6.i, label %if.end158.i, label %if.then148.i
 
 if.then148.i:                                     ; preds = %while.end136.i
   %cmp149.i = fcmp ogt float %39, 1.000000e+00
@@ -4972,11 +4970,11 @@ if.end158.i:                                      ; preds = %while.end136.i
   %conv159.i = fptosi float %mul144.i to i32
   %conv160.i = sitofp i32 %conv159.i to float
   %sub161.i = fsub float %mul144.i, %conv160.i
-  %48 = tail call float @llvm.fmuladd.f32(float %sub161.i, float 0x3F7714C020000000, float 0x3FB2A62F00000000)
-  %49 = tail call float @llvm.fmuladd.f32(float %sub161.i, float %48, float 0x3FDABCE160000000)
-  %50 = tail call float @llvm.fmuladd.f32(float %sub161.i, float %49, float 1.000000e+00)
-  %51 = tail call float @llvm.fmuladd.f32(float %sub161.i, float 0x3F9810C360000000, float 0xBFD19FAA20000000)
-  %52 = tail call float @llvm.fmuladd.f32(float %sub161.i, float %51, float 1.000000e+00)
+  %49 = tail call float @llvm.fmuladd.f32(float %sub161.i, float 0x3F7714C020000000, float 0x3FB2A62F00000000)
+  %50 = tail call float @llvm.fmuladd.f32(float %sub161.i, float %49, float 0x3FDABCE160000000)
+  %51 = tail call float @llvm.fmuladd.f32(float %sub161.i, float %50, float 1.000000e+00)
+  %52 = tail call float @llvm.fmuladd.f32(float %sub161.i, float 0x3F9810C360000000, float 0xBFD19FAA20000000)
+  %53 = tail call float @llvm.fmuladd.f32(float %sub161.i, float %52, float 1.000000e+00)
   %cmp168118.i = icmp slt i32 %conv159.i, -30
   br i1 %cmp168118.i, label %while.body169.i, label %while.cond173.preheader.i
 
@@ -4986,7 +4984,7 @@ while.cond173.preheader.i:                        ; preds = %if.end158.i
 
 while.body169.i:                                  ; preds = %if.end158.i, %while.body169.i
   %i.1120.i = phi i32 [ %add171.i, %while.body169.i ], [ %conv159.i, %if.end158.i ]
-  %t0.0119.i = phi float [ %mul170.i, %while.body169.i ], [ %50, %if.end158.i ]
+  %t0.0119.i = phi float [ %mul170.i, %while.body169.i ], [ %51, %if.end158.i ]
   %mul170.i = fmul float %t0.0119.i, 0x3E00000000000000
   %add171.i = add nsw i32 %i.1120.i, 31
   %cmp168.i = icmp ult i32 %i.1120.i, -61
@@ -4994,14 +4992,14 @@ while.body169.i:                                  ; preds = %if.end158.i, %while
 
 while.body175.i:                                  ; preds = %while.cond173.preheader.i, %while.body175.i
   %i.2125.i = phi i32 [ %sub177.i, %while.body175.i ], [ %conv159.i, %while.cond173.preheader.i ]
-  %t0.1124.i = phi float [ %mul176.i, %while.body175.i ], [ %50, %while.cond173.preheader.i ]
+  %t0.1124.i = phi float [ %mul176.i, %while.body175.i ], [ %51, %while.cond173.preheader.i ]
   %mul176.i = fmul float %t0.1124.i, 0x41E0000000000000
   %sub177.i = add nsw i32 %i.2125.i, -31
   %cmp174.i = icmp ugt i32 %i.2125.i, 61
   br i1 %cmp174.i, label %while.body175.i, label %cond.false185.i, !llvm.loop !37
 
 while.end178.i:                                   ; preds = %while.body169.i, %while.cond173.preheader.i
-  %t0.1.lcssa.i = phi float [ %50, %while.cond173.preheader.i ], [ %mul170.i, %while.body169.i ]
+  %t0.1.lcssa.i = phi float [ %51, %while.cond173.preheader.i ], [ %mul170.i, %while.body169.i ]
   %i.2.lcssa.i = phi i32 [ %conv159.i, %while.cond173.preheader.i ], [ %add171.i, %while.body169.i ]
   %cmp179.i = icmp slt i32 %i.2.lcssa.i, 0
   br i1 %cmp179.i, label %cond.true180.i, label %cond.false185.i
@@ -5010,7 +5008,7 @@ cond.true180.i:                                   ; preds = %while.end178.i
   %sub181.i = sub nsw i32 0, %i.2.lcssa.i
   %shl.i = shl nuw nsw i32 1, %sub181.i
   %conv182.i = sitofp i32 %shl.i to float
-  %mul183.i = fmul float %52, %conv182.i
+  %mul183.i = fmul float %53, %conv182.i
   %div184.i = fdiv float %t0.1.lcssa.i, %mul183.i
   br label %_ZN7lodepngL12lodepng_powfEff.exit
 
@@ -5020,16 +5018,16 @@ cond.false185.i:                                  ; preds = %while.body175.i, %w
   %shl186.i = shl nuw nsw i32 1, %i.2.lcssa135.i
   %conv187.i = sitofp i32 %shl186.i to float
   %mul188.i = fmul float %t0.1.lcssa134.i, %conv187.i
-  %div189.i = fdiv float %mul188.i, %52
+  %div189.i = fdiv float %mul188.i, %53
   br label %_ZN7lodepngL12lodepng_powfEff.exit
 
 _ZN7lodepngL12lodepng_powfEff.exit:               ; preds = %if.else.i, %if.then18.i, %cond.false, %if.then15.i, %cond.false40.i, %cond.true42.i, %if.then148.i, %cond.true180.i, %cond.false185.i
   %common.ret.op.i = phi float [ %cond157.i, %if.then148.i ], [ %add.i43, %if.then15.i ], [ 1.000000e+00, %cond.false ], [ 0.000000e+00, %cond.true42.i ], [ 0x7FF8000000000000, %cond.false40.i ], [ %div184.i, %cond.true180.i ], [ %div189.i, %cond.false185.i ], [ %39, %if.then18.i ], [ 0x7FF0000000000000, %if.else.i ]
-  %53 = tail call float @llvm.fmuladd.f32(float %common.ret.op.i, float 0x3FF0E147A0000000, float 0xBFAC28F5C0000000)
+  %54 = tail call float @llvm.fmuladd.f32(float %common.ret.op.i, float 0x3FF0E147A0000000, float 0xBFAC28F5C0000000)
   br label %cond.end
 
 cond.end:                                         ; preds = %_ZN7lodepngL12lodepng_powfEff.exit, %cond.true
-  %cond = phi float [ %mul55, %cond.true ], [ %53, %_ZN7lodepngL12lodepng_powfEff.exit ]
+  %cond = phi float [ %mul55, %cond.true ], [ %54, %_ZN7lodepngL12lodepng_powfEff.exit ]
   store float %cond, ptr %gep74, align 4
   %inc59 = add nuw nsw i64 %c.255, 1
   %exitcond65.not = icmp eq i64 %inc59, 3
@@ -6121,7 +6119,11 @@ if.end16:                                         ; preds = %if.then11
 
 if.then18:                                        ; preds = %if.end16
   %cmp19 = fcmp ogt float %x, 0x47EFFFFFE0000000
-  br i1 %cmp19, label %if.then20, label %if.end98
+  br i1 %cmp19, label %if.then20, label %if.then18.if.end98_crit_edge
+
+if.then18.if.end98_crit_edge:                     ; preds = %if.then18
+  %.pre = tail call float @llvm.fabs.f32(float %y)
+  br label %if.end98
 
 if.then20:                                        ; preds = %if.then18
   %cmp21 = fcmp ugt float %y, 0.000000e+00
@@ -6129,9 +6131,8 @@ if.then20:                                        ; preds = %if.then18
   br label %common.ret136
 
 if.else:                                          ; preds = %if.end16
-  %cmp25 = fcmp olt float %y, 0xC1D0000000000000
-  %cmp27 = fcmp ogt float %y, 0x41D0000000000000
-  %or.cond4 = or i1 %cmp25, %cmp27
+  %2 = tail call float @llvm.fabs.f32(float %y)
+  %or.cond4 = fcmp ogt float %2, 0x41D0000000000000
   br i1 %or.cond4, label %if.end67, label %if.then28
 
 if.then28:                                        ; preds = %if.else
@@ -6212,17 +6213,16 @@ if.end93:                                         ; preds = %if.end75
   %cmp95 = fcmp oeq float %x, -1.000000e+00
   br i1 %cmp95, label %common.ret136, label %if.end98
 
-if.end98:                                         ; preds = %if.end93, %if.then18
-  %x.addr.0 = phi float [ %x, %if.then18 ], [ %fneg94, %if.end93 ]
-  %cmp99 = fcmp olt float %y, 0xC7EFFFFFE0000000
-  %cmp101 = fcmp ogt float %y, 0x47EFFFFFE0000000
-  %or.cond5 = or i1 %cmp99, %cmp101
+if.end98:                                         ; preds = %if.then18.if.end98_crit_edge, %if.end93
+  %.pre-phi = phi float [ %.pre, %if.then18.if.end98_crit_edge ], [ %2, %if.end93 ]
+  %x.addr.0 = phi float [ %x, %if.then18.if.end98_crit_edge ], [ %fneg94, %if.end93 ]
+  %or.cond5 = fcmp ogt float %.pre-phi, 0x47EFFFFFE0000000
   br i1 %or.cond5, label %if.then102, label %if.end119
 
 if.then102:                                       ; preds = %if.end98
   %cmp103 = fcmp olt float %x.addr.0, 1.000000e+00
-  %2 = fcmp ule float %y, 0.000000e+00
-  %cmp107.not = xor i1 %2, %cmp103
+  %3 = fcmp ule float %y, 0.000000e+00
+  %cmp107.not = xor i1 %3, %cmp103
   br i1 %cmp107.not, label %common.ret136, label %cond.true108
 
 cond.true108:                                     ; preds = %if.then102
@@ -6289,26 +6289,25 @@ while.body134:                                    ; preds = %while.cond132.prehe
 while.end136:                                     ; preds = %while.body134, %while.cond132.preheader
   %j.3.lcssa = phi float [ %j.2.lcssa, %while.cond132.preheader ], [ %inc, %while.body134 ]
   %l.3.lcssa = phi float [ %l.2.lcssa, %while.cond132.preheader ], [ %mul135, %while.body134 ]
-  %3 = tail call float @llvm.fmuladd.f32(float %l.3.lcssa, float 0x3F8F6A7020000000, float 0x3FDDD54800000000)
-  %4 = insertelement <2 x float> poison, float %l.3.lcssa, i64 0
-  %5 = shufflevector <2 x float> %4, <2 x float> poison, <2 x i32> zeroinitializer
-  %6 = insertelement <2 x float> <float poison, float 0x3FC190B240000000>, float %3, i64 0
-  %7 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %5, <2 x float> %6, <2 x float> <float 0xBFB69F0500000000, float 0x3FD8E39B60000000>)
-  %8 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %5, <2 x float> %7, <2 x float> <float 0xBFD928DA20000000, float 0x3FB73B0D00000000>)
-  %9 = extractelement <2 x float> %8, i64 0
-  %10 = extractelement <2 x float> %8, i64 1
-  %div142 = fdiv float %9, %10
+  %4 = tail call float @llvm.fmuladd.f32(float %l.3.lcssa, float 0x3F8F6A7020000000, float 0x3FDDD54800000000)
+  %5 = insertelement <2 x float> poison, float %l.3.lcssa, i64 0
+  %6 = shufflevector <2 x float> %5, <2 x float> poison, <2 x i32> zeroinitializer
+  %7 = insertelement <2 x float> <float poison, float 0x3FC190B240000000>, float %4, i64 0
+  %8 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %6, <2 x float> %7, <2 x float> <float 0xBFB69F0500000000, float 0x3FD8E39B60000000>)
+  %9 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %6, <2 x float> %8, <2 x float> <float 0xBFD928DA20000000, float 0x3FB73B0D00000000>)
+  %10 = extractelement <2 x float> %9, i64 0
+  %11 = extractelement <2 x float> %9, i64 1
+  %div142 = fdiv float %10, %11
   %add143 = fadd float %j.3.lcssa, %div142
   %mul144 = fmul float %add143, %y
-  %cmp145 = fcmp ole float %mul144, -1.280000e+02
-  %cmp147 = fcmp oge float %mul144, 1.280000e+02
-  %or.cond6 = or i1 %cmp145, %cmp147
-  br i1 %or.cond6, label %if.then148, label %if.end158
+  %12 = tail call float @llvm.fabs.f32(float %mul144)
+  %or.cond6 = fcmp ult float %12, 1.280000e+02
+  br i1 %or.cond6, label %if.end158, label %if.then148
 
 if.then148:                                       ; preds = %while.end136
   %cmp149 = fcmp ogt float %x.addr.1, 1.000000e+00
-  %11 = fcmp ule float %y, 0.000000e+00
-  %cmp153 = xor i1 %11, %cmp149
+  %13 = fcmp ule float %y, 0.000000e+00
+  %cmp153 = xor i1 %13, %cmp149
   %cond157 = select i1 %cmp153, float 0x7FF0000000000000, float 0.000000e+00
   br label %common.ret136
 
@@ -6316,11 +6315,11 @@ if.end158:                                        ; preds = %while.end136
   %conv159 = fptosi float %mul144 to i32
   %conv160 = sitofp i32 %conv159 to float
   %sub161 = fsub float %mul144, %conv160
-  %12 = tail call float @llvm.fmuladd.f32(float %sub161, float 0x3F7714C020000000, float 0x3FB2A62F00000000)
-  %13 = tail call float @llvm.fmuladd.f32(float %sub161, float %12, float 0x3FDABCE160000000)
-  %14 = tail call float @llvm.fmuladd.f32(float %sub161, float %13, float 1.000000e+00)
-  %15 = tail call float @llvm.fmuladd.f32(float %sub161, float 0x3F9810C360000000, float 0xBFD19FAA20000000)
+  %14 = tail call float @llvm.fmuladd.f32(float %sub161, float 0x3F7714C020000000, float 0x3FB2A62F00000000)
+  %15 = tail call float @llvm.fmuladd.f32(float %sub161, float %14, float 0x3FDABCE160000000)
   %16 = tail call float @llvm.fmuladd.f32(float %sub161, float %15, float 1.000000e+00)
+  %17 = tail call float @llvm.fmuladd.f32(float %sub161, float 0x3F9810C360000000, float 0xBFD19FAA20000000)
+  %18 = tail call float @llvm.fmuladd.f32(float %sub161, float %17, float 1.000000e+00)
   %cmp168118 = icmp slt i32 %conv159, -30
   br i1 %cmp168118, label %while.body169, label %while.cond173.preheader
 
@@ -6330,7 +6329,7 @@ while.cond173.preheader:                          ; preds = %if.end158
 
 while.body169:                                    ; preds = %if.end158, %while.body169
   %i.1120 = phi i32 [ %add171, %while.body169 ], [ %conv159, %if.end158 ]
-  %t0.0119 = phi float [ %mul170, %while.body169 ], [ %14, %if.end158 ]
+  %t0.0119 = phi float [ %mul170, %while.body169 ], [ %16, %if.end158 ]
   %mul170 = fmul float %t0.0119, 0x3E00000000000000
   %add171 = add nsw i32 %i.1120, 31
   %cmp168 = icmp ult i32 %i.1120, -61
@@ -6338,14 +6337,14 @@ while.body169:                                    ; preds = %if.end158, %while.b
 
 while.body175:                                    ; preds = %while.cond173.preheader, %while.body175
   %i.2125 = phi i32 [ %sub177, %while.body175 ], [ %conv159, %while.cond173.preheader ]
-  %t0.1124 = phi float [ %mul176, %while.body175 ], [ %14, %while.cond173.preheader ]
+  %t0.1124 = phi float [ %mul176, %while.body175 ], [ %16, %while.cond173.preheader ]
   %mul176 = fmul float %t0.1124, 0x41E0000000000000
   %sub177 = add nsw i32 %i.2125, -31
   %cmp174 = icmp ugt i32 %i.2125, 61
   br i1 %cmp174, label %while.body175, label %cond.false185, !llvm.loop !37
 
 while.end178:                                     ; preds = %while.body169, %while.cond173.preheader
-  %t0.1.lcssa = phi float [ %14, %while.cond173.preheader ], [ %mul170, %while.body169 ]
+  %t0.1.lcssa = phi float [ %16, %while.cond173.preheader ], [ %mul170, %while.body169 ]
   %i.2.lcssa = phi i32 [ %conv159, %while.cond173.preheader ], [ %add171, %while.body169 ]
   %cmp179 = icmp slt i32 %i.2.lcssa, 0
   br i1 %cmp179, label %cond.true180, label %cond.false185
@@ -6354,7 +6353,7 @@ cond.true180:                                     ; preds = %while.end178
   %sub181 = sub nsw i32 0, %i.2.lcssa
   %shl = shl nuw nsw i32 1, %sub181
   %conv182 = sitofp i32 %shl to float
-  %mul183 = fmul float %16, %conv182
+  %mul183 = fmul float %18, %conv182
   %div184 = fdiv float %t0.1.lcssa, %mul183
   br label %common.ret136
 
@@ -6364,7 +6363,7 @@ cond.false185:                                    ; preds = %while.body175, %whi
   %shl186 = shl nuw nsw i32 1, %i.2.lcssa135
   %conv187 = sitofp i32 %shl186 to float
   %mul188 = fmul float %t0.1.lcssa134, %conv187
-  %div189 = fdiv float %mul188, %16
+  %div189 = fdiv float %mul188, %18
   br label %common.ret136
 }
 
@@ -11433,6 +11432,9 @@ if.end44:                                         ; preds = %_ZSt27__uninitializ
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23

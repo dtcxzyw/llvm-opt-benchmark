@@ -183,9 +183,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6Assimp12X3DGeoHelper10make_arc2DEfffmRNSt7__cxx114listI10aiVector3tIfESaIS4_EEE(float noundef %pStartAngle, float noundef %pEndAngle, float noundef %pRadius, i64 noundef %numSegments, ptr noundef nonnull align 8 dereferenceable(24) %pVertices) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %cmp = fcmp olt float %pStartAngle, 0xC01921FB60000000
-  %cmp1 = fcmp ogt float %pStartAngle, 0x401921FB60000000
-  %or.cond = or i1 %cmp, %cmp1
+  %0 = tail call float @llvm.fabs.f32(float %pStartAngle)
+  %or.cond = fcmp ogt float %0, 0x401921FB60000000
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -198,14 +197,13 @@ invoke.cont:                                      ; preds = %if.then
   unreachable
 
 lpad:                                             ; preds = %if.then
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %cmp2 = fcmp olt float %pEndAngle, 0xC01921FB60000000
-  %cmp4 = fcmp ogt float %pEndAngle, 0x401921FB60000000
-  %or.cond1 = or i1 %cmp2, %cmp4
+  %2 = tail call float @llvm.fabs.f32(float %pEndAngle)
+  %or.cond1 = fcmp ogt float %2, 0x401921FB60000000
   br i1 %or.cond1, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end
@@ -218,7 +216,7 @@ invoke.cont8:                                     ; preds = %if.then5
   unreachable
 
 lpad7:                                            ; preds = %if.then5
-  %1 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -236,41 +234,41 @@ invoke.cont14:                                    ; preds = %if.then11
   unreachable
 
 lpad13:                                           ; preds = %if.then11
-  %2 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 if.end15:                                         ; preds = %if.end9
   %sub = fsub float %pEndAngle, %pStartAngle
-  %3 = tail call noundef float @llvm.fabs.f32(float %sub)
-  %cmp16 = fcmp ogt float %3, 0x401921FB60000000
+  %5 = tail call noundef float @llvm.fabs.f32(float %sub)
+  %cmp16 = fcmp ogt float %5, 0x401921FB60000000
   %cmp18 = fcmp oeq float %sub, 0.000000e+00
   %or.cond2 = or i1 %cmp18, %cmp16
-  %spec.store.select = select i1 %or.cond2, float 0x401921FB60000000, float %3
+  %spec.store.select = select i1 %or.cond2, float 0x401921FB60000000, float %5
   %conv = uitofp i64 %numSegments to float
   %div = fdiv float %spec.store.select, %conv
   %_M_size.i.i.i = getelementptr inbounds %"struct.std::__detail::_List_node_header", ptr %pVertices, i64 0, i32 1
-  %4 = insertelement <2 x float> poison, float %pRadius, i64 0
-  %5 = shufflevector <2 x float> %4, <2 x float> poison, <2 x i32> zeroinitializer
+  %6 = insertelement <2 x float> poison, float %pRadius, i64 0
+  %7 = shufflevector <2 x float> %6, <2 x float> poison, <2 x i32> zeroinitializer
   br label %for.body
 
 for.body:                                         ; preds = %if.end15, %for.body
   %pi.022 = phi i64 [ 0, %if.end15 ], [ %inc, %for.body ]
   %conv22 = uitofp i64 %pi.022 to float
-  %6 = tail call float @llvm.fmuladd.f32(float %conv22, float %div, float %pStartAngle)
-  %call.i.i = tail call noundef float @cosf(float noundef %6) #21
-  %call.i3.i = tail call noundef float @sinf(float noundef %6) #21
-  %7 = insertelement <2 x float> poison, float %call.i.i, i64 0
-  %8 = insertelement <2 x float> %7, float %call.i3.i, i64 1
-  %9 = fmul <2 x float> %8, %5
+  %8 = tail call float @llvm.fmuladd.f32(float %conv22, float %div, float %pStartAngle)
+  %call.i.i = tail call noundef float @cosf(float noundef %8) #21
+  %call.i3.i = tail call noundef float @sinf(float noundef %8) #21
+  %9 = insertelement <2 x float> poison, float %call.i.i, i64 0
+  %10 = insertelement <2 x float> %9, float %call.i3.i, i64 1
+  %11 = fmul <2 x float> %10, %7
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node.62", ptr %call5.i.i.i.i.i.i, i64 0, i32 1
-  store <2 x float> %9, ptr %_M_storage.i.i.i.i, align 4
+  store <2 x float> %11, ptr %_M_storage.i.i.i.i, align 4
   %ref.tmp.sroa.2.0._M_storage.i.i.i.i.sroa_idx = getelementptr inbounds %"struct.std::_List_node.62", ptr %call5.i.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
   store float 0.000000e+00, ptr %ref.tmp.sroa.2.0._M_storage.i.i.i.i.sroa_idx, align 4
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %pVertices) #21
-  %10 = load i64, ptr %_M_size.i.i.i, align 8
-  %add.i.i.i = add i64 %10, 1
+  %12 = load i64, ptr %_M_size.i.i.i, align 8
+  %add.i.i.i = add i64 %12, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
   %inc = add i64 %pi.022, 1
   %cmp21.not = icmp ugt i64 %inc, %numSegments
@@ -281,14 +279,14 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp25, label %if.then26, label %if.end30
 
 if.then26:                                        ; preds = %for.end
-  %11 = load ptr, ptr %pVertices, align 8
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_List_node.62", ptr %11, i64 0, i32 1
+  %13 = load ptr, ptr %pVertices, align 8
+  %_M_storage.i.i = getelementptr inbounds %"struct.std::_List_node.62", ptr %13, i64 0, i32 1
   %call5.i.i.i.i.i.i18 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   %_M_storage.i.i.i.i19 = getelementptr inbounds %"struct.std::_List_node.62", ptr %call5.i.i.i.i.i.i18, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i.i.i19, ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i, i64 12, i1 false)
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i18, ptr noundef nonnull %pVertices) #21
-  %12 = load i64, ptr %_M_size.i.i.i, align 8
-  %add.i.i.i21 = add i64 %12, 1
+  %14 = load i64, ptr %_M_size.i.i.i, align 8
+  %add.i.i.i21 = add i64 %14, 1
   store i64 %add.i.i.i21, ptr %_M_size.i.i.i, align 8
   br label %if.end30
 
@@ -297,7 +295,7 @@ if.end30:                                         ; preds = %if.then26, %for.end
 
 eh.resume:                                        ; preds = %lpad13, %lpad7, %lpad
   %exception12.sink = phi ptr [ %exception12, %lpad13 ], [ %exception6, %lpad7 ], [ %exception, %lpad ]
-  %.pn = phi { ptr, i32 } [ %2, %lpad13 ], [ %1, %lpad7 ], [ %0, %lpad ]
+  %.pn = phi { ptr, i32 } [ %4, %lpad13 ], [ %3, %lpad7 ], [ %1, %lpad ]
   tail call void @__cxa_free_exception(ptr %exception12.sink) #21
   resume { ptr, i32 } %.pn
 }
@@ -3077,7 +3075,7 @@ invoke.cont38:                                    ; preds = %for.end36
 land.rhs.lr.ph:                                   ; preds = %invoke.cont38
   %10 = add nsw i64 %9, -12
   %11 = urem i64 %10, 12
-  %12 = sub nsw i64 %10, %11
+  %12 = sub nuw nsw i64 %10, %11
   %13 = add nsw i64 %12, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call39, i8 0, i64 %13, i1 false)
   %mNormals = getelementptr inbounds %struct.aiMesh, ptr %pMesh, i64 0, i32 4
@@ -3506,7 +3504,7 @@ invoke.cont175:                                   ; preds = %if.end172
 new.ctorloop178:                                  ; preds = %invoke.cont175
   %44 = add nsw i64 %43, -12
   %45 = urem i64 %44, 12
-  %46 = sub nsw i64 %44, %45
+  %46 = sub nuw nsw i64 %44, %45
   %47 = add nsw i64 %46, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call176, i8 0, i64 %47, i1 false)
   br label %arrayctor.cont184
@@ -3719,7 +3717,7 @@ if.end20:                                         ; preds = %if.else
 new.ctorloop25:                                   ; preds = %if.end20
   %16 = add nsw i64 %15, -12
   %17 = urem i64 %16, 12
-  %18 = sub nsw i64 %16, %17
+  %18 = sub nuw nsw i64 %16, %17
   %19 = add nsw i64 %18, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call23, i8 0, i64 %19, i1 false)
   br label %arrayctor.cont31
@@ -4002,7 +4000,7 @@ invoke.cont27:                                    ; preds = %if.end25
 new.ctorloop:                                     ; preds = %invoke.cont27
   %13 = add nsw i64 %12, -12
   %14 = urem i64 %13, 12
-  %15 = sub nsw i64 %13, %14
+  %15 = sub nuw nsw i64 %13, %14
   %16 = add nsw i64 %15, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call28, i8 0, i64 %16, i1 false)
   br label %arrayctor.cont
@@ -4427,7 +4425,7 @@ invoke.cont16:                                    ; preds = %for.end
 for.body23.preheader:                             ; preds = %invoke.cont16
   %7 = add nsw i64 %6, -12
   %8 = urem i64 %7, 12
-  %9 = sub nsw i64 %7, %8
+  %9 = sub nuw nsw i64 %7, %8
   %10 = add nsw i64 %9, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call17, i8 0, i64 %10, i1 false)
   %mTextureCoords = getelementptr inbounds %struct.aiMesh, ptr %pMesh, i64 0, i32 8

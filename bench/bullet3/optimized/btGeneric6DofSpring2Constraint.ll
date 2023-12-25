@@ -2682,23 +2682,22 @@ cond.end133:                                      ; preds = %cond.false130, %con
 land.lhs.true:                                    ; preds = %cond.end133
   %m_currentLimitError169 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %idxprom150, i32 18
   %38 = load float, ptr %m_currentLimitError169, align 8
-  %conv = fpext float %38 to double
-  %cmp170 = fcmp olt double %conv, -1.000000e-03
-  %cmp177 = fcmp ogt double %conv, 1.000000e-03
-  %or.cond = or i1 %cmp170, %cmp177
+  %39 = tail call float @llvm.fabs.f32(float %38)
+  %40 = fpext float %39 to double
+  %or.cond = fcmp ogt double %40, 1.000000e-03
   br label %lor.end196
 
 land.rhs:                                         ; preds = %cond.end133
   %m_currentLimitError186 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %idxprom150, i32 18
-  %39 = load float, ptr %m_currentLimitError186, align 8
-  %conv187 = fpext float %39 to double
+  %41 = load float, ptr %m_currentLimitError186, align 8
+  %conv187 = fpext float %41 to double
   %cmp188 = fcmp olt double %conv187, -1.000000e-03
   br i1 %cmp188, label %lor.end196, label %lor.rhs189
 
 lor.rhs189:                                       ; preds = %land.rhs
   %m_currentLimitErrorHi193 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %idxprom150, i32 19
-  %40 = load float, ptr %m_currentLimitErrorHi193, align 4
-  %conv194 = fpext float %40 to double
+  %42 = load float, ptr %m_currentLimitErrorHi193, align 4
+  %conv194 = fpext float %42 to double
   %cmp195 = fcmp ogt double %conv194, 1.000000e-03
   br label %lor.end196
 
@@ -2706,11 +2705,11 @@ lor.end196.fold.split:                            ; preds = %cond.end133
   br label %lor.end196
 
 lor.end196:                                       ; preds = %land.lhs.true, %cond.end133, %cond.end133, %lor.end196.fold.split, %lor.rhs189, %land.rhs
-  %41 = phi i1 [ true, %cond.end133 ], [ true, %land.rhs ], [ %cmp195, %lor.rhs189 ], [ true, %cond.end133 ], [ %or.cond, %land.lhs.true ], [ false, %lor.end196.fold.split ]
+  %43 = phi i1 [ true, %cond.end133 ], [ true, %land.rhs ], [ %cmp195, %lor.rhs189 ], [ true, %cond.end133 ], [ %or.cond, %land.lhs.true ], [ false, %lor.end196.fold.split ]
   %idxprom199 = select i1 %rem149.cmp, i64 2, i64 %36
   %m_currentLimit201 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %idxprom199, i32 21
-  %42 = load i32, ptr %m_currentLimit201, align 4
-  switch i32 %42, label %lor.end251.thread60 [
+  %44 = load i32, ptr %m_currentLimit201, align 4
+  switch i32 %44, label %lor.end251.thread60 [
     i32 1, label %lor.end251.thread
     i32 2, label %lor.end251.thread
     i32 3, label %land.lhs.true215
@@ -2719,24 +2718,23 @@ lor.end196:                                       ; preds = %land.lhs.true, %con
 
 land.lhs.true215:                                 ; preds = %lor.end196
   %m_currentLimitError219 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %idxprom199, i32 18
-  %43 = load float, ptr %m_currentLimitError219, align 8
-  %conv220 = fpext float %43 to double
-  %cmp221 = fcmp olt double %conv220, -1.000000e-03
-  %cmp228 = fcmp ogt double %conv220, 1.000000e-03
-  %or.cond55 = or i1 %cmp221, %cmp228
+  %45 = load float, ptr %m_currentLimitError219, align 8
+  %46 = tail call float @llvm.fabs.f32(float %45)
+  %47 = fpext float %46 to double
+  %or.cond55 = fcmp ogt double %47, 1.000000e-03
   br i1 %or.cond55, label %lor.end251.thread, label %lor.end251.thread60
 
 land.rhs235:                                      ; preds = %lor.end196
   %m_currentLimitError239 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %idxprom199, i32 18
-  %44 = load float, ptr %m_currentLimitError239, align 8
-  %conv240 = fpext float %44 to double
+  %48 = load float, ptr %m_currentLimitError239, align 8
+  %conv240 = fpext float %48 to double
   %cmp241 = fcmp olt double %conv240, -1.000000e-03
   br i1 %cmp241, label %lor.end251.thread, label %lor.end251
 
 lor.end251:                                       ; preds = %land.rhs235
   %m_currentLimitErrorHi246 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %idxprom199, i32 19
-  %45 = load float, ptr %m_currentLimitErrorHi246, align 4
-  %.fr = freeze float %45
+  %49 = load float, ptr %m_currentLimitErrorHi246, align 4
+  %.fr = freeze float %49
   %conv247 = fpext float %.fr to double
   %cmp248 = fcmp ogt double %conv247, 1.000000e-03
   br i1 %cmp248, label %lor.end251.thread, label %lor.end251.thread60
@@ -2745,8 +2743,8 @@ lor.end251.thread:                                ; preds = %lor.end196, %lor.en
   br label %lor.end251.thread60
 
 lor.end251.thread60:                              ; preds = %lor.end196, %land.lhs.true215, %lor.end251, %lor.end251.thread
-  %46 = phi i32 [ 0, %lor.end251.thread ], [ 1, %lor.end251 ], [ 1, %land.lhs.true215 ], [ 1, %lor.end196 ]
-  %rotAllowed.0 = select i1 %41, i32 %46, i32 1
+  %50 = phi i32 [ 0, %lor.end251.thread ], [ 1, %lor.end251 ], [ 1, %land.lhs.true215 ], [ 1, %lor.end196 ]
+  %rotAllowed.0 = select i1 %43, i32 %50, i32 1
   %call257 = call noundef i32 @_ZN30btGeneric6DofSpring2Constraint21get_limit_motor_info2EP23btRotationalLimitMotor2RK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef nonnull %limot, ptr noundef nonnull align 4 dereferenceable(64) %transA, ptr noundef nonnull align 4 dereferenceable(64) %transB, ptr noundef nonnull align 4 dereferenceable(16) %linVelA, ptr noundef nonnull align 4 dereferenceable(16) %linVelB, ptr noundef nonnull align 4 dereferenceable(16) %angVelA, ptr noundef nonnull align 4 dereferenceable(16) %angVelB, ptr noundef %info, i32 noundef %row.addr.063, ptr noundef nonnull align 4 dereferenceable(16) %axis, i32 noundef 0, i32 noundef %rotAllowed.0)
   %add258 = add nsw i32 %call257, %row.addr.063
   br label %for.inc

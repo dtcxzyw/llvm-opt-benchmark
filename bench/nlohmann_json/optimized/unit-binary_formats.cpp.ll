@@ -35183,15 +35183,15 @@ lpad1:                                            ; preds = %_ZN8nlohmann16json_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE10write_cborERKSF_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %j) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %vec.i198 = alloca %"struct.std::array.155", align 1
-  %vec.i194 = alloca %"struct.std::array.155", align 1
-  %vec.i190 = alloca %"struct.std::array.155", align 1
-  %vec.i186 = alloca %"struct.std::array.155", align 1
-  %vec.i174 = alloca %"struct.std::array.155", align 1
-  %vec.i162 = alloca %"struct.std::array.155", align 1
-  %vec.i150 = alloca %"struct.std::array.155", align 1
-  %vec.i142 = alloca %"struct.std::array.155", align 1
-  %vec.i134 = alloca %"struct.std::array.155", align 1
+  %vec.i197 = alloca %"struct.std::array.155", align 1
+  %vec.i193 = alloca %"struct.std::array.155", align 1
+  %vec.i189 = alloca %"struct.std::array.155", align 1
+  %vec.i185 = alloca %"struct.std::array.155", align 1
+  %vec.i173 = alloca %"struct.std::array.155", align 1
+  %vec.i161 = alloca %"struct.std::array.155", align 1
+  %vec.i149 = alloca %"struct.std::array.155", align 1
+  %vec.i141 = alloca %"struct.std::array.155", align 1
+  %vec.i133 = alloca %"struct.std::array.155", align 1
   %vec.i127 = alloca %"struct.std::array.155", align 1
   %vec.i123 = alloca %"struct.std::array.155", align 1
   %vec.i119 = alloca %"struct.std::array.155", align 1
@@ -35516,9 +35516,7 @@ if.then216:                                       ; preds = %if.else212
   br label %sw.epilog
 
 if.else237:                                       ; preds = %if.else212
-  %cmp.i = fcmp ult double %48, 0xC7EFFFFFE0000000
-  %cmp4.i = fcmp ugt double %48, 0x47EFFFFFE0000000
-  %or.cond.i = or i1 %cmp.i, %cmp4.i
+  %or.cond.i = fcmp ugt double %56, 0x47EFFFFFE0000000
   br i1 %or.cond.i, label %if.else.i, label %land.lhs.true5.i
 
 land.lhs.true5.i:                                 ; preds = %if.else237
@@ -35777,15 +35775,15 @@ if.end362:                                        ; preds = %if.then320, %if.the
   %114 = load ptr, ptr %113, align 8
   %_M_finish.i131 = getelementptr inbounds %"struct.std::_Vector_base<nlohmann::json_abi_v3_11_3::basic_json<>, std::allocator<nlohmann::json_abi_v3_11_3::basic_json<>>>::_Vector_impl_data", ptr %113, i64 0, i32 1
   %115 = load ptr, ptr %_M_finish.i131, align 8
-  %cmp.i132.not213 = icmp eq ptr %114, %115
-  br i1 %cmp.i132.not213, label %sw.epilog, label %for.body
+  %cmp.i.not212 = icmp eq ptr %114, %115
+  br i1 %cmp.i.not212, label %sw.epilog, label %for.body
 
 for.body:                                         ; preds = %if.end362, %for.body
-  %__begin0.sroa.0.0214 = phi ptr [ %incdec.ptr.i, %for.body ], [ %114, %if.end362 ]
-  call void @_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE10write_cborERKSF_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %__begin0.sroa.0.0214)
-  %incdec.ptr.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::basic_json", ptr %__begin0.sroa.0.0214, i64 1
-  %cmp.i132.not = icmp eq ptr %incdec.ptr.i, %115
-  br i1 %cmp.i132.not, label %sw.epilog, label %for.body
+  %__begin0.sroa.0.0213 = phi ptr [ %incdec.ptr.i, %for.body ], [ %114, %if.end362 ]
+  call void @_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE10write_cborERKSF_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %__begin0.sroa.0.0213)
+  %incdec.ptr.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::basic_json", ptr %__begin0.sroa.0.0213, i64 1
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %115
+  br i1 %cmp.i.not, label %sw.epilog, label %for.body
 
 sw.bb371:                                         ; preds = %entry
   %m_value373 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<>::data", ptr %j, i64 0, i32 1
@@ -35803,32 +35801,32 @@ if.then375:                                       ; preds = %sw.bb371
   br i1 %cmp381.not, label %if.else387, label %if.then382
 
 if.then382:                                       ; preds = %if.then375
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i134)
-  store i8 -40, ptr %vec.i134, align 1
-  %oa.i135 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
-  %120 = load ptr, ptr %oa.i135, align 8
-  %vtable.i136 = load ptr, ptr %120, align 8
-  %vfn.i137 = getelementptr inbounds ptr, ptr %vtable.i136, i64 1
-  %121 = load ptr, ptr %vfn.i137, align 8
-  call void %121(ptr noundef nonnull align 8 dereferenceable(8) %120, ptr noundef nonnull %vec.i134, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i134)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i133)
+  store i8 -40, ptr %vec.i133, align 1
+  %oa.i134 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
+  %120 = load ptr, ptr %oa.i134, align 8
+  %vtable.i135 = load ptr, ptr %120, align 8
+  %vfn.i136 = getelementptr inbounds ptr, ptr %vtable.i135, i64 1
+  %121 = load ptr, ptr %vfn.i136, align 8
+  call void %121(ptr noundef nonnull align 8 dereferenceable(8) %120, ptr noundef nonnull %vec.i133, i64 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i133)
   %122 = load ptr, ptr %m_value373, align 8
-  %m_has_subtype.i138 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %122, i64 0, i32 2
-  %123 = load i8, ptr %m_has_subtype.i138, align 8
+  %m_has_subtype.i137 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %122, i64 0, i32 2
+  %123 = load i8, ptr %m_has_subtype.i137, align 8
   %124 = and i8 %123, 1
-  %tobool.not.i139 = icmp eq i8 %124, 0
-  %m_subtype.i140 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %122, i64 0, i32 1
-  %125 = load i64, ptr %m_subtype.i140, align 8
+  %tobool.not.i138 = icmp eq i8 %124, 0
+  %m_subtype.i139 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %122, i64 0, i32 1
+  %125 = load i64, ptr %m_subtype.i139, align 8
   %126 = trunc i64 %125 to i8
-  %conv386 = select i1 %tobool.not.i139, i8 -1, i8 %126
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i142)
-  store i8 %conv386, ptr %vec.i142, align 1
-  %127 = load ptr, ptr %oa.i135, align 8
-  %vtable.i144 = load ptr, ptr %127, align 8
-  %vfn.i145 = getelementptr inbounds ptr, ptr %vtable.i144, i64 1
-  %128 = load ptr, ptr %vfn.i145, align 8
-  call void %128(ptr noundef nonnull align 8 dereferenceable(8) %127, ptr noundef nonnull %vec.i142, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i142)
+  %conv386 = select i1 %tobool.not.i138, i8 -1, i8 %126
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i141)
+  store i8 %conv386, ptr %vec.i141, align 1
+  %127 = load ptr, ptr %oa.i134, align 8
+  %vtable.i143 = load ptr, ptr %127, align 8
+  %vfn.i144 = getelementptr inbounds ptr, ptr %vtable.i143, i64 1
+  %128 = load ptr, ptr %vfn.i144, align 8
+  call void %128(ptr noundef nonnull align 8 dereferenceable(8) %127, ptr noundef nonnull %vec.i141, i64 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i141)
   br label %if.end425
 
 if.else387:                                       ; preds = %if.then375
@@ -35836,100 +35834,100 @@ if.else387:                                       ; preds = %if.then375
   br i1 %cmp393.not, label %if.else399, label %if.then394
 
 if.then394:                                       ; preds = %if.else387
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i150)
-  store i8 -39, ptr %vec.i150, align 1
-  %oa.i151 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
-  %129 = load ptr, ptr %oa.i151, align 8
-  %vtable.i152 = load ptr, ptr %129, align 8
-  %vfn.i153 = getelementptr inbounds ptr, ptr %vtable.i152, i64 1
-  %130 = load ptr, ptr %vfn.i153, align 8
-  call void %130(ptr noundef nonnull align 8 dereferenceable(8) %129, ptr noundef nonnull %vec.i150, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i150)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i149)
+  store i8 -39, ptr %vec.i149, align 1
+  %oa.i150 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
+  %129 = load ptr, ptr %oa.i150, align 8
+  %vtable.i151 = load ptr, ptr %129, align 8
+  %vfn.i152 = getelementptr inbounds ptr, ptr %vtable.i151, i64 1
+  %130 = load ptr, ptr %vfn.i152, align 8
+  call void %130(ptr noundef nonnull align 8 dereferenceable(8) %129, ptr noundef nonnull %vec.i149, i64 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i149)
   %131 = load ptr, ptr %m_value373, align 8
-  %m_has_subtype.i154 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %131, i64 0, i32 2
-  %132 = load i8, ptr %m_has_subtype.i154, align 8
+  %m_has_subtype.i153 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %131, i64 0, i32 2
+  %132 = load i8, ptr %m_has_subtype.i153, align 8
   %133 = and i8 %132, 1
-  %tobool.not.i155 = icmp eq i8 %133, 0
-  %m_subtype.i156 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %131, i64 0, i32 1
-  %134 = load i64, ptr %m_subtype.i156, align 8
+  %tobool.not.i154 = icmp eq i8 %133, 0
+  %m_subtype.i155 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %131, i64 0, i32 1
+  %134 = load i64, ptr %m_subtype.i155, align 8
   %135 = trunc i64 %134 to i16
-  %conv398 = select i1 %tobool.not.i155, i16 -1, i16 %135
+  %conv398 = select i1 %tobool.not.i154, i16 -1, i16 %135
   call void @_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberItEEvT_b(ptr noundef nonnull align 8 dereferenceable(24) %this, i16 noundef zeroext %conv398, i1 noundef zeroext false)
   br label %if.end425
 
 if.else399:                                       ; preds = %if.else387
   %cmp405.not = icmp ugt i64 %119, 4294967295
-  %oa.i175 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
+  %oa.i174 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
   br i1 %cmp405.not, label %if.then417, label %if.then406
 
 if.then406:                                       ; preds = %if.else399
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i162)
-  store i8 -38, ptr %vec.i162, align 1
-  %136 = load ptr, ptr %oa.i175, align 8
-  %vtable.i164 = load ptr, ptr %136, align 8
-  %vfn.i165 = getelementptr inbounds ptr, ptr %vtable.i164, i64 1
-  %137 = load ptr, ptr %vfn.i165, align 8
-  call void %137(ptr noundef nonnull align 8 dereferenceable(8) %136, ptr noundef nonnull %vec.i162, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i162)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i161)
+  store i8 -38, ptr %vec.i161, align 1
+  %136 = load ptr, ptr %oa.i174, align 8
+  %vtable.i163 = load ptr, ptr %136, align 8
+  %vfn.i164 = getelementptr inbounds ptr, ptr %vtable.i163, i64 1
+  %137 = load ptr, ptr %vfn.i164, align 8
+  call void %137(ptr noundef nonnull align 8 dereferenceable(8) %136, ptr noundef nonnull %vec.i161, i64 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i161)
   %138 = load ptr, ptr %m_value373, align 8
-  %m_has_subtype.i166 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %138, i64 0, i32 2
-  %139 = load i8, ptr %m_has_subtype.i166, align 8
+  %m_has_subtype.i165 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %138, i64 0, i32 2
+  %139 = load i8, ptr %m_has_subtype.i165, align 8
   %140 = and i8 %139, 1
-  %tobool.not.i167 = icmp eq i8 %140, 0
-  %m_subtype.i168 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %138, i64 0, i32 1
-  %141 = load i64, ptr %m_subtype.i168, align 8
+  %tobool.not.i166 = icmp eq i8 %140, 0
+  %m_subtype.i167 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %138, i64 0, i32 1
+  %141 = load i64, ptr %m_subtype.i167, align 8
   %142 = trunc i64 %141 to i32
-  %conv410 = select i1 %tobool.not.i167, i32 -1, i32 %142
+  %conv410 = select i1 %tobool.not.i166, i32 -1, i32 %142
   call void @_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIjEEvT_b(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %conv410, i1 noundef zeroext false)
   br label %if.end425
 
 if.then417:                                       ; preds = %if.else399
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i174)
-  store i8 -37, ptr %vec.i174, align 1
-  %143 = load ptr, ptr %oa.i175, align 8
-  %vtable.i176 = load ptr, ptr %143, align 8
-  %vfn.i177 = getelementptr inbounds ptr, ptr %vtable.i176, i64 1
-  %144 = load ptr, ptr %vfn.i177, align 8
-  call void %144(ptr noundef nonnull align 8 dereferenceable(8) %143, ptr noundef nonnull %vec.i174, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i174)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i173)
+  store i8 -37, ptr %vec.i173, align 1
+  %143 = load ptr, ptr %oa.i174, align 8
+  %vtable.i175 = load ptr, ptr %143, align 8
+  %vfn.i176 = getelementptr inbounds ptr, ptr %vtable.i175, i64 1
+  %144 = load ptr, ptr %vfn.i176, align 8
+  call void %144(ptr noundef nonnull align 8 dereferenceable(8) %143, ptr noundef nonnull %vec.i173, i64 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i173)
   %145 = load ptr, ptr %m_value373, align 8
-  %m_has_subtype.i178 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %145, i64 0, i32 2
-  %146 = load i8, ptr %m_has_subtype.i178, align 8
+  %m_has_subtype.i177 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %145, i64 0, i32 2
+  %146 = load i8, ptr %m_has_subtype.i177, align 8
   %147 = and i8 %146, 1
-  %tobool.not.i179 = icmp eq i8 %147, 0
-  %m_subtype.i180 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %145, i64 0, i32 1
-  %148 = load i64, ptr %m_subtype.i180, align 8
-  %cond.i181 = select i1 %tobool.not.i179, i64 -1, i64 %148
-  call void @_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberImEEvT_b(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %cond.i181, i1 noundef zeroext false)
+  %tobool.not.i178 = icmp eq i8 %147, 0
+  %m_subtype.i179 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %145, i64 0, i32 1
+  %148 = load i64, ptr %m_subtype.i179, align 8
+  %cond.i180 = select i1 %tobool.not.i178, i64 -1, i64 %148
+  call void @_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberImEEvT_b(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %cond.i180, i1 noundef zeroext false)
   br label %if.end425
 
 if.end425:                                        ; preds = %if.then382, %if.then406, %if.then417, %if.then394, %sw.bb371
   %149 = load ptr, ptr %m_value373, align 8
-  %_M_finish.i182 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %149, i64 0, i32 1
-  %150 = load ptr, ptr %_M_finish.i182, align 8
+  %_M_finish.i181 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %149, i64 0, i32 1
+  %150 = load ptr, ptr %_M_finish.i181, align 8
   %151 = load ptr, ptr %149, align 8
-  %sub.ptr.lhs.cast.i183 = ptrtoint ptr %150 to i64
-  %sub.ptr.rhs.cast.i184 = ptrtoint ptr %151 to i64
-  %sub.ptr.sub.i185 = sub i64 %sub.ptr.lhs.cast.i183, %sub.ptr.rhs.cast.i184
-  %cmp430 = icmp ult i64 %sub.ptr.sub.i185, 24
+  %sub.ptr.lhs.cast.i182 = ptrtoint ptr %150 to i64
+  %sub.ptr.rhs.cast.i183 = ptrtoint ptr %151 to i64
+  %sub.ptr.sub.i184 = sub i64 %sub.ptr.lhs.cast.i182, %sub.ptr.rhs.cast.i183
+  %cmp430 = icmp ult i64 %sub.ptr.sub.i184, 24
   br i1 %cmp430, label %if.then431, label %if.else434
 
 if.then431:                                       ; preds = %if.end425
-  %152 = trunc i64 %sub.ptr.sub.i185 to i8
+  %152 = trunc i64 %sub.ptr.sub.i184 to i8
   %conv433 = or disjoint i8 %152, 64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i186)
-  store i8 %conv433, ptr %vec.i186, align 1
-  %oa.i187 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
-  %153 = load ptr, ptr %oa.i187, align 8
-  %vtable.i188 = load ptr, ptr %153, align 8
-  %vfn.i189 = getelementptr inbounds ptr, ptr %vtable.i188, i64 1
-  %154 = load ptr, ptr %vfn.i189, align 8
-  call void %154(ptr noundef nonnull align 8 dereferenceable(8) %153, ptr noundef nonnull %vec.i186, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i186)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i185)
+  store i8 %conv433, ptr %vec.i185, align 1
+  %oa.i186 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
+  %153 = load ptr, ptr %oa.i186, align 8
+  %vtable.i187 = load ptr, ptr %153, align 8
+  %vfn.i188 = getelementptr inbounds ptr, ptr %vtable.i187, i64 1
+  %154 = load ptr, ptr %vfn.i188, align 8
+  call void %154(ptr noundef nonnull align 8 dereferenceable(8) %153, ptr noundef nonnull %vec.i185, i64 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i185)
   br label %if.end480
 
 if.else434:                                       ; preds = %if.end425
-  %cmp437.not = icmp ugt i64 %sub.ptr.sub.i185, 255
+  %cmp437.not = icmp ugt i64 %sub.ptr.sub.i184, 255
   br i1 %cmp437.not, label %if.else445, label %if.then438
 
 if.then438:                                       ; preds = %if.else434
@@ -35938,19 +35936,19 @@ if.then438:                                       ; preds = %if.else434
   %vtable442 = load ptr, ptr %155, align 8
   %156 = load ptr, ptr %vtable442, align 8
   call void %156(ptr noundef nonnull align 8 dereferenceable(8) %155, i8 noundef zeroext 88)
-  %conv444 = trunc i64 %sub.ptr.sub.i185 to i8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i190)
-  store i8 %conv444, ptr %vec.i190, align 1
+  %conv444 = trunc i64 %sub.ptr.sub.i184 to i8
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i189)
+  store i8 %conv444, ptr %vec.i189, align 1
   %157 = load ptr, ptr %oa439, align 8
-  %vtable.i192 = load ptr, ptr %157, align 8
-  %vfn.i193 = getelementptr inbounds ptr, ptr %vtable.i192, i64 1
-  %158 = load ptr, ptr %vfn.i193, align 8
-  call void %158(ptr noundef nonnull align 8 dereferenceable(8) %157, ptr noundef nonnull %vec.i190, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i190)
+  %vtable.i191 = load ptr, ptr %157, align 8
+  %vfn.i192 = getelementptr inbounds ptr, ptr %vtable.i191, i64 1
+  %158 = load ptr, ptr %vfn.i192, align 8
+  call void %158(ptr noundef nonnull align 8 dereferenceable(8) %157, ptr noundef nonnull %vec.i189, i64 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i189)
   br label %if.end480
 
 if.else445:                                       ; preds = %if.else434
-  %cmp448.not = icmp ugt i64 %sub.ptr.sub.i185, 65535
+  %cmp448.not = icmp ugt i64 %sub.ptr.sub.i184, 65535
   br i1 %cmp448.not, label %if.else456, label %if.then449
 
 if.then449:                                       ; preds = %if.else445
@@ -35959,12 +35957,12 @@ if.then449:                                       ; preds = %if.else445
   %vtable453 = load ptr, ptr %159, align 8
   %160 = load ptr, ptr %vtable453, align 8
   call void %160(ptr noundef nonnull align 8 dereferenceable(8) %159, i8 noundef zeroext 89)
-  %conv455 = trunc i64 %sub.ptr.sub.i185 to i16
+  %conv455 = trunc i64 %sub.ptr.sub.i184 to i16
   call void @_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberItEEvT_b(ptr noundef nonnull align 8 dereferenceable(24) %this, i16 noundef zeroext %conv455, i1 noundef zeroext false)
   br label %if.end480
 
 if.else456:                                       ; preds = %if.else445
-  %cmp459.not = icmp ugt i64 %sub.ptr.sub.i185, 4294967295
+  %cmp459.not = icmp ugt i64 %sub.ptr.sub.i184, 4294967295
   %oa471 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
   %161 = load ptr, ptr %oa471, align 8
   %vtable474 = load ptr, ptr %161, align 8
@@ -35973,13 +35971,13 @@ if.else456:                                       ; preds = %if.else445
 
 if.then460:                                       ; preds = %if.else456
   call void %162(ptr noundef nonnull align 8 dereferenceable(8) %161, i8 noundef zeroext 90)
-  %conv466 = trunc i64 %sub.ptr.sub.i185 to i32
+  %conv466 = trunc i64 %sub.ptr.sub.i184 to i32
   call void @_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIjEEvT_b(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %conv466, i1 noundef zeroext false)
   br label %if.end480
 
 if.then470:                                       ; preds = %if.else456
   call void %162(ptr noundef nonnull align 8 dereferenceable(8) %161, i8 noundef zeroext 91)
-  call void @_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberImEEvT_b(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.ptr.sub.i185, i1 noundef zeroext false)
+  call void @_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberImEEvT_b(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.ptr.sub.i184, i1 noundef zeroext false)
   br label %if.end480
 
 if.end480:                                        ; preds = %if.then438, %if.then460, %if.then470, %if.then449, %if.then431
@@ -35990,7 +35988,7 @@ if.end480:                                        ; preds = %if.then438, %if.the
   %vtable486 = load ptr, ptr %163, align 8
   %vfn487 = getelementptr inbounds ptr, ptr %vtable486, i64 1
   %166 = load ptr, ptr %vfn487, align 8
-  call void %166(ptr noundef nonnull align 8 dereferenceable(8) %163, ptr noundef %165, i64 noundef %sub.ptr.sub.i185)
+  call void %166(ptr noundef nonnull align 8 dereferenceable(8) %163, ptr noundef %165, i64 noundef %sub.ptr.sub.i184)
   br label %sw.epilog
 
 sw.bb488:                                         ; preds = %entry
@@ -36004,15 +36002,15 @@ sw.bb488:                                         ; preds = %entry
 if.then494:                                       ; preds = %sw.bb488
   %169 = trunc i64 %168 to i8
   %conv496 = or disjoint i8 %169, -96
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i194)
-  store i8 %conv496, ptr %vec.i194, align 1
-  %oa.i195 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
-  %170 = load ptr, ptr %oa.i195, align 8
-  %vtable.i196 = load ptr, ptr %170, align 8
-  %vfn.i197 = getelementptr inbounds ptr, ptr %vtable.i196, i64 1
-  %171 = load ptr, ptr %vfn.i197, align 8
-  call void %171(ptr noundef nonnull align 8 dereferenceable(8) %170, ptr noundef nonnull %vec.i194, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i194)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i193)
+  store i8 %conv496, ptr %vec.i193, align 1
+  %oa.i194 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
+  %170 = load ptr, ptr %oa.i194, align 8
+  %vtable.i195 = load ptr, ptr %170, align 8
+  %vfn.i196 = getelementptr inbounds ptr, ptr %vtable.i195, i64 1
+  %171 = load ptr, ptr %vfn.i196, align 8
+  call void %171(ptr noundef nonnull align 8 dereferenceable(8) %170, ptr noundef nonnull %vec.i193, i64 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i193)
   br label %if.end543
 
 if.else497:                                       ; preds = %sw.bb488
@@ -36026,14 +36024,14 @@ if.then501:                                       ; preds = %if.else497
   %173 = load ptr, ptr %vtable505, align 8
   tail call void %173(ptr noundef nonnull align 8 dereferenceable(8) %172, i8 noundef zeroext -72)
   %conv507 = trunc i64 %168 to i8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i198)
-  store i8 %conv507, ptr %vec.i198, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i197)
+  store i8 %conv507, ptr %vec.i197, align 1
   %174 = load ptr, ptr %oa502, align 8
-  %vtable.i200 = load ptr, ptr %174, align 8
-  %vfn.i201 = getelementptr inbounds ptr, ptr %vtable.i200, i64 1
-  %175 = load ptr, ptr %vfn.i201, align 8
-  call void %175(ptr noundef nonnull align 8 dereferenceable(8) %174, ptr noundef nonnull %vec.i198, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i198)
+  %vtable.i199 = load ptr, ptr %174, align 8
+  %vfn.i200 = getelementptr inbounds ptr, ptr %vtable.i199, i64 1
+  %175 = load ptr, ptr %vfn.i200, align 8
+  call void %175(ptr noundef nonnull align 8 dereferenceable(8) %174, ptr noundef nonnull %vec.i197, i64 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i197)
   br label %if.end543
 
 if.else508:                                       ; preds = %if.else497
@@ -36074,22 +36072,22 @@ if.end543:                                        ; preds = %if.then501, %if.the
   %_M_left.i.i = getelementptr inbounds i8, ptr %180, i64 24
   %181 = load ptr, ptr %_M_left.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %180, i64 8
-  %cmp.i202.not211 = icmp eq ptr %181, %add.ptr.i.i
-  br i1 %cmp.i202.not211, label %sw.epilog, label %.noexc.i.lr.ph
+  %cmp.i201.not210 = icmp eq ptr %181, %add.ptr.i.i
+  br i1 %cmp.i201.not210, label %sw.epilog, label %.noexc.i.lr.ph
 
 .noexc.i.lr.ph:                                   ; preds = %if.end543
   %m_value.i.i = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<>::data", ptr %ref.tmp, i64 0, i32 1
   br label %.noexc.i
 
 .noexc.i:                                         ; preds = %.noexc.i.lr.ph, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit
-  %__begin0547.sroa.0.0212 = phi ptr [ %181, %.noexc.i.lr.ph ], [ %call.i, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit ]
+  %__begin0547.sroa.0.0211 = phi ptr [ %181, %.noexc.i.lr.ph ], [ %call.i, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
   store i8 3, ptr %ref.tmp, align 8
   %call5.i.i2.i.i.i.i.i.i1.i = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
           to label %call5.i.i2.i.i.i.i.i.i.noexc.i unwind label %lpad.i
 
 call5.i.i2.i.i.i.i.i.i.noexc.i:                   ; preds = %.noexc.i
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin0547.sroa.0.0212, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin0547.sroa.0.0211, i64 0, i32 1
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i2.i.i.i.i.i.i1.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i)
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRKS9_S9_TnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SI_EE5valueEiE4typeELi0EEEOT_.exit unwind label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS7_14adl_serializerESA_IhSaIhEEvE6createIS5_JRKS5_EEEPT_DpOT0_EUlPS5_E_ED2Ev.exit7.i.i.i.i.i.i.i
 
@@ -36132,11 +36130,11 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit: ; preds = %invoke.cont
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin0547.sroa.0.0212, i64 0, i32 1, i32 0, i64 32
+  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin0547.sroa.0.0211, i64 0, i32 1, i32 0, i64 32
   call void @_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE10write_cborERKSF_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %second)
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin0547.sroa.0.0212) #25
-  %cmp.i202.not = icmp eq ptr %call.i, %add.ptr.i.i
-  br i1 %cmp.i202.not, label %sw.epilog, label %.noexc.i
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin0547.sroa.0.0211) #25
+  %cmp.i201.not = icmp eq ptr %call.i, %add.ptr.i.i
+  br i1 %cmp.i201.not, label %sw.epilog, label %.noexc.i
 
 lpad:                                             ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRKS9_S9_TnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SI_EE5valueEiE4typeELi0EEEOT_.exit
   %188 = landingpad { ptr, i32 }
@@ -36354,11 +36352,11 @@ lpad1:                                            ; preds = %_ZN8nlohmann16json_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE13write_msgpackERKSF_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %j) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %vec.i151 = alloca %"struct.std::array.156", align 2
-  %vec.i147 = alloca %"struct.std::array.155", align 1
-  %vec.i143 = alloca %"struct.std::array.155", align 1
-  %vec.i129 = alloca %"struct.std::array.156", align 2
-  %vec.i125 = alloca %"struct.std::array.155", align 1
+  %vec.i150 = alloca %"struct.std::array.156", align 2
+  %vec.i146 = alloca %"struct.std::array.155", align 1
+  %vec.i142 = alloca %"struct.std::array.155", align 1
+  %vec.i128 = alloca %"struct.std::array.156", align 2
+  %vec.i124 = alloca %"struct.std::array.155", align 1
   %vec.i114 = alloca %"struct.std::array.156", align 2
   %vec.i110 = alloca %"struct.std::array.155", align 1
   %vec.i106 = alloca %"struct.std::array.155", align 1
@@ -36641,9 +36639,8 @@ if.then233:                                       ; preds = %if.else213
 sw.bb246:                                         ; preds = %entry
   %m_value248 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<>::data", ptr %j, i64 0, i32 1
   %51 = load double, ptr %m_value248, align 8
-  %cmp.i = fcmp ult double %51, 0xC7EFFFFFE0000000
-  %cmp4.i = fcmp ugt double %51, 0x47EFFFFFE0000000
-  %or.cond.i = or i1 %cmp.i, %cmp4.i
+  %52 = tail call double @llvm.fabs.f64(double %51)
+  %or.cond.i = fcmp ugt double %52, 0x47EFFFFFE0000000
   br i1 %or.cond.i, label %if.else.i, label %land.lhs.true5.i
 
 land.lhs.true5.i:                                 ; preds = %sw.bb246
@@ -36654,16 +36651,16 @@ land.lhs.true5.i:                                 ; preds = %sw.bb246
 
 if.then.i:                                        ; preds = %land.lhs.true5.i
   %oa.i100 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
-  %52 = load ptr, ptr %oa.i100, align 8
-  %vtable.i101 = load ptr, ptr %52, align 8
-  %53 = load ptr, ptr %vtable.i101, align 8
-  tail call void %53(ptr noundef nonnull align 8 dereferenceable(8) %52, i8 noundef zeroext -54)
+  %53 = load ptr, ptr %oa.i100, align 8
+  %vtable.i101 = load ptr, ptr %53, align 8
+  %54 = load ptr, ptr %vtable.i101, align 8
+  tail call void %54(ptr noundef nonnull align 8 dereferenceable(8) %53, i8 noundef zeroext -54)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %vec.i.i)
   store float %conv6.i, ptr %vec.i.i, align 4
-  %54 = load i8, ptr %this, align 8
-  %55 = and i8 %54, 1
-  %56 = icmp eq i8 %55, 0
-  br i1 %56, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIfEEvT_b.exit.i, label %if.then.i.i
+  %55 = load i8, ptr %this, align 8
+  %56 = and i8 %55, 1
+  %57 = icmp eq i8 %56, 0
+  br i1 %57, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIfEEvT_b.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %__last.addr.08.i.i.i.i = getelementptr inbounds i8, ptr %vec.i.i, i64 3
@@ -36672,36 +36669,36 @@ if.then.i.i:                                      ; preds = %if.then.i
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %if.then.i.i
   %__last.addr.011.i.i.i.i = phi ptr [ %__last.addr.0.i.i.i.i, %while.body.i.i.i.i ], [ %__last.addr.08.i.i.i.i, %if.then.i.i ]
   %__first.addr.010.i.i.i.i = phi ptr [ %incdec.ptr2.i.i.i.i, %while.body.i.i.i.i ], [ %vec.i.i, %if.then.i.i ]
-  %57 = load i8, ptr %__first.addr.010.i.i.i.i, align 1
-  %58 = load i8, ptr %__last.addr.011.i.i.i.i, align 1
-  store i8 %58, ptr %__first.addr.010.i.i.i.i, align 1
-  store i8 %57, ptr %__last.addr.011.i.i.i.i, align 1
+  %58 = load i8, ptr %__first.addr.010.i.i.i.i, align 1
+  %59 = load i8, ptr %__last.addr.011.i.i.i.i, align 1
+  store i8 %59, ptr %__first.addr.010.i.i.i.i, align 1
+  store i8 %58, ptr %__last.addr.011.i.i.i.i, align 1
   %incdec.ptr2.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i.i, i64 1
   %__last.addr.0.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i.i, i64 -1
   %cmp1.i.i.i.i = icmp ult ptr %incdec.ptr2.i.i.i.i, %__last.addr.0.i.i.i.i
   br i1 %cmp1.i.i.i.i, label %while.body.i.i.i.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIfEEvT_b.exit.i, !llvm.loop !166
 
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIfEEvT_b.exit.i: ; preds = %while.body.i.i.i.i, %if.then.i
-  %59 = load ptr, ptr %oa.i100, align 8
-  %vtable.i.i = load ptr, ptr %59, align 8
+  %60 = load ptr, ptr %oa.i100, align 8
+  %vtable.i.i = load ptr, ptr %60, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
-  %60 = load ptr, ptr %vfn.i.i, align 8
-  call void %60(ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull %vec.i.i, i64 noundef 4)
+  %61 = load ptr, ptr %vfn.i.i, align 8
+  call void %61(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef nonnull %vec.i.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %vec.i.i)
   br label %sw.epilog475
 
 if.else.i:                                        ; preds = %land.lhs.true5.i, %sw.bb246
   %oa16.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
-  %61 = load ptr, ptr %oa16.i, align 8
-  %vtable25.i = load ptr, ptr %61, align 8
-  %62 = load ptr, ptr %vtable25.i, align 8
-  tail call void %62(ptr noundef nonnull align 8 dereferenceable(8) %61, i8 noundef zeroext -53)
+  %62 = load ptr, ptr %oa16.i, align 8
+  %vtable25.i = load ptr, ptr %62, align 8
+  %63 = load ptr, ptr %vtable25.i, align 8
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(8) %62, i8 noundef zeroext -53)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %vec.i11.i)
   store double %51, ptr %vec.i11.i, align 8
-  %63 = load i8, ptr %this, align 8
-  %64 = and i8 %63, 1
-  %65 = icmp eq i8 %64, 0
-  br i1 %65, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIdEEvT_b.exit.i, label %if.then.i12.i
+  %64 = load i8, ptr %this, align 8
+  %65 = and i8 %64, 1
+  %66 = icmp eq i8 %65, 0
+  br i1 %66, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIdEEvT_b.exit.i, label %if.then.i12.i
 
 if.then.i12.i:                                    ; preds = %if.else.i
   %__last.addr.08.i.i.i13.i = getelementptr inbounds i8, ptr %vec.i11.i, i64 7
@@ -36710,42 +36707,42 @@ if.then.i12.i:                                    ; preds = %if.else.i
 while.body.i.i.i14.i:                             ; preds = %while.body.i.i.i14.i, %if.then.i12.i
   %__last.addr.011.i.i.i15.i = phi ptr [ %__last.addr.0.i.i.i18.i, %while.body.i.i.i14.i ], [ %__last.addr.08.i.i.i13.i, %if.then.i12.i ]
   %__first.addr.010.i.i.i16.i = phi ptr [ %incdec.ptr2.i.i.i17.i, %while.body.i.i.i14.i ], [ %vec.i11.i, %if.then.i12.i ]
-  %66 = load i8, ptr %__first.addr.010.i.i.i16.i, align 1
-  %67 = load i8, ptr %__last.addr.011.i.i.i15.i, align 1
-  store i8 %67, ptr %__first.addr.010.i.i.i16.i, align 1
-  store i8 %66, ptr %__last.addr.011.i.i.i15.i, align 1
+  %67 = load i8, ptr %__first.addr.010.i.i.i16.i, align 1
+  %68 = load i8, ptr %__last.addr.011.i.i.i15.i, align 1
+  store i8 %68, ptr %__first.addr.010.i.i.i16.i, align 1
+  store i8 %67, ptr %__last.addr.011.i.i.i15.i, align 1
   %incdec.ptr2.i.i.i17.i = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i16.i, i64 1
   %__last.addr.0.i.i.i18.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i15.i, i64 -1
   %cmp1.i.i.i19.i = icmp ult ptr %incdec.ptr2.i.i.i17.i, %__last.addr.0.i.i.i18.i
   br i1 %cmp1.i.i.i19.i, label %while.body.i.i.i14.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIdEEvT_b.exit.i, !llvm.loop !166
 
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIdEEvT_b.exit.i: ; preds = %while.body.i.i.i14.i, %if.else.i
-  %68 = load ptr, ptr %oa16.i, align 8
-  %vtable.i21.i = load ptr, ptr %68, align 8
+  %69 = load ptr, ptr %oa16.i, align 8
+  %vtable.i21.i = load ptr, ptr %69, align 8
   %vfn.i22.i = getelementptr inbounds ptr, ptr %vtable.i21.i, i64 1
-  %69 = load ptr, ptr %vfn.i22.i, align 8
-  call void %69(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull %vec.i11.i, i64 noundef 8)
+  %70 = load ptr, ptr %vfn.i22.i, align 8
+  call void %70(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef nonnull %vec.i11.i, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %vec.i11.i)
   br label %sw.epilog475
 
 sw.bb249:                                         ; preds = %entry
   %m_value251 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<>::data", ptr %j, i64 0, i32 1
-  %70 = load ptr, ptr %m_value251, align 8
-  %call252 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %70) #19
+  %71 = load ptr, ptr %m_value251, align 8
+  %call252 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %71) #19
   %cmp253 = icmp ult i64 %call252, 32
   br i1 %cmp253, label %if.then254, label %if.else256
 
 if.then254:                                       ; preds = %sw.bb249
-  %71 = trunc i64 %call252 to i8
-  %conv255 = or disjoint i8 %71, -96
+  %72 = trunc i64 %call252 to i8
+  %conv255 = or disjoint i8 %72, -96
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i102)
   store i8 %conv255, ptr %vec.i102, align 1
   %oa.i103 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
-  %72 = load ptr, ptr %oa.i103, align 8
-  %vtable.i104 = load ptr, ptr %72, align 8
+  %73 = load ptr, ptr %oa.i103, align 8
+  %vtable.i104 = load ptr, ptr %73, align 8
   %vfn.i105 = getelementptr inbounds ptr, ptr %vtable.i104, i64 1
-  %73 = load ptr, ptr %vfn.i105, align 8
-  call void %73(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef nonnull %vec.i102, i64 noundef 1)
+  %74 = load ptr, ptr %vfn.i105, align 8
+  call void %74(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull %vec.i102, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i102)
   br label %if.end292
 
@@ -36755,18 +36752,18 @@ if.else256:                                       ; preds = %sw.bb249
 
 if.then260:                                       ; preds = %if.else256
   %oa261 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
-  %74 = load ptr, ptr %oa261, align 8
-  %vtable264 = load ptr, ptr %74, align 8
-  %75 = load ptr, ptr %vtable264, align 8
-  tail call void %75(ptr noundef nonnull align 8 dereferenceable(8) %74, i8 noundef zeroext -39)
+  %75 = load ptr, ptr %oa261, align 8
+  %vtable264 = load ptr, ptr %75, align 8
+  %76 = load ptr, ptr %vtable264, align 8
+  tail call void %76(ptr noundef nonnull align 8 dereferenceable(8) %75, i8 noundef zeroext -39)
   %conv266 = trunc i64 %call252 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i106)
   store i8 %conv266, ptr %vec.i106, align 1
-  %76 = load ptr, ptr %oa261, align 8
-  %vtable.i108 = load ptr, ptr %76, align 8
+  %77 = load ptr, ptr %oa261, align 8
+  %vtable.i108 = load ptr, ptr %77, align 8
   %vfn.i109 = getelementptr inbounds ptr, ptr %vtable.i108, i64 1
-  %77 = load ptr, ptr %vfn.i109, align 8
-  call void %77(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull %vec.i106, i64 noundef 1)
+  %78 = load ptr, ptr %vfn.i109, align 8
+  call void %78(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull %vec.i106, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i106)
   br label %if.end292
 
@@ -36776,10 +36773,10 @@ if.else267:                                       ; preds = %if.else256
 
 if.then271:                                       ; preds = %if.else267
   %oa272 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
-  %78 = load ptr, ptr %oa272, align 8
-  %vtable275 = load ptr, ptr %78, align 8
-  %79 = load ptr, ptr %vtable275, align 8
-  tail call void %79(ptr noundef nonnull align 8 dereferenceable(8) %78, i8 noundef zeroext -38)
+  %79 = load ptr, ptr %oa272, align 8
+  %vtable275 = load ptr, ptr %79, align 8
+  %80 = load ptr, ptr %vtable275, align 8
+  tail call void %80(ptr noundef nonnull align 8 dereferenceable(8) %79, i8 noundef zeroext -38)
   %conv277 = trunc i64 %call252 to i16
   tail call void @_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberItEEvT_b(ptr noundef nonnull align 8 dereferenceable(24) %this, i16 noundef zeroext %conv277, i1 noundef zeroext false)
   br label %if.end292
@@ -36790,51 +36787,51 @@ if.else278:                                       ; preds = %if.else267
 
 if.then282:                                       ; preds = %if.else278
   %oa283 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
-  %80 = load ptr, ptr %oa283, align 8
-  %vtable286 = load ptr, ptr %80, align 8
-  %81 = load ptr, ptr %vtable286, align 8
-  tail call void %81(ptr noundef nonnull align 8 dereferenceable(8) %80, i8 noundef zeroext -37)
+  %81 = load ptr, ptr %oa283, align 8
+  %vtable286 = load ptr, ptr %81, align 8
+  %82 = load ptr, ptr %vtable286, align 8
+  tail call void %82(ptr noundef nonnull align 8 dereferenceable(8) %81, i8 noundef zeroext -37)
   %conv288 = trunc i64 %call252 to i32
   tail call void @_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIjEEvT_b(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %conv288, i1 noundef zeroext false)
   br label %if.end292
 
 if.end292:                                        ; preds = %if.then260, %if.else278, %if.then282, %if.then271, %if.then254
   %oa293 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
-  %82 = load ptr, ptr %oa293, align 8
-  %83 = load ptr, ptr %m_value251, align 8
-  %call297 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %83) #19
+  %83 = load ptr, ptr %oa293, align 8
   %84 = load ptr, ptr %m_value251, align 8
-  %call300 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %84) #19
-  %vtable301 = load ptr, ptr %82, align 8
+  %call297 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %84) #19
+  %85 = load ptr, ptr %m_value251, align 8
+  %call300 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %85) #19
+  %vtable301 = load ptr, ptr %83, align 8
   %vfn302 = getelementptr inbounds ptr, ptr %vtable301, i64 1
-  %85 = load ptr, ptr %vfn302, align 8
-  call void %85(ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef %call297, i64 noundef %call300)
+  %86 = load ptr, ptr %vfn302, align 8
+  call void %86(ptr noundef nonnull align 8 dereferenceable(8) %83, ptr noundef %call297, i64 noundef %call300)
   br label %sw.epilog475
 
 sw.bb303:                                         ; preds = %entry
   %m_value306 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<>::data", ptr %j, i64 0, i32 1
-  %86 = load ptr, ptr %m_value306, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<nlohmann::json_abi_v3_11_3::basic_json<>, std::allocator<nlohmann::json_abi_v3_11_3::basic_json<>>>::_Vector_impl_data", ptr %86, i64 0, i32 1
-  %87 = load ptr, ptr %_M_finish.i, align 8
-  %88 = load ptr, ptr %86, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %87 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %88 to i64
+  %87 = load ptr, ptr %m_value306, align 8
+  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<nlohmann::json_abi_v3_11_3::basic_json<>, std::allocator<nlohmann::json_abi_v3_11_3::basic_json<>>>::_Vector_impl_data", ptr %87, i64 0, i32 1
+  %88 = load ptr, ptr %_M_finish.i, align 8
+  %89 = load ptr, ptr %87, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %88 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %89 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %cmp308 = icmp ult i64 %sub.ptr.div.i, 16
   br i1 %cmp308, label %if.then309, label %if.else312
 
 if.then309:                                       ; preds = %sw.bb303
-  %89 = trunc i64 %sub.ptr.div.i to i8
-  %conv311 = or disjoint i8 %89, -112
+  %90 = trunc i64 %sub.ptr.div.i to i8
+  %conv311 = or disjoint i8 %90, -112
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i110)
   store i8 %conv311, ptr %vec.i110, align 1
   %oa.i111 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
-  %90 = load ptr, ptr %oa.i111, align 8
-  %vtable.i112 = load ptr, ptr %90, align 8
+  %91 = load ptr, ptr %oa.i111, align 8
+  %vtable.i112 = load ptr, ptr %91, align 8
   %vfn.i113 = getelementptr inbounds ptr, ptr %vtable.i112, i64 1
-  %91 = load ptr, ptr %vfn.i113, align 8
-  call void %91(ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull %vec.i110, i64 noundef 1)
+  %92 = load ptr, ptr %vfn.i113, align 8
+  call void %92(ptr noundef nonnull align 8 dereferenceable(8) %91, ptr noundef nonnull %vec.i110, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i110)
   br label %if.end336
 
@@ -36844,17 +36841,17 @@ if.else312:                                       ; preds = %sw.bb303
 
 if.then316:                                       ; preds = %if.else312
   %oa317 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
-  %92 = load ptr, ptr %oa317, align 8
-  %vtable320 = load ptr, ptr %92, align 8
-  %93 = load ptr, ptr %vtable320, align 8
-  tail call void %93(ptr noundef nonnull align 8 dereferenceable(8) %92, i8 noundef zeroext -36)
+  %93 = load ptr, ptr %oa317, align 8
+  %vtable320 = load ptr, ptr %93, align 8
+  %94 = load ptr, ptr %vtable320, align 8
+  tail call void %94(ptr noundef nonnull align 8 dereferenceable(8) %93, i8 noundef zeroext -36)
   %conv322 = trunc i64 %sub.ptr.div.i to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %vec.i114)
   store i16 %conv322, ptr %vec.i114, align 2
-  %94 = load i8, ptr %this, align 8
-  %95 = and i8 %94, 1
-  %96 = icmp eq i8 %95, 0
-  br i1 %96, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberItEEvT_b.exit, label %if.then.i115
+  %95 = load i8, ptr %this, align 8
+  %96 = and i8 %95, 1
+  %97 = icmp eq i8 %96, 0
+  br i1 %97, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberItEEvT_b.exit, label %if.then.i115
 
 if.then.i115:                                     ; preds = %if.then316
   %__last.addr.08.i.i.i = getelementptr inbounds i8, ptr %vec.i114, i64 1
@@ -36863,21 +36860,21 @@ if.then.i115:                                     ; preds = %if.then316
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %if.then.i115
   %__last.addr.011.i.i.i = phi ptr [ %__last.addr.0.i.i.i, %while.body.i.i.i ], [ %__last.addr.08.i.i.i, %if.then.i115 ]
   %__first.addr.010.i.i.i = phi ptr [ %incdec.ptr2.i.i.i, %while.body.i.i.i ], [ %vec.i114, %if.then.i115 ]
-  %97 = load i8, ptr %__first.addr.010.i.i.i, align 1
-  %98 = load i8, ptr %__last.addr.011.i.i.i, align 1
-  store i8 %98, ptr %__first.addr.010.i.i.i, align 1
-  store i8 %97, ptr %__last.addr.011.i.i.i, align 1
+  %98 = load i8, ptr %__first.addr.010.i.i.i, align 1
+  %99 = load i8, ptr %__last.addr.011.i.i.i, align 1
+  store i8 %99, ptr %__first.addr.010.i.i.i, align 1
+  store i8 %98, ptr %__last.addr.011.i.i.i, align 1
   %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i, i64 1
   %__last.addr.0.i.i.i = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i, i64 -1
   %cmp1.i.i.i = icmp ult ptr %incdec.ptr2.i.i.i, %__last.addr.0.i.i.i
   br i1 %cmp1.i.i.i, label %while.body.i.i.i, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberItEEvT_b.exit, !llvm.loop !166
 
 _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberItEEvT_b.exit: ; preds = %while.body.i.i.i, %if.then316
-  %99 = load ptr, ptr %oa317, align 8
-  %vtable.i117 = load ptr, ptr %99, align 8
+  %100 = load ptr, ptr %oa317, align 8
+  %vtable.i117 = load ptr, ptr %100, align 8
   %vfn.i118 = getelementptr inbounds ptr, ptr %vtable.i117, i64 1
-  %100 = load ptr, ptr %vfn.i118, align 8
-  call void %100(ptr noundef nonnull align 8 dereferenceable(8) %99, ptr noundef nonnull %vec.i114, i64 noundef 2)
+  %101 = load ptr, ptr %vfn.i118, align 8
+  call void %101(ptr noundef nonnull align 8 dereferenceable(8) %100, ptr noundef nonnull %vec.i114, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %vec.i114)
   br label %if.end336
 
@@ -36887,47 +36884,47 @@ if.else323:                                       ; preds = %if.else312
 
 if.then327:                                       ; preds = %if.else323
   %oa328 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
-  %101 = load ptr, ptr %oa328, align 8
-  %vtable331 = load ptr, ptr %101, align 8
-  %102 = load ptr, ptr %vtable331, align 8
-  tail call void %102(ptr noundef nonnull align 8 dereferenceable(8) %101, i8 noundef zeroext -35)
+  %102 = load ptr, ptr %oa328, align 8
+  %vtable331 = load ptr, ptr %102, align 8
+  %103 = load ptr, ptr %vtable331, align 8
+  tail call void %103(ptr noundef nonnull align 8 dereferenceable(8) %102, i8 noundef zeroext -35)
   %conv333 = trunc i64 %sub.ptr.div.i to i32
   tail call void @_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIjEEvT_b(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %conv333, i1 noundef zeroext false)
   br label %if.end336
 
 if.end336:                                        ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberItEEvT_b.exit, %if.then327, %if.else323, %if.then309
-  %103 = load ptr, ptr %m_value306, align 8
-  %104 = load ptr, ptr %103, align 8
-  %_M_finish.i119 = getelementptr inbounds %"struct.std::_Vector_base<nlohmann::json_abi_v3_11_3::basic_json<>, std::allocator<nlohmann::json_abi_v3_11_3::basic_json<>>>::_Vector_impl_data", ptr %103, i64 0, i32 1
-  %105 = load ptr, ptr %_M_finish.i119, align 8
-  %cmp.i120.not175 = icmp eq ptr %104, %105
-  br i1 %cmp.i120.not175, label %sw.epilog475, label %for.body
+  %104 = load ptr, ptr %m_value306, align 8
+  %105 = load ptr, ptr %104, align 8
+  %_M_finish.i119 = getelementptr inbounds %"struct.std::_Vector_base<nlohmann::json_abi_v3_11_3::basic_json<>, std::allocator<nlohmann::json_abi_v3_11_3::basic_json<>>>::_Vector_impl_data", ptr %104, i64 0, i32 1
+  %106 = load ptr, ptr %_M_finish.i119, align 8
+  %cmp.i.not174 = icmp eq ptr %105, %106
+  br i1 %cmp.i.not174, label %sw.epilog475, label %for.body
 
 for.body:                                         ; preds = %if.end336, %for.body
-  %__begin0.sroa.0.0176 = phi ptr [ %incdec.ptr.i, %for.body ], [ %104, %if.end336 ]
-  call void @_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE13write_msgpackERKSF_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %__begin0.sroa.0.0176)
-  %incdec.ptr.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::basic_json", ptr %__begin0.sroa.0.0176, i64 1
-  %cmp.i120.not = icmp eq ptr %incdec.ptr.i, %105
-  br i1 %cmp.i120.not, label %sw.epilog475, label %for.body
+  %__begin0.sroa.0.0175 = phi ptr [ %incdec.ptr.i, %for.body ], [ %105, %if.end336 ]
+  call void @_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE13write_msgpackERKSF_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %__begin0.sroa.0.0175)
+  %incdec.ptr.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::basic_json", ptr %__begin0.sroa.0.0175, i64 1
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %106
+  br i1 %cmp.i.not, label %sw.epilog475, label %for.body
 
 sw.bb345:                                         ; preds = %entry
   %m_value347 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<>::data", ptr %j, i64 0, i32 1
-  %106 = load ptr, ptr %m_value347, align 8
-  %m_has_subtype.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %106, i64 0, i32 2
-  %107 = load i8, ptr %m_has_subtype.i, align 8
-  %108 = and i8 %107, 1
-  %tobool.i.not = icmp eq i8 %108, 0
-  %_M_finish.i121 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %106, i64 0, i32 1
-  %109 = load ptr, ptr %_M_finish.i121, align 8
-  %110 = load ptr, ptr %106, align 8
-  %sub.ptr.lhs.cast.i122 = ptrtoint ptr %109 to i64
-  %sub.ptr.rhs.cast.i123 = ptrtoint ptr %110 to i64
-  %sub.ptr.sub.i124 = sub i64 %sub.ptr.lhs.cast.i122, %sub.ptr.rhs.cast.i123
-  %cmp355.not = icmp ugt i64 %sub.ptr.sub.i124, 255
+  %107 = load ptr, ptr %m_value347, align 8
+  %m_has_subtype.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %107, i64 0, i32 2
+  %108 = load i8, ptr %m_has_subtype.i, align 8
+  %109 = and i8 %108, 1
+  %tobool.i.not = icmp eq i8 %109, 0
+  %_M_finish.i120 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %107, i64 0, i32 1
+  %110 = load ptr, ptr %_M_finish.i120, align 8
+  %111 = load ptr, ptr %107, align 8
+  %sub.ptr.lhs.cast.i121 = ptrtoint ptr %110 to i64
+  %sub.ptr.rhs.cast.i122 = ptrtoint ptr %111 to i64
+  %sub.ptr.sub.i123 = sub i64 %sub.ptr.lhs.cast.i121, %sub.ptr.rhs.cast.i122
+  %cmp355.not = icmp ugt i64 %sub.ptr.sub.i123, 255
   br i1 %cmp355.not, label %if.else375, label %if.then356
 
 if.then356:                                       ; preds = %sw.bb345
-  %.pre = trunc i64 %sub.ptr.sub.i124 to i8
+  %.pre = trunc i64 %sub.ptr.sub.i123 to i8
   br i1 %tobool.i.not, label %if.then372.critedge, label %if.then358
 
 if.then358:                                       ; preds = %if.then356
@@ -36954,273 +36951,273 @@ sw.bb363:                                         ; preds = %if.then358
 if.end407.thread:                                 ; preds = %sw.bb363, %sw.bb362, %sw.bb361, %sw.bb360, %if.then358
   %output_type.0 = phi i8 [ -40, %sw.bb363 ], [ -41, %sw.bb362 ], [ -42, %sw.bb361 ], [ -43, %sw.bb360 ], [ -44, %if.then358 ]
   %oa366 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
-  %111 = load ptr, ptr %oa366, align 8
-  %vtable369 = load ptr, ptr %111, align 8
-  %112 = load ptr, ptr %vtable369, align 8
-  tail call void %112(ptr noundef nonnull align 8 dereferenceable(8) %111, i8 noundef zeroext %output_type.0)
+  %112 = load ptr, ptr %oa366, align 8
+  %vtable369 = load ptr, ptr %112, align 8
+  %113 = load ptr, ptr %vtable369, align 8
+  tail call void %113(ptr noundef nonnull align 8 dereferenceable(8) %112, i8 noundef zeroext %output_type.0)
   br label %if.then409
 
 if.then372.critedge:                              ; preds = %if.then356, %if.then358
   %output_type.0.ph = phi i8 [ -57, %if.then358 ], [ -60, %if.then356 ]
   %oa366.c = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
-  %113 = load ptr, ptr %oa366.c, align 8
-  %vtable369.c = load ptr, ptr %113, align 8
-  %114 = load ptr, ptr %vtable369.c, align 8
-  tail call void %114(ptr noundef nonnull align 8 dereferenceable(8) %113, i8 noundef zeroext %output_type.0.ph)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i125)
-  store i8 %.pre, ptr %vec.i125, align 1
-  %115 = load ptr, ptr %oa366.c, align 8
-  %vtable.i127 = load ptr, ptr %115, align 8
-  %vfn.i128 = getelementptr inbounds ptr, ptr %vtable.i127, i64 1
-  %116 = load ptr, ptr %vfn.i128, align 8
-  call void %116(ptr noundef nonnull align 8 dereferenceable(8) %115, ptr noundef nonnull %vec.i125, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i125)
+  %114 = load ptr, ptr %oa366.c, align 8
+  %vtable369.c = load ptr, ptr %114, align 8
+  %115 = load ptr, ptr %vtable369.c, align 8
+  tail call void %115(ptr noundef nonnull align 8 dereferenceable(8) %114, i8 noundef zeroext %output_type.0.ph)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i124)
+  store i8 %.pre, ptr %vec.i124, align 1
+  %116 = load ptr, ptr %oa366.c, align 8
+  %vtable.i126 = load ptr, ptr %116, align 8
+  %vfn.i127 = getelementptr inbounds ptr, ptr %vtable.i126, i64 1
+  %117 = load ptr, ptr %vfn.i127, align 8
+  call void %117(ptr noundef nonnull align 8 dereferenceable(8) %116, ptr noundef nonnull %vec.i124, i64 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i124)
   br label %if.end407
 
 if.else375:                                       ; preds = %sw.bb345
-  %cmp378.not = icmp ugt i64 %sub.ptr.sub.i124, 65535
+  %cmp378.not = icmp ugt i64 %sub.ptr.sub.i123, 65535
   br i1 %cmp378.not, label %if.else390, label %if.then379
 
 if.then379:                                       ; preds = %if.else375
   %conv383 = select i1 %tobool.i.not, i8 -59, i8 -56
   %oa384 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
-  %117 = load ptr, ptr %oa384, align 8
-  %vtable387 = load ptr, ptr %117, align 8
-  %118 = load ptr, ptr %vtable387, align 8
-  tail call void %118(ptr noundef nonnull align 8 dereferenceable(8) %117, i8 noundef zeroext %conv383)
-  %conv389 = trunc i64 %sub.ptr.sub.i124 to i16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %vec.i129)
-  store i16 %conv389, ptr %vec.i129, align 2
-  %119 = load i8, ptr %this, align 8
-  %120 = and i8 %119, 1
-  %121 = icmp eq i8 %120, 0
-  br i1 %121, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberItEEvT_b.exit141, label %if.then.i130
+  %118 = load ptr, ptr %oa384, align 8
+  %vtable387 = load ptr, ptr %118, align 8
+  %119 = load ptr, ptr %vtable387, align 8
+  tail call void %119(ptr noundef nonnull align 8 dereferenceable(8) %118, i8 noundef zeroext %conv383)
+  %conv389 = trunc i64 %sub.ptr.sub.i123 to i16
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %vec.i128)
+  store i16 %conv389, ptr %vec.i128, align 2
+  %120 = load i8, ptr %this, align 8
+  %121 = and i8 %120, 1
+  %122 = icmp eq i8 %121, 0
+  br i1 %122, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberItEEvT_b.exit140, label %if.then.i129
 
-if.then.i130:                                     ; preds = %if.then379
-  %__last.addr.08.i.i.i131 = getelementptr inbounds i8, ptr %vec.i129, i64 1
-  br label %while.body.i.i.i132
+if.then.i129:                                     ; preds = %if.then379
+  %__last.addr.08.i.i.i130 = getelementptr inbounds i8, ptr %vec.i128, i64 1
+  br label %while.body.i.i.i131
 
-while.body.i.i.i132:                              ; preds = %while.body.i.i.i132, %if.then.i130
-  %__last.addr.011.i.i.i133 = phi ptr [ %__last.addr.0.i.i.i136, %while.body.i.i.i132 ], [ %__last.addr.08.i.i.i131, %if.then.i130 ]
-  %__first.addr.010.i.i.i134 = phi ptr [ %incdec.ptr2.i.i.i135, %while.body.i.i.i132 ], [ %vec.i129, %if.then.i130 ]
-  %122 = load i8, ptr %__first.addr.010.i.i.i134, align 1
-  %123 = load i8, ptr %__last.addr.011.i.i.i133, align 1
-  store i8 %123, ptr %__first.addr.010.i.i.i134, align 1
-  store i8 %122, ptr %__last.addr.011.i.i.i133, align 1
-  %incdec.ptr2.i.i.i135 = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i134, i64 1
-  %__last.addr.0.i.i.i136 = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i133, i64 -1
-  %cmp1.i.i.i137 = icmp ult ptr %incdec.ptr2.i.i.i135, %__last.addr.0.i.i.i136
-  br i1 %cmp1.i.i.i137, label %while.body.i.i.i132, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberItEEvT_b.exit141, !llvm.loop !166
+while.body.i.i.i131:                              ; preds = %while.body.i.i.i131, %if.then.i129
+  %__last.addr.011.i.i.i132 = phi ptr [ %__last.addr.0.i.i.i135, %while.body.i.i.i131 ], [ %__last.addr.08.i.i.i130, %if.then.i129 ]
+  %__first.addr.010.i.i.i133 = phi ptr [ %incdec.ptr2.i.i.i134, %while.body.i.i.i131 ], [ %vec.i128, %if.then.i129 ]
+  %123 = load i8, ptr %__first.addr.010.i.i.i133, align 1
+  %124 = load i8, ptr %__last.addr.011.i.i.i132, align 1
+  store i8 %124, ptr %__first.addr.010.i.i.i133, align 1
+  store i8 %123, ptr %__last.addr.011.i.i.i132, align 1
+  %incdec.ptr2.i.i.i134 = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i133, i64 1
+  %__last.addr.0.i.i.i135 = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i132, i64 -1
+  %cmp1.i.i.i136 = icmp ult ptr %incdec.ptr2.i.i.i134, %__last.addr.0.i.i.i135
+  br i1 %cmp1.i.i.i136, label %while.body.i.i.i131, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberItEEvT_b.exit140, !llvm.loop !166
 
-_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberItEEvT_b.exit141: ; preds = %while.body.i.i.i132, %if.then379
-  %124 = load ptr, ptr %oa384, align 8
-  %vtable.i139 = load ptr, ptr %124, align 8
-  %vfn.i140 = getelementptr inbounds ptr, ptr %vtable.i139, i64 1
-  %125 = load ptr, ptr %vfn.i140, align 8
-  call void %125(ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef nonnull %vec.i129, i64 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %vec.i129)
+_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberItEEvT_b.exit140: ; preds = %while.body.i.i.i131, %if.then379
+  %125 = load ptr, ptr %oa384, align 8
+  %vtable.i138 = load ptr, ptr %125, align 8
+  %vfn.i139 = getelementptr inbounds ptr, ptr %vtable.i138, i64 1
+  %126 = load ptr, ptr %vfn.i139, align 8
+  call void %126(ptr noundef nonnull align 8 dereferenceable(8) %125, ptr noundef nonnull %vec.i128, i64 noundef 2)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %vec.i128)
   br label %if.end407
 
 if.else390:                                       ; preds = %if.else375
-  %cmp393.not = icmp ugt i64 %sub.ptr.sub.i124, 4294967295
+  %cmp393.not = icmp ugt i64 %sub.ptr.sub.i123, 4294967295
   br i1 %cmp393.not, label %if.end407, label %if.then394
 
 if.then394:                                       ; preds = %if.else390
   %conv398 = select i1 %tobool.i.not, i8 -58, i8 -55
   %oa399 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
-  %126 = load ptr, ptr %oa399, align 8
-  %vtable402 = load ptr, ptr %126, align 8
-  %127 = load ptr, ptr %vtable402, align 8
-  tail call void %127(ptr noundef nonnull align 8 dereferenceable(8) %126, i8 noundef zeroext %conv398)
-  %conv404 = trunc i64 %sub.ptr.sub.i124 to i32
+  %127 = load ptr, ptr %oa399, align 8
+  %vtable402 = load ptr, ptr %127, align 8
+  %128 = load ptr, ptr %vtable402, align 8
+  tail call void %128(ptr noundef nonnull align 8 dereferenceable(8) %127, i8 noundef zeroext %conv398)
+  %conv404 = trunc i64 %sub.ptr.sub.i123 to i32
   tail call void @_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIjEEvT_b(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %conv404, i1 noundef zeroext false)
   br label %if.end407
 
-if.end407:                                        ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberItEEvT_b.exit141, %if.then394, %if.else390, %if.then372.critedge
+if.end407:                                        ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberItEEvT_b.exit140, %if.then394, %if.else390, %if.then372.critedge
   br i1 %tobool.i.not, label %if.end414, label %if.then409
 
 if.then409:                                       ; preds = %if.end407.thread, %if.end407
-  %128 = load ptr, ptr %m_value347, align 8
-  %m_has_subtype.i142 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %128, i64 0, i32 2
-  %129 = load i8, ptr %m_has_subtype.i142, align 8
-  %130 = and i8 %129, 1
-  %tobool.not.i = icmp eq i8 %130, 0
-  %m_subtype.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %128, i64 0, i32 1
-  %131 = load i64, ptr %m_subtype.i, align 8
-  %132 = trunc i64 %131 to i8
-  %conv413 = select i1 %tobool.not.i, i8 -1, i8 %132
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i143)
-  store i8 %conv413, ptr %vec.i143, align 1
-  %oa.i144 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
-  %133 = load ptr, ptr %oa.i144, align 8
-  %vtable.i145 = load ptr, ptr %133, align 8
-  %vfn.i146 = getelementptr inbounds ptr, ptr %vtable.i145, i64 1
-  %134 = load ptr, ptr %vfn.i146, align 8
-  call void %134(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull %vec.i143, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i143)
+  %129 = load ptr, ptr %m_value347, align 8
+  %m_has_subtype.i141 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %129, i64 0, i32 2
+  %130 = load i8, ptr %m_has_subtype.i141, align 8
+  %131 = and i8 %130, 1
+  %tobool.not.i = icmp eq i8 %131, 0
+  %m_subtype.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %129, i64 0, i32 1
+  %132 = load i64, ptr %m_subtype.i, align 8
+  %133 = trunc i64 %132 to i8
+  %conv413 = select i1 %tobool.not.i, i8 -1, i8 %133
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i142)
+  store i8 %conv413, ptr %vec.i142, align 1
+  %oa.i143 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
+  %134 = load ptr, ptr %oa.i143, align 8
+  %vtable.i144 = load ptr, ptr %134, align 8
+  %vfn.i145 = getelementptr inbounds ptr, ptr %vtable.i144, i64 1
+  %135 = load ptr, ptr %vfn.i145, align 8
+  call void %135(ptr noundef nonnull align 8 dereferenceable(8) %134, ptr noundef nonnull %vec.i142, i64 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i142)
   br label %if.end414
 
 if.end414:                                        ; preds = %if.then409, %if.end407
   %oa415 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
-  %135 = load ptr, ptr %oa415, align 8
-  %136 = load ptr, ptr %m_value347, align 8
-  %137 = load ptr, ptr %136, align 8
-  %vtable420 = load ptr, ptr %135, align 8
+  %136 = load ptr, ptr %oa415, align 8
+  %137 = load ptr, ptr %m_value347, align 8
+  %138 = load ptr, ptr %137, align 8
+  %vtable420 = load ptr, ptr %136, align 8
   %vfn421 = getelementptr inbounds ptr, ptr %vtable420, i64 1
-  %138 = load ptr, ptr %vfn421, align 8
-  call void %138(ptr noundef nonnull align 8 dereferenceable(8) %135, ptr noundef %137, i64 noundef %sub.ptr.sub.i124)
+  %139 = load ptr, ptr %vfn421, align 8
+  call void %139(ptr noundef nonnull align 8 dereferenceable(8) %136, ptr noundef %138, i64 noundef %sub.ptr.sub.i123)
   br label %sw.epilog475
 
 sw.bb422:                                         ; preds = %entry
   %m_value425 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<>::data", ptr %j, i64 0, i32 1
-  %139 = load ptr, ptr %m_value425, align 8
-  %_M_node_count.i.i = getelementptr inbounds i8, ptr %139, i64 40
-  %140 = load i64, ptr %_M_node_count.i.i, align 8
-  %cmp427 = icmp ult i64 %140, 16
+  %140 = load ptr, ptr %m_value425, align 8
+  %_M_node_count.i.i = getelementptr inbounds i8, ptr %140, i64 40
+  %141 = load i64, ptr %_M_node_count.i.i, align 8
+  %cmp427 = icmp ult i64 %141, 16
   br i1 %cmp427, label %if.then428, label %if.else431
 
 if.then428:                                       ; preds = %sw.bb422
-  %141 = trunc i64 %140 to i8
-  %conv430 = or disjoint i8 %141, -128
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i147)
-  store i8 %conv430, ptr %vec.i147, align 1
-  %oa.i148 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
-  %142 = load ptr, ptr %oa.i148, align 8
-  %vtable.i149 = load ptr, ptr %142, align 8
-  %vfn.i150 = getelementptr inbounds ptr, ptr %vtable.i149, i64 1
-  %143 = load ptr, ptr %vfn.i150, align 8
-  call void %143(ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull %vec.i147, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i147)
+  %142 = trunc i64 %141 to i8
+  %conv430 = or disjoint i8 %142, -128
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %vec.i146)
+  store i8 %conv430, ptr %vec.i146, align 1
+  %oa.i147 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
+  %143 = load ptr, ptr %oa.i147, align 8
+  %vtable.i148 = load ptr, ptr %143, align 8
+  %vfn.i149 = getelementptr inbounds ptr, ptr %vtable.i148, i64 1
+  %144 = load ptr, ptr %vfn.i149, align 8
+  call void %144(ptr noundef nonnull align 8 dereferenceable(8) %143, ptr noundef nonnull %vec.i146, i64 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %vec.i146)
   br label %if.end455
 
 if.else431:                                       ; preds = %sw.bb422
-  %cmp434.not = icmp ugt i64 %140, 65535
+  %cmp434.not = icmp ugt i64 %141, 65535
   br i1 %cmp434.not, label %if.else442, label %if.then435
 
 if.then435:                                       ; preds = %if.else431
   %oa436 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
-  %144 = load ptr, ptr %oa436, align 8
-  %vtable439 = load ptr, ptr %144, align 8
-  %145 = load ptr, ptr %vtable439, align 8
-  tail call void %145(ptr noundef nonnull align 8 dereferenceable(8) %144, i8 noundef zeroext -34)
-  %conv441 = trunc i64 %140 to i16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %vec.i151)
-  store i16 %conv441, ptr %vec.i151, align 2
-  %146 = load i8, ptr %this, align 8
-  %147 = and i8 %146, 1
-  %148 = icmp eq i8 %147, 0
-  br i1 %148, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberItEEvT_b.exit163, label %if.then.i152
+  %145 = load ptr, ptr %oa436, align 8
+  %vtable439 = load ptr, ptr %145, align 8
+  %146 = load ptr, ptr %vtable439, align 8
+  tail call void %146(ptr noundef nonnull align 8 dereferenceable(8) %145, i8 noundef zeroext -34)
+  %conv441 = trunc i64 %141 to i16
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %vec.i150)
+  store i16 %conv441, ptr %vec.i150, align 2
+  %147 = load i8, ptr %this, align 8
+  %148 = and i8 %147, 1
+  %149 = icmp eq i8 %148, 0
+  br i1 %149, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberItEEvT_b.exit162, label %if.then.i151
 
-if.then.i152:                                     ; preds = %if.then435
-  %__last.addr.08.i.i.i153 = getelementptr inbounds i8, ptr %vec.i151, i64 1
-  br label %while.body.i.i.i154
+if.then.i151:                                     ; preds = %if.then435
+  %__last.addr.08.i.i.i152 = getelementptr inbounds i8, ptr %vec.i150, i64 1
+  br label %while.body.i.i.i153
 
-while.body.i.i.i154:                              ; preds = %while.body.i.i.i154, %if.then.i152
-  %__last.addr.011.i.i.i155 = phi ptr [ %__last.addr.0.i.i.i158, %while.body.i.i.i154 ], [ %__last.addr.08.i.i.i153, %if.then.i152 ]
-  %__first.addr.010.i.i.i156 = phi ptr [ %incdec.ptr2.i.i.i157, %while.body.i.i.i154 ], [ %vec.i151, %if.then.i152 ]
-  %149 = load i8, ptr %__first.addr.010.i.i.i156, align 1
-  %150 = load i8, ptr %__last.addr.011.i.i.i155, align 1
-  store i8 %150, ptr %__first.addr.010.i.i.i156, align 1
-  store i8 %149, ptr %__last.addr.011.i.i.i155, align 1
-  %incdec.ptr2.i.i.i157 = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i156, i64 1
-  %__last.addr.0.i.i.i158 = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i155, i64 -1
-  %cmp1.i.i.i159 = icmp ult ptr %incdec.ptr2.i.i.i157, %__last.addr.0.i.i.i158
-  br i1 %cmp1.i.i.i159, label %while.body.i.i.i154, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberItEEvT_b.exit163, !llvm.loop !166
+while.body.i.i.i153:                              ; preds = %while.body.i.i.i153, %if.then.i151
+  %__last.addr.011.i.i.i154 = phi ptr [ %__last.addr.0.i.i.i157, %while.body.i.i.i153 ], [ %__last.addr.08.i.i.i152, %if.then.i151 ]
+  %__first.addr.010.i.i.i155 = phi ptr [ %incdec.ptr2.i.i.i156, %while.body.i.i.i153 ], [ %vec.i150, %if.then.i151 ]
+  %150 = load i8, ptr %__first.addr.010.i.i.i155, align 1
+  %151 = load i8, ptr %__last.addr.011.i.i.i154, align 1
+  store i8 %151, ptr %__first.addr.010.i.i.i155, align 1
+  store i8 %150, ptr %__last.addr.011.i.i.i154, align 1
+  %incdec.ptr2.i.i.i156 = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i155, i64 1
+  %__last.addr.0.i.i.i157 = getelementptr inbounds i8, ptr %__last.addr.011.i.i.i154, i64 -1
+  %cmp1.i.i.i158 = icmp ult ptr %incdec.ptr2.i.i.i156, %__last.addr.0.i.i.i157
+  br i1 %cmp1.i.i.i158, label %while.body.i.i.i153, label %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberItEEvT_b.exit162, !llvm.loop !166
 
-_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberItEEvT_b.exit163: ; preds = %while.body.i.i.i154, %if.then435
-  %151 = load ptr, ptr %oa436, align 8
-  %vtable.i161 = load ptr, ptr %151, align 8
-  %vfn.i162 = getelementptr inbounds ptr, ptr %vtable.i161, i64 1
-  %152 = load ptr, ptr %vfn.i162, align 8
-  call void %152(ptr noundef nonnull align 8 dereferenceable(8) %151, ptr noundef nonnull %vec.i151, i64 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %vec.i151)
+_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberItEEvT_b.exit162: ; preds = %while.body.i.i.i153, %if.then435
+  %152 = load ptr, ptr %oa436, align 8
+  %vtable.i160 = load ptr, ptr %152, align 8
+  %vfn.i161 = getelementptr inbounds ptr, ptr %vtable.i160, i64 1
+  %153 = load ptr, ptr %vfn.i161, align 8
+  call void %153(ptr noundef nonnull align 8 dereferenceable(8) %152, ptr noundef nonnull %vec.i150, i64 noundef 2)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %vec.i150)
   br label %if.end455
 
 if.else442:                                       ; preds = %if.else431
-  %cmp445.not = icmp ugt i64 %140, 4294967295
+  %cmp445.not = icmp ugt i64 %141, 4294967295
   br i1 %cmp445.not, label %if.end455, label %if.then446
 
 if.then446:                                       ; preds = %if.else442
   %oa447 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::binary_writer", ptr %this, i64 0, i32 1
-  %153 = load ptr, ptr %oa447, align 8
-  %vtable450 = load ptr, ptr %153, align 8
-  %154 = load ptr, ptr %vtable450, align 8
-  tail call void %154(ptr noundef nonnull align 8 dereferenceable(8) %153, i8 noundef zeroext -33)
-  %conv452 = trunc i64 %140 to i32
+  %154 = load ptr, ptr %oa447, align 8
+  %vtable450 = load ptr, ptr %154, align 8
+  %155 = load ptr, ptr %vtable450, align 8
+  tail call void %155(ptr noundef nonnull align 8 dereferenceable(8) %154, i8 noundef zeroext -33)
+  %conv452 = trunc i64 %141 to i32
   tail call void @_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberIjEEvT_b(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %conv452, i1 noundef zeroext false)
   br label %if.end455
 
-if.end455:                                        ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberItEEvT_b.exit163, %if.then446, %if.else442, %if.then428
-  %155 = load ptr, ptr %m_value425, align 8
-  %_M_left.i.i = getelementptr inbounds i8, ptr %155, i64 24
-  %156 = load ptr, ptr %_M_left.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %155, i64 8
-  %cmp.i164.not173 = icmp eq ptr %156, %add.ptr.i.i
-  br i1 %cmp.i164.not173, label %sw.epilog475, label %.noexc.i.lr.ph
+if.end455:                                        ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE12write_numberItEEvT_b.exit162, %if.then446, %if.else442, %if.then428
+  %156 = load ptr, ptr %m_value425, align 8
+  %_M_left.i.i = getelementptr inbounds i8, ptr %156, i64 24
+  %157 = load ptr, ptr %_M_left.i.i, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %156, i64 8
+  %cmp.i163.not172 = icmp eq ptr %157, %add.ptr.i.i
+  br i1 %cmp.i163.not172, label %sw.epilog475, label %.noexc.i.lr.ph
 
 .noexc.i.lr.ph:                                   ; preds = %if.end455
   %m_value.i.i = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<>::data", ptr %ref.tmp, i64 0, i32 1
   br label %.noexc.i
 
 .noexc.i:                                         ; preds = %.noexc.i.lr.ph, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit
-  %__begin0459.sroa.0.0174 = phi ptr [ %156, %.noexc.i.lr.ph ], [ %call.i, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit ]
+  %__begin0459.sroa.0.0173 = phi ptr [ %157, %.noexc.i.lr.ph ], [ %call.i, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
   store i8 3, ptr %ref.tmp, align 8
   %call5.i.i2.i.i.i.i.i.i1.i = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
           to label %call5.i.i2.i.i.i.i.i.i.noexc.i unwind label %lpad.i
 
 call5.i.i2.i.i.i.i.i.i.noexc.i:                   ; preds = %.noexc.i
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin0459.sroa.0.0174, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin0459.sroa.0.0173, i64 0, i32 1
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i2.i.i.i.i.i.i1.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i)
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRKS9_S9_TnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SI_EE5valueEiE4typeELi0EEEOT_.exit unwind label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS7_14adl_serializerESA_IhSaIhEEvE6createIS5_JRKS5_EEEPT_DpOT0_EUlPS5_E_ED2Ev.exit7.i.i.i.i.i.i.i
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS7_14adl_serializerESA_IhSaIhEEvE6createIS5_JRKS5_EEEPT_DpOT0_EUlPS5_E_ED2Ev.exit7.i.i.i.i.i.i.i: ; preds = %call5.i.i2.i.i.i.i.i.i.noexc.i
-  %157 = landingpad { ptr, i32 }
+  %158 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i2.i.i.i.i.i.i1.i) #21
   br label %lpad.body.i
 
 lpad.i:                                           ; preds = %.noexc.i
-  %158 = landingpad { ptr, i32 }
+  %159 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i
 
 common.resume:                                    ; preds = %lpad, %lpad.body.i
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %lpad.body.i ], [ %163, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %lpad.body.i ], [ %164, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.body.i:                                      ; preds = %lpad.i, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS7_14adl_serializerESA_IhSaIhEEvE6createIS5_JRKS5_EEEPT_DpOT0_EUlPS5_E_ED2Ev.exit7.i.i.i.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %158, %lpad.i ], [ %157, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS7_14adl_serializerESA_IhSaIhEEvE6createIS5_JRKS5_EEEPT_DpOT0_EUlPS5_E_ED2Ev.exit7.i.i.i.i.i.i.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %159, %lpad.i ], [ %158, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS7_14adl_serializerESA_IhSaIhEEvE6createIS5_JRKS5_EEEPT_DpOT0_EUlPS5_E_ED2Ev.exit7.i.i.i.i.i.i.i ]
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #19
   br label %common.resume
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRKS9_S9_TnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SI_EE5valueEiE4typeELi0EEEOT_.exit: ; preds = %call5.i.i2.i.i.i.i.i.i.noexc.i
-  %159 = ptrtoint ptr %call5.i.i2.i.i.i.i.i.i1.i to i64
-  store i64 %159, ptr %m_value.i.i, align 8
+  %160 = ptrtoint ptr %call5.i.i2.i.i.i.i.i.i1.i to i64
+  store i64 %160, ptr %m_value.i.i, align 8
   invoke void @_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE13write_msgpackERKSF_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRKS9_S9_TnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SI_EE5valueEiE4typeELi0EEEOT_.exit
-  %160 = load i8, ptr %ref.tmp, align 8
-  invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %m_value.i.i, i8 noundef zeroext %160) #22
+  %161 = load i8, ptr %ref.tmp, align 8
+  invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %m_value.i.i, i8 noundef zeroext %161) #22
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont
-  %161 = landingpad { ptr, i32 }
+  %162 = landingpad { ptr, i32 }
           catch ptr null
-  %162 = extractvalue { ptr, i32 } %161, 0
-  call void @__clang_call_terminate(ptr %162) #20
+  %163 = extractvalue { ptr, i32 } %162, 0
+  call void @__clang_call_terminate(ptr %163) #20
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit: ; preds = %invoke.cont
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin0459.sroa.0.0174, i64 0, i32 1, i32 0, i64 32
+  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin0459.sroa.0.0173, i64 0, i32 1, i32 0, i64 32
   call void @_ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEhE13write_msgpackERKSF_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %second)
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin0459.sroa.0.0174) #25
-  %cmp.i164.not = icmp eq ptr %call.i, %add.ptr.i.i
-  br i1 %cmp.i164.not, label %sw.epilog475, label %.noexc.i
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin0459.sroa.0.0173) #25
+  %cmp.i163.not = icmp eq ptr %call.i, %add.ptr.i.i
+  br i1 %cmp.i163.not, label %sw.epilog475, label %.noexc.i
 
 lpad:                                             ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRKS9_S9_TnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SI_EE5valueEiE4typeELi0EEEOT_.exit
-  %163 = landingpad { ptr, i32 }
+  %164 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #19
   br label %common.resume

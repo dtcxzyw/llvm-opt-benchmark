@@ -1639,27 +1639,26 @@ entry:
   %m_rad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterBlackmanHarris1D", ptr %this, i64 0, i32 1
   %0 = load float, ptr %m_rad_inv, align 4
   %mul = fmul float %0, %x
-  %cmp.i = fcmp olt float %mul, -1.000000e+00
-  %cmp1.i = fcmp ogt float %mul, 1.000000e+00
-  %or.cond.i = or i1 %cmp.i, %cmp1.i
+  %1 = tail call float @llvm.fabs.f32(float %mul)
+  %or.cond.i = fcmp ogt float %1, 1.000000e+00
   br i1 %or.cond.i, label %_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %add.i = fadd float %mul, 1.000000e+00
   %mul.i = fmul float %add.i, 5.000000e-01
   %mul2.i = fmul float %mul.i, 0x401921FB60000000
-  %1 = tail call float @llvm.cos.f32(float %mul2.i)
-  %mul3.i = fmul float %1, 2.000000e+00
-  %2 = tail call float @llvm.fmuladd.f32(float %mul3.i, float %1, float -1.000000e+00)
-  %3 = tail call float @llvm.fmuladd.f32(float %2, float 2.000000e+00, float -1.000000e+00)
-  %mul6.i = fmul float %1, %3
-  %4 = tail call float @llvm.fmuladd.f32(float %1, float 0xBFDF4024C0000000, float 0x3FD6F5C280000000)
-  %5 = tail call float @llvm.fmuladd.f32(float %2, float 0x3FC2157680000000, float %4)
-  %6 = tail call float @llvm.fmuladd.f32(float %mul6.i, float 0xBF87EBAF20000000, float %5)
+  %2 = tail call float @llvm.cos.f32(float %mul2.i)
+  %mul3.i = fmul float %2, 2.000000e+00
+  %3 = tail call float @llvm.fmuladd.f32(float %mul3.i, float %2, float -1.000000e+00)
+  %4 = tail call float @llvm.fmuladd.f32(float %3, float 2.000000e+00, float -1.000000e+00)
+  %mul6.i = fmul float %2, %4
+  %5 = tail call float @llvm.fmuladd.f32(float %2, float 0xBFDF4024C0000000, float 0x3FD6F5C280000000)
+  %6 = tail call float @llvm.fmuladd.f32(float %3, float 0x3FC2157680000000, float %5)
+  %7 = tail call float @llvm.fmuladd.f32(float %mul6.i, float 0xBF87EBAF20000000, float %6)
   br label %_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit
 
 _ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit: ; preds = %entry, %if.end.i
-  %retval.0.i = phi float [ %6, %if.end.i ], [ 0.000000e+00, %entry ]
+  %retval.0.i = phi float [ %7, %if.end.i ], [ 0.000000e+00, %entry ]
   ret float %retval.0.i
 }
 
@@ -2777,52 +2776,50 @@ entry:
   %m_wrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterBlackmanHarris2D", ptr %this, i64 0, i32 1
   %0 = load float, ptr %m_wrad_inv, align 8
   %mul = fmul float %0, %x
-  %cmp.i = fcmp olt float %mul, -1.000000e+00
-  %cmp1.i = fcmp ogt float %mul, 1.000000e+00
-  %or.cond.i = or i1 %cmp.i, %cmp1.i
+  %1 = tail call float @llvm.fabs.f32(float %mul)
+  %or.cond.i = fcmp ogt float %1, 1.000000e+00
   br i1 %or.cond.i, label %_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %add.i = fadd float %mul, 1.000000e+00
   %mul.i = fmul float %add.i, 5.000000e-01
   %mul2.i = fmul float %mul.i, 0x401921FB60000000
-  %1 = tail call float @llvm.cos.f32(float %mul2.i)
-  %mul3.i = fmul float %1, 2.000000e+00
-  %2 = tail call float @llvm.fmuladd.f32(float %mul3.i, float %1, float -1.000000e+00)
-  %3 = tail call float @llvm.fmuladd.f32(float %2, float 2.000000e+00, float -1.000000e+00)
-  %mul6.i = fmul float %1, %3
-  %4 = tail call float @llvm.fmuladd.f32(float %1, float 0xBFDF4024C0000000, float 0x3FD6F5C280000000)
-  %5 = tail call float @llvm.fmuladd.f32(float %2, float 0x3FC2157680000000, float %4)
-  %6 = tail call float @llvm.fmuladd.f32(float %mul6.i, float 0xBF87EBAF20000000, float %5)
+  %2 = tail call float @llvm.cos.f32(float %mul2.i)
+  %mul3.i = fmul float %2, 2.000000e+00
+  %3 = tail call float @llvm.fmuladd.f32(float %mul3.i, float %2, float -1.000000e+00)
+  %4 = tail call float @llvm.fmuladd.f32(float %3, float 2.000000e+00, float -1.000000e+00)
+  %mul6.i = fmul float %2, %4
+  %5 = tail call float @llvm.fmuladd.f32(float %2, float 0xBFDF4024C0000000, float 0x3FD6F5C280000000)
+  %6 = tail call float @llvm.fmuladd.f32(float %3, float 0x3FC2157680000000, float %5)
+  %7 = tail call float @llvm.fmuladd.f32(float %mul6.i, float 0xBF87EBAF20000000, float %6)
   br label %_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit
 
 _ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit: ; preds = %entry, %if.end.i
-  %retval.0.i = phi float [ %6, %if.end.i ], [ 0.000000e+00, %entry ]
+  %retval.0.i = phi float [ %7, %if.end.i ], [ 0.000000e+00, %entry ]
   %m_hrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterBlackmanHarris2D", ptr %this, i64 0, i32 2
-  %7 = load float, ptr %m_hrad_inv, align 4
-  %mul2 = fmul float %7, %y
-  %cmp.i1 = fcmp olt float %mul2, -1.000000e+00
-  %cmp1.i2 = fcmp ogt float %mul2, 1.000000e+00
-  %or.cond.i3 = or i1 %cmp.i1, %cmp1.i2
-  br i1 %or.cond.i3, label %_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit11, label %if.end.i4
+  %8 = load float, ptr %m_hrad_inv, align 4
+  %mul2 = fmul float %8, %y
+  %9 = tail call float @llvm.fabs.f32(float %mul2)
+  %or.cond.i1 = fcmp ogt float %9, 1.000000e+00
+  br i1 %or.cond.i1, label %_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit9, label %if.end.i2
 
-if.end.i4:                                        ; preds = %_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit
-  %add.i5 = fadd float %mul2, 1.000000e+00
-  %mul.i6 = fmul float %add.i5, 5.000000e-01
-  %mul2.i7 = fmul float %mul.i6, 0x401921FB60000000
-  %8 = tail call float @llvm.cos.f32(float %mul2.i7)
-  %mul3.i8 = fmul float %8, 2.000000e+00
-  %9 = tail call float @llvm.fmuladd.f32(float %mul3.i8, float %8, float -1.000000e+00)
-  %10 = tail call float @llvm.fmuladd.f32(float %9, float 2.000000e+00, float -1.000000e+00)
-  %mul6.i9 = fmul float %8, %10
-  %11 = tail call float @llvm.fmuladd.f32(float %8, float 0xBFDF4024C0000000, float 0x3FD6F5C280000000)
-  %12 = tail call float @llvm.fmuladd.f32(float %9, float 0x3FC2157680000000, float %11)
-  %13 = tail call float @llvm.fmuladd.f32(float %mul6.i9, float 0xBF87EBAF20000000, float %12)
-  br label %_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit11
+if.end.i2:                                        ; preds = %_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit
+  %add.i3 = fadd float %mul2, 1.000000e+00
+  %mul.i4 = fmul float %add.i3, 5.000000e-01
+  %mul2.i5 = fmul float %mul.i4, 0x401921FB60000000
+  %10 = tail call float @llvm.cos.f32(float %mul2.i5)
+  %mul3.i6 = fmul float %10, 2.000000e+00
+  %11 = tail call float @llvm.fmuladd.f32(float %mul3.i6, float %10, float -1.000000e+00)
+  %12 = tail call float @llvm.fmuladd.f32(float %11, float 2.000000e+00, float -1.000000e+00)
+  %mul6.i7 = fmul float %10, %12
+  %13 = tail call float @llvm.fmuladd.f32(float %10, float 0xBFDF4024C0000000, float 0x3FD6F5C280000000)
+  %14 = tail call float @llvm.fmuladd.f32(float %11, float 0x3FC2157680000000, float %13)
+  %15 = tail call float @llvm.fmuladd.f32(float %mul6.i7, float 0xBF87EBAF20000000, float %14)
+  br label %_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit9
 
-_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit11: ; preds = %_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit, %if.end.i4
-  %retval.0.i10 = phi float [ %13, %if.end.i4 ], [ 0.000000e+00, %_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit ]
-  %mul4 = fmul float %retval.0.i, %retval.0.i10
+_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit9: ; preds = %_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit, %if.end.i2
+  %retval.0.i8 = phi float [ %15, %if.end.i2 ], [ 0.000000e+00, %_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit ]
+  %mul4 = fmul float %retval.0.i, %retval.0.i8
   ret float %mul4
 }
 
@@ -2832,27 +2829,26 @@ entry:
   %m_wrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterBlackmanHarris2D", ptr %this, i64 0, i32 1
   %0 = load float, ptr %m_wrad_inv, align 8
   %mul = fmul float %0, %x
-  %cmp.i = fcmp olt float %mul, -1.000000e+00
-  %cmp1.i = fcmp ogt float %mul, 1.000000e+00
-  %or.cond.i = or i1 %cmp.i, %cmp1.i
+  %1 = tail call float @llvm.fabs.f32(float %mul)
+  %or.cond.i = fcmp ogt float %1, 1.000000e+00
   br i1 %or.cond.i, label %_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %add.i = fadd float %mul, 1.000000e+00
   %mul.i = fmul float %add.i, 5.000000e-01
   %mul2.i = fmul float %mul.i, 0x401921FB60000000
-  %1 = tail call float @llvm.cos.f32(float %mul2.i)
-  %mul3.i = fmul float %1, 2.000000e+00
-  %2 = tail call float @llvm.fmuladd.f32(float %mul3.i, float %1, float -1.000000e+00)
-  %3 = tail call float @llvm.fmuladd.f32(float %2, float 2.000000e+00, float -1.000000e+00)
-  %mul6.i = fmul float %1, %3
-  %4 = tail call float @llvm.fmuladd.f32(float %1, float 0xBFDF4024C0000000, float 0x3FD6F5C280000000)
-  %5 = tail call float @llvm.fmuladd.f32(float %2, float 0x3FC2157680000000, float %4)
-  %6 = tail call float @llvm.fmuladd.f32(float %mul6.i, float 0xBF87EBAF20000000, float %5)
+  %2 = tail call float @llvm.cos.f32(float %mul2.i)
+  %mul3.i = fmul float %2, 2.000000e+00
+  %3 = tail call float @llvm.fmuladd.f32(float %mul3.i, float %2, float -1.000000e+00)
+  %4 = tail call float @llvm.fmuladd.f32(float %3, float 2.000000e+00, float -1.000000e+00)
+  %mul6.i = fmul float %2, %4
+  %5 = tail call float @llvm.fmuladd.f32(float %2, float 0xBFDF4024C0000000, float 0x3FD6F5C280000000)
+  %6 = tail call float @llvm.fmuladd.f32(float %3, float 0x3FC2157680000000, float %5)
+  %7 = tail call float @llvm.fmuladd.f32(float %mul6.i, float 0xBF87EBAF20000000, float %6)
   br label %_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit
 
 _ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit: ; preds = %entry, %if.end.i
-  %retval.0.i = phi float [ %6, %if.end.i ], [ 0.000000e+00, %entry ]
+  %retval.0.i = phi float [ %7, %if.end.i ], [ 0.000000e+00, %entry ]
   ret float %retval.0.i
 }
 
@@ -2862,27 +2858,26 @@ entry:
   %m_hrad_inv = getelementptr inbounds %"class.OpenImageIO_v2_6_0::FilterBlackmanHarris2D", ptr %this, i64 0, i32 2
   %0 = load float, ptr %m_hrad_inv, align 4
   %mul = fmul float %0, %y
-  %cmp.i = fcmp olt float %mul, -1.000000e+00
-  %cmp1.i = fcmp ogt float %mul, 1.000000e+00
-  %or.cond.i = or i1 %cmp.i, %cmp1.i
+  %1 = tail call float @llvm.fabs.f32(float %mul)
+  %or.cond.i = fcmp ogt float %1, 1.000000e+00
   br i1 %or.cond.i, label %_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %add.i = fadd float %mul, 1.000000e+00
   %mul.i = fmul float %add.i, 5.000000e-01
   %mul2.i = fmul float %mul.i, 0x401921FB60000000
-  %1 = tail call float @llvm.cos.f32(float %mul2.i)
-  %mul3.i = fmul float %1, 2.000000e+00
-  %2 = tail call float @llvm.fmuladd.f32(float %mul3.i, float %1, float -1.000000e+00)
-  %3 = tail call float @llvm.fmuladd.f32(float %2, float 2.000000e+00, float -1.000000e+00)
-  %mul6.i = fmul float %1, %3
-  %4 = tail call float @llvm.fmuladd.f32(float %1, float 0xBFDF4024C0000000, float 0x3FD6F5C280000000)
-  %5 = tail call float @llvm.fmuladd.f32(float %2, float 0x3FC2157680000000, float %4)
-  %6 = tail call float @llvm.fmuladd.f32(float %mul6.i, float 0xBF87EBAF20000000, float %5)
+  %2 = tail call float @llvm.cos.f32(float %mul2.i)
+  %mul3.i = fmul float %2, 2.000000e+00
+  %3 = tail call float @llvm.fmuladd.f32(float %mul3.i, float %2, float -1.000000e+00)
+  %4 = tail call float @llvm.fmuladd.f32(float %3, float 2.000000e+00, float -1.000000e+00)
+  %mul6.i = fmul float %2, %4
+  %5 = tail call float @llvm.fmuladd.f32(float %2, float 0xBFDF4024C0000000, float 0x3FD6F5C280000000)
+  %6 = tail call float @llvm.fmuladd.f32(float %3, float 0x3FC2157680000000, float %5)
+  %7 = tail call float @llvm.fmuladd.f32(float %mul6.i, float 0xBF87EBAF20000000, float %6)
   br label %_ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit
 
 _ZN18OpenImageIO_v2_6_022FilterBlackmanHarris1D4bh1dEf.exit: ; preds = %entry, %if.end.i
-  %retval.0.i = phi float [ %6, %if.end.i ], [ 0.000000e+00, %entry ]
+  %retval.0.i = phi float [ %7, %if.end.i ], [ 0.000000e+00, %entry ]
   ret float %retval.0.i
 }
 

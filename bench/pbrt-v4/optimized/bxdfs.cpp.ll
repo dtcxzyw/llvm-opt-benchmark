@@ -11051,10 +11051,9 @@ entry:
   store float %beta_m, ptr %beta_m5, align 4
   %beta_n6 = getelementptr inbounds %"class.pbrt::HairBxDF", ptr %this, i64 0, i32 4
   store float %beta_n, ptr %beta_n6, align 4
-  %cmp = fcmp oge float %h, -1.000000e+00
-  %cmp7 = fcmp ole float %h, 1.000000e+00
-  %or.cond = and i1 %cmp, %cmp7
-  br i1 %or.cond, label %land.end, label %land.rhs
+  %0 = tail call float @llvm.fabs.f32(float %h)
+  %or.cond = fcmp ugt float %0, 1.000000e+00
+  br i1 %or.cond, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
   tail call void @_ZN4pbrt8LogFatalIJRA18_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.16, i32 noundef 278, ptr noundef nonnull @.str.3, ptr noundef nonnull align 1 dereferenceable(18) @.str.21) #24
@@ -11081,10 +11080,10 @@ land.rhs17:                                       ; preds = %land.end12
   unreachable
 
 land.end18:                                       ; preds = %land.end12
-  %0 = insertelement <2 x float> poison, float %beta_m, i64 0
-  %1 = insertelement <2 x float> %0, float %beta_n, i64 1
-  %2 = insertelement <2 x float> %1, float 0x3FE73B6460000000, i64 0
-  %3 = fmul <2 x float> %1, %2
+  %1 = insertelement <2 x float> poison, float %beta_m, i64 0
+  %2 = insertelement <2 x float> %1, float %beta_n, i64 1
+  %3 = insertelement <2 x float> %2, float 0x3FE73B6460000000, i64 0
+  %4 = fmul <2 x float> %2, %3
   %mul.i = fmul float %beta_m, %beta_m
   %mul20 = fmul float %mul.i, 0x3FE9FBE760000000
   %mul.i.i.i = fmul float %mul.i, %mul.i
@@ -11093,28 +11092,28 @@ land.end18:                                       ; preds = %land.end12
   %mul.i24 = fmul float %mul.i.i, %mul.i.i
   %v = getelementptr inbounds %"class.pbrt::HairBxDF", ptr %this, i64 0, i32 5
   %arrayidx30 = getelementptr inbounds %"class.pbrt::HairBxDF", ptr %this, i64 0, i32 5, i64 1
-  %4 = fmul <2 x float> %3, %3
-  %mul.i.i.i28 = extractelement <2 x float> %4, i64 1
+  %5 = fmul <2 x float> %4, %4
+  %mul.i.i.i28 = extractelement <2 x float> %5, i64 1
   %mul2.i.i.i29 = fmul float %mul.i.i.i28, %beta_n
   %mul.i.i30 = fmul float %mul2.i.i.i29, %mul2.i.i.i29
   %mul2.i.i = fmul float %mul.i.i30, %beta_n
   %mul.i31 = fmul float %mul2.i.i, %mul2.i.i
   %mul46 = fmul float %mul.i31, 0x40157CEDA0000000
-  %5 = insertelement <2 x float> %1, float %mul.i24, i64 0
-  %6 = fmul <2 x float> %5, <float 0x400D9999A0000000, float 0x3FD0F5C280000000>
-  %7 = insertelement <2 x float> <float poison, float 0x3FF31A9FC0000000>, float %mul20, i64 0
-  %8 = fadd <2 x float> %3, %7
-  %9 = fmul <2 x float> %3, %7
-  %10 = shufflevector <2 x float> %8, <2 x float> %9, <2 x i32> <i32 0, i32 3>
-  %11 = fadd <2 x float> %10, %6
-  %12 = insertelement <2 x float> %11, float %mul46, i64 1
-  %13 = fmul <2 x float> %11, %12
-  %14 = fadd <2 x float> %11, %12
-  %15 = shufflevector <2 x float> %13, <2 x float> %14, <4 x i32> <i32 0, i32 0, i32 0, i32 3>
-  %16 = extractelement <2 x float> %13, i64 0
-  store float %16, ptr %v, align 4
-  %17 = fmul <4 x float> %15, <float 2.500000e-01, float 4.000000e+00, float 4.000000e+00, float 0x3FE40D9320000000>
-  store <4 x float> %17, ptr %arrayidx30, align 4
+  %6 = insertelement <2 x float> %2, float %mul.i24, i64 0
+  %7 = fmul <2 x float> %6, <float 0x400D9999A0000000, float 0x3FD0F5C280000000>
+  %8 = insertelement <2 x float> <float poison, float 0x3FF31A9FC0000000>, float %mul20, i64 0
+  %9 = fadd <2 x float> %4, %8
+  %10 = fmul <2 x float> %4, %8
+  %11 = shufflevector <2 x float> %9, <2 x float> %10, <2 x i32> <i32 0, i32 3>
+  %12 = fadd <2 x float> %11, %7
+  %13 = insertelement <2 x float> %12, float %mul46, i64 1
+  %14 = fmul <2 x float> %12, %13
+  %15 = fadd <2 x float> %12, %13
+  %16 = shufflevector <2 x float> %14, <2 x float> %15, <4 x i32> <i32 0, i32 0, i32 0, i32 3>
+  %17 = extractelement <2 x float> %14, i64 0
+  store float %17, ptr %v, align 4
+  %18 = fmul <4 x float> %16, <float 2.500000e-01, float 4.000000e+00, float 4.000000e+00, float 0x3FE40D9320000000>
+  store <4 x float> %18, ptr %arrayidx30, align 4
   %mul.i32 = fmul float %alpha, 0x3F91DF46A0000000
   %call.i = tail call noundef float @sinf(float noundef %mul.i32) #23
   %sin2kAlpha = getelementptr inbounds %"class.pbrt::HairBxDF", ptr %this, i64 0, i32 7
@@ -11129,15 +11128,15 @@ land.end18:                                       ; preds = %land.end12
   br label %for.body59
 
 for.body59:                                       ; preds = %land.end18, %for.body59
-  %18 = phi float [ %call.i, %land.end18 ], [ %mul69, %for.body59 ]
-  %19 = phi float [ %sqrt.i, %land.end18 ], [ %sub83, %for.body59 ]
+  %19 = phi float [ %call.i, %land.end18 ], [ %mul69, %for.body59 ]
+  %20 = phi float [ %sqrt.i, %land.end18 ], [ %sub83, %for.body59 ]
   %indvars.iv = phi i64 [ 1, %land.end18 ], [ %indvars.iv.next, %for.body59 ]
-  %mul64 = fmul float %19, 2.000000e+00
-  %mul69 = fmul float %mul64, %18
+  %mul64 = fmul float %20, 2.000000e+00
+  %mul69 = fmul float %mul64, %19
   %arrayidx72 = getelementptr inbounds %"class.pbrt::HairBxDF", ptr %this, i64 0, i32 7, i64 %indvars.iv
   store float %mul69, ptr %arrayidx72, align 4
-  %mul.i34 = fmul float %19, %19
-  %mul.i35 = fmul float %18, %18
+  %mul.i34 = fmul float %20, %20
+  %mul.i35 = fmul float %19, %19
   %sub83 = fsub float %mul.i34, %mul.i35
   %arrayidx86 = getelementptr inbounds %"class.pbrt::HairBxDF", ptr %this, i64 0, i32 8, i64 %indvars.iv
   store float %sub83, ptr %arrayidx86, align 4

@@ -1649,12 +1649,11 @@ declare double @llvm.fabs.f64(double) #16
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #16
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local i32 @double2ll(double noundef %d, ptr nocapture noundef writeonly %out) local_unnamed_addr #17 {
 entry:
-  %cmp = fcmp olt double %d, 0xC3D0000000000000
-  %cmp1 = fcmp ogt double %d, 0x43D0000000000000
-  %or.cond = or i1 %cmp, %cmp1
+  %0 = tail call double @llvm.fabs.f64(double %d)
+  %or.cond = fcmp ogt double %0, 0x43D0000000000000
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -1717,9 +1716,7 @@ if.else18:                                        ; preds = %if.then12
   br label %if.end34
 
 if.else22:                                        ; preds = %if.else9
-  %cmp.i = fcmp olt double %value, 0xC3D0000000000000
-  %cmp1.i = fcmp ogt double %value, 0x43D0000000000000
-  %or.cond.i = or i1 %cmp.i, %cmp1.i
+  %or.cond.i = fcmp ogt double %1, 0x43D0000000000000
   br i1 %or.cond.i, label %if.else28, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else22
@@ -1729,12 +1726,12 @@ if.end.i:                                         ; preds = %if.else22
   br i1 %cmp3.i, label %if.then25, label %if.else28
 
 if.then25:                                        ; preds = %if.end.i
-  %cmp.i21 = icmp slt i64 %conv.i, 0
-  br i1 %cmp.i21, label %if.then.i, label %if.end7.i
+  %cmp.i = icmp slt i64 %conv.i, 0
+  br i1 %cmp.i, label %if.then.i, label %if.end7.i
 
 if.then.i:                                        ; preds = %if.then25
-  %cmp3.i23 = icmp ult i64 %len, 2
-  br i1 %cmp3.i23, label %err.i, label %if.end5.i
+  %cmp3.i22 = icmp ult i64 %len, 2
+  br i1 %cmp3.i22, label %err.i, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then.i
   %sub.i = sub i64 0, %conv.i
@@ -3448,7 +3445,7 @@ attributes #13 = { nofree norecurse nosync nounwind memory(argmem: write) uwtabl
 attributes #14 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

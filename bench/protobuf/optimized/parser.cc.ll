@@ -18593,9 +18593,7 @@ ehcleanup:                                        ; preds = %lpad.i.i85, %lpad63
   br label %ehcleanup99
 
 if.end68:                                         ; preds = %lor.lhs.false
-  %cmp = fcmp olt double %29, 0xC340000000000000
-  %cmp70 = fcmp ogt double %29, 0x4340000000000000
-  %or.cond = or i1 %cmp, %cmp70
+  %or.cond = fcmp ogt double %30, 0x4340000000000000
   br i1 %or.cond, label %if.then71, label %if.end81
 
 if.then71:                                        ; preds = %if.end68
