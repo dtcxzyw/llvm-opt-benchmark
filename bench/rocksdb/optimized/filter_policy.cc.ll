@@ -6792,8 +6792,8 @@ _ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit: ; pr
 
 if.end.i.i:                                       ; preds = %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit
   %div.i.i = fdiv double 5.120000e+02, %div.i6
-  %call.i.i = tail call double @sqrt(double noundef %div.i.i) #34
-  %add.i.i = fadd double %div.i.i, %call.i.i
+  %sqrt.i = tail call double @llvm.sqrt.f64(double %div.i.i)
+  %add.i.i = fadd double %div.i.i, %sqrt.i
   %div2.i.i = fdiv double 5.120000e+02, %add.i.i
   %sub.i.i.i = sub nsw i32 0, %retval.0.i.i
   %conv.i.i.i = sitofp i32 %sub.i.i.i to double
@@ -6802,7 +6802,7 @@ if.end.i.i:                                       ; preds = %_ZN7rocksdb12_GLOBA
   %sub1.i.i.i = fsub double 1.000000e+00, %call.i.i.i
   %conv.i.i.i.i = sitofp i32 %retval.0.i.i to double
   %call.i.i.i.i = tail call noundef double @pow(double noundef %sub1.i.i.i, double noundef %conv.i.i.i.i) #34
-  %sub.i.i = fsub double %div.i.i, %call.i.i
+  %sub.i.i = fsub double %div.i.i, %sqrt.i
   %div5.i.i = fdiv double 5.120000e+02, %sub.i.i
   %div.i10.i.i = fdiv double %conv.i.i.i, %div5.i.i
   %call.i11.i.i = tail call double @exp(double noundef %div.i10.i.i) #34
@@ -8656,8 +8656,8 @@ if.then13:                                        ; preds = %for.end
 if.end.i.i:                                       ; preds = %if.then13
   %9 = load i32, ptr %num_probes_, align 4
   %div.i.i = fdiv double 5.120000e+02, %div.i
-  %call.i.i = tail call double @sqrt(double noundef %div.i.i) #34
-  %add.i.i21 = fadd double %div.i.i, %call.i.i
+  %sqrt.i = tail call double @llvm.sqrt.f64(double %div.i.i)
+  %add.i.i21 = fadd double %div.i.i, %sqrt.i
   %div2.i.i = fdiv double 5.120000e+02, %add.i.i21
   %sub.i.i.i22 = sub nsw i32 0, %9
   %conv.i.i.i = sitofp i32 %sub.i.i.i22 to double
@@ -8666,7 +8666,7 @@ if.end.i.i:                                       ; preds = %if.then13
   %sub1.i.i.i = fsub double 1.000000e+00, %call.i.i.i
   %conv.i.i.i.i = sitofp i32 %9 to double
   %call.i.i.i.i = tail call noundef double @pow(double noundef %sub1.i.i.i, double noundef %conv.i.i.i.i) #34
-  %sub.i.i = fsub double %div.i.i, %call.i.i
+  %sub.i.i = fsub double %div.i.i, %sqrt.i
   %div5.i.i = fdiv double 5.120000e+02, %sub.i.i
   %div.i10.i.i = fdiv double %conv.i.i.i, %div5.i.i
   %call.i11.i.i = tail call double @exp(double noundef %div.i10.i.i) #34
@@ -8713,8 +8713,8 @@ _ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit: ; preds = 
 if.end.i.i36:                                     ; preds = %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit
   %15 = load i32, ptr %num_probes_, align 4
   %div.i.i37 = fdiv double 5.120000e+02, %div.i26
-  %call.i.i38 = tail call double @sqrt(double noundef %div.i.i37) #34
-  %add.i.i39 = fadd double %div.i.i37, %call.i.i38
+  %sqrt.i38 = tail call double @llvm.sqrt.f64(double %div.i.i37)
+  %add.i.i39 = fadd double %div.i.i37, %sqrt.i38
   %div2.i.i40 = fdiv double 5.120000e+02, %add.i.i39
   %sub.i.i.i41 = sub nsw i32 0, %15
   %conv.i.i.i42 = sitofp i32 %sub.i.i.i41 to double
@@ -8723,7 +8723,7 @@ if.end.i.i36:                                     ; preds = %_ZN7rocksdb23Legacy
   %sub1.i.i.i45 = fsub double 1.000000e+00, %call.i.i.i44
   %conv.i.i.i.i46 = sitofp i32 %15 to double
   %call.i.i.i.i47 = tail call noundef double @pow(double noundef %sub1.i.i.i45, double noundef %conv.i.i.i.i46) #34
-  %sub.i.i48 = fsub double %div.i.i37, %call.i.i38
+  %sub.i.i48 = fsub double %div.i.i37, %sqrt.i38
   %div5.i.i49 = fdiv double 5.120000e+02, %sub.i.i48
   %div.i10.i.i50 = fdiv double %conv.i.i.i42, %div5.i.i49
   %call.i11.i.i51 = tail call double @exp(double noundef %div.i10.i.i50) #34
@@ -8864,8 +8864,8 @@ if.end.i.i:                                       ; preds = %entry
   %num_probes_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::LegacyBloomBitsBuilder", ptr %this, i64 0, i32 2
   %0 = load i32, ptr %num_probes_, align 4
   %div.i.i = fdiv double 5.120000e+02, %div.i
-  %call.i.i = tail call double @sqrt(double noundef %div.i.i) #34
-  %add.i.i = fadd double %div.i.i, %call.i.i
+  %sqrt.i = tail call double @llvm.sqrt.f64(double %div.i.i)
+  %add.i.i = fadd double %div.i.i, %sqrt.i
   %div2.i.i = fdiv double 5.120000e+02, %add.i.i
   %sub.i.i.i = sub nsw i32 0, %0
   %conv.i.i.i = sitofp i32 %sub.i.i.i to double
@@ -8874,7 +8874,7 @@ if.end.i.i:                                       ; preds = %entry
   %sub1.i.i.i = fsub double 1.000000e+00, %call.i.i.i
   %conv.i.i.i.i = sitofp i32 %0 to double
   %call.i.i.i.i = tail call noundef double @pow(double noundef %sub1.i.i.i, double noundef %conv.i.i.i.i) #34
-  %sub.i.i = fsub double %div.i.i, %call.i.i
+  %sub.i.i = fsub double %div.i.i, %sqrt.i
   %div5.i.i = fdiv double 5.120000e+02, %sub.i.i
   %div.i10.i.i = fdiv double %conv.i.i.i, %div5.i.i
   %call.i11.i.i = tail call double @exp(double noundef %div.i10.i.i) #34
@@ -18622,6 +18622,9 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #28
 declare void @llvm.experimental.noalias.scope.decl(metadata) #29
 
 declare double @exp2(double) local_unnamed_addr
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #28

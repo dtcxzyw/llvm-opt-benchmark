@@ -5632,8 +5632,7 @@ _ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit.i: ; preds = %if.end21.i.i.
   %27 = extractvalue { <2 x float>, <2 x float> } %call11.i, 1
   %mul.i.i6.i = fmul float %add7.i20.i.i, %wi.sroa.4.0.i
   %cmp.i.i7.i = fcmp ogt float %mul.i.i6.i, 0.000000e+00
-  %28 = tail call float @llvm.fabs.f32(float %sqrt.i.i.i)
-  %mul.i.i = fmul float %28, 0x3FD45F3060000000
+  %mul.i.i = fmul float %sqrt.i.i.i, 0x3FD45F3060000000
   %retval.0.i.i = select i1 %cmp.i.i7.i, float %mul.i.i, float 0.000000e+00
   br label %invoke.cont12
 
@@ -5663,8 +5662,8 @@ invoke.cont12:                                    ; preds = %_ZN4pbrt22SampleCos
   store i8 0, ptr %ref.tmp.sroa.10.0.bs.sroa_idx, align 8
   %ref.tmp.sroa.11.0.bs.sroa_idx = getelementptr inbounds i8, ptr %bs, i64 41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %ref.tmp.sroa.11.0.bs.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %ref.tmp.sroa.11, i64 3, i1 false)
-  %29 = extractelement <2 x float> %ref.tmp.sroa.0.0, i64 0
-  %cmp2.i42 = fcmp une float %29, 0.000000e+00
+  %28 = extractelement <2 x float> %ref.tmp.sroa.0.0, i64 0
+  %cmp2.i42 = fcmp une float %28, 0.000000e+00
   br i1 %cmp2.i42, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit, label %for.cond.i
 
 for.cond.i:                                       ; preds = %invoke.cont12, %for.body.i
@@ -5675,8 +5674,8 @@ for.cond.i:                                       ; preds = %invoke.cont12, %for
 
 for.body.i:                                       ; preds = %for.cond.i
   %arrayidx.i.i = getelementptr inbounds [4 x float], ptr %bs, i64 0, i64 %indvars.iv.next.i
-  %30 = load float, ptr %arrayidx.i.i, align 4
-  %cmp2.i = fcmp une float %30, 0.000000e+00
+  %29 = load float, ptr %arrayidx.i.i, align 4
+  %cmp2.i = fcmp une float %29, 0.000000e+00
   br i1 %cmp2.i, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit.loopexit, label %for.cond.i, !llvm.loop !47
 
 _ZNK4pbrt15SampledSpectrumcvbEv.exit.loopexit:    ; preds = %for.cond.i, %for.body.i
