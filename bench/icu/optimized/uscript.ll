@@ -617,7 +617,6 @@ invoke.cont48:                                    ; preds = %if.then45
   %or.cond2 = or i1 %cmp54, %cmp.i43
   %tobool58.not.not = xor i1 %tobool58.not, true
   %brmerge = or i1 %or.cond2, %tobool58.not.not
-  %call49.mux = select i1 %or.cond2, i32 %call49, i32 0
   br i1 %brmerge, label %cleanup, label %if.then59
 
 lpad:                                             ; preds = %if.then59, %if.then45, %if.end37
@@ -660,7 +659,7 @@ if.end2.i49:                                      ; preds = %if.end.i47
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end2.i49, %if.then1.i50, %if.then64, %invoke.cont48, %if.end57, %invoke.cont61
-  %retval.0 = phi i32 [ %call49.mux, %invoke.cont48 ], [ 0, %invoke.cont61 ], [ 0, %if.end57 ], [ 1, %if.then1.i50 ], [ 1, %if.end2.i49 ], [ 0, %if.then64 ]
+  %retval.0 = phi i32 [ %call49, %invoke.cont48 ], [ 0, %invoke.cont61 ], [ 0, %if.end57 ], [ 1, %if.then1.i50 ], [ 1, %if.end2.i49 ], [ 0, %if.then64 ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %likely) #10
   br label %return
 
