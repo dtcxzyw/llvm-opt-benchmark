@@ -2556,39 +2556,37 @@ entry:
   %integers = alloca [6 x i64], align 16
   %ht_table = getelementptr inbounds %struct.dict, ptr %d, i64 0, i32 1
   %0 = load ptr, ptr %ht_table, align 8
-  %1 = ptrtoint ptr %0 to i64
-  store i64 %1, ptr %integers, align 16
+  store ptr %0, ptr %integers, align 16
   %ht_size_exp = getelementptr inbounds %struct.dict, ptr %d, i64 0, i32 5
-  %2 = load i8, ptr %ht_size_exp, align 2
-  %conv = sext i8 %2 to i64
+  %1 = load i8, ptr %ht_size_exp, align 2
+  %conv = sext i8 %1 to i64
   %arrayidx3 = getelementptr inbounds [6 x i64], ptr %integers, i64 0, i64 1
   store i64 %conv, ptr %arrayidx3, align 8
   %ht_used = getelementptr inbounds %struct.dict, ptr %d, i64 0, i32 2
-  %3 = load i64, ptr %ht_used, align 8
+  %2 = load i64, ptr %ht_used, align 8
   %arrayidx5 = getelementptr inbounds [6 x i64], ptr %integers, i64 0, i64 2
-  store i64 %3, ptr %arrayidx5, align 16
+  store i64 %2, ptr %arrayidx5, align 16
   %arrayidx7 = getelementptr inbounds %struct.dict, ptr %d, i64 0, i32 1, i64 1
-  %4 = load ptr, ptr %arrayidx7, align 8
-  %5 = ptrtoint ptr %4 to i64
+  %3 = load ptr, ptr %arrayidx7, align 8
   %arrayidx8 = getelementptr inbounds [6 x i64], ptr %integers, i64 0, i64 3
-  store i64 %5, ptr %arrayidx8, align 8
+  store ptr %3, ptr %arrayidx8, align 8
   %arrayidx10 = getelementptr inbounds %struct.dict, ptr %d, i64 0, i32 5, i64 1
-  %6 = load i8, ptr %arrayidx10, align 1
-  %conv11 = sext i8 %6 to i64
+  %4 = load i8, ptr %arrayidx10, align 1
+  %conv11 = sext i8 %4 to i64
   %arrayidx12 = getelementptr inbounds [6 x i64], ptr %integers, i64 0, i64 4
   store i64 %conv11, ptr %arrayidx12, align 16
   %arrayidx14 = getelementptr inbounds %struct.dict, ptr %d, i64 0, i32 2, i64 1
-  %7 = load i64, ptr %arrayidx14, align 8
+  %5 = load i64, ptr %arrayidx14, align 8
   %arrayidx15 = getelementptr inbounds [6 x i64], ptr %integers, i64 0, i64 5
-  store i64 %7, ptr %arrayidx15, align 8
+  store i64 %5, ptr %arrayidx15, align 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %hash.025 = phi i64 [ 0, %entry ], [ %add32, %for.body ]
   %arrayidx17 = getelementptr inbounds [6 x i64], ptr %integers, i64 0, i64 %indvars.iv
-  %8 = load i64, ptr %arrayidx17, align 8
-  %add = add i64 %8, %hash.025
+  %6 = load i64, ptr %arrayidx17, align 8
+  %add = add i64 %6, %hash.025
   %not = xor i64 %add, -1
   %shl = shl i64 %add, 21
   %add18 = add i64 %shl, %not
@@ -2673,39 +2671,37 @@ if.else:                                          ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %integers.i)
   %ht_table.i = getelementptr inbounds %struct.dict, ptr %6, i64 0, i32 1
   %7 = load ptr, ptr %ht_table.i, align 8
-  %8 = ptrtoint ptr %7 to i64
-  store i64 %8, ptr %integers.i, align 16
+  store ptr %7, ptr %integers.i, align 16
   %ht_size_exp.i = getelementptr inbounds %struct.dict, ptr %6, i64 0, i32 5
-  %9 = load i8, ptr %ht_size_exp.i, align 2
-  %conv.i = sext i8 %9 to i64
+  %8 = load i8, ptr %ht_size_exp.i, align 2
+  %conv.i = sext i8 %8 to i64
   %arrayidx3.i = getelementptr inbounds [6 x i64], ptr %integers.i, i64 0, i64 1
   store i64 %conv.i, ptr %arrayidx3.i, align 8
   %ht_used.i = getelementptr inbounds %struct.dict, ptr %6, i64 0, i32 2
-  %10 = load i64, ptr %ht_used.i, align 8
+  %9 = load i64, ptr %ht_used.i, align 8
   %arrayidx5.i = getelementptr inbounds [6 x i64], ptr %integers.i, i64 0, i64 2
-  store i64 %10, ptr %arrayidx5.i, align 16
+  store i64 %9, ptr %arrayidx5.i, align 16
   %arrayidx7.i = getelementptr inbounds %struct.dict, ptr %6, i64 0, i32 1, i64 1
-  %11 = load ptr, ptr %arrayidx7.i, align 8
-  %12 = ptrtoint ptr %11 to i64
+  %10 = load ptr, ptr %arrayidx7.i, align 8
   %arrayidx8.i = getelementptr inbounds [6 x i64], ptr %integers.i, i64 0, i64 3
-  store i64 %12, ptr %arrayidx8.i, align 8
+  store ptr %10, ptr %arrayidx8.i, align 8
   %arrayidx10.i = getelementptr inbounds %struct.dict, ptr %6, i64 0, i32 5, i64 1
-  %13 = load i8, ptr %arrayidx10.i, align 1
-  %conv11.i = sext i8 %13 to i64
+  %11 = load i8, ptr %arrayidx10.i, align 1
+  %conv11.i = sext i8 %11 to i64
   %arrayidx12.i = getelementptr inbounds [6 x i64], ptr %integers.i, i64 0, i64 4
   store i64 %conv11.i, ptr %arrayidx12.i, align 16
   %arrayidx14.i = getelementptr inbounds %struct.dict, ptr %6, i64 0, i32 2, i64 1
-  %14 = load i64, ptr %arrayidx14.i, align 8
+  %12 = load i64, ptr %arrayidx14.i, align 8
   %arrayidx15.i = getelementptr inbounds [6 x i64], ptr %integers.i, i64 0, i64 5
-  store i64 %14, ptr %arrayidx15.i, align 8
+  store i64 %12, ptr %arrayidx15.i, align 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.else
   %indvars.iv.i = phi i64 [ 0, %if.else ], [ %indvars.iv.next.i, %for.body.i ]
   %hash.025.i = phi i64 [ 0, %if.else ], [ %add32.i, %for.body.i ]
   %arrayidx17.i = getelementptr inbounds [6 x i64], ptr %integers.i, i64 0, i64 %indvars.iv.i
-  %15 = load i64, ptr %arrayidx17.i, align 8
-  %add.i = add i64 %15, %hash.025.i
+  %13 = load i64, ptr %arrayidx17.i, align 8
+  %add.i = add i64 %13, %hash.025.i
   %not.i = xor i64 %add.i, -1
   %shl.i = shl i64 %add.i, 21
   %add18.i = add i64 %shl.i, %not.i
@@ -2813,34 +2809,32 @@ if.else:                                          ; preds = %if.then4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %integers.i)
   %ht_table.i = getelementptr inbounds %struct.dict, ptr %4, i64 0, i32 1
   %6 = load ptr, ptr %ht_table.i, align 8
-  %7 = ptrtoint ptr %6 to i64
-  store i64 %7, ptr %integers.i, align 16
+  store ptr %6, ptr %integers.i, align 16
   %ht_size_exp.i = getelementptr inbounds %struct.dict, ptr %4, i64 0, i32 5
-  %8 = load i8, ptr %ht_size_exp.i, align 2
-  %conv.i = sext i8 %8 to i64
+  %7 = load i8, ptr %ht_size_exp.i, align 2
+  %conv.i = sext i8 %7 to i64
   store i64 %conv.i, ptr %arrayidx3.i, align 8
   %ht_used.i = getelementptr inbounds %struct.dict, ptr %4, i64 0, i32 2
-  %9 = load i64, ptr %ht_used.i, align 8
-  store i64 %9, ptr %arrayidx5.i, align 16
+  %8 = load i64, ptr %ht_used.i, align 8
+  store i64 %8, ptr %arrayidx5.i, align 16
   %arrayidx7.i = getelementptr inbounds %struct.dict, ptr %4, i64 0, i32 1, i64 1
-  %10 = load ptr, ptr %arrayidx7.i, align 8
-  %11 = ptrtoint ptr %10 to i64
-  store i64 %11, ptr %arrayidx8.i, align 8
+  %9 = load ptr, ptr %arrayidx7.i, align 8
+  store ptr %9, ptr %arrayidx8.i, align 8
   %arrayidx10.i = getelementptr inbounds %struct.dict, ptr %4, i64 0, i32 5, i64 1
-  %12 = load i8, ptr %arrayidx10.i, align 1
-  %conv11.i = sext i8 %12 to i64
+  %10 = load i8, ptr %arrayidx10.i, align 1
+  %conv11.i = sext i8 %10 to i64
   store i64 %conv11.i, ptr %arrayidx12.i, align 16
   %arrayidx14.i = getelementptr inbounds %struct.dict, ptr %4, i64 0, i32 2, i64 1
-  %13 = load i64, ptr %arrayidx14.i, align 8
-  store i64 %13, ptr %arrayidx15.i, align 8
+  %11 = load i64, ptr %arrayidx14.i, align 8
+  store i64 %11, ptr %arrayidx15.i, align 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.else
   %indvars.iv.i = phi i64 [ 0, %if.else ], [ %indvars.iv.next.i, %for.body.i ]
   %hash.025.i = phi i64 [ 0, %if.else ], [ %add32.i, %for.body.i ]
   %arrayidx17.i = getelementptr inbounds [6 x i64], ptr %integers.i, i64 0, i64 %indvars.iv.i
-  %14 = load i64, ptr %arrayidx17.i, align 8
-  %add.i = add i64 %14, %hash.025.i
+  %12 = load i64, ptr %arrayidx17.i, align 8
+  %add.i = add i64 %12, %hash.025.i
   %not.i = xor i64 %add.i, -1
   %shl.i = shl i64 %add.i, 21
   %add18.i = add i64 %shl.i, %not.i
@@ -2863,10 +2857,10 @@ dictFingerprint.exit:                             ; preds = %for.body.i
   br label %if.end
 
 if.end:                                           ; preds = %dictFingerprint.exit, %if.then5
-  %15 = phi ptr [ %4, %dictFingerprint.exit ], [ %.pre32, %if.then5 ]
-  %rehashidx = getelementptr inbounds %struct.dict, ptr %15, i64 0, i32 3
-  %16 = load i64, ptr %rehashidx, align 8
-  %cmp8.not = icmp eq i64 %16, -1
+  %13 = phi ptr [ %4, %dictFingerprint.exit ], [ %.pre32, %if.then5 ]
+  %rehashidx = getelementptr inbounds %struct.dict, ptr %13, i64 0, i32 3
+  %14 = load i64, ptr %rehashidx, align 8
+  %cmp8.not = icmp eq i64 %14, -1
   br i1 %cmp8.not, label %if.end.if.end14_crit_edge, label %if.then9
 
 if.end.if.end14_crit_edge:                        ; preds = %if.end
@@ -2874,20 +2868,20 @@ if.end.if.end14_crit_edge:                        ; preds = %if.end
   br label %if.end14
 
 if.then9:                                         ; preds = %if.end
-  %sub = add nsw i64 %16, -1
+  %sub = add nsw i64 %14, -1
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end.if.end14_crit_edge, %if.then9, %land.lhs.true, %if.then
-  %17 = phi i64 [ %.pre33, %if.end.if.end14_crit_edge ], [ %sub, %if.then9 ], [ -1, %land.lhs.true ], [ %1, %if.then ]
-  %inc16 = add nsw i64 %17, 1
+  %15 = phi i64 [ %.pre33, %if.end.if.end14_crit_edge ], [ %sub, %if.then9 ], [ -1, %land.lhs.true ], [ %1, %if.then ]
+  %inc16 = add nsw i64 %15, 1
   store i64 %inc16, ptr %index, align 8
-  %18 = load ptr, ptr %iter, align 8
-  %19 = load i32, ptr %table, align 8
-  %idxprom = sext i32 %19 to i64
-  %arrayidx = getelementptr inbounds %struct.dict, ptr %18, i64 0, i32 5, i64 %idxprom
-  %20 = load i8, ptr %arrayidx, align 1
-  %cmp20 = icmp eq i8 %20, -1
-  %conv = sext i8 %20 to i64
+  %16 = load ptr, ptr %iter, align 8
+  %17 = load i32, ptr %table, align 8
+  %idxprom = sext i32 %17 to i64
+  %arrayidx = getelementptr inbounds %struct.dict, ptr %16, i64 0, i32 5, i64 %idxprom
+  %18 = load i8, ptr %arrayidx, align 1
+  %cmp20 = icmp eq i8 %18, -1
+  %conv = sext i8 %18 to i64
   %sh_prom = and i64 %conv, 4294967295
   %shl = shl nuw i64 1, %sh_prom
   %cond = select i1 %cmp20, i64 0, i64 %shl
@@ -2895,10 +2889,10 @@ if.end14:                                         ; preds = %if.end.if.end14_cri
   br i1 %cmp28.not, label %if.end45, label %if.then30
 
 if.then30:                                        ; preds = %if.end14
-  %rehashidx32 = getelementptr inbounds %struct.dict, ptr %18, i64 0, i32 3
-  %21 = load i64, ptr %rehashidx32, align 8
-  %cmp33.not = icmp ne i64 %21, -1
-  %cmp37 = icmp eq i32 %19, 0
+  %rehashidx32 = getelementptr inbounds %struct.dict, ptr %16, i64 0, i32 3
+  %19 = load i64, ptr %rehashidx32, align 8
+  %cmp33.not = icmp ne i64 %19, -1
+  %cmp37 = icmp eq i32 %17, 0
   %or.cond = and i1 %cmp37, %cmp33.not
   br i1 %or.cond, label %if.then39, label %return
 
@@ -2908,12 +2902,12 @@ if.then39:                                        ; preds = %if.then30
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then39, %if.end14
-  %22 = phi i64 [ 0, %if.then39 ], [ %inc16, %if.end14 ]
-  %23 = phi i32 [ 1, %if.then39 ], [ %19, %if.end14 ]
-  %idxprom48 = sext i32 %23 to i64
-  %arrayidx49 = getelementptr inbounds %struct.dict, ptr %18, i64 0, i32 1, i64 %idxprom48
-  %24 = load ptr, ptr %arrayidx49, align 8
-  %arrayidx51 = getelementptr inbounds ptr, ptr %24, i64 %22
+  %20 = phi i64 [ 0, %if.then39 ], [ %inc16, %if.end14 ]
+  %21 = phi i32 [ 1, %if.then39 ], [ %17, %if.end14 ]
+  %idxprom48 = sext i32 %21 to i64
+  %arrayidx49 = getelementptr inbounds %struct.dict, ptr %16, i64 0, i32 1, i64 %idxprom48
+  %22 = load ptr, ptr %arrayidx49, align 8
+  %arrayidx51 = getelementptr inbounds ptr, ptr %22, i64 %20
   br label %if.end55
 
 if.end55:                                         ; preds = %entry, %if.end45
@@ -2924,24 +2918,24 @@ if.end55:                                         ; preds = %entry, %if.end45
   br i1 %tobool57.not, label %if.then, label %if.then58
 
 if.then58:                                        ; preds = %if.end55
-  %25 = ptrtoint ptr %storemerge to i64
-  %conv.i5.i = and i64 %25, 1
+  %23 = ptrtoint ptr %storemerge to i64
+  %conv.i5.i = and i64 %23, 1
   %tobool.not.i = icmp eq i64 %conv.i5.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %dictGetNext.exit
 
 if.end.i:                                         ; preds = %if.then58
-  %and.i.i = and i64 %25, 6
+  %and.i.i = and i64 %23, 6
   %cmp.i.not.i = icmp eq i64 %and.i.i, 2
   %next6.i = getelementptr inbounds %struct.dictEntry, ptr %storemerge, i64 0, i32 2
-  %and.i.i.i = and i64 %25, -8
-  %26 = inttoptr i64 %and.i.i.i to ptr
-  %next.i = getelementptr inbounds %struct.dictEntryNoValue, ptr %26, i64 0, i32 1
+  %and.i.i.i = and i64 %23, -8
+  %24 = inttoptr i64 %and.i.i.i to ptr
+  %next.i = getelementptr inbounds %struct.dictEntryNoValue, ptr %24, i64 0, i32 1
   %next6.sink.i = select i1 %cmp.i.not.i, ptr %next.i, ptr %next6.i
-  %27 = load ptr, ptr %next6.sink.i, align 8
+  %25 = load ptr, ptr %next6.sink.i, align 8
   br label %dictGetNext.exit
 
 dictGetNext.exit:                                 ; preds = %if.then58, %if.end.i
-  %retval.0.i = phi ptr [ null, %if.then58 ], [ %27, %if.end.i ]
+  %retval.0.i = phi ptr [ null, %if.then58 ], [ %25, %if.end.i ]
   store ptr %retval.0.i, ptr %nextEntry, align 8
   br label %return
 

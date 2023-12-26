@@ -355,17 +355,16 @@ invoke.cont20:                                    ; preds = %call.i.noexc
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont20
-  %14 = ptrtoint ptr %call.i15 to i64
-  store i64 %14, ptr %12, align 8
-  %15 = load ptr, ptr %_M_finish.i.i16, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::unique_ptr.9", ptr %15, i64 1
+  store ptr %call.i15, ptr %12, align 8
+  %14 = load ptr, ptr %_M_finish.i.i16, align 8
+  %incdec.ptr.i.i = getelementptr inbounds %"class.std::unique_ptr.9", ptr %14, i64 1
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i16, align 8
   br label %_ZNSt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS4_EED2Ev.exit
 
 if.else.i.i:                                      ; preds = %invoke.cont20
-  %16 = load ptr, ptr %sizeClasses_, align 8
+  %15 = load ptr, ptr %sizeClasses_, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %16 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
   br i1 %cmp.i.i, label %if.then.i.i37, label %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i
@@ -396,18 +395,17 @@ _ZNSt16allocator_traitsISaISt10unique_ptrIN8facebook5velox6memory13MmapAllocator
 _ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS5_EEEE8allocateERS9_m.exit.i.i, %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i
   %cond.i10.i = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS5_EESaIS8_EE12_M_check_lenEmPKc.exit.i ], [ %call5.i.i.i.i39, %_ZNSt16allocator_traitsISaISt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS5_EEEE8allocateERS9_m.exit.i.i ]
   %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr.9", ptr %cond.i10.i, i64 %sub.ptr.div.i.i.i
-  %17 = ptrtoint ptr %call.i15 to i64
-  store i64 %17, ptr %add.ptr.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %16, %12
+  store ptr %call.i15, ptr %add.ptr.i, align 8
+  %cmp.not5.i.i.i.i = icmp eq ptr %15, %12
   br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i, %for.body.i.i.i.i
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %16, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ]
+  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %15, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
-  %18 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !12, !noalias !9
-  store i64 %18, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !9, !noalias !12
+  %16 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !12, !noalias !9
+  store i64 %16, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !9, !noalias !12
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !12, !noalias !9
   %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.9", ptr %__first.addr.06.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.9", ptr %__cur.07.i.i.i.i, i64 1
@@ -417,11 +415,11 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
   %incdec.ptr.i36 = getelementptr %"class.std::unique_ptr.9", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %16, null
+  %tobool.not.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i, label %.noexc, label %if.then.i20.i
 
 if.then.i20.i:                                    ; preds = %_ZNSt6vectorISt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i
-  tail call void @_ZdlPv(ptr noundef nonnull %16) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %15) #29
   br label %.noexc
 
 .noexc:                                           ; preds = %if.then.i20.i, %_ZNSt6vectorISt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i
@@ -464,20 +462,20 @@ _ZNSt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_d
 
 for.end:                                          ; preds = %_ZNSt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS4_EED2Ev.exit
   %.pre = load i8, ptr %useMmapArena_, align 4
-  %19 = and i8 %.pre, 1
-  %tobool25.not = icmp eq i8 %19, 0
+  %17 = and i8 %.pre, 1
+  %tobool25.not = icmp eq i8 %17, 0
   br i1 %tobool25.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.end
-  %20 = load i64, ptr %capacity_, align 8
+  %18 = load i64, ptr %capacity_, align 8
   %mmapArenaCapacityRatio = getelementptr inbounds %"struct.facebook::velox::memory::MmapAllocator::Options", ptr %options, i64 0, i32 2
-  %21 = load i32, ptr %mmapArenaCapacityRatio, align 4
+  %19 = load i32, ptr %mmapArenaCapacityRatio, align 4
   %call.i27 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #28
           to label %call.i.noexc26 unwind label %lpad19.loopexit.split-lp
 
 call.i.noexc26:                                   ; preds = %if.then
-  %mul.i = shl i64 %20, 12
-  %conv29 = sext i32 %21 to i64
+  %mul.i = shl i64 %18, 12
+  %conv29 = sext i32 %19 to i64
   %div30 = udiv i64 %mul.i, %conv29
   %add.i21 = add nuw i64 %div30, 4095
   %mul.i22 = and i64 %add.i21, -4096
@@ -486,33 +484,33 @@ call.i.noexc26:                                   ; preds = %if.then
           to label %invoke.cont37 unwind label %lpad.i24, !noalias !15
 
 lpad.i24:                                         ; preds = %call.i.noexc26
-  %22 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call.i27) #29, !noalias !15
   br label %ehcleanup
 
 invoke.cont37:                                    ; preds = %call.i.noexc26
-  %23 = load ptr, ptr %managedArenas_, align 8
+  %21 = load ptr, ptr %managedArenas_, align 8
   store ptr %call.i27, ptr %managedArenas_, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %23, null
+  %tobool.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %tobool.not.i.i.i.i, label %if.end, label %_ZNSt10unique_ptrIN8facebook5velox6memory17ManagedMmapArenasESt14default_deleteIS3_EEaSEOS6_.exit
 
 _ZNSt10unique_ptrIN8facebook5velox6memory17ManagedMmapArenasESt14default_deleteIS3_EEaSEOS6_.exit: ; preds = %invoke.cont37
-  tail call void @_ZNKSt14default_deleteIN8facebook5velox6memory17ManagedMmapArenasEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %managedArenas_, ptr noundef nonnull %23)
+  tail call void @_ZNKSt14default_deleteIN8facebook5velox6memory17ManagedMmapArenasEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %managedArenas_, ptr noundef nonnull %21)
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont37, %_ZNSt10unique_ptrIN8facebook5velox6memory17ManagedMmapArenasESt14default_deleteIS3_EEaSEOS6_.exit, %for.end
   ret void
 
 ehcleanup:                                        ; preds = %lpad19.loopexit, %lpad19.loopexit.split-lp, %lpad.i, %lpad.i24, %_ZNSt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS4_EED2Ev.exit19
-  %.pn = phi { ptr, i32 } [ %lpad.phi49, %_ZNSt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS4_EED2Ev.exit19 ], [ %11, %lpad.i ], [ %22, %lpad.i24 ], [ %lpad.loopexit, %lpad19.loopexit ], [ %lpad.loopexit.split-lp, %lpad19.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi49, %_ZNSt10unique_ptrIN8facebook5velox6memory13MmapAllocator9SizeClassESt14default_deleteIS4_EED2Ev.exit19 ], [ %11, %lpad.i ], [ %20, %lpad.i24 ], [ %lpad.loopexit, %lpad19.loopexit ], [ %lpad.loopexit.split-lp, %lpad19.loopexit.split-lp ]
   tail call void @_ZNSt10shared_ptrIN8facebook5velox6memory5CacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %cache_) #24
-  %24 = load ptr, ptr %managedArenas_, align 8
-  %cmp.not.i31 = icmp eq ptr %24, null
+  %22 = load ptr, ptr %managedArenas_, align 8
+  %cmp.not.i31 = icmp eq ptr %22, null
   br i1 %cmp.not.i31, label %_ZNSt10unique_ptrIN8facebook5velox6memory17ManagedMmapArenasESt14default_deleteIS3_EED2Ev.exit33, label %if.then.i32
 
 if.then.i32:                                      ; preds = %ehcleanup
-  tail call void @_ZNKSt14default_deleteIN8facebook5velox6memory17ManagedMmapArenasEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %managedArenas_, ptr noundef nonnull %24)
+  tail call void @_ZNKSt14default_deleteIN8facebook5velox6memory17ManagedMmapArenasEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %managedArenas_, ptr noundef nonnull %22)
   br label %_ZNSt10unique_ptrIN8facebook5velox6memory17ManagedMmapArenasESt14default_deleteIS3_EED2Ev.exit33
 
 _ZNSt10unique_ptrIN8facebook5velox6memory17ManagedMmapArenasESt14default_deleteIS3_EED2Ev.exit33: ; preds = %ehcleanup, %if.then.i32
@@ -3162,10 +3160,10 @@ if.then258:                                       ; preds = %if.then2.i, %if.end
   %65 = load i8, ptr %useMmapArena_262, align 4
   %66 = and i8 %65, 1
   %tobool263.not = icmp eq i8 %66, 0
-  %67 = select i1 %tobool263.not, i64 ptrtoint (ptr @.str.15 to i64), i64 ptrtoint (ptr @.str.14 to i64)
+  %cond264 = select i1 %tobool263.not, ptr @.str.15, ptr @.str.14
   store i64 %numPages, ptr %ref.tmp.i362, align 16, !alias.scope !44
   %arrayinit.element.i.i.i161 = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i362, i64 1
-  store i64 %67, ptr %arrayinit.element.i.i.i161, align 16, !alias.scope !44
+  store ptr %cond264, ptr %arrayinit.element.i.i.i161, align 16, !alias.scope !44
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %errorMsg259, ptr nonnull @.str.13, i64 42, i64 196, ptr nonnull %ref.tmp.i362)
   invoke void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp265, ptr noundef nonnull @.str.1, i32 noundef 406, i32 noundef 2)
           to label %invoke.cont267 unwind label %lpad266
@@ -3193,12 +3191,12 @@ invoke.cont277:                                   ; preds = %invoke.cont273
 
 invoke.cont279:                                   ; preds = %invoke.cont277
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp276) #24
-  %68 = atomicrmw sub ptr %numAllocated_128, i64 %numPages seq_cst, align 8
-  %69 = atomicrmw sub ptr %numExternalMapped_126, i64 %numPages seq_cst, align 8
+  %67 = atomicrmw sub ptr %numAllocated_128, i64 %numPages seq_cst, align 8
+  %68 = atomicrmw sub ptr %numExternalMapped_126, i64 %numPages seq_cst, align 8
   %numMapped_.i166 = getelementptr inbounds %"class.facebook::velox::memory::MemoryAllocator", ptr %this, i64 0, i32 4
-  %70 = atomicrmw sub ptr %numMapped_.i166, i64 %numPages seq_cst, align 8
-  %71 = load ptr, ptr %_M_manager.i.i.i123, align 8
-  %tobool.not.i.i.i.not.i168 = icmp eq ptr %71, null
+  %69 = atomicrmw sub ptr %numMapped_.i166, i64 %numPages seq_cst, align 8
+  %70 = load ptr, ptr %_M_manager.i.i.i123, align 8
+  %tobool.not.i.i.i.not.i168 = icmp eq ptr %70, null
   br i1 %tobool.not.i.i.i.not.i168, label %invoke.cont281, label %_ZNKSt8functionIFvlbEEclElb.exit.i169
 
 _ZNKSt8functionIFvlbEEclElb.exit.i169:            ; preds = %invoke.cont279
@@ -3208,8 +3206,8 @@ _ZNKSt8functionIFvlbEEclElb.exit.i169:            ; preds = %invoke.cont279
   store i64 %mul.i.i170, ptr %__args.addr.i.i162, align 8
   store i8 0, ptr %__args.addr2.i.i163, align 1
   %_M_invoker.i.i171 = getelementptr inbounds %"class.std::function", ptr %reservationCB, i64 0, i32 1
-  %72 = load ptr, ptr %_M_invoker.i.i171, align 8
-  invoke void %72(ptr noundef nonnull align 8 dereferenceable(16) %reservationCB, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i162, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr2.i.i163)
+  %71 = load ptr, ptr %_M_invoker.i.i171, align 8
+  invoke void %71(ptr noundef nonnull align 8 dereferenceable(16) %reservationCB, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i162, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr2.i.i163)
           to label %.noexc173 unwind label %lpad266
 
 .noexc173:                                        ; preds = %_ZNKSt8functionIFvlbEEclElb.exit.i169
@@ -3222,24 +3220,24 @@ invoke.cont281:                                   ; preds = %.noexc173, %invoke.
   br label %return
 
 lpad266:                                          ; preds = %_ZNKSt8functionIFvlbEEclElb.exit.i169, %invoke.cont273, %if.then258
-  %73 = landingpad { ptr, i32 }
+  %72 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup282
 
 lpad268:                                          ; preds = %invoke.cont271, %invoke.cont269, %invoke.cont267
-  %74 = landingpad { ptr, i32 }
+  %73 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp265) #24
   br label %ehcleanup282
 
 lpad278:                                          ; preds = %invoke.cont277
-  %75 = landingpad { ptr, i32 }
+  %74 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp276) #24
   br label %ehcleanup282
 
 ehcleanup282:                                     ; preds = %lpad278, %lpad268, %lpad266
-  %.pn113 = phi { ptr, i32 } [ %73, %lpad266 ], [ %75, %lpad278 ], [ %74, %lpad268 ]
+  %.pn113 = phi { ptr, i32 } [ %72, %lpad266 ], [ %74, %lpad278 ], [ %73, %lpad268 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %errorMsg259) #24
   br label %eh.resume
 
@@ -3259,10 +3257,10 @@ eh.resume:                                        ; preds = %ehcleanup122, %ehcl
   resume { ptr, i32 } %lpad.val288.merged
 
 terminate.lpad:                                   ; preds = %ehcleanup122
-  %76 = landingpad { ptr, i32 }
+  %75 = landingpad { ptr, i32 }
           catch ptr null
-  %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #31
+  %76 = extractvalue { ptr, i32 } %75, 0
+  call void @__clang_call_terminate(ptr %76) #31
   unreachable
 }
 

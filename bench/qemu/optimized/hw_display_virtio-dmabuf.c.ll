@@ -24,12 +24,11 @@ if.end:                                           ; preds = %entry
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #4
   store i32 1, ptr %call, align 8
   %conv = zext nneg i32 %udmabuf_fd to i64
-  %0 = inttoptr i64 %conv to ptr
   %value = getelementptr inbounds %struct.VirtioSharedObject, ptr %call, i64 0, i32 1
-  store ptr %0, ptr %value, align 8
+  store i64 %conv, ptr %value, align 8
   tail call void @g_mutex_lock(ptr noundef nonnull @lock) #5
-  %1 = load ptr, ptr @resource_uuids, align 8
-  %cmp.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr @resource_uuids, align 8
+  %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
@@ -38,14 +37,14 @@ if.then.i:                                        ; preds = %if.end
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.end
-  %2 = phi ptr [ %call.i, %if.then.i ], [ %1, %if.end ]
-  %call1.i = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %uuid) #5
+  %1 = phi ptr [ %call.i, %if.then.i ], [ %0, %if.end ]
+  %call1.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef %uuid) #5
   %cmp2.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.i, label %virtio_add_resource.exit.thread, label %if.then2
 
 virtio_add_resource.exit.thread:                  ; preds = %if.end.i
-  %3 = load ptr, ptr @resource_uuids, align 8
-  %call4.i = tail call i32 @g_hash_table_insert(ptr noundef %3, ptr noundef %uuid, ptr noundef nonnull %call) #5
+  %2 = load ptr, ptr @resource_uuids, align 8
+  %call4.i = tail call i32 @g_hash_table_insert(ptr noundef %2, ptr noundef %uuid, ptr noundef nonnull %call) #5
   tail call void @g_mutex_unlock(ptr noundef nonnull @lock) #5
   br label %return
 

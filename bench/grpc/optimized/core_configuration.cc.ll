@@ -969,9 +969,8 @@ do.end:                                           ; preds = %entry
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i, align 16
   store ptr null, ptr %invoker_.i.i.i, align 8
   %3 = load atomic i64, ptr @_ZN9grpc_core17CoreConfiguration9builders_E monotonic, align 8
-  %atomic-temp.i.0.i6 = inttoptr i64 %3 to ptr
   %next = getelementptr inbounds %"struct.grpc_core::CoreConfiguration::RegisteredBuilder", ptr %call1, i64 0, i32 1
-  store ptr %atomic-temp.i.0.i6, ptr %next, align 16
+  store i64 %3, ptr %next, align 16
   %4 = ptrtoint ptr %call1 to i64
   %5 = cmpxchg weak ptr @_ZN9grpc_core17CoreConfiguration9builders_E, i64 %3, i64 %4 acq_rel monotonic, align 8
   %6 = extractvalue { i64, i1 } %5, 1

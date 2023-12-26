@@ -1919,7 +1919,7 @@ entry:
           to label %invoke.cont12 unwind label %lpad7
 
 invoke.cont12:                                    ; preds = %entry
-  store i64 ptrtoint (ptr @_ZN9grpc_core22XdsCertificateProvider19WatchStatusCallbackENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbb to i64), ptr %call.i.i2.i8, align 16
+  store ptr @_ZN9grpc_core22XdsCertificateProvider19WatchStatusCallbackENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbb, ptr %call.i.i2.i8, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i8.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i8, i64 8
   store i64 0, ptr %ref.tmp.sroa.2.0.call.i.i2.i8.sroa_idx, align 8
   %ref.tmp.sroa.3.0.call.i.i2.i8.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i8, i64 16

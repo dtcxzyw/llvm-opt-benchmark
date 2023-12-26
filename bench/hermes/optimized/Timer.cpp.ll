@@ -325,18 +325,17 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp.i9.not, label %cleanup.thread, label %if.end12
 
 cleanup.thread:                                   ; preds = %if.end7
-  %3 = ptrtoint ptr %call.i8 to i64
-  store i64 %3, ptr %agg.result, align 8
+  store ptr %call.i8, ptr %agg.result, align 8
   br label %return
 
 if.end12:                                         ; preds = %if.end7
   %call13 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4errsEv() #21
   %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call13, i64 0, i32 2
-  %4 = load ptr, ptr %OutBufEnd.i5.i, align 8
+  %3 = load ptr, ptr %OutBufEnd.i5.i, align 8
   %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call13, i64 0, i32 3
-  %5 = load ptr, ptr %OutBufCur.i6.i, align 8
-  %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %5 to i64
+  %4 = load ptr, ptr %OutBufCur.i6.i, align 8
+  %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %3 to i64
+  %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i9.i = sub i64 %sub.ptr.lhs.cast.i7.i, %sub.ptr.rhs.cast.i8.i
   %cmp.i.i = icmp ult i64 %sub.ptr.sub.i9.i, 32
   br i1 %cmp.i.i, label %if.then.i.i12, label %if.then4.i.i
@@ -346,9 +345,9 @@ if.then.i.i12:                                    ; preds = %if.end12
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 if.then4.i.i:                                     ; preds = %if.end12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(32) @.str.7, i64 32, i1 false)
-  %6 = load ptr, ptr %OutBufCur.i6.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %4, ptr noundef nonnull align 1 dereferenceable(32) @.str.7, i64 32, i1 false)
+  %5 = load ptr, ptr %OutBufCur.i6.i, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %add.ptr.i.i, ptr %OutBufCur.i6.i, align 8
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
@@ -358,11 +357,11 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i12, %if.
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %atomic-temp.i.0.i1.i.i) #21
   %call3.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i, ptr noundef %call.i13, i64 noundef %call2.i) #21
   %OutBufEnd.i5.i15 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i, i64 0, i32 2
-  %7 = load ptr, ptr %OutBufEnd.i5.i15, align 8
+  %6 = load ptr, ptr %OutBufEnd.i5.i15, align 8
   %OutBufCur.i6.i16 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i, i64 0, i32 3
-  %8 = load ptr, ptr %OutBufCur.i6.i16, align 8
-  %sub.ptr.lhs.cast.i7.i17 = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast.i8.i18 = ptrtoint ptr %8 to i64
+  %7 = load ptr, ptr %OutBufCur.i6.i16, align 8
+  %sub.ptr.lhs.cast.i7.i17 = ptrtoint ptr %6 to i64
+  %sub.ptr.rhs.cast.i8.i18 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i9.i19 = sub i64 %sub.ptr.lhs.cast.i7.i17, %sub.ptr.rhs.cast.i8.i18
   %cmp.i.i20 = icmp ult i64 %sub.ptr.sub.i9.i19, 16
   br i1 %cmp.i.i20, label %if.then.i.i26, label %if.then4.i.i23
@@ -372,9 +371,9 @@ if.then.i.i26:                                    ; preds = %_ZN4llvh11raw_ostre
   br label %_ZNKSt14default_deleteIN4llvh14raw_fd_ostreamEEclEPS1_.exit.i
 
 if.then4.i.i23:                                   ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %8, ptr noundef nonnull align 1 dereferenceable(16) @.str.8, i64 16, i1 false)
-  %9 = load ptr, ptr %OutBufCur.i6.i16, align 8
-  %add.ptr.i.i24 = getelementptr inbounds i8, ptr %9, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) @.str.8, i64 16, i1 false)
+  %8 = load ptr, ptr %OutBufCur.i6.i16, align 8
+  %add.ptr.i.i24 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %add.ptr.i.i24, ptr %OutBufCur.i6.i16, align 8
   br label %_ZNKSt14default_deleteIN4llvh14raw_fd_ostreamEEclEPS1_.exit.i
 
@@ -385,8 +384,8 @@ _ZNKSt14default_deleteIN4llvh14raw_fd_ostreamEEclEPS1_.exit.i: ; preds = %if.the
   store ptr %call.i29, ptr %agg.result, align 8, !alias.scope !13
   %vtable.i.i = load ptr, ptr %call.i8, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
-  %10 = load ptr, ptr %vfn.i.i, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(72) %call.i8) #21
+  %9 = load ptr, ptr %vfn.i.i, align 8
+  call void %9(ptr noundef nonnull align 8 dereferenceable(72) %call.i8) #21
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN4llvh14raw_fd_ostreamEEclEPS1_.exit.i, %cleanup.thread, %if.then4, %if.then
@@ -4903,7 +4902,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZL31getLibSupportI
 
 if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZL31getLibSupportInfoOutputFilenameB5cxx11v.exit.i
   %atomic-temp.i.0.i1.i.i.i = inttoptr i64 %2 to ptr
-  store ptr %atomic-temp.i.0.i1.i.i.i, ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 1, i32 0), align 8
+  store i64 %2, ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 1, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 2), align 8
   %call.i.i.i.i.i.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.llvh::cl::opt.0", ptr @_ZN12_GLOBAL__N_118InfoOutputFilenameB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 1, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(32) %atomic-temp.i.0.i1.i.i.i) #21
   br label %__cxx_global_var_init.2.exit

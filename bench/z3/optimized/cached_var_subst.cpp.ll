@@ -193,8 +193,7 @@ invoke.cont:
   store i8 1, ptr %m_std_order.i, align 8
   %m_refs = getelementptr inbounds %class.cached_var_subst, ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %this, align 8
-  %1 = ptrtoint ptr %0 to i64
-  store i64 %1, ptr %m_refs, align 8
+  store ptr %0, ptr %m_refs, align 8
   %m_nodes.i.i = getelementptr inbounds %class.cached_var_subst, ptr %this, i64 0, i32 2, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i, align 8
   %m_instances = getelementptr inbounds %class.cached_var_subst, ptr %this, i64 0, i32 3
@@ -220,18 +219,18 @@ invoke.cont8:                                     ; preds = %invoke.cont6
   ret void
 
 lpad5:                                            ; preds = %invoke.cont
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup11
 
 lpad7:                                            ; preds = %invoke.cont6
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN3mapIPN16cached_var_subst3keyEP4exprNS0_13key_hash_procENS0_11key_eq_procEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_instances) #16
   br label %ehcleanup11
 
 ehcleanup11:                                      ; preds = %lpad7, %lpad5
-  %.pn = phi { ptr, i32 } [ %3, %lpad7 ], [ %2, %lpad5 ]
+  %.pn = phi { ptr, i32 } [ %2, %lpad7 ], [ %1, %lpad5 ]
   tail call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_refs) #16
   tail call void @_ZN12rewriter_tplI16beta_reducer_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %m_proc) #16
   resume { ptr, i32 } %.pn

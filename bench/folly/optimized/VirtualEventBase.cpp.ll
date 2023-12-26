@@ -950,8 +950,7 @@ lpad.i.i.i:                                       ; preds = %if.then.i6.invoke.i
 
 invoke.cont12:                                    ; preds = %invoke.cont.i.i.i
   %loopKeepAlive_ = getelementptr inbounds %"class.folly::VirtualEventBase", ptr %this, i64 0, i32 7
-  %23 = ptrtoint ptr %this to i64
-  store i64 %23, ptr %loopKeepAlive_, align 8, !tbaa !160, !alias.scope !161
+  store ptr %this, ptr %loopKeepAlive_, align 8, !tbaa !160, !alias.scope !161
   %onDestructionCallbacks_ = getelementptr inbounds %"class.folly::VirtualEventBase", ptr %this, i64 0, i32 8
   %m_header.i.i.i.i.i = getelementptr inbounds %"class.folly::VirtualEventBase", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 0, i32 1
   store i64 0, ptr %onDestructionCallbacks_, align 8
@@ -963,33 +962,33 @@ invoke.cont12:                                    ; preds = %invoke.cont.i.i.i
   ret void
 
 lpad4:                                            ; preds = %invoke.cont
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup14
 
 ehcleanup14:                                      ; preds = %lpad4, %lpad.i.i.i, %ehcleanup.i
-  %.pn.pn = phi { ptr, i32 } [ %22, %lpad.i.i.i ], [ %24, %lpad4 ], [ %.pn.i, %ehcleanup.i ]
-  %25 = load i64, ptr %evb_, align 8, !tbaa !166
-  %and.i.i.i29 = and i64 %25, -4
-  %26 = icmp eq i64 %and.i.i.i29, 0
-  br i1 %26, label %ehcleanup15, label %cast.end.i.i30
+  %.pn.pn = phi { ptr, i32 } [ %22, %lpad.i.i.i ], [ %23, %lpad4 ], [ %.pn.i, %ehcleanup.i ]
+  %24 = load i64, ptr %evb_, align 8, !tbaa !166
+  %and.i.i.i29 = and i64 %24, -4
+  %25 = icmp eq i64 %and.i.i.i29, 0
+  br i1 %25, label %ehcleanup15, label %cast.end.i.i30
 
 cast.end.i.i30:                                   ; preds = %ehcleanup14
-  %27 = inttoptr i64 %and.i.i.i29 to ptr
-  %vtable.i.i31 = load ptr, ptr %27, align 16, !tbaa !131
+  %26 = inttoptr i64 %and.i.i.i29 to ptr
+  %vtable.i.i31 = load ptr, ptr %26, align 16, !tbaa !131
   %vbase.offset.ptr.i.i32 = getelementptr i8, ptr %vtable.i.i31, i64 -24
   %vbase.offset.i.i33 = load i64, ptr %vbase.offset.ptr.i.i32, align 8
   store i64 0, ptr %evb_, align 8, !tbaa !166
-  %and.i.i34 = and i64 %25, 3
+  %and.i.i34 = and i64 %24, 3
   %tobool4.not.i.i35 = icmp eq i64 %and.i.i34, 0
   br i1 %tobool4.not.i.i35, label %if.then5.i.i36, label %ehcleanup15
 
 if.then5.i.i36:                                   ; preds = %cast.end.i.i30
-  %add.ptr.i.i37 = getelementptr inbounds i8, ptr %27, i64 %vbase.offset.i.i33
+  %add.ptr.i.i37 = getelementptr inbounds i8, ptr %26, i64 %vbase.offset.i.i33
   %vtable6.i.i38 = load ptr, ptr %add.ptr.i.i37, align 8, !tbaa !131
   %vfn.i.i39 = getelementptr inbounds ptr, ptr %vtable6.i.i38, i64 6
-  %28 = load ptr, ptr %vfn.i.i39, align 8
-  tail call void %28(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i37) #25
+  %27 = load ptr, ptr %vfn.i.i39, align 8
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i37) #25
   br label %ehcleanup15
 
 ehcleanup15:                                      ; preds = %if.then5.i.i36, %cast.end.i.i30, %ehcleanup14
@@ -1740,8 +1739,7 @@ lpad.i.i.i:                                       ; preds = %if.then.i6.invoke.i
 
 invoke.cont11:                                    ; preds = %invoke.cont.i.i.i
   %loopKeepAlive_ = getelementptr inbounds %"class.folly::VirtualEventBase", ptr %this, i64 0, i32 7
-  %14 = ptrtoint ptr %this to i64
-  store i64 %14, ptr %loopKeepAlive_, align 8, !tbaa !160, !alias.scope !198
+  store ptr %this, ptr %loopKeepAlive_, align 8, !tbaa !160, !alias.scope !198
   %onDestructionCallbacks_ = getelementptr inbounds %"class.folly::VirtualEventBase", ptr %this, i64 0, i32 8
   %m_header.i.i.i.i.i = getelementptr inbounds %"class.folly::VirtualEventBase", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 0, i32 1
   store i64 0, ptr %onDestructionCallbacks_, align 8
@@ -1753,33 +1751,33 @@ invoke.cont11:                                    ; preds = %invoke.cont.i.i.i
   ret void
 
 lpad5:                                            ; preds = %entry
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup12
 
 ehcleanup12:                                      ; preds = %lpad5, %lpad.i.i.i, %ehcleanup.i
-  %.pn.pn = phi { ptr, i32 } [ %13, %lpad.i.i.i ], [ %15, %lpad5 ], [ %.pn.i, %ehcleanup.i ]
-  %16 = load i64, ptr %evb_, align 8, !tbaa !166
-  %and.i.i.i29 = and i64 %16, -4
-  %17 = icmp eq i64 %and.i.i.i29, 0
-  br i1 %17, label %ehcleanup13, label %cast.end.i.i30
+  %.pn.pn = phi { ptr, i32 } [ %13, %lpad.i.i.i ], [ %14, %lpad5 ], [ %.pn.i, %ehcleanup.i ]
+  %15 = load i64, ptr %evb_, align 8, !tbaa !166
+  %and.i.i.i29 = and i64 %15, -4
+  %16 = icmp eq i64 %and.i.i.i29, 0
+  br i1 %16, label %ehcleanup13, label %cast.end.i.i30
 
 cast.end.i.i30:                                   ; preds = %ehcleanup12
-  %18 = inttoptr i64 %and.i.i.i29 to ptr
-  %vtable.i.i31 = load ptr, ptr %18, align 16, !tbaa !131
+  %17 = inttoptr i64 %and.i.i.i29 to ptr
+  %vtable.i.i31 = load ptr, ptr %17, align 16, !tbaa !131
   %vbase.offset.ptr.i.i32 = getelementptr i8, ptr %vtable.i.i31, i64 -24
   %vbase.offset.i.i33 = load i64, ptr %vbase.offset.ptr.i.i32, align 8
   store i64 0, ptr %evb_, align 8, !tbaa !166
-  %and.i.i34 = and i64 %16, 3
+  %and.i.i34 = and i64 %15, 3
   %tobool4.not.i.i35 = icmp eq i64 %and.i.i34, 0
   br i1 %tobool4.not.i.i35, label %if.then5.i.i36, label %ehcleanup13
 
 if.then5.i.i36:                                   ; preds = %cast.end.i.i30
-  %add.ptr.i.i37 = getelementptr inbounds i8, ptr %18, i64 %vbase.offset.i.i33
+  %add.ptr.i.i37 = getelementptr inbounds i8, ptr %17, i64 %vbase.offset.i.i33
   %vtable6.i.i38 = load ptr, ptr %add.ptr.i.i37, align 8, !tbaa !131
   %vfn.i.i39 = getelementptr inbounds ptr, ptr %vtable6.i.i38, i64 6
-  %19 = load ptr, ptr %vfn.i.i39, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i37) #25
+  %18 = load ptr, ptr %vfn.i.i39, align 8
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i37) #25
   br label %ehcleanup13
 
 ehcleanup13:                                      ; preds = %if.then5.i.i36, %cast.end.i.i30, %ehcleanup12
@@ -2173,45 +2171,44 @@ _ZNSt7promiseIvE8_M_stateEv.exit.i:               ; preds = %"_ZN5folly6detail14
   %_M_invoker.i.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp.i, i64 0, i32 1
   %40 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store i64 0, ptr %40, align 8
-  %41 = ptrtoint ptr %destroyPromise_ to i64
-  store i64 %41, ptr %agg.tmp.i, align 8, !tbaa !128
+  store ptr %destroyPromise_, ptr %agg.tmp.i, align 8, !tbaa !128
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEEvENS1_13_State_baseV27_SetterIvvEEE9_M_invokeERKSt9_Any_data, ptr %_M_invoker.i.i, align 8, !tbaa !218
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEEvENS1_13_State_baseV27_SetterIvvEEE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager.i.i.i, align 8, !tbaa !221
   invoke void @_ZNSt13__future_base13_State_baseV213_M_set_resultESt8functionIFSt10unique_ptrINS_12_Result_baseENS3_8_DeleterEEvEEb(ptr noundef nonnull align 8 dereferenceable(28) %39, ptr noundef nonnull %agg.tmp.i, i1 noundef zeroext false)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZNSt7promiseIvE8_M_stateEv.exit.i
-  %42 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !221
-  %tobool.not.i.i47 = icmp eq ptr %42, null
+  %41 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !221
+  %tobool.not.i.i47 = icmp eq ptr %41, null
   br i1 %tobool.not.i.i47, label %_ZNSt7promiseIvE9set_valueEv.exit, label %if.then.i.i48
 
 if.then.i.i48:                                    ; preds = %invoke.cont.i
-  %call.i.i = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
           to label %_ZNSt7promiseIvE9set_valueEv.exit unwind label %terminate.lpad.i.i49
 
 terminate.lpad.i.i49:                             ; preds = %if.then.i.i48
-  %43 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #24
+  %43 = extractvalue { ptr, i32 } %42, 0
+  call void @__clang_call_terminate(ptr %43) #24
   unreachable
 
 lpad.i:                                           ; preds = %_ZNSt7promiseIvE8_M_stateEv.exit.i
-  %45 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !221
-  %tobool.not.i5.i = icmp eq ptr %46, null
+  %45 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !221
+  %tobool.not.i5.i = icmp eq ptr %45, null
   br i1 %tobool.not.i5.i, label %catch, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %lpad.i
-  %call.i7.i = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
+  %call.i7.i = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
           to label %catch unwind label %terminate.lpad.i8.i
 
 terminate.lpad.i8.i:                              ; preds = %if.then.i6.i
-  %47 = landingpad { ptr, i32 }
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %48 = extractvalue { ptr, i32 } %47, 0
-  call void @__clang_call_terminate(ptr %48) #24
+  %47 = extractvalue { ptr, i32 } %46, 0
+  call void @__clang_call_terminate(ptr %47) #24
   unreachable
 
 _ZNSt7promiseIvE9set_valueEv.exit:                ; preds = %if.then.i.i48, %invoke.cont.i
@@ -2221,46 +2218,46 @@ _ZNSt7promiseIvE9set_valueEv.exit:                ; preds = %if.then.i.i48, %inv
 if.then.i51:                                      ; preds = %lpad14, %lpad5, %lpad2
   %.pn36.pn.pn = phi { ptr, i32 } [ %34, %lpad14 ], [ %33, %lpad5 ], [ %32, %lpad2 ]
   %evb_.i.i.i52 = getelementptr inbounds %"class.folly::VirtualEventBase", ptr %this, i64 0, i32 2
-  %49 = load i64, ptr %evb_.i.i.i52, align 8, !tbaa !166
-  %and.i.i.i.i.i53 = and i64 %49, -4
-  %50 = icmp eq i64 %and.i.i.i.i.i53, 0
-  br i1 %50, label %catch, label %cast.end.i.i.i.i54
+  %48 = load i64, ptr %evb_.i.i.i52, align 8, !tbaa !166
+  %and.i.i.i.i.i53 = and i64 %48, -4
+  %49 = icmp eq i64 %and.i.i.i.i.i53, 0
+  br i1 %49, label %catch, label %cast.end.i.i.i.i54
 
 cast.end.i.i.i.i54:                               ; preds = %if.then.i51
-  %51 = inttoptr i64 %and.i.i.i.i.i53 to ptr
-  %vtable.i.i.i.i55 = load ptr, ptr %51, align 16, !tbaa !131
+  %50 = inttoptr i64 %and.i.i.i.i.i53 to ptr
+  %vtable.i.i.i.i55 = load ptr, ptr %50, align 16, !tbaa !131
   %vbase.offset.ptr.i.i.i.i56 = getelementptr i8, ptr %vtable.i.i.i.i55, i64 -24
   %vbase.offset.i.i.i.i57 = load i64, ptr %vbase.offset.ptr.i.i.i.i56, align 8
   store i64 0, ptr %evb_.i.i.i52, align 8, !tbaa !166
-  %and.i.i.i.i58 = and i64 %49, 3
+  %and.i.i.i.i58 = and i64 %48, 3
   %tobool4.not.i.i.i.i59 = icmp eq i64 %and.i.i.i.i58, 0
   br i1 %tobool4.not.i.i.i.i59, label %if.then5.i.i.i.i60, label %catch
 
 if.then5.i.i.i.i60:                               ; preds = %cast.end.i.i.i.i54
-  %add.ptr.i.i.i.i61 = getelementptr inbounds i8, ptr %51, i64 %vbase.offset.i.i.i.i57
+  %add.ptr.i.i.i.i61 = getelementptr inbounds i8, ptr %50, i64 %vbase.offset.i.i.i.i57
   %vtable6.i.i.i.i62 = load ptr, ptr %add.ptr.i.i.i.i61, align 8, !tbaa !131
   %vfn.i.i.i.i63 = getelementptr inbounds ptr, ptr %vtable6.i.i.i.i62, i64 6
-  %52 = load ptr, ptr %vfn.i.i.i.i63, align 8
-  call void %52(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i.i61) #25
+  %51 = load ptr, ptr %vfn.i.i.i.i63, align 8
+  call void %51(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i.i61) #25
   br label %catch
 
 lpad31:                                           ; preds = %if.then.i.i.i
-  %53 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 catch:                                            ; preds = %lpad31, %if.then5.i.i.i.i60, %cast.end.i.i.i.i54, %if.then.i51, %if.then.i6.i, %lpad.i
-  %.pn36.pn.pn.pn = phi { ptr, i32 } [ %.pn36.pn.pn, %if.then.i51 ], [ %.pn36.pn.pn, %cast.end.i.i.i.i54 ], [ %.pn36.pn.pn, %if.then5.i.i.i.i60 ], [ %53, %lpad31 ], [ %45, %if.then.i6.i ], [ %45, %lpad.i ]
+  %.pn36.pn.pn.pn = phi { ptr, i32 } [ %.pn36.pn.pn, %if.then.i51 ], [ %.pn36.pn.pn, %cast.end.i.i.i.i54 ], [ %.pn36.pn.pn, %if.then5.i.i.i.i60 ], [ %52, %lpad31 ], [ %44, %if.then.i6.i ], [ %44, %lpad.i ]
   %exn.slot.4 = extractvalue { ptr, i32 } %.pn36.pn.pn.pn, 0
-  %54 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #25
+  %53 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #25
   %destroyPromise_33 = getelementptr inbounds %"class.folly::VirtualEventBase", ptr %this, i64 0, i32 5
   call void @_ZSt17current_exceptionv(ptr nonnull sret(%"class.std::__exception_ptr::exception_ptr") align 8 %agg.tmp) #25
   invoke void @_ZNSt7promiseIvE13set_exceptionENSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(24) %destroyPromise_33, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont34 unwind label %terminate.lpad
 
 invoke.cont34:                                    ; preds = %catch
-  %55 = load ptr, ptr %agg.tmp, align 8, !tbaa !174
-  %tobool.not.i65 = icmp eq ptr %55, null
+  %54 = load ptr, ptr %agg.tmp, align 8, !tbaa !174
+  %tobool.not.i65 = icmp eq ptr %54, null
   br i1 %tobool.not.i65, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %if.then.i66
 
 if.then.i66:                                      ; preds = %invoke.cont34
@@ -2275,10 +2272,10 @@ try.cont:                                         ; preds = %_ZNSt15__exception_
   ret void
 
 terminate.lpad:                                   ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %catch
-  %56 = landingpad { ptr, i32 }
+  %55 = landingpad { ptr, i32 }
           catch ptr null
-  %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #24
+  %56 = extractvalue { ptr, i32 } %55, 0
+  call void @__clang_call_terminate(ptr %56) #24
   unreachable
 }
 
@@ -3420,7 +3417,7 @@ entry:
   store i8 0, ptr %__did_set, align 1, !tbaa !238
   %_M_once = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %this, i64 0, i32 5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #25
-  store i64 ptrtoint (ptr @_ZNSt13__future_base13_State_baseV29_M_do_setEPSt8functionIFSt10unique_ptrINS_12_Result_baseENS3_8_DeleterEEvEEPb to i64), ptr %ref.tmp, align 8, !tbaa !158
+  store ptr @_ZNSt13__future_base13_State_baseV29_M_do_setEPSt8functionIFSt10unique_ptrINS_12_Result_baseENS3_8_DeleterEEvEEPb, ptr %ref.tmp, align 8, !tbaa !158
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !158
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2) #25
@@ -3596,9 +3593,8 @@ entry:
   %0 = load ptr, ptr %__functor, align 8, !tbaa !250, !noalias !252
   %_M_storage.i.i.i = getelementptr inbounds %"class.std::promise", ptr %0, i64 0, i32 1
   %1 = load i64, ptr %_M_storage.i.i.i, align 8, !tbaa !128, !noalias !252
-  %2 = inttoptr i64 %1 to ptr
   store ptr null, ptr %_M_storage.i.i.i, align 8, !tbaa !128, !noalias !252
-  store ptr %2, ptr %agg.result, align 8, !tbaa !146, !alias.scope !247
+  store i64 %1, ptr %agg.result, align 8, !tbaa !146, !alias.scope !247
   ret void
 }
 
@@ -3667,9 +3663,8 @@ _ZSt10__invoke_rISt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEE
   %6 = load ptr, ptr %__functor, align 8, !tbaa !267, !noalias !262
   %_M_storage4.i.i.i = getelementptr inbounds %"class.std::promise", ptr %6, i64 0, i32 1
   %7 = load i64, ptr %_M_storage4.i.i.i, align 8, !tbaa !128, !noalias !262
-  %8 = inttoptr i64 %7 to ptr
   store ptr null, ptr %_M_storage4.i.i.i, align 8, !tbaa !128, !noalias !262
-  store ptr %8, ptr %agg.result, align 8, !tbaa !146, !alias.scope !257
+  store i64 %7, ptr %agg.result, align 8, !tbaa !146, !alias.scope !257
   ret void
 }
 

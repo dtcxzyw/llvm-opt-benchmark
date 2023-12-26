@@ -6068,7 +6068,7 @@ if.then49:                                        ; preds = %if.end44
   br i1 %cmp28, label %if.end55.critedge, label %if.then.i31
 
 if.then.i31:                                      ; preds = %if.then49
-  store ptr %11, ptr %arrayidx.i, align 8
+  store i64 %10, ptr %arrayidx.i, align 8
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then.i31, %if.end44

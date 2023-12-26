@@ -412,8 +412,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit13: ; preds = %if.then14
 
 cleanup.thread:                                   ; preds = %if.end12, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit13
   %outBuffer.sroa.0.0 = phi ptr [ %call16, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit13 ], [ %cond, %if.end12 ]
-  %3 = ptrtoint ptr %outBuffer.sroa.0.0 to i64
-  store i64 %3, ptr %agg.result, align 8
+  store ptr %outBuffer.sroa.0.0, ptr %agg.result, align 8
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i15: ; preds = %invoke.cont

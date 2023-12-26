@@ -183,9 +183,8 @@ _ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit: ; preds = %entry
 _ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit7: ; preds = %entry, %_ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit
   %2 = tail call noundef nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE)
   %3 = load atomic i64, ptr %2 monotonic, align 8
-  %atomic-temp.0.i.i.i9.sink = inttoptr i64 %3 to ptr
   %4 = getelementptr inbounds %"struct.folly::AsyncStackRoot", ptr %this, i64 0, i32 1
-  store ptr %atomic-temp.0.i.i.i9.sink, ptr %4, align 8
+  store i64 %3, ptr %4, align 8
   %5 = ptrtoint ptr %this to i64
   store atomic i64 %5, ptr %2 release, align 8
   ret void

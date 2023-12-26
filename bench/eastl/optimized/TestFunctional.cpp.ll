@@ -638,7 +638,7 @@ if.else.i:                                        ; preds = %entry
   %call.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef %mul.i.i, i64 noundef 8, i64 noundef 0, ptr noundef null, i32 noundef 4194304, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memset.p0.i64(ptr align 8 %call.i.i.i, i8 0, i64 %add.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %call.i.i.i, i64 %conv3.i
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i, align 8
+  store i64 -1, ptr %arrayidx.i.i, align 8
   br label %_ZN5eastl9hashtableINS_12basic_stringIc15MallocAllocatorEES3_NS_9allocatorENS_8use_selfIS3_EENS_8equal_toIS3_EENS_11string_hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EEC2EmRKSA_RKSB_RKSC_RKS8_RKS6_RKS4_.exit
 
 _ZN5eastl9hashtableINS_12basic_stringIc15MallocAllocatorEES3_NS_9allocatorENS_8use_selfIS3_EENS_8equal_toIS3_EENS_11string_hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EEC2EmRKSA_RKSB_RKSC_RKS8_RKS6_RKS4_.exit: ; preds = %if.then.i, %if.else.i
@@ -680,7 +680,7 @@ if.then:                                          ; preds = %entry
   %call.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef %mul.i, i64 noundef 8, i64 noundef 0, ptr noundef null, i32 noundef 4194304, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memset.p0.i64(ptr align 8 %call.i.i, i8 0, i64 %add.i, i1 false)
   %arrayidx.i = getelementptr inbounds ptr, ptr %call.i.i, i64 %1
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i, align 8
+  store i64 -1, ptr %arrayidx.i, align 8
   %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable", ptr %this, i64 0, i32 2
   store ptr %call.i.i, ptr %mpBucketArray, align 8
   %3 = load i64, ptr %mnBucketCount2, align 8
@@ -931,7 +931,7 @@ if.end:                                           ; preds = %entry, %if.then
   %call.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef %mul.i, i64 noundef 8, i64 noundef 0, ptr noundef null, i32 noundef 4194304, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memset.p0.i64(ptr align 8 %call.i.i, i8 0, i64 %add.i, i1 false)
   %arrayidx.i = getelementptr inbounds ptr, ptr %call.i.i, i64 %nBucketCount.sink
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i, align 8
+  store i64 -1, ptr %arrayidx.i, align 8
   %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable", ptr %this, i64 0, i32 2
   store ptr %call.i.i, ptr %mpBucketArray, align 8
   %cmp8.not6 = icmp eq ptr %first, %last
@@ -1371,7 +1371,7 @@ if.else.i:                                        ; preds = %entry
   %call.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef %mul.i.i, i64 noundef 8, i64 noundef 0, ptr noundef null, i32 noundef 4194304, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memset.p0.i64(ptr align 8 %call.i.i.i, i8 0, i64 %add.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %call.i.i.i, i64 %conv3.i
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i.i, align 8
+  store i64 -1, ptr %arrayidx.i.i, align 8
   br label %_ZN5eastl9hashtableINS_12basic_stringIDs15MallocAllocatorEES3_NS_9allocatorENS_8use_selfIS3_EENS_8equal_toIS3_EENS_11string_hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EEC2EmRKSA_RKSB_RKSC_RKS8_RKS6_RKS4_.exit
 
 _ZN5eastl9hashtableINS_12basic_stringIDs15MallocAllocatorEES3_NS_9allocatorENS_8use_selfIS3_EENS_8equal_toIS3_EENS_11string_hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EEC2EmRKSA_RKSB_RKSC_RKS8_RKS6_RKS4_.exit: ; preds = %if.then.i, %if.else.i
@@ -1413,7 +1413,7 @@ if.then:                                          ; preds = %entry
   %call.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef %mul.i, i64 noundef 8, i64 noundef 0, ptr noundef null, i32 noundef 4194304, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memset.p0.i64(ptr align 8 %call.i.i, i8 0, i64 %add.i, i1 false)
   %arrayidx.i = getelementptr inbounds ptr, ptr %call.i.i, i64 %1
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i, align 8
+  store i64 -1, ptr %arrayidx.i, align 8
   %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this, i64 0, i32 2
   store ptr %call.i.i, ptr %mpBucketArray, align 8
   %3 = load i64, ptr %mnBucketCount2, align 8
@@ -1665,7 +1665,7 @@ if.end:                                           ; preds = %entry, %if.then
   %call.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef %mul.i, i64 noundef 8, i64 noundef 0, ptr noundef null, i32 noundef 4194304, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memset.p0.i64(ptr align 8 %call.i.i, i8 0, i64 %add.i, i1 false)
   %arrayidx.i = getelementptr inbounds ptr, ptr %call.i.i, i64 %nBucketCount.sink
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i, align 8
+  store i64 -1, ptr %arrayidx.i, align 8
   %mpBucketArray = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this, i64 0, i32 2
   store ptr %call.i.i, ptr %mpBucketArray, align 8
   %cmp8.not6 = icmp eq ptr %first, %last
@@ -4199,7 +4199,7 @@ terminate.lpad.i.i.i1189:                         ; preds = %if.then.i.i.i1187
   unreachable
 
 _ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit.i: ; preds = %invoke.cont836, %if.then.i.i.i1187
-  store i64 ptrtoint (ptr @_ZZ14TestFunctionalvENK11TestVoidRet4IncXEv to i64), ptr %ff839, align 8
+  store ptr @_ZZ14TestFunctionalvENK11TestVoidRet4IncXEv, ptr %ff839, align 8
   %call.repack3.i.i.i.i = getelementptr inbounds { i64, i64 }, ptr %ff839, i64 0, i32 1
   store i64 0, ptr %call.repack3.i.i.i.i, align 8
   %mInvokeFuncPtr.i.i1191 = getelementptr inbounds %"class.eastl::internal::function_detail.83", ptr %ff839, i64 0, i32 2
@@ -4226,7 +4226,7 @@ terminate.lpad.i.i.i1198:                         ; preds = %if.then.i.i.i1196
   unreachable
 
 _ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit.i2417: ; preds = %invoke.cont845, %if.then.i.i.i1196
-  store i64 ptrtoint (ptr @_ZZ14TestFunctionalvENK11TestVoidRet4IncXEv to i64), ptr %ff848, align 8
+  store ptr @_ZZ14TestFunctionalvENK11TestVoidRet4IncXEv, ptr %ff848, align 8
   %call.repack3.i.i.i.i1199 = getelementptr inbounds { i64, i64 }, ptr %ff848, i64 0, i32 1
   store i64 0, ptr %call.repack3.i.i.i.i1199, align 8
   %mInvokeFuncPtr.i.i1200 = getelementptr inbounds %"class.eastl::internal::function_detail.83", ptr %ff848, i64 0, i32 2
@@ -4253,7 +4253,7 @@ terminate.lpad.i.i.i1208:                         ; preds = %if.then.i.i.i1206
   unreachable
 
 _ZN5eastl6invokeIRMZ14TestFunctionalvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.exit.i: ; preds = %invoke.cont854, %if.then.i.i.i1206
-  store i64 ptrtoint (ptr @_ZZ14TestFunctionalvEN11TestVoidRet4IncXEv to i64), ptr %ff857, align 8
+  store ptr @_ZZ14TestFunctionalvEN11TestVoidRet4IncXEv, ptr %ff857, align 8
   %call.repack3.i.i.i.i1210 = getelementptr inbounds { i64, i64 }, ptr %ff857, i64 0, i32 1
   store i64 0, ptr %call.repack3.i.i.i.i1210, align 8
   %mInvokeFuncPtr.i.i1211 = getelementptr inbounds %"class.eastl::internal::function_detail.85", ptr %ff857, i64 0, i32 2
@@ -6883,7 +6883,7 @@ entry:
   %call.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef %mul.i, i64 noundef 8, i64 noundef 0, ptr noundef null, i32 noundef 4194304, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memset.p0.i64(ptr align 8 %call.i.i, i8 0, i64 %add.i, i1 false)
   %arrayidx.i = getelementptr inbounds ptr, ptr %call.i.i, i64 %nNewBucketCount
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i, align 8
+  store i64 -1, ptr %arrayidx.i, align 8
   %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable", ptr %this, i64 0, i32 3
   %0 = load i64, ptr %mnBucketCount, align 8
   %cmp16.not = icmp eq i64 %0, 0
@@ -7354,7 +7354,7 @@ entry:
   %call.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef %mul.i, i64 noundef 8, i64 noundef 0, ptr noundef null, i32 noundef 4194304, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memset.p0.i64(ptr align 8 %call.i.i, i8 0, i64 %add.i, i1 false)
   %arrayidx.i = getelementptr inbounds ptr, ptr %call.i.i, i64 %nNewBucketCount
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i, align 8
+  store i64 -1, ptr %arrayidx.i, align 8
   %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.5", ptr %this, i64 0, i32 3
   %0 = load i64, ptr %mnBucketCount, align 8
   %cmp16.not = icmp eq i64 %0, 0
@@ -7714,7 +7714,7 @@ entry:
   %call.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef %mul.i, i64 noundef 8, i64 noundef 0, ptr noundef null, i32 noundef 4194304, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memset.p0.i64(ptr align 8 %call.i.i, i8 0, i64 %add.i, i1 false)
   %arrayidx.i = getelementptr inbounds ptr, ptr %call.i.i, i64 %nNewBucketCount
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i, align 8
+  store i64 -1, ptr %arrayidx.i, align 8
   %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.15", ptr %this, i64 0, i32 3
   %0 = load i64, ptr %mnBucketCount, align 8
   %cmp16.not = icmp eq i64 %0, 0

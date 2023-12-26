@@ -1789,7 +1789,7 @@ if.then.i13:                                      ; preds = %config_set_argv.exi
 
 config_set_wide_string_list.exit:                 ; preds = %config_set_argv.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i10)
-  store i64 ptrtoint (ptr @.str.139 to i64), ptr %warnoptions, align 8
+  store ptr @.str.139, ptr %warnoptions, align 8
   %warnoptions12 = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i14)
   call void @PyConfig_SetWideStringList(ptr nonnull sret(%struct.PyStatus) align 8 %status.i14, ptr noundef nonnull %config, ptr noundef nonnull %warnoptions12, i64 noundef 1, ptr noundef nonnull %warnoptions) #16
@@ -3860,7 +3860,7 @@ entry:
   %test = alloca %struct.AuditRunCommandTest, align 8
   %argv = alloca [1 x ptr], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %test, ptr noundef nonnull align 8 dereferenceable(16) @__const.test_audit_run_interactivehook.test, i64 16, i1 false)
-  store i64 ptrtoint (ptr @.str.64 to i64), ptr %argv, align 8
+  store ptr @.str.64, ptr %argv, align 8
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %config.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config.i) #16
@@ -3905,7 +3905,7 @@ entry:
   %test = alloca %struct.AuditRunCommandTest, align 8
   %argv = alloca [1 x ptr], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %test, ptr noundef nonnull align 8 dereferenceable(16) @__const.test_audit_run_startup.test, i64 16, i1 false)
-  store i64 ptrtoint (ptr @.str.64 to i64), ptr %argv, align 8
+  store ptr @.str.64, ptr %argv, align 8
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %config.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config.i) #16
@@ -3950,7 +3950,7 @@ entry:
   %test = alloca %struct.AuditRunCommandTest, align 8
   %argv = alloca [1 x ptr], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %test, ptr noundef nonnull align 8 dereferenceable(16) @__const.test_audit_run_stdin.test, i64 16, i1 false)
-  store i64 ptrtoint (ptr @.str.64 to i64), ptr %argv, align 8
+  store ptr @.str.64, ptr %argv, align 8
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %config.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config.i) #16

@@ -6644,19 +6644,18 @@ entry:
   %u = getelementptr inbounds %"class.polymorphism::inst", ptr %this, i64 0, i32 2
   store ptr %m, ptr %u, align 8
   %m_trail.i = getelementptr inbounds %"class.polymorphism::inst", ptr %this, i64 0, i32 2, i32 1
-  %0 = ptrtoint ptr %m to i64
-  store i64 %0, ptr %m_trail.i, align 8
+  store ptr %m, ptr %m_trail.i, align 8
   %m_nodes.i.i.i = getelementptr inbounds %"class.polymorphism::inst", ptr %this, i64 0, i32 2, i32 1, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i.i, align 8
   %call.i.i.i.i2.i = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 128)
           to label %invoke.cont unwind label %lpad.i
 
 common.resume:                                    ; preds = %ehcleanup19, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i ], [ %.pn.pn.pn.pn.pn, %ehcleanup19 ]
+  %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %.pn.pn.pn.pn.pn, %ehcleanup19 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN10ref_vectorI4sort11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_trail.i) #15
   br label %common.resume
@@ -6674,7 +6673,7 @@ invoke.cont:                                      ; preds = %entry
   %m_counter.i = getelementptr inbounds %"class.polymorphism::inst", ptr %this, i64 0, i32 2, i32 3
   store i32 0, ptr %m_counter.i, align 8
   %m_poly_roots = getelementptr inbounds %"class.polymorphism::inst", ptr %this, i64 0, i32 3
-  store i64 %0, ptr %m_poly_roots, align 8
+  store ptr %m, ptr %m_poly_roots, align 8
   %m_nodes.i.i = getelementptr inbounds %"class.polymorphism::inst", ptr %this, i64 0, i32 3, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i, align 8
   %m_occurs = getelementptr inbounds %"class.polymorphism::inst", ptr %this, i64 0, i32 4
@@ -6704,7 +6703,7 @@ invoke.cont13:                                    ; preds = %invoke.cont5
   %m_num_deleted.i.i14 = getelementptr inbounds %"class.polymorphism::inst", ptr %this, i64 0, i32 5, i32 0, i32 3
   store i32 0, ptr %m_num_deleted.i.i14, align 8
   %m_decl_queue = getelementptr inbounds %"class.polymorphism::inst", ptr %this, i64 0, i32 6
-  store i64 %0, ptr %m_decl_queue, align 8
+  store ptr %m, ptr %m_decl_queue, align 8
   %m_nodes.i.i16 = getelementptr inbounds %"class.polymorphism::inst", ptr %this, i64 0, i32 6, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i16, align 8
   %m_decl_qhead = getelementptr inbounds %"class.polymorphism::inst", ptr %this, i64 0, i32 7
@@ -6716,7 +6715,7 @@ invoke.cont13:                                    ; preds = %invoke.cont5
   %m_marks.i1.i = getelementptr inbounds %"class.polymorphism::inst", ptr %this, i64 0, i32 8, i32 2, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_marks.i1.i, i8 0, i64 16, i1 false)
   %m_assertions = getelementptr inbounds %"class.polymorphism::inst", ptr %this, i64 0, i32 9
-  store i64 %0, ptr %m_assertions, align 8
+  store ptr %m, ptr %m_assertions, align 8
   %m_nodes.i.i17 = getelementptr inbounds %"class.polymorphism::inst", ptr %this, i64 0, i32 9, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i17, align 8
   %m_assertions_qhead = getelementptr inbounds %"class.polymorphism::inst", ptr %this, i64 0, i32 10
@@ -6737,17 +6736,17 @@ invoke.cont15:                                    ; preds = %invoke.cont13
   ret void
 
 lpad4:                                            ; preds = %invoke.cont
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup19
 
 lpad6:                                            ; preds = %invoke.cont5
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup18
 
 lpad14:                                           ; preds = %invoke.cont13
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_assertions) #15
   tail call void @_ZN8ast_markD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_in_decl_queue) #15
@@ -6756,12 +6755,12 @@ lpad14:                                           ; preds = %invoke.cont13
   br label %ehcleanup18
 
 ehcleanup18:                                      ; preds = %lpad14, %lpad6
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %4, %lpad14 ], [ %3, %lpad6 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %3, %lpad14 ], [ %2, %lpad6 ]
   tail call void @_ZN7obj_mapI9func_decl10ptr_vectorI4exprEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_occurs) #15
   br label %ehcleanup19
 
 ehcleanup19:                                      ; preds = %ehcleanup18, %lpad4
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup18 ], [ %2, %lpad4 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup18 ], [ %1, %lpad4 ]
   tail call void @_ZN10ref_vectorI9func_decl11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_poly_roots) #15
   tail call void @_ZN12polymorphism4utilD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %u) #15
   br label %common.resume
@@ -7650,7 +7649,7 @@ if.then:                                          ; preds = %_ZNK15ref_vector_co
   %call4 = tail call i32 @_ZN3smt6theory10mk_literalEP4expr(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef %7)
   %xor.i = xor i32 %call4, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  store ptr inttoptr (i64 2 to ptr), ptr %ref.tmp.i, align 8
+  store i64 2, ptr %ref.tmp.i, align 8
   %m_assignment.i.i.i.i = getelementptr inbounds %"class.smt::context", ptr %6, i64 0, i32 50
   %8 = load ptr, ptr %m_assignment.i.i.i.i, align 8
   %idxprom.i.i.i.i.i = zext i32 %xor.i to i64

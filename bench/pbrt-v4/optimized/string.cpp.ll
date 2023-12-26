@@ -2085,7 +2085,7 @@ if.end:                                           ; preds = %if.then, %entry
   %_M_state3 = getelementptr inbounds %"class.std::__cxx11::wstring_convert", ptr %this, i64 0, i32 3
   %_M_count = getelementptr inbounds %"class.std::__cxx11::wstring_convert", ptr %this, i64 0, i32 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %indirect-arg-temp.i)
-  store i64 ptrtoint (ptr @_ZNKSt23__codecvt_abstract_baseIDsc11__mbstate_tE3outERS0_PKDsS4_RS4_PcS6_RS6_ to i64), ptr %indirect-arg-temp.i, align 8
+  store ptr @_ZNKSt23__codecvt_abstract_baseIDsc11__mbstate_tE3outERS0_PKDsS4_RS4_PcS6_RS6_, ptr %indirect-arg-temp.i, align 8
   %.fca.1.gep.i = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp.i, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep.i, align 8
   %call.i1 = invoke noundef zeroext i1 @_ZSt16__do_str_codecvtINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDsSt7codecvtIDsc11__mbstate_tES7_MS8_KFNSt12codecvt_base6resultERS7_PKDsSD_RSD_PcSF_RSF_EEbPKT0_SL_RT_RKT1_RT2_RmT3_(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 8 dereferenceable(32) %__out, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(8) %_M_state3, ptr noundef nonnull align 8 dereferenceable(8) %_M_count, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp.i)
@@ -3326,7 +3326,7 @@ if.end:                                           ; preds = %if.then, %entry
   %_M_state3 = getelementptr inbounds %"class.std::__cxx11::wstring_convert", ptr %this, i64 0, i32 3
   %_M_count = getelementptr inbounds %"class.std::__cxx11::wstring_convert", ptr %this, i64 0, i32 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %indirect-arg-temp.i)
-  store i64 ptrtoint (ptr @_ZNKSt23__codecvt_abstract_baseIDsc11__mbstate_tE2inERS0_PKcS4_RS4_PDsS6_RS6_ to i64), ptr %indirect-arg-temp.i, align 8
+  store ptr @_ZNKSt23__codecvt_abstract_baseIDsc11__mbstate_tE2inERS0_PKcS4_RS4_PDsS6_RS6_, ptr %indirect-arg-temp.i, align 8
   %.fca.1.gep.i = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp.i, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep.i, align 8
   %call.i1 = invoke noundef zeroext i1 @_ZSt16__do_str_codecvtINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEcSt7codecvtIDsc11__mbstate_tES7_MS8_KFNSt12codecvt_base6resultERS7_PKcSD_RSD_PDsSF_RSF_EEbPKT0_SL_RT_RKT1_RT2_RmT3_(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 8 dereferenceable(32) %__out, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(8) %_M_state3, ptr noundef nonnull align 8 dereferenceable(8) %_M_count, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp.i)

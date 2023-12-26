@@ -131,7 +131,7 @@ entry:
 
 for.body.i.i.i:                                   ; preds = %entry, %for.body.i.i.i
   %B.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %call.i.i.i, %entry ]
-  store ptr inttoptr (i64 -4 to ptr), ptr %B.04.i.i.i, align 8
+  store i64 -4, ptr %B.04.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i.i, i64 1
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i.i
   br i1 %cmp.not.i.i.i, label %for.body.preheader, label %for.body.i.i.i, !llvm.loop !7
@@ -1255,7 +1255,7 @@ if.then:                                          ; preds = %_ZN4llvh8DenseMapIP
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %B.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %call.i, %if.then ]
-  store ptr inttoptr (i64 -4 to ptr), ptr %B.04.i, align 8
+  store i64 -4, ptr %B.04.i, align 8
   %incdec.ptr.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !7
@@ -1275,7 +1275,7 @@ if.end:                                           ; preds = %_ZN4llvh8DenseMapIP
 
 for.body.i.i:                                     ; preds = %if.end, %for.body.i.i
   %B.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i, %if.end ]
-  store ptr inttoptr (i64 -4 to ptr), ptr %B.04.i.i, align 8
+  store i64 -4, ptr %B.04.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i, i64 1
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKvPKcNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !7

@@ -391,25 +391,24 @@ if.end:                                           ; preds = %if.then, %entry
   %edata.val15 = load ptr, ptr %4, align 8
   %5 = ptrtoint ptr %edata.val15 to i64
   %and.i = and i64 %5, -4096
-  %6 = inttoptr i64 %and.i to ptr
-  store ptr %6, ptr %4, align 8
+  store i64 %and.i, ptr %4, align 8
   %and.i17 = and i64 %3, -267386881
   %or.i = or disjoint i64 %and.i17, 246415360
   store i64 %or.i, ptr %edata, align 8
-  %7 = getelementptr i8, ptr %edata, i64 16
-  %edata.val16 = load i64, ptr %7, align 8
+  %6 = getelementptr i8, ptr %edata, i64 16
+  %edata.val16 = load i64, ptr %6, align 8
   %shr = lshr i64 %edata.val16, 12
   %nactive.i = getelementptr inbounds %struct.pa_shard_s, ptr %shard, i64 0, i32 1
-  %8 = atomicrmw sub ptr %nactive.i, i64 %shr monotonic, align 8
+  %7 = atomicrmw sub ptr %nactive.i, i64 %shr monotonic, align 8
   %edata.val = load i64, ptr %edata, align 8
-  %9 = and i64 %edata.val, 16384
-  %cmp.i = icmp eq i64 %9, 0
+  %8 = and i64 %edata.val, 16384
+  %cmp.i = icmp eq i64 %8, 0
   %pac.i = getelementptr inbounds %struct.pa_shard_s, ptr %shard, i64 0, i32 4
   %hpa_sec.i = getelementptr inbounds %struct.pa_shard_s, ptr %shard, i64 0, i32 5
   %cond.i = select i1 %cmp.i, ptr %pac.i, ptr %hpa_sec.i
   %dalloc.i = getelementptr inbounds %struct.pai_s, ptr %cond.i, i64 0, i32 4
-  %10 = load ptr, ptr %dalloc.i, align 8
-  tail call void %10(ptr noundef %tsdn, ptr noundef nonnull %cond.i, ptr noundef nonnull %edata, ptr noundef %deferred_work_generated) #4
+  %9 = load ptr, ptr %dalloc.i, align 8
+  tail call void %9(ptr noundef %tsdn, ptr noundef nonnull %cond.i, ptr noundef nonnull %edata, ptr noundef %deferred_work_generated) #4
   ret void
 }
 

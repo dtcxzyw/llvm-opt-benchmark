@@ -1449,7 +1449,7 @@ invoke.cont:                                      ; preds = %if.then.i, %entry
   %pollent_ = getelementptr inbounds %"class.grpc_core::SubchannelStreamClient::CallState", ptr %this, i64 0, i32 2
   store ptr %pollent_, ptr %pollent, align 8
   %path = getelementptr inbounds %"struct.grpc_core::SubchannelCall::Args", ptr %args, i64 0, i32 2
-  store ptr inttoptr (i64 1 to ptr), ptr %path, align 16, !alias.scope !13
+  store i64 1, ptr %path, align 16, !alias.scope !13
   %slice.sroa.2.0.agg.result.sroa_idx.i.i = getelementptr inbounds %"struct.grpc_core::SubchannelCall::Args", ptr %args, i64 0, i32 2, i32 0, i32 0, i32 1
   store i64 28, ptr %slice.sroa.2.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !13
   %slice.sroa.3.0.agg.result.sroa_idx.i.i = getelementptr inbounds %"struct.grpc_core::SubchannelCall::Args", ptr %args, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1

@@ -360,7 +360,7 @@ call.i3.noexc:                                    ; preds = %if.then
   %_M_func.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i34, i64 0, i32 1
   store ptr %this, ptr %_M_func.i.i, align 8
   %2 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i34, i64 0, i32 1, i32 0, i32 0, i32 1
-  store i64 ptrtoint (ptr @_ZN7rocksdb15DeleteScheduler20BackgroundEmptyTrashEv to i64), ptr %2, align 8
+  store ptr @_ZN7rocksdb15DeleteScheduler20BackgroundEmptyTrashEv, ptr %2, align 8
   %this.repack3.i.i.i.i.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i34, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
   store i64 0, ptr %this.repack3.i.i.i.i.i.i, align 8
   store ptr %call.i34, ptr %agg.tmp.i, align 8

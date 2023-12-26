@@ -413,108 +413,107 @@ if.else.i:                                        ; preds = %if.end
   %_M_invoker.i.i.i = getelementptr inbounds %"class.std::function.35", ptr %agg.tmp.i.i, i64 0, i32 1
   %9 = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
   store i64 0, ptr %9, align 8
-  %10 = ptrtoint ptr %agg.tmp.i to i64
-  store i64 %10, ptr %agg.tmp.i.i, align 8
+  store ptr %agg.tmp.i, ptr %agg.tmp.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvllEZN4pbrt11ParallelForEllSt8functionIFvlEEEUlllE_E9_M_invokeERKSt9_Any_dataOlSA_, ptr %_M_invoker.i.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvllEZN4pbrt11ParallelForEllSt8functionIFvlEEEUlllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %_M_manager.i.i.i.i, align 8
   invoke void @_ZN4pbrt11ParallelForEllSt8functionIFvllEE(i64 noundef 0, i64 noundef %conv.i, ptr noundef nonnull %agg.tmp.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.else.i
-  %11 = load ptr, ptr %_M_manager.i.i.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %_M_manager.i.i.i.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i, label %invoke.cont.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
-  %call.i.i.i.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, i32 noundef 3)
+  %call.i.i.i.i = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, i32 noundef 3)
           to label %invoke.cont.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #19
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #19
   unreachable
 
 lpad.i.i:                                         ; preds = %if.else.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %15 = load ptr, ptr %_M_manager.i.i.i.i, align 8
-  %tobool.not.i.i3.i.i = icmp eq ptr %15, null
+  %14 = load ptr, ptr %_M_manager.i.i.i.i, align 8
+  %tobool.not.i.i3.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i3.i.i, label %lpad.body.i, label %if.then.i.i4.i.i
 
 if.then.i.i4.i.i:                                 ; preds = %lpad.i.i
-  %call.i.i5.i.i = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, i32 noundef 3)
+  %call.i.i5.i.i = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, i32 noundef 3)
           to label %lpad.body.i unwind label %terminate.lpad.i.i6.i.i
 
 terminate.lpad.i.i6.i.i:                          ; preds = %if.then.i.i4.i.i
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #19
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #19
   unreachable
 
 invoke.cont.i:                                    ; preds = %if.then.i.i.i.i, %invoke.cont.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
-  %18 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %18, null
+  %17 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i, label %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_0NS_28GetBSSRDFAndProbeRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  %call.i.i.i = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
           to label %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_0NS_28GetBSSRDFAndProbeRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit" unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #19
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #19
   unreachable
 
 lpad.body.i:                                      ; preds = %if.then.i.i4.i.i, %lpad.i.i
-  %21 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i3.i = icmp eq ptr %21, null
+  %20 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %tobool.not.i.i3.i = icmp eq ptr %20, null
   br i1 %tobool.not.i.i3.i, label %common.resume, label %if.then.i.i4.i
 
 if.then.i.i4.i:                                   ; preds = %lpad.body.i
-  %call.i.i5.i = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
+  %call.i.i5.i = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i6.i
 
 terminate.lpad.i.i6.i:                            ; preds = %if.then.i.i4.i
-  %22 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #19
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #19
   unreachable
 
 common.resume:                                    ; preds = %lpad.body.i21, %if.then.i.i4.i23, %lpad.body.i, %if.then.i.i4.i
-  %common.resume.op = phi { ptr, i32 } [ %14, %if.then.i.i4.i ], [ %14, %lpad.body.i ], [ %39, %if.then.i.i4.i23 ], [ %39, %lpad.body.i21 ]
+  %common.resume.op = phi { ptr, i32 } [ %13, %if.then.i.i4.i ], [ %13, %lpad.body.i ], [ %37, %if.then.i.i4.i23 ], [ %37, %lpad.body.i21 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_0NS_28GetBSSRDFAndProbeRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit": ; preds = %invoke.cont.i, %if.then.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %q.addr.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   %aggregate = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %this, i64 0, i32 20
-  %24 = load ptr, ptr %aggregate, align 8
-  %25 = load i32, ptr %maxQueueSize, align 8
+  %23 = load ptr, ptr %aggregate, align 8
+  %24 = load i32, ptr %maxQueueSize, align 8
   %subsurfaceScatterQueue = getelementptr inbounds %"class.pbrt::WavefrontPathIntegrator", ptr %this, i64 0, i32 29
-  %26 = load ptr, ptr %subsurfaceScatterQueue, align 8
-  %vtable = load ptr, ptr %24, align 8
+  %25 = load ptr, ptr %subsurfaceScatterQueue, align 8
+  %vtable = load ptr, ptr %23, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
-  %27 = load ptr, ptr %vfn, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(8) %24, i32 noundef %25, ptr noundef %26)
-  %28 = load ptr, ptr %subsurfaceScatterQueue, align 8
+  %26 = load ptr, ptr %vfn, align 8
+  call void %26(ptr noundef nonnull align 8 dereferenceable(8) %23, i32 noundef %24, ptr noundef %25)
+  %27 = load ptr, ptr %subsurfaceScatterQueue, align 8
   store ptr %this, ptr %ref.tmp5, align 8
-  %29 = getelementptr inbounds %class.anon.25, ptr %ref.tmp5, i64 0, i32 1
-  store ptr %3, ptr %29, align 8
+  %28 = getelementptr inbounds %class.anon.25, ptr %ref.tmp5, i64 0, i32 1
+  store ptr %3, ptr %28, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %q.addr.i3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i4)
-  store ptr %28, ptr %q.addr.i3, align 8
-  %30 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %useGPU.i5 = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %30, i64 0, i32 7
-  %31 = load i8, ptr %useGPU.i5, align 2
-  %32 = and i8 %31, 1
-  %tobool.not.i6 = icmp eq i8 %32, 0
+  store ptr %27, ptr %q.addr.i3, align 8
+  %29 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
+  %useGPU.i5 = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %29, i64 0, i32 7
+  %30 = load i8, ptr %useGPU.i5, align 2
+  %31 = and i8 %30, 1
+  %tobool.not.i6 = icmp eq i8 %31, 0
   br i1 %tobool.not.i6, label %if.else.i8, label %if.then.i7
 
 if.then.i7:                                       ; preds = %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_0NS_28GetBSSRDFAndProbeRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit"
@@ -522,9 +521,9 @@ if.then.i7:                                       ; preds = %"_ZN4pbrt12ForAllQu
   unreachable
 
 if.else.i8:                                       ; preds = %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_0NS_28GetBSSRDFAndProbeRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit"
-  %size.i.i9 = getelementptr inbounds %"class.pbrt::WorkQueue.18", ptr %28, i64 0, i32 1
-  %33 = load atomic i32, ptr %size.i.i9 monotonic, align 4
-  %conv.i10 = sext i32 %33 to i64
+  %size.i.i9 = getelementptr inbounds %"class.pbrt::WorkQueue.18", ptr %27, i64 0, i32 1
+  %32 = load atomic i32, ptr %size.i.i9 monotonic, align 4
+  %conv.i10 = sext i32 %32 to i64
   %_M_manager.i.i.i11 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp.i4, i64 0, i32 1
   %_M_invoker.i.i12 = getelementptr inbounds %"class.std::function", ptr %agg.tmp.i4, i64 0, i32 1
   store ptr %ref.tmp5, ptr %agg.tmp.i4, align 8
@@ -535,80 +534,79 @@ if.else.i8:                                       ; preds = %"_ZN4pbrt12ForAllQu
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i2)
   %_M_manager.i.i.i.i14 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp.i.i2, i64 0, i32 1
   %_M_invoker.i.i.i15 = getelementptr inbounds %"class.std::function.35", ptr %agg.tmp.i.i2, i64 0, i32 1
-  %34 = getelementptr inbounds i8, ptr %agg.tmp.i.i2, i64 8
-  store i64 0, ptr %34, align 8
-  %35 = ptrtoint ptr %agg.tmp.i4 to i64
-  store i64 %35, ptr %agg.tmp.i.i2, align 8
+  %33 = getelementptr inbounds i8, ptr %agg.tmp.i.i2, i64 8
+  store i64 0, ptr %33, align 8
+  store ptr %agg.tmp.i4, ptr %agg.tmp.i.i2, align 8
   store ptr @_ZNSt17_Function_handlerIFvllEZN4pbrt11ParallelForEllSt8functionIFvlEEEUlllE_E9_M_invokeERKSt9_Any_dataOlSA_, ptr %_M_invoker.i.i.i15, align 8
   store ptr @_ZNSt17_Function_handlerIFvllEZN4pbrt11ParallelForEllSt8functionIFvlEEEUlllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %_M_manager.i.i.i.i14, align 8
   invoke void @_ZN4pbrt11ParallelForEllSt8functionIFvllEE(i64 noundef 0, i64 noundef %conv.i10, ptr noundef nonnull %agg.tmp.i.i2)
           to label %invoke.cont.i.i27 unwind label %lpad.i.i16
 
 invoke.cont.i.i27:                                ; preds = %if.else.i8
-  %36 = load ptr, ptr %_M_manager.i.i.i.i14, align 8
-  %tobool.not.i.i.i.i28 = icmp eq ptr %36, null
+  %34 = load ptr, ptr %_M_manager.i.i.i.i14, align 8
+  %tobool.not.i.i.i.i28 = icmp eq ptr %34, null
   br i1 %tobool.not.i.i.i.i28, label %invoke.cont.i32, label %if.then.i.i.i.i29
 
 if.then.i.i.i.i29:                                ; preds = %invoke.cont.i.i27
-  %call.i.i.i.i30 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i2, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i2, i32 noundef 3)
+  %call.i.i.i.i30 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i2, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i2, i32 noundef 3)
           to label %invoke.cont.i32 unwind label %terminate.lpad.i.i.i.i31
 
 terminate.lpad.i.i.i.i31:                         ; preds = %if.then.i.i.i.i29
-  %37 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #19
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #19
   unreachable
 
 lpad.i.i16:                                       ; preds = %if.else.i8
-  %39 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %40 = load ptr, ptr %_M_manager.i.i.i.i14, align 8
-  %tobool.not.i.i3.i.i17 = icmp eq ptr %40, null
+  %38 = load ptr, ptr %_M_manager.i.i.i.i14, align 8
+  %tobool.not.i.i3.i.i17 = icmp eq ptr %38, null
   br i1 %tobool.not.i.i3.i.i17, label %lpad.body.i21, label %if.then.i.i4.i.i18
 
 if.then.i.i4.i.i18:                               ; preds = %lpad.i.i16
-  %call.i.i5.i.i19 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i2, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i2, i32 noundef 3)
+  %call.i.i5.i.i19 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i2, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i2, i32 noundef 3)
           to label %lpad.body.i21 unwind label %terminate.lpad.i.i6.i.i20
 
 terminate.lpad.i.i6.i.i20:                        ; preds = %if.then.i.i4.i.i18
-  %41 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           catch ptr null
-  %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #19
+  %40 = extractvalue { ptr, i32 } %39, 0
+  call void @__clang_call_terminate(ptr %40) #19
   unreachable
 
 invoke.cont.i32:                                  ; preds = %if.then.i.i.i.i29, %invoke.cont.i.i27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i2)
-  %43 = load ptr, ptr %_M_manager.i.i.i11, align 8
-  %tobool.not.i.i.i33 = icmp eq ptr %43, null
+  %41 = load ptr, ptr %_M_manager.i.i.i11, align 8
+  %tobool.not.i.i.i33 = icmp eq ptr %41, null
   br i1 %tobool.not.i.i.i33, label %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS_25SubsurfaceScatterWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit", label %if.then.i.i.i34
 
 if.then.i.i.i34:                                  ; preds = %invoke.cont.i32
-  %call.i.i.i35 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i4, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i4, i32 noundef 3)
+  %call.i.i.i35 = invoke noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i4, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i4, i32 noundef 3)
           to label %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS_25SubsurfaceScatterWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit" unwind label %terminate.lpad.i.i.i36
 
 terminate.lpad.i.i.i36:                           ; preds = %if.then.i.i.i34
-  %44 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #19
+  %43 = extractvalue { ptr, i32 } %42, 0
+  call void @__clang_call_terminate(ptr %43) #19
   unreachable
 
 lpad.body.i21:                                    ; preds = %if.then.i.i4.i.i18, %lpad.i.i16
-  %46 = load ptr, ptr %_M_manager.i.i.i11, align 8
-  %tobool.not.i.i3.i22 = icmp eq ptr %46, null
+  %44 = load ptr, ptr %_M_manager.i.i.i11, align 8
+  %tobool.not.i.i3.i22 = icmp eq ptr %44, null
   br i1 %tobool.not.i.i3.i22, label %common.resume, label %if.then.i.i4.i23
 
 if.then.i.i4.i23:                                 ; preds = %lpad.body.i21
-  %call.i.i5.i24 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i4, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i4, i32 noundef 3)
+  %call.i.i5.i24 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i4, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i4, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i6.i25
 
 terminate.lpad.i.i6.i25:                          ; preds = %if.then.i.i4.i23
-  %47 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           catch ptr null
-  %48 = extractvalue { ptr, i32 } %47, 0
-  call void @__clang_call_terminate(ptr %48) #19
+  %46 = extractvalue { ptr, i32 } %45, 0
+  call void @__clang_call_terminate(ptr %46) #19
   unreachable
 
 "_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS_25SubsurfaceScatterWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit": ; preds = %invoke.cont.i32, %if.then.i.i.i34

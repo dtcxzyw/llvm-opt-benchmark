@@ -153,7 +153,6 @@ entry:
 
 _ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %entry
   %ref.tmp.sroa.0.0.insert.ext = zext i32 %priority to i64
-  %1 = inttoptr i64 %ref.tmp.sroa.0.0.insert.ext to ptr
   %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i19.i.i.i.i3.i, i64 0, i32 1
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !22, !noalias !17
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i19.i.i.i.i3.i, i64 0, i32 2
@@ -164,7 +163,7 @@ _ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
   store ptr @"_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZNS_21PriorityThreadFactoryC1ESt10shared_ptrINS_13ThreadFactoryEEiE3$_0EEvRNS1_4DataE", ptr %call_.i.i.i.i.i.i.i.i.i.i, align 16, !tbaa !26, !noalias !17
   %exec_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i19.i.i.i.i3.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 56
   store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %exec_.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !28, !noalias !17
-  store ptr %1, ptr %_M_impl.i.i.i.i.i.i.i, align 1, !noalias !17
+  store i64 %ref.tmp.sroa.0.0.insert.ext, ptr %_M_impl.i.i.i.i.i.i.i, align 1, !noalias !17
   %finalizer.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i19.i.i.i.i3.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 64
   %call_.i2.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i19.i.i.i.i3.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 112
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZNS_17InitThreadFactoryC1ESt10shared_ptrINS_13ThreadFactoryEEONS_8FunctionIS3_EESC_Ed_UlvE_EEvRNS1_4DataE, ptr %call_.i2.i.i.i.i.i.i.i.i.i, align 16, !tbaa !26, !noalias !17
@@ -178,11 +177,11 @@ _ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
   ret void
 
 _ZN5folly8FunctionIFvvEED2Ev.exit22:              ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %threadFactory_.i) #17
   call void @_ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #17
-  resume { ptr, i32 } %2
+  resume { ptr, i32 } %1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

@@ -357,10 +357,9 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_free_ids.i, i8 0, i64 16, i1 false)
   store ptr %m_fm, ptr %m_manager.i4, align 8
   %m_value_table = getelementptr inbounds %class.fpa_decl_plugin, ptr %this, i64 0, i32 4
-  %0 = ptrtoint ptr %m_values to i64
-  store i64 %0, ptr %m_value_table, align 8
-  %1 = getelementptr inbounds %class.fpa_decl_plugin, ptr %this, i64 0, i32 4, i32 1
-  store i64 %0, ptr %1, align 8
+  store ptr %m_values, ptr %m_value_table, align 8
+  %0 = getelementptr inbounds %class.fpa_decl_plugin, ptr %this, i64 0, i32 4, i32 1
+  store ptr %m_values, ptr %0, align 8
   %m_init_slots.i = getelementptr inbounds %class.fpa_decl_plugin, ptr %this, i64 0, i32 4, i32 4
   store i32 8, ptr %m_init_slots.i, align 4
   %m_init_cellar.i = getelementptr inbounds %class.fpa_decl_plugin, ptr %this, i64 0, i32 4, i32 5
@@ -373,7 +372,7 @@ entry:
 for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.i.i.i
   %i.07.i.i.i.i = phi i32 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %entry ]
   %curr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %call.i.i.i.i5, %entry ]
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i.i.i, align 8
+  store i64 1, ptr %curr.06.i.i.i.i, align 8
   %inc.i.i.i.i = add nuw nsw i32 %i.07.i.i.i.i, 1
   %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.chashtable<unsigned int, fpa_decl_plugin::mpf_hash_proc, fpa_decl_plugin::mpf_eq_proc>::cell", ptr %curr.06.i.i.i.i, i64 1
   %exitcond.not.i.i.i.i = icmp eq i32 %inc.i.i.i.i, 10
@@ -394,14 +393,14 @@ invoke.cont13:                                    ; preds = %for.body.i.i.i.i
   ret void
 
 lpad8:                                            ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN22_scoped_numeral_vectorI11mpf_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_values) #17
   tail call void @_ZN6id_genD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_id_gen) #17
   %m_powers2.i = getelementptr inbounds %class.fpa_decl_plugin, ptr %this, i64 0, i32 1, i32 2
   tail call void @_ZN11mpf_manager7powers2D2Ev(ptr noundef nonnull align 8 dereferenceable(104) %m_powers2.i) #17
   tail call void @_ZN11mpq_managerILb0EED1Ev(ptr noundef nonnull align 8 dereferenceable(728) %m_fm) #17
-  resume { ptr, i32 } %2
+  resume { ptr, i32 } %1
 }
 
 declare void @_ZN11mpf_managerC1Ev(ptr noundef nonnull align 8 dereferenceable(840)) unnamed_addr #0
@@ -1213,7 +1212,7 @@ do.body.preheader:                                ; preds = %entry
 
 do.body:                                          ; preds = %do.body.preheader, %if.end14
   %prev.0 = phi ptr [ %c.0, %if.end14 ], [ null, %do.body.preheader ]
-  %c.0 = phi ptr [ %49, %if.end14 ], [ %add.ptr, %do.body.preheader ]
+  %c.0 = phi ptr [ %48, %if.end14 ], [ %add.ptr, %do.body.preheader ]
   %m_data = getelementptr inbounds %"struct.chashtable<unsigned int, fpa_decl_plugin::mpf_hash_proc, fpa_decl_plugin::mpf_eq_proc>::cell", ptr %c.0, i64 0, i32 1
   %30 = load i32, ptr %m_data, align 4
   %31 = load i32, ptr %d, align 4
@@ -1288,32 +1287,31 @@ if.then7:                                         ; preds = %if.then5
   %43 = load ptr, ptr %c.0, align 8
   %44 = ptrtoint ptr %43 to i64
   %or.i = or i64 %44, 1
-  %45 = inttoptr i64 %or.i to ptr
-  store ptr %45, ptr %c.0, align 8
+  store i64 %or.i, ptr %c.0, align 8
   br label %do.end
 
 if.else:                                          ; preds = %if.then5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %c.0, ptr noundef nonnull align 8 dereferenceable(12) %41, i64 12, i1 false)
   %m_free_cell.i = getelementptr inbounds %class.chashtable, ptr %this, i64 0, i32 11
-  %46 = load ptr, ptr %m_free_cell.i, align 8
-  store ptr %46, ptr %41, align 8
+  %45 = load ptr, ptr %m_free_cell.i, align 8
+  store ptr %45, ptr %41, align 8
   store ptr %41, ptr %m_free_cell.i, align 8
   br label %do.end
 
 if.else10:                                        ; preds = %if.then4
   store ptr %41, ptr %prev.0, align 8
   %m_free_cell.i18 = getelementptr inbounds %class.chashtable, ptr %this, i64 0, i32 11
-  %47 = load ptr, ptr %m_free_cell.i18, align 8
-  store ptr %47, ptr %c.0, align 8
+  %46 = load ptr, ptr %m_free_cell.i18, align 8
+  store ptr %46, ptr %c.0, align 8
   store ptr %c.0, ptr %m_free_cell.i18, align 8
   br label %do.end
 
 if.end14:                                         ; preds = %if.then.i.i.i.i, %do.body, %_ZN11mpz_managerILb0EE2eqERK3mpzS3_.exit.i.i.i, %_ZNK10chashtableIjN15fpa_decl_plugin13mpf_hash_procENS0_11mpf_eq_procEE6equalsERKjS5_.exit
-  %48 = load i32, ptr %m_collisions, align 8
-  %inc = add i32 %48, 1
+  %47 = load i32, ptr %m_collisions, align 8
+  %inc = add i32 %47, 1
   store i32 %inc, ptr %m_collisions, align 8
-  %49 = load ptr, ptr %c.0, align 8
-  %cmp16.not = icmp eq ptr %49, null
+  %48 = load ptr, ptr %c.0, align 8
+  %cmp16.not = icmp eq ptr %48, null
   br i1 %cmp16.not, label %do.end, label %do.body, !llvm.loop !10
 
 do.end:                                           ; preds = %if.end14, %if.else10, %if.else, %if.then7, %entry
@@ -11960,7 +11958,7 @@ while.body:                                       ; preds = %while.body.backedge
 for.body.i.i:                                     ; preds = %while.body, %for.body.i.i
   %i.07.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %while.body ]
   %curr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i.i, %while.body ]
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i, align 8
+  store i64 1, ptr %curr.06.i.i, align 8
   %inc.i.i = add nuw i32 %i.07.i.i, 1
   %incdec.ptr.i.i = getelementptr inbounds %"struct.chashtable<unsigned int, fpa_decl_plugin::mpf_hash_proc, fpa_decl_plugin::mpf_eq_proc>::cell", ptr %curr.06.i.i, i64 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %add

@@ -782,8 +782,7 @@ invoke.cont3:
   store ptr %ctx, ptr %m_context, align 8
   %m_ref_holder = getelementptr inbounds %"class.datalog::mk_subsumption_checker", ptr %this, i64 0, i32 3
   %m_rule_manager.i = getelementptr inbounds %"class.datalog::context", ptr %ctx, i64 0, i32 12
-  %1 = ptrtoint ptr %m_rule_manager.i to i64
-  store i64 %1, ptr %m_ref_holder, align 8
+  store ptr %m_rule_manager.i, ptr %m_ref_holder, align 8
   %m_nodes.i.i = getelementptr inbounds %"class.datalog::mk_subsumption_checker", ptr %this, i64 0, i32 3, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i, align 8
   %m_total_relations = getelementptr inbounds %"class.datalog::mk_subsumption_checker", ptr %this, i64 0, i32 4
@@ -830,28 +829,28 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   ret void
 
 lpad4:                                            ; preds = %invoke.cont3
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup10
 
 lpad6:                                            ; preds = %invoke.cont5
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad8:                                            ; preds = %invoke.cont7
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN7obj_mapI9func_declPN7datalog4ruleEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_total_relation_defining_rules) #8
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad8, %lpad6
-  %.pn = phi { ptr, i32 } [ %4, %lpad8 ], [ %3, %lpad6 ]
+  %.pn = phi { ptr, i32 } [ %3, %lpad8 ], [ %2, %lpad6 ]
   tail call void @_ZN13obj_hashtableI9func_declED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %m_total_relations) #8
   br label %ehcleanup10
 
 ehcleanup10:                                      ; preds = %ehcleanup, %lpad4
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %2, %lpad4 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %1, %lpad4 ]
   tail call void @_ZN10ref_vectorIN7datalog4ruleENS0_12rule_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_ref_holder) #8
   resume { ptr, i32 } %.pn.pn
 }
@@ -878,8 +877,7 @@ invoke.cont6:
   %m_rewriter.i = getelementptr inbounds %"class.datalog::context", ptr %ctx, i64 0, i32 10
   store ptr %m_rewriter.i, ptr %m_simp, align 8
   %m_pinned = getelementptr inbounds %"class.datalog::mk_rule_inliner", ptr %this, i64 0, i32 5
-  %1 = ptrtoint ptr %m_rule_manager.i to i64
-  store i64 %1, ptr %m_pinned, align 8
+  store ptr %m_rule_manager.i, ptr %m_pinned, align 8
   %m_nodes.i.i = getelementptr inbounds %"class.datalog::mk_rule_inliner", ptr %this, i64 0, i32 5, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i, align 8
   %m_forbidden_preds = getelementptr inbounds %"class.datalog::mk_rule_inliner", ptr %this, i64 0, i32 6
@@ -961,16 +959,16 @@ invoke.cont18:                                    ; preds = %invoke.cont16
   %m_num_deleted.i.i.i38 = getelementptr inbounds %"class.datalog::mk_rule_inliner", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 3
   store i32 0, ptr %m_num_deleted.i.i.i38, align 8
   %m_inlined_rules = getelementptr inbounds %"class.datalog::mk_rule_inliner", ptr %this, i64 0, i32 12
-  %2 = load ptr, ptr %m_context, align 8
-  invoke void @_ZN7datalog8rule_setC1ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(248) %m_inlined_rules, ptr noundef nonnull align 8 dereferenceable(3556) %2)
+  %1 = load ptr, ptr %m_context, align 8
+  invoke void @_ZN7datalog8rule_setC1ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(248) %m_inlined_rules, ptr noundef nonnull align 8 dereferenceable(3556) %1)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont18
   %m_mc = getelementptr inbounds %"class.datalog::mk_rule_inliner", ptr %this, i64 0, i32 13
   store ptr null, ptr %m_mc, align 8
   %m_unifier = getelementptr inbounds %"class.datalog::mk_rule_inliner", ptr %this, i64 0, i32 14
-  %3 = load ptr, ptr %ctx, align 8
-  store ptr %3, ptr %m_unifier, align 8
+  %2 = load ptr, ptr %ctx, align 8
+  store ptr %2, ptr %m_unifier, align 8
   %m_rm.i = getelementptr inbounds %"class.datalog::mk_rule_inliner", ptr %this, i64 0, i32 14, i32 1
   store ptr %m_rule_manager.i, ptr %m_rm.i, align 8
   %m_context.i = getelementptr inbounds %"class.datalog::mk_rule_inliner", ptr %this, i64 0, i32 14, i32 2
@@ -981,20 +979,20 @@ invoke.cont21:                                    ; preds = %invoke.cont18
 
 .noexc:                                           ; preds = %invoke.cont21
   %m_subst.i = getelementptr inbounds %"class.datalog::mk_rule_inliner", ptr %this, i64 0, i32 14, i32 4
-  %4 = load ptr, ptr %m_unifier, align 8
-  invoke void @_ZN12substitutionC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(124) %m_subst.i, ptr noundef nonnull align 8 dereferenceable(976) %4)
+  %3 = load ptr, ptr %m_unifier, align 8
+  invoke void @_ZN12substitutionC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(124) %m_subst.i, ptr noundef nonnull align 8 dereferenceable(976) %3)
           to label %invoke.cont23 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN7datalog25mk_interp_tail_simplifierD1Ev(ptr noundef nonnull align 8 dereferenceable(424) %m_interp_simplifier.i) #8
   br label %ehcleanup42
 
 invoke.cont23:                                    ; preds = %.noexc
   %m_unif.i = getelementptr inbounds %"class.datalog::mk_rule_inliner", ptr %this, i64 0, i32 14, i32 5
-  %6 = load ptr, ptr %m_unifier, align 8
-  store ptr %6, ptr %m_unif.i, align 8
+  %5 = load ptr, ptr %m_unifier, align 8
+  store ptr %5, ptr %m_unif.i, align 8
   %m_todo.i.i = getelementptr inbounds %"class.datalog::mk_rule_inliner", ptr %this, i64 0, i32 14, i32 5, i32 2
   %m_timestamp.i.i.i = getelementptr inbounds %"class.datalog::mk_rule_inliner", ptr %this, i64 0, i32 14, i32 5, i32 3, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_todo.i.i, i8 0, i64 16, i1 false)
@@ -1010,20 +1008,20 @@ invoke.cont23:                                    ; preds = %.noexc
   %m_normalize.i = getelementptr inbounds %"class.datalog::mk_rule_inliner", ptr %this, i64 0, i32 14, i32 7
   store i8 1, ptr %m_normalize.i, align 1
   %m_head_index = getelementptr inbounds %"class.datalog::mk_rule_inliner", ptr %this, i64 0, i32 15
-  %7 = load ptr, ptr %m, align 8
-  invoke void @_ZN17substitution_treeC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(136) %m_head_index, ptr noundef nonnull align 8 dereferenceable(976) %7)
+  %6 = load ptr, ptr %m, align 8
+  invoke void @_ZN17substitution_treeC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(136) %m_head_index, ptr noundef nonnull align 8 dereferenceable(976) %6)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %invoke.cont23
   %m_tail_index = getelementptr inbounds %"class.datalog::mk_rule_inliner", ptr %this, i64 0, i32 16
-  %8 = load ptr, ptr %m, align 8
-  invoke void @_ZN17substitution_treeC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(136) %m_tail_index, ptr noundef nonnull align 8 dereferenceable(976) %8)
+  %7 = load ptr, ptr %m, align 8
+  invoke void @_ZN17substitution_treeC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(136) %m_tail_index, ptr noundef nonnull align 8 dereferenceable(976) %7)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont26
   %m_subst = getelementptr inbounds %"class.datalog::mk_rule_inliner", ptr %this, i64 0, i32 17
-  %9 = load ptr, ptr %m, align 8
-  invoke void @_ZN12substitutionC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(124) %m_subst, ptr noundef nonnull align 8 dereferenceable(976) %9)
+  %8 = load ptr, ptr %m, align 8
+  invoke void @_ZN12substitutionC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(124) %m_subst, ptr noundef nonnull align 8 dereferenceable(976) %8)
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %invoke.cont29
@@ -1039,7 +1037,7 @@ invoke.cont32:                                    ; preds = %invoke.cont29
           to label %invoke.cont35 unwind label %lpad6.i
 
 lpad6.i:                                          ; preds = %invoke.cont32
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   %m_can_expand.i = getelementptr inbounds %"class.datalog::mk_rule_inliner", ptr %this, i64 0, i32 18, i32 4
   %m_can_remove.i = getelementptr inbounds %"class.datalog::mk_rule_inliner", ptr %this, i64 0, i32 18, i32 3
@@ -1070,7 +1068,7 @@ invoke.cont35:                                    ; preds = %invoke.cont32
           to label %invoke.cont38 unwind label %lpad6.i51
 
 lpad6.i51:                                        ; preds = %invoke.cont35
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   %m_can_expand.i52 = getelementptr inbounds %"class.datalog::mk_rule_inliner", ptr %this, i64 0, i32 19, i32 4
   %m_can_remove.i53 = getelementptr inbounds %"class.datalog::mk_rule_inliner", ptr %this, i64 0, i32 19, i32 3
@@ -1093,117 +1091,117 @@ invoke.cont38:                                    ; preds = %invoke.cont35
   ret void
 
 lpad7:                                            ; preds = %invoke.cont6
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup49
 
 lpad9:                                            ; preds = %invoke.cont8
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup48
 
 lpad11:                                           ; preds = %invoke.cont10
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup47
 
 lpad13:                                           ; preds = %invoke.cont12
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup46
 
 lpad15:                                           ; preds = %invoke.cont14
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup45
 
 lpad17:                                           ; preds = %invoke.cont16
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup44
 
 lpad20:                                           ; preds = %invoke.cont18
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup43
 
 lpad22:                                           ; preds = %invoke.cont21
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup42
 
 lpad25:                                           ; preds = %invoke.cont23
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup41
 
 lpad28:                                           ; preds = %invoke.cont26
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup40
 
 lpad31:                                           ; preds = %invoke.cont29
-  %22 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup39
 
 ehcleanup:                                        ; preds = %lpad6.i, %lpad6.i51
-  %.pn = phi { ptr, i32 } [ %11, %lpad6.i51 ], [ %10, %lpad6.i ]
+  %.pn = phi { ptr, i32 } [ %10, %lpad6.i51 ], [ %9, %lpad6.i ]
   tail call void @_ZN12substitutionD2Ev(ptr noundef nonnull align 8 dereferenceable(124) %m_subst) #8
   br label %ehcleanup39
 
 ehcleanup39:                                      ; preds = %ehcleanup, %lpad31
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %22, %lpad31 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %21, %lpad31 ]
   tail call void @_ZN17substitution_treeD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %m_tail_index) #8
   br label %ehcleanup40
 
 ehcleanup40:                                      ; preds = %ehcleanup39, %lpad28
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup39 ], [ %21, %lpad28 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup39 ], [ %20, %lpad28 ]
   tail call void @_ZN17substitution_treeD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %m_head_index) #8
   br label %ehcleanup41
 
 ehcleanup41:                                      ; preds = %ehcleanup40, %lpad25
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup40 ], [ %20, %lpad25 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup40 ], [ %19, %lpad25 ]
   tail call void @_ZN7datalog12rule_unifierD2Ev(ptr noundef nonnull align 8 dereferenceable(652) %m_unifier) #8
   br label %ehcleanup42
 
 ehcleanup42:                                      ; preds = %lpad22, %lpad.i, %ehcleanup41
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup41 ], [ %19, %lpad22 ], [ %5, %lpad.i ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup41 ], [ %18, %lpad22 ], [ %4, %lpad.i ]
   tail call void @_ZN7datalog8rule_setD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %m_inlined_rules) #8
   br label %ehcleanup43
 
 ehcleanup43:                                      ; preds = %ehcleanup42, %lpad20
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup42 ], [ %18, %lpad20 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup42 ], [ %17, %lpad20 ]
   tail call void @_ZN11ast_counterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_tail_pred_ctr) #8
   br label %ehcleanup44
 
 ehcleanup44:                                      ; preds = %ehcleanup43, %lpad17
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %ehcleanup43 ], [ %17, %lpad17 ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %ehcleanup43 ], [ %16, %lpad17 ]
   tail call void @_ZN11ast_counterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_head_pred_non_empty_tails_ctr) #8
   br label %ehcleanup45
 
 ehcleanup45:                                      ; preds = %ehcleanup44, %lpad15
-  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %ehcleanup44 ], [ %16, %lpad15 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %ehcleanup44 ], [ %15, %lpad15 ]
   tail call void @_ZN11ast_counterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_head_pred_ctr) #8
   br label %ehcleanup46
 
 ehcleanup46:                                      ; preds = %ehcleanup45, %lpad13
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup45 ], [ %15, %lpad13 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup45 ], [ %14, %lpad13 ]
   tail call void @_ZN13obj_hashtableI9func_declED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %m_preds_with_neg_occurrence) #8
   br label %ehcleanup47
 
 ehcleanup47:                                      ; preds = %ehcleanup46, %lpad11
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup46 ], [ %14, %lpad11 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup46 ], [ %13, %lpad11 ]
   tail call void @_ZN13obj_hashtableI9func_declED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %m_preds_with_facts) #8
   br label %ehcleanup48
 
 ehcleanup48:                                      ; preds = %ehcleanup47, %lpad9
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup47 ], [ %13, %lpad9 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup47 ], [ %12, %lpad9 ]
   tail call void @_ZN13obj_hashtableI9func_declED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %m_forbidden_preds) #8
   br label %ehcleanup49
 
 ehcleanup49:                                      ; preds = %ehcleanup48, %lpad7
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup48 ], [ %12, %lpad7 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup48 ], [ %11, %lpad7 ]
   tail call void @_ZN10ref_vectorIN7datalog4ruleENS0_12rule_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_pinned) #8
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }

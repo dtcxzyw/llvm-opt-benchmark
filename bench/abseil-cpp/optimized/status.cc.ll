@@ -718,8 +718,7 @@ _ZNSt10unique_ptrIN4absl13InlinedVectorINS0_15status_internal7PayloadELm1ESaIS3_
   %7 = load i64, ptr %agg.tmp4, align 8
   store i64 %7, ptr %payloads_.i, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %8 = ptrtoint ptr %call3 to i64
-  store i64 %8, ptr %this, align 8
+  store ptr %call3, ptr %this, align 8
   br label %if.end
 
 if.then.i4:                                       ; preds = %lpad.i

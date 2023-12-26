@@ -691,7 +691,7 @@ if.end80:                                         ; preds = %if.end54
   %21 = load ptr, ptr %isolate_.i.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %21) #12
   %env_.i = getelementptr inbounds %"class.node::errors::TryCatchScope", ptr %try_catch, i64 0, i32 2
-  store ptr %9, ptr %env_.i, align 8
+  store i64 %8, ptr %env_.i, align 8
   %mode_.i = getelementptr inbounds %"class.node::errors::TryCatchScope", ptr %try_catch, i64 0, i32 3
   store i32 0, ptr %mode_.i, align 8
   %22 = load ptr, ptr %isolate_.i.i, align 8

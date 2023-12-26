@@ -3194,8 +3194,7 @@ if.end23:                                         ; preds = %lor.lhs.false.threa
 
 if.then.i:                                        ; preds = %if.end23
   %call5.i.i.i.i.i17 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
-  %17 = ptrtoint ptr %14 to i64
-  store i64 %17, ptr %call5.i.i.i.i.i17, align 8
+  store ptr %14, ptr %call5.i.i.i.i.i17, align 8
   %tobool.not.i.i16 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i16, label %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE13_M_deallocateEPS2_m.exit.i, label %if.then.i13.i
 
@@ -3211,10 +3210,9 @@ _ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE13_M_deallocateEPS2_m.exit.
   br label %invoke.cont24
 
 if.else.i:                                        ; preds = %if.end23
-  %18 = load ptr, ptr %_M_finish.i.i13, align 8
-  %cmp24.not.i = icmp eq ptr %18, %16
-  %19 = ptrtoint ptr %14 to i64
-  store i64 %19, ptr %16, align 8
+  %17 = load ptr, ptr %_M_finish.i.i13, align 8
+  %cmp24.not.i = icmp eq ptr %17, %16
+  store ptr %14, ptr %16, align 8
   br i1 %cmp24.not.i, label %_ZSt22__uninitialized_copy_aIPKPN7rocksdb12FileMetaDataEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.else.i
@@ -3233,12 +3231,12 @@ _ZSt22__uninitialized_copy_aIPKPN7rocksdb12FileMetaDataEPS2_S2_ET0_T_S7_S6_RSaIT
   br label %invoke.cont24
 
 invoke.cont24:                                    ; preds = %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE13_M_deallocateEPS2_m.exit.i, %if.then25.i, %invoke.cont.i.i14, %_ZSt22__uninitialized_copy_aIPKPN7rocksdb12FileMetaDataEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.i
-  %20 = load i32, ptr %start_level_, align 8
-  store i32 %20, ptr %start_level_inputs_, align 8
-  %21 = load ptr, ptr %compaction_picker_24, align 8
-  %22 = load ptr, ptr %this, align 8
-  %23 = load ptr, ptr %vstorage_, align 8
-  %call32 = tail call noundef zeroext i1 @_ZN7rocksdb16CompactionPicker22ExpandInputsToCleanCutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18VersionStorageInfoEPNS_20CompactionInputFilesEPPNS_11InternalKeyE(ptr noundef nonnull align 8 dereferenceable(128) %21, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef %23, ptr noundef nonnull %start_level_inputs_, ptr noundef null)
+  %18 = load i32, ptr %start_level_, align 8
+  store i32 %18, ptr %start_level_inputs_, align 8
+  %19 = load ptr, ptr %compaction_picker_24, align 8
+  %20 = load ptr, ptr %this, align 8
+  %21 = load ptr, ptr %vstorage_, align 8
+  %call32 = tail call noundef zeroext i1 @_ZN7rocksdb16CompactionPicker22ExpandInputsToCleanCutERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18VersionStorageInfoEPNS_20CompactionInputFilesEPPNS_11InternalKeyE(ptr noundef nonnull align 8 dereferenceable(128) %19, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef %21, ptr noundef nonnull %start_level_inputs_, ptr noundef null)
   br i1 %call32, label %return, label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true11.thread, %invoke.cont24, %land.lhs.true, %land.lhs.true11
@@ -3248,14 +3246,14 @@ for.inc:                                          ; preds = %land.lhs.true11.thr
 
 for.end:                                          ; preds = %for.inc, %entry
   %files39 = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::LevelCompactionBuilder", ptr %this, i64 0, i32 11, i32 1
-  %24 = load ptr, ptr %files39, align 8
+  %22 = load ptr, ptr %files39, align 8
   %_M_finish.i.i = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::LevelCompactionBuilder", ptr %this, i64 0, i32 11, i32 1, i32 0, i32 0, i32 0, i32 1
-  %25 = load ptr, ptr %_M_finish.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %25, %24
+  %23 = load ptr, ptr %_M_finish.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %23, %22
   br i1 %tobool.not.i.i, label %return, label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %for.end
-  store ptr %24, ptr %_M_finish.i.i, align 8
+  store ptr %22, ptr %_M_finish.i.i, align 8
   br label %return
 
 return:                                           ; preds = %invoke.cont24, %invoke.cont.i.i, %for.end

@@ -2606,9 +2606,8 @@ _ZNK4pugi8xml_node8childrenEv.exit:               ; preds = %entry
   br i1 %cmp.not.i.not7, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZNK4pugi8xml_node8childrenEv.exit, %for.inc
-  %__begin1.sroa.0.08 = phi ptr [ %3, %for.inc ], [ %1, %_ZNK4pugi8xml_node8childrenEv.exit ]
-  %2 = ptrtoint ptr %__begin1.sroa.0.08 to i64
-  store i64 %2, ptr %childNode, align 8
+  %__begin1.sroa.0.08 = phi ptr [ %2, %for.inc ], [ %1, %_ZNK4pugi8xml_node8childrenEv.exit ]
+  store ptr %__begin1.sroa.0.08, ptr %childNode, align 8
   %call5 = call noundef zeroext i1 @_ZN6Assimp11X3DImporter20checkForMetadataNodeERN4pugi8xml_nodeE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(8) %childNode)
   br i1 %call5, label %for.inc, label %if.then
 
@@ -2618,8 +2617,8 @@ if.then:                                          ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then
   %next_sibling.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %__begin1.sroa.0.08, i64 0, i32 6
-  %3 = load ptr, ptr %next_sibling.i, align 8
-  %cmp.not.i.not = icmp eq ptr %3, null
+  %2 = load ptr, ptr %next_sibling.i, align 8
+  %cmp.not.i.not = icmp eq ptr %2, null
   br i1 %cmp.not.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %entry, %_ZNK4pugi8xml_node8childrenEv.exit

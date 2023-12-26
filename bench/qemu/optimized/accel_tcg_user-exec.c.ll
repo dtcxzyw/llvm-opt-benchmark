@@ -1429,8 +1429,7 @@ do.end:                                           ; preds = %entry
 if.then1:                                         ; preds = %do.end
   %0 = load i64, ptr @guest_base, align 8
   %add.i = add i64 %0, %addr
-  %1 = inttoptr i64 %add.i to ptr
-  store ptr %1, ptr %hostp, align 8
+  store i64 %add.i, ptr %hostp, align 8
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then1, %do.end
@@ -5580,7 +5579,6 @@ entry:
 define dso_local i32 @helper_atomic_cmpxchgb(ptr noundef %env, i64 noundef %addr, i32 noundef %oldv, i32 noundef %newv, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
-  %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
@@ -5608,6 +5606,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   br i1 %tobool.not.i.i, label %cpu_atomic_cmpxchgb_mmu.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
+  %1 = ptrtoint ptr %0 to i64
   tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
   unreachable
 
@@ -5616,7 +5615,7 @@ cpu_atomic_cmpxchgb_mmu.exit:                     ; preds = %get_alignment_bits.
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %oldv to i8
   %conv2.i = trunc i32 %newv to i8
@@ -5729,7 +5728,7 @@ cpu_atomic_cmpxchgw_be_mmu.exit:                  ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %oldv to i16
   %5 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
@@ -5857,7 +5856,7 @@ cpu_atomic_cmpxchgw_le_mmu.exit:                  ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %oldv to i16
   %conv2.i = trunc i32 %newv to i16
@@ -5979,7 +5978,7 @@ cpu_atomic_cmpxchgl_be_mmu.exit:                  ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = tail call i32 @llvm.bswap.i32(i32 %oldv)
   %6 = tail call i32 @llvm.bswap.i32(i32 %newv)
@@ -6101,7 +6100,7 @@ cpu_atomic_cmpxchgl_le_mmu.exit:                  ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = cmpxchg ptr %3, i32 %oldv, i32 %newv seq_cst seq_cst, align 4
   %6 = extractvalue { i32, i1 } %5, 0
@@ -6217,7 +6216,7 @@ cpu_atomic_cmpxchgq_be_mmu.exit:                  ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = tail call i64 @llvm.bswap.i64(i64 %oldv)
   %6 = tail call i64 @llvm.bswap.i64(i64 %newv)
@@ -6339,7 +6338,7 @@ cpu_atomic_cmpxchgq_le_mmu.exit:                  ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = cmpxchg ptr %3, i64 %oldv, i64 %newv seq_cst seq_cst, align 8
   %6 = extractvalue { i64, i1 } %5, 0
@@ -6589,7 +6588,6 @@ entry:
 define dso_local i32 @helper_atomic_fetch_addb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
-  %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
@@ -6617,6 +6615,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   br i1 %tobool.not.i.i, label %cpu_atomic_fetch_addb_mmu.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
+  %1 = ptrtoint ptr %0 to i64
   tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
   unreachable
 
@@ -6625,7 +6624,7 @@ cpu_atomic_fetch_addb_mmu.exit:                   ; preds = %get_alignment_bits.
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %val to i8
   %5 = atomicrmw add ptr %3, i8 %conv.i seq_cst, align 1
@@ -6816,7 +6815,7 @@ cpu_atomic_fetch_addw_le_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %val to i16
   %5 = atomicrmw add ptr %3, i16 %conv.i seq_cst, align 2
@@ -6934,7 +6933,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !25
   fence seq_cst
@@ -7078,7 +7077,7 @@ cpu_atomic_fetch_addl_le_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = atomicrmw add ptr %3, i32 %val seq_cst, align 4
   fence syncscope("singlethread") seq_cst
@@ -7192,7 +7191,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !27
   fence seq_cst
@@ -7336,7 +7335,7 @@ cpu_atomic_fetch_addq_le_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = atomicrmw add ptr %3, i64 %val seq_cst, align 8
   fence syncscope("singlethread") seq_cst
@@ -7405,7 +7404,6 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
 define dso_local i32 @helper_atomic_fetch_andb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
-  %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
@@ -7433,6 +7431,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   br i1 %tobool.not.i.i, label %cpu_atomic_fetch_andb_mmu.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
+  %1 = ptrtoint ptr %0 to i64
   tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
   unreachable
 
@@ -7441,7 +7440,7 @@ cpu_atomic_fetch_andb_mmu.exit:                   ; preds = %get_alignment_bits.
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %val to i8
   %5 = atomicrmw and ptr %3, i8 %conv.i seq_cst, align 1
@@ -7550,7 +7549,7 @@ cpu_atomic_fetch_andw_be_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %val to i16
   %5 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
@@ -7672,7 +7671,7 @@ cpu_atomic_fetch_andw_le_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %val to i16
   %5 = atomicrmw and ptr %3, i16 %conv.i seq_cst, align 2
@@ -7790,7 +7789,7 @@ cpu_atomic_fetch_andl_be_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = tail call i32 @llvm.bswap.i32(i32 %val)
   %6 = atomicrmw and ptr %3, i32 %5 seq_cst, align 4
@@ -7908,7 +7907,7 @@ cpu_atomic_fetch_andl_le_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = atomicrmw and ptr %3, i32 %val seq_cst, align 4
   fence syncscope("singlethread") seq_cst
@@ -8022,7 +8021,7 @@ cpu_atomic_fetch_andq_be_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = tail call i64 @llvm.bswap.i64(i64 %val)
   %6 = atomicrmw and ptr %3, i64 %5 seq_cst, align 8
@@ -8140,7 +8139,7 @@ cpu_atomic_fetch_andq_le_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = atomicrmw and ptr %3, i64 %val seq_cst, align 8
   fence syncscope("singlethread") seq_cst
@@ -8209,7 +8208,6 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
 define dso_local i32 @helper_atomic_fetch_orb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
-  %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
@@ -8237,6 +8235,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   br i1 %tobool.not.i.i, label %cpu_atomic_fetch_orb_mmu.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
+  %1 = ptrtoint ptr %0 to i64
   tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
   unreachable
 
@@ -8245,7 +8244,7 @@ cpu_atomic_fetch_orb_mmu.exit:                    ; preds = %get_alignment_bits.
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %val to i8
   %5 = atomicrmw or ptr %3, i8 %conv.i seq_cst, align 1
@@ -8354,7 +8353,7 @@ cpu_atomic_fetch_orw_be_mmu.exit:                 ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %val to i16
   %5 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
@@ -8476,7 +8475,7 @@ cpu_atomic_fetch_orw_le_mmu.exit:                 ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %val to i16
   %5 = atomicrmw or ptr %3, i16 %conv.i seq_cst, align 2
@@ -8594,7 +8593,7 @@ cpu_atomic_fetch_orl_be_mmu.exit:                 ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = tail call i32 @llvm.bswap.i32(i32 %val)
   %6 = atomicrmw or ptr %3, i32 %5 seq_cst, align 4
@@ -8712,7 +8711,7 @@ cpu_atomic_fetch_orl_le_mmu.exit:                 ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = atomicrmw or ptr %3, i32 %val seq_cst, align 4
   fence syncscope("singlethread") seq_cst
@@ -8826,7 +8825,7 @@ cpu_atomic_fetch_orq_be_mmu.exit:                 ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = tail call i64 @llvm.bswap.i64(i64 %val)
   %6 = atomicrmw or ptr %3, i64 %5 seq_cst, align 8
@@ -8944,7 +8943,7 @@ cpu_atomic_fetch_orq_le_mmu.exit:                 ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = atomicrmw or ptr %3, i64 %val seq_cst, align 8
   fence syncscope("singlethread") seq_cst
@@ -9013,7 +9012,6 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
 define dso_local i32 @helper_atomic_fetch_xorb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
-  %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
@@ -9041,6 +9039,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   br i1 %tobool.not.i.i, label %cpu_atomic_fetch_xorb_mmu.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
+  %1 = ptrtoint ptr %0 to i64
   tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
   unreachable
 
@@ -9049,7 +9048,7 @@ cpu_atomic_fetch_xorb_mmu.exit:                   ; preds = %get_alignment_bits.
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %val to i8
   %5 = atomicrmw xor ptr %3, i8 %conv.i seq_cst, align 1
@@ -9158,7 +9157,7 @@ cpu_atomic_fetch_xorw_be_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %val to i16
   %5 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
@@ -9280,7 +9279,7 @@ cpu_atomic_fetch_xorw_le_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %val to i16
   %5 = atomicrmw xor ptr %3, i16 %conv.i seq_cst, align 2
@@ -9398,7 +9397,7 @@ cpu_atomic_fetch_xorl_be_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = tail call i32 @llvm.bswap.i32(i32 %val)
   %6 = atomicrmw xor ptr %3, i32 %5 seq_cst, align 4
@@ -9516,7 +9515,7 @@ cpu_atomic_fetch_xorl_le_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = atomicrmw xor ptr %3, i32 %val seq_cst, align 4
   fence syncscope("singlethread") seq_cst
@@ -9630,7 +9629,7 @@ cpu_atomic_fetch_xorq_be_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = tail call i64 @llvm.bswap.i64(i64 %val)
   %6 = atomicrmw xor ptr %3, i64 %5 seq_cst, align 8
@@ -9748,7 +9747,7 @@ cpu_atomic_fetch_xorq_le_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = atomicrmw xor ptr %3, i64 %val seq_cst, align 8
   fence syncscope("singlethread") seq_cst
@@ -9817,7 +9816,6 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
 define dso_local i32 @helper_atomic_fetch_sminb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
-  %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
@@ -9845,6 +9843,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   br i1 %tobool.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
+  %1 = ptrtoint ptr %0 to i64
   tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
   unreachable
 
@@ -9853,7 +9852,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %get_alignment_bits.
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !29
   fence seq_cst
@@ -10076,7 +10075,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !34
   fence seq_cst
@@ -10224,7 +10223,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !36
   fence seq_cst
@@ -10368,7 +10367,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !38
   fence seq_cst
@@ -10508,7 +10507,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !40
   fence seq_cst
@@ -10652,7 +10651,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !42
   fence seq_cst
@@ -10747,7 +10746,6 @@ do.body5:                                         ; preds = %do.body
 define dso_local i32 @helper_atomic_fetch_uminb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
-  %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
@@ -10775,6 +10773,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   br i1 %tobool.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
+  %1 = ptrtoint ptr %0 to i64
   tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
   unreachable
 
@@ -10783,7 +10782,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %get_alignment_bits.
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !44
   fence seq_cst
@@ -11003,7 +11002,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !48
   fence seq_cst
@@ -11149,7 +11148,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !50
   fence seq_cst
@@ -11293,7 +11292,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !52
   fence seq_cst
@@ -11433,7 +11432,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !54
   fence seq_cst
@@ -11577,7 +11576,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !56
   fence seq_cst
@@ -11672,7 +11671,6 @@ do.body5:                                         ; preds = %do.body
 define dso_local i32 @helper_atomic_fetch_smaxb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
-  %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
@@ -11700,6 +11698,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   br i1 %tobool.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
+  %1 = ptrtoint ptr %0 to i64
   tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
   unreachable
 
@@ -11708,7 +11707,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %get_alignment_bits.
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !58
   fence seq_cst
@@ -11931,7 +11930,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !62
   fence seq_cst
@@ -12079,7 +12078,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !64
   fence seq_cst
@@ -12223,7 +12222,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !66
   fence seq_cst
@@ -12363,7 +12362,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !68
   fence seq_cst
@@ -12507,7 +12506,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !70
   fence seq_cst
@@ -12602,7 +12601,6 @@ do.body5:                                         ; preds = %do.body
 define dso_local i32 @helper_atomic_fetch_umaxb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
-  %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
@@ -12630,6 +12628,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   br i1 %tobool.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
+  %1 = ptrtoint ptr %0 to i64
   tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
   unreachable
 
@@ -12638,7 +12637,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %get_alignment_bits.
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !72
   fence seq_cst
@@ -12858,7 +12857,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !76
   fence seq_cst
@@ -13004,7 +13003,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !78
   fence seq_cst
@@ -13148,7 +13147,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !80
   fence seq_cst
@@ -13288,7 +13287,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !82
   fence seq_cst
@@ -13432,7 +13431,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !84
   fence seq_cst
@@ -13527,7 +13526,6 @@ do.body5:                                         ; preds = %do.body
 define dso_local i32 @helper_atomic_add_fetchb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
-  %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
@@ -13555,6 +13553,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   br i1 %tobool.not.i.i, label %cpu_atomic_add_fetchb_mmu.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
+  %1 = ptrtoint ptr %0 to i64
   tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
   unreachable
 
@@ -13563,7 +13562,7 @@ cpu_atomic_add_fetchb_mmu.exit:                   ; preds = %get_alignment_bits.
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %val to i8
   %5 = atomicrmw add ptr %3, i8 %conv.i seq_cst, align 1
@@ -13756,7 +13755,7 @@ cpu_atomic_add_fetchw_le_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %val to i16
   %5 = atomicrmw add ptr %3, i16 %conv.i seq_cst, align 2
@@ -13876,7 +13875,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !88
   fence seq_cst
@@ -14020,7 +14019,7 @@ cpu_atomic_add_fetchl_le_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = atomicrmw add ptr %3, i32 %val seq_cst, align 4
   %6 = add i32 %5, %val
@@ -14136,7 +14135,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !90
   fence seq_cst
@@ -14280,7 +14279,7 @@ cpu_atomic_add_fetchq_le_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = atomicrmw add ptr %3, i64 %val seq_cst, align 8
   %6 = add i64 %5, %val
@@ -14351,7 +14350,6 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
 define dso_local i32 @helper_atomic_and_fetchb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
-  %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
@@ -14379,6 +14377,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   br i1 %tobool.not.i.i, label %cpu_atomic_and_fetchb_mmu.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
+  %1 = ptrtoint ptr %0 to i64
   tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
   unreachable
 
@@ -14387,7 +14386,7 @@ cpu_atomic_and_fetchb_mmu.exit:                   ; preds = %get_alignment_bits.
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %val to i8
   %5 = atomicrmw and ptr %3, i8 %conv.i seq_cst, align 1
@@ -14498,7 +14497,7 @@ cpu_atomic_and_fetchw_be_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %val to i16
   %5 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
@@ -14622,7 +14621,7 @@ cpu_atomic_and_fetchw_le_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %val to i16
   %5 = atomicrmw and ptr %3, i16 %conv.i seq_cst, align 2
@@ -14742,7 +14741,7 @@ cpu_atomic_and_fetchl_be_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = tail call i32 @llvm.bswap.i32(i32 %val)
   %6 = atomicrmw and ptr %3, i32 %5 seq_cst, align 4
@@ -14862,7 +14861,7 @@ cpu_atomic_and_fetchl_le_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = atomicrmw and ptr %3, i32 %val seq_cst, align 4
   %6 = and i32 %5, %val
@@ -14978,7 +14977,7 @@ cpu_atomic_and_fetchq_be_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = tail call i64 @llvm.bswap.i64(i64 %val)
   %6 = atomicrmw and ptr %3, i64 %5 seq_cst, align 8
@@ -15098,7 +15097,7 @@ cpu_atomic_and_fetchq_le_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = atomicrmw and ptr %3, i64 %val seq_cst, align 8
   %6 = and i64 %5, %val
@@ -15169,7 +15168,6 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
 define dso_local i32 @helper_atomic_or_fetchb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
-  %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
@@ -15197,6 +15195,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   br i1 %tobool.not.i.i, label %cpu_atomic_or_fetchb_mmu.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
+  %1 = ptrtoint ptr %0 to i64
   tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
   unreachable
 
@@ -15205,7 +15204,7 @@ cpu_atomic_or_fetchb_mmu.exit:                    ; preds = %get_alignment_bits.
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %val to i8
   %5 = atomicrmw or ptr %3, i8 %conv.i seq_cst, align 1
@@ -15316,7 +15315,7 @@ cpu_atomic_or_fetchw_be_mmu.exit:                 ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %val to i16
   %5 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
@@ -15440,7 +15439,7 @@ cpu_atomic_or_fetchw_le_mmu.exit:                 ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %val to i16
   %5 = atomicrmw or ptr %3, i16 %conv.i seq_cst, align 2
@@ -15560,7 +15559,7 @@ cpu_atomic_or_fetchl_be_mmu.exit:                 ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = tail call i32 @llvm.bswap.i32(i32 %val)
   %6 = atomicrmw or ptr %3, i32 %5 seq_cst, align 4
@@ -15680,7 +15679,7 @@ cpu_atomic_or_fetchl_le_mmu.exit:                 ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = atomicrmw or ptr %3, i32 %val seq_cst, align 4
   %6 = or i32 %5, %val
@@ -15796,7 +15795,7 @@ cpu_atomic_or_fetchq_be_mmu.exit:                 ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = tail call i64 @llvm.bswap.i64(i64 %val)
   %6 = atomicrmw or ptr %3, i64 %5 seq_cst, align 8
@@ -15916,7 +15915,7 @@ cpu_atomic_or_fetchq_le_mmu.exit:                 ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = atomicrmw or ptr %3, i64 %val seq_cst, align 8
   %6 = or i64 %5, %val
@@ -15987,7 +15986,6 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
 define dso_local i32 @helper_atomic_xor_fetchb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
-  %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
@@ -16015,6 +16013,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   br i1 %tobool.not.i.i, label %cpu_atomic_xor_fetchb_mmu.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
+  %1 = ptrtoint ptr %0 to i64
   tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
   unreachable
 
@@ -16023,7 +16022,7 @@ cpu_atomic_xor_fetchb_mmu.exit:                   ; preds = %get_alignment_bits.
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %val to i8
   %5 = atomicrmw xor ptr %3, i8 %conv.i seq_cst, align 1
@@ -16134,7 +16133,7 @@ cpu_atomic_xor_fetchw_be_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %val to i16
   %5 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
@@ -16258,7 +16257,7 @@ cpu_atomic_xor_fetchw_le_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %val to i16
   %5 = atomicrmw xor ptr %3, i16 %conv.i seq_cst, align 2
@@ -16378,7 +16377,7 @@ cpu_atomic_xor_fetchl_be_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = tail call i32 @llvm.bswap.i32(i32 %val)
   %6 = atomicrmw xor ptr %3, i32 %5 seq_cst, align 4
@@ -16498,7 +16497,7 @@ cpu_atomic_xor_fetchl_le_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = atomicrmw xor ptr %3, i32 %val seq_cst, align 4
   %6 = xor i32 %5, %val
@@ -16614,7 +16613,7 @@ cpu_atomic_xor_fetchq_be_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = tail call i64 @llvm.bswap.i64(i64 %val)
   %6 = atomicrmw xor ptr %3, i64 %5 seq_cst, align 8
@@ -16734,7 +16733,7 @@ cpu_atomic_xor_fetchq_le_mmu.exit:                ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = atomicrmw xor ptr %3, i64 %val seq_cst, align 8
   %6 = xor i64 %5, %val
@@ -16805,7 +16804,6 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
 define dso_local i32 @helper_atomic_smin_fetchb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
-  %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
@@ -16833,6 +16831,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   br i1 %tobool.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
+  %1 = ptrtoint ptr %0 to i64
   tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
   unreachable
 
@@ -16841,7 +16840,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %get_alignment_bits.
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !92
   fence seq_cst
@@ -17064,7 +17063,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !96
   fence seq_cst
@@ -17212,7 +17211,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !98
   fence seq_cst
@@ -17356,7 +17355,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !100
   fence seq_cst
@@ -17496,7 +17495,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !102
   fence seq_cst
@@ -17640,7 +17639,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !104
   fence seq_cst
@@ -17735,7 +17734,6 @@ do.body5:                                         ; preds = %do.body
 define dso_local i32 @helper_atomic_umin_fetchb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
-  %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
@@ -17763,6 +17761,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   br i1 %tobool.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
+  %1 = ptrtoint ptr %0 to i64
   tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
   unreachable
 
@@ -17771,7 +17770,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %get_alignment_bits.
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !106
   fence seq_cst
@@ -17991,7 +17990,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !110
   fence seq_cst
@@ -18137,7 +18136,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !112
   fence seq_cst
@@ -18281,7 +18280,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !114
   fence seq_cst
@@ -18421,7 +18420,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !116
   fence seq_cst
@@ -18565,7 +18564,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !118
   fence seq_cst
@@ -18660,7 +18659,6 @@ do.body5:                                         ; preds = %do.body
 define dso_local i32 @helper_atomic_smax_fetchb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
-  %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
@@ -18688,6 +18686,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   br i1 %tobool.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
+  %1 = ptrtoint ptr %0 to i64
   tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
   unreachable
 
@@ -18696,7 +18695,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %get_alignment_bits.
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !120
   fence seq_cst
@@ -18919,7 +18918,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !124
   fence seq_cst
@@ -19067,7 +19066,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !126
   fence seq_cst
@@ -19211,7 +19210,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !128
   fence seq_cst
@@ -19351,7 +19350,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !130
   fence seq_cst
@@ -19495,7 +19494,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !132
   fence seq_cst
@@ -19590,7 +19589,6 @@ do.body5:                                         ; preds = %do.body
 define dso_local i32 @helper_atomic_umax_fetchb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
-  %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
@@ -19618,6 +19616,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   br i1 %tobool.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
+  %1 = ptrtoint ptr %0 to i64
   tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
   unreachable
 
@@ -19626,7 +19625,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %get_alignment_bits.
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !134
   fence seq_cst
@@ -19846,7 +19845,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !138
   fence seq_cst
@@ -19992,7 +19991,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !140
   fence seq_cst
@@ -20136,7 +20135,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !142
   fence seq_cst
@@ -20276,7 +20275,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !144
   fence seq_cst
@@ -20420,7 +20419,7 @@ atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !146
   fence seq_cst
@@ -20515,7 +20514,6 @@ do.body5:                                         ; preds = %do.body
 define dso_local i32 @helper_atomic_xchgb(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi) local_unnamed_addr #2 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
-  %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %shr.i.i.i = lshr i32 %oi, 4
   %and.i.i.i = and i32 %shr.i.i.i, 224
@@ -20543,6 +20541,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   br i1 %tobool.not.i.i, label %cpu_atomic_xchgb_mmu.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
+  %1 = ptrtoint ptr %0 to i64
   tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
   unreachable
 
@@ -20551,7 +20550,7 @@ cpu_atomic_xchgb_mmu.exit:                        ; preds = %get_alignment_bits.
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %val to i8
   %5 = atomicrmw xchg ptr %3, i8 %conv.i seq_cst, align 1
@@ -20660,7 +20659,7 @@ cpu_atomic_xchgw_be_mmu.exit:                     ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %val to i16
   %5 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
@@ -20782,7 +20781,7 @@ cpu_atomic_xchgw_le_mmu.exit:                     ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %conv.i = trunc i32 %val to i16
   %5 = atomicrmw xchg ptr %3, i16 %conv.i seq_cst, align 2
@@ -20900,7 +20899,7 @@ cpu_atomic_xchgl_be_mmu.exit:                     ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = tail call i32 @llvm.bswap.i32(i32 %val)
   %6 = atomicrmw xchg ptr %3, i32 %5 seq_cst, align 4
@@ -21018,7 +21017,7 @@ cpu_atomic_xchgl_le_mmu.exit:                     ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = atomicrmw xchg ptr %3, i32 %val seq_cst, align 4
   fence syncscope("singlethread") seq_cst
@@ -21132,7 +21131,7 @@ cpu_atomic_xchgq_be_mmu.exit:                     ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = tail call i64 @llvm.bswap.i64(i64 %val)
   %6 = atomicrmw xchg ptr %3, i64 %5 seq_cst, align 8
@@ -21250,7 +21249,7 @@ cpu_atomic_xchgq_le_mmu.exit:                     ; preds = %if.end.i.i
   %add.i.i.i.i = add i64 %2, %addr
   %3 = inttoptr i64 %add.i.i.i.i to ptr
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %4, align 8
   fence syncscope("singlethread") seq_cst
   %5 = atomicrmw xchg ptr %3, i64 %val seq_cst, align 8
   fence syncscope("singlethread") seq_cst

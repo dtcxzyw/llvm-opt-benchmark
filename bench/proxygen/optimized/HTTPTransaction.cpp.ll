@@ -7911,7 +7911,7 @@ if.end:                                           ; preds = %if.then5, %if.then
 if.then9:                                         ; preds = %if.end
   %7 = load atomic i32, ptr @_ZZN8proxygen12StateMachineINS_28HTTPTransactionIngressSMDataEE7transitERNS1_5StateENS1_5EventEE14occurrences_33 seq_cst, align 4
   %conv = sext i32 %7 to i64
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp, align 8
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8
   call void @_ZN6google10LogMessageC1EPKciilMS0_FvvE(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp10, ptr noundef nonnull @.str.192, i32 noundef 33, i32 noundef 2, i64 noundef %conv, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)
@@ -8306,7 +8306,7 @@ if.end:                                           ; preds = %if.then5, %if.then
 if.then9:                                         ; preds = %if.end
   %7 = load atomic i32, ptr @_ZZN8proxygen12StateMachineINS_27HTTPTransactionEgressSMDataEE7transitERNS1_5StateENS1_5EventEE14occurrences_33 seq_cst, align 4
   %conv = sext i32 %7 to i64
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp, align 8
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8
   call void @_ZN6google10LogMessageC1EPKciilMS0_FvvE(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp10, ptr noundef nonnull @.str.192, i32 noundef 33, i32 noundef 2, i64 noundef %conv, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)
@@ -25298,17 +25298,16 @@ entry:
   %3 = inttoptr i64 %2 to ptr
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__args3, i64 8
   %4 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %5 = inttoptr i64 %4 to ptr
-  %6 = load i64, ptr %1, align 8
-  store i64 %6, ptr %_M_storage.i, align 8
+  %5 = load i64, ptr %1, align 8
+  store i64 %5, ptr %_M_storage.i, align 8
   %second.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__node, i64 0, i32 1, i32 0, i64 8
-  %7 = load i64, ptr %3, align 8
+  %6 = load i64, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransaction19TxnStreamReadHandleE, i64 0, inrange i32 0, i64 2), ptr %second.i.i.i.i, align 8
   %txn_.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__node, i64 0, i32 1, i32 0, i64 16
-  store ptr %5, ptr %txn_.i.i.i.i.i, align 8
+  store i64 %4, ptr %txn_.i.i.i.i.i, align 8
   %id_.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__node, i64 0, i32 1, i32 0, i64 24
-  store i64 %7, ptr %id_.i.i.i.i.i, align 8
+  store i64 %6, ptr %id_.i.i.i.i.i, align 8
   %hasValue.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__node, i64 0, i32 1, i32 0, i64 48
   store i8 0, ptr %hasValue.i.i.i.i.i.i.i, align 8
   %buf_.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__node, i64 0, i32 1, i32 0, i64 56
@@ -25328,28 +25327,28 @@ invoke.cont2.i.i.i.i.i:                           ; preds = %entry
           to label %try.cont unwind label %lpad3.i.i.i.i.i
 
 lpad.i.i.i.i.i:                                   ; preds = %entry
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   br label %ehcleanup.i.i.i.i.i
 
 lpad3.i.i.i.i.i:                                  ; preds = %invoke.cont2.i.i.i.i.i
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %buf_.i.i.i.i.i) #27
   br label %ehcleanup.i.i.i.i.i
 
 ehcleanup.i.i.i.i.i:                              ; preds = %lpad3.i.i.i.i.i, %lpad.i.i.i.i.i
-  %.pn.i.i.i.i.i = phi { ptr, i32 } [ %9, %lpad3.i.i.i.i.i ], [ %8, %lpad.i.i.i.i.i ]
+  %.pn.i.i.i.i.i = phi { ptr, i32 } [ %8, %lpad3.i.i.i.i.i ], [ %7, %lpad.i.i.i.i.i ]
   %readPromise_.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__node, i64 0, i32 1, i32 0, i64 32
   call void @_ZN5folly8OptionalINS_7PromiseIN8proxygen12WebTransport10StreamDataEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %readPromise_.i.i.i.i.i) #27
-  %10 = extractvalue { ptr, i32 } %.pn.i.i.i.i.i, 0
-  %11 = call ptr @__cxa_begin_catch(ptr %10) #27
+  %9 = extractvalue { ptr, i32 } %.pn.i.i.i.i.i, 0
+  %10 = call ptr @__cxa_begin_catch(ptr %9) #27
   call void @_ZdlPv(ptr noundef nonnull %__node) #28
   invoke void @__cxa_rethrow() #32
           to label %unreachable unwind label %lpad7
 
 lpad7:                                            ; preds = %ehcleanup.i.i.i.i.i
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -25366,13 +25365,13 @@ try.cont:                                         ; preds = %invoke.cont2.i.i.i.
   ret void
 
 eh.resume:                                        ; preds = %lpad7
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %11
 
 terminate.lpad:                                   ; preds = %lpad7
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #29
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #29
   unreachable
 
 unreachable:                                      ; preds = %ehcleanup.i.i.i.i.i
@@ -25477,20 +25476,19 @@ entry:
   %3 = inttoptr i64 %2 to ptr
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__args3, i64 8
   %4 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %5 = inttoptr i64 %4 to ptr
-  %6 = load i64, ptr %1, align 8
-  store i64 %6, ptr %_M_storage.i, align 8
+  %5 = load i64, ptr %1, align 8
+  store i64 %5, ptr %_M_storage.i, align 8
   %second.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__node, i64 0, i32 1, i32 0, i64 8
-  %7 = load i64, ptr %3, align 8
+  %6 = load i64, ptr %3, align 8
   %stopSendingErrorCode_.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__node, i64 0, i32 1, i32 0, i64 16
   store i8 0, ptr %stopSendingErrorCode_.i.i.i.i.i.i, align 4
   %hasValue.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__node, i64 0, i32 1, i32 0, i64 20
   store i8 0, ptr %hasValue.i.i.i.i.i.i.i.i, align 4
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransaction20TxnStreamWriteHandleE, i64 0, inrange i32 0, i64 2), ptr %second.i.i.i.i, align 8
   %txn_.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__node, i64 0, i32 1, i32 0, i64 24
-  store ptr %5, ptr %txn_.i.i.i.i.i, align 8
+  store i64 %4, ptr %txn_.i.i.i.i.i, align 8
   %id_.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__node, i64 0, i32 1, i32 0, i64 32
-  store i64 %7, ptr %id_.i.i.i.i.i, align 8
+  store i64 %6, ptr %id_.i.i.i.i.i, align 8
   %hasValue.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__node, i64 0, i32 1, i32 0, i64 56
   store i8 0, ptr %hasValue.i.i.i.i.i.i.i, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !287)
@@ -25498,18 +25496,18 @@ entry:
           to label %try.cont unwind label %lpad.i.i.i.i.i
 
 lpad.i.i.i.i.i:                                   ; preds = %entry
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   %writePromise_.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__node, i64 0, i32 1, i32 0, i64 40
   tail call void @_ZN5folly8OptionalINS_7PromiseINS_4UnitEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %writePromise_.i.i.i.i.i) #27
-  %9 = extractvalue { ptr, i32 } %8, 0
-  %10 = tail call ptr @__cxa_begin_catch(ptr %9) #27
+  %8 = extractvalue { ptr, i32 } %7, 0
+  %9 = tail call ptr @__cxa_begin_catch(ptr %8) #27
   tail call void @_ZdlPv(ptr noundef nonnull %__node) #28
   invoke void @__cxa_rethrow() #32
           to label %unreachable unwind label %lpad7
 
 lpad7:                                            ; preds = %lpad.i.i.i.i.i
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -25525,13 +25523,13 @@ try.cont:                                         ; preds = %entry
   ret void
 
 eh.resume:                                        ; preds = %lpad7
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %10
 
 terminate.lpad:                                   ; preds = %lpad7
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #29
+  %12 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %12) #29
   unreachable
 
 unreachable:                                      ; preds = %lpad.i.i.i.i.i

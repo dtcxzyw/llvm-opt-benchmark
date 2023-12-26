@@ -2925,9 +2925,8 @@ entry:
   store i32 0, ptr %num_pluckers.i, align 4
   %completed_tail.i = getelementptr inbounds %"struct.(anonymous namespace)::cq_pluck_data", ptr %data, i64 0, i32 1
   store ptr %data, ptr %completed_tail.i, align 8
-  %1 = ptrtoint ptr %data to i64
   %next.i = getelementptr inbounds %struct.grpc_cq_completion, ptr %data, i64 0, i32 4
-  store i64 %1, ptr %next.i, align 8
+  store ptr %data, ptr %next.i, align 8
   ret void
 }
 
@@ -4692,7 +4691,7 @@ if.then19:                                        ; preds = %if.then12
 if.end21:                                         ; preds = %if.then19, %if.then12
   %13 = load ptr, ptr %mu, align 8
   tail call void @gpr_mu_unlock(ptr noundef %13)
-  store ptr %8, ptr %stolen_completion, align 8
+  store i64 %and, ptr %stolen_completion, align 8
   br label %return
 
 while.end:                                        ; preds = %while.cond

@@ -338,8 +338,7 @@ entry:
   tail call void @_ZN10arith_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16) %u, ptr noundef nonnull align 8 dereferenceable(976) %_m)
   %m_var2expr = getelementptr inbounds %"struct.diff_neq_tactic::imp", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %this, align 8
-  %1 = ptrtoint ptr %0 to i64
-  store i64 %1, ptr %m_var2expr, align 8
+  store ptr %0, ptr %m_var2expr, align 8
   %m_nodes.i.i = getelementptr inbounds %"struct.diff_neq_tactic::imp", ptr %this, i64 0, i32 2, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i, align 8
   %m_expr2var = getelementptr inbounds %"struct.diff_neq_tactic::imp", ptr %this, i64 0, i32 3
@@ -398,12 +397,12 @@ invoke.cont17:                                    ; preds = %invoke.cont13
   ret void
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup24
 
 lpad16:                                           ; preds = %invoke.cont13
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   %m_stack = getelementptr inbounds %"struct.diff_neq_tactic::imp", ptr %this, i64 0, i32 7
   %m_var_diseqs = getelementptr inbounds %"struct.diff_neq_tactic::imp", ptr %this, i64 0, i32 6
@@ -419,7 +418,7 @@ lpad16:                                           ; preds = %invoke.cont13
   br label %ehcleanup24
 
 ehcleanup24:                                      ; preds = %lpad16, %lpad
-  %.pn.pn.pn = phi { ptr, i32 } [ %3, %lpad16 ], [ %2, %lpad ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %2, %lpad16 ], [ %1, %lpad ]
   tail call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_var2expr) #15
   resume { ptr, i32 } %.pn.pn.pn
 }

@@ -1485,17 +1485,16 @@ _ZN11z3_replayer3imp10skip_blankEv.exit147:       ; preds = %while.body.i142
   %conv.i = shl i64 %67, 3
   %shl.i = and i64 %conv.i, 34359738360
   %or.i = or disjoint i64 %shl.i, 1
-  %68 = inttoptr i64 %or.i to ptr
-  %69 = load ptr, ptr %m_args160, align 8
-  %cmp.i148 = icmp eq ptr %69, null
+  %68 = load ptr, ptr %m_args160, align 8
+  %cmp.i148 = icmp eq ptr %68, null
   br i1 %cmp.i148, label %if.then.i157, label %lor.lhs.false.i149
 
 lor.lhs.false.i149:                               ; preds = %_ZN11z3_replayer3imp10skip_blankEv.exit147
-  %arrayidx.i150 = getelementptr inbounds i32, ptr %69, i64 -1
-  %70 = load i32, ptr %arrayidx.i150, align 4
-  %arrayidx4.i151 = getelementptr inbounds i32, ptr %69, i64 -2
-  %71 = load i32, ptr %arrayidx4.i151, align 4
-  %cmp5.i152 = icmp eq i32 %70, %71
+  %arrayidx.i150 = getelementptr inbounds i32, ptr %68, i64 -1
+  %69 = load i32, ptr %arrayidx.i150, align 4
+  %arrayidx4.i151 = getelementptr inbounds i32, ptr %68, i64 -2
+  %70 = load i32, ptr %arrayidx4.i151, align 4
+  %cmp5.i152 = icmp eq i32 %69, %70
   br i1 %cmp5.i152, label %if.then.i157, label %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit161
 
 if.then.i157:                                     ; preds = %lor.lhs.false.i149, %_ZN11z3_replayer3imp10skip_blankEv.exit147
@@ -1506,23 +1505,23 @@ if.then.i157:                                     ; preds = %lor.lhs.false.i149,
   br label %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit161
 
 _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit161: ; preds = %lor.lhs.false.i149, %if.then.i157
-  %72 = phi i32 [ %.pre1.i160, %if.then.i157 ], [ %70, %lor.lhs.false.i149 ]
-  %73 = phi ptr [ %.pre.i158, %if.then.i157 ], [ %69, %lor.lhs.false.i149 ]
-  %idx.ext.i153 = zext i32 %72 to i64
-  %add.ptr.i154 = getelementptr inbounds %"struct.z3_replayer::imp::value", ptr %73, i64 %idx.ext.i153
+  %71 = phi i32 [ %.pre1.i160, %if.then.i157 ], [ %69, %lor.lhs.false.i149 ]
+  %72 = phi ptr [ %.pre.i158, %if.then.i157 ], [ %68, %lor.lhs.false.i149 ]
+  %idx.ext.i153 = zext i32 %71 to i64
+  %add.ptr.i154 = getelementptr inbounds %"struct.z3_replayer::imp::value", ptr %72, i64 %idx.ext.i153
   store i32 4, ptr %add.ptr.i154, align 8
   %ref.tmp62.sroa.2403.0.add.ptr.i154.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i154, i64 8
-  store ptr %68, ptr %ref.tmp62.sroa.2403.0.add.ptr.i154.sroa_idx, align 8
-  %74 = load ptr, ptr %m_args160, align 8
-  %arrayidx10.i155 = getelementptr inbounds i32, ptr %74, i64 -1
-  %75 = load i32, ptr %arrayidx10.i155, align 4
-  %inc.i156 = add i32 %75, 1
+  store i64 %or.i, ptr %ref.tmp62.sroa.2403.0.add.ptr.i154.sroa_idx, align 8
+  %73 = load ptr, ptr %m_args160, align 8
+  %arrayidx10.i155 = getelementptr inbounds i32, ptr %73, i64 -1
+  %74 = load i32, ptr %arrayidx10.i155, align 4
+  %inc.i156 = add i32 %74, 1
   store i32 %inc.i156, ptr %arrayidx10.i155, align 4
   br label %while.body.backedge
 
 while.body.i169:                                  ; preds = %while.body.i, %while.body.i169.backedge
-  %76 = load ptr, ptr %m_stream.i4.i, align 8
-  %call.i5.i171 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %76)
+  %75 = load ptr, ptr %m_stream.i4.i, align 8
+  %call.i5.i171 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %75)
   store i32 %call.i5.i171, ptr %m_curr.i.i, align 8
   switch i32 %call.i5.i171, label %_ZN11z3_replayer3imp10skip_blankEv.exit174 [
     i32 10, label %if.then.i172
@@ -1531,8 +1530,8 @@ while.body.i169:                                  ; preds = %while.body.i, %whil
   ]
 
 if.then.i172:                                     ; preds = %while.body.i169
-  %77 = load i32, ptr %m_line.i.i, align 4
-  %inc.i.i173 = add nsw i32 %77, 1
+  %76 = load i32, ptr %m_line.i.i, align 4
+  %inc.i.i173 = add nsw i32 %76, 1
   store i32 %inc.i.i173, ptr %m_line.i.i, align 4
   br label %while.body.i169.backedge
 
@@ -1541,17 +1540,17 @@ while.body.i169.backedge:                         ; preds = %if.then.i172, %whil
 
 _ZN11z3_replayer3imp10skip_blankEv.exit174:       ; preds = %while.body.i169
   call void @_ZN11z3_replayer3imp10read_int64Ev(ptr noundef nonnull align 8 dereferenceable(184) %this)
-  %78 = load i64, ptr %m_int64, align 8
-  %79 = load ptr, ptr %m_args160, align 8
-  %cmp.i175 = icmp eq ptr %79, null
+  %77 = load i64, ptr %m_int64, align 8
+  %78 = load ptr, ptr %m_args160, align 8
+  %cmp.i175 = icmp eq ptr %78, null
   br i1 %cmp.i175, label %if.then.i184, label %lor.lhs.false.i176
 
 lor.lhs.false.i176:                               ; preds = %_ZN11z3_replayer3imp10skip_blankEv.exit174
-  %arrayidx.i177 = getelementptr inbounds i32, ptr %79, i64 -1
-  %80 = load i32, ptr %arrayidx.i177, align 4
-  %arrayidx4.i178 = getelementptr inbounds i32, ptr %79, i64 -2
-  %81 = load i32, ptr %arrayidx4.i178, align 4
-  %cmp5.i179 = icmp eq i32 %80, %81
+  %arrayidx.i177 = getelementptr inbounds i32, ptr %78, i64 -1
+  %79 = load i32, ptr %arrayidx.i177, align 4
+  %arrayidx4.i178 = getelementptr inbounds i32, ptr %78, i64 -2
+  %80 = load i32, ptr %arrayidx4.i178, align 4
+  %cmp5.i179 = icmp eq i32 %79, %80
   br i1 %cmp5.i179, label %if.then.i184, label %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit188
 
 if.then.i184:                                     ; preds = %lor.lhs.false.i176, %_ZN11z3_replayer3imp10skip_blankEv.exit174
@@ -1562,23 +1561,23 @@ if.then.i184:                                     ; preds = %lor.lhs.false.i176,
   br label %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit188
 
 _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit188: ; preds = %lor.lhs.false.i176, %if.then.i184
-  %82 = phi i32 [ %.pre1.i187, %if.then.i184 ], [ %80, %lor.lhs.false.i176 ]
-  %83 = phi ptr [ %.pre.i185, %if.then.i184 ], [ %79, %lor.lhs.false.i176 ]
-  %idx.ext.i180 = zext i32 %82 to i64
-  %add.ptr.i181 = getelementptr inbounds %"struct.z3_replayer::imp::value", ptr %83, i64 %idx.ext.i180
+  %81 = phi i32 [ %.pre1.i187, %if.then.i184 ], [ %79, %lor.lhs.false.i176 ]
+  %82 = phi ptr [ %.pre.i185, %if.then.i184 ], [ %78, %lor.lhs.false.i176 ]
+  %idx.ext.i180 = zext i32 %81 to i64
+  %add.ptr.i181 = getelementptr inbounds %"struct.z3_replayer::imp::value", ptr %82, i64 %idx.ext.i180
   store i32 0, ptr %add.ptr.i181, align 8
   %ref.tmp66.sroa.2402.0.add.ptr.i181.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i181, i64 8
-  store i64 %78, ptr %ref.tmp66.sroa.2402.0.add.ptr.i181.sroa_idx, align 8
-  %84 = load ptr, ptr %m_args160, align 8
-  %arrayidx10.i182 = getelementptr inbounds i32, ptr %84, i64 -1
-  %85 = load i32, ptr %arrayidx10.i182, align 4
-  %inc.i183 = add i32 %85, 1
+  store i64 %77, ptr %ref.tmp66.sroa.2402.0.add.ptr.i181.sroa_idx, align 8
+  %83 = load ptr, ptr %m_args160, align 8
+  %arrayidx10.i182 = getelementptr inbounds i32, ptr %83, i64 -1
+  %84 = load i32, ptr %arrayidx10.i182, align 4
+  %inc.i183 = add i32 %84, 1
   store i32 %inc.i183, ptr %arrayidx10.i182, align 4
   br label %while.body.backedge
 
 while.body.i196:                                  ; preds = %while.body.i, %while.body.i196.backedge
-  %86 = load ptr, ptr %m_stream.i4.i, align 8
-  %call.i5.i198 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %86)
+  %85 = load ptr, ptr %m_stream.i4.i, align 8
+  %call.i5.i198 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %85)
   store i32 %call.i5.i198, ptr %m_curr.i.i, align 8
   switch i32 %call.i5.i198, label %_ZN11z3_replayer3imp10skip_blankEv.exit201 [
     i32 10, label %if.then.i199
@@ -1587,8 +1586,8 @@ while.body.i196:                                  ; preds = %while.body.i, %whil
   ]
 
 if.then.i199:                                     ; preds = %while.body.i196
-  %87 = load i32, ptr %m_line.i.i, align 4
-  %inc.i.i200 = add nsw i32 %87, 1
+  %86 = load i32, ptr %m_line.i.i, align 4
+  %inc.i.i200 = add nsw i32 %86, 1
   store i32 %inc.i.i200, ptr %m_line.i.i, align 4
   br label %while.body.i196.backedge
 
@@ -1597,17 +1596,17 @@ while.body.i196.backedge:                         ; preds = %if.then.i199, %whil
 
 _ZN11z3_replayer3imp10skip_blankEv.exit201:       ; preds = %while.body.i196
   call void @_ZN11z3_replayer3imp11read_uint64Ev(ptr noundef nonnull align 8 dereferenceable(184) %this)
-  %88 = load i64, ptr %m_uint64158, align 8
-  %89 = load ptr, ptr %m_args160, align 8
-  %cmp.i202 = icmp eq ptr %89, null
+  %87 = load i64, ptr %m_uint64158, align 8
+  %88 = load ptr, ptr %m_args160, align 8
+  %cmp.i202 = icmp eq ptr %88, null
   br i1 %cmp.i202, label %if.then.i211, label %lor.lhs.false.i203
 
 lor.lhs.false.i203:                               ; preds = %_ZN11z3_replayer3imp10skip_blankEv.exit201
-  %arrayidx.i204 = getelementptr inbounds i32, ptr %89, i64 -1
-  %90 = load i32, ptr %arrayidx.i204, align 4
-  %arrayidx4.i205 = getelementptr inbounds i32, ptr %89, i64 -2
-  %91 = load i32, ptr %arrayidx4.i205, align 4
-  %cmp5.i206 = icmp eq i32 %90, %91
+  %arrayidx.i204 = getelementptr inbounds i32, ptr %88, i64 -1
+  %89 = load i32, ptr %arrayidx.i204, align 4
+  %arrayidx4.i205 = getelementptr inbounds i32, ptr %88, i64 -2
+  %90 = load i32, ptr %arrayidx4.i205, align 4
+  %cmp5.i206 = icmp eq i32 %89, %90
   br i1 %cmp5.i206, label %if.then.i211, label %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit215
 
 if.then.i211:                                     ; preds = %lor.lhs.false.i203, %_ZN11z3_replayer3imp10skip_blankEv.exit201
@@ -1618,23 +1617,23 @@ if.then.i211:                                     ; preds = %lor.lhs.false.i203,
   br label %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit215
 
 _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit215: ; preds = %lor.lhs.false.i203, %if.then.i211
-  %92 = phi i32 [ %.pre1.i214, %if.then.i211 ], [ %90, %lor.lhs.false.i203 ]
-  %93 = phi ptr [ %.pre.i212, %if.then.i211 ], [ %89, %lor.lhs.false.i203 ]
-  %idx.ext.i207 = zext i32 %92 to i64
-  %add.ptr.i208 = getelementptr inbounds %"struct.z3_replayer::imp::value", ptr %93, i64 %idx.ext.i207
+  %91 = phi i32 [ %.pre1.i214, %if.then.i211 ], [ %89, %lor.lhs.false.i203 ]
+  %92 = phi ptr [ %.pre.i212, %if.then.i211 ], [ %88, %lor.lhs.false.i203 ]
+  %idx.ext.i207 = zext i32 %91 to i64
+  %add.ptr.i208 = getelementptr inbounds %"struct.z3_replayer::imp::value", ptr %92, i64 %idx.ext.i207
   store i32 1, ptr %add.ptr.i208, align 8
   %ref.tmp70.sroa.2401.0.add.ptr.i208.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i208, i64 8
-  store i64 %88, ptr %ref.tmp70.sroa.2401.0.add.ptr.i208.sroa_idx, align 8
-  %94 = load ptr, ptr %m_args160, align 8
-  %arrayidx10.i209 = getelementptr inbounds i32, ptr %94, i64 -1
-  %95 = load i32, ptr %arrayidx10.i209, align 4
-  %inc.i210 = add i32 %95, 1
+  store i64 %87, ptr %ref.tmp70.sroa.2401.0.add.ptr.i208.sroa_idx, align 8
+  %93 = load ptr, ptr %m_args160, align 8
+  %arrayidx10.i209 = getelementptr inbounds i32, ptr %93, i64 -1
+  %94 = load i32, ptr %arrayidx10.i209, align 4
+  %inc.i210 = add i32 %94, 1
   store i32 %inc.i210, ptr %arrayidx10.i209, align 4
   br label %while.body.backedge
 
 while.body.i223:                                  ; preds = %while.body.i, %while.body.i223.backedge
-  %96 = load ptr, ptr %m_stream.i4.i, align 8
-  %call.i5.i225 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %96)
+  %95 = load ptr, ptr %m_stream.i4.i, align 8
+  %call.i5.i225 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %95)
   store i32 %call.i5.i225, ptr %m_curr.i.i, align 8
   switch i32 %call.i5.i225, label %_ZN11z3_replayer3imp10skip_blankEv.exit228 [
     i32 10, label %if.then.i226
@@ -1643,8 +1642,8 @@ while.body.i223:                                  ; preds = %while.body.i, %whil
   ]
 
 if.then.i226:                                     ; preds = %while.body.i223
-  %97 = load i32, ptr %m_line.i.i, align 4
-  %inc.i.i227 = add nsw i32 %97, 1
+  %96 = load i32, ptr %m_line.i.i, align 4
+  %inc.i.i227 = add nsw i32 %96, 1
   store i32 %inc.i.i227, ptr %m_line.i.i, align 4
   br label %while.body.i223.backedge
 
@@ -1653,17 +1652,17 @@ while.body.i223.backedge:                         ; preds = %if.then.i226, %whil
 
 _ZN11z3_replayer3imp10skip_blankEv.exit228:       ; preds = %while.body.i223
   call void @_ZN11z3_replayer3imp10read_floatEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
-  %98 = load float, ptr %m_float, align 8
-  %99 = load ptr, ptr %m_args160, align 8
-  %cmp.i229 = icmp eq ptr %99, null
+  %97 = load float, ptr %m_float, align 8
+  %98 = load ptr, ptr %m_args160, align 8
+  %cmp.i229 = icmp eq ptr %98, null
   br i1 %cmp.i229, label %if.then.i238, label %lor.lhs.false.i230
 
 lor.lhs.false.i230:                               ; preds = %_ZN11z3_replayer3imp10skip_blankEv.exit228
-  %arrayidx.i231 = getelementptr inbounds i32, ptr %99, i64 -1
-  %100 = load i32, ptr %arrayidx.i231, align 4
-  %arrayidx4.i232 = getelementptr inbounds i32, ptr %99, i64 -2
-  %101 = load i32, ptr %arrayidx4.i232, align 4
-  %cmp5.i233 = icmp eq i32 %100, %101
+  %arrayidx.i231 = getelementptr inbounds i32, ptr %98, i64 -1
+  %99 = load i32, ptr %arrayidx.i231, align 4
+  %arrayidx4.i232 = getelementptr inbounds i32, ptr %98, i64 -2
+  %100 = load i32, ptr %arrayidx4.i232, align 4
+  %cmp5.i233 = icmp eq i32 %99, %100
   br i1 %cmp5.i233, label %if.then.i238, label %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit242
 
 if.then.i238:                                     ; preds = %lor.lhs.false.i230, %_ZN11z3_replayer3imp10skip_blankEv.exit228
@@ -1674,23 +1673,23 @@ if.then.i238:                                     ; preds = %lor.lhs.false.i230,
   br label %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit242
 
 _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit242: ; preds = %lor.lhs.false.i230, %if.then.i238
-  %102 = phi i32 [ %.pre1.i241, %if.then.i238 ], [ %100, %lor.lhs.false.i230 ]
-  %103 = phi ptr [ %.pre.i239, %if.then.i238 ], [ %99, %lor.lhs.false.i230 ]
-  %idx.ext.i234 = zext i32 %102 to i64
-  %add.ptr.i235 = getelementptr inbounds %"struct.z3_replayer::imp::value", ptr %103, i64 %idx.ext.i234
+  %101 = phi i32 [ %.pre1.i241, %if.then.i238 ], [ %99, %lor.lhs.false.i230 ]
+  %102 = phi ptr [ %.pre.i239, %if.then.i238 ], [ %98, %lor.lhs.false.i230 ]
+  %idx.ext.i234 = zext i32 %101 to i64
+  %add.ptr.i235 = getelementptr inbounds %"struct.z3_replayer::imp::value", ptr %102, i64 %idx.ext.i234
   store i32 10, ptr %add.ptr.i235, align 8
   %ref.tmp75.sroa.2400.0.add.ptr.i235.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i235, i64 8
-  store float %98, ptr %ref.tmp75.sroa.2400.0.add.ptr.i235.sroa_idx, align 8
-  %104 = load ptr, ptr %m_args160, align 8
-  %arrayidx10.i236 = getelementptr inbounds i32, ptr %104, i64 -1
-  %105 = load i32, ptr %arrayidx10.i236, align 4
-  %inc.i237 = add i32 %105, 1
+  store float %97, ptr %ref.tmp75.sroa.2400.0.add.ptr.i235.sroa_idx, align 8
+  %103 = load ptr, ptr %m_args160, align 8
+  %arrayidx10.i236 = getelementptr inbounds i32, ptr %103, i64 -1
+  %104 = load i32, ptr %arrayidx10.i236, align 4
+  %inc.i237 = add i32 %104, 1
   store i32 %inc.i237, ptr %arrayidx10.i236, align 4
   br label %while.body.backedge
 
 while.body.i250:                                  ; preds = %while.body.i, %while.body.i250.backedge
-  %106 = load ptr, ptr %m_stream.i4.i, align 8
-  %call.i5.i252 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %106)
+  %105 = load ptr, ptr %m_stream.i4.i, align 8
+  %call.i5.i252 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %105)
   store i32 %call.i5.i252, ptr %m_curr.i.i, align 8
   switch i32 %call.i5.i252, label %_ZN11z3_replayer3imp10skip_blankEv.exit255 [
     i32 10, label %if.then.i253
@@ -1699,8 +1698,8 @@ while.body.i250:                                  ; preds = %while.body.i, %whil
   ]
 
 if.then.i253:                                     ; preds = %while.body.i250
-  %107 = load i32, ptr %m_line.i.i, align 4
-  %inc.i.i254 = add nsw i32 %107, 1
+  %106 = load i32, ptr %m_line.i.i, align 4
+  %inc.i.i254 = add nsw i32 %106, 1
   store i32 %inc.i.i254, ptr %m_line.i.i, align 4
   br label %while.body.i250.backedge
 
@@ -1709,17 +1708,17 @@ while.body.i250.backedge:                         ; preds = %if.then.i253, %whil
 
 _ZN11z3_replayer3imp10skip_blankEv.exit255:       ; preds = %while.body.i250
   call void @_ZN11z3_replayer3imp11read_doubleEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
-  %108 = load double, ptr %m_double, align 8
-  %109 = load ptr, ptr %m_args160, align 8
-  %cmp.i256 = icmp eq ptr %109, null
+  %107 = load double, ptr %m_double, align 8
+  %108 = load ptr, ptr %m_args160, align 8
+  %cmp.i256 = icmp eq ptr %108, null
   br i1 %cmp.i256, label %if.then.i265, label %lor.lhs.false.i257
 
 lor.lhs.false.i257:                               ; preds = %_ZN11z3_replayer3imp10skip_blankEv.exit255
-  %arrayidx.i258 = getelementptr inbounds i32, ptr %109, i64 -1
-  %110 = load i32, ptr %arrayidx.i258, align 4
-  %arrayidx4.i259 = getelementptr inbounds i32, ptr %109, i64 -2
-  %111 = load i32, ptr %arrayidx4.i259, align 4
-  %cmp5.i260 = icmp eq i32 %110, %111
+  %arrayidx.i258 = getelementptr inbounds i32, ptr %108, i64 -1
+  %109 = load i32, ptr %arrayidx.i258, align 4
+  %arrayidx4.i259 = getelementptr inbounds i32, ptr %108, i64 -2
+  %110 = load i32, ptr %arrayidx4.i259, align 4
+  %cmp5.i260 = icmp eq i32 %109, %110
   br i1 %cmp5.i260, label %if.then.i265, label %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit269
 
 if.then.i265:                                     ; preds = %lor.lhs.false.i257, %_ZN11z3_replayer3imp10skip_blankEv.exit255
@@ -1730,23 +1729,23 @@ if.then.i265:                                     ; preds = %lor.lhs.false.i257,
   br label %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit269
 
 _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit269: ; preds = %lor.lhs.false.i257, %if.then.i265
-  %112 = phi i32 [ %.pre1.i268, %if.then.i265 ], [ %110, %lor.lhs.false.i257 ]
-  %113 = phi ptr [ %.pre.i266, %if.then.i265 ], [ %109, %lor.lhs.false.i257 ]
-  %idx.ext.i261 = zext i32 %112 to i64
-  %add.ptr.i262 = getelementptr inbounds %"struct.z3_replayer::imp::value", ptr %113, i64 %idx.ext.i261
+  %111 = phi i32 [ %.pre1.i268, %if.then.i265 ], [ %109, %lor.lhs.false.i257 ]
+  %112 = phi ptr [ %.pre.i266, %if.then.i265 ], [ %108, %lor.lhs.false.i257 ]
+  %idx.ext.i261 = zext i32 %111 to i64
+  %add.ptr.i262 = getelementptr inbounds %"struct.z3_replayer::imp::value", ptr %112, i64 %idx.ext.i261
   store i32 2, ptr %add.ptr.i262, align 8
   %ref.tmp79.sroa.2399.0.add.ptr.i262.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i262, i64 8
-  store double %108, ptr %ref.tmp79.sroa.2399.0.add.ptr.i262.sroa_idx, align 8
-  %114 = load ptr, ptr %m_args160, align 8
-  %arrayidx10.i263 = getelementptr inbounds i32, ptr %114, i64 -1
-  %115 = load i32, ptr %arrayidx10.i263, align 4
-  %inc.i264 = add i32 %115, 1
+  store double %107, ptr %ref.tmp79.sroa.2399.0.add.ptr.i262.sroa_idx, align 8
+  %113 = load ptr, ptr %m_args160, align 8
+  %arrayidx10.i263 = getelementptr inbounds i32, ptr %113, i64 -1
+  %114 = load i32, ptr %arrayidx10.i263, align 4
+  %inc.i264 = add i32 %114, 1
   store i32 %inc.i264, ptr %arrayidx10.i263, align 4
   br label %while.body.backedge
 
 while.body.i277:                                  ; preds = %while.body.i277.backedge, %while.body.i277.preheader
-  %116 = load ptr, ptr %m_stream.i4.i, align 8
-  %call.i5.i279 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %116)
+  %115 = load ptr, ptr %m_stream.i4.i, align 8
+  %call.i5.i279 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %115)
   store i32 %call.i5.i279, ptr %m_curr.i.i, align 8
   switch i32 %call.i5.i279, label %_ZN11z3_replayer3imp10skip_blankEv.exit282 [
     i32 10, label %if.then.i280
@@ -1755,8 +1754,8 @@ while.body.i277:                                  ; preds = %while.body.i277.bac
   ]
 
 if.then.i280:                                     ; preds = %while.body.i277
-  %117 = load i32, ptr %m_line.i.i, align 4
-  %inc.i.i281 = add nsw i32 %117, 1
+  %116 = load i32, ptr %m_line.i.i, align 4
+  %inc.i.i281 = add nsw i32 %116, 1
   store i32 %inc.i.i281, ptr %m_line.i.i, align 4
   br label %while.body.i277.backedge
 
@@ -1766,8 +1765,8 @@ while.body.i277.backedge:                         ; preds = %if.then.i280, %whil
 _ZN11z3_replayer3imp10skip_blankEv.exit282:       ; preds = %while.body.i277
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp4.i)
-  %118 = add i32 %call.i5.i279, -48
-  %or.cond11.i = icmp ult i32 %118, 10
+  %117 = add i32 %call.i5.i279, -48
+  %or.cond11.i = icmp ult i32 %117, 10
   br i1 %or.cond11.i, label %if.then12.lr.ph.i, label %if.then.i284
 
 if.then.i284:                                     ; preds = %_ZN11z3_replayer3imp10skip_blankEv.exit282
@@ -1784,14 +1783,14 @@ invoke.cont.i:                                    ; preds = %if.then.i284
           to label %unreachable.i unwind label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %invoke.cont.i
-  %119 = landingpad { ptr, i32 }
+  %118 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i) #21
   br label %common.resume
 
 cleanup.action.i:                                 ; preds = %if.then.i284
-  %120 = landingpad { ptr, i32 }
+  %119 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i) #21
   call void @__cxa_free_exception(ptr %exception.i) #21
@@ -1802,21 +1801,21 @@ if.then12.lr.ph.i:                                ; preds = %_ZN11z3_replayer3im
   br label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.then12.i, %if.then12.lr.ph.i
-  %121 = phi i32 [ %118, %if.then12.lr.ph.i ], [ %124, %if.then12.i ]
-  %122 = load i64, ptr %m_uint64158, align 8
-  %mul.i = mul i64 %122, 10
-  %conv.i285 = zext nneg i32 %121 to i64
+  %120 = phi i32 [ %117, %if.then12.lr.ph.i ], [ %123, %if.then12.i ]
+  %121 = load i64, ptr %m_uint64158, align 8
+  %mul.i = mul i64 %121, 10
+  %conv.i285 = zext nneg i32 %120 to i64
   %add.i = add i64 %mul.i, %conv.i285
   store i64 %add.i, ptr %m_uint64158, align 8
-  %123 = load ptr, ptr %m_stream.i4.i, align 8
-  %call.i.i = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %123)
+  %122 = load ptr, ptr %m_stream.i4.i, align 8
+  %call.i.i = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %122)
   store i32 %call.i.i, ptr %m_curr.i.i, align 8
-  %124 = add i32 %call.i.i, -48
-  %or.cond.i = icmp ult i32 %124, 10
+  %123 = add i32 %call.i.i, -48
+  %or.cond.i = icmp ult i32 %123, 10
   br i1 %or.cond.i, label %if.then12.i, label %_ZN11z3_replayer3imp11read_uint64Ev.exit, !llvm.loop !10
 
 common.resume:                                    ; preds = %catch.fallthrough, %cleanup.action, %cleanup.action120, %lpad128, %lpad143, %cleanup.action188, %ehcleanup, %ehcleanup117, %ehcleanup185, %ehcleanup.i, %cleanup.action.i
-  %common.resume.op = phi { ptr, i32 } [ %119, %ehcleanup.i ], [ %120, %cleanup.action.i ], [ %181, %cleanup.action188 ], [ %180, %ehcleanup185 ], [ %132, %cleanup.action120 ], [ %131, %ehcleanup117 ], [ %145, %lpad143 ], [ %144, %lpad128 ], [ %25, %cleanup.action ], [ %24, %ehcleanup ], [ %135, %catch.fallthrough ]
+  %common.resume.op = phi { ptr, i32 } [ %118, %ehcleanup.i ], [ %119, %cleanup.action.i ], [ %180, %cleanup.action188 ], [ %179, %ehcleanup185 ], [ %131, %cleanup.action120 ], [ %130, %ehcleanup117 ], [ %144, %lpad143 ], [ %143, %lpad128 ], [ %25, %cleanup.action ], [ %24, %ehcleanup ], [ %134, %catch.fallthrough ]
   resume { ptr, i32 } %common.resume.op
 
 unreachable.i:                                    ; preds = %invoke.cont.i
@@ -1825,8 +1824,8 @@ unreachable.i:                                    ; preds = %invoke.cont.i
 _ZN11z3_replayer3imp11read_uint64Ev.exit:         ; preds = %if.then12.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp4.i)
-  %125 = load i64, ptr %m_uint64158, align 8
-  %conv98 = trunc i64 %125 to i32
+  %124 = load i64, ptr %m_uint64158, align 8
+  %conv98 = trunc i64 %124 to i32
   switch i32 %0, label %if.else96 [
     i32 112, label %if.then83
     i32 115, label %if.then88
@@ -1850,8 +1849,8 @@ if.else96:                                        ; preds = %_ZN11z3_replayer3im
   br label %while.body.backedge
 
 while.body.i293:                                  ; preds = %while.body.i, %while.body.i293.backedge
-  %126 = load ptr, ptr %m_stream.i4.i, align 8
-  %call.i5.i295 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %126)
+  %125 = load ptr, ptr %m_stream.i4.i, align 8
+  %call.i5.i295 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %125)
   store i32 %call.i5.i295, ptr %m_curr.i.i, align 8
   switch i32 %call.i5.i295, label %_ZN11z3_replayer3imp10skip_blankEv.exit298 [
     i32 10, label %if.then.i296
@@ -1860,8 +1859,8 @@ while.body.i293:                                  ; preds = %while.body.i, %whil
   ]
 
 if.then.i296:                                     ; preds = %while.body.i293
-  %127 = load i32, ptr %m_line.i.i, align 4
-  %inc.i.i297 = add nsw i32 %127, 1
+  %126 = load i32, ptr %m_line.i.i, align 4
+  %inc.i.i297 = add nsw i32 %126, 1
   store i32 %inc.i.i297, ptr %m_line.i.i, align 4
   br label %while.body.i293.backedge
 
@@ -1870,16 +1869,16 @@ while.body.i293.backedge:                         ; preds = %if.then.i296, %whil
 
 _ZN11z3_replayer3imp10skip_blankEv.exit298:       ; preds = %while.body.i293
   call void @_ZN11z3_replayer3imp11read_uint64Ev(ptr noundef nonnull align 8 dereferenceable(184) %this)
-  %128 = load i64, ptr %m_uint64158, align 8
-  %129 = load ptr, ptr %m_cmds, align 8
-  %cmp.i299 = icmp eq ptr %129, null
+  %127 = load i64, ptr %m_uint64158, align 8
+  %128 = load ptr, ptr %m_cmds, align 8
+  %cmp.i299 = icmp eq ptr %128, null
   br i1 %cmp.i299, label %if.then107, label %_ZNK6vectorIPFvR11z3_replayerELb0EjE4sizeEv.exit
 
 _ZNK6vectorIPFvR11z3_replayerELb0EjE4sizeEv.exit: ; preds = %_ZN11z3_replayer3imp10skip_blankEv.exit298
-  %conv104 = trunc i64 %128 to i32
-  %arrayidx.i300 = getelementptr inbounds i32, ptr %129, i64 -1
-  %130 = load i32, ptr %arrayidx.i300, align 4
-  %cmp106.not = icmp ugt i32 %130, %conv104
+  %conv104 = trunc i64 %127 to i32
+  %arrayidx.i300 = getelementptr inbounds i32, ptr %128, i64 -1
+  %129 = load i32, ptr %arrayidx.i300, align 4
+  %cmp106.not = icmp ugt i32 %129, %conv104
   br i1 %cmp106.not, label %if.end122, label %if.then107
 
 if.then107:                                       ; preds = %_ZN11z3_replayer3imp10skip_blankEv.exit298, %_ZNK6vectorIPFvR11z3_replayerELb0EjE4sizeEv.exit
@@ -1896,63 +1895,63 @@ invoke.cont112:                                   ; preds = %if.then107
           to label %unreachable unwind label %ehcleanup117
 
 ehcleanup117:                                     ; preds = %invoke.cont112
-  %131 = landingpad { ptr, i32 }
+  %130 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp109) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp110) #21
   br label %common.resume
 
 cleanup.action120:                                ; preds = %if.then107
-  %132 = landingpad { ptr, i32 }
+  %131 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp110) #21
   call void @__cxa_free_exception(ptr %exception108) #21
   br label %common.resume
 
 if.end122:                                        ; preds = %_ZNK6vectorIPFvR11z3_replayerELb0EjE4sizeEv.exit
-  %idxprom.i = and i64 %128, 4294967295
-  %arrayidx.i302 = getelementptr inbounds ptr, ptr %129, i64 %idxprom.i
-  %133 = load ptr, ptr %arrayidx.i302, align 8
-  %134 = load ptr, ptr %this, align 8
-  invoke void %133(ptr noundef nonnull align 8 dereferenceable(8) %134)
+  %idxprom.i = and i64 %127, 4294967295
+  %arrayidx.i302 = getelementptr inbounds ptr, ptr %128, i64 %idxprom.i
+  %132 = load ptr, ptr %arrayidx.i302, align 8
+  %133 = load ptr, ptr %this, align 8
+  invoke void %132(ptr noundef nonnull align 8 dereferenceable(8) %133)
           to label %while.body.backedge unwind label %lpad125
 
 lpad125:                                          ; preds = %if.end122
-  %135 = landingpad { ptr, i32 }
+  %134 = landingpad { ptr, i32 }
           catch ptr @_ZTI8z3_error
           catch ptr @_ZTI12z3_exception
-  %136 = extractvalue { ptr, i32 } %135, 0
-  %137 = extractvalue { ptr, i32 } %135, 1
-  %138 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI8z3_error) #21
-  %matches = icmp eq i32 %137, %138
+  %135 = extractvalue { ptr, i32 } %134, 0
+  %136 = extractvalue { ptr, i32 } %134, 1
+  %137 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI8z3_error) #21
+  %matches = icmp eq i32 %136, %137
   br i1 %matches, label %catch139, label %catch.fallthrough
 
 catch139:                                         ; preds = %lpad125
-  %139 = call ptr @__cxa_begin_catch(ptr %136) #21
+  %138 = call ptr @__cxa_begin_catch(ptr %135) #21
   %exception142 = call ptr @__cxa_allocate_exception(i64 16) #21
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8z3_error, i64 0, inrange i32 0, i64 2), ptr %exception142, align 8
   %m_error_code.i = getelementptr inbounds %class.z3_error, ptr %exception142, i64 0, i32 1
-  %m_error_code2.i = getelementptr inbounds %class.z3_error, ptr %139, i64 0, i32 1
-  %140 = load i32, ptr %m_error_code2.i, align 8
-  store i32 %140, ptr %m_error_code.i, align 8
+  %m_error_code2.i = getelementptr inbounds %class.z3_error, ptr %138, i64 0, i32 1
+  %139 = load i32, ptr %m_error_code2.i, align 8
+  store i32 %139, ptr %m_error_code.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception142, ptr nonnull @_ZTI8z3_error, ptr nonnull @_ZN8z3_errorD2Ev) #22
           to label %unreachable unwind label %lpad143
 
 catch.fallthrough:                                ; preds = %lpad125
-  %141 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI12z3_exception) #21
-  %matches127 = icmp eq i32 %137, %141
+  %140 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI12z3_exception) #21
+  %matches127 = icmp eq i32 %136, %140
   br i1 %matches127, label %catch, label %common.resume
 
 catch:                                            ; preds = %catch.fallthrough
-  %142 = call ptr @__cxa_begin_catch(ptr %136) #21
+  %141 = call ptr @__cxa_begin_catch(ptr %135) #21
   %call130 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.24)
           to label %invoke.cont129 unwind label %lpad128
 
 invoke.cont129:                                   ; preds = %catch
-  %vtable = load ptr, ptr %142, align 8
+  %vtable = load ptr, ptr %141, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %143 = load ptr, ptr %vfn, align 8
-  %call132 = invoke noundef ptr %143(ptr noundef nonnull align 8 dereferenceable(8) %142)
+  %142 = load ptr, ptr %vfn, align 8
+  %call132 = invoke noundef ptr %142(ptr noundef nonnull align 8 dereferenceable(8) %141)
           to label %invoke.cont131 unwind label %lpad128
 
 invoke.cont131:                                   ; preds = %invoke.cont129
@@ -1971,20 +1970,20 @@ while.body.backedge:                              ; preds = %invoke.cont135, %if
   br label %while.body, !llvm.loop !11
 
 lpad128:                                          ; preds = %invoke.cont133, %invoke.cont131, %invoke.cont129, %catch
-  %144 = landingpad { ptr, i32 }
+  %143 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad
 
 lpad143:                                          ; preds = %catch139
-  %145 = landingpad { ptr, i32 }
+  %144 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %common.resume unwind label %terminate.lpad
 
 while.body.i310:                                  ; preds = %while.body.i, %while.body.i310.backedge
-  %146 = load ptr, ptr %m_stream.i4.i, align 8
-  %call.i5.i312 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %146)
+  %145 = load ptr, ptr %m_stream.i4.i, align 8
+  %call.i5.i312 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %145)
   store i32 %call.i5.i312, ptr %m_curr.i.i, align 8
   switch i32 %call.i5.i312, label %_ZN11z3_replayer3imp10skip_blankEv.exit315 [
     i32 10, label %if.then.i313
@@ -1993,8 +1992,8 @@ while.body.i310:                                  ; preds = %while.body.i, %whil
   ]
 
 if.then.i313:                                     ; preds = %while.body.i310
-  %147 = load i32, ptr %m_line.i.i, align 4
-  %inc.i.i314 = add nsw i32 %147, 1
+  %146 = load i32, ptr %m_line.i.i, align 4
+  %inc.i.i314 = add nsw i32 %146, 1
   store i32 %inc.i.i314, ptr %m_line.i.i, align 4
   br label %while.body.i310.backedge
 
@@ -2004,17 +2003,17 @@ while.body.i310.backedge:                         ; preds = %if.then.i313, %whil
 _ZN11z3_replayer3imp10skip_blankEv.exit315:       ; preds = %while.body.i310
   call void @_ZN11z3_replayer3imp8read_ptrEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i316)
-  %148 = load i64, ptr %m_ptr168, align 8
-  store i64 %148, ptr %ref.tmp.i316, align 8
-  %149 = load ptr, ptr %m_result, align 8
-  store ptr %149, ptr %m_value.i.i, align 8
+  %147 = load i64, ptr %m_ptr168, align 8
+  store i64 %147, ptr %ref.tmp.i316, align 8
+  %148 = load ptr, ptr %m_result, align 8
+  store ptr %148, ptr %m_value.i.i, align 8
   call void @_ZN14core_hashtableI17default_map_entryImPvEN9table2mapIS2_11size_t_hash9size_t_eqE15entry_hash_procENS6_13entry_eq_procEE6insertEO9_key_dataImS1_E(ptr noundef nonnull align 8 dereferenceable(20) %m_heap167, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i316)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i316)
   br label %while.body.backedge
 
 while.body.i324:                                  ; preds = %while.body.i, %while.body.i324.backedge
-  %150 = load ptr, ptr %m_stream.i4.i, align 8
-  %call.i5.i326 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %150)
+  %149 = load ptr, ptr %m_stream.i4.i, align 8
+  %call.i5.i326 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %149)
   store i32 %call.i5.i326, ptr %m_curr.i.i, align 8
   switch i32 %call.i5.i326, label %_ZN11z3_replayer3imp10skip_blankEv.exit329 [
     i32 10, label %if.then.i327
@@ -2023,8 +2022,8 @@ while.body.i324:                                  ; preds = %while.body.i, %whil
   ]
 
 if.then.i327:                                     ; preds = %while.body.i324
-  %151 = load i32, ptr %m_line.i.i, align 4
-  %inc.i.i328 = add nsw i32 %151, 1
+  %150 = load i32, ptr %m_line.i.i, align 4
+  %inc.i.i328 = add nsw i32 %150, 1
   store i32 %inc.i.i328, ptr %m_line.i.i, align 4
   br label %while.body.i324.backedge
 
@@ -2037,45 +2036,45 @@ _ZN11z3_replayer3imp10skip_blankEv.exit329:       ; preds = %while.body.i324
   br label %while.body.i334
 
 while.body.i334:                                  ; preds = %if.end6.i335, %_ZN11z3_replayer3imp10skip_blankEv.exit329
-  %152 = phi i32 [ %call.i5.i336, %if.end6.i335 ], [ %.pre.i333, %_ZN11z3_replayer3imp10skip_blankEv.exit329 ]
-  switch i32 %152, label %_ZN11z3_replayer3imp10skip_blankEv.exit339 [
+  %151 = phi i32 [ %call.i5.i336, %if.end6.i335 ], [ %.pre.i333, %_ZN11z3_replayer3imp10skip_blankEv.exit329 ]
+  switch i32 %151, label %_ZN11z3_replayer3imp10skip_blankEv.exit339 [
     i32 10, label %if.then.i337
     i32 32, label %if.end6.i335
     i32 9, label %if.end6.i335
   ]
 
 if.then.i337:                                     ; preds = %while.body.i334
-  %153 = load i32, ptr %m_line.i.i, align 4
-  %inc.i.i338 = add nsw i32 %153, 1
+  %152 = load i32, ptr %m_line.i.i, align 4
+  %inc.i.i338 = add nsw i32 %152, 1
   store i32 %inc.i.i338, ptr %m_line.i.i, align 4
   br label %if.end6.i335
 
 if.end6.i335:                                     ; preds = %if.then.i337, %while.body.i334, %while.body.i334
-  %154 = load ptr, ptr %m_stream.i4.i, align 8
-  %call.i5.i336 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %154)
+  %153 = load ptr, ptr %m_stream.i4.i, align 8
+  %call.i5.i336 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %153)
   store i32 %call.i5.i336, ptr %m_curr.i.i, align 8
   br label %while.body.i334, !llvm.loop !7
 
 _ZN11z3_replayer3imp10skip_blankEv.exit339:       ; preds = %while.body.i334
   call void @_ZN11z3_replayer3imp11read_uint64Ev(ptr noundef nonnull align 8 dereferenceable(184) %this)
-  %155 = load i64, ptr %m_uint64158, align 8
-  %conv151 = trunc i64 %155 to i32
+  %154 = load i64, ptr %m_uint64158, align 8
+  %conv151 = trunc i64 %154 to i32
   call void @_ZNK11z3_replayer3imp9check_argEjNS0_10value_kindE(ptr noundef nonnull align 8 dereferenceable(184) %this, i32 noundef %conv151, i32 noundef 5)
-  %156 = load ptr, ptr %m_args160, align 8
-  %idxprom.i340 = and i64 %155, 4294967295
-  %157 = getelementptr inbounds %"struct.z3_replayer::imp::value", ptr %156, i64 %idxprom.i340, i32 1
+  %155 = load ptr, ptr %m_args160, align 8
+  %idxprom.i340 = and i64 %154, 4294967295
+  %156 = getelementptr inbounds %"struct.z3_replayer::imp::value", ptr %155, i64 %idxprom.i340, i32 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i342)
-  %158 = load i64, ptr %m_ptr168, align 8
-  store i64 %158, ptr %ref.tmp.i342, align 8
-  %159 = load ptr, ptr %157, align 8
-  store ptr %159, ptr %m_value.i.i343, align 8
+  %157 = load i64, ptr %m_ptr168, align 8
+  store i64 %157, ptr %ref.tmp.i342, align 8
+  %158 = load ptr, ptr %156, align 8
+  store ptr %158, ptr %m_value.i.i343, align 8
   call void @_ZN14core_hashtableI17default_map_entryImPvEN9table2mapIS2_11size_t_hash9size_t_eqE15entry_hash_procENS6_13entry_eq_procEE6insertEO9_key_dataImS1_E(ptr noundef nonnull align 8 dereferenceable(20) %m_heap167, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i342)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i342)
   br label %while.body.backedge
 
 while.body.i351:                                  ; preds = %while.body.i, %while.body.i351.backedge
-  %160 = load ptr, ptr %m_stream.i4.i, align 8
-  %call.i5.i353 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %160)
+  %159 = load ptr, ptr %m_stream.i4.i, align 8
+  %call.i5.i353 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %159)
   store i32 %call.i5.i353, ptr %m_curr.i.i, align 8
   switch i32 %call.i5.i353, label %_ZN11z3_replayer3imp10skip_blankEv.exit356 [
     i32 10, label %if.then.i354
@@ -2084,8 +2083,8 @@ while.body.i351:                                  ; preds = %while.body.i, %whil
   ]
 
 if.then.i354:                                     ; preds = %while.body.i351
-  %161 = load i32, ptr %m_line.i.i, align 4
-  %inc.i.i355 = add nsw i32 %161, 1
+  %160 = load i32, ptr %m_line.i.i, align 4
+  %inc.i.i355 = add nsw i32 %160, 1
   store i32 %inc.i.i355, ptr %m_line.i.i, align 4
   br label %while.body.i351.backedge
 
@@ -2098,78 +2097,78 @@ _ZN11z3_replayer3imp10skip_blankEv.exit356:       ; preds = %while.body.i351
   br label %while.body.i361
 
 while.body.i361:                                  ; preds = %if.end6.i362, %_ZN11z3_replayer3imp10skip_blankEv.exit356
-  %162 = phi i32 [ %call.i5.i363, %if.end6.i362 ], [ %.pre.i360, %_ZN11z3_replayer3imp10skip_blankEv.exit356 ]
-  switch i32 %162, label %_ZN11z3_replayer3imp10skip_blankEv.exit366 [
+  %161 = phi i32 [ %call.i5.i363, %if.end6.i362 ], [ %.pre.i360, %_ZN11z3_replayer3imp10skip_blankEv.exit356 ]
+  switch i32 %161, label %_ZN11z3_replayer3imp10skip_blankEv.exit366 [
     i32 10, label %if.then.i364
     i32 32, label %if.end6.i362
     i32 9, label %if.end6.i362
   ]
 
 if.then.i364:                                     ; preds = %while.body.i361
-  %163 = load i32, ptr %m_line.i.i, align 4
-  %inc.i.i365 = add nsw i32 %163, 1
+  %162 = load i32, ptr %m_line.i.i, align 4
+  %inc.i.i365 = add nsw i32 %162, 1
   store i32 %inc.i.i365, ptr %m_line.i.i, align 4
   br label %if.end6.i362
 
 if.end6.i362:                                     ; preds = %if.then.i364, %while.body.i361, %while.body.i361
-  %164 = load ptr, ptr %m_stream.i4.i, align 8
-  %call.i5.i363 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %164)
+  %163 = load ptr, ptr %m_stream.i4.i, align 8
+  %call.i5.i363 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %163)
   store i32 %call.i5.i363, ptr %m_curr.i.i, align 8
   br label %while.body.i361, !llvm.loop !7
 
 _ZN11z3_replayer3imp10skip_blankEv.exit366:       ; preds = %while.body.i361
   call void @_ZN11z3_replayer3imp11read_uint64Ev(ptr noundef nonnull align 8 dereferenceable(184) %this)
-  %165 = load i64, ptr %m_uint64158, align 8
-  %conv159 = trunc i64 %165 to i32
+  %164 = load i64, ptr %m_uint64158, align 8
+  %conv159 = trunc i64 %164 to i32
   call void @_ZNK11z3_replayer3imp9check_argEjNS0_10value_kindE(ptr noundef nonnull align 8 dereferenceable(184) %this, i32 noundef %conv159, i32 noundef 9)
-  %166 = load ptr, ptr %m_args160, align 8
-  %idxprom.i367 = and i64 %165, 4294967295
-  %167 = getelementptr inbounds %"struct.z3_replayer::imp::value", ptr %166, i64 %idxprom.i367, i32 1
-  %168 = load i64, ptr %167, align 8
-  %169 = load ptr, ptr %m_obj_arrays, align 8
-  %idxprom.i369 = and i64 %168, 4294967295
+  %165 = load ptr, ptr %m_args160, align 8
+  %idxprom.i367 = and i64 %164, 4294967295
+  %166 = getelementptr inbounds %"struct.z3_replayer::imp::value", ptr %165, i64 %idxprom.i367, i32 1
+  %167 = load i64, ptr %166, align 8
+  %168 = load ptr, ptr %m_obj_arrays, align 8
+  %idxprom.i369 = and i64 %167, 4294967295
   %.pre.i374 = load i32, ptr %m_curr.i.i, align 8
   br label %while.body.i375
 
 while.body.i375:                                  ; preds = %if.end6.i376, %_ZN11z3_replayer3imp10skip_blankEv.exit366
-  %170 = phi i32 [ %call.i5.i377, %if.end6.i376 ], [ %.pre.i374, %_ZN11z3_replayer3imp10skip_blankEv.exit366 ]
-  switch i32 %170, label %_ZN11z3_replayer3imp10skip_blankEv.exit380 [
+  %169 = phi i32 [ %call.i5.i377, %if.end6.i376 ], [ %.pre.i374, %_ZN11z3_replayer3imp10skip_blankEv.exit366 ]
+  switch i32 %169, label %_ZN11z3_replayer3imp10skip_blankEv.exit380 [
     i32 10, label %if.then.i378
     i32 32, label %if.end6.i376
     i32 9, label %if.end6.i376
   ]
 
 if.then.i378:                                     ; preds = %while.body.i375
-  %171 = load i32, ptr %m_line.i.i, align 4
-  %inc.i.i379 = add nsw i32 %171, 1
+  %170 = load i32, ptr %m_line.i.i, align 4
+  %inc.i.i379 = add nsw i32 %170, 1
   store i32 %inc.i.i379, ptr %m_line.i.i, align 4
   br label %if.end6.i376
 
 if.end6.i376:                                     ; preds = %if.then.i378, %while.body.i375, %while.body.i375
-  %172 = load ptr, ptr %m_stream.i4.i, align 8
-  %call.i5.i377 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %172)
+  %171 = load ptr, ptr %m_stream.i4.i, align 8
+  %call.i5.i377 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %171)
   store i32 %call.i5.i377, ptr %m_curr.i.i, align 8
   br label %while.body.i375, !llvm.loop !7
 
 _ZN11z3_replayer3imp10skip_blankEv.exit380:       ; preds = %while.body.i375
-  %arrayidx.i370 = getelementptr inbounds %class.ptr_vector, ptr %169, i64 %idxprom.i369
+  %arrayidx.i370 = getelementptr inbounds %class.ptr_vector, ptr %168, i64 %idxprom.i369
   call void @_ZN11z3_replayer3imp11read_uint64Ev(ptr noundef nonnull align 8 dereferenceable(184) %this)
-  %173 = load i64, ptr %m_uint64158, align 8
-  %174 = load ptr, ptr %arrayidx.i370, align 8
-  %idxprom.i381 = and i64 %173, 4294967295
-  %arrayidx.i382 = getelementptr inbounds ptr, ptr %174, i64 %idxprom.i381
+  %172 = load i64, ptr %m_uint64158, align 8
+  %173 = load ptr, ptr %arrayidx.i370, align 8
+  %idxprom.i381 = and i64 %172, 4294967295
+  %arrayidx.i382 = getelementptr inbounds ptr, ptr %173, i64 %idxprom.i381
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i383)
-  %175 = load i64, ptr %m_ptr168, align 8
-  store i64 %175, ptr %ref.tmp.i383, align 8
-  %176 = load ptr, ptr %arrayidx.i382, align 8
-  store ptr %176, ptr %m_value.i.i384, align 8
+  %174 = load i64, ptr %m_ptr168, align 8
+  store i64 %174, ptr %ref.tmp.i383, align 8
+  %175 = load ptr, ptr %arrayidx.i382, align 8
+  store ptr %175, ptr %m_value.i.i384, align 8
   call void @_ZN14core_hashtableI17default_map_entryImPvEN9table2mapIS2_11size_t_hash9size_t_eqE15entry_hash_procENS6_13entry_eq_procEE6insertEO9_key_dataImS1_E(ptr noundef nonnull align 8 dereferenceable(20) %m_heap167, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i383)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i383)
   br label %while.body.backedge
 
 while.body.i392:                                  ; preds = %while.body.i, %while.body.i392.backedge
-  %177 = load ptr, ptr %m_stream.i4.i, align 8
-  %call.i5.i394 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %177)
+  %176 = load ptr, ptr %m_stream.i4.i, align 8
+  %call.i5.i394 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %176)
   store i32 %call.i5.i394, ptr %m_curr.i.i, align 8
   switch i32 %call.i5.i394, label %_ZN11z3_replayer3imp10skip_blankEv.exit397 [
     i32 10, label %if.then.i395
@@ -2178,8 +2177,8 @@ while.body.i392:                                  ; preds = %while.body.i, %whil
   ]
 
 if.then.i395:                                     ; preds = %while.body.i392
-  %178 = load i32, ptr %m_line.i.i, align 4
-  %inc.i.i396 = add nsw i32 %178, 1
+  %177 = load i32, ptr %m_line.i.i, align 4
+  %inc.i.i396 = add nsw i32 %177, 1
   store i32 %inc.i.i396, ptr %m_line.i.i, align 4
   br label %while.body.i392.backedge
 
@@ -2188,8 +2187,8 @@ while.body.i392.backedge:                         ; preds = %if.then.i395, %whil
 
 _ZN11z3_replayer3imp10skip_blankEv.exit397:       ; preds = %while.body.i392
   call void @_ZN11z3_replayer3imp16read_string_coreEc(ptr noundef nonnull align 8 dereferenceable(184) %this, i8 noundef signext 34)
-  %179 = load ptr, ptr %m_string171, align 8
-  %call173 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef %179)
+  %178 = load ptr, ptr %m_string171, align 8
+  %call173 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef %178)
   %call174 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call173, ptr noundef nonnull @.str.25)
   %call175 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout)
   br label %while.body.backedge
@@ -2208,24 +2207,24 @@ invoke.cont180:                                   ; preds = %sw.default
           to label %unreachable unwind label %ehcleanup185
 
 ehcleanup185:                                     ; preds = %invoke.cont180
-  %180 = landingpad { ptr, i32 }
+  %179 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp177) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp178) #21
   br label %common.resume
 
 cleanup.action188:                                ; preds = %sw.default
-  %181 = landingpad { ptr, i32 }
+  %180 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp178) #21
   call void @__cxa_free_exception(ptr %exception176) #21
   br label %common.resume
 
 terminate.lpad:                                   ; preds = %lpad143, %lpad128
-  %182 = landingpad { ptr, i32 }
+  %181 = landingpad { ptr, i32 }
           catch ptr null
-  %183 = extractvalue { ptr, i32 } %182, 0
-  call void @__clang_call_terminate(ptr %183) #23
+  %182 = extractvalue { ptr, i32 } %181, 0
+  call void @__clang_call_terminate(ptr %182) #23
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont180, %catch139, %invoke.cont112, %invoke.cont

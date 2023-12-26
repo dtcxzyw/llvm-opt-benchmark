@@ -341,7 +341,6 @@ _ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14defau
   store ptr null, ptr %agg.tmp, align 8
   %20 = load ptr, ptr %logger, align 8
   %cmp.i.i.not = icmp eq ptr %20, null
-  %21 = ptrtoint ptr %20 to i64
   br i1 %cmp.i.i.not, label %if.then, label %do.end
 
 if.then:                                          ; preds = %_ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS3_EED2Ev.exit
@@ -352,17 +351,17 @@ invoke.cont29:                                    ; preds = %if.then
   unreachable
 
 lpad25:                                           ; preds = %for.body23
-  %22 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %23 = load ptr, ptr %agg.tmp, align 8
-  %cmp.not.i17 = icmp eq ptr %23, null
+  %22 = load ptr, ptr %agg.tmp, align 8
+  %cmp.not.i17 = icmp eq ptr %22, null
   br i1 %cmp.not.i17, label %_ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS3_EED2Ev.exit21, label %_ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclEPS3_.exit.i18
 
 _ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclEPS3_.exit.i18: ; preds = %lpad25
-  %vtable.i.i19 = load ptr, ptr %23, align 8
+  %vtable.i.i19 = load ptr, ptr %22, align 8
   %vfn.i.i20 = getelementptr inbounds ptr, ptr %vtable.i.i19, i64 1
-  %24 = load ptr, ptr %vfn.i.i20, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(8) %23) #14
+  %23 = load ptr, ptr %vfn.i.i20, align 8
+  call void %23(ptr noundef nonnull align 8 dereferenceable(8) %22) #14
   br label %_ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS3_EED2Ev.exit21
 
 _ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS3_EED2Ev.exit21: ; preds = %lpad25, %_ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclEPS3_.exit.i18
@@ -383,11 +382,11 @@ lpad28:                                           ; preds = %if.then.i.i40, %if.
 
 _ZNKSt14default_deleteIN9grpc_core12experimental11AuditLoggerEEclEPS2_.exit.i: ; preds = %lpad28.thread, %lpad28
   %lpad.phi58 = phi { ptr, i32 } [ %lpad.loopexit, %lpad28.thread ], [ %lpad.loopexit.split-lp, %lpad28 ]
-  %25 = phi ptr [ %20, %lpad28.thread ], [ %.pre, %lpad28 ]
-  %vtable.i.i23 = load ptr, ptr %25, align 8
+  %24 = phi ptr [ %20, %lpad28.thread ], [ %.pre, %lpad28 ]
+  %vtable.i.i23 = load ptr, ptr %24, align 8
   %vfn.i.i24 = getelementptr inbounds ptr, ptr %vtable.i.i23, i64 1
-  %26 = load ptr, ptr %vfn.i.i24, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(8) %25) #14
+  %25 = load ptr, ptr %vfn.i.i24, align 8
+  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %24) #14
   br label %_ZNSt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS2_EED2Ev.exit: ; preds = %lpad28, %_ZNKSt14default_deleteIN9grpc_core12experimental11AuditLoggerEEclEPS2_.exit.i
@@ -396,22 +395,22 @@ _ZNSt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS2_E
   br label %ehcleanup
 
 do.end:                                           ; preds = %_ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS3_EED2Ev.exit
-  %27 = load ptr, ptr %_M_finish.i.i25, align 8
-  %28 = load ptr, ptr %_M_end_of_storage.i.i26, align 8
-  %cmp.not.i.i27 = icmp eq ptr %27, %28
+  %26 = load ptr, ptr %_M_finish.i.i25, align 8
+  %27 = load ptr, ptr %_M_end_of_storage.i.i26, align 8
+  %cmp.not.i.i27 = icmp eq ptr %26, %27
   br i1 %cmp.not.i.i27, label %if.else.i.i30, label %invoke.cont31.thread
 
 invoke.cont31.thread:                             ; preds = %do.end
-  store i64 %21, ptr %27, align 8
-  %29 = load ptr, ptr %_M_finish.i.i25, align 8
-  %incdec.ptr.i.i29 = getelementptr inbounds %"class.std::unique_ptr.54", ptr %29, i64 1
+  store ptr %20, ptr %26, align 8
+  %28 = load ptr, ptr %_M_finish.i.i25, align 8
+  %incdec.ptr.i.i29 = getelementptr inbounds %"class.std::unique_ptr.54", ptr %28, i64 1
   store ptr %incdec.ptr.i.i29, ptr %_M_finish.i.i25, align 8
   br label %_ZNSt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS2_EED2Ev.exit36
 
 if.else.i.i30:                                    ; preds = %do.end
-  %30 = load ptr, ptr %audit_loggers_, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %27 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %30 to i64
+  %29 = load ptr, ptr %audit_loggers_, align 8
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %26 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %29 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %cmp.i.i37 = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
   br i1 %cmp.i.i37, label %if.then.i.i40, label %_ZNKSt6vectorISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
@@ -442,32 +441,32 @@ _ZNSt16allocator_traitsISaISt10unique_ptrIN9grpc_core12experimental11AuditLogger
 _ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i, %_ZNKSt6vectorISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
   %cond.i10.i = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i ], [ %call5.i.i.i.i42, %_ZNSt16allocator_traitsISaISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i ]
   %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr.54", ptr %cond.i10.i, i64 %sub.ptr.div.i.i.i
-  store i64 %21, ptr %add.ptr.i, align 8
+  store ptr %20, ptr %add.ptr.i, align 8
   store ptr null, ptr %logger, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %30, %27
+  %cmp.not5.i.i.i.i = icmp eq ptr %29, %26
   br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i, %for.body.i.i.i.i
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %30, %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ]
+  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %29, %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  %31 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !7, !noalias !4
-  store i64 %31, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !4, !noalias !7
+  %30 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !7, !noalias !4
+  store i64 %30, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !4, !noalias !7
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !7, !noalias !4
   %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.54", ptr %__first.addr.06.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.54", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %27
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %26
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !9
 
 _ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
   %incdec.ptr.i39 = getelementptr %"class.std::unique_ptr.54", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %30, null
+  %tobool.not.i.i = icmp eq ptr %29, null
   br i1 %tobool.not.i.i, label %invoke.cont31, label %if.then.i20.i
 
 if.then.i20.i:                                    ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i
-  call void @_ZdlPv(ptr noundef nonnull %30) #18
+  call void @_ZdlPv(ptr noundef nonnull %29) #18
   br label %invoke.cont31
 
 invoke.cont31:                                    ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i, %if.then.i20.i
@@ -482,8 +481,8 @@ invoke.cont31:                                    ; preds = %_ZNSt6vectorISt10un
 _ZNKSt14default_deleteIN9grpc_core12experimental11AuditLoggerEEclEPS2_.exit.i33: ; preds = %invoke.cont31
   %vtable.i.i34 = load ptr, ptr %.pr50, align 8
   %vfn.i.i35 = getelementptr inbounds ptr, ptr %vtable.i.i34, i64 1
-  %32 = load ptr, ptr %vfn.i.i35, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(8) %.pr50) #14
+  %31 = load ptr, ptr %vfn.i.i35, align 8
+  call void %31(ptr noundef nonnull align 8 dereferenceable(8) %.pr50) #14
   br label %_ZNSt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS2_EED2Ev.exit36
 
 _ZNSt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS2_EED2Ev.exit36: ; preds = %invoke.cont31.thread, %invoke.cont31, %_ZNKSt14default_deleteIN9grpc_core12experimental11AuditLoggerEEclEPS2_.exit.i33
@@ -496,7 +495,7 @@ for.end34:                                        ; preds = %_ZNSt10unique_ptrIN
   ret void
 
 ehcleanup:                                        ; preds = %_ZNSt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS3_EED2Ev.exit21, %_ZN9grpc_core23GrpcAuthorizationEngine6PolicyD2Ev.exit12
-  %.pn = phi { ptr, i32 } [ %12, %_ZN9grpc_core23GrpcAuthorizationEngine6PolicyD2Ev.exit12 ], [ %lpad.phi59, %_ZNSt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS2_EED2Ev.exit ], [ %22, %_ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS3_EED2Ev.exit21 ]
+  %.pn = phi { ptr, i32 } [ %12, %_ZN9grpc_core23GrpcAuthorizationEngine6PolicyD2Ev.exit12 ], [ %lpad.phi59, %_ZNSt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS2_EED2Ev.exit ], [ %21, %_ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS3_EED2Ev.exit21 ]
   call void @_ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %audit_loggers_) #14
   call void @_ZNSt6vectorIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %policies_) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name_) #14

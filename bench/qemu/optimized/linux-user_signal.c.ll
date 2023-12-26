@@ -932,19 +932,18 @@ do.body49.i:                                      ; preds = %sw.bb9.i, %host_to_
 do.body77.i:                                      ; preds = %sw.default.i
   %si_sigval.i = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 4, i32 0, i32 2
   %10 = load ptr, ptr %si_sigval.i, align 8
-  %11 = ptrtoint ptr %10 to i64
   %shl.i.i = shl i32 %2, 16
   %shr.i36.i = ashr exact i32 %shl.i.i, 16
   %si_errno.i1 = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 1
   %si_code9.i = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 2
   %_sifields78.i = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3
-  %12 = load <2 x i32>, ptr %_sifields38.i, align 8
+  %11 = load <2 x i32>, ptr %_sifields38.i, align 8
   store i32 %retval.0.i.i, ptr %tinfo, align 1
   store i32 0, ptr %si_errno.i1, align 1
   store i32 %shr.i36.i, ptr %si_code9.i, align 1
-  store <2 x i32> %12, ptr %_sifields78.i, align 1
+  store <2 x i32> %11, ptr %_sifields78.i, align 1
   %_sigval.i2 = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3, i32 0, i32 2
-  store i64 %11, ptr %_sigval.i2, align 1
+  store ptr %10, ptr %_sigval.i2, align 1
   br label %tswap_siginfo.exit
 
 tswap_siginfo.exit:                               ; preds = %do.body11.i, %do.body32.i, %do.body49.i, %do.body77.i
@@ -974,9 +973,8 @@ entry:
   store i32 %_uid.val, ptr %si_uid, align 4
   %_sigval = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3, i32 0, i32 2
   %_sigval.val = load i64, ptr %_sigval, align 1
-  %0 = inttoptr i64 %_sigval.val to ptr
   %si_sigval = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 4, i32 0, i32 2
-  store ptr %0, ptr %si_sigval, align 8
+  store i64 %_sigval.val, ptr %si_sigval, align 8
   ret void
 }
 
@@ -1362,7 +1360,7 @@ if.end.i37:                                       ; preds = %if.end
   br i1 %cmp1.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i37.thread, %if.end.i37
-  %sync_sig.05559 = phi i1 [ true, %if.end.i37.thread ], [ false, %if.end.i37 ]
+  %sync_sig.05660 = phi i1 [ true, %if.end.i37.thread ], [ false, %if.end.i37 ]
   %idxprom.i = zext nneg i32 %host_sig to i64
   %arrayidx.i = getelementptr [65 x i8], ptr @host_to_target_signal_table, i64 0, i64 %idxprom.i
   %30 = load i8, ptr %arrayidx.i, align 1
@@ -1370,7 +1368,7 @@ if.end3.i:                                        ; preds = %if.end.i37.thread, 
   br label %host_to_target_signal.exit
 
 host_to_target_signal.exit:                       ; preds = %if.end, %if.end3.i
-  %sync_sig.056 = phi i1 [ %sync_sig.05559, %if.end3.i ], [ false, %if.end ]
+  %sync_sig.057 = phi i1 [ %sync_sig.05660, %if.end3.i ], [ false, %if.end ]
   %retval.0.i = phi i32 [ %conv.i, %if.end3.i ], [ %host_sig, %if.end ]
   %31 = add i32 %retval.0.i, -65
   %or.cond = icmp ult i32 %31, -64
@@ -1479,34 +1477,32 @@ host_to_target_signal.exit45.i:                   ; preds = %if.end3.i40.i, %if.
 
 if.end.i47:                                       ; preds = %host_to_target_signal.exit45.i, %sw.bb9.i
   %or.sink.i = phi i32 [ %or.i, %host_to_target_signal.exit45.i ], [ %44, %sw.bb9.i ]
+  %tinfo.sroa.14.0.insert.ext = zext i32 %or.sink.i to i64
+  %46 = inttoptr i64 %tinfo.sroa.14.0.insert.ext to ptr
   %si_utime.i = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 4, i32 0, i32 3
-  %46 = load <2 x i64>, ptr %si_utime.i, align 8
+  %47 = load <2 x i64>, ptr %si_utime.i, align 8
   br label %host_to_target_siginfo_noswap.exit
 
 sw.bb32.i:                                        ; preds = %sw.default.i
-  %47 = load i64, ptr %_sifields38.i, align 8
-  %conv.i43 = trunc i64 %47 to i32
+  %48 = load i64, ptr %_sifields38.i, align 8
+  %conv.i43 = trunc i64 %48 to i32
   %si_fd.i = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 4, i32 0, i32 2
-  %48 = load i32, ptr %si_fd.i, align 8
-  %49 = insertelement <2 x i32> poison, i32 %conv.i43, i64 0
-  %50 = insertelement <2 x i32> %49, i32 %48, i64 1
+  %49 = load i32, ptr %si_fd.i, align 8
+  %50 = insertelement <2 x i32> poison, i32 %conv.i43, i64 0
+  %51 = insertelement <2 x i32> %50, i32 %49, i64 1
   br label %host_to_target_siginfo_noswap.exit
 
 sw.default37.i:                                   ; preds = %sw.default.i
-  %51 = load <2 x i32>, ptr %_sifields38.i, align 8
+  %52 = load <2 x i32>, ptr %_sifields38.i, align 8
   %si_sigval.i = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 4, i32 0, i32 2
-  %52 = load ptr, ptr %si_sigval.i, align 8
-  %53 = ptrtoint ptr %52 to i64
-  %tinfo.sroa.14.sroa.0.0.extract.trunc = trunc i64 %53 to i32
-  %tinfo.sroa.14.sroa.4.0.extract.shift = and i64 %53, -4294967296
+  %53 = load ptr, ptr %si_sigval.i, align 8
   br label %host_to_target_siginfo_noswap.exit
 
 host_to_target_siginfo_noswap.exit:               ; preds = %sw.bb.i, %if.end.i47, %sw.bb32.i, %sw.default37.i
-  %tinfo.sroa.14.sroa.4.0 = phi i64 [ %tinfo.sroa.14.sroa.4.0.extract.shift, %sw.default37.i ], [ 0, %sw.bb32.i ], [ 0, %if.end.i47 ], [ 0, %sw.bb.i ]
-  %tinfo.sroa.14.sroa.0.0 = phi i32 [ %tinfo.sroa.14.sroa.0.0.extract.trunc, %sw.default37.i ], [ 0, %sw.bb32.i ], [ %or.sink.i, %if.end.i47 ], [ 0, %sw.bb.i ]
+  %tinfo.sroa.14.0 = phi ptr [ %53, %sw.default37.i ], [ null, %sw.bb32.i ], [ %46, %if.end.i47 ], [ null, %sw.bb.i ]
   %si_type.0.i = phi i32 [ 327680, %sw.default37.i ], [ 131072, %sw.bb32.i ], [ 262144, %if.end.i47 ], [ 0, %sw.bb.i ]
-  %54 = phi <2 x i64> [ zeroinitializer, %sw.default37.i ], [ zeroinitializer, %sw.bb32.i ], [ %46, %if.end.i47 ], [ zeroinitializer, %sw.bb.i ]
-  %55 = phi <2 x i32> [ %51, %sw.default37.i ], [ %50, %sw.bb32.i ], [ %43, %if.end.i47 ], [ %42, %sw.bb.i ]
+  %54 = phi <2 x i64> [ zeroinitializer, %sw.default37.i ], [ zeroinitializer, %sw.bb32.i ], [ %47, %if.end.i47 ], [ zeroinitializer, %sw.bb.i ]
+  %55 = phi <2 x i32> [ %52, %sw.default37.i ], [ %51, %sw.bb32.i ], [ %43, %if.end.i47 ], [ %42, %sw.bb.i ]
   %and.i.i42 = and i32 %41, 65535
   %or.i.i = or disjoint i32 %si_type.0.i, %and.i.i42
   %sub = add nsw i32 %retval.0.i, -1
@@ -1521,9 +1517,7 @@ host_to_target_siginfo_noswap.exit:               ; preds = %sw.bb.i, %if.end.i4
   %tinfo.sroa.552.0.info8.sroa_idx = getelementptr inbounds i8, ptr %info8, i64 16
   store <2 x i32> %55, ptr %tinfo.sroa.552.0.info8.sroa_idx, align 8
   %tinfo.sroa.14.0.info8.sroa_idx = getelementptr inbounds i8, ptr %info8, i64 24
-  %tinfo.sroa.14.sroa.0.0.insert.ext = zext i32 %tinfo.sroa.14.sroa.0.0 to i64
-  %tinfo.sroa.14.sroa.0.0.insert.insert = or disjoint i64 %tinfo.sroa.14.sroa.4.0, %tinfo.sroa.14.sroa.0.0.insert.ext
-  store i64 %tinfo.sroa.14.sroa.0.0.insert.insert, ptr %tinfo.sroa.14.0.info8.sroa_idx, align 8
+  store ptr %tinfo.sroa.14.0, ptr %tinfo.sroa.14.0.info8.sroa_idx, align 8
   %tinfo.sroa.16.0.info8.sroa_idx = getelementptr inbounds i8, ptr %info8, i64 32
   store <2 x i64> %54, ptr %tinfo.sroa.16.0.info8.sroa_idx, align 8
   %tinfo.sroa.18.0.info8.sroa_idx = getelementptr inbounds i8, ptr %info8, i64 48
@@ -1531,7 +1525,7 @@ host_to_target_siginfo_noswap.exit:               ; preds = %sw.bb.i, %if.end.i4
   store i32 %retval.0.i, ptr %arrayidx, align 8
   %signal_pending = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 14
   store i32 1, ptr %signal_pending, align 4
-  br i1 %sync_sig.056, label %if.then9, label %if.end10
+  br i1 %sync_sig.057, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %host_to_target_siginfo_noswap.exit
   %exception_index = getelementptr inbounds %struct.CPUState, ptr %1, i64 0, i32 55
@@ -1548,7 +1542,7 @@ if.end10:                                         ; preds = %host_to_target_sigi
   br i1 %or.cond.i, label %if.then.i51, label %rewind_if_in_safe_syscall.exit
 
 if.then.i51:                                      ; preds = %if.end10
-  store i64 ptrtoint (ptr @safe_syscall_start to i64), ptr %56, align 8
+  store ptr @safe_syscall_start, ptr %56, align 8
   br label %rewind_if_in_safe_syscall.exit
 
 rewind_if_in_safe_syscall.exit:                   ; preds = %if.end10, %if.then.i51
@@ -2091,7 +2085,7 @@ if.then57:                                        ; preds = %if.end51
   ]
 
 if.then64:                                        ; preds = %if.then57
-  store ptr inttoptr (i64 1 to ptr), ptr %act1, align 8
+  store i64 1, ptr %act1, align 8
   br label %if.end84
 
 if.then68:                                        ; preds = %if.then57

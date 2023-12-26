@@ -1658,10 +1658,9 @@ invoke.cont:                                      ; preds = %invoke.cont.i
   %add6.i.i = add i64 %add.i.i, %10
   %not.i.i = sub i64 0, %call3.i
   %and.i.i = and i64 %add6.i.i, %not.i.i
-  %11 = inttoptr i64 %and.i.i to ptr
   store i64 0, ptr %cursize_.i.i, align 8
   %bufstart_14.i.i = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::ReadaheadSequentialFile", ptr %call2, i64 0, i32 5, i32 4
-  store ptr %11, ptr %bufstart_14.i.i, align 8
+  store i64 %and.i.i, ptr %bufstart_14.i.i, align 8
   %capacity_.i.i = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::ReadaheadSequentialFile", ptr %call2, i64 0, i32 5, i32 2
   store i64 %mul.i.i.i, ptr %capacity_.i.i, align 8
   %buf_.i.i = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::ReadaheadSequentialFile", ptr %call2, i64 0, i32 5, i32 1

@@ -2151,7 +2151,7 @@ invoke.cont9:
 invoke.cont10:                                    ; preds = %invoke.cont9
   %_M_invoker.i = getelementptr inbounds %"class.std::function.86", ptr %agg.tmp, i64 0, i32 1
   %request_ = getelementptr inbounds %"class.grpc_core::TlsChannelSecurityConnector::ChannelPendingVerifierRequest", ptr %this, i64 0, i32 1
-  store i64 ptrtoint (ptr @_ZN9grpc_core27TlsChannelSecurityConnector29ChannelPendingVerifierRequest12OnVerifyDoneEbN4absl12lts_202308026StatusE to i64), ptr %call.i.i2.i2, align 16
+  store ptr @_ZN9grpc_core27TlsChannelSecurityConnector29ChannelPendingVerifierRequest12OnVerifyDoneEbN4absl12lts_202308026StatusE, ptr %call.i.i2.i2, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i2.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i2, i64 8
   store i64 0, ptr %ref.tmp.sroa.2.0.call.i.i2.i2.sroa_idx, align 8
   %ref.tmp.sroa.3.0.call.i.i2.i2.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i2, i64 16
@@ -5798,7 +5798,7 @@ invoke.cont9:
 invoke.cont10:                                    ; preds = %invoke.cont9
   %_M_invoker.i = getelementptr inbounds %"class.std::function.86", ptr %agg.tmp, i64 0, i32 1
   %request_ = getelementptr inbounds %"class.grpc_core::TlsServerSecurityConnector::ServerPendingVerifierRequest", ptr %this, i64 0, i32 1
-  store i64 ptrtoint (ptr @_ZN9grpc_core26TlsServerSecurityConnector28ServerPendingVerifierRequest12OnVerifyDoneEbN4absl12lts_202308026StatusE to i64), ptr %call.i.i2.i2, align 16
+  store ptr @_ZN9grpc_core26TlsServerSecurityConnector28ServerPendingVerifierRequest12OnVerifyDoneEbN4absl12lts_202308026StatusE, ptr %call.i.i2.i2, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i2.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i2, i64 8
   store i64 0, ptr %ref.tmp.sroa.2.0.call.i.i2.i2.sroa_idx, align 8
   %ref.tmp.sroa.3.0.call.i.i2.i2.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i2, i64 16

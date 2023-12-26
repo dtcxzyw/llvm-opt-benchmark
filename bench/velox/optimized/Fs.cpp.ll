@@ -289,11 +289,9 @@ define void @_ZN8facebook5velox6common20generateTempFilePathB5cxx11EPKcS3_(ptr n
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store", align 16
   %path = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = ptrtoint ptr %basePath to i64
-  %1 = ptrtoint ptr %prefix to i64
-  store i64 %0, ptr %ref.tmp.i, align 16, !alias.scope !7
+  store ptr %basePath, ptr %ref.tmp.i, align 16, !alias.scope !7
   %arrayinit.element.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 1
-  store i64 %1, ptr %arrayinit.element.i.i, align 16, !alias.scope !7
+  store ptr %prefix, ptr %arrayinit.element.i.i, align 16, !alias.scope !7
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %path, ptr nonnull @.str.4, i64 18, i64 204, ptr nonnull %ref.tmp.i)
   %call = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %path) #8
   %call1 = invoke i32 @mkstemp(ptr noundef %call)
@@ -304,10 +302,10 @@ invoke.cont:                                      ; preds = %entry
   br i1 %cmp, label %cleanup, label %if.end
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path) #8
-  resume { ptr, i32 } %2
+  resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %path) #8
@@ -315,8 +313,8 @@ if.end:                                           ; preds = %invoke.cont
 
 cleanup:                                          ; preds = %invoke.cont, %if.end
   %.sink = phi i8 [ 1, %if.end ], [ 0, %invoke.cont ]
-  %3 = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.result, i64 0, i32 1
-  store i8 %.sink, ptr %3, align 8
+  %1 = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.result, i64 0, i32 1
+  store i8 %.sink, ptr %1, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path) #8
   ret void
 }
@@ -331,11 +329,9 @@ define void @_ZN8facebook5velox6common22generateTempFolderPathB5cxx11EPKcS3_(ptr
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store", align 16
   %path = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = ptrtoint ptr %basePath to i64
-  %1 = ptrtoint ptr %prefix to i64
-  store i64 %0, ptr %ref.tmp.i, align 16, !alias.scope !10
+  store ptr %basePath, ptr %ref.tmp.i, align 16, !alias.scope !10
   %arrayinit.element.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 1
-  store i64 %1, ptr %arrayinit.element.i.i, align 16, !alias.scope !10
+  store ptr %prefix, ptr %arrayinit.element.i.i, align 16, !alias.scope !10
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %path, ptr nonnull @.str.4, i64 18, i64 204, ptr nonnull %ref.tmp.i)
   %call = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %path) #8
   %call1 = call ptr @mkdtemp(ptr noundef %call) #8
@@ -348,8 +344,8 @@ if.end:                                           ; preds = %entry
 
 cleanup:                                          ; preds = %entry, %if.end
   %.sink = phi i8 [ 1, %if.end ], [ 0, %entry ]
-  %2 = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.result, i64 0, i32 1
-  store i8 %.sink, ptr %2, align 8
+  %0 = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.result, i64 0, i32 1
+  store i8 %.sink, ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path) #8
   ret void
 }

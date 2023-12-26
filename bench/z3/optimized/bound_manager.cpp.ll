@@ -224,35 +224,34 @@ invoke.cont7:                                     ; preds = %invoke.cont3
   %m_num_deleted.i.i26 = getelementptr inbounds %class.bound_manager, ptr %this, i64 0, i32 4, i32 0, i32 3
   store i32 0, ptr %m_num_deleted.i.i26, align 8
   %m_bounded_vars = getelementptr inbounds %class.bound_manager, ptr %this, i64 0, i32 5
-  %0 = ptrtoint ptr %m to i64
-  store i64 %0, ptr %m_bounded_vars, align 8
+  store ptr %m, ptr %m_bounded_vars, align 8
   %m_nodes.i.i = getelementptr inbounds %class.bound_manager, ptr %this, i64 0, i32 5, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i, align 8
   ret void
 
 lpad:                                             ; preds = %_ZN7obj_mapI4exprSt4pairI8rationalbEEC2Ev.exit
-  %1 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup9
 
 lpad2:                                            ; preds = %invoke.cont
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup8
 
 lpad4:                                            ; preds = %invoke.cont3
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_lower_deps) #13
   br label %ehcleanup8
 
 ehcleanup8:                                       ; preds = %lpad4, %lpad2
-  %.pn.pn = phi { ptr, i32 } [ %3, %lpad4 ], [ %2, %lpad2 ]
+  %.pn.pn = phi { ptr, i32 } [ %2, %lpad4 ], [ %1, %lpad2 ]
   tail call void @_ZN7obj_mapI4exprSt4pairI8rationalbEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_uppers) #13
   br label %ehcleanup9
 
 ehcleanup9:                                       ; preds = %ehcleanup8, %lpad
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup8 ], [ %1, %lpad ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup8 ], [ %0, %lpad ]
   tail call void @_ZN7obj_mapI4exprSt4pairI8rationalbEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_lowers) #13
   resume { ptr, i32 } %.pn.pn.pn
 }

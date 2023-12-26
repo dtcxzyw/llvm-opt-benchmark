@@ -566,19 +566,18 @@ invoke.cont5:                                     ; preds = %entry
   %m_sort2epsilon = getelementptr inbounds %"class.array::solver", ptr %this, i64 0, i32 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_stats, i8 0, i64 64, i1 false)
   %1 = load ptr, ptr %m, align 8
-  %2 = ptrtoint ptr %1 to i64
-  store i64 %2, ptr %m_sort2epsilon, align 8
+  store ptr %1, ptr %m_sort2epsilon, align 8
   %m_nodes.i.i.i = getelementptr inbounds %"class.array::solver", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i.i, align 8
   %m_range.i = getelementptr inbounds %"class.array::solver", ptr %this, i64 0, i32 4, i32 1
-  store i64 %2, ptr %m_range.i, align 8
+  store ptr %1, ptr %m_range.i, align 8
   %m_nodes.i.i3.i = getelementptr inbounds %"class.array::solver", ptr %this, i64 0, i32 4, i32 1, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i3.i, align 8
   %call.i.i.i.i4.i = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 128)
           to label %invoke.cont8 unwind label %lpad2.i
 
 lpad2.i:                                          ; preds = %invoke.cont5
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10ref_vectorI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_range.i) #15
   call void @_ZN10ref_vectorI4sort11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_sort2epsilon) #15
@@ -595,20 +594,19 @@ invoke.cont8:                                     ; preds = %invoke.cont5
   %m_num_deleted.i.i.i = getelementptr inbounds %"class.array::solver", ptr %this, i64 0, i32 4, i32 2, i32 0, i32 3
   store i32 0, ptr %m_num_deleted.i.i.i, align 8
   %m_sort2diag = getelementptr inbounds %"class.array::solver", ptr %this, i64 0, i32 5
-  %4 = load ptr, ptr %m, align 8
-  %5 = ptrtoint ptr %4 to i64
-  store i64 %5, ptr %m_sort2diag, align 8
+  %3 = load ptr, ptr %m, align 8
+  store ptr %3, ptr %m_sort2diag, align 8
   %m_nodes.i.i.i8 = getelementptr inbounds %"class.array::solver", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i.i8, align 8
   %m_range.i9 = getelementptr inbounds %"class.array::solver", ptr %this, i64 0, i32 5, i32 1
-  store i64 %5, ptr %m_range.i9, align 8
+  store ptr %3, ptr %m_range.i9, align 8
   %m_nodes.i.i3.i10 = getelementptr inbounds %"class.array::solver", ptr %this, i64 0, i32 5, i32 1, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i3.i10, align 8
   %call.i.i.i.i4.i11 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 128)
           to label %invoke.cont11 unwind label %lpad2.i12
 
 lpad2.i12:                                        ; preds = %invoke.cont8
-  %6 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10ref_vectorI9func_decl11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_range.i9) #15
   call void @_ZN10ref_vectorI4sort11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_sort2diag) #15
@@ -656,10 +654,9 @@ invoke.cont15:                                    ; preds = %invoke.cont13
   %m_eq = getelementptr inbounds %"class.array::solver", ptr %this, i64 0, i32 9
   store ptr %this, ptr %m_eq, align 8
   %m_axioms = getelementptr inbounds %"class.array::solver", ptr %this, i64 0, i32 10
-  %.cast = ptrtoint ptr %this to i64
-  store i64 %.cast, ptr %m_axioms, align 8
-  %7 = getelementptr inbounds %"class.array::solver", ptr %this, i64 0, i32 10, i32 0, i32 1
-  store i64 %.cast, ptr %7, align 8
+  store ptr %this, ptr %m_axioms, align 8
+  %5 = getelementptr inbounds %"class.array::solver", ptr %this, i64 0, i32 10, i32 0, i32 1
+  store ptr %this, ptr %5, align 8
   %call.i.i.i.i23 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 96)
           to label %invoke.cont21 unwind label %lpad16
 
@@ -703,16 +700,16 @@ invoke.cont33:                                    ; preds = %invoke.cont21
 
 invoke.cont39:                                    ; preds = %invoke.cont33
   store ptr null, ptr %call, align 8
-  %8 = load ptr, ptr %m_constraint, align 8
-  %cmp.not.i = icmp eq ptr %8, %call
+  %6 = load ptr, ptr %m_constraint, align 8
+  %cmp.not.i = icmp eq ptr %6, %call
   br i1 %cmp.not.i, label %invoke.cont42, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont39
-  %cmp.i.i = icmp eq ptr %8, null
+  %cmp.i.i = icmp eq ptr %6, null
   br i1 %cmp.i.i, label %_Z7deallocIN3sat15constraint_baseEEvPT_.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %8)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %6)
           to label %_Z7deallocIN3sat15constraint_baseEEvPT_.exit.i unwind label %lpad38
 
 _Z7deallocIN3sat15constraint_baseEEvPT_.exit.i:   ; preds = %if.end.i.i, %if.then.i
@@ -724,32 +721,32 @@ invoke.cont42:                                    ; preds = %_Z7deallocIN3sat15c
   ret void
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup63
 
 lpad12:                                           ; preds = %invoke.cont11
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup60
 
 lpad14:                                           ; preds = %invoke.cont13
-  %11 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup59
 
 lpad16:                                           ; preds = %invoke.cont15
-  %12 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup58
 
 lpad32:                                           ; preds = %invoke.cont21
-  %13 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup52
 
 lpad38:                                           ; preds = %if.end.i.i, %invoke.cont33
-  %14 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10ptr_vectorI13ptr_hashtableIN3euf5enodeEN5array6solver8sel_hashENS4_6sel_eqEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_selects_range) #15
   call void @_ZN10ptr_vectorIN3euf5enodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_selects_domain) #15
@@ -757,7 +754,7 @@ lpad38:                                           ; preds = %if.end.i.i, %invoke
   br label %ehcleanup52
 
 ehcleanup52:                                      ; preds = %lpad38, %lpad32
-  %.pn = phi { ptr, i32 } [ %14, %lpad38 ], [ %13, %lpad32 ]
+  %.pn = phi { ptr, i32 } [ %12, %lpad38 ], [ %11, %lpad32 ]
   call void @_ZN7svectorIijED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_parents) #15
   call void @_ZN10ptr_vectorI4exprED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_else_values) #15
   call void @_ZN10ptr_vectorIN3euf5enodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_defaults) #15
@@ -767,32 +764,32 @@ ehcleanup52:                                      ; preds = %lpad38, %lpad32
   br label %ehcleanup58
 
 ehcleanup58:                                      ; preds = %ehcleanup52, %lpad16
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup52 ], [ %12, %lpad16 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup52 ], [ %10, %lpad16 ]
   call void @_ZN10union_findIN5array6solverEN3euf6solverEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_find) #15
   br label %ehcleanup59
 
 ehcleanup59:                                      ; preds = %ehcleanup58, %lpad14
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup58 ], [ %11, %lpad14 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup58 ], [ %9, %lpad14 ]
   call void @_ZN7obj_mapI4sortP10ref_vectorI9func_decl11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_sort2diff) #15
   br label %ehcleanup60
 
 ehcleanup60:                                      ; preds = %ehcleanup59, %lpad12
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup59 ], [ %10, %lpad12 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup59 ], [ %8, %lpad12 ]
   call void @_ZN16ast2ast_trailmapI4sort9func_declED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_sort2diag) #15
   br label %ehcleanup61
 
 ehcleanup61:                                      ; preds = %lpad2.i12, %ehcleanup60
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup60 ], [ %6, %lpad2.i12 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup60 ], [ %4, %lpad2.i12 ]
   call void @_ZN16ast2ast_trailmapI4sort3appED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_sort2epsilon) #15
   br label %ehcleanup62
 
 ehcleanup62:                                      ; preds = %lpad2.i, %ehcleanup61
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup61 ], [ %3, %lpad2.i ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup61 ], [ %2, %lpad2.i ]
   call void @_ZN17scoped_ptr_vectorIN5array6solver8var_dataEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_var_data) #15
   br label %ehcleanup63
 
 ehcleanup63:                                      ; preds = %ehcleanup62, %lpad
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %ehcleanup62 ], [ %9, %lpad ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %ehcleanup62 ], [ %7, %lpad ]
   call void @_ZN3euf13th_euf_solverD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %this) #15
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn
 }

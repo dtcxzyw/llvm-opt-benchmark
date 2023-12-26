@@ -1346,19 +1346,18 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_119ForkFdListAddHandleEPNS0_17E
   %11 = ptrtoint ptr %new_handle.0 to i64
   %conv = zext i1 %track_err to i64
   %or = or i64 %11, %conv
-  %12 = inttoptr i64 %or to ptr
   %data = getelementptr inbounds %struct.epoll_event, ptr %ev, i64 0, i32 1
-  store ptr %12, ptr %data, align 4
+  store i64 %or, ptr %data, align 4
   %g_epoll_set_ = getelementptr inbounds %"class.grpc_event_engine::experimental::Epoll1Poller", ptr %this, i64 0, i32 3
-  %13 = load i32, ptr %g_epoll_set_, align 8
-  %call9 = call i32 @epoll_ctl(i32 noundef %13, i32 noundef 1, i32 noundef %fd, ptr noundef nonnull %ev) #20
+  %12 = load i32, ptr %g_epoll_set_, align 8
+  %call9 = call i32 @epoll_ctl(i32 noundef %12, i32 noundef 1, i32 noundef %fd, ptr noundef nonnull %ev) #20
   %cmp.not = icmp eq i32 %call9, 0
   br i1 %cmp.not, label %if.end16, label %if.then10
 
 if.then10:                                        ; preds = %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119ForkFdListAddHandleEPNS0_17Epoll1EventHandleE.exit
   %call11 = tail call ptr @__errno_location() #21
-  %14 = load i32, ptr %call11, align 4
-  call void @_ZN9grpc_core8StrErrorB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, i32 noundef %14)
+  %13 = load i32, ptr %call11, align 4
+  call void @_ZN9grpc_core8StrErrorB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, i32 noundef %13)
   %call12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 417, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef %call12)
           to label %invoke.cont14 unwind label %lpad13
@@ -1373,14 +1372,14 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
           to label %eh.resume unwind label %terminate.lpad.i11
 
 terminate.lpad.i11:                               ; preds = %ehcleanup
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #19
+  %15 = extractvalue { ptr, i32 } %14, 0
+  tail call void @__clang_call_terminate(ptr %15) #19
   unreachable
 
 lpad13:                                           ; preds = %if.then10
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   br label %eh.resume
@@ -1389,7 +1388,7 @@ if.end16:                                         ; preds = %invoke.cont14, %_ZN
   ret ptr %new_handle.0
 
 eh.resume:                                        ; preds = %ehcleanup, %lpad13
-  %.pn7 = phi { ptr, i32 } [ %17, %lpad13 ], [ %.pn, %ehcleanup ]
+  %.pn7 = phi { ptr, i32 } [ %16, %lpad13 ], [ %.pn, %ehcleanup ]
   resume { ptr, i32 } %.pn7
 }
 
@@ -1592,7 +1591,7 @@ if.else:                                          ; preds = %for.body
   %9 = ptrtoint ptr %3 to i64
   %and = and i64 %9, -2
   %10 = inttoptr i64 %and to ptr
-  store ptr %10, ptr %handle, align 8
+  store i64 %and, ptr %handle, align 8
   %and14 = and i64 %9, 1
   %tobool.not = icmp eq i64 %and14, 0
   %11 = load i32, ptr %arrayidx, align 4

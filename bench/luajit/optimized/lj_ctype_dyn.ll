@@ -763,9 +763,8 @@ entry:
   store ptr %arrayidx, ptr %ctr, align 8
   %ctype_state = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 26
   %2 = load i64, ptr %ctype_state, align 8
-  %3 = inttoptr i64 %2 to ptr
   %cts = getelementptr inbounds %struct.CTRepr, ptr %ctr, i64 0, i32 2
-  store ptr %3, ptr %cts, align 8
+  store i64 %2, ptr %cts, align 8
   %L2 = getelementptr inbounds %struct.CTRepr, ptr %ctr, i64 0, i32 3
   store ptr %L, ptr %L2, align 8
   %ok = getelementptr inbounds %struct.CTRepr, ptr %ctr, i64 0, i32 5
@@ -773,6 +772,7 @@ entry:
   %needsp = getelementptr inbounds %struct.CTRepr, ptr %ctr, i64 0, i32 4
   store i32 0, ptr %needsp, align 8
   %tobool.not = icmp eq ptr %name, null
+  %3 = inttoptr i64 %2 to ptr
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -2301,32 +2301,31 @@ entry:
   %0 = load i64, ptr %glref.i, align 8
   %1 = inttoptr i64 %0 to ptr
   %tmpbuf.i = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 11
-  %2 = ptrtoint ptr %L to i64
   %L1.i = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 11, i32 3
-  store i64 %2, ptr %L1.i, align 8
+  store ptr %L, ptr %L1.i, align 8
   %b.i20 = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 11, i32 2
-  %3 = load ptr, ptr %b.i20, align 8
-  store ptr %3, ptr %tmpbuf.i, align 8
+  %2 = load ptr, ptr %b.i20, align 8
+  store ptr %2, ptr %tmpbuf.i, align 8
   %cmp = icmp eq i32 %size, 16
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %4 = load <2 x double>, ptr %sp, align 8
+  %3 = load <2 x double>, ptr %sp, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %5 = load <2 x float>, ptr %sp, align 4
-  %6 = fpext <2 x float> %5 to <2 x double>
+  %4 = load <2 x float>, ptr %sp, align 4
+  %5 = fpext <2 x float> %4 to <2 x double>
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %7 = phi <2 x double> [ %4, %if.then ], [ %6, %if.else ]
-  %8 = extractelement <2 x double> %7, i64 0
-  %call5 = tail call ptr @lj_strfmt_putfnum(ptr noundef nonnull %tmpbuf.i, i32 noundef 251658293, double noundef %8) #15
-  %9 = extractelement <2 x double> %7, i64 1
-  %10 = bitcast double %9 to i64
-  %tobool.not = icmp sgt i64 %10, -1
-  %cmp6 = fcmp uno double %9, 0.000000e+00
+  %6 = phi <2 x double> [ %3, %if.then ], [ %5, %if.else ]
+  %7 = extractelement <2 x double> %6, i64 0
+  %call5 = tail call ptr @lj_strfmt_putfnum(ptr noundef nonnull %tmpbuf.i, i32 noundef 251658293, double noundef %7) #15
+  %8 = extractelement <2 x double> %6, i64 1
+  %9 = bitcast double %8 to i64
+  %tobool.not = icmp sgt i64 %9, -1
+  %cmp6 = fcmp uno double %8, 0.000000e+00
   %or.cond = or i1 %cmp6, %tobool.not
   br i1 %or.cond, label %if.then8, label %if.end10
 
@@ -2335,20 +2334,20 @@ if.then8:                                         ; preds = %if.end
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end, %if.then8
-  %call11 = tail call ptr @lj_strfmt_putfnum(ptr noundef nonnull %tmpbuf.i, i32 noundef 251658293, double noundef %9) #15
-  %11 = load ptr, ptr %tmpbuf.i, align 8
-  %arrayidx12 = getelementptr inbounds i8, ptr %11, i64 -1
-  %12 = load i8, ptr %arrayidx12, align 1
-  %cmp14 = icmp sgt i8 %12, 96
+  %call11 = tail call ptr @lj_strfmt_putfnum(ptr noundef nonnull %tmpbuf.i, i32 noundef 251658293, double noundef %8) #15
+  %10 = load ptr, ptr %tmpbuf.i, align 8
+  %arrayidx12 = getelementptr inbounds i8, ptr %10, i64 -1
+  %11 = load i8, ptr %arrayidx12, align 1
+  %cmp14 = icmp sgt i8 %11, 96
   %cond = select i1 %cmp14, i32 73, i32 105
   %call16 = tail call ptr @lj_buf_putchar(ptr noundef nonnull %tmpbuf.i, i32 noundef %cond) #15
-  %13 = load ptr, ptr %b.i20, align 8
-  %14 = load ptr, ptr %tmpbuf.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %13 to i64
+  %12 = load ptr, ptr %b.i20, align 8
+  %13 = load ptr, ptr %tmpbuf.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv2.i = and i64 %sub.ptr.sub.i, 4294967295
-  %call.i = tail call ptr @lj_str_new(ptr noundef nonnull %L, ptr noundef %13, i64 noundef %conv2.i) #15
+  %call.i = tail call ptr @lj_str_new(ptr noundef nonnull %L, ptr noundef %12, i64 noundef %conv2.i) #15
   ret ptr %call.i
 }
 
@@ -2372,9 +2371,8 @@ entry:
   store ptr null, ptr %L2, align 8
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
   %1 = load i64, ptr %glref, align 8
-  %2 = inttoptr i64 %1 to ptr
   %g = getelementptr inbounds %struct.CTState, ptr %call, i64 0, i32 4
-  store ptr %2, ptr %g, align 8
+  store i64 %1, ptr %g, align 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -2382,16 +2380,16 @@ for.body:                                         ; preds = %entry, %for.inc
   %ct.050 = phi ptr [ %call1, %entry ], [ %incdec.ptr, %for.inc ]
   %name.049 = phi ptr [ @.str.1, %entry ], [ %name.1, %for.inc ]
   %arrayidx = getelementptr inbounds [98 x i32], ptr @lj_ctype_typeinfo, i64 0, i64 %indvars.iv
-  %3 = load i32, ptr %arrayidx, align 4
-  %shl = shl i32 %3, 16
+  %2 = load i32, ptr %arrayidx, align 4
+  %shl = shl i32 %2, 16
   %shr = ashr i32 %shl, 26
   %size = getelementptr inbounds %struct.CType, ptr %ct.050, i64 0, i32 1
   store i32 %shr, ptr %size, align 4
-  %and = and i32 %3, -64513
+  %and = and i32 %2, -64513
   store i32 %and, ptr %ct.050, align 8
   %sib = getelementptr inbounds %struct.CType, ptr %ct.050, i64 0, i32 2
   store i16 0, ptr %sib, align 8
-  %shr5 = lshr i32 %3, 28
+  %shr5 = lshr i32 %2, 28
   switch i32 %shr5, label %if.else [
     i32 13, label %if.then
     i32 7, label %if.then
@@ -2401,15 +2399,15 @@ if.then:                                          ; preds = %for.body, %for.body
   %call11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name.049) #16
   %call12 = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef %name.049, i64 noundef %call11) #15
   %marked.i = getelementptr inbounds %struct.GCstr, ptr %call12, i64 0, i32 1
-  %4 = load i8, ptr %marked.i, align 8
-  %5 = or i8 %4, 32
-  store i8 %5, ptr %marked.i, align 8
-  %6 = ptrtoint ptr %call12 to i64
+  %3 = load i8, ptr %marked.i, align 8
+  %4 = or i8 %3, 32
+  store i8 %4, ptr %marked.i, align 8
   %name.i = getelementptr inbounds %struct.CType, ptr %ct.050, i64 0, i32 4
-  store i64 %6, ptr %name.i, align 8
+  store ptr %call12, ptr %name.i, align 8
   %add = add i64 %call11, 1
   %add.ptr = getelementptr inbounds i8, ptr %name.049, i64 %add
-  %conv.i = trunc i64 %6 to i32
+  %.cast = ptrtoint ptr %call12 to i64
+  %conv.i = trunc i64 %.cast to i32
   %add.i = add i32 %conv.i, -79764919
   %xor.i.i = xor i32 %add.i, %conv.i
   %or.i.i = tail call i32 @llvm.fshl.i32(i32 %add.i, i32 %add.i, i32 14)
@@ -2421,9 +2419,9 @@ if.then:                                          ; preds = %for.body, %for.body
   %and.i = and i32 %sub8.i.i, 127
   %idxprom.i = zext nneg i32 %and.i to i64
   %arrayidx.i = getelementptr inbounds %struct.CTState, ptr %call, i64 0, i32 8, i64 %idxprom.i
-  %7 = load i16, ptr %arrayidx.i, align 2
+  %5 = load i16, ptr %arrayidx.i, align 2
   %next.i = getelementptr inbounds %struct.CType, ptr %ct.050, i64 0, i32 3
-  store i16 %7, ptr %next.i, align 2
+  store i16 %5, ptr %next.i, align 2
   br label %for.inc.sink.split
 
 if.else:                                          ; preds = %for.body
@@ -2445,8 +2443,8 @@ if.then17:                                        ; preds = %if.else
   %and.i43 = and i32 %sub8.i.i42, 127
   %idxprom.i44 = zext nneg i32 %and.i43 to i64
   %arrayidx.i45 = getelementptr inbounds %struct.CTState, ptr %call, i64 0, i32 8, i64 %idxprom.i44
-  %8 = load i16, ptr %arrayidx.i45, align 2
-  store i16 %8, ptr %next, align 2
+  %6 = load i16, ptr %arrayidx.i45, align 2
+  store i16 %6, ptr %next, align 2
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %if.then17, %if.then
@@ -2464,11 +2462,10 @@ for.inc:                                          ; preds = %for.inc.sink.split,
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc
-  %9 = ptrtoint ptr %call to i64
-  %10 = load i64, ptr %glref, align 8
-  %11 = inttoptr i64 %10 to ptr
-  %ctype_state = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 26
-  store i64 %9, ptr %ctype_state, align 8
+  %7 = load i64, ptr %glref, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %ctype_state = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 26
+  store ptr %call, ptr %ctype_state, align 8
   ret ptr %call
 }
 

@@ -441,8 +441,7 @@ if.end.i7:                                        ; preds = %if.then.i
   %call5.i.i10.i = call noundef ptr @_ZN6hermes2vm6GCBase13allocWeakSlotENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(741) %heapStorage_.i.i, i32 %retval.sroa.0.0.i.i.i.i.i9.i) #13
   %12 = load ptr, ptr %itAndInserted.i, align 8
   %second14.i = getelementptr inbounds %"struct.std::pair.223", ptr %12, i64 0, i32 1
-  %13 = ptrtoint ptr %call5.i.i10.i to i64
-  store i64 %13, ptr %second14.i, align 8
+  store ptr %call5.i.i10.i, ptr %second14.i, align 8
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.end.i7, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HiddenClassEEENS0_6HandleIT_EEPS5_.exit
@@ -2440,8 +2439,7 @@ if.then8:                                         ; preds = %_ZNSt10lock_guardIS
   %retval.sroa.0.0.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i
   %call5.i.i = tail call noundef ptr @_ZN6hermes2vm6GCBase13allocWeakSlotENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(741) %heapStorage_.i, i32 %retval.sroa.0.0.i.i.i.i.i) #13
   %u.i7 = getelementptr inbounds %"class.hermes::vm::detail::TransitionMap", ptr %this, i64 0, i32 1
-  %7 = ptrtoint ptr %call5.i.i to i64
-  store i64 %7, ptr %u.i7, align 8
+  store ptr %call5.i.i, ptr %u.i7, align 8
   br label %cleanup
 
 if.then15:                                        ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
@@ -2450,49 +2448,48 @@ if.then15:                                        ; preds = %_ZNSt10lock_guardIS
 
 if.end16:                                         ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, %if.then15
   %u.i9 = getelementptr inbounds %"class.hermes::vm::detail::TransitionMap", ptr %this, i64 0, i32 1
-  %8 = load ptr, ptr %u.i9, align 8
+  %7 = load ptr, ptr %u.i9, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %itAndInserted.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %retval.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %value.coerce, align 8
   %and.i.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i, 281474976710655
   %tobool.not.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i, 0
-  %9 = ptrtoint ptr %runtime to i64
-  %sub.i.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i.i.i, %9
+  %8 = ptrtoint ptr %runtime to i64
+  %sub.i.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i.i.i, %8
   %conv.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i.i
   %call5.i.i.i = tail call noundef ptr @_ZN6hermes2vm6GCBase13allocWeakSlotENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(741) %heapStorage_.i, i32 %retval.sroa.0.0.i.i.i.i.i.i) #13
   store ptr %call5.i.i.i, ptr %ref.tmp.i, align 8
-  call void @_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIN6hermes2vm6detail10TransitionENS3_7WeakRefINS3_11HiddenClassEEELj8ENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E11try_emplaceIJS8_EEESt4pairINS_16DenseMapIteratorIS5_S8_SA_SD_Lb0EEEbERKS5_DpOT_(ptr nonnull sret(%"struct.std::pair.235") align 8 %itAndInserted.i, ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(6) %key, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
+  call void @_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIN6hermes2vm6detail10TransitionENS3_7WeakRefINS3_11HiddenClassEEELj8ENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E11try_emplaceIJS8_EEESt4pairINS_16DenseMapIteratorIS5_S8_SA_SD_Lb0EEEbERKS5_DpOT_(ptr nonnull sret(%"struct.std::pair.235") align 8 %itAndInserted.i, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(6) %key, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   %second.i = getelementptr inbounds %"struct.std::pair.235", ptr %itAndInserted.i, i64 0, i32 1
-  %10 = load i8, ptr %second.i, align 8
-  %11 = and i8 %10, 1
-  %tobool.not.i = icmp eq i8 %11, 0
+  %9 = load i8, ptr %second.i, align 8
+  %10 = and i8 %9, 1
+  %tobool.not.i = icmp eq i8 %10, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end15.i
 
 if.then.i:                                        ; preds = %if.end16
-  %12 = load ptr, ptr %itAndInserted.i, align 8
-  %second5.i = getelementptr inbounds %"struct.std::pair.223", ptr %12, i64 0, i32 1
-  %13 = load ptr, ptr %second5.i, align 8
-  %14 = load i32, ptr %13, align 4
-  %cmp.i.i.i.i.i.i.not.i = icmp eq i32 %14, 0
+  %11 = load ptr, ptr %itAndInserted.i, align 8
+  %second5.i = getelementptr inbounds %"struct.std::pair.223", ptr %11, i64 0, i32 1
+  %12 = load ptr, ptr %second5.i, align 8
+  %13 = load i32, ptr %12, align 4
+  %cmp.i.i.i.i.i.i.not.i = icmp eq i32 %13, 0
   br i1 %cmp.i.i.i.i.i.i.not.i, label %if.end.i, label %_ZN6hermes2vm12WeakValueMapINS0_6detail10TransitionENS0_11HiddenClassEE15insertNewLockedERNS0_7RuntimeERKS3_NS0_6HandleIS4_EE.exit
 
 if.end.i:                                         ; preds = %if.then.i
   %retval.sroa.0.0.copyload.i.i.i.i4.i = load i64, ptr %value.coerce, align 8
   %and.i.i.i.i.i.i5.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i4.i, 281474976710655
   %tobool.not.i.i.i.i.i6.i = icmp eq i64 %and.i.i.i.i.i.i5.i, 0
-  %sub.i.i.i.i.i.i7.i = sub i64 %retval.sroa.0.0.copyload.i.i.i.i4.i, %9
+  %sub.i.i.i.i.i.i7.i = sub i64 %retval.sroa.0.0.copyload.i.i.i.i4.i, %8
   %conv.i.i.i.i.i.i8.i = trunc i64 %sub.i.i.i.i.i.i7.i to i32
   %retval.sroa.0.0.i.i.i.i.i9.i = select i1 %tobool.not.i.i.i.i.i6.i, i32 0, i32 %conv.i.i.i.i.i.i8.i
   %call5.i.i10.i = call noundef ptr @_ZN6hermes2vm6GCBase13allocWeakSlotENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(741) %heapStorage_.i, i32 %retval.sroa.0.0.i.i.i.i.i9.i) #13
-  %15 = load ptr, ptr %itAndInserted.i, align 8
-  %second14.i = getelementptr inbounds %"struct.std::pair.223", ptr %15, i64 0, i32 1
-  %16 = ptrtoint ptr %call5.i.i10.i to i64
-  store i64 %16, ptr %second14.i, align 8
+  %14 = load ptr, ptr %itAndInserted.i, align 8
+  %second14.i = getelementptr inbounds %"struct.std::pair.223", ptr %14, i64 0, i32 1
+  store ptr %call5.i.i10.i, ptr %second14.i, align 8
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.end.i, %if.end16
-  call void @_ZN6hermes2vm12WeakValueMapINS0_6detail10TransitionENS0_11HiddenClassEE12pruneInvalidERNS0_7HadesGCE(ptr noundef nonnull align 8 dereferenceable(140) %8, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i)
+  call void @_ZN6hermes2vm12WeakValueMapINS0_6detail10TransitionENS0_11HiddenClassEE12pruneInvalidERNS0_7HadesGCE(ptr noundef nonnull align 8 dereferenceable(140) %7, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i)
   br label %_ZN6hermes2vm12WeakValueMapINS0_6detail10TransitionENS0_11HiddenClassEE15insertNewLockedERNS0_7RuntimeERKS3_NS0_6HandleIS4_EE.exit
 
 _ZN6hermes2vm12WeakValueMapINS0_6detail10TransitionENS0_11HiddenClassEE15insertNewLockedERNS0_7RuntimeERKS3_NS0_6HandleIS4_EE.exit: ; preds = %if.then.i, %if.end15.i

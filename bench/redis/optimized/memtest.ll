@@ -132,8 +132,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %p.039.us = phi ptr [ %incdec.ptr.us, %for.body.us ], [ %l, %for.body.lr.ph ]
   %j.038.us = phi i64 [ %inc.us, %for.body.us ], [ 0, %for.body.lr.ph ]
-  %0 = ptrtoint ptr %p.039.us to i64
-  store i64 %0, ptr %p.039.us, align 8
+  store ptr %p.039.us, ptr %p.039.us, align 8
   %incdec.ptr.us = getelementptr inbounds i64, ptr %p.039.us, i64 1
   %inc.us = add nuw nsw i64 %j.038.us, 1
   %exitcond52.not = icmp eq i64 %inc.us, %div23
@@ -150,9 +149,9 @@ for.body4.lr.ph:                                  ; preds = %for.cond2.preheader
 for.body4.us:                                     ; preds = %for.body4.lr.ph, %if.end10.us
   %p.142.us = phi ptr [ %incdec.ptr11.us, %if.end10.us ], [ %l, %for.body4.lr.ph ]
   %j.141.us = phi i64 [ %inc20.us, %if.end10.us ], [ 0, %for.body4.lr.ph ]
-  %1 = load i64, ptr %p.142.us, align 8
-  %2 = ptrtoint ptr %p.142.us to i64
-  %cmp5.not.us = icmp eq i64 %1, %2
+  %0 = load i64, ptr %p.142.us, align 8
+  %1 = ptrtoint ptr %p.142.us to i64
+  %cmp5.not.us = icmp eq i64 %0, %1
   br i1 %cmp5.not.us, label %if.end10.us, label %if.then6
 
 if.end10.us:                                      ; preds = %for.body4.us
@@ -164,34 +163,33 @@ if.end10.us:                                      ; preds = %for.body4.us
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %p.039 = phi ptr [ %incdec.ptr, %for.inc ], [ %l, %for.body.lr.ph ]
   %j.038 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
-  %3 = ptrtoint ptr %p.039 to i64
-  store i64 %3, ptr %p.039, align 8
+  store ptr %p.039, ptr %p.039, align 8
   %incdec.ptr = getelementptr inbounds i64, ptr %p.039, i64 1
   %and = and i64 %j.038, 65535
   %cmp1 = icmp eq i64 %and, 0
   br i1 %cmp1, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %4 = load i64, ptr @progress_full, align 8
-  %mul.i = mul i64 %4, %j.038
+  %2 = load i64, ptr @progress_full, align 8
+  %mul.i = mul i64 %2, %j.038
   %div.i = udiv i64 %mul.i, %mul
-  %5 = load i64, ptr @progress_printed, align 8
-  %cmp4.not.i = icmp eq i64 %div.i, %5
+  %3 = load i64, ptr @progress_printed, align 8
+  %cmp4.not.i = icmp eq i64 %div.i, %3
   br i1 %cmp4.not.i, label %memtest_progress_step.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %j.05.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.then ]
   %putchar.i = tail call i32 @putchar(i32 65)
   %inc.i = add nuw i64 %j.05.i, 1
-  %6 = load i64, ptr @progress_printed, align 8
-  %sub.i = sub i64 %div.i, %6
+  %4 = load i64, ptr @progress_printed, align 8
+  %sub.i = sub i64 %div.i, %4
   %cmp.i = icmp ult i64 %inc.i, %sub.i
   br i1 %cmp.i, label %for.body.i, label %memtest_progress_step.exit, !llvm.loop !7
 
 memtest_progress_step.exit:                       ; preds = %for.body.i, %if.then
   store i64 %div.i, ptr @progress_printed, align 8
-  %7 = load ptr, ptr @stdout, align 8
-  %call1.i = tail call i32 @fflush(ptr noundef %7)
+  %5 = load ptr, ptr @stdout, align 8
+  %call1.i = tail call i32 @fflush(ptr noundef %5)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %memtest_progress_step.exit
@@ -202,13 +200,13 @@ for.inc:                                          ; preds = %for.body, %memtest_
 for.body4:                                        ; preds = %for.body4.lr.ph, %for.inc19
   %p.142 = phi ptr [ %incdec.ptr11, %for.inc19 ], [ %l, %for.body4.lr.ph ]
   %j.141 = phi i64 [ %inc20, %for.inc19 ], [ 0, %for.body4.lr.ph ]
-  %8 = load i64, ptr %p.142, align 8
-  %9 = ptrtoint ptr %p.142 to i64
-  %cmp5.not = icmp eq i64 %8, %9
+  %6 = load i64, ptr %p.142, align 8
+  %7 = ptrtoint ptr %p.142 to i64
+  %cmp5.not = icmp eq i64 %6, %7
   br i1 %cmp5.not, label %if.end10, label %if.then6
 
 if.then6:                                         ; preds = %for.body4, %for.body4.us
-  %.us-phi = phi i64 [ %1, %for.body4.us ], [ %8, %for.body4 ]
+  %.us-phi = phi i64 [ %0, %for.body4.us ], [ %6, %for.body4 ]
   %.us-phi43 = phi ptr [ %p.142.us, %for.body4.us ], [ %p.142, %for.body4 ]
   br i1 %tobool15.not, label %return, label %if.then8
 
@@ -225,26 +223,26 @@ if.end10:                                         ; preds = %for.body4
 
 if.then16:                                        ; preds = %if.end10
   %add = add nuw nsw i64 %j.141, %div23
-  %10 = load i64, ptr @progress_full, align 8
-  %mul.i24 = mul i64 %10, %add
+  %8 = load i64, ptr @progress_full, align 8
+  %mul.i24 = mul i64 %8, %add
   %div.i25 = udiv i64 %mul.i24, %mul17
-  %11 = load i64, ptr @progress_printed, align 8
-  %cmp4.not.i26 = icmp eq i64 %div.i25, %11
+  %9 = load i64, ptr @progress_printed, align 8
+  %cmp4.not.i26 = icmp eq i64 %div.i25, %9
   br i1 %cmp4.not.i26, label %memtest_progress_step.exit35, label %for.body.i28
 
 for.body.i28:                                     ; preds = %if.then16, %for.body.i28
   %j.05.i29 = phi i64 [ %inc.i31, %for.body.i28 ], [ 0, %if.then16 ]
   %putchar.i30 = tail call i32 @putchar(i32 65)
   %inc.i31 = add nuw i64 %j.05.i29, 1
-  %12 = load i64, ptr @progress_printed, align 8
-  %sub.i32 = sub i64 %div.i25, %12
+  %10 = load i64, ptr @progress_printed, align 8
+  %sub.i32 = sub i64 %div.i25, %10
   %cmp.i33 = icmp ult i64 %inc.i31, %sub.i32
   br i1 %cmp.i33, label %for.body.i28, label %memtest_progress_step.exit35, !llvm.loop !7
 
 memtest_progress_step.exit35:                     ; preds = %for.body.i28, %if.then16
   store i64 %div.i25, ptr @progress_printed, align 8
-  %13 = load ptr, ptr @stdout, align 8
-  %call1.i34 = tail call i32 @fflush(ptr noundef %13)
+  %11 = load ptr, ptr @stdout, align 8
+  %call1.i34 = tail call i32 @fflush(ptr noundef %11)
   br label %for.inc19
 
 for.inc19:                                        ; preds = %if.end10, %memtest_progress_step.exit35
@@ -706,8 +704,7 @@ while.body.us.us:                                 ; preds = %while.body.lr.ph.sp
 for.body.us.i.us.us:                              ; preds = %while.body.us.us, %for.body.us.i.us.us
   %p.039.us.i.us.us = phi ptr [ %incdec.ptr.us.i.us.us, %for.body.us.i.us.us ], [ %m, %while.body.us.us ]
   %j.038.us.i.us.us = phi i64 [ %inc.us.i.us.us, %for.body.us.i.us.us ], [ 0, %while.body.us.us ]
-  %0 = ptrtoint ptr %p.039.us.i.us.us to i64
-  store i64 %0, ptr %p.039.us.i.us.us, align 8
+  store ptr %p.039.us.i.us.us, ptr %p.039.us.i.us.us, align 8
   %incdec.ptr.us.i.us.us = getelementptr inbounds i64, ptr %p.039.us.i.us.us, i64 1
   %inc.us.i.us.us = add nuw nsw i64 %j.038.us.i.us.us, 1
   %exitcond52.not.i.us.us = icmp eq i64 %inc.us.i.us.us, %div23.i
@@ -716,9 +713,9 @@ for.body.us.i.us.us:                              ; preds = %while.body.us.us, %
 for.body4.us.i.us.us:                             ; preds = %for.body.us.i.us.us, %if.end10.us.i.us.us
   %p.142.us.i.us.us = phi ptr [ %incdec.ptr11.us.i.us.us, %if.end10.us.i.us.us ], [ %m, %for.body.us.i.us.us ]
   %j.141.us.i.us.us = phi i64 [ %inc20.us.i.us.us, %if.end10.us.i.us.us ], [ 0, %for.body.us.i.us.us ]
-  %1 = load i64, ptr %p.142.us.i.us.us, align 8
-  %2 = ptrtoint ptr %p.142.us.i.us.us to i64
-  %cmp5.not.us.i.us.us = icmp eq i64 %1, %2
+  %0 = load i64, ptr %p.142.us.i.us.us, align 8
+  %1 = ptrtoint ptr %p.142.us.i.us.us to i64
+  %cmp5.not.us.i.us.us = icmp eq i64 %0, %1
   br i1 %cmp5.not.us.i.us.us, label %if.end10.us.i.us.us, label %if.end3.split.us.us
 
 if.end10.us.i.us.us:                              ; preds = %for.body4.us.i.us.us
@@ -776,9 +773,9 @@ for.body.us.i.us.i.us.us:                         ; preds = %if.end9.us.i.us.i.u
   %l2.024.us.i.us.i.us.us = phi ptr [ %incdec.ptr10.us.i.us.i.us.us, %if.end9.us.i.us.i.us.us ], [ %add.ptr.i.i, %for.body.us.i52.us.us ]
   %l1.023.us.i.us.i.us.us = phi ptr [ %incdec.ptr.us.i.us.i.us.us, %if.end9.us.i.us.i.us.us ], [ %m, %for.body.us.i52.us.us ]
   %w.022.us.i.us.i.us.us = phi i64 [ %inc.us.i.us.i.us.us, %if.end9.us.i.us.i.us.us ], [ 0, %for.body.us.i52.us.us ]
-  %3 = load i64, ptr %l1.023.us.i.us.i.us.us, align 8
-  %4 = load i64, ptr %l2.024.us.i.us.i.us.us, align 8
-  %cmp5.not.us.i.us.i.us.us = icmp eq i64 %3, %4
+  %2 = load i64, ptr %l1.023.us.i.us.i.us.us, align 8
+  %3 = load i64, ptr %l2.024.us.i.us.i.us.us, align 8
+  %cmp5.not.us.i.us.i.us.us = icmp eq i64 %2, %3
   br i1 %cmp5.not.us.i.us.i.us.us, label %if.end9.us.i.us.i.us.us, label %if.end.us.i.us.us
 
 if.end9.us.i.us.i.us.us:                          ; preds = %for.body.us.i.us.i.us.us
@@ -803,14 +800,14 @@ for.body.us.i60.us.us:                            ; preds = %if.end9.split.us.us
   %off.028.us.i.us.us = phi i64 [ %inc27.us.i.us.us, %for.cond12.for.inc26_crit_edge.split.us.us.i.us.us ], [ 0, %if.end9.split.us.us ]
   %add.ptr.us.i61.us.us = getelementptr inbounds i64, ptr %m, i64 %off.028.us.i.us.us
   %add.ptr6.us.i62.us.us = getelementptr inbounds i64, ptr %add.ptr.us.i61.us.us, i64 %div124.i
-  %5 = and i64 %off.028.us.i.us.us, 1
-  %sext.us.us = sub nsw i64 0, %5
+  %4 = and i64 %off.028.us.i.us.us, 1
+  %sext.us.us = sub nsw i64 0, %4
   %shl.us.i.us.us = shl nsw i64 %sext.us.us, 16
   %shl16.us.i.us.us = shl nsw i64 %sext.us.us, 32
   %shl18.us.i.us.us = shl nsw i64 %sext.us.us, 48
-  %6 = or i64 %shl.us.i.us.us, %shl16.us.i.us.us
-  %7 = or i64 %6, %shl18.us.i.us.us
-  %or19.us.i.us.us = or i64 %7, %sext.us.us
+  %5 = or i64 %shl.us.i.us.us, %shl16.us.i.us.us
+  %6 = or i64 %5, %shl18.us.i.us.us
+  %or19.us.i.us.us = or i64 %6, %sext.us.us
   br label %for.body15.us.us.i.us.us
 
 for.body15.us.us.i.us.us:                         ; preds = %for.body15.us.us.i.us.us, %for.body.us.i60.us.us
@@ -842,9 +839,9 @@ for.body.us.i.us.i75.us.us:                       ; preds = %if.end9.us.i.us.i86
   %l2.024.us.i.us.i76.us.us = phi ptr [ %incdec.ptr10.us.i.us.i88.us.us, %if.end9.us.i.us.i86.us.us ], [ %add.ptr.i.i, %for.body.us.i72.us.us ]
   %l1.023.us.i.us.i77.us.us = phi ptr [ %incdec.ptr.us.i.us.i87.us.us, %if.end9.us.i.us.i86.us.us ], [ %m, %for.body.us.i72.us.us ]
   %w.022.us.i.us.i78.us.us = phi i64 [ %inc.us.i.us.i89.us.us, %if.end9.us.i.us.i86.us.us ], [ 0, %for.body.us.i72.us.us ]
-  %8 = load i64, ptr %l1.023.us.i.us.i77.us.us, align 8
-  %9 = load i64, ptr %l2.024.us.i.us.i76.us.us, align 8
-  %cmp5.not.us.i.us.i79.us.us = icmp eq i64 %8, %9
+  %7 = load i64, ptr %l1.023.us.i.us.i77.us.us, align 8
+  %8 = load i64, ptr %l2.024.us.i.us.i76.us.us, align 8
+  %cmp5.not.us.i.us.i79.us.us = icmp eq i64 %7, %8
   br i1 %cmp5.not.us.i.us.i79.us.us, label %if.end9.us.i.us.i86.us.us, label %if.end.us.i80.us.us
 
 if.end9.us.i.us.i86.us.us:                        ; preds = %for.body.us.i.us.i75.us.us
@@ -875,9 +872,9 @@ for.body.us.i101.us.us:                           ; preds = %if.end17.split.us.u
   %shl.us.i108.us.us = shl i64 %cond.us.i107.us.us, 16
   %shl16.us.i109.us.us = shl i64 %cond.us.i107.us.us, 32
   %shl18.us.i110.us.us = shl i64 %cond.us.i107.us.us, 48
-  %10 = or i64 %shl.us.i108.us.us, %shl16.us.i109.us.us
-  %11 = or i64 %10, %shl18.us.i110.us.us
-  %or19.us.i111.us.us = or i64 %11, %cond.us.i107.us.us
+  %9 = or i64 %shl.us.i108.us.us, %shl16.us.i109.us.us
+  %10 = or i64 %9, %shl18.us.i110.us.us
+  %or19.us.i111.us.us = or i64 %10, %cond.us.i107.us.us
   br label %for.body15.us.us.i112.us.us
 
 for.body15.us.us.i112.us.us:                      ; preds = %for.body15.us.us.i112.us.us, %for.body.us.i101.us.us
@@ -909,9 +906,9 @@ for.body.us.i.us.i135.us.us:                      ; preds = %if.end9.us.i.us.i14
   %l2.024.us.i.us.i136.us.us = phi ptr [ %incdec.ptr10.us.i.us.i148.us.us, %if.end9.us.i.us.i146.us.us ], [ %add.ptr.i.i, %for.body.us.i132.us.us ]
   %l1.023.us.i.us.i137.us.us = phi ptr [ %incdec.ptr.us.i.us.i147.us.us, %if.end9.us.i.us.i146.us.us ], [ %m, %for.body.us.i132.us.us ]
   %w.022.us.i.us.i138.us.us = phi i64 [ %inc.us.i.us.i149.us.us, %if.end9.us.i.us.i146.us.us ], [ 0, %for.body.us.i132.us.us ]
-  %12 = load i64, ptr %l1.023.us.i.us.i137.us.us, align 8
-  %13 = load i64, ptr %l2.024.us.i.us.i136.us.us, align 8
-  %cmp5.not.us.i.us.i139.us.us = icmp eq i64 %12, %13
+  %11 = load i64, ptr %l1.023.us.i.us.i137.us.us, align 8
+  %12 = load i64, ptr %l2.024.us.i.us.i136.us.us, align 8
+  %cmp5.not.us.i.us.i139.us.us = icmp eq i64 %11, %12
   br i1 %cmp5.not.us.i.us.i139.us.us, label %if.end9.us.i.us.i146.us.us, label %if.end.us.i140.us.us
 
 if.end9.us.i.us.i146.us.us:                       ; preds = %for.body.us.i.us.i135.us.us
@@ -941,8 +938,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph.sp
 for.body.us.i.us:                                 ; preds = %while.body.us, %for.body.us.i.us
   %p.039.us.i.us = phi ptr [ %incdec.ptr.us.i.us, %for.body.us.i.us ], [ %m, %while.body.us ]
   %j.038.us.i.us = phi i64 [ %inc.us.i.us, %for.body.us.i.us ], [ 0, %while.body.us ]
-  %14 = ptrtoint ptr %p.039.us.i.us to i64
-  store i64 %14, ptr %p.039.us.i.us, align 8
+  store ptr %p.039.us.i.us, ptr %p.039.us.i.us, align 8
   %incdec.ptr.us.i.us = getelementptr inbounds i64, ptr %p.039.us.i.us, i64 1
   %inc.us.i.us = add nuw nsw i64 %j.038.us.i.us, 1
   %exitcond52.not.i.us = icmp eq i64 %inc.us.i.us, %div23.i
@@ -1066,8 +1062,7 @@ while.body15.us:                                  ; preds = %if.end7, %memtest_c
 for.body.us.i.us:                                 ; preds = %while.body15.us, %for.body.us.i.us
   %p.039.us.i.us = phi ptr [ %incdec.ptr.us.i.us, %for.body.us.i.us ], [ %p.1, %while.body15.us ]
   %j.038.us.i.us = phi i64 [ %inc.us.i.us, %for.body.us.i.us ], [ 0, %while.body15.us ]
-  %2 = ptrtoint ptr %p.039.us.i.us to i64
-  store i64 %2, ptr %p.039.us.i.us, align 8
+  store ptr %p.039.us.i.us, ptr %p.039.us.i.us, align 8
   %incdec.ptr.us.i.us = getelementptr inbounds i64, ptr %p.039.us.i.us, i64 1
   %inc.us.i.us = add nuw nsw i64 %j.038.us.i.us, 1
   %exitcond52.not.i.us = icmp eq i64 %inc.us.i.us, %div23.i
@@ -1076,9 +1071,9 @@ for.body.us.i.us:                                 ; preds = %while.body15.us, %f
 for.body4.us.i.us:                                ; preds = %for.body.us.i.us, %if.end10.us.i.us
   %p.142.us.i.us = phi ptr [ %incdec.ptr11.us.i.us, %if.end10.us.i.us ], [ %p.1, %for.body.us.i.us ]
   %j.141.us.i.us = phi i64 [ %inc20.us.i.us, %if.end10.us.i.us ], [ 0, %for.body.us.i.us ]
-  %3 = load i64, ptr %p.142.us.i.us, align 8
-  %4 = ptrtoint ptr %p.142.us.i.us to i64
-  %cmp5.not.us.i.us = icmp eq i64 %3, %4
+  %2 = load i64, ptr %p.142.us.i.us, align 8
+  %3 = ptrtoint ptr %p.142.us.i.us to i64
+  %cmp5.not.us.i.us = icmp eq i64 %2, %3
   br i1 %cmp5.not.us.i.us, label %if.end10.us.i.us, label %memtest_addressing.exit.us
 
 if.end10.us.i.us:                                 ; preds = %for.body4.us.i.us
@@ -1136,9 +1131,9 @@ for.body.us.i.us.i86.us:                          ; preds = %if.end9.us.i.us.i96
   %l2.024.us.i.us.i87.us = phi ptr [ %incdec.ptr10.us.i.us.i98.us, %if.end9.us.i.us.i96.us ], [ %add.ptr.i.i82, %for.body.us.i83.us ]
   %l1.023.us.i.us.i88.us = phi ptr [ %incdec.ptr.us.i.us.i97.us, %if.end9.us.i.us.i96.us ], [ %p.1, %for.body.us.i83.us ]
   %w.022.us.i.us.i89.us = phi i64 [ %inc.us.i.us.i99.us, %if.end9.us.i.us.i96.us ], [ 0, %for.body.us.i83.us ]
-  %5 = load i64, ptr %l1.023.us.i.us.i88.us, align 8
-  %6 = load i64, ptr %l2.024.us.i.us.i87.us, align 8
-  %cmp5.not.us.i.us.i90.us = icmp eq i64 %5, %6
+  %4 = load i64, ptr %l1.023.us.i.us.i88.us, align 8
+  %5 = load i64, ptr %l2.024.us.i.us.i87.us, align 8
+  %cmp5.not.us.i.us.i90.us = icmp eq i64 %4, %5
   br i1 %cmp5.not.us.i.us.i90.us, label %if.end9.us.i.us.i96.us, label %if.end.us.i91.us
 
 if.end9.us.i.us.i96.us:                           ; preds = %for.body.us.i.us.i86.us
@@ -1163,14 +1158,14 @@ for.body.us.i107.us:                              ; preds = %for.cond.preheader.
   %off.028.us.i.us = phi i64 [ %inc27.us.i.us, %for.cond12.for.inc26_crit_edge.split.us.us.i.us ], [ 0, %for.cond.preheader.i105.us ]
   %add.ptr.us.i108.us = getelementptr inbounds i64, ptr %p.1, i64 %off.028.us.i.us
   %add.ptr6.us.i109.us = getelementptr inbounds i64, ptr %add.ptr.us.i108.us, i64 %div124.i
-  %7 = and i64 %off.028.us.i.us, 1
-  %sext.us = sub nsw i64 0, %7
+  %6 = and i64 %off.028.us.i.us, 1
+  %sext.us = sub nsw i64 0, %6
   %shl.us.i.us = shl nsw i64 %sext.us, 16
   %shl16.us.i.us = shl nsw i64 %sext.us, 32
   %shl18.us.i.us = shl nsw i64 %sext.us, 48
-  %8 = or i64 %shl.us.i.us, %shl16.us.i.us
-  %9 = or i64 %8, %shl18.us.i.us
-  %or19.us.i.us = or i64 %9, %sext.us
+  %7 = or i64 %shl.us.i.us, %shl16.us.i.us
+  %8 = or i64 %7, %shl18.us.i.us
+  %or19.us.i.us = or i64 %8, %sext.us
   br label %for.body15.us.us.i.us
 
 for.body15.us.us.i.us:                            ; preds = %for.body15.us.us.i.us, %for.body.us.i107.us
@@ -1202,9 +1197,9 @@ for.body.us.i.us.i168.us:                         ; preds = %if.end9.us.i.us.i17
   %l2.024.us.i.us.i169.us = phi ptr [ %incdec.ptr10.us.i.us.i181.us, %if.end9.us.i.us.i179.us ], [ %add.ptr.i.i82, %for.body.us.i165.us ]
   %l1.023.us.i.us.i170.us = phi ptr [ %incdec.ptr.us.i.us.i180.us, %if.end9.us.i.us.i179.us ], [ %p.1, %for.body.us.i165.us ]
   %w.022.us.i.us.i171.us = phi i64 [ %inc.us.i.us.i182.us, %if.end9.us.i.us.i179.us ], [ 0, %for.body.us.i165.us ]
-  %10 = load i64, ptr %l1.023.us.i.us.i170.us, align 8
-  %11 = load i64, ptr %l2.024.us.i.us.i169.us, align 8
-  %cmp5.not.us.i.us.i172.us = icmp eq i64 %10, %11
+  %9 = load i64, ptr %l1.023.us.i.us.i170.us, align 8
+  %10 = load i64, ptr %l2.024.us.i.us.i169.us, align 8
+  %cmp5.not.us.i.us.i172.us = icmp eq i64 %9, %10
   br i1 %cmp5.not.us.i.us.i172.us, label %if.end9.us.i.us.i179.us, label %if.end.us.i173.us
 
 if.end9.us.i.us.i179.us:                          ; preds = %for.body.us.i.us.i168.us
@@ -1235,9 +1230,9 @@ for.body.us.i193.us:                              ; preds = %for.cond.preheader.
   %shl.us.i200.us = shl i64 %cond.us.i199.us, 16
   %shl16.us.i201.us = shl i64 %cond.us.i199.us, 32
   %shl18.us.i202.us = shl i64 %cond.us.i199.us, 48
-  %12 = or i64 %shl.us.i200.us, %shl16.us.i201.us
-  %13 = or i64 %12, %shl18.us.i202.us
-  %or19.us.i203.us = or i64 %13, %cond.us.i199.us
+  %11 = or i64 %shl.us.i200.us, %shl16.us.i201.us
+  %12 = or i64 %11, %shl18.us.i202.us
+  %or19.us.i203.us = or i64 %12, %cond.us.i199.us
   br label %for.body15.us.us.i204.us
 
 for.body15.us.us.i204.us:                         ; preds = %for.body15.us.us.i204.us, %for.body.us.i193.us
@@ -1269,9 +1264,9 @@ for.body.us.i.us.i273.us:                         ; preds = %if.end9.us.i.us.i28
   %l2.024.us.i.us.i274.us = phi ptr [ %incdec.ptr10.us.i.us.i286.us, %if.end9.us.i.us.i284.us ], [ %add.ptr.i.i82, %for.body.us.i270.us ]
   %l1.023.us.i.us.i275.us = phi ptr [ %incdec.ptr.us.i.us.i285.us, %if.end9.us.i.us.i284.us ], [ %p.1, %for.body.us.i270.us ]
   %w.022.us.i.us.i276.us = phi i64 [ %inc.us.i.us.i287.us, %if.end9.us.i.us.i284.us ], [ 0, %for.body.us.i270.us ]
-  %14 = load i64, ptr %l1.023.us.i.us.i275.us, align 8
-  %15 = load i64, ptr %l2.024.us.i.us.i274.us, align 8
-  %cmp5.not.us.i.us.i277.us = icmp eq i64 %14, %15
+  %13 = load i64, ptr %l1.023.us.i.us.i275.us, align 8
+  %14 = load i64, ptr %l2.024.us.i.us.i274.us, align 8
+  %cmp5.not.us.i.us.i277.us = icmp eq i64 %13, %14
   br i1 %cmp5.not.us.i.us.i277.us, label %if.end9.us.i.us.i284.us, label %if.end.us.i278.us
 
 if.end9.us.i.us.i284.us:                          ; preds = %for.body.us.i.us.i273.us
@@ -1307,8 +1302,7 @@ while.body15:                                     ; preds = %if.end7
 for.body.us.i:                                    ; preds = %while.body15, %for.body.us.i
   %p.039.us.i = phi ptr [ %incdec.ptr.us.i, %for.body.us.i ], [ %p.1, %while.body15 ]
   %j.038.us.i = phi i64 [ %inc.us.i, %for.body.us.i ], [ 0, %while.body15 ]
-  %16 = ptrtoint ptr %p.039.us.i to i64
-  store i64 %16, ptr %p.039.us.i, align 8
+  store ptr %p.039.us.i, ptr %p.039.us.i, align 8
   %incdec.ptr.us.i = getelementptr inbounds i64, ptr %p.039.us.i, i64 1
   %inc.us.i = add nuw nsw i64 %j.038.us.i, 1
   %exitcond52.not.i = icmp eq i64 %inc.us.i, %div23.i

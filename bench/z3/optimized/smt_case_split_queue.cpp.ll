@@ -653,7 +653,7 @@ sw.bb:                                            ; preds = %if.end19
           to label %return unwind label %lpad.i
 
 common.resume:                                    ; preds = %ehcleanup16.i, %lpad3.i.i, %lpad3.i, %lpad.i31, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %4, %lpad.i ], [ %6, %lpad.i31 ], [ %12, %lpad3.i ], [ %18, %lpad3.i.i ], [ %.pn.pn.i, %ehcleanup16.i ]
+  %common.resume.op = phi { ptr, i32 } [ %4, %lpad.i ], [ %6, %lpad.i31 ], [ %11, %lpad3.i ], [ %16, %lpad3.i.i ], [ %.pn.pn.i, %ehcleanup16.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %sw.bb
@@ -696,8 +696,7 @@ _ZN12_GLOBAL__N_121cact_case_split_queueC2ERN3smt7contextER10smt_params.exit: ; 
   %m_cache_domain.i = getelementptr inbounds %"class.(anonymous namespace)::cact_case_split_queue", ptr %call23, i64 0, i32 2
   %m.i.i = getelementptr inbounds %"class.smt::context", ptr %ctx, i64 0, i32 2
   %7 = load ptr, ptr %m.i.i, align 8
-  %8 = ptrtoint ptr %7 to i64
-  store i64 %8, ptr %m_cache_domain.i, align 8
+  store ptr %7, ptr %m_cache_domain.i, align 8
   %m_nodes.i.i.i = getelementptr inbounds %"class.(anonymous namespace)::cact_case_split_queue", ptr %call23, i64 0, i32 2, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i.i, align 8
   br label %return
@@ -711,8 +710,8 @@ sw.bb24:                                          ; preds = %if.end19
   store ptr %p, ptr %m_params.i, align 8
   %m_manager.i = getelementptr inbounds %"class.(anonymous namespace)::rel_case_split_queue", ptr %call25, i64 0, i32 3
   %m.i.i32 = getelementptr inbounds %"class.smt::context", ptr %ctx, i64 0, i32 2
-  %9 = load ptr, ptr %m.i.i32, align 8
-  store ptr %9, ptr %m_manager.i, align 8
+  %8 = load ptr, ptr %m.i.i32, align 8
+  store ptr %8, ptr %m_manager.i, align 8
   %m_queue.i = getelementptr inbounds %"class.(anonymous namespace)::rel_case_split_queue", ptr %call25, i64 0, i32 4
   store ptr null, ptr %m_queue.i, align 8
   %m_head.i = getelementptr inbounds %"class.(anonymous namespace)::rel_case_split_queue", ptr %call25, i64 0, i32 5
@@ -734,8 +733,8 @@ sw.bb26:                                          ; preds = %if.end19
   store ptr %ctx, ptr %m_context.i33, align 8
   %m_manager.i34 = getelementptr inbounds %"class.(anonymous namespace)::rel_act_case_split_queue", ptr %call27, i64 0, i32 2
   %m.i.i35 = getelementptr inbounds %"class.smt::context", ptr %ctx, i64 0, i32 2
-  %10 = load ptr, ptr %m.i.i35, align 8
-  store ptr %10, ptr %m_manager.i34, align 8
+  %9 = load ptr, ptr %m.i.i35, align 8
+  store ptr %9, ptr %m_manager.i34, align 8
   %m_params.i36 = getelementptr inbounds %"class.(anonymous namespace)::rel_act_case_split_queue", ptr %call27, i64 0, i32 3
   store ptr %p, ptr %m_params.i36, align 8
   %m_queue.i37 = getelementptr inbounds %"class.(anonymous namespace)::rel_act_case_split_queue", ptr %call27, i64 0, i32 4
@@ -746,12 +745,12 @@ sw.bb26:                                          ; preds = %if.end19
   store i32 -1, ptr %m_bs_num_bool_vars.i39, align 4
   %m_delayed_queue.i40 = getelementptr inbounds %"class.(anonymous namespace)::rel_act_case_split_queue", ptr %call27, i64 0, i32 7
   %m_activity.i.i = getelementptr inbounds %"class.smt::context", ptr %ctx, i64 0, i32 54
-  %11 = ptrtoint ptr %m_activity.i.i to i64
-  invoke fastcc void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEEC2EiRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_delayed_queue.i40, i64 %11)
+  %10 = ptrtoint ptr %m_activity.i.i to i64
+  invoke fastcc void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEEC2EiRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_delayed_queue.i40, i64 %10)
           to label %_ZN12_GLOBAL__N_124rel_act_case_split_queueC2ERN3smt7contextER10smt_params.exit unwind label %lpad3.i
 
 lpad3.i:                                          ; preds = %sw.bb26
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN10ptr_vectorI4exprED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_queue.i37) #22
   br label %common.resume
@@ -770,8 +769,8 @@ sw.bb28:                                          ; preds = %if.end19
   store ptr %p, ptr %m_params.i43, align 8
   %m_manager.i44 = getelementptr inbounds %"class.(anonymous namespace)::rel_goal_case_split_queue", ptr %call29, i64 0, i32 3
   %m.i.i45 = getelementptr inbounds %"class.smt::context", ptr %ctx, i64 0, i32 2
-  %13 = load ptr, ptr %m.i.i45, align 8
-  store ptr %13, ptr %m_manager.i44, align 8
+  %12 = load ptr, ptr %m.i.i45, align 8
+  store ptr %12, ptr %m_manager.i44, align 8
   %m_queue.i46 = getelementptr inbounds %"class.(anonymous namespace)::rel_goal_case_split_queue", ptr %call29, i64 0, i32 4
   store ptr null, ptr %m_queue.i46, align 8
   %m_head.i47 = getelementptr inbounds %"class.(anonymous namespace)::rel_goal_case_split_queue", ptr %call29, i64 0, i32 5
@@ -780,9 +779,8 @@ sw.bb28:                                          ; preds = %if.end19
   store i32 -1, ptr %m_bs_num_bool_vars.i48, align 4
   %m_queue2.i49 = getelementptr inbounds %"class.(anonymous namespace)::rel_goal_case_split_queue", ptr %call29, i64 0, i32 7
   %m_priority_queue2.i = getelementptr inbounds %"class.(anonymous namespace)::rel_goal_case_split_queue", ptr %call29, i64 0, i32 10
-  %14 = ptrtoint ptr %call29 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_queue2.i49, i8 0, i64 16, i1 false)
-  store i64 %14, ptr %m_priority_queue2.i, align 8
+  store ptr %call29, ptr %m_priority_queue2.i, align 8
   %m_values.i.i = getelementptr inbounds %"class.(anonymous namespace)::rel_goal_case_split_queue", ptr %call29, i64 0, i32 10, i32 1
   %m_value2indices.i.i = getelementptr inbounds %"class.(anonymous namespace)::rel_goal_case_split_queue", ptr %call29, i64 0, i32 10, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_values.i.i, i8 0, i64 16, i1 false)
@@ -796,22 +794,22 @@ invoke.cont4.i.i:                                 ; preds = %sw.bb28
   %idx.ext.i.i.i = zext i32 %.pre1.i.i.i to i64
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %.pre.i.i.i, i64 %idx.ext.i.i.i
   store i32 -1, ptr %add.ptr.i.i.i, align 4
-  %15 = load ptr, ptr %m_values.i.i, align 8
-  %arrayidx10.i.i.i = getelementptr inbounds i32, ptr %15, i64 -1
-  %16 = load i32, ptr %arrayidx10.i.i.i, align 4
-  %inc.i.i.i = add i32 %16, 1
+  %13 = load ptr, ptr %m_values.i.i, align 8
+  %arrayidx10.i.i.i = getelementptr inbounds i32, ptr %13, i64 -1
+  %14 = load i32, ptr %arrayidx10.i.i.i, align 4
+  %inc.i.i.i = add i32 %14, 1
   store i32 %inc.i.i.i, ptr %arrayidx10.i.i.i, align 4
-  %17 = load ptr, ptr %m_value2indices.i.i, align 8
-  %cmp.i.i.i.i.i = icmp eq ptr %17, null
+  %15 = load ptr, ptr %m_value2indices.i.i, align 8
+  %cmp.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %cmp.i.i.i.i.i, label %invoke.cont10.i, label %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i.i.i.i
 
 _ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i.i.i.i:   ; preds = %invoke.cont4.i.i
-  %arrayidx.i.i.i.i.i = getelementptr inbounds i32, ptr %17, i64 -1
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i32, ptr %15, i64 -1
   store i32 0, ptr %arrayidx.i.i.i.i.i, align 4
   br label %invoke.cont10.i
 
 lpad3.i.i:                                        ; preds = %sw.bb28
-  %18 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   %m_scopes.i50 = getelementptr inbounds %"class.(anonymous namespace)::rel_goal_case_split_queue", ptr %call29, i64 0, i32 8
   tail call void @_ZN7svectorIijED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_value2indices.i.i) #22
@@ -828,17 +826,17 @@ invoke.cont10.i:                                  ; preds = %_ZNK6vectorIiLb0EjE
   %m_current_generation.i.i = getelementptr inbounds %"class.(anonymous namespace)::rel_goal_case_split_queue", ptr %call29, i64 0, i32 9
   store i32 0, ptr %m_current_generation.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %m_current_goal.i, i8 0, i64 25, i1 false)
-  %19 = load ptr, ptr %m_context.i42, align 8
-  %m_generation.i.i.i = getelementptr inbounds %"class.smt::context", ptr %19, i64 0, i32 96
+  %17 = load ptr, ptr %m_context.i42, align 8
+  %m_generation.i.i.i = getelementptr inbounds %"class.smt::context", ptr %17, i64 0, i32 96
   store i32 0, ptr %m_generation.i.i.i, align 8
-  %20 = load ptr, ptr %m_params.i43, align 8
-  %m_qi_eager_threshold.i.i = getelementptr inbounds i8, ptr %20, i64 168
-  %21 = load double, ptr %m_qi_eager_threshold.i.i, align 8
-  %cmp.i.i = fcmp olt double %21, 0.000000e+00
+  %18 = load ptr, ptr %m_params.i43, align 8
+  %m_qi_eager_threshold.i.i = getelementptr inbounds i8, ptr %18, i64 168
+  %19 = load double, ptr %m_qi_eager_threshold.i.i, align 8
+  %cmp.i.i = fcmp olt double %19, 0.000000e+00
   br i1 %cmp.i.i, label %if.then.i.i, label %return
 
 if.then.i.i:                                      ; preds = %invoke.cont10.i
-  %add.i.i = fadd double %21, 0.000000e+00
+  %add.i.i = fadd double %19, 0.000000e+00
   store double %add.i.i, ptr %m_qi_eager_threshold.i.i, align 8
   br label %return
 
@@ -877,24 +875,24 @@ invoke.cont4.i.i58:                               ; preds = %sw.bb30
   %idx.ext.i.i.i62 = zext i32 %.pre1.i.i.i61 to i64
   %add.ptr.i.i.i63 = getelementptr inbounds i32, ptr %.pre.i.i.i59, i64 %idx.ext.i.i.i62
   store i32 -1, ptr %add.ptr.i.i.i63, align 4
-  %22 = load ptr, ptr %m_values.i.i55, align 8
-  %arrayidx10.i.i.i64 = getelementptr inbounds i32, ptr %22, i64 -1
-  %23 = load i32, ptr %arrayidx10.i.i.i64, align 4
-  %inc.i.i.i65 = add i32 %23, 1
+  %20 = load ptr, ptr %m_values.i.i55, align 8
+  %arrayidx10.i.i.i64 = getelementptr inbounds i32, ptr %20, i64 -1
+  %21 = load i32, ptr %arrayidx10.i.i.i64, align 4
+  %inc.i.i.i65 = add i32 %21, 1
   store i32 %inc.i.i.i65, ptr %arrayidx10.i.i.i64, align 4
-  %24 = load ptr, ptr %m_value2indices.i.i56, align 8
-  %cmp.i.i.i.i.i66 = icmp eq ptr %24, null
+  %22 = load ptr, ptr %m_value2indices.i.i56, align 8
+  %cmp.i.i.i.i.i66 = icmp eq ptr %22, null
   br i1 %cmp.i.i.i.i.i66, label %while.cond.i.i.i.i.preheader, label %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i.i.i.i67
 
 _ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i.i.i.i67: ; preds = %invoke.cont4.i.i58
-  %arrayidx.i.i.i.i.i68 = getelementptr inbounds i32, ptr %24, i64 -1
-  %25 = load i32, ptr %arrayidx.i.i.i.i.i68, align 4
-  %cmp.not15.i.i.i.i = icmp ult i32 %25, 1024
+  %arrayidx.i.i.i.i.i68 = getelementptr inbounds i32, ptr %22, i64 -1
+  %23 = load i32, ptr %arrayidx.i.i.i.i.i68, align 4
+  %cmp.not15.i.i.i.i = icmp ult i32 %23, 1024
   br i1 %cmp.not15.i.i.i.i, label %while.cond.i.i.i.i.preheader, label %if.then.i.i.i.i.i
 
 while.cond.i.i.i.i.preheader:                     ; preds = %invoke.cont4.i.i58, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i.i.i.i67
-  %.ph = phi ptr [ %24, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i.i.i.i67 ], [ null, %invoke.cont4.i.i58 ]
-  %retval.0.i16.i.i.i.i.ph = phi i32 [ %25, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i.i.i.i67 ], [ 0, %invoke.cont4.i.i58 ]
+  %.ph = phi ptr [ %22, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i.i.i.i67 ], [ null, %invoke.cont4.i.i58 ]
+  %retval.0.i16.i.i.i.i.ph = phi i32 [ %23, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i.i.i.i67 ], [ 0, %invoke.cont4.i.i58 ]
   br label %while.cond.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i.i.i.i67
@@ -902,14 +900,14 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNK6vectorIiLb0EjE
   br label %invoke.cont7.i
 
 while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i.preheader, %.noexc1.i.i
-  %26 = phi ptr [ %.pr.pre.i.i.i.i, %.noexc1.i.i ], [ %.ph, %while.cond.i.i.i.i.preheader ]
-  %cmp.i10.i.i.i.i = icmp eq ptr %26, null
+  %24 = phi ptr [ %.pr.pre.i.i.i.i, %.noexc1.i.i ], [ %.ph, %while.cond.i.i.i.i.preheader ]
+  %cmp.i10.i.i.i.i = icmp eq ptr %24, null
   br i1 %cmp.i10.i.i.i.i, label %while.body.i.i.i.i, label %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i.i.i
 
 _ZNK6vectorIiLb0EjE8capacityEv.exit.i.i.i.i:      ; preds = %while.cond.i.i.i.i
-  %arrayidx.i12.i.i.i.i = getelementptr inbounds i32, ptr %26, i64 -2
-  %27 = load i32, ptr %arrayidx.i12.i.i.i.i, align 4
-  %cmp3.i.i.i.i = icmp ult i32 %27, 1024
+  %arrayidx.i12.i.i.i.i = getelementptr inbounds i32, ptr %24, i64 -2
+  %25 = load i32, ptr %arrayidx.i12.i.i.i.i, align 4
+  %cmp3.i.i.i.i = icmp ult i32 %25, 1024
   br i1 %cmp3.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i.i.i, %while.cond.i.i.i.i
@@ -921,14 +919,14 @@ while.body.i.i.i.i:                               ; preds = %_ZNK6vectorIiLb0EjE
   br label %while.cond.i.i.i.i, !llvm.loop !4
 
 while.end.i.i.i.i:                                ; preds = %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i.i.i
-  %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %26, i64 -1
+  %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %24, i64 -1
   store i32 1024, ptr %arrayidx.i.i.i.i, align 4
-  %28 = load ptr, ptr %m_value2indices.i.i56, align 8
+  %26 = load ptr, ptr %m_value2indices.i.i56, align 8
   %idx.ext.i.i.i.i = zext nneg i32 %retval.0.i16.i.i.i.i.ph to i64
-  %add.ptr.i.i.i.i = getelementptr i32, ptr %28, i64 %idx.ext.i.i.i.i
-  %29 = shl nuw nsw i64 %idx.ext.i.i.i.i, 2
-  %30 = sub nuw nsw i64 4096, %29
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i, i8 0, i64 %30, i1 false)
+  %add.ptr.i.i.i.i = getelementptr i32, ptr %26, i64 %idx.ext.i.i.i.i
+  %27 = shl nuw nsw i64 %idx.ext.i.i.i.i, 2
+  %28 = sub nuw nsw i64 4096, %27
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i, i8 0, i64 %28, i1 false)
   br label %invoke.cont7.i
 
 lpad3.i.i57.loopexit:                             ; preds = %while.body.i.i.i.i
@@ -973,18 +971,18 @@ invoke.cont11.i:                                  ; preds = %for.body.i.i.i.i.i
           to label %_ZN12_GLOBAL__N_128theory_aware_branching_queueC2ERN3smt7contextER10smt_params.exit unwind label %lpad14.i
 
 lpad10.i:                                         ; preds = %invoke.cont7.i
-  %31 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i
 
 lpad14.i:                                         ; preds = %invoke.cont11.i
-  %32 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN13int_hashtableI8int_hash10default_eqIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %m_theory_vars.i) #22
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad14.i, %lpad10.i
-  %.pn.i = phi { ptr, i32 } [ %32, %lpad14.i ], [ %31, %lpad10.i ]
+  %.pn.i = phi { ptr, i32 } [ %30, %lpad14.i ], [ %29, %lpad10.i ]
   tail call fastcc void @_ZN4heapIN12_GLOBAL__N_119theory_aware_act_ltEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_queue.i53) #22
   br label %ehcleanup16.i
 
@@ -1014,8 +1012,8 @@ sw.default:                                       ; preds = %if.end19.thread, %i
   store ptr %p, ptr %m_params.i73, align 8
   %m_queue.i74 = getelementptr inbounds %"class.(anonymous namespace)::act_case_split_queue", ptr %call32, i64 0, i32 3
   %m_activity.i.i75 = getelementptr inbounds %"class.smt::context", ptr %ctx, i64 0, i32 54
-  %33 = ptrtoint ptr %m_activity.i.i75 to i64
-  tail call fastcc void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEEC2EiRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_queue.i74, i64 %33)
+  %31 = ptrtoint ptr %m_activity.i.i75 to i64
+  tail call fastcc void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEEC2EiRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_queue.i74, i64 %31)
   br label %return
 
 return:                                           ; preds = %sw.bb, %if.then.i.i, %invoke.cont10.i, %sw.default, %_ZN12_GLOBAL__N_128theory_aware_branching_queueC2ERN3smt7contextER10smt_params.exit, %_ZN12_GLOBAL__N_124rel_act_case_split_queueC2ERN3smt7contextER10smt_params.exit, %sw.bb24, %_ZN12_GLOBAL__N_121cact_case_split_queueC2ERN3smt7contextER10smt_params.exit

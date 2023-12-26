@@ -76,13 +76,12 @@ entry:
   %add.ptr.i1.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %call5.i.i.i.i2.i, i64 1
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
-  %1 = ptrtoint ptr %0 to i64
-  store i64 %1, ptr %call5.i.i.i.i2.i, align 8
+  store ptr %0, ptr %call5.i.i.i.i2.i, align 8
   %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
   %d_visited = getelementptr inbounds %"class.cvc5::internal::NodeDfsIterator", ptr %this, i64 0, i32 1
-  %2 = getelementptr inbounds %"class.cvc5::internal::NodeDfsIterator", ptr %this, i64 0, i32 1, i32 0, i32 4
-  store i64 0, ptr %2, align 8
+  %1 = getelementptr inbounds %"class.cvc5::internal::NodeDfsIterator", ptr %this, i64 0, i32 1, i32 0, i32 4
+  store i64 0, ptr %1, align 8
   %_M_single_bucket.i.i = getelementptr inbounds %"class.cvc5::internal::NodeDfsIterator", ptr %this, i64 0, i32 1, i32 0, i32 5
   store ptr %_M_single_bucket.i.i, ptr %d_visited, align 8
   %_M_bucket_count.i.i = getelementptr inbounds %"class.cvc5::internal::NodeDfsIterator", ptr %this, i64 0, i32 1, i32 0, i32 1
@@ -96,13 +95,13 @@ entry:
   %d_order = getelementptr inbounds %"class.cvc5::internal::NodeDfsIterator", ptr %this, i64 0, i32 2
   store i32 %order, ptr %d_order, align 8
   %d_current = getelementptr inbounds %"class.cvc5::internal::NodeDfsIterator", ptr %this, i64 0, i32 3
-  %3 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
-  %guard.uninitialized.i.i = icmp eq i8 %3, 0
+  %2 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
+  %guard.uninitialized.i.i = icmp eq i8 %2, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %invoke.cont18, !prof !4
 
 init.check.i.i:                                   ; preds = %entry
-  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #17
-  %tobool.not.i.i = icmp eq i32 %4, 0
+  %3 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #17
+  %tobool.not.i.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i.i, label %invoke.cont18, label %init.i.i
 
 init.i.i:                                         ; preds = %init.check.i.i
@@ -120,65 +119,65 @@ invoke.cont.i.i:                                  ; preds = %init.i.i
   br label %invoke.cont18
 
 lpad.i.i:                                         ; preds = %init.i.i
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #17
   br label %ehcleanup
 
 invoke.cont18:                                    ; preds = %invoke.cont.i.i, %init.check.i.i, %entry
-  %6 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
-  store ptr %6, ptr %d_current, align 8
+  %5 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
+  store ptr %5, ptr %d_current, align 8
   %d_skipIf = getelementptr inbounds %"class.cvc5::internal::NodeDfsIterator", ptr %this, i64 0, i32 4
   %_M_manager.i.i = getelementptr inbounds %"class.cvc5::internal::NodeDfsIterator", ptr %this, i64 0, i32 4, i32 0, i32 1
   %_M_invoker.i = getelementptr inbounds %"class.cvc5::internal::NodeDfsIterator", ptr %this, i64 0, i32 4, i32 1
   %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %skipIf, i64 0, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %d_skipIf, i8 0, i64 32, i1 false)
-  %7 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i.not.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %tobool.not.i.i.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.not.i, label %invoke.cont20, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont18
-  %call3.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %d_skipIf, ptr noundef nonnull align 8 dereferenceable(16) %skipIf, i32 noundef 2)
+  %call3.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %d_skipIf, ptr noundef nonnull align 8 dereferenceable(16) %skipIf, i32 noundef 2)
           to label %invoke.cont.i unwind label %lpad.i4
 
 invoke.cont.i:                                    ; preds = %if.then.i
   %_M_invoker4.i = getelementptr inbounds %"class.std::function", ptr %skipIf, i64 0, i32 1
-  %8 = load ptr, ptr %_M_invoker4.i, align 8
-  store ptr %8, ptr %_M_invoker.i, align 8
-  %9 = load ptr, ptr %_M_manager.i.i.i, align 8
-  store ptr %9, ptr %_M_manager.i.i, align 8
+  %7 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %7, ptr %_M_invoker.i, align 8
+  %8 = load ptr, ptr %_M_manager.i.i.i, align 8
+  store ptr %8, ptr %_M_manager.i.i, align 8
   br label %invoke.cont20
 
 lpad.i4:                                          ; preds = %if.then.i
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %11 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i5 = icmp eq ptr %11, null
+  %10 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i5 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i5, label %ehcleanup, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad.i4
-  %call.i.i6 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %d_skipIf, ptr noundef nonnull align 8 dereferenceable(16) %d_skipIf, i32 noundef 3)
+  %call.i.i6 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %d_skipIf, ptr noundef nonnull align 8 dereferenceable(16) %d_skipIf, i32 noundef 3)
           to label %ehcleanup unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #18
+  %12 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %12) #18
   unreachable
 
 invoke.cont20:                                    ; preds = %invoke.cont.i, %invoke.cont18
   ret void
 
 ehcleanup:                                        ; preds = %if.then.i.i, %lpad.i4, %lpad.i.i
-  %.pn = phi { ptr, i32 } [ %5, %lpad.i.i ], [ %10, %if.then.i.i ], [ %10, %lpad.i4 ]
+  %.pn = phi { ptr, i32 } [ %4, %lpad.i.i ], [ %9, %if.then.i.i ], [ %9, %lpad.i4 ]
   tail call void @_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEEbSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_bEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_visited) #17
-  %14 = load ptr, ptr %this, align 8
-  %tobool.not.i.i.i9 = icmp eq ptr %14, null
+  %13 = load ptr, ptr %this, align 8
+  %tobool.not.i.i.i9 = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i9, label %eh.resume, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %ehcleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %14) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %13) #19
   br label %eh.resume
 
 eh.resume:                                        ; preds = %if.then.i.i.i, %ehcleanup

@@ -3248,7 +3248,7 @@ entry:
   br i1 %cmp.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_110ZlibStream3NewERKN2v820FunctionCallbackInfoINS2_5ValueEEE to i64), ptr %0, align 8
+  store ptr @_ZN4node12_GLOBAL__N_110ZlibStream3NewERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr %0, align 8
   %2 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i64, ptr %2, i64 1
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i, align 8
@@ -3286,7 +3286,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i: ; preds = %_
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i
   %cond.i10.i.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i ]
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_110ZlibStream3NewERKN2v820FunctionCallbackInfoINS2_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i.i.i, align 8
+  store ptr @_ZN4node12_GLOBAL__N_110ZlibStream3NewERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i11.i.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i.i.i, label %if.then.i.i.i12.i.i.i.i.i.i.i, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i.i.i
 
@@ -3317,7 +3317,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
   br i1 %cmp.not.i.i.i.i10.i.i, label %if.else.i.i.i.i13.i.i, label %if.then.i.i.i.i11.i.i
 
 if.then.i.i.i.i11.i.i:                            ; preds = %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit.i.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE5WriteILb1EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE to i64), ptr %5, align 8
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE5WriteILb1EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE, ptr %5, align 8
   %6 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i12.i.i = getelementptr inbounds i64, ptr %6, i64 1
   store ptr %incdec.ptr.i.i.i.i12.i.i, ptr %_M_finish.i.i.i.i.i.i, align 8
@@ -3355,7 +3355,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i27.i.i: ; preds = 
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i30.i.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i27.i.i, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i18.i.i
   %cond.i10.i.i.i.i.i31.i.i = phi ptr [ %call5.i.i.i.i.i.i.i.i29.i.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i27.i.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i18.i.i ]
   %add.ptr.i.i.i.i.i32.i.i = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i31.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i19.i.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE5WriteILb1EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i32.i.i, align 8
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE5WriteILb1EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE, ptr %add.ptr.i.i.i.i.i32.i.i, align 8
   %cmp.i.i.i11.i.i.i.i.i33.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i19.i.i, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i33.i.i, label %if.then.i.i.i12.i.i.i.i.i40.i.i, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i34.i.i
 
@@ -3386,7 +3386,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
   br i1 %cmp.not.i.i.i.i46.i.i, label %if.else.i.i.i.i49.i.i, label %if.then.i.i.i.i47.i.i
 
 if.then.i.i.i.i47.i.i:                            ; preds = %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit42.i.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE5WriteILb0EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE to i64), ptr %9, align 8
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE5WriteILb0EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE, ptr %9, align 8
   %10 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i48.i.i = getelementptr inbounds i64, ptr %10, i64 1
   store ptr %incdec.ptr.i.i.i.i48.i.i, ptr %_M_finish.i.i.i.i.i.i, align 8
@@ -3424,7 +3424,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i63.i.i: ; preds = 
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i66.i.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i63.i.i, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i54.i.i
   %cond.i10.i.i.i.i.i67.i.i = phi ptr [ %call5.i.i.i.i.i.i.i.i65.i.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i63.i.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i54.i.i ]
   %add.ptr.i.i.i.i.i68.i.i = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i67.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i55.i.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE5WriteILb0EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i68.i.i, align 8
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE5WriteILb0EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE, ptr %add.ptr.i.i.i.i.i68.i.i, align 8
   %cmp.i.i.i11.i.i.i.i.i69.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i55.i.i, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i69.i.i, label %if.then.i.i.i12.i.i.i.i.i76.i.i, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i70.i.i
 
@@ -3455,7 +3455,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
   br i1 %cmp.not.i.i.i.i82.i.i, label %if.else.i.i.i.i85.i.i, label %if.then.i.i.i.i83.i.i
 
 if.then.i.i.i.i83.i.i:                            ; preds = %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit78.i.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE5CloseERKN2v820FunctionCallbackInfoINS4_5ValueEEE to i64), ptr %13, align 8
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE5CloseERKN2v820FunctionCallbackInfoINS4_5ValueEEE, ptr %13, align 8
   %14 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i84.i.i = getelementptr inbounds i64, ptr %14, i64 1
   store ptr %incdec.ptr.i.i.i.i84.i.i, ptr %_M_finish.i.i.i.i.i.i, align 8
@@ -3493,7 +3493,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i99.i.i: ; preds = 
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i102.i.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i99.i.i, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i90.i.i
   %cond.i10.i.i.i.i.i103.i.i = phi ptr [ %call5.i.i.i.i.i.i.i.i101.i.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i99.i.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i90.i.i ]
   %add.ptr.i.i.i.i.i104.i.i = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i103.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i91.i.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE5CloseERKN2v820FunctionCallbackInfoINS4_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i104.i.i, align 8
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE5CloseERKN2v820FunctionCallbackInfoINS4_5ValueEEE, ptr %add.ptr.i.i.i.i.i104.i.i, align 8
   %cmp.i.i.i11.i.i.i.i.i105.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i91.i.i, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i105.i.i, label %if.then.i.i.i12.i.i.i.i.i112.i.i, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i106.i.i
 
@@ -3524,7 +3524,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
   br i1 %cmp.not.i.i.i.i118.i.i, label %if.else.i.i.i.i121.i.i, label %if.then.i.i.i.i119.i.i
 
 if.then.i.i.i.i119.i.i:                           ; preds = %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit114.i.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_110ZlibStream4InitERKN2v820FunctionCallbackInfoINS2_5ValueEEE to i64), ptr %17, align 8
+  store ptr @_ZN4node12_GLOBAL__N_110ZlibStream4InitERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr %17, align 8
   %18 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i120.i.i = getelementptr inbounds i64, ptr %18, i64 1
   store ptr %incdec.ptr.i.i.i.i120.i.i, ptr %_M_finish.i.i.i.i.i.i, align 8
@@ -3562,7 +3562,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i135.i.i: ; preds =
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i138.i.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i135.i.i, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i126.i.i
   %cond.i10.i.i.i.i.i139.i.i = phi ptr [ %call5.i.i.i.i.i.i.i.i137.i.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i135.i.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i126.i.i ]
   %add.ptr.i.i.i.i.i140.i.i = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i139.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i127.i.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_110ZlibStream4InitERKN2v820FunctionCallbackInfoINS2_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i140.i.i, align 8
+  store ptr @_ZN4node12_GLOBAL__N_110ZlibStream4InitERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr %add.ptr.i.i.i.i.i140.i.i, align 8
   %cmp.i.i.i11.i.i.i.i.i141.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i127.i.i, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i141.i.i, label %if.then.i.i.i12.i.i.i.i.i148.i.i, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i142.i.i
 
@@ -3593,7 +3593,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
   br i1 %cmp.not.i.i.i.i154.i.i, label %if.else.i.i.i.i157.i.i, label %if.then.i.i.i.i155.i.i
 
 if.then.i.i.i.i155.i.i:                           ; preds = %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit150.i.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_110ZlibStream6ParamsERKN2v820FunctionCallbackInfoINS2_5ValueEEE to i64), ptr %21, align 8
+  store ptr @_ZN4node12_GLOBAL__N_110ZlibStream6ParamsERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr %21, align 8
   %22 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i156.i.i = getelementptr inbounds i64, ptr %22, i64 1
   store ptr %incdec.ptr.i.i.i.i156.i.i, ptr %_M_finish.i.i.i.i.i.i, align 8
@@ -3631,7 +3631,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i171.i.i: ; preds =
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i174.i.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i171.i.i, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i162.i.i
   %cond.i10.i.i.i.i.i175.i.i = phi ptr [ %call5.i.i.i.i.i.i.i.i173.i.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i171.i.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i162.i.i ]
   %add.ptr.i.i.i.i.i176.i.i = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i175.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i163.i.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_110ZlibStream6ParamsERKN2v820FunctionCallbackInfoINS2_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i176.i.i, align 8
+  store ptr @_ZN4node12_GLOBAL__N_110ZlibStream6ParamsERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr %add.ptr.i.i.i.i.i176.i.i, align 8
   %cmp.i.i.i11.i.i.i.i.i177.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i163.i.i, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i177.i.i, label %if.then.i.i.i12.i.i.i.i.i184.i.i, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i178.i.i
 
@@ -3662,7 +3662,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
   br i1 %cmp.not.i.i.i.i190.i.i, label %if.else.i.i.i.i193.i.i, label %if.then.i.i.i.i191.i.i
 
 if.then.i.i.i.i191.i.i:                           ; preds = %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit186.i.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE5ResetERKN2v820FunctionCallbackInfoINS4_5ValueEEE to i64), ptr %25, align 8
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE5ResetERKN2v820FunctionCallbackInfoINS4_5ValueEEE, ptr %25, align 8
   %26 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i192.i.i = getelementptr inbounds i64, ptr %26, i64 1
   store ptr %incdec.ptr.i.i.i.i192.i.i, ptr %_M_finish.i.i.i.i.i.i, align 8
@@ -3700,7 +3700,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i207.i.i: ; preds =
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i210.i.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i207.i.i, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i198.i.i
   %cond.i10.i.i.i.i.i211.i.i = phi ptr [ %call5.i.i.i.i.i.i.i.i209.i.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i207.i.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i198.i.i ]
   %add.ptr.i.i.i.i.i212.i.i = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i211.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i199.i.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE5ResetERKN2v820FunctionCallbackInfoINS4_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i212.i.i, align 8
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE5ResetERKN2v820FunctionCallbackInfoINS4_5ValueEEE, ptr %add.ptr.i.i.i.i.i212.i.i, align 8
   %cmp.i.i.i11.i.i.i.i.i213.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i199.i.i, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i213.i.i, label %if.then.i.i.i12.i.i.i.i.i220.i.i, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i214.i.i
 
@@ -3731,7 +3731,7 @@ _ZN4node12_GLOBAL__N_19MakeClassINS0_10ZlibStreamEE4MakeEPNS_25ExternalReference
   br i1 %cmp.not.i.i.i.i.i6.i, label %if.else.i.i.i.i.i213.i, label %if.then.i.i.i.i.i7.i
 
 if.then.i.i.i.i.i7.i:                             ; preds = %_ZN4node12_GLOBAL__N_19MakeClassINS0_10ZlibStreamEE4MakeEPNS_25ExternalReferenceRegistryE.exit.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEE3NewERKN2v820FunctionCallbackInfoINS4_5ValueEEE to i64), ptr %29, align 8
+  store ptr @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEE3NewERKN2v820FunctionCallbackInfoINS4_5ValueEEE, ptr %29, align 8
   %30 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i8.i = getelementptr inbounds i64, ptr %30, i64 1
   store ptr %incdec.ptr.i.i.i.i.i8.i, ptr %_M_finish.i.i.i.i.i.i, align 8
@@ -3769,7 +3769,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i.i227.i: ; preds =
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i.i230.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i.i227.i, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i.i218.i
   %cond.i10.i.i.i.i.i.i231.i = phi ptr [ %call5.i.i.i.i.i.i.i.i.i229.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i.i227.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i.i218.i ]
   %add.ptr.i.i.i.i.i.i232.i = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i.i231.i, i64 %sub.ptr.div.i.i.i.i.i.i.i.i219.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEE3NewERKN2v820FunctionCallbackInfoINS4_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i.i232.i, align 8
+  store ptr @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEE3NewERKN2v820FunctionCallbackInfoINS4_5ValueEEE, ptr %add.ptr.i.i.i.i.i.i232.i, align 8
   %cmp.i.i.i11.i.i.i.i.i.i233.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i.i219.i, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i.i233.i, label %if.then.i.i.i12.i.i.i.i.i.i240.i, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i.i234.i
 
@@ -3800,7 +3800,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
   br i1 %cmp.not.i.i.i.i10.i11.i, label %if.else.i.i.i.i13.i184.i, label %if.then.i.i.i.i11.i12.i
 
 if.then.i.i.i.i11.i12.i:                          ; preds = %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit.i10.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE5WriteILb1EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE to i64), ptr %33, align 8
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE5WriteILb1EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE, ptr %33, align 8
   %34 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i12.i13.i = getelementptr inbounds i64, ptr %34, i64 1
   store ptr %incdec.ptr.i.i.i.i12.i13.i, ptr %_M_finish.i.i.i.i.i.i, align 8
@@ -3838,7 +3838,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i27.i198.i: ; preds
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i30.i201.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i27.i198.i, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i18.i189.i
   %cond.i10.i.i.i.i.i31.i202.i = phi ptr [ %call5.i.i.i.i.i.i.i.i29.i200.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i27.i198.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i18.i189.i ]
   %add.ptr.i.i.i.i.i32.i203.i = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i31.i202.i, i64 %sub.ptr.div.i.i.i.i.i.i.i19.i190.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE5WriteILb1EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i32.i203.i, align 8
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE5WriteILb1EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE, ptr %add.ptr.i.i.i.i.i32.i203.i, align 8
   %cmp.i.i.i11.i.i.i.i.i33.i204.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i19.i190.i, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i33.i204.i, label %if.then.i.i.i12.i.i.i.i.i40.i211.i, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i34.i205.i
 
@@ -3869,7 +3869,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
   br i1 %cmp.not.i.i.i.i46.i16.i, label %if.else.i.i.i.i49.i155.i, label %if.then.i.i.i.i47.i17.i
 
 if.then.i.i.i.i47.i17.i:                          ; preds = %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit42.i15.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE5WriteILb0EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE to i64), ptr %37, align 8
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE5WriteILb0EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE, ptr %37, align 8
   %38 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i48.i18.i = getelementptr inbounds i64, ptr %38, i64 1
   store ptr %incdec.ptr.i.i.i.i48.i18.i, ptr %_M_finish.i.i.i.i.i.i, align 8
@@ -3907,7 +3907,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i63.i169.i: ; preds
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i66.i172.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i63.i169.i, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i54.i160.i
   %cond.i10.i.i.i.i.i67.i173.i = phi ptr [ %call5.i.i.i.i.i.i.i.i65.i171.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i63.i169.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i54.i160.i ]
   %add.ptr.i.i.i.i.i68.i174.i = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i67.i173.i, i64 %sub.ptr.div.i.i.i.i.i.i.i55.i161.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE5WriteILb0EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i68.i174.i, align 8
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE5WriteILb0EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE, ptr %add.ptr.i.i.i.i.i68.i174.i, align 8
   %cmp.i.i.i11.i.i.i.i.i69.i175.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i55.i161.i, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i69.i175.i, label %if.then.i.i.i12.i.i.i.i.i76.i182.i, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i70.i176.i
 
@@ -3938,7 +3938,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
   br i1 %cmp.not.i.i.i.i82.i21.i, label %if.else.i.i.i.i85.i126.i, label %if.then.i.i.i.i83.i22.i
 
 if.then.i.i.i.i83.i22.i:                          ; preds = %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit78.i20.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE5CloseERKN2v820FunctionCallbackInfoINS4_5ValueEEE to i64), ptr %41, align 8
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE5CloseERKN2v820FunctionCallbackInfoINS4_5ValueEEE, ptr %41, align 8
   %42 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i84.i23.i = getelementptr inbounds i64, ptr %42, i64 1
   store ptr %incdec.ptr.i.i.i.i84.i23.i, ptr %_M_finish.i.i.i.i.i.i, align 8
@@ -3976,7 +3976,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i99.i140.i: ; preds
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i102.i143.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i99.i140.i, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i90.i131.i
   %cond.i10.i.i.i.i.i103.i144.i = phi ptr [ %call5.i.i.i.i.i.i.i.i101.i142.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i99.i140.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i90.i131.i ]
   %add.ptr.i.i.i.i.i104.i145.i = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i103.i144.i, i64 %sub.ptr.div.i.i.i.i.i.i.i91.i132.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE5CloseERKN2v820FunctionCallbackInfoINS4_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i104.i145.i, align 8
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE5CloseERKN2v820FunctionCallbackInfoINS4_5ValueEEE, ptr %add.ptr.i.i.i.i.i104.i145.i, align 8
   %cmp.i.i.i11.i.i.i.i.i105.i146.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i91.i132.i, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i105.i146.i, label %if.then.i.i.i12.i.i.i.i.i112.i153.i, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i106.i147.i
 
@@ -4007,7 +4007,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
   br i1 %cmp.not.i.i.i.i118.i26.i, label %if.else.i.i.i.i121.i97.i, label %if.then.i.i.i.i119.i27.i
 
 if.then.i.i.i.i119.i27.i:                         ; preds = %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit114.i25.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEE4InitERKN2v820FunctionCallbackInfoINS4_5ValueEEE to i64), ptr %45, align 8
+  store ptr @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEE4InitERKN2v820FunctionCallbackInfoINS4_5ValueEEE, ptr %45, align 8
   %46 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i120.i28.i = getelementptr inbounds i64, ptr %46, i64 1
   store ptr %incdec.ptr.i.i.i.i120.i28.i, ptr %_M_finish.i.i.i.i.i.i, align 8
@@ -4045,7 +4045,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i135.i111.i: ; pred
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i138.i114.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i135.i111.i, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i126.i102.i
   %cond.i10.i.i.i.i.i139.i115.i = phi ptr [ %call5.i.i.i.i.i.i.i.i137.i113.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i135.i111.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i126.i102.i ]
   %add.ptr.i.i.i.i.i140.i116.i = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i139.i115.i, i64 %sub.ptr.div.i.i.i.i.i.i.i127.i103.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEE4InitERKN2v820FunctionCallbackInfoINS4_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i140.i116.i, align 8
+  store ptr @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEE4InitERKN2v820FunctionCallbackInfoINS4_5ValueEEE, ptr %add.ptr.i.i.i.i.i140.i116.i, align 8
   %cmp.i.i.i11.i.i.i.i.i141.i117.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i127.i103.i, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i141.i117.i, label %if.then.i.i.i12.i.i.i.i.i148.i124.i, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i142.i118.i
 
@@ -4076,7 +4076,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
   br i1 %cmp.not.i.i.i.i154.i31.i, label %if.else.i.i.i.i157.i68.i, label %if.then.i.i.i.i155.i32.i
 
 if.then.i.i.i.i155.i32.i:                         ; preds = %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit150.i30.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEE6ParamsERKN2v820FunctionCallbackInfoINS4_5ValueEEE to i64), ptr %49, align 8
+  store ptr @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEE6ParamsERKN2v820FunctionCallbackInfoINS4_5ValueEEE, ptr %49, align 8
   %50 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i156.i33.i = getelementptr inbounds i64, ptr %50, i64 1
   store ptr %incdec.ptr.i.i.i.i156.i33.i, ptr %_M_finish.i.i.i.i.i.i, align 8
@@ -4114,7 +4114,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i171.i82.i: ; preds
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i174.i85.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i171.i82.i, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i162.i73.i
   %cond.i10.i.i.i.i.i175.i86.i = phi ptr [ %call5.i.i.i.i.i.i.i.i173.i84.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i171.i82.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i162.i73.i ]
   %add.ptr.i.i.i.i.i176.i87.i = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i175.i86.i, i64 %sub.ptr.div.i.i.i.i.i.i.i163.i74.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEE6ParamsERKN2v820FunctionCallbackInfoINS4_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i176.i87.i, align 8
+  store ptr @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEE6ParamsERKN2v820FunctionCallbackInfoINS4_5ValueEEE, ptr %add.ptr.i.i.i.i.i176.i87.i, align 8
   %cmp.i.i.i11.i.i.i.i.i177.i88.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i163.i74.i, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i177.i88.i, label %if.then.i.i.i12.i.i.i.i.i184.i95.i, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i178.i89.i
 
@@ -4145,7 +4145,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
   br i1 %cmp.not.i.i.i.i190.i36.i, label %if.else.i.i.i.i193.i39.i, label %if.then.i.i.i.i191.i37.i
 
 if.then.i.i.i.i191.i37.i:                         ; preds = %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit186.i35.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE5ResetERKN2v820FunctionCallbackInfoINS4_5ValueEEE to i64), ptr %53, align 8
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE5ResetERKN2v820FunctionCallbackInfoINS4_5ValueEEE, ptr %53, align 8
   %54 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i192.i38.i = getelementptr inbounds i64, ptr %54, i64 1
   store ptr %incdec.ptr.i.i.i.i192.i38.i, ptr %_M_finish.i.i.i.i.i.i, align 8
@@ -4183,7 +4183,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i207.i53.i: ; preds
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i210.i56.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i207.i53.i, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i198.i44.i
   %cond.i10.i.i.i.i.i211.i57.i = phi ptr [ %call5.i.i.i.i.i.i.i.i209.i55.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i207.i53.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i198.i44.i ]
   %add.ptr.i.i.i.i.i212.i58.i = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i211.i57.i, i64 %sub.ptr.div.i.i.i.i.i.i.i199.i45.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE5ResetERKN2v820FunctionCallbackInfoINS4_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i212.i58.i, align 8
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE5ResetERKN2v820FunctionCallbackInfoINS4_5ValueEEE, ptr %add.ptr.i.i.i.i.i212.i58.i, align 8
   %cmp.i.i.i11.i.i.i.i.i213.i59.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i199.i45.i, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i213.i59.i, label %if.then.i.i.i12.i.i.i.i.i220.i66.i, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i214.i60.i
 
@@ -4214,7 +4214,7 @@ _ZN4node12_GLOBAL__N_19MakeClassINS0_23BrotliCompressionStreamINS0_20BrotliEncod
   br i1 %cmp.not.i.i.i.i.i245.i, label %if.else.i.i.i.i.i452.i, label %if.then.i.i.i.i.i246.i
 
 if.then.i.i.i.i.i246.i:                           ; preds = %_ZN4node12_GLOBAL__N_19MakeClassINS0_23BrotliCompressionStreamINS0_20BrotliEncoderContextEEEE4MakeEPNS_25ExternalReferenceRegistryE.exit.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEE3NewERKN2v820FunctionCallbackInfoINS4_5ValueEEE to i64), ptr %57, align 8
+  store ptr @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEE3NewERKN2v820FunctionCallbackInfoINS4_5ValueEEE, ptr %57, align 8
   %58 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i247.i = getelementptr inbounds i64, ptr %58, i64 1
   store ptr %incdec.ptr.i.i.i.i.i247.i, ptr %_M_finish.i.i.i.i.i.i, align 8
@@ -4252,7 +4252,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i.i466.i: ; preds =
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i.i469.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i.i466.i, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i.i457.i
   %cond.i10.i.i.i.i.i.i470.i = phi ptr [ %call5.i.i.i.i.i.i.i.i.i468.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i.i466.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i.i457.i ]
   %add.ptr.i.i.i.i.i.i471.i = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i.i470.i, i64 %sub.ptr.div.i.i.i.i.i.i.i.i458.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEE3NewERKN2v820FunctionCallbackInfoINS4_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i.i471.i, align 8
+  store ptr @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEE3NewERKN2v820FunctionCallbackInfoINS4_5ValueEEE, ptr %add.ptr.i.i.i.i.i.i471.i, align 8
   %cmp.i.i.i11.i.i.i.i.i.i472.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i.i458.i, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i.i472.i, label %if.then.i.i.i12.i.i.i.i.i.i479.i, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i.i473.i
 
@@ -4283,7 +4283,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
   br i1 %cmp.not.i.i.i.i10.i250.i, label %if.else.i.i.i.i13.i423.i, label %if.then.i.i.i.i11.i251.i
 
 if.then.i.i.i.i11.i251.i:                         ; preds = %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit.i249.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE5WriteILb1EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE to i64), ptr %61, align 8
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE5WriteILb1EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE, ptr %61, align 8
   %62 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i12.i252.i = getelementptr inbounds i64, ptr %62, i64 1
   store ptr %incdec.ptr.i.i.i.i12.i252.i, ptr %_M_finish.i.i.i.i.i.i, align 8
@@ -4321,7 +4321,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i27.i437.i: ; preds
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i30.i440.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i27.i437.i, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i18.i428.i
   %cond.i10.i.i.i.i.i31.i441.i = phi ptr [ %call5.i.i.i.i.i.i.i.i29.i439.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i27.i437.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i18.i428.i ]
   %add.ptr.i.i.i.i.i32.i442.i = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i31.i441.i, i64 %sub.ptr.div.i.i.i.i.i.i.i19.i429.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE5WriteILb1EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i32.i442.i, align 8
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE5WriteILb1EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE, ptr %add.ptr.i.i.i.i.i32.i442.i, align 8
   %cmp.i.i.i11.i.i.i.i.i33.i443.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i19.i429.i, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i33.i443.i, label %if.then.i.i.i12.i.i.i.i.i40.i450.i, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i34.i444.i
 
@@ -4352,7 +4352,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
   br i1 %cmp.not.i.i.i.i46.i255.i, label %if.else.i.i.i.i49.i394.i, label %if.then.i.i.i.i47.i256.i
 
 if.then.i.i.i.i47.i256.i:                         ; preds = %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit42.i254.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE5WriteILb0EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE to i64), ptr %65, align 8
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE5WriteILb0EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE, ptr %65, align 8
   %66 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i48.i257.i = getelementptr inbounds i64, ptr %66, i64 1
   store ptr %incdec.ptr.i.i.i.i48.i257.i, ptr %_M_finish.i.i.i.i.i.i, align 8
@@ -4390,7 +4390,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i63.i408.i: ; preds
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i66.i411.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i63.i408.i, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i54.i399.i
   %cond.i10.i.i.i.i.i67.i412.i = phi ptr [ %call5.i.i.i.i.i.i.i.i65.i410.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i63.i408.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i54.i399.i ]
   %add.ptr.i.i.i.i.i68.i413.i = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i67.i412.i, i64 %sub.ptr.div.i.i.i.i.i.i.i55.i400.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE5WriteILb0EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i68.i413.i, align 8
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE5WriteILb0EEEvRKN2v820FunctionCallbackInfoINS5_5ValueEEE, ptr %add.ptr.i.i.i.i.i68.i413.i, align 8
   %cmp.i.i.i11.i.i.i.i.i69.i414.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i55.i400.i, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i69.i414.i, label %if.then.i.i.i12.i.i.i.i.i76.i421.i, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i70.i415.i
 
@@ -4421,7 +4421,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
   br i1 %cmp.not.i.i.i.i82.i260.i, label %if.else.i.i.i.i85.i365.i, label %if.then.i.i.i.i83.i261.i
 
 if.then.i.i.i.i83.i261.i:                         ; preds = %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit78.i259.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE5CloseERKN2v820FunctionCallbackInfoINS4_5ValueEEE to i64), ptr %69, align 8
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE5CloseERKN2v820FunctionCallbackInfoINS4_5ValueEEE, ptr %69, align 8
   %70 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i84.i262.i = getelementptr inbounds i64, ptr %70, i64 1
   store ptr %incdec.ptr.i.i.i.i84.i262.i, ptr %_M_finish.i.i.i.i.i.i, align 8
@@ -4459,7 +4459,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i99.i379.i: ; preds
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i102.i382.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i99.i379.i, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i90.i370.i
   %cond.i10.i.i.i.i.i103.i383.i = phi ptr [ %call5.i.i.i.i.i.i.i.i101.i381.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i99.i379.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i90.i370.i ]
   %add.ptr.i.i.i.i.i104.i384.i = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i103.i383.i, i64 %sub.ptr.div.i.i.i.i.i.i.i91.i371.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE5CloseERKN2v820FunctionCallbackInfoINS4_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i104.i384.i, align 8
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE5CloseERKN2v820FunctionCallbackInfoINS4_5ValueEEE, ptr %add.ptr.i.i.i.i.i104.i384.i, align 8
   %cmp.i.i.i11.i.i.i.i.i105.i385.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i91.i371.i, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i105.i385.i, label %if.then.i.i.i12.i.i.i.i.i112.i392.i, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i106.i386.i
 
@@ -4490,7 +4490,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
   br i1 %cmp.not.i.i.i.i118.i265.i, label %if.else.i.i.i.i121.i336.i, label %if.then.i.i.i.i119.i266.i
 
 if.then.i.i.i.i119.i266.i:                        ; preds = %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit114.i264.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEE4InitERKN2v820FunctionCallbackInfoINS4_5ValueEEE to i64), ptr %73, align 8
+  store ptr @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEE4InitERKN2v820FunctionCallbackInfoINS4_5ValueEEE, ptr %73, align 8
   %74 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i120.i267.i = getelementptr inbounds i64, ptr %74, i64 1
   store ptr %incdec.ptr.i.i.i.i120.i267.i, ptr %_M_finish.i.i.i.i.i.i, align 8
@@ -4528,7 +4528,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i135.i350.i: ; pred
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i138.i353.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i135.i350.i, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i126.i341.i
   %cond.i10.i.i.i.i.i139.i354.i = phi ptr [ %call5.i.i.i.i.i.i.i.i137.i352.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i135.i350.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i126.i341.i ]
   %add.ptr.i.i.i.i.i140.i355.i = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i139.i354.i, i64 %sub.ptr.div.i.i.i.i.i.i.i127.i342.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEE4InitERKN2v820FunctionCallbackInfoINS4_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i140.i355.i, align 8
+  store ptr @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEE4InitERKN2v820FunctionCallbackInfoINS4_5ValueEEE, ptr %add.ptr.i.i.i.i.i140.i355.i, align 8
   %cmp.i.i.i11.i.i.i.i.i141.i356.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i127.i342.i, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i141.i356.i, label %if.then.i.i.i12.i.i.i.i.i148.i363.i, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i142.i357.i
 
@@ -4559,7 +4559,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
   br i1 %cmp.not.i.i.i.i154.i270.i, label %if.else.i.i.i.i157.i307.i, label %if.then.i.i.i.i155.i271.i
 
 if.then.i.i.i.i155.i271.i:                        ; preds = %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit150.i269.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEE6ParamsERKN2v820FunctionCallbackInfoINS4_5ValueEEE to i64), ptr %77, align 8
+  store ptr @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEE6ParamsERKN2v820FunctionCallbackInfoINS4_5ValueEEE, ptr %77, align 8
   %78 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i156.i272.i = getelementptr inbounds i64, ptr %78, i64 1
   store ptr %incdec.ptr.i.i.i.i156.i272.i, ptr %_M_finish.i.i.i.i.i.i, align 8
@@ -4597,7 +4597,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i171.i321.i: ; pred
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i174.i324.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i171.i321.i, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i162.i312.i
   %cond.i10.i.i.i.i.i175.i325.i = phi ptr [ %call5.i.i.i.i.i.i.i.i173.i323.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i171.i321.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i162.i312.i ]
   %add.ptr.i.i.i.i.i176.i326.i = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i175.i325.i, i64 %sub.ptr.div.i.i.i.i.i.i.i163.i313.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEE6ParamsERKN2v820FunctionCallbackInfoINS4_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i176.i326.i, align 8
+  store ptr @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEE6ParamsERKN2v820FunctionCallbackInfoINS4_5ValueEEE, ptr %add.ptr.i.i.i.i.i176.i326.i, align 8
   %cmp.i.i.i11.i.i.i.i.i177.i327.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i163.i313.i, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i177.i327.i, label %if.then.i.i.i12.i.i.i.i.i184.i334.i, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i178.i328.i
 
@@ -4628,7 +4628,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
   br i1 %cmp.not.i.i.i.i190.i275.i, label %if.else.i.i.i.i193.i278.i, label %if.then.i.i.i.i191.i276.i
 
 if.then.i.i.i.i191.i276.i:                        ; preds = %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit186.i274.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE5ResetERKN2v820FunctionCallbackInfoINS4_5ValueEEE to i64), ptr %81, align 8
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE5ResetERKN2v820FunctionCallbackInfoINS4_5ValueEEE, ptr %81, align 8
   %82 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i192.i277.i = getelementptr inbounds i64, ptr %82, i64 1
   store ptr %incdec.ptr.i.i.i.i192.i277.i, ptr %_M_finish.i.i.i.i.i.i, align 8
@@ -4665,7 +4665,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i207.i292.i: ; pred
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i210.i295.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i207.i292.i, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i198.i283.i
   %cond.i10.i.i.i.i.i211.i296.i = phi ptr [ %call5.i.i.i.i.i.i.i.i209.i294.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i207.i292.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i198.i283.i ]
   %add.ptr.i.i.i.i.i212.i297.i = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i211.i296.i, i64 %sub.ptr.div.i.i.i.i.i.i.i199.i284.i
-  store i64 ptrtoint (ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE5ResetERKN2v820FunctionCallbackInfoINS4_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i212.i297.i, align 8
+  store ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE5ResetERKN2v820FunctionCallbackInfoINS4_5ValueEEE, ptr %add.ptr.i.i.i.i.i212.i297.i, align 8
   %cmp.i.i.i11.i.i.i.i.i213.i298.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i199.i284.i, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i213.i298.i, label %if.then.i.i.i12.i.i.i.i.i220.i305.i, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i214.i299.i
 

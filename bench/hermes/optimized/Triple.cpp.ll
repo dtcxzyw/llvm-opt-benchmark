@@ -2230,7 +2230,7 @@ entry:
   ]
 
 if.then4.i.i:                                     ; preds = %entry
-  store ptr inttoptr (i64 45 to ptr), ptr %ref.tmp4, align 8
+  store i64 45, ptr %ref.tmp4, align 8
   %ref.tmp5.sroa.3100.0.ref.tmp4.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   store i8 8, ptr %ref.tmp5.sroa.3100.0.ref.tmp4.sroa_idx, align 8
   %ref.tmp5.sroa.4.0.ref.tmp4.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp4, i64 17
@@ -2246,7 +2246,7 @@ if.end8.i.i:                                      ; preds = %entry
   %spec.select20.i.i = select i1 %cmp.i13.i.i, ptr %NewLHS.sroa.0.0.copyload.i.i, ptr %ArchStr
   store ptr %spec.select20.i.i, ptr %ref.tmp4, align 8, !alias.scope !11
   %RHS4.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 1
-  store ptr inttoptr (i64 45 to ptr), ptr %RHS4.i.i.i, align 8, !alias.scope !11
+  store i64 45, ptr %RHS4.i.i.i, align 8, !alias.scope !11
   %LHSKind5.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 2
   store i8 %spec.select.i.i, ptr %LHSKind5.i.i.i, align 8, !alias.scope !11
   %RHSKind6.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 3
@@ -2313,7 +2313,7 @@ _ZN4llvhplERKNS_5TwineES2_.exit38:                ; preds = %if.then.i.i35, %if.
   ]
 
 if.then4.i.i65:                                   ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit38
-  store ptr inttoptr (i64 45 to ptr), ptr %ref.tmp2, align 8
+  store i64 45, ptr %ref.tmp2, align 8
   %ref.tmp6.sroa.399.0.ref.tmp2.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store i8 8, ptr %ref.tmp6.sroa.399.0.ref.tmp2.sroa_idx, align 8
   %ref.tmp6.sroa.4.0.ref.tmp2.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp2, i64 17
@@ -2329,7 +2329,7 @@ if.end8.i.i50:                                    ; preds = %_ZN4llvhplERKNS_5Tw
   %spec.select20.i.i55 = select i1 %cmp.i13.i.i52, ptr %NewLHS.sroa.0.0.copyload.i.i53, ptr %ref.tmp3
   store ptr %spec.select20.i.i55, ptr %ref.tmp2, align 8, !alias.scope !25
   %RHS4.i.i.i61 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 1
-  store ptr inttoptr (i64 45 to ptr), ptr %RHS4.i.i.i61, align 8, !alias.scope !25
+  store i64 45, ptr %RHS4.i.i.i61, align 8, !alias.scope !25
   %LHSKind5.i.i.i62 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 2
   store i8 %spec.select.i.i54, ptr %LHSKind5.i.i.i62, align 8, !alias.scope !25
   %RHSKind6.i.i.i63 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 3
@@ -2452,7 +2452,7 @@ entry:
   ]
 
 if.then4.i.i:                                     ; preds = %entry
-  store ptr inttoptr (i64 45 to ptr), ptr %ref.tmp6, align 8
+  store i64 45, ptr %ref.tmp6, align 8
   %ref.tmp7.sroa.3165.0.ref.tmp6.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
   store i8 8, ptr %ref.tmp7.sroa.3165.0.ref.tmp6.sroa_idx, align 8
   %ref.tmp7.sroa.4.0.ref.tmp6.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp6, i64 17
@@ -2468,7 +2468,7 @@ if.end8.i.i:                                      ; preds = %entry
   %spec.select20.i.i = select i1 %cmp.i13.i.i, ptr %NewLHS.sroa.0.0.copyload.i.i, ptr %ArchStr
   store ptr %spec.select20.i.i, ptr %ref.tmp6, align 8, !alias.scope !39
   %RHS4.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp6, i64 0, i32 1
-  store ptr inttoptr (i64 45 to ptr), ptr %RHS4.i.i.i, align 8, !alias.scope !39
+  store i64 45, ptr %RHS4.i.i.i, align 8, !alias.scope !39
   %LHSKind5.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp6, i64 0, i32 2
   store i8 %spec.select.i.i, ptr %LHSKind5.i.i.i, align 8, !alias.scope !39
   %RHSKind6.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp6, i64 0, i32 3
@@ -2535,7 +2535,7 @@ _ZN4llvhplERKNS_5TwineES2_.exit42:                ; preds = %if.then.i.i39, %if.
   ]
 
 if.then4.i.i69:                                   ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit42
-  store ptr inttoptr (i64 45 to ptr), ptr %ref.tmp4, align 8
+  store i64 45, ptr %ref.tmp4, align 8
   %ref.tmp8.sroa.3164.0.ref.tmp4.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   store i8 8, ptr %ref.tmp8.sroa.3164.0.ref.tmp4.sroa_idx, align 8
   %ref.tmp8.sroa.4.0.ref.tmp4.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp4, i64 17
@@ -2551,7 +2551,7 @@ if.end8.i.i54:                                    ; preds = %_ZN4llvhplERKNS_5Tw
   %spec.select20.i.i59 = select i1 %cmp.i13.i.i56, ptr %NewLHS.sroa.0.0.copyload.i.i57, ptr %ref.tmp5
   store ptr %spec.select20.i.i59, ptr %ref.tmp4, align 8, !alias.scope !53
   %RHS4.i.i.i65 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 1
-  store ptr inttoptr (i64 45 to ptr), ptr %RHS4.i.i.i65, align 8, !alias.scope !53
+  store i64 45, ptr %RHS4.i.i.i65, align 8, !alias.scope !53
   %LHSKind5.i.i.i66 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 2
   store i8 %spec.select.i.i58, ptr %LHSKind5.i.i.i66, align 8, !alias.scope !53
   %RHSKind6.i.i.i67 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 3
@@ -2618,7 +2618,7 @@ _ZN4llvhplERKNS_5TwineES2_.exit102:               ; preds = %if.then.i.i99, %if.
   ]
 
 if.then4.i.i129:                                  ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit102
-  store ptr inttoptr (i64 45 to ptr), ptr %ref.tmp2, align 8
+  store i64 45, ptr %ref.tmp2, align 8
   %ref.tmp9.sroa.3163.0.ref.tmp2.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store i8 8, ptr %ref.tmp9.sroa.3163.0.ref.tmp2.sroa_idx, align 8
   %ref.tmp9.sroa.4.0.ref.tmp2.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp2, i64 17
@@ -2634,7 +2634,7 @@ if.end8.i.i114:                                   ; preds = %_ZN4llvhplERKNS_5Tw
   %spec.select20.i.i119 = select i1 %cmp.i13.i.i116, ptr %NewLHS.sroa.0.0.copyload.i.i117, ptr %ref.tmp3
   store ptr %spec.select20.i.i119, ptr %ref.tmp2, align 8, !alias.scope !67
   %RHS4.i.i.i125 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 1
-  store ptr inttoptr (i64 45 to ptr), ptr %RHS4.i.i.i125, align 8, !alias.scope !67
+  store i64 45, ptr %RHS4.i.i.i125, align 8, !alias.scope !67
   %LHSKind5.i.i.i126 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 2
   store i8 %spec.select.i.i118, ptr %LHSKind5.i.i.i126, align 8, !alias.scope !67
   %RHSKind6.i.i.i127 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 3

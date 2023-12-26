@@ -202,7 +202,7 @@ if.then.i32:                                      ; preds = %for.body.i
   %arrayidx6.i = getelementptr %struct.NvmeCtrl, ptr %n, i64 0, i32 43, i32 2, i64 %idxprom5.i
   %conv7.i = trunc i64 %indvars.iv.i to i16
   store i16 %conv7.i, ptr %arrayidx6.i, align 1
-  store ptr inttoptr (i64 65535 to ptr), ptr %arrayidx.i30, align 8
+  store i64 65535, ptr %arrayidx.i30, align 8
   %inc.i = add nsw i32 %cnt.013.i, 1
   br label %for.inc.i
 
@@ -347,7 +347,7 @@ entry:
   br i1 %cmp.i.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  store ptr inttoptr (i64 65535 to ptr), ptr %arrayidx4, align 8
+  store i64 65535, ptr %arrayidx4, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry

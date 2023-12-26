@@ -456,24 +456,23 @@ invoke.cont4:                                     ; preds = %if.then
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.thread:    ; preds = %invoke.cont4
   %5 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.result, i64 0, i32 1
-  %6 = ptrtoint ptr %call.i to i64
-  store i64 %6, ptr %5, align 8
+  store ptr %call.i, ptr %5, align 8
   store i64 0, ptr %agg.result, align 8
   br label %return
 
 lpad:                                             ; preds = %init
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN17grpc_event_engine12experimental15EventFdWakeupFd21CreateEventFdWakeupFdEvE27kIsEventFdWakeupFdSupported) #10
   br label %eh.resume
 
 lpad3:                                            ; preds = %if.then
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i14 = load ptr, ptr %call.i, align 8
   %vfn.i.i15 = getelementptr inbounds ptr, ptr %vtable.i.i14, i64 3
-  %9 = load ptr, ptr %vfn.i.i15, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(16) %call.i) #10
+  %8 = load ptr, ptr %vfn.i.i15, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %call.i) #10
   br label %eh.resume
 
 _ZNKSt14default_deleteIN17grpc_event_engine12experimental15EventFdWakeupFdEEclEPS2_.exit.i: ; preds = %invoke.cont4
@@ -481,16 +480,16 @@ _ZNKSt14default_deleteIN17grpc_event_engine12experimental15EventFdWakeupFdEEclEP
   store i64 %4, ptr %agg.result, align 8
   %vtable.i.i10 = load ptr, ptr %call.i, align 8
   %vfn.i.i11 = getelementptr inbounds ptr, ptr %vtable.i.i10, i64 3
-  %10 = load ptr, ptr %vfn.i.i11, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(16) %call.i) #10
+  %9 = load ptr, ptr %vfn.i.i11, align 8
+  call void %9(ptr noundef nonnull align 8 dereferenceable(16) %call.i) #10
   br label %return
 
 if.end14:                                         ; preds = %init.end
   call void @_ZN4absl12lts_2023080213NotFoundErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp15, i64 34, ptr nonnull @.str.3)
-  %11 = load i64, ptr %ref.tmp15, align 8
-  store i64 %11, ptr %agg.result, align 8
+  %10 = load i64, ptr %ref.tmp15, align 8
+  store i64 %10, ptr %agg.result, align 8
   store i64 54, ptr %ref.tmp15, align 8
-  %cmp.i.i.i.i.i17 = icmp eq i64 %11, 0
+  %cmp.i.i.i.i.i17 = icmp eq i64 %10, 0
   br i1 %cmp.i.i.i.i.i17, label %if.then.i.i.i18, label %return
 
 if.then.i.i.i18:                                  ; preds = %if.end14
@@ -498,7 +497,7 @@ if.then.i.i.i18:                                  ; preds = %if.end14
           to label %invoke.cont17 unwind label %lpad.i.i19
 
 lpad.i.i19:                                       ; preds = %if.then.i.i.i18
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #10
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp15) #10
@@ -515,17 +514,17 @@ if.then.i.i24:                                    ; preds = %invoke.cont17
           to label %return unwind label %terminate.lpad.i25
 
 terminate.lpad.i25:                               ; preds = %if.then.i.i24
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #12
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #12
   unreachable
 
 return:                                           ; preds = %if.end14, %_ZN4absl12lts_202308026StatusD2Ev.exit.thread, %if.then.i.i24, %invoke.cont17, %_ZNKSt14default_deleteIN17grpc_event_engine12experimental15EventFdWakeupFdEEclEPS2_.exit.i
   ret void
 
 eh.resume:                                        ; preds = %lpad.i.i19, %lpad3, %lpad
-  %.pn.pn.pn = phi { ptr, i32 } [ %8, %lpad3 ], [ %12, %lpad.i.i19 ], [ %7, %lpad ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %7, %lpad3 ], [ %11, %lpad.i.i19 ], [ %6, %lpad ]
   resume { ptr, i32 } %.pn.pn.pn
 }
 

@@ -88,42 +88,42 @@ _ZN8facebook5velox10raw_vectorIiE12allocateDataEiRi.exit.i.i: ; preds = %if.end.
   %conv7.i.i.i = ashr i32 %sub.i.i.i, 2
   store i32 %conv7.i.i.i, ptr %capacity_.i, align 4
   %add.i5.i.i.i = add i64 %5, 32
-  %7 = inttoptr i64 %add.i5.i.i.i to ptr
-  %8 = load ptr, ptr %storage, align 8
-  %tobool.not.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %storage, align 8
+  %tobool.not.i.i = icmp eq ptr %7, null
+  %.pre7 = inttoptr i64 %add.i5.i.i.i to ptr
   br i1 %tobool.not.i.i, label %_ZN8facebook5velox10raw_vectorIiE7reserveEi.exit.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %_ZN8facebook5velox10raw_vectorIiE12allocateDataEiRi.exit.i.i
   %size_.i.i = getelementptr inbounds %"class.facebook::velox::raw_vector", ptr %storage, i64 0, i32 1
-  %9 = load i32, ptr %size_.i.i, align 8
-  %conv.i.i = sext i32 %9 to i64
+  %8 = load i32, ptr %size_.i.i, align 8
+  %conv.i.i = sext i32 %8 to i64
   %mul.i.i = shl nsw i64 %conv.i.i, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 32 %7, ptr nonnull align 4 %8, i64 %mul.i.i, i1 false)
-  %10 = load ptr, ptr %storage, align 8
-  %tobool.not.i.i.i = icmp eq ptr %10, null
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 32 %.pre7, ptr nonnull align 4 %7, i64 %mul.i.i, i1 false)
+  %9 = load ptr, ptr %storage, align 8
+  %tobool.not.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i, label %_ZN8facebook5velox10raw_vectorIiE7reserveEi.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then3.i.i
-  %11 = ptrtoint ptr %10 to i64
-  %add.i.i3.i.i = add i64 %11, -32
-  %12 = inttoptr i64 %add.i.i3.i.i to ptr
-  tail call void @free(ptr noundef %12) #16
+  %10 = ptrtoint ptr %9 to i64
+  %add.i.i3.i.i = add i64 %10, -32
+  %11 = inttoptr i64 %add.i.i3.i.i to ptr
+  tail call void @free(ptr noundef %11) #16
   br label %_ZN8facebook5velox10raw_vectorIiE7reserveEi.exit.i
 
-_ZN8facebook5velox10raw_vectorIiE7reserveEi.exit.i: ; preds = %if.then.i.i.i, %if.then3.i.i, %_ZN8facebook5velox10raw_vectorIiE12allocateDataEiRi.exit.i.i
-  store ptr %7, ptr %storage, align 8
+_ZN8facebook5velox10raw_vectorIiE7reserveEi.exit.i: ; preds = %_ZN8facebook5velox10raw_vectorIiE12allocateDataEiRi.exit.i.i, %if.then.i.i.i, %if.then3.i.i
+  store i64 %add.i5.i.i.i, ptr %storage, align 8
   br label %_ZN8facebook5velox10raw_vectorIiE6resizeEi.exit
 
 _ZN8facebook5velox10raw_vectorIiE6resizeEi.exit:  ; preds = %if.then._ZN8facebook5velox10raw_vectorIiE6resizeEi.exit_crit_edge, %_ZN8facebook5velox10raw_vectorIiE7reserveEi.exit.i
-  %13 = phi ptr [ %.pre, %if.then._ZN8facebook5velox10raw_vectorIiE6resizeEi.exit_crit_edge ], [ %7, %_ZN8facebook5velox10raw_vectorIiE7reserveEi.exit.i ]
+  %12 = phi ptr [ %.pre, %if.then._ZN8facebook5velox10raw_vectorIiE6resizeEi.exit_crit_edge ], [ %.pre7, %_ZN8facebook5velox10raw_vectorIiE7reserveEi.exit.i ]
   %size_2.i = getelementptr inbounds %"class.facebook::velox::raw_vector", ptr %storage, i64 0, i32 1
   store i32 %size, ptr %size_2.i, align 8
-  %arrayidx.i = getelementptr inbounds i32, ptr %13, i64 %conv
+  %arrayidx.i = getelementptr inbounds i32, ptr %12, i64 %conv
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN8facebook5velox10raw_vectorIiE6resizeEi.exit, %for.body.i
   %__value.addr.06.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %_ZN8facebook5velox10raw_vectorIiE6resizeEi.exit ]
-  %__first.addr.05.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %13, %_ZN8facebook5velox10raw_vectorIiE6resizeEi.exit ]
+  %__first.addr.05.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %12, %_ZN8facebook5velox10raw_vectorIiE6resizeEi.exit ]
   store i32 %__value.addr.06.i, ptr %__first.addr.05.i, align 4
   %inc.i = add nuw nsw i32 %__value.addr.06.i, 1
   %incdec.ptr.i = getelementptr inbounds i32, ptr %__first.addr.05.i, i64 1
@@ -131,11 +131,11 @@ for.body.i:                                       ; preds = %_ZN8facebook5velox1
   br i1 %cmp.not.i6, label %_ZSt4iotaIPiiEvT_S1_T0_.exit, label %for.body.i, !llvm.loop !5
 
 _ZSt4iotaIPiiEvT_S1_T0_.exit:                     ; preds = %for.body.i
-  %14 = load ptr, ptr %storage, align 8
+  %13 = load ptr, ptr %storage, align 8
   br label %return
 
 return:                                           ; preds = %entry, %_ZSt4iotaIPiiEvT_S1_T0_.exit
-  %retval.0 = phi ptr [ %14, %_ZSt4iotaIPiiEvT_S1_T0_.exit ], [ %1, %entry ]
+  %retval.0 = phi ptr [ %13, %_ZSt4iotaIPiiEvT_S1_T0_.exit ], [ %1, %entry ]
   ret ptr %retval.0
 }
 

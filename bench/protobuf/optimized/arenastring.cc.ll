@@ -229,8 +229,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_112CreateStringESt17basic_string_viewIc
 
 cond.end:                                         ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_112CreateStringESt17basic_string_viewIcSt11char_traitsIcEE.exit, %cond.true
   %ref.tmp.sroa.0.0.in = phi i64 [ %or.i.i.i, %cond.true ], [ %or.i.i.i3, %_ZN6google8protobuf8internal12_GLOBAL__N_112CreateStringESt17basic_string_viewIcSt11char_traitsIcEE.exit ]
-  %ref.tmp.sroa.0.0 = inttoptr i64 %ref.tmp.sroa.0.0.in to ptr
-  store ptr %ref.tmp.sroa.0.0, ptr %this, align 8
+  store i64 %ref.tmp.sroa.0.0.in, ptr %this, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -303,8 +302,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_112CreateStringESt17basic_string_viewIc
 
 cond.end:                                         ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_112CreateStringESt17basic_string_viewIcSt11char_traitsIcEE.exit, %cond.true
   %ref.tmp.sroa.0.0.in = phi i64 [ %or.i.i.i, %cond.true ], [ %or.i.i.i5, %_ZN6google8protobuf8internal12_GLOBAL__N_112CreateStringESt17basic_string_viewIcSt11char_traitsIcEE.exit ]
-  %ref.tmp.sroa.0.0 = inttoptr i64 %ref.tmp.sroa.0.0.in to ptr
-  store ptr %ref.tmp.sroa.0.0, ptr %this, align 8
+  store i64 %ref.tmp.sroa.0.0.in, ptr %this, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -346,8 +344,7 @@ _ZN6google8protobuf8internal14ArenaStringPtr9NewStringIJNSt7__cxx1112basic_strin
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i.sink6.i, ptr noundef nonnull align 8 dereferenceable(32) %value) #10
   %2 = ptrtoint ptr %call.i.i.i.sink6.i to i64
   %or.i.i4.i = or i64 %.sink5.i, %2
-  %storemerge.i = inttoptr i64 %or.i.i4.i to ptr
-  store ptr %storemerge.i, ptr %this, align 8
+  store i64 %or.i.i4.i, ptr %this, align 8
   br label %if.end12
 
 if.else9:                                         ; preds = %entry
@@ -398,8 +395,7 @@ _ZN6google8protobuf8internal14ArenaStringPtr11MutableSlowIJEEEPNSt7__cxx1112basi
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i.sink5.i.i) #10
   %3 = ptrtoint ptr %call.i.i.i.sink5.i.i to i64
   %or.i.i3.i.i = or i64 %.sink4.i.i, %3
-  %storemerge.i.i = inttoptr i64 %or.i.i3.i.i to ptr
-  store ptr %storemerge.i.i, ptr %this, align 8
+  store i64 %or.i.i3.i.i, ptr %this, align 8
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr11MutableSlowIJEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaEDpRKT_.exit, %if.then
@@ -458,8 +454,7 @@ _ZN6google8protobuf8internal14ArenaStringPtr11MutableSlowIJNS1_10LazyStringEEEEP
   %.sink5.i.i = phi i64 [ 3, %_ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKSC_EEEPT_PS5_DpOT0_EUlDpOT_E_ZNS6_ISC_JSE_EEESG_SH_SK_EUlSN_E0_JSE_EEEDaOT0_OT1_DpOT2_.exit.i.i ], [ 2, %if.then.i2.i ]
   %5 = ptrtoint ptr %call.i.i.i.sink.i.i to i64
   %or.i.i4.i.i = or i64 %.sink5.i.i, %5
-  %storemerge.i.i = inttoptr i64 %or.i.i4.i.i to ptr
-  store ptr %storemerge.i.i, ptr %this, align 8
+  store i64 %or.i.i4.i.i, ptr %this, align 8
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr11MutableSlowIJNS1_10LazyStringEEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaEDpRKT_.exit, %if.then
@@ -499,8 +494,7 @@ _ZN6google8protobuf8internal14ArenaStringPtr9NewStringIJEEEPNSt7__cxx1112basic_s
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i.sink5.i) #10
   %3 = ptrtoint ptr %call.i.i.i.sink5.i to i64
   %or.i.i3.i = or i64 %.sink4.i, %3
-  %storemerge.i = inttoptr i64 %or.i.i3.i to ptr
-  store ptr %storemerge.i, ptr %this, align 8
+  store i64 %or.i.i3.i, ptr %this, align 8
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr9NewStringIJEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaEDpOT_.exit, %if.then
@@ -546,7 +540,7 @@ lpad:                                             ; preds = %cond.false
 
 if.end13:                                         ; preds = %cond.true, %cond.false, %if.end
   %released.0 = phi ptr [ %2, %if.end ], [ %call10, %cond.true ], [ %call10, %cond.false ]
-  store i64 ptrtoint (ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E to i64), ptr %this, align 8
+  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %this, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end13
@@ -585,7 +579,7 @@ _ZN6google8protobuf8internal14ArenaStringPtr7DestroyEv.exit: ; preds = %entry, %
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr7DestroyEv.exit
-  store i64 ptrtoint (ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E to i64), ptr %this, align 8
+  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %this, align 8
   br label %if.end
 
 if.else:                                          ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr7DestroyEv.exit
@@ -595,15 +589,13 @@ if.else:                                          ; preds = %_ZN6google8protobuf
 
 if.then.i.i:                                      ; preds = %if.else
   %or.i.i.i = or i64 %3, 3
-  %4 = inttoptr i64 %or.i.i.i to ptr
-  store ptr %4, ptr %this, align 8
+  store i64 %or.i.i.i, ptr %this, align 8
   tail call void @_ZN6google8protobuf8internal15ThreadSafeArena10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(144) %arena, ptr noundef nonnull %value, ptr noundef nonnull @_ZN6google8protobuf8internal19arena_delete_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv)
   br label %if.end
 
 if.else.i:                                        ; preds = %if.else
   %or.i.i5.i = or i64 %3, 2
-  %5 = inttoptr i64 %or.i.i5.i to ptr
-  store ptr %5, ptr %this, align 8
+  store i64 %or.i.i5.i, ptr %this, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i, %if.then.i.i, %if.then
@@ -708,50 +700,49 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit:  ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit
-  %retval.0.i18 = phi i32 [ %conv.i, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread ], [ %2, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ]
-  %storemerge.i17 = phi ptr [ %add.ptr.i, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread ], [ %1, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ]
+  %retval.0.i17 = phi i32 [ %conv.i, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread ], [ %2, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ]
+  %storemerge.i16 = phi ptr [ %add.ptr.i, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread ], [ %1, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ]
   %cmp.i2 = icmp eq ptr %arena, null
-  br i1 %cmp.i2, label %if.then.i4, label %_ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEEPT_PS5_DpOT0_EUlDpOT_E_ZNS6_ISC_JEEESE_SF_SI_EUlSL_E0_JEEEDaOT0_OT1_DpOT2_.exit.i
+  br i1 %cmp.i2, label %if.then.i3, label %_ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEEPT_PS5_DpOT0_EUlDpOT_E_ZNS6_ISC_JEEESE_SF_SI_EUlSL_E0_JEEEDaOT0_OT1_DpOT2_.exit.i
 
-if.then.i4:                                       ; preds = %if.end
-  %call.i5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #11
+if.then.i3:                                       ; preds = %if.end
+  %call.i4 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #11
   br label %_ZN6google8protobuf8internal14ArenaStringPtr9NewStringIJEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaEDpOT_.exit
 
 _ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEEPT_PS5_DpOT0_EUlDpOT_E_ZNS6_ISC_JEEESE_SF_SI_EUlSL_E0_JEEEDaOT0_OT1_DpOT2_.exit.i: ; preds = %if.end
   %call.i.i.i.i = tail call noundef ptr @_ZN6google8protobuf8internal15ThreadSafeArena23AllocateFromStringBlockEv(ptr noundef nonnull align 8 dereferenceable(144) %arena)
   br label %_ZN6google8protobuf8internal14ArenaStringPtr9NewStringIJEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaEDpOT_.exit
 
-_ZN6google8protobuf8internal14ArenaStringPtr9NewStringIJEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaEDpOT_.exit: ; preds = %if.then.i4, %_ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEEPT_PS5_DpOT0_EUlDpOT_E_ZNS6_ISC_JEEESE_SF_SI_EUlSL_E0_JEEEDaOT0_OT1_DpOT2_.exit.i
-  %call.i.i.i.sink5.i = phi ptr [ %call.i.i.i.i, %_ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEEPT_PS5_DpOT0_EUlDpOT_E_ZNS6_ISC_JEEESE_SF_SI_EUlSL_E0_JEEEDaOT0_OT1_DpOT2_.exit.i ], [ %call.i5, %if.then.i4 ]
-  %.sink4.i = phi i64 [ 3, %_ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEEPT_PS5_DpOT0_EUlDpOT_E_ZNS6_ISC_JEEESE_SF_SI_EUlSL_E0_JEEEDaOT0_OT1_DpOT2_.exit.i ], [ 2, %if.then.i4 ]
+_ZN6google8protobuf8internal14ArenaStringPtr9NewStringIJEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaEDpOT_.exit: ; preds = %if.then.i3, %_ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEEPT_PS5_DpOT0_EUlDpOT_E_ZNS6_ISC_JEEESE_SF_SI_EUlSL_E0_JEEEDaOT0_OT1_DpOT2_.exit.i
+  %call.i.i.i.sink5.i = phi ptr [ %call.i.i.i.i, %_ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEEPT_PS5_DpOT0_EUlDpOT_E_ZNS6_ISC_JEEESE_SF_SI_EUlSL_E0_JEEEDaOT0_OT1_DpOT2_.exit.i ], [ %call.i4, %if.then.i3 ]
+  %.sink4.i = phi i64 [ 3, %_ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEEPT_PS5_DpOT0_EUlDpOT_E_ZNS6_ISC_JEEESE_SF_SI_EUlSL_E0_JEEEDaOT0_OT1_DpOT2_.exit.i ], [ 2, %if.then.i3 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i.sink5.i) #10
   %3 = ptrtoint ptr %call.i.i.i.sink5.i to i64
   %or.i.i3.i = or i64 %.sink4.i, %3
-  %storemerge.i3 = inttoptr i64 %or.i.i3.i to ptr
-  store ptr %storemerge.i3, ptr %s, align 8
-  %conv.i6 = sext i32 %retval.0.i18 to i64
+  store i64 %or.i.i3.i, ptr %s, align 8
+  %conv.i5 = sext i32 %retval.0.i17 to i64
   %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
   %4 = load ptr, ptr %buffer_end_.i, align 8
-  %add.ptr.i7 = getelementptr inbounds i8, ptr %4, i64 16
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i7 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %storemerge.i17 to i64
+  %add.ptr.i6 = getelementptr inbounds i8, ptr %4, i64 16
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i6 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %storemerge.i16 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp.not.i = icmp slt i64 %sub.ptr.sub.i, %conv.i6
-  br i1 %cmp.not.i, label %if.end.i11, label %if.then.i8
+  %cmp.not.i = icmp slt i64 %sub.ptr.sub.i, %conv.i5
+  br i1 %cmp.not.i, label %if.end.i10, label %if.then.i7
 
-if.then.i8:                                       ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr9NewStringIJEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaEDpOT_.exit
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i.sink5.i, i64 noundef %conv.i6)
-  %call.i9 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i.sink5.i, i64 noundef 0)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i9, ptr nonnull align 1 %storemerge.i17, i64 %conv.i6, i1 false)
-  %add.ptr4.i = getelementptr inbounds i8, ptr %storemerge.i17, i64 %conv.i6
+if.then.i7:                                       ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr9NewStringIJEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaEDpOT_.exit
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i.sink5.i, i64 noundef %conv.i5)
+  %call.i8 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i.sink5.i, i64 noundef 0)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i8, ptr nonnull align 1 %storemerge.i16, i64 %conv.i5, i1 false)
+  %add.ptr4.i = getelementptr inbounds i8, ptr %storemerge.i16, i64 %conv.i5
   br label %return
 
-if.end.i11:                                       ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr9NewStringIJEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaEDpOT_.exit
-  %call5.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream18ReadStringFallbackEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %storemerge.i17, i32 noundef %retval.0.i18, ptr noundef nonnull %call.i.i.i.sink5.i)
+if.end.i10:                                       ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr9NewStringIJEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaEDpOT_.exit
+  %call5.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream18ReadStringFallbackEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %storemerge.i16, i32 noundef %retval.0.i17, ptr noundef nonnull %call.i.i.i.sink5.i)
   br label %return
 
-return:                                           ; preds = %if.end.i11, %if.then.i8, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit
-  %retval.0 = phi ptr [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ], [ %add.ptr4.i, %if.then.i8 ], [ %call5.i, %if.end.i11 ]
+return:                                           ; preds = %if.end.i10, %if.then.i7, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit
+  %retval.0 = phi ptr [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ], [ %add.ptr4.i, %if.then.i7 ], [ %call5.i, %if.end.i10 ]
   ret ptr %retval.0
 }
 

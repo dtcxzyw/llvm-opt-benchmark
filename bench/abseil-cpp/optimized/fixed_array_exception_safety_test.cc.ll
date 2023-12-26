@@ -10613,7 +10613,7 @@ entry:
   %ref.tmp54 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZN7testing25MakeExceptionSafetyTesterEv()
   %contracts_.i.i17 = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTestBuilder", ptr %test_fill, i64 0, i32 2
-  store i64 ptrtoint (ptr @_ZN4absl12_GLOBAL__N_110ReadMemoryINS_10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ESaIS6_EEEEENS3_15AssertionResultEPT_ to i64), ptr %contracts_.i.i17, align 8, !alias.scope !90
+  store ptr @_ZN4absl12_GLOBAL__N_110ReadMemoryINS_10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ESaIS6_EEEEENS3_15AssertionResultEPT_, ptr %contracts_.i.i17, align 8, !alias.scope !90
   call void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp6, i32 noundef 5)
   invoke void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EEC2EmRKS4_RKS5_(ptr noundef nonnull align 8 dereferenceable(120) %ref.tmp5, i64 noundef 12, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7)
           to label %invoke.cont unwind label %lpad
@@ -11802,8 +11802,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i14, %_
   %_M_invoker.i.i = getelementptr inbounds %"class.std::function.129", ptr %ref.tmp, i64 0, i32 1
   %15 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %15, align 8, !alias.scope !105
-  %16 = ptrtoint ptr %14 to i64
-  store i64 %16, ptr %ref.tmp, align 8, !alias.scope !105
+  store ptr %14, ptr %ref.tmp, align 8, !alias.scope !105
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ESaIS6_EEEEZNS0_19exceptions_internal19ExceptionSafetyTestIS8_E12WrapContractIPSA_EESt8functionISA_ERKT_EUlS9_E_E9_M_invokeERKSt9_Any_dataOS9_, ptr %_M_invoker.i.i, align 8, !alias.scope !105
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ESaIS6_EEEEZNS0_19exceptions_internal19ExceptionSafetyTestIS8_E12WrapContractIPSA_EESt8functionISA_ERKT_EUlS9_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation, ptr %_M_manager.i.i.i16, align 8, !alias.scope !105
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %contracts_, i8 0, i64 24, i1 false)
@@ -11820,33 +11819,33 @@ _ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayI
           to label %invoke.cont7 unwind label %lpad.i17
 
 lpad.i17:                                         ; preds = %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS7_EEEEESaISC_EE11_M_allocateEm.exit.i.i, %invoke.cont
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %18 = load ptr, ptr %contracts_, align 8
-  %tobool.not.i.i.i = icmp eq ptr %18, null
+  %17 = load ptr, ptr %contracts_, align 8
+  %tobool.not.i.i.i = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i, label %lpad6.body, label %if.then.i.i4.i
 
 if.then.i.i4.i:                                   ; preds = %lpad.i17
-  call void @_ZdlPv(ptr noundef nonnull %18) #19
+  call void @_ZdlPv(ptr noundef nonnull %17) #19
   br label %lpad6.body
 
 invoke.cont7:                                     ; preds = %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS7_EEEEESaISC_EE11_M_allocateEm.exit.i.i
   %_M_finish.i.i = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
   store ptr %call.i.i.i.i3.i, ptr %_M_finish.i.i, align 8
   %_M_manager.i.i20 = getelementptr inbounds %"class.std::function.129", ptr %ref.tmp, i64 0, i32 0, i32 1
-  %19 = load ptr, ptr %_M_manager.i.i20, align 8
-  %tobool.not.i.i21 = icmp eq ptr %19, null
+  %18 = load ptr, ptr %_M_manager.i.i20, align 8
+  %tobool.not.i.i21 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i21, label %_ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ESaIS6_EEEEED2Ev.exit, label %if.then.i.i22
 
 if.then.i.i22:                                    ; preds = %invoke.cont7
-  %call.i.i23 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i23 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ESaIS6_EEEEED2Ev.exit unwind label %terminate.lpad.i.i24
 
 terminate.lpad.i.i24:                             ; preds = %if.then.i.i22
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #21
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #21
   unreachable
 
 _ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ESaIS6_EEEEED2Ev.exit: ; preds = %invoke.cont7, %if.then.i.i22
@@ -11854,52 +11853,52 @@ _ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingVal
 
 lpad6.body:                                       ; preds = %lpad.i17, %if.then.i.i4.i
   %_M_manager.i.i26 = getelementptr inbounds %"class.std::function.129", ptr %ref.tmp, i64 0, i32 0, i32 1
-  %22 = load ptr, ptr %_M_manager.i.i26, align 8
-  %tobool.not.i.i27 = icmp eq ptr %22, null
+  %21 = load ptr, ptr %_M_manager.i.i26, align 8
+  %tobool.not.i.i27 = icmp eq ptr %21, null
   br i1 %tobool.not.i.i27, label %_ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ESaIS6_EEEEED2Ev.exit32, label %if.then.i.i28
 
 if.then.i.i28:                                    ; preds = %lpad6.body
-  %call.i.i29 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i29 = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ESaIS6_EEEEED2Ev.exit32 unwind label %terminate.lpad.i.i30
 
 terminate.lpad.i.i30:                             ; preds = %if.then.i.i28
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #21
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #21
   unreachable
 
 _ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ESaIS6_EEEEED2Ev.exit32: ; preds = %lpad6.body, %if.then.i.i28
-  %25 = load ptr, ptr %_M_manager.i.i2, align 8
-  %tobool.not.i.i34 = icmp eq ptr %25, null
+  %24 = load ptr, ptr %_M_manager.i.i2, align 8
+  %tobool.not.i.i34 = icmp eq ptr %24, null
   br i1 %tobool.not.i.i34, label %ehcleanup19, label %if.then.i.i35
 
 if.then.i.i35:                                    ; preds = %_ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ESaIS6_EEEEED2Ev.exit32
-  %call.i.i36 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %operation_, ptr noundef nonnull align 8 dereferenceable(16) %operation_, i32 noundef 3)
+  %call.i.i36 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(16) %operation_, ptr noundef nonnull align 8 dereferenceable(16) %operation_, i32 noundef 3)
           to label %ehcleanup19 unwind label %terminate.lpad.i.i37
 
 terminate.lpad.i.i37:                             ; preds = %if.then.i.i35
-  %26 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #21
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #21
   unreachable
 
 ehcleanup19:                                      ; preds = %if.then.i.i35, %_ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ESaIS6_EEEEED2Ev.exit32, %if.then.i.i10, %lpad.i8
-  %.pn = phi { ptr, i32 } [ %10, %if.then.i.i10 ], [ %10, %lpad.i8 ], [ %17, %_ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ESaIS6_EEEEED2Ev.exit32 ], [ %17, %if.then.i.i35 ]
-  %28 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i40 = icmp eq ptr %28, null
+  %.pn = phi { ptr, i32 } [ %10, %if.then.i.i10 ], [ %10, %lpad.i8 ], [ %16, %_ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ESaIS6_EEEEED2Ev.exit32 ], [ %16, %if.then.i.i35 ]
+  %27 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i40 = icmp eq ptr %27, null
   br i1 %tobool.not.i.i40, label %common.resume, label %if.then.i.i41
 
 if.then.i.i41:                                    ; preds = %ehcleanup19
-  %call.i.i42 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef 3)
+  %call.i.i42 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i43
 
 terminate.lpad.i.i43:                             ; preds = %if.then.i.i41
-  %29 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #21
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #21
   unreachable
 }
 
@@ -12938,7 +12937,7 @@ entry:
   %ref.tmp56 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZN7testing25MakeExceptionSafetyTesterEv()
   %contracts_.i.i17 = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTestBuilder.133", ptr %test_fill, i64 0, i32 2
-  store i64 ptrtoint (ptr @_ZN4absl12_GLOBAL__N_110ReadMemoryINS_10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ENS3_17ThrowingAllocatorIS6_LNS3_9AllocSpecE0EEEEEEENS3_15AssertionResultEPT_ to i64), ptr %contracts_.i.i17, align 8, !alias.scope !139
+  store ptr @_ZN4absl12_GLOBAL__N_110ReadMemoryINS_10FixedArrayIN7testing13ThrowingValueILNS3_8TypeSpecE0EEELm25ENS3_17ThrowingAllocatorIS6_LNS3_9AllocSpecE0EEEEEEENS3_15AssertionResultEPT_, ptr %contracts_.i.i17, align 8, !alias.scope !139
   call void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp6, i32 noundef 5)
   invoke void @_ZN7testing17ThrowingAllocatorINS_13ThrowingValueILNS_8TypeSpecE0EEELNS_9AllocSpecE0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7)
           to label %invoke.cont unwind label %lpad
@@ -14256,8 +14255,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i14, %_
   %_M_invoker.i.i = getelementptr inbounds %"class.std::function.164", ptr %ref.tmp, i64 0, i32 1
   %15 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %15, align 8, !alias.scope !151
-  %16 = ptrtoint ptr %14 to i64
-  store i64 %16, ptr %ref.tmp, align 8, !alias.scope !151
+  store ptr %14, ptr %ref.tmp, align 8, !alias.scope !151
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ENS0_17ThrowingAllocatorIS6_LNS0_9AllocSpecE0EEEEEEZNS0_19exceptions_internal19ExceptionSafetyTestISA_E12WrapContractIPSC_EESt8functionISC_ERKT_EUlSB_E_E9_M_invokeERKSt9_Any_dataOSB_, ptr %_M_invoker.i.i, align 8, !alias.scope !151
   store ptr @_ZNSt17_Function_handlerIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ENS0_17ThrowingAllocatorIS6_LNS0_9AllocSpecE0EEEEEEZNS0_19exceptions_internal19ExceptionSafetyTestISA_E12WrapContractIPSC_EESt8functionISC_ERKT_EUlSB_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %_M_manager.i.i.i16, align 8, !alias.scope !151
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %contracts_, i8 0, i64 24, i1 false)
@@ -14274,33 +14272,33 @@ _ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayI
           to label %invoke.cont7 unwind label %lpad.i17
 
 lpad.i17:                                         ; preds = %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS7_LNS1_9AllocSpecE0EEEEEEESaISE_EE11_M_allocateEm.exit.i.i, %invoke.cont
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %18 = load ptr, ptr %contracts_, align 8
-  %tobool.not.i.i.i = icmp eq ptr %18, null
+  %17 = load ptr, ptr %contracts_, align 8
+  %tobool.not.i.i.i = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i, label %lpad6.body, label %if.then.i.i4.i
 
 if.then.i.i4.i:                                   ; preds = %lpad.i17
-  call void @_ZdlPv(ptr noundef nonnull %18) #19
+  call void @_ZdlPv(ptr noundef nonnull %17) #19
   br label %lpad6.body
 
 invoke.cont7:                                     ; preds = %_ZNSt12_Vector_baseISt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS1_13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS7_LNS1_9AllocSpecE0EEEEEEESaISE_EE11_M_allocateEm.exit.i.i
   %_M_finish.i.i = getelementptr inbounds %"class.testing::exceptions_internal::ExceptionSafetyTest.142", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
   store ptr %call.i.i.i.i3.i, ptr %_M_finish.i.i, align 8
   %_M_manager.i.i20 = getelementptr inbounds %"class.std::function.164", ptr %ref.tmp, i64 0, i32 0, i32 1
-  %19 = load ptr, ptr %_M_manager.i.i20, align 8
-  %tobool.not.i.i21 = icmp eq ptr %19, null
+  %18 = load ptr, ptr %_M_manager.i.i20, align 8
+  %tobool.not.i.i21 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i21, label %_ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ENS0_17ThrowingAllocatorIS6_LNS0_9AllocSpecE0EEEEEEED2Ev.exit, label %if.then.i.i22
 
 if.then.i.i22:                                    ; preds = %invoke.cont7
-  %call.i.i23 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i23 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ENS0_17ThrowingAllocatorIS6_LNS0_9AllocSpecE0EEEEEEED2Ev.exit unwind label %terminate.lpad.i.i24
 
 terminate.lpad.i.i24:                             ; preds = %if.then.i.i22
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #21
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #21
   unreachable
 
 _ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ENS0_17ThrowingAllocatorIS6_LNS0_9AllocSpecE0EEEEEEED2Ev.exit: ; preds = %invoke.cont7, %if.then.i.i22
@@ -14308,52 +14306,52 @@ _ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingVal
 
 lpad6.body:                                       ; preds = %lpad.i17, %if.then.i.i4.i
   %_M_manager.i.i26 = getelementptr inbounds %"class.std::function.164", ptr %ref.tmp, i64 0, i32 0, i32 1
-  %22 = load ptr, ptr %_M_manager.i.i26, align 8
-  %tobool.not.i.i27 = icmp eq ptr %22, null
+  %21 = load ptr, ptr %_M_manager.i.i26, align 8
+  %tobool.not.i.i27 = icmp eq ptr %21, null
   br i1 %tobool.not.i.i27, label %_ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ENS0_17ThrowingAllocatorIS6_LNS0_9AllocSpecE0EEEEEEED2Ev.exit32, label %if.then.i.i28
 
 if.then.i.i28:                                    ; preds = %lpad6.body
-  %call.i.i29 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+  %call.i.i29 = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ENS0_17ThrowingAllocatorIS6_LNS0_9AllocSpecE0EEEEEEED2Ev.exit32 unwind label %terminate.lpad.i.i30
 
 terminate.lpad.i.i30:                             ; preds = %if.then.i.i28
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #21
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #21
   unreachable
 
 _ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ENS0_17ThrowingAllocatorIS6_LNS0_9AllocSpecE0EEEEEEED2Ev.exit32: ; preds = %lpad6.body, %if.then.i.i28
-  %25 = load ptr, ptr %_M_manager.i.i2, align 8
-  %tobool.not.i.i34 = icmp eq ptr %25, null
+  %24 = load ptr, ptr %_M_manager.i.i2, align 8
+  %tobool.not.i.i34 = icmp eq ptr %24, null
   br i1 %tobool.not.i.i34, label %ehcleanup19, label %if.then.i.i35
 
 if.then.i.i35:                                    ; preds = %_ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ENS0_17ThrowingAllocatorIS6_LNS0_9AllocSpecE0EEEEEEED2Ev.exit32
-  %call.i.i36 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %operation_, ptr noundef nonnull align 8 dereferenceable(16) %operation_, i32 noundef 3)
+  %call.i.i36 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(16) %operation_, ptr noundef nonnull align 8 dereferenceable(16) %operation_, i32 noundef 3)
           to label %ehcleanup19 unwind label %terminate.lpad.i.i37
 
 terminate.lpad.i.i37:                             ; preds = %if.then.i.i35
-  %26 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #21
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #21
   unreachable
 
 ehcleanup19:                                      ; preds = %if.then.i.i35, %_ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ENS0_17ThrowingAllocatorIS6_LNS0_9AllocSpecE0EEEEEEED2Ev.exit32, %if.then.i.i10, %lpad.i8
-  %.pn = phi { ptr, i32 } [ %10, %if.then.i.i10 ], [ %10, %lpad.i8 ], [ %17, %_ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ENS0_17ThrowingAllocatorIS6_LNS0_9AllocSpecE0EEEEEEED2Ev.exit32 ], [ %17, %if.then.i.i35 ]
-  %28 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i40 = icmp eq ptr %28, null
+  %.pn = phi { ptr, i32 } [ %10, %if.then.i.i10 ], [ %10, %lpad.i8 ], [ %16, %_ZNSt8functionIFN7testing15AssertionResultEPN4absl10FixedArrayINS0_13ThrowingValueILNS0_8TypeSpecE0EEELm25ENS0_17ThrowingAllocatorIS6_LNS0_9AllocSpecE0EEEEEEED2Ev.exit32 ], [ %16, %if.then.i.i35 ]
+  %27 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i40 = icmp eq ptr %27, null
   br i1 %tobool.not.i.i40, label %common.resume, label %if.then.i.i41
 
 if.then.i.i41:                                    ; preds = %ehcleanup19
-  %call.i.i42 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef 3)
+  %call.i.i42 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i43
 
 terminate.lpad.i.i43:                             ; preds = %if.then.i.i41
-  %29 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #21
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #21
   unreachable
 }
 

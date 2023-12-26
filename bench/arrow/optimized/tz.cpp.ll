@@ -334,8 +334,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 define void @_ZN14arrow_vendored4date9tzdb_listC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %x) unnamed_addr #5 align 2 {
 entry:
   %0 = atomicrmw xchg ptr %x, i64 0 seq_cst, align 8
-  %atomic-temp.i.0.i = inttoptr i64 %0 to ptr
-  store ptr %atomic-temp.i.0.i, ptr %this, align 8
+  store i64 %0, ptr %this, align 8
   ret void
 }
 
@@ -343,11 +342,10 @@ entry:
 define void @_ZN14arrow_vendored4date9tzdb_list10push_frontEPNS0_4tzdbE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %tzdb) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i64, ptr %this seq_cst, align 8
-  %1 = inttoptr i64 %0 to ptr
   %next = getelementptr inbounds %"struct.arrow_vendored::date::tzdb", ptr %tzdb, i64 0, i32 3
-  store ptr %1, ptr %next, align 8
-  %2 = ptrtoint ptr %tzdb to i64
-  store atomic i64 %2, ptr %this seq_cst, align 8
+  store i64 %0, ptr %next, align 8
+  %1 = ptrtoint ptr %tzdb to i64
+  store atomic i64 %1, ptr %this seq_cst, align 8
   ret void
 }
 
@@ -2597,42 +2595,41 @@ invoke.cont:                                      ; preds = %invoke.cont46.i.i, 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp129.i)
   store ptr null, ptr %ref.tmp, align 8
   %153 = load atomic i64, ptr @_ZZN14arrow_vendored4date13get_tzdb_listEvE5tz_db seq_cst, align 8
-  %154 = inttoptr i64 %153 to ptr
   %next.i.i = getelementptr inbounds %"struct.arrow_vendored::date::tzdb", ptr %152, i64 0, i32 3
-  store ptr %154, ptr %next.i.i, align 8
-  %155 = ptrtoint ptr %152 to i64
-  store atomic i64 %155, ptr @_ZZN14arrow_vendored4date13get_tzdb_listEvE5tz_db seq_cst, align 8
-  %156 = load ptr, ptr %ref.tmp, align 8
-  %cmp.not.i2 = icmp eq ptr %156, null
+  store i64 %153, ptr %next.i.i, align 8
+  %154 = ptrtoint ptr %152 to i64
+  store atomic i64 %154, ptr @_ZZN14arrow_vendored4date13get_tzdb_listEvE5tz_db seq_cst, align 8
+  %155 = load ptr, ptr %ref.tmp, align 8
+  %cmp.not.i2 = icmp eq ptr %155, null
   br i1 %cmp.not.i2, label %_ZNSt10unique_ptrIN14arrow_vendored4date4tzdbESt14default_deleteIS2_EED2Ev.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %invoke.cont
-  %leap_seconds.i.i.i = getelementptr inbounds %"struct.arrow_vendored::date::tzdb", ptr %156, i64 0, i32 2
-  %157 = load ptr, ptr %leap_seconds.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i3 = icmp eq ptr %157, null
+  %leap_seconds.i.i.i = getelementptr inbounds %"struct.arrow_vendored::date::tzdb", ptr %155, i64 0, i32 2
+  %156 = load ptr, ptr %leap_seconds.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i3 = icmp eq ptr %156, null
   br i1 %tobool.not.i.i.i.i.i.i3, label %_ZNKSt14default_deleteIN14arrow_vendored4date4tzdbEEclEPS2_.exit.i, label %if.then.i.i.i.i.i.i4
 
 if.then.i.i.i.i.i.i4:                             ; preds = %delete.notnull.i.i
-  call void @_ZdlPv(ptr noundef nonnull %157) #24
+  call void @_ZdlPv(ptr noundef nonnull %156) #24
   br label %_ZNKSt14default_deleteIN14arrow_vendored4date4tzdbEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN14arrow_vendored4date4tzdbEEclEPS2_.exit.i: ; preds = %if.then.i.i.i.i.i.i4, %delete.notnull.i.i
-  %zones.i.i.i = getelementptr inbounds %"struct.arrow_vendored::date::tzdb", ptr %156, i64 0, i32 1
+  %zones.i.i.i = getelementptr inbounds %"struct.arrow_vendored::date::tzdb", ptr %155, i64 0, i32 1
   call void @_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %zones.i.i.i) #25
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %156) #25
-  call void @_ZdlPv(ptr noundef nonnull %156) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %155) #25
+  call void @_ZdlPv(ptr noundef nonnull %155) #24
   br label %_ZNSt10unique_ptrIN14arrow_vendored4date4tzdbESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN14arrow_vendored4date4tzdbESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont, %_ZNKSt14default_deleteIN14arrow_vendored4date4tzdbEEclEPS2_.exit.i
   ret void
 
 lpad:                                             ; preds = %entry
-  %158 = landingpad { ptr, i32 }
+  %157 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i, %ehcleanup136.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %158, %lpad ], [ %.pn.pn.pn.pn.i, %ehcleanup136.i ], [ %16, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %157, %lpad ], [ %.pn.pn.pn.pn.i, %ehcleanup136.i ], [ %16, %lpad.i ]
   call void @_ZN14arrow_vendored4date9tzdb_listD1Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN14arrow_vendored4date13get_tzdb_listEvE5tz_db) #25
   resume { ptr, i32 } %eh.lpad-body
 }

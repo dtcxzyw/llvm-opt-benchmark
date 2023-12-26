@@ -196,8 +196,7 @@ upb_Arena_Malloc.exit.i.i14:                      ; preds = %if.end.i.i.i13, %if
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i15, i8 0, i64 %add.i.i.i5, i1 false)
   store i32 1, ptr %retval.0.i.i, align 4
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
-  %9 = ptrtoint ptr %add.ptr.i.i17 to i64
-  store i64 %9, ptr %add.ptr.i.i.i.i, align 1
+  store ptr %add.ptr.i.i17, ptr %add.ptr.i.i.i.i, align 1
   br label %grpc_lb_v1_LoadBalanceRequest_mutable_initial_request.exit
 
 grpc_lb_v1_LoadBalanceRequest_mutable_initial_request.exit: ; preds = %grpc_lb_v1_LoadBalanceRequest_initial_request.exit.i, %upb_Arena_Malloc.exit.i.i14
@@ -209,10 +208,10 @@ grpc_lb_v1_LoadBalanceRequest_mutable_initial_request.exit: ; preds = %grpc_lb_v
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf_length.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.i.i), !noalias !4
   %call.i.i = call i32 @upb_Encode(ptr noundef nonnull %retval.0.i.i, ptr noundef nonnull @grpc__lb__v1__LoadBalanceRequest_msg_init, i32 noundef 0, ptr noundef nonnull %arena, ptr noundef nonnull %ptr.i.i, ptr noundef nonnull %buf_length.i), !noalias !4
-  %10 = load ptr, ptr %ptr.i.i, align 8, !noalias !4
+  %9 = load ptr, ptr %ptr.i.i, align 8, !noalias !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i.i), !noalias !4
-  %11 = load i64, ptr %buf_length.i, align 8, !noalias !4
-  call void @grpc_slice_from_copied_buffer(ptr sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef %10, i64 noundef %11)
+  %10 = load i64, ptr %buf_length.i, align 8, !noalias !4
+  call void @grpc_slice_from_copied_buffer(ptr sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef %9, i64 noundef %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf_length.i)
   ret void
 }
@@ -301,28 +300,27 @@ if.then2.i:                                       ; preds = %upb_Arena_Malloc.ex
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i33, i8 0, i64 %add.i.i.i23, i1 false)
   store i32 2, ptr %retval.0.i.i, align 4
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
-  %9 = ptrtoint ptr %add.ptr.i.i35 to i64
-  store i64 %9, ptr %add.ptr.i.i.i.i, align 1
+  store ptr %add.ptr.i.i35, ptr %add.ptr.i.i.i.i, align 1
   br label %grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit
 
 grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit: ; preds = %grpc_lb_v1_LoadBalanceRequest_client_stats.exit.i, %upb_Arena_Malloc.exit.i.i32, %if.then2.i
   %sub.0.i = phi ptr [ %add.ptr.i.i35, %if.then2.i ], [ %5, %grpc_lb_v1_LoadBalanceRequest_client_stats.exit.i ], [ null, %upb_Arena_Malloc.exit.i.i32 ]
   %add.ptr.i.i.i39 = getelementptr inbounds i8, ptr %sub.0.i, i64 8
-  %10 = load i64, ptr %add.ptr.i.i.i39, align 1
-  %11 = inttoptr i64 %10 to ptr
-  %cmp.i40 = icmp eq i64 %10, 0
+  %9 = load i64, ptr %add.ptr.i.i.i39, align 1
+  %10 = inttoptr i64 %9 to ptr
+  %cmp.i40 = icmp eq i64 %9, 0
   br i1 %cmp.i40, label %if.then.i42, label %grpc_lb_v1_ClientStats_mutable_timestamp.exit
 
 if.then.i42:                                      ; preds = %grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit
-  %12 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @google__protobuf__Timestamp_msg_init, i64 0, i32 2), align 8
-  %conv.i.i.i43 = zext i16 %12 to i64
+  %11 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @google__protobuf__Timestamp_msg_init, i64 0, i32 2), align 8
+  %conv.i.i.i43 = zext i16 %11 to i64
   %add.i.i.i44 = add nuw nsw i64 %conv.i.i.i43, 8
   %sub.i.i.i45 = add nuw nsw i64 %conv.i.i.i43, 23
   %div7.i.i.i46 = and i64 %sub.i.i.i45, 131064
-  %13 = load ptr, ptr %end.i.i.i.i, align 8
-  %14 = load ptr, ptr %arena, align 8
-  %sub.ptr.lhs.cast.i.i.i.i48 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i.i.i.i49 = ptrtoint ptr %14 to i64
+  %12 = load ptr, ptr %end.i.i.i.i, align 8
+  %13 = load ptr, ptr %arena, align 8
+  %sub.ptr.lhs.cast.i.i.i.i48 = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast.i.i.i.i49 = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i.i.i50 = sub i64 %sub.ptr.lhs.cast.i.i.i.i48, %sub.ptr.rhs.cast.i.i.i.i49
   %cmp.i.i.i51 = icmp ult i64 %sub.ptr.sub.i.i.i.i50, %div7.i.i.i46
   br i1 %cmp.i.i.i51, label %if.then.i.i.i59, label %if.end.i.i.i52
@@ -332,33 +330,32 @@ if.then.i.i.i59:                                  ; preds = %if.then.i42
   br label %upb_Arena_Malloc.exit.i.i54
 
 if.end.i.i.i52:                                   ; preds = %if.then.i42
-  %add.ptr.i.i5.i53 = getelementptr inbounds i8, ptr %14, i64 %div7.i.i.i46
+  %add.ptr.i.i5.i53 = getelementptr inbounds i8, ptr %13, i64 %div7.i.i.i46
   store ptr %add.ptr.i.i5.i53, ptr %arena, align 8
   br label %upb_Arena_Malloc.exit.i.i54
 
 upb_Arena_Malloc.exit.i.i54:                      ; preds = %if.end.i.i.i52, %if.then.i.i.i59
-  %retval.0.i.i.i55 = phi ptr [ %call2.i.i.i60, %if.then.i.i.i59 ], [ %14, %if.end.i.i.i52 ]
+  %retval.0.i.i.i55 = phi ptr [ %call2.i.i.i60, %if.then.i.i.i59 ], [ %13, %if.end.i.i.i52 ]
   %tobool.not.i.i56 = icmp eq ptr %retval.0.i.i.i55, null
   br i1 %tobool.not.i.i56, label %grpc_lb_v1_ClientStats_mutable_timestamp.exit, label %if.then2.i57
 
 if.then2.i57:                                     ; preds = %upb_Arena_Malloc.exit.i.i54
   %add.ptr.i.i58 = getelementptr inbounds i8, ptr %retval.0.i.i.i55, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i55, i8 0, i64 %add.i.i.i44, i1 false)
-  %15 = load i8, ptr %sub.0.i, align 1
-  %or2.i.i.i.i.i.i = or i8 %15, 2
+  %14 = load i8, ptr %sub.0.i, align 1
+  %or2.i.i.i.i.i.i = or i8 %14, 2
   store i8 %or2.i.i.i.i.i.i, ptr %sub.0.i, align 1
-  %16 = ptrtoint ptr %add.ptr.i.i58 to i64
-  store i64 %16, ptr %add.ptr.i.i.i39, align 1
+  store ptr %add.ptr.i.i58, ptr %add.ptr.i.i.i39, align 1
   br label %grpc_lb_v1_ClientStats_mutable_timestamp.exit
 
 grpc_lb_v1_ClientStats_mutable_timestamp.exit:    ; preds = %grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit, %upb_Arena_Malloc.exit.i.i54, %if.then2.i57
-  %sub.0.i41 = phi ptr [ %add.ptr.i.i58, %if.then2.i57 ], [ %11, %grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit ], [ null, %upb_Arena_Malloc.exit.i.i54 ]
+  %sub.0.i41 = phi ptr [ %add.ptr.i.i58, %if.then2.i57 ], [ %10, %grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit ], [ null, %upb_Arena_Malloc.exit.i.i54 ]
   %call3 = tail call { i64, i64 } @gpr_now(i32 noundef 1)
-  %17 = extractvalue { i64, i64 } %call3, 0
-  %18 = extractvalue { i64, i64 } %call3, 1
-  %ref.tmp.sroa.2.8.extract.trunc = trunc i64 %18 to i32
+  %15 = extractvalue { i64, i64 } %call3, 0
+  %16 = extractvalue { i64, i64 } %call3, 1
+  %ref.tmp.sroa.2.8.extract.trunc = trunc i64 %16 to i32
   %add.ptr.i.i.i.i61 = getelementptr inbounds i8, ptr %sub.0.i41, i64 8
-  store i64 %17, ptr %add.ptr.i.i.i.i61, align 1
+  store i64 %15, ptr %add.ptr.i.i.i.i61, align 1
   store i32 %ref.tmp.sroa.2.8.extract.trunc, ptr %sub.0.i41, align 1
   %add.ptr.i.i.i62 = getelementptr inbounds i8, ptr %sub.0.i, i64 16
   store i64 %num_calls_started, ptr %add.ptr.i.i.i62, align 1
@@ -372,8 +369,8 @@ grpc_lb_v1_ClientStats_mutable_timestamp.exit:    ; preds = %grpc_lb_v1_LoadBala
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %grpc_lb_v1_ClientStats_mutable_timestamp.exit
-  %19 = load i64, ptr %drop_token_counts, align 8
-  %cmp570.not = icmp ult i64 %19, 2
+  %17 = load i64, ptr %drop_token_counts, align 8
+  %cmp570.not = icmp ult i64 %17, 2
   br i1 %cmp570.not, label %if.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
@@ -381,22 +378,22 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %upb_Arena_Malloc.exit
-  %20 = phi i64 [ %19, %for.body.lr.ph ], [ %27, %upb_Arena_Malloc.exit ]
+  %18 = phi i64 [ %17, %for.body.lr.ph ], [ %25, %upb_Arena_Malloc.exit ]
   %i.071 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %upb_Arena_Malloc.exit ]
-  %and.i.i.i = and i64 %20, 1
+  %and.i.i.i = and i64 %18, 1
   %tobool.i.not.i.i = icmp eq i64 %and.i.i.i, 0
-  %21 = load ptr, ptr %data_.i.i.i, align 8
-  %cond.i.i = select i1 %tobool.i.not.i.i, ptr %data_.i.i.i, ptr %21
+  %19 = load ptr, ptr %data_.i.i.i, align 8
+  %cond.i.i = select i1 %tobool.i.not.i.i, ptr %data_.i.i.i, ptr %19
   %arrayidx.i = getelementptr inbounds %"struct.grpc_core::GrpcLbClientStats::DropTokenCount", ptr %cond.i.i, i64 %i.071
   %call7 = tail call ptr @grpc_lb_v1_ClientStats_add_calls_finished_with_drop(ptr noundef %sub.0.i, ptr noundef nonnull %arena)
-  %22 = load ptr, ptr %arrayidx.i, align 8
-  %call9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #16
+  %20 = load ptr, ptr %arrayidx.i, align 8
+  %call9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #16
   %sub.i = add i64 %call9, 7
   %div7.i = and i64 %sub.i, -8
-  %23 = load ptr, ptr %end.i.i.i.i, align 8
-  %24 = load ptr, ptr %arena, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %23 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %24 to i64
+  %21 = load ptr, ptr %end.i.i.i.i, align 8
+  %22 = load ptr, ptr %arena, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %21 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %cmp.i66 = icmp ult i64 %sub.ptr.sub.i.i, %div7.i
   br i1 %cmp.i66, label %if.then.i67, label %if.end.i
@@ -406,24 +403,24 @@ if.then.i67:                                      ; preds = %for.body
   br label %upb_Arena_Malloc.exit
 
 if.end.i:                                         ; preds = %for.body
-  %add.ptr.i = getelementptr inbounds i8, ptr %24, i64 %div7.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %22, i64 %div7.i
   store ptr %add.ptr.i, ptr %arena, align 8
   br label %upb_Arena_Malloc.exit
 
 upb_Arena_Malloc.exit:                            ; preds = %if.then.i67, %if.end.i
-  %retval.0.i = phi ptr [ %call2.i, %if.then.i67 ], [ %24, %if.end.i ]
-  %25 = load ptr, ptr %arrayidx.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i, ptr align 1 %25, i64 %call9, i1 false)
+  %retval.0.i = phi ptr [ %call2.i, %if.then.i67 ], [ %22, %if.end.i ]
+  %23 = load ptr, ptr %arrayidx.i, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i, ptr align 1 %23, i64 %call9, i1 false)
   store ptr %retval.0.i, ptr %call7, align 1
   %value.sroa.5.0.add.ptr.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call7, i64 8
   store i64 %call9, ptr %value.sroa.5.0.add.ptr.i.i.sroa_idx.i, align 1
   %count = getelementptr inbounds %"struct.grpc_core::GrpcLbClientStats::DropTokenCount", ptr %cond.i.i, i64 %i.071, i32 1
-  %26 = load i64, ptr %count, align 8
+  %24 = load i64, ptr %count, align 8
   %add.ptr.i.i.i68 = getelementptr inbounds i8, ptr %call7, i64 16
-  store i64 %26, ptr %add.ptr.i.i.i68, align 1
+  store i64 %24, ptr %add.ptr.i.i.i68, align 1
   %inc = add nuw nsw i64 %i.071, 1
-  %27 = load i64, ptr %drop_token_counts, align 8
-  %shr.i.i = lshr i64 %27, 1
+  %25 = load i64, ptr %drop_token_counts, align 8
+  %shr.i.i = lshr i64 %25, 1
   %cmp5 = icmp ult i64 %inc, %shr.i.i
   br i1 %cmp5, label %for.body, label %if.end, !llvm.loop !7
 
@@ -431,10 +428,10 @@ if.end:                                           ; preds = %upb_Arena_Malloc.ex
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf_length.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.i.i), !noalias !9
   %call.i.i = call i32 @upb_Encode(ptr noundef nonnull %retval.0.i.i, ptr noundef nonnull @grpc__lb__v1__LoadBalanceRequest_msg_init, i32 noundef 0, ptr noundef nonnull %arena, ptr noundef nonnull %ptr.i.i, ptr noundef nonnull %buf_length.i), !noalias !9
-  %28 = load ptr, ptr %ptr.i.i, align 8, !noalias !9
+  %26 = load ptr, ptr %ptr.i.i, align 8, !noalias !9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i.i), !noalias !9
-  %29 = load i64, ptr %buf_length.i, align 8, !noalias !9
-  call void @grpc_slice_from_copied_buffer(ptr sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef %28, i64 noundef %29)
+  %27 = load i64, ptr %buf_length.i, align 8, !noalias !9
+  call void @grpc_slice_from_copied_buffer(ptr sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef %26, i64 noundef %27)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf_length.i)
   ret void
 }
@@ -450,8 +447,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %array.i)
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %msg, i64 48
   %0 = load i64, ptr %add.ptr.i.i.i.i, align 1
-  %1 = inttoptr i64 %0 to ptr
   %tobool.not.i = icmp eq i64 %0, 0
+  %1 = inttoptr i64 %0 to ptr
   br i1 %tobool.not.i, label %if.then.i, label %upb_Message_GetOrCreateMutableArray.exit
 
 if.then.i:                                        ; preds = %entry

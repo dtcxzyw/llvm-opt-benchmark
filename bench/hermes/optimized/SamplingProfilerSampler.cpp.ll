@@ -759,7 +759,7 @@ if.end3:                                          ; preds = %if.end
   %_M_func.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i, i64 0, i32 1
   store ptr %this, ptr %_M_func.i.i, align 8
   %2 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i, i64 0, i32 1, i32 0, i32 0, i32 1
-  store i64 ptrtoint (ptr @_ZN6hermes2vm17sampling_profiler7Sampler9timerLoopEv to i64), ptr %2, align 8
+  store ptr @_ZN6hermes2vm17sampling_profiler7Sampler9timerLoopEv, ptr %2, align 8
   %this.repack3.i.i.i.i.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
   store i64 0, ptr %this.repack3.i.i.i.i.i.i, align 8
   store ptr %call.i, ptr %agg.tmp.i, align 8

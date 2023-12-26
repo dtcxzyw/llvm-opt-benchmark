@@ -4674,26 +4674,26 @@ call4.i.noexc:                                    ; preds = %invoke.cont37
   %48 = ptrtoint ptr %call4.i65 to i64
   %add6.i = add i64 %sub, %48
   %and.i = and i64 %add6.i, %sub.not.i.i
-  %49 = inttoptr i64 %and.i to ptr
   store i64 0, ptr %cursize_.i, align 8
   %bufstart_14.i = getelementptr inbounds %"struct.rocksdb::RandomAccessFileReader::ReadAsyncInfo", ptr %call, i64 0, i32 9, i32 4
-  store ptr %49, ptr %bufstart_14.i, align 8
+  store i64 %and.i, ptr %bufstart_14.i, align 8
   %capacity_.i = getelementptr inbounds %"struct.rocksdb::RandomAccessFileReader::ReadAsyncInfo", ptr %call, i64 0, i32 9, i32 2
   store i64 %mul.i.i, ptr %capacity_.i, align 8
   %buf_.i = getelementptr inbounds %"struct.rocksdb::RandomAccessFileReader::ReadAsyncInfo", ptr %call, i64 0, i32 9, i32 1
-  %50 = load ptr, ptr %buf_.i, align 8
+  %49 = load ptr, ptr %buf_.i, align 8
   store ptr %call4.i65, ptr %buf_.i, align 8
-  %tobool.not.i.i.i64 = icmp eq ptr %50, null
+  %tobool.not.i.i.i64 = icmp eq ptr %49, null
+  %50 = inttoptr i64 %and.i to ptr
   br i1 %tobool.not.i.i.i64, label %invoke.cont43, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i: ; preds = %call4.i.noexc
-  call void @_ZdaPv(ptr noundef nonnull %50) #19
+  call void @_ZdaPv(ptr noundef nonnull %49) #19
   %.pre290 = load ptr, ptr %bufstart_14.i, align 8
   %51 = load <2 x i64>, ptr %req, align 8
   br label %invoke.cont43
 
 invoke.cont43:                                    ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i, %call4.i.noexc
-  %52 = phi ptr [ %.pre290, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i ], [ %49, %call4.i.noexc ]
+  %52 = phi ptr [ %.pre290, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i ], [ %50, %call4.i.noexc ]
   %53 = phi <2 x i64> [ %51, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i ], [ %42, %call4.i.noexc ]
   store ptr %52, ptr %scratch.i, align 8
   %scratch48 = getelementptr inbounds %"struct.rocksdb::FSReadRequest", ptr %req, i64 0, i32 2
@@ -4858,7 +4858,7 @@ invoke.cont65:                                    ; preds = %if.else.i86, %if.th
 
 invoke.cont68:                                    ; preds = %invoke.cont65
   %_M_invoker.i91 = getelementptr inbounds %"class.std::function.63", ptr %agg.tmp67, i64 0, i32 1
-  store i64 ptrtoint (ptr @_ZN7rocksdb22RandomAccessFileReader17ReadAsyncCallbackERKNS_13FSReadRequestEPv to i64), ptr %call.i.i2.i92, align 16
+  store ptr @_ZN7rocksdb22RandomAccessFileReader17ReadAsyncCallbackERKNS_13FSReadRequestEPv, ptr %call.i.i2.i92, align 16
   %read_async_callback.sroa.3.0.call.i.i2.i92.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i92, i64 8
   store i64 0, ptr %read_async_callback.sroa.3.0.call.i.i2.i92.sroa_idx, align 8
   %read_async_callback.sroa.4.0.call.i.i2.i92.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i92, i64 16
@@ -5200,7 +5200,7 @@ invoke.cont95:                                    ; preds = %if.else.i179, %if.t
 
 invoke.cont98:                                    ; preds = %invoke.cont95
   %_M_invoker.i184 = getelementptr inbounds %"class.std::function.63", ptr %agg.tmp97, i64 0, i32 1
-  store i64 ptrtoint (ptr @_ZN7rocksdb22RandomAccessFileReader17ReadAsyncCallbackERKNS_13FSReadRequestEPv to i64), ptr %call.i.i2.i185, align 16
+  store ptr @_ZN7rocksdb22RandomAccessFileReader17ReadAsyncCallbackERKNS_13FSReadRequestEPv, ptr %call.i.i2.i185, align 16
   %read_async_callback.sroa.3.0.call.i.i2.i185.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i185, i64 8
   store i64 0, ptr %read_async_callback.sroa.3.0.call.i.i2.i185.sroa_idx, align 8
   %read_async_callback.sroa.4.0.call.i.i2.i185.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i185, i64 16

@@ -398,33 +398,31 @@ if.then17.i:                                      ; preds = %if.end14.i
   %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %16, i64 0, i32 1
   %17 = load i64, ptr %_gc_prev.i.i, align 8
   %18 = inttoptr i64 %17 to ptr
-  %19 = ptrtoint ptr %12 to i64
-  store i64 %19, ptr %18, align 8
+  store ptr %12, ptr %18, align 8
   %_gc_prev.i.i.i = getelementptr i8, ptr %0, i64 -8
-  %20 = load i64, ptr %_gc_prev.i.i.i, align 8
-  %and.i.i.i = and i64 %20, 3
+  %19 = load i64, ptr %_gc_prev.i.i.i, align 8
+  %and.i.i.i = and i64 %19, 3
   %or.i.i.i = or i64 %and.i.i.i, %17
   store i64 %or.i.i.i, ptr %_gc_prev.i.i.i, align 8
-  %21 = ptrtoint ptr %16 to i64
-  store i64 %21, ptr %12, align 8
-  store i64 %19, ptr %_gc_prev.i.i, align 8
+  store ptr %16, ptr %12, align 8
+  store ptr %12, ptr %_gc_prev.i.i, align 8
   br label %take_ownership.exit
 
 take_ownership.exit:                              ; preds = %if.end14.i, %if.then17.i
-  %22 = load i64, ptr %0, align 8
-  %23 = and i64 %22, 2147483648
-  %cmp.i26.not = icmp eq i64 %23, 0
+  %20 = load i64, ptr %0, align 8
+  %21 = and i64 %20, 2147483648
+  %cmp.i26.not = icmp eq i64 %21, 0
   br i1 %cmp.i26.not, label %if.end.i19, label %return
 
 if.end.i19:                                       ; preds = %take_ownership.exit
-  %dec.i20 = add i64 %22, -1
+  %dec.i20 = add i64 %20, -1
   store i64 %dec.i20, ptr %0, align 8
   %cmp.i21 = icmp eq i64 %dec.i20, 0
   br i1 %cmp.i21, label %return.sink.split, label %return
 
 if.end:                                           ; preds = %if.then
-  %24 = and i64 %.val, 2147483648
-  %cmp.i29.not = icmp eq i64 %24, 0
+  %22 = and i64 %.val, 2147483648
+  %cmp.i29.not = icmp eq i64 %22, 0
   br i1 %cmp.i29.not, label %if.end.i10, label %if.end4
 
 if.end.i10:                                       ; preds = %if.end
@@ -439,99 +437,99 @@ if.then1.i13:                                     ; preds = %if.end.i10
 
 if.end4:                                          ; preds = %if.end.i10, %if.then1.i13, %if.end, %entry
   %stacktop = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame, i64 0, i32 8
-  %25 = load i32, ptr %stacktop, align 8
-  %cmp546 = icmp sgt i32 %25, 0
+  %23 = load i32, ptr %stacktop, align 8
+  %cmp546 = icmp sgt i32 %23, 0
   br i1 %cmp546, label %for.body, label %for.end
 
 for.body:                                         ; preds = %if.end4, %Py_XDECREF.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %Py_XDECREF.exit ], [ 0, %if.end4 ]
   %arrayidx = getelementptr %struct._PyInterpreterFrame, ptr %frame, i64 0, i32 11, i64 %indvars.iv
-  %26 = load ptr, ptr %arrayidx, align 8
-  %cmp.not.i = icmp eq ptr %26, null
+  %24 = load ptr, ptr %arrayidx, align 8
+  %cmp.not.i = icmp eq ptr %24, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i23
 
 if.then.i23:                                      ; preds = %for.body
-  %27 = load i64, ptr %26, align 8
-  %28 = and i64 %27, 2147483648
-  %cmp.i2.not.i = icmp eq i64 %28, 0
+  %25 = load i64, ptr %24, align 8
+  %26 = and i64 %25, 2147483648
+  %cmp.i2.not.i = icmp eq i64 %26, 0
   br i1 %cmp.i2.not.i, label %if.end.i.i25, label %Py_XDECREF.exit
 
 if.end.i.i25:                                     ; preds = %if.then.i23
-  %dec.i.i = add i64 %27, -1
-  store i64 %dec.i.i, ptr %26, align 8
+  %dec.i.i = add i64 %25, -1
+  store i64 %dec.i.i, ptr %24, align 8
   %cmp.i.i26 = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i26, label %if.then1.i.i, label %Py_XDECREF.exit
 
 if.then1.i.i:                                     ; preds = %if.end.i.i25
-  tail call void @_Py_Dealloc(ptr noundef nonnull %26) #7
+  tail call void @_Py_Dealloc(ptr noundef nonnull %24) #7
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %for.body, %if.then.i23, %if.end.i.i25, %if.then1.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = load i32, ptr %stacktop, align 8
-  %30 = sext i32 %29 to i64
-  %cmp5 = icmp slt i64 %indvars.iv.next, %30
+  %27 = load i32, ptr %stacktop, align 8
+  %28 = sext i32 %27 to i64
+  %cmp5 = icmp slt i64 %indvars.iv.next, %28
   br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %Py_XDECREF.exit, %if.end4
-  %31 = load ptr, ptr %frame_obj, align 8
-  %cmp.not.i27 = icmp eq ptr %31, null
+  %29 = load ptr, ptr %frame_obj, align 8
+  %cmp.not.i27 = icmp eq ptr %29, null
   br i1 %cmp.not.i27, label %Py_XDECREF.exit35, label %if.then.i28
 
 if.then.i28:                                      ; preds = %for.end
-  %32 = load i64, ptr %31, align 8
-  %33 = and i64 %32, 2147483648
-  %cmp.i2.not.i29 = icmp eq i64 %33, 0
+  %30 = load i64, ptr %29, align 8
+  %31 = and i64 %30, 2147483648
+  %cmp.i2.not.i29 = icmp eq i64 %31, 0
   br i1 %cmp.i2.not.i29, label %if.end.i.i31, label %Py_XDECREF.exit35
 
 if.end.i.i31:                                     ; preds = %if.then.i28
-  %dec.i.i32 = add i64 %32, -1
-  store i64 %dec.i.i32, ptr %31, align 8
+  %dec.i.i32 = add i64 %30, -1
+  store i64 %dec.i.i32, ptr %29, align 8
   %cmp.i.i33 = icmp eq i64 %dec.i.i32, 0
   br i1 %cmp.i.i33, label %if.then1.i.i34, label %Py_XDECREF.exit35
 
 if.then1.i.i34:                                   ; preds = %if.end.i.i31
-  tail call void @_Py_Dealloc(ptr noundef nonnull %31) #7
+  tail call void @_Py_Dealloc(ptr noundef nonnull %29) #7
   br label %Py_XDECREF.exit35
 
 Py_XDECREF.exit35:                                ; preds = %for.end, %if.then.i28, %if.end.i.i31, %if.then1.i.i34
   %f_locals = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame, i64 0, i32 5
-  %34 = load ptr, ptr %f_locals, align 8
-  %cmp.not.i36 = icmp eq ptr %34, null
+  %32 = load ptr, ptr %f_locals, align 8
+  %cmp.not.i36 = icmp eq ptr %32, null
   br i1 %cmp.not.i36, label %Py_XDECREF.exit44, label %if.then.i37
 
 if.then.i37:                                      ; preds = %Py_XDECREF.exit35
-  %35 = load i64, ptr %34, align 8
-  %36 = and i64 %35, 2147483648
-  %cmp.i2.not.i38 = icmp eq i64 %36, 0
+  %33 = load i64, ptr %32, align 8
+  %34 = and i64 %33, 2147483648
+  %cmp.i2.not.i38 = icmp eq i64 %34, 0
   br i1 %cmp.i2.not.i38, label %if.end.i.i40, label %Py_XDECREF.exit44
 
 if.end.i.i40:                                     ; preds = %if.then.i37
-  %dec.i.i41 = add i64 %35, -1
-  store i64 %dec.i.i41, ptr %34, align 8
+  %dec.i.i41 = add i64 %33, -1
+  store i64 %dec.i.i41, ptr %32, align 8
   %cmp.i.i42 = icmp eq i64 %dec.i.i41, 0
   br i1 %cmp.i.i42, label %if.then1.i.i43, label %Py_XDECREF.exit44
 
 if.then1.i.i43:                                   ; preds = %if.end.i.i40
-  tail call void @_Py_Dealloc(ptr noundef nonnull %34) #7
+  tail call void @_Py_Dealloc(ptr noundef nonnull %32) #7
   br label %Py_XDECREF.exit44
 
 Py_XDECREF.exit44:                                ; preds = %Py_XDECREF.exit35, %if.then.i37, %if.end.i.i40, %if.then1.i.i43
   %f_funcobj = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame, i64 0, i32 2
-  %37 = load ptr, ptr %f_funcobj, align 8
-  %38 = load i64, ptr %37, align 8
-  %39 = and i64 %38, 2147483648
-  %cmp.i33.not = icmp eq i64 %39, 0
+  %35 = load ptr, ptr %f_funcobj, align 8
+  %36 = load i64, ptr %35, align 8
+  %37 = and i64 %36, 2147483648
+  %cmp.i33.not = icmp eq i64 %37, 0
   br i1 %cmp.i33.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %Py_XDECREF.exit44
-  %dec.i = add i64 %38, -1
-  store i64 %dec.i, ptr %37, align 8
+  %dec.i = add i64 %36, -1
+  store i64 %dec.i, ptr %35, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %if.end.i, %if.end.i19
-  %.sink = phi ptr [ %0, %if.end.i19 ], [ %37, %if.end.i ]
+  %.sink = phi ptr [ %0, %if.end.i19 ], [ %35, %if.end.i ]
   tail call void @_Py_Dealloc(ptr noundef nonnull %.sink) #7
   br label %return
 

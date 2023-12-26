@@ -4433,7 +4433,7 @@ invoke.cont16:                                    ; preds = %invoke.cont11
   %size_.i = getelementptr inbounds %"class.testing::internal::PointwiseMatcher", ptr %ref.tmp, i64 0, i32 1, i32 1
   store i64 16, ptr %size_.i, align 8
   %clone_.i = getelementptr inbounds %"class.testing::internal::PointwiseMatcher", ptr %ref.tmp, i64 0, i32 1, i32 2
-  store i64 ptrtoint (ptr @_ZN7testing8internal11NativeArrayIjE8InitCopyEPKjm to i64), ptr %clone_.i, align 8
+  store ptr @_ZN7testing8internal11NativeArrayIjE8InitCopyEPKjm, ptr %clone_.i, align 8
   %clone_.repack4.i = getelementptr inbounds %"class.testing::internal::PointwiseMatcher", ptr %ref.tmp, i64 0, i32 1, i32 2, i32 1
   store i64 0, ptr %clone_.repack4.i, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_16PointwiseMatcherINS0_10Eq2MatcherEA16_jEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp, ptr noundef nonnull @.str.28, ptr noundef nonnull align 4 dereferenceable(64) %b)
@@ -5002,7 +5002,7 @@ _ZN7testing8internal9CopyArrayIjjEEvPKT_mPT0_.exit: ; preds = %for.body.i.prehea
   %size_ = getelementptr inbounds %"class.testing::internal::NativeArray", ptr %this, i64 0, i32 1
   store i64 %a_size, ptr %size_, align 8
   %clone_ = getelementptr inbounds %"class.testing::internal::NativeArray", ptr %this, i64 0, i32 2
-  store i64 ptrtoint (ptr @_ZN7testing8internal11NativeArrayIjE8InitCopyEPKjm to i64), ptr %clone_, align 8
+  store ptr @_ZN7testing8internal11NativeArrayIjE8InitCopyEPKjm, ptr %clone_, align 8
   %clone_.repack4 = getelementptr inbounds %"class.testing::internal::NativeArray", ptr %this, i64 0, i32 2, i32 1
   store i64 0, ptr %clone_.repack4, align 8
   ret void
@@ -5343,8 +5343,7 @@ call.i.i.i.i.i2.i.noexc:                          ; preds = %entry
 call.i.i1.i.i.i.i.i.i.i3.i.noexc:                 ; preds = %call.i.i.i.i.i2.i.noexc
   store i32 1, ptr %call.i.i1.i.i.i.i.i.i.i3.i2, align 4, !noalias !117
   %value.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.testing::internal::SharedPayload", ptr %call.i.i1.i.i.i.i.i.i.i3.i2, i64 0, i32 1
-  %0 = ptrtoint ptr %call.i.i.i.i.i2.i1 to i64
-  store i64 %0, ptr %value.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !117
+  store ptr %call.i.i.i.i.i2.i1, ptr %value.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !117
   store ptr %call.i.i1.i.i.i.i.i.i.i3.i2, ptr %buffer_.i.i.i.i.i.i.i.i, align 8, !alias.scope !117
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherISt5tupleIJRKjS3_EEEE, i64 0, inrange i32 0, i64 2), ptr %mono_tuple_matcher_.i, align 8, !alias.scope !117
   %rhs_.i = getelementptr inbounds %"class.testing::internal::PointwiseMatcher<testing::internal::Eq2Matcher, unsigned int[16]>::Impl", ptr %call, i64 0, i32 2
@@ -5352,16 +5351,16 @@ call.i.i1.i.i.i.i.i.i.i3.i.noexc:                 ; preds = %call.i.i.i.i.i2.i.n
   %.unpack.i.i = load i64, ptr %clone_.i.i, align 8
   %.elt3.i.i = getelementptr inbounds %"class.testing::internal::PointwiseMatcher", ptr %this, i64 0, i32 1, i32 2, i32 1
   %.unpack4.i.i = load i64, ptr %.elt3.i.i, align 8
-  %1 = getelementptr inbounds i8, ptr %rhs_.i, i64 %.unpack4.i.i
-  %2 = and i64 %.unpack.i.i, 1
-  %memptr.isvirtual.not.i.i = icmp eq i64 %2, 0
+  %0 = getelementptr inbounds i8, ptr %rhs_.i, i64 %.unpack4.i.i
+  %1 = and i64 %.unpack.i.i, 1
+  %memptr.isvirtual.not.i.i = icmp eq i64 %1, 0
   br i1 %memptr.isvirtual.not.i.i, label %memptr.nonvirtual.i.i, label %memptr.virtual.i.i
 
 memptr.virtual.i.i:                               ; preds = %call.i.i1.i.i.i.i.i.i.i3.i.noexc
-  %vtable.i.i = load ptr, ptr %1, align 8
-  %3 = getelementptr i8, ptr %vtable.i.i, i64 %.unpack.i.i
-  %4 = getelementptr i8, ptr %3, i64 -1
-  %memptr.virtualfn.i.i = load ptr, ptr %4, align 8, !nosanitize !80
+  %vtable.i.i = load ptr, ptr %0, align 8
+  %2 = getelementptr i8, ptr %vtable.i.i, i64 %.unpack.i.i
+  %3 = getelementptr i8, ptr %2, i64 -1
+  %memptr.virtualfn.i.i = load ptr, ptr %3, align 8, !nosanitize !80
   br label %memptr.end.i.i
 
 memptr.nonvirtual.i.i:                            ; preds = %call.i.i1.i.i.i.i.i.i.i3.i.noexc
@@ -5369,15 +5368,15 @@ memptr.nonvirtual.i.i:                            ; preds = %call.i.i1.i.i.i.i.i
   br label %memptr.end.i.i
 
 memptr.end.i.i:                                   ; preds = %memptr.nonvirtual.i.i, %memptr.virtual.i.i
-  %5 = phi ptr [ %memptr.virtualfn.i.i, %memptr.virtual.i.i ], [ %memptr.nonvirtualfn.i.i, %memptr.nonvirtual.i.i ]
-  %6 = load ptr, ptr %rhs_, align 8
+  %4 = phi ptr [ %memptr.virtualfn.i.i, %memptr.virtual.i.i ], [ %memptr.nonvirtualfn.i.i, %memptr.nonvirtual.i.i ]
+  %5 = load ptr, ptr %rhs_, align 8
   %size_.i.i = getelementptr inbounds %"class.testing::internal::PointwiseMatcher", ptr %this, i64 0, i32 1, i32 1
-  %7 = load i64, ptr %size_.i.i, align 8
-  invoke void %5(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %6, i64 noundef %7)
+  %6 = load i64, ptr %size_.i.i, align 8
+  invoke void %4(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %5, i64 noundef %6)
           to label %invoke.cont unwind label %lpad2.i
 
 lpad2.i:                                          ; preds = %memptr.end.i.i
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN7testing7MatcherISt5tupleIJRKjS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mono_tuple_matcher_.i) #19
   br label %lpad.body
@@ -5391,19 +5390,18 @@ invoke.cont:                                      ; preds = %memptr.end.i.i
   %call.i.i1.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   store i32 1, ptr %call.i.i1.i.i, align 4
   %value.i.i.i.i.i = getelementptr inbounds %"struct.testing::internal::SharedPayload.71", ptr %call.i.i1.i.i, i64 0, i32 1
-  %9 = ptrtoint ptr %call to i64
-  store i64 %9, ptr %value.i.i.i.i.i, align 8
+  store ptr %call, ptr %value.i.i.i.i.i, align 8
   store ptr %call.i.i1.i.i, ptr %buffer_.i.i, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRA16_KjEE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
   ret void
 
 lpad:                                             ; preds = %call.i.i.i.i.i2.i.noexc, %entry
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad2.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad ], [ %8, %lpad2.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %8, %lpad ], [ %7, %lpad2.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call) #20
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -6240,7 +6238,7 @@ entry:
   %size_ = getelementptr inbounds %"class.testing::internal::NativeArray", ptr %this, i64 0, i32 1
   store i64 %a_size, ptr %size_, align 8
   %clone_ = getelementptr inbounds %"class.testing::internal::NativeArray", ptr %this, i64 0, i32 2
-  store i64 ptrtoint (ptr @_ZN7testing8internal11NativeArrayIjE7InitRefEPKjm to i64), ptr %clone_, align 8
+  store ptr @_ZN7testing8internal11NativeArrayIjE7InitRefEPKjm, ptr %clone_, align 8
   %clone_.repack1 = getelementptr inbounds %"class.testing::internal::NativeArray", ptr %this, i64 0, i32 2, i32 1
   store i64 0, ptr %clone_.repack1, align 8
   ret void
@@ -6968,7 +6966,7 @@ invoke.cont32:                                    ; preds = %invoke.cont26
   %size_.i = getelementptr inbounds %"class.testing::internal::PointwiseMatcher.89", ptr %ref.tmp27, i64 0, i32 1, i32 1
   store i64 16, ptr %size_.i, align 8
   %clone_.i = getelementptr inbounds %"class.testing::internal::PointwiseMatcher.89", ptr %ref.tmp27, i64 0, i32 1, i32 2
-  store i64 ptrtoint (ptr @_ZN7testing8internal11NativeArrayIjE8InitCopyEPKjm to i64), ptr %clone_.i, align 8
+  store ptr @_ZN7testing8internal11NativeArrayIjE8InitCopyEPKjm, ptr %clone_.i, align 8
   %clone_.repack4.i = getelementptr inbounds %"class.testing::internal::PointwiseMatcher.89", ptr %ref.tmp27, i64 0, i32 1, i32 2, i32 1
   store i64 0, ptr %clone_.repack4.i, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_16PointwiseMatcherINS0_10Ne2MatcherEA16_jEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp27, ptr noundef nonnull @.str.62, ptr noundef nonnull align 4 dereferenceable(64) %outputs)
@@ -7536,8 +7534,7 @@ call.i.i.i.i.i2.i.noexc:                          ; preds = %entry
 call.i.i1.i.i.i.i.i.i.i3.i.noexc:                 ; preds = %call.i.i.i.i.i2.i.noexc
   store i32 1, ptr %call.i.i1.i.i.i.i.i.i.i3.i2, align 4, !noalias !141
   %value.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.testing::internal::SharedPayload", ptr %call.i.i1.i.i.i.i.i.i.i3.i2, i64 0, i32 1
-  %0 = ptrtoint ptr %call.i.i.i.i.i2.i1 to i64
-  store i64 %0, ptr %value.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !141
+  store ptr %call.i.i.i.i.i2.i1, ptr %value.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !141
   store ptr %call.i.i1.i.i.i.i.i.i.i3.i2, ptr %buffer_.i.i.i.i.i.i.i.i, align 8, !alias.scope !141
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherISt5tupleIJRKjS3_EEEE, i64 0, inrange i32 0, i64 2), ptr %mono_tuple_matcher_.i, align 8, !alias.scope !141
   %rhs_.i = getelementptr inbounds %"class.testing::internal::PointwiseMatcher<testing::internal::Ne2Matcher, unsigned int[16]>::Impl", ptr %call, i64 0, i32 2
@@ -7545,16 +7542,16 @@ call.i.i1.i.i.i.i.i.i.i3.i.noexc:                 ; preds = %call.i.i.i.i.i2.i.n
   %.unpack.i.i = load i64, ptr %clone_.i.i, align 8
   %.elt3.i.i = getelementptr inbounds %"class.testing::internal::PointwiseMatcher.89", ptr %this, i64 0, i32 1, i32 2, i32 1
   %.unpack4.i.i = load i64, ptr %.elt3.i.i, align 8
-  %1 = getelementptr inbounds i8, ptr %rhs_.i, i64 %.unpack4.i.i
-  %2 = and i64 %.unpack.i.i, 1
-  %memptr.isvirtual.not.i.i = icmp eq i64 %2, 0
+  %0 = getelementptr inbounds i8, ptr %rhs_.i, i64 %.unpack4.i.i
+  %1 = and i64 %.unpack.i.i, 1
+  %memptr.isvirtual.not.i.i = icmp eq i64 %1, 0
   br i1 %memptr.isvirtual.not.i.i, label %memptr.nonvirtual.i.i, label %memptr.virtual.i.i
 
 memptr.virtual.i.i:                               ; preds = %call.i.i1.i.i.i.i.i.i.i3.i.noexc
-  %vtable.i.i = load ptr, ptr %1, align 8
-  %3 = getelementptr i8, ptr %vtable.i.i, i64 %.unpack.i.i
-  %4 = getelementptr i8, ptr %3, i64 -1
-  %memptr.virtualfn.i.i = load ptr, ptr %4, align 8, !nosanitize !80
+  %vtable.i.i = load ptr, ptr %0, align 8
+  %2 = getelementptr i8, ptr %vtable.i.i, i64 %.unpack.i.i
+  %3 = getelementptr i8, ptr %2, i64 -1
+  %memptr.virtualfn.i.i = load ptr, ptr %3, align 8, !nosanitize !80
   br label %memptr.end.i.i
 
 memptr.nonvirtual.i.i:                            ; preds = %call.i.i1.i.i.i.i.i.i.i3.i.noexc
@@ -7562,15 +7559,15 @@ memptr.nonvirtual.i.i:                            ; preds = %call.i.i1.i.i.i.i.i
   br label %memptr.end.i.i
 
 memptr.end.i.i:                                   ; preds = %memptr.nonvirtual.i.i, %memptr.virtual.i.i
-  %5 = phi ptr [ %memptr.virtualfn.i.i, %memptr.virtual.i.i ], [ %memptr.nonvirtualfn.i.i, %memptr.nonvirtual.i.i ]
-  %6 = load ptr, ptr %rhs_, align 8
+  %4 = phi ptr [ %memptr.virtualfn.i.i, %memptr.virtual.i.i ], [ %memptr.nonvirtualfn.i.i, %memptr.nonvirtual.i.i ]
+  %5 = load ptr, ptr %rhs_, align 8
   %size_.i.i = getelementptr inbounds %"class.testing::internal::PointwiseMatcher.89", ptr %this, i64 0, i32 1, i32 1
-  %7 = load i64, ptr %size_.i.i, align 8
-  invoke void %5(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %6, i64 noundef %7)
+  %6 = load i64, ptr %size_.i.i, align 8
+  invoke void %4(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %5, i64 noundef %6)
           to label %invoke.cont unwind label %lpad2.i
 
 lpad2.i:                                          ; preds = %memptr.end.i.i
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN7testing7MatcherISt5tupleIJRKjS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mono_tuple_matcher_.i) #19
   br label %lpad.body
@@ -7584,19 +7581,18 @@ invoke.cont:                                      ; preds = %memptr.end.i.i
   %call.i.i1.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   store i32 1, ptr %call.i.i1.i.i, align 4
   %value.i.i.i.i.i = getelementptr inbounds %"struct.testing::internal::SharedPayload.71", ptr %call.i.i1.i.i, i64 0, i32 1
-  %9 = ptrtoint ptr %call to i64
-  store i64 %9, ptr %value.i.i.i.i.i, align 8
+  store ptr %call, ptr %value.i.i.i.i.i, align 8
   store ptr %call.i.i1.i.i, ptr %buffer_.i.i, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRA16_KjEE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
   ret void
 
 lpad:                                             ; preds = %call.i.i.i.i.i2.i.noexc, %entry
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad2.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad ], [ %8, %lpad2.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %8, %lpad ], [ %7, %lpad2.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call) #20
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -8258,7 +8254,7 @@ invoke.cont12:                                    ; preds = %_ZN7testing8interna
   %size_.i = getelementptr inbounds %"class.testing::internal::PointwiseMatcher.96", ptr %ref.tmp7, i64 0, i32 1, i32 1
   store i64 4, ptr %size_.i, align 8
   %clone_.i = getelementptr inbounds %"class.testing::internal::PointwiseMatcher.96", ptr %ref.tmp7, i64 0, i32 1, i32 2
-  store i64 ptrtoint (ptr @_ZN7testing8internal11NativeArrayIjE8InitCopyEPKjm to i64), ptr %clone_.i, align 8
+  store ptr @_ZN7testing8internal11NativeArrayIjE8InitCopyEPKjm, ptr %clone_.i, align 8
   %clone_.repack4.i = getelementptr inbounds %"class.testing::internal::PointwiseMatcher.96", ptr %ref.tmp7, i64 0, i32 1, i32 2, i32 1
   store i64 0, ptr %clone_.repack4.i, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_16PointwiseMatcherINS0_10Eq2MatcherEA4_jEEEclIA4_mEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp7, ptr noundef nonnull @.str.64, ptr noundef nonnull align 8 dereferenceable(32) %seed_material)
@@ -8433,7 +8429,7 @@ invoke.cont40:                                    ; preds = %invoke.cont32
   %size_.i518 = getelementptr inbounds %"class.testing::internal::PointwiseMatcher.96", ptr %ref.tmp34, i64 0, i32 1, i32 1
   store i64 4, ptr %size_.i518, align 8
   %clone_.i519 = getelementptr inbounds %"class.testing::internal::PointwiseMatcher.96", ptr %ref.tmp34, i64 0, i32 1, i32 2
-  store i64 ptrtoint (ptr @_ZN7testing8internal11NativeArrayIjE8InitCopyEPKjm to i64), ptr %clone_.i519, align 8
+  store ptr @_ZN7testing8internal11NativeArrayIjE8InitCopyEPKjm, ptr %clone_.i519, align 8
   %clone_.repack4.i520 = getelementptr inbounds %"class.testing::internal::PointwiseMatcher.96", ptr %ref.tmp34, i64 0, i32 1, i32 2, i32 1
   store i64 0, ptr %clone_.repack4.i520, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_16PointwiseMatcherINS0_10Eq2MatcherEA4_jEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar33, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp34, ptr noundef nonnull @.str.64, ptr noundef nonnull align 4 dereferenceable(16) %seed_material29)
@@ -8592,7 +8588,7 @@ invoke.cont73:                                    ; preds = %_ZN7testing8interna
   %size_.i523 = getelementptr inbounds %"class.testing::internal::PointwiseMatcher.96", ptr %ref.tmp67, i64 0, i32 1, i32 1
   store i64 4, ptr %size_.i523, align 8
   %clone_.i524 = getelementptr inbounds %"class.testing::internal::PointwiseMatcher.96", ptr %ref.tmp67, i64 0, i32 1, i32 2
-  store i64 ptrtoint (ptr @_ZN7testing8internal11NativeArrayIjE8InitCopyEPKjm to i64), ptr %clone_.i524, align 8
+  store ptr @_ZN7testing8internal11NativeArrayIjE8InitCopyEPKjm, ptr %clone_.i524, align 8
   %clone_.repack4.i525 = getelementptr inbounds %"class.testing::internal::PointwiseMatcher.96", ptr %ref.tmp67, i64 0, i32 1, i32 2, i32 1
   store i64 0, ptr %clone_.repack4.i525, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_16PointwiseMatcherINS0_10Eq2MatcherEA4_jEEEclIA4_mEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar66, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp67, ptr noundef nonnull @.str.64, ptr noundef nonnull align 8 dereferenceable(32) %seed_material62)
@@ -8751,7 +8747,7 @@ invoke.cont106:                                   ; preds = %_ZN7testing8interna
   %size_.i528 = getelementptr inbounds %"class.testing::internal::PointwiseMatcher.96", ptr %ref.tmp100, i64 0, i32 1, i32 1
   store i64 4, ptr %size_.i528, align 8
   %clone_.i529 = getelementptr inbounds %"class.testing::internal::PointwiseMatcher.96", ptr %ref.tmp100, i64 0, i32 1, i32 2
-  store i64 ptrtoint (ptr @_ZN7testing8internal11NativeArrayIjE8InitCopyEPKjm to i64), ptr %clone_.i529, align 8
+  store ptr @_ZN7testing8internal11NativeArrayIjE8InitCopyEPKjm, ptr %clone_.i529, align 8
   %clone_.repack4.i530 = getelementptr inbounds %"class.testing::internal::PointwiseMatcher.96", ptr %ref.tmp100, i64 0, i32 1, i32 2, i32 1
   store i64 0, ptr %clone_.repack4.i530, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_16PointwiseMatcherINS0_10Eq2MatcherEA4_jEEEclIA4_lEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar99, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp100, ptr noundef nonnull @.str.64, ptr noundef nonnull align 8 dereferenceable(32) %seed_material95)
@@ -10326,8 +10322,7 @@ call.i.i.i.i.i2.i.noexc:                          ; preds = %entry
 call.i.i1.i.i.i.i.i.i.i3.i.noexc:                 ; preds = %call.i.i.i.i.i2.i.noexc
   store i32 1, ptr %call.i.i1.i.i.i.i.i.i.i3.i2, align 4, !noalias !163
   %value.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.testing::internal::SharedPayload.111", ptr %call.i.i1.i.i.i.i.i.i.i3.i2, i64 0, i32 1
-  %0 = ptrtoint ptr %call.i.i.i.i.i2.i1 to i64
-  store i64 %0, ptr %value.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !163
+  store ptr %call.i.i.i.i.i2.i1, ptr %value.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !163
   store ptr %call.i.i1.i.i.i.i.i.i.i3.i2, ptr %buffer_.i.i.i.i.i.i.i.i, align 8, !alias.scope !163
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherISt5tupleIJRKmRKjEEEE, i64 0, inrange i32 0, i64 2), ptr %mono_tuple_matcher_.i, align 8, !alias.scope !163
   %rhs_.i = getelementptr inbounds %"class.testing::internal::PointwiseMatcher<testing::internal::Eq2Matcher, unsigned int[4]>::Impl", ptr %call, i64 0, i32 2
@@ -10335,16 +10330,16 @@ call.i.i1.i.i.i.i.i.i.i3.i.noexc:                 ; preds = %call.i.i.i.i.i2.i.n
   %.unpack.i.i = load i64, ptr %clone_.i.i, align 8
   %.elt3.i.i = getelementptr inbounds %"class.testing::internal::PointwiseMatcher.96", ptr %this, i64 0, i32 1, i32 2, i32 1
   %.unpack4.i.i = load i64, ptr %.elt3.i.i, align 8
-  %1 = getelementptr inbounds i8, ptr %rhs_.i, i64 %.unpack4.i.i
-  %2 = and i64 %.unpack.i.i, 1
-  %memptr.isvirtual.not.i.i = icmp eq i64 %2, 0
+  %0 = getelementptr inbounds i8, ptr %rhs_.i, i64 %.unpack4.i.i
+  %1 = and i64 %.unpack.i.i, 1
+  %memptr.isvirtual.not.i.i = icmp eq i64 %1, 0
   br i1 %memptr.isvirtual.not.i.i, label %memptr.nonvirtual.i.i, label %memptr.virtual.i.i
 
 memptr.virtual.i.i:                               ; preds = %call.i.i1.i.i.i.i.i.i.i3.i.noexc
-  %vtable.i.i = load ptr, ptr %1, align 8
-  %3 = getelementptr i8, ptr %vtable.i.i, i64 %.unpack.i.i
-  %4 = getelementptr i8, ptr %3, i64 -1
-  %memptr.virtualfn.i.i = load ptr, ptr %4, align 8, !nosanitize !80
+  %vtable.i.i = load ptr, ptr %0, align 8
+  %2 = getelementptr i8, ptr %vtable.i.i, i64 %.unpack.i.i
+  %3 = getelementptr i8, ptr %2, i64 -1
+  %memptr.virtualfn.i.i = load ptr, ptr %3, align 8, !nosanitize !80
   br label %memptr.end.i.i
 
 memptr.nonvirtual.i.i:                            ; preds = %call.i.i1.i.i.i.i.i.i.i3.i.noexc
@@ -10352,15 +10347,15 @@ memptr.nonvirtual.i.i:                            ; preds = %call.i.i1.i.i.i.i.i
   br label %memptr.end.i.i
 
 memptr.end.i.i:                                   ; preds = %memptr.nonvirtual.i.i, %memptr.virtual.i.i
-  %5 = phi ptr [ %memptr.virtualfn.i.i, %memptr.virtual.i.i ], [ %memptr.nonvirtualfn.i.i, %memptr.nonvirtual.i.i ]
-  %6 = load ptr, ptr %rhs_, align 8
+  %4 = phi ptr [ %memptr.virtualfn.i.i, %memptr.virtual.i.i ], [ %memptr.nonvirtualfn.i.i, %memptr.nonvirtual.i.i ]
+  %5 = load ptr, ptr %rhs_, align 8
   %size_.i.i = getelementptr inbounds %"class.testing::internal::PointwiseMatcher.96", ptr %this, i64 0, i32 1, i32 1
-  %7 = load i64, ptr %size_.i.i, align 8
-  invoke void %5(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %6, i64 noundef %7)
+  %6 = load i64, ptr %size_.i.i, align 8
+  invoke void %4(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %5, i64 noundef %6)
           to label %invoke.cont unwind label %lpad2.i
 
 lpad2.i:                                          ; preds = %memptr.end.i.i
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN7testing7MatcherISt5tupleIJRKmRKjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mono_tuple_matcher_.i) #19
   br label %lpad.body
@@ -10374,19 +10369,18 @@ invoke.cont:                                      ; preds = %memptr.end.i.i
   %call.i.i1.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   store i32 1, ptr %call.i.i1.i.i, align 4
   %value.i.i.i.i.i = getelementptr inbounds %"struct.testing::internal::SharedPayload.128", ptr %call.i.i1.i.i, i64 0, i32 1
-  %9 = ptrtoint ptr %call to i64
-  store i64 %9, ptr %value.i.i.i.i.i, align 8
+  store ptr %call, ptr %value.i.i.i.i.i, align 8
   store ptr %call.i.i1.i.i, ptr %buffer_.i.i, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRA4_KmEE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
   ret void
 
 lpad:                                             ; preds = %call.i.i.i.i.i2.i.noexc, %entry
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad2.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad ], [ %8, %lpad2.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %8, %lpad ], [ %7, %lpad2.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call) #20
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -11742,8 +11736,7 @@ call.i.i.i.i.i2.i.noexc:                          ; preds = %entry
 call.i.i1.i.i.i.i.i.i.i3.i.noexc:                 ; preds = %call.i.i.i.i.i2.i.noexc
   store i32 1, ptr %call.i.i1.i.i.i.i.i.i.i3.i2, align 4, !noalias !180
   %value.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.testing::internal::SharedPayload", ptr %call.i.i1.i.i.i.i.i.i.i3.i2, i64 0, i32 1
-  %0 = ptrtoint ptr %call.i.i.i.i.i2.i1 to i64
-  store i64 %0, ptr %value.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !180
+  store ptr %call.i.i.i.i.i2.i1, ptr %value.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !180
   store ptr %call.i.i1.i.i.i.i.i.i.i3.i2, ptr %buffer_.i.i.i.i.i.i.i.i, align 8, !alias.scope !180
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherISt5tupleIJRKjS3_EEEE, i64 0, inrange i32 0, i64 2), ptr %mono_tuple_matcher_.i, align 8, !alias.scope !180
   %rhs_.i = getelementptr inbounds %"class.testing::internal::PointwiseMatcher<testing::internal::Eq2Matcher, unsigned int[4]>::Impl.148", ptr %call, i64 0, i32 2
@@ -11751,16 +11744,16 @@ call.i.i1.i.i.i.i.i.i.i3.i.noexc:                 ; preds = %call.i.i.i.i.i2.i.n
   %.unpack.i.i = load i64, ptr %clone_.i.i, align 8
   %.elt3.i.i = getelementptr inbounds %"class.testing::internal::PointwiseMatcher.96", ptr %this, i64 0, i32 1, i32 2, i32 1
   %.unpack4.i.i = load i64, ptr %.elt3.i.i, align 8
-  %1 = getelementptr inbounds i8, ptr %rhs_.i, i64 %.unpack4.i.i
-  %2 = and i64 %.unpack.i.i, 1
-  %memptr.isvirtual.not.i.i = icmp eq i64 %2, 0
+  %0 = getelementptr inbounds i8, ptr %rhs_.i, i64 %.unpack4.i.i
+  %1 = and i64 %.unpack.i.i, 1
+  %memptr.isvirtual.not.i.i = icmp eq i64 %1, 0
   br i1 %memptr.isvirtual.not.i.i, label %memptr.nonvirtual.i.i, label %memptr.virtual.i.i
 
 memptr.virtual.i.i:                               ; preds = %call.i.i1.i.i.i.i.i.i.i3.i.noexc
-  %vtable.i.i = load ptr, ptr %1, align 8
-  %3 = getelementptr i8, ptr %vtable.i.i, i64 %.unpack.i.i
-  %4 = getelementptr i8, ptr %3, i64 -1
-  %memptr.virtualfn.i.i = load ptr, ptr %4, align 8, !nosanitize !80
+  %vtable.i.i = load ptr, ptr %0, align 8
+  %2 = getelementptr i8, ptr %vtable.i.i, i64 %.unpack.i.i
+  %3 = getelementptr i8, ptr %2, i64 -1
+  %memptr.virtualfn.i.i = load ptr, ptr %3, align 8, !nosanitize !80
   br label %memptr.end.i.i
 
 memptr.nonvirtual.i.i:                            ; preds = %call.i.i1.i.i.i.i.i.i.i3.i.noexc
@@ -11768,15 +11761,15 @@ memptr.nonvirtual.i.i:                            ; preds = %call.i.i1.i.i.i.i.i
   br label %memptr.end.i.i
 
 memptr.end.i.i:                                   ; preds = %memptr.nonvirtual.i.i, %memptr.virtual.i.i
-  %5 = phi ptr [ %memptr.virtualfn.i.i, %memptr.virtual.i.i ], [ %memptr.nonvirtualfn.i.i, %memptr.nonvirtual.i.i ]
-  %6 = load ptr, ptr %rhs_, align 8
+  %4 = phi ptr [ %memptr.virtualfn.i.i, %memptr.virtual.i.i ], [ %memptr.nonvirtualfn.i.i, %memptr.nonvirtual.i.i ]
+  %5 = load ptr, ptr %rhs_, align 8
   %size_.i.i = getelementptr inbounds %"class.testing::internal::PointwiseMatcher.96", ptr %this, i64 0, i32 1, i32 1
-  %7 = load i64, ptr %size_.i.i, align 8
-  invoke void %5(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %6, i64 noundef %7)
+  %6 = load i64, ptr %size_.i.i, align 8
+  invoke void %4(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %5, i64 noundef %6)
           to label %invoke.cont unwind label %lpad2.i
 
 lpad2.i:                                          ; preds = %memptr.end.i.i
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN7testing7MatcherISt5tupleIJRKjS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mono_tuple_matcher_.i) #19
   br label %lpad.body
@@ -11790,19 +11783,18 @@ invoke.cont:                                      ; preds = %memptr.end.i.i
   %call.i.i1.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   store i32 1, ptr %call.i.i1.i.i, align 4
   %value.i.i.i.i.i = getelementptr inbounds %"struct.testing::internal::SharedPayload.150", ptr %call.i.i1.i.i, i64 0, i32 1
-  %9 = ptrtoint ptr %call to i64
-  store i64 %9, ptr %value.i.i.i.i.i, align 8
+  store ptr %call, ptr %value.i.i.i.i.i, align 8
   store ptr %call.i.i1.i.i, ptr %buffer_.i.i, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRA4_KjEE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
   ret void
 
 lpad:                                             ; preds = %call.i.i.i.i.i2.i.noexc, %entry
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad2.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad ], [ %8, %lpad2.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %8, %lpad ], [ %7, %lpad2.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call) #20
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -12949,8 +12941,7 @@ call.i.i.i.i.i2.i.noexc:                          ; preds = %entry
 call.i.i1.i.i.i.i.i.i.i3.i.noexc:                 ; preds = %call.i.i.i.i.i2.i.noexc
   store i32 1, ptr %call.i.i1.i.i.i.i.i.i.i3.i2, align 4, !noalias !199
   %value.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.testing::internal::SharedPayload.181", ptr %call.i.i1.i.i.i.i.i.i.i3.i2, i64 0, i32 1
-  %0 = ptrtoint ptr %call.i.i.i.i.i2.i1 to i64
-  store i64 %0, ptr %value.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !199
+  store ptr %call.i.i.i.i.i2.i1, ptr %value.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !199
   store ptr %call.i.i1.i.i.i.i.i.i.i3.i2, ptr %buffer_.i.i.i.i.i.i.i.i, align 8, !alias.scope !199
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherISt5tupleIJRKlRKjEEEE, i64 0, inrange i32 0, i64 2), ptr %mono_tuple_matcher_.i, align 8, !alias.scope !199
   %rhs_.i = getelementptr inbounds %"class.testing::internal::PointwiseMatcher<testing::internal::Eq2Matcher, unsigned int[4]>::Impl.170", ptr %call, i64 0, i32 2
@@ -12958,16 +12949,16 @@ call.i.i1.i.i.i.i.i.i.i3.i.noexc:                 ; preds = %call.i.i.i.i.i2.i.n
   %.unpack.i.i = load i64, ptr %clone_.i.i, align 8
   %.elt3.i.i = getelementptr inbounds %"class.testing::internal::PointwiseMatcher.96", ptr %this, i64 0, i32 1, i32 2, i32 1
   %.unpack4.i.i = load i64, ptr %.elt3.i.i, align 8
-  %1 = getelementptr inbounds i8, ptr %rhs_.i, i64 %.unpack4.i.i
-  %2 = and i64 %.unpack.i.i, 1
-  %memptr.isvirtual.not.i.i = icmp eq i64 %2, 0
+  %0 = getelementptr inbounds i8, ptr %rhs_.i, i64 %.unpack4.i.i
+  %1 = and i64 %.unpack.i.i, 1
+  %memptr.isvirtual.not.i.i = icmp eq i64 %1, 0
   br i1 %memptr.isvirtual.not.i.i, label %memptr.nonvirtual.i.i, label %memptr.virtual.i.i
 
 memptr.virtual.i.i:                               ; preds = %call.i.i1.i.i.i.i.i.i.i3.i.noexc
-  %vtable.i.i = load ptr, ptr %1, align 8
-  %3 = getelementptr i8, ptr %vtable.i.i, i64 %.unpack.i.i
-  %4 = getelementptr i8, ptr %3, i64 -1
-  %memptr.virtualfn.i.i = load ptr, ptr %4, align 8, !nosanitize !80
+  %vtable.i.i = load ptr, ptr %0, align 8
+  %2 = getelementptr i8, ptr %vtable.i.i, i64 %.unpack.i.i
+  %3 = getelementptr i8, ptr %2, i64 -1
+  %memptr.virtualfn.i.i = load ptr, ptr %3, align 8, !nosanitize !80
   br label %memptr.end.i.i
 
 memptr.nonvirtual.i.i:                            ; preds = %call.i.i1.i.i.i.i.i.i.i3.i.noexc
@@ -12975,15 +12966,15 @@ memptr.nonvirtual.i.i:                            ; preds = %call.i.i1.i.i.i.i.i
   br label %memptr.end.i.i
 
 memptr.end.i.i:                                   ; preds = %memptr.nonvirtual.i.i, %memptr.virtual.i.i
-  %5 = phi ptr [ %memptr.virtualfn.i.i, %memptr.virtual.i.i ], [ %memptr.nonvirtualfn.i.i, %memptr.nonvirtual.i.i ]
-  %6 = load ptr, ptr %rhs_, align 8
+  %4 = phi ptr [ %memptr.virtualfn.i.i, %memptr.virtual.i.i ], [ %memptr.nonvirtualfn.i.i, %memptr.nonvirtual.i.i ]
+  %5 = load ptr, ptr %rhs_, align 8
   %size_.i.i = getelementptr inbounds %"class.testing::internal::PointwiseMatcher.96", ptr %this, i64 0, i32 1, i32 1
-  %7 = load i64, ptr %size_.i.i, align 8
-  invoke void %5(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %6, i64 noundef %7)
+  %6 = load i64, ptr %size_.i.i, align 8
+  invoke void %4(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %5, i64 noundef %6)
           to label %invoke.cont unwind label %lpad2.i
 
 lpad2.i:                                          ; preds = %memptr.end.i.i
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN7testing7MatcherISt5tupleIJRKlRKjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mono_tuple_matcher_.i) #19
   br label %lpad.body
@@ -12997,19 +12988,18 @@ invoke.cont:                                      ; preds = %memptr.end.i.i
   %call.i.i1.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   store i32 1, ptr %call.i.i1.i.i, align 4
   %value.i.i.i.i.i = getelementptr inbounds %"struct.testing::internal::SharedPayload.198", ptr %call.i.i1.i.i, i64 0, i32 1
-  %9 = ptrtoint ptr %call to i64
-  store i64 %9, ptr %value.i.i.i.i.i, align 8
+  store ptr %call, ptr %value.i.i.i.i.i, align 8
   store ptr %call.i.i1.i.i, ptr %buffer_.i.i, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRA4_KlEE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
   ret void
 
 lpad:                                             ; preds = %call.i.i.i.i.i2.i.noexc, %entry
-  %10 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad2.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad ], [ %8, %lpad2.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %8, %lpad ], [ %7, %lpad2.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call) #20
   resume { ptr, i32 } %eh.lpad-body
 }

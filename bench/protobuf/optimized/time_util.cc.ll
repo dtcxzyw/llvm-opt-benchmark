@@ -116,8 +116,7 @@ invoke.cont.i:                                    ; preds = %entry
 if.then.i.i:                                      ; preds = %invoke.cont.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i), !noalias !7
   %retval.sroa.0.0.insert.ext.i.i.i.i.i.i = zext i32 %div.i.i to i64
-  %4 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i.i.i to ptr
-  store ptr %4, ptr %ref.tmp.i.i.i, align 8, !noalias !10
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i.i.i, ptr %ref.tmp.i.i.i, align 8, !noalias !10
   %dispatcher_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i.i.i, i64 0, i32 1
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i.i, align 8, !noalias !10
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp10.i, ptr nonnull @.str.6, i64 4, ptr nonnull %ref.tmp.i.i.i, i64 1)
@@ -136,8 +135,7 @@ if.else.i.i:                                      ; preds = %invoke.cont.i
 if.then4.i.i:                                     ; preds = %if.else.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i3.i.i), !noalias !7
   %retval.sroa.0.0.insert.ext.i.i.i.i8.i.i = zext i32 %div7.i.i to i64
-  %5 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i8.i.i to ptr
-  store ptr %5, ptr %ref.tmp.i3.i.i, align 8, !noalias !13
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i8.i.i, ptr %ref.tmp.i3.i.i, align 8, !noalias !13
   %dispatcher_.i.i.i9.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i3.i.i, i64 0, i32 1
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i9.i.i, align 8, !noalias !13
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp10.i, ptr nonnull @.str.7, i64 4, ptr nonnull %ref.tmp.i3.i.i, i64 1)
@@ -150,8 +148,7 @@ if.then4.i.i:                                     ; preds = %if.else.i.i
 if.else8.i.i:                                     ; preds = %if.else.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i12.i.i), !noalias !7
   %retval.sroa.0.0.insert.ext.i.i.i.i17.i.i = zext i32 %2 to i64
-  %6 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i17.i.i to ptr
-  store ptr %6, ptr %ref.tmp.i12.i.i, align 8, !noalias !16
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i17.i.i, ptr %ref.tmp.i12.i.i, align 8, !noalias !16
   %dispatcher_.i.i.i18.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i12.i.i, i64 0, i32 1
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i18.i.i, align 8, !noalias !16
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp10.i, ptr nonnull @.str.8, i64 4, ptr nonnull %ref.tmp.i12.i.i, i64 1)
@@ -163,11 +160,11 @@ if.else8.i.i:                                     ; preds = %if.else.i.i
 
 invoke.cont11.i:                                  ; preds = %.noexc4.i, %.noexc3.i, %.noexc.i
   %call.i5.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10.i) #15
-  %7 = extractvalue { i64, ptr } %call.i5.i, 0
-  store i64 %7, ptr %ref.tmp9.i, align 8, !noalias !4
-  %8 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp9.i, i64 0, i32 1
-  %9 = extractvalue { i64, ptr } %call.i5.i, 1
-  store ptr %9, ptr %8, align 8, !noalias !4
+  %4 = extractvalue { i64, ptr } %call.i5.i, 0
+  store i64 %4, ptr %ref.tmp9.i, align 8, !noalias !4
+  %5 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp9.i, i64 0, i32 1
+  %6 = extractvalue { i64, ptr } %call.i5.i, 1
+  store ptr %6, ptr %5, align 8, !noalias !4
   invoke void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_(ptr noundef %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.i)
           to label %invoke.cont14.i unwind label %lpad12.i
 
@@ -176,25 +173,25 @@ invoke.cont14.i:                                  ; preds = %invoke.cont11.i
   br label %invoke.cont16.i
 
 lpad.i:                                           ; preds = %invoke.cont16.i, %if.else8.i.i, %if.then4.i.i, %if.then.i.i
-  %10 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i
 
 lpad12.i:                                         ; preds = %invoke.cont11.i
-  %11 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10.i) #15
   br label %ehcleanup.i
 
 invoke.cont16.i:                                  ; preds = %invoke.cont14.i, %entry
   store i64 1, ptr %ref.tmp15.i, align 8, !noalias !4
-  %12 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp15.i, i64 0, i32 1
-  store ptr @.str.5, ptr %12, align 8, !noalias !4
+  %9 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp15.i, i64 0, i32 1
+  store ptr @.str.5, ptr %9, align 8, !noalias !4
   invoke void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp15.i)
           to label %_ZN6google8protobuf4util12_GLOBAL__N_110FormatTimeB5cxx11Eli.exit unwind label %lpad.i
 
 ehcleanup.i:                                      ; preds = %lpad12.i, %lpad.i
-  %.pn.i = phi { ptr, i32 } [ %10, %lpad.i ], [ %11, %lpad12.i ]
+  %.pn.i = phi { ptr, i32 } [ %7, %lpad.i ], [ %8, %lpad12.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #15
   resume { ptr, i32 } %.pn.i
 
@@ -440,8 +437,7 @@ invoke.cont12:                                    ; preds = %invoke.cont8
 if.then.i:                                        ; preds = %invoke.cont12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !25
   %retval.sroa.0.0.insert.ext.i.i.i.i.i = zext i32 %div.i to i64
-  %5 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i.i to ptr
-  store ptr %5, ptr %ref.tmp.i.i, align 8, !noalias !28
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i.i, ptr %ref.tmp.i.i, align 8, !noalias !28
   %dispatcher_.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i.i, i64 0, i32 1
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i, align 8, !noalias !28
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp14, ptr nonnull @.str.6, i64 4, ptr nonnull %ref.tmp.i.i, i64 1)
@@ -460,8 +456,7 @@ if.else.i:                                        ; preds = %invoke.cont12
 if.then4.i:                                       ; preds = %if.else.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i3.i), !noalias !25
   %retval.sroa.0.0.insert.ext.i.i.i.i8.i = zext i32 %div7.i to i64
-  %6 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i8.i to ptr
-  store ptr %6, ptr %ref.tmp.i3.i, align 8, !noalias !31
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i8.i, ptr %ref.tmp.i3.i, align 8, !noalias !31
   %dispatcher_.i.i.i9.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i3.i, i64 0, i32 1
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i9.i, align 8, !noalias !31
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp14, ptr nonnull @.str.7, i64 4, ptr nonnull %ref.tmp.i3.i, i64 1)
@@ -474,8 +469,7 @@ if.then4.i:                                       ; preds = %if.else.i
 if.else8.i:                                       ; preds = %if.else.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i12.i), !noalias !25
   %retval.sroa.0.0.insert.ext.i.i.i.i17.i = zext i32 %nanos.0 to i64
-  %7 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i17.i to ptr
-  store ptr %7, ptr %ref.tmp.i12.i, align 8, !noalias !34
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i17.i, ptr %ref.tmp.i12.i, align 8, !noalias !34
   %dispatcher_.i.i.i18.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i12.i, i64 0, i32 1
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i18.i, align 8, !noalias !34
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp14, ptr nonnull @.str.8, i64 4, ptr nonnull %ref.tmp.i12.i, i64 1)
@@ -487,11 +481,11 @@ if.else8.i:                                       ; preds = %if.else.i
 
 invoke.cont15:                                    ; preds = %.noexc10, %.noexc9, %.noexc
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #15
-  %8 = extractvalue { i64, ptr } %call.i, 0
-  store i64 %8, ptr %ref.tmp13, align 8
-  %9 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp13, i64 0, i32 1
-  %10 = extractvalue { i64, ptr } %call.i, 1
-  store ptr %10, ptr %9, align 8
+  %5 = extractvalue { i64, ptr } %call.i, 0
+  store i64 %5, ptr %ref.tmp13, align 8
+  %6 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp13, i64 0, i32 1
+  %7 = extractvalue { i64, ptr } %call.i, 1
+  store ptr %7, ptr %6, align 8
   invoke void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_(ptr noundef nonnull %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp13)
           to label %invoke.cont18 unwind label %lpad16
 
@@ -500,15 +494,15 @@ invoke.cont18:                                    ; preds = %invoke.cont15
   br label %invoke.cont21
 
 lpad16:                                           ; preds = %invoke.cont15
-  %11 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #15
   br label %ehcleanup
 
 invoke.cont21:                                    ; preds = %invoke.cont8, %invoke.cont18
   store i64 1, ptr %ref.tmp20, align 8
-  %12 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp20, i64 0, i32 1
-  store ptr @.str.2, ptr %12, align 8
+  %9 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp20, i64 0, i32 1
+  store ptr @.str.2, ptr %9, align 8
   invoke void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp20)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -516,7 +510,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont21
   ret void
 
 ehcleanup:                                        ; preds = %lpad16, %lpad
-  %.pn = phi { ptr, i32 } [ %3, %lpad ], [ %11, %lpad16 ]
+  %.pn = phi { ptr, i32 } [ %3, %lpad ], [ %8, %lpad16 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #15
   resume { ptr, i32 } %.pn
 }

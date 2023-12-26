@@ -1186,7 +1186,7 @@ invoke.cont226:                                   ; preds = %if.then.i.i356, %_Z
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %temp.sroa.0.i.i.i.i.i.i388.sroa.4)
   %temp.sroa.0.i.i.i.i.i.i388.sroa.4.0.arrayinit.element217.sroa_idx = getelementptr inbounds %"class.eastl::any", ptr %ref.tmp211, i64 1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %temp.sroa.0.i.i.i.i.i.i388.sroa.4, ptr noundef nonnull align 8 dereferenceable(15) %temp.sroa.0.i.i.i.i.i.i388.sroa.4.0.arrayinit.element217.sroa_idx, i64 15, i1 false)
-  store ptr inttoptr (i64 6451058 to ptr), ptr %arrayinit.element217, align 8
+  store i64 6451058, ptr %arrayinit.element217, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %temp.sroa.0.i.i.i.i.i.i388.sroa.4.0.arrayinit.element217.sroa_idx, ptr noundef nonnull align 8 dereferenceable(15) %ref.tmp218.sroa.7, i64 15, i1 false)
   store i8 20, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i389, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %ref.tmp218.sroa.7, ptr noundef nonnull align 1 dereferenceable(15) %temp.sroa.0.i.i.i.i.i.i388.sroa.4, i64 15, i1 false)

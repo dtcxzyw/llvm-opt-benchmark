@@ -265,7 +265,7 @@ if.end6:                                          ; preds = %if.end
   %2 = load i64, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %address.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bytes.addr.i)
-  store i64 %magicptr, ptr %address.addr.i, align 8
+  store ptr %call, ptr %address.addr.i, align 8
   store i64 %2, ptr %bytes.addr.i, align 8
   %call.i8 = invoke { ptr, i8 } @_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE7emplaceIJRmS8_EEES2_ISt17_Rb_tree_iteratorIS4_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %freeList_, ptr noundef nonnull align 8 dereferenceable(8) %address.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %bytes.addr.i)
           to label %call.i.noexc unwind label %lpad
@@ -877,17 +877,16 @@ _ZN8facebook5velox6memory9MmapArena10roundBytesEm.exit: ; preds = %entry
   %call3 = tail call i32 @madvise(ptr noundef nonnull %address, i64 noundef %spec.select.i.i, i32 noundef 4) #16
   %freeBytes_ = getelementptr inbounds %"class.facebook::velox::memory::MmapArena", ptr %this, i64 0, i32 2
   %1 = atomicrmw add ptr %freeBytes_, i64 %spec.select.i.i seq_cst, align 8
-  %2 = ptrtoint ptr %address to i64
-  store i64 %2, ptr %curAddr, align 8
+  store ptr %address, ptr %curAddr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %address.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bytes.addr.i)
-  store i64 %2, ptr %address.addr.i, align 8
+  store ptr %address, ptr %address.addr.i, align 8
   store i64 %spec.select.i.i, ptr %bytes.addr.i, align 8
   %freeList_.i = getelementptr inbounds %"class.facebook::velox::memory::MmapArena", ptr %this, i64 0, i32 3
   %call.i = call { ptr, i8 } @_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE7emplaceIJRmS8_EEES2_ISt17_Rb_tree_iteratorIS4_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %freeList_.i, ptr noundef nonnull align 8 dereferenceable(8) %address.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %bytes.addr.i)
-  %3 = extractvalue { ptr, i8 } %call.i, 1
-  %4 = and i8 %3, 1
-  %tobool.not.i = icmp eq i8 %4, 0
+  %2 = extractvalue { ptr, i8 } %call.i, 1
+  %3 = and i8 %2, 1
+  %tobool.not.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN8facebook5velox6memory9MmapArena10roundBytesEm.exit
@@ -899,21 +898,21 @@ if.end.i:                                         ; preds = %_ZN8facebook5velox6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i.i)
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::MmapArena", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 1, i32 0, i32 1
-  %5 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
+  %4 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::MmapArena", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 1
-  %cmp.not5.i.i.i.i.i = icmp eq ptr %5, null
+  %cmp.not5.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not5.i.i.i.i.i, label %if.then.i.i, label %while.body.lr.ph.i.i.i.i.i
 
 while.body.lr.ph.i.i.i.i.i:                       ; preds = %if.end.i
-  %6 = load i64, ptr %bytes.addr.i, align 8
+  %5 = load i64, ptr %bytes.addr.i, align 8
   br label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i
-  %__x.addr.07.i.i.i.i.i = phi ptr [ %5, %while.body.lr.ph.i.i.i.i.i ], [ %__x.addr.1.i.i.i.i.i, %while.body.i.i.i.i.i ]
+  %__x.addr.07.i.i.i.i.i = phi ptr [ %4, %while.body.lr.ph.i.i.i.i.i ], [ %__x.addr.1.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %__y.addr.06.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i ], [ %__y.addr.1.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i.i.i, i64 0, i32 1
-  %7 = load i64, ptr %_M_storage.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp ult i64 %7, %6
+  %6 = load i64, ptr %_M_storage.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i = icmp ult i64 %6, %5
   %_M_right.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i.i, i64 0, i32 3
   %_M_left.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i.i, ptr %__x.addr.07.i.i.i.i.i
@@ -928,8 +927,8 @@ _ZNSt3mapImSt13unordered_setImSt4hashImESt8equal_toImESaImEESt4lessImESaISt4pair
 
 lor.rhs.i.i:                                      ; preds = %_ZNSt3mapImSt13unordered_setImSt4hashImESt8equal_toImESaImEESt4lessImESaISt4pairIKmS6_EEE11lower_boundERSA_.exit.i.i
   %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i.i, i64 0, i32 1
-  %8 = load i64, ptr %_M_storage.i.i.i.i, align 8
-  %cmp.i3.i.i = icmp ult i64 %6, %8
+  %7 = load i64, ptr %_M_storage.i.i.i.i, align 8
+  %cmp.i3.i.i = icmp ult i64 %5, %7
   br i1 %cmp.i3.i.i, label %if.then.i.i, label %_ZN8facebook5velox6memory9MmapArena12addFreeBlockEmm.exit
 
 if.then.i.i:                                      ; preds = %lor.rhs.i.i, %_ZNSt3mapImSt13unordered_setImSt4hashImESt8equal_toImESaImEESt4lessImESaISt4pairIKmS6_EEE11lower_boundERSA_.exit.i.i, %if.end.i
@@ -940,7 +939,7 @@ if.then.i.i:                                      ; preds = %lor.rhs.i.i, %_ZNSt
 
 _ZN8facebook5velox6memory9MmapArena12addFreeBlockEmm.exit: ; preds = %lor.rhs.i.i, %if.then.i.i
   %__i.sroa.0.0.i.i = phi ptr [ %call12.i.i, %if.then.i.i ], [ %__y.addr.1.i.i.i.i.i, %lor.rhs.i.i ]
-  %9 = extractvalue { ptr, i8 } %call.i, 0
+  %8 = extractvalue { ptr, i8 } %call.i, 0
   %second.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__i.sroa.0.0.i.i, i64 0, i32 1, i32 0, i64 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i.i)
@@ -949,20 +948,20 @@ _ZN8facebook5velox6memory9MmapArena12addFreeBlockEmm.exit: ; preds = %lor.rhs.i.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes.addr.i)
   %add.ptr.i.i = getelementptr inbounds %"class.facebook::velox::memory::MmapArena", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 1
   %_M_left.i.i = getelementptr inbounds %"class.facebook::velox::memory::MmapArena", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 2
-  %10 = load ptr, ptr %_M_left.i.i, align 8
-  %cmp.i.not = icmp eq ptr %9, %10
+  %9 = load ptr, ptr %_M_left.i.i, align 8
+  %cmp.i.not = icmp eq ptr %8, %9
   br i1 %cmp.i.not, label %if.end23, label %while.body3.i.i.i.preheader
 
 while.body3.i.i.i.preheader:                      ; preds = %_ZN8facebook5velox6memory9MmapArena12addFreeBlockEmm.exit
-  %call.i4.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %9) #18
+  %call.i4.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %8) #18
   %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.39", ptr %call.i4.i.i.i, i64 0, i32 1
-  %11 = load i64, ptr %_M_storage.i.i, align 8
-  store i64 %11, ptr %prevAddr, align 8
+  %10 = load i64, ptr %_M_storage.i.i, align 8
+  store i64 %10, ptr %prevAddr, align 8
   %second = getelementptr inbounds %"struct.std::_Rb_tree_node.39", ptr %call.i4.i.i.i, i64 0, i32 1, i32 0, i64 8
-  %12 = load i64, ptr %second, align 8
-  %add = add i64 %12, %11
-  %13 = load i64, ptr %curAddr, align 8
-  %cmp19.not = icmp ugt i64 %add, %13
+  %11 = load i64, ptr %second, align 8
+  %add = add i64 %11, %10
+  %12 = load i64, ptr %curAddr, align 8
+  %cmp19.not = icmp ugt i64 %add, %12
   br i1 %cmp19.not, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %while.body3.i.i.i.preheader
@@ -970,23 +969,23 @@ if.then20:                                        ; preds = %while.body3.i.i.i.p
   unreachable
 
 if.end21:                                         ; preds = %while.body3.i.i.i.preheader
-  %cmp22 = icmp eq i64 %add, %13
+  %cmp22 = icmp eq i64 %add, %12
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end21, %_ZN8facebook5velox6memory9MmapArena12addFreeBlockEmm.exit
   %prevIter.sroa.0.0 = phi ptr [ %call.i4.i.i.i, %if.end21 ], [ %add.ptr.i.i, %_ZN8facebook5velox6memory9MmapArena12addFreeBlockEmm.exit ]
   %mergePrev.0 = phi i1 [ %cmp22, %if.end21 ], [ false, %_ZN8facebook5velox6memory9MmapArena12addFreeBlockEmm.exit ]
-  %prevBytes.0 = phi i64 [ %12, %if.end21 ], [ undef, %_ZN8facebook5velox6memory9MmapArena12addFreeBlockEmm.exit ]
-  %call.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %9) #18
+  %prevBytes.0 = phi i64 [ %11, %if.end21 ], [ undef, %_ZN8facebook5velox6memory9MmapArena12addFreeBlockEmm.exit ]
+  %call.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %8) #18
   %cmp.i22.not = icmp eq ptr %call.i.i.i.i, %add.ptr.i.i
   br i1 %cmp.i22.not, label %if.end45, label %if.then33
 
 if.then33:                                        ; preds = %if.end23
   %_M_storage.i.i23 = getelementptr inbounds %"struct.std::_Rb_tree_node.39", ptr %call.i.i.i.i, i64 0, i32 1
-  %14 = load i64, ptr %_M_storage.i.i23, align 8
-  %15 = load i64, ptr %curAddr, align 8
-  %add38 = add i64 %15, %spec.select.i.i
-  %cmp39.not = icmp ugt i64 %add38, %14
+  %13 = load i64, ptr %_M_storage.i.i23, align 8
+  %14 = load i64, ptr %curAddr, align 8
+  %add38 = add i64 %14, %spec.select.i.i
+  %cmp39.not = icmp ugt i64 %add38, %13
   br i1 %cmp39.not, label %if.then41, label %if.end42
 
 if.then41:                                        ; preds = %if.then33
@@ -995,14 +994,14 @@ if.then41:                                        ; preds = %if.then33
 
 if.end42:                                         ; preds = %if.then33
   %second37 = getelementptr inbounds %"struct.std::_Rb_tree_node.39", ptr %call.i.i.i.i, i64 0, i32 1, i32 0, i64 8
-  %16 = load i64, ptr %second37, align 8
-  %cmp43 = icmp eq i64 %add38, %14
+  %15 = load i64, ptr %second37, align 8
+  %cmp43 = icmp eq i64 %add38, %13
   br label %if.end45
 
 if.end45:                                         ; preds = %if.end42, %if.end23
   %mergeNext.0 = phi i1 [ %cmp43, %if.end42 ], [ false, %if.end23 ]
-  %nextBytes.0 = phi i64 [ %16, %if.end42 ], [ undef, %if.end23 ]
-  %nextAddr.0 = phi i64 [ %14, %if.end42 ], [ undef, %if.end23 ]
+  %nextBytes.0 = phi i64 [ %15, %if.end42 ], [ undef, %if.end23 ]
+  %nextAddr.0 = phi i64 [ %13, %if.end42 ], [ undef, %if.end23 ]
   %brmerge = or i1 %mergePrev.0, %mergeNext.0
   br i1 %brmerge, label %if.end48, label %if.end77
 
@@ -1010,62 +1009,62 @@ if.end48:                                         ; preds = %if.end45
   br i1 %mergePrev.0, label %if.then50, label %if.end63
 
 if.then50:                                        ; preds = %if.end48
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.39", ptr %9, i64 0, i32 1
-  %17 = load i64, ptr %_M_storage.i.i.i, align 8
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node.39", ptr %9, i64 0, i32 1, i32 0, i64 8
-  %18 = load i64, ptr %second.i, align 8
-  call void @_ZN8facebook5velox6memory9MmapArena16removeFromLookupEmm(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %17, i64 noundef %18)
-  %call.i1.i.i.i = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #16
+  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.39", ptr %8, i64 0, i32 1
+  %16 = load i64, ptr %_M_storage.i.i.i, align 8
+  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node.39", ptr %8, i64 0, i32 1, i32 0, i64 8
+  %17 = load i64, ptr %second.i, align 8
+  call void @_ZN8facebook5velox6memory9MmapArena16removeFromLookupEmm(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %16, i64 noundef %17)
+  %call.i1.i.i.i = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #16
   call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i.i) #19
   %_M_node_count.i.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::MmapArena", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 1, i32 1
-  %19 = load i64, ptr %_M_node_count.i.i.i.i, align 8
-  %dec.i.i.i.i = add i64 %19, -1
+  %18 = load i64, ptr %_M_node_count.i.i.i.i, align 8
+  %dec.i.i.i.i = add i64 %18, -1
   store i64 %dec.i.i.i.i, ptr %_M_node_count.i.i.i.i, align 8
-  %20 = load i64, ptr %prevAddr, align 8
-  call void @_ZN8facebook5velox6memory9MmapArena16removeFromLookupEmm(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %20, i64 noundef %prevBytes.0)
-  %21 = load i64, ptr %curAddr, align 8
-  %sub = add i64 %21, %spec.select.i.i
-  %add51 = sub i64 %sub, %20
+  %19 = load i64, ptr %prevAddr, align 8
+  call void @_ZN8facebook5velox6memory9MmapArena16removeFromLookupEmm(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %19, i64 noundef %prevBytes.0)
+  %20 = load i64, ptr %curAddr, align 8
+  %sub = add i64 %20, %spec.select.i.i
+  %add51 = sub i64 %sub, %19
   store i64 %add51, ptr %newFreeSize, align 8
   br i1 %mergeNext.0, label %if.then53, label %if.end56
 
 if.then53:                                        ; preds = %if.then50
   %_M_storage.i.i.i25 = getelementptr inbounds %"struct.std::_Rb_tree_node.39", ptr %call.i.i.i.i, i64 0, i32 1
-  %22 = load i64, ptr %_M_storage.i.i.i25, align 8
+  %21 = load i64, ptr %_M_storage.i.i.i25, align 8
   %second.i26 = getelementptr inbounds %"struct.std::_Rb_tree_node.39", ptr %call.i.i.i.i, i64 0, i32 1, i32 0, i64 8
-  %23 = load i64, ptr %second.i26, align 8
-  call void @_ZN8facebook5velox6memory9MmapArena16removeFromLookupEmm(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %22, i64 noundef %23)
+  %22 = load i64, ptr %second.i26, align 8
+  call void @_ZN8facebook5velox6memory9MmapArena16removeFromLookupEmm(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %21, i64 noundef %22)
   %call.i1.i.i.i29 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %call.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #16
   call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i.i29) #19
-  %24 = load i64, ptr %_M_node_count.i.i.i.i, align 8
-  %dec.i.i.i.i31 = add i64 %24, -1
+  %23 = load i64, ptr %_M_node_count.i.i.i.i, align 8
+  %dec.i.i.i.i31 = add i64 %23, -1
   store i64 %dec.i.i.i.i31, ptr %_M_node_count.i.i.i.i, align 8
   %sub54 = add i64 %nextAddr.0, %nextBytes.0
-  %add55 = sub i64 %sub54, %20
+  %add55 = sub i64 %sub54, %19
   store i64 %add55, ptr %newFreeSize, align 8
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then53, %if.then50
-  %25 = phi i64 [ %add55, %if.then53 ], [ %add51, %if.then50 ]
+  %24 = phi i64 [ %add55, %if.then53 ], [ %add51, %if.then50 ]
   %_M_storage.i.i32 = getelementptr inbounds %"struct.std::_Rb_tree_node.39", ptr %prevIter.sroa.0.0, i64 0, i32 1
   %call60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %freeList_.i, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i32)
-  store i64 %25, ptr %call60, align 8
+  store i64 %24, ptr %call60, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
-  %26 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %26, null
+  %25 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
+  %cmp.not5.i.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not5.i.i.i.i, label %if.then.i38, label %while.body.lr.ph.i.i.i.i
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %if.end56
-  %27 = load i64, ptr %newFreeSize, align 8
+  %26 = load i64, ptr %newFreeSize, align 8
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %__x.addr.07.i.i.i.i = phi ptr [ %26, %while.body.lr.ph.i.i.i.i ], [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ]
+  %__x.addr.07.i.i.i.i = phi ptr [ %25, %while.body.lr.ph.i.i.i.i ], [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ]
   %__y.addr.06.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %while.body.lr.ph.i.i.i.i ], [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i.i, i64 0, i32 1
-  %28 = load i64, ptr %_M_storage.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp ult i64 %28, %27
+  %27 = load i64, ptr %_M_storage.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i = icmp ult i64 %27, %26
   %_M_right.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i, i64 0, i32 3
   %_M_left.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
@@ -1080,8 +1079,8 @@ _ZNSt3mapImSt13unordered_setImSt4hashImESt8equal_toImESaImEESt4lessImESaISt4pair
 
 lor.rhs.i:                                        ; preds = %_ZNSt3mapImSt13unordered_setImSt4hashImESt8equal_toImESaImEESt4lessImESaISt4pairIKmS6_EEE11lower_boundERSA_.exit.i
   %_M_storage.i.i.i35 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1
-  %29 = load i64, ptr %_M_storage.i.i.i35, align 8
-  %cmp.i3.i = icmp ult i64 %27, %29
+  %28 = load i64, ptr %_M_storage.i.i.i35, align 8
+  %cmp.i3.i = icmp ult i64 %26, %28
   br i1 %cmp.i3.i, label %if.then.i38, label %_ZNSt3mapImSt13unordered_setImSt4hashImESt8equal_toImESaImEESt4lessImESaISt4pairIKmS6_EEEixERSA_.exit
 
 if.then.i38:                                      ; preds = %lor.rhs.i, %_ZNSt3mapImSt13unordered_setImSt4hashImESt8equal_toImESaImEESt4lessImESaISt4pairIKmS6_EEE11lower_boundERSA_.exit.i, %if.end56
@@ -1103,40 +1102,40 @@ if.end63:                                         ; preds = %if.end48
 
 if.then65:                                        ; preds = %if.end63
   %_M_storage.i.i.i39 = getelementptr inbounds %"struct.std::_Rb_tree_node.39", ptr %call.i.i.i.i, i64 0, i32 1
-  %30 = load i64, ptr %_M_storage.i.i.i39, align 8
+  %29 = load i64, ptr %_M_storage.i.i.i39, align 8
   %second.i40 = getelementptr inbounds %"struct.std::_Rb_tree_node.39", ptr %call.i.i.i.i, i64 0, i32 1, i32 0, i64 8
-  %31 = load i64, ptr %second.i40, align 8
-  call void @_ZN8facebook5velox6memory9MmapArena16removeFromLookupEmm(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %30, i64 noundef %31)
+  %30 = load i64, ptr %second.i40, align 8
+  call void @_ZN8facebook5velox6memory9MmapArena16removeFromLookupEmm(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %29, i64 noundef %30)
   %call.i1.i.i.i43 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %call.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #16
   call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i.i43) #19
   %_M_node_count.i.i.i.i44 = getelementptr inbounds %"class.facebook::velox::memory::MmapArena", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 1, i32 1
-  %32 = load i64, ptr %_M_node_count.i.i.i.i44, align 8
-  %dec.i.i.i.i45 = add i64 %32, -1
+  %31 = load i64, ptr %_M_node_count.i.i.i.i44, align 8
+  %dec.i.i.i.i45 = add i64 %31, -1
   store i64 %dec.i.i.i.i45, ptr %_M_node_count.i.i.i.i44, align 8
-  %33 = load i64, ptr %curAddr, align 8
-  call void @_ZN8facebook5velox6memory9MmapArena16removeFromLookupEmm(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %33, i64 noundef %spec.select.i.i)
-  %sub67 = sub i64 %nextAddr.0, %33
+  %32 = load i64, ptr %curAddr, align 8
+  call void @_ZN8facebook5velox6memory9MmapArena16removeFromLookupEmm(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %32, i64 noundef %spec.select.i.i)
+  %sub67 = sub i64 %nextAddr.0, %32
   %add68 = add i64 %sub67, %nextBytes.0
   store i64 %add68, ptr %newFreeSize66, align 8
-  %_M_storage.i.i46 = getelementptr inbounds %"struct.std::_Rb_tree_node.39", ptr %9, i64 0, i32 1
+  %_M_storage.i.i46 = getelementptr inbounds %"struct.std::_Rb_tree_node.39", ptr %8, i64 0, i32 1
   %call72 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %freeList_.i, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i46)
   store i64 %add68, ptr %call72, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i47)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i48)
-  %34 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i51 = icmp eq ptr %34, null
+  %33 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
+  %cmp.not5.i.i.i.i51 = icmp eq ptr %33, null
   br i1 %cmp.not5.i.i.i.i51, label %if.then.i72, label %while.body.lr.ph.i.i.i.i52
 
 while.body.lr.ph.i.i.i.i52:                       ; preds = %if.then65
-  %35 = load i64, ptr %newFreeSize66, align 8
+  %34 = load i64, ptr %newFreeSize66, align 8
   br label %while.body.i.i.i.i53
 
 while.body.i.i.i.i53:                             ; preds = %while.body.i.i.i.i53, %while.body.lr.ph.i.i.i.i52
-  %__x.addr.07.i.i.i.i54 = phi ptr [ %34, %while.body.lr.ph.i.i.i.i52 ], [ %__x.addr.1.i.i.i.i62, %while.body.i.i.i.i53 ]
+  %__x.addr.07.i.i.i.i54 = phi ptr [ %33, %while.body.lr.ph.i.i.i.i52 ], [ %__x.addr.1.i.i.i.i62, %while.body.i.i.i.i53 ]
   %__y.addr.06.i.i.i.i55 = phi ptr [ %add.ptr.i.i.i.i.i, %while.body.lr.ph.i.i.i.i52 ], [ %__y.addr.1.i.i.i.i60, %while.body.i.i.i.i53 ]
   %_M_storage.i.i.i.i.i.i56 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i.i54, i64 0, i32 1
-  %36 = load i64, ptr %_M_storage.i.i.i.i.i.i56, align 8
-  %cmp.i.i.i.i.i57 = icmp ult i64 %36, %35
+  %35 = load i64, ptr %_M_storage.i.i.i.i.i.i56, align 8
+  %cmp.i.i.i.i.i57 = icmp ult i64 %35, %34
   %_M_right.i.i.i.i.i58 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i54, i64 0, i32 3
   %_M_left.i.i.i.i.i59 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i54, i64 0, i32 2
   %__y.addr.1.i.i.i.i60 = select i1 %cmp.i.i.i.i.i57, ptr %__y.addr.06.i.i.i.i55, ptr %__x.addr.07.i.i.i.i54
@@ -1151,8 +1150,8 @@ _ZNSt3mapImSt13unordered_setImSt4hashImESt8equal_toImESaImEESt4lessImESaISt4pair
 
 lor.rhs.i66:                                      ; preds = %_ZNSt3mapImSt13unordered_setImSt4hashImESt8equal_toImESaImEESt4lessImESaISt4pairIKmS6_EEE11lower_boundERSA_.exit.i64
   %_M_storage.i.i.i67 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i60, i64 0, i32 1
-  %37 = load i64, ptr %_M_storage.i.i.i67, align 8
-  %cmp.i3.i68 = icmp ult i64 %35, %37
+  %36 = load i64, ptr %_M_storage.i.i.i67, align 8
+  %cmp.i3.i68 = icmp ult i64 %34, %36
   br i1 %cmp.i3.i68, label %if.then.i72, label %_ZNSt3mapImSt13unordered_setImSt4hashImESt8equal_toImESaImEESt4lessImESaISt4pairIKmS6_EEEixERSA_.exit75
 
 if.then.i72:                                      ; preds = %lor.rhs.i66, %_ZNSt3mapImSt13unordered_setImSt4hashImESt8equal_toImESaImEESt4lessImESaISt4pairIKmS6_EEE11lower_boundERSA_.exit.i64, %if.then65
@@ -2010,27 +2009,24 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %3 = ptrtoint ptr %1 to i64
   %_M_node_count.i.i = getelementptr inbounds %"class.facebook::velox::memory::MmapArena", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 1, i32 1
-  %4 = load i64, ptr %_M_node_count.i.i, align 8
+  %3 = load i64, ptr %_M_node_count.i.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %call.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #16, !noalias !17
   %call2.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #16, !noalias !17
-  %5 = ptrtoint ptr %call.i.i.i to i64
   %call.i.i35.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #16, !noalias !17
   %call2.i.i36.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #16, !noalias !17
-  %6 = ptrtoint ptr %call.i.i35.i to i64
-  store i64 %5, ptr %ref.tmp.i, align 16, !alias.scope !17
+  store ptr %call.i.i.i, ptr %ref.tmp.i, align 16, !alias.scope !17
   %ref.tmp.i.sroa.2.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 %call2.i.i.i, ptr %ref.tmp.i.sroa.2.0.agg.result.sroa_idx.i, align 8, !alias.scope !17
   %arrayinit.element.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 1
-  store i64 %3, ptr %arrayinit.element.i.i, align 16, !alias.scope !17
+  store ptr %1, ptr %arrayinit.element.i.i, align 16, !alias.scope !17
   %arrayinit.element8.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 2
-  store i64 %6, ptr %arrayinit.element8.i.i, align 16, !alias.scope !17
+  store ptr %call.i.i35.i, ptr %arrayinit.element8.i.i, align 16, !alias.scope !17
   %ref.tmp13.i.sroa.2.0.arrayinit.element8.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store i64 %call2.i.i36.i, ptr %ref.tmp13.i.sroa.2.0.arrayinit.element8.i.sroa_idx.i, align 8, !alias.scope !17
   %arrayinit.element9.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 3
-  store i64 %4, ptr %arrayinit.element9.i.i, align 16, !alias.scope !17
+  store i64 %3, ptr %arrayinit.element9.i.i, align 16, !alias.scope !17
   invoke void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.17, i64 63, i64 19789, ptr nonnull %ref.tmp.i)
           to label %invoke.cont7 unwind label %lpad6
 
@@ -2040,18 +2036,18 @@ invoke.cont7:                                     ; preds = %.noexc
   ret void
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad6:                                            ; preds = %.noexc
-  %8 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #16
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad6, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad6 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %5, %lpad6 ], [ %4, %lpad ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #16
   resume { ptr, i32 } %.pn
 }
@@ -2103,18 +2099,18 @@ invoke.cont:                                      ; preds = %call5.i.i.i3.i.i.i.
   store ptr %_M_impl.i.i.i.i.i.i, ptr %arena, align 8, !alias.scope !20
   %address_.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i2, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   %2 = load ptr, ptr %address_.i, align 8
-  %3 = ptrtoint ptr %2 to i64
-  store i64 %3, ptr %ref.tmp, align 8
-  %4 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %4, null
+  store ptr %2, ptr %ref.tmp, align 8
+  %3 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
+  %cmp.not5.i.i.i.i = icmp eq ptr %3, null
+  %4 = ptrtoint ptr %2 to i64
   br i1 %cmp.not5.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %invoke.cont, %while.body.i.i.i.i
-  %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %4, %invoke.cont ]
+  %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %3, %invoke.cont ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %invoke.cont ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.41", ptr %__x.addr.07.i.i.i.i, i64 0, i32 1
   %5 = load i64, ptr %_M_storage.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp ult i64 %5, %3
+  %cmp.i.i.i.i.i = icmp ult i64 %5, %4
   %_M_right.i.i.i.i.i4 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i, i64 0, i32 3
   %_M_left.i.i.i.i.i5 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
@@ -2130,7 +2126,7 @@ _ZNSt3mapImSt10shared_ptrIN8facebook5velox6memory9MmapArenaEESt4lessImESaISt4pai
 lor.rhs.i:                                        ; preds = %_ZNSt3mapImSt10shared_ptrIN8facebook5velox6memory9MmapArenaEESt4lessImESaISt4pairIKmS5_EEE11lower_boundERS9_.exit.i
   %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.41", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1
   %6 = load i64, ptr %_M_storage.i.i.i, align 8
-  %cmp.i5.i = icmp ugt i64 %6, %3
+  %cmp.i5.i = icmp ugt i64 %6, %4
   br i1 %cmp.i5.i, label %if.then.i, label %invoke.cont6
 
 if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3mapImSt10shared_ptrIN8facebook5velox6memory9MmapArenaEESt4lessImESaISt4pairIKmS5_EEE11lower_boundERS9_.exit.i, %invoke.cont
@@ -2488,20 +2484,20 @@ _ZSt11make_sharedIN8facebook5velox6memory9MmapArenaEJRKmEESt10shared_ptrINSt9ena
   %arenas_ = getelementptr inbounds %"class.facebook::velox::memory::ManagedMmapArenas", ptr %this, i64 0, i32 1
   %address_.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   %3 = load ptr, ptr %address_.i, align 8
-  %4 = ptrtoint ptr %3 to i64
-  store i64 %4, ptr %ref.tmp, align 8
+  store ptr %3, ptr %ref.tmp, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::ManagedMmapArenas", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
-  %5 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
+  %4 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::ManagedMmapArenas", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
-  %cmp.not5.i.i.i.i = icmp eq ptr %5, null
+  %cmp.not5.i.i.i.i = icmp eq ptr %4, null
+  %5 = ptrtoint ptr %3 to i64
   br i1 %cmp.not5.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %_ZSt11make_sharedIN8facebook5velox6memory9MmapArenaEJRKmEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit, %while.body.i.i.i.i
-  %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %5, %_ZSt11make_sharedIN8facebook5velox6memory9MmapArenaEJRKmEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit ]
+  %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %4, %_ZSt11make_sharedIN8facebook5velox6memory9MmapArenaEJRKmEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %_ZSt11make_sharedIN8facebook5velox6memory9MmapArenaEJRKmEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.41", ptr %__x.addr.07.i.i.i.i, i64 0, i32 1
   %6 = load i64, ptr %_M_storage.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp ult i64 %6, %4
+  %cmp.i.i.i.i.i = icmp ult i64 %6, %5
   %_M_right.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i, i64 0, i32 3
   %_M_left.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
@@ -2517,7 +2513,7 @@ _ZNSt3mapImSt10shared_ptrIN8facebook5velox6memory9MmapArenaEESt4lessImESaISt4pai
 lor.rhs.i:                                        ; preds = %_ZNSt3mapImSt10shared_ptrIN8facebook5velox6memory9MmapArenaEESt4lessImESaISt4pairIKmS5_EEE11lower_boundERS9_.exit.i
   %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.41", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1
   %7 = load i64, ptr %_M_storage.i.i.i, align 8
-  %cmp.i5.i = icmp ugt i64 %7, %4
+  %cmp.i5.i = icmp ugt i64 %7, %5
   br i1 %cmp.i5.i, label %if.then.i, label %invoke.cont5
 
 if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3mapImSt10shared_ptrIN8facebook5velox6memory9MmapArenaEESt4lessImESaISt4pairIKmS5_EEE11lower_boundERS9_.exit.i, %_ZSt11make_sharedIN8facebook5velox6memory9MmapArenaEJRKmEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit

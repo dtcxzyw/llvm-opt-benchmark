@@ -2327,7 +2327,7 @@ init.end:                                         ; preds = %invoke.cont, %init.
 
 cond.false:                                       ; preds = %init.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp6) #5
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8, !tbaa !48
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp, align 8, !tbaa !48
   %.fca.1.gep66 = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep66, align 8, !tbaa !48
   call void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6, ptr noundef nonnull @.str.10, i32 noundef 83, i32 noundef 3, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)
@@ -2397,7 +2397,7 @@ if.end:                                           ; preds = %do.cond.i85, %"_ZN5
 cond.false29:                                     ; preds = %if.then.i92, %if.end, %land.lhs.true
   %bytesRead.0108 = phi i64 [ %bytesRead.0, %if.end ], [ -1, %land.lhs.true ], [ -1, %if.then.i92 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp31) #5
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp33, align 8, !tbaa !48
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp33, align 8, !tbaa !48
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp33, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !48
   call void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp31, ptr noundef nonnull @.str.10, i32 noundef 86, i32 noundef 3, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp33)

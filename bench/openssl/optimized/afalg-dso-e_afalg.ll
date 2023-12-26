@@ -948,22 +948,21 @@ if.end3.i:                                        ; preds = %afalg_setup_async_e
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, i8 0, i64 48, i1 false)
   %aio_fildes.i = getelementptr inbounds %struct.afalg_ctx_st, ptr %call, i64 0, i32 3, i32 4, i64 0, i32 5
   store i32 %5, ptr %aio_fildes.i, align 4
-  %14 = ptrtoint ptr %out to i64
   %aio_buf.i = getelementptr inbounds %struct.afalg_ctx_st, ptr %call, i64 0, i32 3, i32 4, i64 0, i32 6
-  store i64 %14, ptr %aio_buf.i, align 8
+  store ptr %out, ptr %aio_buf.i, align 8
   store i64 0, ptr %cbt.i, align 8
   %aio_nbytes.i = getelementptr inbounds %struct.afalg_ctx_st, ptr %call, i64 0, i32 3, i32 4, i64 0, i32 7
   store i64 %inl, ptr %aio_nbytes.i, align 8
   %aio_flags.i = getelementptr inbounds %struct.afalg_ctx_st, ptr %call, i64 0, i32 3, i32 4, i64 0, i32 10
   store i32 1, ptr %aio_flags.i, align 8
-  %15 = load i32, ptr %aio, align 8
+  %14 = load i32, ptr %aio, align 8
   %aio_resfd.i = getelementptr inbounds %struct.afalg_ctx_st, ptr %call, i64 0, i32 3, i32 4, i64 0, i32 11
-  store i32 %15, ptr %aio_resfd.i, align 4
+  store i32 %14, ptr %aio_resfd.i, align 4
   %aio_ctx.i = getelementptr inbounds %struct.afalg_ctx_st, ptr %call, i64 0, i32 3, i32 2
-  %16 = load i64, ptr %aio_ctx.i, align 8
-  %call.i15.i = call i64 (i64, ...) @syscall(i64 noundef 209, i64 noundef %16, i64 noundef 1, ptr noundef nonnull %cb.i) #14
-  %17 = and i64 %call.i15.i, 2147483648
-  %cmp5.not.i = icmp eq i64 %17, 0
+  %15 = load i64, ptr %aio_ctx.i, align 8
+  %call.i15.i = call i64 (i64, ...) @syscall(i64 noundef 209, i64 noundef %15, i64 noundef 1, ptr noundef nonnull %cb.i) #14
+  %16 = and i64 %call.i15.i, 2147483648
+  %cmp5.not.i = icmp eq i64 %16, 0
   br i1 %cmp5.not.i, label %do.body9.preheader.i, label %do.body.i21
 
 do.body9.preheader.i:                             ; preds = %if.end3.i
@@ -975,74 +974,74 @@ do.body9.i.outer:                                 ; preds = %if.then53.i, %do.bo
   br label %do.body9.i
 
 do.body.i21:                                      ; preds = %if.end3.i
-  %18 = load ptr, ptr @stderr, align 8
-  %call7.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.1, i32 noundef 306) #16
+  %17 = load ptr, ptr @stderr, align 8
+  %call7.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.1, i32 noundef 306) #16
   call void @perror(ptr noundef null) #16
   br label %afalg_fin_cipher_aio.exit.thread
 
 do.body9.i:                                       ; preds = %do.body9.i.backedge, %do.body9.i.outer
   %call10.i = call i32 @ASYNC_pause_job() #14
-  %19 = load i32, ptr %aio, align 8
-  %call12.i = call i64 @read(i32 noundef %19, ptr noundef nonnull %eval.i, i64 noundef 8) #14
-  %20 = and i64 %call12.i, 2147483648
-  %cmp13.not.i = icmp eq i64 %20, 0
+  %18 = load i32, ptr %aio, align 8
+  %call12.i = call i64 @read(i32 noundef %18, ptr noundef nonnull %eval.i, i64 noundef 8) #14
+  %19 = and i64 %call12.i, 2147483648
+  %cmp13.not.i = icmp eq i64 %19, 0
   br i1 %cmp13.not.i, label %if.else.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %do.body9.i
   %call16.i = tail call ptr @__errno_location() #17
-  %21 = load i32, ptr %call16.i, align 4
-  %cmp17.i = icmp eq i32 %21, 11
+  %20 = load i32, ptr %call16.i, align 4
+  %cmp17.i = icmp eq i32 %20, 11
   br i1 %cmp17.i, label %do.body9.i.backedge, label %do.body24.i
 
 do.body24.i:                                      ; preds = %if.then15.i
-  %22 = load ptr, ptr @stderr, align 8
-  %call25.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 319) #16
+  %21 = load ptr, ptr @stderr, align 8
+  %call25.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 319) #16
   call void @perror(ptr noundef null) #16
   br label %afalg_fin_cipher_aio.exit.thread
 
 if.else.i:                                        ; preds = %do.body9.i
-  %23 = load i64, ptr %eval.i, align 8
-  %cmp35.not.i = icmp eq i64 %23, 0
+  %22 = load i64, ptr %eval.i, align 8
+  %cmp35.not.i = icmp eq i64 %22, 0
   br i1 %cmp35.not.i, label %do.body9.i.backedge, label %if.then37.i
 
 if.then37.i:                                      ; preds = %if.else.i
-  %24 = load i64, ptr %aio_ctx.i, align 8
-  %call.i16.i = call i64 (i64, ...) @syscall(i64 noundef 208, i64 noundef %24, i64 noundef 1, i64 noundef 1, ptr noundef nonnull %events.i, ptr noundef nonnull %timeout.i) #14
+  %23 = load i64, ptr %aio_ctx.i, align 8
+  %call.i16.i = call i64 (i64, ...) @syscall(i64 noundef 208, i64 noundef %23, i64 noundef 1, i64 noundef 1, ptr noundef nonnull %events.i, ptr noundef nonnull %timeout.i) #14
   %conv.i17.i = trunc i64 %call.i16.i to i32
   %cmp40.i = icmp sgt i32 %conv.i17.i, 0
   br i1 %cmp40.i, label %if.then42.i, label %if.else73.i
 
 if.then42.i:                                      ; preds = %if.then37.i
-  %25 = load i64, ptr %res.i, align 16
-  %cmp44.i = icmp slt i64 %25, 0
+  %24 = load i64, ptr %res.i, align 16
+  %cmp44.i = icmp slt i64 %24, 0
   br i1 %cmp44.i, label %if.then46.i, label %if.end22
 
 if.then46.i:                                      ; preds = %if.then42.i
-  %cmp49.i = icmp eq i64 %25, -16
+  %cmp49.i = icmp eq i64 %24, -16
   %cmp51.i = icmp ult i32 %retry.0.i.ph, 3
   %or.cond.i = select i1 %cmp49.i, i1 %cmp51.i, i1 false
   br i1 %or.cond.i, label %if.then53.i, label %if.else63.i
 
 if.then53.i:                                      ; preds = %if.then46.i
   %inc.i = add nuw nsw i32 %retry.0.i.ph, 1
-  %26 = load i64, ptr %aio_ctx.i, align 8
-  %call.i18.i = call i64 (i64, ...) @syscall(i64 noundef 209, i64 noundef %26, i64 noundef 1, ptr noundef nonnull %cb.i) #14
-  %27 = and i64 %call.i18.i, 2147483648
-  %cmp56.not.i = icmp eq i64 %27, 0
+  %25 = load i64, ptr %aio_ctx.i, align 8
+  %call.i18.i = call i64 (i64, ...) @syscall(i64 noundef 209, i64 noundef %25, i64 noundef 1, ptr noundef nonnull %cb.i) #14
+  %26 = and i64 %call.i18.i, 2147483648
+  %cmp56.not.i = icmp eq i64 %26, 0
   br i1 %cmp56.not.i, label %do.body9.i.outer, label %do.body59.i, !llvm.loop !9
 
 do.body59.i:                                      ; preds = %if.then53.i
-  %28 = load ptr, ptr @stderr, align 8
-  %call60.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 353, i32 noundef %inc.i) #16
+  %27 = load ptr, ptr @stderr, align 8
+  %call60.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 353, i32 noundef %inc.i) #16
   call void @perror(ptr noundef null) #16
   br label %afalg_fin_cipher_aio.exit.thread
 
 if.else63.i:                                      ; preds = %if.then46.i
-  %call67.i = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %strbuf.i, i64 noundef 32, ptr noundef nonnull @.str.31, i64 noundef %25) #14
-  %29 = load i64, ptr %res.i, align 16
-  %cond.i = icmp eq i64 %29, -12
-  %30 = load i32, ptr @lib_code, align 4
-  %cmp.i.i = icmp eq i32 %30, 0
+  %call67.i = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %strbuf.i, i64 noundef 32, ptr noundef nonnull @.str.31, i64 noundef %24) #14
+  %28 = load i64, ptr %res.i, align 16
+  %cond.i = icmp eq i64 %28, -12
+  %29 = load i32, ptr @lib_code, align 4
+  %cmp.i.i = icmp eq i32 %29, 0
   br i1 %cond.i, label %sw.bb.i, label %sw.default.i
 
 sw.bb.i:                                          ; preds = %if.else63.i
@@ -1056,8 +1055,8 @@ if.then.i21.i:                                    ; preds = %sw.bb.i
 ERR_AFALG_error.exit.i:                           ; preds = %if.then.i21.i, %sw.bb.i
   call void @ERR_new() #14
   call void @ERR_set_debug(ptr noundef nonnull @.str.5, i32 noundef 70, ptr noundef nonnull @__func__.ERR_AFALG_error) #14
-  %31 = load i32, ptr @lib_code, align 4
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef %31, i32 noundef 112, ptr noundef null) #14
+  %30 = load i32, ptr @lib_code, align 4
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef %30, i32 noundef 112, ptr noundef null) #14
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 380, ptr noundef null) #14
   call void (i32, ...) @ERR_add_error_data(i32 noundef 3, ptr noundef nonnull @.str.32, ptr noundef nonnull %strbuf.i, ptr noundef nonnull @.str.33) #14
   br label %afalg_fin_cipher_aio.exit.thread
@@ -1073,8 +1072,8 @@ if.then.i25.i:                                    ; preds = %sw.default.i
 ERR_AFALG_error.exit27.i:                         ; preds = %if.then.i25.i, %sw.default.i
   call void @ERR_new() #14
   call void @ERR_set_debug(ptr noundef nonnull @.str.5, i32 noundef 70, ptr noundef nonnull @__func__.ERR_AFALG_error) #14
-  %32 = load i32, ptr @lib_code, align 4
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef %32, i32 noundef 112, ptr noundef null) #14
+  %31 = load i32, ptr @lib_code, align 4
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef %31, i32 noundef 112, ptr noundef null) #14
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 384, ptr noundef null) #14
   call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull @.str.34, ptr noundef nonnull %strbuf.i) #14
   br label %afalg_fin_cipher_aio.exit.thread
@@ -1087,8 +1086,8 @@ do.body9.i.backedge:                              ; preds = %if.else73.i, %if.el
   br label %do.body9.i, !llvm.loop !9
 
 do.body77.i:                                      ; preds = %if.else73.i
-  %33 = load ptr, ptr @stderr, align 8
-  %call78.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 394) #16
+  %32 = load ptr, ptr @stderr, align 8
+  %call78.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 394) #16
   call void @perror(ptr noundef null) #16
   br label %afalg_fin_cipher_aio.exit.thread
 
@@ -1112,8 +1111,8 @@ if.end22:                                         ; preds = %if.then42.i
   br i1 %tobool.not, label %if.else, label %if.then24
 
 if.then24:                                        ; preds = %if.end22
-  %34 = getelementptr i8, ptr %out, i64 %inl
-  %add.ptr27 = getelementptr i8, ptr %34, i64 -16
+  %33 = getelementptr i8, ptr %out, i64 %inl
+  %add.ptr27 = getelementptr i8, ptr %33, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call28, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr27, i64 16, i1 false)
   br label %return
 

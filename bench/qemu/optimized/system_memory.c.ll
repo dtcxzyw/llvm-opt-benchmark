@@ -1403,10 +1403,9 @@ if.else.i45.i:                                    ; preds = %if.then.i
 
 int128_get64.exit.i:                              ; preds = %if.then.i
   %coerce.sroa.0.0.extract.trunc.i = trunc i128 %38 to i64
-  %39 = inttoptr i64 %37 to ptr
   store i128 %36, ptr %section.i, align 16
   store ptr null, ptr %.compoundliteral28.sroa.2.0.section.sroa_idx.i, align 16
-  store ptr %39, ptr %.compoundliteral28.sroa.3.0.section.sroa_idx.i, align 8
+  store i64 %37, ptr %.compoundliteral28.sroa.3.0.section.sroa_idx.i, align 8
   store i64 0, ptr %.compoundliteral28.sroa.4.0.section.sroa_idx.i, align 16
   store i64 %coerce.sroa.0.0.extract.trunc.i, ptr %.compoundliteral28.sroa.5.0.section.sroa_idx.i, align 8
   store i8 0, ptr %.compoundliteral28.sroa.6.0.section.sroa_idx.i, align 16
@@ -1425,17 +1424,17 @@ for.body.lr.ph.i:                                 ; preds = %int128_get64.exit.i
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %_listener.099.i = phi ptr [ %_listener.097.i, %for.body.lr.ph.i ], [ %_listener.0.i, %for.inc.i ]
   %eventfd_del.i = getelementptr inbounds %struct.MemoryListener, ptr %_listener.099.i, i64 0, i32 14
-  %40 = load ptr, ptr %eventfd_del.i, align 8
-  %tobool12.not.i = icmp eq ptr %40, null
+  %39 = load ptr, ptr %eventfd_del.i, align 8
+  %tobool12.not.i = icmp eq ptr %39, null
   br i1 %tobool12.not.i, label %for.inc.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %for.body.i
-  %41 = load i8, ptr %match_data.i, align 16
-  %42 = and i8 %41, 1
-  %tobool15.i = icmp ne i8 %42, 0
-  %43 = load i64, ptr %data.i, align 8
-  %44 = load ptr, ptr %e.i, align 16
-  call void %40(ptr noundef nonnull %_listener.099.i, ptr noundef nonnull %section.i, i1 noundef zeroext %tobool15.i, i64 noundef %43, ptr noundef %44) #19
+  %40 = load i8, ptr %match_data.i, align 16
+  %41 = and i8 %40, 1
+  %tobool15.i = icmp ne i8 %41, 0
+  %42 = load i64, ptr %data.i, align 8
+  %43 = load ptr, ptr %e.i, align 16
+  call void %39(ptr noundef nonnull %_listener.099.i, ptr noundef nonnull %section.i, i1 noundef zeroext %tobool15.i, i64 noundef %42, ptr noundef %43) #19
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then13.i, %for.body.i
@@ -1460,40 +1459,40 @@ lor.lhs.false19.i:                                ; preds = %land.lhs.true17.i
   %arrayidx21.i = getelementptr %struct.MemoryRegionIoeventfd, ptr %ioeventfds.0.lcssa, i64 %.pre106.i
   %idxprom22.i = zext i32 %iold.0103.i to i64
   %arrayidx23.i = getelementptr %struct.MemoryRegionIoeventfd, ptr %21, i64 %idxprom22.i
-  %45 = load i128, ptr %arrayidx21.i, align 16
-  %46 = load i128, ptr %arrayidx23.i, align 16
-  %cmp.i.i46.i = icmp slt i128 %45, %46
+  %44 = load i128, ptr %arrayidx21.i, align 16
+  %45 = load i128, ptr %arrayidx23.i, align 16
+  %cmp.i.i46.i = icmp slt i128 %44, %45
   br i1 %cmp.i.i46.i, label %if.then25.i, label %if.else.i47.i
 
 if.else.i47.i:                                    ; preds = %lor.lhs.false19.i
-  %cmp.i31.i48.i = icmp sgt i128 %45, %46
+  %cmp.i31.i48.i = icmp sgt i128 %44, %45
   br i1 %cmp.i31.i48.i, label %if.else67.i, label %if.else12.i49.i
 
 if.else12.i49.i:                                  ; preds = %if.else.i47.i
   %size.i50.i = getelementptr inbounds %struct.AddrRange, ptr %arrayidx21.i, i64 0, i32 1
-  %47 = load i128, ptr %size.i50.i, align 16
+  %46 = load i128, ptr %size.i50.i, align 16
   %size15.i51.i = getelementptr inbounds %struct.AddrRange, ptr %arrayidx23.i, i64 0, i32 1
-  %48 = load i128, ptr %size15.i51.i, align 16
-  %cmp.i40.i52.i = icmp slt i128 %47, %48
+  %47 = load i128, ptr %size15.i51.i, align 16
+  %cmp.i40.i52.i = icmp slt i128 %46, %47
   br i1 %cmp.i40.i52.i, label %if.then25.i, label %if.else20.i53.i
 
 if.else20.i53.i:                                  ; preds = %if.else12.i49.i
-  %cmp.i49.i54.i = icmp sgt i128 %47, %48
+  %cmp.i49.i54.i = icmp sgt i128 %46, %47
   br i1 %cmp.i49.i54.i, label %if.else67.i, label %if.else29.i55.i
 
 if.else29.i55.i:                                  ; preds = %if.else20.i53.i
   %match_data.i56.i = getelementptr %struct.MemoryRegionIoeventfd, ptr %ioeventfds.0.lcssa, i64 %.pre106.i, i32 1
-  %49 = load i8, ptr %match_data.i56.i, align 16
-  %50 = and i8 %49, 1
-  %tobool.not.i57.i = icmp eq i8 %50, 0
+  %48 = load i8, ptr %match_data.i56.i, align 16
+  %49 = and i8 %48, 1
+  %tobool.not.i57.i = icmp eq i8 %49, 0
   %match_data30.i58.i = getelementptr %struct.MemoryRegionIoeventfd, ptr %21, i64 %idxprom22.i, i32 1
-  %51 = load i8, ptr %match_data30.i58.i, align 16
-  %52 = and i8 %51, 1
-  %cmp.i59.i = icmp ult i8 %50, %52
+  %50 = load i8, ptr %match_data30.i58.i, align 16
+  %51 = and i8 %50, 1
+  %cmp.i59.i = icmp ult i8 %49, %51
   br i1 %cmp.i59.i, label %if.then25.i, label %if.else35.i60.i
 
 if.else35.i60.i:                                  ; preds = %if.else29.i55.i
-  %cmp42.i61.i = icmp ugt i8 %50, %52
+  %cmp42.i61.i = icmp ugt i8 %49, %51
   br i1 %cmp42.i61.i, label %if.else67.i, label %if.else45.i62.i
 
 if.else45.i62.i:                                  ; preds = %if.else35.i60.i
@@ -1501,32 +1500,32 @@ if.else45.i62.i:                                  ; preds = %if.else35.i60.i
 
 if.then48.i63.i:                                  ; preds = %if.else45.i62.i
   %data.i64.i = getelementptr %struct.MemoryRegionIoeventfd, ptr %ioeventfds.0.lcssa, i64 %.pre106.i, i32 2
-  %53 = load i64, ptr %data.i64.i, align 8
+  %52 = load i64, ptr %data.i64.i, align 8
   %data49.i65.i = getelementptr %struct.MemoryRegionIoeventfd, ptr %21, i64 %idxprom22.i, i32 2
-  %54 = load i64, ptr %data49.i65.i, align 8
-  %cmp50.i66.i = icmp ult i64 %53, %54
+  %53 = load i64, ptr %data49.i65.i, align 8
+  %cmp50.i66.i = icmp ult i64 %52, %53
   br i1 %cmp50.i66.i, label %if.then25.i, label %if.else53.i67.i
 
 if.else53.i67.i:                                  ; preds = %if.then48.i63.i
-  %cmp56.i68.i = icmp ugt i64 %53, %54
+  %cmp56.i68.i = icmp ugt i64 %52, %53
   br i1 %cmp56.i68.i, label %if.else67.i, label %memory_region_ioeventfd_before.exit74.i
 
 memory_region_ioeventfd_before.exit74.i:          ; preds = %if.else53.i67.i, %if.else45.i62.i
   %e.i70.i = getelementptr %struct.MemoryRegionIoeventfd, ptr %ioeventfds.0.lcssa, i64 %.pre106.i, i32 3
-  %55 = load ptr, ptr %e.i70.i, align 16
+  %54 = load ptr, ptr %e.i70.i, align 16
   %e67.i71.i = getelementptr %struct.MemoryRegionIoeventfd, ptr %21, i64 %idxprom22.i, i32 3
-  %56 = load ptr, ptr %e67.i71.i, align 16
-  %cmp68.i72.i = icmp ult ptr %55, %56
+  %55 = load ptr, ptr %e67.i71.i, align 16
+  %cmp68.i72.i = icmp ult ptr %54, %55
   br i1 %cmp68.i72.i, label %if.then25.i, label %if.else67.i
 
 if.then25.i:                                      ; preds = %memory_region_ioeventfd_before.exit74.i, %if.then48.i63.i, %if.else29.i55.i, %if.else12.i49.i, %lor.lhs.false19.i, %land.lhs.true17.i
   %arrayidx27.i = getelementptr %struct.MemoryRegionIoeventfd, ptr %ioeventfds.0.lcssa, i64 %.pre106.i
   %size31.i = getelementptr inbounds %struct.AddrRange, ptr %arrayidx27.i, i64 0, i32 1
-  %57 = load i128, ptr %size31.i, align 16
-  %58 = load atomic i64, ptr %current_map.i75.i monotonic, align 8
+  %56 = load i128, ptr %size31.i, align 16
+  %57 = load atomic i64, ptr %current_map.i75.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
-  %59 = load i128, ptr %arrayidx27.i, align 16
-  %cmp.i80.i = icmp ult i128 %59, 18446744073709551616
+  %58 = load i128, ptr %arrayidx27.i, align 16
+  %cmp.i80.i = icmp ult i128 %58, 18446744073709551616
   br i1 %cmp.i80.i, label %int128_get64.exit82.i, label %if.else.i81.i
 
 if.else.i81.i:                                    ; preds = %if.then25.i
@@ -1534,11 +1533,10 @@ if.else.i81.i:                                    ; preds = %if.then25.i
   unreachable
 
 int128_get64.exit82.i:                            ; preds = %if.then25.i
-  %coerce39.sroa.0.0.extract.trunc.i = trunc i128 %59 to i64
-  %60 = inttoptr i64 %58 to ptr
-  store i128 %57, ptr %section.i, align 16
+  %coerce39.sroa.0.0.extract.trunc.i = trunc i128 %58 to i64
+  store i128 %56, ptr %section.i, align 16
   store ptr null, ptr %.compoundliteral28.sroa.2.0.section.sroa_idx.i, align 16
-  store ptr %60, ptr %.compoundliteral28.sroa.3.0.section.sroa_idx.i, align 8
+  store i64 %57, ptr %.compoundliteral28.sroa.3.0.section.sroa_idx.i, align 8
   store i64 0, ptr %.compoundliteral28.sroa.4.0.section.sroa_idx.i, align 16
   store i64 %coerce39.sroa.0.0.extract.trunc.i, ptr %.compoundliteral28.sroa.5.0.section.sroa_idx.i, align 8
   store i8 0, ptr %.compoundliteral28.sroa.6.0.section.sroa_idx.i, align 16
@@ -1560,17 +1558,17 @@ for.body50.lr.ph.i:                               ; preds = %int128_get64.exit82
 for.body50.i:                                     ; preds = %for.inc59.i, %for.body50.lr.ph.i
   %_listener45.096.i = phi ptr [ %_listener45.094.i, %for.body50.lr.ph.i ], [ %_listener45.0.i, %for.inc59.i ]
   %eventfd_add.i = getelementptr inbounds %struct.MemoryListener, ptr %_listener45.096.i, i64 0, i32 13
-  %61 = load ptr, ptr %eventfd_add.i, align 8
-  %tobool51.not.i = icmp eq ptr %61, null
+  %59 = load ptr, ptr %eventfd_add.i, align 8
+  %tobool51.not.i = icmp eq ptr %59, null
   br i1 %tobool51.not.i, label %for.inc59.i, label %if.then52.i
 
 if.then52.i:                                      ; preds = %for.body50.i
-  %62 = load i8, ptr %match_data54.i, align 16
-  %63 = and i8 %62, 1
-  %tobool55.i = icmp ne i8 %63, 0
-  %64 = load i64, ptr %data56.i, align 8
-  %65 = load ptr, ptr %e57.i, align 16
-  call void %61(ptr noundef nonnull %_listener45.096.i, ptr noundef nonnull %section.i, i1 noundef zeroext %tobool55.i, i64 noundef %64, ptr noundef %65) #19
+  %60 = load i8, ptr %match_data54.i, align 16
+  %61 = and i8 %60, 1
+  %tobool55.i = icmp ne i8 %61, 0
+  %62 = load i64, ptr %data56.i, align 8
+  %63 = load ptr, ptr %e57.i, align 16
+  call void %59(ptr noundef nonnull %_listener45.096.i, ptr noundef nonnull %section.i, i1 noundef zeroext %tobool55.i, i64 noundef %62, ptr noundef %63) #19
   br label %for.inc59.i
 
 for.inc59.i:                                      ; preds = %if.then52.i, %for.body50.i
@@ -1596,17 +1594,17 @@ if.end71.i:                                       ; preds = %if.else67.i, %do.en
   %iold.1.i = phi i32 [ %inc.i, %do.end.i ], [ %iold.0103.i, %do.end65.i ], [ %inc68.i, %if.else67.i ]
   %cmp.i = icmp ult i32 %iold.1.i, %22
   %cmp1.i = icmp ult i32 %inew.1.i, %ioeventfd_nb.0.lcssa
-  %66 = select i1 %cmp.i, i1 true, i1 %cmp1.i
-  br i1 %66, label %while.body.i, label %address_space_add_del_ioeventfds.exit.loopexit, !llvm.loop !24
+  %64 = select i1 %cmp.i, i1 true, i1 %cmp1.i
+  br i1 %64, label %while.body.i, label %address_space_add_del_ioeventfds.exit.loopexit, !llvm.loop !24
 
 address_space_add_del_ioeventfds.exit.loopexit:   ; preds = %if.end71.i
   %.pre67 = load ptr, ptr %ioeventfds49, align 8
   br label %address_space_add_del_ioeventfds.exit
 
 address_space_add_del_ioeventfds.exit:            ; preds = %address_space_add_del_ioeventfds.exit.loopexit, %for.end48
-  %67 = phi ptr [ %.pre67, %address_space_add_del_ioeventfds.exit.loopexit ], [ %21, %for.end48 ]
+  %65 = phi ptr [ %.pre67, %address_space_add_del_ioeventfds.exit.loopexit ], [ %21, %for.end48 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %section.i)
-  call void @g_free(ptr noundef %67) #19
+  call void @g_free(ptr noundef %65) #19
   store ptr %ioeventfds.0.lcssa, ptr %ioeventfds49, align 8
   store i32 %ioeventfd_nb.0.lcssa, ptr %ioeventfd_nb1, align 8
   call void @flatview_unref(ptr noundef %call2)
@@ -4408,10 +4406,9 @@ while.end.us.us.us.i:                             ; preds = %rcu_read_auto_lock.
   %indvars.iv77.i = phi i64 [ %indvars.iv.next78.i, %while.end.us.us.us.i ], [ 0, %rcu_read_auto_lock.exit.split.us.split.us.i ]
   %arrayidx.us.us.us.i = getelementptr %struct.RAMList, ptr @ram_list, i64 0, i32 3, i64 %indvars.iv77.i
   %16 = load atomic i64, ptr %arrayidx.us.us.us.i monotonic, align 8
-  %17 = inttoptr i64 %16 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !36
   %arrayidx7.us.us.us.i = getelementptr [3 x ptr], ptr %blocks.i, i64 0, i64 %indvars.iv77.i
-  store ptr %17, ptr %arrayidx7.us.us.us.i, align 8
+  store i64 %16, ptr %arrayidx7.us.us.us.i, align 8
   %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, 1
   %exitcond80.not.i = icmp eq i64 %indvars.iv.next78.i, 3
   br i1 %exitcond80.not.i, label %for.inc59.us.us.us.i, label %while.end.us.us.us.i, !llvm.loop !37
@@ -4423,12 +4420,12 @@ for.end.us.us.i:                                  ; preds = %while.end.us.us.i
 for.inc59.us.us.i:                                ; preds = %while.body11.us.us.us58.us.i, %for.end.us.us.i
   %call.i.i30.us.us.i = tail call ptr @get_ptr_rcu_reader() #19
   %depth.i.i31.us.us.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i30.us.us.i, i64 0, i32 2
-  %18 = load i32, ptr %depth.i.i31.us.us.i, align 4
-  %cmp.not.i.i32.us.us.i = icmp eq i32 %18, 0
+  %17 = load i32, ptr %depth.i.i31.us.us.i, align 4
+  %cmp.not.i.i32.us.us.i = icmp eq i32 %17, 0
   br i1 %cmp.not.i.i32.us.us.i, label %if.else.i.i.i, label %if.end.i.i.us.us.i
 
 if.end.i.i.us.us.i:                               ; preds = %for.inc59.us.us.i
-  %dec.i.i.us.us.i = add i32 %18, -1
+  %dec.i.i.us.us.i = add i32 %17, -1
   store i32 %dec.i.i.us.us.i, ptr %depth.i.i31.us.us.i, align 4
   %cmp2.not.i.i.us.us.i = icmp eq i32 %dec.i.i.us.us.i, 0
   br i1 %cmp2.not.i.i.us.us.i, label %while.end.i.i33.us.us.i, label %cpu_physical_memory_set_dirty_range.exit
@@ -4438,19 +4435,18 @@ while.end.i.i33.us.us.i:                          ; preds = %if.end.i.i.us.us.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !12
   fence seq_cst
   %waiting.i.i.us.us.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i30.us.us.i, i64 0, i32 1
-  %19 = load atomic i8, ptr %waiting.i.i.us.us.i monotonic, align 8
-  %20 = and i8 %19, 1
-  %tobool.not.i.i34.us.us.i = icmp eq i8 %20, 0
+  %18 = load atomic i8, ptr %waiting.i.i.us.us.i monotonic, align 8
+  %19 = and i8 %18, 1
+  %tobool.not.i.i34.us.us.i = icmp eq i8 %19, 0
   br i1 %tobool.not.i.i34.us.us.i, label %cpu_physical_memory_set_dirty_range.exit, label %return.sink.split.i
 
 while.end.us.us.i:                                ; preds = %rcu_read_auto_lock.exit.split.us.split.us.i, %while.end.us.us.i
   %indvars.iv73.i = phi i64 [ %indvars.iv.next74.i, %while.end.us.us.i ], [ 0, %rcu_read_auto_lock.exit.split.us.split.us.i ]
   %arrayidx.us.us.i = getelementptr %struct.RAMList, ptr @ram_list, i64 0, i32 3, i64 %indvars.iv73.i
-  %21 = load atomic i64, ptr %arrayidx.us.us.i monotonic, align 8
-  %22 = inttoptr i64 %21 to ptr
+  %20 = load atomic i64, ptr %arrayidx.us.us.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !36
   %arrayidx7.us.us.i = getelementptr [3 x ptr], ptr %blocks.i, i64 0, i64 %indvars.iv73.i
-  store ptr %22, ptr %arrayidx7.us.us.i, align 8
+  store i64 %20, ptr %arrayidx7.us.us.i, align 8
   %indvars.iv.next74.i = add nuw nsw i64 %indvars.iv73.i, 1
   %exitcond76.not.i = icmp eq i64 %indvars.iv.next74.i, 3
   br i1 %exitcond76.not.i, label %for.end.us.us.i, label %while.end.us.us.i, !llvm.loop !37
@@ -4459,7 +4455,7 @@ while.body11.lr.ph.us.us.i:                       ; preds = %for.end.us.us.i
   %sub8.us.us.i = and i64 %shr2.i, 4503599625273344
   %rem.us.us.i = and i64 %shr2.i, 2097151
   %div29.us.us.i = lshr i64 %add, 33
-  %23 = load ptr, ptr %arrayidx51.i, align 8
+  %21 = load ptr, ptr %arrayidx51.i, align 8
   br label %while.body11.us.us.us58.us.i
 
 while.body11.us.us.us58.us.i:                     ; preds = %while.body11.us.us.us58.us.i, %while.body11.lr.ph.us.us.i
@@ -4469,10 +4465,10 @@ while.body11.us.us.us58.us.i:                     ; preds = %while.body11.us.us.
   %base.037.us.us.us60.us.i = phi i64 [ %sub8.us.us.i, %while.body11.lr.ph.us.us.i ], [ %add12.us.us.us61.us.i, %while.body11.us.us.us58.us.i ]
   %add12.us.us.us61.us.i = add nuw nsw i64 %base.037.us.us.us60.us.i, 2097152
   %cond.us.us.us62.us.i = tail call i64 @llvm.umin.i64(i64 %shr.i, i64 %add12.us.us.us61.us.i)
-  %arrayidx53.us.us.us.us.i = getelementptr %struct.DirtyMemoryBlocks, ptr %23, i64 0, i32 1, i64 %idx.039.us.us.us59.us.i
-  %24 = load ptr, ptr %arrayidx53.us.us.us.us.i, align 8
+  %arrayidx53.us.us.us.us.i = getelementptr %struct.DirtyMemoryBlocks, ptr %21, i64 0, i32 1, i64 %idx.039.us.us.us59.us.i
+  %22 = load ptr, ptr %arrayidx53.us.us.us.us.i, align 8
   %sub54.us.us.us.us.i = sub nsw i64 %cond.us.us.us62.us.i, %page.140.us.us.us.us.i
-  tail call void @bitmap_set_atomic(ptr noundef %24, i64 noundef %offset.038.us.us.us.us.i, i64 noundef %sub54.us.us.us.us.i) #19
+  tail call void @bitmap_set_atomic(ptr noundef %22, i64 noundef %offset.038.us.us.us.us.i, i64 noundef %sub54.us.us.us.us.i) #19
   %inc56.us.us.us63.us.i = add nuw nsw i64 %idx.039.us.us.us59.us.i, 1
   %cmp10.us.us.us64.us.i = icmp ult i64 %add12.us.us.us61.us.i, %shr.i
   br i1 %cmp10.us.us.us64.us.i, label %while.body11.us.us.us58.us.i, label %for.inc59.us.us.i, !llvm.loop !38
@@ -4484,12 +4480,12 @@ for.end.us.i:                                     ; preds = %while.end.us.i
 for.inc59.us.i:                                   ; preds = %if.end55.us.us.i, %for.end.us.i
   %call.i.i30.us.i = tail call ptr @get_ptr_rcu_reader() #19
   %depth.i.i31.us.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i30.us.i, i64 0, i32 2
-  %25 = load i32, ptr %depth.i.i31.us.i, align 4
-  %cmp.not.i.i32.us.i = icmp eq i32 %25, 0
+  %23 = load i32, ptr %depth.i.i31.us.i, align 4
+  %cmp.not.i.i32.us.i = icmp eq i32 %23, 0
   br i1 %cmp.not.i.i32.us.i, label %if.else.i.i.i, label %if.end.i.i.us.i
 
 if.end.i.i.us.i:                                  ; preds = %for.inc59.us.i
-  %dec.i.i.us.i = add i32 %25, -1
+  %dec.i.i.us.i = add i32 %23, -1
   store i32 %dec.i.i.us.i, ptr %depth.i.i31.us.i, align 4
   %cmp2.not.i.i.us.i = icmp eq i32 %dec.i.i.us.i, 0
   br i1 %cmp2.not.i.i.us.i, label %while.end.i.i33.us.i, label %cpu_physical_memory_set_dirty_range.exit
@@ -4499,19 +4495,18 @@ while.end.i.i33.us.i:                             ; preds = %if.end.i.i.us.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !12
   fence seq_cst
   %waiting.i.i.us.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i30.us.i, i64 0, i32 1
-  %26 = load atomic i8, ptr %waiting.i.i.us.i monotonic, align 8
-  %27 = and i8 %26, 1
-  %tobool.not.i.i34.us.i = icmp eq i8 %27, 0
+  %24 = load atomic i8, ptr %waiting.i.i.us.i monotonic, align 8
+  %25 = and i8 %24, 1
+  %tobool.not.i.i34.us.i = icmp eq i8 %25, 0
   br i1 %tobool.not.i.i34.us.i, label %cpu_physical_memory_set_dirty_range.exit, label %return.sink.split.i
 
 while.end.us.i:                                   ; preds = %rcu_read_auto_lock.exit.split.us.i, %while.end.us.i
   %indvars.iv69.i = phi i64 [ %indvars.iv.next70.i, %while.end.us.i ], [ 0, %rcu_read_auto_lock.exit.split.us.i ]
   %arrayidx.us.i = getelementptr %struct.RAMList, ptr @ram_list, i64 0, i32 3, i64 %indvars.iv69.i
-  %28 = load atomic i64, ptr %arrayidx.us.i monotonic, align 8
-  %29 = inttoptr i64 %28 to ptr
+  %26 = load atomic i64, ptr %arrayidx.us.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !36
   %arrayidx7.us.i = getelementptr [3 x ptr], ptr %blocks.i, i64 0, i64 %indvars.iv69.i
-  store ptr %29, ptr %arrayidx7.us.i, align 8
+  store i64 %26, ptr %arrayidx7.us.i, align 8
   %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
   %exitcond72.not.i = icmp eq i64 %indvars.iv.next70.i, 3
   br i1 %exitcond72.not.i, label %for.end.us.i, label %while.end.us.i, !llvm.loop !37
@@ -4520,8 +4515,8 @@ while.body11.lr.ph.us.i:                          ; preds = %for.end.us.i
   %sub8.us.i = and i64 %shr2.i, 4503599625273344
   %rem.us.i = and i64 %shr2.i, 2097151
   %div29.us.i = lshr i64 %add, 33
-  %30 = load ptr, ptr %blocks.i, align 16
-  %31 = load ptr, ptr %arrayidx51.i, align 8
+  %27 = load ptr, ptr %blocks.i, align 16
+  %28 = load ptr, ptr %arrayidx51.i, align 8
   br label %while.body11.us.us44.i
 
 while.body11.us.us44.i:                           ; preds = %if.end55.us.us.i, %while.body11.lr.ph.us.i
@@ -4531,16 +4526,16 @@ while.body11.us.us44.i:                           ; preds = %if.end55.us.us.i, %
   %base.037.us.us48.i = phi i64 [ %sub8.us.i, %while.body11.lr.ph.us.i ], [ %add12.us.us49.i, %if.end55.us.us.i ]
   %add12.us.us49.i = add nuw nsw i64 %base.037.us.us48.i, 2097152
   %cond.us.us50.i = tail call i64 @llvm.umin.i64(i64 %shr.i, i64 %add12.us.us49.i)
-  %arrayidx38.us.us.i = getelementptr %struct.DirtyMemoryBlocks, ptr %30, i64 0, i32 1, i64 %idx.039.us.us46.i
-  %32 = load ptr, ptr %arrayidx38.us.us.i, align 8
+  %arrayidx38.us.us.i = getelementptr %struct.DirtyMemoryBlocks, ptr %27, i64 0, i32 1, i64 %idx.039.us.us46.i
+  %29 = load ptr, ptr %arrayidx38.us.us.i, align 8
   %sub39.us.us.i = sub nsw i64 %cond.us.us50.i, %page.140.us.us45.i
-  tail call void @bitmap_set_atomic(ptr noundef %32, i64 noundef %offset.038.us.us47.i, i64 noundef %sub39.us.us.i) #19
+  tail call void @bitmap_set_atomic(ptr noundef %29, i64 noundef %offset.038.us.us47.i, i64 noundef %sub39.us.us.i) #19
   br i1 %tobool43.not.i, label %if.end55.us.us.i, label %if.then50.us.us.i
 
 if.then50.us.us.i:                                ; preds = %while.body11.us.us44.i
-  %arrayidx53.us.us51.i = getelementptr %struct.DirtyMemoryBlocks, ptr %31, i64 0, i32 1, i64 %idx.039.us.us46.i
-  %33 = load ptr, ptr %arrayidx53.us.us51.i, align 8
-  tail call void @bitmap_set_atomic(ptr noundef %33, i64 noundef %offset.038.us.us47.i, i64 noundef %sub39.us.us.i) #19
+  %arrayidx53.us.us51.i = getelementptr %struct.DirtyMemoryBlocks, ptr %28, i64 0, i32 1, i64 %idx.039.us.us46.i
+  %30 = load ptr, ptr %arrayidx53.us.us51.i, align 8
+  tail call void @bitmap_set_atomic(ptr noundef %30, i64 noundef %offset.038.us.us47.i, i64 noundef %sub39.us.us.i) #19
   br label %if.end55.us.us.i
 
 if.end55.us.us.i:                                 ; preds = %if.then50.us.us.i, %while.body11.us.us44.i
@@ -4551,11 +4546,10 @@ if.end55.us.us.i:                                 ; preds = %if.then50.us.us.i, 
 while.end.i:                                      ; preds = %rcu_read_auto_lock.exit.i, %while.end.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %while.end.i ], [ 0, %rcu_read_auto_lock.exit.i ]
   %arrayidx.i = getelementptr %struct.RAMList, ptr @ram_list, i64 0, i32 3, i64 %indvars.iv.i
-  %34 = load atomic i64, ptr %arrayidx.i monotonic, align 8
-  %35 = inttoptr i64 %34 to ptr
+  %31 = load atomic i64, ptr %arrayidx.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !36
   %arrayidx7.i = getelementptr [3 x ptr], ptr %blocks.i, i64 0, i64 %indvars.iv.i
-  store ptr %35, ptr %arrayidx7.i, align 8
+  store i64 %31, ptr %arrayidx7.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %for.end.i, label %while.end.i, !llvm.loop !37
@@ -4568,9 +4562,9 @@ while.body11.lr.ph.i:                             ; preds = %for.end.i
   %sub8.i = and i64 %shr2.i, 4503599625273344
   %rem.i = and i64 %shr2.i, 2097151
   %div29.i = lshr i64 %add, 33
-  %36 = load ptr, ptr %arrayidx21.i, align 16
-  %37 = load ptr, ptr %blocks.i, align 16
-  %38 = load ptr, ptr %arrayidx51.i, align 8
+  %32 = load ptr, ptr %arrayidx21.i, align 16
+  %33 = load ptr, ptr %blocks.i, align 16
+  %34 = load ptr, ptr %arrayidx51.i, align 8
   br label %while.body11.i
 
 while.body11.i:                                   ; preds = %if.end55.i, %while.body11.lr.ph.i
@@ -4580,25 +4574,25 @@ while.body11.i:                                   ; preds = %if.end55.i, %while.
   %base.037.i = phi i64 [ %sub8.i, %while.body11.lr.ph.i ], [ %add12.i, %if.end55.i ]
   %add12.i = add nuw nsw i64 %base.037.i, 2097152
   %cond.i6 = tail call i64 @llvm.umin.i64(i64 %shr.i, i64 %add12.i)
-  %arrayidx23.i = getelementptr %struct.DirtyMemoryBlocks, ptr %36, i64 0, i32 1, i64 %idx.039.i
-  %39 = load ptr, ptr %arrayidx23.i, align 8
+  %arrayidx23.i = getelementptr %struct.DirtyMemoryBlocks, ptr %32, i64 0, i32 1, i64 %idx.039.i
+  %35 = load ptr, ptr %arrayidx23.i, align 8
   %sub24.i = sub nsw i64 %cond.i6, %page.140.i
-  tail call void @bitmap_set_atomic(ptr noundef %39, i64 noundef %offset.038.i, i64 noundef %sub24.i) #19
+  tail call void @bitmap_set_atomic(ptr noundef %35, i64 noundef %offset.038.i, i64 noundef %sub24.i) #19
   br i1 %tobool28.not.i, label %if.end40.i, label %if.then35.i
 
 if.then35.i:                                      ; preds = %while.body11.i
-  %arrayidx38.i = getelementptr %struct.DirtyMemoryBlocks, ptr %37, i64 0, i32 1, i64 %idx.039.i
-  %40 = load ptr, ptr %arrayidx38.i, align 8
-  tail call void @bitmap_set_atomic(ptr noundef %40, i64 noundef %offset.038.i, i64 noundef %sub24.i) #19
+  %arrayidx38.i = getelementptr %struct.DirtyMemoryBlocks, ptr %33, i64 0, i32 1, i64 %idx.039.i
+  %36 = load ptr, ptr %arrayidx38.i, align 8
+  tail call void @bitmap_set_atomic(ptr noundef %36, i64 noundef %offset.038.i, i64 noundef %sub24.i) #19
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.then35.i, %while.body11.i
   br i1 %tobool43.not.i, label %if.end55.i, label %if.then50.i
 
 if.then50.i:                                      ; preds = %if.end40.i
-  %arrayidx53.i = getelementptr %struct.DirtyMemoryBlocks, ptr %38, i64 0, i32 1, i64 %idx.039.i
-  %41 = load ptr, ptr %arrayidx53.i, align 8
-  tail call void @bitmap_set_atomic(ptr noundef %41, i64 noundef %offset.038.i, i64 noundef %sub24.i) #19
+  %arrayidx53.i = getelementptr %struct.DirtyMemoryBlocks, ptr %34, i64 0, i32 1, i64 %idx.039.i
+  %37 = load ptr, ptr %arrayidx53.i, align 8
+  tail call void @bitmap_set_atomic(ptr noundef %37, i64 noundef %offset.038.i, i64 noundef %sub24.i) #19
   br label %if.end55.i
 
 if.end55.i:                                       ; preds = %if.then50.i, %if.end40.i
@@ -4609,8 +4603,8 @@ if.end55.i:                                       ; preds = %if.then50.i, %if.en
 for.inc59.i:                                      ; preds = %if.end55.i, %for.end.i
   %call.i.i30.i = tail call ptr @get_ptr_rcu_reader() #19
   %depth.i.i31.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i30.i, i64 0, i32 2
-  %42 = load i32, ptr %depth.i.i31.i, align 4
-  %cmp.not.i.i32.i = icmp eq i32 %42, 0
+  %38 = load i32, ptr %depth.i.i31.i, align 4
+  %cmp.not.i.i32.i = icmp eq i32 %38, 0
   br i1 %cmp.not.i.i32.i, label %if.else.i.i.i, label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.inc59.i, %for.inc59.us.i, %for.inc59.us.us.i, %for.inc59.us.us.us.i
@@ -4618,7 +4612,7 @@ if.else.i.i.i:                                    ; preds = %for.inc59.i, %for.i
   unreachable
 
 if.end.i.i.i:                                     ; preds = %for.inc59.i
-  %dec.i.i.i = add i32 %42, -1
+  %dec.i.i.i = add i32 %38, -1
   store i32 %dec.i.i.i, ptr %depth.i.i31.i, align 4
   %cmp2.not.i.i.i = icmp eq i32 %dec.i.i.i, 0
   br i1 %cmp2.not.i.i.i, label %while.end.i.i33.i, label %cpu_physical_memory_set_dirty_range.exit
@@ -4628,9 +4622,9 @@ while.end.i.i33.i:                                ; preds = %if.end.i.i.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !12
   fence seq_cst
   %waiting.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i30.i, i64 0, i32 1
-  %43 = load atomic i8, ptr %waiting.i.i.i monotonic, align 8
-  %44 = and i8 %43, 1
-  %tobool.not.i.i34.i = icmp eq i8 %44, 0
+  %39 = load atomic i8, ptr %waiting.i.i.i monotonic, align 8
+  %40 = and i8 %39, 1
+  %tobool.not.i.i34.i = icmp eq i8 %40, 0
   br i1 %tobool.not.i.i34.i, label %cpu_physical_memory_set_dirty_range.exit, label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %while.end.i.i33.i, %while.end.i.i33.us.i, %while.end.i.i33.us.us.i, %while.end.i.i33.us.us.us.i
@@ -6824,7 +6818,7 @@ while.end:                                        ; preds = %while.body, %lor.rh
   %mr19 = getelementptr inbounds %struct.MemoryRegionSection, ptr %agg.result, i64 0, i32 1
   store ptr %14, ptr %mr19, align 16
   %fv = getelementptr inbounds %struct.MemoryRegionSection, ptr %agg.result, i64 0, i32 2
-  store ptr %8, ptr %fv, align 8
+  store i64 %7, ptr %fv, align 8
   %addr21 = getelementptr inbounds %struct.FlatRange, ptr %fr.0.lcssa, i64 0, i32 2
   %addr21.val = load i128, ptr %addr21, align 16
   %cond.i.i = call i128 @llvm.smax.i128(i128 %start.sroa.0.0.insert.ext.i, i128 %addr21.val)
@@ -9562,21 +9556,20 @@ for.body.i:                                       ; preds = %if.then29, %for.bod
 
 flat_range_coalesced_io_del.exit:                 ; preds = %for.body.i, %if.then29
   %29 = load atomic i64, ptr %current_map.i123 monotonic, align 8
-  %30 = inttoptr i64 %29 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
   call void @llvm.experimental.noalias.scope.decl(metadata !94)
   %addr.i86 = getelementptr %struct.FlatRange, ptr %2, i64 %idxprom, i32 2
   %size1.i = getelementptr %struct.FlatRange, ptr %2, i64 %idxprom, i32 2, i32 1
-  %31 = load i128, ptr %size1.i, align 16, !noalias !94
-  store i128 %31, ptr %mrs, align 16, !alias.scope !94
-  %32 = load ptr, ptr %arrayidx, align 16, !noalias !94
-  store ptr %32, ptr %mr.i, align 16, !alias.scope !94
-  store ptr %30, ptr %fv3.i, align 8, !alias.scope !94
+  %30 = load i128, ptr %size1.i, align 16, !noalias !94
+  store i128 %30, ptr %mrs, align 16, !alias.scope !94
+  %31 = load ptr, ptr %arrayidx, align 16, !noalias !94
+  store ptr %31, ptr %mr.i, align 16, !alias.scope !94
+  store i64 %29, ptr %fv3.i, align 8, !alias.scope !94
   %offset_in_region.i87 = getelementptr %struct.FlatRange, ptr %2, i64 %idxprom, i32 1
-  %33 = load i64, ptr %offset_in_region.i87, align 8, !noalias !94
-  store i64 %33, ptr %offset_within_region.i, align 16, !alias.scope !94
-  %34 = load i128, ptr %addr.i86, align 16, !noalias !94
-  %cmp.i.i = icmp ult i128 %34, 18446744073709551616
+  %32 = load i64, ptr %offset_in_region.i87, align 8, !noalias !94
+  store i64 %32, ptr %offset_within_region.i, align 16, !alias.scope !94
+  %33 = load i128, ptr %addr.i86, align 16, !noalias !94
+  %cmp.i.i = icmp ult i128 %33, 18446744073709551616
   br i1 %cmp.i.i, label %section_from_flat_range.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %flat_range_coalesced_io_del.exit
@@ -9584,20 +9577,20 @@ if.else.i.i:                                      ; preds = %flat_range_coalesce
   unreachable
 
 section_from_flat_range.exit:                     ; preds = %flat_range_coalesced_io_del.exit
-  %coerce.sroa.0.0.extract.trunc.i = trunc i128 %34 to i64
+  %coerce.sroa.0.0.extract.trunc.i = trunc i128 %33 to i64
   store i64 %coerce.sroa.0.0.extract.trunc.i, ptr %offset_within_address_space.i, align 8, !alias.scope !94
   %readonly5.i = getelementptr %struct.FlatRange, ptr %2, i64 %idxprom, i32 5
-  %35 = load i8, ptr %readonly5.i, align 2, !noalias !94
-  %36 = and i8 %35, 1
-  store i8 %36, ptr %readonly.i88, align 16, !alias.scope !94
+  %34 = load i8, ptr %readonly5.i, align 2, !noalias !94
+  %35 = and i8 %34, 1
+  store i8 %35, ptr %readonly.i88, align 16, !alias.scope !94
   %nonvolatile6.i = getelementptr %struct.FlatRange, ptr %2, i64 %idxprom, i32 6
-  %37 = load i8, ptr %nonvolatile6.i, align 1, !noalias !94
-  %38 = and i8 %37, 1
-  store i8 %38, ptr %nonvolatile.i89, align 1, !alias.scope !94
+  %36 = load i8, ptr %nonvolatile6.i, align 1, !noalias !94
+  %37 = and i8 %36, 1
+  store i8 %37, ptr %nonvolatile.i89, align 1, !alias.scope !94
   %unmergeable9.i = getelementptr %struct.FlatRange, ptr %2, i64 %idxprom, i32 7
-  %39 = load i8, ptr %unmergeable9.i, align 4, !noalias !94
-  %40 = and i8 %39, 1
-  store i8 %40, ptr %unmergeable.i90, align 2, !alias.scope !94
+  %38 = load i8, ptr %unmergeable9.i, align 4, !noalias !94
+  %39 = and i8 %38, 1
+  store i8 %39, ptr %unmergeable.i90, align 2, !alias.scope !94
   %.pn75240 = load ptr, ptr %tql_prev111, align 8
   %_listener.0.in.in241 = getelementptr inbounds %struct.QTailQLink, ptr %.pn75240, i64 0, i32 1
   %_listener.0.in242 = load ptr, ptr %_listener.0.in.in241, align 8
@@ -9608,12 +9601,12 @@ section_from_flat_range.exit:                     ; preds = %flat_range_coalesce
 for.body:                                         ; preds = %section_from_flat_range.exit, %for.inc
   %_listener.0245 = phi ptr [ %_listener.0, %for.inc ], [ %_listener.0243, %section_from_flat_range.exit ]
   %region_del = getelementptr inbounds %struct.MemoryListener, ptr %_listener.0245, i64 0, i32 3
-  %41 = load ptr, ptr %region_del, align 8
-  %tobool34.not = icmp eq ptr %41, null
+  %40 = load ptr, ptr %region_del, align 8
+  %tobool34.not = icmp eq ptr %40, null
   br i1 %tobool34.not, label %for.inc, label %if.then35
 
 if.then35:                                        ; preds = %for.body
-  call void %41(ptr noundef nonnull %_listener.0245, ptr noundef nonnull %mrs) #19
+  call void %40(ptr noundef nonnull %_listener.0245, ptr noundef nonnull %mrs) #19
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then35
@@ -9634,79 +9627,78 @@ land.lhs.true47:                                  ; preds = %lor.lhs.false17, %f
   br i1 %cmp.i91, label %land.lhs.true.i92, label %if.else137
 
 land.lhs.true.i92:                                ; preds = %land.lhs.true47
-  %42 = getelementptr %struct.FlatRange, ptr %2, i64 %idxprom, i32 2, i32 1
-  %addr.val13.i96 = load i128, ptr %42, align 16
-  %43 = getelementptr %struct.FlatRange, ptr %5, i64 %idxprom9, i32 2, i32 1
-  %addr2.val14.i98 = load i128, ptr %43, align 16
+  %41 = getelementptr %struct.FlatRange, ptr %2, i64 %idxprom, i32 2, i32 1
+  %addr.val13.i96 = load i128, ptr %41, align 16
+  %42 = getelementptr %struct.FlatRange, ptr %5, i64 %idxprom9, i32 2, i32 1
+  %addr2.val14.i98 = load i128, ptr %42, align 16
   %cmp.i9.i.i100 = icmp eq i128 %addr.val13.i96, %addr2.val14.i98
   %spec.select.i.i101 = select i1 %cmp.i84, i1 %cmp.i9.i.i100, i1 false
   br i1 %spec.select.i.i101, label %land.lhs.true3.i102, label %if.else137
 
 land.lhs.true3.i102:                              ; preds = %land.lhs.true.i92
   %offset_in_region.i103 = getelementptr %struct.FlatRange, ptr %2, i64 %idxprom, i32 1
-  %44 = load i64, ptr %offset_in_region.i103, align 8
+  %43 = load i64, ptr %offset_in_region.i103, align 8
   %offset_in_region4.i104 = getelementptr %struct.FlatRange, ptr %5, i64 %idxprom9, i32 1
-  %45 = load i64, ptr %offset_in_region4.i104, align 8
-  %cmp5.i105 = icmp eq i64 %44, %45
+  %44 = load i64, ptr %offset_in_region4.i104, align 8
+  %cmp5.i105 = icmp eq i64 %43, %44
   br i1 %cmp5.i105, label %land.lhs.true6.i106, label %if.else137
 
 land.lhs.true6.i106:                              ; preds = %land.lhs.true3.i102
   %romd_mode.i107 = getelementptr %struct.FlatRange, ptr %2, i64 %idxprom, i32 4
-  %46 = load i8, ptr %romd_mode.i107, align 1
+  %45 = load i8, ptr %romd_mode.i107, align 1
   %romd_mode7.i108 = getelementptr %struct.FlatRange, ptr %5, i64 %idxprom9, i32 4
-  %47 = load i8, ptr %romd_mode7.i108, align 1
-  %48 = xor i8 %47, %46
-  %49 = and i8 %48, 1
-  %cmp10.i109 = icmp eq i8 %49, 0
+  %46 = load i8, ptr %romd_mode7.i108, align 1
+  %47 = xor i8 %46, %45
+  %48 = and i8 %47, 1
+  %cmp10.i109 = icmp eq i8 %48, 0
   br i1 %cmp10.i109, label %land.lhs.true12.i110, label %if.else137
 
 land.lhs.true12.i110:                             ; preds = %land.lhs.true6.i106
   %readonly.i111 = getelementptr %struct.FlatRange, ptr %2, i64 %idxprom, i32 5
-  %50 = load i8, ptr %readonly.i111, align 2
+  %49 = load i8, ptr %readonly.i111, align 2
   %readonly15.i112 = getelementptr %struct.FlatRange, ptr %5, i64 %idxprom9, i32 5
-  %51 = load i8, ptr %readonly15.i112, align 2
-  %52 = xor i8 %51, %50
-  %53 = and i8 %52, 1
-  %cmp18.i113 = icmp eq i8 %53, 0
+  %50 = load i8, ptr %readonly15.i112, align 2
+  %51 = xor i8 %50, %49
+  %52 = and i8 %51, 1
+  %cmp18.i113 = icmp eq i8 %52, 0
   br i1 %cmp18.i113, label %land.lhs.true20.i114, label %if.else137
 
 land.lhs.true20.i114:                             ; preds = %land.lhs.true12.i110
   %nonvolatile.i115 = getelementptr %struct.FlatRange, ptr %2, i64 %idxprom, i32 6
-  %54 = load i8, ptr %nonvolatile.i115, align 1
+  %53 = load i8, ptr %nonvolatile.i115, align 1
   %nonvolatile23.i116 = getelementptr %struct.FlatRange, ptr %5, i64 %idxprom9, i32 6
-  %55 = load i8, ptr %nonvolatile23.i116, align 1
-  %56 = xor i8 %55, %54
-  %57 = and i8 %56, 1
-  %cmp26.i117 = icmp eq i8 %57, 0
+  %54 = load i8, ptr %nonvolatile23.i116, align 1
+  %55 = xor i8 %54, %53
+  %56 = and i8 %55, 1
+  %cmp26.i117 = icmp eq i8 %56, 0
   br i1 %cmp26.i117, label %flatrange_equal.exit122, label %if.else137
 
 flatrange_equal.exit122:                          ; preds = %land.lhs.true20.i114
   %unmergeable.i119 = getelementptr %struct.FlatRange, ptr %2, i64 %idxprom, i32 7
-  %58 = load i8, ptr %unmergeable.i119, align 4
+  %57 = load i8, ptr %unmergeable.i119, align 4
   %unmergeable30.i120 = getelementptr %struct.FlatRange, ptr %5, i64 %idxprom9, i32 7
-  %59 = load i8, ptr %unmergeable30.i120, align 4
-  %60 = xor i8 %59, %58
-  %61 = and i8 %60, 1
-  %cmp33.i121 = icmp eq i8 %61, 0
+  %58 = load i8, ptr %unmergeable30.i120, align 4
+  %59 = xor i8 %58, %57
+  %60 = and i8 %59, 1
+  %cmp33.i121 = icmp eq i8 %60, 0
   br i1 %cmp33.i121, label %if.then49, label %if.else137
 
 if.then49:                                        ; preds = %flatrange_equal.exit122
   br i1 %adding, label %do.body52, label %if.end134
 
 do.body52:                                        ; preds = %if.then49
-  %62 = load atomic i64, ptr %current_map.i123 monotonic, align 8
-  %63 = inttoptr i64 %62 to ptr
+  %61 = load atomic i64, ptr %current_map.i123 monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
   call void @llvm.experimental.noalias.scope.decl(metadata !99)
-  %64 = load i128, ptr %43, align 16, !noalias !99
-  store i128 %64, ptr %mrs53, align 16, !alias.scope !99
-  %65 = load ptr, ptr %arrayidx10, align 16, !noalias !99
-  store ptr %65, ptr %mr.i126, align 16, !alias.scope !99
-  store ptr %63, ptr %fv3.i127, align 8, !alias.scope !99
-  %66 = load i64, ptr %offset_in_region4.i104, align 8, !noalias !99
-  store i64 %66, ptr %offset_within_region.i128, align 16, !alias.scope !99
-  %67 = load i128, ptr %addr14, align 16, !noalias !99
-  %cmp.i.i130 = icmp ult i128 %67, 18446744073709551616
+  %62 = load i128, ptr %42, align 16, !noalias !99
+  store i128 %62, ptr %mrs53, align 16, !alias.scope !99
+  %63 = load ptr, ptr %arrayidx10, align 16, !noalias !99
+  store ptr %63, ptr %mr.i126, align 16, !alias.scope !99
+  store i64 %61, ptr %fv3.i127, align 8, !alias.scope !99
+  %64 = load i64, ptr %offset_in_region4.i104, align 8, !noalias !99
+  store i64 %64, ptr %offset_within_region.i128, align 16, !alias.scope !99
+  %65 = load i128, ptr %addr14, align 16, !noalias !99
+  %cmp.i.i130 = icmp ult i128 %65, 18446744073709551616
   br i1 %cmp.i.i130, label %section_from_flat_range.exit140, label %if.else.i.i131
 
 if.else.i.i131:                                   ; preds = %do.body52
@@ -9714,17 +9706,17 @@ if.else.i.i131:                                   ; preds = %do.body52
   unreachable
 
 section_from_flat_range.exit140:                  ; preds = %do.body52
-  %coerce.sroa.0.0.extract.trunc.i132 = trunc i128 %67 to i64
+  %coerce.sroa.0.0.extract.trunc.i132 = trunc i128 %65 to i64
   store i64 %coerce.sroa.0.0.extract.trunc.i132, ptr %offset_within_address_space.i133, align 8, !alias.scope !99
-  %68 = load i8, ptr %readonly15.i112, align 2, !noalias !99
+  %66 = load i8, ptr %readonly15.i112, align 2, !noalias !99
+  %67 = and i8 %66, 1
+  store i8 %67, ptr %readonly.i134, align 16, !alias.scope !99
+  %68 = load i8, ptr %nonvolatile23.i116, align 1, !noalias !99
   %69 = and i8 %68, 1
-  store i8 %69, ptr %readonly.i134, align 16, !alias.scope !99
-  %70 = load i8, ptr %nonvolatile23.i116, align 1, !noalias !99
+  store i8 %69, ptr %nonvolatile.i136, align 1, !alias.scope !99
+  %70 = load i8, ptr %unmergeable30.i120, align 4, !noalias !99
   %71 = and i8 %70, 1
-  store i8 %71, ptr %nonvolatile.i136, align 1, !alias.scope !99
-  %72 = load i8, ptr %unmergeable30.i120, align 4, !noalias !99
-  %73 = and i8 %72, 1
-  store i8 %73, ptr %unmergeable.i138, align 2, !alias.scope !99
+  store i8 %71, ptr %unmergeable.i138, align 2, !alias.scope !99
   %_listener56.0228 = load ptr, ptr %listeners57, align 8
   %tobool59.not229 = icmp eq ptr %_listener56.0228, null
   br i1 %tobool59.not229, label %do.end69, label %for.body60
@@ -9732,12 +9724,12 @@ section_from_flat_range.exit140:                  ; preds = %do.body52
 for.body60:                                       ; preds = %section_from_flat_range.exit140, %for.inc65
   %_listener56.0230 = phi ptr [ %_listener56.0, %for.inc65 ], [ %_listener56.0228, %section_from_flat_range.exit140 ]
   %region_nop = getelementptr inbounds %struct.MemoryListener, ptr %_listener56.0230, i64 0, i32 4
-  %74 = load ptr, ptr %region_nop, align 8
-  %tobool61.not = icmp eq ptr %74, null
+  %72 = load ptr, ptr %region_nop, align 8
+  %tobool61.not = icmp eq ptr %72, null
   br i1 %tobool61.not, label %for.inc65, label %if.then62
 
 if.then62:                                        ; preds = %for.body60
-  call void %74(ptr noundef nonnull %_listener56.0230, ptr noundef nonnull %mrs53) #19
+  call void %72(ptr noundef nonnull %_listener56.0230, ptr noundef nonnull %mrs53) #19
   br label %for.inc65
 
 for.inc65:                                        ; preds = %for.body60, %if.then62
@@ -9748,30 +9740,29 @@ for.inc65:                                        ; preds = %for.body60, %if.the
 
 do.end69:                                         ; preds = %for.inc65, %section_from_flat_range.exit140
   %dirty_log_mask = getelementptr %struct.FlatRange, ptr %5, i64 %idxprom9, i32 3
-  %75 = load i8, ptr %dirty_log_mask, align 16
-  %conv = zext i8 %75 to i32
+  %73 = load i8, ptr %dirty_log_mask, align 16
+  %conv = zext i8 %73 to i32
   %dirty_log_mask70 = getelementptr %struct.FlatRange, ptr %2, i64 %idxprom, i32 3
-  %76 = load i8, ptr %dirty_log_mask70, align 16
-  %conv71 = zext i8 %76 to i32
+  %74 = load i8, ptr %dirty_log_mask70, align 16
+  %conv71 = zext i8 %74 to i32
   %not = xor i32 %conv71, -1
   %and = and i32 %not, %conv
   %tobool72.not = icmp eq i32 %and, 0
   br i1 %tobool72.not, label %if.end96, label %do.body74
 
 do.body74:                                        ; preds = %do.end69
-  %77 = load atomic i64, ptr %current_map.i123 monotonic, align 8
-  %78 = inttoptr i64 %77 to ptr
+  %75 = load atomic i64, ptr %current_map.i123 monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
   call void @llvm.experimental.noalias.scope.decl(metadata !103)
-  %79 = load i128, ptr %43, align 16, !noalias !103
-  store i128 %79, ptr %mrs75, align 16, !alias.scope !103
-  %80 = load ptr, ptr %arrayidx10, align 16, !noalias !103
-  store ptr %80, ptr %mr.i144, align 16, !alias.scope !103
-  store ptr %78, ptr %fv3.i145, align 8, !alias.scope !103
-  %81 = load i64, ptr %offset_in_region4.i104, align 8, !noalias !103
-  store i64 %81, ptr %offset_within_region.i146, align 16, !alias.scope !103
-  %82 = load i128, ptr %addr14, align 16, !noalias !103
-  %cmp.i.i148 = icmp ult i128 %82, 18446744073709551616
+  %76 = load i128, ptr %42, align 16, !noalias !103
+  store i128 %76, ptr %mrs75, align 16, !alias.scope !103
+  %77 = load ptr, ptr %arrayidx10, align 16, !noalias !103
+  store ptr %77, ptr %mr.i144, align 16, !alias.scope !103
+  store i64 %75, ptr %fv3.i145, align 8, !alias.scope !103
+  %78 = load i64, ptr %offset_in_region4.i104, align 8, !noalias !103
+  store i64 %78, ptr %offset_within_region.i146, align 16, !alias.scope !103
+  %79 = load i128, ptr %addr14, align 16, !noalias !103
+  %cmp.i.i148 = icmp ult i128 %79, 18446744073709551616
   br i1 %cmp.i.i148, label %section_from_flat_range.exit158, label %if.else.i.i149
 
 if.else.i.i149:                                   ; preds = %do.body74
@@ -9779,17 +9770,17 @@ if.else.i.i149:                                   ; preds = %do.body74
   unreachable
 
 section_from_flat_range.exit158:                  ; preds = %do.body74
-  %coerce.sroa.0.0.extract.trunc.i150 = trunc i128 %82 to i64
+  %coerce.sroa.0.0.extract.trunc.i150 = trunc i128 %79 to i64
   store i64 %coerce.sroa.0.0.extract.trunc.i150, ptr %offset_within_address_space.i151, align 8, !alias.scope !103
-  %83 = load i8, ptr %readonly15.i112, align 2, !noalias !103
-  %84 = and i8 %83, 1
-  store i8 %84, ptr %readonly.i152, align 16, !alias.scope !103
-  %85 = load i8, ptr %nonvolatile23.i116, align 1, !noalias !103
-  %86 = and i8 %85, 1
-  store i8 %86, ptr %nonvolatile.i154, align 1, !alias.scope !103
-  %87 = load i8, ptr %unmergeable30.i120, align 4, !noalias !103
-  %88 = and i8 %87, 1
-  store i8 %88, ptr %unmergeable.i156, align 2, !alias.scope !103
+  %80 = load i8, ptr %readonly15.i112, align 2, !noalias !103
+  %81 = and i8 %80, 1
+  store i8 %81, ptr %readonly.i152, align 16, !alias.scope !103
+  %82 = load i8, ptr %nonvolatile23.i116, align 1, !noalias !103
+  %83 = and i8 %82, 1
+  store i8 %83, ptr %nonvolatile.i154, align 1, !alias.scope !103
+  %84 = load i8, ptr %unmergeable30.i120, align 4, !noalias !103
+  %85 = and i8 %84, 1
+  store i8 %85, ptr %unmergeable.i156, align 2, !alias.scope !103
   %_listener78.0231 = load ptr, ptr %listeners57, align 8
   %tobool81.not232 = icmp eq ptr %_listener78.0231, null
   br i1 %tobool81.not232, label %if.end96, label %for.body82
@@ -9797,16 +9788,16 @@ section_from_flat_range.exit158:                  ; preds = %do.body74
 for.body82:                                       ; preds = %section_from_flat_range.exit158, %for.inc91
   %_listener78.0233 = phi ptr [ %_listener78.0, %for.inc91 ], [ %_listener78.0231, %section_from_flat_range.exit158 ]
   %log_start = getelementptr inbounds %struct.MemoryListener, ptr %_listener78.0233, i64 0, i32 5
-  %89 = load ptr, ptr %log_start, align 8
-  %tobool83.not = icmp eq ptr %89, null
+  %86 = load ptr, ptr %log_start, align 8
+  %tobool83.not = icmp eq ptr %86, null
   br i1 %tobool83.not, label %for.inc91, label %if.then84
 
 if.then84:                                        ; preds = %for.body82
-  %90 = load i8, ptr %dirty_log_mask70, align 16
-  %conv87 = zext i8 %90 to i32
-  %91 = load i8, ptr %dirty_log_mask, align 16
-  %conv89 = zext i8 %91 to i32
-  call void %89(ptr noundef nonnull %_listener78.0233, ptr noundef nonnull %mrs75, i32 noundef %conv87, i32 noundef %conv89) #19
+  %87 = load i8, ptr %dirty_log_mask70, align 16
+  %conv87 = zext i8 %87 to i32
+  %88 = load i8, ptr %dirty_log_mask, align 16
+  %conv89 = zext i8 %88 to i32
+  call void %86(ptr noundef nonnull %_listener78.0233, ptr noundef nonnull %mrs75, i32 noundef %conv87, i32 noundef %conv89) #19
   br label %for.inc91
 
 for.inc91:                                        ; preds = %for.body82, %if.then84
@@ -9816,29 +9807,28 @@ for.inc91:                                        ; preds = %for.body82, %if.the
   br i1 %tobool81.not, label %if.end96, label %for.body82, !llvm.loop !106
 
 if.end96:                                         ; preds = %for.inc91, %section_from_flat_range.exit158, %do.end69
-  %92 = load i8, ptr %dirty_log_mask70, align 16
-  %conv98 = zext i8 %92 to i32
-  %93 = load i8, ptr %dirty_log_mask, align 16
-  %conv100 = zext i8 %93 to i32
+  %89 = load i8, ptr %dirty_log_mask70, align 16
+  %conv98 = zext i8 %89 to i32
+  %90 = load i8, ptr %dirty_log_mask, align 16
+  %conv100 = zext i8 %90 to i32
   %not101 = xor i32 %conv100, -1
   %and102 = and i32 %not101, %conv98
   %tobool103.not = icmp eq i32 %and102, 0
   br i1 %tobool103.not, label %if.end134, label %do.body105
 
 do.body105:                                       ; preds = %if.end96
-  %94 = load atomic i64, ptr %current_map.i123 monotonic, align 8
-  %95 = inttoptr i64 %94 to ptr
+  %91 = load atomic i64, ptr %current_map.i123 monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
   call void @llvm.experimental.noalias.scope.decl(metadata !107)
-  %96 = load i128, ptr %43, align 16, !noalias !107
-  store i128 %96, ptr %mrs106, align 16, !alias.scope !107
-  %97 = load ptr, ptr %arrayidx10, align 16, !noalias !107
-  store ptr %97, ptr %mr.i162, align 16, !alias.scope !107
-  store ptr %95, ptr %fv3.i163, align 8, !alias.scope !107
-  %98 = load i64, ptr %offset_in_region4.i104, align 8, !noalias !107
-  store i64 %98, ptr %offset_within_region.i164, align 16, !alias.scope !107
-  %99 = load i128, ptr %addr14, align 16, !noalias !107
-  %cmp.i.i166 = icmp ult i128 %99, 18446744073709551616
+  %92 = load i128, ptr %42, align 16, !noalias !107
+  store i128 %92, ptr %mrs106, align 16, !alias.scope !107
+  %93 = load ptr, ptr %arrayidx10, align 16, !noalias !107
+  store ptr %93, ptr %mr.i162, align 16, !alias.scope !107
+  store i64 %91, ptr %fv3.i163, align 8, !alias.scope !107
+  %94 = load i64, ptr %offset_in_region4.i104, align 8, !noalias !107
+  store i64 %94, ptr %offset_within_region.i164, align 16, !alias.scope !107
+  %95 = load i128, ptr %addr14, align 16, !noalias !107
+  %cmp.i.i166 = icmp ult i128 %95, 18446744073709551616
   br i1 %cmp.i.i166, label %section_from_flat_range.exit176, label %if.else.i.i167
 
 if.else.i.i167:                                   ; preds = %do.body105
@@ -9846,17 +9836,17 @@ if.else.i.i167:                                   ; preds = %do.body105
   unreachable
 
 section_from_flat_range.exit176:                  ; preds = %do.body105
-  %coerce.sroa.0.0.extract.trunc.i168 = trunc i128 %99 to i64
+  %coerce.sroa.0.0.extract.trunc.i168 = trunc i128 %95 to i64
   store i64 %coerce.sroa.0.0.extract.trunc.i168, ptr %offset_within_address_space.i169, align 8, !alias.scope !107
-  %100 = load i8, ptr %readonly15.i112, align 2, !noalias !107
+  %96 = load i8, ptr %readonly15.i112, align 2, !noalias !107
+  %97 = and i8 %96, 1
+  store i8 %97, ptr %readonly.i170, align 16, !alias.scope !107
+  %98 = load i8, ptr %nonvolatile23.i116, align 1, !noalias !107
+  %99 = and i8 %98, 1
+  store i8 %99, ptr %nonvolatile.i172, align 1, !alias.scope !107
+  %100 = load i8, ptr %unmergeable30.i120, align 4, !noalias !107
   %101 = and i8 %100, 1
-  store i8 %101, ptr %readonly.i170, align 16, !alias.scope !107
-  %102 = load i8, ptr %nonvolatile23.i116, align 1, !noalias !107
-  %103 = and i8 %102, 1
-  store i8 %103, ptr %nonvolatile.i172, align 1, !alias.scope !107
-  %104 = load i8, ptr %unmergeable30.i120, align 4, !noalias !107
-  %105 = and i8 %104, 1
-  store i8 %105, ptr %unmergeable.i174, align 2, !alias.scope !107
+  store i8 %101, ptr %unmergeable.i174, align 2, !alias.scope !107
   %.pn234 = load ptr, ptr %tql_prev111, align 8
   %_listener109.0.in.in235 = getelementptr inbounds %struct.QTailQLink, ptr %.pn234, i64 0, i32 1
   %_listener109.0.in236 = load ptr, ptr %_listener109.0.in.in235, align 8
@@ -9867,16 +9857,16 @@ section_from_flat_range.exit176:                  ; preds = %do.body105
 for.body116:                                      ; preds = %section_from_flat_range.exit176, %for.inc125
   %_listener109.0239 = phi ptr [ %_listener109.0, %for.inc125 ], [ %_listener109.0237, %section_from_flat_range.exit176 ]
   %log_stop = getelementptr inbounds %struct.MemoryListener, ptr %_listener109.0239, i64 0, i32 6
-  %106 = load ptr, ptr %log_stop, align 8
-  %tobool117.not = icmp eq ptr %106, null
+  %102 = load ptr, ptr %log_stop, align 8
+  %tobool117.not = icmp eq ptr %102, null
   br i1 %tobool117.not, label %for.inc125, label %if.then118
 
 if.then118:                                       ; preds = %for.body116
-  %107 = load i8, ptr %dirty_log_mask70, align 16
-  %conv121 = zext i8 %107 to i32
-  %108 = load i8, ptr %dirty_log_mask, align 16
-  %conv123 = zext i8 %108 to i32
-  call void %106(ptr noundef nonnull %_listener109.0239, ptr noundef nonnull %mrs106, i32 noundef %conv121, i32 noundef %conv123) #19
+  %103 = load i8, ptr %dirty_log_mask70, align 16
+  %conv121 = zext i8 %103 to i32
+  %104 = load i8, ptr %dirty_log_mask, align 16
+  %conv123 = zext i8 %104 to i32
+  call void %102(ptr noundef nonnull %_listener109.0239, ptr noundef nonnull %mrs106, i32 noundef %conv121, i32 noundef %conv123) #19
   br label %for.inc125
 
 for.inc125:                                       ; preds = %for.body116, %if.then118
@@ -9902,22 +9892,21 @@ if.else137:                                       ; preds = %if.end12, %if.end12
   br i1 %adding, label %do.body140, label %while.cond.outer.backedge
 
 do.body140:                                       ; preds = %if.else137
-  %109 = load atomic i64, ptr %current_map.i123 monotonic, align 8
-  %110 = inttoptr i64 %109 to ptr
+  %105 = load atomic i64, ptr %current_map.i123 monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
   call void @llvm.experimental.noalias.scope.decl(metadata !111)
   %addr.i178 = getelementptr inbounds %struct.FlatRange, ptr %frnew.0203213, i64 0, i32 2
   %size1.i179 = getelementptr inbounds %struct.FlatRange, ptr %frnew.0203213, i64 0, i32 2, i32 1
-  %111 = load i128, ptr %size1.i179, align 16, !noalias !111
-  store i128 %111, ptr %mrs141, align 16, !alias.scope !111
-  %112 = load ptr, ptr %frnew.0203213, align 16, !noalias !111
-  store ptr %112, ptr %mr.i180, align 16, !alias.scope !111
-  store ptr %110, ptr %fv3.i181, align 8, !alias.scope !111
+  %106 = load i128, ptr %size1.i179, align 16, !noalias !111
+  store i128 %106, ptr %mrs141, align 16, !alias.scope !111
+  %107 = load ptr, ptr %frnew.0203213, align 16, !noalias !111
+  store ptr %107, ptr %mr.i180, align 16, !alias.scope !111
+  store i64 %105, ptr %fv3.i181, align 8, !alias.scope !111
   %offset_in_region.i183 = getelementptr inbounds %struct.FlatRange, ptr %frnew.0203213, i64 0, i32 1
-  %113 = load i64, ptr %offset_in_region.i183, align 8, !noalias !111
-  store i64 %113, ptr %offset_within_region.i182, align 16, !alias.scope !111
-  %114 = load i128, ptr %addr.i178, align 16, !noalias !111
-  %cmp.i.i184 = icmp ult i128 %114, 18446744073709551616
+  %108 = load i64, ptr %offset_in_region.i183, align 8, !noalias !111
+  store i64 %108, ptr %offset_within_region.i182, align 16, !alias.scope !111
+  %109 = load i128, ptr %addr.i178, align 16, !noalias !111
+  %cmp.i.i184 = icmp ult i128 %109, 18446744073709551616
   br i1 %cmp.i.i184, label %section_from_flat_range.exit194, label %if.else.i.i185
 
 if.else.i.i185:                                   ; preds = %do.body140
@@ -9925,20 +9914,20 @@ if.else.i.i185:                                   ; preds = %do.body140
   unreachable
 
 section_from_flat_range.exit194:                  ; preds = %do.body140
-  %coerce.sroa.0.0.extract.trunc.i186 = trunc i128 %114 to i64
+  %coerce.sroa.0.0.extract.trunc.i186 = trunc i128 %109 to i64
   store i64 %coerce.sroa.0.0.extract.trunc.i186, ptr %offset_within_address_space.i187, align 8, !alias.scope !111
   %readonly5.i189 = getelementptr inbounds %struct.FlatRange, ptr %frnew.0203213, i64 0, i32 5
-  %115 = load i8, ptr %readonly5.i189, align 2, !noalias !111
-  %116 = and i8 %115, 1
-  store i8 %116, ptr %readonly.i188, align 16, !alias.scope !111
+  %110 = load i8, ptr %readonly5.i189, align 2, !noalias !111
+  %111 = and i8 %110, 1
+  store i8 %111, ptr %readonly.i188, align 16, !alias.scope !111
   %nonvolatile6.i191 = getelementptr inbounds %struct.FlatRange, ptr %frnew.0203213, i64 0, i32 6
-  %117 = load i8, ptr %nonvolatile6.i191, align 1, !noalias !111
-  %118 = and i8 %117, 1
-  store i8 %118, ptr %nonvolatile.i190, align 1, !alias.scope !111
+  %112 = load i8, ptr %nonvolatile6.i191, align 1, !noalias !111
+  %113 = and i8 %112, 1
+  store i8 %113, ptr %nonvolatile.i190, align 1, !alias.scope !111
   %unmergeable9.i193 = getelementptr inbounds %struct.FlatRange, ptr %frnew.0203213, i64 0, i32 7
-  %119 = load i8, ptr %unmergeable9.i193, align 4, !noalias !111
-  %120 = and i8 %119, 1
-  store i8 %120, ptr %unmergeable.i192, align 2, !alias.scope !111
+  %114 = load i8, ptr %unmergeable9.i193, align 4, !noalias !111
+  %115 = and i8 %114, 1
+  store i8 %115, ptr %unmergeable.i192, align 2, !alias.scope !111
   %_listener144.0246 = load ptr, ptr %listeners57, align 8
   %tobool147.not247 = icmp eq ptr %_listener144.0246, null
   br i1 %tobool147.not247, label %do.end157, label %for.body148
@@ -9946,12 +9935,12 @@ section_from_flat_range.exit194:                  ; preds = %do.body140
 for.body148:                                      ; preds = %section_from_flat_range.exit194, %for.inc153
   %_listener144.0248 = phi ptr [ %_listener144.0, %for.inc153 ], [ %_listener144.0246, %section_from_flat_range.exit194 ]
   %region_add = getelementptr inbounds %struct.MemoryListener, ptr %_listener144.0248, i64 0, i32 2
-  %121 = load ptr, ptr %region_add, align 8
-  %tobool149.not = icmp eq ptr %121, null
+  %116 = load ptr, ptr %region_add, align 8
+  %tobool149.not = icmp eq ptr %116, null
   br i1 %tobool149.not, label %for.inc153, label %if.then150
 
 if.then150:                                       ; preds = %for.body148
-  call void %121(ptr noundef nonnull %_listener144.0248, ptr noundef nonnull %mrs141) #19
+  call void %116(ptr noundef nonnull %_listener144.0248, ptr noundef nonnull %mrs141) #19
   br label %for.inc153
 
 for.inc153:                                       ; preds = %for.body148, %if.then150
@@ -9961,18 +9950,18 @@ for.inc153:                                       ; preds = %for.body148, %if.th
   br i1 %tobool147.not, label %do.end157, label %for.body148, !llvm.loop !114
 
 do.end157:                                        ; preds = %for.inc153, %section_from_flat_range.exit194
-  %122 = load ptr, ptr %frnew.0203213, align 16
-  %coalesced.i195 = getelementptr inbounds %struct.MemoryRegion, ptr %122, i64 0, i32 32
-  %123 = load ptr, ptr %coalesced.i195, align 8
-  %cmp.i196 = icmp eq ptr %123, null
+  %117 = load ptr, ptr %frnew.0203213, align 16
+  %coalesced.i195 = getelementptr inbounds %struct.MemoryRegion, ptr %117, i64 0, i32 32
+  %118 = load ptr, ptr %coalesced.i195, align 8
+  %cmp.i196 = icmp eq ptr %118, null
   br i1 %cmp.i196, label %while.cond.outer.backedge, label %for.body.i197
 
 for.body.i197:                                    ; preds = %do.end157, %for.body.i197
-  %cmr.05.i = phi ptr [ %124, %for.body.i197 ], [ %123, %do.end157 ]
+  %cmr.05.i = phi ptr [ %119, %for.body.i197 ], [ %118, %do.end157 ]
   call fastcc void @flat_range_coalesced_io_notify(ptr noundef nonnull %frnew.0203213, ptr noundef %as, ptr noundef nonnull %cmr.05.i, i1 noundef zeroext true)
   %link.i198 = getelementptr inbounds %struct.CoalescedMemoryRange, ptr %cmr.05.i, i64 0, i32 1
-  %124 = load ptr, ptr %link.i198, align 16
-  %tobool.not.i199 = icmp eq ptr %124, null
+  %119 = load ptr, ptr %link.i198, align 16
+  %tobool.not.i199 = icmp eq ptr %119, null
   br i1 %tobool.not.i199, label %while.cond.outer.backedge, label %for.body.i197, !llvm.loop !115
 
 while.end:                                        ; preds = %lor.rhs
@@ -10078,24 +10067,23 @@ if.end:                                           ; preds = %addrrange_intersect
   %size.sroa.2.0.insert.shift.i.i = shl nuw i128 %size.sroa.2.0.insert.ext.i.i, 64
   %current_map.i = getelementptr inbounds %struct.AddressSpace, ptr %as, i64 0, i32 3
   %6 = load atomic i64, ptr %current_map.i monotonic, align 8
-  %7 = inttoptr i64 %6 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19
   br i1 %add, label %do.body, label %do.body26
 
 do.body:                                          ; preds = %if.end
   tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
-  %8 = load i128, ptr %2, align 16, !noalias !116
-  store i128 %8, ptr %mrs, align 16, !alias.scope !116
+  %7 = load i128, ptr %2, align 16, !noalias !116
+  store i128 %7, ptr %mrs, align 16, !alias.scope !116
   %mr.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %mrs, i64 0, i32 1
-  %9 = load ptr, ptr %fr, align 16, !noalias !116
-  store ptr %9, ptr %mr.i, align 16, !alias.scope !116
+  %8 = load ptr, ptr %fr, align 16, !noalias !116
+  store ptr %8, ptr %mr.i, align 16, !alias.scope !116
   %fv3.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %mrs, i64 0, i32 2
-  store ptr %7, ptr %fv3.i, align 8, !alias.scope !116
+  store i64 %6, ptr %fv3.i, align 8, !alias.scope !116
   %offset_within_region.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %mrs, i64 0, i32 3
-  %10 = load i64, ptr %offset_in_region, align 8, !noalias !116
-  store i64 %10, ptr %offset_within_region.i, align 16, !alias.scope !116
-  %11 = load i128, ptr %addr2, align 16, !noalias !116
-  %cmp.i.i = icmp ult i128 %11, 18446744073709551616
+  %9 = load i64, ptr %offset_in_region, align 8, !noalias !116
+  store i64 %9, ptr %offset_within_region.i, align 16, !alias.scope !116
+  %10 = load i128, ptr %addr2, align 16, !noalias !116
+  %cmp.i.i = icmp ult i128 %10, 18446744073709551616
   br i1 %cmp.i.i, label %section_from_flat_range.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %do.body
@@ -10103,24 +10091,24 @@ if.else.i.i:                                      ; preds = %do.body
   unreachable
 
 section_from_flat_range.exit:                     ; preds = %do.body
-  %coerce.sroa.0.0.extract.trunc.i = trunc i128 %11 to i64
+  %coerce.sroa.0.0.extract.trunc.i = trunc i128 %10 to i64
   %offset_within_address_space.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %mrs, i64 0, i32 4
   store i64 %coerce.sroa.0.0.extract.trunc.i, ptr %offset_within_address_space.i, align 8, !alias.scope !116
   %readonly.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %mrs, i64 0, i32 5
   %readonly5.i = getelementptr inbounds %struct.FlatRange, ptr %fr, i64 0, i32 5
-  %12 = load i8, ptr %readonly5.i, align 2, !noalias !116
-  %13 = and i8 %12, 1
-  store i8 %13, ptr %readonly.i, align 16, !alias.scope !116
+  %11 = load i8, ptr %readonly5.i, align 2, !noalias !116
+  %12 = and i8 %11, 1
+  store i8 %12, ptr %readonly.i, align 16, !alias.scope !116
   %nonvolatile.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %mrs, i64 0, i32 6
   %nonvolatile6.i = getelementptr inbounds %struct.FlatRange, ptr %fr, i64 0, i32 6
-  %14 = load i8, ptr %nonvolatile6.i, align 1, !noalias !116
-  %15 = and i8 %14, 1
-  store i8 %15, ptr %nonvolatile.i, align 1, !alias.scope !116
+  %13 = load i8, ptr %nonvolatile6.i, align 1, !noalias !116
+  %14 = and i8 %13, 1
+  store i8 %14, ptr %nonvolatile.i, align 1, !alias.scope !116
   %unmergeable.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %mrs, i64 0, i32 7
   %unmergeable9.i = getelementptr inbounds %struct.FlatRange, ptr %fr, i64 0, i32 7
-  %16 = load i8, ptr %unmergeable9.i, align 4, !noalias !116
-  %17 = and i8 %16, 1
-  store i8 %17, ptr %unmergeable.i, align 2, !alias.scope !116
+  %15 = load i8, ptr %unmergeable9.i, align 4, !noalias !116
+  %16 = and i8 %15, 1
+  store i8 %16, ptr %unmergeable.i, align 2, !alias.scope !116
   %listeners = getelementptr inbounds %struct.AddressSpace, ptr %as, i64 0, i32 7
   %_listener.082 = load ptr, ptr %listeners, align 8
   %tobool15.not83 = icmp eq ptr %_listener.082, null
@@ -10142,12 +10130,12 @@ for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
 for.body.us.us:                                   ; preds = %for.body.lr.ph.split.us, %for.inc.us.us
   %_listener.084.us.us = phi ptr [ %_listener.0.us.us, %for.inc.us.us ], [ %_listener.082, %for.body.lr.ph.split.us ]
   %coalesced_io_add.us.us = getelementptr inbounds %struct.MemoryListener, ptr %_listener.084.us.us, i64 0, i32 15
-  %18 = load ptr, ptr %coalesced_io_add.us.us, align 8
-  %tobool16.not.us.us = icmp eq ptr %18, null
+  %17 = load ptr, ptr %coalesced_io_add.us.us, align 8
+  %tobool16.not.us.us = icmp eq ptr %17, null
   br i1 %tobool16.not.us.us, label %for.inc.us.us, label %if.then17.us.us
 
 if.then17.us.us:                                  ; preds = %for.body.us.us
-  call void %18(ptr noundef nonnull %_listener.084.us.us, ptr noundef nonnull %mrs, i64 noundef %coerce20.sroa.0.0.extract.trunc, i64 noundef %coerce22.sroa.0.0.extract.trunc) #19
+  call void %17(ptr noundef nonnull %_listener.084.us.us, ptr noundef nonnull %mrs, i64 noundef %coerce20.sroa.0.0.extract.trunc, i64 noundef %coerce22.sroa.0.0.extract.trunc) #19
   br label %for.inc.us.us
 
 for.inc.us.us:                                    ; preds = %if.then17.us.us, %for.body.us.us
@@ -10159,8 +10147,8 @@ for.inc.us.us:                                    ; preds = %if.then17.us.us, %f
 for.body.us:                                      ; preds = %for.body.lr.ph.split.us, %for.inc.us
   %_listener.084.us = phi ptr [ %_listener.0.us, %for.inc.us ], [ %_listener.082, %for.body.lr.ph.split.us ]
   %coalesced_io_add.us = getelementptr inbounds %struct.MemoryListener, ptr %_listener.084.us, i64 0, i32 15
-  %19 = load ptr, ptr %coalesced_io_add.us, align 8
-  %tobool16.not.us = icmp eq ptr %19, null
+  %18 = load ptr, ptr %coalesced_io_add.us, align 8
+  %tobool16.not.us = icmp eq ptr %18, null
   br i1 %tobool16.not.us, label %for.inc.us, label %if.else.i36
 
 for.inc.us:                                       ; preds = %for.body.us
@@ -10172,8 +10160,8 @@ for.inc.us:                                       ; preds = %for.body.us
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %_listener.084 = phi ptr [ %_listener.0, %for.inc ], [ %_listener.082, %for.body.lr.ph ]
   %coalesced_io_add = getelementptr inbounds %struct.MemoryListener, ptr %_listener.084, i64 0, i32 15
-  %20 = load ptr, ptr %coalesced_io_add, align 8
-  %tobool16.not = icmp eq ptr %20, null
+  %19 = load ptr, ptr %coalesced_io_add, align 8
+  %tobool16.not = icmp eq ptr %19, null
   br i1 %tobool16.not, label %for.inc, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body
@@ -10192,18 +10180,18 @@ for.inc:                                          ; preds = %for.body
 
 do.body26:                                        ; preds = %if.end
   tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
-  %21 = load i128, ptr %2, align 16, !noalias !120
-  store i128 %21, ptr %mrs27, align 16, !alias.scope !120
+  %20 = load i128, ptr %2, align 16, !noalias !120
+  store i128 %20, ptr %mrs27, align 16, !alias.scope !120
   %mr.i41 = getelementptr inbounds %struct.MemoryRegionSection, ptr %mrs27, i64 0, i32 1
-  %22 = load ptr, ptr %fr, align 16, !noalias !120
-  store ptr %22, ptr %mr.i41, align 16, !alias.scope !120
+  %21 = load ptr, ptr %fr, align 16, !noalias !120
+  store ptr %21, ptr %mr.i41, align 16, !alias.scope !120
   %fv3.i42 = getelementptr inbounds %struct.MemoryRegionSection, ptr %mrs27, i64 0, i32 2
-  store ptr %7, ptr %fv3.i42, align 8, !alias.scope !120
+  store i64 %6, ptr %fv3.i42, align 8, !alias.scope !120
   %offset_within_region.i43 = getelementptr inbounds %struct.MemoryRegionSection, ptr %mrs27, i64 0, i32 3
-  %23 = load i64, ptr %offset_in_region, align 8, !noalias !120
-  store i64 %23, ptr %offset_within_region.i43, align 16, !alias.scope !120
-  %24 = load i128, ptr %addr2, align 16, !noalias !120
-  %cmp.i.i45 = icmp ult i128 %24, 18446744073709551616
+  %22 = load i64, ptr %offset_in_region, align 8, !noalias !120
+  store i64 %22, ptr %offset_within_region.i43, align 16, !alias.scope !120
+  %23 = load i128, ptr %addr2, align 16, !noalias !120
+  %cmp.i.i45 = icmp ult i128 %23, 18446744073709551616
   br i1 %cmp.i.i45, label %section_from_flat_range.exit55, label %if.else.i.i46
 
 if.else.i.i46:                                    ; preds = %do.body26
@@ -10211,24 +10199,24 @@ if.else.i.i46:                                    ; preds = %do.body26
   unreachable
 
 section_from_flat_range.exit55:                   ; preds = %do.body26
-  %coerce.sroa.0.0.extract.trunc.i47 = trunc i128 %24 to i64
+  %coerce.sroa.0.0.extract.trunc.i47 = trunc i128 %23 to i64
   %offset_within_address_space.i48 = getelementptr inbounds %struct.MemoryRegionSection, ptr %mrs27, i64 0, i32 4
   store i64 %coerce.sroa.0.0.extract.trunc.i47, ptr %offset_within_address_space.i48, align 8, !alias.scope !120
   %readonly.i49 = getelementptr inbounds %struct.MemoryRegionSection, ptr %mrs27, i64 0, i32 5
   %readonly5.i50 = getelementptr inbounds %struct.FlatRange, ptr %fr, i64 0, i32 5
-  %25 = load i8, ptr %readonly5.i50, align 2, !noalias !120
-  %26 = and i8 %25, 1
-  store i8 %26, ptr %readonly.i49, align 16, !alias.scope !120
+  %24 = load i8, ptr %readonly5.i50, align 2, !noalias !120
+  %25 = and i8 %24, 1
+  store i8 %25, ptr %readonly.i49, align 16, !alias.scope !120
   %nonvolatile.i51 = getelementptr inbounds %struct.MemoryRegionSection, ptr %mrs27, i64 0, i32 6
   %nonvolatile6.i52 = getelementptr inbounds %struct.FlatRange, ptr %fr, i64 0, i32 6
-  %27 = load i8, ptr %nonvolatile6.i52, align 1, !noalias !120
-  %28 = and i8 %27, 1
-  store i8 %28, ptr %nonvolatile.i51, align 1, !alias.scope !120
+  %26 = load i8, ptr %nonvolatile6.i52, align 1, !noalias !120
+  %27 = and i8 %26, 1
+  store i8 %27, ptr %nonvolatile.i51, align 1, !alias.scope !120
   %unmergeable.i53 = getelementptr inbounds %struct.MemoryRegionSection, ptr %mrs27, i64 0, i32 7
   %unmergeable9.i54 = getelementptr inbounds %struct.FlatRange, ptr %fr, i64 0, i32 7
-  %29 = load i8, ptr %unmergeable9.i54, align 4, !noalias !120
-  %30 = and i8 %29, 1
-  store i8 %30, ptr %unmergeable.i53, align 2, !alias.scope !120
+  %28 = load i8, ptr %unmergeable9.i54, align 4, !noalias !120
+  %29 = and i8 %28, 1
+  store i8 %29, ptr %unmergeable.i53, align 2, !alias.scope !120
   %tql_prev = getelementptr inbounds %struct.AddressSpace, ptr %as, i64 0, i32 7, i32 0, i32 1
   %.pn76 = load ptr, ptr %tql_prev, align 8
   %_listener30.0.in.in77 = getelementptr inbounds %struct.QTailQLink, ptr %.pn76, i64 0, i32 1
@@ -10253,12 +10241,12 @@ for.body35.lr.ph.split.us:                        ; preds = %for.body35.lr.ph
 for.body35.us.us:                                 ; preds = %for.body35.lr.ph.split.us, %for.inc46.us.us
   %_listener30.081.us.us = phi ptr [ %_listener30.0.us.us, %for.inc46.us.us ], [ %_listener30.079, %for.body35.lr.ph.split.us ]
   %coalesced_io_del.us.us = getelementptr inbounds %struct.MemoryListener, ptr %_listener30.081.us.us, i64 0, i32 16
-  %31 = load ptr, ptr %coalesced_io_del.us.us, align 8
-  %tobool36.not.us.us = icmp eq ptr %31, null
+  %30 = load ptr, ptr %coalesced_io_del.us.us, align 8
+  %tobool36.not.us.us = icmp eq ptr %30, null
   br i1 %tobool36.not.us.us, label %for.inc46.us.us, label %if.then37.us.us
 
 if.then37.us.us:                                  ; preds = %for.body35.us.us
-  call void %31(ptr noundef nonnull %_listener30.081.us.us, ptr noundef nonnull %mrs27, i64 noundef %coerce40.sroa.0.0.extract.trunc, i64 noundef %coerce43.sroa.0.0.extract.trunc) #19
+  call void %30(ptr noundef nonnull %_listener30.081.us.us, ptr noundef nonnull %mrs27, i64 noundef %coerce40.sroa.0.0.extract.trunc, i64 noundef %coerce43.sroa.0.0.extract.trunc) #19
   br label %for.inc46.us.us
 
 for.inc46.us.us:                                  ; preds = %if.then37.us.us, %for.body35.us.us
@@ -10273,8 +10261,8 @@ for.inc46.us.us:                                  ; preds = %if.then37.us.us, %f
 for.body35.us:                                    ; preds = %for.body35.lr.ph.split.us, %for.inc46.us
   %_listener30.081.us = phi ptr [ %_listener30.0.us, %for.inc46.us ], [ %_listener30.079, %for.body35.lr.ph.split.us ]
   %coalesced_io_del.us = getelementptr inbounds %struct.MemoryListener, ptr %_listener30.081.us, i64 0, i32 16
-  %32 = load ptr, ptr %coalesced_io_del.us, align 8
-  %tobool36.not.us = icmp eq ptr %32, null
+  %31 = load ptr, ptr %coalesced_io_del.us, align 8
+  %tobool36.not.us = icmp eq ptr %31, null
   br i1 %tobool36.not.us, label %for.inc46.us, label %if.else.i68
 
 for.inc46.us:                                     ; preds = %for.body35.us
@@ -10289,8 +10277,8 @@ for.inc46.us:                                     ; preds = %for.body35.us
 for.body35:                                       ; preds = %for.body35.lr.ph, %for.inc46
   %_listener30.081 = phi ptr [ %_listener30.0, %for.inc46 ], [ %_listener30.079, %for.body35.lr.ph ]
   %coalesced_io_del = getelementptr inbounds %struct.MemoryListener, ptr %_listener30.081, i64 0, i32 16
-  %33 = load ptr, ptr %coalesced_io_del, align 8
-  %tobool36.not = icmp eq ptr %33, null
+  %32 = load ptr, ptr %coalesced_io_del, align 8
+  %tobool36.not = icmp eq ptr %32, null
   br i1 %tobool36.not, label %for.inc46, label %if.else.i61
 
 if.else.i61:                                      ; preds = %for.body35

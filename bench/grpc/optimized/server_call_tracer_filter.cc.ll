@@ -749,10 +749,9 @@ entry:
   store ptr %4, ptr %5, align 8
   %pollent_.i.i.i = getelementptr inbounds %"class.grpc_core::promise_filter_detail::BaseCallData", ptr %0, i64 0, i32 10
   %7 = load atomic i64, ptr %pollent_.i.i.i acquire, align 8
-  %atomic-temp.i.0.i.i.i.i = inttoptr i64 %7 to ptr
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail7ContextI19grpc_polling_entityE8current_E)
   %9 = load ptr, ptr %8, align 8
-  store ptr %atomic-temp.i.0.i.i.i.i, ptr %8, align 8
+  store i64 %7, ptr %8, align 8
   %finalization_.i.i.i = getelementptr inbounds %"class.grpc_core::promise_filter_detail::BaseCallData", ptr %0, i64 0, i32 7
   %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail7ContextINS_16CallFinalizationEE8current_E)
   %11 = load ptr, ptr %10, align 8
@@ -2114,8 +2113,7 @@ _ZZN9grpc_core22MakePromiseBasedFilterINS_12_GLOBAL__N_122ServerCallTracerFilter
   %next_.i.i.i.i.i59.i.i = getelementptr inbounds %"class.grpc_core::CallFinalization::FuncFinalizer", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 1
   store ptr %args1.val.i.i.i.i.i, ptr %next_.i.i.i.i.i59.i.i, align 8
   %f_.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::CallFinalization::FuncFinalizer", ptr %retval.0.i.i.i.i.i.i, i64 0, i32 2
-  %28 = ptrtoint ptr %t.i.i.i to i64
-  store i64 %28, ptr %f_.i.i.i.i.i.i.i, align 8
+  store ptr %t.i.i.i, ptr %f_.i.i.i.i.i.i.i, align 8
   store ptr %retval.0.i.i.i.i.i.i, ptr %24, align 8
   ret void
 }
@@ -2996,7 +2994,7 @@ _ZN9grpc_core21promise_filter_detail17InterceptFinalizeINS_12_GLOBAL__N_122Serve
   %next_.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::CallFinalization::FuncFinalizer", ptr %retval.0.i.i.i.i, i64 0, i32 1
   store ptr %args1.val.i.i.i, ptr %next_.i.i.i.i.i, align 8
   %f_.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::CallFinalization::FuncFinalizer", ptr %retval.0.i.i.i.i, i64 0, i32 2
-  store i64 ptrtoint (ptr @_ZZN9grpc_core21promise_filter_detail14MakeFilterCallINS_12_GLOBAL__N_122ServerCallTracerFilterEEENSt9enable_ifIXsr3std8is_emptyINS0_14FilterCallDataIT_EEEE5valueEPS7_E4typeEPS6_E4call to i64), ptr %f_.i.i.i.i.i, align 8
+  store ptr @_ZZN9grpc_core21promise_filter_detail14MakeFilterCallINS_12_GLOBAL__N_122ServerCallTracerFilterEEENSt9enable_ifIXsr3std8is_emptyINS0_14FilterCallDataIT_EEEE5valueEPS7_E4typeEPS6_E4call, ptr %f_.i.i.i.i.i, align 8
   store ptr %retval.0.i.i.i.i, ptr %10, align 8
   %14 = load i8, ptr %call_args, align 1
   store i8 %14, ptr %agg.tmp5, align 8
@@ -3269,7 +3267,7 @@ invoke.cont14:                                    ; preds = %if.then.i.i.i.i.i23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %retval.0.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp, i64 32, i1 false)
   store ptr @_ZN9grpc_core20arena_promise_detail4NullISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE6vtableE, ptr %ref.tmp, align 16
   %fn_.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Map", ptr %retval.0.i.i.i.i.i, i64 0, i32 1
-  store i64 ptrtoint (ptr @_ZZN9grpc_core21promise_filter_detail14MakeFilterCallINS_12_GLOBAL__N_122ServerCallTracerFilterEEENSt9enable_ifIXsr3std8is_emptyINS0_14FilterCallDataIT_EEEE5valueEPS7_E4typeEPS6_E4call to i64), ptr %fn_.i.i.i.i.i.i, align 16
+  store ptr @_ZZN9grpc_core21promise_filter_detail14MakeFilterCallINS_12_GLOBAL__N_122ServerCallTracerFilterEEENSt9enable_ifIXsr3std8is_emptyINS0_14FilterCallDataIT_EEEE5valueEPS7_E4typeEPS6_E4call, ptr %fn_.i.i.i.i.i.i, align 16
   store ptr %retval.0.i.i.i.i.i, ptr %arg.i, align 16
   %52 = load ptr, ptr %agg.tmp, align 16
   %destroy.i = getelementptr inbounds %"struct.grpc_core::arena_promise_detail::Vtable", ptr %52, i64 0, i32 1

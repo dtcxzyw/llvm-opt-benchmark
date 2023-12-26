@@ -1888,17 +1888,15 @@ if.end:                                           ; preds = %entry
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %call.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %basename) #17, !noalias !7
   %call2.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %basename) #17, !noalias !7
-  %0 = ptrtoint ptr %call.i.i.i to i64
   %call.i.i34.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ext) #17, !noalias !7
   %call2.i.i35.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ext) #17, !noalias !7
-  %1 = ptrtoint ptr %call.i.i34.i to i64
-  store i64 %0, ptr %ref.tmp.i, align 16, !alias.scope !7
+  store ptr %call.i.i.i, ptr %ref.tmp.i, align 16, !alias.scope !7
   %ref.tmp.i.sroa.2.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 %call2.i.i.i, ptr %ref.tmp.i.sroa.2.0.agg.result.sroa_idx.i, align 8, !alias.scope !7
   %arrayinit.element.i.i = getelementptr inbounds %"class.fmt::v9::detail::value", ptr %ref.tmp.i, i64 1
   store i64 %index, ptr %arrayinit.element.i.i, align 16, !alias.scope !7
   %arrayinit.element6.i.i = getelementptr inbounds %"class.fmt::v9::detail::value", ptr %ref.tmp.i, i64 2
-  store i64 %1, ptr %arrayinit.element6.i.i, align 16, !alias.scope !7
+  store ptr %call.i.i34.i, ptr %arrayinit.element6.i.i, align 16, !alias.scope !7
   %ref.tmp11.i.sroa.2.0.arrayinit.element6.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store i64 %call2.i.i35.i, ptr %ref.tmp11.i.sroa.2.0.arrayinit.element6.i.sroa_idx.i, align 8, !alias.scope !7
   invoke void @_ZN3fmt2v97vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.11, i64 7, i64 3405, ptr nonnull %ref.tmp.i)
@@ -1910,11 +1908,11 @@ invoke.cont3:                                     ; preds = %.noexc
   br label %return
 
 lpad:                                             ; preds = %.noexc, %if.end
-  %2 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ext) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %basename) #17
-  resume { ptr, i32 } %2
+  resume { ptr, i32 } %0
 
 return:                                           ; preds = %invoke.cont3, %if.then
   ret void
@@ -2494,17 +2492,15 @@ if.end:                                           ; preds = %entry
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %call.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %basename) #17, !noalias !11
   %call2.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %basename) #17, !noalias !11
-  %0 = ptrtoint ptr %call.i.i.i to i64
   %call.i.i34.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ext) #17, !noalias !11
   %call2.i.i35.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ext) #17, !noalias !11
-  %1 = ptrtoint ptr %call.i.i34.i to i64
-  store i64 %0, ptr %ref.tmp.i, align 16, !alias.scope !11
+  store ptr %call.i.i.i, ptr %ref.tmp.i, align 16, !alias.scope !11
   %ref.tmp.i.sroa.2.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 %call2.i.i.i, ptr %ref.tmp.i.sroa.2.0.agg.result.sroa_idx.i, align 8, !alias.scope !11
   %arrayinit.element.i.i = getelementptr inbounds %"class.fmt::v9::detail::value", ptr %ref.tmp.i, i64 1
   store i64 %index, ptr %arrayinit.element.i.i, align 16, !alias.scope !11
   %arrayinit.element6.i.i = getelementptr inbounds %"class.fmt::v9::detail::value", ptr %ref.tmp.i, i64 2
-  store i64 %1, ptr %arrayinit.element6.i.i, align 16, !alias.scope !11
+  store ptr %call.i.i34.i, ptr %arrayinit.element6.i.i, align 16, !alias.scope !11
   %ref.tmp11.i.sroa.2.0.arrayinit.element6.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store i64 %call2.i.i35.i, ptr %ref.tmp11.i.sroa.2.0.arrayinit.element6.i.sroa_idx.i, align 8, !alias.scope !11
   invoke void @_ZN3fmt2v97vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.11, i64 7, i64 3405, ptr nonnull %ref.tmp.i)
@@ -2516,11 +2512,11 @@ invoke.cont3:                                     ; preds = %.noexc
   br label %return
 
 lpad:                                             ; preds = %.noexc, %if.end
-  %2 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ext) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %basename) #17
-  resume { ptr, i32 } %2
+  resume { ptr, i32 } %0
 
 return:                                           ; preds = %invoke.cont3, %if.then
   ret void

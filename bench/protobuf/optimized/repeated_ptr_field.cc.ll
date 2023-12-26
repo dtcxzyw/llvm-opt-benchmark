@@ -187,7 +187,7 @@ for.body.preheader.i.i.i.i.i.i:                   ; preds = %_ZSt4copyIPPN6googl
   br label %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i
 
 _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i: ; preds = %for.body.preheader.i.i.i.i.i.i, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i
-  store ptr %6, ptr %cached_blocks_.i.i.i, align 8
+  store i64 %sub.i, ptr %cached_blocks_.i.i.i, align 8
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %div10.i.i.i, i64 64)
   %conv17.i.i.i = trunc i64 %.sroa.speculated.i.i.i to i8
   store i8 %conv17.i.i.i, ptr %cached_block_length_.i.i.i, align 8
@@ -199,19 +199,18 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %18, i64 %sub.i.i.i
   %19 = load ptr, ptr %arrayidx.i.i.i, align 8
   store ptr %19, ptr %6, align 8
-  store ptr %6, ptr %arrayidx.i.i.i, align 8
+  store i64 %sub.i, ptr %arrayidx.i.i.i, align 8
   br label %if.end46
 
 if.end46:                                         ; preds = %if.end.i.i.i, %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i, %if.else44, %if.then43, %if.then22
   %20 = ptrtoint ptr %new_rep.0 to i64
   %add47 = add i64 %20, 1
-  %21 = inttoptr i64 %add47 to ptr
-  store ptr %21, ptr %this, align 8
+  store i64 %add47, ptr %this, align 8
   %sub49 = add nsw i32 %retval.0.i, -1
   store i32 %sub49, ptr %capacity_proxy_.i, align 4
   %current_size_ = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 1
-  %22 = load i32, ptr %current_size_, align 8
-  %idxprom = sext i32 %22 to i64
+  %21 = load i32, ptr %current_size_, align 8
+  %idxprom = sext i32 %21 to i64
   %arrayidx51 = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %new_rep.0, i64 0, i32 1, i64 %idxprom
   ret ptr %arrayidx51
 }

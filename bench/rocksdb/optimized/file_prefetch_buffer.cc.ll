@@ -178,10 +178,10 @@ if.end.i:                                         ; preds = %if.then18
   %add6.i = add i64 %sub.i, %11
   %not.i = sub i64 0, %9
   %and.i = and i64 %add6.i, %not.i
-  %12 = inttoptr i64 %and.i to ptr
   br i1 %copy_data_to_new_buffer.0, label %if.then10.i, label %if.end13.i
 
 if.then10.i:                                      ; preds = %if.end.i
+  %12 = inttoptr i64 %and.i to ptr
   %bufstart_.i = getelementptr inbounds %"class.rocksdb::AlignedBuffer", ptr %add.ptr.i30, i64 0, i32 4
   %13 = load ptr, ptr %bufstart_.i, align 8
   %add.ptr.i35 = getelementptr inbounds i8, ptr %13, i64 %chunk_offset_in_buffer.0
@@ -192,7 +192,7 @@ if.end13.i:                                       ; preds = %if.then10.i, %if.en
   %storemerge.i = phi i64 [ %cond.i, %if.then10.i ], [ 0, %if.end.i ]
   store i64 %storemerge.i, ptr %cursize_.i32, align 8
   %bufstart_14.i = getelementptr inbounds %"class.rocksdb::AlignedBuffer", ptr %add.ptr.i30, i64 0, i32 4
-  store ptr %12, ptr %bufstart_14.i, align 8
+  store i64 %and.i, ptr %bufstart_14.i, align 8
   %capacity_.i34 = getelementptr inbounds %"class.rocksdb::AlignedBuffer", ptr %add.ptr.i30, i64 0, i32 2
   store i64 %mul.i.i, ptr %capacity_.i34, align 8
   %buf_.i = getelementptr inbounds %"class.rocksdb::AlignedBuffer", ptr %add.ptr.i30, i64 0, i32 1
@@ -249,10 +249,10 @@ if.end.i49:                                       ; preds = %if.then38
   %add6.i56 = add i64 %sub.i55, %22
   %not.i57 = sub i64 0, %20
   %and.i58 = and i64 %add6.i56, %not.i57
-  %23 = inttoptr i64 %and.i58 to ptr
   br i1 %copy_data_to_new_buffer.0, label %if.then10.i66, label %if.end13.i59
 
 if.then10.i66:                                    ; preds = %if.end.i49
+  %23 = inttoptr i64 %and.i58 to ptr
   %bufstart_.i67 = getelementptr inbounds %"class.rocksdb::AlignedBuffer", ptr %add.ptr.i43, i64 0, i32 4
   %24 = load ptr, ptr %bufstart_.i67, align 8
   %add.ptr.i68 = getelementptr inbounds i8, ptr %24, i64 %chunk_offset_in_buffer.0
@@ -263,7 +263,7 @@ if.end13.i59:                                     ; preds = %if.then10.i66, %if.
   %storemerge.i60 = phi i64 [ %cond.i46, %if.then10.i66 ], [ 0, %if.end.i49 ]
   store i64 %storemerge.i60, ptr %cursize_.i45, align 8
   %bufstart_14.i61 = getelementptr inbounds %"class.rocksdb::AlignedBuffer", ptr %add.ptr.i43, i64 0, i32 4
-  store ptr %23, ptr %bufstart_14.i61, align 8
+  store i64 %and.i58, ptr %bufstart_14.i61, align 8
   %capacity_.i62 = getelementptr inbounds %"class.rocksdb::AlignedBuffer", ptr %add.ptr.i43, i64 0, i32 2
   store i64 %mul.i.i52, ptr %capacity_.i62, align 8
   %buf_.i63 = getelementptr inbounds %"class.rocksdb::AlignedBuffer", ptr %add.ptr.i43, i64 0, i32 1
@@ -428,7 +428,7 @@ entry:
 
 invoke.cont11:                                    ; preds = %entry
   %_M_invoker.i = getelementptr inbounds %"class.std::function.49", ptr %agg.tmp, i64 0, i32 1
-  store i64 ptrtoint (ptr @_ZN7rocksdb18FilePrefetchBuffer21PrefetchAsyncCallbackERKNS_13FSReadRequestEPv to i64), ptr %call.i.i2.i9, align 16
+  store ptr @_ZN7rocksdb18FilePrefetchBuffer21PrefetchAsyncCallbackERKNS_13FSReadRequestEPv, ptr %call.i.i2.i9, align 16
   %fp.sroa.2.0.call.i.i2.i9.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i9, i64 8
   store i64 0, ptr %fp.sroa.2.0.call.i.i2.i9.sroa_idx, align 8
   %fp.sroa.3.0.call.i.i2.i9.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i9, i64 16
@@ -2855,41 +2855,40 @@ call4.i.noexc:                                    ; preds = %invoke.cont39
   %add6.i = add i64 %sub.i, %27
   %not.i = sub i64 0, %25
   %and.i = and i64 %add6.i, %not.i
-  %28 = inttoptr i64 %and.i to ptr
   store i64 0, ptr %cursize_.i, align 8
   %bufstart_14.i = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %24, i64 2, i32 0, i32 4
-  store ptr %28, ptr %bufstart_14.i, align 8
+  store i64 %and.i, ptr %bufstart_14.i, align 8
   %capacity_.i = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %24, i64 2, i32 0, i32 2
   store i64 %mul.i.i, ptr %capacity_.i, align 8
   %buf_.i = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %24, i64 2, i32 0, i32 1
-  %29 = load ptr, ptr %buf_.i, align 8
+  %28 = load ptr, ptr %buf_.i, align 8
   store ptr %call4.i39, ptr %buf_.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %29, null
+  %tobool.not.i.i.i = icmp eq ptr %28, null
   br i1 %tobool.not.i.i.i, label %invoke.cont46, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i: ; preds = %call4.i.noexc
-  tail call void @_ZdaPv(ptr noundef nonnull %29) #15
+  tail call void @_ZdaPv(ptr noundef nonnull %28) #15
   br label %invoke.cont46
 
 invoke.cont46:                                    ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i, %call4.i.noexc
-  %30 = load ptr, ptr %this, align 8
-  %offset_49 = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %30, i64 2, i32 1
+  %29 = load ptr, ptr %this, align 8
+  %offset_49 = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %29, i64 2, i32 1
   store i64 %offset, ptr %offset_49, align 8
   store i8 1, ptr %copy_to_third_buffer, align 1
-  %31 = load i64, ptr %tmp_length, align 8
-  %cmp.i41 = icmp eq i64 %31, 0
+  %30 = load i64, ptr %tmp_length, align 8
+  %cmp.i41 = icmp eq i64 %30, 0
   br i1 %cmp.i41, label %invoke.cont51, label %if.end.i
 
 if.end.i:                                         ; preds = %invoke.cont46
-  %32 = load i32, ptr %curr_, align 8
-  %33 = load i64, ptr %tmp_offset, align 8
-  %conv.i42 = zext i32 %32 to i64
-  %34 = load ptr, ptr %this, align 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %34, i64 %conv.i42
-  %offset_.i43 = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %34, i64 %conv.i42, i32 1
-  %35 = load i64, ptr %offset_.i43, align 8
-  %sub.i44 = sub i64 %33, %35
-  %cmp.not.i.i45 = icmp ugt i64 %35, %33
+  %31 = load i32, ptr %curr_, align 8
+  %32 = load i64, ptr %tmp_offset, align 8
+  %conv.i42 = zext i32 %31 to i64
+  %33 = load ptr, ptr %this, align 8
+  %add.ptr.i.i = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %33, i64 %conv.i42
+  %offset_.i43 = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %33, i64 %conv.i42, i32 1
+  %34 = load i64, ptr %offset_.i43, align 8
+  %sub.i44 = sub i64 %32, %34
+  %cmp.not.i.i45 = icmp ugt i64 %34, %32
   br i1 %cmp.not.i.i45, label %if.end.if.else_crit_edge.i, label %_ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit.i
 
 if.end.if.else_crit_edge.i:                       ; preds = %if.end.i
@@ -2898,128 +2897,128 @@ if.end.if.else_crit_edge.i:                       ; preds = %if.end.i
   br label %if.else.i
 
 _ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit.i: ; preds = %if.end.i
-  %add.i.i46 = add i64 %33, %31
-  %cursize_.i.i.i = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %34, i64 %conv.i42, i32 0, i32 3
-  %36 = load i64, ptr %cursize_.i.i.i, align 8
-  %add10.i.i = add i64 %36, %35
+  %add.i.i46 = add i64 %32, %30
+  %cursize_.i.i.i = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %33, i64 %conv.i42, i32 0, i32 3
+  %35 = load i64, ptr %cursize_.i.i.i, align 8
+  %add10.i.i = add i64 %35, %34
   %cmp11.i.not.i = icmp ugt i64 %add.i.i46, %add10.i.i
   br i1 %cmp11.i.not.i, label %if.else.i, label %if.end9.i
 
 if.else.i:                                        ; preds = %_ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit.i, %if.end.if.else_crit_edge.i
-  %37 = phi i64 [ %.pre.i, %if.end.if.else_crit_edge.i ], [ %36, %_ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit.i ]
-  %sub8.i = sub i64 %37, %sub.i44
+  %36 = phi i64 [ %.pre.i, %if.end.if.else_crit_edge.i ], [ %35, %_ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit.i ]
+  %sub8.i = sub i64 %36, %sub.i44
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.else.i, %_ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit.i
-  %copy_len.0.i = phi i64 [ %sub8.i, %if.else.i ], [ %31, %_ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit.i ]
-  %bufstart_.i.i = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %34, i64 2, i32 0, i32 4
-  %38 = load ptr, ptr %bufstart_.i.i, align 8
-  %cursize_.i18.i = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %34, i64 2, i32 0, i32 3
-  %39 = load i64, ptr %cursize_.i18.i, align 8
-  %add.ptr.i47 = getelementptr inbounds i8, ptr %38, i64 %39
+  %copy_len.0.i = phi i64 [ %sub8.i, %if.else.i ], [ %30, %_ZN7rocksdb18FilePrefetchBuffer19IsDataBlockInBufferEmmj.exit.i ]
+  %bufstart_.i.i = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %33, i64 2, i32 0, i32 4
+  %37 = load ptr, ptr %bufstart_.i.i, align 8
+  %cursize_.i18.i = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %33, i64 2, i32 0, i32 3
+  %38 = load i64, ptr %cursize_.i18.i, align 8
+  %add.ptr.i47 = getelementptr inbounds i8, ptr %37, i64 %38
   %bufstart_.i20.i = getelementptr inbounds %"class.rocksdb::AlignedBuffer", ptr %add.ptr.i.i, i64 0, i32 4
-  %40 = load ptr, ptr %bufstart_.i20.i, align 8
-  %add.ptr23.i = getelementptr inbounds i8, ptr %40, i64 %sub.i44
+  %39 = load ptr, ptr %bufstart_.i20.i, align 8
+  %add.ptr23.i = getelementptr inbounds i8, ptr %39, i64 %sub.i44
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i47, ptr align 1 %add.ptr23.i, i64 %copy_len.0.i, i1 false)
-  %41 = load ptr, ptr %this, align 8
-  %cursize_.i23.i = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %41, i64 2, i32 0, i32 3
-  %42 = load i64, ptr %cursize_.i23.i, align 8
-  %add.i48 = add i64 %42, %copy_len.0.i
+  %40 = load ptr, ptr %this, align 8
+  %cursize_.i23.i = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %40, i64 2, i32 0, i32 3
+  %41 = load i64, ptr %cursize_.i23.i, align 8
+  %add.i48 = add i64 %41, %copy_len.0.i
   store i64 %add.i48, ptr %cursize_.i23.i, align 8
-  %43 = load i64, ptr %tmp_offset, align 8
-  %add31.i = add i64 %43, %copy_len.0.i
+  %42 = load i64, ptr %tmp_offset, align 8
+  %add31.i = add i64 %42, %copy_len.0.i
   store i64 %add31.i, ptr %tmp_offset, align 8
-  %44 = load i64, ptr %tmp_length, align 8
-  %sub32.i = sub i64 %44, %copy_len.0.i
+  %43 = load i64, ptr %tmp_length, align 8
+  %sub32.i = sub i64 %43, %copy_len.0.i
   store i64 %sub32.i, ptr %tmp_length, align 8
-  %cmp33.not.i = icmp eq i64 %44, %copy_len.0.i
+  %cmp33.not.i = icmp eq i64 %43, %copy_len.0.i
   br i1 %cmp33.not.i, label %invoke.cont51, label %if.then34.i
 
 if.then34.i:                                      ; preds = %if.end9.i
-  %45 = load ptr, ptr %this, align 8
-  %cursize_.i.i26.i = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %45, i64 %conv.i42, i32 0, i32 3
+  %44 = load ptr, ptr %this, align 8
+  %cursize_.i.i26.i = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %44, i64 %conv.i42, i32 0, i32 3
   store i64 0, ptr %cursize_.i.i26.i, align 8
-  %initial_end_offset_.i.i = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %45, i64 %conv.i42, i32 7
+  %initial_end_offset_.i.i = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %44, i64 %conv.i42, i32 7
   store i64 0, ptr %initial_end_offset_.i.i, align 8
   %.pre66 = load i64, ptr %tmp_length, align 8
   br label %invoke.cont51
 
 invoke.cont51:                                    ; preds = %if.then34.i, %if.end9.i, %invoke.cont46
-  %46 = phi i64 [ %.pre66, %if.then34.i ], [ %sub32.i, %if.end9.i ], [ 0, %invoke.cont46 ]
-  %47 = load ptr, ptr %this, align 8
-  %async_read_in_progress_55 = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %47, i64 %conv26, i32 3
-  %48 = load i8, ptr %async_read_in_progress_55, align 8
-  %49 = and i8 %48, 1
-  %tobool56.not = icmp eq i8 %49, 0
-  %async_req_len_ = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %47, i64 %conv26, i32 2
-  %cursize_.i52 = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %47, i64 %conv26, i32 0, i32 3
+  %45 = phi i64 [ %.pre66, %if.then34.i ], [ %sub32.i, %if.end9.i ], [ 0, %invoke.cont46 ]
+  %46 = load ptr, ptr %this, align 8
+  %async_read_in_progress_55 = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %46, i64 %conv26, i32 3
+  %47 = load i8, ptr %async_read_in_progress_55, align 8
+  %48 = and i8 %47, 1
+  %tobool56.not = icmp eq i8 %48, 0
+  %async_req_len_ = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %46, i64 %conv26, i32 2
+  %cursize_.i52 = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %46, i64 %conv26, i32 0, i32 3
   %cond.in = select i1 %tobool56.not, ptr %cursize_.i52, ptr %async_req_len_
   %cond = load i64, ptr %cond.in, align 8
-  %initial_end_offset_ = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %47, i64 %conv26, i32 7
-  %50 = load i64, ptr %initial_end_offset_, align 8
-  store i64 %50, ptr %start_offset, align 8
-  %51 = load i64, ptr %tmp_offset, align 8
-  %add69 = add i64 %46, %51
-  %offset_73 = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %47, i64 %conv26, i32 1
-  %52 = load i64, ptr %offset_73, align 8
-  %add74 = add i64 %52, %cond
+  %initial_end_offset_ = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %46, i64 %conv26, i32 7
+  %49 = load i64, ptr %initial_end_offset_, align 8
+  store i64 %49, ptr %start_offset, align 8
+  %50 = load i64, ptr %tmp_offset, align 8
+  %add69 = add i64 %45, %50
+  %offset_73 = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %46, i64 %conv26, i32 1
+  %51 = load i64, ptr %offset_73, align 8
+  %add74 = add i64 %51, %cond
   %cmp75.not = icmp ugt i64 %add69, %add74
   br i1 %cmp75.not, label %if.end101, label %if.then76
 
 if.then76:                                        ; preds = %invoke.cont51
   store i64 0, ptr %read_len, align 8
-  store i64 %50, ptr %end_offset, align 8
+  store i64 %49, ptr %end_offset, align 8
   store i64 0, ptr %chunk_len, align 8
-  %53 = load i32, ptr %curr_, align 8
-  invoke void @_ZN7rocksdb18FilePrefetchBuffer19ReadAheadSizeTuningEbbmjmmmRmS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(176) %this, i1 noundef zeroext false, i1 noundef zeroext false, i64 noundef %add74, i32 noundef %53, i64 noundef %call3, i64 noundef 0, i64 noundef %readahead_size, ptr noundef nonnull align 8 dereferenceable(8) %start_offset, ptr noundef nonnull align 8 dereferenceable(8) %end_offset, ptr noundef nonnull align 8 dereferenceable(8) %read_len, ptr noundef nonnull align 8 dereferenceable(8) %chunk_len)
+  %52 = load i32, ptr %curr_, align 8
+  invoke void @_ZN7rocksdb18FilePrefetchBuffer19ReadAheadSizeTuningEbbmjmmmRmS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(176) %this, i1 noundef zeroext false, i1 noundef zeroext false, i64 noundef %add74, i32 noundef %52, i64 noundef %call3, i64 noundef 0, i64 noundef %readahead_size, ptr noundef nonnull align 8 dereferenceable(8) %start_offset, ptr noundef nonnull align 8 dereferenceable(8) %end_offset, ptr noundef nonnull align 8 dereferenceable(8) %read_len, ptr noundef nonnull align 8 dereferenceable(8) %chunk_len)
           to label %invoke.cont83 unwind label %lpad
 
 invoke.cont83:                                    ; preds = %if.then76
-  %54 = load i64, ptr %read_len, align 8
-  %cmp84.not = icmp eq i64 %54, 0
+  %53 = load i64, ptr %read_len, align 8
+  %cmp84.not = icmp eq i64 %53, 0
   br i1 %cmp84.not, label %if.end101, label %if.then85
 
 if.then85:                                        ; preds = %invoke.cont83
-  %55 = load i64, ptr %start_offset, align 8
-  %56 = load i32, ptr %curr_, align 8
-  invoke void @_ZN7rocksdb18FilePrefetchBuffer9ReadAsyncERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmmj(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef nonnull %reader, i64 noundef %54, i64 noundef %55, i32 noundef %56)
+  %54 = load i64, ptr %start_offset, align 8
+  %55 = load i32, ptr %curr_, align 8
+  invoke void @_ZN7rocksdb18FilePrefetchBuffer9ReadAsyncERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmmj(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef nonnull %reader, i64 noundef %53, i64 noundef %54, i32 noundef %55)
           to label %invoke.cont87 unwind label %lpad
 
 invoke.cont87:                                    ; preds = %if.then85
   %call88 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7rocksdb6StatusaSEOS0_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #18
   %state_.i56 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp, i64 0, i32 6
-  %57 = load ptr, ptr %state_.i56, align 8
-  %cmp.not.i.i57 = icmp eq ptr %57, null
+  %56 = load ptr, ptr %state_.i56, align 8
+  %cmp.not.i.i57 = icmp eq ptr %56, null
   br i1 %cmp.not.i.i57, label %invoke.cont89, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i58
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i58: ; preds = %invoke.cont87
-  call void @_ZdaPv(ptr noundef nonnull %57) #15
+  call void @_ZdaPv(ptr noundef nonnull %56) #15
   br label %invoke.cont89
 
 invoke.cont89:                                    ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i58, %invoke.cont87
   store ptr null, ptr %state_.i56, align 8
-  %58 = load i8, ptr %agg.result, align 8
-  %cmp.i60 = icmp eq i8 %58, 0
+  %57 = load i8, ptr %agg.result, align 8
+  %cmp.i60 = icmp eq i8 %57, 0
   br i1 %cmp.i60, label %if.end101, label %if.then91
 
 if.then91:                                        ; preds = %invoke.cont89
-  %59 = load i32, ptr %curr_, align 8
-  invoke void @_ZN7rocksdb18FilePrefetchBuffer23DestroyAndClearIOHandleEj(ptr noundef nonnull align 8 dereferenceable(176) %this, i32 noundef %59)
+  %58 = load i32, ptr %curr_, align 8
+  invoke void @_ZN7rocksdb18FilePrefetchBuffer23DestroyAndClearIOHandleEj(ptr noundef nonnull align 8 dereferenceable(176) %this, i32 noundef %58)
           to label %invoke.cont93 unwind label %lpad
 
 invoke.cont93:                                    ; preds = %if.then91
-  %60 = load i32, ptr %curr_, align 8
-  %conv96 = zext i32 %60 to i64
-  %61 = load ptr, ptr %this, align 8
-  %cursize_.i.i62 = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %61, i64 %conv96, i32 0, i32 3
+  %59 = load i32, ptr %curr_, align 8
+  %conv96 = zext i32 %59 to i64
+  %60 = load ptr, ptr %this, align 8
+  %cursize_.i.i62 = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %60, i64 %conv96, i32 0, i32 3
   store i64 0, ptr %cursize_.i.i62, align 8
-  %initial_end_offset_.i63 = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %61, i64 %conv96, i32 7
+  %initial_end_offset_.i63 = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %60, i64 %conv96, i32 7
   store i64 0, ptr %initial_end_offset_.i63, align 8
   br label %nrvo.skipdtor
 
 if.end101:                                        ; preds = %invoke.cont83, %invoke.cont89, %invoke.cont51
-  %62 = load i32, ptr %curr_, align 8
-  %xor103 = xor i32 %62, 1
+  %61 = load i32, ptr %curr_, align 8
+  %xor103 = xor i32 %61, 1
   store i32 %xor103, ptr %curr_, align 8
   br label %nrvo.skipdtor
 

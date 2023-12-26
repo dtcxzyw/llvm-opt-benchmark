@@ -3294,21 +3294,19 @@ define linkonce_odr void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pai
 entry:
   %agg.tmp7 = alloca %"class.std::tuple.71", align 8
   %0 = load i64, ptr %__args1, align 8
-  %1 = inttoptr i64 %0 to ptr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7, ptr noundef nonnull align 8 dereferenceable(32) %__args3) #19
-  %2 = getelementptr inbounds i8, ptr %agg.tmp7, i64 32
+  %1 = getelementptr inbounds i8, ptr %agg.tmp7, i64 32
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__args3, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #19
-  %3 = getelementptr inbounds i8, ptr %agg.tmp7, i64 64
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #19
+  %2 = getelementptr inbounds i8, ptr %agg.tmp7, i64 64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %__args3, i64 64
-  %4 = load i64, ptr %add.ptr.i.i, align 8
-  store i64 %4, ptr %3, align 8
-  store ptr %1, ptr %__p, align 8
+  %3 = load i64, ptr %add.ptr.i.i, align 8
+  store i64 %3, ptr %2, align 8
+  store i64 %0, ptr %__p, align 8
   %second.i.i = getelementptr inbounds %"struct.std::pair.63", ptr %__p, i64 0, i32 1
-  %.cast = inttoptr i64 %4 to ptr
-  store ptr %.cast, ptr %second.i.i, align 8
+  store i64 %3, ptr %second.i.i, align 8
   %db_name.i.i.i = getelementptr inbounds %"struct.std::pair.63", ptr %__p, i64 0, i32 1, i32 1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %db_name.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %db_name.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
@@ -3317,24 +3315,24 @@ entry:
           to label %invoke.cont unwind label %lpad.i.i.i
 
 lpad.i.i.i:                                       ; preds = %.noexc
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %db_name.i.i.i) #19
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %.noexc
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7) #19
   ret void
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i.i.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %6, %lpad ], [ %5, %lpad.i.i.i ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
+  %eh.lpad-body = phi { ptr, i32 } [ %5, %lpad ], [ %4, %lpad.i.i.i ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7) #19
   resume { ptr, i32 } %eh.lpad-body
 }

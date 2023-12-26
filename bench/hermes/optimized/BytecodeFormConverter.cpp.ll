@@ -200,17 +200,17 @@ _ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EEC2EN4llv
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %steps.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %steps.i, i8 0, i64 96, i1 false)
-  store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE18processMagicNumberEv to i64), ptr %steps.i, align 16
+  store ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE18processMagicNumberEv, ptr %steps.i, align 16
   %4 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps.i, i64 0, i64 1
-  store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE19processInstructionsEv to i64), ptr %4, align 16
+  store ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE19processInstructionsEv, ptr %4, align 16
   %5 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps.i, i64 0, i64 2
-  store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE30processOverflowFunctionHeadersEv to i64), ptr %5, align 16
+  store ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE30processOverflowFunctionHeadersEv, ptr %5, align 16
   %6 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps.i, i64 0, i64 3
-  store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE22processFunctionHeadersEv to i64), ptr %6, align 16
+  store ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE22processFunctionHeadersEv, ptr %6, align 16
   %7 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps.i, i64 0, i64 4
-  store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE18processStringTableEv to i64), ptr %7, align 16
+  store ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE18processStringTableEv, ptr %7, align 16
   %8 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps.i, i64 0, i64 5
-  store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE26processOverflowStringTableEv to i64), ptr %8, align 16
+  store ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EE26processOverflowStringTableEv, ptr %8, align 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %memptr.end.i, %_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE1EEC2EN4llvh15MutableArrayRefIhEERNS2_18BytecodeFileFieldsILb1EEES3_.exit
@@ -310,17 +310,17 @@ _ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EEC2EN4llv
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i9)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %steps.i32)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %steps.i32, i8 0, i64 96, i1 false)
-  store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE18processMagicNumberEv to i64), ptr %steps.i32, align 16
+  store ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE18processMagicNumberEv, ptr %steps.i32, align 16
   %19 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps.i32, i64 0, i64 1
-  store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE19processInstructionsEv to i64), ptr %19, align 16
+  store ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE19processInstructionsEv, ptr %19, align 16
   %20 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps.i32, i64 0, i64 2
-  store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE30processOverflowFunctionHeadersEv to i64), ptr %20, align 16
+  store ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE30processOverflowFunctionHeadersEv, ptr %20, align 16
   %21 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps.i32, i64 0, i64 3
-  store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE22processFunctionHeadersEv to i64), ptr %21, align 16
+  store ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE22processFunctionHeadersEv, ptr %21, align 16
   %22 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps.i32, i64 0, i64 4
-  store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE18processStringTableEv to i64), ptr %22, align 16
+  store ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE18processStringTableEv, ptr %22, align 16
   %23 = getelementptr inbounds [6 x { i64, i64 }], ptr %steps.i32, i64 0, i64 5
-  store i64 ptrtoint (ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE26processOverflowStringTableEv to i64), ptr %23, align 16
+  store ptr @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12BytecodeFormE0EE26processOverflowStringTableEv, ptr %23, align 16
   %add.ptr.i.i = getelementptr inbounds { i64, i64 }, ptr %steps.i32, i64 6
   br label %while.body.i.i.i
 

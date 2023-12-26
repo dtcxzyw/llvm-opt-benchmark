@@ -370,12 +370,11 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %3 = load i32, ptr %numPages_, align 8, !noalias !12
   %retval.i.sroa.0.0.insert.ext.i = zext i32 %3 to i64
-  %4 = ptrtoint ptr %cond to i64
   store i64 %retval.i.sroa.0.0.insert.ext.i, ptr %ref.tmp.i, align 16, !alias.scope !12
   %arrayinit.element.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 1
   store i64 %sub.ptr.div.i, ptr %arrayinit.element.i.i, align 16, !alias.scope !12
   %arrayinit.element6.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 2
-  store i64 %4, ptr %arrayinit.element6.i.i, align 16, !alias.scope !12
+  store ptr %cond, ptr %arrayinit.element6.i.i, align 16, !alias.scope !12
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str, i64 44, i64 3137, ptr nonnull %ref.tmp.i)
   ret void
 }
@@ -504,7 +503,7 @@ if.end:                                           ; preds = %entry
   %3 = inttoptr i64 %mul.i to ptr
   %sub = sub i64 %div5, %mul.i
   %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %sub
-  store ptr %3, ptr %agg.result, align 8
+  store i64 %mul.i, ptr %agg.result, align 8
   %ref.tmp.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx, align 8
   br label %return
@@ -528,17 +527,15 @@ entry:
   %cond = select i1 %cmp, ptr @.str.1, ptr @.str.2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %1 = load ptr, ptr %data_, align 8, !noalias !15
-  %2 = ptrtoint ptr %1 to i64
-  %3 = load i64, ptr %size_, align 8, !noalias !15
-  %4 = load i64, ptr %maxSize_, align 8, !noalias !15
-  %5 = ptrtoint ptr %cond to i64
-  store i64 %2, ptr %ref.tmp.i, align 16, !alias.scope !15
+  %2 = load i64, ptr %size_, align 8, !noalias !15
+  %3 = load i64, ptr %maxSize_, align 8, !noalias !15
+  store ptr %1, ptr %ref.tmp.i, align 16, !alias.scope !15
   %arrayinit.element.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 1
-  store i64 %3, ptr %arrayinit.element.i.i, align 16, !alias.scope !15
+  store i64 %2, ptr %arrayinit.element.i.i, align 16, !alias.scope !15
   %arrayinit.element8.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 2
-  store i64 %4, ptr %arrayinit.element8.i.i, align 16, !alias.scope !15
+  store i64 %3, ptr %arrayinit.element8.i.i, align 16, !alias.scope !15
   %arrayinit.element9.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 3
-  store i64 %5, ptr %arrayinit.element9.i.i, align 16, !alias.scope !15
+  store ptr %cond, ptr %arrayinit.element9.i.i, align 16, !alias.scope !15
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.3, i64 60, i64 50254, ptr nonnull %ref.tmp.i)
   ret void
 }

@@ -209,8 +209,7 @@ invoke.cont5:                                     ; preds = %entry
   %m_visit_patterns.i = getelementptr inbounds %class.propagate_values, ptr %this, i64 0, i32 4, i32 3
   store i8 0, ptr %m_visit_patterns.i, align 2
   %m_shared.i = getelementptr inbounds %class.propagate_values, ptr %this, i64 0, i32 4, i32 4
-  %0 = ptrtoint ptr %m to i64
-  store i64 %0, ptr %m_shared.i, align 8
+  store ptr %m, ptr %m_shared.i, align 8
   %m_nodes.i.i.i = getelementptr inbounds %class.propagate_values, ptr %this, i64 0, i32 4, i32 4, i32 0, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_nodes.i.i.i, i8 0, i64 16, i1 false)
   %m_subst = getelementptr inbounds %class.propagate_values, ptr %this, i64 0, i32 5
@@ -224,38 +223,38 @@ invoke.cont7:                                     ; preds = %invoke.cont5
 invoke.cont10:                                    ; preds = %invoke.cont7
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
-  %1 = load ptr, ptr %vfn, align 8
-  invoke void %1(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(8) %p)
+  %0 = load ptr, ptr %vfn, align 8
+  invoke void %0(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(8) %p)
           to label %invoke.cont11 unwind label %lpad9
 
 invoke.cont11:                                    ; preds = %invoke.cont10
   ret void
 
 lpad2:                                            ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #12
   br label %ehcleanup13
 
 lpad6:                                            ; preds = %invoke.cont5
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad9:                                            ; preds = %invoke.cont10, %invoke.cont7
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN17expr_substitutionD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %m_subst) #12
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad9, %lpad6
-  %.pn = phi { ptr, i32 } [ %4, %lpad9 ], [ %3, %lpad6 ]
+  %.pn = phi { ptr, i32 } [ %3, %lpad9 ], [ %2, %lpad6 ]
   call void @_ZN11shared_occsD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_shared) #12
   call void @_ZN11th_rewriterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_rewriter) #12
   br label %ehcleanup13
 
 ehcleanup13:                                      ; preds = %ehcleanup, %lpad2
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %2, %lpad2 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %1, %lpad2 ]
   resume { ptr, i32 } %.pn.pn.pn
 }
 

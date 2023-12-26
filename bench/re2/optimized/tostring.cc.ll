@@ -598,7 +598,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont4.i
           to label %_ZN10LogMessageC2EPKci.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad108, %lpad121, %lpad132, %lpad223, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %22, %lpad.i ], [ %89, %lpad223 ], [ %46, %lpad108 ], [ %50, %lpad121 ], [ %53, %lpad132 ], [ %24, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %22, %lpad.i ], [ %84, %lpad223 ], [ %45, %lpad108 ], [ %48, %lpad121 ], [ %49, %lpad132 ], [ %24, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %invoke.cont6.i, %invoke.cont4.i, %invoke.cont2.i, %if.else
@@ -720,8 +720,7 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
   %44 = load i32, ptr %min_.i, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i32 %44 to i64
-  %45 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
-  store ptr %45, ptr %ref.tmp.i, align 8, !noalias !7
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i, ptr %ref.tmp.i, align 8, !noalias !7
   %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 0, i32 1
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !7
   call void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp104, ptr nonnull @.str.14, i64 5, ptr nonnull %ref.tmp.i, i64 1)
@@ -730,57 +729,54 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
           to label %if.end136 unwind label %lpad108
 
 lpad108:                                          ; preds = %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit
-  %46 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp104) #15
   br label %common.resume
 
 if.else111:                                       ; preds = %sw.bb99
   %min_.i56 = getelementptr inbounds i8, ptr %re, i64 28
-  %47 = load i32, ptr %min_.i56, align 4
-  %cmp114 = icmp eq i32 %47, %42
+  %46 = load i32, ptr %min_.i56, align 4
+  %cmp114 = icmp eq i32 %46, %42
   %t_116 = getelementptr inbounds %"class.re2::ToStringWalker", ptr %this, i64 0, i32 1
-  %48 = load ptr, ptr %t_116, align 8
+  %47 = load ptr, ptr %t_116, align 8
   br i1 %cmp114, label %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit61, label %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067ELS3_131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067ELS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit
 
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit61: ; preds = %if.else111
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i63)
   %retval.sroa.0.0.insert.ext.i.i.i.i68 = zext i32 %42 to i64
-  %49 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i68 to ptr
-  store ptr %49, ptr %ref.tmp.i63, align 8, !noalias !10
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i68, ptr %ref.tmp.i63, align 8, !noalias !10
   %dispatcher_.i.i.i69 = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i63, i64 0, i32 1
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i69, align 8, !noalias !10
   call void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp117, ptr nonnull @.str.15, i64 4, ptr nonnull %ref.tmp.i63, i64 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i63)
-  %call123 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp117)
+  %call123 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp117)
           to label %if.end136 unwind label %lpad121
 
 lpad121:                                          ; preds = %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit61
-  %50 = landingpad { ptr, i32 }
+  %48 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp117) #15
   br label %common.resume
 
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067ELS3_131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067ELS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit: ; preds = %if.else111
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i75)
-  %retval.sroa.0.0.insert.ext.i.i.i.i80 = zext i32 %47 to i64
-  %51 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i80 to ptr
-  store ptr %51, ptr %ref.tmp.i75, align 8, !noalias !13
+  %retval.sroa.0.0.insert.ext.i.i.i.i80 = zext i32 %46 to i64
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i80, ptr %ref.tmp.i75, align 8, !noalias !13
   %dispatcher_.i.i.i81 = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i75, i64 0, i32 1
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i81, align 8, !noalias !13
   %arrayinit.element.i = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i75, i64 1
   %retval.sroa.0.0.insert.ext.i.i.i2.i = zext i32 %42 to i64
-  %52 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i2.i to ptr
-  store ptr %52, ptr %arrayinit.element.i, align 8, !noalias !13
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i2.i, ptr %arrayinit.element.i, align 8, !noalias !13
   %dispatcher_.i.i3.i = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i75, i64 1, i32 1
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i3.i, align 8, !noalias !13
   call void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp126, ptr nonnull @.str.16, i64 7, ptr nonnull %ref.tmp.i75, i64 2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i75)
-  %call134 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp126)
+  %call134 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp126)
           to label %if.end136 unwind label %lpad132
 
 lpad132:                                          ; preds = %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067ELS3_131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067ELS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit
-  %53 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp126) #15
   br label %common.resume
@@ -789,15 +785,15 @@ if.end136:                                        ; preds = %_ZN4absl7debian219s
   %ref.tmp117.sink = phi ptr [ %ref.tmp104, %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit ], [ %ref.tmp117, %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit61 ], [ %ref.tmp126, %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067ELS3_131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067ELS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp117.sink) #15
   %parse_flags_.i82 = getelementptr inbounds %"class.re2::Regexp", ptr %re, i64 0, i32 2
-  %54 = load i16, ptr %parse_flags_.i82, align 2
-  %55 = and i16 %54, 64
-  %tobool139.not = icmp eq i16 %55, 0
+  %50 = load i16, ptr %parse_flags_.i82, align 2
+  %51 = and i16 %50, 64
+  %tobool139.not = icmp eq i16 %51, 0
   br i1 %tobool139.not, label %if.end143, label %if.then140
 
 if.then140:                                       ; preds = %if.end136
   %t_141 = getelementptr inbounds %"class.re2::ToStringWalker", ptr %this, i64 0, i32 1
-  %56 = load ptr, ptr %t_141, align 8
-  %call142 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull @.str.12)
+  %52 = load ptr, ptr %t_141, align 8
+  %call142 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull @.str.12)
   br label %if.end143
 
 if.end143:                                        ; preds = %if.then140, %if.end136
@@ -806,144 +802,144 @@ if.end143:                                        ; preds = %if.then140, %if.end
 
 if.then145:                                       ; preds = %if.end143
   %t_146 = getelementptr inbounds %"class.re2::ToStringWalker", ptr %this, i64 0, i32 1
-  %57 = load ptr, ptr %t_146, align 8
-  %call147 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull @.str.9)
+  %53 = load ptr, ptr %t_146, align 8
+  %call147 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull @.str.9)
   br label %if.end230
 
 sw.bb149:                                         ; preds = %entry
   %t_150 = getelementptr inbounds %"class.re2::ToStringWalker", ptr %this, i64 0, i32 1
-  %58 = load ptr, ptr %t_150, align 8
-  %call151 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull @.str.17)
+  %54 = load ptr, ptr %t_150, align 8
+  %call151 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull @.str.17)
   br label %sw.epilog
 
 sw.bb152:                                         ; preds = %entry
   %t_153 = getelementptr inbounds %"class.re2::ToStringWalker", ptr %this, i64 0, i32 1
-  %59 = load ptr, ptr %t_153, align 8
-  %call154 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull @.str.18)
+  %55 = load ptr, ptr %t_153, align 8
+  %call154 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull @.str.18)
   br label %sw.epilog
 
 sw.bb155:                                         ; preds = %entry
   %t_156 = getelementptr inbounds %"class.re2::ToStringWalker", ptr %this, i64 0, i32 1
-  %60 = load ptr, ptr %t_156, align 8
-  %call157 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull @.str.19)
+  %56 = load ptr, ptr %t_156, align 8
+  %call157 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull @.str.19)
   br label %sw.epilog
 
 sw.bb158:                                         ; preds = %entry
   %t_159 = getelementptr inbounds %"class.re2::ToStringWalker", ptr %this, i64 0, i32 1
-  %61 = load ptr, ptr %t_159, align 8
-  %call160 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull @.str.20)
+  %57 = load ptr, ptr %t_159, align 8
+  %call160 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull @.str.20)
   br label %sw.epilog
 
 sw.bb161:                                         ; preds = %entry
   %t_162 = getelementptr inbounds %"class.re2::ToStringWalker", ptr %this, i64 0, i32 1
-  %62 = load ptr, ptr %t_162, align 8
-  %call163 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull @.str.21)
+  %58 = load ptr, ptr %t_162, align 8
+  %call163 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull @.str.21)
   br label %sw.epilog
 
 sw.bb164:                                         ; preds = %entry
   %parse_flags_.i85 = getelementptr inbounds %"class.re2::Regexp", ptr %re, i64 0, i32 2
-  %63 = load i16, ptr %parse_flags_.i85, align 2
-  %64 = and i16 %63, 8192
-  %tobool167.not = icmp eq i16 %64, 0
+  %59 = load i16, ptr %parse_flags_.i85, align 2
+  %60 = and i16 %59, 8192
+  %tobool167.not = icmp eq i16 %60, 0
   %t_172 = getelementptr inbounds %"class.re2::ToStringWalker", ptr %this, i64 0, i32 1
-  %65 = load ptr, ptr %t_172, align 8
+  %61 = load ptr, ptr %t_172, align 8
   br i1 %tobool167.not, label %if.else171, label %if.then168
 
 if.then168:                                       ; preds = %sw.bb164
-  %call170 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull @.str.22)
+  %call170 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull @.str.22)
   br label %sw.epilog
 
 if.else171:                                       ; preds = %sw.bb164
-  %call173 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull @.str.23)
+  %call173 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull @.str.23)
   br label %sw.epilog
 
 sw.bb175:                                         ; preds = %entry
   %t_176 = getelementptr inbounds %"class.re2::ToStringWalker", ptr %this, i64 0, i32 1
-  %66 = load ptr, ptr %t_176, align 8
-  %call177 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull @.str.24)
+  %62 = load ptr, ptr %t_176, align 8
+  %call177 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull @.str.24)
   br label %sw.epilog
 
 sw.bb178:                                         ; preds = %entry
   %t_179 = getelementptr inbounds %"class.re2::ToStringWalker", ptr %this, i64 0, i32 1
-  %67 = load ptr, ptr %t_179, align 8
-  %call180 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull @.str.25)
+  %63 = load ptr, ptr %t_179, align 8
+  %call180 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull @.str.25)
   br label %sw.epilog
 
 sw.bb181:                                         ; preds = %entry
-  %68 = getelementptr inbounds %"class.re2::Regexp", ptr %re, i64 0, i32 7
-  %69 = load ptr, ptr %68, align 8
-  %nrunes_.i = getelementptr inbounds %"class.re2::CharClass", ptr %69, i64 0, i32 2
-  %70 = load i32, ptr %nrunes_.i, align 4
-  %cmp184 = icmp eq i32 %70, 0
+  %64 = getelementptr inbounds %"class.re2::Regexp", ptr %re, i64 0, i32 7
+  %65 = load ptr, ptr %64, align 8
+  %nrunes_.i = getelementptr inbounds %"class.re2::CharClass", ptr %65, i64 0, i32 2
+  %66 = load i32, ptr %nrunes_.i, align 4
+  %cmp184 = icmp eq i32 %66, 0
   %t_186 = getelementptr inbounds %"class.re2::ToStringWalker", ptr %this, i64 0, i32 1
-  %71 = load ptr, ptr %t_186, align 8
+  %67 = load ptr, ptr %t_186, align 8
   br i1 %cmp184, label %if.then185, label %if.end188
 
 if.then185:                                       ; preds = %sw.bb181
-  %call187 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull @.str.7)
+  %call187 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull @.str.7)
   br label %sw.epilog
 
 if.end188:                                        ; preds = %sw.bb181
-  %call190 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull @.str.26)
-  %72 = load ptr, ptr %68, align 8
-  %call192 = tail call noundef zeroext i1 @_ZNK3re29CharClass8ContainsEi(ptr noundef nonnull align 8 dereferenceable(20) %72, i32 noundef 65534)
+  %call190 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull @.str.26)
+  %68 = load ptr, ptr %64, align 8
+  %call192 = tail call noundef zeroext i1 @_ZNK3re29CharClass8ContainsEi(ptr noundef nonnull align 8 dereferenceable(20) %68, i32 noundef 65534)
   br i1 %call192, label %land.lhs.true, label %if.end198
 
 land.lhs.true:                                    ; preds = %if.end188
-  %nrunes_.i88 = getelementptr inbounds %"class.re2::CharClass", ptr %72, i64 0, i32 2
-  %73 = load i32, ptr %nrunes_.i88, align 4
-  %cmp.i = icmp eq i32 %73, 1114112
+  %nrunes_.i88 = getelementptr inbounds %"class.re2::CharClass", ptr %68, i64 0, i32 2
+  %69 = load i32, ptr %nrunes_.i88, align 4
+  %cmp.i = icmp eq i32 %69, 1114112
   br i1 %cmp.i, label %if.end198, label %if.then194
 
 if.then194:                                       ; preds = %land.lhs.true
-  %call195 = tail call noundef ptr @_ZN3re29CharClass6NegateEv(ptr noundef nonnull align 8 dereferenceable(20) %72)
-  %74 = load ptr, ptr %t_186, align 8
-  %call197 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull @.str.19)
+  %call195 = tail call noundef ptr @_ZN3re29CharClass6NegateEv(ptr noundef nonnull align 8 dereferenceable(20) %68)
+  %70 = load ptr, ptr %t_186, align 8
+  %call197 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull @.str.19)
   br label %if.end198
 
 if.end198:                                        ; preds = %if.then194, %land.lhs.true, %if.end188
-  %cc.0 = phi ptr [ %72, %land.lhs.true ], [ %call195, %if.then194 ], [ %72, %if.end188 ]
+  %cc.0 = phi ptr [ %68, %land.lhs.true ], [ %call195, %if.then194 ], [ %68, %if.end188 ]
   %ranges_.i = getelementptr inbounds %"class.re2::CharClass", ptr %cc.0, i64 0, i32 3
   %nranges_.i = getelementptr inbounds %"class.re2::CharClass", ptr %cc.0, i64 0, i32 4
-  %75 = load i32, ptr %nranges_.i, align 8
-  %cmp203.not106 = icmp eq i32 %75, 0
+  %71 = load i32, ptr %nranges_.i, align 8
+  %cmp203.not106 = icmp eq i32 %71, 0
   br i1 %cmp203.not106, label %for.end207, label %for.body204.preheader
 
 for.body204.preheader:                            ; preds = %if.end198
-  %76 = load ptr, ptr %ranges_.i, align 8
+  %72 = load ptr, ptr %ranges_.i, align 8
   br label %for.body204
 
 for.body204:                                      ; preds = %for.body204.preheader, %_ZN3re2L13AppendCCRangeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit
-  %i199.0107 = phi ptr [ %incdec.ptr, %_ZN3re2L13AppendCCRangeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit ], [ %76, %for.body204.preheader ]
-  %77 = load ptr, ptr %t_186, align 8
-  %78 = load i32, ptr %i199.0107, align 4
+  %i199.0107 = phi ptr [ %incdec.ptr, %_ZN3re2L13AppendCCRangeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit ], [ %72, %for.body204.preheader ]
+  %73 = load ptr, ptr %t_186, align 8
+  %74 = load i32, ptr %i199.0107, align 4
   %hi = getelementptr inbounds %"struct.re2::RuneRange", ptr %i199.0107, i64 0, i32 1
-  %79 = load i32, ptr %hi, align 4
-  %cmp.i90 = icmp sgt i32 %78, %79
+  %75 = load i32, ptr %hi, align 4
+  %cmp.i90 = icmp sgt i32 %74, %75
   br i1 %cmp.i90, label %_ZN3re2L13AppendCCRangeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body204
-  tail call fastcc void @_ZN3re2L12AppendCCCharEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef %77, i32 noundef %78)
-  %cmp1.i = icmp slt i32 %78, %79
+  tail call fastcc void @_ZN3re2L12AppendCCCharEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef %73, i32 noundef %74)
+  %cmp1.i = icmp slt i32 %74, %75
   br i1 %cmp1.i, label %if.then2.i, label %_ZN3re2L13AppendCCRangeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull @.str.36)
-  tail call fastcc void @_ZN3re2L12AppendCCCharEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull %77, i32 noundef %79)
+  %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull @.str.36)
+  tail call fastcc void @_ZN3re2L12AppendCCCharEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull %73, i32 noundef %75)
   br label %_ZN3re2L13AppendCCRangeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit
 
 _ZN3re2L13AppendCCRangeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit: ; preds = %for.body204, %if.end.i, %if.then2.i
   %incdec.ptr = getelementptr inbounds %"struct.re2::RuneRange", ptr %i199.0107, i64 1
-  %80 = load ptr, ptr %ranges_.i, align 8
-  %81 = load i32, ptr %nranges_.i, align 8
-  %idx.ext.i = sext i32 %81 to i64
-  %add.ptr.i = getelementptr inbounds %"struct.re2::RuneRange", ptr %80, i64 %idx.ext.i
+  %76 = load ptr, ptr %ranges_.i, align 8
+  %77 = load i32, ptr %nranges_.i, align 8
+  %idx.ext.i = sext i32 %77 to i64
+  %add.ptr.i = getelementptr inbounds %"struct.re2::RuneRange", ptr %76, i64 %idx.ext.i
   %cmp203.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp203.not, label %for.end207, label %for.body204, !llvm.loop !16
 
 for.end207:                                       ; preds = %_ZN3re2L13AppendCCRangeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit, %if.end198
-  %82 = load ptr, ptr %68, align 8
-  %cmp209.not = icmp eq ptr %cc.0, %82
+  %78 = load ptr, ptr %64, align 8
+  %cmp209.not = icmp eq ptr %cc.0, %78
   br i1 %cmp209.not, label %if.end211, label %if.then210
 
 if.then210:                                       ; preds = %for.end207
@@ -951,30 +947,29 @@ if.then210:                                       ; preds = %for.end207
   br label %if.end211
 
 if.end211:                                        ; preds = %if.then210, %for.end207
-  %83 = load ptr, ptr %t_186, align 8
-  %call213 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull @.str.27)
+  %79 = load ptr, ptr %t_186, align 8
+  %call213 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull @.str.27)
   br label %sw.epilog
 
 sw.bb214:                                         ; preds = %entry
   %t_215 = getelementptr inbounds %"class.re2::ToStringWalker", ptr %this, i64 0, i32 1
-  %84 = load ptr, ptr %t_215, align 8
-  %call216 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef nonnull @.str.9)
+  %80 = load ptr, ptr %t_215, align 8
+  %call216 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull @.str.9)
   br label %sw.epilog
 
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit95: ; preds = %entry
   %t_218 = getelementptr inbounds %"class.re2::ToStringWalker", ptr %this, i64 0, i32 1
-  %85 = load ptr, ptr %t_218, align 8
-  %86 = getelementptr inbounds %"class.re2::Regexp", ptr %re, i64 0, i32 7
-  %87 = load i32, ptr %86, align 8
+  %81 = load ptr, ptr %t_218, align 8
+  %82 = getelementptr inbounds %"class.re2::Regexp", ptr %re, i64 0, i32 7
+  %83 = load i32, ptr %82, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i96)
-  %retval.sroa.0.0.insert.ext.i.i.i.i101 = zext i32 %87 to i64
-  %88 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i101 to ptr
-  store ptr %88, ptr %ref.tmp.i96, align 8, !noalias !17
+  %retval.sroa.0.0.insert.ext.i.i.i.i101 = zext i32 %83 to i64
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i101, ptr %ref.tmp.i96, align 8, !noalias !17
   %dispatcher_.i.i.i102 = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i96, i64 0, i32 1
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i102, align 8, !noalias !17
   call void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp219, ptr nonnull @.str.28, i64 15, ptr nonnull %ref.tmp.i96, i64 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i96)
-  %call225 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp219)
+  %call225 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp219)
           to label %invoke.cont224 unwind label %lpad223
 
 invoke.cont224:                                   ; preds = %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit95
@@ -982,7 +977,7 @@ invoke.cont224:                                   ; preds = %_ZN4absl7debian219s
   br label %sw.epilog
 
 lpad223:                                          ; preds = %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit95
-  %89 = landingpad { ptr, i32 }
+  %84 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp219) #15
   br label %common.resume
@@ -993,8 +988,8 @@ sw.epilog:                                        ; preds = %if.then168, %if.els
 
 if.then227:                                       ; preds = %sw.epilog
   %t_228 = getelementptr inbounds %"class.re2::ToStringWalker", ptr %this, i64 0, i32 1
-  %90 = load ptr, ptr %t_228, align 8
-  %call229 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef nonnull @.str.29)
+  %85 = load ptr, ptr %t_228, align 8
+  %call229 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull @.str.29)
   br label %if.end230
 
 if.end230:                                        ; preds = %sw.bb3, %if.then21, %if.then27, %if.then51, %if.then65, %if.then80, %if.then95, %if.then145, %if.then227, %sw.epilog
@@ -1566,12 +1561,11 @@ sw.bb11:                                          ; preds = %if.end5
 sw.epilog:                                        ; preds = %if.end5
   %cmp13 = icmp slt i32 %r, 256
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i32 %r to i64
-  %1 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
   br i1 %cmp13, label %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit, label %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit20
 
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit: ; preds = %sw.epilog
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  store ptr %1, ptr %ref.tmp.i, align 8, !noalias !23
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i, ptr %ref.tmp.i, align 8, !noalias !23
   %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 0, i32 1
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !23
   call void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull @.str.43, i64 6, ptr nonnull %ref.tmp.i, i64 1)
@@ -1584,13 +1578,13 @@ invoke.cont:                                      ; preds = %_ZN4absl7debian219s
   br label %return
 
 lpad:                                             ; preds = %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit20: ; preds = %sw.epilog
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i21)
-  store ptr %1, ptr %ref.tmp.i21, align 8, !noalias !26
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i, ptr %ref.tmp.i21, align 8, !noalias !26
   %dispatcher_.i.i.i27 = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i21, i64 0, i32 1
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i27, align 8, !noalias !26
   call void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp19, ptr nonnull @.str.44, i64 6, ptr nonnull %ref.tmp.i21, i64 1)
@@ -1606,13 +1600,13 @@ return:                                           ; preds = %invoke.cont23, %inv
   ret void
 
 lpad22:                                           ; preds = %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit20
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad22, %lpad
   %ref.tmp19.sink = phi ptr [ %ref.tmp19, %lpad22 ], [ %ref.tmp, %lpad ]
-  %.pn = phi { ptr, i32 } [ %3, %lpad22 ], [ %2, %lpad ]
+  %.pn = phi { ptr, i32 } [ %2, %lpad22 ], [ %1, %lpad ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19.sink) #15
   resume { ptr, i32 } %.pn
 }

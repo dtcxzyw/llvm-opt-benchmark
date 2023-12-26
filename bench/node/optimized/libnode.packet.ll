@@ -2227,7 +2227,6 @@ if.end:                                           ; preds = %entry
   call void @_ZN4node4quic6Packet6CreateEPNS_11EnvironmentEPNS1_8ListenerERKNS_13SocketAddressEmPKc(ptr nonnull sret(%"class.node::BaseObjectPtrImpl.290") align 8 %packet, ptr noundef %env, ptr noundef %listener, ptr noundef nonnull align 8 dereferenceable(136) %6, i64 noundef %add5, ptr noundef nonnull @.str.6)
   %7 = load ptr, ptr %packet, align 8
   %cmp.i.not = icmp eq ptr %7, null
-  %8 = ptrtoint ptr %7 to i64
   br i1 %cmp.i.not, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end
@@ -2236,34 +2235,34 @@ if.then8:                                         ; preds = %if.end
 
 if.end9:                                          ; preds = %if.end
   %data_.i = getelementptr inbounds %"class.node::quic::Packet", ptr %7, i64 0, i32 3
-  %9 = load ptr, ptr %data_.i, align 8
-  %cmp.i.not.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %data_.i, align 8
+  %cmp.i.not.i = icmp eq ptr %8, null
   br i1 %cmp.i.not.i, label %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end9
-  %buf_.i.i.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %9, i64 0, i32 1, i32 2
-  %10 = load ptr, ptr %buf_.i.i.i, align 8
+  %buf_.i.i.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %8, i64 0, i32 1, i32 2
+  %9 = load ptr, ptr %buf_.i.i.i, align 8
   br label %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit
 
 _ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit:       ; preds = %if.end9, %cond.false.i
-  %retval.sroa.0.0.i = phi ptr [ %10, %cond.false.i ], [ null, %if.end9 ]
-  %11 = load i32, ptr %path_descriptor, align 8
-  %12 = load ptr, ptr %scid, align 8
-  %call14 = call noundef ptr @_ZNK4node4quic3CIDcvPK10ngtcp2_cidEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #22
+  %retval.sroa.0.0.i = phi ptr [ %9, %cond.false.i ], [ null, %if.end9 ]
+  %10 = load i32, ptr %path_descriptor, align 8
+  %11 = load ptr, ptr %scid, align 8
+  %call14 = call noundef ptr @_ZNK4node4quic3CIDcvPK10ngtcp2_cidEv(ptr noundef nonnull align 8 dereferenceable(48) %11) #22
   %call15 = call noundef ptr @_ZNK4node4quic3CIDcvPK10ngtcp2_cidEv(ptr noundef nonnull align 8 dereferenceable(48) %cid) #22
-  %13 = load ptr, ptr %dcid, align 8
-  %call17 = call noundef ptr @_ZNK4node4quic3CIDcvPK10ngtcp2_cidEv(ptr noundef nonnull align 8 dereferenceable(48) %13) #22
-  %14 = load ptr, ptr %call2, align 8
-  %15 = load i64, ptr %len, align 8
-  %call20 = call i64 @ngtcp2_crypto_write_retry(ptr noundef %retval.sroa.0.0.i, i64 noundef %add5, i32 noundef %11, ptr noundef %call14, ptr noundef %call15, ptr noundef %call17, ptr noundef %14, i64 noundef %15) #22
+  %12 = load ptr, ptr %dcid, align 8
+  %call17 = call noundef ptr @_ZNK4node4quic3CIDcvPK10ngtcp2_cidEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #22
+  %13 = load ptr, ptr %call2, align 8
+  %14 = load i64, ptr %len, align 8
+  %call20 = call i64 @ngtcp2_crypto_write_retry(ptr noundef %retval.sroa.0.0.i, i64 noundef %add5, i32 noundef %10, ptr noundef %call14, ptr noundef %call15, ptr noundef %call17, ptr noundef %13, i64 noundef %14) #22
   %cmp = icmp slt i64 %call20, 1
   br i1 %cmp, label %if.then.i, label %if.end23
 
 if.end23:                                         ; preds = %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit
-  %16 = load ptr, ptr %data_.i, align 8
-  %capacity_.i.i.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %16, i64 0, i32 1, i32 1
-  %17 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.not.i.i = icmp ult i64 %17, %call20
+  %15 = load ptr, ptr %data_.i, align 8
+  %capacity_.i.i.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %15, i64 0, i32 1, i32 1
+  %16 = load i64, ptr %capacity_.i.i.i, align 8
+  %cmp.not.i.i = icmp ult i64 %16, %call20
   br i1 %cmp.not.i.i, label %do.body4.i.i, label %_ZN4node4quic6Packet8TruncateEm.exit
 
 do.body4.i.i:                                     ; preds = %if.end23
@@ -2272,9 +2271,9 @@ do.body4.i.i:                                     ; preds = %if.end23
   unreachable
 
 _ZN4node4quic6Packet8TruncateEm.exit:             ; preds = %if.end23
-  %data_2.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %16, i64 0, i32 1
+  %data_2.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %15, i64 0, i32 1
   store i64 %call20, ptr %data_2.i, align 8
-  store i64 %8, ptr %agg.result, align 8
+  store ptr %7, ptr %agg.result, align 8
   br label %cleanup25
 
 if.then.i:                                        ; preds = %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit
@@ -2310,19 +2309,18 @@ entry:
   %data_.i = getelementptr inbounds %"class.node::quic::Packet", ptr %0, i64 0, i32 3
   %1 = load ptr, ptr %data_.i, align 8
   %cmp.i.not.i = icmp eq ptr %1, null
-  %2 = ptrtoint ptr %0 to i64
   br i1 %cmp.i.not.i, label %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
   %data_.i.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %1, i64 0, i32 1
   %buf_.i.i.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %1, i64 0, i32 1, i32 2
-  %3 = load ptr, ptr %buf_.i.i.i, align 8
-  %4 = load i64, ptr %data_.i.i, align 8
+  %2 = load ptr, ptr %buf_.i.i.i, align 8
+  %3 = load i64, ptr %data_.i.i, align 8
   br label %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit
 
 _ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit:       ; preds = %entry, %cond.false.i
-  %retval.sroa.0.0.i = phi ptr [ %3, %cond.false.i ], [ null, %entry ]
-  %retval.sroa.3.0.i = phi i64 [ %4, %cond.false.i ], [ 0, %entry ]
+  %retval.sroa.0.0.i = phi ptr [ %2, %cond.false.i ], [ null, %entry ]
+  %retval.sroa.3.0.i = phi i64 [ %3, %cond.false.i ], [ 0, %entry ]
   %call2 = tail call noundef ptr @_ZNK4node4quic9QuicErrorcvPK29ngtcp2_connection_close_errorEv(ptr noundef nonnull align 8 dereferenceable(88) %error) #22
   %call3 = tail call i64 @uv_hrtime() #22
   %call4 = tail call i64 @ngtcp2_conn_write_connection_close_versioned(ptr noundef %conn, ptr noundef null, i32 noundef 1, ptr noundef null, ptr noundef %retval.sroa.0.0.i, i64 noundef %retval.sroa.3.0.i, ptr noundef %call2, i64 noundef %call3) #22
@@ -2330,10 +2328,10 @@ _ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit:       ; preds = %entry, %cond.false.
   br i1 %cmp, label %if.then.i, label %if.end
 
 if.end:                                           ; preds = %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit
-  %5 = load ptr, ptr %data_.i, align 8
-  %capacity_.i.i.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %5, i64 0, i32 1, i32 1
-  %6 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.not.i.i = icmp ult i64 %6, %call4
+  %4 = load ptr, ptr %data_.i, align 8
+  %capacity_.i.i.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %4, i64 0, i32 1, i32 1
+  %5 = load i64, ptr %capacity_.i.i.i, align 8
+  %cmp.not.i.i = icmp ult i64 %5, %call4
   br i1 %cmp.not.i.i, label %do.body4.i.i, label %cleanup.thread
 
 do.body4.i.i:                                     ; preds = %if.end
@@ -2342,9 +2340,9 @@ do.body4.i.i:                                     ; preds = %if.end
   unreachable
 
 cleanup.thread:                                   ; preds = %if.end
-  %data_2.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %5, i64 0, i32 1
+  %data_2.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %4, i64 0, i32 1
   store i64 %call4, ptr %data_2.i, align 8
-  store i64 %2, ptr %agg.result, align 8
+  store ptr %0, ptr %agg.result, align 8
   br label %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit
 
 if.then.i:                                        ; preds = %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit
@@ -2374,36 +2372,35 @@ entry:
   %data_.i = getelementptr inbounds %"class.node::quic::Packet", ptr %1, i64 0, i32 3
   %2 = load ptr, ptr %data_.i, align 8
   %cmp.i.not.i = icmp eq ptr %2, null
-  %3 = ptrtoint ptr %1 to i64
   br i1 %cmp.i.not.i, label %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
   %data_.i.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %2, i64 0, i32 1
   %buf_.i.i.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %2, i64 0, i32 1, i32 2
-  %4 = load ptr, ptr %buf_.i.i.i, align 8
-  %5 = load i64, ptr %data_.i.i, align 8
+  %3 = load ptr, ptr %buf_.i.i.i, align 8
+  %4 = load i64, ptr %data_.i.i, align 8
   br label %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit
 
 _ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit:       ; preds = %entry, %cond.false.i
-  %retval.sroa.0.0.i = phi ptr [ %4, %cond.false.i ], [ null, %entry ]
-  %retval.sroa.3.0.i = phi i64 [ %5, %cond.false.i ], [ 0, %entry ]
-  %6 = load i32, ptr %path_descriptor, align 8
+  %retval.sroa.0.0.i = phi ptr [ %3, %cond.false.i ], [ null, %entry ]
+  %retval.sroa.3.0.i = phi i64 [ %4, %cond.false.i ], [ 0, %entry ]
+  %5 = load i32, ptr %path_descriptor, align 8
   %dcid = getelementptr inbounds %"struct.node::quic::PathDescriptor", ptr %path_descriptor, i64 0, i32 1
-  %7 = load ptr, ptr %dcid, align 8
-  %call2 = tail call noundef ptr @_ZNK4node4quic3CIDcvPK10ngtcp2_cidEv(ptr noundef nonnull align 8 dereferenceable(48) %7) #22
+  %6 = load ptr, ptr %dcid, align 8
+  %call2 = tail call noundef ptr @_ZNK4node4quic3CIDcvPK10ngtcp2_cidEv(ptr noundef nonnull align 8 dereferenceable(48) %6) #22
   %scid = getelementptr inbounds %"struct.node::quic::PathDescriptor", ptr %path_descriptor, i64 0, i32 2
-  %8 = load ptr, ptr %scid, align 8
-  %call3 = tail call noundef ptr @_ZNK4node4quic3CIDcvPK10ngtcp2_cidEv(ptr noundef nonnull align 8 dereferenceable(48) %8) #22
+  %7 = load ptr, ptr %scid, align 8
+  %call3 = tail call noundef ptr @_ZNK4node4quic3CIDcvPK10ngtcp2_cidEv(ptr noundef nonnull align 8 dereferenceable(48) %7) #22
   %call4 = tail call noundef i64 @_ZNK4node4quic9QuicError4codeEv(ptr noundef nonnull align 8 dereferenceable(88) %reason) #22
-  %call5 = tail call i64 @ngtcp2_crypto_write_connection_close(ptr noundef %retval.sroa.0.0.i, i64 noundef %retval.sroa.3.0.i, i32 noundef %6, ptr noundef %call2, ptr noundef %call3, i64 noundef %call4, ptr noundef null, i64 noundef 0) #22
+  %call5 = tail call i64 @ngtcp2_crypto_write_connection_close(ptr noundef %retval.sroa.0.0.i, i64 noundef %retval.sroa.3.0.i, i32 noundef %5, ptr noundef %call2, ptr noundef %call3, i64 noundef %call4, ptr noundef null, i64 noundef 0) #22
   %cmp = icmp slt i64 %call5, 1
   br i1 %cmp, label %if.then.i, label %if.end
 
 if.end:                                           ; preds = %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit
-  %9 = load ptr, ptr %data_.i, align 8
-  %capacity_.i.i.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %9, i64 0, i32 1, i32 1
-  %10 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.not.i.i = icmp ult i64 %10, %call5
+  %8 = load ptr, ptr %data_.i, align 8
+  %capacity_.i.i.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %8, i64 0, i32 1, i32 1
+  %9 = load i64, ptr %capacity_.i.i.i, align 8
+  %cmp.not.i.i = icmp ult i64 %9, %call5
   br i1 %cmp.not.i.i, label %do.body4.i.i, label %cleanup.thread
 
 do.body4.i.i:                                     ; preds = %if.end
@@ -2412,9 +2409,9 @@ do.body4.i.i:                                     ; preds = %if.end
   unreachable
 
 cleanup.thread:                                   ; preds = %if.end
-  %data_2.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %9, i64 0, i32 1
+  %data_2.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %8, i64 0, i32 1
   store i64 %call5, ptr %data_2.i, align 8
-  store i64 %3, ptr %agg.result, align 8
+  store ptr %1, ptr %agg.result, align 8
   br label %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit
 
 if.then.i:                                        ; preds = %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit
@@ -2467,26 +2464,25 @@ do.end8:                                          ; preds = %if.end
   %data_.i = getelementptr inbounds %"class.node::quic::Packet", ptr %3, i64 0, i32 3
   %4 = load ptr, ptr %data_.i, align 8
   %cmp.i.not.i = icmp eq ptr %4, null
-  %5 = ptrtoint ptr %3 to i64
   br i1 %cmp.i.not.i, label %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %do.end8
   %buf_.i.i.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %4, i64 0, i32 1, i32 2
-  %6 = load ptr, ptr %buf_.i.i.i, align 8
+  %5 = load ptr, ptr %buf_.i.i.i, align 8
   br label %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit
 
 _ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit:       ; preds = %do.end8, %cond.false.i
-  %retval.sroa.0.0.i = phi ptr [ %6, %cond.false.i ], [ null, %do.end8 ]
+  %retval.sroa.0.0.i = phi ptr [ %5, %cond.false.i ], [ null, %do.end8 ]
   %call11 = call noundef ptr @_ZNK4node4quic19StatelessResetTokencvPKhEv(ptr noundef nonnull align 8 dereferenceable(32) %token) #22
   %call13 = call i64 @ngtcp2_pkt_write_stateless_reset(ptr noundef %retval.sroa.0.0.i, i64 noundef %sub, ptr noundef %call11, ptr noundef nonnull %random, i64 noundef 25) #22
   %cmp14 = icmp slt i64 %call13, 42
   br i1 %cmp14, label %if.then.i, label %if.end17
 
 if.end17:                                         ; preds = %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit
-  %7 = load ptr, ptr %data_.i, align 8
-  %capacity_.i.i.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %7, i64 0, i32 1, i32 1
-  %8 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.not.i.i = icmp ult i64 %8, %call13
+  %6 = load ptr, ptr %data_.i, align 8
+  %capacity_.i.i.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %6, i64 0, i32 1, i32 1
+  %7 = load i64, ptr %capacity_.i.i.i, align 8
+  %cmp.not.i.i = icmp ult i64 %7, %call13
   br i1 %cmp.not.i.i, label %do.body4.i.i, label %cleanup.thread
 
 do.body4.i.i:                                     ; preds = %if.end17
@@ -2495,9 +2491,9 @@ do.body4.i.i:                                     ; preds = %if.end17
   unreachable
 
 cleanup.thread:                                   ; preds = %if.end17
-  %data_2.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %7, i64 0, i32 1
+  %data_2.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %6, i64 0, i32 1
   store i64 %call13, ptr %data_2.i, align 8
-  store i64 %5, ptr %agg.result, align 8
+  store ptr %3, ptr %agg.result, align 8
   br label %return
 
 if.then.i:                                        ; preds = %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit
@@ -2589,33 +2585,32 @@ for.body9.i:                                      ; preds = %for.body.i, %for.bo
   %data_.i = getelementptr inbounds %"class.node::quic::Packet", ptr %8, i64 0, i32 3
   %9 = load ptr, ptr %data_.i, align 8
   %cmp.i.not.i = icmp eq ptr %9, null
-  %10 = ptrtoint ptr %8 to i64
   br i1 %cmp.i.not.i, label %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %"_ZZN4node4quic6Packet30CreateVersionNegotiationPacketEPNS_11EnvironmentEPNS1_8ListenerERKNS0_14PathDescriptorEENK3$_0clEv.exit"
   %buf_.i.i.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %9, i64 0, i32 1, i32 2
-  %11 = load ptr, ptr %buf_.i.i.i, align 8
+  %10 = load ptr, ptr %buf_.i.i.i, align 8
   br label %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit
 
 _ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit:       ; preds = %"_ZZN4node4quic6Packet30CreateVersionNegotiationPacketEPNS_11EnvironmentEPNS1_8ListenerERKNS0_14PathDescriptorEENK3$_0clEv.exit", %cond.false.i
-  %retval.sroa.0.0.i = phi ptr [ %11, %cond.false.i ], [ null, %"_ZZN4node4quic6Packet30CreateVersionNegotiationPacketEPNS_11EnvironmentEPNS1_8ListenerERKNS0_14PathDescriptorEENK3$_0clEv.exit" ]
+  %retval.sroa.0.0.i = phi ptr [ %10, %cond.false.i ], [ null, %"_ZZN4node4quic6Packet30CreateVersionNegotiationPacketEPNS_11EnvironmentEPNS1_8ListenerERKNS0_14PathDescriptorEENK3$_0clEv.exit" ]
+  %11 = load ptr, ptr %dcid, align 8
+  %call9 = tail call noundef ptr @_ZNK4node4quic3CIDcvPKhEv(ptr noundef nonnull align 8 dereferenceable(48) %11) #22
   %12 = load ptr, ptr %dcid, align 8
-  %call9 = tail call noundef ptr @_ZNK4node4quic3CIDcvPKhEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #22
-  %13 = load ptr, ptr %dcid, align 8
-  %call11 = tail call noundef i64 @_ZNK4node4quic3CID6lengthEv(ptr noundef nonnull align 8 dereferenceable(48) %13) #22
+  %call11 = tail call noundef i64 @_ZNK4node4quic3CID6lengthEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #22
+  %13 = load ptr, ptr %scid, align 8
+  %call13 = tail call noundef ptr @_ZNK4node4quic3CIDcvPKhEv(ptr noundef nonnull align 8 dereferenceable(48) %13) #22
   %14 = load ptr, ptr %scid, align 8
-  %call13 = tail call noundef ptr @_ZNK4node4quic3CIDcvPKhEv(ptr noundef nonnull align 8 dereferenceable(48) %14) #22
-  %15 = load ptr, ptr %scid, align 8
-  %call15 = tail call noundef i64 @_ZNK4node4quic3CID6lengthEv(ptr noundef nonnull align 8 dereferenceable(48) %15) #22
+  %call15 = tail call noundef i64 @_ZNK4node4quic3CID6lengthEv(ptr noundef nonnull align 8 dereferenceable(48) %14) #22
   %call17 = call i64 @ngtcp2_pkt_write_version_negotiation(ptr noundef %retval.sroa.0.0.i, i64 noundef %add5, i8 noundef zeroext 0, ptr noundef %call9, i64 noundef %call11, ptr noundef %call13, i64 noundef %call15, ptr noundef nonnull %sv, i64 noundef 3) #22
   %cmp = icmp slt i64 %call17, 1
   br i1 %cmp, label %if.then.i, label %if.end
 
 if.end:                                           ; preds = %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit
-  %16 = load ptr, ptr %data_.i, align 8
-  %capacity_.i.i.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %16, i64 0, i32 1, i32 1
-  %17 = load i64, ptr %capacity_.i.i.i, align 8
-  %cmp.not.i.i = icmp ult i64 %17, %call17
+  %15 = load ptr, ptr %data_.i, align 8
+  %capacity_.i.i.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %15, i64 0, i32 1, i32 1
+  %16 = load i64, ptr %capacity_.i.i.i, align 8
+  %cmp.not.i.i = icmp ult i64 %16, %call17
   br i1 %cmp.not.i.i, label %do.body4.i.i, label %cleanup.thread
 
 do.body4.i.i:                                     ; preds = %if.end
@@ -2624,9 +2619,9 @@ do.body4.i.i:                                     ; preds = %if.end
   unreachable
 
 cleanup.thread:                                   ; preds = %if.end
-  %data_2.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %16, i64 0, i32 1
+  %data_2.i = getelementptr inbounds %"struct.node::quic::Packet::Data", ptr %15, i64 0, i32 1
   store i64 %call17, ptr %data_2.i, align 8
-  store i64 %10, ptr %agg.result, align 8
+  store ptr %8, ptr %agg.result, align 8
   br label %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit
 
 if.then.i:                                        ; preds = %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit

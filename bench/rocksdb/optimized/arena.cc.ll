@@ -459,10 +459,9 @@ entry:
   br i1 %cmp.not.i.i, label %if.else.i.i, label %invoke.cont.thread
 
 invoke.cont.thread:                               ; preds = %entry
-  %2 = ptrtoint ptr %call to i64
-  store i64 %2, ptr %0, align 8
-  %3 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %3, i64 1
+  store ptr %call, ptr %0, align 8
+  %2 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %2, i64 1
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
 
@@ -484,31 +483,31 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %invoke.cont.t
   store ptr null, ptr %ref.tmp, align 8
   %call2 = call i64 @malloc_usable_size(ptr noundef nonnull %call) #14
   %blocks_memory_ = getelementptr inbounds %"class.rocksdb::Arena", ptr %this, i64 0, i32 11
-  %4 = load i64, ptr %blocks_memory_, align 16
-  %add = add i64 %4, %call2
+  %3 = load i64, ptr %blocks_memory_, align 16
+  %add = add i64 %3, %call2
   store i64 %add, ptr %blocks_memory_, align 16
   %tracker_ = getelementptr inbounds %"class.rocksdb::Arena", ptr %this, i64 0, i32 12
-  %5 = load ptr, ptr %tracker_, align 8
-  %cmp.not = icmp eq ptr %5, null
+  %4 = load ptr, ptr %tracker_, align 8
+  %cmp.not = icmp eq ptr %4, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
-  call void @_ZN7rocksdb12AllocTracker8AllocateEm(ptr noundef nonnull align 8 dereferenceable(18) %5, i64 noundef %call2)
+  call void @_ZN7rocksdb12AllocTracker8AllocateEm(ptr noundef nonnull align 8 dereferenceable(18) %4, i64 noundef %call2)
   br label %if.end
 
 lpad:                                             ; preds = %if.else.i.i
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %7 = load ptr, ptr %ref.tmp, align 8
-  %cmp.not.i4 = icmp eq ptr %7, null
+  %6 = load ptr, ptr %ref.tmp, align 8
+  %cmp.not.i4 = icmp eq ptr %6, null
   br i1 %cmp.not.i4, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit6, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i5
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i5: ; preds = %lpad
-  call void @_ZdaPv(ptr noundef nonnull %7) #15
+  call void @_ZdaPv(ptr noundef nonnull %6) #15
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit6
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit6: ; preds = %lpad, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i5
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %5
 
 if.end:                                           ; preds = %if.then, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
   ret ptr %call

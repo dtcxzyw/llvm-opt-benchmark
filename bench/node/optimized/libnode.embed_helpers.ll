@@ -1718,14 +1718,13 @@ do.end5:                                          ; preds = %entry
   br i1 %cmp9.not, label %cleanup.thread, label %land.lhs.true.i.i
 
 cleanup.thread:                                   ; preds = %do.end5
-  %3 = ptrtoint ptr %call7 to i64
-  store i64 %3, ptr %agg.result, align 8
+  store ptr %call7, ptr %agg.result, align 8
   br label %_ZNSt10unique_ptrIKN4node20EmbedderSnapshotDataENS1_18DeleteSnapshotDataEED2Ev.exit
 
 land.lhs.true.i.i:                                ; preds = %do.end5
   store ptr null, ptr %agg.result, align 8
-  %4 = load i32, ptr %call6, align 8
-  %cmp.i.i = icmp eq i32 %4, 0
+  %3 = load i32, ptr %call6, align 8
+  %cmp.i.i = icmp eq i32 %3, 0
   br i1 %cmp.i.i, label %delete.notnull.i.i, label %_ZNK4node20EmbedderSnapshotData18DeleteSnapshotDataclEPKS0_.exit.i
 
 delete.notnull.i.i:                               ; preds = %land.lhs.true.i.i
@@ -1950,14 +1949,13 @@ do.end4:                                          ; preds = %entry
   br i1 %call6, label %cleanup.thread, label %land.lhs.true.i.i
 
 cleanup.thread:                                   ; preds = %do.end4
-  %1 = ptrtoint ptr %call5 to i64
-  store i64 %1, ptr %agg.result, align 8
+  store ptr %call5, ptr %agg.result, align 8
   br label %_ZNSt10unique_ptrIKN4node20EmbedderSnapshotDataENS1_18DeleteSnapshotDataEED2Ev.exit
 
 land.lhs.true.i.i:                                ; preds = %do.end4
   store ptr null, ptr %agg.result, align 8
-  %2 = load i32, ptr %call, align 8
-  %cmp.i.i = icmp eq i32 %2, 0
+  %1 = load i32, ptr %call, align 8
+  %cmp.i.i = icmp eq i32 %1, 0
   br i1 %cmp.i.i, label %delete.notnull.i.i, label %_ZNK4node20EmbedderSnapshotData18DeleteSnapshotDataclEPKS0_.exit.i
 
 delete.notnull.i.i:                               ; preds = %land.lhs.true.i.i

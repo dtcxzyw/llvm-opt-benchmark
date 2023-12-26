@@ -513,7 +513,7 @@ if.else:                                          ; preds = %do.body47
   unreachable
 
 do.end52:                                         ; preds = %do.body47
-  store i64 %7, ptr %reg_struct, align 8
+  store ptr %call41, ptr %reg_struct, align 8
   %len = getelementptr inbounds %struct.uffdio_range, ptr %reg_struct, i64 0, i32 1
   store i64 %conv.i, ptr %len, align 8
   %mode = getelementptr inbounds %struct.uffdio_register, ptr %reg_struct, i64 0, i32 1
@@ -530,7 +530,7 @@ if.then56:                                        ; preds = %do.end52
   br label %out
 
 if.end59:                                         ; preds = %do.end52
-  store i64 %7, ptr %range_struct, align 8
+  store ptr %call41, ptr %range_struct, align 8
   %len61 = getelementptr inbounds %struct.uffdio_range, ptr %range_struct, i64 0, i32 1
   store i64 %conv.i, ptr %len61, align 8
   %call62 = call i32 (i32, i64, ...) @ioctl(i32 noundef %call7, i64 noundef 2148575745, ptr noundef nonnull %range_struct) #16
@@ -1298,20 +1298,19 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_postcopy_cleanup_range.exit:                ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %call3 = tail call i32 @qemu_madvise(ptr noundef %call1, i64 noundef %0, i32 noundef 14) #16
-  %8 = ptrtoint ptr %call1 to i64
-  store i64 %8, ptr %range_struct, align 8
+  store ptr %call1, ptr %range_struct, align 8
   %len = getelementptr inbounds %struct.uffdio_range, ptr %range_struct, i64 0, i32 1
   store i64 %0, ptr %len, align 8
   %userfault_fd = getelementptr inbounds %struct.MigrationIncomingState, ptr %opaque, i64 0, i32 13
-  %9 = load i32, ptr %userfault_fd, align 8
-  %call4 = call i32 (i32, i64, ...) @ioctl(i32 noundef %9, i64 noundef 2148575745, ptr noundef nonnull %range_struct) #16
+  %8 = load i32, ptr %userfault_fd, align 8
+  %call4 = call i32 (i32, i64, ...) @ioctl(i32 noundef %8, i64 noundef 2148575745, ptr noundef nonnull %range_struct) #16
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %trace_postcopy_cleanup_range.exit
   %call5 = tail call ptr @__errno_location() #18
-  %10 = load i32, ptr %call5, align 4
-  %call6 = call ptr @strerror(i32 noundef %10) #16
+  %9 = load i32, ptr %call5, align 4
+  %call6 = call ptr @strerror(i32 noundef %9) #16
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.37, ptr noundef nonnull @__func__.cleanup_range, ptr noundef %call6) #16
   br label %return
 
@@ -2659,31 +2658,30 @@ define internal i32 @ram_block_enable_notify(ptr noundef %rb, ptr nocapture noun
 entry:
   %reg_struct = alloca %struct.uffdio_register, align 8
   %call = tail call ptr @qemu_ram_get_host_addr(ptr noundef %rb) #16
-  %0 = ptrtoint ptr %call to i64
-  store i64 %0, ptr %reg_struct, align 8
+  store ptr %call, ptr %reg_struct, align 8
   %postcopy_length = getelementptr inbounds %struct.RAMBlock, ptr %rb, i64 0, i32 19
-  %1 = load i64, ptr %postcopy_length, align 8
+  %0 = load i64, ptr %postcopy_length, align 8
   %len = getelementptr inbounds %struct.uffdio_range, ptr %reg_struct, i64 0, i32 1
-  store i64 %1, ptr %len, align 8
+  store i64 %0, ptr %len, align 8
   %mode = getelementptr inbounds %struct.uffdio_register, ptr %reg_struct, i64 0, i32 1
   store i64 1, ptr %mode, align 8
   %userfault_fd = getelementptr inbounds %struct.MigrationIncomingState, ptr %opaque, i64 0, i32 13
-  %2 = load i32, ptr %userfault_fd, align 8
-  %call2 = call i32 (i32, i64, ...) @ioctl(i32 noundef %2, i64 noundef 3223366144, ptr noundef nonnull %reg_struct) #16
+  %1 = load i32, ptr %userfault_fd, align 8
+  %call2 = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 3223366144, ptr noundef nonnull %reg_struct) #16
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call3 = tail call ptr @__errno_location() #18
-  %3 = load i32, ptr %call3, align 4
-  %call4 = call ptr @strerror(i32 noundef %3) #16
+  %2 = load i32, ptr %call3, align 4
+  %call4 = call ptr @strerror(i32 noundef %2) #16
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.86, ptr noundef nonnull @__func__.ram_block_enable_notify, ptr noundef %call4) #16
   br label %return
 
 if.end:                                           ; preds = %entry
   %ioctls = getelementptr inbounds %struct.uffdio_register, ptr %reg_struct, i64 0, i32 2
-  %4 = load i64, ptr %ioctls, align 8
-  %and = and i64 %4, 8
+  %3 = load i64, ptr %ioctls, align 8
+  %and = and i64 %3, 8
   %tobool5.not = icmp eq i64 %and, 0
   br i1 %tobool5.not, label %if.then6, label %if.end7
 
@@ -2692,7 +2690,7 @@ if.then6:                                         ; preds = %if.end
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %and9 = and i64 %4, 16
+  %and9 = and i64 %3, 16
   %tobool10.not = icmp eq i64 %and9, 0
   br i1 %tobool10.not, label %return, label %if.then11
 
@@ -3027,14 +3025,12 @@ entry:
   %userfault_fd1 = getelementptr inbounds %struct.MigrationIncomingState, ptr %mis, i64 0, i32 13
   %0 = load i32, ptr %userfault_fd1, align 8
   %tobool.not = icmp eq ptr %from_addr, null
-  %1 = ptrtoint ptr %host_addr to i64
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  store i64 %1, ptr %copy_struct, align 8
-  %2 = ptrtoint ptr %from_addr to i64
+  store ptr %host_addr, ptr %copy_struct, align 8
   %src = getelementptr inbounds %struct.uffdio_copy, ptr %copy_struct, i64 0, i32 1
-  store i64 %2, ptr %src, align 8
+  store ptr %from_addr, ptr %src, align 8
   %len = getelementptr inbounds %struct.uffdio_copy, ptr %copy_struct, i64 0, i32 2
   store i64 %pagesize, ptr %len, align 8
   %mode = getelementptr inbounds %struct.uffdio_copy, ptr %copy_struct, i64 0, i32 3
@@ -3043,7 +3039,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  store i64 %1, ptr %zero_struct, align 8
+  store ptr %host_addr, ptr %zero_struct, align 8
   %len3 = getelementptr inbounds %struct.uffdio_range, ptr %zero_struct, i64 0, i32 1
   store i64 %pagesize, ptr %len3, align 8
   %mode4 = getelementptr inbounds %struct.uffdio_zeropage, ptr %zero_struct, i64 0, i32 1
@@ -3057,56 +3053,56 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %tobool6.not, label %while.end, label %if.end21
 
 while.end:                                        ; preds = %if.end
-  %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %4 = inttoptr i64 %3 to ptr
+  %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %2 = inttoptr i64 %1 to ptr
   %page_request_mutex = getelementptr inbounds %struct.MigrationIncomingState, ptr %mis, i64 0, i32 39
-  call void %4(ptr noundef nonnull %page_request_mutex, ptr noundef nonnull @.str, i32 noundef 1295) #16
+  call void %2(ptr noundef nonnull %page_request_mutex, ptr noundef nonnull @.str, i32 noundef 1295) #16
   %call8 = call i64 @qemu_target_page_size() #16
   %div = udiv i64 %pagesize, %call8
   call void @ramblock_recv_bitmap_set_range(ptr noundef %rb, ptr noundef %host_addr, i64 noundef %div) #16
   %page_requested = getelementptr inbounds %struct.MigrationIncomingState, ptr %mis, i64 0, i32 37
-  %5 = load ptr, ptr %page_requested, align 8
-  %call9 = call ptr @g_tree_lookup(ptr noundef %5, ptr noundef %host_addr) #16
+  %3 = load ptr, ptr %page_requested, align 8
+  %call9 = call ptr @g_tree_lookup(ptr noundef %3, ptr noundef %host_addr) #16
   %tobool10.not = icmp eq ptr %call9, null
   br i1 %tobool10.not, label %if.end19, label %if.then11
 
 if.then11:                                        ; preds = %while.end
-  %6 = load ptr, ptr %page_requested, align 8
-  %call13 = call i32 @g_tree_remove(ptr noundef %6, ptr noundef %host_addr) #16
+  %4 = load ptr, ptr %page_requested, align 8
+  %call13 = call i32 @g_tree_remove(ptr noundef %4, ptr noundef %host_addr) #16
   %page_requested_count = getelementptr inbounds %struct.MigrationIncomingState, ptr %mis, i64 0, i32 38
-  %7 = atomicrmw sub ptr %page_requested_count, i32 1 seq_cst, align 8
-  %8 = load i32, ptr %page_requested_count, align 8
+  %5 = atomicrmw sub ptr %page_requested_count, i32 1 seq_cst, align 8
+  %6 = load i32, ptr %page_requested_count, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %9 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %9, 0
-  %10 = load i16, ptr @_TRACE_POSTCOPY_PAGE_REQ_DEL_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %10, 0
+  %7 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %7, 0
+  %8 = load i16, ptr @_TRACE_POSTCOPY_PAGE_REQ_DEL_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %8, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_postcopy_page_req_del.exit
 
 land.lhs.true5.i.i:                               ; preds = %if.then11
-  %11 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %11, 32768
+  %9 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %9, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_postcopy_page_req_del.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %12 = load i8, ptr @message_with_timestamp, align 1
-  %13 = and i8 %12, 1
-  %tobool7.not.i.i = icmp eq i8 %13, 0
+  %10 = load i8, ptr @message_with_timestamp, align 1
+  %11 = and i8 %10, 1
+  %tobool7.not.i.i = icmp eq i8 %11, 0
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = call i32 @qemu_get_thread_id() #16
-  %14 = load i64, ptr %_now.i.i, align 8
+  %12 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
-  %15 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.92, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, ptr noundef %host_addr, i32 noundef %8) #16
+  %13 = load i64, ptr %tv_usec.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.92, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, ptr noundef %host_addr, i32 noundef %6) #16
   br label %trace_postcopy_page_req_del.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.93, ptr noundef %host_addr, i32 noundef %8) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.93, ptr noundef %host_addr, i32 noundef %6) #16
   br label %trace_postcopy_page_req_del.exit
 
 trace_postcopy_page_req_del.exit:                 ; preds = %if.then11, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3114,9 +3110,9 @@ trace_postcopy_page_req_del.exit:                 ; preds = %if.then11, %land.lh
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !20
   fence seq_cst
   %preempt_thread_status = getelementptr inbounds %struct.MigrationIncomingState, ptr %mis, i64 0, i32 22
-  %16 = load volatile i32, ptr %preempt_thread_status, align 8
-  %cmp = icmp eq i32 %16, 2
-  %cmp16 = icmp eq i32 %7, 1
+  %14 = load volatile i32, ptr %preempt_thread_status, align 8
+  %cmp = icmp eq i32 %14, 2
+  %cmp16 = icmp eq i32 %5, 1
   %or.cond = select i1 %cmp, i1 %cmp16, i1 false
   br i1 %or.cond, label %if.then17, label %if.end19
 
@@ -3127,77 +3123,77 @@ if.then17:                                        ; preds = %trace_postcopy_page
 
 if.end19:                                         ; preds = %trace_postcopy_page_req_del.exit, %if.then17, %while.end
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %page_request_mutex, ptr noundef nonnull @.str, i32 noundef 1319) #16
-  %17 = ptrtoint ptr %host_addr to i64
+  %15 = ptrtoint ptr %host_addr to i64
   %call.i = call ptr @migration_incoming_get_current() #16
   %blocktime_ctx.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %call.i, i64 0, i32 32
-  %18 = load ptr, ptr %blocktime_ctx.i, align 8
+  %16 = load ptr, ptr %blocktime_ctx.i, align 8
   %call1.i = call ptr @qdev_get_machine() #16
   %call.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %smp.i = getelementptr inbounds %struct.MachineState, ptr %call.i.i, i64 0, i32 29
-  %19 = load i32, ptr %smp.i, align 8
-  %tobool.not.i = icmp eq ptr %18, null
+  %17 = load i32, ptr %smp.i, align 8
+  %tobool.not.i = icmp eq ptr %16, null
   br i1 %tobool.not.i, label %if.end21, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end19
   %call.i.i.i = call i64 @qemu_clock_get_ns(i32 noundef 0) #16
   %div.i.i.i = sdiv i64 %call.i.i.i, 1000000
-  %start_time.i.i = getelementptr inbounds %struct.PostcopyBlocktimeContext, ptr %18, i64 0, i32 6
-  %20 = load i64, ptr %start_time.i.i, align 8
-  %sub.i.i = sub i64 %div.i.i.i, %20
+  %start_time.i.i = getelementptr inbounds %struct.PostcopyBlocktimeContext, ptr %16, i64 0, i32 6
+  %18 = load i64, ptr %start_time.i.i, align 8
+  %sub.i.i = sub i64 %div.i.i.i, %18
   %conv2.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i, i64 1)
   %conv.i.i = trunc i64 %conv2.i.i to i32
-  %cmp27.not.i = icmp eq i32 %19, 0
+  %cmp27.not.i = icmp eq i32 %17, 0
   br i1 %cmp27.not.i, label %for.end.thread.i, label %for.body.lr.ph.i
 
 for.end.thread.i:                                 ; preds = %if.end.i
-  %smp_cpus_down2834.i = getelementptr inbounds %struct.PostcopyBlocktimeContext, ptr %18, i64 0, i32 5
-  %21 = atomicrmw or ptr %smp_cpus_down2834.i, i32 0 seq_cst, align 4
+  %smp_cpus_down2834.i = getelementptr inbounds %struct.PostcopyBlocktimeContext, ptr %16, i64 0, i32 5
+  %19 = atomicrmw or ptr %smp_cpus_down2834.i, i32 0 seq_cst, align 4
   br label %for.end.if.end37_crit_edge.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
-  %vcpu_addr.i = getelementptr inbounds %struct.PostcopyBlocktimeContext, ptr %18, i64 0, i32 1
-  %smp_cpus_down.i = getelementptr inbounds %struct.PostcopyBlocktimeContext, ptr %18, i64 0, i32 5
-  %vcpu_blocktime24.i = getelementptr inbounds %struct.PostcopyBlocktimeContext, ptr %18, i64 0, i32 3
+  %vcpu_addr.i = getelementptr inbounds %struct.PostcopyBlocktimeContext, ptr %16, i64 0, i32 1
+  %smp_cpus_down.i = getelementptr inbounds %struct.PostcopyBlocktimeContext, ptr %16, i64 0, i32 5
+  %vcpu_blocktime24.i = getelementptr inbounds %struct.PostcopyBlocktimeContext, ptr %16, i64 0, i32 3
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %i.030.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
   %affected_cpu.029.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %affected_cpu.1.i, %for.inc.i ]
   %vcpu_total_blocktime.028.i = phi i8 [ 0, %for.body.lr.ph.i ], [ %vcpu_total_blocktime.2.i, %for.inc.i ]
-  %22 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr %16, align 8
   %idxprom.i = sext i32 %i.030.i to i64
-  %arrayidx.i = getelementptr i32, ptr %22, i64 %idxprom.i
-  %23 = atomicrmw or ptr %arrayidx.i, i32 0 seq_cst, align 4
-  %24 = load ptr, ptr %vcpu_addr.i, align 8
-  %arrayidx5.i = getelementptr i64, ptr %24, i64 %idxprom.i
-  %25 = atomicrmw or ptr %arrayidx5.i, i64 0 seq_cst, align 8
-  %cmp8.i = icmp ne i64 %25, %17
-  %cmp9.i = icmp eq i32 %23, 0
+  %arrayidx.i = getelementptr i32, ptr %20, i64 %idxprom.i
+  %21 = atomicrmw or ptr %arrayidx.i, i32 0 seq_cst, align 4
+  %22 = load ptr, ptr %vcpu_addr.i, align 8
+  %arrayidx5.i = getelementptr i64, ptr %22, i64 %idxprom.i
+  %23 = atomicrmw or ptr %arrayidx5.i, i64 0 seq_cst, align 8
+  %cmp8.i = icmp ne i64 %23, %15
+  %cmp9.i = icmp eq i32 %21, 0
   %or.cond.i = select i1 %cmp8.i, i1 true, i1 %cmp9.i
   br i1 %or.cond.i, label %for.inc.i, label %while.end.i
 
 while.end.i:                                      ; preds = %for.body.i
-  %26 = load ptr, ptr %vcpu_addr.i, align 8
-  %arrayidx15.i = getelementptr i64, ptr %26, i64 %idxprom.i
-  %27 = atomicrmw xchg ptr %arrayidx15.i, i64 0 seq_cst, align 8
-  %sub.i = sub i32 %conv.i.i, %23
+  %24 = load ptr, ptr %vcpu_addr.i, align 8
+  %arrayidx15.i = getelementptr i64, ptr %24, i64 %idxprom.i
+  %25 = atomicrmw xchg ptr %arrayidx15.i, i64 0 seq_cst, align 8
+  %sub.i = sub i32 %conv.i.i, %21
   %add.i = add i32 %affected_cpu.029.i, 1
-  %28 = and i8 %vcpu_total_blocktime.028.i, 1
-  %tobool18.not.i = icmp eq i8 %28, 0
+  %26 = and i8 %vcpu_total_blocktime.028.i, 1
+  %tobool18.not.i = icmp eq i8 %26, 0
   br i1 %tobool18.not.i, label %land.lhs.true.i, label %if.end23.i
 
 land.lhs.true.i:                                  ; preds = %while.end.i
-  %29 = atomicrmw or ptr %smp_cpus_down.i, i32 0 seq_cst, align 4
-  %cmp21.i = icmp eq i32 %29, %19
+  %27 = atomicrmw or ptr %smp_cpus_down.i, i32 0 seq_cst, align 4
+  %cmp21.i = icmp eq i32 %27, %17
   %spec.select.i = select i1 %cmp21.i, i8 1, i8 %vcpu_total_blocktime.028.i
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %land.lhs.true.i, %while.end.i
   %vcpu_total_blocktime.1.i = phi i8 [ %vcpu_total_blocktime.028.i, %while.end.i ], [ %spec.select.i, %land.lhs.true.i ]
-  %30 = load ptr, ptr %vcpu_blocktime24.i, align 8
-  %arrayidx26.i = getelementptr i32, ptr %30, i64 %idxprom.i
-  %31 = load i32, ptr %arrayidx26.i, align 4
-  %add27.i = add i32 %sub.i, %31
+  %28 = load ptr, ptr %vcpu_blocktime24.i, align 8
+  %arrayidx26.i = getelementptr i32, ptr %28, i64 %idxprom.i
+  %29 = load i32, ptr %arrayidx26.i, align 4
+  %add27.i = add i32 %sub.i, %29
   store i32 %add27.i, ptr %arrayidx26.i, align 4
   br label %for.inc.i
 
@@ -3205,65 +3201,65 @@ for.inc.i:                                        ; preds = %if.end23.i, %for.bo
   %vcpu_total_blocktime.2.i = phi i8 [ %vcpu_total_blocktime.028.i, %for.body.i ], [ %vcpu_total_blocktime.1.i, %if.end23.i ]
   %affected_cpu.1.i = phi i32 [ %affected_cpu.029.i, %for.body.i ], [ %add.i, %if.end23.i ]
   %inc.i = add nuw i32 %i.030.i, 1
-  %exitcond.not.i = icmp eq i32 %inc.i, %19
+  %exitcond.not.i = icmp eq i32 %inc.i, %17
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !21
 
 for.end.i:                                        ; preds = %for.inc.i
-  %32 = and i8 %vcpu_total_blocktime.2.i, 1
-  %33 = icmp eq i8 %32, 0
-  %34 = atomicrmw sub ptr %smp_cpus_down.i, i32 %affected_cpu.1.i seq_cst, align 4
-  br i1 %33, label %for.end.if.end37_crit_edge.i, label %if.then32.i
+  %30 = and i8 %vcpu_total_blocktime.2.i, 1
+  %31 = icmp eq i8 %30, 0
+  %32 = atomicrmw sub ptr %smp_cpus_down.i, i32 %affected_cpu.1.i seq_cst, align 4
+  br i1 %31, label %for.end.if.end37_crit_edge.i, label %if.then32.i
 
 for.end.if.end37_crit_edge.i:                     ; preds = %for.end.i, %for.end.thread.i
   %affected_cpu.0.lcssa36.i = phi i32 [ 0, %for.end.thread.i ], [ %affected_cpu.1.i, %for.end.i ]
-  %total_blocktime38.phi.trans.insert.i = getelementptr inbounds %struct.PostcopyBlocktimeContext, ptr %18, i64 0, i32 2
+  %total_blocktime38.phi.trans.insert.i = getelementptr inbounds %struct.PostcopyBlocktimeContext, ptr %16, i64 0, i32 2
   %.pre.i = load i32, ptr %total_blocktime38.phi.trans.insert.i, align 8
   br label %if.end37.i
 
 if.then32.i:                                      ; preds = %for.end.i
-  %last_begin.i = getelementptr inbounds %struct.PostcopyBlocktimeContext, ptr %18, i64 0, i32 4
-  %35 = atomicrmw or ptr %last_begin.i, i32 0 seq_cst, align 8
-  %sub35.i = sub i32 %conv.i.i, %35
-  %total_blocktime.i = getelementptr inbounds %struct.PostcopyBlocktimeContext, ptr %18, i64 0, i32 2
-  %36 = load i32, ptr %total_blocktime.i, align 8
-  %add36.i = add i32 %sub35.i, %36
+  %last_begin.i = getelementptr inbounds %struct.PostcopyBlocktimeContext, ptr %16, i64 0, i32 4
+  %33 = atomicrmw or ptr %last_begin.i, i32 0 seq_cst, align 8
+  %sub35.i = sub i32 %conv.i.i, %33
+  %total_blocktime.i = getelementptr inbounds %struct.PostcopyBlocktimeContext, ptr %16, i64 0, i32 2
+  %34 = load i32, ptr %total_blocktime.i, align 8
+  %add36.i = add i32 %sub35.i, %34
   store i32 %add36.i, ptr %total_blocktime.i, align 8
   br label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.then32.i, %for.end.if.end37_crit_edge.i
   %affected_cpu.0.lcssa35.i = phi i32 [ %affected_cpu.0.lcssa36.i, %for.end.if.end37_crit_edge.i ], [ %affected_cpu.1.i, %if.then32.i ]
-  %37 = phi i32 [ %.pre.i, %for.end.if.end37_crit_edge.i ], [ %add36.i, %if.then32.i ]
+  %35 = phi i32 [ %.pre.i, %for.end.if.end37_crit_edge.i ], [ %add36.i, %if.then32.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %38 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i = icmp ne i32 %38, 0
-  %39 = load i16, ptr @_TRACE_MARK_POSTCOPY_BLOCKTIME_END_DSTATE, align 2
-  %tobool4.i.i.i = icmp ne i16 %39, 0
+  %36 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i = icmp ne i32 %36, 0
+  %37 = load i16, ptr @_TRACE_MARK_POSTCOPY_BLOCKTIME_END_DSTATE, align 2
+  %tobool4.i.i.i = icmp ne i16 %37, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %trace_mark_postcopy_blocktime_end.exit.i
 
 land.lhs.true5.i.i.i:                             ; preds = %if.end37.i
-  %40 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i = and i32 %40, 32768
+  %38 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i = and i32 %38, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i, label %trace_mark_postcopy_blocktime_end.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
-  %41 = load i8, ptr @message_with_timestamp, align 1
-  %42 = and i8 %41, 1
-  %tobool7.not.i.i.i = icmp eq i8 %42, 0
+  %39 = load i8, ptr @message_with_timestamp, align 1
+  %40 = and i8 %39, 1
+  %tobool7.not.i.i.i = icmp eq i8 %40, 0
   br i1 %tobool7.not.i.i.i, label %if.else.i.i.i, label %if.then8.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #16
   %call10.i.i.i = call i32 @qemu_get_thread_id() #16
-  %43 = load i64, ptr %_now.i.i.i, align 8
+  %41 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
-  %44 = load i64, ptr %tv_usec.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.94, i32 noundef %call10.i.i.i, i64 noundef %43, i64 noundef %44, i64 noundef %17, ptr noundef nonnull %18, i32 noundef %37, i32 noundef %affected_cpu.0.lcssa35.i) #16
+  %42 = load i64, ptr %tv_usec.i.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.94, i32 noundef %call10.i.i.i, i64 noundef %41, i64 noundef %42, i64 noundef %15, ptr noundef nonnull %16, i32 noundef %35, i32 noundef %affected_cpu.0.lcssa35.i) #16
   br label %trace_mark_postcopy_blocktime_end.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.95, i64 noundef %17, ptr noundef nonnull %18, i32 noundef %37, i32 noundef %affected_cpu.0.lcssa35.i) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.95, i64 noundef %15, ptr noundef nonnull %16, i32 noundef %35, i32 noundef %affected_cpu.0.lcssa35.i) #16
   br label %trace_mark_postcopy_blocktime_end.exit.i
 
 trace_mark_postcopy_blocktime_end.exit.i:         ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.end37.i

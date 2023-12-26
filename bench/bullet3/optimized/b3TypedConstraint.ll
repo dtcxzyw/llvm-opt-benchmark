@@ -43,7 +43,7 @@ entry:
   %m_userConstraintType = getelementptr inbounds %class.b3TypedConstraint, ptr %this, i64 0, i32 2
   store i32 -1, ptr %m_userConstraintType, align 4
   %1 = getelementptr inbounds %class.b3TypedConstraint, ptr %this, i64 0, i32 3
-  store ptr inttoptr (i64 -1 to ptr), ptr %1, align 16
+  store i64 -1, ptr %1, align 16
   %m_breakingImpulseThreshold = getelementptr inbounds %class.b3TypedConstraint, ptr %this, i64 0, i32 4
   store float 0x47EFFFFFE0000000, ptr %m_breakingImpulseThreshold, align 8
   %m_isEnabled = getelementptr inbounds %class.b3TypedConstraint, ptr %this, i64 0, i32 5

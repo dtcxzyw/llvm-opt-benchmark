@@ -304,45 +304,44 @@ invoke.cont14:                                    ; preds = %invoke.cont
   %_M_invoker.i.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp2.i, i64 0, i32 1
   %33 = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 8
   store i64 0, ptr %33, align 8
-  %34 = ptrtoint ptr %aLAB to i64
-  store i64 %34, ptr %agg.tmp2.i, align 8
+  store ptr %aLAB, ptr %agg.tmp2.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_12_GLOBAL__N_113AdobeRGBToXYZERNS0_8ImageBufES1_iE3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %_M_invoker.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_12_GLOBAL__N_113AdobeRGBToXYZERNS0_8ImageBufES1_iE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8
   invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp16126, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i, ptr noundef nonnull %agg.tmp2.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont14
-  %35 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %35, null
+  %34 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %34, null
   br i1 %tobool.not.i.i.i, label %invoke.cont17, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  %call.i.i.i = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i, i32 noundef 3)
           to label %invoke.cont17 unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
-  %36 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #17
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #17
   unreachable
 
 lpad.i:                                           ; preds = %invoke.cont14
-  %38 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %39 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i3.i = icmp eq ptr %39, null
+  %38 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %tobool.not.i.i3.i = icmp eq ptr %38, null
   br i1 %tobool.not.i.i3.i, label %ehcleanup261, label %if.then.i.i4.i
 
 if.then.i.i4.i:                                   ; preds = %lpad.i
-  %call.i.i5.i = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i, i32 noundef 3)
+  %call.i.i5.i = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i, i32 noundef 3)
           to label %ehcleanup261 unwind label %terminate.lpad.i.i6.i
 
 terminate.lpad.i.i6.i:                            ; preds = %if.then.i.i4.i
-  %40 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #17
+  %40 = extractvalue { ptr, i32 } %39, 0
+  call void @__clang_call_terminate(ptr %40) #17
   unreachable
 
 invoke.cont17:                                    ; preds = %if.then.i.i.i, %invoke.cont.i
@@ -402,46 +401,46 @@ invoke.cont28:                                    ; preds = %invoke.cont26
   store i8 0, ptr %m_recursive.i.i140, align 8
   %_M_manager.i.i.i141 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp2.i135, i64 0, i32 1
   %_M_invoker.i.i142 = getelementptr inbounds %"class.std::function", ptr %agg.tmp2.i135, i64 0, i32 1
-  %42 = getelementptr inbounds i8, ptr %agg.tmp2.i135, i64 8
-  store i64 0, ptr %42, align 8
-  store i64 %34, ptr %agg.tmp2.i135, align 8
+  %41 = getelementptr inbounds i8, ptr %agg.tmp2.i135, i64 8
+  store i64 0, ptr %41, align 8
+  store ptr %aLAB, ptr %agg.tmp2.i135, align 8
   store ptr @"_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_12_GLOBAL__N_18XYZToLABERNS0_8ImageBufES1_iE3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %_M_invoker.i.i142, align 8
   store ptr @"_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_12_GLOBAL__N_18XYZToLABERNS0_8ImageBufES1_iE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %_M_manager.i.i.i141, align 8
   invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp30133, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i134, ptr noundef nonnull %agg.tmp2.i135)
           to label %invoke.cont.i149 unwind label %lpad.i143
 
 invoke.cont.i149:                                 ; preds = %invoke.cont28
-  %43 = load ptr, ptr %_M_manager.i.i.i141, align 8
-  %tobool.not.i.i.i150 = icmp eq ptr %43, null
+  %42 = load ptr, ptr %_M_manager.i.i.i141, align 8
+  %tobool.not.i.i.i150 = icmp eq ptr %42, null
   br i1 %tobool.not.i.i.i150, label %invoke.cont31, label %if.then.i.i.i151
 
 if.then.i.i.i151:                                 ; preds = %invoke.cont.i149
-  %call.i.i.i152 = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i135, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i135, i32 noundef 3)
+  %call.i.i.i152 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i135, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i135, i32 noundef 3)
           to label %invoke.cont31 unwind label %terminate.lpad.i.i.i153
 
 terminate.lpad.i.i.i153:                          ; preds = %if.then.i.i.i151
-  %44 = landingpad { ptr, i32 }
+  %43 = landingpad { ptr, i32 }
           catch ptr null
-  %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #17
+  %44 = extractvalue { ptr, i32 } %43, 0
+  call void @__clang_call_terminate(ptr %44) #17
   unreachable
 
 lpad.i143:                                        ; preds = %invoke.cont28
-  %46 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %47 = load ptr, ptr %_M_manager.i.i.i141, align 8
-  %tobool.not.i.i3.i144 = icmp eq ptr %47, null
+  %46 = load ptr, ptr %_M_manager.i.i.i141, align 8
+  %tobool.not.i.i3.i144 = icmp eq ptr %46, null
   br i1 %tobool.not.i.i3.i144, label %ehcleanup260, label %if.then.i.i4.i145
 
 if.then.i.i4.i145:                                ; preds = %lpad.i143
-  %call.i.i5.i146 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i135, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i135, i32 noundef 3)
+  %call.i.i5.i146 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i135, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i135, i32 noundef 3)
           to label %ehcleanup260 unwind label %terminate.lpad.i.i6.i147
 
 terminate.lpad.i.i6.i147:                         ; preds = %if.then.i.i4.i145
-  %48 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #17
+  %48 = extractvalue { ptr, i32 } %47, 0
+  call void @__clang_call_terminate(ptr %48) #17
   unreachable
 
 invoke.cont31:                                    ; preds = %if.then.i.i.i151, %invoke.cont.i149
@@ -475,47 +474,46 @@ invoke.cont36:                                    ; preds = %invoke.cont33
   store i8 0, ptr %m_recursive.i.i163, align 8
   %_M_manager.i.i.i164 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp2.i158, i64 0, i32 1
   %_M_invoker.i.i165 = getelementptr inbounds %"class.std::function", ptr %agg.tmp2.i158, i64 0, i32 1
-  %50 = getelementptr inbounds i8, ptr %agg.tmp2.i158, i64 8
-  store i64 0, ptr %50, align 8
-  %51 = ptrtoint ptr %bLAB to i64
-  store i64 %51, ptr %agg.tmp2.i158, align 8
+  %49 = getelementptr inbounds i8, ptr %agg.tmp2.i158, i64 8
+  store i64 0, ptr %49, align 8
+  store ptr %bLAB, ptr %agg.tmp2.i158, align 8
   store ptr @"_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_12_GLOBAL__N_113AdobeRGBToXYZERNS0_8ImageBufES1_iE3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %_M_invoker.i.i165, align 8
   store ptr @"_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_12_GLOBAL__N_113AdobeRGBToXYZERNS0_8ImageBufES1_iE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %_M_manager.i.i.i164, align 8
   invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp38156, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i157, ptr noundef nonnull %agg.tmp2.i158)
           to label %invoke.cont.i172 unwind label %lpad.i166
 
 invoke.cont.i172:                                 ; preds = %invoke.cont36
-  %52 = load ptr, ptr %_M_manager.i.i.i164, align 8
-  %tobool.not.i.i.i173 = icmp eq ptr %52, null
+  %50 = load ptr, ptr %_M_manager.i.i.i164, align 8
+  %tobool.not.i.i.i173 = icmp eq ptr %50, null
   br i1 %tobool.not.i.i.i173, label %invoke.cont39, label %if.then.i.i.i174
 
 if.then.i.i.i174:                                 ; preds = %invoke.cont.i172
-  %call.i.i.i175 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i158, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i158, i32 noundef 3)
+  %call.i.i.i175 = invoke noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i158, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i158, i32 noundef 3)
           to label %invoke.cont39 unwind label %terminate.lpad.i.i.i176
 
 terminate.lpad.i.i.i176:                          ; preds = %if.then.i.i.i174
-  %53 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           catch ptr null
-  %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #17
+  %52 = extractvalue { ptr, i32 } %51, 0
+  call void @__clang_call_terminate(ptr %52) #17
   unreachable
 
 lpad.i166:                                        ; preds = %invoke.cont36
-  %55 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %56 = load ptr, ptr %_M_manager.i.i.i164, align 8
-  %tobool.not.i.i3.i167 = icmp eq ptr %56, null
+  %54 = load ptr, ptr %_M_manager.i.i.i164, align 8
+  %tobool.not.i.i3.i167 = icmp eq ptr %54, null
   br i1 %tobool.not.i.i3.i167, label %ehcleanup259, label %if.then.i.i4.i168
 
 if.then.i.i4.i168:                                ; preds = %lpad.i166
-  %call.i.i5.i169 = invoke noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i158, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i158, i32 noundef 3)
+  %call.i.i5.i169 = invoke noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i158, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i158, i32 noundef 3)
           to label %ehcleanup259 unwind label %terminate.lpad.i.i6.i170
 
 terminate.lpad.i.i6.i170:                         ; preds = %if.then.i.i4.i168
-  %57 = landingpad { ptr, i32 }
+  %55 = landingpad { ptr, i32 }
           catch ptr null
-  %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #17
+  %56 = extractvalue { ptr, i32 } %55, 0
+  call void @__clang_call_terminate(ptr %56) #17
   unreachable
 
 invoke.cont39:                                    ; preds = %if.then.i.i.i174, %invoke.cont.i172
@@ -574,46 +572,46 @@ invoke.cont51:                                    ; preds = %invoke.cont49
   store i8 0, ptr %m_recursive.i.i199, align 8
   %_M_manager.i.i.i200 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp2.i194, i64 0, i32 1
   %_M_invoker.i.i201 = getelementptr inbounds %"class.std::function", ptr %agg.tmp2.i194, i64 0, i32 1
-  %59 = getelementptr inbounds i8, ptr %agg.tmp2.i194, i64 8
-  store i64 0, ptr %59, align 8
-  store i64 %51, ptr %agg.tmp2.i194, align 8
+  %57 = getelementptr inbounds i8, ptr %agg.tmp2.i194, i64 8
+  store i64 0, ptr %57, align 8
+  store ptr %bLAB, ptr %agg.tmp2.i194, align 8
   store ptr @"_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_12_GLOBAL__N_18XYZToLABERNS0_8ImageBufES1_iE3$_0E9_M_invokeERKSt9_Any_dataOS1_", ptr %_M_invoker.i.i201, align 8
   store ptr @"_ZNSt17_Function_handlerIFvN18OpenImageIO_v2_6_03ROIEEZNS0_12_GLOBAL__N_18XYZToLABERNS0_8ImageBufES1_iE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %_M_manager.i.i.i200, align 8
   invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp53192, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1.i193, ptr noundef nonnull %agg.tmp2.i194)
           to label %invoke.cont.i208 unwind label %lpad.i202
 
 invoke.cont.i208:                                 ; preds = %invoke.cont51
-  %60 = load ptr, ptr %_M_manager.i.i.i200, align 8
-  %tobool.not.i.i.i209 = icmp eq ptr %60, null
+  %58 = load ptr, ptr %_M_manager.i.i.i200, align 8
+  %tobool.not.i.i.i209 = icmp eq ptr %58, null
   br i1 %tobool.not.i.i.i209, label %invoke.cont54, label %if.then.i.i.i210
 
 if.then.i.i.i210:                                 ; preds = %invoke.cont.i208
-  %call.i.i.i211 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i194, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i194, i32 noundef 3)
+  %call.i.i.i211 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i194, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i194, i32 noundef 3)
           to label %invoke.cont54 unwind label %terminate.lpad.i.i.i212
 
 terminate.lpad.i.i.i212:                          ; preds = %if.then.i.i.i210
-  %61 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           catch ptr null
-  %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #17
+  %60 = extractvalue { ptr, i32 } %59, 0
+  call void @__clang_call_terminate(ptr %60) #17
   unreachable
 
 lpad.i202:                                        ; preds = %invoke.cont51
-  %63 = landingpad { ptr, i32 }
+  %61 = landingpad { ptr, i32 }
           cleanup
-  %64 = load ptr, ptr %_M_manager.i.i.i200, align 8
-  %tobool.not.i.i3.i203 = icmp eq ptr %64, null
+  %62 = load ptr, ptr %_M_manager.i.i.i200, align 8
+  %tobool.not.i.i3.i203 = icmp eq ptr %62, null
   br i1 %tobool.not.i.i3.i203, label %ehcleanup258, label %if.then.i.i4.i204
 
 if.then.i.i4.i204:                                ; preds = %lpad.i202
-  %call.i.i5.i205 = invoke noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i194, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i194, i32 noundef 3)
+  %call.i.i5.i205 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i194, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i194, i32 noundef 3)
           to label %ehcleanup258 unwind label %terminate.lpad.i.i6.i206
 
 terminate.lpad.i.i6.i206:                         ; preds = %if.then.i.i4.i204
-  %65 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           catch ptr null
-  %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #17
+  %64 = extractvalue { ptr, i32 } %63, 0
+  call void @__clang_call_terminate(ptr %64) #17
   unreachable
 
 invoke.cont54:                                    ; preds = %if.then.i.i.i210, %invoke.cont.i208
@@ -637,8 +635,8 @@ invoke.cont58:                                    ; preds = %invoke.cont56
   %mul63 = fmul double %mul62, 1.800000e+02
   %div64 = fdiv double %mul63, 0x400921FB54442D18
   %conv65 = fptrunc double %div64 to float
-  %67 = load i32, ptr %xend.i121, align 4
-  %sub.i216 = sub i32 %67, %25
+  %65 = load i32, ptr %xend.i121, align 4
+  %sub.i216 = sub i32 %65, %25
   %conv67 = sitofp i32 %sub.i216 to float
   %div68 = fdiv float %conv67, %conv65
   %cmp70360 = fcmp ult float %conv65, 1.000000e+00
@@ -652,36 +650,36 @@ for.body:                                         ; preds = %invoke.cont58, %for
   %cmp = icmp ult i32 %i.0361, 7
   %conv69 = sitofp i32 %mul71 to float
   %cmp70 = fcmp ole float %conv69, %conv65
-  %68 = select i1 %cmp, i1 %cmp70, i1 false
-  br i1 %68, label %for.body, label %for.end, !llvm.loop !13
+  %66 = select i1 %cmp, i1 %cmp70, i1 false
+  br i1 %66, label %for.body, label %for.end, !llvm.loop !13
 
 lpad:                                             ; preds = %if.end
-  %69 = landingpad { ptr, i32 }
+  %67 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup262
 
 lpad13:                                           ; preds = %invoke.cont17, %invoke.cont
-  %70 = landingpad { ptr, i32 }
+  %68 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup261
 
 lpad20:                                           ; preds = %invoke.cont19, %invoke.cont31, %invoke.cont26
-  %71 = landingpad { ptr, i32 }
+  %69 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup260
 
 lpad35:                                           ; preds = %invoke.cont39, %invoke.cont33
-  %72 = landingpad { ptr, i32 }
+  %70 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup259
 
 lpad43:                                           ; preds = %invoke.cont41, %invoke.cont54, %invoke.cont49
-  %73 = landingpad { ptr, i32 }
+  %71 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup258
 
 lpad57:                                           ; preds = %invoke.cont56
-  %74 = landingpad { ptr, i32 }
+  %72 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -692,9 +690,9 @@ for.end:                                          ; preds = %for.body, %invoke.c
   br label %for.body76
 
 for.body76:                                       ; preds = %for.end, %for.body76
-  %75 = phi float [ %mul72, %for.end ], [ %mul78, %for.body76 ]
+  %73 = phi float [ %mul72, %for.end ], [ %mul78, %for.body76 ]
   %indvars.iv = phi i64 [ 1, %for.end ], [ %indvars.iv.next, %for.body76 ]
-  %mul78 = fmul float %75, 5.000000e-01
+  %mul78 = fmul float %73, 5.000000e-01
   %arrayidx80 = getelementptr inbounds [8 x float], ptr %cpd, i64 0, i64 %indvars.iv
   store float %mul78, ptr %arrayidx80, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -735,12 +733,12 @@ invoke.cont152.us:                                ; preds = %invoke.cont150.us
   %adapt.0.us = select i1 %cmp157.us, float 0x3EE4F8B580000000, float %mul155.us
   %div.i.us = fdiv float 0x3FE6666660000000, %adapt.0.us
   %add.i.us = fadd float %div.i.us, 1.000000e+00
-  %76 = call float @llvm.pow.f32(float %add.i.us, float 0xBFC99999A0000000)
-  %mul.i.us = fmul float %76, 4.400000e+02
+  %74 = call float @llvm.pow.f32(float %add.i.us, float 0xBFC99999A0000000)
+  %mul.i.us = fmul float %74, 4.400000e+02
   %div1.i.us = fdiv float 1.000000e+02, %adapt.0.us
   %add2.i.us = fadd float %div1.i.us, 1.000000e+00
-  %77 = call float @llvm.pow.f32(float %add2.i.us, float 0x3FC3333340000000)
-  %mul3.i.us = fmul float %77, 0x3FD3333340000000
+  %75 = call float @llvm.pow.f32(float %add2.i.us, float 0x3FC3333340000000)
+  %mul3.i.us = fmul float %75, 0x3FD3333340000000
   %fneg.i.us = fneg float %mul3.i.us
   br label %for.body163.us
 
@@ -758,47 +756,47 @@ invoke.cont199.us:                                ; preds = %for.end194.us
 
 invoke.cont201.us:                                ; preds = %invoke.cont199.us
   %sub203.us = fsub float %call.i291.us, %call.i296.us
-  %78 = call float @llvm.fabs.f32(float %sub203.us)
-  %79 = call float @llvm.log10.f32(float %adapt.0.us)
-  %cmp.i298.us = fcmp olt float %79, 0xC00F851EC0000000
+  %76 = call float @llvm.fabs.f32(float %sub203.us)
+  %77 = call float @llvm.log10.f32(float %adapt.0.us)
+  %cmp.i298.us = fcmp olt float %77, 0xC00F851EC0000000
   br i1 %cmp.i298.us, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_13tviEf.exit.us, label %if.else.i299.us
 
 if.else.i299.us:                                  ; preds = %invoke.cont201.us
-  %cmp1.i300.us = fcmp olt float %79, 0xBFF70A3D80000000
+  %cmp1.i300.us = fcmp olt float %77, 0xBFF70A3D80000000
   br i1 %cmp1.i300.us, label %if.then2.i.us, label %if.else3.i.us
 
 if.else3.i.us:                                    ; preds = %if.else.i299.us
-  %cmp4.i.us = fcmp olt float %79, 0xBF92D77320000000
+  %cmp4.i.us = fcmp olt float %77, 0xBF92D77320000000
   br i1 %cmp4.i.us, label %if.then5.i.us, label %if.else7.i.us
 
 if.else7.i.us:                                    ; preds = %if.else3.i.us
-  %cmp8.i.us = fcmp olt float %79, 0x3FFE666660000000
+  %cmp8.i.us = fcmp olt float %77, 0x3FFE666660000000
   br i1 %cmp8.i.us, label %if.then9.i.us, label %if.else11.i.us
 
 if.else11.i.us:                                   ; preds = %if.else7.i.us
-  %sub12.i.us = fadd float %79, 0xBFF4147AE0000000
+  %sub12.i.us = fadd float %77, 0xBFF4147AE0000000
   br label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_13tviEf.exit.us
 
 if.then9.i.us:                                    ; preds = %if.else7.i.us
-  %80 = call float @llvm.fmuladd.f32(float %79, float 0x3FCFDF3B60000000, float 0x3FE4CCCCC0000000)
-  %81 = call float @llvm.pow.f32(float %80, float 0x40059999A0000000)
-  %sub10.i.us = fadd float %81, 0xBFE70A3D80000000
+  %78 = call float @llvm.fmuladd.f32(float %77, float 0x3FCFDF3B60000000, float 0x3FE4CCCCC0000000)
+  %79 = call float @llvm.pow.f32(float %78, float 0x40059999A0000000)
+  %sub10.i.us = fadd float %79, 0xBFE70A3D80000000
   br label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_13tviEf.exit.us
 
 if.then5.i.us:                                    ; preds = %if.else3.i.us
-  %sub6.i.us = fadd float %79, 0xBFD947AE20000000
+  %sub6.i.us = fadd float %77, 0xBFD947AE20000000
   br label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_13tviEf.exit.us
 
 if.then2.i.us:                                    ; preds = %if.else.i299.us
-  %82 = call float @llvm.fmuladd.f32(float %79, float 0x3FD9EB8520000000, float 0x3FF99999A0000000)
-  %83 = call float @llvm.pow.f32(float %82, float 0x400170A3E0000000)
-  %sub.i301.us = fadd float %83, 0xC006E147A0000000
+  %80 = call float @llvm.fmuladd.f32(float %77, float 0x3FD9EB8520000000, float 0x3FF99999A0000000)
+  %81 = call float @llvm.pow.f32(float %80, float 0x400170A3E0000000)
+  %sub.i301.us = fadd float %81, 0xC006E147A0000000
   br label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_13tviEf.exit.us
 
 _ZN18OpenImageIO_v2_6_012_GLOBAL__N_13tviEf.exit.us: ; preds = %if.then2.i.us, %if.then5.i.us, %if.then9.i.us, %if.else11.i.us, %invoke.cont201.us
   %r.0.i.us = phi float [ %sub.i301.us, %if.then2.i.us ], [ %sub6.i.us, %if.then5.i.us ], [ %sub10.i.us, %if.then9.i.us ], [ %sub12.i.us, %if.else11.i.us ], [ 0xC006E147A0000000, %invoke.cont201.us ]
-  %84 = call noundef float @llvm.pow.f32(float 1.000000e+01, float %r.0.i.us)
-  %div206.us = fdiv float %78, %84
+  %82 = call noundef float @llvm.pow.f32(float 1.000000e+01, float %r.0.i.us)
+  %div206.us = fdiv float %76, %82
   %cmp207.us = fcmp ogt float %div206.us, %val.i.1.us
   br i1 %cmp207.us, label %if.then237.critedge.us, label %if.then209.us
 
@@ -831,12 +829,12 @@ invoke.cont224.us:                                ; preds = %invoke.cont222.us
   br i1 %cmp231.us, label %if.then237.critedge.us, label %for.inc250.us
 
 if.then237.critedge.us:                           ; preds = %invoke.cont224.us, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_13tviEf.exit.us
-  %85 = load i64, ptr %nfail, align 8
-  %inc239.us = add i64 %85, 1
+  %83 = load i64, ptr %nfail, align 8
+  %inc239.us = add i64 %83, 1
   store i64 %inc239.us, ptr %nfail, align 8
   %conv240.us = fpext float %val.i.1.us to double
-  %86 = load double, ptr %maxerror, align 8
-  %cmp242.us = fcmp olt double %86, %conv240.us
+  %84 = load double, ptr %maxerror, align 8
+  %cmp242.us = fcmp olt double %84, %conv240.us
   br i1 %cmp242.us, label %if.then243.us, label %for.inc250.us
 
 if.then243.us:                                    ; preds = %if.then237.critedge.us
@@ -854,13 +852,13 @@ for.body181.us:                                   ; preds = %for.body163.us, %fo
   %indvars.iv391 = phi i64 [ %indvars.iv.next392, %for.body181.us ], [ 0, %for.body163.us ]
   %factor.0368.us = phi float [ %add191.us, %for.body181.us ], [ 0.000000e+00, %for.body163.us ]
   %arrayidx183.us = getelementptr inbounds [6 x float], ptr %contrast, i64 0, i64 %indvars.iv391
-  %87 = load float, ptr %arrayidx183.us, align 4
+  %85 = load float, ptr %arrayidx183.us, align 4
   %arrayidx185.us = getelementptr inbounds [6 x float], ptr %F_freq, i64 0, i64 %indvars.iv391
-  %88 = load float, ptr %arrayidx185.us, align 4
-  %mul186.us = fmul float %87, %88
+  %86 = load float, ptr %arrayidx185.us, align 4
+  %mul186.us = fmul float %85, %86
   %arrayidx188.us = getelementptr inbounds [6 x float], ptr %F_mask, i64 0, i64 %indvars.iv391
-  %89 = load float, ptr %arrayidx188.us, align 4
-  %mul189.us = fmul float %mul186.us, %89
+  %87 = load float, ptr %arrayidx188.us, align 4
+  %mul189.us = fmul float %mul186.us, %87
   %div190.us = fdiv float %mul189.us, %sum_contrast.1.us
   %add191.us = fadd float %factor.0368.us, %div190.us
   %indvars.iv.next392 = add nuw nsw i64 %indvars.iv391, 1
@@ -870,27 +868,27 @@ for.body181.us:                                   ; preds = %for.body163.us, %fo
 for.body163.us:                                   ; preds = %for.body163.us, %invoke.cont152.us
   %indvars.iv387 = phi i64 [ %indvars.iv.next388, %for.body163.us ], [ 0, %invoke.cont152.us ]
   %arrayidx165.us = getelementptr inbounds [6 x float], ptr %contrast, i64 0, i64 %indvars.iv387
-  %90 = load float, ptr %arrayidx165.us, align 4
+  %88 = load float, ptr %arrayidx165.us, align 4
   %arrayidx167.us = getelementptr inbounds [8 x float], ptr %cpd, i64 0, i64 %indvars.iv387
-  %91 = load float, ptr %arrayidx167.us, align 4
-  %mul4.i281.us = fmul float %mul.i.us, %91
-  %mul5.i282.us = fmul float %91, %fneg.i.us
-  %92 = call float @llvm.exp.f32(float %mul5.i282.us)
-  %mul6.i283.us = fmul float %mul4.i281.us, %92
-  %mul7.i284.us = fmul float %mul3.i.us, %91
-  %93 = call float @llvm.exp.f32(float %mul7.i284.us)
-  %94 = call float @llvm.fmuladd.f32(float %93, float 0x3FAEB851E0000000, float 1.000000e+00)
-  %95 = call float @llvm.sqrt.f32(float %94)
-  %mul9.i285.us = fmul float %mul6.i283.us, %95
-  %mul170.us = fmul float %90, %mul9.i285.us
+  %89 = load float, ptr %arrayidx167.us, align 4
+  %mul4.i281.us = fmul float %mul.i.us, %89
+  %mul5.i282.us = fmul float %89, %fneg.i.us
+  %90 = call float @llvm.exp.f32(float %mul5.i282.us)
+  %mul6.i283.us = fmul float %mul4.i281.us, %90
+  %mul7.i284.us = fmul float %mul3.i.us, %89
+  %91 = call float @llvm.exp.f32(float %mul7.i284.us)
+  %92 = call float @llvm.fmuladd.f32(float %91, float 0x3FAEB851E0000000, float 1.000000e+00)
+  %93 = call float @llvm.sqrt.f32(float %92)
+  %mul9.i285.us = fmul float %mul6.i283.us, %93
+  %mul170.us = fmul float %88, %mul9.i285.us
   %mul.i286.us = fmul float %mul170.us, 0x407887F7C0000000
-  %96 = call float @llvm.pow.f32(float %mul.i286.us, float 0x3FE6666660000000)
-  %mul1.i.us = fmul float %96, 0x3F8F559B40000000
-  %97 = call float @llvm.pow.f32(float %mul1.i.us, float 4.000000e+00)
-  %add.i287.us = fadd float %97, 1.000000e+00
-  %98 = call noundef float @llvm.pow.f32(float %add.i287.us, float 2.500000e-01)
+  %94 = call float @llvm.pow.f32(float %mul.i286.us, float 0x3FE6666660000000)
+  %mul1.i.us = fmul float %94, 0x3F8F559B40000000
+  %95 = call float @llvm.pow.f32(float %mul1.i.us, float 4.000000e+00)
+  %add.i287.us = fadd float %95, 1.000000e+00
+  %96 = call noundef float @llvm.pow.f32(float %add.i287.us, float 2.500000e-01)
   %arrayidx174.us = getelementptr inbounds [6 x float], ptr %F_mask, i64 0, i64 %indvars.iv387
-  store float %98, ptr %arrayidx174.us, align 4
+  store float %96, ptr %arrayidx174.us, align 4
   %indvars.iv.next388 = add nuw nsw i64 %indvars.iv387, 1
   %exitcond390.not = icmp eq i64 %indvars.iv.next388, 6
   br i1 %exitcond390.not, label %for.body181.us, label %for.body163.us, !llvm.loop !18
@@ -910,7 +908,7 @@ if.else.i222.us:                                  ; preds = %if.else.i.us
 
 if.else.i230.us:                                  ; preds = %if.else.i222.us
   %sub117.us = fsub float %call.i220.us, %call.i227.us
-  %99 = call float @llvm.fabs.f32(float %sub117.us)
+  %97 = call float @llvm.fabs.f32(float %sub117.us)
   %arrayidx.i232.us = getelementptr inbounds [8 x %"class.OpenImageIO_v2_6_0::ImageBuf"], ptr %lb, i64 0, i64 %indvars.iv382
   %call.i235.us = invoke noundef float @_ZNK18OpenImageIO_v2_6_08ImageBuf10getchannelEiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i232.us, i32 noundef %x.0371.us, i32 noundef %y.0373.us, i32 noundef 0, i32 noundef 1, i32 noundef 1)
           to label %if.else.i238.us unwind label %lpad84.loopexit.split.us
@@ -922,24 +920,24 @@ if.else.i238.us:                                  ; preds = %if.else.i230.us
 
 if.else.i248.us:                                  ; preds = %if.else.i238.us
   %sub123.us = fsub float %call.i235.us, %call.i243.us
-  %100 = call float @llvm.fabs.f32(float %sub123.us)
-  %cmp.i245.us = fcmp olt float %99, %100
-  %.sroa.speculated348.us = select i1 %cmp.i245.us, float %100, float %99
-  %101 = add nuw nsw i64 %indvars.iv382, 2
-  %arrayidx.i250.us = getelementptr inbounds [8 x %"class.OpenImageIO_v2_6_0::ImageBuf"], ptr %la, i64 0, i64 %101
+  %98 = call float @llvm.fabs.f32(float %sub123.us)
+  %cmp.i245.us = fcmp olt float %97, %98
+  %.sroa.speculated348.us = select i1 %cmp.i245.us, float %98, float %97
+  %99 = add nuw nsw i64 %indvars.iv382, 2
+  %arrayidx.i250.us = getelementptr inbounds [8 x %"class.OpenImageIO_v2_6_0::ImageBuf"], ptr %la, i64 0, i64 %99
   %call.i253.us = invoke noundef float @_ZNK18OpenImageIO_v2_6_08ImageBuf10getchannelEiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i250.us, i32 noundef %x.0371.us, i32 noundef %y.0373.us, i32 noundef 0, i32 noundef 1, i32 noundef 1)
           to label %if.else.i256.us unwind label %lpad84.loopexit.split.us
 
 if.else.i256.us:                                  ; preds = %if.else.i248.us
-  %arrayidx.i258.us = getelementptr inbounds [8 x %"class.OpenImageIO_v2_6_0::ImageBuf"], ptr %lb, i64 0, i64 %101
+  %arrayidx.i258.us = getelementptr inbounds [8 x %"class.OpenImageIO_v2_6_0::ImageBuf"], ptr %lb, i64 0, i64 %99
   %call.i261.us = invoke noundef float @_ZNK18OpenImageIO_v2_6_08ImageBuf10getchannelEiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i258.us, i32 noundef %x.0371.us, i32 noundef %y.0373.us, i32 noundef 0, i32 noundef 1, i32 noundef 1)
           to label %invoke.cont130.us unwind label %lpad84.loopexit.split.us
 
 invoke.cont130.us:                                ; preds = %if.else.i256.us
-  %102 = call float @llvm.fabs.f32(float %call.i253.us)
-  %103 = call float @llvm.fabs.f32(float %call.i261.us)
-  %cmp.i263.us = fcmp olt float %102, %103
-  %.sroa.speculated347.us = select i1 %cmp.i263.us, float %103, float %102
+  %100 = call float @llvm.fabs.f32(float %call.i253.us)
+  %101 = call float @llvm.fabs.f32(float %call.i261.us)
+  %cmp.i263.us = fcmp olt float %100, %101
+  %.sroa.speculated347.us = select i1 %cmp.i263.us, float %101, float %100
   %cmp.i265.us = fcmp olt float %.sroa.speculated347.us, 0x3EE4F8B580000000
   %.sroa.speculated.us = select i1 %cmp.i265.us, float 0x3EE4F8B580000000, float %.sroa.speculated347.us
   %div137.us = fdiv float %.sroa.speculated348.us, %.sroa.speculated.us
@@ -971,16 +969,16 @@ lpad84.loopexit.split.us:                         ; preds = %if.else.i256.us, %i
 for.body90:                                       ; preds = %for.body76, %for.body90
   %indvars.iv378 = phi i64 [ %indvars.iv.next379, %for.body90 ], [ 0, %for.body76 ]
   %arrayidx92 = getelementptr inbounds [8 x float], ptr %cpd, i64 0, i64 %indvars.iv378
-  %104 = load float, ptr %arrayidx92, align 4
-  %mul4.i = fmul float %104, 0x407B762F60000000
-  %mul5.i = fmul float %104, 0xBFD54DC180000000
-  %105 = call float @llvm.exp.f32(float %mul5.i)
-  %mul6.i = fmul float %mul4.i, %105
-  %mul7.i = fmul float %104, 0x3FD54DC180000000
-  %106 = call float @llvm.exp.f32(float %mul7.i)
-  %107 = call float @llvm.fmuladd.f32(float %106, float 0x3FAEB851E0000000, float 1.000000e+00)
-  %108 = call float @llvm.sqrt.f32(float %107)
-  %mul9.i = fmul float %mul6.i, %108
+  %102 = load float, ptr %arrayidx92, align 4
+  %mul4.i = fmul float %102, 0x407B762F60000000
+  %mul5.i = fmul float %102, 0xBFD54DC180000000
+  %103 = call float @llvm.exp.f32(float %mul5.i)
+  %mul6.i = fmul float %mul4.i, %103
+  %mul7.i = fmul float %102, 0x3FD54DC180000000
+  %104 = call float @llvm.exp.f32(float %mul7.i)
+  %105 = call float @llvm.fmuladd.f32(float %104, float 0x3FAEB851E0000000, float 1.000000e+00)
+  %106 = call float @llvm.sqrt.f32(float %105)
+  %mul9.i = fmul float %mul6.i, %106
   %div95 = fdiv float 0x4080693AA0000000, %mul9.i
   %arrayidx97 = getelementptr inbounds [6 x float], ptr %F_freq, i64 0, i64 %indvars.iv378
   store float %div95, ptr %arrayidx97, align 4
@@ -990,34 +988,34 @@ for.body90:                                       ; preds = %for.body76, %for.bo
 
 lpad84:                                           ; preds = %lpad84.loopexit.split-lp.split.us, %lpad84.loopexit.split.us
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.us, %lpad84.loopexit.split.us ], [ %lpad.loopexit.split-lp.us, %lpad84.loopexit.split-lp.split.us ]
-  %109 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageBuf", ptr %lb, i64 8
+  %107 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageBuf", ptr %lb, i64 8
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %arraydestroy.body.i, %lpad84
-  %arraydestroy.elementPast.i = phi ptr [ %109, %lpad84 ], [ %arraydestroy.element.i, %arraydestroy.body.i ]
+  %arraydestroy.elementPast.i = phi ptr [ %107, %lpad84 ], [ %arraydestroy.element.i, %arraydestroy.body.i ]
   %arraydestroy.element.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageBuf", ptr %arraydestroy.elementPast.i, i64 -1
   call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %arraydestroy.element.i) #16
   %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, %lb
   br i1 %arraydestroy.done.i, label %ehcleanup, label %arraydestroy.body.i
 
 for.end255:                                       ; preds = %for.cond104.for.inc253_crit_edge.us, %for.cond104.preheader.lr.ph, %for.cond101.preheader
-  %110 = load i64, ptr %nfail, align 8
-  %111 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageBuf", ptr %lb, i64 8
+  %108 = load i64, ptr %nfail, align 8
+  %109 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageBuf", ptr %lb, i64 8
   br label %arraydestroy.body.i302
 
 arraydestroy.body.i302:                           ; preds = %arraydestroy.body.i302, %for.end255
-  %arraydestroy.elementPast.i303 = phi ptr [ %111, %for.end255 ], [ %arraydestroy.element.i304, %arraydestroy.body.i302 ]
+  %arraydestroy.elementPast.i303 = phi ptr [ %109, %for.end255 ], [ %arraydestroy.element.i304, %arraydestroy.body.i302 ]
   %arraydestroy.element.i304 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageBuf", ptr %arraydestroy.elementPast.i303, i64 -1
   call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %arraydestroy.element.i304) #16
   %arraydestroy.done.i305 = icmp eq ptr %arraydestroy.element.i304, %lb
   br i1 %arraydestroy.done.i305, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115GaussianPyramidD2Ev.exit306, label %arraydestroy.body.i302
 
 _ZN18OpenImageIO_v2_6_012_GLOBAL__N_115GaussianPyramidD2Ev.exit306: ; preds = %arraydestroy.body.i302
-  %112 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageBuf", ptr %la, i64 8
+  %110 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageBuf", ptr %la, i64 8
   br label %arraydestroy.body.i307
 
 arraydestroy.body.i307:                           ; preds = %arraydestroy.body.i307, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115GaussianPyramidD2Ev.exit306
-  %arraydestroy.elementPast.i308 = phi ptr [ %112, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115GaussianPyramidD2Ev.exit306 ], [ %arraydestroy.element.i309, %arraydestroy.body.i307 ]
+  %arraydestroy.elementPast.i308 = phi ptr [ %110, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115GaussianPyramidD2Ev.exit306 ], [ %arraydestroy.element.i309, %arraydestroy.body.i307 ]
   %arraydestroy.element.i309 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageBuf", ptr %arraydestroy.elementPast.i308, i64 -1
   call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %arraydestroy.element.i309) #16
   %arraydestroy.done.i310 = icmp eq ptr %arraydestroy.element.i309, %la
@@ -1029,17 +1027,17 @@ _ZN18OpenImageIO_v2_6_012_GLOBAL__N_115GaussianPyramidD2Ev.exit311: ; preds = %a
   call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %aLum) #16
   call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %aLAB) #16
   %extra_attribs.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %spec, i64 0, i32 22
-  %113 = load ptr, ptr %extra_attribs.i, align 8
+  %111 = load ptr, ptr %extra_attribs.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %spec, i64 0, i32 22, i32 0, i32 0, i32 0, i32 0, i32 1
-  %114 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %113, %114
+  %112 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %111, %112
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115GaussianPyramidD2Ev.exit311, %for.body.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %113, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115GaussianPyramidD2Ev.exit311 ]
+  %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %111, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115GaussianPyramidD2Ev.exit311 ]
   call void @_ZN18OpenImageIO_v2_6_010ParamValue11clear_valueEv(ptr noundef nonnull align 8 dereferenceable(39) %__first.addr.04.i.i.i.i.i.i) #16
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ParamValue", ptr %__first.addr.04.i.i.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %114
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %112
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !22
 
 invoke.contthread-pre-split.i.i.i:                ; preds = %for.body.i.i.i.i.i.i
@@ -1047,27 +1045,27 @@ invoke.contthread-pre-split.i.i.i:                ; preds = %for.body.i.i.i.i.i.
   br label %invoke.cont.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %invoke.contthread-pre-split.i.i.i, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115GaussianPyramidD2Ev.exit311
-  %115 = phi ptr [ %.pr.i.i.i, %invoke.contthread-pre-split.i.i.i ], [ %113, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115GaussianPyramidD2Ev.exit311 ]
-  %tobool.not.i.i.i.i.i = icmp eq ptr %115, null
+  %113 = phi ptr [ %.pr.i.i.i, %invoke.contthread-pre-split.i.i.i ], [ %111, %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_115GaussianPyramidD2Ev.exit311 ]
+  %tobool.not.i.i.i.i.i = icmp eq ptr %113, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %115) #19
+  call void @_ZdlPv(ptr noundef nonnull %113) #19
   br label %_ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit.i
 
 _ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit.i: ; preds = %if.then.i.i.i.i.i, %invoke.cont.i.i.i
   %channelnames.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %spec, i64 0, i32 18
-  %116 = load ptr, ptr %channelnames.i, align 8
+  %114 = load ptr, ptr %channelnames.i, align 8
   %_M_finish.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %spec, i64 0, i32 18, i32 0, i32 0, i32 0, i32 1
-  %117 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.not3.i.i.i.i.i = icmp eq ptr %116, %117
+  %115 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp.not3.i.i.i.i.i = icmp eq ptr %114, %115
   br i1 %cmp.not3.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit.i, %for.body.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %116, %_ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit.i ]
+  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %114, %_ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i) #16
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %117
+  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %115
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !23
 
 invoke.contthread-pre-split.i.i:                  ; preds = %for.body.i.i.i.i.i
@@ -1075,74 +1073,74 @@ invoke.contthread-pre-split.i.i:                  ; preds = %for.body.i.i.i.i.i
   br label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %invoke.contthread-pre-split.i.i, %_ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit.i
-  %118 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %116, %_ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit.i ]
-  %tobool.not.i.i.i.i = icmp eq ptr %118, null
+  %116 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %114, %_ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit.i ]
+  %tobool.not.i.i.i.i = icmp eq ptr %116, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
-  call void @_ZdlPv(ptr noundef nonnull %118) #19
+  call void @_ZdlPv(ptr noundef nonnull %116) #19
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %invoke.cont.i.i
   %channelformats.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %spec, i64 0, i32 17
-  %119 = load ptr, ptr %channelformats.i, align 8
-  %tobool.not.i.i.i2.i = icmp eq ptr %119, null
+  %117 = load ptr, ptr %channelformats.i, align 8
+  %tobool.not.i.i.i2.i = icmp eq ptr %117, null
   br i1 %tobool.not.i.i.i2.i, label %_ZN18OpenImageIO_v2_6_09ImageSpecD2Ev.exit, label %if.then.i.i.i3.i
 
 if.then.i.i.i3.i:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %119) #19
+  call void @_ZdlPv(ptr noundef nonnull %117) #19
   br label %_ZN18OpenImageIO_v2_6_09ImageSpecD2Ev.exit
 
 _ZN18OpenImageIO_v2_6_09ImageSpecD2Ev.exit:       ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i, %if.then.i.i.i3.i
-  %conv257 = trunc i64 %110 to i32
+  %conv257 = trunc i64 %108 to i32
   ret i32 %conv257
 
 ehcleanup:                                        ; preds = %arraydestroy.body.i, %lpad57
-  %.pn = phi { ptr, i32 } [ %74, %lpad57 ], [ %lpad.phi, %arraydestroy.body.i ]
-  %120 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageBuf", ptr %la, i64 8
+  %.pn = phi { ptr, i32 } [ %72, %lpad57 ], [ %lpad.phi, %arraydestroy.body.i ]
+  %118 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageBuf", ptr %la, i64 8
   br label %arraydestroy.body.i312
 
 arraydestroy.body.i312:                           ; preds = %arraydestroy.body.i312, %ehcleanup
-  %arraydestroy.elementPast.i313 = phi ptr [ %120, %ehcleanup ], [ %arraydestroy.element.i314, %arraydestroy.body.i312 ]
+  %arraydestroy.elementPast.i313 = phi ptr [ %118, %ehcleanup ], [ %arraydestroy.element.i314, %arraydestroy.body.i312 ]
   %arraydestroy.element.i314 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageBuf", ptr %arraydestroy.elementPast.i313, i64 -1
   call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %arraydestroy.element.i314) #16
   %arraydestroy.done.i315 = icmp eq ptr %arraydestroy.element.i314, %la
   br i1 %arraydestroy.done.i315, label %ehcleanup258, label %arraydestroy.body.i312
 
 ehcleanup258:                                     ; preds = %arraydestroy.body.i312, %lpad43, %if.then.i.i4.i204, %lpad.i202
-  %.pn.pn = phi { ptr, i32 } [ %73, %lpad43 ], [ %63, %if.then.i.i4.i204 ], [ %63, %lpad.i202 ], [ %.pn, %arraydestroy.body.i312 ]
+  %.pn.pn = phi { ptr, i32 } [ %71, %lpad43 ], [ %61, %if.then.i.i4.i204 ], [ %61, %lpad.i202 ], [ %.pn, %arraydestroy.body.i312 ]
   call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %bLum) #16
   br label %ehcleanup259
 
 ehcleanup259:                                     ; preds = %lpad35, %if.then.i.i4.i168, %lpad.i166, %ehcleanup258
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup258 ], [ %72, %lpad35 ], [ %55, %if.then.i.i4.i168 ], [ %55, %lpad.i166 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup258 ], [ %70, %lpad35 ], [ %53, %if.then.i.i4.i168 ], [ %53, %lpad.i166 ]
   call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %bLAB) #16
   br label %ehcleanup260
 
 ehcleanup260:                                     ; preds = %lpad20, %if.then.i.i4.i145, %lpad.i143, %ehcleanup259
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup259 ], [ %71, %lpad20 ], [ %46, %if.then.i.i4.i145 ], [ %46, %lpad.i143 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup259 ], [ %69, %lpad20 ], [ %45, %if.then.i.i4.i145 ], [ %45, %lpad.i143 ]
   call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %aLum) #16
   br label %ehcleanup261
 
 ehcleanup261:                                     ; preds = %lpad13, %if.then.i.i4.i, %lpad.i, %ehcleanup260
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup260 ], [ %70, %lpad13 ], [ %38, %if.then.i.i4.i ], [ %38, %lpad.i ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup260 ], [ %68, %lpad13 ], [ %37, %if.then.i.i4.i ], [ %37, %lpad.i ]
   call void @_ZN18OpenImageIO_v2_6_08ImageBufD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %aLAB) #16
   br label %ehcleanup262
 
 ehcleanup262:                                     ; preds = %ehcleanup261, %lpad
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup261 ], [ %69, %lpad ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup261 ], [ %67, %lpad ]
   %extra_attribs.i317 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %spec, i64 0, i32 22
-  %121 = load ptr, ptr %extra_attribs.i317, align 8
+  %119 = load ptr, ptr %extra_attribs.i317, align 8
   %_M_finish.i.i.i318 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %spec, i64 0, i32 22, i32 0, i32 0, i32 0, i32 0, i32 1
-  %122 = load ptr, ptr %_M_finish.i.i.i318, align 8
-  %cmp.not3.i.i.i.i.i.i319 = icmp eq ptr %121, %122
+  %120 = load ptr, ptr %_M_finish.i.i.i318, align 8
+  %cmp.not3.i.i.i.i.i.i319 = icmp eq ptr %119, %120
   br i1 %cmp.not3.i.i.i.i.i.i319, label %invoke.cont.i.i.i326, label %for.body.i.i.i.i.i.i320
 
 for.body.i.i.i.i.i.i320:                          ; preds = %ehcleanup262, %for.body.i.i.i.i.i.i320
-  %__first.addr.04.i.i.i.i.i.i321 = phi ptr [ %incdec.ptr.i.i.i.i.i.i322, %for.body.i.i.i.i.i.i320 ], [ %121, %ehcleanup262 ]
+  %__first.addr.04.i.i.i.i.i.i321 = phi ptr [ %incdec.ptr.i.i.i.i.i.i322, %for.body.i.i.i.i.i.i320 ], [ %119, %ehcleanup262 ]
   call void @_ZN18OpenImageIO_v2_6_010ParamValue11clear_valueEv(ptr noundef nonnull align 8 dereferenceable(39) %__first.addr.04.i.i.i.i.i.i321) #16
   %incdec.ptr.i.i.i.i.i.i322 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ParamValue", ptr %__first.addr.04.i.i.i.i.i.i321, i64 1
-  %cmp.not.i.i.i.i.i.i323 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i322, %122
+  %cmp.not.i.i.i.i.i.i323 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i322, %120
   br i1 %cmp.not.i.i.i.i.i.i323, label %invoke.contthread-pre-split.i.i.i324, label %for.body.i.i.i.i.i.i320, !llvm.loop !22
 
 invoke.contthread-pre-split.i.i.i324:             ; preds = %for.body.i.i.i.i.i.i320
@@ -1150,27 +1148,27 @@ invoke.contthread-pre-split.i.i.i324:             ; preds = %for.body.i.i.i.i.i.
   br label %invoke.cont.i.i.i326
 
 invoke.cont.i.i.i326:                             ; preds = %invoke.contthread-pre-split.i.i.i324, %ehcleanup262
-  %123 = phi ptr [ %.pr.i.i.i325, %invoke.contthread-pre-split.i.i.i324 ], [ %121, %ehcleanup262 ]
-  %tobool.not.i.i.i.i.i327 = icmp eq ptr %123, null
+  %121 = phi ptr [ %.pr.i.i.i325, %invoke.contthread-pre-split.i.i.i324 ], [ %119, %ehcleanup262 ]
+  %tobool.not.i.i.i.i.i327 = icmp eq ptr %121, null
   br i1 %tobool.not.i.i.i.i.i327, label %_ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit.i329, label %if.then.i.i.i.i.i328
 
 if.then.i.i.i.i.i328:                             ; preds = %invoke.cont.i.i.i326
-  call void @_ZdlPv(ptr noundef nonnull %123) #19
+  call void @_ZdlPv(ptr noundef nonnull %121) #19
   br label %_ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit.i329
 
 _ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit.i329: ; preds = %if.then.i.i.i.i.i328, %invoke.cont.i.i.i326
   %channelnames.i330 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %spec, i64 0, i32 18
-  %124 = load ptr, ptr %channelnames.i330, align 8
+  %122 = load ptr, ptr %channelnames.i330, align 8
   %_M_finish.i.i331 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %spec, i64 0, i32 18, i32 0, i32 0, i32 0, i32 1
-  %125 = load ptr, ptr %_M_finish.i.i331, align 8
-  %cmp.not3.i.i.i.i.i332 = icmp eq ptr %124, %125
+  %123 = load ptr, ptr %_M_finish.i.i331, align 8
+  %cmp.not3.i.i.i.i.i332 = icmp eq ptr %122, %123
   br i1 %cmp.not3.i.i.i.i.i332, label %invoke.cont.i.i339, label %for.body.i.i.i.i.i333
 
 for.body.i.i.i.i.i333:                            ; preds = %_ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit.i329, %for.body.i.i.i.i.i333
-  %__first.addr.04.i.i.i.i.i334 = phi ptr [ %incdec.ptr.i.i.i.i.i335, %for.body.i.i.i.i.i333 ], [ %124, %_ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit.i329 ]
+  %__first.addr.04.i.i.i.i.i334 = phi ptr [ %incdec.ptr.i.i.i.i.i335, %for.body.i.i.i.i.i333 ], [ %122, %_ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit.i329 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i334) #16
   %incdec.ptr.i.i.i.i.i335 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i.i334, i64 1
-  %cmp.not.i.i.i.i.i336 = icmp eq ptr %incdec.ptr.i.i.i.i.i335, %125
+  %cmp.not.i.i.i.i.i336 = icmp eq ptr %incdec.ptr.i.i.i.i.i335, %123
   br i1 %cmp.not.i.i.i.i.i336, label %invoke.contthread-pre-split.i.i337, label %for.body.i.i.i.i.i333, !llvm.loop !23
 
 invoke.contthread-pre-split.i.i337:               ; preds = %for.body.i.i.i.i.i333
@@ -1178,22 +1176,22 @@ invoke.contthread-pre-split.i.i337:               ; preds = %for.body.i.i.i.i.i3
   br label %invoke.cont.i.i339
 
 invoke.cont.i.i339:                               ; preds = %invoke.contthread-pre-split.i.i337, %_ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit.i329
-  %126 = phi ptr [ %.pr.i.i338, %invoke.contthread-pre-split.i.i337 ], [ %124, %_ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit.i329 ]
-  %tobool.not.i.i.i.i340 = icmp eq ptr %126, null
+  %124 = phi ptr [ %.pr.i.i338, %invoke.contthread-pre-split.i.i337 ], [ %122, %_ZN18OpenImageIO_v2_6_014ParamValueListD2Ev.exit.i329 ]
+  %tobool.not.i.i.i.i340 = icmp eq ptr %124, null
   br i1 %tobool.not.i.i.i.i340, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i342, label %if.then.i.i.i.i341
 
 if.then.i.i.i.i341:                               ; preds = %invoke.cont.i.i339
-  call void @_ZdlPv(ptr noundef nonnull %126) #19
+  call void @_ZdlPv(ptr noundef nonnull %124) #19
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i342
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i342: ; preds = %if.then.i.i.i.i341, %invoke.cont.i.i339
   %channelformats.i343 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::ImageSpec", ptr %spec, i64 0, i32 17
-  %127 = load ptr, ptr %channelformats.i343, align 8
-  %tobool.not.i.i.i2.i344 = icmp eq ptr %127, null
+  %125 = load ptr, ptr %channelformats.i343, align 8
+  %tobool.not.i.i.i2.i344 = icmp eq ptr %125, null
   br i1 %tobool.not.i.i.i2.i344, label %_ZN18OpenImageIO_v2_6_09ImageSpecD2Ev.exit346, label %if.then.i.i.i3.i345
 
 if.then.i.i.i3.i345:                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i342
-  call void @_ZdlPv(ptr noundef nonnull %127) #19
+  call void @_ZdlPv(ptr noundef nonnull %125) #19
   br label %_ZN18OpenImageIO_v2_6_09ImageSpecD2Ev.exit346
 
 _ZN18OpenImageIO_v2_6_09ImageSpecD2Ev.exit346:    ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i342, %if.then.i.i.i3.i345

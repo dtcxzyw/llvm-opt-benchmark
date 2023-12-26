@@ -539,7 +539,7 @@ entry:
   %_M_func.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i, i64 0, i32 1
   store ptr %this, ptr %_M_func.i.i, align 8
   %0 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i, i64 0, i32 1, i32 0, i32 0, i32 1
-  store i64 ptrtoint (ptr @_ZN6hermes2vm16TimeLimitMonitor9timerLoopEv to i64), ptr %0, align 8
+  store ptr @_ZN6hermes2vm16TimeLimitMonitor9timerLoopEv, ptr %0, align 8
   %this.repack3.i.i.i.i.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
   store i64 0, ptr %this.repack3.i.i.i.i.i.i, align 8
   store ptr %call.i, ptr %agg.tmp.i, align 8
@@ -671,7 +671,7 @@ if.then:                                          ; preds = %_ZN4llvh16DenseMapI
   %7 = load ptr, ptr %it.sroa.0.017, align 8
   %asyncBreakRequestFlag_.i.i = getelementptr inbounds %"class.hermes::vm::Runtime", ptr %7, i64 0, i32 143
   %8 = atomicrmw or ptr %asyncBreakRequestFlag_.i.i, i8 4 monotonic, align 1
-  store ptr inttoptr (i64 -16 to ptr), ptr %it.sroa.0.017, align 8
+  store i64 -16, ptr %it.sroa.0.017, align 8
   %9 = load <2 x i32>, ptr %NumEntries.i.i.i.i, align 8
   %10 = add <2 x i32> %9, <i32 -1, i32 1>
   store <2 x i32> %10, ptr %NumEntries.i.i.i.i, align 8
@@ -915,7 +915,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
 
 if.end.i:                                         ; preds = %if.end13.i.i.i, %if.end.i.i.i
   %cond.sink.i.i.ph.i = phi ptr [ %add.ptr21.i.i.i, %if.end.i.i.i ], [ %add.ptr.i.i.i, %if.end13.i.i.i ]
-  store ptr inttoptr (i64 -16 to ptr), ptr %cond.sink.i.i.ph.i, align 8
+  store i64 -16, ptr %cond.sink.i.i.ph.i, align 8
   %NumEntries.i.i.i.i = getelementptr inbounds %"class.hermes::vm::TimeLimitMonitor", ptr %this, i64 0, i32 3, i32 1
   %6 = load <2 x i32>, ptr %NumEntries.i.i.i.i, align 8
   %7 = add <2 x i32> %6, <i32 -1, i32 1>
@@ -971,7 +971,7 @@ entry:
   %_M_func.i.i.i.i.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i.i.i.i.i, i64 0, i32 1
   store ptr %_M_impl.i.i, ptr %_M_func.i.i.i.i.i.i, align 8
   %0 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1
-  store i64 ptrtoint (ptr @_ZN6hermes2vm16TimeLimitMonitor9timerLoopEv to i64), ptr %0, align 8
+  store ptr @_ZN6hermes2vm16TimeLimitMonitor9timerLoopEv, ptr %0, align 8
   %this.repack3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
   store i64 0, ptr %this.repack3.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %call.i.i.i.i.i, ptr %agg.tmp.i.i.i.i.i, align 8
@@ -1294,7 +1294,7 @@ if.then:                                          ; preds = %_ZN4llvh8DenseMapIP
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %B.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %call.i, %if.then ]
-  store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i, align 8
+  store i64 -8, ptr %B.04.i, align 8
   %incdec.ptr.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !21
@@ -1314,7 +1314,7 @@ if.end:                                           ; preds = %_ZN4llvh8DenseMapIP
 
 for.body.i.i:                                     ; preds = %if.end, %for.body.i.i
   %B.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i, %if.end ]
-  store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i, align 8
+  store i64 -8, ptr %B.04.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i, i64 1
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes2vm7RuntimeENSt6chrono10time_pointINS6_3_V212steady_clockENS6_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !21

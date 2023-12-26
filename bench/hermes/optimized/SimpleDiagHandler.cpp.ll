@@ -143,8 +143,7 @@ _ZN4llvhplERKNS_5TwineES2_.exit97:
   %LineNo.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %this, i64 0, i32 3
   %0 = load i32, ptr %LineNo.i, align 8
   %ref.tmp5.sroa.0.0.insert.ext = zext i32 %0 to i64
-  %1 = inttoptr i64 %ref.tmp5.sroa.0.0.insert.ext to ptr
-  store ptr %1, ptr %ref.tmp4, align 8, !alias.scope !4
+  store i64 %ref.tmp5.sroa.0.0.insert.ext, ptr %ref.tmp4, align 8, !alias.scope !4
   %RHS4.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 1
   store ptr @.str, ptr %RHS4.i.i.i, align 8, !alias.scope !4
   %LHSKind5.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 2
@@ -152,13 +151,12 @@ _ZN4llvhplERKNS_5TwineES2_.exit97:
   %RHSKind6.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 3
   store i8 3, ptr %RHSKind6.i.i.i, align 1, !alias.scope !4
   %ColumnNo.i = getelementptr inbounds %"class.llvh::SMDiagnostic", ptr %this, i64 0, i32 4
-  %2 = load i32, ptr %ColumnNo.i, align 4
-  %add = add nsw i32 %2, 1
+  %1 = load i32, ptr %ColumnNo.i, align 4
+  %add = add nsw i32 %1, 1
   %ref.tmp8.sroa.0.0.insert.ext = zext i32 %add to i64
-  %3 = inttoptr i64 %ref.tmp8.sroa.0.0.insert.ext to ptr
   store ptr %ref.tmp4, ptr %ref.tmp3, align 8, !alias.scope !9
   %RHS4.i.i.i27 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 1
-  store ptr %3, ptr %RHS4.i.i.i27, align 8, !alias.scope !9
+  store i64 %ref.tmp8.sroa.0.0.insert.ext, ptr %RHS4.i.i.i27, align 8, !alias.scope !9
   %LHSKind5.i.i.i28 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 2
   store i8 2, ptr %LHSKind5.i.i.i28, align 8, !alias.scope !9
   %RHSKind6.i.i.i29 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 3
@@ -174,8 +172,8 @@ _ZN4llvhplERKNS_5TwineES2_.exit97:
   %call.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %Message.i) #12
   %call2.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %Message.i) #12
   store ptr %call.i.i, ptr %ref.tmp12, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp12, i64 0, i32 1
-  store i64 %call2.i.i, ptr %4, align 8
+  %2 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp12, i64 0, i32 1
+  store i64 %call2.i.i, ptr %2, align 8
   store ptr %ref.tmp2, ptr %ref.tmp, align 8, !alias.scope !19
   %RHS4.i.i.i89 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 1
   store ptr %ref.tmp12, ptr %RHS4.i.i.i89, align 8, !alias.scope !19

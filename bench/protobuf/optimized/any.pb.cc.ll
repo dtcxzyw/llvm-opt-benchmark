@@ -110,17 +110,16 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define void @_ZN6google8protobuf3AnyC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %arena) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %0 = ptrtoint ptr %arena to i64
-  store i64 %0, ptr %_internal_metadata_.i.i, align 8
+  store ptr %arena, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf3AnyE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %1 = getelementptr inbounds %"class.google::protobuf::Any", ptr %this, i64 0, i32 1
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %1, align 8
+  %0 = getelementptr inbounds %"class.google::protobuf::Any", ptr %this, i64 0, i32 1
+  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %0, align 8
   %value_.i.i = getelementptr inbounds %"class.google::protobuf::Any", ptr %this, i64 0, i32 1, i32 0, i32 1
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %value_.i.i, align 8
   %_cached_size_.i.i = getelementptr inbounds %"class.google::protobuf::Any", ptr %this, i64 0, i32 1, i32 0, i32 2
   store i32 0, ptr %_cached_size_.i.i, align 8
   %_any_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::Any", ptr %this, i64 0, i32 1, i32 0, i32 3
-  store ptr %1, ptr %_any_metadata_.i.i, align 8
+  store ptr %0, ptr %_any_metadata_.i.i, align 8
   %value_.i2.i = getelementptr inbounds %"class.google::protobuf::Any", ptr %this, i64 0, i32 1, i32 0, i32 3, i32 1
   store ptr %value_.i.i, ptr %value_.i2.i, align 8
   ret void
@@ -132,42 +131,41 @@ declare i32 @__gxx_personality_v0(...)
 define void @_ZN6google8protobuf3AnyC2EPNS0_5ArenaERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %arena, ptr noundef nonnull align 8 dereferenceable(56) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %0 = ptrtoint ptr %arena to i64
-  store i64 %0, ptr %_internal_metadata_.i.i, align 8
+  store ptr %arena, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf3AnyE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %from, i64 0, i32 1
-  %1 = load i64, ptr %_internal_metadata_2, align 8
-  %and.i22 = and i64 %1, 1
+  %0 = load i64, ptr %_internal_metadata_2, align 8
+  %and.i22 = and i64 %0, 1
   %tobool.i23.not = icmp eq i64 %and.i22, 0
   br i1 %tobool.i23.not, label %invoke.cont3, label %if.then.i16
 
 if.then.i16:                                      ; preds = %entry
-  %and.i = and i64 %1, -2
-  %2 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %and.i = and i64 %0, -2
+  %1 = inttoptr i64 %and.i to ptr
+  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %1, i64 0, i32 1
   tail call void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %if.then.i16, %entry
-  %3 = getelementptr inbounds %"class.google::protobuf::Any", ptr %this, i64 0, i32 1
-  %4 = getelementptr inbounds %"class.google::protobuf::Any", ptr %from, i64 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  %6 = ptrtoint ptr %5 to i64
-  %and.i.i.i = and i64 %6, 3
+  %2 = getelementptr inbounds %"class.google::protobuf::Any", ptr %this, i64 0, i32 1
+  %3 = getelementptr inbounds %"class.google::protobuf::Any", ptr %from, i64 0, i32 1
+  %4 = load ptr, ptr %3, align 8
+  %5 = ptrtoint ptr %4 to i64
+  %and.i.i.i = and i64 %5, 3
   %cmp.i.i.i = icmp eq i64 %and.i.i.i, 0
   br i1 %cmp.i.i.i, label %.noexc10, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %invoke.cont3
-  %call2.i.i6 = tail call ptr @_ZNK6google8protobuf8internal15TaggedStringPtr9ForceCopyEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %arena)
+  %call2.i.i6 = tail call ptr @_ZNK6google8protobuf8internal15TaggedStringPtr9ForceCopyEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %arena)
   br label %.noexc10
 
 .noexc10:                                         ; preds = %cond.false.i.i, %invoke.cont3
-  %retval.sroa.0.0.i.i = phi ptr [ %5, %invoke.cont3 ], [ %call2.i.i6, %cond.false.i.i ]
-  store ptr %retval.sroa.0.0.i.i, ptr %3, align 8
+  %retval.sroa.0.0.i.i = phi ptr [ %4, %invoke.cont3 ], [ %call2.i.i6, %cond.false.i.i ]
+  store ptr %retval.sroa.0.0.i.i, ptr %2, align 8
   %value_3.i = getelementptr inbounds %"class.google::protobuf::Any", ptr %from, i64 0, i32 1, i32 0, i32 1
-  %7 = load ptr, ptr %value_3.i, align 8
-  %8 = ptrtoint ptr %7 to i64
-  %and.i.i.i7 = and i64 %8, 3
+  %6 = load ptr, ptr %value_3.i, align 8
+  %7 = ptrtoint ptr %6 to i64
+  %and.i.i.i7 = and i64 %7, 3
   %cmp.i.i.i8 = icmp eq i64 %and.i.i.i7, 0
   br i1 %cmp.i.i.i8, label %_ZN6google8protobuf3Any5Impl_C2ENS0_8internal18InternalVisibilityEPNS0_5ArenaERKS2_.exit, label %cond.false.i.i9
 
@@ -176,13 +174,13 @@ cond.false.i.i9:                                  ; preds = %.noexc10
   br label %_ZN6google8protobuf3Any5Impl_C2ENS0_8internal18InternalVisibilityEPNS0_5ArenaERKS2_.exit
 
 _ZN6google8protobuf3Any5Impl_C2ENS0_8internal18InternalVisibilityEPNS0_5ArenaERKS2_.exit: ; preds = %cond.false.i.i9, %.noexc10
-  %retval.sroa.0.0.i.i10 = phi ptr [ %7, %.noexc10 ], [ %call2.i.i12, %cond.false.i.i9 ]
+  %retval.sroa.0.0.i.i10 = phi ptr [ %6, %.noexc10 ], [ %call2.i.i12, %cond.false.i.i9 ]
   %value_.i = getelementptr inbounds %"class.google::protobuf::Any", ptr %this, i64 0, i32 1, i32 0, i32 1
   store ptr %retval.sroa.0.0.i.i10, ptr %value_.i, align 8
   %_cached_size_.i = getelementptr inbounds %"class.google::protobuf::Any", ptr %this, i64 0, i32 1, i32 0, i32 2
   store i32 0, ptr %_cached_size_.i, align 8
   %_any_metadata_.i = getelementptr inbounds %"class.google::protobuf::Any", ptr %this, i64 0, i32 1, i32 0, i32 3
-  store ptr %3, ptr %_any_metadata_.i, align 8
+  store ptr %2, ptr %_any_metadata_.i, align 8
   %value_.i14 = getelementptr inbounds %"class.google::protobuf::Any", ptr %this, i64 0, i32 1, i32 0, i32 3, i32 1
   store ptr %value_.i, ptr %value_.i14, align 8
   ret void

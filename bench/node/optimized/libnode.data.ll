@@ -1239,8 +1239,7 @@ entry:
   %6 = load ptr, ptr %isolate_.i, align 8
   %7 = ptrtoint ptr %6 to i64
   %add1.i = add i64 %7, 608
-  %8 = inttoptr i64 %add1.i to ptr
-  store ptr %8, ptr %arrayinit.element19, align 16
+  store i64 %add1.i, ptr %arrayinit.element19, align 16
   %reason_ = getelementptr inbounds %"class.node::quic::QuicError", ptr %this, i64 0, i32 1
   %call29 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %reason_) #16
   %cmp.not = icmp eq i64 %call29, 0
@@ -1248,15 +1247,15 @@ entry:
 
 land.rhs:                                         ; preds = %entry
   %principal_realm_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 89
-  %9 = load ptr, ptr %principal_realm_.i.i, align 8
-  %vtable.i = load ptr, ptr %9, align 8
+  %8 = load ptr, ptr %principal_realm_.i.i, align 8
+  %vtable.i = load ptr, ptr %8, align 8
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 8
-  %10 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call ptr %10(ptr noundef nonnull align 8 dereferenceable(872) %9) #16
+  %9 = load ptr, ptr %vfn.i, align 8
+  %call2.i = tail call ptr %9(ptr noundef nonnull align 8 dereferenceable(872) %8) #16
   %call.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %reason_) #16
-  %11 = extractvalue { i64, ptr } %call.i, 0
+  %10 = extractvalue { i64, ptr } %call.i, 0
   %call3.i = tail call noundef ptr @_ZN2v87Context10GetIsolateEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i) #16
-  %cmp5.i = icmp ugt i64 %11, 536870887
+  %cmp5.i = icmp ugt i64 %10, 536870887
   br i1 %cmp5.i, label %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.thread, label %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.thread: ; preds = %land.rhs
@@ -1264,16 +1263,16 @@ _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_tra
   br label %return
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit: ; preds = %land.rhs
-  %12 = extractvalue { i64, ptr } %call.i, 1
-  %conv.i = trunc i64 %11 to i32
-  %call11.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i, ptr noundef %12, i32 noundef 0, i32 noundef %conv.i) #16
+  %11 = extractvalue { i64, ptr } %call.i, 1
+  %conv.i = trunc i64 %10 to i32
+  %call11.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i, ptr noundef %11, i32 noundef 0, i32 noundef %conv.i) #16
   store ptr %call11.i, ptr %arrayinit.element19, align 16
   %cmp.i.i = icmp eq ptr %call11.i, null
   br i1 %cmp.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit
-  %13 = load ptr, ptr %isolate_.i, align 8
-  %call50 = call ptr @_ZN2v85Array3NewEPNS_7IsolateEPNS_5LocalINS_5ValueEEEm(ptr noundef %13, ptr noundef nonnull %argv, i64 noundef 3) #16
+  %12 = load ptr, ptr %isolate_.i, align 8
+  %call50 = call ptr @_ZN2v85Array3NewEPNS_7IsolateEPNS_5LocalINS_5ValueEEEm(ptr noundef %12, ptr noundef nonnull %argv, i64 noundef 3) #16
   br label %return
 
 return:                                           ; preds = %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.thread, %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit, %if.end

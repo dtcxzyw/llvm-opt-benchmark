@@ -39,16 +39,15 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %epoch = getelementptr inbounds %struct.decay_s, ptr %decay, i64 0, i32 4
   tail call void @nstime_copy(ptr noundef nonnull %epoch, ptr noundef %cur_time) #9
-  %0 = ptrtoint ptr %decay to i64
   %jitter_state = getelementptr inbounds %struct.decay_s, ptr %decay, i64 0, i32 5
-  store i64 %0, ptr %jitter_state, align 8
+  store ptr %decay, ptr %jitter_state, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %jitter.i)
   %deadline.i = getelementptr inbounds %struct.decay_s, ptr %decay, i64 0, i32 6
   tail call void @nstime_copy(ptr noundef nonnull %deadline.i, ptr noundef nonnull %epoch) #9
   %interval.i = getelementptr inbounds %struct.decay_s, ptr %decay, i64 0, i32 3
   tail call void @nstime_add(ptr noundef nonnull %deadline.i, ptr noundef nonnull %interval.i) #9
-  %1 = load atomic i64, ptr %time_ms monotonic, align 8
-  %cmp.i = icmp sgt i64 %1, 0
+  %0 = load atomic i64, ptr %time_ms monotonic, align 8
+  %cmp.i = icmp sgt i64 %0, 0
   br i1 %cmp.i, label %if.then.i, label %decay_deadline_init.exit
 
 if.then.i:                                        ; preds = %if.end
@@ -59,7 +58,7 @@ if.then.i:                                        ; preds = %if.end
 if.end.i.i:                                       ; preds = %if.then.i
   %cmp.i13.i = icmp ne i64 %call3.i, 0
   %sub.i14.i = add i64 %call3.i, -1
-  %2 = tail call i64 @llvm.ctlz.i64(i64 %sub.i14.i, i1 true), !range !4
+  %1 = tail call i64 @llvm.ctlz.i64(i64 %sub.i14.i, i1 true), !range !4
   tail call void @llvm.assume(i1 %cmp.i13.i)
   %jitter_state.promoted.i = load i64, ptr %jitter_state, align 8
   br label %do.body2.i.i
@@ -68,7 +67,7 @@ do.body2.i.i:                                     ; preds = %do.body2.i.i, %if.e
   %add.i15.i = phi i64 [ %add.i.i, %do.body2.i.i ], [ %jitter_state.promoted.i, %if.end.i.i ]
   %mul.i.i = mul i64 %add.i15.i, 6364136223846793005
   %add.i.i = add i64 %mul.i.i, 1442695040888963407
-  %shr.i.i = lshr i64 %add.i.i, %2
+  %shr.i.i = lshr i64 %add.i.i, %1
   %cmp4.i.not.i = icmp ult i64 %shr.i.i, %call3.i
   br i1 %cmp4.i.not.i, label %prng_range_u64.exit.loopexit.i, label %do.body2.i.i, !llvm.loop !5
 

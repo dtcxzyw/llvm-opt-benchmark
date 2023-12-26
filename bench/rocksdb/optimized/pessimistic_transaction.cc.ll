@@ -787,100 +787,100 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %call8, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.lhs.true
-  %4 = ptrtoint ptr %this to i64
+  %txn_id_ = getelementptr inbounds %"class.rocksdb::PessimisticTransaction", ptr %this, i64 0, i32 9
+  store ptr %this, ptr %txn_id_, align 8
   br label %if.end
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  %5 = atomicrmw add ptr @_ZN7rocksdb22PessimisticTransaction15txn_id_counter_E, i64 1 seq_cst, align 8
+  %4 = atomicrmw add ptr @_ZN7rocksdb22PessimisticTransaction15txn_id_counter_E, i64 1 seq_cst, align 8
+  %txn_id_10 = getelementptr inbounds %"class.rocksdb::PessimisticTransaction", ptr %this, i64 0, i32 9
+  store i64 %4, ptr %txn_id_10, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %.sink12 = phi i64 [ %5, %if.else ], [ %4, %if.then ]
-  %txn_id_10 = getelementptr inbounds %"class.rocksdb::PessimisticTransaction", ptr %this, i64 0, i32 9
-  store i64 %.sink12, ptr %txn_id_10, align 8
   %txn_state_ = getelementptr inbounds %"class.rocksdb::Transaction", ptr %this, i64 0, i32 3
   store atomic i32 0, ptr %txn_state_ seq_cst, align 8
   %deadlock_detect = getelementptr inbounds %"struct.rocksdb::TransactionOptions", ptr %txn_options, i64 0, i32 1
-  %6 = load i8, ptr %deadlock_detect, align 1
-  %7 = and i8 %6, 1
+  %5 = load i8, ptr %deadlock_detect, align 1
+  %6 = and i8 %5, 1
   %deadlock_detect_ = getelementptr inbounds %"class.rocksdb::PessimisticTransaction", ptr %this, i64 0, i32 16
-  store i8 %7, ptr %deadlock_detect_, align 8
+  store i8 %6, ptr %deadlock_detect_, align 8
   %deadlock_detect_depth = getelementptr inbounds %"struct.rocksdb::TransactionOptions", ptr %txn_options, i64 0, i32 5
-  %8 = load i64, ptr %deadlock_detect_depth, align 8
+  %7 = load i64, ptr %deadlock_detect_depth, align 8
   %deadlock_detect_depth_ = getelementptr inbounds %"class.rocksdb::PessimisticTransaction", ptr %this, i64 0, i32 18
-  store i64 %8, ptr %deadlock_detect_depth_, align 8
+  store i64 %7, ptr %deadlock_detect_depth_, align 8
   %write_batch_ = getelementptr inbounds %"class.rocksdb::TransactionBaseImpl", ptr %this, i64 0, i32 11
   %max_write_batch_size = getelementptr inbounds %"struct.rocksdb::TransactionOptions", ptr %txn_options, i64 0, i32 6
-  %9 = load i64, ptr %max_write_batch_size, align 8
-  tail call void @_ZN7rocksdb19WriteBatchWithIndex11SetMaxBytesEm(ptr noundef nonnull align 8 dereferenceable(16) %write_batch_, i64 noundef %9)
+  %8 = load i64, ptr %max_write_batch_size, align 8
+  tail call void @_ZN7rocksdb19WriteBatchWithIndex11SetMaxBytesEm(ptr noundef nonnull align 8 dereferenceable(16) %write_batch_, i64 noundef %8)
   %skip_concurrency_control = getelementptr inbounds %"struct.rocksdb::TransactionOptions", ptr %txn_options, i64 0, i32 7
-  %10 = load i8, ptr %skip_concurrency_control, align 8
-  %11 = and i8 %10, 1
+  %9 = load i8, ptr %skip_concurrency_control, align 8
+  %10 = and i8 %9, 1
   %skip_concurrency_control_ = getelementptr inbounds %"class.rocksdb::PessimisticTransaction", ptr %this, i64 0, i32 19
-  store i8 %11, ptr %skip_concurrency_control_, align 8
+  store i8 %10, ptr %skip_concurrency_control_, align 8
   %lock_timeout = getelementptr inbounds %"struct.rocksdb::TransactionOptions", ptr %txn_options, i64 0, i32 3
-  %12 = load i64, ptr %lock_timeout, align 8
-  %mul = mul nsw i64 %12, 1000
+  %11 = load i64, ptr %lock_timeout, align 8
+  %mul = mul nsw i64 %11, 1000
   %lock_timeout_ = getelementptr inbounds %"class.rocksdb::PessimisticTransaction", ptr %this, i64 0, i32 15
   store i64 %mul, ptr %lock_timeout_, align 8
-  %cmp = icmp slt i64 %12, 0
+  %cmp = icmp slt i64 %11, 0
   br i1 %cmp, label %if.then15, label %if.end20
 
 if.then15:                                        ; preds = %if.end
-  %13 = load ptr, ptr %txn_db_impl_, align 8
-  %transaction_lock_timeout = getelementptr inbounds %"class.rocksdb::PessimisticTransactionDB", ptr %13, i64 0, i32 3, i32 4
-  %14 = load i64, ptr %transaction_lock_timeout, align 8
-  %mul18 = mul nsw i64 %14, 1000
+  %12 = load ptr, ptr %txn_db_impl_, align 8
+  %transaction_lock_timeout = getelementptr inbounds %"class.rocksdb::PessimisticTransactionDB", ptr %12, i64 0, i32 3, i32 4
+  %13 = load i64, ptr %transaction_lock_timeout, align 8
+  %mul18 = mul nsw i64 %13, 1000
   store i64 %mul18, ptr %lock_timeout_, align 8
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then15, %if.end
   %expiration = getelementptr inbounds %"struct.rocksdb::TransactionOptions", ptr %txn_options, i64 0, i32 4
-  %15 = load i64, ptr %expiration, align 8
+  %14 = load i64, ptr %expiration, align 8
   %start_time_ = getelementptr inbounds %"class.rocksdb::TransactionBaseImpl", ptr %this, i64 0, i32 6
-  %16 = load i64, ptr %start_time_, align 8
-  %mul24 = mul nsw i64 %15, 1000
-  %add = add i64 %16, %mul24
-  %cmp21.inv = icmp slt i64 %15, 0
+  %15 = load i64, ptr %start_time_, align 8
+  %mul24 = mul nsw i64 %14, 1000
+  %add = add i64 %15, %mul24
+  %cmp21.inv = icmp slt i64 %14, 0
   %.sink = select i1 %cmp21.inv, i64 0, i64 %add
-  %17 = getelementptr inbounds %"class.rocksdb::PessimisticTransaction", ptr %this, i64 0, i32 6
-  store i64 %.sink, ptr %17, align 8
-  %18 = load i8, ptr %txn_options, align 8
-  %19 = and i8 %18, 1
-  %tobool28.not = icmp eq i8 %19, 0
+  %16 = getelementptr inbounds %"class.rocksdb::PessimisticTransaction", ptr %this, i64 0, i32 6
+  store i64 %.sink, ptr %16, align 8
+  %17 = load i8, ptr %txn_options, align 8
+  %18 = and i8 %17, 1
+  %tobool28.not = icmp eq i8 %18, 0
   br i1 %tobool28.not, label %if.end32, label %if.then29
 
 if.then29:                                        ; preds = %if.end20
   %vtable30 = load ptr, ptr %this, align 8
   %vfn31 = getelementptr inbounds ptr, ptr %vtable30, i64 2
-  %20 = load ptr, ptr %vfn31, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(320) %this)
-  %.pre = load i64, ptr %17, align 8
+  %19 = load ptr, ptr %vfn31, align 8
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(320) %this)
+  %.pre = load i64, ptr %16, align 8
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then29, %if.end20
-  %21 = phi i64 [ %.pre, %if.then29 ], [ %.sink, %if.end20 ]
-  %cmp34.not = icmp eq i64 %21, 0
+  %20 = phi i64 [ %.pre, %if.then29 ], [ %.sink, %if.end20 ]
+  %cmp34.not = icmp eq i64 %20, 0
   br i1 %cmp34.not, label %if.end38, label %if.then35
 
 if.then35:                                        ; preds = %if.end32
-  %22 = load ptr, ptr %txn_db_impl_, align 8
+  %21 = load ptr, ptr %txn_db_impl_, align 8
   %txn_id_37 = getelementptr inbounds %"class.rocksdb::PessimisticTransaction", ptr %this, i64 0, i32 9
-  %23 = load i64, ptr %txn_id_37, align 8
-  tail call void @_ZN7rocksdb24PessimisticTransactionDB26InsertExpirableTransactionEmPNS_22PessimisticTransactionE(ptr noundef nonnull align 8 dereferenceable(480) %22, i64 noundef %23, ptr noundef nonnull %this)
+  %22 = load i64, ptr %txn_id_37, align 8
+  tail call void @_ZN7rocksdb24PessimisticTransactionDB26InsertExpirableTransactionEmPNS_22PessimisticTransactionE(ptr noundef nonnull align 8 dereferenceable(480) %21, i64 noundef %22, ptr noundef nonnull %this)
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then35, %if.end32
   %use_only_the_last_commit_time_batch_for_recovery = getelementptr inbounds %"struct.rocksdb::TransactionOptions", ptr %txn_options, i64 0, i32 2
-  %24 = load i8, ptr %use_only_the_last_commit_time_batch_for_recovery, align 2
-  %25 = and i8 %24, 1
+  %23 = load i8, ptr %use_only_the_last_commit_time_batch_for_recovery, align 2
+  %24 = and i8 %23, 1
   %use_only_the_last_commit_time_batch_for_recovery_ = getelementptr inbounds %"class.rocksdb::PessimisticTransaction", ptr %this, i64 0, i32 1
-  store i8 %25, ptr %use_only_the_last_commit_time_batch_for_recovery_, align 8
+  store i8 %24, ptr %use_only_the_last_commit_time_batch_for_recovery_, align 8
   %skip_prepare = getelementptr inbounds %"struct.rocksdb::TransactionOptions", ptr %txn_options, i64 0, i32 8
-  %26 = load i8, ptr %skip_prepare, align 1
-  %27 = and i8 %26, 1
+  %25 = load i8, ptr %skip_prepare, align 1
+  %26 = and i8 %25, 1
   %skip_prepare_ = getelementptr inbounds %"class.rocksdb::PessimisticTransaction", ptr %this, i64 0, i32 2
-  store i8 %27, ptr %skip_prepare_, align 1
+  store i8 %26, ptr %skip_prepare_, align 1
   %read_timestamp_ = getelementptr inbounds %"class.rocksdb::PessimisticTransaction", ptr %this, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %read_timestamp_, i8 -1, i64 16, i1 false)
   ret void

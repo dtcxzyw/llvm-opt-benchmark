@@ -397,12 +397,11 @@ entry:
   %0 = getelementptr inbounds i8, ptr %cps, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %0, i8 0, i64 40, i1 false)
   store i64 4228, ptr %cps, align 16
-  %1 = ptrtoint ptr %platform to i64
   %arrayidx1 = getelementptr inbounds [7 x i64], ptr %cps, i64 0, i64 1
-  store i64 %1, ptr %arrayidx1, align 8
+  store ptr %platform, ptr %arrayidx1, align 8
   store i32 -1, ptr %num_devices, align 4
-  %2 = load ptr, ptr @__clewGetDeviceIDs, align 8
-  %call = call i32 %2(ptr noundef %platform, i64 noundef %deviceType, i32 noundef 16, ptr noundef nonnull %devices, ptr noundef nonnull %num_devices)
+  %1 = load ptr, ptr @__clewGetDeviceIDs, align 8
+  %call = call i32 %1(ptr noundef %platform, i64 noundef %deviceType, i32 noundef 16, ptr noundef nonnull %devices, ptr noundef nonnull %num_devices)
   store i32 %call, ptr %ciErrNum, align 4
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -414,8 +413,8 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %cmp2 = icmp eq ptr %platform, null
   %cond = select i1 %cmp2, ptr null, ptr %cps
-  %3 = load i32, ptr %num_devices, align 4
-  %tobool.not = icmp eq i32 %3, 0
+  %2 = load i32, ptr %num_devices, align 4
+  %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
@@ -424,38 +423,38 @@ if.end5:                                          ; preds = %if.end
 
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %4 = load i32, ptr %num_devices, align 4
-  %5 = zext i32 %4 to i64
-  %cmp8 = icmp ult i64 %indvars.iv.next, %5
+  %3 = load i32, ptr %num_devices, align 4
+  %4 = zext i32 %3 to i64
+  %cmp8 = icmp ult i64 %indvars.iv.next, %4
   br i1 %cmp8, label %for.body, label %if.end24, !llvm.loop !5
 
 for.body:                                         ; preds = %if.end5, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %if.end5 ]
-  %6 = load ptr, ptr @__clewCreateContext, align 8
+  %5 = load ptr, ptr @__clewCreateContext, align 8
   %arrayidx9 = getelementptr inbounds [16 x ptr], ptr %devices, i64 0, i64 %indvars.iv
-  %call10 = call ptr %6(ptr noundef %cond, i32 noundef 1, ptr noundef nonnull %arrayidx9, ptr noundef null, ptr noundef null, ptr noundef nonnull %ciErrNum)
-  %7 = load i32, ptr %ciErrNum, align 4
-  %cmp11 = icmp eq i32 %7, 0
+  %call10 = call ptr %5(ptr noundef %cond, i32 noundef 1, ptr noundef nonnull %arrayidx9, ptr noundef null, ptr noundef null, ptr noundef nonnull %ciErrNum)
+  %6 = load i32, ptr %ciErrNum, align 4
+  %cmp11 = icmp eq i32 %6, 0
   br i1 %cmp11, label %if.end24, label %for.cond
 
 if.else:                                          ; preds = %if.end5
   %cmp14 = icmp sgt i32 %preferredDeviceIndex, -1
-  %cmp15 = icmp ugt i32 %3, %preferredDeviceIndex
+  %cmp15 = icmp ugt i32 %2, %preferredDeviceIndex
   %or.cond = and i1 %cmp14, %cmp15
   br i1 %or.cond, label %if.then16, label %if.else20
 
 if.then16:                                        ; preds = %if.else
-  %8 = load ptr, ptr @__clewCreateContext, align 8
+  %7 = load ptr, ptr @__clewCreateContext, align 8
   %idxprom17 = zext nneg i32 %preferredDeviceIndex to i64
   %arrayidx18 = getelementptr inbounds [16 x ptr], ptr %devices, i64 0, i64 %idxprom17
-  %call19 = call ptr %8(ptr noundef %cond, i32 noundef 1, ptr noundef nonnull %arrayidx18, ptr noundef null, ptr noundef null, ptr noundef nonnull %ciErrNum)
+  %call19 = call ptr %7(ptr noundef %cond, i32 noundef 1, ptr noundef nonnull %arrayidx18, ptr noundef null, ptr noundef null, ptr noundef nonnull %ciErrNum)
   br label %if.end24
 
 if.else20:                                        ; preds = %if.else
-  call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.16, i32 noundef %3)
-  %9 = load ptr, ptr @__clewCreateContext, align 8
-  %10 = load i32, ptr %num_devices, align 4
-  %call22 = call ptr %9(ptr noundef %cond, i32 noundef %10, ptr noundef nonnull %devices, ptr noundef null, ptr noundef null, ptr noundef nonnull %ciErrNum)
+  call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.16, i32 noundef %2)
+  %8 = load ptr, ptr @__clewCreateContext, align 8
+  %9 = load i32, ptr %num_devices, align 4
+  %call22 = call ptr %8(ptr noundef %cond, i32 noundef %9, ptr noundef nonnull %devices, ptr noundef null, ptr noundef null, ptr noundef nonnull %ciErrNum)
   br label %if.end24
 
 if.end24:                                         ; preds = %for.body, %for.cond, %if.then16, %if.else20
@@ -464,8 +463,8 @@ if.end24:                                         ; preds = %for.body, %for.cond
   br i1 %cmp25.not, label %return, label %if.then26
 
 if.then26:                                        ; preds = %if.end24
-  %11 = load i32, ptr %ciErrNum, align 4
-  store i32 %11, ptr %pErrNum, align 4
+  %10 = load i32, ptr %ciErrNum, align 4
+  store i32 %10, ptr %pErrNum, align 4
   br label %return
 
 return:                                           ; preds = %if.end24, %if.then26, %if.end, %if.then

@@ -17515,7 +17515,6 @@ entry:
   %__comp.i41 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_val.100", align 8
   %__comp.i34 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.96", align 8
   %__comp.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.96", align 8
-  %coerce.val.ip = inttoptr i64 %__comp.coerce to ptr
   %cmp.not = icmp sgt i64 %__len1, %__len2
   %cmp5.not = icmp sgt i64 %__len1, %__buffer_size
   %or.cond = or i1 %cmp.not, %cmp5.not
@@ -17537,7 +17536,7 @@ land.rhs.i.preheader:                             ; preds = %if.then
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %__buffer, i64 %sub.ptr.div.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i)
-  store ptr %coerce.val.ip, ptr %__comp.i, align 8
+  store i64 %__comp.coerce, ptr %__comp.i, align 8
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.rhs.i.preheader, %while.body.i
@@ -17593,7 +17592,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorI
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__buffer, ptr align 8 %__middle.coerce, i64 %sub.ptr.sub.i.i.i.i.i28, i1 false)
   %sub.ptr.div.i.i.i.i.i31108 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i28, 3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i34)
-  store ptr %coerce.val.ip, ptr %__comp.i34, align 8
+  store i64 %__comp.coerce, ptr %__comp.i34, align 8
   %cmp.i.i110 = icmp eq ptr %__first.coerce, %__middle.coerce
   br i1 %cmp.i.i110, label %if.then.i.i.i.i.i.i, label %if.end9.i
 
@@ -17666,7 +17665,7 @@ if.then37:                                        ; preds = %if.else35
   %div = sdiv i64 %__len1, 2
   %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce, i64 %div
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i41)
-  store ptr %coerce.val.ip, ptr %__comp.i41, align 8
+  store i64 %__comp.coerce, ptr %__comp.i41, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %__middle.coerce to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
@@ -17706,7 +17705,7 @@ if.else59:                                        ; preds = %if.else35
   %div60 = sdiv i64 %__len2, 2
   %incdec.ptr.i.i.i57 = getelementptr inbounds ptr, ptr %__middle.coerce, i64 %div60
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i59)
-  store ptr %coerce.val.ip, ptr %__comp.i59, align 8
+  store i64 %__comp.coerce, ptr %__comp.i59, align 8
   %sub.ptr.lhs.cast.i.i.i.i60 = ptrtoint ptr %__middle.coerce to i64
   %sub.ptr.rhs.cast.i.i.i.i61 = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i.i.i.i62 = sub i64 %sub.ptr.lhs.cast.i.i.i.i60, %sub.ptr.rhs.cast.i.i.i.i61

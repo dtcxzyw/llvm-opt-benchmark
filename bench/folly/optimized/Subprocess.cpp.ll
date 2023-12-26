@@ -2915,30 +2915,29 @@ if.then.i:                                        ; preds = %if.end
 
 invoke.cont4:                                     ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %SCOPE_EXIT_STATE7) #40
-  %2 = ptrtoint ptr %errFds to i64
   store i8 0, ptr %SCOPE_EXIT_STATE7, align 8, !tbaa !137, !alias.scope !139
   %function_.i.i.i68 = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.42", ptr %SCOPE_EXIT_STATE7, i64 0, i32 1
-  store i64 %2, ptr %function_.i.i.i68, align 8, !tbaa !21, !alias.scope !139
-  %3 = load i64, ptr %argv, align 8, !tbaa !21
-  store i64 %3, ptr %agg.tmp, align 8, !tbaa !21
+  store ptr %errFds, ptr %function_.i.i.i68, align 8, !tbaa !21, !alias.scope !139
+  %2 = load i64, ptr %argv, align 8, !tbaa !21
+  store i64 %2, ptr %agg.tmp, align 8, !tbaa !21
   store ptr null, ptr %argv, align 8, !tbaa !21
   %arrayidx = getelementptr inbounds [2 x i32], ptr %errFds, i64 0, i64 1
-  %4 = load i32, ptr %arrayidx, align 4, !tbaa !7
-  %5 = inttoptr i64 %3 to ptr
-  invoke void @_ZN5folly10Subprocess13spawnInternalESt10unique_ptrIA_PKcSt14default_deleteIS4_EES3_RNS0_7OptionsEPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEi(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull %agg.tmp, ptr noundef %executable, ptr noundef nonnull align 8 dereferenceable(240) %options, ptr noundef %env, i32 noundef %4)
+  %3 = load i32, ptr %arrayidx, align 4, !tbaa !7
+  %4 = inttoptr i64 %2 to ptr
+  invoke void @_ZN5folly10Subprocess13spawnInternalESt10unique_ptrIA_PKcSt14default_deleteIS4_EES3_RNS0_7OptionsEPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEi(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull %agg.tmp, ptr noundef %executable, ptr noundef nonnull align 8 dereferenceable(240) %options, ptr noundef %env, i32 noundef %3)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont4
-  %cmp.not.i = icmp eq i64 %3, 0
+  %cmp.not.i = icmp eq i64 %2, 0
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_PKcSt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIA_PKcEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
 
 _ZNKSt14default_deleteIA_PKcEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i: ; preds = %invoke.cont9
-  call void @_ZdaPv(ptr noundef nonnull %5) #42
+  call void @_ZdaPv(ptr noundef nonnull %4) #42
   br label %_ZNSt10unique_ptrIA_PKcSt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_PKcSt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_PKcEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i, %invoke.cont9
-  %6 = load i32, ptr %arrayidx, align 4, !tbaa !7
-  %call13 = invoke i32 @close(i32 noundef %6)
+  %5 = load i32, ptr %arrayidx, align 4, !tbaa !7
+  %call13 = invoke i32 @close(i32 noundef %5)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %_ZNSt10unique_ptrIA_PKcSt14default_deleteIS2_EED2Ev.exit
@@ -2947,7 +2946,7 @@ invoke.cont12:                                    ; preds = %_ZNSt10unique_ptrIA
 
 cond.false:                                       ; preds = %invoke.cont12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp19) #40
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8, !tbaa !20
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp, align 8, !tbaa !20
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !20
   invoke void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp19, ptr noundef nonnull @.str.23, i32 noundef 347, i32 noundef 3, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)
@@ -2968,14 +2967,14 @@ cleanup.action:                                   ; preds = %invoke.cont24
 
 cleanup.done34:                                   ; preds = %cleanup.action, %invoke.cont12
   store i32 -1, ptr %arrayidx, align 4, !tbaa !7
-  %7 = load i32, ptr %errFds, align 4, !tbaa !7
-  invoke void @_ZN5folly10Subprocess18readChildErrorPipeEiPKc(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %7, ptr noundef %executable)
+  %6 = load i32, ptr %errFds, align 4, !tbaa !7
+  invoke void @_ZN5folly10Subprocess18readChildErrorPipeEiPKc(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %6, ptr noundef %executable)
           to label %invoke.cont41 unwind label %lpad11
 
 invoke.cont41:                                    ; preds = %cleanup.done34
   %detach_ = getelementptr inbounds %"class.folly::Subprocess::Options", ptr %options, i64 0, i32 4
-  %8 = load i8, ptr %detach_, align 1, !tbaa !142, !range !136, !noundef !53
-  %tobool42.not = icmp eq i8 %8, 0
+  %7 = load i8, ptr %detach_, align 1, !tbaa !142, !range !136, !noundef !53
+  %tobool42.not = icmp eq i8 %7, 0
   br i1 %tobool42.not, label %"_ZN5folly6detail14ScopeGuardImplIZNS_10Subprocess5spawnESt10unique_ptrIA_PKcSt14default_deleteIS6_EES5_RKNS2_7OptionsEPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EEE3$_0Lb1EED2Ev.exit", label %if.then43
 
 if.then43:                                        ; preds = %invoke.cont41
@@ -2988,43 +2987,43 @@ invoke.cont45:                                    ; preds = %if.then43
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS_10Subprocess5spawnESt10unique_ptrIA_PKcSt14default_deleteIS6_EES5_RKNS2_7OptionsEPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EEE3$_0Lb1EED2Ev.exit"
 
 lpad3:                                            ; preds = %if.then.i
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i75
 
 lpad8:                                            ; preds = %invoke.cont4
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %cmp.not.i70 = icmp eq i64 %3, 0
+  %cmp.not.i70 = icmp eq i64 %2, 0
   br i1 %cmp.not.i70, label %ehcleanup48, label %_ZNKSt14default_deleteIA_PKcEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i71
 
 _ZNKSt14default_deleteIA_PKcEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i71: ; preds = %lpad8
-  call void @_ZdaPv(ptr noundef nonnull %5) #42
+  call void @_ZdaPv(ptr noundef nonnull %4) #42
   br label %ehcleanup48
 
 lpad11:                                           ; preds = %cleanup.done34, %_ZNSt10unique_ptrIA_PKcSt14default_deleteIS2_EED2Ev.exit
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup48
 
 lpad20:                                           ; preds = %cond.false
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action36
 
 lpad23:                                           ; preds = %invoke.cont24, %invoke.cont21
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google15ErrnoLogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp19) #40
   br label %cleanup.action36
 
 cleanup.action36:                                 ; preds = %lpad23, %lpad20
-  %.pn = phi { ptr, i32 } [ %13, %lpad23 ], [ %12, %lpad20 ]
+  %.pn = phi { ptr, i32 } [ %12, %lpad23 ], [ %11, %lpad20 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp19) #40
   br label %ehcleanup48
 
 lpad44:                                           ; preds = %if.then43
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp) #40
   br label %ehcleanup48
@@ -3034,31 +3033,31 @@ lpad44:                                           ; preds = %if.then43
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %SCOPE_EXIT_STATE7) #40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %errFds) #40
   %childDir_.i = getelementptr inbounds %"class.folly::Subprocess::Options", ptr %options, i64 0, i32 6
-  %15 = load ptr, ptr %childDir_.i, align 8, !tbaa !11
-  %16 = getelementptr inbounds %"class.folly::Subprocess::Options", ptr %options, i64 0, i32 6, i32 2
-  %cmp.i.i.i.i = icmp eq ptr %15, %16
+  %14 = load ptr, ptr %childDir_.i, align 8, !tbaa !11
+  %15 = getelementptr inbounds %"class.folly::Subprocess::Options", ptr %options, i64 0, i32 6, i32 2
+  %cmp.i.i.i.i = icmp eq ptr %14, %15
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %"_ZN5folly6detail14ScopeGuardImplIZNS_10Subprocess5spawnESt10unique_ptrIA_PKcSt14default_deleteIS6_EES5_RKNS2_7OptionsEPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EEE3$_0Lb1EED2Ev.exit"
   %_M_string_length.i.i.i.i = getelementptr inbounds %"class.folly::Subprocess::Options", ptr %options, i64 0, i32 6, i32 1
-  %17 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !16
-  %cmp3.i.i.i.i = icmp ult i64 %17, 16
+  %16 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !16
+  %cmp3.i.i.i.i = icmp ult i64 %16, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 if.then.i.i.i:                                    ; preds = %"_ZN5folly6detail14ScopeGuardImplIZNS_10Subprocess5spawnESt10unique_ptrIA_PKcSt14default_deleteIS6_EES5_RKNS2_7OptionsEPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EEE3$_0Lb1EED2Ev.exit"
-  call void @_ZdlPv(ptr noundef %15) #42
+  call void @_ZdlPv(ptr noundef %14) #42
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   %m_capacity.i.i.i.i.i.i = getelementptr inbounds %"struct.boost::container::vector_alloc_holder", ptr %options, i64 0, i32 2
-  %18 = load i64, ptr %m_capacity.i.i.i.i.i.i, align 8, !tbaa !99
-  %tobool.not.i.i.i.i.i.i = icmp eq i64 %18, 0
+  %17 = load i64, ptr %m_capacity.i.i.i.i.i.i, align 8, !tbaa !99
+  %tobool.not.i.i.i.i.i.i = icmp eq i64 %17, 0
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN5folly10Subprocess7OptionsD2Ev.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %19 = load ptr, ptr %options, align 8, !tbaa !21
-  call void @_ZdlPv(ptr noundef %19) #40
+  %18 = load ptr, ptr %options, align 8, !tbaa !21
+  call void @_ZdlPv(ptr noundef %18) #40
   br label %_ZN5folly10Subprocess7OptionsD2Ev.exit
 
 _ZN5folly10Subprocess7OptionsD2Ev.exit:           ; preds = %if.then.i.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
@@ -3066,30 +3065,30 @@ _ZN5folly10Subprocess7OptionsD2Ev.exit:           ; preds = %if.then.i.i.i.i.i.i
   ret void
 
 ehcleanup48:                                      ; preds = %lpad44, %cleanup.action36, %lpad11, %_ZNKSt14default_deleteIA_PKcEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i71, %lpad8
-  %.pn60 = phi { ptr, i32 } [ %14, %lpad44 ], [ %11, %lpad11 ], [ %.pn, %cleanup.action36 ], [ %10, %lpad8 ], [ %10, %_ZNKSt14default_deleteIA_PKcEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i71 ]
+  %.pn60 = phi { ptr, i32 } [ %13, %lpad44 ], [ %10, %lpad11 ], [ %.pn, %cleanup.action36 ], [ %9, %lpad8 ], [ %9, %_ZNKSt14default_deleteIA_PKcEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i71 ]
   call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_10Subprocess5spawnESt10unique_ptrIA_PKcSt14default_deleteIS6_EES5_RKNS2_7OptionsEPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EEE3$_1Lb1EED2Ev"(ptr noundef nonnull align 8 dereferenceable(16) %SCOPE_EXIT_STATE7) #40
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %SCOPE_EXIT_STATE7) #40
   br label %if.then.i75
 
 if.then.i75:                                      ; preds = %ehcleanup48, %lpad3
-  %.pn60.pn = phi { ptr, i32 } [ %.pn60, %ehcleanup48 ], [ %9, %lpad3 ]
+  %.pn60.pn = phi { ptr, i32 } [ %.pn60, %ehcleanup48 ], [ %8, %lpad3 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %errFds) #40
   %pipes_.i.i.i76 = getelementptr inbounds %"class.folly::Subprocess", ptr %this, i64 0, i32 3
-  %20 = load ptr, ptr %pipes_.i.i.i76, align 8, !tbaa !143
+  %19 = load ptr, ptr %pipes_.i.i.i76, align 8, !tbaa !143
   %_M_finish.i.i.i.i.i77 = getelementptr inbounds %"class.folly::Subprocess", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
-  %21 = load ptr, ptr %_M_finish.i.i.i.i.i77, align 8, !tbaa !144
-  %tobool.not.i.i.i.i.i78 = icmp eq ptr %21, %20
+  %20 = load ptr, ptr %_M_finish.i.i.i.i.i77, align 8, !tbaa !144
+  %tobool.not.i.i.i.i.i78 = icmp eq ptr %20, %19
   br i1 %tobool.not.i.i.i.i.i78, label %"_ZN5folly6detail14ScopeGuardImplIZNS_10Subprocess5spawnESt10unique_ptrIA_PKcSt14default_deleteIS6_EES5_RKNS2_7OptionsEPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EEE3$_0Lb1EED2Ev.exit84", label %for.body.i.i.i.i.i.i.i.i79
 
 for.body.i.i.i.i.i.i.i.i79:                       ; preds = %if.then.i75, %for.body.i.i.i.i.i.i.i.i79
-  %__first.addr.04.i.i.i.i.i.i.i.i80 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i81, %for.body.i.i.i.i.i.i.i.i79 ], [ %20, %if.then.i75 ]
+  %__first.addr.04.i.i.i.i.i.i.i.i80 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i81, %for.body.i.i.i.i.i.i.i.i79 ], [ %19, %if.then.i75 ]
   call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %__first.addr.04.i.i.i.i.i.i.i.i80) #40
   %incdec.ptr.i.i.i.i.i.i.i.i81 = getelementptr inbounds %"struct.folly::Subprocess::Pipe", ptr %__first.addr.04.i.i.i.i.i.i.i.i80, i64 1
-  %cmp.not.i.i.i.i.i.i.i.i82 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i81, %21
+  %cmp.not.i.i.i.i.i.i.i.i82 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i81, %20
   br i1 %cmp.not.i.i.i.i.i.i.i.i82, label %invoke.cont.i.i.i.i.i83, label %for.body.i.i.i.i.i.i.i.i79, !llvm.loop !145
 
 invoke.cont.i.i.i.i.i83:                          ; preds = %for.body.i.i.i.i.i.i.i.i79
-  store ptr %20, ptr %_M_finish.i.i.i.i.i77, align 8, !tbaa !144
+  store ptr %19, ptr %_M_finish.i.i.i.i.i77, align 8, !tbaa !144
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS_10Subprocess5spawnESt10unique_ptrIA_PKcSt14default_deleteIS6_EES5_RKNS2_7OptionsEPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EEE3$_0Lb1EED2Ev.exit84"
 
 "_ZN5folly6detail14ScopeGuardImplIZNS_10Subprocess5spawnESt10unique_ptrIA_PKcSt14default_deleteIS6_EES5_RKNS2_7OptionsEPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EEE3$_0Lb1EED2Ev.exit84": ; preds = %invoke.cont.i.i.i.i.i83, %if.then.i75
@@ -5738,7 +5737,7 @@ land.rhs:                                         ; preds = %do.body
 
 cond.false:                                       ; preds = %land.rhs
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp15) #40
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8, !tbaa !20
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp, align 8, !tbaa !20
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !20
   call void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15, ptr noundef nonnull @.str.23, i32 noundef 789, i32 noundef 3, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)
@@ -5814,7 +5813,7 @@ invoke.cont.i.i:                                  ; preds = %if.then
 
 cond.false.i.i:                                   ; preds = %invoke.cont.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i.i) #40
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp.i.i, align 8, !tbaa !20
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp.i.i, align 8, !tbaa !20
   %.fca.1.gep43.i.i = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp.i.i, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep43.i.i, align 8, !tbaa !20
   invoke void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i, ptr noundef nonnull @.str.23, i32 noundef 317, i32 noundef 3, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp.i.i)
@@ -5850,7 +5849,7 @@ invoke.cont16.i.i:                                ; preds = %if.then.i.i
 
 cond.false23.i.i:                                 ; preds = %invoke.cont16.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp26.i.i) #40
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp28.i.i, align 8, !tbaa !20
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp28.i.i, align 8, !tbaa !20
   %.fca.1.gep.i.i = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp28.i.i, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep.i.i, align 8, !tbaa !20
   invoke void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp26.i.i, ptr noundef nonnull @.str.23, i32 noundef 319, i32 noundef 3, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp28.i.i)
@@ -6317,7 +6316,7 @@ invoke.cont.i.i:                                  ; preds = %for.body.i.i
 
 cond.false.i.i:                                   ; preds = %invoke.cont.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp8.i.i) #40
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp.i.i, align 8, !tbaa !20
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp.i.i, align 8, !tbaa !20
   store i64 0, ptr %.fca.1.gep.i.i, align 8, !tbaa !20
   invoke void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp8.i.i, ptr noundef nonnull @.str.23, i32 noundef 382, i32 noundef 3, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp.i.i)
           to label %invoke.cont9.i.i unwind label %terminate.lpad.i.i
@@ -8599,7 +8598,7 @@ entry.if.end_crit_edge:                           ; preds = %entry
 
 cond.false:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp12) #40
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8, !tbaa !20
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp, align 8, !tbaa !20
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !20
   call void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp12, ptr noundef nonnull @.str.23, i32 noundef 761, i32 noundef 3, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)
@@ -8796,7 +8795,7 @@ land.rhs:                                         ; preds = %do.body
 
 cond.false:                                       ; preds = %land.rhs
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp27) #40
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8, !tbaa !20
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp, align 8, !tbaa !20
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !20
   call void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp27, ptr noundef nonnull @.str.23, i32 noundef 820, i32 noundef 3, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)

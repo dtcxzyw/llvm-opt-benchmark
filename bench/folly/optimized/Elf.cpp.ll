@@ -133,7 +133,7 @@ entry:
   %arrayinit.end = getelementptr inbounds i8, ptr %this, i64 512
   store i32 -1, ptr %arrayinit.end, align 8, !tbaa !10
   %file_ = getelementptr inbounds %"class.folly::symbolizer::ElfFile", ptr %this, i64 0, i32 2
-  store ptr inttoptr (i64 -1 to ptr), ptr %file_, align 8, !tbaa !16
+  store i64 -1, ptr %file_, align 8, !tbaa !16
   %length_ = getelementptr inbounds %"class.folly::symbolizer::ElfFile", ptr %this, i64 0, i32 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %length_, i8 0, i64 48, i1 false)
   ret void
@@ -149,7 +149,7 @@ entry:
   %arrayinit.end = getelementptr inbounds i8, ptr %this, i64 512
   store i32 -1, ptr %arrayinit.end, align 8, !tbaa !10
   %file_ = getelementptr inbounds %"class.folly::symbolizer::ElfFile", ptr %this, i64 0, i32 2
-  store ptr inttoptr (i64 -1 to ptr), ptr %file_, align 8, !tbaa !16
+  store i64 -1, ptr %file_, align 8, !tbaa !16
   %length_ = getelementptr inbounds %"class.folly::symbolizer::ElfFile", ptr %this, i64 0, i32 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %length_, i8 0, i64 48, i1 false)
   tail call void @_ZN5folly10symbolizer7ElfFile4openEPKcRKNS1_7OptionsE(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr noundef %name, ptr noundef nonnull align 1 dereferenceable(1) %options)
@@ -304,7 +304,7 @@ if.then35:                                        ; preds = %if.end31
 if.then.i:                                        ; preds = %if.then35
   %11 = load i64, ptr %length_, align 8, !tbaa !37
   %call.i = tail call i32 @munmap(ptr noundef %10, i64 noundef %11) #24
-  store ptr inttoptr (i64 -1 to ptr), ptr %file_, align 8, !tbaa !16
+  store i64 -1, ptr %file_, align 8, !tbaa !16
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then35
@@ -356,7 +356,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i53
   %length_.i.i.i.i = getelementptr inbounds %"class.folly::symbolizer::ElfFile", ptr %this, i64 0, i32 3
   %16 = load i64, ptr %length_.i.i.i.i, align 8, !tbaa !37
   %call.i.i.i.i = tail call i32 @munmap(ptr noundef %15, i64 noundef %16) #24
-  store ptr inttoptr (i64 -1 to ptr), ptr %file_.i.i.i.i, align 8, !tbaa !16
+  store i64 -1, ptr %file_.i.i.i.i, align 8, !tbaa !16
   br label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %if.then.i53
@@ -944,7 +944,7 @@ if.then:                                          ; preds = %entry
   %length_ = getelementptr inbounds %"class.folly::symbolizer::ElfFile", ptr %this, i64 0, i32 3
   %1 = load i64, ptr %length_, align 8, !tbaa !37
   %call = tail call i32 @munmap(ptr noundef %0, i64 noundef %1) #24
-  store ptr inttoptr (i64 -1 to ptr), ptr %file_, align 8, !tbaa !16
+  store i64 -1, ptr %file_, align 8, !tbaa !16
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1026,7 +1026,7 @@ if.then.i:                                        ; preds = %if.end14
   %length_.i = getelementptr inbounds %"class.folly::symbolizer::ElfFile", ptr %this, i64 0, i32 3
   %4 = load i64, ptr %length_.i, align 8, !tbaa !37
   %call.i = tail call i32 @munmap(ptr noundef %2, i64 noundef %4) #24
-  store ptr inttoptr (i64 -1 to ptr), ptr %file_.i, align 8, !tbaa !16
+  store i64 -1, ptr %file_.i, align 8, !tbaa !16
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.end14
@@ -1191,7 +1191,7 @@ if.then.i:                                        ; preds = %entry
   %length_.i = getelementptr inbounds %"class.folly::symbolizer::ElfFile", ptr %this, i64 0, i32 3
   %1 = load i64, ptr %length_.i, align 8, !tbaa !37
   %call.i = tail call i32 @munmap(ptr noundef %0, i64 noundef %1) #24
-  store ptr inttoptr (i64 -1 to ptr), ptr %file_.i, align 8, !tbaa !16
+  store i64 -1, ptr %file_.i, align 8, !tbaa !16
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
@@ -1250,7 +1250,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   store i8 0, ptr %other, align 8, !tbaa !7
   store i32 -1, ptr %fd_3, align 8, !tbaa !10
-  store ptr inttoptr (i64 -1 to ptr), ptr %file_4, align 8, !tbaa !16
+  store i64 -1, ptr %file_4, align 8, !tbaa !16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %length_5, i8 0, i64 48, i1 false)
   ret void
 
@@ -1275,7 +1275,7 @@ if.then.i:                                        ; preds = %entry
   %length_.i = getelementptr inbounds %"class.folly::symbolizer::ElfFile", ptr %this, i64 0, i32 3
   %1 = load i64, ptr %length_.i, align 8, !tbaa !37
   %call.i = tail call i32 @munmap(ptr noundef %0, i64 noundef %1) #24
-  store ptr inttoptr (i64 -1 to ptr), ptr %file_.i, align 8, !tbaa !16
+  store i64 -1, ptr %file_.i, align 8, !tbaa !16
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
@@ -1324,7 +1324,7 @@ invoke.cont:                                      ; preds = %_ZN5folly10symboliz
   store i64 %8, ptr %baseAddress_8, align 8, !tbaa !69
   store i8 0, ptr %other, align 8, !tbaa !7
   store i32 -1, ptr %fd_, align 8, !tbaa !10
-  store ptr inttoptr (i64 -1 to ptr), ptr %file_, align 8, !tbaa !16
+  store i64 -1, ptr %file_, align 8, !tbaa !16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %length_, i8 0, i64 48, i1 false)
   ret ptr %this
 

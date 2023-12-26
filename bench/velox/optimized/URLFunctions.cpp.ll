@@ -2707,55 +2707,54 @@ if.end8.i.i15:                                    ; preds = %_ZNSt7__cxx114listI
 _ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE6spliceESt20_List_const_iteratorISD_ERSF_SH_.exit18: ; preds = %_ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE6spliceESt20_List_const_iteratorISD_ERSF_SH_.exit, %if.end8.i.i15
   %22 = phi ptr [ %19, %_ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE6spliceESt20_List_const_iteratorISD_ERSF_SH_.exit ], [ %.pre122, %if.end8.i.i15 ]
   %23 = load ptr, ptr getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %24 = ptrtoint ptr %23 to i64
-  store i64 %24, ptr %second, align 8
+  store ptr %23, ptr %second, align 8
   %cmp.not4.i.i.i = icmp eq ptr %22, %temp
   br i1 %cmp.not4.i.i.i, label %if.end, label %while.body.i.i.i21
 
 while.body.i.i.i21:                               ; preds = %_ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE6spliceESt20_List_const_iteratorISD_ERSF_SH_.exit18, %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEEEEE7destroyISD_EEvRSF_PT_.exit.i.i.i
-  %__cur.05.i.i.i = phi ptr [ %25, %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEEEEE7destroyISD_EEvRSF_PT_.exit.i.i.i ], [ %22, %_ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE6spliceESt20_List_const_iteratorISD_ERSF_SH_.exit18 ]
-  %25 = load ptr, ptr %__cur.05.i.i.i, align 8
+  %__cur.05.i.i.i = phi ptr [ %24, %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEEEEE7destroyISD_EEvRSF_PT_.exit.i.i.i ], [ %22, %_ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE6spliceESt20_List_const_iteratorISD_ERSF_SH_.exit18 ]
+  %24 = load ptr, ptr %__cur.05.i.i.i, align 8
   %pn.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i.i, i64 0, i32 1, i32 0, i64 8
-  %26 = load ptr, ptr %pn.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %26, null
+  %25 = load ptr, ptr %pn.i.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEEEEE7destroyISD_EEvRSF_PT_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %while.body.i.i.i21
-  %use_count_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %26, i64 0, i32 1
-  %27 = atomicrmw sub ptr %use_count_.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %27, 1
+  %use_count_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %25, i64 0, i32 1
+  %26 = atomicrmw sub ptr %use_count_.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %26, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEEEEE7destroyISD_EEvRSF_PT_.exit.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %26, align 8
+  %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %25, align 8
   %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 2
-  %28 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
-  invoke void %28(ptr noundef nonnull align 8 dereferenceable(16) %26)
+  %27 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
+  invoke void %27(ptr noundef nonnull align 8 dereferenceable(16) %25)
           to label %.noexc.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i.i.i.i
-  %weak_count_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %26, i64 0, i32 2
-  %29 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %29, 1
+  %weak_count_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %25, i64 0, i32 2
+  %28 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %28, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEEEEE7destroyISD_EEvRSF_PT_.exit.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %.noexc.i.i.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %26, align 8
+  %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %25, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 3
-  %30 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
-  invoke void %30(ptr noundef nonnull align 8 dereferenceable(16) %26)
+  %29 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
+  invoke void %29(ptr noundef nonnull align 8 dereferenceable(16) %25)
           to label %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEEEEE7destroyISD_EEvRSF_PT_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
-  %31 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #23
+  %31 = extractvalue { ptr, i32 } %30, 0
+  call void @__clang_call_terminate(ptr %31) #23
   unreachable
 
 _ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEEEEE7destroyISD_EEvRSF_PT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %while.body.i.i.i21
   call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #24
-  %cmp.not.i.i.i22 = icmp eq ptr %25, %temp
+  %cmp.not.i.i.i22 = icmp eq ptr %24, %temp
   br i1 %cmp.not.i.i.i22, label %if.end.loopexit, label %while.body.i.i.i21, !llvm.loop !10
 
 if.end.loopexit:                                  ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEEEEE7destroyISD_EEvRSF_PT_.exit.i.i.i
@@ -2763,20 +2762,20 @@ if.end.loopexit:                                  ; preds = %_ZNSt16allocator_tr
   br label %if.end
 
 if.end:                                           ; preds = %if.end.loopexit, %_ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE6spliceESt20_List_const_iteratorISD_ERSF_SH_.exit18, %if.then
-  %33 = phi ptr [ %.pre123, %if.end.loopexit ], [ %23, %_ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE6spliceESt20_List_const_iteratorISD_ERSF_SH_.exit18 ], [ %13, %if.then ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %33, i64 0, i32 1
-  %34 = load ptr, ptr %_M_storage.i.i.i, align 8
-  store ptr %34, ptr %agg.result, align 8
+  %32 = phi ptr [ %.pre123, %if.end.loopexit ], [ %23, %_ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE6spliceESt20_List_const_iteratorISD_ERSF_SH_.exit18 ], [ %13, %if.then ]
+  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %32, i64 0, i32 1
+  %33 = load ptr, ptr %_M_storage.i.i.i, align 8
+  store ptr %33, ptr %agg.result, align 8
   %pn.i = getelementptr inbounds %"class.boost::shared_ptr.13", ptr %agg.result, i64 0, i32 1
-  %pn3.i = getelementptr inbounds %"struct.std::_List_node", ptr %33, i64 0, i32 1, i32 0, i64 8
-  %35 = load ptr, ptr %pn3.i, align 8
-  store ptr %35, ptr %pn.i, align 8
-  %cmp.not.i.i = icmp eq ptr %35, null
+  %pn3.i = getelementptr inbounds %"struct.std::_List_node", ptr %32, i64 0, i32 1, i32 0, i64 8
+  %34 = load ptr, ptr %pn3.i, align 8
+  store ptr %34, ptr %pn.i, align 8
+  %cmp.not.i.i = icmp eq ptr %34, null
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %use_count_.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %35, i64 0, i32 1
-  %36 = atomicrmw add ptr %use_count_.i.i.i, i32 1 monotonic, align 4
+  %use_count_.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %34, i64 0, i32 1
+  %35 = atomicrmw add ptr %use_count_.i.i.i, i32 1 monotonic, align 4
   br label %return
 
 if.end36:                                         ; preds = %if.end.i.i.i.i, %if.then5.i.i.i.i, %_ZNKSt4lessIN5boost16re_detail_10740021cpp_regex_traits_baseIcEEEclERKS3_S6_.exit.i.i, %_ZNSt8_Rb_treeIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt4pairIKS3_St14_List_iteratorIS4_INS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPS5_EEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPSt13_Rb_tree_nodeISF_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, %init.end
@@ -2792,27 +2791,27 @@ invoke.cont:                                      ; preds = %if.end36
           to label %_ZN5boost10shared_ptrIKNS_16re_detail_10740031cpp_regex_traits_implementationIcEEEC2IS3_EEPT_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %ehcleanup, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %37, %lpad.i ], [ %.pn, %ehcleanup ], [ %81, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %36, %lpad.i ], [ %.pn, %ehcleanup ], [ %79, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %invoke.cont
-  %37 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN5boost6detail12shared_countD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %pn.i23) #21
   br label %common.resume
 
 _ZN5boost10shared_ptrIKNS_16re_detail_10740031cpp_regex_traits_implementationIcEEEC2IS3_EEPT_.exit: ; preds = %invoke.cont
-  %38 = load ptr, ptr %agg.result, align 8
-  store ptr %38, ptr %ref.tmp38, align 8
+  %37 = load ptr, ptr %agg.result, align 8
+  store ptr %37, ptr %ref.tmp38, align 8
   %pn.i.i = getelementptr inbounds %"class.boost::shared_ptr.13", ptr %ref.tmp38, i64 0, i32 1
-  %39 = load ptr, ptr %pn.i23, align 8
-  store ptr %39, ptr %pn.i.i, align 8
-  %cmp.not.i.i.i24 = icmp eq ptr %39, null
+  %38 = load ptr, ptr %pn.i23, align 8
+  store ptr %38, ptr %pn.i.i, align 8
+  %cmp.not.i.i.i24 = icmp eq ptr %38, null
   br i1 %cmp.not.i.i.i24, label %_ZNSt4pairIN5boost10shared_ptrIKNS0_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS2_21cpp_regex_traits_baseIcEEEC2IRS6_SA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_.exit, label %if.then.i.i.i25
 
 if.then.i.i.i25:                                  ; preds = %_ZN5boost10shared_ptrIKNS_16re_detail_10740031cpp_regex_traits_implementationIcEEEC2IS3_EEPT_.exit
-  %use_count_.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %39, i64 0, i32 1
-  %40 = atomicrmw add ptr %use_count_.i.i.i.i, i32 1 monotonic, align 4
+  %use_count_.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %38, i64 0, i32 1
+  %39 = atomicrmw add ptr %use_count_.i.i.i.i, i32 1 monotonic, align 4
   br label %_ZNSt4pairIN5boost10shared_ptrIKNS0_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS2_21cpp_regex_traits_baseIcEEEC2IRS6_SA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_.exit
 
 _ZNSt4pairIN5boost10shared_ptrIKNS0_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS2_21cpp_regex_traits_baseIcEEEC2IRS6_SA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_.exit: ; preds = %_ZN5boost10shared_ptrIKNS_16re_detail_10740031cpp_regex_traits_implementationIcEEEC2IS3_EEPT_.exit, %if.then.i.i.i25
@@ -2823,16 +2822,16 @@ _ZNSt4pairIN5boost10shared_ptrIKNS0_16re_detail_10740031cpp_regex_traits_impleme
 
 invoke.cont49:                                    ; preds = %_ZNSt4pairIN5boost10shared_ptrIKNS0_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS2_21cpp_regex_traits_baseIcEEEC2IRS6_SA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_.exit
   %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i28, i64 0, i32 1
-  store ptr %38, ptr %_M_storage.i.i.i.i, align 8
+  store ptr %37, ptr %_M_storage.i.i.i.i, align 8
   %pn.i.i.i.i.i.i.i26 = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i28, i64 0, i32 1, i32 0, i64 8
   store ptr null, ptr %pn.i.i, align 8
-  store ptr %39, ptr %pn.i.i.i.i.i.i.i26, align 8
+  store ptr %38, ptr %pn.i.i.i.i.i.i.i26, align 8
   store ptr null, ptr %ref.tmp38, align 8
   %second.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i28, i64 0, i32 1, i32 0, i64 16
   store ptr null, ptr %second.i.i.i.i.i.i, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i28, ptr noundef nonnull @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data) #21
-  %41 = load i64, ptr getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %add.i.i.i27 = add i64 %41, 1
+  %40 = load i64, ptr getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %add.i.i.i27 = add i64 %40, 1
   store i64 %add.i.i.i27, ptr getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
   %.pre124 = load ptr, ptr getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
   call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(8) %k) #21
@@ -2840,46 +2839,45 @@ invoke.cont49:                                    ; preds = %_ZNSt4pairIN5boost1
   %m_pctype3.i.i.i = getelementptr inbounds %"struct.boost::re_detail_107400::cpp_regex_traits_base", ptr %k, i64 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_pctype.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_pctype3.i.i.i, i64 24, i1 false)
   %second.i.i = getelementptr inbounds %"struct.std::pair.47", ptr %ref.tmp44, i64 0, i32 1
-  %42 = ptrtoint ptr %.pre124 to i64
-  store i64 %42, ptr %second.i.i, align 8, !alias.scope !11
-  %43 = load ptr, ptr getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %43, null
+  store ptr %.pre124, ptr %second.i.i, align 8, !alias.scope !11
+  %41 = load ptr, ptr getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %cmp.not5.i.i.i.i = icmp eq ptr %41, null
   br i1 %cmp.not5.i.i.i.i, label %if.then.i, label %while.body.lr.ph.i.i.i.i
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %invoke.cont49
-  %44 = load ptr, ptr %m_pctype.i.i.i, align 8
+  %42 = load ptr, ptr %m_pctype.i.i.i, align 8
   %m_pmessages3.i.i.i.i.i.i = getelementptr inbounds %"struct.boost::re_detail_107400::cpp_regex_traits_base", ptr %ref.tmp44, i64 0, i32 2
-  %45 = load ptr, ptr %m_pmessages3.i.i.i.i.i.i, align 8
+  %43 = load ptr, ptr %m_pmessages3.i.i.i.i.i.i, align 8
   %m_pcollate6.i.i.i.i.i.i = getelementptr inbounds %"struct.boost::re_detail_107400::cpp_regex_traits_base", ptr %ref.tmp44, i64 0, i32 3
-  %46 = load ptr, ptr %m_pcollate6.i.i.i.i.i.i, align 8
+  %44 = load ptr, ptr %m_pcollate6.i.i.i.i.i.i, align 8
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i.i.i.i39, %while.body.lr.ph.i.i.i.i
-  %__x.addr.07.i.i.i.i = phi ptr [ %43, %while.body.lr.ph.i.i.i.i ], [ %__x.addr.1.i.i.i.i, %if.end.i.i.i.i39 ]
+  %__x.addr.07.i.i.i.i = phi ptr [ %41, %while.body.lr.ph.i.i.i.i ], [ %__x.addr.1.i.i.i.i, %if.end.i.i.i.i39 ]
   %__y.addr.06.i.i.i.i = phi ptr [ getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), %while.body.lr.ph.i.i.i.i ], [ %__y.addr.1.i.i.i.i, %if.end.i.i.i.i39 ]
   %m_pctype.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i.i, i64 0, i32 1, i32 0, i64 8
-  %47 = load ptr, ptr %m_pctype.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp eq ptr %47, %44
+  %45 = load ptr, ptr %m_pctype.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i = icmp eq ptr %45, %42
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNKSt4lessIN5boost16re_detail_10740021cpp_regex_traits_baseIcEEEclERKS3_S6_.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i
   %m_pmessages.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i.i, i64 0, i32 1, i32 0, i64 16
-  %48 = load ptr, ptr %m_pmessages.i.i.i.i.i.i, align 8
-  %cmp4.i.i.i.i.i.i = icmp eq ptr %48, %45
+  %46 = load ptr, ptr %m_pmessages.i.i.i.i.i.i, align 8
+  %cmp4.i.i.i.i.i.i = icmp eq ptr %46, %43
   br i1 %cmp4.i.i.i.i.i.i, label %if.then5.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then5.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
   %m_pcollate.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i.i, i64 0, i32 1, i32 0, i64 24
-  %49 = load ptr, ptr %m_pcollate.i.i.i.i.i.i, align 8
-  %cmp7.i.i.i.i.i.i = icmp ult ptr %49, %46
+  %47 = load ptr, ptr %m_pcollate.i.i.i.i.i.i, align 8
+  %cmp7.i.i.i.i.i.i = icmp ult ptr %47, %44
   br i1 %cmp7.i.i.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i38
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i.i
-  %cmp10.i.i.i.i.i.i = icmp ult ptr %48, %45
+  %cmp10.i.i.i.i.i.i = icmp ult ptr %46, %43
   br i1 %cmp10.i.i.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i38
 
 _ZNKSt4lessIN5boost16re_detail_10740021cpp_regex_traits_baseIcEEEclERKS3_S6_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i
-  %cmp14.i.i.i.i.i.i = icmp ult ptr %47, %44
+  %cmp14.i.i.i.i.i.i = icmp ult ptr %45, %42
   br i1 %cmp14.i.i.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i38
 
 if.then.i.i.i.i38:                                ; preds = %_ZNKSt4lessIN5boost16re_detail_10740021cpp_regex_traits_baseIcEEEclERKS3_S6_.exit.i.i.i.i, %if.end.i.i.i.i.i.i, %if.then5.i.i.i.i.i.i
@@ -2903,28 +2901,28 @@ _ZNSt3mapIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt14_List_iterator
 
 lor.rhs.i:                                        ; preds = %_ZNSt3mapIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt14_List_iteratorISt4pairINS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPKS3_EESt4lessIS3_ESaIS5_ISB_SE_EEE11lower_boundERSB_.exit.i
   %m_pctype2.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1, i32 0, i64 8
-  %50 = load ptr, ptr %m_pctype2.i.i.i, align 8
-  %cmp.i.i.i40 = icmp eq ptr %44, %50
+  %48 = load ptr, ptr %m_pctype2.i.i.i, align 8
+  %cmp.i.i.i40 = icmp eq ptr %42, %48
   br i1 %cmp.i.i.i40, label %if.then.i.i.i41, label %_ZNKSt4lessIN5boost16re_detail_10740021cpp_regex_traits_baseIcEEEclERKS3_S6_.exit.i
 
 if.then.i.i.i41:                                  ; preds = %lor.rhs.i
   %m_pmessages3.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1, i32 0, i64 16
-  %51 = load ptr, ptr %m_pmessages3.i.i.i, align 8
-  %cmp4.i.i.i = icmp eq ptr %45, %51
+  %49 = load ptr, ptr %m_pmessages3.i.i.i, align 8
+  %cmp4.i.i.i = icmp eq ptr %43, %49
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %if.end.i.i.i42
 
 if.then5.i.i.i:                                   ; preds = %if.then.i.i.i41
   %m_pcollate6.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1, i32 0, i64 24
-  %52 = load ptr, ptr %m_pcollate6.i.i.i, align 8
-  %cmp7.i.i.i = icmp ult ptr %46, %52
+  %50 = load ptr, ptr %m_pcollate6.i.i.i, align 8
+  %cmp7.i.i.i = icmp ult ptr %44, %50
   br i1 %cmp7.i.i.i, label %if.then.i, label %invoke.cont51
 
 if.end.i.i.i42:                                   ; preds = %if.then.i.i.i41
-  %cmp10.i.i.i = icmp ult ptr %45, %51
+  %cmp10.i.i.i = icmp ult ptr %43, %49
   br i1 %cmp10.i.i.i, label %if.then.i, label %invoke.cont51
 
 _ZNKSt4lessIN5boost16re_detail_10740021cpp_regex_traits_baseIcEEEclERKS3_S6_.exit.i: ; preds = %lor.rhs.i
-  %cmp14.i.i.i = icmp ult ptr %44, %50
+  %cmp14.i.i.i = icmp ult ptr %42, %48
   br i1 %cmp14.i.i.i, label %if.then.i, label %invoke.cont51
 
 if.then.i:                                        ; preds = %_ZNKSt4lessIN5boost16re_detail_10740021cpp_regex_traits_baseIcEEEclERKS3_S6_.exit.i, %if.end.i.i.i42, %if.then5.i.i.i, %_ZNSt3mapIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt14_List_iteratorISt4pairINS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPKS3_EESt4lessIS3_ESaIS5_ISB_SE_EEE11lower_boundERSB_.exit.i, %invoke.cont49
@@ -2934,44 +2932,44 @@ if.then.i:                                        ; preds = %_ZNKSt4lessIN5boost
 
 invoke.cont51:                                    ; preds = %_ZNKSt4lessIN5boost16re_detail_10740021cpp_regex_traits_baseIcEEEclERKS3_S6_.exit.i, %if.end.i.i.i42, %if.then5.i.i.i, %if.then.i
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp44) #21
-  %53 = load ptr, ptr getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
-  %cmp.not5.i.i.i44 = icmp eq ptr %53, null
+  %51 = load ptr, ptr getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1), align 8
+  %cmp.not5.i.i.i44 = icmp eq ptr %51, null
   br i1 %cmp.not5.i.i.i44, label %invoke.cont54, label %while.body.lr.ph.i.i.i45
 
 while.body.lr.ph.i.i.i45:                         ; preds = %invoke.cont51
-  %54 = load ptr, ptr %m_pctype3.i.i.i, align 8
+  %52 = load ptr, ptr %m_pctype3.i.i.i, align 8
   %m_pmessages3.i.i.i.i.i47 = getelementptr inbounds %"struct.boost::re_detail_107400::cpp_regex_traits_base", ptr %k, i64 0, i32 2
-  %55 = load ptr, ptr %m_pmessages3.i.i.i.i.i47, align 8
+  %53 = load ptr, ptr %m_pmessages3.i.i.i.i.i47, align 8
   %m_pcollate6.i.i.i.i.i48 = getelementptr inbounds %"struct.boost::re_detail_107400::cpp_regex_traits_base", ptr %k, i64 0, i32 3
-  %56 = load ptr, ptr %m_pcollate6.i.i.i.i.i48, align 8
+  %54 = load ptr, ptr %m_pcollate6.i.i.i.i.i48, align 8
   br label %while.body.i.i.i49
 
 while.body.i.i.i49:                               ; preds = %if.end.i.i.i58, %while.body.lr.ph.i.i.i45
-  %__x.addr.07.i.i.i50 = phi ptr [ %53, %while.body.lr.ph.i.i.i45 ], [ %__x.addr.1.i.i.i61, %if.end.i.i.i58 ]
+  %__x.addr.07.i.i.i50 = phi ptr [ %51, %while.body.lr.ph.i.i.i45 ], [ %__x.addr.1.i.i.i61, %if.end.i.i.i58 ]
   %__y.addr.06.i.i.i51 = phi ptr [ getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), %while.body.lr.ph.i.i.i45 ], [ %__y.addr.1.i.i.i59, %if.end.i.i.i58 ]
   %m_pctype.i.i.i.i.i52 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i50, i64 0, i32 1, i32 0, i64 8
-  %57 = load ptr, ptr %m_pctype.i.i.i.i.i52, align 8
-  %cmp.i.i.i.i.i53 = icmp eq ptr %57, %54
+  %55 = load ptr, ptr %m_pctype.i.i.i.i.i52, align 8
+  %cmp.i.i.i.i.i53 = icmp eq ptr %55, %52
   br i1 %cmp.i.i.i.i.i53, label %if.then.i.i.i.i.i82, label %_ZNKSt4lessIN5boost16re_detail_10740021cpp_regex_traits_baseIcEEEclERKS3_S6_.exit.i.i.i54
 
 if.then.i.i.i.i.i82:                              ; preds = %while.body.i.i.i49
   %m_pmessages.i.i.i.i.i83 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i50, i64 0, i32 1, i32 0, i64 16
-  %58 = load ptr, ptr %m_pmessages.i.i.i.i.i83, align 8
-  %cmp4.i.i.i.i.i84 = icmp eq ptr %58, %55
+  %56 = load ptr, ptr %m_pmessages.i.i.i.i.i83, align 8
+  %cmp4.i.i.i.i.i84 = icmp eq ptr %56, %53
   br i1 %cmp4.i.i.i.i.i84, label %if.then5.i.i.i.i.i87, label %if.end.i.i.i.i.i85
 
 if.then5.i.i.i.i.i87:                             ; preds = %if.then.i.i.i.i.i82
   %m_pcollate.i.i.i.i.i88 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i50, i64 0, i32 1, i32 0, i64 24
-  %59 = load ptr, ptr %m_pcollate.i.i.i.i.i88, align 8
-  %cmp7.i.i.i.i.i89 = icmp ult ptr %59, %56
+  %57 = load ptr, ptr %m_pcollate.i.i.i.i.i88, align 8
+  %cmp7.i.i.i.i.i89 = icmp ult ptr %57, %54
   br i1 %cmp7.i.i.i.i.i89, label %if.else.i.i.i80, label %if.then.i.i.i56
 
 if.end.i.i.i.i.i85:                               ; preds = %if.then.i.i.i.i.i82
-  %cmp10.i.i.i.i.i86 = icmp ult ptr %58, %55
+  %cmp10.i.i.i.i.i86 = icmp ult ptr %56, %53
   br i1 %cmp10.i.i.i.i.i86, label %if.else.i.i.i80, label %if.then.i.i.i56
 
 _ZNKSt4lessIN5boost16re_detail_10740021cpp_regex_traits_baseIcEEEclERKS3_S6_.exit.i.i.i54: ; preds = %while.body.i.i.i49
-  %cmp14.i.i.i.i.i55 = icmp ult ptr %57, %54
+  %cmp14.i.i.i.i.i55 = icmp ult ptr %55, %52
   br i1 %cmp14.i.i.i.i.i55, label %if.else.i.i.i80, label %if.then.i.i.i56
 
 if.then.i.i.i56:                                  ; preds = %_ZNKSt4lessIN5boost16re_detail_10740021cpp_regex_traits_baseIcEEEclERKS3_S6_.exit.i.i.i54, %if.end.i.i.i.i.i85, %if.then5.i.i.i.i.i87
@@ -2995,28 +2993,28 @@ _ZNSt8_Rb_treeIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt4pairIKS3_S
 
 lor.lhs.false.i.i65:                              ; preds = %_ZNSt8_Rb_treeIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt4pairIKS3_St14_List_iteratorIS4_INS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPS5_EEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPSt13_Rb_tree_nodeISF_EPSt18_Rb_tree_node_baseRS5_.exit.i.i63
   %m_pctype2.i.i.i.i66 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i59, i64 0, i32 1, i32 0, i64 8
-  %60 = load ptr, ptr %m_pctype2.i.i.i.i66, align 8
-  %cmp.i.i.i.i67 = icmp eq ptr %54, %60
+  %58 = load ptr, ptr %m_pctype2.i.i.i.i66, align 8
+  %cmp.i.i.i.i67 = icmp eq ptr %52, %58
   br i1 %cmp.i.i.i.i67, label %if.then.i.i.i.i72, label %_ZNKSt4lessIN5boost16re_detail_10740021cpp_regex_traits_baseIcEEEclERKS3_S6_.exit.i.i68
 
 if.then.i.i.i.i72:                                ; preds = %lor.lhs.false.i.i65
   %m_pmessages3.i.i.i.i73 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i59, i64 0, i32 1, i32 0, i64 16
-  %61 = load ptr, ptr %m_pmessages3.i.i.i.i73, align 8
-  %cmp4.i.i.i.i74 = icmp eq ptr %55, %61
+  %59 = load ptr, ptr %m_pmessages3.i.i.i.i73, align 8
+  %cmp4.i.i.i.i74 = icmp eq ptr %53, %59
   br i1 %cmp4.i.i.i.i74, label %if.then5.i.i.i.i77, label %if.end.i.i.i.i75
 
 if.then5.i.i.i.i77:                               ; preds = %if.then.i.i.i.i72
   %m_pcollate6.i.i.i.i78 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i59, i64 0, i32 1, i32 0, i64 24
-  %62 = load ptr, ptr %m_pcollate6.i.i.i.i78, align 8
-  %cmp7.i.i.i.i79 = icmp ult ptr %56, %62
+  %60 = load ptr, ptr %m_pcollate6.i.i.i.i78, align 8
+  %cmp7.i.i.i.i79 = icmp ult ptr %54, %60
   br i1 %cmp7.i.i.i.i79, label %invoke.cont54, label %cond.false.i.i70
 
 if.end.i.i.i.i75:                                 ; preds = %if.then.i.i.i.i72
-  %cmp10.i.i.i.i76 = icmp ult ptr %55, %61
+  %cmp10.i.i.i.i76 = icmp ult ptr %53, %59
   br i1 %cmp10.i.i.i.i76, label %invoke.cont54, label %cond.false.i.i70
 
 _ZNKSt4lessIN5boost16re_detail_10740021cpp_regex_traits_baseIcEEEclERKS3_S6_.exit.i.i68: ; preds = %lor.lhs.false.i.i65
-  %cmp14.i.i.i.i69 = icmp ult ptr %54, %60
+  %cmp14.i.i.i.i69 = icmp ult ptr %52, %58
   br i1 %cmp14.i.i.i.i69, label %invoke.cont54, label %cond.false.i.i70
 
 cond.false.i.i70:                                 ; preds = %_ZNKSt4lessIN5boost16re_detail_10740021cpp_regex_traits_baseIcEEEclERKS3_S6_.exit.i.i68, %if.end.i.i.i.i75, %if.then5.i.i.i.i77
@@ -3025,83 +3023,83 @@ cond.false.i.i70:                                 ; preds = %_ZNKSt4lessIN5boost
 invoke.cont54:                                    ; preds = %cond.false.i.i70, %_ZNKSt4lessIN5boost16re_detail_10740021cpp_regex_traits_baseIcEEEclERKS3_S6_.exit.i.i68, %if.end.i.i.i.i75, %if.then5.i.i.i.i77, %_ZNSt8_Rb_treeIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt4pairIKS3_St14_List_iteratorIS4_INS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPS5_EEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPSt13_Rb_tree_nodeISF_EPSt18_Rb_tree_node_baseRS5_.exit.i.i63, %invoke.cont51
   %retval.sroa.0.0.i.i71 = phi ptr [ %__y.addr.1.i.i.i59, %cond.false.i.i70 ], [ getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), %if.end.i.i.i.i75 ], [ getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), %if.then5.i.i.i.i77 ], [ getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), %_ZNKSt4lessIN5boost16re_detail_10740021cpp_regex_traits_baseIcEEEclERKS3_S6_.exit.i.i68 ], [ getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), %_ZNSt8_Rb_treeIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt4pairIKS3_St14_List_iteratorIS4_INS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPS5_EEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE14_M_lower_boundEPSt13_Rb_tree_nodeISF_EPSt18_Rb_tree_node_baseRS5_.exit.i.i63 ], [ getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0), %invoke.cont51 ]
   %_M_storage.i.i91 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %retval.sroa.0.0.i.i71, i64 0, i32 1
-  %63 = load ptr, ptr getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %second60 = getelementptr inbounds %"struct.std::_List_node", ptr %63, i64 0, i32 1, i32 0, i64 16
+  %61 = load ptr, ptr getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %second60 = getelementptr inbounds %"struct.std::_List_node", ptr %61, i64 0, i32 1, i32 0, i64 16
   store ptr %_M_storage.i.i91, ptr %second60, align 8
-  %64 = load i64, ptr getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 1, i32 0, i32 0, i32 1, i32 1), align 8
-  %cmp = icmp ugt i64 %64, %l_max_cache_size
-  %65 = load ptr, ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, align 8
-  %cmp.i93118 = icmp ne ptr %65, @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data
+  %62 = load i64, ptr getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 1, i32 0, i32 0, i32 1, i32 1), align 8
+  %cmp = icmp ugt i64 %62, %l_max_cache_size
+  %63 = load ptr, ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, align 8
+  %cmp.i93118 = icmp ne ptr %63, @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data
   %or.cond = select i1 %cmp, i1 %cmp.i93118, i1 false
   br i1 %or.cond, label %while.body, label %return
 
 while.body:                                       ; preds = %invoke.cont54, %if.end84
-  %s.0120 = phi i64 [ %s.1, %if.end84 ], [ %64, %invoke.cont54 ]
-  %pos.sroa.0.0119 = phi ptr [ %pos.sroa.0.1, %if.end84 ], [ %65, %invoke.cont54 ]
+  %s.0120 = phi i64 [ %s.1, %if.end84 ], [ %62, %invoke.cont54 ]
+  %pos.sroa.0.0119 = phi ptr [ %pos.sroa.0.1, %if.end84 ], [ %63, %invoke.cont54 ]
   %pn.i95 = getelementptr inbounds %"struct.std::_List_node", ptr %pos.sroa.0.0119, i64 0, i32 1, i32 0, i64 8
-  %66 = load ptr, ptr %pn.i95, align 8
-  %cmp.not.i.i.i96 = icmp eq ptr %66, null
+  %64 = load ptr, ptr %pn.i95, align 8
+  %cmp.not.i.i.i96 = icmp eq ptr %64, null
   br i1 %cmp.not.i.i.i96, label %if.else, label %_ZNK5boost10shared_ptrIKNS_16re_detail_10740031cpp_regex_traits_implementationIcEEE6uniqueEv.exit
 
 _ZNK5boost10shared_ptrIKNS_16re_detail_10740031cpp_regex_traits_implementationIcEEE6uniqueEv.exit: ; preds = %while.body
-  %use_count_.i.i.i.i97 = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %66, i64 0, i32 1
-  %67 = load atomic i32, ptr %use_count_.i.i.i.i97 acquire, align 4
-  %68 = icmp eq i32 %67, 1
-  br i1 %68, label %if.then72, label %if.else
+  %use_count_.i.i.i.i97 = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %64, i64 0, i32 1
+  %65 = load atomic i32, ptr %use_count_.i.i.i.i97 acquire, align 4
+  %66 = icmp eq i32 %65, 1
+  br i1 %66, label %if.then72, label %if.else
 
 if.then72:                                        ; preds = %_ZNK5boost10shared_ptrIKNS_16re_detail_10740031cpp_regex_traits_implementationIcEEE6uniqueEv.exit
-  %69 = load ptr, ptr %pos.sroa.0.0119, align 8
+  %67 = load ptr, ptr %pos.sroa.0.0119, align 8
   %second75 = getelementptr inbounds %"struct.std::_List_node", ptr %pos.sroa.0.0119, i64 0, i32 1, i32 0, i64 16
-  %70 = load ptr, ptr %second75, align 8
-  %call.i.i100 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt4pairIKS3_St14_List_iteratorIS4_INS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPS5_EEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE11equal_rangeERS5_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 1), ptr noundef nonnull align 8 dereferenceable(32) %70)
+  %68 = load ptr, ptr %second75, align 8
+  %call.i.i100 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt4pairIKS3_St14_List_iteratorIS4_INS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPS5_EEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE11equal_rangeERS5_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 1), ptr noundef nonnull align 8 dereferenceable(32) %68)
           to label %call.i.i.noexc99 unwind label %lpad40
 
 call.i.i.noexc99:                                 ; preds = %if.then72
-  %71 = extractvalue { ptr, ptr } %call.i.i100, 0
-  %72 = extractvalue { ptr, ptr } %call.i.i100, 1
-  invoke void @_ZNSt8_Rb_treeIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt4pairIKS3_St14_List_iteratorIS4_INS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPS5_EEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE12_M_erase_auxESt23_Rb_tree_const_iteratorISF_ESN_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 1), ptr %71, ptr %72)
+  %69 = extractvalue { ptr, ptr } %call.i.i100, 0
+  %70 = extractvalue { ptr, ptr } %call.i.i100, 1
+  invoke void @_ZNSt8_Rb_treeIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt4pairIKS3_St14_List_iteratorIS4_INS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPS5_EEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE12_M_erase_auxESt23_Rb_tree_const_iteratorISF_ESN_(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 1), ptr %69, ptr %70)
           to label %invoke.cont76 unwind label %lpad40
 
 invoke.cont76:                                    ; preds = %call.i.i.noexc99
-  %73 = load i64, ptr getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
-  %sub.i.i.i101 = add i64 %73, -1
+  %71 = load i64, ptr getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
+  %sub.i.i.i101 = add i64 %71, -1
   store i64 %sub.i.i.i101, ptr getelementptr inbounds (%"struct.boost::object_cache<boost::re_detail_107400::cpp_regex_traits_base<char>, boost::re_detail_107400::cpp_regex_traits_implementation<char>>::data", ptr @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data, i64 0, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
   call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %pos.sroa.0.0119) #21
-  %74 = load ptr, ptr %pn.i95, align 8
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %74, null
+  %72 = load ptr, ptr %pn.i95, align 8
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %72, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE5eraseESt20_List_const_iteratorISD_E.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont76
-  %use_count_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %74, i64 0, i32 1
-  %75 = atomicrmw sub ptr %use_count_.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %75, 1
+  %use_count_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %72, i64 0, i32 1
+  %73 = atomicrmw sub ptr %use_count_.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %73, 1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i102, label %_ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE5eraseESt20_List_const_iteratorISD_E.exit
 
 if.then.i.i.i.i.i.i.i.i102:                       ; preds = %if.then.i.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %74, align 8
+  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %72, align 8
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
-  %76 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
-  invoke void %76(ptr noundef nonnull align 8 dereferenceable(16) %74)
+  %74 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
+  invoke void %74(ptr noundef nonnull align 8 dereferenceable(16) %72)
           to label %.noexc.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i.i.i102
-  %weak_count_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %74, i64 0, i32 2
-  %77 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i.i.i.i.i103 = icmp eq i32 %77, 1
+  %weak_count_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %72, i64 0, i32 2
+  %75 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i.i.i.i.i103 = icmp eq i32 %75, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i103, label %if.then.i.i.i.i.i.i.i.i.i104, label %_ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE5eraseESt20_List_const_iteratorISD_E.exit
 
 if.then.i.i.i.i.i.i.i.i.i104:                     ; preds = %.noexc.i.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i.i105 = load ptr, ptr %74, align 8
+  %vtable.i.i.i.i.i.i.i.i.i105 = load ptr, ptr %72, align 8
   %vfn.i.i.i.i.i.i.i.i.i106 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i105, i64 3
-  %78 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i106, align 8
-  invoke void %78(ptr noundef nonnull align 8 dereferenceable(16) %74)
+  %76 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i106, align 8
+  invoke void %76(ptr noundef nonnull align 8 dereferenceable(16) %72)
           to label %_ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE5eraseESt20_List_const_iteratorISD_E.exit unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i.i.i.i104, %if.then.i.i.i.i.i.i.i.i102
-  %79 = landingpad { ptr, i32 }
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #23
+  %78 = extractvalue { ptr, i32 } %77, 0
+  call void @__clang_call_terminate(ptr %78) #23
   unreachable
 
 _ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE5eraseESt20_List_const_iteratorISD_E.exit: ; preds = %invoke.cont76, %if.then.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i104
@@ -3110,42 +3108,42 @@ _ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_rege
   br label %if.end84
 
 lpad:                                             ; preds = %if.end36
-  %81 = landingpad { ptr, i32 }
+  %79 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call37) #24
   br label %common.resume
 
 lpad40:                                           ; preds = %call.i.i.noexc99, %if.then72
-  %82 = landingpad { ptr, i32 }
+  %80 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad42:                                           ; preds = %_ZNSt4pairIN5boost10shared_ptrIKNS0_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS2_21cpp_regex_traits_baseIcEEEC2IRS6_SA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_.exit
-  %83 = landingpad { ptr, i32 }
+  %81 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt4pairIN5boost10shared_ptrIKNS0_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS2_21cpp_regex_traits_baseIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp38) #21
   br label %ehcleanup
 
 lpad50:                                           ; preds = %if.then.i
-  %84 = landingpad { ptr, i32 }
+  %82 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp44) #21
   br label %ehcleanup
 
 if.else:                                          ; preds = %while.body, %_ZNK5boost10shared_ptrIKNS_16re_detail_10740031cpp_regex_traits_implementationIcEEE6uniqueEv.exit
-  %85 = load ptr, ptr %pos.sroa.0.0119, align 8
+  %83 = load ptr, ptr %pos.sroa.0.0119, align 8
   br label %if.end84
 
 if.end84:                                         ; preds = %if.else, %_ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE5eraseESt20_List_const_iteratorISD_E.exit
-  %pos.sroa.0.1 = phi ptr [ %69, %_ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE5eraseESt20_List_const_iteratorISD_E.exit ], [ %85, %if.else ]
+  %pos.sroa.0.1 = phi ptr [ %67, %_ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE5eraseESt20_List_const_iteratorISD_E.exit ], [ %83, %if.else ]
   %s.1 = phi i64 [ %dec, %_ZNSt7__cxx114listISt4pairIN5boost10shared_ptrIKNS2_16re_detail_10740031cpp_regex_traits_implementationIcEEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EE5eraseESt20_List_const_iteratorISD_E.exit ], [ %s.0120, %if.else ]
   %cmp.i93 = icmp ne ptr %pos.sroa.0.1, @_ZZN5boost12object_cacheINS_16re_detail_10740021cpp_regex_traits_baseIcEENS1_31cpp_regex_traits_implementationIcEEE6do_getERKS3_mE6s_data
   %cmp68 = icmp ugt i64 %s.1, %l_max_cache_size
-  %86 = select i1 %cmp.i93, i1 %cmp68, i1 false
-  br i1 %86, label %while.body, label %return, !llvm.loop !14
+  %84 = select i1 %cmp.i93, i1 %cmp68, i1 false
+  br i1 %84, label %while.body, label %return, !llvm.loop !14
 
 ehcleanup:                                        ; preds = %lpad50, %lpad42, %lpad40
-  %.pn = phi { ptr, i32 } [ %82, %lpad40 ], [ %84, %lpad50 ], [ %83, %lpad42 ]
+  %.pn = phi { ptr, i32 } [ %80, %lpad40 ], [ %82, %lpad50 ], [ %81, %lpad42 ]
   call void @_ZN5boost10shared_ptrIKNS_16re_detail_10740031cpp_regex_traits_implementationIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #21
   br label %common.resume
 
@@ -7316,7 +7314,7 @@ if.end:                                           ; preds = %entry
 
 sw.bb:                                            ; preds = %if.end
   %m_parser_proc = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this, i64 0, i32 1
-  store i64 ptrtoint (ptr @_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE14parse_extendedEv to i64), ptr %m_parser_proc, align 8
+  store ptr @_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE14parse_extendedEv, ptr %m_parser_proc, align 8
   %m_parser_proc.repack12 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this, i64 0, i32 1, i32 1
   store i64 0, ptr %m_parser_proc.repack12, align 8
   %3 = load ptr, ptr %this, align 8
@@ -7393,14 +7391,14 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
 
 sw.bb8:                                           ; preds = %if.end
   %m_parser_proc9 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this, i64 0, i32 1
-  store i64 ptrtoint (ptr @_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE11parse_basicEv to i64), ptr %m_parser_proc9, align 8
+  store ptr @_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE11parse_basicEv, ptr %m_parser_proc9, align 8
   %m_parser_proc9.repack11 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this, i64 0, i32 1, i32 1
   store i64 0, ptr %m_parser_proc9.repack11, align 8
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %if.end
   %m_parser_proc11 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this, i64 0, i32 1
-  store i64 ptrtoint (ptr @_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE13parse_literalEv to i64), ptr %m_parser_proc11, align 8
+  store ptr @_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE13parse_literalEv, ptr %m_parser_proc11, align 8
   %m_parser_proc11.repack10 = getelementptr inbounds %"class.boost::re_detail_107400::basic_regex_parser", ptr %this, i64 0, i32 1, i32 1
   store i64 0, ptr %m_parser_proc11.repack10, align 8
   br label %sw.epilog

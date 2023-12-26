@@ -143,8 +143,7 @@ land.lhs.true:                                    ; preds = %if.end4
   br i1 %cmp.i.i.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %land.lhs.true
-  %5 = ptrtoint ptr %4 to i64
-  store i64 %5, ptr %out, align 8
+  store ptr %4, ptr %out, align 8
   store ptr null, ptr %cachedIOBuf_, align 8
   br label %invoke.cont
 
@@ -154,12 +153,12 @@ cond.false:                                       ; preds = %land.lhs.true, %if.
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %cond.true, %cond.false
-  %6 = phi ptr [ %4, %cond.true ], [ %.pre, %cond.false ]
-  store ptr %6, ptr %appender, align 8
+  %5 = phi ptr [ %4, %cond.true ], [ %.pre, %cond.false ]
+  store ptr %5, ptr %appender, align 8
   %crtBuf_.i = getelementptr inbounds %"class.folly::io::Appender", ptr %appender, i64 0, i32 1
-  %prev_.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %6, i64 0, i32 5
-  %7 = load ptr, ptr %prev_.i.i, align 8
-  store ptr %7, ptr %crtBuf_.i, align 8
+  %prev_.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %5, i64 0, i32 5
+  %6 = load ptr, ptr %prev_.i.i, align 8
+  store ptr %6, ptr %crtBuf_.i, align 8
   %growth_.i = getelementptr inbounds %"class.folly::io::Appender", ptr %appender, i64 0, i32 2
   store i64 %call5, ptr %growth_.i, align 8
   invoke void @_ZNK5folly5IOBuf6cbeginEv(ptr nonnull sret(%"class.folly::IOBuf::Iterator") align 8 %__begin1, ptr noundef nonnull align 8 dereferenceable(56) %in)
@@ -172,12 +171,12 @@ invoke.cont9:                                     ; preds = %invoke.cont
 invoke.cont11.preheader:                          ; preds = %invoke.cont9
   %end_.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf::Iterator", ptr %__begin1, i64 0, i32 1
   %end_3.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf::Iterator", ptr %__end1, i64 0, i32 1
-  %8 = load ptr, ptr %__begin1, align 8
-  %9 = load ptr, ptr %__end1, align 8
-  %cmp.i.i.i.i15 = icmp ne ptr %8, %9
-  %10 = load ptr, ptr %end_.i.i.i.i, align 8
-  %11 = load ptr, ptr %end_3.i.i.i.i, align 8
-  %cmp4.i.i.i.i16 = icmp ne ptr %10, %11
+  %7 = load ptr, ptr %__begin1, align 8
+  %8 = load ptr, ptr %__end1, align 8
+  %cmp.i.i.i.i15 = icmp ne ptr %7, %8
+  %9 = load ptr, ptr %end_.i.i.i.i, align 8
+  %10 = load ptr, ptr %end_3.i.i.i.i, align 8
+  %cmp4.i.i.i.i16 = icmp ne ptr %9, %10
   %.not.i17 = select i1 %cmp.i.i.i.i15, i1 true, i1 %cmp4.i.i.i.i16
   br i1 %.not.i17, label %invoke.cont13.lr.ph, label %for.end
 
@@ -193,10 +192,10 @@ invoke.cont13.lr.ph:                              ; preds = %invoke.cont11.prehe
   br label %invoke.cont13
 
 invoke.cont13:                                    ; preds = %invoke.cont13.lr.ph, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit
-  %12 = phi ptr [ %10, %invoke.cont13.lr.ph ], [ %33, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
-  %13 = phi ptr [ %8, %invoke.cont13.lr.ph ], [ %34, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
-  %14 = phi ptr [ %.pre18, %invoke.cont13.lr.ph ], [ %35, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
-  %cmp = icmp eq ptr %14, null
+  %11 = phi ptr [ %9, %invoke.cont13.lr.ph ], [ %32, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
+  %12 = phi ptr [ %7, %invoke.cont13.lr.ph ], [ %33, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
+  %13 = phi ptr [ %.pre18, %invoke.cont13.lr.ph ], [ %34, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
+  %cmp = icmp eq ptr %13, null
   br i1 %cmp, label %for.inc, label %if.end18
 
 lpad.loopexit:                                    ; preds = %while.body, %invoke.cont53, %invoke.cont58
@@ -215,14 +214,14 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 if.end18:                                         ; preds = %invoke.cont13
-  store ptr %14, ptr %ibuf, align 8
-  %15 = load ptr, ptr %e_.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %15 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %14 to i64
+  store ptr %13, ptr %ibuf, align 8
+  %14 = load ptr, ptr %e_.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store i64 %sub.ptr.sub.i, ptr %size, align 8
   store i64 0, ptr %pos, align 8
-  %cmp2514.not = icmp eq ptr %15, %14
+  %cmp2514.not = icmp eq ptr %14, %13
   br i1 %cmp2514.not, label %for.inc, label %while.body
 
 while.body:                                       ; preds = %if.end18, %if.end69
@@ -231,26 +230,26 @@ while.body:                                       ; preds = %if.end18, %if.end69
           to label %invoke.cont53 unwind label %lpad.loopexit
 
 invoke.cont53:                                    ; preds = %while.body
-  %16 = load ptr, ptr %crtBuf_.i, align 8
-  %data_.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %16, i64 0, i32 1
-  %17 = load ptr, ptr %data_.i.i, align 8
-  %18 = load i64, ptr %16, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %17, i64 %18
+  %15 = load ptr, ptr %crtBuf_.i, align 8
+  %data_.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %15, i64 0, i32 1
+  %16 = load ptr, ptr %data_.i.i, align 8
+  %17 = load i64, ptr %15, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %16, i64 %17
   store ptr %add.ptr.i.i, ptr %obuf, align 8
-  %buf_.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %16, i64 0, i32 3
-  %19 = load ptr, ptr %buf_.i.i.i, align 8
-  %capacity_.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %16, i64 0, i32 2
-  %20 = load i64, ptr %capacity_.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %19, i64 %20
-  %21 = load i64, ptr %16, align 8
-  %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %17, i64 %21
+  %buf_.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %15, i64 0, i32 3
+  %18 = load ptr, ptr %buf_.i.i.i, align 8
+  %capacity_.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %15, i64 0, i32 2
+  %19 = load i64, ptr %capacity_.i.i.i, align 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %18, i64 %19
+  %20 = load i64, ptr %15, align 8
+  %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %16, i64 %20
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr.i1.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   store i64 %sub.ptr.sub.i.i, ptr %size52, align 8
   store i64 0, ptr %pos55, align 8
-  %22 = load ptr, ptr %dctx_, align 8
-  %call59 = invoke i64 @ZSTD_decompressStream(ptr noundef %22, ptr noundef nonnull %obuf, ptr noundef nonnull %ibuf)
+  %21 = load ptr, ptr %dctx_, align 8
+  %call59 = invoke i64 @ZSTD_decompressStream(ptr noundef %21, ptr noundef nonnull %obuf, ptr noundef nonnull %ibuf)
           to label %invoke.cont58 unwind label %lpad.loopexit
 
 invoke.cont58:                                    ; preds = %invoke.cont53
@@ -274,14 +273,14 @@ if.then66:                                        ; preds = %if.else
   br label %if.end69
 
 if.end69:                                         ; preds = %if.else, %if.then66
-  %23 = load i64, ptr %pos55, align 8
-  %24 = load ptr, ptr %crtBuf_.i, align 8
-  %25 = load i64, ptr %24, align 8
-  %add.i.i = add i64 %25, %23
-  store i64 %add.i.i, ptr %24, align 8
-  %26 = load i64, ptr %pos, align 8
-  %27 = load i64, ptr %size, align 8
-  %cmp25 = icmp ult i64 %26, %27
+  %22 = load i64, ptr %pos55, align 8
+  %23 = load ptr, ptr %crtBuf_.i, align 8
+  %24 = load i64, ptr %23, align 8
+  %add.i.i = add i64 %24, %22
+  store i64 %add.i.i, ptr %23, align 8
+  %25 = load i64, ptr %pos, align 8
+  %26 = load i64, ptr %size, align 8
+  %cmp25 = icmp ult i64 %25, %26
   br i1 %cmp25, label %while.body, label %for.inc.loopexit
 
 for.inc.loopexit:                                 ; preds = %if.end69
@@ -290,12 +289,12 @@ for.inc.loopexit:                                 ; preds = %if.end69
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.loopexit, %if.end18, %invoke.cont13
-  %28 = phi ptr [ %.pre20, %for.inc.loopexit ], [ %12, %if.end18 ], [ %12, %invoke.cont13 ]
-  %29 = phi ptr [ %.pre19, %for.inc.loopexit ], [ %13, %if.end18 ], [ %13, %invoke.cont13 ]
-  %next_.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %29, i64 0, i32 4
-  %30 = load ptr, ptr %next_.i.i.i, align 8
-  store ptr %30, ptr %__begin1, align 8
-  %cmp.i.i.i = icmp eq ptr %30, %28
+  %27 = phi ptr [ %.pre20, %for.inc.loopexit ], [ %11, %if.end18 ], [ %11, %invoke.cont13 ]
+  %28 = phi ptr [ %.pre19, %for.inc.loopexit ], [ %12, %if.end18 ], [ %12, %invoke.cont13 ]
+  %next_.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %28, i64 0, i32 4
+  %29 = load ptr, ptr %next_.i.i.i, align 8
+  store ptr %29, ptr %__begin1, align 8
+  %cmp.i.i.i = icmp eq ptr %29, %27
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.inc
@@ -303,34 +302,34 @@ if.then.i.i.i:                                    ; preds = %for.inc
   br label %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit
 
 if.else.i.i.i:                                    ; preds = %for.inc
-  %data_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %30, i64 0, i32 1
-  %31 = load ptr, ptr %data_.i.i.i.i.i, align 8
-  %32 = load i64, ptr %30, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 %32
-  store ptr %31, ptr %val_.i.i, align 8
+  %data_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %29, i64 0, i32 1
+  %30 = load ptr, ptr %data_.i.i.i.i.i, align 8
+  %31 = load i64, ptr %29, align 8
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 %31
+  store ptr %30, ptr %val_.i.i, align 8
   store ptr %add.ptr.i.i.i.i.i, ptr %e_.i, align 8
   br label %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit
 
 _ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
-  %33 = phi ptr [ null, %if.then.i.i.i ], [ %28, %if.else.i.i.i ]
+  %32 = phi ptr [ null, %if.then.i.i.i ], [ %27, %if.else.i.i.i ]
+  %33 = phi ptr [ null, %if.then.i.i.i ], [ %29, %if.else.i.i.i ]
   %34 = phi ptr [ null, %if.then.i.i.i ], [ %30, %if.else.i.i.i ]
-  %35 = phi ptr [ null, %if.then.i.i.i ], [ %31, %if.else.i.i.i ]
-  %36 = load ptr, ptr %__end1, align 8
-  %cmp.i.i.i.i = icmp ne ptr %34, %36
-  %37 = load ptr, ptr %end_3.i.i.i.i, align 8
-  %cmp4.i.i.i.i = icmp ne ptr %33, %37
+  %35 = load ptr, ptr %__end1, align 8
+  %cmp.i.i.i.i = icmp ne ptr %33, %35
+  %36 = load ptr, ptr %end_3.i.i.i.i, align 8
+  %cmp4.i.i.i.i = icmp ne ptr %32, %36
   %.not.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i
   br i1 %.not.i, label %invoke.cont13, label %for.end
 
 for.end:                                          ; preds = %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit, %invoke.cont11.preheader
-  %38 = load i8, ptr %reuseOutBuf_, align 8
-  %39 = and i8 %38, 1
-  %tobool76.not = icmp eq i8 %39, 0
+  %37 = load i8, ptr %reuseOutBuf_, align 8
+  %38 = and i8 %37, 1
+  %tobool76.not = icmp eq i8 %38, 0
   br i1 %tobool76.not, label %cleanup.thread, label %land.lhs.true77
 
 land.lhs.true77:                                  ; preds = %for.end
-  %40 = load ptr, ptr %out, align 8
-  %call80 = invoke noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56) %40)
+  %39 = load ptr, ptr %out, align 8
+  %call80 = invoke noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56) %39)
           to label %invoke.cont79 unwind label %lpad.loopexit.split-lp
 
 invoke.cont79:                                    ; preds = %land.lhs.true77
@@ -343,8 +342,8 @@ if.then82:                                        ; preds = %invoke.cont79
   br label %cleanup
 
 cleanup.thread:                                   ; preds = %for.end, %invoke.cont79
-  %41 = load i64, ptr %out, align 8
-  store i64 %41, ptr %agg.result, align 8
+  %40 = load i64, ptr %out, align 8
+  store i64 %40, ptr %agg.result, align 8
   br label %return
 
 cleanup:                                          ; preds = %if.then82, %if.then63

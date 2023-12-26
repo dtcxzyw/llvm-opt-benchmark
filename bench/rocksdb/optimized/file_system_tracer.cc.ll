@@ -4441,7 +4441,7 @@ _ZNSt8functionIFvRKN7rocksdb13FSReadRequestEPvEEaSERKS6_.exit: ; preds = %_ZNSt8
   %14 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 0, ptr %14, align 8
   %call.i.i2.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
-  store i64 ptrtoint (ptr @_ZN7rocksdb32FSRandomAccessFileTracingWrapper17ReadAsyncCallbackERKNS_13FSReadRequestEPv to i64), ptr %call.i.i2.i, align 16
+  store ptr @_ZN7rocksdb32FSRandomAccessFileTracingWrapper17ReadAsyncCallbackERKNS_13FSReadRequestEPv, ptr %call.i.i2.i, align 16
   %read_async_callback.sroa.2.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
   store i64 0, ptr %read_async_callback.sroa.2.0.call.i.i2.i.sroa_idx, align 8
   %read_async_callback.sroa.3.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16

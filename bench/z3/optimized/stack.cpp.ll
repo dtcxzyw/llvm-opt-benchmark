@@ -74,17 +74,17 @@ if.then.i.i:                                      ; preds = %while.body.i
 .noexc:                                           ; preds = %if.then.i.i
   %and.i.i.i = and i64 %5, -2
   %6 = inttoptr i64 %and.i.i.i to ptr
-  store ptr %6, ptr %this, align 8
+  store i64 %and.i.i.i, ptr %this, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 8184
   store ptr %add.ptr.i.i.i, ptr %m_curr_end_ptr.i.i, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %.noexc, %while.body.i
-  %.in.i.i = and i64 %2, -2
-  %7 = inttoptr i64 %.in.i.i to ptr
-  store ptr %7, ptr %m_curr_ptr.i.i, align 8
+  %and.i5.sink.i.i = and i64 %2, -2
+  store i64 %and.i5.sink.i.i, ptr %m_curr_ptr.i.i, align 8
   %and.i6.i.i = and i64 %2, 1
   %tobool.i.not.i.i = icmp eq i64 %and.i6.i.i, 0
+  %7 = inttoptr i64 %and.i5.sink.i.i to ptr
   br i1 %tobool.i.not.i.i, label %_ZN5stack10deallocateEv.exit.i, label %if.then13.i.i
 
 if.then13.i.i:                                    ; preds = %if.end.i.i
@@ -167,17 +167,17 @@ if.then.i:                                        ; preds = %while.body
   %and.i.i = and i64 %5, -2
   %6 = inttoptr i64 %and.i.i to ptr
   tail call void @_Z12recycle_pagePcRS_(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %m_free_pages.i)
-  store ptr %6, ptr %this, align 8
+  store i64 %and.i.i, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 8184
   store ptr %add.ptr.i.i, ptr %m_curr_end_ptr.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body
-  %.in.i = and i64 %2, -2
-  %7 = inttoptr i64 %.in.i to ptr
-  store ptr %7, ptr %m_curr_ptr.i, align 8
+  %and.i5.sink.i = and i64 %2, -2
+  store i64 %and.i5.sink.i, ptr %m_curr_ptr.i, align 8
   %and.i6.i = and i64 %2, 1
   %tobool.i.not.i = icmp eq i64 %and.i6.i, 0
+  %7 = inttoptr i64 %and.i5.sink.i to ptr
   br i1 %tobool.i.not.i, label %_ZN5stack10deallocateEv.exit, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end.i
@@ -235,21 +235,21 @@ if.then:                                          ; preds = %entry
   %4 = inttoptr i64 %and.i to ptr
   %m_free_pages = getelementptr inbounds %class.stack, ptr %this, i64 0, i32 3
   tail call void @_Z12recycle_pagePcRS_(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %m_free_pages)
-  store ptr %4, ptr %this, align 8
+  store i64 %and.i, ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 8184
   %m_curr_end_ptr = getelementptr inbounds %class.stack, ptr %this, i64 0, i32 2
   store ptr %add.ptr.i, ptr %m_curr_end_ptr, align 8
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then
-  %.in = and i64 %1, -2
-  %5 = inttoptr i64 %.in to ptr
-  store ptr %5, ptr %m_curr_ptr.i, align 8
+  %and.i5.sink = and i64 %1, -2
+  store i64 %and.i5.sink, ptr %m_curr_ptr.i, align 8
   %and.i6 = and i64 %1, 1
   %tobool.i.not = icmp eq i64 %and.i6, 0
   br i1 %tobool.i.not, label %if.end15, label %if.then13
 
 if.then13:                                        ; preds = %if.end
+  %5 = inttoptr i64 %and.i5.sink to ptr
   %6 = load ptr, ptr %5, align 8
   %cmp.i = icmp eq ptr %6, null
   br i1 %cmp.i, label %if.end15, label %if.end.i
@@ -327,12 +327,12 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %7 = phi ptr [ %.pre, %if.else ], [ %1, %if.then ]
-  %storemerge.in.in = phi i64 [ %shr96, %if.else ], [ %shr8, %if.then ]
+  %storemerge.in = phi i64 [ %shr96, %if.else ], [ %shr8, %if.then ]
   %result.0 = phi ptr [ %add.ptr.i1.i, %if.else ], [ %0, %if.then ]
-  %storemerge.in = and i64 %storemerge.in.in, -8
-  %storemerge = inttoptr i64 %storemerge.in to ptr
-  store ptr %storemerge, ptr %m_curr_ptr, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %storemerge, i64 8
+  %storemerge = and i64 %storemerge.in, -8
+  store i64 %storemerge, ptr %m_curr_ptr, align 8
+  %.cast = inttoptr i64 %storemerge to ptr
+  %add.ptr.i = getelementptr inbounds i8, ptr %.cast, i64 8
   %cmp.i = icmp ugt ptr %add.ptr.i, %7
   br i1 %cmp.i, label %if.then.i, label %_ZN5stack10store_markEPvb.exit
 
@@ -347,7 +347,7 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZN5stack10store_markEPvb.exit
 
 _ZN5stack10store_markEPvb.exit:                   ; preds = %if.end, %if.then.i
-  %.sink.i = phi ptr [ %call.i.i, %if.then.i ], [ %storemerge, %if.end ]
+  %.sink.i = phi ptr [ %call.i.i, %if.then.i ], [ %.cast, %if.end ]
   %conv.i.i = zext i1 %external to i64
   %9 = ptrtoint ptr %result.0 to i64
   %or.i.i = or i64 %9, %conv.i.i
@@ -402,12 +402,12 @@ if.else.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
   %7 = phi ptr [ %.pre.i, %if.else.i ], [ %1, %if.then.i ]
-  %storemerge.in.in.i = phi i64 [ %shr96.i, %if.else.i ], [ %shr8.i, %if.then.i ]
+  %storemerge.in.i = phi i64 [ %shr96.i, %if.else.i ], [ %shr8.i, %if.then.i ]
   %result.0.i = phi ptr [ %add.ptr.i1.i.i, %if.else.i ], [ %0, %if.then.i ]
-  %storemerge.in.i = and i64 %storemerge.in.in.i, -8
-  %storemerge.i = inttoptr i64 %storemerge.in.i to ptr
-  store ptr %storemerge.i, ptr %m_curr_ptr.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %storemerge.i, i64 8
+  %storemerge.i = and i64 %storemerge.in.i, -8
+  store i64 %storemerge.i, ptr %m_curr_ptr.i, align 8
+  %.cast.i = inttoptr i64 %storemerge.i to ptr
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %.cast.i, i64 8
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %7
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN5stack14allocate_smallEmb.exit
 
@@ -422,7 +422,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   br label %_ZN5stack14allocate_smallEmb.exit
 
 _ZN5stack14allocate_smallEmb.exit:                ; preds = %if.end.i, %if.then.i.i
-  %.sink.i.i = phi ptr [ %call.i.i.i, %if.then.i.i ], [ %storemerge.i, %if.end.i ]
+  %.sink.i.i = phi ptr [ %call.i.i.i, %if.then.i.i ], [ %.cast.i, %if.end.i ]
   %9 = ptrtoint ptr %result.0.i to i64
   %or.i.i.i = or i64 %9, 1
   store i64 %or.i.i.i, ptr %.sink.i.i, align 8

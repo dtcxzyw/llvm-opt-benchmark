@@ -88,18 +88,17 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _ZN8facebook5velox12StlAllocatorIaEC2EPNS0_19HashStringAllocatorE.exit7: ; preds = %entry
-  %0 = ptrtoint ptr %allocator to i64
-  store i64 %0, ptr %deltas_, align 8
-  %1 = getelementptr inbounds %"class.facebook::velox::common::hll::DenseHll", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 1
+  store ptr %allocator, ptr %deltas_, align 8
+  %0 = getelementptr inbounds %"class.facebook::velox::common::hll::DenseHll", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 1
   %overflowBuckets_ = getelementptr inbounds %"class.facebook::velox::common::hll::DenseHll", ptr %this, i64 0, i32 5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %1, i8 0, i64 26, i1 false)
-  store i64 %0, ptr %overflowBuckets_, align 8
-  %2 = getelementptr inbounds %"class.facebook::velox::common::hll::DenseHll", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %0, i8 0, i64 26, i1 false)
+  store ptr %allocator, ptr %overflowBuckets_, align 8
+  %1 = getelementptr inbounds %"class.facebook::velox::common::hll::DenseHll", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %overflowValues_ = getelementptr inbounds %"class.facebook::velox::common::hll::DenseHll", ptr %this, i64 0, i32 6
-  store i64 %0, ptr %overflowValues_, align 8
-  %3 = getelementptr inbounds %"class.facebook::velox::common::hll::DenseHll", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  store ptr %allocator, ptr %overflowValues_, align 8
+  %2 = getelementptr inbounds %"class.facebook::velox::common::hll::DenseHll", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %cmp.i = icmp slt i8 %indexBitLength, 4
   br i1 %cmp.i, label %if.then.i8, label %if.end.i
 
@@ -131,12 +130,12 @@ invoke.cont7:                                     ; preds = %if.then.i.i
   ret void
 
 lpad6:                                            ; preds = %if.then.i.i
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt6vectorIaN8facebook5velox12StlAllocatorIaEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %overflowValues_) #22
   tail call void @_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %overflowBuckets_) #22
   tail call void @_ZNSt6vectorIaN8facebook5velox12StlAllocatorIaEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %deltas_) #22
-  resume { ptr, i32 } %4
+  resume { ptr, i32 } %3
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -1676,21 +1675,20 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _ZN8facebook5velox12StlAllocatorIaEC2EPNS0_19HashStringAllocatorE.exit11: ; preds = %entry
-  %0 = ptrtoint ptr %allocator to i64
-  store i64 %0, ptr %deltas_, align 8
-  %1 = getelementptr inbounds %"class.facebook::velox::common::hll::DenseHll", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 1
+  store ptr %allocator, ptr %deltas_, align 8
+  %0 = getelementptr inbounds %"class.facebook::velox::common::hll::DenseHll", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 1
   %overflows_ = getelementptr inbounds %"class.facebook::velox::common::hll::DenseHll", ptr %this, i64 0, i32 4
   %overflowBuckets_ = getelementptr inbounds %"class.facebook::velox::common::hll::DenseHll", ptr %this, i64 0, i32 5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %1, i8 0, i64 26, i1 false)
-  store i64 %0, ptr %overflowBuckets_, align 8
-  %2 = getelementptr inbounds %"class.facebook::velox::common::hll::DenseHll", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %0, i8 0, i64 26, i1 false)
+  store ptr %allocator, ptr %overflowBuckets_, align 8
+  %1 = getelementptr inbounds %"class.facebook::velox::common::hll::DenseHll", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %overflowValues_ = getelementptr inbounds %"class.facebook::velox::common::hll::DenseHll", ptr %this, i64 0, i32 6
-  store i64 %0, ptr %overflowValues_, align 8
-  %3 = getelementptr inbounds %"class.facebook::velox::common::hll::DenseHll", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %4 = load i8, ptr %serialized, align 1, !noalias !20
-  %cmp.not.i = icmp eq i8 %4, 3
+  store ptr %allocator, ptr %overflowValues_, align 8
+  %2 = getelementptr inbounds %"class.facebook::velox::common::hll::DenseHll", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  %3 = load i8, ptr %serialized, align 1, !noalias !20
+  %cmp.not.i = icmp eq i8 %3, 3
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i12
 
 if.then.i12:                                      ; preds = %_ZN8facebook5velox12StlAllocatorIaEC2EPNS0_19HashStringAllocatorE.exit11
@@ -1699,22 +1697,22 @@ if.then.i12:                                      ; preds = %_ZN8facebook5velox1
 
 if.end.i:                                         ; preds = %_ZN8facebook5velox12StlAllocatorIaEC2EPNS0_19HashStringAllocatorE.exit11
   %add.ptr.i10.i = getelementptr inbounds i8, ptr %serialized, i64 1
-  %5 = load i8, ptr %add.ptr.i10.i, align 1, !noalias !20
+  %4 = load i8, ptr %add.ptr.i10.i, align 1, !noalias !20
   %add.ptr.i14.i = getelementptr inbounds i8, ptr %serialized, i64 2
-  %6 = load i8, ptr %add.ptr.i14.i, align 1, !noalias !20
-  %conv46.i = zext nneg i8 %5 to i32
+  %5 = load i8, ptr %add.ptr.i14.i, align 1, !noalias !20
+  %conv46.i = zext nneg i8 %4 to i32
   %shl.i = shl nuw i32 1, %conv46.i
   %div.i = sdiv i32 %shl.i, 2
-  %7 = sext i32 %div.i to i64
-  %8 = getelementptr i8, ptr %serialized, i64 %7
-  %add.ptr.i22.i = getelementptr i8, ptr %8, i64 3
-  %9 = load i16, ptr %add.ptr.i22.i, align 2, !noalias !20
-  %tobool.not.i13 = icmp eq i16 %9, 0
+  %6 = sext i32 %div.i to i64
+  %7 = getelementptr i8, ptr %serialized, i64 %6
+  %add.ptr.i22.i = getelementptr i8, ptr %7, i64 3
+  %8 = load i16, ptr %add.ptr.i22.i, align 2, !noalias !20
+  %tobool.not.i13 = icmp eq i16 %8, 0
   br i1 %tobool.not.i13, label %invoke.cont7, label %cond.true10.i
 
 cond.true10.i:                                    ; preds = %if.end.i
   %add.i23.i = add nsw i32 %div.i, 5
-  %conv7.i = sext i16 %9 to i32
+  %conv7.i = sext i16 %8 to i32
   %idx.ext.i25.i = sext i32 %add.i23.i to i64
   %add.ptr.i26.i = getelementptr inbounds i8, ptr %serialized, i64 %idx.ext.i25.i
   %mul.i.i = shl nsw i32 %conv7.i, 1
@@ -1727,7 +1725,7 @@ invoke.cont7:                                     ; preds = %cond.true10.i, %if.
   %cond46.i = phi ptr [ %add.ptr.i26.i, %cond.true10.i ], [ null, %if.end.i ]
   %cond15.i = phi ptr [ %add.ptr.i30.i, %cond.true10.i ], [ null, %if.end.i ]
   %add.ptr.i18.i = getelementptr inbounds i8, ptr %serialized, i64 3
-  %cmp.i = icmp slt i8 %5, 4
+  %cmp.i = icmp slt i8 %4, 4
   br i1 %cmp.i, label %if.then.i16, label %if.end.i14
 
 if.then.i16:                                      ; preds = %invoke.cont7
@@ -1735,7 +1733,7 @@ if.then.i16:                                      ; preds = %invoke.cont7
   unreachable
 
 if.end.i14:                                       ; preds = %invoke.cont7
-  %cmp4.i = icmp ugt i8 %5, 16
+  %cmp4.i = icmp ugt i8 %4, 16
   br i1 %cmp4.i, label %if.then7.i, label %if.then.i.i
 
 if.then7.i:                                       ; preds = %if.end.i14
@@ -1743,7 +1741,7 @@ if.then7.i:                                       ; preds = %if.end.i14
   unreachable
 
 if.then.i.i:                                      ; preds = %if.end.i14
-  store i8 %5, ptr %this, align 8
+  store i8 %4, ptr %this, align 8
   %baselineCount_.i = getelementptr inbounds %"class.facebook::velox::common::hll::DenseHll", ptr %this, i64 0, i32 2
   store i32 %shl.i, ptr %baselineCount_.i, align 4
   %mul.i = shl nuw nsw i32 4, %conv46.i
@@ -1756,28 +1754,28 @@ invoke.cont8:                                     ; preds = %if.then.i.i
   %.pre = load i8, ptr %this, align 8
   %.pre63 = zext nneg i8 %.pre to i32
   %.pre64 = shl nuw i32 1, %.pre63
-  store i8 %6, ptr %baseline_, align 1
+  store i8 %5, ptr %baseline_, align 1
   %tobool.not.i.i.i.i.i = icmp eq i8 %.pre, 0
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont12, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont8
   %div = sdiv i32 %.pre64, 2
   %idx.ext = sext i32 %div to i64
-  %10 = load ptr, ptr %1, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %10, ptr nonnull align 1 %add.ptr.i18.i, i64 %idx.ext, i1 false)
+  %9 = load ptr, ptr %0, align 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %9, ptr nonnull align 1 %add.ptr.i18.i, i64 %idx.ext, i1 false)
   br label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %if.then.i.i.i.i.i, %invoke.cont8
-  store i16 %9, ptr %overflows_, align 8
+  store i16 %8, ptr %overflows_, align 8
   br i1 %tobool.not.i13, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont12
-  %conv18 = sext i16 %9 to i64
+  %conv18 = sext i16 %8 to i64
   %_M_finish.i.i = getelementptr inbounds %"class.facebook::velox::common::hll::DenseHll", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 1, i32 1
-  %11 = load ptr, ptr %_M_finish.i.i, align 8
-  %12 = load ptr, ptr %2, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %12 to i64
+  %10 = load ptr, ptr %_M_finish.i.i, align 8
+  %11 = load ptr, ptr %1, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 1
   %cmp.i17 = icmp ult i64 %sub.ptr.div.i.i, %conv18
@@ -1798,8 +1796,8 @@ if.else.i:                                        ; preds = %if.then
   br i1 %cmp4.i18, label %if.then5.i, label %invoke.cont19
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr6.i = getelementptr inbounds i16, ptr %12, i64 %conv18
-  %tobool.not.i.i = icmp eq ptr %11, %add.ptr6.i
+  %add.ptr6.i = getelementptr inbounds i16, ptr %11, i64 %conv18
+  %tobool.not.i.i = icmp eq ptr %10, %add.ptr6.i
   br i1 %tobool.not.i.i, label %invoke.cont19, label %if.then.i.i19
 
 if.then.i.i19:                                    ; preds = %if.then5.i
@@ -1808,12 +1806,12 @@ if.then.i.i19:                                    ; preds = %if.then5.i
 
 invoke.cont19:                                    ; preds = %if.then.i20.invoke.cont19_crit_edge, %if.then.i.i19, %if.then5.i, %if.else.i
   %conv22.pre-phi = phi i64 [ %.pre65, %if.then.i20.invoke.cont19_crit_edge ], [ %conv18, %if.then.i.i19 ], [ %conv18, %if.then5.i ], [ %conv18, %if.else.i ]
-  %13 = phi i16 [ %.pre60, %if.then.i20.invoke.cont19_crit_edge ], [ %9, %if.then.i.i19 ], [ %9, %if.then5.i ], [ %9, %if.else.i ]
+  %12 = phi i16 [ %.pre60, %if.then.i20.invoke.cont19_crit_edge ], [ %8, %if.then.i.i19 ], [ %8, %if.then5.i ], [ %8, %if.else.i ]
   %_M_finish.i.i23 = getelementptr inbounds %"class.facebook::velox::common::hll::DenseHll", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 1, i32 1
-  %14 = load ptr, ptr %_M_finish.i.i23, align 8
-  %15 = load ptr, ptr %3, align 8
-  %sub.ptr.lhs.cast.i.i24 = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i.i25 = ptrtoint ptr %15 to i64
+  %13 = load ptr, ptr %_M_finish.i.i23, align 8
+  %14 = load ptr, ptr %2, align 8
+  %sub.ptr.lhs.cast.i.i24 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i.i25 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i26 = sub i64 %sub.ptr.lhs.cast.i.i24, %sub.ptr.rhs.cast.i.i25
   %cmp.i27 = icmp ult i64 %sub.ptr.sub.i.i26, %conv22.pre-phi
   br i1 %cmp.i27, label %if.then.i34, label %if.else.i28
@@ -1832,8 +1830,8 @@ if.else.i28:                                      ; preds = %invoke.cont19
   br i1 %cmp4.i29, label %if.then5.i30, label %invoke.cont23
 
 if.then5.i30:                                     ; preds = %if.else.i28
-  %add.ptr6.i31 = getelementptr inbounds i8, ptr %15, i64 %conv22.pre-phi
-  %tobool.not.i.i32 = icmp eq ptr %14, %add.ptr6.i31
+  %add.ptr6.i31 = getelementptr inbounds i8, ptr %14, i64 %conv22.pre-phi
+  %tobool.not.i.i32 = icmp eq ptr %13, %add.ptr6.i31
   br i1 %tobool.not.i.i32, label %invoke.cont23, label %if.then.i.i33
 
 if.then.i.i33:                                    ; preds = %if.then5.i30
@@ -1841,32 +1839,32 @@ if.then.i.i33:                                    ; preds = %if.then5.i30
   br label %invoke.cont23
 
 invoke.cont23:                                    ; preds = %if.then.i34.invoke.cont23_crit_edge, %if.then.i.i33, %if.then5.i30, %if.else.i28
-  %16 = phi i16 [ %.pre61, %if.then.i34.invoke.cont23_crit_edge ], [ %13, %if.then.i.i33 ], [ %13, %if.then5.i30 ], [ %13, %if.else.i28 ]
-  %tobool.not.i.i.i.i.i41 = icmp eq i16 %16, 0
+  %15 = phi i16 [ %.pre61, %if.then.i34.invoke.cont23_crit_edge ], [ %12, %if.then.i.i33 ], [ %12, %if.then5.i30 ], [ %12, %if.else.i28 ]
+  %tobool.not.i.i.i.i.i41 = icmp eq i16 %15, 0
   br i1 %tobool.not.i.i.i.i.i41, label %if.end, label %invoke.cont31
 
 invoke.cont31:                                    ; preds = %invoke.cont23
-  %idx.ext27 = sext i16 %16 to i64
+  %idx.ext27 = sext i16 %15 to i64
   %add.ptr28.idx = shl nsw i64 %idx.ext27, 1
-  %17 = load ptr, ptr %2, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %17, ptr align 2 %cond46.i, i64 %add.ptr28.idx, i1 false)
+  %16 = load ptr, ptr %1, align 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %16, ptr align 2 %cond46.i, i64 %add.ptr28.idx, i1 false)
   %.pre62 = load i16, ptr %overflows_, align 8
   %tobool.not.i.i.i.i.i48 = icmp eq i16 %.pre62, 0
   br i1 %tobool.not.i.i.i.i.i48, label %if.end, label %if.then.i.i.i.i.i49
 
 if.then.i.i.i.i.i49:                              ; preds = %invoke.cont31
   %idx.ext36 = sext i16 %.pre62 to i64
-  %18 = load ptr, ptr %3, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %18, ptr align 1 %cond15.i, i64 %idx.ext36, i1 false)
+  %17 = load ptr, ptr %2, align 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %17, ptr align 1 %cond15.i, i64 %idx.ext36, i1 false)
   br label %if.end
 
 lpad6:                                            ; preds = %if.then.i34, %if.then.i20, %if.then.i.i
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt6vectorIaN8facebook5velox12StlAllocatorIaEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %overflowValues_) #22
   tail call void @_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %overflowBuckets_) #22
   tail call void @_ZNSt6vectorIaN8facebook5velox12StlAllocatorIaEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %deltas_) #22
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %18
 
 if.end:                                           ; preds = %invoke.cont23, %if.then.i.i.i.i.i49, %invoke.cont31, %invoke.cont12
   store i32 0, ptr %baselineCount_.i, align 4
@@ -1874,7 +1872,7 @@ if.end:                                           ; preds = %invoke.cont23, %if.
   br i1 %cmp57.not, label %for.end, label %invoke.cont42.lr.ph
 
 invoke.cont42.lr.ph:                              ; preds = %if.end
-  %20 = load ptr, ptr %1, align 8
+  %19 = load ptr, ptr %0, align 8
   %smax = tail call i32 @llvm.smax.i32(i32 %.pre64, i32 1)
   br label %invoke.cont42
 
@@ -1883,13 +1881,13 @@ invoke.cont42:                                    ; preds = %invoke.cont42.lr.ph
   %inc5658 = phi i32 [ 0, %invoke.cont42.lr.ph ], [ %inc55, %for.inc ]
   %shr.i = lshr i32 %i.059, 1
   %conv.i52 = zext nneg i32 %shr.i to i64
-  %add.ptr2.i.i = getelementptr inbounds i8, ptr %20, i64 %conv.i52
-  %21 = load i8, ptr %add.ptr2.i.i, align 1
+  %add.ptr2.i.i = getelementptr inbounds i8, ptr %19, i64 %conv.i52
+  %20 = load i8, ptr %add.ptr2.i.i, align 1
   %index.tr.i.i = trunc i32 %i.059 to i8
-  %22 = shl i8 %index.tr.i.i, 2
-  %23 = and i8 %22, 4
-  %conv.i.i = xor i8 %23, 4
-  %shr5.i = ashr i8 %21, %conv.i.i
+  %21 = shl i8 %index.tr.i.i, 2
+  %22 = and i8 %21, 4
+  %conv.i.i = xor i8 %22, 4
+  %shr5.i = ashr i8 %20, %conv.i.i
   %and.i = and i8 %shr5.i, 15
   %cmp45 = icmp eq i8 %and.i, 0
   br i1 %cmp45, label %if.then46, label %for.inc

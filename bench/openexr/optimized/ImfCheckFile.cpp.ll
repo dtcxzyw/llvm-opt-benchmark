@@ -1430,7 +1430,7 @@ for.body38.i:                                     ; preds = %for.cond35.preheade
   %bytes.078.i = phi i64 [ %add49.i, %for.body38.i ], [ 0, %for.cond35.preheader.i ]
   %10 = load ptr, ptr %decoder.i, align 8
   %11 = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %10, i64 %indvars.iv.i, i32 12
-  store ptr inttoptr (i64 4096 to ptr), ptr %11, align 8
+  store i64 4096, ptr %11, align 8
   %user_bytes_per_element.i = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %10, i64 %indvars.iv.i, i32 8
   %12 = load i16, ptr %user_bytes_per_element.i, align 4
   %conv40.i = sext i16 %12 to i32

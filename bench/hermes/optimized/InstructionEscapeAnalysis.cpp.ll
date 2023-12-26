@@ -163,7 +163,7 @@ if.then14:                                        ; preds = %_ZN4llvh12DenseMapB
   br i1 %cmp16, label %if.then17, label %for.inc
 
 if.then17:                                        ; preds = %if.then14
-  store ptr inttoptr (i64 -16 to ptr), ptr %cond.sink.i.i.ph.pn.i, align 8
+  store i64 -16, ptr %cond.sink.i.i.ph.pn.i, align 8
   %sub.i.i = add i32 %this.val.i.i, -1
   store i32 %sub.i.i, ptr %5, align 8
   %this.val.i2.i = load i32, ptr %6, align 4
@@ -884,7 +884,7 @@ if.then.i:                                        ; preds = %entry
 
 for.body.i.i:                                     ; preds = %if.then.i, %for.body.i.i
   %B.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i.i, %if.then.i ]
-  store ptr inttoptr (i64 -8 to ptr), ptr %B.06.i.i, align 8
+  store i64 -8, ptr %B.06.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.06.i.i, i64 1
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN4llvh8DenseMapIPKN6hermes11InstructionEZNS1_25InstructionEscapeAnalysis8addRangeENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvEELb0ELb0EEEEEE6EscapeNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SD_EEE4growEj.exit, label %for.body.i.i, !llvm.loop !19
@@ -904,7 +904,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.i.i.i:                                   ; preds = %if.end.i, %for.body.i.i.i
   %B.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %call.i.i, %if.end.i ]
-  store ptr inttoptr (i64 -8 to ptr), ptr %B.06.i.i.i, align 8
+  store i64 -8, ptr %B.06.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.06.i.i.i, i64 1
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes11InstructionEZNS2_25InstructionEscapeAnalysis8addRangeENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS3_Lb0ELb0EvEELb0ELb0EEEEEE6EscapeNS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E9initEmptyEv.exit.i.i, label %for.body.i.i.i, !llvm.loop !19

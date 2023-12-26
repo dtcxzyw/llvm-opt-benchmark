@@ -1574,23 +1574,22 @@ _ZN9grpc_core13RefCountedPtrI17grpc_auth_contextEaSERKS2_.exit: ; preds = %if.en
   br i1 %cmp.i.i.not.i.i.i, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %_ZN9grpc_core13RefCountedPtrI17grpc_auth_contextEaSERKS2_.exit
-  %13 = ptrtoint ptr %11 to i64
-  %14 = load i8, ptr %call_args, align 1
-  store i8 %14, ptr %agg.tmp15, align 8
-  %15 = getelementptr inbounds i8, ptr %agg.tmp15, i64 8
-  store i64 %13, ptr %15, align 8
+  %13 = load i8, ptr %call_args, align 1
+  store i8 %13, ptr %agg.tmp15, align 8
+  %14 = getelementptr inbounds i8, ptr %agg.tmp15, i64 8
+  store ptr %11, ptr %14, align 8
   store ptr null, ptr %add.ptr.i.i.i.i.i.i, align 8
   %client_initial_metadata_outstanding.i = getelementptr inbounds %"struct.grpc_core::CallArgs", ptr %agg.tmp15, i64 0, i32 1
   %client_initial_metadata_outstanding3.i = getelementptr inbounds %"struct.grpc_core::CallArgs", ptr %call_args, i64 0, i32 1
-  %16 = load ptr, ptr %client_initial_metadata_outstanding3.i, align 8
+  %15 = load ptr, ptr %client_initial_metadata_outstanding3.i, align 8
   store ptr null, ptr %client_initial_metadata_outstanding3.i, align 8
-  store ptr %16, ptr %client_initial_metadata_outstanding.i, align 8
+  store ptr %15, ptr %client_initial_metadata_outstanding.i, align 8
   %polling_entity.i = getelementptr inbounds %"struct.grpc_core::CallArgs", ptr %agg.tmp15, i64 0, i32 2
   %polling_entity4.i = getelementptr inbounds %"struct.grpc_core::CallArgs", ptr %call_args, i64 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %polling_entity.i, ptr noundef nonnull align 8 dereferenceable(32) %polling_entity4.i, i64 32, i1 false)
   %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %next_promise_factory, i64 0, i32 1
-  %17 = load ptr, ptr %_M_manager.i.i, align 8, !noalias !26
-  %tobool.not.i.i = icmp eq ptr %17, null
+  %16 = load ptr, ptr %_M_manager.i.i, align 8, !noalias !26
+  %tobool.not.i.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.i, label %if.then.i15, label %if.end.i14
 
 if.then.i15:                                      ; preds = %if.then14
@@ -1602,71 +1601,71 @@ if.then.i15:                                      ; preds = %if.then14
 
 if.end.i14:                                       ; preds = %if.then14
   %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %next_promise_factory, i64 0, i32 1
-  %18 = load ptr, ptr %_M_invoker.i, align 8, !noalias !26
-  invoke void %18(ptr sret(%"class.grpc_core::ArenaPromise.43") align 16 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %next_promise_factory, ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp15)
+  %17 = load ptr, ptr %_M_invoker.i, align 8, !noalias !26
+  invoke void %17(ptr sret(%"class.grpc_core::ArenaPromise.43") align 16 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %next_promise_factory, ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp15)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end.i14
-  %19 = load ptr, ptr %client_initial_metadata_outstanding.i, align 8
-  %cmp.not.i.i18 = icmp eq ptr %19, null
+  %18 = load ptr, ptr %client_initial_metadata_outstanding.i, align 8
+  %cmp.not.i.i18 = icmp eq ptr %18, null
   br i1 %cmp.not.i.i18, label %_ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i, label %if.then.i.i19
 
 if.then.i.i19:                                    ; preds = %invoke.cont
-  store i8 0, ptr %19, align 2
-  %has_value_.i.i.i = getelementptr inbounds %"class.grpc_core::Latch", ptr %19, i64 0, i32 1
+  store i8 0, ptr %18, align 2
+  %has_value_.i.i.i = getelementptr inbounds %"class.grpc_core::Latch", ptr %18, i64 0, i32 1
   store i8 1, ptr %has_value_.i.i.i, align 1
-  %waiter_.i.i.i = getelementptr inbounds %"class.grpc_core::Latch", ptr %19, i64 0, i32 2
-  %20 = load i16, ptr %waiter_.i.i.i, align 2
-  %cmp.i.i.i.i20 = icmp eq i16 %20, 0
+  %waiter_.i.i.i = getelementptr inbounds %"class.grpc_core::Latch", ptr %18, i64 0, i32 2
+  %19 = load i16, ptr %waiter_.i.i.i, align 2
+  %cmp.i.i.i.i20 = icmp eq i16 %19, 0
   br i1 %cmp.i.i.i.i20, label %_ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i19
-  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %21, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i
+  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %20, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i
 
-21:                                               ; preds = %if.end.i.i.i.i
+20:                                               ; preds = %if.end.i.i.i.i
   invoke void @_ZTHN9grpc_core8Activity19g_current_activity_E()
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
 
-.noexc.i.i:                                       ; preds = %21
+.noexc.i.i:                                       ; preds = %20
   %.pre.i.i.i.i = load i16, ptr %waiter_.i.i.i, align 2
   br label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i
 
 _ZN9grpc_core8Activity7currentEv.exit.i.i.i.i:    ; preds = %.noexc.i.i, %if.end.i.i.i.i
-  %22 = phi i16 [ %20, %if.end.i.i.i.i ], [ %.pre.i.i.i.i, %.noexc.i.i ]
-  %23 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
-  %24 = load ptr, ptr %23, align 8
+  %21 = phi i16 [ %19, %if.end.i.i.i.i ], [ %.pre.i.i.i.i, %.noexc.i.i ]
+  %22 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
+  %23 = load ptr, ptr %22, align 8
   store i16 0, ptr %waiter_.i.i.i, align 2
-  %vtable.i.i.i.i = load ptr, ptr %24, align 8
+  %vtable.i.i.i.i = load ptr, ptr %23, align 8
   %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 3
-  %25 = load ptr, ptr %vfn.i.i.i.i, align 8
-  invoke void %25(ptr noundef nonnull align 8 dereferenceable(8) %24, i16 noundef zeroext %22)
+  %24 = load ptr, ptr %vfn.i.i.i.i, align 8
+  invoke void %24(ptr noundef nonnull align 8 dereferenceable(8) %23, i16 noundef zeroext %21)
           to label %_ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i unwind label %terminate.lpad.i.i
 
-terminate.lpad.i.i:                               ; preds = %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i, %21
-  %26 = landingpad { ptr, i32 }
+terminate.lpad.i.i:                               ; preds = %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i, %20
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #25
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #25
   unreachable
 
 _ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i: ; preds = %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i, %if.then.i.i19, %invoke.cont
-  %28 = load ptr, ptr %15, align 8
-  %cmp.not.i1.i = icmp eq ptr %28, null
+  %27 = load ptr, ptr %14, align 8
+  %cmp.not.i1.i = icmp eq ptr %27, null
   br i1 %cmp.not.i1.i, label %return, label %if.then.i2.i
 
 if.then.i2.i:                                     ; preds = %_ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i
-  %29 = load i8, ptr %agg.tmp15, align 8
-  %30 = and i8 %29, 1
-  %tobool.not.i.i.i = icmp eq i8 %30, 0
+  %28 = load i8, ptr %agg.tmp15, align 8
+  %29 = and i8 %28, 1
+  %tobool.not.i.i.i = icmp eq i8 %29, 0
   br i1 %tobool.not.i.i.i, label %return, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i2.i
-  call void @_ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEED2Ev(ptr noundef nonnull align 8 dereferenceable(568) %28) #21
-  call void @_ZdlPv(ptr noundef nonnull %28) #22
+  call void @_ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEED2Ev(ptr noundef nonnull align 8 dereferenceable(568) %27) #21
+  call void @_ZdlPv(ptr noundef nonnull %27) #22
   br label %return
 
 lpad:                                             ; preds = %if.end.i14, %if.then.i15
-  %31 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core8CallArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp15) #21
   br label %eh.resume
@@ -1674,35 +1673,35 @@ lpad:                                             ; preds = %if.end.i14, %if.the
 if.end16:                                         ; preds = %_ZN9grpc_core13RefCountedPtrI17grpc_auth_contextEaSERKS2_.exit
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %11, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %args_ = getelementptr inbounds %"class.grpc_core::ClientAuthFilter", ptr %this, i64 0, i32 1
-  %32 = load ptr, ptr %args_, align 8
-  %33 = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %tobool.not.i.i22 = icmp eq ptr %33, null
+  %31 = load ptr, ptr %args_, align 8
+  %32 = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %tobool.not.i.i22 = icmp eq ptr %32, null
   %bytes.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %11, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
-  %34 = load ptr, ptr %bytes.i.i, align 8
+  %33 = load ptr, ptr %bytes.i.i, align 8
   %bytes5.i.i = getelementptr inbounds i8, ptr %11, i64 113
-  %cond.i.i = select i1 %tobool.not.i.i22, ptr %bytes5.i.i, ptr %34
+  %cond.i.i = select i1 %tobool.not.i.i22, ptr %bytes5.i.i, ptr %33
   %data.i.i = getelementptr inbounds %"class.grpc_core::Table", ptr %11, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  %35 = load i64, ptr %data.i.i, align 8
-  %conv.i.i = and i64 %35, 255
-  %cond.i2.i = select i1 %tobool.not.i.i22, i64 %conv.i.i, i64 %35
-  %36 = load ptr, ptr %auth_context, align 8
-  %vtable = load ptr, ptr %32, align 8
+  %34 = load i64, ptr %data.i.i, align 8
+  %conv.i.i = and i64 %34, 255
+  %cond.i2.i = select i1 %tobool.not.i.i22, i64 %conv.i.i, i64 %34
+  %35 = load ptr, ptr %auth_context, align 8
+  %vtable = load ptr, ptr %31, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
-  %37 = load ptr, ptr %vfn, align 8
-  call void %37(ptr nonnull sret(%"class.grpc_core::ArenaPromise.127") align 16 %agg.tmp17, ptr noundef nonnull align 8 dereferenceable(56) %32, i64 %cond.i2.i, ptr %cond.i.i, ptr noundef %36)
+  %36 = load ptr, ptr %vfn, align 8
+  call void %36(ptr nonnull sret(%"class.grpc_core::ArenaPromise.127") align 16 %agg.tmp17, ptr noundef nonnull align 8 dereferenceable(56) %31, i64 %cond.i2.i, ptr %cond.i.i, ptr noundef %35)
   store ptr %this, ptr %agg.tmp25, align 8
-  %38 = getelementptr inbounds %class.anon.130, ptr %agg.tmp25, i64 0, i32 1
-  %39 = load i8, ptr %call_args, align 1
-  store i8 %39, ptr %38, align 8
-  %40 = getelementptr inbounds %class.anon.130, ptr %agg.tmp25, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %41 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8
-  store i64 %41, ptr %40, align 8
+  %37 = getelementptr inbounds %class.anon.130, ptr %agg.tmp25, i64 0, i32 1
+  %38 = load i8, ptr %call_args, align 1
+  store i8 %38, ptr %37, align 8
+  %39 = getelementptr inbounds %class.anon.130, ptr %agg.tmp25, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %40 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8
+  store i64 %40, ptr %39, align 8
   store ptr null, ptr %add.ptr.i.i.i.i.i.i, align 8
   %client_initial_metadata_outstanding.i24 = getelementptr inbounds %class.anon.130, ptr %agg.tmp25, i64 0, i32 1, i32 1
   %client_initial_metadata_outstanding3.i25 = getelementptr inbounds %"struct.grpc_core::CallArgs", ptr %call_args, i64 0, i32 1
-  %42 = load ptr, ptr %client_initial_metadata_outstanding3.i25, align 8
+  %41 = load ptr, ptr %client_initial_metadata_outstanding3.i25, align 8
   store ptr null, ptr %client_initial_metadata_outstanding3.i25, align 8
-  store ptr %42, ptr %client_initial_metadata_outstanding.i24, align 8
+  store ptr %41, ptr %client_initial_metadata_outstanding.i24, align 8
   %polling_entity.i26 = getelementptr inbounds %class.anon.130, ptr %agg.tmp25, i64 0, i32 1, i32 2
   %polling_entity4.i27 = getelementptr inbounds %"struct.grpc_core::CallArgs", ptr %call_args, i64 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %polling_entity.i26, ptr noundef nonnull align 8 dereferenceable(32) %polling_entity4.i27, i64 32, i1 false)
@@ -1710,61 +1709,61 @@ if.end16:                                         ; preds = %_ZN9grpc_core13RefC
   %_M_invoker.i29 = getelementptr inbounds %"class.std::function", ptr %agg.tmp26, i64 0, i32 1
   %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %next_promise_factory, i64 0, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp26, i8 0, i64 32, i1 false)
-  %43 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i.not.i = icmp eq ptr %43, null
+  %42 = load ptr, ptr %_M_manager.i.i.i, align 8
+  %tobool.not.i.i.not.i = icmp eq ptr %42, null
   br i1 %tobool.not.i.i.not.i, label %invoke.cont28, label %if.then.i30
 
 if.then.i30:                                      ; preds = %if.end16
-  %call3.i = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp26, ptr noundef nonnull align 8 dereferenceable(16) %next_promise_factory, i32 noundef 2)
+  %call3.i = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp26, ptr noundef nonnull align 8 dereferenceable(16) %next_promise_factory, i32 noundef 2)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i30
   %_M_invoker4.i = getelementptr inbounds %"class.std::function", ptr %next_promise_factory, i64 0, i32 1
-  %44 = load ptr, ptr %_M_invoker4.i, align 8
-  store ptr %44, ptr %_M_invoker.i29, align 8
-  %45 = load ptr, ptr %_M_manager.i.i.i, align 8
-  store ptr %45, ptr %_M_manager.i.i28, align 8
+  %43 = load ptr, ptr %_M_invoker4.i, align 8
+  store ptr %43, ptr %_M_invoker.i29, align 8
+  %44 = load ptr, ptr %_M_manager.i.i.i, align 8
+  store ptr %44, ptr %_M_manager.i.i28, align 8
   br label %invoke.cont28
 
 lpad.i:                                           ; preds = %if.then.i30
-  %46 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %47 = load ptr, ptr %_M_manager.i.i28, align 8
-  %tobool.not.i.i31 = icmp eq ptr %47, null
+  %46 = load ptr, ptr %_M_manager.i.i28, align 8
+  %tobool.not.i.i31 = icmp eq ptr %46, null
   br i1 %tobool.not.i.i31, label %ehcleanup33, label %if.then.i.i32
 
 if.then.i.i32:                                    ; preds = %lpad.i
-  %call.i.i = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp26, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp26, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp26, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp26, i32 noundef 3)
           to label %ehcleanup33 unwind label %terminate.lpad.i.i33
 
 terminate.lpad.i.i33:                             ; preds = %if.then.i.i32
-  %48 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #25
+  %48 = extractvalue { ptr, i32 } %47, 0
+  call void @__clang_call_terminate(ptr %48) #25
   unreachable
 
 invoke.cont28:                                    ; preds = %invoke.cont.i, %if.end16
-  %50 = phi ptr [ %45, %invoke.cont.i ], [ null, %if.end16 ]
-  %51 = phi ptr [ %44, %invoke.cont.i ], [ null, %if.end16 ]
+  %49 = phi ptr [ %44, %invoke.cont.i ], [ null, %if.end16 ]
+  %50 = phi ptr [ %43, %invoke.cont.i ], [ null, %if.end16 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !29)
   %state.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState.123", ptr %ref.tmp, i64 0, i32 1
   store i8 0, ptr %state.i.i.i, align 16, !alias.scope !29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp17, i64 32, i1 false)
   store ptr @_ZN9grpc_core20arena_promise_detail4NullIN4absl12lts_202308026StatusEE6vtableE, ptr %agg.tmp17, align 16, !noalias !29
   %next_factory.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::TrySeqTraits, grpc_core::ArenaPromise<absl::lts_20230802::Status>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:201:7), std::function<grpc_core::ArenaPromise<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>> (grpc_core::CallArgs)>>::Running0", ptr %ref.tmp, i64 0, i32 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
   store ptr %this, ptr %next_factory.i.i.i, align 16, !alias.scope !29
-  %52 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::TrySeqTraits, grpc_core::ArenaPromise<absl::lts_20230802::Status>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:201:7), std::function<grpc_core::ArenaPromise<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>> (grpc_core::CallArgs)>>::Running0", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 1
-  store i8 %39, ptr %52, align 8, !alias.scope !29
-  %53 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::TrySeqTraits, grpc_core::ArenaPromise<absl::lts_20230802::Status>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:201:7), std::function<grpc_core::ArenaPromise<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>> (grpc_core::CallArgs)>>::Running0", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  store i64 %41, ptr %53, align 16, !alias.scope !29
+  %51 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::TrySeqTraits, grpc_core::ArenaPromise<absl::lts_20230802::Status>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:201:7), std::function<grpc_core::ArenaPromise<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>> (grpc_core::CallArgs)>>::Running0", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 1
+  store i8 %38, ptr %51, align 8, !alias.scope !29
+  %52 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::TrySeqTraits, grpc_core::ArenaPromise<absl::lts_20230802::Status>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:201:7), std::function<grpc_core::ArenaPromise<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>> (grpc_core::CallArgs)>>::Running0", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  store i64 %40, ptr %52, align 16, !alias.scope !29
   %client_initial_metadata_outstanding.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::TrySeqTraits, grpc_core::ArenaPromise<absl::lts_20230802::Status>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:201:7), std::function<grpc_core::ArenaPromise<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>> (grpc_core::CallArgs)>>::Running0", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 1, i32 1
-  store ptr %42, ptr %client_initial_metadata_outstanding.i.i.i.i.i.i.i, align 8, !alias.scope !29
+  store ptr %41, ptr %client_initial_metadata_outstanding.i.i.i.i.i.i.i, align 8, !alias.scope !29
   %polling_entity.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::TrySeqTraits, grpc_core::ArenaPromise<absl::lts_20230802::Status>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:201:7), std::function<grpc_core::ArenaPromise<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>> (grpc_core::CallArgs)>>::Running0", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 1, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %polling_entity.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %polling_entity.i26, i64 32, i1 false)
   %next_factory3.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::TrySeqTraits, grpc_core::ArenaPromise<absl::lts_20230802::Status>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:201:7), std::function<grpc_core::ArenaPromise<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>> (grpc_core::CallArgs)>>::Running1", ptr %ref.tmp, i64 0, i32 1
-  %tobool.not.i.i.not.i.i.i.i.i = icmp eq ptr %50, null
+  %tobool.not.i.i.not.i.i.i.i.i = icmp eq ptr %49, null
   br i1 %tobool.not.i.i.not.i.i.i.i.i, label %_ZNSt8functionIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEEC2EOSA_.exit.thread.i.i.i.i, label %_ZN9grpc_core14promise_detail18OncePromiseFactoryINS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES2_EEEC2ESC_.exit.i.i.i.i
 
 _ZNSt8functionIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEEC2EOSA_.exit.thread.i.i.i.i: ; preds = %invoke.cont28
@@ -1775,18 +1774,18 @@ _ZN9grpc_core14promise_detail18OncePromiseFactoryINS_8CallArgsESt8functionIFNS_1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i28, i8 0, i64 16, i1 false), !noalias !29
   %_M_manager.i.i.i1.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::TrySeqTraits, grpc_core::ArenaPromise<absl::lts_20230802::Status>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:201:7), std::function<grpc_core::ArenaPromise<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>> (grpc_core::CallArgs)>>::Running1", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %next_factory3.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp26, i64 16, i1 false)
-  store ptr %50, ptr %_M_manager.i.i.i1.i.i.i.i, align 16, !alias.scope !29
+  store ptr %49, ptr %_M_manager.i.i.i1.i.i.i.i, align 16, !alias.scope !29
   br label %invoke.cont30
 
 invoke.cont30:                                    ; preds = %_ZN9grpc_core14promise_detail18OncePromiseFactoryINS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES2_EEEC2ESC_.exit.i.i.i.i, %_ZNSt8functionIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEEC2EOSA_.exit.thread.i.i.i.i
-  %54 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::TrySeqTraits, grpc_core::ArenaPromise<absl::lts_20230802::Status>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:201:7), std::function<grpc_core::ArenaPromise<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>> (grpc_core::CallArgs)>>::Running1", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 1
-  store ptr %51, ptr %54, align 8, !alias.scope !29
+  %53 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::TrySeqTraits, grpc_core::ArenaPromise<absl::lts_20230802::Status>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:201:7), std::function<grpc_core::ArenaPromise<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>> (grpc_core::CallArgs)>>::Running1", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 1
+  store ptr %50, ptr %53, align 8, !alias.scope !29
   %arg.i = getelementptr inbounds %"struct.grpc_core::arena_promise_detail::VtableAndArg.44", ptr %agg.result, i64 0, i32 2
   store i64 0, ptr %arg.i, align 16
   store ptr @"_ZN9grpc_core20arena_promise_detail17AllocatedCallableISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEENS_14promise_detail6TrySeqINS_12ArenaPromiseIN4absl12lts_202308026StatusEEEJZNS_16ClientAuthFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS9_IS6_EESF_EEE3$_0SJ_EEEE6vtableE", ptr %agg.result, align 16
-  %55 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E)
-  %56 = load ptr, ptr %55, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %56, null
+  %54 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E)
+  %55 = load ptr, ptr %54, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %55, null
   br i1 %cmp.not.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont30
@@ -1797,22 +1796,22 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont30
   unreachable
 
 _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i: ; preds = %invoke.cont30
-  %57 = atomicrmw add ptr %56, i64 144 monotonic, align 8
-  %add2.i.i.i.i.i = add i64 %57, 144
-  %initial_zone_size_.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Arena", ptr %56, i64 0, i32 2
-  %58 = load i64, ptr %initial_zone_size_.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ugt i64 %add2.i.i.i.i.i, %58
+  %56 = atomicrmw add ptr %55, i64 144 monotonic, align 8
+  %add2.i.i.i.i.i = add i64 %56, 144
+  %initial_zone_size_.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Arena", ptr %55, i64 0, i32 2
+  %57 = load i64, ptr %initial_zone_size_.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp ugt i64 %add2.i.i.i.i.i, %57
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %_ZN9grpc_core5Arena5AllocEm.exit.i.i.i.i.thread
 
 _ZN9grpc_core5Arena5AllocEm.exit.i.i.i.i.thread:  ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %56, i64 48
-  %add.ptr3.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %57
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %55, i64 48
+  %add.ptr3.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %56
   %state.i.i.i.i.i.i.i59 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState.123", ptr %add.ptr3.i.i.i.i.i, i64 0, i32 1
   store i8 0, ptr %state.i.i.i.i.i.i.i59, align 16
   br label %sw.bb.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i
-  %call4.i.i.i.i.i36 = invoke noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %56, i64 noundef 144)
+  %call4.i.i.i.i.i36 = invoke noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %55, i64 noundef 144)
           to label %_ZN9grpc_core5Arena5AllocEm.exit.i.i.i.i unwind label %lpad31
 
 _ZN9grpc_core5Arena5AllocEm.exit.i.i.i.i:         ; preds = %if.else.i.i.i.i.i
@@ -1844,19 +1843,19 @@ sw.bb6.i.i.i.i.i.i.i:                             ; preds = %_ZN9grpc_core5Arena
 tail0.i.i.i.i.i.i.i:                              ; preds = %sw.bb.i.i.i.i.i.i.i, %_ZN9grpc_core5Arena5AllocEm.exit.i.i.i.i
   %retval.0.i.i.i.i.i63 = phi ptr [ %retval.0.i.i.i.i.i62, %sw.bb.i.i.i.i.i.i.i ], [ %call4.i.i.i.i.i36, %_ZN9grpc_core5Arena5AllocEm.exit.i.i.i.i ]
   %next_factory.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::TrySeqTraits, grpc_core::ArenaPromise<absl::lts_20230802::Status>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:201:7), std::function<grpc_core::ArenaPromise<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>> (grpc_core::CallArgs)>>::Running0", ptr %retval.0.i.i.i.i.i63, i64 0, i32 1
-  %59 = load ptr, ptr %next_factory.i.i.i, align 16
-  store ptr %59, ptr %next_factory.i.i.i.i.i.i.i, align 8
-  %60 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::TrySeqTraits, grpc_core::ArenaPromise<absl::lts_20230802::Status>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:201:7), std::function<grpc_core::ArenaPromise<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>> (grpc_core::CallArgs)>>::Running0", ptr %retval.0.i.i.i.i.i63, i64 0, i32 1, i32 0, i32 1
-  %61 = load i8, ptr %52, align 8
-  store i8 %61, ptr %60, align 1
-  %62 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::TrySeqTraits, grpc_core::ArenaPromise<absl::lts_20230802::Status>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:201:7), std::function<grpc_core::ArenaPromise<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>> (grpc_core::CallArgs)>>::Running0", ptr %retval.0.i.i.i.i.i63, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %63 = load i64, ptr %53, align 16
-  store i64 %63, ptr %62, align 8
-  store ptr null, ptr %53, align 16
+  %58 = load ptr, ptr %next_factory.i.i.i, align 16
+  store ptr %58, ptr %next_factory.i.i.i.i.i.i.i, align 8
+  %59 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::TrySeqTraits, grpc_core::ArenaPromise<absl::lts_20230802::Status>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:201:7), std::function<grpc_core::ArenaPromise<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>> (grpc_core::CallArgs)>>::Running0", ptr %retval.0.i.i.i.i.i63, i64 0, i32 1, i32 0, i32 1
+  %60 = load i8, ptr %51, align 8
+  store i8 %60, ptr %59, align 1
+  %61 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::TrySeqTraits, grpc_core::ArenaPromise<absl::lts_20230802::Status>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:201:7), std::function<grpc_core::ArenaPromise<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>> (grpc_core::CallArgs)>>::Running0", ptr %retval.0.i.i.i.i.i63, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %62 = load i64, ptr %52, align 16
+  store i64 %62, ptr %61, align 8
+  store ptr null, ptr %52, align 16
   %client_initial_metadata_outstanding.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::TrySeqTraits, grpc_core::ArenaPromise<absl::lts_20230802::Status>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:201:7), std::function<grpc_core::ArenaPromise<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>> (grpc_core::CallArgs)>>::Running0", ptr %retval.0.i.i.i.i.i63, i64 0, i32 1, i32 0, i32 1, i32 1
-  %64 = load ptr, ptr %client_initial_metadata_outstanding.i.i.i.i.i.i.i, align 8
+  %63 = load ptr, ptr %client_initial_metadata_outstanding.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %client_initial_metadata_outstanding.i.i.i.i.i.i.i, align 8
-  store ptr %64, ptr %client_initial_metadata_outstanding.i.i.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %63, ptr %client_initial_metadata_outstanding.i.i.i.i.i.i.i.i.i.i.i, align 8
   %polling_entity.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::TrySeqTraits, grpc_core::ArenaPromise<absl::lts_20230802::Status>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:201:7), std::function<grpc_core::ArenaPromise<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>> (grpc_core::CallArgs)>>::Running0", ptr %retval.0.i.i.i.i.i63, i64 0, i32 1, i32 0, i32 1, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %polling_entity.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) %polling_entity.i.i.i.i.i.i.i, i64 32, i1 false)
   br label %tail1.i.i.i.i.i.i.i
@@ -1866,18 +1865,18 @@ tail1.i.i.i.i.i.i.i:                              ; preds = %tail0.i.i.i.i.i.i.i
   %next_factory9.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::TrySeqTraits, grpc_core::ArenaPromise<absl::lts_20230802::Status>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:201:7), std::function<grpc_core::ArenaPromise<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>> (grpc_core::CallArgs)>>::Running1", ptr %retval.0.i.i.i.i.i61, i64 0, i32 1
   %_M_invoker.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::TrySeqTraits, grpc_core::ArenaPromise<absl::lts_20230802::Status>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:201:7), std::function<grpc_core::ArenaPromise<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>> (grpc_core::CallArgs)>>::Running1", ptr %retval.0.i.i.i.i.i61, i64 0, i32 1, i32 0, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %next_factory9.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
-  %65 = load ptr, ptr %54, align 8
-  store ptr %65, ptr %_M_invoker.i.i.i.i.i.i.i.i.i.i, align 8
+  %64 = load ptr, ptr %53, align 8
+  store ptr %64, ptr %_M_invoker.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::TrySeqTraits, grpc_core::ArenaPromise<absl::lts_20230802::Status>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:201:7), std::function<grpc_core::ArenaPromise<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>> (grpc_core::CallArgs)>>::Running1", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 0, i32 1
-  %66 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i, align 16
-  %tobool.not.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %66, null
+  %65 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i, align 16
+  %tobool.not.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %65, null
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i.i.i.i.i, label %invoke.cont32, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %tail1.i.i.i.i.i.i.i
   %_M_manager.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::TrySeqTraits, grpc_core::ArenaPromise<absl::lts_20230802::Status>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:201:7), std::function<grpc_core::ArenaPromise<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>> (grpc_core::CallArgs)>>::Running1", ptr %retval.0.i.i.i.i.i61, i64 0, i32 1, i32 0, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %next_factory9.i.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %next_factory3.i.i.i, i64 16, i1 false)
-  %67 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i, align 16
-  store ptr %67, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %66 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i, align 16
+  store ptr %66, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %invoke.cont32
 
@@ -1885,78 +1884,78 @@ invoke.cont32:                                    ; preds = %if.then.i.i.i.i.i.i
   %retval.0.i.i.i.i.i60 = phi ptr [ %retval.0.i.i.i.i.i61, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %retval.0.i.i.i.i.i61, %tail1.i.i.i.i.i.i.i ], [ %call4.i.i.i.i.i36, %sw.bb6.i.i.i.i.i.i.i ]
   store ptr %retval.0.i.i.i.i.i60, ptr %arg.i, align 16
   call fastcc void @"_ZN9grpc_core14promise_detail6TrySeqINS_12ArenaPromiseIN4absl12lts_202308026StatusEEEJZNS_16ClientAuthFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS2_ISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES8_EEE3$_0SH_EED2Ev"(ptr noundef nonnull align 16 dereferenceable(144) %ref.tmp) #21
-  %68 = load ptr, ptr %_M_manager.i.i28, align 8
-  %tobool.not.i.i38 = icmp eq ptr %68, null
+  %67 = load ptr, ptr %_M_manager.i.i28, align 8
+  %tobool.not.i.i38 = icmp eq ptr %67, null
   br i1 %tobool.not.i.i38, label %"_ZZN9grpc_core16ClientAuthFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES1_EEEN3$_0D2Ev.exit", label %if.then.i.i39
 
 if.then.i.i39:                                    ; preds = %invoke.cont32
-  %call.i.i40 = invoke noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp26, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp26, i32 noundef 3)
+  %call.i.i40 = invoke noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp26, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp26, i32 noundef 3)
           to label %"_ZZN9grpc_core16ClientAuthFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES1_EEEN3$_0D2Ev.exit" unwind label %terminate.lpad.i.i41
 
 terminate.lpad.i.i41:                             ; preds = %if.then.i.i39
-  %69 = landingpad { ptr, i32 }
+  %68 = landingpad { ptr, i32 }
           catch ptr null
-  %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #25
+  %69 = extractvalue { ptr, i32 } %68, 0
+  call void @__clang_call_terminate(ptr %69) #25
   unreachable
 
 "_ZZN9grpc_core16ClientAuthFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES1_EEEN3$_0D2Ev.exit": ; preds = %invoke.cont32, %if.then.i.i39
-  store ptr null, ptr %40, align 8
-  %71 = load ptr, ptr %agg.tmp17, align 16
-  %destroy.i = getelementptr inbounds %"struct.grpc_core::arena_promise_detail::Vtable.173", ptr %71, i64 0, i32 1
-  %72 = load ptr, ptr %destroy.i, align 8
+  store ptr null, ptr %39, align 8
+  %70 = load ptr, ptr %agg.tmp17, align 16
+  %destroy.i = getelementptr inbounds %"struct.grpc_core::arena_promise_detail::Vtable.173", ptr %70, i64 0, i32 1
+  %71 = load ptr, ptr %destroy.i, align 8
   %arg.i44 = getelementptr inbounds %"struct.grpc_core::arena_promise_detail::VtableAndArg.128", ptr %agg.tmp17, i64 0, i32 2
-  invoke void %72(ptr noundef nonnull %arg.i44)
+  invoke void %71(ptr noundef nonnull %arg.i44)
           to label %return unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %"_ZZN9grpc_core16ClientAuthFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES1_EEEN3$_0D2Ev.exit"
-  %73 = landingpad { ptr, i32 }
+  %72 = landingpad { ptr, i32 }
           catch ptr null
-  %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #25
+  %73 = extractvalue { ptr, i32 } %72, 0
+  call void @__clang_call_terminate(ptr %73) #25
   unreachable
 
 lpad31:                                           ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i
-  %75 = landingpad { ptr, i32 }
+  %74 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @"_ZN9grpc_core14promise_detail6TrySeqINS_12ArenaPromiseIN4absl12lts_202308026StatusEEEJZNS_16ClientAuthFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS2_ISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES8_EEE3$_0SH_EED2Ev"(ptr noundef nonnull align 16 dereferenceable(144) %ref.tmp) #21
-  %76 = load ptr, ptr %_M_manager.i.i28, align 8
-  %tobool.not.i.i47 = icmp eq ptr %76, null
+  %75 = load ptr, ptr %_M_manager.i.i28, align 8
+  %tobool.not.i.i47 = icmp eq ptr %75, null
   br i1 %tobool.not.i.i47, label %ehcleanup33, label %if.then.i.i48
 
 if.then.i.i48:                                    ; preds = %lpad31
-  %call.i.i49 = invoke noundef zeroext i1 %76(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp26, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp26, i32 noundef 3)
+  %call.i.i49 = invoke noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp26, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp26, i32 noundef 3)
           to label %ehcleanup33 unwind label %terminate.lpad.i.i50
 
 terminate.lpad.i.i50:                             ; preds = %if.then.i.i48
-  %77 = landingpad { ptr, i32 }
+  %76 = landingpad { ptr, i32 }
           catch ptr null
-  %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #25
+  %77 = extractvalue { ptr, i32 } %76, 0
+  call void @__clang_call_terminate(ptr %77) #25
   unreachable
 
 ehcleanup33:                                      ; preds = %if.then.i.i48, %lpad31, %if.then.i.i32, %lpad.i
-  %.pn.pn = phi { ptr, i32 } [ %46, %if.then.i.i32 ], [ %46, %lpad.i ], [ %75, %lpad31 ], [ %75, %if.then.i.i48 ]
+  %.pn.pn = phi { ptr, i32 } [ %45, %if.then.i.i32 ], [ %45, %lpad.i ], [ %74, %lpad31 ], [ %74, %if.then.i.i48 ]
   call fastcc void @"_ZZN9grpc_core16ClientAuthFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES1_EEEN3$_0D2Ev"(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp25) #21
-  %79 = load ptr, ptr %agg.tmp17, align 16
-  %destroy.i53 = getelementptr inbounds %"struct.grpc_core::arena_promise_detail::Vtable.173", ptr %79, i64 0, i32 1
-  %80 = load ptr, ptr %destroy.i53, align 8
+  %78 = load ptr, ptr %agg.tmp17, align 16
+  %destroy.i53 = getelementptr inbounds %"struct.grpc_core::arena_promise_detail::Vtable.173", ptr %78, i64 0, i32 1
+  %79 = load ptr, ptr %destroy.i53, align 8
   %arg.i54 = getelementptr inbounds %"struct.grpc_core::arena_promise_detail::VtableAndArg.128", ptr %agg.tmp17, i64 0, i32 2
-  invoke void %80(ptr noundef nonnull %arg.i54)
+  invoke void %79(ptr noundef nonnull %arg.i54)
           to label %eh.resume unwind label %terminate.lpad.i55
 
 terminate.lpad.i55:                               ; preds = %ehcleanup33
-  %81 = landingpad { ptr, i32 }
+  %80 = landingpad { ptr, i32 }
           catch ptr null
-  %82 = extractvalue { ptr, i32 } %81, 0
-  call void @__clang_call_terminate(ptr %82) #25
+  %81 = extractvalue { ptr, i32 } %80, 0
+  call void @__clang_call_terminate(ptr %81) #25
   unreachable
 
 return:                                           ; preds = %delete.notnull.i.i.i, %if.then.i2.i, %_ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i, %"_ZZN9grpc_core16ClientAuthFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES1_EEEN3$_0D2Ev.exit"
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup33, %lpad
-  %.pn7 = phi { ptr, i32 } [ %31, %lpad ], [ %.pn.pn, %ehcleanup33 ]
+  %.pn7 = phi { ptr, i32 } [ %30, %lpad ], [ %.pn.pn, %ehcleanup33 ]
   resume { ptr, i32 } %.pn7
 }
 
@@ -4022,36 +4021,35 @@ _ZNR4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchN9grpc_core
   call void @llvm.experimental.noalias.scope.decl(metadata !114)
   call void @llvm.experimental.noalias.scope.decl(metadata !117)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i.i.i.i.i), !noalias !120
-  %37 = inttoptr i64 %35 to ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !121)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp.i.i.i.i.i.i), !noalias !124
   %add.ptr.i.i.i.i.i2.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::TrySeqTraits, grpc_core::promise_detail::Seq<grpc_core::ArenaPromise<absl::lts_20230802::StatusOr<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>>>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:163:11)>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:171:7)>::Running0", ptr %0, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %38 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i.i.i.i.i.i.i, align 8, !noalias !125
-  store ptr %37, ptr %add.ptr.i.i.i.i.i2.i.i.i.i.i.i.i.i.i, align 8, !noalias !125
-  %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %38, null
+  %37 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i.i.i.i.i.i.i, align 8, !noalias !125
+  store i64 %35, ptr %add.ptr.i.i.i.i.i2.i.i.i.i.i.i.i.i.i, align 8, !noalias !125
+  %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %37, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %invoke.cont11.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNR4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEEdeEv.exit.i.i.i
-  %39 = load i8, ptr %next_factory.i.i, align 1, !noalias !125
-  %40 = and i8 %39, 1
-  %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %40, 0
+  %38 = load i8, ptr %next_factory.i.i, align 1, !noalias !125
+  %39 = and i8 %38, 1
+  %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %39, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont11.i.i, label %delete.notnull.i.i.i.i.i.i.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
-  call void @_ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEED2Ev(ptr noundef nonnull align 8 dereferenceable(568) %38) #21, !noalias !125
-  call void @_ZdlPv(ptr noundef nonnull %38) #22, !noalias !125
+  call void @_ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEED2Ev(ptr noundef nonnull align 8 dereferenceable(568) %37) #21, !noalias !125
+  call void @_ZdlPv(ptr noundef nonnull %37) #22, !noalias !125
   %.pre.i.i.i.i7.i.i = load i64, ptr %add.ptr.i.i.i.i.i2.i.i.i.i.i.i.i.i.i, align 8, !noalias !125
   br label %invoke.cont11.i.i
 
 invoke.cont11.i.i:                                ; preds = %delete.notnull.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i, %_ZNR4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEEdeEv.exit.i.i.i
-  %41 = phi i64 [ %.pre.i.i.i.i7.i.i, %delete.notnull.i.i.i.i.i.i.i.i.i.i.i ], [ %35, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %35, %_ZNR4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEEdeEv.exit.i.i.i ]
+  %40 = phi i64 [ %.pre.i.i.i.i7.i.i, %delete.notnull.i.i.i.i.i.i.i.i.i.i.i ], [ %35, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %35, %_ZNR4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEEdeEv.exit.i.i.i ]
   store i8 %36, ptr %next_factory.i.i, align 1, !noalias !125
-  %42 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.tmp.i.i.i.i.i.i, i64 0, i32 1
-  store i8 %36, ptr %42, align 8, !noalias !125
-  %43 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.tmp.i.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %41 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.tmp.i.i.i.i.i.i, i64 0, i32 1
+  store i8 %36, ptr %41, align 8, !noalias !125
+  %42 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.tmp.i.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   store ptr null, ptr %add.ptr.i.i.i.i.i2.i.i.i.i.i.i.i.i.i, align 8, !noalias !125
   %client_initial_metadata_outstanding3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::TrySeqTraits, grpc_core::promise_detail::Seq<grpc_core::ArenaPromise<absl::lts_20230802::StatusOr<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>>>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:163:11)>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:171:7)>::Running0", ptr %0, i64 0, i32 1, i32 0, i32 0, i32 1
-  %44 = load ptr, ptr %client_initial_metadata_outstanding3.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !125
+  %43 = load ptr, ptr %client_initial_metadata_outstanding3.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !125
   store ptr null, ptr %client_initial_metadata_outstanding3.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !125
   %polling_entity.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.tmp.i.i.i.i.i.i, i64 0, i32 1, i32 0, i32 2
   %polling_entity4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::TrySeqTraits, grpc_core::promise_detail::Seq<grpc_core::ArenaPromise<absl::lts_20230802::StatusOr<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>>>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:163:11)>, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/transport/client_auth_filter.cc:171:7)>::Running0", ptr %0, i64 0, i32 1, i32 0, i32 0, i32 2
@@ -4059,16 +4057,16 @@ invoke.cont11.i.i:                                ; preds = %delete.notnull.i.i.
   store i64 0, ptr %agg.tmp.i.i.i.i.i.i, align 8, !noalias !125
   call void @llvm.experimental.noalias.scope.decl(metadata !126)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp.i.i.i.i.i6.i.i), !noalias !125
-  %45 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.tmp.i.i.i.i.i6.i.i, i64 0, i32 1
-  store i8 %36, ptr %45, align 8, !noalias !129
-  %46 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.tmp.i.i.i.i.i6.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %44 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.tmp.i.i.i.i.i6.i.i, i64 0, i32 1
+  store i8 %36, ptr %44, align 8, !noalias !129
+  %45 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.tmp.i.i.i.i.i6.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %polling_entity.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.tmp.i.i.i.i.i6.i.i, i64 0, i32 1, i32 0, i32 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false), !noalias !125
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false), !noalias !125
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %polling_entity.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %polling_entity4.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !125
-  %47 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %ref.tmp.i.i.i.i.i, i64 0, i32 1
-  store i8 %36, ptr %47, align 8, !alias.scope !130, !noalias !124
-  %48 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %ref.tmp.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false), !noalias !129
+  %46 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %ref.tmp.i.i.i.i.i, i64 0, i32 1
+  store i8 %36, ptr %46, align 8, !alias.scope !130, !noalias !124
+  %47 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %ref.tmp.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false), !noalias !129
   %polling_entity.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %ref.tmp.i.i.i.i.i, i64 0, i32 1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %polling_entity.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %polling_entity4.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !124
   store i64 0, ptr %agg.tmp.i.i.i.i.i6.i.i, align 8, !noalias !129
@@ -4077,91 +4075,91 @@ invoke.cont11.i.i:                                ; preds = %delete.notnull.i.i.
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i.i.i.i.i6.i.i), !noalias !125
   call void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core8CallArgsEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp.i.i.i.i.i.i) #21, !noalias !125
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp.i.i.i.i.i.i), !noalias !124
-  %49 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %next_promise.i.i, i64 0, i32 1
-  store i8 %36, ptr %49, align 8, !alias.scope !131, !noalias !73
-  %50 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %next_promise.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  store i64 %41, ptr %50, align 8, !alias.scope !131, !noalias !73
+  %48 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %next_promise.i.i, i64 0, i32 1
+  store i8 %36, ptr %48, align 8, !alias.scope !131, !noalias !73
+  %49 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %next_promise.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  store i64 %40, ptr %49, align 8, !alias.scope !131, !noalias !73
   %client_initial_metadata_outstanding.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %next_promise.i.i, i64 0, i32 1, i32 0, i32 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false), !noalias !124
-  store ptr %44, ptr %client_initial_metadata_outstanding.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !131, !noalias !73
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false), !noalias !124
+  store ptr %43, ptr %client_initial_metadata_outstanding.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !131, !noalias !73
   %polling_entity.i.i.i.i.i.i.i1.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %next_promise.i.i, i64 0, i32 1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %polling_entity.i.i.i.i.i.i.i1.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %polling_entity.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !73
   store i64 0, ptr %next_promise.i.i, align 8, !alias.scope !131, !noalias !73
   call void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core8CallArgsEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i.i.i.i.i) #21, !noalias !124
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i.i.i.i.i), !noalias !120
-  %51 = load ptr, ptr %client_initial_metadata_outstanding3.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !73
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %51, null
+  %50 = load ptr, ptr %client_initial_metadata_outstanding3.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !73
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %50, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont11.i.i
-  store i8 0, ptr %51, align 2, !noalias !73
-  %has_value_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Latch", ptr %51, i64 0, i32 1
+  store i8 0, ptr %50, align 2, !noalias !73
+  %has_value_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Latch", ptr %50, i64 0, i32 1
   store i8 1, ptr %has_value_.i.i.i.i.i.i.i.i, align 1, !noalias !73
-  %waiter_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Latch", ptr %51, i64 0, i32 2
-  %52 = load i16, ptr %waiter_.i.i.i.i.i.i.i.i, align 2, !noalias !73
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i16 %52, 0
+  %waiter_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Latch", ptr %50, i64 0, i32 2
+  %51 = load i16, ptr %waiter_.i.i.i.i.i.i.i.i, align 2, !noalias !73
+  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i16 %51, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i.i
-  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %53, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i.i.i.i.i.i
+  br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %52, label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i.i.i.i.i.i
 
-53:                                               ; preds = %if.end.i.i.i.i.i.i.i.i.i
+52:                                               ; preds = %if.end.i.i.i.i.i.i.i.i.i
   invoke void @_ZTHN9grpc_core8Activity19g_current_activity_E()
           to label %.noexc.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i, !noalias !73
 
-.noexc.i.i.i.i.i.i.i:                             ; preds = %53
+.noexc.i.i.i.i.i.i.i:                             ; preds = %52
   %.pre.i.i.i.i.i.i.i.i.i = load i16, ptr %waiter_.i.i.i.i.i.i.i.i, align 2, !noalias !73
   br label %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i.i.i.i.i.i
 
 _ZN9grpc_core8Activity7currentEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %.noexc.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i
-  %54 = phi i16 [ %52, %if.end.i.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i ]
-  %55 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
-  %56 = load ptr, ptr %55, align 8, !noalias !73
+  %53 = phi i16 [ %51, %if.end.i.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i ]
+  %54 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
+  %55 = load ptr, ptr %54, align 8, !noalias !73
   store i16 0, ptr %waiter_.i.i.i.i.i.i.i.i, align 2, !noalias !73
-  %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %56, align 8, !noalias !73
+  %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %55, align 8, !noalias !73
   %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 3
-  %57 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8, !noalias !73
-  invoke void %57(ptr noundef nonnull align 8 dereferenceable(8) %56, i16 noundef zeroext %54)
+  %56 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8, !noalias !73
+  invoke void %56(ptr noundef nonnull align 8 dereferenceable(8) %55, i16 noundef zeroext %53)
           to label %_ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i, !noalias !73
 
-terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i.i.i.i.i.i, %53
-  %58 = landingpad { ptr, i32 }
+terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i.i.i.i.i.i, %52
+  %57 = landingpad { ptr, i32 }
           catch ptr null
-  %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #25
+  %58 = extractvalue { ptr, i32 } %57, 0
+  call void @__clang_call_terminate(ptr %58) #25
   unreachable
 
 _ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN9grpc_core8Activity7currentEv.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %invoke.cont11.i.i
-  %60 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i.i.i.i.i.i.i, align 8, !noalias !73
-  %cmp.not.i1.i.i.i.i.i.i = icmp eq ptr %60, null
+  %59 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i.i.i.i.i.i.i, align 8, !noalias !73
+  %cmp.not.i1.i.i.i.i.i.i = icmp eq ptr %59, null
   br i1 %cmp.not.i1.i.i.i.i.i.i, label %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit.i.i, label %if.then.i2.i.i.i.i.i.i
 
 if.then.i2.i.i.i.i.i.i:                           ; preds = %_ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i.i.i.i.i.i
-  %61 = load i8, ptr %next_factory.i.i, align 1, !noalias !73
-  %62 = and i8 %61, 1
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq i8 %62, 0
+  %60 = load i8, ptr %next_factory.i.i, align 1, !noalias !73
+  %61 = and i8 %60, 1
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq i8 %61, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit.i.i, label %delete.notnull.i.i.i.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i2.i.i.i.i.i.i
-  call void @_ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEED2Ev(ptr noundef nonnull align 8 dereferenceable(568) %60) #21, !noalias !73
-  call void @_ZdlPv(ptr noundef nonnull %60) #22, !noalias !73
+  call void @_ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEED2Ev(ptr noundef nonnull align 8 dereferenceable(568) %59) #21, !noalias !73
+  call void @_ZdlPv(ptr noundef nonnull %59) #22, !noalias !73
   br label %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit.i.i
 
 terminate.lpad.i4.i.i.i.i.i.i:                    ; preds = %invoke.cont6.i.i
-  %63 = landingpad { ptr, i32 }
+  %62 = landingpad { ptr, i32 }
           catch ptr null
-  %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #25
+  %63 = extractvalue { ptr, i32 } %62, 0
+  call void @__clang_call_terminate(ptr %63) #25
   unreachable
 
 _ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i.i, %if.then.i2.i.i.i.i.i.i, %_ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i.i.i.i.i.i
-  %65 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %0, i64 0, i32 1
-  store i8 %36, ptr %65, align 1, !noalias !73
-  %66 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %0, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  store i64 %41, ptr %66, align 8, !noalias !73
+  %64 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %0, i64 0, i32 1
+  store i8 %36, ptr %64, align 1, !noalias !73
+  %65 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %0, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  store i64 %40, ptr %65, align 8, !noalias !73
   %client_initial_metadata_outstanding.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %0, i64 0, i32 1, i32 0, i32 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false), !noalias !73
-  store ptr %44, ptr %client_initial_metadata_outstanding.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !73
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false), !noalias !73
+  store ptr %43, ptr %client_initial_metadata_outstanding.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %state.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %polling_entity.i.i.i.i.i.i.i1.i.i.i.i.i, i64 32, i1 false), !noalias !73
   store i64 0, ptr %0, align 8, !noalias !73
   store i8 1, ptr %state.i.i, align 16, !noalias !73
@@ -4173,73 +4171,73 @@ sw.bb16.i.i:                                      ; preds = %_ZN9grpc_core4PollI
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %ref.tmp.i.i.i), !noalias !73
   call void @llvm.experimental.noalias.scope.decl(metadata !135)
   store i8 1, ptr %ref.tmp.i.i.i, align 8, !alias.scope !135, !noalias !138
-  %67 = load i64, ptr %0, align 8, !noalias !139
-  %cmp.i.i.i.i.i.i.i.i20.i.i = icmp eq i64 %67, 0
+  %66 = load i64, ptr %0, align 8, !noalias !139
+  %cmp.i.i.i.i.i.i.i.i20.i.i = icmp eq i64 %66, 0
   br i1 %cmp.i.i.i.i.i.i.i.i20.i.i, label %invoke.cont2.i.i.i.i29.i.i, label %if.else.i.i.i.i28.i.i
 
 invoke.cont2.i.i.i.i29.i.i:                       ; preds = %sw.bb16.i.i
-  %68 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %0, i64 0, i32 1
-  %69 = getelementptr inbounds %"class.grpc_core::Poll", ptr %ref.tmp.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1
-  %70 = load i8, ptr %68, align 1, !noalias !139
-  store i8 %70, ptr %69, align 8, !alias.scope !135, !noalias !138
-  %71 = getelementptr inbounds %"class.grpc_core::Poll", ptr %ref.tmp.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %67 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %0, i64 0, i32 1
+  %68 = getelementptr inbounds %"class.grpc_core::Poll", ptr %ref.tmp.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1
+  %69 = load i8, ptr %67, align 1, !noalias !139
+  store i8 %69, ptr %68, align 8, !alias.scope !135, !noalias !138
+  %70 = getelementptr inbounds %"class.grpc_core::Poll", ptr %ref.tmp.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %0, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %72 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !139
+  %71 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !139
   store ptr null, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !139
   %client_initial_metadata_outstanding3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %0, i64 0, i32 1, i32 0, i32 1
-  %73 = load ptr, ptr %client_initial_metadata_outstanding3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !139
+  %72 = load ptr, ptr %client_initial_metadata_outstanding3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !139
   store ptr null, ptr %client_initial_metadata_outstanding3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !139
   %polling_entity.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Poll", ptr %ref.tmp.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2
   %polling_entity4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %0, i64 0, i32 1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %polling_entity.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) %polling_entity4.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !138
-  %74 = getelementptr inbounds %"class.grpc_core::Poll", ptr %ref.tmp.i.i.i, i64 0, i32 1
-  store i64 0, ptr %74, align 8, !alias.scope !135, !noalias !138
-  %75 = getelementptr inbounds %"class.grpc_core::Poll", ptr %result17.i.i, i64 0, i32 1, i32 0, i32 0, i32 1
-  store i8 %70, ptr %75, align 8, !alias.scope !140, !noalias !73
-  %76 = getelementptr inbounds %"class.grpc_core::Poll", ptr %result17.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false), !noalias !138
+  %73 = getelementptr inbounds %"class.grpc_core::Poll", ptr %ref.tmp.i.i.i, i64 0, i32 1
+  store i64 0, ptr %73, align 8, !alias.scope !135, !noalias !138
+  %74 = getelementptr inbounds %"class.grpc_core::Poll", ptr %result17.i.i, i64 0, i32 1, i32 0, i32 0, i32 1
+  store i8 %69, ptr %74, align 8, !alias.scope !140, !noalias !73
+  %75 = getelementptr inbounds %"class.grpc_core::Poll", ptr %result17.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false), !noalias !138
   %polling_entity.i.i.i.i.i.i.i.i.i.i22.i.i = getelementptr inbounds %"class.grpc_core::Poll", ptr %result17.i.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %polling_entity.i.i.i.i.i.i.i.i.i.i22.i.i, ptr noundef nonnull align 16 dereferenceable(32) %polling_entity4.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !73
   store i8 1, ptr %result17.i.i, align 8, !alias.scope !132, !noalias !73
-  %77 = getelementptr inbounds %"class.grpc_core::Poll", ptr %result17.i.i, i64 0, i32 1
-  store i64 0, ptr %77, align 8, !alias.scope !132, !noalias !73
-  call void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core8CallArgsEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %74) #21, !noalias !138
+  %76 = getelementptr inbounds %"class.grpc_core::Poll", ptr %result17.i.i, i64 0, i32 1
+  store i64 0, ptr %76, align 8, !alias.scope !132, !noalias !73
+  call void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core8CallArgsEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %73) #21, !noalias !138
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %ref.tmp.i.i.i), !noalias !73
-  %78 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %ref.tmp27.i.i, i64 0, i32 1
-  store i8 %70, ptr %78, align 8, !noalias !73
-  %79 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %ref.tmp27.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %77 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %ref.tmp27.i.i, i64 0, i32 1
+  store i8 %69, ptr %77, align 8, !noalias !73
+  %78 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %ref.tmp27.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %polling_entity.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %ref.tmp27.i.i, i64 0, i32 1, i32 0, i32 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, i8 0, i64 16, i1 false), !noalias !67
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, i8 0, i64 16, i1 false), !noalias !67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %polling_entity.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %polling_entity.i.i.i.i.i.i.i.i.i.i22.i.i, i64 32, i1 false), !noalias !73
-  %80 = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.tmp, i64 0, i32 1, i32 0, i32 0, i32 1
-  store i8 %70, ptr %80, align 8, !alias.scope !73
-  %81 = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.tmp, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  store i64 %72, ptr %81, align 8, !alias.scope !73
+  %79 = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.tmp, i64 0, i32 1, i32 0, i32 0, i32 1
+  store i8 %69, ptr %79, align 8, !alias.scope !73
+  %80 = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.tmp, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  store i64 %71, ptr %80, align 8, !alias.scope !73
   %client_initial_metadata_outstanding.i.i.i.i.i.i.i31.i.i = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.tmp, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, i8 0, i64 16, i1 false), !noalias !73
-  store ptr %73, ptr %client_initial_metadata_outstanding.i.i.i.i.i.i.i31.i.i, align 8, !alias.scope !73
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, i8 0, i64 16, i1 false), !noalias !73
+  store ptr %72, ptr %client_initial_metadata_outstanding.i.i.i.i.i.i.i31.i.i, align 8, !alias.scope !73
   %polling_entity.i.i.i.i.i.i.i33.i.i = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.tmp, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %polling_entity.i.i.i.i.i.i.i33.i.i, ptr noundef nonnull align 8 dereferenceable(32) %polling_entity.i.i.i.i.i.i.i.i.i.i22.i.i, i64 32, i1 false)
   br label %if.then.i.i.i
 
 if.else.i.i.i.i28.i.i:                            ; preds = %sw.bb16.i.i
   store i64 54, ptr %0, align 8, !noalias !139
-  %82 = getelementptr inbounds %"class.grpc_core::Poll", ptr %ref.tmp.i.i.i, i64 0, i32 1
+  %81 = getelementptr inbounds %"class.grpc_core::Poll", ptr %ref.tmp.i.i.i, i64 0, i32 1
   call void @llvm.experimental.noalias.scope.decl(metadata !145)
   call void @llvm.experimental.noalias.scope.decl(metadata !146)
-  store i64 54, ptr %82, align 8, !noalias !147
+  store i64 54, ptr %81, align 8, !noalias !147
   store i8 1, ptr %result17.i.i, align 8, !alias.scope !132, !noalias !73
-  %83 = getelementptr inbounds %"class.grpc_core::Poll", ptr %result17.i.i, i64 0, i32 1
-  call void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core8CallArgsEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %82) #21, !noalias !138
+  %82 = getelementptr inbounds %"class.grpc_core::Poll", ptr %result17.i.i, i64 0, i32 1
+  call void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core8CallArgsEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %81) #21, !noalias !138
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %ref.tmp.i.i.i), !noalias !73
-  store i64 %67, ptr %ref.tmp27.i.i, align 8, !noalias !73
-  store i64 54, ptr %83, align 8, !noalias !73
+  store i64 %66, ptr %ref.tmp27.i.i, align 8, !noalias !73
+  store i64 54, ptr %82, align 8, !noalias !73
   br label %if.then.i.i.i
 
 "_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS0_3SeqINS_12ArenaPromiseIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEEJZNS_16ClientAuthFilter20GetCallCredsMetadataENS_8CallArgsEE3$_0EEEJZNSF_20GetCallCredsMetadataESG_E3$_1EE8PollOnceEv.exit.critedge.i": ; preds = %if.then5.i.i
   store i8 1, ptr %agg.tmp, align 8, !alias.scope !73
-  %84 = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.tmp, i64 0, i32 1
-  store i64 %.pr.i.i.i.i.i.i, ptr %84, align 8, !alias.scope !73
+  %83 = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.tmp, i64 0, i32 1
+  store i64 %.pr.i.i.i.i.i.i, ptr %83, align 8, !alias.scope !73
   store i64 54, ptr %ref.tmp.i.i, align 8, !noalias !73
   call void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core8CallArgsEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i.i) #21, !noalias !73
   br label %if.then.i.i.i.thread
@@ -4261,59 +4259,59 @@ if.then.i.i.i.thread:                             ; preds = %"_ZN9grpc_core14pro
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %result17.i.i), !noalias !67
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp27.i.i), !noalias !67
   store i8 1, ptr %agg.result, align 8, !alias.scope !155
-  %85 = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.result, i64 0, i32 1
-  %86 = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.tmp, i64 0, i32 1
+  %84 = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.result, i64 0, i32 1
+  %85 = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.tmp, i64 0, i32 1
   br label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont2.i.i.i.i29.i.i, %if.else.i.i.i.i28.i.i
-  %87 = phi ptr [ %73, %invoke.cont2.i.i.i.i29.i.i ], [ undef, %if.else.i.i.i.i28.i.i ]
-  %88 = phi i64 [ %72, %invoke.cont2.i.i.i.i29.i.i ], [ undef, %if.else.i.i.i.i28.i.i ]
-  %89 = phi i8 [ %70, %invoke.cont2.i.i.i.i29.i.i ], [ undef, %if.else.i.i.i.i28.i.i ]
-  %90 = phi ptr [ %77, %invoke.cont2.i.i.i.i29.i.i ], [ %83, %if.else.i.i.i.i28.i.i ]
+  %86 = phi ptr [ %72, %invoke.cont2.i.i.i.i29.i.i ], [ undef, %if.else.i.i.i.i28.i.i ]
+  %87 = phi i64 [ %71, %invoke.cont2.i.i.i.i29.i.i ], [ undef, %if.else.i.i.i.i28.i.i ]
+  %88 = phi i8 [ %69, %invoke.cont2.i.i.i.i29.i.i ], [ undef, %if.else.i.i.i.i28.i.i ]
+  %89 = phi ptr [ %76, %invoke.cont2.i.i.i.i29.i.i ], [ %82, %if.else.i.i.i.i28.i.i ]
   %.sink51.i.i = phi i64 [ 0, %invoke.cont2.i.i.i.i29.i.i ], [ 54, %if.else.i.i.i.i28.i.i ]
   store i64 %.sink51.i.i, ptr %ref.tmp27.i.i, align 8, !noalias !73
   store i8 1, ptr %agg.tmp, align 8, !alias.scope !73
-  %91 = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.tmp, i64 0, i32 1
-  store i64 %67, ptr %91, align 8, !alias.scope !73
+  %90 = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.tmp, i64 0, i32 1
+  store i64 %66, ptr %90, align 8, !alias.scope !73
   call void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core8CallArgsEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp27.i.i) #21, !noalias !73
-  call void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core8CallArgsEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %90) #21, !noalias !73
+  call void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core8CallArgsEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %89) #21, !noalias !73
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i.i), !noalias !67
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %next_promise.i.i), !noalias !67
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %result17.i.i), !noalias !67
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp27.i.i), !noalias !67
   store i8 1, ptr %agg.result, align 8, !alias.scope !158
-  %92 = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.result, i64 0, i32 1
-  %93 = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.tmp, i64 0, i32 1
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %67, 0
+  %91 = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.result, i64 0, i32 1
+  %92 = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.tmp, i64 0, i32 1
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %66, 0
   br i1 %cmp.i.i.i.i.i.i.i.i, label %invoke.cont2.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 invoke.cont2.i.i.i.i.i.i:                         ; preds = %if.then.i.i.i
-  %94 = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i32 1
-  store i8 %89, ptr %94, align 8, !alias.scope !154
-  %95 = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %93 = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i32 1
+  store i8 %88, ptr %93, align 8, !alias.scope !154
+  %94 = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.tmp, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  store i64 %88, ptr %95, align 8, !alias.scope !154
+  store i64 %87, ptr %94, align 8, !alias.scope !154
   %client_initial_metadata_outstanding.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr %87, ptr %client_initial_metadata_outstanding.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !154
+  store ptr %86, ptr %client_initial_metadata_outstanding.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !154
   %polling_entity.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2
   %polling_entity4.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.tmp, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %polling_entity.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %polling_entity4.i.i.i.i.i.i.i.i.i, i64 32, i1 false)
   br label %if.then.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.thread, %if.then.i.i.i
-  %96 = phi ptr [ %86, %if.then.i.i.i.thread ], [ %93, %if.then.i.i.i ]
-  %97 = phi ptr [ %85, %if.then.i.i.i.thread ], [ %92, %if.then.i.i.i ]
-  %.ph613 = phi i64 [ %.pr.i.i.i.i.i.i, %if.then.i.i.i.thread ], [ %67, %if.then.i.i.i ]
-  store i64 54, ptr %96, align 8, !noalias !154
+  %95 = phi ptr [ %85, %if.then.i.i.i.thread ], [ %92, %if.then.i.i.i ]
+  %96 = phi ptr [ %84, %if.then.i.i.i.thread ], [ %91, %if.then.i.i.i ]
+  %.ph613 = phi i64 [ %.pr.i.i.i.i.i.i, %if.then.i.i.i.thread ], [ %66, %if.then.i.i.i ]
+  store i64 54, ptr %95, align 8, !noalias !154
   br label %if.then.i
 
 if.then.i:                                        ; preds = %if.else.i.i.i.i.i.i, %invoke.cont2.i.i.i.i.i.i
-  %98 = phi ptr [ %93, %invoke.cont2.i.i.i.i.i.i ], [ %96, %if.else.i.i.i.i.i.i ]
-  %99 = phi ptr [ %92, %invoke.cont2.i.i.i.i.i.i ], [ %97, %if.else.i.i.i.i.i.i ]
+  %97 = phi ptr [ %92, %invoke.cont2.i.i.i.i.i.i ], [ %95, %if.else.i.i.i.i.i.i ]
+  %98 = phi ptr [ %91, %invoke.cont2.i.i.i.i.i.i ], [ %96, %if.else.i.i.i.i.i.i ]
   %.sink = phi i64 [ 0, %invoke.cont2.i.i.i.i.i.i ], [ %.ph613, %if.else.i.i.i.i.i.i ]
-  store i64 %.sink, ptr %99, align 8
-  call void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core8CallArgsEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %98) #21
+  store i64 %.sink, ptr %98, align 8
+  call void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core8CallArgsEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %97) #21
   br label %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrINS_8CallArgsEEEED2Ev.exit
 
 _ZN9grpc_core4PollIN4absl12lts_202308028StatusOrINS_8CallArgsEEEED2Ev.exit: ; preds = %"_ZN9grpc_core14promise_detail6TrySeqINS0_3SeqINS_12ArenaPromiseIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEEJZNS_16ClientAuthFilter20GetCallCredsMetadataENS_8CallArgsEE3$_0EEEJZNSE_20GetCallCredsMetadataESF_E3$_1EEclEv.exit", %if.then.i
@@ -4901,8 +4899,7 @@ if.then.i:                                        ; preds = %"_ZN9grpc_core14pro
   %102 = getelementptr inbounds %"class.grpc_core::Poll.174", ptr %agg.result, i64 0, i32 1
   store i8 %agg.tmp.sroa.6.514, ptr %102, align 8, !alias.scope !231
   %103 = getelementptr inbounds %"class.grpc_core::Poll.174", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %104 = ptrtoint ptr %agg.tmp.sroa.10.513 to i64
-  store i64 %104, ptr %103, align 8, !alias.scope !231
+  store ptr %agg.tmp.sroa.10.513, ptr %103, align 8, !alias.scope !231
   br label %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit
 
 _ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit: ; preds = %"_ZN9grpc_core14promise_detail6TrySeqINS_12ArenaPromiseIN4absl12lts_202308026StatusEEEJZNS_16ClientAuthFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS2_ISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES8_EEE3$_0SH_EEclEv.exit.thread", %"_ZN9grpc_core14promise_detail6TrySeqINS_12ArenaPromiseIN4absl12lts_202308026StatusEEEJZNS_16ClientAuthFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS2_ISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES8_EEE3$_0SH_EEclEv.exit", %if.then.i
@@ -5259,10 +5256,9 @@ entry:
   store ptr %4, ptr %5, align 8
   %pollent_.i.i.i = getelementptr inbounds %"class.grpc_core::promise_filter_detail::BaseCallData", ptr %0, i64 0, i32 10
   %7 = load atomic i64, ptr %pollent_.i.i.i acquire, align 8
-  %atomic-temp.i.0.i.i.i.i = inttoptr i64 %7 to ptr
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail7ContextI19grpc_polling_entityE8current_E)
   %9 = load ptr, ptr %8, align 8
-  store ptr %atomic-temp.i.0.i.i.i.i, ptr %8, align 8
+  store i64 %7, ptr %8, align 8
   %finalization_.i.i.i = getelementptr inbounds %"class.grpc_core::promise_filter_detail::BaseCallData", ptr %0, i64 0, i32 7
   %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail7ContextINS_16CallFinalizationEE8current_E)
   %11 = load ptr, ptr %10, align 8

@@ -7383,7 +7383,7 @@ entry:
   %call.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef %mul.i, i64 noundef 8, i64 noundef 0, ptr noundef null, i32 noundef 4194304, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memset.p0.i64(ptr align 8 %call.i.i, i8 0, i64 %add.i, i1 false)
   %arrayidx.i = getelementptr inbounds ptr, ptr %call.i.i, i64 %nNewBucketCount
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i, align 8
+  store i64 -1, ptr %arrayidx.i, align 8
   %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable", ptr %this, i64 0, i32 3
   %0 = load i64, ptr %mnBucketCount, align 8
   %cmp16.not = icmp eq i64 %0, 0
@@ -7645,7 +7645,7 @@ entry:
   %call.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef %mul.i, i64 noundef 8, i64 noundef 0, ptr noundef null, i32 noundef 4194304, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memset.p0.i64(ptr align 8 %call.i.i, i8 0, i64 %add.i, i1 false)
   %arrayidx.i = getelementptr inbounds ptr, ptr %call.i.i, i64 %nNewBucketCount
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i, align 8
+  store i64 -1, ptr %arrayidx.i, align 8
   %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.7", ptr %this, i64 0, i32 3
   %0 = load i64, ptr %mnBucketCount, align 8
   %cmp16.not = icmp eq i64 %0, 0
@@ -8694,7 +8694,7 @@ entry:
   %call.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef %mul.i, i64 noundef 8, i64 noundef 0, ptr noundef null, i32 noundef 4194304, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memset.p0.i64(ptr align 8 %call.i.i, i8 0, i64 %add.i, i1 false)
   %arrayidx.i = getelementptr inbounds ptr, ptr %call.i.i, i64 %nNewBucketCount
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i, align 8
+  store i64 -1, ptr %arrayidx.i, align 8
   %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.23", ptr %this, i64 0, i32 3
   %0 = load i64, ptr %mnBucketCount, align 8
   %cmp16.not = icmp eq i64 %0, 0
@@ -9720,7 +9720,7 @@ entry:
   %call.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef %mul.i, i64 noundef 8, i64 noundef 0, ptr noundef null, i32 noundef 4194304, i32 noundef 0, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memset.p0.i64(ptr align 8 %call.i.i.i, i8 0, i64 %add.i, i1 false)
   %arrayidx.i = getelementptr inbounds ptr, ptr %call.i.i.i, i64 %nNewBucketCount
-  store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i, align 8
+  store i64 -1, ptr %arrayidx.i, align 8
   %mnBucketCount = getelementptr inbounds %"class.eastl::hashtable.36", ptr %this, i64 0, i32 2
   %4 = load i64, ptr %mnBucketCount, align 8
   %cmp16.not = icmp eq i64 %4, 0

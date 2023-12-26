@@ -715,24 +715,24 @@ lpad:                                             ; preds = %cond.false.i
 invoke.cont17:                                    ; preds = %invoke.cont
   %storage_.i.i = getelementptr inbounds %"class.arrow::Result", ptr %ref.tmp, i64 0, i32 1
   %11 = load i64, ptr %storage_.i.i, align 8, !noalias !15
-  %12 = inttoptr i64 %11 to ptr
   store ptr null, ptr %storage_.i.i, align 8, !noalias !15
   %null_masks_18 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %this, i64 0, i32 2
-  %13 = load ptr, ptr %null_masks_18, align 8
-  store ptr %12, ptr %null_masks_18, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %13, null
+  %12 = load ptr, ptr %null_masks_18, align 8
+  store i64 %11, ptr %null_masks_18, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %12, null
+  %13 = inttoptr i64 %11 to ptr
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EEaSEOS4_.exit, label %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i.i.i.i: ; preds = %invoke.cont17
-  %vtable.i.i.i.i.i = load ptr, ptr %13, align 8
+  %vtable.i.i.i.i.i = load ptr, ptr %12, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 1
   %14 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(80) %13) #24
+  call void %14(ptr noundef nonnull align 8 dereferenceable(80) %12) #24
   %.pre = load ptr, ptr %null_masks_18, align 8
   br label %_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EEaSEOS4_.exit
 
 _ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %invoke.cont17, %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i.i.i.i
-  %15 = phi ptr [ %12, %invoke.cont17 ], [ %.pre, %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i.i.i.i ]
+  %15 = phi ptr [ %13, %invoke.cont17 ], [ %.pre, %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i.i.i.i ]
   %is_cpu_.i = getelementptr inbounds %"class.arrow::Buffer", ptr %15, i64 0, i32 2
   %16 = load i8, ptr %is_cpu_.i, align 1
   %17 = and i8 %16, 1
@@ -824,24 +824,24 @@ lpad34:                                           ; preds = %cond.false.i28
 invoke.cont47:                                    ; preds = %invoke.cont35
   %storage_.i.i49 = getelementptr inbounds %"class.arrow::Result", ptr %ref.tmp28, i64 0, i32 1
   %36 = load i64, ptr %storage_.i.i49, align 8, !noalias !20
-  %37 = inttoptr i64 %36 to ptr
   store ptr null, ptr %storage_.i.i49, align 8, !noalias !20
   %offsets_48 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %this, i64 0, i32 3
-  %38 = load ptr, ptr %offsets_48, align 8
-  store ptr %37, ptr %offsets_48, align 8
-  %tobool.not.i.i.i.i50 = icmp eq ptr %38, null
+  %37 = load ptr, ptr %offsets_48, align 8
+  store i64 %36, ptr %offsets_48, align 8
+  %tobool.not.i.i.i.i50 = icmp eq ptr %37, null
+  %38 = inttoptr i64 %36 to ptr
   br i1 %tobool.not.i.i.i.i50, label %_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EEaSEOS4_.exit54, label %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i.i.i.i51
 
 _ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i.i.i.i51: ; preds = %invoke.cont47
-  %vtable.i.i.i.i.i52 = load ptr, ptr %38, align 8
+  %vtable.i.i.i.i.i52 = load ptr, ptr %37, align 8
   %vfn.i.i.i.i.i53 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i52, i64 1
   %39 = load ptr, ptr %vfn.i.i.i.i.i53, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(80) %38) #24
+  call void %39(ptr noundef nonnull align 8 dereferenceable(80) %37) #24
   %.pre181 = load ptr, ptr %offsets_48, align 8
   br label %_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EEaSEOS4_.exit54
 
 _ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EEaSEOS4_.exit54: ; preds = %invoke.cont47, %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i.i.i.i51
-  %40 = phi ptr [ %37, %invoke.cont47 ], [ %.pre181, %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i.i.i.i51 ]
+  %40 = phi ptr [ %38, %invoke.cont47 ], [ %.pre181, %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i.i.i.i51 ]
   %is_cpu_.i55 = getelementptr inbounds %"class.arrow::Buffer", ptr %40, i64 0, i32 2
   %41 = load i8, ptr %is_cpu_.i55, align 1
   %42 = and i8 %41, 1
@@ -946,24 +946,24 @@ lpad67.body:                                      ; preds = %lpad4.i73, %lpad67
 invoke.cont80:                                    ; preds = %invoke.cont68
   %storage_.i.i90 = getelementptr inbounds %"class.arrow::Result", ptr %ref.tmp61, i64 0, i32 1
   %65 = load i64, ptr %storage_.i.i90, align 8, !noalias !25
-  %66 = inttoptr i64 %65 to ptr
   store ptr null, ptr %storage_.i.i90, align 8, !noalias !25
   %rows_81 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %this, i64 0, i32 4
-  %67 = load ptr, ptr %rows_81, align 8
-  store ptr %66, ptr %rows_81, align 8
-  %tobool.not.i.i.i.i91 = icmp eq ptr %67, null
+  %66 = load ptr, ptr %rows_81, align 8
+  store i64 %65, ptr %rows_81, align 8
+  %tobool.not.i.i.i.i91 = icmp eq ptr %66, null
+  %67 = inttoptr i64 %65 to ptr
   br i1 %tobool.not.i.i.i.i91, label %_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i.i.i.i92
 
 _ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i.i.i.i92: ; preds = %invoke.cont80
-  %vtable.i.i.i.i.i93 = load ptr, ptr %67, align 8
+  %vtable.i.i.i.i.i93 = load ptr, ptr %66, align 8
   %vfn.i.i.i.i.i94 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i93, i64 1
   %68 = load ptr, ptr %vfn.i.i.i.i.i94, align 8
-  call void %68(ptr noundef nonnull align 8 dereferenceable(80) %67) #24
+  call void %68(ptr noundef nonnull align 8 dereferenceable(80) %66) #24
   %.pre182 = load ptr, ptr %rows_81, align 8
   br label %_ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5arrow15ResizableBufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i.i.i.i92, %invoke.cont80
-  %69 = phi ptr [ %.pre182, %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i.i.i.i92 ], [ %66, %invoke.cont80 ]
+  %69 = phi ptr [ %.pre182, %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i.i.i.i92 ], [ %67, %invoke.cont80 ]
   %is_cpu_.i96 = getelementptr inbounds %"class.arrow::Buffer", ptr %69, i64 0, i32 2
   %70 = load i8, ptr %is_cpu_.i96, align 1
   %71 = and i8 %70, 1
@@ -1065,24 +1065,24 @@ lpad102.body:                                     ; preds = %lpad4.i121, %lpad10
 invoke.cont116:                                   ; preds = %invoke.cont103
   %storage_.i.i138 = getelementptr inbounds %"class.arrow::Result", ptr %ref.tmp96, i64 0, i32 1
   %87 = load i64, ptr %storage_.i.i138, align 8, !noalias !30
-  %88 = inttoptr i64 %87 to ptr
   store ptr null, ptr %storage_.i.i138, align 8, !noalias !30
   %rows_117 = getelementptr inbounds %"class.arrow::compute::RowTableImpl", ptr %this, i64 0, i32 4
-  %89 = load ptr, ptr %rows_117, align 8
-  store ptr %88, ptr %rows_117, align 8
-  %tobool.not.i.i.i.i139 = icmp eq ptr %89, null
+  %88 = load ptr, ptr %rows_117, align 8
+  store i64 %87, ptr %rows_117, align 8
+  %tobool.not.i.i.i.i139 = icmp eq ptr %88, null
+  %89 = inttoptr i64 %87 to ptr
   br i1 %tobool.not.i.i.i.i139, label %cleanup131.thread, label %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i.i.i.i140
 
 _ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i.i.i.i140: ; preds = %invoke.cont116
-  %vtable.i.i.i.i.i141 = load ptr, ptr %89, align 8
+  %vtable.i.i.i.i.i141 = load ptr, ptr %88, align 8
   %vfn.i.i.i.i.i142 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i141, i64 1
   %90 = load ptr, ptr %vfn.i.i.i.i.i142, align 8
-  call void %90(ptr noundef nonnull align 8 dereferenceable(80) %89) #24
+  call void %90(ptr noundef nonnull align 8 dereferenceable(80) %88) #24
   %.pre180 = load ptr, ptr %rows_117, align 8
   br label %cleanup131.thread
 
 cleanup131.thread:                                ; preds = %invoke.cont116, %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i.i.i.i140
-  %91 = phi ptr [ %88, %invoke.cont116 ], [ %.pre180, %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i.i.i.i140 ]
+  %91 = phi ptr [ %89, %invoke.cont116 ], [ %.pre180, %_ZNKSt14default_deleteIN5arrow15ResizableBufferEEclEPS1_.exit.i.i.i.i140 ]
   %is_cpu_.i144 = getelementptr inbounds %"class.arrow::Buffer", ptr %91, i64 0, i32 2
   %92 = load i8, ptr %is_cpu_.i144, align 1
   %93 = and i8 %92, 1

@@ -120,10 +120,9 @@ define void @_ZNK8facebook5velox9ByteRange8toStringB5cxx11Ev(ptr noalias sret(%"
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %call.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22, !noalias !4
   %call2.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22, !noalias !4
-  %1 = ptrtoint ptr %call.i.i.i to i64
-  %2 = load i32, ptr %position, align 4, !noalias !4
-  %retval.i5.sroa.0.0.insert.ext.i = zext i32 %2 to i64
-  store i64 %1, ptr %ref.tmp.i, align 16, !alias.scope !4
+  %1 = load i32, ptr %position, align 4, !noalias !4
+  %retval.i5.sroa.0.0.insert.ext.i = zext i32 %1 to i64
+  store ptr %call.i.i.i, ptr %ref.tmp.i, align 16, !alias.scope !4
   %ref.tmp.i.sroa.2.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 %call2.i.i.i, ptr %ref.tmp.i.sroa.2.0.agg.result.sroa_idx.i, align 8, !alias.scope !4
   %arrayinit.element.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 1
@@ -136,10 +135,10 @@ invoke.cont:                                      ; preds = %.noexc
   ret void
 
 lpad:                                             ; preds = %.noexc
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %2
 }
 
 declare void @_ZN8facebook5velox13succinctBytesB5cxx11Emi(ptr sret(%"class.std::__cxx11::basic_string") align 8, i64 noundef, i32 noundef) local_unnamed_addr #1

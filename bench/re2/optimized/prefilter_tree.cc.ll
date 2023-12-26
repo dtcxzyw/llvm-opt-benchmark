@@ -4068,7 +4068,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont44
-  %6 = phi ptr [ %5, %for.body.lr.ph ], [ %16, %invoke.cont44 ]
+  %6 = phi ptr [ %5, %for.body.lr.ph ], [ %15, %invoke.cont44 ]
   %i.024 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %invoke.cont44 ]
   %cmp19.not = icmp eq i64 %i.024, 0
   br i1 %cmp19.not, label %invoke.cont25, label %if.then20
@@ -4090,8 +4090,7 @@ invoke.cont25:                                    ; preds = %if.then20.invoke.co
   %9 = load i32, ptr %unique_id_.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i32 %9 to i64
-  %10 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
-  store ptr %10, ptr %ref.tmp.i, align 8, !noalias !47
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i, ptr %ref.tmp.i, align 8, !noalias !47
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !47
   invoke void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp23, ptr nonnull @.str.17, i64 2, ptr nonnull %ref.tmp.i, i64 1)
           to label %invoke.cont32 unwind label %lpad2.loopexit
@@ -4107,11 +4106,11 @@ invoke.cont34:                                    ; preds = %invoke.cont32
           to label %invoke.cont36 unwind label %lpad2.loopexit
 
 invoke.cont36:                                    ; preds = %invoke.cont34
-  %11 = load ptr, ptr %subs_.i, align 8
-  %12 = load ptr, ptr %11, align 8
-  %add.ptr.i17 = getelementptr inbounds ptr, ptr %12, i64 %i.024
-  %13 = load ptr, ptr %add.ptr.i17, align 8
-  invoke void @_ZNK3re213PrefilterTree15DebugNodeStringB5cxx11EPNS_9PrefilterE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp38, ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %13)
+  %10 = load ptr, ptr %subs_.i, align 8
+  %11 = load ptr, ptr %10, align 8
+  %add.ptr.i17 = getelementptr inbounds ptr, ptr %11, i64 %i.024
+  %12 = load ptr, ptr %add.ptr.i17, align 8
+  invoke void @_ZNK3re213PrefilterTree15DebugNodeStringB5cxx11EPNS_9PrefilterE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp38, ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %12)
           to label %invoke.cont42 unwind label %lpad2.loopexit
 
 invoke.cont42:                                    ; preds = %invoke.cont36
@@ -4121,25 +4120,25 @@ invoke.cont42:                                    ; preds = %invoke.cont36
 invoke.cont44:                                    ; preds = %invoke.cont42
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38) #22
   %inc = add nuw i64 %i.024, 1
-  %14 = load ptr, ptr %subs_.i, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<re2::Prefilter *, std::allocator<re2::Prefilter *>>::_Vector_impl_data", ptr %14, i64 0, i32 1
-  %15 = load ptr, ptr %_M_finish.i, align 8
-  %16 = load ptr, ptr %14, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %15 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %16 to i64
+  %13 = load ptr, ptr %subs_.i, align 8
+  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<re2::Prefilter *, std::allocator<re2::Prefilter *>>::_Vector_impl_data", ptr %13, i64 0, i32 1
+  %14 = load ptr, ptr %_M_finish.i, align 8
+  %15 = load ptr, ptr %13, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp18 = icmp ult i64 %inc, %sub.ptr.div.i
   br i1 %cmp18, label %for.body, label %for.end, !llvm.loop !50
 
 lpad33:                                           ; preds = %invoke.cont32
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23) #22
   br label %ehcleanup
 
 lpad43:                                           ; preds = %invoke.cont42
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38) #22
   br label %ehcleanup
@@ -4152,7 +4151,7 @@ nrvo.skipdtor:                                    ; preds = %if.then, %for.end
   ret void
 
 ehcleanup:                                        ; preds = %lpad2.loopexit, %lpad2.loopexit.split-lp, %lpad43, %lpad33
-  %.pn = phi { ptr, i32 } [ %18, %lpad43 ], [ %17, %lpad33 ], [ %lpad.loopexit, %lpad2.loopexit ], [ %lpad.loopexit.split-lp, %lpad2.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %17, %lpad43 ], [ %16, %lpad33 ], [ %lpad.loopexit, %lpad2.loopexit ], [ %lpad.loopexit.split-lp, %lpad2.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #22
   br label %eh.resume
 
@@ -7980,7 +7979,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i, 2
   %.pre.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
   %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds i32, ptr %add.ptr.i3.i31.i, i64 %.pre.i.i.i.i.i.i35.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i36.i, ptr nonnull align 4 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i, ptr noundef nonnull align 4 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
   br label %for.inc.i21.i
 
 if.else.i19.i:                                    ; preds = %for.body.i15.i

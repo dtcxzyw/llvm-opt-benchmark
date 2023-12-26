@@ -86,7 +86,7 @@ while.end:                                        ; preds = %if.then5, %if.then2
   store i32 %7, ptr %8, align 4
   %9 = atomicrmw xchg ptr @release_pool, i64 0 seq_cst, align 8
   %10 = inttoptr i64 %9 to ptr
-  store ptr %10, ptr %1, align 8
+  store i64 %9, ptr %1, align 8
   br label %if.end22
 
 if.end22:                                         ; preds = %while.end, %entry

@@ -2039,19 +2039,18 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %function5 = getelementptr inbounds %"class.duckdb::ColumnSegment", ptr %call4, i64 0, i32 5
-  %3 = ptrtoint ptr %2 to i64
-  store i64 %3, ptr %function5, align 8
+  store ptr %2, ptr %function5, align 8
   %current_segment = getelementptr inbounds %"struct.duckdb::ChimpCompressionState", ptr %this, i64 0, i32 3
-  %4 = load ptr, ptr %compressed_segment, align 8, !tbaa !86
+  %3 = load ptr, ptr %compressed_segment, align 8, !tbaa !86
   store ptr null, ptr %compressed_segment, align 8, !tbaa !86
-  %5 = load ptr, ptr %current_segment, align 8, !tbaa !86
-  store ptr %4, ptr %current_segment, align 8, !tbaa !86
-  %tobool.not.i.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %current_segment, align 8, !tbaa !86
+  store ptr %3, ptr %current_segment, align 8, !tbaa !86
+  %tobool.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN6duckdb10unique_ptrINS_13ColumnSegmentESt14default_deleteIS1_ELb1EEaSEOS4_.exit, label %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i.i.i.i.i: ; preds = %invoke.cont
-  call void @_ZN6duckdb13ColumnSegmentD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %5) #16
-  call void @_ZdlPv(ptr noundef nonnull %5) #18
+  call void @_ZN6duckdb13ColumnSegmentD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %4) #16
+  call void @_ZdlPv(ptr noundef nonnull %4) #18
   br label %_ZN6duckdb10unique_ptrINS_13ColumnSegmentESt14default_deleteIS1_ELb1EEaSEOS4_.exit
 
 _ZN6duckdb10unique_ptrINS_13ColumnSegmentESt14default_deleteIS1_ELb1EEaSEOS4_.exit: ; preds = %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i.i.i.i.i, %invoke.cont
@@ -2069,8 +2068,8 @@ invoke.cont13:                                    ; preds = %invoke.cont8
   %block = getelementptr inbounds %"class.duckdb::ColumnSegment", ptr %call14, i64 0, i32 7
   %vtable = load ptr, ptr %call9, align 8, !tbaa !27
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
-  %6 = load ptr, ptr %vfn, align 8
-  invoke void %6(ptr nonnull sret(%"class.duckdb::BufferHandle") align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull align 8 dereferenceable(16) %block)
+  %5 = load ptr, ptr %vfn, align 8
+  invoke void %5(ptr nonnull sret(%"class.duckdb::BufferHandle") align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull align 8 dereferenceable(16) %block)
           to label %invoke.cont15 unwind label %lpad12
 
 invoke.cont15:                                    ; preds = %invoke.cont13
@@ -2079,35 +2078,35 @@ invoke.cont15:                                    ; preds = %invoke.cont13
   call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp10) #16
   %node.i = getelementptr inbounds %"struct.duckdb::ChimpCompressionState", ptr %this, i64 0, i32 4, i32 1
-  %7 = load ptr, ptr %node.i, align 8, !tbaa !156
-  %buffer.i = getelementptr inbounds %"class.duckdb::FileBuffer", ptr %7, i64 0, i32 3
-  %8 = load ptr, ptr %buffer.i, align 8, !tbaa !157
+  %6 = load ptr, ptr %node.i, align 8, !tbaa !156
+  %buffer.i = getelementptr inbounds %"class.duckdb::FileBuffer", ptr %6, i64 0, i32 3
+  %7 = load ptr, ptr %buffer.i, align 8, !tbaa !157
   %call22 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_13ColumnSegmentESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %current_segment)
           to label %invoke.cont21 unwind label %lpad7
 
 invoke.cont21:                                    ; preds = %invoke.cont15
   %offset.i = getelementptr inbounds %"class.duckdb::ColumnSegment", ptr %call22, i64 0, i32 9
-  %9 = load i64, ptr %offset.i, align 8, !tbaa !160
-  %add.ptr = getelementptr inbounds i8, ptr %8, i64 %9
+  %8 = load i64, ptr %offset.i, align 8, !tbaa !160
+  %add.ptr = getelementptr inbounds i8, ptr %7, i64 %8
   %add.ptr25 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %segment_data = getelementptr inbounds %"struct.duckdb::ChimpCompressionState", ptr %this, i64 0, i32 9
   store ptr %add.ptr25, ptr %segment_data, align 8, !tbaa !183
-  %10 = load ptr, ptr %node.i, align 8, !tbaa !156
-  %buffer.i49 = getelementptr inbounds %"class.duckdb::FileBuffer", ptr %10, i64 0, i32 3
-  %11 = load ptr, ptr %buffer.i49, align 8, !tbaa !157
+  %9 = load ptr, ptr %node.i, align 8, !tbaa !156
+  %buffer.i49 = getelementptr inbounds %"class.duckdb::FileBuffer", ptr %9, i64 0, i32 3
+  %10 = load ptr, ptr %buffer.i49, align 8, !tbaa !157
   %call31 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_13ColumnSegmentESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %current_segment)
           to label %invoke.cont39 unwind label %lpad7
 
 invoke.cont39:                                    ; preds = %invoke.cont21
   %offset.i50 = getelementptr inbounds %"class.duckdb::ColumnSegment", ptr %call31, i64 0, i32 9
-  %12 = load i64, ptr %offset.i50, align 8, !tbaa !160
-  %add.ptr34 = getelementptr inbounds i8, ptr %11, i64 %12
+  %11 = load i64, ptr %offset.i50, align 8, !tbaa !160
+  %add.ptr34 = getelementptr inbounds i8, ptr %10, i64 %11
   %add.ptr35 = getelementptr inbounds i8, ptr %add.ptr34, i64 262136
   %metadata_ptr = getelementptr inbounds %"struct.duckdb::ChimpCompressionState", ptr %this, i64 0, i32 10
   store ptr %add.ptr35, ptr %metadata_ptr, align 8, !tbaa !184
   %state = getelementptr inbounds %"struct.duckdb::ChimpCompressionState", ptr %this, i64 0, i32 13
-  %13 = load ptr, ptr %segment_data, align 8, !tbaa !183
-  store ptr %13, ptr %state, align 8, !tbaa !185
+  %12 = load ptr, ptr %segment_data, align 8, !tbaa !183
+  store ptr %12, ptr %state, align 8, !tbaa !185
   %stream_index.i.i = getelementptr inbounds %"struct.duckdb::ChimpCompressionState", ptr %this, i64 0, i32 13, i32 0, i32 0, i32 3
   %free_bits.i.i = getelementptr inbounds %"struct.duckdb::ChimpCompressionState", ptr %this, i64 0, i32 13, i32 0, i32 0, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stream_index.i.i, i8 0, i64 16, i1 false)
@@ -2130,13 +2129,13 @@ invoke.cont39:                                    ; preds = %invoke.cont21
   store i64 0, ptr %packed_data_buffer.i, align 8, !tbaa !152
   %previous_value.i = getelementptr inbounds %"struct.duckdb::ChimpCompressionState", ptr %this, i64 0, i32 13, i32 0, i32 7
   store i32 0, ptr %previous_value.i, align 4, !tbaa !140
-  %14 = load ptr, ptr %compressed_segment, align 8, !tbaa !86
-  %cmp.not.i = icmp eq ptr %14, null
+  %13 = load ptr, ptr %compressed_segment, align 8, !tbaa !86
+  %cmp.not.i = icmp eq ptr %13, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i: ; preds = %invoke.cont39
-  call void @_ZN6duckdb13ColumnSegmentD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %14) #16
-  call void @_ZdlPv(ptr noundef nonnull %14) #18
+  call void @_ZN6duckdb13ColumnSegmentD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %13) #16
+  call void @_ZdlPv(ptr noundef nonnull %13) #18
   br label %_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i, %invoke.cont39
@@ -2144,23 +2143,23 @@ _ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit: ; p
   ret void
 
 lpad:                                             ; preds = %entry
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup40
 
 lpad7:                                            ; preds = %invoke.cont21, %invoke.cont15, %_ZN6duckdb10unique_ptrINS_13ColumnSegmentESt14default_deleteIS1_ELb1EEaSEOS4_.exit
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup40
 
 lpad12:                                           ; preds = %invoke.cont13, %invoke.cont8
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp10) #16
   br label %ehcleanup40
 
 ehcleanup40:                                      ; preds = %lpad12, %lpad7, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %15, %lpad ], [ %16, %lpad7 ], [ %17, %lpad12 ]
+  %.pn.pn = phi { ptr, i32 } [ %14, %lpad ], [ %15, %lpad7 ], [ %16, %lpad12 ]
   call void @_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %compressed_segment) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %compressed_segment) #16
   resume { ptr, i32 } %.pn.pn
@@ -6313,19 +6312,18 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %function5 = getelementptr inbounds %"class.duckdb::ColumnSegment", ptr %call4, i64 0, i32 5
-  %3 = ptrtoint ptr %2 to i64
-  store i64 %3, ptr %function5, align 8
+  store ptr %2, ptr %function5, align 8
   %current_segment = getelementptr inbounds %"struct.duckdb::ChimpCompressionState.200", ptr %this, i64 0, i32 3
-  %4 = load ptr, ptr %compressed_segment, align 8, !tbaa !86
+  %3 = load ptr, ptr %compressed_segment, align 8, !tbaa !86
   store ptr null, ptr %compressed_segment, align 8, !tbaa !86
-  %5 = load ptr, ptr %current_segment, align 8, !tbaa !86
-  store ptr %4, ptr %current_segment, align 8, !tbaa !86
-  %tobool.not.i.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %current_segment, align 8, !tbaa !86
+  store ptr %3, ptr %current_segment, align 8, !tbaa !86
+  %tobool.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN6duckdb10unique_ptrINS_13ColumnSegmentESt14default_deleteIS1_ELb1EEaSEOS4_.exit, label %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i.i.i.i.i: ; preds = %invoke.cont
-  call void @_ZN6duckdb13ColumnSegmentD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %5) #16
-  call void @_ZdlPv(ptr noundef nonnull %5) #18
+  call void @_ZN6duckdb13ColumnSegmentD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %4) #16
+  call void @_ZdlPv(ptr noundef nonnull %4) #18
   br label %_ZN6duckdb10unique_ptrINS_13ColumnSegmentESt14default_deleteIS1_ELb1EEaSEOS4_.exit
 
 _ZN6duckdb10unique_ptrINS_13ColumnSegmentESt14default_deleteIS1_ELb1EEaSEOS4_.exit: ; preds = %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i.i.i.i.i, %invoke.cont
@@ -6343,8 +6341,8 @@ invoke.cont13:                                    ; preds = %invoke.cont8
   %block = getelementptr inbounds %"class.duckdb::ColumnSegment", ptr %call14, i64 0, i32 7
   %vtable = load ptr, ptr %call9, align 8, !tbaa !27
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
-  %6 = load ptr, ptr %vfn, align 8
-  invoke void %6(ptr nonnull sret(%"class.duckdb::BufferHandle") align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull align 8 dereferenceable(16) %block)
+  %5 = load ptr, ptr %vfn, align 8
+  invoke void %5(ptr nonnull sret(%"class.duckdb::BufferHandle") align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull align 8 dereferenceable(16) %block)
           to label %invoke.cont15 unwind label %lpad12
 
 invoke.cont15:                                    ; preds = %invoke.cont13
@@ -6353,35 +6351,35 @@ invoke.cont15:                                    ; preds = %invoke.cont13
   call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp10) #16
   %node.i = getelementptr inbounds %"struct.duckdb::ChimpCompressionState.200", ptr %this, i64 0, i32 4, i32 1
-  %7 = load ptr, ptr %node.i, align 8, !tbaa !156
-  %buffer.i = getelementptr inbounds %"class.duckdb::FileBuffer", ptr %7, i64 0, i32 3
-  %8 = load ptr, ptr %buffer.i, align 8, !tbaa !157
+  %6 = load ptr, ptr %node.i, align 8, !tbaa !156
+  %buffer.i = getelementptr inbounds %"class.duckdb::FileBuffer", ptr %6, i64 0, i32 3
+  %7 = load ptr, ptr %buffer.i, align 8, !tbaa !157
   %call21 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_13ColumnSegmentESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %current_segment)
           to label %invoke.cont20 unwind label %lpad7
 
 invoke.cont20:                                    ; preds = %invoke.cont15
   %offset.i = getelementptr inbounds %"class.duckdb::ColumnSegment", ptr %call21, i64 0, i32 9
-  %9 = load i64, ptr %offset.i, align 8, !tbaa !160
-  %add.ptr = getelementptr inbounds i8, ptr %8, i64 %9
+  %8 = load i64, ptr %offset.i, align 8, !tbaa !160
+  %add.ptr = getelementptr inbounds i8, ptr %7, i64 %8
   %add.ptr23 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %segment_data = getelementptr inbounds %"struct.duckdb::ChimpCompressionState.200", ptr %this, i64 0, i32 9
   store ptr %add.ptr23, ptr %segment_data, align 8, !tbaa !292
-  %10 = load ptr, ptr %node.i, align 8, !tbaa !156
-  %buffer.i45 = getelementptr inbounds %"class.duckdb::FileBuffer", ptr %10, i64 0, i32 3
-  %11 = load ptr, ptr %buffer.i45, align 8, !tbaa !157
+  %9 = load ptr, ptr %node.i, align 8, !tbaa !156
+  %buffer.i45 = getelementptr inbounds %"class.duckdb::FileBuffer", ptr %9, i64 0, i32 3
+  %10 = load ptr, ptr %buffer.i45, align 8, !tbaa !157
   %call28 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_13ColumnSegmentESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %current_segment)
           to label %invoke.cont35 unwind label %lpad7
 
 invoke.cont35:                                    ; preds = %invoke.cont20
   %offset.i46 = getelementptr inbounds %"class.duckdb::ColumnSegment", ptr %call28, i64 0, i32 9
-  %12 = load i64, ptr %offset.i46, align 8, !tbaa !160
-  %add.ptr30 = getelementptr inbounds i8, ptr %11, i64 %12
+  %11 = load i64, ptr %offset.i46, align 8, !tbaa !160
+  %add.ptr30 = getelementptr inbounds i8, ptr %10, i64 %11
   %add.ptr31 = getelementptr inbounds i8, ptr %add.ptr30, i64 262136
   %metadata_ptr = getelementptr inbounds %"struct.duckdb::ChimpCompressionState.200", ptr %this, i64 0, i32 10
   store ptr %add.ptr31, ptr %metadata_ptr, align 8, !tbaa !293
   %state = getelementptr inbounds %"struct.duckdb::ChimpCompressionState.200", ptr %this, i64 0, i32 13
-  %13 = load ptr, ptr %segment_data, align 8, !tbaa !292
-  store ptr %13, ptr %state, align 8, !tbaa !185
+  %12 = load ptr, ptr %segment_data, align 8, !tbaa !292
+  store ptr %12, ptr %state, align 8, !tbaa !185
   %stream_index.i.i = getelementptr inbounds %"struct.duckdb::ChimpCompressionState.200", ptr %this, i64 0, i32 13, i32 0, i32 0, i32 3
   %free_bits.i.i = getelementptr inbounds %"struct.duckdb::ChimpCompressionState.200", ptr %this, i64 0, i32 13, i32 0, i32 0, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stream_index.i.i, i8 0, i64 16, i1 false)
@@ -6404,13 +6402,13 @@ invoke.cont35:                                    ; preds = %invoke.cont20
   store i64 0, ptr %packed_data_buffer.i, align 8, !tbaa !152
   %previous_value.i = getelementptr inbounds %"struct.duckdb::ChimpCompressionState.200", ptr %this, i64 0, i32 13, i32 0, i32 7
   store i64 0, ptr %previous_value.i, align 8, !tbaa !288
-  %14 = load ptr, ptr %compressed_segment, align 8, !tbaa !86
-  %cmp.not.i = icmp eq ptr %14, null
+  %13 = load ptr, ptr %compressed_segment, align 8, !tbaa !86
+  %cmp.not.i = icmp eq ptr %13, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i: ; preds = %invoke.cont35
-  call void @_ZN6duckdb13ColumnSegmentD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %14) #16
-  call void @_ZdlPv(ptr noundef nonnull %14) #18
+  call void @_ZN6duckdb13ColumnSegmentD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %13) #16
+  call void @_ZdlPv(ptr noundef nonnull %13) #18
   br label %_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i, %invoke.cont35
@@ -6418,23 +6416,23 @@ _ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit: ; p
   ret void
 
 lpad:                                             ; preds = %entry
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup36
 
 lpad7:                                            ; preds = %invoke.cont20, %invoke.cont15, %_ZN6duckdb10unique_ptrINS_13ColumnSegmentESt14default_deleteIS1_ELb1EEaSEOS4_.exit
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup36
 
 lpad12:                                           ; preds = %invoke.cont13, %invoke.cont8
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp10) #16
   br label %ehcleanup36
 
 ehcleanup36:                                      ; preds = %lpad12, %lpad7, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %15, %lpad ], [ %16, %lpad7 ], [ %17, %lpad12 ]
+  %.pn.pn = phi { ptr, i32 } [ %14, %lpad ], [ %15, %lpad7 ], [ %16, %lpad12 ]
   call void @_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %compressed_segment) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %compressed_segment) #16
   resume { ptr, i32 } %.pn.pn

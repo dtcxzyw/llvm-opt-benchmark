@@ -570,7 +570,7 @@ entry:
   br i1 %cmp.not.not.i, label %"_ZZN8proxygen19RequestWorkerThread5setupEvENK3$_0clEv.exit", label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp.i, align 8
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp.i, align 8
   %.fca.1.gep.i = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp.i, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep.i, align 8
   call void @_ZN6google15ErrnoLogMessageC1EPKciilMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp13.i, ptr noundef nonnull @.str, i32 noundef 70, i32 noundef 3, i64 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp.i)

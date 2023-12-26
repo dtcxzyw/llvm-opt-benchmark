@@ -3379,8 +3379,7 @@ if.end38.i.i:                                     ; preds = %if.else.i.i, %if.th
 "_ZSt11equal_rangeIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEES3_ZN7rocksdb12_GLOBAL__N_19VectorRep8Iterator4SeekERKNS9_5SliceES3_E3$_0ESt4pairIT_SI_ESI_SI_RKT0_T1_.exit": ; preds = %if.end38.i.i, %while.body.i31.i.i, %cond.end, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZN7rocksdb12_GLOBAL__N_19VectorRep8Iterator4SeekERKNSB_5SliceES3_E3$_0EEET_SK_SK_RKT0_T1_.exit.i.i"
   %retval.sroa.0.0.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZN7rocksdb12_GLOBAL__N_19VectorRep8Iterator4SeekERKNSB_5SliceES3_E3$_0EEET_SK_SK_RKT0_T1_.exit.i.i" ], [ %1, %cond.end ], [ %__first.sroa.0.0.lcssa.i.i.i, %while.body.i31.i.i ], [ %__first.sroa.0.1.i.i, %if.end38.i.i ]
   %cit_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::VectorRep::Iterator", ptr %this, i64 0, i32 3
-  %15 = ptrtoint ptr %retval.sroa.0.0.i.i to i64
-  store i64 %15, ptr %cit_, align 8
+  store ptr %retval.sroa.0.0.i.i, ptr %cit_, align 8
   ret void
 }
 
@@ -3644,8 +3643,7 @@ entry:
   %0 = load ptr, ptr %bucket_, align 8
   %1 = load ptr, ptr %0, align 8
   %cit_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::VectorRep::Iterator", ptr %this, i64 0, i32 3
-  %2 = ptrtoint ptr %1 to i64
-  store i64 %2, ptr %cit_, align 8
+  store ptr %1, ptr %cit_, align 8
   ret void
 }
 
@@ -3658,11 +3656,9 @@ entry:
   %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<const char *, std::allocator<const char *>>::_Vector_impl_data", ptr %0, i64 0, i32 1
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cit_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::VectorRep::Iterator", ptr %this, i64 0, i32 3
-  %2 = ptrtoint ptr %1 to i64
-  store i64 %2, ptr %cit_, align 8
-  %3 = load ptr, ptr %_M_finish.i, align 8
-  %4 = load ptr, ptr %0, align 8
-  %cmp.not = icmp eq ptr %3, %4
+  store ptr %1, ptr %cit_, align 8
+  %2 = load ptr, ptr %0, align 8
+  %cmp.not = icmp eq ptr %1, %2
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -3735,27 +3731,26 @@ invoke.cont18:                                    ; preds = %.noexc.invoke.cont1
   %11 = phi ptr [ %.pre16, %.noexc.invoke.cont18_crit_edge ], [ %3, %invoke.cont ]
   %12 = phi ptr [ %.pre15, %.noexc.invoke.cont18_crit_edge ], [ %7, %invoke.cont ]
   %cit_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::VectorRep::Iterator", ptr %this, i64 0, i32 3
-  %13 = ptrtoint ptr %12 to i64
-  store i64 %13, ptr %cit_, align 8
+  store ptr %12, ptr %cit_, align 8
   %sorted_25 = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::VectorRep", ptr %11, i64 0, i32 4
   store i8 1, ptr %sorted_25, align 1
   br label %if.end
 
 lpad:                                             ; preds = %.noexc, %if.then.i.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN7rocksdb4port7RWMutex11WriteUnlockEv(ptr noundef nonnull align 8 dereferenceable(56) %rwlock_)
           to label %_ZN7rocksdb9WriteLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %lpad
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #21
+  %15 = extractvalue { ptr, i32 } %14, 0
+  tail call void @__clang_call_terminate(ptr %15) #21
   unreachable
 
 _ZN7rocksdb9WriteLockD2Ev.exit:                   ; preds = %lpad
-  resume { ptr, i32 } %14
+  resume { ptr, i32 } %13
 
 if.end:                                           ; preds = %invoke.cont18, %if.then
   store i8 1, ptr %sorted_, align 8
@@ -3767,48 +3762,47 @@ if.end.if.end27_crit_edge:                        ; preds = %if.end
   br label %if.end27
 
 terminate.lpad.i2:                                ; preds = %if.end
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #21
+  %17 = extractvalue { ptr, i32 } %16, 0
+  tail call void @__clang_call_terminate(ptr %17) #21
   unreachable
 
 if.end27:                                         ; preds = %if.end.if.end27_crit_edge, %land.lhs.true, %entry
-  %19 = phi i8 [ %.pre17, %if.end.if.end27_crit_edge ], [ %0, %land.lhs.true ], [ %0, %entry ]
-  %20 = and i8 %19, 1
-  %tobool29.not = icmp eq i8 %20, 0
+  %18 = phi i8 [ %.pre17, %if.end.if.end27_crit_edge ], [ %0, %land.lhs.true ], [ %0, %entry ]
+  %19 = and i8 %18, 1
+  %tobool29.not = icmp eq i8 %19, 0
   br i1 %tobool29.not, label %if.then30, label %if.end55
 
 if.then30:                                        ; preds = %if.end27
   %bucket_32 = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::VectorRep::Iterator", ptr %this, i64 0, i32 2
-  %21 = load ptr, ptr %bucket_32, align 8
-  %22 = load ptr, ptr %21, align 8
-  %_M_finish.i4 = getelementptr inbounds %"struct.std::_Vector_base<const char *, std::allocator<const char *>>::_Vector_impl_data", ptr %21, i64 0, i32 1
-  %23 = load ptr, ptr %_M_finish.i4, align 8
-  %cmp.i.not.i.i5 = icmp eq ptr %22, %23
+  %20 = load ptr, ptr %bucket_32, align 8
+  %21 = load ptr, ptr %20, align 8
+  %_M_finish.i4 = getelementptr inbounds %"struct.std::_Vector_base<const char *, std::allocator<const char *>>::_Vector_impl_data", ptr %20, i64 0, i32 1
+  %22 = load ptr, ptr %_M_finish.i4, align 8
+  %cmp.i.not.i.i5 = icmp eq ptr %21, %22
   br i1 %cmp.i.not.i.i5, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEEN7rocksdb12stl_wrappers7CompareEEvT_SC_T0_.exit13, label %if.then.i.i6
 
 if.then.i.i6:                                     ; preds = %if.then30
   %compare_42 = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::VectorRep::Iterator", ptr %this, i64 0, i32 4
-  %24 = load ptr, ptr %compare_42, align 8
-  %sub.ptr.lhs.cast.i.i.i7 = ptrtoint ptr %23 to i64
-  %sub.ptr.rhs.cast.i.i.i8 = ptrtoint ptr %22 to i64
+  %23 = load ptr, ptr %compare_42, align 8
+  %sub.ptr.lhs.cast.i.i.i7 = ptrtoint ptr %22 to i64
+  %sub.ptr.rhs.cast.i.i.i8 = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i.i.i9 = sub i64 %sub.ptr.lhs.cast.i.i.i7, %sub.ptr.rhs.cast.i.i.i8
   %sub.ptr.div.i.i.i10 = ashr exact i64 %sub.ptr.sub.i.i.i9, 3
-  %25 = tail call i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i10, i1 true), !range !12
-  %sub.i.i.i11 = shl nuw nsw i64 %25, 1
+  %24 = tail call i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i10, i1 true), !range !12
+  %sub.i.i.i11 = shl nuw nsw i64 %24, 1
   %mul.i.i12 = xor i64 %sub.i.i.i11, 126
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIN7rocksdb12stl_wrappers7CompareEEEEvT_SF_T0_T1_(ptr %22, ptr %23, i64 noundef %mul.i.i12, ptr %24)
-  tail call void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN7rocksdb12stl_wrappers7CompareEEEEvT_SF_T0_(ptr %22, ptr %23, ptr %24)
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIN7rocksdb12stl_wrappers7CompareEEEEvT_SF_T0_T1_(ptr %21, ptr %22, i64 noundef %mul.i.i12, ptr %23)
+  tail call void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN7rocksdb12stl_wrappers7CompareEEEEvT_SF_T0_(ptr %21, ptr %22, ptr %23)
   %.pre18 = load ptr, ptr %bucket_32, align 8
   %.pre19 = load ptr, ptr %.pre18, align 8
   br label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEEN7rocksdb12stl_wrappers7CompareEEvT_SC_T0_.exit13
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEEN7rocksdb12stl_wrappers7CompareEEvT_SC_T0_.exit13: ; preds = %if.then30, %if.then.i.i6
-  %26 = phi ptr [ %22, %if.then30 ], [ %.pre19, %if.then.i.i6 ]
+  %25 = phi ptr [ %21, %if.then30 ], [ %.pre19, %if.then.i.i6 ]
   %cit_53 = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::VectorRep::Iterator", ptr %this, i64 0, i32 3
-  %27 = ptrtoint ptr %26 to i64
-  store i64 %27, ptr %cit_53, align 8
+  store ptr %25, ptr %cit_53, align 8
   store i8 1, ptr %sorted_, align 8
   br label %if.end55
 
@@ -4122,7 +4116,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEES8
   %sub.ptr.div.i.i.i.i.i.i49 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i48, 3
   %.pre.i.i.i.i.i.i50 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i49
   %add.ptr.i.i.i.i.i.i51 = getelementptr inbounds ptr, ptr %add.ptr.i2.i46, i64 %.pre.i.i.i.i.i.i50
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i51, ptr nonnull align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i48, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i51, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i48, i1 false)
   br label %for.inc.i33
 
 if.else.i28:                                      ; preds = %for.body.i21

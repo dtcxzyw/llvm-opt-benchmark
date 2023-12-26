@@ -677,8 +677,7 @@ invoke.cont62:                                    ; preds = %invoke.cont16
   %bf.load54 = load i8, ptr %seen_recv_trailing_metadata_from_surface_, align 8
   %bf.clear58 = and i8 %bf.load54, -4
   store i8 %bf.clear58, ptr %seen_recv_trailing_metadata_from_surface_, align 8
-  %9 = ptrtoint ptr %this to i64
-  store i64 %9, ptr %agg.tmp, align 16
+  store ptr %this, ptr %agg.tmp, align 16
   %invoker_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp, i64 0, i32 2
   store ptr @"_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptC1EPS5_bE3$_0JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE", ptr %invoker_.i.i.i.i.i, align 8
   %manager_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp, i64 0, i32 1
@@ -687,24 +686,24 @@ invoke.cont62:                                    ; preds = %invoke.cont16
           to label %invoke.cont64 unwind label %lpad63
 
 invoke.cont64:                                    ; preds = %invoke.cont62
-  %10 = load ptr, ptr %ref.tmp, align 8
+  %9 = load ptr, ptr %ref.tmp, align 8
   store ptr null, ptr %ref.tmp, align 8
-  %11 = load ptr, ptr %lb_call_, align 8
-  store ptr %10, ptr %lb_call_, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %lb_call_, align 8
+  store ptr %9, ptr %lb_call_, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10unique_ptrIN9grpc_core13ClientChannel27FilterBasedLoadBalancedCallENS0_16OrphanableDeleteEED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont64
-  %vtable.i.i.i.i.i = load ptr, ptr %11, align 16
-  %12 = load ptr, ptr %vtable.i.i.i.i.i, align 8
-  invoke void %12(ptr noundef nonnull align 16 dereferenceable(376) %11)
+  %vtable.i.i.i.i.i = load ptr, ptr %10, align 16
+  %11 = load ptr, ptr %vtable.i.i.i.i.i, align 8
+  invoke void %11(ptr noundef nonnull align 16 dereferenceable(376) %10)
           to label %_ZNSt10unique_ptrIN9grpc_core13ClientChannel27FilterBasedLoadBalancedCallENS0_16OrphanableDeleteEEaSEOS4_.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #25
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #25
   unreachable
 
 _ZNSt10unique_ptrIN9grpc_core13ClientChannel27FilterBasedLoadBalancedCallENS0_16OrphanableDeleteEEaSEOS4_.exit: ; preds = %if.then.i.i.i.i
@@ -714,109 +713,109 @@ _ZNSt10unique_ptrIN9grpc_core13ClientChannel27FilterBasedLoadBalancedCallENS0_16
 
 if.then.i:                                        ; preds = %_ZNSt10unique_ptrIN9grpc_core13ClientChannel27FilterBasedLoadBalancedCallENS0_16OrphanableDeleteEEaSEOS4_.exit
   %vtable.i.i = load ptr, ptr %.pr, align 16
-  %15 = load ptr, ptr %vtable.i.i, align 8
-  invoke void %15(ptr noundef nonnull align 16 dereferenceable(376) %.pr)
+  %14 = load ptr, ptr %vtable.i.i, align 8
+  invoke void %14(ptr noundef nonnull align 16 dereferenceable(376) %.pr)
           to label %_ZNSt10unique_ptrIN9grpc_core13ClientChannel27FilterBasedLoadBalancedCallENS0_16OrphanableDeleteEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #25
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #25
   unreachable
 
 _ZNSt10unique_ptrIN9grpc_core13ClientChannel27FilterBasedLoadBalancedCallENS0_16OrphanableDeleteEED2Ev.exit: ; preds = %invoke.cont64, %_ZNSt10unique_ptrIN9grpc_core13ClientChannel27FilterBasedLoadBalancedCallENS0_16OrphanableDeleteEEaSEOS4_.exit, %if.then.i
   store ptr null, ptr %ref.tmp, align 8
-  %18 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %18(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp) #26
-  %19 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_retry_trace, i64 0, i32 2) monotonic, align 8
-  %20 = and i8 %19, 1
-  %tobool.i.i.i28.not = icmp eq i8 %20, 0
+  %17 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
+  call void %17(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp) #26
+  %18 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_retry_trace, i64 0, i32 2) monotonic, align 8
+  %19 = and i8 %18, 1
+  %tobool.i.i.i28.not = icmp eq i8 %19, 0
   br i1 %tobool.i.i.i28.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZNSt10unique_ptrIN9grpc_core13ClientChannel27FilterBasedLoadBalancedCallENS0_16OrphanableDeleteEED2Ev.exit
-  %21 = load ptr, ptr %calld, align 8
-  %22 = load ptr, ptr %lb_call_, align 8
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 147, i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %21, ptr noundef nonnull %calld, ptr noundef nonnull %this, ptr noundef %22)
+  %20 = load ptr, ptr %calld, align 8
+  %21 = load ptr, ptr %lb_call_, align 8
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 147, i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %20, ptr noundef nonnull %calld, ptr noundef nonnull %this, ptr noundef %21)
           to label %if.end unwind label %lpad61
 
 lpad17:                                           ; preds = %invoke.cont16
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup128
 
 lpad61:                                           ; preds = %_ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttemptEED2Ev.exit, %if.then88, %if.then
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad63:                                           ; preds = %invoke.cont62
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %26 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %26(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp) #26
+  %25 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
+  call void %25(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp) #26
   br label %ehcleanup
 
 if.end:                                           ; preds = %if.then, %_ZNSt10unique_ptrIN9grpc_core13ClientChannel27FilterBasedLoadBalancedCallENS0_16OrphanableDeleteEED2Ev.exit
   %retry_policy_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %calld, i64 0, i32 3
-  %27 = load ptr, ptr %retry_policy_, align 8
-  %cmp.not = icmp eq ptr %27, null
+  %26 = load ptr, ptr %retry_policy_, align 8
+  %cmp.not = icmp eq ptr %26, null
   br i1 %cmp.not, label %if.end121, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end
-  %per_attempt_recv_timeout_.i = getelementptr inbounds %"class.grpc_core::internal::RetryMethodConfig", ptr %27, i64 0, i32 6
+  %per_attempt_recv_timeout_.i = getelementptr inbounds %"class.grpc_core::internal::RetryMethodConfig", ptr %26, i64 0, i32 6
   %retval.sroa.0.0.copyload.i = load i64, ptr %per_attempt_recv_timeout_.i, align 8
-  %retval.sroa.2.0.per_attempt_recv_timeout_.sroa_idx.i = getelementptr inbounds %"class.grpc_core::internal::RetryMethodConfig", ptr %27, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %retval.sroa.2.0.per_attempt_recv_timeout_.sroa_idx.i = getelementptr inbounds %"class.grpc_core::internal::RetryMethodConfig", ptr %26, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
   %retval.sroa.2.0.copyload.i = load i8, ptr %retval.sroa.2.0.per_attempt_recv_timeout_.sroa_idx.i, align 8
-  %28 = and i8 %retval.sroa.2.0.copyload.i, 1
-  %tobool.i.i.not = icmp eq i8 %28, 0
+  %27 = and i8 %retval.sroa.2.0.copyload.i, 1
+  %tobool.i.i.not = icmp eq i8 %27, 0
   br i1 %tobool.i.i.not, label %if.end121, label %if.then78
 
 if.then78:                                        ; preds = %land.rhs
   store i64 %retval.sroa.0.0.copyload.i, ptr %per_attempt_recv_timeout, align 8
-  %29 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_retry_trace, i64 0, i32 2) monotonic, align 8
-  %30 = and i8 %29, 1
-  %tobool.i.i.i36.not = icmp eq i8 %30, 0
+  %28 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_retry_trace, i64 0, i32 2) monotonic, align 8
+  %29 = and i8 %28, 1
+  %tobool.i.i.i36.not = icmp eq i8 %29, 0
   br i1 %tobool.i.i.i36.not, label %_ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttemptEED2Ev.exit, label %if.then88
 
 if.then88:                                        ; preds = %if.then78
-  %31 = load ptr, ptr %calld, align 8
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 157, i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef %31, ptr noundef nonnull %calld, ptr noundef nonnull %this, i64 noundef %retval.sroa.0.0.copyload.i)
+  %30 = load ptr, ptr %calld, align 8
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 157, i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef %30, ptr noundef nonnull %calld, ptr noundef nonnull %this, i64 noundef %retval.sroa.0.0.copyload.i)
           to label %_ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttemptEED2Ev.exit unwind label %lpad61
 
 _ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttemptEED2Ev.exit: ; preds = %if.then88, %if.then78
   %owning_call_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %calld, i64 0, i32 8
-  %32 = load ptr, ptr %owning_call_, align 8
-  %33 = atomicrmw add ptr %32, i64 1 monotonic, align 8
-  %34 = atomicrmw add ptr %refs_.i, i64 1 monotonic, align 8, !noalias !4
-  %35 = load ptr, ptr %calld_, align 8
-  %36 = load ptr, ptr %35, align 8
-  %event_engine_.i = getelementptr inbounds %"class.grpc_core::RetryFilter", ptr %36, i64 0, i32 1
-  %37 = load ptr, ptr %event_engine_.i, align 8
+  %31 = load ptr, ptr %owning_call_, align 8
+  %32 = atomicrmw add ptr %31, i64 1 monotonic, align 8
+  %33 = atomicrmw add ptr %refs_.i, i64 1 monotonic, align 8, !noalias !4
+  %34 = load ptr, ptr %calld_, align 8
+  %35 = load ptr, ptr %34, align 8
+  %event_engine_.i = getelementptr inbounds %"class.grpc_core::RetryFilter", ptr %35, i64 0, i32 1
+  %36 = load ptr, ptr %event_engine_.i, align 8
   %call109 = invoke i64 @_ZNK9grpc_core8DurationcvNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEv(ptr noundef nonnull align 8 dereferenceable(8) %per_attempt_recv_timeout)
           to label %invoke.cont113 unwind label %lpad61
 
 invoke.cont113:                                   ; preds = %_ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttemptEED2Ev.exit
-  store i64 %9, ptr %agg.tmp111, align 16
+  store ptr %this, ptr %agg.tmp111, align 16
   %invoker_.i.i.i.i.i40 = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp111, i64 0, i32 2
   store ptr @"_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptC1EPS5_bE3$_1JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE", ptr %invoker_.i.i.i.i.i40, align 8
   %manager_.i.i.i.i.i.i41 = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp111, i64 0, i32 1
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i.i.i41, align 16
-  %vtable = load ptr, ptr %37, align 8
+  %vtable = load ptr, ptr %36, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
-  %38 = load ptr, ptr %vfn, align 8
-  %call117 = invoke { i64, i64 } %38(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 %call109, ptr noundef nonnull %agg.tmp111)
+  %37 = load ptr, ptr %vfn, align 8
+  %call117 = invoke { i64, i64 } %37(ptr noundef nonnull align 8 dereferenceable(24) %36, i64 %call109, ptr noundef nonnull %agg.tmp111)
           to label %invoke.cont116 unwind label %lpad115
 
 invoke.cont116:                                   ; preds = %invoke.cont113
-  %39 = extractvalue { i64, i64 } %call117, 0
-  %40 = extractvalue { i64, i64 } %call117, 1
-  %41 = load i8, ptr %_M_engaged.i.i.i.i, align 8
-  %42 = and i8 %41, 1
-  %tobool.i.not.i = icmp eq i8 %42, 0
-  store i64 %39, ptr %per_attempt_recv_timer_handle_, align 8
+  %38 = extractvalue { i64, i64 } %call117, 0
+  %39 = extractvalue { i64, i64 } %call117, 1
+  %40 = load i8, ptr %_M_engaged.i.i.i.i, align 8
+  %41 = and i8 %40, 1
+  %tobool.i.not.i = icmp eq i8 %41, 0
+  store i64 %38, ptr %per_attempt_recv_timer_handle_, align 8
   %ref.tmp102.sroa.2.0.per_attempt_recv_timer_handle_.sroa_idx = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  store i64 %40, ptr %ref.tmp102.sroa.2.0.per_attempt_recv_timer_handle_.sroa_idx, align 8
+  store i64 %39, ptr %ref.tmp102.sroa.2.0.per_attempt_recv_timer_handle_.sroa_idx, align 8
   br i1 %tobool.i.not.i, label %if.else.i, label %_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEEaSIS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS3_ES8_IS3_NSt5decayISB_E4typeEEEEESt16is_constructibleIS3_JSB_EESt13is_assignableIRS3_SB_EEERS4_E4typeEOSB_.exit
 
 if.else.i:                                        ; preds = %invoke.cont116
@@ -824,78 +823,78 @@ if.else.i:                                        ; preds = %invoke.cont116
   br label %_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEEaSIS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS3_ES8_IS3_NSt5decayISB_E4typeEEEEESt16is_constructibleIS3_JSB_EESt13is_assignableIRS3_SB_EEERS4_E4typeEOSB_.exit
 
 _ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEEaSIS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS3_ES8_IS3_NSt5decayISB_E4typeEEEEESt16is_constructibleIS3_JSB_EESt13is_assignableIRS3_SB_EEERS4_E4typeEOSB_.exit: ; preds = %invoke.cont116, %if.else.i
-  %43 = load ptr, ptr %manager_.i.i.i.i.i.i41, align 16
-  call void %43(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp111, ptr noundef nonnull %agg.tmp111) #26
+  %42 = load ptr, ptr %manager_.i.i.i.i.i.i41, align 16
+  call void %42(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp111, ptr noundef nonnull %agg.tmp111) #26
   br label %if.end121
 
 lpad115:                                          ; preds = %invoke.cont113
-  %44 = landingpad { ptr, i32 }
+  %43 = landingpad { ptr, i32 }
           cleanup
-  %45 = load ptr, ptr %manager_.i.i.i.i.i.i41, align 16
-  call void %45(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp111, ptr noundef nonnull %agg.tmp111) #26
+  %44 = load ptr, ptr %manager_.i.i.i.i.i.i41, align 16
+  call void %44(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp111, ptr noundef nonnull %agg.tmp111) #26
   br label %ehcleanup
 
 if.end121:                                        ; preds = %if.end, %_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEEaSIS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS3_ES8_IS3_NSt5decayISB_E4typeEEEEESt16is_constructibleIS3_JSB_EESt13is_assignableIRS3_SB_EEERS4_E4typeEOSB_.exit, %land.rhs
   ret void
 
 ehcleanup:                                        ; preds = %lpad115, %lpad63, %lpad61
-  %.pn = phi { ptr, i32 } [ %44, %lpad115 ], [ %24, %lpad61 ], [ %25, %lpad63 ]
+  %.pn = phi { ptr, i32 } [ %43, %lpad115 ], [ %23, %lpad61 ], [ %24, %lpad63 ]
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %recv_trailing_metadata_error_) #26
-  %46 = load ptr, ptr %recv_trailing_metadata_internal_batch_, align 8
-  %cmp.not.i45 = icmp eq ptr %46, null
+  %45 = load ptr, ptr %recv_trailing_metadata_internal_batch_, align 8
+  %cmp.not.i45 = icmp eq ptr %45, null
   br i1 %cmp.not.i45, label %_ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttempt9BatchDataEED2Ev.exit, label %if.then.i46
 
 if.then.i46:                                      ; preds = %ehcleanup
-  %refs_.i.i47 = getelementptr inbounds %"class.grpc_core::RefCounted.128", ptr %46, i64 0, i32 1
-  %47 = atomicrmw sub ptr %refs_.i.i47, i64 1 acq_rel, align 8
-  %cmp.i.i.i48 = icmp eq i64 %47, 1
+  %refs_.i.i47 = getelementptr inbounds %"class.grpc_core::RefCounted.128", ptr %45, i64 0, i32 1
+  %46 = atomicrmw sub ptr %refs_.i.i47, i64 1 acq_rel, align 8
+  %cmp.i.i.i48 = icmp eq i64 %46, 1
   br i1 %cmp.i.i.i48, label %if.then.i.i49, label %_ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttempt9BatchDataEED2Ev.exit
 
 if.then.i.i49:                                    ; preds = %if.then.i46
-  %vtable.i.i.i50 = load ptr, ptr %46, align 8
-  %48 = load ptr, ptr %vtable.i.i.i50, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(120) %46) #26
+  %vtable.i.i.i50 = load ptr, ptr %45, align 8
+  %47 = load ptr, ptr %vtable.i.i.i50, align 8
+  call void %47(ptr noundef nonnull align 8 dereferenceable(120) %45) #26
   br label %_ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttempt9BatchDataEED2Ev.exit
 
 _ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttempt9BatchDataEED2Ev.exit: ; preds = %ehcleanup, %if.then.i46, %if.then.i.i49
   call void @_ZN4absl12lts_2023080213InlinedVectorIN9grpc_core11RetryFilter14LegacyCallData11CallAttempt23OnCompleteDeferredBatchELm3ESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %on_complete_deferred_batches_) #26
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %recv_message_error_) #26
-  %49 = load ptr, ptr %recv_message_ready_deferred_batch_, align 8
-  %cmp.not.i51 = icmp eq ptr %49, null
+  %48 = load ptr, ptr %recv_message_ready_deferred_batch_, align 8
+  %cmp.not.i51 = icmp eq ptr %48, null
   br i1 %cmp.not.i51, label %_ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttempt9BatchDataEED2Ev.exit57, label %if.then.i52
 
 if.then.i52:                                      ; preds = %_ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttempt9BatchDataEED2Ev.exit
-  %refs_.i.i53 = getelementptr inbounds %"class.grpc_core::RefCounted.128", ptr %49, i64 0, i32 1
-  %50 = atomicrmw sub ptr %refs_.i.i53, i64 1 acq_rel, align 8
-  %cmp.i.i.i54 = icmp eq i64 %50, 1
+  %refs_.i.i53 = getelementptr inbounds %"class.grpc_core::RefCounted.128", ptr %48, i64 0, i32 1
+  %49 = atomicrmw sub ptr %refs_.i.i53, i64 1 acq_rel, align 8
+  %cmp.i.i.i54 = icmp eq i64 %49, 1
   br i1 %cmp.i.i.i54, label %if.then.i.i55, label %_ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttempt9BatchDataEED2Ev.exit57
 
 if.then.i.i55:                                    ; preds = %if.then.i52
-  %vtable.i.i.i56 = load ptr, ptr %49, align 8
-  %51 = load ptr, ptr %vtable.i.i.i56, align 8
-  call void %51(ptr noundef nonnull align 8 dereferenceable(120) %49) #26
+  %vtable.i.i.i56 = load ptr, ptr %48, align 8
+  %50 = load ptr, ptr %vtable.i.i.i56, align 8
+  call void %50(ptr noundef nonnull align 8 dereferenceable(120) %48) #26
   br label %_ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttempt9BatchDataEED2Ev.exit57
 
 _ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttempt9BatchDataEED2Ev.exit57: ; preds = %_ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttempt9BatchDataEED2Ev.exit, %if.then.i52, %if.then.i.i55
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %recv_initial_metadata_error_) #26
-  %52 = load ptr, ptr %recv_initial_metadata_ready_deferred_batch_, align 8
-  %cmp.not.i58 = icmp eq ptr %52, null
+  %51 = load ptr, ptr %recv_initial_metadata_ready_deferred_batch_, align 8
+  %cmp.not.i58 = icmp eq ptr %51, null
   br i1 %cmp.not.i58, label %ehcleanup128, label %if.then.i59
 
 if.then.i59:                                      ; preds = %_ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttempt9BatchDataEED2Ev.exit57
-  %refs_.i.i60 = getelementptr inbounds %"class.grpc_core::RefCounted.128", ptr %52, i64 0, i32 1
-  %53 = atomicrmw sub ptr %refs_.i.i60, i64 1 acq_rel, align 8
-  %cmp.i.i.i61 = icmp eq i64 %53, 1
+  %refs_.i.i60 = getelementptr inbounds %"class.grpc_core::RefCounted.128", ptr %51, i64 0, i32 1
+  %52 = atomicrmw sub ptr %refs_.i.i60, i64 1 acq_rel, align 8
+  %cmp.i.i.i61 = icmp eq i64 %52, 1
   br i1 %cmp.i.i.i61, label %if.then.i.i62, label %ehcleanup128
 
 if.then.i.i62:                                    ; preds = %if.then.i59
-  %vtable.i.i.i63 = load ptr, ptr %52, align 8
-  %54 = load ptr, ptr %vtable.i.i.i63, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(120) %52) #26
+  %vtable.i.i.i63 = load ptr, ptr %51, align 8
+  %53 = load ptr, ptr %vtable.i.i.i63, align 8
+  call void %53(ptr noundef nonnull align 8 dereferenceable(120) %51) #26
   br label %ehcleanup128
 
 ehcleanup128:                                     ; preds = %if.then.i.i62, %if.then.i59, %_ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttempt9BatchDataEED2Ev.exit57, %lpad17
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %23, %lpad17 ], [ %.pn, %_ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttempt9BatchDataEED2Ev.exit57 ], [ %.pn, %if.then.i59 ], [ %.pn, %if.then.i.i62 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %22, %lpad17 ], [ %.pn, %_ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttempt9BatchDataEED2Ev.exit57 ], [ %.pn, %if.then.i59 ], [ %.pn, %if.then.i.i62 ]
   %recv_message_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData::CallAttempt", ptr %this, i64 0, i32 15
   call void @_ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEED2Ev(ptr noundef nonnull align 8 dereferenceable(568) %recv_trailing_metadata_) #26
   call void @_ZNSt8optionalIN9grpc_core11SliceBufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %recv_message_) #26
@@ -5602,29 +5601,28 @@ do.body25:                                        ; preds = %if.end20, %if.then2
   %event_engine_.i = getelementptr inbounds %"class.grpc_core::RetryFilter", ptr %14, i64 0, i32 1
   %15 = load ptr, ptr %event_engine_.i, align 8
   %call31 = call i64 @_ZNK9grpc_core8DurationcvNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEv(ptr noundef nonnull align 8 dereferenceable(8) %next_attempt_timeout)
-  %16 = ptrtoint ptr %this to i64
-  store i64 %16, ptr %agg.tmp33, align 16
+  store ptr %this, ptr %agg.tmp33, align 16
   %invoker_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp33, i64 0, i32 2
   store ptr @"_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRZN9grpc_core11RetryFilter14LegacyCallData15StartRetryTimerESt8optionalINS3_8DurationEEE3$_0JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE", ptr %invoker_.i.i.i.i.i, align 8
   %manager_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp33, i64 0, i32 1
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i.i.i, align 16
   %vtable = load ptr, ptr %15, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
-  %17 = load ptr, ptr %vfn, align 8
-  %call36 = invoke { i64, i64 } %17(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 %call31, ptr noundef nonnull %agg.tmp33)
+  %16 = load ptr, ptr %vfn, align 8
+  %call36 = invoke { i64, i64 } %16(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 %call31, ptr noundef nonnull %agg.tmp33)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %do.body25
-  %18 = extractvalue { i64, i64 } %call36, 0
-  %19 = extractvalue { i64, i64 } %call36, 1
+  %17 = extractvalue { i64, i64 } %call36, 0
+  %18 = extractvalue { i64, i64 } %call36, 1
   %retry_timer_handle_ = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %this, i64 0, i32 19
   %_M_engaged.i.i2 = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %this, i64 0, i32 19, i32 0, i32 0, i32 0, i32 1
-  %20 = load i8, ptr %_M_engaged.i.i2, align 8
-  %21 = and i8 %20, 1
-  %tobool.i.not.i = icmp eq i8 %21, 0
-  store i64 %18, ptr %retry_timer_handle_, align 8
+  %19 = load i8, ptr %_M_engaged.i.i2, align 8
+  %20 = and i8 %19, 1
+  %tobool.i.not.i = icmp eq i8 %20, 0
+  store i64 %17, ptr %retry_timer_handle_, align 8
   %ref.tmp27.sroa.2.0.retry_timer_handle_.sroa_idx = getelementptr inbounds %"class.grpc_core::RetryFilter::LegacyCallData", ptr %this, i64 0, i32 19, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  store i64 %19, ptr %ref.tmp27.sroa.2.0.retry_timer_handle_.sroa_idx, align 8
+  store i64 %18, ptr %ref.tmp27.sroa.2.0.retry_timer_handle_.sroa_idx, align 8
   br i1 %tobool.i.not.i, label %if.else.i, label %_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEEaSIS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS3_ES8_IS3_NSt5decayISB_E4typeEEEEESt16is_constructibleIS3_JSB_EESt13is_assignableIRS3_SB_EEERS4_E4typeEOSB_.exit
 
 if.else.i:                                        ; preds = %invoke.cont
@@ -5632,16 +5630,16 @@ if.else.i:                                        ; preds = %invoke.cont
   br label %_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEEaSIS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS3_ES8_IS3_NSt5decayISB_E4typeEEEEESt16is_constructibleIS3_JSB_EESt13is_assignableIRS3_SB_EEERS4_E4typeEOSB_.exit
 
 _ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEEaSIS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS3_ES8_IS3_NSt5decayISB_E4typeEEEEESt16is_constructibleIS3_JSB_EESt13is_assignableIRS3_SB_EEERS4_E4typeEOSB_.exit: ; preds = %invoke.cont, %if.else.i
-  %22 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %22(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp33, ptr noundef nonnull %agg.tmp33) #26
+  %21 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
+  call void %21(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp33, ptr noundef nonnull %agg.tmp33) #26
   ret void
 
 lpad:                                             ; preds = %do.body25
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %24 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %24(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp33, ptr noundef nonnull %agg.tmp33) #26
-  resume { ptr, i32 } %23
+  %23 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
+  call void %23(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp33, ptr noundef nonnull %agg.tmp33) #26
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10139,8 +10137,7 @@ if.end88:                                         ; preds = %if.then86, %if.then
   %66 = load ptr, ptr %call_context_, align 8
   %arrayidx = getelementptr inbounds %struct.grpc_call_context_element, ptr %66, i64 5
   %67 = load ptr, ptr %arrayidx, align 8
-  %68 = ptrtoint ptr %67 to i64
-  store i64 %68, ptr %agg.tmp90, align 16
+  store ptr %67, ptr %agg.tmp90, align 16
   %invoker_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp90, i64 0, i32 2
   store ptr @"_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRZN9grpc_core11RetryFilter14LegacyCallData27StartTransportStreamOpBatchEP30grpc_transport_stream_op_batchE3$_0JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE", ptr %invoker_.i.i.i.i.i, align 8
   %manager_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp90, i64 0, i32 1
@@ -10149,24 +10146,24 @@ if.end88:                                         ; preds = %if.then86, %if.then
           to label %invoke.cont93 unwind label %lpad92
 
 invoke.cont93:                                    ; preds = %if.end88
-  %69 = load ptr, ptr %ref.tmp89, align 8
+  %68 = load ptr, ptr %ref.tmp89, align 8
   store ptr null, ptr %ref.tmp89, align 8
-  %70 = load ptr, ptr %committed_call_, align 8
-  store ptr %69, ptr %committed_call_, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %70, null
+  %69 = load ptr, ptr %committed_call_, align 8
+  store ptr %68, ptr %committed_call_, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %69, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10unique_ptrIN9grpc_core13ClientChannel27FilterBasedLoadBalancedCallENS0_16OrphanableDeleteEED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont93
-  %vtable.i.i.i.i.i = load ptr, ptr %70, align 16
-  %71 = load ptr, ptr %vtable.i.i.i.i.i, align 8
-  invoke void %71(ptr noundef nonnull align 16 dereferenceable(376) %70)
+  %vtable.i.i.i.i.i = load ptr, ptr %69, align 16
+  %70 = load ptr, ptr %vtable.i.i.i.i.i, align 8
+  invoke void %70(ptr noundef nonnull align 16 dereferenceable(376) %69)
           to label %_ZNSt10unique_ptrIN9grpc_core13ClientChannel27FilterBasedLoadBalancedCallENS0_16OrphanableDeleteEEaSEOS4_.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
-  %72 = landingpad { ptr, i32 }
+  %71 = landingpad { ptr, i32 }
           catch ptr null
-  %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #25
+  %72 = extractvalue { ptr, i32 } %71, 0
+  call void @__clang_call_terminate(ptr %72) #25
   unreachable
 
 _ZNSt10unique_ptrIN9grpc_core13ClientChannel27FilterBasedLoadBalancedCallENS0_16OrphanableDeleteEEaSEOS4_.exit: ; preds = %if.then.i.i.i.i
@@ -10176,41 +10173,41 @@ _ZNSt10unique_ptrIN9grpc_core13ClientChannel27FilterBasedLoadBalancedCallENS0_16
 
 if.then.i52:                                      ; preds = %_ZNSt10unique_ptrIN9grpc_core13ClientChannel27FilterBasedLoadBalancedCallENS0_16OrphanableDeleteEEaSEOS4_.exit
   %vtable.i.i = load ptr, ptr %.pr, align 16
-  %74 = load ptr, ptr %vtable.i.i, align 8
-  invoke void %74(ptr noundef nonnull align 16 dereferenceable(376) %.pr)
+  %73 = load ptr, ptr %vtable.i.i, align 8
+  invoke void %73(ptr noundef nonnull align 16 dereferenceable(376) %.pr)
           to label %_ZNSt10unique_ptrIN9grpc_core13ClientChannel27FilterBasedLoadBalancedCallENS0_16OrphanableDeleteEED2Ev.exit unwind label %terminate.lpad.i53
 
 terminate.lpad.i53:                               ; preds = %if.then.i52
-  %75 = landingpad { ptr, i32 }
+  %74 = landingpad { ptr, i32 }
           catch ptr null
-  %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #25
+  %75 = extractvalue { ptr, i32 } %74, 0
+  call void @__clang_call_terminate(ptr %75) #25
   unreachable
 
 _ZNSt10unique_ptrIN9grpc_core13ClientChannel27FilterBasedLoadBalancedCallENS0_16OrphanableDeleteEED2Ev.exit: ; preds = %invoke.cont93, %_ZNSt10unique_ptrIN9grpc_core13ClientChannel27FilterBasedLoadBalancedCallENS0_16OrphanableDeleteEEaSEOS4_.exit, %if.then.i52
   store ptr null, ptr %ref.tmp89, align 8
-  %77 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %77(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp90, ptr noundef nonnull %agg.tmp90) #26
-  %78 = load ptr, ptr %committed_call_, align 8
-  call void @_ZN9grpc_core13ClientChannel27FilterBasedLoadBalancedCall27StartTransportStreamOpBatchEP30grpc_transport_stream_op_batch(ptr noundef nonnull align 16 dereferenceable(376) %78, ptr noundef nonnull %batch)
+  %76 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
+  call void %76(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp90, ptr noundef nonnull %agg.tmp90) #26
+  %77 = load ptr, ptr %committed_call_, align 8
+  call void @_ZN9grpc_core13ClientChannel27FilterBasedLoadBalancedCall27StartTransportStreamOpBatchEP30grpc_transport_stream_op_batch(ptr noundef nonnull align 16 dereferenceable(376) %77, ptr noundef nonnull %batch)
   br label %return
 
 lpad92:                                           ; preds = %if.end88
-  %79 = landingpad { ptr, i32 }
+  %78 = landingpad { ptr, i32 }
           cleanup
-  %80 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %80(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp90, ptr noundef nonnull %agg.tmp90) #26
+  %79 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
+  call void %79(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp90, ptr noundef nonnull %agg.tmp90) #26
   br label %common.resume
 
 if.end98:                                         ; preds = %if.then69, %lor.rhs
-  %81 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_retry_trace, i64 0, i32 2) monotonic, align 8
-  %82 = and i8 %81, 1
-  %tobool.i.i.i55.not = icmp eq i8 %82, 0
+  %80 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_retry_trace, i64 0, i32 2) monotonic, align 8
+  %81 = and i8 %80, 1
+  %tobool.i.i.i55.not = icmp eq i8 %81, 0
   br i1 %tobool.i.i.i55.not, label %if.end102, label %if.then100
 
 if.then100:                                       ; preds = %if.end98
-  %83 = load ptr, ptr %this, align 8
-  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 1698, i32 noundef 1, ptr noundef nonnull @.str.80, ptr noundef %83, ptr noundef nonnull %this)
+  %82 = load ptr, ptr %this, align 8
+  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 1698, i32 noundef 1, ptr noundef nonnull @.str.80, ptr noundef %82, ptr noundef nonnull %this)
   %bf.load104.pre = load i8, ptr %retry_codepath_started_, align 8
   br label %if.end102
 
@@ -10223,54 +10220,54 @@ if.end102:                                        ; preds = %if.then100, %if.end
           to label %_ZN9grpc_core14MakeRefCountedINS_11RetryFilter14LegacyCallData11CallAttemptEJPS2_RbEEENS_13RefCountedPtrIT_EEDpOT0_.exit.i unwind label %lpad.i.i, !noalias !94
 
 common.resume:                                    ; preds = %lpad, %lpad12, %lpad25, %lpad30, %lpad58, %lpad92, %lpad.i.i
-  %common.resume.op = phi { ptr, i32 } [ %84, %lpad.i.i ], [ %55, %lpad58 ], [ %35, %lpad30 ], [ %25, %lpad25 ], [ %79, %lpad92 ], [ %14, %lpad12 ], [ %5, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %83, %lpad.i.i ], [ %55, %lpad58 ], [ %35, %lpad30 ], [ %25, %lpad25 ], [ %78, %lpad92 ], [ %14, %lpad12 ], [ %5, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %if.end102
-  %84 = landingpad { ptr, i32 }
+  %83 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call.i.i) #27, !noalias !94
   br label %common.resume
 
 _ZN9grpc_core14MakeRefCountedINS_11RetryFilter14LegacyCallData11CallAttemptEJPS2_RbEEENS_13RefCountedPtrIT_EEDpOT0_.exit.i: ; preds = %if.end102
-  %85 = load ptr, ptr %call_attempt_67, align 8
+  %84 = load ptr, ptr %call_attempt_67, align 8
   store ptr %call.i.i, ptr %call_attempt_67, align 8
-  %cmp.not.i.i.i = icmp eq ptr %85, null
+  %cmp.not.i.i.i = icmp eq ptr %84, null
   br i1 %cmp.not.i.i.i, label %_ZN9grpc_core11RetryFilter14LegacyCallData17CreateCallAttemptEb.exit, label %if.then.i.i.i56
 
 if.then.i.i.i56:                                  ; preds = %_ZN9grpc_core14MakeRefCountedINS_11RetryFilter14LegacyCallData11CallAttemptEJPS2_RbEEENS_13RefCountedPtrIT_EEDpOT0_.exit.i
-  %refs_.i.i.i.i = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %85, i64 0, i32 1
-  %86 = atomicrmw sub ptr %refs_.i.i.i.i, i64 1 acq_rel, align 8
-  %cmp.i.i.i.i.i = icmp eq i64 %86, 1
+  %refs_.i.i.i.i = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %84, i64 0, i32 1
+  %85 = atomicrmw sub ptr %refs_.i.i.i.i, i64 1 acq_rel, align 8
+  %cmp.i.i.i.i.i = icmp eq i64 %85, 1
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i57, label %_ZN9grpc_core11RetryFilter14LegacyCallData17CreateCallAttemptEb.exit
 
 if.then.i.i.i.i57:                                ; preds = %if.then.i.i.i56
-  %vtable.i.i.i.i.i58 = load ptr, ptr %85, align 8
+  %vtable.i.i.i.i.i58 = load ptr, ptr %84, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i58, i64 1
-  %87 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  call void %87(ptr noundef nonnull align 8 dereferenceable(3105) %85) #26
+  %86 = load ptr, ptr %vfn.i.i.i.i.i, align 8
+  call void %86(ptr noundef nonnull align 8 dereferenceable(3105) %84) #26
   br label %_ZN9grpc_core11RetryFilter14LegacyCallData17CreateCallAttemptEb.exit
 
 _ZN9grpc_core11RetryFilter14LegacyCallData17CreateCallAttemptEb.exit: ; preds = %_ZN9grpc_core14MakeRefCountedINS_11RetryFilter14LegacyCallData11CallAttemptEJPS2_RbEEENS_13RefCountedPtrIT_EEDpOT0_.exit.i, %if.then.i.i.i56, %if.then.i.i.i.i57
-  %88 = load ptr, ptr %call_attempt_67, align 8
-  call void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt21StartRetriableBatchesEv(ptr noundef nonnull align 8 dereferenceable(3105) %88)
+  %87 = load ptr, ptr %call_attempt_67, align 8
+  call void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt21StartRetriableBatchesEv(ptr noundef nonnull align 8 dereferenceable(3105) %87)
   br label %return
 
 if.end106:                                        ; preds = %if.end66
-  %89 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_retry_trace, i64 0, i32 2) monotonic, align 8
-  %90 = and i8 %89, 1
-  %tobool.i.i.i59.not = icmp eq i8 %90, 0
+  %88 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_retry_trace, i64 0, i32 2) monotonic, align 8
+  %89 = and i8 %88, 1
+  %tobool.i.i.i59.not = icmp eq i8 %89, 0
   br i1 %tobool.i.i.i59.not, label %if.end112, label %if.then108
 
 if.then108:                                       ; preds = %if.end106
-  %91 = load ptr, ptr %this, align 8
-  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 1707, i32 noundef 1, ptr noundef nonnull @.str.81, ptr noundef %91, ptr noundef nonnull %this, ptr noundef nonnull %59)
+  %90 = load ptr, ptr %this, align 8
+  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 1707, i32 noundef 1, ptr noundef nonnull @.str.81, ptr noundef %90, ptr noundef nonnull %this, ptr noundef nonnull %59)
   %.pre61 = load ptr, ptr %call_attempt_67, align 8
   br label %if.end112
 
 if.end112:                                        ; preds = %if.then108, %if.end106
-  %92 = phi ptr [ %.pre61, %if.then108 ], [ %59, %if.end106 ]
-  call void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt21StartRetriableBatchesEv(ptr noundef nonnull align 8 dereferenceable(3105) %92)
+  %91 = phi ptr [ %.pre61, %if.then108 ], [ %59, %if.end106 ]
+  call void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt21StartRetriableBatchesEv(ptr noundef nonnull align 8 dereferenceable(3105) %91)
   br label %return
 
 return:                                           ; preds = %if.then.i.i42, %invoke.cont59, %if.then.i.i13, %invoke.cont13, %if.end112, %_ZN9grpc_core11RetryFilter14LegacyCallData17CreateCallAttemptEb.exit, %_ZNSt10unique_ptrIN9grpc_core13ClientChannel27FilterBasedLoadBalancedCallENS0_16OrphanableDeleteEED2Ev.exit, %if.then64, %if.then33, %if.then5

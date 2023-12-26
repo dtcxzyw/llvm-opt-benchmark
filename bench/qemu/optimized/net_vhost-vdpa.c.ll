@@ -1333,9 +1333,8 @@ if.end58:                                         ; preds = %if.end47, %if.else5
   %and.i = and i64 %sub.i44, %sub3.i
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %map.i)
   store i64 0, ptr %map.i, align 8
-  %26 = ptrtoint ptr %25 to i64
   %translated_addr.i = getelementptr inbounds %struct.DMAMap, ptr %map.i, i64 0, i32 1
-  store i64 %26, ptr %translated_addr.i, align 8
+  store ptr %25, ptr %translated_addr.i, align 8
   %sub.i45 = add nsw i64 %and.i, -1
   %size1.i = getelementptr inbounds %struct.DMAMap, ptr %map.i, i64 0, i32 2
   store i64 %sub.i45, ptr %size1.i, align 8
@@ -1346,9 +1345,9 @@ if.end58:                                         ; preds = %if.end47, %if.else5
   br i1 %cmp.not.i, label %if.end.i49, label %vhost_vdpa_cvq_map_buf.exit
 
 if.end.i49:                                       ; preds = %if.end58
-  %27 = load i32, ptr %address_space_id, align 16
-  %28 = load i64, ptr %map.i, align 8
-  %call8.i = call i32 @vhost_vdpa_dma_map(ptr noundef nonnull %vhost_vdpa, i32 noundef %27, i64 noundef %28, i64 noundef %and.i, ptr noundef %25, i1 noundef zeroext true) #13
+  %26 = load i32, ptr %address_space_id, align 16
+  %27 = load i64, ptr %map.i, align 8
+  %call8.i = call i32 @vhost_vdpa_dma_map(ptr noundef nonnull %vhost_vdpa, i32 noundef %26, i64 noundef %27, i64 noundef %and.i, ptr noundef %25, i1 noundef zeroext true) #13
   %cmp9.i = icmp slt i32 %call8.i, 0
   br i1 %cmp9.i, label %vhost_vdpa_cvq_map_buf.exit.thread, label %vhost_vdpa_cvq_map_buf.exit.thread82
 
@@ -1357,8 +1356,8 @@ vhost_vdpa_cvq_map_buf.exit.thread82:             ; preds = %if.end.i49
   br label %if.end71
 
 vhost_vdpa_cvq_map_buf.exit.thread:               ; preds = %if.end.i49
-  %29 = load ptr, ptr %24, align 8
-  call void @vhost_iova_tree_remove(ptr noundef %29, ptr noundef nonnull byval(%struct.DMAMap) align 8 %map.i) #13
+  %28 = load ptr, ptr %24, align 8
+  call void @vhost_iova_tree_remove(ptr noundef %28, ptr noundef nonnull byval(%struct.DMAMap) align 8 %map.i) #13
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %map.i)
   br label %return
 
@@ -1370,25 +1369,24 @@ vhost_vdpa_cvq_map_buf.exit:                      ; preds = %if.end58
 
 if.end71:                                         ; preds = %vhost_vdpa_cvq_map_buf.exit.thread82, %vhost_vdpa_cvq_map_buf.exit
   %status = getelementptr inbounds %struct.VhostVDPAState, ptr %nc, i64 0, i32 5
-  %30 = load ptr, ptr %status, align 8
+  %29 = load ptr, ptr %status, align 8
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %map.i55)
   store i64 0, ptr %map.i55, align 8
-  %31 = ptrtoint ptr %30 to i64
   %translated_addr.i56 = getelementptr inbounds %struct.DMAMap, ptr %map.i55, i64 0, i32 1
-  store i64 %31, ptr %translated_addr.i56, align 8
+  store ptr %29, ptr %translated_addr.i56, align 8
   %size1.i58 = getelementptr inbounds %struct.DMAMap, ptr %map.i55, i64 0, i32 2
   store i64 %sub.i45, ptr %size1.i58, align 8
   %perm.i59 = getelementptr inbounds %struct.DMAMap, ptr %map.i55, i64 0, i32 3
   store i32 3, ptr %perm.i59, align 8
-  %32 = load ptr, ptr %24, align 8
-  %call.i61 = call i32 @vhost_iova_tree_map_alloc(ptr noundef %32, ptr noundef nonnull %map.i55) #13
+  %30 = load ptr, ptr %24, align 8
+  %call.i61 = call i32 @vhost_iova_tree_map_alloc(ptr noundef %30, ptr noundef nonnull %map.i55) #13
   %cmp.not.i62 = icmp eq i32 %call.i61, 0
   br i1 %cmp.not.i62, label %if.end.i65, label %vhost_vdpa_cvq_map_buf.exit75
 
 if.end.i65:                                       ; preds = %if.end71
-  %33 = load i32, ptr %address_space_id, align 16
-  %34 = load i64, ptr %map.i55, align 8
-  %call8.i72 = call i32 @vhost_vdpa_dma_map(ptr noundef nonnull %vhost_vdpa, i32 noundef %33, i64 noundef %34, i64 noundef %and.i, ptr noundef %30, i1 noundef zeroext false) #13
+  %31 = load i32, ptr %address_space_id, align 16
+  %32 = load i64, ptr %map.i55, align 8
+  %call8.i72 = call i32 @vhost_vdpa_dma_map(ptr noundef nonnull %vhost_vdpa, i32 noundef %31, i64 noundef %32, i64 noundef %and.i, ptr noundef %29, i1 noundef zeroext false) #13
   %cmp9.i73 = icmp slt i32 %call8.i72, 0
   br i1 %cmp9.i73, label %vhost_vdpa_cvq_map_buf.exit75.thread, label %vhost_vdpa_cvq_map_buf.exit75.thread88
 
@@ -1397,8 +1395,8 @@ vhost_vdpa_cvq_map_buf.exit75.thread88:           ; preds = %if.end.i65
   br label %return
 
 vhost_vdpa_cvq_map_buf.exit75.thread:             ; preds = %if.end.i65
-  %35 = load ptr, ptr %24, align 8
-  call void @vhost_iova_tree_remove(ptr noundef %35, ptr noundef nonnull byval(%struct.DMAMap) align 8 %map.i55) #13
+  %33 = load ptr, ptr %24, align 8
+  call void @vhost_iova_tree_remove(ptr noundef %33, ptr noundef nonnull byval(%struct.DMAMap) align 8 %map.i55) #13
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %map.i55)
   br label %if.then83
 
@@ -1410,8 +1408,8 @@ vhost_vdpa_cvq_map_buf.exit75:                    ; preds = %if.end71
 
 if.then83:                                        ; preds = %vhost_vdpa_cvq_map_buf.exit75.thread, %vhost_vdpa_cvq_map_buf.exit75
   %retval.0.i6487 = phi i32 [ %call8.i72, %vhost_vdpa_cvq_map_buf.exit75.thread ], [ %call.i61, %vhost_vdpa_cvq_map_buf.exit75 ]
-  %36 = load ptr, ptr %cvq_cmd_out_buffer, align 16
-  call fastcc void @vhost_vdpa_cvq_unmap_buf(ptr noundef nonnull %vhost_vdpa, ptr noundef %36)
+  %34 = load ptr, ptr %cvq_cmd_out_buffer, align 16
+  call fastcc void @vhost_vdpa_cvq_unmap_buf(ptr noundef nonnull %vhost_vdpa, ptr noundef %34)
   br label %return
 
 return:                                           ; preds = %vhost_vdpa_cvq_map_buf.exit75.thread88, %vhost_vdpa_cvq_map_buf.exit.thread, %vhost_vdpa_set_address_space_id.exit.thread, %vhost_vdpa_net_valid_svq_features.exit.thread, %vhost_vdpa_cvq_map_buf.exit75, %if.then83, %vhost_vdpa_cvq_map_buf.exit, %out, %if.end16, %vhost_vdpa_net_valid_svq_features.exit, %if.then25
@@ -2078,8 +2076,7 @@ entry:
   %0 = load ptr, ptr %iova_tree, align 8
   store i64 0, ptr %needle, align 8
   %translated_addr = getelementptr inbounds %struct.DMAMap, ptr %needle, i64 0, i32 1
-  %1 = ptrtoint ptr %addr to i64
-  store i64 %1, ptr %translated_addr, align 8
+  store ptr %addr, ptr %translated_addr, align 8
   %size = getelementptr inbounds %struct.DMAMap, ptr %needle, i64 0, i32 2
   store i64 0, ptr %size, align 8
   %perm = getelementptr inbounds %struct.DMAMap, ptr %needle, i64 0, i32 3
@@ -2094,12 +2091,12 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %address_space_id = getelementptr inbounds %struct.vhost_vdpa, ptr %v, i64 0, i32 4
-  %2 = load i32, ptr %address_space_id, align 16
-  %3 = load i64, ptr %call, align 1
+  %1 = load i32, ptr %address_space_id, align 16
+  %2 = load i64, ptr %call, align 1
   %size5 = getelementptr inbounds %struct.DMAMap, ptr %call, i64 0, i32 2
-  %4 = load i64, ptr %size5, align 1
-  %add = add i64 %4, 1
-  %call6 = call i32 @vhost_vdpa_dma_unmap(ptr noundef nonnull %v, i32 noundef %2, i64 noundef %3, i64 noundef %add) #13
+  %3 = load i64, ptr %size5, align 1
+  %add = add i64 %3, 1
+  %call6 = call i32 @vhost_vdpa_dma_unmap(ptr noundef nonnull %v, i32 noundef %1, i64 noundef %2, i64 noundef %add) #13
   %cmp.not = icmp eq i32 %call6, 0
   br i1 %cmp.not, label %if.end16, label %if.then14
 

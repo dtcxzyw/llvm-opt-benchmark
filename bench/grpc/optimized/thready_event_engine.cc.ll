@@ -1007,8 +1007,7 @@ define void @_ZN17grpc_event_engine12experimental18ThreadyEventEngine3RunEPNS0_1
 entry:
   %agg.tmp.i = alloca %"class.absl::lts_20230802::AnyInvocable", align 16
   %agg.tmp = alloca %"class.absl::lts_20230802::AnyInvocable", align 16
-  %0 = ptrtoint ptr %closure to i64
-  store i64 %0, ptr %agg.tmp, align 16
+  store ptr %closure, ptr %agg.tmp, align 16
   %invoker_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp, i64 0, i32 2
   %manager_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
@@ -1023,20 +1022,20 @@ entry:
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
-  %2 = load ptr, ptr %manager_5.i.i.i.i, align 16
-  call void %2(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp.i) #15
-  %3 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %3(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp) #15
-  resume { ptr, i32 } %1
+  %1 = load ptr, ptr %manager_5.i.i.i.i, align 16
+  call void %1(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp.i) #15
+  %2 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
+  call void %2(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp) #15
+  resume { ptr, i32 } %0
 
 invoke.cont:                                      ; preds = %entry
-  %4 = load ptr, ptr %manager_5.i.i.i.i, align 16
-  call void %4(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp.i) #15
+  %3 = load ptr, ptr %manager_5.i.i.i.i, align 16
+  call void %3(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp.i) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
-  %5 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %5(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp) #15
+  %4 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
+  call void %4(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp) #15
   ret void
 }
 
@@ -1073,8 +1072,7 @@ lpad:                                             ; preds = %entry
 define { i64, i64 } @_ZN17grpc_event_engine12experimental18ThreadyEventEngine8RunAfterENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEPNS0_11EventEngine7ClosureE(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 %when.coerce, ptr noundef %closure) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp2 = alloca %"class.absl::lts_20230802::AnyInvocable", align 16
-  %0 = ptrtoint ptr %closure to i64
-  store i64 %0, ptr %agg.tmp2, align 16
+  store ptr %closure, ptr %agg.tmp2, align 16
   %invoker_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp2, i64 0, i32 2
   store ptr @"_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRZN17grpc_event_engine12experimental18ThreadyEventEngine8RunAfterENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEPNS4_11EventEngine7ClosureEE3$_0JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE", ptr %invoker_.i.i.i.i.i, align 8
   %manager_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp2, i64 0, i32 1
@@ -1083,16 +1081,16 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %1 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %1(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp2, ptr noundef nonnull %agg.tmp2) #15
+  %0 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
+  call void %0(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp2, ptr noundef nonnull %agg.tmp2) #15
   ret { i64, i64 } %call
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
-  %3 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %3(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp2, ptr noundef nonnull %agg.tmp2) #15
-  resume { ptr, i32 } %2
+  %2 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
+  call void %2(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp2, ptr noundef nonnull %agg.tmp2) #15
+  resume { ptr, i32 } %1
 }
 
 ; Function Attrs: mustprogress uwtable

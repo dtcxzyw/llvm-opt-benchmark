@@ -8525,18 +8525,13 @@ _ZN5folly10SSLContext13getFromSSLCtxEPK10ssl_ctx_st.exit: ; preds = %invoke.cont
   %sessionLifecycleCallbacks_ = getelementptr inbounds %"class.folly::SSLContext", ptr %call1.i, i64 0, i32 18
   %4 = load ptr, ptr %sessionLifecycleCallbacks_, align 8, !tbaa !81
   %cmp.i.i.not = icmp eq ptr %4, null
-  br i1 %cmp.i.i.not, label %_ZN5folly10SSLContext13getFromSSLCtxEPK10ssl_ctx_st.exit.if.end_crit_edge, label %if.then
-
-_ZN5folly10SSLContext13getFromSSLCtxEPK10ssl_ctx_st.exit.if.end_crit_edge: ; preds = %_ZN5folly10SSLContext13getFromSSLCtxEPK10ssl_ctx_st.exit
-  %.pre = ptrtoint ptr %session to i64
-  br label %if.end
+  br i1 %cmp.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN5folly10SSLContext13getFromSSLCtxEPK10ssl_ctx_st.exit
   %call4 = tail call i32 @SSL_SESSION_up_ref(ptr noundef %session)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sessionPtr) #26
   %5 = load ptr, ptr %sessionLifecycleCallbacks_, align 8, !tbaa !81
-  %.cast = ptrtoint ptr %session to i64
-  store i64 %.cast, ptr %agg.tmp, align 8, !tbaa !81
+  store ptr %session, ptr %agg.tmp, align 8, !tbaa !81
   store ptr null, ptr %sessionPtr, align 8, !tbaa !81
   %vtable = load ptr, ptr %5, align 8, !tbaa !7
   %6 = load ptr, ptr %vtable, align 8
@@ -8572,8 +8567,7 @@ lpad:                                             ; preds = %if.then
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sessionPtr) #26
   br label %common.resume
 
-if.end:                                           ; preds = %_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev.exit33, %_ZN5folly10SSLContext13getFromSSLCtxEPK10ssl_ctx_st.exit.if.end_crit_edge
-  %.pre-phi = phi i64 [ %.pre, %_ZN5folly10SSLContext13getFromSSLCtxEPK10ssl_ctx_st.exit.if.end_crit_edge ], [ %.cast, %_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev.exit33 ]
+if.end:                                           ; preds = %_ZN5folly10SSLContext13getFromSSLCtxEPK10ssl_ctx_st.exit, %_ZNSt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS0_XadL_Z16SSL_SESSION_freeEEEEED2Ev.exit33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sessionPtr6) #26
   store ptr %session, ptr %sessionPtr6, align 8, !tbaa !81
   %call9 = invoke noundef ptr @_ZN5folly3ssl17SSLSessionManager10getFromSSLEPK6ssl_st(ptr noundef %ssl)
@@ -8584,7 +8578,7 @@ invoke.cont8:                                     ; preds = %if.end
   br i1 %tobool.not, label %if.end14, label %if.then10
 
 if.then10:                                        ; preds = %invoke.cont8
-  store i64 %.pre-phi, ptr %agg.tmp11, align 8, !tbaa !81
+  store ptr %session, ptr %agg.tmp11, align 8, !tbaa !81
   store ptr null, ptr %sessionPtr6, align 8, !tbaa !81
   invoke void @_ZN5folly3ssl17SSLSessionManager12onNewSessionESt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEE(ptr noundef nonnull align 8 dereferenceable(24) %call9, ptr noundef nonnull %agg.tmp11)
           to label %invoke.cont13 unwind label %lpad12

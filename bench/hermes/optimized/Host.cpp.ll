@@ -1444,11 +1444,10 @@ entry:
   store i32 1, ptr %attr, align 8
   %insn_cnt = getelementptr inbounds %struct.bpf_prog_load_attr, ptr %attr, i64 0, i32 1
   store i32 5, ptr %insn_cnt, align 4
-  %1 = ptrtoint ptr %insns to i64
   %insns1 = getelementptr inbounds %struct.bpf_prog_load_attr, ptr %attr, i64 0, i32 2
-  store i64 %1, ptr %insns1, align 8
+  store ptr %insns, ptr %insns1, align 8
   %license = getelementptr inbounds %struct.bpf_prog_load_attr, ptr %attr, i64 0, i32 3
-  store i64 ptrtoint (ptr @.str.106 to i64), ptr %license, align 8
+  store ptr @.str.106, ptr %license, align 8
   %call = call i64 (i64, ...) @syscall(i64 noundef 321, i32 noundef 5, ptr noundef nonnull %attr, i64 noundef 48) #19
   %conv = trunc i64 %call to i32
   %cmp = icmp sgt i32 %conv, -1

@@ -273,45 +273,44 @@ if.then:                                          ; preds = %invoke.cont
   %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
   %5 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 0, ptr %5, align 8
-  %6 = ptrtoint ptr %this to i64
-  store i64 %6, ptr %agg.tmp, align 8
+  store ptr %this, ptr %agg.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN9grpc_core38AsyncConnectivityStateWatcherInterface8NotifierC1ENS1_13RefCountedPtrIS2_EE23grpc_connectivity_stateRKN4absl12lts_202308026StatusERKSt10shared_ptrINS1_14WorkSerializerEEEUlvE_E9_M_invokeERKSt9_Any_data, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZN9grpc_core38AsyncConnectivityStateWatcherInterface8NotifierC1ENS1_13RefCountedPtrIS2_EE23grpc_connectivity_stateRKN4absl12lts_202308026StatusERKSt10shared_ptrINS1_14WorkSerializerEEEUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation, ptr %_M_manager.i.i, align 8
   invoke void @_ZN9grpc_core14WorkSerializer3RunESt8functionIFvvEERKNS_13DebugLocationE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3)
           to label %invoke.cont6 unwind label %lpad4
 
 invoke.cont6:                                     ; preds = %if.then
-  %7 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %if.end, label %if.then.i.i5
 
 if.then.i.i5:                                     ; preds = %invoke.cont6
-  %call.i.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
           to label %if.end unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i5
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #18
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #18
   unreachable
 
 lpad4:                                            ; preds = %if.then
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %11 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i7 = icmp eq ptr %11, null
+  %10 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i7 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i7, label %ehcleanup, label %if.then.i.i8
 
 if.then.i.i8:                                     ; preds = %lpad4
-  %call.i.i9 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i9 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
           to label %ehcleanup unwind label %terminate.lpad.i.i10
 
 terminate.lpad.i.i10:                             ; preds = %if.then.i.i8
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #18
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #18
   unreachable
 
 invoke.cont15:                                    ; preds = %invoke.cont
@@ -327,24 +326,24 @@ invoke.cont15:                                    ; preds = %invoke.cont
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont15
-  %14 = load i64, ptr %agg.tmp14, align 8
-  %and.i.i.i12 = and i64 %14, 1
+  %13 = load i64, ptr %agg.tmp14, align 8
+  %and.i.i.i12 = and i64 %13, 1
   %cmp.i.i.i13 = icmp eq i64 %and.i.i.i12, 0
   br i1 %cmp.i.i.i13, label %if.end, label %if.then.i.i14
 
 if.then.i.i14:                                    ; preds = %invoke.cont17
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %14)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %13)
           to label %if.end unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i14
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #18
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #18
   unreachable
 
 lpad16:                                           ; preds = %invoke.cont15
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp14) #16
   br label %ehcleanup
@@ -353,23 +352,23 @@ if.end:                                           ; preds = %if.then.i.i14, %inv
   ret void
 
 ehcleanup:                                        ; preds = %if.then.i.i8, %lpad4, %lpad16
-  %.pn = phi { ptr, i32 } [ %17, %lpad16 ], [ %10, %lpad4 ], [ %10, %if.then.i.i8 ]
+  %.pn = phi { ptr, i32 } [ %16, %lpad16 ], [ %9, %lpad4 ], [ %9, %if.then.i.i8 ]
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %status_) #16
-  %18 = load ptr, ptr %this, align 8
-  %cmp.not.i = icmp eq ptr %18, null
+  %17 = load ptr, ptr %this, align 8
+  %cmp.not.i = icmp eq ptr %17, null
   br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_38AsyncConnectivityStateWatcherInterfaceEED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %ehcleanup
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::InternallyRefCounted", ptr %18, i64 0, i32 1
-  %19 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
-  %cmp.i.i.i15 = icmp eq i64 %19, 1
+  %refs_.i.i = getelementptr inbounds %"class.grpc_core::InternallyRefCounted", ptr %17, i64 0, i32 1
+  %18 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
+  %cmp.i.i.i15 = icmp eq i64 %18, 1
   br i1 %cmp.i.i.i15, label %if.then.i.i16, label %_ZN9grpc_core13RefCountedPtrINS_38AsyncConnectivityStateWatcherInterfaceEED2Ev.exit
 
 if.then.i.i16:                                    ; preds = %if.then.i
-  %vtable.i.i.i = load ptr, ptr %18, align 8
+  %vtable.i.i.i = load ptr, ptr %17, align 8
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
-  %20 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(16) %18) #16
+  %19 = load ptr, ptr %vfn.i.i.i, align 8
+  call void %19(ptr noundef nonnull align 8 dereferenceable(16) %17) #16
   br label %_ZN9grpc_core13RefCountedPtrINS_38AsyncConnectivityStateWatcherInterfaceEED2Ev.exit
 
 _ZN9grpc_core13RefCountedPtrINS_38AsyncConnectivityStateWatcherInterfaceEED2Ev.exit: ; preds = %ehcleanup, %if.then.i, %if.then.i.i16
@@ -620,8 +619,7 @@ if.then15:                                        ; preds = %if.end13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   store ptr %15, ptr %ref.tmp, align 8, !alias.scope !10
   %second.i.i = getelementptr inbounds %"struct.std::pair.9", ptr %ref.tmp, i64 0, i32 1
-  %.cast = ptrtoint ptr %15 to i64
-  store i64 %.cast, ptr %second.i.i, align 8, !alias.scope !10
+  store ptr %15, ptr %second.i.i, align 8, !alias.scope !10
   store ptr null, ptr %watcher, align 8, !noalias !10
   %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ConnectivityStateTracker", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 1
   %16 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8

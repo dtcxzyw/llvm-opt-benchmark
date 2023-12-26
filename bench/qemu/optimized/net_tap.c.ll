@@ -1255,9 +1255,8 @@ if.then71:                                        ; preds = %if.end68
 if.end74:                                         ; preds = %if.end68, %if.end47
   %vhostfd.0 = phi i32 [ %call36, %if.end47 ], [ %call54, %if.end68 ]
   %conv = sext i32 %vhostfd.0 to i64
-  %31 = inttoptr i64 %conv to ptr
   %opaque = getelementptr inbounds %struct.VhostNetOptions, ptr %options, i64 0, i32 4
-  store ptr %31, ptr %opaque, align 8
+  store i64 %conv, ptr %opaque, align 8
   %nvqs = getelementptr inbounds %struct.VhostNetOptions, ptr %options, i64 0, i32 3
   store i32 2, ptr %nvqs, align 4
   %call75 = call ptr @vhost_net_init(ptr noundef nonnull %options) #15
@@ -1268,16 +1267,16 @@ if.end74:                                         ; preds = %if.end68, %if.end47
 
 if.then78:                                        ; preds = %if.end74
   %has_vhostforce79 = getelementptr inbounds %struct.NetdevTapOptions, ptr %tap, i64 0, i32 15
-  %32 = load i8, ptr %has_vhostforce79, align 8
-  %33 = and i8 %32, 1
-  %tobool80.not = icmp eq i8 %33, 0
+  %31 = load i8, ptr %has_vhostforce79, align 8
+  %32 = and i8 %31, 1
+  %tobool80.not = icmp eq i8 %32, 0
   br i1 %tobool80.not, label %if.else87, label %land.lhs.true82
 
 land.lhs.true82:                                  ; preds = %if.then78
   %vhostforce83 = getelementptr inbounds %struct.NetdevTapOptions, ptr %tap, i64 0, i32 16
-  %34 = load i8, ptr %vhostforce83, align 1
-  %35 = and i8 %34, 1
-  %tobool84.not = icmp eq i8 %35, 0
+  %33 = load i8, ptr %vhostforce83, align 1
+  %34 = and i8 %33, 1
+  %tobool84.not = icmp eq i8 %34, 0
   br i1 %tobool84.not, label %if.else87, label %if.then86
 
 if.then86:                                        ; preds = %land.lhs.true82

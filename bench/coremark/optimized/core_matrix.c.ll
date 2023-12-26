@@ -738,9 +738,10 @@ while.end:                                        ; preds = %while.body
   br i1 %cmp642.not, label %for.end34, label %for.cond8.preheader.preheader
 
 for.cond8.preheader.preheader:                    ; preds = %while.end.thread, %while.end
-  %add.ptr59 = phi ptr [ %add.ptr53, %while.end.thread ], [ %add.ptr, %while.end ]
-  %idx.ext57 = phi i64 [ 1, %while.end.thread ], [ %idx.ext, %while.end ]
+  %add.ptr61 = phi ptr [ %add.ptr53, %while.end.thread ], [ %add.ptr, %while.end ]
+  %idx.ext59 = phi i64 [ 1, %while.end.thread ], [ %idx.ext, %while.end ]
   %4 = phi ptr [ %1, %while.end.thread ], [ %3, %while.end ]
+  %conv57 = phi i64 [ %conv50, %while.end.thread ], [ %conv, %while.end ]
   %i.0.lcssa55 = phi i32 [ -1, %while.end.thread ], [ %i.038, %while.end ]
   %wide.trip.count = zext i32 %i.0.lcssa55 to i64
   br label %for.cond8.preheader
@@ -763,7 +764,7 @@ for.body11:                                       ; preds = %for.cond8.preheader
   %5 = trunc i64 %indvars.iv to i32
   %add19 = add i32 %mul18, %5
   %idxprom = zext i32 %add19 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %add.ptr59, i64 %idxprom
+  %arrayidx = getelementptr inbounds i16, ptr %add.ptr61, i64 %idxprom
   store i16 %conv17, ptr %arrayidx, align 2
   %add21 = add i32 %add13, %order.139
   %6 = trunc i32 %add21 to i16
@@ -781,21 +782,20 @@ for.inc32:                                        ; preds = %for.body11
   br i1 %exitcond47.not, label %for.end34, label %for.cond8.preheader, !llvm.loop !22
 
 for.end34:                                        ; preds = %for.inc32, %while.end
-  %add.ptr60 = phi ptr [ %add.ptr, %while.end ], [ %add.ptr59, %for.inc32 ]
-  %idx.ext58 = phi i64 [ %idx.ext, %while.end ], [ %idx.ext57, %for.inc32 ]
-  %7 = phi ptr [ %3, %while.end ], [ %4, %for.inc32 ]
+  %add.ptr62 = phi ptr [ %add.ptr, %while.end ], [ %add.ptr61, %for.inc32 ]
+  %idx.ext60 = phi i64 [ %idx.ext, %while.end ], [ %idx.ext59, %for.inc32 ]
+  %conv58 = phi i64 [ %conv, %while.end ], [ %conv57, %for.inc32 ]
   %i.0.lcssa56 = phi i32 [ 0, %while.end ], [ %i.0.lcssa55, %for.inc32 ]
   %A35 = getelementptr inbounds %struct.MAT_PARAMS_S, ptr %p, i64 0, i32 1
-  store ptr %7, ptr %A35, align 8
+  store i64 %conv58, ptr %A35, align 8
   %B36 = getelementptr inbounds %struct.MAT_PARAMS_S, ptr %p, i64 0, i32 2
-  store ptr %add.ptr60, ptr %B36, align 8
-  %add.ptr39 = getelementptr inbounds i16, ptr %add.ptr60, i64 %idx.ext58
-  %8 = ptrtoint ptr %add.ptr39 to i64
-  %add42 = add nuw nsw i64 %8, 3
+  store ptr %add.ptr62, ptr %B36, align 8
+  %add.ptr39 = getelementptr inbounds i16, ptr %add.ptr62, i64 %idx.ext60
+  %7 = ptrtoint ptr %add.ptr39 to i64
+  %add42 = add nuw nsw i64 %7, 3
   %conv43 = and i64 %add42, 4294967292
-  %9 = inttoptr i64 %conv43 to ptr
   %C = getelementptr inbounds %struct.MAT_PARAMS_S, ptr %p, i64 0, i32 3
-  store ptr %9, ptr %C, align 8
+  store i64 %conv43, ptr %C, align 8
   store i32 %i.0.lcssa56, ptr %p, align 8
   ret i32 %i.0.lcssa56
 }

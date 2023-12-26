@@ -98,34 +98,32 @@ if.then:                                          ; preds = %entry
   %add8 = select i1 %cmp3.not, i64 0, i64 8
   %shr9 = add i64 %add8, %2
   %shl = and i64 %shr9, -8
-  %3 = inttoptr i64 %shl to ptr
-  store ptr %3, ptr %m_curr_ptr, align 8
+  store i64 %shl, ptr %m_curr_ptr, align 8
   br label %return
 
 if.else:                                          ; preds = %entry
   %cmp5 = icmp ult i64 %size, 8184
-  %4 = load ptr, ptr %this, align 8
+  %3 = load ptr, ptr %this, align 8
   br i1 %cmp5, label %if.then6, label %if.else20
 
 if.then6:                                         ; preds = %if.else
   %m_free_pages.i = getelementptr inbounds %class.region, ptr %this, i64 0, i32 3
-  %call.i = tail call noundef ptr @_Z21allocate_default_pagePcRS_(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %m_free_pages.i)
+  %call.i = tail call noundef ptr @_Z21allocate_default_pagePcRS_(ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %m_free_pages.i)
   store ptr %call.i, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i, i64 8184
   store ptr %add.ptr.i.i, ptr %m_curr_end_ptr, align 8
   %add.ptr10 = getelementptr inbounds i8, ptr %call.i, i64 %size
-  %5 = ptrtoint ptr %add.ptr10 to i64
-  %and14 = and i64 %5, 7
+  %4 = ptrtoint ptr %add.ptr10 to i64
+  %and14 = and i64 %4, 7
   %cmp15.not = icmp eq i64 %and14, 0
   %add176 = select i1 %cmp15.not, i64 0, i64 8
-  %shr127 = add i64 %add176, %5
+  %shr127 = add i64 %add176, %4
   %shl18 = and i64 %shr127, -8
-  %6 = inttoptr i64 %shl18 to ptr
-  store ptr %6, ptr %m_curr_ptr, align 8
+  store i64 %shl18, ptr %m_curr_ptr, align 8
   br label %return
 
 if.else20:                                        ; preds = %if.else
-  %call = tail call noundef ptr @_Z13allocate_pagePcm(ptr noundef %4, i64 noundef %size)
+  %call = tail call noundef ptr @_Z13allocate_pagePcm(ptr noundef %3, i64 noundef %size)
   store ptr %call, ptr %this, align 8
   %m_free_pages.i10 = getelementptr inbounds %class.region, ptr %this, i64 0, i32 3
   %call.i11 = tail call noundef ptr @_Z21allocate_default_pagePcRS_(ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %m_free_pages.i10)
@@ -158,9 +156,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %arrayidx.i.i = getelementptr inbounds i64, ptr %0, i64 -1
   %1 = load i64, ptr %arrayidx.i.i, align 8
   %and.i.i = and i64 %1, -2
-  %2 = inttoptr i64 %and.i.i to ptr
   tail call void @_Z12recycle_pagePcRS_(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) %m_free_pages.i)
-  store ptr %2, ptr %this, align 8
+  store i64 %and.i.i, ptr %this, align 8
+  %2 = inttoptr i64 %and.i.i to ptr
   %cmp.not = icmp eq i64 %and.i.i, 0
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !4
 
@@ -209,9 +207,8 @@ _ZnwmR6region.exit:                               ; preds = %entry, %if.else.i.i
   %cmp3.not.i.i = icmp eq i64 %and.i.i, 0
   %add8.i.i = select i1 %cmp3.not.i.i, i64 0, i64 8
   %shr9.i.i = add i64 %add8.i.i, %3
-  %storemerge.in = and i64 %shr9.i.i, -8
-  %storemerge = inttoptr i64 %storemerge.in to ptr
-  store ptr %storemerge, ptr %m_curr_ptr, align 8
+  %storemerge = and i64 %shr9.i.i, -8
+  store i64 %storemerge, ptr %m_curr_ptr, align 8
   %m_mark = getelementptr inbounds %class.region, ptr %this, i64 0, i32 4
   %4 = load ptr, ptr %m_mark, align 8
   store ptr %0, ptr %retval.0.i.i, align 8
@@ -245,14 +242,14 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %5 = phi ptr [ %4, %while.body.lr.ph ], [ %7, %while.body ]
+  %5 = phi ptr [ %4, %while.body.lr.ph ], [ %.cast, %while.body ]
   %arrayidx.i.i = getelementptr inbounds i64, ptr %5, i64 -1
   %6 = load i64, ptr %arrayidx.i.i, align 8
   %and.i.i = and i64 %6, -2
-  %7 = inttoptr i64 %and.i.i to ptr
   tail call void @_Z12recycle_pagePcRS_(ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(8) %m_free_pages.i)
-  store ptr %7, ptr %this, align 8
-  %cmp.not = icmp eq ptr %1, %7
+  store i64 %and.i.i, ptr %this, align 8
+  %.cast = inttoptr i64 %and.i.i to ptr
+  %cmp.not = icmp eq ptr %1, %.cast
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !6
 
 while.end:                                        ; preds = %while.body, %entry

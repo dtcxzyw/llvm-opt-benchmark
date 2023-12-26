@@ -316,7 +316,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %_ZN6hermes6ESTree4N
 
 _ZN6hermes6ESTree15JSXFragmentNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_.exit: ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit26, %if.end.i.i.i.i.i.i
   %_closingFragment.i = getelementptr inbounds %"class.hermes::ESTree::JSXFragmentNode", ptr %retval.0.i.i.i23, i64 0, i32 3
-  store ptr %16, ptr %_closingFragment.i, align 8
+  store i64 %15, ptr %_closingFragment.i, align 8
   %sourceRange_.i.i30 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i23, i64 0, i32 3
   store ptr %start.coerce, ptr %sourceRange_.i.i30, align 8
   %End.i.i.i31 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %16, i64 0, i32 3, i32 1
@@ -407,11 +407,13 @@ _ZN6hermes6ESTree14JSXElementNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_.
   %parens_.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i, i8 0, i64 28, i1 false)
   %_openingElement.i = getelementptr inbounds %"class.hermes::ESTree::JSXElementNode", ptr %retval.0.i.i.i, i64 0, i32 1
-  store ptr %4, ptr %_openingElement.i, align 8
+  store i64 %3, ptr %_openingElement.i, align 8
   %_children.i = getelementptr inbounds %"class.hermes::ESTree::JSXElementNode", ptr %retval.0.i.i.i, i64 0, i32 2
   store ptr %_children.i, ptr %_children.i, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::JSXElementNode", ptr %retval.0.i.i.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
   store ptr %_children.i, ptr %Next2.i.i.i.i.i.i, align 8
+  %_closingElement.i = getelementptr inbounds %"class.hermes::ESTree::JSXElementNode", ptr %retval.0.i.i.i, i64 0, i32 3
+  store ptr null, ptr %_closingElement.i, align 8
   br label %cleanup.sink.split
 
 if.end16:                                         ; preds = %if.end
@@ -620,7 +622,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit54:  ; preds = %if.then.i.i.i52, %i
   %parens_.i.i.i56 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i51, i64 0, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i56, i8 0, i64 28, i1 false)
   %_openingElement.i57 = getelementptr inbounds %"class.hermes::ESTree::JSXElementNode", ptr %retval.0.i.i.i51, i64 0, i32 1
-  store ptr %4, ptr %_openingElement.i57, align 8
+  store i64 %3, ptr %_openingElement.i57, align 8
   %_children.i58 = getelementptr inbounds %"class.hermes::ESTree::JSXElementNode", ptr %retval.0.i.i.i51, i64 0, i32 2
   store ptr %_children.i58, ptr %_children.i58, align 8
   %Next2.i.i.i.i.i.i59 = getelementptr inbounds %"class.hermes::ESTree::JSXElementNode", ptr %retval.0.i.i.i51, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
@@ -629,7 +631,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit54:  ; preds = %if.then.i.i.i52, %i
   %cmp.i.i.i.i.i.i61 = icmp eq ptr %_children.i58, %children
   %cmp1.i.i.i.i.i.i62 = icmp eq ptr %55, %children
   %or.cond.i.i.i.i.i.i63 = or i1 %cmp.i.i.i.i.i.i61, %cmp1.i.i.i.i.i.i62
-  br i1 %or.cond.i.i.i.i.i.i63, label %cleanup.sink.split, label %if.end.i.i.i.i.i.i64
+  br i1 %or.cond.i.i.i.i.i.i63, label %_ZN6hermes6ESTree14JSXElementNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_.exit69, label %if.end.i.i.i.i.i.i64
 
 if.end.i.i.i.i.i.i64:                             ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit54
   %56 = load ptr, ptr %children, align 8
@@ -643,23 +645,25 @@ if.end.i.i.i.i.i.i64:                             ; preds = %_ZN6hermes6ESTree4N
   %Next2.i15.i.i.i.i.i.i67 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %58, i64 0, i32 1
   store ptr %55, ptr %Next2.i15.i.i.i.i.i.i67, align 8
   store ptr %56, ptr %_children.i58, align 8
+  br label %_ZN6hermes6ESTree14JSXElementNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_.exit69
+
+_ZN6hermes6ESTree14JSXElementNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_.exit69: ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit54, %if.end.i.i.i.i.i.i64
+  %_closingElement.i68 = getelementptr inbounds %"class.hermes::ESTree::JSXElementNode", ptr %retval.0.i.i.i51, i64 0, i32 3
+  store i64 %20, ptr %_closingElement.i68, align 8
   br label %cleanup.sink.split
 
-cleanup.sink.split:                               ; preds = %if.end.i.i.i.i.i.i64, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit54, %_ZN6hermes6ESTree14JSXElementNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_.exit
-  %retval.0.i.i.i51.sink107 = phi ptr [ %retval.0.i.i.i, %_ZN6hermes6ESTree14JSXElementNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_.exit ], [ %retval.0.i.i.i51, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit54 ], [ %retval.0.i.i.i51, %if.end.i.i.i.i.i.i64 ]
-  %.sink106 = phi ptr [ null, %_ZN6hermes6ESTree14JSXElementNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_.exit ], [ %21, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit54 ], [ %21, %if.end.i.i.i.i.i.i64 ]
-  %.sink = phi ptr [ %4, %_ZN6hermes6ESTree14JSXElementNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_.exit ], [ %21, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit54 ], [ %21, %if.end.i.i.i.i.i.i64 ]
-  %_closingElement.i68 = getelementptr inbounds %"class.hermes::ESTree::JSXElementNode", ptr %retval.0.i.i.i51.sink107, i64 0, i32 3
-  store ptr %.sink106, ptr %_closingElement.i68, align 8
-  %sourceRange_.i.i70 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i51.sink107, i64 0, i32 3
+cleanup.sink.split:                               ; preds = %_ZN6hermes6ESTree14JSXElementNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_.exit, %_ZN6hermes6ESTree14JSXElementNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_.exit69
+  %retval.0.i.i.i51.sink105 = phi ptr [ %retval.0.i.i.i51, %_ZN6hermes6ESTree14JSXElementNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_.exit69 ], [ %retval.0.i.i.i, %_ZN6hermes6ESTree14JSXElementNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_.exit ]
+  %.sink = phi ptr [ %21, %_ZN6hermes6ESTree14JSXElementNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_.exit69 ], [ %4, %_ZN6hermes6ESTree14JSXElementNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_.exit ]
+  %sourceRange_.i.i70 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i51.sink105, i64 0, i32 3
   store ptr %start.coerce, ptr %sourceRange_.i.i70, align 8
   %End.i.i.i71 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %.sink, i64 0, i32 3, i32 1
   %retval.sroa.0.0.copyload.i.i.i72 = load ptr, ptr %End.i.i.i71, align 8
-  %End.i.i73 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i51.sink107, i64 0, i32 3, i32 1
+  %End.i.i73 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i51.sink105, i64 0, i32 3, i32 1
   store ptr %retval.sroa.0.0.copyload.i.i.i72, ptr %End.i.i73, align 8
-  %debugLoc_.i.i74 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i51.sink107, i64 0, i32 4
+  %debugLoc_.i.i74 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i51.sink105, i64 0, i32 4
   store ptr %start.coerce, ptr %debugLoc_.i.i74, align 8
-  %59 = ptrtoint ptr %retval.0.i.i.i51.sink107 to i64
+  %59 = ptrtoint ptr %retval.0.i.i.i51.sink105 to i64
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end16, %entry
@@ -683,36 +687,35 @@ entry:
 
 if.end:                                           ; preds = %entry
   %2 = extractvalue { i64, i8 } %call, 0
-  %3 = inttoptr i64 %2 to ptr
   %tok_.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 3
-  %4 = load ptr, ptr %tok_.i, align 8
-  %5 = load i32, ptr %4, align 8
-  %cmp.i = icmp eq i32 %5, 74
+  %3 = load ptr, ptr %tok_.i, align 8
+  %4 = load i32, ptr %3, align 8
+  %cmp.i = icmp eq i32 %4, 74
   br i1 %cmp.i, label %if.then6, label %if.end13
 
 if.then6:                                         ; preds = %if.end
   %call7 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl17parseTypeArgsFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this) #9
-  %6 = extractvalue { i64, i8 } %call7, 1
-  %7 = and i8 %6, 1
-  %tobool.i3.not = icmp eq i8 %7, 0
+  %5 = extractvalue { i64, i8 } %call7, 1
+  %6 = and i8 %5, 1
+  %tobool.i3.not = icmp eq i8 %6, 0
   br i1 %tobool.i3.not, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.then6
-  %8 = extractvalue { i64, i8 } %call7, 0
-  %9 = inttoptr i64 %8 to ptr
+  %7 = extractvalue { i64, i8 } %call7, 0
+  %8 = inttoptr i64 %7 to ptr
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end11, %if.end
-  %typeArgs.0 = phi ptr [ %9, %if.end11 ], [ null, %if.end ]
+  %typeArgs.0 = phi ptr [ %8, %if.end11 ], [ null, %if.end ]
   store ptr %attributes, ptr %attributes, align 8
   %Next2.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %attributes, i64 0, i32 1
   store ptr %attributes, ptr %Next2.i.i.i.i.i, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %if.end13
-  %10 = load ptr, ptr %tok_.i, align 8
-  %11 = load i32, ptr %10, align 8
-  switch i32 %11, label %if.end23 [
+  %9 = load ptr, ptr %tok_.i, align 8
+  %10 = load i32, ptr %9, align 8
+  switch i32 %10, label %if.end23 [
     i32 75, label %while.end
     i32 68, label %while.end
     i32 49, label %if.then16
@@ -720,56 +723,56 @@ while.cond:                                       ; preds = %while.cond.backedge
 
 if.then16:                                        ; preds = %while.cond
   %call17 = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl23parseJSXSpreadAttributeEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
-  %12 = extractvalue { i64, i8 } %call17, 1
-  %13 = and i8 %12, 1
-  %tobool.i10.not = icmp eq i8 %13, 0
+  %11 = extractvalue { i64, i8 } %call17, 1
+  %12 = and i8 %11, 1
+  %tobool.i10.not = icmp eq i8 %12, 0
   br i1 %tobool.i10.not, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.then16
-  %14 = extractvalue { i64, i8 } %call17, 0
-  %15 = inttoptr i64 %14 to ptr
-  %16 = load ptr, ptr %attributes, align 8
-  %Next2.i.i.i.i.i12 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %15, i64 0, i32 1
+  %13 = extractvalue { i64, i8 } %call17, 0
+  %14 = inttoptr i64 %13 to ptr
+  %15 = load ptr, ptr %attributes, align 8
+  %Next2.i.i.i.i.i12 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %14, i64 0, i32 1
   store ptr %attributes, ptr %Next2.i.i.i.i.i12, align 8
-  store ptr %16, ptr %15, align 8
+  store ptr %15, ptr %14, align 8
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.end21, %if.end28
-  %.sink23 = phi ptr [ %16, %if.end21 ], [ %21, %if.end28 ]
-  %.sink = phi ptr [ %15, %if.end21 ], [ %20, %if.end28 ]
+  %.sink23 = phi ptr [ %15, %if.end21 ], [ %20, %if.end28 ]
+  %.sink = phi i64 [ %13, %if.end21 ], [ %18, %if.end28 ]
   %Next2.i7.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink23, i64 0, i32 1
-  store ptr %.sink, ptr %Next2.i7.i.i.i.i, align 8
-  store ptr %.sink, ptr %attributes, align 8
+  store i64 %.sink, ptr %Next2.i7.i.i.i.i, align 8
+  store i64 %.sink, ptr %attributes, align 8
   br label %while.cond, !llvm.loop !6
 
 if.end23:                                         ; preds = %while.cond
   %call24 = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl17parseJSXAttributeEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
-  %17 = extractvalue { i64, i8 } %call24, 1
-  %18 = and i8 %17, 1
-  %tobool.i14.not = icmp eq i8 %18, 0
+  %16 = extractvalue { i64, i8 } %call24, 1
+  %17 = and i8 %16, 1
+  %tobool.i14.not = icmp eq i8 %17, 0
   br i1 %tobool.i14.not, label %return, label %if.end28
 
 if.end28:                                         ; preds = %if.end23
-  %19 = extractvalue { i64, i8 } %call24, 0
-  %20 = inttoptr i64 %19 to ptr
-  %21 = load ptr, ptr %attributes, align 8
-  %Next2.i.i.i.i.i16 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %20, i64 0, i32 1
+  %18 = extractvalue { i64, i8 } %call24, 0
+  %19 = inttoptr i64 %18 to ptr
+  %20 = load ptr, ptr %attributes, align 8
+  %Next2.i.i.i.i.i16 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %19, i64 0, i32 1
   store ptr %attributes, ptr %Next2.i.i.i.i.i16, align 8
-  store ptr %21, ptr %20, align 8
+  store ptr %20, ptr %19, align 8
   br label %while.cond.backedge
 
 while.end:                                        ; preds = %while.cond, %while.cond
   %call30 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 68, i32 noundef 0) #9
-  %22 = load ptr, ptr %tok_.i, align 8
-  %End.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %22, i64 0, i32 2, i32 1
+  %21 = load ptr, ptr %tok_.i, align 8
+  %End.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %21, i64 0, i32 2, i32 1
   %retval.sroa.0.0.copyload.i = load ptr, ptr %End.i, align 8
   %call34 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 75, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr %start.coerce) #9
   br i1 %call34, label %if.end36, label %return
 
 if.end36:                                         ; preds = %while.end
   %jsxDepth_ = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 11
-  %23 = load i32, ptr %jsxDepth_, align 8
-  %cmp = icmp ult i32 %23, 2
+  %22 = load i32, ptr %jsxDepth_, align 8
+  %cmp = icmp ult i32 %22, 2
   %or.cond = select i1 %call30, i1 %cmp, i1 false
   %lexer_.i = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 2
   br i1 %or.cond, label %if.then37, label %if.else
@@ -784,71 +787,71 @@ if.else:                                          ; preds = %if.end36
   br label %if.end40
 
 if.end40:                                         ; preds = %if.else, %if.then37
-  %24 = load ptr, ptr %this, align 8
-  %state_.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %24, i64 0, i32 1
-  %25 = load ptr, ptr %state_.i.i.i, align 8
-  %26 = load i32, ptr %25, align 8
-  %conv.i.i.i = zext i32 %26 to i64
-  %27 = load ptr, ptr %24, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.101", ptr %27, i64 %conv.i.i.i
-  %28 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %29 = ptrtoint ptr %28 to i64
-  %offset.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %25, i64 0, i32 1
-  %30 = load i64, ptr %offset.i.i.i, align 8
-  %add.i.i.i.i.i = add i64 %29, 7
-  %sub1.i.i.i.i.i = add i64 %add.i.i.i.i.i, %30
-  %31 = and i64 %sub1.i.i.i.i.i, 7
-  %.neg22 = add i64 %30, 7
-  %sub.i.i.i.i = sub i64 %.neg22, %31
+  %23 = load ptr, ptr %this, align 8
+  %state_.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %23, i64 0, i32 1
+  %24 = load ptr, ptr %state_.i.i.i, align 8
+  %25 = load i32, ptr %24, align 8
+  %conv.i.i.i = zext i32 %25 to i64
+  %26 = load ptr, ptr %23, align 8
+  %add.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.101", ptr %26, i64 %conv.i.i.i
+  %27 = load ptr, ptr %add.ptr.i.i.i.i, align 8
+  %28 = ptrtoint ptr %27 to i64
+  %offset.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %24, i64 0, i32 1
+  %29 = load i64, ptr %offset.i.i.i, align 8
+  %add.i.i.i.i.i = add i64 %28, 7
+  %sub1.i.i.i.i.i = add i64 %add.i.i.i.i.i, %29
+  %30 = and i64 %sub1.i.i.i.i.i, 7
+  %.neg22 = add i64 %29, 7
+  %sub.i.i.i.i = sub i64 %.neg22, %30
   store i64 %sub.i.i.i.i, ptr %offset.i.i.i, align 8
-  %32 = load ptr, ptr %state_.i.i.i, align 8
-  %offset8.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %32, i64 0, i32 1
-  %33 = load i64, ptr %offset8.i.i.i, align 8
-  %add.i.i.i = add i64 %33, 88
+  %31 = load ptr, ptr %state_.i.i.i, align 8
+  %offset8.i.i.i = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %31, i64 0, i32 1
+  %32 = load i64, ptr %offset8.i.i.i, align 8
+  %add.i.i.i = add i64 %32, 88
   %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 262144
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end40
-  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef 88, i64 noundef 8) #9
+  %call11.i.i.i = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef 88, i64 noundef 8) #9
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.end40
-  %add14.i.i.i = add i64 %33, %29
-  %34 = inttoptr i64 %add14.i.i.i to ptr
+  %add14.i.i.i = add i64 %32, %28
+  %33 = inttoptr i64 %add14.i.i.i to ptr
   store i64 %add.i.i.i, ptr %offset8.i.i.i, align 8
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.end.i.i.i
-  %retval.0.i.i.i = phi ptr [ %call11.i.i.i, %if.then.i.i.i ], [ %34, %if.end.i.i.i ]
+  %retval.0.i.i.i = phi ptr [ %call11.i.i.i, %if.then.i.i.i ], [ %33, %if.end.i.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i, i64 0, i32 1
   store i32 103, ptr %kind_.i.i.i, align 8
   %parens_.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i, i64 0, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i, i8 0, i64 28, i1 false)
   %_name.i = getelementptr inbounds %"class.hermes::ESTree::JSXOpeningElementNode", ptr %retval.0.i.i.i, i64 0, i32 1
-  store ptr %3, ptr %_name.i, align 8
+  store i64 %2, ptr %_name.i, align 8
   %_attributes.i = getelementptr inbounds %"class.hermes::ESTree::JSXOpeningElementNode", ptr %retval.0.i.i.i, i64 0, i32 2
   store ptr %_attributes.i, ptr %_attributes.i, align 8
   %Next2.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::JSXOpeningElementNode", ptr %retval.0.i.i.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
   store ptr %_attributes.i, ptr %Next2.i.i.i.i.i.i, align 8
-  %35 = load ptr, ptr %Next2.i.i.i.i.i, align 8
+  %34 = load ptr, ptr %Next2.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %_attributes.i, %attributes
-  %cmp1.i.i.i.i.i.i = icmp eq ptr %35, %attributes
+  %cmp1.i.i.i.i.i.i = icmp eq ptr %34, %attributes
   %or.cond.i.i.i.i.i.i = or i1 %cmp.i.i.i.i.i.i, %cmp1.i.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i.i, label %_ZN6hermes6ESTree21JSXOpeningElementNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEEbS3_.exit, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
-  %36 = load ptr, ptr %attributes, align 8
-  %37 = load ptr, ptr %35, align 8
-  %Next2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %37, i64 0, i32 1
+  %35 = load ptr, ptr %attributes, align 8
+  %36 = load ptr, ptr %34, align 8
+  %Next2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %36, i64 0, i32 1
   store ptr %attributes, ptr %Next2.i.i.i.i.i.i.i, align 8
-  %38 = load ptr, ptr %_attributes.i, align 8
-  %Next2.i14.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %36, i64 0, i32 1
+  %37 = load ptr, ptr %_attributes.i, align 8
+  %Next2.i14.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %35, i64 0, i32 1
   store ptr %_attributes.i, ptr %Next2.i14.i.i.i.i.i.i, align 8
-  store ptr %38, ptr %35, align 8
-  %Next2.i15.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %38, i64 0, i32 1
-  store ptr %35, ptr %Next2.i15.i.i.i.i.i.i, align 8
-  store ptr %36, ptr %_attributes.i, align 8
+  store ptr %37, ptr %34, align 8
+  %Next2.i15.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %37, i64 0, i32 1
+  store ptr %34, ptr %Next2.i15.i.i.i.i.i.i, align 8
+  store ptr %35, ptr %_attributes.i, align 8
   br label %_ZN6hermes6ESTree21JSXOpeningElementNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEEbS3_.exit
 
 _ZN6hermes6ESTree21JSXOpeningElementNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEEbS3_.exit: ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit, %if.end.i.i.i.i.i.i
@@ -863,11 +866,11 @@ _ZN6hermes6ESTree21JSXOpeningElementNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_J
   store ptr %retval.sroa.0.0.copyload.i, ptr %End.i.i, align 8
   %debugLoc_.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i, i64 0, i32 4
   store ptr %start.coerce, ptr %debugLoc_.i.i, align 8
-  %39 = ptrtoint ptr %retval.0.i.i.i to i64
+  %38 = ptrtoint ptr %retval.0.i.i.i to i64
   br label %return
 
 return:                                           ; preds = %if.end23, %if.then16, %while.end, %if.then6, %entry, %_ZN6hermes6ESTree21JSXOpeningElementNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEEbS3_.exit
-  %retval.sroa.0.0 = phi i64 [ %39, %_ZN6hermes6ESTree21JSXOpeningElementNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEEbS3_.exit ], [ undef, %entry ], [ undef, %if.then6 ], [ undef, %while.end ], [ undef, %if.then16 ], [ undef, %if.end23 ]
+  %retval.sroa.0.0 = phi i64 [ %38, %_ZN6hermes6ESTree21JSXOpeningElementNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEEbS3_.exit ], [ undef, %entry ], [ undef, %if.then6 ], [ undef, %while.end ], [ undef, %if.then16 ], [ undef, %if.end23 ]
   %retval.sroa.2.0 = phi i8 [ 1, %_ZN6hermes6ESTree21JSXOpeningElementNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEEbS3_.exit ], [ 0, %entry ], [ 0, %if.then6 ], [ 0, %while.end ], [ 0, %if.then16 ], [ 0, %if.end23 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.2.0, 1
@@ -981,8 +984,8 @@ if.end22:                                         ; preds = %cond.end
   store ptr %children, ptr %Next2.i.i.i.i.i, align 8
   store ptr %8, ptr %7, align 8
   %Next2.i7.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %8, i64 0, i32 1
-  store ptr %7, ptr %Next2.i7.i.i.i.i, align 8
-  store ptr %7, ptr %children, align 8
+  store i64 %optElem.sroa.0.0, ptr %Next2.i7.i.i.i.i, align 8
+  store i64 %optElem.sroa.0.0, ptr %children, align 8
   br label %for.cond.backedge
 
 if.then25:                                        ; preds = %for.cond
@@ -1101,14 +1104,17 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit41:  ; preds = %if.then.i.i.i39, %i
   %Next2.i.i.i.i.i47 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %retval.0.i.i.i, i64 0, i32 1
   store ptr %children, ptr %Next2.i.i.i.i.i47, align 8
   store ptr %32, ptr %retval.0.i.i.i, align 8
+  %Next2.i7.i.i.i.i48 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %32, i64 0, i32 1
+  store ptr %retval.0.i.i.i, ptr %Next2.i7.i.i.i.i48, align 8
+  %33 = ptrtoint ptr %retval.0.i.i.i to i64
   br label %if.end61
 
 if.else47:                                        ; preds = %if.then25
   %call50 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl23parseJSXChildExpressionEN4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr %retval.sroa.0.0.copyload.i.i17)
-  %33 = extractvalue { i64, i8 } %call50, 0
-  %34 = extractvalue { i64, i8 } %call50, 1
-  %35 = and i8 %34, 1
-  %tobool.i50.not = icmp eq i8 %35, 0
+  %34 = extractvalue { i64, i8 } %call50, 0
+  %35 = extractvalue { i64, i8 } %call50, 1
+  %36 = and i8 %35, 1
+  %tobool.i50.not = icmp eq i8 %36, 0
   br i1 %tobool.i50.not, label %return, label %if.end54
 
 if.end54:                                         ; preds = %if.else47
@@ -1116,19 +1122,18 @@ if.end54:                                         ; preds = %if.else47
   br i1 %call57, label %if.end59, label %return
 
 if.end59:                                         ; preds = %if.end54
-  %36 = inttoptr i64 %33 to ptr
-  %37 = load ptr, ptr %children, align 8
-  %Next2.i.i.i.i.i53 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %36, i64 0, i32 1
+  %37 = inttoptr i64 %34 to ptr
+  %38 = load ptr, ptr %children, align 8
+  %Next2.i.i.i.i.i53 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %37, i64 0, i32 1
   store ptr %children, ptr %Next2.i.i.i.i.i53, align 8
-  store ptr %37, ptr %36, align 8
+  store ptr %38, ptr %37, align 8
+  %Next2.i7.i.i.i.i54 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %38, i64 0, i32 1
+  store i64 %34, ptr %Next2.i7.i.i.i.i54, align 8
   br label %if.end61
 
 if.end61:                                         ; preds = %if.end59, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit41
-  %.sink89 = phi ptr [ %37, %if.end59 ], [ %32, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit41 ]
-  %.sink = phi ptr [ %36, %if.end59 ], [ %retval.0.i.i.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit41 ]
-  %Next2.i7.i.i.i.i54 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %.sink89, i64 0, i32 1
-  store ptr %.sink, ptr %Next2.i7.i.i.i.i54, align 8
-  store ptr %.sink, ptr %children, align 8
+  %storemerge = phi i64 [ %34, %if.end59 ], [ %33, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit41 ]
+  store i64 %storemerge, ptr %children, align 8
   %call62 = tail call noundef ptr @_ZN6hermes6parser7JSLexer17advanceInJSXChildEv(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i22) #9
   br label %for.cond.backedge
 
@@ -1140,73 +1145,73 @@ if.else63:                                        ; preds = %for.cond
   br i1 %call66, label %if.end68, label %return
 
 if.end68:                                         ; preds = %if.else63
-  %38 = load ptr, ptr %tok_.i, align 8
-  %39 = load ptr, ptr %this, align 8
-  %state_.i.i.i56 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %39, i64 0, i32 1
-  %40 = load ptr, ptr %state_.i.i.i56, align 8
-  %41 = load i32, ptr %40, align 8
-  %conv.i.i.i57 = zext i32 %41 to i64
-  %42 = load ptr, ptr %39, align 8
-  %add.ptr.i.i.i.i58 = getelementptr inbounds %"class.std::unique_ptr.101", ptr %42, i64 %conv.i.i.i57
-  %43 = load ptr, ptr %add.ptr.i.i.i.i58, align 8
-  %44 = ptrtoint ptr %43 to i64
-  %offset.i.i.i59 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %40, i64 0, i32 1
-  %45 = load i64, ptr %offset.i.i.i59, align 8
-  %add.i.i.i.i.i60 = add i64 %44, 7
-  %sub1.i.i.i.i.i61 = add i64 %add.i.i.i.i.i60, %45
-  %46 = and i64 %sub1.i.i.i.i.i61, 7
-  %.neg88 = add i64 %45, 7
-  %sub.i.i.i.i62 = sub i64 %.neg88, %46
+  %39 = load ptr, ptr %tok_.i, align 8
+  %40 = load ptr, ptr %this, align 8
+  %state_.i.i.i56 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %40, i64 0, i32 1
+  %41 = load ptr, ptr %state_.i.i.i56, align 8
+  %42 = load i32, ptr %41, align 8
+  %conv.i.i.i57 = zext i32 %42 to i64
+  %43 = load ptr, ptr %40, align 8
+  %add.ptr.i.i.i.i58 = getelementptr inbounds %"class.std::unique_ptr.101", ptr %43, i64 %conv.i.i.i57
+  %44 = load ptr, ptr %add.ptr.i.i.i.i58, align 8
+  %45 = ptrtoint ptr %44 to i64
+  %offset.i.i.i59 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %41, i64 0, i32 1
+  %46 = load i64, ptr %offset.i.i.i59, align 8
+  %add.i.i.i.i.i60 = add i64 %45, 7
+  %sub1.i.i.i.i.i61 = add i64 %add.i.i.i.i.i60, %46
+  %47 = and i64 %sub1.i.i.i.i.i61, 7
+  %.neg88 = add i64 %46, 7
+  %sub.i.i.i.i62 = sub i64 %.neg88, %47
   store i64 %sub.i.i.i.i62, ptr %offset.i.i.i59, align 8
-  %47 = load ptr, ptr %state_.i.i.i56, align 8
-  %offset8.i.i.i63 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %47, i64 0, i32 1
-  %48 = load i64, ptr %offset8.i.i.i63, align 8
-  %add.i.i.i64 = add i64 %48, 64
+  %48 = load ptr, ptr %state_.i.i.i56, align 8
+  %offset8.i.i.i63 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %48, i64 0, i32 1
+  %49 = load i64, ptr %offset8.i.i.i63, align 8
+  %add.i.i.i64 = add i64 %49, 64
   %cmp9.i.i.i65 = icmp ugt i64 %add.i.i.i64, 262144
   br i1 %cmp9.i.i.i65, label %if.then.i.i.i69, label %if.end.i.i.i66
 
 if.then.i.i.i69:                                  ; preds = %if.end68
-  %call11.i.i.i70 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %39, i64 noundef 64, i64 noundef 8) #9
+  %call11.i.i.i70 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %40, i64 noundef 64, i64 noundef 8) #9
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit71
 
 if.end.i.i.i66:                                   ; preds = %if.end68
-  %add14.i.i.i67 = add i64 %48, %44
-  %49 = inttoptr i64 %add14.i.i.i67 to ptr
+  %add14.i.i.i67 = add i64 %49, %45
+  %50 = inttoptr i64 %add14.i.i.i67 to ptr
   store i64 %add.i.i.i64, ptr %offset8.i.i.i63, align 8
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit71
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit71:  ; preds = %if.then.i.i.i69, %if.end.i.i.i66
-  %retval.0.i.i.i68 = phi ptr [ %call11.i.i.i70, %if.then.i.i.i69 ], [ %49, %if.end.i.i.i66 ]
-  %50 = load ptr, ptr %tok_.i, align 8
-  %stringLiteral_.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %50, i64 0, i32 5
-  %51 = load ptr, ptr %stringLiteral_.i, align 8
-  %rawString_.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %50, i64 0, i32 7
-  %52 = load ptr, ptr %rawString_.i, align 8
+  %retval.0.i.i.i68 = phi ptr [ %call11.i.i.i70, %if.then.i.i.i69 ], [ %50, %if.end.i.i.i66 ]
+  %51 = load ptr, ptr %tok_.i, align 8
+  %stringLiteral_.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %51, i64 0, i32 5
+  %52 = load ptr, ptr %stringLiteral_.i, align 8
+  %rawString_.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %51, i64 0, i32 7
+  %53 = load ptr, ptr %rawString_.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i68, i8 0, i64 16, i1 false)
   %kind_.i.i.i72 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i68, i64 0, i32 1
   store i32 108, ptr %kind_.i.i.i72, align 8
   %parens_.i.i.i73 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i68, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i73, i8 0, i64 28, i1 false)
   %_value.i = getelementptr inbounds %"class.hermes::ESTree::JSXTextNode", ptr %retval.0.i.i.i68, i64 0, i32 1
-  store ptr %51, ptr %_value.i, align 8
+  store ptr %52, ptr %_value.i, align 8
   %_raw.i = getelementptr inbounds %"class.hermes::ESTree::JSXTextNode", ptr %retval.0.i.i.i68, i64 0, i32 2
-  store ptr %52, ptr %_raw.i, align 8
-  %range_.i.i.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %38, i64 0, i32 2
+  store ptr %53, ptr %_raw.i, align 8
+  %range_.i.i.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %39, i64 0, i32 2
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %range_.i.i.i, align 8
   %sourceRange_.i.i74 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i68, i64 0, i32 3
   store ptr %retval.sroa.0.0.copyload.i.i.i, ptr %sourceRange_.i.i74, align 8
-  %End.i.i.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %38, i64 0, i32 2, i32 1
+  %End.i.i.i = getelementptr inbounds %"class.hermes::parser::Token", ptr %39, i64 0, i32 2, i32 1
   %retval.sroa.0.0.copyload.i.i5.i = load ptr, ptr %End.i.i.i, align 8
   %End.i.i75 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i68, i64 0, i32 3, i32 1
   store ptr %retval.sroa.0.0.copyload.i.i5.i, ptr %End.i.i75, align 8
   %retval.sroa.0.0.copyload.i.i7.i = load ptr, ptr %range_.i.i.i, align 8
   %debugLoc_.i.i76 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i68, i64 0, i32 4
   store ptr %retval.sroa.0.0.copyload.i.i7.i, ptr %debugLoc_.i.i76, align 8
-  %53 = load ptr, ptr %children, align 8
+  %54 = load ptr, ptr %children, align 8
   %Next2.i.i.i.i.i77 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %retval.0.i.i.i68, i64 0, i32 1
   store ptr %children, ptr %Next2.i.i.i.i.i77, align 8
-  store ptr %53, ptr %retval.0.i.i.i68, align 8
-  %Next2.i7.i.i.i.i78 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %53, i64 0, i32 1
+  store ptr %54, ptr %retval.0.i.i.i68, align 8
+  %Next2.i7.i.i.i.i78 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %54, i64 0, i32 1
   store ptr %retval.0.i.i.i68, ptr %Next2.i7.i.i.i.i78, align 8
   store ptr %retval.0.i.i.i68, ptr %children, align 8
   %call79 = tail call noundef ptr @_ZN6hermes6parser7JSLexer17advanceInJSXChildEv(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i22) #9
@@ -1678,25 +1683,24 @@ if.end.i.i.i:                                     ; preds = %if.end16
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.end.i.i.i
   %retval.0.i.i.i = phi ptr [ %call11.i.i.i, %if.then.i.i.i ], [ %15, %if.end.i.i.i ]
-  %16 = inttoptr i64 %1 to ptr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i, i64 0, i32 1
   store i32 106, ptr %kind_.i.i.i, align 8
   %parens_.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i, i64 0, i32 2
   store i32 0, ptr %parens_.i.i.i, align 4
   %_argument.i = getelementptr inbounds %"class.hermes::ESTree::JSXSpreadAttributeNode", ptr %retval.0.i.i.i, i64 0, i32 1
-  store ptr %16, ptr %_argument.i, align 8
+  store i64 %1, ptr %_argument.i, align 8
   %sourceRange_.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i, i64 0, i32 3
   store ptr %retval.sroa.0.0.copyload.i.i, ptr %sourceRange_.i.i, align 8
   %End.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i, i64 0, i32 3, i32 1
   store ptr %retval.sroa.0.0.copyload.i, ptr %End.i.i, align 8
   %debugLoc_.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i, i64 0, i32 4
   store ptr %retval.sroa.0.0.copyload.i.i, ptr %debugLoc_.i.i, align 8
-  %17 = ptrtoint ptr %retval.0.i.i.i to i64
+  %16 = ptrtoint ptr %retval.0.i.i.i to i64
   br label %return
 
 return:                                           ; preds = %if.end9, %if.end, %entry, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
-  %retval.sroa.0.0 = phi i64 [ %17, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ undef, %entry ], [ undef, %if.end ], [ undef, %if.end9 ]
+  %retval.sroa.0.0 = phi i64 [ %16, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ undef, %entry ], [ undef, %if.end ], [ undef, %if.end9 ]
   %retval.sroa.2.0 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end9 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.2.0, 1
@@ -1765,7 +1769,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   %parens_.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i, i8 0, i64 28, i1 false)
   %_name.i = getelementptr inbounds %"class.hermes::ESTree::JSXAttributeNode", ptr %retval.0.i.i.i, i64 0, i32 1
-  store ptr %4, ptr %_name.i, align 8
+  store i64 %3, ptr %_name.i, align 8
   %_value.i = getelementptr inbounds %"class.hermes::ESTree::JSXAttributeNode", ptr %retval.0.i.i.i, i64 0, i32 2
   store ptr null, ptr %_value.i, align 8
   %sourceRange_.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %4, i64 0, i32 3
@@ -1904,14 +1908,13 @@ if.end40:                                         ; preds = %if.end31
 if.end48:                                         ; preds = %if.end40
   %42 = load ptr, ptr %this, align 8
   %call52 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %42, i64 noundef 8)
-  %43 = inttoptr i64 %38 to ptr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call52, i8 0, i64 16, i1 false)
   %kind_.i.i.i47 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %call52, i64 0, i32 1
   store i32 101, ptr %kind_.i.i.i47, align 8
   %parens_.i.i.i48 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %call52, i64 0, i32 2
   store i32 0, ptr %parens_.i.i.i48, align 4
   %_expression.i = getelementptr inbounds %"class.hermes::ESTree::JSXExpressionContainerNode", ptr %call52, i64 0, i32 1
-  store ptr %43, ptr %_expression.i, align 8
+  store i64 %38, ptr %_expression.i, align 8
   %sourceRange_.i.i49 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %call52, i64 0, i32 3
   store ptr %retval.sroa.0.0.copyload.i.i34, ptr %sourceRange_.i.i49, align 8
   %End.i.i50 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %call52, i64 0, i32 3, i32 1
@@ -1922,49 +1925,49 @@ if.end48:                                         ; preds = %if.end40
 
 if.end57:                                         ; preds = %if.end48, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit19
   %value.0 = phi ptr [ %retval.0.i.i.i16, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit19 ], [ %call52, %if.end48 ]
-  %44 = load ptr, ptr %this, align 8
-  %state_.i.i.i52 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %44, i64 0, i32 1
-  %45 = load ptr, ptr %state_.i.i.i52, align 8
-  %46 = load i32, ptr %45, align 8
-  %conv.i.i.i53 = zext i32 %46 to i64
-  %47 = load ptr, ptr %44, align 8
-  %add.ptr.i.i.i.i54 = getelementptr inbounds %"class.std::unique_ptr.101", ptr %47, i64 %conv.i.i.i53
-  %48 = load ptr, ptr %add.ptr.i.i.i.i54, align 8
-  %49 = ptrtoint ptr %48 to i64
-  %offset.i.i.i55 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %45, i64 0, i32 1
-  %50 = load i64, ptr %offset.i.i.i55, align 8
-  %add.i.i.i.i.i56 = add i64 %49, 7
-  %sub1.i.i.i.i.i57 = add i64 %add.i.i.i.i.i56, %50
-  %51 = and i64 %sub1.i.i.i.i.i57, 7
-  %.neg88 = add i64 %50, 7
-  %sub.i.i.i.i58 = sub i64 %.neg88, %51
+  %43 = load ptr, ptr %this, align 8
+  %state_.i.i.i52 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %43, i64 0, i32 1
+  %44 = load ptr, ptr %state_.i.i.i52, align 8
+  %45 = load i32, ptr %44, align 8
+  %conv.i.i.i53 = zext i32 %45 to i64
+  %46 = load ptr, ptr %43, align 8
+  %add.ptr.i.i.i.i54 = getelementptr inbounds %"class.std::unique_ptr.101", ptr %46, i64 %conv.i.i.i53
+  %47 = load ptr, ptr %add.ptr.i.i.i.i54, align 8
+  %48 = ptrtoint ptr %47 to i64
+  %offset.i.i.i55 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %44, i64 0, i32 1
+  %49 = load i64, ptr %offset.i.i.i55, align 8
+  %add.i.i.i.i.i56 = add i64 %48, 7
+  %sub1.i.i.i.i.i57 = add i64 %add.i.i.i.i.i56, %49
+  %50 = and i64 %sub1.i.i.i.i.i57, 7
+  %.neg88 = add i64 %49, 7
+  %sub.i.i.i.i58 = sub i64 %.neg88, %50
   store i64 %sub.i.i.i.i58, ptr %offset.i.i.i55, align 8
-  %52 = load ptr, ptr %state_.i.i.i52, align 8
-  %offset8.i.i.i59 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %52, i64 0, i32 1
-  %53 = load i64, ptr %offset8.i.i.i59, align 8
-  %add.i.i.i60 = add i64 %53, 64
+  %51 = load ptr, ptr %state_.i.i.i52, align 8
+  %offset8.i.i.i59 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %51, i64 0, i32 1
+  %52 = load i64, ptr %offset8.i.i.i59, align 8
+  %add.i.i.i60 = add i64 %52, 64
   %cmp9.i.i.i61 = icmp ugt i64 %add.i.i.i60, 262144
   br i1 %cmp9.i.i.i61, label %if.then.i.i.i65, label %if.end.i.i.i62
 
 if.then.i.i.i65:                                  ; preds = %if.end57
-  %call11.i.i.i66 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %44, i64 noundef 64, i64 noundef 8) #9
+  %call11.i.i.i66 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %43, i64 noundef 64, i64 noundef 8) #9
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit67
 
 if.end.i.i.i62:                                   ; preds = %if.end57
-  %add14.i.i.i63 = add i64 %53, %49
-  %54 = inttoptr i64 %add14.i.i.i63 to ptr
+  %add14.i.i.i63 = add i64 %52, %48
+  %53 = inttoptr i64 %add14.i.i.i63 to ptr
   store i64 %add.i.i.i60, ptr %offset8.i.i.i59, align 8
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit67
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit67:  ; preds = %if.then.i.i.i65, %if.end.i.i.i62
-  %retval.0.i.i.i64 = phi ptr [ %call11.i.i.i66, %if.then.i.i.i65 ], [ %54, %if.end.i.i.i62 ]
+  %retval.0.i.i.i64 = phi ptr [ %call11.i.i.i66, %if.then.i.i.i65 ], [ %53, %if.end.i.i.i62 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i64, i8 0, i64 16, i1 false)
   %kind_.i.i.i68 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i64, i64 0, i32 1
   store i32 105, ptr %kind_.i.i.i68, align 8
   %parens_.i.i.i69 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i64, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i69, i8 0, i64 28, i1 false)
   %_name.i70 = getelementptr inbounds %"class.hermes::ESTree::JSXAttributeNode", ptr %retval.0.i.i.i64, i64 0, i32 1
-  store ptr %4, ptr %_name.i70, align 8
+  store i64 %3, ptr %_name.i70, align 8
   %_value.i71 = getelementptr inbounds %"class.hermes::ESTree::JSXAttributeNode", ptr %retval.0.i.i.i64, i64 0, i32 2
   store ptr %value.0, ptr %_value.i71, align 8
   %sourceRange_.i.i72 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i64, i64 0, i32 3
@@ -1980,11 +1983,11 @@ return.sink.split:                                ; preds = %_ZN6hermes6ESTree4N
   %retval.sroa.0.0.copyload.i.sink = phi ptr [ %retval.sroa.0.0.copyload.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit67 ], [ %retval.sroa.0.0.copyload.i.i7.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ]
   %debugLoc_.i.i76 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i64.sink89, i64 0, i32 4
   store ptr %retval.sroa.0.0.copyload.i.sink, ptr %debugLoc_.i.i76, align 8
-  %55 = ptrtoint ptr %retval.0.i.i.i64.sink89 to i64
+  %54 = ptrtoint ptr %retval.0.i.i.i64.sink89 to i64
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end40, %if.end31, %if.else, %entry
-  %retval.sroa.0.0 = phi i64 [ undef, %entry ], [ undef, %if.else ], [ undef, %if.end31 ], [ undef, %if.end40 ], [ %55, %return.sink.split ]
+  %retval.sroa.0.0 = phi i64 [ undef, %entry ], [ undef, %if.else ], [ undef, %if.end31 ], [ undef, %if.end40 ], [ %54, %return.sink.split ]
   %retval.sroa.3.0 = phi i8 [ 0, %entry ], [ 0, %if.else ], [ 0, %if.end31 ], [ 0, %if.end40 ], [ 1, %return.sink.split ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.3.0, 1
@@ -2136,14 +2139,13 @@ if.end.i.i.i34:                                   ; preds = %if.end37
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit39:  ; preds = %if.then.i.i.i37, %if.end.i.i.i34
   %retval.0.i.i.i36 = phi ptr [ %call11.i.i.i38, %if.then.i.i.i37 ], [ %28, %if.end.i.i.i34 ]
-  %29 = inttoptr i64 %13 to ptr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i36, i8 0, i64 16, i1 false)
   %kind_.i.i.i40 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i36, i64 0, i32 1
   store i32 104, ptr %kind_.i.i.i40, align 8
   %parens_.i.i.i41 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i36, i64 0, i32 2
   store i32 0, ptr %parens_.i.i.i41, align 4
   %_name.i = getelementptr inbounds %"class.hermes::ESTree::JSXClosingElementNode", ptr %retval.0.i.i.i36, i64 0, i32 1
-  store ptr %29, ptr %_name.i, align 8
+  store i64 %13, ptr %_name.i, align 8
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit39
@@ -2155,11 +2157,11 @@ return.sink.split:                                ; preds = %_ZN6hermes6ESTree4N
   store ptr %retval.sroa.0.0.copyload.i14.sink, ptr %End.i.i43, align 8
   %debugLoc_.i.i44 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i36.sink53, i64 0, i32 4
   store ptr %start.coerce, ptr %debugLoc_.i.i44, align 8
-  %30 = ptrtoint ptr %retval.0.i.i.i36.sink53 to i64
+  %29 = ptrtoint ptr %retval.0.i.i.i36.sink53 to i64
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end19, %if.end14
-  %retval.sroa.0.0 = phi i64 [ undef, %if.end14 ], [ undef, %if.end19 ], [ %30, %return.sink.split ]
+  %retval.sroa.0.0 = phi i64 [ undef, %if.end14 ], [ undef, %if.end19 ], [ %29, %return.sink.split ]
   %retval.sroa.3.0 = phi i8 [ 0, %if.end14 ], [ 0, %if.end19 ], [ 1, %return.sink.split ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.3.0, 1
@@ -2219,14 +2221,12 @@ if.end.i.i.i:                                     ; preds = %if.end
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.end.i.i.i
   %retval.0.i.i.i = phi ptr [ %call11.i.i.i, %if.then.i.i.i ], [ %14, %if.end.i.i.i ]
-  %15 = inttoptr i64 %0 to ptr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i, i64 0, i32 1
   store i32 102, ptr %kind_.i.i.i, align 8
   %parens_.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i, i8 0, i64 28, i1 false)
   %_expression.i = getelementptr inbounds %"class.hermes::ESTree::JSXSpreadChildNode", ptr %retval.0.i.i.i, i64 0, i32 1
-  store ptr %15, ptr %_expression.i, align 8
   br label %return.sink.split
 
 if.end12:                                         ; preds = %entry
@@ -2234,56 +2234,56 @@ if.end12:                                         ; preds = %entry
 
 if.end20:                                         ; preds = %if.end12
   %tok_23 = getelementptr inbounds %"class.hermes::parser::detail::JSParserImpl", ptr %this, i64 0, i32 3
-  %16 = load ptr, ptr %tok_23, align 8
-  %17 = load ptr, ptr %this, align 8
-  %state_.i.i.i5 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %17, i64 0, i32 1
-  %18 = load ptr, ptr %state_.i.i.i5, align 8
-  %19 = load i32, ptr %18, align 8
-  %conv.i.i.i6 = zext i32 %19 to i64
-  %20 = load ptr, ptr %17, align 8
-  %add.ptr.i.i.i.i7 = getelementptr inbounds %"class.std::unique_ptr.101", ptr %20, i64 %conv.i.i.i6
-  %21 = load ptr, ptr %add.ptr.i.i.i.i7, align 8
-  %22 = ptrtoint ptr %21 to i64
-  %offset.i.i.i8 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %18, i64 0, i32 1
-  %23 = load i64, ptr %offset.i.i.i8, align 8
-  %add.i.i.i.i.i9 = add i64 %22, 7
-  %sub1.i.i.i.i.i10 = add i64 %add.i.i.i.i.i9, %23
-  %24 = and i64 %sub1.i.i.i.i.i10, 7
-  %.neg31 = add i64 %23, 7
-  %sub.i.i.i.i11 = sub i64 %.neg31, %24
+  %15 = load ptr, ptr %tok_23, align 8
+  %16 = load ptr, ptr %this, align 8
+  %state_.i.i.i5 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator", ptr %16, i64 0, i32 1
+  %17 = load ptr, ptr %state_.i.i.i5, align 8
+  %18 = load i32, ptr %17, align 8
+  %conv.i.i.i6 = zext i32 %18 to i64
+  %19 = load ptr, ptr %16, align 8
+  %add.ptr.i.i.i.i7 = getelementptr inbounds %"class.std::unique_ptr.101", ptr %19, i64 %conv.i.i.i6
+  %20 = load ptr, ptr %add.ptr.i.i.i.i7, align 8
+  %21 = ptrtoint ptr %20 to i64
+  %offset.i.i.i8 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %17, i64 0, i32 1
+  %22 = load i64, ptr %offset.i.i.i8, align 8
+  %add.i.i.i.i.i9 = add i64 %21, 7
+  %sub1.i.i.i.i.i10 = add i64 %add.i.i.i.i.i9, %22
+  %23 = and i64 %sub1.i.i.i.i.i10, 7
+  %.neg31 = add i64 %22, 7
+  %sub.i.i.i.i11 = sub i64 %.neg31, %23
   store i64 %sub.i.i.i.i11, ptr %offset.i.i.i8, align 8
-  %25 = load ptr, ptr %state_.i.i.i5, align 8
-  %offset8.i.i.i12 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %25, i64 0, i32 1
-  %26 = load i64, ptr %offset8.i.i.i12, align 8
-  %add.i.i.i13 = add i64 %26, 56
+  %24 = load ptr, ptr %state_.i.i.i5, align 8
+  %offset8.i.i.i12 = getelementptr inbounds %"class.hermes::BacktrackingBumpPtrAllocator::State", ptr %24, i64 0, i32 1
+  %25 = load i64, ptr %offset8.i.i.i12, align 8
+  %add.i.i.i13 = add i64 %25, 56
   %cmp9.i.i.i14 = icmp ugt i64 %add.i.i.i13, 262144
   br i1 %cmp9.i.i.i14, label %if.then.i.i.i18, label %if.end.i.i.i15
 
 if.then.i.i.i18:                                  ; preds = %if.end20
-  %call11.i.i.i19 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 56, i64 noundef 8) #9
+  %call11.i.i.i19 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef 56, i64 noundef 8) #9
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit20
 
 if.end.i.i.i15:                                   ; preds = %if.end20
-  %add14.i.i.i16 = add i64 %26, %22
-  %27 = inttoptr i64 %add14.i.i.i16 to ptr
+  %add14.i.i.i16 = add i64 %25, %21
+  %26 = inttoptr i64 %add14.i.i.i16 to ptr
   store i64 %add.i.i.i13, ptr %offset8.i.i.i12, align 8
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit20
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit20:  ; preds = %if.then.i.i.i18, %if.end.i.i.i15
-  %retval.0.i.i.i17 = phi ptr [ %call11.i.i.i19, %if.then.i.i.i18 ], [ %27, %if.end.i.i.i15 ]
-  %28 = inttoptr i64 %0 to ptr
+  %retval.0.i.i.i17 = phi ptr [ %call11.i.i.i19, %if.then.i.i.i18 ], [ %26, %if.end.i.i.i15 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i17, i8 0, i64 16, i1 false)
   %kind_.i.i.i21 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i17, i64 0, i32 1
   store i32 101, ptr %kind_.i.i.i21, align 8
   %parens_.i.i.i22 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i17, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i22, i8 0, i64 28, i1 false)
   %_expression.i23 = getelementptr inbounds %"class.hermes::ESTree::JSXExpressionContainerNode", ptr %retval.0.i.i.i17, i64 0, i32 1
-  store ptr %28, ptr %_expression.i23, align 8
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit20
+  %_expression.i23.sink = phi ptr [ %_expression.i23, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit20 ], [ %_expression.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ]
   %retval.0.i.i.i17.sink37 = phi ptr [ %retval.0.i.i.i17, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit20 ], [ %retval.0.i.i.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ]
-  %.sink = phi ptr [ %16, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit20 ], [ %3, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ]
+  %.sink = phi ptr [ %15, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit20 ], [ %3, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ]
+  store i64 %0, ptr %_expression.i23.sink, align 8
   %sourceRange_.i.i24 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i17.sink37, i64 0, i32 3
   store ptr %start.coerce, ptr %sourceRange_.i.i24, align 8
   %End.i.i.i25 = getelementptr inbounds %"class.hermes::parser::Token", ptr %.sink, i64 0, i32 2, i32 1
@@ -2292,11 +2292,11 @@ return.sink.split:                                ; preds = %_ZN6hermes6ESTree4N
   store ptr %retval.sroa.0.0.copyload.i.i.i26, ptr %End.i.i27, align 8
   %debugLoc_.i.i28 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %retval.0.i.i.i17.sink37, i64 0, i32 4
   store ptr %start.coerce, ptr %debugLoc_.i.i28, align 8
-  %29 = ptrtoint ptr %retval.0.i.i.i17.sink37 to i64
+  %27 = ptrtoint ptr %retval.0.i.i.i17.sink37 to i64
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end12, %if.then
-  %retval.sroa.0.0 = phi i64 [ undef, %if.then ], [ undef, %if.end12 ], [ %29, %return.sink.split ]
+  %retval.sroa.0.0 = phi i64 [ undef, %if.then ], [ undef, %if.end12 ], [ %27, %return.sink.split ]
   %retval.sroa.3.0 = phi i8 [ 0, %if.then ], [ 0, %if.end12 ], [ 1, %return.sink.split ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.3.0, 1
@@ -2804,7 +2804,7 @@ if.then:                                          ; preds = %_ZN4llvh8DenseMapIN
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %B.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %call.i, %if.then ]
-  store ptr inttoptr (i64 -1 to ptr), ptr %B.04.i, align 8
+  store i64 -1, ptr %B.04.i, align 8
   %EmptyKey.sroa.2.0.call4.sroa_idx.i = getelementptr inbounds i8, ptr %B.04.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i, align 8
   %incdec.ptr.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i, i64 1
@@ -2826,7 +2826,7 @@ if.end:                                           ; preds = %_ZN4llvh8DenseMapIN
 
 for.body.i.i:                                     ; preds = %if.end, %for.body.i.i
   %B.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i, %if.end ]
-  store ptr inttoptr (i64 -1 to ptr), ptr %B.04.i.i, align 8
+  store i64 -1, ptr %B.04.i.i, align 8
   %EmptyKey.sroa.2.0.call4.sroa_idx.i.i = getelementptr inbounds i8, ptr %B.04.i.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i, i64 1

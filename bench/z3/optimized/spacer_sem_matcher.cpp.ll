@@ -100,8 +100,7 @@ entry:
   tail call void @_ZN10arith_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16) %m_arith, ptr noundef nonnull align 8 dereferenceable(976) %man)
   %m_pinned = getelementptr inbounds %"class.spacer::sem_matcher", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %this, align 8
-  %1 = ptrtoint ptr %0 to i64
-  store i64 %1, ptr %m_pinned, align 8
+  store ptr %0, ptr %m_pinned, align 8
   %m_nodes.i.i = getelementptr inbounds %"class.spacer::sem_matcher", ptr %this, i64 0, i32 2, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i, align 8
   %m_todo = getelementptr inbounds %"class.spacer::sem_matcher", ptr %this, i64 0, i32 4

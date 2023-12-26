@@ -2199,7 +2199,7 @@ invoke.cont.i.i:                                  ; preds = %init.i.i
   br label %_ZNK4cvc58internal12NodeTemplateILb0EE6isNullEv.exit
 
 common.resume:                                    ; preds = %lpad25, %if.then.i.i.i100, %lpad29, %if.then.i.i.i115, %lpad.i.i
-  %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i.i ], [ %8, %lpad25 ], [ %8, %if.then.i.i.i100 ], [ %13, %lpad29 ], [ %13, %if.then.i.i.i115 ]
+  %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i.i ], [ %7, %lpad25 ], [ %7, %if.then.i.i.i100 ], [ %12, %lpad29 ], [ %12, %if.then.i.i.i115 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %init.i.i
@@ -2220,33 +2220,32 @@ if.then:                                          ; preds = %_ZNK4cvc58internal1
   %add.ptr.i1.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %call5.i.i.i.i2.i, i64 1
   %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %toProcess, i64 0, i32 2
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
-  %6 = ptrtoint ptr %5 to i64
-  store i64 %6, ptr %call5.i.i.i.i2.i, align 8
+  store ptr %5, ptr %call5.i.i.i.i2.i, align 8
   %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %toProcess, i64 0, i32 1
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
   invoke void @_ZN4cvc58internal8decision21JustificationStrategy21insertToAssertionListERSt6vectorINS0_12NodeTemplateILb0EEESaIS5_EEb(ptr noundef nonnull align 8 dereferenceable(952) %this, ptr noundef nonnull align 8 dereferenceable(24) %toProcess, i1 noundef zeroext false)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %if.then
-  %7 = load ptr, ptr %toProcess, align 8
-  %tobool.not.i.i.i97 = icmp eq ptr %7, null
+  %6 = load ptr, ptr %toProcess, align 8
+  %tobool.not.i.i.i97 = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i97, label %if.end32, label %if.end32.sink.split
 
 lpad25:                                           ; preds = %if.then
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %9 = load ptr, ptr %toProcess, align 8
-  %tobool.not.i.i.i99 = icmp eq ptr %9, null
+  %8 = load ptr, ptr %toProcess, align 8
+  %tobool.not.i.i.i99 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i99, label %common.resume, label %if.then.i.i.i100
 
 if.then.i.i.i100:                                 ; preds = %lpad25
-  call void @_ZdlPv(ptr noundef nonnull %9) #21
+  call void @_ZdlPv(ptr noundef nonnull %8) #21
   br label %common.resume
 
 if.else:                                          ; preds = %_ZNK4cvc58internal12NodeTemplateILb0EE6isNullEv.exit
   %d_jhSkRlvMode = getelementptr inbounds %"class.cvc5::internal::decision::JustificationStrategy", ptr %this, i64 0, i32 11
-  %10 = load i32, ptr %d_jhSkRlvMode, align 8
-  %cmp = icmp eq i32 %10, 1
+  %9 = load i32, ptr %d_jhSkRlvMode, align 8
+  %cmp = icmp eq i32 %9, 1
   br i1 %cmp, label %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE8allocateERS4_m.exit.i.i.i, label %if.end32
 
 _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE8allocateERS4_m.exit.i.i.i: ; preds = %if.else
@@ -2257,8 +2256,8 @@ _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE8allocateERS4_m
 invoke.cont30:                                    ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE8allocateERS4_m.exit.i.i.i
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %toProcess28, i64 0, i32 2
   %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %toProcess28, i64 0, i32 1
-  %11 = load ptr, ptr %lem, align 8
-  store ptr %11, ptr %call5.i.i.i.i.i109, align 8
+  %10 = load ptr, ptr %lem, align 8
+  store ptr %10, ptr %call5.i.i.i.i.i109, align 8
   %incdec.ptr.i.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %call5.i.i.i.i.i109, i64 1
   store ptr %call5.i.i.i.i.i109, ptr %toProcess28, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
@@ -2267,23 +2266,23 @@ invoke.cont30:                                    ; preds = %_ZNSt16allocator_tr
           to label %invoke.cont31 unwind label %lpad29
 
 invoke.cont31:                                    ; preds = %invoke.cont30
-  %12 = load ptr, ptr %toProcess28, align 8
-  %tobool.not.i.i.i110 = icmp eq ptr %12, null
+  %11 = load ptr, ptr %toProcess28, align 8
+  %tobool.not.i.i.i110 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i110, label %if.end32, label %if.end32.sink.split
 
 lpad29:                                           ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE8allocateERS4_m.exit.i.i.i, %invoke.cont30
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %14 = load ptr, ptr %toProcess28, align 8
-  %tobool.not.i.i.i114 = icmp eq ptr %14, null
+  %13 = load ptr, ptr %toProcess28, align 8
+  %tobool.not.i.i.i114 = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i114, label %common.resume, label %if.then.i.i.i115
 
 if.then.i.i.i115:                                 ; preds = %lpad29
-  call void @_ZdlPv(ptr noundef nonnull %14) #21
+  call void @_ZdlPv(ptr noundef nonnull %13) #21
   br label %common.resume
 
 if.end32.sink.split:                              ; preds = %invoke.cont31, %invoke.cont26
-  %.sink = phi ptr [ %7, %invoke.cont26 ], [ %12, %invoke.cont31 ]
+  %.sink = phi ptr [ %6, %invoke.cont26 ], [ %11, %invoke.cont31 ]
   call void @_ZdlPv(ptr noundef nonnull %.sink) #21
   br label %if.end32
 

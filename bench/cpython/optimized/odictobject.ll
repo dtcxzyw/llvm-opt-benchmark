@@ -1407,16 +1407,14 @@ _Py_NewRef.exit24.i:                              ; preds = %if.end.i.i23.i, %co
   %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %8, i64 0, i32 1
   %9 = load i64, ptr %_gc_prev.i.i, align 8
   %10 = inttoptr i64 %9 to ptr
-  %11 = ptrtoint ptr %add.ptr.i.i.i to i64
-  store i64 %11, ptr %10, align 8
+  store ptr %add.ptr.i.i.i, ptr %10, align 8
   %_gc_prev.i.i.i = getelementptr i8, ptr %call.i, i64 -8
-  %12 = load i64, ptr %_gc_prev.i.i.i, align 8
-  %and.i.i.i = and i64 %12, 3
+  %11 = load i64, ptr %_gc_prev.i.i.i, align 8
+  %and.i.i.i = and i64 %11, 3
   %or.i.i.i = or i64 %and.i.i.i, %9
   store i64 %or.i.i.i, ptr %_gc_prev.i.i.i, align 8
-  %13 = ptrtoint ptr %8 to i64
-  store i64 %13, ptr %add.ptr.i.i.i, align 8
-  store i64 %11, ptr %_gc_prev.i.i, align 8
+  store ptr %8, ptr %add.ptr.i.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %_gc_prev.i.i, align 8
   br label %odictiter_new.exit
 
 odictiter_new.exit:                               ; preds = %entry, %_Py_NewRef.exit24.i
@@ -2179,16 +2177,14 @@ if.then23:                                        ; preds = %Py_DECREF.exit76
   %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %43, i64 0, i32 1
   %44 = load i64, ptr %_gc_prev.i, align 8
   %45 = inttoptr i64 %44 to ptr
-  %46 = ptrtoint ptr %39 to i64
-  store i64 %46, ptr %45, align 8
+  store ptr %39, ptr %45, align 8
   %_gc_prev.i.i = getelementptr i8, ptr %32, i64 -8
-  %47 = load i64, ptr %_gc_prev.i.i, align 8
-  %and.i.i = and i64 %47, 3
+  %46 = load i64, ptr %_gc_prev.i.i, align 8
+  %and.i.i = and i64 %46, 3
   %or.i.i = or i64 %and.i.i, %44
   store i64 %or.i.i, ptr %_gc_prev.i.i, align 8
-  %48 = ptrtoint ptr %43 to i64
-  store i64 %48, ptr %39, align 8
-  store i64 %46, ptr %_gc_prev.i, align 8
+  store ptr %43, ptr %39, align 8
+  store ptr %39, ptr %_gc_prev.i, align 8
   br label %if.end29
 
 if.else:                                          ; preds = %if.end15
@@ -2197,13 +2193,13 @@ if.else:                                          ; preds = %if.end15
   br i1 %cmp26, label %if.then27, label %if.end29
 
 if.then27:                                        ; preds = %if.else
-  %49 = load i64, ptr %16, align 8
-  %50 = and i64 %49, 2147483648
-  %cmp.i120.not = icmp eq i64 %50, 0
+  %47 = load i64, ptr %16, align 8
+  %48 = and i64 %47, 2147483648
+  %cmp.i120.not = icmp eq i64 %48, 0
   br i1 %cmp.i120.not, label %if.end.i62, label %Py_DECREF.exit67
 
 if.end.i62:                                       ; preds = %if.then27
-  %dec.i63 = add i64 %49, -1
+  %dec.i63 = add i64 %47, -1
   store i64 %dec.i63, ptr %16, align 8
   %cmp.i64 = icmp eq i64 %dec.i63, 0
   br i1 %cmp.i64, label %if.then1.i65, label %Py_DECREF.exit67
@@ -2213,13 +2209,13 @@ if.then1.i65:                                     ; preds = %if.end.i62
   br label %Py_DECREF.exit67
 
 Py_DECREF.exit67:                                 ; preds = %if.then27, %if.then1.i65, %if.end.i62
-  %51 = load i64, ptr %call3, align 8
-  %52 = and i64 %51, 2147483648
-  %cmp.i124.not = icmp eq i64 %52, 0
+  %49 = load i64, ptr %call3, align 8
+  %50 = and i64 %49, 2147483648
+  %cmp.i124.not = icmp eq i64 %50, 0
   br i1 %cmp.i124.not, label %if.end.i53, label %do.body
 
 if.end.i53:                                       ; preds = %Py_DECREF.exit67
-  %dec.i54 = add i64 %51, -1
+  %dec.i54 = add i64 %49, -1
   store i64 %dec.i54, ptr %call3, align 8
   %cmp.i55 = icmp eq i64 %dec.i54, 0
   br i1 %cmp.i55, label %do.body.sink.split, label %do.body
@@ -2238,47 +2234,47 @@ do.body.sink.split:                               ; preds = %if.end.i53, %if.end
   br label %do.body
 
 do.body:                                          ; preds = %do.body.sink.split, %if.end9, %if.end.i98, %Py_DECREF.exit67, %if.end.i53
-  %53 = load ptr, ptr %di_current.i, align 8
-  %cmp30.not = icmp eq ptr %53, null
+  %51 = load ptr, ptr %di_current.i, align 8
+  %cmp30.not = icmp eq ptr %51, null
   br i1 %cmp30.not, label %do.body33, label %if.then31
 
 if.then31:                                        ; preds = %do.body
   store ptr null, ptr %di_current.i, align 8
-  %54 = load i64, ptr %53, align 8
-  %55 = and i64 %54, 2147483648
-  %cmp.i128.not = icmp eq i64 %55, 0
+  %52 = load i64, ptr %51, align 8
+  %53 = and i64 %52, 2147483648
+  %cmp.i128.not = icmp eq i64 %53, 0
   br i1 %cmp.i128.not, label %if.end.i44, label %do.body33
 
 if.end.i44:                                       ; preds = %if.then31
-  %dec.i45 = add i64 %54, -1
-  store i64 %dec.i45, ptr %53, align 8
+  %dec.i45 = add i64 %52, -1
+  store i64 %dec.i45, ptr %51, align 8
   %cmp.i46 = icmp eq i64 %dec.i45, 0
   br i1 %cmp.i46, label %if.then1.i47, label %do.body33
 
 if.then1.i47:                                     ; preds = %if.end.i44
-  tail call void @_Py_Dealloc(ptr noundef nonnull %53) #7
+  tail call void @_Py_Dealloc(ptr noundef nonnull %51) #7
   br label %do.body33
 
 do.body33:                                        ; preds = %if.end.i44, %if.then1.i47, %if.then31, %do.body
-  %56 = load ptr, ptr %di_odict.i, align 8
-  %cmp37.not = icmp eq ptr %56, null
+  %54 = load ptr, ptr %di_odict.i, align 8
+  %cmp37.not = icmp eq ptr %54, null
   br i1 %cmp37.not, label %return, label %if.then38
 
 if.then38:                                        ; preds = %do.body33
   store ptr null, ptr %di_odict.i, align 8
-  %57 = load i64, ptr %56, align 8
-  %58 = and i64 %57, 2147483648
-  %cmp.i132.not = icmp eq i64 %58, 0
+  %55 = load i64, ptr %54, align 8
+  %56 = and i64 %55, 2147483648
+  %cmp.i132.not = icmp eq i64 %56, 0
   br i1 %cmp.i132.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.then38
-  %dec.i = add i64 %57, -1
-  store i64 %dec.i, ptr %56, align 8
+  %dec.i = add i64 %55, -1
+  store i64 %dec.i, ptr %54, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %return
 
 if.then1.i:                                       ; preds = %if.end.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %56) #7
+  tail call void @_Py_Dealloc(ptr noundef nonnull %54) #7
   br label %return
 
 return:                                           ; preds = %if.end.i.i, %if.then1.i.i, %if.then41.i, %do.body36.i, %if.end.i47.i, %if.then1.i50.i, %if.then24.i, %do.body.i, %entry, %if.then10.i, %if.end.i, %if.then1.i, %if.then38, %do.body33, %if.end.i89, %if.then1.i92, %if.then14, %if.end, %odictiter_nextkey.exit, %if.end29
@@ -2354,16 +2350,14 @@ _Py_NewRef.exit24.i:                              ; preds = %if.end.i.i23.i, %co
   %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %9, i64 0, i32 1
   %10 = load i64, ptr %_gc_prev.i.i, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = ptrtoint ptr %add.ptr.i.i.i to i64
-  store i64 %12, ptr %11, align 8
+  store ptr %add.ptr.i.i.i, ptr %11, align 8
   %_gc_prev.i.i.i = getelementptr i8, ptr %call.i, i64 -8
-  %13 = load i64, ptr %_gc_prev.i.i.i, align 8
-  %and.i.i.i = and i64 %13, 3
+  %12 = load i64, ptr %_gc_prev.i.i.i, align 8
+  %and.i.i.i = and i64 %12, 3
   %or.i.i.i = or i64 %and.i.i.i, %10
   store i64 %or.i.i.i, ptr %_gc_prev.i.i.i, align 8
-  %14 = ptrtoint ptr %9 to i64
-  store i64 %14, ptr %add.ptr.i.i.i, align 8
-  store i64 %12, ptr %_gc_prev.i.i, align 8
+  store ptr %9, ptr %add.ptr.i.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %_gc_prev.i.i, align 8
   br label %return
 
 return:                                           ; preds = %_Py_NewRef.exit24.i, %if.end, %entry
@@ -2456,16 +2450,14 @@ _Py_NewRef.exit24.i:                              ; preds = %if.end.i.i23.i, %co
   %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %9, i64 0, i32 1
   %10 = load i64, ptr %_gc_prev.i.i, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = ptrtoint ptr %add.ptr.i.i.i to i64
-  store i64 %12, ptr %11, align 8
+  store ptr %add.ptr.i.i.i, ptr %11, align 8
   %_gc_prev.i.i.i = getelementptr i8, ptr %call.i, i64 -8
-  %13 = load i64, ptr %_gc_prev.i.i.i, align 8
-  %and.i.i.i = and i64 %13, 3
+  %12 = load i64, ptr %_gc_prev.i.i.i, align 8
+  %and.i.i.i = and i64 %12, 3
   %or.i.i.i = or i64 %and.i.i.i, %10
   store i64 %or.i.i.i, ptr %_gc_prev.i.i.i, align 8
-  %14 = ptrtoint ptr %9 to i64
-  store i64 %14, ptr %add.ptr.i.i.i, align 8
-  store i64 %12, ptr %_gc_prev.i.i, align 8
+  store ptr %9, ptr %add.ptr.i.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %_gc_prev.i.i, align 8
   br label %return
 
 return:                                           ; preds = %_Py_NewRef.exit24.i, %if.end, %entry
@@ -3266,16 +3258,14 @@ _Py_NewRef.exit24:                                ; preds = %cond.end16, %if.end
   %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %10, i64 0, i32 1
   %11 = load i64, ptr %_gc_prev.i, align 8
   %12 = inttoptr i64 %11 to ptr
-  %13 = ptrtoint ptr %add.ptr.i.i to i64
-  store i64 %13, ptr %12, align 8
+  store ptr %add.ptr.i.i, ptr %12, align 8
   %_gc_prev.i.i = getelementptr i8, ptr %call, i64 -8
-  %14 = load i64, ptr %_gc_prev.i.i, align 8
-  %and.i.i = and i64 %14, 3
+  %13 = load i64, ptr %_gc_prev.i.i, align 8
+  %and.i.i = and i64 %13, 3
   %or.i.i = or i64 %and.i.i, %11
   store i64 %or.i.i, ptr %_gc_prev.i.i, align 8
-  %15 = ptrtoint ptr %10 to i64
-  store i64 %15, ptr %add.ptr.i.i, align 8
-  store i64 %13, ptr %_gc_prev.i, align 8
+  store ptr %10, ptr %add.ptr.i.i, align 8
+  store ptr %add.ptr.i.i, ptr %_gc_prev.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then1.i, %if.then7, %entry, %_Py_NewRef.exit24
@@ -4124,16 +4114,14 @@ _Py_NewRef.exit24.i:                              ; preds = %if.end.i.i23.i, %co
   %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %8, i64 0, i32 1
   %9 = load i64, ptr %_gc_prev.i.i, align 8
   %10 = inttoptr i64 %9 to ptr
-  %11 = ptrtoint ptr %add.ptr.i.i.i to i64
-  store i64 %11, ptr %10, align 8
+  store ptr %add.ptr.i.i.i, ptr %10, align 8
   %_gc_prev.i.i.i = getelementptr i8, ptr %call.i, i64 -8
-  %12 = load i64, ptr %_gc_prev.i.i.i, align 8
-  %and.i.i.i = and i64 %12, 3
+  %11 = load i64, ptr %_gc_prev.i.i.i, align 8
+  %and.i.i.i = and i64 %11, 3
   %or.i.i.i = or i64 %and.i.i.i, %9
   store i64 %or.i.i.i, ptr %_gc_prev.i.i.i, align 8
-  %13 = ptrtoint ptr %8 to i64
-  store i64 %13, ptr %add.ptr.i.i.i, align 8
-  store i64 %11, ptr %_gc_prev.i.i, align 8
+  store ptr %8, ptr %add.ptr.i.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %_gc_prev.i.i, align 8
   br label %odictiter_new.exit
 
 odictiter_new.exit:                               ; preds = %entry, %_Py_NewRef.exit24.i
@@ -4814,16 +4802,14 @@ _Py_NewRef.exit24.i:                              ; preds = %if.end.i.i23.i, %co
   %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %9, i64 0, i32 1
   %10 = load i64, ptr %_gc_prev.i.i, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = ptrtoint ptr %add.ptr.i.i.i to i64
-  store i64 %12, ptr %11, align 8
+  store ptr %add.ptr.i.i.i, ptr %11, align 8
   %_gc_prev.i.i.i = getelementptr i8, ptr %call.i, i64 -8
-  %13 = load i64, ptr %_gc_prev.i.i.i, align 8
-  %and.i.i.i = and i64 %13, 3
+  %12 = load i64, ptr %_gc_prev.i.i.i, align 8
+  %and.i.i.i = and i64 %12, 3
   %or.i.i.i = or i64 %and.i.i.i, %10
   store i64 %or.i.i.i, ptr %_gc_prev.i.i.i, align 8
-  %14 = ptrtoint ptr %9 to i64
-  store i64 %14, ptr %add.ptr.i.i.i, align 8
-  store i64 %12, ptr %_gc_prev.i.i, align 8
+  store ptr %9, ptr %add.ptr.i.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %_gc_prev.i.i, align 8
   br label %return
 
 return:                                           ; preds = %_Py_NewRef.exit24.i, %if.end, %entry
@@ -4916,16 +4902,14 @@ _Py_NewRef.exit24.i:                              ; preds = %if.end.i.i23.i, %co
   %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %9, i64 0, i32 1
   %10 = load i64, ptr %_gc_prev.i.i, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = ptrtoint ptr %add.ptr.i.i.i to i64
-  store i64 %12, ptr %11, align 8
+  store ptr %add.ptr.i.i.i, ptr %11, align 8
   %_gc_prev.i.i.i = getelementptr i8, ptr %call.i, i64 -8
-  %13 = load i64, ptr %_gc_prev.i.i.i, align 8
-  %and.i.i.i = and i64 %13, 3
+  %12 = load i64, ptr %_gc_prev.i.i.i, align 8
+  %and.i.i.i = and i64 %12, 3
   %or.i.i.i = or i64 %and.i.i.i, %10
   store i64 %or.i.i.i, ptr %_gc_prev.i.i.i, align 8
-  %14 = ptrtoint ptr %9 to i64
-  store i64 %14, ptr %add.ptr.i.i.i, align 8
-  store i64 %12, ptr %_gc_prev.i.i, align 8
+  store ptr %9, ptr %add.ptr.i.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %_gc_prev.i.i, align 8
   br label %return
 
 return:                                           ; preds = %_Py_NewRef.exit24.i, %if.end, %entry

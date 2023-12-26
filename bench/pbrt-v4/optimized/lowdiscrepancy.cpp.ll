@@ -398,16 +398,15 @@ if.end.i.i:
   %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
   %0 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i.i.i.i = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 32, i64 noundef 8)
-  %1 = ptrtoint ptr %alloc.coerce to i64
-  store i64 %1, ptr %call.i.i.i.i, align 8
+  store ptr %alloc.coerce, ptr %call.i.i.i.i, align 8
   %ptr.i.i.i = getelementptr inbounds %"class.pstd::vector", ptr %call.i.i.i.i, i64 0, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr.i.i.i, i8 0, i64 24, i1 false)
   %nStored.i.i = getelementptr inbounds %"class.pstd::vector", ptr %call.i.i.i.i, i64 0, i32 3
   %nAlloc.i.i = getelementptr inbounds %"class.pstd::vector", ptr %call.i.i.i.i, i64 0, i32 2
   %vtable.i.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
-  %2 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  %call.i.i.i.i.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 16000, i64 noundef 8)
+  %1 = load ptr, ptr %vfn.i.i.i.i.i, align 8
+  %call.i.i.i.i.i = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 16000, i64 noundef 8)
   %.pre.i = load i64, ptr %nStored.i.i, align 8
   %cmp213.not.i.i = icmp eq i64 %.pre.i, 0
   br i1 %cmp213.not.i.i, label %for.end.i.i, label %for.body.i.i
@@ -415,28 +414,28 @@ if.end.i.i:
 for.body.i.i:                                     ; preds = %if.end.i.i, %for.body.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %if.end.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"class.pbrt::DigitPermutation", ptr %call.i.i.i.i.i, i64 %indvars.iv.i.i
-  %3 = load ptr, ptr %ptr.i.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %"class.pbrt::DigitPermutation", ptr %3, i64 %indvars.iv.i.i
+  %2 = load ptr, ptr %ptr.i.i.i, align 8
+  %arrayidx.i.i = getelementptr inbounds %"class.pbrt::DigitPermutation", ptr %2, i64 %indvars.iv.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, i64 16, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %4 = load i64, ptr %nStored.i.i, align 8
-  %cmp2.i.i = icmp ugt i64 %4, %indvars.iv.next.i.i
+  %3 = load i64, ptr %nStored.i.i, align 8
+  %cmp2.i.i = icmp ugt i64 %3, %indvars.iv.next.i.i
   br i1 %cmp2.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !8
 
 for.end.i.i:                                      ; preds = %for.body.i.i, %if.end.i.i
-  %.pre1618.i = phi i64 [ 0, %if.end.i.i ], [ %4, %for.body.i.i ]
-  %5 = load ptr, ptr %ptr.i.i.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %5, null
+  %.pre1618.i = phi i64 [ 0, %if.end.i.i ], [ %3, %for.body.i.i ]
+  %4 = load ptr, ptr %ptr.i.i.i, align 8
+  %tobool.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i, label %if.end.i.i.i9.i.i
 
 if.end.i.i.i9.i.i:                                ; preds = %for.end.i.i
-  %6 = load i64, ptr %nAlloc.i.i, align 8
-  %mul.i10.i.i = shl i64 %6, 4
-  %7 = load ptr, ptr %call.i.i.i.i, align 8
-  %vtable.i.i.i11.i.i = load ptr, ptr %7, align 8
+  %5 = load i64, ptr %nAlloc.i.i, align 8
+  %mul.i10.i.i = shl i64 %5, 4
+  %6 = load ptr, ptr %call.i.i.i.i, align 8
+  %vtable.i.i.i11.i.i = load ptr, ptr %6, align 8
   %vfn.i.i.i12.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i11.i.i, i64 3
-  %8 = load ptr, ptr %vfn.i.i.i12.i.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %5, i64 noundef %mul.i10.i.i, i64 noundef 8)
+  %7 = load ptr, ptr %vfn.i.i.i12.i.i, align 8
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %4, i64 noundef %mul.i10.i.i, i64 noundef 8)
   %.pre16.pre.i = load i64, ptr %nStored.i.i, align 8
   br label %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i
 
@@ -449,8 +448,8 @@ _ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE7r
 
 for.body16.i:                                     ; preds = %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i, %for.body16.i
   %i13.015.i = phi i64 [ %inc21.i, %for.body16.i ], [ %.pre16.i, %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i ]
-  %9 = load ptr, ptr %ptr.i.i.i, align 8
-  %add.ptr19.i = getelementptr inbounds %"class.pbrt::DigitPermutation", ptr %9, i64 %i13.015.i
+  %8 = load ptr, ptr %ptr.i.i.i, align 8
+  %add.ptr19.i = getelementptr inbounds %"class.pbrt::DigitPermutation", ptr %8, i64 %i13.015.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr19.i, i8 0, i64 16, i1 false)
   %inc21.i = add nuw i64 %i13.015.i, 1
   %exitcond.not.i = icmp eq i64 %inc21.i, 1000
@@ -463,10 +462,10 @@ _ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE6r
 for.body:                                         ; preds = %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE6resizeEm.exit, %for.body
   %indvars.iv = phi i64 [ 0, %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE6resizeEm.exit ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds [1000 x i32], ptr @_ZN4pbrt6PrimesE, i64 0, i64 %indvars.iv
-  %10 = load i32, ptr %arrayidx, align 4
-  call void @_ZN4pbrt16DigitPermutationC2EijN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef %10, i32 noundef %seed, ptr nonnull %alloc.coerce)
-  %11 = load ptr, ptr %ptr.i.i.i, align 8
-  %arrayidx.i = getelementptr inbounds %"class.pbrt::DigitPermutation", ptr %11, i64 %indvars.iv
+  %9 = load i32, ptr %arrayidx, align 4
+  call void @_ZN4pbrt16DigitPermutationC2EijN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef %9, i32 noundef %seed, ptr nonnull %alloc.coerce)
+  %10 = load ptr, ptr %ptr.i.i.i, align 8
+  %arrayidx.i = getelementptr inbounds %"class.pbrt::DigitPermutation", ptr %10, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1000

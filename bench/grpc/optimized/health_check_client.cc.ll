@@ -5735,7 +5735,7 @@ _ZN9grpc_core14HealthProducer13HealthChecker24HealthStreamEventHandlerD2Ev.exit:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core14HealthProducer13HealthChecker24HealthStreamEventHandler13GetPathLockedEv(ptr noalias sret(%"class.grpc_core::Slice") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr inttoptr (i64 1 to ptr), ptr %agg.result, align 8, !alias.scope !83
+  store i64 1, ptr %agg.result, align 8, !alias.scope !83
   %slice.sroa.2.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 28, ptr %slice.sroa.2.0.agg.result.sroa_idx.i.i, align 8, !alias.scope !83
   %slice.sroa.3.0.agg.result.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16

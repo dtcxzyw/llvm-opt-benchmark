@@ -826,7 +826,7 @@ invoke.cont9:
 
 invoke.cont10:                                    ; preds = %invoke.cont9
   %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
-  store i64 ptrtoint (ptr @_ZN9grpc_core12_GLOBAL__N_130NativeClientChannelDNSResolver10OnResolvedEN4absl12lts_202308028StatusOrISt6vectorI21grpc_resolved_addressSaIS6_EEEE to i64), ptr %call.i.i2.i6, align 16
+  store ptr @_ZN9grpc_core12_GLOBAL__N_130NativeClientChannelDNSResolver10OnResolvedEN4absl12lts_202308028StatusOrISt6vectorI21grpc_resolved_addressSaIS6_EEEE, ptr %call.i.i2.i6, align 16
   %ref.tmp5.sroa.2.0.call.i.i2.i6.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i6, i64 8
   store i64 0, ptr %ref.tmp5.sroa.2.0.call.i.i2.i6.sroa_idx, align 8
   %ref.tmp5.sroa.3.0.call.i.i2.i6.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i6, i64 16

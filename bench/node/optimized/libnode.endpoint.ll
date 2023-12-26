@@ -6028,7 +6028,7 @@ entry:
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  store i64 ptrtoint (ptr @_ZN4node4quic8Endpoint14CreateEndpointERKN2v820FunctionCallbackInfoINS2_5ValueEEE to i64), ptr %0, align 8
+  store ptr @_ZN4node4quic8Endpoint14CreateEndpointERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr %0, align 8
   %2 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds i64, ptr %2, i64 1
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
@@ -6066,7 +6066,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %_ZNKS
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i
   %cond.i10.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i ]
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i
-  store i64 ptrtoint (ptr @_ZN4node4quic8Endpoint14CreateEndpointERKN2v820FunctionCallbackInfoINS2_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i, align 8
+  store ptr @_ZN4node4quic8Endpoint14CreateEndpointERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr %add.ptr.i.i.i.i.i, align 8
   %cmp.i.i.i11.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i, label %if.then.i.i.i12.i.i.i.i.i, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i
 
@@ -6097,7 +6097,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
   br i1 %cmp.not.i.i.i.i10, label %if.else.i.i.i.i13, label %if.then.i.i.i.i11
 
 if.then.i.i.i.i11:                                ; preds = %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit
-  store i64 ptrtoint (ptr @_ZN4node4quic8Endpoint9DoConnectERKN2v820FunctionCallbackInfoINS2_5ValueEEE to i64), ptr %5, align 8
+  store ptr @_ZN4node4quic8Endpoint9DoConnectERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr %5, align 8
   %6 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i12 = getelementptr inbounds i64, ptr %6, i64 1
   store ptr %incdec.ptr.i.i.i.i12, ptr %_M_finish.i.i.i.i, align 8
@@ -6135,7 +6135,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i27: ; preds = %_ZN
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i30: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i27, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i18
   %cond.i10.i.i.i.i.i31 = phi ptr [ %call5.i.i.i.i.i.i.i.i29, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i27 ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i18 ]
   %add.ptr.i.i.i.i.i32 = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i31, i64 %sub.ptr.div.i.i.i.i.i.i.i19
-  store i64 ptrtoint (ptr @_ZN4node4quic8Endpoint9DoConnectERKN2v820FunctionCallbackInfoINS2_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i32, align 8
+  store ptr @_ZN4node4quic8Endpoint9DoConnectERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr %add.ptr.i.i.i.i.i32, align 8
   %cmp.i.i.i11.i.i.i.i.i33 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i19, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i33, label %if.then.i.i.i12.i.i.i.i.i40, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i34
 
@@ -6166,7 +6166,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
   br i1 %cmp.not.i.i.i.i46, label %if.else.i.i.i.i49, label %if.then.i.i.i.i47
 
 if.then.i.i.i.i47:                                ; preds = %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit42
-  store i64 ptrtoint (ptr @_ZN4node4quic8Endpoint8DoListenERKN2v820FunctionCallbackInfoINS2_5ValueEEE to i64), ptr %9, align 8
+  store ptr @_ZN4node4quic8Endpoint8DoListenERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr %9, align 8
   %10 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i48 = getelementptr inbounds i64, ptr %10, i64 1
   store ptr %incdec.ptr.i.i.i.i48, ptr %_M_finish.i.i.i.i, align 8
@@ -6204,7 +6204,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i63: ; preds = %_ZN
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i66: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i63, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i54
   %cond.i10.i.i.i.i.i67 = phi ptr [ %call5.i.i.i.i.i.i.i.i65, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i63 ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i54 ]
   %add.ptr.i.i.i.i.i68 = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i67, i64 %sub.ptr.div.i.i.i.i.i.i.i55
-  store i64 ptrtoint (ptr @_ZN4node4quic8Endpoint8DoListenERKN2v820FunctionCallbackInfoINS2_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i68, align 8
+  store ptr @_ZN4node4quic8Endpoint8DoListenERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr %add.ptr.i.i.i.i.i68, align 8
   %cmp.i.i.i11.i.i.i.i.i69 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i55, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i69, label %if.then.i.i.i12.i.i.i.i.i76, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i70
 
@@ -6235,7 +6235,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
   br i1 %cmp.not.i.i.i.i82, label %if.else.i.i.i.i85, label %if.then.i.i.i.i83
 
 if.then.i.i.i.i83:                                ; preds = %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit78
-  store i64 ptrtoint (ptr @_ZN4node4quic8Endpoint17DoCloseGracefullyERKN2v820FunctionCallbackInfoINS2_5ValueEEE to i64), ptr %13, align 8
+  store ptr @_ZN4node4quic8Endpoint17DoCloseGracefullyERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr %13, align 8
   %14 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i84 = getelementptr inbounds i64, ptr %14, i64 1
   store ptr %incdec.ptr.i.i.i.i84, ptr %_M_finish.i.i.i.i, align 8
@@ -6273,7 +6273,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i99: ; preds = %_ZN
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i102: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i99, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i90
   %cond.i10.i.i.i.i.i103 = phi ptr [ %call5.i.i.i.i.i.i.i.i101, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i99 ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i90 ]
   %add.ptr.i.i.i.i.i104 = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i103, i64 %sub.ptr.div.i.i.i.i.i.i.i91
-  store i64 ptrtoint (ptr @_ZN4node4quic8Endpoint17DoCloseGracefullyERKN2v820FunctionCallbackInfoINS2_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i104, align 8
+  store ptr @_ZN4node4quic8Endpoint17DoCloseGracefullyERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr %add.ptr.i.i.i.i.i104, align 8
   %cmp.i.i.i11.i.i.i.i.i105 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i91, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i105, label %if.then.i.i.i12.i.i.i.i.i112, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i106
 
@@ -6304,7 +6304,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
   br i1 %cmp.not.i.i.i.i118, label %if.else.i.i.i.i121, label %if.then.i.i.i.i119
 
 if.then.i.i.i.i119:                               ; preds = %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit114
-  store i64 ptrtoint (ptr @_ZN4node4quic8Endpoint12LocalAddressERKN2v820FunctionCallbackInfoINS2_5ValueEEE to i64), ptr %17, align 8
+  store ptr @_ZN4node4quic8Endpoint12LocalAddressERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr %17, align 8
   %18 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i120 = getelementptr inbounds i64, ptr %18, i64 1
   store ptr %incdec.ptr.i.i.i.i120, ptr %_M_finish.i.i.i.i, align 8
@@ -6342,7 +6342,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i135: ; preds = %_Z
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i138: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i135, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i126
   %cond.i10.i.i.i.i.i139 = phi ptr [ %call5.i.i.i.i.i.i.i.i137, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i135 ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i126 ]
   %add.ptr.i.i.i.i.i140 = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i139, i64 %sub.ptr.div.i.i.i.i.i.i.i127
-  store i64 ptrtoint (ptr @_ZN4node4quic8Endpoint12LocalAddressERKN2v820FunctionCallbackInfoINS2_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i140, align 8
+  store ptr @_ZN4node4quic8Endpoint12LocalAddressERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr %add.ptr.i.i.i.i.i140, align 8
   %cmp.i.i.i11.i.i.i.i.i141 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i127, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i141, label %if.then.i.i.i12.i.i.i.i.i148, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i142
 
@@ -6373,7 +6373,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
   br i1 %cmp.not.i.i.i.i154, label %if.else.i.i.i.i157, label %if.then.i.i.i.i155
 
 if.then.i.i.i.i155:                               ; preds = %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit150
-  store i64 ptrtoint (ptr @_ZN4node4quic8Endpoint3RefERKN2v820FunctionCallbackInfoINS2_5ValueEEE to i64), ptr %21, align 8
+  store ptr @_ZN4node4quic8Endpoint3RefERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr %21, align 8
   %22 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i156 = getelementptr inbounds i64, ptr %22, i64 1
   store ptr %incdec.ptr.i.i.i.i156, ptr %_M_finish.i.i.i.i, align 8
@@ -6411,7 +6411,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i171: ; preds = %_Z
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i174: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i171, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i162
   %cond.i10.i.i.i.i.i175 = phi ptr [ %call5.i.i.i.i.i.i.i.i173, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i171 ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i162 ]
   %add.ptr.i.i.i.i.i176 = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i175, i64 %sub.ptr.div.i.i.i.i.i.i.i163
-  store i64 ptrtoint (ptr @_ZN4node4quic8Endpoint3RefERKN2v820FunctionCallbackInfoINS2_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i176, align 8
+  store ptr @_ZN4node4quic8Endpoint3RefERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr %add.ptr.i.i.i.i.i176, align 8
   %cmp.i.i.i11.i.i.i.i.i177 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i163, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i177, label %if.then.i.i.i12.i.i.i.i.i184, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i178
 
@@ -6442,7 +6442,7 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
   br i1 %cmp.not.i.i.i.i190, label %if.else.i.i.i.i193, label %if.then.i.i.i.i191
 
 if.then.i.i.i.i191:                               ; preds = %_ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1_5ValueEEEE.exit186
-  store i64 ptrtoint (ptr @_ZN4node4quic8Endpoint5UnrefERKN2v820FunctionCallbackInfoINS2_5ValueEEE to i64), ptr %25, align 8
+  store ptr @_ZN4node4quic8Endpoint5UnrefERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr %25, align 8
   %26 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i192 = getelementptr inbounds i64, ptr %26, i64 1
   store ptr %incdec.ptr.i.i.i.i192, ptr %_M_finish.i.i.i.i, align 8
@@ -6479,7 +6479,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i207: ; preds = %_Z
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i210: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i207, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i198
   %cond.i10.i.i.i.i.i211 = phi ptr [ %call5.i.i.i.i.i.i.i.i209, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i207 ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i.i.i198 ]
   %add.ptr.i.i.i.i.i212 = getelementptr inbounds i64, ptr %cond.i10.i.i.i.i.i211, i64 %sub.ptr.div.i.i.i.i.i.i.i199
-  store i64 ptrtoint (ptr @_ZN4node4quic8Endpoint5UnrefERKN2v820FunctionCallbackInfoINS2_5ValueEEE to i64), ptr %add.ptr.i.i.i.i.i212, align 8
+  store ptr @_ZN4node4quic8Endpoint5UnrefERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr %add.ptr.i.i.i.i.i212, align 8
   %cmp.i.i.i11.i.i.i.i.i213 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i199, 0
   br i1 %cmp.i.i.i11.i.i.i.i.i213, label %if.then.i.i.i12.i.i.i.i.i220, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit20.i.i.i.i.i214
 
@@ -9006,14 +9006,13 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not, label %if.end7, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %6 = ptrtoint ptr %5 to i64
   %ptr_.i = getelementptr inbounds %"class.node::quic::Endpoint", ptr %this, i64 0, i32 2, i32 2
-  %7 = load ptr, ptr %ptr_.i, align 8
-  %memptr.offset.i = getelementptr inbounds i8, ptr %7, i64 72
-  %8 = load i64, ptr %memptr.offset.i, align 8
-  %add.i = add i64 %8, 1
+  %6 = load ptr, ptr %ptr_.i, align 8
+  %memptr.offset.i = getelementptr inbounds i8, ptr %6, i64 72
+  %7 = load i64, ptr %memptr.offset.i, align 8
+  %add.i = add i64 %7, 1
   store i64 %add.i, ptr %memptr.offset.i, align 8
-  store i64 %6, ptr %agg.tmp, align 8
+  store ptr %5, ptr %agg.tmp, align 8
   store ptr null, ptr %packet, align 8
   call void @_ZN4node4quic8Endpoint4SendENS_17BaseObjectPtrImplINS0_6PacketELb0EEE(ptr noundef nonnull align 8 dereferenceable(1520) %this, ptr noundef nonnull %agg.tmp)
   call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
@@ -9175,14 +9174,13 @@ entry:
   br i1 %cmp.i.not, label %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit3, label %if.end
 
 if.end:                                           ; preds = %entry
-  %3 = ptrtoint ptr %2 to i64
   %ptr_.i = getelementptr inbounds %"class.node::quic::Endpoint", ptr %this, i64 0, i32 2, i32 2
-  %4 = load ptr, ptr %ptr_.i, align 8
-  %memptr.offset.i = getelementptr inbounds i8, ptr %4, i64 80
-  %5 = load i64, ptr %memptr.offset.i, align 8
-  %add.i = add i64 %5, 1
+  %3 = load ptr, ptr %ptr_.i, align 8
+  %memptr.offset.i = getelementptr inbounds i8, ptr %3, i64 80
+  %4 = load i64, ptr %memptr.offset.i, align 8
+  %add.i = add i64 %4, 1
   store i64 %add.i, ptr %memptr.offset.i, align 8
-  store i64 %3, ptr %agg.tmp, align 8
+  store ptr %2, ptr %agg.tmp, align 8
   store ptr null, ptr %packet, align 8
   call void @_ZN4node4quic8Endpoint4SendENS_17BaseObjectPtrImplINS0_6PacketELb0EEE(ptr noundef nonnull align 8 dereferenceable(1520) %this, ptr noundef nonnull %agg.tmp)
   call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
@@ -9303,14 +9301,13 @@ entry:
   br i1 %cmp.i.not, label %_ZN4node17BaseObjectPtrImplINS_4quic6PacketELb0EED2Ev.exit3, label %if.end
 
 if.end:                                           ; preds = %entry
-  %3 = ptrtoint ptr %2 to i64
   %ptr_.i = getelementptr inbounds %"class.node::quic::Endpoint", ptr %this, i64 0, i32 2, i32 2
-  %4 = load ptr, ptr %ptr_.i, align 8
-  %memptr.offset.i = getelementptr inbounds i8, ptr %4, i64 96
-  %5 = load i64, ptr %memptr.offset.i, align 8
-  %add.i = add i64 %5, 1
+  %3 = load ptr, ptr %ptr_.i, align 8
+  %memptr.offset.i = getelementptr inbounds i8, ptr %3, i64 96
+  %4 = load i64, ptr %memptr.offset.i, align 8
+  %add.i = add i64 %4, 1
   store i64 %add.i, ptr %memptr.offset.i, align 8
-  store i64 %3, ptr %agg.tmp, align 8
+  store ptr %2, ptr %agg.tmp, align 8
   store ptr null, ptr %packet, align 8
   call void @_ZN4node4quic8Endpoint4SendENS_17BaseObjectPtrImplINS0_6PacketELb0EEE(ptr noundef nonnull align 8 dereferenceable(1520) %this, ptr noundef nonnull %agg.tmp)
   call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #21

@@ -367,29 +367,28 @@ for.cond.outer:                                   ; preds = %for.cond.outer.back
 
 if.end5.lr.ph:                                    ; preds = %for.cond.outer
   %and6 = and i64 %v.0.ph, -2
-  %2 = inttoptr i64 %and6 to ptr
-  store ptr %2, ptr %waiter, align 8
-  %3 = cmpxchg ptr %m, i64 %v.0.ph, i64 %or7 seq_cst seq_cst, align 8
-  %4 = extractvalue { i64, i1 } %3, 1
-  br i1 %4, label %if.end12, label %for.cond.outer.backedge
+  store i64 %and6, ptr %waiter, align 8
+  %2 = cmpxchg ptr %m, i64 %v.0.ph, i64 %or7 seq_cst seq_cst, align 8
+  %3 = extractvalue { i64, i1 } %2, 1
+  br i1 %3, label %if.end12, label %for.cond.outer.backedge
 
 if.then:                                          ; preds = %for.cond.outer
   %or = or disjoint i64 %v.0.ph, 1
-  %5 = cmpxchg ptr %m, i64 %v.0.ph, i64 %or seq_cst seq_cst, align 8
-  %6 = extractvalue { i64, i1 } %5, 1
-  br i1 %6, label %for.end, label %for.cond.outer.backedge
+  %4 = cmpxchg ptr %m, i64 %v.0.ph, i64 %or seq_cst seq_cst, align 8
+  %5 = extractvalue { i64, i1 } %4, 1
+  br i1 %5, label %for.end, label %for.cond.outer.backedge
 
 for.cond.outer.backedge:                          ; preds = %if.end12, %if.end5.lr.ph, %if.then
-  %.lcssa.pn = phi { i64, i1 } [ %5, %if.then ], [ %3, %if.end5.lr.ph ], [ %7, %if.end12 ]
+  %.lcssa.pn = phi { i64, i1 } [ %4, %if.then ], [ %2, %if.end5.lr.ph ], [ %6, %if.end12 ]
   %v.0.ph.be = extractvalue { i64, i1 } %.lcssa.pn, 0
   br label %for.cond.outer
 
 if.end12:                                         ; preds = %if.end5.lr.ph, %if.end12
   %call14 = call i32 @_PySemaphore_Wait(ptr noundef nonnull %sema, i64 noundef -1, i32 noundef 0) #5
-  store ptr %2, ptr %waiter, align 8
-  %7 = cmpxchg ptr %m, i64 %v.0.ph, i64 %or7 seq_cst seq_cst, align 8
-  %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %if.end12, label %for.cond.outer.backedge
+  store i64 %and6, ptr %waiter, align 8
+  %6 = cmpxchg ptr %m, i64 %v.0.ph, i64 %or7 seq_cst seq_cst, align 8
+  %7 = extractvalue { i64, i1 } %6, 1
+  br i1 %7, label %if.end12, label %for.cond.outer.backedge
 
 for.end:                                          ; preds = %if.then
   call void @_PySemaphore_Destroy(ptr noundef nonnull %sema) #5

@@ -91,15 +91,14 @@ if.end:                                           ; preds = %entry
   %sub5.i = sub i64 %and.i, %1
   %2 = inttoptr i64 %and.i to ptr
   %add12.i = add i64 %and.i, 3968
-  %3 = inttoptr i64 %add12.i to ptr
-  %4 = getelementptr %struct.base_block_s, ptr %call, i64 0, i32 2, i32 2
-  %edata.val.i = load i64, ptr %4, align 8
+  %3 = getelementptr %struct.base_block_s, ptr %call, i64 0, i32 2, i32 2
+  %edata.val.i = load i64, ptr %3, align 8
   %.neg = add i64 %edata.val.i, -3968
   %sub15.i = sub i64 %.neg, %sub5.i
-  %5 = load i64, ptr %edata, align 8
-  store ptr %3, ptr %0, align 8
-  store i64 %sub15.i, ptr %4, align 8
-  %or.i12.i.i = and i64 %5, -268435456
+  %4 = load i64, ptr %edata, align 8
+  store i64 %add12.i, ptr %0, align 8
+  store i64 %sub15.i, ptr %3, align 8
+  %or.i12.i.i = and i64 %4, -268435456
   %or.i16.i.i = or disjoint i64 %or.i12.i.i, 246460415
   store i64 %or.i16.i.i, ptr %edata, align 8
   call void @ehooks_init(ptr noundef %2, ptr noundef %extent_hooks, i32 noundef %ind) #9
@@ -110,17 +109,17 @@ if.end:                                           ; preds = %entry
   br i1 %call8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end
-  %6 = load i64, ptr %call, align 8
-  call fastcc void @base_unmap(ptr noundef %tsdn, ptr noundef nonnull %fake_ehooks, ptr noundef nonnull %call, i64 noundef %6)
+  %5 = load i64, ptr %call, align 8
+  call fastcc void @base_unmap(ptr noundef %tsdn, ptr noundef nonnull %fake_ehooks, ptr noundef nonnull %call, i64 noundef %5)
   br label %return
 
 if.end10:                                         ; preds = %if.end
-  %7 = load i32, ptr %pind_last, align 4
+  %6 = load i32, ptr %pind_last, align 4
   %pind_last11 = getelementptr inbounds %struct.base_s, ptr %2, i64 0, i32 4
-  store i32 %7, ptr %pind_last11, align 4
-  %8 = load i64, ptr %extent_sn_next, align 8
+  store i32 %6, ptr %pind_last11, align 4
+  %7 = load i64, ptr %extent_sn_next, align 8
   %extent_sn_next12 = getelementptr inbounds %struct.base_s, ptr %2, i64 0, i32 5
-  store i64 %8, ptr %extent_sn_next12, align 8
+  store i64 %7, ptr %extent_sn_next12, align 8
   %blocks = getelementptr inbounds %struct.base_s, ptr %2, i64 0, i32 6
   store ptr %call, ptr %blocks, align 32
   %auto_thp_switched = getelementptr inbounds %struct.base_s, ptr %2, i64 0, i32 3
@@ -140,13 +139,13 @@ for.end:                                          ; preds = %for.body
   store i64 144, ptr %allocated, align 8
   %resident = getelementptr inbounds %struct.base_s, ptr %2, i64 0, i32 9
   store i64 4096, ptr %resident, align 32
-  %9 = load i64, ptr %call, align 8
+  %8 = load i64, ptr %call, align 8
   %mapped = getelementptr inbounds %struct.base_s, ptr %2, i64 0, i32 10
-  store i64 %9, ptr %mapped, align 8
-  %10 = load i32, ptr @opt_metadata_thp, align 4
-  %cmp16 = icmp eq i32 %10, 2
-  %11 = load i32, ptr @init_system_thp_mode, align 4
-  %cmp.i = icmp eq i32 %11, 0
+  store i64 %8, ptr %mapped, align 8
+  %9 = load i32, ptr @opt_metadata_thp, align 4
+  %cmp16 = icmp eq i32 %9, 2
+  %10 = load i32, ptr @init_system_thp_mode, align 4
+  %cmp.i = icmp eq i32 %10, 0
   %narrow = select i1 %cmp16, i1 %cmp.i, i1 false
   %cond20 = zext i1 %narrow to i64
   %n_thp = getelementptr inbounds %struct.base_s, ptr %2, i64 0, i32 11
@@ -490,19 +489,18 @@ sz_psz2ind.exit:                                  ; preds = %if.end41, %if.end.i
   %edata = getelementptr inbounds %struct.base_block_s, ptr %addr.0.i73, i64 0, i32 2
   %38 = ptrtoint ptr %addr.0.i73 to i64
   %add46 = add i64 %38, 144
-  %39 = inttoptr i64 %add46 to ptr
   %sub47 = add i64 %cond24, -144
-  %40 = load i64, ptr %extent_sn_next, align 8
-  %inc.i = add i64 %40, 1
+  %39 = load i64, ptr %extent_sn_next, align 8
+  %inc.i = add i64 %39, 1
   store i64 %inc.i, ptr %extent_sn_next, align 8
-  %41 = load i64, ptr %edata, align 8
+  %40 = load i64, ptr %edata, align 8
   %e_addr.i.i.i = getelementptr inbounds %struct.base_block_s, ptr %addr.0.i73, i64 0, i32 2, i32 1
-  store ptr %39, ptr %e_addr.i.i.i, align 8
-  %42 = getelementptr inbounds %struct.base_block_s, ptr %addr.0.i73, i64 0, i32 2, i32 2
-  store i64 %sub47, ptr %42, align 8
+  store i64 %add46, ptr %e_addr.i.i.i, align 8
+  %41 = getelementptr inbounds %struct.base_block_s, ptr %addr.0.i73, i64 0, i32 2, i32 2
+  store i64 %sub47, ptr %41, align 8
   %e_sn.i.i.i = getelementptr inbounds %struct.base_block_s, ptr %addr.0.i73, i64 0, i32 2, i32 4
-  store i64 %40, ptr %e_sn.i.i.i, align 8
-  %or.i12.i.i = and i64 %41, -268435456
+  store i64 %39, ptr %e_sn.i.i.i, align 8
+  %or.i12.i.i = and i64 %40, -268435456
   %or.i16.i.i = or disjoint i64 %or.i12.i.i, 246460415
   store i64 %or.i16.i.i, ptr %edata, align 8
   br label %return
@@ -1216,15 +1214,14 @@ if.end18:                                         ; preds = %for.body, %do.end20
   %sub5.i.i = sub i64 %and.i.i, %23
   %24 = inttoptr i64 %and.i.i to ptr
   %add12.i.i = add i64 %and.i.i, %and3
-  %25 = inttoptr i64 %add12.i.i to ptr
-  %26 = getelementptr i8, ptr %edata.2.ph, i64 16
-  %edata.val.i.i = load i64, ptr %26, align 8
-  %27 = add i64 %and3, %sub5.i.i
-  %sub15.i.i = sub i64 %edata.val.i.i, %27
-  %28 = load i64, ptr %edata.2.ph, align 8
-  store ptr %25, ptr %22, align 8
-  store i64 %sub15.i.i, ptr %26, align 8
-  %or.i12.i.i.i = and i64 %28, -268435456
+  %25 = getelementptr i8, ptr %edata.2.ph, i64 16
+  %edata.val.i.i = load i64, ptr %25, align 8
+  %26 = add i64 %and3, %sub5.i.i
+  %sub15.i.i = sub i64 %edata.val.i.i, %26
+  %27 = load i64, ptr %edata.2.ph, align 8
+  store i64 %add12.i.i, ptr %22, align 8
+  store i64 %sub15.i.i, ptr %25, align 8
+  %or.i12.i.i.i = and i64 %27, -268435456
   %or.i16.i.i.i = or disjoint i64 %or.i12.i.i.i, 246460415
   store i64 %or.i16.i.i.i, ptr %edata.2.ph, align 8
   tail call fastcc void @base_extent_bump_alloc_post(ptr noundef %base, ptr noundef nonnull %edata.2.ph, i64 noundef %sub5.i.i, ptr noundef %24, i64 noundef %and3)
@@ -1232,8 +1229,8 @@ if.end18:                                         ; preds = %for.body, %do.end20
   br i1 %cmp20.not, label %label_return, label %if.then22
 
 if.then22:                                        ; preds = %if.end18
-  %29 = getelementptr i8, ptr %edata.2.ph, i64 32
-  %edata.2.val = load i64, ptr %29, align 8
+  %28 = getelementptr i8, ptr %edata.2.ph, i64 32
+  %edata.2.val = load i64, ptr %28, align 8
   store i64 %edata.2.val, ptr %esn, align 8
   br label %label_return
 

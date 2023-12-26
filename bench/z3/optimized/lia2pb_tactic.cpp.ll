@@ -410,8 +410,7 @@ entry:
 invoke.cont5:                                     ; preds = %entry
   %m_new_deps = getelementptr inbounds %"struct.lia2pb_tactic::imp", ptr %this, i64 0, i32 3
   %1 = load ptr, ptr %this, align 8
-  %2 = ptrtoint ptr %1 to i64
-  store i64 %2, ptr %m_new_deps, align 8
+  store ptr %1, ptr %m_new_deps, align 8
   %m_nodes.i.i = getelementptr inbounds %"struct.lia2pb_tactic::imp", ptr %this, i64 0, i32 3, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i, align 8
   %m_rw = getelementptr inbounds %"struct.lia2pb_tactic::imp", ptr %this, i64 0, i32 4
@@ -445,28 +444,28 @@ invoke.cont10:                                    ; preds = %call2.i.i.noexc
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup11
 
 lpad7:                                            ; preds = %invoke.cont5
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad9:                                            ; preds = %call2.i.i.noexc, %call.i.i.noexc, %.noexc, %invoke.cont8
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN11th_rewriterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_rw) #16
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad9, %lpad7
-  %.pn = phi { ptr, i32 } [ %5, %lpad9 ], [ %4, %lpad7 ]
+  %.pn = phi { ptr, i32 } [ %4, %lpad9 ], [ %3, %lpad7 ]
   tail call void @_ZN10ref_vectorIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_new_deps) #16
   br label %ehcleanup11
 
 ehcleanup11:                                      ; preds = %ehcleanup, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %3, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %2, %lpad ]
   tail call void @_ZN13bound_managerD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %m_bm) #16
   resume { ptr, i32 } %.pn.pn
 }

@@ -1435,8 +1435,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.then:                                          ; preds = %for.body
   %add.ptr.i = getelementptr inbounds %"struct.rocksdb::Entry", ptr %7, i64 %conv
   %8 = atomicrmw xchg ptr %add.ptr.i, i64 %5 acquire, align 8
-  %atomic-temp.i.0.i = inttoptr i64 %8 to ptr
-  store ptr %atomic-temp.i.0.i, ptr %ptr, align 8
+  store i64 %8, ptr %ptr, align 8
   %cmp10.not = icmp eq i64 %8, 0
   br i1 %cmp10.not, label %for.inc, label %if.then11
 
@@ -1658,10 +1657,9 @@ if.then:                                          ; preds = %for.body
   br i1 %cmp10.not, label %for.inc, label %if.then11
 
 if.then11:                                        ; preds = %if.then
-  %atomic-temp.i.0.i = inttoptr i64 %7 to ptr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i)
-  store ptr %atomic-temp.i.0.i, ptr %__args.addr.i, align 8
+  store i64 %7, ptr %__args.addr.i, align 8
   store ptr %res, ptr %__args.addr2.i, align 8
   %8 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i6 = icmp eq ptr %8, null
@@ -3048,8 +3046,7 @@ for.inc.i.i.i.i.i:                                ; preds = %invoke.cont, %for.i
   %__cur.09.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %cond.i26, %invoke.cont ]
   %__first.addr.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %1, %invoke.cont ]
   %5 = load atomic i64, ptr %__first.addr.08.i.i.i.i.i monotonic, align 8
-  %atomic-temp.i.0.i.i.i.i.i.i.i.i = inttoptr i64 %5 to ptr
-  store ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i, ptr %__cur.09.i.i.i.i.i, align 8
+  store i64 %5, ptr %__cur.09.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Entry", ptr %__first.addr.08.i.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::Entry", ptr %__cur.09.i.i.i.i.i, i64 1
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0

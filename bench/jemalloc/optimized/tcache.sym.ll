@@ -3382,7 +3382,7 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
   br i1 %cmp.i, label %tcaches_elm_remove.exit.thread, label %if.end.i5
 
 if.end.i5:                                        ; preds = %malloc_mutex_lock.exit
-  store ptr inttoptr (i64 1 to ptr), ptr %arrayidx, align 8
+  store i64 1, ptr %arrayidx, align 8
   %cmp3.i = icmp eq ptr %4, inttoptr (i64 1 to ptr)
   br i1 %cmp3.i, label %tcaches_elm_remove.exit.thread, label %tcaches_elm_remove.exit
 
@@ -3854,8 +3854,8 @@ for.body8.i:                                      ; preds = %for.cond6.i.prehead
   %shl.i100.i = shl i64 %14, 16
   %shr10.i.i = ashr exact i64 %shl.i100.i, 16
   %and11.i.i = and i64 %shr10.i.i, -128
+  store i64 %and11.i.i, ptr %arrayidx9.i, align 8
   %15 = inttoptr i64 %and11.i.i to ptr
-  store ptr %15, ptr %arrayidx9.i, align 8
   tail call void @llvm.prefetch.p0(ptr %15, i32 1, i32 3, i32 1)
   %add.ptr.i.i.c = getelementptr inbounds i8, ptr %15, i64 64
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr.i.i.c, i32 1, i32 3, i32 1)
@@ -4001,8 +4001,7 @@ monotonic.i:                                      ; preds = %if.then.i, %if.then
   %shl.i74 = shl i64 %10, 16
   %shr10.i = ashr exact i64 %shl.i74, 16
   %and11.i = and i64 %shr10.i, -128
-  %15 = inttoptr i64 %and11.i to ptr
-  store ptr %15, ptr %agg.result, align 8, !alias.scope !30
+  store i64 %and11.i, ptr %agg.result, align 8, !alias.scope !30
   ret void
 }
 

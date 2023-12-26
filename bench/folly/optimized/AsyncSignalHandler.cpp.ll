@@ -327,8 +327,7 @@ invoke.cont:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   store i32 %signum, ptr %ref.tmp, align 8, !tbaa !52, !alias.scope !49
   %second.i.i = getelementptr inbounds %"struct.std::pair.12", ptr %ref.tmp, i64 0, i32 1
-  %.cast = ptrtoint ptr %call.i to i64
-  store i64 %.cast, ptr %second.i.i, align 8, !tbaa !28, !alias.scope !49
+  store ptr %call.i, ptr %second.i.i, align 8, !tbaa !28, !alias.scope !49
   store ptr null, ptr %ref.tmp2, align 8, !tbaa !28, !noalias !49
   %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.folly::AsyncSignalHandler", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !24

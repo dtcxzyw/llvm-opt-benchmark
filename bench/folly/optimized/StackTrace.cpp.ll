@@ -294,18 +294,17 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   %2 = tail call ptr @llvm.returnaddress(i32 0)
-  %3 = ptrtoint ptr %2 to i64
-  store i64 %3, ptr %addresses, align 8, !tbaa !7
+  store ptr %2, ptr %addresses, align 8, !tbaa !7
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %if.end
   %numFrames.0 = phi i64 [ 1, %if.then3 ], [ 0, %if.end ]
-  %4 = load atomic i64, ptr %call monotonic, align 8
+  %3 = load atomic i64, ptr %call monotonic, align 8
   %cmp643 = icmp ult i64 %numFrames.0, %maxAddresses
   br i1 %cmp643, label %land.rhs.preheader, label %cleanup
 
 land.rhs.preheader:                               ; preds = %if.end4
-  %atomic-temp.0.i.i.i = inttoptr i64 %4 to ptr
+  %atomic-temp.0.i.i.i = inttoptr i64 %3 to ptr
   br label %land.rhs
 
 land.rhs:                                         ; preds = %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit, %land.rhs.preheader
@@ -315,35 +314,34 @@ land.rhs:                                         ; preds = %_ZN5folly10symboliz
   %numFrames.144 = phi i64 [ %add13, %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit ], [ %numFrames.0, %land.rhs.preheader ]
   %cmp7 = icmp ne ptr %normalStackFrame.045, null
   %cmp8 = icmp ne ptr %asyncStackFrame.047, null
-  %5 = select i1 %cmp7, i1 true, i1 %cmp8
-  br i1 %5, label %while.body, label %cleanup
+  %4 = select i1 %cmp7, i1 true, i1 %cmp8
+  br i1 %4, label %while.body, label %cleanup
 
 while.body:                                       ; preds = %land.rhs
   %add.ptr = getelementptr inbounds i64, ptr %addresses, i64 %numFrames.144
   %sub = sub i64 %maxAddresses, %numFrames.144
   %cmp27.i = icmp ne i64 %sub, 0
-  %6 = and i1 %cmp7, %cmp27.i
-  br i1 %6, label %while.body.i, label %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit
+  %5 = and i1 %cmp7, %cmp27.i
+  br i1 %5, label %while.body.i, label %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit
 
 while.body.i:                                     ; preds = %while.body, %cleanup.i
-  %normalStackFrame.addr.030.i = phi ptr [ %7, %cleanup.i ], [ %normalStackFrame.045, %while.body ]
+  %normalStackFrame.addr.030.i = phi ptr [ %6, %cleanup.i ], [ %normalStackFrame.045, %while.body ]
   %numFrames.029.i = phi i64 [ %inc.i, %cleanup.i ], [ 0, %while.body ]
-  %7 = load ptr, ptr %normalStackFrame.addr.030.i, align 8, !tbaa !22
-  %cmp2.i = icmp ule ptr %7, %normalStackFrame.addr.030.i
+  %6 = load ptr, ptr %normalStackFrame.addr.030.i, align 8, !tbaa !22
+  %cmp2.i = icmp ule ptr %6, %normalStackFrame.addr.030.i
   %add.ptr.i = getelementptr inbounds %"struct.folly::symbolizer::(anonymous namespace)::StackFrame", ptr %normalStackFrame.addr.030.i, i64 68719476736
-  %cmp3.i = icmp uge ptr %7, %add.ptr.i
+  %cmp3.i = icmp uge ptr %6, %add.ptr.i
   %or.cond.not26.i = select i1 %cmp2.i, i1 true, i1 %cmp3.i
-  %cmp6.i = icmp eq ptr %7, %normalStackFrameStop.046
+  %cmp6.i = icmp eq ptr %6, %normalStackFrameStop.046
   %or.cond25.i = or i1 %cmp6.i, %or.cond.not26.i
   br i1 %or.cond25.i, label %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit, label %cleanup.i
 
 cleanup.i:                                        ; preds = %while.body.i
   %returnAddress.i = getelementptr inbounds %"struct.folly::symbolizer::(anonymous namespace)::StackFrame", ptr %normalStackFrame.addr.030.i, i64 0, i32 1
-  %8 = load ptr, ptr %returnAddress.i, align 8, !tbaa !24
-  %9 = ptrtoint ptr %8 to i64
+  %7 = load ptr, ptr %returnAddress.i, align 8, !tbaa !24
   %inc.i = add nuw i64 %numFrames.029.i, 1
   %arrayidx.i = getelementptr inbounds i64, ptr %add.ptr, i64 %numFrames.029.i
-  store i64 %9, ptr %arrayidx.i, align 8, !tbaa !7
+  store ptr %7, ptr %arrayidx.i, align 8, !tbaa !7
   %exitcond.not.i = icmp eq i64 %inc.i, %sub
   br i1 %exitcond.not.i, label %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit, label %while.body.i
 
@@ -353,46 +351,45 @@ _ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.ex
   %add.ptr10 = getelementptr inbounds i64, ptr %addresses, i64 %add
   %sub11 = sub i64 %maxAddresses, %add
   %cmp42.i = icmp ne i64 %add, %maxAddresses
-  %10 = and i1 %cmp8, %cmp42.i
-  br i1 %10, label %while.body.i37, label %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit
+  %8 = and i1 %cmp8, %cmp42.i
+  br i1 %8, label %while.body.i37, label %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit
 
 while.body.i37:                                   ; preds = %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit, %cleanup23.i
-  %11 = phi i64 [ %inc.i38, %cleanup23.i ], [ 0, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ]
-  %asyncStackFrame.addr.044.i = phi ptr [ %14, %cleanup23.i ], [ %asyncStackFrame.047, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ]
+  %9 = phi i64 [ %inc.i38, %cleanup23.i ], [ 0, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ]
+  %asyncStackFrame.addr.044.i = phi ptr [ %11, %cleanup23.i ], [ %asyncStackFrame.047, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ]
   %instructionPointer.i.i = getelementptr inbounds %"struct.folly::AsyncStackFrame", ptr %asyncStackFrame.addr.044.i, i64 0, i32 1
-  %12 = load ptr, ptr %instructionPointer.i.i, align 8, !tbaa !25, !noalias !27
-  %13 = ptrtoint ptr %12 to i64
-  %inc.i38 = add nuw i64 %11, 1
-  %arrayidx.i39 = getelementptr inbounds i64, ptr %add.ptr10, i64 %11
-  store i64 %13, ptr %arrayidx.i39, align 8, !tbaa !7, !noalias !27
-  %14 = load ptr, ptr %asyncStackFrame.addr.044.i, align 8, !tbaa !30, !noalias !27
-  %cmp4.i = icmp eq ptr %14, null
+  %10 = load ptr, ptr %instructionPointer.i.i, align 8, !tbaa !25, !noalias !27
+  %inc.i38 = add nuw i64 %9, 1
+  %arrayidx.i39 = getelementptr inbounds i64, ptr %add.ptr10, i64 %9
+  store ptr %10, ptr %arrayidx.i39, align 8, !tbaa !7, !noalias !27
+  %11 = load ptr, ptr %asyncStackFrame.addr.044.i, align 8, !tbaa !30, !noalias !27
+  %cmp4.i = icmp eq ptr %11, null
   br i1 %cmp4.i, label %if.then.i, label %cleanup23.i
 
 if.then.i:                                        ; preds = %while.body.i37
   %stackRoot.i.i = getelementptr inbounds %"struct.folly::AsyncStackFrame", ptr %asyncStackFrame.addr.044.i, i64 0, i32 2
-  %15 = load ptr, ptr %stackRoot.i.i, align 8, !tbaa !31, !noalias !27
-  %cmp6.i40 = icmp eq ptr %15, null
+  %12 = load ptr, ptr %stackRoot.i.i, align 8, !tbaa !31, !noalias !27
+  %cmp6.i40 = icmp eq ptr %12, null
   br i1 %cmp6.i40, label %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %stackFramePtr.i.i = getelementptr inbounds %"struct.folly::AsyncStackRoot", ptr %15, i64 0, i32 2
-  %16 = load ptr, ptr %stackFramePtr.i.i, align 8, !tbaa !17, !noalias !27
-  %cmp10.i = icmp eq ptr %16, null
+  %stackFramePtr.i.i = getelementptr inbounds %"struct.folly::AsyncStackRoot", ptr %12, i64 0, i32 2
+  %13 = load ptr, ptr %stackFramePtr.i.i, align 8, !tbaa !17, !noalias !27
+  %cmp10.i = icmp eq ptr %13, null
   br i1 %cmp10.i, label %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
-  %17 = load ptr, ptr %16, align 8, !tbaa !22, !noalias !27
-  %nextRoot.i.i = getelementptr inbounds %"struct.folly::AsyncStackRoot", ptr %15, i64 0, i32 1
-  %18 = load ptr, ptr %nextRoot.i.i, align 8, !tbaa !32, !noalias !27
-  %cmp16.not.i = icmp eq ptr %18, null
+  %14 = load ptr, ptr %13, align 8, !tbaa !22, !noalias !27
+  %nextRoot.i.i = getelementptr inbounds %"struct.folly::AsyncStackRoot", ptr %12, i64 0, i32 1
+  %15 = load ptr, ptr %nextRoot.i.i, align 8, !tbaa !32, !noalias !27
+  %cmp16.not.i = icmp eq ptr %15, null
   br i1 %cmp16.not.i, label %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit, label %if.then17.i
 
 if.then17.i:                                      ; preds = %if.end12.i
-  %stackFramePtr.i36.i = getelementptr inbounds %"struct.folly::AsyncStackRoot", ptr %18, i64 0, i32 2
-  %19 = load ptr, ptr %stackFramePtr.i36.i, align 8, !tbaa !17, !noalias !27
-  %20 = load atomic i64, ptr %18 monotonic, align 8, !noalias !27
-  %atomic-temp.0.i.i.i.i = inttoptr i64 %20 to ptr
+  %stackFramePtr.i36.i = getelementptr inbounds %"struct.folly::AsyncStackRoot", ptr %15, i64 0, i32 2
+  %16 = load ptr, ptr %stackFramePtr.i36.i, align 8, !tbaa !17, !noalias !27
+  %17 = load atomic i64, ptr %15 monotonic, align 8, !noalias !27
+  %atomic-temp.0.i.i.i.i = inttoptr i64 %17 to ptr
   br label %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit
 
 cleanup23.i:                                      ; preds = %while.body.i37
@@ -401,8 +398,8 @@ cleanup23.i:                                      ; preds = %while.body.i37
 
 _ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit: ; preds = %cleanup23.i, %if.then17.i, %if.end12.i, %if.end.i, %if.then.i, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit
   %walkAsyncStackResult.sroa.0.1 = phi i64 [ %inc.i38, %if.then.i ], [ %inc.i38, %if.end.i ], [ %inc.i38, %if.end12.i ], [ %inc.i38, %if.then17.i ], [ 0, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ %sub11, %cleanup23.i ]
-  %walkAsyncStackResult.sroa.6.1 = phi ptr [ null, %if.then.i ], [ null, %if.end.i ], [ %17, %if.end12.i ], [ %17, %if.then17.i ], [ null, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ null, %cleanup23.i ]
-  %walkAsyncStackResult.sroa.9.1 = phi ptr [ null, %if.then.i ], [ null, %if.end.i ], [ null, %if.end12.i ], [ %19, %if.then17.i ], [ null, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ null, %cleanup23.i ]
+  %walkAsyncStackResult.sroa.6.1 = phi ptr [ null, %if.then.i ], [ null, %if.end.i ], [ %14, %if.end12.i ], [ %14, %if.then17.i ], [ null, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ null, %cleanup23.i ]
+  %walkAsyncStackResult.sroa.9.1 = phi ptr [ null, %if.then.i ], [ null, %if.end.i ], [ null, %if.end12.i ], [ %16, %if.then17.i ], [ null, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ null, %cleanup23.i ]
   %walkAsyncStackResult.sroa.11.1 = phi ptr [ null, %if.then.i ], [ null, %if.end.i ], [ null, %if.end12.i ], [ %atomic-temp.0.i.i.i.i, %if.then17.i ], [ null, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ], [ null, %cleanup23.i ]
   %add13 = add i64 %walkAsyncStackResult.sroa.0.1, %add
   %cmp6 = icmp ult i64 %add13, %maxAddresses

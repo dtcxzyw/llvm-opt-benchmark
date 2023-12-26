@@ -170,27 +170,24 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %call2.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena8AllocateEm(ptr noundef nonnull align 8 dereferenceable(144) %arena, i64 noundef 32)
-  %_internal_metadata_.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call2.i.i, i64 0, i32 1
-  %0 = ptrtoint ptr %arena to i64
-  store i64 %0, ptr %_internal_metadata_.i.i.i, align 8
   br label %_ZN6google8protobuf5Arena16DefaultConstructINS0_8internal19ImplicitWeakMessageEEEPvPS1_.exit
 
 cond.false.i:                                     ; preds = %entry
   %call1.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12
-  %_internal_metadata_.i.i3.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call1.i, i64 0, i32 1
-  store i64 0, ptr %_internal_metadata_.i.i3.i, align 8
   br label %_ZN6google8protobuf5Arena16DefaultConstructINS0_8internal19ImplicitWeakMessageEEEPvPS1_.exit
 
 _ZN6google8protobuf5Arena16DefaultConstructINS0_8internal19ImplicitWeakMessageEEEPvPS1_.exit: ; preds = %cond.true.i, %cond.false.i
-  %call1.sink.i = phi ptr [ %call1.i, %cond.false.i ], [ %call2.i.i, %cond.true.i ]
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 0, inrange i32 0, i64 2), ptr %call1.sink.i, align 8
+  %call1.sink9.i = phi ptr [ %call1.i, %cond.false.i ], [ %call2.i.i, %cond.true.i ]
+  %_internal_metadata_.i.i3.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call1.sink9.i, i64 0, i32 1
+  store ptr %arena, ptr %_internal_metadata_.i.i3.i, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 0, inrange i32 0, i64 2), ptr %call1.sink9.i, align 8
   %call.i4.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13
-  %data_.i5.i = getelementptr inbounds %"class.google::protobuf::internal::ImplicitWeakMessage", ptr %call1.sink.i, i64 0, i32 1
+  %data_.i5.i = getelementptr inbounds %"class.google::protobuf::internal::ImplicitWeakMessage", ptr %call1.sink9.i, i64 0, i32 1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call.i4.i) #10
   store ptr %call.i4.i, ptr %data_.i5.i, align 8
-  %cached_size_.i6.i = getelementptr inbounds %"class.google::protobuf::internal::ImplicitWeakMessage", ptr %call1.sink.i, i64 0, i32 2
+  %cached_size_.i6.i = getelementptr inbounds %"class.google::protobuf::internal::ImplicitWeakMessage", ptr %call1.sink9.i, i64 0, i32 2
   store i32 0, ptr %cached_size_.i6.i, align 4
-  ret ptr %call1.sink.i
+  ret ptr %call1.sink9.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -13164,7 +13164,7 @@ _ZN4entt11meta_handleC2EOS0_.exit:                ; preds = %if.then.i.i.i, %ent
   store ptr @_ZN4entt8meta_any12basic_vtableIvEENSt9enable_ifIXsr3stdE9is_same_vINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeES5_EEvE4typeENS_8internal11meta_traitsEbPKvPv, ptr %vtable6.i.i, align 8, !tbaa !48
   store ptr %7, ptr %vtable.i.i, align 8, !tbaa !285
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #22
-  store i64 ptrtoint (ptr @_ZN4entt14basic_registryINS_6entityESaIS1_EE7storageIiEERNS_11storage_forIT_S1_SaINSt12remove_constIS6_E4typeEEE4typeEj to i64), ptr %ref.tmp, align 8, !tbaa !35
+  store ptr @_ZN4entt14basic_registryINS_6entityESaIS1_EE7storageIiEERNS_11storage_forIT_S1_SaINSt12remove_constIS6_E4typeEEE4typeEj, ptr %ref.tmp, align 8, !tbaa !35
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !35
   invoke void @_ZN4entt8internal11meta_invokeIiNS_8as_ref_tEMNS_14basic_registryINS_6entityESaIS4_EEEFR10meta_mixinINS_13basic_storageIiS4_SaIiEvEEEjEJLm0ELm1EEEENS_8meta_anyERKNS_8meta_ctxENS_11meta_handleEOT1_PSF_St16integer_sequenceImJXspT2_EEE(ptr sret(%"class.entt::meta_any") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ctx, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %args)
@@ -17968,7 +17968,7 @@ _ZN4entt11meta_handleC2EOS0_.exit:                ; preds = %if.then.i.i.i, %ent
   store ptr @_ZN4entt8meta_any12basic_vtableIvEENSt9enable_ifIXsr3stdE9is_same_vINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeES5_EEvE4typeENS_8internal11meta_traitsEbPKvPv, ptr %vtable6.i.i, align 8, !tbaa !48
   store ptr %7, ptr %vtable.i.i, align 8, !tbaa !285
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #22
-  store i64 ptrtoint (ptr @_ZN4entt14basic_registryI9my_entitySaIS1_EE7storageIiEERNS_11storage_forIT_S1_SaINSt12remove_constIS6_E4typeEEE4typeEj to i64), ptr %ref.tmp, align 8, !tbaa !35
+  store ptr @_ZN4entt14basic_registryI9my_entitySaIS1_EE7storageIiEERNS_11storage_forIT_S1_SaINSt12remove_constIS6_E4typeEEE4typeEj, ptr %ref.tmp, align 8, !tbaa !35
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !35
   invoke void @_ZN4entt8internal11meta_invokeIiNS_8as_ref_tEMNS_14basic_registryI9my_entitySaIS4_EEEFR10meta_mixinINS_13basic_storageIiS4_SaIiEvEEEjEJLm0ELm1EEEENS_8meta_anyERKNS_8meta_ctxENS_11meta_handleEOT1_PSF_St16integer_sequenceImJXspT2_EEE(ptr sret(%"class.entt::meta_any") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ctx, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %args)
@@ -22771,7 +22771,7 @@ _ZN4entt11meta_handleC2EOS0_.exit:                ; preds = %if.then.i.i.i, %ent
   store ptr @_ZN4entt8meta_any12basic_vtableIvEENSt9enable_ifIXsr3stdE9is_same_vINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeES5_EEvE4typeENS_8internal11meta_traitsEbPKvPv, ptr %vtable6.i.i, align 8, !tbaa !48
   store ptr %7, ptr %vtable.i.i, align 8, !tbaa !285
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #22
-  store i64 ptrtoint (ptr @_ZN4entt14basic_registryINS_6entityESaIS1_EE7storageI9my_entityEERNS_11storage_forIT_S1_SaINSt12remove_constIS7_E4typeEEE4typeEj to i64), ptr %ref.tmp, align 8, !tbaa !35
+  store ptr @_ZN4entt14basic_registryINS_6entityESaIS1_EE7storageI9my_entityEERNS_11storage_forIT_S1_SaINSt12remove_constIS7_E4typeEEE4typeEj, ptr %ref.tmp, align 8, !tbaa !35
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !35
   invoke void @_ZN4entt8internal11meta_invokeI9my_entityNS_8as_ref_tEMNS_14basic_registryINS_6entityESaIS5_EEEFR10meta_mixinINS_13basic_storageIS2_S5_SaIS2_EvEEEjEJLm0ELm1EEEENS_8meta_anyERKNS_8meta_ctxENS_11meta_handleEOT1_PSG_St16integer_sequenceImJXspT2_EEE(ptr sret(%"class.entt::meta_any") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ctx, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %args)
@@ -24394,7 +24394,7 @@ _ZN4entt11meta_handleC2EOS0_.exit:                ; preds = %if.then.i.i.i, %ent
   store ptr @_ZN4entt8meta_any12basic_vtableIvEENSt9enable_ifIXsr3stdE9is_same_vINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeES5_EEvE4typeENS_8internal11meta_traitsEbPKvPv, ptr %vtable6.i.i, align 8, !tbaa !48
   store ptr %7, ptr %vtable.i.i, align 8, !tbaa !285
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #22
-  store i64 ptrtoint (ptr @_ZN4entt14basic_registryI9my_entitySaIS1_EE7storageIS1_EERNS_11storage_forIT_S1_SaINSt12remove_constIS6_E4typeEEE4typeEj to i64), ptr %ref.tmp, align 8, !tbaa !35
+  store ptr @_ZN4entt14basic_registryI9my_entitySaIS1_EE7storageIS1_EERNS_11storage_forIT_S1_SaINSt12remove_constIS6_E4typeEEE4typeEj, ptr %ref.tmp, align 8, !tbaa !35
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !35
   invoke void @_ZN4entt8internal11meta_invokeI9my_entityNS_8as_ref_tEMNS_14basic_registryIS2_SaIS2_EEEFR10meta_mixinINS_13basic_storageIS2_S2_S5_vEEEjEJLm0ELm1EEEENS_8meta_anyERKNS_8meta_ctxENS_11meta_handleEOT1_PSE_St16integer_sequenceImJXspT2_EEE(ptr sret(%"class.entt::meta_any") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ctx, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %args)
@@ -28824,7 +28824,7 @@ _ZN4entt11meta_handleC2EOS0_.exit:                ; preds = %if.then.i.i.i, %ent
   store ptr @_ZN4entt8meta_any12basic_vtableIvEENSt9enable_ifIXsr3stdE9is_same_vINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeES5_EEvE4typeENS_8internal11meta_traitsEbPKvPv, ptr %vtable6.i.i, align 8, !tbaa !48
   store ptr %7, ptr %vtable.i.i, align 8, !tbaa !285
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #22
-  store i64 ptrtoint (ptr @_ZN4entt14basic_registryINS_6entityESaIS1_EE7storageIcEERNS_11storage_forIT_S1_SaINSt12remove_constIS6_E4typeEEE4typeEj to i64), ptr %ref.tmp, align 8, !tbaa !35
+  store ptr @_ZN4entt14basic_registryINS_6entityESaIS1_EE7storageIcEERNS_11storage_forIT_S1_SaINSt12remove_constIS6_E4typeEEE4typeEj, ptr %ref.tmp, align 8, !tbaa !35
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !35
   invoke void @_ZN4entt8internal11meta_invokeIcNS_8as_ref_tEMNS_14basic_registryINS_6entityESaIS4_EEEFR10meta_mixinINS_13basic_storageIcS4_SaIcEvEEEjEJLm0ELm1EEEENS_8meta_anyERKNS_8meta_ctxENS_11meta_handleEOT1_PSF_St16integer_sequenceImJXspT2_EEE(ptr sret(%"class.entt::meta_any") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ctx, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %args)
@@ -29404,7 +29404,7 @@ _ZN4entt11meta_handleC2EOS0_.exit:                ; preds = %if.then.i.i.i, %ent
   store ptr @_ZN4entt8meta_any12basic_vtableIvEENSt9enable_ifIXsr3stdE9is_same_vINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeES5_EEvE4typeENS_8internal11meta_traitsEbPKvPv, ptr %vtable6.i.i, align 8, !tbaa !48
   store ptr %7, ptr %vtable.i.i, align 8, !tbaa !285
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #22
-  store i64 ptrtoint (ptr @_ZN4entt14basic_registryI9my_entitySaIS1_EE7storageIcEERNS_11storage_forIT_S1_SaINSt12remove_constIS6_E4typeEEE4typeEj to i64), ptr %ref.tmp, align 8, !tbaa !35
+  store ptr @_ZN4entt14basic_registryI9my_entitySaIS1_EE7storageIcEERNS_11storage_forIT_S1_SaINSt12remove_constIS6_E4typeEEE4typeEj, ptr %ref.tmp, align 8, !tbaa !35
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !35
   invoke void @_ZN4entt8internal11meta_invokeIcNS_8as_ref_tEMNS_14basic_registryI9my_entitySaIS4_EEEFR10meta_mixinINS_13basic_storageIcS4_SaIcEvEEEjEJLm0ELm1EEEENS_8meta_anyERKNS_8meta_ctxENS_11meta_handleEOT1_PSF_St16integer_sequenceImJXspT2_EEE(ptr sret(%"class.entt::meta_any") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ctx, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %args)
@@ -32844,7 +32844,7 @@ _ZN4entt11meta_handleC2EOS0_.exit:                ; preds = %if.then.i.i.i, %ent
   store ptr @_ZN4entt8meta_any12basic_vtableIvEENSt9enable_ifIXsr3stdE9is_same_vINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeES5_EEvE4typeENS_8internal11meta_traitsEbPKvPv, ptr %vtable6.i.i, align 8, !tbaa !48
   store ptr %7, ptr %vtable.i.i, align 8, !tbaa !285
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #22
-  store i64 ptrtoint (ptr @_ZN4entt14basic_registryINS_6entityESaIS1_EE7storageIS1_EERNS_11storage_forIT_S1_SaINSt12remove_constIS6_E4typeEEE4typeEj to i64), ptr %ref.tmp, align 8, !tbaa !35
+  store ptr @_ZN4entt14basic_registryINS_6entityESaIS1_EE7storageIS1_EERNS_11storage_forIT_S1_SaINSt12remove_constIS6_E4typeEEE4typeEj, ptr %ref.tmp, align 8, !tbaa !35
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !35
   invoke void @_ZN4entt8internal11meta_invokeINS_6entityENS_8as_ref_tEMNS_14basic_registryIS2_SaIS2_EEEFR10meta_mixinINS_13basic_storageIS2_S2_S5_vEEEjEJLm0ELm1EEEENS_8meta_anyERKNS_8meta_ctxENS_11meta_handleEOT1_PSE_St16integer_sequenceImJXspT2_EEE(ptr sret(%"class.entt::meta_any") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ctx, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %args)
@@ -33371,7 +33371,7 @@ _ZN4entt11meta_handleC2EOS0_.exit:                ; preds = %if.then.i.i.i, %ent
   store ptr @_ZN4entt8meta_any12basic_vtableIvEENSt9enable_ifIXsr3stdE9is_same_vINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeES5_EEvE4typeENS_8internal11meta_traitsEbPKvPv, ptr %vtable6.i.i, align 8, !tbaa !48
   store ptr %7, ptr %vtable.i.i, align 8, !tbaa !285
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #22
-  store i64 ptrtoint (ptr @_ZN4entt14basic_registryI9my_entitySaIS1_EE7storageINS_6entityEEERNS_11storage_forIT_S1_SaINSt12remove_constIS7_E4typeEEE4typeEj to i64), ptr %ref.tmp, align 8, !tbaa !35
+  store ptr @_ZN4entt14basic_registryI9my_entitySaIS1_EE7storageINS_6entityEEERNS_11storage_forIT_S1_SaINSt12remove_constIS7_E4typeEEE4typeEj, ptr %ref.tmp, align 8, !tbaa !35
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !35
   invoke void @_ZN4entt8internal11meta_invokeINS_6entityENS_8as_ref_tEMNS_14basic_registryI9my_entitySaIS5_EEEFR10meta_mixinINS_13basic_storageIS2_S5_SaIS2_EvEEEjEJLm0ELm1EEEENS_8meta_anyERKNS_8meta_ctxENS_11meta_handleEOT1_PSG_St16integer_sequenceImJXspT2_EEE(ptr sret(%"class.entt::meta_any") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ctx, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %args)
@@ -36403,7 +36403,6 @@ entry:
   %cmp = icmp eq i8 %0, 0
   %1 = load ptr, ptr %value, align 8
   %cond = select i1 %cmp, ptr %value, ptr %1
-  %2 = ptrtoint ptr %1 to i64
   switch i8 %op, label %sw.epilog [
     i8 0, label %sw.bb
     i8 1, label %sw.bb1
@@ -36414,13 +36413,13 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %3 = load atomic i8, ptr @_ZGVZN4entt7type_idIdEERKNS_9type_infoEvE8instance acquire, align 8
-  %guard.uninitialized.i.i = icmp eq i8 %3, 0
+  %2 = load atomic i8, ptr @_ZGVZN4entt7type_idIdEERKNS_9type_infoEvE8instance acquire, align 8
+  %guard.uninitialized.i.i = icmp eq i8 %2, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %_ZN4entt9basic_anyILm16ELm8EE10initializeIdJRKdEEEvDpOT0_.exit, !prof !128
 
 init.check.i.i:                                   ; preds = %sw.bb
-  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4entt7type_idIdEERKNS_9type_infoEvE8instance) #22
-  %tobool.not.i.i = icmp eq i32 %4, 0
+  %3 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4entt7type_idIdEERKNS_9type_infoEvE8instance) #22
+  %tobool.not.i.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i.i, label %_ZN4entt9basic_anyILm16ELm8EE10initializeIdJRKdEEEvDpOT0_.exit, label %init.i.i
 
 init.i.i:                                         ; preds = %init.check.i.i
@@ -36433,15 +36432,15 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeIdJRKdEEEvDpOT0_.exit: ; preds = %init.
   store ptr @_ZZN4entt7type_idIdEERKNS_9type_infoEvE8instance, ptr %info.i, align 8, !tbaa !129
   %vtable.i = getelementptr inbounds %"class.entt::basic_any", ptr %other, i64 0, i32 2
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableIdEEPKvNS_8internal13any_operationERKS1_S4_, ptr %vtable.i, align 8, !tbaa !131
-  %5 = load double, ptr %cond, align 8, !tbaa !32
-  store double %5, ptr %other, align 8, !tbaa !32
+  %4 = load double, ptr %cond, align 8, !tbaa !32
+  store double %4, ptr %other, align 8, !tbaa !32
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.bb1
-  store i64 %2, ptr %other, align 8, !tbaa !32
+  store ptr %1, ptr %other, align 8, !tbaa !32
   br label %cleanup
 
 if.end:                                           ; preds = %sw.bb1
@@ -36450,19 +36449,19 @@ if.end:                                           ; preds = %sw.bb1
   br label %cleanup
 
 sw.bb4:                                           ; preds = %entry
+  %5 = load double, ptr %other, align 8, !tbaa !32
+  store double %5, ptr %cond, align 8, !tbaa !32
+  br label %cleanup
+
+sw.bb5:                                           ; preds = %entry
   %6 = load double, ptr %other, align 8, !tbaa !32
   store double %6, ptr %cond, align 8, !tbaa !32
   br label %cleanup
 
-sw.bb5:                                           ; preds = %entry
-  %7 = load double, ptr %other, align 8, !tbaa !32
-  store double %7, ptr %cond, align 8, !tbaa !32
-  br label %cleanup
-
 sw.bb7:                                           ; preds = %entry
-  %8 = load double, ptr %cond, align 8, !tbaa !32
-  %9 = load double, ptr %other, align 8, !tbaa !32
-  %cmp8 = fcmp oeq double %8, %9
+  %7 = load double, ptr %cond, align 8, !tbaa !32
+  %8 = load double, ptr %other, align 8, !tbaa !32
+  %cmp8 = fcmp oeq double %7, %8
   %cond12 = select i1 %cmp8, ptr %other, ptr null
   br label %cleanup
 
@@ -36733,7 +36732,7 @@ _ZN4entt11meta_handleC2EOS0_.exit:                ; preds = %if.then.i.i.i, %ent
   store ptr @_ZN4entt8meta_any12basic_vtableIvEENSt9enable_ifIXsr3stdE9is_same_vINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeES5_EEvE4typeENS_8internal11meta_traitsEbPKvPv, ptr %vtable6.i.i, align 8, !tbaa !48
   store ptr %7, ptr %vtable.i.i, align 8, !tbaa !285
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #22
-  store i64 ptrtoint (ptr @_ZN4entt14basic_registryINS_6entityESaIS1_EE7storageIdEERNS_11storage_forIT_S1_SaINSt12remove_constIS6_E4typeEEE4typeEj to i64), ptr %ref.tmp, align 8, !tbaa !35
+  store ptr @_ZN4entt14basic_registryINS_6entityESaIS1_EE7storageIdEERNS_11storage_forIT_S1_SaINSt12remove_constIS6_E4typeEEE4typeEj, ptr %ref.tmp, align 8, !tbaa !35
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !35
   invoke void @_ZN4entt8internal11meta_invokeIdNS_8as_ref_tEMNS_14basic_registryINS_6entityESaIS4_EEEFR10meta_mixinINS_13basic_storageIdS4_SaIdEvEEEjEJLm0ELm1EEEENS_8meta_anyERKNS_8meta_ctxENS_11meta_handleEOT1_PSF_St16integer_sequenceImJXspT2_EEE(ptr sret(%"class.entt::meta_any") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ctx, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %args)
@@ -37306,7 +37305,7 @@ _ZN4entt11meta_handleC2EOS0_.exit:                ; preds = %if.then.i.i.i, %ent
   store ptr @_ZN4entt8meta_any12basic_vtableIvEENSt9enable_ifIXsr3stdE9is_same_vINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeES5_EEvE4typeENS_8internal11meta_traitsEbPKvPv, ptr %vtable6.i.i, align 8, !tbaa !48
   store ptr %7, ptr %vtable.i.i, align 8, !tbaa !285
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #22
-  store i64 ptrtoint (ptr @_ZN4entt14basic_registryI9my_entitySaIS1_EE7storageIdEERNS_11storage_forIT_S1_SaINSt12remove_constIS6_E4typeEEE4typeEj to i64), ptr %ref.tmp, align 8, !tbaa !35
+  store ptr @_ZN4entt14basic_registryI9my_entitySaIS1_EE7storageIdEERNS_11storage_forIT_S1_SaINSt12remove_constIS6_E4typeEEE4typeEj, ptr %ref.tmp, align 8, !tbaa !35
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !35
   invoke void @_ZN4entt8internal11meta_invokeIdNS_8as_ref_tEMNS_14basic_registryI9my_entitySaIS4_EEEFR10meta_mixinINS_13basic_storageIdS4_SaIdEvEEEjEJLm0ELm1EEEENS_8meta_anyERKNS_8meta_ctxENS_11meta_handleEOT1_PSF_St16integer_sequenceImJXspT2_EEE(ptr sret(%"class.entt::meta_any") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ctx, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %args)

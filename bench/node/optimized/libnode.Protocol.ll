@@ -781,16 +781,15 @@ if.end16:                                         ; preds = %_ZNSt10unique_ptrIN
   br i1 %cond, label %if.then19, label %_ZNKSt14default_deleteIN4node9inspector8protocol5ValueEEclEPS3_.exit.i
 
 if.then19:                                        ; preds = %if.end16
-  %5 = ptrtoint ptr %3 to i64
-  store i64 %5, ptr %agg.result, align 8
+  store ptr %3, ptr %agg.result, align 8
   br label %return
 
 _ZNKSt14default_deleteIN4node9inspector8protocol5ValueEEclEPS3_.exit.i: ; preds = %if.end16
   store ptr null, ptr %agg.result, align 8
   %vtable.i.i7 = load ptr, ptr %3, align 8
   %vfn.i.i8 = getelementptr inbounds ptr, ptr %vtable.i.i7, i64 3
-  %6 = load ptr, ptr %vfn.i.i8, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(12) %3) #28
+  %5 = load ptr, ptr %vfn.i.i8, align 8
+  call void %5(ptr noundef nonnull align 8 dereferenceable(12) %3) #28
   br label %return
 
 return:                                           ; preds = %if.then15, %if.then19, %if.then8, %if.then12, %_ZNKSt14default_deleteIN4node9inspector8protocol5ValueEEclEPS3_.exit.i, %if.then4, %if.then
@@ -990,15 +989,14 @@ cleanup33:                                        ; preds = %if.else.i.i.i, %if.
 
 cleanup34:                                        ; preds = %while.cond
   call void @_ZN4node9inspector8protocol4cbor13CBORTokenizer13ReadNextTokenEb(ptr noundef nonnull align 8 dereferenceable(64) %tokenizer, i1 noundef zeroext false)
-  %21 = ptrtoint ptr %call.i to i64
-  store i64 %21, ptr %agg.result, align 8
+  store ptr %call.i, ptr %agg.result, align 8
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS3_EED2Ev.exit
 
 _ZNKSt14default_deleteIN4node9inspector8protocol15DictionaryValueEEclEPS3_.exit.i: ; preds = %if.then, %if.then5, %cleanup33.thread, %cleanup33.thread56
   %vtable.i.i45 = load ptr, ptr %call.i, align 8
   %vfn.i.i46 = getelementptr inbounds ptr, ptr %vtable.i.i45, i64 3
-  %22 = load ptr, ptr %vfn.i.i46, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(96) %call.i) #28
+  %21 = load ptr, ptr %vfn.i.i46, align 8
+  call void %21(ptr noundef nonnull align 8 dereferenceable(96) %call.i) #28
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS3_EED2Ev.exit: ; preds = %cleanup34, %_ZNKSt14default_deleteIN4node9inspector8protocol15DictionaryValueEEclEPS3_.exit.i
@@ -3782,8 +3780,7 @@ _ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteI
   call void %1(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(96) %value) #28
   %2 = load ptr, ptr %ref.tmp, align 8
   %call2 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  %3 = ptrtoint ptr %2 to i64
-  store i64 %3, ptr %call2, align 8
+  store ptr %2, ptr %call2, align 8
   br label %return
 
 return:                                           ; preds = %_ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS3_EED2Ev.exit, %if.then
@@ -4213,8 +4210,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp.i.not.i.i, label %_ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.end5
-  %7 = ptrtoint ptr %6 to i64
-  store i64 %7, ptr %m_params.i.i, align 8, !noalias !81
+  store ptr %6, ptr %m_params.i.i, align 8, !noalias !81
   br label %_ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE.exit.i
 
 _ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE.exit.i: ; preds = %cond.true.i.i, %if.end5
@@ -4227,8 +4223,8 @@ _ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt
 _ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i.i: ; preds = %_ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE.exit.i
   %vtable.i.i.i = load ptr, ptr %agg.tmp.sroa.0.i.0.agg.tmp.sroa.0.i.0.agg.tmp.sroa.0.i.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.1.i, align 8, !noalias !81
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 3
-  %8 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !81
-  call void %8(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.sroa.0.i.0.agg.tmp.sroa.0.i.0.agg.tmp.sroa.0.i.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.1.i) #28, !noalias !81
+  %7 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !81
+  call void %7(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.sroa.0.i.0.agg.tmp.sroa.0.i.0.agg.tmp.sroa.0.i.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.1.i) #28, !noalias !81
   br label %_ZN4node9inspector8protocol16InternalResponse14createResponseEiSt10unique_ptrINS1_12SerializableESt14default_deleteIS4_EE.exit
 
 _ZN4node9inspector8protocol16InternalResponse14createResponseEiSt10unique_ptrINS1_12SerializableESt14default_deleteIS4_EE.exit: ; preds = %_ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE.exit.i, %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i.i
@@ -4238,17 +4234,17 @@ _ZN4node9inspector8protocol16InternalResponse14createResponseEiSt10unique_ptrINS
   store ptr %call.i, ptr %agg.tmp, align 8
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %9 = load ptr, ptr %vfn, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %callId, ptr noundef nonnull %agg.tmp) #28
-  %10 = load ptr, ptr %agg.tmp, align 8
-  %cmp.not.i = icmp eq ptr %10, null
+  %8 = load ptr, ptr %vfn, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %callId, ptr noundef nonnull %agg.tmp) #28
+  %9 = load ptr, ptr %agg.tmp, align 8
+  %cmp.not.i = icmp eq ptr %9, null
   br i1 %cmp.not.i, label %return, label %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i
 
 _ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i: ; preds = %_ZN4node9inspector8protocol16InternalResponse14createResponseEiSt10unique_ptrINS1_12SerializableESt14default_deleteIS4_EE.exit
-  %vtable.i.i = load ptr, ptr %10, align 8
+  %vtable.i.i = load ptr, ptr %9, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
-  %11 = load ptr, ptr %vfn.i.i, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #28
+  %10 = load ptr, ptr %vfn.i.i, align 8
+  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9) #28
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i, %_ZN4node9inspector8protocol16InternalResponse14createResponseEiSt10unique_ptrINS1_12SerializableESt14default_deleteIS4_EE.exit, %entry, %_ZN4node9inspector8protocolL21reportProtocolErrorToEPNS1_15FrontendChannelEiNS1_16DispatchResponse9ErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12ErrorSupportE.exit
@@ -4452,8 +4448,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   %0 = load i64, ptr %params, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %agg.tmp.sroa.0, align 8
+  store i64 %0, ptr %agg.tmp.sroa.0, align 8
   store ptr null, ptr %params, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol16InternalResponseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
   %m_callId.i = getelementptr inbounds %"class.node::inspector::protocol::InternalResponse", ptr %call, i64 0, i32 1
@@ -4479,8 +4474,8 @@ _ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt
 _ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i: ; preds = %_ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE.exit
   %vtable.i.i = load ptr, ptr %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.1, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
-  %2 = load ptr, ptr %vfn.i.i, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.1) #28
+  %1 = load ptr, ptr %vfn.i.i, align 8
+  call void %1(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.1) #28
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol12SerializableESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node9inspector8protocol12SerializableESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE.exit, %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i
@@ -5376,8 +5371,7 @@ entry:
   %agg.tmp.sroa.0 = alloca ptr, align 8
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #31
   %0 = load i64, ptr %params, align 8
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %agg.tmp.sroa.0, align 8
+  store i64 %0, ptr %agg.tmp.sroa.0, align 8
   store ptr null, ptr %params, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol16InternalResponseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
   %m_callId.i = getelementptr inbounds %"class.node::inspector::protocol::InternalResponse", ptr %call, i64 0, i32 1
@@ -5403,8 +5397,8 @@ _ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt
 _ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i: ; preds = %_ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE.exit
   %vtable.i.i = load ptr, ptr %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.1, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
-  %2 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.1) #28
+  %1 = load ptr, ptr %vfn.i.i, align 8
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.agg.tmp.sroa.0.0.1) #28
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol12SerializableESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node9inspector8protocol12SerializableESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE.exit, %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i
@@ -5872,8 +5866,7 @@ entry:
   br i1 %cmp.i.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %1 = ptrtoint ptr %0 to i64
-  store i64 %1, ptr %m_params, align 8
+  store ptr %0, ptr %m_params, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
@@ -5901,8 +5894,7 @@ entry:
   br i1 %or.cond.i, label %cleanup.thread.i, label %cleanup.i
 
 cleanup.thread.i:                                 ; preds = %entry
-  %2 = ptrtoint ptr %0 to i64
-  store i64 %2, ptr %agg.result, align 8, !alias.scope !144
+  store ptr %0, ptr %agg.result, align 8, !alias.scope !144
   br label %_ZN4node9inspector8protocol12_GLOBAL__N_117parseJSONInternalItEESt10unique_ptrINS1_5ValueESt14default_deleteIS5_EEPKT_j.exit
 
 cleanup.i:                                        ; preds = %entry
@@ -5913,8 +5905,8 @@ cleanup.i:                                        ; preds = %entry
 _ZNKSt14default_deleteIN4node9inspector8protocol5ValueEEclEPS3_.exit.i.i: ; preds = %cleanup.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !noalias !144
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 3
-  %3 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !144
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0) #28, !noalias !144
+  %2 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !144
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(12) %0) #28, !noalias !144
   br label %_ZN4node9inspector8protocol12_GLOBAL__N_117parseJSONInternalItEESt10unique_ptrINS1_5ValueESt14default_deleteIS5_EEPKT_j.exit
 
 _ZN4node9inspector8protocol12_GLOBAL__N_117parseJSONInternalItEESt10unique_ptrINS1_5ValueESt14default_deleteIS5_EEPKT_j.exit: ; preds = %cleanup.thread.i, %cleanup.i, %_ZNKSt14default_deleteIN4node9inspector8protocol5ValueEEclEPS3_.exit.i.i
@@ -5942,8 +5934,7 @@ entry:
   br i1 %or.cond.i, label %cleanup.thread.i, label %cleanup.i
 
 cleanup.thread.i:                                 ; preds = %entry
-  %2 = ptrtoint ptr %0 to i64
-  store i64 %2, ptr %agg.result, align 8, !alias.scope !147
+  store ptr %0, ptr %agg.result, align 8, !alias.scope !147
   br label %_ZN4node9inspector8protocol12_GLOBAL__N_117parseJSONInternalIhEESt10unique_ptrINS1_5ValueESt14default_deleteIS5_EEPKT_j.exit
 
 cleanup.i:                                        ; preds = %entry
@@ -5954,8 +5945,8 @@ cleanup.i:                                        ; preds = %entry
 _ZNKSt14default_deleteIN4node9inspector8protocol5ValueEEclEPS3_.exit.i.i: ; preds = %cleanup.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !noalias !147
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 3
-  %3 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !147
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0) #28, !noalias !147
+  %2 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !147
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(12) %0) #28, !noalias !147
   br label %_ZN4node9inspector8protocol12_GLOBAL__N_117parseJSONInternalIhEESt10unique_ptrINS1_5ValueESt14default_deleteIS5_EEPKT_j.exit
 
 _ZN4node9inspector8protocol12_GLOBAL__N_117parseJSONInternalIhEESt10unique_ptrINS1_5ValueESt14default_deleteIS5_EEPKT_j.exit: ; preds = %cleanup.thread.i, %cleanup.i, %_ZNKSt14default_deleteIN4node9inspector8protocol5ValueEEclEPS3_.exit.i.i
@@ -10810,26 +10801,25 @@ if.end6.i:                                        ; preds = %while.cond.i
   call fastcc void @_ZN4node9inspector8protocol12_GLOBAL__N_110parseValueEiPNS1_4cbor13CBORTokenizerE(ptr noalias nonnull align 8 %value.i, i32 noundef %add62, ptr noundef nonnull %tokenizer)
   %26 = load ptr, ptr %value.i, align 8
   %cmp.i139.not = icmp eq ptr %26, null
-  %27 = ptrtoint ptr %26 to i64
   br i1 %cmp.i139.not, label %_ZNKSt14default_deleteIN4node9inspector8protocol9ListValueEEclEPS3_.exit.i121, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end6.i
-  %28 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %29 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %28, %29
+  %27 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %28 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %27, %28
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end9.i
-  store i64 %27, ptr %28, align 8
-  %30 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %30, i64 1
+  store ptr %26, ptr %27, align 8
+  %29 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %29, i64 1
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EED2Ev.exit
 
 if.else.i.i.i:                                    ; preds = %if.end9.i
-  %31 = load ptr, ptr %m_data.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %28 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %31 to i64
+  %30 = load ptr, ptr %m_data.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %27 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %30 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i
@@ -10857,31 +10847,31 @@ _ZNSt16allocator_traitsISaISt10unique_ptrIN4node9inspector8protocol5ValueESt14de
 _ZNSt12_Vector_baseISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EEEE8allocateERS8_m.exit.i.i, %_ZNKSt6vectorISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i
   %cond.i10.i = phi ptr [ %call5.i.i.i.i, %_ZNSt16allocator_traitsISaISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EEEE8allocateERS8_m.exit.i.i ], [ null, %_ZNKSt6vectorISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i ]
   %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr", ptr %cond.i10.i, i64 %sub.ptr.div.i.i.i
-  store i64 %27, ptr %add.ptr.i, align 8
-  %cmp.not5.i.i.i.i = icmp eq ptr %31, %28
+  store ptr %26, ptr %add.ptr.i, align 8
+  %cmp.not5.i.i.i.i = icmp eq ptr %30, %27
   br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit19.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i, %for.body.i.i.i.i
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %31, %_ZNSt12_Vector_baseISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i ]
+  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %30, %_ZNSt12_Vector_baseISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !218)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !221)
-  %32 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !221, !noalias !218
-  store i64 %32, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !218, !noalias !221
+  %31 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !221, !noalias !218
+  store i64 %31, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !218, !noalias !221
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !221, !noalias !218
   %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__first.addr.06.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__cur.07.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %28
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %27
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !68
 
 _ZNSt6vectorISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
   %incdec.ptr.i = getelementptr %"class.std::unique_ptr", ptr %__cur.0.lcssa.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %31, null
+  %tobool.not.i.i = icmp eq ptr %30, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit, label %if.then.i20.i
 
 if.then.i20.i:                                    ; preds = %_ZNSt6vectorISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit19.i
-  tail call void @_ZdlPv(ptr noundef nonnull %31) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %30) #29
   br label %_ZNSt6vectorISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit
 
 _ZNSt6vectorISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit19.i, %if.then.i20.i
@@ -10902,8 +10892,8 @@ _ZN4node9inspector8protocol12_GLOBAL__N_110parseArrayEiPNS1_4cbor13CBORTokenizer
 _ZNKSt14default_deleteIN4node9inspector8protocol9ListValueEEclEPS3_.exit.i121: ; preds = %while.cond.i, %while.cond.i, %if.end6.i
   %vtable.i.i122 = load ptr, ptr %call.i143, align 8
   %vfn.i.i123 = getelementptr inbounds ptr, ptr %vtable.i.i122, i64 3
-  %33 = load ptr, ptr %vfn.i.i123, align 8
-  tail call void %33(ptr noundef nonnull align 8 dereferenceable(40) %call.i143) #28
+  %32 = load ptr, ptr %vfn.i.i123, align 8
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(40) %call.i143) #28
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol9ListValueESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node9inspector8protocol9ListValueESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4node9inspector8protocol9ListValueEEclEPS3_.exit.i121, %_ZN4node9inspector8protocol12_GLOBAL__N_110parseArrayEiPNS1_4cbor13CBORTokenizerE.exit
@@ -14371,15 +14361,14 @@ _ZNSt10unique_ptrIN4node9inspector8protocol9ListValueESt14default_deleteIS3_EED2
   br label %return
 
 if.end40:                                         ; preds = %while.body.lr.ph, %while.cond.backedge
-  %.in = phi ptr [ %34, %while.cond.backedge ], [ %24, %while.body.lr.ph ]
-  %26 = ptrtoint ptr %.in to i64
+  %26 = phi ptr [ %34, %while.cond.backedge ], [ %24, %while.body.lr.ph ]
   %27 = load ptr, ptr %_M_finish.i.i.i102, align 8
   %28 = load ptr, ptr %_M_end_of_storage.i.i.i103, align 8
   %cmp.not.i.i.i104 = icmp eq ptr %27, %28
   br i1 %cmp.not.i.i.i104, label %if.else.i.i.i106, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end40
-  store i64 %26, ptr %27, align 8
+  store ptr %26, ptr %27, align 8
   %29 = load ptr, ptr %_M_finish.i.i.i102, align 8
   %incdec.ptr.i.i.i105 = getelementptr inbounds %"class.std::unique_ptr", ptr %29, i64 1
   store ptr %incdec.ptr.i.i.i105, ptr %_M_finish.i.i.i102, align 8
@@ -14416,7 +14405,7 @@ _ZNSt16allocator_traitsISaISt10unique_ptrIN4node9inspector8protocol5ValueESt14de
 _ZNSt12_Vector_baseISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EEEE8allocateERS8_m.exit.i.i, %_ZNKSt6vectorISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i
   %cond.i10.i = phi ptr [ %call5.i.i.i.i, %_ZNSt16allocator_traitsISaISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EEEE8allocateERS8_m.exit.i.i ], [ null, %_ZNKSt6vectorISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i ]
   %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr", ptr %cond.i10.i, i64 %sub.ptr.div.i.i.i
-  store i64 %26, ptr %add.ptr.i, align 8
+  store ptr %26, ptr %add.ptr.i, align 8
   %cmp.not5.i.i.i.i = icmp eq ptr %30, %27
   br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit19.i, label %for.body.i.i.i.i
 
@@ -14712,8 +14701,7 @@ if.end7.i:                                        ; preds = %for.body26.i.i, %if
 _ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsItEEvPKT_S6_PS6_.exit: ; preds = %land.rhs.i.i, %if.else.i, %lor.lhs.false.i.i, %if.end4.i.i, %if.then7.i.i, %if.then22.i.i, %if.end7.i, %for.inc34.i.i, %for.inc.i.i, %sw.epilog
   %start.addr.019.i = phi ptr [ %48, %sw.epilog ], [ %end, %for.inc.i.i ], [ %start.addr.021.i, %for.inc34.i.i ], [ %start.addr.021.i, %land.rhs.i.i ], [ %start.addr.021.i, %if.then22.i.i ], [ %start.addr.021.i, %if.end4.i.i ], [ %start.addr.021.i, %lor.lhs.false.i.i ], [ %start.addr.021.i, %if.else.i ], [ %start.addr.1.i, %if.end7.i ], [ %end, %if.then7.i.i ]
   store ptr %start.addr.019.i, ptr %valueTokenEnd, align 8
-  %52 = ptrtoint ptr %result.sroa.0.3 to i64
-  store i64 %52, ptr %agg.result, align 8
+  store ptr %result.sroa.0.3, ptr %agg.result, align 8
   br label %return
 
 return:                                           ; preds = %_ZNSt10unique_ptrIN4node9inspector8protocol9ListValueESt14default_deleteIS3_EED2Ev.exit, %_ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS3_EED2Ev.exit, %_ZNSt10unique_ptrIN4node9inspector8protocol9ListValueESt14default_deleteIS3_EED2Ev.exit.thread214, %cleanup, %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsItEEvPKT_S6_PS6_.exit, %sw.default, %if.then11, %sw.bb, %if.then
@@ -15585,15 +15573,14 @@ _ZNSt10unique_ptrIN4node9inspector8protocol9ListValueESt14default_deleteIS3_EED2
   br label %return
 
 if.end40:                                         ; preds = %while.body.lr.ph, %while.cond.backedge
-  %.in = phi ptr [ %21, %while.cond.backedge ], [ %11, %while.body.lr.ph ]
-  %13 = ptrtoint ptr %.in to i64
+  %13 = phi ptr [ %21, %while.cond.backedge ], [ %11, %while.body.lr.ph ]
   %14 = load ptr, ptr %_M_finish.i.i.i, align 8
   %15 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %14, %15
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end40
-  store i64 %13, ptr %14, align 8
+  store ptr %13, ptr %14, align 8
   %16 = load ptr, ptr %_M_finish.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %16, i64 1
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
@@ -15630,7 +15617,7 @@ _ZNSt16allocator_traitsISaISt10unique_ptrIN4node9inspector8protocol5ValueESt14de
 _ZNSt12_Vector_baseISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EEEE8allocateERS8_m.exit.i.i, %_ZNKSt6vectorISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i
   %cond.i10.i = phi ptr [ %call5.i.i.i.i, %_ZNSt16allocator_traitsISaISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EEEE8allocateERS8_m.exit.i.i ], [ null, %_ZNKSt6vectorISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i ]
   %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr", ptr %cond.i10.i, i64 %sub.ptr.div.i.i.i
-  store i64 %13, ptr %add.ptr.i, align 8
+  store ptr %13, ptr %add.ptr.i, align 8
   %cmp.not5.i.i.i.i = icmp eq ptr %17, %14
   br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit19.i, label %for.body.i.i.i.i
 
@@ -15942,8 +15929,7 @@ if.end8.i:                                        ; preds = %for.body26.i.i, %if
 _ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsIhEEvPKT_S6_PS6_.exit: ; preds = %land.rhs.i.i, %if.else.i, %if.then3.i, %if.end4.i.i, %if.then7.i.i, %if.then22.i.i, %if.end8.i, %for.inc34.i.i, %for.inc.i.i, %sw.epilog
   %start.addr.017.i = phi ptr [ %35, %sw.epilog ], [ %end, %for.inc.i.i ], [ %start.addr.019.i, %for.inc34.i.i ], [ %start.addr.019.i, %if.then22.i.i ], [ %start.addr.019.i, %if.end4.i.i ], [ %start.addr.019.i, %if.then3.i ], [ %start.addr.019.i, %if.else.i ], [ %start.addr.1.i, %if.end8.i ], [ %start.addr.019.i, %land.rhs.i.i ], [ %end, %if.then7.i.i ]
   store ptr %start.addr.017.i, ptr %valueTokenEnd, align 8
-  %41 = ptrtoint ptr %result.sroa.0.3 to i64
-  store i64 %41, ptr %agg.result, align 8
+  store ptr %result.sroa.0.3, ptr %agg.result, align 8
   br label %return
 
 return:                                           ; preds = %_ZNSt10unique_ptrIN4node9inspector8protocol9ListValueESt14default_deleteIS3_EED2Ev.exit, %_ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS3_EED2Ev.exit, %_ZNSt10unique_ptrIN4node9inspector8protocol9ListValueESt14default_deleteIS3_EED2Ev.exit.thread193, %cleanup, %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsIhEEvPKT_S6_PS6_.exit, %sw.default, %if.then11, %sw.bb, %if.then

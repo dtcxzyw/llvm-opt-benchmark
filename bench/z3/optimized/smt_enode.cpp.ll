@@ -4,12 +4,12 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.smt::eq_justification" = type { ptr }
 %"class.smt::enode" = type { ptr, ptr, ptr, ptr, i32, i32, i32, i16, i32, i8, i8, %class.ptr_vector, %class.id_var_list, %"struct.smt::trans_justification", %class.approx_set, %class.approx_set, [0 x ptr] }
 %class.ptr_vector = type { %class.vector }
 %class.vector = type { ptr }
 %class.id_var_list = type { i32, ptr }
 %"struct.smt::trans_justification" = type { ptr, %"class.smt::eq_justification" }
+%"class.smt::eq_justification" = type { ptr }
 %class.approx_set = type { %class.approx_set_tpl }
 %class.approx_set_tpl = type { i64 }
 %class.ast = type { i32, i24, i32, i32 }
@@ -454,7 +454,7 @@ $_ZTI11value_trailI10approx_setE = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZN3smtL21null_eq_justificationE = internal unnamed_addr global %"class.smt::eq_justification" zeroinitializer, align 8
+@_ZN3smtL21null_eq_justificationE.0 = internal unnamed_addr global i1 false, align 8
 @.str = private unnamed_addr constant [2 x i8] c"#\00", align 1
 @.str.7 = private unnamed_addr constant [8 x i8] c"  ->  #\00", align 1
 @.str.8 = private unnamed_addr constant [9 x i8] c", lbls: \00", align 1
@@ -504,7 +504,8 @@ entry:
   %m_next.i.i = getelementptr inbounds %"class.smt::enode", ptr %mem, i64 0, i32 12, i32 1
   %m_justification.i.i = getelementptr inbounds %"class.smt::enode", ptr %mem, i64 0, i32 13, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_next.i.i, i8 0, i64 16, i1 false)
-  %0 = load i64, ptr @_ZN3smtL21null_eq_justificationE, align 8
+  %.b = load i1, ptr @_ZN3smtL21null_eq_justificationE.0, align 8
+  %0 = select i1 %.b, i64 3, i64 0
   store i64 %0, ptr %m_justification.i.i, align 8
   %m_lbls.i = getelementptr inbounds %"class.smt::enode", ptr %mem, i64 0, i32 14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_lbls.i, i8 0, i64 16, i1 false)
@@ -2125,7 +2126,7 @@ define internal void @_GLOBAL__sub_I_smt_enode.cpp() #17 section ".text.startup"
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #20
-  store ptr inttoptr (i64 3 to ptr), ptr @_ZN3smtL21null_eq_justificationE, align 8
+  store i1 true, ptr @_ZN3smtL21null_eq_justificationE.0, align 8
   ret void
 }
 

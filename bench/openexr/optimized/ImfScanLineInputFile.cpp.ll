@@ -2553,7 +2553,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_121sli
   %sub.ptr.sub.i.i.i.i.i.i51.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i50.i.i.i, %.pre384
   %sub.ptr.div.neg.i.i.i.i.i.i52.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i51.i.i.i, -56
   %add.ptr.i.i.i.i.i.i53.i.i.i = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::sliceOptimizationData", ptr %add.ptr.i7.i49.i.i.i, i64 %sub.ptr.div.neg.i.i.i.i.i.i52.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i53.i.i.i, ptr nonnull align 8 %optData.sroa.0.0, i64 %sub.ptr.sub.i.i.i.i.i.i51.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i53.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %optData.sroa.0.0, i64 %sub.ptr.sub.i.i.i.i.i.i51.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %optData.sroa.0.0, ptr noundef nonnull align 8 dereferenceable(56) %__val.i19.i.i.i, i64 56, i1 false)
   br label %for.inc.i39.i.i.i
 
@@ -5293,12 +5293,11 @@ _ZN9Imath_3_24divpEii.exit74:                     ; preds = %cond.true2.i72, %co
   %15 = load i64, ptr %xStride, align 8
   %mul28 = mul i64 %15, %conv27
   %add29 = add i64 %add, %mul28
-  %16 = inttoptr i64 %add29 to ptr
-  store ptr %16, ptr %outWritePointerRight, align 8
+  store i64 %add29, ptr %outWritePointerRight, align 8
   %conv30 = sext i32 %cond21.i62 to i64
-  %17 = load i64, ptr %xStride, align 8
+  %16 = load i64, ptr %xStride, align 8
   %mul3518 = sub nsw i64 %conv30, %conv27
-  %sub = mul i64 %17, %mul3518
+  %sub = mul i64 %16, %mul3518
   %add36 = add i64 %sub, 2
   %div3819 = lshr i64 %add36, 1
   %div39 = udiv i64 %div3819, %spec.select

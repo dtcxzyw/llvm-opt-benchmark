@@ -696,38 +696,37 @@ entry:
           to label %call.i.noexc unwind label %lpad2
 
 call.i.noexc:                                     ; preds = %entry
-  %0 = ptrtoint ptr %this to i64
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5folly21ThreadWheelTimekeeperC1EvE3$_1EEEEEE", i64 0, inrange i32 0, i64 2), ptr %call.i22, align 8, !tbaa !44
   %_M_func.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i22, i64 0, i32 1
-  store i64 %0, ptr %_M_func.i.i, align 8, !tbaa !49
+  store ptr %this, ptr %_M_func.i.i, align 8, !tbaa !49
   store ptr %call.i22, ptr %agg.tmp.i, align 8, !tbaa !49
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %thread_, ptr noundef nonnull %agg.tmp.i, ptr noundef null)
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %call.i.noexc
-  %1 = load ptr, ptr %agg.tmp.i, align 8, !tbaa !49
-  %cmp.not.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %agg.tmp.i, align 8, !tbaa !49
+  %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %invoke.cont3, label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %invoke.cont3.i
-  %vtable.i.i.i = load ptr, ptr %1, align 8, !tbaa !44
+  %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !44
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
-  %2 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #19
+  %1 = load ptr, ptr %vfn.i.i.i, align 8
+  call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
   br label %invoke.cont3
 
 lpad2.i:                                          ; preds = %call.i.noexc
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %4 = load ptr, ptr %agg.tmp.i, align 8, !tbaa !49
-  %cmp.not.i6.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %agg.tmp.i, align 8, !tbaa !49
+  %cmp.not.i6.i = icmp eq ptr %3, null
   br i1 %cmp.not.i6.i, label %ehcleanup16, label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i7.i
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i7.i: ; preds = %lpad2.i
-  %vtable.i.i8.i = load ptr, ptr %4, align 8, !tbaa !44
+  %vtable.i.i8.i = load ptr, ptr %3, align 8, !tbaa !44
   %vfn.i.i9.i = getelementptr inbounds ptr, ptr %vtable.i.i8.i, i64 1
-  %5 = load ptr, ptr %vfn.i.i9.i, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
+  %4 = load ptr, ptr %vfn.i.i9.i, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
   br label %ehcleanup16
 
 invoke.cont3:                                     ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i, %invoke.cont3.i
@@ -742,7 +741,7 @@ call.i.noexc23:                                   ; preds = %invoke.cont3
           to label %invoke.cont10 unwind label %lpad.i, !noalias !50
 
 lpad.i:                                           ; preds = %call.i.noexc23
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call.i24) #20, !noalias !50
   br label %ehcleanup
@@ -759,35 +758,35 @@ invoke.cont13:                                    ; preds = %invoke.cont10
   store ptr @"_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZNS_21ThreadWheelTimekeeperC1EvE3$_0EEvRNS1_4DataE", ptr %call_.i, align 16, !tbaa !38
   store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %exec_.i, align 8, !tbaa !40
   call void @_ZN5folly9EventBase20runInEventBaseThreadENS_8FunctionIFvvEEE(ptr noundef nonnull align 16 dereferenceable(584) %eventBase_, ptr noundef nonnull %agg.tmp) #19
-  %7 = load ptr, ptr %exec_.i, align 8, !tbaa !40
-  %tobool.not.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %exec_.i, align 8, !tbaa !40
+  %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %invoke.cont13
-  %call.i.i = call noundef i64 %7(i32 noundef 1, ptr noundef nonnull %agg.tmp, ptr noundef null) #19
+  %call.i.i = call noundef i64 %6(i32 noundef 1, ptr noundef nonnull %agg.tmp, ptr noundef null) #19
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit
 
 _ZN5folly8FunctionIFvvEED2Ev.exit:                ; preds = %if.end.i.i, %invoke.cont13
   ret void
 
 lpad2:                                            ; preds = %entry
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup16
 
 lpad8:                                            ; preds = %invoke.cont3
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad12:                                           ; preds = %invoke.cont10
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS0_18DelayedDestruction10DestructorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %wheelTimer_) #19
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad12, %lpad8, %lpad.i
-  %.pn = phi { ptr, i32 } [ %10, %lpad12 ], [ %9, %lpad8 ], [ %6, %lpad.i ]
+  %.pn = phi { ptr, i32 } [ %9, %lpad12 ], [ %8, %lpad8 ], [ %5, %lpad.i ]
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %thread_, align 16, !tbaa.struct !54
   %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i.i, 0
   br i1 %cmp.i.i.not.i, label %ehcleanup16, label %if.then.i
@@ -797,7 +796,7 @@ if.then.i:                                        ; preds = %ehcleanup
   unreachable
 
 ehcleanup16:                                      ; preds = %ehcleanup, %lpad2, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i7.i, %lpad2.i
-  %.pn.pn = phi { ptr, i32 } [ %8, %lpad2 ], [ %3, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i7.i ], [ %3, %lpad2.i ], [ %.pn, %ehcleanup ]
+  %.pn.pn = phi { ptr, i32 } [ %7, %lpad2 ], [ %2, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i7.i ], [ %2, %lpad2.i ], [ %.pn, %ehcleanup ]
   call void @_ZN5folly9EventBaseD1Ev(ptr noundef nonnull align 16 dereferenceable(584) %eventBase_) #19
   resume { ptr, i32 } %.pn.pn
 }

@@ -239,36 +239,35 @@ ehcleanup24:                                      ; preds = %lpad.i.i, %lpad19
   br label %ehcleanup33
 
 if.end:                                           ; preds = %invoke.cont5
-  %22 = ptrtoint ptr %call.i910 to i64
-  store i64 %22, ptr %agg.tmp26, align 8
+  store ptr %call.i910, ptr %agg.tmp26, align 8
   store ptr null, ptr %regex_matcher, align 8
   invoke void @_ZN9grpc_core13StringMatcherC1ESt10unique_ptrIN3re23RE2ESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp25, ptr noundef nonnull %agg.tmp26)
           to label %invoke.cont30 unwind label %lpad27
 
 invoke.cont30:                                    ; preds = %if.end
-  %23 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.result, i64 0, i32 1
-  call void @_ZN9grpc_core13StringMatcherC1EOS0_(ptr noundef nonnull align 8 dereferenceable(49) %23, ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp25) #13
+  %22 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.result, i64 0, i32 1
+  call void @_ZN9grpc_core13StringMatcherC1EOS0_(ptr noundef nonnull align 8 dereferenceable(49) %22, ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp25) #13
   store i64 0, ptr %agg.result, align 8
   %regex_matcher_.i = getelementptr inbounds %"class.grpc_core::StringMatcher", ptr %ref.tmp25, i64 0, i32 3
-  %24 = load ptr, ptr %regex_matcher_.i, align 8
-  %cmp.not.i.i = icmp eq ptr %24, null
+  %23 = load ptr, ptr %regex_matcher_.i, align 8
+  %cmp.not.i.i = icmp eq ptr %23, null
   br i1 %cmp.not.i.i, label %_ZN9grpc_core13StringMatcherD2Ev.exit, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i: ; preds = %invoke.cont30
-  call void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212) %24) #13
-  call void @_ZdlPv(ptr noundef nonnull %24) #15
+  call void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212) %23) #13
+  call void @_ZdlPv(ptr noundef nonnull %23) #15
   br label %_ZN9grpc_core13StringMatcherD2Ev.exit
 
 _ZN9grpc_core13StringMatcherD2Ev.exit:            ; preds = %invoke.cont30, %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i
   store ptr null, ptr %regex_matcher_.i, align 8
   %string_matcher_.i = getelementptr inbounds %"class.grpc_core::StringMatcher", ptr %ref.tmp25, i64 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i) #13
-  %25 = load ptr, ptr %agg.tmp26, align 8
-  %cmp.not.i = icmp eq ptr %25, null
+  %24 = load ptr, ptr %agg.tmp26, align 8
+  %cmp.not.i = icmp eq ptr %24, null
   br i1 %cmp.not.i, label %return, label %_ZNSt10unique_ptrIN3re23RE2ESt14default_deleteIS1_EED2Ev.exit15.sink.split
 
 lpad27:                                           ; preds = %if.end
-  %26 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIN3re23RE2ESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp26) #13
   br label %ehcleanup33
@@ -280,29 +279,29 @@ cleanup:                                          ; preds = %invoke.cont20, %if.
   br i1 %cmp.not.i13, label %return, label %_ZNSt10unique_ptrIN3re23RE2ESt14default_deleteIS1_EED2Ev.exit15.sink.split
 
 _ZNSt10unique_ptrIN3re23RE2ESt14default_deleteIS1_EED2Ev.exit15.sink.split: ; preds = %cleanup, %_ZN9grpc_core13StringMatcherD2Ev.exit
-  %.sink26 = phi ptr [ %25, %_ZN9grpc_core13StringMatcherD2Ev.exit ], [ %.pre22, %cleanup ]
+  %.sink26 = phi ptr [ %24, %_ZN9grpc_core13StringMatcherD2Ev.exit ], [ %.pre22, %cleanup ]
   call void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212) %.sink26) #13
   call void @_ZdlPv(ptr noundef nonnull %.sink26) #15
   br label %return
 
 ehcleanup33:                                      ; preds = %lpad27, %ehcleanup24, %lpad4
-  %.pn5.pn = phi { ptr, i32 } [ %26, %lpad27 ], [ %.pn3, %ehcleanup24 ], [ %20, %lpad4 ]
+  %.pn5.pn = phi { ptr, i32 } [ %25, %lpad27 ], [ %.pn3, %ehcleanup24 ], [ %20, %lpad4 ]
   call void @_ZNSt10unique_ptrIN3re23RE2ESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %regex_matcher) #13
   br label %eh.resume
 
 invoke.cont37:                                    ; preds = %entry
   call void @_ZN9grpc_core13StringMatcherC1ENS0_4TypeESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp34, i32 noundef %type, i64 %matcher.coerce0, ptr %matcher.coerce1, i1 noundef zeroext %case_sensitive)
-  %27 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.result, i64 0, i32 1
-  call void @_ZN9grpc_core13StringMatcherC1EOS0_(ptr noundef nonnull align 8 dereferenceable(49) %27, ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp34) #13
+  %26 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.result, i64 0, i32 1
+  call void @_ZN9grpc_core13StringMatcherC1EOS0_(ptr noundef nonnull align 8 dereferenceable(49) %26, ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp34) #13
   store i64 0, ptr %agg.result, align 8
   %regex_matcher_.i16 = getelementptr inbounds %"class.grpc_core::StringMatcher", ptr %ref.tmp34, i64 0, i32 3
-  %28 = load ptr, ptr %regex_matcher_.i16, align 8
-  %cmp.not.i.i17 = icmp eq ptr %28, null
+  %27 = load ptr, ptr %regex_matcher_.i16, align 8
+  %cmp.not.i.i17 = icmp eq ptr %27, null
   br i1 %cmp.not.i.i17, label %_ZN9grpc_core13StringMatcherD2Ev.exit20, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i18
 
 _ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i18: ; preds = %invoke.cont37
-  call void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212) %28) #13
-  call void @_ZdlPv(ptr noundef nonnull %28) #15
+  call void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212) %27) #13
+  call void @_ZdlPv(ptr noundef nonnull %27) #15
   br label %_ZN9grpc_core13StringMatcherD2Ev.exit20
 
 _ZN9grpc_core13StringMatcherD2Ev.exit20:          ; preds = %invoke.cont37, %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i18

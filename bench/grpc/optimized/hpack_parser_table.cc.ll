@@ -2042,7 +2042,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %sm.sroa.3.0.copyload.i = load ptr, ptr %sm.sroa.3.0.arrayidx.sroa_idx.i, align 8, !noalias !25
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %sm.sroa.0.0.copyload.i) #23, !noalias !25
   %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %sm.sroa.3.0.copyload.i) #27, !noalias !25
-  store ptr inttoptr (i64 1 to ptr), ptr %agg.tmp1.i, align 8, !alias.scope !28, !noalias !25
+  store i64 1, ptr %agg.tmp1.i, align 8, !alias.scope !28, !noalias !25
   store i64 %call.i.i, ptr %slice.sroa.2.0.agg.result.sroa_idx.i.i.i, align 8, !alias.scope !28, !noalias !25
   store ptr %sm.sroa.3.0.copyload.i, ptr %slice.sroa.3.0.agg.result.sroa_idx.i.i.i, align 8, !alias.scope !28, !noalias !25
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %sm.sroa.0.0.copyload.i) #27, !noalias !25

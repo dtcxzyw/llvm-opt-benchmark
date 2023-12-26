@@ -264,36 +264,35 @@ add_timeout_sqe.exit:                             ; preds = %if.then2, %if.end8.
   store i32 -1, ptr %fd1.i.i.i, align 4
   %0 = getelementptr inbounds %struct.io_uring_sqe, ptr %retval.0.i.i, i64 0, i32 4
   store i64 1, ptr %0, align 8
-  %1 = ptrtoint ptr %ts.i to i64
-  %2 = getelementptr inbounds %struct.io_uring_sqe, ptr %retval.0.i.i, i64 0, i32 5
-  store i64 %1, ptr %2, align 8
+  %1 = getelementptr inbounds %struct.io_uring_sqe, ptr %retval.0.i.i, i64 0, i32 5
+  store ptr %ts.i, ptr %1, align 8
   %len2.i.i.i = getelementptr inbounds %struct.io_uring_sqe, ptr %retval.0.i.i, i64 0, i32 6
   store i32 1, ptr %len2.i.i.i, align 8
-  %3 = getelementptr inbounds %struct.io_uring_sqe, ptr %retval.0.i.i, i64 0, i32 7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %3, i8 0, i64 36, i1 false)
+  %2 = getelementptr inbounds %struct.io_uring_sqe, ptr %retval.0.i.i, i64 0, i32 7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %2, i8 0, i64 36, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i)
   br label %if.end3
 
 if.end3:                                          ; preds = %entry, %if.else, %add_timeout_sqe.exit
   %wait_nr.0 = phi i32 [ 1, %add_timeout_sqe.exit ], [ 1, %if.else ], [ 0, %entry ]
   %submit_list3.i = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 18
-  %4 = atomicrmw xchg ptr %submit_list3.i, i64 0 seq_cst, align 8
-  %tobool.not.i7.i = icmp eq i64 %4, 0
+  %3 = atomicrmw xchg ptr %submit_list3.i, i64 0 seq_cst, align 8
+  %tobool.not.i7.i = icmp eq i64 %3, 0
   br i1 %tobool.not.i7.i, label %fill_sq_ring.exit, label %while.body7.lr.ph.i
 
 while.body7.lr.ph.i:                              ; preds = %if.end3
-  %5 = inttoptr i64 %4 to ptr
+  %4 = inttoptr i64 %3 to ptr
   %fdmon_io_uring.i.i.i = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 17
   br label %while.body7.i
 
 while.body7.i:                                    ; preds = %if.end12.i, %while.body7.lr.ph.i
-  %submit_list.sroa.0.08.i = phi ptr [ %5, %while.body7.lr.ph.i ], [ %6, %if.end12.i ]
+  %submit_list.sroa.0.08.i = phi ptr [ %4, %while.body7.lr.ph.i ], [ %5, %if.end12.i ]
   %node_submitted.i.i = getelementptr inbounds %struct.AioHandler, ptr %submit_list.sroa.0.08.i, i64 0, i32 12
-  %6 = load ptr, ptr %node_submitted.i.i, align 8
+  %5 = load ptr, ptr %node_submitted.i.i, align 8
   store ptr null, ptr %node_submitted.i.i, align 8
   %flags5.i.i = getelementptr inbounds %struct.AioHandler, ptr %submit_list.sroa.0.08.i, i64 0, i32 13
-  %7 = atomicrmw and ptr %flags5.i.i, i32 -4 seq_cst, align 8
-  %and.i = and i32 %7, 2
+  %6 = atomicrmw and ptr %flags5.i.i, i32 -4 seq_cst, align 8
+  %and.i = and i32 %6, 2
   %tobool8.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool8.not.i, label %if.end.i, label %if.then.i
 
@@ -302,7 +301,7 @@ if.then.i:                                        ; preds = %while.body7.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body7.i
-  %and9.i = and i32 %7, 4
+  %and9.i = and i32 %6, 4
   %tobool10.not.i = icmp eq i32 %and9.i, 0
   br i1 %tobool10.not.i, label %if.end12.i, label %if.then11.i
 
@@ -342,17 +341,16 @@ add_poll_remove_sqe.exit.i:                       ; preds = %if.end8.i.i.i, %if.
   store i16 0, ptr %ioprio.i.i.i.i, align 2
   %fd1.i.i.i.i = getelementptr inbounds %struct.io_uring_sqe, ptr %retval.0.i.i.i, i64 0, i32 3
   store i32 -1, ptr %fd1.i.i.i.i, align 4
-  %8 = getelementptr inbounds %struct.io_uring_sqe, ptr %retval.0.i.i.i, i64 0, i32 4
-  store i64 0, ptr %8, align 8
-  %9 = ptrtoint ptr %submit_list.sroa.0.08.i to i64
-  %10 = getelementptr inbounds %struct.io_uring_sqe, ptr %retval.0.i.i.i, i64 0, i32 5
-  store i64 %9, ptr %10, align 8
+  %7 = getelementptr inbounds %struct.io_uring_sqe, ptr %retval.0.i.i.i, i64 0, i32 4
+  store i64 0, ptr %7, align 8
+  %8 = getelementptr inbounds %struct.io_uring_sqe, ptr %retval.0.i.i.i, i64 0, i32 5
+  store ptr %submit_list.sroa.0.08.i, ptr %8, align 8
   %len2.i.i.i.i = getelementptr inbounds %struct.io_uring_sqe, ptr %retval.0.i.i.i, i64 0, i32 6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %len2.i.i.i.i, i8 0, i64 40, i1 false)
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %add_poll_remove_sqe.exit.i, %if.end.i
-  %tobool.not.i.i7 = icmp eq ptr %6, null
+  %tobool.not.i.i7 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i7, label %fill_sq_ring.exit, label %while.body7.i, !llvm.loop !10
 
 fill_sq_ring.exit:                                ; preds = %if.end12.i, %if.end3
@@ -374,13 +372,13 @@ if.else7:                                         ; preds = %do.end
 
 if.end8:                                          ; preds = %do.end
   %cq.i = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 17, i32 1
-  %11 = load ptr, ptr %cq.i, align 8
-  %12 = load i32, ptr %11, align 4
+  %9 = load ptr, ptr %cq.i, align 8
+  %10 = load i32, ptr %9, align 4
   %cqes.i = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 17, i32 1, i32 6
   %ktail.i = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 17, i32 1, i32 1
-  %13 = load ptr, ptr %ktail.i, align 8
-  %14 = load atomic i32, ptr %13 acquire, align 4
-  %cmp.not16.i = icmp eq i32 %12, %14
+  %11 = load ptr, ptr %ktail.i, align 8
+  %12 = load atomic i32, ptr %11 acquire, align 4
+  %cmp.not16.i = icmp eq i32 %10, %12
   br i1 %cmp.not16.i, label %process_cq_ring.exit, label %cond.end.lr.ph.i
 
 cond.end.lr.ph.i:                                 ; preds = %if.end8
@@ -390,75 +388,75 @@ cond.end.lr.ph.i:                                 ; preds = %if.end8
 
 cond.end.i:                                       ; preds = %process_cqe.exit.thread.i, %cond.end.lr.ph.i
   %num_cqes.019.i = phi i32 [ 0, %cond.end.lr.ph.i ], [ %inc4.i, %process_cqe.exit.thread.i ]
-  %head.018.i = phi i32 [ %12, %cond.end.lr.ph.i ], [ %inc5.i, %process_cqe.exit.thread.i ]
-  %num_ready.017.i = phi i32 [ 0, %cond.end.lr.ph.i ], [ %24, %process_cqe.exit.thread.i ]
-  %15 = load ptr, ptr %cqes.i, align 8
-  %16 = load ptr, ptr %kring_mask.i, align 8
-  %17 = load i32, ptr %16, align 4
-  %and.i8 = and i32 %17, %head.018.i
+  %head.018.i = phi i32 [ %10, %cond.end.lr.ph.i ], [ %inc5.i, %process_cqe.exit.thread.i ]
+  %num_ready.017.i = phi i32 [ 0, %cond.end.lr.ph.i ], [ %22, %process_cqe.exit.thread.i ]
+  %13 = load ptr, ptr %cqes.i, align 8
+  %14 = load ptr, ptr %kring_mask.i, align 8
+  %15 = load i32, ptr %14, align 4
+  %and.i8 = and i32 %15, %head.018.i
   %idxprom.i = zext i32 %and.i8 to i64
-  %arrayidx.i = getelementptr %struct.io_uring_cqe, ptr %15, i64 %idxprom.i
+  %arrayidx.i = getelementptr %struct.io_uring_cqe, ptr %13, i64 %idxprom.i
   %tobool.not.i = icmp eq ptr %arrayidx.i, null
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %cond.end.i
   %cqe.val.i.i = load i64, ptr %arrayidx.i, align 8
-  %18 = inttoptr i64 %cqe.val.i.i to ptr
+  %16 = inttoptr i64 %cqe.val.i.i to ptr
   %tobool.not.i.i9 = icmp eq i64 %cqe.val.i.i, 0
   br i1 %tobool.not.i.i9, label %process_cqe.exit.thread.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i
-  %flags1.i.i = getelementptr inbounds %struct.AioHandler, ptr %18, i64 0, i32 13
-  %19 = atomicrmw and ptr %flags1.i.i, i32 -5 seq_cst, align 8
-  %and.i.i = and i32 %19, 4
+  %flags1.i.i = getelementptr inbounds %struct.AioHandler, ptr %16, i64 0, i32 13
+  %17 = atomicrmw and ptr %flags1.i.i, i32 -5 seq_cst, align 8
+  %and.i.i = and i32 %17, 4
   %tobool2.not.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %tobool2.not.i.i, label %22, label %do.body.i.i10
+  br i1 %tobool2.not.i.i, label %20, label %do.body.i.i10
 
 do.body.i.i10:                                    ; preds = %if.end.i.i
-  %node_deleted.i.i = getelementptr inbounds %struct.AioHandler, ptr %18, i64 0, i32 10
-  %le_prev.i.i = getelementptr inbounds %struct.AioHandler, ptr %18, i64 0, i32 10, i32 1
+  %node_deleted.i.i = getelementptr inbounds %struct.AioHandler, ptr %16, i64 0, i32 10
+  %le_prev.i.i = getelementptr inbounds %struct.AioHandler, ptr %16, i64 0, i32 10, i32 1
   store ptr %deleted_aio_handlers.i.i, ptr %le_prev.i.i, align 8
-  %20 = load ptr, ptr %deleted_aio_handlers.i.i, align 8
-  store ptr %20, ptr %node_deleted.i.i, align 8
+  %18 = load ptr, ptr %deleted_aio_handlers.i.i, align 8
+  store ptr %18, ptr %node_deleted.i.i, align 8
   store atomic i64 %cqe.val.i.i, ptr %deleted_aio_handlers.i.i release, align 8
-  %21 = load ptr, ptr %node_deleted.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %21, null
+  %19 = load ptr, ptr %node_deleted.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %19, null
   br i1 %cmp.not.i.i, label %process_cqe.exit.thread.i, label %if.then15.i.i
 
 if.then15.i.i:                                    ; preds = %do.body.i.i10
-  %le_prev21.i.i = getelementptr inbounds %struct.AioHandler, ptr %21, i64 0, i32 10, i32 1
+  %le_prev21.i.i = getelementptr inbounds %struct.AioHandler, ptr %19, i64 0, i32 10, i32 1
   store ptr %node_deleted.i.i, ptr %le_prev21.i.i, align 8
   br label %process_cqe.exit.thread.i
 
-22:                                               ; preds = %if.end.i.i
-  %res.i.i = getelementptr %struct.io_uring_cqe, ptr %15, i64 %idxprom.i, i32 1
-  %23 = load i32, ptr %res.i.i, align 8
-  %or11.i.i.i = and i32 %23, 29
-  call void @aio_add_ready_handler(ptr noundef %ready_list, ptr noundef nonnull %18, i32 noundef %or11.i.i.i) #6
-  call fastcc void @add_poll_add_sqe(ptr noundef nonnull %ctx, ptr noundef nonnull %18)
+20:                                               ; preds = %if.end.i.i
+  %res.i.i = getelementptr %struct.io_uring_cqe, ptr %13, i64 %idxprom.i, i32 1
+  %21 = load i32, ptr %res.i.i, align 8
+  %or11.i.i.i = and i32 %21, 29
+  call void @aio_add_ready_handler(ptr noundef %ready_list, ptr noundef nonnull %16, i32 noundef %or11.i.i.i) #6
+  call fastcc void @add_poll_add_sqe(ptr noundef nonnull %ctx, ptr noundef nonnull %16)
   %inc.i = add i32 %num_ready.017.i, 1
   br label %process_cqe.exit.thread.i
 
-process_cqe.exit.thread.i:                        ; preds = %22, %if.then15.i.i, %do.body.i.i10, %for.body.i
-  %24 = phi i32 [ %inc.i, %22 ], [ %num_ready.017.i, %for.body.i ], [ %num_ready.017.i, %do.body.i.i10 ], [ %num_ready.017.i, %if.then15.i.i ]
+process_cqe.exit.thread.i:                        ; preds = %20, %if.then15.i.i, %do.body.i.i10, %for.body.i
+  %22 = phi i32 [ %inc.i, %20 ], [ %num_ready.017.i, %for.body.i ], [ %num_ready.017.i, %do.body.i.i10 ], [ %num_ready.017.i, %if.then15.i.i ]
   %inc4.i = add i32 %num_cqes.019.i, 1
   %inc5.i = add i32 %head.018.i, 1
-  %25 = load ptr, ptr %ktail.i, align 8
-  %26 = load atomic i32, ptr %25 acquire, align 4
-  %cmp.not.i = icmp eq i32 %inc5.i, %26
+  %23 = load ptr, ptr %ktail.i, align 8
+  %24 = load atomic i32, ptr %23 acquire, align 4
+  %cmp.not.i = icmp eq i32 %inc5.i, %24
   br i1 %cmp.not.i, label %for.end.i, label %cond.end.i, !llvm.loop !12
 
 for.end.i:                                        ; preds = %process_cqe.exit.thread.i, %cond.end.i
-  %num_ready.0.lcssa.i = phi i32 [ %num_ready.017.i, %cond.end.i ], [ %24, %process_cqe.exit.thread.i ]
+  %num_ready.0.lcssa.i = phi i32 [ %num_ready.017.i, %cond.end.i ], [ %22, %process_cqe.exit.thread.i ]
   %num_cqes.0.lcssa.i = phi i32 [ %num_cqes.019.i, %cond.end.i ], [ %inc4.i, %process_cqe.exit.thread.i ]
   %tobool.not.i10.i = icmp eq i32 %num_cqes.0.lcssa.i, 0
   br i1 %tobool.not.i10.i, label %process_cq_ring.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.end.i
-  %27 = load ptr, ptr %cq.i, align 8
-  %28 = load i32, ptr %27, align 4
-  %add.i.i = add i32 %28, %num_cqes.0.lcssa.i
-  store atomic i32 %add.i.i, ptr %27 release, align 4
+  %25 = load ptr, ptr %cq.i, align 8
+  %26 = load i32, ptr %25, align 4
+  %add.i.i = add i32 %26, %num_cqes.0.lcssa.i
+  store atomic i32 %add.i.i, ptr %25 release, align 4
   br label %process_cq_ring.exit
 
 process_cq_ring.exit:                             ; preds = %if.end8, %for.end.i, %if.then.i.i
@@ -570,9 +568,8 @@ get_sqe.exit:                                     ; preds = %entry, %if.end8.i
   %4 = getelementptr inbounds %struct.io_uring_sqe, ptr %retval.0.i, i64 0, i32 7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   store i32 %or11.i, ptr %4, align 4
-  %5 = ptrtoint ptr %node to i64
   %user_data.i = getelementptr inbounds %struct.io_uring_sqe, ptr %retval.0.i, i64 0, i32 8
-  store i64 %5, ptr %user_data.i, align 8
+  store ptr %node, ptr %user_data.i, align 8
   ret void
 }
 

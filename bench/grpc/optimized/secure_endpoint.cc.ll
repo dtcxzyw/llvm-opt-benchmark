@@ -2879,7 +2879,7 @@ lpad.i.i.i:                                       ; preds = %do.end.i.i.i, %if.t
   br label %lpad.body.i.i.i
 
 lpad.body.i.i.i:                                  ; preds = %ehcleanup.i.i.i.i.i, %lpad.i.i.i.i.i.i, %lpad.i.i.i
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %13, %lpad.i.i.i ], [ %21, %lpad.i.i.i.i.i.i ], [ %28, %ehcleanup.i.i.i.i.i ]
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %13, %lpad.i.i.i ], [ %21, %lpad.i.i.i.i.i.i ], [ %27, %ehcleanup.i.i.i.i.i ]
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %reclaimer_mu_.i.i.i)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit.i.i.i unwind label %terminate.lpad.i.i.i.i
 
@@ -2951,54 +2951,53 @@ invoke.cont.i.i.i.i.i:                            ; preds = %_ZNSt10shared_ptrIN
   store <2 x ptr> %22, ptr %state_.i.i.i.i.i.i.i.i.i, align 8, !noalias !45
   store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @"_ZTVN9grpc_core14ReclaimerQueue6Handle7SweepFnIZL20maybe_post_reclaimerPN12_GLOBAL__N_115secure_endpointEE3$_0EE", i64 0, inrange i32 0, i64 2), ptr %call.i1.i.i.i.i.i.i, align 8, !noalias !45
   %f_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ReclaimerQueue::Handle::SweepFn", ptr %call.i1.i.i.i.i.i.i, i64 0, i32 1
-  %23 = ptrtoint ptr %ep to i64
-  store i64 %23, ptr %f_.i.i.i.i.i.i.i.i, align 8, !noalias !45
+  store ptr %ep, ptr %f_.i.i.i.i.i.i.i.i, align 8, !noalias !45
   %sweep_.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ReclaimerQueue::Handle", ptr %call.i.i.i1.i.i.i, i64 0, i32 1
   store ptr %call.i1.i.i.i.i.i.i, ptr %sweep_.i.i.i.i.i.i.i, align 8, !noalias !45
   store ptr %call.i.i.i1.i.i.i, ptr %ref.tmp.i.i.i.i, align 8, !alias.scope !45
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i.i.i.i.i.i), !noalias !39
   call void @llvm.experimental.noalias.scope.decl(metadata !46)
-  %24 = atomicrmw add ptr %refs_.i.i.i.i.i.i.i.i, i64 1 monotonic, align 8, !noalias !49
+  %23 = atomicrmw add ptr %refs_.i.i.i.i.i.i.i.i, i64 1 monotonic, align 8, !noalias !49
   store ptr %call.i.i.i1.i.i.i, ptr %agg.tmp.i.i.i.i.i, align 8, !alias.scope !46, !noalias !39
   invoke void @_ZN9grpc_core14ReclaimerQueue7EnqueueENS_13RefCountedPtrINS0_6HandleEEE(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i.i.i.i, ptr noundef nonnull %agg.tmp.i.i.i.i.i)
           to label %invoke.cont3.i.i.i.i.i unwind label %lpad2.i.i.i.i.i, !noalias !39
 
 invoke.cont3.i.i.i.i.i:                           ; preds = %invoke.cont.i.i.i.i.i
-  %25 = load ptr, ptr %agg.tmp.i.i.i.i.i, align 8, !noalias !39
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %25, null
+  %24 = load ptr, ptr %agg.tmp.i.i.i.i.i, align 8, !noalias !39
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %24, null
   br i1 %cmp.not.i.i.i.i.i.i, label %"_ZN9grpc_core14ReclaimerQueue6InsertIZL20maybe_post_reclaimerPN12_GLOBAL__N_115secure_endpointEE3$_0EESt10unique_ptrINS0_6HandleENS_16OrphanableDeleteEET_.exit.i.i.i.i", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont3.i.i.i.i.i
-  %refs_.i.i3.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::InternallyRefCounted", ptr %25, i64 0, i32 1
-  %26 = atomicrmw sub ptr %refs_.i.i3.i.i.i.i.i, i64 1 acq_rel, align 8, !noalias !39
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %26, 1
+  %refs_.i.i3.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::InternallyRefCounted", ptr %24, i64 0, i32 1
+  %25 = atomicrmw sub ptr %refs_.i.i3.i.i.i.i.i, i64 1 acq_rel, align 8, !noalias !39
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %25, 1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %"_ZN9grpc_core14ReclaimerQueue6InsertIZL20maybe_post_reclaimerPN12_GLOBAL__N_115secure_endpointEE3$_0EESt10unique_ptrINS0_6HandleENS_16OrphanableDeleteEET_.exit.i.i.i.i"
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %25, align 8, !noalias !39
+  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %24, align 8, !noalias !39
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
-  %27 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8, !noalias !39
-  call void %27(ptr noundef nonnull align 8 dereferenceable(24) %25) #17, !noalias !39
+  %26 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8, !noalias !39
+  call void %26(ptr noundef nonnull align 8 dereferenceable(24) %24) #17, !noalias !39
   br label %"_ZN9grpc_core14ReclaimerQueue6InsertIZL20maybe_post_reclaimerPN12_GLOBAL__N_115secure_endpointEE3$_0EESt10unique_ptrINS0_6HandleENS_16OrphanableDeleteEET_.exit.i.i.i.i"
 
 lpad2.i.i.i.i.i:                                  ; preds = %invoke.cont.i.i.i.i.i
-  %28 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %29 = load ptr, ptr %agg.tmp.i.i.i.i.i, align 8, !noalias !39
-  %cmp.not.i4.i.i.i.i.i = icmp eq ptr %29, null
+  %28 = load ptr, ptr %agg.tmp.i.i.i.i.i, align 8, !noalias !39
+  %cmp.not.i4.i.i.i.i.i = icmp eq ptr %28, null
   br i1 %cmp.not.i4.i.i.i.i.i, label %ehcleanup.i.i.i.i.i, label %if.then.i5.i.i.i.i.i
 
 if.then.i5.i.i.i.i.i:                             ; preds = %lpad2.i.i.i.i.i
-  %refs_.i.i6.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::InternallyRefCounted", ptr %29, i64 0, i32 1
-  %30 = atomicrmw sub ptr %refs_.i.i6.i.i.i.i.i, i64 1 acq_rel, align 8, !noalias !39
-  %cmp.i.i.i7.i.i.i.i.i = icmp eq i64 %30, 1
+  %refs_.i.i6.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::InternallyRefCounted", ptr %28, i64 0, i32 1
+  %29 = atomicrmw sub ptr %refs_.i.i6.i.i.i.i.i, i64 1 acq_rel, align 8, !noalias !39
+  %cmp.i.i.i7.i.i.i.i.i = icmp eq i64 %29, 1
   br i1 %cmp.i.i.i7.i.i.i.i.i, label %if.then.i.i8.i.i.i.i.i, label %ehcleanup.i.i.i.i.i
 
 if.then.i.i8.i.i.i.i.i:                           ; preds = %if.then.i5.i.i.i.i.i
-  %vtable.i.i.i9.i.i.i.i.i = load ptr, ptr %29, align 8, !noalias !39
+  %vtable.i.i.i9.i.i.i.i.i = load ptr, ptr %28, align 8, !noalias !39
   %vfn.i.i.i10.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i9.i.i.i.i.i, i64 2
-  %31 = load ptr, ptr %vfn.i.i.i10.i.i.i.i.i, align 8, !noalias !39
-  call void %31(ptr noundef nonnull align 8 dereferenceable(24) %29) #17, !noalias !39
+  %30 = load ptr, ptr %vfn.i.i.i10.i.i.i.i.i, align 8, !noalias !39
+  call void %30(ptr noundef nonnull align 8 dereferenceable(24) %28) #17, !noalias !39
   br label %ehcleanup.i.i.i.i.i
 
 ehcleanup.i.i.i.i.i:                              ; preds = %if.then.i.i8.i.i.i.i.i, %if.then.i5.i.i.i.i.i, %lpad2.i.i.i.i.i
@@ -3008,22 +3007,22 @@ ehcleanup.i.i.i.i.i:                              ; preds = %if.then.i.i8.i.i.i.
 "_ZN9grpc_core14ReclaimerQueue6InsertIZL20maybe_post_reclaimerPN12_GLOBAL__N_115secure_endpointEE3$_0EESt10unique_ptrINS0_6HandleENS_16OrphanableDeleteEET_.exit.i.i.i.i": ; preds = %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %invoke.cont3.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i)
   %reclamation_handles_.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %memory_owner.val.i, i64 0, i32 8
-  %32 = load ptr, ptr %ref.tmp.i.i.i.i, align 8
+  %31 = load ptr, ptr %ref.tmp.i.i.i.i, align 8
   store ptr null, ptr %ref.tmp.i.i.i.i, align 8
-  %33 = load ptr, ptr %reclamation_handles_.i.i.i.i, align 8
-  store ptr %32, ptr %reclamation_handles_.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %33, null
+  %32 = load ptr, ptr %reclamation_handles_.i.i.i.i, align 8
+  store ptr %31, ptr %reclamation_handles_.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %invoke.cont4.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %"_ZN9grpc_core14ReclaimerQueue6InsertIZL20maybe_post_reclaimerPN12_GLOBAL__N_115secure_endpointEE3$_0EESt10unique_ptrINS0_6HandleENS_16OrphanableDeleteEET_.exit.i.i.i.i"
-  invoke void @_ZN9grpc_core14ReclaimerQueue6Handle6OrphanEv(ptr noundef nonnull align 8 dereferenceable(24) %33)
+  invoke void @_ZN9grpc_core14ReclaimerQueue6Handle6OrphanEv(ptr noundef nonnull align 8 dereferenceable(24) %32)
           to label %invoke.cont4.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i.i
-  %34 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #18
+  %34 = extractvalue { ptr, i32 } %33, 0
+  call void @__clang_call_terminate(ptr %34) #18
   unreachable
 
 invoke.cont4.i.i.i:                               ; preds = %if.then.i.i.i.i.i.i.i.i, %"_ZN9grpc_core14ReclaimerQueue6InsertIZL20maybe_post_reclaimerPN12_GLOBAL__N_115secure_endpointEE3$_0EESt10unique_ptrINS0_6HandleENS_16OrphanableDeleteEET_.exit.i.i.i.i"
@@ -3032,10 +3031,10 @@ invoke.cont4.i.i.i:                               ; preds = %if.then.i.i.i.i.i.i
           to label %_ZL20maybe_post_reclaimerPN12_GLOBAL__N_115secure_endpointE.exit unwind label %terminate.lpad.i2.i.i.i
 
 terminate.lpad.i2.i.i.i:                          ; preds = %invoke.cont4.i.i.i
-  %36 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #18
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #18
   unreachable
 
 _ZL20maybe_post_reclaimerPN12_GLOBAL__N_115secure_endpointE.exit: ; preds = %cond.end32, %invoke.cont4.i.i.i

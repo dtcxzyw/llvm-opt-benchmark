@@ -161,20 +161,19 @@ sw.bb.i:                                          ; preds = %trace_luring_co_sub
   store i32 %fd, ptr %fd1.i.i.i, align 4
   %12 = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 4
   store i64 %offset, ptr %12, align 8
-  %13 = ptrtoint ptr %10 to i64
-  %14 = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 5
-  store i64 %13, ptr %14, align 8
+  %13 = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 5
+  store ptr %10, ptr %13, align 8
   %len2.i.i.i = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 6
   store i32 %11, ptr %len2.i.i.i, align 8
-  %15 = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %15, i8 0, i64 36, i1 false)
+  %14 = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %14, i8 0, i64 36, i1 false)
   br label %sw.epilog.i
 
 sw.bb2.i:                                         ; preds = %trace_luring_co_submit.exit
-  %16 = load ptr, ptr %qiov4, align 8
-  %17 = load ptr, ptr %16, align 8
-  %niov6.i = getelementptr inbounds %struct.QEMUIOVector, ptr %16, i64 0, i32 1
-  %18 = load i32, ptr %niov6.i, align 8
+  %15 = load ptr, ptr %qiov4, align 8
+  %16 = load ptr, ptr %15, align 8
+  %niov6.i = getelementptr inbounds %struct.QEMUIOVector, ptr %15, i64 0, i32 1
+  %17 = load i32, ptr %niov6.i, align 8
   store i8 2, ptr %sqeq.i, align 8
   %flags.i.i34.i = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 1
   store i8 0, ptr %flags.i.i34.i, align 1
@@ -182,22 +181,21 @@ sw.bb2.i:                                         ; preds = %trace_luring_co_sub
   store i16 0, ptr %ioprio.i.i35.i, align 2
   %fd1.i.i36.i = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 3
   store i32 %fd, ptr %fd1.i.i36.i, align 4
-  %19 = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 4
-  store i64 %offset, ptr %19, align 8
-  %20 = ptrtoint ptr %17 to i64
-  %21 = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 5
-  store i64 %20, ptr %21, align 8
+  %18 = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 4
+  store i64 %offset, ptr %18, align 8
+  %19 = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 5
+  store ptr %16, ptr %19, align 8
   %len2.i.i37.i = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 6
-  store i32 %18, ptr %len2.i.i37.i, align 8
-  %22 = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %22, i8 0, i64 36, i1 false)
+  store i32 %17, ptr %len2.i.i37.i, align 8
+  %20 = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %20, i8 0, i64 36, i1 false)
   br label %sw.epilog.i
 
 sw.bb7.i:                                         ; preds = %trace_luring_co_submit.exit
-  %23 = load ptr, ptr %qiov4, align 8
-  %24 = load ptr, ptr %23, align 8
-  %niov11.i = getelementptr inbounds %struct.QEMUIOVector, ptr %23, i64 0, i32 1
-  %25 = load i32, ptr %niov11.i, align 8
+  %21 = load ptr, ptr %qiov4, align 8
+  %22 = load ptr, ptr %21, align 8
+  %niov11.i = getelementptr inbounds %struct.QEMUIOVector, ptr %21, i64 0, i32 1
+  %23 = load i32, ptr %niov11.i, align 8
   store i8 1, ptr %sqeq.i, align 8
   %flags.i.i38.i = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 1
   store i8 0, ptr %flags.i.i38.i, align 1
@@ -205,15 +203,14 @@ sw.bb7.i:                                         ; preds = %trace_luring_co_sub
   store i16 0, ptr %ioprio.i.i39.i, align 2
   %fd1.i.i40.i = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 3
   store i32 %fd, ptr %fd1.i.i40.i, align 4
-  %26 = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 4
-  store i64 %offset, ptr %26, align 8
-  %27 = ptrtoint ptr %24 to i64
-  %28 = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 5
-  store i64 %27, ptr %28, align 8
+  %24 = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 4
+  store i64 %offset, ptr %24, align 8
+  %25 = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 5
+  store ptr %22, ptr %25, align 8
   %len2.i.i41.i = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 6
-  store i32 %25, ptr %len2.i.i41.i, align 8
-  %29 = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %29, i8 0, i64 36, i1 false)
+  store i32 %23, ptr %len2.i.i41.i, align 8
+  %26 = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %26, i8 0, i64 36, i1 false)
   br label %sw.epilog.i
 
 sw.bb12.i:                                        ; preds = %trace_luring_co_submit.exit
@@ -224,114 +221,113 @@ sw.bb12.i:                                        ; preds = %trace_luring_co_sub
   store i16 0, ptr %ioprio.i.i43.i, align 2
   %fd1.i.i44.i = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 3
   store i32 %fd, ptr %fd1.i.i44.i, align 4
-  %30 = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 4
-  %31 = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %30, i8 0, i64 56, i1 false)
-  store i32 1, ptr %31, align 4
+  %27 = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 4
+  %28 = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, i8 0, i64 56, i1 false)
+  store i32 1, ptr %28, align 4
   br label %sw.epilog.i
 
 sw.default.i:                                     ; preds = %trace_luring_co_submit.exit
-  %32 = load ptr, ptr @stderr, align 8
-  %call.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.luring_do_submit, i32 noundef %type) #11
+  %29 = load ptr, ptr @stderr, align 8
+  %call.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.luring_do_submit, i32 noundef %type) #11
   call void @abort() #12
   unreachable
 
 sw.epilog.i:                                      ; preds = %sw.bb12.i, %sw.bb7.i, %sw.bb2.i, %sw.bb.i
-  %33 = ptrtoint ptr %luringcb to i64
   %user_data.i.i = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 1, i32 8
-  store i64 %33, ptr %user_data.i.i, align 8
+  store ptr %luringcb, ptr %user_data.i.i, align 8
   %next.i = getelementptr inbounds %struct.LuringAIOCB, ptr %luringcb, i64 0, i32 5
   store ptr null, ptr %next.i, align 8
   %io_q.i = getelementptr inbounds %struct.LuringState, ptr %call1, i64 0, i32 2
   %sqh_last.i = getelementptr inbounds %struct.LuringState, ptr %call1, i64 0, i32 2, i32 3, i32 1
-  %34 = load ptr, ptr %sqh_last.i, align 8
-  store ptr %luringcb, ptr %34, align 8
+  %30 = load ptr, ptr %sqh_last.i, align 8
+  store ptr %luringcb, ptr %30, align 8
   store ptr %next.i, ptr %sqh_last.i, align 8
-  %35 = load i32, ptr %io_q.i, align 8
-  %inc.i = add i32 %35, 1
+  %31 = load i32, ptr %io_q.i, align 8
+  %inc.i = add i32 %31, 1
   store i32 %inc.i, ptr %io_q.i, align 8
   %blocked.i = getelementptr inbounds %struct.LuringState, ptr %call1, i64 0, i32 2, i32 2
-  %36 = load i8, ptr %blocked.i, align 8
-  %37 = and i8 %36, 1
-  %conv.i = zext nneg i8 %37 to i32
+  %32 = load i8, ptr %blocked.i, align 8
+  %33 = and i8 %32, 1
+  %conv.i = zext nneg i8 %33 to i32
   %in_flight.i = getelementptr inbounds %struct.LuringState, ptr %call1, i64 0, i32 2, i32 1
-  %38 = load i32, ptr %in_flight.i, align 4
+  %34 = load i32, ptr %in_flight.i, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %39 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i = icmp ne i32 %39, 0
-  %40 = load i16, ptr @_TRACE_LURING_DO_SUBMIT_DSTATE, align 2
-  %tobool4.i.i.i = icmp ne i16 %40, 0
+  %35 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i = icmp ne i32 %35, 0
+  %36 = load i16, ptr @_TRACE_LURING_DO_SUBMIT_DSTATE, align 2
+  %tobool4.i.i.i = icmp ne i16 %36, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %trace_luring_do_submit.exit.i
 
 land.lhs.true5.i.i.i:                             ; preds = %sw.epilog.i
-  %41 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i = and i32 %41, 32768
+  %37 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i = and i32 %37, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i, label %trace_luring_do_submit.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
-  %42 = load i8, ptr @message_with_timestamp, align 1
-  %43 = and i8 %42, 1
-  %tobool7.not.i.i.i = icmp eq i8 %43, 0
+  %38 = load i8, ptr @message_with_timestamp, align 1
+  %39 = and i8 %38, 1
+  %tobool7.not.i.i.i = icmp eq i8 %39, 0
   br i1 %tobool7.not.i.i.i, label %if.else.i.i.i, label %if.then8.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #10
   %call10.i.i.i = call i32 @qemu_get_thread_id() #10
-  %44 = load i64, ptr %_now.i.i.i, align 8
+  %40 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
-  %45 = load i64, ptr %tv_usec.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i.i, i64 noundef %44, i64 noundef %45, ptr noundef nonnull %call1, i32 noundef %conv.i, i32 noundef %inc.i, i32 noundef %38) #10
+  %41 = load i64, ptr %tv_usec.i.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i.i, i64 noundef %40, i64 noundef %41, ptr noundef nonnull %call1, i32 noundef %conv.i, i32 noundef %inc.i, i32 noundef %34) #10
   br label %trace_luring_do_submit.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, ptr noundef nonnull %call1, i32 noundef %conv.i, i32 noundef %inc.i, i32 noundef %38) #10
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, ptr noundef nonnull %call1, i32 noundef %conv.i, i32 noundef %inc.i, i32 noundef %34) #10
   br label %trace_luring_do_submit.exit.i
 
 trace_luring_do_submit.exit.i:                    ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %sw.epilog.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %46 = load i8, ptr %blocked.i, align 8
-  %47 = and i8 %46, 1
-  %tobool25.not.i = icmp eq i8 %47, 0
+  %42 = load i8, ptr %blocked.i, align 8
+  %43 = and i8 %42, 1
+  %tobool25.not.i = icmp eq i8 %43, 0
   br i1 %tobool25.not.i, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %trace_luring_do_submit.exit.i
-  %48 = load i32, ptr %in_flight.i, align 4
-  %49 = load i32, ptr %io_q.i, align 8
-  %add.i = add i32 %49, %48
+  %44 = load i32, ptr %in_flight.i, align 4
+  %45 = load i32, ptr %io_q.i, align 8
+  %add.i = add i32 %45, %44
   %cmp.i = icmp ugt i32 %add.i, 127
   br i1 %cmp.i, label %if.then31.i, label %if.end.i
 
 if.then31.i:                                      ; preds = %if.then.i
   %call32.i = call fastcc i32 @ioq_submit(ptr noundef nonnull %call1)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i45.i)
-  %50 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i46.i = icmp ne i32 %50, 0
-  %51 = load i16, ptr @_TRACE_LURING_DO_SUBMIT_DONE_DSTATE, align 2
-  %tobool4.i.i47.i = icmp ne i16 %51, 0
+  %46 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i46.i = icmp ne i32 %46, 0
+  %47 = load i16, ptr @_TRACE_LURING_DO_SUBMIT_DONE_DSTATE, align 2
+  %tobool4.i.i47.i = icmp ne i16 %47, 0
   %or.cond.i.i48.i = select i1 %tobool.i.i46.i, i1 %tobool4.i.i47.i, i1 false
   br i1 %or.cond.i.i48.i, label %land.lhs.true5.i.i49.i, label %luring_do_submit.exit
 
 land.lhs.true5.i.i49.i:                           ; preds = %if.then31.i
-  %52 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i50.i = and i32 %52, 32768
+  %48 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i50.i = and i32 %48, 32768
   %cmp.i.not.i.i51.i = icmp eq i32 %and.i.i.i50.i, 0
   br i1 %cmp.i.not.i.i51.i, label %luring_do_submit.exit, label %if.then.i.i52.i
 
 if.then.i.i52.i:                                  ; preds = %land.lhs.true5.i.i49.i
-  %53 = load i8, ptr @message_with_timestamp, align 1
-  %54 = and i8 %53, 1
-  %tobool7.not.i.i53.i = icmp eq i8 %54, 0
+  %49 = load i8, ptr @message_with_timestamp, align 1
+  %50 = and i8 %49, 1
+  %tobool7.not.i.i53.i = icmp eq i8 %50, 0
   br i1 %tobool7.not.i.i53.i, label %if.else.i.i58.i, label %if.then8.i.i54.i
 
 if.then8.i.i54.i:                                 ; preds = %if.then.i.i52.i
   %call9.i.i55.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i45.i, ptr noundef null) #10
   %call10.i.i56.i = call i32 @qemu_get_thread_id() #10
-  %55 = load i64, ptr %_now.i.i45.i, align 8
+  %51 = load i64, ptr %_now.i.i45.i, align 8
   %tv_usec.i.i57.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i45.i, i64 0, i32 1
-  %56 = load i64, ptr %tv_usec.i.i57.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i56.i, i64 noundef %55, i64 noundef %56, ptr noundef nonnull %call1, i32 noundef %call32.i) #10
+  %52 = load i64, ptr %tv_usec.i.i57.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i56.i, i64 noundef %51, i64 noundef %52, ptr noundef nonnull %call1, i32 noundef %call32.i) #10
   br label %luring_do_submit.exit
 
 if.else.i.i58.i:                                  ; preds = %if.then.i.i52.i
@@ -348,8 +344,8 @@ luring_do_submit.exit:                            ; preds = %if.then31.i, %land.
   br i1 %cmp6, label %return, label %if.end
 
 if.end:                                           ; preds = %trace_luring_do_submit.exit.i, %if.end.i, %luring_do_submit.exit
-  %57 = load i64, ptr %ret3, align 8
-  %cmp8 = icmp eq i64 %57, -115
+  %53 = load i64, ptr %ret3, align 8
+  %cmp8 = icmp eq i64 %53, -115
   br i1 %cmp8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end
@@ -358,8 +354,8 @@ if.then9:                                         ; preds = %if.end
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then9, %if.end
-  %58 = phi i64 [ %.pre, %if.then9 ], [ %57, %if.end ]
-  %conv = trunc i64 %58 to i32
+  %54 = phi i64 [ %.pre, %if.then9 ], [ %53, %if.end ]
+  %conv = trunc i64 %54 to i32
   br label %return
 
 return:                                           ; preds = %luring_do_submit.exit, %if.end10
@@ -914,7 +910,7 @@ if.then7:                                         ; preds = %if.then4, %if.then4
   %next.i = getelementptr inbounds %struct.LuringAIOCB, ptr %3, i64 0, i32 5
   store ptr null, ptr %next.i, align 8
   %16 = load ptr, ptr %sqh_last.i.i, align 8
-  store ptr %3, ptr %16, align 8
+  store i64 %.val, ptr %16, align 8
   store ptr %next.i, ptr %sqh_last.i.i, align 8
   %17 = load i32, ptr %io_q.i.i, align 8
   %inc.i = add i32 %17, 1
@@ -1022,20 +1018,19 @@ luring_resubmit_short_read.exit:                  ; preds = %if.then.i35, %if.el
   %add9.i = add i64 %38, %conv8.i
   store i64 %add9.i, ptr %37, align 8
   %39 = load ptr, ptr %resubmit_qiov2.i, align 8
-  %40 = ptrtoint ptr %39 to i64
-  %41 = getelementptr inbounds %struct.LuringAIOCB, ptr %3, i64 0, i32 1, i32 5
-  store i64 %40, ptr %41, align 8
+  %40 = getelementptr inbounds %struct.LuringAIOCB, ptr %3, i64 0, i32 1, i32 5
+  store ptr %39, ptr %40, align 8
   %niov14.i = getelementptr inbounds %struct.LuringAIOCB, ptr %3, i64 0, i32 7, i32 1
-  %42 = load i32, ptr %niov14.i, align 8
+  %41 = load i32, ptr %niov14.i, align 8
   %len.i = getelementptr inbounds %struct.LuringAIOCB, ptr %3, i64 0, i32 1, i32 6
-  store i32 %42, ptr %len.i, align 8
+  store i32 %41, ptr %len.i, align 8
   %next.i.i = getelementptr inbounds %struct.LuringAIOCB, ptr %3, i64 0, i32 5
   store ptr null, ptr %next.i.i, align 8
-  %43 = load ptr, ptr %sqh_last.i.i, align 8
-  store ptr %3, ptr %43, align 8
+  %42 = load ptr, ptr %sqh_last.i.i, align 8
+  store i64 %.val, ptr %42, align 8
   store ptr %next.i.i, ptr %sqh_last.i.i, align 8
-  %44 = load i32, ptr %io_q.i.i, align 8
-  %inc.i.i = add i32 %44, 1
+  %43 = load i32, ptr %io_q.i.i, align 8
+  %inc.i.i = add i32 %43, 1
   store i32 %inc.i.i, ptr %io_q.i.i, align 8
   br label %while.cond.backedge
 
@@ -1051,11 +1046,11 @@ end:                                              ; preds = %if.else16, %if.else
   store i64 %conv35, ptr %ret36, align 8
   %resubmit_qiov = getelementptr inbounds %struct.LuringAIOCB, ptr %3, i64 0, i32 7
   call void @qemu_iovec_destroy(ptr noundef nonnull %resubmit_qiov) #10
-  %45 = load ptr, ptr %3, align 8
-  %ctx = getelementptr inbounds %struct.Coroutine, ptr %45, i64 0, i32 5
-  %46 = load ptr, ptr %ctx, align 8
-  %47 = load ptr, ptr %s, align 8
-  %cmp37 = icmp eq ptr %46, %47
+  %44 = load ptr, ptr %3, align 8
+  %ctx = getelementptr inbounds %struct.Coroutine, ptr %44, i64 0, i32 5
+  %45 = load ptr, ptr %ctx, align 8
+  %46 = load ptr, ptr %s, align 8
+  %cmp37 = icmp eq ptr %45, %46
   br i1 %cmp37, label %if.end41, label %if.else40
 
 if.else40:                                        ; preds = %end
@@ -1063,17 +1058,17 @@ if.else40:                                        ; preds = %end
   unreachable
 
 if.end41:                                         ; preds = %end
-  %call43 = call zeroext i1 @qemu_coroutine_entered(ptr noundef nonnull %45) #10
+  %call43 = call zeroext i1 @qemu_coroutine_entered(ptr noundef nonnull %44) #10
   br i1 %call43, label %while.cond.backedge, label %if.then44
 
 if.then44:                                        ; preds = %if.end41
-  %48 = load ptr, ptr %3, align 8
-  call void @aio_co_wake(ptr noundef %48) #10
+  %47 = load ptr, ptr %3, align 8
+  call void @aio_co_wake(ptr noundef %47) #10
   br label %while.cond.backedge
 
 while.end:                                        ; preds = %while.cond.backedge, %entry
-  %49 = load ptr, ptr %completion_bh, align 8
-  call void @qemu_bh_cancel(ptr noundef %49) #10
+  %48 = load ptr, ptr %completion_bh, align 8
+  call void @qemu_bh_cancel(ptr noundef %48) #10
   call void @defer_call_end() #10
   ret void
 }

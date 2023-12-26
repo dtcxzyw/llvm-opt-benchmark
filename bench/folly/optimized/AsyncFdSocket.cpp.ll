@@ -7176,7 +7176,7 @@ cleanup.cont:                                     ; preds = %lor.lhs.false.i.i, 
   %call5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
   store ptr null, ptr %call5.i.i.i.i, align 8, !tbaa !21
   %add.ptr.i.i39 = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 8
-  store i64 %1, ptr %add.ptr.i.i39, align 8, !tbaa !26
+  store ptr %0, ptr %add.ptr.i.i39, align 8, !tbaa !26
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 16
   %13 = load <2 x ptr>, ptr %__args, align 8, !tbaa !26
   store <2 x ptr> %13, ptr %second.i.i.i.i.i.i, align 8, !tbaa !26

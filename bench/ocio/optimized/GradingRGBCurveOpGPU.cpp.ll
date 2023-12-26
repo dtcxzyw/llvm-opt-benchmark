@@ -847,7 +847,7 @@ invoke.cont77:                                    ; preds = %_ZNSt10shared_ptrIN
 
 invoke.cont.i76:                                  ; preds = %invoke.cont77
   %_M_invoker.i61.i = getelementptr inbounds %"class.std::function.39", ptr %ref.tmp8.i73, i64 0, i32 1
-  store i64 ptrtoint (ptr @_ZNK19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl20getKnotsOffsetsArrayEv to i64), ptr %call.i.i2.i62.i, align 16
+  store ptr @_ZNK19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl20getKnotsOffsetsArrayEv, ptr %call.i.i2.i62.i, align 16
   %getKO.sroa.2.0.call.i.i2.i62.sroa_idx.i = getelementptr inbounds i8, ptr %call.i.i2.i62.i, i64 8
   store i64 0, ptr %getKO.sroa.2.0.call.i.i2.i62.sroa_idx.i, align 8
   %getKO.sroa.3.0.call.i.i2.i62.sroa_idx.i = getelementptr inbounds i8, ptr %call.i.i2.i62.i, i64 16
@@ -899,7 +899,7 @@ _ZNSt8functionIFivEED2Ev.exit.i:                  ; preds = %if.then.i.i66.i, %_
 
 call.i.i2.i.i.noexc:                              ; preds = %_ZNSt8functionIFivEED2Ev.exit.i
   %_M_invoker.i70.i = getelementptr inbounds %"class.std::function", ptr %ref.tmp11.i74, i64 0, i32 1
-  store i64 ptrtoint (ptr @_ZNK19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl11getNumKnotsEv to i64), ptr %call.i.i2.i.i86, align 16
+  store ptr @_ZNK19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl11getNumKnotsEv, ptr %call.i.i2.i.i86, align 16
   %getNK.sroa.2.0.call.i.i2.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i.i2.i.i86, i64 8
   store i64 0, ptr %getNK.sroa.2.0.call.i.i2.i.sroa_idx.i, align 8
   %getNK.sroa.3.0.call.i.i2.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i.i2.i.i86, i64 16
@@ -914,7 +914,7 @@ call.i.i2.i.i.noexc:                              ; preds = %_ZNSt8functionIFivE
 
 invoke.cont14.i:                                  ; preds = %call.i.i2.i.i.noexc
   %_M_invoker.i72.i = getelementptr inbounds %"class.std::function.41", ptr %ref.tmp12.i, i64 0, i32 1
-  store i64 ptrtoint (ptr @_ZNK19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl13getKnotsArrayEv to i64), ptr %call.i.i2.i7374.i, align 16
+  store ptr @_ZNK19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl13getKnotsArrayEv, ptr %call.i.i2.i7374.i, align 16
   %getK.sroa.2.0.call.i.i2.i7374.sroa_idx.i = getelementptr inbounds i8, ptr %call.i.i2.i7374.i, i64 8
   store i64 0, ptr %getK.sroa.2.0.call.i.i2.i7374.sroa_idx.i, align 8
   %getK.sroa.3.0.call.i.i2.i7374.sroa_idx.i = getelementptr inbounds i8, ptr %call.i.i2.i7374.i, i64 16
@@ -976,7 +976,7 @@ _ZNSt8functionIFivEED2Ev.exit85.i:                ; preds = %if.then.i.i82.i, %_
 
 invoke.cont24.i:                                  ; preds = %_ZNSt8functionIFivEED2Ev.exit85.i
   %_M_invoker.i89.i = getelementptr inbounds %"class.std::function.39", ptr %ref.tmp22.i, i64 0, i32 1
-  store i64 ptrtoint (ptr @_ZNK19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl20getCoefsOffsetsArrayEv to i64), ptr %call.i.i2.i9091.i, align 16
+  store ptr @_ZNK19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl20getCoefsOffsetsArrayEv, ptr %call.i.i2.i9091.i, align 16
   %getCO.sroa.2.0.call.i.i2.i9091.sroa_idx.i = getelementptr inbounds i8, ptr %call.i.i2.i9091.i, i64 8
   store i64 0, ptr %getCO.sroa.2.0.call.i.i2.i9091.sroa_idx.i, align 8
   %getCO.sroa.3.0.call.i.i2.i9091.sroa_idx.i = getelementptr inbounds i8, ptr %call.i.i2.i9091.i, i64 16
@@ -1028,7 +1028,7 @@ _ZNSt8functionIFivEED2Ev.exit104.i:               ; preds = %if.then.i.i101.i, %
 
 call.i.i2.i107.i.noexc:                           ; preds = %_ZNSt8functionIFivEED2Ev.exit104.i
   %_M_invoker.i106.i = getelementptr inbounds %"class.std::function", ptr %ref.tmp29.i, i64 0, i32 1
-  store i64 ptrtoint (ptr @_ZNK19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl11getNumCoefsEv to i64), ptr %call.i.i2.i107.i87, align 16
+  store ptr @_ZNK19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl11getNumCoefsEv, ptr %call.i.i2.i107.i87, align 16
   %getNC.sroa.2.0.call.i.i2.i107.sroa_idx.i = getelementptr inbounds i8, ptr %call.i.i2.i107.i87, i64 8
   store i64 0, ptr %getNC.sroa.2.0.call.i.i2.i107.sroa_idx.i, align 8
   %getNC.sroa.3.0.call.i.i2.i107.sroa_idx.i = getelementptr inbounds i8, ptr %call.i.i2.i107.i87, i64 16
@@ -1043,7 +1043,7 @@ call.i.i2.i107.i.noexc:                           ; preds = %_ZNSt8functionIFivE
 
 invoke.cont32.i:                                  ; preds = %call.i.i2.i107.i.noexc
   %_M_invoker.i109.i = getelementptr inbounds %"class.std::function.41", ptr %ref.tmp30.i, i64 0, i32 1
-  store i64 ptrtoint (ptr @_ZNK19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl13getCoefsArrayEv to i64), ptr %call.i.i2.i110111.i, align 16
+  store ptr @_ZNK19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl13getCoefsArrayEv, ptr %call.i.i2.i110111.i, align 16
   %getC.sroa.2.0.call.i.i2.i110111.sroa_idx.i = getelementptr inbounds i8, ptr %call.i.i2.i110111.i, i64 8
   store i64 0, ptr %getC.sroa.2.0.call.i.i2.i110111.sroa_idx.i, align 8
   %getC.sroa.3.0.call.i.i2.i110111.sroa_idx.i = getelementptr inbounds i8, ptr %call.i.i2.i110111.i, i64 16
@@ -1099,7 +1099,7 @@ _ZNSt8functionIFivEED2Ev.exit124.i:               ; preds = %if.then.i.i121.i, %
 
 call.i.i2.i127.i.noexc:                           ; preds = %_ZNSt8functionIFivEED2Ev.exit124.i
   %_M_invoker.i126.i = getelementptr inbounds %"class.std::function.43", ptr %ref.tmp39.i, i64 0, i32 1
-  store i64 ptrtoint (ptr @_ZNK19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl14getLocalBypassEv to i64), ptr %call.i.i2.i127.i88, align 16
+  store ptr @_ZNK19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl14getLocalBypassEv, ptr %call.i.i2.i127.i88, align 16
   %getLB.sroa.2.0.call.i.i2.i127.sroa_idx.i = getelementptr inbounds i8, ptr %call.i.i2.i127.i88, i64 8
   store i64 0, ptr %getLB.sroa.2.0.call.i.i2.i127.sroa_idx.i, align 8
   %getLB.sroa.3.0.call.i.i2.i127.sroa_idx.i = getelementptr inbounds i8, ptr %call.i.i2.i127.i88, i64 16

@@ -57,12 +57,11 @@ _ZN5folly8Executor9KeepAliveINS_20SoftRealTimeExecutorEED2Ev.exit: ; preds = %en
   store i64 %deadline, ptr %deadline_.i.i, align 8, !tbaa !20, !noalias !13
   %executor_.i.i = getelementptr inbounds %"class.folly::(anonymous namespace)::DeadlineExecutor", ptr %call.i34, i64 0, i32 3
   store i64 %spec.select.i, ptr %executor_.i.i, align 8, !tbaa !25, !noalias !13
-  %2 = ptrtoint ptr %call.i34 to i64
-  store i64 %2, ptr %agg.result, align 8, !tbaa !26, !alias.scope !13
+  store ptr %call.i34, ptr %agg.result, align 8, !tbaa !26, !alias.scope !13
   ret void
 
 lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br i1 %call.i, label %if.then5.i.i12, label %_ZN5folly8Executor9KeepAliveINS_20SoftRealTimeExecutorEED2Ev.exit16
 
@@ -73,12 +72,12 @@ if.then5.i.i12:                                   ; preds = %lpad
   %add.ptr.i.i13 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset.i.i9
   %vtable6.i.i14 = load ptr, ptr %add.ptr.i.i13, align 8, !tbaa !7
   %vfn.i.i15 = getelementptr inbounds ptr, ptr %vtable6.i.i14, i64 6
-  %4 = load ptr, ptr %vfn.i.i15, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i13) #11
+  %3 = load ptr, ptr %vfn.i.i15, align 8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i13) #11
   br label %_ZN5folly8Executor9KeepAliveINS_20SoftRealTimeExecutorEED2Ev.exit16
 
 _ZN5folly8Executor9KeepAliveINS_20SoftRealTimeExecutorEED2Ev.exit16: ; preds = %if.then5.i.i12, %lpad
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %2
 }
 
 declare i32 @__gxx_personality_v0(...)

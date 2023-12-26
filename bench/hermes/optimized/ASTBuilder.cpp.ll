@@ -17856,8 +17856,8 @@ if.end8:                                          ; preds = %for.body
   store ptr %result, ptr %Next2.i.i.i.i.i, align 8
   store ptr %16, ptr %15, align 8
   %Next2.i7.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %16, i64 0, i32 1
-  store ptr %15, ptr %Next2.i7.i.i.i.i, align 8
-  store ptr %15, ptr %result, align 8
+  store i64 %14, ptr %Next2.i7.i.i.i.i, align 8
+  store i64 %14, ptr %result, align 8
   %incdec.ptr = getelementptr inbounds ptr, ptr %__begin2.09, i64 1
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %return, label %for.body
@@ -18008,8 +18008,7 @@ if.end:                                           ; preds = %land.lhs.true.i
 
 if.end6:                                          ; preds = %if.end
   %12 = extractvalue { i64, i8 } %call3, 0
-  %13 = inttoptr i64 %12 to ptr
-  store ptr %13, ptr %result, align 8
+  store i64 %12, ptr %result, align 8
   br label %return
 
 return:                                           ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i, %if.end.i.i.i.i, %land.lhs.true.i.i, %land.lhs.true.i, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit, %if.end, %if.end6

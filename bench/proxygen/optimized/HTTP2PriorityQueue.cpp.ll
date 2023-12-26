@@ -1162,8 +1162,7 @@ while.end:                                        ; preds = %entry, %_ZN6google1
   %children_ = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue::Node", ptr %this, i64 0, i32 11
   %call5.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
   %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i, i64 0, i32 1
-  %.cast = ptrtoint ptr %10 to i64
-  store i64 %.cast, ptr %_M_storage.i.i.i.i, align 8
+  store ptr %10, ptr %_M_storage.i.i.i.i, align 8
   store ptr null, ptr %child, align 8
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %children_) #27
   %_M_size.i.i.i = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue::Node", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
@@ -3044,8 +3043,7 @@ _ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14defaul
   %children_6 = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue::Node", ptr %subtreeRoot, i64 0, i32 11
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
   %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i, i64 0, i32 1
-  %.cast = ptrtoint ptr %9 to i64
-  store i64 %.cast, ptr %_M_storage.i.i.i.i, align 8
+  store ptr %9, ptr %_M_storage.i.i.i.i, align 8
   store ptr null, ptr %child, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %children_6) #27
   %_M_size.i.i.i3 = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue::Node", ptr %subtreeRoot, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
@@ -3357,7 +3355,7 @@ invoke.cont3.i.i:                                 ; preds = %invoke.cont1.i.i
           to label %_ZN6google12Check_NEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit unwind label %lpad.i.i
 
 common.resume:                                    ; preds = %lpad238, %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i111, %lpad100, %lpad150, %lpad194, %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i117, %lpad.i, %lpad.i.i30, %lpad.i.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i.i ], [ %5, %lpad.i.i30 ], [ %58, %lpad.i ], [ %59, %lpad194 ], [ %53, %lpad150 ], [ %50, %lpad100 ], [ %67, %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i117 ], [ %64, %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i111 ], [ %64, %lpad238 ]
+  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i.i ], [ %5, %lpad.i.i30 ], [ %58, %lpad.i ], [ %59, %lpad194 ], [ %53, %lpad150 ], [ %50, %lpad100 ], [ %66, %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i117 ], [ %63, %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i111 ], [ %63, %lpad238 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %invoke.cont3.i.i, %invoke.cont1.i.i, %invoke.cont.i.i, %if.else.i
@@ -3937,23 +3935,22 @@ if.then230:                                       ; preds = %if.else228
           to label %if.end234 unwind label %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i117
 
 if.end234:                                        ; preds = %if.else228, %if.then230, %if.then224
-  %60 = ptrtoint ptr %call.i to i64
-  store i64 %60, ptr %agg.tmp235, align 8
-  %61 = and i64 %pri.coerce1, 1
-  %tobool237 = icmp ne i64 %61, 0
+  store ptr %call.i, ptr %agg.tmp235, align 8
+  %60 = and i64 %pri.coerce1, 1
+  %tobool237 = icmp ne i64 %60, 0
   %call240 = invoke noundef ptr @_ZN8proxygen18HTTP2PriorityQueue4Node11emplaceNodeESt10unique_ptrIS1_St14default_deleteIS1_EEb(ptr noundef nonnull align 8 dereferenceable(200) %parent.0, ptr noundef nonnull %agg.tmp235, i1 noundef zeroext %tobool237)
           to label %invoke.cont239 unwind label %lpad238
 
 invoke.cont239:                                   ; preds = %if.end234
-  %62 = load ptr, ptr %agg.tmp235, align 8
-  %cmp.not.i102 = icmp eq ptr %62, null
+  %61 = load ptr, ptr %agg.tmp235, align 8
+  %cmp.not.i102 = icmp eq ptr %61, null
   br i1 %cmp.not.i102, label %_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit109, label %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i: ; preds = %invoke.cont239
-  %vtable.i.i = load ptr, ptr %62, align 8
+  %vtable.i.i = load ptr, ptr %61, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
-  %63 = load ptr, ptr %vfn.i.i, align 8
-  call void %63(ptr noundef nonnull align 8 dereferenceable(200) %62) #27
+  %62 = load ptr, ptr %vfn.i.i, align 8
+  call void %62(ptr noundef nonnull align 8 dereferenceable(200) %61) #27
   br label %_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit109
 
 _ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit109: ; preds = %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i, %invoke.cont239
@@ -3962,26 +3959,26 @@ _ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2
   br label %return
 
 lpad238:                                          ; preds = %if.end234
-  %64 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
-  %65 = load ptr, ptr %agg.tmp235, align 8
-  %cmp.not.i110 = icmp eq ptr %65, null
+  %64 = load ptr, ptr %agg.tmp235, align 8
+  %cmp.not.i110 = icmp eq ptr %64, null
   br i1 %cmp.not.i110, label %common.resume, label %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i111
 
 _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i111: ; preds = %lpad238
-  %vtable.i.i112 = load ptr, ptr %65, align 8
+  %vtable.i.i112 = load ptr, ptr %64, align 8
   %vfn.i.i113 = getelementptr inbounds ptr, ptr %vtable.i.i112, i64 1
-  %66 = load ptr, ptr %vfn.i.i113, align 8
-  call void %66(ptr noundef nonnull align 8 dereferenceable(200) %65) #27
+  %65 = load ptr, ptr %vfn.i.i113, align 8
+  call void %65(ptr noundef nonnull align 8 dereferenceable(200) %64) #27
   br label %common.resume
 
 _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i117: ; preds = %if.then230
-  %67 = landingpad { ptr, i32 }
+  %66 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i118 = load ptr, ptr %call.i, align 8
   %vfn.i.i119 = getelementptr inbounds ptr, ptr %vtable.i.i118, i64 1
-  %68 = load ptr, ptr %vfn.i.i119, align 8
-  call void %68(ptr noundef nonnull align 8 dereferenceable(200) %call.i) #27
+  %67 = load ptr, ptr %vfn.i.i119, align 8
+  call void %67(ptr noundef nonnull align 8 dereferenceable(200) %call.i) #27
   br label %common.resume
 
 return:                                           ; preds = %if.then70, %_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit109, %cleanup.done60

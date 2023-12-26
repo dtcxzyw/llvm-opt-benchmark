@@ -436,20 +436,16 @@ _ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit: ; preds = %_ZNS
   %32 = load ptr, ptr %31, align 8
   %cmp.i = icmp eq ptr %32, null
   tail call void @uv_mutex_unlock(ptr noundef nonnull %lock_.i) #18
-  br i1 %cmp.i, label %_ZNKSt14default_deleteIN4node9inspector11InspectorIoEEclEPS2_.exit.i, label %cleanup.thread
-
-cleanup.thread:                                   ; preds = %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit
-  %33 = ptrtoint ptr %call to i64
-  br label %_ZNSt10unique_ptrIN4node9inspector11InspectorIoESt14default_deleteIS2_EED2Ev.exit
+  br i1 %cmp.i, label %_ZNKSt14default_deleteIN4node9inspector11InspectorIoEEclEPS2_.exit.i, label %_ZNSt10unique_ptrIN4node9inspector11InspectorIoESt14default_deleteIS2_EED2Ev.exit
 
 _ZNKSt14default_deleteIN4node9inspector11InspectorIoEEclEPS2_.exit.i: ; preds = %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit
   tail call void @_ZN4node9inspector11InspectorIoD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %call) #18
   tail call void @_ZdlPv(ptr noundef nonnull %call) #19
   br label %_ZNSt10unique_ptrIN4node9inspector11InspectorIoESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4node9inspector11InspectorIoESt14default_deleteIS2_EED2Ev.exit: ; preds = %cleanup.thread, %_ZNKSt14default_deleteIN4node9inspector11InspectorIoEEclEPS2_.exit.i
-  %.sink = phi i64 [ 0, %_ZNKSt14default_deleteIN4node9inspector11InspectorIoEEclEPS2_.exit.i ], [ %33, %cleanup.thread ]
-  store i64 %.sink, ptr %agg.result, align 8
+_ZNSt10unique_ptrIN4node9inspector11InspectorIoESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit, %_ZNKSt14default_deleteIN4node9inspector11InspectorIoEEclEPS2_.exit.i
+  %call.sink = phi ptr [ null, %_ZNKSt14default_deleteIN4node9inspector11InspectorIoEEclEPS2_.exit.i ], [ %call, %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit ]
+  store ptr %call.sink, ptr %agg.result, align 8
   ret void
 }
 

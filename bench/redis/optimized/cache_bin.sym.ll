@@ -83,8 +83,7 @@ entry:
   %add3 = add i64 %1, %conv2
   store i64 %add3, ptr %cur_offset, align 8
   %add4 = add i64 %add3, %0
-  %3 = inttoptr i64 %add4 to ptr
-  store ptr %3, ptr %bin, align 8
+  store i64 %add4, ptr %bin, align 8
   %conv6 = trunc i64 %add4 to i16
   %low_bits_low_water = getelementptr inbounds %struct.cache_bin_s, ptr %bin, i64 0, i32 2
   store i16 %conv6, ptr %low_bits_low_water, align 8

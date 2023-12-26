@@ -619,8 +619,7 @@ if.then86:                                        ; preds = %if.end84, %if.then2
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %call.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp89) #21, !noalias !7
   %call2.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp89) #21, !noalias !7
-  %42 = ptrtoint ptr %call.i.i.i to i64
-  store i64 %42, ptr %ref.tmp.i, align 16, !alias.scope !7
+  store ptr %call.i.i.i, ptr %ref.tmp.i, align 16, !alias.scope !7
   %ref.tmp.i.sroa.2.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 %call2.i.i.i, ptr %ref.tmp.i.sroa.2.0.agg.result.sroa_idx.i, align 8, !alias.scope !7
   %arrayinit.element.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 1
@@ -662,30 +661,30 @@ invoke.cont110:                                   ; preds = %invoke.cont108
   br label %for.end
 
 lpad93:                                           ; preds = %.noexc
-  %43 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp89) #21
   br label %ehcleanup179
 
 lpad97:                                           ; preds = %invoke.cont104, %invoke.cont94
-  %44 = landingpad { ptr, i32 }
+  %43 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup112
 
 lpad99:                                           ; preds = %invoke.cont102, %invoke.cont100, %invoke.cont98
-  %45 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp96) #21
   br label %ehcleanup112
 
 lpad109:                                          ; preds = %invoke.cont108
-  %46 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp107) #21
   br label %ehcleanup112
 
 ehcleanup112:                                     ; preds = %lpad109, %lpad99, %lpad97
-  %.pn34 = phi { ptr, i32 } [ %46, %lpad109 ], [ %44, %lpad97 ], [ %45, %lpad99 ]
+  %.pn34 = phi { ptr, i32 } [ %45, %lpad109 ], [ %43, %lpad97 ], [ %44, %lpad99 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %errorMsg) #21
   br label %ehcleanup179
 
@@ -761,13 +760,13 @@ invoke.cont114:                                   ; preds = %_ZNSt6vectorIPvSaIS
 for.inc:                                          ; preds = %invoke.cont114
   %pages.sroa.10.2 = getelementptr inbounds ptr, ptr %add.ptr.i.i.pn, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %47 = load i32, ptr %numSizes, align 4
-  %48 = sext i32 %47 to i64
-  %cmp60 = icmp slt i64 %indvars.iv.next, %48
+  %46 = load i32, ptr %numSizes, align 4
+  %47 = sext i32 %46 to i64
+  %cmp60 = icmp slt i64 %indvars.iv.next, %47
   br i1 %cmp60, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %invoke.cont110
-  %conv120.pre-phi = phi i64 [ %.pre200, %invoke.cont110 ], [ %48, %for.inc ]
+  %conv120.pre-phi = phi i64 [ %.pre200, %invoke.cont110 ], [ %47, %for.inc ]
   %pages.sroa.10.1167 = phi ptr [ %pages.sroa.10.1178, %invoke.cont110 ], [ %pages.sroa.10.2, %for.inc ]
   %pages.sroa.0.1158 = phi ptr [ %pages.sroa.0.1179, %invoke.cont110 ], [ %pages.sroa.0.3, %for.inc ]
   %sub.ptr.lhs.cast.i = ptrtoint ptr %pages.sroa.10.1167 to i64
@@ -783,30 +782,30 @@ for.cond126.preheader:                            ; preds = %for.end
 
 for.body128:                                      ; preds = %for.cond126.preheader, %for.body128
   %__begin3.sroa.0.0183 = phi ptr [ %incdec.ptr.i96, %for.body128 ], [ %pages.sroa.0.1158, %for.cond126.preheader ]
-  %49 = load ptr, ptr %__begin3.sroa.0.0183, align 8
-  call void @free(ptr noundef %49) #21
+  %48 = load ptr, ptr %__begin3.sroa.0.0183, align 8
+  call void @free(ptr noundef %48) #21
   %incdec.ptr.i96 = getelementptr inbounds ptr, ptr %__begin3.sroa.0.0183, i64 1
   %cmp.i95.not = icmp eq ptr %incdec.ptr.i96, %pages.sroa.10.1167
   br i1 %cmp.i95.not, label %for.end133, label %for.body128
 
 for.end133:                                       ; preds = %for.body128, %for.cond126.preheader
   %runs_.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %out, i64 0, i32 1
-  %50 = load ptr, ptr %runs_.i, align 8
+  %49 = load ptr, ptr %runs_.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %out, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %51 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %tobool.not.i.i.i97 = icmp eq ptr %51, %50
+  %50 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %tobool.not.i.i.i97 = icmp eq ptr %50, %49
   br i1 %tobool.not.i.i.i97, label %_ZN8facebook5velox6memory10Allocation5clearEv.exit, label %invoke.cont.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %for.end133
-  store ptr %50, ptr %_M_finish.i.i.i, align 8
+  store ptr %49, ptr %_M_finish.i.i.i, align 8
   br label %_ZN8facebook5velox6memory10Allocation5clearEv.exit
 
 _ZN8facebook5velox6memory10Allocation5clearEv.exit: ; preds = %for.end133, %invoke.cont.i.i.i
   %numPages_.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %out, i64 0, i32 2
   store i32 0, ptr %numPages_.i, align 8
   store ptr null, ptr %out, align 8
-  %52 = load ptr, ptr %_M_manager.i.i.i51, align 8
-  %tobool.not.i.i.i99.not = icmp eq ptr %52, null
+  %51 = load ptr, ptr %_M_manager.i.i.i51, align 8
+  %tobool.not.i.i.i99.not = icmp eq ptr %51, null
   br i1 %tobool.not.i.i.i99.not, label %if.end161, label %if.then136
 
 if.then136:                                       ; preds = %_ZN8facebook5velox6memory10Allocation5clearEv.exit
@@ -853,8 +852,8 @@ invoke.cont155:                                   ; preds = %invoke.cont153
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr2.i101)
   store i64 %add, ptr %__args.addr.i100, align 8
   store i8 0, ptr %__args.addr2.i101, align 1
-  %53 = load ptr, ptr %_M_manager.i.i.i51, align 8
-  %tobool.not.i.i103 = icmp eq ptr %53, null
+  %52 = load ptr, ptr %_M_manager.i.i.i51, align 8
+  %tobool.not.i.i103 = icmp eq ptr %52, null
   br i1 %tobool.not.i.i103, label %if.then.i106, label %if.end.i104
 
 if.then.i106:                                     ; preds = %invoke.cont155
@@ -866,8 +865,8 @@ if.then.i106:                                     ; preds = %invoke.cont155
 
 if.end.i104:                                      ; preds = %invoke.cont155
   %_M_invoker.i105 = getelementptr inbounds %"class.std::function", ptr %reservationCB, i64 0, i32 1
-  %54 = load ptr, ptr %_M_invoker.i105, align 8
-  invoke void %54(ptr noundef nonnull align 8 dereferenceable(16) %reservationCB, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i100, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr2.i101)
+  %53 = load ptr, ptr %_M_invoker.i105, align 8
+  invoke void %53(ptr noundef nonnull align 8 dereferenceable(16) %reservationCB, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i100, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr2.i101)
           to label %_ZNKSt8functionIFvlbEEclElb.exit109 unwind label %lpad57.loopexit.split-lp
 
 _ZNKSt8functionIFvlbEEclElb.exit109:              ; preds = %if.end.i104
@@ -876,24 +875,24 @@ _ZNKSt8functionIFvlbEEclElb.exit109:              ; preds = %if.end.i104
   br label %if.end161
 
 lpad139:                                          ; preds = %invoke.cont148, %invoke.cont146, %invoke.cont144, %invoke.cont142, %invoke.cont140, %invoke.cont138
-  %55 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup158
 
 lpad152:                                          ; preds = %invoke.cont153, %invoke.cont151
-  %56 = landingpad { ptr, i32 }
+  %55 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp150) #21
   br label %ehcleanup158
 
 ehcleanup158:                                     ; preds = %lpad152, %lpad139
-  %.pn36 = phi { ptr, i32 } [ %56, %lpad152 ], [ %55, %lpad139 ]
+  %.pn36 = phi { ptr, i32 } [ %55, %lpad152 ], [ %54, %lpad139 ]
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp137) #21
   br label %ehcleanup179
 
 if.end161:                                        ; preds = %_ZNKSt8functionIFvlbEEclElb.exit109, %_ZN8facebook5velox6memory10Allocation5clearEv.exit
-  %57 = atomicrmw sub ptr %allocatedBytes_.i, i64 %mul.i188 seq_cst, align 8
-  %cmp.i111 = icmp slt i64 %57, %mul.i188
+  %56 = atomicrmw sub ptr %allocatedBytes_.i, i64 %mul.i188 seq_cst, align 8
+  %cmp.i111 = icmp slt i64 %56, %mul.i188
   br i1 %cmp.i111, label %if.then.i113, label %cleanup
 
 if.then.i113:                                     ; preds = %if.end161
@@ -935,14 +934,14 @@ call3.i.i.i.i.noexc:                              ; preds = %for.body.i.i.i
 invoke.cont174:                                   ; preds = %call3.i.i.i.i.noexc, %invoke.cont164
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i)
   %call1.i.i.i120 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mallocsMutex_) #21
-  %58 = load i32, ptr %totalPages, align 4
-  %conv177 = sext i32 %58 to i64
+  %57 = load i32, ptr %totalPages, align 4
+  %conv177 = sext i32 %57 to i64
   %numAllocated_ = getelementptr inbounds %"class.facebook::velox::memory::MemoryAllocator", ptr %this, i64 0, i32 3
-  %59 = atomicrmw add ptr %numAllocated_, i64 %conv177 seq_cst, align 8
+  %58 = atomicrmw add ptr %numAllocated_, i64 %conv177 seq_cst, align 8
   br label %cleanup
 
 lpad173:                                          ; preds = %for.body.i.i.i
-  %60 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
   %call1.i.i.i121 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mallocsMutex_) #21
   br label %ehcleanup179
@@ -959,7 +958,7 @@ if.then.i.i.i123:                                 ; preds = %cleanup
 
 ehcleanup179:                                     ; preds = %lpad57.loopexit, %lpad57.loopexit.split-lp, %lpad173, %ehcleanup158, %ehcleanup112, %lpad93
   %pages.sroa.0.4 = phi ptr [ %pages.sroa.0.1158214, %lpad173 ], [ %pages.sroa.0.1158, %ehcleanup158 ], [ %pages.sroa.0.1179, %ehcleanup112 ], [ %pages.sroa.0.1179, %lpad93 ], [ %pages.sroa.0.2.ph, %lpad57.loopexit ], [ %pages.sroa.0.2.ph153, %lpad57.loopexit.split-lp ]
-  %.pn38 = phi { ptr, i32 } [ %60, %lpad173 ], [ %.pn36, %ehcleanup158 ], [ %.pn34, %ehcleanup112 ], [ %43, %lpad93 ], [ %lpad.loopexit, %lpad57.loopexit ], [ %lpad.loopexit.split-lp, %lpad57.loopexit.split-lp ]
+  %.pn38 = phi { ptr, i32 } [ %59, %lpad173 ], [ %.pn36, %ehcleanup158 ], [ %.pn34, %ehcleanup112 ], [ %42, %lpad93 ], [ %lpad.loopexit, %lpad57.loopexit ], [ %lpad.loopexit.split-lp, %lpad57.loopexit.split-lp ]
   %tobool.not.i.i.i124 = icmp eq ptr %pages.sroa.0.4, null
   br i1 %tobool.not.i.i.i124, label %eh.resume, label %if.then.i.i.i125
 
@@ -976,10 +975,10 @@ eh.resume:                                        ; preds = %if.then.i.i.i125, %
   resume { ptr, i32 } %lpad.val182.merged
 
 terminate.lpad:                                   ; preds = %ehcleanup53
-  %61 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           catch ptr null
-  %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  %61 = extractvalue { ptr, i32 } %60, 0
+  call void @__clang_call_terminate(ptr %61) #29
   unreachable
 }
 
@@ -1584,15 +1583,14 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %"_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_15MallocAllocator17freeNonContiguousERNS1_10AllocationEE3$_0EEvlT_.exit"
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %"_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_15MallocAllocator17freeNonContiguousERNS1_10AllocationEE3$_0EEvlT_.exit" ]
-  %6 = phi ptr [ %1, %for.body.lr.ph ], [ %20, %"_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_15MallocAllocator17freeNonContiguousERNS1_10AllocationEE3$_0EEvlT_.exit" ]
+  %6 = phi ptr [ %1, %for.body.lr.ph ], [ %19, %"_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_15MallocAllocator17freeNonContiguousERNS1_10AllocationEE3$_0EEvlT_.exit" ]
   %numFreed.047 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %"_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_15MallocAllocator17freeNonContiguousERNS1_10AllocationEE3$_0EEvlT_.exit" ]
   %add.ptr.i.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation::PageRun", ptr %6, i64 %indvars.iv
   %retval.sroa.0.0.copyload.i = load i64, ptr %add.ptr.i.i, align 8
   %shr.i = lshr i64 %retval.sroa.0.0.copyload.i, 48
   %add = add i64 %shr.i, %numFreed.047
   %and.i = and i64 %retval.sroa.0.0.copyload.i, 281474976710655
-  %7 = inttoptr i64 %and.i to ptr
-  store ptr %7, ptr %ptr, align 8
+  store i64 %and.i, ptr %ptr, align 8
   %call1.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mallocsMutex_) #21
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i15
@@ -1614,22 +1612,22 @@ if.then8:                                         ; preds = %invoke.cont
   unreachable
 
 lpad:                                             ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   %call1.i.i.i17 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mallocsMutex_) #21
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %7
 
 if.end9:                                          ; preds = %invoke.cont
   %call1.i.i.i18 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mallocsMutex_) #21
-  %9 = load ptr, ptr %_M_finish.i.i19, align 8
-  %add.ptr.i.i20 = getelementptr inbounds i64, ptr %9, i64 -1
-  %10 = load i64, ptr %add.ptr.i.i20, align 8
-  %mul.i23 = shl i64 %10, 12
+  %8 = load ptr, ptr %_M_finish.i.i19, align 8
+  %add.ptr.i.i20 = getelementptr inbounds i64, ptr %8, i64 -1
+  %9 = load i64, ptr %add.ptr.i.i20, align 8
+  %mul.i23 = shl i64 %9, 12
   %mul.i21 = shl nuw nsw i64 %shr.i, 12
   %.sroa.speculated = call i64 @llvm.smin.i64(i64 %mul.i21, i64 %mul.i23)
-  %11 = load i8, ptr @_ZN3fLB28FLAGS_velox_time_allocationsE, align 1
-  %12 = and i8 %11, 1
-  %tobool.not.i = icmp eq i8 %12, 0
+  %10 = load i8, ptr @_ZN3fLB28FLAGS_velox_time_allocationsE, align 1
+  %11 = and i8 %10, 1
+  %tobool.not.i = icmp eq i8 %11, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end9
@@ -1638,28 +1636,28 @@ if.then.i:                                        ; preds = %if.end9
 
 if.end.i.i.i:                                     ; preds = %if.then.i
   %div2.i.i = lshr exact i64 %.sroa.speculated, 12
-  %13 = call i64 @llvm.ctlz.i64(i64 %div2.i.i, i1 true), !range !6
-  %sub.i.i.i = xor i64 %13, 63
+  %12 = call i64 @llvm.ctlz.i64(i64 %div2.i.i, i1 true), !range !6
+  %sub.i.i.i = xor i64 %12, 63
   %shl.i.i.i = shl nuw i64 1, %sub.i.i.i
   %cmp1.i.i.i = icmp eq i64 %shl.i.i.i, %div2.i.i
   %mul.i.i.i = shl i64 2, %sub.i.i.i
   %spec.select.i.i.i = select i1 %cmp1.i.i.i, i64 %div2.i.i, i64 %mul.i.i.i
-  %14 = call i64 @llvm.ctlz.i64(i64 %spec.select.i.i.i, i1 false), !range !6
-  %cast.i.i.i = trunc i64 %14 to i32
+  %13 = call i64 @llvm.ctlz.i64(i64 %spec.select.i.i.i, i1 false), !range !6
+  %cast.i.i.i = trunc i64 %13 to i32
   %sub.i.i = sub nsw i32 63, %cast.i.i.i
   %.sroa.speculated.i.i = call i32 @llvm.smin.i32(i32 %sub.i.i, i32 19)
-  %15 = sext i32 %.sroa.speculated.i.i to i64
+  %14 = sext i32 %.sroa.speculated.i.i to i64
   br label %_ZN8facebook5velox10ClockTimerD2Ev.exit.i
 
 _ZN8facebook5velox10ClockTimerD2Ev.exit.i:        ; preds = %if.end.i.i.i, %if.then.i
-  %retval.0.i.i = phi i64 [ %15, %if.end.i.i.i ], [ 0, %if.then.i ]
+  %retval.0.i.i = phi i64 [ %14, %if.end.i.i.i ], [ 0, %if.then.i ]
   %freeClocks.i = getelementptr inbounds [20 x %"struct.facebook::velox::memory::SizeClassStats"], ptr %stats_, i64 0, i64 %retval.0.i.i, i32 2
-  %16 = call noundef i64 @llvm.x86.rdtsc()
+  %15 = call noundef i64 @llvm.x86.rdtsc()
   %op.val.val.i = load ptr, ptr %ptr, align 8
   call void @free(ptr noundef %op.val.val.i) #21
-  %17 = call noundef i64 @llvm.x86.rdtsc()
-  %sub.i3.i = sub i64 %17, %16
-  %18 = atomicrmw add ptr %freeClocks.i, i64 %sub.i3.i seq_cst, align 8
+  %16 = call noundef i64 @llvm.x86.rdtsc()
+  %sub.i3.i = sub i64 %16, %15
+  %17 = atomicrmw add ptr %freeClocks.i, i64 %sub.i3.i seq_cst, align 8
   br label %"_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_15MallocAllocator17freeNonContiguousERNS1_10AllocationEE3$_0EEvlT_.exit"
 
 if.else.i:                                        ; preds = %if.end9
@@ -1669,22 +1667,22 @@ if.else.i:                                        ; preds = %if.end9
 
 "_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_15MallocAllocator17freeNonContiguousERNS1_10AllocationEE3$_0EEvlT_.exit": ; preds = %_ZN8facebook5velox10ClockTimerD2Ev.exit.i, %if.else.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %20 = load ptr, ptr %runs_.i.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %19 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %20 to i64
+  %18 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %19 = load ptr, ptr %runs_.i.i, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %18 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %19 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
-  %21 = and i64 %sub.ptr.div.i.i, 4294967295
-  %cmp = icmp ult i64 %indvars.iv.next, %21
+  %20 = and i64 %sub.ptr.div.i.i, 4294967295
+  %cmp = icmp ult i64 %indvars.iv.next, %20
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %"_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_15MallocAllocator17freeNonContiguousERNS1_10AllocationEE3$_0EEvlT_.exit", %for.cond.preheader
   %numFreed.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %add, %"_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_15MallocAllocator17freeNonContiguousERNS1_10AllocationEE3$_0EEvlT_.exit" ]
   %mul.i = shl i64 %numFreed.0.lcssa, 12
   %allocatedBytes_.i = getelementptr inbounds %"class.facebook::velox::memory::MallocAllocator", ptr %this, i64 0, i32 3
-  %22 = atomicrmw sub ptr %allocatedBytes_.i, i64 %mul.i seq_cst, align 8
-  %cmp.i24 = icmp slt i64 %22, %mul.i
+  %21 = atomicrmw sub ptr %allocatedBytes_.i, i64 %mul.i seq_cst, align 8
+  %cmp.i24 = icmp slt i64 %21, %mul.i
   br i1 %cmp.i24, label %if.then.i25, label %_ZN8facebook5velox6memory15MallocAllocator14decrementUsageEl.exit
 
 if.then.i25:                                      ; preds = %for.end
@@ -1693,14 +1691,14 @@ if.then.i25:                                      ; preds = %for.end
 
 _ZN8facebook5velox6memory15MallocAllocator14decrementUsageEl.exit: ; preds = %for.end
   %numAllocated_ = getelementptr inbounds %"class.facebook::velox::memory::MemoryAllocator", ptr %this, i64 0, i32 3
-  %23 = atomicrmw sub ptr %numAllocated_, i64 %numFreed.0.lcssa seq_cst, align 8
-  %24 = load ptr, ptr %runs_.i.i, align 8
-  %25 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %25, %24
+  %22 = atomicrmw sub ptr %numAllocated_, i64 %numFreed.0.lcssa seq_cst, align 8
+  %23 = load ptr, ptr %runs_.i.i, align 8
+  %24 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %24, %23
   br i1 %tobool.not.i.i.i, label %_ZN8facebook5velox6memory10Allocation5clearEv.exit, label %invoke.cont.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %_ZN8facebook5velox6memory15MallocAllocator14decrementUsageEl.exit
-  store ptr %24, ptr %_M_finish.i.i.i, align 8
+  store ptr %23, ptr %_M_finish.i.i.i, align 8
   br label %_ZN8facebook5velox6memory10Allocation5clearEv.exit
 
 _ZN8facebook5velox6memory10Allocation5clearEv.exit: ; preds = %_ZN8facebook5velox6memory15MallocAllocator14decrementUsageEl.exit, %invoke.cont.i.i.i

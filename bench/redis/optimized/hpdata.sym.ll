@@ -3121,13 +3121,12 @@ if.end3:                                          ; preds = %while.body.i.i, %co
   %7 = ptrtoint ptr %hpdata.val to i64
   %mul = shl i64 %add42.i65.i, 12
   %add = add i64 %mul, %7
-  %8 = inttoptr i64 %add to ptr
-  store ptr %8, ptr %r_purge_addr, align 8
+  store i64 %add, ptr %r_purge_addr, align 8
   %mul5 = shl i64 %sub.i.i, 12
   store i64 %mul5, ptr %r_purge_size, align 8
   store i64 %retval.i1.0.i, ptr %next_purge_search_begin, align 8
-  %9 = load i64, ptr %purge_state, align 8
-  %add8 = add i64 %9, %sub.i.i
+  %8 = load i64, ptr %purge_state, align 8
+  %add8 = add i64 %8, %sub.i.i
   store i64 %add8, ptr %purge_state, align 8
   br label %return
 

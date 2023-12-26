@@ -2956,7 +2956,7 @@ invoke.cont:                                      ; preds = %if.end
   %call.i = tail call noundef ptr @_ZN9grpc_core28CompressionAlgorithmAsStringE26grpc_compression_algorithm(i32 noundef %2), !noalias !123
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i) #22, !noalias !129
-  store ptr inttoptr (i64 1 to ptr), ptr %ref.tmp4, align 8, !alias.scope !130
+  store i64 1, ptr %ref.tmp4, align 8, !alias.scope !130
   %slice.sroa.2.0.agg.result.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store i64 %call.i.i, ptr %slice.sroa.2.0.agg.result.sroa_idx.i.i.i, align 8, !alias.scope !130
   %slice.sroa.3.0.agg.result.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
@@ -3057,7 +3057,7 @@ invoke.cont:                                      ; preds = %if.end
   %call.i = tail call noundef ptr @_ZN9grpc_core28CompressionAlgorithmAsStringE26grpc_compression_algorithm(i32 noundef %2), !noalias !133
   tail call void @llvm.experimental.noalias.scope.decl(metadata !136)
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i) #22, !noalias !139
-  store ptr inttoptr (i64 1 to ptr), ptr %ref.tmp4, align 8, !alias.scope !140
+  store i64 1, ptr %ref.tmp4, align 8, !alias.scope !140
   %slice.sroa.2.0.agg.result.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store i64 %call.i.i, ptr %slice.sroa.2.0.agg.result.sroa_idx.i.i.i, align 8, !alias.scope !140
   %slice.sroa.3.0.agg.result.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 16

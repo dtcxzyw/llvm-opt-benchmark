@@ -2041,8 +2041,7 @@ if.then2.i.i:                                     ; preds = %upb_Arena_Malloc.ex
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i32.i, i8 0, i64 %add.i.i.i22.i, i1 false)
   store i32 1, ptr %retval.0.i.i.i, align 4
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
-  %9 = ptrtoint ptr %add.ptr.i.i34.i to i64
-  store i64 %9, ptr %add.ptr.i.i.i.i.i, align 1
+  store ptr %add.ptr.i.i34.i, ptr %add.ptr.i.i.i.i.i, align 1
   br label %invoke.cont6.i
 
 invoke.cont6.i:                                   ; preds = %if.then2.i.i, %upb_Arena_Malloc.exit.i.i31.i, %grpc_gcp_HandshakerReq_client_start.exit.i.i
@@ -2058,21 +2057,21 @@ invoke.cont12.i:                                  ; preds = %invoke.cont6.i
 
 invoke.cont15.i:                                  ; preds = %invoke.cont12.i
   %add.ptr.i.i.i45.i = getelementptr inbounds i8, ptr %sub.0.i.i, i64 80
-  %10 = load i64, ptr %add.ptr.i.i.i45.i, align 1
-  %11 = inttoptr i64 %10 to ptr
-  %cmp.i46.i = icmp eq i64 %10, 0
+  %9 = load i64, ptr %add.ptr.i.i.i45.i, align 1
+  %10 = inttoptr i64 %9 to ptr
+  %cmp.i46.i = icmp eq i64 %9, 0
   br i1 %cmp.i46.i, label %if.then.i48.i, label %invoke.cont18.i
 
 if.then.i48.i:                                    ; preds = %invoke.cont15.i
-  %12 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__gcp__RpcProtocolVersions_msg_init, i64 0, i32 2), align 8
-  %conv.i.i.i49.i = zext i16 %12 to i64
+  %11 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__gcp__RpcProtocolVersions_msg_init, i64 0, i32 2), align 8
+  %conv.i.i.i49.i = zext i16 %11 to i64
   %add.i.i.i50.i = add nuw nsw i64 %conv.i.i.i49.i, 8
   %sub.i.i.i51.i = add nuw nsw i64 %conv.i.i.i49.i, 23
   %div7.i.i.i52.i = and i64 %sub.i.i.i51.i, 131064
-  %13 = load ptr, ptr %end.i.i.i.i.i, align 8
-  %14 = load ptr, ptr %call.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i54.i = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i.i.i.i55.i = ptrtoint ptr %14 to i64
+  %12 = load ptr, ptr %end.i.i.i.i.i, align 8
+  %13 = load ptr, ptr %call.i.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i54.i = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast.i.i.i.i55.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i.i.i56.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i54.i, %sub.ptr.rhs.cast.i.i.i.i55.i
   %cmp.i.i.i57.i = icmp ult i64 %sub.ptr.sub.i.i.i.i56.i, %div7.i.i.i52.i
   br i1 %cmp.i.i.i57.i, label %if.then.i.i.i65.i, label %if.end.i.i.i58.i
@@ -2082,62 +2081,61 @@ if.then.i.i.i65.i:                                ; preds = %if.then.i48.i
           to label %upb_Arena_Malloc.exit.i.i60.i unwind label %if.then.i.i.loopexit.split-lp.i
 
 if.end.i.i.i58.i:                                 ; preds = %if.then.i48.i
-  %add.ptr.i.i5.i59.i = getelementptr inbounds i8, ptr %14, i64 %div7.i.i.i52.i
+  %add.ptr.i.i5.i59.i = getelementptr inbounds i8, ptr %13, i64 %div7.i.i.i52.i
   store ptr %add.ptr.i.i5.i59.i, ptr %call.i.i.i, align 8
   br label %upb_Arena_Malloc.exit.i.i60.i
 
 upb_Arena_Malloc.exit.i.i60.i:                    ; preds = %if.end.i.i.i58.i, %if.then.i.i.i65.i
-  %retval.0.i.i.i61.i = phi ptr [ %14, %if.end.i.i.i58.i ], [ %call2.i.i.i67.i, %if.then.i.i.i65.i ]
+  %retval.0.i.i.i61.i = phi ptr [ %13, %if.end.i.i.i58.i ], [ %call2.i.i.i67.i, %if.then.i.i.i65.i ]
   %tobool.not.i.i62.i = icmp eq ptr %retval.0.i.i.i61.i, null
   br i1 %tobool.not.i.i62.i, label %invoke.cont18.i, label %if.then2.i63.i
 
 if.then2.i63.i:                                   ; preds = %upb_Arena_Malloc.exit.i.i60.i
   %add.ptr.i.i64.i = getelementptr inbounds i8, ptr %retval.0.i.i.i61.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i61.i, i8 0, i64 %add.i.i.i50.i, i1 false)
-  %15 = load i8, ptr %sub.0.i.i, align 1
-  %or2.i.i.i.i.i.i.i = or i8 %15, 16
+  %14 = load i8, ptr %sub.0.i.i, align 1
+  %or2.i.i.i.i.i.i.i = or i8 %14, 16
   store i8 %or2.i.i.i.i.i.i.i, ptr %sub.0.i.i, align 1
-  %16 = ptrtoint ptr %add.ptr.i.i64.i to i64
-  store i64 %16, ptr %add.ptr.i.i.i45.i, align 1
+  store ptr %add.ptr.i.i64.i, ptr %add.ptr.i.i.i45.i, align 1
   br label %invoke.cont18.i
 
 invoke.cont18.i:                                  ; preds = %if.then2.i63.i, %upb_Arena_Malloc.exit.i.i60.i, %invoke.cont15.i
-  %sub.0.i47.i = phi ptr [ %add.ptr.i.i64.i, %if.then2.i63.i ], [ %11, %invoke.cont15.i ], [ null, %upb_Arena_Malloc.exit.i.i60.i ]
+  %sub.0.i47.i = phi ptr [ %add.ptr.i.i64.i, %if.then2.i63.i ], [ %10, %invoke.cont15.i ], [ null, %upb_Arena_Malloc.exit.i.i60.i ]
   %options.i = getelementptr inbounds %struct.alts_grpc_handshaker_client, ptr %c, i64 0, i32 12
-  %17 = load ptr, ptr %options.i, align 8
-  %rpc_versions.i = getelementptr inbounds %struct.grpc_alts_credentials_options, ptr %17, i64 0, i32 1
+  %15 = load ptr, ptr %options.i, align 8
+  %rpc_versions.i = getelementptr inbounds %struct.grpc_alts_credentials_options, ptr %15, i64 0, i32 1
   invoke void @_Z47grpc_gcp_RpcProtocolVersions_assign_from_structP28grpc_gcp_RpcProtocolVersionsP9upb_ArenaPK29_grpc_gcp_RpcProtocolVersions(ptr noundef %sub.0.i47.i, ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %rpc_versions.i)
           to label %invoke.cont21.i unwind label %if.then.i.i.loopexit.split-lp.i
 
 invoke.cont21.i:                                  ; preds = %invoke.cont18.i
   %target_name.i = getelementptr inbounds %struct.alts_grpc_handshaker_client, ptr %c, i64 0, i32 13
-  %18 = load ptr, ptr %target_name.i, align 8
-  %tobool.not.i = icmp eq ptr %18, null
+  %16 = load ptr, ptr %target_name.i, align 8
+  %tobool.not.i = icmp eq ptr %16, null
   br i1 %tobool.not.i, label %cond.false33.i, label %cond.true30.i
 
 cond.true30.i:                                    ; preds = %invoke.cont21.i
   %bytes.i = getelementptr inbounds %struct.alts_grpc_handshaker_client, ptr %c, i64 0, i32 13, i32 1, i32 0, i32 1
-  %19 = load ptr, ptr %bytes.i, align 8
+  %17 = load ptr, ptr %bytes.i, align 8
   %data32.i = getelementptr inbounds %struct.alts_grpc_handshaker_client, ptr %c, i64 0, i32 13, i32 1
-  %20 = load i64, ptr %data32.i, align 8
+  %18 = load i64, ptr %data32.i, align 8
   br label %invoke.cont40.i
 
 cond.false33.i:                                   ; preds = %invoke.cont21.i
   %bytes26.i = getelementptr inbounds i8, ptr %c, i64 153
   %data35.i = getelementptr inbounds %struct.alts_grpc_handshaker_client, ptr %c, i64 0, i32 13, i32 1
-  %21 = load i8, ptr %data35.i, align 8
-  %conv.i = zext i8 %21 to i64
+  %19 = load i8, ptr %data35.i, align 8
+  %conv.i = zext i8 %19 to i64
   br label %invoke.cont40.i
 
 invoke.cont40.i:                                  ; preds = %cond.false33.i, %cond.true30.i
-  %cond102.i = phi ptr [ %19, %cond.true30.i ], [ %bytes26.i, %cond.false33.i ]
-  %cond38.i = phi i64 [ %20, %cond.true30.i ], [ %conv.i, %cond.false33.i ]
+  %cond102.i = phi ptr [ %17, %cond.true30.i ], [ %bytes26.i, %cond.false33.i ]
+  %cond38.i = phi i64 [ %18, %cond.true30.i ], [ %conv.i, %cond.false33.i ]
   %add.ptr.i.i.i69.i = getelementptr inbounds i8, ptr %sub.0.i.i, i64 64
   store ptr %cond102.i, ptr %add.ptr.i.i.i69.i, align 1
   %value.sroa.5.0.add.ptr.i.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %sub.0.i.i, i64 72
   store i64 %cond38.i, ptr %value.sroa.5.0.add.ptr.i.i.sroa_idx.i.i, align 1
-  %22 = load ptr, ptr %options.i, align 8
-  %target_account_list_head.i = getelementptr inbounds %struct.grpc_alts_credentials_client_options, ptr %22, i64 0, i32 1
+  %20 = load ptr, ptr %options.i, align 8
+  %target_account_list_head.i = getelementptr inbounds %struct.grpc_alts_credentials_client_options, ptr %20, i64 0, i32 1
   %ptr.0104.i = load ptr, ptr %target_account_list_head.i, align 8
   %cmp42.not105.i = icmp eq ptr %ptr.0104.i, null
   br i1 %cmp42.not105.i, label %invoke.cont52.i, label %while.body.i
@@ -2149,11 +2147,11 @@ while.body.i:                                     ; preds = %invoke.cont40.i, %i
 
 invoke.cont48.i:                                  ; preds = %while.body.i
   %data47.i = getelementptr inbounds %struct.target_service_account, ptr %ptr.0106.i, i64 0, i32 1
-  %23 = load ptr, ptr %data47.i, align 8
-  %call.i71.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #21
+  %21 = load ptr, ptr %data47.i, align 8
+  %call.i71.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #21
   store i32 1, ptr %call45.i, align 4
   %add.ptr.i.i.i73.i = getelementptr inbounds i8, ptr %call45.i, i64 8
-  store ptr %23, ptr %add.ptr.i.i.i73.i, align 1
+  store ptr %21, ptr %add.ptr.i.i.i73.i, align 1
   %value.sroa.5.0.add.ptr.i.i.sroa_idx.i74.i = getelementptr inbounds i8, ptr %call45.i, i64 16
   store i64 %call.i71.i, ptr %value.sroa.5.0.add.ptr.i.i.sroa_idx.i74.i, align 1
   %ptr.0.i = load ptr, ptr %ptr.0106.i, align 8
@@ -2176,10 +2174,10 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i.loopexi
           to label %_ZN3upb5ArenaD2Ev.exit.i unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
-  %24 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #19
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #19
   unreachable
 
 _ZN3upb5ArenaD2Ev.exit.i:                         ; preds = %if.then.i.i.i
@@ -2187,8 +2185,8 @@ _ZN3upb5ArenaD2Ev.exit.i:                         ; preds = %if.then.i.i.i
 
 invoke.cont52.i:                                  ; preds = %invoke.cont48.i, %invoke.cont40.i
   %max_frame_size.i = getelementptr inbounds %struct.alts_grpc_handshaker_client, ptr %c, i64 0, i32 24
-  %26 = load i64, ptr %max_frame_size.i, align 8
-  %conv51.i = trunc i64 %26 to i32
+  %24 = load i64, ptr %max_frame_size.i, align 8
+  %conv51.i = trunc i64 %24 to i32
   %add.ptr.i.i.i76.i = getelementptr inbounds i8, ptr %sub.0.i.i, i64 8
   store i32 %conv51.i, ptr %add.ptr.i.i.i76.i, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf_length.i.i)
@@ -2198,14 +2196,14 @@ invoke.cont52.i:                                  ; preds = %invoke.cont48.i, %i
           to label %call.i.i78.noexc.i unwind label %if.then.i.i.loopexit.split-lp.i
 
 call.i.i78.noexc.i:                               ; preds = %invoke.cont52.i
-  %27 = load ptr, ptr %ptr.i.i.i, align 8
+  %25 = load ptr, ptr %ptr.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i.i.i)
-  %cmp.i79.i = icmp eq ptr %27, null
+  %cmp.i79.i = icmp eq ptr %25, null
   br i1 %cmp.i79.i, label %if.then.i.i88.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %call.i.i78.noexc.i
-  %28 = load i64, ptr %buf_length.i.i, align 8
-  invoke void @grpc_slice_from_copied_buffer(ptr nonnull sret(%struct.grpc_slice) align 8 %slice.i.i, ptr noundef nonnull %27, i64 noundef %28)
+  %26 = load i64, ptr %buf_length.i.i, align 8
+  invoke void @grpc_slice_from_copied_buffer(ptr nonnull sret(%struct.grpc_slice) align 8 %slice.i.i, ptr noundef nonnull %25, i64 noundef %26)
           to label %.noexc.i unwind label %if.then.i.i.loopexit.split-lp.i
 
 .noexc.i:                                         ; preds = %if.end.i.i
@@ -2213,19 +2211,19 @@ if.end.i.i:                                       ; preds = %call.i.i78.noexc.i
           to label %call1.i.noexc.i unwind label %if.then.i.i.loopexit.split-lp.i
 
 call1.i.noexc.i:                                  ; preds = %.noexc.i
-  %29 = load ptr, ptr %slice.i.i, align 8
-  %cmp.i.i.i = icmp ugt ptr %29, inttoptr (i64 1 to ptr)
+  %27 = load ptr, ptr %slice.i.i, align 8
+  %cmp.i.i.i = icmp ugt ptr %27, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i, label %if.then.i.i80.i, label %if.then.i.i88.i
 
 if.then.i.i80.i:                                  ; preds = %call1.i.noexc.i
-  %30 = atomicrmw sub ptr %29, i64 1 acq_rel, align 8
-  %cmp.i.i.i81.i = icmp eq i64 %30, 1
+  %28 = atomicrmw sub ptr %27, i64 1 acq_rel, align 8
+  %cmp.i.i.i81.i = icmp eq i64 %28, 1
   br i1 %cmp.i.i.i81.i, label %if.then.i.i.i82.i, label %if.then.i.i88.i
 
 if.then.i.i.i82.i:                                ; preds = %if.then.i.i80.i
-  %destroyer_fn_.i.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %29, i64 0, i32 1
-  %31 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %31(ptr noundef nonnull %29)
+  %destroyer_fn_.i.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %27, i64 0, i32 1
+  %29 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
+  invoke void %29(ptr noundef nonnull %27)
           to label %if.then.i.i88.i unwind label %if.then.i.i.loopexit.split-lp.i
 
 if.then.i.i88.i:                                  ; preds = %if.then.i.i.i82.i, %if.then.i.i80.i, %call1.i.noexc.i, %call.i.i78.noexc.i
@@ -2236,10 +2234,10 @@ if.then.i.i88.i:                                  ; preds = %if.then.i.i.i82.i, 
           to label %_ZL27get_serialized_start_clientP22alts_handshaker_client.exit unwind label %terminate.lpad.i.i89.i
 
 terminate.lpad.i.i89.i:                           ; preds = %if.then.i.i88.i
-  %32 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #19
+  %31 = extractvalue { ptr, i32 } %30, 0
+  call void @__clang_call_terminate(ptr %31) #19
   unreachable
 
 _ZL27get_serialized_start_clientP22alts_handshaker_client.exit: ; preds = %if.then.i.i88.i
@@ -2252,8 +2250,8 @@ if.then2:                                         ; preds = %_ZL27get_serialized
 
 if.end3:                                          ; preds = %_ZL27get_serialized_start_clientP22alts_handshaker_client.exit
   %send_buffer.i = getelementptr inbounds %struct.alts_grpc_handshaker_client, ptr %c, i64 0, i32 6
-  %34 = load ptr, ptr %send_buffer.i, align 8
-  call void @grpc_byte_buffer_destroy(ptr noundef %34)
+  %32 = load ptr, ptr %send_buffer.i, align 8
+  call void @grpc_byte_buffer_destroy(ptr noundef %32)
   store ptr %retval.0.i.i, ptr %send_buffer.i, align 8
   %call4 = call fastcc noundef i32 @_ZL14make_grpc_callP22alts_handshaker_clientb(ptr noundef nonnull %c, i1 noundef zeroext true), !range !6
   %cmp5.not = icmp eq i32 %call4, 0
@@ -2365,8 +2363,7 @@ if.then2.i.i:                                     ; preds = %upb_Arena_Malloc.ex
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i28.i, i8 0, i64 %add.i.i.i18.i, i1 false)
   store i32 2, ptr %retval.0.i.i.i, align 4
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
-  %9 = ptrtoint ptr %add.ptr.i.i30.i to i64
-  store i64 %9, ptr %add.ptr.i.i.i.i.i, align 1
+  store ptr %add.ptr.i.i30.i, ptr %add.ptr.i.i.i.i.i, align 1
   br label %invoke.cont11.i
 
 invoke.cont11.i:                                  ; preds = %if.then2.i.i, %upb_Arena_Malloc.exit.i.i27.i, %grpc_gcp_HandshakerReq_server_start.exit.i.i
@@ -2375,15 +2372,15 @@ invoke.cont11.i:                                  ; preds = %if.then2.i.i, %upb_
           to label %invoke.cont14.i unwind label %if.then.i.i106.i
 
 invoke.cont14.i:                                  ; preds = %invoke.cont11.i
-  %10 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__gcp__ServerHandshakeParameters_msg_init, i64 0, i32 2), align 8
-  %conv.i.i.i37.i = zext i16 %10 to i64
+  %9 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__gcp__ServerHandshakeParameters_msg_init, i64 0, i32 2), align 8
+  %conv.i.i.i37.i = zext i16 %9 to i64
   %add.i.i.i38.i = add nuw nsw i64 %conv.i.i.i37.i, 8
   %sub.i.i.i39.i = add nuw nsw i64 %conv.i.i.i37.i, 23
   %div7.i.i.i40.i = and i64 %sub.i.i.i39.i, 131064
-  %11 = load ptr, ptr %end.i.i.i.i.i, align 8
-  %12 = load ptr, ptr %call.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i42.i = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast.i.i.i.i43.i = ptrtoint ptr %12 to i64
+  %10 = load ptr, ptr %end.i.i.i.i.i, align 8
+  %11 = load ptr, ptr %call.i.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i42.i = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i.i.i.i43.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i.i.i44.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i42.i, %sub.ptr.rhs.cast.i.i.i.i43.i
   %cmp.i.i.i45.i = icmp ult i64 %sub.ptr.sub.i.i.i.i44.i, %div7.i.i.i40.i
   br i1 %cmp.i.i.i45.i, label %if.then.i.i.i54.i, label %if.end.i.i.i46.i
@@ -2393,12 +2390,12 @@ if.then.i.i.i54.i:                                ; preds = %invoke.cont14.i
           to label %upb_Arena_Malloc.exit.i.i48.i unwind label %if.then.i.i106.i
 
 if.end.i.i.i46.i:                                 ; preds = %invoke.cont14.i
-  %add.ptr.i.i.i47.i = getelementptr inbounds i8, ptr %12, i64 %div7.i.i.i40.i
+  %add.ptr.i.i.i47.i = getelementptr inbounds i8, ptr %11, i64 %div7.i.i.i40.i
   store ptr %add.ptr.i.i.i47.i, ptr %call.i.i.i, align 8
   br label %upb_Arena_Malloc.exit.i.i48.i
 
 upb_Arena_Malloc.exit.i.i48.i:                    ; preds = %if.end.i.i.i46.i, %if.then.i.i.i54.i
-  %retval.0.i.i.i49.i = phi ptr [ %12, %if.end.i.i.i46.i ], [ %call2.i.i.i56.i, %if.then.i.i.i54.i ]
+  %retval.0.i.i.i49.i = phi ptr [ %11, %if.end.i.i.i46.i ], [ %call2.i.i.i56.i, %if.then.i.i.i54.i ]
   %tobool.not.i.i50.i = icmp eq ptr %retval.0.i.i.i49.i, null
   br i1 %tobool.not.i.i50.i, label %invoke.cont20.i, label %if.end.i.i51.i
 
@@ -2416,9 +2413,9 @@ invoke.cont23.i:                                  ; preds = %invoke.cont20.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %key.addr.i.i)
   store i32 2, ptr %key.addr.i.i, align 4
   %add.ptr.i.i.i61.i = getelementptr inbounds i8, ptr %sub.0.i.i, i64 16
-  %13 = load i64, ptr %add.ptr.i.i.i61.i, align 1
-  %14 = inttoptr i64 %13 to ptr
-  %tobool.not.i.i62.i = icmp eq i64 %13, 0
+  %12 = load i64, ptr %add.ptr.i.i.i61.i, align 1
+  %13 = inttoptr i64 %12 to ptr
+  %tobool.not.i.i62.i = icmp eq i64 %12, 0
   br i1 %tobool.not.i.i62.i, label %sw.bb2.i.i.i.i.i, label %_upb_Message_GetOrCreateMutableMap.exit.i.i
 
 sw.bb2.i.i.i.i.i:                                 ; preds = %invoke.cont23.i
@@ -2426,64 +2423,63 @@ sw.bb2.i.i.i.i.i:                                 ; preds = %invoke.cont23.i
           to label %call.i.i63.noexc.i unwind label %if.then.i.i106.i
 
 call.i.i63.noexc.i:                               ; preds = %sw.bb2.i.i.i.i.i
-  %15 = ptrtoint ptr %call.i.i6364.i to i64
-  store i64 %15, ptr %add.ptr.i.i.i61.i, align 1
+  store ptr %call.i.i6364.i, ptr %add.ptr.i.i.i61.i, align 1
   br label %_upb_Message_GetOrCreateMutableMap.exit.i.i
 
 _upb_Message_GetOrCreateMutableMap.exit.i.i:      ; preds = %call.i.i63.noexc.i, %invoke.cont23.i
-  %map.3.i.i.i = phi ptr [ %14, %invoke.cont23.i ], [ %call.i.i6364.i, %call.i.i63.noexc.i ]
+  %map.3.i.i.i = phi ptr [ %13, %invoke.cont23.i ], [ %call.i.i6364.i, %call.i.i63.noexc.i ]
   %table.i.i.i = getelementptr inbounds %struct.upb_Map, ptr %map.3.i.i.i, i64 0, i32 2
   %call2.i.i65.i = invoke zeroext i1 @upb_strtable_remove2(ptr noundef nonnull %table.i.i.i, ptr noundef nonnull %key.addr.i.i, i64 noundef 4, ptr noundef null)
           to label %call2.i.i.noexc.i unwind label %if.then.i.i106.i
 
 call2.i.i.noexc.i:                                ; preds = %_upb_Message_GetOrCreateMutableMap.exit.i.i
-  %16 = ptrtoint ptr %retval.0.i.i53.i to i64
-  %call6.i.i66.i = invoke zeroext i1 @upb_strtable_insert(ptr noundef nonnull %table.i.i.i, ptr noundef nonnull %key.addr.i.i, i64 noundef 4, i64 %16, ptr noundef nonnull %call.i.i.i)
+  %14 = ptrtoint ptr %retval.0.i.i53.i to i64
+  %call6.i.i66.i = invoke zeroext i1 @upb_strtable_insert(ptr noundef nonnull %table.i.i.i, ptr noundef nonnull %key.addr.i.i, i64 noundef 4, i64 %14, ptr noundef nonnull %call.i.i.i)
           to label %invoke.cont26.i unwind label %if.then.i.i106.i
 
 invoke.cont26.i:                                  ; preds = %call2.i.i.noexc.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %key.addr.i.i)
-  %17 = load ptr, ptr %bytes_received, align 8
-  %tobool.not.i = icmp eq ptr %17, null
+  %15 = load ptr, ptr %bytes_received, align 8
+  %tobool.not.i = icmp eq ptr %15, null
   br i1 %tobool.not.i, label %cond.false35.i, label %cond.true33.i
 
 cond.true33.i:                                    ; preds = %invoke.cont26.i
   %bytes.i = getelementptr inbounds %struct.grpc_slice, ptr %bytes_received, i64 0, i32 1, i32 0, i32 1
-  %18 = load ptr, ptr %bytes.i, align 8
+  %16 = load ptr, ptr %bytes.i, align 8
   %data34.i = getelementptr inbounds %struct.grpc_slice, ptr %bytes_received, i64 0, i32 1
-  %19 = load i64, ptr %data34.i, align 8
+  %17 = load i64, ptr %data34.i, align 8
   br label %invoke.cont41.i
 
 cond.false35.i:                                   ; preds = %invoke.cont26.i
   %bytes30.i = getelementptr inbounds i8, ptr %bytes_received, i64 9
   %data36.i = getelementptr inbounds %struct.grpc_slice, ptr %bytes_received, i64 0, i32 1
-  %20 = load i8, ptr %data36.i, align 8
-  %conv.i = zext i8 %20 to i64
+  %18 = load i8, ptr %data36.i, align 8
+  %conv.i = zext i8 %18 to i64
   br label %invoke.cont41.i
 
 invoke.cont41.i:                                  ; preds = %cond.false35.i, %cond.true33.i
-  %cond121.i = phi ptr [ %18, %cond.true33.i ], [ %bytes30.i, %cond.false35.i ]
-  %cond39.i = phi i64 [ %19, %cond.true33.i ], [ %conv.i, %cond.false35.i ]
+  %cond121.i = phi ptr [ %16, %cond.true33.i ], [ %bytes30.i, %cond.false35.i ]
+  %cond39.i = phi i64 [ %17, %cond.true33.i ], [ %conv.i, %cond.false35.i ]
   %add.ptr.i.i.i67.i = getelementptr inbounds i8, ptr %sub.0.i.i, i64 24
   store ptr %cond121.i, ptr %add.ptr.i.i.i67.i, align 1
   %value.sroa.5.0.add.ptr.i.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %sub.0.i.i, i64 32
   store i64 %cond39.i, ptr %value.sroa.5.0.add.ptr.i.i.sroa_idx.i.i, align 1
   %add.ptr.i.i.i69.i = getelementptr inbounds i8, ptr %sub.0.i.i, i64 56
-  %21 = load i64, ptr %add.ptr.i.i.i69.i, align 1
-  %22 = inttoptr i64 %21 to ptr
-  %cmp.i70.i = icmp eq i64 %21, 0
+  %19 = load i64, ptr %add.ptr.i.i.i69.i, align 1
+  %20 = inttoptr i64 %19 to ptr
+  %cmp.i70.i = icmp eq i64 %19, 0
   br i1 %cmp.i70.i, label %if.then.i72.i, label %invoke.cont43.i
 
 if.then.i72.i:                                    ; preds = %invoke.cont41.i
-  %23 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__gcp__RpcProtocolVersions_msg_init, i64 0, i32 2), align 8
-  %conv.i.i.i73.i = zext i16 %23 to i64
+  %21 = load i16, ptr getelementptr inbounds (%struct.upb_MiniTable, ptr @grpc__gcp__RpcProtocolVersions_msg_init, i64 0, i32 2), align 8
+  %conv.i.i.i73.i = zext i16 %21 to i64
   %add.i.i.i74.i = add nuw nsw i64 %conv.i.i.i73.i, 8
   %sub.i.i.i75.i = add nuw nsw i64 %conv.i.i.i73.i, 23
   %div7.i.i.i76.i = and i64 %sub.i.i.i75.i, 131064
-  %24 = load ptr, ptr %end.i.i.i.i.i, align 8
-  %25 = load ptr, ptr %call.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i78.i = ptrtoint ptr %24 to i64
-  %sub.ptr.rhs.cast.i.i.i.i79.i = ptrtoint ptr %25 to i64
+  %22 = load ptr, ptr %end.i.i.i.i.i, align 8
+  %23 = load ptr, ptr %call.i.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i78.i = ptrtoint ptr %22 to i64
+  %sub.ptr.rhs.cast.i.i.i.i79.i = ptrtoint ptr %23 to i64
   %sub.ptr.sub.i.i.i.i80.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i78.i, %sub.ptr.rhs.cast.i.i.i.i79.i
   %cmp.i.i.i81.i = icmp ult i64 %sub.ptr.sub.i.i.i.i80.i, %div7.i.i.i76.i
   br i1 %cmp.i.i.i81.i, label %if.then.i.i.i89.i, label %if.end.i.i.i82.i
@@ -2493,37 +2489,36 @@ if.then.i.i.i89.i:                                ; preds = %if.then.i72.i
           to label %upb_Arena_Malloc.exit.i.i84.i unwind label %if.then.i.i106.i
 
 if.end.i.i.i82.i:                                 ; preds = %if.then.i72.i
-  %add.ptr.i.i5.i83.i = getelementptr inbounds i8, ptr %25, i64 %div7.i.i.i76.i
+  %add.ptr.i.i5.i83.i = getelementptr inbounds i8, ptr %23, i64 %div7.i.i.i76.i
   store ptr %add.ptr.i.i5.i83.i, ptr %call.i.i.i, align 8
   br label %upb_Arena_Malloc.exit.i.i84.i
 
 upb_Arena_Malloc.exit.i.i84.i:                    ; preds = %if.end.i.i.i82.i, %if.then.i.i.i89.i
-  %retval.0.i.i.i85.i = phi ptr [ %25, %if.end.i.i.i82.i ], [ %call2.i.i.i91.i, %if.then.i.i.i89.i ]
+  %retval.0.i.i.i85.i = phi ptr [ %23, %if.end.i.i.i82.i ], [ %call2.i.i.i91.i, %if.then.i.i.i89.i ]
   %tobool.not.i.i86.i = icmp eq ptr %retval.0.i.i.i85.i, null
   br i1 %tobool.not.i.i86.i, label %invoke.cont43.i, label %if.then2.i87.i
 
 if.then2.i87.i:                                   ; preds = %upb_Arena_Malloc.exit.i.i84.i
   %add.ptr.i.i88.i = getelementptr inbounds i8, ptr %retval.0.i.i.i85.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i85.i, i8 0, i64 %add.i.i.i74.i, i1 false)
-  %26 = load i8, ptr %sub.0.i.i, align 1
-  %or2.i.i.i.i.i.i.i = or i8 %26, 8
+  %24 = load i8, ptr %sub.0.i.i, align 1
+  %or2.i.i.i.i.i.i.i = or i8 %24, 8
   store i8 %or2.i.i.i.i.i.i.i, ptr %sub.0.i.i, align 1
-  %27 = ptrtoint ptr %add.ptr.i.i88.i to i64
-  store i64 %27, ptr %add.ptr.i.i.i69.i, align 1
+  store ptr %add.ptr.i.i88.i, ptr %add.ptr.i.i.i69.i, align 1
   br label %invoke.cont43.i
 
 invoke.cont43.i:                                  ; preds = %if.then2.i87.i, %upb_Arena_Malloc.exit.i.i84.i, %invoke.cont41.i
-  %sub.0.i71.i = phi ptr [ %add.ptr.i.i88.i, %if.then2.i87.i ], [ %22, %invoke.cont41.i ], [ null, %upb_Arena_Malloc.exit.i.i84.i ]
+  %sub.0.i71.i = phi ptr [ %add.ptr.i.i88.i, %if.then2.i87.i ], [ %20, %invoke.cont41.i ], [ null, %upb_Arena_Malloc.exit.i.i84.i ]
   %options.i = getelementptr inbounds %struct.alts_grpc_handshaker_client, ptr %c, i64 0, i32 12
-  %28 = load ptr, ptr %options.i, align 8
-  %rpc_versions.i = getelementptr inbounds %struct.grpc_alts_credentials_options, ptr %28, i64 0, i32 1
+  %25 = load ptr, ptr %options.i, align 8
+  %rpc_versions.i = getelementptr inbounds %struct.grpc_alts_credentials_options, ptr %25, i64 0, i32 1
   invoke void @_Z47grpc_gcp_RpcProtocolVersions_assign_from_structP28grpc_gcp_RpcProtocolVersionsP9upb_ArenaPK29_grpc_gcp_RpcProtocolVersions(ptr noundef %sub.0.i71.i, ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %rpc_versions.i)
           to label %invoke.cont48.i unwind label %if.then.i.i106.i
 
 invoke.cont48.i:                                  ; preds = %invoke.cont43.i
   %max_frame_size.i = getelementptr inbounds %struct.alts_grpc_handshaker_client, ptr %c, i64 0, i32 24
-  %29 = load i64, ptr %max_frame_size.i, align 8
-  %conv47.i = trunc i64 %29 to i32
+  %26 = load i64, ptr %max_frame_size.i, align 8
+  %conv47.i = trunc i64 %26 to i32
   %add.ptr.i.i.i93.i = getelementptr inbounds i8, ptr %sub.0.i.i, i64 4
   store i32 %conv47.i, ptr %add.ptr.i.i.i93.i, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf_length.i.i)
@@ -2533,14 +2528,14 @@ invoke.cont48.i:                                  ; preds = %invoke.cont43.i
           to label %call.i.i95.noexc.i unwind label %if.then.i.i106.i
 
 call.i.i95.noexc.i:                               ; preds = %invoke.cont48.i
-  %30 = load ptr, ptr %ptr.i.i.i, align 8
+  %27 = load ptr, ptr %ptr.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i.i.i)
-  %cmp.i96.i = icmp eq ptr %30, null
+  %cmp.i96.i = icmp eq ptr %27, null
   br i1 %cmp.i96.i, label %if.then.i.i103.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %call.i.i95.noexc.i
-  %31 = load i64, ptr %buf_length.i.i, align 8
-  invoke void @grpc_slice_from_copied_buffer(ptr nonnull sret(%struct.grpc_slice) align 8 %slice.i.i, ptr noundef nonnull %30, i64 noundef %31)
+  %28 = load i64, ptr %buf_length.i.i, align 8
+  invoke void @grpc_slice_from_copied_buffer(ptr nonnull sret(%struct.grpc_slice) align 8 %slice.i.i, ptr noundef nonnull %27, i64 noundef %28)
           to label %.noexc.i unwind label %if.then.i.i106.i
 
 .noexc.i:                                         ; preds = %if.end.i.i
@@ -2548,19 +2543,19 @@ if.end.i.i:                                       ; preds = %call.i.i95.noexc.i
           to label %call1.i.noexc.i unwind label %if.then.i.i106.i
 
 call1.i.noexc.i:                                  ; preds = %.noexc.i
-  %32 = load ptr, ptr %slice.i.i, align 8
-  %cmp.i.i.i = icmp ugt ptr %32, inttoptr (i64 1 to ptr)
+  %29 = load ptr, ptr %slice.i.i, align 8
+  %cmp.i.i.i = icmp ugt ptr %29, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then.i.i103.i
 
 if.then.i.i.i:                                    ; preds = %call1.i.noexc.i
-  %33 = atomicrmw sub ptr %32, i64 1 acq_rel, align 8
-  %cmp.i.i.i97.i = icmp eq i64 %33, 1
+  %30 = atomicrmw sub ptr %29, i64 1 acq_rel, align 8
+  %cmp.i.i.i97.i = icmp eq i64 %30, 1
   br i1 %cmp.i.i.i97.i, label %if.then.i.i.i98.i, label %if.then.i.i103.i
 
 if.then.i.i.i98.i:                                ; preds = %if.then.i.i.i
-  %destroyer_fn_.i.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %32, i64 0, i32 1
-  %34 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %34(ptr noundef nonnull %32)
+  %destroyer_fn_.i.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %29, i64 0, i32 1
+  %31 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
+  invoke void %31(ptr noundef nonnull %29)
           to label %if.then.i.i103.i unwind label %if.then.i.i106.i
 
 if.then.i.i103.i:                                 ; preds = %if.then.i.i.i98.i, %if.then.i.i.i, %call1.i.noexc.i, %call.i.i95.noexc.i
@@ -2571,27 +2566,27 @@ if.then.i.i103.i:                                 ; preds = %if.then.i.i.i98.i, 
           to label %_ZL27get_serialized_start_serverP22alts_handshaker_clientP10grpc_slice.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i103.i
+  %32 = landingpad { ptr, i32 }
+          catch ptr null
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #19
+  unreachable
+
+if.then.i.i106.i:                                 ; preds = %if.then.i.i.i98.i, %.noexc.i, %if.end.i.i, %invoke.cont48.i, %invoke.cont43.i, %if.then.i.i.i89.i, %call2.i.i.noexc.i, %_upb_Message_GetOrCreateMutableMap.exit.i.i, %sw.bb2.i.i.i.i.i, %invoke.cont20.i, %if.then.i.i.i54.i, %invoke.cont11.i, %if.then.i.i.i31.i, %if.then.i.i.i.i
+  %34 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @upb_Arena_Free(ptr noundef nonnull %call.i.i.i)
+          to label %_ZN3upb5ArenaD2Ev.exit108.i unwind label %terminate.lpad.i.i107.i
+
+terminate.lpad.i.i107.i:                          ; preds = %if.then.i.i106.i
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
   call void @__clang_call_terminate(ptr %36) #19
   unreachable
 
-if.then.i.i106.i:                                 ; preds = %if.then.i.i.i98.i, %.noexc.i, %if.end.i.i, %invoke.cont48.i, %invoke.cont43.i, %if.then.i.i.i89.i, %call2.i.i.noexc.i, %_upb_Message_GetOrCreateMutableMap.exit.i.i, %sw.bb2.i.i.i.i.i, %invoke.cont20.i, %if.then.i.i.i54.i, %invoke.cont11.i, %if.then.i.i.i31.i, %if.then.i.i.i.i
-  %37 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @upb_Arena_Free(ptr noundef nonnull %call.i.i.i)
-          to label %_ZN3upb5ArenaD2Ev.exit108.i unwind label %terminate.lpad.i.i107.i
-
-terminate.lpad.i.i107.i:                          ; preds = %if.then.i.i106.i
-  %38 = landingpad { ptr, i32 }
-          catch ptr null
-  %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #19
-  unreachable
-
 _ZN3upb5ArenaD2Ev.exit108.i:                      ; preds = %if.then.i.i106.i
-  resume { ptr, i32 } %37
+  resume { ptr, i32 } %34
 
 _ZL27get_serialized_start_serverP22alts_handshaker_clientP10grpc_slice.exit: ; preds = %if.then.i.i103.i
   %cmp2 = icmp eq ptr %retval.0.i.i, null
@@ -2603,8 +2598,8 @@ if.then3:                                         ; preds = %_ZL27get_serialized
 
 if.end4:                                          ; preds = %_ZL27get_serialized_start_serverP22alts_handshaker_clientP10grpc_slice.exit
   %send_buffer.i = getelementptr inbounds %struct.alts_grpc_handshaker_client, ptr %c, i64 0, i32 6
-  %40 = load ptr, ptr %send_buffer.i, align 8
-  call void @grpc_byte_buffer_destroy(ptr noundef %40)
+  %37 = load ptr, ptr %send_buffer.i, align 8
+  call void @grpc_byte_buffer_destroy(ptr noundef %37)
   store ptr %retval.0.i.i, ptr %send_buffer.i, align 8
   %call5 = call fastcc noundef i32 @_ZL14make_grpc_callP22alts_handshaker_clientb(ptr noundef nonnull %c, i1 noundef zeroext true), !range !6
   %cmp6.not = icmp eq i32 %call5, 0
@@ -2742,33 +2737,32 @@ if.then2.i.i:                                     ; preds = %upb_Arena_Malloc.ex
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i21.i, i8 0, i64 %add.i.i.i11.i, i1 false)
   store i32 3, ptr %retval.0.i.i.i, align 4
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
-  %14 = ptrtoint ptr %add.ptr.i.i23.i to i64
-  store i64 %14, ptr %add.ptr.i.i.i.i.i, align 1
+  store ptr %add.ptr.i.i23.i, ptr %add.ptr.i.i.i.i.i, align 1
   br label %invoke.cont3.i
 
 invoke.cont3.i:                                   ; preds = %if.then2.i.i, %upb_Arena_Malloc.exit.i.i20.i, %grpc_gcp_HandshakerReq_next.exit.i.i
   %sub.0.i.i = phi ptr [ %add.ptr.i.i23.i, %if.then2.i.i ], [ %10, %grpc_gcp_HandshakerReq_next.exit.i.i ], [ null, %upb_Arena_Malloc.exit.i.i20.i ]
-  %15 = load ptr, ptr %bytes_received, align 8
-  %tobool.not.i = icmp eq ptr %15, null
+  %14 = load ptr, ptr %bytes_received, align 8
+  %tobool.not.i = icmp eq ptr %14, null
   br i1 %tobool.not.i, label %cond.false11.i, label %cond.true9.i
 
 cond.true9.i:                                     ; preds = %invoke.cont3.i
   %bytes.i = getelementptr inbounds %struct.grpc_slice, ptr %bytes_received, i64 0, i32 1, i32 0, i32 1
-  %16 = load ptr, ptr %bytes.i, align 8
+  %15 = load ptr, ptr %bytes.i, align 8
   %data10.i = getelementptr inbounds %struct.grpc_slice, ptr %bytes_received, i64 0, i32 1
-  %17 = load i64, ptr %data10.i, align 8
+  %16 = load i64, ptr %data10.i, align 8
   br label %invoke.cont17.i
 
 cond.false11.i:                                   ; preds = %invoke.cont3.i
   %bytes6.i = getelementptr inbounds i8, ptr %bytes_received, i64 9
   %data12.i = getelementptr inbounds %struct.grpc_slice, ptr %bytes_received, i64 0, i32 1
-  %18 = load i8, ptr %data12.i, align 8
-  %conv.i = zext i8 %18 to i64
+  %17 = load i8, ptr %data12.i, align 8
+  %conv.i = zext i8 %17 to i64
   br label %invoke.cont17.i
 
 invoke.cont17.i:                                  ; preds = %cond.false11.i, %cond.true9.i
-  %cond49.i = phi ptr [ %16, %cond.true9.i ], [ %bytes6.i, %cond.false11.i ]
-  %cond15.i = phi i64 [ %17, %cond.true9.i ], [ %conv.i, %cond.false11.i ]
+  %cond49.i = phi ptr [ %15, %cond.true9.i ], [ %bytes6.i, %cond.false11.i ]
+  %cond15.i = phi i64 [ %16, %cond.true9.i ], [ %conv.i, %cond.false11.i ]
   store ptr %cond49.i, ptr %sub.0.i.i, align 1
   %value.sroa.5.0.add.ptr.i.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %sub.0.i.i, i64 8
   store i64 %cond15.i, ptr %value.sroa.5.0.add.ptr.i.i.sroa_idx.i.i, align 1
@@ -2779,14 +2773,14 @@ invoke.cont17.i:                                  ; preds = %cond.false11.i, %co
           to label %call.i.i29.noexc.i unwind label %if.then.i.i40.i
 
 call.i.i29.noexc.i:                               ; preds = %invoke.cont17.i
-  %19 = load ptr, ptr %ptr.i.i.i, align 8
+  %18 = load ptr, ptr %ptr.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i.i.i)
-  %cmp.i30.i = icmp eq ptr %19, null
+  %cmp.i30.i = icmp eq ptr %18, null
   br i1 %cmp.i30.i, label %if.then.i.i37.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %call.i.i29.noexc.i
-  %20 = load i64, ptr %buf_length.i.i, align 8
-  invoke void @grpc_slice_from_copied_buffer(ptr nonnull sret(%struct.grpc_slice) align 8 %slice.i.i, ptr noundef nonnull %19, i64 noundef %20)
+  %19 = load i64, ptr %buf_length.i.i, align 8
+  invoke void @grpc_slice_from_copied_buffer(ptr nonnull sret(%struct.grpc_slice) align 8 %slice.i.i, ptr noundef nonnull %18, i64 noundef %19)
           to label %.noexc.i unwind label %if.then.i.i40.i
 
 .noexc.i:                                         ; preds = %if.end.i.i
@@ -2794,19 +2788,19 @@ if.end.i.i:                                       ; preds = %call.i.i29.noexc.i
           to label %call1.i.noexc.i unwind label %if.then.i.i40.i
 
 call1.i.noexc.i:                                  ; preds = %.noexc.i
-  %21 = load ptr, ptr %slice.i.i, align 8
-  %cmp.i.i.i = icmp ugt ptr %21, inttoptr (i64 1 to ptr)
+  %20 = load ptr, ptr %slice.i.i, align 8
+  %cmp.i.i.i = icmp ugt ptr %20, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then.i.i37.i
 
 if.then.i.i.i:                                    ; preds = %call1.i.noexc.i
-  %22 = atomicrmw sub ptr %21, i64 1 acq_rel, align 8
-  %cmp.i.i.i31.i = icmp eq i64 %22, 1
+  %21 = atomicrmw sub ptr %20, i64 1 acq_rel, align 8
+  %cmp.i.i.i31.i = icmp eq i64 %21, 1
   br i1 %cmp.i.i.i31.i, label %if.then.i.i.i32.i, label %if.then.i.i37.i
 
 if.then.i.i.i32.i:                                ; preds = %if.then.i.i.i
-  %destroyer_fn_.i.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %21, i64 0, i32 1
-  %23 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
-  invoke void %23(ptr noundef nonnull %21)
+  %destroyer_fn_.i.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %20, i64 0, i32 1
+  %22 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
+  invoke void %22(ptr noundef nonnull %20)
           to label %if.then.i.i37.i unwind label %if.then.i.i40.i
 
 if.then.i.i37.i:                                  ; preds = %if.then.i.i.i32.i, %if.then.i.i.i, %call1.i.noexc.i, %call.i.i29.noexc.i
@@ -2817,27 +2811,27 @@ if.then.i.i37.i:                                  ; preds = %if.then.i.i.i32.i, 
           to label %_ZL19get_serialized_nextP10grpc_slice.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i37.i
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #19
+  %24 = extractvalue { ptr, i32 } %23, 0
+  call void @__clang_call_terminate(ptr %24) #19
   unreachable
 
 if.then.i.i40.i:                                  ; preds = %if.then.i.i.i32.i, %.noexc.i, %if.end.i.i, %invoke.cont17.i, %if.then.i.i.i24.i, %if.then.i.i.i.i
-  %26 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   invoke void @upb_Arena_Free(ptr noundef nonnull %call.i.i.i)
           to label %_ZN3upb5ArenaD2Ev.exit42.i unwind label %terminate.lpad.i.i41.i
 
 terminate.lpad.i.i41.i:                           ; preds = %if.then.i.i40.i
-  %27 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #19
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #19
   unreachable
 
 _ZN3upb5ArenaD2Ev.exit42.i:                       ; preds = %if.then.i.i40.i
-  resume { ptr, i32 } %26
+  resume { ptr, i32 } %25
 
 _ZL19get_serialized_nextP10grpc_slice.exit:       ; preds = %if.then.i.i37.i
   %cmp5 = icmp eq ptr %retval.0.i.i, null
@@ -2849,8 +2843,8 @@ if.then6:                                         ; preds = %_ZL19get_serialized
 
 if.end7:                                          ; preds = %_ZL19get_serialized_nextP10grpc_slice.exit
   %send_buffer.i = getelementptr inbounds %struct.alts_grpc_handshaker_client, ptr %c, i64 0, i32 6
-  %29 = load ptr, ptr %send_buffer.i, align 8
-  call void @grpc_byte_buffer_destroy(ptr noundef %29)
+  %28 = load ptr, ptr %send_buffer.i, align 8
+  call void @grpc_byte_buffer_destroy(ptr noundef %28)
   store ptr %retval.0.i.i, ptr %send_buffer.i, align 8
   %call.i = call fastcc noundef i32 @_ZL23continue_make_grpc_callP27alts_grpc_handshaker_clientb(ptr noundef nonnull %c, i1 noundef zeroext false), !range !6
   %cmp9.not = icmp eq i32 %call.i, 0
@@ -3055,8 +3049,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %array.i)
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %msg, i64 16
   %0 = load i64, ptr %add.ptr.i.i.i.i, align 1
-  %1 = inttoptr i64 %0 to ptr
   %tobool.not.i = icmp eq i64 %0, 0
+  %1 = inttoptr i64 %0 to ptr
   br i1 %tobool.not.i, label %if.then.i, label %upb_Message_GetOrCreateMutableArray.exit
 
 if.then.i:                                        ; preds = %entry
@@ -3145,8 +3139,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %array.i)
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %msg, i64 24
   %0 = load i64, ptr %add.ptr.i.i.i.i, align 1
-  %1 = inttoptr i64 %0 to ptr
   %tobool.not.i = icmp eq i64 %0, 0
+  %1 = inttoptr i64 %0 to ptr
   br i1 %tobool.not.i, label %if.then.i, label %upb_Message_GetOrCreateMutableArray.exit
 
 if.then.i:                                        ; preds = %entry
@@ -3237,8 +3231,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %array.i)
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %msg, i64 32
   %0 = load i64, ptr %add.ptr.i.i.i.i, align 1
-  %1 = inttoptr i64 %0 to ptr
   %tobool.not.i = icmp eq i64 %0, 0
+  %1 = inttoptr i64 %0 to ptr
   br i1 %tobool.not.i, label %if.then.i, label %upb_Message_GetOrCreateMutableArray.exit
 
 if.then.i:                                        ; preds = %entry
@@ -3604,8 +3598,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %array.i)
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %msg, i64 8
   %0 = load i64, ptr %add.ptr.i.i.i.i, align 1
-  %1 = inttoptr i64 %0 to ptr
   %tobool.not.i = icmp eq i64 %0, 0
+  %1 = inttoptr i64 %0 to ptr
   br i1 %tobool.not.i, label %if.then.i, label %upb_Message_GetOrCreateMutableArray.exit
 
 if.then.i:                                        ; preds = %entry
@@ -3693,8 +3687,8 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %field, ptr noundef nonnull align 4 dereferenceable(12) @__const.grpc_gcp_ServerHandshakeParameters_add_record_protocols.field, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %array.i)
   %0 = load i64, ptr %msg, align 1
-  %1 = inttoptr i64 %0 to ptr
   %tobool.not.i = icmp eq i64 %0, 0
+  %1 = inttoptr i64 %0 to ptr
   br i1 %tobool.not.i, label %if.then.i, label %upb_Message_GetOrCreateMutableArray.exit
 
 if.then.i:                                        ; preds = %entry

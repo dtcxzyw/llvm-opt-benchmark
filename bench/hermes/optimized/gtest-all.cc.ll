@@ -42237,7 +42237,7 @@ invoke.cont193:                                   ; preds = %invoke.cont189
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %ignore_sigprof_action.i, i8 0, i64 152, i1 false)
   %sa_mask.i = getelementptr inbounds %struct.sigaction, ptr %ignore_sigprof_action.i, i64 0, i32 1
   %call.i328 = call i32 @sigemptyset(ptr noundef nonnull %sa_mask.i) #50
-  store ptr inttoptr (i64 1 to ptr), ptr %ignore_sigprof_action.i, align 8
+  store i64 1, ptr %ignore_sigprof_action.i, align 8
   br label %do.body3.i
 
 do.body3.i:                                       ; preds = %land.rhs.i, %invoke.cont193

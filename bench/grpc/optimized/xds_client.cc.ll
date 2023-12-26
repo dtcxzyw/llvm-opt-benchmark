@@ -10568,29 +10568,28 @@ if.end:                                           ; preds = %if.then, %entry
   %12 = load ptr, ptr %engine_.i, align 8
   %report_interval_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::LrsCallState::Reporter", ptr %this, i64 0, i32 2
   %call9 = tail call i64 @_ZNK9grpc_core8DurationcvNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEv(ptr noundef nonnull align 8 dereferenceable(8) %report_interval_)
-  %13 = ptrtoint ptr %this to i64
-  store i64 %13, ptr %agg.tmp10, align 16
+  store ptr %this, ptr %agg.tmp10, align 16
   %invoker_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp10, i64 0, i32 2
   store ptr @"_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRZN9grpc_core9XdsClient12ChannelState12LrsCallState8Reporter24ScheduleNextReportLockedEvE3$_0JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE", ptr %invoker_.i.i.i.i.i, align 8
   %manager_.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp10, i64 0, i32 1
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i.i.i, align 16
   %vtable13 = load ptr, ptr %12, align 8
   %vfn14 = getelementptr inbounds ptr, ptr %vtable13, i64 10
-  %14 = load ptr, ptr %vfn14, align 8
-  %call15 = invoke { i64, i64 } %14(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 %call9, ptr noundef nonnull %agg.tmp10)
+  %13 = load ptr, ptr %vfn14, align 8
+  %call15 = invoke { i64, i64 } %13(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 %call9, ptr noundef nonnull %agg.tmp10)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  %15 = extractvalue { i64, i64 } %call15, 0
-  %16 = extractvalue { i64, i64 } %call15, 1
+  %14 = extractvalue { i64, i64 } %call15, 0
+  %15 = extractvalue { i64, i64 } %call15, 1
   %timer_handle_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::LrsCallState::Reporter", ptr %this, i64 0, i32 5
   %_M_engaged.i.i = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::LrsCallState::Reporter", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
-  %17 = load i8, ptr %_M_engaged.i.i, align 8
-  %18 = and i8 %17, 1
-  %tobool.i.not.i = icmp eq i8 %18, 0
-  store i64 %15, ptr %timer_handle_, align 8
+  %16 = load i8, ptr %_M_engaged.i.i, align 8
+  %17 = and i8 %16, 1
+  %tobool.i.not.i = icmp eq i8 %17, 0
+  store i64 %14, ptr %timer_handle_, align 8
   %ref.tmp.sroa.2.0.timer_handle_.sroa_idx = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::LrsCallState::Reporter", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  store i64 %16, ptr %ref.tmp.sroa.2.0.timer_handle_.sroa_idx, align 8
+  store i64 %15, ptr %ref.tmp.sroa.2.0.timer_handle_.sroa_idx, align 8
   br i1 %tobool.i.not.i, label %if.else.i, label %_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEEaSIS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS3_ES8_IS3_NSt5decayISB_E4typeEEEEESt16is_constructibleIS3_JSB_EESt13is_assignableIRS3_SB_EEERS4_E4typeEOSB_.exit
 
 if.else.i:                                        ; preds = %invoke.cont
@@ -10598,16 +10597,16 @@ if.else.i:                                        ; preds = %invoke.cont
   br label %_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEEaSIS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS3_ES8_IS3_NSt5decayISB_E4typeEEEEESt16is_constructibleIS3_JSB_EESt13is_assignableIRS3_SB_EEERS4_E4typeEOSB_.exit
 
 _ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEEaSIS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS3_ES8_IS3_NSt5decayISB_E4typeEEEEESt16is_constructibleIS3_JSB_EESt13is_assignableIRS3_SB_EEERS4_E4typeEOSB_.exit: ; preds = %invoke.cont, %if.else.i
-  %19 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %19(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp10, ptr noundef nonnull %agg.tmp10) #25
+  %18 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
+  call void %18(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp10, ptr noundef nonnull %agg.tmp10) #25
   ret void
 
 lpad:                                             ; preds = %if.end
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %21 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
-  call void %21(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp10, ptr noundef nonnull %agg.tmp10) #25
-  resume { ptr, i32 } %20
+  %20 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
+  call void %20(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp10, ptr noundef nonnull %agg.tmp10) #25
+  resume { ptr, i32 } %19
 }
 
 declare i64 @_ZNK9grpc_core8DurationcvNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0

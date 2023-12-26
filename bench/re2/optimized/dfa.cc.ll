@@ -779,8 +779,7 @@ invoke.cont8:                                     ; preds = %for.body
   store ptr %sep.011, ptr %ref.tmp.i, align 8, !noalias !9
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIPKcEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !9
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i32 %2 to i64
-  %5 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
-  store ptr %5, ptr %arrayinit.element.i, align 8, !noalias !9
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i, ptr %arrayinit.element.i, align 8, !noalias !9
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i1.i, align 8, !noalias !9
   invoke void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull @.str.2, i64 4, ptr nonnull %ref.tmp.i, i64 2)
           to label %invoke.cont9 unwind label %lpad
@@ -795,7 +794,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   br label %for.inc
 
 lpad10:                                           ; preds = %invoke.cont9
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   br label %ehcleanup
@@ -803,10 +802,10 @@ lpad10:                                           ; preds = %invoke.cont9
 for.inc:                                          ; preds = %if.then, %invoke.cont11
   %storemerge = phi ptr [ @.str.3, %invoke.cont11 ], [ @.str, %if.then ]
   %incdec.ptr = getelementptr inbounds i32, ptr %it.012, i64 1
-  %7 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %8 = load i32, ptr %q, align 8
-  %idx.ext.i = sext i32 %8 to i64
-  %add.ptr.i = getelementptr inbounds i32, ptr %7, i64 %idx.ext.i
+  %6 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
+  %7 = load i32, ptr %q, align 8
+  %idx.ext.i = sext i32 %7 to i64
+  %add.ptr.i = getelementptr inbounds i32, ptr %6, i64 %idx.ext.i
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !12
 
@@ -814,7 +813,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc, %entry
   ret void
 
 ehcleanup:                                        ; preds = %lpad10, %lpad
-  %.pn = phi { ptr, i32 } [ %4, %lpad ], [ %6, %lpad10 ]
+  %.pn = phi { ptr, i32 } [ %4, %lpad ], [ %5, %lpad10 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #23
   resume { ptr, i32 } %.pn
 }
@@ -1015,8 +1014,7 @@ invoke.cont35:                                    ; preds = %for.body
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIPKcEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i35, align 8, !noalias !16
   %retval.sroa.0.0.copyload.i.i.i.i = load i32, ptr %arrayidx, align 4, !noalias !16
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i32 %retval.sroa.0.0.copyload.i.i.i.i to i64
-  %12 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
-  store ptr %12, ptr %arrayinit.element.i, align 8, !noalias !16
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i, ptr %arrayinit.element.i, align 8, !noalias !16
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i1.i, align 8, !noalias !16
   invoke void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp33, ptr nonnull @.str.2, i64 4, ptr nonnull %ref.tmp.i31, i64 2)
           to label %invoke.cont39 unwind label %lpad15.loopexit
@@ -1031,7 +1029,7 @@ invoke.cont41:                                    ; preds = %invoke.cont39
   br label %for.inc
 
 lpad40:                                           ; preds = %invoke.cont39
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #23
   br label %ehcleanup
@@ -1039,9 +1037,9 @@ lpad40:                                           ; preds = %invoke.cont39
 for.inc:                                          ; preds = %if.then22.invoke, %invoke.cont41
   %sep.1 = phi ptr [ @.str.3, %invoke.cont41 ], [ @.str, %if.then22.invoke ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = load i32, ptr %ninst_, align 8
-  %15 = sext i32 %14 to i64
-  %cmp20 = icmp slt i64 %indvars.iv.next, %15
+  %13 = load i32, ptr %ninst_, align 8
+  %14 = sext i32 %13 to i64
+  %cmp20 = icmp slt i64 %indvars.iv.next, %14
   br i1 %cmp20, label %for.body, label %invoke.cont47, !llvm.loop !19
 
 invoke.cont47:                                    ; preds = %for.inc, %invoke.cont19
@@ -1049,8 +1047,7 @@ invoke.cont47:                                    ; preds = %for.inc, %invoke.co
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i41)
   %retval.sroa.0.0.copyload.i.i.i.i45 = load i32, ptr %flag_, align 4, !noalias !20
   %retval.sroa.0.0.insert.ext.i.i.i.i46 = zext i32 %retval.sroa.0.0.copyload.i.i.i.i45 to i64
-  %16 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i46 to ptr
-  store ptr %16, ptr %ref.tmp.i41, align 8, !noalias !20
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i.i46, ptr %ref.tmp.i41, align 8, !noalias !20
   %dispatcher_.i.i.i47 = getelementptr inbounds %"class.absl::debian2::str_format_internal::FormatArgImpl", ptr %ref.tmp.i41, i64 0, i32 1
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIjEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i47, align 8, !noalias !20
   invoke void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp45, ptr nonnull @.str.9, i64 9, ptr nonnull %ref.tmp.i41, i64 1)
@@ -1066,13 +1063,13 @@ invoke.cont50:                                    ; preds = %invoke.cont48
   br label %return
 
 lpad49:                                           ; preds = %invoke.cont48
-  %17 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45) #23
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad15.loopexit, %lpad15.loopexit.split-lp, %lpad49, %lpad40, %lpad18
-  %.pn = phi { ptr, i32 } [ %13, %lpad40 ], [ %17, %lpad49 ], [ %11, %lpad18 ], [ %lpad.loopexit, %lpad15.loopexit ], [ %lpad.loopexit.split-lp, %lpad15.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %12, %lpad40 ], [ %15, %lpad49 ], [ %11, %lpad18 ], [ %lpad.loopexit, %lpad15.loopexit ], [ %lpad.loopexit.split-lp, %lpad15.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #23
   br label %eh.resume
 
@@ -9511,7 +9508,7 @@ _ZN10LogMessageC2EPKci.exit:                      ; preds = %invoke.cont6.i
 invoke.cont12:                                    ; preds = %_ZN10LogMessageC2EPKci.exit
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp) #23
   %start = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %params, i64 0, i32 6
-  store ptr inttoptr (i64 1 to ptr), ptr %start, align 8
+  store i64 1, ptr %start, align 8
   br label %return
 
 lpad:                                             ; preds = %_ZN10LogMessageC2EPKci.exit
@@ -9676,7 +9673,7 @@ if.end81:                                         ; preds = %_ZN3re23DFA10ResetC
   %25 = load atomic i64, ptr %arrayidx69 acquire, align 8
   %atomic-temp.i.0.i = inttoptr i64 %25 to ptr
   %start84 = getelementptr inbounds %"struct.re2::DFA::SearchParams", ptr %params, i64 0, i32 6
-  store ptr %atomic-temp.i.0.i, ptr %start84, align 8
+  store i64 %25, ptr %start84, align 8
   %26 = load ptr, ptr %this, align 8
   %prefix_size_.i = getelementptr inbounds %"class.re2::Prog", ptr %26, i64 0, i32 10
   %27 = load i64, ptr %prefix_size_.i, align 8

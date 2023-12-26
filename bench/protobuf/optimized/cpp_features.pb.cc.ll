@@ -86,8 +86,7 @@ entry:
 define void @_ZN2pb11CppFeaturesC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %arena) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %0 = ptrtoint ptr %arena to i64
-  store i64 %0, ptr %_internal_metadata_.i.i, align 8
+  store ptr %arena, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2pb11CppFeaturesE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %arrayinit.cur.i.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %arrayinit.cur.i.ptr.i, i8 0, i64 9, i1 false)
@@ -100,37 +99,36 @@ declare i32 @__gxx_personality_v0(...)
 define void @_ZN2pb11CppFeaturesC2EPN6google8protobuf5ArenaERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %arena, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %0 = ptrtoint ptr %arena to i64
-  store i64 %0, ptr %_internal_metadata_.i.i.i, align 8
+  store ptr %arena, ptr %_internal_metadata_.i.i.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2pb11CppFeaturesE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %arrayinit.cur.i.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %arrayinit.cur.i.ptr.i.i, i8 0, i64 9, i1 false)
-  %1 = getelementptr inbounds %"class.pb::CppFeatures", ptr %from, i64 0, i32 1
-  %2 = load i32, ptr %1, align 8
-  %and.i.i = and i32 %2, 1
+  %0 = getelementptr inbounds %"class.pb::CppFeatures", ptr %from, i64 0, i32 1
+  %1 = load i32, ptr %0, align 8
+  %and.i.i = and i32 %1, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %legacy_closed_enum_.i.i = getelementptr inbounds %"class.pb::CppFeatures", ptr %from, i64 0, i32 1, i32 0, i32 2
-  %3 = load i8, ptr %legacy_closed_enum_.i.i, align 8
-  %4 = and i8 %3, 1
+  %2 = load i8, ptr %legacy_closed_enum_.i.i, align 8
+  %3 = and i8 %2, 1
   %legacy_closed_enum_3.i.i = getelementptr inbounds %"class.pb::CppFeatures", ptr %this, i64 0, i32 1, i32 0, i32 2
-  store i8 %4, ptr %legacy_closed_enum_3.i.i, align 8
+  store i8 %3, ptr %legacy_closed_enum_3.i.i, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %entry
-  store i32 %2, ptr %arrayinit.cur.i.ptr.i.i, align 8
+  store i32 %1, ptr %arrayinit.cur.i.ptr.i.i, align 8
   %_internal_metadata_6.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %from, i64 0, i32 1
-  %5 = load i64, ptr %_internal_metadata_6.i.i, align 8
-  %and.i18.i.i = and i64 %5, 1
+  %4 = load i64, ptr %_internal_metadata_6.i.i, align 8
+  %and.i18.i.i = and i64 %4, 1
   %tobool.i19.not.i.i = icmp eq i64 %and.i18.i.i, 0
   br i1 %tobool.i19.not.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i
-  %and.i.i.i = and i64 %5, -2
-  %6 = inttoptr i64 %and.i.i.i to ptr
-  %unknown_fields.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %6, i64 0, i32 1
+  %and.i.i.i = and i64 %4, -2
+  %5 = inttoptr i64 %and.i.i.i to ptr
+  %unknown_fields.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %5, i64 0, i32 1
   invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i.i.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -138,10 +136,10 @@ invoke.cont:                                      ; preds = %if.end.i.i, %if.the
   ret void
 
 lpad:                                             ; preds = %if.then.i.i.i.i
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN2pb11CppFeaturesD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

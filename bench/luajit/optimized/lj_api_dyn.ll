@@ -8424,73 +8424,71 @@ index2adr.exit:                                   ; preds = %if.then.i, %cond.fa
   ]
 
 if.then5:                                         ; preds = %index2adr.exit
-  %27 = ptrtoint ptr %mt.0 to i64
   %and7 = and i64 %26, 140737488355327
-  %28 = inttoptr i64 %and7 to ptr
-  %metatable = getelementptr inbounds %struct.GCtab, ptr %28, i64 0, i32 7
-  store i64 %27, ptr %metatable, align 8
+  %27 = inttoptr i64 %and7 to ptr
+  %metatable = getelementptr inbounds %struct.GCtab, ptr %27, i64 0, i32 7
+  store ptr %mt.0, ptr %metatable, align 8
   %tobool.not = icmp eq ptr %mt.0, null
   br i1 %tobool.not, label %if.end86, label %if.then9
 
 if.then9:                                         ; preds = %if.then5
   %marked = getelementptr inbounds %struct.GChead, ptr %mt.0, i64 0, i32 1
-  %29 = load i8, ptr %marked, align 8
-  %30 = and i8 %29, 3
-  %tobool12.not = icmp eq i8 %30, 0
+  %28 = load i8, ptr %marked, align 8
+  %29 = and i8 %28, 3
+  %tobool12.not = icmp eq i8 %29, 0
   br i1 %tobool12.not, label %if.end86, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then9
-  %31 = load i64, ptr %retval.0.i, align 8
-  %and14 = and i64 %31, 140737488355327
-  %32 = inttoptr i64 %and14 to ptr
-  %marked15 = getelementptr inbounds %struct.GChead, ptr %32, i64 0, i32 1
-  %33 = load i8, ptr %marked15, align 8
-  %34 = and i8 %33, 4
-  %tobool18.not = icmp eq i8 %34, 0
+  %30 = load i64, ptr %retval.0.i, align 8
+  %and14 = and i64 %30, 140737488355327
+  %31 = inttoptr i64 %and14 to ptr
+  %marked15 = getelementptr inbounds %struct.GChead, ptr %31, i64 0, i32 1
+  %32 = load i8, ptr %marked15, align 8
+  %33 = and i8 %32, 4
+  %tobool18.not = icmp eq i8 %33, 0
   br i1 %tobool18.not, label %if.end86, label %if.then19
 
 if.then19:                                        ; preds = %land.lhs.true
-  %35 = load i64, ptr %glref, align 8
-  %36 = inttoptr i64 %35 to ptr
-  %and.i = and i8 %33, -5
+  %34 = load i64, ptr %glref, align 8
+  %35 = inttoptr i64 %34 to ptr
+  %and.i = and i8 %32, -5
   store i8 %and.i, ptr %marked15, align 8
-  %grayagain.i = getelementptr inbounds %struct.global_State, ptr %36, i64 0, i32 2, i32 10
-  %37 = load i64, ptr %grayagain.i, align 8
-  %gclist.i = getelementptr inbounds %struct.GCtab, ptr %32, i64 0, i32 6
-  store i64 %37, ptr %gclist.i, align 8
+  %grayagain.i = getelementptr inbounds %struct.global_State, ptr %35, i64 0, i32 2, i32 10
+  %36 = load i64, ptr %grayagain.i, align 8
+  %gclist.i = getelementptr inbounds %struct.GCtab, ptr %31, i64 0, i32 6
+  store i64 %36, ptr %gclist.i, align 8
   store i64 %and14, ptr %grayagain.i, align 8
   br label %if.end86
 
 if.then31:                                        ; preds = %index2adr.exit
-  %38 = ptrtoint ptr %mt.0 to i64
   %and33 = and i64 %26, 140737488355327
-  %39 = inttoptr i64 %and33 to ptr
-  %metatable34 = getelementptr inbounds %struct.GCudata, ptr %39, i64 0, i32 7
-  store i64 %38, ptr %metatable34, align 8
+  %37 = inttoptr i64 %and33 to ptr
+  %metatable34 = getelementptr inbounds %struct.GCudata, ptr %37, i64 0, i32 7
+  store ptr %mt.0, ptr %metatable34, align 8
   %tobool36.not = icmp eq ptr %mt.0, null
   br i1 %tobool36.not, label %if.end86, label %if.then37
 
 if.then37:                                        ; preds = %if.then31
   %marked38 = getelementptr inbounds %struct.GChead, ptr %mt.0, i64 0, i32 1
-  %40 = load i8, ptr %marked38, align 8
-  %41 = and i8 %40, 3
-  %tobool41.not = icmp eq i8 %41, 0
+  %38 = load i8, ptr %marked38, align 8
+  %39 = and i8 %38, 3
+  %tobool41.not = icmp eq i8 %39, 0
   br i1 %tobool41.not, label %if.end86, label %land.lhs.true42
 
 land.lhs.true42:                                  ; preds = %if.then37
-  %42 = load i64, ptr %retval.0.i, align 8
-  %and44 = and i64 %42, 140737488355327
-  %43 = inttoptr i64 %and44 to ptr
-  %marked45 = getelementptr inbounds %struct.GChead, ptr %43, i64 0, i32 1
-  %44 = load i8, ptr %marked45, align 8
-  %45 = and i8 %44, 4
-  %tobool48.not = icmp eq i8 %45, 0
+  %40 = load i64, ptr %retval.0.i, align 8
+  %and44 = and i64 %40, 140737488355327
+  %41 = inttoptr i64 %and44 to ptr
+  %marked45 = getelementptr inbounds %struct.GChead, ptr %41, i64 0, i32 1
+  %42 = load i8, ptr %marked45, align 8
+  %43 = and i8 %42, 4
+  %tobool48.not = icmp eq i8 %43, 0
   br i1 %tobool48.not, label %if.end86, label %if.then49
 
 if.then49:                                        ; preds = %land.lhs.true42
-  %46 = load i64, ptr %glref, align 8
-  %47 = inttoptr i64 %46 to ptr
-  tail call void @lj_gc_barrierf(ptr noundef %47, ptr noundef nonnull %43, ptr noundef nonnull %mt.0) #13
+  %44 = load i64, ptr %glref, align 8
+  %45 = inttoptr i64 %44 to ptr
+  tail call void @lj_gc_barrierf(ptr noundef %45, ptr noundef nonnull %41, ptr noundef nonnull %mt.0) #13
   br label %if.end86
 
 if.else56:                                        ; preds = %index2adr.exit
@@ -8503,33 +8501,32 @@ if.then59:                                        ; preds = %if.else56
   unreachable
 
 if.end60:                                         ; preds = %if.else56
-  %48 = load i64, ptr %retval.0.i, align 8
-  %shr61 = ashr i64 %48, 47
+  %46 = load i64, ptr %retval.0.i, align 8
+  %shr61 = ashr i64 %46, 47
   %conv62 = trunc i64 %shr61 to i32
   %conv62.off = add nsw i32 %conv62, 3
   %switch = icmp ult i32 %conv62.off, 2
-  %49 = ptrtoint ptr %mt.0 to i64
   br i1 %switch, label %if.then69, label %if.else74
 
 if.then69:                                        ; preds = %if.end60
   %arrayidx = getelementptr inbounds %struct.global_State, ptr %25, i64 0, i32 28, i64 24
-  store i64 %49, ptr %arrayidx, align 8
+  store ptr %mt.0, ptr %arrayidx, align 8
   %arrayidx72 = getelementptr inbounds %struct.global_State, ptr %25, i64 0, i32 28, i64 23
-  store i64 %49, ptr %arrayidx72, align 8
+  store ptr %mt.0, ptr %arrayidx72, align 8
   br label %if.end86
 
 if.else74:                                        ; preds = %if.end60
   %cmp78 = icmp ult i32 %conv62, -13
-  %50 = sub nsw i64 21, %shr61
-  %51 = and i64 %50, 4294967295
-  %cond = select i1 %cmp78, i64 35, i64 %51
+  %47 = sub nsw i64 21, %shr61
+  %48 = and i64 %47, 4294967295
+  %cond = select i1 %cmp78, i64 35, i64 %48
   %arrayidx82 = getelementptr inbounds %struct.global_State, ptr %25, i64 0, i32 28, i64 %cond
-  store i64 %49, ptr %arrayidx82, align 8
+  store ptr %mt.0, ptr %arrayidx82, align 8
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then37, %land.lhs.true42, %if.then49, %if.then31, %if.else74, %if.then69, %if.then5, %if.then19, %land.lhs.true, %if.then9
-  %52 = load ptr, ptr %top, align 8
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %52, i64 -1
+  %49 = load ptr, ptr %top, align 8
+  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %49, i64 -1
   store ptr %incdec.ptr, ptr %top, align 8
   ret i32 1
 }
@@ -9340,24 +9337,23 @@ if.else:                                          ; preds = %if.then
   %conv20 = zext i32 %11 to i64
   %incdec.ptr21 = getelementptr inbounds %union.TValue, ptr %10, i64 1
   store i64 %conv20, ptr %10, align 8
-  store i64 ptrtoint (ptr @lj_cont_hook to i64), ptr %incdec.ptr21, align 8
+  store ptr @lj_cont_hook, ptr %incdec.ptr21, align 8
   %incdec.ptr22 = getelementptr inbounds %union.TValue, ptr %10, i64 2
   %add.ptr23 = getelementptr inbounds i8, ptr %9, i64 24
   %12 = load i64, ptr %add.ptr23, align 8
   %13 = inttoptr i64 %12 to ptr
   %add.ptr25 = getelementptr inbounds i32, ptr %13, i64 -1
-  %14 = ptrtoint ptr %add.ptr25 to i64
-  store i64 %14, ptr %incdec.ptr22, align 8
+  store ptr %add.ptr25, ptr %incdec.ptr22, align 8
   %incdec.ptr26 = getelementptr inbounds %union.TValue, ptr %10, i64 3
-  %15 = ptrtoint ptr %L to i64
-  %or.i = or i64 %15, -985162418487296
+  %14 = ptrtoint ptr %L to i64
+  %or.i = or i64 %14, -985162418487296
   store i64 %or.i, ptr %incdec.ptr26, align 8
   %incdec.ptr27 = getelementptr inbounds %union.TValue, ptr %10, i64 4
   %add.ptr28 = getelementptr inbounds %union.TValue, ptr %10, i64 5
   %base29 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  %16 = load ptr, ptr %base29, align 8
+  %15 = load ptr, ptr %base29, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr28 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %16 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %15 to i64
   %sub.ptr.sub = add i64 %sub.ptr.lhs.cast, 2
   %add = sub i64 %sub.ptr.sub, %sub.ptr.rhs.cast
   store i64 %add, ptr %incdec.ptr27, align 8

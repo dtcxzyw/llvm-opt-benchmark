@@ -105,7 +105,7 @@ entry:
   %or.i.i = or i64 %3, -1688849860263936
   store i64 %or.i.i, ptr %2, align 8
   %metatable.i = getelementptr inbounds %struct.GCtab, ptr %call.i, i64 0, i32 7
-  store i64 %3, ptr %metatable.i, align 8
+  store ptr %call.i, ptr %metatable.i, align 8
   %call1.i = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull @.str.5, i64 noundef 6) #10
   %call2.i = tail call ptr @lj_tab_setstr(ptr noundef %L, ptr noundef %call.i, ptr noundef %call1.i) #10
   %call3.i = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull @.str.6, i64 noundef 2) #10
@@ -310,45 +310,43 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %2 = ptrtoint ptr %call1 to i64
   %metatable = getelementptr inbounds %struct.GCtab, ptr %call, i64 0, i32 7
-  store i64 %2, ptr %metatable, align 8
+  store ptr %call1, ptr %metatable, align 8
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %if.end11, label %if.then3
 
 if.then3:                                         ; preds = %if.end
   %marked = getelementptr inbounds %struct.GChead, ptr %call1, i64 0, i32 1
-  %3 = load i8, ptr %marked, align 8
-  %4 = and i8 %3, 3
-  %tobool4.not = icmp eq i8 %4, 0
+  %2 = load i8, ptr %marked, align 8
+  %3 = and i8 %2, 3
+  %tobool4.not = icmp eq i8 %3, 0
   br i1 %tobool4.not, label %if.end11, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then3
   %marked5 = getelementptr inbounds %struct.GChead, ptr %call, i64 0, i32 1
-  %5 = load i8, ptr %marked5, align 8
-  %6 = and i8 %5, 4
-  %tobool8.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %marked5, align 8
+  %5 = and i8 %4, 4
+  %tobool8.not = icmp eq i8 %5, 0
   br i1 %tobool8.not, label %if.end11, label %if.then9
 
 if.then9:                                         ; preds = %land.lhs.true
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %7 = load i64, ptr %glref, align 8
-  %8 = inttoptr i64 %7 to ptr
-  %and.i = and i8 %5, -5
+  %6 = load i64, ptr %glref, align 8
+  %7 = inttoptr i64 %6 to ptr
+  %and.i = and i8 %4, -5
   store i8 %and.i, ptr %marked5, align 8
-  %grayagain.i = getelementptr inbounds %struct.global_State, ptr %8, i64 0, i32 2, i32 10
-  %9 = load i64, ptr %grayagain.i, align 8
+  %grayagain.i = getelementptr inbounds %struct.global_State, ptr %7, i64 0, i32 2, i32 10
+  %8 = load i64, ptr %grayagain.i, align 8
   %gclist.i = getelementptr inbounds %struct.GCtab, ptr %call, i64 0, i32 6
-  store i64 %9, ptr %gclist.i, align 8
-  %10 = ptrtoint ptr %call to i64
-  store i64 %10, ptr %grayagain.i, align 8
+  store i64 %8, ptr %gclist.i, align 8
+  store ptr %call, ptr %grayagain.i, align 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then3, %land.lhs.true, %if.then9, %if.end
-  %11 = load ptr, ptr %base, align 8
-  %add.ptr13 = getelementptr inbounds %union.TValue, ptr %11, i64 -2
-  %12 = ptrtoint ptr %call to i64
-  %or.i = or i64 %12, -1688849860263936
+  %9 = load ptr, ptr %base, align 8
+  %add.ptr13 = getelementptr inbounds %union.TValue, ptr %9, i64 -2
+  %10 = ptrtoint ptr %call to i64
+  %or.i = or i64 %10, -1688849860263936
   store i64 %or.i, ptr %add.ptr13, align 8
   ret i32 2
 }
@@ -433,9 +431,8 @@ if.then:                                          ; preds = %land.lhs.true, %ent
   br i1 %cmp4, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %if.then
-  %4 = ptrtoint ptr %call to i64
   %env = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
-  store i64 %4, ptr %env, align 8
+  store ptr %call, ptr %env, align 8
   br label %return
 
 if.end:                                           ; preds = %if.then
@@ -453,12 +450,12 @@ if.end11:                                         ; preds = %if.end
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end11, %land.lhs.true
-  %5 = phi i64 [ %2, %land.lhs.true ], [ %.pre, %if.end11 ]
-  %and = and i64 %5, 140737488355327
-  %6 = inttoptr i64 %and to ptr
-  %ffid = getelementptr inbounds %struct.GCfuncC, ptr %6, i64 0, i32 3
-  %7 = load i8, ptr %ffid, align 2
-  %cmp15 = icmp eq i8 %7, 0
+  %4 = phi i64 [ %2, %land.lhs.true ], [ %.pre, %if.end11 ]
+  %and = and i64 %4, 140737488355327
+  %5 = inttoptr i64 %and to ptr
+  %ffid = getelementptr inbounds %struct.GCfuncC, ptr %5, i64 0, i32 3
+  %6 = load i8, ptr %ffid, align 2
+  %cmp15 = icmp eq i8 %6, 0
   br i1 %cmp15, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %if.end12
@@ -466,35 +463,34 @@ if.then17:                                        ; preds = %if.end12
   unreachable
 
 if.end18:                                         ; preds = %if.end12
-  %8 = ptrtoint ptr %call to i64
-  %env19 = getelementptr inbounds %struct.GCfuncL, ptr %6, i64 0, i32 5
-  store i64 %8, ptr %env19, align 8
+  %env19 = getelementptr inbounds %struct.GCfuncL, ptr %5, i64 0, i32 5
+  store ptr %call, ptr %env19, align 8
   %marked = getelementptr inbounds %struct.GChead, ptr %call, i64 0, i32 1
-  %9 = load i8, ptr %marked, align 8
-  %10 = and i8 %9, 3
-  %tobool.not = icmp eq i8 %10, 0
+  %7 = load i8, ptr %marked, align 8
+  %8 = and i8 %7, 3
+  %tobool.not = icmp eq i8 %8, 0
   br i1 %tobool.not, label %if.end29, label %land.lhs.true23
 
 land.lhs.true23:                                  ; preds = %if.end18
-  %marked24 = getelementptr inbounds %struct.GChead, ptr %6, i64 0, i32 1
-  %11 = load i8, ptr %marked24, align 8
-  %12 = and i8 %11, 4
-  %tobool27.not = icmp eq i8 %12, 0
+  %marked24 = getelementptr inbounds %struct.GChead, ptr %5, i64 0, i32 1
+  %9 = load i8, ptr %marked24, align 8
+  %10 = and i8 %9, 4
+  %tobool27.not = icmp eq i8 %10, 0
   br i1 %tobool27.not, label %if.end29, label %if.then28
 
 if.then28:                                        ; preds = %land.lhs.true23
   %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
-  %13 = load i64, ptr %glref, align 8
-  %14 = inttoptr i64 %13 to ptr
-  call void @lj_gc_barrierf(ptr noundef %14, ptr noundef nonnull %6, ptr noundef nonnull %call) #10
+  %11 = load i64, ptr %glref, align 8
+  %12 = inttoptr i64 %11 to ptr
+  call void @lj_gc_barrierf(ptr noundef %12, ptr noundef nonnull %5, ptr noundef nonnull %call) #10
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then28, %land.lhs.true23, %if.end18
-  %15 = load ptr, ptr %top, align 8
-  %incdec.ptr31 = getelementptr inbounds %union.TValue, ptr %15, i64 1
+  %13 = load ptr, ptr %top, align 8
+  %incdec.ptr31 = getelementptr inbounds %union.TValue, ptr %13, i64 1
   store ptr %incdec.ptr31, ptr %top, align 8
   %or.i.i = or disjoint i64 %and, -1266637395197952
-  store i64 %or.i.i, ptr %15, align 8
+  store i64 %or.i.i, ptr %13, align 8
   br label %return
 
 return:                                           ; preds = %if.end29, %if.then6
@@ -1952,9 +1948,8 @@ lj_cf_coroutine_create.exit:                      ; preds = %land.lhs.true.i
   %L.val = load i64, ptr %7, align 8
   %8 = inttoptr i64 %L.val to ptr
   %arrayidx.i = getelementptr inbounds i8, ptr %8, i64 5972
-  %9 = ptrtoint ptr %arrayidx.i to i64
   %pc.i = getelementptr inbounds %struct.GCfuncC, ptr %call1, i64 0, i32 7
-  store i64 %9, ptr %pc.i, align 8
+  store ptr %arrayidx.i, ptr %pc.i, align 8
   ret i32 1
 }
 

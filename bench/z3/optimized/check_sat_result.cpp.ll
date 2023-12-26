@@ -309,8 +309,7 @@ invoke.cont5:
   %m2.i = getelementptr inbounds %class.check_sat_result, ptr %this, i64 0, i32 1
   store ptr %m, ptr %m2.i, align 8
   %m_log.i = getelementptr inbounds %class.check_sat_result, ptr %this, i64 0, i32 2
-  %0 = ptrtoint ptr %m to i64
-  store i64 %0, ptr %m_log.i, align 8
+  store ptr %m, ptr %m_log.i, align 8
   %m_nodes.i.i.i = getelementptr inbounds %class.check_sat_result, ptr %this, i64 0, i32 2, i32 0, i32 1
   %m_manager.i.i = getelementptr inbounds %class.check_sat_result, ptr %this, i64 0, i32 3, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_nodes.i.i.i, i8 0, i64 16, i1 false)
@@ -321,7 +320,7 @@ invoke.cont5:
   %m_stats = getelementptr inbounds %struct.simple_check_sat_result, ptr %this, i64 0, i32 1
   %m_core = getelementptr inbounds %struct.simple_check_sat_result, ptr %this, i64 0, i32 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_stats, i8 0, i64 24, i1 false)
-  store i64 %0, ptr %m_core, align 8
+  store ptr %m, ptr %m_core, align 8
   %m_nodes.i.i = getelementptr inbounds %struct.simple_check_sat_result, ptr %this, i64 0, i32 3, i32 0, i32 1
   %m_manager.i = getelementptr inbounds %struct.simple_check_sat_result, ptr %this, i64 0, i32 4, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_nodes.i.i, i8 0, i64 16, i1 false)

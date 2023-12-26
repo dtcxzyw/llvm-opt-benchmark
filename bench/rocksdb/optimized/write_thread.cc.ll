@@ -968,8 +968,7 @@ while.end:                                        ; preds = %if.end, %entry
   %3 = load atomic i64, ptr %newest_writer monotonic, align 8
   %link_older6 = getelementptr inbounds %"struct.rocksdb::WriteThread::Writer", ptr %0, i64 0, i32 22
   %4 = ptrtoint ptr %1 to i64
-  %newest.016 = inttoptr i64 %3 to ptr
-  store ptr %newest.016, ptr %link_older6, align 16
+  store i64 %3, ptr %link_older6, align 16
   %5 = cmpxchg weak ptr %newest_writer, i64 %3, i64 %4 seq_cst seq_cst, align 8
   %6 = extractvalue { i64, i1 } %5, 1
   br i1 %6, label %if.then8, label %_ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit
@@ -977,8 +976,7 @@ while.end:                                        ; preds = %if.end, %entry
 _ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit: ; preds = %while.end, %_ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit
   %7 = phi { i64, i1 } [ %9, %_ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit ], [ %5, %while.end ]
   %8 = extractvalue { i64, i1 } %7, 0
-  %newest.0 = inttoptr i64 %8 to ptr
-  store ptr %newest.0, ptr %link_older6, align 16
+  store i64 %8, ptr %link_older6, align 16
   %9 = cmpxchg weak ptr %newest_writer, i64 %8, i64 %4 seq_cst seq_cst, align 8
   %10 = extractvalue { i64, i1 } %9, 1
   br i1 %10, label %if.then8, label %_ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit, !llvm.loop !11
@@ -2648,8 +2646,7 @@ while.end.i:                                      ; preds = %if.end.i106, %if.th
   %75 = load atomic i64, ptr %newest_memtable_writer_ monotonic, align 16
   %link_older6.i = getelementptr inbounds %"struct.rocksdb::WriteThread::Writer", ptr %72, i64 0, i32 22
   %76 = ptrtoint ptr %73 to i64
-  %newest.016.i = inttoptr i64 %75 to ptr
-  store ptr %newest.016.i, ptr %link_older6.i, align 16
+  store i64 %75, ptr %link_older6.i, align 16
   %77 = cmpxchg weak ptr %newest_memtable_writer_, i64 %75, i64 %76 seq_cst seq_cst, align 8
   %78 = extractvalue { i64, i1 } %77, 1
   br i1 %78, label %_ZN7rocksdb11WriteThread9LinkGroupERNS0_10WriteGroupEPSt6atomicIPNS0_6WriterEE.exit, label %_ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i
@@ -2657,8 +2654,7 @@ while.end.i:                                      ; preds = %if.end.i106, %if.th
 _ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i: ; preds = %while.end.i, %_ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i
   %79 = phi { i64, i1 } [ %81, %_ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i ], [ %77, %while.end.i ]
   %80 = extractvalue { i64, i1 } %79, 0
-  %newest.0.i = inttoptr i64 %80 to ptr
-  store ptr %newest.0.i, ptr %link_older6.i, align 16
+  store i64 %80, ptr %link_older6.i, align 16
   %81 = cmpxchg weak ptr %newest_memtable_writer_, i64 %80, i64 %76 seq_cst seq_cst, align 8
   %82 = extractvalue { i64, i1 } %81, 1
   br i1 %82, label %_ZN7rocksdb11WriteThread9LinkGroupERNS0_10WriteGroupEPSt6atomicIPNS0_6WriterEE.exit, label %_ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i, !llvm.loop !11

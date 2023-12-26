@@ -2978,8 +2978,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit
 
 if.then.i:                                        ; preds = %entry
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %user_comp_filter_.i, align 8
+  store i64 %0, ptr %user_comp_filter_.i, align 8
   br label %_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit: ; preds = %if.then.i, %entry
@@ -3001,7 +3000,7 @@ call.i.noexc:                                     ; preds = %_ZNSt10unique_ptrIK
           to label %invoke.cont4 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
   br label %ehcleanup16
@@ -3026,7 +3025,7 @@ call.i.noexc9:                                    ; preds = %invoke.cont7
           to label %invoke.cont11 unwind label %lpad.i8
 
 lpad.i8:                                          ; preds = %.noexc11
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #22
   br label %ehcleanup16
@@ -3041,30 +3040,30 @@ invoke.cont13:                                    ; preds = %invoke.cont11
   ret void
 
 lpad3:                                            ; preds = %call.i.noexc, %_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup16
 
 lpad6:                                            ; preds = %invoke.cont4
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
   br label %ehcleanup16
 
 lpad10:                                           ; preds = %call.i.noexc9, %invoke.cont7
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup16
 
 lpad12:                                           ; preds = %invoke.cont11
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #22
   br label %ehcleanup16
 
 ehcleanup16:                                      ; preds = %lpad12, %lpad.i8, %lpad10, %lpad6, %lpad.i, %lpad3
   %ref.tmp9.sink = phi ptr [ %ref.tmp2, %lpad3 ], [ %ref.tmp2, %lpad.i ], [ %ref.tmp2, %lpad6 ], [ %ref.tmp9, %lpad10 ], [ %ref.tmp9, %lpad.i8 ], [ %ref.tmp9, %lpad12 ]
-  %.pn2.pn = phi { ptr, i32 } [ %4, %lpad3 ], [ %2, %lpad.i ], [ %5, %lpad6 ], [ %6, %lpad10 ], [ %3, %lpad.i8 ], [ %7, %lpad12 ]
+  %.pn2.pn = phi { ptr, i32 } [ %3, %lpad3 ], [ %1, %lpad.i ], [ %4, %lpad6 ], [ %5, %lpad10 ], [ %2, %lpad.i8 ], [ %6, %lpad12 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9.sink) #22
   call void @_ZN7rocksdb27LayeredCompactionFilterBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #22
   resume { ptr, i32 } %.pn2.pn
@@ -3414,39 +3413,38 @@ invoke.cont6:                                     ; preds = %if.end
   %3 = load i32, ptr %ttl_, align 8
   %clock_ = getelementptr inbounds %"class.rocksdb::TtlCompactionFilterFactory", ptr %this, i64 0, i32 2
   %4 = load ptr, ptr %clock_, align 8
-  %5 = ptrtoint ptr %user_comp_filter_from_factory.sroa.0.1 to i64
-  store i64 %5, ptr %agg.tmp, align 8
+  store ptr %user_comp_filter_from_factory.sroa.0.1, ptr %agg.tmp, align 8
   invoke void @_ZN7rocksdb19TtlCompactionFilterC1EiPNS_11SystemClockEPKNS_16CompactionFilterESt10unique_ptrIS4_St14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(64) %call7, i32 noundef %3, ptr noundef %4, ptr noundef null, ptr noundef nonnull %agg.tmp)
           to label %_ZNSt10unique_ptrIN7rocksdb19TtlCompactionFilterESt14default_deleteIS1_EED2Ev.exit unwind label %lpad8
 
 _ZNSt10unique_ptrIN7rocksdb19TtlCompactionFilterESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont6
   store ptr %call7, ptr %agg.result, align 8
-  %6 = load ptr, ptr %agg.tmp, align 8
-  %cmp.not.i5 = icmp eq ptr %6, null
+  %5 = load ptr, ptr %agg.tmp, align 8
+  %cmp.not.i5 = icmp eq ptr %5, null
   br i1 %cmp.not.i5, label %_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit12, label %_ZNKSt14default_deleteIKN7rocksdb16CompactionFilterEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIKN7rocksdb16CompactionFilterEEclEPS2_.exit.i: ; preds = %_ZNSt10unique_ptrIN7rocksdb19TtlCompactionFilterESt14default_deleteIS1_EED2Ev.exit
-  %vtable.i.i6 = load ptr, ptr %6, align 8
+  %vtable.i.i6 = load ptr, ptr %5, align 8
   %vfn.i.i7 = getelementptr inbounds ptr, ptr %vtable.i.i6, i64 1
-  %7 = load ptr, ptr %vfn.i.i7, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
+  %6 = load ptr, ptr %vfn.i.i7, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   br label %_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit12
 
 _ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit12: ; preds = %_ZNKSt14default_deleteIKN7rocksdb16CompactionFilterEEclEPS2_.exit.i, %_ZNSt10unique_ptrIN7rocksdb19TtlCompactionFilterESt14default_deleteIS1_EED2Ev.exit
   ret void
 
 lpad8:                                            ; preds = %invoke.cont6
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %9 = load ptr, ptr %agg.tmp, align 8
-  %cmp.not.i13 = icmp eq ptr %9, null
+  %8 = load ptr, ptr %agg.tmp, align 8
+  %cmp.not.i13 = icmp eq ptr %8, null
   br i1 %cmp.not.i13, label %ehcleanup.thread, label %_ZNKSt14default_deleteIKN7rocksdb16CompactionFilterEEclEPS2_.exit.i14
 
 _ZNKSt14default_deleteIKN7rocksdb16CompactionFilterEEclEPS2_.exit.i14: ; preds = %lpad8
-  %vtable.i.i15 = load ptr, ptr %9, align 8
+  %vtable.i.i15 = load ptr, ptr %8, align 8
   %vfn.i.i16 = getelementptr inbounds ptr, ptr %vtable.i.i15, i64 1
-  %10 = load ptr, ptr %vfn.i.i16, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(32) %9) #22
+  %9 = load ptr, ptr %vfn.i.i16, align 8
+  call void %9(ptr noundef nonnull align 8 dereferenceable(32) %8) #22
   br label %ehcleanup.thread
 
 ehcleanup.thread:                                 ; preds = %_ZNKSt14default_deleteIKN7rocksdb16CompactionFilterEEclEPS2_.exit.i14, %lpad8
@@ -3455,7 +3453,7 @@ ehcleanup.thread:                                 ; preds = %_ZNKSt14default_del
   br label %_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit22
 
 ehcleanup:                                        ; preds = %if.end
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   %cmp.not.i18 = icmp eq ptr %user_comp_filter_from_factory.sroa.0.1, null
   br i1 %cmp.not.i18, label %_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit22, label %_ZNKSt14default_deleteIKN7rocksdb16CompactionFilterEEclEPS2_.exit.i19
@@ -3463,12 +3461,12 @@ ehcleanup:                                        ; preds = %if.end
 _ZNKSt14default_deleteIKN7rocksdb16CompactionFilterEEclEPS2_.exit.i19: ; preds = %ehcleanup
   %vtable.i.i20 = load ptr, ptr %user_comp_filter_from_factory.sroa.0.1, align 8
   %vfn.i.i21 = getelementptr inbounds ptr, ptr %vtable.i.i20, i64 1
-  %12 = load ptr, ptr %vfn.i.i21, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(32) %user_comp_filter_from_factory.sroa.0.1) #22
+  %11 = load ptr, ptr %vfn.i.i21, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(32) %user_comp_filter_from_factory.sroa.0.1) #22
   br label %_ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit22
 
 _ZNSt10unique_ptrIKN7rocksdb16CompactionFilterESt14default_deleteIS2_EED2Ev.exit22: ; preds = %ehcleanup.thread, %ehcleanup, %_ZNKSt14default_deleteIKN7rocksdb16CompactionFilterEEclEPS2_.exit.i19
-  %.pn29 = phi { ptr, i32 } [ %8, %ehcleanup.thread ], [ %11, %ehcleanup ], [ %11, %_ZNKSt14default_deleteIKN7rocksdb16CompactionFilterEEclEPS2_.exit.i19 ]
+  %.pn29 = phi { ptr, i32 } [ %7, %ehcleanup.thread ], [ %10, %ehcleanup ], [ %10, %_ZNKSt14default_deleteIKN7rocksdb16CompactionFilterEEclEPS2_.exit.i19 ]
   resume { ptr, i32 } %.pn29
 }
 

@@ -3037,7 +3037,7 @@ if.then5:                                         ; preds = %land.lhs.true
   %5 = inttoptr i64 %and.i to ptr
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr3SetIJEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %lhs, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %lhs_arena)
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyEv(ptr noundef nonnull align 8 dereferenceable(8) %rhs)
-  store i64 ptrtoint (ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E to i64), ptr %rhs, align 8
+  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %rhs, align 8
   br label %if.end18
 
 if.else7:                                         ; preds = %if.else
@@ -3048,7 +3048,7 @@ if.else7:                                         ; preds = %if.else
 if.then9:                                         ; preds = %if.else7
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr3SetIJEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %rhs, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %rhs_arena)
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyEv(ptr noundef nonnull align 8 dereferenceable(8) %lhs)
-  store i64 ptrtoint (ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E to i64), ptr %lhs, align 8
+  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %lhs, align 8
   br label %if.end18
 
 if.else11:                                        ; preds = %if.else7
@@ -5011,7 +5011,7 @@ if.then53:                                        ; preds = %sw.bb51
 if.else55:                                        ; preds = %sw.bb51
   %call56 = tail call noundef ptr @_ZNK6google8protobuf10Reflection10MutableRawINS0_8internal14ArenaStringPtrEEEPT_PNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %message, ptr noundef nonnull %field)
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyEv(ptr noundef nonnull align 8 dereferenceable(8) %call56)
-  store i64 ptrtoint (ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E to i64), ptr %call56, align 8
+  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %call56, align 8
   br label %if.end110
 
 sw.bb58:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
@@ -28874,7 +28874,7 @@ if.end.i.i393:                                    ; preds = %_ZNK6google8protobu
 
 _ZNK6google8protobuf10Reflection12MutableFieldINS0_8internal14ArenaStringPtrEEEPT_PNS0_7MessageEPKNS0_15FieldDescriptorE.exit: ; preds = %cond.true.i353, %cond.false.i374, %_ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescriptorE.exit.i.i383, %if.end.i.i393
   %call2.i367 = tail call noundef ptr @_ZNK6google8protobuf10Reflection10MutableRawINS0_8internal14ArenaStringPtrEEEPT_PNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %message, ptr noundef nonnull %field)
-  store i64 ptrtoint (ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E to i64), ptr %call2.i367, align 8
+  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %call2.i367, align 8
   %.pr.pre = load ptr, ptr %scope_.i.i.i306, align 8
   %bf.load.i.i.i.i409.pre.pre = load i8, ptr %label_.i, align 1
   %.pre492 = and i8 %bf.load.i.i.i.i409.pre.pre, 16
@@ -30026,7 +30026,7 @@ if.end.i.i313:                                    ; preds = %_ZNK6google8protobu
 
 _ZNK6google8protobuf10Reflection12MutableFieldINS0_8internal14ArenaStringPtrEEEPT_PNS0_7MessageEPKNS0_15FieldDescriptorE.exit: ; preds = %cond.true.i273, %cond.false.i294, %_ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescriptorE.exit.i.i303, %if.end.i.i313
   %call2.i287 = tail call noundef ptr @_ZNK6google8protobuf10Reflection10MutableRawINS0_8internal14ArenaStringPtrEEEPT_PNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %message, ptr noundef nonnull %field)
-  store i64 ptrtoint (ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E to i64), ptr %call2.i287, align 8
+  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %call2.i287, align 8
   br label %if.end42
 
 if.end42:                                         ; preds = %sw.bb35, %_ZNK6google8protobuf10Reflection12MutableFieldINS0_8internal14ArenaStringPtrEEEPT_PNS0_7MessageEPKNS0_15FieldDescriptorE.exit, %land.lhs.true, %_ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescriptorE.exit239

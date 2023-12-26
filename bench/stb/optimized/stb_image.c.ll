@@ -16177,11 +16177,10 @@ if.end303:                                        ; preds = %for.body226
   %93 = ptrtoint ptr %call289 to i64
   %add308 = add i64 %93, 15
   %and309 = and i64 %add308, -16
-  %94 = inttoptr i64 %and309 to ptr
   %data313 = getelementptr inbounds %struct.stbi__jpeg, ptr %z, i64 0, i32 11, i64 %indvars.iv343, i32 11
-  store ptr %94, ptr %data313, align 8
-  %95 = load i32, ptr %progressive, align 8
-  %tobool314.not = icmp eq i32 %95, 0
+  store i64 %and309, ptr %data313, align 8
+  %94 = load i32, ptr %progressive, align 8
+  %tobool314.not = icmp eq i32 %94, 0
   br i1 %tobool314.not, label %for.inc367, label %if.then315
 
 if.then315:                                       ; preds = %if.end303
@@ -16195,26 +16194,25 @@ if.then315:                                       ; preds = %if.end303
   br i1 %cmp349, label %if.then351, label %if.end355
 
 if.then351:                                       ; preds = %if.then315
-  %96 = trunc i64 %indvars.iv343 to i32
-  %add352 = add nuw nsw i32 %96, 1
-  %97 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
-  store ptr @.str.1, ptr %97, align 8
+  %95 = trunc i64 %indvars.iv343 to i32
+  %add352 = add nuw nsw i32 %95, 1
+  %96 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
+  store ptr @.str.1, ptr %96, align 8
   %call354 = tail call i32 @stbi__free_jpeg_components(ptr noundef nonnull %z, i32 noundef %add352, i32 noundef 0)
   br label %return
 
 if.end355:                                        ; preds = %if.then315
-  %98 = ptrtoint ptr %call340 to i64
-  %add360 = add i64 %98, 15
+  %97 = ptrtoint ptr %call340 to i64
+  %add360 = add i64 %97, 15
   %and361 = and i64 %add360, -16
-  %99 = inttoptr i64 %and361 to ptr
-  store ptr %99, ptr %coeff, align 8
+  store i64 %and361, ptr %coeff, align 8
   br label %for.inc367
 
 for.inc367:                                       ; preds = %if.end303, %if.end355
   %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1
-  %100 = load i32, ptr %img_n, align 8
-  %101 = sext i32 %100 to i64
-  %cmp224 = icmp slt i64 %indvars.iv.next344, %101
+  %98 = load i32, ptr %img_n, align 8
+  %99 = sext i32 %98 to i64
+  %cmp224 = icmp slt i64 %indvars.iv.next344, %99
   br i1 %cmp224, label %for.body226, label %return, !llvm.loop !136
 
 return:                                           ; preds = %for.inc367, %for.end209, %for.end138, %if.then351, %if.then299, %if.then204, %if.then194, %if.then148, %if.then133, %if.then119, %if.then101, %if.then55, %if.then44, %if.then26, %if.then20, %if.then13, %if.then6, %if.then

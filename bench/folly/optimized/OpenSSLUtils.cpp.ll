@@ -539,7 +539,7 @@ if.end:                                           ; preds = %entry
 
 if.then8:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp9) #21
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8, !tbaa !19
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp, align 8, !tbaa !19
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !19
   call void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp9, ptr noundef nonnull @.str, i32 noundef 98, i32 noundef 2, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)
@@ -2233,7 +2233,7 @@ entry:
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZNSt10unique_ptrI7x509_stN5folly23static_function_deleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i, %entry
-  %0 = phi ptr [ %17, %_ZNSt10unique_ptrI7x509_stN5folly23static_function_deleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i ], [ null, %entry ]
+  %0 = phi ptr [ %16, %_ZNSt10unique_ptrI7x509_stN5folly23static_function_deleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i ], [ null, %entry ]
   %1 = ptrtoint ptr %0 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %x509.i) #21
   %call.i2 = invoke ptr @PEM_read_bio_X509(ptr noundef %b, ptr noundef null, ptr noundef null, ptr noundef null)
@@ -2277,21 +2277,20 @@ call3.i.noexc.i:                                  ; preds = %call2.i.noexc.i
   store ptr %call3.i6.i, ptr %ref.tmp.i.i, align 8, !tbaa !22
   %2 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !73
   %cmp.not.i.i.i.i = icmp eq ptr %0, %2
-  %3 = ptrtoint ptr %call3.i6.i to i64
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %cleanup.thread7.i
 
 cleanup.thread7.i:                                ; preds = %call3.i.noexc.i
-  store i64 %3, ptr %0, align 8, !tbaa !22
-  %4 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !75
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.66", ptr %4, i64 1
+  store ptr %call3.i6.i, ptr %0, align 8, !tbaa !22
+  %3 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !75
+  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.66", ptr %3, i64 1
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8, !tbaa !75
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i) #21
   br label %if.then.i.i
 
 if.else.i.i.i.i:                                  ; preds = %call3.i.noexc.i
-  %5 = load ptr, ptr %agg.result, align 8, !tbaa !22
-  %6 = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i.i.i.i.i = sub i64 %1, %6
+  %4 = load ptr, ptr %agg.result, align 8, !tbaa !22
+  %5 = ptrtoint ptr %4 to i64
+  %sub.ptr.sub.i.i.i.i.i = sub i64 %1, %5
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i, label %if.then.i.i6.i.i, label %_ZNKSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
 
@@ -2321,50 +2320,50 @@ _ZNSt16allocator_traitsISaISt10unique_ptrI12X509_name_stN5folly23static_function
 _ZNSt12_Vector_baseISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE11_M_allocateEm.exit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEEEE8allocateERS6_m.exit.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
   %cond.i31.i.i.i = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i8.i.i, %_ZNSt16allocator_traitsISaISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEEEE8allocateERS6_m.exit.i.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr.66", ptr %cond.i31.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
-  store i64 %3, ptr %add.ptr.i.i.i, align 8, !tbaa !22
-  %cmp.not6.i.i.i.i.i.i = icmp eq ptr %5, %0
+  store ptr %call3.i6.i, ptr %add.ptr.i.i.i, align 8, !tbaa !22
+  %cmp.not6.i.i.i.i.i.i = icmp eq ptr %4, %0
   br i1 %cmp.not6.i.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i.i.i, label %for.body.i.i.i.i.i.i.preheader
 
 for.body.i.i.i.i.i.i.preheader:                   ; preds = %_ZNSt12_Vector_baseISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE11_M_allocateEm.exit.i.i.i
-  %7 = add i64 %1, -8
-  %8 = sub i64 %7, %6
-  %9 = lshr i64 %8, 3
-  %10 = add nuw nsw i64 %9, 1
-  %min.iters.check = icmp ult i64 %8, 24
+  %6 = add i64 %1, -8
+  %7 = sub i64 %6, %5
+  %8 = lshr i64 %7, 3
+  %9 = add nuw nsw i64 %8, 1
+  %min.iters.check = icmp ult i64 %7, 24
   br i1 %min.iters.check, label %for.body.i.i.i.i.i.i.preheader7, label %vector.ph
 
 for.body.i.i.i.i.i.i.preheader7:                  ; preds = %middle.block, %for.body.i.i.i.i.i.i.preheader
   %__cur.08.i.i.i.i.i.i.ph = phi ptr [ %ind.end, %middle.block ], [ %cond.i31.i.i.i, %for.body.i.i.i.i.i.i.preheader ]
-  %__first.addr.07.i.i.i.i.i.i.ph = phi ptr [ %ind.end3, %middle.block ], [ %5, %for.body.i.i.i.i.i.i.preheader ]
+  %__first.addr.07.i.i.i.i.i.i.ph = phi ptr [ %ind.end3, %middle.block ], [ %4, %for.body.i.i.i.i.i.i.preheader ]
   br label %for.body.i.i.i.i.i.i
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i.i.i.preheader
-  %n.vec = and i64 %10, 4611686018427387900
-  %11 = shl i64 %n.vec, 3
-  %ind.end = getelementptr i8, ptr %cond.i31.i.i.i, i64 %11
+  %n.vec = and i64 %9, 4611686018427387900
+  %10 = shl i64 %n.vec, 3
+  %ind.end = getelementptr i8, ptr %cond.i31.i.i.i, i64 %10
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
-  %12 = shl i64 %index, 3
-  %next.gep = getelementptr i8, ptr %cond.i31.i.i.i, i64 %12
-  %next.gep6 = getelementptr i8, ptr %5, i64 %12
+  %11 = shl i64 %index, 3
+  %next.gep = getelementptr i8, ptr %cond.i31.i.i.i, i64 %11
+  %next.gep6 = getelementptr i8, ptr %4, i64 %11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
   %wide.load = load <2 x i64>, ptr %next.gep6, align 8, !tbaa !22, !alias.scope !79, !noalias !76
-  %13 = getelementptr i64, ptr %next.gep6, i64 2
-  %wide.load8 = load <2 x i64>, ptr %13, align 8, !tbaa !22, !alias.scope !79, !noalias !76
+  %12 = getelementptr i64, ptr %next.gep6, i64 2
+  %wide.load8 = load <2 x i64>, ptr %12, align 8, !tbaa !22, !alias.scope !79, !noalias !76
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !tbaa !22, !alias.scope !76, !noalias !79
-  %14 = getelementptr i64, ptr %next.gep, i64 2
-  store <2 x i64> %wide.load8, ptr %14, align 8, !tbaa !22, !alias.scope !76, !noalias !79
+  %13 = getelementptr i64, ptr %next.gep, i64 2
+  store <2 x i64> %wide.load8, ptr %13, align 8, !tbaa !22, !alias.scope !76, !noalias !79
   %index.next = add nuw i64 %index, 4
-  %15 = icmp eq i64 %index.next, %n.vec
+  %14 = icmp eq i64 %index.next, %n.vec
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.gep6, i8 0, i64 32, i1 false)
-  br i1 %15, label %middle.block, label %vector.body, !llvm.loop !81
+  br i1 %14, label %middle.block, label %vector.body, !llvm.loop !81
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end3 = getelementptr i8, ptr %5, i64 %11
-  %cmp.n = icmp eq i64 %10, %n.vec
+  %ind.end3 = getelementptr i8, ptr %4, i64 %10
+  %cmp.n = icmp eq i64 %9, %n.vec
   br i1 %cmp.n, label %_ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i.i.i.thread, label %for.body.i.i.i.i.i.i.preheader7
 
 _ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i.i.i.thread: ; preds = %middle.block
@@ -2376,8 +2375,8 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %__first.addr.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %__first.addr.07.i.i.i.i.i.i.ph, %for.body.i.i.i.i.i.i.preheader7 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
-  %16 = load i64, ptr %__first.addr.07.i.i.i.i.i.i, align 8, !tbaa !22, !alias.scope !79, !noalias !76
-  store i64 %16, ptr %__cur.08.i.i.i.i.i.i, align 8, !tbaa !22, !alias.scope !76, !noalias !79
+  %15 = load i64, ptr %__first.addr.07.i.i.i.i.i.i, align 8, !tbaa !22, !alias.scope !79, !noalias !76
+  store i64 %15, ptr %__cur.08.i.i.i.i.i.i, align 8, !tbaa !22, !alias.scope !76, !noalias !79
   store ptr null, ptr %__first.addr.07.i.i.i.i.i.i, align 8, !tbaa !22, !alias.scope !79, !noalias !76
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.66", ptr %__first.addr.07.i.i.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.66", ptr %__cur.08.i.i.i.i.i.i, i64 1
@@ -2387,12 +2386,12 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
 _ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i31.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i = getelementptr %"class.std::unique_ptr.66", ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 1
-  %tobool.not.i.i.i.i = icmp eq ptr %5, null
+  %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %cleanup.i, label %if.then.i41.i.i.i
 
 if.then.i41.i.i.i:                                ; preds = %_ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i.i.i.thread, %_ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i.i.i
   %incdec.ptr.i.i.i5 = phi ptr [ %incdec.ptr.i.i.i3, %_ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i.i.i.thread ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i.i.i ]
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #24
   br label %cleanup.i
 
 lpad.i.loopexit.i:                                ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEEEE8allocateERS6_m.exit.i.i.i.i
@@ -2421,15 +2420,15 @@ cleanup.i:                                        ; preds = %if.then.i41.i.i.i, 
   br label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup.i, %cleanup.thread7.i
-  %17 = phi ptr [ %incdec.ptr.i.i.i6, %cleanup.i ], [ %incdec.ptr.i.i.i.i, %cleanup.thread7.i ]
+  %16 = phi ptr [ %incdec.ptr.i.i.i6, %cleanup.i ], [ %incdec.ptr.i.i.i.i, %cleanup.thread7.i ]
   invoke void @X509_free(ptr noundef nonnull %call.i2)
           to label %_ZNSt10unique_ptrI7x509_stN5folly23static_function_deleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #22
+  %18 = extractvalue { ptr, i32 } %17, 0
+  tail call void @__clang_call_terminate(ptr %18) #22
   unreachable
 
 _ZNSt10unique_ptrI7x509_stN5folly23static_function_deleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i: ; preds = %if.then.i.i
@@ -2437,12 +2436,12 @@ _ZNSt10unique_ptrI7x509_stN5folly23static_function_deleterIS0_XadL_Z9X509_freeEE
   br label %while.body.i
 
 lpad:                                             ; preds = %while.body.i
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad, %lpad.body.i
-  %eh.lpad-body = phi { ptr, i32 } [ %20, %lpad ], [ %eh.lpad-body.i, %lpad.body.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %19, %lpad ], [ %eh.lpad-body.i, %lpad.body.i ]
   call void @_ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.result) #21
   resume { ptr, i32 } %eh.lpad-body
 

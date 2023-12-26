@@ -171,16 +171,15 @@ entry:
   %m_replace.i = getelementptr inbounds %"class.qe::bool_plugin", ptr %call, i64 0, i32 1
   store ptr %call1, ptr %m_replace.i, align 8
   %m_src.i.i = getelementptr inbounds %"class.qe::bool_plugin", ptr %call, i64 0, i32 1, i32 1
-  %1 = ptrtoint ptr %call1 to i64
-  store i64 %1, ptr %m_src.i.i, align 8
+  store ptr %call1, ptr %m_src.i.i, align 8
   %m_nodes.i.i.i.i = getelementptr inbounds %"class.qe::bool_plugin", ptr %call, i64 0, i32 1, i32 1, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i.i.i, align 8
   %m_dst.i.i = getelementptr inbounds %"class.qe::bool_plugin", ptr %call, i64 0, i32 1, i32 2
-  store i64 %1, ptr %m_dst.i.i, align 8
+  store ptr %call1, ptr %m_dst.i.i, align 8
   %m_nodes.i.i6.i.i = getelementptr inbounds %"class.qe::bool_plugin", ptr %call, i64 0, i32 1, i32 2, i32 0, i32 1
   %m_refs.i.i = getelementptr inbounds %"class.qe::bool_plugin", ptr %call, i64 0, i32 1, i32 6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_nodes.i.i6.i.i, i8 0, i64 32, i1 false)
-  store i64 %1, ptr %m_refs.i.i, align 8
+  store ptr %call1, ptr %m_refs.i.i, align 8
   %m_nodes.i.i7.i.i = getelementptr inbounds %"class.qe::bool_plugin", ptr %call, i64 0, i32 1, i32 6, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i7.i.i, align 8
   %m_cache.i.i = getelementptr inbounds %"class.qe::bool_plugin", ptr %call, i64 0, i32 1, i32 7

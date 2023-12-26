@@ -426,8 +426,7 @@ entry:
   %m_infos.i.i = getelementptr inbounds %"struct.check_logic::imp", ptr %this, i64 0, i32 5, i32 6, i32 3
   store ptr null, ptr %m_infos.i.i, align 8
   %m_info_pinned.i.i = getelementptr inbounds %"struct.check_logic::imp", ptr %this, i64 0, i32 5, i32 6, i32 4
-  %6 = ptrtoint ptr %5 to i64
-  store i64 %6, ptr %m_info_pinned.i.i, align 8
+  store ptr %5, ptr %m_info_pinned.i.i, align 8
   %m_nodes.i.i.i.i = getelementptr inbounds %"struct.check_logic::imp", ptr %this, i64 0, i32 5, i32 6, i32 4, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i.i.i, align 8
   %invalid_info.i.i = getelementptr inbounds %"struct.check_logic::imp", ptr %this, i64 0, i32 5, i32 6, i32 5
@@ -447,20 +446,20 @@ entry:
   %min_length.i6.i.i = getelementptr inbounds %"struct.check_logic::imp", ptr %this, i64 0, i32 5, i32 6, i32 6, i32 3
   store i32 0, ptr %min_length.i6.i.i, align 4
   %m_dt_util = getelementptr inbounds %"struct.check_logic::imp", ptr %this, i64 0, i32 6
-  %7 = load ptr, ptr %this, align 8
-  invoke void @_ZN8datatype4utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(288) %m_dt_util, ptr noundef nonnull align 8 dereferenceable(976) %7)
+  %6 = load ptr, ptr %this, align 8
+  invoke void @_ZN8datatype4utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(288) %m_dt_util, ptr noundef nonnull align 8 dereferenceable(976) %6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %m_pb_util = getelementptr inbounds %"struct.check_logic::imp", ptr %this, i64 0, i32 7
-  %8 = load ptr, ptr %this, align 8
-  store ptr %8, ptr %m_pb_util, align 8
+  %7 = load ptr, ptr %this, align 8
+  store ptr %7, ptr %m_pb_util, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i2)
   invoke void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i2, ptr noundef nonnull @.str.2)
           to label %.noexc unwind label %lpad8
 
 .noexc:                                           ; preds = %invoke.cont
-  %m_family_manager.i.i.i4 = getelementptr inbounds %class.ast_manager, ptr %8, i64 0, i32 2
+  %m_family_manager.i.i.i4 = getelementptr inbounds %class.ast_manager, ptr %7, i64 0, i32 2
   %call.i.i.i56 = invoke noundef i32 @_ZN14family_manager12mk_family_idERK6symbol(ptr noundef nonnull align 8 dereferenceable(56) %m_family_manager.i.i.i4, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i2)
           to label %invoke.cont9 unwind label %lpad8
 
@@ -493,18 +492,18 @@ invoke.cont9:                                     ; preds = %.noexc
   ret void
 
 lpad:                                             ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup12
 
 lpad8:                                            ; preds = %.noexc, %invoke.cont
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8datatype4utilD1Ev(ptr noundef nonnull align 8 dereferenceable(288) %m_dt_util) #15
   br label %ehcleanup12
 
 ehcleanup12:                                      ; preds = %lpad8, %lpad
-  %.pn = phi { ptr, i32 } [ %10, %lpad8 ], [ %9, %lpad ]
+  %.pn = phi { ptr, i32 } [ %9, %lpad8 ], [ %8, %lpad ]
   call void @_ZN8seq_util3rexD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %re.i) #15
   resume { ptr, i32 } %.pn
 }

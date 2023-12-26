@@ -7818,7 +7818,7 @@ if.else:                                          ; preds = %for.body29
   %mul51 = mul i64 %41, %conv50
   %add52 = add i64 %add46, %mul51
   %42 = inttoptr i64 %add52 to ptr
-  store ptr %42, ptr %readPtr, align 8
+  store i64 %add52, ptr %readPtr, align 8
   %mul56 = mul i64 %41, %conv54
   %add.ptr = getelementptr inbounds i8, ptr %42, i64 %mul56
   %format59 = getelementptr inbounds %"struct.Imf_3_2::TiledOutputFile::Data", ptr %18, i64 0, i32 18

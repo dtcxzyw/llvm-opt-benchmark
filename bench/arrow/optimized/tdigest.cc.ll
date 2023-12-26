@@ -1047,7 +1047,7 @@ while.body:                                       ; preds = %while.body.preheade
   %sub.ptr.rhs.cast.i.i49125 = phi i64 [ %sub.ptr.rhs.cast.i.i49.pre-phi, %if.end63 ], [ %sub.ptr.rhs.cast.i.i49120, %while.body.preheader ]
   %call5.i.i.i.i.i.i77116124 = phi ptr [ %call5.i.i.i.i.i.i77115, %if.end63 ], [ %queue.promoted, %while.body.preheader ]
   %queue.val25117123 = phi ptr [ %queue.val25118, %if.end63 ], [ %_M_finish.i.i.i.i.i.promoted, %while.body.preheader ]
-  %20 = phi ptr [ %34, %if.end63 ], [ %_M_end_of_storage.i.i.i.i.i.promoted, %while.body.preheader ]
+  %20 = phi ptr [ %31, %if.end63 ], [ %_M_end_of_storage.i.i.i.i.i.promoted, %while.body.preheader ]
   %21 = load i64, ptr %call5.i.i.i.i.i.i77116124, align 8
   %22 = inttoptr i64 %21 to ptr
   %second.i = getelementptr inbounds %"struct.std::pair", ptr %call5.i.i.i.i.i.i77116124, i64 0, i32 1
@@ -1089,12 +1089,11 @@ invoke.cont58.if.end63_crit_edge:                 ; preds = %invoke.cont58
   br label %if.end63
 
 if.then61:                                        ; preds = %invoke.cont58
-  %27 = ptrtoint ptr %incdec.ptr.i61 to i64
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %20
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i63
 
 if.then.i.i63:                                    ; preds = %if.then61
-  store i64 %27, ptr %incdec.ptr.i.i, align 8
+  store ptr %incdec.ptr.i61, ptr %incdec.ptr.i.i, align 8
   %second.i.i.i.i.i = getelementptr %"struct.std::pair", ptr %queue.val25117123, i64 -1, i32 1
   store i64 %23, ptr %second.i.i.i.i.i, align 8
   store ptr %queue.val25117123, ptr %_M_finish.i.i.i.i.i, align 8
@@ -1130,7 +1129,7 @@ _ZNKSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL
 
 call5.i.i.i.i.i.i.noexc:                          ; preds = %_ZNKSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL__N_18CentroidES_IS6_SaIS6_EEEESB_ESaISC_EE12_M_check_lenEmPKc.exit.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %call5.i.i.i.i.i.i77, i64 %sub.ptr.div.i.i.i.i.i
-  store i64 %27, ptr %add.ptr.i.i.i, align 8
+  store ptr %incdec.ptr.i61, ptr %add.ptr.i.i.i, align 8
   %second.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %call5.i.i.i.i.i.i77, i64 %sub.ptr.div.i.i.i.i.i, i32 1
   store i64 %23, ptr %second.i.i.i.i.i.i, align 8
   br i1 %cmp.i.i.i.i.i, label %_ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL__N_18CentroidES_IS6_SaIS6_EEEESB_ESaISC_EE17_M_realloc_insertIJRSB_SG_EEEvNS2_IPSC_SE_EEDpOT_.exit.i.i, label %for.body.i.i.i.i.i.i
@@ -1155,11 +1154,11 @@ _ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL_
   br label %_ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL__N_18CentroidES_IS6_SaIS6_EEEESB_ESaISC_EE12emplace_backIJRSB_SG_EEERSC_DpOT_.exit.i
 
 _ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL__N_18CentroidES_IS6_SaIS6_EEEESB_ESaISC_EE12emplace_backIJRSB_SG_EEERSC_DpOT_.exit.i: ; preds = %_ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL__N_18CentroidES_IS6_SaIS6_EEEESB_ESaISC_EE17_M_realloc_insertIJRSB_SG_EEEvNS2_IPSC_SE_EEDpOT_.exit.i.i, %if.then.i.i63
-  %28 = phi ptr [ %20, %if.then.i.i63 ], [ %add.ptr28.i.i.i, %_ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL__N_18CentroidES_IS6_SaIS6_EEEESB_ESaISC_EE17_M_realloc_insertIJRSB_SG_EEEvNS2_IPSC_SE_EEDpOT_.exit.i.i ]
+  %27 = phi ptr [ %20, %if.then.i.i63 ], [ %add.ptr28.i.i.i, %_ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL__N_18CentroidES_IS6_SaIS6_EEEESB_ESaISC_EE17_M_realloc_insertIJRSB_SG_EEEvNS2_IPSC_SE_EEDpOT_.exit.i.i ]
   %call5.i.i.i.i.i.i77114 = phi ptr [ %call5.i.i.i.i.i.i77116124, %if.then.i.i63 ], [ %call5.i.i.i.i.i.i77, %_ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL__N_18CentroidES_IS6_SaIS6_EEEESB_ESaISC_EE17_M_realloc_insertIJRSB_SG_EEEvNS2_IPSC_SE_EEDpOT_.exit.i.i ]
   %this.val1.i65 = phi ptr [ %queue.val25117123, %if.then.i.i63 ], [ %incdec.ptr.i.i.i73, %_ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL__N_18CentroidES_IS6_SaIS6_EEEESB_ESaISC_EE17_M_realloc_insertIJRSB_SG_EEEvNS2_IPSC_SE_EEDpOT_.exit.i.i ]
   %add.ptr.i.i2.i = getelementptr inbounds %"struct.std::pair", ptr %this.val1.i65, i64 -1
-  %29 = load <2 x ptr>, ptr %add.ptr.i.i2.i, align 8
+  %28 = load <2 x ptr>, ptr %add.ptr.i.i2.i, align 8
   %sub.ptr.lhs.cast.i.i.i67 = ptrtoint ptr %this.val1.i65 to i64
   %sub.ptr.rhs.cast.i.i.i68 = ptrtoint ptr %call5.i.i.i.i.i.i77114 to i64
   %sub.ptr.sub.i.i.i69 = sub i64 %sub.ptr.lhs.cast.i.i.i67, %sub.ptr.rhs.cast.i.i.i68
@@ -1169,7 +1168,7 @@ _ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL_
   br i1 %cmp3.i.i.i, label %land.rhs.i.i.i.preheader, label %_ZNSt14priority_queueISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL__N_18CentroidESt6vectorIS6_SaIS6_EEEESC_ES9_ISD_SaISD_EEZNS4_7TDigest11TDigestImpl5MergeERKS9_IPKSH_SaISJ_EEEUlRKSD_SP_E_E7emplaceIJRSC_ST_EEEvDpOT_.exit
 
 land.rhs.i.i.i.preheader:                         ; preds = %_ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL__N_18CentroidES_IS6_SaIS6_EEEESB_ESaISC_EE12emplace_backIJRSB_SG_EEERSC_DpOT_.exit.i
-  %30 = extractelement <2 x ptr> %29, i64 0
+  %29 = extractelement <2 x ptr> %28, i64 0
   br label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %land.rhs.i.i.i.preheader, %while.body.i.i.i70
@@ -1177,34 +1176,32 @@ land.rhs.i.i.i:                                   ; preds = %land.rhs.i.i.i.preh
   %__parent.05.in.i.i.i = add nsw i64 %__holeIndex.addr.04.i.i.i, -1
   %__parent.05.i23.i.i = lshr i64 %__parent.05.in.i.i.i, 1
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %call5.i.i.i.i.i.i77114, i64 %__parent.05.i23.i.i
-  %__value.val.val.i.i.i = load double, ptr %30, align 8
+  %__value.val.val.i.i.i = load double, ptr %29, align 8
   %call.val.i.i.i.i = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %call.val.val.i.i.i.i = load double, ptr %call.val.i.i.i.i, align 8
   %cmp.i.i.i.i3.i = fcmp ogt double %call.val.val.i.i.i.i, %__value.val.val.i.i.i
   br i1 %cmp.i.i.i.i3.i, label %while.body.i.i.i70, label %_ZNSt14priority_queueISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL__N_18CentroidESt6vectorIS6_SaIS6_EEEESC_ES9_ISD_SaISD_EEZNS4_7TDigest11TDigestImpl5MergeERKS9_IPKSH_SaISJ_EEEUlRKSD_SP_E_E7emplaceIJRSC_ST_EEEvDpOT_.exit
 
 while.body.i.i.i70:                               ; preds = %land.rhs.i.i.i
-  %31 = ptrtoint ptr %call.val.i.i.i.i to i64
   %add.ptr.i11.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %call5.i.i.i.i.i.i77114, i64 %__holeIndex.addr.04.i.i.i
-  store i64 %31, ptr %add.ptr.i11.i.i.i, align 8
+  store ptr %call.val.i.i.i.i, ptr %add.ptr.i11.i.i.i, align 8
   %second.i.i.i.i71 = getelementptr inbounds %"struct.std::pair", ptr %call5.i.i.i.i.i.i77114, i64 %__parent.05.i23.i.i, i32 1
   %second3.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %call5.i.i.i.i.i.i77114, i64 %__holeIndex.addr.04.i.i.i, i32 1
-  %32 = load i64, ptr %second.i.i.i.i71, align 8
-  store i64 %32, ptr %second3.i.i.i.i, align 8
+  %30 = load i64, ptr %second.i.i.i.i71, align 8
+  store i64 %30, ptr %second3.i.i.i.i, align 8
   %cmp.i.not.i.i = icmp ult i64 %__parent.05.in.i.i.i, 2
   br i1 %cmp.i.not.i.i, label %_ZNSt14priority_queueISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL__N_18CentroidESt6vectorIS6_SaIS6_EEEESC_ES9_ISD_SaISD_EEZNS4_7TDigest11TDigestImpl5MergeERKS9_IPKSH_SaISJ_EEEUlRKSD_SP_E_E7emplaceIJRSC_ST_EEEvDpOT_.exit, label %land.rhs.i.i.i, !llvm.loop !11
 
 _ZNSt14priority_queueISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL__N_18CentroidESt6vectorIS6_SaIS6_EEEESC_ES9_ISD_SaISD_EEZNS4_7TDigest11TDigestImpl5MergeERKS9_IPKSH_SaISJ_EEEUlRKSD_SP_E_E7emplaceIJRSC_ST_EEEvDpOT_.exit: ; preds = %land.rhs.i.i.i, %while.body.i.i.i70, %_ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL__N_18CentroidES_IS6_SaIS6_EEEESB_ESaISC_EE12emplace_backIJRSB_SG_EEERSC_DpOT_.exit.i
   %__holeIndex.addr.0.lcssa.i.i.i = phi i64 [ %sub.i.i, %_ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL__N_18CentroidES_IS6_SaIS6_EEEESB_ESaISC_EE12emplace_backIJRSB_SG_EEERSC_DpOT_.exit.i ], [ %__holeIndex.addr.04.i.i.i, %land.rhs.i.i.i ], [ 0, %while.body.i.i.i70 ]
   %add.ptr.i12.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %call5.i.i.i.i.i.i77114, i64 %__holeIndex.addr.0.lcssa.i.i.i
-  %33 = ptrtoint <2 x ptr> %29 to <2 x i64>
-  store <2 x i64> %33, ptr %add.ptr.i12.i.i.i, align 8
+  store <2 x ptr> %28, ptr %add.ptr.i12.i.i.i, align 8
   br label %if.end63
 
 if.end63:                                         ; preds = %invoke.cont58.if.end63_crit_edge, %_ZNSt14priority_queueISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL__N_18CentroidESt6vectorIS6_SaIS6_EEEESC_ES9_ISD_SaISD_EEZNS4_7TDigest11TDigestImpl5MergeERKS9_IPKSH_SaISJ_EEEUlRKSD_SP_E_E7emplaceIJRSC_ST_EEEvDpOT_.exit
   %sub.ptr.sub.i.i50.pre-phi = phi i64 [ %.pre131, %invoke.cont58.if.end63_crit_edge ], [ %sub.ptr.sub.i.i.i69, %_ZNSt14priority_queueISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL__N_18CentroidESt6vectorIS6_SaIS6_EEEESC_ES9_ISD_SaISD_EEZNS4_7TDigest11TDigestImpl5MergeERKS9_IPKSH_SaISJ_EEEUlRKSD_SP_E_E7emplaceIJRSC_ST_EEEvDpOT_.exit ]
   %sub.ptr.rhs.cast.i.i49.pre-phi = phi i64 [ %.pre130, %invoke.cont58.if.end63_crit_edge ], [ %sub.ptr.rhs.cast.i.i.i68, %_ZNSt14priority_queueISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL__N_18CentroidESt6vectorIS6_SaIS6_EEEESC_ES9_ISD_SaISD_EEZNS4_7TDigest11TDigestImpl5MergeERKS9_IPKSH_SaISJ_EEEUlRKSD_SP_E_E7emplaceIJRSC_ST_EEEvDpOT_.exit ]
-  %34 = phi ptr [ %20, %invoke.cont58.if.end63_crit_edge ], [ %28, %_ZNSt14priority_queueISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL__N_18CentroidESt6vectorIS6_SaIS6_EEEESC_ES9_ISD_SaISD_EEZNS4_7TDigest11TDigestImpl5MergeERKS9_IPKSH_SaISJ_EEEUlRKSD_SP_E_E7emplaceIJRSC_ST_EEEvDpOT_.exit ]
+  %31 = phi ptr [ %20, %invoke.cont58.if.end63_crit_edge ], [ %27, %_ZNSt14priority_queueISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL__N_18CentroidESt6vectorIS6_SaIS6_EEEESC_ES9_ISD_SaISD_EEZNS4_7TDigest11TDigestImpl5MergeERKS9_IPKSH_SaISJ_EEEUlRKSD_SP_E_E7emplaceIJRSC_ST_EEEvDpOT_.exit ]
   %queue.val25118 = phi ptr [ %incdec.ptr.i.i, %invoke.cont58.if.end63_crit_edge ], [ %this.val1.i65, %_ZNSt14priority_queueISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL__N_18CentroidESt6vectorIS6_SaIS6_EEEESC_ES9_ISD_SaISD_EEZNS4_7TDigest11TDigestImpl5MergeERKS9_IPKSH_SaISJ_EEEUlRKSD_SP_E_E7emplaceIJRSC_ST_EEEvDpOT_.exit ]
   %call5.i.i.i.i.i.i77115 = phi ptr [ %call5.i.i.i.i.i.i77116124, %invoke.cont58.if.end63_crit_edge ], [ %call5.i.i.i.i.i.i77114, %_ZNSt14priority_queueISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL__N_18CentroidESt6vectorIS6_SaIS6_EEEESC_ES9_ISD_SaISD_EEZNS4_7TDigest11TDigestImpl5MergeERKS9_IPKSH_SaISJ_EEEUlRKSD_SP_E_E7emplaceIJRSC_ST_EEEvDpOT_.exit ]
   %cmp50 = icmp ugt i64 %sub.ptr.sub.i.i50.pre-phi, 16
@@ -1217,16 +1214,16 @@ while.end:                                        ; preds = %if.end63, %invoke.c
   br i1 %cmp.i.i.i78, label %invoke.cont83, label %if.then66
 
 if.then66:                                        ; preds = %while.end
-  %35 = load i64, ptr %queue.val24.lcssa, align 8
-  %36 = inttoptr i64 %35 to ptr
+  %32 = load i64, ptr %queue.val24.lcssa, align 8
+  %33 = inttoptr i64 %32 to ptr
   %second.i80 = getelementptr inbounds %"struct.std::pair", ptr %queue.val24.lcssa, i64 0, i32 1
-  %37 = load i64, ptr %second.i80, align 8
-  %38 = inttoptr i64 %37 to ptr
+  %34 = load i64, ptr %second.i80, align 8
+  %35 = inttoptr i64 %34 to ptr
   br label %while.cond71
 
 while.cond71:                                     ; preds = %while.body73, %if.then66
-  %current_iter.sroa.0.0 = phi ptr [ %36, %if.then66 ], [ %incdec.ptr.i83, %while.body73 ]
-  %cmp.i82.not = icmp eq ptr %current_iter.sroa.0.0, %38
+  %current_iter.sroa.0.0 = phi ptr [ %33, %if.then66 ], [ %incdec.ptr.i83, %while.body73 ]
+  %cmp.i82.not = icmp eq ptr %current_iter.sroa.0.0, %35
   br i1 %cmp.i82.not, label %invoke.cont83, label %while.body73
 
 while.body73:                                     ; preds = %while.cond71
@@ -1238,8 +1235,8 @@ invoke.cont83:                                    ; preds = %while.cond71, %whil
   store ptr null, ptr %tdigest_.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %total_weight_.i, i8 0, i64 16, i1 false)
   store double -1.000000e+00, ptr %weight_limit_.i, align 8
-  %39 = load i32, ptr %current_, align 8
-  %sub85 = sub nsw i32 1, %39
+  %36 = load i32, ptr %current_, align 8
+  %sub85 = sub nsw i32 1, %36
   store i32 %sub85, ptr %current_, align 8
   %tobool.not.i.i.i.i89 = icmp eq ptr %queue.val24.lcssa, null
   br i1 %tobool.not.i.i.i.i89, label %_ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL__N_18CentroidES_IS6_SaIS6_EEEESB_ESaISC_EED2Ev.exit, label %if.then.i.i.i.i90
@@ -2211,21 +2208,19 @@ land.rhs.i.i:                                     ; preds = %land.rhs.i.i.prehea
   br i1 %cmp.i.i.i.i3, label %while.body.i.i, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINS1_IPKN5arrow8internal12_GLOBAL__N_18CentroidESt6vectorIS6_SaIS6_EEEESC_ES9_ISD_SaISD_EEEEZNS4_7TDigest11TDigestImpl5MergeERKS9_IPKSJ_SaISL_EEEUlRKSD_SR_E_EvT_ST_T0_.exit
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
-  %6 = ptrtoint ptr %call.val.i.i.i to i64
   %add.ptr.i11.i.i = getelementptr inbounds %"struct.std::pair", ptr %this.val, i64 %__holeIndex.addr.04.i.i
-  store i64 %6, ptr %add.ptr.i11.i.i, align 8
+  store ptr %call.val.i.i.i, ptr %add.ptr.i11.i.i, align 8
   %second.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %this.val, i64 %__parent.05.i23.i, i32 1
   %second3.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %this.val, i64 %__holeIndex.addr.04.i.i, i32 1
-  %7 = load i64, ptr %second.i.i.i, align 8
-  store i64 %7, ptr %second3.i.i.i, align 8
+  %6 = load i64, ptr %second.i.i.i, align 8
+  store i64 %6, ptr %second3.i.i.i, align 8
   %cmp.i.not.i = icmp ult i64 %__parent.05.in.i.i, 2
   br i1 %cmp.i.not.i, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINS1_IPKN5arrow8internal12_GLOBAL__N_18CentroidESt6vectorIS6_SaIS6_EEEESC_ES9_ISD_SaISD_EEEEZNS4_7TDigest11TDigestImpl5MergeERKS9_IPKSJ_SaISL_EEEUlRKSD_SR_E_EvT_ST_T0_.exit, label %land.rhs.i.i, !llvm.loop !11
 
 _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINS1_IPKN5arrow8internal12_GLOBAL__N_18CentroidESt6vectorIS6_SaIS6_EEEESC_ES9_ISD_SaISD_EEEEZNS4_7TDigest11TDigestImpl5MergeERKS9_IPKSJ_SaISL_EEEUlRKSD_SR_E_EvT_ST_T0_.exit: ; preds = %land.rhs.i.i, %while.body.i.i, %_ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL__N_18CentroidES_IS6_SaIS6_EEEESB_ESaISC_EE12emplace_backIJSB_SB_EEERSC_DpOT_.exit
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %sub.i, %_ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKN5arrow8internal12_GLOBAL__N_18CentroidES_IS6_SaIS6_EEEESB_ESaISC_EE12emplace_backIJSB_SB_EEERSC_DpOT_.exit ], [ 0, %while.body.i.i ], [ %__holeIndex.addr.04.i.i, %land.rhs.i.i ]
   %add.ptr.i12.i.i = getelementptr inbounds %"struct.std::pair", ptr %this.val, i64 %__holeIndex.addr.0.lcssa.i.i
-  %8 = ptrtoint <2 x ptr> %4 to <2 x i64>
-  store <2 x i64> %8, ptr %add.ptr.i12.i.i, align 8
+  store <2 x ptr> %4, ptr %add.ptr.i12.i.i, align 8
   ret void
 }
 
@@ -2423,24 +2418,21 @@ land.rhs.i:                                       ; preds = %if.end35, %while.bo
   br i1 %cmp.i.i.i, label %while.body.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINS1_IPKN5arrow8internal12_GLOBAL__N_18CentroidESt6vectorIS6_SaIS6_EEEESC_ES9_ISD_SaISD_EEEElSD_NS0_5__ops14_Iter_comp_valIZNS4_7TDigest11TDigestImpl5MergeERKS9_IPKSL_SaISN_EEEUlRKSD_ST_E_EEEvT_T0_SX_T1_RT2_.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %2 = ptrtoint ptr %call.val.i.i to i64
   %add.ptr.i11.i = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %__holeIndex.addr.04.i
-  store i64 %2, ptr %add.ptr.i11.i, align 8
+  store ptr %call.val.i.i, ptr %add.ptr.i11.i, align 8
   %second.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %__parent.05.i, i32 1
   %second3.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %__holeIndex.addr.04.i, i32 1
-  %3 = load i64, ptr %second.i.i, align 8
-  store i64 %3, ptr %second3.i.i, align 8
+  %2 = load i64, ptr %second.i.i, align 8
+  store i64 %2, ptr %second3.i.i, align 8
   %cmp.i = icmp sgt i64 %__parent.05.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINS1_IPKN5arrow8internal12_GLOBAL__N_18CentroidESt6vectorIS6_SaIS6_EEEESC_ES9_ISD_SaISD_EEEElSD_NS0_5__ops14_Iter_comp_valIZNS4_7TDigest11TDigestImpl5MergeERKS9_IPKSL_SaISN_EEEUlRKSD_ST_E_EEEvT_T0_SX_T1_RT2_.exit, !llvm.loop !11
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINS1_IPKN5arrow8internal12_GLOBAL__N_18CentroidESt6vectorIS6_SaIS6_EEEESC_ES9_ISD_SaISD_EEEElSD_NS0_5__ops14_Iter_comp_valIZNS4_7TDigest11TDigestImpl5MergeERKS9_IPKSL_SaISN_EEEUlRKSD_ST_E_EEEvT_T0_SX_T1_RT2_.exit: ; preds = %land.rhs.i, %while.body.i, %if.end35
   %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end35 ], [ %__holeIndex.addr.04.i, %land.rhs.i ], [ %__parent.05.i, %while.body.i ]
   %add.ptr.i12.i = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
-  %4 = ptrtoint ptr %__value.coerce0 to i64
-  store i64 %4, ptr %add.ptr.i12.i, align 8
+  store ptr %__value.coerce0, ptr %add.ptr.i12.i, align 8
   %second3.i14.i = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i, i32 1
-  %5 = ptrtoint ptr %__value.coerce1 to i64
-  store i64 %5, ptr %second3.i14.i, align 8
+  store ptr %__value.coerce1, ptr %second3.i14.i, align 8
   ret void
 }
 
@@ -2557,7 +2549,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i, 3
   %.pre.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
   %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds double, ptr %add.ptr.i3.i31.i, i64 %.pre.i.i.i.i.i.i35.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i36.i, ptr nonnull align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
   br label %for.inc.i21.i
 
 if.else.i19.i:                                    ; preds = %for.body.i15.i

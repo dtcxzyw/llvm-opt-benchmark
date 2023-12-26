@@ -1323,17 +1323,16 @@ entry:
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %2 = ptrtoint ptr %call to i64
-  store i64 %2, ptr %0, align 8
-  %3 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %3, i64 1
+  store ptr %call, ptr %0, align 8
+  %2 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %2, i64 1
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
   br label %invoke.cont3
 
 if.else.i.i.i:                                    ; preds = %entry
-  %4 = load ptr, ptr %m_indentRefs, align 8
+  %3 = load ptr, ptr %m_indentRefs, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %4 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
@@ -1364,18 +1363,17 @@ _ZNSt16allocator_traitsISaISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14defau
 _ZNSt12_Vector_baseISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i, %_ZNKSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
   %cond.i10.i = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i ], [ %call5.i.i.i.i14, %_ZNSt16allocator_traitsISaISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i ]
   %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr", ptr %cond.i10.i, i64 %sub.ptr.div.i.i.i
-  %5 = ptrtoint ptr %call to i64
-  store i64 %5, ptr %add.ptr.i, align 8
-  %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
+  store ptr %call, ptr %add.ptr.i, align 8
+  %cmp.not5.i.i.i.i.i = icmp eq ptr %3, %0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i, %for.body.i.i.i.i.i
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ]
-  %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ]
+  %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %3, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  %6 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !17, !noalias !14
-  store i64 %6, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !14, !noalias !17
+  %4 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !17, !noalias !14
+  store i64 %4, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !14, !noalias !17
   store ptr null, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !17, !noalias !14
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__first.addr.06.i.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__cur.07.i.i.i.i.i, i64 1
@@ -1385,11 +1383,11 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %incdec.ptr.i = getelementptr %"class.std::unique_ptr", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %4, null
+  %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %.noexc, label %if.then.i20.i
 
 if.then.i20.i:                                    ; preds = %_ZNSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #21
   br label %.noexc
 
 .noexc:                                           ; preds = %if.then.i20.i, %_ZNSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i
@@ -1400,21 +1398,21 @@ if.then.i20.i:                                    ; preds = %_ZNSt6vectorISt10un
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %.noexc, %if.then.i.i.i
-  %7 = phi ptr [ %__cur.0.lcssa.i.i.i.i.i, %.noexc ], [ %3, %if.then.i.i.i ]
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %ref.tmp, align 8
+  %5 = phi ptr [ %__cur.0.lcssa.i.i.i.i.i, %.noexc ], [ %2, %if.then.i.i.i ]
+  %6 = load ptr, ptr %5, align 8
+  store ptr %6, ptr %ref.tmp, align 8
   %_M_finish.i.i.i2 = getelementptr inbounds %"class.YAML::Scanner", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 0, i32 3
-  %9 = load ptr, ptr %_M_finish.i.i.i2, align 8
+  %7 = load ptr, ptr %_M_finish.i.i.i2, align 8
   %_M_last.i.i.i = getelementptr inbounds %"class.YAML::Scanner", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 0, i32 3, i32 2
-  %10 = load ptr, ptr %_M_last.i.i.i, align 8
-  %add.ptr.i.i.i3 = getelementptr inbounds ptr, ptr %10, i64 -1
-  %cmp.not.i.i.i4 = icmp eq ptr %9, %add.ptr.i.i.i3
+  %8 = load ptr, ptr %_M_last.i.i.i, align 8
+  %add.ptr.i.i.i3 = getelementptr inbounds ptr, ptr %8, i64 -1
+  %cmp.not.i.i.i4 = icmp eq ptr %7, %add.ptr.i.i.i3
   br i1 %cmp.not.i.i.i4, label %if.else.i.i.i7, label %if.then.i.i.i5
 
 if.then.i.i.i5:                                   ; preds = %invoke.cont3
-  store ptr %8, ptr %9, align 8
-  %11 = load ptr, ptr %_M_finish.i.i.i2, align 8
-  %incdec.ptr.i.i.i6 = getelementptr inbounds ptr, ptr %11, i64 1
+  store ptr %6, ptr %7, align 8
+  %9 = load ptr, ptr %_M_finish.i.i.i2, align 8
+  %incdec.ptr.i.i.i6 = getelementptr inbounds ptr, ptr %9, i64 1
   store ptr %incdec.ptr.i.i.i6, ptr %_M_finish.i.i.i2, align 8
   br label %_ZNSt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS2_EED2Ev.exit
 
@@ -3791,17 +3789,16 @@ invoke.cont26:                                    ; preds = %if.then.i.i.i12, %i
   br i1 %cmp.not.i.i.i16, label %if.else.i.i.i19, label %if.then.i.i.i17
 
 if.then.i.i.i17:                                  ; preds = %invoke.cont26
-  %17 = ptrtoint ptr %call2 to i64
-  store i64 %17, ptr %15, align 8
-  %18 = load ptr, ptr %_M_finish.i.i.i15, align 8
-  %incdec.ptr.i.i.i18 = getelementptr inbounds %"class.std::unique_ptr", ptr %18, i64 1
+  store ptr %call2, ptr %15, align 8
+  %17 = load ptr, ptr %_M_finish.i.i.i15, align 8
+  %incdec.ptr.i.i.i18 = getelementptr inbounds %"class.std::unique_ptr", ptr %17, i64 1
   store ptr %incdec.ptr.i.i.i18, ptr %_M_finish.i.i.i15, align 8
   br label %cleanup
 
 if.else.i.i.i19:                                  ; preds = %invoke.cont26
-  %19 = load ptr, ptr %m_indentRefs, align 8
+  %18 = load ptr, ptr %m_indentRefs, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %15 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %19 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
@@ -3832,18 +3829,17 @@ _ZNSt16allocator_traitsISaISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14defau
 _ZNSt12_Vector_baseISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i, %_ZNKSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
   %cond.i10.i = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i ], [ %call5.i.i.i.i28, %_ZNSt16allocator_traitsISaISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EEEE8allocateERS7_m.exit.i.i ]
   %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr", ptr %cond.i10.i, i64 %sub.ptr.div.i.i.i
-  %20 = ptrtoint ptr %call2 to i64
-  store i64 %20, ptr %add.ptr.i, align 8
-  %cmp.not5.i.i.i.i.i = icmp eq ptr %19, %15
+  store ptr %call2, ptr %add.ptr.i, align 8
+  %cmp.not5.i.i.i.i.i = icmp eq ptr %18, %15
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i, %for.body.i.i.i.i.i
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ]
-  %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %19, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ]
+  %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %18, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !48)
   call void @llvm.experimental.noalias.scope.decl(metadata !51)
-  %21 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !51, !noalias !48
-  store i64 %21, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !48, !noalias !51
+  %19 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !51, !noalias !48
+  store i64 %19, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !48, !noalias !51
   store ptr null, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !51, !noalias !48
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__first.addr.06.i.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__cur.07.i.i.i.i.i, i64 1
@@ -3853,11 +3849,11 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %incdec.ptr.i = getelementptr %"class.std::unique_ptr", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
-  %tobool.not.i.i = icmp eq ptr %19, null
+  %tobool.not.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i, label %.noexc20, label %if.then.i20.i
 
 if.then.i20.i:                                    ; preds = %_ZNSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i
-  call void @_ZdlPv(ptr noundef nonnull %19) #21
+  call void @_ZdlPv(ptr noundef nonnull %18) #21
   br label %.noexc20
 
 .noexc20:                                         ; preds = %if.then.i20.i, %_ZNSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i
@@ -3868,8 +3864,8 @@ if.then.i20.i:                                    ; preds = %_ZNSt6vectorISt10un
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i.i.i17, %.noexc20
-  %22 = phi ptr [ %18, %if.then.i.i.i17 ], [ %__cur.0.lcssa.i.i.i.i.i, %.noexc20 ]
-  %23 = load ptr, ptr %22, align 8
+  %20 = phi ptr [ %17, %if.then.i.i.i17 ], [ %__cur.0.lcssa.i.i.i.i.i, %.noexc20 ]
+  %21 = load ptr, ptr %20, align 8
   br label %return
 
 _ZNKSt14default_deleteIN4YAML7Scanner12IndentMarkerEEclEPS2_.exit.i24: ; preds = %_ZNSt5stackIPN4YAML7Scanner12IndentMarkerESt5dequeIS3_SaIS3_EEE3topEv.exit, %land.lhs.true16, %land.lhs.true
@@ -3877,7 +3873,7 @@ _ZNKSt14default_deleteIN4YAML7Scanner12IndentMarkerEEclEPS2_.exit.i24: ; preds =
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN4YAML7Scanner12IndentMarkerEEclEPS2_.exit.i24, %cleanup, %entry
-  %retval.1 = phi ptr [ null, %entry ], [ %23, %cleanup ], [ null, %_ZNKSt14default_deleteIN4YAML7Scanner12IndentMarkerEEclEPS2_.exit.i24 ]
+  %retval.1 = phi ptr [ null, %entry ], [ %21, %cleanup ], [ null, %_ZNKSt14default_deleteIN4YAML7Scanner12IndentMarkerEEclEPS2_.exit.i24 ]
   ret ptr %retval.1
 }
 

@@ -1735,21 +1735,20 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call3 = tail call i64 @_Unwind_GetIP(ptr noundef %context)
-  %1 = inttoptr i64 %call3 to ptr
   %current = getelementptr inbounds %"struct.boost::stacktrace::detail::unwind_state", ptr %arg, i64 0, i32 1
+  %1 = load ptr, ptr %current, align 8
+  store i64 %call3, ptr %1, align 8
   %2 = load ptr, ptr %current, align 8
-  store ptr %1, ptr %2, align 8
-  %3 = load ptr, ptr %current, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %3, i64 1
+  %incdec.ptr = getelementptr inbounds ptr, ptr %2, i64 1
   store ptr %incdec.ptr, ptr %current, align 8
-  %4 = load ptr, ptr %3, align 8
-  %tobool6.not = icmp eq ptr %4, null
+  %3 = load ptr, ptr %2, align 8
+  %tobool6.not = icmp eq ptr %3, null
   br i1 %tobool6.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
   %end = getelementptr inbounds %"struct.boost::stacktrace::detail::unwind_state", ptr %arg, i64 0, i32 2
-  %5 = load ptr, ptr %end, align 8
-  %cmp = icmp eq ptr %incdec.ptr, %5
+  %4 = load ptr, ptr %end, align 8
+  %cmp = icmp eq ptr %incdec.ptr, %4
   %spec.select = select i1 %cmp, i32 5, i32 0
   br label %return
 
@@ -5087,7 +5086,7 @@ do.body.i.i.i.i:                                  ; preds = %do.body.i.i.i.i, %_
   br i1 %cmp.not.i.i.i.i, label %_ZN3fmt2v86detail5writeIcNS0_8appenderEvTnNSt9enable_ifIXsr3std7is_sameIT1_vEE5valueEiE4typeELi0EEET0_S8_PKS5_RKNS0_18basic_format_specsIT_EENS1_10locale_refE.exit, label %do.body.i.i.i.i, !llvm.loop !54
 
 _ZN3fmt2v86detail5writeIcNS0_8appenderEvTnNSt9enable_ifIXsr3std7is_sameIT1_vEE5valueEiE4typeELi0EEET0_S8_PKS5_RKNS0_18basic_format_specsIT_EENS1_10locale_refE.exit: ; preds = %do.body.i.i.i.i
-  store i64 %2, ptr %write.i.i, align 8
+  store ptr %value, ptr %write.i.i, align 8
   %3 = getelementptr inbounds %class.anon.107, ptr %write.i.i, i64 0, i32 1
   store i32 %inc.i.i.i.i, ptr %3, align 8
   %narrow.i.i = add nuw i32 %num_digits.0.i.i.i.i, 3
@@ -24778,7 +24777,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %con
   br i1 %cmp.not.i.i.i, label %_ZN3fmt2v86detail9write_ptrIcNS0_8appenderEmEET0_S4_T1_PKNS0_18basic_format_specsIT_EE.exit, label %do.body.i.i.i, !llvm.loop !54
 
 _ZN3fmt2v86detail9write_ptrIcNS0_8appenderEmEET0_S4_T1_PKNS0_18basic_format_specsIT_EE.exit: ; preds = %do.body.i.i.i
-  store i64 %4, ptr %write.i, align 8
+  store ptr %s, ptr %write.i, align 8
   %5 = getelementptr inbounds %class.anon.107, ptr %write.i, i64 0, i32 1
   store i32 %inc.i.i.i, ptr %5, align 8
   %narrow.i = add nuw i32 %num_digits.0.i.i.i, 3
@@ -25996,17 +25995,16 @@ if.end4:                                          ; preds = %for.body
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i9
 
 if.then.i.i9:                                     ; preds = %if.end4
-  %7 = ptrtoint ptr %4 to i64
-  store i64 %7, ptr %5, align 8
-  %8 = load ptr, ptr %_M_finish.i.i7, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.boost::stacktrace::frame", ptr %8, i64 1
+  store ptr %4, ptr %5, align 8
+  %7 = load ptr, ptr %_M_finish.i.i7, align 8
+  %incdec.ptr.i.i = getelementptr inbounds %"class.boost::stacktrace::frame", ptr %7, i64 1
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i7, align 8
   br label %_ZNSt6vectorIN5boost10stacktrace5frameESaIS2_EE9push_backEOS2_.exit
 
 if.else.i.i:                                      ; preds = %if.end4
-  %9 = load ptr, ptr %this, align 8
+  %8 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %9 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIN5boost10stacktrace5frameESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -26034,18 +26032,17 @@ _ZNSt16allocator_traitsISaIN5boost10stacktrace5frameEEE8allocateERS3_m.exit.i.i.
 _ZNSt12_Vector_baseIN5boost10stacktrace5frameESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIN5boost10stacktrace5frameEEE8allocateERS3_m.exit.i.i.i.i, %_ZNKSt6vectorIN5boost10stacktrace5frameESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
   %cond.i10.i.i.i = phi ptr [ %call5.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN5boost10stacktrace5frameEEE8allocateERS3_m.exit.i.i.i.i ], [ null, %_ZNKSt6vectorIN5boost10stacktrace5frameESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %"class.boost::stacktrace::frame", ptr %cond.i10.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
-  %10 = ptrtoint ptr %4 to i64
-  store i64 %10, ptr %add.ptr.i.i.i, align 8
-  %cmp.not5.i.i.i.i.i.i = icmp eq ptr %9, %5
+  store ptr %4, ptr %add.ptr.i.i.i, align 8
+  %cmp.not5.i.i.i.i.i.i = icmp eq ptr %8, %5
   br i1 %cmp.not5.i.i.i.i.i.i, label %_ZNSt6vectorIN5boost10stacktrace5frameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseIN5boost10stacktrace5frameESaIS2_EE11_M_allocateEm.exit.i.i.i, %for.body.i.i.i.i.i.i
   %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN5boost10stacktrace5frameESaIS2_EE11_M_allocateEm.exit.i.i.i ]
-  %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %9, %_ZNSt12_Vector_baseIN5boost10stacktrace5frameESaIS2_EE11_M_allocateEm.exit.i.i.i ]
+  %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %8, %_ZNSt12_Vector_baseIN5boost10stacktrace5frameESaIS2_EE11_M_allocateEm.exit.i.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !160)
-  %11 = load i64, ptr %__first.addr.06.i.i.i.i.i.i, align 8, !alias.scope !160, !noalias !157
-  store i64 %11, ptr %__cur.07.i.i.i.i.i.i, align 8, !alias.scope !157, !noalias !160
+  %9 = load i64, ptr %__first.addr.06.i.i.i.i.i.i, align 8, !alias.scope !160, !noalias !157
+  store i64 %9, ptr %__cur.07.i.i.i.i.i.i, align 8, !alias.scope !157, !noalias !160
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.boost::stacktrace::frame", ptr %__first.addr.06.i.i.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds %"class.boost::stacktrace::frame", ptr %__cur.07.i.i.i.i.i.i, i64 1
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %5
@@ -26054,11 +26051,11 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorIN5boost10stacktrace5frameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN5boost10stacktrace5frameESaIS2_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN5boost10stacktrace5frameESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i = getelementptr %"class.boost::stacktrace::frame", ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 1
-  %tobool.not.i.i.i.i = icmp eq ptr %9, null
+  %tobool.not.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN5boost10stacktrace5frameESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
 if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorIN5boost10stacktrace5frameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #28
   br label %_ZNSt6vectorIN5boost10stacktrace5frameESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN5boost10stacktrace5frameESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorIN5boost10stacktrace5frameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i

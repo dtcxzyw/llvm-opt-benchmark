@@ -67,8 +67,7 @@ entry:
 define void @_ZN6google8protobuf5EmptyC2EPNS0_5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %arena) unnamed_addr #4 align 2 {
 entry:
   %_internal_metadata_.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %0 = ptrtoint ptr %arena to i64
-  store i64 %0, ptr %_internal_metadata_.i.i.i, align 8
+  store ptr %arena, ptr %_internal_metadata_.i.i.i, align 8
   %_cached_size_.i = getelementptr inbounds %"class.google::protobuf::internal::ZeroFieldsBase", ptr %this, i64 0, i32 1
   store i32 0, ptr %_cached_size_.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf5EmptyE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
@@ -79,21 +78,20 @@ entry:
 define void @_ZN6google8protobuf5EmptyC2EPNS0_5ArenaERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %arena, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %0 = ptrtoint ptr %arena to i64
-  store i64 %0, ptr %_internal_metadata_.i.i.i, align 8
+  store ptr %arena, ptr %_internal_metadata_.i.i.i, align 8
   %_cached_size_.i = getelementptr inbounds %"class.google::protobuf::internal::ZeroFieldsBase", ptr %this, i64 0, i32 1
   store i32 0, ptr %_cached_size_.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf5EmptyE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_2 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %from, i64 0, i32 1
-  %1 = load i64, ptr %_internal_metadata_2, align 8
-  %and.i16 = and i64 %1, 1
+  %0 = load i64, ptr %_internal_metadata_2, align 8
+  %and.i16 = and i64 %0, 1
   %tobool.i17.not = icmp eq i64 %and.i16, 0
   br i1 %tobool.i17.not, label %invoke.cont, label %if.then.i10
 
 if.then.i10:                                      ; preds = %entry
-  %and.i = and i64 %1, -2
-  %2 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %2, i64 0, i32 1
+  %and.i = and i64 %0, -2
+  %1 = inttoptr i64 %and.i to ptr
+  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %1, i64 0, i32 1
   invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
           to label %invoke.cont unwind label %lpad
 
@@ -101,10 +99,10 @@ invoke.cont:                                      ; preds = %entry, %if.then.i10
   ret void
 
 lpad:                                             ; preds = %if.then.i10
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6google8protobuf8internal14ZeroFieldsBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) #9
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %2
 }
 
 declare i32 @__gxx_personality_v0(...)

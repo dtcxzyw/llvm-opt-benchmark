@@ -546,7 +546,7 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 noundef %2) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i)
   %call.i7.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_MN4node9inspector8protocol11NodeRuntime14DispatcherImplEFviRS8_SE_St10unique_ptrINSB_15DictionaryValueESt14default_deleteISG_EEPNSB_12ErrorSupportEEESaISO_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %m_dispatchMap.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
-  store i64 ptrtoint (ptr @_ZN4node9inspector8protocol11NodeRuntime14DispatcherImpl30notifyWhenWaitingForDisconnectEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St10unique_ptrINS1_15DictionaryValueESt14default_deleteISD_EEPNS1_12ErrorSupportE to i64), ptr %call.i7.i, align 8
+  store ptr @_ZN4node9inspector8protocol11NodeRuntime14DispatcherImpl30notifyWhenWaitingForDisconnectEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St10unique_ptrINS1_15DictionaryValueESt14default_deleteISD_EEPNS1_12ErrorSupportE, ptr %call.i7.i, align 8
   %call.repack1.i = getelementptr inbounds { i64, i64 }, ptr %call.i7.i, i64 0, i32 1
   store i64 0, ptr %call.repack1.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #10

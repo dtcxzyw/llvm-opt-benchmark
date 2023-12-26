@@ -1193,20 +1193,19 @@ entry:
   %roundtrip_val = alloca float, align 4
   %err = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  store ptr inttoptr (i64 6 to ptr), ptr %ref.tmp.i, align 8, !noalias !35
+  store i64 6, ptr %ref.tmp.i, align 8, !noalias !35
   %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 0, i32 1
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !35
   %arrayinit.element.i = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 1
   %0 = bitcast float %v to i32
   %retval.sroa.0.0.insert.ext.i.i.i2.i = zext i32 %0 to i64
-  %1 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i2.i to ptr
-  store ptr %1, ptr %arrayinit.element.i, align 8, !noalias !35
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i2.i, ptr %arrayinit.element.i, align 8, !noalias !35
   %dispatcher_.i.i3.i = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 1, i32 1
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIfEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i3.i, align 8, !noalias !35
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %digit10_str, ptr nonnull @.str.27, i64 4, ptr nonnull %ref.tmp.i, i64 2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %2 = call float @llvm.fabs.f32(float %v)
-  %or.cond = fcmp ueq float %2, 0x7FF0000000000000
+  %1 = call float @llvm.fabs.f32(float %v)
+  %or.cond = fcmp ueq float %1, 0x7FF0000000000000
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1217,14 +1216,14 @@ if.end:                                           ; preds = %entry
   store float 0.000000e+00, ptr %roundtrip_val, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %err) #14
   %call3 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %digit10_str) #14
-  %3 = extractvalue { i64, ptr } %call3, 0
-  %4 = extractvalue { i64, ptr } %call3, 1
-  %call.i.i.i12 = invoke noundef zeroext i1 @_ZN4absl10SimpleAtofESt17basic_string_viewIcSt11char_traitsIcEEPf(i64 %3, ptr %4, ptr noundef nonnull %roundtrip_val)
+  %2 = extractvalue { i64, ptr } %call3, 0
+  %3 = extractvalue { i64, ptr } %call3, 1
+  %call.i.i.i12 = invoke noundef zeroext i1 @_ZN4absl10SimpleAtofESt17basic_string_viewIcSt11char_traitsIcEEPf(i64 %2, ptr %3, ptr noundef nonnull %roundtrip_val)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %if.end
-  %5 = load float, ptr %roundtrip_val, align 4
-  %cmp = fcmp oeq float %5, %v
+  %4 = load float, ptr %roundtrip_val, align 4
+  %cmp = fcmp oeq float %4, %v
   %or.cond18 = select i1 %call.i.i.i12, i1 %cmp, i1 false
   br i1 %or.cond18, label %if.then7, label %invoke.cont10
 
@@ -1233,19 +1232,19 @@ if.then7:                                         ; preds = %invoke.cont5
   br label %cleanup
 
 lpad4:                                            ; preds = %invoke.cont10, %if.end
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %err) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %digit10_str) #14
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %5
 
 invoke.cont10:                                    ; preds = %invoke.cont5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i5)
-  store ptr inttoptr (i64 9 to ptr), ptr %ref.tmp.i5, align 8, !noalias !38
+  store i64 9, ptr %ref.tmp.i5, align 8, !noalias !38
   %dispatcher_.i.i.i9 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %ref.tmp.i5, i64 0, i32 1
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i9, align 8, !noalias !38
   %arrayinit.element.i10 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %ref.tmp.i5, i64 1
-  store ptr %1, ptr %arrayinit.element.i10, align 8, !noalias !38
+  store i64 %retval.sroa.0.0.insert.ext.i.i.i2.i, ptr %arrayinit.element.i10, align 8, !noalias !38
   %dispatcher_.i.i3.i13 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %ref.tmp.i5, i64 1, i32 1
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIfEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i3.i13, align 8, !noalias !38
   invoke void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.27, i64 4, ptr nonnull %ref.tmp.i5, i64 2)
@@ -1282,19 +1281,17 @@ entry:
   %err = alloca %"class.std::__cxx11::basic_string", align 8
   store double %v, ptr %v.addr, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  store ptr inttoptr (i64 15 to ptr), ptr %ref.tmp.i, align 8, !noalias !41
+  store i64 15, ptr %ref.tmp.i, align 8, !noalias !41
   %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 0, i32 1
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !41
   %arrayinit.element.i = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 1
-  %0 = bitcast double %v to i64
-  %1 = inttoptr i64 %0 to ptr
-  store ptr %1, ptr %arrayinit.element.i, align 8, !noalias !41
+  store double %v, ptr %arrayinit.element.i, align 8, !noalias !41
   %dispatcher_.i.i2.i = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 1, i32 1
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIdEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i2.i, align 8, !noalias !41
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %digit10_str, ptr nonnull @.str.27, i64 4, ptr nonnull %ref.tmp.i, i64 2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %2 = call double @llvm.fabs.f64(double %v)
-  %or.cond = fcmp ueq double %2, 0x7FF0000000000000
+  %0 = call double @llvm.fabs.f64(double %v)
+  %or.cond = fcmp ueq double %0, 0x7FF0000000000000
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1305,9 +1302,9 @@ if.end:                                           ; preds = %entry
   store double 0.000000e+00, ptr %roundtrip_val, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %err) #14
   %call3 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %digit10_str) #14
-  %3 = extractvalue { i64, ptr } %call3, 0
-  %4 = extractvalue { i64, ptr } %call3, 1
-  %call.i.i.i12 = invoke noundef zeroext i1 @_ZN4absl10SimpleAtodESt17basic_string_viewIcSt11char_traitsIcEEPd(i64 %3, ptr %4, ptr noundef nonnull %roundtrip_val)
+  %1 = extractvalue { i64, ptr } %call3, 0
+  %2 = extractvalue { i64, ptr } %call3, 1
+  %call.i.i.i12 = invoke noundef zeroext i1 @_ZN4absl10SimpleAtodESt17basic_string_viewIcSt11char_traitsIcEEPd(i64 %1, ptr %2, ptr noundef nonnull %roundtrip_val)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %if.end
@@ -1318,11 +1315,11 @@ invoke.cont5.invoke.cont10_crit_edge:             ; preds = %invoke.cont5
   br label %invoke.cont10
 
 land.lhs.true:                                    ; preds = %invoke.cont5
-  %5 = load double, ptr %roundtrip_val, align 8
+  %3 = load double, ptr %roundtrip_val, align 8
   %v.addr.0.v.addr.0.v.addr.0.14 = load double, ptr %v.addr, align 8
-  %cmp = fcmp oeq double %5, %v.addr.0.v.addr.0.v.addr.0.14
-  %6 = bitcast double %v.addr.0.v.addr.0.v.addr.0.14 to i64
-  %7 = inttoptr i64 %6 to ptr
+  %cmp = fcmp oeq double %3, %v.addr.0.v.addr.0.v.addr.0.14
+  %4 = bitcast double %v.addr.0.v.addr.0.v.addr.0.14 to i64
+  %5 = inttoptr i64 %4 to ptr
   br i1 %cmp, label %if.then7, label %invoke.cont10
 
 if.then7:                                         ; preds = %land.lhs.true
@@ -1330,16 +1327,16 @@ if.then7:                                         ; preds = %land.lhs.true
   br label %cleanup
 
 lpad4:                                            ; preds = %invoke.cont10, %if.end
-  %8 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %err) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %digit10_str) #14
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %6
 
 invoke.cont10:                                    ; preds = %invoke.cont5.invoke.cont10_crit_edge, %land.lhs.true
-  %v.addr.0.v.addr.0.retval.sroa.0.0.copyload.i.i.i1.i11 = phi ptr [ %v.addr.0.v.addr.0.v.addr.0.retval.sroa.0.0.copyload.i.i.i1.i11.pre, %invoke.cont5.invoke.cont10_crit_edge ], [ %7, %land.lhs.true ]
+  %v.addr.0.v.addr.0.retval.sroa.0.0.copyload.i.i.i1.i11 = phi ptr [ %v.addr.0.v.addr.0.v.addr.0.retval.sroa.0.0.copyload.i.i.i1.i11.pre, %invoke.cont5.invoke.cont10_crit_edge ], [ %5, %land.lhs.true ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i5)
-  store ptr inttoptr (i64 17 to ptr), ptr %ref.tmp.i5, align 8, !noalias !44
+  store i64 17, ptr %ref.tmp.i5, align 8, !noalias !44
   %dispatcher_.i.i.i9 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %ref.tmp.i5, i64 0, i32 1
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i9, align 8, !noalias !44
   %arrayinit.element.i10 = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %ref.tmp.i5, i64 1

@@ -56,9 +56,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %3 = and i8 %2, 1
   %conv = zext nneg i8 %3 to i64
   %or = or i64 %conv, %1
-  %4 = inttoptr i64 %or to ptr
   %arrayidx6 = getelementptr inbounds %"class.nlsat::ineq_atom", ptr %this, i64 0, i32 2, i64 %indvars.iv
-  store ptr %4, ptr %arrayidx6, align 8
+  store i64 %or, ptr %arrayidx6, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4

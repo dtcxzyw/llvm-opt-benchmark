@@ -265,17 +265,16 @@ entry:
   tail call void @_ZN3euf6egraphC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(536) %m_egraph, ptr noundef nonnull align 8 dereferenceable(976) %m)
   %m_todo = getelementptr inbounds %"class.euf::completion", ptr %this, i64 0, i32 4
   %m_canonical = getelementptr inbounds %"class.euf::completion", ptr %this, i64 0, i32 8
-  %0 = ptrtoint ptr %m to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_todo, i8 0, i64 32, i1 false)
-  store i64 %0, ptr %m_canonical, align 8
+  store ptr %m, ptr %m_canonical, align 8
   %m_nodes.i.i = getelementptr inbounds %"class.euf::completion", ptr %this, i64 0, i32 8, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i, align 8
   %m_eargs = getelementptr inbounds %"class.euf::completion", ptr %this, i64 0, i32 9
-  store i64 %0, ptr %m_eargs, align 8
+  store ptr %m, ptr %m_eargs, align 8
   %m_nodes.i.i13 = getelementptr inbounds %"class.euf::completion", ptr %this, i64 0, i32 9, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i13, align 8
   %m_deps = getelementptr inbounds %"class.euf::completion", ptr %this, i64 0, i32 10
-  store i64 %0, ptr %m_deps, align 8
+  store ptr %m, ptr %m_deps, align 8
   %m_nodes.i.i14 = getelementptr inbounds %"class.euf::completion", ptr %this, i64 0, i32 10, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i14, align 8
   %m_epoch = getelementptr inbounds %"class.euf::completion", ptr %this, i64 0, i32 11
@@ -294,16 +293,16 @@ invoke.cont21:                                    ; preds = %entry
   %m_has_new_eq = getelementptr inbounds %"class.euf::completion", ptr %this, i64 0, i32 16
   store i8 0, ptr %m_has_new_eq, align 4
   %m_true.i = getelementptr inbounds %class.ast_manager, ptr %m, i64 0, i32 15
-  %1 = load ptr, ptr %m_true.i, align 8
-  %call26 = invoke noundef ptr @_ZN3euf6egraph2mkEP4exprjjPKPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(536) %m_egraph, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %0 = load ptr, ptr %m_true.i, align 8
+  %call26 = invoke noundef ptr @_ZN3euf6egraph2mkEP4exprjjPKPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(536) %m_egraph, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef null)
           to label %invoke.cont25 unwind label %lpad23
 
 invoke.cont25:                                    ; preds = %invoke.cont21
   %m_tt = getelementptr inbounds %"class.euf::completion", ptr %this, i64 0, i32 2
   store ptr %call26, ptr %m_tt, align 8
   %m_false.i = getelementptr inbounds %class.ast_manager, ptr %m, i64 0, i32 16
-  %2 = load ptr, ptr %m_false.i, align 8
-  %call31 = invoke noundef ptr @_ZN3euf6egraph2mkEP4exprjjPKPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(536) %m_egraph, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %1 = load ptr, ptr %m_false.i, align 8
+  %call31 = invoke noundef ptr @_ZN3euf6egraph2mkEP4exprjjPKPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(536) %m_egraph, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef null)
           to label %invoke.cont30 unwind label %lpad23
 
 invoke.cont30:                                    ; preds = %invoke.cont25
@@ -320,19 +319,19 @@ invoke.cont35:                                    ; preds = %invoke.cont33
   ret void
 
 lpad20:                                           ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #16
   br label %ehcleanup
 
 lpad23:                                           ; preds = %invoke.cont33, %invoke.cont30, %invoke.cont25, %invoke.cont21
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN11th_rewriterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_rewriter) #16
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad23, %lpad20
-  %.pn = phi { ptr, i32 } [ %4, %lpad23 ], [ %3, %lpad20 ]
+  %.pn = phi { ptr, i32 } [ %3, %lpad23 ], [ %2, %lpad20 ]
   %m_nodes_to_canonize = getelementptr inbounds %"class.euf::completion", ptr %this, i64 0, i32 7
   %m_reps = getelementptr inbounds %"class.euf::completion", ptr %this, i64 0, i32 6
   %m_args = getelementptr inbounds %"class.euf::completion", ptr %this, i64 0, i32 5

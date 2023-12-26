@@ -5442,8 +5442,7 @@ invoke.cont78:                                    ; preds = %if.end8.sink.split.
   call void @llvm.experimental.noalias.scope.decl(metadata !41)
   store i64 %log_number, ptr %ref.tmp75, align 8, !alias.scope !41
   %second.i.i = getelementptr inbounds %"struct.std::pair.654", ptr %ref.tmp75, i64 0, i32 1
-  %.cast = ptrtoint ptr %call60 to i64
-  store i64 %.cast, ptr %second.i.i, align 8, !alias.scope !41
+  store ptr %call60, ptr %second.i.i, align 8, !alias.scope !41
   store ptr null, ptr %ref.tmp76, align 8, !noalias !41
   %114 = load ptr, ptr %_M_parent.i.i.i.i, align 16
   %cmp.not5.i.i.i.i = icmp eq ptr %114, null
@@ -24583,7 +24582,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i, 3
   %.pre.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
   %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds i64, ptr %add.ptr.i3.i31.i, i64 %.pre.i.i.i.i.i.i35.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i36.i, ptr nonnull align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
   br label %for.inc.i21.i
 
 if.else.i19.i:                                    ; preds = %for.body.i15.i

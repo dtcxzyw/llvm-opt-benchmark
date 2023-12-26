@@ -46654,16 +46654,14 @@ _Py_NewRef.exit:                                  ; preds = %if.end9, %if.end.i.
   %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %9, i64 0, i32 1
   %10 = load i64, ptr %_gc_prev.i, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = ptrtoint ptr %add.ptr.i.i to i64
-  store i64 %12, ptr %11, align 8
+  store ptr %add.ptr.i.i, ptr %11, align 8
   %_gc_prev.i.i = getelementptr i8, ptr %call6, i64 -8
-  %13 = load i64, ptr %_gc_prev.i.i, align 8
-  %and.i.i = and i64 %13, 3
+  %12 = load i64, ptr %_gc_prev.i.i, align 8
+  %and.i.i = and i64 %12, 3
   %or.i.i = or i64 %and.i.i, %10
   store i64 %or.i.i, ptr %_gc_prev.i.i, align 8
-  %14 = ptrtoint ptr %9 to i64
-  store i64 %14, ptr %add.ptr.i.i, align 8
-  store i64 %12, ptr %_gc_prev.i, align 8
+  store ptr %9, ptr %add.ptr.i.i, align 8
+  store ptr %add.ptr.i.i, ptr %_gc_prev.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %_Py_NewRef.exit, %if.then

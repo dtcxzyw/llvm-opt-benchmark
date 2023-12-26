@@ -13961,13 +13961,12 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArray
   %31 = load i64, ptr %Current11.i.i.i33, align 8
   %add.ptr12.i.i.i34 = getelementptr inbounds i8, ptr %add.ptr.i.i.i32, i64 %31
   %add.ptr13.i.i.i35 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i34, i64 -16
-  %32 = ptrtoint ptr %call18 to i64
-  store i64 %32, ptr %add.ptr13.i.i.i35, align 8
-  %33 = load ptr, ptr %BlockList.i.i.i27, align 16
-  %Current.i.i.i43 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %33, i64 0, i32 1
-  %34 = load i64, ptr %Current.i.i.i43, align 8
-  %35 = add i64 %34, -4032
-  %cmp.i.i.i44 = icmp ult i64 %35, -4080
+  store ptr %call18, ptr %add.ptr13.i.i.i35, align 8
+  %32 = load ptr, ptr %BlockList.i.i.i27, align 16
+  %Current.i.i.i43 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %32, i64 0, i32 1
+  %33 = load i64, ptr %Current.i.i.i43, align 8
+  %34 = add i64 %33, -4032
+  %cmp.i.i.i44 = icmp ult i64 %34, -4080
   br i1 %cmp.i.i.i44, label %if.then.i.i.i61, label %return.sink.split
 
 if.then.i.i.i61:                                  ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_.exit
@@ -13980,26 +13979,26 @@ if.then.i9.i.i.i66:                               ; preds = %if.then.i.i.i61
   unreachable
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i64: ; preds = %if.then.i.i.i61
-  store ptr %33, ptr %call.i6.i.i.i62, align 8
+  store ptr %32, ptr %call.i6.i.i.i62, align 8
   %Current.i8.i.i.i65 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i62, i64 0, i32 1
   store i64 0, ptr %Current.i8.i.i.i65, align 8
   store ptr %call.i6.i.i.i62, ptr %BlockList.i.i.i27, align 16
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i64, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_.exit, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i, %while.end
-  %.sink95 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %22, %while.end ], [ %call.i6.i.i.i62, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i64 ], [ %33, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_.exit ]
-  %.sink94 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %23, %while.end ], [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i64 ], [ %34, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_.exit ]
+  %.sink95 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %22, %while.end ], [ %call.i6.i.i.i62, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i64 ], [ %32, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_.exit ]
+  %.sink94 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %23, %while.end ], [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i64 ], [ %33, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_.exit ]
   %BlockList.i.i.i.sink = phi ptr [ %BlockList.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %BlockList.i.i.i, %while.end ], [ %BlockList.i.i.i27, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i64 ], [ %BlockList.i.i.i27, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_.exit ]
   %add.ptr13.i.i.i35.sink = phi ptr [ %20, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %20, %while.end ], [ %add.ptr13.i.i.i35, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i64 ], [ %add.ptr13.i.i.i35, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_.exit ]
   %.sink = phi i64 [ %21, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %21, %while.end ], [ 1, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i64 ], [ 1, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_.exit ]
   %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %.sink95, i64 0, i32 1
   %add8.i.i.i = add nsw i64 %.sink94, 48
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
-  %36 = load ptr, ptr %BlockList.i.i.i.sink, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %36, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %36, i64 0, i32 1
-  %37 = load i64, ptr %Current11.i.i.i, align 8
-  %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %37
+  %35 = load ptr, ptr %BlockList.i.i.i.sink, align 16
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %35, i64 1
+  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %35, i64 0, i32 1
+  %36 = load i64, ptr %Current11.i.i.i, align 8
+  %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %36
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
   %K.i.i.i.i54 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -40
   store <4 x i8> <i8 55, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i54, align 8
@@ -27940,9 +27939,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10Vec
   %BaseType.i.i.i81 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i71, i64 -32
   store ptr %call37, ptr %BaseType.i.i.i81, align 8
   %Dimension.i.i.i82 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i71, i64 -24
-  store ptr inttoptr (i64 1 to ptr), ptr %Dimension.i.i.i82, align 8
+  store i64 1, ptr %Dimension.i.i.i82, align 8
   %Dimension_.sroa.2.0.Dimension.sroa_idx.i.i.i83 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i71, i64 -16
-  store ptr inttoptr (i64 1 to ptr), ptr %Dimension_.sroa.2.0.Dimension.sroa_idx.i.i.i83, align 8
+  store i64 1, ptr %Dimension_.sroa.2.0.Dimension.sroa_idx.i.i.i83, align 8
   br label %return
 
 return:                                           ; preds = %while.body.i, %if.end25, %land.lhs.true.i37, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit, %land.lhs.true.i, %entry, %_ZNK10StringView10startsWithES_.exit.i, %if.end35, %if.end28, %if.then22, %if.end14, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10VectorTypeEJRPNS0_4NodeE10StringViewEEES8_DpOT0_.exit, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10VectorTypeEJRPNS0_4NodeES9_EEES8_DpOT0_.exit, %if.end18, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15PixelVectorTypeEJR10StringViewEEEPNS0_4NodeEDpOT0_.exit

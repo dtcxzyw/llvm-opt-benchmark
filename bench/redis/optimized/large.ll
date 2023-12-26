@@ -1554,7 +1554,7 @@ entry:
   %0 = load atomic i64, ptr %e_prof_tctx.i acquire, align 8
   %1 = inttoptr i64 %0 to ptr
   %alloc_tctx1 = getelementptr inbounds %struct.prof_info_s, ptr %prof_info, i64 0, i32 1
-  store ptr %1, ptr %alloc_tctx1, align 8
+  store i64 %0, ptr %alloc_tctx1, align 8
   %cmp = icmp ugt ptr %1, inttoptr (i64 1 to ptr)
   br i1 %cmp, label %if.then, label %if.end5
 
@@ -1750,8 +1750,7 @@ monotonic.i.i:                                    ; preds = %if.then.i, %if.then
   %shl.i74 = shl i64 %10, 16
   %shr10.i = ashr exact i64 %shl.i74, 16
   %and11.i = and i64 %shr10.i, -128
-  %15 = inttoptr i64 %and11.i to ptr
-  store ptr %15, ptr %agg.result, align 8, !alias.scope !11
+  store i64 %and11.i, ptr %agg.result, align 8, !alias.scope !11
   ret void
 }
 

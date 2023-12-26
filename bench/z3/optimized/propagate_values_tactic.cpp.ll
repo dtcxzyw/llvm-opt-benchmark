@@ -278,8 +278,7 @@ entry:
   %m_visit_patterns.i.i = getelementptr inbounds %"class.(anonymous namespace)::propagate_values_tactic", ptr %this, i64 0, i32 5, i32 0, i32 3
   store i8 0, ptr %m_visit_patterns.i.i, align 2
   %m_shared.i.i = getelementptr inbounds %"class.(anonymous namespace)::propagate_values_tactic", ptr %this, i64 0, i32 5, i32 0, i32 4
-  %0 = ptrtoint ptr %m to i64
-  store i64 %0, ptr %m_shared.i.i, align 8
+  store ptr %m, ptr %m_shared.i.i, align 8
   %m_nodes.i.i.i.i = getelementptr inbounds %"class.(anonymous namespace)::propagate_values_tactic", ptr %this, i64 0, i32 5, i32 0, i32 4, i32 0, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_nodes.i.i.i.i, i8 0, i64 16, i1 false)
   %m_params = getelementptr inbounds %"class.(anonymous namespace)::propagate_values_tactic", ptr %this, i64 0, i32 9
@@ -294,8 +293,8 @@ invoke.cont8:                                     ; preds = %entry
           to label %.noexc unwind label %lpad9
 
 .noexc:                                           ; preds = %invoke.cont8
-  %1 = load ptr, ptr %tp.i, align 8
-  %call.i3.i = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(8) %g.i.i, i32 noundef 4)
+  %0 = load ptr, ptr %tp.i, align 8
+  %call.i3.i = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(8) %g.i.i, i32 noundef 4)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc
@@ -303,7 +302,7 @@ invoke.cont.i:                                    ; preds = %.noexc
           to label %invoke.cont10 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %invoke.cont.i, %.noexc
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i.i) #15
   br label %lpad9.body
@@ -320,22 +319,22 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   ret void
 
 lpad7:                                            ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad9:                                            ; preds = %invoke.cont8, %invoke.cont10
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %lpad9.body
 
 lpad9.body:                                       ; preds = %lpad.i, %lpad9
-  %eh.lpad-body = phi { ptr, i32 } [ %4, %lpad9 ], [ %2, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %3, %lpad9 ], [ %1, %lpad.i ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_params) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad9.body, %lpad7
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad9.body ], [ %3, %lpad7 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad9.body ], [ %2, %lpad7 ]
   call void @_ZN11shared_occsD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_occs) #15
   call void @_ZN10scoped_ptrI17expr_substitutionED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_subst) #15
   call void @_ZN11th_rewriterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_r) #15

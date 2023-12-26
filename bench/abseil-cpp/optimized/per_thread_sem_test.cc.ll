@@ -472,36 +472,35 @@ call.i.noexc7:                                    ; preds = %invoke.cont18
   %_M_func.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i8, i64 0, i32 1
   store ptr @_ZN4absl24synchronization_internal16PerThreadSemTest12TimingThreadEPNS0_10ThreadDataE, ptr %_M_func.i.i, align 8
   %_M_bound_args.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i8, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  %1 = ptrtoint ptr %t to i64
-  store i64 %1, ptr %_M_bound_args.i.i.i.i.i.i.i, align 8
+  store ptr %t, ptr %_M_bound_args.i.i.i.i.i.i.i, align 8
   store ptr %call.i8, ptr %agg.tmp.i, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %partner_thread, ptr noundef nonnull %agg.tmp.i, ptr noundef null)
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %call.i.noexc7
-  %2 = load ptr, ptr %agg.tmp.i, align 8
-  %cmp.not.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %agg.tmp.i, align 8
+  %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %invoke.cont19, label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %invoke.cont3.i
-  %vtable.i.i.i = load ptr, ptr %2, align 8
+  %vtable.i.i.i = load ptr, ptr %1, align 8
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
-  %3 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #17
+  %2 = load ptr, ptr %vfn.i.i.i, align 8
+  call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #17
   br label %invoke.cont19
 
 lpad2.i:                                          ; preds = %call.i.noexc7
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
-  %5 = load ptr, ptr %agg.tmp.i, align 8
-  %cmp.not.i2.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %agg.tmp.i, align 8
+  %cmp.not.i2.i = icmp eq ptr %4, null
   br i1 %cmp.not.i2.i, label %ehcleanup57, label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i: ; preds = %lpad2.i
-  %vtable.i.i4.i = load ptr, ptr %5, align 8
+  %vtable.i.i4.i = load ptr, ptr %4, align 8
   %vfn.i.i5.i = getelementptr inbounds ptr, ptr %vtable.i.i4.i, i64 1
-  %6 = load ptr, ptr %vfn.i.i5.i, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  %5 = load ptr, ptr %vfn.i.i5.i, align 8
+  call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
   br label %ehcleanup57
 
 invoke.cont19:                                    ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i, %invoke.cont3.i
@@ -521,28 +520,28 @@ for.body:                                         ; preds = %for.cond.preheader,
           to label %invoke.cont26 unwind label %lpad20.loopexit
 
 invoke.cont26:                                    ; preds = %for.body
-  %7 = load atomic i64, ptr @_ZN4absl13base_internal10CycleClock19cycle_clock_source_E acquire, align 8
-  %cmp.i9 = icmp eq i64 %7, 0
+  %6 = load atomic i64, ptr @_ZN4absl13base_internal10CycleClock19cycle_clock_source_E acquire, align 8
+  %cmp.i9 = icmp eq i64 %6, 0
   br i1 %cmp.i9, label %if.then.i11, label %if.end.i
 
 if.then.i11:                                      ; preds = %invoke.cont26
-  %8 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !5
-  %asmresult.i.i = extractvalue { i64, i64 } %8, 0
-  %asmresult1.i.i = extractvalue { i64, i64 } %8, 1
+  %7 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !5
+  %asmresult.i.i = extractvalue { i64, i64 } %7, 0
+  %asmresult1.i.i = extractvalue { i64, i64 } %7, 1
   %shl.i.i = shl i64 %asmresult1.i.i, 32
   %or.i.i = or i64 %shl.i.i, %asmresult.i.i
   br label %invoke.cont27
 
 if.end.i:                                         ; preds = %invoke.cont26
-  %atomic-temp.i.0.i.i.i = inttoptr i64 %7 to ptr
+  %atomic-temp.i.0.i.i.i = inttoptr i64 %6 to ptr
   %call2.i12 = invoke noundef i64 %atomic-temp.i.0.i.i.i()
           to label %invoke.cont27 unwind label %lpad20.loopexit
 
 invoke.cont27:                                    ; preds = %if.then.i11, %if.end.i
   %retval.0.in.i = phi i64 [ %or.i.i, %if.then.i11 ], [ %call2.i12, %if.end.i ]
   %retval.0.i10 = ashr i64 %retval.0.in.i, 1
-  %9 = load ptr, ptr %identity2, align 8
-  invoke void @AbslInternalPerThreadSemPost(ptr noundef %9)
+  %8 = load ptr, ptr %identity2, align 8
+  invoke void @AbslInternalPerThreadSemPost(ptr noundef %8)
           to label %invoke.cont29 unwind label %lpad20.loopexit
 
 invoke.cont29:                                    ; preds = %invoke.cont27
@@ -551,20 +550,20 @@ invoke.cont29:                                    ; preds = %invoke.cont27
           to label %invoke.cont33 unwind label %lpad20.loopexit
 
 invoke.cont33:                                    ; preds = %invoke.cont29
-  %10 = load atomic i64, ptr @_ZN4absl13base_internal10CycleClock19cycle_clock_source_E acquire, align 8
-  %cmp.i15 = icmp eq i64 %10, 0
+  %9 = load atomic i64, ptr @_ZN4absl13base_internal10CycleClock19cycle_clock_source_E acquire, align 8
+  %cmp.i15 = icmp eq i64 %9, 0
   br i1 %cmp.i15, label %if.then.i20, label %if.end.i16
 
 if.then.i20:                                      ; preds = %invoke.cont33
-  %11 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !5
-  %asmresult.i.i21 = extractvalue { i64, i64 } %11, 0
-  %asmresult1.i.i22 = extractvalue { i64, i64 } %11, 1
+  %10 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !5
+  %asmresult.i.i21 = extractvalue { i64, i64 } %10, 0
+  %asmresult1.i.i22 = extractvalue { i64, i64 } %10, 1
   %shl.i.i23 = shl i64 %asmresult1.i.i22, 32
   %or.i.i24 = or i64 %shl.i.i23, %asmresult.i.i21
   br label %invoke.cont35
 
 if.end.i16:                                       ; preds = %invoke.cont33
-  %atomic-temp.i.0.i.i.i17 = inttoptr i64 %10 to ptr
+  %atomic-temp.i.0.i.i.i17 = inttoptr i64 %9 to ptr
   %call2.i26 = invoke noundef i64 %atomic-temp.i.0.i.i.i17()
           to label %invoke.cont35 unwind label %lpad20.loopexit
 
@@ -579,7 +578,7 @@ invoke.cont35:                                    ; preds = %if.then.i20, %if.en
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 lpad:                                             ; preds = %invoke.cont18, %if.then.i, %cond.end, %invoke.cont, %cond.true
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup57
 
@@ -624,26 +623,26 @@ invoke.cont49:                                    ; preds = %invoke.cont46
   store i64 %call1.i38, ptr %size.i, align 8, !alias.scope !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i)
   store i64 %retval.sroa.0.0.i.i, ptr %ref.tmp.i, align 8, !noalias !11
-  %13 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i, i64 0, i32 1
-  store ptr %msg, ptr %13, align 8, !noalias !11
+  %12 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i, i64 0, i32 1
+  store ptr %msg, ptr %12, align 8, !noalias !11
   %arrayinit.element.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1
   store i64 16, ptr %arrayinit.element.i, align 8, !noalias !11
-  %14 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1, i32 1
-  store ptr @.str.11, ptr %14, align 8, !noalias !11
+  %13 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1, i32 1
+  store ptr @.str.11, ptr %13, align 8, !noalias !11
   %arrayinit.element2.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2
   %retval.sroa.0.0.copyload.i6.i = load i64, ptr %ref.tmp43, align 8, !noalias !11
   %retval.sroa.2.0.copyload.i8.i = load ptr, ptr %_M_str.i.i, align 8, !noalias !11
   store i64 %retval.sroa.0.0.copyload.i6.i, ptr %arrayinit.element2.i, align 8, !noalias !11
-  %15 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2, i32 1
-  store ptr %retval.sroa.2.0.copyload.i8.i, ptr %15, align 8, !noalias !11
+  %14 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2, i32 1
+  store ptr %retval.sroa.2.0.copyload.i8.i, ptr %14, align 8, !noalias !11
   %arrayinit.element4.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3
   store i64 17, ptr %arrayinit.element4.i, align 8, !noalias !11
-  %16 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3, i32 1
-  store ptr @.str.12, ptr %16, align 8, !noalias !11
+  %15 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3, i32 1
+  store ptr @.str.12, ptr %15, align 8, !noalias !11
   %arrayinit.element6.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4
   store i64 %call1.i38, ptr %arrayinit.element6.i, align 8, !noalias !11
-  %17 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4, i32 1
-  store ptr %ref.tmp48, ptr %17, align 8, !noalias !11
+  %16 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4, i32 1
+  store ptr %ref.tmp48, ptr %16, align 8, !noalias !11
   invoke void @_ZN4absl16strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %out, ptr nonnull %ref.tmp.i, i64 5)
           to label %invoke.cont51 unwind label %lpad20.loopexit.split-lp
 
@@ -669,13 +668,13 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %invoke.cont56
   ret void
 
 lpad53:                                           ; preds = %invoke.cont51
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %out) #17
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad20.loopexit, %lpad20.loopexit.split-lp, %lpad53
-  %.pn = phi { ptr, i32 } [ %18, %lpad53 ], [ %lpad.loopexit, %lpad20.loopexit ], [ %lpad.loopexit.split-lp, %lpad20.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %17, %lpad53 ], [ %lpad.loopexit, %lpad20.loopexit ], [ %lpad.loopexit.split-lp, %lpad20.loopexit.split-lp ]
   %agg.tmp.sroa.0.0.copyload.i.i44 = load i64, ptr %partner_thread, align 8
   %cmp.i.i.not.i45 = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i.i44, 0
   br i1 %cmp.i.i.not.i45, label %ehcleanup57, label %if.then.i46
@@ -685,7 +684,7 @@ if.then.i46:                                      ; preds = %ehcleanup
   unreachable
 
 ehcleanup57:                                      ; preds = %ehcleanup, %lpad, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i, %lpad2.i
-  %.pn.pn = phi { ptr, i32 } [ %12, %lpad ], [ %4, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i ], [ %4, %lpad2.i ], [ %.pn, %ehcleanup ]
+  %.pn.pn = phi { ptr, i32 } [ %11, %lpad ], [ %3, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i ], [ %3, %lpad2.i ], [ %.pn, %ehcleanup ]
   call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv_.i.i) #17
   resume { ptr, i32 } %.pn.pn
 }

@@ -2126,16 +2126,14 @@ _Py_NewRef.exit8.i:                               ; preds = %if.end.i.i7.i, %_Py
   %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %16, i64 0, i32 1
   %17 = load i64, ptr %_gc_prev.i.i, align 8
   %18 = inttoptr i64 %17 to ptr
-  %19 = ptrtoint ptr %add.ptr.i.i.i to i64
-  store i64 %19, ptr %18, align 8
+  store ptr %add.ptr.i.i.i, ptr %18, align 8
   %_gc_prev.i.i.i = getelementptr i8, ptr %call.i, i64 -8
-  %20 = load i64, ptr %_gc_prev.i.i.i, align 8
-  %and.i.i.i = and i64 %20, 3
+  %19 = load i64, ptr %_gc_prev.i.i.i, align 8
+  %and.i.i.i = and i64 %19, 3
   %or.i.i.i = or i64 %and.i.i.i, %17
   store i64 %or.i.i.i, ptr %_gc_prev.i.i.i, align 8
-  %21 = ptrtoint ptr %16 to i64
-  store i64 %21, ptr %add.ptr.i.i.i, align 8
-  store i64 %19, ptr %_gc_prev.i.i, align 8
+  store ptr %16, ptr %add.ptr.i.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %_gc_prev.i.i, align 8
   br label %return
 
 return:                                           ; preds = %_Py_NewRef.exit8.i, %if.end4, %descr_check.exit, %if.end.i.i, %if.then
@@ -3037,16 +3035,14 @@ _Py_NewRef.exit:                                  ; preds = %if.then3, %if.end.i
   %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %8, i64 0, i32 1
   %9 = load i64, ptr %_gc_prev.i, align 8
   %10 = inttoptr i64 %9 to ptr
-  %11 = ptrtoint ptr %add.ptr.i.i to i64
-  store i64 %11, ptr %10, align 8
+  store ptr %add.ptr.i.i, ptr %10, align 8
   %_gc_prev.i.i = getelementptr i8, ptr %call1, i64 -8
-  %12 = load i64, ptr %_gc_prev.i.i, align 8
-  %and.i.i = and i64 %12, 3
+  %11 = load i64, ptr %_gc_prev.i.i, align 8
+  %and.i.i = and i64 %11, 3
   %or.i.i = or i64 %and.i.i, %9
   store i64 %or.i.i, ptr %_gc_prev.i.i, align 8
-  %13 = ptrtoint ptr %8 to i64
-  store i64 %13, ptr %add.ptr.i.i, align 8
-  store i64 %11, ptr %_gc_prev.i, align 8
+  store ptr %8, ptr %add.ptr.i.i, align 8
+  store ptr %add.ptr.i.i, ptr %_gc_prev.i, align 8
   br label %return
 
 return:                                           ; preds = %mappingproxy_check_mapping.exit.thread, %if.end, %_Py_NewRef.exit
@@ -3342,16 +3338,14 @@ _Py_NewRef.exit8:                                 ; preds = %_Py_NewRef.exit, %i
   %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %5, i64 0, i32 1
   %6 = load i64, ptr %_gc_prev.i, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = ptrtoint ptr %add.ptr.i.i to i64
-  store i64 %8, ptr %7, align 8
+  store ptr %add.ptr.i.i, ptr %7, align 8
   %_gc_prev.i.i = getelementptr i8, ptr %call, i64 -8
-  %9 = load i64, ptr %_gc_prev.i.i, align 8
-  %and.i.i = and i64 %9, 3
+  %8 = load i64, ptr %_gc_prev.i.i, align 8
+  %and.i.i = and i64 %8, 3
   %or.i.i = or i64 %and.i.i, %6
   store i64 %or.i.i, ptr %_gc_prev.i.i, align 8
-  %10 = ptrtoint ptr %5 to i64
-  store i64 %10, ptr %add.ptr.i.i, align 8
-  store i64 %8, ptr %_gc_prev.i, align 8
+  store ptr %5, ptr %add.ptr.i.i, align 8
+  store ptr %add.ptr.i.i, ptr %_gc_prev.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %_Py_NewRef.exit8, %entry
@@ -3536,16 +3530,14 @@ _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.e
   %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %10, i64 0, i32 1
   %11 = load i64, ptr %_gc_prev.i.i, align 8
   %12 = inttoptr i64 %11 to ptr
-  %13 = ptrtoint ptr %add.ptr.i.i.i to i64
-  store i64 %13, ptr %12, align 8
+  store ptr %add.ptr.i.i.i, ptr %12, align 8
   %_gc_prev.i.i.i = getelementptr i8, ptr %call1.i, i64 -8
-  %14 = load i64, ptr %_gc_prev.i.i.i, align 8
-  %and.i.i.i = and i64 %14, 3
+  %13 = load i64, ptr %_gc_prev.i.i.i, align 8
+  %and.i.i.i = and i64 %13, 3
   %or.i.i.i = or i64 %and.i.i.i, %11
   store i64 %or.i.i.i, ptr %_gc_prev.i.i.i, align 8
-  %15 = ptrtoint ptr %10 to i64
-  store i64 %15, ptr %add.ptr.i.i.i, align 8
-  store i64 %13, ptr %_gc_prev.i.i, align 8
+  store ptr %10, ptr %add.ptr.i.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %_gc_prev.i.i, align 8
   br label %exit
 
 exit:                                             ; preds = %_Py_NewRef.exit.i, %if.end.i, %mappingproxy_check_mapping.exit.thread.i, %cond.end

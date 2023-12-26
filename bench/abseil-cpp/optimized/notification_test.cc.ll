@@ -1255,7 +1255,7 @@ if.then169:                                       ; preds = %for.end
   store ptr @_ZN4absl9Condition17CastAndCallMethodIZNS_17ThreadSafeCounter23WaitUntilGreaterOrEqualEiEUlvE_EEbPKS0_, ptr %arrayinit.end.i.i.i, align 8
   %arg_.i.i.i = getelementptr inbounds %"class.absl::Condition", ptr %ref.tmp.i, i64 0, i32 2
   store ptr %cond.i, ptr %arg_.i.i.i, align 8
-  store i64 ptrtoint (ptr @_ZZN4absl17ThreadSafeCounter23WaitUntilGreaterOrEqualEiENKUlvE_clEv to i64), ptr %ref.tmp.i, align 8
+  store ptr @_ZZN4absl17ThreadSafeCounter23WaitUntilGreaterOrEqualEiENKUlvE_clEv, ptr %ref.tmp.i, align 8
   %callback.addr.sroa.2.0.arraydecay.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %callback.addr.sroa.2.0.arraydecay.sroa_idx.i.i.i.i, align 8
   %call3.i1.i = invoke noundef zeroext i1 @_ZN4absl5Mutex11AwaitCommonERKNS_9ConditionENS_24synchronization_internal13KernelTimeoutE(ptr noundef nonnull align 8 dereferenceable(8) %ready_counter, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 -1)

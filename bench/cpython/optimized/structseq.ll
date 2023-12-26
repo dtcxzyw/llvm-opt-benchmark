@@ -2502,16 +2502,14 @@ if.end100.i:                                      ; preds = %_Py_NewRef.exit130.
   %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %55, i64 0, i32 1
   %56 = load i64, ptr %_gc_prev.i.i, align 8
   %57 = inttoptr i64 %56 to ptr
-  %58 = ptrtoint ptr %add.ptr.i.i.i to i64
-  store i64 %58, ptr %57, align 8
+  store ptr %add.ptr.i.i.i, ptr %57, align 8
   %_gc_prev.i.i.i = getelementptr i8, ptr %call42.i, i64 -8
-  %59 = load i64, ptr %_gc_prev.i.i.i, align 8
-  %and.i.i.i = and i64 %59, 3
+  %58 = load i64, ptr %_gc_prev.i.i.i, align 8
+  %and.i.i.i = and i64 %58, 3
   %or.i.i.i = or i64 %and.i.i.i, %56
   store i64 %or.i.i.i, ptr %_gc_prev.i.i.i, align 8
-  %60 = ptrtoint ptr %55 to i64
-  store i64 %60, ptr %add.ptr.i.i.i, align 8
-  store i64 %58, ptr %_gc_prev.i.i, align 8
+  store ptr %55, ptr %add.ptr.i.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %_gc_prev.i.i, align 8
   br label %structseq_new_impl.exit
 
 structseq_new_impl.exit:                          ; preds = %get_type_attr_as_size.exit.thread.i, %get_type_attr_as_size.exit.i, %get_type_attr_as_size.exit101.thread.i, %get_type_attr_as_size.exit101.i, %get_type_attr_as_size.exit114.thread.i, %get_type_attr_as_size.exit114.i, %if.end8.i, %if.then16.i, %if.end.i158.i, %if.then1.i161.i, %if.then27.i, %if.end.i149.i, %if.then1.i152.i, %if.then32.i, %if.end.i140.i, %if.then1.i143.i, %if.then37.i, %if.end.i131.i, %if.then1.i134.i, %if.then44.i, %if.end.i122.i, %if.then1.i125.i, %if.then71.i, %if.end.i104.i, %if.then1.i107.i, %if.then86.i, %if.end.i.i, %if.then1.i.i, %if.end100.i

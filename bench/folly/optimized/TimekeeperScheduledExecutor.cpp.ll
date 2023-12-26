@@ -1489,8 +1489,7 @@ _ZN5folly8FunctionIFSt10shared_ptrINS_10TimekeeperEEvEEC2EOS5_.exit: ; preds = %
 _ZN5folly27TimekeeperScheduledExecutorC1EONS_8Executor9KeepAliveIS1_EENS_8FunctionIFSt10shared_ptrINS_10TimekeeperEEvEEE.exit.thread: ; preds = %_ZN5folly8FunctionIFSt10shared_ptrINS_10TimekeeperEEvEEC2EOS5_.exit
   %keepAliveCounter_.i7 = getelementptr inbounds %"class.folly::TimekeeperScheduledExecutor", ptr %call, i64 0, i32 3
   store i64 1, ptr %keepAliveCounter_.i7, align 8, !tbaa !95
-  %5 = ptrtoint ptr %call to i64
-  store i64 %5, ptr %agg.result, align 8, !tbaa !21, !alias.scope !97
+  store ptr %call, ptr %agg.result, align 8, !tbaa !21, !alias.scope !97
   br label %_ZN5folly8FunctionIFSt10shared_ptrINS_10TimekeeperEEvEED2Ev.exit
 
 _ZN5folly27TimekeeperScheduledExecutorC1EONS_8Executor9KeepAliveIS1_EENS_8FunctionIFSt10shared_ptrINS_10TimekeeperEEvEEE.exit: ; preds = %_ZN5folly8FunctionIFSt10shared_ptrINS_10TimekeeperEEvEEC2EOS5_.exit
@@ -1498,8 +1497,7 @@ _ZN5folly27TimekeeperScheduledExecutorC1EONS_8Executor9KeepAliveIS1_EENS_8Functi
   %.pr = load ptr, ptr %exec_.i, align 8, !tbaa !10
   %keepAliveCounter_.i = getelementptr inbounds %"class.folly::TimekeeperScheduledExecutor", ptr %call, i64 0, i32 3
   store i64 1, ptr %keepAliveCounter_.i, align 8, !tbaa !95
-  %6 = ptrtoint ptr %call to i64
-  store i64 %6, ptr %agg.result, align 8, !tbaa !21, !alias.scope !100
+  store ptr %call, ptr %agg.result, align 8, !tbaa !21, !alias.scope !100
   %tobool.not.i.i4 = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i4, label %_ZN5folly8FunctionIFSt10shared_ptrINS_10TimekeeperEEvEED2Ev.exit, label %if.end.i.i5
 

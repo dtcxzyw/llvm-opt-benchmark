@@ -1972,26 +1972,25 @@ if.then:                                          ; preds = %entry
   %3 = load i64, ptr %glref.i, align 8
   %4 = inttoptr i64 %3 to ptr
   %tmpbuf.i = getelementptr inbounds %struct.global_State, ptr %4, i64 0, i32 11
-  %5 = ptrtoint ptr %2 to i64
   %L1.i = getelementptr inbounds %struct.global_State, ptr %4, i64 0, i32 11, i32 3
-  store i64 %5, ptr %L1.i, align 8
+  store ptr %2, ptr %L1.i, align 8
   %b.i = getelementptr inbounds %struct.global_State, ptr %4, i64 0, i32 11, i32 2
-  %6 = load ptr, ptr %b.i, align 8
-  store ptr %6, ptr %tmpbuf.i, align 8
-  %7 = load ptr, ptr %arrayidx, align 16
+  %5 = load ptr, ptr %b.i, align 8
+  store ptr %5, ptr %tmpbuf.i, align 8
+  %6 = load ptr, ptr %arrayidx, align 16
   %ir = getelementptr inbounds %struct.GCtrace, ptr %J, i64 0, i32 7
-  %8 = load ptr, ptr %ir, align 8
-  %9 = load i16, ptr %op2, align 2
-  %idxprom8 = zext i16 %9 to i64
-  %arrayidx9 = getelementptr inbounds %union.IRIns, ptr %8, i64 %idxprom8
+  %7 = load ptr, ptr %ir, align 8
+  %8 = load i16, ptr %op2, align 2
+  %idxprom8 = zext i16 %8 to i64
+  %arrayidx9 = getelementptr inbounds %union.IRIns, ptr %7, i64 %idxprom8
   %arrayidx10 = getelementptr inbounds %union.IRIns, ptr %arrayidx9, i64 1
-  %10 = load i64, ptr %arrayidx10, align 8
-  %11 = inttoptr i64 %10 to ptr
-  %call11 = tail call ptr %7(ptr noundef nonnull %tmpbuf.i, ptr noundef %11) #13
+  %9 = load i64, ptr %arrayidx10, align 8
+  %10 = inttoptr i64 %9 to ptr
+  %call11 = tail call ptr %6(ptr noundef nonnull %tmpbuf.i, ptr noundef %10) #13
   %o = getelementptr inbounds i8, ptr %J, i64 189
   store i8 86, ptr %o, align 1
-  %12 = load i16, ptr %left, align 8
-  store i16 %12, ptr %fold, align 8
+  %11 = load i16, ptr %left, align 8
+  store i16 %11, ptr %fold, align 8
   %call20 = tail call ptr @lj_buf_tostr(ptr noundef %call11) #13
   %call21 = tail call i32 @lj_ir_kgc(ptr noundef nonnull %J, ptr noundef %call20, i32 noundef 4) #13
   %conv22 = trunc i32 %call21 to i16
@@ -2035,28 +2034,27 @@ if.then9:                                         ; preds = %if.then
   %5 = load i64, ptr %glref.i, align 8
   %6 = inttoptr i64 %5 to ptr
   %tmpbuf.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 11
-  %7 = ptrtoint ptr %4 to i64
   %L1.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 11, i32 3
-  store i64 %7, ptr %L1.i, align 8
+  store ptr %4, ptr %L1.i, align 8
   %b.i = getelementptr inbounds %struct.global_State, ptr %6, i64 0, i32 11, i32 2
-  %8 = load ptr, ptr %b.i, align 8
-  store ptr %8, ptr %tmpbuf.i, align 8
-  %9 = load ptr, ptr %ir, align 8
-  %10 = load i16, ptr %op25, align 2
-  %idxprom13 = zext i16 %10 to i64
-  %arrayidx14 = getelementptr inbounds %union.IRIns, ptr %9, i64 %idxprom13
+  %7 = load ptr, ptr %b.i, align 8
+  store ptr %7, ptr %tmpbuf.i, align 8
+  %8 = load ptr, ptr %ir, align 8
+  %9 = load i16, ptr %op25, align 2
+  %idxprom13 = zext i16 %9 to i64
+  %arrayidx14 = getelementptr inbounds %union.IRIns, ptr %8, i64 %idxprom13
   %arrayidx15 = getelementptr inbounds %union.IRIns, ptr %arrayidx14, i64 1
-  %11 = load i64, ptr %arrayidx15, align 8
-  %12 = inttoptr i64 %11 to ptr
-  %13 = load i16, ptr %op2, align 2
-  %idxprom22 = zext i16 %13 to i64
-  %arrayidx23 = getelementptr inbounds %union.IRIns, ptr %9, i64 %idxprom22
-  %14 = load i32, ptr %arrayidx23, align 8
-  %call24 = tail call ptr @lj_buf_putstr_rep(ptr noundef nonnull %tmpbuf.i, ptr noundef %12, i32 noundef %14) #13
+  %10 = load i64, ptr %arrayidx15, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %12 = load i16, ptr %op2, align 2
+  %idxprom22 = zext i16 %12 to i64
+  %arrayidx23 = getelementptr inbounds %union.IRIns, ptr %8, i64 %idxprom22
+  %13 = load i32, ptr %arrayidx23, align 8
+  %call24 = tail call ptr @lj_buf_putstr_rep(ptr noundef nonnull %tmpbuf.i, ptr noundef %11, i32 noundef %13) #13
   %o = getelementptr inbounds i8, ptr %J, i64 189
   store i8 86, ptr %o, align 1
-  %15 = load i16, ptr %arrayidx, align 8
-  store i16 %15, ptr %fold, align 8
+  %14 = load i16, ptr %arrayidx, align 8
+  store i16 %14, ptr %fold, align 8
   %call30 = tail call ptr @lj_buf_tostr(ptr noundef %call24) #13
   %call31 = tail call i32 @lj_ir_kgc(ptr noundef nonnull %J, ptr noundef %call30, i32 noundef 4) #13
   %conv32 = trunc i32 %call31 to i16
@@ -2102,15 +2100,14 @@ if.then:                                          ; preds = %entry
   %6 = load i64, ptr %glref.i, align 8
   %7 = inttoptr i64 %6 to ptr
   %tmpbuf.i = getelementptr inbounds %struct.global_State, ptr %7, i64 0, i32 11
-  %8 = ptrtoint ptr %5 to i64
   %L1.i = getelementptr inbounds %struct.global_State, ptr %7, i64 0, i32 11, i32 3
-  store i64 %8, ptr %L1.i, align 8
+  store ptr %5, ptr %L1.i, align 8
   %b.i = getelementptr inbounds %struct.global_State, ptr %7, i64 0, i32 11, i32 2
-  %9 = load ptr, ptr %b.i, align 8
-  store ptr %9, ptr %tmpbuf.i, align 8
+  %8 = load ptr, ptr %b.i, align 8
+  store ptr %8, ptr %tmpbuf.i, align 8
   %op219 = getelementptr inbounds i8, ptr %J, i64 186
-  %10 = load i16, ptr %op219, align 2
-  switch i16 %10, label %sw.default [
+  %9 = load i16, ptr %op219, align 2
+  switch i16 %9, label %sw.default [
     i16 10, label %sw.bb
     i16 14, label %sw.bb23
     i16 15, label %sw.bb26
@@ -2118,37 +2115,37 @@ if.then:                                          ; preds = %entry
 
 sw.bb:                                            ; preds = %if.then
   %arrayidx21 = getelementptr inbounds %union.IRIns, ptr %arrayidx17, i64 1
-  %11 = load i64, ptr %arrayidx21, align 8
-  %call22 = tail call ptr @lj_strfmt_putfxint(ptr noundef nonnull %tmpbuf.i, i32 noundef %4, i64 noundef %11) #13
+  %10 = load i64, ptr %arrayidx21, align 8
+  %call22 = tail call ptr @lj_strfmt_putfxint(ptr noundef nonnull %tmpbuf.i, i32 noundef %4, i64 noundef %10) #13
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %if.then
   %arrayidx24 = getelementptr inbounds %union.IRIns, ptr %arrayidx17, i64 1
-  %12 = load i64, ptr %arrayidx24, align 8
-  %13 = inttoptr i64 %12 to ptr
-  %call25 = tail call ptr @lj_strfmt_putfstr(ptr noundef nonnull %tmpbuf.i, i32 noundef %4, ptr noundef %13) #13
+  %11 = load i64, ptr %arrayidx24, align 8
+  %12 = inttoptr i64 %11 to ptr
+  %call25 = tail call ptr @lj_strfmt_putfstr(ptr noundef nonnull %tmpbuf.i, i32 noundef %4, ptr noundef %12) #13
   br label %sw.epilog
 
 sw.bb26:                                          ; preds = %if.then
-  %14 = load i32, ptr %arrayidx17, align 8
-  %call27 = tail call ptr @lj_strfmt_putfchar(ptr noundef nonnull %tmpbuf.i, i32 noundef %4, i32 noundef %14) #13
+  %13 = load i32, ptr %arrayidx17, align 8
+  %call27 = tail call ptr @lj_strfmt_putfchar(ptr noundef nonnull %tmpbuf.i, i32 noundef %4, i32 noundef %13) #13
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.then
-  %idxprom32 = zext i16 %10 to i64
+  %idxprom32 = zext i16 %9 to i64
   %arrayidx33 = getelementptr inbounds [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 %idxprom32
-  %15 = load ptr, ptr %arrayidx33, align 16
+  %14 = load ptr, ptr %arrayidx33, align 16
   %arrayidx34 = getelementptr inbounds %union.IRIns, ptr %arrayidx17, i64 1
-  %16 = load double, ptr %arrayidx34, align 8
-  %call35 = tail call ptr %15(ptr noundef nonnull %tmpbuf.i, i32 noundef %4, double noundef %16) #13
+  %15 = load double, ptr %arrayidx34, align 8
+  %call35 = tail call ptr %14(ptr noundef nonnull %tmpbuf.i, i32 noundef %4, double noundef %15) #13
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.default, %sw.bb26, %sw.bb23, %sw.bb
   %sb.0 = phi ptr [ %call35, %sw.default ], [ %call27, %sw.bb26 ], [ %call25, %sw.bb23 ], [ %call22, %sw.bb ]
   %o = getelementptr inbounds i8, ptr %J, i64 189
   store i8 86, ptr %o, align 1
-  %17 = load i16, ptr %arrayidx, align 8
-  store i16 %17, ptr %fold, align 8
+  %16 = load i16, ptr %arrayidx, align 8
+  store i16 %16, ptr %fold, align 8
   %call42 = tail call ptr @lj_buf_tostr(ptr noundef %sb.0) #13
   %call43 = tail call i32 @lj_ir_kgc(ptr noundef nonnull %J, ptr noundef %call42, i32 noundef 4) #13
   %conv44 = trunc i32 %call43 to i16

@@ -957,7 +957,6 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
 
 _ZNK15node_napi_env__8node_envEv.exit:            ; preds = %if.then, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
   %retval.0.i.i = phi ptr [ %14, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %if.then ], [ null, %if.end.i.i.i ]
-  %15 = ptrtoint ptr %this to i64
   %native_immediates_.i = getelementptr inbounds %"class.node::Environment", ptr %retval.0.i.i, i64 0, i32 79
   %call.i.i.i1 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23, !noalias !8
   %flags_.i.i.i.i.i = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %call.i.i.i1, i64 0, i32 1
@@ -966,42 +965,42 @@ _ZNK15node_napi_env__8node_envEv.exit:            ; preds = %if.then, %if.end.i.
   store ptr null, ptr %next_.i.i.i.i.i, align 8, !noalias !8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0EE", i64 0, inrange i32 0, i64 2), ptr %call.i.i.i1, align 8, !noalias !8
   %callback_.i.i.i.i = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl.470", ptr %call.i.i.i1, i64 0, i32 1
-  store i64 %15, ptr %callback_.i.i.i.i, align 8, !noalias !8
+  store ptr %this, ptr %callback_.i.i.i.i, align 8, !noalias !8
   %tail_.i.i = getelementptr inbounds %"class.node::Environment", ptr %retval.0.i.i, i64 0, i32 79, i32 2
-  %16 = load ptr, ptr %tail_.i.i, align 8
-  %17 = atomicrmw add ptr %native_immediates_.i, i64 1 seq_cst, align 8
+  %15 = load ptr, ptr %tail_.i.i, align 8
+  %16 = atomicrmw add ptr %native_immediates_.i, i64 1 seq_cst, align 8
   store ptr %call.i.i.i1, ptr %tail_.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %16, null
+  %cmp.not.i.i = icmp eq ptr %15, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNK15node_napi_env__8node_envEv.exit
-  %next_.i.i.i = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %16, i64 0, i32 2
-  %18 = load ptr, ptr %next_.i.i.i, align 8
+  %next_.i.i.i = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %15, i64 0, i32 2
+  %17 = load ptr, ptr %next_.i.i.i, align 8
   store ptr %call.i.i.i1, ptr %next_.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %18, null
+  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i, label %if.end.sink.split.i.i
 
 if.else.i.i:                                      ; preds = %_ZNK15node_napi_env__8node_envEv.exit
   %head_.i.i = getelementptr inbounds %"class.node::Environment", ptr %retval.0.i.i, i64 0, i32 79, i32 1
-  %19 = load ptr, ptr %head_.i.i, align 8
+  %18 = load ptr, ptr %head_.i.i, align 8
   store ptr %call.i.i.i1, ptr %head_.i.i, align 8
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %19, null
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i, label %if.end.sink.split.i.i
 
 if.end.sink.split.i.i:                            ; preds = %if.else.i.i, %if.then.i.i
-  %.sink4.i.i = phi ptr [ %18, %if.then.i.i ], [ %19, %if.else.i.i ]
+  %.sink4.i.i = phi ptr [ %17, %if.then.i.i ], [ %18, %if.else.i.i ]
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %.sink4.i.i, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 1
-  %20 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(24) %.sink4.i.i) #21
+  %19 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
+  call void %19(ptr noundef nonnull align 8 dereferenceable(24) %.sink4.i.i) #21
   br label %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i: ; preds = %if.end.sink.split.i.i, %if.else.i.i, %if.then.i.i
   %buffer_.i.i.i.i = getelementptr inbounds %"class.node::Environment", ptr %retval.0.i.i, i64 0, i32 15, i32 1, i32 4
-  %21 = load ptr, ptr %buffer_.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %21, i64 1
-  %22 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %cmp.i = icmp eq i32 %22, 0
+  %20 = load ptr, ptr %buffer_.i.i.i.i, align 8
+  %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %20, i64 1
+  %21 = load i32, ptr %arrayidx.i.i.i.i, align 4
+  %cmp.i = icmp eq i32 %21, 0
   br i1 %cmp.i, label %if.then4.i, label %"_ZN4node11Environment12SetImmediateIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.exit"
 
 if.then4.i:                                       ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i
@@ -1012,10 +1011,10 @@ if.then4.i:                                       ; preds = %_ZNSt10unique_ptrIN
   br label %"_ZN4node11Environment12SetImmediateIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.exit"
 
 "_ZN4node11Environment12SetImmediateIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.exit": ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i, %if.then4.i
-  %23 = phi i32 [ %22, %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i ], [ %.pre2.i, %if.then4.i ]
-  %24 = phi ptr [ %21, %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i ], [ %.pre.i, %if.then4.i ]
-  %arrayidx.i.i.i5.i = getelementptr inbounds i32, ptr %24, i64 1
-  %add.i.i.i = add i32 %23, 1
+  %22 = phi i32 [ %21, %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i ], [ %.pre2.i, %if.then4.i ]
+  %23 = phi ptr [ %20, %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i ], [ %.pre.i, %if.then4.i ]
+  %arrayidx.i.i.i5.i = getelementptr inbounds i32, ptr %23, i64 1
+  %add.i.i.i = add i32 %22, 1
   store i32 %add.i.i.i, ptr %arrayidx.i.i.i5.i, align 4
   br label %if.end
 
@@ -1779,43 +1778,42 @@ _ZNK15node_napi_env__8node_envEv.exit:            ; preds = %if.end, %if.end.i.i
   store ptr null, ptr %next_.i.i.i.i.i, align 8, !noalias !20
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZN32napi_async_cleanup_hook_handle__D1EvEUlS2_E_EE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i, align 8, !noalias !20
   %callback_.i.i.i.i = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl", ptr %call.i.i.i, i64 0, i32 1
-  %15 = ptrtoint ptr %14 to i64
-  store i64 %15, ptr %callback_.i.i.i.i, align 8, !noalias !20
+  store ptr %14, ptr %callback_.i.i.i.i, align 8, !noalias !20
   %tail_.i.i = getelementptr inbounds %"class.node::Environment", ptr %retval.0.i.i, i64 0, i32 79, i32 2
-  %16 = load ptr, ptr %tail_.i.i, align 8
-  %17 = atomicrmw add ptr %native_immediates_.i, i64 1 seq_cst, align 8
+  %15 = load ptr, ptr %tail_.i.i, align 8
+  %16 = atomicrmw add ptr %native_immediates_.i, i64 1 seq_cst, align 8
   store ptr %call.i.i.i, ptr %tail_.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %16, null
+  %cmp.not.i.i = icmp eq ptr %15, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNK15node_napi_env__8node_envEv.exit
-  %next_.i.i.i = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %16, i64 0, i32 2
-  %18 = load ptr, ptr %next_.i.i.i, align 8
+  %next_.i.i.i = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %15, i64 0, i32 2
+  %17 = load ptr, ptr %next_.i.i.i, align 8
   store ptr %call.i.i.i, ptr %next_.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %18, null
+  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i, label %if.end.sink.split.i.i
 
 if.else.i.i:                                      ; preds = %_ZNK15node_napi_env__8node_envEv.exit
   %head_.i.i = getelementptr inbounds %"class.node::Environment", ptr %retval.0.i.i, i64 0, i32 79, i32 1
-  %19 = load ptr, ptr %head_.i.i, align 8
+  %18 = load ptr, ptr %head_.i.i, align 8
   store ptr %call.i.i.i, ptr %head_.i.i, align 8
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %19, null
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i, label %if.end.sink.split.i.i
 
 if.end.sink.split.i.i:                            ; preds = %if.else.i.i, %if.then.i.i
-  %.sink4.i.i = phi ptr [ %18, %if.then.i.i ], [ %19, %if.else.i.i ]
+  %.sink4.i.i = phi ptr [ %17, %if.then.i.i ], [ %18, %if.else.i.i ]
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %.sink4.i.i, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 1
-  %20 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(24) %.sink4.i.i) #21
+  %19 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
+  call void %19(ptr noundef nonnull align 8 dereferenceable(24) %.sink4.i.i) #21
   br label %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i: ; preds = %if.end.sink.split.i.i, %if.else.i.i, %if.then.i.i
   %buffer_.i.i.i.i = getelementptr inbounds %"class.node::Environment", ptr %retval.0.i.i, i64 0, i32 15, i32 1, i32 4
-  %21 = load ptr, ptr %buffer_.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %21, i64 1
-  %22 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %cmp.i = icmp eq i32 %22, 0
+  %20 = load ptr, ptr %buffer_.i.i.i.i, align 8
+  %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %20, i64 1
+  %21 = load i32, ptr %arrayidx.i.i.i.i, align 4
+  %cmp.i = icmp eq i32 %21, 0
   br i1 %cmp.i, label %if.then4.i, label %_ZN4node11Environment12SetImmediateIZN32napi_async_cleanup_hook_handle__D1EvEUlPS0_E_EEvOT_NS_13CallbackFlags5FlagsE.exit
 
 if.then4.i:                                       ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i
@@ -1826,17 +1824,17 @@ if.then4.i:                                       ; preds = %_ZNSt10unique_ptrIN
   br label %_ZN4node11Environment12SetImmediateIZN32napi_async_cleanup_hook_handle__D1EvEUlPS0_E_EEvOT_NS_13CallbackFlags5FlagsE.exit
 
 _ZN4node11Environment12SetImmediateIZN32napi_async_cleanup_hook_handle__D1EvEUlPS0_E_EEvOT_NS_13CallbackFlags5FlagsE.exit: ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i, %if.then4.i
-  %23 = phi i32 [ %.pre12.i, %if.then4.i ], [ %22, %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i ]
-  %24 = phi ptr [ %.pre.i, %if.then4.i ], [ %21, %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i ]
-  %arrayidx.i.i.i5.i = getelementptr inbounds i32, ptr %24, i64 1
-  %add.i.i.i = add i32 %23, 1
+  %22 = phi i32 [ %.pre12.i, %if.then4.i ], [ %21, %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i ]
+  %23 = phi ptr [ %.pre.i, %if.then4.i ], [ %20, %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i ]
+  %arrayidx.i.i.i5.i = getelementptr inbounds i32, ptr %23, i64 1
+  %add.i.i.i = add i32 %22, 1
   store i32 %add.i.i.i, ptr %arrayidx.i.i.i5.i, align 4
-  %25 = load ptr, ptr %this, align 8
-  %cmp.not.i2 = icmp eq ptr %25, null
+  %24 = load ptr, ptr %this, align 8
+  %cmp.not.i2 = icmp eq ptr %24, null
   br i1 %cmp.not.i2, label %_ZNSt10unique_ptrIN4node9ACHHandleENS0_15DeleteACHHandleEED2Ev.exit4, label %if.then.i3
 
 if.then.i3:                                       ; preds = %_ZN4node11Environment12SetImmediateIZN32napi_async_cleanup_hook_handle__D1EvEUlPS0_E_EEvOT_NS_13CallbackFlags5FlagsE.exit
-  call void @_ZNK4node15DeleteACHHandleclEPNS_9ACHHandleE(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull %25) #21
+  call void @_ZNK4node15DeleteACHHandleclEPNS_9ACHHandleE(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull %24) #21
   br label %_ZNSt10unique_ptrIN4node9ACHHandleENS0_15DeleteACHHandleEED2Ev.exit4
 
 _ZNSt10unique_ptrIN4node9ACHHandleENS0_15DeleteACHHandleEED2Ev.exit4: ; preds = %_ZN4node11Environment12SetImmediateIZN32napi_async_cleanup_hook_handle__D1EvEUlPS0_E_EEvOT_NS_13CallbackFlags5FlagsE.exit, %if.then.i3
@@ -3552,10 +3550,9 @@ _ZNK15node_napi_env__8node_envEv.exit.i.i:        ; preds = %_ZN4node18ContextEm
   %sub.i.i.i.i.i = add i64 %9, 271
   %14 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %15 = load i64, ptr %14, align 8
-  %16 = inttoptr i64 %15 to ptr
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node14ThreadPoolWorkE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
   %env_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
-  store ptr %16, ptr %env_.i.i.i, align 8
+  store i64 %15, ptr %env_.i.i.i, align 8
   %type_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 184
   store ptr @.str.39, ptr %type_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq i64 %15, 0

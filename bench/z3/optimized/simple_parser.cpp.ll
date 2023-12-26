@@ -186,17 +186,16 @@ invoke.cont6:                                     ; preds = %_ZN3mapI6symbolN13s
   %m_num_deleted.i.i.i6 = getelementptr inbounds %class.simple_parser, ptr %this, i64 0, i32 3, i32 0, i32 0, i32 3
   store i32 0, ptr %m_num_deleted.i.i.i6, align 8
   %m_exprs = getelementptr inbounds %class.simple_parser, ptr %this, i64 0, i32 4
-  %0 = ptrtoint ptr %m to i64
-  store i64 %0, ptr %m_exprs, align 8
+  store ptr %m, ptr %m_exprs, align 8
   %m_nodes.i.i = getelementptr inbounds %class.simple_parser, ptr %this, i64 0, i32 4, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i, align 8
   ret void
 
 lpad:                                             ; preds = %_ZN3mapI6symbolN13simple_parser10builtin_opE16symbol_hash_proc14symbol_eq_procEC2ERKS3_RKS4_.exit
-  %1 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN3mapI6symbolN13simple_parser10builtin_opE16symbol_hash_proc14symbol_eq_procED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_builtin) #16
-  resume { ptr, i32 } %1
+  resume { ptr, i32 } %0
 }
 
 declare i32 @__gxx_personality_v0(...)

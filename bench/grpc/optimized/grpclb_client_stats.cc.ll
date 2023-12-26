@@ -153,17 +153,16 @@ invoke.cont27:                                    ; preds = %for.end
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont27
-  %10 = ptrtoint ptr %call28 to i64
   %data_.i1.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::inlined_vector_internal::Storage", ptr %7, i64 0, i32 1
-  %11 = load ptr, ptr %data_.i1.i.i.i, align 8, !noalias !9
-  %.sink3.i.i.i = select i1 %tobool.i.not.i.i.i, ptr %data_.i1.i.i.i, ptr %11
+  %10 = load ptr, ptr %data_.i1.i.i.i, align 8, !noalias !9
+  %.sink3.i.i.i = select i1 %tobool.i.not.i.i.i, ptr %data_.i1.i.i.i, ptr %10
   %add.ptr.i.i = getelementptr inbounds %"struct.grpc_core::GrpcLbClientStats::DropTokenCount", ptr %.sink3.i.i.i, i64 %shr.i.sink.i.i.i
   store ptr null, ptr %ref.tmp26, align 8
-  store i64 %10, ptr %add.ptr.i.i, align 8
+  store ptr %call28, ptr %add.ptr.i.i, align 8
   %count3.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::GrpcLbClientStats::DropTokenCount", ptr %.sink3.i.i.i, i64 %shr.i.sink.i.i.i, i32 1
   store i64 1, ptr %count3.i.i.i.i.i, align 8
-  %12 = load i64, ptr %7, align 8
-  %add.i.i.i = add i64 %12, 2
+  %11 = load i64, ptr %7, align 8
+  %add.i.i.i = add i64 %11, 2
   store i64 %add.i.i.i, ptr %7, align 8
   br label %invoke.cont31
 
@@ -172,19 +171,19 @@ if.end.i.i:                                       ; preds = %invoke.cont27
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %if.then.i.i, %if.end.i.i
-  %13 = load ptr, ptr %ref.tmp26, align 8
-  %cmp.not.i13 = icmp eq ptr %13, null
+  %12 = load ptr, ptr %ref.tmp26, align 8
+  %cmp.not.i13 = icmp eq ptr %12, null
   br i1 %cmp.not.i13, label %_ZNSt10unique_ptrIcN9grpc_core17DefaultDeleteCharEED2Ev.exit, label %if.end.i.i14
 
 if.end.i.i14:                                     ; preds = %invoke.cont31
-  invoke void @gpr_free(ptr noundef nonnull %13)
+  invoke void @gpr_free(ptr noundef nonnull %12)
           to label %_ZNSt10unique_ptrIcN9grpc_core17DefaultDeleteCharEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.end.i.i14
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #11
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #11
   unreachable
 
 _ZNSt10unique_ptrIcN9grpc_core17DefaultDeleteCharEED2Ev.exit: ; preds = %invoke.cont31, %if.end.i.i14
@@ -196,31 +195,31 @@ cleanup:                                          ; preds = %_ZNSt10unique_ptrIc
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i15
 
 terminate.lpad.i15:                               ; preds = %cleanup
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #11
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #11
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %cleanup
   ret void
 
 lpad30:                                           ; preds = %if.end.i.i
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIcN9grpc_core17DefaultDeleteCharEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp26) #12
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad30, %lpad
-  %.pn = phi { ptr, i32 } [ %18, %lpad30 ], [ %3, %lpad ]
+  %.pn = phi { ptr, i32 } [ %17, %lpad30 ], [ %3, %lpad ]
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %drop_count_mu_)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit17 unwind label %terminate.lpad.i16
 
 terminate.lpad.i16:                               ; preds = %ehcleanup
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #11
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #11
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit17:      ; preds = %ehcleanup

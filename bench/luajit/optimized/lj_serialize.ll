@@ -896,7 +896,7 @@ if.then271:                                       ; preds = %if.else27
   %70 = load i64, ptr %ctype_state.i, align 8
   %71 = inttoptr i64 %70 to ptr
   %L2.i = getelementptr inbounds %struct.CTState, ptr %71, i64 0, i32 3
-  store ptr %67, ptr %L2.i, align 8
+  store i64 %and274, ptr %L2.i, align 8
   %72 = load i64, ptr %o, align 8
   %and277 = and i64 %72, 140737488355327
   %73 = inttoptr i64 %and277 to ptr
@@ -1773,28 +1773,27 @@ entry:
   %add.i = add i64 %3, 5
   %L1.i = getelementptr inbounds %struct.SBufExt, ptr %sbx, i64 0, i32 3
   store i64 %add.i, ptr %L1.i, align 8
-  %4 = ptrtoint ptr %tmpbuf to i64
-  %5 = getelementptr inbounds %struct.SBufExt, ptr %sbx, i64 0, i32 4
-  store i64 %4, ptr %5, align 8
+  %4 = getelementptr inbounds %struct.SBufExt, ptr %sbx, i64 0, i32 4
+  store ptr %tmpbuf, ptr %4, align 8
   %b.i = getelementptr inbounds %struct.global_State, ptr %2, i64 0, i32 11, i32 2
-  %6 = load ptr, ptr %b.i, align 8
+  %5 = load ptr, ptr %b.i, align 8
   %b3.i = getelementptr inbounds %struct.SBufExt, ptr %sbx, i64 0, i32 2
-  store ptr %6, ptr %b3.i, align 8
-  store ptr %6, ptr %sbx, align 8
+  store ptr %5, ptr %b3.i, align 8
+  store ptr %5, ptr %sbx, align 8
   %r.i = getelementptr inbounds %struct.SBufExt, ptr %sbx, i64 0, i32 5
-  store ptr %6, ptr %r.i, align 8
+  store ptr %5, ptr %r.i, align 8
   %e.i = getelementptr inbounds %struct.global_State, ptr %2, i64 0, i32 11, i32 1
-  %7 = load ptr, ptr %e.i, align 8
+  %6 = load ptr, ptr %e.i, align 8
   %e4.i = getelementptr inbounds %struct.SBufExt, ptr %sbx, i64 0, i32 1
-  store ptr %7, ptr %e4.i, align 8
+  store ptr %6, ptr %e4.i, align 8
   %depth = getelementptr inbounds %struct.SBufExt, ptr %sbx, i64 0, i32 8
   store i32 100, ptr %depth, align 8
-  %call = call fastcc ptr @serialize_put(ptr noundef %6, ptr noundef nonnull %sbx, ptr noundef %o)
-  %8 = load ptr, ptr %b3.i, align 8
+  %call = call fastcc ptr @serialize_put(ptr noundef %5, ptr noundef nonnull %sbx, ptr noundef %o)
+  %7 = load ptr, ptr %b3.i, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %call to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %7 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call3 = call ptr @lj_str_new(ptr noundef %L, ptr noundef %8, i64 noundef %sub.ptr.sub) #8
+  %call3 = call ptr @lj_str_new(ptr noundef %L, ptr noundef %7, i64 noundef %sub.ptr.sub) #8
   ret ptr %call3
 }
 

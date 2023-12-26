@@ -4637,14 +4637,14 @@ invoke.cont539:                                   ; preds = %.noexc990
   store i32 0, ptr %verification_.i.i995, align 4, !alias.scope !9
   %flags_.i.i996 = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp538, i64 0, i32 9
   store i32 256, ptr %flags_.i.i996, align 8, !alias.scope !9
-  store i64 ptrtoint (ptr @_ZN7rocksdb13OptionsHelper33prepopulate_blob_cache_string_mapB5cxx11E to i64), ptr %parse_func_.i.i993, align 8, !alias.scope !9
+  store ptr @_ZN7rocksdb13OptionsHelper33prepopulate_blob_cache_string_mapB5cxx11E, ptr %parse_func_.i.i993, align 8, !alias.scope !9
   %__tmp.sroa.0.i.i.i.i.sroa.4.0.parse_func_.i.sroa_idx.i = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp538, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
   store i64 0, ptr %__tmp.sroa.0.i.i.i.i.sroa.4.0.parse_func_.i.sroa_idx.i, align 8, !alias.scope !9
   %_M_manager3.i.i.i.i997 = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp538, i64 0, i32 2, i32 0, i32 1
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo4EnumINS0_20PrepopulateBlobCacheEEESF_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SJ_EEENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation, ptr %_M_manager3.i.i.i.i997, align 8, !alias.scope !9
   %_M_invoker4.i2.i.i.i998 = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp538, i64 0, i32 2, i32 1
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo4EnumINS0_20PrepopulateBlobCacheEEESF_iPKSt13unordered_mapISA_T_St4hashISA_ESt8equal_toISA_ESaISt4pairISB_SJ_EEENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_, ptr %_M_invoker4.i2.i.i.i998, align 8, !alias.scope !9
-  store i64 ptrtoint (ptr @_ZN7rocksdb13OptionsHelper33prepopulate_blob_cache_string_mapB5cxx11E to i64), ptr %121, align 8, !alias.scope !9
+  store ptr @_ZN7rocksdb13OptionsHelper33prepopulate_blob_cache_string_mapB5cxx11E, ptr %121, align 8, !alias.scope !9
   %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp538, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
   store i64 0, ptr %__tmp.sroa.0.i.i.i.i7.sroa.4.0.serialize_func_.i.sroa_idx.i, align 8, !alias.scope !9
   %_M_manager3.i.i.i23.i = getelementptr inbounds %"class.rocksdb::OptionTypeInfo", ptr %ref.tmp538, i64 0, i32 3, i32 0, i32 1

@@ -442,8 +442,7 @@ define dso_local i32 @uffd_register_memory(i32 noundef %uffd_fd, ptr noundef %ad
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %uffd_register = alloca %struct.uffdio_register, align 8
-  %0 = ptrtoint ptr %addr to i64
-  store i64 %0, ptr %uffd_register, align 8
+  store ptr %addr, ptr %uffd_register, align 8
   %len = getelementptr inbounds %struct.uffdio_range, ptr %uffd_register, i64 0, i32 1
   store i64 %length, ptr %len, align 8
   %mode2 = getelementptr inbounds %struct.uffdio_register, ptr %uffd_register, i64 0, i32 1
@@ -454,38 +453,38 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call3 = tail call ptr @__errno_location() #10
-  %1 = load i32, ptr %call3, align 4
+  %0 = load i32, ptr %call3, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %2 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %2, 0
-  %3 = load i16, ptr @_TRACE_UFFD_REGISTER_MEMORY_FAILED_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %3, 0
+  %1 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %1, 0
+  %2 = load i16, ptr @_TRACE_UFFD_REGISTER_MEMORY_FAILED_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %2, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_uffd_register_memory_failed.exit
 
 land.lhs.true5.i.i:                               ; preds = %if.then
-  %4 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %4, 32768
+  %3 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %3, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_uffd_register_memory_failed.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %5 = load i8, ptr @message_with_timestamp, align 1
-  %6 = and i8 %5, 1
-  %tobool7.not.i.i = icmp eq i8 %6, 0
+  %4 = load i8, ptr @message_with_timestamp, align 1
+  %5 = and i8 %4, 1
+  %tobool7.not.i.i = icmp eq i8 %5, 0
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = call i32 @qemu_get_thread_id() #8
-  %7 = load i64, ptr %_now.i.i, align 8
+  %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
-  %8 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %addr, i64 noundef %length, i64 noundef %mode, i32 noundef %1) #8
+  %7 = load i64, ptr %tv_usec.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %addr, i64 noundef %length, i64 noundef %mode, i32 noundef %0) #8
   br label %trace_uffd_register_memory_failed.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, ptr noundef %addr, i64 noundef %length, i64 noundef %mode, i32 noundef %1) #8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, ptr noundef %addr, i64 noundef %length, i64 noundef %mode, i32 noundef %0) #8
   br label %trace_uffd_register_memory_failed.exit
 
 trace_uffd_register_memory_failed.exit:           ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -498,8 +497,8 @@ if.end:                                           ; preds = %entry
 
 if.then5:                                         ; preds = %if.end
   %ioctls6 = getelementptr inbounds %struct.uffdio_register, ptr %uffd_register, i64 0, i32 2
-  %9 = load i64, ptr %ioctls6, align 8
-  store i64 %9, ptr %ioctls, align 8
+  %8 = load i64, ptr %ioctls6, align 8
+  store i64 %8, ptr %ioctls, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then5, %trace_uffd_register_memory_failed.exit
@@ -512,8 +511,7 @@ define dso_local i32 @uffd_unregister_memory(i32 noundef %uffd_fd, ptr noundef %
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %uffd_range = alloca %struct.uffdio_range, align 8
-  %0 = ptrtoint ptr %addr to i64
-  store i64 %0, ptr %uffd_range, align 8
+  store ptr %addr, ptr %uffd_range, align 8
   %len = getelementptr inbounds %struct.uffdio_range, ptr %uffd_range, i64 0, i32 1
   store i64 %length, ptr %len, align 8
   %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %uffd_fd, i64 noundef 2148575745, ptr noundef nonnull %uffd_range) #8
@@ -522,38 +520,38 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call1 = tail call ptr @__errno_location() #10
-  %1 = load i32, ptr %call1, align 4
+  %0 = load i32, ptr %call1, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %2 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %2, 0
-  %3 = load i16, ptr @_TRACE_UFFD_UNREGISTER_MEMORY_FAILED_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %3, 0
+  %1 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %1, 0
+  %2 = load i16, ptr @_TRACE_UFFD_UNREGISTER_MEMORY_FAILED_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %2, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_uffd_unregister_memory_failed.exit
 
 land.lhs.true5.i.i:                               ; preds = %if.then
-  %4 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %4, 32768
+  %3 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %3, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_uffd_unregister_memory_failed.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %5 = load i8, ptr @message_with_timestamp, align 1
-  %6 = and i8 %5, 1
-  %tobool7.not.i.i = icmp eq i8 %6, 0
+  %4 = load i8, ptr @message_with_timestamp, align 1
+  %5 = and i8 %4, 1
+  %tobool7.not.i.i = icmp eq i8 %5, 0
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = call i32 @qemu_get_thread_id() #8
-  %7 = load i64, ptr %_now.i.i, align 8
+  %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
-  %8 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %addr, i64 noundef %length, i32 noundef %1) #8
+  %7 = load i64, ptr %tv_usec.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %addr, i64 noundef %length, i32 noundef %0) #8
   br label %trace_uffd_unregister_memory_failed.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, ptr noundef %addr, i64 noundef %length, i32 noundef %1) #8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, ptr noundef %addr, i64 noundef %length, i32 noundef %0) #8
   br label %trace_uffd_unregister_memory_failed.exit
 
 trace_uffd_unregister_memory_failed.exit:         ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -569,25 +567,24 @@ return:                                           ; preds = %entry, %trace_uffd_
 define dso_local i32 @uffd_change_protection(i32 noundef %uffd_fd, ptr noundef %addr, i64 noundef %length, i1 noundef zeroext %wp, i1 noundef zeroext %dont_wake) local_unnamed_addr #0 {
 entry:
   %uffd_writeprotect = alloca %struct.uffdio_writeprotect, align 8
-  %0 = ptrtoint ptr %addr to i64
-  store i64 %0, ptr %uffd_writeprotect, align 8
+  store ptr %addr, ptr %uffd_writeprotect, align 8
   %len = getelementptr inbounds %struct.uffdio_range, ptr %uffd_writeprotect, i64 0, i32 1
   store i64 %length, ptr %len, align 8
   %dont_wake.not = xor i1 %dont_wake, true
   %brmerge = or i1 %dont_wake.not, %wp
   %cond = zext i1 %wp to i64
   %spec.select = select i1 %brmerge, i64 %cond, i64 2
-  %1 = getelementptr inbounds %struct.uffdio_writeprotect, ptr %uffd_writeprotect, i64 0, i32 1
-  store i64 %spec.select, ptr %1, align 8
+  %0 = getelementptr inbounds %struct.uffdio_writeprotect, ptr %uffd_writeprotect, i64 0, i32 1
+  store i64 %spec.select, ptr %0, align 8
   %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %uffd_fd, i64 noundef 3222841862, ptr noundef nonnull %uffd_writeprotect) #8
   %tobool6.not = icmp eq i32 %call, 0
   br i1 %tobool6.not, label %return, label %if.then7
 
 if.then7:                                         ; preds = %entry
-  %2 = load i64, ptr %1, align 8
+  %1 = load i64, ptr %0, align 8
   %call9 = tail call ptr @__errno_location() #10
-  %3 = load i32, ptr %call9, align 4
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.4, ptr noundef %addr, i64 noundef %length, i64 noundef %2, i32 noundef %3) #8
+  %2 = load i32, ptr %call9, align 4
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.4, ptr noundef %addr, i64 noundef %length, i64 noundef %1, i32 noundef %2) #8
   br label %return
 
 return:                                           ; preds = %entry, %if.then7
@@ -601,11 +598,9 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #5
 define dso_local i32 @uffd_copy_page(i32 noundef %uffd_fd, ptr noundef %dst_addr, ptr noundef %src_addr, i64 noundef %length, i1 noundef zeroext %dont_wake) local_unnamed_addr #0 {
 entry:
   %uffd_copy = alloca %struct.uffdio_copy, align 8
-  %0 = ptrtoint ptr %dst_addr to i64
-  store i64 %0, ptr %uffd_copy, align 8
-  %1 = ptrtoint ptr %src_addr to i64
+  store ptr %dst_addr, ptr %uffd_copy, align 8
   %src = getelementptr inbounds %struct.uffdio_copy, ptr %uffd_copy, i64 0, i32 1
-  store i64 %1, ptr %src, align 8
+  store ptr %src_addr, ptr %src, align 8
   %len = getelementptr inbounds %struct.uffdio_copy, ptr %uffd_copy, i64 0, i32 2
   store i64 %length, ptr %len, align 8
   %cond = zext i1 %dont_wake to i64
@@ -616,10 +611,10 @@ entry:
   br i1 %tobool1.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %2 = load i64, ptr %mode, align 8
+  %0 = load i64, ptr %mode, align 8
   %call3 = tail call ptr @__errno_location() #10
-  %3 = load i32, ptr %call3, align 4
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.5, ptr noundef %dst_addr, ptr noundef %src_addr, i64 noundef %length, i64 noundef %2, i32 noundef %3) #8
+  %1 = load i32, ptr %call3, align 4
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.5, ptr noundef %dst_addr, ptr noundef %src_addr, i64 noundef %length, i64 noundef %0, i32 noundef %1) #8
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -631,8 +626,7 @@ return:                                           ; preds = %entry, %if.then
 define dso_local i32 @uffd_zero_page(i32 noundef %uffd_fd, ptr noundef %addr, i64 noundef %length, i1 noundef zeroext %dont_wake) local_unnamed_addr #0 {
 entry:
   %uffd_zeropage = alloca %struct.uffdio_zeropage, align 8
-  %0 = ptrtoint ptr %addr to i64
-  store i64 %0, ptr %uffd_zeropage, align 8
+  store ptr %addr, ptr %uffd_zeropage, align 8
   %len = getelementptr inbounds %struct.uffdio_range, ptr %uffd_zeropage, i64 0, i32 1
   store i64 %length, ptr %len, align 8
   %cond = zext i1 %dont_wake to i64
@@ -643,10 +637,10 @@ entry:
   br i1 %tobool2.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %1 = load i64, ptr %mode, align 8
+  %0 = load i64, ptr %mode, align 8
   %call4 = tail call ptr @__errno_location() #10
-  %2 = load i32, ptr %call4, align 4
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.6, ptr noundef %addr, i64 noundef %length, i64 noundef %1, i32 noundef %2) #8
+  %1 = load i32, ptr %call4, align 4
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.6, ptr noundef %addr, i64 noundef %length, i64 noundef %0, i32 noundef %1) #8
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -658,8 +652,7 @@ return:                                           ; preds = %entry, %if.then
 define dso_local i32 @uffd_wakeup(i32 noundef %uffd_fd, ptr noundef %addr, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %uffd_range = alloca %struct.uffdio_range, align 8
-  %0 = ptrtoint ptr %addr to i64
-  store i64 %0, ptr %uffd_range, align 8
+  store ptr %addr, ptr %uffd_range, align 8
   %len = getelementptr inbounds %struct.uffdio_range, ptr %uffd_range, i64 0, i32 1
   store i64 %length, ptr %len, align 8
   %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %uffd_fd, i64 noundef 2148575746, ptr noundef nonnull %uffd_range) #8
@@ -668,8 +661,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call1 = tail call ptr @__errno_location() #10
-  %1 = load i32, ptr %call1, align 4
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.7, ptr noundef %addr, i64 noundef %length, i32 noundef %1) #8
+  %0 = load i32, ptr %call1, align 4
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.7, ptr noundef %addr, i64 noundef %length, i32 noundef %0) #8
   br label %return
 
 return:                                           ; preds = %entry, %if.then

@@ -221,21 +221,20 @@ ehcleanup36.i:                                    ; preds = %ehcleanup.i, %lpad1
   br label %ehcleanup43.i
 
 .noexc.i:                                         ; preds = %invoke.cont34.i, %if.end5.i
+  %cond.i = select i1 %cmp6.i, ptr @.str.4, ptr @.str.5
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  %14 = select i1 %cmp6.i, i64 ptrtoint (ptr @.str.4 to i64), i64 ptrtoint (ptr @.str.5 to i64)
   %retval.i7.sroa.0.0.extract.trunc.i.i = trunc i128 %div.i to i64
   %retval.i7.sroa.2.0.extract.shift.i.i = lshr i128 %div.i, 64
   %retval.i7.sroa.2.0.extract.trunc.i.i = trunc i128 %retval.i7.sroa.2.0.extract.shift.i.i to i64
   %call.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %fractionString.i) #14, !noalias !13
   %call2.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %fractionString.i) #14, !noalias !13
-  %15 = ptrtoint ptr %call.i.i.i.i to i64
-  store i64 %14, ptr %ref.tmp.i50.i, align 16, !alias.scope !10, !noalias !7
+  store ptr %cond.i, ptr %ref.tmp.i50.i, align 16, !alias.scope !10, !noalias !7
   %arrayinit.element.i.i30.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i50.i, i64 1
   store i64 %retval.i7.sroa.0.0.extract.trunc.i.i, ptr %arrayinit.element.i.i30.i, align 16, !alias.scope !10, !noalias !7
   %ref.tmp7.i.sroa.2.0.arrayinit.element.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i50.i, i64 24
   store i64 %retval.i7.sroa.2.0.extract.trunc.i.i, ptr %ref.tmp7.i.sroa.2.0.arrayinit.element.i.sroa_idx.i.i, align 8, !alias.scope !10, !noalias !7
   %arrayinit.element6.i.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i50.i, i64 2
-  store i64 %15, ptr %arrayinit.element6.i.i.i, align 16, !alias.scope !10, !noalias !7
+  store ptr %call.i.i.i.i, ptr %arrayinit.element6.i.i.i, align 16, !alias.scope !10, !noalias !7
   %ref.tmp11.i.sroa.2.0.arrayinit.element6.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i50.i, i64 40
   store i64 %call2.i.i.i.i, ptr %ref.tmp11.i.sroa.2.0.arrayinit.element6.i.sroa_idx.i.i, align 8, !alias.scope !10, !noalias !7
   invoke void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.3, i64 6, i64 3420, ptr nonnull %ref.tmp.i50.i)

@@ -2507,7 +2507,6 @@ if.then.i:                                        ; preds = %if.then7
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 19
   %9 = load ptr, ptr %vfn.i, align 8, !noalias !27
   %call.i = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %5), !noalias !27
-  %10 = ptrtoint ptr %8 to i64
   br label %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit
 
 if.end.i:                                         ; preds = %if.then7
@@ -2515,102 +2514,99 @@ if.end.i:                                         ; preds = %if.then7
   br label %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit
 
 _ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit: ; preds = %if.then.i, %if.end.i
-  %.sink.i = phi i64 [ 0, %if.end.i ], [ %10, %if.then.i ]
   %call.sink.i = phi ptr [ %call1.i, %if.end.i ], [ %call.i, %if.then.i ]
   %compressed_buf_ = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 22
   %add.ptr.i.i.i.i.i2.i.i.i = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 22, i32 0, i32 0, i32 0, i32 0, i32 1
-  %11 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i, align 8
+  %10 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i, align 8
   store ptr %call.sink.i, ptr %add.ptr.i.i.i.i.i2.i.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %11, null
+  %tobool.not.i.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit
-  %12 = load ptr, ptr %compressed_buf_, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %12, null
+  %11 = load ptr, ptr %compressed_buf_, align 8
+  %tobool.not.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i.i, label %delete.notnull.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  %vtable.i.i.i.i.i = load ptr, ptr %12, align 8
+  %vtable.i.i.i.i.i = load ptr, ptr %11, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 20
-  %13 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  invoke void %13(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull %11)
+  %12 = load ptr, ptr %vfn.i.i.i.i.i, align 8
+  invoke void %12(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %10)
           to label %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %11) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %10) #16
   br label %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #18
+  %14 = extractvalue { ptr, i32 } %13, 0
+  tail call void @__clang_call_terminate(ptr %14) #18
   unreachable
 
 _ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit: ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i.i, %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit
-  store i64 %.sink.i, ptr %compressed_buf_, align 8
-  %16 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i, align 8
+  store ptr %8, ptr %compressed_buf_, align 8
+  %15 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i, align 8
   br label %if.end19
 
 if.else12:                                        ; preds = %land.lhs.true, %if.else
-  %17 = phi i64 [ %.old, %land.lhs.true ], [ %5, %if.else ]
+  %16 = phi i64 [ %.old, %land.lhs.true ], [ %5, %if.else ]
   %memory_allocator_ = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 15
-  %18 = load ptr, ptr %memory_allocator_, align 8
-  %tobool.not.i4 = icmp eq ptr %18, null
-  br i1 %tobool.not.i4, label %if.end.i11, label %if.then.i5
+  %17 = load ptr, ptr %memory_allocator_, align 8
+  %tobool.not.i4 = icmp eq ptr %17, null
+  br i1 %tobool.not.i4, label %if.end.i10, label %if.then.i5
 
 if.then.i5:                                       ; preds = %if.else12
-  %vtable.i6 = load ptr, ptr %18, align 8, !noalias !30
+  %vtable.i6 = load ptr, ptr %17, align 8, !noalias !30
   %vfn.i7 = getelementptr inbounds ptr, ptr %vtable.i6, i64 19
-  %19 = load ptr, ptr %vfn.i7, align 8, !noalias !30
-  %call.i8 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %17), !noalias !30
-  %20 = ptrtoint ptr %18 to i64
-  br label %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit13
+  %18 = load ptr, ptr %vfn.i7, align 8, !noalias !30
+  %call.i8 = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef %16), !noalias !30
+  br label %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit12
 
-if.end.i11:                                       ; preds = %if.else12
-  %call1.i12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #19, !noalias !30
-  br label %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit13
+if.end.i10:                                       ; preds = %if.else12
+  %call1.i11 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #19, !noalias !30
+  br label %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit12
 
-_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit13: ; preds = %if.then.i5, %if.end.i11
-  %.sink.i9 = phi i64 [ 0, %if.end.i11 ], [ %20, %if.then.i5 ]
-  %call.sink.i10 = phi ptr [ %call1.i12, %if.end.i11 ], [ %call.i8, %if.then.i5 ]
+_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit12: ; preds = %if.then.i5, %if.end.i10
+  %call.sink.i9 = phi ptr [ %call1.i11, %if.end.i10 ], [ %call.i8, %if.then.i5 ]
   %heap_buf_ = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 21
-  %add.ptr.i.i.i.i.i2.i.i.i15 = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 21, i32 0, i32 0, i32 0, i32 0, i32 1
-  %21 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i15, align 8
-  store ptr %call.sink.i10, ptr %add.ptr.i.i.i.i.i2.i.i.i15, align 8
-  %tobool.not.i.i.i.i16 = icmp eq ptr %21, null
-  br i1 %tobool.not.i.i.i.i16, label %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit35, label %if.then.i.i.i.i17
+  %add.ptr.i.i.i.i.i2.i.i.i14 = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 21, i32 0, i32 0, i32 0, i32 0, i32 1
+  %19 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i14, align 8
+  store ptr %call.sink.i9, ptr %add.ptr.i.i.i.i.i2.i.i.i14, align 8
+  %tobool.not.i.i.i.i15 = icmp eq ptr %19, null
+  br i1 %tobool.not.i.i.i.i15, label %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit34, label %if.then.i.i.i.i16
 
-if.then.i.i.i.i17:                                ; preds = %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit13
-  %22 = load ptr, ptr %heap_buf_, align 8
-  %tobool.not.i.i.i.i.i18 = icmp eq ptr %22, null
-  br i1 %tobool.not.i.i.i.i.i18, label %delete.notnull.i.i.i.i.i23, label %if.then.i.i.i.i.i19
+if.then.i.i.i.i16:                                ; preds = %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit12
+  %20 = load ptr, ptr %heap_buf_, align 8
+  %tobool.not.i.i.i.i.i17 = icmp eq ptr %20, null
+  br i1 %tobool.not.i.i.i.i.i17, label %delete.notnull.i.i.i.i.i22, label %if.then.i.i.i.i.i18
 
-if.then.i.i.i.i.i19:                              ; preds = %if.then.i.i.i.i17
-  %vtable.i.i.i.i.i20 = load ptr, ptr %22, align 8
-  %vfn.i.i.i.i.i21 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i20, i64 20
-  %23 = load ptr, ptr %vfn.i.i.i.i.i21, align 8
-  invoke void %23(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull %21)
-          to label %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit35 unwind label %terminate.lpad.i.i.i.i22
+if.then.i.i.i.i.i18:                              ; preds = %if.then.i.i.i.i16
+  %vtable.i.i.i.i.i19 = load ptr, ptr %20, align 8
+  %vfn.i.i.i.i.i20 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i19, i64 20
+  %21 = load ptr, ptr %vfn.i.i.i.i.i20, align 8
+  invoke void %21(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull %19)
+          to label %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit34 unwind label %terminate.lpad.i.i.i.i21
 
-delete.notnull.i.i.i.i.i23:                       ; preds = %if.then.i.i.i.i17
-  tail call void @_ZdaPv(ptr noundef nonnull %21) #16
-  br label %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit35
+delete.notnull.i.i.i.i.i22:                       ; preds = %if.then.i.i.i.i16
+  tail call void @_ZdaPv(ptr noundef nonnull %19) #16
+  br label %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit34
 
-terminate.lpad.i.i.i.i22:                         ; preds = %if.then.i.i.i.i.i19
-  %24 = landingpad { ptr, i32 }
+terminate.lpad.i.i.i.i21:                         ; preds = %if.then.i.i.i.i.i18
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #18
+  %23 = extractvalue { ptr, i32 } %22, 0
+  tail call void @__clang_call_terminate(ptr %23) #18
   unreachable
 
-_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit35: ; preds = %delete.notnull.i.i.i.i.i23, %if.then.i.i.i.i.i19, %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit13
-  store i64 %.sink.i9, ptr %heap_buf_, align 8
-  %26 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i15, align 8
+_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit34: ; preds = %delete.notnull.i.i.i.i.i22, %if.then.i.i.i.i.i18, %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit12
+  store ptr %17, ptr %heap_buf_, align 8
+  %24 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i14, align 8
   br label %if.end19
 
-if.end19:                                         ; preds = %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit, %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit35, %if.then
-  %.sink = phi ptr [ %16, %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit ], [ %26, %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit35 ], [ %stack_buf_, %if.then ]
+if.end19:                                         ; preds = %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit, %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit34, %if.then
+  %.sink = phi ptr [ %15, %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit ], [ %24, %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit34 ], [ %stack_buf_, %if.then ]
   %used_buf_11 = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 19
   store ptr %.sink, ptr %used_buf_11, align 8
   ret void
@@ -3190,7 +3186,6 @@ if.then.i.i3:                                     ; preds = %if.then8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 19
   %13 = load ptr, ptr %vfn.i.i, align 8, !noalias !38
   %call.i.i = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %11), !noalias !38
-  %14 = ptrtoint ptr %12 to i64
   br label %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i
 
 if.end.i.i:                                       ; preds = %if.then8
@@ -3198,65 +3193,64 @@ if.end.i.i:                                       ; preds = %if.then8
   br label %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i
 
 _ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i: ; preds = %if.end.i.i, %if.then.i.i3
-  %.sink.i.i = phi i64 [ 0, %if.end.i.i ], [ %14, %if.then.i.i3 ]
   %call.sink.i.i = phi ptr [ %call1.i.i, %if.end.i.i ], [ %call.i.i, %if.then.i.i3 ]
   %heap_buf_.i = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 21
   %add.ptr.i.i.i.i.i2.i.i.i.i4 = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 21, i32 0, i32 0, i32 0, i32 0, i32 1
-  %15 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i.i4, align 8
+  %14 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i.i4, align 8
   store ptr %call.sink.i.i, ptr %add.ptr.i.i.i.i.i2.i.i.i.i4, align 8
-  %tobool.not.i.i.i.i.i5 = icmp eq ptr %15, null
+  %tobool.not.i.i.i.i.i5 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i.i5, label %_ZN7rocksdb12BlockFetcher19CopyBufferToHeapBufEv.exit, label %if.then.i.i.i.i.i6
 
 if.then.i.i.i.i.i6:                               ; preds = %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i
-  %16 = load ptr, ptr %heap_buf_.i, align 8
-  %tobool.not.i.i.i.i.i.i7 = icmp eq ptr %16, null
+  %15 = load ptr, ptr %heap_buf_.i, align 8
+  %tobool.not.i.i.i.i.i.i7 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i.i.i.i7, label %delete.notnull.i.i.i.i.i.i12, label %if.then.i.i.i.i.i.i8
 
 if.then.i.i.i.i.i.i8:                             ; preds = %if.then.i.i.i.i.i6
-  %vtable.i.i.i.i.i.i9 = load ptr, ptr %16, align 8
+  %vtable.i.i.i.i.i.i9 = load ptr, ptr %15, align 8
   %vfn.i.i.i.i.i.i10 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i9, i64 20
-  %17 = load ptr, ptr %vfn.i.i.i.i.i.i10, align 8
-  invoke void %17(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull %15)
+  %16 = load ptr, ptr %vfn.i.i.i.i.i.i10, align 8
+  invoke void %16(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull %14)
           to label %_ZN7rocksdb12BlockFetcher19CopyBufferToHeapBufEv.exit unwind label %terminate.lpad.i.i.i.i.i11
 
 delete.notnull.i.i.i.i.i.i12:                     ; preds = %if.then.i.i.i.i.i6
-  tail call void @_ZdaPv(ptr noundef nonnull %15) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %14) #16
   br label %_ZN7rocksdb12BlockFetcher19CopyBufferToHeapBufEv.exit
 
 terminate.lpad.i.i.i.i.i11:                       ; preds = %if.then.i.i.i.i.i.i8
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #18
+  %18 = extractvalue { ptr, i32 } %17, 0
+  tail call void @__clang_call_terminate(ptr %18) #18
   unreachable
 
 _ZN7rocksdb12BlockFetcher19CopyBufferToHeapBufEv.exit: ; preds = %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i, %if.then.i.i.i.i.i.i8, %delete.notnull.i.i.i.i.i.i12
-  store i64 %.sink.i.i, ptr %heap_buf_.i, align 8
-  %20 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i.i4, align 8
-  %21 = load ptr, ptr %used_buf_, align 8
-  %22 = load i64, ptr %block_size_with_trailer_.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr align 1 %21, i64 %22, i1 false)
+  store ptr %12, ptr %heap_buf_.i, align 8
+  %19 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i.i4, align 8
+  %20 = load ptr, ptr %used_buf_, align 8
+  %21 = load i64, ptr %block_size_with_trailer_.i, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %20, i64 %21, i1 false)
   br label %if.end35
 
 if.else9:                                         ; preds = %if.else
   %compressed_buf_ = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 22
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 22, i32 0, i32 0, i32 0, i32 0, i32 1
-  %23 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
-  %cmp12 = icmp eq ptr %0, %23
+  %22 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
+  %cmp12 = icmp eq ptr %0, %22
   br i1 %cmp12, label %if.then13, label %if.else20
 
 if.then13:                                        ; preds = %if.else9
   %compression_type_ = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 25
-  %24 = load i8, ptr %compression_type_, align 1
-  %cmp14 = icmp eq i8 %24, 0
+  %23 = load i8, ptr %compression_type_, align 1
+  %cmp14 = icmp eq i8 %23, 0
   br i1 %cmp14, label %land.lhs.true, label %if.else17
 
 land.lhs.true:                                    ; preds = %if.then13
   %memory_allocator_ = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 15
-  %25 = load ptr, ptr %memory_allocator_, align 8
+  %24 = load ptr, ptr %memory_allocator_, align 8
   %memory_allocator_compressed_ = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 16
-  %26 = load ptr, ptr %memory_allocator_compressed_, align 8
-  %cmp15.not = icmp eq ptr %25, %26
+  %25 = load ptr, ptr %memory_allocator_compressed_, align 8
+  %cmp15.not = icmp eq ptr %24, %25
   br i1 %cmp15.not, label %if.else17, label %if.then16
 
 if.then16:                                        ; preds = %land.lhs.true
@@ -3267,253 +3261,249 @@ if.else17:                                        ; preds = %land.lhs.true, %if.
   %heap_buf_ = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 21
   store ptr null, ptr %add.ptr.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i2.i.i.i = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 21, i32 0, i32 0, i32 0, i32 0, i32 1
-  %27 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i, align 8
+  %26 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i, align 8
   store ptr %0, ptr %add.ptr.i.i.i.i.i2.i.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %27, null
+  %tobool.not.i.i.i.i = icmp eq ptr %26, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEEaSEOS3_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else17
-  %28 = load ptr, ptr %heap_buf_, align 8
-  %tobool.not.i.i.i.i.i13 = icmp eq ptr %28, null
+  %27 = load ptr, ptr %heap_buf_, align 8
+  %tobool.not.i.i.i.i.i13 = icmp eq ptr %27, null
   br i1 %tobool.not.i.i.i.i.i13, label %delete.notnull.i.i.i.i.i, label %if.then.i.i.i.i.i14
 
 if.then.i.i.i.i.i14:                              ; preds = %if.then.i.i.i.i
-  %vtable.i.i.i.i.i = load ptr, ptr %28, align 8
+  %vtable.i.i.i.i.i = load ptr, ptr %27, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 20
-  %29 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  invoke void %29(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull %27)
+  %28 = load ptr, ptr %vfn.i.i.i.i.i, align 8
+  invoke void %28(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull %26)
           to label %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEEaSEOS3_.exit unwind label %terminate.lpad.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %27) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %26) #16
   br label %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEEaSEOS3_.exit
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i14
-  %30 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #18
+  %30 = extractvalue { ptr, i32 } %29, 0
+  tail call void @__clang_call_terminate(ptr %30) #18
   unreachable
 
 _ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEEaSEOS3_.exit: ; preds = %if.else17, %if.then.i.i.i.i.i14, %delete.notnull.i.i.i.i.i
-  %32 = load i64, ptr %compressed_buf_, align 8
-  store i64 %32, ptr %heap_buf_, align 8
+  %31 = load i64, ptr %compressed_buf_, align 8
+  store i64 %31, ptr %heap_buf_, align 8
   br label %if.end35
 
 if.else20:                                        ; preds = %if.else9
   %direct_io_buf_ = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 20
-  %33 = load ptr, ptr %direct_io_buf_, align 8
-  %cmp22.not = icmp eq ptr %33, null
+  %32 = load ptr, ptr %direct_io_buf_, align 8
+  %cmp22.not = icmp eq ptr %32, null
   br i1 %cmp22.not, label %if.end35, label %if.then23
 
 if.then23:                                        ; preds = %if.else20
   %compression_type_24 = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 25
-  %34 = load i8, ptr %compression_type_24, align 1
-  %cmp26 = icmp eq i8 %34, 0
+  %33 = load i8, ptr %compression_type_24, align 1
+  %cmp26 = icmp eq i8 %33, 0
   %block_size_with_trailer_.i15 = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 12
-  %35 = load i64, ptr %block_size_with_trailer_.i15, align 8
+  %34 = load i64, ptr %block_size_with_trailer_.i15, align 8
   br i1 %cmp26, label %if.then27, label %if.else28
 
 if.then27:                                        ; preds = %if.then23
   %memory_allocator_.i16 = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 15
-  %36 = load ptr, ptr %memory_allocator_.i16, align 8
-  %tobool.not.i.i17 = icmp eq ptr %36, null
-  br i1 %tobool.not.i.i17, label %if.end.i.i36, label %if.then.i.i18
+  %35 = load ptr, ptr %memory_allocator_.i16, align 8
+  %tobool.not.i.i17 = icmp eq ptr %35, null
+  br i1 %tobool.not.i.i17, label %if.end.i.i35, label %if.then.i.i18
 
 if.then.i.i18:                                    ; preds = %if.then27
-  %vtable.i.i19 = load ptr, ptr %36, align 8, !noalias !41
+  %vtable.i.i19 = load ptr, ptr %35, align 8, !noalias !41
   %vfn.i.i20 = getelementptr inbounds ptr, ptr %vtable.i.i19, i64 19
-  %37 = load ptr, ptr %vfn.i.i20, align 8, !noalias !41
-  %call.i.i21 = tail call noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(32) %36, i64 noundef %35), !noalias !41
-  %38 = ptrtoint ptr %36 to i64
+  %36 = load ptr, ptr %vfn.i.i20, align 8, !noalias !41
+  %call.i.i21 = tail call noundef ptr %36(ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef %34), !noalias !41
   br label %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i22
 
-if.end.i.i36:                                     ; preds = %if.then27
-  %call1.i.i37 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %35) #19, !noalias !41
+if.end.i.i35:                                     ; preds = %if.then27
+  %call1.i.i36 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %34) #19, !noalias !41
   br label %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i22
 
-_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i22: ; preds = %if.end.i.i36, %if.then.i.i18
-  %.sink.i.i23 = phi i64 [ 0, %if.end.i.i36 ], [ %38, %if.then.i.i18 ]
-  %call.sink.i.i24 = phi ptr [ %call1.i.i37, %if.end.i.i36 ], [ %call.i.i21, %if.then.i.i18 ]
-  %heap_buf_.i25 = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 21
-  %add.ptr.i.i.i.i.i2.i.i.i.i26 = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 21, i32 0, i32 0, i32 0, i32 0, i32 1
-  %39 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i.i26, align 8
-  store ptr %call.sink.i.i24, ptr %add.ptr.i.i.i.i.i2.i.i.i.i26, align 8
-  %tobool.not.i.i.i.i.i27 = icmp eq ptr %39, null
-  br i1 %tobool.not.i.i.i.i.i27, label %_ZN7rocksdb12BlockFetcher19CopyBufferToHeapBufEv.exit38, label %if.then.i.i.i.i.i28
+_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i22: ; preds = %if.end.i.i35, %if.then.i.i18
+  %call.sink.i.i23 = phi ptr [ %call1.i.i36, %if.end.i.i35 ], [ %call.i.i21, %if.then.i.i18 ]
+  %heap_buf_.i24 = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 21
+  %add.ptr.i.i.i.i.i2.i.i.i.i25 = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 21, i32 0, i32 0, i32 0, i32 0, i32 1
+  %37 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i.i25, align 8
+  store ptr %call.sink.i.i23, ptr %add.ptr.i.i.i.i.i2.i.i.i.i25, align 8
+  %tobool.not.i.i.i.i.i26 = icmp eq ptr %37, null
+  br i1 %tobool.not.i.i.i.i.i26, label %_ZN7rocksdb12BlockFetcher19CopyBufferToHeapBufEv.exit37, label %if.then.i.i.i.i.i27
 
-if.then.i.i.i.i.i28:                              ; preds = %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i22
-  %40 = load ptr, ptr %heap_buf_.i25, align 8
-  %tobool.not.i.i.i.i.i.i29 = icmp eq ptr %40, null
-  br i1 %tobool.not.i.i.i.i.i.i29, label %delete.notnull.i.i.i.i.i.i35, label %if.then.i.i.i.i.i.i30
+if.then.i.i.i.i.i27:                              ; preds = %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i22
+  %38 = load ptr, ptr %heap_buf_.i24, align 8
+  %tobool.not.i.i.i.i.i.i28 = icmp eq ptr %38, null
+  br i1 %tobool.not.i.i.i.i.i.i28, label %delete.notnull.i.i.i.i.i.i34, label %if.then.i.i.i.i.i.i29
 
-if.then.i.i.i.i.i.i30:                            ; preds = %if.then.i.i.i.i.i28
-  %vtable.i.i.i.i.i.i31 = load ptr, ptr %40, align 8
-  %vfn.i.i.i.i.i.i32 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i31, i64 20
-  %41 = load ptr, ptr %vfn.i.i.i.i.i.i32, align 8
-  invoke void %41(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull %39)
-          to label %_ZN7rocksdb12BlockFetcher19CopyBufferToHeapBufEv.exit38 unwind label %terminate.lpad.i.i.i.i.i33
+if.then.i.i.i.i.i.i29:                            ; preds = %if.then.i.i.i.i.i27
+  %vtable.i.i.i.i.i.i30 = load ptr, ptr %38, align 8
+  %vfn.i.i.i.i.i.i31 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i30, i64 20
+  %39 = load ptr, ptr %vfn.i.i.i.i.i.i31, align 8
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull %37)
+          to label %_ZN7rocksdb12BlockFetcher19CopyBufferToHeapBufEv.exit37 unwind label %terminate.lpad.i.i.i.i.i32
 
-delete.notnull.i.i.i.i.i.i35:                     ; preds = %if.then.i.i.i.i.i28
-  tail call void @_ZdaPv(ptr noundef nonnull %39) #16
-  br label %_ZN7rocksdb12BlockFetcher19CopyBufferToHeapBufEv.exit38
+delete.notnull.i.i.i.i.i.i34:                     ; preds = %if.then.i.i.i.i.i27
+  tail call void @_ZdaPv(ptr noundef nonnull %37) #16
+  br label %_ZN7rocksdb12BlockFetcher19CopyBufferToHeapBufEv.exit37
 
-terminate.lpad.i.i.i.i.i33:                       ; preds = %if.then.i.i.i.i.i.i30
-  %42 = landingpad { ptr, i32 }
+terminate.lpad.i.i.i.i.i32:                       ; preds = %if.then.i.i.i.i.i.i29
+  %40 = landingpad { ptr, i32 }
           catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #18
+  %41 = extractvalue { ptr, i32 } %40, 0
+  tail call void @__clang_call_terminate(ptr %41) #18
   unreachable
 
-_ZN7rocksdb12BlockFetcher19CopyBufferToHeapBufEv.exit38: ; preds = %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i22, %if.then.i.i.i.i.i.i30, %delete.notnull.i.i.i.i.i.i35
-  store i64 %.sink.i.i23, ptr %heap_buf_.i25, align 8
-  %44 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i.i26, align 8
-  %45 = load ptr, ptr %used_buf_, align 8
-  %46 = load i64, ptr %block_size_with_trailer_.i15, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr align 1 %45, i64 %46, i1 false)
+_ZN7rocksdb12BlockFetcher19CopyBufferToHeapBufEv.exit37: ; preds = %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i22, %if.then.i.i.i.i.i.i29, %delete.notnull.i.i.i.i.i.i34
+  store ptr %35, ptr %heap_buf_.i24, align 8
+  %42 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i.i25, align 8
+  %43 = load ptr, ptr %used_buf_, align 8
+  %44 = load i64, ptr %block_size_with_trailer_.i15, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %42, ptr align 1 %43, i64 %44, i1 false)
   br label %if.end35
 
 if.else28:                                        ; preds = %if.then23
   %memory_allocator_compressed_.i = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 16
-  %47 = load ptr, ptr %memory_allocator_compressed_.i, align 8
-  %tobool.not.i.i40 = icmp eq ptr %47, null
-  br i1 %tobool.not.i.i40, label %if.end.i.i58, label %if.then.i.i41
+  %45 = load ptr, ptr %memory_allocator_compressed_.i, align 8
+  %tobool.not.i.i39 = icmp eq ptr %45, null
+  br i1 %tobool.not.i.i39, label %if.end.i.i56, label %if.then.i.i40
 
-if.then.i.i41:                                    ; preds = %if.else28
-  %vtable.i.i42 = load ptr, ptr %47, align 8, !noalias !44
-  %vfn.i.i43 = getelementptr inbounds ptr, ptr %vtable.i.i42, i64 19
-  %48 = load ptr, ptr %vfn.i.i43, align 8, !noalias !44
-  %call.i.i44 = tail call noundef ptr %48(ptr noundef nonnull align 8 dereferenceable(32) %47, i64 noundef %35), !noalias !44
-  %49 = ptrtoint ptr %47 to i64
+if.then.i.i40:                                    ; preds = %if.else28
+  %vtable.i.i41 = load ptr, ptr %45, align 8, !noalias !44
+  %vfn.i.i42 = getelementptr inbounds ptr, ptr %vtable.i.i41, i64 19
+  %46 = load ptr, ptr %vfn.i.i42, align 8, !noalias !44
+  %call.i.i43 = tail call noundef ptr %46(ptr noundef nonnull align 8 dereferenceable(32) %45, i64 noundef %34), !noalias !44
   %.pre = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
-  br label %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i45
+  br label %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i44
 
-if.end.i.i58:                                     ; preds = %if.else28
-  %call1.i.i59 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %35) #19, !noalias !44
-  br label %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i45
+if.end.i.i56:                                     ; preds = %if.else28
+  %call1.i.i57 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %34) #19, !noalias !44
+  br label %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i44
 
-_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i45: ; preds = %if.end.i.i58, %if.then.i.i41
-  %50 = phi ptr [ %23, %if.end.i.i58 ], [ %.pre, %if.then.i.i41 ]
-  %.sink.i.i46 = phi i64 [ 0, %if.end.i.i58 ], [ %49, %if.then.i.i41 ]
-  %call.sink.i.i47 = phi ptr [ %call1.i.i59, %if.end.i.i58 ], [ %call.i.i44, %if.then.i.i41 ]
-  store ptr %call.sink.i.i47, ptr %add.ptr.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i49 = icmp eq ptr %50, null
-  br i1 %tobool.not.i.i.i.i.i49, label %_ZN7rocksdb12BlockFetcher25CopyBufferToCompressedBufEv.exit, label %if.then.i.i.i.i.i50
+_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i44: ; preds = %if.end.i.i56, %if.then.i.i40
+  %47 = phi ptr [ %22, %if.end.i.i56 ], [ %.pre, %if.then.i.i40 ]
+  %call.sink.i.i45 = phi ptr [ %call1.i.i57, %if.end.i.i56 ], [ %call.i.i43, %if.then.i.i40 ]
+  store ptr %call.sink.i.i45, ptr %add.ptr.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i47 = icmp eq ptr %47, null
+  br i1 %tobool.not.i.i.i.i.i47, label %_ZN7rocksdb12BlockFetcher25CopyBufferToCompressedBufEv.exit, label %if.then.i.i.i.i.i48
 
-if.then.i.i.i.i.i50:                              ; preds = %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i45
-  %51 = load ptr, ptr %compressed_buf_, align 8
-  %tobool.not.i.i.i.i.i.i51 = icmp eq ptr %51, null
-  br i1 %tobool.not.i.i.i.i.i.i51, label %delete.notnull.i.i.i.i.i.i57, label %if.then.i.i.i.i.i.i52
+if.then.i.i.i.i.i48:                              ; preds = %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i44
+  %48 = load ptr, ptr %compressed_buf_, align 8
+  %tobool.not.i.i.i.i.i.i49 = icmp eq ptr %48, null
+  br i1 %tobool.not.i.i.i.i.i.i49, label %delete.notnull.i.i.i.i.i.i55, label %if.then.i.i.i.i.i.i50
 
-if.then.i.i.i.i.i.i52:                            ; preds = %if.then.i.i.i.i.i50
-  %vtable.i.i.i.i.i.i53 = load ptr, ptr %51, align 8
-  %vfn.i.i.i.i.i.i54 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i53, i64 20
-  %52 = load ptr, ptr %vfn.i.i.i.i.i.i54, align 8
-  invoke void %52(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull %50)
-          to label %_ZN7rocksdb12BlockFetcher25CopyBufferToCompressedBufEv.exit unwind label %terminate.lpad.i.i.i.i.i55
+if.then.i.i.i.i.i.i50:                            ; preds = %if.then.i.i.i.i.i48
+  %vtable.i.i.i.i.i.i51 = load ptr, ptr %48, align 8
+  %vfn.i.i.i.i.i.i52 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i51, i64 20
+  %49 = load ptr, ptr %vfn.i.i.i.i.i.i52, align 8
+  invoke void %49(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull %47)
+          to label %_ZN7rocksdb12BlockFetcher25CopyBufferToCompressedBufEv.exit unwind label %terminate.lpad.i.i.i.i.i53
 
-delete.notnull.i.i.i.i.i.i57:                     ; preds = %if.then.i.i.i.i.i50
-  tail call void @_ZdaPv(ptr noundef nonnull %50) #16
+delete.notnull.i.i.i.i.i.i55:                     ; preds = %if.then.i.i.i.i.i48
+  tail call void @_ZdaPv(ptr noundef nonnull %47) #16
   br label %_ZN7rocksdb12BlockFetcher25CopyBufferToCompressedBufEv.exit
 
-terminate.lpad.i.i.i.i.i55:                       ; preds = %if.then.i.i.i.i.i.i52
-  %53 = landingpad { ptr, i32 }
+terminate.lpad.i.i.i.i.i53:                       ; preds = %if.then.i.i.i.i.i.i50
+  %50 = landingpad { ptr, i32 }
           catch ptr null
-  %54 = extractvalue { ptr, i32 } %53, 0
-  tail call void @__clang_call_terminate(ptr %54) #18
+  %51 = extractvalue { ptr, i32 } %50, 0
+  tail call void @__clang_call_terminate(ptr %51) #18
   unreachable
 
-_ZN7rocksdb12BlockFetcher25CopyBufferToCompressedBufEv.exit: ; preds = %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i45, %if.then.i.i.i.i.i.i52, %delete.notnull.i.i.i.i.i.i57
-  store i64 %.sink.i.i46, ptr %compressed_buf_, align 8
-  %55 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
-  %56 = load ptr, ptr %used_buf_, align 8
-  %57 = load i64, ptr %block_size_with_trailer_.i15, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %55, ptr align 1 %56, i64 %57, i1 false)
+_ZN7rocksdb12BlockFetcher25CopyBufferToCompressedBufEv.exit: ; preds = %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit.i44, %if.then.i.i.i.i.i.i50, %delete.notnull.i.i.i.i.i.i55
+  store ptr %45, ptr %compressed_buf_, align 8
+  %52 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
+  %53 = load ptr, ptr %used_buf_, align 8
+  %54 = load i64, ptr %block_size_with_trailer_.i15, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr align 1 %53, i64 %54, i1 false)
   %heap_buf_30 = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 21
-  %58 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
+  %55 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
   store ptr null, ptr %add.ptr.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i2.i.i.i61 = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 21, i32 0, i32 0, i32 0, i32 0, i32 1
-  %59 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i61, align 8
-  store ptr %58, ptr %add.ptr.i.i.i.i.i2.i.i.i61, align 8
-  %tobool.not.i.i.i.i62 = icmp eq ptr %59, null
-  br i1 %tobool.not.i.i.i.i62, label %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEEaSEOS3_.exit70, label %if.then.i.i.i.i63
+  %add.ptr.i.i.i.i.i2.i.i.i59 = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 21, i32 0, i32 0, i32 0, i32 0, i32 1
+  %56 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i59, align 8
+  store ptr %55, ptr %add.ptr.i.i.i.i.i2.i.i.i59, align 8
+  %tobool.not.i.i.i.i60 = icmp eq ptr %56, null
+  br i1 %tobool.not.i.i.i.i60, label %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEEaSEOS3_.exit68, label %if.then.i.i.i.i61
 
-if.then.i.i.i.i63:                                ; preds = %_ZN7rocksdb12BlockFetcher25CopyBufferToCompressedBufEv.exit
-  %60 = load ptr, ptr %heap_buf_30, align 8
-  %tobool.not.i.i.i.i.i64 = icmp eq ptr %60, null
-  br i1 %tobool.not.i.i.i.i.i64, label %delete.notnull.i.i.i.i.i69, label %if.then.i.i.i.i.i65
+if.then.i.i.i.i61:                                ; preds = %_ZN7rocksdb12BlockFetcher25CopyBufferToCompressedBufEv.exit
+  %57 = load ptr, ptr %heap_buf_30, align 8
+  %tobool.not.i.i.i.i.i62 = icmp eq ptr %57, null
+  br i1 %tobool.not.i.i.i.i.i62, label %delete.notnull.i.i.i.i.i67, label %if.then.i.i.i.i.i63
 
-if.then.i.i.i.i.i65:                              ; preds = %if.then.i.i.i.i63
-  %vtable.i.i.i.i.i66 = load ptr, ptr %60, align 8
-  %vfn.i.i.i.i.i67 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i66, i64 20
-  %61 = load ptr, ptr %vfn.i.i.i.i.i67, align 8
-  invoke void %61(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %59)
-          to label %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEEaSEOS3_.exit70 unwind label %terminate.lpad.i.i.i.i68
+if.then.i.i.i.i.i63:                              ; preds = %if.then.i.i.i.i61
+  %vtable.i.i.i.i.i64 = load ptr, ptr %57, align 8
+  %vfn.i.i.i.i.i65 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i64, i64 20
+  %58 = load ptr, ptr %vfn.i.i.i.i.i65, align 8
+  invoke void %58(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %56)
+          to label %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEEaSEOS3_.exit68 unwind label %terminate.lpad.i.i.i.i66
 
-delete.notnull.i.i.i.i.i69:                       ; preds = %if.then.i.i.i.i63
-  tail call void @_ZdaPv(ptr noundef nonnull %59) #16
-  br label %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEEaSEOS3_.exit70
+delete.notnull.i.i.i.i.i67:                       ; preds = %if.then.i.i.i.i61
+  tail call void @_ZdaPv(ptr noundef nonnull %56) #16
+  br label %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEEaSEOS3_.exit68
 
-terminate.lpad.i.i.i.i68:                         ; preds = %if.then.i.i.i.i.i65
-  %62 = landingpad { ptr, i32 }
+terminate.lpad.i.i.i.i66:                         ; preds = %if.then.i.i.i.i.i63
+  %59 = landingpad { ptr, i32 }
           catch ptr null
-  %63 = extractvalue { ptr, i32 } %62, 0
-  tail call void @__clang_call_terminate(ptr %63) #18
+  %60 = extractvalue { ptr, i32 } %59, 0
+  tail call void @__clang_call_terminate(ptr %60) #18
   unreachable
 
-_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEEaSEOS3_.exit70: ; preds = %_ZN7rocksdb12BlockFetcher25CopyBufferToCompressedBufEv.exit, %if.then.i.i.i.i.i65, %delete.notnull.i.i.i.i.i69
-  %64 = load i64, ptr %compressed_buf_, align 8
-  store i64 %64, ptr %heap_buf_30, align 8
+_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEEaSEOS3_.exit68: ; preds = %_ZN7rocksdb12BlockFetcher25CopyBufferToCompressedBufEv.exit, %if.then.i.i.i.i.i63, %delete.notnull.i.i.i.i.i67
+  %61 = load i64, ptr %compressed_buf_, align 8
+  store i64 %61, ptr %heap_buf_30, align 8
   br label %if.end35
 
-if.end35:                                         ; preds = %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEEaSEOS3_.exit, %if.then16, %_ZN7rocksdb12BlockFetcher19CopyBufferToHeapBufEv.exit38, %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEEaSEOS3_.exit70, %if.else20, %_ZN7rocksdb12BlockFetcher19CopyBufferToHeapBufEv.exit
+if.end35:                                         ; preds = %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEEaSEOS3_.exit, %if.then16, %_ZN7rocksdb12BlockFetcher19CopyBufferToHeapBufEv.exit37, %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEEaSEOS3_.exit68, %if.else20, %_ZN7rocksdb12BlockFetcher19CopyBufferToHeapBufEv.exit
   %heap_buf_37 = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 21
   %block_size_38 = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 11
-  %65 = load i64, ptr %block_size_38, align 8
-  %add.ptr.i.i.i.i.i.i71 = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 21, i32 0, i32 0, i32 0, i32 0, i32 1
-  %66 = load ptr, ptr %add.ptr.i.i.i.i.i.i71, align 8
-  %67 = load i64, ptr %heap_buf_37, align 8
-  store ptr null, ptr %add.ptr.i.i.i.i.i.i71, align 8
+  %62 = load i64, ptr %block_size_38, align 8
+  %add.ptr.i.i.i.i.i.i69 = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 21, i32 0, i32 0, i32 0, i32 0, i32 1
+  %63 = load ptr, ptr %add.ptr.i.i.i.i.i.i69, align 8
+  %64 = load i64, ptr %heap_buf_37, align 8
+  store ptr null, ptr %add.ptr.i.i.i.i.i.i69, align 8
   %contents_39 = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 5
-  %68 = load ptr, ptr %contents_39, align 8
-  store ptr %66, ptr %68, align 8
-  %ref.tmp36.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %68, i64 8
-  store i64 %65, ptr %ref.tmp36.sroa.2.0..sroa_idx, align 8
-  %allocation3.i73 = getelementptr inbounds %"struct.rocksdb::BlockContents", ptr %68, i64 0, i32 1
-  %add.ptr.i.i.i.i.i2.i.i.i.i75 = getelementptr inbounds %"struct.rocksdb::BlockContents", ptr %68, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
-  %69 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i.i75, align 8
-  store ptr %66, ptr %add.ptr.i.i.i.i.i2.i.i.i.i75, align 8
-  %tobool.not.i.i.i.i.i76 = icmp eq ptr %69, null
-  br i1 %tobool.not.i.i.i.i.i76, label %_ZN7rocksdb13BlockContentsD2Ev.exit96, label %if.then.i.i.i.i.i77
+  %65 = load ptr, ptr %contents_39, align 8
+  store ptr %63, ptr %65, align 8
+  %ref.tmp36.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %65, i64 8
+  store i64 %62, ptr %ref.tmp36.sroa.2.0..sroa_idx, align 8
+  %allocation3.i71 = getelementptr inbounds %"struct.rocksdb::BlockContents", ptr %65, i64 0, i32 1
+  %add.ptr.i.i.i.i.i2.i.i.i.i73 = getelementptr inbounds %"struct.rocksdb::BlockContents", ptr %65, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %66 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i.i73, align 8
+  store ptr %63, ptr %add.ptr.i.i.i.i.i2.i.i.i.i73, align 8
+  %tobool.not.i.i.i.i.i74 = icmp eq ptr %66, null
+  br i1 %tobool.not.i.i.i.i.i74, label %_ZN7rocksdb13BlockContentsD2Ev.exit94, label %if.then.i.i.i.i.i75
 
-if.then.i.i.i.i.i77:                              ; preds = %if.end35
-  %70 = load ptr, ptr %allocation3.i73, align 8
-  %tobool.not.i.i.i.i.i.i78 = icmp eq ptr %70, null
-  br i1 %tobool.not.i.i.i.i.i.i78, label %delete.notnull.i.i.i.i.i.i84, label %if.then.i.i.i.i.i.i79
+if.then.i.i.i.i.i75:                              ; preds = %if.end35
+  %67 = load ptr, ptr %allocation3.i71, align 8
+  %tobool.not.i.i.i.i.i.i76 = icmp eq ptr %67, null
+  br i1 %tobool.not.i.i.i.i.i.i76, label %delete.notnull.i.i.i.i.i.i82, label %if.then.i.i.i.i.i.i77
 
-if.then.i.i.i.i.i.i79:                            ; preds = %if.then.i.i.i.i.i77
-  %vtable.i.i.i.i.i.i80 = load ptr, ptr %70, align 8
-  %vfn.i.i.i.i.i.i81 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i80, i64 20
-  %71 = load ptr, ptr %vfn.i.i.i.i.i.i81, align 8
-  invoke void %71(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull %69)
-          to label %_ZN7rocksdb13BlockContentsD2Ev.exit96 unwind label %terminate.lpad.i.i.i.i.i82
+if.then.i.i.i.i.i.i77:                            ; preds = %if.then.i.i.i.i.i75
+  %vtable.i.i.i.i.i.i78 = load ptr, ptr %67, align 8
+  %vfn.i.i.i.i.i.i79 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i78, i64 20
+  %68 = load ptr, ptr %vfn.i.i.i.i.i.i79, align 8
+  invoke void %68(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull %66)
+          to label %_ZN7rocksdb13BlockContentsD2Ev.exit94 unwind label %terminate.lpad.i.i.i.i.i80
 
-delete.notnull.i.i.i.i.i.i84:                     ; preds = %if.then.i.i.i.i.i77
-  tail call void @_ZdaPv(ptr noundef nonnull %69) #16
-  br label %_ZN7rocksdb13BlockContentsD2Ev.exit96
+delete.notnull.i.i.i.i.i.i82:                     ; preds = %if.then.i.i.i.i.i75
+  tail call void @_ZdaPv(ptr noundef nonnull %66) #16
+  br label %_ZN7rocksdb13BlockContentsD2Ev.exit94
 
-terminate.lpad.i.i.i.i.i82:                       ; preds = %if.then.i.i.i.i.i.i79
-  %72 = landingpad { ptr, i32 }
+terminate.lpad.i.i.i.i.i80:                       ; preds = %if.then.i.i.i.i.i.i77
+  %69 = landingpad { ptr, i32 }
           catch ptr null
-  %73 = extractvalue { ptr, i32 } %72, 0
-  tail call void @__clang_call_terminate(ptr %73) #18
+  %70 = extractvalue { ptr, i32 } %69, 0
+  tail call void @__clang_call_terminate(ptr %70) #18
   unreachable
 
-_ZN7rocksdb13BlockContentsD2Ev.exit96:            ; preds = %delete.notnull.i.i.i.i.i.i84, %if.then.i.i.i.i.i.i79, %if.end35
-  store i64 %67, ptr %allocation3.i73, align 8
+_ZN7rocksdb13BlockContentsD2Ev.exit94:            ; preds = %delete.notnull.i.i.i.i.i.i82, %if.then.i.i.i.i.i.i77, %if.end35
+  store i64 %64, ptr %allocation3.i71, align 8
   br label %if.end43
 
-if.end43:                                         ; preds = %_ZN7rocksdb13BlockContentsD2Ev.exit96, %_ZN7rocksdb13BlockContentsD2Ev.exit
+if.end43:                                         ; preds = %_ZN7rocksdb13BlockContentsD2Ev.exit94, %_ZN7rocksdb13BlockContentsD2Ev.exit
   ret void
 }
 
@@ -4187,7 +4177,6 @@ if.then.i:                                        ; preds = %entry
   %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 19
   %2 = load ptr, ptr %vfn.i, align 8, !noalias !56
   %call.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %0), !noalias !56
-  %3 = ptrtoint ptr %1 to i64
   br label %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit
 
 if.end.i:                                         ; preds = %entry
@@ -4195,45 +4184,44 @@ if.end.i:                                         ; preds = %entry
   br label %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit
 
 _ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit: ; preds = %if.then.i, %if.end.i
-  %.sink.i = phi i64 [ 0, %if.end.i ], [ %3, %if.then.i ]
   %call.sink.i = phi ptr [ %call1.i, %if.end.i ], [ %call.i, %if.then.i ]
   %heap_buf_ = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 21
   %add.ptr.i.i.i.i.i2.i.i.i = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 21, i32 0, i32 0, i32 0, i32 0, i32 1
-  %4 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i, align 8
+  %3 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i, align 8
   store ptr %call.sink.i, ptr %add.ptr.i.i.i.i.i2.i.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %4, null
+  %tobool.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit
-  %5 = load ptr, ptr %heap_buf_, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %heap_buf_, align 8
+  %tobool.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i, label %delete.notnull.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  %vtable.i.i.i.i.i = load ptr, ptr %5, align 8
+  %vtable.i.i.i.i.i = load ptr, ptr %4, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 20
-  %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  invoke void %6(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %4)
+  %5 = load ptr, ptr %vfn.i.i.i.i.i, align 8
+  invoke void %5(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %3)
           to label %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %4) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %3) #16
   br label %_ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #18
+  %7 = extractvalue { ptr, i32 } %6, 0
+  tail call void @__clang_call_terminate(ptr %7) #18
   unreachable
 
 _ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit: ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i.i, %_ZN7rocksdb13AllocateBlockEmPNS_15MemoryAllocatorE.exit
-  store i64 %.sink.i, ptr %heap_buf_, align 8
-  %9 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i, align 8
+  store ptr %1, ptr %heap_buf_, align 8
+  %8 = load ptr, ptr %add.ptr.i.i.i.i.i2.i.i.i, align 8
   %used_buf_ = getelementptr inbounds %"class.rocksdb::BlockFetcher", ptr %this, i64 0, i32 19
-  %10 = load ptr, ptr %used_buf_, align 8
-  %11 = load i64, ptr %block_size_with_trailer_, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %10, i64 %11, i1 false)
+  %9 = load ptr, ptr %used_buf_, align 8
+  %10 = load i64, ptr %block_size_with_trailer_, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 1 %9, i64 %10, i1 false)
   ret void
 }
 

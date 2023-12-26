@@ -5537,7 +5537,7 @@ entry:
   %empty_argv = alloca [1 x ptr], align 8
   %argv_list = alloca %struct.PyWideStringList, align 8
   %path0 = alloca ptr, align 8
-  store i64 ptrtoint (ptr @.str.39 to i64), ptr %empty_argv, align 8
+  store ptr @.str.39, ptr %empty_argv, align 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
   %cmp = icmp slt i32 %argc, 1

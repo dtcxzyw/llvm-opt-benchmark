@@ -3444,34 +3444,32 @@ if.then.i:                                        ; preds = %for.body.i
   br label %if.end.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %18 = ptrtoint ptr %call.i to i64
   %mmap_addr24.i = getelementptr %struct.VuDev, ptr %dev, i64 0, i32 2, i64 %indvars.iv.i, i32 4
-  store i64 %18, ptr %mmap_addr24.i, align 8
+  store ptr %call.i, ptr %mmap_addr24.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
-  %19 = load i64, ptr %mmap_offset16.i, align 8
-  %add.ptr.i = getelementptr i8, ptr %call.i, i64 %19
-  %20 = ptrtoint ptr %add.ptr.i to i64
-  store i64 %20, ptr %userspace_addr.i, align 8
-  %21 = load i32, ptr %arrayidx20.i, align 1
-  %call32.i = tail call i32 @close(i32 noundef %21) #20
+  %18 = load i64, ptr %mmap_offset16.i, align 8
+  %add.ptr.i = getelementptr i8, ptr %call.i, i64 %18
+  store ptr %add.ptr.i, ptr %userspace_addr.i, align 8
+  %19 = load i32, ptr %arrayidx20.i, align 1
+  %call32.i = tail call i32 @close(i32 noundef %19) #20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %22 = load i32, ptr %nregions, align 4
-  %23 = zext i32 %22 to i64
-  %cmp.i = icmp ult i64 %indvars.iv.next.i, %23
+  %20 = load i32, ptr %nregions, align 4
+  %21 = zext i32 %20 to i64
+  %cmp.i = icmp ult i64 %indvars.iv.next.i, %21
   br i1 %cmp.i, label %for.body.i, label %for.end.i
 
 for.end.i:                                        ; preds = %if.end.i, %if.then4
   %fd_num.i = getelementptr inbounds %struct.VhostUserMsg, ptr %vmsg, i64 0, i32 5
   store i32 0, ptr %fd_num.i, align 1
-  %24 = load i32, ptr %dev, align 8
+  %22 = load i32, ptr %dev, align 8
   %flags.i.i = getelementptr inbounds %struct.VhostUserMsg, ptr %vmsg, i64 0, i32 1
-  %25 = load i32, ptr %flags.i.i, align 1
-  %and.i.i = and i32 %25, -8
+  %23 = load i32, ptr %flags.i.i, align 1
+  %and.i.i = and i32 %23, -8
   %or3.i.i = or disjoint i32 %and.i.i, 5
   store i32 %or3.i.i, ptr %flags.i.i, align 1
-  %call.i.i = tail call fastcc zeroext i1 @vu_message_write(ptr noundef nonnull %dev, i32 noundef %24, ptr noundef nonnull %vmsg)
+  %call.i.i = tail call fastcc zeroext i1 @vu_message_write(ptr noundef nonnull %dev, i32 noundef %22, ptr noundef nonnull %vmsg)
   br i1 %call.i.i, label %if.end35.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %for.end.i
@@ -3480,20 +3478,20 @@ if.then34.i:                                      ; preds = %for.end.i
 
 if.end35.i:                                       ; preds = %for.end.i
   %read_msg.i = getelementptr inbounds %struct.VuDev, ptr %dev, i64 0, i32 14
-  %26 = load ptr, ptr %read_msg.i, align 8
-  %27 = load i32, ptr %dev, align 8
-  %call37.i = tail call zeroext i1 %26(ptr noundef nonnull %dev, i32 noundef %27, ptr noundef nonnull %vmsg) #20
+  %24 = load ptr, ptr %read_msg.i, align 8
+  %25 = load i32, ptr %dev, align 8
+  %call37.i = tail call zeroext i1 %24(ptr noundef nonnull %dev, i32 noundef %25, ptr noundef nonnull %vmsg) #20
   br i1 %call37.i, label %lor.lhs.false.i, label %if.then45.i
 
 lor.lhs.false.i:                                  ; preds = %if.end35.i
   %size38.i = getelementptr inbounds %struct.VhostUserMsg, ptr %vmsg, i64 0, i32 2
-  %28 = load i32, ptr %size38.i, align 1
-  %cmp39.not.i = icmp eq i32 %28, 8
+  %26 = load i32, ptr %size38.i, align 1
+  %cmp39.not.i = icmp eq i32 %26, 8
   br i1 %cmp39.not.i, label %lor.lhs.false41.i, label %if.then45.i
 
 lor.lhs.false41.i:                                ; preds = %lor.lhs.false.i
-  %29 = load i64, ptr %payload, align 1
-  %cmp43.not.i = icmp eq i64 %29, 0
+  %27 = load i64, ptr %payload, align 1
+  %cmp43.not.i = icmp eq i64 %27, 0
   br i1 %cmp43.not.i, label %if.end46.i, label %if.then45.i
 
 if.then45.i:                                      ; preds = %lor.lhs.false41.i, %lor.lhs.false.i, %if.end35.i
@@ -3502,8 +3500,8 @@ if.then45.i:                                      ; preds = %lor.lhs.false41.i, 
 
 if.end46.i:                                       ; preds = %lor.lhs.false41.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %reg_struct.i.i)
-  %30 = load i32, ptr %nregions, align 4
-  %cmp44.i.i = icmp eq i32 %30, 0
+  %28 = load i32, ptr %nregions, align 4
+  %cmp44.i.i = icmp eq i32 %28, 0
   br i1 %cmp44.i.i, label %generate_faults.exit.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.end46.i
@@ -3516,104 +3514,104 @@ for.body.lr.ph.i.i:                               ; preds = %if.end46.i
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %mmap_addr.i.i = getelementptr %struct.VuDev, ptr %dev, i64 0, i32 2, i64 %indvars.iv.i.i, i32 4
-  %31 = load i64, ptr %mmap_addr.i.i, align 8
-  %32 = inttoptr i64 %31 to ptr
+  %29 = load i64, ptr %mmap_addr.i.i, align 8
+  %30 = inttoptr i64 %29 to ptr
   %size.i.i = getelementptr %struct.VuDev, ptr %dev, i64 0, i32 2, i64 %indvars.iv.i.i, i32 1
-  %33 = load i64, ptr %size.i.i, align 8
+  %31 = load i64, ptr %size.i.i, align 8
   %mmap_offset.i.i = getelementptr %struct.VuDev, ptr %dev, i64 0, i32 2, i64 %indvars.iv.i.i, i32 3
-  %34 = load i64, ptr %mmap_offset.i.i, align 8
-  %add.i.i = add i64 %34, %33
-  %call.i38.i = call i32 @madvise(ptr noundef %32, i64 noundef %add.i.i, i32 noundef 4) #20
+  %32 = load i64, ptr %mmap_offset.i.i, align 8
+  %add.i.i = add i64 %32, %31
+  %call.i38.i = call i32 @madvise(ptr noundef %30, i64 noundef %add.i.i, i32 noundef 4) #20
   %tobool.not.i.i = icmp eq i32 %call.i38.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %35 = load ptr, ptr @stderr, align 8
+  %33 = load ptr, ptr @stderr, align 8
   %call1.i.i = tail call ptr @__errno_location() #21
-  %36 = load i32, ptr %call1.i.i, align 4
-  %call2.i.i = call ptr @strerror(i32 noundef %36) #20
-  %37 = trunc i64 %indvars.iv.i.i to i32
-  %call3.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.67, ptr noundef nonnull @__func__.generate_faults, i32 noundef %37, ptr noundef %call2.i.i) #23
+  %34 = load i32, ptr %call1.i.i, align 4
+  %call2.i.i = call ptr @strerror(i32 noundef %34) #20
+  %35 = trunc i64 %indvars.iv.i.i to i32
+  %call3.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.67, ptr noundef nonnull @__func__.generate_faults, i32 noundef %35, ptr noundef %call2.i.i) #23
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %for.body.i.i
-  %38 = load i64, ptr %mmap_addr.i.i, align 8
-  %39 = inttoptr i64 %38 to ptr
-  %40 = load i64, ptr %size.i.i, align 8
-  %41 = load i64, ptr %mmap_offset.i.i, align 8
-  %add7.i.i = add i64 %41, %40
-  %call8.i.i = call i32 @madvise(ptr noundef %39, i64 noundef %add7.i.i, i32 noundef 15) #20
+  %36 = load i64, ptr %mmap_addr.i.i, align 8
+  %37 = inttoptr i64 %36 to ptr
+  %38 = load i64, ptr %size.i.i, align 8
+  %39 = load i64, ptr %mmap_offset.i.i, align 8
+  %add7.i.i = add i64 %39, %38
+  %call8.i.i = call i32 @madvise(ptr noundef %37, i64 noundef %add7.i.i, i32 noundef 15) #20
   %tobool9.not.i.i = icmp eq i32 %call8.i.i, 0
   br i1 %tobool9.not.i.i, label %if.end14.i.i, label %if.then10.i.i
 
 if.then10.i.i:                                    ; preds = %if.end.i.i
-  %42 = load ptr, ptr @stderr, align 8
+  %40 = load ptr, ptr @stderr, align 8
   %call11.i.i = tail call ptr @__errno_location() #21
-  %43 = load i32, ptr %call11.i.i, align 4
-  %call12.i.i = call ptr @strerror(i32 noundef %43) #20
-  %44 = trunc i64 %indvars.iv.i.i to i32
-  %call13.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.68, ptr noundef nonnull @__func__.generate_faults, i32 noundef %44, ptr noundef %call12.i.i) #23
+  %41 = load i32, ptr %call11.i.i, align 4
+  %call12.i.i = call ptr @strerror(i32 noundef %41) #20
+  %42 = trunc i64 %indvars.iv.i.i to i32
+  %call13.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.68, ptr noundef nonnull @__func__.generate_faults, i32 noundef %42, ptr noundef %call12.i.i) #23
   br label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.then10.i.i, %if.end.i.i
-  %45 = load i64, ptr %mmap_addr.i.i, align 8
-  store i64 %45, ptr %reg_struct.i.i, align 8
-  %46 = load i64, ptr %size.i.i, align 8
-  %47 = load i64, ptr %mmap_offset.i.i, align 8
-  %add18.i.i = add i64 %47, %46
+  %43 = load i64, ptr %mmap_addr.i.i, align 8
+  store i64 %43, ptr %reg_struct.i.i, align 8
+  %44 = load i64, ptr %size.i.i, align 8
+  %45 = load i64, ptr %mmap_offset.i.i, align 8
+  %add18.i.i = add i64 %45, %44
   store i64 %add18.i.i, ptr %len.i.i, align 8
   store i64 1, ptr %mode.i.i, align 8
-  %48 = load i32, ptr %postcopy_ufd.i.i, align 8
-  %call20.i.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %48, i64 noundef 3223366144, ptr noundef nonnull %reg_struct.i.i) #20
+  %46 = load i32, ptr %postcopy_ufd.i.i, align 8
+  %call20.i.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %46, i64 noundef 3223366144, ptr noundef nonnull %reg_struct.i.i) #20
   %tobool21.not.i.i = icmp eq i32 %call20.i.i, 0
   br i1 %tobool21.not.i.i, label %if.end29.i.i, label %if.then22.i.i
 
 if.then22.i.i:                                    ; preds = %if.end14.i.i
-  %49 = trunc i64 %indvars.iv.i.i to i32
-  %50 = load i64, ptr %mmap_addr.i.i, align 8
-  %51 = load i64, ptr %size.i.i, align 8
-  %52 = load i64, ptr %mmap_offset.i.i, align 8
-  %53 = load i32, ptr %postcopy_ufd.i.i, align 8
+  %47 = trunc i64 %indvars.iv.i.i to i32
+  %48 = load i64, ptr %mmap_addr.i.i, align 8
+  %49 = load i64, ptr %size.i.i, align 8
+  %50 = load i64, ptr %mmap_offset.i.i, align 8
+  %51 = load i32, ptr %postcopy_ufd.i.i, align 8
   %call27.i.i = tail call ptr @__errno_location() #21
-  %54 = load i32, ptr %call27.i.i, align 4
-  %call28.i.i = call ptr @strerror(i32 noundef %54) #20
-  call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %dev, ptr noundef nonnull @.str.69, ptr noundef nonnull @__func__.generate_faults, i32 noundef %49, i64 noundef %50, i64 noundef %51, i64 noundef %52, i32 noundef %53, ptr noundef %call28.i.i)
+  %52 = load i32, ptr %call27.i.i, align 4
+  %call28.i.i = call ptr @strerror(i32 noundef %52) #20
+  call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %dev, ptr noundef nonnull @.str.69, ptr noundef nonnull @__func__.generate_faults, i32 noundef %47, i64 noundef %48, i64 noundef %49, i64 noundef %50, i32 noundef %51, ptr noundef %call28.i.i)
   br label %generate_faults.exit.i
 
 if.end29.i.i:                                     ; preds = %if.end14.i.i
-  %55 = load i64, ptr %ioctls.i.i, align 8
-  %and.i39.i = and i64 %55, 8
+  %53 = load i64, ptr %ioctls.i.i, align 8
+  %and.i39.i = and i64 %53, 8
   %tobool30.not.i.i = icmp eq i64 %and.i39.i, 0
   br i1 %tobool30.not.i.i, label %if.then31.i.i, label %do.end.i.i
 
 if.then31.i.i:                                    ; preds = %if.end29.i.i
-  %56 = trunc i64 %indvars.iv.i.i to i32
-  call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %dev, ptr noundef nonnull @.str.70, ptr noundef nonnull @__func__.generate_faults, i32 noundef %56)
+  %54 = trunc i64 %indvars.iv.i.i to i32
+  call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %dev, ptr noundef nonnull @.str.70, ptr noundef nonnull @__func__.generate_faults, i32 noundef %54)
   br label %generate_faults.exit.i
 
 do.end.i.i:                                       ; preds = %if.end29.i.i
-  %57 = load i64, ptr %mmap_addr.i.i, align 8
-  %58 = inttoptr i64 %57 to ptr
-  %59 = load i64, ptr %size.i.i, align 8
-  %60 = load i64, ptr %mmap_offset.i.i, align 8
-  %add36.i.i = add i64 %60, %59
-  %call37.i.i = call i32 @mprotect(ptr noundef %58, i64 noundef %add36.i.i, i32 noundef 3) #20
+  %55 = load i64, ptr %mmap_addr.i.i, align 8
+  %56 = inttoptr i64 %55 to ptr
+  %57 = load i64, ptr %size.i.i, align 8
+  %58 = load i64, ptr %mmap_offset.i.i, align 8
+  %add36.i.i = add i64 %58, %57
+  %call37.i.i = call i32 @mprotect(ptr noundef %56, i64 noundef %add36.i.i, i32 noundef 3) #20
   %tobool38.not.i.i = icmp eq i32 %call37.i.i, 0
   br i1 %tobool38.not.i.i, label %for.inc.i.i, label %if.then39.i.i
 
 if.then39.i.i:                                    ; preds = %do.end.i.i
-  %61 = trunc i64 %indvars.iv.i.i to i32
+  %59 = trunc i64 %indvars.iv.i.i to i32
   %call40.i.i = tail call ptr @__errno_location() #21
-  %62 = load i32, ptr %call40.i.i, align 4
-  %call41.i.i = call ptr @strerror(i32 noundef %62) #20
-  call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %dev, ptr noundef nonnull @.str.71, i32 noundef %61, ptr noundef %call41.i.i)
+  %60 = load i32, ptr %call40.i.i, align 4
+  %call41.i.i = call ptr @strerror(i32 noundef %60) #20
+  call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %dev, ptr noundef nonnull @.str.71, i32 noundef %59, ptr noundef %call41.i.i)
   br label %generate_faults.exit.i
 
 for.inc.i.i:                                      ; preds = %do.end.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %63 = load i32, ptr %nregions, align 4
-  %64 = zext i32 %63 to i64
-  %cmp.not.i.i = icmp ult i64 %indvars.iv.next.i.i, %64
+  %61 = load i32, ptr %nregions, align 4
+  %62 = zext i32 %61 to i64
+  %cmp.not.i.i = icmp ult i64 %indvars.iv.next.i.i, %62
   br i1 %cmp.not.i.i, label %for.body.i.i, label %generate_faults.exit.i
 
 generate_faults.exit.i:                           ; preds = %for.inc.i.i, %if.then39.i.i, %if.then31.i.i, %if.then22.i.i, %if.end46.i
@@ -3626,8 +3624,8 @@ vu_set_mem_table_exec_postcopy.exit:              ; preds = %if.then34.i, %if.th
 
 for.cond52.preheader:                             ; preds = %if.end44, %for.cond7.preheader
   %max_queues = getelementptr inbounds %struct.VuDev, ptr %dev, i64 0, i32 13
-  %65 = load i16, ptr %max_queues, align 2
-  %cmp5360.not = icmp eq i16 %65, 0
+  %63 = load i16, ptr %max_queues, align 2
+  %cmp5360.not = icmp eq i16 %63, 0
   br i1 %cmp5360.not, label %return, label %for.body55.lr.ph
 
 for.body55.lr.ph:                                 ; preds = %for.cond52.preheader
@@ -3638,53 +3636,52 @@ for.body10:                                       ; preds = %for.cond7.preheader
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %if.end44 ], [ 0, %for.cond7.preheader ]
   %arrayidx14 = getelementptr %struct.VhostUserMemory, ptr %m, i64 0, i32 2, i64 %indvars.iv75
   %arrayidx17 = getelementptr %struct.VuDev, ptr %dev, i64 0, i32 2, i64 %indvars.iv75
-  %66 = load i64, ptr %arrayidx14, align 8
-  store i64 %66, ptr %arrayidx17, align 8
+  %64 = load i64, ptr %arrayidx14, align 8
+  store i64 %64, ptr %arrayidx17, align 8
   %memory_size = getelementptr %struct.VhostUserMemory, ptr %m, i64 0, i32 2, i64 %indvars.iv75, i32 1
   %size28 = getelementptr %struct.VuDev, ptr %dev, i64 0, i32 2, i64 %indvars.iv75, i32 1
-  %67 = load <2 x i64>, ptr %memory_size, align 8
-  store <2 x i64> %67, ptr %size28, align 8
+  %65 = load <2 x i64>, ptr %memory_size, align 8
+  store <2 x i64> %65, ptr %size28, align 8
   %mmap_offset29 = getelementptr %struct.VhostUserMemory, ptr %m, i64 0, i32 2, i64 %indvars.iv75, i32 3
-  %68 = load i64, ptr %mmap_offset29, align 8
+  %66 = load i64, ptr %mmap_offset29, align 8
   %mmap_offset30 = getelementptr %struct.VuDev, ptr %dev, i64 0, i32 2, i64 %indvars.iv75, i32 3
-  store i64 %68, ptr %mmap_offset30, align 8
-  %69 = extractelement <2 x i64> %67, i64 0
-  %add33 = add i64 %68, %69
+  store i64 %66, ptr %mmap_offset30, align 8
+  %67 = extractelement <2 x i64> %65, i64 0
+  %add33 = add i64 %66, %67
   %arrayidx35 = getelementptr %struct.VhostUserMsg, ptr %vmsg, i64 0, i32 4, i64 %indvars.iv75
-  %70 = load i32, ptr %arrayidx35, align 1
-  %call36 = tail call ptr @mmap64(ptr noundef null, i64 noundef %add33, i32 noundef 3, i32 noundef 16385, i32 noundef %70, i64 noundef 0) #20
+  %68 = load i32, ptr %arrayidx35, align 1
+  %call36 = tail call ptr @mmap64(ptr noundef null, i64 noundef %add33, i32 noundef 3, i32 noundef 16385, i32 noundef %68, i64 noundef 0) #20
   %cmp37 = icmp eq ptr %call36, inttoptr (i64 -1 to ptr)
   br i1 %cmp37, label %if.then38, label %if.else
 
 if.then38:                                        ; preds = %for.body10
   %call39 = tail call ptr @__errno_location() #21
-  %71 = load i32, ptr %call39, align 4
-  %call40 = tail call ptr @strerror(i32 noundef %71) #20
+  %69 = load i32, ptr %call39, align 4
+  %call40 = tail call ptr @strerror(i32 noundef %69) #20
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %dev, ptr noundef nonnull @.str.63, ptr noundef %call40)
   br label %if.end44
 
 if.else:                                          ; preds = %for.body10
-  %72 = ptrtoint ptr %call36 to i64
   %mmap_addr41 = getelementptr %struct.VuDev, ptr %dev, i64 0, i32 2, i64 %indvars.iv75, i32 4
-  store i64 %72, ptr %mmap_addr41, align 8
+  store ptr %call36, ptr %mmap_addr41, align 8
   br label %if.end44
 
 if.end44:                                         ; preds = %if.else, %if.then38
-  %73 = load i32, ptr %arrayidx35, align 1
-  %call48 = tail call i32 @close(i32 noundef %73) #20
+  %70 = load i32, ptr %arrayidx35, align 1
+  %call48 = tail call i32 @close(i32 noundef %70) #20
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
-  %74 = load i32, ptr %nregions, align 4
-  %75 = zext i32 %74 to i64
-  %cmp9 = icmp ult i64 %indvars.iv.next76, %75
+  %71 = load i32, ptr %nregions, align 4
+  %72 = zext i32 %71 to i64
+  %cmp9 = icmp ult i64 %indvars.iv.next76, %72
   br i1 %cmp9, label %for.body10, label %for.cond52.preheader
 
 for.body55:                                       ; preds = %for.body55.lr.ph, %for.inc67
   %indvars.iv78 = phi i64 [ 0, %for.body55.lr.ph ], [ %indvars.iv.next79, %for.inc67 ]
-  %76 = load ptr, ptr %vq, align 8
-  %arrayidx57 = getelementptr %struct.VuVirtq, ptr %76, i64 %indvars.iv78
+  %73 = load ptr, ptr %vq, align 8
+  %arrayidx57 = getelementptr %struct.VuVirtq, ptr %73, i64 %indvars.iv78
   %desc = getelementptr inbounds %struct.VuRing, ptr %arrayidx57, i64 0, i32 1
-  %77 = load ptr, ptr %desc, align 8
-  %tobool58.not = icmp eq ptr %77, null
+  %74 = load ptr, ptr %desc, align 8
+  %tobool58.not = icmp eq ptr %74, null
   br i1 %tobool58.not, label %for.inc67, label %if.then59
 
 if.then59:                                        ; preds = %for.body55
@@ -3692,15 +3689,15 @@ if.then59:                                        ; preds = %for.body55
   br i1 %call63, label %if.then64, label %for.inc67
 
 if.then64:                                        ; preds = %if.then59
-  %78 = trunc i64 %indvars.iv78 to i32
-  tail call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %dev, ptr noundef nonnull @.str.64, i32 noundef %78)
+  %75 = trunc i64 %indvars.iv78 to i32
+  tail call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %dev, ptr noundef nonnull @.str.64, i32 noundef %75)
   br label %for.inc67
 
 for.inc67:                                        ; preds = %for.body55, %if.then64, %if.then59
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %79 = load i16, ptr %max_queues, align 2
-  %80 = zext i16 %79 to i64
-  %cmp53 = icmp ult i64 %indvars.iv.next79, %80
+  %76 = load i16, ptr %max_queues, align 2
+  %77 = zext i16 %76 to i64
+  %cmp53 = icmp ult i64 %indvars.iv.next79, %77
   br i1 %cmp53, label %for.body55, label %return
 
 return:                                           ; preds = %for.inc67, %for.cond52.preheader, %vu_set_mem_table_exec_postcopy.exit
@@ -4741,21 +4738,20 @@ if.then55:                                        ; preds = %if.end15
   br label %if.end62
 
 if.else58:                                        ; preds = %if.end15
-  %16 = ptrtoint ptr %call51 to i64
   %mmap_addr59 = getelementptr %struct.VuDev, ptr %dev, i64 0, i32 2, i64 %idxprom, i32 4
-  store i64 %16, ptr %mmap_addr59, align 8
+  store ptr %call51, ptr %mmap_addr59, align 8
   br label %if.end62
 
 if.end62:                                         ; preds = %if.else58, %if.then55
   %fds63 = getelementptr inbounds %struct.VhostUserMsg, ptr %vmsg, i64 0, i32 4
-  %17 = load i32, ptr %fds63, align 1
-  %call65 = tail call i32 @close(i32 noundef %17) #20
+  %16 = load i32, ptr %fds63, align 1
+  %call65 = tail call i32 @close(i32 noundef %16) #20
   br i1 %tobool.not, label %for.cond.preheader, label %if.then67
 
 for.cond.preheader:                               ; preds = %if.end62
   %max_queues = getelementptr inbounds %struct.VuDev, ptr %dev, i64 0, i32 13
-  %18 = load i16, ptr %max_queues, align 2
-  %cmp7651.not = icmp eq i16 %18, 0
+  %17 = load i16, ptr %max_queues, align 2
+  %cmp7651.not = icmp eq i16 %17, 0
   br i1 %cmp7651.not, label %do.end91, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
@@ -4764,18 +4760,18 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 if.then67:                                        ; preds = %if.end62
   store i32 0, ptr %fd_num, align 1
-  %19 = load i32, ptr %nregions, align 4
-  %inc = add i32 %19, 1
+  %18 = load i32, ptr %nregions, align 4
+  %inc = add i32 %18, 1
   store i32 %inc, ptr %nregions, align 4
   br label %return
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %20 = load ptr, ptr %vq, align 8
-  %arrayidx79 = getelementptr %struct.VuVirtq, ptr %20, i64 %indvars.iv
+  %19 = load ptr, ptr %vq, align 8
+  %arrayidx79 = getelementptr %struct.VuVirtq, ptr %19, i64 %indvars.iv
   %desc = getelementptr inbounds %struct.VuRing, ptr %arrayidx79, i64 0, i32 1
-  %21 = load ptr, ptr %desc, align 8
-  %tobool80.not = icmp eq ptr %21, null
+  %20 = load ptr, ptr %desc, align 8
+  %tobool80.not = icmp eq ptr %20, null
   br i1 %tobool80.not, label %for.inc, label %if.then81
 
 if.then81:                                        ; preds = %for.body
@@ -4783,20 +4779,20 @@ if.then81:                                        ; preds = %for.body
   br i1 %call85, label %if.then86, label %for.inc
 
 if.then86:                                        ; preds = %if.then81
-  %22 = trunc i64 %indvars.iv to i32
-  tail call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %dev, ptr noundef nonnull @.str.93, i32 noundef %22)
+  %21 = trunc i64 %indvars.iv to i32
+  tail call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %dev, ptr noundef nonnull @.str.93, i32 noundef %21)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then86, %if.then81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = load i16, ptr %max_queues, align 2
-  %24 = zext i16 %23 to i64
-  %cmp76 = icmp ult i64 %indvars.iv.next, %24
+  %22 = load i16, ptr %max_queues, align 2
+  %23 = zext i16 %22 to i64
+  %cmp76 = icmp ult i64 %indvars.iv.next, %23
   br i1 %cmp76, label %for.body, label %do.end91
 
 do.end91:                                         ; preds = %for.inc, %for.cond.preheader
-  %25 = load i32, ptr %nregions, align 4
-  %inc93 = add i32 %25, 1
+  %24 = load i32, ptr %nregions, align 4
+  %inc93 = add i32 %24, 1
   store i32 %inc93, ptr %nregions, align 4
   br label %return
 

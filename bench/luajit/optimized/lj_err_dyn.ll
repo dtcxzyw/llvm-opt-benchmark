@@ -831,7 +831,7 @@ entry:
   %or.i = or i64 %conv.i, 5500374307216568832
   store i64 %or.i, ptr %3, align 16
   %g1.i = getelementptr inbounds %struct.anon.4, ptr %3, i64 0, i32 1
-  store ptr %1, ptr %g1.i, align 16
+  store i64 %0, ptr %g1.i, align 16
   %call.i = tail call i32 @_Unwind_RaiseException(ptr noundef nonnull %3) #11
   %4 = load i64, ptr %glref, align 8
   %5 = inttoptr i64 %4 to ptr
@@ -878,17 +878,16 @@ if.end:                                           ; preds = %entry
   %jit_base = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 25
   %4 = load i64, ptr %jit_base, align 8
   %tobool.not = icmp eq i64 %4, 0
+  %base6.phi.trans.insert = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   br i1 %tobool.not, label %if.end.if.end5_crit_edge, label %if.then3
 
 if.end.if.end5_crit_edge:                         ; preds = %if.end
-  %base6.phi.trans.insert = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %.pre = load ptr, ptr %base6.phi.trans.insert, align 8
   br label %if.end5
 
 if.then3:                                         ; preds = %if.end
+  store i64 %4, ptr %base6.phi.trans.insert, align 8
   %5 = inttoptr i64 %4 to ptr
-  %base4 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  store ptr %5, ptr %base4, align 8
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end.if.end5_crit_edge, %if.then3
@@ -1196,17 +1195,16 @@ entry:
   %jit_base = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 25
   %2 = load i64, ptr %jit_base, align 8
   %tobool.not = icmp eq i64 %2, 0
+  %base3.phi.trans.insert = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   br i1 %tobool.not, label %entry.if.end_crit_edge, label %if.then
 
 entry.if.end_crit_edge:                           ; preds = %entry
-  %base3.phi.trans.insert = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
   %.pre = load ptr, ptr %base3.phi.trans.insert, align 8
   br label %if.end
 
 if.then:                                          ; preds = %entry
+  store i64 %2, ptr %base3.phi.trans.insert, align 8
   %3 = inttoptr i64 %2 to ptr
-  %base2 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
-  store ptr %3, ptr %base2, align 8
   br label %if.end
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %if.then

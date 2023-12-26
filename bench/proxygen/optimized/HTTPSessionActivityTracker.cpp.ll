@@ -147,43 +147,42 @@ if.end:                                           ; preds = %lor.lhs.false3
 while.body.lr.ph:                                 ; preds = %if.end
   %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
   %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
-  %2 = ptrtoint ptr %this to i64
-  %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit
   %add1411 = phi i64 [ %add149, %while.body.lr.ph ], [ %add14, %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit ]
-  %4 = phi i64 [ %0, %while.body.lr.ph ], [ %9, %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit ]
-  %add18 = sub i64 %offset, %4
+  %3 = phi i64 [ %0, %while.body.lr.ph ], [ %8, %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit ]
+  %add18 = sub i64 %offset, %3
   %sub = add i64 %add18, %add1411
-  store i64 0, ptr %3, align 8
-  store i64 %2, ptr %agg.tmp, align 8
+  store i64 0, ptr %2, align 8
+  store ptr %this, ptr %agg.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN8proxygen9ByteEventEEZNS0_26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS0_16ByteEventTrackerEPNS0_15HTTPTransactionEE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN8proxygen9ByteEventEEZNS0_26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS0_16ByteEventTrackerEPNS0_15HTTPTransactionEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %vtable = load ptr, ptr %byteEventTracker, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
-  %5 = load ptr, ptr %vfn, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(48) %byteEventTracker, ptr noundef nonnull %txn, i64 noundef %sub, ptr noundef nonnull %agg.tmp) #11
-  %6 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %6, null
+  %4 = load ptr, ptr %vfn, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(48) %byteEventTracker, ptr noundef nonnull %txn, i64 noundef %sub, ptr noundef nonnull %agg.tmp) #11
+  %5 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.body
-  %call.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
           to label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #12
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #12
   unreachable
 
 _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit: ; preds = %while.body, %if.then.i.i
-  %9 = load i64, ptr %sessionBodyOffset_, align 8
-  %add12 = add i64 %9, %bodyLen
-  %10 = load i64, ptr %egressThreshold_, align 8
-  %add14 = add i64 %10, %add1411
+  %8 = load i64, ptr %sessionBodyOffset_, align 8
+  %add12 = add i64 %8, %bodyLen
+  %9 = load i64, ptr %egressThreshold_, align 8
+  %add14 = add i64 %9, %add1411
   %cmp15.not = icmp ult i64 %add12, %add14
   br i1 %cmp15.not, label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen26HTTPSessionActivityTracker25addTrackedEgressByteEventEmmPNS2_16ByteEventTrackerEPNS2_15HTTPTransactionEE3$_1Lb1EED2Ev.exit", label %while.body, !llvm.loop !4
 

@@ -831,10 +831,9 @@ entry:
   %edata.val = load ptr, ptr %0, align 8
   %1 = ptrtoint ptr %edata.val to i64
   %and.i = and i64 %1, -4096
-  %2 = inttoptr i64 %and.i to ptr
-  store ptr %2, ptr %0, align 8
-  %3 = load i64, ptr %edata, align 8
-  %and.i7 = and i64 %3, -32769
+  store i64 %and.i, ptr %0, align 8
+  %2 = load i64, ptr %edata, align 8
+  %and.i7 = and i64 %2, -32769
   store i64 %and.i7, ptr %edata, align 8
   tail call void @extent_record(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %ehooks, ptr noundef %ecache, ptr noundef nonnull %edata)
   ret void
@@ -1171,7 +1170,7 @@ if.end:                                           ; preds = %do.end5, %if.then
   %11 = ptrtoint ptr %edata.val12.i to i64
   %and.i.i = and i64 %11, -4096
   %12 = inttoptr i64 %and.i.i to ptr
-  store ptr %12, ptr %10, align 8
+  store i64 %and.i.i, ptr %10, align 8
   %13 = getelementptr i8, ptr %edata, i64 16
   %edata.val.i = load i64, ptr %13, align 8
   %and.i15.i = and i64 %edata.val.i, -4096
@@ -1692,7 +1691,7 @@ if.end:                                           ; preds = %do.end10, %entry
   %3 = ptrtoint ptr %edata.val17 to i64
   %and.i = and i64 %3, -4096
   %4 = inttoptr i64 %and.i to ptr
-  store ptr %4, ptr %2, align 8
+  store i64 %and.i, ptr %2, align 8
   %5 = getelementptr i8, ptr %edata, i64 16
   %edata.val = load i64, ptr %5, align 8
   %and.i22 = and i64 %edata.val, -4096
@@ -1953,18 +1952,17 @@ if.end7:                                          ; preds = %if.end4
   %5 = ptrtoint ptr %edata.val40 to i64
   %and.i = and i64 %5, -4096
   %add = add i64 %and.i, %size_a
-  %6 = inttoptr i64 %add to ptr
-  %7 = getelementptr i8, ptr %edata, i64 32
-  %edata.val42 = load i64, ptr %7, align 8
-  %8 = load i64, ptr %call5, align 8
-  %and.i.i = and i64 %8, -17592454479872
+  %6 = getelementptr i8, ptr %edata, i64 32
+  %edata.val42 = load i64, ptr %6, align 8
+  %7 = load i64, ptr %call5, align 8
+  %and.i.i = and i64 %7, -17592454479872
   %e_addr.i.i = getelementptr inbounds %struct.edata_s, ptr %call5, i64 0, i32 1
-  store ptr %6, ptr %e_addr.i.i, align 8
-  %9 = getelementptr inbounds %struct.edata_s, ptr %call5, i64 0, i32 2
-  %10 = load i64, ptr %9, align 8
-  %and.i12.i = and i64 %10, 4095
+  store i64 %add, ptr %e_addr.i.i, align 8
+  %8 = getelementptr inbounds %struct.edata_s, ptr %call5, i64 0, i32 2
+  %9 = load i64, ptr %8, align 8
+  %and.i12.i = and i64 %9, 4095
   %or.i13.i = or i64 %and.i12.i, %size_b
-  store i64 %or.i13.i, ptr %9, align 8
+  store i64 %or.i13.i, ptr %8, align 8
   %e_sn.i.i = getelementptr inbounds %struct.edata_s, ptr %call5, i64 0, i32 4
   store i64 %edata.val42, ptr %e_sn.i.i, align 8
   %or.i16.i = and i64 %edata.val41, 962559
@@ -1972,24 +1970,24 @@ if.end7:                                          ; preds = %if.end4
   %or.i30.i = or disjoint i64 %and.i17.i, 246415360
   store i64 %or.i30.i, ptr %call5, align 8
   %emap = getelementptr inbounds %struct.pac_s, ptr %pac, i64 0, i32 5
-  %11 = load ptr, ptr %emap, align 8
-  %call14 = call zeroext i1 @emap_split_prepare(ptr noundef %tsdn, ptr noundef %11, ptr noundef nonnull %prepare, ptr noundef nonnull %edata, i64 noundef %size_a, ptr noundef nonnull %call5, i64 noundef %size_b) #9
+  %10 = load ptr, ptr %emap, align 8
+  %call14 = call zeroext i1 @emap_split_prepare(ptr noundef %tsdn, ptr noundef %10, ptr noundef nonnull %prepare, ptr noundef nonnull %edata, i64 noundef %size_a, ptr noundef nonnull %call5, i64 noundef %size_b) #9
   br i1 %call14, label %label_error_b, label %do.end22
 
 do.end22:                                         ; preds = %if.end7
   %edata.val = load ptr, ptr %4, align 8
-  %12 = ptrtoint ptr %edata.val to i64
-  %and.i49 = and i64 %12, -4096
-  %13 = inttoptr i64 %and.i49 to ptr
+  %11 = ptrtoint ptr %edata.val to i64
+  %and.i49 = and i64 %11, -4096
+  %12 = inttoptr i64 %and.i49 to ptr
   %add24 = add i64 %size_b, %size_a
   %edata.val45 = load i64, ptr %edata, align 8
-  %14 = and i64 %edata.val45, 8192
-  %tobool.i50 = icmp ne i64 %14, 0
-  %15 = load atomic i64, ptr %ptr.i.i acquire, align 8
-  %16 = inttoptr i64 %15 to ptr
-  %17 = load atomic i64, ptr %ptr.i.i acquire, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %cmp.i.i = icmp eq ptr %18, @ehooks_default_extent_hooks
+  %13 = and i64 %edata.val45, 8192
+  %tobool.i50 = icmp ne i64 %13, 0
+  %14 = load atomic i64, ptr %ptr.i.i acquire, align 8
+  %15 = inttoptr i64 %14 to ptr
+  %16 = load atomic i64, ptr %ptr.i.i acquire, align 8
+  %17 = inttoptr i64 %16 to ptr
+  %cmp.i.i = icmp eq ptr %17, @ehooks_default_extent_hooks
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %do.end22
@@ -1997,9 +1995,9 @@ if.then.i:                                        ; preds = %do.end22
   br i1 %call2.i, label %label_error_b, label %if.end30
 
 if.else.i:                                        ; preds = %do.end22
-  %split.i52 = getelementptr inbounds %struct.extent_hooks_s, ptr %16, i64 0, i32 7
-  %19 = load ptr, ptr %split.i52, align 8
-  %cmp.i53 = icmp eq ptr %19, null
+  %split.i52 = getelementptr inbounds %struct.extent_hooks_s, ptr %15, i64 0, i32 7
+  %18 = load ptr, ptr %split.i52, align 8
+  %cmp.i53 = icmp eq ptr %18, null
   br i1 %cmp.i53, label %label_error_b, label %if.else4.i
 
 if.else4.i:                                       ; preds = %if.else.i
@@ -2007,24 +2005,24 @@ if.else4.i:                                       ; preds = %if.else.i
   br i1 %cmp.i.i.i, label %cond.true.i.i, label %cond.end.i.i
 
 cond.true.i.i:                                    ; preds = %if.else4.i
-  %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i.i.i.i = getelementptr inbounds %struct.tsd_s, ptr %20, i64 0, i32 29
-  %21 = load i8, ptr %state.i.i.i.i, align 8
-  %cmp6.i.not.i.i = icmp eq i8 %21, 0
+  %19 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
+  %state.i.i.i.i = getelementptr inbounds %struct.tsd_s, ptr %19, i64 0, i32 29
+  %20 = load i8, ptr %state.i.i.i.i, align 8
+  %cmp6.i.not.i.i = icmp eq i8 %20, 0
   br i1 %cmp6.i.not.i.i, label %cond.end.i.i, label %if.then11.i.i.i
 
 if.then11.i.i.i:                                  ; preds = %cond.true.i.i
-  %call13.i.i.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %20, i1 noundef zeroext false) #9
+  %call13.i.i.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %19, i1 noundef zeroext false) #9
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %if.then11.i.i.i, %cond.true.i.i, %if.else4.i
-  %cond.i.i = phi ptr [ %call13.i.i.i, %if.then11.i.i.i ], [ %20, %cond.true.i.i ], [ %tsdn, %if.else4.i ]
+  %cond.i.i = phi ptr [ %call13.i.i.i, %if.then11.i.i.i ], [ %19, %cond.true.i.i ], [ %tsdn, %if.else4.i ]
   %state.i.i.i.i.i = getelementptr inbounds %struct.tsd_s, ptr %cond.i.i, i64 0, i32 29
-  %22 = load i8, ptr %state.i.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq i8 %22, 0
+  %21 = load i8, ptr %state.i.i.i.i.i, align 8
+  %cmp.i.i.i.i = icmp eq i8 %21, 0
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i = getelementptr inbounds %struct.tsd_s, ptr %cond.i.i, i64 0, i32 1
-  %23 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i, align 1
-  %inc.i.i.i = add i8 %23, 1
+  %22 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i, align 1
+  %inc.i.i.i = add i8 %22, 1
   store i8 %inc.i.i.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i, align 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %ehooks_pre_reentrancy.exit.i
 
@@ -2033,27 +2031,27 @@ if.then.i.i.i:                                    ; preds = %cond.end.i.i
   br label %ehooks_pre_reentrancy.exit.i
 
 ehooks_pre_reentrancy.exit.i:                     ; preds = %if.then.i.i.i, %cond.end.i.i
-  %24 = load ptr, ptr %split.i52, align 8
+  %23 = load ptr, ptr %split.i52, align 8
   %ehooks.val.i = load i32, ptr %ehooks, align 8
-  %call7.i = call zeroext i1 %24(ptr noundef nonnull %16, ptr noundef %13, i64 noundef %add24, i64 noundef %size_a, i64 noundef %size_b, i1 noundef zeroext %tobool.i50, i32 noundef %ehooks.val.i) #9
+  %call7.i = call zeroext i1 %23(ptr noundef nonnull %15, ptr noundef %12, i64 noundef %add24, i64 noundef %size_a, i64 noundef %size_b, i1 noundef zeroext %tobool.i50, i32 noundef %ehooks.val.i) #9
   br i1 %cmp.i.i.i, label %cond.true.i11.i, label %cond.end.i7.i
 
 cond.true.i11.i:                                  ; preds = %ehooks_pre_reentrancy.exit.i
-  %25 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i.i.i12.i = getelementptr inbounds %struct.tsd_s, ptr %25, i64 0, i32 29
-  %26 = load i8, ptr %state.i.i.i12.i, align 8
-  %cmp6.i.not.i13.i = icmp eq i8 %26, 0
+  %24 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
+  %state.i.i.i12.i = getelementptr inbounds %struct.tsd_s, ptr %24, i64 0, i32 29
+  %25 = load i8, ptr %state.i.i.i12.i, align 8
+  %cmp6.i.not.i13.i = icmp eq i8 %25, 0
   br i1 %cmp6.i.not.i13.i, label %cond.end.i7.i, label %if.then11.i.i14.i
 
 if.then11.i.i14.i:                                ; preds = %cond.true.i11.i
-  %call13.i.i15.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %25, i1 noundef zeroext false) #9
+  %call13.i.i15.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %24, i1 noundef zeroext false) #9
   br label %cond.end.i7.i
 
 cond.end.i7.i:                                    ; preds = %if.then11.i.i14.i, %cond.true.i11.i, %ehooks_pre_reentrancy.exit.i
-  %cond.i8.i = phi ptr [ %call13.i.i15.i, %if.then11.i.i14.i ], [ %25, %cond.true.i11.i ], [ %tsdn, %ehooks_pre_reentrancy.exit.i ]
+  %cond.i8.i = phi ptr [ %call13.i.i15.i, %if.then11.i.i14.i ], [ %24, %cond.true.i11.i ], [ %tsdn, %ehooks_pre_reentrancy.exit.i ]
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i9.i = getelementptr inbounds %struct.tsd_s, ptr %cond.i8.i, i64 0, i32 1
-  %27 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i9.i, align 1
-  %dec.i.i.i = add i8 %27, -1
+  %26 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i9.i, align 1
+  %dec.i.i.i = add i8 %26, -1
   store i8 %dec.i.i.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i9.i, align 1
   %cmp.i6.i.i = icmp eq i8 %dec.i.i.i, 0
   br i1 %cmp.i6.i.i, label %if.then.i.i10.i, label %ehooks_split.exit
@@ -2066,18 +2064,18 @@ ehooks_split.exit:                                ; preds = %cond.end.i7.i
   br i1 %call7.i, label %label_error_b, label %if.end30
 
 if.end30:                                         ; preds = %if.then.i.i10.i, %if.then.i, %ehooks_split.exit
-  %28 = getelementptr inbounds %struct.edata_s, ptr %edata, i64 0, i32 2
-  %29 = load i64, ptr %28, align 8
-  %and.i54 = and i64 %29, 4095
+  %27 = getelementptr inbounds %struct.edata_s, ptr %edata, i64 0, i32 2
+  %28 = load i64, ptr %27, align 8
+  %and.i54 = and i64 %28, 4095
   %or.i = or i64 %and.i54, %size_a
-  store i64 %or.i, ptr %28, align 8
-  %30 = load ptr, ptr %emap, align 8
-  call void @emap_split_commit(ptr noundef %tsdn, ptr noundef %30, ptr noundef nonnull %prepare, ptr noundef nonnull %edata, i64 noundef %size_a, ptr noundef nonnull %call5, i64 noundef %size_b) #9
+  store i64 %or.i, ptr %27, align 8
+  %29 = load ptr, ptr %emap, align 8
+  call void @emap_split_commit(ptr noundef %tsdn, ptr noundef %29, ptr noundef nonnull %prepare, ptr noundef nonnull %edata, i64 noundef %size_a, ptr noundef nonnull %call5, i64 noundef %size_b) #9
   br label %return
 
 label_error_b:                                    ; preds = %if.else.i, %if.then.i.i10.i, %if.then.i, %ehooks_split.exit, %if.end7
-  %31 = load ptr, ptr %edata_cache, align 8
-  call void @edata_cache_put(ptr noundef %tsdn, ptr noundef %31, ptr noundef nonnull %call5) #9
+  %30 = load ptr, ptr %edata_cache, align 8
+  call void @edata_cache_put(ptr noundef %tsdn, ptr noundef %30, ptr noundef nonnull %call5) #9
   br label %return
 
 return:                                           ; preds = %label_error_b, %if.end4, %entry, %if.end30

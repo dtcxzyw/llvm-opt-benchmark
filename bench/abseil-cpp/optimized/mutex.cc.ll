@@ -1696,7 +1696,7 @@ if.then:                                          ; preds = %invoke.cont2
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %invoke.cont2
-  store ptr inttoptr (i64 1 to ptr), ptr %wake_list, align 8
+  store i64 1, ptr %wake_list, align 8
   %cmp6 = icmp eq ptr %waitp, null
   br i1 %cmp6, label %for.cond.outer.preheader, label %lor.lhs.false
 

@@ -3612,24 +3612,23 @@ if.end.i.i5.i:                                    ; preds = %if.end3.i
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i13, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i5.i
-  %17 = ptrtoint ptr %call.i.i.i to i64
   %itemid.i.i.i.i = getelementptr inbounds %struct.wait_info, ptr %waiting, i64 0, i32 3
-  store i64 %17, ptr %itemid.i.i.i.i, align 8
+  store ptr %call.i.i.i, ptr %itemid.i.i.i.i, align 8
   br label %if.end.i.i13
 
 if.end.i.i13:                                     ; preds = %if.then.i.i.i.i, %if.end.i.i5.i
-  %18 = load i64, ptr %16, align 8
-  %add.i.i = add i64 %18, 1
+  %17 = load i64, ptr %16, align 8
+  %add.i.i = add i64 %17, 1
   store i64 %add.i.i, ptr %16, align 8
   %first.i.i = getelementptr inbounds %struct._channelqueue, ptr %16, i64 0, i32 1
-  %19 = load ptr, ptr %first.i.i, align 8
-  %cmp1.i.i = icmp eq ptr %19, null
+  %18 = load ptr, ptr %first.i.i, align 8
+  %cmp1.i.i = icmp eq ptr %18, null
   br i1 %cmp1.i.i, label %if.end4.i6.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i13
   %last.i.i = getelementptr inbounds %struct._channelqueue, ptr %16, i64 0, i32 2
-  %20 = load ptr, ptr %last.i.i, align 8
-  %next.i.i14 = getelementptr inbounds %struct._channelitem, ptr %20, i64 0, i32 2
+  %19 = load ptr, ptr %last.i.i, align 8
+  %next.i.i14 = getelementptr inbounds %struct._channelitem, ptr %19, i64 0, i32 2
   br label %if.end4.i6.i
 
 if.end4.i6.i:                                     ; preds = %if.else.i.i, %if.end.i.i13
@@ -3640,8 +3639,8 @@ if.end4.i6.i:                                     ; preds = %if.else.i.i, %if.en
   br i1 %cmp.not.i.i.i.i, label %_channel_add.exit, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %if.end4.i6.i
-  %21 = load ptr, ptr %waiting, align 8
-  %call.i10.i.i = tail call i32 @PyThread_acquire_lock(ptr noundef %21, i32 noundef 0) #6
+  %20 = load ptr, ptr %waiting, align 8
+  %call.i10.i.i = tail call i32 @PyThread_acquire_lock(ptr noundef %20, i32 noundef 0) #6
   %status.i.i.i = getelementptr inbounds %struct.wait_info, ptr %waiting, i64 0, i32 1
   store i32 1, ptr %status.i.i.i, align 8
   br label %_channel_add.exit
@@ -3653,8 +3652,8 @@ _channelqueue_put.exit.i:                         ; preds = %if.end3.i
 _channel_add.exit:                                ; preds = %if.end16, %if.then.i.i, %_channelends_associate.exit.i, %if.end4.i6.i, %if.then7.i.i, %_channelqueue_put.exit.i
   %cmp18.not = phi i1 [ false, %if.end16 ], [ false, %_channelends_associate.exit.i ], [ false, %_channelqueue_put.exit.i ], [ true, %if.then7.i.i ], [ true, %if.end4.i6.i ], [ false, %if.then.i.i ]
   %res.0.i = phi i32 [ -3, %if.end16 ], [ -4, %_channelends_associate.exit.i ], [ -1, %_channelqueue_put.exit.i ], [ 0, %if.then7.i.i ], [ 0, %if.end4.i6.i ], [ -4, %if.then.i.i ]
-  %22 = load ptr, ptr %4, align 8
-  tail call void @PyThread_release_lock(ptr noundef %22) #6
+  %21 = load ptr, ptr %4, align 8
+  tail call void @PyThread_release_lock(ptr noundef %21) #6
   tail call void @PyThread_release_lock(ptr noundef %6) #6
   br i1 %cmp18.not, label %return, label %if.then19
 

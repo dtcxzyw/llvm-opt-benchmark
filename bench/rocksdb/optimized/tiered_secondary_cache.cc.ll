@@ -235,18 +235,17 @@ entry:
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %3 = ptrtoint ptr %2 to i64
-  store i64 %3, ptr %agg.result, align 8
+  store ptr %2, ptr %agg.result, align 8
   br label %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit50
 
 if.end:                                           ; preds = %entry
-  %4 = load atomic i8, ptr @_ZGVZN7rocksdb20TieredSecondaryCache9GetHelperEvE12basic_helper acquire, align 8
-  %guard.uninitialized.i = icmp eq i8 %4, 0
+  %3 = load atomic i8, ptr @_ZGVZN7rocksdb20TieredSecondaryCache9GetHelperEvE12basic_helper acquire, align 8
+  %guard.uninitialized.i = icmp eq i8 %3, 0
   br i1 %guard.uninitialized.i, label %init.check.i, label %init.end.i, !prof !4
 
 init.check.i:                                     ; preds = %if.end
-  %5 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb20TieredSecondaryCache9GetHelperEvE12basic_helper) #15
-  %tobool.not.i = icmp eq i32 %5, 0
+  %4 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb20TieredSecondaryCache9GetHelperEvE12basic_helper) #15
+  %tobool.not.i = icmp eq i32 %4, 0
   br i1 %tobool.not.i, label %init.end.i, label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %init.check.i
@@ -258,13 +257,13 @@ invoke.cont.i:                                    ; preds = %init.check.i
   br label %init.end.i
 
 init.end.i:                                       ; preds = %invoke.cont.i, %init.check.i, %if.end
-  %6 = load atomic i8, ptr @_ZGVZN7rocksdb20TieredSecondaryCache9GetHelperEvE30maybe_insert_and_create_helper acquire, align 8
-  %guard.uninitialized1.i = icmp eq i8 %6, 0
+  %5 = load atomic i8, ptr @_ZGVZN7rocksdb20TieredSecondaryCache9GetHelperEvE30maybe_insert_and_create_helper acquire, align 8
+  %guard.uninitialized1.i = icmp eq i8 %5, 0
   br i1 %guard.uninitialized1.i, label %init.check2.i, label %invoke.cont, !prof !4
 
 init.check2.i:                                    ; preds = %init.end.i
-  %7 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb20TieredSecondaryCache9GetHelperEvE30maybe_insert_and_create_helper) #15
-  %tobool3.not.i = icmp eq i32 %7, 0
+  %6 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7rocksdb20TieredSecondaryCache9GetHelperEvE30maybe_insert_and_create_helper) #15
+  %tobool3.not.i = icmp eq i32 %6, 0
   br i1 %tobool3.not.i, label %invoke.cont, label %init4.i
 
 init4.i:                                          ; preds = %init.check2.i
@@ -290,100 +289,100 @@ if.then7:                                         ; preds = %invoke.cont
   store ptr %helper, ptr %helper12, align 8
   %inner_ctx = getelementptr inbounds %"struct.rocksdb::TieredSecondaryCache::CreateContext", ptr %ctx, i64 0, i32 3
   store ptr %create_context, ptr %inner_ctx, align 8
-  %8 = load ptr, ptr %target_.i, align 8
+  %7 = load ptr, ptr %target_.i, align 8
   %comp_sec_cache = getelementptr inbounds %"struct.rocksdb::TieredSecondaryCache::CreateContext", ptr %ctx, i64 0, i32 5
-  store ptr %8, ptr %comp_sec_cache, align 8
+  store ptr %7, ptr %comp_sec_cache, align 8
   %stats16 = getelementptr inbounds %"struct.rocksdb::TieredSecondaryCache::CreateContext", ptr %ctx, i64 0, i32 6
   store ptr %stats, ptr %stats16, align 8
   %nvm_sec_cache_ = getelementptr inbounds %"class.rocksdb::TieredSecondaryCache", ptr %this, i64 0, i32 2
-  %9 = load ptr, ptr %nvm_sec_cache_, align 8
-  %vtable20 = load ptr, ptr %9, align 8
+  %8 = load ptr, ptr %nvm_sec_cache_, align 8
+  %vtable20 = load ptr, ptr %8, align 8
   %vfn21 = getelementptr inbounds ptr, ptr %vtable20, i64 21
-  %10 = load ptr, ptr %vfn21, align 8
-  invoke void %10(ptr sret(%"class.std::unique_ptr.2") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull @_ZZN7rocksdb20TieredSecondaryCache9GetHelperEvE30maybe_insert_and_create_helper, ptr noundef nonnull %ctx, i1 noundef zeroext true, i1 noundef zeroext %advise_erase, ptr noundef %stats, ptr noundef nonnull align 1 dereferenceable(1) %kept_in_sec_cache)
+  %9 = load ptr, ptr %vfn21, align 8
+  invoke void %9(ptr sret(%"class.std::unique_ptr.2") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull @_ZZN7rocksdb20TieredSecondaryCache9GetHelperEvE30maybe_insert_and_create_helper, ptr noundef nonnull %ctx, i1 noundef zeroext true, i1 noundef zeroext %advise_erase, ptr noundef %stats, ptr noundef nonnull align 1 dereferenceable(1) %kept_in_sec_cache)
           to label %invoke.cont22 unwind label %lpad13
 
 invoke.cont22:                                    ; preds = %if.then7
   %_M_refcount.i.i.i = getelementptr inbounds %"struct.rocksdb::TieredSecondaryCache::CreateContext", ptr %ctx, i64 0, i32 4, i32 0, i32 1
-  %11 = load ptr, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %_M_refcount.i.i.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i, label %cleanup, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont22
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %11, i64 0, i32 1
-  %12 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
-  %cmp.i.i.i.i.i = icmp eq i64 %12, 4294967297
-  %13 = trunc i64 %12 to i32
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %10, i64 0, i32 1
+  %11 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
+  %cmp.i.i.i.i.i = icmp eq i64 %11, 4294967297
+  %12 = trunc i64 %11 to i32
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %11, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %10, i64 0, i32 2
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
-  %vtable.i.i.i.i.i = load ptr, ptr %11, align 8
+  %vtable.i.i.i.i.i = load ptr, ptr %10, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
-  %14 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(16) %11) #15
+  %13 = load ptr, ptr %vfn.i.i.i.i.i, align 8
+  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %10) #15
   br label %if.end8.sink.split.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  %15 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i.i = icmp eq i8 %15, 0
+  %14 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i.i = icmp eq i8 %14, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
-  %add.i.i.i.i.i.i = add nsw i32 %13, -1
+  %add.i.i.i.i.i.i = add nsw i32 %12, -1
   store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
-  %16 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 -1 acq_rel, align 4
+  %15 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
-  %retval.i.0.i.i.i.i.i = phi i32 [ %13, %if.then.i.i.i.i.i.i ], [ %16, %if.else.i.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i.i = phi i32 [ %12, %if.then.i.i.i.i.i.i ], [ %15, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
   br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %cleanup
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i = load ptr, ptr %11, align 8
+  %vtable.i.i.i.i.i.i.i = load ptr, ptr %10, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
-  %17 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(16) %11) #15
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %11, i64 0, i32 2
-  %18 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %18, 0
+  %16 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
+  call void %16(ptr noundef nonnull align 8 dereferenceable(16) %10) #15
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %10, i64 0, i32 2
+  %17 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %17, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
-  %19 = load i32, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i.i = add nsw i32 %19, -1
+  %18 = load i32, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i.i = add nsw i32 %18, -1
   store i32 %add.i.i.i.i.i.i.i.i, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
-  %20 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i.i, i32 -1 acq_rel, align 4
+  %19 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
-  %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %19, %if.then.i.i.i.i.i.i.i.i ], [ %20, %if.else.i.i.i.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %18, %if.then.i.i.i.i.i.i.i.i ], [ %19, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %cleanup
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %vtable2.i.i.i.i.i.i.i = load ptr, ptr %11, align 8
+  %vtable2.i.i.i.i.i.i.i = load ptr, ptr %10, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
-  %21 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(16) %11) #15
+  %20 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
+  call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #15
   br label %cleanup
 
 lpad:                                             ; preds = %if.end23
-  %22 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup75
 
 lpad13:                                           ; preds = %if.then7
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7rocksdb20TieredSecondaryCache13CreateContextD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %ctx) #15
   br label %ehcleanup75
@@ -393,8 +392,8 @@ if.end23:                                         ; preds = %invoke.cont
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %if.end23
-  %24 = getelementptr inbounds i8, ptr %call25, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %24, i8 0, i64 88, i1 false)
+  %23 = getelementptr inbounds i8, ptr %call25, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %23, i8 0, i64 88, i1 false)
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb20TieredSecondaryCache12ResultHandleE, i64 0, inrange i32 0, i64 2), ptr %call25, align 8
   %inner_handle_.i = getelementptr inbounds %"class.rocksdb::TieredSecondaryCache::ResultHandle", ptr %call25, i64 0, i32 1
   store ptr null, ptr %inner_handle_.i, align 8
@@ -408,32 +407,32 @@ invoke.cont24:                                    ; preds = %if.end23
   store ptr %helper, ptr %helper40, align 8
   %inner_ctx44 = getelementptr inbounds %"class.rocksdb::TieredSecondaryCache::ResultHandle", ptr %call25, i64 0, i32 2, i32 3
   store ptr %create_context, ptr %inner_ctx44, align 8
-  %25 = load ptr, ptr %target_.i, align 8
+  %24 = load ptr, ptr %target_.i, align 8
   %comp_sec_cache50 = getelementptr inbounds %"class.rocksdb::TieredSecondaryCache::ResultHandle", ptr %call25, i64 0, i32 2, i32 5
-  store ptr %25, ptr %comp_sec_cache50, align 8
+  store ptr %24, ptr %comp_sec_cache50, align 8
   %stats54 = getelementptr inbounds %"class.rocksdb::TieredSecondaryCache::ResultHandle", ptr %call25, i64 0, i32 2, i32 6
   store ptr %stats, ptr %stats54, align 8
   %nvm_sec_cache_56 = getelementptr inbounds %"class.rocksdb::TieredSecondaryCache", ptr %this, i64 0, i32 2
-  %26 = load ptr, ptr %nvm_sec_cache_56, align 8
-  %vtable63 = load ptr, ptr %26, align 8
+  %25 = load ptr, ptr %nvm_sec_cache_56, align 8
+  %vtable63 = load ptr, ptr %25, align 8
   %vfn64 = getelementptr inbounds ptr, ptr %vtable63, i64 21
-  %27 = load ptr, ptr %vfn64, align 8
-  invoke void %27(ptr nonnull sret(%"class.std::unique_ptr.2") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull @_ZZN7rocksdb20TieredSecondaryCache9GetHelperEvE30maybe_insert_and_create_helper, ptr noundef nonnull %ctx_.i, i1 noundef zeroext false, i1 noundef zeroext %advise_erase, ptr noundef %stats, ptr noundef nonnull align 1 dereferenceable(1) %kept_in_sec_cache)
+  %26 = load ptr, ptr %vfn64, align 8
+  invoke void %26(ptr nonnull sret(%"class.std::unique_ptr.2") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull @_ZZN7rocksdb20TieredSecondaryCache9GetHelperEvE30maybe_insert_and_create_helper, ptr noundef nonnull %ctx_.i, i1 noundef zeroext false, i1 noundef zeroext %advise_erase, ptr noundef %stats, ptr noundef nonnull align 1 dereferenceable(1) %kept_in_sec_cache)
           to label %invoke.cont65 unwind label %_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit
 
 invoke.cont65:                                    ; preds = %invoke.cont24
-  %28 = load ptr, ptr %ref.tmp, align 8
+  %27 = load ptr, ptr %ref.tmp, align 8
   store ptr null, ptr %ref.tmp, align 8
-  %29 = load ptr, ptr %inner_handle_.i, align 8
-  store ptr %28, ptr %inner_handle_.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %29, null
+  %28 = load ptr, ptr %inner_handle_.i, align 8
+  store ptr %27, ptr %inner_handle_.i, align 8
+  %tobool.not.i.i.i.i.i = icmp eq ptr %28, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit, label %_ZN7rocksdb20TieredSecondaryCache12ResultHandle14SetInnerHandleEOSt10unique_ptrINS_26SecondaryCacheResultHandleESt14default_deleteIS3_EE.exit
 
 _ZN7rocksdb20TieredSecondaryCache12ResultHandle14SetInnerHandleEOSt10unique_ptrINS_26SecondaryCacheResultHandleESt14default_deleteIS3_EE.exit: ; preds = %invoke.cont65
-  %vtable.i.i.i.i.i.i = load ptr, ptr %29, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %28, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 1
-  %30 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(8) %29) #15
+  %29 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
+  call void %29(ptr noundef nonnull align 8 dereferenceable(8) %28) #15
   %.pr = load ptr, ptr %ref.tmp, align 8
   %cmp.not.i = icmp eq ptr %.pr, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exitthread-pre-split, label %_ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i
@@ -441,8 +440,8 @@ _ZN7rocksdb20TieredSecondaryCache12ResultHandle14SetInnerHandleEOSt10unique_ptrI
 _ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i: ; preds = %_ZN7rocksdb20TieredSecondaryCache12ResultHandle14SetInnerHandleEOSt10unique_ptrINS_26SecondaryCacheResultHandleESt14default_deleteIS3_EE.exit
   %vtable.i.i = load ptr, ptr %.pr, align 8
   %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
-  %31 = load ptr, ptr %vfn.i.i, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #15
+  %30 = load ptr, ptr %vfn.i.i, align 8
+  call void %30(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #15
   br label %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exitthread-pre-split
 
 _ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exitthread-pre-split: ; preds = %_ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i, %_ZN7rocksdb20TieredSecondaryCache12ResultHandle14SetInnerHandleEOSt10unique_ptrINS_26SecondaryCacheResultHandleESt14default_deleteIS3_EE.exit
@@ -450,43 +449,43 @@ _ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EE
   br label %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont65, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exitthread-pre-split
-  %32 = phi ptr [ %.pr69, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exitthread-pre-split ], [ %28, %invoke.cont65 ]
+  %31 = phi ptr [ %.pr69, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exitthread-pre-split ], [ %27, %invoke.cont65 ]
   store ptr null, ptr %ref.tmp, align 8
-  %tobool71.not = icmp eq ptr %32, null
+  %tobool71.not = icmp eq ptr %31, null
   br i1 %tobool71.not, label %_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EE5resetEPS2_.exit, label %if.else
 
 _ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EE5resetEPS2_.exit: ; preds = %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit
   %vtable.i.i.i = load ptr, ptr %call25, align 8
   %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
-  %33 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(97) %call25) #15
+  %32 = load ptr, ptr %vfn.i.i.i, align 8
+  call void %32(ptr noundef nonnull align 8 dereferenceable(97) %call25) #15
   br label %_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit45
 
 _ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont24
-  %34 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i36 = load ptr, ptr %call25, align 8
   %vfn.i.i37 = getelementptr inbounds ptr, ptr %vtable.i.i36, i64 1
-  %35 = load ptr, ptr %vfn.i.i37, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(97) %call25) #15
+  %34 = load ptr, ptr %vfn.i.i37, align 8
+  call void %34(ptr noundef nonnull align 8 dereferenceable(97) %call25) #15
   br label %ehcleanup75
 
 if.else:                                          ; preds = %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit
-  %36 = load ptr, ptr %result, align 8
+  %35 = load ptr, ptr %result, align 8
   store ptr %call25, ptr %result, align 8
-  %tobool.not.i.i38 = icmp eq ptr %36, null
+  %tobool.not.i.i38 = icmp eq ptr %35, null
   br i1 %tobool.not.i.i38, label %_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit45, label %_ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i.i: ; preds = %if.else
-  %vtable.i.i.i39 = load ptr, ptr %36, align 8
+  %vtable.i.i.i39 = load ptr, ptr %35, align 8
   %vfn.i.i.i40 = getelementptr inbounds ptr, ptr %vtable.i.i.i39, i64 1
-  %37 = load ptr, ptr %vfn.i.i.i40, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(8) %36) #15
+  %36 = load ptr, ptr %vfn.i.i.i40, align 8
+  call void %36(ptr noundef nonnull align 8 dereferenceable(8) %35) #15
   br label %_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit45
 
 _ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit45: ; preds = %_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EE5resetEPS2_.exit, %if.else, %_ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i.i
-  %38 = load i64, ptr %result, align 8
-  store i64 %38, ptr %agg.result, align 8
+  %37 = load i64, ptr %result, align 8
+  store i64 %37, ptr %agg.result, align 8
   br label %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit50
 
 cleanup:                                          ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %invoke.cont22
@@ -497,24 +496,24 @@ cleanup:                                          ; preds = %if.end8.sink.split.
 _ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i47: ; preds = %cleanup
   %vtable.i.i48 = load ptr, ptr %.pr70, align 8
   %vfn.i.i49 = getelementptr inbounds ptr, ptr %vtable.i.i48, i64 1
-  %39 = load ptr, ptr %vfn.i.i49, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(8) %.pr70) #15
+  %38 = load ptr, ptr %vfn.i.i49, align 8
+  call void %38(ptr noundef nonnull align 8 dereferenceable(8) %.pr70) #15
   br label %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit50
 
 _ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit50: ; preds = %if.then, %_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit45, %cleanup, %_ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i47
   ret void
 
 ehcleanup75:                                      ; preds = %_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit, %lpad13, %lpad
-  %.pn = phi { ptr, i32 } [ %23, %lpad13 ], [ %34, %_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit ], [ %22, %lpad ]
-  %40 = load ptr, ptr %result, align 8
-  %cmp.not.i51 = icmp eq ptr %40, null
+  %.pn = phi { ptr, i32 } [ %22, %lpad13 ], [ %33, %_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit ], [ %21, %lpad ]
+  %39 = load ptr, ptr %result, align 8
+  %cmp.not.i51 = icmp eq ptr %39, null
   br i1 %cmp.not.i51, label %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit55, label %_ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i52
 
 _ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i52: ; preds = %ehcleanup75
-  %vtable.i.i53 = load ptr, ptr %40, align 8
+  %vtable.i.i53 = load ptr, ptr %39, align 8
   %vfn.i.i54 = getelementptr inbounds ptr, ptr %vtable.i.i53, i64 1
-  %41 = load ptr, ptr %vfn.i.i54, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(8) %40) #15
+  %40 = load ptr, ptr %vfn.i.i54, align 8
+  call void %40(ptr noundef nonnull align 8 dereferenceable(8) %39) #15
   br label %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit55
 
 _ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit55: ; preds = %ehcleanup75, %_ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i52

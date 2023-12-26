@@ -496,7 +496,7 @@ sw.bb67:                                          ; preds = %_ZNK6google8protobu
   br i1 %cmp.i115, label %if.else73, label %if.then72
 
 if.then72:                                        ; preds = %sw.bb67
-  store i64 ptrtoint (ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E to i64), ptr %add.ptr.i.i75, align 8
+  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %add.ptr.i.i75, align 8
   br label %for.inc113
 
 if.else73:                                        ; preds = %sw.bb67
@@ -611,8 +611,7 @@ declare i32 @__gxx_personality_v0(...)
 define hidden void @_ZN6google8protobuf14DynamicMessageC2EPKNS0_21DynamicMessageFactory8TypeInfoEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %type_info, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this, i64 0, i32 1
-  %0 = ptrtoint ptr %arena to i64
-  store i64 %0, ptr %_internal_metadata_.i.i, align 8
+  store ptr %arena, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf14DynamicMessageE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %type_info_ = getelementptr inbounds %"class.google::protobuf::DynamicMessage", ptr %this, i64 0, i32 1
   store ptr %type_info, ptr %type_info_, align 8
@@ -2227,15 +2226,14 @@ if.else.i:                                        ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr align 1 %call2.i, i8 0, i64 %conv4, i1 false)
   %4 = load ptr, ptr %type_info_7, align 8
   %_internal_metadata_.i.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call2.i, i64 0, i32 1
-  %5 = ptrtoint ptr %arena to i64
-  store i64 %5, ptr %_internal_metadata_.i.i.i, align 8
+  store ptr %arena, ptr %_internal_metadata_.i.i.i, align 8
   br label %return
 
 if.else:                                          ; preds = %entry
   %call10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %conv9) #23
-  %6 = load ptr, ptr %type_info_7, align 8
-  %7 = load i32, ptr %6, align 8
-  %conv13 = sext i32 %7 to i64
+  %5 = load ptr, ptr %type_info_7, align 8
+  %6 = load i32, ptr %5, align 8
+  %conv13 = sext i32 %6 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call10, i8 0, i64 %conv13, i1 false)
   %_internal_metadata_.i.i.i9 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %call10, i64 0, i32 1
   store i64 0, ptr %_internal_metadata_.i.i.i9, align 8
@@ -2243,7 +2241,7 @@ if.else:                                          ; preds = %entry
 
 return:                                           ; preds = %if.else, %if.else.i
   %call10.sink14 = phi ptr [ %call10, %if.else ], [ %call2.i, %if.else.i ]
-  %.sink = phi ptr [ %6, %if.else ], [ %4, %if.else.i ]
+  %.sink = phi ptr [ %5, %if.else ], [ %4, %if.else.i ]
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf14DynamicMessageE, i64 0, inrange i32 0, i64 2), ptr %call10.sink14, align 8
   %type_info_.i10 = getelementptr inbounds %"class.google::protobuf::DynamicMessage", ptr %call10.sink14, i64 0, i32 1
   store ptr %.sink, ptr %type_info_.i10, align 8

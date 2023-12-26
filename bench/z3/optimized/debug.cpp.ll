@@ -1129,7 +1129,7 @@ if.then43:                                        ; preds = %end_remove
   br label %if.end55
 
 if.else44:                                        ; preds = %end_remove
-  store ptr inttoptr (i64 1 to ptr), ptr %m_ptr.i36, align 8
+  store i64 1, ptr %m_ptr.i36, align 8
   %m_num_deleted = getelementptr inbounds %class.core_hashtable, ptr %this, i64 0, i32 3
   %11 = load i32, ptr %m_num_deleted, align 8
   %inc = add i32 %11, 1

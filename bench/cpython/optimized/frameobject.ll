@@ -1582,16 +1582,14 @@ Py_DECREF.exit:                                   ; preds = %init_frame.exit, %i
   %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %23, i64 0, i32 1
   %24 = load i64, ptr %_gc_prev.i, align 8
   %25 = inttoptr i64 %24 to ptr
-  %26 = ptrtoint ptr %add.ptr.i.i to i64
-  store i64 %26, ptr %25, align 8
+  store ptr %add.ptr.i.i, ptr %25, align 8
   %_gc_prev.i.i = getelementptr i8, ptr %call.i22, i64 -8
-  %27 = load i64, ptr %_gc_prev.i.i, align 8
-  %and.i.i = and i64 %27, 3
+  %26 = load i64, ptr %_gc_prev.i.i, align 8
+  %and.i.i = and i64 %26, 3
   %or.i.i = or i64 %and.i.i, %24
   store i64 %or.i.i, ptr %_gc_prev.i.i, align 8
-  %28 = ptrtoint ptr %23 to i64
-  store i64 %28, ptr %add.ptr.i.i, align 8
-  store i64 %26, ptr %_gc_prev.i, align 8
+  store ptr %23, ptr %add.ptr.i.i, align 8
+  store ptr %add.ptr.i.i, ptr %_gc_prev.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end5.i, %if.end.i19, %if.then1.i22, %if.then8, %if.end, %_PyEval_BuiltinsFromGlobals.exit, %Py_DECREF.exit

@@ -5222,8 +5222,7 @@ invoke.cont23:                                    ; preds = %if.then20
   store ptr %3, ptr %_M_right.i.i.i.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i1.i.i10, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i.i, align 8
-  %4 = ptrtoint ptr %call5.i.i1.i.i10 to i64
-  store i64 %4, ptr %m_value.i, align 8
+  store ptr %call5.i.i1.i.i10, ptr %m_value.i, align 8
   %cmp27.not32 = icmp eq i64 %init.coerce1, 0
   br i1 %cmp27.not32, label %if.end53, label %for.body.lr.ph
 
@@ -5234,8 +5233,8 @@ for.body.lr.ph:                                   ; preds = %invoke.cont23
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit
   %__begin0.033 = phi ptr [ %init.coerce0, %for.body.lr.ph ], [ %incdec.ptr, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit ]
   %value_ref.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::json_ref", ptr %__begin0.033, i64 0, i32 1
-  %5 = load ptr, ptr %value_ref.i, align 8, !noalias !15
-  %cmp.i13 = icmp eq ptr %5, null
+  %4 = load ptr, ptr %value_ref.i, align 8, !noalias !15
+  %cmp.i13 = icmp eq ptr %4, null
   br i1 %cmp.i13, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %for.body
@@ -5246,29 +5245,29 @@ if.then.i:                                        ; preds = %for.body
   br label %invoke.cont28
 
 if.end.i:                                         ; preds = %for.body
-  invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(16) %element, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(16) %element, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %invoke.cont28 unwind label %lpad.loopexit
 
 invoke.cont28:                                    ; preds = %if.then.i, %if.end.i
-  %6 = load ptr, ptr %m_value.i, align 8
-  %7 = load ptr, ptr %m_value32, align 8
-  %8 = load ptr, ptr %7, align 8
-  %m_value35 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %8, i64 0, i32 1
-  %9 = load ptr, ptr %m_value35, align 8
-  %add.ptr.i14 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::basic_json", ptr %8, i64 1
-  %call.i15 = invoke { ptr, i8 } @_ZNSt8_Rb_treeI10alt_stringSt4pairIKS0_N8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS0_blmdSaNS4_14adl_serializerES7_IhSaIhEEvEEESt10_Select1stISC_ESt4lessIS0_ESaISC_EE17_M_emplace_uniqueIJS0_SB_EEES1_ISt17_Rb_tree_iteratorISC_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i14)
+  %5 = load ptr, ptr %m_value.i, align 8
+  %6 = load ptr, ptr %m_value32, align 8
+  %7 = load ptr, ptr %6, align 8
+  %m_value35 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %7, i64 0, i32 1
+  %8 = load ptr, ptr %m_value35, align 8
+  %add.ptr.i14 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::basic_json", ptr %7, i64 1
+  %call.i15 = invoke { ptr, i8 } @_ZNSt8_Rb_treeI10alt_stringSt4pairIKS0_N8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS0_blmdSaNS4_14adl_serializerES7_IhSaIhEEvEEESt10_Select1stISC_ESt4lessIS0_ESaISC_EE17_M_emplace_uniqueIJS0_SB_EEES1_ISt17_Rb_tree_iteratorISC_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i14)
           to label %invoke.cont40 unwind label %lpad39
 
 invoke.cont40:                                    ; preds = %invoke.cont28
-  %10 = load i8, ptr %element, align 8
-  invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %m_value32, i8 noundef zeroext %10)
+  %9 = load i8, ptr %element, align 8
+  invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %m_value32, i8 noundef zeroext %9)
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont40
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #23
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #23
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit: ; preds = %invoke.cont40
@@ -5277,7 +5276,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_
   br i1 %cmp27.not, label %if.end53, label %for.body
 
 lpad39:                                           ; preds = %invoke.cont28
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %element) #22
   br label %ehcleanup54
@@ -5293,14 +5292,14 @@ call5.i.i2.i.noexc:                               ; preds = %if.else
           to label %invoke.cont49 unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %call5.i.i2.i.noexc
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %15 = load ptr, ptr %call5.i.i2.i19, align 8
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %15, null
+  %14 = load ptr, ptr %call5.i.i2.i19, align 8
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrISt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS0_10alt_stringblmdSaNS2_14adl_serializerES0_IhSaIhEEvEESaIS9_EEZNS9_6createISB_JPKNS2_6detail8json_refIS9_EESH_EEEPT_DpOT0_EUlPSB_E_ED2Ev.exit7.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %lpad.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %15) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %14) #25
   br label %_ZNSt10unique_ptrISt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS0_10alt_stringblmdSaNS2_14adl_serializerES0_IhSaIhEEvEESaIS9_EEZNS9_6createISB_JPKNS2_6detail8json_refIS9_EESH_EEEPT_DpOT0_EUlPSB_E_ED2Ev.exit7.i
 
 _ZNSt10unique_ptrISt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS0_10alt_stringblmdSaNS2_14adl_serializerES0_IhSaIhEEvEESaIS9_EEZNS9_6createISB_JPKNS2_6detail8json_refIS9_EESH_EEEPT_DpOT0_EUlPSB_E_ED2Ev.exit7.i: ; preds = %if.then.i.i.i.i.i.i, %lpad.i.i.i.i
@@ -5315,7 +5314,7 @@ if.end53:                                         ; preds = %_ZN8nlohmann16json_
   ret void
 
 ehcleanup54:                                      ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %_ZNSt10unique_ptrISt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS0_10alt_stringblmdSaNS2_14adl_serializerES0_IhSaIhEEvEESaIS9_EEZNS9_6createISB_JPKNS2_6detail8json_refIS9_EESH_EEEPT_DpOT0_EUlPSB_E_ED2Ev.exit7.i, %ehcleanup, %cleanup.action, %lpad39
-  %.pn7 = phi { ptr, i32 } [ %13, %lpad39 ], [ %.pn29, %cleanup.action ], [ %2, %ehcleanup ], [ %14, %_ZNSt10unique_ptrISt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS0_10alt_stringblmdSaNS2_14adl_serializerES0_IhSaIhEEvEESaIS9_EEZNS9_6createISB_JPKNS2_6detail8json_refIS9_EESH_EEEPT_DpOT0_EUlPSB_E_ED2Ev.exit7.i ], [ %lpad.loopexit30, %lpad.loopexit ], [ %lpad.loopexit.split-lp31, %lpad.loopexit.split-lp ]
+  %.pn7 = phi { ptr, i32 } [ %12, %lpad39 ], [ %.pn29, %cleanup.action ], [ %2, %ehcleanup ], [ %13, %_ZNSt10unique_ptrISt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS0_10alt_stringblmdSaNS2_14adl_serializerES0_IhSaIhEEvEESaIS9_EEZNS9_6createISB_JPKNS2_6detail8json_refIS9_EESH_EEEPT_DpOT0_EUlPSB_E_ED2Ev.exit7.i ], [ %lpad.loopexit30, %lpad.loopexit ], [ %lpad.loopexit.split-lp31, %lpad.loopexit.split-lp ]
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #22
   resume { ptr, i32 } %.pn7
 
@@ -13296,101 +13295,105 @@ lpad.i:                                           ; preds = %sw.bb
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %_ZNSt16allocator_traitsISaISt3mapI10alt_stringN8nlohmann16json_abi_v3_11_310basic_jsonIS0_St6vectorS1_blmdSaNS3_14adl_serializerES5_IhSaIhEEvEESt4lessIS1_ESaISt4pairIKS1_S9_EEEEE8allocateERSH_m.exit.i, %_ZNSt8_Rb_treeI10alt_stringSt4pairIKS0_N8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS0_blmdSaNS4_14adl_serializerES7_IhSaIhEEvEEESt10_Select1stISC_ESt4lessIS0_ESaISC_EE7_M_copyERKSI_.exit.i.i
-  %9 = ptrtoint ptr %call5.i.i2.i to i64
-  br label %sw.epilog.sink.split
+  store ptr %call5.i.i2.i, ptr %m_value.i, align 8
+  br label %sw.epilog
 
 lpad:                                             ; preds = %sw.bb48, %sw.bb17
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i23, %_ZNSt10unique_ptrISt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS0_10alt_stringblmdSaNS2_14adl_serializerES0_IhSaIhEEvEESaIS9_EEZNS9_6createISB_JRKSB_EEEPT_DpOT0_EUlPSB_E_ED2Ev.exit7.i, %_ZNSt10unique_ptrIN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEEZNS1_10basic_jsonISt3mapS3_10alt_stringblmdSaNS1_14adl_serializerES5_vE6createIS6_JRKS6_EEEPT_DpOT0_EUlPS6_E_ED2Ev.exit9.i.i, %lpad, %lpad.i, %lpad.i.i, %_ZNSt10unique_ptrI10alt_stringZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS0_blmdSaNS2_14adl_serializerES5_IhSaIhEEvE6createIS0_JRKS0_EEEPT_DpOT0_EUlPS0_E_ED2Ev.exit7.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %16, %_ZNSt10unique_ptrI10alt_stringZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS0_blmdSaNS2_14adl_serializerES5_IhSaIhEEvE6createIS0_JRKS0_EEEPT_DpOT0_EUlPS0_E_ED2Ev.exit7.i.i ], [ %26, %_ZNSt10unique_ptrIN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEEZNS1_10basic_jsonISt3mapS3_10alt_stringblmdSaNS1_14adl_serializerES5_vE6createIS6_JRKS6_EEEPT_DpOT0_EUlPS6_E_ED2Ev.exit9.i.i ], [ %7, %lpad.i.i ], [ %8, %lpad.i ], [ %10, %lpad ], [ %13, %_ZNSt10unique_ptrISt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS0_10alt_stringblmdSaNS2_14adl_serializerES0_IhSaIhEEvEESaIS9_EEZNS9_6createISB_JRKSB_EEEPT_DpOT0_EUlPSB_E_ED2Ev.exit7.i ], [ %12, %lpad.i23 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %_ZNSt10unique_ptrI10alt_stringZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS0_blmdSaNS2_14adl_serializerES5_IhSaIhEEvE6createIS0_JRKS0_EEEPT_DpOT0_EUlPS0_E_ED2Ev.exit7.i.i ], [ %23, %_ZNSt10unique_ptrIN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEEZNS1_10basic_jsonISt3mapS3_10alt_stringblmdSaNS1_14adl_serializerES5_vE6createIS6_JRKS6_EEEPT_DpOT0_EUlPS6_E_ED2Ev.exit9.i.i ], [ %7, %lpad.i.i ], [ %8, %lpad.i ], [ %9, %lpad ], [ %12, %_ZNSt10unique_ptrISt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS0_10alt_stringblmdSaNS2_14adl_serializerES0_IhSaIhEEvEESaIS9_EEZNS9_6createISB_JRKSB_EEEPT_DpOT0_EUlPSB_E_ED2Ev.exit7.i ], [ %11, %lpad.i23 ]
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #22
   resume { ptr, i32 } %eh.lpad-body
 
 sw.bb10:                                          ; preds = %entry
   %m_value13 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %other, i64 0, i32 1
-  %11 = load ptr, ptr %m_value13, align 8
+  %10 = load ptr, ptr %m_value13, align 8
   %call5.i.i2.i22 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %_ZNSt16allocator_traitsISaISt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS0_10alt_stringblmdSaNS2_14adl_serializerES0_IhSaIhEEvEESaIS9_EEEE8allocateERSC_m.exit.i unwind label %lpad.i23
 
 _ZNSt16allocator_traitsISaISt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS0_10alt_stringblmdSaNS2_14adl_serializerES0_IhSaIhEEvEESaIS9_EEEE8allocateERSC_m.exit.i: ; preds = %sw.bb10
-  invoke void @_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_10alt_stringblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaIS8_EEC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(24) %call5.i.i2.i22, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke void @_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_10alt_stringblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaIS8_EEC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(24) %call5.i.i2.i22, ptr noundef nonnull align 8 dereferenceable(24) %10)
           to label %invoke.cont14 unwind label %_ZNSt10unique_ptrISt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS0_10alt_stringblmdSaNS2_14adl_serializerES0_IhSaIhEEvEESaIS9_EEZNS9_6createISB_JRKSB_EEEPT_DpOT0_EUlPSB_E_ED2Ev.exit7.i
 
 lpad.i23:                                         ; preds = %sw.bb10
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 _ZNSt10unique_ptrISt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS0_10alt_stringblmdSaNS2_14adl_serializerES0_IhSaIhEEvEESaIS9_EEZNS9_6createISB_JRKSB_EEEPT_DpOT0_EUlPSB_E_ED2Ev.exit7.i: ; preds = %_ZNSt16allocator_traitsISaISt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS0_10alt_stringblmdSaNS2_14adl_serializerES0_IhSaIhEEvEESaIS9_EEEE8allocateERSC_m.exit.i
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i2.i22) #25
   br label %lpad.body
 
 invoke.cont14:                                    ; preds = %_ZNSt16allocator_traitsISaISt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS0_10alt_stringblmdSaNS2_14adl_serializerES0_IhSaIhEEvEESaIS9_EEEE8allocateERSC_m.exit.i
-  %14 = ptrtoint ptr %call5.i.i2.i22 to i64
-  br label %sw.epilog.sink.split
+  store ptr %call5.i.i2.i22, ptr %m_value.i, align 8
+  br label %sw.epilog
 
 sw.bb17:                                          ; preds = %entry
   %m_value20 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %other, i64 0, i32 1
-  %15 = load ptr, ptr %m_value20, align 8
+  %13 = load ptr, ptr %m_value20, align 8
   %call5.i.i2.i.i12 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
           to label %call5.i.i2.i.i.noexc unwind label %lpad
 
 call5.i.i2.i.i.noexc:                             ; preds = %sw.bb17
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i2.i.i12, ptr noundef nonnull align 8 dereferenceable(32) %15)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i2.i.i12, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %invoke.cont21 unwind label %_ZNSt10unique_ptrI10alt_stringZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS0_blmdSaNS2_14adl_serializerES5_IhSaIhEEvE6createIS0_JRKS0_EEEPT_DpOT0_EUlPS0_E_ED2Ev.exit7.i.i
 
 _ZNSt10unique_ptrI10alt_stringZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS0_blmdSaNS2_14adl_serializerES5_IhSaIhEEvE6createIS0_JRKS0_EEEPT_DpOT0_EUlPS0_E_ED2Ev.exit7.i.i: ; preds = %call5.i.i2.i.i.noexc
-  %16 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i2.i.i12) #25
   br label %lpad.body
 
 invoke.cont21:                                    ; preds = %call5.i.i2.i.i.noexc
-  %17 = ptrtoint ptr %call5.i.i2.i.i12 to i64
-  br label %sw.epilog.sink.split
+  store ptr %call5.i.i2.i.i12, ptr %m_value.i, align 8
+  br label %sw.epilog
 
 sw.bb24:                                          ; preds = %entry
   %m_value27 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %other, i64 0, i32 1
-  %18 = load i8, ptr %m_value27, align 8
-  %19 = and i8 %18, 1
-  %ref.tmp25.sroa.0.0.insert.ext = zext nneg i8 %19 to i64
-  br label %sw.epilog.sink.split
+  %15 = load i8, ptr %m_value27, align 8
+  %16 = and i8 %15, 1
+  %ref.tmp25.sroa.0.0.insert.ext = zext nneg i8 %16 to i64
+  store i64 %ref.tmp25.sroa.0.0.insert.ext, ptr %m_value.i, align 8
+  br label %sw.epilog
 
 sw.bb30:                                          ; preds = %entry
   %m_value33 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %other, i64 0, i32 1
-  %20 = load i64, ptr %m_value33, align 8
-  br label %sw.epilog.sink.split
+  %17 = load i64, ptr %m_value33, align 8
+  store i64 %17, ptr %m_value.i, align 8
+  br label %sw.epilog
 
 sw.bb36:                                          ; preds = %entry
   %m_value39 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %other, i64 0, i32 1
-  %21 = load i64, ptr %m_value39, align 8
-  br label %sw.epilog.sink.split
+  %18 = load i64, ptr %m_value39, align 8
+  store i64 %18, ptr %m_value.i, align 8
+  br label %sw.epilog
 
 sw.bb42:                                          ; preds = %entry
   %m_value45 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %other, i64 0, i32 1
-  %22 = load i64, ptr %m_value45, align 8
-  br label %sw.epilog.sink.split
+  %19 = load i64, ptr %m_value45, align 8
+  store i64 %19, ptr %m_value.i, align 8
+  br label %sw.epilog
 
 sw.bb48:                                          ; preds = %entry
   %m_value51 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %other, i64 0, i32 1
-  %23 = load ptr, ptr %m_value51, align 8
+  %20 = load ptr, ptr %m_value51, align 8
   %call5.i.i2.i.i14 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
           to label %call5.i.i2.i.i.noexc13 unwind label %lpad
 
 call5.i.i2.i.i.noexc13:                           ; preds = %sw.bb48
-  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %23, i64 0, i32 1
-  %24 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
-  %25 = load ptr, ptr %23, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %24 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %25 to i64
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %20, i64 0, i32 1
+  %21 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
+  %22 = load ptr, ptr %20, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %21 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call5.i.i2.i.i14, i8 0, i64 24, i1 false)
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %24, %25
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %21, %22
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.thread.i.i, label %cond.true.i.i.i.i.i.i.i.i.i
 
 invoke.cont.i.i.i.i.thread.i.i:                   ; preds = %call5.i.i2.i.i.noexc13
@@ -13423,11 +13426,11 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %_ZNSt16allocator_tr
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i5.i.i.i.i3.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i
   %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %call5.i.i2.i.i14, i64 0, i32 2
   store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i1.i5.i.i.i.i3.i.i, ptr align 1 %25, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i1.i5.i.i.i.i3.i.i, ptr align 1 %22, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
   br label %invoke.cont52
 
 _ZNSt10unique_ptrIN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEEZNS1_10basic_jsonISt3mapS3_10alt_stringblmdSaNS1_14adl_serializerES5_vE6createIS6_JRKS6_EEEPT_DpOT0_EUlPS6_E_ED2Ev.exit9.i.i: ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i
-  %26 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i2.i.i14) #25
   br label %lpad.body
@@ -13437,17 +13440,12 @@ invoke.cont52:                                    ; preds = %if.then.i.i.i.i.i.i
   %_M_finish.i.i.i.i.i.i17.i.i = phi ptr [ %_M_finish.i.i.i.i.i.i14.i.i, %invoke.cont.i.i.i.i.thread.i.i ], [ %_M_finish.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i.i.i.i18.i.i, ptr %_M_finish.i.i.i.i.i.i17.i.i, align 8
   %m_subtype.i.i.i.i.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %call5.i.i2.i.i14, i64 0, i32 1
-  %m_subtype2.i.i.i.i.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %23, i64 0, i32 1
+  %m_subtype2.i.i.i.i.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::byte_container_with_subtype", ptr %20, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %m_subtype.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9) %m_subtype2.i.i.i.i.i, i64 9, i1 false)
-  %27 = ptrtoint ptr %call5.i.i2.i.i14 to i64
-  br label %sw.epilog.sink.split
-
-sw.epilog.sink.split:                             ; preds = %invoke.cont, %invoke.cont14, %invoke.cont21, %sw.bb24, %sw.bb30, %sw.bb36, %sw.bb42, %invoke.cont52
-  %.sink = phi i64 [ %27, %invoke.cont52 ], [ %22, %sw.bb42 ], [ %21, %sw.bb36 ], [ %20, %sw.bb30 ], [ %ref.tmp25.sroa.0.0.insert.ext, %sw.bb24 ], [ %17, %invoke.cont21 ], [ %14, %invoke.cont14 ], [ %9, %invoke.cont ]
-  store i64 %.sink, ptr %m_value.i, align 8
+  store ptr %call5.i.i2.i.i14, ptr %m_value.i, align 8
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.epilog.sink.split, %entry
+sw.epilog:                                        ; preds = %entry, %invoke.cont52, %sw.bb42, %sw.bb36, %sw.bb30, %sw.bb24, %invoke.cont21, %invoke.cont14, %invoke.cont
   ret void
 }
 
@@ -21555,14 +21553,13 @@ lpad.body.i:                                      ; preds = %lpad.i, %_ZNSt10uni
   br label %common.resume
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRS4_S4_TnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeIS8_SC_EE5valueEiE4typeELi0EEEOT_.exit: ; preds = %call5.i.i2.i.i.i.i.i.i.noexc.i
-  %2 = ptrtoint ptr %call5.i.i2.i.i.i.i.i.i1.i to i64
-  store i64 %2, ptr %m_value.i.i, align 8
+  store ptr %call5.i.i2.i.i.i.i.i.i1.i, ptr %m_value.i.i, align 8
   %ref_stack = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::json_sax_dom_callback_parser", ptr %this, i64 0, i32 1
   %_M_finish.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::json_sax_dom_callback_parser", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %3 = load ptr, ptr %_M_finish.i, align 8
-  %4 = load ptr, ptr %ref_stack, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
+  %2 = load ptr, ptr %_M_finish.i, align 8
+  %3 = load ptr, ptr %ref_stack, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 3
   %conv = trunc i64 %sub.ptr.div.i to i32
@@ -21571,8 +21568,8 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_
   store i32 %conv, ptr %__args.addr.i, align 4
   store i8 4, ptr %__args.addr2.i, align 1
   %_M_manager.i.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::json_sax_dom_callback_parser", ptr %this, i64 0, i32 6, i32 0, i32 1
-  %5 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRS4_S4_TnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeIS8_SC_EE5valueEiE4typeELi0EEEOT_.exit
@@ -21585,18 +21582,18 @@ if.then.i:                                        ; preds = %_ZN8nlohmann16json_
 if.end.i:                                         ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRS4_S4_TnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeIS8_SC_EE5valueEiE4typeELi0EEEOT_.exit
   %callback = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::json_sax_dom_callback_parser", ptr %this, i64 0, i32 6
   %_M_invoker.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::json_sax_dom_callback_parser", ptr %this, i64 0, i32 6, i32 1
-  %6 = load ptr, ptr %_M_invoker.i, align 8
-  %call6.i4 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %callback, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(16) %k)
+  %5 = load ptr, ptr %_M_invoker.i, align 8
+  %call6.i4 = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %callback, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(16) %k)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__args.addr2.i)
   %_M_finish.i5 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::json_sax_dom_callback_parser", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
-  %7 = load ptr, ptr %_M_finish.i5, align 8
+  %6 = load ptr, ptr %_M_finish.i5, align 8
   %_M_end_of_storage.i.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::json_sax_dom_callback_parser", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %8 = load ptr, ptr %_M_end_of_storage.i.i, align 8
-  %cmp.not.i = icmp eq ptr %7, %8
+  %7 = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  %cmp.not.i = icmp eq ptr %6, %7
   %retval.sroa.2.0._M_finish.sroa_idx.i.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::json_sax_dom_callback_parser", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
   %retval.sroa.2.0.copyload.i5.i = load i32, ptr %retval.sroa.2.0._M_finish.sroa_idx.i.i, align 8
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i6
@@ -21609,7 +21606,7 @@ if.then.i6:                                       ; preds = %invoke.cont
 
 if.then.i.i.i:                                    ; preds = %if.then.i6
   store i32 0, ptr %retval.sroa.2.0._M_finish.sroa_idx.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds i64, ptr %7, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i64, ptr %6, i64 1
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i5, align 8
   br label %_ZNSt13_Bit_iteratorppEi.exit.i
 
@@ -21619,31 +21616,31 @@ _ZNSt13_Bit_iteratorppEi.exit.i:                  ; preds = %if.then.i.i.i, %if.
   br i1 %call6.i4, label %invoke.cont3.thread, label %invoke.cont3.thread16
 
 invoke.cont3.thread:                              ; preds = %_ZNSt13_Bit_iteratorppEi.exit.i
-  %9 = load i64, ptr %7, align 8
-  %or.i.i = or i64 %9, %shl.i.i
-  store i64 %or.i.i, ptr %7, align 8
+  %8 = load i64, ptr %6, align 8
+  %or.i.i = or i64 %8, %shl.i.i
+  store i64 %or.i.i, ptr %6, align 8
   br label %land.lhs.true
 
 invoke.cont3.thread16:                            ; preds = %_ZNSt13_Bit_iteratorppEi.exit.i
   %not.i.i = xor i64 %shl.i.i, -1
-  %10 = load i64, ptr %7, align 8
-  %and.i.i = and i64 %10, %not.i.i
-  store i64 %and.i.i, ptr %7, align 8
+  %9 = load i64, ptr %6, align 8
+  %and.i.i = and i64 %9, %not.i.i
+  store i64 %and.i.i, ptr %6, align 8
   br label %if.end
 
 if.else.i:                                        ; preds = %invoke.cont
   %key_keep_stack = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::json_sax_dom_callback_parser", ptr %this, i64 0, i32 3
-  invoke void @_ZNSt6vectorIbSaIbEE13_M_insert_auxESt13_Bit_iteratorb(ptr noundef nonnull align 8 dereferenceable(40) %key_keep_stack, ptr %7, i32 %retval.sroa.2.0.copyload.i5.i, i1 noundef zeroext %call6.i4)
+  invoke void @_ZNSt6vectorIbSaIbEE13_M_insert_auxESt13_Bit_iteratorb(ptr noundef nonnull align 8 dereferenceable(40) %key_keep_stack, ptr %6, i32 %retval.sroa.2.0.copyload.i5.i, i1 noundef zeroext %call6.i4)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %if.else.i
   br i1 %call6.i4, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %invoke.cont3.thread, %invoke.cont3
-  %11 = load ptr, ptr %_M_finish.i, align 8
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %11, i64 -1
-  %12 = load ptr, ptr %add.ptr.i.i, align 8
-  %tobool7.not = icmp eq ptr %12, null
+  %10 = load ptr, ptr %_M_finish.i, align 8
+  %add.ptr.i.i = getelementptr inbounds ptr, ptr %10, i64 -1
+  %11 = load ptr, ptr %add.ptr.i.i, align 8
+  %tobool7.not = icmp eq ptr %11, null
   br i1 %tobool7.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
@@ -21652,65 +21649,65 @@ if.then:                                          ; preds = %land.lhs.true
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %if.then
-  %13 = load ptr, ptr %_M_finish.i, align 8
-  %add.ptr.i.i10 = getelementptr inbounds ptr, ptr %13, i64 -1
-  %14 = load ptr, ptr %add.ptr.i.i10, align 8
-  %m_value = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %14, i64 0, i32 1
-  %15 = load ptr, ptr %m_value, align 8
-  %call13 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapI10alt_stringN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS0_blmdSaNS2_14adl_serializerES4_IhSaIhEEvEESt4lessIS0_ESaISt4pairIKS0_S8_EEEixERSC_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(32) %val)
+  %12 = load ptr, ptr %_M_finish.i, align 8
+  %add.ptr.i.i10 = getelementptr inbounds ptr, ptr %12, i64 -1
+  %13 = load ptr, ptr %add.ptr.i.i10, align 8
+  %m_value = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %13, i64 0, i32 1
+  %14 = load ptr, ptr %m_value, align 8
+  %call13 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapI10alt_stringN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS0_blmdSaNS2_14adl_serializerES4_IhSaIhEEvEESt4lessIS0_ESaISt4pairIKS0_S8_EEEixERSC_(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(32) %val)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %invoke.cont8
-  %16 = load i8, ptr %call13, align 8
-  %17 = load i8, ptr %agg.tmp, align 8
-  store i8 %17, ptr %call13, align 8
-  store i8 %16, ptr %agg.tmp, align 8
+  %15 = load i8, ptr %call13, align 8
+  %16 = load i8, ptr %agg.tmp, align 8
+  store i8 %16, ptr %call13, align 8
+  store i8 %15, ptr %agg.tmp, align 8
   %m_value.i = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %call13, i64 0, i32 1
   %m_value6.i = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %agg.tmp, i64 0, i32 1
   %__tmp.sroa.0.0.copyload.i.i = load ptr, ptr %m_value.i, align 8
-  %18 = load i64, ptr %m_value6.i, align 8
-  store i64 %18, ptr %m_value.i, align 8
+  %17 = load i64, ptr %m_value6.i, align 8
+  store i64 %17, ptr %m_value.i, align 8
   store ptr %__tmp.sroa.0.0.copyload.i.i, ptr %m_value6.i, align 8
   %object_element = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::json_sax_dom_callback_parser", ptr %this, i64 0, i32 4
   store ptr %call13, ptr %object_element, align 8
-  invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %m_value6.i, i8 noundef zeroext %16)
+  invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %m_value6.i, i8 noundef zeroext %15)
           to label %if.end unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont12
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #23
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #23
   unreachable
 
 lpad:                                             ; preds = %if.else.i, %if.end.i, %if.then.i, %if.then
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad11:                                           ; preds = %invoke.cont8
-  %22 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #22
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont12, %invoke.cont3.thread16, %land.lhs.true, %invoke.cont3
-  %23 = load i8, ptr %k, align 8
-  invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %m_value.i.i, i8 noundef zeroext %23)
+  %22 = load i8, ptr %k, align 8
+  invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %m_value.i.i, i8 noundef zeroext %22)
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit14 unwind label %terminate.lpad.i.i13
 
 terminate.lpad.i.i13:                             ; preds = %if.end
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #23
+  %24 = extractvalue { ptr, i32 } %23, 0
+  call void @__clang_call_terminate(ptr %24) #23
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit14: ; preds = %if.end
   ret i1 true
 
 ehcleanup:                                        ; preds = %lpad11, %lpad
-  %.pn = phi { ptr, i32 } [ %22, %lpad11 ], [ %21, %lpad ]
+  %.pn = phi { ptr, i32 } [ %21, %lpad11 ], [ %20, %lpad ]
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %k) #22
   br label %common.resume
 }
@@ -24859,7 +24856,7 @@ lpad.i:                                           ; preds = %.noexc.i
   br label %lpad.body.i
 
 common.resume:                                    ; preds = %lpad, %lpad.body.i
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %lpad.body.i ], [ %8, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %lpad.body.i ], [ %7, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.body.i:                                      ; preds = %lpad.i, %_ZNSt10unique_ptrI10alt_stringZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS0_blmdSaNS2_14adl_serializerES5_IhSaIhEEvE6createIS0_JRKS0_EEEPT_DpOT0_EUlPS0_E_ED2Ev.exit7.i.i.i.i.i.i.i
@@ -24868,17 +24865,16 @@ lpad.body.i:                                      ; preds = %lpad.i, %_ZNSt10uni
   br label %common.resume
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRS4_S4_TnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeIS8_SC_EE5valueEiE4typeELi0EEEOT_.exit: ; preds = %call5.i.i2.i.i.i.i.i.i.noexc.i
-  %3 = ptrtoint ptr %call5.i.i2.i.i.i.i.i.i1.i to i64
-  store i64 %3, ptr %m_value.i.i, align 8
+  store ptr %call5.i.i2.i.i.i.i.i.i1.i, ptr %m_value.i.i, align 8
   br i1 %skip_callback, label %if.end13, label %lor.rhs
 
 lor.rhs:                                          ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRS4_S4_TnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeIS8_SC_EE5valueEiE4typeELi0EEEOT_.exit
   %ref_stack = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::json_sax_dom_callback_parser", ptr %this, i64 0, i32 1
   %_M_finish.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::json_sax_dom_callback_parser", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %4 = load ptr, ptr %_M_finish.i, align 8
-  %5 = load ptr, ptr %ref_stack, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
+  %3 = load ptr, ptr %_M_finish.i, align 8
+  %4 = load ptr, ptr %ref_stack, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 3
   %conv = trunc i64 %sub.ptr.div.i to i32
@@ -24887,8 +24883,8 @@ lor.rhs:                                          ; preds = %_ZN8nlohmann16json_
   store i32 %conv, ptr %__args.addr.i, align 4
   store i8 5, ptr %__args.addr2.i, align 1
   %_M_manager.i.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::json_sax_dom_callback_parser", ptr %this, i64 0, i32 6, i32 0, i32 1
-  %6 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %lor.rhs
@@ -24901,8 +24897,8 @@ if.then.i:                                        ; preds = %lor.rhs
 if.end.i:                                         ; preds = %lor.rhs
   %callback = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::json_sax_dom_callback_parser", ptr %this, i64 0, i32 6
   %_M_invoker.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::json_sax_dom_callback_parser", ptr %this, i64 0, i32 6, i32 1
-  %7 = load ptr, ptr %_M_invoker.i, align 8
-  %call6.i1 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %callback, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(16) %value)
+  %6 = load ptr, ptr %_M_invoker.i, align 8
+  %call6.i1 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %callback, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(16) %value)
           to label %lor.end unwind label %lpad
 
 lor.end:                                          ; preds = %if.end.i
@@ -24911,91 +24907,91 @@ lor.end:                                          ; preds = %if.end.i
   br i1 %call6.i1, label %if.end13, label %cleanup
 
 lpad:                                             ; preds = %if.else.i, %if.end.i, %if.then.i
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %value) #22
   br label %common.resume
 
 if.end13:                                         ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRS4_S4_TnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeIS8_SC_EE5valueEiE4typeELi0EEEOT_.exit, %lor.end
   %ref_stack14 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::json_sax_dom_callback_parser", ptr %this, i64 0, i32 1
-  %9 = load ptr, ptr %ref_stack14, align 8
+  %8 = load ptr, ptr %ref_stack14, align 8
   %_M_finish.i.i3 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::json_sax_dom_callback_parser", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %10 = load ptr, ptr %_M_finish.i.i3, align 8
-  %cmp.i.i = icmp eq ptr %9, %10
+  %9 = load ptr, ptr %_M_finish.i.i3, align 8
+  %cmp.i.i = icmp eq ptr %8, %9
   br i1 %cmp.i.i, label %if.then16, label %if.end22
 
 if.then16:                                        ; preds = %if.end13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %value, i64 16, i1 false)
   store i8 0, ptr %value, align 8
   store ptr null, ptr %m_value.i.i, align 8
-  %11 = load ptr, ptr %this, align 8
-  %12 = load i8, ptr %11, align 1
-  %13 = load i8, ptr %agg.tmp, align 8
-  store i8 %13, ptr %11, align 1
-  store i8 %12, ptr %agg.tmp, align 8
-  %m_value.i4 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %11, i64 0, i32 1
+  %10 = load ptr, ptr %this, align 8
+  %11 = load i8, ptr %10, align 1
+  %12 = load i8, ptr %agg.tmp, align 8
+  store i8 %12, ptr %10, align 1
+  store i8 %11, ptr %agg.tmp, align 8
+  %m_value.i4 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %10, i64 0, i32 1
   %m_value6.i = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %agg.tmp, i64 0, i32 1
   %__tmp.sroa.0.0.copyload.i.i = load ptr, ptr %m_value.i4, align 8
-  %14 = load i64, ptr %m_value6.i, align 8
-  store i64 %14, ptr %m_value.i4, align 8
+  %13 = load i64, ptr %m_value6.i, align 8
+  store i64 %13, ptr %m_value.i4, align 8
   store ptr %__tmp.sroa.0.0.copyload.i.i, ptr %m_value6.i, align 8
-  invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %m_value6.i, i8 noundef zeroext %12)
+  invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %m_value6.i, i8 noundef zeroext %11)
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then16
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #23
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #23
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit: ; preds = %if.then16
-  %17 = load ptr, ptr %this, align 8
+  %16 = load ptr, ptr %this, align 8
   br label %cleanup
 
 if.end22:                                         ; preds = %if.end13
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %10, i64 -1
-  %18 = load ptr, ptr %add.ptr.i.i, align 8
-  %tobool25.not = icmp eq ptr %18, null
+  %add.ptr.i.i = getelementptr inbounds ptr, ptr %9, i64 -1
+  %17 = load ptr, ptr %add.ptr.i.i, align 8
+  %tobool25.not = icmp eq ptr %17, null
   br i1 %tobool25.not, label %cleanup, label %if.end30
 
 if.end30:                                         ; preds = %if.end22
-  %19 = load i8, ptr %18, align 8
-  %cmp.i = icmp eq i8 %19, 2
+  %18 = load i8, ptr %17, align 8
+  %cmp.i = icmp eq i8 %18, 2
   br i1 %cmp.i, label %if.then34, label %invoke.cont48
 
 if.then34:                                        ; preds = %if.end30
-  %m_value = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %18, i64 0, i32 1
-  %20 = load ptr, ptr %m_value, align 8
-  %_M_finish.i13 = getelementptr inbounds %"struct.std::_Vector_base<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>, std::allocator<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>>>::_Vector_impl_data", ptr %20, i64 0, i32 1
-  %21 = load ptr, ptr %_M_finish.i13, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>, std::allocator<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>>>::_Vector_impl_data", ptr %20, i64 0, i32 2
-  %22 = load ptr, ptr %_M_end_of_storage.i, align 8
-  %cmp.not.i = icmp eq ptr %21, %22
+  %m_value = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %17, i64 0, i32 1
+  %19 = load ptr, ptr %m_value, align 8
+  %_M_finish.i13 = getelementptr inbounds %"struct.std::_Vector_base<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>, std::allocator<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>>>::_Vector_impl_data", ptr %19, i64 0, i32 1
+  %20 = load ptr, ptr %_M_finish.i13, align 8
+  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>, std::allocator<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>>>::_Vector_impl_data", ptr %19, i64 0, i32 2
+  %21 = load ptr, ptr %_M_end_of_storage.i, align 8
+  %cmp.not.i = icmp eq ptr %20, %21
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i14
 
 if.then.i14:                                      ; preds = %if.then34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %value, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %value, i64 16, i1 false)
   store i8 0, ptr %value, align 8
   store ptr null, ptr %m_value.i.i, align 8
-  %23 = load ptr, ptr %_M_finish.i13, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::basic_json", ptr %23, i64 1
+  %22 = load ptr, ptr %_M_finish.i13, align 8
+  %incdec.ptr.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::basic_json", ptr %22, i64 1
   store ptr %incdec.ptr.i, ptr %_M_finish.i13, align 8
   br label %invoke.cont37
 
 if.else.i:                                        ; preds = %if.then34
-  invoke void @_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_10alt_stringblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr %21, ptr noundef nonnull align 8 dereferenceable(16) %value)
+  invoke void @_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_10alt_stringblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr %20, ptr noundef nonnull align 8 dereferenceable(16) %value)
           to label %invoke.cont37 unwind label %lpad
 
 invoke.cont37:                                    ; preds = %if.then.i14, %if.else.i
-  %24 = load ptr, ptr %_M_finish.i.i3, align 8
-  %add.ptr.i.i18 = getelementptr inbounds ptr, ptr %24, i64 -1
-  %25 = load ptr, ptr %add.ptr.i.i18, align 8
-  %m_value43 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %25, i64 0, i32 1
-  %26 = load ptr, ptr %m_value43, align 8
-  %_M_finish.i.i19 = getelementptr inbounds %"struct.std::_Vector_base<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>, std::allocator<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>>>::_Vector_impl_data", ptr %26, i64 0, i32 1
-  %27 = load ptr, ptr %_M_finish.i.i19, align 8
-  %add.ptr.i.i20 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::basic_json", ptr %27, i64 -1
+  %23 = load ptr, ptr %_M_finish.i.i3, align 8
+  %add.ptr.i.i18 = getelementptr inbounds ptr, ptr %23, i64 -1
+  %24 = load ptr, ptr %add.ptr.i.i18, align 8
+  %m_value43 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %24, i64 0, i32 1
+  %25 = load ptr, ptr %m_value43, align 8
+  %_M_finish.i.i19 = getelementptr inbounds %"struct.std::_Vector_base<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>, std::allocator<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>>>::_Vector_impl_data", ptr %25, i64 0, i32 1
+  %26 = load ptr, ptr %_M_finish.i.i19, align 8
+  %add.ptr.i.i20 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::basic_json", ptr %26, i64 -1
   br label %cleanup
 
 invoke.cont48:                                    ; preds = %if.end30
@@ -25012,8 +25008,8 @@ invoke.cont48:                                    ; preds = %if.end30
   %storemerge.i.i.i.i.i32 = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i.i29, i64 %rem.lobit.i.i.i.i.i31
   %conv4.i.i.i.i.i33 = and i64 %rem.i.i.i.i.i30, 63
   %shl.i.i34 = shl nuw i64 1, %conv4.i.i.i.i.i33
-  %28 = load i64, ptr %storemerge.i.i.i.i.i32, align 8
-  %and.i38 = and i64 %shl.i.i34, %28
+  %27 = load i64, ptr %storemerge.i.i.i.i.i32, align 8
+  %and.i38 = and i64 %shl.i.i34, %27
   %tobool.i39.not = icmp eq i64 %and.i38, 0
   %dec.i.i.i = add i32 %retval.sroa.2.0.copyload.i.i25, -1
   store i32 %dec.i.i.i, ptr %retval.sroa.2.0._M_finish.sroa_idx.i.i24, align 8
@@ -25034,43 +25030,43 @@ if.end59:                                         ; preds = %invoke.cont53
   store i8 0, ptr %value, align 8
   store ptr null, ptr %m_value.i.i, align 8
   %object_element = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::json_sax_dom_callback_parser", ptr %this, i64 0, i32 4
-  %29 = load ptr, ptr %object_element, align 8
-  %30 = load i8, ptr %29, align 1
-  %31 = load i8, ptr %agg.tmp60, align 8
-  store i8 %31, ptr %29, align 1
-  store i8 %30, ptr %agg.tmp60, align 8
-  %m_value.i43 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %29, i64 0, i32 1
+  %28 = load ptr, ptr %object_element, align 8
+  %29 = load i8, ptr %28, align 1
+  %30 = load i8, ptr %agg.tmp60, align 8
+  store i8 %30, ptr %28, align 1
+  store i8 %29, ptr %agg.tmp60, align 8
+  %m_value.i43 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %28, i64 0, i32 1
   %m_value6.i44 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %agg.tmp60, i64 0, i32 1
   %__tmp.sroa.0.0.copyload.i.i45 = load ptr, ptr %m_value.i43, align 8
-  %32 = load i64, ptr %m_value6.i44, align 8
-  store i64 %32, ptr %m_value.i43, align 8
+  %31 = load i64, ptr %m_value6.i44, align 8
+  store i64 %31, ptr %m_value.i43, align 8
   store ptr %__tmp.sroa.0.0.copyload.i.i45, ptr %m_value6.i44, align 8
-  invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %m_value6.i44, i8 noundef zeroext %30)
+  invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %m_value6.i44, i8 noundef zeroext %29)
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit48 unwind label %terminate.lpad.i.i47
 
 terminate.lpad.i.i47:                             ; preds = %if.end59
-  %33 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #23
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #23
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit48: ; preds = %if.end59
-  %35 = load ptr, ptr %object_element, align 8
+  %34 = load ptr, ptr %object_element, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont53, %if.end22, %lor.end, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit48, %invoke.cont37, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit
   %retval.sroa.0.0 = phi i8 [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit ], [ 1, %invoke.cont37 ], [ 1, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit48 ], [ 0, %lor.end ], [ 0, %if.end22 ], [ 0, %invoke.cont53 ]
-  %retval.sroa.8.0 = phi ptr [ %17, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit ], [ %add.ptr.i.i20, %invoke.cont37 ], [ %35, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit48 ], [ null, %lor.end ], [ null, %if.end22 ], [ null, %invoke.cont53 ]
-  %36 = load i8, ptr %value, align 8
-  invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %m_value.i.i, i8 noundef zeroext %36)
+  %retval.sroa.8.0 = phi ptr [ %16, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit ], [ %add.ptr.i.i20, %invoke.cont37 ], [ %34, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit48 ], [ null, %lor.end ], [ null, %if.end22 ], [ null, %invoke.cont53 ]
+  %35 = load i8, ptr %value, align 8
+  invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %m_value.i.i, i8 noundef zeroext %35)
           to label %return unwind label %terminate.lpad.i.i51
 
 terminate.lpad.i.i51:                             ; preds = %cleanup
-  %37 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #23
+  %37 = extractvalue { ptr, i32 } %36, 0
+  call void @__clang_call_terminate(ptr %37) #23
   unreachable
 
 return:                                           ; preds = %cleanup, %entry
@@ -27014,52 +27010,51 @@ lpad.body.i:                                      ; preds = %lpad.i, %_ZNSt10uni
   br label %common.resume
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRS4_S4_TnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeIS8_SC_EE5valueEiE4typeELi0EEEOT_.exit: ; preds = %call5.i.i2.i.i.i.i.i.i.noexc.i
-  %4 = ptrtoint ptr %call5.i.i2.i.i.i.i.i.i1.i to i64
-  store i64 %4, ptr %m_value.i.i, align 8
-  %5 = load ptr, ptr %this, align 8
-  %6 = load i8, ptr %5, align 1
-  %7 = load i8, ptr %agg.tmp, align 8
-  store i8 %7, ptr %5, align 1
-  store i8 %6, ptr %agg.tmp, align 8
-  %m_value.i = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %5, i64 0, i32 1
+  store ptr %call5.i.i2.i.i.i.i.i.i1.i, ptr %m_value.i.i, align 8
+  %4 = load ptr, ptr %this, align 8
+  %5 = load i8, ptr %4, align 1
+  %6 = load i8, ptr %agg.tmp, align 8
+  store i8 %6, ptr %4, align 1
+  store i8 %5, ptr %agg.tmp, align 8
+  %m_value.i = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %4, i64 0, i32 1
   %__tmp.sroa.0.0.copyload.i.i = load ptr, ptr %m_value.i, align 8
-  %8 = load i64, ptr %m_value.i.i, align 8
-  store i64 %8, ptr %m_value.i, align 8
+  %7 = load i64, ptr %m_value.i.i, align 8
+  store i64 %7, ptr %m_value.i, align 8
   store ptr %__tmp.sroa.0.0.copyload.i.i, ptr %m_value.i.i, align 8
-  invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %m_value.i.i, i8 noundef zeroext %6)
+  invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %m_value.i.i, i8 noundef zeroext %5)
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRS4_S4_TnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeIS8_SC_EE5valueEiE4typeELi0EEEOT_.exit
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #23
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #23
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRS4_S4_TnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeIS8_SC_EE5valueEiE4typeELi0EEEOT_.exit
-  %11 = load ptr, ptr %this, align 8
+  %10 = load ptr, ptr %this, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %1, i64 -1
-  %12 = load ptr, ptr %add.ptr.i.i, align 8
-  %13 = load i8, ptr %12, align 8
-  %cmp.i = icmp eq i8 %13, 2
+  %11 = load ptr, ptr %add.ptr.i.i, align 8
+  %12 = load i8, ptr %11, align 8
+  %cmp.i = icmp eq i8 %12, 2
   br i1 %cmp.i, label %if.then7, label %.noexc.i15
 
 if.then7:                                         ; preds = %if.end
-  %m_value = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %12, i64 0, i32 1
-  %14 = load ptr, ptr %m_value, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>, std::allocator<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>>>::_Vector_impl_data", ptr %14, i64 0, i32 1
-  %15 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>, std::allocator<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>>>::_Vector_impl_data", ptr %14, i64 0, i32 2
-  %16 = load ptr, ptr %_M_end_of_storage.i, align 8
-  %cmp.not.i = icmp eq ptr %15, %16
+  %m_value = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %11, i64 0, i32 1
+  %13 = load ptr, ptr %m_value, align 8
+  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>, std::allocator<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>>>::_Vector_impl_data", ptr %13, i64 0, i32 1
+  %14 = load ptr, ptr %_M_finish.i, align 8
+  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>, std::allocator<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>>>::_Vector_impl_data", ptr %13, i64 0, i32 2
+  %15 = load ptr, ptr %_M_end_of_storage.i, align 8
+  %cmp.not.i = icmp eq ptr %14, %15
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then7
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  store i8 3, ptr %15, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  store i8 3, ptr %14, align 8
   %call5.i.i2.i.i.i.i.i.i1.i.i.i.i = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
           to label %call5.i.i2.i.i.i.i.i.i.noexc.i.i.i.i unwind label %lpad.i.i.i.i
 
@@ -27068,43 +27063,42 @@ call5.i.i2.i.i.i.i.i.i.noexc.i.i.i.i:             ; preds = %if.then.i
           to label %_ZNSt16allocator_traitsISaIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS1_14adl_serializerES4_IhSaIhEEvEEEE9constructIS9_JRS5_EEEvRSA_PT_DpOT0_.exit.i unwind label %_ZNSt10unique_ptrI10alt_stringZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS0_blmdSaNS2_14adl_serializerES5_IhSaIhEEvE6createIS0_JRKS0_EEEPT_DpOT0_EUlPS0_E_ED2Ev.exit7.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt10unique_ptrI10alt_stringZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS0_blmdSaNS2_14adl_serializerES5_IhSaIhEEvE6createIS0_JRKS0_EEEPT_DpOT0_EUlPS0_E_ED2Ev.exit7.i.i.i.i.i.i.i.i.i.i: ; preds = %call5.i.i2.i.i.i.i.i.i.noexc.i.i.i.i
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i2.i.i.i.i.i.i1.i.i.i.i) #25
   br label %lpad.body.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %if.then.i
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i.i.i.i
 
 lpad.body.i.i.i.i:                                ; preds = %lpad.i.i.i.i, %_ZNSt10unique_ptrI10alt_stringZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS0_blmdSaNS2_14adl_serializerES5_IhSaIhEEvE6createIS0_JRKS0_EEEPT_DpOT0_EUlPS0_E_ED2Ev.exit7.i.i.i.i.i.i.i.i.i.i
-  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %18, %lpad.i.i.i.i ], [ %17, %_ZNSt10unique_ptrI10alt_stringZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS0_blmdSaNS2_14adl_serializerES5_IhSaIhEEvE6createIS0_JRKS0_EEEPT_DpOT0_EUlPS0_E_ED2Ev.exit7.i.i.i.i.i.i.i.i.i.i ]
-  tail call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #22
+  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %17, %lpad.i.i.i.i ], [ %16, %_ZNSt10unique_ptrI10alt_stringZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS0_blmdSaNS2_14adl_serializerES5_IhSaIhEEvE6createIS0_JRKS0_EEEPT_DpOT0_EUlPS0_E_ED2Ev.exit7.i.i.i.i.i.i.i.i.i.i ]
+  tail call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #22
   br label %common.resume
 
 _ZNSt16allocator_traitsISaIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS1_14adl_serializerES4_IhSaIhEEvEEEE9constructIS9_JRS5_EEEvRSA_PT_DpOT0_.exit.i: ; preds = %call5.i.i2.i.i.i.i.i.i.noexc.i.i.i.i
-  %m_value.i.i.i.i.i = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %15, i64 0, i32 1
-  %19 = ptrtoint ptr %call5.i.i2.i.i.i.i.i.i1.i.i.i.i to i64
-  store i64 %19, ptr %m_value.i.i.i.i.i, align 8
-  %20 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::basic_json", ptr %20, i64 1
+  %m_value.i.i.i.i.i = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %14, i64 0, i32 1
+  store ptr %call5.i.i2.i.i.i.i.i.i1.i.i.i.i, ptr %m_value.i.i.i.i.i, align 8
+  %18 = load ptr, ptr %_M_finish.i, align 8
+  %incdec.ptr.i = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::basic_json", ptr %18, i64 1
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_10alt_stringblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaIS8_EE12emplace_backIJRS4_EEEvDpOT_.exit
 
 if.else.i:                                        ; preds = %if.then7
-  tail call void @_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_10alt_stringblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaIS8_EE17_M_realloc_insertIJRS4_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr %15, ptr noundef nonnull align 8 dereferenceable(32) %v)
+  tail call void @_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_10alt_stringblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaIS8_EE17_M_realloc_insertIJRS4_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr %14, ptr noundef nonnull align 8 dereferenceable(32) %v)
   br label %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_10alt_stringblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaIS8_EE12emplace_backIJRS4_EEEvDpOT_.exit
 
 _ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_10alt_stringblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaIS8_EE12emplace_backIJRS4_EEEvDpOT_.exit: ; preds = %_ZNSt16allocator_traitsISaIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS1_14adl_serializerES4_IhSaIhEEvEEEE9constructIS9_JRS5_EEEvRSA_PT_DpOT0_.exit.i, %if.else.i
-  %21 = load ptr, ptr %_M_finish.i.i, align 8
-  %add.ptr.i.i8 = getelementptr inbounds ptr, ptr %21, i64 -1
-  %22 = load ptr, ptr %add.ptr.i.i8, align 8
-  %m_value13 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %22, i64 0, i32 1
-  %23 = load ptr, ptr %m_value13, align 8
-  %_M_finish.i.i9 = getelementptr inbounds %"struct.std::_Vector_base<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>, std::allocator<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>>>::_Vector_impl_data", ptr %23, i64 0, i32 1
-  %24 = load ptr, ptr %_M_finish.i.i9, align 8
-  %add.ptr.i.i10 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::basic_json", ptr %24, i64 -1
+  %19 = load ptr, ptr %_M_finish.i.i, align 8
+  %add.ptr.i.i8 = getelementptr inbounds ptr, ptr %19, i64 -1
+  %20 = load ptr, ptr %add.ptr.i.i8, align 8
+  %m_value13 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %20, i64 0, i32 1
+  %21 = load ptr, ptr %m_value13, align 8
+  %_M_finish.i.i9 = getelementptr inbounds %"struct.std::_Vector_base<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>, std::allocator<nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>>>::_Vector_impl_data", ptr %21, i64 0, i32 1
+  %22 = load ptr, ptr %_M_finish.i.i9, align 8
+  %add.ptr.i.i10 = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::basic_json", ptr %22, i64 -1
   br label %return
 
 .noexc.i15:                                       ; preds = %if.end
@@ -27119,51 +27113,50 @@ call5.i.i2.i.i.i.i.i.i.noexc.i17:                 ; preds = %.noexc.i15
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRS4_S4_TnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeIS8_SC_EE5valueEiE4typeELi0EEEOT_.exit19 unwind label %_ZNSt10unique_ptrI10alt_stringZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS0_blmdSaNS2_14adl_serializerES5_IhSaIhEEvE6createIS0_JRKS0_EEEPT_DpOT0_EUlPS0_E_ED2Ev.exit7.i.i.i.i.i.i.i18
 
 _ZNSt10unique_ptrI10alt_stringZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS0_blmdSaNS2_14adl_serializerES5_IhSaIhEEvE6createIS0_JRKS0_EEEPT_DpOT0_EUlPS0_E_ED2Ev.exit7.i.i.i.i.i.i.i18: ; preds = %call5.i.i2.i.i.i.i.i.i.noexc.i17
-  %25 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i2.i.i.i.i.i.i1.i16) #25
   br label %lpad.body.i13
 
 lpad.i12:                                         ; preds = %.noexc.i15
-  %26 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i13
 
 lpad.body.i13:                                    ; preds = %lpad.i12, %_ZNSt10unique_ptrI10alt_stringZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS0_blmdSaNS2_14adl_serializerES5_IhSaIhEEvE6createIS0_JRKS0_EEEPT_DpOT0_EUlPS0_E_ED2Ev.exit7.i.i.i.i.i.i.i18
-  %eh.lpad-body.i14 = phi { ptr, i32 } [ %26, %lpad.i12 ], [ %25, %_ZNSt10unique_ptrI10alt_stringZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS0_blmdSaNS2_14adl_serializerES5_IhSaIhEEvE6createIS0_JRKS0_EEEPT_DpOT0_EUlPS0_E_ED2Ev.exit7.i.i.i.i.i.i.i18 ]
+  %eh.lpad-body.i14 = phi { ptr, i32 } [ %24, %lpad.i12 ], [ %23, %_ZNSt10unique_ptrI10alt_stringZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS0_blmdSaNS2_14adl_serializerES5_IhSaIhEEvE6createIS0_JRKS0_EEEPT_DpOT0_EUlPS0_E_ED2Ev.exit7.i.i.i.i.i.i.i18 ]
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp16) #22
   br label %common.resume
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRS4_S4_TnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeIS8_SC_EE5valueEiE4typeELi0EEEOT_.exit19: ; preds = %call5.i.i2.i.i.i.i.i.i.noexc.i17
-  %27 = ptrtoint ptr %call5.i.i2.i.i.i.i.i.i1.i16 to i64
-  store i64 %27, ptr %m_value.i.i11, align 8
+  store ptr %call5.i.i2.i.i.i.i.i.i1.i16, ptr %m_value.i.i11, align 8
   %object_element = getelementptr inbounds %"class.nlohmann::json_abi_v3_11_3::detail::json_sax_dom_parser", ptr %this, i64 0, i32 2
-  %28 = load ptr, ptr %object_element, align 8
-  %29 = load i8, ptr %28, align 1
-  %30 = load i8, ptr %agg.tmp16, align 8
-  store i8 %30, ptr %28, align 1
-  store i8 %29, ptr %agg.tmp16, align 8
-  %m_value.i20 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %28, i64 0, i32 1
+  %25 = load ptr, ptr %object_element, align 8
+  %26 = load i8, ptr %25, align 1
+  %27 = load i8, ptr %agg.tmp16, align 8
+  store i8 %27, ptr %25, align 1
+  store i8 %26, ptr %agg.tmp16, align 8
+  %m_value.i20 = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %25, i64 0, i32 1
   %__tmp.sroa.0.0.copyload.i.i22 = load ptr, ptr %m_value.i20, align 8
-  %31 = load i64, ptr %m_value.i.i11, align 8
-  store i64 %31, ptr %m_value.i20, align 8
+  %28 = load i64, ptr %m_value.i.i11, align 8
+  store i64 %28, ptr %m_value.i20, align 8
   store ptr %__tmp.sroa.0.0.copyload.i.i22, ptr %m_value.i.i11, align 8
-  invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %m_value.i.i11, i8 noundef zeroext %29)
+  invoke void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvE10json_value7destroyENS0_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %m_value.i.i11, i8 noundef zeroext %26)
           to label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit25 unwind label %terminate.lpad.i.i24
 
 terminate.lpad.i.i24:                             ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRS4_S4_TnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeIS8_SC_EE5valueEiE4typeELi0EEEOT_.exit19
-  %32 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #23
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #23
   unreachable
 
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit25: ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRS4_S4_TnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeIS8_SC_EE5valueEiE4typeELi0EEEOT_.exit19
-  %34 = load ptr, ptr %object_element, align 8
+  %31 = load ptr, ptr %object_element, align 8
   br label %return
 
 return:                                           ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit25, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_10alt_stringblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaIS8_EE12emplace_backIJRS4_EEEvDpOT_.exit, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit
-  %retval.0 = phi ptr [ %11, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit ], [ %add.ptr.i.i10, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_10alt_stringblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaIS8_EE12emplace_backIJRS4_EEEvDpOT_.exit ], [ %34, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit25 ]
+  %retval.0 = phi ptr [ %10, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit ], [ %add.ptr.i.i10, %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_10alt_stringblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaIS8_EE12emplace_backIJRS4_EEEvDpOT_.exit ], [ %31, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit25 ]
   ret ptr %retval.0
 }
 
@@ -27227,8 +27220,7 @@ lpad.i.i.i:                                       ; preds = %_ZNSt12_Vector_base
 
 invoke.cont:                                      ; preds = %call5.i.i2.i.i.i.i.i.i.noexc.i.i.i
   %m_value.i.i.i.i = getelementptr inbounds %"struct.nlohmann::json_abi_v3_11_3::basic_json<std::map, std::vector, alt_string>::data", ptr %add.ptr, i64 0, i32 1
-  %4 = ptrtoint ptr %call5.i.i2.i.i.i.i.i.i1.i.i.i to i64
-  store i64 %4, ptr %m_value.i.i.i.i, align 8
+  store ptr %call5.i.i2.i.i.i.i.i.i1.i.i.i, ptr %m_value.i.i.i.i, align 8
   %cmp.not6.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not6.i.i.i, label %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_10alt_stringblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit, label %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i
 
@@ -27280,7 +27272,7 @@ _ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10al
   ret void
 
 lpad17:                                           ; preds = %invoke.cont19
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -27288,20 +27280,20 @@ lpad17:                                           ; preds = %invoke.cont19
 invoke.cont19:                                    ; preds = %_ZNSt10unique_ptrI10alt_stringZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS0_blmdSaNS2_14adl_serializerES5_IhSaIhEEvE6createIS0_JRKS0_EEEPT_DpOT0_EUlPS0_E_ED2Ev.exit7.i.i.i.i.i.i.i.i.i, %lpad.i.i.i
   %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %3, %lpad.i.i.i ], [ %2, %_ZNSt10unique_ptrI10alt_stringZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorS0_blmdSaNS2_14adl_serializerES5_IhSaIhEEvE6createIS0_JRKS0_EEEPT_DpOT0_EUlPS0_E_ED2Ev.exit7.i.i.i.i.i.i.i.i.i ]
   tail call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vector10alt_stringblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4dataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr) #22
-  %6 = extractvalue { ptr, i32 } %eh.lpad-body.i.i.i, 0
-  %7 = tail call ptr @__cxa_begin_catch(ptr %6) #22
+  %5 = extractvalue { ptr, i32 } %eh.lpad-body.i.i.i, 0
+  %6 = tail call ptr @__cxa_begin_catch(ptr %5) #22
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #25
   invoke void @__cxa_rethrow() #27
           to label %unreachable unwind label %lpad17
 
 eh.resume:                                        ; preds = %lpad17
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %4
 
 terminate.lpad:                                   ; preds = %lpad17
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #23
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #23
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont19

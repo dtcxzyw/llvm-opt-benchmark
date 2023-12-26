@@ -1423,14 +1423,13 @@ for.end:                                          ; preds = %for.inc, %entry
 define hidden void @_ZNK2pb3pbc13init_use_listERN3sat12ext_use_listE(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ul) unnamed_addr #4 align 2 {
 entry:
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  %0 = ptrtoint ptr %add.ptr.i.i.i to i64
   %m_size.i = getelementptr inbounds %"class.pb::constraint", ptr %this, i64 0, i32 7
-  %1 = load i32, ptr %m_size.i, align 8
-  %idx.ext.i = zext i32 %1 to i64
+  %0 = load i32, ptr %m_size.i, align 8
+  %idx.ext.i = zext i32 %0 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %2 = getelementptr i8, ptr %this, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %2, i64 76
-  %cmp.not4 = icmp eq i32 %1, 0
+  %1 = getelementptr i8, ptr %this, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr i8, ptr %1, i64 76
+  %cmp.not4 = icmp eq i32 %0, 0
   br i1 %cmp.not4, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
@@ -1441,19 +1440,19 @@ for.body:                                         ; preds = %for.body.preheader,
   %__begin1.05 = phi ptr [ %incdec.ptr, %_ZN3sat12ext_use_list6insertENS_7literalEm.exit ], [ %m_wlits.i.ptr, %for.body.preheader ]
   %l.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %__begin1.05, i64 4
   %l.sroa.1.0.copyload = load i32, ptr %l.sroa.1.0..sroa_idx, align 4
-  %3 = load ptr, ptr %ul, align 8
+  %2 = load ptr, ptr %ul, align 8
   %idxprom.i.i.i = zext i32 %l.sroa.1.0.copyload to i64
-  %arrayidx.i.i.i = getelementptr inbounds %class.svector.15, ptr %3, i64 %idxprom.i.i.i
-  %4 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %cmp.i.i = icmp eq ptr %4, null
+  %arrayidx.i.i.i = getelementptr inbounds %class.svector.15, ptr %2, i64 %idxprom.i.i.i
+  %3 = load ptr, ptr %arrayidx.i.i.i, align 8
+  %cmp.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %for.body
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %4, i64 -1
-  %5 = load i32, ptr %arrayidx.i.i, align 4
-  %arrayidx4.i.i = getelementptr inbounds i32, ptr %4, i64 -2
-  %6 = load i32, ptr %arrayidx4.i.i, align 4
-  %cmp5.i.i = icmp eq i32 %5, %6
+  %arrayidx.i.i = getelementptr inbounds i32, ptr %3, i64 -1
+  %4 = load i32, ptr %arrayidx.i.i, align 4
+  %arrayidx4.i.i = getelementptr inbounds i32, ptr %3, i64 -2
+  %5 = load i32, ptr %arrayidx4.i.i, align 4
+  %cmp5.i.i = icmp eq i32 %4, %5
   br i1 %cmp5.i.i, label %if.then.i.i, label %_ZN3sat12ext_use_list6insertENS_7literalEm.exit
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %for.body
@@ -1464,15 +1463,15 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
   br label %_ZN3sat12ext_use_list6insertENS_7literalEm.exit
 
 _ZN3sat12ext_use_list6insertENS_7literalEm.exit:  ; preds = %lor.lhs.false.i.i, %if.then.i.i
-  %7 = phi i32 [ %.pre1.i.i, %if.then.i.i ], [ %5, %lor.lhs.false.i.i ]
-  %8 = phi ptr [ %.pre.i.i, %if.then.i.i ], [ %4, %lor.lhs.false.i.i ]
-  %idx.ext.i.i = zext i32 %7 to i64
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %8, i64 %idx.ext.i.i
-  store i64 %0, ptr %add.ptr.i.i, align 8
-  %9 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %arrayidx10.i.i = getelementptr inbounds i32, ptr %9, i64 -1
-  %10 = load i32, ptr %arrayidx10.i.i, align 4
-  %inc.i.i = add i32 %10, 1
+  %6 = phi i32 [ %.pre1.i.i, %if.then.i.i ], [ %4, %lor.lhs.false.i.i ]
+  %7 = phi ptr [ %.pre.i.i, %if.then.i.i ], [ %3, %lor.lhs.false.i.i ]
+  %idx.ext.i.i = zext i32 %6 to i64
+  %add.ptr.i.i = getelementptr inbounds i64, ptr %7, i64 %idx.ext.i.i
+  store ptr %add.ptr.i.i.i, ptr %add.ptr.i.i, align 8
+  %8 = load ptr, ptr %arrayidx.i.i.i, align 8
+  %arrayidx10.i.i = getelementptr inbounds i32, ptr %8, i64 -1
+  %9 = load i32, ptr %arrayidx10.i.i, align 4
+  %inc.i.i = add i32 %9, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   %incdec.ptr = getelementptr inbounds %"struct.std::pair", ptr %__begin1.05, i64 1
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr

@@ -347,8 +347,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %conv = sext i32 %count to i64
   %sub = sub i64 %1, %conv
-  %2 = inttoptr i64 %sub to ptr
-  store ptr %2, ptr %output_position_, align 8
+  store i64 %sub, ptr %output_position_, align 8
   ret void
 }
 
@@ -388,8 +387,7 @@ if.then:                                          ; preds = %while.end
   %6 = ptrtoint ptr %5 to i64
   %conv.i = sext i32 %sub5 to i64
   %sub.i = sub i64 %6, %conv.i
-  %7 = inttoptr i64 %sub.i to ptr
-  store ptr %7, ptr %output_position_.i, align 8
+  store i64 %sub.i, ptr %output_position_.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %while.end

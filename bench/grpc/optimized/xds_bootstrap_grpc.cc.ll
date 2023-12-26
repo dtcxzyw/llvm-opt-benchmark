@@ -3921,35 +3921,34 @@ _ZNSt10unique_ptrIN9grpc_core16GrpcXdsBootstrapESt14default_deleteIS1_EED2Ev.exi
   %21 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.134", ptr %bootstrap, i64 0, i32 1
   call void @_ZN9grpc_core16GrpcXdsBootstrapC2EOS0_(ptr noundef nonnull align 8 dereferenceable(632) %call.i1516, ptr noundef nonnull align 8 dereferenceable(632) %21) #21, !noalias !47
   %22 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.result, i64 0, i32 1
-  %23 = ptrtoint ptr %call.i1516 to i64
-  store i64 %23, ptr %22, align 8
+  store ptr %call.i1516, ptr %22, align 8
   store i64 0, ptr %agg.result, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then29, %if.then.i.i.i9, %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i, %_ZNSt10unique_ptrIN9grpc_core16GrpcXdsBootstrapESt14default_deleteIS1_EED2Ev.exit
-  %24 = load i64, ptr %bootstrap, align 8
-  %cmp.i.i.i.i22 = icmp eq i64 %24, 0
+  %23 = load i64, ptr %bootstrap, align 8
+  %cmp.i.i.i.i22 = icmp eq i64 %23, 0
   br i1 %cmp.i.i.i.i22, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i:       ; preds = %cleanup
-  %25 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.134", ptr %bootstrap, i64 0, i32 1
-  call void @_ZN9grpc_core16GrpcXdsBootstrapD2Ev(ptr noundef nonnull align 8 dereferenceable(632) %25) #21
+  %24 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.134", ptr %bootstrap, i64 0, i32 1
+  call void @_ZN9grpc_core16GrpcXdsBootstrapD2Ev(ptr noundef nonnull align 8 dereferenceable(632) %24) #21
   br label %cleanup42
 
 if.else.i.i:                                      ; preds = %cleanup
-  %and.i.i.i1.i.i = and i64 %24, 1
+  %and.i.i.i1.i.i = and i64 %23, 1
   %cmp.i.i.i2.i.i = icmp eq i64 %and.i.i.i1.i.i, 0
   br i1 %cmp.i.i.i2.i.i, label %cleanup42, label %if.then.i.i3.i.i
 
 if.then.i.i3.i.i:                                 ; preds = %if.else.i.i
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %24)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %23)
           to label %cleanup42 unwind label %terminate.lpad.i4.i.i
 
 terminate.lpad.i4.i.i:                            ; preds = %if.then.i.i3.i.i
-  %26 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #23
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #23
   unreachable
 
 ehcleanup41:                                      ; preds = %lpad26, %lpad.i.i10
@@ -3958,27 +3957,27 @@ ehcleanup41:                                      ; preds = %lpad26, %lpad.i.i10
   br label %ehcleanup43
 
 cleanup42:                                        ; preds = %if.then.i.i3.i.i, %if.else.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit
-  %28 = load i64, ptr %json, align 8
-  %cmp.i.i.i.i23 = icmp eq i64 %28, 0
+  %27 = load i64, ptr %json, align 8
+  %cmp.i.i.i.i23 = icmp eq i64 %27, 0
   br i1 %cmp.i.i.i.i23, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i29, label %if.else.i.i24
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i29:     ; preds = %cleanup42
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i)
   %_M_index.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.126", ptr %json, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %29 = load i8, ptr %_M_index.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.not.i.i.i.i = icmp eq i8 %29, -1
+  %28 = load i8, ptr %_M_index.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.not.i.i.i.i = icmp eq i8 %28, -1
   br i1 %cmp.i.i.i.not.i.i.i.i, label %_ZN9grpc_core12experimental4JsonD2Ev.exit.i.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i29
-  %30 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.126", ptr %json, i64 0, i32 1
-  invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(49) %30)
+  %29 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData.126", ptr %json, i64 0, i32 1
+  invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(49) %29)
           to label %_ZN9grpc_core12experimental4JsonD2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i.i
-  %31 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #23
+  %31 = extractvalue { ptr, i32 } %30, 0
+  call void @__clang_call_terminate(ptr %31) #23
   unreachable
 
 _ZN9grpc_core12experimental4JsonD2Ev.exit.i.i:    ; preds = %if.end.i.i.i.i.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i29
@@ -3986,19 +3985,19 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit.i.i:    ; preds = %if.end.i.i.i.i.i.i,
   br label %_ZN4absl12lts_202308028StatusOrIN9grpc_core12experimental4JsonEED2Ev.exit
 
 if.else.i.i24:                                    ; preds = %cleanup42
-  %and.i.i.i1.i.i25 = and i64 %28, 1
+  %and.i.i.i1.i.i25 = and i64 %27, 1
   %cmp.i.i.i2.i.i26 = icmp eq i64 %and.i.i.i1.i.i25, 0
   br i1 %cmp.i.i.i2.i.i26, label %_ZN4absl12lts_202308028StatusOrIN9grpc_core12experimental4JsonEED2Ev.exit, label %if.then.i.i3.i.i27
 
 if.then.i.i3.i.i27:                               ; preds = %if.else.i.i24
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %28)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %27)
           to label %_ZN4absl12lts_202308028StatusOrIN9grpc_core12experimental4JsonEED2Ev.exit unwind label %terminate.lpad.i4.i.i28
 
 terminate.lpad.i4.i.i28:                          ; preds = %if.then.i.i3.i.i27
-  %33 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #23
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #23
   unreachable
 
 _ZN4absl12lts_202308028StatusOrIN9grpc_core12experimental4JsonEED2Ev.exit: ; preds = %_ZN9grpc_core12experimental4JsonD2Ev.exit.i.i, %if.else.i.i24, %if.then.i.i3.i.i27

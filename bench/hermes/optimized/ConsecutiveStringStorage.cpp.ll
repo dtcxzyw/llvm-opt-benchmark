@@ -690,7 +690,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN12_GLOBAL__N_112
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.then.i.i.i.i
   %B.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call.i.i.i.i6.i, %if.then.i.i.i.i ]
-  store ptr inttoptr (i64 -1 to ptr), ptr %B.06.i.i.i.i.i, align 8, !noalias !28
+  store i64 -1, ptr %B.06.i.i.i.i.i, align 8, !noalias !28
   %EmptyKey.sroa.2.0.B.0.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %B.06.i.i.i.i.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.B.0.sroa_idx.i.i.i.i.i, align 8, !noalias !28
   %EmptyKey.sroa.3.0.B.0.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %B.06.i.i.i.i.i, i64 16
@@ -2427,7 +2427,7 @@ if.then.i.i.i.i73:                                ; preds = %_ZN12_GLOBAL__N_112
 
 for.body.i.i.i.i.i96:                             ; preds = %for.body.i.i.i.i.i96, %if.then.i.i.i.i73
   %B.06.i.i.i.i.i97 = phi ptr [ %incdec.ptr.i.i.i.i.i100, %for.body.i.i.i.i.i96 ], [ %call.i.i.i.i6.i92, %if.then.i.i.i.i73 ]
-  store ptr inttoptr (i64 -1 to ptr), ptr %B.06.i.i.i.i.i97, align 8, !noalias !91
+  store i64 -1, ptr %B.06.i.i.i.i.i97, align 8, !noalias !91
   %EmptyKey.sroa.2.0.B.0.sroa_idx.i.i.i.i.i98 = getelementptr inbounds i8, ptr %B.06.i.i.i.i.i97, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.B.0.sroa_idx.i.i.i.i.i98, align 8, !noalias !91
   %EmptyKey.sroa.3.0.B.0.sroa_idx.i.i.i.i.i99 = getelementptr inbounds i8, ptr %B.06.i.i.i.i.i97, i64 16
@@ -6182,7 +6182,7 @@ if.then.i:                                        ; preds = %entry
 
 for.body.i.i:                                     ; preds = %if.then.i, %for.body.i.i
   %B.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i.i, %if.then.i ]
-  store ptr inttoptr (i64 -1 to ptr), ptr %B.06.i.i, align 8
+  store i64 -1, ptr %B.06.i.i, align 8
   %EmptyKey.sroa.2.0.B.0.sroa_idx.i.i = getelementptr inbounds i8, ptr %B.06.i.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.B.0.sroa_idx.i.i, align 8
   %EmptyKey.sroa.3.0.B.0.sroa_idx.i.i = getelementptr inbounds i8, ptr %B.06.i.i, i64 16
@@ -6206,7 +6206,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.i.i.i:                                   ; preds = %if.end.i, %for.body.i.i.i
   %B.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %call.i.i, %if.end.i ]
-  store ptr inttoptr (i64 -1 to ptr), ptr %B.06.i.i.i, align 8
+  store i64 -1, ptr %B.06.i.i.i, align 8
   %EmptyKey.sroa.2.0.B.0.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %B.06.i.i.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.B.0.sroa_idx.i.i.i, align 8
   %EmptyKey.sroa.3.0.B.0.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %B.06.i.i.i, i64 16
@@ -6404,7 +6404,7 @@ if.then.i:                                        ; preds = %entry
 
 for.body.i.i:                                     ; preds = %if.then.i, %for.body.i.i
   %B.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i.i, %if.then.i ]
-  store ptr inttoptr (i64 -8 to ptr), ptr %B.06.i.i, align 8
+  store i64 -8, ptr %B.06.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds %"class.llvh::detail::DenseSetPair.83", ptr %B.06.i.i, i64 1
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN4llvh8DenseMapIPKN12_GLOBAL__N_112StringPackerIhE11StringEntryENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_EENS7_12DenseSetPairIS6_EEE4growEj.exit, label %for.body.i.i, !llvm.loop !176
@@ -6424,7 +6424,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.i.i.i:                                   ; preds = %if.end.i, %for.body.i.i.i
   %B.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %call.i.i, %if.end.i ]
-  store ptr inttoptr (i64 -8 to ptr), ptr %B.06.i.i.i, align 8
+  store i64 -8, ptr %B.06.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds %"class.llvh::detail::DenseSetPair.83", ptr %B.06.i.i.i, i64 1
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKN12_GLOBAL__N_112StringPackerIhE11StringEntryENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS7_EENS8_12DenseSetPairIS7_EEEES7_S9_SB_SD_E9initEmptyEv.exit.i.i, label %for.body.i.i.i, !llvm.loop !176
@@ -7200,7 +7200,7 @@ if.then.i:                                        ; preds = %entry
 
 for.body.i.i:                                     ; preds = %if.then.i, %for.body.i.i
   %B.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i.i, %if.then.i ]
-  store ptr inttoptr (i64 -1 to ptr), ptr %B.06.i.i, align 8
+  store i64 -1, ptr %B.06.i.i, align 8
   %EmptyKey.sroa.2.0.B.0.sroa_idx.i.i = getelementptr inbounds i8, ptr %B.06.i.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.B.0.sroa_idx.i.i, align 8
   %EmptyKey.sroa.3.0.B.0.sroa_idx.i.i = getelementptr inbounds i8, ptr %B.06.i.i, i64 16
@@ -7224,7 +7224,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.i.i.i:                                   ; preds = %if.end.i, %for.body.i.i.i
   %B.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %call.i.i, %if.end.i ]
-  store ptr inttoptr (i64 -1 to ptr), ptr %B.06.i.i.i, align 8
+  store i64 -1, ptr %B.06.i.i.i, align 8
   %EmptyKey.sroa.2.0.B.0.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %B.06.i.i.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.B.0.sroa_idx.i.i.i, align 8
   %EmptyKey.sroa.3.0.B.0.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %B.06.i.i.i, i64 16
@@ -7411,7 +7411,7 @@ if.then.i:                                        ; preds = %entry
 
 for.body.i.i:                                     ; preds = %if.then.i, %for.body.i.i
   %B.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i.i, %if.then.i ]
-  store ptr inttoptr (i64 -8 to ptr), ptr %B.06.i.i, align 8
+  store i64 -8, ptr %B.06.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds %"class.llvh::detail::DenseSetPair.148", ptr %B.06.i.i, i64 1
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN4llvh8DenseMapIPKN12_GLOBAL__N_112StringPackerIDsE11StringEntryENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_EENS7_12DenseSetPairIS6_EEE4growEj.exit, label %for.body.i.i, !llvm.loop !184
@@ -7431,7 +7431,7 @@ if.end.i:                                         ; preds = %entry
 
 for.body.i.i.i:                                   ; preds = %if.end.i, %for.body.i.i.i
   %B.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %call.i.i, %if.end.i ]
-  store ptr inttoptr (i64 -8 to ptr), ptr %B.06.i.i.i, align 8
+  store i64 -8, ptr %B.06.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds %"class.llvh::detail::DenseSetPair.148", ptr %B.06.i.i.i, i64 1
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKN12_GLOBAL__N_112StringPackerIDsE11StringEntryENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS7_EENS8_12DenseSetPairIS7_EEEES7_S9_SB_SD_E9initEmptyEv.exit.i.i, label %for.body.i.i.i, !llvm.loop !184

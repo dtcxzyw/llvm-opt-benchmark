@@ -2247,7 +2247,7 @@ invoke.cont12:                                    ; preds = %if.then
 
 cond.false:                                       ; preds = %invoke.cont12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp17) #28
-  store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8, !tbaa !10
+  store ptr @_ZN6google10LogMessage9SendToLogEv, ptr %indirect-arg-temp, align 8, !tbaa !10
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !10
   invoke void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp17, ptr noundef nonnull @.str.1, i32 noundef 109, i32 noundef 3, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)
@@ -3664,28 +3664,27 @@ entry:
   %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
   %0 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 0, ptr %0, align 8
-  %1 = ptrtoint ptr %op to i64
-  store i64 %1, ptr %agg.tmp, align 8, !tbaa !12
+  store ptr %op, ptr %agg.tmp, align 8, !tbaa !12
   store ptr @"_ZNSt17_Function_handlerIFPN5folly11AsyncBaseOpEvEZNS0_14AsyncBaseQueue6submitES2_E3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i, align 8, !tbaa !120
   store ptr @"_ZNSt17_Function_handlerIFPN5folly11AsyncBaseOpEvEZNS0_14AsyncBaseQueue6submitES2_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %_M_manager.i.i, align 8, !tbaa !114
   %_M_finish.i.i = getelementptr inbounds %"class.folly::AsyncBaseQueue", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3
-  %2 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !103
+  %1 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !103
   %_M_last.i.i = getelementptr inbounds %"class.folly::AsyncBaseQueue", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 2
-  %3 = load ptr, ptr %_M_last.i.i, align 8, !tbaa !122
-  %add.ptr.i.i = getelementptr inbounds %"class.std::function", ptr %3, i64 -1
-  %cmp.not.i.i = icmp eq ptr %2, %add.ptr.i.i
+  %2 = load ptr, ptr %_M_last.i.i, align 8, !tbaa !122
+  %add.ptr.i.i = getelementptr inbounds %"class.std::function", ptr %2, i64 -1
+  %cmp.not.i.i = icmp eq ptr %1, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_manager.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %2, i64 0, i32 1
-  %_M_invoker.i.i.i.i.i = getelementptr inbounds %"class.std::function", ptr %2, i64 0, i32 1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 0, ptr %4, align 8
-  store i64 %1, ptr %2, align 8, !tbaa !12
+  %_M_manager.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %1, i64 0, i32 1
+  %_M_invoker.i.i.i.i.i = getelementptr inbounds %"class.std::function", ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  store i64 0, ptr %3, align 8
+  store ptr %op, ptr %1, align 8, !tbaa !12
   store ptr @"_ZNSt17_Function_handlerIFPN5folly11AsyncBaseOpEvEZNS0_14AsyncBaseQueue6submitES2_E3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i.i.i.i, align 8, !tbaa !120
   store ptr @"_ZNSt17_Function_handlerIFPN5folly11AsyncBaseOpEvEZNS0_14AsyncBaseQueue6submitES2_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i, align 8, !tbaa !114
-  %5 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !103
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::function", ptr %5, i64 1
+  %4 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !103
+  %incdec.ptr.i.i = getelementptr inbounds %"class.std::function", ptr %4, i64 1
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8, !tbaa !103
   br label %_ZNSt5dequeISt8functionIFPN5folly11AsyncBaseOpEvEESaIS5_EE9push_backERKS5_.exit.i
 
@@ -3699,44 +3698,44 @@ _ZNSt5dequeISt8functionIFPN5folly11AsyncBaseOpEvEESaIS5_EE9push_backERKS5_.exit.
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt5dequeISt8functionIFPN5folly11AsyncBaseOpEvEESaIS5_EE9push_backERKS5_.exit.i
-  %6 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !114
-  %tobool.not.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !114
+  %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont
-  %call.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #27
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #27
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %if.then.i, %invoke.cont
   ret void
 
 lpad:                                             ; preds = %_ZNSt5dequeISt8functionIFPN5folly11AsyncBaseOpEvEESaIS5_EE9push_backERKS5_.exit.i, %if.else.i.i
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %10 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !114
-  %tobool.not.i5 = icmp eq ptr %10, null
+  %9 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !114
+  %tobool.not.i5 = icmp eq ptr %9, null
   br i1 %tobool.not.i5, label %_ZNSt14_Function_baseD2Ev.exit9, label %if.then.i6
 
 if.then.i6:                                       ; preds = %lpad
-  %call.i7 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
+  %call.i7 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit9 unwind label %terminate.lpad.i8
 
 terminate.lpad.i8:                                ; preds = %if.then.i6
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #27
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #27
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit9:                  ; preds = %if.then.i6, %lpad
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %8
 }
 
 ; Function Attrs: mustprogress uwtable

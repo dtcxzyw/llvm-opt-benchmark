@@ -1256,42 +1256,40 @@ if.end13:                                         ; preds = %lor.lhs.false
   %desc = getelementptr %struct.vhost_virtqueue, ptr %8, i64 %idxprom, i32 2
   %desc28 = getelementptr inbounds %struct.VirtVhostQueueStatus, ptr %call14, i64 0, i32 3
   %11 = load <2 x ptr>, ptr %desc, align 8
-  %12 = ptrtoint <2 x ptr> %11 to <2 x i64>
-  store <2 x i64> %12, ptr %desc28, align 8
+  store <2 x ptr> %11, ptr %desc28, align 8
   %used = getelementptr %struct.vhost_virtqueue, ptr %8, i64 %idxprom, i32 4
-  %13 = load ptr, ptr %used, align 8
-  %14 = ptrtoint ptr %13 to i64
+  %12 = load ptr, ptr %used, align 8
   %used36 = getelementptr inbounds %struct.VirtVhostQueueStatus, ptr %call14, i64 0, i32 5
-  store i64 %14, ptr %used36, align 8
+  store ptr %12, ptr %used36, align 8
   %num = getelementptr %struct.vhost_virtqueue, ptr %8, i64 %idxprom, i32 5
-  %15 = load i32, ptr %num, align 8
-  %conv40 = sext i32 %15 to i64
+  %13 = load i32, ptr %num, align 8
+  %conv40 = sext i32 %13 to i64
   %num41 = getelementptr inbounds %struct.VirtVhostQueueStatus, ptr %call14, i64 0, i32 6
   store i64 %conv40, ptr %num41, align 8
   %desc_phys = getelementptr %struct.vhost_virtqueue, ptr %8, i64 %idxprom, i32 6
-  %16 = load i64, ptr %desc_phys, align 8
+  %14 = load i64, ptr %desc_phys, align 8
   %desc_phys45 = getelementptr inbounds %struct.VirtVhostQueueStatus, ptr %call14, i64 0, i32 7
-  store i64 %16, ptr %desc_phys45, align 8
+  store i64 %14, ptr %desc_phys45, align 8
   %desc_size = getelementptr %struct.vhost_virtqueue, ptr %8, i64 %idxprom, i32 7
-  %17 = load i32, ptr %desc_size, align 8
+  %15 = load i32, ptr %desc_size, align 8
   %desc_size49 = getelementptr inbounds %struct.VirtVhostQueueStatus, ptr %call14, i64 0, i32 8
-  store i32 %17, ptr %desc_size49, align 8
+  store i32 %15, ptr %desc_size49, align 8
   %avail_phys = getelementptr %struct.vhost_virtqueue, ptr %8, i64 %idxprom, i32 8
-  %18 = load i64, ptr %avail_phys, align 8
+  %16 = load i64, ptr %avail_phys, align 8
   %avail_phys53 = getelementptr inbounds %struct.VirtVhostQueueStatus, ptr %call14, i64 0, i32 9
-  store i64 %18, ptr %avail_phys53, align 8
+  store i64 %16, ptr %avail_phys53, align 8
   %avail_size = getelementptr %struct.vhost_virtqueue, ptr %8, i64 %idxprom, i32 9
-  %19 = load i32, ptr %avail_size, align 8
+  %17 = load i32, ptr %avail_size, align 8
   %avail_size57 = getelementptr inbounds %struct.VirtVhostQueueStatus, ptr %call14, i64 0, i32 10
-  store i32 %19, ptr %avail_size57, align 8
+  store i32 %17, ptr %avail_size57, align 8
   %used_phys = getelementptr %struct.vhost_virtqueue, ptr %8, i64 %idxprom, i32 10
-  %20 = load i64, ptr %used_phys, align 8
+  %18 = load i64, ptr %used_phys, align 8
   %used_phys61 = getelementptr inbounds %struct.VirtVhostQueueStatus, ptr %call14, i64 0, i32 11
-  store i64 %20, ptr %used_phys61, align 8
+  store i64 %18, ptr %used_phys61, align 8
   %used_size = getelementptr %struct.vhost_virtqueue, ptr %8, i64 %idxprom, i32 11
-  %21 = load i32, ptr %used_size, align 8
+  %19 = load i32, ptr %used_size, align 8
   %used_size65 = getelementptr inbounds %struct.VirtVhostQueueStatus, ptr %call14, i64 0, i32 12
-  store i32 %21, ptr %used_size65, align 8
+  store i32 %19, ptr %used_size65, align 8
   br label %return
 
 return:                                           ; preds = %if.end13, %if.then11, %if.then1, %if.then

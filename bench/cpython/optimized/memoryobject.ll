@@ -1212,28 +1212,26 @@ if.end:                                           ; preds = %entry
   %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %3, i64 0, i32 1
   %4 = load i64, ptr %_gc_prev.i.i, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = ptrtoint ptr %add.ptr.i.i.i to i64
-  store i64 %6, ptr %5, align 8
+  store ptr %add.ptr.i.i.i, ptr %5, align 8
   %_gc_prev.i.i.i = getelementptr i8, ptr %call.i, i64 -8
-  %7 = load i64, ptr %_gc_prev.i.i.i, align 8
-  %and.i.i.i = and i64 %7, 3
+  %6 = load i64, ptr %_gc_prev.i.i.i, align 8
+  %and.i.i.i = and i64 %6, 3
   %or.i.i.i = or i64 %and.i.i.i, %4
   store i64 %or.i.i.i, ptr %_gc_prev.i.i.i, align 8
-  %8 = ptrtoint ptr %3 to i64
-  store i64 %8, ptr %add.ptr.i.i.i, align 8
-  store i64 %6, ptr %_gc_prev.i.i, align 8
+  store ptr %3, ptr %add.ptr.i.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %_gc_prev.i.i, align 8
   %cmp1 = icmp ne i32 %flags, 512
   %cond = zext i1 %cmp1 to i32
   %master = getelementptr inbounds %struct._PyManagedBufferObject, ptr %call.i, i64 0, i32 3
   %call2 = tail call i32 @PyBuffer_FillInfo(ptr noundef nonnull %master, ptr noundef null, ptr noundef %mem, i64 noundef %size, i32 noundef %cond, i32 noundef 284) #10
   %call3 = tail call fastcc ptr @mbuf_add_view(ptr noundef nonnull %call.i, ptr noundef null)
-  %9 = load i64, ptr %call.i, align 8
-  %10 = and i64 %9, 2147483648
-  %cmp.i5.not = icmp eq i64 %10, 0
+  %7 = load i64, ptr %call.i, align 8
+  %8 = and i64 %7, 2147483648
+  %cmp.i5.not = icmp eq i64 %8, 0
   br i1 %cmp.i5.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end
-  %dec.i = add i64 %9, -1
+  %dec.i = add i64 %7, -1
   store i64 %dec.i, ptr %call.i, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %return
@@ -1307,54 +1305,52 @@ if.end7:                                          ; preds = %if.end3
   %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %5, i64 0, i32 1
   %6 = load i64, ptr %_gc_prev.i.i, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = ptrtoint ptr %add.ptr.i.i.i to i64
-  store i64 %8, ptr %7, align 8
+  store ptr %add.ptr.i.i.i, ptr %7, align 8
   %_gc_prev.i.i.i = getelementptr i8, ptr %call.i, i64 -8
-  %9 = load i64, ptr %_gc_prev.i.i.i, align 8
-  %and.i.i.i = and i64 %9, 3
+  %8 = load i64, ptr %_gc_prev.i.i.i, align 8
+  %and.i.i.i = and i64 %8, 3
   %or.i.i.i = or i64 %and.i.i.i, %6
   store i64 %or.i.i.i, ptr %_gc_prev.i.i.i, align 8
-  %10 = ptrtoint ptr %5 to i64
-  store i64 %10, ptr %add.ptr.i.i.i, align 8
-  store i64 %8, ptr %_gc_prev.i.i, align 8
+  store ptr %5, ptr %add.ptr.i.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %_gc_prev.i.i, align 8
   %view = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call.i, i64 0, i32 5
   %obj.i = getelementptr inbounds %struct.Py_buffer, ptr %spec.select, i64 0, i32 1
-  %11 = load ptr, ptr %obj.i, align 8
+  %9 = load ptr, ptr %obj.i, align 8
   %obj1.i = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call.i, i64 0, i32 5, i32 1
-  store ptr %11, ptr %obj1.i, align 8
-  %12 = load ptr, ptr %spec.select, align 8
-  store ptr %12, ptr %view, align 8
+  store ptr %9, ptr %obj1.i, align 8
+  %10 = load ptr, ptr %spec.select, align 8
+  store ptr %10, ptr %view, align 8
   %len.i = getelementptr inbounds %struct.Py_buffer, ptr %spec.select, i64 0, i32 2
-  %13 = load i64, ptr %len.i, align 8
+  %11 = load i64, ptr %len.i, align 8
   %len3.i = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call.i, i64 0, i32 5, i32 2
-  store i64 %13, ptr %len3.i, align 8
+  store i64 %11, ptr %len3.i, align 8
   %itemsize.i = getelementptr inbounds %struct.Py_buffer, ptr %spec.select, i64 0, i32 3
-  %14 = load i64, ptr %itemsize.i, align 8
+  %12 = load i64, ptr %itemsize.i, align 8
   %itemsize4.i = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call.i, i64 0, i32 5, i32 3
-  store i64 %14, ptr %itemsize4.i, align 8
+  store i64 %12, ptr %itemsize4.i, align 8
   %readonly.i = getelementptr inbounds %struct.Py_buffer, ptr %spec.select, i64 0, i32 4
-  %15 = load i32, ptr %readonly.i, align 8
+  %13 = load i32, ptr %readonly.i, align 8
   %readonly5.i = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call.i, i64 0, i32 5, i32 4
-  store i32 %15, ptr %readonly5.i, align 8
+  store i32 %13, ptr %readonly5.i, align 8
   %format.i = getelementptr inbounds %struct.Py_buffer, ptr %spec.select, i64 0, i32 6
-  %16 = load ptr, ptr %format.i, align 8
-  %tobool.not.i = icmp eq ptr %16, null
-  %spec.select.i = select i1 %tobool.not.i, ptr @.str.12, ptr %16
+  %14 = load ptr, ptr %format.i, align 8
+  %tobool.not.i = icmp eq ptr %14, null
+  %spec.select.i = select i1 %tobool.not.i, ptr @.str.12, ptr %14
   %format7.i = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call.i, i64 0, i32 5, i32 6
   store ptr %spec.select.i, ptr %format7.i, align 8
   %internal.i = getelementptr inbounds %struct.Py_buffer, ptr %spec.select, i64 0, i32 10
-  %17 = load ptr, ptr %internal.i, align 8
+  %15 = load ptr, ptr %internal.i, align 8
   %internal8.i = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call.i, i64 0, i32 5, i32 10
-  store ptr %17, ptr %internal8.i, align 8
+  store ptr %15, ptr %internal8.i, align 8
   tail call fastcc void @init_shape_strides(ptr noundef nonnull %view, ptr noundef nonnull %spec.select)
   %suboffsets.i14 = getelementptr inbounds %struct.Py_buffer, ptr %spec.select, i64 0, i32 9
-  %18 = load ptr, ptr %suboffsets.i14, align 8
-  %cmp.i15 = icmp eq ptr %18, null
+  %16 = load ptr, ptr %suboffsets.i14, align 8
+  %cmp.i15 = icmp eq ptr %16, null
   br i1 %cmp.i15, label %if.then.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end7
-  %19 = load i32, ptr %ndim, align 4
-  %cmp28.i = icmp sgt i32 %19, 0
+  %17 = load i32, ptr %ndim, align 4
+  %cmp28.i = icmp sgt i32 %17, 0
   br i1 %cmp28.i, label %for.body.i, label %init_suboffsets.exit
 
 if.then.i:                                        ; preds = %if.end7
@@ -1363,36 +1359,36 @@ if.then.i:                                        ; preds = %if.end7
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %i.09.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
-  %20 = load ptr, ptr %suboffsets.i14, align 8
-  %arrayidx.i = getelementptr i64, ptr %20, i64 %i.09.i
-  %21 = load i64, ptr %arrayidx.i, align 8
-  %22 = load ptr, ptr %suboffsets.i, align 8
-  %arrayidx6.i = getelementptr i64, ptr %22, i64 %i.09.i
-  store i64 %21, ptr %arrayidx6.i, align 8
+  %18 = load ptr, ptr %suboffsets.i14, align 8
+  %arrayidx.i = getelementptr i64, ptr %18, i64 %i.09.i
+  %19 = load i64, ptr %arrayidx.i, align 8
+  %20 = load ptr, ptr %suboffsets.i, align 8
+  %arrayidx6.i = getelementptr i64, ptr %20, i64 %i.09.i
+  store i64 %19, ptr %arrayidx6.i, align 8
   %inc.i = add nuw nsw i64 %i.09.i, 1
-  %23 = load i32, ptr %ndim, align 4
-  %conv.i16 = sext i32 %23 to i64
+  %21 = load i32, ptr %ndim, align 4
+  %conv.i16 = sext i32 %21 to i64
   %cmp2.i = icmp slt i64 %inc.i, %conv.i16
   br i1 %cmp2.i, label %for.body.i, label %init_suboffsets.exit, !llvm.loop !5
 
 init_suboffsets.exit:                             ; preds = %for.body.i, %for.cond.preheader.i, %if.then.i
-  %24 = load i32, ptr %ndim2.i, align 4
-  switch i32 %24, label %sw.default.i [
+  %22 = load i32, ptr %ndim2.i, align 4
+  switch i32 %22, label %sw.default.i [
     i32 0, label %init_flags.exit
     i32 1, label %sw.bb2.i
   ]
 
 sw.bb2.i:                                         ; preds = %init_suboffsets.exit
-  %25 = load ptr, ptr %shape.i, align 8
-  %26 = load i64, ptr %25, align 8
-  %cmp.i19 = icmp eq i64 %26, 1
+  %23 = load ptr, ptr %shape.i, align 8
+  %24 = load i64, ptr %23, align 8
+  %cmp.i19 = icmp eq i64 %24, 1
   br i1 %cmp.i19, label %if.then.i23, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %sw.bb2.i
-  %27 = load ptr, ptr %strides.i, align 8
-  %28 = load i64, ptr %27, align 8
-  %29 = load i64, ptr %itemsize4.i, align 8
-  %cmp4.i = icmp eq i64 %28, %29
+  %25 = load ptr, ptr %strides.i, align 8
+  %26 = load i64, ptr %25, align 8
+  %27 = load i64, ptr %itemsize4.i, align 8
+  %cmp4.i = icmp eq i64 %26, %27
   br i1 %cmp4.i, label %if.then.i23, label %init_flags.exit
 
 if.then.i23:                                      ; preds = %lor.lhs.false.i, %sw.bb2.i
@@ -1410,14 +1406,14 @@ sw.default.i:                                     ; preds = %init_suboffsets.exi
 
 init_flags.exit:                                  ; preds = %init_suboffsets.exit, %lor.lhs.false.i, %if.then.i23, %sw.default.i
   %flags.1.i = phi i32 [ 6, %if.then.i23 ], [ 0, %lor.lhs.false.i ], [ 14, %init_suboffsets.exit ], [ %spec.select14.i, %sw.default.i ]
-  %30 = load ptr, ptr %suboffsets.i, align 8
-  %tobool14.not.i = icmp eq ptr %30, null
+  %28 = load ptr, ptr %suboffsets.i, align 8
+  %tobool14.not.i = icmp eq ptr %28, null
   %or16.i = and i32 %flags.1.i, -23
   %and.i = or disjoint i32 %or16.i, 16
   %flags.2.i = select i1 %tobool14.not.i, i32 %flags.1.i, i32 %and.i
   store i32 %flags.2.i, ptr %flags.i, align 8
-  %31 = load i32, ptr %mbuf, align 8
-  %add.i.i = add i32 %31, 1
+  %29 = load i32, ptr %mbuf, align 8
+  %add.i.i = add i32 %29, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i, label %_Py_NewRef.exit, label %if.end.i.i
 
@@ -1428,8 +1424,8 @@ if.end.i.i:                                       ; preds = %init_flags.exit
 _Py_NewRef.exit:                                  ; preds = %init_flags.exit, %if.end.i.i
   store ptr %mbuf, ptr %mbuf.i, align 8
   %exports = getelementptr inbounds %struct._PyManagedBufferObject, ptr %mbuf, i64 0, i32 2
-  %32 = load i64, ptr %exports, align 8
-  %inc = add i64 %32, 1
+  %30 = load i64, ptr %exports, align 8
+  %inc = add i64 %30, 1
   store i64 %inc, ptr %exports, align 8
   br label %return
 
@@ -1472,27 +1468,25 @@ if.end3:                                          ; preds = %if.end
   %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %5, i64 0, i32 1
   %6 = load i64, ptr %_gc_prev.i.i, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = ptrtoint ptr %add.ptr.i.i.i to i64
-  store i64 %8, ptr %7, align 8
+  store ptr %add.ptr.i.i.i, ptr %7, align 8
   %_gc_prev.i.i.i = getelementptr i8, ptr %call.i, i64 -8
-  %9 = load i64, ptr %_gc_prev.i.i.i, align 8
-  %and.i.i.i = and i64 %9, 3
+  %8 = load i64, ptr %_gc_prev.i.i.i, align 8
+  %and.i.i.i = and i64 %8, 3
   %or.i.i.i = or i64 %and.i.i.i, %6
   store i64 %or.i.i.i, ptr %_gc_prev.i.i.i, align 8
-  %10 = ptrtoint ptr %5 to i64
-  store i64 %10, ptr %add.ptr.i.i.i, align 8
-  store i64 %8, ptr %_gc_prev.i.i, align 8
+  store ptr %5, ptr %add.ptr.i.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %_gc_prev.i.i, align 8
   %master = getelementptr inbounds %struct._PyManagedBufferObject, ptr %call.i, i64 0, i32 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %master, ptr noundef nonnull align 8 dereferenceable(80) %info, i64 80, i1 false)
   store ptr null, ptr %obj.i, align 8
   %call5 = tail call fastcc ptr @mbuf_add_view(ptr noundef nonnull %call.i, ptr noundef null)
-  %11 = load i64, ptr %call.i, align 8
-  %12 = and i64 %11, 2147483648
-  %cmp.i7.not = icmp eq i64 %12, 0
+  %9 = load i64, ptr %call.i, align 8
+  %10 = and i64 %9, 2147483648
+  %cmp.i7.not = icmp eq i64 %10, 0
   br i1 %cmp.i7.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end3
-  %dec.i = add i64 %11, -1
+  %dec.i = add i64 %9, -1
   store i64 %dec.i, ptr %call.i, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %return
@@ -1535,16 +1529,14 @@ if.end:                                           ; preds = %entry
   %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %3, i64 0, i32 1
   %4 = load i64, ptr %_gc_prev.i.i, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = ptrtoint ptr %add.ptr.i.i.i to i64
-  store i64 %6, ptr %5, align 8
+  store ptr %add.ptr.i.i.i, ptr %5, align 8
   %_gc_prev.i.i.i = getelementptr i8, ptr %call.i, i64 -8
-  %7 = load i64, ptr %_gc_prev.i.i.i, align 8
-  %and.i.i.i = and i64 %7, 3
+  %6 = load i64, ptr %_gc_prev.i.i.i, align 8
+  %and.i.i.i = and i64 %6, 3
   %or.i.i.i = or i64 %and.i.i.i, %4
   store i64 %or.i.i.i, ptr %_gc_prev.i.i.i, align 8
-  %8 = ptrtoint ptr %3 to i64
-  store i64 %8, ptr %add.ptr.i.i.i, align 8
-  store i64 %6, ptr %_gc_prev.i.i, align 8
+  store ptr %3, ptr %add.ptr.i.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %_gc_prev.i.i, align 8
   %master = getelementptr inbounds %struct._PyManagedBufferObject, ptr %call.i, i64 0, i32 3
   %call1 = tail call i32 %bufferproc(ptr noundef %v, ptr noundef nonnull %master, i32 noundef %flags) #10
   %cmp2 = icmp slt i32 %call1, 0
@@ -1552,26 +1544,26 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   store ptr null, ptr %obj.i, align 8
-  %9 = load i64, ptr %call.i, align 8
-  %10 = and i64 %9, 2147483648
-  %cmp.i17.not = icmp eq i64 %10, 0
+  %7 = load i64, ptr %call.i, align 8
+  %8 = and i64 %7, 2147483648
+  %cmp.i17.not = icmp eq i64 %8, 0
   br i1 %cmp.i17.not, label %if.end.i10, label %return
 
 if.end.i10:                                       ; preds = %if.then3
-  %dec.i11 = add i64 %9, -1
+  %dec.i11 = add i64 %7, -1
   store i64 %dec.i11, ptr %call.i, align 8
   %cmp.i12 = icmp eq i64 %dec.i11, 0
   br i1 %cmp.i12, label %return.sink.split, label %return
 
 if.end5:                                          ; preds = %if.end
   %call6 = tail call fastcc ptr @mbuf_add_view(ptr noundef nonnull %call.i, ptr noundef null)
-  %11 = load i64, ptr %call.i, align 8
-  %12 = and i64 %11, 2147483648
-  %cmp.i20.not = icmp eq i64 %12, 0
+  %9 = load i64, ptr %call.i, align 8
+  %10 = and i64 %9, 2147483648
+  %cmp.i20.not = icmp eq i64 %10, 0
   br i1 %cmp.i20.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end5
-  %dec.i = add i64 %11, -1
+  %dec.i = add i64 %9, -1
   store i64 %dec.i, ptr %call.i, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %return.sink.split, label %return
@@ -1664,16 +1656,14 @@ if.end.i15:                                       ; preds = %if.then17
   %_gc_prev.i.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %9, i64 0, i32 1
   %10 = load i64, ptr %_gc_prev.i.i.i, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  store i64 %12, ptr %11, align 8
+  store ptr %add.ptr.i.i.i.i, ptr %11, align 8
   %_gc_prev.i.i.i.i = getelementptr i8, ptr %call.i.i, i64 -8
-  %13 = load i64, ptr %_gc_prev.i.i.i.i, align 8
-  %and.i.i.i.i = and i64 %13, 3
+  %12 = load i64, ptr %_gc_prev.i.i.i.i, align 8
+  %and.i.i.i.i = and i64 %12, 3
   %or.i.i.i.i = or i64 %and.i.i.i.i, %10
   store i64 %or.i.i.i.i, ptr %_gc_prev.i.i.i.i, align 8
-  %14 = ptrtoint ptr %9 to i64
-  store i64 %14, ptr %add.ptr.i.i.i.i, align 8
-  store i64 %12, ptr %_gc_prev.i.i.i, align 8
+  store ptr %9, ptr %add.ptr.i.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i, ptr %_gc_prev.i.i.i, align 8
   %master.i = getelementptr inbounds %struct._PyManagedBufferObject, ptr %call.i.i, i64 0, i32 3
   %call1.i = tail call i32 @PyObject_GetBuffer(ptr noundef nonnull %v, ptr noundef nonnull %master.i, i32 noundef %flags) #10
   %cmp2.i = icmp slt i32 %call1.i, 0
@@ -1681,13 +1671,13 @@ if.end.i15:                                       ; preds = %if.then17
 
 if.then3.i:                                       ; preds = %if.end.i15
   store ptr null, ptr %obj.i.i, align 8
-  %15 = load i64, ptr %call.i.i, align 8
-  %16 = and i64 %15, 2147483648
-  %cmp.i7.not.i = icmp eq i64 %16, 0
+  %13 = load i64, ptr %call.i.i, align 8
+  %14 = and i64 %13, 2147483648
+  %cmp.i7.not.i = icmp eq i64 %14, 0
   br i1 %cmp.i7.not.i, label %if.end.i.i, label %return
 
 if.end.i.i:                                       ; preds = %if.then3.i
-  %dec.i.i = add i64 %15, -1
+  %dec.i.i = add i64 %13, -1
   store i64 %dec.i.i, ptr %call.i.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %return
@@ -1698,13 +1688,13 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 if.end20:                                         ; preds = %if.end.i15
   %call21 = tail call fastcc ptr @mbuf_add_view(ptr noundef nonnull %call.i.i, ptr noundef null)
-  %17 = load i64, ptr %call.i.i, align 8
-  %18 = and i64 %17, 2147483648
-  %cmp.i27.not = icmp eq i64 %18, 0
+  %15 = load i64, ptr %call.i.i, align 8
+  %16 = and i64 %15, 2147483648
+  %cmp.i27.not = icmp eq i64 %16, 0
   br i1 %cmp.i27.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end20
-  %dec.i = add i64 %17, -1
+  %dec.i = add i64 %15, -1
   store i64 %dec.i, ptr %call.i.i, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %return
@@ -1714,11 +1704,11 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end23:                                         ; preds = %if.else
-  %19 = load ptr, ptr @PyExc_TypeError, align 8
+  %17 = load ptr, ptr @PyExc_TypeError, align 8
   %v.val = load ptr, ptr %0, align 8
   %tp_name = getelementptr inbounds %struct._typeobject, ptr %v.val, i64 0, i32 1
-  %20 = load ptr, ptr %tp_name, align 8
-  %call25 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %19, ptr noundef nonnull @.str.10, ptr noundef %20) #10
+  %18 = load ptr, ptr %tp_name, align 8
+  %call25 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %17, ptr noundef nonnull @.str.10, ptr noundef %18) #10
   br label %return
 
 return:                                           ; preds = %if.then17, %if.end.i.i, %if.then1.i.i, %if.then3.i, %if.end.i, %if.then1.i, %if.end20, %if.end23, %if.end12, %if.then11, %if.then7
@@ -1811,16 +1801,14 @@ if.end.i35.i:                                     ; preds = %if.end.i18
   %_gc_prev.i.i.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %11, i64 0, i32 1
   %12 = load i64, ptr %_gc_prev.i.i.i.i, align 8
   %13 = inttoptr i64 %12 to ptr
-  %14 = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
-  store i64 %14, ptr %13, align 8
+  store ptr %add.ptr.i.i.i.i.i, ptr %13, align 8
   %_gc_prev.i.i.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 -8
-  %15 = load i64, ptr %_gc_prev.i.i.i.i.i, align 8
-  %and.i.i.i.i.i = and i64 %15, 3
+  %14 = load i64, ptr %_gc_prev.i.i.i.i.i, align 8
+  %and.i.i.i.i.i = and i64 %14, 3
   %or.i.i.i.i.i = or i64 %and.i.i.i.i.i, %12
   store i64 %or.i.i.i.i.i, ptr %_gc_prev.i.i.i.i.i, align 8
-  %16 = ptrtoint ptr %11 to i64
-  store i64 %16, ptr %add.ptr.i.i.i.i.i, align 8
-  store i64 %14, ptr %_gc_prev.i.i.i.i, align 8
+  store ptr %11, ptr %add.ptr.i.i.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i.i, ptr %_gc_prev.i.i.i.i, align 8
   %master.i.i = getelementptr inbounds %struct._PyManagedBufferObject, ptr %call.i.i.i, i64 0, i32 3
   %call1.i.i = tail call i32 @PyObject_GetBuffer(ptr noundef nonnull %call.i16, ptr noundef nonnull %master.i.i, i32 noundef 284) #10
   %cmp2.i.i = icmp slt i32 %call1.i.i, 0
@@ -1828,13 +1816,13 @@ if.end.i35.i:                                     ; preds = %if.end.i18
 
 if.then3.i.i:                                     ; preds = %if.end.i35.i
   store ptr null, ptr %obj.i.i.i, align 8
-  %17 = load i64, ptr %call.i.i.i, align 8
-  %18 = and i64 %17, 2147483648
-  %cmp.i7.not.i.i = icmp eq i64 %18, 0
+  %15 = load i64, ptr %call.i.i.i, align 8
+  %16 = and i64 %15, 2147483648
+  %cmp.i7.not.i.i = icmp eq i64 %16, 0
   br i1 %cmp.i7.not.i.i, label %if.end.i.i.i, label %_PyManagedBuffer_FromObject.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.then3.i.i
-  %dec.i.i.i = add i64 %17, -1
+  %dec.i.i.i = add i64 %15, -1
   store i64 %dec.i.i.i, ptr %call.i.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %_PyManagedBuffer_FromObject.exit.i
@@ -1845,13 +1833,13 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
 
 _PyManagedBuffer_FromObject.exit.i:               ; preds = %if.then1.i.i.i, %if.end.i.i.i, %if.then3.i.i, %if.end.i35.i, %if.end.i18
   %retval.0.i.i = phi ptr [ null, %if.then3.i.i ], [ null, %if.then1.i.i.i ], [ null, %if.end.i.i.i ], [ %call.i.i.i, %if.end.i35.i ], [ null, %if.end.i18 ]
-  %19 = load i64, ptr %call.i16, align 8
-  %20 = and i64 %19, 2147483648
-  %cmp.i59.not.i = icmp eq i64 %20, 0
+  %17 = load i64, ptr %call.i16, align 8
+  %18 = and i64 %17, 2147483648
+  %cmp.i59.not.i = icmp eq i64 %18, 0
   br i1 %cmp.i59.not.i, label %if.end.i52.i, label %Py_DECREF.exit57.i
 
 if.end.i52.i:                                     ; preds = %_PyManagedBuffer_FromObject.exit.i
-  %dec.i53.i = add i64 %19, -1
+  %dec.i53.i = add i64 %17, -1
   store i64 %dec.i53.i, ptr %call.i16, align 8
   %cmp.i54.i = icmp eq i64 %dec.i53.i, 0
   br i1 %cmp.i54.i, label %if.then1.i55.i, label %Py_DECREF.exit57.i
@@ -1866,51 +1854,51 @@ Py_DECREF.exit57.i:                               ; preds = %if.then1.i55.i, %if
 
 if.end4.i:                                        ; preds = %Py_DECREF.exit57.i
   %format.i = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call.i, i64 0, i32 5, i32 6
-  %21 = load ptr, ptr %format.i, align 8
-  %cmp.not.i.i = icmp eq ptr %21, null
+  %19 = load ptr, ptr %format.i, align 8
+  %cmp.not.i.i = icmp eq ptr %19, null
   br i1 %cmp.not.i.i, label %if.end8.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end4.i
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #11
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #11
   %add.i.i = add i64 %call.i.i, 1
   %call1.i36.i = tail call ptr @PyMem_Malloc(i64 noundef %add.i.i) #10
   %cmp2.i37.i = icmp eq ptr %call1.i36.i, null
   br i1 %cmp2.i37.i, label %if.then7.i, label %if.end.i38.i
 
 if.end.i38.i:                                     ; preds = %if.then.i.i
-  %call5.i.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call1.i36.i, ptr noundef nonnull dereferenceable(1) %21) #10
+  %call5.i.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call1.i36.i, ptr noundef nonnull dereferenceable(1) %19) #10
   %format.i.i = getelementptr inbounds %struct._PyManagedBufferObject, ptr %retval.0.i.i, i64 0, i32 3, i32 6
   store ptr %call1.i36.i, ptr %format.i.i, align 8
   %flags.i.i = getelementptr inbounds %struct._PyManagedBufferObject, ptr %retval.0.i.i, i64 0, i32 1
-  %22 = load i32, ptr %flags.i.i, align 8
-  %or.i.i = or i32 %22, 2
+  %20 = load i32, ptr %flags.i.i, align 8
+  %or.i.i = or i32 %20, 2
   store i32 %or.i.i, ptr %flags.i.i, align 8
   br label %if.end8.i
 
 if.then7.i:                                       ; preds = %if.then.i.i
   %call4.i.i = tail call ptr @PyErr_NoMemory() #10
-  %23 = load i64, ptr %retval.0.i.i, align 8
-  %24 = and i64 %23, 2147483648
-  %cmp.i62.not.i = icmp eq i64 %24, 0
+  %21 = load i64, ptr %retval.0.i.i, align 8
+  %22 = and i64 %21, 2147483648
+  %cmp.i62.not.i = icmp eq i64 %22, 0
   br i1 %cmp.i62.not.i, label %if.end.i43.i, label %memory_from_contiguous_copy.exit
 
 if.end.i43.i:                                     ; preds = %if.then7.i
-  %dec.i44.i = add i64 %23, -1
+  %dec.i44.i = add i64 %21, -1
   store i64 %dec.i44.i, ptr %retval.0.i.i, align 8
   %cmp.i45.i = icmp eq i64 %dec.i44.i, 0
   br i1 %cmp.i45.i, label %return.sink.split.i, label %memory_from_contiguous_copy.exit
 
 if.end8.i:                                        ; preds = %if.end.i38.i, %if.end4.i
   %ndim.i = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call.i, i64 0, i32 5, i32 5
-  %25 = load i32, ptr %ndim.i, align 4
-  %call9.i = tail call fastcc ptr @mbuf_add_incomplete_view(ptr noundef nonnull %retval.0.i.i, ptr noundef null, i32 noundef %25)
-  %26 = load i64, ptr %retval.0.i.i, align 8
-  %27 = and i64 %26, 2147483648
-  %cmp.i66.not.i = icmp eq i64 %27, 0
+  %23 = load i32, ptr %ndim.i, align 4
+  %call9.i = tail call fastcc ptr @mbuf_add_incomplete_view(ptr noundef nonnull %retval.0.i.i, ptr noundef null, i32 noundef %23)
+  %24 = load i64, ptr %retval.0.i.i, align 8
+  %25 = and i64 %24, 2147483648
+  %cmp.i66.not.i = icmp eq i64 %25, 0
   br i1 %cmp.i66.not.i, label %if.end.i34.i, label %Py_DECREF.exit39.i
 
 if.end.i34.i:                                     ; preds = %if.end8.i
-  %dec.i35.i = add i64 %26, -1
+  %dec.i35.i = add i64 %24, -1
   store i64 %dec.i35.i, ptr %retval.0.i.i, align 8
   %cmp.i36.i = icmp eq i64 %dec.i35.i, 0
   br i1 %cmp.i36.i, label %if.then1.i37.i, label %Py_DECREF.exit39.i
@@ -1926,11 +1914,11 @@ Py_DECREF.exit39.i:                               ; preds = %if.then1.i37.i, %if
 if.end12.i:                                       ; preds = %Py_DECREF.exit39.i
   %view.i = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call9.i, i64 0, i32 5
   %itemsize.i = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call.i, i64 0, i32 5, i32 3
-  %28 = load i64, ptr %itemsize.i, align 8
+  %26 = load i64, ptr %itemsize.i, align 8
   %itemsize13.i = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call9.i, i64 0, i32 5, i32 3
-  store i64 %28, ptr %itemsize13.i, align 8
-  %29 = load i32, ptr %ndim.i, align 4
-  %cmp1568.i = icmp sgt i32 %29, 0
+  store i64 %26, ptr %itemsize13.i, align 8
+  %27 = load i32, ptr %ndim.i, align 4
+  %cmp1568.i = icmp sgt i32 %27, 0
   br i1 %cmp1568.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end12.i
@@ -1940,16 +1928,16 @@ for.body.lr.ph.i:                                 ; preds = %if.end12.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %30 = load ptr, ptr %shape.i, align 8
-  %arrayidx.i = getelementptr i64, ptr %30, i64 %indvars.iv.i
-  %31 = load i64, ptr %arrayidx.i, align 8
-  %32 = load ptr, ptr %shape16.i, align 8
-  %arrayidx18.i = getelementptr i64, ptr %32, i64 %indvars.iv.i
-  store i64 %31, ptr %arrayidx18.i, align 8
+  %28 = load ptr, ptr %shape.i, align 8
+  %arrayidx.i = getelementptr i64, ptr %28, i64 %indvars.iv.i
+  %29 = load i64, ptr %arrayidx.i, align 8
+  %30 = load ptr, ptr %shape16.i, align 8
+  %arrayidx18.i = getelementptr i64, ptr %30, i64 %indvars.iv.i
+  store i64 %29, ptr %arrayidx18.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %33 = load i32, ptr %ndim.i, align 4
-  %34 = sext i32 %33 to i64
-  %cmp15.i = icmp slt i64 %indvars.iv.next.i, %34
+  %31 = load i32, ptr %ndim.i, align 4
+  %32 = sext i32 %31 to i64
+  %cmp15.i = icmp slt i64 %indvars.iv.next.i, %32
   br i1 %cmp15.i, label %for.body.i, label %for.end.i.loopexit, !llvm.loop !7
 
 for.end.i.loopexit:                               ; preds = %for.body.i
@@ -1957,22 +1945,22 @@ for.end.i.loopexit:                               ; preds = %for.body.i
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.i.loopexit, %if.end12.i
-  %35 = phi i64 [ %.pre, %for.end.i.loopexit ], [ %28, %if.end12.i ]
-  %36 = and i8 %order, -3
-  %or.cond.i = icmp eq i8 %36, 65
+  %33 = phi i64 [ %.pre, %for.end.i.loopexit ], [ %26, %if.end12.i ]
+  %34 = and i8 %order, -3
+  %or.cond.i = icmp eq i8 %34, 65
   %strides.i.i = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call9.i, i64 0, i32 5, i32 8
-  %37 = load ptr, ptr %strides.i.i, align 8
+  %35 = load ptr, ptr %strides.i.i, align 8
   br i1 %or.cond.i, label %if.then24.i, label %if.else.i
 
 if.then24.i:                                      ; preds = %for.end.i
   %ndim.i.i = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call9.i, i64 0, i32 5, i32 5
-  %38 = load i32, ptr %ndim.i.i, align 4
-  %sub.i.i = add i32 %38, -1
+  %36 = load i32, ptr %ndim.i.i, align 4
+  %sub.i.i = add i32 %36, -1
   %idxprom.i.i = sext i32 %sub.i.i to i64
-  %arrayidx.i.i = getelementptr i64, ptr %37, i64 %idxprom.i.i
-  store i64 %35, ptr %arrayidx.i.i, align 8
-  %39 = load i32, ptr %ndim.i.i, align 4
-  %sub2.i.i = add i32 %39, -2
+  %arrayidx.i.i = getelementptr i64, ptr %35, i64 %idxprom.i.i
+  store i64 %33, ptr %arrayidx.i.i, align 8
+  %37 = load i32, ptr %ndim.i.i, align 4
+  %sub2.i.i = add i32 %37, -2
   %cmp11.i.i = icmp sgt i32 %sub2.i.i, -1
   br i1 %cmp11.i.i, label %for.body.lr.ph.i.i, label %if.end25.i
 
@@ -1983,25 +1971,25 @@ for.body.lr.ph.i.i:                               ; preds = %if.then24.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %i.012.i.i = phi i64 [ %conv.i.i, %for.body.lr.ph.i.i ], [ %dec.i42.i, %for.body.i.i ]
-  %40 = load ptr, ptr %strides.i.i, align 8
+  %38 = load ptr, ptr %strides.i.i, align 8
   %add.i41.i = add nuw nsw i64 %i.012.i.i, 1
-  %arrayidx5.i.i = getelementptr i64, ptr %40, i64 %add.i41.i
-  %41 = load i64, ptr %arrayidx5.i.i, align 8
-  %42 = load ptr, ptr %shape.i.i, align 8
-  %arrayidx7.i.i = getelementptr i64, ptr %42, i64 %add.i41.i
-  %43 = load i64, ptr %arrayidx7.i.i, align 8
-  %mul.i.i = mul i64 %43, %41
-  %arrayidx9.i.i = getelementptr i64, ptr %40, i64 %i.012.i.i
+  %arrayidx5.i.i = getelementptr i64, ptr %38, i64 %add.i41.i
+  %39 = load i64, ptr %arrayidx5.i.i, align 8
+  %40 = load ptr, ptr %shape.i.i, align 8
+  %arrayidx7.i.i = getelementptr i64, ptr %40, i64 %add.i41.i
+  %41 = load i64, ptr %arrayidx7.i.i, align 8
+  %mul.i.i = mul i64 %41, %39
+  %arrayidx9.i.i = getelementptr i64, ptr %38, i64 %i.012.i.i
   store i64 %mul.i.i, ptr %arrayidx9.i.i, align 8
   %dec.i42.i = add nsw i64 %i.012.i.i, -1
   %cmp.not.i43.i = icmp eq i64 %i.012.i.i, 0
   br i1 %cmp.not.i43.i, label %if.end25.loopexit.i, label %for.body.i.i, !llvm.loop !8
 
 if.else.i:                                        ; preds = %for.end.i
-  store i64 %35, ptr %37, align 8
+  store i64 %33, ptr %35, align 8
   %ndim.i46.i = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call9.i, i64 0, i32 5, i32 5
-  %44 = load i32, ptr %ndim.i46.i, align 4
-  %cmp11.i47.i = icmp sgt i32 %44, 1
+  %42 = load i32, ptr %ndim.i46.i, align 4
+  %cmp11.i47.i = icmp sgt i32 %42, 1
   br i1 %cmp11.i47.i, label %for.body.lr.ph.i48.i, label %if.end25.i
 
 for.body.lr.ph.i48.i:                             ; preds = %if.else.i
@@ -2010,19 +1998,19 @@ for.body.lr.ph.i48.i:                             ; preds = %if.else.i
 
 for.body.i50.i:                                   ; preds = %for.body.i50.i, %for.body.lr.ph.i48.i
   %i.012.i51.i = phi i64 [ 1, %for.body.lr.ph.i48.i ], [ %inc.i.i, %for.body.i50.i ]
-  %45 = load ptr, ptr %strides.i.i, align 8
+  %43 = load ptr, ptr %strides.i.i, align 8
   %sub.i52.i = add nsw i64 %i.012.i51.i, -1
-  %arrayidx3.i.i = getelementptr i64, ptr %45, i64 %sub.i52.i
-  %46 = load i64, ptr %arrayidx3.i.i, align 8
-  %47 = load ptr, ptr %shape.i49.i, align 8
-  %arrayidx5.i53.i = getelementptr i64, ptr %47, i64 %sub.i52.i
-  %48 = load i64, ptr %arrayidx5.i53.i, align 8
-  %mul.i54.i = mul i64 %48, %46
-  %arrayidx7.i55.i = getelementptr i64, ptr %45, i64 %i.012.i51.i
+  %arrayidx3.i.i = getelementptr i64, ptr %43, i64 %sub.i52.i
+  %44 = load i64, ptr %arrayidx3.i.i, align 8
+  %45 = load ptr, ptr %shape.i49.i, align 8
+  %arrayidx5.i53.i = getelementptr i64, ptr %45, i64 %sub.i52.i
+  %46 = load i64, ptr %arrayidx5.i53.i, align 8
+  %mul.i54.i = mul i64 %46, %44
+  %arrayidx7.i55.i = getelementptr i64, ptr %43, i64 %i.012.i51.i
   store i64 %mul.i54.i, ptr %arrayidx7.i55.i, align 8
   %inc.i.i = add nuw nsw i64 %i.012.i51.i, 1
-  %49 = load i32, ptr %ndim.i46.i, align 4
-  %conv.i56.i = sext i32 %49 to i64
+  %47 = load i32, ptr %ndim.i46.i, align 4
+  %conv.i56.i = sext i32 %47 to i64
   %cmp.i57.i = icmp slt i64 %inc.i.i, %conv.i56.i
   br i1 %cmp.i57.i, label %for.body.i50.i, label %if.end25.i, !llvm.loop !9
 
@@ -2031,26 +2019,26 @@ if.end25.loopexit.i:                              ; preds = %for.body.i.i
   br label %if.end25.i
 
 if.end25.i:                                       ; preds = %for.body.i50.i, %if.end25.loopexit.i, %if.else.i, %if.then24.i
-  %50 = phi i32 [ %.pre.i, %if.end25.loopexit.i ], [ %44, %if.else.i ], [ %39, %if.then24.i ], [ %49, %for.body.i50.i ]
+  %48 = phi i32 [ %.pre.i, %if.end25.loopexit.i ], [ %42, %if.else.i ], [ %37, %if.then24.i ], [ %47, %for.body.i50.i ]
   %suboffsets.i = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call9.i, i64 0, i32 5, i32 9
   store ptr null, ptr %suboffsets.i, align 8
-  switch i32 %50, label %init_flags.exit.i [
+  switch i32 %48, label %init_flags.exit.i [
     i32 0, label %init_flags.exit.thread.i
     i32 1, label %sw.bb2.i.i
   ]
 
 sw.bb2.i.i:                                       ; preds = %if.end25.i
   %shape.i59.i = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call9.i, i64 0, i32 5, i32 7
-  %51 = load ptr, ptr %shape.i59.i, align 8
-  %52 = load i64, ptr %51, align 8
-  %cmp.i60.i = icmp eq i64 %52, 1
+  %49 = load ptr, ptr %shape.i59.i, align 8
+  %50 = load i64, ptr %49, align 8
+  %cmp.i60.i = icmp eq i64 %50, 1
   br i1 %cmp.i60.i, label %if.then.i63.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %sw.bb2.i.i
-  %53 = load ptr, ptr %strides.i.i, align 8
-  %54 = load i64, ptr %53, align 8
-  %55 = load i64, ptr %itemsize13.i, align 8
-  %cmp4.i.i = icmp eq i64 %54, %55
+  %51 = load ptr, ptr %strides.i.i, align 8
+  %52 = load i64, ptr %51, align 8
+  %53 = load i64, ptr %itemsize13.i, align 8
+  %cmp4.i.i = icmp eq i64 %52, %53
   br i1 %cmp4.i.i, label %if.then.i63.i, label %init_flags.exit.thread.i
 
 if.then.i63.i:                                    ; preds = %lor.lhs.false.i.i, %sw.bb2.i.i
@@ -2066,26 +2054,26 @@ init_flags.exit.i:                                ; preds = %if.end25.i
   %spec.select14.i.i = select i1 %tobool10.not.i.i, i32 %spec.select.i.i, i32 %or12.i.i
   %.pre72.i = load ptr, ptr %suboffsets.i, align 8
   %.pre72.fr.i = freeze ptr %.pre72.i
-  %56 = icmp eq ptr %.pre72.fr.i, null
-  %spec.select.i = select i1 %56, i32 %spec.select14.i.i, i32 16
+  %54 = icmp eq ptr %.pre72.fr.i, null
+  %spec.select.i = select i1 %54, i32 %spec.select14.i.i, i32 16
   br label %init_flags.exit.thread.i
 
 init_flags.exit.thread.i:                         ; preds = %init_flags.exit.i, %if.then.i63.i, %lor.lhs.false.i.i, %if.end25.i
-  %57 = phi i32 [ 14, %if.end25.i ], [ 0, %lor.lhs.false.i.i ], [ 6, %if.then.i63.i ], [ %spec.select.i, %init_flags.exit.i ]
+  %55 = phi i32 [ 14, %if.end25.i ], [ 0, %lor.lhs.false.i.i ], [ 6, %if.then.i63.i ], [ %spec.select.i, %init_flags.exit.i ]
   %flags18.i.i = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call9.i, i64 0, i32 3
-  store i32 %57, ptr %flags18.i.i, align 8
+  store i32 %55, ptr %flags18.i.i, align 8
   %call26.i = tail call fastcc i32 @copy_buffer(ptr noundef nonnull %view.i, ptr noundef nonnull %view1), !range !10
   %cmp27.i = icmp slt i32 %call26.i, 0
   br i1 %cmp27.i, label %if.then29.i, label %memory_from_contiguous_copy.exit
 
 if.then29.i:                                      ; preds = %init_flags.exit.thread.i
-  %58 = load i64, ptr %call9.i, align 8
-  %59 = and i64 %58, 2147483648
-  %cmp.i70.not.i = icmp eq i64 %59, 0
+  %56 = load i64, ptr %call9.i, align 8
+  %57 = and i64 %56, 2147483648
+  %cmp.i70.not.i = icmp eq i64 %57, 0
   br i1 %cmp.i70.not.i, label %if.end.i.i, label %memory_from_contiguous_copy.exit
 
 if.end.i.i:                                       ; preds = %if.then29.i
-  %dec.i.i = add i64 %58, -1
+  %dec.i.i = add i64 %56, -1
   store i64 %dec.i.i, ptr %call9.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %return.sink.split.i, label %memory_from_contiguous_copy.exit
@@ -2097,13 +2085,13 @@ return.sink.split.i:                              ; preds = %if.end.i.i, %if.end
 
 memory_from_contiguous_copy.exit:                 ; preds = %if.end11, %Py_DECREF.exit57.i, %if.then7.i, %if.end.i43.i, %Py_DECREF.exit39.i, %init_flags.exit.thread.i, %if.then29.i, %if.end.i.i, %return.sink.split.i
   %retval.0.i = phi ptr [ null, %if.end11 ], [ null, %Py_DECREF.exit57.i ], [ null, %if.then7.i ], [ null, %if.end.i43.i ], [ null, %Py_DECREF.exit39.i ], [ null, %if.then29.i ], [ null, %if.end.i.i ], [ %call9.i, %init_flags.exit.thread.i ], [ null, %return.sink.split.i ]
-  %60 = load i64, ptr %call.i, align 8
-  %61 = and i64 %60, 2147483648
-  %cmp.i39.not = icmp eq i64 %61, 0
+  %58 = load i64, ptr %call.i, align 8
+  %59 = and i64 %58, 2147483648
+  %cmp.i39.not = icmp eq i64 %59, 0
   br i1 %cmp.i39.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %memory_from_contiguous_copy.exit
-  %dec.i = add i64 %60, -1
+  %dec.i = add i64 %58, -1
   store i64 %dec.i, ptr %call.i, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %return.sink.split, label %return
@@ -3419,16 +3407,14 @@ _Py_NewRef.exit:                                  ; preds = %memory_length.exit,
   %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %21, i64 0, i32 1
   %22 = load i64, ptr %_gc_prev.i, align 8
   %23 = inttoptr i64 %22 to ptr
-  %24 = ptrtoint ptr %add.ptr.i.i to i64
-  store i64 %24, ptr %23, align 8
+  store ptr %add.ptr.i.i, ptr %23, align 8
   %_gc_prev.i.i = getelementptr i8, ptr %call11, i64 -8
-  %25 = load i64, ptr %_gc_prev.i.i, align 8
-  %and.i.i = and i64 %25, 3
+  %24 = load i64, ptr %_gc_prev.i.i, align 8
+  %and.i.i = and i64 %24, 3
   %or.i.i = or i64 %and.i.i, %22
   store i64 %or.i.i, ptr %_gc_prev.i.i, align 8
-  %26 = ptrtoint ptr %21 to i64
-  store i64 %26, ptr %add.ptr.i.i, align 8
-  store i64 %24, ptr %_gc_prev.i, align 8
+  store ptr %21, ptr %add.ptr.i.i, align 8
+  store ptr %add.ptr.i.i, ptr %_gc_prev.i, align 8
   br label %return
 
 return:                                           ; preds = %adjust_fmt.exit.thread, %if.end10, %_Py_NewRef.exit, %if.then4, %if.then1, %if.then
@@ -3587,47 +3573,45 @@ if.end3:                                          ; preds = %entry
   %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %3, i64 0, i32 1
   %4 = load i64, ptr %_gc_prev.i.i, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = ptrtoint ptr %add.ptr.i.i.i to i64
-  store i64 %6, ptr %5, align 8
+  store ptr %add.ptr.i.i.i, ptr %5, align 8
   %_gc_prev.i.i.i = getelementptr i8, ptr %call.i, i64 -8
-  %7 = load i64, ptr %_gc_prev.i.i.i, align 8
-  %and.i.i.i = and i64 %7, 3
+  %6 = load i64, ptr %_gc_prev.i.i.i, align 8
+  %and.i.i.i = and i64 %6, 3
   %or.i.i.i = or i64 %and.i.i.i, %4
   store i64 %or.i.i.i, ptr %_gc_prev.i.i.i, align 8
-  %8 = ptrtoint ptr %3 to i64
-  store i64 %8, ptr %add.ptr.i.i.i, align 8
-  store i64 %6, ptr %_gc_prev.i.i, align 8
+  store ptr %3, ptr %add.ptr.i.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %_gc_prev.i.i, align 8
   %view = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call.i, i64 0, i32 5
   %obj.i = getelementptr inbounds %struct.Py_buffer, ptr %spec.select, i64 0, i32 1
-  %9 = load ptr, ptr %obj.i, align 8
+  %7 = load ptr, ptr %obj.i, align 8
   %obj1.i = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call.i, i64 0, i32 5, i32 1
-  store ptr %9, ptr %obj1.i, align 8
-  %10 = load ptr, ptr %spec.select, align 8
-  store ptr %10, ptr %view, align 8
+  store ptr %7, ptr %obj1.i, align 8
+  %8 = load ptr, ptr %spec.select, align 8
+  store ptr %8, ptr %view, align 8
   %len.i = getelementptr inbounds %struct.Py_buffer, ptr %spec.select, i64 0, i32 2
-  %11 = load i64, ptr %len.i, align 8
+  %9 = load i64, ptr %len.i, align 8
   %len3.i = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call.i, i64 0, i32 5, i32 2
-  store i64 %11, ptr %len3.i, align 8
+  store i64 %9, ptr %len3.i, align 8
   %itemsize.i = getelementptr inbounds %struct.Py_buffer, ptr %spec.select, i64 0, i32 3
-  %12 = load i64, ptr %itemsize.i, align 8
+  %10 = load i64, ptr %itemsize.i, align 8
   %itemsize4.i = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call.i, i64 0, i32 5, i32 3
-  store i64 %12, ptr %itemsize4.i, align 8
+  store i64 %10, ptr %itemsize4.i, align 8
   %readonly.i = getelementptr inbounds %struct.Py_buffer, ptr %spec.select, i64 0, i32 4
-  %13 = load i32, ptr %readonly.i, align 8
+  %11 = load i32, ptr %readonly.i, align 8
   %readonly5.i = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call.i, i64 0, i32 5, i32 4
-  store i32 %13, ptr %readonly5.i, align 8
+  store i32 %11, ptr %readonly5.i, align 8
   %format.i = getelementptr inbounds %struct.Py_buffer, ptr %spec.select, i64 0, i32 6
-  %14 = load ptr, ptr %format.i, align 8
-  %tobool.not.i = icmp eq ptr %14, null
-  %spec.select.i = select i1 %tobool.not.i, ptr @.str.12, ptr %14
+  %12 = load ptr, ptr %format.i, align 8
+  %tobool.not.i = icmp eq ptr %12, null
+  %spec.select.i = select i1 %tobool.not.i, ptr @.str.12, ptr %12
   %format7.i = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call.i, i64 0, i32 5, i32 6
   store ptr %spec.select.i, ptr %format7.i, align 8
   %internal.i = getelementptr inbounds %struct.Py_buffer, ptr %spec.select, i64 0, i32 10
-  %15 = load ptr, ptr %internal.i, align 8
+  %13 = load ptr, ptr %internal.i, align 8
   %internal8.i = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call.i, i64 0, i32 5, i32 10
-  store ptr %15, ptr %internal8.i, align 8
-  %16 = load i32, ptr %mbuf, align 8
-  %add.i.i = add i32 %16, 1
+  store ptr %13, ptr %internal8.i, align 8
+  %14 = load i32, ptr %mbuf, align 8
+  %add.i.i = add i32 %14, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i, label %_Py_NewRef.exit, label %if.end.i.i
 
@@ -3638,8 +3622,8 @@ if.end.i.i:                                       ; preds = %if.end3
 _Py_NewRef.exit:                                  ; preds = %if.end3, %if.end.i.i
   store ptr %mbuf, ptr %mbuf.i, align 8
   %exports = getelementptr inbounds %struct._PyManagedBufferObject, ptr %mbuf, i64 0, i32 2
-  %17 = load i64, ptr %exports, align 8
-  %inc = add i64 %17, 1
+  %15 = load i64, ptr %exports, align 8
+  %inc = add i64 %15, 1
   store i64 %inc, ptr %exports, align 8
   br label %return
 
@@ -6628,26 +6612,24 @@ if.end.i19:                                       ; preds = %if.end23
   %_gc_prev.i.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %3, i64 0, i32 1
   %4 = load i64, ptr %_gc_prev.i.i.i, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  store i64 %6, ptr %5, align 8
+  store ptr %add.ptr.i.i.i.i, ptr %5, align 8
   %_gc_prev.i.i.i.i = getelementptr i8, ptr %call.i.i, i64 -8
-  %7 = load i64, ptr %_gc_prev.i.i.i.i, align 8
-  %and.i.i.i.i = and i64 %7, 3
+  %6 = load i64, ptr %_gc_prev.i.i.i.i, align 8
+  %and.i.i.i.i = and i64 %6, 3
   %or.i.i.i.i = or i64 %and.i.i.i.i, %4
   store i64 %or.i.i.i.i, ptr %_gc_prev.i.i.i.i, align 8
-  %8 = ptrtoint ptr %3 to i64
-  store i64 %8, ptr %add.ptr.i.i.i.i, align 8
-  store i64 %6, ptr %_gc_prev.i.i.i, align 8
+  store ptr %3, ptr %add.ptr.i.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i, ptr %_gc_prev.i.i.i, align 8
   %master.i = getelementptr inbounds %struct._PyManagedBufferObject, ptr %call.i.i, i64 0, i32 3
   %call2.i = tail call i32 @PyBuffer_FillInfo(ptr noundef nonnull %master.i, ptr noundef null, ptr noundef nonnull %call18, i64 noundef %itemsize, i32 noundef 0, i32 noundef 284) #10
   %call3.i = tail call fastcc ptr @mbuf_add_view(ptr noundef nonnull %call.i.i, ptr noundef null)
-  %9 = load i64, ptr %call.i.i, align 8
-  %10 = and i64 %9, 2147483648
-  %cmp.i5.not.i = icmp eq i64 %10, 0
+  %7 = load i64, ptr %call.i.i, align 8
+  %8 = and i64 %7, 2147483648
+  %cmp.i5.not.i = icmp eq i64 %8, 0
   br i1 %cmp.i5.not.i, label %if.end.i.i, label %PyMemoryView_FromMemory.exit
 
 if.end.i.i:                                       ; preds = %if.end.i19
-  %dec.i.i = add i64 %9, -1
+  %dec.i.i = add i64 %7, -1
   store i64 %dec.i.i, ptr %call.i.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %PyMemoryView_FromMemory.exit
@@ -6666,13 +6648,13 @@ if.then.i20:                                      ; preds = %Py_XDECREF.exit12.i
   %structobj.0 = phi ptr [ %call9, %PyMemoryView_FromMemory.exit ], [ null, %error ], [ %structobj.1.ph58, %Py_XDECREF.exit12.i ]
   %format.0 = phi ptr [ %call5, %PyMemoryView_FromMemory.exit ], [ null, %error ], [ %call5, %Py_XDECREF.exit12.i ]
   %x.0 = phi ptr [ %call.i, %PyMemoryView_FromMemory.exit ], [ null, %error ], [ null, %Py_XDECREF.exit12.i ]
-  %11 = load i64, ptr %call, align 8
-  %12 = and i64 %11, 2147483648
-  %cmp.i2.not.i = icmp eq i64 %12, 0
+  %9 = load i64, ptr %call, align 8
+  %10 = and i64 %9, 2147483648
+  %cmp.i2.not.i = icmp eq i64 %10, 0
   br i1 %cmp.i2.not.i, label %if.end.i.i22, label %Py_XDECREF.exit
 
 if.end.i.i22:                                     ; preds = %if.then.i20
-  %dec.i.i23 = add i64 %11, -1
+  %dec.i.i23 = add i64 %9, -1
   store i64 %dec.i.i23, ptr %call, align 8
   %cmp.i.i24 = icmp eq i64 %dec.i.i23, 0
   br i1 %cmp.i.i24, label %if.then1.i.i25, label %Py_XDECREF.exit
@@ -6686,13 +6668,13 @@ Py_XDECREF.exit:                                  ; preds = %if.then.i20, %if.en
   br i1 %cmp.not.i26, label %Py_XDECREF.exit34, label %if.then.i27
 
 if.then.i27:                                      ; preds = %Py_XDECREF.exit
-  %13 = load i64, ptr %format.0, align 8
-  %14 = and i64 %13, 2147483648
-  %cmp.i2.not.i28 = icmp eq i64 %14, 0
+  %11 = load i64, ptr %format.0, align 8
+  %12 = and i64 %11, 2147483648
+  %cmp.i2.not.i28 = icmp eq i64 %12, 0
   br i1 %cmp.i2.not.i28, label %if.end.i.i30, label %Py_XDECREF.exit34
 
 if.end.i.i30:                                     ; preds = %if.then.i27
-  %dec.i.i31 = add i64 %13, -1
+  %dec.i.i31 = add i64 %11, -1
   store i64 %dec.i.i31, ptr %format.0, align 8
   %cmp.i.i32 = icmp eq i64 %dec.i.i31, 0
   br i1 %cmp.i.i32, label %if.then1.i.i33, label %Py_XDECREF.exit34
@@ -6706,13 +6688,13 @@ Py_XDECREF.exit34:                                ; preds = %Py_XDECREF.exit, %i
   br i1 %cmp.not.i35, label %return, label %if.then.i36
 
 if.then.i36:                                      ; preds = %Py_XDECREF.exit34
-  %15 = load i64, ptr %structobj.0, align 8
-  %16 = and i64 %15, 2147483648
-  %cmp.i2.not.i37 = icmp eq i64 %16, 0
+  %13 = load i64, ptr %structobj.0, align 8
+  %14 = and i64 %13, 2147483648
+  %cmp.i2.not.i37 = icmp eq i64 %14, 0
   br i1 %cmp.i2.not.i37, label %if.end.i.i39, label %return
 
 if.end.i.i39:                                     ; preds = %if.then.i36
-  %dec.i.i40 = add i64 %15, -1
+  %dec.i.i40 = add i64 %13, -1
   store i64 %dec.i.i40, ptr %structobj.0, align 8
   %cmp.i.i41 = icmp eq i64 %dec.i.i40, 0
   br i1 %cmp.i.i41, label %if.then1.i.i42, label %return
@@ -6732,13 +6714,13 @@ if.then.i44:                                      ; preds = %PyMemoryView_FromMe
   br i1 %cmp.not.i.i, label %Py_XDECREF.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i44
-  %17 = load i64, ptr %.pr, align 8
-  %18 = and i64 %17, 2147483648
-  %cmp.i2.not.i.i = icmp eq i64 %18, 0
+  %15 = load i64, ptr %.pr, align 8
+  %16 = and i64 %15, 2147483648
+  %cmp.i2.not.i.i = icmp eq i64 %16, 0
   br i1 %cmp.i2.not.i.i, label %if.end.i.i.i, label %Py_XDECREF.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
-  %dec.i.i.i = add i64 %17, -1
+  %dec.i.i.i = add i64 %15, -1
   store i64 %dec.i.i.i, ptr %.pr, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %Py_XDECREF.exit.i
@@ -6750,30 +6732,30 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
 Py_XDECREF.exit.i:                                ; preds = %if.end12, %if.then1.i.i.i, %if.end.i.i.i, %if.then.i.i, %if.then.i44
   %structobj.1.ph58 = phi ptr [ %structobj.1.ph.ph, %if.then1.i.i.i ], [ %structobj.1.ph.ph, %if.end.i.i.i ], [ %structobj.1.ph.ph, %if.then.i.i ], [ %structobj.1.ph.ph, %if.then.i44 ], [ %call9, %if.end12 ]
   %mview.i = getelementptr inbounds %struct.unpacker, ptr %call.i, i64 0, i32 1
-  %19 = load ptr, ptr %mview.i, align 8
-  %cmp.not.i5.i = icmp eq ptr %19, null
+  %17 = load ptr, ptr %mview.i, align 8
+  %cmp.not.i5.i = icmp eq ptr %17, null
   br i1 %cmp.not.i5.i, label %Py_XDECREF.exit12.i, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %Py_XDECREF.exit.i
-  %20 = load i64, ptr %19, align 8
-  %21 = and i64 %20, 2147483648
-  %cmp.i2.not.i7.i = icmp eq i64 %21, 0
+  %18 = load i64, ptr %17, align 8
+  %19 = and i64 %18, 2147483648
+  %cmp.i2.not.i7.i = icmp eq i64 %19, 0
   br i1 %cmp.i2.not.i7.i, label %if.end.i.i8.i, label %Py_XDECREF.exit12.i
 
 if.end.i.i8.i:                                    ; preds = %if.then.i6.i
-  %dec.i.i9.i = add i64 %20, -1
-  store i64 %dec.i.i9.i, ptr %19, align 8
+  %dec.i.i9.i = add i64 %18, -1
+  store i64 %dec.i.i9.i, ptr %17, align 8
   %cmp.i.i10.i = icmp eq i64 %dec.i.i9.i, 0
   br i1 %cmp.i.i10.i, label %if.then1.i.i11.i, label %Py_XDECREF.exit12.i
 
 if.then1.i.i11.i:                                 ; preds = %if.end.i.i8.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %19) #10
+  tail call void @_Py_Dealloc(ptr noundef nonnull %17) #10
   br label %Py_XDECREF.exit12.i
 
 Py_XDECREF.exit12.i:                              ; preds = %if.then1.i.i11.i, %if.end.i.i8.i, %if.then.i6.i, %Py_XDECREF.exit.i
   %item.i = getelementptr inbounds %struct.unpacker, ptr %call.i, i64 0, i32 2
-  %22 = load ptr, ptr %item.i, align 8
-  tail call void @PyMem_Free(ptr noundef %22) #10
+  %20 = load ptr, ptr %item.i, align 8
+  tail call void @PyMem_Free(ptr noundef %20) #10
   tail call void @PyMem_Free(ptr noundef nonnull %call.i) #10
   br label %if.then.i20
 

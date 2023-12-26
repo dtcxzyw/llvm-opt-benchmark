@@ -552,27 +552,26 @@ if.then24:                                        ; preds = %if.else19
   %10 = load i64, ptr %glref.i, align 8
   %11 = inttoptr i64 %10 to ptr
   %tmpbuf.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 11
-  %12 = ptrtoint ptr %L to i64
   %L1.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 11, i32 3
-  store i64 %12, ptr %L1.i, align 8
+  store ptr %L, ptr %L1.i, align 8
   %b.i = getelementptr inbounds %struct.global_State, ptr %11, i64 0, i32 11, i32 2
-  %13 = load ptr, ptr %b.i, align 8
-  store ptr %13, ptr %tmpbuf.i, align 8
-  %14 = load double, ptr %o, align 8
-  %call25 = tail call ptr @lj_strfmt_putfnum(ptr noundef nonnull %tmpbuf.i, i32 noundef 251658293, double noundef %14) #13
-  %15 = load ptr, ptr %call25, align 8
+  %12 = load ptr, ptr %b.i, align 8
+  store ptr %12, ptr %tmpbuf.i, align 8
+  %13 = load double, ptr %o, align 8
+  %call25 = tail call ptr @lj_strfmt_putfnum(ptr noundef nonnull %tmpbuf.i, i32 noundef 251658293, double noundef %13) #13
+  %14 = load ptr, ptr %call25, align 8
   %b = getelementptr inbounds %struct.SBuf, ptr %call25, i64 0, i32 2
-  %16 = load ptr, ptr %b, align 8
-  %sub.ptr.lhs.cast30 = ptrtoint ptr %15 to i64
-  %sub.ptr.rhs.cast31 = ptrtoint ptr %16 to i64
+  %15 = load ptr, ptr %b, align 8
+  %sub.ptr.lhs.cast30 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast31 = ptrtoint ptr %15 to i64
   %sub.ptr.sub32 = sub i64 %sub.ptr.lhs.cast30, %sub.ptr.rhs.cast31
   %conv33 = trunc i64 %sub.ptr.sub32 to i32
   store i32 %conv33, ptr %lenp, align 4
-  %17 = load ptr, ptr %b, align 8
+  %16 = load ptr, ptr %b, align 8
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %if.else19, %if.then24, %if.then13, %if.then
-  %retval.0 = phi ptr [ %add.ptr, %if.then ], [ %9, %if.then13 ], [ %17, %if.then24 ], [ null, %if.else19 ], [ null, %land.lhs.true ]
+  %retval.0 = phi ptr [ %add.ptr, %if.then ], [ %9, %if.then13 ], [ %16, %if.then24 ], [ null, %if.else19 ], [ null, %land.lhs.true ]
   ret ptr %retval.0
 }
 
@@ -2199,12 +2198,11 @@ entry:
   %0 = load i64, ptr %glref.i, align 8
   %1 = inttoptr i64 %0 to ptr
   %tmpbuf.i = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 11
-  %2 = ptrtoint ptr %L to i64
   %L1.i = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 11, i32 3
-  store i64 %2, ptr %L1.i, align 8
+  store ptr %L, ptr %L1.i, align 8
   %b.i106 = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 11, i32 2
-  %3 = load ptr, ptr %b.i106, align 8
-  store ptr %3, ptr %tmpbuf.i, align 8
+  %2 = load ptr, ptr %b.i106, align 8
+  store ptr %2, ptr %tmpbuf.i, align 8
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %fmt) #15
   store ptr %fmt, ptr %fs, align 8
   %idx.ext.i = and i64 %call1, 4294967295
@@ -2217,7 +2215,7 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %overflow_arg_area_p69 = getelementptr inbounds %struct.__va_list_tag, ptr %argp, i64 0, i32 2
-  %4 = getelementptr inbounds %struct.__va_list_tag, ptr %argp, i64 0, i32 3
+  %3 = getelementptr inbounds %struct.__va_list_tag, ptr %argp, i64 0, i32 3
   %e.i.i47 = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 11, i32 1
   %fp_offset_p = getelementptr inbounds %struct.__va_list_tag, ptr %argp, i64 0, i32 1
   %str4 = getelementptr inbounds %struct.FormatState, ptr %fs, i64 0, i32 2
@@ -2238,9 +2236,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   ]
 
 sw.bb:                                            ; preds = %while.body
-  %5 = load ptr, ptr %str4, align 8
-  %6 = load i32, ptr %len, align 8
-  %call5 = tail call ptr @lj_buf_putmem(ptr noundef nonnull %tmpbuf.i, ptr noundef %5, i32 noundef %6) #13
+  %4 = load ptr, ptr %str4, align 8
+  %5 = load i32, ptr %len, align 8
+  %call5 = tail call ptr @lj_buf_putmem(ptr noundef nonnull %tmpbuf.i, ptr noundef %4, i32 noundef %5) #13
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %while.body
@@ -2249,11 +2247,11 @@ sw.bb6:                                           ; preds = %while.body
   br i1 %fits_in_gp, label %vaarg.in_reg, label %vaarg.in_mem
 
 vaarg.in_reg:                                     ; preds = %sw.bb6
-  %reg_save_area = load ptr, ptr %4, align 8
-  %7 = zext nneg i32 %gp_offset to i64
-  %8 = getelementptr i8, ptr %reg_save_area, i64 %7
-  %9 = add nuw nsw i32 %gp_offset, 8
-  store i32 %9, ptr %argp, align 8
+  %reg_save_area = load ptr, ptr %3, align 8
+  %6 = zext nneg i32 %gp_offset to i64
+  %7 = getelementptr i8, ptr %reg_save_area, i64 %6
+  %8 = add nuw nsw i32 %gp_offset, 8
+  store i32 %8, ptr %argp, align 8
   br label %vaarg.end
 
 vaarg.in_mem:                                     ; preds = %sw.bb6
@@ -2263,9 +2261,9 @@ vaarg.in_mem:                                     ; preds = %sw.bb6
   br label %vaarg.end
 
 vaarg.end:                                        ; preds = %vaarg.in_mem, %vaarg.in_reg
-  %vaarg.addr = phi ptr [ %8, %vaarg.in_reg ], [ %overflow_arg_area, %vaarg.in_mem ]
-  %10 = load i32, ptr %vaarg.addr, align 4
-  %conv7 = sext i32 %10 to i64
+  %vaarg.addr = phi ptr [ %7, %vaarg.in_reg ], [ %overflow_arg_area, %vaarg.in_mem ]
+  %9 = load i32, ptr %vaarg.addr, align 4
+  %conv7 = sext i32 %9 to i64
   %call8 = tail call ptr @lj_strfmt_putfxint(ptr noundef nonnull %tmpbuf.i, i32 noundef %call256, i64 noundef %conv7)
   br label %sw.epilog
 
@@ -2275,11 +2273,11 @@ sw.bb9:                                           ; preds = %while.body
   br i1 %fits_in_gp12, label %vaarg.in_reg13, label %vaarg.in_mem15
 
 vaarg.in_reg13:                                   ; preds = %sw.bb9
-  %reg_save_area14 = load ptr, ptr %4, align 8
-  %11 = zext nneg i32 %gp_offset11 to i64
-  %12 = getelementptr i8, ptr %reg_save_area14, i64 %11
-  %13 = add nuw nsw i32 %gp_offset11, 8
-  store i32 %13, ptr %argp, align 8
+  %reg_save_area14 = load ptr, ptr %3, align 8
+  %10 = zext nneg i32 %gp_offset11 to i64
+  %11 = getelementptr i8, ptr %reg_save_area14, i64 %10
+  %12 = add nuw nsw i32 %gp_offset11, 8
+  store i32 %12, ptr %argp, align 8
   br label %vaarg.end19
 
 vaarg.in_mem15:                                   ; preds = %sw.bb9
@@ -2289,9 +2287,9 @@ vaarg.in_mem15:                                   ; preds = %sw.bb9
   br label %vaarg.end19
 
 vaarg.end19:                                      ; preds = %vaarg.in_mem15, %vaarg.in_reg13
-  %vaarg.addr20 = phi ptr [ %12, %vaarg.in_reg13 ], [ %overflow_arg_area17, %vaarg.in_mem15 ]
-  %14 = load i32, ptr %vaarg.addr20, align 4
-  %conv21 = zext i32 %14 to i64
+  %vaarg.addr20 = phi ptr [ %11, %vaarg.in_reg13 ], [ %overflow_arg_area17, %vaarg.in_mem15 ]
+  %13 = load i32, ptr %vaarg.addr20, align 4
+  %conv21 = zext i32 %13 to i64
   %call22 = tail call ptr @lj_strfmt_putfxint(ptr noundef nonnull %tmpbuf.i, i32 noundef %call256, i64 noundef %conv21)
   br label %sw.epilog
 
@@ -2301,11 +2299,11 @@ sw.bb23:                                          ; preds = %while.body
   br i1 %fits_in_fp, label %vaarg.in_reg24, label %vaarg.in_mem26
 
 vaarg.in_reg24:                                   ; preds = %sw.bb23
-  %reg_save_area25 = load ptr, ptr %4, align 8
-  %15 = zext nneg i32 %fp_offset to i64
-  %16 = getelementptr i8, ptr %reg_save_area25, i64 %15
-  %17 = add nuw nsw i32 %fp_offset, 16
-  store i32 %17, ptr %fp_offset_p, align 4
+  %reg_save_area25 = load ptr, ptr %3, align 8
+  %14 = zext nneg i32 %fp_offset to i64
+  %15 = getelementptr i8, ptr %reg_save_area25, i64 %14
+  %16 = add nuw nsw i32 %fp_offset, 16
+  store i32 %16, ptr %fp_offset_p, align 4
   br label %vaarg.end30
 
 vaarg.in_mem26:                                   ; preds = %sw.bb23
@@ -2315,9 +2313,9 @@ vaarg.in_mem26:                                   ; preds = %sw.bb23
   br label %vaarg.end30
 
 vaarg.end30:                                      ; preds = %vaarg.in_mem26, %vaarg.in_reg24
-  %vaarg.addr31 = phi ptr [ %16, %vaarg.in_reg24 ], [ %overflow_arg_area28, %vaarg.in_mem26 ]
-  %18 = load double, ptr %vaarg.addr31, align 8
-  %call32 = tail call ptr @lj_strfmt_putfnum(ptr noundef nonnull %tmpbuf.i, i32 noundef 251658293, double noundef %18) #13
+  %vaarg.addr31 = phi ptr [ %15, %vaarg.in_reg24 ], [ %overflow_arg_area28, %vaarg.in_mem26 ]
+  %17 = load double, ptr %vaarg.addr31, align 8
+  %call32 = tail call ptr @lj_strfmt_putfnum(ptr noundef nonnull %tmpbuf.i, i32 noundef 251658293, double noundef %17) #13
   br label %sw.epilog
 
 sw.bb33:                                          ; preds = %while.body
@@ -2326,11 +2324,11 @@ sw.bb33:                                          ; preds = %while.body
   br i1 %fits_in_gp36, label %vaarg.in_reg37, label %vaarg.in_mem39
 
 vaarg.in_reg37:                                   ; preds = %sw.bb33
-  %reg_save_area38 = load ptr, ptr %4, align 8
-  %19 = zext nneg i32 %gp_offset35 to i64
-  %20 = getelementptr i8, ptr %reg_save_area38, i64 %19
-  %21 = add nuw nsw i32 %gp_offset35, 8
-  store i32 %21, ptr %argp, align 8
+  %reg_save_area38 = load ptr, ptr %3, align 8
+  %18 = zext nneg i32 %gp_offset35 to i64
+  %19 = getelementptr i8, ptr %reg_save_area38, i64 %18
+  %20 = add nuw nsw i32 %gp_offset35, 8
+  store i32 %20, ptr %argp, align 8
   br label %vaarg.end43
 
 vaarg.in_mem39:                                   ; preds = %sw.bb33
@@ -2340,10 +2338,10 @@ vaarg.in_mem39:                                   ; preds = %sw.bb33
   br label %vaarg.end43
 
 vaarg.end43:                                      ; preds = %vaarg.in_mem39, %vaarg.in_reg37
-  %vaarg.addr44 = phi ptr [ %20, %vaarg.in_reg37 ], [ %overflow_arg_area41, %vaarg.in_mem39 ]
-  %22 = load ptr, ptr %vaarg.addr44, align 8
-  %cmp45 = icmp eq ptr %22, null
-  %spec.store.select = select i1 %cmp45, ptr @.str.6, ptr %22
+  %vaarg.addr44 = phi ptr [ %19, %vaarg.in_reg37 ], [ %overflow_arg_area41, %vaarg.in_mem39 ]
+  %21 = load ptr, ptr %vaarg.addr44, align 8
+  %cmp45 = icmp eq ptr %21, null
+  %spec.store.select = select i1 %cmp45, ptr @.str.6, ptr %21
   %call47 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #15
   %conv48 = trunc i64 %call47 to i32
   %call49 = tail call ptr @lj_buf_putmem(ptr noundef nonnull %tmpbuf.i, ptr noundef nonnull %spec.store.select, i32 noundef %conv48) #13
@@ -2355,11 +2353,11 @@ sw.bb50:                                          ; preds = %while.body
   br i1 %fits_in_gp53, label %vaarg.in_reg54, label %vaarg.in_mem56
 
 vaarg.in_reg54:                                   ; preds = %sw.bb50
-  %reg_save_area55 = load ptr, ptr %4, align 8
-  %23 = zext nneg i32 %gp_offset52 to i64
-  %24 = getelementptr i8, ptr %reg_save_area55, i64 %23
-  %25 = add nuw nsw i32 %gp_offset52, 8
-  store i32 %25, ptr %argp, align 8
+  %reg_save_area55 = load ptr, ptr %3, align 8
+  %22 = zext nneg i32 %gp_offset52 to i64
+  %23 = getelementptr i8, ptr %reg_save_area55, i64 %22
+  %24 = add nuw nsw i32 %gp_offset52, 8
+  store i32 %24, ptr %argp, align 8
   br label %vaarg.end60
 
 vaarg.in_mem56:                                   ; preds = %sw.bb50
@@ -2369,15 +2367,15 @@ vaarg.in_mem56:                                   ; preds = %sw.bb50
   br label %vaarg.end60
 
 vaarg.end60:                                      ; preds = %vaarg.in_mem56, %vaarg.in_reg54
-  %vaarg.addr61 = phi ptr [ %24, %vaarg.in_reg54 ], [ %overflow_arg_area58, %vaarg.in_mem56 ]
-  %26 = load i32, ptr %vaarg.addr61, align 4
-  %27 = load ptr, ptr %e.i.i47, align 8
-  %28 = load ptr, ptr %tmpbuf.i, align 8
-  %sub.ptr.lhs.cast.i.i87 = ptrtoint ptr %27 to i64
-  %sub.ptr.rhs.cast.i.i88 = ptrtoint ptr %28 to i64
+  %vaarg.addr61 = phi ptr [ %23, %vaarg.in_reg54 ], [ %overflow_arg_area58, %vaarg.in_mem56 ]
+  %25 = load i32, ptr %vaarg.addr61, align 4
+  %26 = load ptr, ptr %e.i.i47, align 8
+  %27 = load ptr, ptr %tmpbuf.i, align 8
+  %sub.ptr.lhs.cast.i.i87 = ptrtoint ptr %26 to i64
+  %sub.ptr.rhs.cast.i.i88 = ptrtoint ptr %27 to i64
   %sub.ptr.sub.i.i89 = sub i64 %sub.ptr.lhs.cast.i.i87, %sub.ptr.rhs.cast.i.i88
-  %29 = and i64 %sub.ptr.sub.i.i89, 4294967295
-  %cmp.i.i91 = icmp eq i64 %29, 0
+  %28 = and i64 %sub.ptr.sub.i.i89, 4294967295
+  %cmp.i.i91 = icmp eq i64 %28, 0
   br i1 %cmp.i.i91, label %if.then.i.i98, label %lj_buf_putb.exit100
 
 if.then.i.i98:                                    ; preds = %vaarg.end60
@@ -2385,8 +2383,8 @@ if.then.i.i98:                                    ; preds = %vaarg.end60
   br label %lj_buf_putb.exit100
 
 lj_buf_putb.exit100:                              ; preds = %vaarg.end60, %if.then.i.i98
-  %retval.i.i80.0 = phi ptr [ %call.i.i99, %if.then.i.i98 ], [ %28, %vaarg.end60 ]
-  %conv.i96 = trunc i32 %26 to i8
+  %retval.i.i80.0 = phi ptr [ %call.i.i99, %if.then.i.i98 ], [ %27, %vaarg.end60 ]
+  %conv.i96 = trunc i32 %25 to i8
   %incdec.ptr.i97 = getelementptr inbounds i8, ptr %retval.i.i80.0, i64 1
   store i8 %conv.i96, ptr %retval.i.i80.0, align 1
   store ptr %incdec.ptr.i97, ptr %tmpbuf.i, align 8
@@ -2398,11 +2396,11 @@ sw.bb62:                                          ; preds = %while.body
   br i1 %fits_in_gp65, label %vaarg.in_reg66, label %vaarg.in_mem68
 
 vaarg.in_reg66:                                   ; preds = %sw.bb62
-  %reg_save_area67 = load ptr, ptr %4, align 8
-  %30 = zext nneg i32 %gp_offset64 to i64
-  %31 = getelementptr i8, ptr %reg_save_area67, i64 %30
-  %32 = add nuw nsw i32 %gp_offset64, 8
-  store i32 %32, ptr %argp, align 8
+  %reg_save_area67 = load ptr, ptr %3, align 8
+  %29 = zext nneg i32 %gp_offset64 to i64
+  %30 = getelementptr i8, ptr %reg_save_area67, i64 %29
+  %31 = add nuw nsw i32 %gp_offset64, 8
+  store i32 %31, ptr %argp, align 8
   br label %vaarg.end72
 
 vaarg.in_mem68:                                   ; preds = %sw.bb62
@@ -2412,12 +2410,12 @@ vaarg.in_mem68:                                   ; preds = %sw.bb62
   br label %vaarg.end72
 
 vaarg.end72:                                      ; preds = %vaarg.in_mem68, %vaarg.in_reg66
-  %vaarg.addr73 = phi ptr [ %31, %vaarg.in_reg66 ], [ %overflow_arg_area70, %vaarg.in_mem68 ]
-  %33 = load ptr, ptr %vaarg.addr73, align 8
-  %34 = load ptr, ptr %e.i.i47, align 8
-  %35 = load ptr, ptr %tmpbuf.i, align 8
-  %sub.ptr.lhs.cast.i.i48 = ptrtoint ptr %34 to i64
-  %sub.ptr.rhs.cast.i.i49 = ptrtoint ptr %35 to i64
+  %vaarg.addr73 = phi ptr [ %30, %vaarg.in_reg66 ], [ %overflow_arg_area70, %vaarg.in_mem68 ]
+  %32 = load ptr, ptr %vaarg.addr73, align 8
+  %33 = load ptr, ptr %e.i.i47, align 8
+  %34 = load ptr, ptr %tmpbuf.i, align 8
+  %sub.ptr.lhs.cast.i.i48 = ptrtoint ptr %33 to i64
+  %sub.ptr.rhs.cast.i.i49 = ptrtoint ptr %34 to i64
   %sub.ptr.sub.i.i50 = sub i64 %sub.ptr.lhs.cast.i.i48, %sub.ptr.rhs.cast.i.i49
   %conv.i.i = trunc i64 %sub.ptr.sub.i.i50 to i32
   %cmp.i.i51 = icmp ult i32 %conv.i.i, 18
@@ -2428,9 +2426,9 @@ if.then.i.i52:                                    ; preds = %vaarg.end72
   br label %lj_buf_more.exit.i
 
 lj_buf_more.exit.i:                               ; preds = %if.then.i.i52, %vaarg.end72
-  %retval.i.0.i = phi ptr [ %call.i.i53, %if.then.i.i52 ], [ %35, %vaarg.end72 ]
-  %36 = ptrtoint ptr %33 to i64
-  %cmp.i7.i = icmp eq ptr %33, null
+  %retval.i.0.i = phi ptr [ %call.i.i53, %if.then.i.i52 ], [ %34, %vaarg.end72 ]
+  %35 = ptrtoint ptr %32 to i64
+  %cmp.i7.i = icmp eq ptr %32, null
   br i1 %cmp.i7.i, label %if.then.i9.i, label %if.end.i.i
 
 if.then.i9.i:                                     ; preds = %lj_buf_more.exit.i
@@ -2439,40 +2437,40 @@ if.then.i9.i:                                     ; preds = %lj_buf_more.exit.i
   br label %lj_strfmt_putptr.exit
 
 if.end.i.i:                                       ; preds = %lj_buf_more.exit.i
-  %tobool.not.i.i = icmp ult ptr %33, inttoptr (i64 4294967296 to ptr)
+  %tobool.not.i.i = icmp ult ptr %32, inttoptr (i64 4294967296 to ptr)
   br i1 %tobool.not.i.i, label %for.body.preheader.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.end.i.i
-  %shr.i.i = lshr i64 %36, 32
+  %shr.i.i = lshr i64 %35, 32
   %conv.i8.i = trunc i64 %shr.i.i to i32
-  %37 = tail call i32 @llvm.ctlz.i32(i32 %conv.i8.i, i1 true), !range !7
-  %38 = lshr i32 %37, 2
-  %shr5.i.i = and i32 %38, 6
+  %36 = tail call i32 @llvm.ctlz.i32(i32 %conv.i8.i, i1 true), !range !7
+  %37 = lshr i32 %36, 2
+  %shr5.i.i = and i32 %37, 6
   %mul.i.i = xor i32 %shr5.i.i, 6
-  %39 = add nuw nsw i32 %mul.i.i, 12
+  %38 = add nuw nsw i32 %mul.i.i, 12
   br label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %cond.true.i.i, %if.end.i.i
-  %cond.i.i = phi i32 [ %39, %cond.true.i.i ], [ 10, %if.end.i.i ]
+  %cond.i.i = phi i32 [ %38, %cond.true.i.i ], [ 10, %if.end.i.i ]
   store i8 48, ptr %retval.i.0.i, align 1
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 1
   store i8 120, ptr %arrayidx7.i.i, align 1
   %i.016.i.i = add nsw i32 %cond.i.i, -1
-  %40 = zext nneg i32 %i.016.i.i to i64
+  %39 = zext nneg i32 %i.016.i.i to i64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ %40, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %x.018.i.i = phi i64 [ %36, %for.body.preheader.i.i ], [ %shr12.i.i, %for.body.i.i ]
+  %indvars.iv.i.i = phi i64 [ %39, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
+  %x.018.i.i = phi i64 [ %35, %for.body.preheader.i.i ], [ %shr12.i.i, %for.body.i.i ]
   %and.i.i = and i64 %x.018.i.i, 15
   %arrayidx10.i.i = getelementptr inbounds [17 x i8], ptr @.str, i64 0, i64 %and.i.i
-  %41 = load i8, ptr %arrayidx10.i.i, align 1
+  %40 = load i8, ptr %arrayidx10.i.i, align 1
   %arrayidx11.i.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 %indvars.iv.i.i
-  store i8 %41, ptr %arrayidx11.i.i, align 1
+  store i8 %40, ptr %arrayidx11.i.i, align 1
   %shr12.i.i = ashr i64 %x.018.i.i, 4
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %42 = and i64 %indvars.iv.next.i.i, 4294967294
-  %cmp8.not.i.i = icmp eq i64 %42, 0
+  %41 = and i64 %indvars.iv.next.i.i, 4294967294
+  %cmp8.not.i.i = icmp eq i64 %41, 0
   br i1 %cmp8.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !8
 
 for.end.i.i:                                      ; preds = %for.body.i.i
@@ -2486,13 +2484,13 @@ lj_strfmt_putptr.exit:                            ; preds = %if.then.i9.i, %for.
   br label %sw.epilog
 
 sw.default:                                       ; preds = %while.body
-  %43 = load ptr, ptr %e.i.i47, align 8
-  %44 = load ptr, ptr %tmpbuf.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %43 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %44 to i64
+  %42 = load ptr, ptr %e.i.i47, align 8
+  %43 = load ptr, ptr %tmpbuf.i, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %42 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %43 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %45 = and i64 %sub.ptr.sub.i.i, 4294967295
-  %cmp.i.i = icmp eq i64 %45, 0
+  %44 = and i64 %sub.ptr.sub.i.i, 4294967295
+  %cmp.i.i = icmp eq i64 %44, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %lj_buf_putb.exit
 
 if.then.i.i:                                      ; preds = %sw.default
@@ -2500,7 +2498,7 @@ if.then.i.i:                                      ; preds = %sw.default
   br label %lj_buf_putb.exit
 
 lj_buf_putb.exit:                                 ; preds = %sw.default, %if.then.i.i
-  %retval.i.i.0 = phi ptr [ %call.i.i, %if.then.i.i ], [ %44, %sw.default ]
+  %retval.i.i.0 = phi ptr [ %call.i.i, %if.then.i.i ], [ %43, %sw.default ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %retval.i.i.0, i64 1
   store i8 63, ptr %retval.i.i.0, align 1
   store ptr %incdec.ptr.i, ptr %tmpbuf.i, align 8
@@ -2517,25 +2515,25 @@ while.end.loopexit:                               ; preds = %sw.epilog
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %entry
-  %46 = phi ptr [ %.pre57, %while.end.loopexit ], [ %3, %entry ]
-  %47 = phi ptr [ %.pre, %while.end.loopexit ], [ %3, %entry ]
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %46 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %47 to i64
+  %45 = phi ptr [ %.pre57, %while.end.loopexit ], [ %2, %entry ]
+  %46 = phi ptr [ %.pre, %while.end.loopexit ], [ %2, %entry ]
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %45 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %46 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv2.i = and i64 %sub.ptr.sub.i, 4294967295
-  %call.i = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef %47, i64 noundef %conv2.i) #13
+  %call.i = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef %46, i64 noundef %conv2.i) #13
   %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
-  %48 = load ptr, ptr %top, align 8
-  %49 = ptrtoint ptr %call.i to i64
-  %or.i = or i64 %49, -703687441776640
-  store i64 %or.i, ptr %48, align 8
-  %50 = load ptr, ptr %top, align 8
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %50, i64 1
+  %47 = load ptr, ptr %top, align 8
+  %48 = ptrtoint ptr %call.i to i64
+  %or.i = or i64 %48, -703687441776640
+  store i64 %or.i, ptr %47, align 8
+  %49 = load ptr, ptr %top, align 8
+  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %49, i64 1
   store ptr %incdec.ptr, ptr %top, align 8
   %maxstack = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 9
-  %51 = load i64, ptr %maxstack, align 8
-  %52 = inttoptr i64 %51 to ptr
-  %cmp78.not = icmp ult ptr %incdec.ptr, %52
+  %50 = load i64, ptr %maxstack, align 8
+  %51 = inttoptr i64 %50 to ptr
+  %cmp78.not = icmp ult ptr %incdec.ptr, %51
   br i1 %cmp78.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %while.end

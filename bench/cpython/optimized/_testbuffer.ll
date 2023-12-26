@@ -3552,7 +3552,7 @@ if.then23:                                        ; preds = %if.end20
   br i1 %tobool25.not, label %return, label %if.then26
 
 if.then26:                                        ; preds = %if.then23
-  store ptr inttoptr (i64 1 to ptr), ptr %obj4, align 8
+  store i64 1, ptr %obj4, align 8
   br label %return
 
 if.end29:                                         ; preds = %if.end20

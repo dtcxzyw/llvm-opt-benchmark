@@ -1436,18 +1436,17 @@ _ZNSt10unique_ptrIN4node22SocketAddressBlockList4RuleESt14default_deleteIS2_EED2
   %5 = load ptr, ptr %rules_, align 8
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i, i64 0, i32 1
-  %6 = ptrtoint ptr %call.i to i64
-  store i64 %6, ptr %_M_storage.i.i.i.i, align 8
+  store ptr %call.i, ptr %_M_storage.i.i.i.i, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef %5) #21
   %_M_size.i.i.i = getelementptr inbounds %"class.node::SocketAddressBlockList", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %7 = load i64, ptr %_M_size.i.i.i, align 8
-  %add.i.i.i = add i64 %7, 1
+  %6 = load i64, ptr %_M_size.i.i.i, align 8
+  %add.i.i.i = add i64 %6, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
-  %8 = load ptr, ptr %rules_, align 8
+  %7 = load ptr, ptr %rules_, align 8
   %address_rules_ = getelementptr inbounds %"class.node::SocketAddressBlockList", ptr %this, i64 0, i32 3
-  %9 = load ptr, ptr %address, align 8
-  %call.i3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN4node13SocketAddressESt4pairIKS2_St14_List_iteratorISt10unique_ptrINS1_22SocketAddressBlockList4RuleESt14default_deleteIS8_EEEESaISD_ENS_10_Select1stESt8equal_toIS2_ENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %address_rules_, ptr noundef nonnull align 8 dereferenceable(136) %9)
-  store ptr %8, ptr %call.i3, align 8
+  %8 = load ptr, ptr %address, align 8
+  %call.i3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN4node13SocketAddressESt4pairIKS2_St14_List_iteratorISt10unique_ptrINS1_22SocketAddressBlockList4RuleESt14default_deleteIS8_EEEESaISD_ENS_10_Select1stESt8equal_toIS2_ENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %address_rules_, ptr noundef nonnull align 8 dereferenceable(136) %8)
+  store ptr %7, ptr %call.i3, align 8
   tail call void @uv_mutex_unlock(ptr noundef nonnull %mutex_) #21
   ret void
 }
@@ -1639,12 +1638,11 @@ _ZNSt10unique_ptrIN4node22SocketAddressBlockList4RuleESt14default_deleteIS2_EED2
   %10 = load ptr, ptr %rules_, align 8
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i, i64 0, i32 1
-  %11 = ptrtoint ptr %call.i to i64
-  store i64 %11, ptr %_M_storage.i.i.i.i, align 8
+  store ptr %call.i, ptr %_M_storage.i.i.i.i, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef %10) #21
   %_M_size.i.i.i = getelementptr inbounds %"class.node::SocketAddressBlockList", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %12 = load i64, ptr %_M_size.i.i.i, align 8
-  %add.i.i.i = add i64 %12, 1
+  %11 = load i64, ptr %_M_size.i.i.i, align 8
+  %add.i.i.i = add i64 %11, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
   tail call void @uv_mutex_unlock(ptr noundef nonnull %mutex_) #21
   ret void
@@ -1690,12 +1688,11 @@ _ZNSt10unique_ptrIN4node22SocketAddressBlockList4RuleESt14default_deleteIS2_EED2
   %5 = load ptr, ptr %rules_, align 8
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i, i64 0, i32 1
-  %6 = ptrtoint ptr %call.i to i64
-  store i64 %6, ptr %_M_storage.i.i.i.i, align 8
+  store ptr %call.i, ptr %_M_storage.i.i.i.i, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef %5) #21
   %_M_size.i.i.i = getelementptr inbounds %"class.node::SocketAddressBlockList", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %7 = load i64, ptr %_M_size.i.i.i, align 8
-  %add.i.i.i = add i64 %7, 1
+  %6 = load i64, ptr %_M_size.i.i.i, align 8
+  %add.i.i.i = add i64 %6, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
   tail call void @uv_mutex_unlock(ptr noundef nonnull %mutex_) #21
   ret void
@@ -2242,17 +2239,16 @@ if.end18:                                         ; preds = %_ZN4node22SocketAdd
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end18
-  %9 = ptrtoint ptr %call11.i.i to i64
-  store i64 %9, ptr %7, align 8
-  %10 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.v8::Local.320", ptr %10, i64 1
+  store ptr %call11.i.i, ptr %7, align 8
+  %9 = load ptr, ptr %_M_finish.i, align 8
+  %incdec.ptr.i = getelementptr inbounds %"class.v8::Local.320", ptr %9, i64 1
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE9push_backERKS3_.exit
 
 if.else.i:                                        ; preds = %if.end18
-  %11 = load ptr, ptr %rules, align 8
+  %10 = load ptr, ptr %rules, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
@@ -2280,18 +2276,17 @@ _ZNSt16allocator_traitsISaIN2v85LocalINS0_5ValueEEEEE8allocateERS4_m.exit.i.i.i:
 _ZNSt12_Vector_baseIN2v85LocalINS0_5ValueEEESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIN2v85LocalINS0_5ValueEEEEE8allocateERS4_m.exit.i.i.i, %_ZNKSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %cond.i10.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN2v85LocalINS0_5ValueEEEEE8allocateERS4_m.exit.i.i.i ], [ null, %_ZNKSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"class.v8::Local.320", ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
-  %12 = ptrtoint ptr %call11.i.i to i64
-  store i64 %12, ptr %add.ptr.i.i, align 8
-  %cmp.not5.i.i.i.i.i = icmp eq ptr %11, %7
+  store ptr %call11.i.i, ptr %add.ptr.i.i, align 8
+  %cmp.not5.i.i.i.i.i = icmp eq ptr %10, %7
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN2v85LocalINS0_5ValueEEESaIS3_EE11_M_allocateEm.exit.i.i, %for.body.i.i.i.i.i
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN2v85LocalINS0_5ValueEEESaIS3_EE11_M_allocateEm.exit.i.i ]
-  %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %11, %_ZNSt12_Vector_baseIN2v85LocalINS0_5ValueEEESaIS3_EE11_M_allocateEm.exit.i.i ]
+  %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %10, %_ZNSt12_Vector_baseIN2v85LocalINS0_5ValueEEESaIS3_EE11_M_allocateEm.exit.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !36)
   call void @llvm.experimental.noalias.scope.decl(metadata !39)
-  %13 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !39, !noalias !36
-  store i64 %13, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !36, !noalias !39
+  %11 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 8, !alias.scope !39, !noalias !36
+  store i64 %11, ptr %__cur.07.i.i.i.i.i, align 8, !alias.scope !36, !noalias !39
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.v8::Local.320", ptr %__first.addr.06.i.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.v8::Local.320", ptr %__cur.07.i.i.i.i.i, i64 1
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %7
@@ -2300,11 +2295,11 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 _ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN2v85LocalINS0_5ValueEEESaIS3_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN2v85LocalINS0_5ValueEEESaIS3_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %incdec.ptr.i.i = getelementptr %"class.v8::Local.320", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
-  %tobool.not.i.i.i = icmp eq ptr %11, null
+  %tobool.not.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i20.i.i
 
 if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
-  call void @_ZdlPv(ptr noundef nonnull %11) #26
+  call void @_ZdlPv(ptr noundef nonnull %10) #26
   br label %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
@@ -4071,23 +4066,22 @@ _ZN4node22SocketAddressBlockList20AddSocketAddressMaskERKSt10shared_ptrINS_13Soc
   %66 = load ptr, ptr %rules_.i, align 8
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 1
-  %67 = ptrtoint ptr %call.i.i to i64
-  store i64 %67, ptr %_M_storage.i.i.i.i.i, align 8
+  store ptr %call.i.i, ptr %_M_storage.i.i.i.i.i, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i, ptr noundef %66) #21
   %_M_size.i.i.i.i = getelementptr inbounds %"class.node::SocketAddressBlockList", ptr %60, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %68 = load i64, ptr %_M_size.i.i.i.i, align 8
-  %add.i.i.i.i = add i64 %68, 1
+  %67 = load i64, ptr %_M_size.i.i.i.i, align 8
+  %add.i.i.i.i = add i64 %67, 1
   store i64 %add.i.i.i.i, ptr %_M_size.i.i.i.i, align 8
   tail call void @uv_mutex_unlock(ptr noundef nonnull %mutex_.i) #21
-  %69 = load ptr, ptr %args, align 8
-  %arrayidx.i = getelementptr inbounds i64, ptr %69, i64 3
-  %arrayidx.i430 = getelementptr inbounds i64, ptr %69, i64 1
-  %70 = load ptr, ptr %arrayidx.i430, align 8
-  %71 = ptrtoint ptr %70 to i64
-  %add1.i.i = add i64 %71, 632
-  %72 = inttoptr i64 %add1.i.i to ptr
-  %73 = load i64, ptr %72, align 8
-  store i64 %73, ptr %arrayidx.i, align 8
+  %68 = load ptr, ptr %args, align 8
+  %arrayidx.i = getelementptr inbounds i64, ptr %68, i64 3
+  %arrayidx.i430 = getelementptr inbounds i64, ptr %68, i64 1
+  %69 = load ptr, ptr %arrayidx.i430, align 8
+  %70 = ptrtoint ptr %69 to i64
+  %add1.i.i = add i64 %70, 632
+  %71 = inttoptr i64 %add1.i.i to ptr
+  %72 = load i64, ptr %71, align 8
+  store i64 %72, ptr %arrayidx.i, align 8
   br label %return
 
 return:                                           ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit43, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node22SocketAddressBlockList20AddSocketAddressMaskERKSt10shared_ptrINS_13SocketAddressEEi.exit

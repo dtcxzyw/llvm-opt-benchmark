@@ -451,12 +451,11 @@ entry:
   %m_params = getelementptr inbounds %class.dominator_simplifier, ptr %this, i64 0, i32 3
   tail call void @_ZN10params_refC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %m_params, ptr noundef nonnull align 8 dereferenceable(8) %p)
   %m_trail = getelementptr inbounds %class.dominator_simplifier, ptr %this, i64 0, i32 4
-  %0 = ptrtoint ptr %m to i64
-  store i64 %0, ptr %m_trail, align 8
+  store ptr %m, ptr %m_trail, align 8
   %m_nodes.i.i = getelementptr inbounds %class.dominator_simplifier, ptr %this, i64 0, i32 4, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i, align 8
   %m_args = getelementptr inbounds %class.dominator_simplifier, ptr %this, i64 0, i32 5
-  store i64 %0, ptr %m_args, align 8
+  store ptr %m, ptr %m_args, align 8
   %m_nodes.i.i10 = getelementptr inbounds %class.dominator_simplifier, ptr %this, i64 0, i32 5, i32 0, i32 1
   store ptr null, ptr %m_nodes.i.i10, align 8
   %m_result = getelementptr inbounds %class.dominator_simplifier, ptr %this, i64 0, i32 6
@@ -501,29 +500,29 @@ invoke.cont14:                                    ; preds = %invoke.cont10
   ret void
 
 lpad7:                                            ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup16
 
 lpad9:                                            ; preds = %invoke.cont8
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup15
 
 lpad13:                                           ; preds = %invoke.cont10
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN10ptr_vectorI4exprED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_empty) #18
   tail call void @_ZN15expr_dominatorsD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %m_dominators) #18
   br label %ehcleanup15
 
 ehcleanup15:                                      ; preds = %lpad13, %lpad9
-  %.pn = phi { ptr, i32 } [ %3, %lpad13 ], [ %2, %lpad9 ]
+  %.pn = phi { ptr, i32 } [ %2, %lpad13 ], [ %1, %lpad9 ]
   tail call void @_ZN7obj_mapI4exprPS0_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_result) #18
   br label %ehcleanup16
 
 ehcleanup16:                                      ; preds = %ehcleanup15, %lpad7
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup15 ], [ %1, %lpad7 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup15 ], [ %0, %lpad7 ]
   tail call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_args) #18
   tail call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_trail) #18
   tail call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_params) #18
@@ -11419,7 +11418,7 @@ if.then43:                                        ; preds = %end_remove
   br label %if.end55
 
 if.else44:                                        ; preds = %end_remove
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.2, align 8
+  store i64 1, ptr %curr.2, align 8
   %m_num_deleted = getelementptr inbounds %class.core_hashtable.61, ptr %this, i64 0, i32 3
   %10 = load i32, ptr %m_num_deleted, align 8
   %inc = add i32 %10, 1

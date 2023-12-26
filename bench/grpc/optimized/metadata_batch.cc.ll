@@ -845,7 +845,7 @@ switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i8 %x to i64
   %switch.gep7 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN9grpc_core19ContentTypeMetadata6EncodeENS0_9ValueTypeE.3, i64 0, i64 %2
   %switch.load8 = load ptr, ptr %switch.gep7, align 8
-  store ptr inttoptr (i64 1 to ptr), ptr %agg.result, align 8
+  store i64 1, ptr %agg.result, align 8
   %slice.sroa.2.0.agg.result.sroa_idx.i.i5 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %switch.load, ptr %slice.sroa.2.0.agg.result.sroa_idx.i.i5, align 8
   %slice.sroa.3.0.agg.result.sroa_idx.i.i6 = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -1110,7 +1110,7 @@ sw.default:                                       ; preds = %entry
 return:                                           ; preds = %entry, %sw.bb1
   %.sink = phi i64 [ 5, %sw.bb1 ], [ 4, %entry ]
   %.str.14.sink = phi ptr [ @.str.14, %sw.bb1 ], [ @.str.13, %entry ]
-  store ptr inttoptr (i64 1 to ptr), ptr %agg.result, align 8
+  store i64 1, ptr %agg.result, align 8
   %slice.sroa.2.0.agg.result.sroa_idx.i.i2 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %.sink, ptr %slice.sroa.2.0.agg.result.sroa_idx.i.i2, align 8
   %slice.sroa.3.0.agg.result.sroa_idx.i.i3 = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -1186,7 +1186,7 @@ if.end15:                                         ; preds = %_ZNSt11char_traitsI
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN9grpc_core18HttpMethodMetadata6EncodeENS0_9ValueTypeE(ptr noalias nocapture writeonly sret(%"class.grpc_core::StaticSlice") align 8 %agg.result, i8 noundef zeroext %x) local_unnamed_addr #10 align 2 {
 entry:
-  store ptr inttoptr (i64 1 to ptr), ptr %agg.result, align 8
+  store i64 1, ptr %agg.result, align 8
   %0 = icmp ult i8 %x, 3
   br i1 %0, label %switch.lookup, label %return
 

@@ -1323,9 +1323,8 @@ _ZNSt10unique_ptrIZN7rocksdb15RemapFileSystem12NewDirectoryERKNSt7__cxx1112basic
   %guard_.i.i.i = getelementptr inbounds %"class.rocksdb::FSDirectoryWrapper", ptr %call.i5, i64 0, i32 1
   %14 = load i64, ptr %result, align 8, !noalias !34
   store i64 %14, ptr %guard_.i.i.i, align 8, !noalias !34
-  %.cast.i = inttoptr i64 %14 to ptr
   %target_.i.i.i = getelementptr inbounds %"class.rocksdb::FSDirectoryWrapper", ptr %call.i5, i64 0, i32 2
-  store ptr %.cast.i, ptr %target_.i.i.i, align 8, !noalias !34
+  store i64 %14, ptr %target_.i.i.i, align 8, !noalias !34
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVZN7rocksdb15RemapFileSystem12NewDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9IOOptionsEPSt10unique_ptrINS_11FSDirectoryESt14default_deleteISD_EEPNS_14IODebugContextEE16RemapFSDirectory, i64 0, inrange i32 0, i64 2), ptr %call.i5, align 8, !noalias !34
   %fs_.i.i = getelementptr inbounds %class.RemapFSDirectory, ptr %call.i5, i64 0, i32 1
   store ptr %this, ptr %fs_.i.i, align 8, !noalias !34

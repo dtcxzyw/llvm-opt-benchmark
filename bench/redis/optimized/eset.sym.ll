@@ -165,7 +165,7 @@ if.then14:                                        ; preds = %edata_cmp_summary_c
 
 if.end19.sink.split:                              ; preds = %if.then, %if.then14
   %.sink = phi ptr [ %11, %if.then14 ], [ %edata_cmp_summary.sroa.4.0.heap_min.sroa_idx, %if.then ]
-  store i64 %8, ptr %.sink, align 8
+  store ptr %edata.val30, ptr %.sink, align 8
   br label %if.end19
 
 if.end19:                                         ; preds = %if.end19.sink.split, %edata_cmp_summary_comp.exit
@@ -309,52 +309,51 @@ if.then14:                                        ; preds = %if.end.i41
   %call23.val = load ptr, ptr %15, align 8
   %16 = getelementptr i8, ptr %call23, i64 32
   %call23.val29 = load i64, ptr %16, align 8
-  %17 = ptrtoint ptr %call23.val to i64
   store i64 %call23.val29, ptr %heap_min, align 8
-  store i64 %17, ptr %13, align 8
+  store ptr %call23.val, ptr %13, align 8
   br label %if.end25
 
 if.end25:                                         ; preds = %if.else, %if.end.i41, %if.then14, %if.then
   %lru = getelementptr inbounds %struct.eset_s, ptr %eset, i64 0, i32 3
-  %18 = load ptr, ptr %lru, align 8
-  %cmp.i44 = icmp eq ptr %18, %edata
+  %17 = load ptr, ptr %lru, align 8
+  %cmp.i44 = icmp eq ptr %17, %edata
   br i1 %cmp.i44, label %if.then.i, label %if.end.i45
 
 if.then.i:                                        ; preds = %if.end25
-  %19 = getelementptr inbounds %struct.edata_s, ptr %edata, i64 0, i32 6
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %lru, align 8
+  %18 = getelementptr inbounds %struct.edata_s, ptr %edata, i64 0, i32 6
+  %19 = load ptr, ptr %18, align 8
+  store ptr %19, ptr %lru, align 8
   br label %if.end.i45
 
 if.end.i45:                                       ; preds = %if.then.i, %if.end25
-  %21 = phi ptr [ %20, %if.then.i ], [ %18, %if.end25 ]
-  %cmp7.not.i = icmp eq ptr %21, %edata
+  %20 = phi ptr [ %19, %if.then.i ], [ %17, %if.end25 ]
+  %cmp7.not.i = icmp eq ptr %20, %edata
   br i1 %cmp7.not.i, label %do.body25.i, label %do.body9.i
 
 do.body9.i:                                       ; preds = %if.end.i45
-  %22 = getelementptr inbounds %struct.edata_s, ptr %edata, i64 0, i32 6
-  %23 = load ptr, ptr %22, align 8
-  %qre_prev.i = getelementptr inbounds %struct.edata_s, ptr %23, i64 0, i32 6, i32 0, i32 0, i64 1
-  %24 = load ptr, ptr %qre_prev.i, align 8
+  %21 = getelementptr inbounds %struct.edata_s, ptr %edata, i64 0, i32 6
+  %22 = load ptr, ptr %21, align 8
+  %qre_prev.i = getelementptr inbounds %struct.edata_s, ptr %22, i64 0, i32 6, i32 0, i32 0, i64 1
+  %23 = load ptr, ptr %qre_prev.i, align 8
   %qre_prev11.i = getelementptr inbounds %struct.edata_s, ptr %edata, i64 0, i32 6, i32 0, i32 0, i64 1
-  %25 = load ptr, ptr %qre_prev11.i, align 8
-  %26 = getelementptr inbounds %struct.edata_s, ptr %25, i64 0, i32 6
-  store ptr %24, ptr %26, align 8
-  %27 = load ptr, ptr %qre_prev11.i, align 8
-  %28 = load ptr, ptr %22, align 8
-  %qre_prev15.i = getelementptr inbounds %struct.edata_s, ptr %28, i64 0, i32 6, i32 0, i32 0, i64 1
-  store ptr %27, ptr %qre_prev15.i, align 8
-  %29 = getelementptr inbounds %struct.edata_s, ptr %27, i64 0, i32 6
-  %30 = load ptr, ptr %29, align 8
-  store ptr %30, ptr %qre_prev11.i, align 8
-  %31 = load ptr, ptr %22, align 8
-  %qre_prev21.i = getelementptr inbounds %struct.edata_s, ptr %31, i64 0, i32 6, i32 0, i32 0, i64 1
-  %32 = load ptr, ptr %qre_prev21.i, align 8
-  %33 = getelementptr inbounds %struct.edata_s, ptr %32, i64 0, i32 6
-  store ptr %31, ptr %33, align 8
-  %34 = load ptr, ptr %qre_prev11.i, align 8
-  %35 = getelementptr inbounds %struct.edata_s, ptr %34, i64 0, i32 6
-  store ptr %edata, ptr %35, align 8
+  %24 = load ptr, ptr %qre_prev11.i, align 8
+  %25 = getelementptr inbounds %struct.edata_s, ptr %24, i64 0, i32 6
+  store ptr %23, ptr %25, align 8
+  %26 = load ptr, ptr %qre_prev11.i, align 8
+  %27 = load ptr, ptr %21, align 8
+  %qre_prev15.i = getelementptr inbounds %struct.edata_s, ptr %27, i64 0, i32 6, i32 0, i32 0, i64 1
+  store ptr %26, ptr %qre_prev15.i, align 8
+  %28 = getelementptr inbounds %struct.edata_s, ptr %26, i64 0, i32 6
+  %29 = load ptr, ptr %28, align 8
+  store ptr %29, ptr %qre_prev11.i, align 8
+  %30 = load ptr, ptr %21, align 8
+  %qre_prev21.i = getelementptr inbounds %struct.edata_s, ptr %30, i64 0, i32 6, i32 0, i32 0, i64 1
+  %31 = load ptr, ptr %qre_prev21.i, align 8
+  %32 = getelementptr inbounds %struct.edata_s, ptr %31, i64 0, i32 6
+  store ptr %30, ptr %32, align 8
+  %33 = load ptr, ptr %qre_prev11.i, align 8
+  %34 = getelementptr inbounds %struct.edata_s, ptr %33, i64 0, i32 6
+  store ptr %edata, ptr %34, align 8
   br label %edata_list_inactive_remove.exit
 
 do.body25.i:                                      ; preds = %if.end.i45
@@ -363,9 +362,9 @@ do.body25.i:                                      ; preds = %if.end.i45
 
 edata_list_inactive_remove.exit:                  ; preds = %do.body9.i, %do.body25.i
   %npages26 = getelementptr inbounds %struct.eset_s, ptr %eset, i64 0, i32 4
-  %36 = load atomic i64, ptr %npages26 monotonic, align 8
+  %35 = load atomic i64, ptr %npages26 monotonic, align 8
   %shr31 = lshr i64 %edata.val, 12
-  %sub = sub i64 %36, %shr31
+  %sub = sub i64 %35, %shr31
   store atomic i64 %sub, ptr %npages26 monotonic, align 8
   ret void
 }

@@ -2314,7 +2314,7 @@ if.then8:                                         ; preds = %if.then
   %call9 = call i32 @sigemptyset(ptr noundef nonnull %sa_mask) #18
   %sa_flags = getelementptr inbounds %struct.sigaction, ptr %act, i64 0, i32 2
   store i32 0, ptr %sa_flags, align 8
-  store ptr inttoptr (i64 1 to ptr), ptr %act, align 8
+  store i64 1, ptr %act, align 8
   %call10 = call i32 @sigaction(i32 noundef 15, ptr noundef nonnull %act, ptr noundef null) #18
   %call11 = call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %act, ptr noundef null) #18
   %2 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8

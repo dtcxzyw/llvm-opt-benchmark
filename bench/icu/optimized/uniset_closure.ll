@@ -723,7 +723,7 @@ if.end5:                                          ; preds = %if.end
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end5
-  store i64 ptrtoint (ptr @_ZN6icu_7510UnicodeSet9closeOverEi to i64), ptr %indirect-arg-temp, align 8
+  store ptr @_ZN6icu_7510UnicodeSet9closeOverEi, ptr %indirect-arg-temp, align 8
   %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp, i64 0, i32 1
   store i64 0, ptr %.fca.1.gep, align 8
   invoke void @_ZN6icu_7510UnicodeSet12applyPatternERNS_21RuleCharacterIteratorEPKNS_11SymbolTableERNS_13UnicodeStringEjMS0_FRS0_iEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(36) %chars, ptr noundef %symbols, ptr noundef nonnull align 8 dereferenceable(64) %rebuiltPat, i32 noundef %options, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %status)

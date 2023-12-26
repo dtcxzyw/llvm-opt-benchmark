@@ -296,7 +296,7 @@ entry:
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %entry
   %i.07.i.i.i.i.i = phi i32 [ %inc.i.i.i.i.i, %for.body.i.i.i.i.i ], [ 0, %entry ]
   %curr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call.i.i.i.i.i, %entry ]
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i.i.i.i, align 8
+  store i64 1, ptr %curr.06.i.i.i.i.i, align 8
   %m_data.i.i.i.i.i.i = getelementptr inbounds %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %curr.06.i.i.i.i.i, i64 0, i32 1
   store ptr null, ptr %m_data.i.i.i.i.i.i, align 8
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %curr.06.i.i.i.i.i, i64 0, i32 1, i32 0, i32 1
@@ -346,7 +346,7 @@ entry:
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %entry
   %i.07.i.i.i.i.i = phi i32 [ %inc.i.i.i.i.i, %for.body.i.i.i.i.i ], [ 0, %entry ]
   %curr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call.i.i.i.i.i, %entry ]
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i.i.i.i, align 8
+  store i64 1, ptr %curr.06.i.i.i.i.i, align 8
   %m_data.i.i.i.i.i.i = getelementptr inbounds %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %curr.06.i.i.i.i.i, i64 0, i32 1
   store ptr null, ptr %m_data.i.i.i.i.i.i, align 8
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %curr.06.i.i.i.i.i, i64 0, i32 1, i32 0, i32 1
@@ -665,7 +665,7 @@ if.end:                                           ; preds = %if.then, %entry
   %e.sroa.3.0.ref.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i32 %offset, ptr %e.sroa.3.0.ref.tmp.i.sroa_idx, align 8
   %m_value.i.i = getelementptr inbounds %"struct.cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value", ptr %ref.tmp.i, i64 0, i32 1
-  store ptr inttoptr (i64 1 to ptr), ptr %m_value.i.i, align 8
+  store i64 1, ptr %m_value.i.i, align 8
   %call.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN10chashtableIN4cmapISt4pairIP4exprjES3_N9act_cache10entry_hashE10default_eqIS4_EE9key_valueENS9_19key_value_hash_procENS9_17key_value_eq_procEE19insert_if_not_thereERKSA_(ptr noundef nonnull align 8 dereferenceable(64) %m_table, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   %m_value = getelementptr inbounds %"struct.cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value", ptr %call.i, i64 0, i32 1
@@ -838,11 +838,10 @@ if.end:                                           ; preds = %do.body.i.i
 
 if.then4:                                         ; preds = %if.end
   %or = or disjoint i64 %10, 1
-  %11 = inttoptr i64 %or to ptr
-  store ptr %11, ptr %m_value, align 8
+  store i64 %or, ptr %m_value, align 8
   %m_unused = getelementptr inbounds %class.act_cache, ptr %this, i64 0, i32 4
-  %12 = load i32, ptr %m_unused, align 4
-  %dec = add i32 %12, -1
+  %11 = load i32, ptr %m_unused, align 4
+  %dec = add i32 %11, -1
   store i32 %dec, ptr %m_unused, align 4
   %.pre = load ptr, ptr %m_value, align 8
   %.pre9 = ptrtoint ptr %.pre to i64
@@ -851,11 +850,11 @@ if.then4:                                         ; preds = %if.end
 if.end7:                                          ; preds = %if.then4, %if.end
   %.pre-phi = phi i64 [ %.pre9, %if.then4 ], [ %10, %if.end ]
   %and9 = and i64 %.pre-phi, -8
-  %13 = inttoptr i64 %and9 to ptr
+  %12 = inttoptr i64 %and9 to ptr
   br label %return
 
 return:                                           ; preds = %if.end6.i.i, %entry, %if.end7
-  %retval.0 = phi ptr [ %13, %if.end7 ], [ null, %entry ], [ null, %if.end6.i.i ]
+  %retval.0 = phi ptr [ %12, %if.end7 ], [ null, %entry ], [ null, %if.end6.i.i ]
   ret ptr %retval.0
 }
 
@@ -895,7 +894,7 @@ _ZN10chashtableIN4cmapISt4pairIP4exprjES3_N9act_cache10entry_hashE10default_eqIS
 for.body.i.i.i.i.i.i:                             ; preds = %_ZN10chashtableIN4cmapISt4pairIP4exprjES3_N9act_cache10entry_hashE10default_eqIS4_EE9key_valueENS9_19key_value_hash_procENS9_17key_value_eq_procEE12delete_tableEv.exit.i.i.i, %for.body.i.i.i.i.i.i
   %i.07.i.i.i.i.i.i = phi i32 [ %inc.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ 0, %_ZN10chashtableIN4cmapISt4pairIP4exprjES3_N9act_cache10entry_hashE10default_eqIS4_EE9key_valueENS9_19key_value_hash_procENS9_17key_value_eq_procEE12delete_tableEv.exit.i.i.i ]
   %curr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i, %_ZN10chashtableIN4cmapISt4pairIP4exprjES3_N9act_cache10entry_hashE10default_eqIS4_EE9key_valueENS9_19key_value_hash_procENS9_17key_value_eq_procEE12delete_tableEv.exit.i.i.i ]
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i.i.i.i.i, align 8
+  store i64 1, ptr %curr.06.i.i.i.i.i.i, align 8
   %m_data.i.i.i.i.i.i.i = getelementptr inbounds %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %curr.06.i.i.i.i.i.i, i64 0, i32 1
   store ptr null, ptr %m_data.i.i.i.i.i.i.i, align 8
   %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %curr.06.i.i.i.i.i.i, i64 0, i32 1, i32 0, i32 1
@@ -969,7 +968,7 @@ _ZN10chashtableIN4cmapISt4pairIP4exprjES3_N9act_cache10entry_hashE10default_eqIS
 for.body.i.i.i.i.i:                               ; preds = %_ZN10chashtableIN4cmapISt4pairIP4exprjES3_N9act_cache10entry_hashE10default_eqIS4_EE9key_valueENS9_19key_value_hash_procENS9_17key_value_eq_procEE12delete_tableEv.exit.i.i, %for.body.i.i.i.i.i
   %i.07.i.i.i.i.i = phi i32 [ %inc.i.i.i.i.i, %for.body.i.i.i.i.i ], [ 0, %_ZN10chashtableIN4cmapISt4pairIP4exprjES3_N9act_cache10entry_hashE10default_eqIS4_EE9key_valueENS9_19key_value_hash_procENS9_17key_value_eq_procEE12delete_tableEv.exit.i.i ]
   %curr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call.i.i.i.i.i, %_ZN10chashtableIN4cmapISt4pairIP4exprjES3_N9act_cache10entry_hashE10default_eqIS4_EE9key_valueENS9_19key_value_hash_procENS9_17key_value_eq_procEE12delete_tableEv.exit.i.i ]
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i.i.i.i, align 8
+  store i64 1, ptr %curr.06.i.i.i.i.i, align 8
   %m_data.i.i.i.i.i.i = getelementptr inbounds %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %curr.06.i.i.i.i.i, i64 0, i32 1
   store ptr null, ptr %m_data.i.i.i.i.i.i, align 8
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %curr.06.i.i.i.i.i, i64 0, i32 1, i32 0, i32 1
@@ -1064,11 +1063,11 @@ if.end15.lr.ph:                                   ; preds = %do.body.preheader
   br label %if.end15
 
 do.body:                                          ; preds = %if.end15
-  %m_data = getelementptr inbounds %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %30, i64 0, i32 1
+  %m_data = getelementptr inbounds %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %29, i64 0, i32 1
   %10 = load ptr, ptr %m_data, align 8
   %11 = load ptr, ptr %d, align 8
   %cmp.i.i.i.i = icmp eq ptr %10, %11
-  %second.i.i.i.i = getelementptr inbounds %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %30, i64 0, i32 1, i32 0, i32 1
+  %second.i.i.i.i = getelementptr inbounds %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %29, i64 0, i32 1, i32 0, i32 1
   %12 = load i32, ptr %second.i.i.i.i, align 8
   %13 = load i32, ptr %second.i.i.i, align 8
   %cmp3.i.i.i.i = icmp eq i32 %12, %13
@@ -1092,51 +1091,50 @@ if.then7:                                         ; preds = %if.then5
   %18 = load ptr, ptr %add.ptr, align 8
   %19 = ptrtoint ptr %18 to i64
   %or.i = or i64 %19, 1
-  %20 = inttoptr i64 %or.i to ptr
-  store ptr %20, ptr %add.ptr, align 8
+  store i64 %or.i, ptr %add.ptr, align 8
   br label %do.end
 
 if.else:                                          ; preds = %if.then5
   %m_data.le32 = getelementptr inbounds %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %4, i64 %idx.ext, i32 1
-  %21 = load ptr, ptr %16, align 8
-  store ptr %21, ptr %add.ptr, align 8
+  %20 = load ptr, ptr %16, align 8
+  store ptr %20, ptr %add.ptr, align 8
   %m_data3.i = getelementptr inbounds %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %16, i64 0, i32 1
-  %22 = load ptr, ptr %m_data3.i, align 8
-  store ptr %22, ptr %m_data.le32, align 8
+  %21 = load ptr, ptr %m_data3.i, align 8
+  store ptr %21, ptr %m_data.le32, align 8
   %second.i.i.i15 = getelementptr inbounds %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %16, i64 0, i32 1, i32 0, i32 1
-  %23 = load i32, ptr %second.i.i.i15, align 8
+  %22 = load i32, ptr %second.i.i.i15, align 8
   %second3.i.i.i = getelementptr inbounds %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %4, i64 %idx.ext, i32 1, i32 0, i32 1
-  store i32 %23, ptr %second3.i.i.i, align 8
+  store i32 %22, ptr %second3.i.i.i, align 8
   %m_value.i.i = getelementptr inbounds %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %16, i64 0, i32 1, i32 1
-  %24 = load ptr, ptr %m_value.i.i, align 8
+  %23 = load ptr, ptr %m_value.i.i, align 8
   %m_value3.i.i = getelementptr inbounds %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %4, i64 %idx.ext, i32 1, i32 1
-  store ptr %24, ptr %m_value3.i.i, align 8
+  store ptr %23, ptr %m_value3.i.i, align 8
   %m_free_cell.i = getelementptr inbounds %class.chashtable, ptr %this, i64 0, i32 9
-  %25 = load ptr, ptr %m_free_cell.i, align 8
-  store ptr %25, ptr %16, align 8
+  %24 = load ptr, ptr %m_free_cell.i, align 8
+  store ptr %24, ptr %16, align 8
   store ptr %16, ptr %m_free_cell.i, align 8
   br label %do.end
 
 if.else11:                                        ; preds = %do.body
   %m_size = getelementptr inbounds %class.chashtable, ptr %this, i64 0, i32 6
-  %26 = load i32, ptr %m_size, align 4
-  %dec = add i32 %26, -1
+  %25 = load i32, ptr %m_size, align 4
+  %dec = add i32 %25, -1
   store i32 %dec, ptr %m_size, align 4
-  %27 = load ptr, ptr %30, align 8
-  store ptr %27, ptr %c.025, align 8
+  %26 = load ptr, ptr %29, align 8
+  store ptr %26, ptr %c.025, align 8
   %m_free_cell.i16 = getelementptr inbounds %class.chashtable, ptr %this, i64 0, i32 9
-  %28 = load ptr, ptr %m_free_cell.i16, align 8
-  store ptr %28, ptr %30, align 8
-  store ptr %30, ptr %m_free_cell.i16, align 8
+  %27 = load ptr, ptr %m_free_cell.i16, align 8
+  store ptr %27, ptr %29, align 8
+  store ptr %29, ptr %m_free_cell.i16, align 8
   br label %do.end
 
 if.end15:                                         ; preds = %if.end15.lr.ph, %do.body
-  %29 = phi i32 [ %.pre, %if.end15.lr.ph ], [ %inc, %do.body ]
-  %c.025 = phi ptr [ %add.ptr, %if.end15.lr.ph ], [ %30, %do.body ]
-  %inc = add i32 %29, 1
+  %28 = phi i32 [ %.pre, %if.end15.lr.ph ], [ %inc, %do.body ]
+  %c.025 = phi ptr [ %add.ptr, %if.end15.lr.ph ], [ %29, %do.body ]
+  %inc = add i32 %28, 1
   store i32 %inc, ptr %m_collisions, align 8
-  %30 = load ptr, ptr %c.025, align 8
-  %cmp17.not = icmp eq ptr %30, null
+  %29 = load ptr, ptr %c.025, align 8
+  %cmp17.not = icmp eq ptr %29, null
   br i1 %cmp17.not, label %do.end, label %do.body, !llvm.loop !15
 
 do.end:                                           ; preds = %if.end15, %if.else11, %if.else, %if.then7, %entry
@@ -1314,7 +1312,7 @@ while.body:                                       ; preds = %while.body.backedge
 for.body.i.i:                                     ; preds = %while.body, %for.body.i.i
   %i.07.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %while.body ]
   %curr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i.i, %while.body ]
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.06.i.i, align 8
+  store i64 1, ptr %curr.06.i.i, align 8
   %m_data.i.i.i = getelementptr inbounds %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %curr.06.i.i, i64 0, i32 1
   store ptr null, ptr %m_data.i.i.i, align 8
   %second.i.i.i.i.i = getelementptr inbounds %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %curr.06.i.i, i64 0, i32 1, i32 0, i32 1

@@ -5717,24 +5717,24 @@ lpad:                                             ; preds = %lpad.loopexit.split
 invoke.cont14:                                    ; preds = %entry
   %storage_.i.i = getelementptr inbounds %"class.arrow::Result.118", ptr %ref.tmp, i64 0, i32 1
   %9 = load i64, ptr %storage_.i.i, align 8, !noalias !41
-  %10 = inttoptr i64 %9 to ptr
   store ptr null, ptr %storage_.i.i, align 8, !noalias !41
   %_comparator = getelementptr inbounds %"class.arrow::QuadraticSpaceMyersDiff", ptr %this, i64 0, i32 7
-  %11 = load ptr, ptr %_comparator, align 8
-  store ptr %10, ptr %_comparator, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %_comparator, align 8
+  store i64 %9, ptr %_comparator, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %10, null
+  %11 = inttoptr i64 %9 to ptr
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10unique_ptrIN5arrow15ValueComparatorESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5arrow15ValueComparatorEEclEPS1_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN5arrow15ValueComparatorEEclEPS1_.exit.i.i.i.i: ; preds = %invoke.cont14
-  %vtable.i.i.i.i.i = load ptr, ptr %11, align 8
+  %vtable.i.i.i.i.i = load ptr, ptr %10, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 1
   %12 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11) #19
+  call void %12(ptr noundef nonnull align 8 dereferenceable(8) %10) #19
   %.pre = load ptr, ptr %_comparator, align 8
   br label %_ZNSt10unique_ptrIN5arrow15ValueComparatorESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5arrow15ValueComparatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5arrow15ValueComparatorEEclEPS1_.exit.i.i.i.i, %invoke.cont14
-  %13 = phi ptr [ %.pre, %_ZNKSt14default_deleteIN5arrow15ValueComparatorEEclEPS1_.exit.i.i.i.i ], [ %10, %invoke.cont14 ]
+  %13 = phi ptr [ %.pre, %_ZNKSt14default_deleteIN5arrow15ValueComparatorEEclEPS1_.exit.i.i.i.i ], [ %11, %invoke.cont14 ]
   %finish_index_ = getelementptr inbounds %"class.arrow::QuadraticSpaceMyersDiff", ptr %this, i64 0, i32 8
   store i64 -1, ptr %finish_index_, align 8
   %edit_count_ = getelementptr inbounds %"class.arrow::QuadraticSpaceMyersDiff", ptr %this, i64 0, i32 9
@@ -6762,8 +6762,7 @@ if.then:                                          ; preds = %entry
   %_M_manager.i.i.i.i.i = getelementptr inbounds %"class.arrow::Result.49", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i64 16
   %_M_invoker.i.i.i.i = getelementptr inbounds %"class.arrow::Result.49", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, i8 0, i64 24, i1 false)
-  %1 = ptrtoint ptr %os to i64
-  store i64 %1, ptr %storage_.i.i, align 8
+  store ptr %os, ptr %storage_.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFN5arrow6StatusERKNS0_5ArrayES4_S4_EZNS0_24MakeUnifiedDiffFormatterERKNS0_8DataTypeEPSoE3$_0E9_M_invokeERKSt9_Any_dataS4_S4_S4_", ptr %_M_invoker.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFN5arrow6StatusERKNS0_5ArrayES4_S4_EZNS0_24MakeUnifiedDiffFormatterERKNS0_8DataTypeEPSoE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i, align 8
   br label %return
@@ -6776,47 +6775,47 @@ if.end:                                           ; preds = %entry
 
 invoke.cont.i:                                    ; preds = %if.end
   %_M_manager.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp.i, i64 0, i32 1
-  %2 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !noalias !81
-  %tobool.not.i.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !noalias !81
+  %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %_ZN5arrowL13MakeFormatterERKNS_8DataTypeE.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i
-  %call.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZN5arrowL13MakeFormatterERKNS_8DataTypeE.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #22
+  %3 = extractvalue { ptr, i32 } %2, 0
+  call void @__clang_call_terminate(ptr %3) #22
   unreachable
 
 lpad.i:                                           ; preds = %if.end
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   %_M_manager.i.i.i1.i = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp.i, i64 0, i32 1
-  %6 = load ptr, ptr %_M_manager.i.i.i1.i, align 8, !noalias !81
-  %tobool.not.i.i.i2.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %_M_manager.i.i.i1.i, align 8, !noalias !81
+  %tobool.not.i.i.i2.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i2.i, label %_ZN5arrow17MakeFormatterImplD2Ev.exit6.i, label %if.then.i.i.i3.i
 
 if.then.i.i.i3.i:                                 ; preds = %lpad.i
-  %call.i.i.i4.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i.i4.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZN5arrow17MakeFormatterImplD2Ev.exit6.i unwind label %terminate.lpad.i.i.i5.i
 
 terminate.lpad.i.i.i5.i:                          ; preds = %if.then.i.i.i3.i
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #22
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #22
   unreachable
 
 _ZN5arrow17MakeFormatterImplD2Ev.exit6.i:         ; preds = %if.then.i.i.i3.i, %lpad.i
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %4
 
 _ZN5arrowL13MakeFormatterERKNS_8DataTypeE.exit:   ; preds = %invoke.cont.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %9 = load ptr, ptr %ref.tmp1, align 8
-  %cmp.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %ref.tmp1, align 8
+  %cmp.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i, label %do.end, label %if.then5
 
 if.then5:                                         ; preds = %_ZN5arrowL13MakeFormatterERKNS_8DataTypeE.exit
@@ -6825,10 +6824,10 @@ if.then5:                                         ; preds = %_ZN5arrowL13MakeFor
 
 do.end:                                           ; preds = %_ZN5arrowL13MakeFormatterERKNS_8DataTypeE.exit
   %_M_invoker2.i.i.i = getelementptr inbounds %"class.arrow::Result.54", ptr %ref.tmp1, i64 0, i32 1, i32 0, i32 0, i64 24
-  %10 = load ptr, ptr %_M_invoker2.i.i.i, align 8, !noalias !84
+  %9 = load ptr, ptr %_M_invoker2.i.i.i, align 8, !noalias !84
   %_M_manager.i.i.i.i.i5 = getelementptr inbounds %"class.arrow::Result.54", ptr %ref.tmp1, i64 0, i32 1, i32 0, i32 0, i64 16
-  %11 = load ptr, ptr %_M_manager.i.i.i.i.i5, align 8, !noalias !84
-  %tobool.not.i.i.not.i.i.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %_M_manager.i.i.i.i.i5, align 8, !noalias !84
+  %tobool.not.i.i.not.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.not.i.i.i, label %_ZNSt8functionIFvRKN5arrow5ArrayElPSoEEC2EOS6_.exit.thread, label %if.then.i.i
 
 _ZNSt8functionIFvRKN5arrow5ArrayElPSoEEC2EOS6_.exit.thread: ; preds = %do.end
@@ -6855,31 +6854,31 @@ call.i.i2.i.noexc.i.i.i:                          ; preds = %_ZN5arrow20UnifiedD
   %formatter_.i.i.i.i.i.i.i = getelementptr inbounds %"class.arrow::UnifiedDiffFormatter", ptr %call.i.i2.i1.i.i.i, i64 0, i32 3
   %_M_invoker.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.arrow::UnifiedDiffFormatter", ptr %call.i.i2.i1.i.i.i, i64 0, i32 3, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %formatter_.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr %10, ptr %_M_invoker.i.i.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.not.i.i.i.i.i.i.i.i = icmp eq ptr %11, null
+  store ptr %9, ptr %_M_invoker.i.i.i.i.i.i.i.i, align 8
+  %tobool.not.i.i.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i.i.i, label %_ZNSt8functionIFvRKN5arrow5ArrayElPSoEED2Ev.exit, label %_ZN5arrow6ResultISt8functionIFNS_6StatusERKNS_5ArrayES5_S5_EEEC2INS_20UnifiedDiffFormatterEvEEOT_.exit
 
 terminate.lpad.i.i.i:                             ; preds = %_ZN5arrow20UnifiedDiffFormatterC2EPSoSt8functionIFvRKNS_5ArrayElS1_EE.exit
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #22
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #22
   unreachable
 
 _ZN5arrow6ResultISt8functionIFNS_6StatusERKNS_5ArrayES5_S5_EEEC2INS_20UnifiedDiffFormatterEvEEOT_.exit: ; preds = %call.i.i2.i.noexc.i.i.i
   %_M_manager.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.arrow::UnifiedDiffFormatter", ptr %call.i.i2.i1.i.i.i, i64 0, i32 3, i32 0, i32 1
   %ref.tmp10.sroa.2.24.formatter_3.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp10.sroa.2, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %formatter_.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10.sroa.2.24.formatter_3.i.i.i.i.i.i.i.sroa_idx, i64 16, i1 false)
-  store ptr %11, ptr %_M_manager.i.i.i.i.i.i.i.i.i, align 8
+  store ptr %10, ptr %_M_manager.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZNSt8functionIFvRKN5arrow5ArrayElPSoEED2Ev.exit
 
 _ZNSt8functionIFvRKN5arrow5ArrayElPSoEED2Ev.exit: ; preds = %_ZN5arrow6ResultISt8functionIFNS_6StatusERKNS_5ArrayES5_S5_EEEC2INS_20UnifiedDiffFormatterEvEEOT_.exit, %call.i.i2.i.noexc.i.i.i
-  %14 = getelementptr inbounds %"class.arrow::Result.49", ptr %agg.result, i64 0, i32 1
-  store ptr %call.i.i2.i1.i.i.i, ptr %14, align 8
-  %15 = getelementptr inbounds %"class.arrow::Result.49", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i64 24
-  store ptr @_ZNSt17_Function_handlerIFN5arrow6StatusERKNS0_5ArrayES4_S4_ENS0_20UnifiedDiffFormatterEE9_M_invokeERKSt9_Any_dataS4_S4_S4_, ptr %15, align 8
-  %16 = getelementptr inbounds %"class.arrow::Result.49", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i64 16
-  store ptr @_ZNSt17_Function_handlerIFN5arrow6StatusERKNS0_5ArrayES4_S4_ENS0_20UnifiedDiffFormatterEE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %16, align 8
+  %13 = getelementptr inbounds %"class.arrow::Result.49", ptr %agg.result, i64 0, i32 1
+  store ptr %call.i.i2.i1.i.i.i, ptr %13, align 8
+  %14 = getelementptr inbounds %"class.arrow::Result.49", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i64 24
+  store ptr @_ZNSt17_Function_handlerIFN5arrow6StatusERKNS0_5ArrayES4_S4_ENS0_20UnifiedDiffFormatterEE9_M_invokeERKSt9_Any_dataS4_S4_S4_, ptr %14, align 8
+  %15 = getelementptr inbounds %"class.arrow::Result.49", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i64 16
+  store ptr @_ZNSt17_Function_handlerIFN5arrow6StatusERKNS0_5ArrayES4_S4_ENS0_20UnifiedDiffFormatterEE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr %15, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt8functionIFvRKN5arrow5ArrayElPSoEED2Ev.exit, %if.then5
