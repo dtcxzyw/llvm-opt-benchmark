@@ -186,15 +186,13 @@ if.end4:                                          ; preds = %if.end
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
   %_M_finish.i6 = getelementptr inbounds %"struct.std::_Vector_base<arrow::compute::SortKey, std::allocator<arrow::compute::SortKey>>::_Vector_impl_data", ptr %other, i64 0, i32 1
   %6 = load ptr, ptr %_M_finish.i6, align 8
   %7 = load ptr, ptr %other, align 8
   %sub.ptr.lhs.cast.i7 = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i8 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i7, %sub.ptr.rhs.cast.i8
-  %sub.ptr.div.i10 = sdiv exact i64 %sub.ptr.sub.i9, 48
-  %cmp9 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i10
+  %cmp9 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i9
   br i1 %cmp9, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end4

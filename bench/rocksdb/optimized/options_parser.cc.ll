@@ -3855,7 +3855,6 @@ if.else:                                          ; preds = %if.then22
   %sub.ptr.lhs.cast.i49 = ptrtoint ptr %42 to i64
   %sub.ptr.rhs.cast.i50 = ptrtoint ptr %43 to i64
   %sub.ptr.sub.i51 = sub i64 %sub.ptr.lhs.cast.i49, %sub.ptr.rhs.cast.i50
-  %sub.ptr.div.i52 = sdiv exact i64 %sub.ptr.sub.i51, 824
   %cf_opts_.i = getelementptr inbounds %"class.rocksdb::RocksDBOptionsParser", ptr %parser, i64 0, i32 3
   %_M_finish.i53 = getelementptr inbounds %"class.rocksdb::RocksDBOptionsParser", ptr %parser, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
   %44 = load ptr, ptr %_M_finish.i53, align 8
@@ -3863,8 +3862,7 @@ if.else:                                          ; preds = %if.then22
   %sub.ptr.lhs.cast.i54 = ptrtoint ptr %44 to i64
   %sub.ptr.rhs.cast.i55 = ptrtoint ptr %45 to i64
   %sub.ptr.sub.i56 = sub i64 %sub.ptr.lhs.cast.i54, %sub.ptr.rhs.cast.i55
-  %sub.ptr.div.i57 = sdiv exact i64 %sub.ptr.sub.i56, 824
-  %cmp36 = icmp ugt i64 %sub.ptr.div.i52, %sub.ptr.div.i57
+  %cmp36 = icmp ugt i64 %sub.ptr.sub.i51, %sub.ptr.sub.i56
   br i1 %cmp36, label %if.then37, label %if.end45
 
 if.then37:                                        ; preds = %if.else

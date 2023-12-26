@@ -10285,14 +10285,12 @@ while.body:                                       ; preds = %invoke.cont74
   %sub.ptr.lhs.cast.i = ptrtoint ptr %25 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %26 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %27 = load ptr, ptr %_M_finish.i152, align 8
   %28 = load ptr, ptr %argTypes, align 8
   %sub.ptr.lhs.cast.i153 = ptrtoint ptr %27 to i64
   %sub.ptr.rhs.cast.i154 = ptrtoint ptr %28 to i64
   %sub.ptr.sub.i155 = sub i64 %sub.ptr.lhs.cast.i153, %sub.ptr.rhs.cast.i154
-  %sub.ptr.div.i156 = sdiv exact i64 %sub.ptr.sub.i155, 24
-  %cmp.not = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i156
+  %cmp.not = icmp ult i64 %sub.ptr.sub.i, %sub.ptr.sub.i155
   br i1 %cmp.not, label %if.end88, label %if.then78
 
 if.then78:                                        ; preds = %while.body
