@@ -5967,8 +5967,7 @@ invoke.cont98:                                    ; preds = %invoke.cont89
   %sub.ptr.lhs.cast.i89.i = ptrtoint ptr %56 to i64
   %sub.ptr.rhs.cast.i90.i = ptrtoint ptr %57 to i64
   %sub.ptr.sub.i91.i = sub i64 %sub.ptr.lhs.cast.i89.i, %sub.ptr.rhs.cast.i90.i
-  %sub.ptr.div.i92.i = ashr exact i64 %sub.ptr.sub.i91.i, 3
-  %cmp3.i = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i92.i
+  %cmp3.i = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i91.i
   br i1 %cmp3.i, label %cond.true.i.i.i, label %if.else.i
 
 cond.true.i.i.i:                                  ; preds = %invoke.cont98
@@ -6012,8 +6011,7 @@ if.else.i:                                        ; preds = %invoke.cont98
   %58 = load ptr, ptr %_M_finish.i.i.i.i.i.i514, align 8, !tbaa !53
   %sub.ptr.lhs.cast.i95.i = ptrtoint ptr %58 to i64
   %sub.ptr.sub.i97.i = sub i64 %sub.ptr.lhs.cast.i95.i, %sub.ptr.rhs.cast.i90.i
-  %sub.ptr.div.i98.i = ashr exact i64 %sub.ptr.sub.i97.i, 3
-  %cmp26.not.i = icmp ult i64 %sub.ptr.div.i98.i, %sub.ptr.div.i.i
+  %cmp26.not.i = icmp ult i64 %sub.ptr.sub.i97.i, %sub.ptr.sub.i.i
   br i1 %cmp26.not.i, label %if.else49.i, label %if.then27.i
 
 if.then27.i:                                      ; preds = %if.else.i
@@ -8593,8 +8591,7 @@ cleanup.cont64:                                   ; preds = %invoke.cont31
   %sub.ptr.lhs.cast.i89.i = ptrtoint ptr %53 to i64
   %sub.ptr.rhs.cast.i90.i = ptrtoint ptr %54 to i64
   %sub.ptr.sub.i91.i = sub i64 %sub.ptr.lhs.cast.i89.i, %sub.ptr.rhs.cast.i90.i
-  %sub.ptr.div.i92.i = ashr exact i64 %sub.ptr.sub.i91.i, 3
-  %cmp3.i = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i92.i
+  %cmp3.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i.i, %sub.ptr.sub.i91.i
   br i1 %cmp3.i, label %cond.true.i.i.i, label %if.else.i
 
 cond.true.i.i.i:                                  ; preds = %cleanup.cont64
@@ -8639,8 +8636,7 @@ if.else.i:                                        ; preds = %cleanup.cont64
   %55 = load ptr, ptr %_M_finish.i94.i, align 8, !tbaa !53
   %sub.ptr.lhs.cast.i95.i = ptrtoint ptr %55 to i64
   %sub.ptr.sub.i97.i = sub i64 %sub.ptr.lhs.cast.i95.i, %sub.ptr.rhs.cast.i90.i
-  %sub.ptr.div.i98.i = ashr exact i64 %sub.ptr.sub.i97.i, 3
-  %cmp26.not.i = icmp ult i64 %sub.ptr.div.i98.i, %sub.ptr.div.i.i
+  %cmp26.not.i = icmp ult i64 %sub.ptr.sub.i97.i, %sub.ptr.sub.i.i.i.i.i.i
   br i1 %cmp26.not.i, label %if.else49.i, label %if.then27.i
 
 if.then27.i:                                      ; preds = %if.else.i
@@ -36026,8 +36022,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i89 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i90 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i91 = sub i64 %sub.ptr.lhs.cast.i89, %sub.ptr.rhs.cast.i90
-  %sub.ptr.div.i92 = ashr exact i64 %sub.ptr.sub.i91, 5
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i92
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i91
   br i1 %cmp3, label %cond.true.i.i, label %if.else
 
 cond.true.i.i:                                    ; preds = %if.then
@@ -36176,8 +36171,7 @@ if.else:                                          ; preds = %if.then
   %21 = load ptr, ptr %_M_finish.i94, align 8, !tbaa !33
   %sub.ptr.lhs.cast.i95 = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i97 = sub i64 %sub.ptr.lhs.cast.i95, %sub.ptr.rhs.cast.i90
-  %sub.ptr.div.i98 = ashr exact i64 %sub.ptr.sub.i97, 5
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i98, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i97, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else
@@ -36357,11 +36351,12 @@ _ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEEEvPT_.exit.i.i
   br i1 %cmp.i.not.i.i.i, label %if.end69, label %for.body.i.i.i101, !llvm.loop !596
 
 if.else49:                                        ; preds = %if.else
-  %cmp7.i16 = icmp sgt i64 %sub.ptr.div.i98, 0
+  %sub.ptr.div.i15 = ashr exact i64 %sub.ptr.sub.i97, 5
+  %cmp7.i16 = icmp sgt i64 %sub.ptr.div.i15, 0
   br i1 %cmp7.i16, label %for.body.i18, label %_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEES9_EET0_T_SB_SA_.exit
 
 for.body.i18:                                     ; preds = %if.else49, %_ZN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEaSERKS4_.exit.i49
-  %__n.010.i19 = phi i64 [ %dec.i52, %_ZN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEaSERKS4_.exit.i49 ], [ %sub.ptr.div.i98, %if.else49 ]
+  %__n.010.i19 = phi i64 [ %dec.i52, %_ZN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEaSERKS4_.exit.i49 ], [ %sub.ptr.div.i15, %if.else49 ]
   %__result.addr.09.i20 = phi ptr [ %incdec.ptr1.i51, %_ZN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEaSERKS4_.exit.i49 ], [ %3, %if.else49 ]
   %__first.addr.08.i21 = phi ptr [ %incdec.ptr.i50, %_ZN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEaSERKS4_.exit.i49 ], [ %1, %if.else49 ]
   %45 = load i64, ptr %__first.addr.08.i21, align 8, !tbaa !431
@@ -36474,7 +36469,7 @@ _ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPN4entt8inte
   br label %_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEES9_EET0_T_SB_SA_.exit
 
 _ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEES9_EET0_T_SB_SA_.exit: ; preds = %_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEES9_EET0_T_SB_SA_.exit.loopexit, %if.else49
-  %sub.ptr.div.i133.pre-phi = phi i64 [ %.pre74, %_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEES9_EET0_T_SB_SA_.exit.loopexit ], [ %sub.ptr.div.i98, %if.else49 ]
+  %sub.ptr.div.i133.pre-phi = phi i64 [ %.pre74, %_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEES9_EET0_T_SB_SA_.exit.loopexit ], [ %sub.ptr.div.i15, %if.else49 ]
   %60 = phi ptr [ %.pre70, %_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEES9_EET0_T_SB_SA_.exit.loopexit ], [ %0, %if.else49 ]
   %61 = phi ptr [ %.pre68, %_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEES9_EET0_T_SB_SA_.exit.loopexit ], [ %21, %if.else49 ]
   %62 = phi ptr [ %.pre67, %_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEES9_EET0_T_SB_SA_.exit.loopexit ], [ %1, %if.else49 ]

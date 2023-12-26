@@ -2410,8 +2410,7 @@ if.end.i:                                         ; preds = %invoke.cont13
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %28 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %29 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp3.i = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp3.i = icmp ult i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   br i1 %cmp3.i, label %_ZNSt12_Vector_baseIPKN6Assimp3FBX14AnimationLayerESaIS4_EE11_M_allocateEm.exit.i, label %invoke.cont17
 
 _ZNSt12_Vector_baseIPKN6Assimp3FBX14AnimationLayerESaIS4_EE11_M_allocateEm.exit.i: ; preds = %if.end.i

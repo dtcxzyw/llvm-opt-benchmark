@@ -18961,8 +18961,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 4
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i17
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16
   br i1 %cmp3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then
@@ -19016,8 +19015,7 @@ if.else:                                          ; preds = %if.then
   %10 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 4
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i23, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i22, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else
@@ -19096,7 +19094,8 @@ _ZSt8_DestroyIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1
 
 if.else49:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i.i31)
-  %cmp7.i.i.i.i.i36 = icmp sgt i64 %sub.ptr.div.i23, 0
+  %sub.ptr.div.i.i.i.i.i35 = ashr exact i64 %sub.ptr.sub.i22, 4
+  %cmp7.i.i.i.i.i36 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i35, 0
   br i1 %cmp7.i.i.i.i.i36, label %for.body.lr.ph.i.i.i.i.i38, label %_ZSt4copyIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESF_ET0_T_SH_SG_.exit
 
 for.body.lr.ph.i.i.i.i.i38:                       ; preds = %if.else49
@@ -19104,7 +19103,7 @@ for.body.lr.ph.i.i.i.i.i38:                       ; preds = %if.else49
   br label %for.body.i.i.i.i.i40
 
 for.body.i.i.i.i.i40:                             ; preds = %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i.i.i47, %for.body.lr.ph.i.i.i.i.i38
-  %__n.010.i.i.i.i.i41 = phi i64 [ %sub.ptr.div.i23, %for.body.lr.ph.i.i.i.i.i38 ], [ %dec.i.i.i.i.i50, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i.i.i47 ]
+  %__n.010.i.i.i.i.i41 = phi i64 [ %sub.ptr.div.i.i.i.i.i35, %for.body.lr.ph.i.i.i.i.i38 ], [ %dec.i.i.i.i.i50, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i.i.i47 ]
   %__result.addr.09.i.i.i.i.i42 = phi ptr [ %3, %for.body.lr.ph.i.i.i.i.i38 ], [ %incdec.ptr1.i.i.i.i.i49, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i.i.i47 ]
   %__first.addr.08.i.i.i.i.i43 = phi ptr [ %1, %for.body.lr.ph.i.i.i.i.i38 ], [ %incdec.ptr.i.i.i.i.i48, %_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev.exit.i.i.i.i.i47 ]
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2ERKSD_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i.i.i31, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.08.i.i.i.i.i43)
@@ -19146,7 +19145,7 @@ _ZSt4copyIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112
   br label %_ZSt4copyIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESF_ET0_T_SH_SG_.exit
 
 _ZSt4copyIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESF_ET0_T_SH_SG_.exit: ; preds = %_ZSt4copyIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESF_ET0_T_SH_SG_.exit.loopexit, %if.else49
-  %sub.ptr.div.i56.pre-phi = phi i64 [ %.pre70, %_ZSt4copyIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESF_ET0_T_SH_SG_.exit.loopexit ], [ %sub.ptr.div.i23, %if.else49 ]
+  %sub.ptr.div.i56.pre-phi = phi i64 [ %.pre70, %_ZSt4copyIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESF_ET0_T_SH_SG_.exit.loopexit ], [ %sub.ptr.div.i.i.i.i.i35, %if.else49 ]
   %25 = phi ptr [ %.pre66, %_ZSt4copyIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESF_ET0_T_SH_SG_.exit.loopexit ], [ %0, %if.else49 ]
   %26 = phi ptr [ %.pre64, %_ZSt4copyIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESF_ET0_T_SH_SG_.exit.loopexit ], [ %10, %if.else49 ]
   %27 = phi ptr [ %.pre63, %_ZSt4copyIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESF_ET0_T_SH_SG_.exit.loopexit ], [ %1, %if.else49 ]

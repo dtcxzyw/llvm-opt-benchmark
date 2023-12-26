@@ -26003,7 +26003,7 @@ invoke.cont556:                                   ; preds = %invoke.cont545
   %sub.ptr.sub.i3.i = sub i64 %sub.ptr.lhs.cast.i1.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i4.i = ashr exact i64 %sub.ptr.sub.i3.i, 5
   %add.ptr.i5.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %287, i64 %sub.ptr.div.i4.i
-  %cmp.i.not.i.i608 = icmp eq i64 %sub.ptr.div.i.i, %sub.ptr.div.i4.i
+  %cmp.i.not.i.i608 = icmp eq ptr %call.i604605, %286
   br i1 %cmp.i.not.i.i608, label %invoke.cont568, label %if.then.i.i609
 
 if.then.i.i609:                                   ; preds = %invoke.cont556
@@ -26055,7 +26055,7 @@ invoke.cont.i.i.i:                                ; preds = %for.body.i.i.i.i.i.
   br label %invoke.cont568
 
 invoke.cont568:                                   ; preds = %invoke.cont556, %if.end.i.i, %invoke.cont.i.i.i
-  %289 = phi ptr [ %286, %invoke.cont556 ], [ %288, %if.end.i.i ], [ %add.ptr.i6.i, %invoke.cont.i.i.i ]
+  %289 = phi ptr [ %call.i604605, %invoke.cont556 ], [ %288, %if.end.i.i ], [ %add.ptr.i6.i, %invoke.cont.i.i.i ]
   store i64 0, ptr %io_opts, align 8
   %prio.i.i = getelementptr inbounds %"struct.rocksdb::IOOptions", ptr %io_opts, i64 0, i32 1
   store i8 0, ptr %prio.i.i, align 8
@@ -34158,8 +34158,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp = icmp ugt i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %cmp = icmp ugt i64 %sub.ptr.sub.i.i.i, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -34200,8 +34199,7 @@ if.else:                                          ; preds = %entry
   %2 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i7 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i7, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i10 = ashr exact i64 %sub.ptr.sub.i9, 3
-  %cmp32.not = icmp ult i64 %sub.ptr.div.i10, %sub.ptr.div.i.i.i
+  %cmp32.not = icmp ult i64 %sub.ptr.sub.i9, %sub.ptr.sub.i.i.i
   br i1 %cmp32.not, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmEvRT_T0_.exit, label %if.then33
 
 if.then33:                                        ; preds = %if.else
@@ -34224,6 +34222,7 @@ invoke.cont.i:                                    ; preds = %_ZSt4copyIN9__gnu_c
   br label %if.end61
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmEvRT_T0_.exit: ; preds = %if.else
+  %sub.ptr.div.i10 = ashr exact i64 %sub.ptr.sub.i9, 3
   %add.ptr.i.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub.ptr.div.i10
   %sub.ptr.lhs.cast.i.i.i.i.i18 = ptrtoint ptr %add.ptr.i.i.i to i64
   %tobool.not.i.i.i.i.i21 = icmp eq ptr %2, %1
@@ -37095,7 +37094,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i, 3
   %.pre.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
   %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds i64, ptr %add.ptr.i3.i31.i, i64 %.pre.i.i.i.i.i.i35.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i36.i, ptr nonnull align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
   br label %for.inc.i21.i
 
 if.else.i19.i:                                    ; preds = %for.body.i15.i

@@ -2279,7 +2279,7 @@ entry:
   %sub.ptr.sub.i3 = sub i64 %sub.ptr.lhs.cast.i1, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i4 = ashr exact i64 %sub.ptr.sub.i3, 4
   %add.ptr.i5 = getelementptr inbounds %"class.std::weak_ptr", ptr %0, i64 %sub.ptr.div.i4
-  %cmp.i.not.i = icmp eq i64 %sub.ptr.div.i, %sub.ptr.div.i4
+  %cmp.i.not.i = icmp eq ptr %__first.coerce, %__last.coerce
   br i1 %cmp.i.not.i, label %_ZNSt6vectorISt8weak_ptrIN5arrow8internal13AtForkHandlerEESaIS4_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS4_S6_EESA_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry

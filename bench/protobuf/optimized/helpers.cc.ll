@@ -22543,7 +22543,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf10Descrip
   %sub.ptr.div.i.i.i.i.i.i55 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i54, 3
   %.pre.i.i.i.i.i.i56 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i55
   %add.ptr.i.i.i.i.i.i57 = getelementptr inbounds ptr, ptr %add.ptr.i2.i52, i64 %.pre.i.i.i.i.i.i56
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i57, ptr nonnull align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i54, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i57, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i54, i1 false)
   br label %for.inc.i46
 
 if.else.i34:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6google8protobuf8compiler11SCCAnalyzerINS4_3cpp18MessageSCCAnalyzer13DepsGeneratorEE3DFSEPKNS3_10DescriptorEEUlSC_SC_E_EclINS_17__normal_iteratorIPSC_St6vectorISC_SaISC_EEEESL_EEbT_T0_.exit.i32
@@ -23647,15 +23647,14 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 4
-  %cmp3.not = icmp ult i64 %sub.ptr.div, %sub.ptr.div.i.i
+  %cmp3.not = icmp ult i64 %sub.ptr.sub, %sub.ptr.sub.i.i
   br i1 %cmp3.not, label %if.else50, label %if.then4
 
 if.then4:                                         ; preds = %if.then
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp10 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i
+  %cmp10 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i.i
   br i1 %cmp10, label %for.body.i.i.i.i.i.preheader, label %_ZSt7advanceIPZNK4absl12lts_2023080216strings_internal8SplitterINS1_8ByStringENS1_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewmEvRT_T0_.exit
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then4
@@ -25722,7 +25721,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf8compiler
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i2, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i, ptr nonnull align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %for.inc
 
 while.cond.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6google8protobuf8compiler3cpp29TopologicalSortMessagesInFileEPKNS3_14FileDescriptorERNS5_18MessageSCCAnalyzerEE3$_0EclINS_17__normal_iteratorIPPKNS4_3SCCESt6vectorISH_SaISH_EEEESM_EEbT_T0_.exit", %while.body.i

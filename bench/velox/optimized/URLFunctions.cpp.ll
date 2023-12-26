@@ -31237,11 +31237,8 @@ entry:
 if.then:                                          ; preds = %entry
   %add.ptr.i = getelementptr inbounds %"struct.boost::sub_match", ptr %1, i64 %n
   %add.ptr.i6 = getelementptr inbounds %"struct.boost::sub_match", ptr %add.ptr.i, i64 2
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i6 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
   %add.ptr.i5.i = getelementptr inbounds %"struct.boost::sub_match", ptr %1, i64 %sub.ptr.div.i
-  %cmp.i.not.i.i = icmp eq i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp.i.not.i.i = icmp eq ptr %add.ptr.i6, %0
   br i1 %cmp.i.not.i.i, label %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then

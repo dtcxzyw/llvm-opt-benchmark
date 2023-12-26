@@ -1712,7 +1712,7 @@ rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i
   %2 = load atomic i64, ptr %arrayidx monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !35
-  %cmp42 = icmp ult i64 %shr10, %shr11
+  %cmp42 = icmp ult i64 %div32, %div333
   br i1 %cmp42, label %while.body14, label %for.inc
 
 while.body14:                                     ; preds = %rcu_read_auto_lock.exit, %if.end26

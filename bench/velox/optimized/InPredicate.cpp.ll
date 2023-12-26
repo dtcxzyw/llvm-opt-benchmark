@@ -3303,11 +3303,11 @@ invoke.cont34.i.i:                                ; preds = %invoke.cont16.i.i
   %88 = load ptr, ptr %_M_finish.i1215.i.i, align 8, !noalias !25
   %sub.ptr.lhs.cast.i.i23.i.i = ptrtoint ptr %88 to i64
   %sub.ptr.sub.i.i25.i.i = sub i64 %sub.ptr.lhs.cast.i.i23.i.i, %sub.ptr.rhs.cast.i.i.i19.i.i
-  %sub.ptr.div.i.i26.i.i = ashr exact i64 %sub.ptr.sub.i.i25.i.i, 5
-  %cmp.i27.i.i = icmp ult i64 %sub.ptr.div.i.i26.i.i, %sub.ptr.div.i.i.i21.i.i
+  %cmp.i27.i.i = icmp ult i64 %sub.ptr.sub.i.i25.i.i, %sub.ptr.sub.i.i.i20.i.i
   br i1 %cmp.i27.i.i, label %if.then.i31.i.i, label %if.else.i28.i.i
 
 if.then.i31.i.i:                                  ; preds = %invoke.cont34.i.i
+  %sub.ptr.div.i.i26.i.i = ashr exact i64 %sub.ptr.sub.i.i25.i.i, 5
   %sub.i.i.i = sub nsw i64 %sub.ptr.div.i.i.i21.i.i, %sub.ptr.div.i.i26.i.i
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %values.i.i, i64 noundef %sub.i.i.i)
           to label %if.then.i31.invoke.cont36_crit_edge.i.i unwind label %lpad.loopexit.split-lp.i.i, !noalias !25
@@ -3317,7 +3317,7 @@ if.then.i31.invoke.cont36_crit_edge.i.i:          ; preds = %if.then.i31.i.i
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10StringViewEEESt4pairISt6vectorIT_SaISD_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit.i
 
 if.else.i28.i.i:                                  ; preds = %invoke.cont34.i.i
-  %cmp4.i.i.i = icmp ugt i64 %sub.ptr.div.i.i26.i.i, %sub.ptr.div.i.i.i21.i.i
+  %cmp4.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i25.i.i, %sub.ptr.sub.i.i.i20.i.i
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10StringViewEEESt4pairISt6vectorIT_SaISD_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit.i
 
 if.then5.i.i.i:                                   ; preds = %if.else.i28.i.i
@@ -7168,11 +7168,11 @@ invoke.cont34.i:                                  ; preds = %while.cond.i.i.i.i,
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 4
   %sub.ptr.lhs.cast.i.i18.i = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i20.i = sub i64 %sub.ptr.lhs.cast.i.i18.i, %sub.ptr.rhs.cast.i.i.i.i
-  %sub.ptr.div.i.i21.i = ashr exact i64 %sub.ptr.sub.i.i20.i, 4
-  %cmp.i22.i = icmp ult i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %cmp.i22.i = icmp ult i64 %sub.ptr.sub.i.i20.i, %sub.ptr.sub.i.i.i.i
   br i1 %cmp.i22.i, label %if.then.i26.i, label %if.else.i23.i
 
 if.then.i26.i:                                    ; preds = %invoke.cont34.i
+  %sub.ptr.div.i.i21.i = ashr exact i64 %sub.ptr.sub.i.i20.i, 4
   %sub.i.i = sub nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
   invoke void @_ZNSt6vectorInSaInEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %values.i, i64 noundef %sub.i.i)
           to label %if.then.i26._ZNSt6vectorInSaInEED2Ev.exit30_crit_edge.i unwind label %lpad.loopexit.split-lp.i, !noalias !87
@@ -7183,7 +7183,7 @@ if.then.i26._ZNSt6vectorInSaInEED2Ev.exit30_crit_edge.i: ; preds = %if.then.i26.
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesInnEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
 if.else.i23.i:                                    ; preds = %invoke.cont34.i
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %cmp4.i.i = icmp ugt i64 %sub.ptr.sub.i.i20.i, %sub.ptr.sub.i.i.i.i
   %add.ptr.i24.i = getelementptr inbounds i128, ptr %15, i64 %sub.ptr.div.i.i.i.i
   %spec.select = select i1 %cmp4.i.i, ptr %add.ptr.i24.i, ptr %16
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesInnEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
@@ -7512,11 +7512,11 @@ invoke.cont34.i:                                  ; preds = %while.cond.i.i.i.i,
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %sub.ptr.lhs.cast.i.i18.i = ptrtoint ptr %19 to i64
   %sub.ptr.sub.i.i20.i = sub i64 %sub.ptr.lhs.cast.i.i18.i, %sub.ptr.rhs.cast.i.i.i.i
-  %sub.ptr.div.i.i21.i = ashr exact i64 %sub.ptr.sub.i.i20.i, 3
-  %cmp.i22.i = icmp ult i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %cmp.i22.i = icmp ult i64 %sub.ptr.sub.i.i20.i, %sub.ptr.sub.i.i.i.i
   br i1 %cmp.i22.i, label %if.then.i26.i, label %if.else.i23.i
 
 if.then.i26.i:                                    ; preds = %invoke.cont34.i
+  %sub.ptr.div.i.i21.i = ashr exact i64 %sub.ptr.sub.i.i20.i, 3
   %sub.i.i = sub nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
   invoke void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %values.i, i64 noundef %sub.i.i)
           to label %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i unwind label %lpad.loopexit.split-lp.i, !noalias !96
@@ -7527,7 +7527,7 @@ if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i: ; preds = %if.then.i26.
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIllEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
 if.else.i23.i:                                    ; preds = %invoke.cont34.i
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %cmp4.i.i = icmp ugt i64 %sub.ptr.sub.i.i20.i, %sub.ptr.sub.i.i.i.i
   %add.ptr.i24.i = getelementptr inbounds i64, ptr %13, i64 %sub.ptr.div.i.i.i.i
   %spec.select = select i1 %cmp4.i.i, ptr %add.ptr.i24.i, ptr %19
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIllEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
@@ -7876,11 +7876,11 @@ invoke.cont34.i:                                  ; preds = %while.cond.i.i.i.i,
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %sub.ptr.lhs.cast.i.i18.i = ptrtoint ptr %19 to i64
   %sub.ptr.sub.i.i20.i = sub i64 %sub.ptr.lhs.cast.i.i18.i, %sub.ptr.rhs.cast.i.i.i.i
-  %sub.ptr.div.i.i21.i = ashr exact i64 %sub.ptr.sub.i.i20.i, 3
-  %cmp.i22.i = icmp ult i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %cmp.i22.i = icmp ult i64 %sub.ptr.sub.i.i20.i, %sub.ptr.sub.i.i.i.i
   br i1 %cmp.i22.i, label %if.then.i26.i, label %if.else.i23.i
 
 if.then.i26.i:                                    ; preds = %invoke.cont34.i
+  %sub.ptr.div.i.i21.i = ashr exact i64 %sub.ptr.sub.i.i20.i, 3
   %sub.i.i = sub nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
   invoke void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %values.i, i64 noundef %sub.i.i)
           to label %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i unwind label %lpad.loopexit.split-lp.i, !noalias !105
@@ -7891,7 +7891,7 @@ if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i: ; preds = %if.then.i26.
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIliEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
 if.else.i23.i:                                    ; preds = %invoke.cont34.i
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %cmp4.i.i = icmp ugt i64 %sub.ptr.sub.i.i20.i, %sub.ptr.sub.i.i.i.i
   %add.ptr.i24.i = getelementptr inbounds i64, ptr %13, i64 %sub.ptr.div.i.i.i.i
   %spec.select = select i1 %cmp4.i.i, ptr %add.ptr.i24.i, ptr %19
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIliEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
@@ -8240,11 +8240,11 @@ invoke.cont34.i:                                  ; preds = %while.cond.i.i.i.i,
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %sub.ptr.lhs.cast.i.i18.i = ptrtoint ptr %19 to i64
   %sub.ptr.sub.i.i20.i = sub i64 %sub.ptr.lhs.cast.i.i18.i, %sub.ptr.rhs.cast.i.i.i.i
-  %sub.ptr.div.i.i21.i = ashr exact i64 %sub.ptr.sub.i.i20.i, 3
-  %cmp.i22.i = icmp ult i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %cmp.i22.i = icmp ult i64 %sub.ptr.sub.i.i20.i, %sub.ptr.sub.i.i.i.i
   br i1 %cmp.i22.i, label %if.then.i26.i, label %if.else.i23.i
 
 if.then.i26.i:                                    ; preds = %invoke.cont34.i
+  %sub.ptr.div.i.i21.i = ashr exact i64 %sub.ptr.sub.i.i20.i, 3
   %sub.i.i = sub nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
   invoke void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %values.i, i64 noundef %sub.i.i)
           to label %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i unwind label %lpad.loopexit.split-lp.i, !noalias !112
@@ -8255,7 +8255,7 @@ if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i: ; preds = %if.then.i26.
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlsEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
 if.else.i23.i:                                    ; preds = %invoke.cont34.i
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %cmp4.i.i = icmp ugt i64 %sub.ptr.sub.i.i20.i, %sub.ptr.sub.i.i.i.i
   %add.ptr.i24.i = getelementptr inbounds i64, ptr %13, i64 %sub.ptr.div.i.i.i.i
   %spec.select = select i1 %cmp4.i.i, ptr %add.ptr.i24.i, ptr %19
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlsEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
@@ -8604,11 +8604,11 @@ invoke.cont34.i:                                  ; preds = %while.cond.i.i.i.i,
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %sub.ptr.lhs.cast.i.i18.i = ptrtoint ptr %19 to i64
   %sub.ptr.sub.i.i20.i = sub i64 %sub.ptr.lhs.cast.i.i18.i, %sub.ptr.rhs.cast.i.i.i.i
-  %sub.ptr.div.i.i21.i = ashr exact i64 %sub.ptr.sub.i.i20.i, 3
-  %cmp.i22.i = icmp ult i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %cmp.i22.i = icmp ult i64 %sub.ptr.sub.i.i20.i, %sub.ptr.sub.i.i.i.i
   br i1 %cmp.i22.i, label %if.then.i26.i, label %if.else.i23.i
 
 if.then.i26.i:                                    ; preds = %invoke.cont34.i
+  %sub.ptr.div.i.i21.i = ashr exact i64 %sub.ptr.sub.i.i20.i, 3
   %sub.i.i = sub nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
   invoke void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %values.i, i64 noundef %sub.i.i)
           to label %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i unwind label %lpad.loopexit.split-lp.i, !noalias !119
@@ -8619,7 +8619,7 @@ if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i: ; preds = %if.then.i26.
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlaEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
 if.else.i23.i:                                    ; preds = %invoke.cont34.i
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %cmp4.i.i = icmp ugt i64 %sub.ptr.sub.i.i20.i, %sub.ptr.sub.i.i.i.i
   %add.ptr.i24.i = getelementptr inbounds i64, ptr %13, i64 %sub.ptr.div.i.i.i.i
   %spec.select = select i1 %cmp4.i.i, ptr %add.ptr.i24.i, ptr %19
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlaEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
@@ -8969,11 +8969,11 @@ invoke.cont34.i:                                  ; preds = %while.cond.i.i.i.i,
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 2
   %sub.ptr.lhs.cast.i.i18.i = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i.i20.i = sub i64 %sub.ptr.lhs.cast.i.i18.i, %sub.ptr.rhs.cast.i.i.i.i
-  %sub.ptr.div.i.i21.i = ashr exact i64 %sub.ptr.sub.i.i20.i, 2
-  %cmp.i22.i = icmp ult i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %cmp.i22.i = icmp ult i64 %sub.ptr.sub.i.i20.i, %sub.ptr.sub.i.i.i.i
   br i1 %cmp.i22.i, label %if.then.i26.i, label %if.else.i23.i
 
 if.then.i26.i:                                    ; preds = %invoke.cont34.i
+  %sub.ptr.div.i.i21.i = ashr exact i64 %sub.ptr.sub.i.i20.i, 2
   %sub.i.i = sub nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %values.i, i64 noundef %sub.i.i)
           to label %if.then.i26._ZNSt6vectorIfSaIfEED2Ev.exit30_crit_edge.i unwind label %lpad.loopexit.split-lp.i, !noalias !126
@@ -8984,7 +8984,7 @@ if.then.i26._ZNSt6vectorIfSaIfEED2Ev.exit30_crit_edge.i: ; preds = %if.then.i26.
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIffEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
 if.else.i23.i:                                    ; preds = %invoke.cont34.i
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %cmp4.i.i = icmp ugt i64 %sub.ptr.sub.i.i20.i, %sub.ptr.sub.i.i.i.i
   %add.ptr.i24.i = getelementptr inbounds float, ptr %21, i64 %sub.ptr.div.i.i.i.i
   %spec.select = select i1 %cmp4.i.i, ptr %add.ptr.i24.i, ptr %20
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIffEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
@@ -9390,11 +9390,11 @@ invoke.cont34.i:                                  ; preds = %while.cond.i.i.i.i,
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %sub.ptr.lhs.cast.i.i18.i = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i.i20.i = sub i64 %sub.ptr.lhs.cast.i.i18.i, %sub.ptr.rhs.cast.i.i.i.i
-  %sub.ptr.div.i.i21.i = ashr exact i64 %sub.ptr.sub.i.i20.i, 3
-  %cmp.i22.i = icmp ult i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %cmp.i22.i = icmp ult i64 %sub.ptr.sub.i.i20.i, %sub.ptr.sub.i.i.i.i
   br i1 %cmp.i22.i, label %if.then.i26.i, label %if.else.i23.i
 
 if.then.i26.i:                                    ; preds = %invoke.cont34.i
+  %sub.ptr.div.i.i21.i = ashr exact i64 %sub.ptr.sub.i.i20.i, 3
   %sub.i.i = sub nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %values.i, i64 noundef %sub.i.i)
           to label %if.then.i26._ZNSt6vectorIdSaIdEED2Ev.exit30_crit_edge.i unwind label %lpad.loopexit.split-lp.i, !noalias !136
@@ -9405,7 +9405,7 @@ if.then.i26._ZNSt6vectorIdSaIdEED2Ev.exit30_crit_edge.i: ; preds = %if.then.i26.
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIddEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
 if.else.i23.i:                                    ; preds = %invoke.cont34.i
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %cmp4.i.i = icmp ugt i64 %sub.ptr.sub.i.i20.i, %sub.ptr.sub.i.i.i.i
   %add.ptr.i24.i = getelementptr inbounds double, ptr %13, i64 %sub.ptr.div.i.i.i.i
   %spec.select = select i1 %cmp4.i.i, ptr %add.ptr.i24.i, ptr %20
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIddEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
@@ -9808,11 +9808,11 @@ invoke.cont34.i:                                  ; preds = %while.cond.i.i.i.i,
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %sub.ptr.lhs.cast.i.i18.i = ptrtoint ptr %19 to i64
   %sub.ptr.sub.i.i20.i = sub i64 %sub.ptr.lhs.cast.i.i18.i, %sub.ptr.rhs.cast.i.i.i.i
-  %sub.ptr.div.i.i21.i = ashr exact i64 %sub.ptr.sub.i.i20.i, 3
-  %cmp.i22.i = icmp ult i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %cmp.i22.i = icmp ult i64 %sub.ptr.sub.i.i20.i, %sub.ptr.sub.i.i.i.i
   br i1 %cmp.i22.i, label %if.then.i26.i, label %if.else.i23.i
 
 if.then.i26.i:                                    ; preds = %invoke.cont34.i
+  %sub.ptr.div.i.i21.i = ashr exact i64 %sub.ptr.sub.i.i20.i, 3
   %sub.i.i = sub nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
   invoke void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %values.i, i64 noundef %sub.i.i)
           to label %if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i unwind label %lpad.loopexit.split-lp.i, !noalias !146
@@ -9823,7 +9823,7 @@ if.then.i26._ZNSt6vectorIlSaIlEED2Ev.exit30_crit_edge.i: ; preds = %if.then.i26.
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlbEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
 if.else.i23.i:                                    ; preds = %invoke.cont34.i
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i21.i, %sub.ptr.div.i.i.i.i
+  %cmp4.i.i = icmp ugt i64 %sub.ptr.sub.i.i20.i, %sub.ptr.sub.i.i.i.i
   %add.ptr.i24.i = getelementptr inbounds i64, ptr %13, i64 %sub.ptr.div.i.i.i.i
   %spec.select = select i1 %cmp4.i.i, ptr %add.ptr.i24.i, ptr %19
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlbEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
@@ -10187,11 +10187,11 @@ invoke.cont36.i:                                  ; preds = %while.cond.i.i.i.i,
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %sub.ptr.lhs.cast.i.i20.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i.i22.i = sub i64 %sub.ptr.lhs.cast.i.i20.i, %sub.ptr.rhs.cast.i.i.i.i
-  %sub.ptr.div.i.i23.i = ashr exact i64 %sub.ptr.sub.i.i22.i, 3
-  %cmp.i24.i = icmp ult i64 %sub.ptr.div.i.i23.i, %sub.ptr.div.i.i.i.i
+  %cmp.i24.i = icmp ult i64 %sub.ptr.sub.i.i22.i, %sub.ptr.sub.i.i.i.i
   br i1 %cmp.i24.i, label %if.then.i28.i, label %if.else.i25.i
 
 if.then.i28.i:                                    ; preds = %invoke.cont36.i
+  %sub.ptr.div.i.i23.i = ashr exact i64 %sub.ptr.sub.i.i22.i, 3
   %sub.i.i = sub nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i23.i
   invoke void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %values.i, i64 noundef %sub.i.i)
           to label %if.then.i28._ZNSt6vectorIlSaIlEED2Ev.exit32_crit_edge.i unwind label %lpad.loopexit.split-lp.i, !noalias !153
@@ -10202,7 +10202,7 @@ if.then.i28._ZNSt6vectorIlSaIlEED2Ev.exit32_crit_edge.i: ; preds = %if.then.i28.
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlNS0_9TimestampEEESt4pairISt6vectorIT_SaIS7_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
 if.else.i25.i:                                    ; preds = %invoke.cont36.i
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i23.i, %sub.ptr.div.i.i.i.i
+  %cmp4.i.i = icmp ugt i64 %sub.ptr.sub.i.i22.i, %sub.ptr.sub.i.i.i.i
   %add.ptr.i26.i = getelementptr inbounds i64, ptr %16, i64 %sub.ptr.div.i.i.i.i
   %spec.select = select i1 %cmp4.i.i, ptr %add.ptr.i26.i, ptr %22
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlNS0_9TimestampEEESt4pairISt6vectorIT_SaIS7_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
@@ -35628,7 +35628,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i35 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i34, 2
   %.pre.i.i.i.i.i.i36 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i35
   %add.ptr.i.i.i.i.i.i37 = getelementptr inbounds i32, ptr %add.ptr.i2.i32, i64 %.pre.i.i.i.i.i.i36
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i37, ptr nonnull align 4 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i34, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i37, ptr noundef nonnull align 4 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i34, i1 false)
   br label %for.inc.i38
 
 if.else.i42:                                      ; preds = %for.body.i23
@@ -36291,7 +36291,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i50 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i49, 2
   %.pre.i.i.i.i.i.i51 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i50
   %add.ptr.i.i.i.i.i.i52 = getelementptr inbounds i32, ptr %add.ptr.i2.i47, i64 %.pre.i.i.i.i.i.i51
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i52, ptr nonnull align 4 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i49, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i52, ptr noundef nonnull align 4 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i49, i1 false)
   br label %for.inc.i53
 
 if.else.i57:                                      ; preds = %for.body.i34
@@ -43060,7 +43060,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPnSt6vectorInSaInEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i, 4
   %.pre.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
   %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds i128, ptr %add.ptr.i3.i31.i, i64 %.pre.i.i.i.i.i.i35.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %add.ptr.i.i.i.i.i.i36.i, ptr nonnull align 16 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i, ptr noundef nonnull align 16 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
   br label %for.inc.i21.i
 
 if.else.i19.i:                                    ; preds = %for.body.i15.i
@@ -43855,7 +43855,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i, 3
   %.pre.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
   %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds i64, ptr %add.ptr.i3.i31.i, i64 %.pre.i.i.i.i.i.i35.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i36.i, ptr nonnull align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
   br label %for.inc.i21.i
 
 if.else.i19.i:                                    ; preds = %for.body.i15.i
@@ -44460,7 +44460,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i, 2
   %.pre.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
   %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds float, ptr %add.ptr.i3.i31.i, i64 %.pre.i.i.i.i.i.i35.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i36.i, ptr nonnull align 4 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i, ptr noundef nonnull align 4 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
   br label %for.inc.i21.i
 
 if.else.i19.i:                                    ; preds = %for.body.i15.i
@@ -46501,7 +46501,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33.i, 3
   %.pre.i.i.i.i.i.i35.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34.i
   %add.ptr.i.i.i.i.i.i36.i = getelementptr inbounds double, ptr %add.ptr.i3.i31.i, i64 %.pre.i.i.i.i.i.i35.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i36.i, ptr nonnull align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i36.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i33.i, i1 false)
   br label %for.inc.i21.i
 
 if.else.i19.i:                                    ; preds = %for.body.i15.i

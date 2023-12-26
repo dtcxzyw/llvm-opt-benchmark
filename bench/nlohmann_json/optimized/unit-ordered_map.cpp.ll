@@ -10122,7 +10122,7 @@ for.end:                                          ; preds = %_ZSt4nextIN9__gnu_c
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 6
   %sub = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i
-  %cmp.i19 = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i
+  %cmp.i19 = icmp ult i64 %sub.ptr.sub.i, %sub.ptr.sub.i.i.i
   br i1 %cmp.i19, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.end

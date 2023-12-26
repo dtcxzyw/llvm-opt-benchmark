@@ -6404,8 +6404,7 @@ if.end.i:                                         ; preds = %_ZN10ClipperLib8Pol
   %sub.ptr.lhs.cast.i.i33 = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast.i.i34 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i35 = sub i64 %sub.ptr.lhs.cast.i.i33, %sub.ptr.rhs.cast.i.i34
-  %sub.ptr.div.i.i36 = ashr exact i64 %sub.ptr.sub.i.i35, 3
-  %cmp3.i = icmp ult i64 %sub.ptr.div.i.i36, %sub.ptr.div.i
+  %cmp3.i = icmp ult i64 %sub.ptr.sub.i.i35, %sub.ptr.sub.i
   br i1 %cmp3.i, label %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, label %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE7reserveEm.exit
 
 _ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: ; preds = %if.end.i
@@ -6775,8 +6774,7 @@ if.end.i102:                                      ; preds = %for.end30
   %sub.ptr.lhs.cast.i.i104 = ptrtoint ptr %46 to i64
   %sub.ptr.rhs.cast.i.i105 = ptrtoint ptr %47 to i64
   %sub.ptr.sub.i.i106 = sub i64 %sub.ptr.lhs.cast.i.i104, %sub.ptr.rhs.cast.i.i105
-  %sub.ptr.div.i.i107 = ashr exact i64 %sub.ptr.sub.i.i106, 3
-  %cmp3.i108 = icmp ult i64 %sub.ptr.div.i.i107, %sub.ptr.div.i42.lcssa
+  %cmp3.i108 = icmp ult i64 %sub.ptr.sub.i.i106, %sub.ptr.sub.i41.lcssa
   br i1 %cmp3.i108, label %_ZNSt12_Vector_baseIPN10ClipperLib8PolyNodeESaIS2_EE11_M_allocateEm.exit.i109, label %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE7reserveEm.exit124
 
 _ZNSt12_Vector_baseIPN10ClipperLib8PolyNodeESaIS2_EE11_M_allocateEm.exit.i109: ; preds = %if.end.i102
@@ -22087,8 +22085,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 4
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i17
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16
   br i1 %cmp3, label %cond.true.i.i, label %if.else
 
 cond.true.i.i:                                    ; preds = %if.then
@@ -22131,8 +22128,7 @@ if.else:                                          ; preds = %if.then
   %8 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 4
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i23, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i22, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else
@@ -25297,17 +25293,17 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp.i = icmp ult i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
+  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %sub.i = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %output, i64 noundef %sub.i)
   br label %_ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE6resizeEm.exit
 
 if.else.i:                                        ; preds = %entry
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp4.i = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i

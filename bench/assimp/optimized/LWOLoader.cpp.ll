@@ -1943,7 +1943,7 @@ invoke.cont301:                                   ; preds = %for.end298
 new.ctorloop:                                     ; preds = %invoke.cont301
   %101 = add nsw i64 %100, -12
   %102 = urem i64 %101, 12
-  %103 = sub nsw i64 %101, %102
+  %103 = sub nuw nsw i64 %101, %102
   %104 = add nsw i64 %103, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call302, i8 0, i64 %104, i1 false)
   br label %arrayctor.cont
@@ -2016,7 +2016,7 @@ invoke.cont332:                                   ; preds = %if.end329
 new.ctorloop335:                                  ; preds = %invoke.cont332
   %113 = add nsw i64 %112, -12
   %114 = urem i64 %113, 12
-  %115 = sub nsw i64 %113, %114
+  %115 = sub nuw nsw i64 %113, %114
   %116 = add nsw i64 %115, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call333, i8 0, i64 %116, i1 false)
   br label %arrayctor.cont341
@@ -2050,7 +2050,7 @@ invoke.cont355:                                   ; preds = %if.then352
 new.ctorloop358:                                  ; preds = %invoke.cont355
   %119 = add nsw i64 %118, -12
   %120 = urem i64 %119, 12
-  %121 = sub nsw i64 %119, %120
+  %121 = sub nuw nsw i64 %119, %120
   %122 = add nsw i64 %121, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call356, i8 0, i64 %122, i1 false)
   br label %arrayctor.cont364
@@ -2103,7 +2103,7 @@ for.end394:                                       ; preds = %for.body370, %array
   %sub.ptr.sub.i3.i = sub i64 %sub.ptr.lhs.cast.i1.i, %sub.ptr.lhs.cast.i.i255
   %sub.ptr.div.i4.i = ashr exact i64 %sub.ptr.sub.i3.i, 2
   %add.ptr.i5.i = getelementptr inbounds i32, ptr %126, i64 %sub.ptr.div.i4.i
-  %cmp.i.not.i.i260 = icmp eq ptr %127, %126
+  %cmp.i.not.i.i260 = icmp eq ptr %126, %127
   br i1 %cmp.i.not.i.i260, label %invoke.cont405, label %if.then.i.i261
 
 if.then.i.i261:                                   ; preds = %for.end394
@@ -4018,7 +4018,7 @@ entry:
 new.ctorloop:                                     ; preds = %entry
   %2 = add nsw i64 %1, -12
   %3 = urem i64 %2, 12
-  %4 = sub nsw i64 %2, %3
+  %4 = sub nuw nsw i64 %2, %3
   %5 = add nsw i64 %4, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call, i8 0, i64 %5, i1 false)
   %mNormals = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 4

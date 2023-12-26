@@ -12800,8 +12800,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp = icmp ugt i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %cmp = icmp ugt i64 %sub.ptr.sub.i.i.i, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -12843,8 +12842,7 @@ if.else:                                          ; preds = %entry
   %3 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i7 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i7, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i10 = ashr exact i64 %sub.ptr.sub.i9, 4
-  %cmp32.not = icmp ult i64 %sub.ptr.div.i10, %sub.ptr.div.i.i.i
+  %cmp32.not = icmp ult i64 %sub.ptr.sub.i9, %sub.ptr.sub.i.i.i
   br i1 %cmp32.not, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb9SavePointESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit, label %if.then33
 
 if.then33:                                        ; preds = %if.else
@@ -12867,6 +12865,7 @@ invoke.cont.i:                                    ; preds = %_ZSt4copyIN9__gnu_c
   br label %if.end61
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb9SavePointESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit: ; preds = %if.else
+  %sub.ptr.div.i10 = ashr exact i64 %sub.ptr.sub.i9, 4
   %add.ptr.i.i.i = getelementptr inbounds %"struct.rocksdb::SavePoint", ptr %__first.coerce, i64 %sub.ptr.div.i10
   %tobool.not.i.i.i.i.i21 = icmp eq ptr %3, %1
   br i1 %tobool.not.i.i.i.i.i21, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb9SavePointESt6vectorIS3_SaIS3_EEEEPS3_ET0_T_SC_SB_.exit25, label %if.then.i.i.i.i.i22
@@ -22494,8 +22493,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp = icmp ugt i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
+  %cmp = icmp ugt i64 %sub.ptr.sub.i.i.i, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -22537,8 +22535,7 @@ if.else:                                          ; preds = %entry
   %3 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i7 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i7, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i10 = ashr exact i64 %sub.ptr.sub.i9, 3
-  %cmp32.not = icmp ult i64 %sub.ptr.div.i10, %sub.ptr.div.i.i.i
+  %cmp32.not = icmp ult i64 %sub.ptr.sub.i9, %sub.ptr.sub.i.i.i
   br i1 %cmp32.not, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb18ProtectionInfoKVOCImEESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit, label %if.then33
 
 if.then33:                                        ; preds = %if.else
@@ -22561,6 +22558,7 @@ invoke.cont.i:                                    ; preds = %_ZSt4copyIN9__gnu_c
   br label %if.end61
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb18ProtectionInfoKVOCImEESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit: ; preds = %if.else
+  %sub.ptr.div.i10 = ashr exact i64 %sub.ptr.sub.i9, 3
   %add.ptr.i.i.i = getelementptr inbounds %"class.rocksdb::ProtectionInfoKVOC", ptr %__first.coerce, i64 %sub.ptr.div.i10
   %tobool.not.i.i.i.i.i21 = icmp eq ptr %3, %1
   br i1 %tobool.not.i.i.i.i.i21, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb18ProtectionInfoKVOCImEESt6vectorIS4_SaIS4_EEEEPS4_ET0_T_SD_SC_.exit25, label %if.then.i.i.i.i.i22

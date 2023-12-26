@@ -3184,11 +3184,11 @@ if.then16:                                        ; preds = %if.end
   %sub.ptr.lhs.cast.i72 = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i73 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i74 = sub i64 %sub.ptr.lhs.cast.i72, %sub.ptr.rhs.cast.i73
-  %sub.ptr.div.i75 = ashr exact i64 %sub.ptr.sub.i74, 2
-  %cmp.not = icmp eq i64 %sub.ptr.div.i, %sub.ptr.div.i75
+  %cmp.not = icmp eq i64 %sub.ptr.sub.i, %sub.ptr.sub.i74
   br i1 %cmp.not, label %if.end23, label %if.then18
 
 if.then18:                                        ; preds = %if.then16
+  %sub.ptr.div.i75 = ashr exact i64 %sub.ptr.sub.i74, 2
   store i64 %sub.ptr.div.i75, ptr %ref.tmp19, align 8
   invoke void @_ZN4pbrt9ErrorExitIJRmmEEEvPKNS_7FileLocEPKcDpOT_(ptr noundef %loc, ptr noundef nonnull @.str.69, ptr noundef nonnull align 8 dereferenceable(8) %nDensity, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp19) #28
           to label %invoke.cont21 unwind label %lpad12
@@ -5752,11 +5752,11 @@ land.lhs.true27:                                  ; preds = %if.then24
   %sub.ptr.lhs.cast.i90 = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast.i91 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i92 = sub i64 %sub.ptr.lhs.cast.i90, %sub.ptr.rhs.cast.i91
-  %sub.ptr.div.i93 = sdiv exact i64 %sub.ptr.sub.i92, 12
-  %cmp.not = icmp eq i64 %sub.ptr.div.i, %sub.ptr.div.i93
+  %cmp.not = icmp eq i64 %sub.ptr.sub.i, %sub.ptr.sub.i92
   br i1 %cmp.not, label %if.end35, label %if.then29
 
 if.then29:                                        ; preds = %land.lhs.true27
+  %sub.ptr.div.i93 = sdiv exact i64 %sub.ptr.sub.i92, 12
   store i64 %sub.ptr.div.i93, ptr %ref.tmp30, align 8
   invoke void @_ZN4pbrt9ErrorExitIJRmmEEEvPKNS_7FileLocEPKcDpOT_(ptr noundef %loc, ptr noundef nonnull @.str.86, ptr noundef nonnull align 8 dereferenceable(8) %nDensity, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp30) #28
           to label %invoke.cont32 unwind label %lpad21
@@ -5795,11 +5795,11 @@ land.lhs.true43:                                  ; preds = %if.end35
   %sub.ptr.lhs.cast.i111 = ptrtoint ptr %17 to i64
   %sub.ptr.rhs.cast.i112 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i113 = sub i64 %sub.ptr.lhs.cast.i111, %sub.ptr.rhs.cast.i112
-  %sub.ptr.div.i114 = sdiv exact i64 %sub.ptr.sub.i113, 12
-  %cmp45.not = icmp eq i64 %sub.ptr.div.i, %sub.ptr.div.i114
+  %cmp45.not = icmp eq i64 %sub.ptr.sub.i, %sub.ptr.sub.i113
   br i1 %cmp45.not, label %if.end50, label %if.then46
 
 if.then46:                                        ; preds = %land.lhs.true43
+  %sub.ptr.div.i114 = sdiv exact i64 %sub.ptr.sub.i113, 12
   store i64 %sub.ptr.div.i114, ptr %ref.tmp47, align 8
   invoke void @_ZN4pbrt9ErrorExitIJRmmEEEvPKcDpOT_(ptr noundef nonnull @.str.88, ptr noundef nonnull align 8 dereferenceable(8) %nDensity, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp47) #28
           to label %invoke.cont49 unwind label %lpad21

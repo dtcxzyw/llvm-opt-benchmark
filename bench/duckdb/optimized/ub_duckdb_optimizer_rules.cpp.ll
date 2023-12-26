@@ -3217,7 +3217,7 @@ entry:
   %sub.ptr.sub.i20 = sub i64 %sub.ptr.lhs.cast.i18, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i21 = ashr exact i64 %sub.ptr.sub.i20, 4
   %add.ptr.i22 = getelementptr inbounds %"struct.duckdb::BoundCaseCheck", ptr %0, i64 %sub.ptr.div.i21
-  %cmp.i.not.i = icmp eq i64 %sub.ptr.div.i, %sub.ptr.div.i21
+  %cmp.i.not.i = icmp eq ptr %__first.coerce, %__last.coerce
   br i1 %cmp.i.not.i, label %_ZNSt6vectorIN6duckdb14BoundCaseCheckESaIS1_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS1_S3_EES7_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry

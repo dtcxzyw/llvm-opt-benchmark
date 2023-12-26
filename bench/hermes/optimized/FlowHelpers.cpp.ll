@@ -196,7 +196,7 @@ while.end:                                        ; preds = %while.cond.while.en
   %sub.ptr.sub.i3.i = sub i64 %sub.ptr.lhs.cast.i1.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i4.i = sdiv exact i64 %sub.ptr.sub.i3.i, 24
   %add.ptr.i5.i = getelementptr inbounds %"class.hermes::parser::StoredComment", ptr %10, i64 %sub.ptr.div.i4.i
-  %cmp.i.not.i.i = icmp eq i64 %numComments.0, %sub.ptr.div.i4.i
+  %cmp.i.not.i.i = icmp eq ptr %add.ptr.i, %11
   br i1 %cmp.i.not.i.i, label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.end

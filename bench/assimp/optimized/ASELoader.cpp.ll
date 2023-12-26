@@ -2049,8 +2049,7 @@ if.then.i289:                                     ; preds = %if.then107
   %sub.ptr.lhs.cast.i14.i = ptrtoint ptr %60 to i64
   %sub.ptr.rhs.cast.i15.i = ptrtoint ptr %61 to i64
   %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i15.i
-  %sub.ptr.div.i17.i = ashr exact i64 %sub.ptr.sub.i16.i, 3
-  %cmp3.i = icmp ugt i64 %sub.ptr.div.i.i294, %sub.ptr.div.i17.i
+  %cmp3.i = icmp ugt i64 %sub.ptr.sub.i.i293, %sub.ptr.sub.i16.i
   br i1 %cmp3.i, label %cond.true.i.i.i, label %if.else.i295
 
 cond.true.i.i.i:                                  ; preds = %if.then.i289
@@ -2099,8 +2098,7 @@ if.else.i295:                                     ; preds = %if.then.i289
   %66 = load ptr, ptr %_M_finish.i19.i, align 8
   %sub.ptr.lhs.cast.i20.i = ptrtoint ptr %66 to i64
   %sub.ptr.sub.i22.i = sub i64 %sub.ptr.lhs.cast.i20.i, %sub.ptr.rhs.cast.i15.i
-  %sub.ptr.div.i23.i = ashr exact i64 %sub.ptr.sub.i22.i, 3
-  %cmp26.not.i = icmp ult i64 %sub.ptr.div.i23.i, %sub.ptr.div.i.i294
+  %cmp26.not.i = icmp ult i64 %sub.ptr.sub.i22.i, %sub.ptr.sub.i.i293
   br i1 %cmp26.not.i, label %if.else49.i, label %if.then27.i
 
 if.then27.i:                                      ; preds = %if.else.i295
@@ -2124,11 +2122,12 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.then27.i, %for.b
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %if.end69.i, !llvm.loop !22
 
 if.else49.i:                                      ; preds = %if.else.i295
-  %cmp6.i.i.i.i.i35.i = icmp sgt i64 %sub.ptr.div.i23.i, 0
+  %sub.ptr.div.i.i.i.i.i34.i = ashr exact i64 %sub.ptr.sub.i22.i, 3
+  %cmp6.i.i.i.i.i35.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i34.i, 0
   br i1 %cmp6.i.i.i.i.i35.i, label %for.body.i.i.i.i.i37.i, label %_ZSt4copyIPSt4pairIifES2_ET0_T_S4_S3_.exit.i
 
 for.body.i.i.i.i.i37.i:                           ; preds = %if.else49.i, %for.body.i.i.i.i.i37.i
-  %__n.09.i.i.i.i.i38.i = phi i64 [ %dec.i.i.i.i.i45.i, %for.body.i.i.i.i.i37.i ], [ %sub.ptr.div.i23.i, %if.else49.i ]
+  %__n.09.i.i.i.i.i38.i = phi i64 [ %dec.i.i.i.i.i45.i, %for.body.i.i.i.i.i37.i ], [ %sub.ptr.div.i.i.i.i.i34.i, %if.else49.i ]
   %__result.addr.08.i.i.i.i.i39.i = phi ptr [ %incdec.ptr1.i.i.i.i.i44.i, %for.body.i.i.i.i.i37.i ], [ %61, %if.else49.i ]
   %__first.addr.07.i.i.i.i.i40.i = phi ptr [ %incdec.ptr.i.i.i.i.i43.i, %for.body.i.i.i.i.i37.i ], [ %59, %if.else49.i ]
   %69 = load i32, ptr %__first.addr.07.i.i.i.i.i40.i, align 4
@@ -2155,7 +2154,7 @@ _ZSt4copyIPSt4pairIifES2_ET0_T_S4_S3_.exit.loopexit.i: ; preds = %for.body.i.i.i
   br label %_ZSt4copyIPSt4pairIifES2_ET0_T_S4_S3_.exit.i
 
 _ZSt4copyIPSt4pairIifES2_ET0_T_S4_S3_.exit.i:     ; preds = %_ZSt4copyIPSt4pairIifES2_ET0_T_S4_S3_.exit.loopexit.i, %if.else49.i
-  %sub.ptr.div.i51.pre-phi.i = phi i64 [ %.pre60.i, %_ZSt4copyIPSt4pairIifES2_ET0_T_S4_S3_.exit.loopexit.i ], [ %sub.ptr.div.i23.i, %if.else49.i ]
+  %sub.ptr.div.i51.pre-phi.i = phi i64 [ %.pre60.i, %_ZSt4copyIPSt4pairIifES2_ET0_T_S4_S3_.exit.loopexit.i ], [ %sub.ptr.div.i.i.i.i.i34.i, %if.else49.i ]
   %71 = phi ptr [ %.pre56.i, %_ZSt4copyIPSt4pairIifES2_ET0_T_S4_S3_.exit.loopexit.i ], [ %58, %if.else49.i ]
   %72 = phi ptr [ %.pre54.i, %_ZSt4copyIPSt4pairIifES2_ET0_T_S4_S3_.exit.loopexit.i ], [ %66, %if.else49.i ]
   %73 = phi ptr [ %.pre.i, %_ZSt4copyIPSt4pairIifES2_ET0_T_S4_S3_.exit.loopexit.i ], [ %59, %if.else49.i ]
@@ -2871,7 +2870,7 @@ new.ctorloop86:                                   ; preds = %if.then80
   %60 = mul nsw i64 %sub.ptr.div.i304, 24
   %61 = add nsw i64 %60, -24
   %62 = urem i64 %61, 24
-  %63 = sub nsw i64 %61, %62
+  %63 = sub nuw nsw i64 %61, %62
   %64 = add nsw i64 %63, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %59, i8 0, i64 %64, i1 false)
   br label %if.end93
@@ -2919,7 +2918,7 @@ arrayctor.cont105:                                ; preds = %arrayctor.loop101
 new.ctorloop114:                                  ; preds = %arrayctor.cont105
   %69 = add nsw i64 %68, -12
   %70 = urem i64 %69, 12
-  %71 = sub nsw i64 %69, %70
+  %71 = sub nuw nsw i64 %69, %70
   %72 = add nsw i64 %71, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call112, i8 0, i64 %72, i1 false)
   store ptr %call112, ptr %mVertices.i, align 8
@@ -3137,7 +3136,7 @@ invoke.cont227:                                   ; preds = %if.then224
 new.ctorloop230:                                  ; preds = %invoke.cont227
   %105 = add nsw i64 %104, -12
   %106 = urem i64 %105, 12
-  %107 = sub nsw i64 %105, %106
+  %107 = sub nuw nsw i64 %105, %106
   %108 = add nsw i64 %107, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call228, i8 0, i64 %108, i1 false)
   br label %arrayctor.cont236
@@ -7349,8 +7348,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 4
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i17
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16
   br i1 %cmp3, label %cond.true.i.i, label %if.else
 
 cond.true.i.i:                                    ; preds = %if.then
@@ -7393,8 +7391,7 @@ if.else:                                          ; preds = %if.then
   %8 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 4
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i23, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i22, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else

@@ -4409,14 +4409,14 @@ do.body.i66:                                      ; preds = %_ZN6Assimp14ASSIMP_
   %call4.i74 = call i32 @tolower(i32 noundef %conv3.i73) #30
   %20 = and i32 %call.i71, 255
   %tobool.i75 = icmp ne i32 %20, 0
-  %cmp.i80.unshifted = xor i32 %call.i71, %call4.i74
-  %cmp.i80.mask = and i32 %cmp.i80.unshifted, 255
-  %cmp.i80 = icmp eq i32 %cmp.i80.mask, 0
-  %21 = select i1 %tobool.i75, i1 %cmp.i80, i1 false
+  %cmp.i78.unshifted = xor i32 %call.i71, %call4.i74
+  %cmp.i78.mask = and i32 %cmp.i78.unshifted, 255
+  %cmp.i78 = icmp eq i32 %cmp.i78.mask, 0
+  %21 = select i1 %tobool.i75, i1 %cmp.i78, i1 false
   br i1 %21, label %do.body.i66, label %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit82, !llvm.loop !31
 
 _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit82:         ; preds = %do.body.i66
-  br i1 %cmp.i80, label %if.then48, label %do.body.i124
+  br i1 %cmp.i78, label %if.then48, label %do.body.i124
 
 if.then48:                                        ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit82
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %prop49) #26
@@ -4585,14 +4585,14 @@ do.body.i124:                                     ; preds = %_ZN6Assimp14ASSIMP_
   %call4.i132 = call i32 @tolower(i32 noundef %conv3.i131) #30
   %50 = and i32 %call.i129, 255
   %tobool.i133 = icmp ne i32 %50, 0
-  %cmp.i138.unshifted = xor i32 %call.i129, %call4.i132
-  %cmp.i138.mask = and i32 %cmp.i138.unshifted, 255
-  %cmp.i138 = icmp eq i32 %cmp.i138.mask, 0
-  %51 = select i1 %tobool.i133, i1 %cmp.i138, i1 false
+  %cmp.i136.unshifted = xor i32 %call.i129, %call4.i132
+  %cmp.i136.mask = and i32 %cmp.i136.unshifted, 255
+  %cmp.i136 = icmp eq i32 %cmp.i136.mask, 0
+  %51 = select i1 %tobool.i133, i1 %cmp.i136, i1 false
   br i1 %51, label %do.body.i124, label %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit140, !llvm.loop !31
 
 _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit140:        ; preds = %do.body.i124
-  br i1 %cmp.i138, label %if.then152, label %do.body.i152
+  br i1 %cmp.i136, label %if.then152, label %do.body.i152
 
 if.then152:                                       ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit140
   %52 = load i32, ptr %nd, align 8
@@ -4642,14 +4642,14 @@ do.body.i152:                                     ; preds = %_ZN6Assimp14ASSIMP_
   %call4.i160 = call i32 @tolower(i32 noundef %conv3.i159) #30
   %58 = and i32 %call.i157, 255
   %tobool.i161 = icmp ne i32 %58, 0
-  %cmp.i166.unshifted = xor i32 %call.i157, %call4.i160
-  %cmp.i166.mask = and i32 %cmp.i166.unshifted, 255
-  %cmp.i166 = icmp eq i32 %cmp.i166.mask, 0
-  %59 = select i1 %tobool.i161, i1 %cmp.i166, i1 false
+  %cmp.i164.unshifted = xor i32 %call.i157, %call4.i160
+  %cmp.i164.mask = and i32 %cmp.i164.unshifted, 255
+  %cmp.i164 = icmp eq i32 %cmp.i164.mask, 0
+  %59 = select i1 %tobool.i161, i1 %cmp.i164, i1 false
   br i1 %59, label %do.body.i152, label %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit168, !llvm.loop !31
 
 _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit168:        ; preds = %do.body.i152
-  br i1 %cmp.i166, label %if.then182, label %do.body.i176
+  br i1 %cmp.i164, label %if.then182, label %do.body.i176
 
 do.body.i176:                                     ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit168, %do.body.i176
   %s2.addr.0.i177 = phi ptr [ %incdec.ptr2.i182, %do.body.i176 ], [ @.str.46, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit168 ]
@@ -4664,14 +4664,14 @@ do.body.i176:                                     ; preds = %_ZN6Assimp14ASSIMP_
   %call4.i184 = call i32 @tolower(i32 noundef %conv3.i183) #30
   %62 = and i32 %call.i181, 255
   %tobool.i185 = icmp ne i32 %62, 0
-  %cmp.i190.unshifted = xor i32 %call.i181, %call4.i184
-  %cmp.i190.mask = and i32 %cmp.i190.unshifted, 255
-  %cmp.i190 = icmp eq i32 %cmp.i190.mask, 0
-  %63 = select i1 %tobool.i185, i1 %cmp.i190, i1 false
+  %cmp.i188.unshifted = xor i32 %call.i181, %call4.i184
+  %cmp.i188.mask = and i32 %cmp.i188.unshifted, 255
+  %cmp.i188 = icmp eq i32 %cmp.i188.mask, 0
+  %63 = select i1 %tobool.i185, i1 %cmp.i188, i1 false
   br i1 %63, label %do.body.i176, label %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit192, !llvm.loop !31
 
 _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit192:        ; preds = %do.body.i176
-  br i1 %cmp.i190, label %if.then182, label %for.inc
+  br i1 %cmp.i188, label %if.then182, label %for.inc
 
 if.then182:                                       ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit192, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit168
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %prop183) #26
@@ -5002,14 +5002,14 @@ do.body:                                          ; preds = %do.body, %entry
   %2 = and i32 %call, 255
   %tobool = icmp ne i32 %2, 0
   %sext = shl i32 %call, 24
-  %conv6 = ashr exact i32 %sext, 24
   %sext4 = shl i32 %call4, 24
-  %conv7 = ashr exact i32 %sext4, 24
-  %cmp = icmp eq i32 %conv6, %conv7
+  %cmp = icmp eq i32 %sext, %sext4
   %3 = select i1 %tobool, i1 %cmp, i1 false
   br i1 %3, label %do.body, label %do.end, !llvm.loop !31
 
 do.end:                                           ; preds = %do.body
+  %conv7 = ashr exact i32 %sext4, 24
+  %conv6 = ashr exact i32 %sext, 24
   %sub = sub nsw i32 %conv6, %conv7
   ret i32 %sub
 }
@@ -5520,14 +5520,14 @@ do.body.i75:                                      ; preds = %_ZN6Assimp14ASSIMP_
   %call4.i83 = call i32 @tolower(i32 noundef %conv3.i82) #30
   %34 = and i32 %call.i80, 255
   %tobool.i84 = icmp ne i32 %34, 0
-  %cmp.i89.unshifted = xor i32 %call.i80, %call4.i83
-  %cmp.i89.mask = and i32 %cmp.i89.unshifted, 255
-  %cmp.i89 = icmp eq i32 %cmp.i89.mask, 0
-  %35 = select i1 %tobool.i84, i1 %cmp.i89, i1 false
+  %cmp.i87.unshifted = xor i32 %call.i80, %call4.i83
+  %cmp.i87.mask = and i32 %cmp.i87.unshifted, 255
+  %cmp.i87 = icmp eq i32 %cmp.i87.mask, 0
+  %35 = select i1 %tobool.i84, i1 %cmp.i87, i1 false
   br i1 %35, label %do.body.i75, label %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit91, !llvm.loop !31
 
 _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit91:         ; preds = %do.body.i75
-  br i1 %cmp.i89, label %if.then102, label %do.body.i101
+  br i1 %cmp.i87, label %if.then102, label %do.body.i101
 
 if.then102:                                       ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit91
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %prop103) #26
@@ -5568,14 +5568,14 @@ do.body.i101:                                     ; preds = %_ZN6Assimp14ASSIMP_
   %call4.i109 = call i32 @tolower(i32 noundef %conv3.i108) #30
   %42 = and i32 %call.i106, 255
   %tobool.i110 = icmp ne i32 %42, 0
-  %cmp.i115.unshifted = xor i32 %call.i106, %call4.i109
-  %cmp.i115.mask = and i32 %cmp.i115.unshifted, 255
-  %cmp.i115 = icmp eq i32 %cmp.i115.mask, 0
-  %43 = select i1 %tobool.i110, i1 %cmp.i115, i1 false
+  %cmp.i113.unshifted = xor i32 %call.i106, %call4.i109
+  %cmp.i113.mask = and i32 %cmp.i113.unshifted, 255
+  %cmp.i113 = icmp eq i32 %cmp.i113.mask, 0
+  %43 = select i1 %tobool.i110, i1 %cmp.i113, i1 false
   br i1 %43, label %do.body.i101, label %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit117, !llvm.loop !31
 
 _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit117:        ; preds = %do.body.i101
-  br i1 %cmp.i115, label %if.then122, label %do.body.i131
+  br i1 %cmp.i113, label %if.then122, label %do.body.i131
 
 if.then122:                                       ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit117
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %prop123) #26
@@ -5644,14 +5644,14 @@ do.body.i131:                                     ; preds = %_ZN6Assimp14ASSIMP_
   %call4.i139 = call i32 @tolower(i32 noundef %conv3.i138) #30
   %52 = and i32 %call.i136, 255
   %tobool.i140 = icmp ne i32 %52, 0
-  %cmp.i145.unshifted = xor i32 %call.i136, %call4.i139
-  %cmp.i145.mask = and i32 %cmp.i145.unshifted, 255
-  %cmp.i145 = icmp eq i32 %cmp.i145.mask, 0
-  %53 = select i1 %tobool.i140, i1 %cmp.i145, i1 false
+  %cmp.i143.unshifted = xor i32 %call.i136, %call4.i139
+  %cmp.i143.mask = and i32 %cmp.i143.unshifted, 255
+  %cmp.i143 = icmp eq i32 %cmp.i143.mask, 0
+  %53 = select i1 %tobool.i140, i1 %cmp.i143, i1 false
   br i1 %53, label %do.body.i131, label %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit147, !llvm.loop !31
 
 _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit147:        ; preds = %do.body.i131
-  br i1 %cmp.i145, label %if.then158, label %do.body.i157
+  br i1 %cmp.i143, label %if.then158, label %do.body.i157
 
 if.then158:                                       ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit147
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %prop159) #26
@@ -5691,14 +5691,14 @@ do.body.i157:                                     ; preds = %_ZN6Assimp14ASSIMP_
   %call4.i165 = call i32 @tolower(i32 noundef %conv3.i164) #30
   %59 = and i32 %call.i162, 255
   %tobool.i166 = icmp ne i32 %59, 0
-  %cmp.i171.unshifted = xor i32 %call.i162, %call4.i165
-  %cmp.i171.mask = and i32 %cmp.i171.unshifted, 255
-  %cmp.i171 = icmp eq i32 %cmp.i171.mask, 0
-  %60 = select i1 %tobool.i166, i1 %cmp.i171, i1 false
+  %cmp.i169.unshifted = xor i32 %call.i162, %call4.i165
+  %cmp.i169.mask = and i32 %cmp.i169.unshifted, 255
+  %cmp.i169 = icmp eq i32 %cmp.i169.mask, 0
+  %60 = select i1 %tobool.i166, i1 %cmp.i169, i1 false
   br i1 %60, label %do.body.i157, label %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit173, !llvm.loop !31
 
 _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit173:        ; preds = %do.body.i157
-  br i1 %cmp.i171, label %if.then180, label %do.body.i181
+  br i1 %cmp.i169, label %if.then180, label %do.body.i181
 
 do.body.i181:                                     ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit173, %do.body.i181
   %s2.addr.0.i182 = phi ptr [ %incdec.ptr2.i187, %do.body.i181 ], [ @.str.46, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit173 ]
@@ -5713,14 +5713,14 @@ do.body.i181:                                     ; preds = %_ZN6Assimp14ASSIMP_
   %call4.i189 = call i32 @tolower(i32 noundef %conv3.i188) #30
   %63 = and i32 %call.i186, 255
   %tobool.i190 = icmp ne i32 %63, 0
-  %cmp.i195.unshifted = xor i32 %call.i186, %call4.i189
-  %cmp.i195.mask = and i32 %cmp.i195.unshifted, 255
-  %cmp.i195 = icmp eq i32 %cmp.i195.mask, 0
-  %64 = select i1 %tobool.i190, i1 %cmp.i195, i1 false
+  %cmp.i193.unshifted = xor i32 %call.i186, %call4.i189
+  %cmp.i193.mask = and i32 %cmp.i193.unshifted, 255
+  %cmp.i193 = icmp eq i32 %cmp.i193.mask, 0
+  %64 = select i1 %tobool.i190, i1 %cmp.i193, i1 false
   br i1 %64, label %do.body.i181, label %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit197, !llvm.loop !31
 
 _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit197:        ; preds = %do.body.i181
-  br i1 %cmp.i195, label %if.then180, label %for.inc
+  br i1 %cmp.i193, label %if.then180, label %for.inc
 
 if.then180:                                       ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit197, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit173
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %prop181) #26
@@ -5944,14 +5944,14 @@ do.body.i26:                                      ; preds = %do.body.i26.prehead
   %call4.i34 = tail call i32 @tolower(i32 noundef %conv3.i33) #30
   %10 = and i32 %call.i31, 255
   %tobool.i35 = icmp ne i32 %10, 0
-  %cmp.i40.unshifted = xor i32 %call.i31, %call4.i34
-  %cmp.i40.mask = and i32 %cmp.i40.unshifted, 255
-  %cmp.i40 = icmp eq i32 %cmp.i40.mask, 0
-  %11 = select i1 %tobool.i35, i1 %cmp.i40, i1 false
+  %cmp.i38.unshifted = xor i32 %call.i31, %call4.i34
+  %cmp.i38.mask = and i32 %cmp.i38.unshifted, 255
+  %cmp.i38 = icmp eq i32 %cmp.i38.mask, 0
+  %11 = select i1 %tobool.i35, i1 %cmp.i38, i1 false
   br i1 %11, label %do.body.i26, label %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit42, !llvm.loop !31
 
 _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit42:         ; preds = %do.body.i26
-  br i1 %cmp.i40, label %if.then, label %if.else
+  br i1 %cmp.i38, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit42, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit
   %call7 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #28
@@ -5991,14 +5991,14 @@ do.body.i50:                                      ; preds = %do.body.i50.prehead
   %call4.i58 = tail call i32 @tolower(i32 noundef %conv3.i57) #30
   %16 = and i32 %call.i55, 255
   %tobool.i59 = icmp ne i32 %16, 0
-  %cmp.i64.unshifted = xor i32 %call.i55, %call4.i58
-  %cmp.i64.mask = and i32 %cmp.i64.unshifted, 255
-  %cmp.i64 = icmp eq i32 %cmp.i64.mask, 0
-  %17 = select i1 %tobool.i59, i1 %cmp.i64, i1 false
+  %cmp.i62.unshifted = xor i32 %call.i55, %call4.i58
+  %cmp.i62.mask = and i32 %cmp.i62.unshifted, 255
+  %cmp.i62 = icmp eq i32 %cmp.i62.mask, 0
+  %17 = select i1 %tobool.i59, i1 %cmp.i62, i1 false
   br i1 %17, label %do.body.i50, label %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit66, !llvm.loop !31
 
 _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit66:         ; preds = %do.body.i50
-  br i1 %cmp.i64, label %if.then11, label %if.else15
+  br i1 %cmp.i62, label %if.then11, label %if.else15
 
 if.then11:                                        ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit66
   %call12 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #28
@@ -6045,14 +6045,14 @@ do.body.i74:                                      ; preds = %do.body.i74.prehead
   %call4.i82 = tail call i32 @tolower(i32 noundef %conv3.i81) #30
   %23 = and i32 %call.i79, 255
   %tobool.i83 = icmp ne i32 %23, 0
-  %cmp.i88.unshifted = xor i32 %call.i79, %call4.i82
-  %cmp.i88.mask = and i32 %cmp.i88.unshifted, 255
-  %cmp.i88 = icmp eq i32 %cmp.i88.mask, 0
-  %24 = select i1 %tobool.i83, i1 %cmp.i88, i1 false
+  %cmp.i86.unshifted = xor i32 %call.i79, %call4.i82
+  %cmp.i86.mask = and i32 %cmp.i86.unshifted, 255
+  %cmp.i86 = icmp eq i32 %cmp.i86.mask, 0
+  %24 = select i1 %tobool.i83, i1 %cmp.i86, i1 false
   br i1 %24, label %do.body.i74, label %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit90, !llvm.loop !31
 
 _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit90:         ; preds = %do.body.i74
-  br i1 %cmp.i88, label %if.then19, label %if.else25
+  br i1 %cmp.i86, label %if.then19, label %if.else25
 
 if.then19:                                        ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit90
   %call20 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #28
@@ -6099,14 +6099,14 @@ do.body.i98:                                      ; preds = %do.body.i98.prehead
   %call4.i106 = tail call i32 @tolower(i32 noundef %conv3.i105) #30
   %30 = and i32 %call.i103, 255
   %tobool.i107 = icmp ne i32 %30, 0
-  %cmp.i112.unshifted = xor i32 %call.i103, %call4.i106
-  %cmp.i112.mask = and i32 %cmp.i112.unshifted, 255
-  %cmp.i112 = icmp eq i32 %cmp.i112.mask, 0
-  %31 = select i1 %tobool.i107, i1 %cmp.i112, i1 false
+  %cmp.i110.unshifted = xor i32 %call.i103, %call4.i106
+  %cmp.i110.mask = and i32 %cmp.i110.unshifted, 255
+  %cmp.i110 = icmp eq i32 %cmp.i110.mask, 0
+  %31 = select i1 %tobool.i107, i1 %cmp.i110, i1 false
   br i1 %31, label %do.body.i98, label %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit114, !llvm.loop !31
 
 _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit114:        ; preds = %do.body.i98
-  br i1 %cmp.i112, label %if.then29, label %if.else34
+  br i1 %cmp.i110, label %if.then29, label %if.else34
 
 if.then29:                                        ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit114
   %call30 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #28
@@ -6247,14 +6247,14 @@ do.body.i128:                                     ; preds = %do.body.i128.prehea
   %call4.i136 = tail call i32 @tolower(i32 noundef %conv3.i135) #30
   %41 = and i32 %call.i133, 255
   %tobool.i137 = icmp ne i32 %41, 0
-  %cmp.i142.unshifted = xor i32 %call.i133, %call4.i136
-  %cmp.i142.mask = and i32 %cmp.i142.unshifted, 255
-  %cmp.i142 = icmp eq i32 %cmp.i142.mask, 0
-  %42 = select i1 %tobool.i137, i1 %cmp.i142, i1 false
+  %cmp.i140.unshifted = xor i32 %call.i133, %call4.i136
+  %cmp.i140.mask = and i32 %cmp.i140.unshifted, 255
+  %cmp.i140 = icmp eq i32 %cmp.i140.mask, 0
+  %42 = select i1 %tobool.i137, i1 %cmp.i140, i1 false
   br i1 %42, label %do.body.i128, label %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit144, !llvm.loop !31
 
 _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit144:        ; preds = %do.body.i128
-  br i1 %cmp.i142, label %if.then38, label %if.else46
+  br i1 %cmp.i140, label %if.then38, label %if.else46
 
 if.then38:                                        ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit144
   %call39 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #28
@@ -6395,14 +6395,14 @@ do.body.i193:                                     ; preds = %do.body.i193.prehea
   %call4.i201 = tail call i32 @tolower(i32 noundef %conv3.i200) #30
   %52 = and i32 %call.i198, 255
   %tobool.i202 = icmp ne i32 %52, 0
-  %cmp.i207.unshifted = xor i32 %call.i198, %call4.i201
-  %cmp.i207.mask = and i32 %cmp.i207.unshifted, 255
-  %cmp.i207 = icmp eq i32 %cmp.i207.mask, 0
-  %53 = select i1 %tobool.i202, i1 %cmp.i207, i1 false
+  %cmp.i205.unshifted = xor i32 %call.i198, %call4.i201
+  %cmp.i205.mask = and i32 %cmp.i205.unshifted, 255
+  %cmp.i205 = icmp eq i32 %cmp.i205.mask, 0
+  %53 = select i1 %tobool.i202, i1 %cmp.i205, i1 false
   br i1 %53, label %do.body.i193, label %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit209, !llvm.loop !31
 
 _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit209:        ; preds = %do.body.i193
-  br i1 %cmp.i207, label %if.then50, label %if.else56
+  br i1 %cmp.i205, label %if.then50, label %if.else56
 
 if.then50:                                        ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit209
   %call51 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #28
@@ -6449,14 +6449,14 @@ do.body.i217:                                     ; preds = %do.body.i217.prehea
   %call4.i225 = tail call i32 @tolower(i32 noundef %conv3.i224) #30
   %59 = and i32 %call.i222, 255
   %tobool.i226 = icmp ne i32 %59, 0
-  %cmp.i231.unshifted = xor i32 %call.i222, %call4.i225
-  %cmp.i231.mask = and i32 %cmp.i231.unshifted, 255
-  %cmp.i231 = icmp eq i32 %cmp.i231.mask, 0
-  %60 = select i1 %tobool.i226, i1 %cmp.i231, i1 false
+  %cmp.i229.unshifted = xor i32 %call.i222, %call4.i225
+  %cmp.i229.mask = and i32 %cmp.i229.unshifted, 255
+  %cmp.i229 = icmp eq i32 %cmp.i229.mask, 0
+  %60 = select i1 %tobool.i226, i1 %cmp.i229, i1 false
   br i1 %60, label %do.body.i217, label %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit233, !llvm.loop !31
 
 _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit233:        ; preds = %do.body.i217
-  br i1 %cmp.i231, label %if.then60, label %if.else64
+  br i1 %cmp.i229, label %if.then60, label %if.else64
 
 if.then60:                                        ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit233
   %call61 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #28
@@ -6496,14 +6496,14 @@ do.body.i241:                                     ; preds = %do.body.i241.prehea
   %call4.i249 = tail call i32 @tolower(i32 noundef %conv3.i248) #30
   %65 = and i32 %call.i246, 255
   %tobool.i250 = icmp ne i32 %65, 0
-  %cmp.i255.unshifted = xor i32 %call.i246, %call4.i249
-  %cmp.i255.mask = and i32 %cmp.i255.unshifted, 255
-  %cmp.i255 = icmp eq i32 %cmp.i255.mask, 0
-  %66 = select i1 %tobool.i250, i1 %cmp.i255, i1 false
+  %cmp.i253.unshifted = xor i32 %call.i246, %call4.i249
+  %cmp.i253.mask = and i32 %cmp.i253.unshifted, 255
+  %cmp.i253 = icmp eq i32 %cmp.i253.mask, 0
+  %66 = select i1 %tobool.i250, i1 %cmp.i253, i1 false
   br i1 %66, label %do.body.i241, label %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit257, !llvm.loop !31
 
 _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit257:        ; preds = %do.body.i241
-  br i1 %cmp.i255, label %if.then68, label %if.else72
+  br i1 %cmp.i253, label %if.then68, label %if.else72
 
 if.then68:                                        ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit257
   %call69 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #28
@@ -6637,14 +6637,14 @@ do.body.i289:                                     ; preds = %do.body.i289, %for.
   %call4.i297 = call i32 @tolower(i32 noundef %conv3.i296) #30
   %80 = and i32 %call.i294, 255
   %tobool.i298 = icmp ne i32 %80, 0
-  %cmp.i303.unshifted = xor i32 %call.i294, %call4.i297
-  %cmp.i303.mask = and i32 %cmp.i303.unshifted, 255
-  %cmp.i303 = icmp eq i32 %cmp.i303.mask, 0
-  %81 = select i1 %tobool.i298, i1 %cmp.i303, i1 false
+  %cmp.i301.unshifted = xor i32 %call.i294, %call4.i297
+  %cmp.i301.mask = and i32 %cmp.i301.unshifted, 255
+  %cmp.i301 = icmp eq i32 %cmp.i301.mask, 0
+  %81 = select i1 %tobool.i298, i1 %cmp.i301, i1 false
   br i1 %81, label %do.body.i289, label %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit305, !llvm.loop !31
 
 _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit305:        ; preds = %do.body.i289
-  br i1 %cmp.i303, label %if.then112, label %do.body.i313
+  br i1 %cmp.i301, label %if.then112, label %do.body.i313
 
 if.then112:                                       ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit305
   call void @_ZN6Assimp11IRRImporter19ParseNodeAttributesERN4pugi8xml_nodeEPNS0_4NodeERNS_11BatchLoaderE(ptr noundef nonnull align 8 dereferenceable(188) %this, ptr noundef nonnull align 8 dereferenceable(8) %subNode, ptr noundef nonnull %nd.0, ptr noundef nonnull align 8 dereferenceable(8) %batch)
@@ -6663,14 +6663,14 @@ do.body.i313:                                     ; preds = %_ZN6Assimp14ASSIMP_
   %call4.i321 = call i32 @tolower(i32 noundef %conv3.i320) #30
   %84 = and i32 %call.i318, 255
   %tobool.i322 = icmp ne i32 %84, 0
-  %cmp.i327.unshifted = xor i32 %call.i318, %call4.i321
-  %cmp.i327.mask = and i32 %cmp.i327.unshifted, 255
-  %cmp.i327 = icmp eq i32 %cmp.i327.mask, 0
-  %85 = select i1 %tobool.i322, i1 %cmp.i327, i1 false
+  %cmp.i325.unshifted = xor i32 %call.i318, %call4.i321
+  %cmp.i325.mask = and i32 %cmp.i325.unshifted, 255
+  %cmp.i325 = icmp eq i32 %cmp.i325.mask, 0
+  %85 = select i1 %tobool.i322, i1 %cmp.i325, i1 false
   br i1 %85, label %do.body.i313, label %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit329, !llvm.loop !31
 
 _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit329:        ; preds = %do.body.i313
-  br i1 %cmp.i327, label %if.then117, label %if.end120
+  br i1 %cmp.i325, label %if.then117, label %if.end120
 
 if.then117:                                       ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit329
   call void @_ZN6Assimp11IRRImporter14ParseAnimatorsERN4pugi8xml_nodeEPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(188) %this, ptr noundef nonnull align 8 dereferenceable(8) %subNode, ptr noundef nonnull %nd.0)
@@ -6713,14 +6713,14 @@ do.body.i337:                                     ; preds = %do.body.i337.prehea
   %call4.i345 = call i32 @tolower(i32 noundef %conv3.i344) #30
   %92 = and i32 %call.i342, 255
   %tobool.i346 = icmp ne i32 %92, 0
-  %cmp.i351.unshifted = xor i32 %call.i342, %call4.i345
-  %cmp.i351.mask = and i32 %cmp.i351.unshifted, 255
-  %cmp.i351 = icmp eq i32 %cmp.i351.mask, 0
-  %93 = select i1 %tobool.i346, i1 %cmp.i351, i1 false
+  %cmp.i349.unshifted = xor i32 %call.i342, %call4.i345
+  %cmp.i349.mask = and i32 %cmp.i349.unshifted, 255
+  %cmp.i349 = icmp eq i32 %cmp.i349.mask, 0
+  %93 = select i1 %tobool.i346, i1 %cmp.i349, i1 false
   br i1 %93, label %do.body.i337, label %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit353, !llvm.loop !31
 
 _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit353:        ; preds = %do.body.i337
-  br i1 %cmp.i351, label %if.then125, label %for.inc
+  br i1 %cmp.i349, label %if.then125, label %for.inc
 
 if.then125:                                       ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit353
   %94 = load ptr, ptr %_M_finish.i354, align 8
@@ -6852,14 +6852,14 @@ do.body.i410:                                     ; preds = %do.body.i410, %for.
   %call4.i418 = call i32 @tolower(i32 noundef %conv3.i417) #30
   %107 = and i32 %call.i415, 255
   %tobool.i419 = icmp ne i32 %107, 0
-  %cmp.i424.unshifted = xor i32 %call.i415, %call4.i418
-  %cmp.i424.mask = and i32 %cmp.i424.unshifted, 255
-  %cmp.i424 = icmp eq i32 %cmp.i424.mask, 0
-  %108 = select i1 %tobool.i419, i1 %cmp.i424, i1 false
+  %cmp.i422.unshifted = xor i32 %call.i415, %call4.i418
+  %cmp.i422.mask = and i32 %cmp.i422.unshifted, 255
+  %cmp.i422 = icmp eq i32 %cmp.i422.mask, 0
+  %108 = select i1 %tobool.i419, i1 %cmp.i422, i1 false
   br i1 %108, label %do.body.i410, label %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit426, !llvm.loop !31
 
 _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit426:        ; preds = %do.body.i410
-  br i1 %cmp.i424, label %if.then147, label %for.inc150
+  br i1 %cmp.i422, label %if.then147, label %for.inc150
 
 if.then147:                                       ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit426
   %call148 = call noundef ptr @_ZN6Assimp11IRRImporter9ParseNodeERN4pugi8xml_nodeERNS_11BatchLoaderE(ptr noundef nonnull align 8 dereferenceable(188) %this, ptr noundef nonnull align 8 dereferenceable(8) %child, ptr noundef nonnull align 8 dereferenceable(8) %batch)

@@ -2119,8 +2119,6 @@ if.end19:                                         ; preds = %for.body
 if.else27:                                        ; preds = %entry
   %num_comments29 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %object, i64 0, i32 3, i32 0, i32 0, i64 16
   %6 = load i32, ptr %num_comments29, align 8
-  %conv = zext i32 %6 to i64
-  %mul = shl nuw nsw i64 %conv, 4
   %conv30 = zext i32 %new_num_comments to i64
   %mul31 = shl nuw nsw i64 %conv30, 4
   %cmp33 = icmp ugt i32 %new_num_comments, 268435455
@@ -2168,7 +2166,7 @@ if.else74:                                        ; preds = %if.end66
 if.end84:                                         ; preds = %if.else74, %if.then69
   %storemerge = phi ptr [ null, %if.then69 ], [ %call77, %if.else74 ]
   store ptr %storemerge, ptr %comments, align 8
-  %cmp85 = icmp ugt i64 %mul31, %mul
+  %cmp85 = icmp ult i32 %6, %new_num_comments
   br i1 %cmp85, label %if.then87, label %if.end123
 
 if.then87:                                        ; preds = %if.end84
@@ -3111,7 +3109,6 @@ if.else7:                                         ; preds = %entry
   %num_indices = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %0, i64 %idxprom, i32 4
   %2 = load i8, ptr %num_indices, align 1
   %conv = zext i8 %2 to i64
-  %mul = shl nuw nsw i64 %conv, 4
   %conv8 = zext i32 %new_num_indices to i64
   %mul9 = shl nuw nsw i64 %conv8, 4
   %cmp11 = icmp ugt i32 %new_num_indices, 268435455
@@ -3133,14 +3130,15 @@ if.else20:                                        ; preds = %if.end14
 if.end28:                                         ; preds = %if.else20, %if.then17
   %storemerge = phi ptr [ null, %if.then17 ], [ %call22, %if.else20 ]
   store ptr %storemerge, ptr %indices, align 8
-  %cmp29 = icmp ugt i64 %mul9, %mul
+  %cmp29 = icmp ugt i64 %conv8, %conv
   br i1 %cmp29, label %if.then31, label %if.end36
 
 if.then31:                                        ; preds = %if.end28
   %3 = load i8, ptr %num_indices, align 1
   %idx.ext = zext i8 %3 to i64
   %add.ptr = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %storemerge, i64 %idx.ext
-  %sub = sub nsw i64 %mul9, %mul
+  %4 = sub nsw i64 %conv8, %conv
+  %sub = shl nsw i64 %4, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr, i8 0, i64 %sub, i1 false)
   br label %if.end36
 
@@ -3148,58 +3146,58 @@ if.end36:                                         ; preds = %if.end28, %if.then3
   %conv37 = trunc i32 %new_num_indices to i8
   %num_indices38 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %0, i64 %idxprom, i32 4
   store i8 %conv37, ptr %num_indices38, align 1
-  %4 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_MEDIA_CATALOG_NUMBER_LEN, align 4
-  %5 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_LEAD_IN_LEN, align 4
-  %add.i = add i32 %5, %4
-  %6 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_IS_CD_LEN, align 4
-  %add1.i = add i32 %add.i, %6
-  %7 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_RESERVED_LEN, align 4
-  %add2.i = add i32 %add1.i, %7
-  %8 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_NUM_TRACKS_LEN, align 4
-  %add3.i = add i32 %add2.i, %8
+  %5 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_MEDIA_CATALOG_NUMBER_LEN, align 4
+  %6 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_LEAD_IN_LEN, align 4
+  %add.i = add i32 %6, %5
+  %7 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_IS_CD_LEN, align 4
+  %add1.i = add i32 %add.i, %7
+  %8 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_RESERVED_LEN, align 4
+  %add2.i = add i32 %add1.i, %8
+  %9 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_NUM_TRACKS_LEN, align 4
+  %add3.i = add i32 %add2.i, %9
   %div8.i = lshr i32 %add3.i, 3
   %length.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %object, i64 0, i32 2
   %num_tracks.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %object, i64 0, i32 3, i32 0, i32 3
-  %9 = load i32, ptr %num_tracks.i, align 4
-  %10 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_OFFSET_LEN, align 4
-  %11 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_NUMBER_LEN, align 4
-  %add4.i = add i32 %11, %10
-  %12 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_ISRC_LEN, align 4
-  %add5.i = add i32 %add4.i, %12
-  %13 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_TYPE_LEN, align 4
-  %add6.i = add i32 %add5.i, %13
-  %14 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_PRE_EMPHASIS_LEN, align 4
-  %add7.i = add i32 %add6.i, %14
-  %15 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_RESERVED_LEN, align 4
-  %add8.i = add i32 %add7.i, %15
-  %16 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_NUM_INDICES_LEN, align 4
-  %add9.i = add i32 %add8.i, %16
-  %mul.i = mul i32 %add9.i, %9
+  %10 = load i32, ptr %num_tracks.i, align 4
+  %11 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_OFFSET_LEN, align 4
+  %12 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_NUMBER_LEN, align 4
+  %add4.i = add i32 %12, %11
+  %13 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_ISRC_LEN, align 4
+  %add5.i = add i32 %add4.i, %13
+  %14 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_TYPE_LEN, align 4
+  %add6.i = add i32 %add5.i, %14
+  %15 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_PRE_EMPHASIS_LEN, align 4
+  %add7.i = add i32 %add6.i, %15
+  %16 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_RESERVED_LEN, align 4
+  %add8.i = add i32 %add7.i, %16
+  %17 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_NUM_INDICES_LEN, align 4
+  %add9.i = add i32 %add8.i, %17
+  %mul.i = mul i32 %add9.i, %10
   %div109.i = lshr i32 %mul.i, 3
   %add12.i = add nuw nsw i32 %div109.i, %div8.i
   store i32 %add12.i, ptr %length.i, align 8
-  %cmp11.not.i = icmp eq i32 %9, 0
+  %cmp11.not.i = icmp eq i32 %10, 0
   br i1 %cmp11.not.i, label %return, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end36
-  %17 = load ptr, ptr %tracks, align 8
-  %18 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_INDEX_OFFSET_LEN, align 4
-  %19 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_INDEX_NUMBER_LEN, align 4
-  %add16.i = add i32 %19, %18
-  %20 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_INDEX_RESERVED_LEN, align 4
-  %add17.i = add i32 %add16.i, %20
-  %wide.trip.count.i = zext i32 %9 to i64
+  %18 = load ptr, ptr %tracks, align 8
+  %19 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_INDEX_OFFSET_LEN, align 4
+  %20 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_INDEX_NUMBER_LEN, align 4
+  %add16.i = add i32 %20, %19
+  %21 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_INDEX_RESERVED_LEN, align 4
+  %add17.i = add i32 %add16.i, %21
+  %wide.trip.count.i = zext i32 %10 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %21 = phi i32 [ %add12.i, %for.body.lr.ph.i ], [ %add21.i, %for.body.i ]
-  %num_indices.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %17, i64 %indvars.iv.i, i32 4
-  %22 = load i8, ptr %num_indices.i, align 1
-  %conv.i19 = zext i8 %22 to i32
+  %22 = phi i32 [ %add12.i, %for.body.lr.ph.i ], [ %add21.i, %for.body.i ]
+  %num_indices.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %18, i64 %indvars.iv.i, i32 4
+  %23 = load i8, ptr %num_indices.i, align 1
+  %conv.i19 = zext i8 %23 to i32
   %mul18.i = mul i32 %add17.i, %conv.i19
   %div1910.i = lshr i32 %mul18.i, 3
-  %add21.i = add i32 %div1910.i, %21
+  %add21.i = add i32 %div1910.i, %22
   store i32 %add21.i, ptr %length.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3425,7 +3423,6 @@ if.else8:                                         ; preds = %entry
   %num_tracks = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %object, i64 0, i32 3, i32 0, i32 3
   %1 = load i32, ptr %num_tracks, align 4
   %conv = zext i32 %1 to i64
-  %mul = shl nuw nsw i64 %conv, 5
   %conv10 = zext i32 %new_num_tracks to i64
   %mul11 = shl nuw nsw i64 %conv10, 5
   %cmp13 = icmp ugt i32 %new_num_tracks, 134217727
@@ -3464,45 +3461,46 @@ if.else36:                                        ; preds = %if.end28
 if.end46:                                         ; preds = %if.else36, %if.then31
   %storemerge = phi ptr [ null, %if.then31 ], [ %call39, %if.else36 ]
   store ptr %storemerge, ptr %tracks, align 8
-  %cmp47 = icmp ugt i64 %mul11, %mul
+  %cmp47 = icmp ult i32 %1, %new_num_tracks
   br i1 %cmp47, label %if.then49, label %if.end55
 
 if.then49:                                        ; preds = %if.end46
   %7 = load i32, ptr %num_tracks, align 4
   %idx.ext = zext i32 %7 to i64
   %add.ptr = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %storemerge, i64 %idx.ext
-  %sub = sub nsw i64 %mul11, %mul
+  %8 = sub nsw i64 %conv10, %conv
+  %sub = shl nsw i64 %8, 5
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr, i8 0, i64 %sub, i1 false)
   br label %if.end55
 
 if.end55:                                         ; preds = %if.end46, %if.then49, %if.else
-  %8 = phi ptr [ %storemerge, %if.end46 ], [ %storemerge, %if.then49 ], [ %call2.i.i, %if.else ]
+  %9 = phi ptr [ %storemerge, %if.end46 ], [ %storemerge, %if.then49 ], [ %call2.i.i, %if.else ]
   %num_tracks57 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %object, i64 0, i32 3, i32 0, i32 3
   store i32 %new_num_tracks, ptr %num_tracks57, align 4
-  %9 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_MEDIA_CATALOG_NUMBER_LEN, align 4
-  %10 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_LEAD_IN_LEN, align 4
-  %add.i = add i32 %10, %9
-  %11 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_IS_CD_LEN, align 4
-  %add1.i = add i32 %add.i, %11
-  %12 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_RESERVED_LEN, align 4
-  %add2.i = add i32 %add1.i, %12
-  %13 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_NUM_TRACKS_LEN, align 4
-  %add3.i = add i32 %add2.i, %13
+  %10 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_MEDIA_CATALOG_NUMBER_LEN, align 4
+  %11 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_LEAD_IN_LEN, align 4
+  %add.i = add i32 %11, %10
+  %12 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_IS_CD_LEN, align 4
+  %add1.i = add i32 %add.i, %12
+  %13 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_RESERVED_LEN, align 4
+  %add2.i = add i32 %add1.i, %13
+  %14 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_NUM_TRACKS_LEN, align 4
+  %add3.i = add i32 %add2.i, %14
   %div8.i = lshr i32 %add3.i, 3
   %length.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %object, i64 0, i32 2
-  %14 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_OFFSET_LEN, align 4
-  %15 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_NUMBER_LEN, align 4
-  %add4.i = add i32 %15, %14
-  %16 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_ISRC_LEN, align 4
-  %add5.i = add i32 %add4.i, %16
-  %17 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_TYPE_LEN, align 4
-  %add6.i = add i32 %add5.i, %17
-  %18 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_PRE_EMPHASIS_LEN, align 4
-  %add7.i = add i32 %add6.i, %18
-  %19 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_RESERVED_LEN, align 4
-  %add8.i = add i32 %add7.i, %19
-  %20 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_NUM_INDICES_LEN, align 4
-  %add9.i = add i32 %add8.i, %20
+  %15 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_OFFSET_LEN, align 4
+  %16 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_NUMBER_LEN, align 4
+  %add4.i = add i32 %16, %15
+  %17 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_ISRC_LEN, align 4
+  %add5.i = add i32 %add4.i, %17
+  %18 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_TYPE_LEN, align 4
+  %add6.i = add i32 %add5.i, %18
+  %19 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_PRE_EMPHASIS_LEN, align 4
+  %add7.i = add i32 %add6.i, %19
+  %20 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_RESERVED_LEN, align 4
+  %add8.i = add i32 %add7.i, %20
+  %21 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_TRACK_NUM_INDICES_LEN, align 4
+  %add9.i = add i32 %add8.i, %21
   %mul.i = mul i32 %add9.i, %new_num_tracks
   %div109.i = lshr i32 %mul.i, 3
   %add12.i = add nuw nsw i32 %div109.i, %div8.i
@@ -3511,23 +3509,23 @@ if.end55:                                         ; preds = %if.end46, %if.then4
   br i1 %cmp11.not.i, label %return, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end55
-  %21 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_INDEX_OFFSET_LEN, align 4
-  %22 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_INDEX_NUMBER_LEN, align 4
-  %add16.i = add i32 %22, %21
-  %23 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_INDEX_RESERVED_LEN, align 4
-  %add17.i = add i32 %add16.i, %23
+  %22 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_INDEX_OFFSET_LEN, align 4
+  %23 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_INDEX_NUMBER_LEN, align 4
+  %add16.i = add i32 %23, %22
+  %24 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_INDEX_RESERVED_LEN, align 4
+  %add17.i = add i32 %add16.i, %24
   %wide.trip.count.i = zext i32 %new_num_tracks to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %24 = phi i32 [ %add12.i, %for.body.lr.ph.i ], [ %add21.i, %for.body.i ]
-  %num_indices.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %8, i64 %indvars.iv.i, i32 4
-  %25 = load i8, ptr %num_indices.i, align 1
-  %conv.i26 = zext i8 %25 to i32
+  %25 = phi i32 [ %add12.i, %for.body.lr.ph.i ], [ %add21.i, %for.body.i ]
+  %num_indices.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %9, i64 %indvars.iv.i, i32 4
+  %26 = load i8, ptr %num_indices.i, align 1
+  %conv.i26 = zext i8 %26 to i32
   %mul18.i = mul i32 %add17.i, %conv.i26
   %div1910.i = lshr i32 %mul18.i, 3
-  %add21.i = add i32 %div1910.i, %24
+  %add21.i = add i32 %div1910.i, %25
   store i32 %add21.i, ptr %length.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

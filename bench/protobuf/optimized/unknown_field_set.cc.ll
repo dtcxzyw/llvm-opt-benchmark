@@ -2828,15 +2828,14 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 4
-  %cmp.not = icmp ult i64 %sub.ptr.div, %sub.ptr.div.i.i.i.i
+  %cmp.not = icmp ult i64 %sub.ptr.sub, %sub.ptr.sub.i.i.i.i
   br i1 %cmp.not, label %if.else78, label %if.then13
 
 if.then13:                                        ; preds = %if.then
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp19 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i.i
+  %cmp19 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i.i.i.i
   br i1 %cmp19, label %_ZSt22__uninitialized_move_aIPN6google8protobuf12UnknownFieldES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf12UnknownFieldESt6vectorIS5_SaIS5_EEEEEmEvRT_T0_.exit
 
 _ZSt22__uninitialized_move_aIPN6google8protobuf12UnknownFieldES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %if.then13

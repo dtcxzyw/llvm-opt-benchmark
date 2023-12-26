@@ -6742,11 +6742,11 @@ invoke.cont37:                                    ; preds = %invoke.cont33
   %sub.ptr.lhs.cast.i63 = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast.i64 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i65 = sub i64 %sub.ptr.lhs.cast.i63, %sub.ptr.rhs.cast.i64
-  %sub.ptr.div.i66 = ashr exact i64 %sub.ptr.sub.i65, 3
-  %cmp42 = icmp ugt i64 %sub.ptr.div.i66, %sub.ptr.div.i
+  %cmp42 = icmp ugt i64 %sub.ptr.sub.i65, %sub.ptr.sub.i
   br i1 %cmp42, label %if.then43, label %if.end104
 
 if.then43:                                        ; preds = %invoke.cont37
+  %sub.ptr.div.i66 = ashr exact i64 %sub.ptr.sub.i65, 3
   %sub = sub nsw i64 %sub.ptr.div.i66, %sub.ptr.div.i
   %conv = trunc i64 %sub to i32
   %mNumMeshes = getelementptr inbounds %struct.aiNode, ptr %call16, i64 0, i32 5
@@ -11894,7 +11894,7 @@ invoke.cont551:                                   ; preds = %if.then547
 new.ctorloop554:                                  ; preds = %invoke.cont551
   %303 = add nsw i64 %302, -12
   %304 = urem i64 %303, 12
-  %305 = sub nsw i64 %303, %304
+  %305 = sub nuw nsw i64 %303, %304
   %306 = add nsw i64 %305, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call552, i8 0, i64 %306, i1 false)
   br label %arrayctor.cont560
@@ -11923,7 +11923,7 @@ invoke.cont575:                                   ; preds = %for.body571
 new.ctorloop578:                                  ; preds = %invoke.cont575
   %311 = add nsw i64 %310, -12
   %312 = urem i64 %311, 12
-  %313 = sub nsw i64 %311, %312
+  %313 = sub nuw nsw i64 %311, %312
   %314 = add nsw i64 %313, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call576, i8 0, i64 %314, i1 false)
   br label %arrayctor.cont584
@@ -12362,7 +12362,7 @@ invoke.cont806:                                   ; preds = %for.body802
 new.ctorloop809:                                  ; preds = %invoke.cont806
   %394 = add nsw i64 %393, -12
   %395 = urem i64 %394, 12
-  %396 = sub nsw i64 %394, %395
+  %396 = sub nuw nsw i64 %394, %395
   %397 = add nsw i64 %396, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call807, i8 0, i64 %397, i1 false)
   br label %arrayctor.cont815

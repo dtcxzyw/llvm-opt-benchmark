@@ -8713,32 +8713,37 @@ invoke.cont:                                      ; preds = %if.end.i
   store ptr %6, ptr %EndX.i.i.i.i, align 8
   %CapacityX.i.i.i.i.i = getelementptr inbounds %"class.tf::SmallVectorBase", ptr %conds, i64 0, i32 2
   %7 = load ptr, ptr %CapacityX.i.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %7, %6
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %7 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %6 to i64
+  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
+  %cmp.i.i.i.i = icmp ult i64 %sub.ptr.sub.i.i.i.i, 4
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN2tf11SmallVectorIiLj2EEaSESt16initializer_listIiE.exit
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont
   %FirstEl.i.i.i.i.i.i = getelementptr inbounds %"class.tf::SmallVectorTemplateCommon.253", ptr %conds, i64 0, i32 1
+  %mul.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.ptr.sub.i.i.i.i, 1
+  %add.i.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i.i, 4
   %cmp3.i.i.i.i.i.i.i = icmp eq ptr %6, %FirstEl.i.i.i.i.i.i
   br i1 %cmp3.i.i.i.i.i.i.i, label %if.then4.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then4.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i
-  %call5.i.i.i.i.i.i.i = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #33
-  br label %if.end.i.thread.i.i.i
+  %call5.i.i.i.i.i.i.i = tail call noalias ptr @malloc(i64 noundef %add.i.i.i.i.i.i.i) #33
+  br label %_ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i
-  %call8.i.i.i.i.i.i.i = tail call dereferenceable_or_null(4) ptr @realloc(ptr noundef %6, i64 noundef 4) #34
-  br label %if.end.i.thread.i.i.i
+  %call8.i.i.i.i.i.i.i = tail call ptr @realloc(ptr noundef %6, i64 noundef %add.i.i.i.i.i.i.i) #34
+  br label %_ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit.i.i.i.i
 
-if.end.i.thread.i.i.i:                            ; preds = %if.else.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i
+_ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i
   %NewElts.0.i.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i ], [ %call8.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i ]
   store ptr %NewElts.0.i.i.i.i.i.i.i, ptr %EndX.i.i.i.i, align 8
   store ptr %NewElts.0.i.i.i.i.i.i.i, ptr %conds, align 8
-  %add.ptr12.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NewElts.0.i.i.i.i.i.i.i, i64 4
+  %add.ptr12.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NewElts.0.i.i.i.i.i.i.i, i64 %add.i.i.i.i.i.i.i
   store ptr %add.ptr12.i.i.i.i.i.i.i, ptr %CapacityX.i.i.i.i.i, align 8
   br label %_ZN2tf11SmallVectorIiLj2EEaSESt16initializer_listIiE.exit
 
-_ZN2tf11SmallVectorIiLj2EEaSESt16initializer_listIiE.exit: ; preds = %invoke.cont, %if.end.i.thread.i.i.i
-  %8 = phi ptr [ %NewElts.0.i.i.i.i.i.i.i, %if.end.i.thread.i.i.i ], [ %6, %invoke.cont ]
+_ZN2tf11SmallVectorIiLj2EEaSESt16initializer_listIiE.exit: ; preds = %invoke.cont, %_ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit.i.i.i.i
+  %8 = phi ptr [ %NewElts.0.i.i.i.i.i.i.i, %_ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit.i.i.i.i ], [ %6, %invoke.cont ]
   store i32 %call2.i11, ptr %8, align 4
   %.pre.i.i.i.i = load ptr, ptr %EndX.i.i.i.i, align 8
   %add.ptr.i1.i.i.i = getelementptr inbounds i32, ptr %.pre.i.i.i.i, i64 1
@@ -8780,43 +8785,48 @@ invoke.cont15:                                    ; preds = %if.end.i20
   store ptr %12, ptr %EndX.i.i.i.i25, align 8
   %CapacityX.i.i.i.i.i26 = getelementptr inbounds %"class.tf::SmallVectorBase", ptr %conds, i64 0, i32 2
   %13 = load ptr, ptr %CapacityX.i.i.i.i.i26, align 8
-  %cmp.i.i.i.i31 = icmp eq ptr %13, %12
-  br i1 %cmp.i.i.i.i31, label %if.then.i.i.i.i35, label %invoke.cont20
+  %sub.ptr.lhs.cast.i.i.i.i27 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i.i.i.i28 = ptrtoint ptr %12 to i64
+  %sub.ptr.sub.i.i.i.i29 = sub i64 %sub.ptr.lhs.cast.i.i.i.i27, %sub.ptr.rhs.cast.i.i.i.i28
+  %cmp.i.i.i.i30 = icmp ult i64 %sub.ptr.sub.i.i.i.i29, 4
+  br i1 %cmp.i.i.i.i30, label %if.then.i.i.i.i33, label %invoke.cont20
 
-if.then.i.i.i.i35:                                ; preds = %invoke.cont15
-  %FirstEl.i.i.i.i.i.i36 = getelementptr inbounds %"class.tf::SmallVectorTemplateCommon.253", ptr %conds, i64 0, i32 1
-  %cmp3.i.i.i.i.i.i.i40 = icmp eq ptr %12, %FirstEl.i.i.i.i.i.i36
-  br i1 %cmp3.i.i.i.i.i.i.i40, label %if.then4.i.i.i.i.i.i.i46, label %if.else.i.i.i.i.i.i.i41
+if.then.i.i.i.i33:                                ; preds = %invoke.cont15
+  %FirstEl.i.i.i.i.i.i34 = getelementptr inbounds %"class.tf::SmallVectorTemplateCommon.253", ptr %conds, i64 0, i32 1
+  %mul.i.i.i.i.i.i.i35 = shl nuw nsw i64 %sub.ptr.sub.i.i.i.i29, 1
+  %add.i.i.i.i.i.i.i36 = add nuw nsw i64 %mul.i.i.i.i.i.i.i35, 4
+  %cmp3.i.i.i.i.i.i.i38 = icmp eq ptr %12, %FirstEl.i.i.i.i.i.i34
+  br i1 %cmp3.i.i.i.i.i.i.i38, label %if.then4.i.i.i.i.i.i.i44, label %if.else.i.i.i.i.i.i.i39
 
-if.then4.i.i.i.i.i.i.i46:                         ; preds = %if.then.i.i.i.i35
-  %call5.i.i.i.i.i.i.i47 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #33
-  br label %if.end.i.thread.i.i.i43
+if.then4.i.i.i.i.i.i.i44:                         ; preds = %if.then.i.i.i.i33
+  %call5.i.i.i.i.i.i.i45 = call noalias ptr @malloc(i64 noundef %add.i.i.i.i.i.i.i36) #33
+  br label %_ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit.i.i.i.i41
 
-if.else.i.i.i.i.i.i.i41:                          ; preds = %if.then.i.i.i.i35
-  %call8.i.i.i.i.i.i.i42 = call dereferenceable_or_null(4) ptr @realloc(ptr noundef %12, i64 noundef 4) #34
-  br label %if.end.i.thread.i.i.i43
+if.else.i.i.i.i.i.i.i39:                          ; preds = %if.then.i.i.i.i33
+  %call8.i.i.i.i.i.i.i40 = call ptr @realloc(ptr noundef %12, i64 noundef %add.i.i.i.i.i.i.i36) #34
+  br label %_ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit.i.i.i.i41
 
-if.end.i.thread.i.i.i43:                          ; preds = %if.else.i.i.i.i.i.i.i41, %if.then4.i.i.i.i.i.i.i46
-  %NewElts.0.i.i.i.i.i.i.i44 = phi ptr [ %call5.i.i.i.i.i.i.i47, %if.then4.i.i.i.i.i.i.i46 ], [ %call8.i.i.i.i.i.i.i42, %if.else.i.i.i.i.i.i.i41 ]
-  store ptr %NewElts.0.i.i.i.i.i.i.i44, ptr %EndX.i.i.i.i25, align 8
-  store ptr %NewElts.0.i.i.i.i.i.i.i44, ptr %conds, align 8
-  %add.ptr12.i.i.i.i.i.i.i45 = getelementptr inbounds i8, ptr %NewElts.0.i.i.i.i.i.i.i44, i64 4
-  store ptr %add.ptr12.i.i.i.i.i.i.i45, ptr %CapacityX.i.i.i.i.i26, align 8
+_ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit.i.i.i.i41: ; preds = %if.else.i.i.i.i.i.i.i39, %if.then4.i.i.i.i.i.i.i44
+  %NewElts.0.i.i.i.i.i.i.i42 = phi ptr [ %call5.i.i.i.i.i.i.i45, %if.then4.i.i.i.i.i.i.i44 ], [ %call8.i.i.i.i.i.i.i40, %if.else.i.i.i.i.i.i.i39 ]
+  store ptr %NewElts.0.i.i.i.i.i.i.i42, ptr %EndX.i.i.i.i25, align 8
+  store ptr %NewElts.0.i.i.i.i.i.i.i42, ptr %conds, align 8
+  %add.ptr12.i.i.i.i.i.i.i43 = getelementptr inbounds i8, ptr %NewElts.0.i.i.i.i.i.i.i42, i64 %add.i.i.i.i.i.i.i36
+  store ptr %add.ptr12.i.i.i.i.i.i.i43, ptr %CapacityX.i.i.i.i.i26, align 8
   br label %invoke.cont20
 
-invoke.cont20:                                    ; preds = %if.end.i.thread.i.i.i43, %invoke.cont15
-  %14 = phi ptr [ %NewElts.0.i.i.i.i.i.i.i44, %if.end.i.thread.i.i.i43 ], [ %12, %invoke.cont15 ]
+invoke.cont20:                                    ; preds = %_ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit.i.i.i.i41, %invoke.cont15
+  %14 = phi ptr [ %NewElts.0.i.i.i.i.i.i.i42, %_ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit.i.i.i.i41 ], [ %12, %invoke.cont15 ]
   store i32 %call2.i24, ptr %14, align 4
-  %.pre.i.i.i.i33 = load ptr, ptr %EndX.i.i.i.i25, align 8
-  %add.ptr.i1.i.i.i34 = getelementptr inbounds i32, ptr %.pre.i.i.i.i33, i64 1
-  store ptr %add.ptr.i1.i.i.i34, ptr %EndX.i.i.i.i25, align 8
+  %.pre.i.i.i.i31 = load ptr, ptr %EndX.i.i.i.i25, align 8
+  %add.ptr.i1.i.i.i32 = getelementptr inbounds i32, ptr %.pre.i.i.i.i31, i64 1
+  store ptr %add.ptr.i1.i.i.i32, ptr %EndX.i.i.i.i25, align 8
   %15 = load ptr, ptr %_parent.i, align 8
   %_join_counter.i = getelementptr inbounds %"class.tf::Node", ptr %15, i64 0, i32 9
   %16 = load atomic i64, ptr %_join_counter.i acquire, align 8
-  %tobool.not.i50 = icmp eq i64 %16, 0
-  br i1 %tobool.not.i50, label %try.cont, label %if.then.i51
+  %tobool.not.i48 = icmp eq i64 %16, 0
+  br i1 %tobool.not.i48, label %try.cont, label %if.then.i49
 
-if.then.i51:                                      ; preds = %invoke.cont20
+if.then.i49:                                      ; preds = %invoke.cont20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store ptr %rt, ptr %ref.tmp.i, align 8
   %17 = load ptr, ptr %rt, align 8
@@ -8824,11 +8834,11 @@ if.then.i51:                                      ; preds = %invoke.cont20
   invoke void @_ZN2tf8Executor12_corun_untilIZNS_7Runtime9corun_allEvEUlvE_EEvRNS_6WorkerEOT_(ptr noundef nonnull align 128 dereferenceable(1344) %17, ptr noundef nonnull align 128 dereferenceable(1032) %18, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
           to label %_ZN2tf7Runtime9corun_allEv.exit unwind label %terminate.lpad.i
 
-_ZN2tf7Runtime9corun_allEv.exit:                  ; preds = %if.then.i51
+_ZN2tf7Runtime9corun_allEv.exit:                  ; preds = %if.then.i49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   br label %try.cont
 
-terminate.lpad.i:                                 ; preds = %if.then.i51
+terminate.lpad.i:                                 ; preds = %if.then.i49
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
@@ -8850,23 +8860,23 @@ catch:                                            ; preds = %lpad14, %lpad
   br label %try.cont
 
 try.cont:                                         ; preds = %invoke.cont20, %_ZN2tf7Runtime9corun_allEv.exit, %_ZN2tf11SmallVectorIiLj2EEaSESt16initializer_listIiE.exit, %_ZN2tf8Executor18_observer_prologueERNS_6WorkerEPNS_4NodeE.exit, %catch
-  %__begin1.sroa.0.04.i54 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
-  %cmp.i.not5.i55 = icmp eq ptr %__begin1.sroa.0.04.i54, null
-  br i1 %cmp.i.not5.i55, label %_ZN2tf8Executor18_observer_epilogueERNS_6WorkerEPNS_4NodeE.exit, label %for.body.i56
+  %__begin1.sroa.0.04.i52 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
+  %cmp.i.not5.i53 = icmp eq ptr %__begin1.sroa.0.04.i52, null
+  br i1 %cmp.i.not5.i53, label %_ZN2tf8Executor18_observer_epilogueERNS_6WorkerEPNS_4NodeE.exit, label %for.body.i54
 
-for.body.i56:                                     ; preds = %try.cont, %for.body.i56
-  %__begin1.sroa.0.06.i57 = phi ptr [ %__begin1.sroa.0.0.i61, %for.body.i56 ], [ %__begin1.sroa.0.04.i54, %try.cont ]
-  %add.ptr.i.i58 = getelementptr inbounds i8, ptr %__begin1.sroa.0.06.i57, i64 8
-  %23 = load ptr, ptr %add.ptr.i.i58, align 8
-  %vtable.i59 = load ptr, ptr %23, align 8
-  %vfn.i60 = getelementptr inbounds ptr, ptr %vtable.i59, i64 4
-  %24 = load ptr, ptr %vfn.i60, align 8
+for.body.i54:                                     ; preds = %try.cont, %for.body.i54
+  %__begin1.sroa.0.06.i55 = phi ptr [ %__begin1.sroa.0.0.i59, %for.body.i54 ], [ %__begin1.sroa.0.04.i52, %try.cont ]
+  %add.ptr.i.i56 = getelementptr inbounds i8, ptr %__begin1.sroa.0.06.i55, i64 8
+  %23 = load ptr, ptr %add.ptr.i.i56, align 8
+  %vtable.i57 = load ptr, ptr %23, align 8
+  %vfn.i58 = getelementptr inbounds ptr, ptr %vtable.i57, i64 4
+  %24 = load ptr, ptr %vfn.i58, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr nonnull %worker, ptr %node)
-  %__begin1.sroa.0.0.i61 = load ptr, ptr %__begin1.sroa.0.06.i57, align 8
-  %cmp.i.not.i62 = icmp eq ptr %__begin1.sroa.0.0.i61, null
-  br i1 %cmp.i.not.i62, label %_ZN2tf8Executor18_observer_epilogueERNS_6WorkerEPNS_4NodeE.exit, label %for.body.i56
+  %__begin1.sroa.0.0.i59 = load ptr, ptr %__begin1.sroa.0.06.i55, align 8
+  %cmp.i.not.i60 = icmp eq ptr %__begin1.sroa.0.0.i59, null
+  br i1 %cmp.i.not.i60, label %_ZN2tf8Executor18_observer_epilogueERNS_6WorkerEPNS_4NodeE.exit, label %for.body.i54
 
-_ZN2tf8Executor18_observer_epilogueERNS_6WorkerEPNS_4NodeE.exit: ; preds = %for.body.i56, %try.cont
+_ZN2tf8Executor18_observer_epilogueERNS_6WorkerEPNS_4NodeE.exit: ; preds = %for.body.i54, %try.cont
   ret void
 }
 
@@ -10813,17 +10823,17 @@ for.end:                                          ; preds = %for.body, %_ZSt9par
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %.lcssa to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp.i2 = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i.i
+  %cmp.i2 = icmp ult i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i.i.i
   br i1 %cmp.i2, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.end
+  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %sub.i = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorIPN2tf4NodeESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
   br label %_ZNSt6vectorIPN2tf4NodeESaIS2_EE6resizeEm.exit
 
 if.else.i:                                        ; preds = %for.end
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i.i
+  %cmp4.i = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i.i.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIPN2tf4NodeESaIS2_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -11582,7 +11592,6 @@ entry:
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %To.coerce to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %From.coerce to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -11590,8 +11599,7 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %CapacityX.i.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.lhs.cast
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp.i = icmp ugt i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i
+  %cmp.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i, %sub.ptr.sub.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
@@ -11638,139 +11646,140 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i
 _ZN2tf15SmallVectorImplIPNS_4NodeEE6appendIN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEvT_SC_.exit: ; preds = %if.end.i, %if.then.i.i.i.i.i.i.i.i.i
   %5 = phi ptr [ %3, %if.end.i ], [ %.pre, %if.then.i.i.i.i.i.i.i.i.i ]
   %6 = phi ptr [ %4, %if.end.i ], [ %.pre.i, %if.then.i.i.i.i.i.i.i.i.i ]
+  %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %add.ptr.i = getelementptr inbounds ptr, ptr %6, i64 %sub.ptr.div.i.i.i.i
   store ptr %add.ptr.i, ptr %EndX.i, align 8
   %add.ptr = getelementptr inbounds ptr, ptr %5, i64 %sub.ptr.div
   br label %return
 
 if.end:                                           ; preds = %entry
+  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %sub.ptr.lhs.cast.i22 = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i24 = sub i64 %sub.ptr.lhs.cast.i22, %sub.ptr.rhs.cast
-  %sub.ptr.div.i25 = ashr exact i64 %sub.ptr.sub.i24, 3
-  %add = add nsw i64 %sub.ptr.div.i25, %sub.ptr.div.i.i.i.i
+  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i24, 3
+  %add = add nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i
   %CapacityX.i.i.i = getelementptr inbounds %"class.tf::SmallVectorBase", ptr %this, i64 0, i32 2
   %7 = load ptr, ptr %CapacityX.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %7 to i64
-  %sub.ptr.sub.i.i27 = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i27, 3
-  %cmp.i28 = icmp ult i64 %sub.ptr.div.i.i, %add
-  br i1 %cmp.i28, label %if.then.i30, label %_ZN2tf15SmallVectorImplIPNS_4NodeEE7reserveEm.exit
+  %sub.ptr.sub.i.i26 = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast
+  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i26, 3
+  %cmp.i27 = icmp ult i64 %sub.ptr.div.i.i, %add
+  br i1 %cmp.i27, label %if.then.i29, label %_ZN2tf15SmallVectorImplIPNS_4NodeEE7reserveEm.exit
 
-if.then.i30:                                      ; preds = %if.end
-  %mul.i.i31 = shl i64 %add, 3
-  %FirstEl.i.i.i32 = getelementptr inbounds %"class.tf::SmallVectorTemplateCommon", ptr %this, i64 0, i32 1
-  %mul.i.i.i.i33 = shl i64 %sub.ptr.sub.i.i27, 1
-  %add.i.i.i.i34 = add i64 %mul.i.i.i.i33, 8
-  %spec.select.i.i.i.i35 = tail call i64 @llvm.umax.i64(i64 %add.i.i.i.i34, i64 %mul.i.i31)
-  %cmp3.i.i.i.i36 = icmp eq ptr %0, %FirstEl.i.i.i32
-  br i1 %cmp3.i.i.i.i36, label %if.then4.i.i.i.i43, label %if.else.i.i.i.i37
+if.then.i29:                                      ; preds = %if.end
+  %mul.i.i30 = shl i64 %add, 3
+  %FirstEl.i.i.i31 = getelementptr inbounds %"class.tf::SmallVectorTemplateCommon", ptr %this, i64 0, i32 1
+  %mul.i.i.i.i32 = shl i64 %sub.ptr.sub.i.i26, 1
+  %add.i.i.i.i33 = add i64 %mul.i.i.i.i32, 8
+  %spec.select.i.i.i.i34 = tail call i64 @llvm.umax.i64(i64 %add.i.i.i.i33, i64 %mul.i.i30)
+  %cmp3.i.i.i.i35 = icmp eq ptr %0, %FirstEl.i.i.i31
+  br i1 %cmp3.i.i.i.i35, label %if.then4.i.i.i.i42, label %if.else.i.i.i.i36
 
-if.then4.i.i.i.i43:                               ; preds = %if.then.i30
-  %call5.i.i.i.i44 = tail call noalias ptr @malloc(i64 noundef %spec.select.i.i.i.i35) #33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call5.i.i.i.i44, ptr nonnull align 8 %0, i64 %sub.ptr.sub.i24, i1 false)
-  br label %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i39
+if.then4.i.i.i.i42:                               ; preds = %if.then.i29
+  %call5.i.i.i.i43 = tail call noalias ptr @malloc(i64 noundef %spec.select.i.i.i.i34) #33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call5.i.i.i.i43, ptr nonnull align 8 %0, i64 %sub.ptr.sub.i24, i1 false)
+  br label %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i38
 
-if.else.i.i.i.i37:                                ; preds = %if.then.i30
-  %call8.i.i.i.i38 = tail call ptr @realloc(ptr noundef %0, i64 noundef %spec.select.i.i.i.i35) #34
-  br label %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i39
+if.else.i.i.i.i36:                                ; preds = %if.then.i29
+  %call8.i.i.i.i37 = tail call ptr @realloc(ptr noundef %0, i64 noundef %spec.select.i.i.i.i34) #34
+  br label %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i38
 
-_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i39: ; preds = %if.else.i.i.i.i37, %if.then4.i.i.i.i43
-  %NewElts.0.i.i.i.i40 = phi ptr [ %call5.i.i.i.i44, %if.then4.i.i.i.i43 ], [ %call8.i.i.i.i38, %if.else.i.i.i.i37 ]
-  %add.ptr.i.i.i.i41 = getelementptr inbounds i8, ptr %NewElts.0.i.i.i.i40, i64 %sub.ptr.sub.i24
-  store ptr %add.ptr.i.i.i.i41, ptr %EndX.i, align 8
-  store ptr %NewElts.0.i.i.i.i40, ptr %this, align 8
-  %add.ptr12.i.i.i.i42 = getelementptr inbounds i8, ptr %NewElts.0.i.i.i.i40, i64 %spec.select.i.i.i.i35
-  store ptr %add.ptr12.i.i.i.i42, ptr %CapacityX.i.i.i, align 8
-  %.pre105 = ptrtoint ptr %add.ptr.i.i.i.i41 to i64
+_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i38: ; preds = %if.else.i.i.i.i36, %if.then4.i.i.i.i42
+  %NewElts.0.i.i.i.i39 = phi ptr [ %call5.i.i.i.i43, %if.then4.i.i.i.i42 ], [ %call8.i.i.i.i37, %if.else.i.i.i.i36 ]
+  %add.ptr.i.i.i.i40 = getelementptr inbounds i8, ptr %NewElts.0.i.i.i.i39, i64 %sub.ptr.sub.i24
+  store ptr %add.ptr.i.i.i.i40, ptr %EndX.i, align 8
+  store ptr %NewElts.0.i.i.i.i39, ptr %this, align 8
+  %add.ptr12.i.i.i.i41 = getelementptr inbounds i8, ptr %NewElts.0.i.i.i.i39, i64 %spec.select.i.i.i.i34
+  store ptr %add.ptr12.i.i.i.i41, ptr %CapacityX.i.i.i, align 8
+  %.pre103 = ptrtoint ptr %add.ptr.i.i.i.i40 to i64
   br label %_ZN2tf15SmallVectorImplIPNS_4NodeEE7reserveEm.exit
 
-_ZN2tf15SmallVectorImplIPNS_4NodeEE7reserveEm.exit: ; preds = %if.end, %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i39
-  %sub.ptr.lhs.cast17.pre-phi = phi i64 [ %sub.ptr.lhs.cast.i22, %if.end ], [ %.pre105, %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i39 ]
-  %8 = phi ptr [ %7, %if.end ], [ %add.ptr12.i.i.i.i42, %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i39 ]
-  %9 = phi ptr [ %1, %if.end ], [ %add.ptr.i.i.i.i41, %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i39 ]
-  %10 = phi ptr [ %0, %if.end ], [ %NewElts.0.i.i.i.i40, %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i39 ]
+_ZN2tf15SmallVectorImplIPNS_4NodeEE7reserveEm.exit: ; preds = %if.end, %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i38
+  %sub.ptr.lhs.cast17.pre-phi = phi i64 [ %sub.ptr.lhs.cast.i22, %if.end ], [ %.pre103, %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i38 ]
+  %8 = phi ptr [ %7, %if.end ], [ %add.ptr12.i.i.i.i41, %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i38 ]
+  %9 = phi ptr [ %1, %if.end ], [ %add.ptr.i.i.i.i40, %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i38 ]
+  %10 = phi ptr [ %0, %if.end ], [ %NewElts.0.i.i.i.i39, %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i38 ]
   %add.ptr15 = getelementptr inbounds ptr, ptr %10, i64 %sub.ptr.div
   %sub.ptr.rhs.cast18 = ptrtoint ptr %add.ptr15 to i64
   %sub.ptr.sub19 = sub i64 %sub.ptr.lhs.cast17.pre-phi, %sub.ptr.rhs.cast18
   %sub.ptr.div20 = ashr exact i64 %sub.ptr.sub19, 3
-  %cmp21.not = icmp ult i64 %sub.ptr.div20, %sub.ptr.div.i.i.i.i
+  %cmp21.not = icmp ult i64 %sub.ptr.sub19, %sub.ptr.sub.i.i.i.i
   br i1 %cmp21.not, label %if.end39, label %if.then22
 
 if.then22:                                        ; preds = %_ZN2tf15SmallVectorImplIPNS_4NodeEE7reserveEm.exit
-  %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i.i
+  %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i
   %add.ptr26 = getelementptr inbounds ptr, ptr %9, i64 %idx.neg
-  %sub.ptr.rhs.cast.i.i.i.i50 = ptrtoint ptr %add.ptr26 to i64
-  %sub.ptr.lhs.cast.i55 = ptrtoint ptr %8 to i64
-  %sub.ptr.sub.i57 = sub i64 %sub.ptr.lhs.cast.i55, %sub.ptr.lhs.cast17.pre-phi
-  %sub.ptr.div.i58 = ashr exact i64 %sub.ptr.sub.i57, 3
-  %cmp.i59 = icmp ugt i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i58
-  br i1 %cmp.i59, label %if.then.i65, label %if.end.i60
+  %sub.ptr.rhs.cast.i.i.i.i49 = ptrtoint ptr %add.ptr26 to i64
+  %sub.ptr.lhs.cast.i53 = ptrtoint ptr %8 to i64
+  %sub.ptr.sub.i55 = sub i64 %sub.ptr.lhs.cast.i53, %sub.ptr.lhs.cast17.pre-phi
+  %cmp.i56 = icmp ugt i64 %sub.ptr.sub.i.i.i.i, %sub.ptr.sub.i55
+  br i1 %cmp.i56, label %if.then.i63, label %if.end.i57
 
-if.then.i65:                                      ; preds = %if.then22
-  %sub.ptr.rhs.cast.i.i66 = ptrtoint ptr %10 to i64
-  %sub.ptr.sub.i.i67 = sub i64 %sub.ptr.lhs.cast17.pre-phi, %sub.ptr.rhs.cast.i.i66
-  %sub.ptr.div.i7.i68 = add i64 %sub.ptr.sub.i.i67, %sub.ptr.sub.i.i.i.i
-  %mul.i.i69 = and i64 %sub.ptr.div.i7.i68, -8
-  %FirstEl.i.i.i70 = getelementptr inbounds %"class.tf::SmallVectorTemplateCommon", ptr %this, i64 0, i32 1
-  %sub.ptr.sub.i10.i.i.i.i71 = sub i64 %sub.ptr.lhs.cast.i55, %sub.ptr.rhs.cast.i.i66
-  %mul.i.i.i.i72 = shl i64 %sub.ptr.sub.i10.i.i.i.i71, 1
-  %add.i.i.i.i73 = add i64 %mul.i.i.i.i72, 8
-  %spec.select.i.i.i.i74 = tail call i64 @llvm.umax.i64(i64 %add.i.i.i.i73, i64 %mul.i.i69)
-  %cmp3.i.i.i.i75 = icmp eq ptr %10, %FirstEl.i.i.i70
-  br i1 %cmp3.i.i.i.i75, label %if.then4.i.i.i.i82, label %if.else.i.i.i.i76
+if.then.i63:                                      ; preds = %if.then22
+  %sub.ptr.rhs.cast.i.i64 = ptrtoint ptr %10 to i64
+  %sub.ptr.sub.i.i65 = sub i64 %sub.ptr.lhs.cast17.pre-phi, %sub.ptr.rhs.cast.i.i64
+  %sub.ptr.div.i7.i66 = add i64 %sub.ptr.sub.i.i65, %sub.ptr.sub.i.i.i.i
+  %mul.i.i67 = and i64 %sub.ptr.div.i7.i66, -8
+  %FirstEl.i.i.i68 = getelementptr inbounds %"class.tf::SmallVectorTemplateCommon", ptr %this, i64 0, i32 1
+  %sub.ptr.sub.i10.i.i.i.i69 = sub i64 %sub.ptr.lhs.cast.i53, %sub.ptr.rhs.cast.i.i64
+  %mul.i.i.i.i70 = shl i64 %sub.ptr.sub.i10.i.i.i.i69, 1
+  %add.i.i.i.i71 = add i64 %mul.i.i.i.i70, 8
+  %spec.select.i.i.i.i72 = tail call i64 @llvm.umax.i64(i64 %add.i.i.i.i71, i64 %mul.i.i67)
+  %cmp3.i.i.i.i73 = icmp eq ptr %10, %FirstEl.i.i.i68
+  br i1 %cmp3.i.i.i.i73, label %if.then4.i.i.i.i80, label %if.else.i.i.i.i74
 
-if.then4.i.i.i.i82:                               ; preds = %if.then.i65
-  %call5.i.i.i.i83 = tail call noalias ptr @malloc(i64 noundef %spec.select.i.i.i.i74) #33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call5.i.i.i.i83, ptr nonnull align 8 %FirstEl.i.i.i70, i64 %sub.ptr.sub.i.i67, i1 false)
-  br label %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i78
+if.then4.i.i.i.i80:                               ; preds = %if.then.i63
+  %call5.i.i.i.i81 = tail call noalias ptr @malloc(i64 noundef %spec.select.i.i.i.i72) #33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call5.i.i.i.i81, ptr nonnull align 8 %FirstEl.i.i.i68, i64 %sub.ptr.sub.i.i65, i1 false)
+  br label %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i76
 
-if.else.i.i.i.i76:                                ; preds = %if.then.i65
-  %call8.i.i.i.i77 = tail call ptr @realloc(ptr noundef %10, i64 noundef %spec.select.i.i.i.i74) #34
-  br label %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i78
+if.else.i.i.i.i74:                                ; preds = %if.then.i63
+  %call8.i.i.i.i75 = tail call ptr @realloc(ptr noundef %10, i64 noundef %spec.select.i.i.i.i72) #34
+  br label %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i76
 
-_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i78: ; preds = %if.else.i.i.i.i76, %if.then4.i.i.i.i82
-  %NewElts.0.i.i.i.i79 = phi ptr [ %call5.i.i.i.i83, %if.then4.i.i.i.i82 ], [ %call8.i.i.i.i77, %if.else.i.i.i.i76 ]
-  %add.ptr.i.i.i.i80 = getelementptr inbounds i8, ptr %NewElts.0.i.i.i.i79, i64 %sub.ptr.sub.i.i67
-  store ptr %add.ptr.i.i.i.i80, ptr %EndX.i, align 8
-  store ptr %NewElts.0.i.i.i.i79, ptr %this, align 8
-  %add.ptr12.i.i.i.i81 = getelementptr inbounds i8, ptr %NewElts.0.i.i.i.i79, i64 %spec.select.i.i.i.i74
-  store ptr %add.ptr12.i.i.i.i81, ptr %CapacityX.i.i.i, align 8
-  br label %if.end.i60
+_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i76: ; preds = %if.else.i.i.i.i74, %if.then4.i.i.i.i80
+  %NewElts.0.i.i.i.i77 = phi ptr [ %call5.i.i.i.i81, %if.then4.i.i.i.i80 ], [ %call8.i.i.i.i75, %if.else.i.i.i.i74 ]
+  %add.ptr.i.i.i.i78 = getelementptr inbounds i8, ptr %NewElts.0.i.i.i.i77, i64 %sub.ptr.sub.i.i65
+  store ptr %add.ptr.i.i.i.i78, ptr %EndX.i, align 8
+  store ptr %NewElts.0.i.i.i.i77, ptr %this, align 8
+  %add.ptr12.i.i.i.i79 = getelementptr inbounds i8, ptr %NewElts.0.i.i.i.i77, i64 %spec.select.i.i.i.i72
+  store ptr %add.ptr12.i.i.i.i79, ptr %CapacityX.i.i.i, align 8
+  br label %if.end.i57
 
-if.end.i60:                                       ; preds = %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i78, %if.then22
-  %11 = phi ptr [ %add.ptr.i.i.i.i80, %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i78 ], [ %9, %if.then22 ]
-  %tobool.not.i.i.i.i.i.i.i.i.i61 = icmp eq ptr %To.coerce, %From.coerce
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i61, label %_ZN2tf15SmallVectorImplIPNS_4NodeEE6appendISt13move_iteratorIPS2_EEEvT_S8_.exit, label %if.then.i.i.i.i.i.i.i.i.i62
+if.end.i57:                                       ; preds = %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i76, %if.then22
+  %11 = phi ptr [ %add.ptr.i.i.i.i78, %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i76 ], [ %9, %if.then22 ]
+  %tobool.not.i.i.i.i.i.i.i.i.i58 = icmp eq ptr %To.coerce, %From.coerce
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i58, label %_ZN2tf15SmallVectorImplIPNS_4NodeEE6appendISt13move_iteratorIPS2_EEEvT_S8_.exit, label %if.then.i.i.i.i.i.i.i.i.i59
 
-if.then.i.i.i.i.i.i.i.i.i62:                      ; preds = %if.end.i60
+if.then.i.i.i.i.i.i.i.i.i59:                      ; preds = %if.end.i57
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %11, ptr align 8 %add.ptr26, i64 %sub.ptr.sub.i.i.i.i, i1 false)
-  %.pre.i63 = load ptr, ptr %EndX.i, align 8
+  %.pre.i60 = load ptr, ptr %EndX.i, align 8
   br label %_ZN2tf15SmallVectorImplIPNS_4NodeEE6appendISt13move_iteratorIPS2_EEEvT_S8_.exit
 
-_ZN2tf15SmallVectorImplIPNS_4NodeEE6appendISt13move_iteratorIPS2_EEEvT_S8_.exit: ; preds = %if.end.i60, %if.then.i.i.i.i.i.i.i.i.i62
-  %12 = phi ptr [ %11, %if.end.i60 ], [ %.pre.i63, %if.then.i.i.i.i.i.i.i.i.i62 ]
-  %add.ptr.i64 = getelementptr inbounds ptr, ptr %12, i64 %sub.ptr.div.i.i.i.i
-  store ptr %add.ptr.i64, ptr %EndX.i, align 8
+_ZN2tf15SmallVectorImplIPNS_4NodeEE6appendISt13move_iteratorIPS2_EEEvT_S8_.exit: ; preds = %if.end.i57, %if.then.i.i.i.i.i.i.i.i.i59
+  %12 = phi ptr [ %11, %if.end.i57 ], [ %.pre.i60, %if.then.i.i.i.i.i.i.i.i.i59 ]
+  %add.ptr.i62 = getelementptr inbounds ptr, ptr %12, i64 %sub.ptr.div.i.i.i
+  store ptr %add.ptr.i62, ptr %EndX.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr26, %add.ptr15
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt13move_backwardIPPN2tf4NodeES3_ET0_T_S5_S4_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN2tf15SmallVectorImplIPNS_4NodeEE6appendISt13move_iteratorIPS2_EEEvT_S8_.exit
-  %sub.ptr.sub.i.i.i.i.i85 = sub i64 %sub.ptr.rhs.cast.i.i.i.i50, %sub.ptr.rhs.cast18
-  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i85, 3
+  %sub.ptr.sub.i.i.i.i.i83 = sub i64 %sub.ptr.rhs.cast.i.i.i.i49, %sub.ptr.rhs.cast18
+  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i83, 3
   %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %9, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i, ptr align 8 %add.ptr15, i64 %sub.ptr.sub.i.i.i.i.i85, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i, ptr align 8 %add.ptr15, i64 %sub.ptr.sub.i.i.i.i.i83, i1 false)
   br label %_ZSt13move_backwardIPPN2tf4NodeES3_ET0_T_S5_S4_.exit
 
 _ZSt13move_backwardIPPN2tf4NodeES3_ET0_T_S5_S4_.exit: ; preds = %_ZN2tf15SmallVectorImplIPNS_4NodeEE6appendISt13move_iteratorIPS2_EEEvT_S8_.exit, %if.then.i.i.i.i.i
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i61, label %return, label %if.then.i.i.i.i.i90
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i58, label %return, label %if.then.i.i.i.i.i88
 
-if.then.i.i.i.i.i90:                              ; preds = %_ZSt13move_backwardIPPN2tf4NodeES3_ET0_T_S5_S4_.exit
+if.then.i.i.i.i.i88:                              ; preds = %_ZSt13move_backwardIPPN2tf4NodeES3_ET0_T_S5_S4_.exit
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr15, ptr align 8 %From.coerce, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %return
 
 if.end39:                                         ; preds = %_ZN2tf15SmallVectorImplIPNS_4NodeEE7reserveEm.exit
-  %add.ptr43 = getelementptr inbounds ptr, ptr %9, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr43 = getelementptr inbounds ptr, ptr %9, i64 %sub.ptr.div.i.i.i
   store ptr %add.ptr43, ptr %EndX.i, align 8
   %cmp.not.i.i = icmp eq ptr %add.ptr15, %9
   br i1 %cmp.not.i.i, label %for.end, label %for.body.preheader
@@ -11782,14 +11791,14 @@ for.body.preheader:                               ; preds = %if.end39
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %J.0104 = phi ptr [ %incdec.ptr, %for.body ], [ %add.ptr15, %for.body.preheader ]
-  %NumOverwritten.0103 = phi i64 [ %dec, %for.body ], [ %sub.ptr.div20, %for.body.preheader ]
-  %From.sroa.0.0102 = phi ptr [ %incdec.ptr.i, %for.body ], [ %From.coerce, %for.body.preheader ]
-  %13 = load ptr, ptr %From.sroa.0.0102, align 8
-  store ptr %13, ptr %J.0104, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %J.0104, i64 1
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %From.sroa.0.0102, i64 1
-  %dec = add i64 %NumOverwritten.0103, -1
+  %J.0102 = phi ptr [ %incdec.ptr, %for.body ], [ %add.ptr15, %for.body.preheader ]
+  %NumOverwritten.0101 = phi i64 [ %dec, %for.body ], [ %sub.ptr.div20, %for.body.preheader ]
+  %From.sroa.0.0100 = phi ptr [ %incdec.ptr.i, %for.body ], [ %From.coerce, %for.body.preheader ]
+  %13 = load ptr, ptr %From.sroa.0.0100, align 8
+  store ptr %13, ptr %J.0102, align 8
+  %incdec.ptr = getelementptr inbounds ptr, ptr %J.0102, i64 1
+  %incdec.ptr.i = getelementptr inbounds ptr, ptr %From.sroa.0.0100, i64 1
+  %dec = add i64 %NumOverwritten.0101, -1
   %cmp51.not = icmp eq i64 %dec, 0
   br i1 %cmp51.not, label %for.end, label %for.body, !llvm.loop !114
 
@@ -11804,8 +11813,8 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.end
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %9, ptr align 8 %From.sroa.0.0.lcssa, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
   br label %return
 
-return:                                           ; preds = %if.then.i.i.i.i.i.i.i.i, %for.end, %if.then.i.i.i.i.i90, %_ZSt13move_backwardIPPN2tf4NodeES3_ET0_T_S5_S4_.exit, %_ZN2tf15SmallVectorImplIPNS_4NodeEE6appendIN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEvT_SC_.exit
-  %retval.0 = phi ptr [ %add.ptr, %_ZN2tf15SmallVectorImplIPNS_4NodeEE6appendIN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEvT_SC_.exit ], [ %add.ptr15, %_ZSt13move_backwardIPPN2tf4NodeES3_ET0_T_S5_S4_.exit ], [ %add.ptr15, %if.then.i.i.i.i.i90 ], [ %add.ptr15, %for.end ], [ %add.ptr15, %if.then.i.i.i.i.i.i.i.i ]
+return:                                           ; preds = %if.then.i.i.i.i.i.i.i.i, %for.end, %if.then.i.i.i.i.i88, %_ZSt13move_backwardIPPN2tf4NodeES3_ET0_T_S5_S4_.exit, %_ZN2tf15SmallVectorImplIPNS_4NodeEE6appendIN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEvT_SC_.exit
+  %retval.0 = phi ptr [ %add.ptr, %_ZN2tf15SmallVectorImplIPNS_4NodeEE6appendIN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEEEvT_SC_.exit ], [ %add.ptr15, %_ZSt13move_backwardIPPN2tf4NodeES3_ET0_T_S5_S4_.exit ], [ %add.ptr15, %if.then.i.i.i.i.i88 ], [ %add.ptr15, %for.end ], [ %add.ptr15, %if.then.i.i.i.i.i.i.i.i ]
   ret ptr %retval.0
 }
 
@@ -12633,7 +12642,7 @@ if.end12:                                         ; preds = %if.end
   %sub.ptr.rhs.cast.i31 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i32 = sub i64 %sub.ptr.lhs.cast.i30, %sub.ptr.rhs.cast.i31
   %sub.ptr.div.i33 = ashr exact i64 %sub.ptr.sub.i32, 2
-  %cmp15.not = icmp ult i64 %sub.ptr.div.i33, %sub.ptr.div.i
+  %cmp15.not = icmp ult i64 %sub.ptr.sub.i32, %sub.ptr.sub.i
   br i1 %cmp15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end12
@@ -12657,8 +12666,7 @@ if.end24:                                         ; preds = %if.end12
   %9 = load ptr, ptr %CapacityX.i.i, align 8
   %sub.ptr.lhs.cast.i38 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i40 = sub i64 %sub.ptr.lhs.cast.i38, %sub.ptr.rhs.cast.i31
-  %sub.ptr.div.i41 = ashr exact i64 %sub.ptr.sub.i40, 2
-  %cmp26 = icmp ult i64 %sub.ptr.div.i41, %sub.ptr.div.i
+  %cmp26 = icmp ult i64 %sub.ptr.sub.i40, %sub.ptr.sub.i
   br i1 %cmp26, label %if.then27, label %if.else
 
 if.then27:                                        ; preds = %if.end24

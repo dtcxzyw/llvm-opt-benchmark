@@ -1713,11 +1713,11 @@ invoke.cont73:                                    ; preds = %invoke.cont.i.i137,
   %sub.ptr.lhs.cast.i.i147 = ptrtoint ptr %35 to i64
   %sub.ptr.rhs.cast.i.i148 = ptrtoint ptr %36 to i64
   %sub.ptr.sub.i.i149 = sub i64 %sub.ptr.lhs.cast.i.i147, %sub.ptr.rhs.cast.i.i148
-  %sub.ptr.div.i.i150 = ashr exact i64 %sub.ptr.sub.i.i149, 2
-  %cmp.i151 = icmp ult i64 %sub.ptr.div.i.i150, %sub.ptr.div.i145
+  %cmp.i151 = icmp ult i64 %sub.ptr.sub.i.i149, %sub.ptr.sub.i144
   br i1 %cmp.i151, label %if.then.i158, label %if.else.i152
 
 if.then.i158:                                     ; preds = %invoke.cont73
+  %sub.ptr.div.i.i150 = ashr exact i64 %sub.ptr.sub.i.i149, 2
   %sub.i159 = sub nsw i64 %sub.ptr.div.i145, %sub.ptr.div.i.i150
   invoke void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_mappings, i64 noundef %sub.i159)
           to label %if.then.i158.invoke.cont76_crit_edge unwind label %lpad55.loopexit.split-lp.loopexit.split-lp
@@ -1728,7 +1728,7 @@ if.then.i158.invoke.cont76_crit_edge:             ; preds = %if.then.i158
   br label %invoke.cont76
 
 if.else.i152:                                     ; preds = %invoke.cont73
-  %cmp4.i153 = icmp ugt i64 %sub.ptr.div.i.i150, %sub.ptr.div.i145
+  %cmp4.i153 = icmp ugt i64 %sub.ptr.sub.i.i149, %sub.ptr.sub.i144
   br i1 %cmp4.i153, label %if.then5.i154, label %invoke.cont76
 
 if.then5.i154:                                    ; preds = %if.else.i152
@@ -3763,11 +3763,11 @@ if.then27:                                        ; preds = %land.lhs.true
   %sub.ptr.lhs.cast.i.i45 = ptrtoint ptr %16 to i64
   %sub.ptr.rhs.cast.i.i46 = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i.i47 = sub i64 %sub.ptr.lhs.cast.i.i45, %sub.ptr.rhs.cast.i.i46
-  %sub.ptr.div.i.i48 = ashr exact i64 %sub.ptr.sub.i.i47, 2
-  %cmp.i49 = icmp ult i64 %sub.ptr.div.i.i48, %sub.ptr.div.i
+  %cmp.i49 = icmp ult i64 %sub.ptr.sub.i.i47, %sub.ptr.sub.i
   br i1 %cmp.i49, label %if.then.i56, label %if.else.i50
 
 if.then.i56:                                      ; preds = %if.then27
+  %sub.ptr.div.i.i48 = ashr exact i64 %sub.ptr.sub.i.i47, 2
   %sub.i57 = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i48
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %materials_out, i64 noundef %sub.i57)
   %.pre = load ptr, ptr %_M_finish.i.i44, align 8
@@ -3776,7 +3776,7 @@ if.then.i56:                                      ; preds = %if.then27
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit58
 
 if.else.i50:                                      ; preds = %if.then27
-  %cmp4.i51 = icmp ugt i64 %sub.ptr.div.i.i48, %sub.ptr.div.i
+  %cmp4.i51 = icmp ugt i64 %sub.ptr.sub.i.i47, %sub.ptr.sub.i
   br i1 %cmp4.i51, label %if.then5.i52, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit58
 
 if.then5.i52:                                     ; preds = %if.else.i50
@@ -3793,11 +3793,11 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit58:             ; preds = %if.then.i56, %if.el
   %18 = phi ptr [ %.pre, %if.then.i56 ], [ %16, %if.else.i50 ], [ %16, %if.then5.i52 ], [ %add.ptr.i53, %invoke.cont.i.i55 ]
   %sub.ptr.lhs.cast.i60 = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i62 = sub i64 %sub.ptr.lhs.cast.i60, %sub.ptr.rhs.cast.i61.pre-phi
-  %sub.ptr.div.i63 = ashr exact i64 %sub.ptr.sub.i62, 2
-  %cmp29.not = icmp eq i64 %sub.ptr.div.i63, %sub.ptr.div.i
+  %cmp29.not = icmp eq i64 %sub.ptr.sub.i62, %sub.ptr.sub.i
   br i1 %cmp29.not, label %if.end36, label %if.then30
 
 if.then30:                                        ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit58
+  %sub.ptr.div.i63 = ashr exact i64 %sub.ptr.sub.i62, 2
   store i64 %sub.ptr.div.i63, ptr %ref.tmp31, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i69)
   %call.i70 = call noundef zeroext i1 @_ZN6Assimp13DefaultLogger12isNullLoggerEv()
@@ -4633,18 +4633,18 @@ invoke.cont97:                                    ; preds = %invoke.cont95
   %sub.ptr.lhs.cast.i228 = ptrtoint ptr %35 to i64
   %sub.ptr.rhs.cast.i229 = ptrtoint ptr %36 to i64
   %sub.ptr.sub.i230 = sub i64 %sub.ptr.lhs.cast.i228, %sub.ptr.rhs.cast.i229
-  %sub.ptr.div.i231 = ashr exact i64 %sub.ptr.sub.i230, 2
   %_M_finish.i232 = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %mapping_offsets, i64 0, i32 1
   %37 = load ptr, ptr %_M_finish.i232, align 8
   %38 = load ptr, ptr %mapping_offsets, align 8
   %sub.ptr.lhs.cast.i233 = ptrtoint ptr %37 to i64
   %sub.ptr.rhs.cast.i234 = ptrtoint ptr %38 to i64
   %sub.ptr.sub.i235 = sub i64 %sub.ptr.lhs.cast.i233, %sub.ptr.rhs.cast.i234
-  %sub.ptr.div.i236 = ashr exact i64 %sub.ptr.sub.i235, 2
-  %cmp102.not = icmp eq i64 %sub.ptr.div.i231, %sub.ptr.div.i236
+  %cmp102.not = icmp eq i64 %sub.ptr.sub.i230, %sub.ptr.sub.i235
   br i1 %cmp102.not, label %if.end110, label %if.then103
 
 if.then103:                                       ; preds = %invoke.cont97
+  %sub.ptr.div.i236 = ashr exact i64 %sub.ptr.sub.i235, 2
+  %sub.ptr.div.i231 = ashr exact i64 %sub.ptr.sub.i230, 2
   store i64 %sub.ptr.div.i231, ptr %ref.tmp104, align 8
   store i64 %sub.ptr.div.i236, ptr %ref.tmp106, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i247)
@@ -4731,7 +4731,6 @@ if.then.i270.invoke.cont111_crit_edge:            ; preds = %if.then.i270
   %.pre465 = ptrtoint ptr %.pre457 to i64
   %.pre466 = ptrtoint ptr %.pre458 to i64
   %.pre467 = sub i64 %.pre465, %.pre466
-  %.pre468 = ashr exact i64 %.pre467, 2
   br label %invoke.cont111
 
 if.else.i264:                                     ; preds = %if.end110
@@ -4748,15 +4747,16 @@ invoke.cont.i.i269:                               ; preds = %if.then5.i266
   br label %invoke.cont111
 
 invoke.cont111:                                   ; preds = %if.then.i270.invoke.cont111_crit_edge, %invoke.cont.i.i269, %if.then5.i266, %if.else.i264
-  %sub.ptr.div.i278.pre-phi = phi i64 [ %.pre468, %if.then.i270.invoke.cont111_crit_edge ], [ %sub.ptr.div.i231, %invoke.cont.i.i269 ], [ %sub.ptr.div.i231, %if.then5.i266 ], [ %sub.ptr.div.i231, %if.else.i264 ]
+  %sub.ptr.sub.i277.pre-phi = phi i64 [ %.pre467, %if.then.i270.invoke.cont111_crit_edge ], [ %sub.ptr.sub.i230, %invoke.cont.i.i269 ], [ %sub.ptr.sub.i230, %if.then5.i266 ], [ %sub.ptr.sub.i230, %if.else.i264 ]
   %47 = phi ptr [ %.pre458, %if.then.i270.invoke.cont111_crit_edge ], [ %36, %invoke.cont.i.i269 ], [ %36, %if.then5.i266 ], [ %36, %if.else.i264 ]
   %48 = phi ptr [ %.pre457, %if.then.i270.invoke.cont111_crit_edge ], [ %35, %invoke.cont.i.i269 ], [ %35, %if.then5.i266 ], [ %35, %if.else.i264 ]
   %cmp116440.not = icmp eq ptr %48, %47
   br i1 %cmp116440.not, label %cleanup162, label %for.body117.lr.ph
 
 for.body117.lr.ph:                                ; preds = %invoke.cont111
+  %sub.ptr.div.i278 = ashr exact i64 %sub.ptr.sub.i277.pre-phi, 2
   %_M_finish.i282 = getelementptr inbounds %"struct.std::_Vector_base<aiVector3t<float>, std::allocator<aiVector3t<float>>>::_Vector_impl_data", ptr %tempData66, i64 0, i32 1
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i278.pre-phi, i64 1)
+  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i278, i64 1)
   br label %for.body117
 
 for.body117:                                      ; preds = %for.body117.lr.ph, %for.inc159
@@ -5177,10 +5177,10 @@ invoke.cont246.if.end248_crit_edge:               ; preds = %invoke.cont246
   %.pre = load ptr, ptr %_M_finish.i382, align 8
   %.pre455 = load ptr, ptr %uvIndices229, align 8
   %.pre456 = load i64, ptr %vertex_count.addr, align 8
-  %.pre469 = ptrtoint ptr %.pre to i64
-  %.pre470 = ptrtoint ptr %.pre455 to i64
-  %.pre471 = sub i64 %.pre469, %.pre470
-  %.pre472 = ashr exact i64 %.pre471, 2
+  %.pre468 = ptrtoint ptr %.pre to i64
+  %.pre469 = ptrtoint ptr %.pre455 to i64
+  %.pre470 = sub i64 %.pre468, %.pre469
+  %.pre471 = ashr exact i64 %.pre470, 2
   br label %if.end248
 
 lpad221:                                          ; preds = %call.i358.noexc, %if.end218
@@ -5221,7 +5221,7 @@ lpad245:                                          ; preds = %if.end255, %if.then
   br label %ehcleanup301
 
 if.end248:                                        ; preds = %invoke.cont246.if.end248_crit_edge, %invoke.cont237
-  %sub.ptr.div.i396.pre-phi = phi i64 [ %.pre472, %invoke.cont246.if.end248_crit_edge ], [ %sub.ptr.div.i386, %invoke.cont237 ]
+  %sub.ptr.div.i396.pre-phi = phi i64 [ %.pre471, %invoke.cont246.if.end248_crit_edge ], [ %sub.ptr.div.i386, %invoke.cont237 ]
   %94 = phi i64 [ %.pre456, %invoke.cont246.if.end248_crit_edge ], [ %87, %invoke.cont237 ]
   %cmp250.not = icmp eq i64 %sub.ptr.div.i396.pre-phi, %94
   br i1 %cmp250.not, label %if.end255, label %if.then251
@@ -5335,11 +5335,11 @@ for.inc297:                                       ; preds = %if.end291, %if.then
   br i1 %cmp.i403.not, label %cleanup300thread-pre-split, label %for.body262
 
 cleanup300thread-pre-split:                       ; preds = %for.inc297, %if.then251
-  %.pr473 = load ptr, ptr %uvIndices229, align 8
+  %.pr472 = load ptr, ptr %uvIndices229, align 8
   br label %cleanup300
 
 cleanup300:                                       ; preds = %cleanup300thread-pre-split, %invoke.cont256
-  %105 = phi ptr [ %.pr473, %cleanup300thread-pre-split ], [ %95, %invoke.cont256 ]
+  %105 = phi ptr [ %.pr472, %cleanup300thread-pre-split ], [ %95, %invoke.cont256 ]
   %tobool.not.i.i.i413 = icmp eq ptr %105, null
   br i1 %tobool.not.i.i.i413, label %cleanup302, label %if.then.i.i.i414
 
@@ -5930,18 +5930,18 @@ invoke.cont97:                                    ; preds = %invoke.cont95
   %sub.ptr.lhs.cast.i228 = ptrtoint ptr %36 to i64
   %sub.ptr.rhs.cast.i229 = ptrtoint ptr %37 to i64
   %sub.ptr.sub.i230 = sub i64 %sub.ptr.lhs.cast.i228, %sub.ptr.rhs.cast.i229
-  %sub.ptr.div.i231 = ashr exact i64 %sub.ptr.sub.i230, 2
   %_M_finish.i232 = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %mapping_offsets, i64 0, i32 1
   %38 = load ptr, ptr %_M_finish.i232, align 8
   %39 = load ptr, ptr %mapping_offsets, align 8
   %sub.ptr.lhs.cast.i233 = ptrtoint ptr %38 to i64
   %sub.ptr.rhs.cast.i234 = ptrtoint ptr %39 to i64
   %sub.ptr.sub.i235 = sub i64 %sub.ptr.lhs.cast.i233, %sub.ptr.rhs.cast.i234
-  %sub.ptr.div.i236 = ashr exact i64 %sub.ptr.sub.i235, 2
-  %cmp102.not = icmp eq i64 %sub.ptr.div.i231, %sub.ptr.div.i236
+  %cmp102.not = icmp eq i64 %sub.ptr.sub.i230, %sub.ptr.sub.i235
   br i1 %cmp102.not, label %if.end110, label %if.then103
 
 if.then103:                                       ; preds = %invoke.cont97
+  %sub.ptr.div.i236 = ashr exact i64 %sub.ptr.sub.i235, 2
+  %sub.ptr.div.i231 = ashr exact i64 %sub.ptr.sub.i230, 2
   store i64 %sub.ptr.div.i231, ptr %ref.tmp104, align 8
   store i64 %sub.ptr.div.i236, ptr %ref.tmp106, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i247)
@@ -6028,7 +6028,6 @@ if.then.i270.invoke.cont111_crit_edge:            ; preds = %if.then.i270
   %.pre465 = ptrtoint ptr %.pre457 to i64
   %.pre466 = ptrtoint ptr %.pre458 to i64
   %.pre467 = sub i64 %.pre465, %.pre466
-  %.pre468 = ashr exact i64 %.pre467, 2
   br label %invoke.cont111
 
 if.else.i264:                                     ; preds = %if.end110
@@ -6045,15 +6044,16 @@ invoke.cont.i.i269:                               ; preds = %if.then5.i266
   br label %invoke.cont111
 
 invoke.cont111:                                   ; preds = %if.then.i270.invoke.cont111_crit_edge, %invoke.cont.i.i269, %if.then5.i266, %if.else.i264
-  %sub.ptr.div.i278.pre-phi = phi i64 [ %.pre468, %if.then.i270.invoke.cont111_crit_edge ], [ %sub.ptr.div.i231, %invoke.cont.i.i269 ], [ %sub.ptr.div.i231, %if.then5.i266 ], [ %sub.ptr.div.i231, %if.else.i264 ]
+  %sub.ptr.sub.i277.pre-phi = phi i64 [ %.pre467, %if.then.i270.invoke.cont111_crit_edge ], [ %sub.ptr.sub.i230, %invoke.cont.i.i269 ], [ %sub.ptr.sub.i230, %if.then5.i266 ], [ %sub.ptr.sub.i230, %if.else.i264 ]
   %48 = phi ptr [ %.pre458, %if.then.i270.invoke.cont111_crit_edge ], [ %37, %invoke.cont.i.i269 ], [ %37, %if.then5.i266 ], [ %37, %if.else.i264 ]
   %49 = phi ptr [ %.pre457, %if.then.i270.invoke.cont111_crit_edge ], [ %36, %invoke.cont.i.i269 ], [ %36, %if.then5.i266 ], [ %36, %if.else.i264 ]
   %cmp116440.not = icmp eq ptr %49, %48
   br i1 %cmp116440.not, label %cleanup162, label %for.body117.lr.ph
 
 for.body117.lr.ph:                                ; preds = %invoke.cont111
+  %sub.ptr.div.i278 = ashr exact i64 %sub.ptr.sub.i277.pre-phi, 2
   %_M_finish.i282 = getelementptr inbounds %"struct.std::_Vector_base<aiVector2t<float>, std::allocator<aiVector2t<float>>>::_Vector_impl_data", ptr %tempData66, i64 0, i32 1
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i278.pre-phi, i64 1)
+  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i278, i64 1)
   br label %for.body117
 
 for.body117:                                      ; preds = %for.body117.lr.ph, %for.inc159
@@ -6475,10 +6475,10 @@ invoke.cont246.if.end248_crit_edge:               ; preds = %invoke.cont246
   %.pre = load ptr, ptr %_M_finish.i382, align 8
   %.pre455 = load ptr, ptr %uvIndices229, align 8
   %.pre456 = load i64, ptr %vertex_count.addr, align 8
-  %.pre469 = ptrtoint ptr %.pre to i64
-  %.pre470 = ptrtoint ptr %.pre455 to i64
-  %.pre471 = sub i64 %.pre469, %.pre470
-  %.pre472 = ashr exact i64 %.pre471, 2
+  %.pre468 = ptrtoint ptr %.pre to i64
+  %.pre469 = ptrtoint ptr %.pre455 to i64
+  %.pre470 = sub i64 %.pre468, %.pre469
+  %.pre471 = ashr exact i64 %.pre470, 2
   br label %if.end248
 
 lpad221:                                          ; preds = %call.i358.noexc, %if.end218
@@ -6519,7 +6519,7 @@ lpad245:                                          ; preds = %if.end255, %if.then
   br label %ehcleanup302
 
 if.end248:                                        ; preds = %invoke.cont246.if.end248_crit_edge, %invoke.cont237
-  %sub.ptr.div.i396.pre-phi = phi i64 [ %.pre472, %invoke.cont246.if.end248_crit_edge ], [ %sub.ptr.div.i386, %invoke.cont237 ]
+  %sub.ptr.div.i396.pre-phi = phi i64 [ %.pre471, %invoke.cont246.if.end248_crit_edge ], [ %sub.ptr.div.i386, %invoke.cont237 ]
   %96 = phi i64 [ %.pre456, %invoke.cont246.if.end248_crit_edge ], [ %89, %invoke.cont237 ]
   %cmp250.not = icmp eq i64 %sub.ptr.div.i396.pre-phi, %96
   br i1 %cmp250.not, label %if.end255, label %if.then251
@@ -6634,11 +6634,11 @@ for.inc298:                                       ; preds = %if.end292, %if.then
   br i1 %cmp.i403.not, label %cleanup301thread-pre-split, label %for.body263
 
 cleanup301thread-pre-split:                       ; preds = %for.inc298, %if.then251
-  %.pr473 = load ptr, ptr %uvIndices229, align 8
+  %.pr472 = load ptr, ptr %uvIndices229, align 8
   br label %cleanup301
 
 cleanup301:                                       ; preds = %cleanup301thread-pre-split, %invoke.cont256
-  %108 = phi ptr [ %.pr473, %cleanup301thread-pre-split ], [ %97, %invoke.cont256 ]
+  %108 = phi ptr [ %.pr472, %cleanup301thread-pre-split ], [ %97, %invoke.cont256 ]
   %tobool.not.i.i.i413 = icmp eq ptr %108, null
   br i1 %tobool.not.i.i.i413, label %cleanup303, label %if.then.i.i.i414
 
@@ -7228,18 +7228,18 @@ invoke.cont97:                                    ; preds = %invoke.cont95
   %sub.ptr.lhs.cast.i228 = ptrtoint ptr %35 to i64
   %sub.ptr.rhs.cast.i229 = ptrtoint ptr %36 to i64
   %sub.ptr.sub.i230 = sub i64 %sub.ptr.lhs.cast.i228, %sub.ptr.rhs.cast.i229
-  %sub.ptr.div.i231 = ashr exact i64 %sub.ptr.sub.i230, 2
   %_M_finish.i232 = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %mapping_offsets, i64 0, i32 1
   %37 = load ptr, ptr %_M_finish.i232, align 8
   %38 = load ptr, ptr %mapping_offsets, align 8
   %sub.ptr.lhs.cast.i233 = ptrtoint ptr %37 to i64
   %sub.ptr.rhs.cast.i234 = ptrtoint ptr %38 to i64
   %sub.ptr.sub.i235 = sub i64 %sub.ptr.lhs.cast.i233, %sub.ptr.rhs.cast.i234
-  %sub.ptr.div.i236 = ashr exact i64 %sub.ptr.sub.i235, 2
-  %cmp102.not = icmp eq i64 %sub.ptr.div.i231, %sub.ptr.div.i236
+  %cmp102.not = icmp eq i64 %sub.ptr.sub.i230, %sub.ptr.sub.i235
   br i1 %cmp102.not, label %if.end110, label %if.then103
 
 if.then103:                                       ; preds = %invoke.cont97
+  %sub.ptr.div.i236 = ashr exact i64 %sub.ptr.sub.i235, 2
+  %sub.ptr.div.i231 = ashr exact i64 %sub.ptr.sub.i230, 2
   store i64 %sub.ptr.div.i231, ptr %ref.tmp104, align 8
   store i64 %sub.ptr.div.i236, ptr %ref.tmp106, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i247)
@@ -7326,7 +7326,6 @@ if.then.i270.invoke.cont111_crit_edge:            ; preds = %if.then.i270
   %.pre465 = ptrtoint ptr %.pre457 to i64
   %.pre466 = ptrtoint ptr %.pre458 to i64
   %.pre467 = sub i64 %.pre465, %.pre466
-  %.pre468 = ashr exact i64 %.pre467, 2
   br label %invoke.cont111
 
 if.else.i264:                                     ; preds = %if.end110
@@ -7343,15 +7342,16 @@ invoke.cont.i.i269:                               ; preds = %if.then5.i266
   br label %invoke.cont111
 
 invoke.cont111:                                   ; preds = %if.then.i270.invoke.cont111_crit_edge, %invoke.cont.i.i269, %if.then5.i266, %if.else.i264
-  %sub.ptr.div.i278.pre-phi = phi i64 [ %.pre468, %if.then.i270.invoke.cont111_crit_edge ], [ %sub.ptr.div.i231, %invoke.cont.i.i269 ], [ %sub.ptr.div.i231, %if.then5.i266 ], [ %sub.ptr.div.i231, %if.else.i264 ]
+  %sub.ptr.sub.i277.pre-phi = phi i64 [ %.pre467, %if.then.i270.invoke.cont111_crit_edge ], [ %sub.ptr.sub.i230, %invoke.cont.i.i269 ], [ %sub.ptr.sub.i230, %if.then5.i266 ], [ %sub.ptr.sub.i230, %if.else.i264 ]
   %47 = phi ptr [ %.pre458, %if.then.i270.invoke.cont111_crit_edge ], [ %36, %invoke.cont.i.i269 ], [ %36, %if.then5.i266 ], [ %36, %if.else.i264 ]
   %48 = phi ptr [ %.pre457, %if.then.i270.invoke.cont111_crit_edge ], [ %35, %invoke.cont.i.i269 ], [ %35, %if.then5.i266 ], [ %35, %if.else.i264 ]
   %cmp116440.not = icmp eq ptr %48, %47
   br i1 %cmp116440.not, label %cleanup162, label %for.body117.lr.ph
 
 for.body117.lr.ph:                                ; preds = %invoke.cont111
+  %sub.ptr.div.i278 = ashr exact i64 %sub.ptr.sub.i277.pre-phi, 2
   %_M_finish.i282 = getelementptr inbounds %"struct.std::_Vector_base<aiColor4t<float>, std::allocator<aiColor4t<float>>>::_Vector_impl_data", ptr %tempData66, i64 0, i32 1
-  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i278.pre-phi, i64 1)
+  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i278, i64 1)
   br label %for.body117
 
 for.body117:                                      ; preds = %for.body117.lr.ph, %for.inc159
@@ -7772,10 +7772,10 @@ invoke.cont246.if.end248_crit_edge:               ; preds = %invoke.cont246
   %.pre = load ptr, ptr %_M_finish.i382, align 8
   %.pre455 = load ptr, ptr %uvIndices229, align 8
   %.pre456 = load i64, ptr %vertex_count.addr, align 8
-  %.pre469 = ptrtoint ptr %.pre to i64
-  %.pre470 = ptrtoint ptr %.pre455 to i64
-  %.pre471 = sub i64 %.pre469, %.pre470
-  %.pre472 = ashr exact i64 %.pre471, 2
+  %.pre468 = ptrtoint ptr %.pre to i64
+  %.pre469 = ptrtoint ptr %.pre455 to i64
+  %.pre470 = sub i64 %.pre468, %.pre469
+  %.pre471 = ashr exact i64 %.pre470, 2
   br label %if.end248
 
 lpad221:                                          ; preds = %call.i358.noexc, %if.end218
@@ -7816,7 +7816,7 @@ lpad245:                                          ; preds = %if.end255, %if.then
   br label %ehcleanup301
 
 if.end248:                                        ; preds = %invoke.cont246.if.end248_crit_edge, %invoke.cont237
-  %sub.ptr.div.i396.pre-phi = phi i64 [ %.pre472, %invoke.cont246.if.end248_crit_edge ], [ %sub.ptr.div.i386, %invoke.cont237 ]
+  %sub.ptr.div.i396.pre-phi = phi i64 [ %.pre471, %invoke.cont246.if.end248_crit_edge ], [ %sub.ptr.div.i386, %invoke.cont237 ]
   %94 = phi i64 [ %.pre456, %invoke.cont246.if.end248_crit_edge ], [ %87, %invoke.cont237 ]
   %cmp250.not = icmp eq i64 %sub.ptr.div.i396.pre-phi, %94
   br i1 %cmp250.not, label %if.end255, label %if.then251
@@ -7928,11 +7928,11 @@ for.inc297:                                       ; preds = %if.end291, %if.then
   br i1 %cmp.i403.not, label %cleanup300thread-pre-split, label %for.body262
 
 cleanup300thread-pre-split:                       ; preds = %for.inc297, %if.then251
-  %.pr473 = load ptr, ptr %uvIndices229, align 8
+  %.pr472 = load ptr, ptr %uvIndices229, align 8
   br label %cleanup300
 
 cleanup300:                                       ; preds = %cleanup300thread-pre-split, %invoke.cont256
-  %105 = phi ptr [ %.pr473, %cleanup300thread-pre-split ], [ %95, %invoke.cont256 ]
+  %105 = phi ptr [ %.pr472, %cleanup300thread-pre-split ], [ %95, %invoke.cont256 ]
   %tobool.not.i.i.i413 = icmp eq ptr %105, null
   br i1 %tobool.not.i.i.i413, label %cleanup302, label %if.then.i.i.i414
 

@@ -8299,7 +8299,7 @@ _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEE
   %sub.ptr.sub.i3.i = sub i64 %sub.ptr.lhs.cast.i1.i, %sub.ptr.rhs.cast.i.i260
   %sub.ptr.div.i4.i = sdiv exact i64 %sub.ptr.sub.i3.i, 24
   %add.ptr.i5.i = getelementptr inbounds %struct.aiVectorKey, ptr %125, i64 %sub.ptr.div.i4.i
-  %cmp.i.not.i.i = icmp eq i64 %sub.ptr.div.i.i262, %sub.ptr.div.i4.i
+  %cmp.i.not.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i, %126
   br i1 %cmp.i.not.i.i, label %sw.epilog, label %if.then.i.i264
 
 if.then.i.i264:                                   ; preds = %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEEPFbRKS2_S9_EET_SC_SC_T0_.exit
@@ -8708,7 +8708,7 @@ _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorI
   %sub.ptr.sub.i3.i393 = sub i64 %sub.ptr.lhs.cast.i1.i392, %sub.ptr.rhs.cast.i.i388
   %sub.ptr.div.i4.i394 = ashr exact i64 %sub.ptr.sub.i3.i393, 4
   %add.ptr.i5.i395 = getelementptr inbounds %"struct.Assimp::D3DS::aiFloatKey", ptr %164, i64 %sub.ptr.div.i4.i394
-  %cmp.i.not.i.i396 = icmp eq i64 %sub.ptr.div.i.i390, %sub.ptr.div.i4.i394
+  %cmp.i.not.i.i396 = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i385, %165
   br i1 %cmp.i.not.i.i396, label %sw.epilog, label %if.then.i.i397
 
 if.then.i.i397:                                   ; preds = %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt6vectorIS4_SaIS4_EEEEPFbRKS4_SB_EET_SE_SE_T0_.exit
@@ -9201,7 +9201,7 @@ _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEEPFb
   %sub.ptr.sub.i3.i578 = sub i64 %sub.ptr.lhs.cast.i1.i577, %sub.ptr.rhs.cast.i.i573
   %sub.ptr.div.i4.i579 = sdiv exact i64 %sub.ptr.sub.i3.i578, 24
   %add.ptr.i5.i580 = getelementptr inbounds %struct.aiQuatKey, ptr %229, i64 %sub.ptr.div.i4.i579
-  %cmp.i.not.i.i581 = icmp eq i64 %sub.ptr.div.i.i575, %sub.ptr.div.i4.i579
+  %cmp.i.not.i.i581 = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i570, %230
   br i1 %cmp.i.not.i.i581, label %sw.epilog, label %if.then.i.i582
 
 if.then.i.i582:                                   ; preds = %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2_EEEEPFbRKS2_S9_EET_SC_SC_T0_.exit
@@ -9666,7 +9666,7 @@ _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEE
   %sub.ptr.sub.i3.i773 = sub i64 %sub.ptr.lhs.cast.i1.i772, %sub.ptr.rhs.cast.i.i768
   %sub.ptr.div.i4.i774 = sdiv exact i64 %sub.ptr.sub.i3.i773, 24
   %add.ptr.i5.i775 = getelementptr inbounds %struct.aiVectorKey, ptr %283, i64 %sub.ptr.div.i4.i774
-  %cmp.i.not.i.i776 = icmp eq i64 %sub.ptr.div.i.i770, %sub.ptr.div.i4.i774
+  %cmp.i.not.i.i776 = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i764, %284
   br i1 %cmp.i.not.i.i776, label %sw.epilog, label %if.then.i.i777
 
 if.then.i.i777:                                   ; preds = %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_SaIS2_EEEEPFbRKS2_S9_EET_SC_SC_T0_.exit765
@@ -13550,7 +13550,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_Sa
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.neg.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i, -24
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %add.ptr.i2.i, i64 %sub.ptr.div.neg.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i, ptr nonnull align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(20) %__val.i, i64 20, i1 false)
   br label %for.inc.i
 
@@ -14208,7 +14208,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_Sa
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i45
   %sub.ptr.div.neg.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i, -24
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %add.ptr.i2.i, i64 %sub.ptr.div.neg.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i, ptr nonnull align 8 %__first.sroa.0.044, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.sroa.0.044, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__first.sroa.0.044, ptr noundef nonnull align 8 dereferenceable(20) %__val.i, i64 20, i1 false)
   br label %for.inc.i
 
@@ -14275,7 +14275,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP11aiVectorKeySt6vectorIS2_Sa
   %sub.ptr.sub.i.i.i.i.i.i33 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i32, %sub.ptr.rhs.cast.i.lcssa
   %sub.ptr.div.neg.i.i.i.i.i.i34 = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i33, -24
   %add.ptr.i.i.i.i.i.i35 = getelementptr inbounds %struct.aiVectorKey, ptr %add.ptr.i2.i31, i64 %sub.ptr.div.neg.i.i.i.i.i.i34
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i35, ptr nonnull align 8 %__first.sroa.0.0.lcssa, i64 %sub.ptr.sub.i.i.i.i.i.i33, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i35, ptr noundef nonnull align 8 dereferenceable(1) %__first.sroa.0.0.lcssa, i64 %sub.ptr.sub.i.i.i.i.i.i33, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__first.sroa.0.0.lcssa, ptr noundef nonnull align 8 dereferenceable(20) %__val.i5, i64 20, i1 false)
   br label %for.inc.i22
 
@@ -14880,7 +14880,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 4
   %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::D3DS::aiFloatKey", ptr %add.ptr.i2.i, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i, ptr nonnull align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__val.i, i64 16, i1 false)
   br label %for.inc.i
 
@@ -15680,7 +15680,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 4
   %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::D3DS::aiFloatKey", ptr %add.ptr.i2.i, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i, ptr nonnull align 8 %__first.sroa.0.045, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.sroa.0.045, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.045, ptr noundef nonnull align 8 dereferenceable(16) %__val.i, i64 16, i1 false)
   br label %for.inc.i
 
@@ -15746,7 +15746,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6Assimp4D3DS10aiFloatKeyESt
   %sub.ptr.div.i.i.i.i.i.i34 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i33, 4
   %.pre.i.i.i.i.i.i35 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i34
   %add.ptr.i.i.i.i.i.i36 = getelementptr inbounds %"struct.Assimp::D3DS::aiFloatKey", ptr %add.ptr.i2.i31, i64 %.pre.i.i.i.i.i.i35
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i36, ptr nonnull align 8 %__first.sroa.0.0.lcssa, i64 %sub.ptr.sub.i.i.i.i.i.i33, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i36, ptr noundef nonnull align 8 dereferenceable(1) %__first.sroa.0.0.lcssa, i64 %sub.ptr.sub.i.i.i.i.i.i33, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.0.lcssa, ptr noundef nonnull align 8 dereferenceable(16) %__val.i4, i64 16, i1 false)
   br label %for.inc.i22
 
@@ -16218,7 +16218,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.neg.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i, -24
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %struct.aiQuatKey, ptr %add.ptr.i2.i, i64 %sub.ptr.div.neg.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i, ptr nonnull align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(24) %__val.i, i64 24, i1 false)
   br label %for.inc.i
 
@@ -16873,7 +16873,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i45
   %sub.ptr.div.neg.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i, -24
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %struct.aiQuatKey, ptr %add.ptr.i2.i, i64 %sub.ptr.div.neg.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i, ptr nonnull align 8 %__first.sroa.0.044, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.sroa.0.044, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.sroa.0.044, ptr noundef nonnull align 8 dereferenceable(24) %__val.i, i64 24, i1 false)
   br label %for.inc.i
 
@@ -16940,7 +16940,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP9aiQuatKeySt6vectorIS2_SaIS2
   %sub.ptr.sub.i.i.i.i.i.i33 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i32, %sub.ptr.rhs.cast.i.lcssa
   %sub.ptr.div.neg.i.i.i.i.i.i34 = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i33, -24
   %add.ptr.i.i.i.i.i.i35 = getelementptr inbounds %struct.aiQuatKey, ptr %add.ptr.i2.i31, i64 %sub.ptr.div.neg.i.i.i.i.i.i34
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i35, ptr nonnull align 8 %__first.sroa.0.0.lcssa, i64 %sub.ptr.sub.i.i.i.i.i.i33, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i35, ptr noundef nonnull align 8 dereferenceable(1) %__first.sroa.0.0.lcssa, i64 %sub.ptr.sub.i.i.i.i.i.i33, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.sroa.0.0.lcssa, ptr noundef nonnull align 8 dereferenceable(24) %__val.i5, i64 24, i1 false)
   br label %for.inc.i22
 

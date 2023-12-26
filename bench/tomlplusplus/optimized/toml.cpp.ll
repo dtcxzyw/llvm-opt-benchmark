@@ -7271,7 +7271,7 @@ entry:
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
   %add.ptr.i.i = getelementptr inbounds %"class.toml::v3::path_component", ptr %1, i64 %sub.ptr.div.i.i
   %add.ptr.i5.i = getelementptr inbounds %"class.toml::v3::path_component", ptr %1, i64 %sub.ptr.div.i
-  %cmp.i.not.i.i = icmp eq i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp.i.not.i.i = icmp eq i64 %sext, 0
   br i1 %cmp.i.not.i.i, label %_ZNSt6vectorIN4toml2v314path_componentESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -7453,11 +7453,9 @@ return:                                           ; preds = %if.end, %if.then
 define void @_ZNK4toml2v34path7subpathEmm(ptr noalias sret(%"class.toml::v3::path") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %start, i64 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sext = shl i64 %start, 32
-  %conv2 = ashr exact i64 %sext, 32
   %add = add i64 %length, %start
   %sext2 = shl i64 %add, 32
-  %conv10 = ashr exact i64 %sext2, 32
-  %cmp.i.not.i = icmp slt i64 %conv2, %conv10
+  %cmp.i.not.i = icmp slt i64 %sext, %sext2
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -7465,6 +7463,8 @@ if.then.i:                                        ; preds = %entry
   br label %_ZNK4toml2v34path7subpathEN9__gnu_cxx17__normal_iteratorIPKNS0_14path_componentESt6vectorIS4_SaIS4_EEEESA_.exit
 
 if.end.i:                                         ; preds = %entry
+  %conv10 = ashr exact i64 %sext2, 32
+  %conv2 = ashr exact i64 %sext, 32
   %0 = load ptr, ptr %this, align 8
   %add.ptr.i3 = getelementptr inbounds %"class.toml::v3::path_component", ptr %0, i64 %conv10
   %add.ptr.i = getelementptr inbounds %"class.toml::v3::path_component", ptr %0, i64 %conv2
@@ -8179,8 +8179,7 @@ if.end.i:                                         ; preds = %_ZNSt6vectorISt10un
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %17 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp3.i = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp3.i = icmp ult i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   br i1 %cmp3.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i, label %_ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit
 
 _ZNSt12_Vector_baseISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i: ; preds = %if.end.i
@@ -9097,7 +9096,7 @@ entry:
   %sub.ptr.sub.i3.i = sub i64 %sub.ptr.lhs.cast.i1.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i4.i = ashr exact i64 %sub.ptr.sub.i3.i, 3
   %add.ptr.i5.i = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %sub.ptr.div.i4.i
-  %cmp.i.not.i.i = icmp eq i64 %sub.ptr.div.i.i, %sub.ptr.div.i4.i
+  %cmp.i.not.i.i = icmp eq ptr %first.coerce, %last.coerce
   br i1 %cmp.i.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -10005,8 +10004,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.lhs.cast.i13 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i14 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i15 = sub i64 %sub.ptr.lhs.cast.i13, %sub.ptr.rhs.cast.i14
-  %sub.ptr.div.i16 = ashr exact i64 %sub.ptr.sub.i15, 3
-  %cmp3.not = icmp eq i64 %sub.ptr.div.i, %sub.ptr.div.i16
+  %cmp3.not = icmp eq i64 %sub.ptr.sub.i, %sub.ptr.sub.i15
   br i1 %cmp3.not, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %if.end

@@ -17619,15 +17619,14 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
-  %cmp3.not = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div
+  %cmp3.not = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub
   br i1 %cmp3.not, label %if.else34, label %if.then4
 
 if.then4:                                         ; preds = %if.then
   %sub.ptr.rhs.cast7 = ptrtoint ptr %position to i64
   %sub.ptr.sub8 = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast7
   %sub.ptr.div9 = ashr exact i64 %sub.ptr.sub8, 2
-  %cmp10 = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div9
+  %cmp10 = icmp ult i64 %sub.ptr.sub.i.i, %sub.ptr.sub8
   br i1 %cmp10, label %_ZN5eastl22uninitialized_move_ptrIPiS1_S1_EET1_T_T0_S2_.exit, label %if.else
 
 _ZN5eastl22uninitialized_move_ptrIPiS1_S1_EET1_T_T0_S2_.exit: ; preds = %if.then4
@@ -20363,15 +20362,14 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
-  %cmp3.not = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div
+  %cmp3.not = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub
   br i1 %cmp3.not, label %if.else34, label %if.then4
 
 if.then4:                                         ; preds = %if.then
   %sub.ptr.rhs.cast7 = ptrtoint ptr %position to i64
   %sub.ptr.sub8 = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast7
   %sub.ptr.div9 = ashr exact i64 %sub.ptr.sub8, 2
-  %cmp10 = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div9
+  %cmp10 = icmp ult i64 %sub.ptr.sub.i.i, %sub.ptr.sub8
   br i1 %cmp10, label %_ZN5eastl22uninitialized_move_ptrIPfS1_S1_EET1_T_T0_S2_.exit, label %if.else
 
 _ZN5eastl22uninitialized_move_ptrIPfS1_S1_EET1_T_T0_S2_.exit: ; preds = %if.then4

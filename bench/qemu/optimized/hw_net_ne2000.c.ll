@@ -123,13 +123,12 @@ ne2000_buffer_full.exit:                          ; preds = %lor.lhs.false
   %curpag.i = getelementptr inbounds %struct.NE2000State, ptr %call, i64 0, i32 16
   %4 = load i8, ptr %curpag.i, align 1
   %conv.i = zext i8 %4 to i32
-  %shl.i = shl nuw nsw i32 %conv.i, 8
   %boundary1.i = getelementptr inbounds %struct.NE2000State, ptr %call, i64 0, i32 4
   %5 = load i8, ptr %boundary1.i, align 4
   %conv2.i = zext i8 %5 to i32
-  %shl3.i = shl nuw nsw i32 %conv2.i, 8
-  %cmp4.i = icmp ult i32 %shl.i, %shl3.i
-  %sub.i = sub nsw i32 %shl3.i, %shl.i
+  %cmp4.i = icmp ult i8 %4, %5
+  %6 = sub nsw i32 %conv2.i, %conv.i
+  %sub.i = shl nsw i32 %6, 8
   %sub9.i = sub i32 %2, %3
   %sub11.i = select i1 %cmp4.i, i32 0, i32 %sub9.i
   %avail.0.i = add i32 %sub.i, %sub11.i
@@ -138,8 +137,8 @@ ne2000_buffer_full.exit:                          ; preds = %lor.lhs.false
 
 if.end:                                           ; preds = %ne2000_buffer_full.exit
   %rxcr = getelementptr inbounds %struct.NE2000State, ptr %call, i64 0, i32 11
-  %6 = load i8, ptr %rxcr, align 1
-  %conv3 = zext i8 %6 to i32
+  %7 = load i8, ptr %rxcr, align 1
+  %conv3 = zext i8 %7 to i32
   %and4 = and i32 %conv3, 16
   %tobool5.not = icmp eq i32 %and4, 0
   br i1 %tobool5.not, label %if.else, label %if.end86
@@ -155,9 +154,9 @@ if.then9:                                         ; preds = %if.else
   br i1 %tobool13.not, label %return, label %if.end86
 
 if.else16:                                        ; preds = %if.else
-  %7 = load i8, ptr %buf, align 1
-  %8 = and i8 %7, 1
-  %tobool19.not = icmp eq i8 %8, 0
+  %8 = load i8, ptr %buf, align 1
+  %9 = and i8 %8, 1
+  %tobool19.not = icmp eq i8 %9, 0
   br i1 %tobool19.not, label %if.else36, label %if.then20
 
 if.then20:                                        ; preds = %if.else16
@@ -171,8 +170,8 @@ if.end26:                                         ; preds = %if.then20
   %shr28 = lshr i32 %call27, 29
   %idxprom = zext nneg i32 %shr28 to i64
   %arrayidx29 = getelementptr %struct.NE2000State, ptr %call, i64 0, i32 17, i64 %idxprom
-  %9 = load i8, ptr %arrayidx29, align 1
-  %conv30 = zext i8 %9 to i32
+  %10 = load i8, ptr %arrayidx29, align 1
+  %conv30 = zext i8 %10 to i32
   %and31 = and i32 %shr, 7
   %shl = shl nuw nsw i32 1, %and31
   %and32 = and i32 %shl, %conv30
@@ -182,80 +181,80 @@ if.end26:                                         ; preds = %if.then20
 if.end26.if.end86_crit_edge:                      ; preds = %if.end26
   %.pre = load i8, ptr %curpag.i, align 1
   %.pre77 = zext i8 %.pre to i32
-  %.pre78 = shl nuw nsw i32 %.pre77, 8
   br label %if.end86
 
 if.else36:                                        ; preds = %if.else16
   %mem = getelementptr inbounds %struct.NE2000State, ptr %call, i64 0, i32 21
-  %10 = load i8, ptr %mem, align 8
-  %cmp = icmp eq i8 %10, %7
+  %11 = load i8, ptr %mem, align 8
+  %cmp = icmp eq i8 %11, %8
   br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.else36
   %arrayidx43 = getelementptr %struct.NE2000State, ptr %call, i64 0, i32 21, i64 2
-  %11 = load i8, ptr %arrayidx43, align 2
+  %12 = load i8, ptr %arrayidx43, align 2
   %arrayidx45 = getelementptr i8, ptr %buf, i64 1
-  %12 = load i8, ptr %arrayidx45, align 1
-  %cmp47 = icmp eq i8 %11, %12
+  %13 = load i8, ptr %arrayidx45, align 1
+  %cmp47 = icmp eq i8 %12, %13
   br i1 %cmp47, label %land.lhs.true49, label %return
 
 land.lhs.true49:                                  ; preds = %land.lhs.true
   %arrayidx51 = getelementptr %struct.NE2000State, ptr %call, i64 0, i32 21, i64 4
-  %13 = load i8, ptr %arrayidx51, align 4
+  %14 = load i8, ptr %arrayidx51, align 4
   %arrayidx53 = getelementptr i8, ptr %buf, i64 2
-  %14 = load i8, ptr %arrayidx53, align 1
-  %cmp55 = icmp eq i8 %13, %14
+  %15 = load i8, ptr %arrayidx53, align 1
+  %cmp55 = icmp eq i8 %14, %15
   br i1 %cmp55, label %land.lhs.true57, label %return
 
 land.lhs.true57:                                  ; preds = %land.lhs.true49
   %arrayidx59 = getelementptr %struct.NE2000State, ptr %call, i64 0, i32 21, i64 6
-  %15 = load i8, ptr %arrayidx59, align 2
+  %16 = load i8, ptr %arrayidx59, align 2
   %arrayidx61 = getelementptr i8, ptr %buf, i64 3
-  %16 = load i8, ptr %arrayidx61, align 1
-  %cmp63 = icmp eq i8 %15, %16
+  %17 = load i8, ptr %arrayidx61, align 1
+  %cmp63 = icmp eq i8 %16, %17
   br i1 %cmp63, label %land.lhs.true65, label %return
 
 land.lhs.true65:                                  ; preds = %land.lhs.true57
   %arrayidx67 = getelementptr %struct.NE2000State, ptr %call, i64 0, i32 21, i64 8
-  %17 = load i8, ptr %arrayidx67, align 8
+  %18 = load i8, ptr %arrayidx67, align 8
   %arrayidx69 = getelementptr i8, ptr %buf, i64 4
-  %18 = load i8, ptr %arrayidx69, align 1
-  %cmp71 = icmp eq i8 %17, %18
+  %19 = load i8, ptr %arrayidx69, align 1
+  %cmp71 = icmp eq i8 %18, %19
   br i1 %cmp71, label %land.lhs.true73, label %return
 
 land.lhs.true73:                                  ; preds = %land.lhs.true65
   %arrayidx75 = getelementptr %struct.NE2000State, ptr %call, i64 0, i32 21, i64 10
-  %19 = load i8, ptr %arrayidx75, align 2
+  %20 = load i8, ptr %arrayidx75, align 2
   %arrayidx77 = getelementptr i8, ptr %buf, i64 5
-  %20 = load i8, ptr %arrayidx77, align 1
-  %cmp79 = icmp eq i8 %19, %20
+  %21 = load i8, ptr %arrayidx77, align 1
+  %cmp79 = icmp eq i8 %20, %21
   br i1 %cmp79, label %if.end86, label %return
 
 if.end86:                                         ; preds = %if.end26.if.end86_crit_edge, %if.then9, %land.lhs.true73, %if.end
-  %shl88.pre-phi = phi i32 [ %.pre78, %if.end26.if.end86_crit_edge ], [ %shl.i, %if.then9 ], [ %shl.i, %land.lhs.true73 ], [ %shl.i, %if.end ]
-  %21 = phi i8 [ %.pre, %if.end26.if.end86_crit_edge ], [ %4, %if.then9 ], [ %4, %land.lhs.true73 ], [ %4, %if.end ]
-  %cmp90 = icmp ugt i8 %21, -65
+  %conv87.pre-phi = phi i32 [ %.pre77, %if.end26.if.end86_crit_edge ], [ %conv.i, %if.then9 ], [ %conv.i, %land.lhs.true73 ], [ %conv.i, %if.end ]
+  %22 = phi i8 [ %.pre, %if.end26.if.end86_crit_edge ], [ %4, %if.then9 ], [ %4, %land.lhs.true73 ], [ %4, %if.end ]
+  %shl88 = shl nuw nsw i32 %conv87.pre-phi, 8
+  %cmp90 = icmp ugt i8 %22, -65
   br i1 %cmp90, label %if.then92, label %if.end93
 
 if.then92:                                        ; preds = %if.end86
-  %22 = load i32, ptr %start.i, align 4
+  %23 = load i32, ptr %start.i, align 4
   br label %if.end93
 
 if.end93:                                         ; preds = %if.then92, %if.end86
-  %index.0 = phi i32 [ %22, %if.then92 ], [ %shl88.pre-phi, %if.end86 ]
-  %23 = trunc i64 %size_ to i32
-  %conv94 = add i32 %23, 4
-  %add96 = add i32 %23, 263
+  %index.0 = phi i32 [ %23, %if.then92 ], [ %shl88, %if.end86 ]
+  %24 = trunc i64 %size_ to i32
+  %conv94 = add i32 %24, 4
+  %add96 = add i32 %24, 263
   %and97 = and i32 %add96, -256
   %add98 = add i32 %index.0, %and97
-  %24 = load i32, ptr %stop.i, align 8
-  %cmp99.not = icmp ult i32 %add98, %24
+  %25 = load i32, ptr %stop.i, align 8
+  %cmp99.not = icmp ult i32 %add98, %25
   br i1 %cmp99.not, label %if.end105, label %if.then101
 
 if.then101:                                       ; preds = %if.end93
-  %25 = load i32, ptr %start.i, align 4
-  %sub.neg = sub i32 %add98, %24
-  %sub104 = add i32 %sub.neg, %25
+  %26 = load i32, ptr %start.i, align 4
+  %sub.neg = sub i32 %add98, %25
+  %sub104 = add i32 %sub.neg, %26
   br label %if.end105
 
 if.end105:                                        ; preds = %if.then101, %if.end93
@@ -265,9 +264,9 @@ if.end105:                                        ; preds = %if.then101, %if.end
   %add.ptr = getelementptr i8, ptr %mem106, i64 %idx.ext
   %rsr = getelementptr inbounds %struct.NE2000State, ptr %call, i64 0, i32 10
   store i8 1, ptr %rsr, align 8
-  %26 = load i8, ptr %buf, align 1
-  %27 = and i8 %26, 1
-  %tobool110.not = icmp eq i8 %27, 0
+  %27 = load i8, ptr %buf, align 1
+  %28 = and i8 %27, 1
+  %tobool110.not = icmp eq i8 %28, 0
   %spec.store.select = select i1 %tobool110.not, i8 1, i8 33
   store i8 %spec.store.select, ptr %rsr, align 8
   store i8 %spec.store.select, ptr %add.ptr, align 1
@@ -290,15 +289,15 @@ while.body.preheader:                             ; preds = %if.end105
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end155
-  %28 = phi i32 [ %29, %if.end155 ], [ %24, %while.body.preheader ]
+  %29 = phi i32 [ %30, %if.end155 ], [ %25, %while.body.preheader ]
   %index.176 = phi i32 [ %index.2, %if.end155 ], [ %add126, %while.body.preheader ]
   %buf.addr.075 = phi ptr [ %add.ptr148, %if.end155 ], [ %buf, %while.body.preheader ]
   %size.074 = phi i64 [ %sub157, %if.end155 ], [ %size_, %while.body.preheader ]
-  %cmp130.not = icmp ugt i32 %index.176, %28
+  %cmp130.not = icmp ugt i32 %index.176, %29
   br i1 %cmp130.not, label %while.end, label %if.then132
 
 if.then132:                                       ; preds = %while.body
-  %sub134 = sub i32 %28, %index.176
+  %sub134 = sub i32 %29, %index.176
   %conv137 = trunc i64 %size.074 to i32
   %spec.select = tail call i32 @llvm.umin.i32(i32 %sub134, i32 %conv137)
   %idx.ext144 = zext i32 %index.176 to i64
@@ -307,16 +306,16 @@ if.then132:                                       ; preds = %while.body
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr145, ptr align 1 %buf.addr.075, i64 %conv146, i1 false)
   %add.ptr148 = getelementptr i8, ptr %buf.addr.075, i64 %conv146
   %add149 = add i32 %spec.select, %index.176
-  %29 = load i32, ptr %stop.i, align 8
-  %cmp151 = icmp eq i32 %add149, %29
+  %30 = load i32, ptr %stop.i, align 8
+  %cmp151 = icmp eq i32 %add149, %30
   br i1 %cmp151, label %if.then153, label %if.end155
 
 if.then153:                                       ; preds = %if.then132
-  %30 = load i32, ptr %start.i, align 4
+  %31 = load i32, ptr %start.i, align 4
   br label %if.end155
 
 if.end155:                                        ; preds = %if.then153, %if.then132
-  %index.2 = phi i32 [ %30, %if.then153 ], [ %add149, %if.then132 ]
+  %index.2 = phi i32 [ %31, %if.then153 ], [ %add149, %if.then132 ]
   %sub157 = sub i64 %size.074, %conv146
   %cmp127.not = icmp eq i64 %sub157, 0
   br i1 %cmp127.not, label %while.end, label %while.body, !llvm.loop !7
@@ -324,18 +323,18 @@ if.end155:                                        ; preds = %if.then153, %if.the
 while.end:                                        ; preds = %if.end155, %while.body, %if.end105
   store i8 %conv119, ptr %curpag.i, align 1
   %isr = getelementptr inbounds %struct.NE2000State, ptr %call, i64 0, i32 12
-  %31 = load i8, ptr %isr, align 2
-  %32 = or i8 %31, 1
-  store i8 %32, ptr %isr, align 2
+  %32 = load i8, ptr %isr, align 2
+  %33 = or i8 %32, 1
+  store i8 %33, ptr %isr, align 2
   %imr.i = getelementptr inbounds %struct.NE2000State, ptr %call, i64 0, i32 14
-  %33 = load i8, ptr %imr.i, align 4
-  %and4.i = and i8 %32, 127
-  %34 = and i8 %and4.i, %33
+  %34 = load i8, ptr %imr.i, align 4
+  %and4.i = and i8 %33, 127
+  %35 = and i8 %and4.i, %34
   %irq.i = getelementptr inbounds %struct.NE2000State, ptr %call, i64 0, i32 18
-  %35 = load ptr, ptr %irq.i, align 16
-  %cmp.i = icmp ne i8 %34, 0
+  %36 = load ptr, ptr %irq.i, align 16
+  %cmp.i = icmp ne i8 %35, 0
   %conv4.i = zext i1 %cmp.i to i32
-  tail call void @qemu_set_irq(ptr noundef %35, i32 noundef %conv4.i) #9
+  tail call void @qemu_set_irq(ptr noundef %36, i32 noundef %conv4.i) #9
   br label %return
 
 return:                                           ; preds = %lor.lhs.false, %if.else36, %land.lhs.true, %land.lhs.true49, %land.lhs.true57, %land.lhs.true65, %land.lhs.true73, %if.end26, %if.then20, %if.then9, %entry, %ne2000_buffer_full.exit, %while.end

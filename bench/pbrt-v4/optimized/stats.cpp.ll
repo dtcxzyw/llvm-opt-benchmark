@@ -1293,17 +1293,17 @@ _ZNSt6vectorIN4pbrt5ImageESaIS1_EE6resizeEm.exit: ; preds = %for.end103
   %sub.ptr.lhs.cast.i.i234 = ptrtoint ptr %82 to i64
   %sub.ptr.rhs.cast.i.i235 = ptrtoint ptr %83 to i64
   %sub.ptr.sub.i.i236 = sub i64 %sub.ptr.lhs.cast.i.i234, %sub.ptr.rhs.cast.i.i235
-  %sub.ptr.div.i.i237 = ashr exact i64 %sub.ptr.sub.i.i236, 5
-  %cmp.i238 = icmp ult i64 %sub.ptr.div.i.i237, %sub.ptr.div.i232
+  %cmp.i238 = icmp ult i64 %sub.ptr.sub.i.i236, %sub.ptr.sub.i231
   br i1 %cmp.i238, label %if.then.i249, label %if.else.i239
 
 if.then.i249:                                     ; preds = %_ZNSt6vectorIN4pbrt5ImageESaIS1_EE6resizeEm.exit
+  %sub.ptr.div.i.i237 = ashr exact i64 %sub.ptr.sub.i.i236, 5
   %sub.i250 = sub nsw i64 %sub.ptr.div.i232, %sub.ptr.div.i.i237
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %pixelCounterNames, i64 noundef %sub.i250)
   br label %if.end118
 
 if.else.i239:                                     ; preds = %_ZNSt6vectorIN4pbrt5ImageESaIS1_EE6resizeEm.exit
-  %cmp4.i240 = icmp ugt i64 %sub.ptr.div.i.i237, %sub.ptr.div.i232
+  %cmp4.i240 = icmp ugt i64 %sub.ptr.sub.i.i236, %sub.ptr.sub.i231
   br i1 %cmp4.i240, label %if.then5.i241, label %if.end118
 
 if.then5.i241:                                    ; preds = %if.else.i239
@@ -1364,17 +1364,17 @@ _ZNSt6vectorIN4pbrt5ImageESaIS1_EE6resizeEm.exit284: ; preds = %if.end118
   %sub.ptr.lhs.cast.i.i291 = ptrtoint ptr %94 to i64
   %sub.ptr.rhs.cast.i.i292 = ptrtoint ptr %95 to i64
   %sub.ptr.sub.i.i293 = sub i64 %sub.ptr.lhs.cast.i.i291, %sub.ptr.rhs.cast.i.i292
-  %sub.ptr.div.i.i294 = ashr exact i64 %sub.ptr.sub.i.i293, 5
-  %cmp.i295 = icmp ult i64 %sub.ptr.div.i.i294, %sub.ptr.div.i289
+  %cmp.i295 = icmp ult i64 %sub.ptr.sub.i.i293, %sub.ptr.sub.i288
   br i1 %cmp.i295, label %if.then.i306, label %if.else.i296
 
 if.then.i306:                                     ; preds = %_ZNSt6vectorIN4pbrt5ImageESaIS1_EE6resizeEm.exit284
+  %sub.ptr.div.i.i294 = ashr exact i64 %sub.ptr.sub.i.i293, 5
   %sub.i307 = sub nsw i64 %sub.ptr.div.i289, %sub.ptr.div.i.i294
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %pixelRatioNames, i64 noundef %sub.i307)
   br label %if.end133
 
 if.else.i296:                                     ; preds = %_ZNSt6vectorIN4pbrt5ImageESaIS1_EE6resizeEm.exit284
-  %cmp4.i297 = icmp ugt i64 %sub.ptr.div.i.i294, %sub.ptr.div.i289
+  %cmp4.i297 = icmp ugt i64 %sub.ptr.sub.i.i293, %sub.ptr.sub.i288
   br i1 %cmp4.i297, label %if.then5.i298, label %if.end133
 
 if.then5.i298:                                    ; preds = %if.else.i296

@@ -23724,7 +23724,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i40 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i41 = sub i64 %sub.ptr.lhs.cast.i39, %sub.ptr.rhs.cast.i40
   %sub.ptr.div.i42 = ashr exact i64 %sub.ptr.sub.i41, 3
-  %cmp747 = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i42
+  %cmp747 = icmp ult i64 %sub.ptr.sub.i, %sub.ptr.sub.i41
   br i1 %cmp747, label %for.body, label %if.end
 
 for.body:                                         ; preds = %if.then, %invoke.cont9
@@ -25682,7 +25682,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i40 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i41 = sub i64 %sub.ptr.lhs.cast.i39, %sub.ptr.rhs.cast.i40
   %sub.ptr.div.i42 = ashr exact i64 %sub.ptr.sub.i41, 3
-  %cmp747 = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i42
+  %cmp747 = icmp ult i64 %sub.ptr.sub.i, %sub.ptr.sub.i41
   br i1 %cmp747, label %for.body, label %if.end
 
 for.body:                                         ; preds = %if.then, %invoke.cont9
@@ -28124,7 +28124,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i40 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i41 = sub i64 %sub.ptr.lhs.cast.i39, %sub.ptr.rhs.cast.i40
   %sub.ptr.div.i42 = ashr exact i64 %sub.ptr.sub.i41, 3
-  %cmp747 = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i42
+  %cmp747 = icmp ult i64 %sub.ptr.sub.i, %sub.ptr.sub.i41
   br i1 %cmp747, label %for.body, label %if.end
 
 for.body:                                         ; preds = %if.then, %invoke.cont9
@@ -30073,7 +30073,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i40 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i41 = sub i64 %sub.ptr.lhs.cast.i39, %sub.ptr.rhs.cast.i40
   %sub.ptr.div.i42 = ashr exact i64 %sub.ptr.sub.i41, 3
-  %cmp747 = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i42
+  %cmp747 = icmp ult i64 %sub.ptr.sub.i, %sub.ptr.sub.i41
   br i1 %cmp747, label %for.body, label %if.end
 
 for.body:                                         ; preds = %if.then, %invoke.cont9
@@ -32022,7 +32022,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i40 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i41 = sub i64 %sub.ptr.lhs.cast.i39, %sub.ptr.rhs.cast.i40
   %sub.ptr.div.i42 = ashr exact i64 %sub.ptr.sub.i41, 3
-  %cmp747 = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i42
+  %cmp747 = icmp ult i64 %sub.ptr.sub.i, %sub.ptr.sub.i41
   br i1 %cmp747, label %for.body, label %if.end
 
 for.body:                                         ; preds = %if.then, %invoke.cont9

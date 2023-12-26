@@ -7533,15 +7533,14 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 1
-  %cmp3.not = icmp ult i64 %sub.ptr.div, %sub.ptr.div.i.i
+  %cmp3.not = icmp ult i64 %sub.ptr.sub, %sub.ptr.sub.i.i
   br i1 %cmp3.not, label %if.else50, label %if.then4
 
 if.then4:                                         ; preds = %if.then
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 1
-  %cmp10 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i
+  %cmp10 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i.i
   br i1 %cmp10, label %_ZSt22__uninitialized_move_aIPDsS0_SaIDsEET0_T_S3_S2_RT1_.exit, label %_ZSt7advanceIPKDsmEvRT_T0_.exit
 
 _ZSt22__uninitialized_move_aIPDsS0_SaIDsEET0_T_S3_S2_RT1_.exit: ; preds = %if.then4

@@ -3823,7 +3823,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
-  %cmp.i = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i
+  %cmp.i = icmp ult i64 %sub.ptr.sub.i, %sub.ptr.sub.i.i.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
@@ -7689,7 +7689,6 @@ if.end7:                                          ; preds = %if.end
   %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 20
   %d_proxy = getelementptr inbounds %"class.cvc5::internal::prop::CadicalPropagator", ptr %this, i64 0, i32 2
   %6 = load ptr, ptr %d_proxy, align 8
   %call9 = call i64 @_ZN4cvc58internal4prop11TheoryProxy22getNextDecisionRequestERbS3_(ptr noundef nonnull align 8 dereferenceable(521) %6, ptr noundef nonnull align 1 dereferenceable(1) %requirePhase, ptr noundef nonnull align 1 dereferenceable(1) %stopSearch)
@@ -7698,8 +7697,7 @@ if.end7:                                          ; preds = %if.end
   %sub.ptr.lhs.cast.i12 = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i13 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i14 = sub i64 %sub.ptr.lhs.cast.i12, %sub.ptr.rhs.cast.i13
-  %sub.ptr.div.i15 = sdiv exact i64 %sub.ptr.sub.i14, 20
-  %cmp.not = icmp eq i64 %sub.ptr.div.i15, %sub.ptr.div.i
+  %cmp.not = icmp eq i64 %sub.ptr.sub.i14, %sub.ptr.sub.i
   br i1 %cmp.not, label %cond.end25.preheader, label %return
 
 cond.end25.preheader:                             ; preds = %if.end7
@@ -7892,8 +7890,7 @@ do.cond:                                          ; preds = %_ZNSt5dequeIN4cvc58
   %sub.ptr.lhs.cast.i211 = ptrtoint ptr %37 to i64
   %sub.ptr.rhs.cast.i212 = ptrtoint ptr %38 to i64
   %sub.ptr.sub.i213 = sub i64 %sub.ptr.lhs.cast.i211, %sub.ptr.rhs.cast.i212
-  %sub.ptr.div.i214 = sdiv exact i64 %sub.ptr.sub.i213, 20
-  %cmp53 = icmp eq i64 %sub.ptr.div.i214, %sub.ptr.div.i
+  %cmp53 = icmp eq i64 %sub.ptr.sub.i213, %sub.ptr.sub.i
   %39 = and i1 %call49, %cmp53
   br i1 %39, label %cond.end25, label %do.end, !llvm.loop !347
 
@@ -9006,7 +9003,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp.i = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i
+  %cmp.i = icmp ult i64 %sub.ptr.sub.i, %sub.ptr.sub.i.i.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
@@ -11387,15 +11384,14 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
-  %cmp.not = icmp ult i64 %sub.ptr.div, %sub.ptr.div.i.i.i.i
+  %cmp.not = icmp ult i64 %sub.ptr.sub, %sub.ptr.sub.i.i.i.i
   br i1 %cmp.not, label %if.else58, label %if.then5
 
 if.then5:                                         ; preds = %if.then
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp11 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i.i
+  %cmp11 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i.i.i.i
   br i1 %cmp11, label %_ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit, label %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEmEvRT_T0_.exit
 
 _ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit: ; preds = %if.then5

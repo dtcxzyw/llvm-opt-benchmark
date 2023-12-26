@@ -784,7 +784,6 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %d_vars = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ExampleMinEval", ptr %this, i64 0, i32 1
   %_M_finish.i12 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ExampleMinEval", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
   %2 = load ptr, ptr %_M_finish.i12, align 8
@@ -792,8 +791,7 @@ entry:
   %sub.ptr.lhs.cast.i13 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i14 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i15 = sub i64 %sub.ptr.lhs.cast.i13, %sub.ptr.rhs.cast.i14
-  %sub.ptr.div.i16 = ashr exact i64 %sub.ptr.sub.i15, 3
-  %cmp = icmp eq i64 %sub.ptr.div.i, %sub.ptr.div.i16
+  %cmp = icmp eq i64 %sub.ptr.sub.i, %sub.ptr.sub.i15
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -814,6 +812,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp664.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
+  %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 3
   %_M_finish.i23 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %relSubs, i64 0, i32 1
   %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %relSubs, i64 0, i32 2
   %wide.trip.count = and i64 %sub.ptr.div.i, 4294967295
@@ -1789,15 +1788,13 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
-  %cmp.not = icmp ult i64 %sub.ptr.div, %sub.ptr.div.i.i.i
+  %cmp.not = icmp ult i64 %sub.ptr.sub, %sub.ptr.sub.i.i.i
   br i1 %cmp.not, label %if.else68, label %if.then9
 
 if.then9:                                         ; preds = %if.then
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp15 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i
+  %cmp15 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i.i.i
   br i1 %cmp15, label %if.then16, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit
 
 if.then16:                                        ; preds = %if.then9
@@ -1944,6 +1941,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit.i.i.i.i.i53: ; preds = %if.th
   br i1 %cmp.i.i.i.i.i57, label %for.body.i.i.i.i.i35, label %if.end109, !llvm.loop !14
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit: ; preds = %if.then9
+  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %incdec.ptr.i.i.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__first.coerce, i64 %sub.ptr.div.i
   %call.i.i.i = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEEPS5_ET0_T_SE_SD_(ptr %incdec.ptr.i.i.i, ptr %__last.coerce, ptr noundef %1)
   %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i

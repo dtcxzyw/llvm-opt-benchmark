@@ -3651,8 +3651,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i89 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i90 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i91 = sub i64 %sub.ptr.lhs.cast.i89, %sub.ptr.rhs.cast.i90
-  %sub.ptr.div.i92 = ashr exact i64 %sub.ptr.sub.i91, 6
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i92
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i91
   br i1 %cmp3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then
@@ -3728,8 +3727,7 @@ if.else:                                          ; preds = %if.then
   %13 = load ptr, ptr %_M_finish.i94, align 8, !tbaa !61
   %sub.ptr.lhs.cast.i95 = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i97 = sub i64 %sub.ptr.lhs.cast.i95, %sub.ptr.rhs.cast.i90
-  %sub.ptr.div.i98 = ashr exact i64 %sub.ptr.sub.i97, 6
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i98, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i97, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else
@@ -3806,6 +3804,7 @@ _ZSt8_DestroyISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEv
   br i1 %cmp.i.not.i.i.i, label %if.end69, label %for.body.i.i.i101, !llvm.loop !96
 
 if.else49:                                        ; preds = %if.else
+  %sub.ptr.div.i98 = ashr exact i64 %sub.ptr.sub.i97, 6
   %cmp7.i.i.i.i.i124 = icmp sgt i64 %sub.ptr.div.i98, 0
   br i1 %cmp7.i.i.i.i.i124, label %for.body.i.i.i.i.i126, label %_ZSt4copyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_ET0_T_SA_S9_.exit
 
@@ -41125,11 +41124,8 @@ entry:
 if.then:                                          ; preds = %entry
   %add.ptr.i = getelementptr inbounds %"struct.boost::sub_match", ptr %1, i64 %n
   %add.ptr.i62 = getelementptr inbounds %"struct.boost::sub_match", ptr %add.ptr.i, i64 2
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i62 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
   %add.ptr.i22.i = getelementptr inbounds %"struct.boost::sub_match", ptr %1, i64 %sub.ptr.div.i
-  %cmp.i.not.i.i = icmp eq i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp.i.not.i.i = icmp eq ptr %add.ptr.i62, %0
   br i1 %cmp.i.not.i.i, label %_ZNSt6vectorIN5boost9sub_matchIPKcEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then

@@ -211,19 +211,17 @@ if.end:                                           ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
   %_M_finish.i5 = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::EndpointAddresses, std::allocator<grpc_core::EndpointAddresses>>::_Vector_impl_data", ptr %q, i64 0, i32 1
   %2 = load ptr, ptr %_M_finish.i5, align 8
   %3 = load ptr, ptr %q, align 8
   %sub.ptr.lhs.cast.i6 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i7
-  %sub.ptr.div.i9 = ashr exact i64 %sub.ptr.sub.i8, 5
-  %cmp4 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i9
+  %cmp4 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i8
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %cmp9 = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i9
+  %cmp9 = icmp ult i64 %sub.ptr.sub.i, %sub.ptr.sub.i8
   br i1 %cmp9, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end6

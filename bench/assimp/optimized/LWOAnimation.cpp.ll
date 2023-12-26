@@ -231,15 +231,12 @@ _ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2
   %add.ptr.i7 = getelementptr inbounds %"struct.Assimp::LWO::Key", ptr %5, i64 %6
   %add.ptr.i8 = getelementptr inbounds %"struct.Assimp::LWO::Key", ptr %add.ptr.i7, i64 1
   %_M_finish.i = getelementptr inbounds %"struct.std::_List_node", ptr %it.sroa.0.051, i64 0, i32 1, i32 0, i64 24
-  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %add.ptr.i8 to i64
   %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
-  %sub.ptr.div.i.i13 = sdiv exact i64 %sub.ptr.sub.i.i12, 40
   %sub.ptr.lhs.cast.i1.i15 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i3.i16 = sub i64 %sub.ptr.lhs.cast.i1.i15, %sub.ptr.rhs.cast.i.i11
   %sub.ptr.div.i4.i17 = sdiv exact i64 %sub.ptr.sub.i3.i16, 40
   %add.ptr.i5.i18 = getelementptr inbounds %"struct.Assimp::LWO::Key", ptr %5, i64 %sub.ptr.div.i4.i17
-  %cmp.i.not.i.i19 = icmp eq i64 %sub.ptr.div.i.i13, %sub.ptr.div.i4.i17
+  %cmp.i.not.i.i19 = icmp eq ptr %add.ptr.i8, %4
   br i1 %cmp.i.not.i.i19, label %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit39, label %if.then.i.i20
 
 if.then.i.i20:                                    ; preds = %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit

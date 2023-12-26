@@ -3453,7 +3453,7 @@ if.else:                                          ; preds = %_ZNSt13unordered_se
   %sub.ptr.sub.i20.i = sub i64 %sub.ptr.lhs.cast.i18.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i21.i = ashr exact i64 %sub.ptr.sub.i20.i, 3
   %add.ptr.i22.i = getelementptr inbounds %"class.std::reference_wrapper", ptr %27, i64 %sub.ptr.div.i21.i
-  %cmp.i.not.i.i92 = icmp eq i64 %sub.ptr.div.i74, %sub.ptr.div.i21.i
+  %cmp.i.not.i.i92 = icmp eq i64 %sub.ptr.sub.i73, %sub.ptr.sub.i20.i
   br i1 %cmp.i.not.i.i92, label %invoke.cont41, label %if.then.i.i93
 
 if.then.i.i93:                                    ; preds = %if.else

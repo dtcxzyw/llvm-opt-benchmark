@@ -9306,15 +9306,15 @@ cond.end32:                                       ; preds = %while.body.i82, %co
   br i1 %or.cond, label %if.then37, label %if.else46
 
 if.then37:                                        ; preds = %cond.end32
-  %cmp38 = icmp eq i32 %bf.ashr.i75, %bf.ashr.i
+  %cmp38 = icmp eq i32 %bf.shl.i74, %bf.shl.i
   br i1 %cmp38, label %if.then39, label %if.else
 
 if.then39:                                        ; preds = %if.then37
-  %cmp40.not = icmp eq i32 %bf.ashr.i, %from_th.0
+  %cmp40.not = icmp eq i32 %bf.ashr.i75, %from_th.0
   br i1 %cmp40.not, label %if.end122, label %if.then41
 
 if.then41:                                        ; preds = %if.then39
-  tail call void @_ZN3smt7context14push_new_th_eqEiii(ptr noundef nonnull align 8 dereferenceable(11616) %this, i32 noundef %bf.ashr.i, i32 noundef %cond, i32 noundef %cond33)
+  tail call void @_ZN3smt7context14push_new_th_eqEiii(ptr noundef nonnull align 8 dereferenceable(11616) %this, i32 noundef %bf.ashr.i75, i32 noundef %cond, i32 noundef %cond33)
   br label %if.end122
 
 if.else:                                          ; preds = %if.then37
@@ -11206,8 +11206,7 @@ cond.end30:                                       ; preds = %while.body.i41, %co
 land.lhs.true37:                                  ; preds = %cond.end30
   %bf.load.i52 = load i32, ptr %m_th_var_list12, align 8
   %bf.shl.i53 = shl i32 %bf.load.i52, 24
-  %bf.ashr.i54 = ashr exact i32 %bf.shl.i53, 24
-  %cmp40 = icmp eq i32 %bf.ashr.i35, %bf.ashr.i54
+  %cmp40 = icmp eq i32 %bf.shl.i34, %bf.shl.i53
   br i1 %cmp40, label %if.end.i.i56, label %return
 
 if.end.i.i56:                                     ; preds = %land.lhs.true37

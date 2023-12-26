@@ -4993,8 +4993,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -5157,8 +5156,7 @@ if.else:                                          ; preds = %entry
   %21 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i18 = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i20 = sub i64 %sub.ptr.lhs.cast.i18, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i21 = ashr exact i64 %sub.ptr.sub.i20, 4
-  %cmp24.not = icmp ult i64 %sub.ptr.div.i21, %sub.ptr.div.i.i
+  %cmp24.not = icmp ult i64 %sub.ptr.sub.i20, %sub.ptr.sub.i.i
   br i1 %cmp24.not, label %_ZSt7advanceIPKSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEEmEvRT_T0_.exit, label %if.then25
 
 if.then25:                                        ; preds = %if.else
@@ -5252,6 +5250,7 @@ invoke.cont.i:                                    ; preds = %_ZSt8_DestroyISt10s
   br label %if.end41
 
 _ZSt7advanceIPKSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEEmEvRT_T0_.exit: ; preds = %if.else
+  %sub.ptr.div.i21 = ashr exact i64 %sub.ptr.sub.i20, 4
   %incdec.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.3", ptr %__first, i64 %sub.ptr.div.i21
   %call.i.i.i.i31 = tail call noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEEPS8_EET0_T_SD_SC_(ptr noundef %__first, ptr noundef %incdec.ptr.i.i, ptr noundef %1)
   %34 = load ptr, ptr %_M_finish.i, align 8
@@ -13036,7 +13035,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i35 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i34, 2
   %.pre.i.i.i.i.i.i36 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i35
   %add.ptr.i.i.i.i.i.i37 = getelementptr inbounds i32, ptr %add.ptr.i2.i32, i64 %.pre.i.i.i.i.i.i36
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i37, ptr nonnull align 4 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i34, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i37, ptr noundef nonnull align 4 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i34, i1 false)
   br label %for.inc.i38
 
 if.else.i42:                                      ; preds = %for.body.i23
@@ -13699,7 +13698,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i50 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i49, 2
   %.pre.i.i.i.i.i.i51 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i50
   %add.ptr.i.i.i.i.i.i52 = getelementptr inbounds i32, ptr %add.ptr.i2.i47, i64 %.pre.i.i.i.i.i.i51
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i52, ptr nonnull align 4 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i49, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i52, ptr noundef nonnull align 4 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i49, i1 false)
   br label %for.inc.i53
 
 if.else.i57:                                      ; preds = %for.body.i34

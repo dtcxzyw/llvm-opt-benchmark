@@ -17856,17 +17856,17 @@ invoke.cont144:                                   ; preds = %invoke.cont122
   %109 = load ptr, ptr %_M_finish.i.i.i260, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %109 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i315
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp.i319 = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div.i317
+  %cmp.i319 = icmp ult i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i316
   br i1 %cmp.i319, label %if.then.i322, label %if.else.i320
 
 if.then.i322:                                     ; preds = %invoke.cont144
+  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %sub.i = sub nsw i64 %sub.ptr.div.i317, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %call111, i64 noundef %sub.i)
           to label %invoke.cont151 unwind label %lpad86
 
 if.else.i320:                                     ; preds = %invoke.cont144
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i317
+  %cmp4.i = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i316
   br i1 %cmp4.i, label %if.then5.i, label %invoke.cont151
 
 if.then5.i:                                       ; preds = %if.else.i320
@@ -25090,11 +25090,11 @@ invoke.cont93:                                    ; preds = %_ZN4cvc58internal12
   %38 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %38 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i216
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp.i219 = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div.i218
+  %cmp.i219 = icmp ult i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i217
   br i1 %cmp.i219, label %if.then.i223, label %if.else.i
 
 if.then.i223:                                     ; preds = %invoke.cont93
+  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %sub.i = sub nsw i64 %sub.ptr.div.i218, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %intersection, i64 noundef %sub.i)
           to label %if.then.i223.invoke.cont100_crit_edge unwind label %lpad92
@@ -25104,7 +25104,7 @@ if.then.i223.invoke.cont100_crit_edge:            ; preds = %if.then.i223
   br label %invoke.cont100
 
 if.else.i:                                        ; preds = %invoke.cont93
-  %cmp4.i220 = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i218
+  %cmp4.i220 = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i217
   br i1 %cmp4.i220, label %if.then5.i221, label %invoke.cont100
 
 if.then5.i221:                                    ; preds = %if.else.i

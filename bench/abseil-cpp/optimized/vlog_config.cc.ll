@@ -1896,7 +1896,7 @@ _ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit35.i: ; preds = %if
   %sub.ptr.sub.i6.i.i = sub i64 %sub.ptr.lhs.cast.i4.i.i, %sub.ptr.rhs.cast.i.i37.i
   %sub.ptr.div.i7.i.i = sdiv exact i64 %sub.ptr.sub.i6.i.i, 40
   %add.ptr.i8.i.i = getelementptr inbounds %"struct.absl::log_internal::(anonymous namespace)::VModuleInfo", ptr %this.val.i.i, i64 %sub.ptr.div.i7.i.i
-  %cmp.i.not.i.i.i = icmp eq i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i7.i.i
+  %cmp.i.not.i.i.i = icmp eq ptr %retval.sroa.0.2.i.i.i, %call40.val.i
   br i1 %cmp.i.not.i.i.i, label %_ZN4absl12log_internal12_GLOBAL__N_120PrependVModuleLockedESt17basic_string_viewIcSt11char_traitsIcEEi.exit, label %if.then.i.i40.i
 
 if.then.i.i40.i:                                  ; preds = %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit35.i

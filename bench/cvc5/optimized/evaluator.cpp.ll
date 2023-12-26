@@ -7089,8 +7089,7 @@ invoke.cont1217:                                  ; preds = %invoke.cont1215
   %sub.ptr.lhs.cast.i14.i = ptrtoint ptr %661 to i64
   %sub.ptr.rhs.cast.i15.i = ptrtoint ptr %662 to i64
   %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i15.i
-  %sub.ptr.div.i17.i = ashr exact i64 %sub.ptr.sub.i16.i, 2
-  %cmp3.i = icmp ugt i64 %sub.ptr.div.i.i5803, %sub.ptr.div.i17.i
+  %cmp3.i = icmp ugt i64 %sub.ptr.sub.i.i5802, %sub.ptr.sub.i16.i
   br i1 %cmp3.i, label %cond.true.i.i.i, label %if.else.i5805
 
 cond.true.i.i.i:                                  ; preds = %invoke.cont1217
@@ -7134,8 +7133,7 @@ if.else.i5805:                                    ; preds = %invoke.cont1217
   %663 = load ptr, ptr %_M_finish.i.i.i.i2864, align 8
   %sub.ptr.lhs.cast.i20.i = ptrtoint ptr %663 to i64
   %sub.ptr.sub.i22.i = sub i64 %sub.ptr.lhs.cast.i20.i, %sub.ptr.rhs.cast.i15.i
-  %sub.ptr.div.i23.i = ashr exact i64 %sub.ptr.sub.i22.i, 2
-  %cmp26.not.i = icmp ult i64 %sub.ptr.div.i23.i, %sub.ptr.div.i.i5803
+  %cmp26.not.i = icmp ult i64 %sub.ptr.sub.i22.i, %sub.ptr.sub.i.i5802
   br i1 %cmp26.not.i, label %if.else49.i, label %if.then27.i
 
 if.then27.i:                                      ; preds = %if.else.i5805
@@ -9418,15 +9416,13 @@ invoke.cont1705:                                  ; preds = %invoke.cont1703
   %sub.ptr.lhs.cast.i.i3687 = ptrtoint ptr %923 to i64
   %sub.ptr.rhs.cast.i.i3688 = ptrtoint ptr %924 to i64
   %sub.ptr.sub.i.i3689 = sub i64 %sub.ptr.lhs.cast.i.i3687, %sub.ptr.rhs.cast.i.i3688
-  %sub.ptr.div.i.i3690 = ashr exact i64 %sub.ptr.sub.i.i3689, 2
   %_M_finish.i.i3691 = getelementptr inbounds %"struct.cvc5::internal::theory::EvalResult", ptr %call.i3667, i64 0, i32 1, i32 0, i32 0, i32 0, i64 0, i32 0, i32 2
   %925 = load ptr, ptr %_M_finish.i.i3691, align 8
   %926 = load ptr, ptr %919, align 8
   %sub.ptr.lhs.cast.i.i3692 = ptrtoint ptr %925 to i64
   %sub.ptr.rhs.cast.i.i3693 = ptrtoint ptr %926 to i64
   %sub.ptr.sub.i.i3694 = sub i64 %sub.ptr.lhs.cast.i.i3692, %sub.ptr.rhs.cast.i.i3693
-  %sub.ptr.div.i.i3695 = ashr exact i64 %sub.ptr.sub.i.i3694, 2
-  %cmp1712 = icmp ult i64 %sub.ptr.div.i.i3690, %sub.ptr.div.i.i3695
+  %cmp1712 = icmp ult i64 %sub.ptr.sub.i.i3689, %sub.ptr.sub.i.i3694
   br i1 %cmp1712, label %if.then1713, label %if.else1722
 
 if.then1713:                                      ; preds = %invoke.cont1705
@@ -9460,6 +9456,7 @@ lpad1716:                                         ; preds = %if.then1713, %invok
   br label %ehcleanup3026
 
 if.else1722:                                      ; preds = %invoke.cont1705
+  %sub.ptr.div.i.i3695 = ashr exact i64 %sub.ptr.sub.i.i3694, 2
   invoke void @_ZNK4cvc58internal6String6substrEmm(ptr nonnull sret(%"class.cvc5::internal::String") align 8 %ref.tmp1724, ptr noundef nonnull align 8 dereferenceable(24) %922, i64 noundef 0, i64 noundef %sub.ptr.div.i.i3695)
           to label %invoke.cont1727 unwind label %lpad120.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -9561,15 +9558,13 @@ invoke.cont1752:                                  ; preds = %invoke.cont1750
   %sub.ptr.lhs.cast.i.i3752 = ptrtoint ptr %940 to i64
   %sub.ptr.rhs.cast.i.i3753 = ptrtoint ptr %941 to i64
   %sub.ptr.sub.i.i3754 = sub i64 %sub.ptr.lhs.cast.i.i3752, %sub.ptr.rhs.cast.i.i3753
-  %sub.ptr.div.i.i3755 = ashr exact i64 %sub.ptr.sub.i.i3754, 2
   %_M_finish.i.i3756 = getelementptr inbounds %"struct.cvc5::internal::theory::EvalResult", ptr %call.i3732, i64 0, i32 1, i32 0, i32 0, i32 0, i64 0, i32 0, i32 2
   %942 = load ptr, ptr %_M_finish.i.i3756, align 8
   %943 = load ptr, ptr %936, align 8
   %sub.ptr.lhs.cast.i.i3757 = ptrtoint ptr %942 to i64
   %sub.ptr.rhs.cast.i.i3758 = ptrtoint ptr %943 to i64
   %sub.ptr.sub.i.i3759 = sub i64 %sub.ptr.lhs.cast.i.i3757, %sub.ptr.rhs.cast.i.i3758
-  %sub.ptr.div.i.i3760 = ashr exact i64 %sub.ptr.sub.i.i3759, 2
-  %cmp1759 = icmp ult i64 %sub.ptr.div.i.i3755, %sub.ptr.div.i.i3760
+  %cmp1759 = icmp ult i64 %sub.ptr.sub.i.i3754, %sub.ptr.sub.i.i3759
   br i1 %cmp1759, label %if.then1760, label %if.else1769
 
 if.then1760:                                      ; preds = %invoke.cont1752
@@ -9603,6 +9598,8 @@ lpad1763:                                         ; preds = %if.then1760, %invok
   br label %ehcleanup3026
 
 if.else1769:                                      ; preds = %invoke.cont1752
+  %sub.ptr.div.i.i3760 = ashr exact i64 %sub.ptr.sub.i.i3759, 2
+  %sub.ptr.div.i.i3755 = ashr exact i64 %sub.ptr.sub.i.i3754, 2
   %sub.i3774 = sub nsw i64 %sub.ptr.div.i.i3755, %sub.ptr.div.i.i3760
   invoke void @_ZNK4cvc58internal6String6substrEmm(ptr nonnull sret(%"class.cvc5::internal::String") align 8 %ref.tmp1771, ptr noundef nonnull align 8 dereferenceable(24) %939, i64 noundef %sub.i3774, i64 noundef %sub.ptr.div.i.i3760)
           to label %invoke.cont1774 unwind label %lpad120.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -17287,8 +17284,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 2
-  %cmp3 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i17
+  %cmp3 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16
   br i1 %cmp3, label %cond.true.i.i, label %if.else
 
 cond.true.i.i:                                    ; preds = %if.then
@@ -17327,8 +17323,7 @@ if.else:                                          ; preds = %if.then
   %4 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
-  %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 2
-  %cmp26.not = icmp ult i64 %sub.ptr.div.i23, %sub.ptr.div.i
+  %cmp26.not = icmp ult i64 %sub.ptr.sub.i22, %sub.ptr.sub.i
   br i1 %cmp26.not, label %if.else49, label %if.then27
 
 if.then27:                                        ; preds = %if.else

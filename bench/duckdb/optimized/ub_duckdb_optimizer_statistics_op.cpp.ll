@@ -414,17 +414,17 @@ _ZNSt10unique_ptrIN6duckdb14NodeStatisticsESt14default_deleteIS1_EED2Ev.exit: ; 
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp.i = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp.i = icmp ult i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZNSt10unique_ptrIN6duckdb14NodeStatisticsESt14default_deleteIS1_EED2Ev.exit
+  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %sub.i = sub nsw i64 %sub.ptr.div.i, %sub.ptr.div.i.i
   call void @_ZNSt6vectorIN6duckdb10unique_ptrINS0_14BaseStatisticsESt14default_deleteIS2_ELb1EEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %group_stats, i64 noundef %sub.i)
   br label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_14BaseStatisticsESt14default_deleteIS2_ELb1EEESaIS5_EE6resizeEm.exit
 
 if.else.i:                                        ; preds = %_ZNSt10unique_ptrIN6duckdb14NodeStatisticsESt14default_deleteIS1_EED2Ev.exit
-  %cmp4.i = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp4.i = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_14BaseStatisticsESt14default_deleteIS2_ELb1EEESaIS5_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i

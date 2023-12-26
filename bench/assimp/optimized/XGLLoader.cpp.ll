@@ -3266,16 +3266,20 @@ if.then27:                                        ; preds = %invoke.cont25
   %sub.ptr.lhs.cast.i58 = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i59 = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i60 = sub i64 %sub.ptr.lhs.cast.i58, %sub.ptr.rhs.cast.i59
+  %cmp308.not = icmp eq i64 %sub.ptr.sub.i60, %sub.ptr.sub.i
+  br i1 %cmp308.not, label %if.end108, label %for.body31.preheader
+
+for.body31.preheader:                             ; preds = %if.then27
   %sub.ptr.div.i61 = ashr exact i64 %sub.ptr.sub.i60, 3
   %sub = sub nsw i64 %sub.ptr.div.i61, %sub.ptr.div.i
-  %cmp308.not = icmp eq i64 %sub.ptr.div.i61, %sub.ptr.div.i
-  br i1 %cmp308.not, label %if.end108, label %for.body31
+  %umax = call i64 @llvm.umax.i64(i64 %sub, i64 1)
+  br label %for.body31
 
-for.body31:                                       ; preds = %if.then27, %for.inc
-  %i.0312 = phi i64 [ %inc, %for.inc ], [ 0, %if.then27 ]
-  %meshes.sroa.0.1311 = phi ptr [ %meshes.sroa.0.2, %for.inc ], [ %meshes.sroa.0.0320, %if.then27 ]
-  %meshes.sroa.10.1310 = phi ptr [ %meshes.sroa.10.2, %for.inc ], [ %meshes.sroa.10.0319, %if.then27 ]
-  %meshes.sroa.20.1309 = phi ptr [ %meshes.sroa.20.2, %for.inc ], [ %meshes.sroa.20.0318, %if.then27 ]
+for.body31:                                       ; preds = %for.body31.preheader, %for.inc
+  %i.0312 = phi i64 [ %inc, %for.inc ], [ 0, %for.body31.preheader ]
+  %meshes.sroa.0.1311 = phi ptr [ %meshes.sroa.0.2, %for.inc ], [ %meshes.sroa.0.0320, %for.body31.preheader ]
+  %meshes.sroa.10.1310 = phi ptr [ %meshes.sroa.10.2, %for.inc ], [ %meshes.sroa.10.0319, %for.body31.preheader ]
+  %meshes.sroa.20.1309 = phi ptr [ %meshes.sroa.20.2, %for.inc ], [ %meshes.sroa.20.0318, %for.body31.preheader ]
   %add = add i64 %i.0312, %sub.ptr.div.i
   %conv = trunc i64 %add to i32
   %cmp.not.i.i = icmp eq ptr %meshes.sroa.10.1310, %meshes.sroa.20.1309
@@ -3344,7 +3348,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIjSaIjE
   %meshes.sroa.0.2 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %meshes.sroa.0.1311, %if.then.i.i ]
   %meshes.sroa.10.2 = getelementptr inbounds i32, ptr %add.ptr.i.i.i.pn, i64 1
   %inc = add nuw i64 %i.0312, 1
-  %exitcond383.not = icmp eq i64 %inc, %sub
+  %exitcond383.not = icmp eq i64 %inc, %umax
   br i1 %exitcond383.not, label %if.end108, label %for.body31, !llvm.loop !36
 
 lpad:                                             ; preds = %entry
@@ -6940,7 +6944,7 @@ invoke.cont:                                      ; preds = %entry
 new.ctorloop:                                     ; preds = %invoke.cont
   %3 = add nsw i64 %2, -12
   %4 = urem i64 %3, 12
-  %5 = sub nsw i64 %3, %4
+  %5 = sub nuw nsw i64 %3, %4
   %6 = add nsw i64 %5, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call7, i8 0, i64 %6, i1 false)
   br label %arrayctor.cont
@@ -6972,7 +6976,7 @@ invoke.cont25:                                    ; preds = %if.then
 new.ctorloop28:                                   ; preds = %invoke.cont25
   %9 = add nsw i64 %2, -12
   %10 = urem i64 %9, 12
-  %11 = sub nsw i64 %9, %10
+  %11 = sub nuw nsw i64 %9, %10
   %12 = add nsw i64 %11, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call26, i8 0, i64 %12, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK10aiVector3tIfESt6vectorIS3_SaIS3_EEEEPS3_ET0_T_SC_SB_.exit38
@@ -7028,7 +7032,7 @@ arrayctor.cont65.thread:                          ; preds = %invoke.cont56
 for.body.preheader:                               ; preds = %invoke.cont56
   %16 = add nsw i64 %15, -12
   %17 = urem i64 %16, 12
-  %18 = sub nsw i64 %16, %17
+  %18 = sub nuw nsw i64 %16, %17
   %19 = add nsw i64 %18, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call57, i8 0, i64 %19, i1 false)
   %mTextureCoords = getelementptr inbounds %struct.aiMesh, ptr %call, i64 0, i32 8
@@ -19863,7 +19867,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i58 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i57, 2
   %.pre.i.i.i.i.i.i59 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i58
   %add.ptr.i.i.i.i.i.i60 = getelementptr inbounds i32, ptr %add.ptr.i2.i55, i64 %.pre.i.i.i.i.i.i59
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i60, ptr nonnull align 4 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i57, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i60, ptr noundef nonnull align 4 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i57, i1 false)
   br label %for.inc.i40
 
 if.else.i35:                                      ; preds = %for.body.i25

@@ -19897,6 +19897,7 @@ do.body.i.i.i11200:                               ; preds = %do.body.i.i.i11200,
   br i1 %tobool.not.i.i.i11202, label %for.body.preheader.i.i, label %do.body.i.i.i11200, !llvm.loop !612
 
 for.body.preheader.i.i:                           ; preds = %do.body.i.i.i11200
+  %add.ptr.i.i.i10275.idx = shl nsw i64 %i5434.013196, 2
   %add.ptr.i.i11203 = getelementptr inbounds i32, ptr %call.i.i.i.i.i10246, i64 %y.addr.0.i.i.i
   br label %for.body.i.i11204
 
@@ -19914,9 +19915,9 @@ do.body.i21.i:                                    ; preds = %do.body.i21.i, %for
   store i32 %2004, ptr %p1.0.i.i, align 4
   %sub.ptr.rhs.cast9.i.i = ptrtoint ptr %p2.0.i.i to i64
   %sub.ptr.sub10.i.i = sub i64 %sub.ptr.lhs.cast.i11192, %sub.ptr.rhs.cast9.i.i
-  %sub.ptr.div11.i.i = ashr exact i64 %sub.ptr.sub10.i.i, 2
-  %cmp12.i.i = icmp slt i64 %i5434.013196, %sub.ptr.div11.i.i
+  %cmp12.i.i = icmp slt i64 %add.ptr.i.i.i10275.idx, %sub.ptr.sub10.i.i
   %add.ptr13.i.i = getelementptr inbounds i32, ptr %p2.0.i.i, i64 %i5434.013196
+  %sub.ptr.div11.i.i = ashr exact i64 %sub.ptr.sub10.i.i, 2
   %sub.i.i11205 = sub nsw i64 %i5434.013196, %sub.ptr.div11.i.i
   %add.ptr14.i.i = getelementptr inbounds i32, ptr %call.i.i.i.i.i10246, i64 %sub.i.i11205
   %p2.1.i.i = select i1 %cmp12.i.i, ptr %add.ptr13.i.i, ptr %add.ptr14.i.i

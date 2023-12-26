@@ -9468,18 +9468,18 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %_M_finish.i38 = getelementptr inbounds %"struct.std::_Vector_base<arrow::Datum, std::allocator<arrow::Datum>>::_Vector_impl_data", ptr %args, i64 0, i32 1
   %4 = load ptr, ptr %_M_finish.i38, align 8
   %5 = load ptr, ptr %args, align 8
   %sub.ptr.lhs.cast.i39 = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i40 = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i41 = sub i64 %sub.ptr.lhs.cast.i39, %sub.ptr.rhs.cast.i40
-  %sub.ptr.div.i42 = sdiv exact i64 %sub.ptr.sub.i41, 24
-  %cmp.not = icmp eq i64 %sub.ptr.div.i, %sub.ptr.div.i42
+  %cmp.not = icmp eq i64 %sub.ptr.sub.i, %sub.ptr.sub.i41
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
+  %sub.ptr.div.i42 = sdiv exact i64 %sub.ptr.sub.i41, 24
+  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   store i64 %sub.ptr.div.i, ptr %ref.tmp6, align 8
   store i64 %sub.ptr.div.i42, ptr %ref.tmp9, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !167
@@ -9622,7 +9622,6 @@ _ZN5arrow6StatusD2Ev.exit88.if.end24_crit_edge:   ; preds = %_ZN5arrow6StatusD2E
   %.pre517 = ptrtoint ptr %.pre to i64
   %.pre518 = ptrtoint ptr %.pre512 to i64
   %.pre519 = sub i64 %.pre517, %.pre518
-  %.pre520 = sdiv exact i64 %.pre519, 24
   br label %if.end24
 
 if.then20:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit88
@@ -9713,13 +9712,13 @@ _ZN5arrow6Status11DeleteStateEv.exit.i103:        ; preds = %if.end8.sink.split.
   br label %cleanup160
 
 if.end24:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit88.if.end24_crit_edge, %if.end
-  %sub.ptr.div.i165.pre-phi = phi i64 [ %.pre520, %_ZN5arrow6StatusD2Ev.exit88.if.end24_crit_edge ], [ %sub.ptr.div.i42, %if.end ]
   %sub.ptr.sub.i164.pre-phi = phi i64 [ %.pre519, %_ZN5arrow6StatusD2Ev.exit88.if.end24_crit_edge ], [ %sub.ptr.sub.i41, %if.end ]
   %36 = phi ptr [ %.pre512, %_ZN5arrow6StatusD2Ev.exit88.if.end24_crit_edge ], [ %5, %if.end ]
   %37 = phi ptr [ %.pre, %_ZN5arrow6StatusD2Ev.exit88.if.end24_crit_edge ], [ %4, %if.end ]
   %kernel_ctx = getelementptr inbounds %"struct.arrow::compute::detail::FunctionExecutorImpl", ptr %this, i64 0, i32 3
   %38 = load ptr, ptr %kernel_ctx, align 8
-  %cmp.i.i = icmp ugt i64 %sub.ptr.div.i165.pre-phi, 384307168202282325
+  %sub.ptr.div.i165 = sdiv exact i64 %sub.ptr.sub.i164.pre-phi, 24
+  %cmp.i.i = icmp ugt i64 %sub.ptr.div.i165, 384307168202282325
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIN5arrow5DatumESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
 if.then.i.i:                                      ; preds = %if.end24
@@ -9735,7 +9734,7 @@ _ZNSt6vectorIN5arrow5DatumESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = 
   br i1 %cmp.not.i.i.i.i, label %invoke.cont30.thread, label %for.body.preheader.i.i.i.i.i
 
 invoke.cont30.thread:                             ; preds = %_ZNSt6vectorIN5arrow5DatumESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  %_M_finish.i.i7.i523 = getelementptr inbounds %"struct.std::_Vector_base<arrow::Datum, std::allocator<arrow::Datum>>::_Vector_impl_data", ptr %args_with_cast, i64 0, i32 1
+  %_M_finish.i.i7.i522 = getelementptr inbounds %"struct.std::_Vector_base<arrow::Datum, std::allocator<arrow::Datum>>::_Vector_impl_data", ptr %args_with_cast, i64 0, i32 1
   br label %for.end
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorIN5arrow5DatumESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
@@ -9744,7 +9743,7 @@ for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorIN5arro
 
 for.body.lr.ph:                                   ; preds = %for.body.preheader.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i167, ptr %args_with_cast, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.arrow::Datum", ptr %call5.i.i.i.i2.i.i167, i64 %sub.ptr.div.i165.pre-phi
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.arrow::Datum", ptr %call5.i.i.i.i2.i.i167, i64 %sub.ptr.div.i165
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i167, i8 0, i64 %sub.ptr.sub.i164.pre-phi, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i167, i64 %sub.ptr.sub.i164.pre-phi
   %_M_finish.i.i7.i = getelementptr inbounds %"struct.std::_Vector_base<arrow::Datum, std::allocator<arrow::Datum>>::_Vector_impl_data", ptr %args_with_cast, i64 0, i32 1
@@ -10449,7 +10448,7 @@ for.end.loopexit:                                 ; preds = %_ZN5arrow5DatumD2Ev
   br label %for.end
 
 for.end:                                          ; preds = %invoke.cont30.thread, %for.end.loopexit
-  %_M_finish.i.i7.i525 = phi ptr [ %_M_finish.i.i7.i, %for.end.loopexit ], [ %_M_finish.i.i7.i523, %invoke.cont30.thread ]
+  %_M_finish.i.i7.i524 = phi ptr [ %_M_finish.i.i7.i, %for.end.loopexit ], [ %_M_finish.i.i7.i522, %invoke.cont30.thread ]
   %143 = phi ptr [ %133, %for.end.loopexit ], [ null, %invoke.cont30.thread ]
   %144 = phi <2 x ptr> [ %142, %for.end.loopexit ], [ zeroinitializer, %invoke.cont30.thread ]
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow7compute6detail16DatumAccumulatorE, i64 0, inrange i32 0, i64 2), ptr %listener, align 8
@@ -10928,9 +10927,9 @@ ehcleanup157:                                     ; preds = %ehcleanup155, %lpad
   br label %ehcleanup159
 
 cleanup158:                                       ; preds = %if.then.i.i.i.i474, %invoke.cont.i.i, %_ZN5arrow5DatumD2Ev.exit296
-  %_M_finish.i.i7.i524 = phi ptr [ %_M_finish.i.i7.i525, %if.then.i.i.i.i474 ], [ %_M_finish.i.i7.i525, %invoke.cont.i.i ], [ %_M_finish.i.i7.i, %_ZN5arrow5DatumD2Ev.exit296 ]
+  %_M_finish.i.i7.i523 = phi ptr [ %_M_finish.i.i7.i524, %if.then.i.i.i.i474 ], [ %_M_finish.i.i7.i524, %invoke.cont.i.i ], [ %_M_finish.i.i7.i, %_ZN5arrow5DatumD2Ev.exit296 ]
   %207 = load ptr, ptr %args_with_cast, align 8
-  %208 = load ptr, ptr %_M_finish.i.i7.i524, align 8
+  %208 = load ptr, ptr %_M_finish.i.i7.i523, align 8
   %cmp.not3.i.i.i.i477 = icmp eq ptr %207, %208
   br i1 %cmp.not3.i.i.i.i477, label %invoke.cont.i487, label %for.body.i.i.i.i478
 

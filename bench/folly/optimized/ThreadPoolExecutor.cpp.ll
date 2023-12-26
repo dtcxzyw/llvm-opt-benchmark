@@ -2419,7 +2419,7 @@ _ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN5folly18ThreadPoolExecutorESt6vect
   %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %17, i64 %sub.ptr.div.i.i.i.i
   %sub.ptr.div.i21.i.i.i = ashr exact i64 %sub.ptr.sub.i20.i.pre-phi.i.i, 3
   %add.ptr.i22.i.i.i = getelementptr inbounds ptr, ptr %17, i64 %sub.ptr.div.i21.i.i.i
-  %cmp.i.not.i.i.i.i = icmp eq i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i21.i.i.i
+  %cmp.i.not.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, %sub.ptr.sub.i20.i.pre-phi.i.i
   br i1 %cmp.i.not.i.i.i.i, label %if.then3.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN5folly18ThreadPoolExecutorESt6vectorIS4_SaIS4_EEEES4_ET_SA_SA_RKT0_.exit.i.i

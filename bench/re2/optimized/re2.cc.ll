@@ -5262,8 +5262,7 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
-  %cmp = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp = icmp ugt i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -5304,8 +5303,7 @@ if.else:                                          ; preds = %entry
   %2 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 2
-  %cmp24.not = icmp ult i64 %sub.ptr.div.i17, %sub.ptr.div.i.i
+  %cmp24.not = icmp ult i64 %sub.ptr.sub.i16, %sub.ptr.sub.i.i
   br i1 %cmp24.not, label %_ZSt7advanceIPimEvRT_T0_.exit, label %if.then25
 
 if.then25:                                        ; preds = %if.else
@@ -5328,6 +5326,7 @@ invoke.cont.i:                                    ; preds = %_ZSt4copyIPiS0_ET0_
   br label %if.end41
 
 _ZSt7advanceIPimEvRT_T0_.exit:                    ; preds = %if.else
+  %sub.ptr.div.i17 = ashr exact i64 %sub.ptr.sub.i16, 2
   %add.ptr.i.i = getelementptr inbounds i32, ptr %__first, i64 %sub.ptr.div.i17
   %sub.ptr.lhs.cast.i.i.i.i.i25 = ptrtoint ptr %add.ptr.i.i to i64
   %tobool.not.i.i.i.i.i28 = icmp eq ptr %2, %1

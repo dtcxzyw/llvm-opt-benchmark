@@ -497,13 +497,11 @@ if.end:                                           ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 4
   %_M_finish.i = getelementptr inbounds %"class.facebook::velox::ByteInputStream", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
   %2 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %cmp7.not = icmp ult i64 %sub.ptr.div, %sub.ptr.div.i
+  %cmp7.not = icmp ult i64 %sub.ptr.sub, %sub.ptr.sub.i
   br i1 %cmp7.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %if.end
@@ -511,6 +509,8 @@ if.then9:                                         ; preds = %if.end
   unreachable
 
 if.end10:                                         ; preds = %if.end
+  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
+  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 4
   %sub = add nsw i64 %sub.ptr.div.i, -1
   %cmp13 = icmp eq i64 %sub.ptr.div, %sub
   br i1 %cmp13, label %if.then14, label %if.end17

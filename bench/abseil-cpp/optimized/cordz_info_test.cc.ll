@@ -6566,8 +6566,7 @@ entry:
   %agg.tmp2.sroa.2.0..sroa_idx.i.i = getelementptr inbounds %"struct.testing::internal::SharedPayload", ptr %0, i64 0, i32 1, i32 0, i32 0, i32 1
   %agg.tmp2.sroa.2.0.copyload.i.i = load i64, ptr %agg.tmp2.sroa.2.0..sroa_idx.i.i, align 8
   %add.ptr.i.idx.i.i.i.i = shl nsw i64 %agg.tmp.sroa.2.0.copyload.i.i, 3
-  %add.ptr.i2.idx.i.i.i.i = shl nsw i64 %agg.tmp2.sroa.2.0.copyload.i.i, 3
-  %cmp.not.i.i.i.i.i.i = icmp eq i64 %add.ptr.i.idx.i.i.i.i, %add.ptr.i2.idx.i.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i, %agg.tmp2.sroa.2.0.copyload.i.i
   br i1 %cmp.not.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %_ZNK7testing8internal14ComparisonBaseINS0_9EqMatcherIN4absl4SpanIKPvEEEES7_St8equal_toIvEE15MatchAndExplainIS7_EEbRKT_PSo.exit
 
 if.end.i.i.i.i.i.i:                               ; preds = %entry

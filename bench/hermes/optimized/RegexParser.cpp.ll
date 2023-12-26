@@ -722,7 +722,7 @@ _ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN6hermes5r
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %add.ptr.i.i.i3 = getelementptr inbounds ptr, ptr %22, i64 %sub.ptr.div.i.i.i
   %add.ptr.i5.i.i = getelementptr inbounds ptr, ptr %22, i64 %sub.ptr.div.i4.i.i.pre-phi
-  %cmp.i.not.i.i.i = icmp eq i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i4.i.i.pre-phi
+  %cmp.i.not.i.i.i = icmp eq ptr %add.ptr.i4.i, %23
   br i1 %cmp.i.not.i.i.i, label %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE9spliceOutEPNS0_4NodeE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN6hermes5regex4NodeESt20back_insert_iteratorISt6vectorIS6_SaIS6_EEEEET0_T_SE_SD_.exit
@@ -1761,7 +1761,7 @@ _ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN6hermes5r
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %21, i64 %sub.ptr.div.i.i.i
   %add.ptr.i5.i.i = getelementptr inbounds ptr, ptr %21, i64 %sub.ptr.div.i4.i.i.pre-phi
-  %cmp.i.not.i.i.i = icmp eq i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i4.i.i.pre-phi
+  %cmp.i.not.i.i.i = icmp eq ptr %add.ptr.i4.i, %22
   br i1 %cmp.i.not.i.i.i, label %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE9spliceOutEPNS0_4NodeE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN6hermes5regex4NodeESt20back_insert_iteratorISt6vectorIS6_SaIS6_EEEEET0_T_SE_SD_.exit
@@ -2166,7 +2166,7 @@ _ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN6hermes5r
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %25, i64 %sub.ptr.div.i.i.i
   %add.ptr.i5.i.i = getelementptr inbounds ptr, ptr %25, i64 %sub.ptr.div.i4.i.i.pre-phi
-  %cmp.i.not.i.i.i = icmp eq i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i4.i.i.pre-phi
+  %cmp.i.not.i.i.i = icmp eq ptr %add.ptr.i4.i, %26
   br i1 %cmp.i.not.i.i.i, label %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE9spliceOutEPNS0_4NodeE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN6hermes5regex4NodeESt20back_insert_iteratorISt6vectorIS6_SaIS6_EEEEET0_T_SE_SD_.exit
@@ -2352,7 +2352,7 @@ _ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN6hermes5r
   %sub.ptr.div.i.i.i27 = ashr exact i64 %sub.ptr.sub.i.i.i26, 3
   %add.ptr.i.i.i28 = getelementptr inbounds ptr, ptr %44, i64 %sub.ptr.div.i.i.i27
   %add.ptr.i5.i.i32 = getelementptr inbounds ptr, ptr %44, i64 %sub.ptr.div.i4.i.i31.pre-phi
-  %cmp.i.not.i.i.i33 = icmp eq i64 %sub.ptr.div.i.i.i27, %sub.ptr.div.i4.i.i31.pre-phi
+  %cmp.i.not.i.i.i33 = icmp eq ptr %add.ptr.i4.i22, %45
   br i1 %cmp.i.not.i.i.i33, label %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE9spliceOutEPNS0_4NodeE.exit49, label %if.then.i.i.i34
 
 if.then.i.i.i34:                                  ; preds = %_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN6hermes5regex4NodeESt20back_insert_iteratorISt6vectorIS6_SaIS6_EEEEET0_T_SE_SD_.exit118
@@ -7026,7 +7026,7 @@ _ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN6hermes5r
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %12, i64 %sub.ptr.div.i.i.i
   %add.ptr.i5.i.i = getelementptr inbounds ptr, ptr %12, i64 %sub.ptr.div.i4.i.i.pre-phi
-  %cmp.i.not.i.i.i = icmp eq i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i4.i.i.pre-phi
+  %cmp.i.not.i.i.i = icmp eq ptr %add.ptr.i4.i, %13
   br i1 %cmp.i.not.i.i.i, label %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE9spliceOutEPNS0_4NodeE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN6hermes5regex4NodeESt20back_insert_iteratorISt6vectorIS6_SaIS6_EEEEET0_T_SE_SD_.exit

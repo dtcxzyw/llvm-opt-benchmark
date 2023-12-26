@@ -1274,7 +1274,7 @@ if.end.i.i:                                       ; preds = %if.end.sink.split.i
   %sub.ptr.sub.i3.i.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i4.i.i.i = ashr exact i64 %sub.ptr.sub.i3.i.i.i, 3
   %add.ptr.i5.i.i.i = getelementptr inbounds i64, ptr %2, i64 %sub.ptr.div.i4.i.i.i
-  %cmp.i.not.i.i.i.i = icmp eq ptr %3, %2
+  %cmp.i.not.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.not.i.i.i.i, label %if.end.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i
@@ -1430,7 +1430,7 @@ if.end.i:                                         ; preds = %if.end.sink.split.i
   %sub.ptr.sub.i3.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i4.i.i = ashr exact i64 %sub.ptr.sub.i3.i.i, 3
   %add.ptr.i5.i.i = getelementptr inbounds i64, ptr %2, i64 %sub.ptr.div.i4.i.i
-  %cmp.i.not.i.i.i = icmp eq ptr %3, %2
+  %cmp.i.not.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.not.i.i.i, label %if.end, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
@@ -1556,7 +1556,7 @@ if.end.i:                                         ; preds = %if.end.sink.split.i
   %sub.ptr.sub.i3.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i4.i.i = sdiv exact i64 %sub.ptr.sub.i3.i.i, 24
   %add.ptr.i5.i.i = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::DioSolver::Substitution", ptr %2, i64 %sub.ptr.div.i4.i.i
-  %cmp.i.not.i.i.i = icmp eq ptr %3, %2
+  %cmp.i.not.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.not.i.i.i, label %if.end, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
@@ -1699,7 +1699,7 @@ if.end.i:                                         ; preds = %if.end.sink.split.i
   %sub.ptr.sub.i3.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i4.i.i = sdiv exact i64 %sub.ptr.sub.i3.i.i, 48
   %add.ptr.i5.i.i = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::DioSolver::Constraint", ptr %2, i64 %sub.ptr.div.i4.i.i
-  %cmp.i.not.i.i.i = icmp eq ptr %3, %2
+  %cmp.i.not.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.not.i.i.i, label %if.end, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
@@ -16266,7 +16266,7 @@ if.end.i.i.i:                                     ; preds = %if.end.sink.split.i
   %sub.ptr.sub.i3.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i4.i.i.i.i = ashr exact i64 %sub.ptr.sub.i3.i.i.i.i, 3
   %add.ptr.i5.i.i.i.i = getelementptr inbounds i64, ptr %2, i64 %sub.ptr.div.i4.i.i.i.i
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %3, %2
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.not.i.i.i.i.i, label %if.end.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
@@ -16423,7 +16423,7 @@ if.end.i.i9:                                      ; preds = %if.end.sink.split.i
   %sub.ptr.sub.i3.i.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i4.i.i.i = ashr exact i64 %sub.ptr.sub.i3.i.i.i, 3
   %add.ptr.i5.i.i.i = getelementptr inbounds i64, ptr %22, i64 %sub.ptr.div.i4.i.i.i
-  %cmp.i.not.i.i.i.i = icmp eq ptr %23, %22
+  %cmp.i.not.i.i.i.i = icmp eq ptr %22, %23
   br i1 %cmp.i.not.i.i.i.i, label %if.end.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i9
@@ -16856,7 +16856,7 @@ if.end.i:                                         ; preds = %if.end.sink.split.i
   %sub.ptr.sub.i3.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i4.i.i = ashr exact i64 %sub.ptr.sub.i3.i.i, 3
   %add.ptr.i5.i.i = getelementptr inbounds i64, ptr %3, i64 %sub.ptr.div.i4.i.i
-  %cmp.i.not.i.i.i = icmp eq i64 %sub.ptr.div.i4.i.i, %0
+  %cmp.i.not.i.i.i = icmp eq ptr %add.ptr.i2.i, %4
   br i1 %cmp.i.not.i.i.i, label %_ZN4cvc57context6CDListImNS0_14DefaultCleanUpImEESaImEE12truncateListEm.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
@@ -16923,7 +16923,7 @@ if.end.i.i:                                       ; preds = %if.end.sink.split.i
   %sub.ptr.sub.i3.i.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i4.i.i.i = ashr exact i64 %sub.ptr.sub.i3.i.i.i, 3
   %add.ptr.i5.i.i.i = getelementptr inbounds i64, ptr %2, i64 %sub.ptr.div.i4.i.i.i
-  %cmp.i.not.i.i.i.i = icmp eq ptr %3, %2
+  %cmp.i.not.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.not.i.i.i.i, label %if.end.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i
@@ -21167,7 +21167,7 @@ if.end.i:                                         ; preds = %if.end.sink.split.i
   %sub.ptr.sub.i3.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i4.i.i = sdiv exact i64 %sub.ptr.sub.i3.i.i, 48
   %add.ptr.i5.i.i = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::DioSolver::Constraint", ptr %3, i64 %sub.ptr.div.i4.i.i
-  %cmp.i.not.i.i.i = icmp eq i64 %sub.ptr.div.i4.i.i, %0
+  %cmp.i.not.i.i.i = icmp eq ptr %add.ptr.i2.i, %4
   br i1 %cmp.i.not.i.i.i, label %_ZN4cvc57context6CDListINS_8internal6theory5arith6linear9DioSolver10ConstraintENS0_14DefaultCleanUpIS7_EESaIS7_EE12truncateListEm.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
@@ -21574,7 +21574,7 @@ if.end.i:                                         ; preds = %if.end.sink.split.i
   %sub.ptr.sub.i3.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i4.i.i = sdiv exact i64 %sub.ptr.sub.i3.i.i, 24
   %add.ptr.i5.i.i = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::DioSolver::Substitution", ptr %3, i64 %sub.ptr.div.i4.i.i
-  %cmp.i.not.i.i.i = icmp eq i64 %sub.ptr.div.i4.i.i, %0
+  %cmp.i.not.i.i.i = icmp eq ptr %add.ptr.i2.i, %4
   br i1 %cmp.i.not.i.i.i, label %_ZN4cvc57context6CDListINS_8internal6theory5arith6linear9DioSolver12SubstitutionENS0_14DefaultCleanUpIS7_EESaIS7_EE12truncateListEm.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
@@ -21947,7 +21947,7 @@ if.end.i.i:                                       ; preds = %if.end.sink.split.i
   %sub.ptr.sub.i3.i.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i4.i.i.i = ashr exact i64 %sub.ptr.sub.i3.i.i.i, 3
   %add.ptr.i5.i.i.i = getelementptr inbounds i64, ptr %5, i64 %sub.ptr.div.i4.i.i.i
-  %cmp.i.not.i.i.i.i = icmp eq i64 %sub.ptr.div.i4.i.i.i, %2
+  %cmp.i.not.i.i.i.i = icmp eq ptr %add.ptr.i2.i.i, %6
   br i1 %cmp.i.not.i.i.i.i, label %_ZN4cvc57context6CDListImNS0_14DefaultCleanUpImEESaImEE7restoreEPNS0_10ContextObjE.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i
@@ -22014,7 +22014,7 @@ if.end.i.i.i:                                     ; preds = %if.end.sink.split.i
   %sub.ptr.sub.i3.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i1.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i4.i.i.i.i = ashr exact i64 %sub.ptr.sub.i3.i.i.i.i, 3
   %add.ptr.i5.i.i.i.i = getelementptr inbounds i64, ptr %2, i64 %sub.ptr.div.i4.i.i.i.i
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %3, %2
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.not.i.i.i.i.i, label %if.end.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i

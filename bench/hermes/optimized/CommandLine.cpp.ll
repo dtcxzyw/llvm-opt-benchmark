@@ -4710,7 +4710,7 @@ _ZN4llvh15SmallVectorImplIPKcE7reserveEm.exit:    ; preds = %if.end, %if.then.i3
   %sub.ptr.rhs.cast10 = ptrtoint ptr %add.ptr7 to i64
   %sub.ptr.sub11 = sub i64 %sub.ptr.lhs.cast9, %sub.ptr.rhs.cast10
   %sub.ptr.div12 = ashr exact i64 %sub.ptr.sub11, 3
-  %cmp13.not = icmp ult i64 %sub.ptr.div12, %sub.ptr.div.i.i.i
+  %cmp13.not = icmp ult i64 %sub.ptr.sub11, %sub.ptr.sub.i.i.i
   br i1 %cmp13.not, label %if.end25, label %if.then14
 
 if.then14:                                        ; preds = %_ZN4llvh15SmallVectorImplIPKcE7reserveEm.exit

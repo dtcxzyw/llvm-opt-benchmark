@@ -4123,7 +4123,7 @@ invoke.cont49:                                    ; preds = %for.end
   %sub.ptr.sub.i3.i = sub i64 %sub.ptr.lhs.cast.i1.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i4.i = ashr exact i64 %sub.ptr.sub.i3.i, 5
   %add.ptr.i5.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %19, i64 %sub.ptr.div.i4.i
-  %cmp.i.not.i.i = icmp eq i64 %sub.ptr.div.i.i, %sub.ptr.div.i4.i
+  %cmp.i.not.i.i = icmp eq ptr %call.i3839, %18
   br i1 %cmp.i.not.i.i, label %invoke.cont58, label %if.then.i.i42
 
 if.then.i.i42:                                    ; preds = %invoke.cont49

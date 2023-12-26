@@ -1294,16 +1294,15 @@ while.cond27.preheader:                           ; preds = %invoke.cont24
   %sub.ptr.lhs.cast.i216613 = ptrtoint ptr %numCachesByLevel.sroa.12.1 to i64
   %sub.ptr.rhs.cast.i217614 = ptrtoint ptr %numCachesByLevel.sroa.0.1 to i64
   %sub.ptr.sub.i218615 = sub i64 %sub.ptr.lhs.cast.i216613, %sub.ptr.rhs.cast.i217614
-  %sub.ptr.div.i219616 = ashr exact i64 %sub.ptr.sub.i218615, 3
-  %cmp29.not617 = icmp ugt i64 %sub.ptr.div.i219616, %sub.ptr.div.i207
+  %cmp29.not617 = icmp ugt i64 %sub.ptr.sub.i218615, %sub.ptr.sub.i206
   br i1 %cmp29.not617, label %while.end, label %while.body30
 
 while.body30:                                     ; preds = %while.cond27.preheader, %invoke.cont32
-  %sub.ptr.div.i219622 = phi i64 [ %sub.ptr.div.i219, %invoke.cont32 ], [ %sub.ptr.div.i219616, %while.cond27.preheader ]
   %sub.ptr.sub.i218621 = phi i64 [ %sub.ptr.sub.i218, %invoke.cont32 ], [ %sub.ptr.sub.i218615, %while.cond27.preheader ]
   %numCachesByLevel.sroa.0.2620 = phi ptr [ %numCachesByLevel.sroa.0.3, %invoke.cont32 ], [ %numCachesByLevel.sroa.0.1, %while.cond27.preheader ]
   %numCachesByLevel.sroa.12.2619 = phi ptr [ %numCachesByLevel.sroa.12.3, %invoke.cont32 ], [ %numCachesByLevel.sroa.12.1, %while.cond27.preheader ]
   %numCachesByLevel.sroa.17.2618 = phi ptr [ %numCachesByLevel.sroa.17.3, %invoke.cont32 ], [ %numCachesByLevel.sroa.17.1, %while.cond27.preheader ]
+  %sub.ptr.div.i219622 = ashr exact i64 %sub.ptr.sub.i218621, 3
   %cmp.not.i.i = icmp eq ptr %numCachesByLevel.sroa.12.2619, %numCachesByLevel.sroa.17.2618
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i220
 
@@ -1368,8 +1367,7 @@ invoke.cont32:                                    ; preds = %_ZNSt6vectorImSaImE
   %sub.ptr.lhs.cast.i216 = ptrtoint ptr %numCachesByLevel.sroa.12.3 to i64
   %sub.ptr.rhs.cast.i217 = ptrtoint ptr %numCachesByLevel.sroa.0.3 to i64
   %sub.ptr.sub.i218 = sub i64 %sub.ptr.lhs.cast.i216, %sub.ptr.rhs.cast.i217
-  %sub.ptr.div.i219 = ashr exact i64 %sub.ptr.sub.i218, 3
-  %cmp29.not = icmp ugt i64 %sub.ptr.div.i219, %sub.ptr.div.i207
+  %cmp29.not = icmp ugt i64 %sub.ptr.sub.i218, %sub.ptr.sub.i206
   br i1 %cmp29.not, label %while.end, label %while.body30, !llvm.loop !89
 
 lpad23.loopexit:                                  ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i

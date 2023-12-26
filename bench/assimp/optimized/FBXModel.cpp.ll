@@ -809,8 +809,7 @@ if.end.i:                                         ; preds = %entry
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp3.i = icmp ult i64 %sub.ptr.div.i.i, %sub.ptr.div.i
+  %cmp3.i = icmp ult i64 %sub.ptr.sub.i.i, %sub.ptr.sub.i
   br i1 %cmp3.i, label %_ZNSt12_Vector_baseIPKN6Assimp3FBX8MaterialESaIS4_EE11_M_allocateEm.exit.i, label %if.end.i21
 
 _ZNSt12_Vector_baseIPKN6Assimp3FBX8MaterialESaIS4_EE11_M_allocateEm.exit.i: ; preds = %if.end.i
@@ -870,8 +869,7 @@ if.end.i21:                                       ; preds = %if.end.i, %invoke.c
   %sub.ptr.lhs.cast.i.i23 = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i24 = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i25 = sub i64 %sub.ptr.lhs.cast.i.i23, %sub.ptr.rhs.cast.i.i24
-  %sub.ptr.div.i.i26 = ashr exact i64 %sub.ptr.sub.i.i25, 3
-  %cmp3.i27 = icmp ult i64 %sub.ptr.div.i.i26, %sub.ptr.div.i19.pre-phi200
+  %cmp3.i27 = icmp ult i64 %sub.ptr.sub.i.i25, %sub.ptr.sub.i18.pre-phi201
   br i1 %cmp3.i27, label %_ZNSt12_Vector_baseIPKN6Assimp3FBX8GeometryESaIS4_EE11_M_allocateEm.exit.i, label %if.end.i48
 
 _ZNSt12_Vector_baseIPKN6Assimp3FBX8GeometryESaIS4_EE11_M_allocateEm.exit.i: ; preds = %if.end.i21
@@ -931,8 +929,7 @@ if.end.i48:                                       ; preds = %if.end.i21, %invoke
   %sub.ptr.lhs.cast.i.i50 = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast.i.i51 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i52 = sub i64 %sub.ptr.lhs.cast.i.i50, %sub.ptr.rhs.cast.i.i51
-  %sub.ptr.div.i.i53 = ashr exact i64 %sub.ptr.sub.i.i52, 3
-  %cmp3.i54 = icmp ult i64 %sub.ptr.div.i.i53, %sub.ptr.div.i46.pre-phi216
+  %cmp3.i54 = icmp ult i64 %sub.ptr.sub.i.i52, %sub.ptr.sub.i45.pre-phi217
   br i1 %cmp3.i54, label %_ZNSt12_Vector_baseIPKN6Assimp3FBX13NodeAttributeESaIS4_EE11_M_allocateEm.exit.i, label %invoke.cont6
 
 _ZNSt12_Vector_baseIPKN6Assimp3FBX13NodeAttributeESaIS4_EE11_M_allocateEm.exit.i: ; preds = %if.end.i48
