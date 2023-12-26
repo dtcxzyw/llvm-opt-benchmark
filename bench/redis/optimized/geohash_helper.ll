@@ -38,21 +38,21 @@ while.body:                                       ; preds = %while.cond.preheade
 while.end:                                        ; preds = %while.body, %while.cond.preheader
   %step.0.lcssa = phi i32 [ 1, %while.cond.preheader ], [ %inc, %while.body ]
   %sub = add nsw i32 %step.0.lcssa, -2
-  %cmp2 = fcmp ogt double %lat, 6.600000e+01
-  %cmp3 = fcmp olt double %lat, -6.600000e+01
-  %or.cond = or i1 %cmp2, %cmp3
+  %0 = tail call double @llvm.fabs.f64(double %lat)
+  %or.cond = fcmp ogt double %0, 6.600000e+01
   br i1 %or.cond, label %if.then4, label %if.end11
 
 if.then4:                                         ; preds = %while.end
-  %cmp5 = fcmp ogt double %lat, 8.000000e+01
-  %cmp7 = fcmp olt double %lat, -8.000000e+01
-  %or.cond1 = or i1 %cmp5, %cmp7
-  %spec.select.v = select i1 %or.cond1, i32 -4, i32 -3
-  %spec.select = add nsw i32 %step.0.lcssa, %spec.select.v
+  %dec = add nsw i32 %step.0.lcssa, -3
+  %or.cond1 = fcmp ogt double %0, 8.000000e+01
+  br i1 %or.cond1, label %if.then8, label %if.end11
+
+if.then8:                                         ; preds = %if.then4
+  %dec9 = add nsw i32 %step.0.lcssa, -4
   br label %if.end11
 
-if.end11:                                         ; preds = %if.then4, %while.end
-  %step.1 = phi i32 [ %sub, %while.end ], [ %spec.select, %if.then4 ]
+if.end11:                                         ; preds = %if.then8, %if.then4, %while.end
+  %step.1 = phi i32 [ %dec9, %if.then8 ], [ %dec, %if.then4 ], [ %sub, %while.end ]
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %step.1, i32 1)
   %spec.store.select2 = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 26)
   %conv = trunc i32 %spec.store.select2 to i8
@@ -228,21 +228,21 @@ while.body.i:                                     ; preds = %while.cond.preheade
 while.end.i:                                      ; preds = %while.body.i, %while.cond.preheader.i
   %step.0.lcssa.i = phi i32 [ 1, %while.cond.preheader.i ], [ %inc.i, %while.body.i ]
   %sub.i28 = add nsw i32 %step.0.lcssa.i, -2
-  %cmp2.i = fcmp ogt double %7, 6.600000e+01
-  %cmp3.i = fcmp olt double %7, -6.600000e+01
-  %or.cond.i = or i1 %cmp2.i, %cmp3.i
+  %14 = tail call double @llvm.fabs.f64(double %7)
+  %or.cond.i = fcmp ogt double %14, 6.600000e+01
   br i1 %or.cond.i, label %if.then4.i, label %if.end11.i
 
 if.then4.i:                                       ; preds = %while.end.i
-  %cmp5.i = fcmp ogt double %7, 8.000000e+01
-  %cmp7.i = fcmp olt double %7, -8.000000e+01
-  %or.cond1.i = or i1 %cmp5.i, %cmp7.i
-  %spec.select.v.i = select i1 %or.cond1.i, i32 -4, i32 -3
-  %spec.select.i = add nsw i32 %step.0.lcssa.i, %spec.select.v.i
+  %dec.i = add nsw i32 %step.0.lcssa.i, -3
+  %or.cond1.i = fcmp ogt double %14, 8.000000e+01
+  br i1 %or.cond1.i, label %if.then8.i, label %if.end11.i
+
+if.then8.i:                                       ; preds = %if.then4.i
+  %dec9.i = add nsw i32 %step.0.lcssa.i, -4
   br label %if.end11.i
 
-if.end11.i:                                       ; preds = %if.then4.i, %while.end.i
-  %step.1.i = phi i32 [ %sub.i28, %while.end.i ], [ %spec.select.i, %if.then4.i ]
+if.end11.i:                                       ; preds = %if.then8.i, %if.then4.i, %while.end.i
+  %step.1.i = phi i32 [ %dec9.i, %if.then8.i ], [ %dec.i, %if.then4.i ], [ %sub.i28, %while.end.i ]
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %step.1.i, i32 1)
   %spec.store.select2.i = tail call i32 @llvm.umin.i32(i32 %spec.store.select.i, i32 26)
   %conv.i = trunc i32 %spec.store.select2.i to i8
@@ -254,66 +254,66 @@ geohashEstimateStepsByRadius.exit:                ; preds = %cond.end, %if.end11
   call void @geohashGetCoordRange(ptr noundef nonnull %long_range, ptr noundef nonnull %lat_range) #11
   %call24 = call i32 @geohashEncode(ptr noundef nonnull %long_range, ptr noundef nonnull %lat_range, double noundef %6, double noundef %7, i8 noundef zeroext %retval.0.i, ptr noundef nonnull %hash) #11
   call void @geohashNeighbors(ptr noundef nonnull %hash, ptr noundef nonnull %neighbors) #11
-  %14 = load double, ptr %long_range, align 8
-  %15 = getelementptr inbounds { double, double }, ptr %long_range, i64 0, i32 1
-  %16 = load double, ptr %15, align 8
-  %17 = load double, ptr %lat_range, align 8
-  %18 = getelementptr inbounds { double, double }, ptr %lat_range, i64 0, i32 1
-  %19 = load double, ptr %18, align 8
-  %20 = load i64, ptr %hash, align 8
-  %21 = getelementptr inbounds { i64, i8 }, ptr %hash, i64 0, i32 1
-  %22 = load i8, ptr %21, align 8
-  %call25 = call i32 @geohashDecode(double %14, double %16, double %17, double %19, i64 %20, i8 %22, ptr noundef nonnull %area) #11
-  %23 = load double, ptr %long_range, align 8
-  %24 = load double, ptr %15, align 8
-  %25 = load double, ptr %lat_range, align 8
-  %26 = load double, ptr %18, align 8
-  %27 = load i64, ptr %neighbors, align 8
-  %28 = getelementptr inbounds { i64, i8 }, ptr %neighbors, i64 0, i32 1
-  %29 = load i8, ptr %28, align 8
-  %call27 = call i32 @geohashDecode(double %23, double %24, double %25, double %26, i64 %27, i8 %29, ptr noundef nonnull %north) #11
+  %15 = load double, ptr %long_range, align 8
+  %16 = getelementptr inbounds { double, double }, ptr %long_range, i64 0, i32 1
+  %17 = load double, ptr %16, align 8
+  %18 = load double, ptr %lat_range, align 8
+  %19 = getelementptr inbounds { double, double }, ptr %lat_range, i64 0, i32 1
+  %20 = load double, ptr %19, align 8
+  %21 = load i64, ptr %hash, align 8
+  %22 = getelementptr inbounds { i64, i8 }, ptr %hash, i64 0, i32 1
+  %23 = load i8, ptr %22, align 8
+  %call25 = call i32 @geohashDecode(double %15, double %17, double %18, double %20, i64 %21, i8 %23, ptr noundef nonnull %area) #11
+  %24 = load double, ptr %long_range, align 8
+  %25 = load double, ptr %16, align 8
+  %26 = load double, ptr %lat_range, align 8
+  %27 = load double, ptr %19, align 8
+  %28 = load i64, ptr %neighbors, align 8
+  %29 = getelementptr inbounds { i64, i8 }, ptr %neighbors, i64 0, i32 1
+  %30 = load i8, ptr %29, align 8
+  %call27 = call i32 @geohashDecode(double %24, double %25, double %26, double %27, i64 %28, i8 %30, ptr noundef nonnull %north) #11
   %south28 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 3
-  %30 = load double, ptr %long_range, align 8
-  %31 = load double, ptr %15, align 8
-  %32 = load double, ptr %lat_range, align 8
-  %33 = load double, ptr %18, align 8
-  %34 = load i64, ptr %south28, align 8
-  %35 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 3, i32 1
-  %36 = load i8, ptr %35, align 8
-  %call29 = call i32 @geohashDecode(double %30, double %31, double %32, double %33, i64 %34, i8 %36, ptr noundef nonnull %south) #11
+  %31 = load double, ptr %long_range, align 8
+  %32 = load double, ptr %16, align 8
+  %33 = load double, ptr %lat_range, align 8
+  %34 = load double, ptr %19, align 8
+  %35 = load i64, ptr %south28, align 8
+  %36 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 3, i32 1
+  %37 = load i8, ptr %36, align 8
+  %call29 = call i32 @geohashDecode(double %31, double %32, double %33, double %34, i64 %35, i8 %37, ptr noundef nonnull %south) #11
   %east30 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 1
-  %37 = load double, ptr %long_range, align 8
-  %38 = load double, ptr %15, align 8
-  %39 = load double, ptr %lat_range, align 8
-  %40 = load double, ptr %18, align 8
-  %41 = load i64, ptr %east30, align 8
-  %42 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 1, i32 1
-  %43 = load i8, ptr %42, align 8
-  %call31 = call i32 @geohashDecode(double %37, double %38, double %39, double %40, i64 %41, i8 %43, ptr noundef nonnull %east) #11
+  %38 = load double, ptr %long_range, align 8
+  %39 = load double, ptr %16, align 8
+  %40 = load double, ptr %lat_range, align 8
+  %41 = load double, ptr %19, align 8
+  %42 = load i64, ptr %east30, align 8
+  %43 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 1, i32 1
+  %44 = load i8, ptr %43, align 8
+  %call31 = call i32 @geohashDecode(double %38, double %39, double %40, double %41, i64 %42, i8 %44, ptr noundef nonnull %east) #11
   %west32 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 2
-  %44 = load double, ptr %long_range, align 8
-  %45 = load double, ptr %15, align 8
-  %46 = load double, ptr %lat_range, align 8
-  %47 = load double, ptr %18, align 8
-  %48 = load i64, ptr %west32, align 8
-  %49 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 2, i32 1
-  %50 = load i8, ptr %49, align 8
-  %call33 = call i32 @geohashDecode(double %44, double %45, double %46, double %47, i64 %48, i8 %50, ptr noundef nonnull %west) #11
+  %45 = load double, ptr %long_range, align 8
+  %46 = load double, ptr %16, align 8
+  %47 = load double, ptr %lat_range, align 8
+  %48 = load double, ptr %19, align 8
+  %49 = load i64, ptr %west32, align 8
+  %50 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 2, i32 1
+  %51 = load i8, ptr %50, align 8
+  %call33 = call i32 @geohashDecode(double %45, double %46, double %47, double %48, i64 %49, i8 %51, ptr noundef nonnull %west) #11
   %max = getelementptr inbounds %struct.GeoHashArea, ptr %north, i64 0, i32 2, i32 1
-  %51 = load double, ptr %max, align 8
-  %cmp35 = fcmp olt double %51, %add.i
+  %52 = load double, ptr %max, align 8
+  %cmp35 = fcmp olt double %52, %add.i
   %latitude37 = getelementptr inbounds %struct.GeoHashArea, ptr %south, i64 0, i32 2
-  %52 = load double, ptr %latitude37, align 8
-  %cmp38 = fcmp ogt double %52, %sub.i
+  %53 = load double, ptr %latitude37, align 8
+  %cmp38 = fcmp ogt double %53, %sub.i
   %max43 = getelementptr inbounds %struct.GeoHashArea, ptr %east, i64 0, i32 1, i32 1
-  %53 = load double, ptr %max43, align 8
-  %cmp44 = fcmp olt double %53, %cond44.i
+  %54 = load double, ptr %max43, align 8
+  %cmp44 = fcmp olt double %54, %cond44.i
   %longitude48 = getelementptr inbounds %struct.GeoHashArea, ptr %west, i64 0, i32 1
-  %54 = load double, ptr %longitude48, align 8
-  %cmp50 = fcmp ogt double %54, %cond36.i
-  %55 = select i1 %cmp50, i1 true, i1 %cmp44
-  %56 = select i1 %55, i1 true, i1 %cmp38
-  %narrow = select i1 %56, i1 true, i1 %cmp35
+  %55 = load double, ptr %longitude48, align 8
+  %cmp50 = fcmp ogt double %55, %cond36.i
+  %56 = select i1 %cmp50, i1 true, i1 %cmp44
+  %57 = select i1 %56, i1 true, i1 %cmp38
+  %narrow = select i1 %57, i1 true, i1 %cmp35
   %cmp54 = icmp ugt i8 %retval.0.i, 1
   %or.cond = and i1 %cmp54, %narrow
   br i1 %or.cond, label %if.then56, label %if.end60
@@ -323,13 +323,13 @@ if.then56:                                        ; preds = %geohashEstimateStep
   %conv57 = trunc i32 %dec to i8
   %call58 = call i32 @geohashEncode(ptr noundef nonnull %long_range, ptr noundef nonnull %lat_range, double noundef %6, double noundef %7, i8 noundef zeroext %conv57, ptr noundef nonnull %hash) #11
   call void @geohashNeighbors(ptr noundef nonnull %hash, ptr noundef nonnull %neighbors) #11
-  %57 = load double, ptr %long_range, align 8
-  %58 = load double, ptr %15, align 8
-  %59 = load double, ptr %lat_range, align 8
-  %60 = load double, ptr %18, align 8
-  %61 = load i64, ptr %hash, align 8
-  %62 = load i8, ptr %21, align 8
-  %call59 = call i32 @geohashDecode(double %57, double %58, double %59, double %60, i64 %61, i8 %62, ptr noundef nonnull %area) #11
+  %58 = load double, ptr %long_range, align 8
+  %59 = load double, ptr %16, align 8
+  %60 = load double, ptr %lat_range, align 8
+  %61 = load double, ptr %19, align 8
+  %62 = load i64, ptr %hash, align 8
+  %63 = load i8, ptr %22, align 8
+  %call59 = call i32 @geohashDecode(double %58, double %59, double %60, double %61, i64 %62, i8 %63, ptr noundef nonnull %area) #11
   br label %if.end60
 
 if.end60:                                         ; preds = %if.then56, %geohashEstimateStepsByRadius.exit
@@ -339,12 +339,12 @@ if.end60:                                         ; preds = %if.then56, %geohash
 
 if.then63:                                        ; preds = %if.end60
   %latitude64 = getelementptr inbounds %struct.GeoHashArea, ptr %area, i64 0, i32 2
-  %63 = load double, ptr %latitude64, align 8
-  %cmp66 = fcmp olt double %63, %sub.i
+  %64 = load double, ptr %latitude64, align 8
+  %cmp66 = fcmp olt double %64, %sub.i
   br i1 %cmp66, label %if.then68, label %if.end77
 
 if.then68:                                        ; preds = %if.then63
-  store i8 0, ptr %35, align 8
+  store i8 0, ptr %36, align 8
   store i64 0, ptr %south28, align 8
   %south_west = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 7
   %step71 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 7, i32 1
@@ -358,12 +358,12 @@ if.then68:                                        ; preds = %if.then63
 
 if.end77:                                         ; preds = %if.then68, %if.then63
   %max79 = getelementptr inbounds %struct.GeoHashArea, ptr %area, i64 0, i32 2, i32 1
-  %64 = load double, ptr %max79, align 8
-  %cmp80 = fcmp ogt double %64, %add.i
+  %65 = load double, ptr %max79, align 8
+  %cmp80 = fcmp ogt double %65, %add.i
   br i1 %cmp80, label %if.then82, label %if.end93
 
 if.then82:                                        ; preds = %if.end77
-  store i8 0, ptr %28, align 8
+  store i8 0, ptr %29, align 8
   store i64 0, ptr %neighbors, align 8
   %north_east = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 4
   %step87 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 4, i32 1
@@ -377,12 +377,12 @@ if.then82:                                        ; preds = %if.end77
 
 if.end93:                                         ; preds = %if.then82, %if.end77
   %longitude94 = getelementptr inbounds %struct.GeoHashArea, ptr %area, i64 0, i32 1
-  %65 = load double, ptr %longitude94, align 8
-  %cmp96 = fcmp olt double %65, %cond36.i
+  %66 = load double, ptr %longitude94, align 8
+  %cmp96 = fcmp olt double %66, %cond36.i
   br i1 %cmp96, label %if.then98, label %if.end111
 
 if.then98:                                        ; preds = %if.end93
-  store i8 0, ptr %49, align 8
+  store i8 0, ptr %50, align 8
   store i64 0, ptr %west32, align 8
   %south_west103 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 7
   %step104 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 7, i32 1
@@ -396,12 +396,12 @@ if.then98:                                        ; preds = %if.end93
 
 if.end111:                                        ; preds = %if.then98, %if.end93
   %max113 = getelementptr inbounds %struct.GeoHashArea, ptr %area, i64 0, i32 1, i32 1
-  %66 = load double, ptr %max113, align 8
-  %cmp114 = fcmp ogt double %66, %cond44.i
+  %67 = load double, ptr %max113, align 8
+  %cmp114 = fcmp ogt double %67, %cond44.i
   br i1 %cmp114, label %if.then116, label %if.end130
 
 if.then116:                                       ; preds = %if.end111
-  store i8 0, ptr %42, align 8
+  store i8 0, ptr %43, align 8
   store i64 0, ptr %east30, align 8
   %south_east121 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 5
   %step122 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 5, i32 1

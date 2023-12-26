@@ -680,9 +680,8 @@ entry:
 if.end:                                           ; preds = %entry
   tail call void @tzset() #18
   %div = fdiv double %t, 1.000000e+03
-  %cmp = fcmp ogt double %div, 8.640000e+12
-  %cmp2 = fcmp olt double %div, -8.640000e+12
-  %or.cond = or i1 %cmp, %cmp2
+  %2 = tail call double @llvm.fabs.f64(double %div)
+  %or.cond = fcmp ogt double %2, 8.640000e+12
   br i1 %or.cond, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
@@ -696,8 +695,8 @@ if.end5:                                          ; preds = %if.end
 
 if.end11:                                         ; preds = %if.end5
   %tm_isdst = getelementptr inbounds %struct.tm, ptr %call8, i64 0, i32 8
-  %2 = load i32, ptr %tm_isdst, align 8
-  %tobool12.not = icmp eq i32 %2, 0
+  %3 = load i32, ptr %tm_isdst, align 8
+  %tobool12.not = icmp eq i32 %3, 0
   %cond = select i1 %tobool12.not, double 0.000000e+00, double 3.600000e+06
   br label %return
 
@@ -744,14 +743,13 @@ _ZN6hermes2vm8localTZAEv.exit:                    ; preds = %entry, %if.end.i
 if.end.i2:                                        ; preds = %_ZN6hermes2vm8localTZAEv.exit
   call void @tzset() #18
   %div.i = fdiv double %t, 1.000000e+03
-  %cmp.i3 = fcmp ogt double %div.i, 8.640000e+12
-  %cmp2.i = fcmp olt double %div.i, -8.640000e+12
-  %or.cond.i = or i1 %cmp.i3, %cmp2.i
+  %5 = call double @llvm.fabs.f64(double %div.i)
+  %or.cond.i = fcmp ogt double %5, 8.640000e+12
   br i1 %or.cond.i, label %_ZN6hermes2vm16daylightSavingTAEd.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i2
-  %conv.i4 = fptosi double %div.i to i64
-  %call6.i = call noundef i32 @_ZN6hermes2vm6detail14equivalentTimeEl(i64 noundef %conv.i4)
+  %conv.i3 = fptosi double %div.i to i64
+  %call6.i = call noundef i32 @_ZN6hermes2vm6detail14equivalentTimeEl(i64 noundef %conv.i3)
   %conv7.i = sext i32 %call6.i to i64
   store i64 %conv7.i, ptr %local.i, align 8
   %call8.i = call ptr @localtime(ptr noundef nonnull %local.i) #18
@@ -759,17 +757,17 @@ if.end5.i:                                        ; preds = %if.end.i2
   br i1 %tobool.not.i, label %_ZN6hermes2vm16daylightSavingTAEd.exit, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end5.i
-  %tm_isdst.i5 = getelementptr inbounds %struct.tm, ptr %call8.i, i64 0, i32 8
-  %5 = load i32, ptr %tm_isdst.i5, align 8
-  %tobool12.not.i = icmp eq i32 %5, 0
-  %cond.i6 = select i1 %tobool12.not.i, double 0.000000e+00, double 3.600000e+06
+  %tm_isdst.i4 = getelementptr inbounds %struct.tm, ptr %call8.i, i64 0, i32 8
+  %6 = load i32, ptr %tm_isdst.i4, align 8
+  %tobool12.not.i = icmp eq i32 %6, 0
+  %cond.i5 = select i1 %tobool12.not.i, double 0.000000e+00, double 3.600000e+06
   br label %_ZN6hermes2vm16daylightSavingTAEd.exit
 
 _ZN6hermes2vm16daylightSavingTAEd.exit:           ; preds = %_ZN6hermes2vm8localTZAEv.exit, %if.end.i2, %if.end5.i, %if.end11.i
-  %retval.0.i7 = phi double [ %cond.i6, %if.end11.i ], [ 0x7FF8000000000000, %_ZN6hermes2vm8localTZAEv.exit ], [ 0x7FF8000000000000, %if.end.i2 ], [ 0x7FF8000000000000, %if.end5.i ]
+  %retval.0.i6 = phi double [ %cond.i5, %if.end11.i ], [ 0x7FF8000000000000, %_ZN6hermes2vm8localTZAEv.exit ], [ 0x7FF8000000000000, %if.end.i2 ], [ 0x7FF8000000000000, %if.end5.i ]
   %add = fadd double %retval.0.i, %t
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local.i)
-  %add2 = fadd double %add, %retval.0.i7
+  %add2 = fadd double %add, %retval.0.i6
   ret double %add2
 }
 
@@ -813,14 +811,13 @@ _ZN6hermes2vm8localTZAEv.exit:                    ; preds = %entry, %if.end.i
 if.end.i3:                                        ; preds = %_ZN6hermes2vm8localTZAEv.exit
   call void @tzset() #18
   %div.i = fdiv double %sub2, 1.000000e+03
-  %cmp.i4 = fcmp ogt double %div.i, 8.640000e+12
-  %cmp2.i = fcmp olt double %div.i, -8.640000e+12
-  %or.cond.i = or i1 %cmp.i4, %cmp2.i
+  %5 = call double @llvm.fabs.f64(double %div.i)
+  %or.cond.i = fcmp ogt double %5, 8.640000e+12
   br i1 %or.cond.i, label %_ZN6hermes2vm16daylightSavingTAEd.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i3
-  %conv.i5 = fptosi double %div.i to i64
-  %call6.i = call noundef i32 @_ZN6hermes2vm6detail14equivalentTimeEl(i64 noundef %conv.i5)
+  %conv.i4 = fptosi double %div.i to i64
+  %call6.i = call noundef i32 @_ZN6hermes2vm6detail14equivalentTimeEl(i64 noundef %conv.i4)
   %conv7.i = sext i32 %call6.i to i64
   store i64 %conv7.i, ptr %local.i, align 8
   %call8.i = call ptr @localtime(ptr noundef nonnull %local.i) #18
@@ -828,16 +825,16 @@ if.end5.i:                                        ; preds = %if.end.i3
   br i1 %tobool.not.i, label %_ZN6hermes2vm16daylightSavingTAEd.exit, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end5.i
-  %tm_isdst.i6 = getelementptr inbounds %struct.tm, ptr %call8.i, i64 0, i32 8
-  %5 = load i32, ptr %tm_isdst.i6, align 8
-  %tobool12.not.i = icmp eq i32 %5, 0
-  %cond.i7 = select i1 %tobool12.not.i, double 0.000000e+00, double 3.600000e+06
+  %tm_isdst.i5 = getelementptr inbounds %struct.tm, ptr %call8.i, i64 0, i32 8
+  %6 = load i32, ptr %tm_isdst.i5, align 8
+  %tobool12.not.i = icmp eq i32 %6, 0
+  %cond.i6 = select i1 %tobool12.not.i, double 0.000000e+00, double 3.600000e+06
   br label %_ZN6hermes2vm16daylightSavingTAEd.exit
 
 _ZN6hermes2vm16daylightSavingTAEd.exit:           ; preds = %_ZN6hermes2vm8localTZAEv.exit, %if.end.i3, %if.end5.i, %if.end11.i
-  %retval.0.i8 = phi double [ %cond.i7, %if.end11.i ], [ 0x7FF8000000000000, %_ZN6hermes2vm8localTZAEv.exit ], [ 0x7FF8000000000000, %if.end.i3 ], [ 0x7FF8000000000000, %if.end5.i ]
+  %retval.0.i7 = phi double [ %cond.i6, %if.end11.i ], [ 0x7FF8000000000000, %_ZN6hermes2vm8localTZAEv.exit ], [ 0x7FF8000000000000, %if.end.i3 ], [ 0x7FF8000000000000, %if.end5.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local.i)
-  %sub4 = fsub double %sub, %retval.0.i8
+  %sub4 = fsub double %sub, %retval.0.i7
   ret double %sub4
 }
 

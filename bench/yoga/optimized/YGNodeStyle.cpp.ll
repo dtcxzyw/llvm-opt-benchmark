@@ -687,32 +687,30 @@ declare noundef zeroext i1 @_ZNK8facebook4yoga6Config14useWebDefaultsEv(ptr noun
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetFlexBasis(ptr noundef %node, float noundef %flexBasis) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
+  %cmp.i.i.i = fcmp uno float %flexBasis, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %entry
   %0 = tail call float @llvm.fabs.f32(float %flexBasis)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+  %1 = fcmp oeq float %0, 0x7FF0000000000000
+  br i1 %1, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %entry
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %flexBasis, 0.000000e+00
-  br i1 %cmp.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false3.i.i
+  %or.cond.i.i = fcmp olt float %0, 0x3C00000000000000
+  %or.cond4.i.i = or i1 %cmp.i.i, %or.cond.i.i
+  br i1 %or.cond4.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end7.i.i
 
-lor.lhs.false3.i.i:                               ; preds = %if.end.i.i
-  %cmp4.i.i = fcmp olt float %flexBasis, 0x3C00000000000000
-  %cmp5.i.i = fcmp ogt float %flexBasis, 0xBC00000000000000
-  %or.cond.i.i = and i1 %cmp4.i.i, %cmp5.i.i
-  br i1 %or.cond.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end7.i.i
-
-if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
-  %cmp8.i.i = fcmp ogt float %flexBasis, 0x43FFFFFFE0000000
-  %cmp10.i.i = fcmp olt float %flexBasis, 0xC3FFFFFFE0000000
-  %or.cond1.i.i = or i1 %cmp8.i.i, %cmp10.i.i
-  %1 = tail call float @llvm.copysign.f32(float 0x43FFFFFFE0000000, float %flexBasis)
-  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %1, float %flexBasis
-  %2 = bitcast float %value.addr.0.i.i to i32
-  %sub.i.i = add i32 %2, -536870912
+if.end7.i.i:                                      ; preds = %if.end.i.i
+  %or.cond1.i.i = fcmp ogt float %0, 0x43FFFFFFE0000000
+  %2 = tail call float @llvm.copysign.f32(float 0x43FFFFFFE0000000, float %flexBasis)
+  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %2, float %flexBasis
+  %3 = bitcast float %value.addr.0.i.i to i32
+  %sub.i.i = add i32 %3, -536870912
   br label %_ZN8facebook4yoga5value6pointsEf.exit
 
-_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
+_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2140081935, %if.end.i.i ]
   %flexBasis_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 5
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %flexBasis_.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -730,33 +728,31 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9flexBasisEvEETnD
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetFlexBasisPercent(ptr noundef %node, float noundef %flexBasisPercent) local_unnamed_addr #0 {
 entry:
+  %cmp.i.i.i = fcmp uno float %flexBasisPercent, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %entry
   %0 = tail call float @llvm.fabs.f32(float %flexBasisPercent)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+  %1 = fcmp oeq float %0, 0x7FF0000000000000
+  br i1 %1, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %entry
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %flexBasisPercent, 0.000000e+00
-  br i1 %cmp.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false3.i.i
+  %or.cond.i.i = fcmp olt float %0, 0x3C00000000000000
+  %or.cond4.i.i = or i1 %cmp.i.i, %or.cond.i.i
+  br i1 %or.cond4.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end7.i.i
 
-lor.lhs.false3.i.i:                               ; preds = %if.end.i.i
-  %cmp4.i.i = fcmp olt float %flexBasisPercent, 0x3C00000000000000
-  %cmp5.i.i = fcmp ogt float %flexBasisPercent, 0xBC00000000000000
-  %or.cond.i.i = and i1 %cmp4.i.i, %cmp5.i.i
-  br i1 %or.cond.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end7.i.i
-
-if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
-  %cmp8.i.i = fcmp ogt float %flexBasisPercent, 0x43EFFFFFE0000000
-  %cmp10.i.i = fcmp olt float %flexBasisPercent, 0xC3EFFFFFE0000000
-  %or.cond1.i.i = or i1 %cmp8.i.i, %cmp10.i.i
-  %1 = tail call float @llvm.copysign.f32(float 0x43EFFFFFE0000000, float %flexBasisPercent)
-  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %1, float %flexBasisPercent
-  %2 = bitcast float %value.addr.0.i.i to i32
-  %sub.i.i = add i32 %2, -536870912
+if.end7.i.i:                                      ; preds = %if.end.i.i
+  %or.cond1.i.i = fcmp ogt float %0, 0x43EFFFFFE0000000
+  %2 = tail call float @llvm.copysign.f32(float 0x43EFFFFFE0000000, float %flexBasisPercent)
+  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %2, float %flexBasisPercent
+  %3 = bitcast float %value.addr.0.i.i to i32
+  %sub.i.i = add i32 %3, -536870912
   %or.i.i = or i32 %sub.i.i, 1073741824
   br label %_ZN8facebook4yoga5value7percentEf.exit
 
-_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
+_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2139156720, %if.end.i.i ]
   %flexBasis_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 5
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %flexBasis_.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -841,35 +837,33 @@ if.end:                                           ; preds = %entry, %sw.bb3.i, %
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetPosition(ptr noundef %node, i32 noundef %edge, float noundef %points) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
+  %cmp.i.i.i = fcmp uno float %points, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %entry
   %0 = tail call float @llvm.fabs.f32(float %points)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+  %1 = fcmp oeq float %0, 0x7FF0000000000000
+  br i1 %1, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %entry
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %points, 0.000000e+00
-  br i1 %cmp.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false3.i.i
+  %or.cond.i.i = fcmp olt float %0, 0x3C00000000000000
+  %or.cond4.i.i = or i1 %cmp.i.i, %or.cond.i.i
+  br i1 %or.cond4.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end7.i.i
 
-lor.lhs.false3.i.i:                               ; preds = %if.end.i.i
-  %cmp4.i.i = fcmp olt float %points, 0x3C00000000000000
-  %cmp5.i.i = fcmp ogt float %points, 0xBC00000000000000
-  %or.cond.i.i = and i1 %cmp4.i.i, %cmp5.i.i
-  br i1 %or.cond.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end7.i.i
-
-if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
-  %cmp8.i.i = fcmp ogt float %points, 0x43FFFFFFE0000000
-  %cmp10.i.i = fcmp olt float %points, 0xC3FFFFFFE0000000
-  %or.cond1.i.i = or i1 %cmp8.i.i, %cmp10.i.i
-  %1 = tail call float @llvm.copysign.f32(float 0x43FFFFFFE0000000, float %points)
-  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %1, float %points
-  %2 = bitcast float %value.addr.0.i.i to i32
-  %sub.i.i = add i32 %2, -536870912
+if.end7.i.i:                                      ; preds = %if.end.i.i
+  %or.cond1.i.i = fcmp ogt float %0, 0x43FFFFFFE0000000
+  %2 = tail call float @llvm.copysign.f32(float 0x43FFFFFFE0000000, float %points)
+  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %2, float %points
+  %3 = bitcast float %value.addr.0.i.i to i32
+  %sub.i.i = add i32 %3, -536870912
   br label %_ZN8facebook4yoga5value6pointsEf.exit
 
-_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
+_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2140081935, %if.end.i.i ]
   %position_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 7
-  %3 = and i32 %edge, 255
-  %conv.i.i = zext nneg i32 %3 to i64
+  %4 = and i32 %edge, 255
+  %conv.i.i = zext nneg i32 %4 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %position_.i.i, i64 0, i64 %conv.i.i
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -887,36 +881,34 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style8positionENS2_4Ed
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetPositionPercent(ptr noundef %node, i32 noundef %edge, float noundef %percent) local_unnamed_addr #0 {
 entry:
+  %cmp.i.i.i = fcmp uno float %percent, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %entry
   %0 = tail call float @llvm.fabs.f32(float %percent)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+  %1 = fcmp oeq float %0, 0x7FF0000000000000
+  br i1 %1, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %entry
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %percent, 0.000000e+00
-  br i1 %cmp.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false3.i.i
+  %or.cond.i.i = fcmp olt float %0, 0x3C00000000000000
+  %or.cond4.i.i = or i1 %cmp.i.i, %or.cond.i.i
+  br i1 %or.cond4.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end7.i.i
 
-lor.lhs.false3.i.i:                               ; preds = %if.end.i.i
-  %cmp4.i.i = fcmp olt float %percent, 0x3C00000000000000
-  %cmp5.i.i = fcmp ogt float %percent, 0xBC00000000000000
-  %or.cond.i.i = and i1 %cmp4.i.i, %cmp5.i.i
-  br i1 %or.cond.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end7.i.i
-
-if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
-  %cmp8.i.i = fcmp ogt float %percent, 0x43EFFFFFE0000000
-  %cmp10.i.i = fcmp olt float %percent, 0xC3EFFFFFE0000000
-  %or.cond1.i.i = or i1 %cmp8.i.i, %cmp10.i.i
-  %1 = tail call float @llvm.copysign.f32(float 0x43EFFFFFE0000000, float %percent)
-  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %1, float %percent
-  %2 = bitcast float %value.addr.0.i.i to i32
-  %sub.i.i = add i32 %2, -536870912
+if.end7.i.i:                                      ; preds = %if.end.i.i
+  %or.cond1.i.i = fcmp ogt float %0, 0x43EFFFFFE0000000
+  %2 = tail call float @llvm.copysign.f32(float 0x43EFFFFFE0000000, float %percent)
+  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %2, float %percent
+  %3 = bitcast float %value.addr.0.i.i to i32
+  %sub.i.i = add i32 %3, -536870912
   %or.i.i = or i32 %sub.i.i, 1073741824
   br label %_ZN8facebook4yoga5value7percentEf.exit
 
-_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
+_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2139156720, %if.end.i.i ]
   %position_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 7
-  %3 = and i32 %edge, 255
-  %conv.i.i = zext nneg i32 %3 to i64
+  %4 = and i32 %edge, 255
+  %conv.i.i = zext nneg i32 %4 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %position_.i.i, i64 0, i64 %conv.i.i
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -984,35 +976,33 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %entry, %sw.bb.i, %
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetMargin(ptr noundef %node, i32 noundef %edge, float noundef %points) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
+  %cmp.i.i.i = fcmp uno float %points, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %entry
   %0 = tail call float @llvm.fabs.f32(float %points)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+  %1 = fcmp oeq float %0, 0x7FF0000000000000
+  br i1 %1, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %entry
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %points, 0.000000e+00
-  br i1 %cmp.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false3.i.i
+  %or.cond.i.i = fcmp olt float %0, 0x3C00000000000000
+  %or.cond4.i.i = or i1 %cmp.i.i, %or.cond.i.i
+  br i1 %or.cond4.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end7.i.i
 
-lor.lhs.false3.i.i:                               ; preds = %if.end.i.i
-  %cmp4.i.i = fcmp olt float %points, 0x3C00000000000000
-  %cmp5.i.i = fcmp ogt float %points, 0xBC00000000000000
-  %or.cond.i.i = and i1 %cmp4.i.i, %cmp5.i.i
-  br i1 %or.cond.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end7.i.i
-
-if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
-  %cmp8.i.i = fcmp ogt float %points, 0x43FFFFFFE0000000
-  %cmp10.i.i = fcmp olt float %points, 0xC3FFFFFFE0000000
-  %or.cond1.i.i = or i1 %cmp8.i.i, %cmp10.i.i
-  %1 = tail call float @llvm.copysign.f32(float 0x43FFFFFFE0000000, float %points)
-  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %1, float %points
-  %2 = bitcast float %value.addr.0.i.i to i32
-  %sub.i.i = add i32 %2, -536870912
+if.end7.i.i:                                      ; preds = %if.end.i.i
+  %or.cond1.i.i = fcmp ogt float %0, 0x43FFFFFFE0000000
+  %2 = tail call float @llvm.copysign.f32(float 0x43FFFFFFE0000000, float %points)
+  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %2, float %points
+  %3 = bitcast float %value.addr.0.i.i to i32
+  %sub.i.i = add i32 %3, -536870912
   br label %_ZN8facebook4yoga5value6pointsEf.exit
 
-_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
+_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2140081935, %if.end.i.i ]
   %margin_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 6
-  %3 = and i32 %edge, 255
-  %conv.i.i = zext nneg i32 %3 to i64
+  %4 = and i32 %edge, 255
+  %conv.i.i = zext nneg i32 %4 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %margin_.i.i, i64 0, i64 %conv.i.i
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -1030,36 +1020,34 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style6marginENS2_4Edge
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetMarginPercent(ptr noundef %node, i32 noundef %edge, float noundef %percent) local_unnamed_addr #0 {
 entry:
+  %cmp.i.i.i = fcmp uno float %percent, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %entry
   %0 = tail call float @llvm.fabs.f32(float %percent)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+  %1 = fcmp oeq float %0, 0x7FF0000000000000
+  br i1 %1, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %entry
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %percent, 0.000000e+00
-  br i1 %cmp.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false3.i.i
+  %or.cond.i.i = fcmp olt float %0, 0x3C00000000000000
+  %or.cond4.i.i = or i1 %cmp.i.i, %or.cond.i.i
+  br i1 %or.cond4.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end7.i.i
 
-lor.lhs.false3.i.i:                               ; preds = %if.end.i.i
-  %cmp4.i.i = fcmp olt float %percent, 0x3C00000000000000
-  %cmp5.i.i = fcmp ogt float %percent, 0xBC00000000000000
-  %or.cond.i.i = and i1 %cmp4.i.i, %cmp5.i.i
-  br i1 %or.cond.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end7.i.i
-
-if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
-  %cmp8.i.i = fcmp ogt float %percent, 0x43EFFFFFE0000000
-  %cmp10.i.i = fcmp olt float %percent, 0xC3EFFFFFE0000000
-  %or.cond1.i.i = or i1 %cmp8.i.i, %cmp10.i.i
-  %1 = tail call float @llvm.copysign.f32(float 0x43EFFFFFE0000000, float %percent)
-  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %1, float %percent
-  %2 = bitcast float %value.addr.0.i.i to i32
-  %sub.i.i = add i32 %2, -536870912
+if.end7.i.i:                                      ; preds = %if.end.i.i
+  %or.cond1.i.i = fcmp ogt float %0, 0x43EFFFFFE0000000
+  %2 = tail call float @llvm.copysign.f32(float 0x43EFFFFFE0000000, float %percent)
+  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %2, float %percent
+  %3 = bitcast float %value.addr.0.i.i to i32
+  %sub.i.i = add i32 %3, -536870912
   %or.i.i = or i32 %sub.i.i, 1073741824
   br label %_ZN8facebook4yoga5value7percentEf.exit
 
-_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
+_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2139156720, %if.end.i.i ]
   %margin_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 6
-  %3 = and i32 %edge, 255
-  %conv.i.i = zext nneg i32 %3 to i64
+  %4 = and i32 %edge, 255
+  %conv.i.i = zext nneg i32 %4 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %margin_.i.i, i64 0, i64 %conv.i.i
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -1147,35 +1135,33 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %entry, %sw.bb.i, %
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetPadding(ptr noundef %node, i32 noundef %edge, float noundef %points) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
+  %cmp.i.i.i = fcmp uno float %points, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %entry
   %0 = tail call float @llvm.fabs.f32(float %points)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+  %1 = fcmp oeq float %0, 0x7FF0000000000000
+  br i1 %1, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %entry
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %points, 0.000000e+00
-  br i1 %cmp.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false3.i.i
+  %or.cond.i.i = fcmp olt float %0, 0x3C00000000000000
+  %or.cond4.i.i = or i1 %cmp.i.i, %or.cond.i.i
+  br i1 %or.cond4.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end7.i.i
 
-lor.lhs.false3.i.i:                               ; preds = %if.end.i.i
-  %cmp4.i.i = fcmp olt float %points, 0x3C00000000000000
-  %cmp5.i.i = fcmp ogt float %points, 0xBC00000000000000
-  %or.cond.i.i = and i1 %cmp4.i.i, %cmp5.i.i
-  br i1 %or.cond.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end7.i.i
-
-if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
-  %cmp8.i.i = fcmp ogt float %points, 0x43FFFFFFE0000000
-  %cmp10.i.i = fcmp olt float %points, 0xC3FFFFFFE0000000
-  %or.cond1.i.i = or i1 %cmp8.i.i, %cmp10.i.i
-  %1 = tail call float @llvm.copysign.f32(float 0x43FFFFFFE0000000, float %points)
-  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %1, float %points
-  %2 = bitcast float %value.addr.0.i.i to i32
-  %sub.i.i = add i32 %2, -536870912
+if.end7.i.i:                                      ; preds = %if.end.i.i
+  %or.cond1.i.i = fcmp ogt float %0, 0x43FFFFFFE0000000
+  %2 = tail call float @llvm.copysign.f32(float 0x43FFFFFFE0000000, float %points)
+  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %2, float %points
+  %3 = bitcast float %value.addr.0.i.i to i32
+  %sub.i.i = add i32 %3, -536870912
   br label %_ZN8facebook4yoga5value6pointsEf.exit
 
-_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
+_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2140081935, %if.end.i.i ]
   %padding_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 8
-  %3 = and i32 %edge, 255
-  %conv.i.i = zext nneg i32 %3 to i64
+  %4 = and i32 %edge, 255
+  %conv.i.i = zext nneg i32 %4 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %padding_.i.i, i64 0, i64 %conv.i.i
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -1193,36 +1179,34 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style7paddingENS2_4Edg
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetPaddingPercent(ptr noundef %node, i32 noundef %edge, float noundef %percent) local_unnamed_addr #0 {
 entry:
+  %cmp.i.i.i = fcmp uno float %percent, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %entry
   %0 = tail call float @llvm.fabs.f32(float %percent)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+  %1 = fcmp oeq float %0, 0x7FF0000000000000
+  br i1 %1, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %entry
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %percent, 0.000000e+00
-  br i1 %cmp.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false3.i.i
+  %or.cond.i.i = fcmp olt float %0, 0x3C00000000000000
+  %or.cond4.i.i = or i1 %cmp.i.i, %or.cond.i.i
+  br i1 %or.cond4.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end7.i.i
 
-lor.lhs.false3.i.i:                               ; preds = %if.end.i.i
-  %cmp4.i.i = fcmp olt float %percent, 0x3C00000000000000
-  %cmp5.i.i = fcmp ogt float %percent, 0xBC00000000000000
-  %or.cond.i.i = and i1 %cmp4.i.i, %cmp5.i.i
-  br i1 %or.cond.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end7.i.i
-
-if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
-  %cmp8.i.i = fcmp ogt float %percent, 0x43EFFFFFE0000000
-  %cmp10.i.i = fcmp olt float %percent, 0xC3EFFFFFE0000000
-  %or.cond1.i.i = or i1 %cmp8.i.i, %cmp10.i.i
-  %1 = tail call float @llvm.copysign.f32(float 0x43EFFFFFE0000000, float %percent)
-  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %1, float %percent
-  %2 = bitcast float %value.addr.0.i.i to i32
-  %sub.i.i = add i32 %2, -536870912
+if.end7.i.i:                                      ; preds = %if.end.i.i
+  %or.cond1.i.i = fcmp ogt float %0, 0x43EFFFFFE0000000
+  %2 = tail call float @llvm.copysign.f32(float 0x43EFFFFFE0000000, float %percent)
+  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %2, float %percent
+  %3 = bitcast float %value.addr.0.i.i to i32
+  %sub.i.i = add i32 %3, -536870912
   %or.i.i = or i32 %sub.i.i, 1073741824
   br label %_ZN8facebook4yoga5value7percentEf.exit
 
-_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
+_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2139156720, %if.end.i.i ]
   %padding_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 8
-  %3 = and i32 %edge, 255
-  %conv.i.i = zext nneg i32 %3 to i64
+  %4 = and i32 %edge, 255
+  %conv.i.i = zext nneg i32 %4 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %padding_.i.i, i64 0, i64 %conv.i.i
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -1290,35 +1274,33 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %entry, %sw.bb.i, %
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetBorder(ptr noundef %node, i32 noundef %edge, float noundef %border) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
+  %cmp.i.i.i = fcmp uno float %border, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %entry
   %0 = tail call float @llvm.fabs.f32(float %border)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+  %1 = fcmp oeq float %0, 0x7FF0000000000000
+  br i1 %1, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %entry
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %border, 0.000000e+00
-  br i1 %cmp.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false3.i.i
+  %or.cond.i.i = fcmp olt float %0, 0x3C00000000000000
+  %or.cond4.i.i = or i1 %cmp.i.i, %or.cond.i.i
+  br i1 %or.cond4.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end7.i.i
 
-lor.lhs.false3.i.i:                               ; preds = %if.end.i.i
-  %cmp4.i.i = fcmp olt float %border, 0x3C00000000000000
-  %cmp5.i.i = fcmp ogt float %border, 0xBC00000000000000
-  %or.cond.i.i = and i1 %cmp4.i.i, %cmp5.i.i
-  br i1 %or.cond.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end7.i.i
-
-if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
-  %cmp8.i.i = fcmp ogt float %border, 0x43FFFFFFE0000000
-  %cmp10.i.i = fcmp olt float %border, 0xC3FFFFFFE0000000
-  %or.cond1.i.i = or i1 %cmp8.i.i, %cmp10.i.i
-  %1 = tail call float @llvm.copysign.f32(float 0x43FFFFFFE0000000, float %border)
-  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %1, float %border
-  %2 = bitcast float %value.addr.0.i.i to i32
-  %sub.i.i = add i32 %2, -536870912
+if.end7.i.i:                                      ; preds = %if.end.i.i
+  %or.cond1.i.i = fcmp ogt float %0, 0x43FFFFFFE0000000
+  %2 = tail call float @llvm.copysign.f32(float 0x43FFFFFFE0000000, float %border)
+  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %2, float %border
+  %3 = bitcast float %value.addr.0.i.i to i32
+  %sub.i.i = add i32 %3, -536870912
   br label %_ZN8facebook4yoga5value6pointsEf.exit
 
-_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
+_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2140081935, %if.end.i.i ]
   %border_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 9
-  %3 = and i32 %edge, 255
-  %conv.i.i = zext nneg i32 %3 to i64
+  %4 = and i32 %edge, 255
+  %conv.i.i = zext nneg i32 %4 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %border_.i.i, i64 0, i64 %conv.i.i
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -1373,35 +1355,33 @@ return:                                           ; preds = %if.end, %if.end.i, 
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetGap(ptr noundef %node, i32 noundef %gutter, float noundef %gapLength) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
+  %cmp.i.i.i = fcmp uno float %gapLength, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %entry
   %0 = tail call float @llvm.fabs.f32(float %gapLength)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+  %1 = fcmp oeq float %0, 0x7FF0000000000000
+  br i1 %1, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %entry
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %gapLength, 0.000000e+00
-  br i1 %cmp.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false3.i.i
+  %or.cond.i.i = fcmp olt float %0, 0x3C00000000000000
+  %or.cond4.i.i = or i1 %cmp.i.i, %or.cond.i.i
+  br i1 %or.cond4.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end7.i.i
 
-lor.lhs.false3.i.i:                               ; preds = %if.end.i.i
-  %cmp4.i.i = fcmp olt float %gapLength, 0x3C00000000000000
-  %cmp5.i.i = fcmp ogt float %gapLength, 0xBC00000000000000
-  %or.cond.i.i = and i1 %cmp4.i.i, %cmp5.i.i
-  br i1 %or.cond.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end7.i.i
-
-if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
-  %cmp8.i.i = fcmp ogt float %gapLength, 0x43FFFFFFE0000000
-  %cmp10.i.i = fcmp olt float %gapLength, 0xC3FFFFFFE0000000
-  %or.cond1.i.i = or i1 %cmp8.i.i, %cmp10.i.i
-  %1 = tail call float @llvm.copysign.f32(float 0x43FFFFFFE0000000, float %gapLength)
-  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %1, float %gapLength
-  %2 = bitcast float %value.addr.0.i.i to i32
-  %sub.i.i = add i32 %2, -536870912
+if.end7.i.i:                                      ; preds = %if.end.i.i
+  %or.cond1.i.i = fcmp ogt float %0, 0x43FFFFFFE0000000
+  %2 = tail call float @llvm.copysign.f32(float 0x43FFFFFFE0000000, float %gapLength)
+  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %2, float %gapLength
+  %3 = bitcast float %value.addr.0.i.i to i32
+  %sub.i.i = add i32 %3, -536870912
   br label %_ZN8facebook4yoga5value6pointsEf.exit
 
-_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
+_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2140081935, %if.end.i.i ]
   %gap_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 10
-  %3 = and i32 %gutter, 255
-  %conv.i.i = zext nneg i32 %3 to i64
+  %4 = and i32 %gutter, 255
+  %conv.i.i = zext nneg i32 %4 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [3 x %"class.facebook::yoga::CompactValue"], ptr %gap_.i.i, i64 0, i64 %conv.i.i
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -1489,32 +1469,30 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetWidth(ptr noundef %node, float noundef %points) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
+  %cmp.i.i.i = fcmp uno float %points, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %entry
   %0 = tail call float @llvm.fabs.f32(float %points)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+  %1 = fcmp oeq float %0, 0x7FF0000000000000
+  br i1 %1, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %entry
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %points, 0.000000e+00
-  br i1 %cmp.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false3.i.i
+  %or.cond.i.i = fcmp olt float %0, 0x3C00000000000000
+  %or.cond4.i.i = or i1 %cmp.i.i, %or.cond.i.i
+  br i1 %or.cond4.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end7.i.i
 
-lor.lhs.false3.i.i:                               ; preds = %if.end.i.i
-  %cmp4.i.i = fcmp olt float %points, 0x3C00000000000000
-  %cmp5.i.i = fcmp ogt float %points, 0xBC00000000000000
-  %or.cond.i.i = and i1 %cmp4.i.i, %cmp5.i.i
-  br i1 %or.cond.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end7.i.i
-
-if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
-  %cmp8.i.i = fcmp ogt float %points, 0x43FFFFFFE0000000
-  %cmp10.i.i = fcmp olt float %points, 0xC3FFFFFFE0000000
-  %or.cond1.i.i = or i1 %cmp8.i.i, %cmp10.i.i
-  %1 = tail call float @llvm.copysign.f32(float 0x43FFFFFFE0000000, float %points)
-  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %1, float %points
-  %2 = bitcast float %value.addr.0.i.i to i32
-  %sub.i.i = add i32 %2, -536870912
+if.end7.i.i:                                      ; preds = %if.end.i.i
+  %or.cond1.i.i = fcmp ogt float %0, 0x43FFFFFFE0000000
+  %2 = tail call float @llvm.copysign.f32(float 0x43FFFFFFE0000000, float %points)
+  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %2, float %points
+  %3 = bitcast float %value.addr.0.i.i to i32
+  %sub.i.i = add i32 %3, -536870912
   br label %_ZN8facebook4yoga5value6pointsEf.exit
 
-_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
+_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2140081935, %if.end.i.i ]
   %dimensions_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 11
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %dimensions_.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -1532,33 +1510,31 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9D
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetWidthPercent(ptr noundef %node, float noundef %percent) local_unnamed_addr #0 {
 entry:
+  %cmp.i.i.i = fcmp uno float %percent, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %entry
   %0 = tail call float @llvm.fabs.f32(float %percent)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+  %1 = fcmp oeq float %0, 0x7FF0000000000000
+  br i1 %1, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %entry
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %percent, 0.000000e+00
-  br i1 %cmp.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false3.i.i
+  %or.cond.i.i = fcmp olt float %0, 0x3C00000000000000
+  %or.cond4.i.i = or i1 %cmp.i.i, %or.cond.i.i
+  br i1 %or.cond4.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end7.i.i
 
-lor.lhs.false3.i.i:                               ; preds = %if.end.i.i
-  %cmp4.i.i = fcmp olt float %percent, 0x3C00000000000000
-  %cmp5.i.i = fcmp ogt float %percent, 0xBC00000000000000
-  %or.cond.i.i = and i1 %cmp4.i.i, %cmp5.i.i
-  br i1 %or.cond.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end7.i.i
-
-if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
-  %cmp8.i.i = fcmp ogt float %percent, 0x43EFFFFFE0000000
-  %cmp10.i.i = fcmp olt float %percent, 0xC3EFFFFFE0000000
-  %or.cond1.i.i = or i1 %cmp8.i.i, %cmp10.i.i
-  %1 = tail call float @llvm.copysign.f32(float 0x43EFFFFFE0000000, float %percent)
-  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %1, float %percent
-  %2 = bitcast float %value.addr.0.i.i to i32
-  %sub.i.i = add i32 %2, -536870912
+if.end7.i.i:                                      ; preds = %if.end.i.i
+  %or.cond1.i.i = fcmp ogt float %0, 0x43EFFFFFE0000000
+  %2 = tail call float @llvm.copysign.f32(float 0x43EFFFFFE0000000, float %percent)
+  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %2, float %percent
+  %3 = bitcast float %value.addr.0.i.i to i32
+  %sub.i.i = add i32 %3, -536870912
   %or.i.i = or i32 %sub.i.i, 1073741824
   br label %_ZN8facebook4yoga5value7percentEf.exit
 
-_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
+_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2139156720, %if.end.i.i ]
   %dimensions_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 11
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %dimensions_.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -1640,32 +1616,30 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %entry, %sw.bb.i, %
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetHeight(ptr noundef %node, float noundef %points) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
+  %cmp.i.i.i = fcmp uno float %points, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %entry
   %0 = tail call float @llvm.fabs.f32(float %points)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+  %1 = fcmp oeq float %0, 0x7FF0000000000000
+  br i1 %1, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %entry
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %points, 0.000000e+00
-  br i1 %cmp.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false3.i.i
+  %or.cond.i.i = fcmp olt float %0, 0x3C00000000000000
+  %or.cond4.i.i = or i1 %cmp.i.i, %or.cond.i.i
+  br i1 %or.cond4.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end7.i.i
 
-lor.lhs.false3.i.i:                               ; preds = %if.end.i.i
-  %cmp4.i.i = fcmp olt float %points, 0x3C00000000000000
-  %cmp5.i.i = fcmp ogt float %points, 0xBC00000000000000
-  %or.cond.i.i = and i1 %cmp4.i.i, %cmp5.i.i
-  br i1 %or.cond.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end7.i.i
-
-if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
-  %cmp8.i.i = fcmp ogt float %points, 0x43FFFFFFE0000000
-  %cmp10.i.i = fcmp olt float %points, 0xC3FFFFFFE0000000
-  %or.cond1.i.i = or i1 %cmp8.i.i, %cmp10.i.i
-  %1 = tail call float @llvm.copysign.f32(float 0x43FFFFFFE0000000, float %points)
-  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %1, float %points
-  %2 = bitcast float %value.addr.0.i.i to i32
-  %sub.i.i = add i32 %2, -536870912
+if.end7.i.i:                                      ; preds = %if.end.i.i
+  %or.cond1.i.i = fcmp ogt float %0, 0x43FFFFFFE0000000
+  %2 = tail call float @llvm.copysign.f32(float 0x43FFFFFFE0000000, float %points)
+  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %2, float %points
+  %3 = bitcast float %value.addr.0.i.i to i32
+  %sub.i.i = add i32 %3, -536870912
   br label %_ZN8facebook4yoga5value6pointsEf.exit
 
-_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
+_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2140081935, %if.end.i.i ]
   %arrayidx.i.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 11, i32 0, i64 1
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -1683,33 +1657,31 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9D
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetHeightPercent(ptr noundef %node, float noundef %percent) local_unnamed_addr #0 {
 entry:
+  %cmp.i.i.i = fcmp uno float %percent, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %entry
   %0 = tail call float @llvm.fabs.f32(float %percent)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+  %1 = fcmp oeq float %0, 0x7FF0000000000000
+  br i1 %1, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %entry
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %percent, 0.000000e+00
-  br i1 %cmp.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false3.i.i
+  %or.cond.i.i = fcmp olt float %0, 0x3C00000000000000
+  %or.cond4.i.i = or i1 %cmp.i.i, %or.cond.i.i
+  br i1 %or.cond4.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end7.i.i
 
-lor.lhs.false3.i.i:                               ; preds = %if.end.i.i
-  %cmp4.i.i = fcmp olt float %percent, 0x3C00000000000000
-  %cmp5.i.i = fcmp ogt float %percent, 0xBC00000000000000
-  %or.cond.i.i = and i1 %cmp4.i.i, %cmp5.i.i
-  br i1 %or.cond.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end7.i.i
-
-if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
-  %cmp8.i.i = fcmp ogt float %percent, 0x43EFFFFFE0000000
-  %cmp10.i.i = fcmp olt float %percent, 0xC3EFFFFFE0000000
-  %or.cond1.i.i = or i1 %cmp8.i.i, %cmp10.i.i
-  %1 = tail call float @llvm.copysign.f32(float 0x43EFFFFFE0000000, float %percent)
-  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %1, float %percent
-  %2 = bitcast float %value.addr.0.i.i to i32
-  %sub.i.i = add i32 %2, -536870912
+if.end7.i.i:                                      ; preds = %if.end.i.i
+  %or.cond1.i.i = fcmp ogt float %0, 0x43EFFFFFE0000000
+  %2 = tail call float @llvm.copysign.f32(float 0x43EFFFFFE0000000, float %percent)
+  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %2, float %percent
+  %3 = bitcast float %value.addr.0.i.i to i32
+  %sub.i.i = add i32 %3, -536870912
   %or.i.i = or i32 %sub.i.i, 1073741824
   br label %_ZN8facebook4yoga5value7percentEf.exit
 
-_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
+_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2139156720, %if.end.i.i ]
   %arrayidx.i.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 11, i32 0, i64 1
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -1791,32 +1763,30 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %entry, %sw.bb.i, %
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetMinWidth(ptr noundef %node, float noundef %minWidth) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
+  %cmp.i.i.i = fcmp uno float %minWidth, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %entry
   %0 = tail call float @llvm.fabs.f32(float %minWidth)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+  %1 = fcmp oeq float %0, 0x7FF0000000000000
+  br i1 %1, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %entry
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %minWidth, 0.000000e+00
-  br i1 %cmp.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false3.i.i
+  %or.cond.i.i = fcmp olt float %0, 0x3C00000000000000
+  %or.cond4.i.i = or i1 %cmp.i.i, %or.cond.i.i
+  br i1 %or.cond4.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end7.i.i
 
-lor.lhs.false3.i.i:                               ; preds = %if.end.i.i
-  %cmp4.i.i = fcmp olt float %minWidth, 0x3C00000000000000
-  %cmp5.i.i = fcmp ogt float %minWidth, 0xBC00000000000000
-  %or.cond.i.i = and i1 %cmp4.i.i, %cmp5.i.i
-  br i1 %or.cond.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end7.i.i
-
-if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
-  %cmp8.i.i = fcmp ogt float %minWidth, 0x43FFFFFFE0000000
-  %cmp10.i.i = fcmp olt float %minWidth, 0xC3FFFFFFE0000000
-  %or.cond1.i.i = or i1 %cmp8.i.i, %cmp10.i.i
-  %1 = tail call float @llvm.copysign.f32(float 0x43FFFFFFE0000000, float %minWidth)
-  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %1, float %minWidth
-  %2 = bitcast float %value.addr.0.i.i to i32
-  %sub.i.i = add i32 %2, -536870912
+if.end7.i.i:                                      ; preds = %if.end.i.i
+  %or.cond1.i.i = fcmp ogt float %0, 0x43FFFFFFE0000000
+  %2 = tail call float @llvm.copysign.f32(float 0x43FFFFFFE0000000, float %minWidth)
+  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %2, float %minWidth
+  %3 = bitcast float %value.addr.0.i.i to i32
+  %sub.i.i = add i32 %3, -536870912
   br label %_ZN8facebook4yoga5value6pointsEf.exit
 
-_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
+_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2140081935, %if.end.i.i ]
   %minDimensions_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 12
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %minDimensions_.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -1834,33 +1804,31 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetMinWidthPercent(ptr noundef %node, float noundef %minWidth) local_unnamed_addr #0 {
 entry:
+  %cmp.i.i.i = fcmp uno float %minWidth, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %entry
   %0 = tail call float @llvm.fabs.f32(float %minWidth)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+  %1 = fcmp oeq float %0, 0x7FF0000000000000
+  br i1 %1, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %entry
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %minWidth, 0.000000e+00
-  br i1 %cmp.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false3.i.i
+  %or.cond.i.i = fcmp olt float %0, 0x3C00000000000000
+  %or.cond4.i.i = or i1 %cmp.i.i, %or.cond.i.i
+  br i1 %or.cond4.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end7.i.i
 
-lor.lhs.false3.i.i:                               ; preds = %if.end.i.i
-  %cmp4.i.i = fcmp olt float %minWidth, 0x3C00000000000000
-  %cmp5.i.i = fcmp ogt float %minWidth, 0xBC00000000000000
-  %or.cond.i.i = and i1 %cmp4.i.i, %cmp5.i.i
-  br i1 %or.cond.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end7.i.i
-
-if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
-  %cmp8.i.i = fcmp ogt float %minWidth, 0x43EFFFFFE0000000
-  %cmp10.i.i = fcmp olt float %minWidth, 0xC3EFFFFFE0000000
-  %or.cond1.i.i = or i1 %cmp8.i.i, %cmp10.i.i
-  %1 = tail call float @llvm.copysign.f32(float 0x43EFFFFFE0000000, float %minWidth)
-  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %1, float %minWidth
-  %2 = bitcast float %value.addr.0.i.i to i32
-  %sub.i.i = add i32 %2, -536870912
+if.end7.i.i:                                      ; preds = %if.end.i.i
+  %or.cond1.i.i = fcmp ogt float %0, 0x43EFFFFFE0000000
+  %2 = tail call float @llvm.copysign.f32(float 0x43EFFFFFE0000000, float %minWidth)
+  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %2, float %minWidth
+  %3 = bitcast float %value.addr.0.i.i to i32
+  %sub.i.i = add i32 %3, -536870912
   %or.i.i = or i32 %sub.i.i, 1073741824
   br label %_ZN8facebook4yoga5value7percentEf.exit
 
-_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
+_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2139156720, %if.end.i.i ]
   %minDimensions_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 12
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %minDimensions_.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -1925,32 +1893,30 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %entry, %sw.bb.i, %
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetMinHeight(ptr noundef %node, float noundef %minHeight) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
+  %cmp.i.i.i = fcmp uno float %minHeight, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %entry
   %0 = tail call float @llvm.fabs.f32(float %minHeight)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+  %1 = fcmp oeq float %0, 0x7FF0000000000000
+  br i1 %1, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %entry
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %minHeight, 0.000000e+00
-  br i1 %cmp.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false3.i.i
+  %or.cond.i.i = fcmp olt float %0, 0x3C00000000000000
+  %or.cond4.i.i = or i1 %cmp.i.i, %or.cond.i.i
+  br i1 %or.cond4.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end7.i.i
 
-lor.lhs.false3.i.i:                               ; preds = %if.end.i.i
-  %cmp4.i.i = fcmp olt float %minHeight, 0x3C00000000000000
-  %cmp5.i.i = fcmp ogt float %minHeight, 0xBC00000000000000
-  %or.cond.i.i = and i1 %cmp4.i.i, %cmp5.i.i
-  br i1 %or.cond.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end7.i.i
-
-if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
-  %cmp8.i.i = fcmp ogt float %minHeight, 0x43FFFFFFE0000000
-  %cmp10.i.i = fcmp olt float %minHeight, 0xC3FFFFFFE0000000
-  %or.cond1.i.i = or i1 %cmp8.i.i, %cmp10.i.i
-  %1 = tail call float @llvm.copysign.f32(float 0x43FFFFFFE0000000, float %minHeight)
-  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %1, float %minHeight
-  %2 = bitcast float %value.addr.0.i.i to i32
-  %sub.i.i = add i32 %2, -536870912
+if.end7.i.i:                                      ; preds = %if.end.i.i
+  %or.cond1.i.i = fcmp ogt float %0, 0x43FFFFFFE0000000
+  %2 = tail call float @llvm.copysign.f32(float 0x43FFFFFFE0000000, float %minHeight)
+  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %2, float %minHeight
+  %3 = bitcast float %value.addr.0.i.i to i32
+  %sub.i.i = add i32 %3, -536870912
   br label %_ZN8facebook4yoga5value6pointsEf.exit
 
-_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
+_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2140081935, %if.end.i.i ]
   %arrayidx.i.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 12, i32 0, i64 1
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -1968,33 +1934,31 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetMinHeightPercent(ptr noundef %node, float noundef %minHeight) local_unnamed_addr #0 {
 entry:
+  %cmp.i.i.i = fcmp uno float %minHeight, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %entry
   %0 = tail call float @llvm.fabs.f32(float %minHeight)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+  %1 = fcmp oeq float %0, 0x7FF0000000000000
+  br i1 %1, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %entry
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %minHeight, 0.000000e+00
-  br i1 %cmp.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false3.i.i
+  %or.cond.i.i = fcmp olt float %0, 0x3C00000000000000
+  %or.cond4.i.i = or i1 %cmp.i.i, %or.cond.i.i
+  br i1 %or.cond4.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end7.i.i
 
-lor.lhs.false3.i.i:                               ; preds = %if.end.i.i
-  %cmp4.i.i = fcmp olt float %minHeight, 0x3C00000000000000
-  %cmp5.i.i = fcmp ogt float %minHeight, 0xBC00000000000000
-  %or.cond.i.i = and i1 %cmp4.i.i, %cmp5.i.i
-  br i1 %or.cond.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end7.i.i
-
-if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
-  %cmp8.i.i = fcmp ogt float %minHeight, 0x43EFFFFFE0000000
-  %cmp10.i.i = fcmp olt float %minHeight, 0xC3EFFFFFE0000000
-  %or.cond1.i.i = or i1 %cmp8.i.i, %cmp10.i.i
-  %1 = tail call float @llvm.copysign.f32(float 0x43EFFFFFE0000000, float %minHeight)
-  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %1, float %minHeight
-  %2 = bitcast float %value.addr.0.i.i to i32
-  %sub.i.i = add i32 %2, -536870912
+if.end7.i.i:                                      ; preds = %if.end.i.i
+  %or.cond1.i.i = fcmp ogt float %0, 0x43EFFFFFE0000000
+  %2 = tail call float @llvm.copysign.f32(float 0x43EFFFFFE0000000, float %minHeight)
+  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %2, float %minHeight
+  %3 = bitcast float %value.addr.0.i.i to i32
+  %sub.i.i = add i32 %3, -536870912
   %or.i.i = or i32 %sub.i.i, 1073741824
   br label %_ZN8facebook4yoga5value7percentEf.exit
 
-_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
+_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2139156720, %if.end.i.i ]
   %arrayidx.i.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 12, i32 0, i64 1
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -2059,32 +2023,30 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %entry, %sw.bb.i, %
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetMaxWidth(ptr noundef %node, float noundef %maxWidth) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
+  %cmp.i.i.i = fcmp uno float %maxWidth, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %entry
   %0 = tail call float @llvm.fabs.f32(float %maxWidth)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+  %1 = fcmp oeq float %0, 0x7FF0000000000000
+  br i1 %1, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %entry
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %maxWidth, 0.000000e+00
-  br i1 %cmp.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false3.i.i
+  %or.cond.i.i = fcmp olt float %0, 0x3C00000000000000
+  %or.cond4.i.i = or i1 %cmp.i.i, %or.cond.i.i
+  br i1 %or.cond4.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end7.i.i
 
-lor.lhs.false3.i.i:                               ; preds = %if.end.i.i
-  %cmp4.i.i = fcmp olt float %maxWidth, 0x3C00000000000000
-  %cmp5.i.i = fcmp ogt float %maxWidth, 0xBC00000000000000
-  %or.cond.i.i = and i1 %cmp4.i.i, %cmp5.i.i
-  br i1 %or.cond.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end7.i.i
-
-if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
-  %cmp8.i.i = fcmp ogt float %maxWidth, 0x43FFFFFFE0000000
-  %cmp10.i.i = fcmp olt float %maxWidth, 0xC3FFFFFFE0000000
-  %or.cond1.i.i = or i1 %cmp8.i.i, %cmp10.i.i
-  %1 = tail call float @llvm.copysign.f32(float 0x43FFFFFFE0000000, float %maxWidth)
-  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %1, float %maxWidth
-  %2 = bitcast float %value.addr.0.i.i to i32
-  %sub.i.i = add i32 %2, -536870912
+if.end7.i.i:                                      ; preds = %if.end.i.i
+  %or.cond1.i.i = fcmp ogt float %0, 0x43FFFFFFE0000000
+  %2 = tail call float @llvm.copysign.f32(float 0x43FFFFFFE0000000, float %maxWidth)
+  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %2, float %maxWidth
+  %3 = bitcast float %value.addr.0.i.i to i32
+  %sub.i.i = add i32 %3, -536870912
   br label %_ZN8facebook4yoga5value6pointsEf.exit
 
-_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
+_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2140081935, %if.end.i.i ]
   %maxDimensions_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 13
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %maxDimensions_.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -2102,33 +2064,31 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetMaxWidthPercent(ptr noundef %node, float noundef %maxWidth) local_unnamed_addr #0 {
 entry:
+  %cmp.i.i.i = fcmp uno float %maxWidth, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %entry
   %0 = tail call float @llvm.fabs.f32(float %maxWidth)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+  %1 = fcmp oeq float %0, 0x7FF0000000000000
+  br i1 %1, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %entry
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %maxWidth, 0.000000e+00
-  br i1 %cmp.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false3.i.i
+  %or.cond.i.i = fcmp olt float %0, 0x3C00000000000000
+  %or.cond4.i.i = or i1 %cmp.i.i, %or.cond.i.i
+  br i1 %or.cond4.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end7.i.i
 
-lor.lhs.false3.i.i:                               ; preds = %if.end.i.i
-  %cmp4.i.i = fcmp olt float %maxWidth, 0x3C00000000000000
-  %cmp5.i.i = fcmp ogt float %maxWidth, 0xBC00000000000000
-  %or.cond.i.i = and i1 %cmp4.i.i, %cmp5.i.i
-  br i1 %or.cond.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end7.i.i
-
-if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
-  %cmp8.i.i = fcmp ogt float %maxWidth, 0x43EFFFFFE0000000
-  %cmp10.i.i = fcmp olt float %maxWidth, 0xC3EFFFFFE0000000
-  %or.cond1.i.i = or i1 %cmp8.i.i, %cmp10.i.i
-  %1 = tail call float @llvm.copysign.f32(float 0x43EFFFFFE0000000, float %maxWidth)
-  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %1, float %maxWidth
-  %2 = bitcast float %value.addr.0.i.i to i32
-  %sub.i.i = add i32 %2, -536870912
+if.end7.i.i:                                      ; preds = %if.end.i.i
+  %or.cond1.i.i = fcmp ogt float %0, 0x43EFFFFFE0000000
+  %2 = tail call float @llvm.copysign.f32(float 0x43EFFFFFE0000000, float %maxWidth)
+  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %2, float %maxWidth
+  %3 = bitcast float %value.addr.0.i.i to i32
+  %sub.i.i = add i32 %3, -536870912
   %or.i.i = or i32 %sub.i.i, 1073741824
   br label %_ZN8facebook4yoga5value7percentEf.exit
 
-_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
+_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2139156720, %if.end.i.i ]
   %maxDimensions_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 13
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %maxDimensions_.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -2193,32 +2153,30 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %entry, %sw.bb.i, %
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetMaxHeight(ptr noundef %node, float noundef %maxHeight) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
+  %cmp.i.i.i = fcmp uno float %maxHeight, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %entry
   %0 = tail call float @llvm.fabs.f32(float %maxHeight)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
+  %1 = fcmp oeq float %0, 0x7FF0000000000000
+  br i1 %1, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %entry
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %maxHeight, 0.000000e+00
-  br i1 %cmp.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %lor.lhs.false3.i.i
+  %or.cond.i.i = fcmp olt float %0, 0x3C00000000000000
+  %or.cond4.i.i = or i1 %cmp.i.i, %or.cond.i.i
+  br i1 %or.cond4.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end7.i.i
 
-lor.lhs.false3.i.i:                               ; preds = %if.end.i.i
-  %cmp4.i.i = fcmp olt float %maxHeight, 0x3C00000000000000
-  %cmp5.i.i = fcmp ogt float %maxHeight, 0xBC00000000000000
-  %or.cond.i.i = and i1 %cmp4.i.i, %cmp5.i.i
-  br i1 %or.cond.i.i, label %_ZN8facebook4yoga5value6pointsEf.exit, label %if.end7.i.i
-
-if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
-  %cmp8.i.i = fcmp ogt float %maxHeight, 0x43FFFFFFE0000000
-  %cmp10.i.i = fcmp olt float %maxHeight, 0xC3FFFFFFE0000000
-  %or.cond1.i.i = or i1 %cmp8.i.i, %cmp10.i.i
-  %1 = tail call float @llvm.copysign.f32(float 0x43FFFFFFE0000000, float %maxHeight)
-  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %1, float %maxHeight
-  %2 = bitcast float %value.addr.0.i.i to i32
-  %sub.i.i = add i32 %2, -536870912
+if.end7.i.i:                                      ; preds = %if.end.i.i
+  %or.cond1.i.i = fcmp ogt float %0, 0x43FFFFFFE0000000
+  %2 = tail call float @llvm.copysign.f32(float 0x43FFFFFFE0000000, float %maxHeight)
+  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %2, float %maxHeight
+  %3 = bitcast float %value.addr.0.i.i to i32
+  %sub.i.i = add i32 %3, -536870912
   br label %_ZN8facebook4yoga5value6pointsEf.exit
 
-_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
+_ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2140081935, %if.end.i.i ]
   %arrayidx.i.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 13, i32 0, i64 1
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
@@ -2236,33 +2194,31 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetMaxHeightPercent(ptr noundef %node, float noundef %maxHeight) local_unnamed_addr #0 {
 entry:
+  %cmp.i.i.i = fcmp uno float %maxHeight, 0.000000e+00
+  br i1 %cmp.i.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false.i.i
+
+lor.lhs.false.i.i:                                ; preds = %entry
   %0 = tail call float @llvm.fabs.f32(float %maxHeight)
-  %or.cond6.i.i = fcmp ueq float %0, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
+  %1 = fcmp oeq float %0, 0x7FF0000000000000
+  br i1 %1, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %entry
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %cmp.i.i = fcmp oeq float %maxHeight, 0.000000e+00
-  br i1 %cmp.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %lor.lhs.false3.i.i
+  %or.cond.i.i = fcmp olt float %0, 0x3C00000000000000
+  %or.cond4.i.i = or i1 %cmp.i.i, %or.cond.i.i
+  br i1 %or.cond4.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end7.i.i
 
-lor.lhs.false3.i.i:                               ; preds = %if.end.i.i
-  %cmp4.i.i = fcmp olt float %maxHeight, 0x3C00000000000000
-  %cmp5.i.i = fcmp ogt float %maxHeight, 0xBC00000000000000
-  %or.cond.i.i = and i1 %cmp4.i.i, %cmp5.i.i
-  br i1 %or.cond.i.i, label %_ZN8facebook4yoga5value7percentEf.exit, label %if.end7.i.i
-
-if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
-  %cmp8.i.i = fcmp ogt float %maxHeight, 0x43EFFFFFE0000000
-  %cmp10.i.i = fcmp olt float %maxHeight, 0xC3EFFFFFE0000000
-  %or.cond1.i.i = or i1 %cmp8.i.i, %cmp10.i.i
-  %1 = tail call float @llvm.copysign.f32(float 0x43EFFFFFE0000000, float %maxHeight)
-  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %1, float %maxHeight
-  %2 = bitcast float %value.addr.0.i.i to i32
-  %sub.i.i = add i32 %2, -536870912
+if.end7.i.i:                                      ; preds = %if.end.i.i
+  %or.cond1.i.i = fcmp ogt float %0, 0x43EFFFFFE0000000
+  %2 = tail call float @llvm.copysign.f32(float 0x43EFFFFFE0000000, float %maxHeight)
+  %value.addr.0.i.i = select i1 %or.cond1.i.i, float %2, float %maxHeight
+  %3 = bitcast float %value.addr.0.i.i to i32
+  %sub.i.i = add i32 %3, -536870912
   %or.i.i = or i32 %sub.i.i, 1073741824
   br label %_ZN8facebook4yoga5value7percentEf.exit
 
-_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
+_ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %lor.lhs.false.i.i, %if.end.i.i, %if.end7.i.i
+  %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %lor.lhs.false.i.i ], [ 2143289344, %entry ], [ 2139156720, %if.end.i.i ]
   %arrayidx.i.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 13, i32 0, i64 1
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i

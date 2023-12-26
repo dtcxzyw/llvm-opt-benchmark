@@ -16,7 +16,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local i32 @geohashEncode(ptr noundef readonly %long_range, ptr noundef readonly %lat_range, double noundef %longitude, double noundef %latitude, i8 noundef zeroext %step, ptr noundef writeonly %hash) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %hash, null
@@ -56,9 +56,8 @@ land.lhs.true18:                                  ; preds = %lor.lhs.false15
   br i1 %tobool20, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true18, %lor.lhs.false15
-  %cmp21 = fcmp ogt double %longitude, 1.800000e+02
-  %cmp24 = fcmp olt double %longitude, -1.800000e+02
-  %or.cond5 = or i1 %cmp21, %cmp24
+  %6 = tail call double @llvm.fabs.f64(double %longitude)
+  %or.cond5 = fcmp ogt double %6, 1.800000e+02
   %cmp27 = fcmp ogt double %latitude, 0x40554345B1A57F00
   %or.cond7 = or i1 %or.cond5, %cmp27
   %cmp30 = fcmp olt double %latitude, 0xC0554345B1A57F00
@@ -69,31 +68,31 @@ if.end33:                                         ; preds = %if.end
   store i64 0, ptr %hash, align 8
   %step34 = getelementptr inbounds %struct.GeoHashBits, ptr %hash, i64 0, i32 1
   store i8 %step, ptr %step34, align 8
-  %6 = load double, ptr %lat_range, align 8
-  %cmp36 = fcmp ogt double %6, %latitude
+  %7 = load double, ptr %lat_range, align 8
+  %cmp36 = fcmp ogt double %7, %latitude
   br i1 %cmp36, label %return, label %lor.lhs.false38
 
 lor.lhs.false38:                                  ; preds = %if.end33
-  %7 = load double, ptr %max, align 8
-  %cmp40 = fcmp olt double %7, %latitude
+  %8 = load double, ptr %max, align 8
+  %cmp40 = fcmp olt double %8, %latitude
   br i1 %cmp40, label %return, label %lor.lhs.false42
 
 lor.lhs.false42:                                  ; preds = %lor.lhs.false38
-  %8 = load double, ptr %long_range, align 8
-  %cmp44 = fcmp ogt double %8, %longitude
+  %9 = load double, ptr %long_range, align 8
+  %cmp44 = fcmp ogt double %9, %longitude
   br i1 %cmp44, label %return, label %lor.lhs.false46
 
 lor.lhs.false46:                                  ; preds = %lor.lhs.false42
-  %9 = load double, ptr %max16, align 8
-  %cmp48 = fcmp olt double %9, %longitude
+  %10 = load double, ptr %max16, align 8
+  %cmp48 = fcmp olt double %10, %longitude
   br i1 %cmp48, label %return, label %if.end51
 
 if.end51:                                         ; preds = %lor.lhs.false46
-  %sub = fsub double %latitude, %6
-  %sub55 = fsub double %7, %6
+  %sub = fsub double %latitude, %7
+  %sub55 = fsub double %8, %7
   %div = fdiv double %sub, %sub55
-  %sub57 = fsub double %longitude, %8
-  %sub60 = fsub double %9, %8
+  %sub57 = fsub double %longitude, %9
+  %sub60 = fsub double %10, %9
   %div61 = fdiv double %sub57, %sub60
   %sh_prom = zext nneg i8 %step to i64
   %shl = shl nuw nsw i64 1, %sh_prom
@@ -141,8 +140,8 @@ entry:
   ret i64 %or39
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local i32 @geohashEncodeType(double noundef %longitude, double noundef %latitude, i8 noundef zeroext %step, ptr noundef writeonly %hash) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+define dso_local i32 @geohashEncodeType(double noundef %longitude, double noundef %latitude, i8 noundef zeroext %step, ptr noundef writeonly %hash) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq ptr %hash, null
   %0 = add i8 %step, -33
@@ -151,9 +150,8 @@ entry:
   br i1 %or.cond1.i, label %geohashEncode.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %cmp21.i = fcmp ogt double %longitude, 1.800000e+02
-  %cmp24.i = fcmp olt double %longitude, -1.800000e+02
-  %or.cond5.i = or i1 %cmp21.i, %cmp24.i
+  %2 = tail call double @llvm.fabs.f64(double %longitude)
+  %or.cond5.i = fcmp ogt double %2, 1.800000e+02
   %cmp27.i = fcmp ogt double %latitude, 0x40554345B1A57F00
   %or.cond7.i = or i1 %or.cond5.i, %cmp27.i
   %cmp30.i = fcmp olt double %latitude, 0xC0554345B1A57F00
@@ -183,8 +181,8 @@ geohashEncode.exit:                               ; preds = %entry, %if.end.i, %
   ret i32 %retval.0.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local i32 @geohashEncodeWGS84(double noundef %longitude, double noundef %latitude, i8 noundef zeroext %step, ptr noundef writeonly %hash) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+define dso_local i32 @geohashEncodeWGS84(double noundef %longitude, double noundef %latitude, i8 noundef zeroext %step, ptr noundef writeonly %hash) local_unnamed_addr #3 {
 entry:
   %cmp.i.i = icmp eq ptr %hash, null
   %0 = add i8 %step, -33
@@ -193,9 +191,8 @@ entry:
   br i1 %or.cond1.i.i, label %geohashEncodeType.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %cmp21.i.i = fcmp ogt double %longitude, 1.800000e+02
-  %cmp24.i.i = fcmp olt double %longitude, -1.800000e+02
-  %or.cond5.i.i = or i1 %cmp21.i.i, %cmp24.i.i
+  %2 = tail call double @llvm.fabs.f64(double %longitude)
+  %or.cond5.i.i = fcmp ogt double %2, 1.800000e+02
   %cmp27.i.i = fcmp ogt double %latitude, 0x40554345B1A57F00
   %or.cond7.i.i = or i1 %or.cond5.i.i, %cmp27.i.i
   %cmp30.i.i = fcmp olt double %latitude, 0xC0554345B1A57F00
@@ -245,9 +242,9 @@ if.end51.i.i:                                     ; preds = %if.end.i.i
   %shl31.i = shl nuw nsw i64 %and25.i, 1
   %or32.i = or i64 %shl31.i, %and25.i
   %and33.i = and i64 %or32.i, 6148914691236517205
-  %2 = shl nuw i64 %and29.i, 2
-  %3 = shl nuw nsw i64 %and29.i, 1
-  %and37.i = or i64 %2, %3
+  %3 = shl nuw i64 %and29.i, 2
+  %4 = shl nuw nsw i64 %and29.i, 1
+  %and37.i = or i64 %3, %4
   %shl38.i = and i64 %and37.i, -6148914691236517206
   %or39.i = or disjoint i64 %shl38.i, %and33.i
   store i64 %or39.i, ptr %hash, align 8
@@ -445,7 +442,7 @@ geohashDecode.exit:                               ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @geohashDecodeAreaToLongLat(ptr nocapture noundef readonly %area, ptr noundef writeonly %xy) local_unnamed_addr #1 {
+define dso_local i32 @geohashDecodeAreaToLongLat(ptr nocapture noundef readonly %area, ptr noundef writeonly %xy) local_unnamed_addr #5 {
 entry:
   %tobool.not = icmp eq ptr %xy, null
   br i1 %tobool.not, label %return, label %if.end
@@ -565,7 +562,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @geohashNeighbors(ptr nocapture noundef readonly %hash, ptr nocapture noundef %neighbors) local_unnamed_addr #5 {
+define dso_local void @geohashNeighbors(ptr nocapture noundef readonly %hash, ptr nocapture noundef %neighbors) local_unnamed_addr #1 {
 entry:
   %east = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %east, ptr noundef nonnull align 8 dereferenceable(16) %hash, i64 16, i1 false)
@@ -725,14 +722,17 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

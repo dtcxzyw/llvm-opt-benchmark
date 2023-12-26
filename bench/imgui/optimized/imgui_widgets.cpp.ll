@@ -15628,9 +15628,8 @@ if.then126:                                       ; preds = %if.then123
   br label %if.end144
 
 if.else129:                                       ; preds = %lor.lhs.false24.i211, %land.lhs.true.i208, %if.end14.i206, %if.end14.i206, %if.then105
-  %cmp130 = fcmp oge float %cond7, -1.000000e+02
-  %cmp132 = fcmp ole float %cond7, 1.000000e+02
-  %or.cond1 = and i1 %cmp130, %cmp132
+  %56 = tail call float @llvm.fabs.f32(float %cond7)
+  %or.cond1 = fcmp ole float %56, 1.000000e+02
   %cmp134 = fcmp une float %cond7, 0.000000e+00
   %or.cond2 = and i1 %cmp134, %or.cond1
   %brmerge170 = or i1 %or.cond2, %call108
@@ -15651,25 +15650,25 @@ if.end144:                                        ; preds = %if.then137, %if.els
   %mul147 = fmul float %input_delta.0, 1.000000e+01
   %input_delta.1 = select i1 %call113, float %mul147, float %input_delta.0
   %SliderCurrentAccum149 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 198
-  %56 = load float, ptr %SliderCurrentAccum149, align 4
-  %add150 = fadd float %56, %input_delta.1
+  %57 = load float, ptr %SliderCurrentAccum149, align 4
+  %add150 = fadd float %57, %input_delta.1
   store float %add150, ptr %SliderCurrentAccum149, align 4
   %SliderCurrentAccumDirty151 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 199
   store i8 1, ptr %SliderCurrentAccumDirty151, align 8
   br label %if.end152
 
 if.end152:                                        ; preds = %cond.end102.if.end152_crit_edge, %if.end144
-  %57 = phi float [ %.pre, %cond.end102.if.end152_crit_edge ], [ %add150, %if.end144 ]
+  %58 = phi float [ %.pre, %cond.end102.if.end152_crit_edge ], [ %add150, %if.end144 ]
   %SliderCurrentAccum153 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 198
   %NavActivatePressedId = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 96
-  %58 = load i32, ptr %NavActivatePressedId, align 8
-  %cmp154 = icmp eq i32 %58, %id
+  %59 = load i32, ptr %NavActivatePressedId, align 8
+  %cmp154 = icmp eq i32 %59, %id
   br i1 %cmp154, label %land.lhs.true155, label %if.else159
 
 land.lhs.true155:                                 ; preds = %if.end152
-  %59 = load i8, ptr %ActiveIdIsJustActivated93, align 8
-  %60 = and i8 %59, 1
-  %tobool157.not = icmp eq i8 %60, 0
+  %60 = load i8, ptr %ActiveIdIsJustActivated93, align 8
+  %61 = and i8 %60, 1
+  %tobool157.not = icmp eq i8 %61, 0
   br i1 %tobool157.not, label %if.then158, label %if.else159
 
 if.then158:                                       ; preds = %land.lhs.true155
@@ -15678,27 +15677,27 @@ if.then158:                                       ; preds = %land.lhs.true155
 
 if.else159:                                       ; preds = %land.lhs.true155, %if.end152
   %SliderCurrentAccumDirty160 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 199
-  %61 = load i8, ptr %SliderCurrentAccumDirty160, align 8
-  %62 = and i8 %61, 1
-  %tobool161.not = icmp eq i8 %62, 0
+  %62 = load i8, ptr %SliderCurrentAccumDirty160, align 8
+  %63 = and i8 %62, 1
+  %tobool161.not = icmp eq i8 %63, 0
   br i1 %tobool161.not, label %if.end232, label %if.then162
 
 if.then162:                                       ; preds = %if.else159
-  %63 = load float, ptr %v, align 4
-  %call164 = tail call noundef float @_ZN5ImGui20ScaleRatioFromValueTIfffEEfiT_S1_S1_bff(i32 noundef %data_type, float noundef %63, float noundef %v_min, float noundef %v_max, i1 noundef zeroext %cmp, float noundef %logarithmic_zero_epsilon.0, float noundef %zero_deadzone_halfsize.0)
+  %64 = load float, ptr %v, align 4
+  %call164 = tail call noundef float @_ZN5ImGui20ScaleRatioFromValueTIfffEEfiT_S1_S1_bff(i32 noundef %data_type, float noundef %64, float noundef %v_min, float noundef %v_max, i1 noundef zeroext %cmp, float noundef %logarithmic_zero_epsilon.0, float noundef %zero_deadzone_halfsize.0)
   %cmp165 = fcmp oge float %call164, 1.000000e+00
-  %cmp167 = fcmp ogt float %57, 0.000000e+00
+  %cmp167 = fcmp ogt float %58, 0.000000e+00
   %or.cond3 = select i1 %cmp165, i1 %cmp167, i1 false
   br i1 %or.cond3, label %if.end205, label %lor.lhs.false168
 
 lor.lhs.false168:                                 ; preds = %if.then162
   %cmp169 = fcmp ole float %call164, 0.000000e+00
-  %cmp171 = fcmp olt float %57, 0.000000e+00
+  %cmp171 = fcmp olt float %58, 0.000000e+00
   %or.cond4 = select i1 %cmp169, i1 %cmp171, i1 false
   br i1 %or.cond4, label %if.end205, label %if.else174
 
 if.else174:                                       ; preds = %lor.lhs.false168
-  %add175 = fadd float %57, %call164
+  %add175 = fadd float %58, %call164
   %cmp.i242 = fcmp olt float %add175, 0.000000e+00
   %cmp1.i243 = fcmp ogt float %add175, 1.000000e+00
   %cond.i244 = select i1 %cmp1.i243, float 1.000000e+00, float %add175
@@ -15717,12 +15716,12 @@ if.end185:                                        ; preds = %if.then183, %if.els
   %v_new.0 = phi float [ %call184, %if.then183 ], [ %call178, %if.else174 ]
   %call187 = tail call noundef float @_ZN5ImGui20ScaleRatioFromValueTIfffEEfiT_S1_S1_bff(i32 noundef %data_type, float noundef %v_new.0, float noundef %v_min, float noundef %v_max, i1 noundef zeroext %cmp, float noundef %logarithmic_zero_epsilon.0, float noundef %zero_deadzone_halfsize.0)
   %sub190 = fsub float %call187, %call164
-  %64 = load float, ptr %SliderCurrentAccum153, align 4
-  %cmp.i246 = fcmp olt float %sub190, %57
-  %cmp.i248 = fcmp oge float %sub190, %57
+  %65 = load float, ptr %SliderCurrentAccum153, align 4
+  %cmp.i246 = fcmp olt float %sub190, %58
+  %cmp.i248 = fcmp oge float %sub190, %58
   %cmp.i246.sink = select i1 %cmp167, i1 %cmp.i246, i1 %cmp.i248
-  %cond.i247 = select i1 %cmp.i246.sink, float %sub190, float %57
-  %sub193 = fsub float %64, %cond.i247
+  %cond.i247 = select i1 %cmp.i246.sink, float %sub190, float %58
+  %sub193 = fsub float %65, %cond.i247
   store float %sub193, ptr %SliderCurrentAccum153, align 4
   store i8 0, ptr %SliderCurrentAccumDirty160, align 8
   br label %if.end215
@@ -15735,11 +15734,11 @@ if.end205:                                        ; preds = %if.then162, %lor.lh
 if.end215:                                        ; preds = %if.end205.thread265, %if.end185
   %clicked_t.3269 = phi float [ %clicked_t.1, %if.end205.thread265 ], [ %cond5.i245, %if.end185 ]
   %InFlags = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 75, i32 1
-  %65 = load i32, ptr %InFlags, align 4
-  %and208 = and i32 %65, 128
+  %66 = load i32, ptr %InFlags, align 4
+  %and208 = and i32 %66, 128
   %and211 = and i32 %flags, 2097152
-  %66 = or disjoint i32 %and208, %and211
-  %or.cond173.not = icmp eq i32 %66, 0
+  %67 = or disjoint i32 %and208, %and211
+  %or.cond173.not = icmp eq i32 %67, 0
   br i1 %or.cond173.not, label %if.then217, label %if.end232
 
 if.then217:                                       ; preds = %if.end215
@@ -15755,8 +15754,8 @@ if.then225:                                       ; preds = %if.then217
 
 if.end227:                                        ; preds = %if.then225, %if.then217
   %v_new218.0 = phi float [ %call226, %if.then225 ], [ %call220, %if.then217 ]
-  %67 = load float, ptr %v, align 4
-  %cmp228 = fcmp une float %67, %v_new218.0
+  %68 = load float, ptr %v, align 4
+  %cmp228 = fcmp une float %68, %v_new218.0
   br i1 %cmp228, label %if.then229, label %if.end232
 
 if.then229:                                       ; preds = %if.end227
@@ -15769,53 +15768,53 @@ if.end232:                                        ; preds = %if.then40, %if.then
   br i1 %cmp233, label %if.then234, label %if.else237
 
 if.then234:                                       ; preds = %if.end232
-  %68 = load i64, ptr %bb, align 4
-  store i64 %68, ptr %out_grab_bb, align 4
+  %69 = load i64, ptr %bb, align 4
+  store i64 %69, ptr %out_grab_bb, align 4
   %ref.tmp.sroa.2.0.out_grab_bb.sroa_idx = getelementptr inbounds i8, ptr %out_grab_bb, i64 8
-  store i64 %68, ptr %ref.tmp.sroa.2.0.out_grab_bb.sroa_idx, align 4
+  store i64 %69, ptr %ref.tmp.sroa.2.0.out_grab_bb.sroa_idx, align 4
   br label %if.end269
 
 if.else237:                                       ; preds = %if.end232
-  %69 = load float, ptr %v, align 4
-  %call240 = tail call noundef float @_ZN5ImGui20ScaleRatioFromValueTIfffEEfiT_S1_S1_bff(i32 noundef %data_type, float noundef %69, float noundef %v_min, float noundef %v_max, i1 noundef zeroext %cmp, float noundef %logarithmic_zero_epsilon.0, float noundef %zero_deadzone_halfsize.0)
+  %70 = load float, ptr %v, align 4
+  %call240 = tail call noundef float @_ZN5ImGui20ScaleRatioFromValueTIfffEEfiT_S1_S1_bff(i32 noundef %data_type, float noundef %70, float noundef %v_min, float noundef %v_max, i1 noundef zeroext %cmp, float noundef %logarithmic_zero_epsilon.0, float noundef %zero_deadzone_halfsize.0)
   %sub243 = fsub float 1.000000e+00, %call240
   %grab_t238.0 = select i1 %tobool.not.not, float %call240, float %sub243
   %sub.i250 = fsub float %7, %6
-  %70 = tail call noundef float @llvm.fmuladd.f32(float %sub.i250, float %grab_t238.0, float %6)
+  %71 = tail call noundef float @llvm.fmuladd.f32(float %sub.i250, float %grab_t238.0, float %6)
   br i1 %tobool.not.not, label %if.then248, label %if.else258
 
 if.then248:                                       ; preds = %if.else237
-  %71 = tail call float @llvm.fmuladd.f32(float %neg, float 5.000000e-01, float %70)
+  %72 = tail call float @llvm.fmuladd.f32(float %neg, float 5.000000e-01, float %71)
   %y = getelementptr inbounds %struct.ImVec2, ptr %bb, i64 0, i32 1
-  %72 = load float, ptr %y, align 4
-  %add253 = fadd float %72, 2.000000e+00
-  %73 = tail call float @llvm.fmuladd.f32(float %cond.i178, float 5.000000e-01, float %70)
+  %73 = load float, ptr %y, align 4
+  %add253 = fadd float %73, 2.000000e+00
+  %74 = tail call float @llvm.fmuladd.f32(float %cond.i178, float 5.000000e-01, float %71)
   %y256 = getelementptr inbounds %struct.ImRect, ptr %bb, i64 0, i32 1, i32 1
-  %74 = load float, ptr %y256, align 4
-  %sub257 = fadd float %74, -2.000000e+00
-  store float %71, ptr %out_grab_bb, align 4
+  %75 = load float, ptr %y256, align 4
+  %sub257 = fadd float %75, -2.000000e+00
+  store float %72, ptr %out_grab_bb, align 4
   %ref.tmp249.sroa.2.0.out_grab_bb.sroa_idx = getelementptr inbounds i8, ptr %out_grab_bb, i64 4
   store float %add253, ptr %ref.tmp249.sroa.2.0.out_grab_bb.sroa_idx, align 4
   %ref.tmp249.sroa.3.0.out_grab_bb.sroa_idx = getelementptr inbounds i8, ptr %out_grab_bb, i64 8
-  store float %73, ptr %ref.tmp249.sroa.3.0.out_grab_bb.sroa_idx, align 4
+  store float %74, ptr %ref.tmp249.sroa.3.0.out_grab_bb.sroa_idx, align 4
   %ref.tmp249.sroa.4.0.out_grab_bb.sroa_idx = getelementptr inbounds i8, ptr %out_grab_bb, i64 12
   store float %sub257, ptr %ref.tmp249.sroa.4.0.out_grab_bb.sroa_idx, align 4
   br label %if.end269
 
 if.else258:                                       ; preds = %if.else237
-  %75 = load float, ptr %bb, align 4
-  %add261 = fadd float %75, 2.000000e+00
-  %76 = tail call float @llvm.fmuladd.f32(float %neg, float 5.000000e-01, float %70)
-  %77 = load float, ptr %Max, align 4
-  %sub266 = fadd float %77, -2.000000e+00
-  %78 = tail call float @llvm.fmuladd.f32(float %cond.i178, float 5.000000e-01, float %70)
+  %76 = load float, ptr %bb, align 4
+  %add261 = fadd float %76, 2.000000e+00
+  %77 = tail call float @llvm.fmuladd.f32(float %neg, float 5.000000e-01, float %71)
+  %78 = load float, ptr %Max, align 4
+  %sub266 = fadd float %78, -2.000000e+00
+  %79 = tail call float @llvm.fmuladd.f32(float %cond.i178, float 5.000000e-01, float %71)
   store float %add261, ptr %out_grab_bb, align 4
   %ref.tmp259.sroa.2.0.out_grab_bb.sroa_idx = getelementptr inbounds i8, ptr %out_grab_bb, i64 4
-  store float %76, ptr %ref.tmp259.sroa.2.0.out_grab_bb.sroa_idx, align 4
+  store float %77, ptr %ref.tmp259.sroa.2.0.out_grab_bb.sroa_idx, align 4
   %ref.tmp259.sroa.3.0.out_grab_bb.sroa_idx = getelementptr inbounds i8, ptr %out_grab_bb, i64 8
   store float %sub266, ptr %ref.tmp259.sroa.3.0.out_grab_bb.sroa_idx, align 4
   %ref.tmp259.sroa.4.0.out_grab_bb.sroa_idx = getelementptr inbounds i8, ptr %out_grab_bb, i64 12
-  store float %78, ptr %ref.tmp259.sroa.4.0.out_grab_bb.sroa_idx, align 4
+  store float %79, ptr %ref.tmp259.sroa.4.0.out_grab_bb.sroa_idx, align 4
   br label %if.end269
 
 if.end269:                                        ; preds = %if.then248, %if.else258, %if.then234
@@ -16224,9 +16223,8 @@ if.then127:                                       ; preds = %if.then124
   br label %if.end145
 
 if.else130:                                       ; preds = %lor.lhs.false24.i211, %land.lhs.true.i208, %if.end14.i206, %if.end14.i206, %if.then106
-  %cmp131 = fcmp oge float %conv, -1.000000e+02
-  %cmp133 = fcmp ole float %conv, 1.000000e+02
-  %or.cond1 = and i1 %cmp131, %cmp133
+  %56 = tail call float @llvm.fabs.f32(float %conv)
+  %or.cond1 = fcmp ole float %56, 1.000000e+02
   %cmp135 = fcmp une float %conv, 0.000000e+00
   %or.cond2 = and i1 %cmp135, %or.cond1
   %brmerge170 = or i1 %or.cond2, %call109
@@ -16247,25 +16245,25 @@ if.end145:                                        ; preds = %if.then138, %if.els
   %mul148 = fmul float %input_delta.0, 1.000000e+01
   %input_delta.1 = select i1 %call114, float %mul148, float %input_delta.0
   %SliderCurrentAccum150 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 198
-  %56 = load float, ptr %SliderCurrentAccum150, align 4
-  %add151 = fadd float %56, %input_delta.1
+  %57 = load float, ptr %SliderCurrentAccum150, align 4
+  %add151 = fadd float %57, %input_delta.1
   store float %add151, ptr %SliderCurrentAccum150, align 4
   %SliderCurrentAccumDirty152 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 199
   store i8 1, ptr %SliderCurrentAccumDirty152, align 8
   br label %if.end153
 
 if.end153:                                        ; preds = %cond.end103.if.end153_crit_edge, %if.end145
-  %57 = phi float [ %.pre, %cond.end103.if.end153_crit_edge ], [ %add151, %if.end145 ]
+  %58 = phi float [ %.pre, %cond.end103.if.end153_crit_edge ], [ %add151, %if.end145 ]
   %SliderCurrentAccum154 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 198
   %NavActivatePressedId = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 96
-  %58 = load i32, ptr %NavActivatePressedId, align 8
-  %cmp155 = icmp eq i32 %58, %id
+  %59 = load i32, ptr %NavActivatePressedId, align 8
+  %cmp155 = icmp eq i32 %59, %id
   br i1 %cmp155, label %land.lhs.true156, label %if.else160
 
 land.lhs.true156:                                 ; preds = %if.end153
-  %59 = load i8, ptr %ActiveIdIsJustActivated94, align 8
-  %60 = and i8 %59, 1
-  %tobool158.not = icmp eq i8 %60, 0
+  %60 = load i8, ptr %ActiveIdIsJustActivated94, align 8
+  %61 = and i8 %60, 1
+  %tobool158.not = icmp eq i8 %61, 0
   br i1 %tobool158.not, label %if.then159, label %if.else160
 
 if.then159:                                       ; preds = %land.lhs.true156
@@ -16274,27 +16272,27 @@ if.then159:                                       ; preds = %land.lhs.true156
 
 if.else160:                                       ; preds = %land.lhs.true156, %if.end153
   %SliderCurrentAccumDirty161 = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 199
-  %61 = load i8, ptr %SliderCurrentAccumDirty161, align 8
-  %62 = and i8 %61, 1
-  %tobool162.not = icmp eq i8 %62, 0
+  %62 = load i8, ptr %SliderCurrentAccumDirty161, align 8
+  %63 = and i8 %62, 1
+  %tobool162.not = icmp eq i8 %63, 0
   br i1 %tobool162.not, label %if.end233, label %if.then163
 
 if.then163:                                       ; preds = %if.else160
-  %63 = load double, ptr %v, align 8
-  %call165 = tail call noundef float @_ZN5ImGui20ScaleRatioFromValueTIdddEEfiT_S1_S1_bff(i32 noundef %data_type, double noundef %63, double noundef %v_min, double noundef %v_max, i1 noundef zeroext %cmp, float noundef %logarithmic_zero_epsilon.0, float noundef %zero_deadzone_halfsize.0)
+  %64 = load double, ptr %v, align 8
+  %call165 = tail call noundef float @_ZN5ImGui20ScaleRatioFromValueTIdddEEfiT_S1_S1_bff(i32 noundef %data_type, double noundef %64, double noundef %v_min, double noundef %v_max, i1 noundef zeroext %cmp, float noundef %logarithmic_zero_epsilon.0, float noundef %zero_deadzone_halfsize.0)
   %cmp166 = fcmp oge float %call165, 1.000000e+00
-  %cmp168 = fcmp ogt float %57, 0.000000e+00
+  %cmp168 = fcmp ogt float %58, 0.000000e+00
   %or.cond3 = select i1 %cmp166, i1 %cmp168, i1 false
   br i1 %or.cond3, label %if.end206, label %lor.lhs.false169
 
 lor.lhs.false169:                                 ; preds = %if.then163
   %cmp170 = fcmp ole float %call165, 0.000000e+00
-  %cmp172 = fcmp olt float %57, 0.000000e+00
+  %cmp172 = fcmp olt float %58, 0.000000e+00
   %or.cond4 = select i1 %cmp170, i1 %cmp172, i1 false
   br i1 %or.cond4, label %if.end206, label %if.else175
 
 if.else175:                                       ; preds = %lor.lhs.false169
-  %add176 = fadd float %57, %call165
+  %add176 = fadd float %58, %call165
   %cmp.i242 = fcmp olt float %add176, 0.000000e+00
   %cmp1.i243 = fcmp ogt float %add176, 1.000000e+00
   %cond.i244 = select i1 %cmp1.i243, float 1.000000e+00, float %add176
@@ -16313,12 +16311,12 @@ if.end186:                                        ; preds = %if.then184, %if.els
   %v_new.0 = phi double [ %call185, %if.then184 ], [ %call179, %if.else175 ]
   %call188 = tail call noundef float @_ZN5ImGui20ScaleRatioFromValueTIdddEEfiT_S1_S1_bff(i32 noundef %data_type, double noundef %v_new.0, double noundef %v_min, double noundef %v_max, i1 noundef zeroext %cmp, float noundef %logarithmic_zero_epsilon.0, float noundef %zero_deadzone_halfsize.0)
   %sub191 = fsub float %call188, %call165
-  %64 = load float, ptr %SliderCurrentAccum154, align 4
-  %cmp.i246 = fcmp olt float %sub191, %57
-  %cmp.i248 = fcmp oge float %sub191, %57
+  %65 = load float, ptr %SliderCurrentAccum154, align 4
+  %cmp.i246 = fcmp olt float %sub191, %58
+  %cmp.i248 = fcmp oge float %sub191, %58
   %cmp.i246.sink = select i1 %cmp168, i1 %cmp.i246, i1 %cmp.i248
-  %cond.i247 = select i1 %cmp.i246.sink, float %sub191, float %57
-  %sub194 = fsub float %64, %cond.i247
+  %cond.i247 = select i1 %cmp.i246.sink, float %sub191, float %58
+  %sub194 = fsub float %65, %cond.i247
   store float %sub194, ptr %SliderCurrentAccum154, align 4
   store i8 0, ptr %SliderCurrentAccumDirty161, align 8
   br label %if.end216
@@ -16331,11 +16329,11 @@ if.end206:                                        ; preds = %if.then163, %lor.lh
 if.end216:                                        ; preds = %if.end206.thread265, %if.end186
   %clicked_t.3269 = phi float [ %clicked_t.1, %if.end206.thread265 ], [ %cond5.i245, %if.end186 ]
   %InFlags = getelementptr inbounds %struct.ImGuiContext, ptr %0, i64 0, i32 75, i32 1
-  %65 = load i32, ptr %InFlags, align 4
-  %and209 = and i32 %65, 128
+  %66 = load i32, ptr %InFlags, align 4
+  %and209 = and i32 %66, 128
   %and212 = and i32 %flags, 2097152
-  %66 = or disjoint i32 %and209, %and212
-  %or.cond173.not = icmp eq i32 %66, 0
+  %67 = or disjoint i32 %and209, %and212
+  %or.cond173.not = icmp eq i32 %67, 0
   br i1 %or.cond173.not, label %if.then218, label %if.end233
 
 if.then218:                                       ; preds = %if.end216
@@ -16351,8 +16349,8 @@ if.then226:                                       ; preds = %if.then218
 
 if.end228:                                        ; preds = %if.then226, %if.then218
   %v_new219.0 = phi double [ %call227, %if.then226 ], [ %call221, %if.then218 ]
-  %67 = load double, ptr %v, align 8
-  %cmp229 = fcmp une double %67, %v_new219.0
+  %68 = load double, ptr %v, align 8
+  %cmp229 = fcmp une double %68, %v_new219.0
   br i1 %cmp229, label %if.then230, label %if.end233
 
 if.then230:                                       ; preds = %if.end228
@@ -16365,53 +16363,53 @@ if.end233:                                        ; preds = %if.then41, %if.then
   br i1 %cmp234, label %if.then235, label %if.else238
 
 if.then235:                                       ; preds = %if.end233
-  %68 = load i64, ptr %bb, align 4
-  store i64 %68, ptr %out_grab_bb, align 4
+  %69 = load i64, ptr %bb, align 4
+  store i64 %69, ptr %out_grab_bb, align 4
   %ref.tmp.sroa.2.0.out_grab_bb.sroa_idx = getelementptr inbounds i8, ptr %out_grab_bb, i64 8
-  store i64 %68, ptr %ref.tmp.sroa.2.0.out_grab_bb.sroa_idx, align 4
+  store i64 %69, ptr %ref.tmp.sroa.2.0.out_grab_bb.sroa_idx, align 4
   br label %if.end270
 
 if.else238:                                       ; preds = %if.end233
-  %69 = load double, ptr %v, align 8
-  %call241 = tail call noundef float @_ZN5ImGui20ScaleRatioFromValueTIdddEEfiT_S1_S1_bff(i32 noundef %data_type, double noundef %69, double noundef %v_min, double noundef %v_max, i1 noundef zeroext %cmp, float noundef %logarithmic_zero_epsilon.0, float noundef %zero_deadzone_halfsize.0)
+  %70 = load double, ptr %v, align 8
+  %call241 = tail call noundef float @_ZN5ImGui20ScaleRatioFromValueTIdddEEfiT_S1_S1_bff(i32 noundef %data_type, double noundef %70, double noundef %v_min, double noundef %v_max, i1 noundef zeroext %cmp, float noundef %logarithmic_zero_epsilon.0, float noundef %zero_deadzone_halfsize.0)
   %sub244 = fsub float 1.000000e+00, %call241
   %grab_t239.0 = select i1 %tobool.not.not, float %call241, float %sub244
   %sub.i250 = fsub float %7, %6
-  %70 = tail call noundef float @llvm.fmuladd.f32(float %sub.i250, float %grab_t239.0, float %6)
+  %71 = tail call noundef float @llvm.fmuladd.f32(float %sub.i250, float %grab_t239.0, float %6)
   br i1 %tobool.not.not, label %if.then249, label %if.else259
 
 if.then249:                                       ; preds = %if.else238
-  %71 = tail call float @llvm.fmuladd.f32(float %neg, float 5.000000e-01, float %70)
+  %72 = tail call float @llvm.fmuladd.f32(float %neg, float 5.000000e-01, float %71)
   %y = getelementptr inbounds %struct.ImVec2, ptr %bb, i64 0, i32 1
-  %72 = load float, ptr %y, align 4
-  %add254 = fadd float %72, 2.000000e+00
-  %73 = tail call float @llvm.fmuladd.f32(float %cond.i178, float 5.000000e-01, float %70)
+  %73 = load float, ptr %y, align 4
+  %add254 = fadd float %73, 2.000000e+00
+  %74 = tail call float @llvm.fmuladd.f32(float %cond.i178, float 5.000000e-01, float %71)
   %y257 = getelementptr inbounds %struct.ImRect, ptr %bb, i64 0, i32 1, i32 1
-  %74 = load float, ptr %y257, align 4
-  %sub258 = fadd float %74, -2.000000e+00
-  store float %71, ptr %out_grab_bb, align 4
+  %75 = load float, ptr %y257, align 4
+  %sub258 = fadd float %75, -2.000000e+00
+  store float %72, ptr %out_grab_bb, align 4
   %ref.tmp250.sroa.2.0.out_grab_bb.sroa_idx = getelementptr inbounds i8, ptr %out_grab_bb, i64 4
   store float %add254, ptr %ref.tmp250.sroa.2.0.out_grab_bb.sroa_idx, align 4
   %ref.tmp250.sroa.3.0.out_grab_bb.sroa_idx = getelementptr inbounds i8, ptr %out_grab_bb, i64 8
-  store float %73, ptr %ref.tmp250.sroa.3.0.out_grab_bb.sroa_idx, align 4
+  store float %74, ptr %ref.tmp250.sroa.3.0.out_grab_bb.sroa_idx, align 4
   %ref.tmp250.sroa.4.0.out_grab_bb.sroa_idx = getelementptr inbounds i8, ptr %out_grab_bb, i64 12
   store float %sub258, ptr %ref.tmp250.sroa.4.0.out_grab_bb.sroa_idx, align 4
   br label %if.end270
 
 if.else259:                                       ; preds = %if.else238
-  %75 = load float, ptr %bb, align 4
-  %add262 = fadd float %75, 2.000000e+00
-  %76 = tail call float @llvm.fmuladd.f32(float %neg, float 5.000000e-01, float %70)
-  %77 = load float, ptr %Max, align 4
-  %sub267 = fadd float %77, -2.000000e+00
-  %78 = tail call float @llvm.fmuladd.f32(float %cond.i178, float 5.000000e-01, float %70)
+  %76 = load float, ptr %bb, align 4
+  %add262 = fadd float %76, 2.000000e+00
+  %77 = tail call float @llvm.fmuladd.f32(float %neg, float 5.000000e-01, float %71)
+  %78 = load float, ptr %Max, align 4
+  %sub267 = fadd float %78, -2.000000e+00
+  %79 = tail call float @llvm.fmuladd.f32(float %cond.i178, float 5.000000e-01, float %71)
   store float %add262, ptr %out_grab_bb, align 4
   %ref.tmp260.sroa.2.0.out_grab_bb.sroa_idx = getelementptr inbounds i8, ptr %out_grab_bb, i64 4
-  store float %76, ptr %ref.tmp260.sroa.2.0.out_grab_bb.sroa_idx, align 4
+  store float %77, ptr %ref.tmp260.sroa.2.0.out_grab_bb.sroa_idx, align 4
   %ref.tmp260.sroa.3.0.out_grab_bb.sroa_idx = getelementptr inbounds i8, ptr %out_grab_bb, i64 8
   store float %sub267, ptr %ref.tmp260.sroa.3.0.out_grab_bb.sroa_idx, align 4
   %ref.tmp260.sroa.4.0.out_grab_bb.sroa_idx = getelementptr inbounds i8, ptr %out_grab_bb, i64 12
-  store float %78, ptr %ref.tmp260.sroa.4.0.out_grab_bb.sroa_idx, align 4
+  store float %79, ptr %ref.tmp260.sroa.4.0.out_grab_bb.sroa_idx, align 4
   br label %if.end270
 
 if.end270:                                        ; preds = %if.then249, %if.else259, %if.then235

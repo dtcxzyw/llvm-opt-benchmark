@@ -36,7 +36,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @_ZN3p2t5SweepD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN3p2t5SweepD2Ev
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZN3p2t8Orient2dERKNS_5PointES2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pa, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pb, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pc) local_unnamed_addr #0 {
 entry:
   %0 = load <2 x double>, ptr %pc, align 8
@@ -49,9 +49,8 @@ entry:
   %shift = shufflevector <2 x double> %6, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %7 = fsub <2 x double> %6, %shift
   %sub11 = extractelement <2 x double> %7, i64 0
-  %cmp = fcmp ogt double %sub11, 0xBD719799812DEA11
-  %cmp12 = fcmp olt double %sub11, 0x3D719799812DEA11
-  %or.cond = and i1 %cmp, %cmp12
+  %8 = tail call double @llvm.fabs.f64(double %sub11)
+  %or.cond = fcmp olt double %8, 0x3D719799812DEA11
   %cmp13 = fcmp ogt double %sub11, 0.000000e+00
   %. = zext i1 %cmp13 to i32
   %retval.0 = select i1 %or.cond, i32 2, i32 %.
@@ -59,7 +58,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN3p2t10InScanAreaERKNS_5PointES2_S2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pa, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pb, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pd) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @_ZN3p2t10InScanAreaERKNS_5PointES2_S2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pa, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pb, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pd) local_unnamed_addr #0 {
 entry:
   %0 = load double, ptr %pa, align 8
   %1 = load double, ptr %pb, align 8
@@ -100,10 +99,10 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #2
+declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3p2t5Sweep11TriangulateERNS_12SweepContextE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3p2t5Sweep11TriangulateERNS_12SweepContextE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx) local_unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN3p2t12SweepContext17InitTriangulationEv(ptr noundef nonnull align 8 dereferenceable(200) %tcx)
   tail call void @_ZN3p2t12SweepContext20CreateAdvancingFrontERKSt6vectorIPNS_4NodeESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(24) %this)
@@ -131,22 +130,22 @@ _ZN3p2t5Sweep19FinalizationPolygonERNS_12SweepContextE.exit: ; preds = %while.bo
   ret void
 }
 
-declare void @_ZN3p2t12SweepContext17InitTriangulationEv(ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #4
+declare void @_ZN3p2t12SweepContext17InitTriangulationEv(ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #3
 
-declare void @_ZN3p2t12SweepContext20CreateAdvancingFrontERKSt6vectorIPNS_4NodeESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
+declare void @_ZN3p2t12SweepContext20CreateAdvancingFrontERKSt6vectorIPNS_4NodeESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3p2t5Sweep11SweepPointsERNS_12SweepContextE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3p2t5Sweep11SweepPointsERNS_12SweepContextE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %points_.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 5
   %_M_finish.i.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %points_.i, align 8
-  %sub.ptr.lhs.cast.i.i287 = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i288 = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i.i289 = sub i64 %sub.ptr.lhs.cast.i.i287, %sub.ptr.rhs.cast.i.i288
-  %cmp291 = icmp ugt i64 %sub.ptr.sub.i.i289, 8
-  br i1 %cmp291, label %for.body.lr.ph, label %for.end13
+  %sub.ptr.lhs.cast.i.i264 = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast.i.i265 = ptrtoint ptr %1 to i64
+  %sub.ptr.sub.i.i266 = sub i64 %sub.ptr.lhs.cast.i.i264, %sub.ptr.rhs.cast.i.i265
+  %cmp268 = icmp ugt i64 %sub.ptr.sub.i.i266, 8
+  br i1 %cmp268, label %for.body.lr.ph, label %for.end13
 
 for.body.lr.ph:                                   ; preds = %entry
   %edge_event.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 2
@@ -154,8 +153,8 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc11
-  %i.0292 = phi i64 [ 1, %for.body.lr.ph ], [ %inc12, %for.inc11 ]
-  %call2 = tail call noundef ptr @_ZN3p2t12SweepContext8GetPointEm(ptr noundef nonnull align 8 dereferenceable(200) %tcx, i64 noundef %i.0292)
+  %i.0269 = phi i64 [ 1, %for.body.lr.ph ], [ %inc12, %for.inc11 ]
+  %call2 = tail call noundef ptr @_ZN3p2t12SweepContext8GetPointEm(ptr noundef nonnull align 8 dereferenceable(200) %tcx, i64 noundef %i.0269)
   %call.i = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN3p2t12SweepContext10LocateNodeERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %call2)
   %call2.i = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN3p2t5Sweep16NewFrontTriangleERNS_12SweepContextERNS_5PointERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %call2, ptr noundef nonnull align 8 dereferenceable(40) %call.i)
   %2 = load double, ptr %call2, align 8
@@ -175,8 +174,8 @@ _ZN3p2t5Sweep10PointEventERNS_12SweepContextERNS_5PointE.exit: ; preds = %for.bo
   %_M_finish.i = getelementptr inbounds %"struct.p2t::Point", ptr %call2, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
   %5 = load ptr, ptr %_M_finish.i, align 8
   %6 = load ptr, ptr %edge_list, align 8
-  %cmp6284.not = icmp eq ptr %5, %6
-  br i1 %cmp6284.not, label %for.inc11, label %for.body7.lr.ph
+  %cmp6261.not = icmp eq ptr %5, %6
+  br i1 %cmp6261.not, label %for.inc11, label %for.body7.lr.ph
 
 for.body7.lr.ph:                                  ; preds = %_ZN3p2t5Sweep10PointEventERNS_12SweepContextERNS_5PointE.exit
   %triangle.i = getelementptr inbounds %"struct.p2t::Node", ptr %call2.i, i64 0, i32 1
@@ -185,10 +184,10 @@ for.body7.lr.ph:                                  ; preds = %_ZN3p2t5Sweep10Poin
   br label %for.body7
 
 for.body7:                                        ; preds = %for.body7.lr.ph, %_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit
-  %7 = phi ptr [ %6, %for.body7.lr.ph ], [ %339, %_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit ]
-  %conv286 = phi i64 [ 0, %for.body7.lr.ph ], [ %conv, %_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit ]
-  %ii.0285 = phi i32 [ 0, %for.body7.lr.ph ], [ %inc, %_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit ]
-  %add.ptr.i = getelementptr inbounds ptr, ptr %7, i64 %conv286
+  %7 = phi ptr [ %6, %for.body7.lr.ph ], [ %355, %_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit ]
+  %conv263 = phi i64 [ 0, %for.body7.lr.ph ], [ %conv, %_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit ]
+  %ii.0262 = phi i32 [ 0, %for.body7.lr.ph ], [ %inc, %_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit ]
+  %add.ptr.i = getelementptr inbounds ptr, ptr %7, i64 %conv263
   %8 = load ptr, ptr %add.ptr.i, align 8
   store ptr %8, ptr %edge_event.i, align 8
   %9 = load ptr, ptr %8, align 8
@@ -234,13 +233,13 @@ if.then.i12:                                      ; preds = %if.end.i
   br i1 %cmp8.i.i, label %while.body.i.i, label %_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit
 
 while.body.i.i:                                   ; preds = %if.then.i12, %if.end.i.i
-  %.pre10.i.i324 = phi double [ %.pre10.i.i325, %if.end.i.i ], [ %20, %if.then.i12 ]
-  %.pre.i.i321 = phi ptr [ %.pre.i.i317, %if.end.i.i ], [ %19, %if.then.i12 ]
-  %24 = phi double [ %173, %if.end.i.i ], [ %20, %if.then.i12 ]
-  %25 = phi ptr [ %174, %if.end.i.i ], [ %19, %if.then.i12 ]
-  %26 = phi double [ %177, %if.end.i.i ], [ %23, %if.then.i12 ]
-  %27 = phi ptr [ %176, %if.end.i.i ], [ %22, %if.then.i12 ]
-  %28 = phi ptr [ %175, %if.end.i.i ], [ %21, %if.then.i12 ]
+  %.pre10.i.i301 = phi double [ %.pre10.i.i302, %if.end.i.i ], [ %20, %if.then.i12 ]
+  %.pre.i.i298 = phi ptr [ %.pre.i.i294, %if.end.i.i ], [ %19, %if.then.i12 ]
+  %24 = phi double [ %181, %if.end.i.i ], [ %20, %if.then.i12 ]
+  %25 = phi ptr [ %182, %if.end.i.i ], [ %19, %if.then.i12 ]
+  %26 = phi double [ %185, %if.end.i.i ], [ %23, %if.then.i12 ]
+  %27 = phi ptr [ %184, %if.end.i.i ], [ %22, %if.then.i12 ]
+  %28 = phi ptr [ %183, %if.end.i.i ], [ %21, %if.then.i12 ]
   %node.addr.09.i.i = phi ptr [ %node.addr.1.i.i, %if.end.i.i ], [ %call2.i, %if.then.i12 ]
   %29 = load ptr, ptr %q.i, align 8
   %30 = load double, ptr %29, align 8
@@ -264,715 +263,699 @@ while.body.i.i:                                   ; preds = %if.then.i12, %if.en
   %shift = shufflevector <2 x double> %44, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %45 = fsub <2 x double> %44, %shift
   %sub11.i.i.i = extractelement <2 x double> %45, i64 0
-  %cmp.i.i.i = fcmp ule double %sub11.i.i.i, 0xBD719799812DEA11
-  %cmp12.i.i.i = fcmp uge double %sub11.i.i.i, 0x3D719799812DEA11
-  %or.cond.i.not.i.i = or i1 %cmp.i.i.i, %cmp12.i.i.i
+  %46 = tail call double @llvm.fabs.f64(double %sub11.i.i.i)
+  %or.cond.i.i.i = fcmp uge double %46, 0x3D719799812DEA11
   %cmp13.i.i.i = fcmp ogt double %sub11.i.i.i, 0.000000e+00
-  %cmp6.i.i = and i1 %cmp13.i.i.i, %or.cond.i.not.i.i
+  %cmp6.i.i = select i1 %or.cond.i.i.i, i1 %cmp13.i.i.i, i1 false
   br i1 %cmp6.i.i, label %if.then.i.i14, label %if.end.i.i
 
 if.then.i.i14:                                    ; preds = %while.body.i.i
-  %46 = load ptr, ptr %node.addr.09.i.i, align 8
-  %47 = load double, ptr %46, align 8
-  %cmp13.i = fcmp olt double %47, %24
-  br i1 %cmp13.i, label %if.then.lr.ph.i36, label %if.end.i.i
+  %47 = load ptr, ptr %node.addr.09.i.i, align 8
+  %48 = load double, ptr %47, align 8
+  %cmp13.i = fcmp olt double %48, %24
+  br i1 %cmp13.i, label %if.then.lr.ph.i33, label %if.end.i.i
 
-if.then.lr.ph.i36:                                ; preds = %if.then.i.i14
+if.then.lr.ph.i33:                                ; preds = %if.then.i.i14
   %next.i = getelementptr inbounds %"struct.p2t::Node", ptr %node.addr.09.i.i, i64 0, i32 2
-  br label %if.then.i37
+  br label %if.then.i34
 
-if.then.i37:                                      ; preds = %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit, %if.then.lr.ph.i36
-  %.pre10.i.i323 = phi double [ %.pre10.i.i324, %if.then.lr.ph.i36 ], [ %.pre10.i.i322, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %.pre.i.i320 = phi ptr [ %.pre.i.i321, %if.then.lr.ph.i36 ], [ %.pre.i.i319, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %48 = phi double [ %24, %if.then.lr.ph.i36 ], [ %169, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %49 = phi ptr [ %25, %if.then.lr.ph.i36 ], [ %170, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %50 = phi double [ %47, %if.then.lr.ph.i36 ], [ %171, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %51 = phi ptr [ %46, %if.then.lr.ph.i36 ], [ %172, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %52 = load ptr, ptr %next.i, align 8
-  %53 = load ptr, ptr %52, align 8
-  %next6.i = getelementptr inbounds %"struct.p2t::Node", ptr %52, i64 0, i32 2
-  %54 = load ptr, ptr %next6.i, align 8
-  %55 = load ptr, ptr %54, align 8
-  %56 = load <2 x double>, ptr %55, align 8
-  %y4.i.i43 = getelementptr inbounds %"struct.p2t::Point", ptr %51, i64 0, i32 1
-  %57 = load double, ptr %y4.i.i43, align 8
-  %58 = insertelement <2 x double> poison, double %50, i64 0
-  %59 = insertelement <2 x double> %58, double %57, i64 1
-  %60 = fsub <2 x double> %59, %56
-  %61 = shufflevector <2 x double> %60, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %62 = load <2 x double>, ptr %53, align 8
-  %63 = fsub <2 x double> %62, %56
-  %64 = fmul <2 x double> %61, %63
-  %shift392 = shufflevector <2 x double> %64, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %65 = fsub <2 x double> %shift392, %64
-  %sub11.i.i47 = extractelement <2 x double> %65, i64 0
-  %cmp.i.i48 = fcmp ule double %sub11.i.i47, 0xBD719799812DEA11
-  %cmp12.i.i49 = fcmp uge double %sub11.i.i47, 0x3D719799812DEA11
-  %or.cond.i.not.i50 = or i1 %cmp.i.i48, %cmp12.i.i49
-  %cmp13.i.i51 = fcmp ogt double %sub11.i.i47, 0.000000e+00
-  %cmp8.i52 = and i1 %cmp13.i.i51, %or.cond.i.not.i50
-  br i1 %cmp8.i52, label %tailrecurse.i.i57, label %tailrecurse.i154.preheader
+if.then.i34:                                      ; preds = %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit, %if.then.lr.ph.i33
+  %.pre10.i.i300 = phi double [ %.pre10.i.i301, %if.then.lr.ph.i33 ], [ %.pre10.i.i299, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %.pre.i.i297 = phi ptr [ %.pre.i.i298, %if.then.lr.ph.i33 ], [ %.pre.i.i296, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %49 = phi double [ %24, %if.then.lr.ph.i33 ], [ %177, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %50 = phi ptr [ %25, %if.then.lr.ph.i33 ], [ %178, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %51 = phi double [ %48, %if.then.lr.ph.i33 ], [ %179, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %52 = phi ptr [ %47, %if.then.lr.ph.i33 ], [ %180, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %53 = load ptr, ptr %next.i, align 8
+  %54 = load ptr, ptr %53, align 8
+  %next6.i = getelementptr inbounds %"struct.p2t::Node", ptr %53, i64 0, i32 2
+  %55 = load ptr, ptr %next6.i, align 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = load <2 x double>, ptr %56, align 8
+  %y4.i.i40 = getelementptr inbounds %"struct.p2t::Point", ptr %52, i64 0, i32 1
+  %58 = load double, ptr %y4.i.i40, align 8
+  %59 = insertelement <2 x double> poison, double %51, i64 0
+  %60 = insertelement <2 x double> %59, double %58, i64 1
+  %61 = fsub <2 x double> %60, %57
+  %62 = shufflevector <2 x double> %61, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %63 = load <2 x double>, ptr %54, align 8
+  %64 = fsub <2 x double> %63, %57
+  %65 = fmul <2 x double> %62, %64
+  %shift369 = shufflevector <2 x double> %65, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %66 = fsub <2 x double> %shift369, %65
+  %sub11.i.i44 = extractelement <2 x double> %66, i64 0
+  %67 = tail call double @llvm.fabs.f64(double %sub11.i.i44)
+  %or.cond.i.i45 = fcmp uge double %67, 0x3D719799812DEA11
+  %cmp13.i.i46 = fcmp ogt double %sub11.i.i44, 0.000000e+00
+  %cmp8.i47 = select i1 %or.cond.i.i45, i1 %cmp13.i.i46, i1 false
+  br i1 %cmp8.i47, label %tailrecurse.i.i52, label %tailrecurse.i139.preheader
 
-tailrecurse.i154.preheader:                       ; preds = %if.then.i37
-  %y2.i12.i171 = getelementptr inbounds %"struct.p2t::Point", ptr %49, i64 0, i32 1
-  %66 = extractelement <2 x double> %62, i64 0
-  %67 = insertelement <2 x double> poison, double %48, i64 0
-  br label %tailrecurse.i154
+tailrecurse.i139.preheader:                       ; preds = %if.then.i34
+  %y2.i12.i154 = getelementptr inbounds %"struct.p2t::Point", ptr %50, i64 0, i32 1
+  %68 = extractelement <2 x double> %63, i64 0
+  %69 = insertelement <2 x double> poison, double %49, i64 0
+  br label %tailrecurse.i139
 
-tailrecurse.i.i57:                                ; preds = %if.then.i37, %if.then7.i.i75
-  %68 = phi ptr [ %81, %if.then7.i.i75 ], [ %52, %if.then.i37 ]
-  %call.i219 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #17
-  %prev.i220 = getelementptr inbounds %"struct.p2t::Node", ptr %68, i64 0, i32 3
-  %69 = load ptr, ptr %prev.i220, align 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = load ptr, ptr %68, align 8
-  %next.i221 = getelementptr inbounds %"struct.p2t::Node", ptr %68, i64 0, i32 2
-  %72 = load ptr, ptr %next.i221, align 8
-  %73 = load ptr, ptr %72, align 8
-  invoke void @_ZN3p2t8TriangleC1ERNS_5PointES2_S2_(ptr noundef nonnull align 8 dereferenceable(57) %call.i219, ptr noundef nonnull align 8 dereferenceable(40) %70, ptr noundef nonnull align 8 dereferenceable(40) %71, ptr noundef nonnull align 8 dereferenceable(40) %73)
-          to label %invoke.cont.i223 unwind label %lpad.i222
+tailrecurse.i.i52:                                ; preds = %if.then.i34, %if.then7.i.i68
+  %70 = phi ptr [ %83, %if.then7.i.i68 ], [ %53, %if.then.i34 ]
+  %call.i196 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16
+  %prev.i197 = getelementptr inbounds %"struct.p2t::Node", ptr %70, i64 0, i32 3
+  %71 = load ptr, ptr %prev.i197, align 8
+  %72 = load ptr, ptr %71, align 8
+  %73 = load ptr, ptr %70, align 8
+  %next.i198 = getelementptr inbounds %"struct.p2t::Node", ptr %70, i64 0, i32 2
+  %74 = load ptr, ptr %next.i198, align 8
+  %75 = load ptr, ptr %74, align 8
+  invoke void @_ZN3p2t8TriangleC1ERNS_5PointES2_S2_(ptr noundef nonnull align 8 dereferenceable(57) %call.i196, ptr noundef nonnull align 8 dereferenceable(40) %72, ptr noundef nonnull align 8 dereferenceable(40) %73, ptr noundef nonnull align 8 dereferenceable(40) %75)
+          to label %invoke.cont.i200 unwind label %lpad.i199
 
-invoke.cont.i223:                                 ; preds = %tailrecurse.i.i57
-  %74 = load ptr, ptr %prev.i220, align 8
-  %triangle5.i224 = getelementptr inbounds %"struct.p2t::Node", ptr %74, i64 0, i32 1
-  %75 = load ptr, ptr %triangle5.i224, align 8
-  tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i219, ptr noundef nonnull align 8 dereferenceable(57) %75)
-  %triangle6.i225 = getelementptr inbounds %"struct.p2t::Node", ptr %68, i64 0, i32 1
-  %76 = load ptr, ptr %triangle6.i225, align 8
-  tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i219, ptr noundef nonnull align 8 dereferenceable(57) %76)
-  tail call void @_ZN3p2t12SweepContext8AddToMapEPNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull %call.i219)
-  %77 = load ptr, ptr %next.i221, align 8
-  %78 = load ptr, ptr %prev.i220, align 8
-  %next9.i226 = getelementptr inbounds %"struct.p2t::Node", ptr %78, i64 0, i32 2
-  store ptr %77, ptr %next9.i226, align 8
-  %79 = load ptr, ptr %prev.i220, align 8
-  %prev12.i227 = getelementptr inbounds %"struct.p2t::Node", ptr %77, i64 0, i32 3
-  store ptr %79, ptr %prev12.i227, align 8
-  %call13.i228 = tail call noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call.i219)
-  br i1 %call13.i228, label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit231, label %if.then.i229
+invoke.cont.i200:                                 ; preds = %tailrecurse.i.i52
+  %76 = load ptr, ptr %prev.i197, align 8
+  %triangle5.i201 = getelementptr inbounds %"struct.p2t::Node", ptr %76, i64 0, i32 1
+  %77 = load ptr, ptr %triangle5.i201, align 8
+  tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i196, ptr noundef nonnull align 8 dereferenceable(57) %77)
+  %triangle6.i202 = getelementptr inbounds %"struct.p2t::Node", ptr %70, i64 0, i32 1
+  %78 = load ptr, ptr %triangle6.i202, align 8
+  tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i196, ptr noundef nonnull align 8 dereferenceable(57) %78)
+  tail call void @_ZN3p2t12SweepContext8AddToMapEPNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull %call.i196)
+  %79 = load ptr, ptr %next.i198, align 8
+  %80 = load ptr, ptr %prev.i197, align 8
+  %next9.i203 = getelementptr inbounds %"struct.p2t::Node", ptr %80, i64 0, i32 2
+  store ptr %79, ptr %next9.i203, align 8
+  %81 = load ptr, ptr %prev.i197, align 8
+  %prev12.i204 = getelementptr inbounds %"struct.p2t::Node", ptr %79, i64 0, i32 3
+  store ptr %81, ptr %prev12.i204, align 8
+  %call13.i205 = tail call noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call.i196)
+  br i1 %call13.i205, label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit208, label %if.then.i206
 
-if.then.i229:                                     ; preds = %invoke.cont.i223
-  tail call void @_ZN3p2t12SweepContext18MapTriangleToNodesERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call.i219)
-  br label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit231
+if.then.i206:                                     ; preds = %invoke.cont.i200
+  tail call void @_ZN3p2t12SweepContext18MapTriangleToNodesERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call.i196)
+  br label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit208
 
-common.resume:                                    ; preds = %lpad.i235, %lpad.i, %lpad.i248, %lpad.i222
-  %call.i232.lcssa.sink = phi ptr [ %call.i232, %lpad.i235 ], [ %call.i142, %lpad.i ], [ %call.i245, %lpad.i248 ], [ %call.i219, %lpad.i222 ]
-  %common.resume.op = phi { ptr, i32 } [ %291, %lpad.i235 ], [ %237, %lpad.i ], [ %134, %lpad.i248 ], [ %80, %lpad.i222 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i232.lcssa.sink) #18
+common.resume:                                    ; preds = %lpad.i212, %lpad.i, %lpad.i225, %lpad.i199
+  %call.i209.lcssa.sink = phi ptr [ %call.i209, %lpad.i212 ], [ %call.i127, %lpad.i ], [ %call.i222, %lpad.i225 ], [ %call.i196, %lpad.i199 ]
+  %common.resume.op = phi { ptr, i32 } [ %304, %lpad.i212 ], [ %247, %lpad.i ], [ %139, %lpad.i225 ], [ %82, %lpad.i199 ]
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i209.lcssa.sink) #17
   resume { ptr, i32 } %common.resume.op
 
-lpad.i222:                                        ; preds = %tailrecurse.i.i57
-  %80 = landingpad { ptr, i32 }
+lpad.i199:                                        ; preds = %tailrecurse.i.i52
+  %82 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit231: ; preds = %invoke.cont.i223, %if.then.i229
-  %81 = load ptr, ptr %next.i, align 8
-  %82 = load ptr, ptr %81, align 8
-  %83 = load ptr, ptr %8, align 8
-  %cmp.not.i.i58 = icmp eq ptr %82, %83
-  %.pre10.i.i.pre.pre = load double, ptr %83, align 8
-  br i1 %cmp.not.i.i58, label %if.end.i.i, label %if.then.i.i59
+_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit208: ; preds = %invoke.cont.i200, %if.then.i206
+  %83 = load ptr, ptr %next.i, align 8
+  %84 = load ptr, ptr %83, align 8
+  %85 = load ptr, ptr %8, align 8
+  %cmp.not.i.i53 = icmp eq ptr %84, %85
+  %.pre10.i.i.pre.pre = load double, ptr %85, align 8
+  br i1 %cmp.not.i.i53, label %if.end.i.i, label %if.then.i.i54
 
-if.then.i.i59:                                    ; preds = %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit231
-  %84 = load ptr, ptr %q.i, align 8
-  %y2.i.i.i62 = getelementptr inbounds %"struct.p2t::Point", ptr %83, i64 0, i32 1
-  %85 = load double, ptr %y2.i.i.i62, align 8
-  %86 = load <2 x double>, ptr %82, align 8
-  %87 = load <2 x double>, ptr %84, align 8
-  %88 = insertelement <2 x double> poison, double %.pre10.i.i.pre.pre, i64 0
-  %89 = insertelement <2 x double> %88, double %85, i64 1
-  %90 = fsub <2 x double> %87, %89
-  %91 = fsub <2 x double> %86, %89
-  %92 = shufflevector <2 x double> %91, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %93 = fmul <2 x double> %90, %92
-  %shift393 = shufflevector <2 x double> %93, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %94 = fsub <2 x double> %93, %shift393
-  %sub11.i.i.i69 = extractelement <2 x double> %94, i64 0
-  %cmp.i.i.i70 = fcmp ule double %sub11.i.i.i69, 0xBD719799812DEA11
-  %cmp12.i.i.i71 = fcmp uge double %sub11.i.i.i69, 0x3D719799812DEA11
-  %or.cond.i.not.i.i72 = or i1 %cmp.i.i.i70, %cmp12.i.i.i71
-  %cmp13.i.i.i73 = fcmp ogt double %sub11.i.i.i69, 0.000000e+00
-  %cmp6.i.i74 = and i1 %cmp13.i.i.i73, %or.cond.i.not.i.i72
-  br i1 %cmp6.i.i74, label %if.then7.i.i75, label %if.end.i.i
+if.then.i.i54:                                    ; preds = %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit208
+  %86 = load ptr, ptr %q.i, align 8
+  %y2.i.i.i57 = getelementptr inbounds %"struct.p2t::Point", ptr %85, i64 0, i32 1
+  %87 = load double, ptr %y2.i.i.i57, align 8
+  %88 = load <2 x double>, ptr %84, align 8
+  %89 = load <2 x double>, ptr %86, align 8
+  %90 = insertelement <2 x double> poison, double %.pre10.i.i.pre.pre, i64 0
+  %91 = insertelement <2 x double> %90, double %87, i64 1
+  %92 = fsub <2 x double> %89, %91
+  %93 = fsub <2 x double> %88, %91
+  %94 = shufflevector <2 x double> %93, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %95 = fmul <2 x double> %92, %94
+  %shift370 = shufflevector <2 x double> %95, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %96 = fsub <2 x double> %95, %shift370
+  %sub11.i.i.i64 = extractelement <2 x double> %96, i64 0
+  %97 = tail call double @llvm.fabs.f64(double %sub11.i.i.i64)
+  %or.cond.i.i.i65 = fcmp uge double %97, 0x3D719799812DEA11
+  %cmp13.i.i.i66 = fcmp ogt double %sub11.i.i.i64, 0.000000e+00
+  %cmp6.i.i67 = select i1 %or.cond.i.i.i65, i1 %cmp13.i.i.i66, i1 false
+  br i1 %cmp6.i.i67, label %if.then7.i.i68, label %if.end.i.i
 
-if.then7.i.i75:                                   ; preds = %if.then.i.i59
-  %95 = load ptr, ptr %node.addr.09.i.i, align 8
-  %next12.i.i = getelementptr inbounds %"struct.p2t::Node", ptr %81, i64 0, i32 2
-  %96 = load ptr, ptr %next12.i.i, align 8
-  %97 = load ptr, ptr %96, align 8
-  %98 = load <2 x double>, ptr %97, align 8
-  %99 = load <2 x double>, ptr %95, align 8
-  %100 = fsub <2 x double> %99, %98
-  %101 = fsub <2 x double> %86, %98
-  %102 = shufflevector <2 x double> %101, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %103 = fmul <2 x double> %102, %100
-  %shift394 = shufflevector <2 x double> %103, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %104 = fsub <2 x double> %103, %shift394
-  %sub11.i21.i.i84 = extractelement <2 x double> %104, i64 0
-  %cmp.i22.i.i85 = fcmp ule double %sub11.i21.i.i84, 0xBD719799812DEA11
-  %cmp12.i23.i.i86 = fcmp uge double %sub11.i21.i.i84, 0x3D719799812DEA11
-  %or.cond.i24.not.i.i87 = or i1 %cmp.i22.i.i85, %cmp12.i23.i.i86
-  %cmp13.i25.i.i88 = fcmp ogt double %sub11.i21.i.i84, 0.000000e+00
-  %cmp15.i.i89 = and i1 %cmp13.i25.i.i88, %or.cond.i24.not.i.i87
-  br i1 %cmp15.i.i89, label %tailrecurse.i.i57, label %if.end.i.i
+if.then7.i.i68:                                   ; preds = %if.then.i.i54
+  %98 = load ptr, ptr %node.addr.09.i.i, align 8
+  %next12.i.i = getelementptr inbounds %"struct.p2t::Node", ptr %83, i64 0, i32 2
+  %99 = load ptr, ptr %next12.i.i, align 8
+  %100 = load ptr, ptr %99, align 8
+  %101 = load <2 x double>, ptr %100, align 8
+  %102 = load <2 x double>, ptr %98, align 8
+  %103 = fsub <2 x double> %102, %101
+  %104 = fsub <2 x double> %88, %101
+  %105 = shufflevector <2 x double> %104, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %106 = fmul <2 x double> %105, %103
+  %shift371 = shufflevector <2 x double> %106, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %107 = fsub <2 x double> %106, %shift371
+  %sub11.i21.i.i77 = extractelement <2 x double> %107, i64 0
+  %108 = tail call double @llvm.fabs.f64(double %sub11.i21.i.i77)
+  %or.cond.i22.i.i78 = fcmp uge double %108, 0x3D719799812DEA11
+  %cmp13.i23.i.i79 = fcmp ogt double %sub11.i21.i.i77, 0.000000e+00
+  %cmp15.i.i80 = select i1 %or.cond.i22.i.i78, i1 %cmp13.i23.i.i79, i1 false
+  br i1 %cmp15.i.i80, label %tailrecurse.i.i52, label %if.end.i.i
 
-tailrecurse.i154:                                 ; preds = %tailrecurse.i154.preheader, %if.else.i169
-  %105 = phi double [ %168, %if.else.i169 ], [ %66, %tailrecurse.i154.preheader ]
-  %106 = phi ptr [ %112, %if.else.i169 ], [ %55, %tailrecurse.i154.preheader ]
-  %107 = phi ptr [ %111, %if.else.i169 ], [ %54, %tailrecurse.i154.preheader ]
-  %108 = phi ptr [ %106, %if.else.i169 ], [ %53, %tailrecurse.i154.preheader ]
-  %109 = phi ptr [ %107, %if.else.i169 ], [ %52, %tailrecurse.i154.preheader ]
-  %110 = phi <2 x double> [ %113, %if.else.i169 ], [ %56, %tailrecurse.i154.preheader ]
-  %next7.i = getelementptr inbounds %"struct.p2t::Node", ptr %107, i64 0, i32 2
-  %111 = load ptr, ptr %next7.i, align 8
-  %112 = load ptr, ptr %111, align 8
-  %113 = load <2 x double>, ptr %112, align 8
-  %y4.i.i159 = getelementptr inbounds %"struct.p2t::Point", ptr %108, i64 0, i32 1
-  %114 = load double, ptr %y4.i.i159, align 8
-  %115 = insertelement <2 x double> poison, double %105, i64 0
-  %116 = insertelement <2 x double> %115, double %114, i64 1
-  %117 = fsub <2 x double> %116, %113
-  %118 = shufflevector <2 x double> %117, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %119 = fsub <2 x double> %110, %113
-  %120 = fmul <2 x double> %119, %118
-  %shift395 = shufflevector <2 x double> %120, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %121 = fsub <2 x double> %shift395, %120
-  %sub11.i.i163 = extractelement <2 x double> %121, i64 0
-  %cmp.i.i164 = fcmp ule double %sub11.i.i163, 0xBD719799812DEA11
-  %cmp12.i.i165 = fcmp uge double %sub11.i.i163, 0x3D719799812DEA11
-  %or.cond.i.not.i166 = or i1 %cmp.i.i164, %cmp12.i.i165
-  %cmp13.i.i167 = fcmp ogt double %sub11.i.i163, 0.000000e+00
-  %cmp.i168 = and i1 %cmp13.i.i167, %or.cond.i.not.i166
-  br i1 %cmp.i168, label %if.then.i184, label %if.else.i169
+tailrecurse.i139:                                 ; preds = %tailrecurse.i139.preheader, %if.else.i152
+  %109 = phi double [ %176, %if.else.i152 ], [ %68, %tailrecurse.i139.preheader ]
+  %110 = phi ptr [ %116, %if.else.i152 ], [ %56, %tailrecurse.i139.preheader ]
+  %111 = phi ptr [ %115, %if.else.i152 ], [ %55, %tailrecurse.i139.preheader ]
+  %112 = phi ptr [ %110, %if.else.i152 ], [ %54, %tailrecurse.i139.preheader ]
+  %113 = phi ptr [ %111, %if.else.i152 ], [ %53, %tailrecurse.i139.preheader ]
+  %114 = phi <2 x double> [ %117, %if.else.i152 ], [ %57, %tailrecurse.i139.preheader ]
+  %next7.i = getelementptr inbounds %"struct.p2t::Node", ptr %111, i64 0, i32 2
+  %115 = load ptr, ptr %next7.i, align 8
+  %116 = load ptr, ptr %115, align 8
+  %117 = load <2 x double>, ptr %116, align 8
+  %y4.i.i144 = getelementptr inbounds %"struct.p2t::Point", ptr %112, i64 0, i32 1
+  %118 = load double, ptr %y4.i.i144, align 8
+  %119 = insertelement <2 x double> poison, double %109, i64 0
+  %120 = insertelement <2 x double> %119, double %118, i64 1
+  %121 = fsub <2 x double> %120, %117
+  %122 = shufflevector <2 x double> %121, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %123 = fsub <2 x double> %114, %117
+  %124 = fmul <2 x double> %123, %122
+  %shift372 = shufflevector <2 x double> %124, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %125 = fsub <2 x double> %shift372, %124
+  %sub11.i.i148 = extractelement <2 x double> %125, i64 0
+  %126 = tail call double @llvm.fabs.f64(double %sub11.i.i148)
+  %or.cond.i.i149 = fcmp uge double %126, 0x3D719799812DEA11
+  %cmp13.i.i150 = fcmp ogt double %sub11.i.i148, 0.000000e+00
+  %cmp.i151 = select i1 %or.cond.i.i149, i1 %cmp13.i.i150, i1 false
+  br i1 %cmp.i151, label %if.then.i165, label %if.else.i152
 
-if.then.i184:                                     ; preds = %tailrecurse.i154
-  %next3.le.i = getelementptr inbounds %"struct.p2t::Node", ptr %109, i64 0, i32 2
-  br label %tailrecurse.i.i185
+if.then.i165:                                     ; preds = %tailrecurse.i139
+  %next3.le.i = getelementptr inbounds %"struct.p2t::Node", ptr %113, i64 0, i32 2
+  br label %tailrecurse.i.i166
 
-tailrecurse.i.i185:                               ; preds = %if.then7.i.i203, %if.then.i184
-  %122 = phi ptr [ %135, %if.then7.i.i203 ], [ %107, %if.then.i184 ]
-  %call.i245 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #17
-  %prev.i246 = getelementptr inbounds %"struct.p2t::Node", ptr %122, i64 0, i32 3
-  %123 = load ptr, ptr %prev.i246, align 8
-  %124 = load ptr, ptr %123, align 8
-  %125 = load ptr, ptr %122, align 8
-  %next.i247 = getelementptr inbounds %"struct.p2t::Node", ptr %122, i64 0, i32 2
-  %126 = load ptr, ptr %next.i247, align 8
-  %127 = load ptr, ptr %126, align 8
-  invoke void @_ZN3p2t8TriangleC1ERNS_5PointES2_S2_(ptr noundef nonnull align 8 dereferenceable(57) %call.i245, ptr noundef nonnull align 8 dereferenceable(40) %124, ptr noundef nonnull align 8 dereferenceable(40) %125, ptr noundef nonnull align 8 dereferenceable(40) %127)
-          to label %invoke.cont.i249 unwind label %lpad.i248
+tailrecurse.i.i166:                               ; preds = %if.then7.i.i182, %if.then.i165
+  %127 = phi ptr [ %140, %if.then7.i.i182 ], [ %111, %if.then.i165 ]
+  %call.i222 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16
+  %prev.i223 = getelementptr inbounds %"struct.p2t::Node", ptr %127, i64 0, i32 3
+  %128 = load ptr, ptr %prev.i223, align 8
+  %129 = load ptr, ptr %128, align 8
+  %130 = load ptr, ptr %127, align 8
+  %next.i224 = getelementptr inbounds %"struct.p2t::Node", ptr %127, i64 0, i32 2
+  %131 = load ptr, ptr %next.i224, align 8
+  %132 = load ptr, ptr %131, align 8
+  invoke void @_ZN3p2t8TriangleC1ERNS_5PointES2_S2_(ptr noundef nonnull align 8 dereferenceable(57) %call.i222, ptr noundef nonnull align 8 dereferenceable(40) %129, ptr noundef nonnull align 8 dereferenceable(40) %130, ptr noundef nonnull align 8 dereferenceable(40) %132)
+          to label %invoke.cont.i226 unwind label %lpad.i225
 
-invoke.cont.i249:                                 ; preds = %tailrecurse.i.i185
-  %128 = load ptr, ptr %prev.i246, align 8
-  %triangle5.i250 = getelementptr inbounds %"struct.p2t::Node", ptr %128, i64 0, i32 1
-  %129 = load ptr, ptr %triangle5.i250, align 8
-  tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i245, ptr noundef nonnull align 8 dereferenceable(57) %129)
-  %triangle6.i251 = getelementptr inbounds %"struct.p2t::Node", ptr %122, i64 0, i32 1
-  %130 = load ptr, ptr %triangle6.i251, align 8
-  tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i245, ptr noundef nonnull align 8 dereferenceable(57) %130)
-  tail call void @_ZN3p2t12SweepContext8AddToMapEPNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull %call.i245)
-  %131 = load ptr, ptr %next.i247, align 8
-  %132 = load ptr, ptr %prev.i246, align 8
-  %next9.i252 = getelementptr inbounds %"struct.p2t::Node", ptr %132, i64 0, i32 2
-  store ptr %131, ptr %next9.i252, align 8
-  %133 = load ptr, ptr %prev.i246, align 8
-  %prev12.i253 = getelementptr inbounds %"struct.p2t::Node", ptr %131, i64 0, i32 3
-  store ptr %133, ptr %prev12.i253, align 8
-  %call13.i254 = tail call noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call.i245)
-  br i1 %call13.i254, label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit257, label %if.then.i255
+invoke.cont.i226:                                 ; preds = %tailrecurse.i.i166
+  %133 = load ptr, ptr %prev.i223, align 8
+  %triangle5.i227 = getelementptr inbounds %"struct.p2t::Node", ptr %133, i64 0, i32 1
+  %134 = load ptr, ptr %triangle5.i227, align 8
+  tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i222, ptr noundef nonnull align 8 dereferenceable(57) %134)
+  %triangle6.i228 = getelementptr inbounds %"struct.p2t::Node", ptr %127, i64 0, i32 1
+  %135 = load ptr, ptr %triangle6.i228, align 8
+  tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i222, ptr noundef nonnull align 8 dereferenceable(57) %135)
+  tail call void @_ZN3p2t12SweepContext8AddToMapEPNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull %call.i222)
+  %136 = load ptr, ptr %next.i224, align 8
+  %137 = load ptr, ptr %prev.i223, align 8
+  %next9.i229 = getelementptr inbounds %"struct.p2t::Node", ptr %137, i64 0, i32 2
+  store ptr %136, ptr %next9.i229, align 8
+  %138 = load ptr, ptr %prev.i223, align 8
+  %prev12.i230 = getelementptr inbounds %"struct.p2t::Node", ptr %136, i64 0, i32 3
+  store ptr %138, ptr %prev12.i230, align 8
+  %call13.i231 = tail call noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call.i222)
+  br i1 %call13.i231, label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit234, label %if.then.i232
 
-if.then.i255:                                     ; preds = %invoke.cont.i249
-  tail call void @_ZN3p2t12SweepContext18MapTriangleToNodesERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call.i245)
-  br label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit257
+if.then.i232:                                     ; preds = %invoke.cont.i226
+  tail call void @_ZN3p2t12SweepContext18MapTriangleToNodesERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call.i222)
+  br label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit234
 
-lpad.i248:                                        ; preds = %tailrecurse.i.i185
-  %134 = landingpad { ptr, i32 }
+lpad.i225:                                        ; preds = %tailrecurse.i.i166
+  %139 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit257: ; preds = %invoke.cont.i249, %if.then.i255
-  %135 = load ptr, ptr %next3.le.i, align 8
-  %136 = load ptr, ptr %135, align 8
-  %137 = load ptr, ptr %8, align 8
-  %cmp.not.i.i186 = icmp eq ptr %136, %137
-  %.pre316.pre = load double, ptr %137, align 8
-  br i1 %cmp.not.i.i186, label %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit, label %if.then.i.i187
+_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit234: ; preds = %invoke.cont.i226, %if.then.i232
+  %140 = load ptr, ptr %next3.le.i, align 8
+  %141 = load ptr, ptr %140, align 8
+  %142 = load ptr, ptr %8, align 8
+  %cmp.not.i.i167 = icmp eq ptr %141, %142
+  %.pre293.pre = load double, ptr %142, align 8
+  br i1 %cmp.not.i.i167, label %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit, label %if.then.i.i168
 
-if.then.i.i187:                                   ; preds = %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit257
-  %138 = load ptr, ptr %q.i, align 8
-  %y2.i.i.i190 = getelementptr inbounds %"struct.p2t::Point", ptr %137, i64 0, i32 1
-  %139 = load double, ptr %y2.i.i.i190, align 8
-  %140 = load <2 x double>, ptr %136, align 8
-  %141 = load <2 x double>, ptr %138, align 8
-  %142 = insertelement <2 x double> poison, double %.pre316.pre, i64 0
-  %143 = insertelement <2 x double> %142, double %139, i64 1
-  %144 = fsub <2 x double> %141, %143
-  %145 = fsub <2 x double> %140, %143
-  %146 = shufflevector <2 x double> %145, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %147 = fmul <2 x double> %144, %146
-  %shift396 = shufflevector <2 x double> %147, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %148 = fsub <2 x double> %147, %shift396
-  %sub11.i.i.i197 = extractelement <2 x double> %148, i64 0
-  %cmp.i.i.i198 = fcmp ule double %sub11.i.i.i197, 0xBD719799812DEA11
-  %cmp12.i.i.i199 = fcmp uge double %sub11.i.i.i197, 0x3D719799812DEA11
-  %or.cond.i.not.i.i200 = or i1 %cmp.i.i.i198, %cmp12.i.i.i199
-  %cmp13.i.i.i201 = fcmp ogt double %sub11.i.i.i197, 0.000000e+00
-  %cmp6.i.i202 = and i1 %cmp13.i.i.i201, %or.cond.i.not.i.i200
-  br i1 %cmp6.i.i202, label %if.then7.i.i203, label %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit
+if.then.i.i168:                                   ; preds = %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit234
+  %143 = load ptr, ptr %q.i, align 8
+  %y2.i.i.i171 = getelementptr inbounds %"struct.p2t::Point", ptr %142, i64 0, i32 1
+  %144 = load double, ptr %y2.i.i.i171, align 8
+  %145 = load <2 x double>, ptr %141, align 8
+  %146 = load <2 x double>, ptr %143, align 8
+  %147 = insertelement <2 x double> poison, double %.pre293.pre, i64 0
+  %148 = insertelement <2 x double> %147, double %144, i64 1
+  %149 = fsub <2 x double> %146, %148
+  %150 = fsub <2 x double> %145, %148
+  %151 = shufflevector <2 x double> %150, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %152 = fmul <2 x double> %149, %151
+  %shift373 = shufflevector <2 x double> %152, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %153 = fsub <2 x double> %152, %shift373
+  %sub11.i.i.i178 = extractelement <2 x double> %153, i64 0
+  %154 = tail call double @llvm.fabs.f64(double %sub11.i.i.i178)
+  %or.cond.i.i.i179 = fcmp uge double %154, 0x3D719799812DEA11
+  %cmp13.i.i.i180 = fcmp ogt double %sub11.i.i.i178, 0.000000e+00
+  %cmp6.i.i181 = select i1 %or.cond.i.i.i179, i1 %cmp13.i.i.i180, i1 false
+  br i1 %cmp6.i.i181, label %if.then7.i.i182, label %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit
 
-if.then7.i.i203:                                  ; preds = %if.then.i.i187
-  %149 = load ptr, ptr %109, align 8
-  %next12.i.i204 = getelementptr inbounds %"struct.p2t::Node", ptr %135, i64 0, i32 2
-  %150 = load ptr, ptr %next12.i.i204, align 8
-  %151 = load ptr, ptr %150, align 8
-  %152 = load <2 x double>, ptr %151, align 8
-  %153 = load <2 x double>, ptr %149, align 8
-  %154 = fsub <2 x double> %153, %152
-  %155 = fsub <2 x double> %140, %152
-  %156 = shufflevector <2 x double> %155, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %157 = fmul <2 x double> %156, %154
-  %shift397 = shufflevector <2 x double> %157, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %158 = fsub <2 x double> %157, %shift397
-  %sub11.i21.i.i213 = extractelement <2 x double> %158, i64 0
-  %cmp.i22.i.i214 = fcmp ule double %sub11.i21.i.i213, 0xBD719799812DEA11
-  %cmp12.i23.i.i215 = fcmp uge double %sub11.i21.i.i213, 0x3D719799812DEA11
-  %or.cond.i24.not.i.i216 = or i1 %cmp.i22.i.i214, %cmp12.i23.i.i215
-  %cmp13.i25.i.i217 = fcmp ogt double %sub11.i21.i.i213, 0.000000e+00
-  %cmp15.i.i218 = and i1 %cmp13.i25.i.i217, %or.cond.i24.not.i.i216
-  br i1 %cmp15.i.i218, label %tailrecurse.i.i185, label %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit
+if.then7.i.i182:                                  ; preds = %if.then.i.i168
+  %155 = load ptr, ptr %113, align 8
+  %next12.i.i183 = getelementptr inbounds %"struct.p2t::Node", ptr %140, i64 0, i32 2
+  %156 = load ptr, ptr %next12.i.i183, align 8
+  %157 = load ptr, ptr %156, align 8
+  %158 = load <2 x double>, ptr %157, align 8
+  %159 = load <2 x double>, ptr %155, align 8
+  %160 = fsub <2 x double> %159, %158
+  %161 = fsub <2 x double> %145, %158
+  %162 = shufflevector <2 x double> %161, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %163 = fmul <2 x double> %162, %160
+  %shift374 = shufflevector <2 x double> %163, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %164 = fsub <2 x double> %163, %shift374
+  %sub11.i21.i.i192 = extractelement <2 x double> %164, i64 0
+  %165 = tail call double @llvm.fabs.f64(double %sub11.i21.i.i192)
+  %or.cond.i22.i.i193 = fcmp uge double %165, 0x3D719799812DEA11
+  %cmp13.i23.i.i194 = fcmp ogt double %sub11.i21.i.i192, 0.000000e+00
+  %cmp15.i.i195 = select i1 %or.cond.i22.i.i193, i1 %cmp13.i23.i.i194, i1 false
+  br i1 %cmp15.i.i195, label %tailrecurse.i.i166, label %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit
 
-if.else.i169:                                     ; preds = %tailrecurse.i154
-  %159 = load ptr, ptr %q.i, align 8
-  %160 = load double, ptr %y2.i12.i171, align 8
-  %161 = load <2 x double>, ptr %159, align 8
-  %162 = insertelement <2 x double> %67, double %160, i64 1
-  %163 = fsub <2 x double> %161, %162
-  %164 = shufflevector <2 x double> %163, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %165 = fsub <2 x double> %110, %162
-  %166 = fmul <2 x double> %165, %164
-  %shift398 = shufflevector <2 x double> %166, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %167 = fsub <2 x double> %shift398, %166
-  %sub11.i19.i178 = extractelement <2 x double> %167, i64 0
-  %cmp.i20.i179 = fcmp ule double %sub11.i19.i178, 0xBD719799812DEA11
-  %cmp12.i21.i180 = fcmp uge double %sub11.i19.i178, 0x3D719799812DEA11
-  %or.cond.i22.not.i181 = or i1 %cmp.i20.i179, %cmp12.i21.i180
-  %cmp13.i23.i182 = fcmp ogt double %sub11.i19.i178, 0.000000e+00
-  %cmp14.i183 = and i1 %cmp13.i23.i182, %or.cond.i22.not.i181
-  %168 = extractelement <2 x double> %110, i64 0
-  br i1 %cmp14.i183, label %tailrecurse.i154, label %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit
+if.else.i152:                                     ; preds = %tailrecurse.i139
+  %166 = load ptr, ptr %q.i, align 8
+  %167 = load double, ptr %y2.i12.i154, align 8
+  %168 = load <2 x double>, ptr %166, align 8
+  %169 = insertelement <2 x double> %69, double %167, i64 1
+  %170 = fsub <2 x double> %168, %169
+  %171 = shufflevector <2 x double> %170, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %172 = fsub <2 x double> %114, %169
+  %173 = fmul <2 x double> %172, %171
+  %shift375 = shufflevector <2 x double> %173, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %174 = fsub <2 x double> %shift375, %173
+  %sub11.i19.i161 = extractelement <2 x double> %174, i64 0
+  %175 = tail call double @llvm.fabs.f64(double %sub11.i19.i161)
+  %or.cond.i20.i162 = fcmp uge double %175, 0x3D719799812DEA11
+  %cmp13.i21.i163 = fcmp ogt double %sub11.i19.i161, 0.000000e+00
+  %cmp14.i164 = select i1 %or.cond.i20.i162, i1 %cmp13.i21.i163, i1 false
+  %176 = extractelement <2 x double> %114, i64 0
+  br i1 %cmp14.i164, label %tailrecurse.i139, label %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit
 
-_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit: ; preds = %if.then7.i.i203, %if.then.i.i187, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit257
+_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit: ; preds = %if.then7.i.i182, %if.then.i.i168, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit234
   %.pre = load ptr, ptr %node.addr.09.i.i, align 8
-  %.pre315 = load double, ptr %.pre, align 8
+  %.pre292 = load double, ptr %.pre, align 8
   br label %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit
 
-_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit: ; preds = %if.else.i169, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit
-  %.pre10.i.i322 = phi double [ %.pre316.pre, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %.pre10.i.i323, %if.else.i169 ]
-  %.pre.i.i319 = phi ptr [ %137, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %.pre.i.i320, %if.else.i169 ]
-  %169 = phi double [ %.pre316.pre, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %48, %if.else.i169 ]
-  %170 = phi ptr [ %137, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %49, %if.else.i169 ]
-  %171 = phi double [ %.pre315, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %50, %if.else.i169 ]
-  %172 = phi ptr [ %.pre, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %51, %if.else.i169 ]
-  %cmp.i54 = fcmp olt double %171, %169
-  br i1 %cmp.i54, label %if.then.i37, label %if.end.i.i
+_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit: ; preds = %if.else.i152, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit
+  %.pre10.i.i299 = phi double [ %.pre293.pre, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %.pre10.i.i300, %if.else.i152 ]
+  %.pre.i.i296 = phi ptr [ %142, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %.pre.i.i297, %if.else.i152 ]
+  %177 = phi double [ %.pre293.pre, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %49, %if.else.i152 ]
+  %178 = phi ptr [ %142, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %50, %if.else.i152 ]
+  %179 = phi double [ %.pre292, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %51, %if.else.i152 ]
+  %180 = phi ptr [ %.pre, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %52, %if.else.i152 ]
+  %cmp.i49 = fcmp olt double %179, %177
+  br i1 %cmp.i49, label %if.then.i34, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit, %if.then7.i.i75, %if.then.i.i59, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit231, %if.then.i.i14, %while.body.i.i
-  %.pre10.i.i325 = phi double [ %.pre10.i.i324, %while.body.i.i ], [ %.pre10.i.i324, %if.then.i.i14 ], [ %.pre10.i.i.pre.pre, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit231 ], [ %.pre10.i.i.pre.pre, %if.then.i.i59 ], [ %.pre10.i.i.pre.pre, %if.then7.i.i75 ], [ %.pre10.i.i322, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %.pre.i.i317 = phi ptr [ %.pre.i.i321, %while.body.i.i ], [ %.pre.i.i321, %if.then.i.i14 ], [ %83, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit231 ], [ %83, %if.then.i.i59 ], [ %83, %if.then7.i.i75 ], [ %.pre.i.i319, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %173 = phi double [ %24, %while.body.i.i ], [ %.pre10.i.i324, %if.then.i.i14 ], [ %.pre10.i.i.pre.pre, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit231 ], [ %.pre10.i.i.pre.pre, %if.then.i.i59 ], [ %.pre10.i.i.pre.pre, %if.then7.i.i75 ], [ %.pre10.i.i322, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %174 = phi ptr [ %25, %while.body.i.i ], [ %.pre.i.i321, %if.then.i.i14 ], [ %83, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit231 ], [ %83, %if.then.i.i59 ], [ %83, %if.then7.i.i75 ], [ %.pre.i.i319, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %node.addr.1.i.i = phi ptr [ %28, %while.body.i.i ], [ %node.addr.09.i.i, %if.then.i.i14 ], [ %node.addr.09.i.i, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit231 ], [ %node.addr.09.i.i, %if.then.i.i59 ], [ %node.addr.09.i.i, %if.then7.i.i75 ], [ %node.addr.09.i.i, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+if.end.i.i:                                       ; preds = %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit, %if.then7.i.i68, %if.then.i.i54, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit208, %if.then.i.i14, %while.body.i.i
+  %.pre10.i.i302 = phi double [ %.pre10.i.i301, %while.body.i.i ], [ %.pre10.i.i301, %if.then.i.i14 ], [ %.pre10.i.i.pre.pre, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit208 ], [ %.pre10.i.i.pre.pre, %if.then.i.i54 ], [ %.pre10.i.i.pre.pre, %if.then7.i.i68 ], [ %.pre10.i.i299, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %.pre.i.i294 = phi ptr [ %.pre.i.i298, %while.body.i.i ], [ %.pre.i.i298, %if.then.i.i14 ], [ %85, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit208 ], [ %85, %if.then.i.i54 ], [ %85, %if.then7.i.i68 ], [ %.pre.i.i296, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %181 = phi double [ %24, %while.body.i.i ], [ %.pre10.i.i301, %if.then.i.i14 ], [ %.pre10.i.i.pre.pre, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit208 ], [ %.pre10.i.i.pre.pre, %if.then.i.i54 ], [ %.pre10.i.i.pre.pre, %if.then7.i.i68 ], [ %.pre10.i.i299, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %182 = phi ptr [ %25, %while.body.i.i ], [ %.pre.i.i298, %if.then.i.i14 ], [ %85, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit208 ], [ %85, %if.then.i.i54 ], [ %85, %if.then7.i.i68 ], [ %.pre.i.i296, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %node.addr.1.i.i = phi ptr [ %28, %while.body.i.i ], [ %node.addr.09.i.i, %if.then.i.i14 ], [ %node.addr.09.i.i, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit208 ], [ %node.addr.09.i.i, %if.then.i.i54 ], [ %node.addr.09.i.i, %if.then7.i.i68 ], [ %node.addr.09.i.i, %_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
   %next.i.i = getelementptr inbounds %"struct.p2t::Node", ptr %node.addr.1.i.i, i64 0, i32 2
-  %175 = load ptr, ptr %next.i.i, align 8
-  %176 = load ptr, ptr %175, align 8
-  %177 = load double, ptr %176, align 8
-  %cmp.i.i = fcmp olt double %177, %173
+  %183 = load ptr, ptr %next.i.i, align 8
+  %184 = load ptr, ptr %183, align 8
+  %185 = load double, ptr %184, align 8
+  %cmp.i.i = fcmp olt double %185, %181
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit, !llvm.loop !6
 
 if.else.i:                                        ; preds = %if.end.i
-  %178 = load ptr, ptr %prev8.i.i, align 8
-  %179 = load ptr, ptr %178, align 8
-  %180 = load double, ptr %179, align 8
-  %cmp9.i.i = fcmp ogt double %180, %20
+  %186 = load ptr, ptr %prev8.i.i, align 8
+  %187 = load ptr, ptr %186, align 8
+  %188 = load double, ptr %187, align 8
+  %cmp9.i.i = fcmp ogt double %188, %20
   br i1 %cmp9.i.i, label %while.body.i7.i, label %_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit
 
-while.body.i7.i:                                  ; preds = %if.else.i, %if.end.i23.i
-  %.pre11.i.i337 = phi double [ %.pre11.i.i338, %if.end.i23.i ], [ %20, %if.else.i ]
-  %.pre.i27.i334 = phi ptr [ %.pre.i27.i330, %if.end.i23.i ], [ %19, %if.else.i ]
-  %181 = phi double [ %330, %if.end.i23.i ], [ %20, %if.else.i ]
-  %182 = phi ptr [ %331, %if.end.i23.i ], [ %19, %if.else.i ]
-  %183 = phi double [ %334, %if.end.i23.i ], [ %180, %if.else.i ]
-  %184 = phi ptr [ %333, %if.end.i23.i ], [ %179, %if.else.i ]
-  %185 = phi ptr [ %332, %if.end.i23.i ], [ %178, %if.else.i ]
-  %node.addr.010.i.i = phi ptr [ %node.addr.1.i24.i, %if.end.i23.i ], [ %call2.i, %if.else.i ]
-  %186 = load ptr, ptr %q.i, align 8
-  %187 = load double, ptr %186, align 8
-  %y.i.i9.i = getelementptr inbounds %"struct.p2t::Point", ptr %184, i64 0, i32 1
-  %188 = load double, ptr %y.i.i9.i, align 8
-  %y2.i.i10.i = getelementptr inbounds %"struct.p2t::Point", ptr %182, i64 0, i32 1
-  %189 = load double, ptr %y2.i.i10.i, align 8
-  %y4.i.i13.i = getelementptr inbounds %"struct.p2t::Point", ptr %186, i64 0, i32 1
-  %190 = load double, ptr %y4.i.i13.i, align 8
-  %191 = insertelement <2 x double> poison, double %188, i64 0
-  %192 = insertelement <2 x double> %191, double %190, i64 1
-  %193 = insertelement <2 x double> poison, double %189, i64 0
-  %194 = shufflevector <2 x double> %193, <2 x double> poison, <2 x i32> zeroinitializer
-  %195 = fsub <2 x double> %192, %194
-  %196 = insertelement <2 x double> poison, double %187, i64 0
-  %197 = insertelement <2 x double> %196, double %183, i64 1
-  %198 = insertelement <2 x double> poison, double %181, i64 0
-  %199 = shufflevector <2 x double> %198, <2 x double> poison, <2 x i32> zeroinitializer
-  %200 = fsub <2 x double> %197, %199
-  %201 = fmul <2 x double> %200, %195
-  %shift399 = shufflevector <2 x double> %201, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %202 = fsub <2 x double> %201, %shift399
-  %sub11.i.i17.i = extractelement <2 x double> %202, i64 0
-  %cmp.i.i18.i = fcmp ule double %sub11.i.i17.i, 0xBD719799812DEA11
-  %cmp12.i.i19.i = fcmp uge double %sub11.i.i17.i, 0x3D719799812DEA11
-  %or.cond.i.not.i20.i = or i1 %cmp.i.i18.i, %cmp12.i.i19.i
-  %cmp13.i.i21.i = fcmp ule double %sub11.i.i17.i, 0.000000e+00
-  %cmp6.i22.i = and i1 %cmp13.i.i21.i, %or.cond.i.not.i20.i
-  br i1 %cmp6.i22.i, label %if.then.i26.i, label %if.end.i23.i
+while.body.i7.i:                                  ; preds = %if.else.i, %if.end.i21.i
+  %.pre11.i.i314 = phi double [ %.pre11.i.i315, %if.end.i21.i ], [ %20, %if.else.i ]
+  %.pre.i25.i311 = phi ptr [ %.pre.i25.i307, %if.end.i21.i ], [ %19, %if.else.i ]
+  %189 = phi double [ %346, %if.end.i21.i ], [ %20, %if.else.i ]
+  %190 = phi ptr [ %347, %if.end.i21.i ], [ %19, %if.else.i ]
+  %191 = phi double [ %350, %if.end.i21.i ], [ %188, %if.else.i ]
+  %192 = phi ptr [ %349, %if.end.i21.i ], [ %187, %if.else.i ]
+  %193 = phi ptr [ %348, %if.end.i21.i ], [ %186, %if.else.i ]
+  %node.addr.010.i.i = phi ptr [ %node.addr.1.i22.i, %if.end.i21.i ], [ %call2.i, %if.else.i ]
+  %194 = load ptr, ptr %q.i, align 8
+  %195 = load double, ptr %194, align 8
+  %y.i.i9.i = getelementptr inbounds %"struct.p2t::Point", ptr %192, i64 0, i32 1
+  %196 = load double, ptr %y.i.i9.i, align 8
+  %y2.i.i10.i = getelementptr inbounds %"struct.p2t::Point", ptr %190, i64 0, i32 1
+  %197 = load double, ptr %y2.i.i10.i, align 8
+  %y4.i.i13.i = getelementptr inbounds %"struct.p2t::Point", ptr %194, i64 0, i32 1
+  %198 = load double, ptr %y4.i.i13.i, align 8
+  %199 = insertelement <2 x double> poison, double %196, i64 0
+  %200 = insertelement <2 x double> %199, double %198, i64 1
+  %201 = insertelement <2 x double> poison, double %197, i64 0
+  %202 = shufflevector <2 x double> %201, <2 x double> poison, <2 x i32> zeroinitializer
+  %203 = fsub <2 x double> %200, %202
+  %204 = insertelement <2 x double> poison, double %195, i64 0
+  %205 = insertelement <2 x double> %204, double %191, i64 1
+  %206 = insertelement <2 x double> poison, double %189, i64 0
+  %207 = shufflevector <2 x double> %206, <2 x double> poison, <2 x i32> zeroinitializer
+  %208 = fsub <2 x double> %205, %207
+  %209 = fmul <2 x double> %208, %203
+  %shift376 = shufflevector <2 x double> %209, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %210 = fsub <2 x double> %209, %shift376
+  %sub11.i.i17.i = extractelement <2 x double> %210, i64 0
+  %211 = tail call double @llvm.fabs.f64(double %sub11.i.i17.i)
+  %or.cond.i.i18.i = fcmp uge double %211, 0x3D719799812DEA11
+  %cmp13.i.i19.i = fcmp ule double %sub11.i.i17.i, 0.000000e+00
+  %cmp6.i20.i = select i1 %or.cond.i.i18.i, i1 %cmp13.i.i19.i, i1 false
+  br i1 %cmp6.i20.i, label %if.then.i24.i, label %if.end.i21.i
 
-if.then.i26.i:                                    ; preds = %while.body.i7.i
-  %203 = load ptr, ptr %node.addr.010.i.i, align 8
-  %204 = load double, ptr %203, align 8
-  %cmp14.i = fcmp ogt double %204, %181
-  br i1 %cmp14.i, label %if.then.lr.ph.i, label %if.end.i23.i
+if.then.i24.i:                                    ; preds = %while.body.i7.i
+  %212 = load ptr, ptr %node.addr.010.i.i, align 8
+  %213 = load double, ptr %212, align 8
+  %cmp14.i = fcmp ogt double %213, %189
+  br i1 %cmp14.i, label %if.then.lr.ph.i, label %if.end.i21.i
 
-if.then.lr.ph.i:                                  ; preds = %if.then.i26.i
+if.then.lr.ph.i:                                  ; preds = %if.then.i24.i
   %prev.i = getelementptr inbounds %"struct.p2t::Node", ptr %node.addr.010.i.i, i64 0, i32 3
   br label %if.then.i15
 
 if.then.i15:                                      ; preds = %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit, %if.then.lr.ph.i
-  %.pre11.i.i336 = phi double [ %.pre11.i.i337, %if.then.lr.ph.i ], [ %.pre11.i.i335, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %.pre.i27.i333 = phi ptr [ %.pre.i27.i334, %if.then.lr.ph.i ], [ %.pre.i27.i332, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %205 = phi double [ %181, %if.then.lr.ph.i ], [ %326, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %206 = phi ptr [ %182, %if.then.lr.ph.i ], [ %327, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %207 = phi double [ %204, %if.then.lr.ph.i ], [ %328, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %208 = phi ptr [ %203, %if.then.lr.ph.i ], [ %329, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %209 = load ptr, ptr %prev.i, align 8
-  %210 = load ptr, ptr %209, align 8
-  %prev6.i = getelementptr inbounds %"struct.p2t::Node", ptr %209, i64 0, i32 3
-  %211 = load ptr, ptr %prev6.i, align 8
-  %212 = load ptr, ptr %211, align 8
-  %213 = load <2 x double>, ptr %212, align 8
-  %y4.i.i = getelementptr inbounds %"struct.p2t::Point", ptr %208, i64 0, i32 1
-  %214 = load double, ptr %y4.i.i, align 8
-  %215 = insertelement <2 x double> poison, double %207, i64 0
-  %216 = insertelement <2 x double> %215, double %214, i64 1
-  %217 = fsub <2 x double> %216, %213
-  %218 = shufflevector <2 x double> %217, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %219 = load <2 x double>, ptr %210, align 8
-  %220 = fsub <2 x double> %219, %213
-  %221 = fmul <2 x double> %218, %220
-  %shift400 = shufflevector <2 x double> %221, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %222 = fsub <2 x double> %shift400, %221
-  %sub11.i.i = extractelement <2 x double> %222, i64 0
-  %cmp.i.i16 = fcmp ule double %sub11.i.i, 0xBD719799812DEA11
-  %cmp12.i.i = fcmp uge double %sub11.i.i, 0x3D719799812DEA11
-  %or.cond.i.not.i = or i1 %cmp.i.i16, %cmp12.i.i
+  %.pre11.i.i313 = phi double [ %.pre11.i.i314, %if.then.lr.ph.i ], [ %.pre11.i.i312, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %.pre.i25.i310 = phi ptr [ %.pre.i25.i311, %if.then.lr.ph.i ], [ %.pre.i25.i309, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %214 = phi double [ %189, %if.then.lr.ph.i ], [ %342, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %215 = phi ptr [ %190, %if.then.lr.ph.i ], [ %343, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %216 = phi double [ %213, %if.then.lr.ph.i ], [ %344, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %217 = phi ptr [ %212, %if.then.lr.ph.i ], [ %345, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %218 = load ptr, ptr %prev.i, align 8
+  %219 = load ptr, ptr %218, align 8
+  %prev6.i = getelementptr inbounds %"struct.p2t::Node", ptr %218, i64 0, i32 3
+  %220 = load ptr, ptr %prev6.i, align 8
+  %221 = load ptr, ptr %220, align 8
+  %222 = load <2 x double>, ptr %221, align 8
+  %y4.i.i = getelementptr inbounds %"struct.p2t::Point", ptr %217, i64 0, i32 1
+  %223 = load double, ptr %y4.i.i, align 8
+  %224 = insertelement <2 x double> poison, double %216, i64 0
+  %225 = insertelement <2 x double> %224, double %223, i64 1
+  %226 = fsub <2 x double> %225, %222
+  %227 = shufflevector <2 x double> %226, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %228 = load <2 x double>, ptr %219, align 8
+  %229 = fsub <2 x double> %228, %222
+  %230 = fmul <2 x double> %227, %229
+  %shift377 = shufflevector <2 x double> %230, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %231 = fsub <2 x double> %shift377, %230
+  %sub11.i.i = extractelement <2 x double> %231, i64 0
+  %232 = tail call double @llvm.fabs.f64(double %sub11.i.i)
+  %or.cond.i.i = fcmp uge double %232, 0x3D719799812DEA11
   %cmp13.i.i = fcmp ule double %sub11.i.i, 0.000000e+00
-  %cmp8.i = and i1 %cmp13.i.i, %or.cond.i.not.i
+  %cmp8.i = select i1 %or.cond.i.i, i1 %cmp13.i.i, i1 false
   br i1 %cmp8.i, label %tailrecurse.i.i, label %tailrecurse.i.preheader
 
 tailrecurse.i.preheader:                          ; preds = %if.then.i15
-  %y2.i12.i = getelementptr inbounds %"struct.p2t::Point", ptr %206, i64 0, i32 1
-  %223 = extractelement <2 x double> %219, i64 0
-  %224 = insertelement <2 x double> poison, double %205, i64 0
+  %y2.i12.i = getelementptr inbounds %"struct.p2t::Point", ptr %215, i64 0, i32 1
+  %233 = extractelement <2 x double> %228, i64 0
+  %234 = insertelement <2 x double> poison, double %214, i64 0
   br label %tailrecurse.i
 
 tailrecurse.i.i:                                  ; preds = %if.then.i15, %if.then7.i.i
-  %225 = phi ptr [ %238, %if.then7.i.i ], [ %209, %if.then.i15 ]
-  %call.i142 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #17
-  %prev.i143 = getelementptr inbounds %"struct.p2t::Node", ptr %225, i64 0, i32 3
-  %226 = load ptr, ptr %prev.i143, align 8
-  %227 = load ptr, ptr %226, align 8
-  %228 = load ptr, ptr %225, align 8
-  %next.i144 = getelementptr inbounds %"struct.p2t::Node", ptr %225, i64 0, i32 2
-  %229 = load ptr, ptr %next.i144, align 8
-  %230 = load ptr, ptr %229, align 8
-  invoke void @_ZN3p2t8TriangleC1ERNS_5PointES2_S2_(ptr noundef nonnull align 8 dereferenceable(57) %call.i142, ptr noundef nonnull align 8 dereferenceable(40) %227, ptr noundef nonnull align 8 dereferenceable(40) %228, ptr noundef nonnull align 8 dereferenceable(40) %230)
+  %235 = phi ptr [ %248, %if.then7.i.i ], [ %218, %if.then.i15 ]
+  %call.i127 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16
+  %prev.i128 = getelementptr inbounds %"struct.p2t::Node", ptr %235, i64 0, i32 3
+  %236 = load ptr, ptr %prev.i128, align 8
+  %237 = load ptr, ptr %236, align 8
+  %238 = load ptr, ptr %235, align 8
+  %next.i129 = getelementptr inbounds %"struct.p2t::Node", ptr %235, i64 0, i32 2
+  %239 = load ptr, ptr %next.i129, align 8
+  %240 = load ptr, ptr %239, align 8
+  invoke void @_ZN3p2t8TriangleC1ERNS_5PointES2_S2_(ptr noundef nonnull align 8 dereferenceable(57) %call.i127, ptr noundef nonnull align 8 dereferenceable(40) %237, ptr noundef nonnull align 8 dereferenceable(40) %238, ptr noundef nonnull align 8 dereferenceable(40) %240)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %tailrecurse.i.i
-  %231 = load ptr, ptr %prev.i143, align 8
-  %triangle5.i = getelementptr inbounds %"struct.p2t::Node", ptr %231, i64 0, i32 1
-  %232 = load ptr, ptr %triangle5.i, align 8
-  tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i142, ptr noundef nonnull align 8 dereferenceable(57) %232)
-  %triangle6.i = getelementptr inbounds %"struct.p2t::Node", ptr %225, i64 0, i32 1
-  %233 = load ptr, ptr %triangle6.i, align 8
-  tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i142, ptr noundef nonnull align 8 dereferenceable(57) %233)
-  tail call void @_ZN3p2t12SweepContext8AddToMapEPNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull %call.i142)
-  %234 = load ptr, ptr %next.i144, align 8
-  %235 = load ptr, ptr %prev.i143, align 8
-  %next9.i = getelementptr inbounds %"struct.p2t::Node", ptr %235, i64 0, i32 2
-  store ptr %234, ptr %next9.i, align 8
-  %236 = load ptr, ptr %prev.i143, align 8
-  %prev12.i = getelementptr inbounds %"struct.p2t::Node", ptr %234, i64 0, i32 3
-  store ptr %236, ptr %prev12.i, align 8
-  %call13.i = tail call noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call.i142)
-  br i1 %call13.i, label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit, label %if.then.i145
+  %241 = load ptr, ptr %prev.i128, align 8
+  %triangle5.i = getelementptr inbounds %"struct.p2t::Node", ptr %241, i64 0, i32 1
+  %242 = load ptr, ptr %triangle5.i, align 8
+  tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i127, ptr noundef nonnull align 8 dereferenceable(57) %242)
+  %triangle6.i = getelementptr inbounds %"struct.p2t::Node", ptr %235, i64 0, i32 1
+  %243 = load ptr, ptr %triangle6.i, align 8
+  tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i127, ptr noundef nonnull align 8 dereferenceable(57) %243)
+  tail call void @_ZN3p2t12SweepContext8AddToMapEPNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull %call.i127)
+  %244 = load ptr, ptr %next.i129, align 8
+  %245 = load ptr, ptr %prev.i128, align 8
+  %next9.i = getelementptr inbounds %"struct.p2t::Node", ptr %245, i64 0, i32 2
+  store ptr %244, ptr %next9.i, align 8
+  %246 = load ptr, ptr %prev.i128, align 8
+  %prev12.i = getelementptr inbounds %"struct.p2t::Node", ptr %244, i64 0, i32 3
+  store ptr %246, ptr %prev12.i, align 8
+  %call13.i = tail call noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call.i127)
+  br i1 %call13.i, label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit, label %if.then.i130
 
-if.then.i145:                                     ; preds = %invoke.cont.i
-  tail call void @_ZN3p2t12SweepContext18MapTriangleToNodesERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call.i142)
+if.then.i130:                                     ; preds = %invoke.cont.i
+  tail call void @_ZN3p2t12SweepContext18MapTriangleToNodesERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call.i127)
   br label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit
 
 lpad.i:                                           ; preds = %tailrecurse.i.i
-  %237 = landingpad { ptr, i32 }
+  %247 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit: ; preds = %invoke.cont.i, %if.then.i145
-  %238 = load ptr, ptr %prev.i, align 8
-  %239 = load ptr, ptr %238, align 8
-  %240 = load ptr, ptr %8, align 8
-  %cmp.not.i.i = icmp eq ptr %239, %240
-  %.pre11.i.i.pre.pre = load double, ptr %240, align 8
-  br i1 %cmp.not.i.i, label %if.end.i23.i, label %if.then.i.i20
+_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit: ; preds = %invoke.cont.i, %if.then.i130
+  %248 = load ptr, ptr %prev.i, align 8
+  %249 = load ptr, ptr %248, align 8
+  %250 = load ptr, ptr %8, align 8
+  %cmp.not.i.i = icmp eq ptr %249, %250
+  %.pre11.i.i.pre.pre = load double, ptr %250, align 8
+  br i1 %cmp.not.i.i, label %if.end.i21.i, label %if.then.i.i19
 
-if.then.i.i20:                                    ; preds = %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit
-  %241 = load ptr, ptr %q.i, align 8
-  %y2.i.i.i23 = getelementptr inbounds %"struct.p2t::Point", ptr %240, i64 0, i32 1
-  %242 = load double, ptr %y2.i.i.i23, align 8
-  %243 = load <2 x double>, ptr %239, align 8
-  %244 = load <2 x double>, ptr %241, align 8
-  %245 = insertelement <2 x double> poison, double %.pre11.i.i.pre.pre, i64 0
-  %246 = insertelement <2 x double> %245, double %242, i64 1
-  %247 = fsub <2 x double> %244, %246
-  %248 = fsub <2 x double> %243, %246
-  %249 = shufflevector <2 x double> %248, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %250 = fmul <2 x double> %247, %249
-  %shift401 = shufflevector <2 x double> %250, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %251 = fsub <2 x double> %250, %shift401
-  %sub11.i.i.i30 = extractelement <2 x double> %251, i64 0
-  %cmp.i.i.i31 = fcmp ule double %sub11.i.i.i30, 0xBD719799812DEA11
-  %cmp12.i.i.i32 = fcmp uge double %sub11.i.i.i30, 0x3D719799812DEA11
-  %or.cond.i.not.i.i33 = or i1 %cmp.i.i.i31, %cmp12.i.i.i32
-  %cmp13.i.i.i34 = fcmp ule double %sub11.i.i.i30, 0.000000e+00
-  %cmp6.i.i35 = and i1 %cmp13.i.i.i34, %or.cond.i.not.i.i33
-  br i1 %cmp6.i.i35, label %if.then7.i.i, label %if.end.i23.i
-
-if.then7.i.i:                                     ; preds = %if.then.i.i20
-  %252 = load ptr, ptr %node.addr.010.i.i, align 8
-  %prev12.i.i = getelementptr inbounds %"struct.p2t::Node", ptr %238, i64 0, i32 3
-  %253 = load ptr, ptr %prev12.i.i, align 8
-  %254 = load ptr, ptr %253, align 8
-  %255 = load <2 x double>, ptr %254, align 8
-  %256 = load <2 x double>, ptr %252, align 8
-  %257 = fsub <2 x double> %256, %255
-  %258 = fsub <2 x double> %243, %255
+if.then.i.i19:                                    ; preds = %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit
+  %251 = load ptr, ptr %q.i, align 8
+  %y2.i.i.i22 = getelementptr inbounds %"struct.p2t::Point", ptr %250, i64 0, i32 1
+  %252 = load double, ptr %y2.i.i.i22, align 8
+  %253 = load <2 x double>, ptr %249, align 8
+  %254 = load <2 x double>, ptr %251, align 8
+  %255 = insertelement <2 x double> poison, double %.pre11.i.i.pre.pre, i64 0
+  %256 = insertelement <2 x double> %255, double %252, i64 1
+  %257 = fsub <2 x double> %254, %256
+  %258 = fsub <2 x double> %253, %256
   %259 = shufflevector <2 x double> %258, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %260 = fmul <2 x double> %259, %257
-  %shift402 = shufflevector <2 x double> %260, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %261 = fsub <2 x double> %260, %shift402
-  %sub11.i21.i.i = extractelement <2 x double> %261, i64 0
-  %cmp.i22.i.i = fcmp ule double %sub11.i21.i.i, 0xBD719799812DEA11
-  %cmp12.i23.i.i = fcmp uge double %sub11.i21.i.i, 0x3D719799812DEA11
-  %or.cond.i24.not.i.i = or i1 %cmp.i22.i.i, %cmp12.i23.i.i
-  %cmp13.i25.i.i = fcmp ule double %sub11.i21.i.i, 0.000000e+00
-  %cmp15.i.i = and i1 %cmp13.i25.i.i, %or.cond.i24.not.i.i
-  br i1 %cmp15.i.i, label %tailrecurse.i.i, label %if.end.i23.i
+  %260 = fmul <2 x double> %257, %259
+  %shift378 = shufflevector <2 x double> %260, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %261 = fsub <2 x double> %260, %shift378
+  %sub11.i.i.i29 = extractelement <2 x double> %261, i64 0
+  %262 = tail call double @llvm.fabs.f64(double %sub11.i.i.i29)
+  %or.cond.i.i.i30 = fcmp uge double %262, 0x3D719799812DEA11
+  %cmp13.i.i.i31 = fcmp ule double %sub11.i.i.i29, 0.000000e+00
+  %cmp6.i.i32 = select i1 %or.cond.i.i.i30, i1 %cmp13.i.i.i31, i1 false
+  br i1 %cmp6.i.i32, label %if.then7.i.i, label %if.end.i21.i
 
-tailrecurse.i:                                    ; preds = %tailrecurse.i.preheader, %if.else.i105
-  %262 = phi double [ %325, %if.else.i105 ], [ %223, %tailrecurse.i.preheader ]
-  %263 = phi ptr [ %269, %if.else.i105 ], [ %212, %tailrecurse.i.preheader ]
-  %264 = phi ptr [ %268, %if.else.i105 ], [ %211, %tailrecurse.i.preheader ]
-  %265 = phi ptr [ %263, %if.else.i105 ], [ %210, %tailrecurse.i.preheader ]
-  %266 = phi ptr [ %264, %if.else.i105 ], [ %209, %tailrecurse.i.preheader ]
-  %267 = phi <2 x double> [ %270, %if.else.i105 ], [ %213, %tailrecurse.i.preheader ]
-  %prev7.i = getelementptr inbounds %"struct.p2t::Node", ptr %264, i64 0, i32 3
-  %268 = load ptr, ptr %prev7.i, align 8
-  %269 = load ptr, ptr %268, align 8
-  %270 = load <2 x double>, ptr %269, align 8
-  %y4.i.i95 = getelementptr inbounds %"struct.p2t::Point", ptr %265, i64 0, i32 1
-  %271 = load double, ptr %y4.i.i95, align 8
-  %272 = insertelement <2 x double> poison, double %262, i64 0
-  %273 = insertelement <2 x double> %272, double %271, i64 1
-  %274 = fsub <2 x double> %273, %270
-  %275 = shufflevector <2 x double> %274, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %276 = fsub <2 x double> %267, %270
-  %277 = fmul <2 x double> %276, %275
-  %shift403 = shufflevector <2 x double> %277, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %278 = fsub <2 x double> %shift403, %277
-  %sub11.i.i99 = extractelement <2 x double> %278, i64 0
-  %cmp.i.i100 = fcmp ule double %sub11.i.i99, 0xBD719799812DEA11
-  %cmp12.i.i101 = fcmp uge double %sub11.i.i99, 0x3D719799812DEA11
-  %or.cond.i.not.i102 = or i1 %cmp.i.i100, %cmp12.i.i101
-  %cmp13.i.i103 = fcmp ule double %sub11.i.i99, 0.000000e+00
-  %cmp.i104 = and i1 %cmp13.i.i103, %or.cond.i.not.i102
-  br i1 %cmp.i104, label %if.then.i107, label %if.else.i105
+if.then7.i.i:                                     ; preds = %if.then.i.i19
+  %263 = load ptr, ptr %node.addr.010.i.i, align 8
+  %prev12.i.i = getelementptr inbounds %"struct.p2t::Node", ptr %248, i64 0, i32 3
+  %264 = load ptr, ptr %prev12.i.i, align 8
+  %265 = load ptr, ptr %264, align 8
+  %266 = load <2 x double>, ptr %265, align 8
+  %267 = load <2 x double>, ptr %263, align 8
+  %268 = fsub <2 x double> %267, %266
+  %269 = fsub <2 x double> %253, %266
+  %270 = shufflevector <2 x double> %269, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %271 = fmul <2 x double> %270, %268
+  %shift379 = shufflevector <2 x double> %271, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %272 = fsub <2 x double> %271, %shift379
+  %sub11.i21.i.i = extractelement <2 x double> %272, i64 0
+  %273 = tail call double @llvm.fabs.f64(double %sub11.i21.i.i)
+  %or.cond.i22.i.i = fcmp uge double %273, 0x3D719799812DEA11
+  %cmp13.i23.i.i = fcmp ule double %sub11.i21.i.i, 0.000000e+00
+  %cmp15.i.i = select i1 %or.cond.i22.i.i, i1 %cmp13.i23.i.i, i1 false
+  br i1 %cmp15.i.i, label %tailrecurse.i.i, label %if.end.i21.i
 
-if.then.i107:                                     ; preds = %tailrecurse.i
-  %prev3.le.i = getelementptr inbounds %"struct.p2t::Node", ptr %266, i64 0, i32 3
-  br label %tailrecurse.i.i108
-
-tailrecurse.i.i108:                               ; preds = %if.then7.i.i126, %if.then.i107
-  %279 = phi ptr [ %292, %if.then7.i.i126 ], [ %264, %if.then.i107 ]
-  %call.i232 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #17
-  %prev.i233 = getelementptr inbounds %"struct.p2t::Node", ptr %279, i64 0, i32 3
-  %280 = load ptr, ptr %prev.i233, align 8
+tailrecurse.i:                                    ; preds = %tailrecurse.i.preheader, %if.else.i94
+  %274 = phi double [ %341, %if.else.i94 ], [ %233, %tailrecurse.i.preheader ]
+  %275 = phi ptr [ %281, %if.else.i94 ], [ %221, %tailrecurse.i.preheader ]
+  %276 = phi ptr [ %280, %if.else.i94 ], [ %220, %tailrecurse.i.preheader ]
+  %277 = phi ptr [ %275, %if.else.i94 ], [ %219, %tailrecurse.i.preheader ]
+  %278 = phi ptr [ %276, %if.else.i94 ], [ %218, %tailrecurse.i.preheader ]
+  %279 = phi <2 x double> [ %282, %if.else.i94 ], [ %222, %tailrecurse.i.preheader ]
+  %prev7.i = getelementptr inbounds %"struct.p2t::Node", ptr %276, i64 0, i32 3
+  %280 = load ptr, ptr %prev7.i, align 8
   %281 = load ptr, ptr %280, align 8
-  %282 = load ptr, ptr %279, align 8
-  %next.i234 = getelementptr inbounds %"struct.p2t::Node", ptr %279, i64 0, i32 2
-  %283 = load ptr, ptr %next.i234, align 8
-  %284 = load ptr, ptr %283, align 8
-  invoke void @_ZN3p2t8TriangleC1ERNS_5PointES2_S2_(ptr noundef nonnull align 8 dereferenceable(57) %call.i232, ptr noundef nonnull align 8 dereferenceable(40) %281, ptr noundef nonnull align 8 dereferenceable(40) %282, ptr noundef nonnull align 8 dereferenceable(40) %284)
-          to label %invoke.cont.i236 unwind label %lpad.i235
+  %282 = load <2 x double>, ptr %281, align 8
+  %y4.i.i86 = getelementptr inbounds %"struct.p2t::Point", ptr %277, i64 0, i32 1
+  %283 = load double, ptr %y4.i.i86, align 8
+  %284 = insertelement <2 x double> poison, double %274, i64 0
+  %285 = insertelement <2 x double> %284, double %283, i64 1
+  %286 = fsub <2 x double> %285, %282
+  %287 = shufflevector <2 x double> %286, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %288 = fsub <2 x double> %279, %282
+  %289 = fmul <2 x double> %288, %287
+  %shift380 = shufflevector <2 x double> %289, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %290 = fsub <2 x double> %shift380, %289
+  %sub11.i.i90 = extractelement <2 x double> %290, i64 0
+  %291 = tail call double @llvm.fabs.f64(double %sub11.i.i90)
+  %or.cond.i.i91 = fcmp uge double %291, 0x3D719799812DEA11
+  %cmp13.i.i92 = fcmp ule double %sub11.i.i90, 0.000000e+00
+  %cmp.i93 = select i1 %or.cond.i.i91, i1 %cmp13.i.i92, i1 false
+  br i1 %cmp.i93, label %if.then.i96, label %if.else.i94
 
-invoke.cont.i236:                                 ; preds = %tailrecurse.i.i108
-  %285 = load ptr, ptr %prev.i233, align 8
-  %triangle5.i237 = getelementptr inbounds %"struct.p2t::Node", ptr %285, i64 0, i32 1
-  %286 = load ptr, ptr %triangle5.i237, align 8
-  tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i232, ptr noundef nonnull align 8 dereferenceable(57) %286)
-  %triangle6.i238 = getelementptr inbounds %"struct.p2t::Node", ptr %279, i64 0, i32 1
-  %287 = load ptr, ptr %triangle6.i238, align 8
-  tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i232, ptr noundef nonnull align 8 dereferenceable(57) %287)
-  tail call void @_ZN3p2t12SweepContext8AddToMapEPNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull %call.i232)
-  %288 = load ptr, ptr %next.i234, align 8
-  %289 = load ptr, ptr %prev.i233, align 8
-  %next9.i239 = getelementptr inbounds %"struct.p2t::Node", ptr %289, i64 0, i32 2
-  store ptr %288, ptr %next9.i239, align 8
-  %290 = load ptr, ptr %prev.i233, align 8
-  %prev12.i240 = getelementptr inbounds %"struct.p2t::Node", ptr %288, i64 0, i32 3
-  store ptr %290, ptr %prev12.i240, align 8
-  %call13.i241 = tail call noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call.i232)
-  br i1 %call13.i241, label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit244, label %if.then.i242
+if.then.i96:                                      ; preds = %tailrecurse.i
+  %prev3.le.i = getelementptr inbounds %"struct.p2t::Node", ptr %278, i64 0, i32 3
+  br label %tailrecurse.i.i97
 
-if.then.i242:                                     ; preds = %invoke.cont.i236
-  tail call void @_ZN3p2t12SweepContext18MapTriangleToNodesERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call.i232)
-  br label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit244
+tailrecurse.i.i97:                                ; preds = %if.then7.i.i113, %if.then.i96
+  %292 = phi ptr [ %305, %if.then7.i.i113 ], [ %276, %if.then.i96 ]
+  %call.i209 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16
+  %prev.i210 = getelementptr inbounds %"struct.p2t::Node", ptr %292, i64 0, i32 3
+  %293 = load ptr, ptr %prev.i210, align 8
+  %294 = load ptr, ptr %293, align 8
+  %295 = load ptr, ptr %292, align 8
+  %next.i211 = getelementptr inbounds %"struct.p2t::Node", ptr %292, i64 0, i32 2
+  %296 = load ptr, ptr %next.i211, align 8
+  %297 = load ptr, ptr %296, align 8
+  invoke void @_ZN3p2t8TriangleC1ERNS_5PointES2_S2_(ptr noundef nonnull align 8 dereferenceable(57) %call.i209, ptr noundef nonnull align 8 dereferenceable(40) %294, ptr noundef nonnull align 8 dereferenceable(40) %295, ptr noundef nonnull align 8 dereferenceable(40) %297)
+          to label %invoke.cont.i213 unwind label %lpad.i212
 
-lpad.i235:                                        ; preds = %tailrecurse.i.i108
-  %291 = landingpad { ptr, i32 }
+invoke.cont.i213:                                 ; preds = %tailrecurse.i.i97
+  %298 = load ptr, ptr %prev.i210, align 8
+  %triangle5.i214 = getelementptr inbounds %"struct.p2t::Node", ptr %298, i64 0, i32 1
+  %299 = load ptr, ptr %triangle5.i214, align 8
+  tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i209, ptr noundef nonnull align 8 dereferenceable(57) %299)
+  %triangle6.i215 = getelementptr inbounds %"struct.p2t::Node", ptr %292, i64 0, i32 1
+  %300 = load ptr, ptr %triangle6.i215, align 8
+  tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call.i209, ptr noundef nonnull align 8 dereferenceable(57) %300)
+  tail call void @_ZN3p2t12SweepContext8AddToMapEPNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull %call.i209)
+  %301 = load ptr, ptr %next.i211, align 8
+  %302 = load ptr, ptr %prev.i210, align 8
+  %next9.i216 = getelementptr inbounds %"struct.p2t::Node", ptr %302, i64 0, i32 2
+  store ptr %301, ptr %next9.i216, align 8
+  %303 = load ptr, ptr %prev.i210, align 8
+  %prev12.i217 = getelementptr inbounds %"struct.p2t::Node", ptr %301, i64 0, i32 3
+  store ptr %303, ptr %prev12.i217, align 8
+  %call13.i218 = tail call noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call.i209)
+  br i1 %call13.i218, label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit221, label %if.then.i219
+
+if.then.i219:                                     ; preds = %invoke.cont.i213
+  tail call void @_ZN3p2t12SweepContext18MapTriangleToNodesERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %call.i209)
+  br label %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit221
+
+lpad.i212:                                        ; preds = %tailrecurse.i.i97
+  %304 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit244: ; preds = %invoke.cont.i236, %if.then.i242
-  %292 = load ptr, ptr %prev3.le.i, align 8
-  %293 = load ptr, ptr %292, align 8
-  %294 = load ptr, ptr %8, align 8
-  %cmp.not.i.i109 = icmp eq ptr %293, %294
-  %.pre329.pre = load double, ptr %294, align 8
-  br i1 %cmp.not.i.i109, label %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit, label %if.then.i.i110
+_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit221: ; preds = %invoke.cont.i213, %if.then.i219
+  %305 = load ptr, ptr %prev3.le.i, align 8
+  %306 = load ptr, ptr %305, align 8
+  %307 = load ptr, ptr %8, align 8
+  %cmp.not.i.i98 = icmp eq ptr %306, %307
+  %.pre306.pre = load double, ptr %307, align 8
+  br i1 %cmp.not.i.i98, label %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit, label %if.then.i.i99
 
-if.then.i.i110:                                   ; preds = %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit244
-  %295 = load ptr, ptr %q.i, align 8
-  %y2.i.i.i113 = getelementptr inbounds %"struct.p2t::Point", ptr %294, i64 0, i32 1
-  %296 = load double, ptr %y2.i.i.i113, align 8
-  %297 = load <2 x double>, ptr %293, align 8
-  %298 = load <2 x double>, ptr %295, align 8
-  %299 = insertelement <2 x double> poison, double %.pre329.pre, i64 0
-  %300 = insertelement <2 x double> %299, double %296, i64 1
-  %301 = fsub <2 x double> %298, %300
-  %302 = fsub <2 x double> %297, %300
-  %303 = shufflevector <2 x double> %302, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %304 = fmul <2 x double> %301, %303
-  %shift404 = shufflevector <2 x double> %304, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %305 = fsub <2 x double> %304, %shift404
-  %sub11.i.i.i120 = extractelement <2 x double> %305, i64 0
-  %cmp.i.i.i121 = fcmp ule double %sub11.i.i.i120, 0xBD719799812DEA11
-  %cmp12.i.i.i122 = fcmp uge double %sub11.i.i.i120, 0x3D719799812DEA11
-  %or.cond.i.not.i.i123 = or i1 %cmp.i.i.i121, %cmp12.i.i.i122
-  %cmp13.i.i.i124 = fcmp ule double %sub11.i.i.i120, 0.000000e+00
-  %cmp6.i.i125 = and i1 %cmp13.i.i.i124, %or.cond.i.not.i.i123
-  br i1 %cmp6.i.i125, label %if.then7.i.i126, label %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit
-
-if.then7.i.i126:                                  ; preds = %if.then.i.i110
-  %306 = load ptr, ptr %266, align 8
-  %prev12.i.i127 = getelementptr inbounds %"struct.p2t::Node", ptr %292, i64 0, i32 3
-  %307 = load ptr, ptr %prev12.i.i127, align 8
-  %308 = load ptr, ptr %307, align 8
-  %309 = load <2 x double>, ptr %308, align 8
+if.then.i.i99:                                    ; preds = %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit221
+  %308 = load ptr, ptr %q.i, align 8
+  %y2.i.i.i102 = getelementptr inbounds %"struct.p2t::Point", ptr %307, i64 0, i32 1
+  %309 = load double, ptr %y2.i.i.i102, align 8
   %310 = load <2 x double>, ptr %306, align 8
-  %311 = fsub <2 x double> %310, %309
-  %312 = fsub <2 x double> %297, %309
-  %313 = shufflevector <2 x double> %312, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %314 = fmul <2 x double> %313, %311
-  %shift405 = shufflevector <2 x double> %314, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %315 = fsub <2 x double> %314, %shift405
-  %sub11.i21.i.i136 = extractelement <2 x double> %315, i64 0
-  %cmp.i22.i.i137 = fcmp ule double %sub11.i21.i.i136, 0xBD719799812DEA11
-  %cmp12.i23.i.i138 = fcmp uge double %sub11.i21.i.i136, 0x3D719799812DEA11
-  %or.cond.i24.not.i.i139 = or i1 %cmp.i22.i.i137, %cmp12.i23.i.i138
-  %cmp13.i25.i.i140 = fcmp ule double %sub11.i21.i.i136, 0.000000e+00
-  %cmp15.i.i141 = and i1 %cmp13.i25.i.i140, %or.cond.i24.not.i.i139
-  br i1 %cmp15.i.i141, label %tailrecurse.i.i108, label %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit
+  %311 = load <2 x double>, ptr %308, align 8
+  %312 = insertelement <2 x double> poison, double %.pre306.pre, i64 0
+  %313 = insertelement <2 x double> %312, double %309, i64 1
+  %314 = fsub <2 x double> %311, %313
+  %315 = fsub <2 x double> %310, %313
+  %316 = shufflevector <2 x double> %315, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %317 = fmul <2 x double> %314, %316
+  %shift381 = shufflevector <2 x double> %317, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %318 = fsub <2 x double> %317, %shift381
+  %sub11.i.i.i109 = extractelement <2 x double> %318, i64 0
+  %319 = tail call double @llvm.fabs.f64(double %sub11.i.i.i109)
+  %or.cond.i.i.i110 = fcmp uge double %319, 0x3D719799812DEA11
+  %cmp13.i.i.i111 = fcmp ule double %sub11.i.i.i109, 0.000000e+00
+  %cmp6.i.i112 = select i1 %or.cond.i.i.i110, i1 %cmp13.i.i.i111, i1 false
+  br i1 %cmp6.i.i112, label %if.then7.i.i113, label %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit
 
-if.else.i105:                                     ; preds = %tailrecurse.i
-  %316 = load ptr, ptr %q.i, align 8
-  %317 = load double, ptr %y2.i12.i, align 8
-  %318 = load <2 x double>, ptr %316, align 8
-  %319 = insertelement <2 x double> %224, double %317, i64 1
-  %320 = fsub <2 x double> %318, %319
-  %321 = shufflevector <2 x double> %320, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %322 = fsub <2 x double> %267, %319
-  %323 = fmul <2 x double> %322, %321
-  %shift406 = shufflevector <2 x double> %323, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %324 = fsub <2 x double> %shift406, %323
-  %sub11.i19.i = extractelement <2 x double> %324, i64 0
-  %cmp.i20.i = fcmp ule double %sub11.i19.i, 0xBD719799812DEA11
-  %cmp12.i21.i = fcmp uge double %sub11.i19.i, 0x3D719799812DEA11
-  %or.cond.i22.not.i = or i1 %cmp.i20.i, %cmp12.i21.i
-  %cmp13.i23.i = fcmp ule double %sub11.i19.i, 0.000000e+00
-  %cmp14.i106 = and i1 %cmp13.i23.i, %or.cond.i22.not.i
-  %325 = extractelement <2 x double> %267, i64 0
-  br i1 %cmp14.i106, label %tailrecurse.i, label %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit
+if.then7.i.i113:                                  ; preds = %if.then.i.i99
+  %320 = load ptr, ptr %278, align 8
+  %prev12.i.i114 = getelementptr inbounds %"struct.p2t::Node", ptr %305, i64 0, i32 3
+  %321 = load ptr, ptr %prev12.i.i114, align 8
+  %322 = load ptr, ptr %321, align 8
+  %323 = load <2 x double>, ptr %322, align 8
+  %324 = load <2 x double>, ptr %320, align 8
+  %325 = fsub <2 x double> %324, %323
+  %326 = fsub <2 x double> %310, %323
+  %327 = shufflevector <2 x double> %326, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %328 = fmul <2 x double> %327, %325
+  %shift382 = shufflevector <2 x double> %328, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %329 = fsub <2 x double> %328, %shift382
+  %sub11.i21.i.i123 = extractelement <2 x double> %329, i64 0
+  %330 = tail call double @llvm.fabs.f64(double %sub11.i21.i.i123)
+  %or.cond.i22.i.i124 = fcmp uge double %330, 0x3D719799812DEA11
+  %cmp13.i23.i.i125 = fcmp ule double %sub11.i21.i.i123, 0.000000e+00
+  %cmp15.i.i126 = select i1 %or.cond.i22.i.i124, i1 %cmp13.i23.i.i125, i1 false
+  br i1 %cmp15.i.i126, label %tailrecurse.i.i97, label %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit
 
-_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit: ; preds = %if.then7.i.i126, %if.then.i.i110, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit244
-  %.pre327 = load ptr, ptr %node.addr.010.i.i, align 8
-  %.pre328 = load double, ptr %.pre327, align 8
+if.else.i94:                                      ; preds = %tailrecurse.i
+  %331 = load ptr, ptr %q.i, align 8
+  %332 = load double, ptr %y2.i12.i, align 8
+  %333 = load <2 x double>, ptr %331, align 8
+  %334 = insertelement <2 x double> %234, double %332, i64 1
+  %335 = fsub <2 x double> %333, %334
+  %336 = shufflevector <2 x double> %335, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %337 = fsub <2 x double> %279, %334
+  %338 = fmul <2 x double> %337, %336
+  %shift383 = shufflevector <2 x double> %338, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %339 = fsub <2 x double> %shift383, %338
+  %sub11.i19.i = extractelement <2 x double> %339, i64 0
+  %340 = tail call double @llvm.fabs.f64(double %sub11.i19.i)
+  %or.cond.i20.i = fcmp uge double %340, 0x3D719799812DEA11
+  %cmp13.i21.i = fcmp ule double %sub11.i19.i, 0.000000e+00
+  %cmp14.i95 = select i1 %or.cond.i20.i, i1 %cmp13.i21.i, i1 false
+  %341 = extractelement <2 x double> %279, i64 0
+  br i1 %cmp14.i95, label %tailrecurse.i, label %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit
+
+_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit: ; preds = %if.then7.i.i113, %if.then.i.i99, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit221
+  %.pre304 = load ptr, ptr %node.addr.010.i.i, align 8
+  %.pre305 = load double, ptr %.pre304, align 8
   br label %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit
 
-_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit: ; preds = %if.else.i105, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit
-  %.pre11.i.i335 = phi double [ %.pre329.pre, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %.pre11.i.i336, %if.else.i105 ]
-  %.pre.i27.i332 = phi ptr [ %294, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %.pre.i27.i333, %if.else.i105 ]
-  %326 = phi double [ %.pre329.pre, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %205, %if.else.i105 ]
-  %327 = phi ptr [ %294, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %206, %if.else.i105 ]
-  %328 = phi double [ %.pre328, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %207, %if.else.i105 ]
-  %329 = phi ptr [ %.pre327, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %208, %if.else.i105 ]
-  %cmp.i18 = fcmp ogt double %328, %326
-  br i1 %cmp.i18, label %if.then.i15, label %if.end.i23.i
+_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit: ; preds = %if.else.i94, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit
+  %.pre11.i.i312 = phi double [ %.pre306.pre, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %.pre11.i.i313, %if.else.i94 ]
+  %.pre.i25.i309 = phi ptr [ %307, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %.pre.i25.i310, %if.else.i94 ]
+  %342 = phi double [ %.pre306.pre, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %214, %if.else.i94 ]
+  %343 = phi ptr [ %307, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %215, %if.else.i94 ]
+  %344 = phi double [ %.pre305, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %216, %if.else.i94 ]
+  %345 = phi ptr [ %.pre304, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit.loopexit ], [ %217, %if.else.i94 ]
+  %cmp.i17 = fcmp ogt double %344, %342
+  br i1 %cmp.i17, label %if.then.i15, label %if.end.i21.i
 
-if.end.i23.i:                                     ; preds = %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit, %if.then7.i.i, %if.then.i.i20, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit, %if.then.i26.i, %while.body.i7.i
-  %.pre11.i.i338 = phi double [ %.pre11.i.i337, %while.body.i7.i ], [ %.pre11.i.i337, %if.then.i26.i ], [ %.pre11.i.i.pre.pre, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit ], [ %.pre11.i.i.pre.pre, %if.then.i.i20 ], [ %.pre11.i.i.pre.pre, %if.then7.i.i ], [ %.pre11.i.i335, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %.pre.i27.i330 = phi ptr [ %.pre.i27.i334, %while.body.i7.i ], [ %.pre.i27.i334, %if.then.i26.i ], [ %240, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit ], [ %240, %if.then.i.i20 ], [ %240, %if.then7.i.i ], [ %.pre.i27.i332, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %330 = phi double [ %181, %while.body.i7.i ], [ %.pre11.i.i337, %if.then.i26.i ], [ %.pre11.i.i.pre.pre, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit ], [ %.pre11.i.i.pre.pre, %if.then.i.i20 ], [ %.pre11.i.i.pre.pre, %if.then7.i.i ], [ %.pre11.i.i335, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %331 = phi ptr [ %182, %while.body.i7.i ], [ %.pre.i27.i334, %if.then.i26.i ], [ %240, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit ], [ %240, %if.then.i.i20 ], [ %240, %if.then7.i.i ], [ %.pre.i27.i332, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %node.addr.1.i24.i = phi ptr [ %185, %while.body.i7.i ], [ %node.addr.010.i.i, %if.then.i26.i ], [ %node.addr.010.i.i, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit ], [ %node.addr.010.i.i, %if.then.i.i20 ], [ %node.addr.010.i.i, %if.then7.i.i ], [ %node.addr.010.i.i, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
-  %prev.i.i = getelementptr inbounds %"struct.p2t::Node", ptr %node.addr.1.i24.i, i64 0, i32 3
-  %332 = load ptr, ptr %prev.i.i, align 8
-  %333 = load ptr, ptr %332, align 8
-  %334 = load double, ptr %333, align 8
-  %cmp.i25.i = fcmp ogt double %334, %330
-  br i1 %cmp.i25.i, label %while.body.i7.i, label %_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit, !llvm.loop !7
+if.end.i21.i:                                     ; preds = %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit, %if.then7.i.i, %if.then.i.i19, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit, %if.then.i24.i, %while.body.i7.i
+  %.pre11.i.i315 = phi double [ %.pre11.i.i314, %while.body.i7.i ], [ %.pre11.i.i314, %if.then.i24.i ], [ %.pre11.i.i.pre.pre, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit ], [ %.pre11.i.i.pre.pre, %if.then.i.i19 ], [ %.pre11.i.i.pre.pre, %if.then7.i.i ], [ %.pre11.i.i312, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %.pre.i25.i307 = phi ptr [ %.pre.i25.i311, %while.body.i7.i ], [ %.pre.i25.i311, %if.then.i24.i ], [ %250, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit ], [ %250, %if.then.i.i19 ], [ %250, %if.then7.i.i ], [ %.pre.i25.i309, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %346 = phi double [ %189, %while.body.i7.i ], [ %.pre11.i.i314, %if.then.i24.i ], [ %.pre11.i.i.pre.pre, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit ], [ %.pre11.i.i.pre.pre, %if.then.i.i19 ], [ %.pre11.i.i.pre.pre, %if.then7.i.i ], [ %.pre11.i.i312, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %347 = phi ptr [ %190, %while.body.i7.i ], [ %.pre.i25.i311, %if.then.i24.i ], [ %250, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit ], [ %250, %if.then.i.i19 ], [ %250, %if.then7.i.i ], [ %.pre.i25.i309, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %node.addr.1.i22.i = phi ptr [ %193, %while.body.i7.i ], [ %node.addr.010.i.i, %if.then.i24.i ], [ %node.addr.010.i.i, %_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE.exit ], [ %node.addr.010.i.i, %if.then.i.i19 ], [ %node.addr.010.i.i, %if.then7.i.i ], [ %node.addr.010.i.i, %_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE.exit ]
+  %prev.i.i = getelementptr inbounds %"struct.p2t::Node", ptr %node.addr.1.i22.i, i64 0, i32 3
+  %348 = load ptr, ptr %prev.i.i, align 8
+  %349 = load ptr, ptr %348, align 8
+  %350 = load double, ptr %349, align 8
+  %cmp.i23.i = fcmp ogt double %350, %346
+  br i1 %cmp.i23.i, label %while.body.i7.i, label %_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit, !llvm.loop !7
 
-_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit: ; preds = %if.end.i.i, %if.end.i23.i, %if.then.i12, %if.else.i
-  %335 = phi ptr [ %19, %if.then.i12 ], [ %19, %if.else.i ], [ %.pre.i27.i330, %if.end.i23.i ], [ %.pre.i.i317, %if.end.i.i ]
-  %336 = load ptr, ptr %q.i, align 8
-  %337 = load ptr, ptr %triangle.i, align 8
-  tail call void @_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextERNS_5PointES4_PNS_8TriangleES4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %335, ptr noundef nonnull align 8 dereferenceable(40) %336, ptr noundef %337, ptr noundef nonnull align 8 dereferenceable(40) %336)
+_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit: ; preds = %if.end.i.i, %if.end.i21.i, %if.then.i12, %if.else.i
+  %351 = phi ptr [ %19, %if.then.i12 ], [ %19, %if.else.i ], [ %.pre.i25.i307, %if.end.i21.i ], [ %.pre.i.i294, %if.end.i.i ]
+  %352 = load ptr, ptr %q.i, align 8
+  %353 = load ptr, ptr %triangle.i, align 8
+  tail call void @_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextERNS_5PointES4_PNS_8TriangleES4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %351, ptr noundef nonnull align 8 dereferenceable(40) %352, ptr noundef %353, ptr noundef nonnull align 8 dereferenceable(40) %352)
   br label %_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit
 
 _ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit: ; preds = %if.then.i.i, %if.then3.i.i, %_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit
-  %inc = add i32 %ii.0285, 1
+  %inc = add i32 %ii.0262, 1
   %conv = zext i32 %inc to i64
-  %338 = load ptr, ptr %_M_finish.i, align 8
-  %339 = load ptr, ptr %edge_list, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %338 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %339 to i64
+  %354 = load ptr, ptr %_M_finish.i, align 8
+  %355 = load ptr, ptr %edge_list, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %354 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %355 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp6 = icmp ugt i64 %sub.ptr.div.i, %conv
   br i1 %cmp6, label %for.body7, label %for.inc11, !llvm.loop !8
 
 for.inc11:                                        ; preds = %_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit, %_ZN3p2t5Sweep10PointEventERNS_12SweepContextERNS_5PointE.exit
-  %inc12 = add nuw i64 %i.0292, 1
-  %340 = load ptr, ptr %_M_finish.i.i, align 8
-  %341 = load ptr, ptr %points_.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %340 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %341 to i64
+  %inc12 = add nuw i64 %i.0269, 1
+  %356 = load ptr, ptr %_M_finish.i.i, align 8
+  %357 = load ptr, ptr %points_.i, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %356 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %357 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %cmp = icmp ult i64 %inc12, %sub.ptr.div.i.i
@@ -983,7 +966,7 @@ for.end13:                                        ; preds = %for.inc11, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3p2t5Sweep19FinalizationPolygonERNS_12SweepContextE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3p2t5Sweep19FinalizationPolygonERNS_12SweepContextE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx) local_unnamed_addr #2 align 2 {
 entry:
   %front_.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 6
   %0 = load ptr, ptr %front_.i, align 8
@@ -1008,10 +991,10 @@ while.end:                                        ; preds = %while.body, %entry
   ret void
 }
 
-declare noundef ptr @_ZN3p2t12SweepContext8GetPointEm(ptr noundef nonnull align 8 dereferenceable(200), i64 noundef) local_unnamed_addr #4
+declare noundef ptr @_ZN3p2t12SweepContext8GetPointEm(ptr noundef nonnull align 8 dereferenceable(200), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN3p2t5Sweep10PointEventERNS_12SweepContextERNS_5PointE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %point) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN3p2t5Sweep10PointEventERNS_12SweepContextERNS_5PointE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %point) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN3p2t12SweepContext10LocateNodeERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %point)
   %call2 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN3p2t5Sweep16NewFrontTriangleERNS_12SweepContextERNS_5PointERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %point, ptr noundef nonnull align 8 dereferenceable(40) %call)
@@ -1032,7 +1015,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef %edge, ptr nocapture noundef readonly %node) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef %edge, ptr nocapture noundef readonly %node) local_unnamed_addr #2 align 2 {
 entry:
   %edge_event = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 2
   store ptr %edge, ptr %edge_event, align 8
@@ -1077,18 +1060,18 @@ return:                                           ; preds = %if.then3.i, %if.the
   ret void
 }
 
-declare noundef zeroext i1 @_ZN3p2t8Triangle20GetConstrainedEdgeCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
+declare noundef zeroext i1 @_ZN3p2t8Triangle20GetConstrainedEdgeCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
-declare noundef ptr @_ZN3p2t8Triangle11NeighborCCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
+declare noundef ptr @_ZN3p2t8Triangle11NeighborCCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
-declare void @_ZN3p2t12SweepContext9MeshCleanERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(57)) local_unnamed_addr #4
+declare void @_ZN3p2t12SweepContext9MeshCleanERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(57)) local_unnamed_addr #3
 
-declare noundef nonnull align 8 dereferenceable(40) ptr @_ZN3p2t12SweepContext10LocateNodeERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(40) ptr @_ZN3p2t12SweepContext10LocateNodeERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN3p2t5Sweep16NewFrontTriangleERNS_12SweepContextERNS_5PointERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %point, ptr noundef nonnull align 8 dereferenceable(40) %node) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN3p2t5Sweep16NewFrontTriangleERNS_12SweepContextERNS_5PointERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %point, ptr noundef nonnull align 8 dereferenceable(40) %node) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #17
+  %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16
   %0 = load ptr, ptr %node, align 8
   %next = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 2
   %1 = load ptr, ptr %next, align 8
@@ -1101,7 +1084,7 @@ invoke.cont:                                      ; preds = %entry
   %3 = load ptr, ptr %triangle4, align 8
   tail call void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %call, ptr noundef nonnull align 8 dereferenceable(57) %3)
   tail call void @_ZN3p2t12SweepContext8AddToMapEPNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull %call)
-  %call5 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
+  %call5 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
   store ptr %point, ptr %call5, align 8
   %triangle.i = getelementptr inbounds %"struct.p2t::Node", ptr %call5, i64 0, i32 1
   %value.i = getelementptr inbounds %"struct.p2t::Node", ptr %call5, i64 0, i32 4
@@ -1131,7 +1114,7 @@ if.else.i:                                        ; preds = %invoke.cont
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIPN3p2t4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #18
   unreachable
 
 _ZNKSt6vectorIPN3p2t4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
@@ -1147,7 +1130,7 @@ _ZNKSt6vectorIPN3p2t4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.el
 
 _ZNSt16allocator_traitsISaIPN3p2t4NodeEEE8allocateERS3_m.exit.i.i.i: ; preds = %_ZNKSt6vectorIPN3p2t4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
-  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #17
+  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #16
   br label %_ZNSt12_Vector_baseIPN3p2t4NodeESaIS2_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPN3p2t4NodeESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIPN3p2t4NodeEEE8allocateERS3_m.exit.i.i.i, %_ZNKSt6vectorIPN3p2t4NodeESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -1167,7 +1150,7 @@ _ZNSt6vectorIPN3p2t4NodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i: ; pred
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN3p2t4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i21.i.i
 
 if.then.i21.i.i:                                  ; preds = %_ZNSt6vectorIPN3p2t4NodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #17
   br label %_ZNSt6vectorIPN3p2t4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN3p2t4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i21.i.i, %_ZNSt6vectorIPN3p2t4NodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i
@@ -1196,7 +1179,7 @@ if.then:                                          ; preds = %_ZNSt6vectorIPN3p2t
 lpad:                                             ; preds = %entry
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %call) #17
   resume { ptr, i32 } %10
 
 if.end:                                           ; preds = %if.then, %_ZNSt6vectorIPN3p2t4NodeESaIS2_EE9push_backERKS2_.exit
@@ -1204,9 +1187,9 @@ if.end:                                           ; preds = %if.then, %_ZNSt6vec
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #17
+  %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16
   %prev = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 3
   %0 = load ptr, ptr %prev, align 8
   %1 = load ptr, ptr %0, align 8
@@ -1243,7 +1226,7 @@ if.then:                                          ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %call) #17
   resume { ptr, i32 } %11
 
 if.end:                                           ; preds = %if.then, %invoke.cont
@@ -1251,7 +1234,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3p2t5Sweep18FillAdvancingFrontERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %n) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3p2t5Sweep18FillAdvancingFrontERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %n) local_unnamed_addr #2 align 2 {
 entry:
   %next = getelementptr inbounds %"struct.p2t::Node", ptr %n, i64 0, i32 2
   %node.015 = load ptr, ptr %next, align 8
@@ -1318,7 +1301,7 @@ if.then18:                                        ; preds = %land.lhs.true
   %y9.i = getelementptr inbounds %"struct.p2t::Point", ptr %8, i64 0, i32 1
   %11 = load double, ptr %y9.i, align 8
   %sub10.i = fsub double %10, %11
-  %call.i = tail call noundef double @atan2(double noundef %sub10.i, double noundef %sub.i) #20
+  %call.i = tail call noundef double @atan2(double noundef %sub10.i, double noundef %sub.i) #19
   %cmp = fcmp olt double %call.i, 0x4002D97C7F3321D2
   br i1 %cmp, label %if.then20, label %if.end22
 
@@ -1331,7 +1314,7 @@ if.end22:                                         ; preds = %if.then18, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3p2t5Sweep20IsEdgeSideOfTriangleERNS_8TriangleERNS_5PointES4_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(57) %triangle, ptr noundef nonnull align 8 dereferenceable(40) %ep, ptr noundef nonnull align 8 dereferenceable(40) %eq) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN3p2t5Sweep20IsEdgeSideOfTriangleERNS_8TriangleERNS_5PointES4_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(57) %triangle, ptr noundef nonnull align 8 dereferenceable(40) %ep, ptr noundef nonnull align 8 dereferenceable(40) %eq) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull align 8 dereferenceable(57) %triangle, ptr noundef nonnull %ep, ptr noundef nonnull %eq)
   %cmp.not = icmp ne i32 %call, -1
@@ -1354,7 +1337,7 @@ return:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %edge, ptr nocapture noundef readonly %node) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3p2t5Sweep13FillEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %edge, ptr nocapture noundef readonly %node) local_unnamed_addr #2 align 2 {
 entry:
   %right = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 2, i32 1
   %0 = load i8, ptr %right, align 8
@@ -1377,11 +1360,11 @@ while.body.lr.ph.i:                               ; preds = %if.then
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.lr.ph.i
-  %7 = phi double [ %3, %while.body.lr.ph.i ], [ %29, %if.end.i ]
-  %8 = phi ptr [ %2, %while.body.lr.ph.i ], [ %30, %if.end.i ]
-  %9 = phi double [ %6, %while.body.lr.ph.i ], [ %33, %if.end.i ]
-  %10 = phi ptr [ %5, %while.body.lr.ph.i ], [ %32, %if.end.i ]
-  %11 = phi ptr [ %4, %while.body.lr.ph.i ], [ %31, %if.end.i ]
+  %7 = phi double [ %3, %while.body.lr.ph.i ], [ %30, %if.end.i ]
+  %8 = phi ptr [ %2, %while.body.lr.ph.i ], [ %31, %if.end.i ]
+  %9 = phi double [ %6, %while.body.lr.ph.i ], [ %34, %if.end.i ]
+  %10 = phi ptr [ %5, %while.body.lr.ph.i ], [ %33, %if.end.i ]
+  %11 = phi ptr [ %4, %while.body.lr.ph.i ], [ %32, %if.end.i ]
   %node.addr.09.i = phi ptr [ %node, %while.body.lr.ph.i ], [ %node.addr.1.i, %if.end.i ]
   %12 = load ptr, ptr %q.i, align 8
   %13 = load double, ptr %12, align 8
@@ -1405,11 +1388,10 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %shift = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %28 = fsub <2 x double> %27, %shift
   %sub11.i.i = extractelement <2 x double> %28, i64 0
-  %cmp.i.i = fcmp ule double %sub11.i.i, 0xBD719799812DEA11
-  %cmp12.i.i = fcmp uge double %sub11.i.i, 0x3D719799812DEA11
-  %or.cond.i.not.i = or i1 %cmp.i.i, %cmp12.i.i
+  %29 = tail call double @llvm.fabs.f64(double %sub11.i.i)
+  %or.cond.i.i = fcmp uge double %29, 0x3D719799812DEA11
   %cmp13.i.i = fcmp ogt double %sub11.i.i, 0.000000e+00
-  %cmp6.i = and i1 %cmp13.i.i, %or.cond.i.not.i
+  %cmp6.i = select i1 %or.cond.i.i, i1 %cmp13.i.i, i1 false
   br i1 %cmp6.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.body.i
@@ -1419,106 +1401,105 @@ if.then.i:                                        ; preds = %while.body.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body.i
-  %29 = phi double [ %.pre10.i, %if.then.i ], [ %7, %while.body.i ]
-  %30 = phi ptr [ %.pre.i, %if.then.i ], [ %8, %while.body.i ]
+  %30 = phi double [ %.pre10.i, %if.then.i ], [ %7, %while.body.i ]
+  %31 = phi ptr [ %.pre.i, %if.then.i ], [ %8, %while.body.i ]
   %node.addr.1.i = phi ptr [ %node.addr.09.i, %if.then.i ], [ %11, %while.body.i ]
   %next.i = getelementptr inbounds %"struct.p2t::Node", ptr %node.addr.1.i, i64 0, i32 2
-  %31 = load ptr, ptr %next.i, align 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = load double, ptr %32, align 8
-  %cmp.i = fcmp olt double %33, %29
+  %32 = load ptr, ptr %next.i, align 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = load double, ptr %33, align 8
+  %cmp.i = fcmp olt double %34, %30
   br i1 %cmp.i, label %while.body.i, label %if.end, !llvm.loop !6
 
 if.else:                                          ; preds = %entry
   %prev8.i = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 3
-  %34 = load ptr, ptr %prev8.i, align 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = load double, ptr %35, align 8
-  %cmp9.i = fcmp ogt double %36, %3
+  %35 = load ptr, ptr %prev8.i, align 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = load double, ptr %36, align 8
+  %cmp9.i = fcmp ogt double %37, %3
   br i1 %cmp9.i, label %while.body.lr.ph.i5, label %if.end
 
 while.body.lr.ph.i5:                              ; preds = %if.else
   %q.i6 = getelementptr inbounds %"struct.p2t::Edge", ptr %edge, i64 0, i32 1
   br label %while.body.i7
 
-while.body.i7:                                    ; preds = %if.end.i23, %while.body.lr.ph.i5
-  %37 = phi double [ %3, %while.body.lr.ph.i5 ], [ %59, %if.end.i23 ]
-  %38 = phi ptr [ %2, %while.body.lr.ph.i5 ], [ %60, %if.end.i23 ]
-  %39 = phi double [ %36, %while.body.lr.ph.i5 ], [ %63, %if.end.i23 ]
-  %40 = phi ptr [ %35, %while.body.lr.ph.i5 ], [ %62, %if.end.i23 ]
-  %41 = phi ptr [ %34, %while.body.lr.ph.i5 ], [ %61, %if.end.i23 ]
-  %node.addr.010.i = phi ptr [ %node, %while.body.lr.ph.i5 ], [ %node.addr.1.i24, %if.end.i23 ]
-  %42 = load ptr, ptr %q.i6, align 8
-  %43 = load double, ptr %42, align 8
-  %y.i.i9 = getelementptr inbounds %"struct.p2t::Point", ptr %40, i64 0, i32 1
-  %44 = load double, ptr %y.i.i9, align 8
-  %y2.i.i10 = getelementptr inbounds %"struct.p2t::Point", ptr %38, i64 0, i32 1
-  %45 = load double, ptr %y2.i.i10, align 8
-  %y4.i.i13 = getelementptr inbounds %"struct.p2t::Point", ptr %42, i64 0, i32 1
-  %46 = load double, ptr %y4.i.i13, align 8
-  %47 = insertelement <2 x double> poison, double %44, i64 0
-  %48 = insertelement <2 x double> %47, double %46, i64 1
-  %49 = insertelement <2 x double> poison, double %45, i64 0
-  %50 = shufflevector <2 x double> %49, <2 x double> poison, <2 x i32> zeroinitializer
-  %51 = fsub <2 x double> %48, %50
-  %52 = insertelement <2 x double> poison, double %43, i64 0
-  %53 = insertelement <2 x double> %52, double %39, i64 1
-  %54 = insertelement <2 x double> poison, double %37, i64 0
-  %55 = shufflevector <2 x double> %54, <2 x double> poison, <2 x i32> zeroinitializer
-  %56 = fsub <2 x double> %53, %55
-  %57 = fmul <2 x double> %56, %51
-  %shift32 = shufflevector <2 x double> %57, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %58 = fsub <2 x double> %57, %shift32
-  %sub11.i.i17 = extractelement <2 x double> %58, i64 0
-  %cmp.i.i18 = fcmp ule double %sub11.i.i17, 0xBD719799812DEA11
-  %cmp12.i.i19 = fcmp uge double %sub11.i.i17, 0x3D719799812DEA11
-  %or.cond.i.not.i20 = or i1 %cmp.i.i18, %cmp12.i.i19
-  %cmp13.i.i21 = fcmp ule double %sub11.i.i17, 0.000000e+00
-  %cmp6.i22 = and i1 %cmp13.i.i21, %or.cond.i.not.i20
-  br i1 %cmp6.i22, label %if.then.i26, label %if.end.i23
+while.body.i7:                                    ; preds = %if.end.i21, %while.body.lr.ph.i5
+  %38 = phi double [ %3, %while.body.lr.ph.i5 ], [ %61, %if.end.i21 ]
+  %39 = phi ptr [ %2, %while.body.lr.ph.i5 ], [ %62, %if.end.i21 ]
+  %40 = phi double [ %37, %while.body.lr.ph.i5 ], [ %65, %if.end.i21 ]
+  %41 = phi ptr [ %36, %while.body.lr.ph.i5 ], [ %64, %if.end.i21 ]
+  %42 = phi ptr [ %35, %while.body.lr.ph.i5 ], [ %63, %if.end.i21 ]
+  %node.addr.010.i = phi ptr [ %node, %while.body.lr.ph.i5 ], [ %node.addr.1.i22, %if.end.i21 ]
+  %43 = load ptr, ptr %q.i6, align 8
+  %44 = load double, ptr %43, align 8
+  %y.i.i9 = getelementptr inbounds %"struct.p2t::Point", ptr %41, i64 0, i32 1
+  %45 = load double, ptr %y.i.i9, align 8
+  %y2.i.i10 = getelementptr inbounds %"struct.p2t::Point", ptr %39, i64 0, i32 1
+  %46 = load double, ptr %y2.i.i10, align 8
+  %y4.i.i13 = getelementptr inbounds %"struct.p2t::Point", ptr %43, i64 0, i32 1
+  %47 = load double, ptr %y4.i.i13, align 8
+  %48 = insertelement <2 x double> poison, double %45, i64 0
+  %49 = insertelement <2 x double> %48, double %47, i64 1
+  %50 = insertelement <2 x double> poison, double %46, i64 0
+  %51 = shufflevector <2 x double> %50, <2 x double> poison, <2 x i32> zeroinitializer
+  %52 = fsub <2 x double> %49, %51
+  %53 = insertelement <2 x double> poison, double %44, i64 0
+  %54 = insertelement <2 x double> %53, double %40, i64 1
+  %55 = insertelement <2 x double> poison, double %38, i64 0
+  %56 = shufflevector <2 x double> %55, <2 x double> poison, <2 x i32> zeroinitializer
+  %57 = fsub <2 x double> %54, %56
+  %58 = fmul <2 x double> %57, %52
+  %shift30 = shufflevector <2 x double> %58, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %59 = fsub <2 x double> %58, %shift30
+  %sub11.i.i17 = extractelement <2 x double> %59, i64 0
+  %60 = tail call double @llvm.fabs.f64(double %sub11.i.i17)
+  %or.cond.i.i18 = fcmp uge double %60, 0x3D719799812DEA11
+  %cmp13.i.i19 = fcmp ule double %sub11.i.i17, 0.000000e+00
+  %cmp6.i20 = select i1 %or.cond.i.i18, i1 %cmp13.i.i19, i1 false
+  br i1 %cmp6.i20, label %if.then.i24, label %if.end.i21
 
-if.then.i26:                                      ; preds = %while.body.i7
+if.then.i24:                                      ; preds = %while.body.i7
   tail call void @_ZN3p2t5Sweep22FillLeftBelowEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull %edge, ptr noundef nonnull align 8 dereferenceable(40) %node.addr.010.i)
-  %.pre.i27 = load ptr, ptr %edge, align 8
-  %.pre11.i = load double, ptr %.pre.i27, align 8
-  br label %if.end.i23
+  %.pre.i25 = load ptr, ptr %edge, align 8
+  %.pre11.i = load double, ptr %.pre.i25, align 8
+  br label %if.end.i21
 
-if.end.i23:                                       ; preds = %if.then.i26, %while.body.i7
-  %59 = phi double [ %.pre11.i, %if.then.i26 ], [ %37, %while.body.i7 ]
-  %60 = phi ptr [ %.pre.i27, %if.then.i26 ], [ %38, %while.body.i7 ]
-  %node.addr.1.i24 = phi ptr [ %node.addr.010.i, %if.then.i26 ], [ %41, %while.body.i7 ]
-  %prev.i = getelementptr inbounds %"struct.p2t::Node", ptr %node.addr.1.i24, i64 0, i32 3
-  %61 = load ptr, ptr %prev.i, align 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = load double, ptr %62, align 8
-  %cmp.i25 = fcmp ogt double %63, %59
-  br i1 %cmp.i25, label %while.body.i7, label %if.end, !llvm.loop !7
+if.end.i21:                                       ; preds = %if.then.i24, %while.body.i7
+  %61 = phi double [ %.pre11.i, %if.then.i24 ], [ %38, %while.body.i7 ]
+  %62 = phi ptr [ %.pre.i25, %if.then.i24 ], [ %39, %while.body.i7 ]
+  %node.addr.1.i22 = phi ptr [ %node.addr.010.i, %if.then.i24 ], [ %42, %while.body.i7 ]
+  %prev.i = getelementptr inbounds %"struct.p2t::Node", ptr %node.addr.1.i22, i64 0, i32 3
+  %63 = load ptr, ptr %prev.i, align 8
+  %64 = load ptr, ptr %63, align 8
+  %65 = load double, ptr %64, align 8
+  %cmp.i23 = fcmp ogt double %65, %61
+  br i1 %cmp.i23, label %while.body.i7, label %if.end, !llvm.loop !7
 
-if.end:                                           ; preds = %if.end.i, %if.end.i23, %if.else, %if.then
+if.end:                                           ; preds = %if.end.i, %if.end.i21, %if.else, %if.then
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextERNS_5PointES4_PNS_8TriangleES4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %ep, ptr noundef nonnull align 8 dereferenceable(40) %eq, ptr noundef nonnull %triangle, ptr noundef nonnull align 8 dereferenceable(40) %point) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextERNS_5PointES4_PNS_8TriangleES4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %ep, ptr noundef nonnull align 8 dereferenceable(40) %eq, ptr noundef nonnull %triangle, ptr noundef nonnull align 8 dereferenceable(40) %point) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call.i102110 = tail call noundef i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull align 8 dereferenceable(57) %triangle, ptr noundef nonnull %ep, ptr noundef nonnull %eq)
-  %cmp.not.i.not103111 = icmp eq i32 %call.i102110, -1
-  br i1 %cmp.not.i.not103111, label %if.end.lr.ph.lr.ph, label %if.then.i
+  %call.i100108 = tail call noundef i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull align 8 dereferenceable(57) %triangle, ptr noundef nonnull %ep, ptr noundef nonnull %eq)
+  %cmp.not.i.not101109 = icmp eq i32 %call.i100108, -1
+  br i1 %cmp.not.i.not101109, label %if.end.lr.ph.lr.ph, label %if.then.i
 
 if.end.lr.ph.lr.ph:                               ; preds = %entry
   %edge_event16 = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 2
   br label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %if.end.lr.ph.lr.ph, %tailrecurse.outer.backedge
-  %point.tr.ph114 = phi ptr [ %point, %if.end.lr.ph.lr.ph ], [ %call2.sink, %tailrecurse.outer.backedge ]
-  %triangle.tr.ph113 = phi ptr [ %triangle, %if.end.lr.ph.lr.ph ], [ %call7, %tailrecurse.outer.backedge ]
-  %eq.tr.ph112 = phi ptr [ %eq, %if.end.lr.ph.lr.ph ], [ %call2.sink, %tailrecurse.outer.backedge ]
+  %point.tr.ph112 = phi ptr [ %point, %if.end.lr.ph.lr.ph ], [ %call2.sink, %tailrecurse.outer.backedge ]
+  %triangle.tr.ph111 = phi ptr [ %triangle, %if.end.lr.ph.lr.ph ], [ %call7, %tailrecurse.outer.backedge ]
+  %eq.tr.ph110 = phi ptr [ %eq, %if.end.lr.ph.lr.ph ], [ %call2.sink, %tailrecurse.outer.backedge ]
   br label %if.end
 
 if.then.i:                                        ; preds = %tailrecurse.outer.backedge, %if.end33, %entry
-  %eq.tr.ph.lcssa101 = phi ptr [ %eq, %entry ], [ %eq.tr.ph112, %if.end33 ], [ %call2.sink, %tailrecurse.outer.backedge ]
+  %eq.tr.ph.lcssa99 = phi ptr [ %eq, %entry ], [ %eq.tr.ph110, %if.end33 ], [ %call2.sink, %tailrecurse.outer.backedge ]
   %triangle.tr.lcssa = phi ptr [ %triangle, %entry ], [ %triangle.addr.0, %if.end33 ], [ %call7, %tailrecurse.outer.backedge ]
-  %call.i.lcssa = phi i32 [ %call.i102110, %entry ], [ %call.i, %if.end33 ], [ %call.i102, %tailrecurse.outer.backedge ]
+  %call.i.lcssa = phi i32 [ %call.i100108, %entry ], [ %call.i, %if.end33 ], [ %call.i100, %tailrecurse.outer.backedge ]
   tail call void @_ZN3p2t8Triangle19MarkConstrainedEdgeEi(ptr noundef nonnull align 8 dereferenceable(57) %triangle.tr.lcssa, i32 noundef %call.i.lcssa)
   %idxprom.i.i = sext i32 %call.i.lcssa to i64
   %arrayidx.i.i = getelementptr inbounds %"class.p2t::Triangle", ptr %triangle.tr.lcssa, i64 0, i32 4, i64 %idxprom.i.i
@@ -1527,14 +1508,14 @@ if.then.i:                                        ; preds = %tailrecurse.outer.b
   br i1 %tobool.not.i, label %if.end35, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  tail call void @_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull %ep, ptr noundef nonnull %eq.tr.ph.lcssa101)
+  tail call void @_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull %ep, ptr noundef nonnull %eq.tr.ph.lcssa99)
   br label %if.end35
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.end33
-  %triangle.tr104 = phi ptr [ %triangle.tr.ph113, %if.end.lr.ph ], [ %triangle.addr.0, %if.end33 ]
-  %call2 = tail call noundef ptr @_ZN3p2t8Triangle8PointCCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %triangle.tr104, ptr noundef nonnull align 8 dereferenceable(40) %point.tr.ph114)
+  %triangle.tr102 = phi ptr [ %triangle.tr.ph111, %if.end.lr.ph ], [ %triangle.addr.0, %if.end33 ]
+  %call2 = tail call noundef ptr @_ZN3p2t8Triangle8PointCCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %triangle.tr102, ptr noundef nonnull align 8 dereferenceable(40) %point.tr.ph112)
   %1 = load <2 x double>, ptr %ep, align 8
-  %2 = load <2 x double>, ptr %eq.tr.ph112, align 8
+  %2 = load <2 x double>, ptr %eq.tr.ph110, align 8
   %3 = fsub <2 x double> %2, %1
   %4 = load <2 x double>, ptr %call2, align 8
   %5 = fsub <2 x double> %4, %1
@@ -1543,136 +1524,134 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.e
   %shift = shufflevector <2 x double> %7, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %8 = fsub <2 x double> %7, %shift
   %sub11.i = extractelement <2 x double> %8, i64 0
-  %cmp.i = fcmp ogt double %sub11.i, 0xBD719799812DEA11
-  %cmp12.i = fcmp olt double %sub11.i, 0x3D719799812DEA11
-  %or.cond.i = and i1 %cmp.i, %cmp12.i
+  %9 = tail call double @llvm.fabs.f64(double %sub11.i)
+  %or.cond.i = fcmp olt double %9, 0x3D719799812DEA11
   %cmp13.i = fcmp ogt double %sub11.i, 0.000000e+00
   br i1 %or.cond.i, label %if.then4, label %if.end9
 
 if.then4:                                         ; preds = %if.end
-  %points_.i.i = getelementptr inbounds %"class.p2t::Triangle", ptr %triangle.tr104, i64 0, i32 3
-  %9 = load ptr, ptr %points_.i.i, align 8
-  %cmp.i.i = icmp eq ptr %9, %eq.tr.ph112
-  %arrayidx3.i.i = getelementptr inbounds %"class.p2t::Triangle", ptr %triangle.tr104, i64 0, i32 3, i64 1
-  %10 = load ptr, ptr %arrayidx3.i.i, align 8
-  %cmp4.i.i = icmp eq ptr %10, %eq.tr.ph112
+  %points_.i.i = getelementptr inbounds %"class.p2t::Triangle", ptr %triangle.tr102, i64 0, i32 3
+  %10 = load ptr, ptr %points_.i.i, align 8
+  %cmp.i.i = icmp eq ptr %10, %eq.tr.ph110
+  %arrayidx3.i.i = getelementptr inbounds %"class.p2t::Triangle", ptr %triangle.tr102, i64 0, i32 3, i64 1
+  %11 = load ptr, ptr %arrayidx3.i.i, align 8
+  %cmp4.i.i = icmp eq ptr %11, %eq.tr.ph110
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp4.i.i
-  %arrayidx6.i.i = getelementptr inbounds %"class.p2t::Triangle", ptr %triangle.tr104, i64 0, i32 3, i64 2
-  %11 = load ptr, ptr %arrayidx6.i.i, align 8
-  %cmp7.i.i = icmp eq ptr %11, %eq.tr.ph112
+  %arrayidx6.i.i = getelementptr inbounds %"class.p2t::Triangle", ptr %triangle.tr102, i64 0, i32 3, i64 2
+  %12 = load ptr, ptr %arrayidx6.i.i, align 8
+  %cmp7.i.i = icmp eq ptr %12, %eq.tr.ph110
   %or.cond.i55 = select i1 %or.cond.i.i, i1 true, i1 %cmp7.i.i
   br i1 %or.cond.i55, label %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit, label %if.else
 
 _ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit:   ; preds = %if.then4
-  %cmp.i2.i = icmp eq ptr %9, %call2
-  %cmp4.i4.i = icmp eq ptr %10, %call2
+  %cmp.i2.i = icmp eq ptr %10, %call2
+  %cmp4.i4.i = icmp eq ptr %11, %call2
   %or.cond.i5.i = select i1 %cmp.i2.i, i1 true, i1 %cmp4.i4.i
-  %cmp7.i8.i = icmp eq ptr %11, %call2
+  %cmp7.i8.i = icmp eq ptr %12, %call2
   %spec.select.i = select i1 %or.cond.i5.i, i1 true, i1 %cmp7.i8.i
   br i1 %spec.select.i, label %tailrecurse.outer.backedge, label %if.else
 
-tailrecurse.outer.backedge:                       ; preds = %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit, %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit86
-  %call2.sink = phi ptr [ %call10, %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit86 ], [ %call2, %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit ]
-  tail call void @_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_(ptr noundef nonnull align 8 dereferenceable(57) %triangle.tr104, ptr noundef nonnull %eq.tr.ph112, ptr noundef nonnull %call2.sink)
-  %12 = load ptr, ptr %edge_event16, align 8
-  %q = getelementptr inbounds %"struct.p2t::Edge", ptr %12, i64 0, i32 1
+tailrecurse.outer.backedge:                       ; preds = %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit, %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit84
+  %call2.sink = phi ptr [ %call10, %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit84 ], [ %call2, %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit ]
+  tail call void @_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_(ptr noundef nonnull align 8 dereferenceable(57) %triangle.tr102, ptr noundef nonnull %eq.tr.ph110, ptr noundef nonnull %call2.sink)
+  %13 = load ptr, ptr %edge_event16, align 8
+  %q = getelementptr inbounds %"struct.p2t::Edge", ptr %13, i64 0, i32 1
   store ptr %call2.sink, ptr %q, align 8
-  %call7 = tail call noundef nonnull align 8 dereferenceable(57) ptr @_ZN3p2t8Triangle14NeighborAcrossERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %triangle.tr104, ptr noundef nonnull align 8 dereferenceable(40) %point.tr.ph114)
-  %call.i102 = tail call noundef i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull align 8 dereferenceable(57) %call7, ptr noundef nonnull %ep, ptr noundef nonnull %call2.sink)
-  %cmp.not.i.not103 = icmp eq i32 %call.i102, -1
-  br i1 %cmp.not.i.not103, label %if.end.lr.ph, label %if.then.i
+  %call7 = tail call noundef nonnull align 8 dereferenceable(57) ptr @_ZN3p2t8Triangle14NeighborAcrossERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %triangle.tr102, ptr noundef nonnull align 8 dereferenceable(40) %point.tr.ph112)
+  %call.i100 = tail call noundef i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull align 8 dereferenceable(57) %call7, ptr noundef nonnull %ep, ptr noundef nonnull %call2.sink)
+  %cmp.not.i.not101 = icmp eq i32 %call.i100, -1
+  br i1 %cmp.not.i.not101, label %if.end.lr.ph, label %if.then.i
 
 if.else:                                          ; preds = %if.then4, %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.else
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #19
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #18
   unreachable
 
 lpad:                                             ; preds = %if.else
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 if.end9:                                          ; preds = %if.end
-  %call10 = tail call noundef ptr @_ZN3p2t8Triangle7PointCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %triangle.tr104, ptr noundef nonnull align 8 dereferenceable(40) %point.tr.ph114)
-  %14 = load <2 x double>, ptr %ep, align 8
-  %15 = load <2 x double>, ptr %eq.tr.ph112, align 8
-  %16 = fsub <2 x double> %15, %14
-  %17 = load <2 x double>, ptr %call10, align 8
-  %18 = fsub <2 x double> %17, %14
-  %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %20 = fmul <2 x double> %16, %19
-  %shift173 = shufflevector <2 x double> %20, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %21 = fsub <2 x double> %20, %shift173
-  %sub11.i65 = extractelement <2 x double> %21, i64 0
-  %cmp.i66 = fcmp ogt double %sub11.i65, 0xBD719799812DEA11
-  %cmp12.i67 = fcmp olt double %sub11.i65, 0x3D719799812DEA11
-  %or.cond.i68 = and i1 %cmp.i66, %cmp12.i67
-  br i1 %or.cond.i68, label %if.then13, label %if.end25
+  %call10 = tail call noundef ptr @_ZN3p2t8Triangle7PointCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %triangle.tr102, ptr noundef nonnull align 8 dereferenceable(40) %point.tr.ph112)
+  %15 = load <2 x double>, ptr %ep, align 8
+  %16 = load <2 x double>, ptr %eq.tr.ph110, align 8
+  %17 = fsub <2 x double> %16, %15
+  %18 = load <2 x double>, ptr %call10, align 8
+  %19 = fsub <2 x double> %18, %15
+  %20 = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %21 = fmul <2 x double> %17, %20
+  %shift171 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %22 = fsub <2 x double> %21, %shift171
+  %sub11.i65 = extractelement <2 x double> %22, i64 0
+  %23 = tail call double @llvm.fabs.f64(double %sub11.i65)
+  %or.cond.i66 = fcmp olt double %23, 0x3D719799812DEA11
+  br i1 %or.cond.i66, label %if.then13, label %if.end25
 
 if.then13:                                        ; preds = %if.end9
-  %points_.i.i72 = getelementptr inbounds %"class.p2t::Triangle", ptr %triangle.tr104, i64 0, i32 3
-  %22 = load ptr, ptr %points_.i.i72, align 8
-  %cmp.i.i73 = icmp eq ptr %22, %eq.tr.ph112
-  %arrayidx3.i.i74 = getelementptr inbounds %"class.p2t::Triangle", ptr %triangle.tr104, i64 0, i32 3, i64 1
-  %23 = load ptr, ptr %arrayidx3.i.i74, align 8
-  %cmp4.i.i75 = icmp eq ptr %23, %eq.tr.ph112
-  %or.cond.i.i76 = select i1 %cmp.i.i73, i1 true, i1 %cmp4.i.i75
-  %arrayidx6.i.i77 = getelementptr inbounds %"class.p2t::Triangle", ptr %triangle.tr104, i64 0, i32 3, i64 2
-  %24 = load ptr, ptr %arrayidx6.i.i77, align 8
-  %cmp7.i.i78 = icmp eq ptr %24, %eq.tr.ph112
-  %or.cond.i79 = select i1 %or.cond.i.i76, i1 true, i1 %cmp7.i.i78
-  br i1 %or.cond.i79, label %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit86, label %if.else20
+  %points_.i.i70 = getelementptr inbounds %"class.p2t::Triangle", ptr %triangle.tr102, i64 0, i32 3
+  %24 = load ptr, ptr %points_.i.i70, align 8
+  %cmp.i.i71 = icmp eq ptr %24, %eq.tr.ph110
+  %arrayidx3.i.i72 = getelementptr inbounds %"class.p2t::Triangle", ptr %triangle.tr102, i64 0, i32 3, i64 1
+  %25 = load ptr, ptr %arrayidx3.i.i72, align 8
+  %cmp4.i.i73 = icmp eq ptr %25, %eq.tr.ph110
+  %or.cond.i.i74 = select i1 %cmp.i.i71, i1 true, i1 %cmp4.i.i73
+  %arrayidx6.i.i75 = getelementptr inbounds %"class.p2t::Triangle", ptr %triangle.tr102, i64 0, i32 3, i64 2
+  %26 = load ptr, ptr %arrayidx6.i.i75, align 8
+  %cmp7.i.i76 = icmp eq ptr %26, %eq.tr.ph110
+  %or.cond.i77 = select i1 %or.cond.i.i74, i1 true, i1 %cmp7.i.i76
+  br i1 %or.cond.i77, label %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit84, label %if.else20
 
-_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit86: ; preds = %if.then13
-  %cmp.i2.i81 = icmp eq ptr %22, %call10
-  %cmp4.i4.i82 = icmp eq ptr %23, %call10
-  %or.cond.i5.i83 = select i1 %cmp.i2.i81, i1 true, i1 %cmp4.i4.i82
-  %cmp7.i8.i84 = icmp eq ptr %24, %call10
-  %spec.select.i85 = select i1 %or.cond.i5.i83, i1 true, i1 %cmp7.i8.i84
-  br i1 %spec.select.i85, label %tailrecurse.outer.backedge, label %if.else20
+_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit84: ; preds = %if.then13
+  %cmp.i2.i79 = icmp eq ptr %24, %call10
+  %cmp4.i4.i80 = icmp eq ptr %25, %call10
+  %or.cond.i5.i81 = select i1 %cmp.i2.i79, i1 true, i1 %cmp4.i4.i80
+  %cmp7.i8.i82 = icmp eq ptr %26, %call10
+  %spec.select.i83 = select i1 %or.cond.i5.i81, i1 true, i1 %cmp7.i8.i82
+  br i1 %spec.select.i83, label %tailrecurse.outer.backedge, label %if.else20
 
-if.else20:                                        ; preds = %if.then13, %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit86
-  %exception21 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+if.else20:                                        ; preds = %if.then13, %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit84
+  %exception21 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception21, ptr noundef nonnull @.str)
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %if.else20
-  tail call void @__cxa_throw(ptr nonnull %exception21, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #19
+  tail call void @__cxa_throw(ptr nonnull %exception21, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #18
   unreachable
 
 lpad22:                                           ; preds = %if.else20
-  %25 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 if.end25:                                         ; preds = %if.end9
-  %26 = fcmp ule double %sub11.i65, 0.000000e+00
-  %cmp26 = xor i1 %cmp13.i, %26
+  %28 = fcmp ule double %sub11.i65, 0.000000e+00
+  %cmp26 = xor i1 %cmp13.i, %28
   br i1 %cmp26, label %if.then27, label %if.else34
 
 if.then27:                                        ; preds = %if.end25
   br i1 %cmp13.i, label %if.else31, label %if.then29
 
 if.then29:                                        ; preds = %if.then27
-  %call30 = tail call noundef ptr @_ZN3p2t8Triangle11NeighborCCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %triangle.tr104, ptr noundef nonnull align 8 dereferenceable(40) %point.tr.ph114)
+  %call30 = tail call noundef ptr @_ZN3p2t8Triangle11NeighborCCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %triangle.tr102, ptr noundef nonnull align 8 dereferenceable(40) %point.tr.ph112)
   br label %if.end33
 
 if.else31:                                        ; preds = %if.then27
-  %call32 = tail call noundef ptr @_ZN3p2t8Triangle10NeighborCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %triangle.tr104, ptr noundef nonnull align 8 dereferenceable(40) %point.tr.ph114)
+  %call32 = tail call noundef ptr @_ZN3p2t8Triangle10NeighborCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %triangle.tr102, ptr noundef nonnull align 8 dereferenceable(40) %point.tr.ph112)
   br label %if.end33
 
 if.end33:                                         ; preds = %if.else31, %if.then29
   %triangle.addr.0 = phi ptr [ %call30, %if.then29 ], [ %call32, %if.else31 ]
-  %call.i = tail call noundef i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull align 8 dereferenceable(57) %triangle.addr.0, ptr noundef nonnull %ep, ptr noundef nonnull %eq.tr.ph112)
+  %call.i = tail call noundef i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull align 8 dereferenceable(57) %triangle.addr.0, ptr noundef nonnull %ep, ptr noundef nonnull %eq.tr.ph110)
   %cmp.not.i.not = icmp eq i32 %call.i, -1
   br i1 %cmp.not.i.not, label %if.end, label %if.then.i
 
 if.else34:                                        ; preds = %if.end25
-  tail call void @_ZN3p2t5Sweep13FlipEdgeEventERNS_12SweepContextERNS_5PointES4_PNS_8TriangleES4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %ep, ptr noundef nonnull align 8 dereferenceable(40) %eq.tr.ph112, ptr noundef nonnull %triangle.tr104, ptr noundef nonnull align 8 dereferenceable(40) %point.tr.ph114)
+  tail call void @_ZN3p2t5Sweep13FlipEdgeEventERNS_12SweepContextERNS_5PointES4_PNS_8TriangleES4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %ep, ptr noundef nonnull align 8 dereferenceable(40) %eq.tr.ph110, ptr noundef nonnull %triangle.tr102, ptr noundef nonnull align 8 dereferenceable(40) %point.tr.ph112)
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then3.i, %if.then.i, %if.else34
@@ -1680,36 +1659,36 @@ if.end35:                                         ; preds = %if.then3.i, %if.the
 
 eh.resume:                                        ; preds = %lpad22, %lpad
   %exception21.sink = phi ptr [ %exception21, %lpad22 ], [ %exception, %lpad ]
-  %.pn = phi { ptr, i32 } [ %25, %lpad22 ], [ %13, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception21.sink) #20
+  %.pn = phi { ptr, i32 } [ %27, %lpad22 ], [ %14, %lpad ]
+  tail call void @__cxa_free_exception(ptr %exception21.sink) #19
   resume { ptr, i32 } %.pn
 }
 
-declare noundef ptr @_ZN3p2t8Triangle8PointCCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
+declare noundef ptr @_ZN3p2t8Triangle8PointCCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
-declare void @_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare noundef nonnull align 8 dereferenceable(57) ptr @_ZN3p2t8Triangle14NeighborAcrossERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(57) ptr @_ZN3p2t8Triangle14NeighborAcrossERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
-declare void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #4
+declare void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #3
 
 declare i32 @__gxx_personality_v0(...)
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
+declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 
-declare noundef ptr @_ZN3p2t8Triangle7PointCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
+declare noundef ptr @_ZN3p2t8Triangle7PointCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
-declare noundef ptr @_ZN3p2t8Triangle10NeighborCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
+declare noundef ptr @_ZN3p2t8Triangle10NeighborCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3p2t5Sweep13FlipEdgeEventERNS_12SweepContextERNS_5PointES4_PNS_8TriangleES4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %ep, ptr noundef nonnull align 8 dereferenceable(40) %eq, ptr noundef nonnull %t, ptr noundef nonnull align 8 dereferenceable(40) %p) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3p2t5Sweep13FlipEdgeEventERNS_12SweepContextERNS_5PointES4_PNS_8TriangleES4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %ep, ptr noundef nonnull align 8 dereferenceable(40) %eq, ptr noundef nonnull %t, ptr noundef nonnull align 8 dereferenceable(40) %p) local_unnamed_addr #2 align 2 {
 entry:
   %y7.i = getelementptr inbounds %"struct.p2t::Point", ptr %p, i64 0, i32 1
   br label %tailrecurse
@@ -1816,13 +1795,12 @@ if.else18:                                        ; preds = %land.lhs.true, %if.
   %shift = shufflevector <2 x double> %37, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %38 = fsub <2 x double> %37, %shift
   %sub11.i = extractelement <2 x double> %38, i64 0
-  %cmp.i79 = fcmp ule double %sub11.i, 0xBD719799812DEA11
-  %cmp12.i = fcmp uge double %sub11.i, 0x3D719799812DEA11
-  %or.cond.i.not = or i1 %cmp.i79, %cmp12.i
+  %39 = tail call double @llvm.fabs.f64(double %sub11.i)
+  %or.cond.i = fcmp uge double %39, 0x3D719799812DEA11
   %cmp13.i = fcmp ogt double %sub11.i, 0.000000e+00
-  %cmp.i81 = and i1 %cmp13.i, %or.cond.i.not
-  %ot.t.i = select i1 %cmp.i81, ptr %call, ptr %t.tr
-  %t.ot.i = select i1 %cmp.i81, ptr %t.tr, ptr %call
+  %cmp.i80 = select i1 %or.cond.i, i1 %cmp13.i, i1 false
+  %ot.t.i = select i1 %cmp.i80, ptr %call, ptr %t.tr
+  %t.ot.i = select i1 %cmp.i80, ptr %t.tr, ptr %call
   %call4.i = tail call noundef i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull align 8 dereferenceable(57) %ot.t.i, ptr noundef nonnull %p, ptr noundef nonnull %call2)
   %idxprom6.i = sext i32 %call4.i to i64
   %arrayidx7.i = getelementptr inbounds %"class.p2t::Triangle", ptr %ot.t.i, i64 0, i32 1, i64 %idxprom6.i
@@ -1841,24 +1819,24 @@ if.end24:                                         ; preds = %if.then8, %land.lhs
   ret void
 }
 
-declare noundef i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @_ZN3p2t8Triangle19MarkConstrainedEdgeEi(ptr noundef nonnull align 8 dereferenceable(57), i32 noundef) local_unnamed_addr #4
+declare void @_ZN3p2t8Triangle19MarkConstrainedEdgeEi(ptr noundef nonnull align 8 dereferenceable(57), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
-declare void @_ZN3p2t8TriangleC1ERNS_5PointES2_S2_(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #4
+declare void @_ZN3p2t8TriangleC1ERNS_5PointES2_S2_(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #3
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
-declare void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(57)) local_unnamed_addr #4
+declare void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(57)) local_unnamed_addr #3
 
-declare void @_ZN3p2t12SweepContext8AddToMapEPNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef) local_unnamed_addr #4
+declare void @_ZN3p2t12SweepContext8AddToMapEPNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %t) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(57) %t) local_unnamed_addr #2 align 2 {
 entry:
   br label %for.body
 
@@ -1988,10 +1966,10 @@ return:                                           ; preds = %for.inc, %if.end45
   ret i1 %cmp47
 }
 
-declare void @_ZN3p2t12SweepContext18MapTriangleToNodesERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(57)) local_unnamed_addr #4
+declare void @_ZN3p2t12SweepContext18MapTriangleToNodesERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(57)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define hidden noundef zeroext i1 @_ZNK3p2t5Sweep18LargeHole_DontFillEPKNS_4NodeE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %node) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK3p2t5Sweep18LargeHole_DontFillEPKNS_4NodeE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %node) local_unnamed_addr #7 align 2 {
 entry:
   %next = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 2
   %0 = load ptr, ptr %next, align 8
@@ -2018,79 +1996,78 @@ entry:
   %12 = tail call double @llvm.fmuladd.f64(double %sub.i.i, double %sub8.i.i, double %neg.i.i)
   %mul12.i.i = fmul double %sub4.i.i, %sub8.i.i
   %13 = tail call double @llvm.fmuladd.f64(double %sub.i.i, double %sub6.i.i, double %mul12.i.i)
-  %call.i.i = tail call noundef double @atan2(double noundef %12, double noundef %13) #20
-  %cmp.i = fcmp ogt double %call.i.i, 0x3FF921FB54442D18
-  %cmp2.i = fcmp olt double %call.i.i, 0xBFF921FB54442D18
-  %14 = or i1 %cmp.i, %cmp2.i
-  br i1 %14, label %if.end, label %return
+  %call.i.i = tail call noundef double @atan2(double noundef %12, double noundef %13) #19
+  %14 = tail call double @llvm.fabs.f64(double %call.i.i)
+  %15 = fcmp ogt double %14, 0x3FF921FB54442D18
+  br i1 %15, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %next4 = getelementptr inbounds %"struct.p2t::Node", ptr %0, i64 0, i32 2
-  %15 = load ptr, ptr %next4, align 8
-  %cmp.not = icmp eq ptr %15, null
+  %16 = load ptr, ptr %next4, align 8
+  %cmp.not = icmp eq ptr %16, null
   br i1 %cmp.not, label %if.end10, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %16 = load ptr, ptr %node, align 8
-  %17 = load ptr, ptr %15, align 8
-  %18 = load ptr, ptr %1, align 8
-  %19 = load double, ptr %16, align 8
-  %y.i.i12 = getelementptr inbounds %"struct.p2t::Point", ptr %16, i64 0, i32 1
-  %20 = load double, ptr %y.i.i12, align 8
-  %21 = load double, ptr %17, align 8
-  %sub.i.i13 = fsub double %21, %19
-  %y3.i.i14 = getelementptr inbounds %"struct.p2t::Point", ptr %17, i64 0, i32 1
-  %22 = load double, ptr %y3.i.i14, align 8
-  %sub4.i.i15 = fsub double %22, %20
-  %23 = load double, ptr %18, align 8
-  %sub6.i.i16 = fsub double %23, %19
-  %y7.i.i17 = getelementptr inbounds %"struct.p2t::Point", ptr %18, i64 0, i32 1
-  %24 = load double, ptr %y7.i.i17, align 8
-  %sub8.i.i18 = fsub double %24, %20
-  %25 = fneg double %sub4.i.i15
-  %neg.i.i19 = fmul double %sub6.i.i16, %25
-  %26 = tail call double @llvm.fmuladd.f64(double %sub.i.i13, double %sub8.i.i18, double %neg.i.i19)
+  %17 = load ptr, ptr %node, align 8
+  %18 = load ptr, ptr %16, align 8
+  %19 = load ptr, ptr %1, align 8
+  %20 = load double, ptr %17, align 8
+  %y.i.i12 = getelementptr inbounds %"struct.p2t::Point", ptr %17, i64 0, i32 1
+  %21 = load double, ptr %y.i.i12, align 8
+  %22 = load double, ptr %18, align 8
+  %sub.i.i13 = fsub double %22, %20
+  %y3.i.i14 = getelementptr inbounds %"struct.p2t::Point", ptr %18, i64 0, i32 1
+  %23 = load double, ptr %y3.i.i14, align 8
+  %sub4.i.i15 = fsub double %23, %21
+  %24 = load double, ptr %19, align 8
+  %sub6.i.i16 = fsub double %24, %20
+  %y7.i.i17 = getelementptr inbounds %"struct.p2t::Point", ptr %19, i64 0, i32 1
+  %25 = load double, ptr %y7.i.i17, align 8
+  %sub8.i.i18 = fsub double %25, %21
+  %26 = fneg double %sub4.i.i15
+  %neg.i.i19 = fmul double %sub6.i.i16, %26
+  %27 = tail call double @llvm.fmuladd.f64(double %sub.i.i13, double %sub8.i.i18, double %neg.i.i19)
   %mul12.i.i20 = fmul double %sub4.i.i15, %sub8.i.i18
-  %27 = tail call double @llvm.fmuladd.f64(double %sub.i.i13, double %sub6.i.i16, double %mul12.i.i20)
-  %call.i.i21 = tail call noundef double @atan2(double noundef %26, double noundef %27) #20
-  %cmp.i22 = fcmp ogt double %call.i.i21, 0x3FF921FB54442D18
-  %cmp2.i23 = fcmp olt double %call.i.i21, 0.000000e+00
-  %28 = or i1 %cmp.i22, %cmp2.i23
-  br i1 %28, label %if.end10, label %return
+  %28 = tail call double @llvm.fmuladd.f64(double %sub.i.i13, double %sub6.i.i16, double %mul12.i.i20)
+  %call.i.i21 = tail call noundef double @atan2(double noundef %27, double noundef %28) #19
+  %cmp.i = fcmp ogt double %call.i.i21, 0x3FF921FB54442D18
+  %cmp2.i = fcmp olt double %call.i.i21, 0.000000e+00
+  %29 = or i1 %cmp.i, %cmp2.i
+  br i1 %29, label %if.end10, label %return
 
 if.end10:                                         ; preds = %land.lhs.true, %if.end
   %prev11 = getelementptr inbounds %"struct.p2t::Node", ptr %1, i64 0, i32 3
-  %29 = load ptr, ptr %prev11, align 8
-  %cmp12.not = icmp eq ptr %29, null
+  %30 = load ptr, ptr %prev11, align 8
+  %cmp12.not = icmp eq ptr %30, null
   br i1 %cmp12.not, label %if.end19, label %land.lhs.true13
 
 land.lhs.true13:                                  ; preds = %if.end10
-  %30 = load ptr, ptr %node, align 8
-  %31 = load ptr, ptr %0, align 8
-  %32 = load ptr, ptr %29, align 8
-  %33 = load double, ptr %30, align 8
-  %y.i.i24 = getelementptr inbounds %"struct.p2t::Point", ptr %30, i64 0, i32 1
-  %34 = load double, ptr %y.i.i24, align 8
-  %35 = load double, ptr %31, align 8
-  %sub.i.i25 = fsub double %35, %33
-  %y3.i.i26 = getelementptr inbounds %"struct.p2t::Point", ptr %31, i64 0, i32 1
-  %36 = load double, ptr %y3.i.i26, align 8
-  %sub4.i.i27 = fsub double %36, %34
-  %37 = load double, ptr %32, align 8
-  %sub6.i.i28 = fsub double %37, %33
-  %y7.i.i29 = getelementptr inbounds %"struct.p2t::Point", ptr %32, i64 0, i32 1
-  %38 = load double, ptr %y7.i.i29, align 8
-  %sub8.i.i30 = fsub double %38, %34
-  %39 = fneg double %sub4.i.i27
-  %neg.i.i31 = fmul double %sub6.i.i28, %39
-  %40 = tail call double @llvm.fmuladd.f64(double %sub.i.i25, double %sub8.i.i30, double %neg.i.i31)
-  %mul12.i.i32 = fmul double %sub4.i.i27, %sub8.i.i30
-  %41 = tail call double @llvm.fmuladd.f64(double %sub.i.i25, double %sub6.i.i28, double %mul12.i.i32)
-  %call.i.i33 = tail call noundef double @atan2(double noundef %40, double noundef %41) #20
-  %cmp.i34 = fcmp ogt double %call.i.i33, 0x3FF921FB54442D18
-  %cmp2.i35 = fcmp olt double %call.i.i33, 0.000000e+00
-  %42 = or i1 %cmp.i34, %cmp2.i35
-  br i1 %42, label %if.end19, label %return
+  %31 = load ptr, ptr %node, align 8
+  %32 = load ptr, ptr %0, align 8
+  %33 = load ptr, ptr %30, align 8
+  %34 = load double, ptr %31, align 8
+  %y.i.i22 = getelementptr inbounds %"struct.p2t::Point", ptr %31, i64 0, i32 1
+  %35 = load double, ptr %y.i.i22, align 8
+  %36 = load double, ptr %32, align 8
+  %sub.i.i23 = fsub double %36, %34
+  %y3.i.i24 = getelementptr inbounds %"struct.p2t::Point", ptr %32, i64 0, i32 1
+  %37 = load double, ptr %y3.i.i24, align 8
+  %sub4.i.i25 = fsub double %37, %35
+  %38 = load double, ptr %33, align 8
+  %sub6.i.i26 = fsub double %38, %34
+  %y7.i.i27 = getelementptr inbounds %"struct.p2t::Point", ptr %33, i64 0, i32 1
+  %39 = load double, ptr %y7.i.i27, align 8
+  %sub8.i.i28 = fsub double %39, %35
+  %40 = fneg double %sub4.i.i25
+  %neg.i.i29 = fmul double %sub6.i.i26, %40
+  %41 = tail call double @llvm.fmuladd.f64(double %sub.i.i23, double %sub8.i.i28, double %neg.i.i29)
+  %mul12.i.i30 = fmul double %sub4.i.i25, %sub8.i.i28
+  %42 = tail call double @llvm.fmuladd.f64(double %sub.i.i23, double %sub6.i.i26, double %mul12.i.i30)
+  %call.i.i31 = tail call noundef double @atan2(double noundef %41, double noundef %42) #19
+  %cmp.i32 = fcmp ogt double %call.i.i31, 0x3FF921FB54442D18
+  %cmp2.i33 = fcmp olt double %call.i.i31, 0.000000e+00
+  %43 = or i1 %cmp.i32, %cmp2.i33
+  br i1 %43, label %if.end19, label %return
 
 if.end19:                                         ; preds = %land.lhs.true13, %if.end10
   br label %return
@@ -2101,7 +2078,7 @@ return:                                           ; preds = %land.lhs.true13, %l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define hidden noundef double @_ZNK3p2t5Sweep10BasinAngleERKNS_4NodeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #8 align 2 {
+define hidden noundef double @_ZNK3p2t5Sweep10BasinAngleERKNS_4NodeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %node, align 8
   %1 = load double, ptr %0, align 8
@@ -2117,12 +2094,12 @@ entry:
   %y9 = getelementptr inbounds %"struct.p2t::Point", ptr %4, i64 0, i32 1
   %7 = load double, ptr %y9, align 8
   %sub10 = fsub double %6, %7
-  %call = tail call double @atan2(double noundef %sub10, double noundef %sub) #20
+  %call = tail call double @atan2(double noundef %sub10, double noundef %sub) #19
   ret double %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3p2t5Sweep9FillBasinERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3p2t5Sweep9FillBasinERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %node, align 8
   %next = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 2
@@ -2141,33 +2118,32 @@ entry:
   %shift = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %12 = fsub <2 x double> %11, %shift
   %sub11.i = extractelement <2 x double> %12, i64 0
-  %cmp.i = fcmp ule double %sub11.i, 0xBD719799812DEA11
-  %cmp12.i = fcmp uge double %sub11.i, 0x3D719799812DEA11
-  %or.cond.i.not = or i1 %cmp.i, %cmp12.i
+  %13 = tail call double @llvm.fabs.f64(double %sub11.i)
+  %or.cond.i = fcmp uge double %13, 0x3D719799812DEA11
   %cmp13.i = fcmp ogt double %sub11.i, 0.000000e+00
-  %cmp = and i1 %cmp13.i, %or.cond.i.not
+  %cmp = select i1 %or.cond.i, i1 %cmp13.i, i1 false
   %spec.select = select i1 %cmp, ptr %3, ptr %1
-  %13 = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 1
-  store ptr %spec.select, ptr %13, align 8
+  %14 = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 1
+  store ptr %spec.select, ptr %14, align 8
   %bottom_node = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 1, i32 1
   br label %while.cond
 
 while.cond:                                       ; preds = %land.rhs, %entry
-  %storemerge = phi ptr [ %spec.select, %entry ], [ %14, %land.rhs ]
+  %storemerge = phi ptr [ %spec.select, %entry ], [ %15, %land.rhs ]
   store ptr %storemerge, ptr %bottom_node, align 8
   %next16 = getelementptr inbounds %"struct.p2t::Node", ptr %storemerge, i64 0, i32 2
-  %14 = load ptr, ptr %next16, align 8
-  %tobool.not = icmp eq ptr %14, null
+  %15 = load ptr, ptr %next16, align 8
+  %tobool.not = icmp eq ptr %15, null
   br i1 %tobool.not, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond
-  %15 = load ptr, ptr %storemerge, align 8
-  %y = getelementptr inbounds %"struct.p2t::Point", ptr %15, i64 0, i32 1
-  %16 = load double, ptr %y, align 8
-  %17 = load ptr, ptr %14, align 8
-  %y24 = getelementptr inbounds %"struct.p2t::Point", ptr %17, i64 0, i32 1
-  %18 = load double, ptr %y24, align 8
-  %cmp25 = fcmp ult double %16, %18
+  %16 = load ptr, ptr %storemerge, align 8
+  %y = getelementptr inbounds %"struct.p2t::Point", ptr %16, i64 0, i32 1
+  %17 = load double, ptr %y, align 8
+  %18 = load ptr, ptr %15, align 8
+  %y24 = getelementptr inbounds %"struct.p2t::Point", ptr %18, i64 0, i32 1
+  %19 = load double, ptr %y24, align 8
+  %cmp25 = fcmp ult double %17, %19
   br i1 %cmp25, label %while.end, label %while.cond, !llvm.loop !13
 
 while.end:                                        ; preds = %while.cond, %land.rhs
@@ -2179,21 +2155,21 @@ if.end37:                                         ; preds = %while.end
   br label %while.cond41
 
 while.cond41:                                     ; preds = %land.rhs46, %if.end37
-  %storemerge35 = phi ptr [ %storemerge, %if.end37 ], [ %19, %land.rhs46 ]
+  %storemerge35 = phi ptr [ %storemerge, %if.end37 ], [ %20, %land.rhs46 ]
   store ptr %storemerge35, ptr %right_node, align 8
   %next44 = getelementptr inbounds %"struct.p2t::Node", ptr %storemerge35, i64 0, i32 2
-  %19 = load ptr, ptr %next44, align 8
-  %tobool45.not = icmp eq ptr %19, null
+  %20 = load ptr, ptr %next44, align 8
+  %tobool45.not = icmp eq ptr %20, null
   br i1 %tobool45.not, label %while.end64, label %land.rhs46
 
 land.rhs46:                                       ; preds = %while.cond41
-  %20 = load ptr, ptr %storemerge35, align 8
-  %y50 = getelementptr inbounds %"struct.p2t::Point", ptr %20, i64 0, i32 1
-  %21 = load double, ptr %y50, align 8
-  %22 = load ptr, ptr %19, align 8
-  %y55 = getelementptr inbounds %"struct.p2t::Point", ptr %22, i64 0, i32 1
-  %23 = load double, ptr %y55, align 8
-  %cmp56 = fcmp olt double %21, %23
+  %21 = load ptr, ptr %storemerge35, align 8
+  %y50 = getelementptr inbounds %"struct.p2t::Point", ptr %21, i64 0, i32 1
+  %22 = load double, ptr %y50, align 8
+  %23 = load ptr, ptr %20, align 8
+  %y55 = getelementptr inbounds %"struct.p2t::Point", ptr %23, i64 0, i32 1
+  %24 = load double, ptr %y55, align 8
+  %cmp56 = fcmp olt double %22, %24
   br i1 %cmp56, label %while.cond41, label %while.end64, !llvm.loop !14
 
 while.end64:                                      ; preds = %while.cond41, %land.rhs46
@@ -2201,20 +2177,20 @@ while.end64:                                      ; preds = %while.cond41, %land
   br i1 %cmp69, label %return, label %if.end71
 
 if.end71:                                         ; preds = %while.end64
-  %24 = load ptr, ptr %storemerge35, align 8
-  %25 = load double, ptr %24, align 8
-  %26 = load ptr, ptr %spec.select, align 8
-  %27 = load double, ptr %26, align 8
-  %sub = fsub double %25, %27
+  %25 = load ptr, ptr %storemerge35, align 8
+  %26 = load double, ptr %25, align 8
+  %27 = load ptr, ptr %spec.select, align 8
+  %28 = load double, ptr %27, align 8
+  %sub = fsub double %26, %28
   %width = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 1, i32 3
   store double %sub, ptr %width, align 8
-  %28 = load ptr, ptr %spec.select, align 8
-  %y83 = getelementptr inbounds %"struct.p2t::Point", ptr %28, i64 0, i32 1
-  %29 = load double, ptr %y83, align 8
-  %30 = load ptr, ptr %storemerge35, align 8
-  %y87 = getelementptr inbounds %"struct.p2t::Point", ptr %30, i64 0, i32 1
-  %31 = load double, ptr %y87, align 8
-  %cmp88 = fcmp ogt double %29, %31
+  %29 = load ptr, ptr %spec.select, align 8
+  %y83 = getelementptr inbounds %"struct.p2t::Point", ptr %29, i64 0, i32 1
+  %30 = load double, ptr %y83, align 8
+  %31 = load ptr, ptr %storemerge35, align 8
+  %y87 = getelementptr inbounds %"struct.p2t::Point", ptr %31, i64 0, i32 1
+  %32 = load double, ptr %y87, align 8
+  %cmp88 = fcmp ogt double %30, %32
   %left_highest = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 1, i32 4
   %frombool = zext i1 %cmp88 to i8
   store i8 %frombool, ptr %left_highest, align 8
@@ -2226,7 +2202,7 @@ return:                                           ; preds = %while.end64, %while
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZNK3p2t5Sweep21AngleExceeds90DegreesEPKNS_5PointES3_S3_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %origin, ptr nocapture noundef readonly %pa, ptr nocapture noundef readonly %pb) local_unnamed_addr #9 align 2 {
+define hidden noundef zeroext i1 @_ZNK3p2t5Sweep21AngleExceeds90DegreesEPKNS_5PointES3_S3_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %origin, ptr nocapture noundef readonly %pa, ptr nocapture noundef readonly %pb) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load double, ptr %origin, align 8
   %y.i = getelementptr inbounds %"struct.p2t::Point", ptr %origin, i64 0, i32 1
@@ -2246,15 +2222,14 @@ entry:
   %7 = tail call double @llvm.fmuladd.f64(double %sub.i, double %sub8.i, double %neg.i)
   %mul12.i = fmul double %sub4.i, %sub8.i
   %8 = tail call double @llvm.fmuladd.f64(double %sub.i, double %sub6.i, double %mul12.i)
-  %call.i = tail call noundef double @atan2(double noundef %7, double noundef %8) #20
-  %cmp = fcmp ogt double %call.i, 0x3FF921FB54442D18
-  %cmp2 = fcmp olt double %call.i, 0xBFF921FB54442D18
-  %9 = or i1 %cmp, %cmp2
-  ret i1 %9
+  %call.i = tail call noundef double @atan2(double noundef %7, double noundef %8) #19
+  %9 = tail call double @llvm.fabs.f64(double %call.i)
+  %10 = fcmp ogt double %9, 0x3FF921FB54442D18
+  ret i1 %10
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZNK3p2t5Sweep37AngleExceedsPlus90DegreesOrIsNegativeEPKNS_5PointES3_S3_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %origin, ptr nocapture noundef readonly %pa, ptr nocapture noundef readonly %pb) local_unnamed_addr #9 align 2 {
+define hidden noundef zeroext i1 @_ZNK3p2t5Sweep37AngleExceedsPlus90DegreesOrIsNegativeEPKNS_5PointES3_S3_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %origin, ptr nocapture noundef readonly %pa, ptr nocapture noundef readonly %pb) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load double, ptr %origin, align 8
   %y.i = getelementptr inbounds %"struct.p2t::Point", ptr %origin, i64 0, i32 1
@@ -2274,7 +2249,7 @@ entry:
   %7 = tail call double @llvm.fmuladd.f64(double %sub.i, double %sub8.i, double %neg.i)
   %mul12.i = fmul double %sub4.i, %sub8.i
   %8 = tail call double @llvm.fmuladd.f64(double %sub.i, double %sub6.i, double %mul12.i)
-  %call.i = tail call noundef double @atan2(double noundef %7, double noundef %8) #20
+  %call.i = tail call noundef double @atan2(double noundef %7, double noundef %8) #19
   %cmp = fcmp ogt double %call.i, 0x3FF921FB54442D18
   %cmp2 = fcmp olt double %call.i, 0.000000e+00
   %9 = or i1 %cmp, %cmp2
@@ -2282,7 +2257,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden noundef double @_ZNK3p2t5Sweep5AngleEPKNS_5PointES3_S3_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %origin, ptr nocapture noundef readonly %pa, ptr nocapture noundef readonly %pb) local_unnamed_addr #9 align 2 {
+define hidden noundef double @_ZNK3p2t5Sweep5AngleEPKNS_5PointES3_S3_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %origin, ptr nocapture noundef readonly %pa, ptr nocapture noundef readonly %pb) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load double, ptr %origin, align 8
   %y = getelementptr inbounds %"struct.p2t::Point", ptr %origin, i64 0, i32 1
@@ -2302,15 +2277,15 @@ entry:
   %7 = tail call double @llvm.fmuladd.f64(double %sub, double %sub8, double %neg)
   %mul12 = fmul double %sub4, %sub8
   %8 = tail call double @llvm.fmuladd.f64(double %sub, double %sub6, double %mul12)
-  %call = tail call double @atan2(double noundef %7, double noundef %8) #20
+  %call = tail call double @atan2(double noundef %7, double noundef %8) #19
   ret double %call
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @atan2(double noundef, double noundef) local_unnamed_addr #10
+declare double @atan2(double noundef, double noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define hidden noundef double @_ZNK3p2t5Sweep9HoleAngleERKNS_4NodeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #8 align 2 {
+define hidden noundef double @_ZNK3p2t5Sweep9HoleAngleERKNS_4NodeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #7 align 2 {
 entry:
   %next = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 2
   %0 = load ptr, ptr %next, align 8
@@ -2337,16 +2312,16 @@ entry:
   %12 = tail call double @llvm.fmuladd.f64(double %sub, double %sub19, double %neg)
   %mul21 = fmul double %sub8, %sub19
   %13 = tail call double @llvm.fmuladd.f64(double %sub, double %sub13, double %mul21)
-  %call = tail call double @atan2(double noundef %12, double noundef %13) #20
+  %call = tail call double @atan2(double noundef %12, double noundef %13) #19
   ret double %call
 }
 
-declare noundef ptr @_ZN3p2t8Triangle13OppositePointERS0_RKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
+declare noundef ptr @_ZN3p2t8Triangle13OppositePointERS0_RKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
-declare noundef i32 @_ZN3p2t8Triangle5IndexEPKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef) local_unnamed_addr #4
+declare noundef i32 @_ZN3p2t8Triangle5IndexEPKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK3p2t5Sweep8IncircleERKNS_5PointES3_S3_S3_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pa, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pb, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pd) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK3p2t5Sweep8IncircleERKNS_5PointES3_S3_S3_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pa, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pb, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pd) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load <2 x double>, ptr %pd, align 8
   %1 = load <2 x double>, ptr %pa, align 8
@@ -2401,7 +2376,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3p2t5Sweep18RotateTrianglePairERNS_8TriangleERNS_5PointES2_S4_(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(57) %t, ptr noundef nonnull align 8 dereferenceable(40) %p, ptr noundef nonnull align 8 dereferenceable(57) %ot, ptr noundef nonnull align 8 dereferenceable(40) %op) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK3p2t5Sweep18RotateTrianglePairERNS_8TriangleERNS_5PointES2_S4_(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(57) %t, ptr noundef nonnull align 8 dereferenceable(40) %p, ptr noundef nonnull align 8 dereferenceable(57) %ot, ptr noundef nonnull align 8 dereferenceable(40) %op) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN3p2t8Triangle11NeighborCCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %t, ptr noundef nonnull align 8 dereferenceable(40) %p)
   %call2 = tail call noundef ptr @_ZN3p2t8Triangle10NeighborCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %t, ptr noundef nonnull align 8 dereferenceable(40) %p)
@@ -2463,26 +2438,26 @@ if.end36:                                         ; preds = %if.then35, %if.end3
   ret void
 }
 
-declare noundef zeroext i1 @_ZN3p2t8Triangle21GetConstrainedEdgeCCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
+declare noundef zeroext i1 @_ZN3p2t8Triangle21GetConstrainedEdgeCCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
-declare noundef zeroext i1 @_ZN3p2t8Triangle17GetDelunayEdgeCCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
+declare noundef zeroext i1 @_ZN3p2t8Triangle17GetDelunayEdgeCCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
-declare noundef zeroext i1 @_ZN3p2t8Triangle16GetDelunayEdgeCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
+declare noundef zeroext i1 @_ZN3p2t8Triangle16GetDelunayEdgeCWERKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
-declare void @_ZN3p2t8Triangle8LegalizeERNS_5PointES2_(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
+declare void @_ZN3p2t8Triangle8LegalizeERNS_5PointES2_(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
-declare void @_ZN3p2t8Triangle17SetDelunayEdgeCCWERKNS_5PointEb(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40), i1 noundef zeroext) local_unnamed_addr #4
+declare void @_ZN3p2t8Triangle17SetDelunayEdgeCCWERKNS_5PointEb(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40), i1 noundef zeroext) local_unnamed_addr #3
 
-declare void @_ZN3p2t8Triangle16SetDelunayEdgeCWERKNS_5PointEb(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40), i1 noundef zeroext) local_unnamed_addr #4
+declare void @_ZN3p2t8Triangle16SetDelunayEdgeCWERKNS_5PointEb(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40), i1 noundef zeroext) local_unnamed_addr #3
 
-declare void @_ZN3p2t8Triangle21SetConstrainedEdgeCCWERKNS_5PointEb(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40), i1 noundef zeroext) local_unnamed_addr #4
+declare void @_ZN3p2t8Triangle21SetConstrainedEdgeCCWERKNS_5PointEb(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40), i1 noundef zeroext) local_unnamed_addr #3
 
-declare void @_ZN3p2t8Triangle20SetConstrainedEdgeCWERKNS_5PointEb(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40), i1 noundef zeroext) local_unnamed_addr #4
+declare void @_ZN3p2t8Triangle20SetConstrainedEdgeCWERKNS_5PointEb(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(40), i1 noundef zeroext) local_unnamed_addr #3
 
-declare void @_ZN3p2t8Triangle14ClearNeighborsEv(ptr noundef nonnull align 8 dereferenceable(57)) local_unnamed_addr #4
+declare void @_ZN3p2t8Triangle14ClearNeighborsEv(ptr noundef nonnull align 8 dereferenceable(57)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3p2t5Sweep12FillBasinReqERNS_12SweepContextEPNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %node) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3p2t5Sweep12FillBasinReqERNS_12SweepContextEPNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %node) local_unnamed_addr #2 align 2 {
 entry:
   %left_highest.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 1, i32 4
   %right_node.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 1, i32 2
@@ -2490,29 +2465,29 @@ entry:
   %width.i = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 1, i32 3
   %0 = load i8, ptr %left_highest.i, align 8
   %1 = and i8 %0, 1
-  %tobool.not.i44 = icmp eq i8 %1, 0
+  %tobool.not.i41 = icmp eq i8 %1, 0
   %2 = load ptr, ptr %node, align 8
-  %y9.i45 = getelementptr inbounds %"struct.p2t::Point", ptr %2, i64 0, i32 1
-  %3 = load double, ptr %y9.i45, align 8
-  %right_node.val.i46 = load ptr, ptr %right_node.i, align 8
-  %basin.val.i47 = load ptr, ptr %basin.i, align 8
-  %4 = select i1 %tobool.not.i44, ptr %right_node.val.i46, ptr %basin.val.i47
+  %y9.i42 = getelementptr inbounds %"struct.p2t::Point", ptr %2, i64 0, i32 1
+  %3 = load double, ptr %y9.i42, align 8
+  %right_node.val.i43 = load ptr, ptr %right_node.i, align 8
+  %basin.val.i44 = load ptr, ptr %basin.i, align 8
+  %4 = select i1 %tobool.not.i41, ptr %right_node.val.i43, ptr %basin.val.i44
   %5 = load ptr, ptr %4, align 8
-  %y7.i48 = getelementptr inbounds %"struct.p2t::Point", ptr %5, i64 0, i32 1
-  %6 = load double, ptr %y7.i48, align 8
-  %sub10.i49 = fsub double %6, %3
+  %y7.i45 = getelementptr inbounds %"struct.p2t::Point", ptr %5, i64 0, i32 1
+  %6 = load double, ptr %y7.i45, align 8
+  %sub10.i46 = fsub double %6, %3
   %7 = load double, ptr %width.i, align 8
-  %cmp.i50 = fcmp ogt double %7, %sub10.i49
-  br i1 %cmp.i50, label %return, label %if.end
+  %cmp.i47 = fcmp ogt double %7, %sub10.i46
+  br i1 %cmp.i47, label %return, label %if.end
 
 if.end:                                           ; preds = %entry, %if.end52
-  %node.tr51 = phi ptr [ %node.addr.0, %if.end52 ], [ %node, %entry ]
-  tail call void @_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %node.tr51)
-  %prev = getelementptr inbounds %"struct.p2t::Node", ptr %node.tr51, i64 0, i32 3
+  %node.tr48 = phi ptr [ %node.addr.0, %if.end52 ], [ %node, %entry ]
+  tail call void @_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %node.tr48)
+  %prev = getelementptr inbounds %"struct.p2t::Node", ptr %node.tr48, i64 0, i32 3
   %8 = load ptr, ptr %prev, align 8
   %9 = load ptr, ptr %basin.i, align 8
   %cmp = icmp eq ptr %8, %9
-  %next = getelementptr inbounds %"struct.p2t::Node", ptr %node.tr51, i64 0, i32 2
+  %next = getelementptr inbounds %"struct.p2t::Node", ptr %node.tr48, i64 0, i32 2
   %10 = load ptr, ptr %next, align 8
   %11 = load ptr, ptr %right_node.i, align 8
   %cmp3 = icmp eq ptr %10, %11
@@ -2522,7 +2497,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp3, label %return, label %if.then9
 
 if.then9:                                         ; preds = %land.lhs.true
-  %12 = load ptr, ptr %node.tr51, align 8
+  %12 = load ptr, ptr %node.tr48, align 8
   %13 = load ptr, ptr %10, align 8
   %next13 = getelementptr inbounds %"struct.p2t::Node", ptr %10, i64 0, i32 2
   %14 = load ptr, ptr %next13, align 8
@@ -2537,69 +2512,67 @@ if.then9:                                         ; preds = %land.lhs.true
   %shift = shufflevector <2 x double> %22, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %23 = fsub <2 x double> %22, %shift
   %sub11.i = extractelement <2 x double> %23, i64 0
-  %cmp.i26 = fcmp ule double %sub11.i, 0xBD719799812DEA11
-  %cmp12.i = fcmp uge double %sub11.i, 0x3D719799812DEA11
-  %or.cond.i.not = or i1 %cmp.i26, %cmp12.i
+  %24 = tail call double @llvm.fabs.f64(double %sub11.i)
+  %or.cond.i = fcmp uge double %24, 0x3D719799812DEA11
   %cmp13.i = fcmp ule double %sub11.i, 0.000000e+00
-  %cmp16 = and i1 %cmp13.i, %or.cond.i.not
-  %24 = extractelement <2 x double> %19, i64 1
+  %cmp16 = select i1 %or.cond.i, i1 %cmp13.i, i1 false
+  %25 = extractelement <2 x double> %19, i64 1
   br i1 %cmp16, label %return, label %if.end52
 
 if.else20:                                        ; preds = %if.end
   br i1 %cmp3, label %if.then25, label %if.else38
 
 if.then25:                                        ; preds = %if.else20
-  %25 = load ptr, ptr %node.tr51, align 8
-  %26 = load ptr, ptr %8, align 8
+  %26 = load ptr, ptr %node.tr48, align 8
+  %27 = load ptr, ptr %8, align 8
   %prev31 = getelementptr inbounds %"struct.p2t::Node", ptr %8, i64 0, i32 3
-  %27 = load ptr, ptr %prev31, align 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = load <2 x double>, ptr %28, align 8
-  %30 = load <2 x double>, ptr %25, align 8
-  %31 = fsub <2 x double> %30, %29
-  %32 = load <2 x double>, ptr %26, align 8
-  %33 = fsub <2 x double> %32, %29
-  %34 = shufflevector <2 x double> %33, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %35 = fmul <2 x double> %31, %34
-  %shift53 = shufflevector <2 x double> %35, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %36 = fsub <2 x double> %35, %shift53
-  %sub11.i36 = extractelement <2 x double> %36, i64 0
-  %cmp.i37 = fcmp ule double %sub11.i36, 0xBD719799812DEA11
-  %cmp12.i38 = fcmp uge double %sub11.i36, 0x3D719799812DEA11
-  %or.cond.i39.not = or i1 %cmp.i37, %cmp12.i38
-  %cmp13.i40 = fcmp ogt double %sub11.i36, 0.000000e+00
-  %cmp34 = and i1 %cmp13.i40, %or.cond.i39.not
-  %37 = extractelement <2 x double> %32, i64 1
+  %28 = load ptr, ptr %prev31, align 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = load <2 x double>, ptr %29, align 8
+  %31 = load <2 x double>, ptr %26, align 8
+  %32 = fsub <2 x double> %31, %30
+  %33 = load <2 x double>, ptr %27, align 8
+  %34 = fsub <2 x double> %33, %30
+  %35 = shufflevector <2 x double> %34, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %36 = fmul <2 x double> %32, %35
+  %shift50 = shufflevector <2 x double> %36, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %37 = fsub <2 x double> %36, %shift50
+  %sub11.i35 = extractelement <2 x double> %37, i64 0
+  %38 = tail call double @llvm.fabs.f64(double %sub11.i35)
+  %or.cond.i36 = fcmp uge double %38, 0x3D719799812DEA11
+  %cmp13.i37 = fcmp ogt double %sub11.i35, 0.000000e+00
+  %cmp34 = select i1 %or.cond.i36, i1 %cmp13.i37, i1 false
+  %39 = extractelement <2 x double> %33, i64 1
   br i1 %cmp34, label %return, label %if.end52
 
 if.else38:                                        ; preds = %if.else20
-  %38 = load ptr, ptr %8, align 8
-  %y = getelementptr inbounds %"struct.p2t::Point", ptr %38, i64 0, i32 1
-  %39 = load double, ptr %y, align 8
-  %40 = load ptr, ptr %10, align 8
-  %y43 = getelementptr inbounds %"struct.p2t::Point", ptr %40, i64 0, i32 1
-  %41 = load double, ptr %y43, align 8
-  %cmp44 = fcmp olt double %39, %41
-  %42 = select i1 %cmp44, ptr %38, ptr %40
+  %40 = load ptr, ptr %8, align 8
+  %y = getelementptr inbounds %"struct.p2t::Point", ptr %40, i64 0, i32 1
+  %41 = load double, ptr %y, align 8
+  %42 = load ptr, ptr %10, align 8
+  %y43 = getelementptr inbounds %"struct.p2t::Point", ptr %42, i64 0, i32 1
+  %43 = load double, ptr %y43, align 8
+  %cmp44 = fcmp olt double %41, %43
+  %44 = select i1 %cmp44, ptr %40, ptr %42
   %. = select i1 %cmp44, ptr %8, ptr %10
-  %y9.i.phi.trans.insert = getelementptr inbounds %"struct.p2t::Point", ptr %42, i64 0, i32 1
+  %y9.i.phi.trans.insert = getelementptr inbounds %"struct.p2t::Point", ptr %44, i64 0, i32 1
   %.pre = load double, ptr %y9.i.phi.trans.insert, align 8
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then25, %if.then9, %if.else38
   %right_node.val.i = phi ptr [ %11, %if.else38 ], [ %11, %if.then9 ], [ %10, %if.then25 ]
-  %43 = phi double [ %.pre, %if.else38 ], [ %24, %if.then9 ], [ %37, %if.then25 ]
+  %45 = phi double [ %.pre, %if.else38 ], [ %25, %if.then9 ], [ %39, %if.then25 ]
   %node.addr.0 = phi ptr [ %., %if.else38 ], [ %10, %if.then9 ], [ %8, %if.then25 ]
-  %44 = load i8, ptr %left_highest.i, align 8
-  %45 = and i8 %44, 1
-  %tobool.not.i = icmp eq i8 %45, 0
-  %46 = select i1 %tobool.not.i, ptr %right_node.val.i, ptr %9
-  %47 = load ptr, ptr %46, align 8
-  %y7.i = getelementptr inbounds %"struct.p2t::Point", ptr %47, i64 0, i32 1
-  %48 = load double, ptr %y7.i, align 8
-  %sub10.i = fsub double %48, %43
-  %49 = load double, ptr %width.i, align 8
-  %cmp.i = fcmp ogt double %49, %sub10.i
+  %46 = load i8, ptr %left_highest.i, align 8
+  %47 = and i8 %46, 1
+  %tobool.not.i = icmp eq i8 %47, 0
+  %48 = select i1 %tobool.not.i, ptr %right_node.val.i, ptr %9
+  %49 = load ptr, ptr %48, align 8
+  %y7.i = getelementptr inbounds %"struct.p2t::Point", ptr %49, i64 0, i32 1
+  %50 = load double, ptr %y7.i, align 8
+  %sub10.i = fsub double %50, %45
+  %51 = load double, ptr %width.i, align 8
+  %cmp.i = fcmp ogt double %51, %sub10.i
   br i1 %cmp.i, label %return, label %if.end
 
 return:                                           ; preds = %if.end52, %land.lhs.true, %if.then9, %if.then25, %entry
@@ -2607,7 +2580,7 @@ return:                                           ; preds = %if.end52, %land.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN3p2t5Sweep9IsShallowERNS_12SweepContextERNS_4NodeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %tcx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZN3p2t5Sweep9IsShallowERNS_12SweepContextERNS_4NodeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %tcx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #10 align 2 {
 entry:
   %left_highest = getelementptr inbounds %"class.p2t::SweepContext", ptr %tcx, i64 0, i32 1, i32 4
   %0 = load i8, ptr %left_highest, align 8
@@ -2632,7 +2605,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3p2t5Sweep23FillRightAboveEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %edge, ptr nocapture noundef readonly %node) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3p2t5Sweep23FillRightAboveEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %edge, ptr nocapture noundef readonly %node) local_unnamed_addr #2 align 2 {
 entry:
   %next7 = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 2
   %0 = load ptr, ptr %next7, align 8
@@ -2648,11 +2621,11 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
-  %5 = phi double [ %4, %while.body.lr.ph ], [ %27, %if.end ]
-  %6 = phi ptr [ %3, %while.body.lr.ph ], [ %28, %if.end ]
-  %7 = phi double [ %2, %while.body.lr.ph ], [ %31, %if.end ]
-  %8 = phi ptr [ %1, %while.body.lr.ph ], [ %30, %if.end ]
-  %9 = phi ptr [ %0, %while.body.lr.ph ], [ %29, %if.end ]
+  %5 = phi double [ %4, %while.body.lr.ph ], [ %28, %if.end ]
+  %6 = phi ptr [ %3, %while.body.lr.ph ], [ %29, %if.end ]
+  %7 = phi double [ %2, %while.body.lr.ph ], [ %32, %if.end ]
+  %8 = phi ptr [ %1, %while.body.lr.ph ], [ %31, %if.end ]
+  %9 = phi ptr [ %0, %while.body.lr.ph ], [ %30, %if.end ]
   %node.addr.09 = phi ptr [ %node, %while.body.lr.ph ], [ %node.addr.1, %if.end ]
   %10 = load ptr, ptr %q, align 8
   %11 = load double, ptr %10, align 8
@@ -2676,11 +2649,10 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %shift = shufflevector <2 x double> %25, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %26 = fsub <2 x double> %25, %shift
   %sub11.i = extractelement <2 x double> %26, i64 0
-  %cmp.i = fcmp ule double %sub11.i, 0xBD719799812DEA11
-  %cmp12.i = fcmp uge double %sub11.i, 0x3D719799812DEA11
-  %or.cond.i.not = or i1 %cmp.i, %cmp12.i
+  %27 = tail call double @llvm.fabs.f64(double %sub11.i)
+  %or.cond.i = fcmp uge double %27, 0x3D719799812DEA11
   %cmp13.i = fcmp ogt double %sub11.i, 0.000000e+00
-  %cmp6 = and i1 %cmp13.i, %or.cond.i.not
+  %cmp6 = select i1 %or.cond.i, i1 %cmp13.i, i1 false
   br i1 %cmp6, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
@@ -2690,14 +2662,14 @@ if.then:                                          ; preds = %while.body
   br label %if.end
 
 if.end:                                           ; preds = %while.body, %if.then
-  %27 = phi double [ %.pre10, %if.then ], [ %5, %while.body ]
-  %28 = phi ptr [ %.pre, %if.then ], [ %6, %while.body ]
+  %28 = phi double [ %.pre10, %if.then ], [ %5, %while.body ]
+  %29 = phi ptr [ %.pre, %if.then ], [ %6, %while.body ]
   %node.addr.1 = phi ptr [ %node.addr.09, %if.then ], [ %9, %while.body ]
   %next = getelementptr inbounds %"struct.p2t::Node", ptr %node.addr.1, i64 0, i32 2
-  %29 = load ptr, ptr %next, align 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = load double, ptr %30, align 8
-  %cmp = fcmp olt double %31, %27
+  %30 = load ptr, ptr %next, align 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = load double, ptr %31, align 8
+  %cmp = fcmp olt double %32, %28
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !6
 
 while.end:                                        ; preds = %if.end, %entry
@@ -2705,7 +2677,7 @@ while.end:                                        ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3p2t5Sweep22FillLeftAboveEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %edge, ptr nocapture noundef readonly %node) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3p2t5Sweep22FillLeftAboveEdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %edge, ptr nocapture noundef readonly %node) local_unnamed_addr #2 align 2 {
 entry:
   %prev8 = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 3
   %0 = load ptr, ptr %prev8, align 8
@@ -2721,11 +2693,11 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
-  %5 = phi double [ %4, %while.body.lr.ph ], [ %27, %if.end ]
-  %6 = phi ptr [ %3, %while.body.lr.ph ], [ %28, %if.end ]
-  %7 = phi double [ %2, %while.body.lr.ph ], [ %31, %if.end ]
-  %8 = phi ptr [ %1, %while.body.lr.ph ], [ %30, %if.end ]
-  %9 = phi ptr [ %0, %while.body.lr.ph ], [ %29, %if.end ]
+  %5 = phi double [ %4, %while.body.lr.ph ], [ %28, %if.end ]
+  %6 = phi ptr [ %3, %while.body.lr.ph ], [ %29, %if.end ]
+  %7 = phi double [ %2, %while.body.lr.ph ], [ %32, %if.end ]
+  %8 = phi ptr [ %1, %while.body.lr.ph ], [ %31, %if.end ]
+  %9 = phi ptr [ %0, %while.body.lr.ph ], [ %30, %if.end ]
   %node.addr.010 = phi ptr [ %node, %while.body.lr.ph ], [ %node.addr.1, %if.end ]
   %10 = load ptr, ptr %q, align 8
   %11 = load double, ptr %10, align 8
@@ -2749,11 +2721,10 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %shift = shufflevector <2 x double> %25, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %26 = fsub <2 x double> %25, %shift
   %sub11.i = extractelement <2 x double> %26, i64 0
-  %cmp.i = fcmp ule double %sub11.i, 0xBD719799812DEA11
-  %cmp12.i = fcmp uge double %sub11.i, 0x3D719799812DEA11
-  %or.cond.i.not = or i1 %cmp.i, %cmp12.i
+  %27 = tail call double @llvm.fabs.f64(double %sub11.i)
+  %or.cond.i = fcmp uge double %27, 0x3D719799812DEA11
   %cmp13.i = fcmp ule double %sub11.i, 0.000000e+00
-  %cmp6 = and i1 %cmp13.i, %or.cond.i.not
+  %cmp6 = select i1 %or.cond.i, i1 %cmp13.i, i1 false
   br i1 %cmp6, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
@@ -2763,14 +2734,14 @@ if.then:                                          ; preds = %while.body
   br label %if.end
 
 if.end:                                           ; preds = %while.body, %if.then
-  %27 = phi double [ %.pre11, %if.then ], [ %5, %while.body ]
-  %28 = phi ptr [ %.pre, %if.then ], [ %6, %while.body ]
+  %28 = phi double [ %.pre11, %if.then ], [ %5, %while.body ]
+  %29 = phi ptr [ %.pre, %if.then ], [ %6, %while.body ]
   %node.addr.1 = phi ptr [ %node.addr.010, %if.then ], [ %9, %while.body ]
   %prev = getelementptr inbounds %"struct.p2t::Node", ptr %node.addr.1, i64 0, i32 3
-  %29 = load ptr, ptr %prev, align 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = load double, ptr %30, align 8
-  %cmp = fcmp ogt double %31, %27
+  %30 = load ptr, ptr %prev, align 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = load double, ptr %31, align 8
+  %cmp = fcmp ogt double %32, %28
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end, %entry
@@ -2778,7 +2749,7 @@ while.end:                                        ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3p2t5Sweep23FillRightBelowEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %edge, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3p2t5Sweep23FillRightBelowEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %edge, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %node, align 8
   %1 = load double, ptr %0, align 8
@@ -2792,8 +2763,8 @@ if.then.lr.ph:                                    ; preds = %entry
   br label %if.then
 
 if.then:                                          ; preds = %if.then.lr.ph, %if.else
-  %4 = phi double [ %1, %if.then.lr.ph ], [ %44, %if.else ]
-  %5 = phi ptr [ %0, %if.then.lr.ph ], [ %43, %if.else ]
+  %4 = phi double [ %1, %if.then.lr.ph ], [ %47, %if.else ]
+  %5 = phi ptr [ %0, %if.then.lr.ph ], [ %46, %if.else ]
   %6 = load ptr, ptr %next, align 8
   %7 = load ptr, ptr %6, align 8
   %next6 = getelementptr inbounds %"struct.p2t::Node", ptr %6, i64 0, i32 2
@@ -2812,11 +2783,10 @@ if.then:                                          ; preds = %if.then.lr.ph, %if.
   %shift = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %19 = fsub <2 x double> %shift, %18
   %sub11.i = extractelement <2 x double> %19, i64 0
-  %cmp.i = fcmp ule double %sub11.i, 0xBD719799812DEA11
-  %cmp12.i = fcmp uge double %sub11.i, 0x3D719799812DEA11
-  %or.cond.i.not = or i1 %cmp.i, %cmp12.i
+  %20 = tail call double @llvm.fabs.f64(double %sub11.i)
+  %or.cond.i = fcmp uge double %20, 0x3D719799812DEA11
   %cmp13.i = fcmp ogt double %sub11.i, 0.000000e+00
-  %cmp8 = and i1 %cmp13.i, %or.cond.i.not
+  %cmp8 = select i1 %or.cond.i, i1 %cmp13.i, i1 false
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.then
@@ -2824,61 +2794,59 @@ if.then9:                                         ; preds = %if.then
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %if.then7.i, %if.then9
-  %20 = phi ptr [ %21, %if.then7.i ], [ %6, %if.then9 ]
-  tail call void @_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %20)
-  %21 = load ptr, ptr %next, align 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = load ptr, ptr %edge, align 8
-  %cmp.not.i = icmp eq ptr %22, %23
+  %21 = phi ptr [ %22, %if.then7.i ], [ %6, %if.then9 ]
+  tail call void @_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %21)
+  %22 = load ptr, ptr %next, align 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %edge, align 8
+  %cmp.not.i = icmp eq ptr %23, %24
   br i1 %cmp.not.i, label %if.end10, label %if.then.i
 
 if.then.i:                                        ; preds = %tailrecurse.i
-  %24 = load ptr, ptr %q.i, align 8
-  %25 = load <2 x double>, ptr %22, align 8
+  %25 = load ptr, ptr %q.i, align 8
   %26 = load <2 x double>, ptr %23, align 8
   %27 = load <2 x double>, ptr %24, align 8
-  %28 = fsub <2 x double> %27, %26
-  %29 = fsub <2 x double> %25, %26
-  %30 = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %31 = fmul <2 x double> %28, %30
-  %shift20 = shufflevector <2 x double> %31, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %32 = fsub <2 x double> %31, %shift20
-  %sub11.i.i = extractelement <2 x double> %32, i64 0
-  %cmp.i.i = fcmp ule double %sub11.i.i, 0xBD719799812DEA11
-  %cmp12.i.i = fcmp uge double %sub11.i.i, 0x3D719799812DEA11
-  %or.cond.i.not.i = or i1 %cmp.i.i, %cmp12.i.i
+  %28 = load <2 x double>, ptr %25, align 8
+  %29 = fsub <2 x double> %28, %27
+  %30 = fsub <2 x double> %26, %27
+  %31 = shufflevector <2 x double> %30, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %32 = fmul <2 x double> %29, %31
+  %shift20 = shufflevector <2 x double> %32, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %33 = fsub <2 x double> %32, %shift20
+  %sub11.i.i = extractelement <2 x double> %33, i64 0
+  %34 = tail call double @llvm.fabs.f64(double %sub11.i.i)
+  %or.cond.i.i = fcmp uge double %34, 0x3D719799812DEA11
   %cmp13.i.i = fcmp ogt double %sub11.i.i, 0.000000e+00
-  %cmp6.i = and i1 %cmp13.i.i, %or.cond.i.not.i
+  %cmp6.i = select i1 %or.cond.i.i, i1 %cmp13.i.i, i1 false
   br i1 %cmp6.i, label %if.then7.i, label %if.end10
 
 if.then7.i:                                       ; preds = %if.then.i
-  %33 = load ptr, ptr %node, align 8
-  %next12.i = getelementptr inbounds %"struct.p2t::Node", ptr %21, i64 0, i32 2
-  %34 = load ptr, ptr %next12.i, align 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = load <2 x double>, ptr %35, align 8
-  %37 = load <2 x double>, ptr %33, align 8
-  %38 = fsub <2 x double> %37, %36
-  %39 = fsub <2 x double> %25, %36
-  %40 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %41 = fmul <2 x double> %40, %38
-  %shift21 = shufflevector <2 x double> %41, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %42 = fsub <2 x double> %41, %shift21
-  %sub11.i21.i = extractelement <2 x double> %42, i64 0
-  %cmp.i22.i = fcmp ule double %sub11.i21.i, 0xBD719799812DEA11
-  %cmp12.i23.i = fcmp uge double %sub11.i21.i, 0x3D719799812DEA11
-  %or.cond.i24.not.i = or i1 %cmp.i22.i, %cmp12.i23.i
-  %cmp13.i25.i = fcmp ogt double %sub11.i21.i, 0.000000e+00
-  %cmp15.i = and i1 %cmp13.i25.i, %or.cond.i24.not.i
+  %35 = load ptr, ptr %node, align 8
+  %next12.i = getelementptr inbounds %"struct.p2t::Node", ptr %22, i64 0, i32 2
+  %36 = load ptr, ptr %next12.i, align 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = load <2 x double>, ptr %37, align 8
+  %39 = load <2 x double>, ptr %35, align 8
+  %40 = fsub <2 x double> %39, %38
+  %41 = fsub <2 x double> %26, %38
+  %42 = shufflevector <2 x double> %41, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %43 = fmul <2 x double> %42, %40
+  %shift21 = shufflevector <2 x double> %43, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %44 = fsub <2 x double> %43, %shift21
+  %sub11.i21.i = extractelement <2 x double> %44, i64 0
+  %45 = tail call double @llvm.fabs.f64(double %sub11.i21.i)
+  %or.cond.i22.i = fcmp uge double %45, 0x3D719799812DEA11
+  %cmp13.i23.i = fcmp ogt double %sub11.i21.i, 0.000000e+00
+  %cmp15.i = select i1 %or.cond.i22.i, i1 %cmp13.i23.i, i1 false
   br i1 %cmp15.i, label %tailrecurse.i, label %if.end10
 
 if.else:                                          ; preds = %if.then
   tail call void @_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull %edge, ptr noundef nonnull align 8 dereferenceable(40) %node)
-  %43 = load ptr, ptr %node, align 8
-  %44 = load double, ptr %43, align 8
-  %45 = load ptr, ptr %edge, align 8
-  %46 = load double, ptr %45, align 8
-  %cmp = fcmp olt double %44, %46
+  %46 = load ptr, ptr %node, align 8
+  %47 = load double, ptr %46, align 8
+  %48 = load ptr, ptr %edge, align 8
+  %49 = load double, ptr %48, align 8
+  %cmp = fcmp olt double %47, %49
   br i1 %cmp, label %if.then, label %if.end10
 
 if.end10:                                         ; preds = %if.else, %if.then7.i, %if.then.i, %tailrecurse.i, %entry
@@ -2886,7 +2854,7 @@ if.end10:                                         ; preds = %if.else, %if.then7.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3p2t5Sweep25FillRightConcaveEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %edge, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3p2t5Sweep25FillRightConcaveEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %edge, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #2 align 2 {
 entry:
   %next = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 2
   %q = getelementptr inbounds %"struct.p2t::Edge", ptr %edge, i64 0, i32 1
@@ -2914,32 +2882,30 @@ if.then:                                          ; preds = %tailrecurse
   %shift = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %12 = fsub <2 x double> %11, %shift
   %sub11.i = extractelement <2 x double> %12, i64 0
-  %cmp.i = fcmp ule double %sub11.i, 0xBD719799812DEA11
-  %cmp12.i = fcmp uge double %sub11.i, 0x3D719799812DEA11
-  %or.cond.i.not = or i1 %cmp.i, %cmp12.i
+  %13 = tail call double @llvm.fabs.f64(double %sub11.i)
+  %or.cond.i = fcmp uge double %13, 0x3D719799812DEA11
   %cmp13.i = fcmp ogt double %sub11.i, 0.000000e+00
-  %cmp6 = and i1 %cmp13.i, %or.cond.i.not
+  %cmp6 = select i1 %or.cond.i, i1 %cmp13.i, i1 false
   br i1 %cmp6, label %if.then7, label %if.end18
 
 if.then7:                                         ; preds = %if.then
-  %13 = load ptr, ptr %node, align 8
+  %14 = load ptr, ptr %node, align 8
   %next12 = getelementptr inbounds %"struct.p2t::Node", ptr %1, i64 0, i32 2
-  %14 = load ptr, ptr %next12, align 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = load <2 x double>, ptr %15, align 8
-  %17 = load <2 x double>, ptr %13, align 8
-  %18 = fsub <2 x double> %17, %16
-  %19 = fsub <2 x double> %5, %16
-  %20 = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %21 = fmul <2 x double> %20, %18
-  %shift28 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %22 = fsub <2 x double> %21, %shift28
-  %sub11.i21 = extractelement <2 x double> %22, i64 0
-  %cmp.i22 = fcmp ule double %sub11.i21, 0xBD719799812DEA11
-  %cmp12.i23 = fcmp uge double %sub11.i21, 0x3D719799812DEA11
-  %or.cond.i24.not = or i1 %cmp.i22, %cmp12.i23
-  %cmp13.i25 = fcmp ogt double %sub11.i21, 0.000000e+00
-  %cmp15 = and i1 %cmp13.i25, %or.cond.i24.not
+  %15 = load ptr, ptr %next12, align 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = load <2 x double>, ptr %16, align 8
+  %18 = load <2 x double>, ptr %14, align 8
+  %19 = fsub <2 x double> %18, %17
+  %20 = fsub <2 x double> %5, %17
+  %21 = shufflevector <2 x double> %20, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %22 = fmul <2 x double> %21, %19
+  %shift26 = shufflevector <2 x double> %22, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %23 = fsub <2 x double> %22, %shift26
+  %sub11.i21 = extractelement <2 x double> %23, i64 0
+  %24 = tail call double @llvm.fabs.f64(double %sub11.i21)
+  %or.cond.i22 = fcmp uge double %24, 0x3D719799812DEA11
+  %cmp13.i23 = fcmp ogt double %sub11.i21, 0.000000e+00
+  %cmp15 = select i1 %or.cond.i22, i1 %cmp13.i23, i1 false
   br i1 %cmp15, label %tailrecurse, label %if.end18
 
 if.end18:                                         ; preds = %if.then, %if.then7, %tailrecurse
@@ -2947,24 +2913,24 @@ if.end18:                                         ; preds = %if.then, %if.then7,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %edge, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3p2t5Sweep24FillRightConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %edge, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #2 align 2 {
 entry:
   %q = getelementptr inbounds %"struct.p2t::Edge", ptr %edge, i64 0, i32 1
   %next.phi.trans.insert = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 2
   %.pre = load ptr, ptr %next.phi.trans.insert, align 8
-  %.pre36 = load ptr, ptr %.pre, align 8
+  %.pre34 = load ptr, ptr %.pre, align 8
   %next3.phi.trans.insert = getelementptr inbounds %"struct.p2t::Node", ptr %.pre, i64 0, i32 2
-  %.pre37 = load ptr, ptr %next3.phi.trans.insert, align 8
-  %.pre38 = load ptr, ptr %.pre37, align 8
-  %.pre39 = load double, ptr %.pre36, align 8
-  %0 = load <2 x double>, ptr %.pre38, align 8
+  %.pre35 = load ptr, ptr %next3.phi.trans.insert, align 8
+  %.pre36 = load ptr, ptr %.pre35, align 8
+  %.pre37 = load double, ptr %.pre34, align 8
+  %0 = load <2 x double>, ptr %.pre36, align 8
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %if.else, %entry
-  %1 = phi double [ %.pre39, %entry ], [ %50, %if.else ]
-  %2 = phi ptr [ %.pre38, %entry ], [ %8, %if.else ]
-  %3 = phi ptr [ %.pre37, %entry ], [ %7, %if.else ]
-  %4 = phi ptr [ %.pre36, %entry ], [ %2, %if.else ]
+  %1 = phi double [ %.pre37, %entry ], [ %54, %if.else ]
+  %2 = phi ptr [ %.pre36, %entry ], [ %8, %if.else ]
+  %3 = phi ptr [ %.pre35, %entry ], [ %7, %if.else ]
+  %4 = phi ptr [ %.pre34, %entry ], [ %2, %if.else ]
   %5 = phi ptr [ %.pre, %entry ], [ %3, %if.else ]
   %6 = phi <2 x double> [ %0, %entry ], [ %9, %if.else ]
   %next7 = getelementptr inbounds %"struct.p2t::Node", ptr %3, i64 0, i32 2
@@ -2982,11 +2948,10 @@ tailrecurse:                                      ; preds = %if.else, %entry
   %shift = shufflevector <2 x double> %16, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %17 = fsub <2 x double> %shift, %16
   %sub11.i = extractelement <2 x double> %17, i64 0
-  %cmp.i = fcmp ule double %sub11.i, 0xBD719799812DEA11
-  %cmp12.i = fcmp uge double %sub11.i, 0x3D719799812DEA11
-  %or.cond.i.not = or i1 %cmp.i, %cmp12.i
+  %18 = tail call double @llvm.fabs.f64(double %sub11.i)
+  %or.cond.i = fcmp uge double %18, 0x3D719799812DEA11
   %cmp13.i = fcmp ogt double %sub11.i, 0.000000e+00
-  %cmp = and i1 %cmp13.i, %or.cond.i.not
+  %cmp = select i1 %or.cond.i, i1 %cmp13.i, i1 false
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %tailrecurse
@@ -2994,72 +2959,69 @@ if.then:                                          ; preds = %tailrecurse
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %if.then7.i, %if.then
-  %18 = phi ptr [ %19, %if.then7.i ], [ %3, %if.then ]
-  tail call void @_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %18)
-  %19 = load ptr, ptr %next3.le, align 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr %edge, align 8
-  %cmp.not.i = icmp eq ptr %20, %21
+  %19 = phi ptr [ %20, %if.then7.i ], [ %3, %if.then ]
+  tail call void @_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %19)
+  %20 = load ptr, ptr %next3.le, align 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %edge, align 8
+  %cmp.not.i = icmp eq ptr %21, %22
   br i1 %cmp.not.i, label %if.end18, label %if.then.i
 
 if.then.i:                                        ; preds = %tailrecurse.i
-  %22 = load ptr, ptr %q, align 8
-  %23 = load <2 x double>, ptr %20, align 8
+  %23 = load ptr, ptr %q, align 8
   %24 = load <2 x double>, ptr %21, align 8
   %25 = load <2 x double>, ptr %22, align 8
-  %26 = fsub <2 x double> %25, %24
-  %27 = fsub <2 x double> %23, %24
-  %28 = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %29 = fmul <2 x double> %26, %28
-  %shift52 = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %30 = fsub <2 x double> %29, %shift52
-  %sub11.i.i = extractelement <2 x double> %30, i64 0
-  %cmp.i.i = fcmp ule double %sub11.i.i, 0xBD719799812DEA11
-  %cmp12.i.i = fcmp uge double %sub11.i.i, 0x3D719799812DEA11
-  %or.cond.i.not.i = or i1 %cmp.i.i, %cmp12.i.i
+  %26 = load <2 x double>, ptr %23, align 8
+  %27 = fsub <2 x double> %26, %25
+  %28 = fsub <2 x double> %24, %25
+  %29 = shufflevector <2 x double> %28, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %30 = fmul <2 x double> %27, %29
+  %shift50 = shufflevector <2 x double> %30, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %31 = fsub <2 x double> %30, %shift50
+  %sub11.i.i = extractelement <2 x double> %31, i64 0
+  %32 = tail call double @llvm.fabs.f64(double %sub11.i.i)
+  %or.cond.i.i = fcmp uge double %32, 0x3D719799812DEA11
   %cmp13.i.i = fcmp ogt double %sub11.i.i, 0.000000e+00
-  %cmp6.i = and i1 %cmp13.i.i, %or.cond.i.not.i
+  %cmp6.i = select i1 %or.cond.i.i, i1 %cmp13.i.i, i1 false
   br i1 %cmp6.i, label %if.then7.i, label %if.end18
 
 if.then7.i:                                       ; preds = %if.then.i
-  %31 = load ptr, ptr %5, align 8
-  %next12.i = getelementptr inbounds %"struct.p2t::Node", ptr %19, i64 0, i32 2
-  %32 = load ptr, ptr %next12.i, align 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = load <2 x double>, ptr %33, align 8
-  %35 = load <2 x double>, ptr %31, align 8
-  %36 = fsub <2 x double> %35, %34
-  %37 = fsub <2 x double> %23, %34
-  %38 = shufflevector <2 x double> %37, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %39 = fmul <2 x double> %38, %36
-  %shift53 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %40 = fsub <2 x double> %39, %shift53
-  %sub11.i21.i = extractelement <2 x double> %40, i64 0
-  %cmp.i22.i = fcmp ule double %sub11.i21.i, 0xBD719799812DEA11
-  %cmp12.i23.i = fcmp uge double %sub11.i21.i, 0x3D719799812DEA11
-  %or.cond.i24.not.i = or i1 %cmp.i22.i, %cmp12.i23.i
-  %cmp13.i25.i = fcmp ogt double %sub11.i21.i, 0.000000e+00
-  %cmp15.i = and i1 %cmp13.i25.i, %or.cond.i24.not.i
+  %33 = load ptr, ptr %5, align 8
+  %next12.i = getelementptr inbounds %"struct.p2t::Node", ptr %20, i64 0, i32 2
+  %34 = load ptr, ptr %next12.i, align 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = load <2 x double>, ptr %35, align 8
+  %37 = load <2 x double>, ptr %33, align 8
+  %38 = fsub <2 x double> %37, %36
+  %39 = fsub <2 x double> %24, %36
+  %40 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %41 = fmul <2 x double> %40, %38
+  %shift51 = shufflevector <2 x double> %41, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %42 = fsub <2 x double> %41, %shift51
+  %sub11.i21.i = extractelement <2 x double> %42, i64 0
+  %43 = tail call double @llvm.fabs.f64(double %sub11.i21.i)
+  %or.cond.i22.i = fcmp uge double %43, 0x3D719799812DEA11
+  %cmp13.i23.i = fcmp ogt double %sub11.i21.i, 0.000000e+00
+  %cmp15.i = select i1 %or.cond.i22.i, i1 %cmp13.i23.i, i1 false
   br i1 %cmp15.i, label %tailrecurse.i, label %if.end18
 
 if.else:                                          ; preds = %tailrecurse
-  %41 = load ptr, ptr %q, align 8
-  %42 = load ptr, ptr %edge, align 8
-  %43 = load <2 x double>, ptr %42, align 8
-  %44 = load <2 x double>, ptr %41, align 8
-  %45 = fsub <2 x double> %44, %43
-  %46 = shufflevector <2 x double> %45, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %47 = fsub <2 x double> %6, %43
-  %48 = fmul <2 x double> %47, %46
-  %shift54 = shufflevector <2 x double> %48, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %49 = fsub <2 x double> %shift54, %48
-  %sub11.i19 = extractelement <2 x double> %49, i64 0
-  %cmp.i20 = fcmp ule double %sub11.i19, 0xBD719799812DEA11
-  %cmp12.i21 = fcmp uge double %sub11.i19, 0x3D719799812DEA11
-  %or.cond.i22.not = or i1 %cmp.i20, %cmp12.i21
-  %cmp13.i23 = fcmp ogt double %sub11.i19, 0.000000e+00
-  %cmp14 = and i1 %cmp13.i23, %or.cond.i22.not
-  %50 = extractelement <2 x double> %6, i64 0
+  %44 = load ptr, ptr %q, align 8
+  %45 = load ptr, ptr %edge, align 8
+  %46 = load <2 x double>, ptr %45, align 8
+  %47 = load <2 x double>, ptr %44, align 8
+  %48 = fsub <2 x double> %47, %46
+  %49 = shufflevector <2 x double> %48, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %50 = fsub <2 x double> %6, %46
+  %51 = fmul <2 x double> %50, %49
+  %shift52 = shufflevector <2 x double> %51, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %52 = fsub <2 x double> %shift52, %51
+  %sub11.i19 = extractelement <2 x double> %52, i64 0
+  %53 = tail call double @llvm.fabs.f64(double %sub11.i19)
+  %or.cond.i20 = fcmp uge double %53, 0x3D719799812DEA11
+  %cmp13.i21 = fcmp ogt double %sub11.i19, 0.000000e+00
+  %cmp14 = select i1 %or.cond.i20, i1 %cmp13.i21, i1 false
+  %54 = extractelement <2 x double> %6, i64 0
   br i1 %cmp14, label %tailrecurse, label %if.end18
 
 if.end18:                                         ; preds = %if.else, %if.then7.i, %if.then.i, %tailrecurse.i
@@ -3067,7 +3029,7 @@ if.end18:                                         ; preds = %if.else, %if.then7.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3p2t5Sweep22FillLeftBelowEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %edge, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3p2t5Sweep22FillLeftBelowEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %edge, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %node, align 8
   %1 = load double, ptr %0, align 8
@@ -3081,8 +3043,8 @@ if.then.lr.ph:                                    ; preds = %entry
   br label %if.then
 
 if.then:                                          ; preds = %if.then.lr.ph, %if.else
-  %4 = phi double [ %1, %if.then.lr.ph ], [ %44, %if.else ]
-  %5 = phi ptr [ %0, %if.then.lr.ph ], [ %43, %if.else ]
+  %4 = phi double [ %1, %if.then.lr.ph ], [ %47, %if.else ]
+  %5 = phi ptr [ %0, %if.then.lr.ph ], [ %46, %if.else ]
   %6 = load ptr, ptr %prev, align 8
   %7 = load ptr, ptr %6, align 8
   %prev6 = getelementptr inbounds %"struct.p2t::Node", ptr %6, i64 0, i32 3
@@ -3101,11 +3063,10 @@ if.then:                                          ; preds = %if.then.lr.ph, %if.
   %shift = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %19 = fsub <2 x double> %shift, %18
   %sub11.i = extractelement <2 x double> %19, i64 0
-  %cmp.i = fcmp ule double %sub11.i, 0xBD719799812DEA11
-  %cmp12.i = fcmp uge double %sub11.i, 0x3D719799812DEA11
-  %or.cond.i.not = or i1 %cmp.i, %cmp12.i
+  %20 = tail call double @llvm.fabs.f64(double %sub11.i)
+  %or.cond.i = fcmp uge double %20, 0x3D719799812DEA11
   %cmp13.i = fcmp ule double %sub11.i, 0.000000e+00
-  %cmp8 = and i1 %cmp13.i, %or.cond.i.not
+  %cmp8 = select i1 %or.cond.i, i1 %cmp13.i, i1 false
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.then
@@ -3113,61 +3074,59 @@ if.then9:                                         ; preds = %if.then
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %if.then7.i, %if.then9
-  %20 = phi ptr [ %21, %if.then7.i ], [ %6, %if.then9 ]
-  tail call void @_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %20)
-  %21 = load ptr, ptr %prev, align 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = load ptr, ptr %edge, align 8
-  %cmp.not.i = icmp eq ptr %22, %23
+  %21 = phi ptr [ %22, %if.then7.i ], [ %6, %if.then9 ]
+  tail call void @_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %21)
+  %22 = load ptr, ptr %prev, align 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %edge, align 8
+  %cmp.not.i = icmp eq ptr %23, %24
   br i1 %cmp.not.i, label %if.end10, label %if.then.i
 
 if.then.i:                                        ; preds = %tailrecurse.i
-  %24 = load ptr, ptr %q.i, align 8
-  %25 = load <2 x double>, ptr %22, align 8
+  %25 = load ptr, ptr %q.i, align 8
   %26 = load <2 x double>, ptr %23, align 8
   %27 = load <2 x double>, ptr %24, align 8
-  %28 = fsub <2 x double> %27, %26
-  %29 = fsub <2 x double> %25, %26
-  %30 = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %31 = fmul <2 x double> %28, %30
-  %shift21 = shufflevector <2 x double> %31, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %32 = fsub <2 x double> %31, %shift21
-  %sub11.i.i = extractelement <2 x double> %32, i64 0
-  %cmp.i.i = fcmp ule double %sub11.i.i, 0xBD719799812DEA11
-  %cmp12.i.i = fcmp uge double %sub11.i.i, 0x3D719799812DEA11
-  %or.cond.i.not.i = or i1 %cmp.i.i, %cmp12.i.i
+  %28 = load <2 x double>, ptr %25, align 8
+  %29 = fsub <2 x double> %28, %27
+  %30 = fsub <2 x double> %26, %27
+  %31 = shufflevector <2 x double> %30, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %32 = fmul <2 x double> %29, %31
+  %shift21 = shufflevector <2 x double> %32, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %33 = fsub <2 x double> %32, %shift21
+  %sub11.i.i = extractelement <2 x double> %33, i64 0
+  %34 = tail call double @llvm.fabs.f64(double %sub11.i.i)
+  %or.cond.i.i = fcmp uge double %34, 0x3D719799812DEA11
   %cmp13.i.i = fcmp ule double %sub11.i.i, 0.000000e+00
-  %cmp6.i = and i1 %cmp13.i.i, %or.cond.i.not.i
+  %cmp6.i = select i1 %or.cond.i.i, i1 %cmp13.i.i, i1 false
   br i1 %cmp6.i, label %if.then7.i, label %if.end10
 
 if.then7.i:                                       ; preds = %if.then.i
-  %33 = load ptr, ptr %node, align 8
-  %prev12.i = getelementptr inbounds %"struct.p2t::Node", ptr %21, i64 0, i32 3
-  %34 = load ptr, ptr %prev12.i, align 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = load <2 x double>, ptr %35, align 8
-  %37 = load <2 x double>, ptr %33, align 8
-  %38 = fsub <2 x double> %37, %36
-  %39 = fsub <2 x double> %25, %36
-  %40 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %41 = fmul <2 x double> %40, %38
-  %shift22 = shufflevector <2 x double> %41, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %42 = fsub <2 x double> %41, %shift22
-  %sub11.i21.i = extractelement <2 x double> %42, i64 0
-  %cmp.i22.i = fcmp ule double %sub11.i21.i, 0xBD719799812DEA11
-  %cmp12.i23.i = fcmp uge double %sub11.i21.i, 0x3D719799812DEA11
-  %or.cond.i24.not.i = or i1 %cmp.i22.i, %cmp12.i23.i
-  %cmp13.i25.i = fcmp ule double %sub11.i21.i, 0.000000e+00
-  %cmp15.i = and i1 %cmp13.i25.i, %or.cond.i24.not.i
+  %35 = load ptr, ptr %node, align 8
+  %prev12.i = getelementptr inbounds %"struct.p2t::Node", ptr %22, i64 0, i32 3
+  %36 = load ptr, ptr %prev12.i, align 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = load <2 x double>, ptr %37, align 8
+  %39 = load <2 x double>, ptr %35, align 8
+  %40 = fsub <2 x double> %39, %38
+  %41 = fsub <2 x double> %26, %38
+  %42 = shufflevector <2 x double> %41, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %43 = fmul <2 x double> %42, %40
+  %shift22 = shufflevector <2 x double> %43, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %44 = fsub <2 x double> %43, %shift22
+  %sub11.i21.i = extractelement <2 x double> %44, i64 0
+  %45 = tail call double @llvm.fabs.f64(double %sub11.i21.i)
+  %or.cond.i22.i = fcmp uge double %45, 0x3D719799812DEA11
+  %cmp13.i23.i = fcmp ule double %sub11.i21.i, 0.000000e+00
+  %cmp15.i = select i1 %or.cond.i22.i, i1 %cmp13.i23.i, i1 false
   br i1 %cmp15.i, label %tailrecurse.i, label %if.end10
 
 if.else:                                          ; preds = %if.then
   tail call void @_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull %edge, ptr noundef nonnull align 8 dereferenceable(40) %node)
-  %43 = load ptr, ptr %node, align 8
-  %44 = load double, ptr %43, align 8
-  %45 = load ptr, ptr %edge, align 8
-  %46 = load double, ptr %45, align 8
-  %cmp = fcmp ogt double %44, %46
+  %46 = load ptr, ptr %node, align 8
+  %47 = load double, ptr %46, align 8
+  %48 = load ptr, ptr %edge, align 8
+  %49 = load double, ptr %48, align 8
+  %cmp = fcmp ogt double %47, %49
   br i1 %cmp, label %if.then, label %if.end10
 
 if.end10:                                         ; preds = %if.else, %if.then7.i, %if.then.i, %tailrecurse.i, %entry
@@ -3175,7 +3134,7 @@ if.end10:                                         ; preds = %if.else, %if.then7.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3p2t5Sweep24FillLeftConcaveEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %edge, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3p2t5Sweep24FillLeftConcaveEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %edge, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #2 align 2 {
 entry:
   %prev = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 3
   %q = getelementptr inbounds %"struct.p2t::Edge", ptr %edge, i64 0, i32 1
@@ -3203,32 +3162,30 @@ if.then:                                          ; preds = %tailrecurse
   %shift = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %12 = fsub <2 x double> %11, %shift
   %sub11.i = extractelement <2 x double> %12, i64 0
-  %cmp.i = fcmp ule double %sub11.i, 0xBD719799812DEA11
-  %cmp12.i = fcmp uge double %sub11.i, 0x3D719799812DEA11
-  %or.cond.i.not = or i1 %cmp.i, %cmp12.i
+  %13 = tail call double @llvm.fabs.f64(double %sub11.i)
+  %or.cond.i = fcmp uge double %13, 0x3D719799812DEA11
   %cmp13.i = fcmp ule double %sub11.i, 0.000000e+00
-  %cmp6 = and i1 %cmp13.i, %or.cond.i.not
+  %cmp6 = select i1 %or.cond.i, i1 %cmp13.i, i1 false
   br i1 %cmp6, label %if.then7, label %if.end18
 
 if.then7:                                         ; preds = %if.then
-  %13 = load ptr, ptr %node, align 8
+  %14 = load ptr, ptr %node, align 8
   %prev12 = getelementptr inbounds %"struct.p2t::Node", ptr %1, i64 0, i32 3
-  %14 = load ptr, ptr %prev12, align 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = load <2 x double>, ptr %15, align 8
-  %17 = load <2 x double>, ptr %13, align 8
-  %18 = fsub <2 x double> %17, %16
-  %19 = fsub <2 x double> %5, %16
-  %20 = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %21 = fmul <2 x double> %20, %18
-  %shift30 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %22 = fsub <2 x double> %21, %shift30
-  %sub11.i21 = extractelement <2 x double> %22, i64 0
-  %cmp.i22 = fcmp ule double %sub11.i21, 0xBD719799812DEA11
-  %cmp12.i23 = fcmp uge double %sub11.i21, 0x3D719799812DEA11
-  %or.cond.i24.not = or i1 %cmp.i22, %cmp12.i23
-  %cmp13.i25 = fcmp ule double %sub11.i21, 0.000000e+00
-  %cmp15 = and i1 %cmp13.i25, %or.cond.i24.not
+  %15 = load ptr, ptr %prev12, align 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = load <2 x double>, ptr %16, align 8
+  %18 = load <2 x double>, ptr %14, align 8
+  %19 = fsub <2 x double> %18, %17
+  %20 = fsub <2 x double> %5, %17
+  %21 = shufflevector <2 x double> %20, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %22 = fmul <2 x double> %21, %19
+  %shift28 = shufflevector <2 x double> %22, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %23 = fsub <2 x double> %22, %shift28
+  %sub11.i21 = extractelement <2 x double> %23, i64 0
+  %24 = tail call double @llvm.fabs.f64(double %sub11.i21)
+  %or.cond.i22 = fcmp uge double %24, 0x3D719799812DEA11
+  %cmp13.i23 = fcmp ule double %sub11.i21, 0.000000e+00
+  %cmp15 = select i1 %or.cond.i22, i1 %cmp13.i23, i1 false
   br i1 %cmp15, label %tailrecurse, label %if.end18
 
 if.end18:                                         ; preds = %if.then, %if.then7, %tailrecurse
@@ -3236,24 +3193,24 @@ if.end18:                                         ; preds = %if.then, %if.then7,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %edge, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3p2t5Sweep23FillLeftConvexEdgeEventERNS_12SweepContextEPNS_4EdgeERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef readonly %edge, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %node) local_unnamed_addr #2 align 2 {
 entry:
   %q = getelementptr inbounds %"struct.p2t::Edge", ptr %edge, i64 0, i32 1
   %prev.phi.trans.insert = getelementptr inbounds %"struct.p2t::Node", ptr %node, i64 0, i32 3
   %.pre = load ptr, ptr %prev.phi.trans.insert, align 8
-  %.pre38 = load ptr, ptr %.pre, align 8
+  %.pre36 = load ptr, ptr %.pre, align 8
   %prev3.phi.trans.insert = getelementptr inbounds %"struct.p2t::Node", ptr %.pre, i64 0, i32 3
-  %.pre39 = load ptr, ptr %prev3.phi.trans.insert, align 8
-  %.pre40 = load ptr, ptr %.pre39, align 8
-  %.pre41 = load double, ptr %.pre38, align 8
-  %0 = load <2 x double>, ptr %.pre40, align 8
+  %.pre37 = load ptr, ptr %prev3.phi.trans.insert, align 8
+  %.pre38 = load ptr, ptr %.pre37, align 8
+  %.pre39 = load double, ptr %.pre36, align 8
+  %0 = load <2 x double>, ptr %.pre38, align 8
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %if.else, %entry
-  %1 = phi double [ %.pre41, %entry ], [ %50, %if.else ]
-  %2 = phi ptr [ %.pre40, %entry ], [ %8, %if.else ]
-  %3 = phi ptr [ %.pre39, %entry ], [ %7, %if.else ]
-  %4 = phi ptr [ %.pre38, %entry ], [ %2, %if.else ]
+  %1 = phi double [ %.pre39, %entry ], [ %54, %if.else ]
+  %2 = phi ptr [ %.pre38, %entry ], [ %8, %if.else ]
+  %3 = phi ptr [ %.pre37, %entry ], [ %7, %if.else ]
+  %4 = phi ptr [ %.pre36, %entry ], [ %2, %if.else ]
   %5 = phi ptr [ %.pre, %entry ], [ %3, %if.else ]
   %6 = phi <2 x double> [ %0, %entry ], [ %9, %if.else ]
   %prev7 = getelementptr inbounds %"struct.p2t::Node", ptr %3, i64 0, i32 3
@@ -3271,11 +3228,10 @@ tailrecurse:                                      ; preds = %if.else, %entry
   %shift = shufflevector <2 x double> %16, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %17 = fsub <2 x double> %shift, %16
   %sub11.i = extractelement <2 x double> %17, i64 0
-  %cmp.i = fcmp ule double %sub11.i, 0xBD719799812DEA11
-  %cmp12.i = fcmp uge double %sub11.i, 0x3D719799812DEA11
-  %or.cond.i.not = or i1 %cmp.i, %cmp12.i
+  %18 = tail call double @llvm.fabs.f64(double %sub11.i)
+  %or.cond.i = fcmp uge double %18, 0x3D719799812DEA11
   %cmp13.i = fcmp ule double %sub11.i, 0.000000e+00
-  %cmp = and i1 %cmp13.i, %or.cond.i.not
+  %cmp = select i1 %or.cond.i, i1 %cmp13.i, i1 false
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %tailrecurse
@@ -3283,72 +3239,69 @@ if.then:                                          ; preds = %tailrecurse
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %if.then7.i, %if.then
-  %18 = phi ptr [ %19, %if.then7.i ], [ %3, %if.then ]
-  tail call void @_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %18)
-  %19 = load ptr, ptr %prev3.le, align 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr %edge, align 8
-  %cmp.not.i = icmp eq ptr %20, %21
+  %19 = phi ptr [ %20, %if.then7.i ], [ %3, %if.then ]
+  tail call void @_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr noundef nonnull align 8 dereferenceable(40) %19)
+  %20 = load ptr, ptr %prev3.le, align 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %edge, align 8
+  %cmp.not.i = icmp eq ptr %21, %22
   br i1 %cmp.not.i, label %if.end18, label %if.then.i
 
 if.then.i:                                        ; preds = %tailrecurse.i
-  %22 = load ptr, ptr %q, align 8
-  %23 = load <2 x double>, ptr %20, align 8
+  %23 = load ptr, ptr %q, align 8
   %24 = load <2 x double>, ptr %21, align 8
   %25 = load <2 x double>, ptr %22, align 8
-  %26 = fsub <2 x double> %25, %24
-  %27 = fsub <2 x double> %23, %24
-  %28 = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %29 = fmul <2 x double> %26, %28
-  %shift54 = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %30 = fsub <2 x double> %29, %shift54
-  %sub11.i.i = extractelement <2 x double> %30, i64 0
-  %cmp.i.i = fcmp ule double %sub11.i.i, 0xBD719799812DEA11
-  %cmp12.i.i = fcmp uge double %sub11.i.i, 0x3D719799812DEA11
-  %or.cond.i.not.i = or i1 %cmp.i.i, %cmp12.i.i
+  %26 = load <2 x double>, ptr %23, align 8
+  %27 = fsub <2 x double> %26, %25
+  %28 = fsub <2 x double> %24, %25
+  %29 = shufflevector <2 x double> %28, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %30 = fmul <2 x double> %27, %29
+  %shift52 = shufflevector <2 x double> %30, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %31 = fsub <2 x double> %30, %shift52
+  %sub11.i.i = extractelement <2 x double> %31, i64 0
+  %32 = tail call double @llvm.fabs.f64(double %sub11.i.i)
+  %or.cond.i.i = fcmp uge double %32, 0x3D719799812DEA11
   %cmp13.i.i = fcmp ule double %sub11.i.i, 0.000000e+00
-  %cmp6.i = and i1 %cmp13.i.i, %or.cond.i.not.i
+  %cmp6.i = select i1 %or.cond.i.i, i1 %cmp13.i.i, i1 false
   br i1 %cmp6.i, label %if.then7.i, label %if.end18
 
 if.then7.i:                                       ; preds = %if.then.i
-  %31 = load ptr, ptr %5, align 8
-  %prev12.i = getelementptr inbounds %"struct.p2t::Node", ptr %19, i64 0, i32 3
-  %32 = load ptr, ptr %prev12.i, align 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = load <2 x double>, ptr %33, align 8
-  %35 = load <2 x double>, ptr %31, align 8
-  %36 = fsub <2 x double> %35, %34
-  %37 = fsub <2 x double> %23, %34
-  %38 = shufflevector <2 x double> %37, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %39 = fmul <2 x double> %38, %36
-  %shift55 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %40 = fsub <2 x double> %39, %shift55
-  %sub11.i21.i = extractelement <2 x double> %40, i64 0
-  %cmp.i22.i = fcmp ule double %sub11.i21.i, 0xBD719799812DEA11
-  %cmp12.i23.i = fcmp uge double %sub11.i21.i, 0x3D719799812DEA11
-  %or.cond.i24.not.i = or i1 %cmp.i22.i, %cmp12.i23.i
-  %cmp13.i25.i = fcmp ule double %sub11.i21.i, 0.000000e+00
-  %cmp15.i = and i1 %cmp13.i25.i, %or.cond.i24.not.i
+  %33 = load ptr, ptr %5, align 8
+  %prev12.i = getelementptr inbounds %"struct.p2t::Node", ptr %20, i64 0, i32 3
+  %34 = load ptr, ptr %prev12.i, align 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = load <2 x double>, ptr %35, align 8
+  %37 = load <2 x double>, ptr %33, align 8
+  %38 = fsub <2 x double> %37, %36
+  %39 = fsub <2 x double> %24, %36
+  %40 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %41 = fmul <2 x double> %40, %38
+  %shift53 = shufflevector <2 x double> %41, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %42 = fsub <2 x double> %41, %shift53
+  %sub11.i21.i = extractelement <2 x double> %42, i64 0
+  %43 = tail call double @llvm.fabs.f64(double %sub11.i21.i)
+  %or.cond.i22.i = fcmp uge double %43, 0x3D719799812DEA11
+  %cmp13.i23.i = fcmp ule double %sub11.i21.i, 0.000000e+00
+  %cmp15.i = select i1 %or.cond.i22.i, i1 %cmp13.i23.i, i1 false
   br i1 %cmp15.i, label %tailrecurse.i, label %if.end18
 
 if.else:                                          ; preds = %tailrecurse
-  %41 = load ptr, ptr %q, align 8
-  %42 = load ptr, ptr %edge, align 8
-  %43 = load <2 x double>, ptr %42, align 8
-  %44 = load <2 x double>, ptr %41, align 8
-  %45 = fsub <2 x double> %44, %43
-  %46 = shufflevector <2 x double> %45, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %47 = fsub <2 x double> %6, %43
-  %48 = fmul <2 x double> %47, %46
-  %shift56 = shufflevector <2 x double> %48, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %49 = fsub <2 x double> %shift56, %48
-  %sub11.i19 = extractelement <2 x double> %49, i64 0
-  %cmp.i20 = fcmp ule double %sub11.i19, 0xBD719799812DEA11
-  %cmp12.i21 = fcmp uge double %sub11.i19, 0x3D719799812DEA11
-  %or.cond.i22.not = or i1 %cmp.i20, %cmp12.i21
-  %cmp13.i23 = fcmp ule double %sub11.i19, 0.000000e+00
-  %cmp14 = and i1 %cmp13.i23, %or.cond.i22.not
-  %50 = extractelement <2 x double> %6, i64 0
+  %44 = load ptr, ptr %q, align 8
+  %45 = load ptr, ptr %edge, align 8
+  %46 = load <2 x double>, ptr %45, align 8
+  %47 = load <2 x double>, ptr %44, align 8
+  %48 = fsub <2 x double> %47, %46
+  %49 = shufflevector <2 x double> %48, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %50 = fsub <2 x double> %6, %46
+  %51 = fmul <2 x double> %50, %49
+  %shift54 = shufflevector <2 x double> %51, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %52 = fsub <2 x double> %shift54, %51
+  %sub11.i19 = extractelement <2 x double> %52, i64 0
+  %53 = tail call double @llvm.fabs.f64(double %sub11.i19)
+  %or.cond.i20 = fcmp uge double %53, 0x3D719799812DEA11
+  %cmp13.i21 = fcmp ule double %sub11.i19, 0.000000e+00
+  %cmp14 = select i1 %or.cond.i20, i1 %cmp13.i21, i1 false
+  %54 = extractelement <2 x double> %6, i64 0
   br i1 %cmp14, label %tailrecurse, label %if.end18
 
 if.end18:                                         ; preds = %if.else, %if.then7.i, %if.then.i, %tailrecurse.i
@@ -3356,7 +3309,7 @@ if.end18:                                         ; preds = %if.else, %if.then7.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(57) ptr @_ZN3p2t5Sweep16NextFlipTriangleERNS_12SweepContextEiRNS_8TriangleES4_RNS_5PointES6_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, i32 noundef %o, ptr noundef nonnull align 8 dereferenceable(57) %t, ptr noundef nonnull align 8 dereferenceable(57) %ot, ptr noundef nonnull align 8 dereferenceable(40) %p, ptr noundef nonnull align 8 dereferenceable(40) %op) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(57) ptr @_ZN3p2t5Sweep16NextFlipTriangleERNS_12SweepContextEiRNS_8TriangleES4_RNS_5PointES6_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, i32 noundef %o, ptr noundef nonnull align 8 dereferenceable(57) %t, ptr noundef nonnull align 8 dereferenceable(57) %ot, ptr noundef nonnull align 8 dereferenceable(40) %p, ptr noundef nonnull align 8 dereferenceable(40) %op) local_unnamed_addr #2 align 2 {
 entry:
   %cmp = icmp eq i32 %o, 1
   %ot.t = select i1 %cmp, ptr %ot, ptr %t
@@ -3371,7 +3324,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN3p2t5Sweep13NextFlipPointERNS_5PointES2_RNS_8TriangleES2_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %ep, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %eq, ptr noundef nonnull align 8 dereferenceable(57) %ot, ptr noundef nonnull align 8 dereferenceable(40) %op) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN3p2t5Sweep13NextFlipPointERNS_5PointES2_RNS_8TriangleES2_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %ep, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %eq, ptr noundef nonnull align 8 dereferenceable(57) %ot, ptr noundef nonnull align 8 dereferenceable(40) %op) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load <2 x double>, ptr %ep, align 8
   %1 = load <2 x double>, ptr %eq, align 8
@@ -3383,9 +3336,8 @@ entry:
   %shift = shufflevector <2 x double> %6, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %7 = fsub <2 x double> %6, %shift
   %sub11.i = extractelement <2 x double> %7, i64 0
-  %cmp.i = fcmp ogt double %sub11.i, 0xBD719799812DEA11
-  %cmp12.i = fcmp olt double %sub11.i, 0x3D719799812DEA11
-  %or.cond.i = and i1 %cmp.i, %cmp12.i
+  %8 = tail call double @llvm.fabs.f64(double %sub11.i)
+  %or.cond.i = fcmp olt double %8, 0x3D719799812DEA11
   %cmp13.i = fcmp ogt double %sub11.i, 0.000000e+00
   %..i = zext i1 %cmp13.i to i32
   %retval.0.i = select i1 %or.cond.i, i32 2, i32 %..i
@@ -3403,19 +3355,19 @@ if.then4:                                         ; preds = %entry
   br label %return
 
 if.end6:                                          ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end6
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #19
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #18
   unreachable
 
 lpad:                                             ; preds = %if.end6
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #20
-  resume { ptr, i32 } %8
+  tail call void @__cxa_free_exception(ptr %exception) #19
+  resume { ptr, i32 } %9
 
 return:                                           ; preds = %if.then4, %if.then
   %retval.0 = phi ptr [ %call2, %if.then ], [ %call5, %if.then4 ]
@@ -3423,7 +3375,7 @@ return:                                           ; preds = %if.then4, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3p2t5Sweep17FlipScanEdgeEventERNS_12SweepContextERNS_5PointES4_RNS_8TriangleES6_S4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %ep, ptr noundef nonnull align 8 dereferenceable(40) %eq, ptr noundef nonnull align 8 dereferenceable(57) %flip_triangle, ptr noundef nonnull align 8 dereferenceable(57) %t, ptr noundef nonnull align 8 dereferenceable(40) %p) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3p2t5Sweep17FlipScanEdgeEventERNS_12SweepContextERNS_5PointES4_RNS_8TriangleES6_S4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(200) %tcx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %ep, ptr noundef nonnull align 8 dereferenceable(40) %eq, ptr noundef nonnull align 8 dereferenceable(57) %flip_triangle, ptr noundef nonnull align 8 dereferenceable(57) %t, ptr noundef nonnull align 8 dereferenceable(40) %p) local_unnamed_addr #2 align 2 {
 entry:
   %y7.i = getelementptr inbounds %"struct.p2t::Point", ptr %eq, i64 0, i32 1
   br label %tailrecurse
@@ -3476,10 +3428,10 @@ if.else:                                          ; preds = %tailrecurse, %_ZN3p
   br label %tailrecurse
 }
 
-declare void @_ZN3p2t8Triangle17ClearDelunayEdgesEv(ptr noundef nonnull align 8 dereferenceable(57)) local_unnamed_addr #4
+declare void @_ZN3p2t8Triangle17ClearDelunayEdgesEv(ptr noundef nonnull align 8 dereferenceable(57)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3p2t5SweepD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3p2t5SweepD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<p2t::Node *, std::allocator<p2t::Node *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -3497,7 +3449,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %isnull, label %for.inc, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #17
   %.pre = load ptr, ptr %_M_finish.i, align 8
   %.pre10 = load ptr, ptr %this, align 8
   br label %for.inc
@@ -3519,7 +3471,7 @@ for.end:                                          ; preds = %for.inc, %entry
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN3p2t4NodeESaIS2_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.end
-  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa) #17
   br label %_ZNSt6vectorIPN3p2t4NodeESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN3p2t4NodeESaIS2_EED2Ev.exit:       ; preds = %for.end, %if.then.i.i.i
@@ -3527,38 +3479,40 @@ _ZNSt6vectorIPN3p2t4NodeESaIS2_EED2Ev.exit:       ; preds = %for.end, %if.then.i
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #16
+declare i64 @llvm.umax.i64(i64, i64) #14
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { builtin allocsize(0) }
-attributes #18 = { builtin nounwind }
-attributes #19 = { noreturn }
-attributes #20 = { nounwind }
+attributes #16 = { builtin allocsize(0) }
+attributes #17 = { builtin nounwind }
+attributes #18 = { noreturn }
+attributes #19 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

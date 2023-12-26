@@ -765,8 +765,8 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %infinity_symbol_.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %this, i64 0, i32 1
   %4 = load ptr, ptr %infinity_symbol_.i, align 8
-  %cmp.i11 = icmp eq ptr %4, null
-  br i1 %cmp.i11, label %return, label %if.end.i
+  %cmp.i12 = icmp eq ptr %4, null
+  br i1 %cmp.i12, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
   %cmp3.i = fcmp olt double %value, 0.000000e+00
@@ -830,16 +830,13 @@ return.sink.split.i:                              ; preds = %if.end12.i, %if.end
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp = icmp sgt i32 %requested_digits, 100
-  br i1 %cmp, label %return, label %if.end4
+  %cmp = icmp slt i32 %requested_digits, 101
+  %14 = tail call double @llvm.fabs.f64(double %value)
+  %or.cond = fcmp ult double %14, 0x4C63E9E4E4C2F344
+  %or.cond10 = and i1 %cmp, %or.cond
+  br i1 %or.cond10, label %if.end8, label %return
 
-if.end4:                                          ; preds = %if.end
-  %cmp5 = fcmp oge double %value, 0x4C63E9E4E4C2F344
-  %cmp6 = fcmp ole double %value, 0xCC63E9E4E4C2F344
-  %or.cond = or i1 %cmp5, %cmp6
-  br i1 %or.cond, label %return, label %if.end8
-
-if.end8:                                          ; preds = %if.end4
+if.end8:                                          ; preds = %if.end
   %cmp.not.i = icmp slt i64 %0, 0
   %fneg.i = fneg double %value
   %v.addr.0.i = select i1 %cmp.not.i, double %fneg.i, double %value
@@ -860,40 +857,40 @@ if.end10.i:                                       ; preds = %if.end8
 
 _ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i: ; preds = %if.end10.i
   call void @_ZN14arrow_vendored17double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %v.addr.0.i, i32 noundef 2, i32 noundef %requested_digits, ptr nonnull %decimal_rep, i32 161, ptr noundef nonnull %decimal_rep_length, ptr noundef nonnull %decimal_point)
-  %14 = load i32, ptr %decimal_rep_length, align 4
-  %idxprom.i.i = sext i32 %14 to i64
+  %15 = load i32, ptr %decimal_rep_length, align 4
+  %idxprom.i.i = sext i32 %15 to i64
   %arrayidx.i26.i = getelementptr inbounds i8, ptr %decimal_rep, i64 %idxprom.i.i
   store i8 0, ptr %arrayidx.i26.i, align 1
   br label %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
 
 _ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit: ; preds = %if.then7.i, %if.end10.i, %_ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i
-  %15 = load i32, ptr %this, align 8
-  %and = and i32 %15, 8
+  %16 = load i32, ptr %this, align 8
+  %and = and i32 %16, 8
   %cmp9.not = icmp eq i32 %and, 0
   %cmp10 = fcmp une double %value, 0.000000e+00
   %brmerge = select i1 %cmp10, i1 true, i1 %cmp9.not
-  %or.cond10 = select i1 %cmp.not.i, i1 %brmerge, i1 false
-  br i1 %or.cond10, label %if.then13, label %if.end14
+  %or.cond11 = select i1 %cmp.not.i, i1 %brmerge, i1 false
+  br i1 %or.cond11, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
   %position_.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %result_builder, i64 0, i32 1
-  %16 = load i32, ptr %position_.i, align 8
-  %inc.i = add nsw i32 %16, 1
+  %17 = load i32, ptr %position_.i, align 8
+  %inc.i = add nsw i32 %17, 1
   store i32 %inc.i, ptr %position_.i, align 8
-  %17 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i13 = sext i32 %16 to i64
-  %arrayidx.i.i14 = getelementptr inbounds i8, ptr %17, i64 %idxprom.i.i13
-  store i8 45, ptr %arrayidx.i.i14, align 1
+  %18 = load ptr, ptr %result_builder, align 8
+  %idxprom.i.i14 = sext i32 %17 to i64
+  %arrayidx.i.i15 = getelementptr inbounds i8, ptr %18, i64 %idxprom.i.i14
+  store i8 45, ptr %arrayidx.i.i15, align 1
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then13, %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
-  %18 = load i32, ptr %decimal_rep_length, align 4
-  %19 = load i32, ptr %decimal_point, align 4
-  call void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %decimal_rep, i32 noundef %18, i32 noundef %19, i32 noundef %requested_digits, ptr noundef %result_builder)
+  %19 = load i32, ptr %decimal_rep_length, align 4
+  %20 = load i32, ptr %decimal_point, align 4
+  call void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %decimal_rep, i32 noundef %19, i32 noundef %20, i32 noundef %requested_digits, ptr noundef %result_builder)
   br label %return
 
-return:                                           ; preds = %return.sink.split.i, %if.then9.i, %if.end7.i, %if.then.i, %if.end4, %if.end, %if.end14
-  %retval.0 = phi i1 [ true, %if.end14 ], [ false, %if.end ], [ false, %if.end4 ], [ false, %if.then.i ], [ false, %if.then9.i ], [ false, %if.end7.i ], [ true, %return.sink.split.i ]
+return:                                           ; preds = %return.sink.split.i, %if.then9.i, %if.end7.i, %if.then.i, %if.end, %if.end14
+  %retval.0 = phi i1 [ true, %if.end14 ], [ false, %if.end ], [ false, %if.then.i ], [ false, %if.then9.i ], [ false, %if.end7.i ], [ true, %return.sink.split.i ]
   ret i1 %retval.0
 }
 

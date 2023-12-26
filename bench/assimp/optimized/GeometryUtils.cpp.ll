@@ -157,38 +157,37 @@ entry:
   %z.i15 = getelementptr inbounds %struct.aiRay, ptr %ray, i64 0, i32 1, i32 2
   %9 = load float, ptr %z.i15, align 4
   %10 = tail call noundef float @llvm.fmuladd.f32(float %9, float %3, float %8)
-  %conv = fpext float %10 to double
-  %cmp = fcmp olt double %conv, 1.000000e-04
-  %cmp5 = fcmp ogt double %conv, -1.000000e-04
-  %or.cond = and i1 %cmp, %cmp5
+  %11 = tail call float @llvm.fabs.f32(float %10)
+  %12 = fpext float %11 to double
+  %or.cond = fcmp olt double %12, 1.000000e-04
   br i1 %or.cond, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %z.i = getelementptr inbounds %class.aiVector3t, ptr %planePos, i64 0, i32 2
-  %11 = load float, ptr %z.i, align 4
-  %sub5.i = fsub float %11, %0
-  %12 = load float, ptr %planePos, align 4
-  %13 = extractelement <2 x float> %4, i64 0
-  %sub.i = fsub float %12, %13
+  %13 = load float, ptr %z.i, align 4
+  %sub5.i = fsub float %13, %0
+  %14 = load float, ptr %planePos, align 4
+  %15 = extractelement <2 x float> %4, i64 0
+  %sub.i = fsub float %14, %15
   %y.i = getelementptr inbounds %class.aiVector3t, ptr %planePos, i64 0, i32 1
-  %14 = load float, ptr %y.i, align 4
-  %15 = extractelement <2 x float> %4, i64 1
-  %sub3.i = fsub float %14, %15
+  %16 = load float, ptr %y.i, align 4
+  %17 = extractelement <2 x float> %4, i64 1
+  %sub3.i = fsub float %16, %17
   %mul3.i = fmul float %2, %sub3.i
-  %16 = tail call float @llvm.fmuladd.f32(float %1, float %sub.i, float %mul3.i)
-  %17 = tail call noundef float @llvm.fmuladd.f32(float %3, float %sub5.i, float %16)
-  %div = fdiv float %17, %10
+  %18 = tail call float @llvm.fmuladd.f32(float %1, float %sub.i, float %mul3.i)
+  %19 = tail call noundef float @llvm.fmuladd.f32(float %3, float %sub5.i, float %18)
+  %div = fdiv float %19, %10
   %cmp6 = fcmp olt float %div, 0.000000e+00
   br i1 %cmp6, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %18 = insertelement <2 x float> poison, float %div, i64 0
-  %19 = shufflevector <2 x float> %18, <2 x float> poison, <2 x i32> zeroinitializer
-  %20 = fmul <2 x float> %5, %19
+  %20 = insertelement <2 x float> poison, float %div, i64 0
+  %21 = shufflevector <2 x float> %20, <2 x float> poison, <2 x i32> zeroinitializer
+  %22 = fmul <2 x float> %5, %21
   %mul2.i = fmul float %9, %div
-  %21 = fadd <2 x float> %4, %20
+  %23 = fadd <2 x float> %4, %22
   %add5.i = fadd float %0, %mul2.i
-  store <2 x float> %21, ptr %pos, align 4
+  store <2 x float> %23, ptr %pos, align 4
   %ref.tmp7.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %pos, i64 8
   store float %add5.i, ptr %ref.tmp7.sroa.2.0..sroa_idx, align 4
   br label %return
@@ -239,6 +238,9 @@ _ZN10aiVector3tIfE9NormalizeEv.exit:              ; preds = %for.body, %_ZN10aiV
 for.end:                                          ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit, %entry
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #8

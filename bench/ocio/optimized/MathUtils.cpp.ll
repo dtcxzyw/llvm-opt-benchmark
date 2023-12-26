@@ -808,16 +808,15 @@ return:                                           ; preds = %_ZN19OpenColorIO_v2
   ret i1 %cmp.lcssa
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef double @_ZN19OpenColorIO_v2_4dev15ClampToNormHalfEd(double noundef %val) local_unnamed_addr #6 {
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
+define hidden noundef double @_ZN19OpenColorIO_v2_4dev15ClampToNormHalfEd(double noundef %val) local_unnamed_addr #4 {
 entry:
   %cmp = fcmp olt double %val, -6.550400e+04
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp5 = fcmp ogt double %val, 0xBF0FFFFFFF8F68F6
-  %cmp7 = fcmp olt double %val, 0x3F0FFFFFFF8F68F6
-  %or.cond = and i1 %cmp5, %cmp7
+  %0 = tail call double @llvm.fabs.f64(double %val)
+  %or.cond = fcmp olt double %0, 0x3F0FFFFFFF8F68F6
   br i1 %or.cond, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end
@@ -1555,6 +1554,9 @@ entry:
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #12
