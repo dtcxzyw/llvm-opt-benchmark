@@ -8,27 +8,25 @@ define dso_local void @softfloat_add256M(ptr nocapture noundef readonly %aPtr, p
 entry:
   %0 = load i64, ptr %aPtr, align 8
   %1 = load i64, ptr %bPtr, align 8
-  %add39 = add i64 %0, %1
-  store i64 %add39, ptr %zPtr, align 8
+  store i64 %1, ptr %zPtr, align 8
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.end
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %if.end ]
-  %add312 = phi i64 [ %add39, %entry ], [ %add3, %if.end ]
+  %add311 = phi i64 [ %1, %entry ], [ %add3, %if.end ]
   %2 = phi i64 [ %0, %entry ], [ %3, %if.end ]
-  %carry.010 = phi i8 [ 0, %entry ], [ %carry.1, %if.end ]
-  %cmp7.not = icmp eq i64 %add312, %2
-  %cmp10 = icmp ult i64 %add312, %2
+  %carry.09 = phi i8 [ 0, %entry ], [ %carry.1, %if.end ]
+  %cmp7.not = icmp eq i64 %add311, 0
+  %cmp10 = icmp ult i64 %add311, %2
   %conv12 = zext i1 %cmp10 to i8
-  %carry.1 = select i1 %cmp7.not, i8 %carry.010, i8 %conv12
+  %carry.1 = select i1 %cmp7.not, i8 %carry.09, i8 %conv12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr i64, ptr %aPtr, i64 %indvars.iv.next
   %3 = load i64, ptr %arrayidx, align 8
   %arrayidx2 = getelementptr i64, ptr %bPtr, i64 %indvars.iv.next
   %4 = load i64, ptr %arrayidx2, align 8
   %conv = zext nneg i8 %carry.1 to i64
-  %add = add i64 %3, %conv
-  %add3 = add i64 %add, %4
+  %add3 = add i64 %4, %conv
   %arrayidx5 = getelementptr i64, ptr %zPtr, i64 %indvars.iv.next
   store i64 %add3, ptr %arrayidx5, align 8
   %cmp = icmp eq i64 %indvars.iv.next, 3

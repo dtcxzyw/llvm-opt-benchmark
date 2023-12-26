@@ -32,8 +32,8 @@ if.else:                                          ; preds = %if.end
   %conv8 = uitofp i32 %conv7 to double
   %exp2 = tail call double @exp2(double %conv8)
   %conv10 = fptoui double %exp2 to i32
-  %add12 = sub i32 %add, %conv10
-  %cmp = icmp eq i32 %add12, 1
+  %add12 = sub i32 %i.tr9, %conv10
+  %cmp = icmp eq i32 %add12, 0
   br i1 %cmp, label %return, label %if.end
 
 return:                                           ; preds = %if.else, %entry, %if.then4

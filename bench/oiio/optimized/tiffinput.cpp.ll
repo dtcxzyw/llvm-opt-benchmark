@@ -8203,9 +8203,7 @@ invoke.cont15:                                    ; preds = %invoke.cont12
   %add.i.i.i68 = select i1 %cmp5.i.i.i67, i32 0, i32 %add8
   %value.addr.0.i.i.i69 = add nsw i32 %add.i.i.i68, %sub.i.i64
   %rem.i.i.i70 = srem i32 %value.addr.0.i.i.i69, %3
-  %sub1.i.i.i71 = add i32 %add.i.i.i68, %.sroa.speculated165
-  %add.i.i72 = sub i32 %sub1.i.i.i71, %rem.i.i.i70
-  %cmp.i73 = icmp eq i32 %add.i.i72, %.sroa.speculated165
+  %cmp.i73 = icmp eq i32 %add.i.i.i68, %rem.i.i.i70
   %cmp2.i75 = icmp eq i32 %2, %.sroa.speculated165
   %5 = select i1 %cmp.i73, i1 true, i1 %cmp2.i75
   br i1 %5, label %land.lhs.true17, label %if.then30
