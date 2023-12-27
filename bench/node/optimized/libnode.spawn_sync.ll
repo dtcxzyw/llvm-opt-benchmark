@@ -1174,7 +1174,7 @@ cleanup:                                          ; preds = %do.end9, %if.end16
   ret ptr %retval.sroa.0.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4node17SyncProcessRunnerC2EPNS_11EnvironmentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(520) %this, ptr noundef %env) unnamed_addr #10 align 2 {
 entry:
   %kill_signal_ = getelementptr inbounds %"class.node::SyncProcessRunner", ptr %this, i64 0, i32 2
@@ -1969,8 +1969,7 @@ if.then.i664:                                     ; preds = %_ZN2v810MaybeLocalI
   br i1 %cmp, label %if.then54, label %if.end56
 
 if.then54:                                        ; preds = %if.then.i664
-  %ref.tmp44.sroa.319.0.extract.shift = and i64 %phi.call, -4294967296
-  %retval.sroa.0.0.insert.insert.i63 = or disjoint i64 %ref.tmp44.sroa.319.0.extract.shift, 1
+  %retval.sroa.0.0.insert.insert.i63 = and i64 %phi.call, -4294967295
   br label %cleanup
 
 if.end56:                                         ; preds = %if.then.i664
@@ -2009,8 +2008,7 @@ if.then.i655:                                     ; preds = %_ZN2v810MaybeLocalI
   br i1 %cmp97, label %if.then98, label %if.end100
 
 if.then98:                                        ; preds = %if.then.i655
-  %ref.tmp86.sroa.321.0.extract.shift = and i64 %phi.call34, -4294967296
-  %retval.sroa.0.0.insert.insert.i68 = or disjoint i64 %ref.tmp86.sroa.321.0.extract.shift, 1
+  %retval.sroa.0.0.insert.insert.i68 = and i64 %phi.call34, -4294967295
   br label %cleanup
 
 if.end100:                                        ; preds = %if.then.i655
@@ -2069,8 +2067,7 @@ if.then.i646:                                     ; preds = %if.then136
   br i1 %cmp148, label %if.then149, label %if.end151
 
 if.then149:                                       ; preds = %if.then.i646
-  %ref.tmp137.sroa.323.0.extract.shift = and i64 %call142, -4294967296
-  %retval.sroa.0.0.insert.insert.i73 = or disjoint i64 %ref.tmp137.sroa.323.0.extract.shift, 1
+  %retval.sroa.0.0.insert.insert.i73 = and i64 %call142, -4294967295
   br label %cleanup
 
 if.end151:                                        ; preds = %if.then.i646
@@ -2132,8 +2129,7 @@ if.then.i:                                        ; preds = %if.then188
   br i1 %cmp200, label %if.then201, label %if.end203
 
 if.then201:                                       ; preds = %if.then.i
-  %ref.tmp189.sroa.325.0.extract.shift = and i64 %call194, -4294967296
-  %retval.sroa.0.0.insert.insert.i93 = or disjoint i64 %ref.tmp189.sroa.325.0.extract.shift, 1
+  %retval.sroa.0.0.insert.insert.i93 = and i64 %call194, -4294967295
   br label %cleanup
 
 if.end203:                                        ; preds = %if.then.i
@@ -4453,7 +4449,7 @@ attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="tr
 attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

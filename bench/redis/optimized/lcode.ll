@@ -383,8 +383,8 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
 land.lhs.true.i.i.i:                              ; preds = %while.body.i
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %arrayidx.i.i, i64 -1
   %11 = load i32, ptr %add.ptr.i.i.i, align 4, !tbaa !16
-  %and.i.i.i5 = and i32 %11, 63
-  %idxprom1.i.i.i = zext nneg i32 %and.i.i.i5 to i64
+  %and.i.i.i4 = and i32 %11, 63
+  %idxprom1.i.i.i = zext nneg i32 %and.i.i.i4 to i64
   %arrayidx2.i.i.i = getelementptr inbounds [38 x i8], ptr @luaP_opmodes, i64 0, i64 %idxprom1.i.i.i
   %12 = load i8, ptr %arrayidx2.i.i.i, align 1, !tbaa !24
   %tobool.not.i.i.i = icmp sgt i8 %12, -1
@@ -403,9 +403,8 @@ getjumpcontrol.exit.i.i:                          ; preds = %if.else.i.i.i, %lan
 if.end.i.i:                                       ; preds = %getjumpcontrol.exit.i.i
   %14 = lshr i32 %13, 17
   %shl10.i.i = and i32 %14, 32704
-  %and14.i.i = and i32 %13, 8372224
-  %or11.i.i = or i32 %and14.i.i, %shl10.i.i
-  %or16.i.i = or disjoint i32 %or11.i.i, 26
+  %or11.i.i = and i32 %13, 8372250
+  %or16.i.i = or i32 %shl10.i.i, %or11.i.i
   store i32 %or16.i.i, ptr %retval.0.i.i.i, align 4, !tbaa !16
   %add.neg.i.i = xor i32 %list.addr.037.i, -1
   %sub.i11.i = add i32 %add.neg.i.i, %target
@@ -568,24 +567,13 @@ if.end.i:                                         ; preds = %getjumpcontrol.exit
   %shr2.i = lshr i32 %5, 23
   %cmp4.not.i = icmp eq i32 %shr2.i, %reg
   %or.cond.i = or i1 %cmp1.not.i, %cmp4.not.i
-  br i1 %or.cond.i, label %if.else.i, label %if.then5.i
-
-if.then5.i:                                       ; preds = %if.end.i
-  %and6.i = and i32 %5, -16357
-  %or.i = or disjoint i32 %and6.i, %and7.i
-  br label %if.then
-
-if.else.i:                                        ; preds = %if.end.i
   %6 = lshr i32 %5, 17
   %shl10.i = and i32 %6, 32704
-  %and14.i = and i32 %5, 8372224
-  %or11.i = or i32 %and14.i, %shl10.i
-  %or16.i = or disjoint i32 %or11.i, 26
-  br label %if.then
-
-if.then:                                          ; preds = %if.else.i, %if.then5.i
-  %storemerge.i = phi i32 [ %or16.i, %if.else.i ], [ %or.i, %if.then5.i ]
-  store i32 %storemerge.i, ptr %retval.0.i.i, align 4, !tbaa !16
+  %.sink1 = select i1 %or.cond.i, i32 8372250, i32 -16357
+  %shl10.i.sink = select i1 %or.cond.i, i32 %shl10.i, i32 %and7.i
+  %or11.i = and i32 %5, %.sink1
+  %or16.i = or i32 %or11.i, %shl10.i.sink
+  store i32 %or16.i, ptr %retval.0.i.i, align 4, !tbaa !16
   %add.neg.i = xor i32 %list.addr.037, -1
   %sub.i11 = add i32 %add.neg.i, %vtarget
   %7 = tail call i32 @llvm.abs.i32(i32 %sub.i11, i1 true)
@@ -599,14 +587,14 @@ if.else:                                          ; preds = %getjumpcontrol.exit
   %cmp.i23 = icmp ugt i32 %8, 131071
   br i1 %cmp.i23, label %if.end.sink.split.sink.split, label %if.end
 
-if.end.sink.split.sink.split:                     ; preds = %if.else, %if.then
-  %sub.i22.sink.ph.ph = phi i32 [ %sub.i11, %if.then ], [ %sub.i22, %if.else ]
+if.end.sink.split.sink.split:                     ; preds = %if.else, %if.end.i
+  %sub.i22.sink.ph.ph = phi i32 [ %sub.i11, %if.end.i ], [ %sub.i22, %if.else ]
   %9 = load ptr, ptr %ls.i32, align 8, !tbaa !17
   tail call void @luaX_syntaxerror(ptr noundef %9, ptr noundef nonnull @.str.1) #8
   br label %if.end.sink.split
 
-if.end.sink.split:                                ; preds = %if.end.sink.split.sink.split, %if.then
-  %sub.i22.sink.ph = phi i32 [ %sub.i11, %if.then ], [ %sub.i22.sink.ph.ph, %if.end.sink.split.sink.split ]
+if.end.sink.split:                                ; preds = %if.end.sink.split.sink.split, %if.end.i
+  %sub.i22.sink.ph = phi i32 [ %sub.i11, %if.end.i ], [ %sub.i22.sink.ph.ph, %if.end.sink.split.sink.split ]
   %.pre = load i32, ptr %arrayidx.i, align 4, !tbaa !16
   br label %if.end
 
@@ -3136,9 +3124,8 @@ getjumpcontrol.exit.i.i.i:                        ; preds = %if.else.i.i.i.i, %l
 if.end.i.i.i:                                     ; preds = %getjumpcontrol.exit.i.i.i
   %44 = lshr i32 %43, 17
   %shl10.i.i.i = and i32 %44, 32704
-  %and14.i.i.i = and i32 %43, 8372224
-  %or11.i.i.i = or i32 %and14.i.i.i, %shl10.i.i.i
-  %or16.i.i.i = or disjoint i32 %or11.i.i.i, 26
+  %or11.i.i.i = and i32 %43, 8372250
+  %or16.i.i.i = or i32 %or11.i.i.i, %shl10.i.i.i
   store i32 %or16.i.i.i, ptr %retval.0.i.i.i.i, align 4, !tbaa !16
   br label %patchtestreg.exit.i.i
 
@@ -3199,9 +3186,8 @@ getjumpcontrol.exit.i.i53.i:                      ; preds = %if.else.i.i.i51.i, 
 if.end.i.i65.i:                                   ; preds = %getjumpcontrol.exit.i.i53.i
   %52 = lshr i32 %51, 17
   %shl10.i.i66.i = and i32 %52, 32704
-  %and14.i.i67.i = and i32 %51, 8372224
-  %or11.i.i68.i = or i32 %and14.i.i67.i, %shl10.i.i66.i
-  %or16.i.i69.i = or disjoint i32 %or11.i.i68.i, 26
+  %or11.i.i68.i = and i32 %51, 8372250
+  %or16.i.i69.i = or i32 %or11.i.i68.i, %shl10.i.i66.i
   store i32 %or16.i.i69.i, ptr %retval.0.i.i.i54.i, align 4, !tbaa !16
   br label %patchtestreg.exit.i57.i
 
@@ -4596,9 +4582,8 @@ getjumpcontrol.exit.i.i:                          ; preds = %if.else.i.i.i, %lan
 if.end.i.i:                                       ; preds = %getjumpcontrol.exit.i.i
   %9 = lshr i32 %8, 17
   %shl10.i.i = and i32 %9, 32704
-  %and14.i.i = and i32 %8, 8372224
-  %or11.i.i = or i32 %and14.i.i, %shl10.i.i
-  %or16.i.i = or disjoint i32 %or11.i.i, 26
+  %or11.i.i = and i32 %8, 8372250
+  %or16.i.i = or i32 %shl10.i.i, %or11.i.i
   store i32 %or16.i.i, ptr %retval.0.i.i.i, align 4, !tbaa !16
   %add.neg.i.i = xor i32 %list.addr.037.i, -1
   %sub.i11.i = add i32 %2, %add.neg.i.i

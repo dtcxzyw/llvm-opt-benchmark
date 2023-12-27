@@ -6940,7 +6940,7 @@ invoke.cont:                                      ; preds = %entry
 new.ctorloop:                                     ; preds = %invoke.cont
   %3 = add nsw i64 %2, -12
   %4 = urem i64 %3, 12
-  %5 = sub nsw i64 %3, %4
+  %5 = sub nuw nsw i64 %3, %4
   %6 = add nsw i64 %5, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call7, i8 0, i64 %6, i1 false)
   br label %arrayctor.cont
@@ -6972,7 +6972,7 @@ invoke.cont25:                                    ; preds = %if.then
 new.ctorloop28:                                   ; preds = %invoke.cont25
   %9 = add nsw i64 %2, -12
   %10 = urem i64 %9, 12
-  %11 = sub nsw i64 %9, %10
+  %11 = sub nuw nsw i64 %9, %10
   %12 = add nsw i64 %11, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call26, i8 0, i64 %12, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK10aiVector3tIfESt6vectorIS3_SaIS3_EEEEPS3_ET0_T_SC_SB_.exit38
@@ -7028,7 +7028,7 @@ arrayctor.cont65.thread:                          ; preds = %invoke.cont56
 for.body.preheader:                               ; preds = %invoke.cont56
   %16 = add nsw i64 %15, -12
   %17 = urem i64 %16, 12
-  %18 = sub nsw i64 %16, %17
+  %18 = sub nuw nsw i64 %16, %17
   %19 = add nsw i64 %18, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call57, i8 0, i64 %19, i1 false)
   %mTextureCoords = getelementptr inbounds %struct.aiMesh, ptr %call, i64 0, i32 8
@@ -12207,8 +12207,7 @@ while.body.i22.i:                                 ; preds = %if.end7.i69, %_ZN4p
 if.else.i.i.i:                                    ; preds = %while.body.i22.i
   %22 = lshr i8 %21, 6
   %conv3.i.i.i = or disjoint i8 %22, -64
-  %23 = and i8 %21, 63
-  %conv5.i.i.i = or disjoint i8 %23, -128
+  %conv5.i.i.i = and i8 %21, -65
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %result.addr.07.i23.i, i64 1
   store i8 %conv5.i.i.i, ptr %arrayidx6.i.i.i, align 1
   br label %_ZN4pugi4impl11utf8_writer3lowEPhj.exit.i.i
@@ -19863,7 +19862,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T
   %sub.ptr.div.i.i.i.i.i.i58 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i57, 2
   %.pre.i.i.i.i.i.i59 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i58
   %add.ptr.i.i.i.i.i.i60 = getelementptr inbounds i32, ptr %add.ptr.i2.i55, i64 %.pre.i.i.i.i.i.i59
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i60, ptr nonnull align 4 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i57, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i60, ptr noundef nonnull align 4 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i57, i1 false)
   br label %for.inc.i40
 
 if.else.i35:                                      ; preds = %for.body.i25

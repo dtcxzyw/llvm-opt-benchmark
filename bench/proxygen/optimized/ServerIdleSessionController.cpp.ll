@@ -2234,14 +2234,14 @@ if.then5:                                         ; preds = %_ZNK5folly7futures6
   %7 = load i64, ptr %executor, align 8, !noalias !42
   %and.i.i = and i64 %7, 1
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
-  %and.i2.i = and i64 %7, -4
   br i1 %tobool.i.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then5
-  %or.i.i.i = or disjoint i64 %and.i2.i, 1
+  %or.i.i.i = and i64 %7, -3
   br label %_ZNK5folly8Executor9KeepAliveIS0_E4copyEv.exit
 
 cond.false.i:                                     ; preds = %if.then5
+  %and.i2.i = and i64 %7, -4
   %tobool.not.i.i = icmp eq i64 %and.i2.i, 0
   br i1 %tobool.not.i.i, label %_ZNK5folly8Executor9KeepAliveIS0_E4copyEv.exit, label %if.end.i.i11
 

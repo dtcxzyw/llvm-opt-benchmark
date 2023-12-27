@@ -30712,8 +30712,7 @@ while.body.i22.i:                                 ; preds = %if.end7.i69, %_ZN4p
 if.else.i.i.i:                                    ; preds = %while.body.i22.i
   %22 = lshr i8 %21, 6
   %conv3.i.i.i = or disjoint i8 %22, -64
-  %23 = and i8 %21, 63
-  %conv5.i.i.i = or disjoint i8 %23, -128
+  %conv5.i.i.i = and i8 %21, -65
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %result.addr.07.i23.i, i64 1
   store i8 %conv5.i.i.i, ptr %arrayidx6.i.i.i, align 1
   br label %_ZN4pugi4impl11utf8_writer3lowEPhj.exit.i.i

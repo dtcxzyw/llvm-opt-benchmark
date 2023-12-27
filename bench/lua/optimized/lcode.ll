@@ -372,20 +372,19 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
   %and6.i = and i32 %5, -32701
-  %or.i = or disjoint i32 %and6.i, %and7.i
   br label %if.then
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
   %6 = lshr i32 %5, 9
   %shl10.i = and i32 %6, 32640
-  %and15.i = and i32 %5, 32768
-  %or11.i = or disjoint i32 %and15.i, %shl10.i
-  %or17.i = or disjoint i32 %or11.i, 66
+  %or11.i = and i32 %5, 32834
   br label %if.then
 
 if.then:                                          ; preds = %if.else.i, %if.then5.i
-  %storemerge.i = phi i32 [ %or17.i, %if.else.i ], [ %or.i, %if.then5.i ]
-  store i32 %storemerge.i, ptr %retval.0.i.i, align 4
+  %or11.i.sink = phi i32 [ %or11.i, %if.else.i ], [ %and7.i, %if.then5.i ]
+  %shl10.i.sink = phi i32 [ %shl10.i, %if.else.i ], [ %and6.i, %if.then5.i ]
+  %or17.i = or disjoint i32 %shl10.i.sink, %or11.i.sink
+  store i32 %or17.i, ptr %retval.0.i.i, align 4
   %add.neg.i = xor i32 %list.addr.034, -1
   %sub.i10 = add i32 %add.neg.i, %vtarget
   %7 = add i32 %sub.i10, 16777215
@@ -2459,9 +2458,8 @@ getjumpcontrol.exit.i.i.i:                        ; preds = %if.else.i.i.i.i, %l
 if.end.i.i.i:                                     ; preds = %getjumpcontrol.exit.i.i.i
   %24 = lshr i32 %23, 9
   %shl10.i.i.i = and i32 %24, 32640
-  %and15.i.i.i = and i32 %23, 32768
-  %or11.i.i.i = or disjoint i32 %and15.i.i.i, %shl10.i.i.i
-  %or17.i.i.i = or disjoint i32 %or11.i.i.i, 66
+  %or11.i.i.i = and i32 %23, 32834
+  %or17.i.i.i = or disjoint i32 %shl10.i.i.i, %or11.i.i.i
   store i32 %or17.i.i.i, ptr %retval.0.i.i.i.i, align 4
   %fs.val.pre.i.i = load ptr, ptr %fs, align 8
   %.phi.trans.insert12.i.i = getelementptr i8, ptr %fs.val.pre.i.i, i64 64
@@ -2502,26 +2500,26 @@ for.body.i33.i:                                   ; preds = %patchtestreg.exit.i
   %idxprom.i.i.i36.i = sext i32 %list.addr.07.i35.i to i64
   %arrayidx.i.i.i37.i = getelementptr inbounds i32, ptr %fs.val.val13.i34.i, i64 %idxprom.i.i.i36.i
   %cmp.i.i.i38.i = icmp sgt i32 %list.addr.07.i35.i, 0
-  br i1 %cmp.i.i.i38.i, label %land.lhs.true.i.i.i63.i, label %if.else.i.i.i39.i
+  br i1 %cmp.i.i.i38.i, label %land.lhs.true.i.i.i62.i, label %if.else.i.i.i39.i
 
-land.lhs.true.i.i.i63.i:                          ; preds = %for.body.i33.i
-  %add.ptr.i.i.i64.i = getelementptr inbounds i32, ptr %arrayidx.i.i.i37.i, i64 -1
-  %27 = load i32, ptr %add.ptr.i.i.i64.i, align 4
-  %and.i.i.i65.i = and i32 %27, 127
-  %idxprom1.i.i.i66.i = zext nneg i32 %and.i.i.i65.i to i64
-  %arrayidx2.i.i.i67.i = getelementptr inbounds [83 x i8], ptr @luaP_opmodes, i64 0, i64 %idxprom1.i.i.i66.i
-  %28 = load i8, ptr %arrayidx2.i.i.i67.i, align 1
+land.lhs.true.i.i.i62.i:                          ; preds = %for.body.i33.i
+  %add.ptr.i.i.i63.i = getelementptr inbounds i32, ptr %arrayidx.i.i.i37.i, i64 -1
+  %27 = load i32, ptr %add.ptr.i.i.i63.i, align 4
+  %and.i.i.i64.i = and i32 %27, 127
+  %idxprom1.i.i.i65.i = zext nneg i32 %and.i.i.i64.i to i64
+  %arrayidx2.i.i.i66.i = getelementptr inbounds [83 x i8], ptr @luaP_opmodes, i64 0, i64 %idxprom1.i.i.i65.i
+  %28 = load i8, ptr %arrayidx2.i.i.i66.i, align 1
   %29 = and i8 %28, 16
-  %tobool.not.i.i.i68.i = icmp eq i8 %29, 0
-  br i1 %tobool.not.i.i.i68.i, label %if.else.i.i.i39.i, label %getjumpcontrol.exit.i.i41.i
+  %tobool.not.i.i.i67.i = icmp eq i8 %29, 0
+  br i1 %tobool.not.i.i.i67.i, label %if.else.i.i.i39.i, label %getjumpcontrol.exit.i.i41.i
 
-if.else.i.i.i39.i:                                ; preds = %land.lhs.true.i.i.i63.i, %for.body.i33.i
+if.else.i.i.i39.i:                                ; preds = %land.lhs.true.i.i.i62.i, %for.body.i33.i
   %.pre.i.i40.i = load i32, ptr %arrayidx.i.i.i37.i, align 4
   br label %getjumpcontrol.exit.i.i41.i
 
-getjumpcontrol.exit.i.i41.i:                      ; preds = %if.else.i.i.i39.i, %land.lhs.true.i.i.i63.i
-  %30 = phi i32 [ %.pre.i.i40.i, %if.else.i.i.i39.i ], [ %27, %land.lhs.true.i.i.i63.i ]
-  %retval.0.i.i.i42.i = phi ptr [ %arrayidx.i.i.i37.i, %if.else.i.i.i39.i ], [ %add.ptr.i.i.i64.i, %land.lhs.true.i.i.i63.i ]
+getjumpcontrol.exit.i.i41.i:                      ; preds = %if.else.i.i.i39.i, %land.lhs.true.i.i.i62.i
+  %30 = phi i32 [ %.pre.i.i40.i, %if.else.i.i.i39.i ], [ %27, %land.lhs.true.i.i.i62.i ]
+  %retval.0.i.i.i42.i = phi ptr [ %arrayidx.i.i.i37.i, %if.else.i.i.i39.i ], [ %add.ptr.i.i.i63.i, %land.lhs.true.i.i.i62.i ]
   %and.i.i43.i = and i32 %30, 127
   %cmp.not.i.i44.i = icmp eq i32 %and.i.i43.i, 67
   br i1 %cmp.not.i.i44.i, label %if.end.i.i55.i, label %patchtestreg.exit.i45.i
@@ -2529,17 +2527,16 @@ getjumpcontrol.exit.i.i41.i:                      ; preds = %if.else.i.i.i39.i, 
 if.end.i.i55.i:                                   ; preds = %getjumpcontrol.exit.i.i41.i
   %31 = lshr i32 %30, 9
   %shl10.i.i56.i = and i32 %31, 32640
-  %and15.i.i57.i = and i32 %30, 32768
-  %or11.i.i58.i = or disjoint i32 %and15.i.i57.i, %shl10.i.i56.i
-  %or17.i.i59.i = or disjoint i32 %or11.i.i58.i, 66
-  store i32 %or17.i.i59.i, ptr %retval.0.i.i.i42.i, align 4
-  %fs.val.pre.i60.i = load ptr, ptr %fs, align 8
-  %.phi.trans.insert12.i61.i = getelementptr i8, ptr %fs.val.pre.i60.i, i64 64
-  %fs.val.val.pre.i62.i = load ptr, ptr %.phi.trans.insert12.i61.i, align 8
+  %or11.i.i57.i = and i32 %30, 32834
+  %or17.i.i58.i = or disjoint i32 %shl10.i.i56.i, %or11.i.i57.i
+  store i32 %or17.i.i58.i, ptr %retval.0.i.i.i42.i, align 4
+  %fs.val.pre.i59.i = load ptr, ptr %fs, align 8
+  %.phi.trans.insert12.i60.i = getelementptr i8, ptr %fs.val.pre.i59.i, i64 64
+  %fs.val.val.pre.i61.i = load ptr, ptr %.phi.trans.insert12.i60.i, align 8
   br label %patchtestreg.exit.i45.i
 
 patchtestreg.exit.i45.i:                          ; preds = %if.end.i.i55.i, %getjumpcontrol.exit.i.i41.i
-  %fs.val.val.i46.i = phi ptr [ %fs.val.val13.i34.i, %getjumpcontrol.exit.i.i41.i ], [ %fs.val.val.pre.i62.i, %if.end.i.i55.i ]
+  %fs.val.val.i46.i = phi ptr [ %fs.val.val13.i34.i, %getjumpcontrol.exit.i.i41.i ], [ %fs.val.val.pre.i61.i, %if.end.i.i55.i ]
   %arrayidx.i.i47.i = getelementptr inbounds i32, ptr %fs.val.val.i46.i, i64 %idxprom.i.i.i36.i
   %32 = load i32, ptr %arrayidx.i.i47.i, align 4
   %shr.i.i48.i = lshr i32 %32, 7

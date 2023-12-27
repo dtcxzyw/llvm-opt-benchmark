@@ -1516,7 +1516,7 @@ invoke.cont210:                                   ; preds = %arrayctor.cont
 new.ctorloop213:                                  ; preds = %invoke.cont210
   %84 = add nsw i64 %83, -12
   %85 = urem i64 %84, 12
-  %86 = sub nsw i64 %84, %85
+  %86 = sub nuw nsw i64 %84, %85
   %87 = add nsw i64 %86, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call211, i8 0, i64 %87, i1 false)
   br label %arrayctor.cont219
@@ -1548,7 +1548,7 @@ invoke.cont226:                                   ; preds = %if.then223
 new.ctorloop229:                                  ; preds = %invoke.cont226
   %92 = add nsw i64 %83, -12
   %93 = urem i64 %92, 12
-  %94 = sub nsw i64 %92, %93
+  %94 = sub nuw nsw i64 %92, %93
   %95 = add nsw i64 %94, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call227, i8 0, i64 %95, i1 false)
   br label %arrayctor.cont235
@@ -1578,7 +1578,7 @@ invoke.cont243:                                   ; preds = %if.then240
 new.ctorloop246:                                  ; preds = %invoke.cont243
   %98 = add nsw i64 %83, -12
   %99 = urem i64 %98, 12
-  %100 = sub nsw i64 %98, %99
+  %100 = sub nuw nsw i64 %98, %99
   %101 = add nsw i64 %100, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call244, i8 0, i64 %101, i1 false)
   br label %arrayctor.cont252
@@ -1608,7 +1608,7 @@ invoke.cont260:                                   ; preds = %if.then257
 new.ctorloop263:                                  ; preds = %invoke.cont260
   %104 = add nsw i64 %83, -12
   %105 = urem i64 %104, 12
-  %106 = sub nsw i64 %104, %105
+  %106 = sub nuw nsw i64 %104, %105
   %107 = add nsw i64 %106, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call261, i8 0, i64 %107, i1 false)
   br label %arrayctor.cont269
@@ -1671,7 +1671,7 @@ invoke.cont295:                                   ; preds = %if.then292
 new.ctorloop298:                                  ; preds = %invoke.cont295
   %115 = add nsw i64 %83, -12
   %116 = urem i64 %115, 12
-  %117 = sub nsw i64 %115, %116
+  %117 = sub nuw nsw i64 %115, %116
   %118 = add nsw i64 %117, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call296, i8 0, i64 %118, i1 false)
   br label %arrayctor.cont304
@@ -1706,7 +1706,7 @@ invoke.cont313:                                   ; preds = %if.then310
 new.ctorloop316:                                  ; preds = %invoke.cont313
   %121 = add nsw i64 %83, -12
   %122 = urem i64 %121, 12
-  %123 = sub nsw i64 %121, %122
+  %123 = sub nuw nsw i64 %121, %122
   %124 = add nsw i64 %123, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call314, i8 0, i64 %124, i1 false)
   br label %arrayctor.cont322
@@ -6061,8 +6061,7 @@ while.body.i22.i:                                 ; preds = %if.end7.i69, %_ZN4p
 if.else.i.i.i:                                    ; preds = %while.body.i22.i
   %22 = lshr i8 %21, 6
   %conv3.i.i.i = or disjoint i8 %22, -64
-  %23 = and i8 %21, 63
-  %conv5.i.i.i = or disjoint i8 %23, -128
+  %conv5.i.i.i = and i8 %21, -65
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %result.addr.07.i23.i, i64 1
   store i8 %conv5.i.i.i, ptr %arrayidx6.i.i.i, align 1
   br label %_ZN4pugi4impl11utf8_writer3lowEPhj.exit.i.i

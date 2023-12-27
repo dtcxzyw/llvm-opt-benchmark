@@ -274,7 +274,7 @@ entry:
 ; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN4pugi10xml_writerD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
 entry:
-  tail call void @llvm.trap() #45
+  tail call void @llvm.trap() #41
   unreachable
 }
 
@@ -369,7 +369,7 @@ entry:
 ; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN4pugi15xml_tree_walkerD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
 entry:
-  tail call void @llvm.trap() #45
+  tail call void @llvm.trap() #41
   unreachable
 }
 
@@ -617,7 +617,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call.i = tail call noundef double @strtod(ptr nocapture noundef nonnull %1, ptr noundef null) #46
+  %call.i = tail call noundef double @strtod(ptr nocapture noundef nonnull %1, ptr noundef null) #42
   br label %return
 
 return:                                           ; preds = %cond.true, %if.end, %entry
@@ -639,7 +639,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call.i = tail call double @strtod(ptr nocapture noundef nonnull %1, ptr noundef null) #46
+  %call.i = tail call double @strtod(ptr nocapture noundef nonnull %1, ptr noundef null) #42
   %conv.i = fptrunc double %call.i to float
   br label %return
 
@@ -794,7 +794,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %value.i = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %0, i64 0, i32 2
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %rhs) #47
+  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %rhs) #43
   %call4.i = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value.i, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 16, ptr noundef %rhs, i64 noundef %call.i.i)
   br label %_ZN4pugi13xml_attribute9set_valueEPKc.exit
 
@@ -811,7 +811,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %value = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %0, i64 0, i32 2
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %rhs) #47
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %rhs) #43
   %call4 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 16, ptr noundef %rhs, i64 noundef %call.i)
   br label %return
 
@@ -1171,8 +1171,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %value.i = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %0, i64 0, i32 2
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i.i)
-  %call.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i.i, i64 noundef 128, ptr noundef nonnull @.str.108, i32 noundef 17, double noundef %rhs) #46
-  %call.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i.i) #47
+  %call.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i.i, i64 noundef 128, ptr noundef nonnull @.str.108, i32 noundef 17, double noundef %rhs) #42
+  %call.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i.i) #43
   %call1.i.i.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value.i, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 16, ptr noundef nonnull %buf.i.i, i64 noundef %call.i.i.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %buf.i.i)
   br label %_ZN4pugi13xml_attribute9set_valueEd.exit
@@ -1192,8 +1192,8 @@ entry:
 if.end:                                           ; preds = %entry
   %value = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %0, i64 0, i32 2
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i)
-  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 128, ptr noundef nonnull @.str.108, i32 noundef 17, double noundef %rhs) #46
-  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i) #47
+  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 128, ptr noundef nonnull @.str.108, i32 noundef 17, double noundef %rhs) #42
+  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i) #43
   %call1.i.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 16, ptr noundef nonnull %buf.i, i64 noundef %call.i.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %buf.i)
   br label %return
@@ -1215,8 +1215,8 @@ if.end.i:                                         ; preds = %entry
   %value.i = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %0, i64 0, i32 2
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i.i)
   %conv.i.i = fpext float %rhs to double
-  %call.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i.i, i64 noundef 128, ptr noundef nonnull @.str.108, i32 noundef 9, double noundef %conv.i.i) #46
-  %call.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i.i) #47
+  %call.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i.i, i64 noundef 128, ptr noundef nonnull @.str.108, i32 noundef 9, double noundef %conv.i.i) #42
+  %call.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i.i) #43
   %call1.i.i.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value.i, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 16, ptr noundef nonnull %buf.i.i, i64 noundef %call.i.i.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %buf.i.i)
   br label %_ZN4pugi13xml_attribute9set_valueEf.exit
@@ -1237,8 +1237,8 @@ if.end:                                           ; preds = %entry
   %value = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %0, i64 0, i32 2
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i)
   %conv.i = fpext float %rhs to double
-  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 128, ptr noundef nonnull @.str.108, i32 noundef 9, double noundef %conv.i) #46
-  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i) #47
+  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 128, ptr noundef nonnull @.str.108, i32 noundef 9, double noundef %conv.i) #42
+  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i) #43
   %call1.i.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 16, ptr noundef nonnull %buf.i, i64 noundef %call.i.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %buf.i)
   br label %return
@@ -1464,7 +1464,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %name = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %0, i64 0, i32 1
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %rhs) #47
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %rhs) #43
   %call4 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 32, ptr noundef %rhs, i64 noundef %call.i)
   br label %return
 
@@ -1583,7 +1583,7 @@ if.else:                                          ; preds = %entry
   br i1 %or.cond, label %if.end.i, label %if.else5
 
 if.end.i:                                         ; preds = %if.else
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #47
+  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #43
   %and1.i = and i64 %.pre, %header_mask
   %cmp.i32 = icmp eq i64 %and1.i, 0
   %cmp3.i.not = icmp ult i64 %call.i.i, %source_length
@@ -1839,8 +1839,8 @@ entry:
 if.end:                                           ; preds = %entry
   %value = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %0, i64 0, i32 2
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i)
-  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 128, ptr noundef nonnull @.str.108, i32 noundef %precision, double noundef %rhs) #46
-  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i) #47
+  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 128, ptr noundef nonnull @.str.108, i32 noundef %precision, double noundef %rhs) #42
+  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i) #43
   %call1.i.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 16, ptr noundef nonnull %buf.i, i64 noundef %call.i.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %buf.i)
   br label %return
@@ -1862,8 +1862,8 @@ if.end:                                           ; preds = %entry
   %value = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %0, i64 0, i32 2
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i)
   %conv.i = fpext float %rhs to double
-  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 128, ptr noundef nonnull @.str.108, i32 noundef %precision, double noundef %conv.i) #46
-  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i) #47
+  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 128, ptr noundef nonnull @.str.108, i32 noundef %precision, double noundef %conv.i) #42
+  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i) #43
   %call1.i.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 16, ptr noundef nonnull %buf.i, i64 noundef %call.i.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %buf.i)
   br label %return
@@ -2046,7 +2046,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.inc.
   br i1 %tobool4.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name_, ptr noundef nonnull dereferenceable(1) %1) #47
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name_, ptr noundef nonnull dereferenceable(1) %1) #43
   %cmp.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.i, label %if.then5.i, label %for.inc.i
 
@@ -2105,7 +2105,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool4.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name_, ptr noundef nonnull dereferenceable(1) %1) #47
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name_, ptr noundef nonnull dereferenceable(1) %1) #43
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then5, label %for.inc
 
@@ -2303,7 +2303,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool4.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name_, ptr noundef nonnull dereferenceable(1) %1) #47
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name_, ptr noundef nonnull dereferenceable(1) %1) #43
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then5, label %for.inc
 
@@ -2352,7 +2352,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %tobool4.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name_, ptr noundef nonnull dereferenceable(1) %1) #47
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name_, ptr noundef nonnull dereferenceable(1) %1) #43
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then5, label %for.inc
 
@@ -2426,7 +2426,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %tobool4.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name_, ptr noundef nonnull dereferenceable(1) %2) #47
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name_, ptr noundef nonnull dereferenceable(1) %2) #43
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then5, label %for.inc
 
@@ -2476,7 +2476,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %tobool3.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name_, ptr noundef nonnull dereferenceable(1) %2) #47
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name_, ptr noundef nonnull dereferenceable(1) %2) #43
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then4, label %for.inc
 
@@ -2509,7 +2509,7 @@ for.body11:                                       ; preds = %for.end, %for.inc20
   br i1 %tobool13.not, label %for.inc20, label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %for.body11
-  %call.i17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name_, ptr noundef nonnull dereferenceable(1) %6) #47
+  %call.i17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name_, ptr noundef nonnull dereferenceable(1) %6) #43
   %cmp.i18 = icmp eq i32 %call.i17, 0
   br i1 %cmp.i18, label %if.then16, label %for.inc20
 
@@ -2708,7 +2708,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.inc.
   br i1 %tobool4.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name_, ptr noundef nonnull dereferenceable(1) %1) #47
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name_, ptr noundef nonnull dereferenceable(1) %1) #43
   %cmp.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.i, label %if.then5.i, label %for.inc.i
 
@@ -2909,7 +2909,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 
 if.end:                                           ; preds = %cond.end
   %name = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %0, i64 0, i32 1
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %rhs) #47
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %rhs) #43
   %call9 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 32, ptr noundef %rhs, i64 noundef %call.i)
   br label %return
 
@@ -2970,7 +2970,7 @@ cond.end:                                         ; preds = %entry
 
 if.end:                                           ; preds = %cond.end, %cond.end, %cond.end, %cond.end, %cond.end
   %value = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %0, i64 0, i32 2
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %rhs) #47
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %rhs) #43
   %call13 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 16, ptr noundef %rhs, i64 noundef %call.i)
   br label %return
 
@@ -3120,7 +3120,7 @@ _ZN4pugi13xml_attribute8set_nameEPKc.exit:        ; preds = %if.then.i, %if.else
   %prev_attribute_c4.sink.i = phi ptr [ %prev_attribute_c4.i, %if.else.i ], [ %prev_attribute_c.i, %if.then.i ]
   store ptr %12, ptr %prev_attribute_c4.sink.i, align 8
   %name.i = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %12, i64 0, i32 1
-  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name_) #47
+  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name_) #43
   %call4.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef 32, ptr noundef %name_, i64 noundef %call.i.i)
   %16 = load i64, ptr %a, align 8
   store i64 %16, ptr %retval, align 8
@@ -3246,7 +3246,7 @@ _ZN4pugi13xml_attribute8set_nameEPKc.exit:        ; preds = %if.then.i, %if.else
   store ptr %14, ptr %next_attribute.i, align 8
   store ptr %12, ptr %first_attribute.i, align 8
   %name.i = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %12, i64 0, i32 1
-  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name_) #47
+  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name_) #43
   %call4.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef 32, ptr noundef %name_, i64 noundef %call.i.i)
   %16 = load i64, ptr %a, align 8
   store i64 %16, ptr %retval, align 8
@@ -3392,7 +3392,7 @@ _ZN4pugi13xml_attribute8set_nameEPKc.exit:        ; preds = %if.end15, %if.else.
   store ptr %14, ptr %prev_attribute_c3.i, align 8
   store ptr %13, ptr %next_attribute.i8, align 8
   %name.i = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %13, i64 0, i32 1
-  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name_) #47
+  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name_) #43
   %call4.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef 32, ptr noundef %name_, i64 noundef %call.i.i)
   %18 = load i64, ptr %a, align 8
   store i64 %18, ptr %retval, align 8
@@ -3532,7 +3532,7 @@ _ZN4pugi13xml_attribute8set_nameEPKc.exit:        ; preds = %_ZN4pugi4impl12_GLO
   store ptr %14, ptr %next_attribute3.i, align 8
   store ptr %13, ptr %prev_attribute_c.i, align 8
   %name.i = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %13, i64 0, i32 1
-  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name_) #47
+  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name_) #43
   %call4.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef 32, ptr noundef %name_, i64 noundef %call.i.i)
   %18 = load i64, ptr %a, align 8
   store i64 %18, ptr %retval, align 8
@@ -3712,7 +3712,7 @@ if.then2.i:                                       ; preds = %if.then.i
   br label %_ZN4pugi4impl12_GLOBAL__N_116node_copy_stringIPcmEEvRT_RT0_mS3_S7_PNS1_13xml_allocatorE.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #47
+  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #43
   %call4.i = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name, ptr noundef nonnull align 8 dereferenceable(8) %da, i64 noundef 32, ptr noundef nonnull %4, i64 noundef %call.i.i)
   br label %_ZN4pugi4impl12_GLOBAL__N_116node_copy_stringIPcmEEvRT_RT0_mS3_S7_PNS1_13xml_allocatorE.exit
 
@@ -3744,7 +3744,7 @@ if.then2.i23:                                     ; preds = %land.lhs.true.i17
   br label %_ZN4pugi4impl12_GLOBAL__N_116node_copy_stringIPcmEEvRT_RT0_mS3_S7_PNS1_13xml_allocatorE.exit26
 
 if.else.i20:                                      ; preds = %land.lhs.true.i17, %if.then.i15
-  %call.i.i21 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #47
+  %call.i.i21 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #43
   %call4.i22 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 8 dereferenceable(8) %da, i64 noundef 16, ptr noundef nonnull %6, i64 noundef %call.i.i21)
   br label %_ZN4pugi4impl12_GLOBAL__N_116node_copy_stringIPcmEEvRT_RT0_mS3_S7_PNS1_13xml_allocatorE.exit26
 
@@ -4838,7 +4838,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %entry
 
 if.end.i:                                         ; preds = %cond.end.i
   %name.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %call, i64 0, i32 1
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name_) #47
+  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name_) #43
   %call9.i = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef 32, ptr noundef %name_, i64 noundef %call.i.i)
   br label %_ZN4pugi8xml_node8set_nameEPKc.exit
 
@@ -4869,7 +4869,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %entry
 
 if.end.i:                                         ; preds = %cond.end.i
   %name.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %call, i64 0, i32 1
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name_) #47
+  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name_) #43
   %call9.i = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef 32, ptr noundef %name_, i64 noundef %call.i.i)
   br label %_ZN4pugi8xml_node8set_nameEPKc.exit
 
@@ -4900,7 +4900,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %entry
 
 if.end.i:                                         ; preds = %cond.end.i
   %name.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %call, i64 0, i32 1
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name_) #47
+  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name_) #43
   %call9.i = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef 32, ptr noundef %name_, i64 noundef %call.i.i)
   br label %_ZN4pugi8xml_node8set_nameEPKc.exit
 
@@ -4931,7 +4931,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %entry
 
 if.end.i:                                         ; preds = %cond.end.i
   %name.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %call, i64 0, i32 1
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name_) #47
+  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name_) #43
   %call9.i = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef 32, ptr noundef %name_, i64 noundef %call.i.i)
   br label %_ZN4pugi8xml_node8set_nameEPKc.exit
 
@@ -6455,7 +6455,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.inc.
   br i1 %tobool4.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name_, ptr noundef nonnull dereferenceable(1) %1) #47
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name_, ptr noundef nonnull dereferenceable(1) %1) #43
   %cmp.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.i, label %if.then5.i, label %for.inc.i
 
@@ -6892,7 +6892,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.inc.
   br i1 %tobool4.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name_, ptr noundef nonnull dereferenceable(1) %1) #47
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name_, ptr noundef nonnull dereferenceable(1) %1) #43
   %cmp.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.i, label %if.then5.i, label %for.inc.i
 
@@ -8329,8 +8329,7 @@ while.body.i22.i.i:                               ; preds = %if.end7.i208.i, %_Z
 if.else.i.i.i209.i:                               ; preds = %while.body.i22.i.i
   %115 = lshr i8 %114, 6
   %conv3.i.i.i210.i = or disjoint i8 %115, -64
-  %116 = and i8 %114, 63
-  %conv5.i.i.i211.i = or disjoint i8 %116, -128
+  %conv5.i.i.i211.i = and i8 %114, -65
   %arrayidx6.i.i.i212.i = getelementptr inbounds i8, ptr %result.addr.07.i23.i.i, i64 1
   store i8 %conv5.i.i.i211.i, ptr %arrayidx6.i.i.i212.i, align 1
   br label %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i213.i
@@ -8367,10 +8366,10 @@ if.then.i31:                                      ; preds = %lpad
           to label %_ZN4pugi4impl12_GLOBAL__N_112auto_deleterIvED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i31
-  %117 = landingpad { ptr, i32 }
+  %116 = landingpad { ptr, i32 }
           catch ptr null
-  %118 = extractvalue { ptr, i32 } %117, 0
-  tail call void @__clang_call_terminate(ptr %118) #45
+  %117 = extractvalue { ptr, i32 } %116, 0
+  tail call void @__clang_call_terminate(ptr %117) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_112auto_deleterIvED2Ev.exit: ; preds = %lpad, %if.then.i31
@@ -8388,8 +8387,8 @@ land.lhs.true12:                                  ; preds = %if.end8
   br i1 %or.cond1, label %if.then15, label %if.then20
 
 if.then15:                                        ; preds = %land.lhs.true12
-  %119 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE10deallocateE, align 8
-  tail call void %119(ptr noundef nonnull %contents)
+  %118 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE10deallocateE, align 8
+  tail call void %118(ptr noundef nonnull %contents)
   br label %if.then20
 
 lor.lhs.false.critedge:                           ; preds = %if.end8
@@ -8410,8 +8409,8 @@ if.end21:                                         ; preds = %if.then20, %lor.lhs
 
 if.then.i69:                                      ; preds = %if.end21
   %and.i = lshr i32 %options, 8
-  %120 = and i32 %and.i, 16
-  %cond.i = xor i32 %120, 16
+  %119 = and i32 %and.i, 16
+  %cond.i = xor i32 %119, 16
   tail call void @_ZN4pugi16xml_parse_resultC1Ev(ptr noundef nonnull align 8 dereferenceable(20) %agg.result)
   store i32 %cond.i, ptr %agg.result, align 8, !alias.scope !49
   %offset2.i.i = getelementptr inbounds %"struct.pugi::xml_parse_result", ptr %agg.result, i64 0, i32 2
@@ -8420,36 +8419,36 @@ if.then.i69:                                      ; preds = %if.end21
 
 if.end.i34:                                       ; preds = %if.end21
   %first_child.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %root, i64 0, i32 4
-  %121 = load ptr, ptr %first_child.i, align 8, !noalias !46
-  %tobool1.not.i = icmp eq ptr %121, null
+  %120 = load ptr, ptr %first_child.i, align 8, !noalias !46
+  %tobool1.not.i = icmp eq ptr %120, null
   br i1 %tobool1.not.i, label %cond.end.i, label %cond.true.i35
 
 cond.true.i35:                                    ; preds = %if.end.i34
-  %prev_sibling_c.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %121, i64 0, i32 5
-  %122 = load ptr, ptr %prev_sibling_c.i, align 8, !noalias !46
+  %prev_sibling_c.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %120, i64 0, i32 5
+  %121 = load ptr, ptr %prev_sibling_c.i, align 8, !noalias !46
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i35, %if.end.i34
-  %cond3.i = phi ptr [ %122, %cond.true.i35 ], [ null, %if.end.i34 ]
+  %cond3.i = phi ptr [ %121, %cond.true.i35 ], [ null, %if.end.i34 ]
   %add.ptr4.i = getelementptr inbounds i8, ptr %doc, i64 64
   %sub.i = add i64 %length.0, -1
   %arrayidx.i = getelementptr inbounds i8, ptr %buffer.0, i64 %sub.i
-  %123 = load i8, ptr %arrayidx.i, align 1, !noalias !46
+  %122 = load i8, ptr %arrayidx.i, align 1, !noalias !46
   store i8 0, ptr %arrayidx.i, align 1, !noalias !46
-  %124 = load i8, ptr %buffer.0, align 1, !noalias !46
-  %cmp.i.i36 = icmp eq i8 %124, -17
+  %123 = load i8, ptr %buffer.0, align 1, !noalias !46
+  %cmp.i.i36 = icmp eq i8 %123, -17
   br i1 %cmp.i.i36, label %land.lhs.true.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser14parse_skip_bomEPc.exit.i
 
 land.lhs.true.i.i:                                ; preds = %cond.end.i
   %arrayidx1.i.i = getelementptr inbounds i8, ptr %buffer.0, i64 1
-  %125 = load i8, ptr %arrayidx1.i.i, align 1, !noalias !46
-  %cmp3.i.i = icmp eq i8 %125, -69
+  %124 = load i8, ptr %arrayidx1.i.i, align 1, !noalias !46
+  %cmp3.i.i = icmp eq i8 %124, -69
   br i1 %cmp3.i.i, label %land.lhs.true4.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser14parse_skip_bomEPc.exit.i
 
 land.lhs.true4.i.i:                               ; preds = %land.lhs.true.i.i
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %buffer.0, i64 2
-  %126 = load i8, ptr %arrayidx5.i.i, align 1, !noalias !46
-  %cmp7.i.i = icmp eq i8 %126, -65
+  %125 = load i8, ptr %arrayidx5.i.i, align 1, !noalias !46
+  %cmp7.i.i = icmp eq i8 %125, -65
   %spec.select.idx.i.i = select i1 %cmp7.i.i, i64 3, i64 0
   %spec.select.i.i = getelementptr inbounds i8, ptr %buffer.0, i64 %spec.select.idx.i.i
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser14parse_skip_bomEPc.exit.i
@@ -8458,15 +8457,15 @@ _ZN4pugi4impl12_GLOBAL__N_110xml_parser14parse_skip_bomEPc.exit.i: ; preds = %la
   %cond.i.i = phi ptr [ %buffer.0, %land.lhs.true.i.i ], [ %buffer.0, %cond.end.i ], [ %spec.select.i.i, %land.lhs.true4.i.i ]
   %shr.i.i.i = lshr i32 %options, 4
   %and.i.i.i37 = and i32 %shr.i.i.i, 15
-  %127 = zext nneg i32 %and.i.i.i37 to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc, i64 0, i64 %127
+  %126 = zext nneg i32 %and.i.i.i37 to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table._ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc, i64 0, i64 %126
   %switch.load = load ptr, ptr %switch.gep, align 8
   %and.i173.i.i = and i32 %shr.i.i.i, 3
   %shr1.i.i.i = lshr i32 %options, 9
   %and2.i.i.i = and i32 %shr1.i.i.i, 4
   %or.i.i.i = or disjoint i32 %and.i173.i.i, %and2.i.i.i
-  %128 = zext nneg i32 %or.i.i.i to i64
-  %switch.gep1319 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.82, i64 0, i64 %128
+  %127 = zext nneg i32 %or.i.i.i to i64
+  %switch.gep1319 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc.82, i64 0, i64 %127
   %switch.load1320 = load ptr, ptr %switch.gep1319, align 8
   %and397.i.i = and i32 %options, 1032
   %tobool398.not.i.i = icmp ne i32 %and397.i.i, 0
@@ -8481,8 +8480,8 @@ _ZN4pugi4impl12_GLOBAL__N_110xml_parser14parse_skip_bomEPc.exit.i: ; preds = %la
   %tobool433.not.i.i = icmp eq i32 %and432.i.i, 0
   %and446.i.i = and i32 %options, 16384
   %tobool447.not.i.i = icmp eq i32 %and446.i.i, 0
-  %cmp256.not.i.i = icmp eq i8 %123, 62
-  %cmp233.i.i.i = icmp eq i8 %123, 69
+  %cmp256.not.i.i = icmp eq i8 %122, 62
+  %cmp233.i.i.i = icmp eq i8 %122, 69
   %and250.i.i.i = and i32 %options, 512
   %tobool251.not.i.i.i = icmp eq i32 %and250.i.i.i, 0
   %and91.i.i.i = and i32 %options, 4
@@ -8491,12 +8490,12 @@ _ZN4pugi4impl12_GLOBAL__N_110xml_parser14parse_skip_bomEPc.exit.i: ; preds = %la
   %tobool103.not.i.i.i = icmp eq i32 %and102.i.i.i, 0
   %and.i225.i.i = and i32 %options, 2
   %tobool.not.i226.i.i = icmp eq i32 %and.i225.i.i, 0
-  %129 = and i32 %options, 34
-  %brmerge.not.i.i.i = icmp eq i32 %129, 34
+  %128 = and i32 %options, 34
+  %brmerge.not.i.i.i = icmp eq i32 %128, 34
   %cond104.i.i.i = and i32 %options, 1
   %tobool29.not105.i.i.i = icmp eq i32 %cond104.i.i.i, 0
   %_busy_size.i.i.i.i272.i.i = getelementptr inbounds i8, ptr %doc, i64 72
-  %cmp48.i.i = icmp ne i8 %123, 62
+  %cmp48.i.i = icmp ne i8 %122, 62
   br label %while.cond.outer.i.i
 
 while.cond.outer.i.i:                             ; preds = %while.cond.outer.i.i.backedge, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser14parse_skip_bomEPc.exit.i
@@ -8508,19 +8507,19 @@ while.cond.outer.i.i:                             ; preds = %while.cond.outer.i.
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i.backedge, %while.cond.outer.i.i
-  %130 = phi i8 [ %.pre.i.i, %while.cond.outer.i.i ], [ %355, %while.cond.i.i.backedge ]
+  %129 = phi i8 [ %.pre.i.i, %while.cond.outer.i.i ], [ %354, %while.cond.i.i.backedge ]
   %s.addr.0.i.i = phi ptr [ %s.addr.0.ph.i.i, %while.cond.outer.i.i ], [ %s.addr.14.lcssa.i.i, %while.cond.i.i.backedge ]
-  switch i8 %130, label %while.cond383.preheader.i.i [
+  switch i8 %129, label %while.cond383.preheader.i.i [
     i8 0, label %while.end492.i.i
     i8 60, label %LOC_TAGthread-pre-split.i.i
   ]
 
 while.cond383.preheader.i.i:                      ; preds = %while.cond.i.i
-  %idxprom384624.i.i = zext i8 %130 to i64
+  %idxprom384624.i.i = zext i8 %129 to i64
   %arrayidx385625.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom384624.i.i
-  %131 = load i8, ptr %arrayidx385625.i.i, align 1, !noalias !46
-  %132 = and i8 %131, 8
-  %tobool388.not626.i.i = icmp eq i8 %132, 0
+  %130 = load i8, ptr %arrayidx385625.i.i, align 1, !noalias !46
+  %131 = and i8 %130, 8
+  %tobool388.not626.i.i = icmp eq i8 %131, 0
   br i1 %tobool388.not626.i.i, label %while.end391.i.i, label %while.body389.i.i
 
 LOC_TAGthread-pre-split.i.i:                      ; preds = %while.cond.i.i, %while.cond477.i.i
@@ -8530,38 +8529,38 @@ LOC_TAGthread-pre-split.i.i:                      ; preds = %while.cond.i.i, %wh
   br label %LOC_TAG.i.i
 
 LOC_TAG.i.i:                                      ; preds = %if.end472.i.i, %LOC_TAGthread-pre-split.i.i
-  %133 = phi i8 [ %.pr.i.i, %LOC_TAGthread-pre-split.i.i ], [ %374, %if.end472.i.i ]
+  %132 = phi i8 [ %.pr.i.i, %LOC_TAGthread-pre-split.i.i ], [ %373, %if.end472.i.i ]
   %merged_pcdata.1.i.i = phi ptr [ %merged_pcdata.0.ph.i.i, %LOC_TAGthread-pre-split.i.i ], [ %merged_pcdata.2.i.i, %if.end472.i.i ]
   %s.addr.1.i.i = phi ptr [ %s.addr.1.ph.i.i, %LOC_TAGthread-pre-split.i.i ], [ %call431.i.i78, %if.end472.i.i ]
-  %idxprom.i.i = zext i8 %133 to i64
+  %idxprom.i.i = zext i8 %132 to i64
   %arrayidx.i.i39 = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom.i.i
-  %134 = load i8, ptr %arrayidx.i.i39, align 1, !noalias !46
-  %tobool.not.i.i = icmp sgt i8 %134, -1
+  %133 = load i8, ptr %arrayidx.i.i39, align 1, !noalias !46
+  %tobool.not.i.i = icmp sgt i8 %133, -1
   br i1 %tobool.not.i.i, label %if.else268.i.i, label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %LOC_TAG.i.i
-  %135 = load i64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
-  %add.i.i.i.i.i.i = add i64 %135, 64
+  %134 = load i64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
+  %add.i.i.i.i.i.i = add i64 %134, 64
   %cmp.i.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i.i, 32728
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then6.i.i
-  %136 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8, !noalias !46
-  %call.i.i.i.i.i.i.i.i70 = tail call noundef ptr %136(i64 noundef 32768)
+  %135 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8, !noalias !46
+  %call.i.i.i.i.i.i.i.i70 = tail call noundef ptr %135(i64 noundef 32768)
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i.i.i70, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
-  %137 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i70, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %137, i8 0, i64 32, i1 false), !noalias !46
+  %136 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i70, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %136, i8 0, i64 32, i1 false), !noalias !46
   store ptr %add.ptr4.i, ptr %call.i.i.i.i.i.i.i.i70, align 8, !noalias !46
-  %138 = load i64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
+  %137 = load i64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
+  %138 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
+  %busy_size.i.i.i.i.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xml_memory_page", ptr %138, i64 0, i32 3
+  store i64 %137, ptr %busy_size.i.i.i.i.i.i.i, align 8, !noalias !46
   %139 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
-  %busy_size.i.i.i.i.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xml_memory_page", ptr %139, i64 0, i32 3
-  store i64 %138, ptr %busy_size.i.i.i.i.i.i.i, align 8, !noalias !46
-  %140 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
-  store ptr %140, ptr %137, align 8, !noalias !46
-  %next.i.i.i.i.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xml_memory_page", ptr %140, i64 0, i32 2
+  store ptr %139, ptr %136, align 8, !noalias !46
+  %next.i.i.i.i.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xml_memory_page", ptr %139, i64 0, i32 2
   store ptr %call.i.i.i.i.i.i.i.i70, ptr %next.i.i.i.i.i.i.i, align 8, !noalias !46
   store ptr %call.i.i.i.i.i.i.i.i70, ptr %add.ptr4.i, align 8, !noalias !46
   store i64 64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
@@ -8569,14 +8568,14 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
   br label %if.end3.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then6.i.i
-  %141 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %141, i64 40
-  %add.ptr3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 %135
+  %140 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %140, i64 40
+  %add.ptr3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 %134
   store i64 %add.i.i.i.i.i.i, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
   br label %if.end3.i.i.i
 
 if.end3.i.i.i:                                    ; preds = %if.end.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
-  %page.0.ph.i.i.i.i = phi ptr [ %141, %if.end.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i70, %if.end.i.i.i.i.i.i.i ]
+  %page.0.ph.i.i.i.i = phi ptr [ %140, %if.end.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i70, %if.end.i.i.i.i.i.i.i ]
   %retval.0.i.i.ph.i.i.i.i = phi ptr [ %add.ptr3.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %name.i.i.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %retval.0.i.i.ph.i.i.i.i, i64 0, i32 1
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %retval.0.i.i.ph.i.i.i.i to i64
@@ -8588,17 +8587,17 @@ if.end3.i.i.i:                                    ; preds = %if.end.i.i.i.i.i.i,
   store i64 %or.i.i.i.i.i, ptr %retval.0.i.i.ph.i.i.i.i, align 8, !noalias !46
   %parent.i.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %retval.0.i.i.ph.i.i.i.i, i64 0, i32 3
   store ptr %cursor.0.ph.i.i, ptr %parent.i.i.i.i, align 8, !noalias !46
-  %142 = load ptr, ptr %first_child.i.i, align 8, !noalias !46
-  %tobool.not.i.i.i.i = icmp eq ptr %142, null
+  %141 = load ptr, ptr %first_child.i.i, align 8, !noalias !46
+  %tobool.not.i.i.i.i = icmp eq ptr %141, null
   br i1 %tobool.not.i.i.i.i, label %if.else.i.i.i.i45, label %if.then.i.i.i.i40
 
 if.then.i.i.i.i40:                                ; preds = %if.end3.i.i.i
-  %prev_sibling_c.i.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %142, i64 0, i32 5
-  %143 = load ptr, ptr %prev_sibling_c.i.i.i.i, align 8, !noalias !46
-  %next_sibling.i.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %143, i64 0, i32 6
+  %prev_sibling_c.i.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %141, i64 0, i32 5
+  %142 = load ptr, ptr %prev_sibling_c.i.i.i.i, align 8, !noalias !46
+  %next_sibling.i.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %142, i64 0, i32 6
   store ptr %retval.0.i.i.ph.i.i.i.i, ptr %next_sibling.i.i.i.i, align 8, !noalias !46
   %prev_sibling_c1.i.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %retval.0.i.i.ph.i.i.i.i, i64 0, i32 5
-  store ptr %143, ptr %prev_sibling_c1.i.i.i.i, align 8, !noalias !46
+  store ptr %142, ptr %prev_sibling_c1.i.i.i.i, align 8, !noalias !46
   br label %if.end.i.i41
 
 if.else.i.i.i.i45:                                ; preds = %if.end3.i.i.i
@@ -8610,53 +8609,53 @@ if.end.i.i41:                                     ; preds = %if.else.i.i.i.i45, 
   %prev_sibling_c4.sink.i.i.i.i = phi ptr [ %prev_sibling_c4.i.i.i.i, %if.else.i.i.i.i45 ], [ %prev_sibling_c.i.i.i.i, %if.then.i.i.i.i40 ]
   store ptr %retval.0.i.i.ph.i.i.i.i, ptr %prev_sibling_c4.sink.i.i.i.i, align 8, !noalias !46
   store ptr %s.addr.1.i.i, ptr %name.i.i.i.i.i, align 8, !noalias !46
-  %144 = load i8, ptr %s.addr.1.i.i, align 1, !noalias !46
-  %idxprom11637.i.i = zext i8 %144 to i64
+  %143 = load i8, ptr %s.addr.1.i.i, align 1, !noalias !46
+  %idxprom11637.i.i = zext i8 %143 to i64
   %arrayidx12638.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom11637.i.i
-  %145 = load i8, ptr %arrayidx12638.i.i, align 1, !noalias !46
-  %146 = and i8 %145, 64
-  %tobool15.not639.i.i = icmp eq i8 %146, 0
+  %144 = load i8, ptr %arrayidx12638.i.i, align 1, !noalias !46
+  %145 = and i8 %144, 64
+  %tobool15.not639.i.i = icmp eq i8 %145, 0
   br i1 %tobool15.not639.i.i, label %for.end.i.i, label %if.end18.i.i
 
 if.end18.i.i:                                     ; preds = %if.end.i.i41, %if.end50.i.i
   %s.addr.2640.i.i = phi ptr [ %add.ptr51.i.i, %if.end50.i.i ], [ %s.addr.1.i.i, %if.end.i.i41 ]
   %arrayidx19.i.i = getelementptr inbounds i8, ptr %s.addr.2640.i.i, i64 1
-  %147 = load i8, ptr %arrayidx19.i.i, align 1, !noalias !46
-  %idxprom20.i.i = zext i8 %147 to i64
+  %146 = load i8, ptr %arrayidx19.i.i, align 1, !noalias !46
+  %idxprom20.i.i = zext i8 %146 to i64
   %arrayidx21.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom20.i.i
-  %148 = load i8, ptr %arrayidx21.i.i, align 1, !noalias !46
-  %149 = and i8 %148, 64
-  %tobool24.not.i.i = icmp eq i8 %149, 0
+  %147 = load i8, ptr %arrayidx21.i.i, align 1, !noalias !46
+  %148 = and i8 %147, 64
+  %tobool24.not.i.i = icmp eq i8 %148, 0
   br i1 %tobool24.not.i.i, label %for.end.i.i.loopexit.split.loop.exit900, label %if.end28.i.i
 
 if.end28.i.i:                                     ; preds = %if.end18.i.i
   %arrayidx29.i.i = getelementptr inbounds i8, ptr %s.addr.2640.i.i, i64 2
-  %150 = load i8, ptr %arrayidx29.i.i, align 1, !noalias !46
-  %idxprom30.i.i = zext i8 %150 to i64
+  %149 = load i8, ptr %arrayidx29.i.i, align 1, !noalias !46
+  %idxprom30.i.i = zext i8 %149 to i64
   %arrayidx31.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom30.i.i
-  %151 = load i8, ptr %arrayidx31.i.i, align 1, !noalias !46
-  %152 = and i8 %151, 64
-  %tobool34.not.i.i = icmp eq i8 %152, 0
+  %150 = load i8, ptr %arrayidx31.i.i, align 1, !noalias !46
+  %151 = and i8 %150, 64
+  %tobool34.not.i.i = icmp eq i8 %151, 0
   br i1 %tobool34.not.i.i, label %for.end.i.i.loopexit.split.loop.exit896, label %if.end39.i.i
 
 if.end39.i.i:                                     ; preds = %if.end28.i.i
   %arrayidx40.i.i = getelementptr inbounds i8, ptr %s.addr.2640.i.i, i64 3
-  %153 = load i8, ptr %arrayidx40.i.i, align 1, !noalias !46
-  %idxprom41.i.i = zext i8 %153 to i64
+  %152 = load i8, ptr %arrayidx40.i.i, align 1, !noalias !46
+  %idxprom41.i.i = zext i8 %152 to i64
   %arrayidx42.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom41.i.i
-  %154 = load i8, ptr %arrayidx42.i.i, align 1, !noalias !46
-  %155 = and i8 %154, 64
-  %tobool45.not.i.i = icmp eq i8 %155, 0
+  %153 = load i8, ptr %arrayidx42.i.i, align 1, !noalias !46
+  %154 = and i8 %153, 64
+  %tobool45.not.i.i = icmp eq i8 %154, 0
   br i1 %tobool45.not.i.i, label %for.end.i.i.loopexit.split.loop.exit, label %if.end50.i.i
 
 if.end50.i.i:                                     ; preds = %if.end39.i.i
   %add.ptr51.i.i = getelementptr inbounds i8, ptr %s.addr.2640.i.i, i64 4
-  %156 = load i8, ptr %add.ptr51.i.i, align 1, !noalias !46
-  %idxprom11.i.i = zext i8 %156 to i64
+  %155 = load i8, ptr %add.ptr51.i.i, align 1, !noalias !46
+  %idxprom11.i.i = zext i8 %155 to i64
   %arrayidx12.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom11.i.i
-  %157 = load i8, ptr %arrayidx12.i.i, align 1, !noalias !46
-  %158 = and i8 %157, 64
-  %tobool15.not.i.i = icmp eq i8 %158, 0
+  %156 = load i8, ptr %arrayidx12.i.i, align 1, !noalias !46
+  %157 = and i8 %156, 64
+  %tobool15.not.i.i = icmp eq i8 %157, 0
   br i1 %tobool15.not.i.i, label %for.end.i.i, label %if.end18.i.i, !llvm.loop !52
 
 for.end.i.i.loopexit.split.loop.exit:             ; preds = %if.end39.i.i
@@ -8672,17 +8671,17 @@ for.end.i.i.loopexit.split.loop.exit900:          ; preds = %if.end18.i.i
   br label %for.end.i.i
 
 for.end.i.i:                                      ; preds = %if.end50.i.i, %for.end.i.i.loopexit.split.loop.exit, %for.end.i.i.loopexit.split.loop.exit896, %for.end.i.i.loopexit.split.loop.exit900, %if.end.i.i41
-  %159 = phi i8 [ %145, %if.end.i.i41 ], [ %154, %for.end.i.i.loopexit.split.loop.exit ], [ %151, %for.end.i.i.loopexit.split.loop.exit896 ], [ %148, %for.end.i.i.loopexit.split.loop.exit900 ], [ %157, %if.end50.i.i ]
-  %160 = phi i8 [ %144, %if.end.i.i41 ], [ %153, %for.end.i.i.loopexit.split.loop.exit ], [ %150, %for.end.i.i.loopexit.split.loop.exit896 ], [ %147, %for.end.i.i.loopexit.split.loop.exit900 ], [ %156, %if.end50.i.i ]
+  %158 = phi i8 [ %144, %if.end.i.i41 ], [ %153, %for.end.i.i.loopexit.split.loop.exit ], [ %150, %for.end.i.i.loopexit.split.loop.exit896 ], [ %147, %for.end.i.i.loopexit.split.loop.exit900 ], [ %156, %if.end50.i.i ]
+  %159 = phi i8 [ %143, %if.end.i.i41 ], [ %152, %for.end.i.i.loopexit.split.loop.exit ], [ %149, %for.end.i.i.loopexit.split.loop.exit896 ], [ %146, %for.end.i.i.loopexit.split.loop.exit900 ], [ %155, %if.end50.i.i ]
   %s.addr.3.i.i = phi ptr [ %s.addr.1.i.i, %if.end.i.i41 ], [ %arrayidx40.i.i.le, %for.end.i.i.loopexit.split.loop.exit ], [ %arrayidx29.i.i.le, %for.end.i.i.loopexit.split.loop.exit896 ], [ %arrayidx19.i.i.le, %for.end.i.i.loopexit.split.loop.exit900 ], [ %add.ptr51.i.i, %if.end50.i.i ]
   store i8 0, ptr %s.addr.3.i.i, align 1, !noalias !46
   %incdec.ptr52.i.i = getelementptr inbounds i8, ptr %s.addr.3.i.i, i64 1
-  %cmp54.i.i = icmp eq i8 %160, 62
+  %cmp54.i.i = icmp eq i8 %159, 62
   br i1 %cmp54.i.i, label %while.cond.outer.i.i.backedge, label %if.else.i.i42
 
 if.else.i.i42:                                    ; preds = %for.end.i.i
-  %161 = and i8 %159, 8
-  %tobool60.not.i.i = icmp eq i8 %161, 0
+  %160 = and i8 %158, 8
+  %tobool60.not.i.i = icmp eq i8 %160, 0
   br i1 %tobool60.not.i.i, label %if.else229.i.i, label %LOC_ATTRIBUTES.i.i
 
 LOC_ATTRIBUTES.i.i:                               ; preds = %if.end352.i.i, %if.else.i.i42
@@ -8693,12 +8692,12 @@ LOC_ATTRIBUTES.i.i:                               ; preds = %if.end352.i.i, %if.
 
 while.cond64.i.i:                                 ; preds = %while.cond64.i.i.backedge, %LOC_ATTRIBUTES.i.i
   %s.addr.6.i.i = phi ptr [ %s.addr.4.i.i, %LOC_ATTRIBUTES.i.i ], [ %s.addr.6.i.i.be, %while.cond64.i.i.backedge ]
-  %162 = load i8, ptr %s.addr.6.i.i, align 1, !noalias !46
-  %idxprom65.i.i = zext i8 %162 to i64
+  %161 = load i8, ptr %s.addr.6.i.i, align 1, !noalias !46
+  %idxprom65.i.i = zext i8 %161 to i64
   %arrayidx66.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom65.i.i
-  %163 = load i8, ptr %arrayidx66.i.i, align 1, !noalias !46
-  %164 = and i8 %163, 8
-  %tobool69.not.i.i = icmp eq i8 %164, 0
+  %162 = load i8, ptr %arrayidx66.i.i, align 1, !noalias !46
+  %163 = and i8 %162, 8
+  %tobool69.not.i.i = icmp eq i8 %163, 0
   %incdec.ptr71.i.i = getelementptr inbounds i8, ptr %s.addr.6.i.i, i64 1
   br i1 %tobool69.not.i.i, label %while.end.i.i, label %while.cond64.i.i.backedge
 
@@ -8707,32 +8706,32 @@ while.cond64.i.i.backedge:                        ; preds = %while.cond64.i.i, %
   br label %while.cond64.i.i, !llvm.loop !53
 
 while.end.i.i:                                    ; preds = %while.cond64.i.i
-  %tobool76.not.i.i = icmp sgt i8 %163, -1
+  %tobool76.not.i.i = icmp sgt i8 %162, -1
   br i1 %tobool76.not.i.i, label %if.else193.i.i, label %if.then77.i.i
 
 if.then77.i.i:                                    ; preds = %while.end.i.i
-  %165 = load i64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
-  %add.i.i.i.i185.i.i = add i64 %165, 40
+  %164 = load i64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
+  %add.i.i.i.i185.i.i = add i64 %164, 40
   %cmp.i.i.i.i186.i.i = icmp ugt i64 %add.i.i.i.i185.i.i, 32728
   br i1 %cmp.i.i.i.i186.i.i, label %if.then.i.i.i.i202.i.i, label %if.end.i.i.i.i187.i.i
 
 if.then.i.i.i.i202.i.i:                           ; preds = %if.then77.i.i
-  %166 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8, !noalias !46
-  %call.i.i.i.i.i.i203.i.i71 = tail call noundef ptr %166(i64 noundef 32768)
+  %165 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8, !noalias !46
+  %call.i.i.i.i.i.i203.i.i71 = tail call noundef ptr %165(i64 noundef 32768)
   %tobool.not.i.i.i.i.i.i204.i.i = icmp eq ptr %call.i.i.i.i.i.i203.i.i71, null
   br i1 %tobool.not.i.i.i.i.i.i204.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, label %if.end.i.i.i.i.i205.i.i
 
 if.end.i.i.i.i.i205.i.i:                          ; preds = %if.then.i.i.i.i202.i.i
-  %167 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i203.i.i71, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %167, i8 0, i64 32, i1 false), !noalias !46
+  %166 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i203.i.i71, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %166, i8 0, i64 32, i1 false), !noalias !46
   store ptr %add.ptr4.i, ptr %call.i.i.i.i.i.i203.i.i71, align 8, !noalias !46
-  %168 = load i64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
+  %167 = load i64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
+  %168 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
+  %busy_size.i.i.i.i.i206.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xml_memory_page", ptr %168, i64 0, i32 3
+  store i64 %167, ptr %busy_size.i.i.i.i.i206.i.i, align 8, !noalias !46
   %169 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
-  %busy_size.i.i.i.i.i206.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xml_memory_page", ptr %169, i64 0, i32 3
-  store i64 %168, ptr %busy_size.i.i.i.i.i206.i.i, align 8, !noalias !46
-  %170 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
-  store ptr %170, ptr %167, align 8, !noalias !46
-  %next.i.i.i.i.i207.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xml_memory_page", ptr %170, i64 0, i32 2
+  store ptr %169, ptr %166, align 8, !noalias !46
+  %next.i.i.i.i.i207.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xml_memory_page", ptr %169, i64 0, i32 2
   store ptr %call.i.i.i.i.i.i203.i.i71, ptr %next.i.i.i.i.i207.i.i, align 8, !noalias !46
   store ptr %call.i.i.i.i.i.i203.i.i71, ptr %add.ptr4.i, align 8, !noalias !46
   store i64 40, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
@@ -8740,14 +8739,14 @@ if.end.i.i.i.i.i205.i.i:                          ; preds = %if.then.i.i.i.i202.
   br label %if.end3.i190.i.i
 
 if.end.i.i.i.i187.i.i:                            ; preds = %if.then77.i.i
-  %171 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
-  %add.ptr.i.i.i.i188.i.i = getelementptr inbounds i8, ptr %171, i64 40
-  %add.ptr3.i.i.i.i189.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i188.i.i, i64 %165
+  %170 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
+  %add.ptr.i.i.i.i188.i.i = getelementptr inbounds i8, ptr %170, i64 40
+  %add.ptr3.i.i.i.i189.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i188.i.i, i64 %164
   store i64 %add.i.i.i.i185.i.i, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
   br label %if.end3.i190.i.i
 
 if.end3.i190.i.i:                                 ; preds = %if.end.i.i.i.i187.i.i, %if.end.i.i.i.i.i205.i.i
-  %page.0.ph.i.i191.i.i = phi ptr [ %171, %if.end.i.i.i.i187.i.i ], [ %call.i.i.i.i.i.i203.i.i71, %if.end.i.i.i.i.i205.i.i ]
+  %page.0.ph.i.i191.i.i = phi ptr [ %170, %if.end.i.i.i.i187.i.i ], [ %call.i.i.i.i.i.i203.i.i71, %if.end.i.i.i.i.i205.i.i ]
   %retval.0.i.i.ph.i.i192.i.i = phi ptr [ %add.ptr3.i.i.i.i189.i.i, %if.end.i.i.i.i187.i.i ], [ %add.ptr.i.i.i.i.i208.i.i, %if.end.i.i.i.i.i205.i.i ]
   %name.i.i.i193.i.i = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %retval.0.i.i.ph.i.i192.i.i, i64 0, i32 1
   %sub.ptr.lhs.cast.i.i.i194.i.i = ptrtoint ptr %retval.0.i.i.ph.i.i192.i.i to i64
@@ -8756,17 +8755,17 @@ if.end3.i190.i.i:                                 ; preds = %if.end.i.i.i.i187.i
   %shl.i.i.i197.i.i = shl i64 %sub.ptr.sub.i.i.i196.i.i, 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i193.i.i, i8 0, i64 32, i1 false), !noalias !46
   store i64 %shl.i.i.i197.i.i, ptr %retval.0.i.i.ph.i.i192.i.i, align 8, !noalias !46
-  %172 = load ptr, ptr %first_attribute.i.i.i.i, align 8, !noalias !46
-  %tobool.not.i.i198.i.i = icmp eq ptr %172, null
+  %171 = load ptr, ptr %first_attribute.i.i.i.i, align 8, !noalias !46
+  %tobool.not.i.i198.i.i = icmp eq ptr %171, null
   br i1 %tobool.not.i.i198.i.i, label %if.else.i.i201.i.i, label %if.then.i.i199.i.i
 
 if.then.i.i199.i.i:                               ; preds = %if.end3.i190.i.i
-  %prev_attribute_c.i.i.i.i = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %172, i64 0, i32 3
-  %173 = load ptr, ptr %prev_attribute_c.i.i.i.i, align 8, !noalias !46
-  %next_attribute.i.i.i.i = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %173, i64 0, i32 4
+  %prev_attribute_c.i.i.i.i = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %171, i64 0, i32 3
+  %172 = load ptr, ptr %prev_attribute_c.i.i.i.i, align 8, !noalias !46
+  %next_attribute.i.i.i.i = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %172, i64 0, i32 4
   store ptr %retval.0.i.i.ph.i.i192.i.i, ptr %next_attribute.i.i.i.i, align 8, !noalias !46
   %prev_attribute_c1.i.i.i.i = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %retval.0.i.i.ph.i.i192.i.i, i64 0, i32 3
-  store ptr %173, ptr %prev_attribute_c1.i.i.i.i, align 8, !noalias !46
+  store ptr %172, ptr %prev_attribute_c1.i.i.i.i, align 8, !noalias !46
   br label %if.end84.i.i
 
 if.else.i.i201.i.i:                               ; preds = %if.end3.i190.i.i
@@ -8778,53 +8777,53 @@ if.end84.i.i:                                     ; preds = %if.else.i.i201.i.i,
   %prev_attribute_c4.sink.i.i.i.i = phi ptr [ %prev_attribute_c4.i.i.i.i, %if.else.i.i201.i.i ], [ %prev_attribute_c.i.i.i.i, %if.then.i.i199.i.i ]
   store ptr %retval.0.i.i.ph.i.i192.i.i, ptr %prev_attribute_c4.sink.i.i.i.i, align 8, !noalias !46
   store ptr %s.addr.6.i.i, ptr %name.i.i.i193.i.i, align 8, !noalias !46
-  %174 = load i8, ptr %s.addr.6.i.i, align 1, !noalias !46
-  %idxprom89662.i.i = zext i8 %174 to i64
+  %173 = load i8, ptr %s.addr.6.i.i, align 1, !noalias !46
+  %idxprom89662.i.i = zext i8 %173 to i64
   %arrayidx90663.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom89662.i.i
-  %175 = load i8, ptr %arrayidx90663.i.i, align 1, !noalias !46
-  %176 = and i8 %175, 64
-  %tobool93.not664.i.i = icmp eq i8 %176, 0
+  %174 = load i8, ptr %arrayidx90663.i.i, align 1, !noalias !46
+  %175 = and i8 %174, 64
+  %tobool93.not664.i.i = icmp eq i8 %175, 0
   br i1 %tobool93.not664.i.i, label %for.end132.i.i, label %if.end97.i.i
 
 if.end97.i.i:                                     ; preds = %if.end84.i.i, %if.end130.i.i
   %s.addr.7665.i.i = phi ptr [ %add.ptr131.i.i, %if.end130.i.i ], [ %s.addr.6.i.i, %if.end84.i.i ]
   %arrayidx98.i.i = getelementptr inbounds i8, ptr %s.addr.7665.i.i, i64 1
-  %177 = load i8, ptr %arrayidx98.i.i, align 1, !noalias !46
-  %idxprom99.i.i = zext i8 %177 to i64
+  %176 = load i8, ptr %arrayidx98.i.i, align 1, !noalias !46
+  %idxprom99.i.i = zext i8 %176 to i64
   %arrayidx100.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom99.i.i
-  %178 = load i8, ptr %arrayidx100.i.i, align 1, !noalias !46
-  %179 = and i8 %178, 64
-  %tobool103.not.i.i = icmp eq i8 %179, 0
+  %177 = load i8, ptr %arrayidx100.i.i, align 1, !noalias !46
+  %178 = and i8 %177, 64
+  %tobool103.not.i.i = icmp eq i8 %178, 0
   br i1 %tobool103.not.i.i, label %for.end132.i.i.loopexit.split.loop.exit926, label %if.end108.i.i
 
 if.end108.i.i:                                    ; preds = %if.end97.i.i
   %arrayidx109.i.i = getelementptr inbounds i8, ptr %s.addr.7665.i.i, i64 2
-  %180 = load i8, ptr %arrayidx109.i.i, align 1, !noalias !46
-  %idxprom110.i.i = zext i8 %180 to i64
+  %179 = load i8, ptr %arrayidx109.i.i, align 1, !noalias !46
+  %idxprom110.i.i = zext i8 %179 to i64
   %arrayidx111.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom110.i.i
-  %181 = load i8, ptr %arrayidx111.i.i, align 1, !noalias !46
-  %182 = and i8 %181, 64
-  %tobool114.not.i.i = icmp eq i8 %182, 0
+  %180 = load i8, ptr %arrayidx111.i.i, align 1, !noalias !46
+  %181 = and i8 %180, 64
+  %tobool114.not.i.i = icmp eq i8 %181, 0
   br i1 %tobool114.not.i.i, label %for.end132.i.i.loopexit.split.loop.exit922, label %if.end119.i.i
 
 if.end119.i.i:                                    ; preds = %if.end108.i.i
   %arrayidx120.i.i = getelementptr inbounds i8, ptr %s.addr.7665.i.i, i64 3
-  %183 = load i8, ptr %arrayidx120.i.i, align 1, !noalias !46
-  %idxprom121.i.i = zext i8 %183 to i64
+  %182 = load i8, ptr %arrayidx120.i.i, align 1, !noalias !46
+  %idxprom121.i.i = zext i8 %182 to i64
   %arrayidx122.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom121.i.i
-  %184 = load i8, ptr %arrayidx122.i.i, align 1, !noalias !46
-  %185 = and i8 %184, 64
-  %tobool125.not.i.i = icmp eq i8 %185, 0
+  %183 = load i8, ptr %arrayidx122.i.i, align 1, !noalias !46
+  %184 = and i8 %183, 64
+  %tobool125.not.i.i = icmp eq i8 %184, 0
   br i1 %tobool125.not.i.i, label %for.end132.i.i.loopexit.split.loop.exit, label %if.end130.i.i
 
 if.end130.i.i:                                    ; preds = %if.end119.i.i
   %add.ptr131.i.i = getelementptr inbounds i8, ptr %s.addr.7665.i.i, i64 4
-  %186 = load i8, ptr %add.ptr131.i.i, align 1, !noalias !46
-  %idxprom89.i.i = zext i8 %186 to i64
+  %185 = load i8, ptr %add.ptr131.i.i, align 1, !noalias !46
+  %idxprom89.i.i = zext i8 %185 to i64
   %arrayidx90.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom89.i.i
-  %187 = load i8, ptr %arrayidx90.i.i, align 1, !noalias !46
-  %188 = and i8 %187, 64
-  %tobool93.not.i.i = icmp eq i8 %188, 0
+  %186 = load i8, ptr %arrayidx90.i.i, align 1, !noalias !46
+  %187 = and i8 %186, 64
+  %tobool93.not.i.i = icmp eq i8 %187, 0
   br i1 %tobool93.not.i.i, label %for.end132.i.i, label %if.end97.i.i, !llvm.loop !54
 
 for.end132.i.i.loopexit.split.loop.exit:          ; preds = %if.end119.i.i
@@ -8840,45 +8839,45 @@ for.end132.i.i.loopexit.split.loop.exit926:       ; preds = %if.end97.i.i
   br label %for.end132.i.i
 
 for.end132.i.i:                                   ; preds = %if.end130.i.i, %for.end132.i.i.loopexit.split.loop.exit, %for.end132.i.i.loopexit.split.loop.exit922, %for.end132.i.i.loopexit.split.loop.exit926, %if.end84.i.i
-  %189 = phi i8 [ %175, %if.end84.i.i ], [ %184, %for.end132.i.i.loopexit.split.loop.exit ], [ %181, %for.end132.i.i.loopexit.split.loop.exit922 ], [ %178, %for.end132.i.i.loopexit.split.loop.exit926 ], [ %187, %if.end130.i.i ]
-  %190 = phi i8 [ %174, %if.end84.i.i ], [ %183, %for.end132.i.i.loopexit.split.loop.exit ], [ %180, %for.end132.i.i.loopexit.split.loop.exit922 ], [ %177, %for.end132.i.i.loopexit.split.loop.exit926 ], [ %186, %if.end130.i.i ]
+  %188 = phi i8 [ %174, %if.end84.i.i ], [ %183, %for.end132.i.i.loopexit.split.loop.exit ], [ %180, %for.end132.i.i.loopexit.split.loop.exit922 ], [ %177, %for.end132.i.i.loopexit.split.loop.exit926 ], [ %186, %if.end130.i.i ]
+  %189 = phi i8 [ %173, %if.end84.i.i ], [ %182, %for.end132.i.i.loopexit.split.loop.exit ], [ %179, %for.end132.i.i.loopexit.split.loop.exit922 ], [ %176, %for.end132.i.i.loopexit.split.loop.exit926 ], [ %185, %if.end130.i.i ]
   %s.addr.8.i.i = phi ptr [ %s.addr.6.i.i, %if.end84.i.i ], [ %arrayidx120.i.i.le, %for.end132.i.i.loopexit.split.loop.exit ], [ %arrayidx109.i.i.le, %for.end132.i.i.loopexit.split.loop.exit922 ], [ %arrayidx98.i.i.le, %for.end132.i.i.loopexit.split.loop.exit926 ], [ %add.ptr131.i.i, %if.end130.i.i ]
   store i8 0, ptr %s.addr.8.i.i, align 1, !noalias !46
   %incdec.ptr133.i.i = getelementptr inbounds i8, ptr %s.addr.8.i.i, i64 1
-  %191 = and i8 %189, 8
-  %tobool138.not.i.i = icmp eq i8 %191, 0
+  %190 = and i8 %188, 8
+  %tobool138.not.i.i = icmp eq i8 %190, 0
   br i1 %tobool138.not.i.i, label %if.end150.i.i, label %while.cond140.i.i
 
 while.cond140.i.i:                                ; preds = %for.end132.i.i, %while.cond140.i.i
   %s.addr.9.i.i = phi ptr [ %incdec.ptr147.i.i, %while.cond140.i.i ], [ %incdec.ptr133.i.i, %for.end132.i.i ]
-  %192 = load i8, ptr %s.addr.9.i.i, align 1, !noalias !46
-  %idxprom141.i.i = zext i8 %192 to i64
+  %191 = load i8, ptr %s.addr.9.i.i, align 1, !noalias !46
+  %idxprom141.i.i = zext i8 %191 to i64
   %arrayidx142.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom141.i.i
-  %193 = load i8, ptr %arrayidx142.i.i, align 1, !noalias !46
-  %194 = and i8 %193, 8
-  %tobool145.not.i.i = icmp eq i8 %194, 0
+  %192 = load i8, ptr %arrayidx142.i.i, align 1, !noalias !46
+  %193 = and i8 %192, 8
+  %tobool145.not.i.i = icmp eq i8 %193, 0
   %incdec.ptr147.i.i = getelementptr inbounds i8, ptr %s.addr.9.i.i, i64 1
   br i1 %tobool145.not.i.i, label %if.end150.i.i, label %while.cond140.i.i, !llvm.loop !55
 
 if.end150.i.i:                                    ; preds = %while.cond140.i.i, %for.end132.i.i
-  %ch.0.i.i = phi i8 [ %190, %for.end132.i.i ], [ %192, %while.cond140.i.i ]
+  %ch.0.i.i = phi i8 [ %189, %for.end132.i.i ], [ %191, %while.cond140.i.i ]
   %s.addr.10.i.i = phi ptr [ %incdec.ptr133.i.i, %for.end132.i.i ], [ %incdec.ptr147.i.i, %while.cond140.i.i ]
   %cmp152.i.i = icmp eq i8 %ch.0.i.i, 61
   br i1 %cmp152.i.i, label %while.cond154.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
 while.cond154.i.i:                                ; preds = %if.end150.i.i, %while.cond154.i.i
   %s.addr.11.i.i = phi ptr [ %incdec.ptr161.i.i, %while.cond154.i.i ], [ %s.addr.10.i.i, %if.end150.i.i ]
-  %195 = load i8, ptr %s.addr.11.i.i, align 1, !noalias !46
-  %idxprom155.i.i = zext i8 %195 to i64
+  %194 = load i8, ptr %s.addr.11.i.i, align 1, !noalias !46
+  %idxprom155.i.i = zext i8 %194 to i64
   %arrayidx156.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom155.i.i
-  %196 = load i8, ptr %arrayidx156.i.i, align 1, !noalias !46
-  %197 = and i8 %196, 8
-  %tobool159.not.i.i = icmp eq i8 %197, 0
+  %195 = load i8, ptr %arrayidx156.i.i, align 1, !noalias !46
+  %196 = and i8 %195, 8
+  %tobool159.not.i.i = icmp eq i8 %196, 0
   %incdec.ptr161.i.i = getelementptr inbounds i8, ptr %s.addr.11.i.i, i64 1
   br i1 %tobool159.not.i.i, label %while.end162.i.i, label %while.cond154.i.i, !llvm.loop !56
 
 while.end162.i.i:                                 ; preds = %while.cond154.i.i
-  switch i8 %195, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i [
+  switch i8 %194, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i [
     i8 34, label %if.then167.i.i
     i8 39, label %if.then167.i.i
   ]
@@ -8886,71 +8885,71 @@ while.end162.i.i:                                 ; preds = %while.cond154.i.i
 if.then167.i.i:                                   ; preds = %while.end162.i.i, %while.end162.i.i
   %value.i.i = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %retval.0.i.i.ph.i.i192.i.i, i64 0, i32 2
   store ptr %incdec.ptr161.i.i, ptr %value.i.i, align 8, !noalias !46
-  %call169.i.i72 = tail call noundef ptr %switch.load(ptr noundef nonnull %incdec.ptr161.i.i, i8 noundef signext %195)
+  %call169.i.i72 = tail call noundef ptr %switch.load(ptr noundef nonnull %incdec.ptr161.i.i, i8 noundef signext %194)
   %tobool170.not.i.i = icmp eq ptr %call169.i.i72, null
   br i1 %tobool170.not.i.i, label %if.then171.i.i, label %if.end175.i.i
 
 if.then171.i.i:                                   ; preds = %if.then167.i.i
   %value.i.i.le = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %retval.0.i.i.ph.i.i192.i.i, i64 0, i32 2
-  %198 = load ptr, ptr %value.i.i.le, align 8, !noalias !46
+  %197 = load ptr, ptr %value.i.i.le, align 8, !noalias !46
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
 if.end175.i.i:                                    ; preds = %if.then167.i.i
-  %199 = load i8, ptr %call169.i.i72, align 1, !noalias !46
-  %idxprom176.i.i = zext i8 %199 to i64
+  %198 = load i8, ptr %call169.i.i72, align 1, !noalias !46
+  %idxprom176.i.i = zext i8 %198 to i64
   %arrayidx177.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom176.i.i
-  %200 = load i8, ptr %arrayidx177.i.i, align 1, !noalias !46
-  %tobool180.not.i.i = icmp sgt i8 %200, -1
+  %199 = load i8, ptr %arrayidx177.i.i, align 1, !noalias !46
+  %tobool180.not.i.i = icmp sgt i8 %199, -1
   br i1 %tobool180.not.i.i, label %while.cond64.i.i.backedge, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
 if.else193.i.i:                                   ; preds = %while.end.i.i
-  switch i8 %162, label %if.else217.i.i [
+  switch i8 %161, label %if.else217.i.i [
     i8 47, label %if.then196.i.i
     i8 62, label %while.cond.outer.i.i.backedge
   ]
 
 if.then196.i.i:                                   ; preds = %if.else193.i.i
-  %201 = load i8, ptr %incdec.ptr71.i.i, align 1, !noalias !46
-  %cmp199.i.i = icmp eq i8 %201, 62
+  %200 = load i8, ptr %incdec.ptr71.i.i, align 1, !noalias !46
+  %cmp199.i.i = icmp eq i8 %200, 62
   br i1 %cmp199.i.i, label %if.then200.i.i, label %if.else202.i.i
 
 if.then200.i.i:                                   ; preds = %if.then196.i.i
   %parent.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %cursor.2.i.i, i64 0, i32 3
-  %202 = load ptr, ptr %parent.i.i, align 8, !noalias !46
+  %201 = load ptr, ptr %parent.i.i, align 8, !noalias !46
   %incdec.ptr201.i.i = getelementptr inbounds i8, ptr %s.addr.6.i.i, i64 2
   br label %while.cond.outer.i.i.backedge
 
 if.else202.i.i:                                   ; preds = %if.then196.i.i
-  %cmp204.i.i = icmp eq i8 %201, 0
+  %cmp204.i.i = icmp eq i8 %200, 0
   %or.cond.i.i = and i1 %cmp256.not.i.i, %cmp204.i.i
   br i1 %or.cond.i.i, label %if.then207.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
 if.then207.i.i:                                   ; preds = %if.else202.i.i
   %parent208.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %cursor.2.i.i, i64 0, i32 3
-  %203 = load ptr, ptr %parent208.i.i, align 8, !noalias !46
+  %202 = load ptr, ptr %parent208.i.i, align 8, !noalias !46
   br label %while.cond.outer.i.i.backedge
 
 if.else217.i.i:                                   ; preds = %if.else193.i.i
-  %cmp219.i.i = icmp eq i8 %162, 0
+  %cmp219.i.i = icmp eq i8 %161, 0
   %or.cond1.i.i = and i1 %cmp256.not.i.i, %cmp219.i.i
   br i1 %or.cond1.i.i, label %while.cond.outer.i.i.backedge, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
 if.else229.i.i:                                   ; preds = %if.else.i.i42
-  switch i8 %160, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i [
+  switch i8 %159, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i [
     i8 47, label %if.then232.i.i
     i8 0, label %if.then253.i.i
   ]
 
 if.then232.i.i:                                   ; preds = %if.else229.i.i
-  %204 = load i8, ptr %incdec.ptr52.i.i, align 1, !noalias !46
-  %cmp234.i.i = icmp eq i8 %204, 62
-  %cmp237.i.i = icmp eq i8 %204, 0
+  %203 = load i8, ptr %incdec.ptr52.i.i, align 1, !noalias !46
+  %cmp234.i.i = icmp eq i8 %203, 62
+  %cmp237.i.i = icmp eq i8 %203, 0
   %or.cond2.i.i = and i1 %cmp256.not.i.i, %cmp237.i.i
   %or.cond687.i.i = or i1 %cmp234.i.i, %or.cond2.i.i
   br i1 %or.cond687.i.i, label %if.end244.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
 if.end244.i.i:                                    ; preds = %if.then232.i.i
-  %205 = load ptr, ptr %parent.i.i.i.i, align 8, !noalias !46
+  %204 = load ptr, ptr %parent.i.i.i.i, align 8, !noalias !46
   %idx.ext.i.i = zext i1 %cmp234.i.i to i64
   %add.ptr249.i.i = getelementptr inbounds i8, ptr %incdec.ptr52.i.i, i64 %idx.ext.i.i
   br label %while.cond.outer.i.i.backedge
@@ -8959,7 +8958,7 @@ if.then253.i.i:                                   ; preds = %if.else229.i.i
   br i1 %cmp256.not.i.i, label %while.cond.outer.i.i.backedge, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
 if.else268.i.i:                                   ; preds = %LOC_TAG.i.i
-  switch i8 %133, label %if.else366.i.i [
+  switch i8 %132, label %if.else366.i.i [
     i8 47, label %if.then271.i.i
     i8 63, label %if.then348.i.i
     i8 33, label %if.then361.i.i
@@ -8968,43 +8967,43 @@ if.else268.i.i:                                   ; preds = %LOC_TAG.i.i
 if.then271.i.i:                                   ; preds = %if.else268.i.i
   %incdec.ptr272.i.i = getelementptr inbounds i8, ptr %s.addr.1.i.i, i64 1
   %name274.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %cursor.0.ph.i.i, i64 0, i32 1
-  %206 = load ptr, ptr %name274.i.i, align 8, !noalias !46
-  %tobool275.not.i.i = icmp eq ptr %206, null
+  %205 = load ptr, ptr %name274.i.i, align 8, !noalias !46
+  %tobool275.not.i.i = icmp eq ptr %205, null
   br i1 %tobool275.not.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, label %while.cond280.i.i
 
 while.cond280.i.i:                                ; preds = %if.then271.i.i, %while.body286.i.i
-  %name273.0.i.i = phi ptr [ %incdec.ptr289.i.i, %while.body286.i.i ], [ %206, %if.then271.i.i ]
+  %name273.0.i.i = phi ptr [ %incdec.ptr289.i.i, %while.body286.i.i ], [ %205, %if.then271.i.i ]
   %s.addr.12.i.i = phi ptr [ %incdec.ptr287.i.i, %while.body286.i.i ], [ %incdec.ptr272.i.i, %if.then271.i.i ]
-  %207 = load i8, ptr %s.addr.12.i.i, align 1, !noalias !46
-  %idxprom281.i.i = zext i8 %207 to i64
+  %206 = load i8, ptr %s.addr.12.i.i, align 1, !noalias !46
+  %idxprom281.i.i = zext i8 %206 to i64
   %arrayidx282.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom281.i.i
-  %208 = load i8, ptr %arrayidx282.i.i, align 1, !noalias !46
-  %209 = and i8 %208, 64
-  %tobool285.not.i.i = icmp eq i8 %209, 0
+  %207 = load i8, ptr %arrayidx282.i.i, align 1, !noalias !46
+  %208 = and i8 %207, 64
+  %tobool285.not.i.i = icmp eq i8 %208, 0
   br i1 %tobool285.not.i.i, label %while.end296.i.i, label %while.body286.i.i
 
 while.body286.i.i:                                ; preds = %while.cond280.i.i
   %incdec.ptr287.i.i = getelementptr inbounds i8, ptr %s.addr.12.i.i, i64 1
   %incdec.ptr289.i.i = getelementptr inbounds i8, ptr %name273.0.i.i, i64 1
-  %210 = load i8, ptr %name273.0.i.i, align 1, !noalias !46
-  %cmp291.not.i.i = icmp eq i8 %207, %210
+  %209 = load i8, ptr %name273.0.i.i, align 1, !noalias !46
+  %cmp291.not.i.i = icmp eq i8 %206, %209
   br i1 %cmp291.not.i.i, label %while.cond280.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, !llvm.loop !57
 
 while.end296.i.i:                                 ; preds = %while.cond280.i.i
-  %211 = load i8, ptr %name273.0.i.i, align 1, !noalias !46
-  %tobool297.not.i.i = icmp eq i8 %211, 0
+  %210 = load i8, ptr %name273.0.i.i, align 1, !noalias !46
+  %tobool297.not.i.i = icmp eq i8 %210, 0
   br i1 %tobool297.not.i.i, label %if.end316.i.i, label %if.then298.i.i
 
 if.then298.i.i:                                   ; preds = %while.end296.i.i
-  %cmp300.i.i = icmp eq i8 %207, 0
-  %cmp305.i.i = icmp eq i8 %211, %123
+  %cmp300.i.i = icmp eq i8 %206, 0
+  %cmp305.i.i = icmp eq i8 %210, %122
   %or.cond169.i.i = and i1 %cmp300.i.i, %cmp305.i.i
   br i1 %or.cond169.i.i, label %land.lhs.true306.i.i, label %if.else313.i.i
 
 land.lhs.true306.i.i:                             ; preds = %if.then298.i.i
   %arrayidx307.i.i = getelementptr inbounds i8, ptr %name273.0.i.i, i64 1
-  %212 = load i8, ptr %arrayidx307.i.i, align 1, !noalias !46
-  %cmp309.i.i = icmp eq i8 %212, 0
+  %211 = load i8, ptr %arrayidx307.i.i, align 1, !noalias !46
+  %cmp309.i.i = icmp eq i8 %211, 0
   br i1 %cmp309.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, label %if.else313.i.i
 
 if.else313.i.i:                                   ; preds = %land.lhs.true306.i.i, %if.then298.i.i
@@ -9012,22 +9011,22 @@ if.else313.i.i:                                   ; preds = %land.lhs.true306.i.
 
 if.end316.i.i:                                    ; preds = %while.end296.i.i
   %parent317.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %cursor.0.ph.i.i, i64 0, i32 3
-  %213 = load ptr, ptr %parent317.i.i, align 8, !noalias !46
+  %212 = load ptr, ptr %parent317.i.i, align 8, !noalias !46
   br label %while.cond318.i.i
 
 while.cond318.i.i:                                ; preds = %while.cond318.i.i, %if.end316.i.i
   %s.addr.13.i.i = phi ptr [ %s.addr.12.i.i, %if.end316.i.i ], [ %incdec.ptr325.i.i, %while.cond318.i.i ]
-  %214 = load i8, ptr %s.addr.13.i.i, align 1, !noalias !46
-  %idxprom319.i.i = zext i8 %214 to i64
+  %213 = load i8, ptr %s.addr.13.i.i, align 1, !noalias !46
+  %idxprom319.i.i = zext i8 %213 to i64
   %arrayidx320.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom319.i.i
-  %215 = load i8, ptr %arrayidx320.i.i, align 1, !noalias !46
-  %216 = and i8 %215, 8
-  %tobool323.not.i.i = icmp eq i8 %216, 0
+  %214 = load i8, ptr %arrayidx320.i.i, align 1, !noalias !46
+  %215 = and i8 %214, 8
+  %tobool323.not.i.i = icmp eq i8 %215, 0
   %incdec.ptr325.i.i = getelementptr inbounds i8, ptr %s.addr.13.i.i, i64 1
   br i1 %tobool323.not.i.i, label %while.end326.i.i, label %while.cond318.i.i, !llvm.loop !58
 
 while.end326.i.i:                                 ; preds = %while.cond318.i.i
-  switch i8 %214, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i [
+  switch i8 %213, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i [
     i8 0, label %if.then329.i.i
     i8 62, label %while.cond.outer.i.i.backedge
   ]
@@ -9037,47 +9036,47 @@ if.then329.i.i:                                   ; preds = %while.end326.i.i
 
 if.then348.i.i:                                   ; preds = %if.else268.i.i
   %incdec.ptr.ptr.i.i.i = getelementptr inbounds i8, ptr %s.addr.1.i.i, i64 1
-  %217 = load i8, ptr %incdec.ptr.ptr.i.i.i, align 1, !noalias !46
-  %idxprom.i.i.i = zext i8 %217 to i64
+  %216 = load i8, ptr %incdec.ptr.ptr.i.i.i, align 1, !noalias !46
+  %idxprom.i.i.i = zext i8 %216 to i64
   %arrayidx.i.i.i61 = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom.i.i.i
-  %218 = load i8, ptr %arrayidx.i.i.i61, align 1, !noalias !46
-  %tobool.not.i.i.i62 = icmp sgt i8 %218, -1
+  %217 = load i8, ptr %arrayidx.i.i.i61, align 1, !noalias !46
+  %tobool.not.i.i.i62 = icmp sgt i8 %217, -1
   br i1 %tobool.not.i.i.i62, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %if.then348.i.i, %while.cond.i.i.i
   %s.addr.0.idx.i.i.i = phi i64 [ %s.addr.0.add.i.i.i, %while.cond.i.i.i ], [ 1, %if.then348.i.i ]
   %s.addr.0.ptr.i.i.i = getelementptr inbounds i8, ptr %s.addr.1.i.i, i64 %s.addr.0.idx.i.i.i
-  %219 = load i8, ptr %s.addr.0.ptr.i.i.i, align 1, !noalias !46
-  %idxprom2.i.i.i = zext i8 %219 to i64
+  %218 = load i8, ptr %s.addr.0.ptr.i.i.i, align 1, !noalias !46
+  %idxprom2.i.i.i = zext i8 %218 to i64
   %arrayidx3.i.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom2.i.i.i
-  %220 = load i8, ptr %arrayidx3.i.i.i, align 1, !noalias !46
-  %221 = and i8 %220, 64
-  %tobool6.not.i.i.i = icmp eq i8 %221, 0
+  %219 = load i8, ptr %arrayidx3.i.i.i, align 1, !noalias !46
+  %220 = and i8 %219, 64
+  %tobool6.not.i.i.i = icmp eq i8 %220, 0
   %s.addr.0.add.i.i.i = add nuw nsw i64 %s.addr.0.idx.i.i.i, 1
   br i1 %tobool6.not.i.i.i, label %while.end.i.i.i, label %while.cond.i.i.i, !llvm.loop !59
 
 while.end.i.i.i:                                  ; preds = %while.cond.i.i.i
   %s.addr.0.ptr.i.i.i.le = getelementptr inbounds i8, ptr %s.addr.1.i.i, i64 %s.addr.0.idx.i.i.i
-  %cmp.i.i.i63 = icmp eq i8 %219, 0
+  %cmp.i.i.i63 = icmp eq i8 %218, 0
   br i1 %cmp.i.i.i63, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, label %if.end12.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %while.end.i.i.i
-  %222 = and i8 %217, -33
-  %cmp15.i.i.i64 = icmp eq i8 %222, 88
+  %221 = and i8 %216, -33
+  %cmp15.i.i.i64 = icmp eq i8 %221, 88
   br i1 %cmp15.i.i.i64, label %land.lhs.true.i.i.i, label %.thread.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end12.i.i.i
   %arrayidx16.i.i.i = getelementptr inbounds i8, ptr %s.addr.1.i.i, i64 2
-  %223 = load i8, ptr %arrayidx16.i.i.i, align 1, !noalias !46
-  %224 = and i8 %223, -33
-  %cmp19.i.i.i = icmp eq i8 %224, 77
+  %222 = load i8, ptr %arrayidx16.i.i.i, align 1, !noalias !46
+  %223 = and i8 %222, -33
+  %cmp19.i.i.i = icmp eq i8 %223, 77
   br i1 %cmp19.i.i.i, label %land.end.i.i.i, label %.thread.i.i.i
 
 land.end.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
   %arrayidx21.i.i.i = getelementptr inbounds i8, ptr %s.addr.1.i.i, i64 3
-  %225 = load i8, ptr %arrayidx21.i.i.i, align 1, !noalias !46
-  %226 = and i8 %225, -33
-  %cmp24.i.i.i = icmp eq i8 %226, 76
+  %224 = load i8, ptr %arrayidx21.i.i.i, align 1, !noalias !46
+  %225 = and i8 %224, -33
+  %cmp24.i.i.i = icmp eq i8 %225, 76
   %cmp25.i.i.i = icmp eq i64 %s.addr.0.idx.i.i.i, 4
   %spec.select.i.i.i = and i1 %cmp25.i.i.i, %cmp24.i.i.i
   %cond.fr.i.i.i = freeze i1 %spec.select.i.i.i
@@ -9093,9 +9092,9 @@ while.cond134.preheader.i.i.i:                    ; preds = %.thread.i.i.i, %lan
   br i1 %cmp256.not.i.i, label %while.cond134.i.i.i, label %while.cond134.us.i.i.i
 
 while.cond134.us.i.i.i:                           ; preds = %while.cond134.preheader.i.i.i, %while.body157.us.i.i.i
-  %227 = phi i8 [ %.pre132.i.i.i, %while.body157.us.i.i.i ], [ %219, %while.cond134.preheader.i.i.i ]
+  %226 = phi i8 [ %.pre132.i.i.i, %while.body157.us.i.i.i ], [ %218, %while.cond134.preheader.i.i.i ]
   %s.addr.3.us.i.i.i = phi ptr [ %incdec.ptr158.us.i.i.i, %while.body157.us.i.i.i ], [ %s.addr.0.ptr.i.i.i.le, %while.cond134.preheader.i.i.i ]
-  switch i8 %227, label %while.cond134.us.while.body157.us_crit_edge.i.i.i [
+  switch i8 %226, label %while.cond134.us.while.body157.us_crit_edge.i.i.i [
     i8 0, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
     i8 63, label %land.rhs141.us.i.i.i
   ]
@@ -9107,12 +9106,12 @@ while.cond134.us.while.body157.us_crit_edge.i.i.i: ; preds = %while.cond134.us.i
 
 land.rhs141.us.i.i.i:                             ; preds = %while.cond134.us.i.i.i
   %arrayidx142.us.i.i.i = getelementptr inbounds i8, ptr %s.addr.3.us.i.i.i, i64 1
-  %228 = load i8, ptr %arrayidx142.us.i.i.i, align 1, !noalias !46
-  %cmp144.us.i.i.i = icmp eq i8 %228, 62
+  %227 = load i8, ptr %arrayidx142.us.i.i.i, align 1, !noalias !46
+  %cmp144.us.i.i.i = icmp eq i8 %227, 62
   br i1 %cmp144.us.i.i.i, label %if.end165.i.i.i, label %while.body157.us.i.i.i
 
 while.body157.us.i.i.i:                           ; preds = %land.rhs141.us.i.i.i, %while.cond134.us.while.body157.us_crit_edge.i.i.i
-  %.pre132.i.i.i = phi i8 [ %.pre132.pre.i.i.i, %while.cond134.us.while.body157.us_crit_edge.i.i.i ], [ %228, %land.rhs141.us.i.i.i ]
+  %.pre132.i.i.i = phi i8 [ %.pre132.pre.i.i.i, %while.cond134.us.while.body157.us_crit_edge.i.i.i ], [ %227, %land.rhs141.us.i.i.i ]
   %incdec.ptr158.us.i.i.i = getelementptr inbounds i8, ptr %s.addr.3.us.i.i.i, i64 1
   br label %while.cond134.us.i.i.i, !llvm.loop !60
 
@@ -9121,33 +9120,33 @@ if.then30.i.i.i:                                  ; preds = %land.end.i.i.i
 
 if.then32.i.i.i:                                  ; preds = %if.then30.i.i.i
   %parent.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %cursor.0.ph.i.i, i64 0, i32 3
-  %229 = load ptr, ptr %parent.i.i.i, align 8, !noalias !46
-  %tobool33.not.i.i.i = icmp eq ptr %229, null
+  %228 = load ptr, ptr %parent.i.i.i, align 8, !noalias !46
+  %tobool33.not.i.i.i = icmp eq ptr %228, null
   br i1 %tobool33.not.i.i.i, label %if.end37.i.i.i67, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
 if.end37.i.i.i67:                                 ; preds = %if.then32.i.i.i
-  %230 = load i64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
-  %add.i.i.i.i.i.i.i = add i64 %230, 64
+  %229 = load i64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
+  %add.i.i.i.i.i.i.i = add i64 %229, 64
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i.i.i, 32728
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i210.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end37.i.i.i67
-  %231 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8, !noalias !46
-  %call.i.i.i.i.i.i.i.i.i73 = tail call noundef ptr %231(i64 noundef 32768)
+  %230 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8, !noalias !46
+  %call.i.i.i.i.i.i.i.i.i73 = tail call noundef ptr %230(i64 noundef 32768)
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i.i.i.i73, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, label %if.end.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i.i
-  %232 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i73, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %232, i8 0, i64 32, i1 false), !noalias !46
+  %231 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i73, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %231, i8 0, i64 32, i1 false), !noalias !46
   store ptr %add.ptr4.i, ptr %call.i.i.i.i.i.i.i.i.i73, align 8, !noalias !46
-  %233 = load i64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
+  %232 = load i64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
+  %233 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
+  %busy_size.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xml_memory_page", ptr %233, i64 0, i32 3
+  store i64 %232, ptr %busy_size.i.i.i.i.i.i.i.i, align 8, !noalias !46
   %234 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
-  %busy_size.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xml_memory_page", ptr %234, i64 0, i32 3
-  store i64 %233, ptr %busy_size.i.i.i.i.i.i.i.i, align 8, !noalias !46
-  %235 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
-  store ptr %235, ptr %232, align 8, !noalias !46
-  %next.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xml_memory_page", ptr %235, i64 0, i32 2
+  store ptr %234, ptr %231, align 8, !noalias !46
+  %next.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xml_memory_page", ptr %234, i64 0, i32 2
   store ptr %call.i.i.i.i.i.i.i.i.i73, ptr %next.i.i.i.i.i.i.i.i, align 8, !noalias !46
   store ptr %call.i.i.i.i.i.i.i.i.i73, ptr %add.ptr4.i, align 8, !noalias !46
   store i64 64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
@@ -9155,14 +9154,14 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   br label %if.end3.i.i.i.i
 
 if.end.i.i.i.i.i210.i.i:                          ; preds = %if.end37.i.i.i67
-  %236 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
-  %add.ptr.i.i.i.i.i211.i.i = getelementptr inbounds i8, ptr %236, i64 40
-  %add.ptr3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i211.i.i, i64 %230
+  %235 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
+  %add.ptr.i.i.i.i.i211.i.i = getelementptr inbounds i8, ptr %235, i64 40
+  %add.ptr3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i211.i.i, i64 %229
   store i64 %add.i.i.i.i.i.i.i, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
   br label %if.end3.i.i.i.i
 
 if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i.i210.i.i, %if.end.i.i.i.i.i.i.i.i
-  %page.0.ph.i.i.i.i.i = phi ptr [ %236, %if.end.i.i.i.i.i210.i.i ], [ %call.i.i.i.i.i.i.i.i.i73, %if.end.i.i.i.i.i.i.i.i ]
+  %page.0.ph.i.i.i.i.i = phi ptr [ %235, %if.end.i.i.i.i.i210.i.i ], [ %call.i.i.i.i.i.i.i.i.i73, %if.end.i.i.i.i.i.i.i.i ]
   %retval.0.i.i.ph.i.i.i.i.i = phi ptr [ %add.ptr3.i.i.i.i.i.i.i, %if.end.i.i.i.i.i210.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ]
   %name.i.i.i.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %retval.0.i.i.ph.i.i.i.i.i, i64 0, i32 1
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %retval.0.i.i.ph.i.i.i.i.i to i64
@@ -9174,17 +9173,17 @@ if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i.i210
   store i64 %or.i.i.i.i.i.i, ptr %retval.0.i.i.ph.i.i.i.i.i, align 8, !noalias !46
   %parent.i.i.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %retval.0.i.i.ph.i.i.i.i.i, i64 0, i32 3
   store ptr %cursor.0.ph.i.i, ptr %parent.i.i.i.i.i, align 8, !noalias !46
-  %237 = load ptr, ptr %first_child.i.i, align 8, !noalias !46
-  %tobool.not.i.i.i.i.i = icmp eq ptr %237, null
+  %236 = load ptr, ptr %first_child.i.i, align 8, !noalias !46
+  %tobool.not.i.i.i.i.i = icmp eq ptr %236, null
   br i1 %tobool.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end3.i.i.i.i
-  %prev_sibling_c.i.i.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %237, i64 0, i32 5
-  %238 = load ptr, ptr %prev_sibling_c.i.i.i.i.i, align 8, !noalias !46
-  %next_sibling.i.i.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %238, i64 0, i32 6
+  %prev_sibling_c.i.i.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %236, i64 0, i32 5
+  %237 = load ptr, ptr %prev_sibling_c.i.i.i.i.i, align 8, !noalias !46
+  %next_sibling.i.i.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %237, i64 0, i32 6
   store ptr %retval.0.i.i.ph.i.i.i.i.i, ptr %next_sibling.i.i.i.i.i, align 8, !noalias !46
   %prev_sibling_c1.i.i.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %retval.0.i.i.ph.i.i.i.i.i, i64 0, i32 5
-  store ptr %238, ptr %prev_sibling_c1.i.i.i.i.i, align 8, !noalias !46
+  store ptr %237, ptr %prev_sibling_c1.i.i.i.i.i, align 8, !noalias !46
   br label %_ZN4pugi4impl12_GLOBAL__N_115append_new_nodeEPNS_15xml_node_structERNS1_13xml_allocatorENS_13xml_node_typeE.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end3.i.i.i.i
@@ -9198,28 +9197,28 @@ _ZN4pugi4impl12_GLOBAL__N_115append_new_nodeEPNS_15xml_node_structERNS1_13xml_al
   br label %if.end50.i.i.i
 
 if.else.i.i.i65:                                  ; preds = %if.then30.i.i.i, %.thread.i.i.i
-  %239 = load i64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
-  %add.i.i.i.i69.i.i.i = add i64 %239, 64
+  %238 = load i64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
+  %add.i.i.i.i69.i.i.i = add i64 %238, 64
   %cmp.i.i.i.i70.i.i.i = icmp ugt i64 %add.i.i.i.i69.i.i.i, 32728
   br i1 %cmp.i.i.i.i70.i.i.i, label %if.then.i.i.i.i95.i.i.i, label %if.end.i.i.i.i71.i.i.i
 
 if.then.i.i.i.i95.i.i.i:                          ; preds = %if.else.i.i.i65
-  %240 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8, !noalias !46
-  %call.i.i.i.i.i.i96.i.i.i74 = tail call noundef ptr %240(i64 noundef 32768)
+  %239 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8, !noalias !46
+  %call.i.i.i.i.i.i96.i.i.i74 = tail call noundef ptr %239(i64 noundef 32768)
   %tobool.not.i.i.i.i.i.i97.i.i.i = icmp eq ptr %call.i.i.i.i.i.i96.i.i.i74, null
   br i1 %tobool.not.i.i.i.i.i.i97.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, label %if.end.i.i.i.i.i98.i.i.i
 
 if.end.i.i.i.i.i98.i.i.i:                         ; preds = %if.then.i.i.i.i95.i.i.i
-  %241 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i96.i.i.i74, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %241, i8 0, i64 32, i1 false), !noalias !46
+  %240 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i96.i.i.i74, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %240, i8 0, i64 32, i1 false), !noalias !46
   store ptr %add.ptr4.i, ptr %call.i.i.i.i.i.i96.i.i.i74, align 8, !noalias !46
-  %242 = load i64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
+  %241 = load i64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
+  %242 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
+  %busy_size.i.i.i.i.i99.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xml_memory_page", ptr %242, i64 0, i32 3
+  store i64 %241, ptr %busy_size.i.i.i.i.i99.i.i.i, align 8, !noalias !46
   %243 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
-  %busy_size.i.i.i.i.i99.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xml_memory_page", ptr %243, i64 0, i32 3
-  store i64 %242, ptr %busy_size.i.i.i.i.i99.i.i.i, align 8, !noalias !46
-  %244 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
-  store ptr %244, ptr %241, align 8, !noalias !46
-  %next.i.i.i.i.i100.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xml_memory_page", ptr %244, i64 0, i32 2
+  store ptr %243, ptr %240, align 8, !noalias !46
+  %next.i.i.i.i.i100.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xml_memory_page", ptr %243, i64 0, i32 2
   store ptr %call.i.i.i.i.i.i96.i.i.i74, ptr %next.i.i.i.i.i100.i.i.i, align 8, !noalias !46
   store ptr %call.i.i.i.i.i.i96.i.i.i74, ptr %add.ptr4.i, align 8, !noalias !46
   store i64 64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
@@ -9227,14 +9226,14 @@ if.end.i.i.i.i.i98.i.i.i:                         ; preds = %if.then.i.i.i.i95.i
   br label %if.end3.i74.i.i.i
 
 if.end.i.i.i.i71.i.i.i:                           ; preds = %if.else.i.i.i65
-  %245 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
-  %add.ptr.i.i.i.i72.i.i.i = getelementptr inbounds i8, ptr %245, i64 40
-  %add.ptr3.i.i.i.i73.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i72.i.i.i, i64 %239
+  %244 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
+  %add.ptr.i.i.i.i72.i.i.i = getelementptr inbounds i8, ptr %244, i64 40
+  %add.ptr3.i.i.i.i73.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i72.i.i.i, i64 %238
   store i64 %add.i.i.i.i69.i.i.i, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
   br label %if.end3.i74.i.i.i
 
 if.end3.i74.i.i.i:                                ; preds = %if.end.i.i.i.i71.i.i.i, %if.end.i.i.i.i.i98.i.i.i
-  %page.0.ph.i.i75.i.i.i = phi ptr [ %245, %if.end.i.i.i.i71.i.i.i ], [ %call.i.i.i.i.i.i96.i.i.i74, %if.end.i.i.i.i.i98.i.i.i ]
+  %page.0.ph.i.i75.i.i.i = phi ptr [ %244, %if.end.i.i.i.i71.i.i.i ], [ %call.i.i.i.i.i.i96.i.i.i74, %if.end.i.i.i.i.i98.i.i.i ]
   %retval.0.i.i.ph.i.i76.i.i.i = phi ptr [ %add.ptr3.i.i.i.i73.i.i.i, %if.end.i.i.i.i71.i.i.i ], [ %add.ptr.i.i.i.i.i101.i.i.i, %if.end.i.i.i.i.i98.i.i.i ]
   %name.i.i.i77.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %retval.0.i.i.ph.i.i76.i.i.i, i64 0, i32 1
   %sub.ptr.lhs.cast.i.i.i78.i.i.i = ptrtoint ptr %retval.0.i.i.ph.i.i76.i.i.i to i64
@@ -9246,17 +9245,17 @@ if.end3.i74.i.i.i:                                ; preds = %if.end.i.i.i.i71.i.
   store i64 %or.i.i.i82.i.i.i, ptr %retval.0.i.i.ph.i.i76.i.i.i, align 8, !noalias !46
   %parent.i.i83.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %retval.0.i.i.ph.i.i76.i.i.i, i64 0, i32 3
   store ptr %cursor.0.ph.i.i, ptr %parent.i.i83.i.i.i, align 8, !noalias !46
-  %246 = load ptr, ptr %first_child.i.i, align 8, !noalias !46
-  %tobool.not.i.i85.i.i.i = icmp eq ptr %246, null
+  %245 = load ptr, ptr %first_child.i.i, align 8, !noalias !46
+  %tobool.not.i.i85.i.i.i = icmp eq ptr %245, null
   br i1 %tobool.not.i.i85.i.i.i, label %if.else.i.i93.i.i.i, label %if.then.i.i86.i.i.i
 
 if.then.i.i86.i.i.i:                              ; preds = %if.end3.i74.i.i.i
-  %prev_sibling_c.i.i87.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %246, i64 0, i32 5
-  %247 = load ptr, ptr %prev_sibling_c.i.i87.i.i.i, align 8, !noalias !46
-  %next_sibling.i.i88.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %247, i64 0, i32 6
+  %prev_sibling_c.i.i87.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %245, i64 0, i32 5
+  %246 = load ptr, ptr %prev_sibling_c.i.i87.i.i.i, align 8, !noalias !46
+  %next_sibling.i.i88.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %246, i64 0, i32 6
   store ptr %retval.0.i.i.ph.i.i76.i.i.i, ptr %next_sibling.i.i88.i.i.i, align 8, !noalias !46
   %prev_sibling_c1.i.i89.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %retval.0.i.i.ph.i.i76.i.i.i, i64 0, i32 5
-  store ptr %247, ptr %prev_sibling_c1.i.i89.i.i.i, align 8, !noalias !46
+  store ptr %246, ptr %prev_sibling_c1.i.i89.i.i.i, align 8, !noalias !46
   br label %_ZN4pugi4impl12_GLOBAL__N_115append_new_nodeEPNS_15xml_node_structERNS1_13xml_allocatorENS_13xml_node_typeE.exit102.i.i.i
 
 if.else.i.i93.i.i.i:                              ; preds = %if.end3.i74.i.i.i
@@ -9270,20 +9269,20 @@ _ZN4pugi4impl12_GLOBAL__N_115append_new_nodeEPNS_15xml_node_structERNS1_13xml_al
   br label %if.end50.i.i.i
 
 if.end50.i.i.i:                                   ; preds = %_ZN4pugi4impl12_GLOBAL__N_115append_new_nodeEPNS_15xml_node_structERNS1_13xml_allocatorENS_13xml_node_typeE.exit102.i.i.i, %_ZN4pugi4impl12_GLOBAL__N_115append_new_nodeEPNS_15xml_node_structERNS1_13xml_allocatorENS_13xml_node_typeE.exit.i.i.i
-  %248 = phi i1 [ true, %_ZN4pugi4impl12_GLOBAL__N_115append_new_nodeEPNS_15xml_node_structERNS1_13xml_allocatorENS_13xml_node_typeE.exit.i.i.i ], [ false, %_ZN4pugi4impl12_GLOBAL__N_115append_new_nodeEPNS_15xml_node_structERNS1_13xml_allocatorENS_13xml_node_typeE.exit102.i.i.i ]
+  %247 = phi i1 [ true, %_ZN4pugi4impl12_GLOBAL__N_115append_new_nodeEPNS_15xml_node_structERNS1_13xml_allocatorENS_13xml_node_typeE.exit.i.i.i ], [ false, %_ZN4pugi4impl12_GLOBAL__N_115append_new_nodeEPNS_15xml_node_structERNS1_13xml_allocatorENS_13xml_node_typeE.exit102.i.i.i ]
   %cursor.0.i.i.i = phi ptr [ %retval.0.i.i.ph.i.i.i.i.i, %_ZN4pugi4impl12_GLOBAL__N_115append_new_nodeEPNS_15xml_node_structERNS1_13xml_allocatorENS_13xml_node_typeE.exit.i.i.i ], [ %retval.0.i.i.ph.i.i76.i.i.i, %_ZN4pugi4impl12_GLOBAL__N_115append_new_nodeEPNS_15xml_node_structERNS1_13xml_allocatorENS_13xml_node_typeE.exit102.i.i.i ]
   %name.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %cursor.0.i.i.i, i64 0, i32 1
   store ptr %incdec.ptr.ptr.i.i.i, ptr %name.i.i.i, align 8, !noalias !46
-  %249 = load i8, ptr %s.addr.0.ptr.i.i.i.le, align 1, !noalias !46
+  %248 = load i8, ptr %s.addr.0.ptr.i.i.i.le, align 1, !noalias !46
   store i8 0, ptr %s.addr.0.ptr.i.i.i.le, align 1, !noalias !46
   %incdec.ptr51.i.i.i = getelementptr inbounds i8, ptr %s.addr.0.ptr.i.i.i.le, i64 1
-  %cmp53.i.i.i = icmp eq i8 %249, 63
+  %cmp53.i.i.i = icmp eq i8 %248, 63
   br i1 %cmp53.i.i.i, label %if.then54.i.i.i, label %if.else71.i.i.i
 
 if.then54.i.i.i:                                  ; preds = %if.end50.i.i.i
-  %250 = load i8, ptr %incdec.ptr51.i.i.i, align 1, !noalias !46
-  %cmp56.i.i.i = icmp eq i8 %250, 62
-  %cmp58.i.i.i = icmp eq i8 %250, 0
+  %249 = load i8, ptr %incdec.ptr51.i.i.i, align 1, !noalias !46
+  %cmp56.i.i.i = icmp eq i8 %249, 62
+  %cmp58.i.i.i = icmp eq i8 %249, 0
   %or.cond.i.i.i66 = and i1 %cmp256.not.i.i, %cmp58.i.i.i
   %or.cond688.i.i = or i1 %cmp56.i.i.i, %or.cond.i.i.i66
   br i1 %or.cond688.i.i, label %if.end65.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
@@ -9292,25 +9291,25 @@ if.end65.i.i.i:                                   ; preds = %if.then54.i.i.i
   %idx.ext.i.i.i = zext i1 %cmp56.i.i.i to i64
   %add.ptr69.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr51.i.i.i, i64 %idx.ext.i.i.i
   %parent70.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %cursor.0.i.i.i, i64 0, i32 3
-  %251 = load ptr, ptr %parent70.i.i.i, align 8, !noalias !46
+  %250 = load ptr, ptr %parent70.i.i.i, align 8, !noalias !46
   br label %if.end352.i.i
 
 if.else71.i.i.i:                                  ; preds = %if.end50.i.i.i
-  %idxprom72.i.i.i = zext i8 %249 to i64
+  %idxprom72.i.i.i = zext i8 %248 to i64
   %arrayidx73.i.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom72.i.i.i
-  %252 = load i8, ptr %arrayidx73.i.i.i, align 1, !noalias !46
-  %253 = and i8 %252, 8
-  %tobool76.not.i.i.i = icmp eq i8 %253, 0
+  %251 = load i8, ptr %arrayidx73.i.i.i, align 1, !noalias !46
+  %252 = and i8 %251, 8
+  %tobool76.not.i.i.i = icmp eq i8 %252, 0
   br i1 %tobool76.not.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, label %while.cond78.i.i.i
 
 while.cond78.i.i.i:                               ; preds = %if.else71.i.i.i, %while.cond78.i.i.i
   %s.addr.1.i.i.i = phi ptr [ %incdec.ptr85.i.i.i, %while.cond78.i.i.i ], [ %incdec.ptr51.i.i.i, %if.else71.i.i.i ]
-  %254 = load i8, ptr %s.addr.1.i.i.i, align 1, !noalias !46
-  %idxprom79.i.i.i = zext i8 %254 to i64
+  %253 = load i8, ptr %s.addr.1.i.i.i, align 1, !noalias !46
+  %idxprom79.i.i.i = zext i8 %253 to i64
   %arrayidx80.i.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom79.i.i.i
-  %255 = load i8, ptr %arrayidx80.i.i.i, align 1, !noalias !46
-  %256 = and i8 %255, 8
-  %tobool83.not.i.i.i = icmp eq i8 %256, 0
+  %254 = load i8, ptr %arrayidx80.i.i.i, align 1, !noalias !46
+  %255 = and i8 %254, 8
+  %tobool83.not.i.i.i = icmp eq i8 %255, 0
   %incdec.ptr85.i.i.i = getelementptr inbounds i8, ptr %s.addr.1.i.i.i, i64 1
   br i1 %tobool83.not.i.i.i, label %while.cond87.preheader.i.i.i, label %while.cond78.i.i.i, !llvm.loop !61
 
@@ -9318,9 +9317,9 @@ while.cond87.preheader.i.i.i:                     ; preds = %while.cond78.i.i.i
   br i1 %cmp256.not.i.i, label %while.cond87.i.i.i, label %while.cond87.us.i.i.i
 
 while.cond87.us.i.i.i:                            ; preds = %while.cond87.preheader.i.i.i, %while.body107.us.i.i.i
-  %257 = phi i8 [ %.pre.i.i.i, %while.body107.us.i.i.i ], [ %254, %while.cond87.preheader.i.i.i ]
+  %256 = phi i8 [ %.pre.i.i.i, %while.body107.us.i.i.i ], [ %253, %while.cond87.preheader.i.i.i ]
   %s.addr.2.us.i.i.i = phi ptr [ %incdec.ptr108.us.i.i.i, %while.body107.us.i.i.i ], [ %s.addr.1.i.i.i, %while.cond87.preheader.i.i.i ]
-  switch i8 %257, label %while.cond87.us.while.body107.us_crit_edge.i.i.i [
+  switch i8 %256, label %while.cond87.us.while.body107.us_crit_edge.i.i.i [
     i8 0, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
     i8 63, label %land.rhs94.us.i.i.i
   ]
@@ -9332,19 +9331,19 @@ while.cond87.us.while.body107.us_crit_edge.i.i.i: ; preds = %while.cond87.us.i.i
 
 land.rhs94.us.i.i.i:                              ; preds = %while.cond87.us.i.i.i
   %arrayidx95.us.i.i.i = getelementptr inbounds i8, ptr %s.addr.2.us.i.i.i, i64 1
-  %258 = load i8, ptr %arrayidx95.us.i.i.i, align 1, !noalias !46
-  %cmp97.us.i.i.i = icmp eq i8 %258, 62
+  %257 = load i8, ptr %arrayidx95.us.i.i.i, align 1, !noalias !46
+  %cmp97.us.i.i.i = icmp eq i8 %257, 62
   br i1 %cmp97.us.i.i.i, label %if.end115.i.i.i, label %while.body107.us.i.i.i
 
 while.body107.us.i.i.i:                           ; preds = %land.rhs94.us.i.i.i, %while.cond87.us.while.body107.us_crit_edge.i.i.i
-  %.pre.i.i.i = phi i8 [ %.pre.pre.i.i.i, %while.cond87.us.while.body107.us_crit_edge.i.i.i ], [ %258, %land.rhs94.us.i.i.i ]
+  %.pre.i.i.i = phi i8 [ %.pre.pre.i.i.i, %while.cond87.us.while.body107.us_crit_edge.i.i.i ], [ %257, %land.rhs94.us.i.i.i ]
   %incdec.ptr108.us.i.i.i = getelementptr inbounds i8, ptr %s.addr.2.us.i.i.i, i64 1
   br label %while.cond87.us.i.i.i, !llvm.loop !62
 
 while.cond87.i.i.i:                               ; preds = %while.cond87.preheader.i.i.i, %while.body107.i.i.i
-  %259 = phi i8 [ %.pre130.i.i.i, %while.body107.i.i.i ], [ %254, %while.cond87.preheader.i.i.i ]
+  %258 = phi i8 [ %.pre130.i.i.i, %while.body107.i.i.i ], [ %253, %while.cond87.preheader.i.i.i ]
   %s.addr.2.i.i.i = phi ptr [ %incdec.ptr108.i.i.i, %while.body107.i.i.i ], [ %s.addr.1.i.i.i, %while.cond87.preheader.i.i.i ]
-  switch i8 %259, label %while.cond87.while.body107_crit_edge.i.i.i [
+  switch i8 %258, label %while.cond87.while.body107_crit_edge.i.i.i [
     i8 0, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
     i8 63, label %land.rhs94.i.i.i
   ]
@@ -9356,20 +9355,20 @@ while.cond87.while.body107_crit_edge.i.i.i:       ; preds = %while.cond87.i.i.i
 
 land.rhs94.i.i.i:                                 ; preds = %while.cond87.i.i.i
   %arrayidx95.i.i.i = getelementptr inbounds i8, ptr %s.addr.2.i.i.i, i64 1
-  %260 = load i8, ptr %arrayidx95.i.i.i, align 1, !noalias !46
-  switch i8 %260, label %while.body107.i.i.i [
+  %259 = load i8, ptr %arrayidx95.i.i.i, align 1, !noalias !46
+  switch i8 %259, label %while.body107.i.i.i [
     i8 62, label %if.end115.i.i.i
     i8 0, label %if.end115.i.i.i
   ]
 
 while.body107.i.i.i:                              ; preds = %land.rhs94.i.i.i, %while.cond87.while.body107_crit_edge.i.i.i
-  %.pre130.i.i.i = phi i8 [ %.pre130.pre.i.i.i, %while.cond87.while.body107_crit_edge.i.i.i ], [ %260, %land.rhs94.i.i.i ]
+  %.pre130.i.i.i = phi i8 [ %.pre130.pre.i.i.i, %while.cond87.while.body107_crit_edge.i.i.i ], [ %259, %land.rhs94.i.i.i ]
   %incdec.ptr108.i.i.i = getelementptr inbounds i8, ptr %s.addr.2.i.i.i, i64 1
   br label %while.cond87.i.i.i, !llvm.loop !62
 
 if.end115.i.i.i:                                  ; preds = %land.rhs94.us.i.i.i, %land.rhs94.i.i.i, %land.rhs94.i.i.i
   %.us-phi116.i.i.i = phi ptr [ %s.addr.2.i.i.i, %land.rhs94.i.i.i ], [ %s.addr.2.i.i.i, %land.rhs94.i.i.i ], [ %s.addr.2.us.i.i.i, %land.rhs94.us.i.i.i ]
-  br i1 %248, label %if.then117.i.i.i, label %if.else118.i.i.i
+  br i1 %247, label %if.then117.i.i.i, label %if.else118.i.i.i
 
 if.then117.i.i.i:                                 ; preds = %if.end115.i.i.i
   store i8 47, ptr %.us-phi116.i.i.i, align 1, !noalias !46
@@ -9379,19 +9378,19 @@ if.else118.i.i.i:                                 ; preds = %if.end115.i.i.i
   %value119.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %cursor.0.i.i.i, i64 0, i32 2
   store ptr %s.addr.1.i.i.i, ptr %value119.i.i.i, align 8, !noalias !46
   %parent120.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %cursor.0.i.i.i, i64 0, i32 3
-  %261 = load ptr, ptr %parent120.i.i.i, align 8, !noalias !46
+  %260 = load ptr, ptr %parent120.i.i.i, align 8, !noalias !46
   store i8 0, ptr %.us-phi116.i.i.i, align 1, !noalias !46
   %incdec.ptr121.i.i.i = getelementptr inbounds i8, ptr %.us-phi116.i.i.i, i64 1
-  %262 = load i8, ptr %incdec.ptr121.i.i.i, align 1, !noalias !46
-  %cmp123.i.i.i = icmp eq i8 %262, 62
+  %261 = load i8, ptr %incdec.ptr121.i.i.i, align 1, !noalias !46
+  %cmp123.i.i.i = icmp eq i8 %261, 62
   %idx.ext125.i.i.i = zext i1 %cmp123.i.i.i to i64
   %add.ptr126.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr121.i.i.i, i64 %idx.ext125.i.i.i
   br label %if.end352.i.i
 
 while.cond134.i.i.i:                              ; preds = %while.cond134.preheader.i.i.i, %while.body157.i.i.i
-  %263 = phi i8 [ %.pre134.i.i.i, %while.body157.i.i.i ], [ %219, %while.cond134.preheader.i.i.i ]
+  %262 = phi i8 [ %.pre134.i.i.i, %while.body157.i.i.i ], [ %218, %while.cond134.preheader.i.i.i ]
   %s.addr.3.i.i.i = phi ptr [ %incdec.ptr158.i.i.i, %while.body157.i.i.i ], [ %s.addr.0.ptr.i.i.i.le, %while.cond134.preheader.i.i.i ]
-  switch i8 %263, label %while.cond134.while.body157_crit_edge.i.i.i [
+  switch i8 %262, label %while.cond134.while.body157_crit_edge.i.i.i [
     i8 0, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
     i8 63, label %land.rhs141.i.i.i
   ]
@@ -9403,40 +9402,40 @@ while.cond134.while.body157_crit_edge.i.i.i:      ; preds = %while.cond134.i.i.i
 
 land.rhs141.i.i.i:                                ; preds = %while.cond134.i.i.i
   %arrayidx142.i.i.i = getelementptr inbounds i8, ptr %s.addr.3.i.i.i, i64 1
-  %264 = load i8, ptr %arrayidx142.i.i.i, align 1, !noalias !46
-  switch i8 %264, label %while.body157.i.i.i [
+  %263 = load i8, ptr %arrayidx142.i.i.i, align 1, !noalias !46
+  switch i8 %263, label %while.body157.i.i.i [
     i8 62, label %if.end165.loopexit.i.i.i
     i8 0, label %if.end165.loopexit.i.i.i
   ]
 
 while.body157.i.i.i:                              ; preds = %land.rhs141.i.i.i, %while.cond134.while.body157_crit_edge.i.i.i
-  %.pre134.i.i.i = phi i8 [ %.pre134.pre.i.i.i, %while.cond134.while.body157_crit_edge.i.i.i ], [ %264, %land.rhs141.i.i.i ]
+  %.pre134.i.i.i = phi i8 [ %.pre134.pre.i.i.i, %while.cond134.while.body157_crit_edge.i.i.i ], [ %263, %land.rhs141.i.i.i ]
   %incdec.ptr158.i.i.i = getelementptr inbounds i8, ptr %s.addr.3.i.i.i, i64 1
   br label %while.cond134.i.i.i, !llvm.loop !60
 
 if.end165.loopexit.i.i.i:                         ; preds = %land.rhs141.i.i.i, %land.rhs141.i.i.i
-  %265 = icmp eq i8 %264, 62
-  %266 = select i1 %265, i64 2, i64 1
+  %264 = icmp eq i8 %263, 62
+  %265 = select i1 %264, i64 2, i64 1
   br label %if.end165.i.i.i
 
 if.end165.i.i.i:                                  ; preds = %land.rhs141.us.i.i.i, %if.end165.loopexit.i.i.i
-  %cmp168.i.i.i = phi i64 [ %266, %if.end165.loopexit.i.i.i ], [ 2, %land.rhs141.us.i.i.i ]
+  %cmp168.i.i.i = phi i64 [ %265, %if.end165.loopexit.i.i.i ], [ 2, %land.rhs141.us.i.i.i ]
   %.us-phi118.i.i.i = phi ptr [ %s.addr.3.i.i.i, %if.end165.loopexit.i.i.i ], [ %s.addr.3.us.i.i.i, %land.rhs141.us.i.i.i ]
   %add.ptr171.i.i.i = getelementptr inbounds i8, ptr %.us-phi118.i.i.i, i64 %cmp168.i.i.i
   br label %if.end352.i.i
 
 if.end352.i.i:                                    ; preds = %if.end165.i.i.i, %if.else118.i.i.i, %if.then117.i.i.i, %if.end65.i.i.i
-  %cursor.3.i.i = phi ptr [ %251, %if.end65.i.i.i ], [ %cursor.0.i.i.i, %if.then117.i.i.i ], [ %261, %if.else118.i.i.i ], [ %cursor.0.ph.i.i, %if.end165.i.i.i ]
+  %cursor.3.i.i = phi ptr [ %250, %if.end65.i.i.i ], [ %cursor.0.i.i.i, %if.then117.i.i.i ], [ %260, %if.else118.i.i.i ], [ %cursor.0.ph.i.i, %if.end165.i.i.i ]
   %retval.0.i209.i.i = phi ptr [ %add.ptr69.i.i.i, %if.end65.i.i.i ], [ %s.addr.1.i.i.i, %if.then117.i.i.i ], [ %add.ptr126.i.i.i, %if.else118.i.i.i ], [ %add.ptr171.i.i.i, %if.end165.i.i.i ]
-  %267 = load i64, ptr %cursor.3.i.i, align 8, !noalias !46
-  %conv354168.i.i = and i64 %267, 15
+  %266 = load i64, ptr %cursor.3.i.i, align 8, !noalias !46
+  %conv354168.i.i = and i64 %266, 15
   %cmp355.i.i = icmp eq i64 %conv354168.i.i, 7
   br i1 %cmp355.i.i, label %LOC_ATTRIBUTES.i.i, label %while.cond.outer.i.i.backedge
 
 if.then361.i.i:                                   ; preds = %if.else268.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %s.addr.1.i.i, i64 1
-  %268 = load i8, ptr %incdec.ptr.i.i.i, align 1, !noalias !46
-  switch i8 %268, label %if.else270.i.i.i [
+  %267 = load i8, ptr %incdec.ptr.i.i.i, align 1, !noalias !46
+  switch i8 %267, label %if.else270.i.i.i [
     i8 45, label %if.then.i224.i.i
     i8 91, label %if.then65.i.i.i
     i8 68, label %land.lhs.true204.i.i.i
@@ -9444,8 +9443,8 @@ if.then361.i.i:                                   ; preds = %if.else268.i.i
 
 if.then.i224.i.i:                                 ; preds = %if.then361.i.i
   %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %s.addr.1.i.i, i64 2
-  %269 = load i8, ptr %incdec.ptr2.i.i.i, align 1, !noalias !46
-  %cmp4.i.i.i53 = icmp eq i8 %269, 45
+  %268 = load i8, ptr %incdec.ptr2.i.i.i, align 1, !noalias !46
+  %cmp4.i.i.i53 = icmp eq i8 %268, 45
   br i1 %cmp4.i.i.i53, label %if.then5.i.i.i54, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit
 
 if.then5.i.i.i54:                                 ; preds = %if.then.i224.i.i
@@ -9453,28 +9452,28 @@ if.then5.i.i.i54:                                 ; preds = %if.then.i224.i.i
   br i1 %tobool.not.i226.i.i, label %if.end10.i.i.i, label %if.then7.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.then5.i.i.i54
-  %270 = load i64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
-  %add.i.i.i.i.i228.i.i = add i64 %270, 64
+  %269 = load i64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
+  %add.i.i.i.i.i228.i.i = add i64 %269, 64
   %cmp.i.i.i.i.i229.i.i = icmp ugt i64 %add.i.i.i.i.i228.i.i, 32728
   br i1 %cmp.i.i.i.i.i229.i.i, label %if.then.i.i.i.i.i261.i.i, label %if.end.i.i.i.i.i230.i.i
 
 if.then.i.i.i.i.i261.i.i:                         ; preds = %if.then7.i.i.i
-  %271 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8, !noalias !46
-  %call.i.i.i.i.i.i.i262.i.i75 = tail call noundef ptr %271(i64 noundef 32768)
+  %270 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8, !noalias !46
+  %call.i.i.i.i.i.i.i262.i.i75 = tail call noundef ptr %270(i64 noundef 32768)
   %tobool.not.i.i.i.i.i.i.i263.i.i = icmp eq ptr %call.i.i.i.i.i.i.i262.i.i75, null
   br i1 %tobool.not.i.i.i.i.i.i.i263.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, label %if.end.i.i.i.i.i.i264.i.i
 
 if.end.i.i.i.i.i.i264.i.i:                        ; preds = %if.then.i.i.i.i.i261.i.i
-  %272 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i262.i.i75, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %272, i8 0, i64 32, i1 false), !noalias !46
+  %271 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i262.i.i75, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %271, i8 0, i64 32, i1 false), !noalias !46
   store ptr %add.ptr4.i, ptr %call.i.i.i.i.i.i.i262.i.i75, align 8, !noalias !46
-  %273 = load i64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
+  %272 = load i64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
+  %273 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
+  %busy_size.i.i.i.i.i.i265.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xml_memory_page", ptr %273, i64 0, i32 3
+  store i64 %272, ptr %busy_size.i.i.i.i.i.i265.i.i, align 8, !noalias !46
   %274 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
-  %busy_size.i.i.i.i.i.i265.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xml_memory_page", ptr %274, i64 0, i32 3
-  store i64 %273, ptr %busy_size.i.i.i.i.i.i265.i.i, align 8, !noalias !46
-  %275 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
-  store ptr %275, ptr %272, align 8, !noalias !46
-  %next.i.i.i.i.i.i266.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xml_memory_page", ptr %275, i64 0, i32 2
+  store ptr %274, ptr %271, align 8, !noalias !46
+  %next.i.i.i.i.i.i266.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xml_memory_page", ptr %274, i64 0, i32 2
   store ptr %call.i.i.i.i.i.i.i262.i.i75, ptr %next.i.i.i.i.i.i266.i.i, align 8, !noalias !46
   store ptr %call.i.i.i.i.i.i.i262.i.i75, ptr %add.ptr4.i, align 8, !noalias !46
   store i64 64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
@@ -9482,14 +9481,14 @@ if.end.i.i.i.i.i.i264.i.i:                        ; preds = %if.then.i.i.i.i.i26
   br label %if.end3.i.i233.i.i
 
 if.end.i.i.i.i.i230.i.i:                          ; preds = %if.then7.i.i.i
-  %276 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
-  %add.ptr.i.i.i.i.i231.i.i = getelementptr inbounds i8, ptr %276, i64 40
-  %add.ptr3.i.i.i.i.i232.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i231.i.i, i64 %270
+  %275 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
+  %add.ptr.i.i.i.i.i231.i.i = getelementptr inbounds i8, ptr %275, i64 40
+  %add.ptr3.i.i.i.i.i232.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i231.i.i, i64 %269
   store i64 %add.i.i.i.i.i228.i.i, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
   br label %if.end3.i.i233.i.i
 
 if.end3.i.i233.i.i:                               ; preds = %if.end.i.i.i.i.i230.i.i, %if.end.i.i.i.i.i.i264.i.i
-  %page.0.ph.i.i.i234.i.i = phi ptr [ %276, %if.end.i.i.i.i.i230.i.i ], [ %call.i.i.i.i.i.i.i262.i.i75, %if.end.i.i.i.i.i.i264.i.i ]
+  %page.0.ph.i.i.i234.i.i = phi ptr [ %275, %if.end.i.i.i.i.i230.i.i ], [ %call.i.i.i.i.i.i.i262.i.i75, %if.end.i.i.i.i.i.i264.i.i ]
   %retval.0.i.i.ph.i.i.i235.i.i = phi ptr [ %add.ptr3.i.i.i.i.i232.i.i, %if.end.i.i.i.i.i230.i.i ], [ %add.ptr.i.i.i.i.i.i267.i.i, %if.end.i.i.i.i.i.i264.i.i ]
   %name.i.i.i.i236.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %retval.0.i.i.ph.i.i.i235.i.i, i64 0, i32 1
   %sub.ptr.lhs.cast.i.i.i.i237.i.i = ptrtoint ptr %retval.0.i.i.ph.i.i.i235.i.i to i64
@@ -9501,17 +9500,17 @@ if.end3.i.i233.i.i:                               ; preds = %if.end.i.i.i.i.i230
   store i64 %or.i.i.i.i241.i.i, ptr %retval.0.i.i.ph.i.i.i235.i.i, align 8, !noalias !46
   %parent.i.i.i242.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %retval.0.i.i.ph.i.i.i235.i.i, i64 0, i32 3
   store ptr %cursor.0.ph.i.i, ptr %parent.i.i.i242.i.i, align 8, !noalias !46
-  %277 = load ptr, ptr %first_child.i.i, align 8, !noalias !46
-  %tobool.not.i.i.i244.i.i = icmp eq ptr %277, null
+  %276 = load ptr, ptr %first_child.i.i, align 8, !noalias !46
+  %tobool.not.i.i.i244.i.i = icmp eq ptr %276, null
   br i1 %tobool.not.i.i.i244.i.i, label %if.else.i.i.i259.i.i, label %if.then.i.i.i245.i.i
 
 if.then.i.i.i245.i.i:                             ; preds = %if.end3.i.i233.i.i
-  %prev_sibling_c.i.i.i246.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %277, i64 0, i32 5
-  %278 = load ptr, ptr %prev_sibling_c.i.i.i246.i.i, align 8, !noalias !46
-  %next_sibling.i.i.i247.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %278, i64 0, i32 6
+  %prev_sibling_c.i.i.i246.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %276, i64 0, i32 5
+  %277 = load ptr, ptr %prev_sibling_c.i.i.i246.i.i, align 8, !noalias !46
+  %next_sibling.i.i.i247.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %277, i64 0, i32 6
   store ptr %retval.0.i.i.ph.i.i.i235.i.i, ptr %next_sibling.i.i.i247.i.i, align 8, !noalias !46
   %prev_sibling_c1.i.i.i248.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %retval.0.i.i.ph.i.i.i235.i.i, i64 0, i32 5
-  store ptr %278, ptr %prev_sibling_c1.i.i.i248.i.i, align 8, !noalias !46
+  store ptr %277, ptr %prev_sibling_c1.i.i.i248.i.i, align 8, !noalias !46
   br label %if.end.i.i.i55
 
 if.else.i.i.i259.i.i:                             ; preds = %if.end3.i.i233.i.i
@@ -9535,22 +9534,22 @@ while.cond.preheader.i.i.i:                       ; preds = %if.end10.i.i.i
 
 while.cond.us.i.i.i:                              ; preds = %while.cond.preheader.i.i.i, %while.body.us.i.i.i
   %s.addr.0.us.i.i.i = phi ptr [ %incdec.ptr43.us.i.i.i, %while.body.us.i.i.i ], [ %incdec.ptr6.i.i.i, %while.cond.preheader.i.i.i ]
-  %279 = load i8, ptr %s.addr.0.us.i.i.i, align 1, !noalias !46
-  switch i8 %279, label %while.body.us.i.i.i [
+  %278 = load i8, ptr %s.addr.0.us.i.i.i, align 1, !noalias !46
+  switch i8 %278, label %while.body.us.i.i.i [
     i8 0, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
     i8 45, label %land.lhs.true27.us.i.i.i
   ]
 
 land.lhs.true27.us.i.i.i:                         ; preds = %while.cond.us.i.i.i
   %arrayidx28.us.i.i.i = getelementptr inbounds i8, ptr %s.addr.0.us.i.i.i, i64 1
-  %280 = load i8, ptr %arrayidx28.us.i.i.i, align 1, !noalias !46
-  %cmp30.us.i.i.i = icmp eq i8 %280, 45
+  %279 = load i8, ptr %arrayidx28.us.i.i.i, align 1, !noalias !46
+  %cmp30.us.i.i.i = icmp eq i8 %279, 45
   br i1 %cmp30.us.i.i.i, label %land.rhs31.us.i.i.i, label %while.body.us.i.i.i
 
 land.rhs31.us.i.i.i:                              ; preds = %land.lhs.true27.us.i.i.i
   %arrayidx32.us.i.i.i = getelementptr inbounds i8, ptr %s.addr.0.us.i.i.i, i64 2
-  %281 = load i8, ptr %arrayidx32.us.i.i.i, align 1, !noalias !46
-  %cmp34.us.i.i.i = icmp eq i8 %281, 62
+  %280 = load i8, ptr %arrayidx32.us.i.i.i, align 1, !noalias !46
+  %cmp34.us.i.i.i = icmp eq i8 %280, 62
   br i1 %cmp34.us.i.i.i, label %if.end49.i.i.i, label %while.body.us.i.i.i
 
 while.body.us.i.i.i:                              ; preds = %land.rhs31.us.i.i.i, %land.lhs.true27.us.i.i.i, %while.cond.us.i.i.i
@@ -9559,53 +9558,53 @@ while.body.us.i.i.i:                              ; preds = %land.rhs31.us.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.backedge, %while.body.i.i.i.i.outer
   %s.addr.0.i.i.i.i = phi ptr [ %s.addr.0.i.i.i.i.ph, %while.body.i.i.i.i.outer ], [ %s.addr.0.i.i.i.i.be, %while.body.i.i.i.i.backedge ]
-  %282 = load i8, ptr %s.addr.0.i.i.i.i, align 1, !noalias !46
-  %idxprom35.i.i.i.i = zext i8 %282 to i64
+  %281 = load i8, ptr %s.addr.0.i.i.i.i, align 1, !noalias !46
+  %idxprom35.i.i.i.i = zext i8 %281 to i64
   %arrayidx136.i.i.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom35.i.i.i.i
-  %283 = load i8, ptr %arrayidx136.i.i.i.i, align 1, !noalias !46
-  %284 = and i8 %283, 32
-  %tobool.not37.i.i.i.i = icmp eq i8 %284, 0
+  %282 = load i8, ptr %arrayidx136.i.i.i.i, align 1, !noalias !46
+  %283 = and i8 %282, 32
+  %tobool.not37.i.i.i.i = icmp eq i8 %283, 0
   br i1 %tobool.not37.i.i.i.i, label %if.end.i.i.i.i, label %for.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %while.body.i.i.i.i, %if.end38.i.i.i.i
   %s.addr.138.i.i.i.i = phi ptr [ %add.ptr39.i.i.i.i, %if.end38.i.i.i.i ], [ %s.addr.0.i.i.i.i, %while.body.i.i.i.i ]
   %arrayidx4.i.i.i.i58 = getelementptr inbounds i8, ptr %s.addr.138.i.i.i.i, i64 1
-  %285 = load i8, ptr %arrayidx4.i.i.i.i58, align 1, !noalias !46
-  %idxprom5.i.i.i.i = zext i8 %285 to i64
+  %284 = load i8, ptr %arrayidx4.i.i.i.i58, align 1, !noalias !46
+  %idxprom5.i.i.i.i = zext i8 %284 to i64
   %arrayidx6.i.i.i.i59 = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom5.i.i.i.i
-  %286 = load i8, ptr %arrayidx6.i.i.i.i59, align 1, !noalias !46
-  %287 = and i8 %286, 32
-  %tobool9.not.i.i.i.i = icmp eq i8 %287, 0
+  %285 = load i8, ptr %arrayidx6.i.i.i.i59, align 1, !noalias !46
+  %286 = and i8 %285, 32
+  %tobool9.not.i.i.i.i = icmp eq i8 %286, 0
   br i1 %tobool9.not.i.i.i.i, label %if.end14.i.i.i.i, label %for.end.i.i.i.i.loopexit.split.loop.exit913
 
 if.end14.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %arrayidx15.i.i.i.i = getelementptr inbounds i8, ptr %s.addr.138.i.i.i.i, i64 2
-  %288 = load i8, ptr %arrayidx15.i.i.i.i, align 1, !noalias !46
-  %idxprom16.i.i.i.i = zext i8 %288 to i64
+  %287 = load i8, ptr %arrayidx15.i.i.i.i, align 1, !noalias !46
+  %idxprom16.i.i.i.i = zext i8 %287 to i64
   %arrayidx17.i.i.i.i60 = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom16.i.i.i.i
-  %289 = load i8, ptr %arrayidx17.i.i.i.i60, align 1, !noalias !46
-  %290 = and i8 %289, 32
-  %tobool20.not.i.i.i.i = icmp eq i8 %290, 0
+  %288 = load i8, ptr %arrayidx17.i.i.i.i60, align 1, !noalias !46
+  %289 = and i8 %288, 32
+  %tobool20.not.i.i.i.i = icmp eq i8 %289, 0
   br i1 %tobool20.not.i.i.i.i, label %if.end26.i.i.i.i, label %for.end.i.i.i.i.loopexit.split.loop.exit910
 
 if.end26.i.i.i.i:                                 ; preds = %if.end14.i.i.i.i
   %arrayidx27.i.i.i.i = getelementptr inbounds i8, ptr %s.addr.138.i.i.i.i, i64 3
-  %291 = load i8, ptr %arrayidx27.i.i.i.i, align 1, !noalias !46
-  %idxprom28.i.i.i.i = zext i8 %291 to i64
+  %290 = load i8, ptr %arrayidx27.i.i.i.i, align 1, !noalias !46
+  %idxprom28.i.i.i.i = zext i8 %290 to i64
   %arrayidx29.i.i.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom28.i.i.i.i
-  %292 = load i8, ptr %arrayidx29.i.i.i.i, align 1, !noalias !46
-  %293 = and i8 %292, 32
-  %tobool32.not.i.i.i.i = icmp eq i8 %293, 0
+  %291 = load i8, ptr %arrayidx29.i.i.i.i, align 1, !noalias !46
+  %292 = and i8 %291, 32
+  %tobool32.not.i.i.i.i = icmp eq i8 %292, 0
   br i1 %tobool32.not.i.i.i.i, label %if.end38.i.i.i.i, label %for.end.i.i.i.i.loopexit.split.loop.exit
 
 if.end38.i.i.i.i:                                 ; preds = %if.end26.i.i.i.i
   %add.ptr39.i.i.i.i = getelementptr inbounds i8, ptr %s.addr.138.i.i.i.i, i64 4
-  %294 = load i8, ptr %add.ptr39.i.i.i.i, align 1, !noalias !46
-  %idxprom.i.i.i.i = zext i8 %294 to i64
+  %293 = load i8, ptr %add.ptr39.i.i.i.i, align 1, !noalias !46
+  %idxprom.i.i.i.i = zext i8 %293 to i64
   %arrayidx1.i.i.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom.i.i.i.i
-  %295 = load i8, ptr %arrayidx1.i.i.i.i, align 1, !noalias !46
-  %296 = and i8 %295, 32
-  %tobool.not.i.i258.i.i = icmp eq i8 %296, 0
+  %294 = load i8, ptr %arrayidx1.i.i.i.i, align 1, !noalias !46
+  %295 = and i8 %294, 32
+  %tobool.not.i.i258.i.i = icmp eq i8 %295, 0
   br i1 %tobool.not.i.i258.i.i, label %if.end.i.i.i.i, label %for.end.i.i.i.i, !llvm.loop !64
 
 for.end.i.i.i.i.loopexit.split.loop.exit:         ; preds = %if.end26.i.i.i.i
@@ -9621,9 +9620,9 @@ for.end.i.i.i.i.loopexit.split.loop.exit913:      ; preds = %if.end.i.i.i.i
   br label %for.end.i.i.i.i
 
 for.end.i.i.i.i:                                  ; preds = %if.end38.i.i.i.i, %for.end.i.i.i.i.loopexit.split.loop.exit, %for.end.i.i.i.i.loopexit.split.loop.exit910, %for.end.i.i.i.i.loopexit.split.loop.exit913, %while.body.i.i.i.i
-  %297 = phi i8 [ %282, %while.body.i.i.i.i ], [ %291, %for.end.i.i.i.i.loopexit.split.loop.exit ], [ %288, %for.end.i.i.i.i.loopexit.split.loop.exit910 ], [ %285, %for.end.i.i.i.i.loopexit.split.loop.exit913 ], [ %294, %if.end38.i.i.i.i ]
+  %296 = phi i8 [ %281, %while.body.i.i.i.i ], [ %290, %for.end.i.i.i.i.loopexit.split.loop.exit ], [ %287, %for.end.i.i.i.i.loopexit.split.loop.exit910 ], [ %284, %for.end.i.i.i.i.loopexit.split.loop.exit913 ], [ %293, %if.end38.i.i.i.i ]
   %s.addr.2.i.i.i.i = phi ptr [ %s.addr.0.i.i.i.i, %while.body.i.i.i.i ], [ %arrayidx27.i.i.i.i.le, %for.end.i.i.i.i.loopexit.split.loop.exit ], [ %arrayidx15.i.i.i.i.le, %for.end.i.i.i.i.loopexit.split.loop.exit910 ], [ %arrayidx4.i.i.i.i58.le, %for.end.i.i.i.i.loopexit.split.loop.exit913 ], [ %add.ptr39.i.i.i.i, %if.end38.i.i.i.i ]
-  switch i8 %297, label %if.else71.i.i.i.i [
+  switch i8 %296, label %if.else71.i.i.i.i [
     i8 13, label %if.then41.i.i.i.i
     i8 45, label %land.lhs.true.i.i.i.i
     i8 0, label %if.then18.i.i.i
@@ -9632,8 +9631,8 @@ for.end.i.i.i.i:                                  ; preds = %if.end38.i.i.i.i, %
 if.then41.i.i.i.i:                                ; preds = %for.end.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %s.addr.2.i.i.i.i, i64 1
   store i8 10, ptr %s.addr.2.i.i.i.i, align 1, !noalias !46
-  %298 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !46
-  %cmp43.i.i.i.i = icmp eq i8 %298, 10
+  %297 = load i8, ptr %incdec.ptr.i.i.i.i, align 1, !noalias !46
+  %cmp43.i.i.i.i = icmp eq i8 %297, 10
   br i1 %cmp43.i.i.i.i, label %if.then44.i.i.i.i, label %while.body.i.i.i.i.backedge
 
 if.then44.i.i.i.i:                                ; preds = %if.then41.i.i.i.i
@@ -9662,15 +9661,15 @@ while.body.i.i.i.i.outer:                         ; preds = %if.end10.i.i.i, %_Z
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.end.i.i.i.i
   %arrayidx49.i.i.i.i = getelementptr inbounds i8, ptr %s.addr.2.i.i.i.i, i64 1
-  %299 = load i8, ptr %arrayidx49.i.i.i.i, align 1, !noalias !46
-  %cmp51.i.i.i.i = icmp eq i8 %299, 45
+  %298 = load i8, ptr %arrayidx49.i.i.i.i, align 1, !noalias !46
+  %cmp51.i.i.i.i = icmp eq i8 %298, 45
   br i1 %cmp51.i.i.i.i, label %land.lhs.true52.i.i.i.i, label %if.else71.i.i.i.i
 
 land.lhs.true52.i.i.i.i:                          ; preds = %land.lhs.true.i.i.i.i
   %arrayidx53.i.i.i.i = getelementptr inbounds i8, ptr %s.addr.2.i.i.i.i, i64 2
-  %300 = load i8, ptr %arrayidx53.i.i.i.i, align 1, !noalias !46
-  %cmp55.i.i.i.i = icmp eq i8 %300, 62
-  %cmp58.i.i.i.i = icmp eq i8 %300, 0
+  %299 = load i8, ptr %arrayidx53.i.i.i.i, align 1, !noalias !46
+  %cmp55.i.i.i.i = icmp eq i8 %299, 62
+  %cmp58.i.i.i.i = icmp eq i8 %299, 0
   %or.cond.i.i.i.i = and i1 %cmp256.not.i.i, %cmp58.i.i.i.i
   %or.cond39.i.i.i.i = or i1 %cmp55.i.i.i.i, %or.cond.i.i.i.i
   br i1 %or.cond39.i.i.i.i, label %if.then62.i.i.i.i, label %if.else71.i.i.i.i
@@ -9701,35 +9700,35 @@ while.body.i.i.i.i.backedge:                      ; preds = %if.else71.i.i.i.i, 
 _ZN4pugi4impl12_GLOBAL__N_115strconv_commentEPcc.exit.i.i.i: ; preds = %if.then.i5.i.i.i.i, %if.then62.i.i.i.i
   %retval.0.i.i.i.i.i = phi ptr [ %add.ptr7.i.i.i.i.i, %if.then.i5.i.i.i.i ], [ %s.addr.2.i.i.i.i, %if.then62.i.i.i.i ]
   store i8 0, ptr %retval.0.i.i.i.i.i, align 1, !noalias !46
-  %301 = load i8, ptr %arrayidx53.i.i.i.i.le, align 1, !noalias !46
-  %cmp65.i.i.i.i = icmp eq i8 %301, 62
+  %300 = load i8, ptr %arrayidx53.i.i.i.i.le, align 1, !noalias !46
+  %cmp65.i.i.i.i = icmp eq i8 %300, 62
   %idx.ext.i.i.i.i = select i1 %cmp65.i.i.i.i, i64 3, i64 2
   %add.ptr66.i.i.i.i = getelementptr inbounds i8, ptr %s.addr.2.i.i.i.i, i64 %idx.ext.i.i.i.i
   br label %while.cond.outer.i.i.backedge
 
 if.then18.i.i.i:                                  ; preds = %for.end.i.i.i.i
   %value19.i.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %cursor.addr.0.i.i.i, i64 0, i32 2
-  %302 = load ptr, ptr %value19.i.i.i, align 8, !noalias !46
+  %301 = load ptr, ptr %value19.i.i.i, align 8, !noalias !46
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
 while.cond.i254.i.i:                              ; preds = %while.cond.preheader.i.i.i, %while.body.i.i.i57
   %s.addr.0.i.i.i = phi ptr [ %incdec.ptr43.i.i.i, %while.body.i.i.i57 ], [ %incdec.ptr6.i.i.i, %while.cond.preheader.i.i.i ]
-  %303 = load i8, ptr %s.addr.0.i.i.i, align 1, !noalias !46
-  switch i8 %303, label %while.body.i.i.i57 [
+  %302 = load i8, ptr %s.addr.0.i.i.i, align 1, !noalias !46
+  switch i8 %302, label %while.body.i.i.i57 [
     i8 0, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
     i8 45, label %land.lhs.true27.i.i.i
   ]
 
 land.lhs.true27.i.i.i:                            ; preds = %while.cond.i254.i.i
   %arrayidx28.i.i.i = getelementptr inbounds i8, ptr %s.addr.0.i.i.i, i64 1
-  %304 = load i8, ptr %arrayidx28.i.i.i, align 1, !noalias !46
-  %cmp30.i.i.i = icmp eq i8 %304, 45
+  %303 = load i8, ptr %arrayidx28.i.i.i, align 1, !noalias !46
+  %cmp30.i.i.i = icmp eq i8 %303, 45
   br i1 %cmp30.i.i.i, label %land.rhs31.i.i.i, label %while.body.i.i.i57
 
 land.rhs31.i.i.i:                                 ; preds = %land.lhs.true27.i.i.i
   %arrayidx32.i.i.i = getelementptr inbounds i8, ptr %s.addr.0.i.i.i, i64 2
-  %305 = load i8, ptr %arrayidx32.i.i.i, align 1, !noalias !46
-  switch i8 %305, label %while.body.i.i.i57 [
+  %304 = load i8, ptr %arrayidx32.i.i.i, align 1, !noalias !46
+  switch i8 %304, label %while.body.i.i.i57 [
     i8 62, label %if.end49.loopexit.i.i.i
     i8 0, label %if.end49.loopexit.i.i.i
   ]
@@ -9739,12 +9738,12 @@ while.body.i.i.i57:                               ; preds = %land.rhs31.i.i.i, %
   br label %while.cond.i254.i.i, !llvm.loop !63
 
 if.end49.loopexit.i.i.i:                          ; preds = %land.rhs31.i.i.i, %land.rhs31.i.i.i
-  %306 = icmp eq i8 %305, 62
-  %307 = select i1 %306, i64 3, i64 2
+  %305 = icmp eq i8 %304, 62
+  %306 = select i1 %305, i64 3, i64 2
   br label %if.end49.i.i.i
 
 if.end49.i.i.i:                                   ; preds = %land.rhs31.us.i.i.i, %if.end49.loopexit.i.i.i
-  %cmp56.i250.i.i = phi i64 [ %307, %if.end49.loopexit.i.i.i ], [ 3, %land.rhs31.us.i.i.i ]
+  %cmp56.i250.i.i = phi i64 [ %306, %if.end49.loopexit.i.i.i ], [ 3, %land.rhs31.us.i.i.i ]
   %.us-phi130.i.i.i = phi ptr [ %s.addr.0.i.i.i, %if.end49.loopexit.i.i.i ], [ %s.addr.0.us.i.i.i, %land.rhs31.us.i.i.i ]
   br i1 %tobool.not.i226.i.i, label %if.end53.i.i.i, label %if.then52.i.i.i
 
@@ -9758,38 +9757,38 @@ if.end53.i.i.i:                                   ; preds = %if.then52.i.i.i, %i
 
 if.then65.i.i.i:                                  ; preds = %if.then361.i.i
   %incdec.ptr66.i.i.i = getelementptr inbounds i8, ptr %s.addr.1.i.i, i64 2
-  %308 = load i8, ptr %incdec.ptr66.i.i.i, align 1, !noalias !46
-  %cmp68.i.i.i = icmp eq i8 %308, 67
+  %307 = load i8, ptr %incdec.ptr66.i.i.i, align 1, !noalias !46
+  %cmp68.i.i.i = icmp eq i8 %307, 67
   br i1 %cmp68.i.i.i, label %land.lhs.true69.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit951
 
 land.lhs.true69.i.i.i:                            ; preds = %if.then65.i.i.i
   %incdec.ptr70.i.i.i = getelementptr inbounds i8, ptr %s.addr.1.i.i, i64 3
-  %309 = load i8, ptr %incdec.ptr70.i.i.i, align 1, !noalias !46
-  %cmp72.i.i.i = icmp eq i8 %309, 68
+  %308 = load i8, ptr %incdec.ptr70.i.i.i, align 1, !noalias !46
+  %cmp72.i.i.i = icmp eq i8 %308, 68
   br i1 %cmp72.i.i.i, label %land.lhs.true73.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit948
 
 land.lhs.true73.i.i.i:                            ; preds = %land.lhs.true69.i.i.i
   %incdec.ptr74.i.i.i = getelementptr inbounds i8, ptr %s.addr.1.i.i, i64 4
-  %310 = load i8, ptr %incdec.ptr74.i.i.i, align 1, !noalias !46
-  %cmp76.i.i.i = icmp eq i8 %310, 65
+  %309 = load i8, ptr %incdec.ptr74.i.i.i, align 1, !noalias !46
+  %cmp76.i.i.i = icmp eq i8 %309, 65
   br i1 %cmp76.i.i.i, label %land.lhs.true77.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit945
 
 land.lhs.true77.i.i.i:                            ; preds = %land.lhs.true73.i.i.i
   %incdec.ptr78.i.i.i = getelementptr inbounds i8, ptr %s.addr.1.i.i, i64 5
-  %311 = load i8, ptr %incdec.ptr78.i.i.i, align 1, !noalias !46
-  %cmp80.i.i.i = icmp eq i8 %311, 84
+  %310 = load i8, ptr %incdec.ptr78.i.i.i, align 1, !noalias !46
+  %cmp80.i.i.i = icmp eq i8 %310, 84
   br i1 %cmp80.i.i.i, label %land.lhs.true81.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit942
 
 land.lhs.true81.i.i.i:                            ; preds = %land.lhs.true77.i.i.i
   %incdec.ptr82.i.i.i = getelementptr inbounds i8, ptr %s.addr.1.i.i, i64 6
-  %312 = load i8, ptr %incdec.ptr82.i.i.i, align 1, !noalias !46
-  %cmp84.i.i.i = icmp eq i8 %312, 65
+  %311 = load i8, ptr %incdec.ptr82.i.i.i, align 1, !noalias !46
+  %cmp84.i.i.i = icmp eq i8 %311, 65
   br i1 %cmp84.i.i.i, label %land.lhs.true85.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit939
 
 land.lhs.true85.i.i.i:                            ; preds = %land.lhs.true81.i.i.i
   %incdec.ptr86.i.i.i = getelementptr inbounds i8, ptr %s.addr.1.i.i, i64 7
-  %313 = load i8, ptr %incdec.ptr86.i.i.i, align 1, !noalias !46
-  %cmp88.i.i.i = icmp eq i8 %313, 91
+  %312 = load i8, ptr %incdec.ptr86.i.i.i, align 1, !noalias !46
+  %cmp88.i.i.i = icmp eq i8 %312, 91
   br i1 %cmp88.i.i.i, label %if.then89.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit936
 
 if.then89.i.i.i:                                  ; preds = %land.lhs.true85.i.i.i
@@ -9801,22 +9800,22 @@ while.cond152.preheader.i.i.i:                    ; preds = %if.then89.i.i.i
 
 while.cond152.us.i.i.i:                           ; preds = %while.cond152.preheader.i.i.i, %while.body179.us.i.i.i
   %s.addr.2.us.i222.i.i = phi ptr [ %incdec.ptr180.us.i.i.i, %while.body179.us.i.i.i ], [ %incdec.ptr90.i.i.i, %while.cond152.preheader.i.i.i ]
-  %314 = load i8, ptr %s.addr.2.us.i222.i.i, align 1, !noalias !46
-  switch i8 %314, label %while.body179.us.i.i.i [
+  %313 = load i8, ptr %s.addr.2.us.i222.i.i, align 1, !noalias !46
+  switch i8 %313, label %while.body179.us.i.i.i [
     i8 0, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
     i8 93, label %land.lhs.true159.us.i.i.i
   ]
 
 land.lhs.true159.us.i.i.i:                        ; preds = %while.cond152.us.i.i.i
   %arrayidx160.us.i.i.i = getelementptr inbounds i8, ptr %s.addr.2.us.i222.i.i, i64 1
-  %315 = load i8, ptr %arrayidx160.us.i.i.i, align 1, !noalias !46
-  %cmp162.us.i.i.i = icmp eq i8 %315, 93
+  %314 = load i8, ptr %arrayidx160.us.i.i.i, align 1, !noalias !46
+  %cmp162.us.i.i.i = icmp eq i8 %314, 93
   br i1 %cmp162.us.i.i.i, label %land.rhs163.us.i.i.i, label %while.body179.us.i.i.i
 
 land.rhs163.us.i.i.i:                             ; preds = %land.lhs.true159.us.i.i.i
   %arrayidx164.us.i.i.i = getelementptr inbounds i8, ptr %s.addr.2.us.i222.i.i, i64 2
-  %316 = load i8, ptr %arrayidx164.us.i.i.i, align 1, !noalias !46
-  %cmp166.us.i.i.i = icmp eq i8 %316, 62
+  %315 = load i8, ptr %arrayidx164.us.i.i.i, align 1, !noalias !46
+  %cmp166.us.i.i.i = icmp eq i8 %315, 62
   br i1 %cmp166.us.i.i.i, label %if.end187.i.i.i, label %while.body179.us.i.i.i
 
 while.body179.us.i.i.i:                           ; preds = %land.rhs163.us.i.i.i, %land.lhs.true159.us.i.i.i, %while.cond152.us.i.i.i
@@ -9838,22 +9837,22 @@ while.cond113.preheader.i.i.i:                    ; preds = %if.end100.i.i.i
 
 while.cond113.us.i.i.i:                           ; preds = %while.cond113.preheader.i.i.i, %while.body140.us.i.i.i
   %s.addr.1.us.i.i.i = phi ptr [ %incdec.ptr141.us.i.i.i, %while.body140.us.i.i.i ], [ %incdec.ptr90.i.i.i, %while.cond113.preheader.i.i.i ]
-  %317 = load i8, ptr %s.addr.1.us.i.i.i, align 1, !noalias !46
-  switch i8 %317, label %while.body140.us.i.i.i [
+  %316 = load i8, ptr %s.addr.1.us.i.i.i, align 1, !noalias !46
+  switch i8 %316, label %while.body140.us.i.i.i [
     i8 0, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
     i8 93, label %land.lhs.true120.us.i.i.i
   ]
 
 land.lhs.true120.us.i.i.i:                        ; preds = %while.cond113.us.i.i.i
   %arrayidx121.us.i.i.i = getelementptr inbounds i8, ptr %s.addr.1.us.i.i.i, i64 1
-  %318 = load i8, ptr %arrayidx121.us.i.i.i, align 1, !noalias !46
-  %cmp123.us.i.i.i = icmp eq i8 %318, 93
+  %317 = load i8, ptr %arrayidx121.us.i.i.i, align 1, !noalias !46
+  %cmp123.us.i.i.i = icmp eq i8 %317, 93
   br i1 %cmp123.us.i.i.i, label %land.rhs124.us.i.i.i, label %while.body140.us.i.i.i
 
 land.rhs124.us.i.i.i:                             ; preds = %land.lhs.true120.us.i.i.i
   %arrayidx125.us.i.i.i = getelementptr inbounds i8, ptr %s.addr.1.us.i.i.i, i64 2
-  %319 = load i8, ptr %arrayidx125.us.i.i.i, align 1, !noalias !46
-  %cmp127.us.i.i.i = icmp eq i8 %319, 62
+  %318 = load i8, ptr %arrayidx125.us.i.i.i, align 1, !noalias !46
+  %cmp127.us.i.i.i = icmp eq i8 %318, 62
   br i1 %cmp127.us.i.i.i, label %if.end148.i.i.i, label %while.body140.us.i.i.i
 
 while.body140.us.i.i.i:                           ; preds = %land.rhs124.us.i.i.i, %land.lhs.true120.us.i.i.i, %while.cond113.us.i.i.i
@@ -9861,33 +9860,33 @@ while.body140.us.i.i.i:                           ; preds = %land.rhs124.us.i.i.
   br label %while.cond113.us.i.i.i, !llvm.loop !67
 
 if.then104.i.i.i:                                 ; preds = %if.end100.i.i.i
-  %call105.i.i.i = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_113strconv_cdataEPcc(ptr noundef nonnull %incdec.ptr90.i.i.i, i8 noundef signext %123), !noalias !46
+  %call105.i.i.i = tail call fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_113strconv_cdataEPcc(ptr noundef nonnull %incdec.ptr90.i.i.i, i8 noundef signext %122), !noalias !46
   %tobool106.not.i.i.i = icmp eq ptr %call105.i.i.i, null
   br i1 %tobool106.not.i.i.i, label %if.then107.i.i.i, label %if.end189.i.i.i
 
 if.then107.i.i.i:                                 ; preds = %if.then104.i.i.i
   %value101.i.i.i.le = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %call95.i.i.i76, i64 0, i32 2
-  %320 = load ptr, ptr %value101.i.i.i.le, align 8, !noalias !46
+  %319 = load ptr, ptr %value101.i.i.i.le, align 8, !noalias !46
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
 while.cond113.i.i.i:                              ; preds = %while.cond113.preheader.i.i.i, %while.body140.i.i.i
   %s.addr.1.i220.i.i = phi ptr [ %incdec.ptr141.i.i.i, %while.body140.i.i.i ], [ %incdec.ptr90.i.i.i, %while.cond113.preheader.i.i.i ]
-  %321 = load i8, ptr %s.addr.1.i220.i.i, align 1, !noalias !46
-  switch i8 %321, label %while.body140.i.i.i [
+  %320 = load i8, ptr %s.addr.1.i220.i.i, align 1, !noalias !46
+  switch i8 %320, label %while.body140.i.i.i [
     i8 0, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
     i8 93, label %land.lhs.true120.i.i.i
   ]
 
 land.lhs.true120.i.i.i:                           ; preds = %while.cond113.i.i.i
   %arrayidx121.i.i.i = getelementptr inbounds i8, ptr %s.addr.1.i220.i.i, i64 1
-  %322 = load i8, ptr %arrayidx121.i.i.i, align 1, !noalias !46
-  %cmp123.i221.i.i = icmp eq i8 %322, 93
+  %321 = load i8, ptr %arrayidx121.i.i.i, align 1, !noalias !46
+  %cmp123.i221.i.i = icmp eq i8 %321, 93
   br i1 %cmp123.i221.i.i, label %land.rhs124.i.i.i, label %while.body140.i.i.i
 
 land.rhs124.i.i.i:                                ; preds = %land.lhs.true120.i.i.i
   %arrayidx125.i.i.i = getelementptr inbounds i8, ptr %s.addr.1.i220.i.i, i64 2
-  %323 = load i8, ptr %arrayidx125.i.i.i, align 1, !noalias !46
-  switch i8 %323, label %while.body140.i.i.i [
+  %322 = load i8, ptr %arrayidx125.i.i.i, align 1, !noalias !46
+  switch i8 %322, label %while.body140.i.i.i [
     i8 62, label %if.end148.i.i.i
     i8 0, label %if.end148.i.i.i
   ]
@@ -9904,22 +9903,22 @@ if.end148.i.i.i:                                  ; preds = %land.rhs124.us.i.i.
 
 while.cond152.i.i.i:                              ; preds = %while.cond152.preheader.i.i.i, %while.body179.i.i.i
   %s.addr.2.i223.i.i = phi ptr [ %incdec.ptr180.i.i.i, %while.body179.i.i.i ], [ %incdec.ptr90.i.i.i, %while.cond152.preheader.i.i.i ]
-  %324 = load i8, ptr %s.addr.2.i223.i.i, align 1, !noalias !46
-  switch i8 %324, label %while.body179.i.i.i [
+  %323 = load i8, ptr %s.addr.2.i223.i.i, align 1, !noalias !46
+  switch i8 %323, label %while.body179.i.i.i [
     i8 0, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
     i8 93, label %land.lhs.true159.i.i.i
   ]
 
 land.lhs.true159.i.i.i:                           ; preds = %while.cond152.i.i.i
   %arrayidx160.i.i.i = getelementptr inbounds i8, ptr %s.addr.2.i223.i.i, i64 1
-  %325 = load i8, ptr %arrayidx160.i.i.i, align 1, !noalias !46
-  %cmp162.i.i.i = icmp eq i8 %325, 93
+  %324 = load i8, ptr %arrayidx160.i.i.i, align 1, !noalias !46
+  %cmp162.i.i.i = icmp eq i8 %324, 93
   br i1 %cmp162.i.i.i, label %land.rhs163.i.i.i, label %while.body179.i.i.i
 
 land.rhs163.i.i.i:                                ; preds = %land.lhs.true159.i.i.i
   %arrayidx164.i.i.i = getelementptr inbounds i8, ptr %s.addr.2.i223.i.i, i64 2
-  %326 = load i8, ptr %arrayidx164.i.i.i, align 1, !noalias !46
-  switch i8 %326, label %while.body179.i.i.i [
+  %325 = load i8, ptr %arrayidx164.i.i.i, align 1, !noalias !46
+  switch i8 %325, label %while.body179.i.i.i [
     i8 62, label %if.end187.i.i.i
     i8 0, label %if.end187.i.i.i
   ]
@@ -9936,55 +9935,55 @@ if.end187.i.i.i:                                  ; preds = %land.rhs163.us.i.i.
 if.end189.i.i.i:                                  ; preds = %if.end187.i.i.i, %if.end148.i.i.i, %if.then104.i.i.i
   %s.addr.3.i218.i.i = phi ptr [ %call105.i.i.i, %if.then104.i.i.i ], [ %incdec.ptr149.i.i.i, %if.end148.i.i.i ], [ %incdec.ptr188.i.i.i, %if.end187.i.i.i ]
   %arrayidx190.i.i.i = getelementptr inbounds i8, ptr %s.addr.3.i218.i.i, i64 1
-  %327 = load i8, ptr %arrayidx190.i.i.i, align 1, !noalias !46
-  %cmp192.i.i.i = icmp eq i8 %327, 62
+  %326 = load i8, ptr %arrayidx190.i.i.i, align 1, !noalias !46
+  %cmp192.i.i.i = icmp eq i8 %326, 62
   %idx.ext194.i.i.i = select i1 %cmp192.i.i.i, i64 2, i64 1
   %add.ptr195.i.i.i = getelementptr inbounds i8, ptr %s.addr.3.i218.i.i, i64 %idx.ext194.i.i.i
   br label %while.cond.outer.i.i.backedge
 
 land.lhs.true204.i.i.i:                           ; preds = %if.then361.i.i
   %arrayidx205.i.i.i = getelementptr inbounds i8, ptr %s.addr.1.i.i, i64 2
-  %328 = load i8, ptr %arrayidx205.i.i.i, align 1, !noalias !46
-  %cmp207.i.i.i = icmp eq i8 %328, 79
+  %327 = load i8, ptr %arrayidx205.i.i.i, align 1, !noalias !46
+  %cmp207.i.i.i = icmp eq i8 %327, 79
   br i1 %cmp207.i.i.i, label %land.lhs.true208.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
 land.lhs.true208.i.i.i:                           ; preds = %land.lhs.true204.i.i.i
   %arrayidx209.i.i.i = getelementptr inbounds i8, ptr %s.addr.1.i.i, i64 3
-  %329 = load i8, ptr %arrayidx209.i.i.i, align 1, !noalias !46
-  %cmp211.i.i.i = icmp eq i8 %329, 67
+  %328 = load i8, ptr %arrayidx209.i.i.i, align 1, !noalias !46
+  %cmp211.i.i.i = icmp eq i8 %328, 67
   br i1 %cmp211.i.i.i, label %land.lhs.true212.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
 land.lhs.true212.i.i.i:                           ; preds = %land.lhs.true208.i.i.i
   %arrayidx213.i.i.i = getelementptr inbounds i8, ptr %s.addr.1.i.i, i64 4
-  %330 = load i8, ptr %arrayidx213.i.i.i, align 1, !noalias !46
-  %cmp215.i.i.i = icmp eq i8 %330, 84
+  %329 = load i8, ptr %arrayidx213.i.i.i, align 1, !noalias !46
+  %cmp215.i.i.i = icmp eq i8 %329, 84
   br i1 %cmp215.i.i.i, label %land.lhs.true216.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
 land.lhs.true216.i.i.i:                           ; preds = %land.lhs.true212.i.i.i
   %arrayidx217.i.i.i = getelementptr inbounds i8, ptr %s.addr.1.i.i, i64 5
-  %331 = load i8, ptr %arrayidx217.i.i.i, align 1, !noalias !46
-  %cmp219.i.i.i = icmp eq i8 %331, 89
+  %330 = load i8, ptr %arrayidx217.i.i.i, align 1, !noalias !46
+  %cmp219.i.i.i = icmp eq i8 %330, 89
   br i1 %cmp219.i.i.i, label %land.lhs.true220.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
 land.lhs.true220.i.i.i:                           ; preds = %land.lhs.true216.i.i.i
   %arrayidx221.i.i.i = getelementptr inbounds i8, ptr %s.addr.1.i.i, i64 6
-  %332 = load i8, ptr %arrayidx221.i.i.i, align 1, !noalias !46
-  %cmp223.i.i.i = icmp eq i8 %332, 80
+  %331 = load i8, ptr %arrayidx221.i.i.i, align 1, !noalias !46
+  %cmp223.i.i.i = icmp eq i8 %331, 80
   br i1 %cmp223.i.i.i, label %land.lhs.true224.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
 land.lhs.true224.i.i.i:                           ; preds = %land.lhs.true220.i.i.i
   %arrayidx225.i.i.i = getelementptr inbounds i8, ptr %s.addr.1.i.i, i64 7
-  %333 = load i8, ptr %arrayidx225.i.i.i, align 1, !noalias !46
-  %cmp227.i.i.i = icmp eq i8 %333, 69
-  %cmp230.i.i.i = icmp eq i8 %333, 0
+  %332 = load i8, ptr %arrayidx225.i.i.i, align 1, !noalias !46
+  %cmp227.i.i.i = icmp eq i8 %332, 69
+  %cmp230.i.i.i = icmp eq i8 %332, 0
   %or.cond.i214.i.i = and i1 %cmp233.i.i.i, %cmp230.i.i.i
   %or.cond689.i.i = or i1 %cmp227.i.i.i, %or.cond.i214.i.i
   br i1 %or.cond689.i.i, label %if.then234.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
 if.then234.i.i.i:                                 ; preds = %land.lhs.true224.i.i.i
   %parent.i215.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %cursor.0.ph.i.i, i64 0, i32 3
-  %334 = load ptr, ptr %parent.i215.i.i, align 8, !noalias !46
-  %tobool236.not.i.i.i = icmp eq ptr %334, null
+  %333 = load ptr, ptr %parent.i215.i.i, align 8, !noalias !46
+  %tobool236.not.i.i.i = icmp eq ptr %333, null
   br i1 %tobool236.not.i.i.i, label %if.end240.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit96.split.loop.exit359.i
 
 if.end240.i.i.i:                                  ; preds = %if.then234.i.i.i
@@ -9992,10 +9991,10 @@ if.end240.i.i.i:                                  ; preds = %if.then234.i.i.i
   br label %while.cond.i27.i
 
 while.cond.i27.i:                                 ; preds = %if.end44.i.i, %if.end240.i.i.i
-  %335 = phi i8 [ 68, %if.end240.i.i.i ], [ %.pre.i, %if.end44.i.i ]
+  %334 = phi i8 [ 68, %if.end240.i.i.i ], [ %.pre.i, %if.end44.i.i ]
   %s.addr.0.i28.i = phi ptr [ %incdec.ptr.i.i.i, %if.end240.i.i.i ], [ %s.addr.1.i30.i, %if.end44.i.i ]
   %depth.0.i.i = phi i64 [ 0, %if.end240.i.i.i ], [ %depth.1.i.i, %if.end44.i.i ]
-  switch i8 %335, label %if.else40.i.i [
+  switch i8 %334, label %if.else40.i.i [
     i8 0, label %while.end.i47.i
     i8 60, label %land.lhs.true.i33.i
     i8 62, label %if.then36.i.i
@@ -10008,16 +10007,16 @@ while.cond.i31.i.i.preheader:                     ; preds = %while.cond.i27.i, %
 
 land.lhs.true.i33.i:                              ; preds = %while.cond.i27.i
   %arrayidx2.i.i = getelementptr inbounds i8, ptr %s.addr.0.i28.i, i64 1
-  %336 = load i8, ptr %arrayidx2.i.i, align 1, !noalias !46
-  switch i8 %336, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i [
+  %335 = load i8, ptr %arrayidx2.i.i, align 1, !noalias !46
+  switch i8 %335, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i [
     i8 33, label %land.lhs.true5.i.i
     i8 63, label %if.then17.i.i.i
   ]
 
 land.lhs.true5.i.i:                               ; preds = %land.lhs.true.i33.i
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %s.addr.0.i28.i, i64 2
-  %337 = load i8, ptr %arrayidx6.i.i, align 1, !noalias !46
-  switch i8 %337, label %if.else.i46.i [
+  %336 = load i8, ptr %arrayidx6.i.i, align 1, !noalias !46
+  switch i8 %336, label %if.else.i46.i [
     i8 45, label %land.lhs.true53.i.i.i
     i8 91, label %if.then12.i.i
   ]
@@ -10033,8 +10032,8 @@ while.cond.i.i35.i.outer:                         ; preds = %while.cond.i.i35.i.
 
 while.cond.i.i35.i:                               ; preds = %while.cond.i.i35.i.outer, %if.else25.i.i.i
   %s.addr.0.i.i36.i = phi ptr [ %incdec.ptr.i.i37.i, %if.else25.i.i.i ], [ %s.addr.0.i.i36.i.ph, %while.cond.i.i35.i.outer ]
-  %338 = load i8, ptr %s.addr.0.i.i36.i, align 1, !noalias !46
-  switch i8 %338, label %if.else25.i.i.i [
+  %337 = load i8, ptr %s.addr.0.i.i36.i, align 1, !noalias !46
+  switch i8 %337, label %if.else25.i.i.i [
     i8 0, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
     i8 60, label %land.lhs.true.i.i40.i
     i8 93, label %land.lhs.true13.i.i.i
@@ -10042,14 +10041,14 @@ while.cond.i.i35.i:                               ; preds = %while.cond.i.i35.i.
 
 land.lhs.true.i.i40.i:                            ; preds = %while.cond.i.i35.i
   %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %s.addr.0.i.i36.i, i64 1
-  %339 = load i8, ptr %arrayidx2.i.i.i, align 1, !noalias !46
-  %cmp4.i.i41.i = icmp eq i8 %339, 33
+  %338 = load i8, ptr %arrayidx2.i.i.i, align 1, !noalias !46
+  %cmp4.i.i41.i = icmp eq i8 %338, 33
   br i1 %cmp4.i.i41.i, label %land.lhs.true5.i.i.i, label %if.else25.i.i.i
 
 land.lhs.true5.i.i.i:                             ; preds = %land.lhs.true.i.i40.i
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %s.addr.0.i.i36.i, i64 2
-  %340 = load i8, ptr %arrayidx6.i.i.i, align 1, !noalias !46
-  %cmp8.i.i.i = icmp eq i8 %340, 91
+  %339 = load i8, ptr %arrayidx6.i.i.i, align 1, !noalias !46
+  %cmp8.i.i.i = icmp eq i8 %339, 91
   br i1 %cmp8.i.i.i, label %if.then.i.i42.i, label %if.else25.i.i.i
 
 if.then.i.i42.i:                                  ; preds = %land.lhs.true5.i.i.i
@@ -10064,14 +10063,14 @@ while.cond.i.i35.i.outer.backedge:                ; preds = %if.then.i.i42.i, %i
 
 land.lhs.true13.i.i.i:                            ; preds = %while.cond.i.i35.i
   %arrayidx14.i.i.i = getelementptr inbounds i8, ptr %s.addr.0.i.i36.i, i64 1
-  %341 = load i8, ptr %arrayidx14.i.i.i, align 1, !noalias !46
-  %cmp16.i.i.i = icmp eq i8 %341, 93
+  %340 = load i8, ptr %arrayidx14.i.i.i, align 1, !noalias !46
+  %cmp16.i.i.i = icmp eq i8 %340, 93
   br i1 %cmp16.i.i.i, label %land.lhs.true17.i.i.i, label %if.else25.i.i.i
 
 land.lhs.true17.i.i.i:                            ; preds = %land.lhs.true13.i.i.i
   %arrayidx18.i.i.i = getelementptr inbounds i8, ptr %s.addr.0.i.i36.i, i64 2
-  %342 = load i8, ptr %arrayidx18.i.i.i, align 1, !noalias !46
-  %cmp20.i.i.i49 = icmp eq i8 %342, 62
+  %341 = load i8, ptr %arrayidx18.i.i.i, align 1, !noalias !46
+  %cmp20.i.i.i49 = icmp eq i8 %341, 62
   br i1 %cmp20.i.i.i49, label %if.then21.i.i.i50, label %if.else25.i.i.i
 
 if.then21.i.i.i50:                                ; preds = %land.lhs.true17.i.i.i
@@ -10094,9 +10093,9 @@ if.else.i46.i:                                    ; preds = %land.lhs.true5.i.i
 while.cond.i31.i.i:                               ; preds = %while.cond.i31.i.i.preheader, %while.cond.i31.i.i
   %s.pn.i.i.i = phi ptr [ %s.addr.0.i32.i.i, %while.cond.i31.i.i ], [ %s.addr.0.i28.i, %while.cond.i31.i.i.preheader ]
   %s.addr.0.i32.i.i = getelementptr inbounds i8, ptr %s.pn.i.i.i, i64 1
-  %343 = load i8, ptr %s.addr.0.i32.i.i, align 1, !noalias !46
-  %cmp5.not.i.i.i47 = icmp eq i8 %343, 0
-  %cmp8.not.i.i.i = icmp eq i8 %343, %335
+  %342 = load i8, ptr %s.addr.0.i32.i.i, align 1, !noalias !46
+  %cmp5.not.i.i.i47 = icmp eq i8 %342, 0
+  %cmp8.not.i.i.i = icmp eq i8 %342, %334
   %or.cond.i.i29.i = or i1 %cmp5.not.i.i.i47, %cmp8.not.i.i.i
   br i1 %or.cond.i.i29.i, label %while.end.i33.i.i, label %while.cond.i31.i.i, !llvm.loop !69
 
@@ -10113,16 +10112,16 @@ if.then17.i.i.i:                                  ; preds = %land.lhs.true.i33.i
 
 while.cond18.i.i.i:                               ; preds = %while.body32.i.i.i, %if.then17.i.i.i
   %s.addr.1.i29.i.i = phi ptr [ %add.ptr.i28.i.i48, %if.then17.i.i.i ], [ %incdec.ptr33.i.i.i, %while.body32.i.i.i ]
-  %344 = load i8, ptr %s.addr.1.i29.i.i, align 1, !noalias !46
-  switch i8 %344, label %while.body32.i.i.i [
+  %343 = load i8, ptr %s.addr.1.i29.i.i, align 1, !noalias !46
+  switch i8 %343, label %while.body32.i.i.i [
     i8 0, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
     i8 63, label %land.rhs25.i.i.i
   ]
 
 land.rhs25.i.i.i:                                 ; preds = %while.cond18.i.i.i
   %arrayidx26.i.i.i = getelementptr inbounds i8, ptr %s.addr.1.i29.i.i, i64 1
-  %345 = load i8, ptr %arrayidx26.i.i.i, align 1, !noalias !46
-  %cmp28.i.i.i = icmp eq i8 %345, 62
+  %344 = load i8, ptr %arrayidx26.i.i.i, align 1, !noalias !46
+  %cmp28.i.i.i = icmp eq i8 %344, 62
   br i1 %cmp28.i.i.i, label %if.end39.i.i.i, label %while.body32.i.i.i
 
 while.body32.i.i.i:                               ; preds = %land.rhs25.i.i.i, %while.cond18.i.i.i
@@ -10135,8 +10134,8 @@ if.end39.i.i.i:                                   ; preds = %land.rhs25.i.i.i
 
 land.lhs.true53.i.i.i:                            ; preds = %land.lhs.true5.i.i
   %arrayidx54.i.i.i = getelementptr inbounds i8, ptr %s.addr.0.i28.i, i64 3
-  %346 = load i8, ptr %arrayidx54.i.i.i, align 1, !noalias !46
-  %cmp56.i.i43.i = icmp eq i8 %346, 45
+  %345 = load i8, ptr %arrayidx54.i.i.i, align 1, !noalias !46
+  %cmp56.i.i43.i = icmp eq i8 %345, 45
   br i1 %cmp56.i.i43.i, label %if.then57.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
 if.then57.i.i.i:                                  ; preds = %land.lhs.true53.i.i.i
@@ -10145,22 +10144,22 @@ if.then57.i.i.i:                                  ; preds = %land.lhs.true53.i.i
 
 while.cond59.i.i.i:                               ; preds = %while.body77.i.i.i, %if.then57.i.i.i
   %s.addr.2.i.i44.i = phi ptr [ %add.ptr58.i.i.i, %if.then57.i.i.i ], [ %incdec.ptr78.i.i45.i, %while.body77.i.i.i ]
-  %347 = load i8, ptr %s.addr.2.i.i44.i, align 1, !noalias !46
-  switch i8 %347, label %while.body77.i.i.i [
+  %346 = load i8, ptr %s.addr.2.i.i44.i, align 1, !noalias !46
+  switch i8 %346, label %while.body77.i.i.i [
     i8 0, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
     i8 45, label %land.lhs.true66.i.i.i
   ]
 
 land.lhs.true66.i.i.i:                            ; preds = %while.cond59.i.i.i
   %arrayidx67.i.i.i = getelementptr inbounds i8, ptr %s.addr.2.i.i44.i, i64 1
-  %348 = load i8, ptr %arrayidx67.i.i.i, align 1, !noalias !46
-  %cmp69.i.i.i = icmp eq i8 %348, 45
+  %347 = load i8, ptr %arrayidx67.i.i.i, align 1, !noalias !46
+  %cmp69.i.i.i = icmp eq i8 %347, 45
   br i1 %cmp69.i.i.i, label %land.rhs70.i.i.i, label %while.body77.i.i.i
 
 land.rhs70.i.i.i:                                 ; preds = %land.lhs.true66.i.i.i
   %arrayidx71.i.i.i = getelementptr inbounds i8, ptr %s.addr.2.i.i44.i, i64 2
-  %349 = load i8, ptr %arrayidx71.i.i.i, align 1, !noalias !46
-  %cmp73.i.i.i = icmp eq i8 %349, 62
+  %348 = load i8, ptr %arrayidx71.i.i.i, align 1, !noalias !46
+  %cmp73.i.i.i = icmp eq i8 %348, 62
   br i1 %cmp73.i.i.i, label %if.end84.i.i.i, label %while.body77.i.i.i
 
 while.body77.i.i.i:                               ; preds = %land.rhs70.i.i.i, %land.lhs.true66.i.i.i, %while.cond59.i.i.i
@@ -10206,12 +10205,12 @@ if.end249.i.i.i:                                  ; preds = %if.then247.i.i.i, %
 
 while.cond253.i.i.i:                              ; preds = %if.end249.i.i.i, %while.cond253.i.i.i
   %mark.0.i.i.i = phi ptr [ %incdec.ptr259.i.i.i, %while.cond253.i.i.i ], [ %add.ptr241.i.i.i, %if.end249.i.i.i ]
-  %350 = load i8, ptr %mark.0.i.i.i, align 1, !noalias !46
-  %idxprom.i216.i.i = zext i8 %350 to i64
+  %349 = load i8, ptr %mark.0.i.i.i, align 1, !noalias !46
+  %idxprom.i216.i.i = zext i8 %349 to i64
   %arrayidx254.i.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom.i216.i.i
-  %351 = load i8, ptr %arrayidx254.i.i.i, align 1, !noalias !46
-  %352 = and i8 %351, 8
-  %tobool257.not.i.i.i = icmp eq i8 %352, 0
+  %350 = load i8, ptr %arrayidx254.i.i.i, align 1, !noalias !46
+  %351 = and i8 %350, 8
+  %tobool257.not.i.i.i = icmp eq i8 %351, 0
   %incdec.ptr259.i.i.i = getelementptr inbounds i8, ptr %mark.0.i.i.i, i64 1
   br i1 %tobool257.not.i.i.i, label %while.end260.i.i.i, label %while.cond253.i.i.i, !llvm.loop !73
 
@@ -10226,25 +10225,25 @@ if.end267.i.i.i:                                  ; preds = %while.end260.i.i.i
   br label %while.cond.outer.i.i.backedge
 
 while.cond.outer.i.i.backedge:                    ; preds = %if.end267.i.i.i, %if.end249.i.i.i, %if.end189.i.i.i, %if.end53.i.i.i, %_ZN4pugi4impl12_GLOBAL__N_115strconv_commentEPcc.exit.i.i.i, %if.end352.i.i, %if.then329.i.i, %while.end326.i.i, %if.then253.i.i, %if.end244.i.i, %if.else217.i.i, %if.then207.i.i, %if.then200.i.i, %if.else193.i.i, %for.end.i.i
-  %cursor.0.ph.i.i.be = phi ptr [ %cursor.2.i.i, %if.else217.i.i ], [ %202, %if.then200.i.i ], [ %203, %if.then207.i.i ], [ %cursor.3.i.i, %if.end352.i.i ], [ %213, %if.then329.i.i ], [ %retval.0.i.i.ph.i.i.i.i, %for.end.i.i ], [ %retval.0.i.i.ph.i.i.i.i, %if.then253.i.i ], [ %205, %if.end244.i.i ], [ %cursor.0.ph.i.i, %_ZN4pugi4impl12_GLOBAL__N_115strconv_commentEPcc.exit.i.i.i ], [ %cursor.0.ph.i.i, %if.end53.i.i.i ], [ %cursor.0.ph.i.i, %if.end189.i.i.i ], [ %cursor.0.ph.i.i, %if.end249.i.i.i ], [ %cursor.0.ph.i.i, %if.end267.i.i.i ], [ %cursor.2.i.i, %if.else193.i.i ], [ %213, %while.end326.i.i ]
+  %cursor.0.ph.i.i.be = phi ptr [ %cursor.2.i.i, %if.else217.i.i ], [ %201, %if.then200.i.i ], [ %202, %if.then207.i.i ], [ %cursor.3.i.i, %if.end352.i.i ], [ %212, %if.then329.i.i ], [ %retval.0.i.i.ph.i.i.i.i, %for.end.i.i ], [ %retval.0.i.i.ph.i.i.i.i, %if.then253.i.i ], [ %204, %if.end244.i.i ], [ %cursor.0.ph.i.i, %_ZN4pugi4impl12_GLOBAL__N_115strconv_commentEPcc.exit.i.i.i ], [ %cursor.0.ph.i.i, %if.end53.i.i.i ], [ %cursor.0.ph.i.i, %if.end189.i.i.i ], [ %cursor.0.ph.i.i, %if.end249.i.i.i ], [ %cursor.0.ph.i.i, %if.end267.i.i.i ], [ %cursor.2.i.i, %if.else193.i.i ], [ %212, %while.end326.i.i ]
   %s.addr.0.ph.i.i.be = phi ptr [ %s.addr.6.i.i, %if.else217.i.i ], [ %incdec.ptr201.i.i, %if.then200.i.i ], [ %incdec.ptr71.i.i, %if.then207.i.i ], [ %retval.0.i209.i.i, %if.end352.i.i ], [ %s.addr.13.i.i, %if.then329.i.i ], [ %incdec.ptr52.i.i, %for.end.i.i ], [ %s.addr.3.i.i, %if.then253.i.i ], [ %add.ptr249.i.i, %if.end244.i.i ], [ %add.ptr66.i.i.i.i, %_ZN4pugi4impl12_GLOBAL__N_115strconv_commentEPcc.exit.i.i.i ], [ %add.ptr.i.i.i56, %if.end53.i.i.i ], [ %add.ptr195.i.i.i, %if.end189.i.i.i ], [ %s.addr.5.i.i.i, %if.end249.i.i.i ], [ %s.addr.5.i.i.i, %if.end267.i.i.i ], [ %incdec.ptr71.i.i, %if.else193.i.i ], [ %incdec.ptr325.i.i, %while.end326.i.i ]
   br label %while.cond.outer.i.i, !llvm.loop !74
 
 if.else270.i.i.i:                                 ; preds = %if.then361.i.i
-  %cmp272.i.i.i = icmp eq i8 %268, 0
-  %cmp275.i.i.i = icmp eq i8 %123, 45
+  %cmp272.i.i.i = icmp eq i8 %267, 0
+  %cmp275.i.i.i = icmp eq i8 %122, 45
   %or.cond1.i.i.i = and i1 %cmp275.i.i.i, %cmp272.i.i.i
   br i1 %or.cond1.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, label %if.else279.i.i.i
 
 if.else279.i.i.i:                                 ; preds = %if.else270.i.i.i
-  %cmp284.i.i.i = icmp eq i8 %123, 91
+  %cmp284.i.i.i = icmp eq i8 %122, 91
   %or.cond2.i.i.i = and i1 %cmp284.i.i.i, %cmp272.i.i.i
   %spec.select67.i = select i1 %or.cond2.i.i.i, i32 8, i32 5
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
 if.else366.i.i:                                   ; preds = %if.else268.i.i
-  %cmp368.i.i = icmp eq i8 %133, 0
-  %cmp371.i.i = icmp eq i8 %123, 63
+  %cmp368.i.i = icmp eq i8 %132, 0
+  %cmp371.i.i = icmp eq i8 %122, 63
   %or.cond3.i.i = and i1 %cmp371.i.i, %cmp368.i.i
   %spec.select68.i = select i1 %or.cond3.i.i, i32 6, i32 5
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
@@ -10255,15 +10254,15 @@ while.body389.i.i:                                ; preds = %while.cond383.prehe
   %.pr331.i.i = load i8, ptr %incdec.ptr390.i.i, align 1, !noalias !46
   %idxprom384.i.i = zext i8 %.pr331.i.i to i64
   %arrayidx385.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4pugi4impl12_GLOBAL__N_114chartype_tableE, i64 0, i64 %idxprom384.i.i
-  %353 = load i8, ptr %arrayidx385.i.i, align 1, !noalias !46
-  %354 = and i8 %353, 8
-  %tobool388.not.i.i = icmp eq i8 %354, 0
+  %352 = load i8, ptr %arrayidx385.i.i, align 1, !noalias !46
+  %353 = and i8 %352, 8
+  %tobool388.not.i.i = icmp eq i8 %353, 0
   br i1 %tobool388.not.i.i, label %while.end391.i.i, label %while.body389.i.i, !llvm.loop !75
 
 while.end391.i.i:                                 ; preds = %while.body389.i.i, %while.cond383.preheader.i.i
-  %355 = phi i8 [ %130, %while.cond383.preheader.i.i ], [ %.pr331.i.i, %while.body389.i.i ]
+  %354 = phi i8 [ %129, %while.cond383.preheader.i.i ], [ %.pr331.i.i, %while.body389.i.i ]
   %s.addr.14.lcssa.i.i = phi ptr [ %s.addr.0.i.i, %while.cond383.preheader.i.i ], [ %incdec.ptr390.i.i, %while.body389.i.i ]
-  switch i8 %355, label %if.end420.i.i [
+  switch i8 %354, label %if.end420.i.i [
     i8 60, label %if.then396.i.i
     i8 0, label %if.then396.i.i
   ]
@@ -10275,18 +10274,18 @@ if.else403.i.i:                                   ; preds = %if.then396.i.i
   br i1 %tobool405.not.i.i, label %if.end420.i.i, label %if.then406.i.i
 
 if.then406.i.i:                                   ; preds = %if.else403.i.i
-  %cmp409.not.i.i = icmp eq i8 %355, 60
+  %cmp409.not.i.i = icmp eq i8 %354, 60
   br i1 %cmp409.not.i.i, label %lor.lhs.false410.i.i, label %while.cond.i.i.backedge
 
 lor.lhs.false410.i.i:                             ; preds = %if.then406.i.i
   %arrayidx411.i.i = getelementptr inbounds i8, ptr %s.addr.14.lcssa.i.i, i64 1
-  %356 = load i8, ptr %arrayidx411.i.i, align 1, !noalias !46
-  %cmp413.not.i.i = icmp eq i8 %356, 47
+  %355 = load i8, ptr %arrayidx411.i.i, align 1, !noalias !46
+  %cmp413.not.i.i = icmp eq i8 %355, 47
   br i1 %cmp413.not.i.i, label %lor.lhs.false414.i.i, label %while.cond.i.i.backedge
 
 lor.lhs.false414.i.i:                             ; preds = %lor.lhs.false410.i.i
-  %357 = load ptr, ptr %first_child.i.i, align 8, !noalias !46
-  %tobool415.not.i.i = icmp eq ptr %357, null
+  %356 = load ptr, ptr %first_child.i.i, align 8, !noalias !46
+  %tobool415.not.i.i = icmp eq ptr %356, null
   br i1 %tobool415.not.i.i, label %if.end420.i.i, label %while.cond.i.i.backedge
 
 while.cond.i.i.backedge:                          ; preds = %lor.lhs.false414.i.i, %lor.lhs.false410.i.i, %if.then406.i.i, %if.then396.i.i
@@ -10295,8 +10294,8 @@ while.cond.i.i.backedge:                          ; preds = %lor.lhs.false414.i.
 if.end420.i.i:                                    ; preds = %lor.lhs.false414.i.i, %if.else403.i.i, %while.end391.i.i
   %spec.select.i20.i = select i1 %tobool401.not.i.i, ptr %s.addr.0.i.i, ptr %s.addr.14.lcssa.i.i
   %parent425.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %cursor.0.ph.i.i, i64 0, i32 3
-  %358 = load ptr, ptr %parent425.i.i, align 8, !noalias !46
-  %tobool426.not.i.i = icmp eq ptr %358, null
+  %357 = load ptr, ptr %parent425.i.i, align 8, !noalias !46
+  %tobool426.not.i.i = icmp eq ptr %357, null
   %or.cond171.i.i = and i1 %tobool429.not.i.i, %tobool426.not.i.i
   br i1 %or.cond171.i.i, label %while.cond477.i.i, label %if.then430.i.i
 
@@ -10305,19 +10304,19 @@ if.then430.i.i:                                   ; preds = %if.end420.i.i
   br i1 %tobool433.not.i.i, label %if.else445.i.i, label %land.lhs.true434.i.i
 
 land.lhs.true434.i.i:                             ; preds = %if.then430.i.i
-  %359 = load ptr, ptr %parent425.i.i, align 8, !noalias !46
-  %tobool436.not.i.i = icmp eq ptr %359, null
+  %358 = load ptr, ptr %parent425.i.i, align 8, !noalias !46
+  %tobool436.not.i.i = icmp eq ptr %358, null
   br i1 %tobool436.not.i.i, label %if.else445.i.i, label %land.lhs.true437.i.i
 
 land.lhs.true437.i.i:                             ; preds = %land.lhs.true434.i.i
-  %360 = load ptr, ptr %first_child.i.i, align 8, !noalias !46
-  %tobool439.not.i.i = icmp eq ptr %360, null
+  %359 = load ptr, ptr %first_child.i.i, align 8, !noalias !46
+  %tobool439.not.i.i = icmp eq ptr %359, null
   br i1 %tobool439.not.i.i, label %land.lhs.true440.i.i, label %if.else445.i.i
 
 land.lhs.true440.i.i:                             ; preds = %land.lhs.true437.i.i
   %value441.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %cursor.0.ph.i.i, i64 0, i32 2
-  %361 = load ptr, ptr %value441.i.i, align 8, !noalias !46
-  %tobool442.not.i.i = icmp eq ptr %361, null
+  %360 = load ptr, ptr %value441.i.i, align 8, !noalias !46
+  %tobool442.not.i.i = icmp eq ptr %360, null
   br i1 %tobool442.not.i.i, label %if.then443.i.i, label %if.else445.i.i
 
 if.then443.i.i:                                   ; preds = %land.lhs.true440.i.i
@@ -10328,50 +10327,50 @@ if.else445.i.i:                                   ; preds = %land.lhs.true440.i.
   br i1 %tobool447.not.i.i, label %if.else462.i.i, label %land.lhs.true448.i.i
 
 land.lhs.true448.i.i:                             ; preds = %if.else445.i.i
-  %362 = load ptr, ptr %first_child.i.i, align 8, !noalias !46
-  %tobool450.not.i.i = icmp eq ptr %362, null
+  %361 = load ptr, ptr %first_child.i.i, align 8, !noalias !46
+  %tobool450.not.i.i = icmp eq ptr %361, null
   br i1 %tobool450.not.i.i, label %if.else462.i.i, label %land.lhs.true451.i.i
 
 land.lhs.true451.i.i:                             ; preds = %land.lhs.true448.i.i
-  %prev_sibling_c.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %362, i64 0, i32 5
-  %363 = load ptr, ptr %prev_sibling_c.i.i, align 8, !noalias !46
-  %364 = load i64, ptr %363, align 8, !noalias !46
-  %conv455167.i.i = and i64 %364, 15
+  %prev_sibling_c.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %361, i64 0, i32 5
+  %362 = load ptr, ptr %prev_sibling_c.i.i, align 8, !noalias !46
+  %363 = load i64, ptr %362, align 8, !noalias !46
+  %conv455167.i.i = and i64 %363, 15
   %cmp456.i.i = icmp eq i64 %conv455167.i.i, 3
   br i1 %cmp456.i.i, label %if.then457.i.i, label %if.else462.i.i
 
 if.then457.i.i:                                   ; preds = %land.lhs.true451.i.i
-  %call.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %merged_pcdata.0.ph.i.i) #47, !noalias !46
+  %call.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %merged_pcdata.0.ph.i.i) #43, !noalias !46
   %add.ptr459.i.i = getelementptr inbounds i8, ptr %merged_pcdata.0.ph.i.i, i64 %call.i.i.i
-  %call.i271.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i20.i) #47, !noalias !46
+  %call.i271.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i20.i) #43, !noalias !46
   %add.i.i68 = add i64 %call.i271.i.i, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr459.i.i, ptr nonnull align 1 %spec.select.i20.i, i64 %add.i.i68, i1 false), !noalias !46
   %add.ptr461.i.i = getelementptr inbounds i8, ptr %add.ptr459.i.i, i64 %call.i271.i.i
   br label %if.end472.i.i
 
 if.else462.i.i:                                   ; preds = %land.lhs.true451.i.i, %land.lhs.true448.i.i, %if.else445.i.i
-  %365 = load i64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
-  %add.i.i.i.i273.i.i = add i64 %365, 64
+  %364 = load i64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
+  %add.i.i.i.i273.i.i = add i64 %364, 64
   %cmp.i.i.i.i274.i.i = icmp ugt i64 %add.i.i.i.i273.i.i, 32728
   br i1 %cmp.i.i.i.i274.i.i, label %if.then.i.i.i.i299.i.i, label %if.end.i.i.i.i275.i.i
 
 if.then.i.i.i.i299.i.i:                           ; preds = %if.else462.i.i
-  %366 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8, !noalias !46
-  %call.i.i.i.i.i.i300.i.i79 = tail call noundef ptr %366(i64 noundef 32768)
+  %365 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8, !noalias !46
+  %call.i.i.i.i.i.i300.i.i79 = tail call noundef ptr %365(i64 noundef 32768)
   %tobool.not.i.i.i.i.i.i301.i.i = icmp eq ptr %call.i.i.i.i.i.i300.i.i79, null
   br i1 %tobool.not.i.i.i.i.i.i301.i.i, label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i, label %if.end.i.i.i.i.i302.i.i
 
 if.end.i.i.i.i.i302.i.i:                          ; preds = %if.then.i.i.i.i299.i.i
-  %367 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i300.i.i79, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %367, i8 0, i64 32, i1 false), !noalias !46
+  %366 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i300.i.i79, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %366, i8 0, i64 32, i1 false), !noalias !46
   store ptr %add.ptr4.i, ptr %call.i.i.i.i.i.i300.i.i79, align 8, !noalias !46
-  %368 = load i64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
+  %367 = load i64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
+  %368 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
+  %busy_size.i.i.i.i.i303.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xml_memory_page", ptr %368, i64 0, i32 3
+  store i64 %367, ptr %busy_size.i.i.i.i.i303.i.i, align 8, !noalias !46
   %369 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
-  %busy_size.i.i.i.i.i303.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xml_memory_page", ptr %369, i64 0, i32 3
-  store i64 %368, ptr %busy_size.i.i.i.i.i303.i.i, align 8, !noalias !46
-  %370 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
-  store ptr %370, ptr %367, align 8, !noalias !46
-  %next.i.i.i.i.i304.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xml_memory_page", ptr %370, i64 0, i32 2
+  store ptr %369, ptr %366, align 8, !noalias !46
+  %next.i.i.i.i.i304.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xml_memory_page", ptr %369, i64 0, i32 2
   store ptr %call.i.i.i.i.i.i300.i.i79, ptr %next.i.i.i.i.i304.i.i, align 8, !noalias !46
   store ptr %call.i.i.i.i.i.i300.i.i79, ptr %add.ptr4.i, align 8, !noalias !46
   store i64 64, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
@@ -10379,14 +10378,14 @@ if.end.i.i.i.i.i302.i.i:                          ; preds = %if.then.i.i.i.i299.
   br label %if.end3.i278.i.i
 
 if.end.i.i.i.i275.i.i:                            ; preds = %if.else462.i.i
-  %371 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
-  %add.ptr.i.i.i.i276.i.i = getelementptr inbounds i8, ptr %371, i64 40
-  %add.ptr3.i.i.i.i277.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i276.i.i, i64 %365
+  %370 = load ptr, ptr %add.ptr4.i, align 8, !noalias !46
+  %add.ptr.i.i.i.i276.i.i = getelementptr inbounds i8, ptr %370, i64 40
+  %add.ptr3.i.i.i.i277.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i276.i.i, i64 %364
   store i64 %add.i.i.i.i273.i.i, ptr %_busy_size.i.i.i.i272.i.i, align 8, !noalias !46
   br label %if.end3.i278.i.i
 
 if.end3.i278.i.i:                                 ; preds = %if.end.i.i.i.i275.i.i, %if.end.i.i.i.i.i302.i.i
-  %page.0.ph.i.i279.i.i = phi ptr [ %371, %if.end.i.i.i.i275.i.i ], [ %call.i.i.i.i.i.i300.i.i79, %if.end.i.i.i.i.i302.i.i ]
+  %page.0.ph.i.i279.i.i = phi ptr [ %370, %if.end.i.i.i.i275.i.i ], [ %call.i.i.i.i.i.i300.i.i79, %if.end.i.i.i.i.i302.i.i ]
   %retval.0.i.i.ph.i.i280.i.i = phi ptr [ %add.ptr3.i.i.i.i277.i.i, %if.end.i.i.i.i275.i.i ], [ %add.ptr.i.i.i.i.i305.i.i, %if.end.i.i.i.i.i302.i.i ]
   %name.i.i.i281.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %retval.0.i.i.ph.i.i280.i.i, i64 0, i32 1
   %sub.ptr.lhs.cast.i.i.i282.i.i = ptrtoint ptr %retval.0.i.i.ph.i.i280.i.i to i64
@@ -10398,17 +10397,17 @@ if.end3.i278.i.i:                                 ; preds = %if.end.i.i.i.i275.i
   store i64 %or.i.i.i286.i.i, ptr %retval.0.i.i.ph.i.i280.i.i, align 8, !noalias !46
   %parent.i.i287.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %retval.0.i.i.ph.i.i280.i.i, i64 0, i32 3
   store ptr %cursor.0.ph.i.i, ptr %parent.i.i287.i.i, align 8, !noalias !46
-  %372 = load ptr, ptr %first_child.i.i, align 8, !noalias !46
-  %tobool.not.i.i289.i.i = icmp eq ptr %372, null
+  %371 = load ptr, ptr %first_child.i.i, align 8, !noalias !46
+  %tobool.not.i.i289.i.i = icmp eq ptr %371, null
   br i1 %tobool.not.i.i289.i.i, label %if.else.i.i297.i.i, label %if.then.i.i290.i.i
 
 if.then.i.i290.i.i:                               ; preds = %if.end3.i278.i.i
-  %prev_sibling_c.i.i291.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %372, i64 0, i32 5
-  %373 = load ptr, ptr %prev_sibling_c.i.i291.i.i, align 8, !noalias !46
-  %next_sibling.i.i292.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %373, i64 0, i32 6
+  %prev_sibling_c.i.i291.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %371, i64 0, i32 5
+  %372 = load ptr, ptr %prev_sibling_c.i.i291.i.i, align 8, !noalias !46
+  %next_sibling.i.i292.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %372, i64 0, i32 6
   store ptr %retval.0.i.i.ph.i.i280.i.i, ptr %next_sibling.i.i292.i.i, align 8, !noalias !46
   %prev_sibling_c1.i.i293.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %retval.0.i.i.ph.i.i280.i.i, i64 0, i32 5
-  store ptr %373, ptr %prev_sibling_c1.i.i293.i.i, align 8, !noalias !46
+  store ptr %372, ptr %prev_sibling_c1.i.i293.i.i, align 8, !noalias !46
   br label %if.end469.i.i
 
 if.else.i.i297.i.i:                               ; preds = %if.end3.i278.i.i
@@ -10425,14 +10424,14 @@ if.end469.i.i:                                    ; preds = %if.else.i.i297.i.i,
 
 if.end472.i.i:                                    ; preds = %if.end469.i.i, %if.then457.i.i, %if.then443.i.i
   %merged_pcdata.2.i.i = phi ptr [ %add.ptr461.i.i, %if.then457.i.i ], [ %spec.select.i20.i, %if.end469.i.i ], [ %merged_pcdata.0.ph.i.i, %if.then443.i.i ]
-  %374 = load i8, ptr %call431.i.i78, align 1, !noalias !46
-  %tobool473.not.i.i = icmp eq i8 %374, 0
+  %373 = load i8, ptr %call431.i.i78, align 1, !noalias !46
+  %tobool473.not.i.i = icmp eq i8 %373, 0
   br i1 %tobool473.not.i.i, label %while.end492.i.i, label %LOC_TAG.i.i
 
 while.cond477.i.i:                                ; preds = %if.end420.i.i, %while.body483.i.i
   %s.addr.16.i.i = phi ptr [ %incdec.ptr484.i.i, %while.body483.i.i ], [ %spec.select.i20.i, %if.end420.i.i ]
-  %375 = load i8, ptr %s.addr.16.i.i, align 1, !noalias !46
-  switch i8 %375, label %while.body483.i.i [
+  %374 = load i8, ptr %s.addr.16.i.i, align 1, !noalias !46
+  switch i8 %374, label %while.body483.i.i [
     i8 0, label %while.end492.i.i
     i8 60, label %LOC_TAGthread-pre-split.i.i
   ]
@@ -10481,7 +10480,7 @@ _ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.e
   br label %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
 
 _ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i: ; preds = %if.then.i.i.i.i299.i.i, %while.end260.i.i.i, %while.end.i47.i, %land.lhs.true224.i.i.i, %land.lhs.true220.i.i.i, %land.lhs.true216.i.i.i, %land.lhs.true212.i.i.i, %land.lhs.true208.i.i.i, %land.lhs.true204.i.i.i, %if.then93.i.i.i, %if.then.i.i.i.i.i261.i.i, %if.else71.i.i.i, %if.then54.i.i.i, %if.then.i.i.i.i95.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then32.i.i.i, %while.end.i.i.i, %if.then348.i.i, %if.then329.i.i, %while.end326.i.i, %if.then271.i.i, %if.then253.i.i, %if.then232.i.i, %if.else229.i.i, %if.else217.i.i, %if.else202.i.i, %if.then.i.i.i.i.i.i, %land.lhs.true53.i.i.i, %while.end.i33.i.i, %land.lhs.true.i33.i, %while.cond113.us.i.i.i, %while.cond113.i.i.i, %while.cond152.us.i.i.i, %while.cond152.i.i.i, %while.cond.us.i.i.i, %while.cond.i254.i.i, %while.cond87.us.i.i.i, %while.cond87.i.i.i, %while.cond134.us.i.i.i, %while.cond134.i.i.i, %if.end175.i.i, %while.end162.i.i, %if.end150.i.i, %if.then.i.i.i.i202.i.i, %while.body286.i.i, %while.cond18.i.i.i, %while.cond.i.i35.i, %while.cond59.i.i.i, %while.end492.i.i, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit936, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit939, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit942, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit945, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit948, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit951, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit96.split.loop.exit359.i, %if.else366.i.i, %if.else279.i.i.i, %if.else270.i.i.i, %if.then107.i.i.i, %if.then18.i.i.i, %if.else313.i.i, %land.lhs.true306.i.i, %if.then171.i.i
-  %parser.sroa.9.3.i = phi ptr [ %320, %if.then107.i.i.i ], [ %302, %if.then18.i.i.i ], [ %198, %if.then171.i.i ], [ %incdec.ptr272.i.i, %if.else313.i.i ], [ %s.addr.12.i.i, %land.lhs.true306.i.i ], [ %incdec.ptr.i.i.i, %if.else270.i.i.i ], [ %incdec.ptr.i.i.i, %if.else279.i.i.i ], [ %s.addr.1.i.i, %if.else366.i.i ], [ %add.ptr235.i.i.le.i, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit96.split.loop.exit359.i ], [ %spec.select, %while.end492.i.i ], [ %incdec.ptr2.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit ], [ %incdec.ptr86.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit936 ], [ %incdec.ptr82.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit939 ], [ %incdec.ptr78.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit942 ], [ %incdec.ptr74.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit945 ], [ %incdec.ptr70.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit948 ], [ %incdec.ptr66.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit951 ], [ %s.addr.2.i.i44.i, %while.cond59.i.i.i ], [ %s.addr.0.i.i36.i, %while.cond.i.i35.i ], [ %s.addr.1.i29.i.i, %while.cond18.i.i.i ], [ %incdec.ptr272.i.i, %while.body286.i.i ], [ %s.addr.6.i.i, %if.then.i.i.i.i202.i.i ], [ %call169.i.i72, %if.end175.i.i ], [ %s.addr.11.i.i, %while.end162.i.i ], [ %s.addr.10.i.i, %if.end150.i.i ], [ %s.addr.3.i.i.i, %while.cond134.i.i.i ], [ %s.addr.3.us.i.i.i, %while.cond134.us.i.i.i ], [ %s.addr.2.i.i.i, %while.cond87.i.i.i ], [ %s.addr.2.us.i.i.i, %while.cond87.us.i.i.i ], [ %s.addr.0.i.i.i, %while.cond.i254.i.i ], [ %s.addr.0.us.i.i.i, %while.cond.us.i.i.i ], [ %s.addr.2.i223.i.i, %while.cond152.i.i.i ], [ %s.addr.2.us.i222.i.i, %while.cond152.us.i.i.i ], [ %s.addr.1.i220.i.i, %while.cond113.i.i.i ], [ %s.addr.1.us.i.i.i, %while.cond113.us.i.i.i ], [ %s.addr.0.i28.i, %land.lhs.true53.i.i.i ], [ %s.addr.0.i28.i, %land.lhs.true.i33.i ], [ %s.addr.0.i32.i.i, %while.end.i33.i.i ], [ %call431.i.i78, %if.then.i.i.i.i299.i.i ], [ %s.addr.5.i.i.i, %while.end260.i.i.i ], [ %s.addr.0.i28.i, %while.end.i47.i ], [ %incdec.ptr.i.i.i, %land.lhs.true224.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true220.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true216.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true212.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true208.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true204.i.i.i ], [ %incdec.ptr90.i.i.i, %if.then93.i.i.i ], [ %incdec.ptr6.i.i.i, %if.then.i.i.i.i.i261.i.i ], [ %incdec.ptr51.i.i.i, %if.else71.i.i.i ], [ %incdec.ptr51.i.i.i, %if.then54.i.i.i ], [ %s.addr.0.ptr.i.i.i.le, %if.then.i.i.i.i95.i.i.i ], [ %s.addr.0.ptr.i.i.i.le, %if.then.i.i.i.i.i.i.i ], [ %s.addr.0.ptr.i.i.i.le, %if.then32.i.i.i ], [ %s.addr.0.ptr.i.i.i.le, %while.end.i.i.i ], [ %incdec.ptr.ptr.i.i.i, %if.then348.i.i ], [ %s.addr.13.i.i, %if.then329.i.i ], [ %s.addr.13.i.i, %while.end326.i.i ], [ %incdec.ptr272.i.i, %if.then271.i.i ], [ %s.addr.3.i.i, %if.then253.i.i ], [ %incdec.ptr52.i.i, %if.then232.i.i ], [ %incdec.ptr52.i.i, %if.else229.i.i ], [ %s.addr.6.i.i, %if.else217.i.i ], [ %incdec.ptr71.i.i, %if.else202.i.i ], [ %s.addr.1.i.i, %if.then.i.i.i.i.i.i ]
+  %parser.sroa.9.3.i = phi ptr [ %319, %if.then107.i.i.i ], [ %301, %if.then18.i.i.i ], [ %197, %if.then171.i.i ], [ %incdec.ptr272.i.i, %if.else313.i.i ], [ %s.addr.12.i.i, %land.lhs.true306.i.i ], [ %incdec.ptr.i.i.i, %if.else270.i.i.i ], [ %incdec.ptr.i.i.i, %if.else279.i.i.i ], [ %s.addr.1.i.i, %if.else366.i.i ], [ %add.ptr235.i.i.le.i, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit96.split.loop.exit359.i ], [ %spec.select, %while.end492.i.i ], [ %incdec.ptr2.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit ], [ %incdec.ptr86.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit936 ], [ %incdec.ptr82.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit939 ], [ %incdec.ptr78.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit942 ], [ %incdec.ptr74.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit945 ], [ %incdec.ptr70.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit948 ], [ %incdec.ptr66.i.i.i.le, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit951 ], [ %s.addr.2.i.i44.i, %while.cond59.i.i.i ], [ %s.addr.0.i.i36.i, %while.cond.i.i35.i ], [ %s.addr.1.i29.i.i, %while.cond18.i.i.i ], [ %incdec.ptr272.i.i, %while.body286.i.i ], [ %s.addr.6.i.i, %if.then.i.i.i.i202.i.i ], [ %call169.i.i72, %if.end175.i.i ], [ %s.addr.11.i.i, %while.end162.i.i ], [ %s.addr.10.i.i, %if.end150.i.i ], [ %s.addr.3.i.i.i, %while.cond134.i.i.i ], [ %s.addr.3.us.i.i.i, %while.cond134.us.i.i.i ], [ %s.addr.2.i.i.i, %while.cond87.i.i.i ], [ %s.addr.2.us.i.i.i, %while.cond87.us.i.i.i ], [ %s.addr.0.i.i.i, %while.cond.i254.i.i ], [ %s.addr.0.us.i.i.i, %while.cond.us.i.i.i ], [ %s.addr.2.i223.i.i, %while.cond152.i.i.i ], [ %s.addr.2.us.i222.i.i, %while.cond152.us.i.i.i ], [ %s.addr.1.i220.i.i, %while.cond113.i.i.i ], [ %s.addr.1.us.i.i.i, %while.cond113.us.i.i.i ], [ %s.addr.0.i28.i, %land.lhs.true53.i.i.i ], [ %s.addr.0.i28.i, %land.lhs.true.i33.i ], [ %s.addr.0.i32.i.i, %while.end.i33.i.i ], [ %call431.i.i78, %if.then.i.i.i.i299.i.i ], [ %s.addr.5.i.i.i, %while.end260.i.i.i ], [ %s.addr.0.i28.i, %while.end.i47.i ], [ %incdec.ptr.i.i.i, %land.lhs.true224.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true220.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true216.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true212.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true208.i.i.i ], [ %incdec.ptr.i.i.i, %land.lhs.true204.i.i.i ], [ %incdec.ptr90.i.i.i, %if.then93.i.i.i ], [ %incdec.ptr6.i.i.i, %if.then.i.i.i.i.i261.i.i ], [ %incdec.ptr51.i.i.i, %if.else71.i.i.i ], [ %incdec.ptr51.i.i.i, %if.then54.i.i.i ], [ %s.addr.0.ptr.i.i.i.le, %if.then.i.i.i.i95.i.i.i ], [ %s.addr.0.ptr.i.i.i.le, %if.then.i.i.i.i.i.i.i ], [ %s.addr.0.ptr.i.i.i.le, %if.then32.i.i.i ], [ %s.addr.0.ptr.i.i.i.le, %while.end.i.i.i ], [ %incdec.ptr.ptr.i.i.i, %if.then348.i.i ], [ %s.addr.13.i.i, %if.then329.i.i ], [ %s.addr.13.i.i, %while.end326.i.i ], [ %incdec.ptr272.i.i, %if.then271.i.i ], [ %s.addr.3.i.i, %if.then253.i.i ], [ %incdec.ptr52.i.i, %if.then232.i.i ], [ %incdec.ptr52.i.i, %if.else229.i.i ], [ %s.addr.6.i.i, %if.else217.i.i ], [ %incdec.ptr71.i.i, %if.else202.i.i ], [ %s.addr.1.i.i, %if.then.i.i.i.i.i.i ]
   %parser.sroa.55.3.i = phi i32 [ 8, %if.then107.i.i.i ], [ 7, %if.then18.i.i.i ], [ 12, %if.then171.i.i ], [ 14, %if.else313.i.i ], [ 13, %land.lhs.true306.i.i ], [ 7, %if.else270.i.i.i ], [ %spec.select67.i, %if.else279.i.i.i ], [ %spec.select68.i, %if.else366.i.i ], [ 9, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.loopexit96.split.loop.exit359.i ], [ %spec.select1042, %while.end492.i.i ], [ 7, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit936 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit939 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit942 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit945 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit948 ], [ 8, %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i.loopexit735.split.loop.exit951 ], [ 9, %while.cond59.i.i.i ], [ 9, %while.cond.i.i35.i ], [ 9, %while.cond18.i.i.i ], [ 14, %while.body286.i.i ], [ 3, %if.then.i.i.i.i202.i.i ], [ 12, %if.end175.i.i ], [ 12, %while.end162.i.i ], [ 12, %if.end150.i.i ], [ 6, %while.cond134.i.i.i ], [ 6, %while.cond134.us.i.i.i ], [ 6, %while.cond87.i.i.i ], [ 6, %while.cond87.us.i.i.i ], [ 7, %while.cond.i254.i.i ], [ 7, %while.cond.us.i.i.i ], [ 8, %while.cond152.i.i.i ], [ 8, %while.cond152.us.i.i.i ], [ 8, %while.cond113.i.i.i ], [ 8, %while.cond113.us.i.i.i ], [ 9, %land.lhs.true.i33.i ], [ 9, %while.end.i33.i.i ], [ 9, %land.lhs.true53.i.i.i ], [ 3, %if.then.i.i.i.i299.i.i ], [ 3, %while.end260.i.i.i ], [ 9, %while.end.i47.i ], [ 5, %land.lhs.true224.i.i.i ], [ 5, %land.lhs.true220.i.i.i ], [ 5, %land.lhs.true216.i.i.i ], [ 5, %land.lhs.true212.i.i.i ], [ 5, %land.lhs.true208.i.i.i ], [ 5, %land.lhs.true204.i.i.i ], [ 3, %if.then93.i.i.i ], [ 3, %if.then.i.i.i.i.i261.i.i ], [ 6, %if.else71.i.i.i ], [ 6, %if.then54.i.i.i ], [ 3, %if.then.i.i.i.i95.i.i.i ], [ 3, %if.then.i.i.i.i.i.i.i ], [ 6, %if.then32.i.i.i ], [ 6, %while.end.i.i.i ], [ 6, %if.then348.i.i ], [ 13, %if.then329.i.i ], [ 13, %while.end326.i.i ], [ 14, %if.then271.i.i ], [ 11, %if.then253.i.i ], [ 11, %if.then232.i.i ], [ 11, %if.else229.i.i ], [ 11, %if.else217.i.i ], [ 11, %if.else202.i.i ], [ 3, %if.then.i.i.i.i.i.i ]
   %tobool8.not.i = icmp eq ptr %parser.sroa.9.3.i, null
   %sub.ptr.lhs.cast.i = ptrtoint ptr %parser.sroa.9.3.i to i64
@@ -10496,7 +10495,7 @@ _ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.e
   br i1 %cmp.i22.i, label %if.then15.i, label %if.else.i
 
 if.then15.i:                                      ; preds = %_ZN4pugi4impl12_GLOBAL__N_110xml_parser10parse_treeEPcPNS_15xml_node_structEjc.exit.i
-  %cmp16.i = icmp eq i8 %123, 60
+  %cmp16.i = icmp eq i8 %122, 60
   br i1 %cmp16.i, label %if.then17.i, label %if.end19.i
 
 if.then17.i:                                      ; preds = %if.then15.i
@@ -10518,16 +10517,16 @@ land.lhs.true.i:                                  ; preds = %if.end19.i
   br i1 %tobool.not4.not.i.i, label %if.then31.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %land.lhs.true.i, %if.end.i25.i
-  %node.addr.05.i.i = phi ptr [ %377, %if.end.i25.i ], [ %cond27.i, %land.lhs.true.i ]
-  %376 = load i64, ptr %node.addr.05.i.i, align 8, !noalias !46
-  %conv3.i.i = and i64 %376, 15
+  %node.addr.05.i.i = phi ptr [ %376, %if.end.i25.i ], [ %cond27.i, %land.lhs.true.i ]
+  %375 = load i64, ptr %node.addr.05.i.i, align 8, !noalias !46
+  %conv3.i.i = and i64 %375, 15
   %cmp.i24.i = icmp eq i64 %conv3.i.i, 2
   br i1 %cmp.i24.i, label %if.end45.i, label %if.end.i25.i
 
 if.end.i25.i:                                     ; preds = %while.body.i.i
   %next_sibling.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %node.addr.05.i.i, i64 0, i32 6
-  %377 = load ptr, ptr %next_sibling.i.i, align 8, !noalias !46
-  %tobool.not.not.i.i44 = icmp eq ptr %377, null
+  %376 = load ptr, ptr %next_sibling.i.i, align 8, !noalias !46
+  %tobool.not.not.i.i44 = icmp eq ptr %376, null
   br i1 %tobool.not.not.i.i44, label %if.then31.i, label %while.body.i.i, !llvm.loop !83
 
 if.then31.i:                                      ; preds = %if.end.i25.i, %land.lhs.true.i
@@ -10543,7 +10542,7 @@ if.else.i:                                        ; preds = %_ZN4pugi4impl12_GLO
 
 land.lhs.true35.i:                                ; preds = %if.else.i
   %cmp38.i = icmp eq i64 %cond13.i, %sub.i
-  %cmp41.i = icmp eq i8 %123, 0
+  %cmp41.i = icmp eq i8 %122, 0
   %or.cond.i43 = select i1 %cmp38.i, i1 %cmp41.i, i1 false
   br i1 %or.cond.i43, label %if.then42.i, label %if.end45.i
 
@@ -10574,10 +10573,10 @@ if.then.i84:                                      ; preds = %cleanup
           to label %return unwind label %terminate.lpad.i85
 
 terminate.lpad.i85:                               ; preds = %if.then.i84
-  %378 = landingpad { ptr, i32 }
+  %377 = landingpad { ptr, i32 }
           catch ptr null
-  %379 = extractvalue { ptr, i32 } %378, 0
-  tail call void @__clang_call_terminate(ptr %379) #45
+  %378 = extractvalue { ptr, i32 } %377, 0
+  tail call void @__clang_call_terminate(ptr %378) #41
   unreachable
 
 return:                                           ; preds = %if.then.i84, %cleanup, %cleanup.thread, %if.then
@@ -10612,7 +10611,7 @@ for.body:                                         ; preds = %if.end, %for.inc20
   br i1 %tobool4.not, label %for.inc20, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name_, ptr noundef nonnull dereferenceable(1) %1) #47
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name_, ptr noundef nonnull dereferenceable(1) %1) #43
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then5, label %for.inc20
 
@@ -10630,7 +10629,7 @@ for.body8:                                        ; preds = %if.then5, %for.inc
   br i1 %tobool10.not, label %for.inc, label %land.lhs.true11
 
 land.lhs.true11:                                  ; preds = %for.body8
-  %call.i13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %attr_name, ptr noundef nonnull dereferenceable(1) %2) #47
+  %call.i13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %attr_name, ptr noundef nonnull dereferenceable(1) %2) #43
   %cmp.i14 = icmp eq i32 %call.i13, 0
   br i1 %cmp.i14, label %if.then13, label %for.inc
 
@@ -10639,7 +10638,7 @@ if.then13:                                        ; preds = %land.lhs.true11
   %3 = load ptr, ptr %value, align 8
   %tobool14.not = icmp eq ptr %3, null
   %cond = select i1 %tobool14.not, ptr @.str, ptr %3
-  %call.i15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %attr_value, ptr noundef nonnull dereferenceable(1) %cond) #47
+  %call.i15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %attr_value, ptr noundef nonnull dereferenceable(1) %cond) #43
   %cmp.i16 = icmp eq i32 %call.i15, 0
   br i1 %cmp.i16, label %if.then16, label %for.inc
 
@@ -10701,7 +10700,7 @@ for.body6:                                        ; preds = %for.body, %for.inc
   br i1 %tobool7.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body6
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %attr_name, ptr noundef nonnull dereferenceable(1) %1) #47
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %attr_name, ptr noundef nonnull dereferenceable(1) %1) #43
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then8, label %for.inc
 
@@ -10710,7 +10709,7 @@ if.then8:                                         ; preds = %land.lhs.true
   %2 = load ptr, ptr %value, align 8
   %tobool9.not = icmp eq ptr %2, null
   %cond = select i1 %tobool9.not, ptr @.str, ptr %2
-  %call.i10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %attr_value, ptr noundef nonnull dereferenceable(1) %cond) #47
+  %call.i10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %attr_value, ptr noundef nonnull dereferenceable(1) %cond) #43
   %cmp.i11 = icmp eq i32 %call.i10, 0
   br i1 %cmp.i11, label %if.then11, label %for.inc
 
@@ -10747,7 +10746,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %for.body
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #46
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #42
   br label %return
 
 for.body:                                         ; preds = %entry, %cond.end
@@ -10762,7 +10761,7 @@ for.body:                                         ; preds = %entry, %cond.end
   br i1 %tobool5.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %for.body
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #47
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #43
   br label %cond.end
 
 cond.end:                                         ; preds = %for.body, %cond.true
@@ -10774,7 +10773,7 @@ cond.end:                                         ; preds = %for.body, %cond.tru
   br i1 %tobool3.not, label %for.end, label %for.body, !llvm.loop !94
 
 for.end:                                          ; preds = %cond.end
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #46
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #42
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %add6)
           to label %for.cond8.preheader unwind label %lpad.loopexit.split-lp
 
@@ -10811,7 +10810,7 @@ lpad.loopexit.split-lp:                           ; preds = %for.end
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit19, %lpad.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #46
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #42
   resume { ptr, i32 } %lpad.phi
 
 if.end16:                                         ; preds = %invoke.cont14, %for.body10
@@ -10822,7 +10821,7 @@ if.end16:                                         ; preds = %invoke.cont14, %for
   br i1 %tobool18.not, label %for.inc25, label %if.then19
 
 if.then19:                                        ; preds = %if.end16
-  %call.i18 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #47
+  %call.i18 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #43
   %sub = sub i64 %offset.2, %call.i18
   %call23 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %sub)
           to label %invoke.cont22 unwind label %lpad.loopexit
@@ -11216,7 +11215,7 @@ entry:
   br i1 %or.cond53, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %indent) #47
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %indent) #43
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
@@ -11638,7 +11637,7 @@ _ZN4pugi4impl12_GLOBAL__N_116get_valid_lengthEPKcm.exit.i: ; preds = %for.body.i
   store i64 %sub6.i, ptr %bufsize.i, align 8
   %idx.neg8.i = sub i64 0, %sub5.i
   %add.ptr9.i = getelementptr inbounds i8, ptr %data.addr.0.lcssa.i, i64 %idx.neg8.i
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %data.addr.0.lcssa.i) #47
+  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %data.addr.0.lcssa.i) #43
   %add.i = add i64 %call.i.i, %sub5.i
   tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull %writer, i64 noundef %sub6.i)
   store i64 0, ptr %bufsize.i, align 8
@@ -12501,7 +12500,7 @@ if.end:                                           ; preds = %for.body.i, %land.l
   br i1 %tobool3.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call.i = tail call noundef double @strtod(ptr nocapture noundef nonnull %8, ptr noundef null) #46
+  %call.i = tail call noundef double @strtod(ptr nocapture noundef nonnull %8, ptr noundef null) #42
   br label %return
 
 return:                                           ; preds = %for.inc.i, %if.end9.i, %entry, %cond.true, %if.end
@@ -12564,7 +12563,7 @@ if.end:                                           ; preds = %for.body.i, %land.l
   br i1 %tobool3.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call.i = tail call double @strtod(ptr nocapture noundef nonnull %8, ptr noundef null) #46
+  %call.i = tail call double @strtod(ptr nocapture noundef nonnull %8, ptr noundef null) #42
   %conv.i = fptrunc double %call.i to float
   br label %return
 
@@ -12835,7 +12834,7 @@ _ZN4pugi8xml_text9_data_newEv.exit:               ; preds = %for.inc.i.i, %entry
 cond.true:                                        ; preds = %_ZN4pugi8xml_text9_data_newEv.exit.thread, %_ZN4pugi8xml_text9_data_newEv.exit
   %retval.0.i6 = phi ptr [ %retval.0.i.ph, %_ZN4pugi8xml_text9_data_newEv.exit.thread ], [ %call3.i, %_ZN4pugi8xml_text9_data_newEv.exit ]
   %value = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %retval.0.i6, i64 0, i32 2
-  %call.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %rhs) #47
+  %call.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %rhs) #43
   %call3 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 8 dereferenceable(8) %retval.0.i6, i64 noundef 16, ptr noundef %rhs, i64 noundef %call.i)
   br label %cond.end
 
@@ -13375,8 +13374,8 @@ cond.true:                                        ; preds = %_ZN4pugi8xml_text9_
   %value = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %retval.0.i5, i64 0, i32 2
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i)
   %conv.i = fpext float %rhs to double
-  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 128, ptr noundef nonnull @.str.108, i32 noundef 9, double noundef %conv.i) #46
-  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i) #47
+  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 128, ptr noundef nonnull @.str.108, i32 noundef 9, double noundef %conv.i) #42
+  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i) #43
   %call1.i.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 8 dereferenceable(8) %retval.0.i5, i64 noundef 16, ptr noundef nonnull %buf.i, i64 noundef %call.i.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %buf.i)
   br label %cond.end
@@ -13453,8 +13452,8 @@ cond.true:                                        ; preds = %_ZN4pugi8xml_text9_
   %value = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %retval.0.i5, i64 0, i32 2
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i)
   %conv.i = fpext float %rhs to double
-  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 128, ptr noundef nonnull @.str.108, i32 noundef %precision, double noundef %conv.i) #46
-  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i) #47
+  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 128, ptr noundef nonnull @.str.108, i32 noundef %precision, double noundef %conv.i) #42
+  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i) #43
   %call1.i.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 8 dereferenceable(8) %retval.0.i5, i64 noundef 16, ptr noundef nonnull %buf.i, i64 noundef %call.i.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %buf.i)
   br label %cond.end
@@ -13530,8 +13529,8 @@ cond.true:                                        ; preds = %_ZN4pugi8xml_text9_
   %retval.0.i5 = phi ptr [ %retval.0.i.ph, %_ZN4pugi8xml_text9_data_newEv.exit.thread ], [ %call3.i, %_ZN4pugi8xml_text9_data_newEv.exit ]
   %value = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %retval.0.i5, i64 0, i32 2
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i)
-  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 128, ptr noundef nonnull @.str.108, i32 noundef 17, double noundef %rhs) #46
-  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i) #47
+  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 128, ptr noundef nonnull @.str.108, i32 noundef 17, double noundef %rhs) #42
+  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i) #43
   %call1.i.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 8 dereferenceable(8) %retval.0.i5, i64 noundef 16, ptr noundef nonnull %buf.i, i64 noundef %call.i.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %buf.i)
   br label %cond.end
@@ -13607,8 +13606,8 @@ cond.true:                                        ; preds = %_ZN4pugi8xml_text9_
   %retval.0.i5 = phi ptr [ %retval.0.i.ph, %_ZN4pugi8xml_text9_data_newEv.exit.thread ], [ %call3.i, %_ZN4pugi8xml_text9_data_newEv.exit ]
   %value = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %retval.0.i5, i64 0, i32 2
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buf.i)
-  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 128, ptr noundef nonnull @.str.108, i32 noundef %precision, double noundef %rhs) #46
-  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i) #47
+  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 128, ptr noundef nonnull @.str.108, i32 noundef %precision, double noundef %rhs) #42
+  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i) #43
   %call1.i.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 8 dereferenceable(8) %retval.0.i5, i64 noundef 16, ptr noundef nonnull %buf.i, i64 noundef %call.i.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %buf.i)
   br label %cond.end
@@ -13952,7 +13951,7 @@ _ZN4pugi8xml_text9_data_newEv.exit.i:             ; preds = %for.inc.i.i.i, %if.
 cond.true.i:                                      ; preds = %_ZN4pugi8xml_text9_data_newEv.exit.i, %_ZN4pugi8xml_text9_data_newEv.exit.thread.i
   %retval.0.i6.i = phi ptr [ %retval.0.i.ph.i, %_ZN4pugi8xml_text9_data_newEv.exit.thread.i ], [ %call3.i.i, %_ZN4pugi8xml_text9_data_newEv.exit.i ]
   %value.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %retval.0.i6.i, i64 0, i32 2
-  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %rhs) #47
+  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %rhs) #43
   %call3.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value.i, ptr noundef nonnull align 8 dereferenceable(8) %retval.0.i6.i, i64 noundef 16, ptr noundef %rhs, i64 noundef %call.i.i)
   br label %_ZN4pugi8xml_text3setEPKc.exit
 
@@ -14738,7 +14737,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   br i1 %tobool4.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %2) #47
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %2) #43
   %cmp.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.i, label %if.then5.i, label %for.inc.i
 
@@ -14793,7 +14792,7 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
   br i1 %tobool4.not.i.i, label %for.inc.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
-  %call.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %3) #47
+  %call.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %3) #43
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then5.i.i, label %for.inc.i.i
 
@@ -14847,7 +14846,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   br i1 %tobool4.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %3) #47
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %3) #43
   %cmp.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.i, label %if.then5.i, label %for.inc.i
 
@@ -14920,7 +14919,7 @@ _ZNK4pugi8xml_node4nameEv.exit.thread:            ; preds = %_ZNK4pugi8xml_node1
   %cond.i = select i1 %tobool4.not.i7, ptr @.str, ptr %11
   %_name1032 = getelementptr inbounds %"class.pugi::xml_named_node_iterator", ptr %this, i64 0, i32 2
   %12 = load ptr, ptr %_name1032, align 8
-  %call.i33 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %cond.i, ptr noundef nonnull dereferenceable(1) %12) #47
+  %call.i33 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %cond.i, ptr noundef nonnull dereferenceable(1) %12) #43
   %cmp.i34 = icmp eq i32 %call.i33, 0
   br i1 %cmp.i34, label %if.end19, label %for.cond.preheader.i10
 
@@ -14946,7 +14945,7 @@ for.body.i15:                                     ; preds = %for.cond.preheader.
   br i1 %tobool4.not.i18, label %for.inc.i22, label %land.lhs.true.i19
 
 land.lhs.true.i19:                                ; preds = %for.body.i15
-  %call.i.i20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %14) #47
+  %call.i.i20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %14) #43
   %cmp.i.i21 = icmp eq i32 %call.i.i20, 0
   br i1 %cmp.i.i21, label %if.then5.i28, label %for.inc.i22
 
@@ -15025,8 +15024,8 @@ return:                                           ; preds = %entry, %switch.look
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4pugi12xml_documentC2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #16 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define void @_ZN4pugi12xml_documentC2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #3 align 2 {
 entry:
   %_memory.i = getelementptr inbounds %"class.pugi::xml_document", ptr %this, i64 0, i32 2
   %0 = getelementptr inbounds %"class.pugi::xml_document", ptr %this, i64 0, i32 2, i64 8
@@ -15052,8 +15051,8 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4pugi12xml_document7_createEv(ptr noundef nonnull align 8 dereferenceable(208) %this) local_unnamed_addr #16 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define void @_ZN4pugi12xml_document7_createEv(ptr noundef nonnull align 8 dereferenceable(208) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_memory = getelementptr inbounds %"class.pugi::xml_document", ptr %this, i64 0, i32 2
   %0 = getelementptr inbounds %"class.pugi::xml_document", ptr %this, i64 0, i32 2, i64 8
@@ -15167,7 +15166,7 @@ terminate.lpad.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i
 terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split-lp.loopexit, %terminate.lpad.loopexit.split-lp.loopexit.split-lp, %terminate.lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit3, %terminate.lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp4, %terminate.lpad.loopexit.split-lp.loopexit.split-lp ]
   %10 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %10) #45
+  tail call void @__clang_call_terminate(ptr %10) #41
   unreachable
 }
 
@@ -15239,9 +15238,9 @@ for.end18:                                        ; preds = %for.body15, %for.en
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #17 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #46
-  tail call void @_ZSt9terminatev() #45
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #16 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #42
+  tail call void @_ZSt9terminatev() #41
   unreachable
 }
 
@@ -15249,8 +15248,8 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 declare void @_ZSt9terminatev() local_unnamed_addr
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4pugi12xml_documentC2EOS0_(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull align 8 dereferenceable(208) %rhs) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define void @_ZN4pugi12xml_documentC2EOS0_(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull align 8 dereferenceable(208) %rhs) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_buffer = getelementptr inbounds %"class.pugi::xml_document", ptr %this, i64 0, i32 1
   %_memory.i = getelementptr inbounds %"class.pugi::xml_document", ptr %this, i64 0, i32 2
@@ -15366,8 +15365,8 @@ _ZN4pugi12xml_document5_moveERS0_.exit:           ; preds = %for.body38.i, %for.
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4pugi12xml_document5_moveERS0_(ptr nocapture noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull align 8 dereferenceable(208) %rhs) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define void @_ZN4pugi12xml_document5_moveERS0_(ptr nocapture noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull align 8 dereferenceable(208) %rhs) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %rhs, align 8
@@ -15682,7 +15681,7 @@ terminate.lpad.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i
 terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split-lp.loopexit, %terminate.lpad.loopexit.split-lp.loopexit.split-lp, %terminate.lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit18, %terminate.lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp19, %terminate.lpad.loopexit.split-lp.loopexit.split-lp ]
   %25 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %25) #45
+  tail call void @__clang_call_terminate(ptr %25) #41
   unreachable
 }
 
@@ -16024,7 +16023,7 @@ terminate.lpad.i.i.i:                             ; preds = %while.body.i.i.i
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #45
+  tail call void @__clang_call_terminate(ptr %17) #41
   unreachable
 
 common.resume.i:                                  ; preds = %.noexc.i.i, %if.then.i.i.i, %lpad.i.i
@@ -16141,7 +16140,7 @@ terminate.lpad.i32.i.i:                           ; preds = %while.body.i54.i.i
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #45
+  tail call void @__clang_call_terminate(ptr %24) #41
   unreachable
 
 if.else.i:                                        ; preds = %if.end.i
@@ -16221,7 +16220,7 @@ terminate.lpad.i.i17.i:                           ; preds = %if.then.i.i.i
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #45
+  tail call void @__clang_call_terminate(ptr %32) #41
   unreachable
 
 if.end37.i.i:                                     ; preds = %invoke.cont34.i.i, %invoke.cont28.i.i
@@ -16236,7 +16235,7 @@ terminate.lpad.i19.i.i:                           ; preds = %if.then.i18.i.i
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  tail call void @__clang_call_terminate(ptr %34) #45
+  tail call void @__clang_call_terminate(ptr %34) #41
   unreachable
 
 if.end10.i:                                       ; preds = %.noexc57.i.i, %cleanup.i.i
@@ -16438,7 +16437,7 @@ terminate.lpad.i.i.i:                             ; preds = %while.body.i.i.i
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #45
+  tail call void @__clang_call_terminate(ptr %17) #41
   unreachable
 
 common.resume.i:                                  ; preds = %.noexc.i.i, %if.then.i.i.i, %lpad.i.i
@@ -16556,7 +16555,7 @@ terminate.lpad.i32.i.i:                           ; preds = %while.body.i54.i.i
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #45
+  tail call void @__clang_call_terminate(ptr %24) #41
   unreachable
 
 if.else.i:                                        ; preds = %if.end.i
@@ -16637,7 +16636,7 @@ terminate.lpad.i.i18.i:                           ; preds = %if.then.i.i.i
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #45
+  tail call void @__clang_call_terminate(ptr %32) #41
   unreachable
 
 if.end37.i.i:                                     ; preds = %invoke.cont34.i.i, %invoke.cont28.i.i
@@ -16656,7 +16655,7 @@ terminate.lpad.i19.i.i:                           ; preds = %if.then.i18.i.i
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  tail call void @__clang_call_terminate(ptr %34) #45
+  tail call void @__clang_call_terminate(ptr %34) #41
   unreachable
 
 if.end10.i:                                       ; preds = %.noexc57.i.i, %cleanup.i.i
@@ -16683,7 +16682,7 @@ _ZN4pugi4impl12_GLOBAL__N_116load_stream_implIwEENS_16xml_parse_resultEPNS1_19xm
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4pugi12xml_document11load_stringEPKcj(ptr noalias sret(%"struct.pugi::xml_parse_result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %contents, i32 noundef %options) local_unnamed_addr #6 align 2 {
 entry:
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %contents) #47
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %contents) #43
   %_buffer.i.i.i = getelementptr inbounds %"class.pugi::xml_document", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %_buffer.i.i.i, align 8, !noalias !137
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -16988,8 +16987,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i)
-  %call.i = tail call i32 @fileno(ptr noundef nonnull %file) #46
-  %call1.i = call i32 @fstat(i32 noundef %call.i, ptr noundef nonnull %st.i) #46
+  %call.i = tail call i32 @fileno(ptr noundef nonnull %file) #42
+  %call1.i = call i32 @fstat(i32 noundef %call.i, ptr noundef nonnull %st.i) #42
   %cmp.not.i = icmp eq i32 %call1.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.then1
 
@@ -17709,7 +17708,7 @@ _ZN4pugi4impl12_GLOBAL__N_116get_valid_lengthEPKcm.exit: ; preds = %for.cond.i, 
   store i64 %sub6, ptr %bufsize, align 8
   %idx.neg8 = sub i64 0, %sub5
   %add.ptr9 = getelementptr inbounds i8, ptr %data.addr.0.lcssa, i64 %idx.neg8
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %data.addr.0.lcssa) #47
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %data.addr.0.lcssa) #43
   %add = add i64 %call.i, %sub5
   tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %this, ptr noundef nonnull %this, i64 noundef %sub6)
   store i64 0, ptr %bufsize, align 8
@@ -17823,7 +17822,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i, label %invoke.cont, label %land.end
 
 invoke.cont:                                      ; preds = %.noexc6
-  %call2.i = call i32 @ferror(ptr noundef nonnull %call.i) #46
+  %call2.i = call i32 @ferror(ptr noundef nonnull %call.i) #42
   %cmp3.i = icmp eq i32 %call2.i, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %writer.i)
   br i1 %cmp3.i, label %land.end.thread, label %if.then.i
@@ -17885,7 +17884,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i, label %invoke.cont, label %land.end
 
 invoke.cont:                                      ; preds = %.noexc5
-  %call2.i = call i32 @ferror(ptr noundef nonnull %call) #46
+  %call2.i = call i32 @ferror(ptr noundef nonnull %call) #42
   %cmp3.i = icmp eq i32 %call2.i, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %writer.i)
   br i1 %cmp3.i, label %land.end.thread, label %if.then.i
@@ -18006,7 +18005,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
 
 _ZN4pugi4impl12_GLOBAL__N_113as_utf8_beginEPKwm.exit: ; preds = %if.end.i.i.i, %entry
   %result.addr.0.lcssa.i.i.i = phi i64 [ 0, %entry ], [ %result.addr.1.i.i.i, %if.end.i.i.i ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #46
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #42
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %result.addr.0.lcssa.i.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -18107,7 +18106,7 @@ if.end.i.i.i8:                                    ; preds = %if.else.i.i.i7, %if
 lpad:                                             ; preds = %if.then, %_ZN4pugi4impl12_GLOBAL__N_113as_utf8_beginEPKwm.exit
   %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #46
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #42
   resume { ptr, i32 } %17
 
 nrvo.skipdtor:                                    ; preds = %if.end.i.i.i8, %invoke.cont1, %invoke.cont
@@ -18117,8 +18116,8 @@ nrvo.skipdtor:                                    ; preds = %if.end.i.i.i8, %inv
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4pugi7as_utf8ERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %str) local_unnamed_addr #6 {
 entry:
-  %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #46
-  %call1 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #46
+  %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #42
+  %call1 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #42
   tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_112as_utf8_implB5cxx11EPKwm(ptr noalias align 8 %agg.result, ptr noundef %call, i64 noundef %call1)
   ret void
 }
@@ -18132,7 +18131,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4size
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4pugi7as_wideB5cxx11EPKc(ptr noalias sret(%"class.std::__cxx11::basic_string.8") align 8 %agg.result, ptr noundef %str) local_unnamed_addr #6 {
 entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #47
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #43
   tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_112as_wide_implB5cxx11EPKcm(ptr noalias align 8 %agg.result, ptr noundef %str, i64 noundef %call)
   ret void
 }
@@ -18274,7 +18273,7 @@ if.end120.i:                                      ; preds = %while.body8.i, %lan
 
 _ZN4pugi4impl12_GLOBAL__N_112utf8_decoder7processINS1_13utf32_counterEEENT_10value_typeEPKhmS6_S5_.exit: ; preds = %if.end120.i, %entry
   %result.addr.0.lcssa.i = phi i64 [ 0, %entry ], [ %result.addr.2.i, %if.end120.i ]
-  tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #46
+  tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #42
   invoke void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %result.addr.0.lcssa.i)
           to label %invoke.cont unwind label %lpad
 
@@ -18293,7 +18292,7 @@ invoke.cont1:                                     ; preds = %if.then
 lpad:                                             ; preds = %if.then, %_ZN4pugi4impl12_GLOBAL__N_112utf8_decoder7processINS1_13utf32_counterEEENT_10value_typeEPKhmS6_S5_.exit
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #46
+  tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #42
   resume { ptr, i32 } %18
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont1, %invoke.cont
@@ -18301,13 +18300,13 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont1, %invo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #19
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4pugi7as_wideERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::__cxx11::basic_string.8") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %str) local_unnamed_addr #6 {
 entry:
-  %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #46
-  %call1 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #46
+  %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #42
+  %call1 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #42
   tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_112as_wide_implB5cxx11EPKcm(ptr noalias align 8 %agg.result, ptr noundef %call, i64 noundef %call1)
   ret void
 }
@@ -18319,7 +18318,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @_ZN4pugi31set_memory_management_functionsEPFPvmEPFvS0_E(ptr noundef %allocate, ptr noundef %deallocate) local_unnamed_addr #20 {
+define void @_ZN4pugi31set_memory_management_functionsEPFPvmEPFvS0_E(ptr noundef %allocate, ptr noundef %deallocate) local_unnamed_addr #19 {
 entry:
   store ptr %allocate, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
   store ptr %deallocate, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE10deallocateE, align 8
@@ -18327,24 +18326,24 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN4pugi30get_memory_allocation_functionEv() local_unnamed_addr #21 {
+define noundef ptr @_ZN4pugi30get_memory_allocation_functionEv() local_unnamed_addr #20 {
 entry:
   %0 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN4pugi32get_memory_deallocation_functionEv() local_unnamed_addr #21 {
+define noundef ptr @_ZN4pugi32get_memory_deallocation_functionEv() local_unnamed_addr #20 {
 entry:
   %0 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE10deallocateE, align 8
   ret ptr %0
 }
 
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #22
+declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #21
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4pugi15xpath_exceptionC2ERKNS_18xpath_parse_resultE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %result_) unnamed_addr #23 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define void @_ZN4pugi15xpath_exceptionC2ERKNS_18xpath_parse_resultE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %result_) unnamed_addr #15 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4pugi15xpath_exceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %_result = getelementptr inbounds %"class.pugi::xpath_exception", ptr %this, i64 0, i32 1
@@ -18556,9 +18555,9 @@ cond.end:                                         ; preds = %entry
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cond.end
-  %exception = tail call ptr @__cxa_allocate_exception(i64 8) #46
+  %exception = tail call ptr @__cxa_allocate_exception(i64 8) #42
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #48
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #44
   unreachable
 
 if.end:                                           ; preds = %cond.end.thread, %cond.end
@@ -18598,8 +18597,8 @@ declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4pugi14xpath_node_set5_moveERS0_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %rhs) local_unnamed_addr #23 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define void @_ZN4pugi14xpath_node_set5_moveERS0_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %rhs) local_unnamed_addr #15 align 2 {
 entry:
   %0 = load i32, ptr %rhs, align 8
   store i32 %0, ptr %this, align 8
@@ -18665,9 +18664,9 @@ cond.end.i:                                       ; preds = %entry
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %cond.end.i
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 8) #46
+  %exception.i = tail call ptr @__cxa_allocate_exception(i64 8) #42
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, inrange i32 0, i64 2), ptr %exception.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #48
+  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #44
   unreachable
 
 if.end.i:                                         ; preds = %cond.end.i
@@ -18718,7 +18717,7 @@ terminate.lpad:                                   ; preds = %if.then
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #45
+  tail call void @__clang_call_terminate(ptr %3) #41
   unreachable
 }
 
@@ -18751,9 +18750,9 @@ cond.end.i:                                       ; preds = %entry
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %cond.end.i
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 8) #46
+  %exception.i = tail call ptr @__cxa_allocate_exception(i64 8) #42
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, inrange i32 0, i64 2), ptr %exception.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #48
+  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #44
   unreachable
 
 if.end.i:                                         ; preds = %cond.end.i
@@ -18813,9 +18812,9 @@ cond.end.i:                                       ; preds = %if.end
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %cond.end.i
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 8) #46
+  %exception.i = tail call ptr @__cxa_allocate_exception(i64 8) #42
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, inrange i32 0, i64 2), ptr %exception.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #48
+  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #44
   unreachable
 
 if.end.i:                                         ; preds = %cond.end.i, %cond.end.thread.i
@@ -18891,7 +18890,7 @@ terminate.lpad:                                   ; preds = %entry
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #45
+  tail call void @__clang_call_terminate(ptr %5) #41
   unreachable
 }
 
@@ -18945,7 +18944,7 @@ terminate.lpad:                                   ; preds = %if.then3
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #45
+  tail call void @__clang_call_terminate(ptr %7) #41
   unreachable
 }
 
@@ -19324,7 +19323,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #47
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #43
   %add = add i64 %call.i, 1
   %1 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
   %call2 = tail call noundef ptr %1(i64 noundef %add)
@@ -19388,9 +19387,9 @@ cond.end.i.i:                                     ; preds = %if.end.i
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %cond.end.i.i
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #46
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #42
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, inrange i32 0, i64 2), ptr %exception.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #48
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #44
   unreachable
 
 if.end.i.i:                                       ; preds = %cond.end.i.i, %cond.end.thread.i.i
@@ -19426,8 +19425,8 @@ return:                                           ; preds = %_ZN4pugi14xpath_nod
   ret i1 %cmp.not
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4pugi18xpath_variable_setC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(512) %this) unnamed_addr #16 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define void @_ZN4pugi18xpath_variable_setC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(512) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %this, i8 0, i64 512, i1 false)
   ret void
@@ -19459,7 +19458,7 @@ while.body.i:                                     ; preds = %for.body, %_ZN4pugi
 
 sw.bb.i.i:                                        ; preds = %while.body.i
   %value.i.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_variable_node_set", ptr %var.addr.05.i, i64 0, i32 1
-  tail call void @_ZN4pugi14xpath_node_setD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %value.i.i.i.i) #46
+  tail call void @_ZN4pugi14xpath_node_setD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %value.i.i.i.i) #42
   br label %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split.i
 
 sw.bb2.i.i:                                       ; preds = %while.body.i
@@ -19477,7 +19476,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #45
+  tail call void @__clang_call_terminate(ptr %6) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split.i: ; preds = %if.then.i.i.i.i, %sw.bb2.i.i, %sw.bb.i.i, %while.body.i, %while.body.i
@@ -19501,7 +19500,7 @@ terminate.lpad:                                   ; preds = %_ZN4pugi4impl12_GLO
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #45
+  tail call void @__clang_call_terminate(ptr %9) #41
   unreachable
 }
 
@@ -19525,7 +19524,7 @@ while.body:                                       ; preds = %entry, %_ZN4pugi4im
 
 sw.bb.i:                                          ; preds = %while.body
   %value.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_variable_node_set", ptr %var.addr.05, i64 0, i32 1
-  tail call void @_ZN4pugi14xpath_node_setD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %value.i.i.i) #46
+  tail call void @_ZN4pugi14xpath_node_setD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %value.i.i.i) #42
   br label %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split
 
 sw.bb2.i:                                         ; preds = %while.body
@@ -19543,7 +19542,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #45
+  tail call void @__clang_call_terminate(ptr %5) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split: ; preds = %while.body, %sw.bb2.i, %if.then.i.i.i, %while.body, %sw.bb.i
@@ -19586,7 +19585,7 @@ invoke.cont.i:                                    ; preds = %land.lhs.true.i
 lpad.i:                                           ; preds = %land.lhs.true.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4pugi18xpath_variable_setD1Ev(ptr noundef nonnull align 8 dereferenceable(512) %temp.i) #46
+  call void @_ZN4pugi18xpath_variable_setD1Ev(ptr noundef nonnull align 8 dereferenceable(512) %temp.i) #42
   resume { ptr, i32 } %1
 
 for.inc.i:                                        ; preds = %invoke.cont.i, %for.body.i
@@ -19607,7 +19606,7 @@ for.body.i.i:                                     ; preds = %for.inc.i, %for.bod
   br i1 %exitcond.not.i.i, label %_ZN4pugi18xpath_variable_set7_assignERKS0_.exit, label %for.body.i.i, !llvm.loop !163
 
 _ZN4pugi18xpath_variable_set7_assignERKS0_.exit:  ; preds = %invoke.cont.i, %for.body.i.i
-  call void @_ZN4pugi18xpath_variable_setD1Ev(ptr noundef nonnull align 8 dereferenceable(512) %temp.i) #46
+  call void @_ZN4pugi18xpath_variable_setD1Ev(ptr noundef nonnull align 8 dereferenceable(512) %temp.i) #42
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %temp.i)
   ret void
 }
@@ -19637,7 +19636,7 @@ invoke.cont:                                      ; preds = %land.lhs.true
 lpad:                                             ; preds = %land.lhs.true
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4pugi18xpath_variable_setD1Ev(ptr noundef nonnull align 8 dereferenceable(512) %temp) #46
+  call void @_ZN4pugi18xpath_variable_setD1Ev(ptr noundef nonnull align 8 dereferenceable(512) %temp) #42
   resume { ptr, i32 } %1
 
 for.inc:                                          ; preds = %for.body, %invoke.cont
@@ -19658,7 +19657,7 @@ for.body.i:                                       ; preds = %for.inc, %for.body.
   br i1 %exitcond.not.i, label %cleanup, label %for.body.i, !llvm.loop !163
 
 cleanup:                                          ; preds = %invoke.cont, %for.body.i
-  call void @_ZN4pugi18xpath_variable_setD1Ev(ptr noundef nonnull align 8 dereferenceable(512) %temp) #46
+  call void @_ZN4pugi18xpath_variable_setD1Ev(ptr noundef nonnull align 8 dereferenceable(512) %temp) #42
   ret void
 }
 
@@ -19692,7 +19691,7 @@ invoke.cont.i:                                    ; preds = %land.lhs.true.i
 lpad.i:                                           ; preds = %land.lhs.true.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4pugi18xpath_variable_setD1Ev(ptr noundef nonnull align 8 dereferenceable(512) %temp.i) #46
+  call void @_ZN4pugi18xpath_variable_setD1Ev(ptr noundef nonnull align 8 dereferenceable(512) %temp.i) #42
   resume { ptr, i32 } %1
 
 for.inc.i:                                        ; preds = %invoke.cont.i, %for.body.i
@@ -19713,7 +19712,7 @@ for.body.i.i:                                     ; preds = %for.inc.i, %for.bod
   br i1 %exitcond.not.i.i, label %_ZN4pugi18xpath_variable_set7_assignERKS0_.exit, label %for.body.i.i, !llvm.loop !163
 
 _ZN4pugi18xpath_variable_set7_assignERKS0_.exit:  ; preds = %invoke.cont.i, %for.body.i.i
-  call void @_ZN4pugi18xpath_variable_setD1Ev(ptr noundef nonnull align 8 dereferenceable(512) %temp.i) #46
+  call void @_ZN4pugi18xpath_variable_setD1Ev(ptr noundef nonnull align 8 dereferenceable(512) %temp.i) #42
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %temp.i)
   br label %return
 
@@ -19722,7 +19721,7 @@ return:                                           ; preds = %entry, %_ZN4pugi18x
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN4pugi18xpath_variable_setC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(512) %this, ptr nocapture noundef nonnull align 8 dereferenceable(512) %rhs) unnamed_addr #24 align 2 {
+define void @_ZN4pugi18xpath_variable_setC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(512) %this, ptr nocapture noundef nonnull align 8 dereferenceable(512) %rhs) unnamed_addr #22 align 2 {
 entry:
   br label %for.body
 
@@ -19767,7 +19766,7 @@ while.body.i:                                     ; preds = %for.body, %_ZN4pugi
 
 sw.bb.i.i:                                        ; preds = %while.body.i
   %value.i.i.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_variable_node_set", ptr %var.addr.05.i, i64 0, i32 1
-  tail call void @_ZN4pugi14xpath_node_setD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %value.i.i.i.i) #46
+  tail call void @_ZN4pugi14xpath_node_setD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %value.i.i.i.i) #42
   br label %_ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split.i
 
 sw.bb2.i.i:                                       ; preds = %while.body.i
@@ -19785,7 +19784,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #45
+  tail call void @__clang_call_terminate(ptr %6) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_121delete_xpath_variableENS_16xpath_value_typeEPNS_14xpath_variableE.exit.sink.split.i: ; preds = %if.then.i.i.i.i, %sw.bb2.i.i, %sw.bb.i.i, %while.body.i, %while.body.i
@@ -19813,7 +19812,7 @@ terminate.lpad:                                   ; preds = %_ZN4pugi4impl12_GLO
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #45
+  tail call void @__clang_call_terminate(ptr %10) #41
   unreachable
 }
 
@@ -19904,9 +19903,9 @@ cond.end.i.i.i.i:                                 ; preds = %if.end.i.i.i
   br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %cond.end.i.i.i.i
-  %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #46
+  %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #42
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #48
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #44
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %cond.end.i.i.i.i, %cond.end.thread.i.i.i.i
@@ -19958,7 +19957,7 @@ sw.bb5.i12:                                       ; preds = %if.end
   br i1 %cmp.not.i11.i, label %if.end.i12.i, label %return
 
 if.end.i12.i:                                     ; preds = %sw.bb5.i12
-  %call.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #47
+  %call.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #43
   %add.i.i = add i64 %call.i.i.i, 1
   %13 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
   %call2.i.i = tail call noundef ptr %13(i64 noundef %add.i.i)
@@ -20006,7 +20005,7 @@ return:                                           ; preds = %_ZNK4pugi14xpath_va
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN4pugi18xpath_variable_set5_swapERS0_(ptr nocapture noundef nonnull align 8 dereferenceable(512) %this, ptr nocapture noundef nonnull align 8 dereferenceable(512) %rhs) local_unnamed_addr #24 align 2 {
+define void @_ZN4pugi18xpath_variable_set5_swapERS0_(ptr nocapture noundef nonnull align 8 dereferenceable(512) %this, ptr nocapture noundef nonnull align 8 dereferenceable(512) %rhs) local_unnamed_addr #22 align 2 {
 entry:
   br label %for.body
 
@@ -20027,7 +20026,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK4pugi18xpath_variable_set5_findEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %this, ptr nocapture noundef readonly %name) local_unnamed_addr #25 align 2 {
+define noundef ptr @_ZNK4pugi18xpath_variable_set5_findEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %this, ptr nocapture noundef readonly %name) local_unnamed_addr #23 align 2 {
 entry:
   %0 = load i8, ptr %name, align 1
   %tobool.not13.i = icmp eq i8 %0, 0
@@ -20093,7 +20092,7 @@ unreachable:                                      ; preds = %for.body
 
 _ZNK4pugi14xpath_variable4nameEv.exit:            ; preds = %sw.bb.i, %sw.bb2.i, %sw.bb5.i, %sw.bb8.i
   %retval.0.i = phi ptr [ %name9.i, %sw.bb8.i ], [ %name6.i, %sw.bb5.i ], [ %name3.i, %sw.bb2.i ], [ %name.i, %sw.bb.i ]
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i, ptr noundef nonnull dereferenceable(1) %name) #47
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i, ptr noundef nonnull dereferenceable(1) %name) #43
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %return, label %for.inc
 
@@ -20119,7 +20118,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #47
+  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #43
   %cmp.i = icmp eq i64 %call.i.i, 0
   br i1 %cmp.i, label %return, label %if.end.i
 
@@ -20142,7 +20141,7 @@ if.end3.i:                                        ; preds = %if.end.i
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %call.i.i4 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #47
+  %call.i.i4 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #43
   %cmp.i5 = icmp eq i64 %call.i.i4, 0
   br i1 %cmp.i5, label %return, label %if.end.i6
 
@@ -20163,7 +20162,7 @@ if.end3.i10:                                      ; preds = %if.end.i6
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %call.i.i15 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #47
+  %call.i.i15 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #43
   %cmp.i16 = icmp eq i64 %call.i.i15, 0
   br i1 %cmp.i16, label %return, label %if.end.i17
 
@@ -20184,7 +20183,7 @@ if.end3.i21:                                      ; preds = %if.end.i17
   br label %return
 
 sw.bb5:                                           ; preds = %entry
-  %call.i.i26 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #47
+  %call.i.i26 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #43
   %cmp.i27 = icmp eq i64 %call.i.i26, 0
   br i1 %cmp.i27, label %return, label %if.end.i28
 
@@ -20278,7 +20277,7 @@ unreachable:                                      ; preds = %for.body
 
 _ZNK4pugi14xpath_variable4nameEv.exit:            ; preds = %sw.bb.i, %sw.bb2.i, %sw.bb5.i, %sw.bb8.i
   %retval.0.i = phi ptr [ %name9.i, %sw.bb8.i ], [ %name6.i, %sw.bb5.i ], [ %name3.i, %sw.bb2.i ], [ %name.i, %sw.bb.i ]
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i, ptr noundef nonnull dereferenceable(1) %name) #47
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i, ptr noundef nonnull dereferenceable(1) %name) #43
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then, label %for.inc
 
@@ -20373,13 +20372,13 @@ unreachable.i:                                    ; preds = %for.body.i
 
 _ZNK4pugi14xpath_variable4nameEv.exit.i:          ; preds = %sw.bb5.i.i, %sw.bb2.i.i, %sw.bb.i.i
   %retval.0.i.i = phi ptr [ %name6.i.i, %sw.bb5.i.i ], [ %name3.i.i, %sw.bb2.i.i ], [ %name.i.i, %sw.bb.i.i ]
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i.i, ptr noundef nonnull dereferenceable(1) %name) #47
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i.i, ptr noundef nonnull dereferenceable(1) %name) #43
   %cmp.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.i, label %cond.end, label %for.inc.i
 
 _ZNK4pugi14xpath_variable4nameEv.exit.i.thread:   ; preds = %for.body.i
   %name9.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_variable_boolean", ptr %var.018.i, i64 0, i32 2
-  %call.i.i8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name9.i.i, ptr noundef nonnull dereferenceable(1) %name) #47
+  %call.i.i8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name9.i.i, ptr noundef nonnull dereferenceable(1) %name) #43
   %cmp.i.i9 = icmp eq i32 %call.i.i8, 0
   br i1 %cmp.i.i9, label %if.end.i, label %for.inc.i
 
@@ -20390,7 +20389,7 @@ for.inc.i:                                        ; preds = %_ZNK4pugi14xpath_va
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !169
 
 for.end.i:                                        ; preds = %for.inc.i, %_ZN4pugi4impl12_GLOBAL__N_111hash_stringEPKc.exit.i
-  %call.i.i26.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #47
+  %call.i.i26.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #43
   %cmp.i27.i = icmp eq i64 %call.i.i26.i, 0
   br i1 %cmp.i27.i, label %cond.end, label %if.end.i28.i
 
@@ -20492,13 +20491,13 @@ unreachable.i:                                    ; preds = %for.body.i
 
 _ZNK4pugi14xpath_variable4nameEv.exit.i:          ; preds = %sw.bb8.i.i, %sw.bb5.i.i, %sw.bb.i.i
   %retval.0.i.i = phi ptr [ %name9.i.i, %sw.bb8.i.i ], [ %name6.i.i, %sw.bb5.i.i ], [ %name.i.i, %sw.bb.i.i ]
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i.i, ptr noundef nonnull dereferenceable(1) %name) #47
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i.i, ptr noundef nonnull dereferenceable(1) %name) #43
   %cmp.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.i, label %if.then.i, label %for.inc.i
 
 _ZNK4pugi14xpath_variable4nameEv.exit.i.thread:   ; preds = %for.body.i
   %name3.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_variable_number", ptr %var.018.i, i64 0, i32 2
-  %call.i.i8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name3.i.i, ptr noundef nonnull dereferenceable(1) %name) #47
+  %call.i.i8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name3.i.i, ptr noundef nonnull dereferenceable(1) %name) #43
   %cmp.i.i9 = icmp eq i32 %call.i.i8, 0
   br i1 %cmp.i.i9, label %if.end.i, label %for.inc.i
 
@@ -20513,7 +20512,7 @@ for.inc.i:                                        ; preds = %_ZNK4pugi14xpath_va
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !169
 
 for.end.i:                                        ; preds = %for.inc.i, %_ZN4pugi4impl12_GLOBAL__N_111hash_stringEPKc.exit.i
-  %call.i.i4.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #47
+  %call.i.i4.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #43
   %cmp.i5.i = icmp eq i64 %call.i.i4.i, 0
   br i1 %cmp.i5.i, label %cond.end, label %if.end.i6.i
 
@@ -20612,13 +20611,13 @@ unreachable.i:                                    ; preds = %for.body.i
 
 _ZNK4pugi14xpath_variable4nameEv.exit.i:          ; preds = %sw.bb8.i.i, %sw.bb2.i.i, %sw.bb.i.i
   %retval.0.i.i = phi ptr [ %name9.i.i, %sw.bb8.i.i ], [ %name3.i.i, %sw.bb2.i.i ], [ %name.i.i, %sw.bb.i.i ]
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i.i, ptr noundef nonnull dereferenceable(1) %name) #47
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i.i, ptr noundef nonnull dereferenceable(1) %name) #43
   %cmp.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.i, label %if.then.i, label %for.inc.i
 
 _ZNK4pugi14xpath_variable4nameEv.exit.i.thread:   ; preds = %for.body.i
   %name6.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_variable_string", ptr %var.018.i, i64 0, i32 2
-  %call.i.i13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name6.i.i, ptr noundef nonnull dereferenceable(1) %name) #47
+  %call.i.i13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name6.i.i, ptr noundef nonnull dereferenceable(1) %name) #43
   %cmp.i.i14 = icmp eq i32 %call.i.i13, 0
   br i1 %cmp.i.i14, label %if.end.i, label %for.inc.i
 
@@ -20633,7 +20632,7 @@ for.inc.i:                                        ; preds = %_ZNK4pugi14xpath_va
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !169
 
 for.end.i:                                        ; preds = %for.inc.i, %_ZN4pugi4impl12_GLOBAL__N_111hash_stringEPKc.exit.i
-  %call.i.i15.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #47
+  %call.i.i15.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #43
   %cmp.i16.i = icmp eq i64 %call.i.i15.i, 0
   br i1 %cmp.i16.i, label %cond.end, label %if.end.i17.i
 
@@ -20660,7 +20659,7 @@ cond.true:                                        ; preds = %if.end.i17.i
 
 if.end.i:                                         ; preds = %_ZNK4pugi14xpath_variable4nameEv.exit.i.thread, %if.then.i, %cond.true
   %retval.0.i18 = phi ptr [ %call1.i19.i, %cond.true ], [ %var.018.i, %if.then.i ], [ %var.018.i, %_ZNK4pugi14xpath_variable4nameEv.exit.i.thread ]
-  %call.i.i3 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #47
+  %call.i.i3 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #43
   %add.i = add i64 %call.i.i3, 1
   %9 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
   %call2.i = tail call noundef ptr %9(i64 noundef %add.i)
@@ -20751,13 +20750,13 @@ unreachable.i:                                    ; preds = %for.body.i
 
 _ZNK4pugi14xpath_variable4nameEv.exit.i:          ; preds = %sw.bb8.i.i, %sw.bb5.i.i, %sw.bb2.i.i
   %retval.0.i.i = phi ptr [ %name9.i.i, %sw.bb8.i.i ], [ %name6.i.i, %sw.bb5.i.i ], [ %name3.i.i, %sw.bb2.i.i ]
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i.i, ptr noundef nonnull dereferenceable(1) %name) #47
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i.i, ptr noundef nonnull dereferenceable(1) %name) #43
   %cmp.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.i, label %cond.end, label %for.inc.i
 
 _ZNK4pugi14xpath_variable4nameEv.exit.i.thread:   ; preds = %for.body.i
   %name.i.i = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_variable_node_set", ptr %var.018.i, i64 0, i32 2
-  %call.i.i14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i.i, ptr noundef nonnull dereferenceable(1) %name) #47
+  %call.i.i14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i.i, ptr noundef nonnull dereferenceable(1) %name) #43
   %cmp.i.i15 = icmp eq i32 %call.i.i14, 0
   br i1 %cmp.i.i15, label %if.end.i, label %for.inc.i
 
@@ -20768,7 +20767,7 @@ for.inc.i:                                        ; preds = %_ZNK4pugi14xpath_va
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !169
 
 for.end.i:                                        ; preds = %for.inc.i, %_ZN4pugi4impl12_GLOBAL__N_111hash_stringEPKc.exit.i
-  %call.i.i.i3 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #47
+  %call.i.i.i3 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #43
   %cmp.i.i4 = icmp eq i64 %call.i.i.i3, 0
   br i1 %cmp.i.i4, label %cond.end, label %if.end.i.i5
 
@@ -20825,9 +20824,9 @@ cond.end.i.i.i:                                   ; preds = %if.end.i.i
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cond.end.i.i.i
-  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #46
+  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #42
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #48
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #44
   unreachable
 
 if.end.i.i.i:                                     ; preds = %cond.end.i.i.i, %cond.end.thread.i.i.i
@@ -20865,7 +20864,7 @@ cond.end:                                         ; preds = %_ZNK4pugi14xpath_va
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN4pugi18xpath_variable_set3getEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %this, ptr nocapture noundef readonly %name) local_unnamed_addr #25 align 2 {
+define noundef ptr @_ZN4pugi18xpath_variable_set3getEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %this, ptr nocapture noundef readonly %name) local_unnamed_addr #23 align 2 {
 entry:
   %0 = load i8, ptr %name, align 1
   %tobool.not13.i.i = icmp eq i8 %0, 0
@@ -20931,7 +20930,7 @@ unreachable.i:                                    ; preds = %for.body.i
 
 _ZNK4pugi14xpath_variable4nameEv.exit.i:          ; preds = %sw.bb8.i.i, %sw.bb5.i.i, %sw.bb2.i.i, %sw.bb.i.i
   %retval.0.i.i = phi ptr [ %name9.i.i, %sw.bb8.i.i ], [ %name6.i.i, %sw.bb5.i.i ], [ %name3.i.i, %sw.bb2.i.i ], [ %name.i.i, %sw.bb.i.i ]
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i.i, ptr noundef nonnull dereferenceable(1) %name) #47
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i.i, ptr noundef nonnull dereferenceable(1) %name) #43
   %cmp.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.i, label %_ZNK4pugi18xpath_variable_set5_findEPKc.exit, label %for.inc.i
 
@@ -20947,7 +20946,7 @@ _ZNK4pugi18xpath_variable_set5_findEPKc.exit:     ; preds = %_ZNK4pugi14xpath_va
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK4pugi18xpath_variable_set3getEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %this, ptr nocapture noundef readonly %name) local_unnamed_addr #25 align 2 {
+define noundef ptr @_ZNK4pugi18xpath_variable_set3getEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %this, ptr nocapture noundef readonly %name) local_unnamed_addr #23 align 2 {
 entry:
   %0 = load i8, ptr %name, align 1
   %tobool.not13.i.i = icmp eq i8 %0, 0
@@ -21013,7 +21012,7 @@ unreachable.i:                                    ; preds = %for.body.i
 
 _ZNK4pugi14xpath_variable4nameEv.exit.i:          ; preds = %sw.bb8.i.i, %sw.bb5.i.i, %sw.bb2.i.i, %sw.bb.i.i
   %retval.0.i.i = phi ptr [ %name9.i.i, %sw.bb8.i.i ], [ %name6.i.i, %sw.bb5.i.i ], [ %name3.i.i, %sw.bb2.i.i ], [ %name.i.i, %sw.bb.i.i ]
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i.i, ptr noundef nonnull dereferenceable(1) %name) #47
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i.i, ptr noundef nonnull dereferenceable(1) %name) #43
   %cmp.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.i, label %_ZNK4pugi18xpath_variable_set5_findEPKc.exit, label %for.inc.i
 
@@ -21041,9 +21040,9 @@ entry:
   br i1 %tobool.not.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 8) #46
+  %exception = tail call ptr @__cxa_allocate_exception(i64 8) #42
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #48
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #44
   unreachable
 
 if.else:                                          ; preds = %entry
@@ -21135,24 +21134,24 @@ if.else14:                                        ; preds = %call6.i.i.i.noexc, 
   br i1 %tobool15.not, label %if.end, label %if.then16
 
 if.then16:                                        ; preds = %if.else14
-  %exception17 = call ptr @__cxa_allocate_exception(i64 8) #46
+  %exception17 = call ptr @__cxa_allocate_exception(i64 8) #42
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, inrange i32 0, i64 2), ptr %exception17, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception17, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #48
+  invoke void @__cxa_throw(ptr nonnull %exception17, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #44
           to label %unreachable unwind label %lpad
 
 if.end:                                           ; preds = %if.else14
-  %exception18 = call ptr @__cxa_allocate_exception(i64 24) #46
+  %exception18 = call ptr @__cxa_allocate_exception(i64 24) #42
   invoke void @_ZN4pugi15xpath_exceptionC1ERKNS_18xpath_parse_resultE(ptr noundef nonnull align 8 dereferenceable(24) %exception18, ptr noundef nonnull align 8 dereferenceable(16) %_result)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %if.end
-  invoke void @__cxa_throw(ptr %exception18, ptr nonnull @_ZTIN4pugi15xpath_exceptionE, ptr nonnull @_ZN4pugi15xpath_exceptionD2Ev) #48
+  invoke void @__cxa_throw(ptr %exception18, ptr nonnull @_ZTIN4pugi15xpath_exceptionE, ptr nonnull @_ZN4pugi15xpath_exceptionD2Ev) #44
           to label %unreachable unwind label %lpad
 
 lpad20:                                           ; preds = %if.end
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception18) #46
+  call void @__cxa_free_exception(ptr %exception18) #42
   br label %if.then.i17
 
 if.then.i17:                                      ; preds = %lpad, %lpad20
@@ -21192,7 +21191,7 @@ terminate.lpad.i18.loopexit.split-lp:             ; preds = %_ZN4pugi4impl12_GLO
 terminate.lpad.i18:                               ; preds = %terminate.lpad.i18.loopexit.split-lp, %terminate.lpad.i18.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.i18.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.i18.loopexit.split-lp ]
   %15 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %15) #45
+  call void @__clang_call_terminate(ptr %15) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_112auto_deleterINS1_16xpath_query_implEED2Ev.exit20: ; preds = %_ZN4pugi4impl12_GLOBAL__N_115xpath_allocator7releaseEv.exit.i
@@ -21593,7 +21592,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4pugi15xpath_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #13 comdat align 2 {
 entry:
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #46
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #42
   ret void
 }
 
@@ -21653,7 +21652,7 @@ terminate.lpad.loopexit.split-lp:                 ; preds = %_ZN4pugi4impl12_GLO
 terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split-lp, %terminate.lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
   %6 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %6) #45
+  tail call void @__clang_call_terminate(ptr %6) #41
   unreachable
 }
 
@@ -21682,7 +21681,7 @@ terminate.lpad:                                   ; preds = %invoke.cont, %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #45
+  call void @__clang_call_terminate(ptr %2) #41
   unreachable
 }
 
@@ -21752,7 +21751,7 @@ terminate.lpad.loopexit.split-lp:                 ; preds = %if.end4, %_ZN4pugi4
 terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split-lp, %terminate.lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
   %7 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %7) #45
+  call void @__clang_call_terminate(ptr %7) #41
   unreachable
 }
 
@@ -21826,15 +21825,15 @@ invoke.cont:                                      ; preds = %if.end
   br i1 %tobool3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %invoke.cont
-  %exception = call ptr @__cxa_allocate_exception(i64 8) #46
+  %exception = call ptr @__cxa_allocate_exception(i64 8) #42
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #48
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #44
           to label %unreachable unwind label %lpad
 
 lpad:                                             ; preds = %if.then4, %if.end
   %4 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116xpath_stack_dataD2Ev(ptr noundef nonnull align 8 dereferenceable(8289) %sd) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116xpath_stack_dataD2Ev(ptr noundef nonnull align 8 dereferenceable(8289) %sd) #42
   resume { ptr, i32 } %4
 
 if.end5:                                          ; preds = %invoke.cont
@@ -21886,7 +21885,7 @@ terminate.lpad.loopexit.split-lp.i:               ; preds = %while.body.i.i
 terminate.lpad.i:                                 ; preds = %terminate.lpad.loopexit.split-lp.i, %terminate.lpad.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %terminate.lpad.loopexit.i ], [ %lpad.loopexit.split-lp.i, %terminate.lpad.loopexit.split-lp.i ]
   %13 = extractvalue { ptr, i32 } %lpad.phi.i, 0
-  call void @__clang_call_terminate(ptr %13) #45
+  call void @__clang_call_terminate(ptr %13) #41
   unreachable
 
 return:                                           ; preds = %.noexc5.i, %invoke.cont.i, %entry
@@ -22088,9 +22087,9 @@ invoke.cont.i:                                    ; preds = %if.then24.i
 invoke.cont26.i:                                  ; preds = %invoke.cont.i
   %ls.val.i = load ptr, ptr %ls.i, align 8
   %rs.val.i = load ptr, ptr %rs.i, align 8
-  %call.i.i.i436 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ls.val.i, ptr noundef nonnull dereferenceable(1) %rs.val.i) #47
+  %call.i.i.i436 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ls.val.i, ptr noundef nonnull dereferenceable(1) %rs.val.i) #43
   %cmp.i.i.i437 = icmp eq i32 %call.i.i.i436, 0
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr.i) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr.i) #42
   br label %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node10compare_eqINS1_8equal_toEEEbPS2_S5_RKNS1_13xpath_contextERKNS1_11xpath_stackERKT_.exit
 
 lpad.i:                                           ; preds = %invoke.cont.i, %if.then24.i
@@ -22176,13 +22175,13 @@ lpad58.i:                                         ; preds = %invoke.cont59.i, %f
   %20 = landingpad { ptr, i32 }
           cleanup
   store ptr %16, ptr %cri.i, align 8
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cri.i) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cri.i) #42
   br label %common.resume
 
 cleanup.i:                                        ; preds = %invoke.cont59.i
   %ref.tmp56.val.i = load ptr, ptr %ref.tmp56.i, align 8
   %ref.tmp60.val.i = load ptr, ptr %ref.tmp60.i, align 8
-  %call.i.i.i432 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp56.val.i, ptr noundef nonnull dereferenceable(1) %ref.tmp60.val.i) #47
+  %call.i.i.i432 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp56.val.i, ptr noundef nonnull dereferenceable(1) %ref.tmp60.val.i) #43
   %cmp.i.i.i433 = icmp eq i32 %call.i.i.i432, 0
   %21 = load ptr, ptr %16, align 8
   %22 = load ptr, ptr %_state.i434, align 8
@@ -22205,7 +22204,7 @@ terminate.lpad.i424:                              ; preds = %while.body.i.i422
           catch ptr null
   store ptr %16, ptr %cri.i, align 8
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #45
+  call void @__clang_call_terminate(ptr %26) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit431: ; preds = %.noexc.i425, %cleanup.i
@@ -22229,7 +22228,7 @@ for.inc67.i:                                      ; preds = %for.inc67.i.loopexi
 
 cleanup70.i:                                      ; preds = %for.inc67.i, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit431, %invoke.cont41.i
   %cmp46.not.i594 = phi i1 [ false, %invoke.cont41.i ], [ true, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit431 ], [ false, %for.inc67.i ]
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr35.i) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr35.i) #42
   br label %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node10compare_eqINS1_8equal_toEEEbPS2_S5_RKNS1_13xpath_contextERKNS1_11xpath_stackERKT_.exit
 
 if.else71.i:                                      ; preds = %if.else30.i
@@ -22372,7 +22371,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i: ; preds =
   br i1 %cmp56.i.i, label %if.end.i416, label %invoke.cont112.i
 
 if.end.i416:                                      ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i
-  %call2.i = call double @strtod(ptr nocapture noundef %ref.tmp106.val.i, ptr noundef null) #46
+  %call2.i = call double @strtod(ptr nocapture noundef %ref.tmp106.val.i, ptr noundef null) #42
   br label %invoke.cont112.i
 
 invoke.cont112.i:                                 ; preds = %if.end.i416, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i, %lor.lhs.false.i.i, %land.lhs.true.i.i, %while.end.i.i
@@ -22398,7 +22397,7 @@ terminate.lpad.i403:                              ; preds = %while.body.i.i401
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #45
+  call void @__clang_call_terminate(ptr %53) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit410: ; preds = %.noexc.i404, %invoke.cont112.i
@@ -22421,12 +22420,12 @@ lpad89.i:                                         ; preds = %invoke.cont90.i, %i
 lpad108.i:                                        ; preds = %for.body101.i
   %56 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cri102.i) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cri102.i) #42
   br label %common.resume
 
 cleanup125.i:                                     ; preds = %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit410, %invoke.cont93.i
   %cmp100.not.i.lcssa = phi i1 [ false, %invoke.cont93.i ], [ %cmp.i411, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit410 ]
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr87.i) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr87.i) #42
   br label %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node10compare_eqINS1_8equal_toEEEbPS2_S5_RKNS1_13xpath_contextERKNS1_11xpath_stackERKT_.exit
 
 if.then129.i:                                     ; preds = %if.else71.i
@@ -22473,13 +22472,13 @@ lpad150.i:                                        ; preds = %for.body144.i
   %63 = landingpad { ptr, i32 }
           cleanup
   store ptr %60, ptr %cri145.i, align 8
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cri145.i) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cri145.i) #42
   br label %common.resume
 
 cleanup156.i:                                     ; preds = %for.body144.i
   %l132.val.i = load ptr, ptr %l132.i, align 8
   %ref.tmp148.val.i = load ptr, ptr %ref.tmp148.i, align 8
-  %call.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %l132.val.i, ptr noundef nonnull dereferenceable(1) %ref.tmp148.val.i) #47
+  %call.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %l132.val.i, ptr noundef nonnull dereferenceable(1) %ref.tmp148.val.i) #43
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, 0
   %64 = load ptr, ptr %60, align 8
   %65 = load ptr, ptr %_state.i397, align 8
@@ -22502,7 +22501,7 @@ terminate.lpad.i389:                              ; preds = %while.body.i.i387
           catch ptr null
   store ptr %60, ptr %cri145.i, align 8
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #45
+  call void @__clang_call_terminate(ptr %69) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit396: ; preds = %.noexc.i390, %cleanup156.i
@@ -22519,13 +22518,13 @@ _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit396: ; preds = %.no
 
 cleanup163.i:                                     ; preds = %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit396, %invoke.cont136.i
   %cmp143.not.i.lcssa = phi i1 [ false, %invoke.cont136.i ], [ %cmp.i.i.i, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit396 ]
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr130.i) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr130.i) #42
   br label %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node10compare_eqINS1_8equal_toEEEbPS2_S5_RKNS1_13xpath_contextERKNS1_11xpath_stackERKT_.exit
 
 common.resume:                                    ; preds = %lpad133.i, %lpad150.i, %lpad89.i, %lpad108.i, %lpad38.i, %lpad58.i, %lpad78.loopexit, %lpad78.loopexit.split-lp, %lpad133.i98, %lpad150.i117, %lpad89.i127, %lpad108.i143, %lpad38.i164, %lpad58.i188, %lpad, %lpad52, %lpad164, %lpad174, %lpad.i214, %lpad.i
   %cr.sink = phi ptr [ %cr, %lpad ], [ %cr48, %lpad52 ], [ %cr161, %lpad164 ], [ %cr171, %lpad174 ], [ %cr.i62, %lpad.i214 ], [ %cr.i, %lpad.i ], [ %cr35.i65, %lpad58.i188 ], [ %cr35.i65, %lpad38.i164 ], [ %cr87.i73, %lpad108.i143 ], [ %cr87.i73, %lpad89.i127 ], [ %cr130.i79, %lpad150.i117 ], [ %cr130.i79, %lpad133.i98 ], [ %cr75, %lpad78.loopexit.split-lp ], [ %cr75, %lpad78.loopexit ], [ %cr35.i, %lpad58.i ], [ %cr35.i, %lpad38.i ], [ %cr87.i, %lpad108.i ], [ %cr87.i, %lpad89.i ], [ %cr130.i, %lpad150.i ], [ %cr130.i, %lpad133.i ]
   %common.resume.op = phi { ptr, i32 } [ %161, %lpad ], [ %172, %lpad52 ], [ %230, %lpad164 ], [ %241, %lpad174 ], [ %77, %lpad.i214 ], [ %9, %lpad.i ], [ %88, %lpad58.i188 ], [ %87, %lpad38.i164 ], [ %124, %lpad108.i143 ], [ %123, %lpad89.i127 ], [ %131, %lpad150.i117 ], [ %130, %lpad133.i98 ], [ %lpad.loopexit.split-lp, %lpad78.loopexit.split-lp ], [ %lpad.loopexit, %lpad78.loopexit ], [ %20, %lpad58.i ], [ %19, %lpad38.i ], [ %56, %lpad108.i ], [ %55, %lpad89.i ], [ %63, %lpad150.i ], [ %62, %lpad133.i ]
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr.sink) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr.sink) #42
   resume { ptr, i32 } %common.resume.op
 
 _ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node10compare_eqINS1_8equal_toEEEbPS2_S5_RKNS1_13xpath_contextERKNS1_11xpath_stackERKT_.exit: ; preds = %if.then5.i, %if.then14.i, %if.else20.i, %invoke.cont26.i, %cleanup70.i, %if.else71.i, %if.then76.i, %cleanup125.i, %cleanup163.i
@@ -22627,9 +22626,9 @@ invoke.cont.i215:                                 ; preds = %if.then24.i213
 invoke.cont26.i220:                               ; preds = %invoke.cont.i215
   %ls.val.i217 = load ptr, ptr %ls.i63, align 8
   %rs.val.i218 = load ptr, ptr %rs.i64, align 8
-  %call.i.i.i538 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ls.val.i217, ptr noundef nonnull dereferenceable(1) %rs.val.i218) #47
+  %call.i.i.i538 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ls.val.i217, ptr noundef nonnull dereferenceable(1) %rs.val.i218) #43
   %cmp.i.i.i539 = icmp ne i32 %call.i.i.i538, 0
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr.i62) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr.i62) #42
   br label %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node10compare_eqINS1_12not_equal_toEEEbPS2_S5_RKNS1_13xpath_contextERKNS1_11xpath_stackERKT_.exit
 
 lpad.i214:                                        ; preds = %invoke.cont.i215, %if.then24.i213
@@ -22715,13 +22714,13 @@ lpad58.i188:                                      ; preds = %invoke.cont59.i189,
   %88 = landingpad { ptr, i32 }
           cleanup
   store ptr %84, ptr %cri.i68, align 8
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cri.i68) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cri.i68) #42
   br label %common.resume
 
 cleanup.i196:                                     ; preds = %invoke.cont59.i189
   %ref.tmp56.val.i193 = load ptr, ptr %ref.tmp56.i69, align 8
   %ref.tmp60.val.i194 = load ptr, ptr %ref.tmp60.i70, align 8
-  %call.i.i.i534 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp56.val.i193, ptr noundef nonnull dereferenceable(1) %ref.tmp60.val.i194) #47
+  %call.i.i.i534 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %ref.tmp56.val.i193, ptr noundef nonnull dereferenceable(1) %ref.tmp60.val.i194) #43
   %cmp.i.i.i535.not = icmp eq i32 %call.i.i.i534, 0
   %89 = load ptr, ptr %84, align 8
   %90 = load ptr, ptr %_state.i536, align 8
@@ -22744,7 +22743,7 @@ terminate.lpad.i526:                              ; preds = %while.body.i.i524
           catch ptr null
   store ptr %84, ptr %cri.i68, align 8
   %94 = extractvalue { ptr, i32 } %93, 0
-  call void @__clang_call_terminate(ptr %94) #45
+  call void @__clang_call_terminate(ptr %94) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit533: ; preds = %.noexc.i527, %cleanup.i196
@@ -22768,7 +22767,7 @@ for.inc67.i199:                                   ; preds = %for.inc67.i199.loop
 
 cleanup70.i176:                                   ; preds = %for.inc67.i199, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit533, %invoke.cont41.i168
   %cmp46.not.i175610 = phi i1 [ false, %invoke.cont41.i168 ], [ true, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit533 ], [ false, %for.inc67.i199 ]
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr35.i65) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr35.i65) #42
   br label %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node10compare_eqINS1_12not_equal_toEEEbPS2_S5_RKNS1_13xpath_contextERKNS1_11xpath_stackERKT_.exit
 
 if.else71.i95:                                    ; preds = %if.else30.i91
@@ -22910,7 +22909,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i502: ; pred
   br i1 %cmp56.i.i503, label %if.end.i505, label %invoke.cont112.i148
 
 if.end.i505:                                      ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i502
-  %call2.i506 = call double @strtod(ptr nocapture noundef %ref.tmp106.val.i145, ptr noundef null) #46
+  %call2.i506 = call double @strtod(ptr nocapture noundef %ref.tmp106.val.i145, ptr noundef null) #42
   br label %invoke.cont112.i148
 
 invoke.cont112.i148:                              ; preds = %if.end.i505, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i502, %lor.lhs.false.i.i514, %land.lhs.true.i.i512, %while.end.i.i478
@@ -22936,7 +22935,7 @@ terminate.lpad.i463:                              ; preds = %while.body.i.i461
   %120 = landingpad { ptr, i32 }
           catch ptr null
   %121 = extractvalue { ptr, i32 } %120, 0
-  call void @__clang_call_terminate(ptr %121) #45
+  call void @__clang_call_terminate(ptr %121) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit470: ; preds = %.noexc.i464, %invoke.cont112.i148
@@ -22959,12 +22958,12 @@ lpad89.i127:                                      ; preds = %invoke.cont90.i130,
 lpad108.i143:                                     ; preds = %for.body101.i140
   %124 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cri102.i76) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cri102.i76) #42
   br label %common.resume
 
 cleanup125.i139:                                  ; preds = %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit470, %invoke.cont93.i131
   %cmp100.not.i138.lcssa = phi i1 [ false, %invoke.cont93.i131 ], [ %cmp.i471, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit470 ]
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr87.i73) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr87.i73) #42
   br label %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node10compare_eqINS1_12not_equal_toEEEbPS2_S5_RKNS1_13xpath_contextERKNS1_11xpath_stackERKT_.exit
 
 if.then129.i97:                                   ; preds = %if.else71.i95
@@ -23011,13 +23010,13 @@ lpad150.i117:                                     ; preds = %for.body144.i114
   %131 = landingpad { ptr, i32 }
           cleanup
   store ptr %128, ptr %cri145.i82, align 8
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cri145.i82) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cri145.i82) #42
   br label %common.resume
 
 cleanup156.i122:                                  ; preds = %for.body144.i114
   %l132.val.i119 = load ptr, ptr %l132.i80, align 8
   %ref.tmp148.val.i120 = load ptr, ptr %ref.tmp148.i83, align 8
-  %call.i.i.i455 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %l132.val.i119, ptr noundef nonnull dereferenceable(1) %ref.tmp148.val.i120) #47
+  %call.i.i.i455 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %l132.val.i119, ptr noundef nonnull dereferenceable(1) %ref.tmp148.val.i120) #43
   %cmp.i.i.i456.not.not.not = icmp ne i32 %call.i.i.i455, 0
   %132 = load ptr, ptr %128, align 8
   %133 = load ptr, ptr %_state.i457, align 8
@@ -23040,7 +23039,7 @@ terminate.lpad.i447:                              ; preds = %while.body.i.i445
           catch ptr null
   store ptr %128, ptr %cri145.i82, align 8
   %137 = extractvalue { ptr, i32 } %136, 0
-  call void @__clang_call_terminate(ptr %137) #45
+  call void @__clang_call_terminate(ptr %137) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit454: ; preds = %.noexc.i448, %cleanup156.i122
@@ -23057,7 +23056,7 @@ _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit454: ; preds = %.no
 
 cleanup163.i112:                                  ; preds = %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit454, %invoke.cont136.i104
   %cmp143.not.i111.lcssa = phi i1 [ false, %invoke.cont136.i104 ], [ %cmp.i.i.i456.not.not.not, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit454 ]
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr130.i79) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr130.i79) #42
   br label %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node10compare_eqINS1_12not_equal_toEEEbPS2_S5_RKNS1_13xpath_contextERKNS1_11xpath_stackERKT_.exit
 
 _ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node10compare_eqINS1_12not_equal_toEEEbPS2_S5_RKNS1_13xpath_contextERKNS1_11xpath_stackERKT_.exit: ; preds = %if.then5.i227, %if.then14.i221, %if.else20.i209, %invoke.cont26.i220, %cleanup70.i176, %if.else71.i95, %if.then76.i154, %cleanup125.i139, %cleanup163.i112
@@ -23177,7 +23176,7 @@ terminate.lpad.i:                                 ; preds = %while.body.i.i
   %158 = landingpad { ptr, i32 }
           catch ptr null
   %159 = extractvalue { ptr, i32 } %158, 0
-  call void @__clang_call_terminate(ptr %159) #45
+  call void @__clang_call_terminate(ptr %159) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit: ; preds = %.noexc.i, %_ZN4pugi4impl12_GLOBAL__N_111starts_withEPKcS3_.exit
@@ -23213,7 +23212,7 @@ invoke.cont53:                                    ; preds = %sw.bb47
 invoke.cont56:                                    ; preds = %invoke.cont53
   %lr50.val = load ptr, ptr %lr50, align 8
   %rr54.val = load ptr, ptr %rr54, align 8
-  %call.i240 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %lr50.val, ptr noundef nonnull dereferenceable(1) %rr54.val) #47
+  %call.i240 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %lr50.val, ptr noundef nonnull dereferenceable(1) %rr54.val) #43
   %cmp = icmp ne ptr %call.i240, null
   %165 = load ptr, ptr %162, align 8
   %166 = load ptr, ptr %_state.i239, align 8
@@ -23235,7 +23234,7 @@ terminate.lpad.i245:                              ; preds = %while.body.i.i243
   %169 = landingpad { ptr, i32 }
           catch ptr null
   %170 = extractvalue { ptr, i32 } %169, 0
-  call void @__clang_call_terminate(ptr %170) #45
+  call void @__clang_call_terminate(ptr %170) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit252: ; preds = %.noexc.i246, %invoke.cont56
@@ -23319,7 +23318,7 @@ for.body.i260:                                    ; preds = %if.end.i, %for.inc.
   br i1 %tobool4.not.i, label %for.inc.i261, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i260
-  %call.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(9) @.str.100, ptr noundef nonnull dereferenceable(1) %180) #47
+  %call.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(9) @.str.100, ptr noundef nonnull dereferenceable(1) %180) #43
   %cmp.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.i, label %if.then5.i262, label %for.inc.i261
 
@@ -23431,7 +23430,7 @@ terminate.lpad.i290:                              ; preds = %while.body.i.i288
   %194 = landingpad { ptr, i32 }
           catch ptr null
   %195 = extractvalue { ptr, i32 } %194, 0
-  call void @__clang_call_terminate(ptr %195) #45
+  call void @__clang_call_terminate(ptr %195) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit297: ; preds = %.noexc.i291, %cleanup
@@ -23515,7 +23514,7 @@ for.body.i315:                                    ; preds = %if.end.i311, %for.i
   br i1 %tobool4.not.i318, label %for.inc.i322, label %land.lhs.true.i319
 
 land.lhs.true.i319:                               ; preds = %for.body.i315
-  %call.i.i320 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %207, ptr noundef nonnull dereferenceable(1) %208) #47
+  %call.i.i320 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %207, ptr noundef nonnull dereferenceable(1) %208) #43
   %cmp.i.i321 = icmp eq i32 %call.i.i320, 0
   br i1 %cmp.i.i321, label %if.then5.i327, label %for.inc.i322
 
@@ -23544,7 +23543,7 @@ _ZNK4pugi13xml_attribute5valueEv.exit338:         ; preds = %_ZNK4pugi8xml_node9
   %210 = load ptr, ptr %value3.i334, align 8
   %tobool4.not.i335 = icmp eq ptr %210, null
   %cond.i336 = select i1 %tobool4.not.i335, ptr @.str, ptr %210
-  %call.i339 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %cond.i336, ptr noundef nonnull dereferenceable(1) %cond) #47
+  %call.i339 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %cond.i336, ptr noundef nonnull dereferenceable(1) %cond) #43
   %cmp.i340 = icmp eq i32 %call.i339, 0
   br i1 %cmp.i340, label %_ZNK4pugi13xml_attribute4nameEv.exit, label %return
 
@@ -23659,7 +23658,7 @@ terminate.lpad.i363:                              ; preds = %while.body.i.i361
   %227 = landingpad { ptr, i32 }
           catch ptr null
   %228 = extractvalue { ptr, i32 } %227, 0
-  call void @__clang_call_terminate(ptr %228) #45
+  call void @__clang_call_terminate(ptr %228) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit370: ; preds = %.noexc.i364, %invoke.cont165
@@ -23710,7 +23709,7 @@ terminate.lpad.i377:                              ; preds = %while.body.i.i375
   %238 = landingpad { ptr, i32 }
           catch ptr null
   %239 = extractvalue { ptr, i32 } %238, 0
-  call void @__clang_call_terminate(ptr %239) #45
+  call void @__clang_call_terminate(ptr %239) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit384: ; preds = %.noexc.i378, %invoke.cont175
@@ -23792,7 +23791,7 @@ terminate.lpad.loopexit.split-lp:                 ; preds = %while.body.i
 terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split-lp, %terminate.lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit.split-lp, %terminate.lpad.loopexit.split-lp ]
   %8 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %8) #45
+  tail call void @__clang_call_terminate(ptr %8) #41
   unreachable
 }
 
@@ -23847,15 +23846,15 @@ invoke.cont:                                      ; preds = %if.end
   br i1 %tobool4.not, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %invoke.cont
-  %exception = call ptr @__cxa_allocate_exception(i64 8) #46
+  %exception = call ptr @__cxa_allocate_exception(i64 8) #42
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #48
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #44
           to label %unreachable unwind label %lpad
 
 lpad:                                             ; preds = %if.then5, %if.end
   %4 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116xpath_stack_dataD2Ev(ptr noundef nonnull align 8 dereferenceable(8289) %sd) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116xpath_stack_dataD2Ev(ptr noundef nonnull align 8 dereferenceable(8289) %sd) #42
   resume { ptr, i32 } %4
 
 if.end6:                                          ; preds = %invoke.cont
@@ -23907,7 +23906,7 @@ terminate.lpad.loopexit.split-lp.i:               ; preds = %while.body.i.i
 terminate.lpad.i:                                 ; preds = %terminate.lpad.loopexit.split-lp.i, %terminate.lpad.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %terminate.lpad.loopexit.i ], [ %lpad.loopexit.split-lp.i, %terminate.lpad.loopexit.split-lp.i ]
   %13 = extractvalue { ptr, i32 } %lpad.phi.i, 0
-  call void @__clang_call_terminate(ptr %13) #45
+  call void @__clang_call_terminate(ptr %13) #41
   unreachable
 
 return:                                           ; preds = %.noexc5.i, %invoke.cont.i, %entry
@@ -24016,7 +24015,7 @@ sw.bb18:                                          ; preds = %tailrecurse
   %_right21 = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_ast_node", ptr %this.tr, i64 0, i32 5
   %10 = load ptr, ptr %_right21, align 8
   %call22 = tail call fastcc noundef double @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_numberERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(16) %stack)
-  %call23 = tail call double @fmod(double noundef %call20, double noundef %call22) #46
+  %call23 = tail call double @fmod(double noundef %call20, double noundef %call22) #42
   br label %common.ret369
 
 sw.bb24:                                          ; preds = %tailrecurse
@@ -24083,7 +24082,7 @@ terminate.lpad.i:                                 ; preds = %while.body.i.i
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #45
+  call void @__clang_call_terminate(ptr %24) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit: ; preds = %.noexc.i, %invoke.cont
@@ -24125,7 +24124,7 @@ cond.true.i:                                      ; preds = %invoke.cont43
 
 cond.false.i:                                     ; preds = %invoke.cont43
   %32 = load ptr, ptr %ref.tmp40, align 8
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #47
+  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #43
   br label %_ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit
 
 _ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit: ; preds = %cond.true.i, %cond.false.i
@@ -24151,7 +24150,7 @@ terminate.lpad.i80:                               ; preds = %while.body.i.i78
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #45
+  tail call void @__clang_call_terminate(ptr %38) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit86: ; preds = %.noexc.i81, %_ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit
@@ -24192,7 +24191,7 @@ cond.true.i90:                                    ; preds = %invoke.cont53
 
 cond.false.i93:                                   ; preds = %invoke.cont53
   %46 = load ptr, ptr %ref.tmp50, align 8
-  %call.i.i94 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #47
+  %call.i.i94 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #43
   br label %_ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit95
 
 _ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit95: ; preds = %cond.true.i90, %cond.false.i93
@@ -24218,7 +24217,7 @@ terminate.lpad.i100:                              ; preds = %while.body.i.i98
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #45
+  call void @__clang_call_terminate(ptr %52) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit106: ; preds = %.noexc.i101, %_ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit95
@@ -24332,7 +24331,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i: ; preds =
   br i1 %cmp56.i.i, label %if.end.i, label %invoke.cont67
 
 if.end.i:                                         ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i
-  %call2.i = tail call double @strtod(ptr nocapture noundef %ref.tmp60.val, ptr noundef null) #46
+  %call2.i = tail call double @strtod(ptr nocapture noundef %ref.tmp60.val, ptr noundef null) #42
   br label %invoke.cont67
 
 invoke.cont67:                                    ; preds = %if.end.i, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i, %lor.lhs.false.i.i, %land.lhs.true.i.i, %while.end.i.i
@@ -24357,7 +24356,7 @@ terminate.lpad.i112:                              ; preds = %while.body.i.i110
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  tail call void @__clang_call_terminate(ptr %76) #45
+  tail call void @__clang_call_terminate(ptr %76) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit118: ; preds = %.noexc.i113, %invoke.cont67
@@ -24500,7 +24499,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i151: ; pred
   br i1 %cmp56.i.i152, label %if.end.i154, label %invoke.cont90
 
 if.end.i154:                                      ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i151
-  %call2.i155 = call double @strtod(ptr nocapture noundef %ref.tmp84.val, ptr noundef null) #46
+  %call2.i155 = call double @strtod(ptr nocapture noundef %ref.tmp84.val, ptr noundef null) #42
   br label %invoke.cont90
 
 invoke.cont90:                                    ; preds = %if.end.i154, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i151, %lor.lhs.false.i.i163, %land.lhs.true.i.i161, %while.end.i.i127
@@ -24526,7 +24525,7 @@ terminate.lpad.i172:                              ; preds = %while.body.i.i170
   %104 = landingpad { ptr, i32 }
           catch ptr null
   %105 = extractvalue { ptr, i32 } %104, 0
-  call void @__clang_call_terminate(ptr %105) #45
+  call void @__clang_call_terminate(ptr %105) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit178: ; preds = %.noexc.i173, %invoke.cont90
@@ -24548,7 +24547,7 @@ lpad76:                                           ; preds = %sw.bb72
 lpad86:                                           ; preds = %for.body
   %108 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cri) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cri) #42
   br label %eh.resume
 
 for.end:                                          ; preds = %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit178, %invoke.cont77
@@ -24573,7 +24572,7 @@ terminate.lpad.i183:                              ; preds = %while.body.i.i181
   %113 = landingpad { ptr, i32 }
           catch ptr null
   %114 = extractvalue { ptr, i32 } %113, 0
-  call void @__clang_call_terminate(ptr %114) #45
+  call void @__clang_call_terminate(ptr %114) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit189: ; preds = %.noexc.i184, %for.end
@@ -24669,7 +24668,7 @@ sw.bb122:                                         ; preds = %sw.epilog
 invoke.cont127:                                   ; preds = %sw.bb122
   %ref.tmp125.val = load ptr, ptr %ref.tmp125, align 8
   %call131 = call fastcc noundef double @_ZN4pugi4impl12_GLOBAL__N_124convert_string_to_numberEPKc(ptr noundef %ref.tmp125.val)
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr123) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr123) #42
   br label %common.ret369
 
 lpad126:                                          ; preds = %sw.bb122
@@ -24688,7 +24687,7 @@ sw.bb133:                                         ; preds = %sw.epilog
 invoke.cont138:                                   ; preds = %sw.bb133
   %ref.tmp136.val = load ptr, ptr %ref.tmp136, align 8
   %call142 = call fastcc noundef double @_ZN4pugi4impl12_GLOBAL__N_124convert_string_to_numberEPKc(ptr noundef %ref.tmp136.val)
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr134) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr134) #42
   br label %common.ret369
 
 lpad137:                                          ; preds = %sw.bb133
@@ -24699,7 +24698,7 @@ lpad137:                                          ; preds = %sw.bb133
 eh.resume:                                        ; preds = %lpad76, %lpad86, %lpad137, %lpad126, %lpad63, %lpad52, %lpad42, %lpad
   %cr134.sink = phi ptr [ %cr134, %lpad137 ], [ %cr123, %lpad126 ], [ %cr58, %lpad63 ], [ %cr48, %lpad52 ], [ %cr38, %lpad42 ], [ %cr, %lpad ], [ %cr73, %lpad86 ], [ %cr73, %lpad76 ]
   %.pn66 = phi { ptr, i32 } [ %131, %lpad137 ], [ %129, %lpad126 ], [ %78, %lpad63 ], [ %54, %lpad52 ], [ %40, %lpad42 ], [ %26, %lpad ], [ %108, %lpad86 ], [ %107, %lpad76 ]
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr134.sink) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr134.sink) #42
   resume { ptr, i32 } %.pn66
 }
 
@@ -24715,7 +24714,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #46
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #42
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -24760,9 +24759,9 @@ invoke.cont:                                      ; preds = %if.end
   br i1 %tobool3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %invoke.cont
-  %exception = call ptr @__cxa_allocate_exception(i64 8) #46
+  %exception = call ptr @__cxa_allocate_exception(i64 8) #42
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #48
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #44
           to label %unreachable unwind label %lpad
 
 lpad:                                             ; preds = %if.then4, %if.end
@@ -24784,17 +24783,17 @@ cond.true.i:                                      ; preds = %if.end5
   br label %_ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit
 
 cond.false.i:                                     ; preds = %if.end5
-  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %r.val) #47
+  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %r.val) #43
   br label %_ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit
 
 _ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit: ; preds = %cond.true.i, %cond.false.i
   %cond.i = phi i64 [ %7, %cond.true.i ], [ %call.i.i, %cond.false.i ]
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #46
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #42
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %r.val, i64 noundef %cond.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %_ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #46
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #42
   %result.val.i = load ptr, ptr %result.i, align 8
   %8 = load ptr, ptr %result.val.i, align 8
   %tobool.not1.i.i = icmp eq ptr %8, null
@@ -24843,18 +24842,18 @@ terminate.lpad.loopexit.split-lp.i:               ; preds = %while.body.i.i
 terminate.lpad.i:                                 ; preds = %terminate.lpad.loopexit.split-lp.i, %terminate.lpad.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %terminate.lpad.loopexit.i ], [ %lpad.loopexit.split-lp.i, %terminate.lpad.loopexit.split-lp.i ]
   %16 = extractvalue { ptr, i32 } %lpad.phi.i, 0
-  call void @__clang_call_terminate(ptr %16) #45
+  call void @__clang_call_terminate(ptr %16) #41
   unreachable
 
 lpad9:                                            ; preds = %_ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #46
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #42
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad9, %lpad
   %.pn = phi { ptr, i32 } [ %4, %lpad ], [ %17, %lpad9 ]
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116xpath_stack_dataD2Ev(ptr noundef nonnull align 8 dereferenceable(8289) %sd) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116xpath_stack_dataD2Ev(ptr noundef nonnull align 8 dereferenceable(8289) %sd) #42
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %.noexc5.i, %invoke.cont.i, %if.then
@@ -24976,7 +24975,7 @@ if.end.i9.i.i:                                    ; preds = %_ZNK4pugi10xpath_no
 
 _ZN4pugi4impl12_GLOBAL__N_110local_nameERKNS_10xpath_nodeE.exit: ; preds = %_ZNK4pugi13xml_attribute4nameEv.exit.i.i, %_ZNK4pugi10xpath_node4nodeEv.exit.i.i, %if.end.i9.i.i
   %cond.i.i = phi ptr [ %cond.i6.i.i, %_ZNK4pugi13xml_attribute4nameEv.exit.i.i ], [ %cond.i12.i.i, %if.end.i9.i.i ], [ @.str, %_ZNK4pugi10xpath_node4nodeEv.exit.i.i ]
-  %call.i.i = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %cond.i.i, i32 noundef 58) #47
+  %call.i.i = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %cond.i.i, i32 noundef 58) #43
   %tobool.not.i = icmp eq ptr %call.i.i, null
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i.i, i64 1
   %cond.i = select i1 %tobool.not.i, ptr %cond.i.i, ptr %add.ptr.i
@@ -25072,7 +25071,7 @@ if.end.i9.i.i137:                                 ; preds = %_ZNK4pugi10xpath_no
 
 invoke.cont9:                                     ; preds = %_ZNK4pugi13xml_attribute4nameEv.exit.i.i126, %_ZNK4pugi10xpath_node4nodeEv.exit.i.i135, %if.end.i9.i.i137
   %cond.i.i130 = phi ptr [ %cond.i6.i.i129, %_ZNK4pugi13xml_attribute4nameEv.exit.i.i126 ], [ %cond.i12.i.i140, %if.end.i9.i.i137 ], [ @.str, %_ZNK4pugi10xpath_node4nodeEv.exit.i.i135 ]
-  %call.i.i131 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %cond.i.i130, i32 noundef 58) #47
+  %call.i.i131 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %cond.i.i130, i32 noundef 58) #43
   %tobool.not.i132 = icmp eq ptr %call.i.i131, null
   %add.ptr.i133 = getelementptr inbounds i8, ptr %call.i.i131, i64 1
   %cond.i134 = select i1 %tobool.not.i132, ptr %cond.i.i130, ptr %add.ptr.i133
@@ -25101,7 +25100,7 @@ terminate.lpad.i:                                 ; preds = %while.body.i.i
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #45
+  call void @__clang_call_terminate(ptr %17) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit: ; preds = %.noexc.i, %invoke.cont9
@@ -25268,7 +25267,7 @@ terminate.lpad.i199:                              ; preds = %while.body.i.i197
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #45
+  call void @__clang_call_terminate(ptr %34) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit205: ; preds = %.noexc.i200, %invoke.cont26
@@ -25390,7 +25389,7 @@ terminate.lpad.i246:                              ; preds = %while.body.i.i244
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #45
+  call void @__clang_call_terminate(ptr %47) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit252: ; preds = %.noexc.i247, %invoke.cont43
@@ -25511,7 +25510,7 @@ if.then.i:                                        ; preds = %if.then12.i688, %if
 common.resume:                                    ; preds = %lpad36.loopexit, %lpad36.loopexit.split-lp, %lpad19.loopexit, %lpad19.loopexit.split-lp, %lpad.loopexit, %lpad.loopexit.split-lp, %lpad.i.loopexit, %lpad.i.loopexit.split-lp, %lpad57, %lpad80, %lpad118, %lpad170, %lpad278, %lpad340
   %cr.sink = phi ptr [ %cr51, %lpad57 ], [ %cr71, %lpad80 ], [ %cr109, %lpad118 ], [ %cr161, %lpad170 ], [ %cr269, %lpad278 ], [ %cr332, %lpad340 ], [ %ct.i, %lpad.i.loopexit.split-lp ], [ %ct.i, %lpad.i.loopexit ], [ %cr, %lpad.loopexit.split-lp ], [ %cr, %lpad.loopexit ], [ %cr15, %lpad19.loopexit.split-lp ], [ %cr15, %lpad19.loopexit ], [ %cr32, %lpad36.loopexit.split-lp ], [ %cr32, %lpad36.loopexit ]
   %common.resume.op = phi { ptr, i32 } [ %110, %lpad57 ], [ %115, %lpad80 ], [ %139, %lpad118 ], [ %164, %lpad170 ], [ %243, %lpad278 ], [ %291, %lpad340 ], [ %lpad.loopexit.split-lp735, %lpad.i.loopexit.split-lp ], [ %lpad.loopexit734, %lpad.i.loopexit ], [ %lpad.loopexit.split-lp727, %lpad.loopexit.split-lp ], [ %lpad.loopexit726, %lpad.loopexit ], [ %lpad.loopexit.split-lp729, %lpad19.loopexit.split-lp ], [ %lpad.loopexit728, %lpad19.loopexit ], [ %lpad.loopexit.split-lp732, %lpad36.loopexit.split-lp ], [ %lpad.loopexit731, %lpad36.loopexit ]
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr.sink) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr.sink) #42
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.loopexit:                                  ; preds = %for.body12.i
@@ -25576,7 +25575,7 @@ cond.true.i660:                                   ; preds = %for.body21.i
 cond.false.i663:                                  ; preds = %for.body21.i
   %arrayidx22.i = getelementptr inbounds %"class.pugi::impl::(anonymous namespace)::xpath_string", ptr %retval.0.i676, i64 %i.0.i775
   %67 = load ptr, ptr %arrayidx22.i, align 8, !noalias !211
-  %call.i.i664 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #47, !noalias !211
+  %call.i.i664 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #43, !noalias !211
   br label %_ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit665
 
 _ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit665: ; preds = %cond.true.i660, %cond.false.i663
@@ -25715,7 +25714,7 @@ terminate.lpad.i633:                              ; preds = %while.body.i.i631
   %86 = landingpad { ptr, i32 }
           catch ptr null
   %87 = extractvalue { ptr, i32 } %86, 0
-  call void @__clang_call_terminate(ptr %87) #45, !noalias !211
+  call void @__clang_call_terminate(ptr %87) #41, !noalias !211
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit640: ; preds = %.noexc.i634, %_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node18eval_string_concatERKNS1_13xpath_contextERKNS1_11xpath_stackE.exit
@@ -25755,7 +25754,7 @@ invoke.cont58:                                    ; preds = %sw.bb50
 invoke.cont59:                                    ; preds = %invoke.cont58
   %s.val113 = load ptr, ptr %s, align 8
   %p.val = load ptr, ptr %p, align 8
-  %call.i255 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %s.val113, ptr noundef nonnull dereferenceable(1) %p.val) #47
+  %call.i255 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %s.val113, ptr noundef nonnull dereferenceable(1) %p.val) #43
   %tobool.not = icmp eq ptr %call.i255, null
   br i1 %tobool.not, label %cond.end, label %cond.true
 
@@ -25853,7 +25852,7 @@ terminate.lpad.i266:                              ; preds = %while.body.i.i264
   %107 = landingpad { ptr, i32 }
           catch ptr null
   %108 = extractvalue { ptr, i32 } %107, 0
-  call void @__clang_call_terminate(ptr %108) #45
+  call void @__clang_call_terminate(ptr %108) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit273: ; preds = %.noexc.i267, %cond.end
@@ -25894,7 +25893,7 @@ invoke.cont81:                                    ; preds = %sw.bb70
 invoke.cont84:                                    ; preds = %invoke.cont81
   %s78.val114 = load ptr, ptr %s78, align 8
   %p82.val = load ptr, ptr %p82, align 8
-  %call.i275 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %s78.val114, ptr noundef nonnull dereferenceable(1) %p82.val) #47
+  %call.i275 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %s78.val114, ptr noundef nonnull dereferenceable(1) %p82.val) #43
   %tobool91.not = icmp eq ptr %call.i275, null
   br i1 %tobool91.not, label %cleanup.sink.split, label %if.end
 
@@ -25916,7 +25915,7 @@ cond.true.i280:                                   ; preds = %if.end
   br label %_ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit
 
 cond.false.i:                                     ; preds = %if.end
-  %call.i.i283 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %p82.val) #47
+  %call.i.i283 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %p82.val) #43
   br label %_ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit
 
 _ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit: ; preds = %cond.true.i280, %cond.false.i
@@ -25966,7 +25965,7 @@ terminate.lpad.i298:                              ; preds = %while.body.i.i296
   %127 = landingpad { ptr, i32 }
           catch ptr null
   %128 = extractvalue { ptr, i32 } %127, 0
-  call void @__clang_call_terminate(ptr %128) #45
+  call void @__clang_call_terminate(ptr %128) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit305: ; preds = %.noexc.i299, %cleanup
@@ -26007,7 +26006,7 @@ cond.true.i309:                                   ; preds = %invoke.cont119
 
 cond.false.i312:                                  ; preds = %invoke.cont119
   %136 = load ptr, ptr %s116, align 8
-  %call.i.i313 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %136) #47
+  %call.i.i313 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %136) #43
   br label %_ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit314
 
 _ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit314: ; preds = %cond.true.i309, %cond.false.i312
@@ -26089,7 +26088,7 @@ terminate.lpad.i336:                              ; preds = %while.body.i.i334
   %149 = landingpad { ptr, i32 }
           catch ptr null
   %150 = extractvalue { ptr, i32 } %149, 0
-  call void @__clang_call_terminate(ptr %150) #45
+  call void @__clang_call_terminate(ptr %150) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit343: ; preds = %.noexc.i337, %cleanup159
@@ -26130,7 +26129,7 @@ cond.true.i347:                                   ; preds = %invoke.cont171
 
 cond.false.i350:                                  ; preds = %invoke.cont171
   %158 = load ptr, ptr %s168, align 8
-  %call.i.i351 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %158) #47
+  %call.i.i351 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %158) #43
   br label %_ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit352
 
 _ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit352: ; preds = %cond.true.i347, %cond.false.i350
@@ -26241,7 +26240,7 @@ terminate.lpad.i378:                              ; preds = %while.body.i.i376
   %173 = landingpad { ptr, i32 }
           catch ptr null
   %174 = extractvalue { ptr, i32 } %173, 0
-  call void @__clang_call_terminate(ptr %174) #45
+  call void @__clang_call_terminate(ptr %174) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit385: ; preds = %.noexc.i379, %cleanup245
@@ -26268,7 +26267,7 @@ sw.bb246:                                         ; preds = %tailrecurse
   br i1 %tobool.not.i387, label %if.then.i388, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_string4dataEPNS1_15xpath_allocatorE.exit
 
 if.then.i388:                                     ; preds = %sw.bb246
-  %call.i.i389 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre.i) #47
+  %call.i.i389 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre.i) #43
   %181 = and i64 %call.i.i389, -8
   %and.i.i.i390 = add i64 %181, 8
   %_root_size.i.i.i391 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %178, i64 0, i32 1
@@ -26427,7 +26426,7 @@ sw.bb257:                                         ; preds = %tailrecurse
   br i1 %tobool.not.i426, label %if.then.i429, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_string4dataEPNS1_15xpath_allocatorE.exit454
 
 if.then.i429:                                     ; preds = %sw.bb257
-  %call.i.i430 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre.i427) #47
+  %call.i.i430 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre.i427) #43
   %205 = and i64 %call.i.i430, -8
   %and.i.i.i431 = add i64 %205, 8
   %_root_size.i.i.i432 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %202, i64 0, i32 1
@@ -26611,7 +26610,7 @@ invoke.cont284:                                   ; preds = %invoke.cont281
   br i1 %tobool.not.i498, label %if.then.i501, label %invoke.cont287
 
 if.then.i501:                                     ; preds = %invoke.cont284
-  %call.i.i502 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre.i499) #47
+  %call.i.i502 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre.i499) #43
   %234 = and i64 %call.i.i502, -8
   %and.i.i.i503 = add i64 %234, 8
   %_root_size.i.i.i504 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %231, i64 0, i32 1
@@ -26705,7 +26704,7 @@ cond.true.i532:                                   ; preds = %if.end292
   br label %_ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit537
 
 cond.false.i535:                                  ; preds = %if.end292
-  %call.i.i536 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %to.val) #47
+  %call.i.i536 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %to.val) #43
   br label %_ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit537
 
 _ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit537: ; preds = %cond.true.i532, %cond.false.i535
@@ -26724,7 +26723,7 @@ while.body.i:                                     ; preds = %if.end8.i, %while.b
   %write.012.i = phi ptr [ %retval.0.i500719, %while.body.lr.ph.i ], [ %write.1.i545, %if.end8.i ]
   %incdec.ptr.i539 = getelementptr inbounds i8, ptr %buffer.addr.013.i, i64 1
   %conv.i.i = sext i8 %248 to i32
-  %call.i.i540 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %from.val, i32 noundef %conv.i.i) #47
+  %call.i.i540 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %from.val, i32 noundef %conv.i.i) #43
   %tobool1.not.i541 = icmp eq ptr %call.i.i540, null
   br i1 %tobool1.not.i541, label %if.end8.sink.split.i, label %if.else.i
 
@@ -26787,7 +26786,7 @@ terminate.lpad.i560:                              ; preds = %while.body.i.i558
   %256 = landingpad { ptr, i32 }
           catch ptr null
   %257 = extractvalue { ptr, i32 } %256, 0
-  call void @__clang_call_terminate(ptr %257) #45
+  call void @__clang_call_terminate(ptr %257) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit567: ; preds = %.noexc.i561, %cleanup303
@@ -26812,7 +26811,7 @@ sw.bb304:                                         ; preds = %tailrecurse
   br i1 %tobool.not.i569, label %if.then.i572, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_string4dataEPNS1_15xpath_allocatorE.exit597
 
 if.then.i572:                                     ; preds = %sw.bb304
-  %call.i.i573 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre.i570) #47
+  %call.i.i573 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre.i570) #43
   %263 = and i64 %call.i.i573, -8
   %and.i.i.i574 = add i64 %263, 8
   %_root_size.i.i.i575 = getelementptr inbounds %"struct.pugi::impl::(anonymous namespace)::xpath_allocator", ptr %260, i64 0, i32 1
@@ -27029,7 +27028,7 @@ invoke.cont346:                                   ; preds = %cond.false345
           to label %cond.end350 unwind label %lpad340
 
 cond.end350:                                      ; preds = %invoke.cont346, %cond.true343
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr332) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr332) #42
   br label %return
 
 lpad340:                                          ; preds = %invoke.cont346, %cond.false345, %sw.bb331
@@ -27117,15 +27116,15 @@ cond.end:                                         ; preds = %cond.true
   br i1 %3, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cond.end
-  %exception = call ptr @__cxa_allocate_exception(i64 8) #46
+  %exception = call ptr @__cxa_allocate_exception(i64 8) #42
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #48
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #44
           to label %unreachable unwind label %lpad
 
 lpad:                                             ; preds = %if.then, %cond.true
   %4 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116xpath_stack_dataD2Ev(ptr noundef nonnull align 8 dereferenceable(8289) %sd) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116xpath_stack_dataD2Ev(ptr noundef nonnull align 8 dereferenceable(8289) %sd) #42
   resume { ptr, i32 } %4
 
 if.end:                                           ; preds = %cond.end.thread, %cond.end
@@ -27142,7 +27141,7 @@ cond.true.i:                                      ; preds = %if.end
 
 cond.false.i:                                     ; preds = %if.end
   %8 = load ptr, ptr %r, align 8
-  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #47
+  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #43
   br label %_ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit
 
 _ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit: ; preds = %cond.true.i, %cond.false.i
@@ -27209,7 +27208,7 @@ terminate.lpad.loopexit.split-lp.i:               ; preds = %while.body.i.i
 terminate.lpad.i:                                 ; preds = %terminate.lpad.loopexit.split-lp.i, %terminate.lpad.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %terminate.lpad.loopexit.i ], [ %lpad.loopexit.split-lp.i, %terminate.lpad.loopexit.split-lp.i ]
   %17 = extractvalue { ptr, i32 } %lpad.phi.i, 0
-  call void @__clang_call_terminate(ptr %17) #45
+  call void @__clang_call_terminate(ptr %17) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_116xpath_stack_dataD2Ev.exit: ; preds = %.noexc5.i, %invoke.cont.i
@@ -27241,12 +27240,12 @@ if.end.i:                                         ; preds = %entry
 if.then1.i:                                       ; preds = %if.end.i
   call void @_ZN4pugi18xpath_parse_resultC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %res.i)
   store ptr @.str.107, ptr %res.i, align 8
-  %exception.i = call ptr @__cxa_allocate_exception(i64 24) #46
+  %exception.i = call ptr @__cxa_allocate_exception(i64 24) #42
   invoke void @_ZN4pugi15xpath_exceptionC1ERKNS_18xpath_parse_resultE(ptr noundef nonnull align 8 dereferenceable(24) %exception.i, ptr noundef nonnull align 8 dereferenceable(16) %res.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then1.i
-  call void @__cxa_throw(ptr %exception.i, ptr nonnull @_ZTIN4pugi15xpath_exceptionE, ptr nonnull @_ZN4pugi15xpath_exceptionD2Ev) #48
+  call void @__cxa_throw(ptr %exception.i, ptr nonnull @_ZTIN4pugi15xpath_exceptionE, ptr nonnull @_ZN4pugi15xpath_exceptionD2Ev) #44
   unreachable
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -27256,7 +27255,7 @@ common.resume:                                    ; preds = %lpad, %lpad.i
 lpad.i:                                           ; preds = %if.then1.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #46
+  call void @__cxa_free_exception(ptr %exception.i) #42
   br label %common.resume
 
 if.then:                                          ; preds = %entry
@@ -27306,15 +27305,15 @@ invoke.cont:                                      ; preds = %if.end
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %invoke.cont
-  %exception = call ptr @__cxa_allocate_exception(i64 8) #46
+  %exception = call ptr @__cxa_allocate_exception(i64 8) #42
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #48
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #44
           to label %unreachable unwind label %lpad
 
 lpad:                                             ; preds = %if.end4, %if.then3, %if.end
   %6 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116xpath_stack_dataD2Ev(ptr noundef nonnull align 8 dereferenceable(8289) %sd) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116xpath_stack_dataD2Ev(ptr noundef nonnull align 8 dereferenceable(8289) %sd) #42
   br label %common.resume
 
 if.end4:                                          ; preds = %invoke.cont
@@ -27375,7 +27374,7 @@ terminate.lpad.loopexit.split-lp.i:               ; preds = %while.body.i.i
 terminate.lpad.i:                                 ; preds = %terminate.lpad.loopexit.split-lp.i, %terminate.lpad.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %terminate.lpad.loopexit.i ], [ %lpad.loopexit.split-lp.i, %terminate.lpad.loopexit.split-lp.i ]
   %17 = extractvalue { ptr, i32 } %lpad.phi.i, 0
-  call void @__clang_call_terminate(ptr %17) #45
+  call void @__clang_call_terminate(ptr %17) #41
   unreachable
 
 return:                                           ; preds = %.noexc5.i, %invoke.cont.i5, %if.then
@@ -27468,7 +27467,7 @@ terminate.lpad.i:                                 ; preds = %while.body.i.i
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #45
+  call void @__clang_call_terminate(ptr %14) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit: ; preds = %.noexc.i, %invoke.cont13
@@ -27483,7 +27482,7 @@ _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit: ; preds = %.noexc
 lpad:                                             ; preds = %invoke.cont11, %invoke.cont5, %invoke.cont, %sw.bb
   %16 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr) #42
   resume { ptr, i32 } %16
 
 sw.bb14:                                          ; preds = %entry
@@ -27835,12 +27834,12 @@ if.end.i:                                         ; preds = %entry
 if.then1.i:                                       ; preds = %if.end.i
   call void @_ZN4pugi18xpath_parse_resultC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %res.i)
   store ptr @.str.107, ptr %res.i, align 8
-  %exception.i = call ptr @__cxa_allocate_exception(i64 24) #46
+  %exception.i = call ptr @__cxa_allocate_exception(i64 24) #42
   invoke void @_ZN4pugi15xpath_exceptionC1ERKNS_18xpath_parse_resultE(ptr noundef nonnull align 8 dereferenceable(24) %exception.i, ptr noundef nonnull align 8 dereferenceable(16) %res.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then1.i
-  call void @__cxa_throw(ptr %exception.i, ptr nonnull @_ZTIN4pugi15xpath_exceptionE, ptr nonnull @_ZN4pugi15xpath_exceptionD2Ev) #48
+  call void @__cxa_throw(ptr %exception.i, ptr nonnull @_ZTIN4pugi15xpath_exceptionE, ptr nonnull @_ZN4pugi15xpath_exceptionD2Ev) #44
   unreachable
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -27850,7 +27849,7 @@ common.resume:                                    ; preds = %lpad, %lpad.i
 lpad.i:                                           ; preds = %if.then1.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i) #46
+  call void @__cxa_free_exception(ptr %exception.i) #42
   br label %common.resume
 
 if.then:                                          ; preds = %entry
@@ -27900,9 +27899,9 @@ invoke.cont:                                      ; preds = %if.end
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %invoke.cont
-  %exception = call ptr @__cxa_allocate_exception(i64 8) #46
+  %exception = call ptr @__cxa_allocate_exception(i64 8) #42
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #48
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #44
           to label %unreachable unwind label %lpad.loopexit.split-lp
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i
@@ -27917,7 +27916,7 @@ lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.invoke,
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit9, %lpad.loopexit ], [ %lpad.loopexit.split-lp10, %lpad.loopexit.split-lp ]
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116xpath_stack_dataD2Ev(ptr noundef nonnull align 8 dereferenceable(8289) %sd) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116xpath_stack_dataD2Ev(ptr noundef nonnull align 8 dereferenceable(8289) %sd) #42
   br label %common.resume
 
 if.end4:                                          ; preds = %invoke.cont
@@ -28019,7 +28018,7 @@ terminate.lpad.loopexit.split-lp.i:               ; preds = %while.body.i.i
 terminate.lpad.i:                                 ; preds = %terminate.lpad.loopexit.split-lp.i, %terminate.lpad.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %terminate.lpad.loopexit.i ], [ %lpad.loopexit.split-lp.i, %terminate.lpad.loopexit.split-lp.i ]
   %18 = extractvalue { ptr, i32 } %lpad.phi.i, 0
-  call void @__clang_call_terminate(ptr %18) #45
+  call void @__clang_call_terminate(ptr %18) #41
   unreachable
 
 return:                                           ; preds = %.noexc5.i, %invoke.cont.i5, %if.then
@@ -28144,13 +28143,13 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  call void @_ZN4pugi11xpath_queryD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %q) #46
+  call void @_ZN4pugi11xpath_queryD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %q) #42
   ret { ptr, ptr } %call
 
 lpad:                                             ; preds = %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4pugi11xpath_queryD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %q) #46
+  call void @_ZN4pugi11xpath_queryD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %q) #42
   resume { ptr, i32 } %0
 }
 
@@ -28177,13 +28176,13 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  call void @_ZN4pugi11xpath_queryD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %q) #46
+  call void @_ZN4pugi11xpath_queryD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %q) #42
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4pugi11xpath_queryD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %q) #46
+  call void @_ZN4pugi11xpath_queryD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %q) #42
   resume { ptr, i32 } %0
 }
 
@@ -28210,13 +28209,13 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  call void @_ZN4pugi11xpath_queryD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %q) #46
+  call void @_ZN4pugi11xpath_queryD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %q) #42
   ret { ptr, ptr } %call
 
 lpad:                                             ; preds = %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4pugi11xpath_queryD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %q) #46
+  call void @_ZN4pugi11xpath_queryD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %q) #42
   resume { ptr, i32 } %0
 }
 
@@ -28238,7 +28237,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4pugi15xml_writer_fileD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #13 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #49
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #45
   ret void
 }
 
@@ -28247,15 +28246,15 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4pugi17xml_writer_streamD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #13 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #49
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #45
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4pugi15xpath_exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #13 comdat align 2 {
 entry:
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #46
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #49
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #42
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #45
   ret void
 }
 
@@ -28419,7 +28418,7 @@ return:                                           ; preds = %if.else87, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #26
+declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef i64 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIyEET_PKcS3_S3_(ptr noundef %value, i64 noundef %minv, i64 noundef %maxv) unnamed_addr #9 {
@@ -28584,7 +28583,7 @@ return:                                           ; preds = %if.else90, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #19
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_118node_copy_contentsEPNS_15xml_node_structES3_PNS1_13xml_allocatorE(ptr nocapture noundef %dn, ptr nocapture noundef %sn, ptr noundef readnone %shared_alloc) unnamed_addr #6 {
@@ -28616,7 +28615,7 @@ if.then2.i:                                       ; preds = %land.lhs.true.i
   br label %_ZN4pugi4impl12_GLOBAL__N_116node_copy_stringIPcmEEvRT_RT0_mS3_S7_PNS1_13xml_allocatorE.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.then.i
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #47
+  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #43
   %call4.i = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name, ptr noundef nonnull align 8 dereferenceable(8) %dn, i64 noundef 32, ptr noundef nonnull %0, i64 noundef %call.i.i)
   br label %_ZN4pugi4impl12_GLOBAL__N_116node_copy_stringIPcmEEvRT_RT0_mS3_S7_PNS1_13xml_allocatorE.exit
 
@@ -28648,7 +28647,7 @@ if.then2.i31:                                     ; preds = %land.lhs.true.i25
   br label %_ZN4pugi4impl12_GLOBAL__N_116node_copy_stringIPcmEEvRT_RT0_mS3_S7_PNS1_13xml_allocatorE.exit34
 
 if.else.i28:                                      ; preds = %land.lhs.true.i25, %if.then.i23
-  %call.i.i29 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #47
+  %call.i.i29 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #43
   %call4.i30 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 8 dereferenceable(8) %dn, i64 noundef 16, ptr noundef nonnull %4, i64 noundef %call.i.i29)
   br label %_ZN4pugi4impl12_GLOBAL__N_116node_copy_stringIPcmEEvRT_RT0_mS3_S7_PNS1_13xml_allocatorE.exit34
 
@@ -28752,7 +28751,7 @@ land.lhs.true.i38:                                ; preds = %if.then.i36
   br i1 %cmp.i40, label %_ZN4pugi4impl12_GLOBAL__N_116node_copy_stringIPcmEEvRT_RT0_mS3_S7_PNS1_13xml_allocatorE.exit47.thread, label %if.else.i41
 
 if.else.i41:                                      ; preds = %land.lhs.true.i38, %if.then.i36
-  %call.i.i42 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #47
+  %call.i.i42 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #43
   %call4.i43 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %retval.0.i.i.ph.i.i, i64 noundef 32, ptr noundef nonnull %19, i64 noundef %call.i.i42)
   br label %_ZN4pugi4impl12_GLOBAL__N_116node_copy_stringIPcmEEvRT_RT0_mS3_S7_PNS1_13xml_allocatorE.exit47
 
@@ -28801,7 +28800,7 @@ if.then2.i57:                                     ; preds = %land.lhs.true.i51
 if.else.i54:                                      ; preds = %land.lhs.true.i51, %if.then.i49
   %value127073 = phi ptr [ %value127072, %land.lhs.true.i51 ], [ %value12, %if.then.i49 ]
   %29 = phi ptr [ %25, %land.lhs.true.i51 ], [ %21, %if.then.i49 ]
-  %call.i.i55 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #47
+  %call.i.i55 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #43
   %call4.i56 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value127073, ptr noundef nonnull align 8 dereferenceable(8) %retval.0.i.i.ph.i.i, i64 noundef 16, ptr noundef nonnull %29, i64 noundef %call.i.i55)
   br label %for.inc
 
@@ -28897,8 +28896,8 @@ return:                                           ; preds = %if.then.i.i.i, %_ZN
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZN4pugi4impl12_GLOBAL__N_119get_buffer_encodingENS_12xml_encodingEPKvm(i32 noundef %encoding, ptr noundef %contents, i64 noundef %size) unnamed_addr #27 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc noundef i32 @_ZN4pugi4impl12_GLOBAL__N_119get_buffer_encodingENS_12xml_encodingEPKvm(i32 noundef %encoding, ptr noundef %contents, i64 noundef %size) unnamed_addr #25 {
 entry:
   %enc.i = alloca ptr, align 8
   %enc_length.i = alloca i64, align 8
@@ -29138,7 +29137,7 @@ return:                                           ; preds = %entry, %_ZN4pugi4im
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_126parse_declaration_encodingEPKhmRS3_Rm(ptr noundef %data, i64 noundef %size, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %out_encoding, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %out_length) unnamed_addr #24 {
+define internal fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_126parse_declaration_encodingEPKhmRS3_Rm(ptr noundef %data, i64 noundef %size, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %out_encoding, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %out_length) unnamed_addr #22 {
 entry:
   %cmp = icmp ult i64 %size, 6
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -29348,7 +29347,7 @@ return:                                           ; preds = %for.body, %for.inc,
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_9opt_falseEE12parse_simpleEPcc(ptr noundef %s, i8 noundef signext %end_quote) unnamed_addr #28 align 2 {
+define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_9opt_falseEE12parse_simpleEPcc(ptr noundef %s, i8 noundef signext %end_quote) unnamed_addr #17 align 2 {
 entry:
   br label %while.body
 
@@ -29439,8 +29438,8 @@ return:                                           ; preds = %if.else, %_ZN4pugi4
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_8opt_trueEE12parse_simpleEPcc(ptr noundef %s, i8 noundef signext %end_quote) unnamed_addr #18 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_8opt_trueEE12parse_simpleEPcc(ptr noundef %s, i8 noundef signext %end_quote) unnamed_addr #17 align 2 {
 entry:
   %g = alloca %"struct.pugi::impl::(anonymous namespace)::gap", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %g, i8 0, i64 16, i1 false)
@@ -29561,8 +29560,8 @@ return:                                           ; preds = %if.else, %_ZN4pugi4
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_9opt_falseEE9parse_eolEPcc(ptr noundef %s, i8 noundef signext %end_quote) unnamed_addr #18 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_9opt_falseEE9parse_eolEPcc(ptr noundef %s, i8 noundef signext %end_quote) unnamed_addr #17 align 2 {
 entry:
   br label %while.body.outer
 
@@ -29705,8 +29704,8 @@ return:                                           ; preds = %if.else, %_ZN4pugi4
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_8opt_trueEE9parse_eolEPcc(ptr noundef %s, i8 noundef signext %end_quote) unnamed_addr #18 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_8opt_trueEE9parse_eolEPcc(ptr noundef %s, i8 noundef signext %end_quote) unnamed_addr #17 align 2 {
 entry:
   %g = alloca %"struct.pugi::impl::(anonymous namespace)::gap", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %g, i8 0, i64 16, i1 false)
@@ -29857,8 +29856,8 @@ return:                                           ; preds = %if.else, %_ZN4pugi4
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_9opt_falseEE11parse_wconvEPcc(ptr noundef %s, i8 noundef signext %end_quote) unnamed_addr #18 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_9opt_falseEE11parse_wconvEPcc(ptr noundef %s, i8 noundef signext %end_quote) unnamed_addr #17 align 2 {
 entry:
   br label %while.body.outer
 
@@ -30009,8 +30008,8 @@ return:                                           ; preds = %if.else60, %_ZN4pug
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_8opt_trueEE11parse_wconvEPcc(ptr noundef %s, i8 noundef signext %end_quote) unnamed_addr #18 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_8opt_trueEE11parse_wconvEPcc(ptr noundef %s, i8 noundef signext %end_quote) unnamed_addr #17 align 2 {
 entry:
   %g = alloca %"struct.pugi::impl::(anonymous namespace)::gap", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %g, i8 0, i64 16, i1 false)
@@ -30170,8 +30169,8 @@ return:                                           ; preds = %if.else60, %_ZN4pug
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_9opt_falseEE11parse_wnormEPcc(ptr noundef %s, i8 noundef signext %end_quote) unnamed_addr #18 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_9opt_falseEE11parse_wnormEPcc(ptr noundef %s, i8 noundef signext %end_quote) unnamed_addr #17 align 2 {
 entry:
   %0 = load i8, ptr %s, align 1
   %idxprom = zext i8 %0 to i64
@@ -30379,8 +30378,8 @@ return:                                           ; preds = %if.else93, %do.end6
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_8opt_trueEE11parse_wnormEPcc(ptr noundef %s, i8 noundef signext %end_quote) unnamed_addr #18 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_8opt_trueEE11parse_wnormEPcc(ptr noundef %s, i8 noundef signext %end_quote) unnamed_addr #17 align 2 {
 entry:
   %g = alloca %"struct.pugi::impl::(anonymous namespace)::gap", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %g, i8 0, i64 16, i1 false)
@@ -30598,8 +30597,8 @@ return:                                           ; preds = %if.else93, %do.end6
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef nonnull ptr @_ZN4pugi4impl12_GLOBAL__N_114strconv_escapeEPcRNS1_3gapE(ptr noundef %s, ptr nocapture noundef nonnull align 8 dereferenceable(16) %g) unnamed_addr #18 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal fastcc noundef nonnull ptr @_ZN4pugi4impl12_GLOBAL__N_114strconv_escapeEPcRNS1_3gapE(ptr noundef %s, ptr nocapture noundef nonnull align 8 dereferenceable(16) %g) unnamed_addr #17 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %s, i64 1
   %0 = load i8, ptr %add.ptr, align 1
@@ -30971,7 +30970,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_9opt_falseES3_S3_E5parseEPc(ptr noundef %s) unnamed_addr #28 align 2 {
+define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_9opt_falseES3_S3_E5parseEPc(ptr noundef %s) unnamed_addr #17 align 2 {
 entry:
   br label %while.body
 
@@ -31064,8 +31063,8 @@ return:                                           ; preds = %_ZN4pugi4impl12_GLO
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_9opt_falseES3_NS1_8opt_trueEE5parseEPc(ptr noundef %s) unnamed_addr #18 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_9opt_falseES3_NS1_8opt_trueEE5parseEPc(ptr noundef %s) unnamed_addr #17 align 2 {
 entry:
   %g = alloca %"struct.pugi::impl::(anonymous namespace)::gap", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %g, i8 0, i64 16, i1 false)
@@ -31205,8 +31204,8 @@ return:                                           ; preds = %_ZN4pugi4impl12_GLO
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_9opt_falseENS1_8opt_trueES3_E5parseEPc(ptr noundef %s) unnamed_addr #18 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_9opt_falseENS1_8opt_trueES3_E5parseEPc(ptr noundef %s) unnamed_addr #17 align 2 {
 entry:
   br label %while.body.outer
 
@@ -31365,8 +31364,8 @@ return:                                           ; preds = %_ZN4pugi4impl12_GLO
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_9opt_falseENS1_8opt_trueES4_E5parseEPc(ptr noundef %s) unnamed_addr #18 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_9opt_falseENS1_8opt_trueES4_E5parseEPc(ptr noundef %s) unnamed_addr #17 align 2 {
 entry:
   %g = alloca %"struct.pugi::impl::(anonymous namespace)::gap", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %g, i8 0, i64 16, i1 false)
@@ -31536,7 +31535,7 @@ return:                                           ; preds = %_ZN4pugi4impl12_GLO
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_8opt_trueENS1_9opt_falseES4_E5parseEPc(ptr noundef %s) unnamed_addr #28 align 2 {
+define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_8opt_trueENS1_9opt_falseES4_E5parseEPc(ptr noundef %s) unnamed_addr #17 align 2 {
 entry:
   br label %while.body
 
@@ -31659,8 +31658,8 @@ return:                                           ; preds = %while.end69, %while
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_8opt_trueENS1_9opt_falseES3_E5parseEPc(ptr noundef %s) unnamed_addr #18 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_8opt_trueENS1_9opt_falseES3_E5parseEPc(ptr noundef %s) unnamed_addr #17 align 2 {
 entry:
   %g = alloca %"struct.pugi::impl::(anonymous namespace)::gap", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %g, i8 0, i64 16, i1 false)
@@ -31836,8 +31835,8 @@ return:                                           ; preds = %while.end74, %while
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_8opt_trueES3_NS1_9opt_falseEE5parseEPc(ptr noundef %s) unnamed_addr #18 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_8opt_trueES3_NS1_9opt_falseEE5parseEPc(ptr noundef %s) unnamed_addr #17 align 2 {
 entry:
   br label %while.body.outer
 
@@ -32032,8 +32031,8 @@ return:                                           ; preds = %while.end78, %while
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_8opt_trueES3_S3_E5parseEPc(ptr noundef %s) unnamed_addr #18 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_119strconv_pcdata_implINS1_8opt_trueES3_S3_E5parseEPc(ptr noundef %s) unnamed_addr #17 align 2 {
 entry:
   %g = alloca %"struct.pugi::impl::(anonymous namespace)::gap", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %g, i8 0, i64 16, i1 false)
@@ -32238,8 +32237,8 @@ return:                                           ; preds = %while.end83, %while
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_113strconv_cdataEPcc(ptr noundef %s, i8 noundef signext %endch) unnamed_addr #18 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_113strconv_cdataEPcc(ptr noundef %s, i8 noundef signext %endch) unnamed_addr #17 {
 entry:
   %cmp61 = icmp eq i8 %endch, 62
   br label %while.body.outer
@@ -34323,7 +34322,7 @@ if.end17:                                         ; preds = %entry, %_ZN4pugi4im
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112utf8_decoder7processINS1_12utf32_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef %data, i64 noundef %size, ptr noundef writeonly %result) unnamed_addr #28 align 2 {
+define internal fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112utf8_decoder7processINS1_12utf32_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef %data, i64 noundef %size, ptr noundef writeonly %result) unnamed_addr #17 align 2 {
 entry:
   %tobool.not61 = icmp eq i64 %size, 0
   br i1 %tobool.not61, label %while.end121, label %while.body
@@ -34523,13 +34522,13 @@ declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_add
 declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #29
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #26
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #30
+declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #27
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #12
@@ -35143,7 +35142,7 @@ return:                                           ; preds = %for.body, %_ZNK4pug
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_111xpath_lexer4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #31 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_111xpath_lexer4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #25 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   br label %while.cond
@@ -35742,7 +35741,7 @@ unreachable.i.i.i.i:                              ; preds = %for.body.i.i.i.i
 
 _ZNK4pugi14xpath_variable4nameEv.exit.i.i.i.i:    ; preds = %sw.bb8.i.i.i.i.i, %sw.bb5.i.i.i.i.i, %sw.bb2.i.i.i.i.i, %sw.bb.i.i.i.i.i
   %retval.0.i.i.i.i.i = phi ptr [ %name9.i.i.i.i.i, %sw.bb8.i.i.i.i.i ], [ %name6.i.i.i.i.i, %sw.bb5.i.i.i.i.i ], [ %name3.i.i.i.i.i, %sw.bb2.i.i.i.i.i ], [ %name.i.i.i.i.i, %sw.bb.i.i.i.i.i ]
-  %call.i.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %scratch.0.i.i) #47
+  %call.i.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %scratch.0.i.i) #43
   %cmp.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZN4pugi18xpath_variable_set3getEPKc.exit.i.i, label %for.inc.i.i.i.i
 
@@ -36143,7 +36142,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i.i.i: ; pre
   br i1 %cmp56.i.i.i.i, label %if.end.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_124convert_string_to_numberEPKc.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i.i.i
-  %call2.i.i.i = tail call double @strtod(ptr nocapture noundef nonnull %scratch.0.i82.i, ptr noundef null) #46
+  %call2.i.i.i = tail call double @strtod(ptr nocapture noundef nonnull %scratch.0.i82.i, ptr noundef null) #42
   br label %_ZN4pugi4impl12_GLOBAL__N_124convert_string_to_numberEPKc.exit.i.i
 
 _ZN4pugi4impl12_GLOBAL__N_124convert_string_to_numberEPKc.exit.i.i: ; preds = %if.end.i.i.i, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i.i.i, %lor.lhs.false.i.i.i.i, %land.lhs.true.i.i.i.i, %while.end.i.i.i.i
@@ -39311,7 +39310,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit: ; preds = %
   br i1 %cmp56.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit
-  %call2 = tail call double @strtod(ptr nocapture noundef %string, ptr noundef null) #46
+  %call2 = tail call double @strtod(ptr nocapture noundef %string, ptr noundef null) #42
   br label %return
 
 return:                                           ; preds = %land.lhs.true.i, %lor.lhs.false.i, %while.end.i, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit, %if.end
@@ -40553,7 +40552,7 @@ return:                                           ; preds = %entry, %_ZNK4pugi4i
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZNK4pugi4impl12_GLOBAL__N_114xpath_ast_node14is_posinv_exprEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #32 align 2 {
+define internal fastcc noundef zeroext i1 @_ZNK4pugi4impl12_GLOBAL__N_114xpath_ast_node14is_posinv_exprEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #28 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %conv = sext i8 %0 to i32
@@ -40775,7 +40774,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i: ; preds =
   br i1 %cmp56.i.i, label %if.end.i, label %invoke.cont25
 
 if.end.i:                                         ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i
-  %call2.i = call double @strtod(ptr nocapture noundef %ref.tmp19.val, ptr noundef null) #46
+  %call2.i = call double @strtod(ptr nocapture noundef %ref.tmp19.val, ptr noundef null) #42
   br label %invoke.cont25
 
 invoke.cont25:                                    ; preds = %if.end.i, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i, %lor.lhs.false.i.i, %land.lhs.true.i.i, %while.end.i.i
@@ -40888,7 +40887,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i108: ; pred
   br i1 %cmp56.i.i109, label %if.end.i111, label %invoke.cont43
 
 if.end.i111:                                      ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i108
-  %call2.i112 = call double @strtod(ptr nocapture noundef %ref.tmp37.val, ptr noundef null) #46
+  %call2.i112 = call double @strtod(ptr nocapture noundef %ref.tmp37.val, ptr noundef null) #42
   br label %invoke.cont43
 
 invoke.cont43:                                    ; preds = %if.end.i111, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i108, %lor.lhs.false.i.i120, %land.lhs.true.i.i118, %while.end.i.i84
@@ -40914,7 +40913,7 @@ terminate.lpad.i:                                 ; preds = %while.body.i.i
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #45
+  call void @__clang_call_terminate(ptr %44) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit: ; preds = %.noexc.i, %invoke.cont43
@@ -40938,7 +40937,7 @@ lpad21:                                           ; preds = %for.body
 lpad39:                                           ; preds = %for.body33
   %48 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %crii) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %crii) #42
   br label %ehcleanup
 
 cleanup48:                                        ; preds = %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit
@@ -40962,7 +40961,7 @@ terminate.lpad.i131:                              ; preds = %while.body.i.i129
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #45
+  call void @__clang_call_terminate(ptr %54) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit137: ; preds = %.noexc.i132, %cleanup48
@@ -40994,7 +40993,7 @@ terminate.lpad.i142:                              ; preds = %while.body.i.i140
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #45
+  call void @__clang_call_terminate(ptr %61) #41
   unreachable
 
 for.inc51:                                        ; preds = %.noexc.i143, %for.inc51.critedge
@@ -41010,7 +41009,7 @@ for.inc51:                                        ; preds = %.noexc.i143, %for.i
 
 ehcleanup:                                        ; preds = %lpad39, %lpad21
   %.pn63 = phi { ptr, i32 } [ %48, %lpad39 ], [ %47, %lpad21 ]
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cri) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cri) #42
   br label %eh.resume
 
 cleanup54:                                        ; preds = %for.inc51, %invoke.cont11, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit137
@@ -41035,7 +41034,7 @@ terminate.lpad.i153:                              ; preds = %while.body.i.i151
   %67 = landingpad { ptr, i32 }
           catch ptr null
   %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #45
+  call void @__clang_call_terminate(ptr %68) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit159: ; preds = %.noexc.i154, %cleanup54
@@ -41173,7 +41172,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i192: ; pred
   br i1 %cmp56.i.i193, label %if.end.i195, label %invoke.cont87
 
 if.end.i195:                                      ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i192
-  %call2.i196 = call double @strtod(ptr nocapture noundef %ref.tmp81.val, ptr noundef null) #46
+  %call2.i196 = call double @strtod(ptr nocapture noundef %ref.tmp81.val, ptr noundef null) #42
   br label %invoke.cont87
 
 invoke.cont87:                                    ; preds = %if.end.i195, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i192, %lor.lhs.false.i.i204, %land.lhs.true.i.i202, %while.end.i.i168
@@ -41199,7 +41198,7 @@ terminate.lpad.i214:                              ; preds = %while.body.i.i212
   %93 = landingpad { ptr, i32 }
           catch ptr null
   %94 = extractvalue { ptr, i32 } %93, 0
-  call void @__clang_call_terminate(ptr %94) #45
+  call void @__clang_call_terminate(ptr %94) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit220: ; preds = %.noexc.i215, %invoke.cont87
@@ -41222,7 +41221,7 @@ lpad64:                                           ; preds = %invoke.cont65, %if.
 lpad83:                                           ; preds = %for.body76
   %97 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cri77) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cri77) #42
   br label %eh.resume
 
 cleanup100:                                       ; preds = %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit220, %invoke.cont68
@@ -41247,7 +41246,7 @@ terminate.lpad.i225:                              ; preds = %while.body.i.i223
   %102 = landingpad { ptr, i32 }
           catch ptr null
   %103 = extractvalue { ptr, i32 } %102, 0
-  call void @__clang_call_terminate(ptr %103) #45
+  call void @__clang_call_terminate(ptr %103) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit231: ; preds = %.noexc.i226, %cleanup100
@@ -41385,7 +41384,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i264: ; pred
   br i1 %cmp56.i.i265, label %if.end.i267, label %invoke.cont132
 
 if.end.i267:                                      ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i264
-  %call2.i268 = call double @strtod(ptr nocapture noundef %ref.tmp126.val, ptr noundef null) #46
+  %call2.i268 = call double @strtod(ptr nocapture noundef %ref.tmp126.val, ptr noundef null) #42
   br label %invoke.cont132
 
 invoke.cont132:                                   ; preds = %if.end.i267, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i264, %lor.lhs.false.i.i276, %land.lhs.true.i.i274, %while.end.i.i240
@@ -41411,7 +41410,7 @@ terminate.lpad.i286:                              ; preds = %while.body.i.i284
   %128 = landingpad { ptr, i32 }
           catch ptr null
   %129 = extractvalue { ptr, i32 } %128, 0
-  call void @__clang_call_terminate(ptr %129) #45
+  call void @__clang_call_terminate(ptr %129) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit292: ; preds = %.noexc.i287, %invoke.cont132
@@ -41434,7 +41433,7 @@ lpad110:                                          ; preds = %invoke.cont111, %if
 lpad128:                                          ; preds = %for.body121
   %132 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cri122) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cri122) #42
   br label %eh.resume
 
 cleanup145:                                       ; preds = %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit292, %invoke.cont112
@@ -41459,7 +41458,7 @@ terminate.lpad.i297:                              ; preds = %while.body.i.i295
   %137 = landingpad { ptr, i32 }
           catch ptr null
   %138 = extractvalue { ptr, i32 } %137, 0
-  call void @__clang_call_terminate(ptr %138) #45
+  call void @__clang_call_terminate(ptr %138) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit303: ; preds = %.noexc.i298, %cleanup145
@@ -41478,7 +41477,7 @@ return:                                           ; preds = %if.else102, %_ZN4pu
 eh.resume:                                        ; preds = %lpad110, %lpad128, %lpad64, %lpad83, %lpad, %ehcleanup
   %cr107.sink = phi ptr [ %cr, %ehcleanup ], [ %cr, %lpad ], [ %cr61, %lpad83 ], [ %cr61, %lpad64 ], [ %cr107, %lpad128 ], [ %cr107, %lpad110 ]
   %.pn63.pn.pn = phi { ptr, i32 } [ %.pn63, %ehcleanup ], [ %46, %lpad ], [ %97, %lpad83 ], [ %96, %lpad64 ], [ %132, %lpad128 ], [ %131, %lpad110 ]
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr107.sink) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr107.sink) #42
   resume { ptr, i32 } %.pn63.pn.pn
 }
 
@@ -41647,7 +41646,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i: ; preds =
   br i1 %cmp56.i.i, label %if.end.i, label %invoke.cont25
 
 if.end.i:                                         ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i
-  %call2.i = call double @strtod(ptr nocapture noundef %ref.tmp19.val, ptr noundef null) #46
+  %call2.i = call double @strtod(ptr nocapture noundef %ref.tmp19.val, ptr noundef null) #42
   br label %invoke.cont25
 
 invoke.cont25:                                    ; preds = %if.end.i, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i, %lor.lhs.false.i.i, %land.lhs.true.i.i, %while.end.i.i
@@ -41760,7 +41759,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i108: ; pred
   br i1 %cmp56.i.i109, label %if.end.i111, label %invoke.cont43
 
 if.end.i111:                                      ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i108
-  %call2.i112 = call double @strtod(ptr nocapture noundef %ref.tmp37.val, ptr noundef null) #46
+  %call2.i112 = call double @strtod(ptr nocapture noundef %ref.tmp37.val, ptr noundef null) #42
   br label %invoke.cont43
 
 invoke.cont43:                                    ; preds = %if.end.i111, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i108, %lor.lhs.false.i.i120, %land.lhs.true.i.i118, %while.end.i.i84
@@ -41786,7 +41785,7 @@ terminate.lpad.i:                                 ; preds = %while.body.i.i
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #45
+  call void @__clang_call_terminate(ptr %44) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit: ; preds = %.noexc.i, %invoke.cont43
@@ -41810,7 +41809,7 @@ lpad21:                                           ; preds = %for.body
 lpad39:                                           ; preds = %for.body33
   %48 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %crii) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %crii) #42
   br label %ehcleanup
 
 cleanup48:                                        ; preds = %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit
@@ -41834,7 +41833,7 @@ terminate.lpad.i131:                              ; preds = %while.body.i.i129
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #45
+  call void @__clang_call_terminate(ptr %54) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit137: ; preds = %.noexc.i132, %cleanup48
@@ -41866,7 +41865,7 @@ terminate.lpad.i142:                              ; preds = %while.body.i.i140
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #45
+  call void @__clang_call_terminate(ptr %61) #41
   unreachable
 
 for.inc51:                                        ; preds = %.noexc.i143, %for.inc51.critedge
@@ -41882,7 +41881,7 @@ for.inc51:                                        ; preds = %.noexc.i143, %for.i
 
 ehcleanup:                                        ; preds = %lpad39, %lpad21
   %.pn63 = phi { ptr, i32 } [ %48, %lpad39 ], [ %47, %lpad21 ]
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cri) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cri) #42
   br label %eh.resume
 
 cleanup54:                                        ; preds = %for.inc51, %invoke.cont11, %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit137
@@ -41907,7 +41906,7 @@ terminate.lpad.i153:                              ; preds = %while.body.i.i151
   %67 = landingpad { ptr, i32 }
           catch ptr null
   %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #45
+  call void @__clang_call_terminate(ptr %68) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit159: ; preds = %.noexc.i154, %cleanup54
@@ -42045,7 +42044,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i192: ; pred
   br i1 %cmp56.i.i193, label %if.end.i195, label %invoke.cont87
 
 if.end.i195:                                      ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i192
-  %call2.i196 = call double @strtod(ptr nocapture noundef %ref.tmp81.val, ptr noundef null) #46
+  %call2.i196 = call double @strtod(ptr nocapture noundef %ref.tmp81.val, ptr noundef null) #42
   br label %invoke.cont87
 
 invoke.cont87:                                    ; preds = %if.end.i195, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i192, %lor.lhs.false.i.i204, %land.lhs.true.i.i202, %while.end.i.i168
@@ -42071,7 +42070,7 @@ terminate.lpad.i214:                              ; preds = %while.body.i.i212
   %93 = landingpad { ptr, i32 }
           catch ptr null
   %94 = extractvalue { ptr, i32 } %93, 0
-  call void @__clang_call_terminate(ptr %94) #45
+  call void @__clang_call_terminate(ptr %94) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit220: ; preds = %.noexc.i215, %invoke.cont87
@@ -42094,7 +42093,7 @@ lpad64:                                           ; preds = %invoke.cont65, %if.
 lpad83:                                           ; preds = %for.body76
   %97 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cri77) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cri77) #42
   br label %eh.resume
 
 cleanup100:                                       ; preds = %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit220, %invoke.cont68
@@ -42119,7 +42118,7 @@ terminate.lpad.i225:                              ; preds = %while.body.i.i223
   %102 = landingpad { ptr, i32 }
           catch ptr null
   %103 = extractvalue { ptr, i32 } %102, 0
-  call void @__clang_call_terminate(ptr %103) #45
+  call void @__clang_call_terminate(ptr %103) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit231: ; preds = %.noexc.i226, %cleanup100
@@ -42257,7 +42256,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i264: ; pred
   br i1 %cmp56.i.i265, label %if.end.i267, label %invoke.cont132
 
 if.end.i267:                                      ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i264
-  %call2.i268 = call double @strtod(ptr nocapture noundef %ref.tmp126.val, ptr noundef null) #46
+  %call2.i268 = call double @strtod(ptr nocapture noundef %ref.tmp126.val, ptr noundef null) #42
   br label %invoke.cont132
 
 invoke.cont132:                                   ; preds = %if.end.i267, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i264, %lor.lhs.false.i.i276, %land.lhs.true.i.i274, %while.end.i.i240
@@ -42283,7 +42282,7 @@ terminate.lpad.i286:                              ; preds = %while.body.i.i284
   %128 = landingpad { ptr, i32 }
           catch ptr null
   %129 = extractvalue { ptr, i32 } %128, 0
-  call void @__clang_call_terminate(ptr %129) #45
+  call void @__clang_call_terminate(ptr %129) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit292: ; preds = %.noexc.i287, %invoke.cont132
@@ -42306,7 +42305,7 @@ lpad110:                                          ; preds = %invoke.cont111, %if
 lpad128:                                          ; preds = %for.body121
   %132 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cri122) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cri122) #42
   br label %eh.resume
 
 cleanup145:                                       ; preds = %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit292, %invoke.cont112
@@ -42331,7 +42330,7 @@ terminate.lpad.i297:                              ; preds = %while.body.i.i295
   %137 = landingpad { ptr, i32 }
           catch ptr null
   %138 = extractvalue { ptr, i32 } %137, 0
-  call void @__clang_call_terminate(ptr %138) #45
+  call void @__clang_call_terminate(ptr %138) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit303: ; preds = %.noexc.i298, %cleanup145
@@ -42350,7 +42349,7 @@ return:                                           ; preds = %if.else102, %_ZN4pu
 eh.resume:                                        ; preds = %lpad110, %lpad128, %lpad64, %lpad83, %lpad, %ehcleanup
   %cr107.sink = phi ptr [ %cr, %ehcleanup ], [ %cr, %lpad ], [ %cr61, %lpad83 ], [ %cr61, %lpad64 ], [ %cr107, %lpad128 ], [ %cr107, %lpad110 ]
   %.pn63.pn.pn = phi { ptr, i32 } [ %.pn63, %ehcleanup ], [ %46, %lpad ], [ %97, %lpad83 ], [ %96, %lpad64 ], [ %132, %lpad128 ], [ %131, %lpad110 ]
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr107.sink) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr107.sink) #42
   resume { ptr, i32 } %.pn63.pn.pn
 }
 
@@ -42389,7 +42388,7 @@ terminate.lpad:                                   ; preds = %while.body.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #45
+  tail call void @__clang_call_terminate(ptr %8) #41
   unreachable
 }
 
@@ -42666,7 +42665,7 @@ cond.true.i:                                      ; preds = %if.else
   br label %_ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit
 
 cond.false.i:                                     ; preds = %if.else
-  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #47
+  %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #43
   br label %_ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit
 
 _ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit: ; preds = %cond.true.i, %cond.false.i
@@ -42683,7 +42682,7 @@ cond.true.i17:                                    ; preds = %_ZNK4pugi4impl12_GL
   br label %_ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit22
 
 cond.false.i20:                                   ; preds = %_ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit
-  %call.i.i21 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #47
+  %call.i.i21 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #43
   br label %_ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit22
 
 _ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit22: ; preds = %cond.true.i17, %cond.false.i20
@@ -42817,16 +42816,16 @@ if.end32:                                         ; preds = %if.then10.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #19
+declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @fmod(double noundef, double noundef) local_unnamed_addr #33
+declare double @fmod(double noundef, double noundef) local_unnamed_addr #29
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #34
+declare double @llvm.floor.f64(double) #30
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.ceil.f64(double) #34
+declare double @llvm.ceil.f64(double) #30
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_113namespace_uriERKNS_10xpath_nodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %node) unnamed_addr #6 {
@@ -42844,7 +42843,7 @@ _ZNK4pugi13xml_attribute4nameEv.exit.i:           ; preds = %entry
   %0 = load ptr, ptr %name3.i.i, align 8
   %tobool4.not.i.i = icmp eq ptr %0, null
   %cond.i.i = select i1 %tobool4.not.i.i, ptr @.str, ptr %0
-  %call.i.i.i = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %cond.i.i, i32 noundef 58) #47
+  %call.i.i.i = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %cond.i.i, i32 noundef 58) #43
   %tobool.not.i1.i10 = icmp eq ptr %call.i.i.i, null
   %cond.i2.i = select i1 %tobool.not.i1.i10, ptr null, ptr %cond.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i.i to i64
@@ -42893,7 +42892,7 @@ if.end.i.i19:                                     ; preds = %_ZNK4pugi10xpath_no
 
 _ZNK4pugi8xml_node4nameEv.exit.i:                 ; preds = %if.end.i.i19, %_ZNK4pugi10xpath_node4nodeEv.exit
   %retval.0.i.i23 = phi ptr [ %cond.i.i22, %if.end.i.i19 ], [ @.str, %_ZNK4pugi10xpath_node4nodeEv.exit ]
-  %call.i.i.i24 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %retval.0.i.i23, i32 noundef 58) #47
+  %call.i.i.i24 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %retval.0.i.i23, i32 noundef 58) #43
   %tobool.not.i1.i25 = icmp eq ptr %call.i.i.i24, null
   %cond.i2.i26 = select i1 %tobool.not.i1.i25, ptr null, ptr %retval.0.i.i23
   %sub.ptr.lhs.cast.i.i27 = ptrtoint ptr %call.i.i.i24 to i64
@@ -43041,10 +43040,10 @@ if.then:                                          ; preds = %if.then5.i, %entry,
 
 if.end:                                           ; preds = %if.end3.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i)
-  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %mantissa_buffer, i64 noundef 32, ptr noundef nonnull @.str.106, i32 noundef 15, double noundef %value) #46
-  %call2.i = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %mantissa_buffer, i32 noundef 101) #47
+  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %mantissa_buffer, i64 noundef 32, ptr noundef nonnull @.str.106, i32 noundef 15, double noundef %value) #42
+  %call2.i = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %mantissa_buffer, i32 noundef 101) #43
   %add.ptr.i = getelementptr inbounds i8, ptr %call2.i, i64 1
-  %call3.i = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr.i) #47
+  %call3.i = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr.i) #43
   %0 = load i8, ptr %mantissa_buffer, align 16
   %cmp.i13 = icmp eq i8 %0, 45
   %cond.idx.i = zext i1 %cmp.i13 to i64
@@ -43073,7 +43072,7 @@ _ZN4pugi4impl12_GLOBAL__N_135convert_number_to_mantissa_exponentEdRA32_cPPcPi.ex
   %end.addr.0.lcssa.i.i = phi ptr [ %scevgep.i.i, %while.cond.i.i ], [ %end.addr.0.i.i, %land.rhs.i.i ]
   %inc.i = add i32 %call3.i, 1
   store i8 0, ptr %end.addr.0.lcssa.i.i, align 1
-  %call1 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %mantissa_buffer) #47
+  %call1 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %mantissa_buffer) #43
   %cond = call i32 @llvm.abs.i32(i32 %inc.i, i1 true)
   %narrow = add nuw i32 %cond, 11
   %add = zext i32 %narrow to i64
@@ -43227,7 +43226,7 @@ return:                                           ; preds = %if.then10.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #19
+declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc ptr @_ZNK4pugi8xml_node14find_attributeINS_4impl12_GLOBAL__N_123namespace_uri_predicateEEENS_13xml_attributeET_(ptr readonly %this.0.val, ptr %pred.coerce0, i64 %pred.coerce1) unnamed_addr #6 align 2 {
@@ -43425,7 +43424,7 @@ return:                                           ; preds = %_ZNK4pugi4impl12_GL
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #35
+declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #31
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_118xpath_node_set_raw6appendEPKNS_10xpath_nodeES5_PNS1_15xpath_allocatorE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %begin_, ptr noundef %end_, ptr nocapture noundef %alloc) unnamed_addr #6 align 2 {
@@ -43675,7 +43674,7 @@ lpad.loopexit.split-lp:                           ; preds = %if.else.i
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit28, %lpad.loopexit ], [ %lpad.loopexit.split-lp29, %lpad.loopexit.split-lp ]
-  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr) #46
+  call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %cr) #42
   resume { ptr, i32 } %lpad.phi
 
 if.end:                                           ; preds = %if.then.i, %if.end14.i
@@ -43795,7 +43794,7 @@ terminate.lpad.i:                                 ; preds = %while.body.i.i
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #45
+  call void @__clang_call_terminate(ptr %24) #41
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit: ; preds = %.noexc.i, %cleanup
@@ -46997,7 +46996,7 @@ land.lhs.true:                                    ; preds = %sw.bb
   br i1 %tobool.not, label %return, label %land.lhs.true3
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %this.32.val) #47
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %this.32.val) #43
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then, label %return
 
@@ -47050,7 +47049,7 @@ land.lhs.true30:                                  ; preds = %sw.bb28
   br i1 %tobool32.not, label %return, label %land.lhs.true33
 
 land.lhs.true33:                                  ; preds = %land.lhs.true30
-  %call.i38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %this.32.val) #47
+  %call.i38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %this.32.val) #43
   %cmp.i39 = icmp eq i32 %call.i38, 0
   br i1 %cmp.i39, label %if.then37, label %return
 
@@ -47326,7 +47325,7 @@ land.rhs.i.i16.preheader:                         ; preds = %entry, %entry
   br label %land.rhs.i.i16
 
 sw.bb:                                            ; preds = %entry
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(1) %this.32.val) #47
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(1) %this.32.val) #43
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %land.rhs.i.i, label %return
 
@@ -48351,27 +48350,27 @@ if.end29:                                         ; preds = %_ZN4pugi4impl12_GLO
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #36
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #32
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define internal noalias noundef ptr @_ZN4pugi4impl12_GLOBAL__N_116default_allocateEm(i64 noundef %size) #37 {
+define internal noalias noundef ptr @_ZN4pugi4impl12_GLOBAL__N_116default_allocateEm(i64 noundef %size) #33 {
 entry:
-  %call = tail call noalias ptr @malloc(i64 noundef %size) #50
+  %call = tail call noalias ptr @malloc(i64 noundef %size) #46
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #38
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #34
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZN4pugi4impl12_GLOBAL__N_118default_deallocateEPv(ptr nocapture noundef %ptr) #39 {
+define internal void @_ZN4pugi4impl12_GLOBAL__N_118default_deallocateEPv(ptr nocapture noundef %ptr) #35 {
 entry:
-  tail call void @free(ptr noundef %ptr) #46
+  tail call void @free(ptr noundef %ptr) #42
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #40
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #36
 
 declare noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264)) local_unnamed_addr #7
 
@@ -48410,42 +48409,42 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt13basic_istreamIwS
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt13basic_istreamIwSt11char_traitsIwEE5seekgESt4fposI11__mbstate_tE(ptr noundef nonnull align 8 dereferenceable(16), i64, i64) local_unnamed_addr #7
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_pugixml.cpp() #41 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_pugixml.cpp() #37 section ".text.startup" {
 entry:
   tail call void @_ZN4pugi14xpath_node_setC1Ev(ptr noundef nonnull align 8 dereferenceable(40) @_ZN4pugi4impl12_GLOBAL__N_114dummy_node_setE)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4pugi14xpath_node_setD1Ev, ptr nonnull @_ZN4pugi4impl12_GLOBAL__N_114dummy_node_setE, ptr nonnull @__dso_handle) #46
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4pugi14xpath_node_setD1Ev, ptr nonnull @_ZN4pugi4impl12_GLOBAL__N_114dummy_node_setE, ptr nonnull @__dso_handle) #42
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #42
+declare i64 @llvm.umin.i64(i64, i64) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #42
+declare i16 @llvm.bswap.i16(i16) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #42
+declare i32 @llvm.bswap.i32(i32) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #42
+declare i64 @llvm.umax.i64(i64, i64) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #42
+declare i32 @llvm.abs.i32(i32, i1 immarg) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #43
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #39
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #43
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #39
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #42
+declare i64 @llvm.abs.i64(i64, i1 immarg) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #44
+declare void @llvm.experimental.noalias.scope.decl(metadata) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #42
+declare i32 @llvm.smin.i32(i32, i32) #38
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -48463,41 +48462,37 @@ attributes #12 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #13 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nofree nounwind }
-attributes #23 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #30 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #32 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #33 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #34 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #35 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #36 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #37 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #38 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #39 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #40 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #41 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #42 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #43 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #44 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #45 = { noreturn nounwind }
-attributes #46 = { nounwind }
-attributes #47 = { nounwind willreturn memory(read) }
-attributes #48 = { noreturn }
-attributes #49 = { builtin nounwind }
-attributes #50 = { nounwind allocsize(0) }
+attributes #16 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nofree nounwind }
+attributes #22 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #27 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #31 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #32 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #33 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #34 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #35 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #36 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #37 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #38 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #39 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #40 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #41 = { noreturn nounwind }
+attributes #42 = { nounwind }
+attributes #43 = { nounwind willreturn memory(read) }
+attributes #44 = { noreturn }
+attributes #45 = { builtin nounwind }
+attributes #46 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

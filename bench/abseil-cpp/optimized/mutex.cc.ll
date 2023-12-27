@@ -1861,10 +1861,9 @@ do.body127:                                       ; preds = %if.then119
   unreachable
 
 do.end137:                                        ; preds = %if.then119
-  %and138 = and i64 %8, 187
   %25 = ptrtoint ptr %call122 to i64
-  %or139 = or i64 %and138, %25
-  %or140 = or i64 %or139, 4
+  %or139 = and i64 %8, 191
+  %or140 = or i64 %or139, %25
   br label %for.end.sink.split
 
 do.body144:                                       ; preds = %if.end106, %land.lhs.true111
