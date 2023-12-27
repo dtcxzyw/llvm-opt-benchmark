@@ -10758,16 +10758,12 @@ _ZSt22__uninitialized_move_aIPN6Assimp9SIBObjectES2_SaIS1_EET0_T_S5_S4_RT1_.exit
   %add.ptr58 = getelementptr inbounds %"struct.Assimp::SIBObject", ptr %8, i64 %sub.ptr.div.i
   store ptr %add.ptr58, ptr %_M_finish, align 8
   %cmp6.i.i.i.i.i77 = icmp sgt i64 %sub.ptr.sub.i, 0
-  br i1 %cmp6.i.i.i.i.i77, label %for.body.preheader.i.i.i.i.i84, label %if.end109
+  br i1 %cmp6.i.i.i.i.i77, label %for.body.i.i.i.i.i86, label %if.end109
 
-for.body.preheader.i.i.i.i.i84:                   ; preds = %_ZSt22__uninitialized_move_aIPN6Assimp9SIBObjectES2_SaIS1_EET0_T_S5_S4_RT1_.exit73
-  %sub.ptr.div10.i.i.i.i.i85 = udiv exact i64 %sub.ptr.sub.i, 1112
-  br label %for.body.i.i.i.i.i86
-
-for.body.i.i.i.i.i86:                             ; preds = %_ZN6Assimp9SIBObjectaSERKS0_.exit.i.i.i.i.i97, %for.body.preheader.i.i.i.i.i84
-  %__n.09.i.i.i.i.i87 = phi i64 [ %dec.i.i.i.i.i102, %_ZN6Assimp9SIBObjectaSERKS0_.exit.i.i.i.i.i97 ], [ %sub.ptr.div10.i.i.i.i.i85, %for.body.preheader.i.i.i.i.i84 ]
-  %__result.addr.08.i.i.i.i.i88 = phi ptr [ %incdec.ptr1.i.i.i.i.i101, %_ZN6Assimp9SIBObjectaSERKS0_.exit.i.i.i.i.i97 ], [ %__position.coerce, %for.body.preheader.i.i.i.i.i84 ]
-  %__first.addr.07.i.i.i.i.i89 = phi ptr [ %incdec.ptr.i.i.i.i.i100, %_ZN6Assimp9SIBObjectaSERKS0_.exit.i.i.i.i.i97 ], [ %__first.coerce, %for.body.preheader.i.i.i.i.i84 ]
+for.body.i.i.i.i.i86:                             ; preds = %_ZSt22__uninitialized_move_aIPN6Assimp9SIBObjectES2_SaIS1_EET0_T_S5_S4_RT1_.exit73, %_ZN6Assimp9SIBObjectaSERKS0_.exit.i.i.i.i.i97
+  %__n.09.i.i.i.i.i87 = phi i64 [ %dec.i.i.i.i.i102, %_ZN6Assimp9SIBObjectaSERKS0_.exit.i.i.i.i.i97 ], [ %sub.ptr.div.i, %_ZSt22__uninitialized_move_aIPN6Assimp9SIBObjectES2_SaIS1_EET0_T_S5_S4_RT1_.exit73 ]
+  %__result.addr.08.i.i.i.i.i88 = phi ptr [ %incdec.ptr1.i.i.i.i.i101, %_ZN6Assimp9SIBObjectaSERKS0_.exit.i.i.i.i.i97 ], [ %__position.coerce, %_ZSt22__uninitialized_move_aIPN6Assimp9SIBObjectES2_SaIS1_EET0_T_S5_S4_RT1_.exit73 ]
+  %__first.addr.07.i.i.i.i.i89 = phi ptr [ %incdec.ptr.i.i.i.i.i100, %_ZN6Assimp9SIBObjectaSERKS0_.exit.i.i.i.i.i97 ], [ %__first.coerce, %_ZSt22__uninitialized_move_aIPN6Assimp9SIBObjectES2_SaIS1_EET0_T_S5_S4_RT1_.exit73 ]
   %cmp.i.i.i.i.i.i.i90 = icmp eq ptr %__result.addr.08.i.i.i.i.i88, %__first.addr.07.i.i.i.i.i89
   br i1 %cmp.i.i.i.i.i.i.i90, label %_ZN6Assimp9SIBObjectaSERKS0_.exit.i.i.i.i.i97, label %if.end.i.i.i.i.i.i.i91
 

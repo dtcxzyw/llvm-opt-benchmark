@@ -44065,16 +44065,12 @@ invoke.cont.i:                                    ; preds = %for.body.i.i.i.i
 _ZSt7advanceIPKN5arrow7compute8internal19SelectionKernelDataEmEvRT_T0_.exit: ; preds = %if.else
   %incdec.ptr.i.i = getelementptr inbounds %"struct.arrow::compute::internal::SelectionKernelData", ptr %__first, i64 %sub.ptr.div.i17
   %cmp6.i.i.i.i.i31 = icmp sgt i64 %sub.ptr.sub.i16, 0
-  br i1 %cmp6.i.i.i.i.i31, label %for.body.preheader.i.i.i.i.i33, label %_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47
+  br i1 %cmp6.i.i.i.i.i31, label %for.body.i.i.i.i.i35, label %_ZSt4copyIPKN5arrow7compute8internal19SelectionKernelDataEPS3_ET0_T_S8_S7_.exit47
 
-for.body.preheader.i.i.i.i.i33:                   ; preds = %_ZSt7advanceIPKN5arrow7compute8internal19SelectionKernelDataEmEvRT_T0_.exit
-  %sub.ptr.div10.i.i.i.i.i34 = udiv exact i64 %sub.ptr.sub.i16, 88
-  br label %for.body.i.i.i.i.i35
-
-for.body.i.i.i.i.i35:                             ; preds = %for.body.i.i.i.i.i35, %for.body.preheader.i.i.i.i.i33
-  %__n.09.i.i.i.i.i36 = phi i64 [ %dec.i.i.i.i.i45, %for.body.i.i.i.i.i35 ], [ %sub.ptr.div10.i.i.i.i.i34, %for.body.preheader.i.i.i.i.i33 ]
-  %__result.addr.08.i.i.i.i.i37 = phi ptr [ %incdec.ptr1.i.i.i.i.i44, %for.body.i.i.i.i.i35 ], [ %1, %for.body.preheader.i.i.i.i.i33 ]
-  %__first.addr.07.i.i.i.i.i38 = phi ptr [ %incdec.ptr.i.i.i.i.i43, %for.body.i.i.i.i.i35 ], [ %__first, %for.body.preheader.i.i.i.i.i33 ]
+for.body.i.i.i.i.i35:                             ; preds = %_ZSt7advanceIPKN5arrow7compute8internal19SelectionKernelDataEmEvRT_T0_.exit, %for.body.i.i.i.i.i35
+  %__n.09.i.i.i.i.i36 = phi i64 [ %dec.i.i.i.i.i45, %for.body.i.i.i.i.i35 ], [ %sub.ptr.div.i17, %_ZSt7advanceIPKN5arrow7compute8internal19SelectionKernelDataEmEvRT_T0_.exit ]
+  %__result.addr.08.i.i.i.i.i37 = phi ptr [ %incdec.ptr1.i.i.i.i.i44, %for.body.i.i.i.i.i35 ], [ %1, %_ZSt7advanceIPKN5arrow7compute8internal19SelectionKernelDataEmEvRT_T0_.exit ]
+  %__first.addr.07.i.i.i.i.i38 = phi ptr [ %incdec.ptr.i.i.i.i.i43, %for.body.i.i.i.i.i35 ], [ %__first, %_ZSt7advanceIPKN5arrow7compute8internal19SelectionKernelDataEmEvRT_T0_.exit ]
   tail call void @_ZN5arrow7compute9InputType8CopyIntoERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %__result.addr.08.i.i.i.i.i37, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.07.i.i.i.i.i38)
   %selection_type.i.i.i.i.i.i39 = getelementptr inbounds %"struct.arrow::compute::internal::SelectionKernelData", ptr %__result.addr.08.i.i.i.i.i37, i64 0, i32 1
   %selection_type3.i.i.i.i.i.i40 = getelementptr inbounds %"struct.arrow::compute::internal::SelectionKernelData", ptr %__first.addr.07.i.i.i.i.i38, i64 0, i32 1

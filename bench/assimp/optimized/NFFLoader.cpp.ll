@@ -11402,7 +11402,7 @@ invoke.cont2435:                                  ; preds = %if.end2432
 new.ctorloop:                                     ; preds = %invoke.cont2435
   %825 = add nsw i64 %824, -12
   %826 = urem i64 %825, 12
-  %827 = sub nsw i64 %825, %826
+  %827 = sub nuw nsw i64 %825, %826
   %828 = add nsw i64 %827, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call2436, i8 0, i64 %828, i1 false)
   br label %arrayctor.cont
@@ -11455,7 +11455,7 @@ invoke.cont2472:                                  ; preds = %if.then2469
 new.ctorloop2475:                                 ; preds = %invoke.cont2472
   %836 = add nsw i64 %824, -12
   %837 = urem i64 %836, 12
-  %838 = sub nsw i64 %836, %837
+  %838 = sub nuw nsw i64 %836, %837
   %839 = add nsw i64 %838, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call2473, i8 0, i64 %839, i1 false)
   br label %arrayctor.cont2481
@@ -11485,7 +11485,7 @@ invoke.cont2494:                                  ; preds = %if.then2491
 new.ctorloop2497:                                 ; preds = %invoke.cont2494
   %843 = add nsw i64 %824, -12
   %844 = urem i64 %843, 12
-  %845 = sub nsw i64 %843, %844
+  %845 = sub nuw nsw i64 %843, %844
   %846 = add nsw i64 %845, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call2495, i8 0, i64 %846, i1 false)
   br label %arrayctor.cont2503
@@ -16098,16 +16098,12 @@ _ZSt22__uninitialized_move_aIPN6Assimp11NFFImporter8MeshInfoES3_SaIS2_EET0_T_S6_
   %add.ptr58 = getelementptr inbounds %"struct.Assimp::NFFImporter::MeshInfo", ptr %21, i64 %sub.ptr.div.i
   store ptr %add.ptr58, ptr %_M_finish, align 8
   %cmp6.i.i.i.i.i69 = icmp sgt i64 %sub.ptr.sub.i, 0
-  br i1 %cmp6.i.i.i.i.i69, label %for.body.preheader.i.i.i.i.i76, label %if.end109
+  br i1 %cmp6.i.i.i.i.i69, label %for.body.i.i.i.i.i78, label %if.end109
 
-for.body.preheader.i.i.i.i.i76:                   ; preds = %_ZSt22__uninitialized_move_aIPN6Assimp11NFFImporter8MeshInfoES3_SaIS2_EET0_T_S6_S5_RT1_.exit65
-  %sub.ptr.div10.i.i.i.i.i77 = udiv exact i64 %sub.ptr.sub.i, 456
-  br label %for.body.i.i.i.i.i78
-
-for.body.i.i.i.i.i78:                             ; preds = %for.body.i.i.i.i.i78, %for.body.preheader.i.i.i.i.i76
-  %__n.09.i.i.i.i.i79 = phi i64 [ %dec.i.i.i.i.i85, %for.body.i.i.i.i.i78 ], [ %sub.ptr.div10.i.i.i.i.i77, %for.body.preheader.i.i.i.i.i76 ]
-  %__result.addr.08.i.i.i.i.i80 = phi ptr [ %incdec.ptr1.i.i.i.i.i84, %for.body.i.i.i.i.i78 ], [ %__position.coerce, %for.body.preheader.i.i.i.i.i76 ]
-  %__first.addr.07.i.i.i.i.i81 = phi ptr [ %incdec.ptr.i.i.i.i.i83, %for.body.i.i.i.i.i78 ], [ %__first.coerce, %for.body.preheader.i.i.i.i.i76 ]
+for.body.i.i.i.i.i78:                             ; preds = %_ZSt22__uninitialized_move_aIPN6Assimp11NFFImporter8MeshInfoES3_SaIS2_EET0_T_S6_S5_RT1_.exit65, %for.body.i.i.i.i.i78
+  %__n.09.i.i.i.i.i79 = phi i64 [ %dec.i.i.i.i.i85, %for.body.i.i.i.i.i78 ], [ %sub.ptr.div.i, %_ZSt22__uninitialized_move_aIPN6Assimp11NFFImporter8MeshInfoES3_SaIS2_EET0_T_S6_S5_RT1_.exit65 ]
+  %__result.addr.08.i.i.i.i.i80 = phi ptr [ %incdec.ptr1.i.i.i.i.i84, %for.body.i.i.i.i.i78 ], [ %__position.coerce, %_ZSt22__uninitialized_move_aIPN6Assimp11NFFImporter8MeshInfoES3_SaIS2_EET0_T_S6_S5_RT1_.exit65 ]
+  %__first.addr.07.i.i.i.i.i81 = phi ptr [ %incdec.ptr.i.i.i.i.i83, %for.body.i.i.i.i.i78 ], [ %__first.coerce, %_ZSt22__uninitialized_move_aIPN6Assimp11NFFImporter8MeshInfoES3_SaIS2_EET0_T_S6_S5_RT1_.exit65 ]
   %call.i.i.i.i.i82 = tail call noundef nonnull align 8 dereferenceable(452) ptr @_ZN6Assimp11NFFImporter8MeshInfoaSERKS1_(ptr noundef nonnull align 8 dereferenceable(452) %__result.addr.08.i.i.i.i.i80, ptr noundef nonnull align 8 dereferenceable(452) %__first.addr.07.i.i.i.i.i81)
   %incdec.ptr.i.i.i.i.i83 = getelementptr inbounds %"struct.Assimp::NFFImporter::MeshInfo", ptr %__first.addr.07.i.i.i.i.i81, i64 1
   %incdec.ptr1.i.i.i.i.i84 = getelementptr inbounds %"struct.Assimp::NFFImporter::MeshInfo", ptr %__result.addr.08.i.i.i.i.i80, i64 1

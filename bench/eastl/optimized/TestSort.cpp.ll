@@ -17763,14 +17763,12 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp6.i.i.i.i, label %for.body.preheader.i.i.i.i, label %_ZN5eastl4copyIP10TestObjectS2_EET0_T_S4_S3_.exit
 
 for.body.preheader.i.i.i.i:                       ; preds = %if.else
-  %add.ptr4.idx = mul nsw i64 %nMid, 24
-  %sub.ptr.div11.i.i.i.i = udiv exact i64 %add.ptr4.idx, 24
   %.pre10.i.i.i.i = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN10TestObjectaSERKS_.exit.i.i.i.i, %for.body.preheader.i.i.i.i
   %0 = phi i64 [ %5, %_ZN10TestObjectaSERKS_.exit.i.i.i.i ], [ %.pre10.i.i.i.i, %for.body.preheader.i.i.i.i ]
-  %n.09.i.i.i.i = phi i64 [ %dec.i.i.i.i, %_ZN10TestObjectaSERKS_.exit.i.i.i.i ], [ %sub.ptr.div11.i.i.i.i, %for.body.preheader.i.i.i.i ]
+  %n.09.i.i.i.i = phi i64 [ %dec.i.i.i.i, %_ZN10TestObjectaSERKS_.exit.i.i.i.i ], [ %nMid, %for.body.preheader.i.i.i.i ]
   %result.addr.08.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %_ZN10TestObjectaSERKS_.exit.i.i.i.i ], [ %pBuffer, %for.body.preheader.i.i.i.i ]
   %first.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZN10TestObjectaSERKS_.exit.i.i.i.i ], [ %first, %for.body.preheader.i.i.i.i ]
   %inc.i.i.i.i.i = add nsw i64 %0, 1
@@ -19122,15 +19120,13 @@ if.then:                                          ; preds = %entry
   br i1 %cmp6.i.i.i.i, label %for.body.preheader.i.i.i.i, label %_ZN5eastl4copyIP10TestObjectS2_EET0_T_S4_S3_.exit
 
 for.body.preheader.i.i.i.i:                       ; preds = %if.then
-  %add.ptr7.idx = mul nsw i64 %1, 24
   %add.ptr = getelementptr inbounds %struct.TestObject, ptr %first, i64 %3
-  %sub.ptr.div11.i.i.i.i = udiv exact i64 %add.ptr7.idx, 24
   %.pre10.i.i.i.i = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN10TestObjectaSERKS_.exit.i.i.i.i, %for.body.preheader.i.i.i.i
   %4 = phi i64 [ %9, %_ZN10TestObjectaSERKS_.exit.i.i.i.i ], [ %.pre10.i.i.i.i, %for.body.preheader.i.i.i.i ]
-  %n.09.i.i.i.i = phi i64 [ %dec.i.i.i.i, %_ZN10TestObjectaSERKS_.exit.i.i.i.i ], [ %sub.ptr.div11.i.i.i.i, %for.body.preheader.i.i.i.i ]
+  %n.09.i.i.i.i = phi i64 [ %dec.i.i.i.i, %_ZN10TestObjectaSERKS_.exit.i.i.i.i ], [ %1, %for.body.preheader.i.i.i.i ]
   %result.addr.08.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %_ZN10TestObjectaSERKS_.exit.i.i.i.i ], [ %pBuffer, %for.body.preheader.i.i.i.i ]
   %first.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZN10TestObjectaSERKS_.exit.i.i.i.i ], [ %add.ptr, %for.body.preheader.i.i.i.i ]
   %inc.i.i.i.i.i = add nsw i64 %4, 1
@@ -19287,16 +19283,14 @@ if.else42:                                        ; preds = %entry
   br i1 %cmp6.i.i.i.i110, label %for.body.preheader.i.i.i.i112, label %_ZN5eastl4copyIP10TestObjectS2_EET0_T_S4_S3_.exit132
 
 for.body.preheader.i.i.i.i112:                    ; preds = %if.else42
-  %add.ptr47.idx = mul nsw i64 %2, 24
   %add.ptr43 = getelementptr inbounds %struct.TestObject, ptr %first, i64 %3
   %add.ptr44 = getelementptr inbounds %struct.TestObject, ptr %add.ptr43, i64 %1
-  %sub.ptr.div11.i.i.i.i113 = udiv exact i64 %add.ptr47.idx, 24
   %.pre10.i.i.i.i114 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   br label %for.body.i.i.i.i115
 
 for.body.i.i.i.i115:                              ; preds = %_ZN10TestObjectaSERKS_.exit.i.i.i.i127, %for.body.preheader.i.i.i.i112
   %26 = phi i64 [ %31, %_ZN10TestObjectaSERKS_.exit.i.i.i.i127 ], [ %.pre10.i.i.i.i114, %for.body.preheader.i.i.i.i112 ]
-  %n.09.i.i.i.i116 = phi i64 [ %dec.i.i.i.i128, %_ZN10TestObjectaSERKS_.exit.i.i.i.i127 ], [ %sub.ptr.div11.i.i.i.i113, %for.body.preheader.i.i.i.i112 ]
+  %n.09.i.i.i.i116 = phi i64 [ %dec.i.i.i.i128, %_ZN10TestObjectaSERKS_.exit.i.i.i.i127 ], [ %2, %for.body.preheader.i.i.i.i112 ]
   %result.addr.08.i.i.i.i117 = phi ptr [ %incdec.ptr1.i.i.i.i130, %_ZN10TestObjectaSERKS_.exit.i.i.i.i127 ], [ %pBuffer, %for.body.preheader.i.i.i.i112 ]
   %first.addr.07.i.i.i.i118 = phi ptr [ %incdec.ptr.i.i.i.i129, %_ZN10TestObjectaSERKS_.exit.i.i.i.i127 ], [ %add.ptr44, %for.body.preheader.i.i.i.i112 ]
   %inc.i.i.i.i.i119 = add nsw i64 %26, 1
@@ -21860,17 +21854,12 @@ if.then2:                                         ; preds = %if.then
 
 if.else:                                          ; preds = %if.then
   %cmp6.i.i.i.i = icmp sgt i64 %nMid, 0
-  br i1 %cmp6.i.i.i.i, label %for.body.preheader.i.i.i.i, label %_ZN5eastl4copyIPNS_6vectorIiNS_9allocatorEEES4_EET0_T_S6_S5_.exit
+  br i1 %cmp6.i.i.i.i, label %for.body.i.i.i.i, label %_ZN5eastl4copyIPNS_6vectorIiNS_9allocatorEEES4_EET0_T_S6_S5_.exit
 
-for.body.preheader.i.i.i.i:                       ; preds = %if.else
-  %add.ptr4.idx = mul nsw i64 %nMid, 24
-  %sub.ptr.div10.i.i.i.i = udiv exact i64 %add.ptr4.idx, 24
-  br label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.preheader.i.i.i.i
-  %n.09.i.i.i.i = phi i64 [ %dec.i.i.i.i, %for.body.i.i.i.i ], [ %sub.ptr.div10.i.i.i.i, %for.body.preheader.i.i.i.i ]
-  %result.addr.08.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %pBuffer, %for.body.preheader.i.i.i.i ]
-  %first.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %first, %for.body.preheader.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %if.else, %for.body.i.i.i.i
+  %n.09.i.i.i.i = phi i64 [ %dec.i.i.i.i, %for.body.i.i.i.i ], [ %nMid, %if.else ]
+  %result.addr.08.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %pBuffer, %if.else ]
+  %first.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %first, %if.else ]
   %call.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl6vectorIiNS_9allocatorEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %result.addr.08.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %first.addr.07.i.i.i.i)
   %dec.i.i.i.i = add nsw i64 %n.09.i.i.i.i, -1
   %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.eastl::vector.10", ptr %first.addr.07.i.i.i.i, i64 1

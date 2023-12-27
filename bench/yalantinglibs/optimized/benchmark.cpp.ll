@@ -42664,16 +42664,12 @@ invoke.cont.i:                                    ; preds = %_ZSt8_DestroyIN16st
 _ZSt7advanceIPKN16struct_pb_sample6WeaponEmEvRT_T0_.exit: ; preds = %if.else
   %incdec.ptr.i.i = getelementptr inbounds %"struct.struct_pb_sample::Weapon", ptr %__first, i64 %sub.ptr.div.i17
   %cmp6.i.i.i.i.i28 = icmp sgt i64 %sub.ptr.sub.i16, 0
-  br i1 %cmp6.i.i.i.i.i28, label %for.body.preheader.i.i.i.i.i30, label %_ZSt4copyIPKN16struct_pb_sample6WeaponEPS1_ET0_T_S6_S5_.exit42
+  br i1 %cmp6.i.i.i.i.i28, label %for.body.i.i.i.i.i32, label %_ZSt4copyIPKN16struct_pb_sample6WeaponEPS1_ET0_T_S6_S5_.exit42
 
-for.body.preheader.i.i.i.i.i30:                   ; preds = %_ZSt7advanceIPKN16struct_pb_sample6WeaponEmEvRT_T0_.exit
-  %sub.ptr.div10.i.i.i.i.i31 = udiv exact i64 %sub.ptr.sub.i16, 40
-  br label %for.body.i.i.i.i.i32
-
-for.body.i.i.i.i.i32:                             ; preds = %for.body.i.i.i.i.i32, %for.body.preheader.i.i.i.i.i30
-  %__n.09.i.i.i.i.i33 = phi i64 [ %dec.i.i.i.i.i40, %for.body.i.i.i.i.i32 ], [ %sub.ptr.div10.i.i.i.i.i31, %for.body.preheader.i.i.i.i.i30 ]
-  %__result.addr.08.i.i.i.i.i34 = phi ptr [ %incdec.ptr1.i.i.i.i.i39, %for.body.i.i.i.i.i32 ], [ %1, %for.body.preheader.i.i.i.i.i30 ]
-  %__first.addr.07.i.i.i.i.i35 = phi ptr [ %incdec.ptr.i.i.i.i.i38, %for.body.i.i.i.i.i32 ], [ %__first, %for.body.preheader.i.i.i.i.i30 ]
+for.body.i.i.i.i.i32:                             ; preds = %_ZSt7advanceIPKN16struct_pb_sample6WeaponEmEvRT_T0_.exit, %for.body.i.i.i.i.i32
+  %__n.09.i.i.i.i.i33 = phi i64 [ %dec.i.i.i.i.i40, %for.body.i.i.i.i.i32 ], [ %sub.ptr.div.i17, %_ZSt7advanceIPKN16struct_pb_sample6WeaponEmEvRT_T0_.exit ]
+  %__result.addr.08.i.i.i.i.i34 = phi ptr [ %incdec.ptr1.i.i.i.i.i39, %for.body.i.i.i.i.i32 ], [ %1, %_ZSt7advanceIPKN16struct_pb_sample6WeaponEmEvRT_T0_.exit ]
+  %__first.addr.07.i.i.i.i.i35 = phi ptr [ %incdec.ptr.i.i.i.i.i38, %for.body.i.i.i.i.i32 ], [ %__first, %_ZSt7advanceIPKN16struct_pb_sample6WeaponEmEvRT_T0_.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.08.i.i.i.i.i34, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i.i35)
   %damage.i.i.i.i.i.i36 = getelementptr inbounds %"struct.struct_pb_sample::Weapon", ptr %__first.addr.07.i.i.i.i.i35, i64 0, i32 1
   %14 = load i32, ptr %damage.i.i.i.i.i.i36, align 8

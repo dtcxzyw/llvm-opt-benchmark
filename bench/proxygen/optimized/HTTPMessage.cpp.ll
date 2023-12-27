@@ -15342,16 +15342,12 @@ _ZSt22__uninitialized_move_aIPSt4pairIPKcN5folly5RangeIS2_EEES7_SaIS6_EET0_T_SA_
   %add.ptr44 = getelementptr inbounds %"struct.std::pair.58", ptr %5, i64 %sub.ptr.div.i
   store ptr %add.ptr44, ptr %_M_finish, align 8
   %cmp6.i.i.i.i.i61 = icmp sgt i64 %sub.ptr.sub.i, 0
-  br i1 %cmp6.i.i.i.i.i61, label %for.body.preheader.i.i.i.i.i68, label %if.end87
+  br i1 %cmp6.i.i.i.i.i61, label %for.body.i.i.i.i.i70, label %if.end87
 
-for.body.preheader.i.i.i.i.i68:                   ; preds = %_ZSt22__uninitialized_move_aIPSt4pairIPKcN5folly5RangeIS2_EEES7_SaIS6_EET0_T_SA_S9_RT1_.exit57
-  %sub.ptr.div10.i.i.i.i.i69 = udiv exact i64 %sub.ptr.sub.i, 24
-  br label %for.body.i.i.i.i.i70
-
-for.body.i.i.i.i.i70:                             ; preds = %for.body.i.i.i.i.i70, %for.body.preheader.i.i.i.i.i68
-  %__n.09.i.i.i.i.i71 = phi i64 [ %dec.i.i.i.i.i78, %for.body.i.i.i.i.i70 ], [ %sub.ptr.div10.i.i.i.i.i69, %for.body.preheader.i.i.i.i.i68 ]
-  %__result.addr.08.i.i.i.i.i72 = phi ptr [ %incdec.ptr1.i.i.i.i.i77, %for.body.i.i.i.i.i70 ], [ %__position.coerce, %for.body.preheader.i.i.i.i.i68 ]
-  %__first.addr.07.i.i.i.i.i73 = phi ptr [ %incdec.ptr.i.i.i.i.i76, %for.body.i.i.i.i.i70 ], [ %__first, %for.body.preheader.i.i.i.i.i68 ]
+for.body.i.i.i.i.i70:                             ; preds = %_ZSt22__uninitialized_move_aIPSt4pairIPKcN5folly5RangeIS2_EEES7_SaIS6_EET0_T_SA_S9_RT1_.exit57, %for.body.i.i.i.i.i70
+  %__n.09.i.i.i.i.i71 = phi i64 [ %dec.i.i.i.i.i78, %for.body.i.i.i.i.i70 ], [ %sub.ptr.div.i, %_ZSt22__uninitialized_move_aIPSt4pairIPKcN5folly5RangeIS2_EEES7_SaIS6_EET0_T_SA_S9_RT1_.exit57 ]
+  %__result.addr.08.i.i.i.i.i72 = phi ptr [ %incdec.ptr1.i.i.i.i.i77, %for.body.i.i.i.i.i70 ], [ %__position.coerce, %_ZSt22__uninitialized_move_aIPSt4pairIPKcN5folly5RangeIS2_EEES7_SaIS6_EET0_T_SA_S9_RT1_.exit57 ]
+  %__first.addr.07.i.i.i.i.i73 = phi ptr [ %incdec.ptr.i.i.i.i.i76, %for.body.i.i.i.i.i70 ], [ %__first, %_ZSt22__uninitialized_move_aIPSt4pairIPKcN5folly5RangeIS2_EEES7_SaIS6_EET0_T_SA_S9_RT1_.exit57 ]
   %6 = load ptr, ptr %__first.addr.07.i.i.i.i.i73, align 8
   store ptr %6, ptr %__result.addr.08.i.i.i.i.i72, align 8
   %second.i.i.i.i.i.i74 = getelementptr inbounds %"struct.std::pair.58", ptr %__first.addr.07.i.i.i.i.i73, i64 0, i32 1

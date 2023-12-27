@@ -27557,16 +27557,12 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal5proof5PExprESt6vect
   %add.ptr58 = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %4, i64 %sub.ptr.div.i
   store ptr %add.ptr58, ptr %_M_finish, align 8
   %cmp6.i.i.i.i.i45 = icmp sgt i64 %sub.ptr.sub.i, 0
-  br i1 %cmp6.i.i.i.i.i45, label %for.body.preheader.i.i.i.i.i52, label %if.end109
+  br i1 %cmp6.i.i.i.i.i45, label %for.body.i.i.i.i.i54, label %if.end109
 
-for.body.preheader.i.i.i.i.i52:                   ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal5proof5PExprESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit
-  %sub.ptr.div10.i.i.i.i.i53 = udiv exact i64 %sub.ptr.sub.i, 24
-  br label %for.body.i.i.i.i.i54
-
-for.body.i.i.i.i.i54:                             ; preds = %for.body.i.i.i.i.i54, %for.body.preheader.i.i.i.i.i52
-  %__n.09.i.i.i.i.i55 = phi i64 [ %dec.i.i.i.i.i61, %for.body.i.i.i.i.i54 ], [ %sub.ptr.div10.i.i.i.i.i53, %for.body.preheader.i.i.i.i.i52 ]
-  %__result.addr.08.i.i.i.i.i56 = phi ptr [ %incdec.ptr1.i.i.i.i.i60, %for.body.i.i.i.i.i54 ], [ %__position.coerce, %for.body.preheader.i.i.i.i.i52 ]
-  %__first.addr.07.i.i.i.i.i57 = phi ptr [ %incdec.ptr.i.i.i.i.i59, %for.body.i.i.i.i.i54 ], [ %__first.coerce, %for.body.preheader.i.i.i.i.i52 ]
+for.body.i.i.i.i.i54:                             ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal5proof5PExprESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit, %for.body.i.i.i.i.i54
+  %__n.09.i.i.i.i.i55 = phi i64 [ %dec.i.i.i.i.i61, %for.body.i.i.i.i.i54 ], [ %sub.ptr.div.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal5proof5PExprESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit ]
+  %__result.addr.08.i.i.i.i.i56 = phi ptr [ %incdec.ptr1.i.i.i.i.i60, %for.body.i.i.i.i.i54 ], [ %__position.coerce, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal5proof5PExprESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit ]
+  %__first.addr.07.i.i.i.i.i57 = phi ptr [ %incdec.ptr.i.i.i.i.i59, %for.body.i.i.i.i.i54 ], [ %__first.coerce, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal5proof5PExprESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit ]
   %call.i.i.i.i.i58 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal5proof5PExpraSERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %__result.addr.08.i.i.i.i.i56, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.07.i.i.i.i.i57)
   %incdec.ptr.i.i.i.i.i59 = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %__first.addr.07.i.i.i.i.i57, i64 1
   %incdec.ptr1.i.i.i.i.i60 = getelementptr inbounds %"class.cvc5::internal::proof::PExpr", ptr %__result.addr.08.i.i.i.i.i56, i64 1

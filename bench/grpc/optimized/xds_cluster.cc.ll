@@ -11038,16 +11038,12 @@ invoke.cont.i:                                    ; preds = %_ZNSt8__detail9__va
 _ZSt7advanceIPKN9grpc_core12experimental4JsonEmEvRT_T0_.exit: ; preds = %if.else
   %incdec.ptr.i.i = getelementptr inbounds %"class.grpc_core::experimental::Json", ptr %__first, i64 %sub.ptr.div.i17
   %cmp.i1.i.i.i.i30 = icmp sgt i64 %sub.ptr.sub.i16, 0
-  br i1 %cmp.i1.i.i.i.i30, label %for.body.i.preheader.i.i.i.i32, label %_ZSt4copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_.exit42
+  br i1 %cmp.i1.i.i.i.i30, label %for.body.i.i.i.i.i34, label %_ZSt4copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_.exit42
 
-for.body.i.preheader.i.i.i.i32:                   ; preds = %_ZSt7advanceIPKN9grpc_core12experimental4JsonEmEvRT_T0_.exit
-  %sub.ptr.div.i5.i.i.i.i33 = udiv exact i64 %sub.ptr.sub.i16, 56
-  br label %for.body.i.i.i.i.i34
-
-for.body.i.i.i.i.i34:                             ; preds = %for.body.i.i.i.i.i34, %for.body.i.preheader.i.i.i.i32
-  %__n.0.i4.i.i.i.i35 = phi i64 [ %dec.i.i.i.i.i40, %for.body.i.i.i.i.i34 ], [ %sub.ptr.div.i5.i.i.i.i33, %for.body.i.preheader.i.i.i.i32 ]
-  %__result.addr.0.i3.i.i.i.i36 = phi ptr [ %incdec.ptr1.i.i.i.i.i39, %for.body.i.i.i.i.i34 ], [ %1, %for.body.i.preheader.i.i.i.i32 ]
-  %__first.addr.0.i2.i.i.i.i37 = phi ptr [ %incdec.ptr.i.i.i.i.i38, %for.body.i.i.i.i.i34 ], [ %__first, %for.body.i.preheader.i.i.i.i32 ]
+for.body.i.i.i.i.i34:                             ; preds = %_ZSt7advanceIPKN9grpc_core12experimental4JsonEmEvRT_T0_.exit, %for.body.i.i.i.i.i34
+  %__n.0.i4.i.i.i.i35 = phi i64 [ %dec.i.i.i.i.i40, %for.body.i.i.i.i.i34 ], [ %sub.ptr.div.i17, %_ZSt7advanceIPKN9grpc_core12experimental4JsonEmEvRT_T0_.exit ]
+  %__result.addr.0.i3.i.i.i.i36 = phi ptr [ %incdec.ptr1.i.i.i.i.i39, %for.body.i.i.i.i.i34 ], [ %1, %_ZSt7advanceIPKN9grpc_core12experimental4JsonEmEvRT_T0_.exit ]
+  %__first.addr.0.i2.i.i.i.i37 = phi ptr [ %incdec.ptr.i.i.i.i.i38, %for.body.i.i.i.i.i34 ], [ %__first, %_ZSt7advanceIPKN9grpc_core12experimental4JsonEmEvRT_T0_.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i26)
   store ptr %__result.addr.0.i3.i.i.i.i36, ptr %ref.tmp.i.i.i.i.i.i26, align 8
   call void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_17_Copy_assign_baseILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISE_S7_St4lessISE_ESaISt4pairIKSE_S7_EEESt6vectorIS7_SaIS7_EEEEaSERKSQ_EUlOT_T0_E_JRKSt7variantIJS4_bS8_SE_SM_SP_EEEEDcOSV_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i.i.i26, ptr noundef nonnull align 8 dereferenceable(49) %__first.addr.0.i2.i.i.i.i37)

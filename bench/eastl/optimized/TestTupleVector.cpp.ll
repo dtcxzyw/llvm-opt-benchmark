@@ -21790,15 +21790,13 @@ _ZN5eastl4copyIP10TestObjectS2_EET0_T_S4_S3_.exit.thread177: ; preds = %_ZN5east
   br label %if.end.i.i.i.i53
 
 for.body.preheader.i.i.i.i:                       ; preds = %_ZN5eastl4copyIPbS1_EET0_T_S3_S2_.exit
-  %add.ptr23.idx = mul nsw i64 %20, 24
   %22 = load ptr, ptr %add.ptr24, align 8
-  %sub.ptr.div11.i.i.i.i = udiv exact i64 %add.ptr23.idx, 24
   %.pre10.i.i.i.i = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN10TestObjectaSERKS_.exit.i.i.i.i, %for.body.preheader.i.i.i.i
   %23 = phi i64 [ %28, %_ZN10TestObjectaSERKS_.exit.i.i.i.i ], [ %.pre10.i.i.i.i, %for.body.preheader.i.i.i.i ]
-  %n.09.i.i.i.i = phi i64 [ %dec.i.i.i.i50, %_ZN10TestObjectaSERKS_.exit.i.i.i.i ], [ %sub.ptr.div11.i.i.i.i, %for.body.preheader.i.i.i.i ]
+  %n.09.i.i.i.i = phi i64 [ %dec.i.i.i.i50, %_ZN10TestObjectaSERKS_.exit.i.i.i.i ], [ %20, %for.body.preheader.i.i.i.i ]
   %result.addr.08.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %_ZN10TestObjectaSERKS_.exit.i.i.i.i ], [ %22, %for.body.preheader.i.i.i.i ]
   %first.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZN10TestObjectaSERKS_.exit.i.i.i.i ], [ %add.ptr20, %for.body.preheader.i.i.i.i ]
   %inc.i.i.i.i.i = add nsw i64 %23, 1
